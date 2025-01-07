@@ -25,6 +25,10 @@ eu:
         questionnaire:
           request_invalid: Arazo bat izan da eskaera kudeatzean. Mesedez, saiatu berriro.
   decidim:
+    download_your_data:
+      show:
+        answers: Esportatu erantzunak
+        survey_user_answers: Inkesta erabiltzaile erantzunak
     forms:
       admin:
         models:

@@ -1,9 +1,20 @@
-<%= content_tag :div, id: "comment_#{model.id}", class: "comment relative", role: "comment", data: { comment_id: model.id, parent: parent_element_id } do %>
+<%= content_tag :div,
+                id: "comment_#{model.id}",
+                class: ["comment", "relative", ("top-comment" if top_comment_label.present?)].compact,
+                role: "comment",
+                data: { comment_id: model.id, parent: parent_element_id } do %>
   <% if model.hidden? %>
     <%= render :moderation_data %>
   <% elsif model.deleted? %>
     <%= render :deletion_data %>
   <% else %>
+    <% if top_comment_label.present? %>
+      <div class="most-upvoted-label label">
+        <span><%= icon "star-s-line" %></span>
+        <span><%= top_comment_label %></span>
+      </div>
+    <% end %>
+
     <div class="comment__header">
       <div class="sr-only"><%= comment_label %></div>
 
@@ -53,7 +64,7 @@
                 <% end %>
               </li>
             <% end %>
-            <% if(extra_actions) %>
+            <% if (extra_actions) %>
               <% extra_actions.each do |action| %>
                 <li>
                   <%= link_to(*action) %>
@@ -72,10 +83,26 @@
       </div>
     </div>
 
-    <div data-comment-footer data-component="accordion" id="accordion-<%= model.id %>">
+    <div data-comment-footer data-component="accordion" id="accordion-<%= model.id %>" class="relative">
       <div class="comment__footer-grid">
-        <%= render :actions %>
-        <%= votes %>
+        <div class="comment__votes-actions">
+          <%= render :actions %>
+          <%= votes %>
+        </div>
+      </div>
+      <div class="comment__reply-button">
+        <% if depth.zero? && has_replies_in_children? %>
+          <button class="button button__xs button__transparent-secondary border-white absolute top-4" data-comment-hide data-controls="comment-<%= model.id %>-replies" data-open="false" id="comment-<%= model.id %>-replies-trigger">
+            <span data-show-comment-reply class="font-normal" aria-label="<%= t("decidim.components.comment.show_replies", count: replies.size) %>">
+              <%= t("decidim.components.comment.answers", count: replies.size) %>
+            </span>
+            <%= icon "arrow-down-s-line" %>
+            <span data-hide-comment-reply class="font-normal" aria-label="<%= t("decidim.components.comment.hide_replies", count: replies.size) %>">
+              <%= t("decidim.components.comment.answers", count: replies.size) %>
+            </span>
+            <%= icon "arrow-up-s-line" %>
+          </button>
+        <% end %>
       </div>
       <% if can_reply? %>
         <div id="panel-<%= reply_id %>" class="add-comment" data-additional-reply>

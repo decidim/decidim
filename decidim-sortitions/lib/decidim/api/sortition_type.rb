@@ -5,7 +5,7 @@ module Decidim
     class SortitionType < Decidim::Api::Types::BaseObject
       implements Decidim::Core::AuthorableInterface
       implements Decidim::Comments::CommentableInterface
-      implements Decidim::Core::CategorizableInterface
+      implements Decidim::Core::TaxonomizableInterface
 
       description "A sortition"
 
@@ -24,6 +24,12 @@ module Decidim
       field :cancelled_on, Decidim::Core::DateType, "When this sortition was cancelled", null: true
       field :cancelled_by_user, Decidim::Core::UserType, "Who cancelled this sortition", null: true
       field :candidate_proposals, [GraphQL::Types::Int, { null: true }], "The candidate proposal for this sortition", null: true
+
+      def self.authorized?(object, context)
+        context[:sortition] = object
+
+        super
+      end
     end
   end
 end

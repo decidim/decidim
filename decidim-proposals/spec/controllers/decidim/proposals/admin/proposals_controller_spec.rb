@@ -1,17 +1,20 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/softdeleteable_components_examples"
 
 describe Decidim::Proposals::Admin::ProposalsController do
   routes { Decidim::Proposals::AdminEngine.routes }
 
-  let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
+  let(:component) { create(:proposal_component) }
+  let(:proposal) { create(:proposal, component:) }
+  let(:current_user) { create(:user, :confirmed, :admin, organization: component.organization) }
 
   before do
     request.env["decidim.current_organization"] = component.organization
     request.env["decidim.current_participatory_space"] = component.participatory_space
     request.env["decidim.current_component"] = component
-    sign_in user
+    sign_in current_user
   end
 
   describe "PATCH update" do
@@ -67,4 +70,9 @@ describe Decidim::Proposals::Admin::ProposalsController do
       end
     end
   end
+
+  it_behaves_like "a soft-deletable resource",
+                  resource_name: :proposal,
+                  resource_path: :proposals_path,
+                  trash_path: :manage_trash_proposals_path
 end

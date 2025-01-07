@@ -11,8 +11,6 @@ module Decidim::Budgets
     let(:participatory_process) { create(:participatory_process, organization:) }
     let(:current_component) { create(:component, manifest_name: :budgets, participatory_space: participatory_process) }
     let(:budget) { create(:budget, component: current_component) }
-    let(:scope) { create(:scope, organization:) }
-    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:uploaded_photos) { [] }
     let(:photos) { [] }
     let(:address) { nil }
@@ -28,6 +26,9 @@ module Decidim::Budgets
         component: proposal_component
       )
     end
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+    end
     let(:form) do
       double(
         invalid?: invalid,
@@ -39,9 +40,8 @@ module Decidim::Budgets
         address:,
         latitude:,
         longitude:,
+        taxonomizations:,
         proposal_ids: proposals.map(&:id),
-        scope:,
-        category:,
         photos:,
         add_photos: uploaded_photos,
         budget:
@@ -64,14 +64,19 @@ module Decidim::Budgets
         expect { subject.call }.to change(Project, :count).by(1)
       end
 
-      it "sets the scope" do
+      it "sets the taxonomies" do
         subject.call
-        expect(project.scope).to eq scope
+        expect(project.taxonomizations).to match_array(taxonomizations)
       end
 
-      it "sets the category" do
-        subject.call
-        expect(project.category).to eq category
+      context "when no taxonomizations are set" do
+        let(:taxonomizations) { [] }
+
+        it "taxonomizations are empty" do
+          subject.call
+
+          expect(project.taxonomizations).to be_empty
+        end
       end
 
       it "sets the budget resource" do
@@ -85,7 +90,7 @@ module Decidim::Budgets
           .with(
             Decidim::Budgets::Project,
             current_user,
-            hash_including(:scope, :category, :budget, :title, :description, :budget_amount),
+            hash_including(:taxonomizations, :budget, :title, :description, :budget_amount),
             visibility: "all"
           )
           .and_call_original

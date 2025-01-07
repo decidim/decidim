@@ -82,7 +82,10 @@ module Decidim
             title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
               Decidim::Faker::Localized.paragraph(sentence_count: 3)
-            end
+            end,
+            address: "#{::Faker::Address.street_address} #{::Faker::Address.zip} #{::Faker::Address.city}",
+            latitude: ::Faker::Address.latitude,
+            longitude: ::Faker::Address.longitude
           },
           visibility: "all"
         )

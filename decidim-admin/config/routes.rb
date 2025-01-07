@@ -61,6 +61,10 @@ Decidim::Admin::Engine.routes.draw do
         scope "/:user_id" do
           resource :user_block, only: [:new, :create, :destroy], controller: :block_user
         end
+        post :bulk_new, controller: :block_user
+        post :bulk_create, controller: :block_user
+        delete :bulk_destroy, controller: :block_user
+        patch :bulk_unreport, controller: :moderated_users
       end
     end
 
@@ -84,11 +88,12 @@ Decidim::Admin::Engine.routes.draw do
 
     resources :newsletters, except: [:new, :create] do
       member do
-        get :recipients_count
+        post :recipients_count
         post :send_to_user
         get :preview
         get :select_recipients_to_deliver
         post :deliver
+        get :confirm_recipients
       end
     end
 
@@ -115,6 +120,7 @@ Decidim::Admin::Engine.routes.draw do
         put :hide
         put :unhide
       end
+      patch :bulk_action, on: :collection
       resources :reports, controller: "global_moderations/reports", only: [:index, :show]
     end
 

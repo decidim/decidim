@@ -15,6 +15,8 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
+        resources :conference_filters, except: [:show]
+
         resources :conferences, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "conference_publications", only: [:create, :destroy]
           resources :copies, controller: "conference_copies", only: [:new, :create]
@@ -52,6 +54,15 @@ module Decidim
             end
           end
 
+          member do
+            patch :soft_delete
+            patch :restore
+          end
+
+          collection do
+            get :manage_trash, to: "conferences#manage_trash"
+          end
+
           resources :attachment_collections, controller: "conference_attachment_collections", except: [:show]
           resources :attachments, controller: "conference_attachments", except: [:show]
         end
@@ -68,6 +79,11 @@ module Decidim
               put :publish
               put :unpublish
               get :share
+              patch :soft_delete
+              patch :restore
+            end
+            collection do
+              get :manage_trash, to: "components#manage_trash"
               put :hide
             end
             resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
@@ -84,6 +100,7 @@ module Decidim
               put :hide
               put :unhide
             end
+            patch :bulk_action, on: :collection
             resources :reports, controller: "moderations/reports", only: [:index, :show]
           end
 
@@ -105,6 +122,7 @@ module Decidim
         Decidim::Conferences::Menu.register_admin_conferences_components_menu!
         Decidim::Conferences::Menu.register_conferences_admin_registrations_menu!
         Decidim::Conferences::Menu.register_conferences_admin_attachments_menu!
+        Decidim::Conferences::Menu.register_conference_admin_menu!
         Decidim::Conferences::Menu.register_conferences_admin_menu!
         Decidim::Conferences::Menu.register_admin_menu_modules!
       end

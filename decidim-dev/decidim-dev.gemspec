@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.version = Decidim::Dev.version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
@@ -56,7 +56,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec_junit_formatter", "~> 0.6.0"
   s.add_dependency "rspec-rails", "~> 6.0"
   s.add_dependency "rspec-retry", "~> 0.6.2"
-  s.add_dependency "rubocop", "~> 1.65.0"
+  s.add_dependency "rubocop", "~> 1.69.0"
   s.add_dependency "rubocop-capybara", "~> 2.21"
   s.add_dependency "rubocop-factory_bot", "~> 2.26"
   s.add_dependency "rubocop-faker", "~> 1.1"

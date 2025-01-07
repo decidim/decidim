@@ -17,7 +17,7 @@
 
   <% project_ids.each do |id| %>
     $(".table-list [data-id='<%= id %>']")
-      .replaceWith("<%= escape_javascript(render partial: %q(project-tr), locals: { project: Decidim::Budgets::Project.find(id) }) %>");
+      .replaceWith("<%= escape_javascript(render partial: %q(project-tr), locals: { project: Decidim::Budgets::Project.find(id), view: :index }) %>");
   <% end %>
 
   $("<%= form_selector %> <%= attribute_selector %>").removeClass("is-invalid-input")

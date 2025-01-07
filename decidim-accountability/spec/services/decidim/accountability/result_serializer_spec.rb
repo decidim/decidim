@@ -11,8 +11,7 @@ module Decidim
 
       let!(:parent) { create(:result) }
       let!(:result) { create(:result, parent:, component: parent.component) }
-      let!(:category) { create(:category, participatory_space: component.participatory_space) }
-      let!(:scope) { create(:scope, organization: component.participatory_space.organization) }
+      let!(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: component.organization) }
       let(:participatory_process) { component.participatory_space }
       let(:component) { result.component }
 
@@ -20,9 +19,15 @@ module Decidim
       let(:proposals) { create_list(:proposal, 2, component: proposal_component) }
 
       before do
-        result.update!(category:)
-        result.update!(scope:)
+        result.update!(taxonomies:)
         result.link_resources(proposals, "included_proposals")
+      end
+
+      # Internal field for admins. Test is implemented to make sure the external_id is not published
+      describe "external_id" do
+        it "is not published" do
+          expect(subject.serialize).not_to have_key(:external_id)
+        end
       end
 
       describe "#serialize" do
@@ -32,14 +37,10 @@ module Decidim
           expect(serialized).to include(id: result.id)
         end
 
-        it "serializes the category" do
-          expect(serialized[:category]).to include(id: category.id)
-          expect(serialized[:category]).to include(name: category.name)
-        end
-
-        it "serializes the scope" do
-          expect(serialized[:scope]).to include(id: scope.id)
-          expect(serialized[:scope]).to include(name: scope.name)
+        it "serializes the taxonomies" do
+          expect(serialized[:taxonomies].length).to eq(2)
+          expect(serialized[:taxonomies][:id]).to match_array(taxonomies.map(&:id))
+          expect(serialized[:taxonomies][:name]).to match_array(taxonomies.map(&:name))
         end
 
         it "serializes the parent" do
@@ -91,6 +92,34 @@ module Decidim
         it "serializes the proposals" do
           expect(serialized[:proposal_urls].length).to eq(2)
           expect(serialized[:proposal_urls].first).to match(%r{http.*/proposals})
+        end
+
+        it "serializes the reference" do
+          expect(serialized).to include(reference: result.reference)
+        end
+
+        it "serializes the updated date" do
+          expect(serialized).to include(updated_at: result.updated_at)
+        end
+
+        it "serializes the children count" do
+          expect(serialized).to include(children_count: result.children_count)
+        end
+
+        it "serializes the comments count" do
+          expect(serialized).to include(comments_count: result.comments_count)
+        end
+
+        it "serializes the address" do
+          expect(serialized).to include(address: result.address)
+        end
+
+        it "serializes the latitude" do
+          expect(serialized).to include(latitude: result.latitude)
+        end
+
+        it "serializes the longitude" do
+          expect(serialized).to include(longitude: result.longitude)
         end
       end
     end

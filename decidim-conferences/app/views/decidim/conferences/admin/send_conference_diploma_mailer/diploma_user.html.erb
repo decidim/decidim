@@ -2,20 +2,26 @@
   <div class="diploma__border">
     <div class="diploma__content">
       <div>
-        <div class="diploma__logo">
-          <%= wicked_pdf_image_tag @conference.attached_uploader(:main_logo).variant_url(:thumb) %>
-        </div>
+        <% logo = @conference.attached_uploader(:main_logo).variant(:thumb) %>
+        <% if logo %>
+          <div class="diploma__logo">
+            <%= image_tag "data:#{logo.blob.content_type};base64, #{Base64.encode64(logo.download.presence || "")}" %>
+          </div>
+        <% end %>
         <div class="diploma__name">
           <h2><strong><%= translated_attribute(@conference.title) %></strong></h2>
           <h3><%= t("decidim.conferences.admin.send_conference_diploma_mailer.diploma_user.certificate_of_attendance") %></h3>
-          <p><%= t("decidim.conferences.admin.send_conference_diploma_mailer.diploma_user.certificate_of_attendance_description", user: @user.name, title: translated_attribute(@conference.title), location: @conference.location, start: l(@conference.start_date, format: :decidim_short), end: l(@conference.end_date, format: :decidim_short) ).html_safe %></p>
+          <p><%= t("decidim.conferences.admin.send_conference_diploma_mailer.diploma_user.certificate_of_attendance_description",
+                   user: @user.name, title: translated_attribute(@conference.title), location: @conference.location,
+                   start: l(@conference.start_date, format: :decidim_short), end: l(@conference.end_date, format: :decidim_short) ).html_safe %></p>
         </div>
         <hr>
         <div class="diploma__attendance">
           <strong><%= t("decidim.conferences.admin.send_conference_diploma_mailer.diploma_user.attendance_verified_by") %></strong>
-          <div>
-            <%= wicked_pdf_image_tag @conference.attached_uploader(:signature).variant_url(:thumb) %>
-          </div>
+          <% signature = @conference.attached_uploader(:signature).variant(:thumb) %>
+          <% if signature %>
+            <div><%= image_tag "data:#{signature.blob.content_type};base64, #{Base64.encode64(signature.download.presence || "")}" %></div>
+          <% end %>
           <%= l(@conference.sign_date, format: :decidim_short) %>, <%= @conference.signature_name %>
         </div>
       </div>

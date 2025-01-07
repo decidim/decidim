@@ -3,10 +3,9 @@
 module Decidim
   module Debates
     class DebateType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::CategorizableInterface
+      implements Decidim::Core::TaxonomizableInterface
       implements Decidim::Comments::CommentableInterface
       implements Decidim::Core::AuthorableInterface
-      implements Decidim::Core::ScopableInterface
 
       description "A debate"
 
@@ -21,6 +20,12 @@ module Decidim
       field :updated_at, Decidim::Core::DateTimeType, "When this debate was updated", null: true
       field :information_updates, Decidim::Core::TranslatedFieldType, "The information updates for this debate", null: true
       field :reference, GraphQL::Types::String, "The reference for this debate", null: true
+
+      def self.authorized?(object, context)
+        context[:debate] = object
+
+        super && allowed_to?(:read, :debate, object, context)
+      end
     end
   end
 end

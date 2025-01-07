@@ -95,7 +95,6 @@ zh-TW:
       assemblies:
         create:
           error: 建立新大會時發生問題
-          success: 大會創建成功
         edit:
           update: 更新
         index:
@@ -137,21 +136,6 @@ zh-TW:
           import: 匯入
           select: 請選擇您想匯入的資料
           title: 匯入大會
-      assembly_members:
-        create:
-          error: 這個大會中添加成員時出現了問題
-          success: 已成功建立此大會的成員
-        destroy:
-          success: 該大會的成員已成功刪除
-        edit:
-          update: 更新
-        index:
-          assembly_members_title: 大會成員
-        new:
-          create: 建立
-        update:
-          error: 更新此大會的成員時出現問題。
-          success: 此大會的成員已成功更新。
       assembly_publications:
         create:
           error: 發布此大會時出現問題。
@@ -181,7 +165,6 @@ zh-TW:
         assemblies: 大會
         assemblies_submenu:
           assembly_admins: 大會管理員
-          assembly_members: 成員
           attachment_collections: 資料夾
           attachment_files: 檔案
           attachments: 附件
@@ -203,11 +186,6 @@ zh-TW:
             title: 標題
           name: 大會
         assembly_member:
-          fields:
-            ceased_date: 終止日期
-            designation_date: 指定日期
-            full_name: 姓名
-            position: 位置
           name: 成員
           positions:
             other: 其他
@@ -276,13 +254,8 @@ zh-TW:
             title: 標題
         assembly_members:
           form:
-            existing_user: 現有參與者
             explanation: '圖像的指導'
-            non_user: 非參與者
             non_user_avatar_help: 在發佈他們為會員之前，您應該徵得他們的同意
-            select_a_position: 選擇一個位置
-            select_user: 選擇與會者：
-            user_type: 參與者類型
         content_blocks:
           highlighted_assemblies:
             max_results: 顯示的最大元素數量
@@ -337,8 +310,6 @@ zh-TW:
         private_space: 這是一個私人大會
         social_networks_title: 訪問大會
     assembly_members:
-      assembly_member:
-        designated_on: 指定於
       index:
         title: 成員
     events:

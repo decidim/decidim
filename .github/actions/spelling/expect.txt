@@ -473,6 +473,7 @@ Lalalilo
 lastcenter
 lastleft
 latlng
+Layouter
 LCell
 legacysupport
 Lesch
@@ -553,6 +554,7 @@ misogi
 mlat
 mlon
 Moby
+Mobi
 modals
 modernizr
 modernizrrc
@@ -829,6 +831,7 @@ smartbreak
 Smileys
 Snowlvhme
 Snoworg
+softdeleteable
 somedatabase
 Sorbier
 sortings
@@ -900,6 +903,7 @@ thant
 thedoggokeeper
 thelma
 thepassword
+THH
 thi
 Tiene
 tilelayer
@@ -921,6 +925,7 @@ traceabilty
 traducido
 Tramuntana
 traslatable
+trashable
 trgm
 trobada
 tsearch

@@ -13,9 +13,8 @@ module Decidim
     #        if represented by an array containing a value and a name or a check_boxes_tree
     #        struct as defined in Decidim::CheckBoxesTreeHelper for more complex situations
     #        which require nested options.
-    # @param label_scope [String] The scope used to translate the title of the section.
-    # @param id [String] The id of the section. It is also used to get the translation of
-    #        the section title.
+    # @param label [String] The title of the section.
+    # @param id [String] The id of the section.
     # @param options [Hash] Additional options. Except :type, the rest of options are passed
     #        to the partial used to generate the section.
     # @option options [Symbol, String] :type The type of selector to use with the collection.
@@ -23,7 +22,7 @@ module Decidim
     #         tree struct is passed. The default selector for arrays is radio_buttons.
     #
     # @return [ActionView::OutputBuffer] the HTML of the generated collection filter.
-    def collection_filter(method:, collection:, label_scope:, id:, **options)
+    def collection_filter(method:, collection:, label:, id:, **options)
       type = options.delete(:type) || default_form_type_for_collection(collection)
 
       case type.to_s
@@ -31,29 +30,27 @@ module Decidim
         options.merge!(builder_type: type.to_s.pluralize)
         type = "collection"
       when "check_boxes_tree"
-        options.merge!(check_boxes_tree_id: check_boxes_tree_id(method))
+        options.merge!(check_boxes_tree_id: check_boxes_tree_id(method.to_s.gsub(/\[|\]/, "_"), id))
       end
 
       @template.render(
         "decidim/shared/filters/#{type}",
-        **options.merge(
-          method:,
-          collection:,
-          label_scope:,
-          id:,
-          form: self
-        )
+        **options, method:,
+                   collection:,
+                   label:,
+                   id:,
+                   form: self
       )
     end
 
     def dropdown_label(item, method, options = {})
-      @template.render("decidim/shared/filters/dropdown_label", **options.merge(item:, method:, form: self))
+      @template.render("decidim/shared/filters/dropdown_label", **options, item:, method:, form: self)
     end
 
     private
 
-    def check_boxes_tree_id(method)
-      method
+    def check_boxes_tree_id(*args)
+      args.map(&:to_s).join("_")
     end
 
     def default_form_type_for_collection(collection)

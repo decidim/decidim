@@ -16,10 +16,75 @@ module Decidim
     validate :root_taxonomy_is_root
     validate :space_manifest_is_registered
 
-    delegate :name, to: :root_taxonomy
+    scope :for, ->(space_manifest) { where(space_manifest:) }
+    scope :space_filters, -> { where(space_filter: true) }
 
+    # Returns the presenter class for this log.
+    #
+    # log - A Decidim::Log instance.
+    #
+    # Returns a Decidim::AdminLog::TaxonomyFilterPresenter class
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::TaxonomyFilterPresenter
+    end
+
+    # Public name for this filter, defaults to the root taxonomy name.
+    def name
+      return root_taxonomy.name if super&.compact_blank.blank?
+
+      super
+    end
+
+    # Internal name for this filter, defaults to the root taxonomy name.
+    def internal_name
+      return root_taxonomy.name if super&.compact_blank.blank?
+
+      super
+    end
+
+    # Components that have this taxonomy filter enabled.
+    def components
+      @components ||= Decidim::Component.where("(settings->'global'->'taxonomy_filters') @> ?", "\"#{id}\"")
+    end
+
+    # A memoized taxonomy tree hash filtered according to the filter_items
+    # that respects the order given by the taxonomies table.
+    # The returned hash structure is:
+    # {
+    #  _object_id_ => {
+    #    taxonomy: _object_,
+    #    children: [
+    #      {
+    #        _sub_object_id_: {
+    #          taxonomy: _sub_object_,
+    #          children: [
+    #    ...
+    # }
+    # @returns [Hash] a hash with the taxonomy tree structure.
+    def taxonomies
+      @taxonomies ||= taxonomy_children(root_taxonomy)
+    end
+
+    def taxonomy_children(taxonomy)
+      taxonomy.children.where(id: filter_taxonomy_ids).each_with_object({}) do |child, children|
+        children[child.id] = {
+          taxonomy: child,
+          children: taxonomy_children(child)
+        }
+      end
+    end
+
+    def filter_taxonomy_ids
+      @filter_taxonomy_ids ||= filter_items.map(&:taxonomy_item_id)
+    end
+
+    def update_component_count
+      update(components_count: components.count)
+    end
+
+    def reset_all_counters
+      Decidim::TaxonomyFilter.reset_counters(id, :filter_items_count)
+      update_component_count
     end
 
     private

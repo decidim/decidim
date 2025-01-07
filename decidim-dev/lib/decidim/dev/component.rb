@@ -8,8 +8,10 @@ Decidim.register_component(:dummy) do |component|
   component.actions = %w(foo bar)
 
   component.newsletter_participant_entities = ["Decidim::Dev::DummyResource"]
+  component.permissions_class_name = "Decidim::Dev::Permissions"
 
   component.settings(:global) do |settings|
+    settings.attribute :taxonomy_filters, type: :taxonomy_filters, default: []
     settings.attribute :scopes_enabled, type: :boolean, default: false
     settings.attribute :scope_id, type: :scope
     settings.attribute :comments_enabled, type: :boolean, default: true

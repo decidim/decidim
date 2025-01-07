@@ -5,7 +5,6 @@ ru:
         answer: Ответить
         answered_at: 'Получен ответ:'
         body: Основной текст
-        category_id: Категория
         has_address: Имеет адрес
         scope_id: Охват
         state: Cостояние
@@ -24,7 +23,6 @@ ru:
             add_photos:
               needs_to_be_reattached: Необходимо заново прикрепить
     models:
-      decidim/proposals/admin/update_proposal_category_event: Категория предложения изменена
       decidim/proposals/creation_enabled_event: Включена возможность создания предложений
       decidim/proposals/endorsing_enabled_event: Включена возможность поддерживать предложения
       decidim/proposals/proposal_mentioned_event: Предложение упомянуто
@@ -51,7 +49,6 @@ ru:
     components:
       proposals:
         actions:
-          create: Внести
           endorse: Поддержать
           vote: Голосовать
           withdraw: Отозвать
@@ -97,13 +94,6 @@ ru:
         proposal_published_for_space:
           email_intro: В "%{participatory_space_title}", за которым вы следите, добавлено предложение "%{resource_title}".
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-        proposal_update_category:
-          email_intro: 'Администратор обновил категорию вашего предложения «%{resource_title}», проверьте её:'
-          email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
-          email_subject: Обновлена категория предложений %{resource_title}
-          notification_title: Категория предложений <a href="%{resource_path}">%{resource_title}</a> была обновлена ​​администратором.
-        proposal_update_scope:
-          email_outro: Вы получили это уведомление, потому что вы являетесь автором предложения.
         voting_enabled:
           email_intro: 'Теперь вы можете голосовать по предложениям в %{participatory_space_title}! Начните со страницы:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
@@ -133,11 +123,9 @@ ru:
         proposals:
           form:
             attachment_legend: "(Необязательно) Прикрепить файл"
-            select_a_category: Выберите категорию
           index:
             actions: Действия
             cancel: Отменить
-            change_category: Изменить категорию
             selected: выбранные
             title: Предложения
             update: Обновить
@@ -176,13 +164,11 @@ ru:
       models:
         proposal:
           fields:
-            category: Категория
             comments: Комментарии
             id: Псевдоним
             notes: Примечания
             official_proposal: Служебное предложение
             published_at: 'Обнародовано:'
-            scope: Охват
             state: Cостояние
             title: Заголовок
             votes: Голоса
@@ -190,7 +176,6 @@ ru:
         edit:
           attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
-          select_a_category: Пожалуйста, выберите категорию
           send: Отправить
           title: Редактировать предложение
         edit_draft:
@@ -199,7 +184,6 @@ ru:
           send: Предпросмотр
         filters:
           all: Все
-          category: Категория
           origin: Источник
           related_to: Связано с
           search: Поиск
@@ -226,11 +210,9 @@ ru:
           title: Обнародуйте свое предложение
         show:
           answer: Ответить
-          edit_proposal: Редактировать предложение
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
-          withdraw_proposal: Снять предложение
         vote_button:
           already_voted: Уже проголосовали
           maximum_votes_reached: Достигнуто предельное количество голосов

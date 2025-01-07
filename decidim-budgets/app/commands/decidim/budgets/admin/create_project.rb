@@ -7,7 +7,7 @@ module Decidim
       # panel.
       class CreateProject < Decidim::Commands::CreateResource
         include ::Decidim::GalleryMethods
-        fetch_form_attributes :budget, :scope, :category, :title, :description, :budget_amount, :address, :latitude, :longitude
+        fetch_form_attributes :budget, :taxonomizations, :title, :description, :budget_amount, :address, :latitude, :longitude
 
         private
 

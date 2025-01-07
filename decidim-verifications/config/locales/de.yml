@@ -124,17 +124,6 @@ de:
         destroy:
           error: Beim Löschen der Berechtigung ist ein Fehler aufgetreten.
           success: Sie haben die Berechtigung erfolgreich gelöscht.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Überprüfen Sie anhand eines anderen Beispiels des Autorisierungshandlers
-            csv_census: Vergewissern Sie sich anhand der Erhebung der Organisation
-            dummy_authorization_handler: Überprüfen Sie anhand des Beispielautorisierungshandlers
-            dummy_authorization_workflow: Überprüfen Sie anhand des beispielhaften Autorisierungsworkflows
-            id_documents: Bestätigen Sie, indem Sie Ihr Identitätsdokument hochladen
-            postal_letter: Bestätigen Sie, indem Sie einen Bestätigungscode per Post erhalten
-            sms: Lassen Sie sich über einen Bestätigungscode per SMS verifizieren
-          title: Bestätigen Sie Ihre Identität
-          verify_with_these_options: 'Mit diesen Optionen können Sie Ihre Identität überprüfen:'
         index:
           expired_verification: Verifizierung abgelaufen
           granted_verification: Verifizierung erfolgeich

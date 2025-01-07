@@ -17,6 +17,19 @@ shared_context "with filterable context" do
     end
   end
 
+  def apply_sub_filter(option1, option2, filter)
+    within(".filters__section") do
+      find_link("Filter").hover
+      find_link(option1).hover
+      within ".submenu > .is-active > .submenu" do
+        find_link(option2).hover
+        within ".submenu > .is-active > .submenu" do
+          click_on(filter)
+        end
+      end
+    end
+  end
+
   def remove_applied_filter(filter)
     within("[data-applied-filters-tags] .label", text: /#{filter}/i) do
       click_on("Cancel")
@@ -27,6 +40,20 @@ shared_context "with filterable context" do
     within(".filters__section") do
       fill_in("q[#{filterable_method(:search_field_predicate)}]", with: text)
       find("*[type=submit]").click
+    end
+  end
+
+  def page_has_content(text)
+    text = [text] unless text.is_a?(Array)
+    text.each do |t|
+      expect(page).to have_content(t)
+    end
+  end
+
+  def page_has_no_content(text)
+    text = [text] unless text.is_a?(Array)
+    text.each do |t|
+      expect(page).to have_no_content(t)
     end
   end
 
@@ -41,18 +68,20 @@ shared_context "with filterable context" do
   end
 
   shared_examples "searching by text" do
-    before { search_by_text(ActionView::Base.full_sanitizer.sanitize(text)) }
-
-    it { expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(text)) }
-
-    after { search_by_text("") }
+    it "finds content" do
+      txt = text.is_a?(Array) ? text : [text]
+      txt.each do |t|
+        search_by_text(ActionView::Base.full_sanitizer.sanitize(t))
+        page_has_content(ActionView::Base.full_sanitizer.sanitize(t))
+      end
+    end
   end
 
   shared_examples "a filtered collection" do |options:, filter:|
     before { apply_filter(options, filter) }
 
-    it { expect(page).to have_content(in_filter) }
-    it { expect(page).to have_no_content(not_in_filter) }
+    it { page_has_content(in_filter) }
+    it { page_has_no_content(not_in_filter) }
 
     it_behaves_like "searching by text" do
       let(:text) { in_filter }
@@ -61,8 +90,30 @@ shared_context "with filterable context" do
     context "when removing applied filter" do
       before { remove_applied_filter(filter) }
 
-      it { expect(page).to have_content(in_filter) }
-      it { expect(page).to have_content(not_in_filter) }
+      it { page_has_content(in_filter) }
+      it { page_has_content(not_in_filter) }
+
+      it_behaves_like "searching by text" do
+        let(:text) { not_in_filter }
+      end
+    end
+  end
+
+  shared_examples "a sub-filtered collection" do |option1:, option2:, filter:|
+    before { apply_sub_filter(option1, option2, filter) }
+
+    it { page_has_content(in_filter) }
+    it { page_has_no_content(not_in_filter) }
+
+    it_behaves_like "searching by text" do
+      let(:text) { in_filter }
+    end
+
+    context "when removing applied filter" do
+      before { remove_applied_filter(filter) }
+
+      it { page_has_content(in_filter) }
+      it { page_has_content(not_in_filter) }
 
       it_behaves_like "searching by text" do
         let(:text) { not_in_filter }
@@ -121,4 +172,44 @@ shared_examples "filtering collection by private/public" do
   end
 
   it_behaves_like "paginating a collection"
+end
+
+shared_examples "a collection filtered by taxonomies" do
+  let(:root_taxonomy1) { create(:taxonomy, organization:, name: { "en" => "Root1" }) }
+  let(:root_taxonomy2) { create(:taxonomy, organization:, name: { "en" => "Root2" }) }
+  let!(:taxonomy11) { create(:taxonomy, parent: root_taxonomy1, organization:, name: { "en" => "Taxonomy11" }) }
+  let!(:taxonomy12) { create(:taxonomy, parent: root_taxonomy1, organization:, name: { "en" => "Taxonomy12" }) }
+  let!(:taxonomy21) { create(:taxonomy, parent: root_taxonomy2, organization:, name: { "en" => "Taxonomy21" }) }
+  let!(:taxonomy22) { create(:taxonomy, parent: root_taxonomy2, organization:, name: { "en" => "Taxonomy22" }) }
+  let(:taxonomy1_filter1) { create(:taxonomy_filter, root_taxonomy: root_taxonomy1, space_manifest: participatory_space.manifest.name) }
+  let(:taxonomy2_filter1) { create(:taxonomy_filter, root_taxonomy: root_taxonomy2, space_manifest: participatory_space.manifest.name) }
+  let!(:taxonomy_filter_item11) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy1_filter1, taxonomy_item: taxonomy11) }
+  let!(:taxonomy_filter_item12) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy1_filter1, taxonomy_item: taxonomy12) }
+  let!(:taxonomy_filter_item21) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy2_filter1, taxonomy_item: taxonomy21) }
+  let!(:taxonomy_filter_item22) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy2_filter1, taxonomy_item: taxonomy22) }
+
+  before do
+    component.update!(settings: { taxonomy_filters: [taxonomy1_filter1.id, taxonomy2_filter1.id] })
+    visit current_path
+  end
+
+  it_behaves_like "a sub-filtered collection", option1: "Taxonomy", option2: "Root1", filter: "Taxonomy11" do
+    let(:in_filter) { resource_with_taxonomy11_title }
+    let(:not_in_filter) { [resource_with_taxonomy12_title, resource_with_taxonomy21_title, resource_with_taxonomy22_title] }
+  end
+
+  it_behaves_like "a sub-filtered collection", option1: "Taxonomy", option2: "Root2", filter: "Taxonomy21" do
+    let(:in_filter) { resource_with_taxonomy21_title }
+    let(:not_in_filter) { [resource_with_taxonomy11_title, resource_with_taxonomy12_title, resource_with_taxonomy22_title] }
+  end
+
+  it_behaves_like "a filtered collection", options: "Taxonomy", filter: "Root1" do
+    let(:in_filter) { [resource_with_taxonomy11_title, resource_with_taxonomy12_title] }
+    let(:not_in_filter) { [resource_with_taxonomy21_title, resource_with_taxonomy22_title] }
+  end
+
+  it_behaves_like "a filtered collection", options: "Taxonomy", filter: "Root2" do
+    let(:in_filter) { [resource_with_taxonomy21_title, resource_with_taxonomy22_title] }
+    let(:not_in_filter) { [resource_with_taxonomy11_title, resource_with_taxonomy12_title] }
+  end
 end

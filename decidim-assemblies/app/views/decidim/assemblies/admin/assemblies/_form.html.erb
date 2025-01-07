@@ -191,10 +191,19 @@
       </button>
     </div>
     <div id="panel-taxonomies" class="card-section">
-      <% @form.taxonomy_filters.each do |filter| %>
+      <% if @form.taxonomy_filters.blank? %>
         <div class="row column">
-          <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
-        </div>
+          <p class="text-gray mr-2 mt-4">
+            <%= t("no_taxonomy_filters_found", scope: "decidim.assemblies.admin.assemblies.form") %>
+            <%= link_to(t("define_taxonomy_filters", scope: "decidim.assemblies.admin.assemblies.form"), participatory_space_taxonomy_filters_path, class: "button button__text-secondary") %>
+          </p>
+      </div>
+      <% else %>
+        <% @form.taxonomy_filters.each do |filter| %>
+          <div class="row column">
+            <%= filter_taxonomy_items_select_field form, :taxonomies, filter, internal: true %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -215,12 +224,7 @@
       <% else %>
         <div class="row column">
           <%= form.select :parent_id,
-                          options_from_collection_for_select(
-                            parent_assemblies_for_select,
-                            :id,
-                            :translated_title,
-                            selected: current_assembly.try(:parent_id)
-                          ),
+                          parent_assemblies_options,
                           include_blank: t(".select_parent_assembly") %>
         </div>
       <% end %>
@@ -231,6 +235,7 @@
 
       <div class="row column" id="private_space">
         <%= form.check_box :private_space %>
+        <p class="help-text"><%= t(".private_notice") %></p>
       </div>
 
       <div class="row column" id="is_transparent">

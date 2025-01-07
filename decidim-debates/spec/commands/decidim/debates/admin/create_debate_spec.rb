@@ -8,9 +8,12 @@ describe Decidim::Debates::Admin::CreateDebate do
   let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
-  let(:scope) { create(:scope, organization:) }
-  let(:category) { create(:category, participatory_space: participatory_process) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:comments_layout) { "single_column" }
+  let(:attachments) { [] }
+  let(:taxonomizations) do
+    2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+  end
   let(:form) do
     double(
       invalid?: invalid,
@@ -20,14 +23,17 @@ describe Decidim::Debates::Admin::CreateDebate do
       instructions: { en: "instructions" },
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
-      scope:,
-      category:,
+      taxonomizations:,
       current_user: user,
       current_component:,
       component: current_component,
       current_organization: organization,
       finite:,
-      comments_enabled: true
+      comments_enabled: true,
+      comments_layout:,
+      add_documents: attachments,
+      documents: [],
+      errors: ActiveModel::Errors.new(self)
     )
   end
   let(:finite) { true }
@@ -58,14 +64,19 @@ describe Decidim::Debates::Admin::CreateDebate do
       end
     end
 
-    it "sets the scope" do
+    it "sets the taxonomies" do
       subject.call
-      expect(debate.scope).to eq scope
+      expect(debate.taxonomizations).to match_array(form.taxonomizations)
     end
 
-    it "sets the category" do
-      subject.call
-      expect(debate.category).to eq category
+    context "when no taxonomizations are set" do
+      let(:taxonomizations) { [] }
+
+      it "taxonomizations are empty" do
+        subject.call
+
+        expect(debate.taxonomizations).to be_empty
+      end
     end
 
     it "sets the component" do
@@ -85,7 +96,7 @@ describe Decidim::Debates::Admin::CreateDebate do
         .with(
           Decidim::Debates::Debate,
           user,
-          hash_including(:category, :title, :description, :information_updates, :instructions, :end_time, :start_time, :component),
+          hash_including(:taxonomizations, :title, :description, :information_updates, :instructions, :end_time, :start_time, :component),
           visibility: "all"
         )
         .and_call_original
@@ -112,6 +123,93 @@ describe Decidim::Debates::Admin::CreateDebate do
           )
 
         subject.call
+      end
+    end
+
+    context "when creating a debate with a single column layout" do
+      let(:comments_layout) { "single_column" }
+
+      it "creates a debate with a single column layout for comments" do
+        subject.call
+        expect(debate.comments_layout).to eq("single_column")
+      end
+    end
+
+    context "when creating a debate with a two columns layout" do
+      let(:comments_layout) { "two_columns" }
+
+      it "creates a debate with a two columns layout for comments" do
+        subject.call
+        expect(debate.comments_layout).to eq("two_columns")
+      end
+    end
+  end
+
+  describe "when debate with attachments" do
+    let(:debate) { Decidim::Debates::Debate.last }
+    let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates", settings: { "attachments_allowed" => true }) }
+    let(:attachments) do
+      [
+        { file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") },
+        { file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }
+      ]
+    end
+
+    it "creates the debate with attachments" do
+      expect { subject.call }.to change(Decidim::Debates::Debate, :count).by(1) & change(Decidim::Attachment, :count).by(2)
+      expect(debate.attachments.map(&:weight)).to eq([1, 2])
+
+      debate_attachments = debate.attachments
+      expect(debate_attachments.count).to eq(2)
+    end
+
+    context "when attachments are invalid" do
+      let(:attachments) do
+        [
+          { file: upload_test_file(Decidim::Dev.test_file("participatory_text.odt", "application/vnd.oasis.opendocument.text")) }
+        ]
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+        expect { subject.call }.not_to change(Decidim::Debates::Debate, :count)
+        expect { subject.call }.not_to change(Decidim::Attachment, :count)
+      end
+    end
+
+    context "when ActiveRecord::RecordInvalid is raised" do
+      before do
+        allow(Decidim::Debates::Debate).to receive(:create!).and_raise(ActiveRecord::RecordInvalid.new(Decidim::Debates::Debate.new))
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+
+      it "does not create a debate" do
+        expect do
+          subject.call
+        end.not_to change(Decidim::Debates::Debate, :count)
+      end
+    end
+
+    context "when Decidim::Commands::HookError is raised" do
+      subject { command_instance }
+
+      let(:command_instance) { described_class.new(form) }
+
+      before do
+        allow(command_instance).to receive(:perform!).and_raise(Decidim::Commands::HookError)
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+
+      it "does not create a debate" do
+        expect do
+          subject.call
+        end.not_to change(Decidim::Debates::Debate, :count)
       end
     end
   end

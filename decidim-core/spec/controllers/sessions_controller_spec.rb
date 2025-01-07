@@ -35,7 +35,7 @@ module Decidim
                     .and_return(["dummy_authorization_handler"])
                 end
 
-                it { is_expected.to eq("/authorizations/first_login") }
+                it { is_expected.to eq("/") }
 
                 context "when there is a pending redirection" do
                   before do
@@ -43,6 +43,25 @@ module Decidim
                   end
 
                   it { is_expected.to eq account_path }
+                end
+
+                context "when there is a pending onboarding action with the authorization pending" do
+                  let(:permissions) do
+                    {
+                      "authorization_handlers" => {
+                        "dummy_authorization_handler" => { "options" => {} }
+                      }
+                    }
+                  end
+                  let(:component) { create(:component, manifest_name: "dummy", organization: user.organization, permissions:) }
+                  let(:resource) { create(:dummy_resource, component:) }
+                  let(:extended_data) { { "onboarding" => { "model" => resource.to_gid, "action" => "foo" } } }
+
+                  before do
+                    user.update(extended_data:)
+                  end
+
+                  it { is_expected.to eq("/authorizations/onboarding_pending") }
                 end
 
                 context "when the user has not confirmed their email" do
@@ -66,7 +85,7 @@ module Decidim
                     user.blocked = false
                   end
 
-                  it { is_expected.to eq("/authorizations/first_login") }
+                  it { is_expected.to eq("/") }
                 end
               end
 

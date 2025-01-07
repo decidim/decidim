@@ -124,17 +124,6 @@ ca:
         destroy:
           error: S'ha produït un error en esborrar la verificació.
           success: Has esborrat l'autorització correctament.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Verifica't un altre exemple de controlador d'autorització
-            csv_census: Verifica't contra el cens de l'organització
-            dummy_authorization_handler: Verifica't contra l'autorització d'exemple
-            dummy_authorization_workflow: Verifica't contra l'exemple de flux d'autorització
-            id_documents: Verifica't pujant el teu document d'identitat
-            postal_letter: Verifica't rebent un codi de verificació per correu postal
-            sms: Verifica't a través d'un codi enviat per SMS
-          title: Verifica la teva identitat
-          verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la teva identitat:'
         index:
           expired_verification: La verificació ha caducat
           granted_verification: Autorització atorgada
@@ -146,6 +135,13 @@ ca:
         new:
           authorize: Enviar
           authorize_with: Verifica amb %{authorizer}
+        onboarding_pending:
+          completed_verifications: El teu perfil s'ha verificat amb èxit, ara pots %{action} a %{resource_name}
+          granted_verifications: Verificacions concedides
+          onboarding_message_html: 'Manquen uns passo previs per a poder %{action} a <strong>%{resource_title}</strong> %{resource_name}. Si us plau, verifica el teu compte completant les següents verificacions:'
+          pending_admin_approval_verifications: Verificacions pendents de l'aprovació d'una administradora
+          pending_verifications: Verificacions pendents
+          unauthorized: No tens l'autorització corresponent per a %{action} en aquest recurs
         renew_modal:
           cancel: Cancel·lar
           continue: Continua

@@ -1,19 +1,12 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/seven_zip_wrapper"
+require "decidim/core/test/shared_examples/download_your_data_shared_examples"
 
 module Decidim
   describe DownloadYourDataExporter do
-    subject { DownloadYourDataExporter.new(user, tmp_file_in, password) }
+    subject { DownloadYourDataExporter.new(user, "download-your-data", "CSV") }
 
-    let(:tmp_file_in) do
-      Dir::Tmpname.create(["download-your-data", ".7z"]) do
-        # just get an empty file name
-      end
-    end
-    let(:tmp_dir_out) { Dir.mktmpdir("download_your_data_exporter_spec") }
-    let(:password) { "download-your-data.7z>passwd" }
     let(:user) { create(:user, organization:) }
     let(:organization) { create(:organization) }
     let(:expected_files) do
@@ -39,21 +32,6 @@ module Decidim
       )
     end
 
-    describe "#export" do
-      it "compresses a password protected file" do
-        expect(File.exist?(tmp_file_in)).to be false
-
-        # generate 7z
-        subject.export
-
-        expect(File.exist?(tmp_file_in)).to be true
-
-        open_7z_and_extract_zip(tmp_file_in)
-
-        expect(Dir.entries(tmp_dir_out).count).to eq 4
-      end
-    end
-
     describe "#data_and_attachments_for_user" do
       it "returns an array of data for the user" do
         user_data, = subject.send(:data_and_attachments_for_user)
@@ -68,31 +46,50 @@ module Decidim
         end
         expect(file_prefixes).to be_empty
       end
-
-      context "when the user has a comment" do
-        let(:participatory_space) { create(:participatory_process, organization:) }
-        let(:component) { create(:component, participatory_space:) }
-        let(:commentable) { create(:dummy_resource, component:) }
-
-        let!(:comment) { create(:comment, commentable:, author: user) }
-
-        it "returns the comment data" do
-          user_data, = subject.send(:data_and_attachments_for_user)
-
-          user_data.find { |entity, _| entity == "decidim-comments-comments" }.tap do |_, exporter_data|
-            csv_comments = exporter_data.read.split("\n")
-            expect(csv_comments.count).to eq 2
-            expect(csv_comments.first).to start_with "id;created_at;body;locale;author/id;author/name;alignment;depth;"
-            expect(csv_comments.second).to start_with "#{comment.id};"
-          end
-        end
-      end
     end
 
-    private
+    describe "#readme" do
+      describe "the user" do
+        let(:help_definition_string) { "The username of the user" }
 
-    def open_7z_and_extract_zip(file_path)
-      SevenZipWrapper.extract_and_decrypt(filename: file_path, password:, output_directory: tmp_dir_out)
+        it_behaves_like "a download your data entity"
+      end
+
+      context "when the user has a user group" do
+        let!(:user_group) { create(:user_group, users: [user]) }
+        let(:help_definition_string) { "The username of the user" }
+
+        it_behaves_like "a download your data entity"
+      end
+
+      context "when the user has a follow" do
+        let!(:follow) { create(:follow, user:) }
+        let(:help_definition_string) { "The resource or space that is being followed" }
+
+        it_behaves_like "a download your data entity"
+      end
+
+      context "when the user has a notification" do
+        let!(:notification) { create(:notification, user:) }
+        let(:help_definition_string) { "The type of the resource that the notification is related to" }
+
+        it_behaves_like "a download your data entity"
+      end
+
+      context "when the user has a conversation" do
+        let!(:conversation) { create(:conversation, originator: user) }
+        let!(:message) { create(:message, conversation:) }
+        let(:help_definition_string) { "The messages of this conversation" }
+
+        it_behaves_like "a download your data entity"
+      end
+
+      context "when the user has an identity" do
+        let!(:identity) { create(:identity, user:) }
+        let(:help_definition_string) { "The user that this identity belongs to" }
+
+        it_behaves_like "a download your data entity"
+      end
     end
   end
 end

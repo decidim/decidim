@@ -8,6 +8,7 @@ module Decidim
       def serialize
         super.merge(
           {
+            url: EngineRouter.main_proxy(resource).participatory_process_url(resource),
             subtitle: resource.subtitle,
             remote_hero_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(resource).hero_image_url,
             announcement: resource.announcement,

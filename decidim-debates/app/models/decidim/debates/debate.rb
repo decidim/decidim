@@ -7,6 +7,7 @@ module Decidim
     # debate.
     class Debate < Debates::ApplicationRecord
       include Decidim::HasComponent
+      include Decidim::Taxonomizable
       include Decidim::HasCategory
       include Decidim::Resourceable
       include Decidim::Followable
@@ -15,6 +16,7 @@ module Decidim
       include Decidim::ScopableResource
       include Decidim::Authorable
       include Decidim::Reportable
+      include Decidim::HasAttachments
       include Decidim::HasReference
       include Decidim::Traceable
       include Decidim::Loggable
@@ -26,6 +28,7 @@ module Decidim
       include Decidim::Endorsable
       include Decidim::Randomable
       include Decidim::FilterableResource
+      include Decidim::SoftDeletable
 
       belongs_to :last_comment_by, polymorphic: true, foreign_type: "last_comment_by_type", optional: true
       component_manifest_name "debates"
@@ -137,6 +140,16 @@ module Decidim
         self.class.name
       end
 
+      # Public: Checks whether the comments are displayed in a single-column layout.
+      def single_column_layout?
+        comments_layout == "single_column"
+      end
+
+      # Public: Checks whether the comments are displayed in a two-column layout.
+      def two_columns_layout?
+        comments_layout == "two_columns"
+      end
+
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
       def users_to_notify_on_comment_created
         return Decidim::User.where(id: followers).or(Decidim::User.where(id: component.participatory_space.admins)).distinct if official?
@@ -207,7 +220,7 @@ module Decidim
       ransacker_i18n_multi :search_text, [:title, :description]
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_state, :with_any_origin, :with_any_category, :with_any_scope]
+        [:with_any_state, :with_any_origin, :with_any_taxonomies]
       end
 
       def self.ransack(params = {}, options = {})
@@ -219,7 +232,7 @@ module Decidim
       end
 
       def self.ransackable_associations(_auth_object = nil)
-        %w(category scope)
+        %w(taxonomies)
       end
 
       private

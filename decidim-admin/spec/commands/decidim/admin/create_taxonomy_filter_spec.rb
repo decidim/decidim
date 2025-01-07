@@ -11,7 +11,10 @@ module Decidim::Admin
     let(:form) do
       TaxonomyFilterForm.from_params(
         root_taxonomy_id:,
-        taxonomy_items:
+        taxonomy_items:,
+        name:,
+        internal_name:,
+        space_filter:
       ).with_context(
         current_user: user,
         current_organization: organization,
@@ -23,6 +26,10 @@ module Decidim::Admin
     let(:taxonomies) { [create(:taxonomy, parent: root_taxonomy, organization:)] }
     let(:taxonomy_items) { taxonomies.map(&:id) }
     let(:participatory_space_manifest) { :participatory_processes }
+    let(:name) { { "en" => "Name" } }
+    let(:internal_name) { { "en" => "Internal name" } }
+    let(:space_filter) { true }
+    let(:last_taxonomy_filter) { Decidim::TaxonomyFilter.last }
 
     context "when the form is not valid" do
       before do
@@ -46,12 +53,19 @@ module Decidim::Admin
 
       it "sets the root taxonomy" do
         subject.call
-        expect(Decidim::TaxonomyFilter.last.root_taxonomy).to eq(root_taxonomy)
+        expect(last_taxonomy_filter.root_taxonomy).to eq(root_taxonomy)
       end
 
       it "sets the filter items" do
         subject.call
-        expect(Decidim::TaxonomyFilter.last.filter_items.map(&:taxonomy_item_id)).to eq(taxonomy_items)
+        expect(last_taxonomy_filter.filter_items.map(&:taxonomy_item_id)).to eq(taxonomy_items)
+      end
+
+      it "sets the names" do
+        subject.call
+        expect(last_taxonomy_filter.name).to eq(name)
+        expect(last_taxonomy_filter.internal_name).to eq(internal_name)
+        expect(last_taxonomy_filter.space_filter).to eq(space_filter)
       end
 
       it "traces the action", versioning: true do

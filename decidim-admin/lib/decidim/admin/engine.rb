@@ -25,6 +25,7 @@ module Decidim
       end
 
       initializer "decidim_admin.register_icons" do |_app|
+        Decidim.icons.register(name: "lock-2-line", icon: "lock-2-line", category: "system", description: "Block user icon", engine: :admin)
         Decidim.icons.register(name: "layout-masonry-line", icon: "layout-masonry-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "service-line", icon: "service-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "fullscreen-line", icon: "fullscreen-line", category: "system", description: "", engine: :admin)
@@ -49,6 +50,7 @@ module Decidim
 
         Decidim.icons.register(name: "folder-line", icon: "folder-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "attachment-line", icon: "attachment-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "delete-bin-2-line", icon: "delete-bin-2-line", category: "system", description: "", engine: :admin)
       end
 
       initializer "decidim_admin.mime_types" do |_app|

@@ -28,7 +28,6 @@ module Decidim
                          decidim.accept_tos_path,
                          decidim.download_your_data_path,
                          decidim.export_download_your_data_path,
-                         decidim.download_file_download_your_data_path,
                          decidim.change_password_path].compact
       # ensure that path with or without query string pass
       permitted_paths.find { |el| el.split("?").first == target_path }
