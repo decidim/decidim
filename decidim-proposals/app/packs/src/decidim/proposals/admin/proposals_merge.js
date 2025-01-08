@@ -1,6 +1,5 @@
 import { createDialog } from "src/decidim/a11y"
 import createEditor from "src/decidim/editor";
-import AutoComplete from "src/decidim/autocomplete";
 import attachGeocoding from "src/decidim/geocoding/attach_input";
 import { initializeUploadFields } from "src/decidim/direct_uploads/upload_field";
 
@@ -9,56 +8,6 @@ document.addEventListener("decidim:loaded", () => {
     const url = button.dataset.mergeUrl;
     const drawer = window.Decidim.currentDialogs[button.dataset.mergeDialog];
     const container = drawer.dialog.querySelector("#merge-proposals-actions");
-
-    // Handles autocomplete initialization
-    const initializeAutoComplete = (inputElement) => {
-
-      /**
-       * Initializes autocomplete functionality for a given input element.
-       *
-       * @param {HTMLElement} inputElement - The input element to attach autocomplete to.
-       */
-      AutoComplete.init(inputElement, {
-        mode: "single",
-        dataMatchKeys: ["value"],
-        dataSource: (query, callback) => {
-          const event = new CustomEvent("geocoder-suggest.decidim", {
-            detail: { query, callback }
-          });
-          inputElement.dispatchEvent(event);
-        }
-      });
-    };
-
-    // Handles geocoding_field
-    const geocoding = () => {
-      document.querySelectorAll("[data-decidim-geocoding]").forEach((el) => {
-        if (el.dataset.geocodingInitialized) {
-          return;
-        }
-        el.dataset.geocodingInitialized = true;
-        const input = el;
-
-        initializeAutoComplete(input);
-
-        el.addEventListener("selection", (event) => {
-          const selectedItem = event.detail.selection.value;
-
-          const suggestSelectEvent = new CustomEvent("geocoder-suggest-select.decidim", {
-            detail: selectedItem
-          });
-          input.dispatchEvent(suggestSelectEvent);
-
-          // Check for coordinates in the selected item
-          if (selectedItem.coordinates) {
-            const coordinatesEvent = new CustomEvent("geocoder-suggest-coordinates.decidim", {
-              detail: selectedItem.coordinates
-            });
-            input.dispatchEvent(coordinatesEvent);
-          }
-        });
-      });
-    };
 
     // Handles editor initialization
     const editorInitializer = () => {
@@ -92,14 +41,8 @@ document.addEventListener("decidim:loaded", () => {
         toggleDisabledHiddenFields();
       }
 
-      // Handles address input
-      const $form = $(".proposal_form_admin");
-      if ($form.length > 0) {
-        const $proposalAddress = $form.find("#proposals_merge_address");
-        if ($proposalAddress.length !== 0) {
-          attachGeocoding($proposalAddress);
-        }
-      }
+      // Handles address input (requires jQuery for the moment)
+      attachGeocoding($(document.getElementById("proposals_merge_address")));
 
       // Handles upload files initialization
       saveForm.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component));
@@ -123,7 +66,6 @@ document.addEventListener("decidim:loaded", () => {
           container.innerHTML = response.responseText;
 
           editorInitializer();
-          geocoding();
         });
       }
     }
@@ -135,7 +77,6 @@ document.addEventListener("decidim:loaded", () => {
         container.classList.remove("spinner-container");
         activateDrawerForm();
         editorInitializer()
-        geocoding()
       });
     };
 

@@ -106,8 +106,7 @@ const resetDropzone = (modal) => {
 export const initializeUploadFields = function(attachmentButtons) {
   attachmentButtons.forEach((attachmentButton) => {
     const modal = new UploadModal(attachmentButton);
-    console.log("Este es mi modal", modal);
-    
+
     // append to the modal items array those files already validated (only in first pageload)
     const files = document.querySelector(`[data-active-uploads=${modal.modal.id}]`);
     [...files.children].forEach((child) => modal.preloadFiles(child));
