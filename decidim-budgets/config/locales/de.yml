@@ -166,6 +166,7 @@ de:
           create: "%{user_name} hat das Projekt %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat das Projekt %{resource_name} in %{space_name} gelöscht"
           restore: "%{user_name} hat das Projekt %{resource_name} in %{space_name} wiederhergestellt"
+          soft_delete: "%{user_name} hat das Projekt %{resource_name} in %{space_name} in den Papierkorb verschoben"
           update: "%{user_name} hat das Projekt %{resource_name} in %{space_name} aktualisiert"
       budget_information_modal:
         back_to: Zurück zu %{component_name}
@@ -368,6 +369,15 @@ de:
               enabled: Abstimmung aktiviert
               finished: Abstimmung beendet
     download_your_data:
+      help:
+        orders:
+          budget: Das Budget, mit dem die Anfrage zusammenhängt
+          checked_out_at: Datum und Uhrzeit der Anfrageauslieferung
+          component: Die Komponente, mit dem die Anfrage zusammenhängt
+          created_at: Datum und Uhrzeit der Anfrageerstellung
+          id: Die eindeutige Bezeichnung der Anfrage
+          projects: Die Projekte, über die mit der Anfrage abgestimmt wurde
+          updated_at: Datum und Uhrzeit der Anfrageaktualisierung
       show:
         projects: Export der Projekte
     events:
@@ -381,19 +391,26 @@ de:
       help:
         projects:
           address: Projektadresse (falls vorhanden)
+          budget: Budgetangaben (z.B. "2021 Budget") zum Projekt
           budget_amount: Der Gesamtbetrag des Budgets für dieses Projekt
           comments: Die Anzahl der Kommentare, die dieses Projekt erhalten hat
           component: Komponente, zu der dieses Projekt gehört
           confirmed_votes: Die Anzahl der bestätigten Stimmen, die dieses Projekt erhalten hat
           created_at: Datum und Uhrzeit, an der das Projekt erstellt wurde
           description: Die Beschreibung des Projekts
+          follows_count: Die Anzahl Folgende des Projekts
           id: Die eindeutige Bezeichnung des Projekts
+          latitude: Der Breitengrad des Projekts, falls es einen verortet wurde
+          longitude: Der Längengrad des Projekts, falls es einen verortet wurde
           participatory_space: Zu welchem Bereich dieses Projekt gehört (z.B. Partizipationsprozesse oder Gremien)
+          reference: Die eindeutige Referenz des Projekts
           related_proposal_titles: Titel der verknüpften Vorschläge
           related_proposal_urls: URLs der verknüpften Vorschläge
           related_proposals: Mit diesem Projekt verknüpfte Vorschläge
+          selected_at: Der Zeitpunkt, zu dem das Projekt ausgewählt wurde
           taxonomies: Die Klassifizierungen des Projekts
           title: Der Titel des Projekts
+          updated_at: Letztes Aktualisierungsdatum dieses Projekts
           url: Die URL des Projekts
     orders:
       checkout:
