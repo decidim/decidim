@@ -16,20 +16,12 @@ lb:
       surveys:
         actions:
           answer: Äntwert
-        name: Emfro
         settings:
           global:
             announcement: Ukënnegung
-            clean_after_publish: Antworten bei Veröffentlichung des Fragebogens löschen
-            ends_at: Antworten akzeptiert bis
-            ends_at_help: Leer lassen für kein bestimmtes Datum
             scope_id: Beräich
             scopes_enabled: Beräicher aktivéiert
-            starts_at: Äntwerten akzeptéiert vun
-            starts_at_help: Leer lassen für kein bestimmtes Datum
           step:
-            allow_answers: Äntwerten erlaben
-            allow_unregistered: Nicht registrierten Benutzern die Beantwortung des Fragebogens erlauben
             announcement: Ukënnegung
     events:
       surveys:
