@@ -189,6 +189,7 @@ cs:
           code: Registrační kód
           id: Jedinečný identifikátor registrace
           meeting: Schůzka, na kterou se uživatel zaregistroval
+          user: Uživatel, který provedl registraci
       show:
         meeting_comments: Export komentářů schůzky
         meetings: Exportovat schůzky
