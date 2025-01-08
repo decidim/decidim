@@ -277,7 +277,7 @@ tr:
         title: Teklifler
     participatory_spaces:
       highlighted_proposals:
-        see_all: Tüm teklifleri görün (%{count})
+        see_all: Tüm teklifleri görün
     proposals:
       actions:
         answer_proposal: Cevap önerisi
