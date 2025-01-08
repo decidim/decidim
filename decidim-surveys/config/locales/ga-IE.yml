@@ -4,7 +4,6 @@ ga:
       surveys:
         actions:
           answer: Freagair
-        name: Suirbhé
         settings:
           global:
             scope_id: Scóip
