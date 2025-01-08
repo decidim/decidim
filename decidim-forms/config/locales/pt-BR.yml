@@ -75,14 +75,10 @@ pt-BR:
             title: Editar questionário
           form:
             add_question: Adicionar pergunta
-            add_separator: Adicionar separador
-            add_title_and_description: Adicionar título e descrição
-            already_answered_warning: O questionário já foi respondido por alguns usuários então você não pode modificar suas perguntas.
             collapse: Recolher todas as questões
             expand: Expandir todas as questões
             preview: Pré-visualização
             title: Editar formulário para %{questionnaire_for}
-            unpublished_warning: O formulário não foi publicado. Você pode modificar suas perguntas, mas apagará as respostas atuais.
           matrix_row:
             matrix_row: Linha
             remove: Remover
