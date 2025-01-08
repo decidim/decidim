@@ -81,14 +81,10 @@ ro:
             title: Editare chestionar
           form:
             add_question: Adaugă întrebare
-            add_separator: Adaugă separator
-            add_title_and_description: Adaugați titlu și descriere
-            already_answered_warning: Au fost înregistrare deja câteva răspunsuri de la utilizatori pentru acest chestionar. De aceea, nu mai puteți modifica întrebările.
             collapse: Restrânge toate întrebările
             expand: Extinde toate întrebările
             preview: Previzualizează
             title: Actualizați chestionarul pentru %{questionnaire_for}
-            unpublished_warning: Chestionarul nu este publicat. Poți modifica întrebările, dar această acțiune va duce la stergerea automată a răspunsurilor curente.
           matrix_row:
             matrix_row: Rând
             remove: Elimină
