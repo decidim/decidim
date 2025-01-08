@@ -80,14 +80,10 @@ zh-TW:
             title: 編輯問卷內容
           form:
             add_question: 新增問題
-            add_separator: 新增分隔線
-            add_title_and_description: 新增標題與描述
-            already_answered_warning: 已有使用者回答此表單，因此您無法修改問題。
             collapse: 收起所有問題
             expand: 展開所有問題
             preview: 預覽
             title: 編輯問卷表單%{questionnaire_for}
-            unpublished_warning: 此表單尚未發佈。您可以修改其問題，但這樣做將刪除目前的回答。
           matrix_row:
             matrix_row: 列
             remove: 移除
