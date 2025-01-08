@@ -16,20 +16,12 @@ gl:
       surveys:
         actions:
           answer: Resposta
-        name: Enquisa
         settings:
           global:
             announcement: Anuncio
-            clean_after_publish: Eliminar as respostas ao publicar a enquisa
-            ends_at: Respostas aceptadas até
-            ends_at_help: Deixar baleiro de non especificar unha data
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
-            starts_at: Respostas aceptadas de
-            starts_at_help: Deixar baleiro de non especificar unha data
           step:
-            allow_answers: Permitir respostas
-            allow_unregistered: Permitir aos usuarios non rexistrados responder a enquisa
             announcement: Anuncio
     events:
       surveys:
