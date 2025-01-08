@@ -736,7 +736,39 @@ cs:
       export:
         ready: Připraven
       help:
+        identities:
+          provider: Poskytovatel této identity
+          uid: Jedinečný identifikátor této identity
+          updated_at: Datum a čas, kdy byla totožnost naposledy aktualizována
+          user: Uživatel, ke kterému patří tato identita
+        messaging_conversations:
+          created_at: Datum, kdy byla konverzace vytvořena
+          id: Jedinečný identifikátor pro tuto konverzaci
+          messages: Zprávy této konverzace
+          updated_at: Datum, kdy byla tato konverzace naposledy aktualizována
+        notifications:
+          created_at: Datum a čas, kdy bylo oznámení vytvořeno
+          event_class: Třída události, která spustila oznámení
+          event_name: Název události, která spustila oznámení
+          extra: Další informace o tomto oznámení
+          id: Jedinečný identifikátor tohoto oznámení
+          resource_type: Typ zdroje, ke kterému se oznámení vztahuje
+          updated_at: Datum a čas, kdy bylo oznámení naposledy aktualizováno
+        user_groups:
+          document_number: Číslo dokumentu této uživatelské skupiny
+          id: Jedinečný identifikátor této skupiny uživatelů
+          name: Název této skupiny uživatelů
+          phone: Telefonní číslo této skupiny uživatelů
+          verified_at: Datum a čas, kdy byla tato skupina uživatelů ověřena
         users:
+          about: Životopis tohoto uživatele
+          admin: Zda je tento uživatel administrátorem
+          confirmation_sent_at: Datum a čas, kdy bylo potvrzení odesláno
+          created_at: Datum a čas, kdy byl uživatel vytvořen
+          current_sign_in_at: Datum a čas současného přihlášení
+          current_sign_in_ip: IP adresa aktuálního přihlášení
+          delete_reason: Důvod pro odstranění tohoto uživatele
+          deleted_at: Datum a čas, kdy byl tento uživatel odstraněn
           email: E-mailová adresa tohoto uživatele
           id: Jedinečný identifikátor tohoto uživatele
           invitation_accepted_at: Datum a čas, kdy byla pozvánka přijata
@@ -744,12 +776,24 @@ cs:
           invitation_sent_at: Datum a čas, kdy byla pozvánka odeslána
           invitations_count: Počet pozvánek zaslaných tomuto uživateli
           invited_by: Uživatel, který pozval tohoto uživatele
+          last_sign_in_at: Datum a čas posledního přihlášení
+          last_sign_in_ip: IP adresa posledního přihlášení
           locale: Lokalizace (jazyk), kterou tento uživatel vybral
           managed: Zda je tento uživatel spravován jiným uživatelem
           name: Jméno tohoto uživatele
+          newsletter_notifications_at: Datum a čas, kdy tento uživatel obdržel zpravodaj
           nickname: Přezdívka tohoto uživatele
           notification_settings: Nastavení oznámení, které tento uživatel vybral
           notifications_sending_frequency: Četnost oznámení, která tento uživatel obdrží
+          officialized_as: Název oficializace (poradce, starosta atd.)
+          officialized_at: Datum a čas, kdy byl tento uživatel oficializován
+          organization: Organizace, do které tento uživatel patří,
+          personal_url: Osobní URL tohoto uživatele
+          remember_created_at: Datum a čas, kdy byl uživatel vybrán k zapamatování
+          reset_password_sent_at: Datum a čas, kdy bylo odesláno obnovení hesla
+          sign_in_count: Počet přihlášení tohoto uživatele
+          unconfirmed_email: E-mailová adresa, kterou tento uživatel ještě nepotvrdil
+          updated_at: Datum a čas, kdy byl tento uživatel naposledy aktualizován
       show:
         action: Akce
         download: Stáhnout soubor
