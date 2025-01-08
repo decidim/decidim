@@ -20,21 +20,12 @@ fi:
       surveys:
         actions:
           answer: Vastaus
-        name: Kysely
         settings:
           global:
             announcement: Ilmoitus
-            clean_after_publish: Poista vastaukset julkaistaessa kysely
-            ends_at: Vastausajan loppumisajankohta
-            ends_at_help: Jätä tyhjäksi, jos vastausaikaa ei ole rajattu
             scope_id: Teema
             scopes_enabled: Teemat käytössä
-            starts_at: Vastausajan alkamisajankohta
-            starts_at_help: Jätä tyhjäksi, jos vastausaikaa ei ole rajattu
           step:
-            allow_answers: Salli vastaukset
-            allow_unregistered: Salli rekisteröitymättömien käyttäjien vastata tähän kyselyyn
-            allow_unregistered_help: Jos asetus on käytössä, käyttäjän ei tarvitse kirjautua sisään vastatakseen kyselyyn. Tämä voi johtaa heikkotasoiseen tai epäluotettavaan tietoon ja se on alttiimpi automatisoiduille hyökkäyksille. Käytä varoen! Muista, että osallistuja voisi vastata samaan kyselyyn useita kertoja, käyttämällä eri selaimia tai selaimen "yksityisen selauksen" ominaisuutta.
             announcement: Ilmoitus
     events:
       surveys:
@@ -57,9 +48,6 @@ fi:
       answers_count: Vastausta
     surveys:
       admin:
-        component:
-          actions:
-            answers_alert: Julkaistessasi komponentin, kaikki aikaisemmat vastaukset poistetaan.
         exports:
           survey_user_answers: Kyselyiden vastaukset
         surveys:
