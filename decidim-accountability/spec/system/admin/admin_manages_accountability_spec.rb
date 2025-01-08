@@ -26,7 +26,7 @@ describe "Admin manages accountability" do
 
   describe "child results" do
     before do
-      within ".table-list__actions" do
+      within "tr[data-id='#{result.id}'] .table-list__actions" do
         click_on "New result"
       end
     end
