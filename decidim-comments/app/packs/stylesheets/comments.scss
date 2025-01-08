@@ -34,11 +34,9 @@
   &__header {
     @apply flex justify-between md:flex-row md:items-center mb-4;
 
-    select {
-      option {
-        &:checked {
-          @apply font-bold;
-        }
+    option {
+      &.selected {
+        @apply font-bold;
       }
     }
   }
