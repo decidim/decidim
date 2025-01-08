@@ -26,6 +26,13 @@ fi-pl:
           request_invalid: Pyynnön käsittely epäonnistui. Yritä uudestaan myöhemmin.
   decidim:
     download_your_data:
+      help:
+        answers:
+          answer: Kysymyksen vastaus
+          id: Vastauksen yksilöivä tunniste
+          question: Kysymys, johon vastattiin
+          questionnaire: Kysely, johon vastattiin
+          user: Käyttäjä, joka vastasi kyselyyn
       show:
         answers: Vastausten vienti
         survey_user_answers: Käyttäjän luomat kyselyjen vastaukset
