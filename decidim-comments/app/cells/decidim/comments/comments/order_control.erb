@@ -1,15 +1,36 @@
 <div class="comment-order-by">
   <%= form_with url: "#" do %>
-    <label for="order" class="comments-label-dropdown"><%= t("decidim.components.comment.sort_by") %></label>
-    <select id="order" aria-label="Order" data-order-comment-select="true">
-       <% available_orders.each do |order_value| %>
-        <option
-           value="<%= order_value %>"
-           <%= "selected" if order_value == order %>
-           data-order-comment-url="<%= decidim_comments.comments_path(commentable_gid: model.to_signed_global_id.to_s, order: order_value, reload: 1) %>">
-           <%= t("decidim.components.comment_order_selector.order.#{order_value}") %>
-        </option>
-       <% end %>
-    </select>
+    <div class="md:hidden">
+      <select id="order-mobile" aria-label="<%= t("decidim.components.comment.sort_by") %>" data-mobile-order-comment-select="true">
+        <option class="input-hidden" value="" <%= "disabled selected hidden" %>> <%= t("decidim.components.comment.sort_by") %> </option>
+        <% available_orders.each do |order_value| %>
+          <option
+            value="<%= order_value %>"
+            <%= "selected" if order_value == order %>
+            <% if order == nil && order_value == "older" || order_value == order %>
+              class="selected"
+            <% end %>
+            data-order-comment-url="<%= decidim_comments.comments_path(commentable_gid: model.to_signed_global_id.to_s, order: order_value || "older", reload: 1) %>">
+            <%= t("decidim.components.comment_order_selector.order.#{order_value}") %>
+          </option>
+        <% end %>
+      </select>
+    </div>
+    <div class="hidden md:block">
+      <label for="order" class="comments-label-dropdown"><%= t("decidim.components.comment.sort_by") %></label>
+      <select id="order" aria-label="<%= t("decidim.components.comment.sort_by") %>" data-desktop-order-comment-select="true">
+        <% available_orders.each do |order_value| %>
+          <option
+            value="<%= order_value %>"
+            <%= "selected" if order_value == order %>
+            <% if order == nil && order_value == "older" || order_value == order %>
+            class="selected"
+            <% end %>
+            data-order-comment-url="<%= decidim_comments.comments_path(commentable_gid: model.to_signed_global_id.to_s, order: order_value || "older", reload: 1) %>">
+            <%= t("decidim.components.comment_order_selector.order.#{order_value}") %>
+          </option>
+        <% end %>
+      </select>
+    </div>
   <% end %>
 </div>
