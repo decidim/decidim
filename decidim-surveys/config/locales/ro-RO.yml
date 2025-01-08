@@ -18,21 +18,12 @@ ro:
       surveys:
         actions:
           answer: Răspunde
-        name: Sondaj
         settings:
           global:
             announcement: Anunţ
-            clean_after_publish: Șterge răspunsurile odată cu publicarea sondajului
-            ends_at: Răspunsuri sunt acceptate până la
-            ends_at_help: Lasă necompletat pentru nicio dată specifică
             scope_id: Domeniu de interes
             scopes_enabled: Domenii activate
-            starts_at: Răspunsuri acceptate de la
-            starts_at_help: Lasă necompletat pentru nicio dată specifică
           step:
-            allow_answers: Permite răspunsuri
-            allow_unregistered: Permite utilizatorilor neînregistrați să răspundă la sondaj
-            allow_unregistered_help: Dacă este activ, nu va fi necesară nicio autentificare pentru a răspunde la chestionar. Acest lucru poate duce la date slabe sau nefiabile și va fi mai vulnerabil la atacuri automate. Utilizați cu prudență! Rețineți că un participant poate răspunde aceluiași sondaj de mai multe ori, utilizând diferite browsere sau funcția de "navigare privată" a browser-ului său web.
             announcement: Anunţ
     events:
       surveys:
