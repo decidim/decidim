@@ -129,6 +129,7 @@ fi-pl:
           info: Tietoa tästä prosessista
           landing_page: Laskeutumissivu
           moderations: Moderoinnit
+          private_users: Jäsenet
           process_admins: Prosessin käyttäjät
           steps: Vaiheet
       models:
@@ -170,6 +171,7 @@ fi-pl:
           fields:
             invitation_accepted_at: Kutsu hyväksytty
             invitation_sent_at: Kutsu on
+            published: Julkaistu
       participatory_process_copies:
         new:
           copy: Kopio
@@ -381,7 +383,7 @@ fi-pl:
           end_date: Prosessin päättymispäivä
           follows_count: Tilaa seuraavien käyttäjien määrä
           hashtag: Prosessia vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
-          id: Prosessin yksilöllinen tunniste
+          id: Prosessin yksilöivä tunniste
           local_area: Prosessin paikallisalue, eli millä alueella prosessi tapahtuu.
           meta_scope: Prosessin teeman metatiedot
           participatory_process_group: Prosessin ryhmä, mikäli sellainen on määritetty
@@ -390,7 +392,7 @@ fi-pl:
           participatory_structure: Prosessin osallistumisrakenne. Määrittää, miten prosessin lopputulokset määrätään.
           promoted: Onko prosessi korostettu vai ei
           published_at: Tilan julkaisuaika
-          reference: Tilan yksilöllinen viite
+          reference: Tilan yksilöivä viite
           remote_hero_image_url: Prosessin hero-kuvan URL-osoite
           scope: Prosessin teema
           scopes_enabled: Ovatko teemat otettu käyttöön vai eivät
@@ -400,7 +402,7 @@ fi-pl:
           subtitle: Prosessin alaotsikko
           target: Prosessin tavoite. Määrittää esimerkiksi, keitä prosessiin osallistuu.
           title: Prosessin otsikko
-          updated_at: Tilan viimeisen päivityksen aika
+          updated_at: Tilan viimeisimmän päivityksen ajankohta
           url: Tilan URL-osoite
     participatory_process_groups:
       content_blocks:
@@ -472,6 +474,7 @@ fi-pl:
             metadata: metadata
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             other: muut
+            private_notice: Voit hallinnoida osallistumistilan yksityisiä käyttäjiä asettamalla osallistumistilan yksityiseksi
             related_processes: Liittyvät prosessit
             scope_type_max_depth_help: Rajaa teemasuodattimen syvyyttä; suodatin näyttää yleisestä teemasta valittuun teematyyppiin saakka.
             select_an_area: Valitse alue
@@ -543,6 +546,9 @@ fi-pl:
           type: Tyyppi
         show:
           title: Tietoa tästä prosessista
+      participatory_space_private_users:
+        index:
+          title: Jäsenet
       show:
         belongs_to_group: Tämä prosessi kuuluu ryhmään
         private_space: Tämä on yksityinen prosessi
@@ -556,6 +562,8 @@ fi-pl:
           browse: Selaa
           browse_resource: Selaa prosessiryhmää %{resource_name}
           processes_count: 'Prosessit:'
+      participatory_process_navigation:
+        member_menu_item: Jäsenet
       participatory_processes:
         index:
           promoted_processes: Tärkeät prosessit
