@@ -233,7 +233,7 @@ If you would like to re-enable exposing the Decidim version number through the G
 
 ### 5.2. Changes in the routing
 
-As we were upgrading the application to Rails 7.1, we have noticed there are some changes in the routing system that led us to change the way participatory space mounting points are being used by Decidim. This applies to implementers or developers that define their own routes in their modules. If you do not change the routes in your application nor a module then you do not need to do anything. 
+As we were upgrading the application to Rails 7.1, we have noticed there are some changes in the routing system that led us to change the way participatory space mounting points are being used by Decidim. This applies to implementers or developers that define their own routes in their modules. If you do not change the routes in your application nor a module then you do not need to do anything.
 
 Previously, the participatory space routes were mounted like follows in either the Core or Admin.
 
