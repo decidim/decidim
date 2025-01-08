@@ -374,7 +374,7 @@ ar:
         title: الدعم
     participatory_spaces:
       highlighted_proposals:
-        see_all: شاهد الكل (%{count})
+        see_all: شاهد الكل
     proposals:
       actions:
         answer_proposal: الرد على المُقتَرَح
