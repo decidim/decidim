@@ -84,14 +84,10 @@ fr-CA:
             title: Modifier le questionnaire
           form:
             add_question: Ajouter une question
-            add_separator: Ajouter un séparateur
-            add_title_and_description: Ajouter un titre et une description
-            already_answered_warning: Certains utilisateurs ont déjà répondu au questionnaire, vous ne pouvez donc pas modifier ses questions.
             collapse: Réduire toutes les questions
             expand: Développer toutes les questions
             preview: Aperçu
             title: Modifier le questionnaire pour %{questionnaire_for}
-            unpublished_warning: Le formulaire n'est pas publié. Vous pouvez modifier ses questions, mais cela supprimera les réponses actuelles.
           matrix_row:
             matrix_row: Ligne
             remove: Retirer
