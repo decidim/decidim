@@ -15,22 +15,22 @@
     @apply flex flex-row items-center gap-8 text-gray-2 font-semibold w-fit mx-auto mt-10;
 
     &-button {
-      @apply button button__xl border border-gray shadow-[0_4px_6px_rgba(211,211,211,0.25)] justify-start gap-8 text-lg w-full;
+      @apply button__xl border border-gray shadow-[0_4px_6px_rgba(211,211,211,0.25)] justify-start gap-8 text-lg w-full rounded;
 
       svg {
         @apply w-6 h-6 flex-none;
       }
 
       &--facebook {
-        @apply text-white bg-facebook;
+        @apply flex flex-row text-white bg-facebook;
       }
 
       &--x {
-        @apply text-white bg-black;
+        @apply flex flex-row text-white bg-black;
       }
 
       &--google {
-        @apply text-black bg-google border border-background;
+        @apply flex flex-row text-black bg-google border border-background;
       }
     }
 
