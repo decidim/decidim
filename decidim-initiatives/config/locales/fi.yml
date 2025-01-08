@@ -627,7 +627,7 @@ fi:
           state: Aloitteen tila tällä hetkellä
           title: Aloitteen otsikko
           type: Aloitteen tyyppi
-          updated_at: Tilan viimeisimmän päivityksen ajankohta
+          updated_at: Osallistumistilan viimeisimmän päivityksen ajankohta
           url: Tilan URL-osoite
     resources:
       initiative:
