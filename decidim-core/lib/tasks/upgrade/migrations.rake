@@ -54,8 +54,8 @@ namespace :decidim do
 
       target_file = Rails.root.glob("db/migrate/**_#{migration_file_base}.*.rb").first
       return if target_file.blank?
-
-      scope = target_file.split(".")[-2]
+      
+      scope = target_file.to_s.split(".")[-2]
 
       source = File.binread(file_path)
 
