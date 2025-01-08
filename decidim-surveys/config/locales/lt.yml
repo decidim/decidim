@@ -20,21 +20,12 @@ lt:
       surveys:
         actions:
           answer: Atsakyti
-        name: Apklausa
         settings:
           global:
             announcement: Pranešimas
-            clean_after_publish: Skelbiant apklausą, šalinti atsakymus
-            ends_at: Atsakymai priimami iki
-            ends_at_help: Jei nėra tikslios datos, palikite lauką tuščią
             scope_id: Sritis
             scopes_enabled: Sritys įjungtos
-            starts_at: Atsakymai priimami iš
-            starts_at_help: Jei nėra tikslios datos, palikite lauką tuščią
           step:
-            allow_answers: Leisti atsakymus
-            allow_unregistered: Leisti neregistruotiems naudotojams atsakyti į apklausos klausimus
-            allow_unregistered_help: Jei aktyvu, prisijungimas nebus būtinas norint atsakyti į apklausą. Tai sukuria patogesnę aplinką atakoms ir nepatikimiems duomenims, tad naudokite šį funkcionalumą su atsarga. Atsižvelkite ir į tai, kad dalyvis galės atsakyti į apklausą kelis kartus.
             announcement: Pranešimas
     events:
       surveys:
