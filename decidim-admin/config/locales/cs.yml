@@ -1358,11 +1358,17 @@ cs:
               failed: 'Vyskytl se problém při skrývání některých zdrojů: %{errored}'
               invalid: Nebyla vybrána žádná moderace.
               success: Zdroje byly úspěšně skryty.
+            ignore:
+              invalid: Nebyla vybrána žádná moderace uživatelů.
+              success: Účastníci úspěšně neohlášeni.
             unhide:
+              failed: 'Vyskytl se problém při odkrytí některých zdrojů: %{errored}'
               invalid: Nebyla vybrána žádná moderace.
               success: Zdroje byly úspěšně odkryty.
             unreport:
+              failed: 'Došlo k chybě při odebrání z hlášení některých zdrojů: %{errored}'
               invalid: Nebyla vybrána žádná moderace.
+              success: Zdroje byly úspěšně odebrány z hlášení.
           hide:
             invalid: Došlo k potížím při skrývání zdroje.
             success: Zdroj byl úspěšně skryt.
