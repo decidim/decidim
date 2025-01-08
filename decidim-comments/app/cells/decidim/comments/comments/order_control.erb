@@ -6,12 +6,7 @@
         <% available_orders.each do |order_value| %>
           <option
             value="<%= order_value %>"
-            <%= "selected style='font-weight: bold;'" if order_value == order %>
-            <% if order == nil && order_value == "older" %>
-            <%= "style='font-weight: bold;'" %>
-            <% else %>
-            <%= "style=''" %>
-            <% end %>
+            <%= "selected" if order == nil && order_value == "older" || order_value == order %>
             data-order-comment-url="<%= decidim_comments.comments_path(commentable_gid: model.to_signed_global_id.to_s, order: order_value || "older", reload: 1) %>">
             <%= t("decidim.components.comment_order_selector.order.#{order_value}") %>
           </option>
@@ -24,12 +19,7 @@
         <% available_orders.each do |order_value| %>
           <option
             value="<%= order_value %>"
-            <%= "selected style='font-weight: bold;'" if order_value == order %>
-            <% if order == nil && order_value == "older" %>
-            <%= "selected style='font-weight: bold;'" %>
-            <% else %>
-            <%= "style=''" %>
-            <% end %>
+            <%= "selected" if order == nil && order_value == "older"  || order_value == order %>
             data-order-comment-url="<%= decidim_comments.comments_path(commentable_gid: model.to_signed_global_id.to_s, order: order_value || "older", reload: 1) %>">
             <%= t("decidim.components.comment_order_selector.order.#{order_value}") %>
           </option>
