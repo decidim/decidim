@@ -38,14 +38,14 @@ module Decidim
 
       followers.each do |recipient|
         next unless ["all", "followed-only"].include?(recipient.notification_types)
-        next if recipient.blocked?
+        next if recipient.deleted? || recipient.blocked?
 
         send_email_to(recipient, user_role: :follower)
       end
 
       affected_users.each do |recipient|
         next unless ["all", "own-only"].include?(recipient.notification_types)
-        next if recipient.blocked?
+        next if recipient.deleted? || recipient.blocked?
 
         send_email_to(recipient, user_role: :affected_user)
       end
