@@ -16,21 +16,12 @@ sv:
       surveys:
         actions:
           answer: Svar
-        name: Enkät
         settings:
           global:
             announcement: Meddelande
-            clean_after_publish: Ta bort svar vid publicering av enkäten
-            ends_at: Öppet för svar till
-            ends_at_help: Lämna tomt för att inte ha något slutdatum
             scope_id: Indelning
             scopes_enabled: Aktivera indelningar
-            starts_at: Öppet för svar från
-            starts_at_help: Lämna tomt för att inte ha något startdatum
           step:
-            allow_answers: Tillåt svar
-            allow_unregistered: Tillåt ej registrerade användare att besvara enkäten
-            allow_unregistered_help: Om aktiv kommer ingen inloggning att krävas för att besvara enkäten. Detta kan leda till dålig eller opålitlig data och det kommer att vara mer sårbart för automatiserade attacker. Använd med försiktighet! Tänk på att en deltagare kunde svara på samma enkät flera gånger, genom att använda olika webbläsare eller "privat surfning" i sin webbläsare.
             announcement: Meddelande
     events:
       surveys:
@@ -53,9 +44,6 @@ sv:
       answers_count: Svar
     surveys:
       admin:
-        component:
-          actions:
-            answers_alert: Om du publicerar komponenten kommer alla resultat att tas bort.
         exports:
           survey_user_answers: Svar från enkätdeltagarna
         surveys:
