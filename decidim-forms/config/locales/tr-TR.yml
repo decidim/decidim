@@ -72,13 +72,10 @@ tr:
             title: Anketi düzenleyin
           form:
             add_question: Soru ekle
-            add_separator: Ayırıcı ekle
-            already_answered_warning: Form, bazı kullanıcılar tarafından zaten yanıtlandı, bu nedenle sorularını değiştiremezsiniz.
             collapse: Tüm soruları daraltın
             expand: Tüm soruları genişletin
             preview: Önizleme
             title: '%{questionnaire_for} için formu düzenleyin'
-            unpublished_warning: Form yayınlanmadı. Sorularını değiştirebilirsiniz, ancak bunu yapmak mevcut cevapları silecektir.
           matrix_row:
             matrix_row: Satır
             remove: Kaldır
