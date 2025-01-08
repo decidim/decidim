@@ -16,6 +16,17 @@ ca:
             announcement: Avís
           step:
             announcement: Avís
+    open_data:
+      help:
+        pages:
+          body: El contingut de la pàgina
+          component: El component al qual pertany la pàgina
+          created_at: La data en què es va crear aquesta pàgina
+          id: L'identificador únic d'aquesta pàgina
+          participatory_space: A quin espai pertany aquesta pàgina (procés participatiu, assemblea, etc.)
+          title: El títol de la pàgina
+          updated_at: La data de la darrera actualització d'aquesta pàgina
+          url: L'URL d'aquesta pàgina
     pages:
       admin:
         models:
