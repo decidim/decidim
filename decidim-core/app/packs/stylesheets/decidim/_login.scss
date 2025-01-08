@@ -22,7 +22,7 @@
       }
 
       &--facebook {
-        @apply flex flex-row text-white bg-facebook;
+        @apply flex flex-row text-white bg-facebook hover:bg-facebookhover;
       }
 
       &--x {
