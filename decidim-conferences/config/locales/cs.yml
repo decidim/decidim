@@ -53,7 +53,7 @@ cs:
       conference_registration_type:
         description: Popis
         price: Cena
-        title: Oslovení
+        title: Název
         weight: Pozice v řazení
       conference_speaker:
         affiliation: Příslušnost
