@@ -402,7 +402,7 @@ fi-pl:
           subtitle: Prosessin alaotsikko
           target: Prosessin tavoite. Määrittää esimerkiksi, keitä prosessiin osallistuu.
           title: Prosessin otsikko
-          updated_at: Tilan viimeisimmän päivityksen ajankohta
+          updated_at: Osallistumistilan viimeisimmän päivityksen ajankohta
           url: Tilan URL-osoite
     participatory_process_groups:
       content_blocks:
