@@ -20,21 +20,12 @@ es-PY:
       surveys:
         actions:
           answer: Responder
-        name: Encuesta
         settings:
           global:
             announcement: Anuncio
-            clean_after_publish: Borrar respuestas al publicar la encuesta
-            ends_at: Respuestas aceptadas hasta
-            ends_at_help: Dejar en blanco para ninguna fecha específica
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
-            starts_at: Respuestas aceptadas de
-            starts_at_help: Dejar en blanco para ninguna fecha específica
           step:
-            allow_answers: Permitir respuestas
-            allow_unregistered: Permitir a las usuarias no registradas responder a la encuesta
-            allow_unregistered_help: Si está activo, no será necesario iniciar sesión para responder a la encuesta. Esto puede llevar a datos pobres o poco fiables y será más vulnerable a ataques automatizados. ¡Usar con precaución! Es importante que un participante pueda responder a la misma encuesta varias veces, utilizando diferentes navegadores o la función de "navegación privada" de su navegador web.
             announcement: Anuncio
     events:
       surveys:
@@ -57,9 +48,6 @@ es-PY:
       answers_count: Respuestas
     surveys:
       admin:
-        component:
-          actions:
-            answers_alert: Si publicas el componente, se eliminaran todos los resultados.
         exports:
           survey_user_answers: Respuestas de los usuarios de la encuesta
         surveys:
