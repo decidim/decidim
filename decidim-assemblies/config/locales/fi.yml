@@ -465,7 +465,7 @@ fi:
           taxonomies: Projektin luokittelut
           title: Ryhmän otsikko
           twitter_handler: Sosiaalisen median tunniste Twitterissä
-          updated_at: Tilan viimeisimmän päivityksen ajankohta
+          updated_at: Osallistumistilan viimeisimmän päivityksen ajankohta
           url: Tilan URL-osoite
           youtube_handler: Sosiaalisen median tunniste YouTubessa
     participatory_processes:
