@@ -1033,7 +1033,7 @@ fi:
         subtitle: Luo ryhmä ja pyydä muita käyttäjiä osallistumaan yhteisöllisellä tasolla.
       no_user_groups: Ei kuulu vielä yhteenkään ryhmään.
       roles:
-        admin: Ylläpitäjä
+        admin: Hallinnoija
         creator: Hallinnoija
         member: Jäsen
       update:
