@@ -193,6 +193,7 @@ fi-pl:
           info: Tietoa tästä ryhmästä
           landing_page: Laskeutumissivu
           moderations: Moderoinnit
+          private_users: Jäsenet
           see_assembly: Näytä ryhmä
         assemblies_types: Ryhmien tyypit
       models:
@@ -274,6 +275,7 @@ fi-pl:
             metadata: metadata
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             other: muut
+            private_notice: Voit hallinnoida osallistumistilan yksityisiä käyttäjiä asettamalla osallistumistilan yksityiseksi
             select_a_created_by: Valitse luoja
             select_an_area: Valitse alue
             select_an_assembly_type: Valitse ryhmän tyyppi
@@ -438,7 +440,7 @@ fi-pl:
           follows_count: Tilaa seuraavien käyttäjien määrä
           github_handler: Sosiaalisen median tunniste GitHubissa
           hashtag: Ryhmää vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
-          id: Ryhmän yksilöllinen tunniste
+          id: Ryhmän yksilöivä tunniste
           included_at: Ryhmän sisällyttämisen päivämäärä
           instagram_handler: Sosiaalisen median tunniste Instagramissa
           internal_organisation: Ryhmän sisäinen organisaatio
@@ -450,7 +452,7 @@ fi-pl:
           promoted: Onko ryhmä korostettu vai ei
           published_at: Tilan julkaisuaika
           purpose_of_action: Ryhmän toiminnan tarkoitus
-          reference: Tilan yksilöllinen viite
+          reference: Tilan yksilöivä viite
           remote_banner_image_url: Ryhmän bannerikuvan URL-osoite
           remote_hero_image_url: Ryhmän hero-kuvan URL-osoite
           scope: Ryhmän teema
@@ -463,7 +465,7 @@ fi-pl:
           taxonomies: Projektin luokittelut
           title: Ryhmän otsikko
           twitter_handler: Sosiaalisen median tunniste Twitterissä
-          updated_at: Tilan viimeisen päivityksen aika
+          updated_at: Tilan viimeisimmän päivityksen ajankohta
           url: Tilan URL-osoite
           youtube_handler: Sosiaalisen median tunniste YouTubessa
     participatory_processes:
