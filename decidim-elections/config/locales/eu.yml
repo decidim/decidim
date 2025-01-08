@@ -406,7 +406,7 @@ eu:
         failed:
           modal:
             close: Itxi
-            communication_lost: Zoritxarrez, badirudi (Iragarki-taula) boto-zerbitzariarekin komunikazioa galdu egin dela.<br>Baliteke Interneterako konexioa hautsita egotea edo zerbitzaria lanpetuta egotea.<br>Saiatu geroago, edo jarri kontaktuan, arazo honek irauten badu.
+            communication_lost: Zoritxarrez, badirudi (Iragarki-taula) boto-zerbitzariarekin komunikazioa galdu egin dela.<br>Baliteke Interneterako konexioa hautsita egotea edo zerbitzaria lanpetuta egotea.<br>Saiatu geroago, edo jarri kontaktuan babeslearekin, arazo honek irauten badu.
             generic_error: Zoritxarrez, errore ezezagun bat izan da. Ziur aski, zure nabigatzaileak ez du pairatzen edo modu "ezkutuan" edo "pribatuan" erabiltzen ari zara, bateragarria ez izanik.
             title: Zerbait gaizki joan da
       election_m:
