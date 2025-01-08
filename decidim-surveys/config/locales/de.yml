@@ -16,21 +16,12 @@ de:
       surveys:
         actions:
           answer: Antworten
-        name: Umfrage
         settings:
           global:
             announcement: Ankündigung
-            clean_after_publish: Antworten bei Veröffentlichung des Fragebogens löschen
-            ends_at: Antworten akzeptiert bis
-            ends_at_help: Leer lassen für kein bestimmtes Datum
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
-            starts_at: Antworten akzeptiert von
-            starts_at_help: Leer lassen für kein bestimmtes Datum
           step:
-            allow_answers: Erlaube Antworten
-            allow_unregistered: Nicht registrierten Benutzern die Beantwortung des Fragebogens erlauben
-            allow_unregistered_help: Wenn aktiviert, ist keine Anmeldung erforderlich, um die Umfrage zu beantworten. Dies kann zu schlechten oder unzuverlässigen Daten führen und ist anfälliger für automatisierte Angriffe. Verwenden Sie diese Funktion mit Vorsicht! Beachten Sie, dass ein Teilnehmer die gleiche Umfrage mehrfach beantworten kann, indem er verschiedene Browser oder die "Private Browsing"-Funktion ihres Web-Browsers nutzt.
             announcement: Ankündigung
     events:
       surveys:
@@ -53,9 +44,6 @@ de:
       answers_count: Antworten
     surveys:
       admin:
-        component:
-          actions:
-            answers_alert: Wenn Sie die Komponente veröffentlichen, werden alle Ergebnisse entfernt.
         exports:
           survey_user_answers: Umfrage Benutzer Antworten
         surveys:
