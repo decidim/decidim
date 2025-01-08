@@ -457,6 +457,7 @@ cs:
           attachments: Počet příloh, které má tento návrh
           author: Údaje pro autora tohoto návrhu
           body: Obsah návrhu
+          coauthorships_count: Počet spoluautorit, které návrh představuje,
           comments: Počet komentářů, které má tento návrh
           component: Komponenta, do které návrh patří
           cost: Celkové náklady daného návrhu
@@ -464,6 +465,8 @@ cs:
           created_at: Datum, kdy byl návrh vytvořen
           created_in_meeting: Zda byl návrh vytvořen na schůzce
           endorsements: Počet souhlasů ("lajků"), které tento návrh získal
+          execution_period: Období, kdy návrh běžel od začátku do konce
+          follows_count: Počet příznivců tohoto návrhu
           id: Jedinečný identifikátor návrhu
           is_amend: Zda je tento návrh změnou jiného návrhu
           latitude: Zeměpisná šířka návrhu v případě, že má fyzické umístění
@@ -475,8 +478,10 @@ cs:
           reference: Jedinečný identifikátor zdroje na této platformě
           related_proposals: Návrhy související s tímto návrhem
           state: Stav tohoto návrhu (např. "přijato")
+          state_published_at: Časové razítko stavu návrhu při zveřejnění
           taxonomies: Taxonomie, do kterých tento návrh patří
           title: Název návrhu
+          updated_at: Datum poslední aktualizace návrhu
           url: URL, kde lze tento návrh nalézt
           votes: Počet hlasů tohoto návrhu
           withdrawn: Kdy byl tento návrh stažen
