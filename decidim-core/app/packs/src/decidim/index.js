@@ -53,6 +53,7 @@ import "src/decidim/attachments"
 // local deps that require initialization
 import ConfirmDialog, { initializeConfirm } from "src/decidim/confirm"
 import { initializeUploadFields } from "src/decidim/direct_uploads/upload_field"
+import { initializeReverseGeocoding } from "src/decidim/geocoding/reverse_geocoding"
 import formDatePicker from "src/decidim/datepicker/form_datepicker"
 import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/external_link"
@@ -207,6 +208,7 @@ const initializer = (element = document) => {
   element.querySelectorAll("[data-onboarding-action]").forEach((elem) => setOnboardingAction(elem))
 
   initializeUploadFields(element.querySelectorAll("button[data-upload]"));
+  initializeReverseGeocoding()
 
   document.dispatchEvent(new CustomEvent("decidim:loaded", { detail: { element } }));
 }

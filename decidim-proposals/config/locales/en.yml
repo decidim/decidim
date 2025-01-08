@@ -343,6 +343,11 @@ en:
           email_outro: You have received this notification because you are an author of "%{resource_title}".
           email_subject: Your proposal "%{mentioned_proposal_title}" has been mentioned
           notification_title: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_path}">in this space</a> in the comments.
+        proposal_merged:
+          email_intro: 'An admin has merged your proposal "%{resource_title}", check it out in this page:'
+          email_outro: You have received this notification because you are the author of the proposal.
+          email_subject: The %{resource_title} proposal have been merged
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal have been merged by an admin.
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, who you are following, has published a new proposal called "%{resource_title}". Check it out and contribute:'
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.

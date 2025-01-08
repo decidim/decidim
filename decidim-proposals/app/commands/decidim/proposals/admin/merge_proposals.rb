@@ -22,7 +22,9 @@ module Decidim
         def call
           return broadcast(:invalid) unless form.valid?
 
-          broadcast(:ok, merge_proposals)
+          merge_proposals
+
+          broadcast(:ok, @merge_proposal)
         end
 
         private
@@ -31,11 +33,11 @@ module Decidim
 
         def merge_proposals
           transaction do
-            merged_proposal = create_new_proposal
-            merge_authors(merged_proposal)
-            merged_proposal.link_resources(proposals_to_link, "merged_from_component")
+            @merged_proposal = create_new_proposal
+            merge_authors
+            @merged_proposal.link_resources(proposals_to_link, "merged_from_component")
             form.proposals.each(&:destroy!) if form.same_component?
-            merged_proposal
+            notify_author
           end
         end
 
@@ -67,19 +69,30 @@ module Decidim
           )
         end
 
-        def merge_authors(merged_proposal)
-          organization = form.current_organization
-          add_organization_as_first_author(merged_proposal, organization)
+        def merge_authors
+          add_organization_as_first_author
 
           form.proposals.each do |proposal|
             proposal.authors.each do |author|
-              merged_proposal.add_coauthor(author)
+              @merged_proposal.add_coauthor(author)
             end
           end
         end
 
-        def add_organization_as_first_author(merged_proposal, organization)
-          merged_proposal.add_coauthor(organization) unless merged_proposal.authors.include?(organization)
+        def add_organization_as_first_author
+          organization = form.current_organization
+          @merged_proposal.add_coauthor(organization) unless @merged_proposal.authors.include?(organization)
+        end
+
+        def notify_author
+          return unless @merged_proposal.coauthorships.any?
+
+          Decidim::EventsManager.publish(
+            event: "decidim.events.proposals.proposal_merged",
+            event_class: Decidim::Proposals::MergedProposalEvent,
+            resource: @merged_proposal,
+            affected_users: @merged_proposal.notifiable_identities
+          )
         end
       end
     end

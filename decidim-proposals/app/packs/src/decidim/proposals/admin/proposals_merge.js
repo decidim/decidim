@@ -2,6 +2,7 @@ import { createDialog } from "src/decidim/a11y"
 import createEditor from "src/decidim/editor";
 import attachGeocoding from "src/decidim/geocoding/attach_input";
 import { initializeUploadFields } from "src/decidim/direct_uploads/upload_field";
+import { initializeReverseGeocoding } from "src/decidim/geocoding/reverse_geocoding"
 
 document.addEventListener("decidim:loaded", () => {
   document.querySelectorAll('button[data-action="merge-proposals"]').forEach((button) => {
@@ -9,14 +10,12 @@ document.addEventListener("decidim:loaded", () => {
     const drawer = window.Decidim.currentDialogs[button.dataset.mergeDialog];
     const container = drawer.dialog.querySelector("#merge-proposals-actions");
 
-    // Handles editor initialization
-    const editorInitializer = () => {
-      container.querySelectorAll(".editor-container").forEach((element) => createEditor(element));
-    }
-
     // Handles changes on the form
     const activateDrawerForm = () => {
       const saveForm = drawer.dialog.querySelector("#form-merge-proposals");
+      
+      // Handles editor initialization
+      saveForm.querySelectorAll(".editor-container").forEach((element) => createEditor(element));
 
       // Handles meeting checkbox 
       const form = document.querySelector(".proposals_merge_form_admin");
@@ -44,6 +43,9 @@ document.addEventListener("decidim:loaded", () => {
       // Handles address input (requires jQuery for the moment)
       attachGeocoding($(document.getElementById("proposals_merge_address")));
 
+      // Handles address reverse_geocoding initialization
+      initializeReverseGeocoding()
+
       // Handles upload files initialization
       saveForm.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component));
       initializeUploadFields(saveForm.querySelectorAll("button[data-upload]"));
@@ -64,8 +66,7 @@ document.addEventListener("decidim:loaded", () => {
         saveForm.addEventListener("ajax:error", (event) => {
           const response = event.detail[2];
           container.innerHTML = response.responseText;
-
-          editorInitializer();
+          activateDrawerForm();
         });
       }
     }
@@ -75,8 +76,9 @@ document.addEventListener("decidim:loaded", () => {
       fetch(urlToFetch).then((response) => response.text()).then((html) => {
         container.innerHTML = html;
         container.classList.remove("spinner-container");
+        // We still need foundation for form validations
+        $(container).foundation();
         activateDrawerForm();
-        editorInitializer()
       });
     };
 
