@@ -16,20 +16,12 @@ it:
       surveys:
         actions:
           answer: Risposta
-        name: Questionario
         settings:
           global:
             announcement: Annuncio
-            clean_after_publish: Eliminare le risposte quando si pubblica il sondaggio
-            ends_at: Risposte accettate fino al
-            ends_at_help: Lascia vuoto se nessuna data è specificata
             scope_id: Obiettivo
             scopes_enabled: Obiettivi abilitati
-            starts_at: Risposte accettate da
-            starts_at_help: Lascia vuoto se nessuna data è specificata
           step:
-            allow_answers: Consenti risposte
-            allow_unregistered: Consenti agli utenti non registrati di rispondere al sondaggio
             announcement: Annuncio
     events:
       surveys:
