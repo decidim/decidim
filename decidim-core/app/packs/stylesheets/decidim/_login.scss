@@ -30,7 +30,7 @@
       }
 
       &--google {
-        @apply flex flex-row text-black bg-google border border-background;
+        @apply flex flex-row text-black bg-google hover:bg-googlehover border border-background;
       }
     }
 
