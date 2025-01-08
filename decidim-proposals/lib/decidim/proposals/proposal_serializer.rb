@@ -37,6 +37,7 @@ module Decidim
           latitude: proposal.latitude,
           longitude: proposal.longitude,
           state: proposal.state.to_s,
+          state_published_at: proposal.state_published_at,
           reference: proposal.reference,
           answer: ensure_translatable(proposal.answer),
           answered_at: proposal.answered_at,
@@ -48,7 +49,7 @@ module Decidim
           },
           comments: proposal.comments_count,
           attachments: proposal.attachments.size,
-          followers: proposal.follows.size,
+          follows_count: proposal.follows_count,
           published_at: proposal.published_at,
           url:,
           meeting_urls: meetings,
@@ -59,7 +60,14 @@ module Decidim
             url: original_proposal_url
           },
           withdrawn: proposal.withdrawn?,
-          withdrawn_at: proposal.withdrawn_at
+          withdrawn_at: proposal.withdrawn_at,
+          created_at: proposal.created_at,
+          updated_at: proposal.updated_at,
+          created_in_meeting: proposal.created_in_meeting,
+          coauthorships_count: proposal.coauthorships_count,
+          cost: proposal.cost,
+          cost_report: proposal.cost_report,
+          execution_period: proposal.execution_period
         }
       end
 
