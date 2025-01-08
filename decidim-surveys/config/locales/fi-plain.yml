@@ -12,6 +12,10 @@ fi-pl:
         one: Vastaus
         other: Vastaukset
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: kyselyt
     components:
       surveys:
         actions:
