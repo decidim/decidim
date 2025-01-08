@@ -117,7 +117,7 @@ PATH
       decidim-core (= 0.30.0.dev)
       decidim-generators (= 0.30.0.dev)
       decidim-verifications (= 0.30.0.dev)
-      erb_lint (~> 0.6.0)
+      erb_lint (~> 0.8.0)
       factory_bot_rails (~> 6.2)
       faker (~> 3.2)
       i18n-tasks (~> 1.0)
@@ -350,7 +350,7 @@ GEM
     doorkeeper (5.6.9)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
-    erb_lint (0.6.0)
+    erb_lint (0.8.0)
       activesupport
       better_html (>= 2.0.1)
       parser (>= 2.7.1.4)
