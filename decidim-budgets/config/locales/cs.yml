@@ -386,6 +386,12 @@ cs:
       help:
         orders:
           budget: Rozpočet související s pokynem
+          checked_out_at: Datum a čas, kdy byl pokyn zkontrolován
+          component: Komponenta, ke které se pokyn vztahuje
+          created_at: Datum a čas, kdy byl pokyn vytvořen
+          id: Jedinečný identifikátor pokynu
+          projects: Projekty, v kterých pokyn hlasovaný
+          updated_at: Datum a čas, kdy byl pokyn aktualizován
       show:
         projects: Export projektů
     events:
