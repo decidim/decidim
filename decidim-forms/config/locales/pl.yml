@@ -78,14 +78,10 @@ pl:
             title: Edytuj formularz
           form:
             add_question: Dodaj pytanie
-            add_separator: Dodaj separator
-            add_title_and_description: Dodaj tytuł i opis
-            already_answered_warning: Niektórzy użytkownicy już odpowiedzieli na pytania tego formularza, więc nie można modyfikować jego pytań.
             collapse: Zwiń wszystkie pytania
             expand: Rozwiń wszystkie pytania
             preview: Podgląd
             title: Edytuj formularz dla %{questionnaire_for}
-            unpublished_warning: Formularz nie został jeszcze opublikowany. Możesz zmienić jego pytania, ale to spowoduje usunięcie bieżących odpowiedzi.
           matrix_row:
             matrix_row: Wiersz
             remove: Usuń
