@@ -20,6 +20,7 @@ describe "Admin manages accountability" do
     let!(:component) { create(:component, manifest:, participatory_space:, settings: { taxonomy_filters: [taxonomy_filter.id] }) }
 
     it_behaves_like "manage results"
+    it_behaves_like "when managing results bulk actions as an admin"
     it_behaves_like "export results"
   end
 
