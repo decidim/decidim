@@ -2,6 +2,8 @@
 
 class AddSettingsToDecidimSurveysSurveys < ActiveRecord::Migration[7.0]
   class Survey < ApplicationRecord
+    include Decidim::HasComponent
+
     self.table_name = :decidim_surveys_surveys
   end
 
@@ -18,7 +20,9 @@ class AddSettingsToDecidimSurveysSurveys < ActiveRecord::Migration[7.0]
         add_index :decidim_surveys_surveys, :published_at
 
         Survey.where(published_at: nil).find_each do |survey|
-          published_at = survey.component.published_at || survey.created_at
+          published_at = survey.component.published_at
+          next if published_at.nil?
+
           survey.update(published_at:)
         end
       end
