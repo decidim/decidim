@@ -91,14 +91,10 @@ fi:
             title: Muokkaa kyselyä
           form:
             add_question: Lisää kysymys
-            add_separator: Lisää erotinviiva
-            add_title_and_description: Lisää otsikko ja kuvaus
-            already_answered_warning: Jotkut käyttäjät ovat jo vastanneet tähän kyselylomakkeeseen, joten et voi enää muokata kysymyksiä.
             collapse: Sulje kaikki kysymykset
             expand: Avaa kaikki kysymykset
             preview: Esikatsele
             title: Muokkaa lomaketta kyselylle %{questionnaire_for}
-            unpublished_warning: Lomaketta ei ole julkaistu. Voit muokata sen kysymyksiä, mutta muokkaaminen poistaa nykyiset vastaukset.
           matrix_row:
             matrix_row: Rivi
             remove: Poista
