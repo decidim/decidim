@@ -1,12 +1,14 @@
+import { createDialog } from "src/decidim/a11y"
 import createEditor from "src/decidim/editor";
 import AutoComplete from "src/decidim/autocomplete";
-import attachGeocoding from "src/decidim/geocoding/attach_input"
+import attachGeocoding from "src/decidim/geocoding/attach_input";
+import { initializeUploadFields } from "src/decidim/direct_uploads/upload_field";
 
 document.addEventListener("decidim:loaded", () => {
   document.querySelectorAll('button[data-action="merge-proposals"]').forEach((button) => {
     const url = button.dataset.mergeUrl;
     const drawer = window.Decidim.currentDialogs[button.dataset.mergeDialog];
-    const container = drawer.dialog.querySelector(".js-bulk-action-form");
+    const container = drawer.dialog.querySelector("#merge-proposals-actions");
 
     // Handles autocomplete initialization
     const initializeAutoComplete = (inputElement) => {
@@ -65,7 +67,7 @@ document.addEventListener("decidim:loaded", () => {
 
     // Handles changes on the form
     const activateDrawerForm = () => {
-      const saveForm = drawer.dialog.querySelector("#js-form-merge-proposals");
+      const saveForm = drawer.dialog.querySelector("#form-merge-proposals");
 
       // Handles meeting checkbox 
       const form = document.querySelector(".proposals_merge_form_admin");
@@ -98,6 +100,10 @@ document.addEventListener("decidim:loaded", () => {
           attachGeocoding($proposalAddress);
         }
       }
+
+      // Handles upload files initialization
+      saveForm.querySelectorAll("[data-dialog]").forEach((component) => createDialog(component));
+      initializeUploadFields(saveForm.querySelectorAll("button[data-upload]"));
 
       // Handles form errors and success
       if (saveForm) {

@@ -5,7 +5,7 @@
   </h1>
 </div>
 <div>
-  <%= decidim_form_for(@form, url: proposals_merge_path, method: :post, remote: true, html: { id: "js-form-merge-proposals", class: "form form-defaults new_proposals_merge proposals_merge_form_admin" })  do |f| %>
+  <%= decidim_form_for(@form, url: proposals_merge_path, method: :post, remote: true, html: { id: "form-merge-proposals", class: "form form-defaults new_proposals_merge proposals_merge_form_admin" })  do |f| %>
     <%= render partial: "form", object: f, locals: { title: t(".title") } %>
     <div class="flex items-center gap-x-4">
       <%= f.submit(t("decidim.proposals.admin.proposals.index.merge_button"), id: "js-submit-merge-proposals", class: "button button__sm button__secondary small button--simple absolute top-0 right-0") %>

@@ -103,12 +103,11 @@ const resetDropzone = (modal) => {
 
 /* NOTE: all this actions are supposed to work using the modal object,
   so, perhaps, it would be more accurate to move all the inner listeners to the UploadModal class */
-document.addEventListener("DOMContentLoaded", () => {
-  const attachmentButtons = document.querySelectorAll("button[data-upload]");
-
+export const initializeUploadFields = function(attachmentButtons) {
   attachmentButtons.forEach((attachmentButton) => {
     const modal = new UploadModal(attachmentButton);
-
+    console.log("Este es mi modal", modal);
+    
     // append to the modal items array those files already validated (only in first pageload)
     const files = document.querySelector(`[data-active-uploads=${modal.modal.id}]`);
     [...files.children].forEach((child) => modal.preloadFiles(child));
@@ -129,5 +128,5 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.saveButton.addEventListener("click", (event) => event.preventDefault() || updateActiveUploads(modal));
     // remove the uploaded files if cancel button is clicked
     modal.cancelButton.addEventListener("click", (event) => event.preventDefault() || modal.cleanAllFiles());
-  })
-})
+  });
+}

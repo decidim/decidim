@@ -44,7 +44,6 @@ import "src/decidim/session_timeouter"
 import "src/decidim/results_listing"
 import "src/decidim/impersonation"
 import "src/decidim/gallery"
-import "src/decidim/direct_uploads/upload_field"
 import "src/decidim/data_consent"
 import "src/decidim/abide_form_validator_fixer"
 import "src/decidim/sw"
@@ -53,6 +52,7 @@ import "src/decidim/attachments"
 
 // local deps that require initialization
 import ConfirmDialog, { initializeConfirm } from "src/decidim/confirm"
+import { initializeUploadFields } from "src/decidim/direct_uploads/upload_field"
 import formDatePicker from "src/decidim/datepicker/form_datepicker"
 import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/external_link"
@@ -205,6 +205,8 @@ const initializer = (element = document) => {
   element.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
 
   element.querySelectorAll("[data-onboarding-action]").forEach((elem) => setOnboardingAction(elem))
+
+  initializeUploadFields(element.querySelectorAll("button[data-upload]"));
 
   document.dispatchEvent(new CustomEvent("decidim:loaded", { detail: { element } }));
 }
