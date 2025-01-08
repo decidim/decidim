@@ -300,11 +300,11 @@ fi-pl:
           alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
           author: Kommentin laatijan nimi
           body: Kommentin teksti
-          commentable_id: Kommentoitavan asian yksilöllinen tunniste
+          commentable_id: Kommentoitavan asian yksilöivä tunniste
           commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
           created_at: Kommentin laatimisaika
           depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
-          id: Kommentin yksilöllinen tunniste
+          id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
           user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
@@ -316,18 +316,18 @@ fi-pl:
           created_at: Tuloksen laatimisaika
           description: Tuloksen kuvaus
           end_date: Päivämäärä, jolloin tuloksen toteutus päättyy ja tulos valmistuu
-          id: Tuloksen yksilöllinen tunniste
+          id: Tuloksen yksilöivä tunniste
           latitude: Tuloksen sijainnin leveysaste, mikäli tulos on määritetty tiettyyn paikkaan
           longitude: Tuloksen sijainnin pituusaste, mikäli tulos on määritetty tiettyyn paikkaan
           parent: Tuloksen isäntä, jos tulos on alitulos
           progress: Tuloksen toimeenpanon valmistumisprosentti
           proposal_urls: Tähän tulokseen sisällytettyjen ehdotusten URL-osoitteet
-          reference: Tuloksen yksilöllinen viite
+          reference: Tuloksen yksilöivä viite
           start_date: Päivämäärä, jolloin tuloksen toteutus alkaa
           status: Tuloksen tämänhetkinen tila
           taxonomies: Tuloksen luokittelut
           title: Tuloksen otsikko
-          updated_at: Tuloksen viimeisen päivityksen aika
+          updated_at: Tuloksen viimeisimmän päivityksen ajankohta
           url: URL-osoite tulokseen
     participatory_spaces:
       highlighted_results:
