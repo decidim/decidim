@@ -624,7 +624,7 @@ fi-pl:
           start_date: Konferenssin alkamispäivä.
           taxonomies: Konferenssin luokittelut
           title: Konferenssin otsikko
-          updated_at: Tilan viimeisimmän päivityksen ajankohta
+          updated_at: Osallistumistilan viimeisimmän päivityksen ajankohta
           url: Tilan URL-osoite
     statistics:
       conferences_count: Konferenssia
