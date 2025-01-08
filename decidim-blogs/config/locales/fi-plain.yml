@@ -126,7 +126,7 @@ fi-pl:
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä artikkeli kuuluu
           published_at: Artikkelin julkaisuaika
           title: Artikkelin otsikko
-          updated_at: Artikkelin viimeisen päivityksen ajankohta
+          updated_at: Artikkelin viimeisimmän päivityksen ajankohta
           url: Artikkelin URL-osoite
     statistics:
       posts_count: Artikkelia
