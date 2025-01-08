@@ -710,7 +710,7 @@ fi-pl:
           created_at: Seurannan ajankohta
           followable: Kohde tai osallistumistila, jota seuranta koskee
           id: Seurannan yksilöivä tunniste
-          updated_at: Seurannan viimeisen päivityksen ajankohta
+          updated_at: Seurannan viimeisimmän päivityksen ajankohta
         identities:
           created_at: Identiteetin luontiaika
           id: Identiteetin yksilöivä tunniste
