@@ -848,6 +848,11 @@ es-MX:
       destroy_draft:
         error: Se han producido errores al eliminar el borrador de la propuesta.
         success: El borrador de la propuesta fue eliminado con éxito.
+      exit_modal:
+        cancel: Cancelar
+        exit: Continuar
+        message: Has de dar %{number} apoyo/s más entre las diferentes propuestas para que tus apoyos sean tenidos en cuenta.
+        title: Recuerda que aún te queda/n %{number} apoyo/s
       forms:
         errors:
           device_not_supported: Su dispositivo no soporta servicios de ubicación. Por favor, introduzca la dirección postal completa manualmente (tipo de vía, nombre de la vía, número, código postal y ciudad).
@@ -1003,12 +1008,20 @@ es-MX:
             one: Apoyo
             other: Apoyos
         voting_rules:
+          already_vote:
+            description: Recuerda que aún has de dar %{number} apoyo/s más entre las diferentes propuestas para que tus apoyos sean tenidos en cuenta.
+            see_other_proposals: Ver otras propuestas
+            title: Tienes %{number} apoyo/s restante/s
           can_accumulate_votes_beyond_threshold:
             description: Cada propuesta puede acumular más de %{limit} apoyos
+          minimum_votes_per_user:
+            description: Tienes que repartir un mínimo de %{votes} apoyos entre diferentes propuestas para que tus apoyos sean tenidos en cuenta.
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
+          success: Tus apoyos se han registrado correctamente
           threshold_per_proposal:
             description: Para que una propuesta se valide, debe recibir %{limit} apoyos.
+          title: Reglas de participación
           vote_limit:
             description: Puedes apoyar hasta %{limit} propuestas.
             votes: Queda/n %{number} apoyo/s
