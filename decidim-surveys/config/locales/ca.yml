@@ -20,21 +20,12 @@ ca:
       surveys:
         actions:
           answer: Respondre
-        name: Enquesta
         settings:
           global:
             announcement: Avís
-            clean_after_publish: Esborrar les respostes en publicar l'enquesta
-            ends_at: Respostes acceptades fins a
-            ends_at_help: Deixar en blanc per cap data específica
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
-            starts_at: Respostes acceptades de
-            starts_at_help: Deixar en blanc per cap data específica
           step:
-            allow_answers: Permetre respostes
-            allow_unregistered: Permet a usuàries no registrades contestar l'enquesta
-            allow_unregistered_help: Si està activat, no serà necessari iniciar sessió per a respondre l'enquesta. Això pot implicar una recollida de dades pobra o poc fiable i serà més vulnerable a atacs automatitzats. Fes-ho servir amb precaució! És important que una participant pugui respondre a la mateixa enquesta diverses vegades, fent servir diferents navegador o la funció de "navegació privada" del seu navegadro web.
             announcement: Avís
     events:
       surveys:
@@ -57,9 +48,6 @@ ca:
       answers_count: Respostes
     surveys:
       admin:
-        component:
-          actions:
-            answers_alert: Si publiques el component, s'eliminaran tots els resultats.
         exports:
           survey_user_answers: Respostes de les participants de l'enquesta
         surveys:
