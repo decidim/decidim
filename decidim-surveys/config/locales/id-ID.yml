@@ -14,12 +14,10 @@ id:
       surveys:
         actions:
           answer: Menjawab
-        name: Survei
         settings:
           global:
             announcement: Pengumuman
           step:
-            allow_answers: Izinkan jawaban
             announcement: Pengumuman
     events:
       surveys:
