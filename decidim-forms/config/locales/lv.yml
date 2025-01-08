@@ -33,8 +33,6 @@ lv:
             title: Rediģēt aptauju
           form:
             add_question: Pievienot jautājumu
-            add_separator: Pievienot atdalītāju
-            already_answered_warning: Daži lietotāji jau ir atbildējuši uz jautājumiem veidlapā, tāpēc jūs nevarat mainīt tajā iekļautos jautājumus.
             collapse: Sakļaut visus jautājumus
             expand: Izvērst visus jautājumus
           matrix_row:
