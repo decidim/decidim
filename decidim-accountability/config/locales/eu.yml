@@ -112,6 +112,23 @@ eu:
               other: "%{count} proiektu inportazioaren zain. Eginda dagoenean posta elektronikoz jakinaraziko zaizu."
             title: Inportatu proiektuak beste osagai batetik
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Aldatu data
+              end_date: Amaiera-data
+              start_date: Hasiera-data
+            dropdown:
+              actions: Ekintzak
+              change_dates: Aldatu datak
+              change_status: Aldatu egoera
+              change_taxonomies: Aldatu taxonomiak
+            status_form:
+              change_status: Aldatu egoera
+              status: Egoera
+            submit_buttons:
+              cancel: Ezeztatu
+            taxonomies_form:
+              change_taxonomies: Aldatu taxonomiak
           create:
             invalid: Arazo bat egon da emaitza hau sortzean.
             success: Emaitza zuzen sortua.
@@ -119,6 +136,7 @@ eu:
             title: Editatu emaitza
             update: Eguneratu emaitza
           index:
+            selected: Hautatua
             title: Emaitzak
           manage_trash:
             title: Ezabatutako emaitzak
@@ -128,6 +146,17 @@ eu:
           update:
             invalid: Arazo bat egon da emaitza hau eguneratzean.
             success: Emaitza zuzen eguneratua.
+          update_dates:
+            invalid: Arazo bat egon da emaitzen datak eguneratzean
+            success: Emaitzen datak zuzen eguneratuta
+          update_status:
+            invalid: Arazo bat egon da emaitzen egoerak eguneratzean
+            success: Emaitzen egoerak zuzen eguneratuta
+          update_taxonomies:
+            invalid: Ezin izan dira eguneratu %{taxonomies} taxonomiak %{results} emaitzetarako
+            select_a_result: Hautatu emaitza
+            select_a_taxonomy: Hautatu taxonomia bat
+            success: Zuzen eguneratuak %{taxonomies} taxonomiak %{results} emaitzetarako
         shared:
           subnav:
             statuses: Egoerak
