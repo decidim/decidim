@@ -40,7 +40,7 @@ describe UploaderContentTypeValidator do
       attr_accessor :file
       attr_accessor :organization
 
-      validates_upload(:file, **validation_options.merge(uploader: mount_class))
+      validates_upload(:file, **validation_options, uploader: mount_class)
     end
   end
 
