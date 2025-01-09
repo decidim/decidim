@@ -40,6 +40,11 @@ eu:
       admin:
         models:
           components:
+            allow_answers: Baimendu erantzunak
+            allow_unregistered: Baimentzea erregistratu gabeko erabiltzaileek inkesta erantzutea
+            allow_unregistered_help: Aktibatuta badago ez da beharrezkoa saioa hastea inkesta erantzuteko. Honen ondorioz datu eskas edo fidagarritasun gutxikoak bildu litezke. Kontuz erabili! Izan ere, parte-hartzaile berak hainbat aldiz erantzun litzake nabigatzaile desberdinetatik edo "nabigazio pribatuaren" aukera erabiliz.
+            announcement: Oharra
+            clean_after_publish: Ezabatu erantzunak inkesta argitaratzean
             description: Deskribapena
             tos: Zerbitzu-baldintzak
         questionnaires:
