@@ -92,7 +92,7 @@ fi:
         activate: Aktivoi
         configure: Asetukset
         confirm_delete_process: Haluatko varmasti poistaa tämän prosessin? Mikäli muutat mieltäsi, voit palauttaa prosessin myöhemmin.
-        confirm_destroy: Vahvista poistaminen
+        confirm_destroy: Vahvista poisto
         destroy: Poista
         duplicate: Kopioi
         edit: Muokkaa
@@ -108,7 +108,7 @@ fi:
         publish: Julkaise
         resend_invitation: Lähetä kutsu uudestaan
         see_process: Näytä prosessi
-        unpublish: Lopeta julkaisu
+        unpublish: Peru julkaisu
         view_deleted_processes: Näytä poistetut prosessit
       filters:
         decidim_participatory_process_group_id_eq:
@@ -203,8 +203,8 @@ fi:
           error: Osallistumisprosessin julkaisu epäonnistui.
           success: Osallistumisprosessin julkaisu onnistui.
         destroy:
-          error: Osallistumisprosessin julkaisun lopettaminen epäonnistui.
-          success: Osallistumisprosessin julkaisun lopettaminen onnistui.
+          error: Osallistumisprosessin julkaisun peruminen epäonnistui.
+          success: Osallistumisprosessin julkaisun peruminen onnistui.
       participatory_process_step_activations:
         create:
           error: Osallistumisprosessin vaiheen aktivointi epäonnistui.
@@ -258,7 +258,7 @@ fi:
           error: Osallistumisprosessin käyttäjän lisääminen epäonnistui.
           success: Käyttäjän lisäys tähän osallistumisprosessiin onnistui.
         destroy:
-          success: Käyttäjä poistaminen tästä osallistumisprosessista onnistui.
+          success: Käyttäjä poisto tästä osallistumisprosessista onnistui.
         edit:
           title: Päivitä osallistumisprosessin hallintakäyttäjä
           update: Päivitä
@@ -317,7 +317,7 @@ fi:
         publish: "%{user_name} julkaisi osallistumisprosessin %{resource_name}"
         restore: "%{user_name} palautti osallistumisprosessin %{resource_name}"
         soft_delete: "%{user_name} siirsi osallistumisprosessin %{resource_name} roskakoriin"
-        unpublish: "%{user_name} muutti osallistumisprosessin %{resource_name} julkaisemattomaksi"
+        unpublish: "%{user_name} perui osallistumisprosessin %{resource_name} julkaisun"
         update: "%{user_name} päivitti osallistumisprosessin %{resource_name}"
       participatory_process_group:
         create: "%{user_name} loi osallistumisprosessien ryhmän %{resource_name}"
