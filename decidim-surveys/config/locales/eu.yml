@@ -20,7 +20,9 @@ eu:
       surveys:
         actions:
           answer: Erantzuna
+        name: Inkestak
         settings:
+          announcement: Oharra
           global:
             announcement: Oharra
             scope_id: Esparrua
@@ -47,15 +49,64 @@ eu:
     statistics:
       answers_count: Erantzunak
     surveys:
+      actions:
+        answers_alert: Erantzunak ezabatzea argitalpenean aktibatuta dago inkesta honetarako. Une honetan, erantzunen % {responers_count} suntsitu egingo dira, jarraitzen baduzu.
+        confirm_destroy: Ziur zaude hau ezabatu nahi duzula?
+        destroy: Suntsitu
+        edit: Editatu
+        manage_questions: Kudeatu galderak
+        new_survey: Beste inkesta bat
+        preview: Aurreikusi
+        title: Ekintzak
       admin:
+        answers:
+          index:
+            title: "Guztira %{guztira} erantzun"
+          show:
+            title: '#%{number} erantzun'
         exports:
           survey_user_answers: Inkestako parte-hartzaileen erantzunak
         surveys:
+          create:
+            invalid: Arazo bat egon da inkesta sortzean.
+            success: Inkesta zuzen sortua.
+          destroy:
+            success: Inkesta behar bezala ezabatua.
+          edit:
+            title: Editatu inkesta
+          index:
+            title: Inkestak
+          publish:
+            invalid: Arazo bat egon da inkesta hau argitaratzean.
+            success: Inkesta zuzen argitaratua.
+          unpublish:
+            invalid: Arazo bat egon da inkesta hau despublikatzean.
+            success: Inkesta zuzen despublikatua.
           update:
             invalid: Arazo bat egon da inkesta gordetzean.
             success: Inkesta ondo gorde da.
+      admin_log:
+        survey:
+          create: "%{user_name} k sortu du %{resource_name} inkesta %{space_name} esparruan inkesta gisa"
+          delete: "%{user_name} k ezabatu du %{resource_name} inkesta %{space_name} esparruan inkesta gisa"
+          publish: "%{user_name} k argitaratu du %{resource_name} inkesta %{space_name} espazioan"
+          update: "%{user_name} k eguneratu du %{resource_name} inkesta %{space_name} espazioan"
+      directory:
+        surveys:
+          index:
+            surveys: Inkestak
       last_activity:
         new_survey: 'Beste inkesta bat:'
+      models:
+        survey:
+          fields:
+            answers: Erantzunak
+            questions: Galderak
+            status: Egoera
+            title: Izenburua
+          status:
+            closed: Itxita
+            open: Zabaldu
       survey_confirmation_mailer:
         confirmation:
           body: Zuzen erantzun duzu %{participatory_space} espazioko %{questionnaire_title} inkesta
@@ -66,3 +117,17 @@ eu:
           invalid: Arazo bat egon da inkesta erantzutean.
           spam_detected: Arazo bat izan da galdetegia erantzutean. Agian azkarregi joan zara, berriro egin dezakezu?
           success: Inkesta ondo bete da.
+        count:
+          surveys_count:
+            one: "%{count} inkesta"
+            other: "%{count} inkesta"
+        filters:
+          all: Guztiak
+          state_values:
+            closed: Itxita
+            open: Zabaldu
+        no_surveys_warning: Ez dago zure bilatzeko irizpidearekin bat datorren inkestarik edo ez dago inkestarik irekita.
+        show:
+          closed: Itxita
+          open: Zabaldu
+          questions: galderak
