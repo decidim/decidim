@@ -81,10 +81,14 @@ eu:
             title: Editatu galdetegia
           form:
             add_question: Gehitu galdera
+            add_separator: Gehitu banatzailea
+            add_title_and_description: Gehitu izenburua eta deskribapena
+            already_answered_warning: Formularioa erabiltzaile batzuek erantzuten dute dagoeneko; beraz, ezin dituzu galderak aldatu.
             collapse: Bildu galdera guztiak
             expand: Zabaldu galdera guztiak
             preview: Aurreikusi
             title: Editatu galdetegia honetarako %{questionnaire_for}
+            unpublished_warning: Galdetegia ez dago argitaratuta. Galderak alda ditzakezu, baina eginez gero, oraingo erantzunak ezabatuko dituzu.
           matrix_row:
             matrix_row: Errenkada
             remove: Kendu
