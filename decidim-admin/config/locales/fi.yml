@@ -825,7 +825,7 @@ fi:
         select_recipients_to_deliver:
           all_spaces: Kaikki
           all_users_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille.
-          confirm_deliver: Haluatko varmasti toimittaa tämän uutiskirjeen? Tätä toimintoa ei voi peruuttaa.
+          confirm_deliver: Haluatko varmasti toimittaa tämän uutiskirjeen? Tätä toimintoa ei voi perua.
           confirm_recipients: Vahvista vastaanottajat
           deliver: Toimita uutiskirje
           followers_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka seuraavat jotain listan osallistumistiloista.
@@ -871,7 +871,7 @@ fi:
         create:
           success: Osallistujan virallistaminen onnistui.
         destroy:
-          success: Osallistujan virallistamisen peruuttaminen onnistui.
+          success: Osallistujan virallistamisen peruminen onnistui.
         index:
           actions: Toiminnot
           badge: Kunniamerkki
@@ -900,8 +900,8 @@ fi:
           show: Näytä
           title: Näytä osallistujan sähköpostiosoite
         unblock:
-          error: Osallistujan eston peruuttaminen epäonnistui.
-          success: Käyttäjän eston peruuttaminen onnistui.
+          error: Osallistujan eston peruminen epäonnistui.
+          success: Käyttäjän eston peruminen onnistui.
       organization:
         edit:
           title: Muokkaa organisaatiota
@@ -989,7 +989,7 @@ fi:
             title: Lataa CSV-tiedosto
           destroy:
             button: Poista kaikki yksityiset osallistujat
-            confirm: Oletko varma, että haluat poistaa kaikki yksityiset osallistujat? Tätä toimintoa ei voi peruuttaa ja poistettuja osallistujia ei voi palauttaa.
+            confirm: Oletko varma, että haluat poistaa kaikki yksityiset osallistujat? Tätä toimintoa ei voi perua ja poistettuja osallistujia ei voi palauttaa.
             empty: Tässä osallistumistilassa ei ole yksityisiä osallistujia.
             explanation: Tässä osallistumistilassa on %{count} yksityistä osallistujaa.
             title: Poista kaikki yksityiset osallistujat
