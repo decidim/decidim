@@ -39,7 +39,7 @@
     }
 
     &__horizontal {
-      @apply flex-row flex-wrap [&>a]:w-auto;
+      @apply flex-row flex-wrap w-full [&>a]:max-w-xs;
     }
   }
 
