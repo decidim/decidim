@@ -88,8 +88,13 @@ eu:
           edit:
             edit: Editatu
             empty: Oraindik ez dago galderarik.
+            manage_questions: Kudeatu galderak
             questionnaire: Galdetegia
             title: Editatu galdetegiaren txantiloia
+          edit_questions:
+            add_question: Gehitu galdera
+            add_separator: Gehitu banatzailea
+            add_title_and_description: Gehitu izenburua eta deskribapena
           form:
             title: '%{questionnaire_for}% galdetegiaren txantiloia'
           index:
