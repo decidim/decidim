@@ -112,6 +112,23 @@ fi-pl:
               other: "%{count} hanketta on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu."
             title: Tuo projekteja toisesta komponentista
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Muuta päivämäärää
+              end_date: Päättymispäivä
+              start_date: Alkamispäivä
+            dropdown:
+              actions: Toiminnot
+              change_dates: Muuta päivämääriä
+              change_status: Muuta tilaa
+              change_taxonomies: Muuta luokitteluja
+            status_form:
+              change_status: Muuta tilaa
+              status: Tila
+            submit_buttons:
+              cancel: Peruuta
+            taxonomies_form:
+              change_taxonomies: Muuta luokitteluja
           create:
             invalid: Tuloksen luonti epäonnistui.
             success: Tuloksen luonti onnistui.
@@ -119,6 +136,7 @@ fi-pl:
             title: Muokkaa tulosta
             update: Päivitä tulos
           index:
+            selected: Valittu
             title: Tulokset
           manage_trash:
             title: Poistetut tulokset
@@ -128,6 +146,17 @@ fi-pl:
           update:
             invalid: Tuloksen päivitys epäonnistui.
             success: Tuloksen päivitys onnistui.
+          update_dates:
+            invalid: Tulosten päivämäärien päivittäminen epäonnistui.
+            success: Tulosten päivämäärien päivittäminen onnistui.
+          update_status:
+            invalid: Tulosten tilojen päivittäminen epäonnistui.
+            success: Tulosten tilojen päivittäminen onnistui.
+          update_taxonomies:
+            invalid: Luokittelujen %{taxonomies} määrittäminen tulokselle %{results} epäonnistui.
+            select_a_result: Valitse tulos
+            select_a_taxonomy: Valitse luokittelu
+            success: Luokittelujen %{taxonomies} määrittäminen tulokselle %{results} onnistui.
         shared:
           subnav:
             statuses: Tilat
