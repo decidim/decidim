@@ -88,8 +88,13 @@ fi:
           edit:
             edit: Muokkaa
             empty: Kysymyksiä ei ole vielä.
+            manage_questions: Hallinnoi kysymyksiä
             questionnaire: Kysely
             title: Muokkaa kyselylomakkeen mallipohjaa
+          edit_questions:
+            add_question: Lisää kysymys
+            add_separator: Lisää erotinviiva
+            add_title_and_description: Lisää otsikko ja kuvaus
           form:
             title: Kyselylomakemalli %{questionnaire_for}
           index:
