@@ -147,10 +147,6 @@ module Decidim
 
         proposals.map.with_index { |proposal, index| "#{index + 1}) #{proposal.title}\n" }
       end
-
-      def sanitized(content)
-        decidim_sanitize_editor(content)
-      end
     end
   end
 end
