@@ -22,7 +22,7 @@
       }
 
       &--facebook {
-        @apply flex flex-row text-white bg-facebook hover:bg-facebookhover;
+        @apply flex flex-row text-white bg-omniauth-facebook hover:bg-omniauth-facebookhover;
       }
 
       &--x {
@@ -30,7 +30,7 @@
       }
 
       &--google {
-        @apply flex flex-row text-black bg-google hover:bg-googlehover border border-background;
+        @apply flex flex-row text-black bg-omniauth-google hover:bg-omniauth-googlehover border border-background;
       }
     }
 
