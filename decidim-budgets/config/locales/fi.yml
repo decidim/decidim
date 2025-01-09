@@ -236,7 +236,7 @@ fi:
             description: Tämä projekti ylittää valittavien projektien maksimimäärän, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen projektin äänestäsi tai äänestää nykyisten valintojen mukaisesti.
             title: Maksimihankkeiden määrä ylitetty
         budget_summary:
-          are_you_sure: Haluatko varmasti peruuttaa äänesi?
+          are_you_sure: Haluatko varmasti perua äänesi?
           cancel_order: poista äänesi
           checked_out:
             description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, voit poistaa äänesi.
@@ -376,7 +376,7 @@ fi:
         success_html: <p>Äänestäminen onnistui.</p> <p class="text-sm font-normal">Voit tutkia myös <a class="text-secondary underline" href="%{rest_of_budgets_link}">muita budjetteja</a>.</p>
         success_no_left_budgets_html: Äänesi kirjaaminen onnistui.
       destroy:
-        error: Äänesi peruuttaminen epäonnistui.
+        error: Äänesi peruminen epäonnistui.
         success: Äänesi on peruttu.
     resource_links:
       included_proposals:
