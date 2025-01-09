@@ -8,7 +8,7 @@ A participatory process:
 * can define helper text
 * can attach different components (such as meetings or proposals) with different configurations to each of them.
 * can have attachments
-* can be associated to custom categories
+* can be associated to custom taxonomies
 * can be promoted
 * can be a private process, and only users with permissions can see the process
 * special content can be added to the process or superprocess home

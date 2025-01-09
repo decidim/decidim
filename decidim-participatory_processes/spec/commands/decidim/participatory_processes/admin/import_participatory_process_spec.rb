@@ -20,7 +20,6 @@ module Decidim::ParticipatoryProcesses
         title: { en: "title" },
         slug: "imported-slug",
         import_steps?: import_steps,
-        import_categories?: import_categories,
         import_attachments?: import_attachments,
         import_components?: import_components,
         document: form_doc,
@@ -38,7 +37,6 @@ module Decidim::ParticipatoryProcesses
     let(:import_steps) { false }
     let(:import_components) { false }
     let(:import_attachments) { false }
-    let(:import_categories) { false }
 
     def stub_calls_to_external_files
       stub_get_request_with_format("http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg", "image/jpeg")
@@ -126,31 +124,6 @@ module Decidim::ParticipatoryProcesses
       end
 
       context "when participatory process steps are null" do
-        let(:document_name) { "participatory_processes_with_null.json" }
-
-        it_behaves_like "import participatory_process succeeds"
-      end
-    end
-
-    describe "when import_categories exists" do
-      let(:import_categories) { true }
-
-      it "imports a participatory process and the categories" do
-        stub_calls_to_external_files
-
-        expect { subject.call }.to change(Decidim::Category, :count).by(8)
-        expect(Decidim::Category.unscoped.distinct.pluck(:decidim_participatory_space_id).count).to eq 1
-
-        imported_participatory_process_category = Decidim::Category.unscoped.first
-        expect(imported_participatory_process_category.name).to eq(
-          "ca" => "Rerum quo dicta asperiores officiis.",
-          "en" => "Illum nesciunt praesentium explicabo qui.",
-          "es" => "Consequatur dolorem aspernatur quia aut."
-        )
-        expect(imported_participatory_process_category.participatory_space).to eq(Decidim::ParticipatoryProcess.last)
-      end
-
-      context "when categories are null" do
         let(:document_name) { "participatory_processes_with_null.json" }
 
         it_behaves_like "import participatory_process succeeds"

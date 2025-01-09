@@ -9,7 +9,6 @@ module Decidim
       def serialize
         super.merge(
           {
-            categories: serialize_categories,
             attachments: {
               attachment_collections: serialize_attachment_collections,
               files: serialize_attachments

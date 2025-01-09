@@ -24,18 +24,6 @@ describe "Decidim::Api::QueryType" do
           type
           thumbnail
         }
-        categories{
-          id
-          name{
-            translation(locale: "#{locale}")
-          }
-          parent {
-            id
-          }
-          subcategories{
-            id
-          }
-        }
         components{
           id
           name {
@@ -156,7 +144,6 @@ describe "Decidim::Api::QueryType" do
         "translation" => participatory_process.announcement[locale]
       },
       "attachments" => [],
-      "categories" => [],
       "components" => components,
       "createdAt" => participatory_process.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "description" => { "translation" => participatory_process.description[locale] },

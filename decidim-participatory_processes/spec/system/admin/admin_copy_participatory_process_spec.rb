@@ -79,27 +79,6 @@ describe "Admin copies participatory process" do
       end
     end
 
-    it "copies the process with categories" do
-      page.check("participatory_process[copy_categories]")
-      click_on "Copy"
-
-      expect(page).to have_content("successfully")
-
-      within "tr", text: "Copy participatory process" do
-        click_on "Copy participatory process"
-      end
-
-      within_admin_sidebar_menu do
-        click_on "Categories"
-      end
-
-      within ".table-list" do
-        participatory_process.categories.each do |category|
-          expect(page).to have_content(translated(category.name))
-        end
-      end
-    end
-
     it "copies the process with components" do
       page.check("participatory_process[copy_components]")
       click_on "Copy"
