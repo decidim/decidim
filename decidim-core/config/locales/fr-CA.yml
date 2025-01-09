@@ -1622,6 +1622,7 @@ fr-CA:
       no_stats: Il n'y a pas encore de statistiques.
       pages_count: Pages
       participants_count: Participant·e·s
+      surveys_count: Enquêtes
       users_count: Participant·e·s
     translation_bar:
       help_text: "<strong>Attention :</strong> Le contenu peut être automatiquement traduit et ne pas être exact à 100%."
