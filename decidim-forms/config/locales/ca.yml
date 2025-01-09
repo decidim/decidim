@@ -81,6 +81,9 @@ ca:
             title: Editar el qüestionari
           form:
             add_question: Afegeix una pregunta
+            add_separator: Afegir separador
+            add_title_and_description: Afegir títol i descripció
+            already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè algunes participants ja han respost el formulari.
             collapse: Redueix totes les preguntes
             expand: Expandeix totes les preguntes
             preview: Previsualitzar
