@@ -243,7 +243,7 @@ fi:
         publish: "%{user_name} julkaisi %{resource_name} ryhmän"
         restore: "%{user_name} palautti ryhmän %{resource_name}"
         soft_delete: "%{user_name} siirsi ryhmän %{resource_name} roskakoriin"
-        unpublish: "%{user_name} peruutti ryhmän %{resource_name} julkaisun"
+        unpublish: "%{user_name} perui ryhmän %{resource_name} julkaisun"
         update: "%{user_name} päivitti %{resource_name} ryhmän"
       assembly_member:
         create: "%{user_name} loi %{resource_name} jäsenen %{space_name} ryhmässä"
@@ -255,7 +255,7 @@ fi:
         create: "%{user_name} loi ryhmätyypin %{resource_name}"
         delete: "%{user_name} poisti ryhmätyypin %{resource_name}"
         publish: "%{user_name} julkaisi ryhmätyypin %{resource_name}"
-        unpublish: "%{user_name} peruutti ryhmätyypin %{resource_name} julkaisun"
+        unpublish: "%{user_name} perui ryhmätyypin %{resource_name} julkaisun"
         update: "%{user_name} päivitti ryhmätyypin %{resource_name}"
       assembly_user_role:
         create: "%{user_name} kutsui %{resource_name} %{space_name} ryhmään"
