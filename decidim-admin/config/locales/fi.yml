@@ -262,7 +262,7 @@ fi:
           error: Uuden kansion luonti epäonnistui.
           success: Kansion luonti onnistui.
         destroy:
-          success: Kansion tuhoaminen onnistui.
+          success: Kansion poisto onnistui.
         edit:
           title: Muokkaa kansiota
           update: Päivitä
@@ -279,7 +279,7 @@ fi:
           error: Uuden liitteen luonti epäonnistui.
           success: Liitteen luonti onnistui.
         destroy:
-          success: Liitteen tuhoaminen onnistui.
+          success: Liitteen poisto onnistui.
         edit:
           title: Muokkaa liitettä
           update: Päivitä
@@ -369,7 +369,7 @@ fi:
           title: Suodattimet
         title: Komponentit
         unpublish:
-          success: Komponentin julkaisun lopettaminen onnistui.
+          success: Komponentin julkaisun peruminen onnistui.
         update:
           error: Komponentin päivitys epäonnistui.
           success: Komponentin päivitys onnistui.
@@ -799,8 +799,8 @@ fi:
           error: Uutiskirjeen toimitus epäonnistui.
           success: Uutiskirjeen toimitus onnistui.
         destroy:
-          error_already_sent: 'Uutiskirjettä ei voi tuhota: se on jo lähetetty.'
-          success: Uutiskirjeen tuhoaminen onnistui.
+          error_already_sent: 'Uutiskirjettä ei voi poistaa: se on jo lähetetty.'
+          success: Uutiskirjeen poisto onnistui.
         edit:
           save_and_preview: Tallenna ja esikatsele
           title: Muokkaa uutiskirjettä
@@ -866,8 +866,8 @@ fi:
             invalid: Osallistujien estäminen epäonnistui.
             success: Osallistujien estäminen onnistui.
           unblock:
-            invalid: Osallistujien eston peruuttaminen epäonnistui.
-            success: Osallistujien eston peruuttaminen onnistui.
+            invalid: Osallistujien eston peruminen epäonnistui.
+            success: Osallistujien eston peruminen onnistui.
         create:
           success: Osallistujan virallistaminen onnistui.
         destroy:
@@ -959,7 +959,7 @@ fi:
           success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeuden lisäys onnistui.
         destroy:
           error: Osallistumistilan yksityisen käyttäjän poistaminen epäonnistui.
-          success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeuden tuhoaminen onnistui.
+          success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeuden poistaminen onnistui.
         edit:
           title: Muokkaa osallistumistilan yksityistä käyttäjää.
           update: Päivitä
@@ -975,8 +975,8 @@ fi:
           error: Osallistumistilan yksityisten käyttäjien julkaiseminen epäonnistui.
           success: Osallistumistilan yksityisten käyttäjien julkaiseminen onnistui
         unpublish_all:
-          error: Osallistumistilan yksityisten käyttäjien julkaisun peruuttaminen epäonnistui.
-          success: Osallistumistilan yksityisten käyttäjien julkaisun peruuttaminen onnistui.
+          error: Osallistumistilan yksityisten käyttäjien julkaisun peruminen epäonnistui.
+          success: Osallistumistilan yksityisten käyttäjien julkaisun peruminen onnistui.
         update:
           error: Osallistumistilan yksityisen käyttäjän päivittäminen epäonnistui.
           success: Osallistumistilan yksityisen käyttäjän päivittäminen onnistui.
@@ -1019,7 +1019,7 @@ fi:
           error: Uuden teematyypin luonti epäonnistui.
           success: Teematyypin luonti onnistui.
         destroy:
-          success: Teematyypin tuhoaminen onnistui
+          success: Teematyypin poisto onnistui
         edit:
           title: Muokkaa teematyyppiä
           update: Päivitä
@@ -1034,7 +1034,7 @@ fi:
           error: Uuden teeman luonti epäonnistui.
           success: Teeman luonti onnistui.
         destroy:
-          success: Teeman tuhoaminen onnistui.
+          success: Teeman poisto onnistui.
         edit:
           title: Muokkaa teemaa
           update: Päivitä
@@ -1081,7 +1081,7 @@ fi:
           never: Ei koskaan
           new_share_token_button: Uusi pääsylinkki
           share_tokens_help_html: |
-            Luo ja jaa pääsylinkkejä, mikäli haluat näyttää muilte, miltä toistaiseksi julkaisematon asia näyttää sivustolla.
+            Luo ja jaa pääsylinkkejä, mikäli haluat näyttää muille, miltä toistaiseksi julkaisematon asia näyttää sivustolla.
             Pääsylinkit voidaan rajata ainoastaan rekisteröityneille osallistujille ja niille voidaan asettaa myös vanhentumisaika.
             Jakaaksesi pääsylinkin jollekin muulle, luo se ja kopioi se leikepöydälle käyttämällä "%{clipboard} leikepöytä" toimintokuvaketta.
           title: 'pääsylinkit kohteelle: %{name}'
@@ -1106,7 +1106,7 @@ fi:
           error: Uuden aiheen luonti epäonnistui.
           success: Aiheen luonti onnistui.
         destroy:
-          success: Aiheen poistaminen onnistui.
+          success: Aiheen poisto onnistui.
         edit:
           title: Muokkaa aihetta
           update: Päivitä aihe
@@ -1123,7 +1123,7 @@ fi:
           error: Uuden sivun luonti epäonnistui.
           success: Sivun luonti onnistui.
         destroy:
-          success: Sivun tuhoaminen onnistui
+          success: Sivun poisto onnistui
         edit:
           changed_notably_help: Jos valitset tämän, käyttäjiä pyydetään hyväksymään päivitetyt käyttöehdot.
           last_notable_change: 'Viimeisin merkittävä muutos: %{tos_version_formatted}'
@@ -1151,8 +1151,8 @@ fi:
           invalid: Luokittelun luominen epäonnistui.
           success: Luokittelun luominen onnistui.
         destroy:
-          invalid: Luokittelun poistaminen epäonnistui.
-          success: Luokittelun poistaminen onnistui.
+          invalid: Luokittelun poisto epäonnistui.
+          success: Luokittelun poisto onnistui.
         edit:
           back: Takaisin
           description: Tämän luokittelun kohteita käytetään luokittelemaan tai suodattamaan asioita, kuten osallistumistiloja tai komponentteja. Listan kohteita voi järjestää haluttuun järjestykseen vetämällä ja pudottamalla kohteita halutuille paikoille.
@@ -1346,15 +1346,15 @@ fi:
               success: Kohteiden piilottaminen onnistui.
             ignore:
               invalid: Yhtään käyttäjätilien moderointi-ilmoitusta ei ole valittu.
-              success: Osallistujien ilmoitusten peruuttaminen epäonnistui.
+              success: Osallistujien ilmoitusten peruminen epäonnistui.
             unhide:
               failed: 'Joidenkin kohteiden näkyviin palauttaminen epäonnistui: %{errored}'
               invalid: Yhtään moderointi-ilmoitusta ei ole valittu.
               success: Kohteiden näkyviin palauttaminen onnistui.
             unreport:
-              failed: 'Joidenkin kohteiden moderointi-ilmoitusten peruuttaminen epäonnistui: %{errored}'
+              failed: 'Joidenkin kohteiden moderointi-ilmoitusten peruminen epäonnistui: %{errored}'
               invalid: Yhtään moderointi-ilmoitusta ei ole valittu.
-              success: Kohteiden moderointi-ilmoitusten peruuttaminen onnistui.
+              success: Kohteiden moderointi-ilmoitusten peruminen onnistui.
           hide:
             invalid: Kohteen piilotus epäonnistui.
             success: Resurssin piilotus onnistui.
