@@ -30,12 +30,6 @@ module Decidim
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
 
-    has_many :categories,
-             foreign_key: "decidim_participatory_space_id",
-             foreign_type: "decidim_participatory_space_type",
-             dependent: :destroy,
-             as: :participatory_space
-
     has_many :speakers,
              foreign_key: "decidim_conference_id",
              class_name: "Decidim::ConferenceSpeaker",
@@ -165,7 +159,7 @@ module Decidim
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(categories scope)
+      %w(scope)
     end
   end
 end

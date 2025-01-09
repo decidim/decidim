@@ -56,14 +56,6 @@ module Decidim
 
     has_many :components, as: :participatory_space, dependent: :destroy
 
-    # This relationship exists only by compatibility reasons.
-    # Initiatives are not intended to have categories.
-    has_many :categories,
-             foreign_key: "decidim_participatory_space_id",
-             foreign_type: "decidim_participatory_space_type",
-             dependent: :destroy,
-             as: :participatory_space
-
     enum signature_type: [:online, :offline, :any], _suffix: true
     enum state: [:created, :validating, :discarded, :open, :rejected, :accepted]
 
@@ -170,7 +162,7 @@ module Decidim
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(area scope categories)
+      %w(area scope)
     end
 
     def self.ransackable_scopes(_auth_object = nil)

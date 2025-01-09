@@ -16,7 +16,6 @@ describe "Decidim::Api::QueryType" do
     {
       "attachments" => [],
       "availableSlots" => conference.available_slots,
-      "categories" => [],
       "components" => [],
       "createdAt" => conference.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "description" => { "translation" => conference.description[locale] },
@@ -53,9 +52,6 @@ describe "Decidim::Api::QueryType" do
         }
         availableSlots
         bannerImage
-        categories {
-          id
-        }
         components {
           id
         }
@@ -161,9 +157,6 @@ describe "Decidim::Api::QueryType" do
         }
         availableSlots
         bannerImage
-        categories {
-          id
-        }
         components {
           id
         }

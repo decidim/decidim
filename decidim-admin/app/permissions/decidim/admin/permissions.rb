@@ -41,7 +41,6 @@ module Decidim
           allow! if user_action?
           allow! if admin_user_action?
 
-          allow! if permission_action.subject == :category
           allow! if permission_action.subject == :component
           allow! if permission_action.subject == :attachment
           allow! if permission_action.subject == :editor_image

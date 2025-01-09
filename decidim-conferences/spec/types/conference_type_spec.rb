@@ -17,7 +17,6 @@ module Decidim
       let(:organization) { model.organization }
 
       include_examples "attachable interface"
-      include_examples "categories container interface"
       include_examples "taxonomizable interface"
 
       describe "id" do
