@@ -13,25 +13,22 @@ en:
         one: Answer
         other: Answers
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: surveys
     components:
       surveys:
         actions:
           answer: Answer
-        name: Survey
+        name: Surveys
         settings:
+          announcement: Announcement
           global:
             announcement: Announcement
-            clean_after_publish: Delete answers when publishing the survey
-            ends_at: Answers accepted until
-            ends_at_help: Leave blank for no specific date
             scope_id: Scope
             scopes_enabled: Scopes enabled
-            starts_at: Answers accepted from
-            starts_at_help: Leave blank for no specific date
           step:
-            allow_answers: Allow answers
-            allow_unregistered: Allow unregistered users to answer the survey
-            allow_unregistered_help: If active, no login will be required in order to answer the survey. This may lead to poor or unreliable data and it will be more vulnerable to automated attacks. Use with caution! Mind that a participant could answer the same survey multiple times, by using different browsers or the "private browsing" feature of her web browser.
             announcement: Announcement
     events:
       surveys:
@@ -53,18 +50,64 @@ en:
     statistics:
       answers_count: Answers
     surveys:
+      actions:
+        answers_alert: Delete answers at publish is active for this survey. There are currently %{answers_count} answers that will be destroyed if you continue.
+        confirm_destroy: Are you sure you want to delete this?
+        destroy: Destroy
+        edit: Edit
+        manage_questions: Manage questions
+        new_survey: New survey
+        preview: Preview
+        title: Actions
       admin:
-        component:
-          actions:
-            answers_alert: If you publish the component, all results will be removed.
+        answers:
+          index:
+            title: "%{total} total responses"
+          show:
+            title: 'Answer #%{number}'
         exports:
           survey_user_answers: Survey participant answers
         surveys:
+          create:
+            invalid: There was a problem creating the survey.
+            success: Survey successfully created.
+          destroy:
+            success: Survey successfully deleted.
+          edit:
+            title: Edit survey
+          index:
+            title: Surveys
+          publish:
+            invalid: There was a problem publishing this survey.
+            success: Survey successfully published.
+          unpublish:
+            invalid: There was a problem unpublishing this survey.
+            success: Survey successfully unpublished.
           update:
             invalid: There was a problem saving the survey.
             success: Survey successfully saved.
+      admin_log:
+        survey:
+          create: "%{user_name} created the %{resource_name} survey on the %{space_name} space as an survey"
+          delete: "%{user_name} deleted the %{resource_name} survey on the %{space_name} space as an survey"
+          publish: "%{user_name} published the %{resource_name} survey on the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} survey on the %{space_name} space"
+      directory:
+        surveys:
+          index:
+            surveys: Surveys
       last_activity:
         new_survey: 'New survey:'
+      models:
+        survey:
+          fields:
+            answers: Answers
+            questions: Questions
+            status: Status
+            title: Title
+          status:
+            closed: Closed
+            open: Open
       survey_confirmation_mailer:
         confirmation:
           body: You have successfully answered the %{questionnaire_title} survey within %{participatory_space}
@@ -75,3 +118,17 @@ en:
           invalid: There was a problem answering the survey.
           spam_detected: There was a problem answering the form. Maybe you have been too quick, can you try again?
           success: Survey successfully answered.
+        count:
+          surveys_count:
+            one: "%{count} survey"
+            other: "%{count} surveys"
+        filters:
+          all: All
+          state_values:
+            closed: Closed
+            open: Open
+        no_surveys_warning: No surveys match your search criteria or there is not any survey open.
+        show:
+          closed: Closed
+          open: Open
+          questions: questions
