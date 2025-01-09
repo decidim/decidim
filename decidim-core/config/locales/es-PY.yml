@@ -1777,6 +1777,7 @@ es-PY:
       no_stats: No hay estadísticas aún.
       pages_count: Páginas
       participants_count: Participantes
+      surveys_count: Encuestas
       users_count: Participantes
     tags:
       filter_results_for_taxonomy: 'Resultados al filtrar por: %{resource}'
