@@ -120,10 +120,15 @@ es:
             dropdown:
               actions: Acciones
               change_dates: Cambiar fechas
+              change_status: Cambiar estados
+              change_taxonomies: Cambiar taxonomías
             status_form:
+              change_status: Cambiar estados
               status: Estado
             submit_buttons:
               cancel: Cancelar
+            taxonomies_form:
+              change_taxonomies: Cambiar taxonomías
           create:
             invalid: Se ha producido un error al crear este resultado.
             success: Resultado creado correctamente.
@@ -147,6 +152,11 @@ es:
           update_status:
             invalid: Se ha producido un error al actualizar el estado de los resultados
             success: El estado de los resultados se ha actualizado correctamente
+          update_taxonomies:
+            invalid: No se pudo actualizar la taxonomía %{taxonomies} para los resultados %{results}
+            select_a_result: Selecciona un resultado
+            select_a_taxonomy: Selecciona una taxonomía
+            success: No se pudo actualizar la taxonomía %{taxonomies} para los resultados %{results}
         shared:
           subnav:
             statuses: Estados
