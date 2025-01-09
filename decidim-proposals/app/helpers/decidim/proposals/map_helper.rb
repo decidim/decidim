@@ -9,7 +9,7 @@ module Decidim
       #
       # geocoded_proposals - A collection of geocoded proposals
       def proposals_data_for_map(geocoded_proposals)
-        geocoded_proposals.map do |proposal|
+        geocoded_proposals.select(&:geocoded_and_valid?).map do |proposal|
           proposal_data_for_map(proposal)
         end
       end
