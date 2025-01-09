@@ -139,8 +139,8 @@ fi:
           error: Äänestyksen julkaisu epäonnistui.
           success: Äänestyksen julkaisu onnistui.
         destroy:
-          error: Äänestyksen julkaisun lopettaminen epäonnistui.
-          success: Äänestyksen julkaisun lopettaminen onnistui.
+          error: Äänestyksen julkaisun peruminen epäonnistui.
+          success: Äänestyksen julkaisun peruminen onnistui.
     components:
       elections:
         actions:
@@ -154,7 +154,7 @@ fi:
     elections:
       actions:
         confirm_destroy: Oletko varma?
-        destroy: Tuhoa
+        destroy: Poista
         edit: Muokkaa
         feedback: Äänestäjän palaute
         import: Tuo ehdotuksia vastauksiin
@@ -168,7 +168,7 @@ fi:
         preview: Esikatsele
         publish: Julkaise
         title: Toiminnot
-        unpublish: Lopeta julkaisu
+        unpublish: Peru julkaisu
       admin:
         answers:
           create:
@@ -220,7 +220,7 @@ fi:
           publish:
             success: Vaalin julkaisu onnistui.
           unpublish:
-            success: Vaalin julkaisun lopettaminen epäonnistui.
+            success: Vaalin julkaisun peruminen epäonnistui.
           update:
             invalid: Vaalin päivitys epäonnistui.
             success: Vaalin päivitys onnistui.
@@ -398,7 +398,7 @@ fi:
           start_key_ceremony: "%{user_name} aloitti avainseremonian vaalille %{resource_name} osallistumistilan %{space_name} sähköisellä ääniuurnalla"
           start_tally: "%{user_name} aloitti ääntenlaskennan vaalille %{resource_name} osallistumistilan %{space_name} sähköisellä ääniuurnalla"
           start_vote: "%{user_name} aloitti äänestysajan vaalille %{resource_name} osallistumistilan %{space_name} sähköisellä ääniuurnalla"
-          unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisun osallistumistilassa %{space_name}"
+          unpublish: "%{user_name} perui vaalin %{resource_name} julkaisun osallistumistilassa %{space_name}"
           update: "%{user_name} päivitti vaalia %{resource_name} osallistumistilassa %{space_name}"
         trustee:
           create: "%{user_name} määritti käyttäjän %{trustee_user} luottamushenkilöksi"
@@ -911,8 +911,8 @@ fi:
             invalid: Tarkkailukomitean jäsenen luonti epäonnistui.
             success: Tarkkailukomitean jäsenen luonti onnistui.
           destroy:
-            invalid: Tarkkailukomitean jäsenen poistaminen epäonnistui.
-            success: Tarkkailukomitean jäsenen poistaminen onnistui.
+            invalid: Tarkkailukomitean jäsenen poisto epäonnistui.
+            success: Tarkkailukomitean jäsenen poisto onnistui.
           form:
             existing_user: Olemassa oleva osallistuja
             non_user: Kutsu uusi osallistuja
@@ -960,8 +960,8 @@ fi:
             invalid: Äänestysvirkailijan luonti epäonnistui.
             success: Äänestysvirkailijan luonti onnistui.
           destroy:
-            invalid: Äänestysvirkailijan poistaminen epäonnistui.
-            success: Äänestysvirkailijan poistaminen onnistui.
+            invalid: Äänestysvirkailijan poisto epäonnistui.
+            success: Äänestysvirkailijan poisto onnistui.
           form:
             existing_user: Olemassa oleva osallistuja
             non_user: Kutsu uusi osallistuja
@@ -976,14 +976,14 @@ fi:
             title: Luo äänestysvirkailija
           polling_officers_picker:
             choose_polling_officers: Valitse äänestysvirkailijat
-            no_polling_officers: Yksikään äänestysvirkailija ei vastaa hakuehtojasi tai yhtään äänestysvirkailijaa ei vielä ole määritetty.
+            no_polling_officers: Hakuehtosi eivät vastaa yhtään äänestysvirkailijaa tai yhtään äänestysvirkailijaa ei vielä ole määritetty.
         polling_stations:
           create:
             invalid: Äänestyspaikan luonti epäonnistui.
             success: Äänestyspaikan luonti onnistui.
           destroy:
-            invalid: Äänestyspaikan poistaminen epäonnistui.
-            success: Äänestyspaikan poistaminen onnistui.
+            invalid: Äänestyspaikan poisto epäonnistui.
+            success: Äänestyspaikan poisto onnistui.
           edit:
             title: Muokkaa äänestyspaikkaa
             update: Päivitä äänestyspaikkaa
@@ -1007,7 +1007,7 @@ fi:
         votings:
           actions:
             confirm_destroy: Oletko varma?
-            destroy: Tuhoa
+            destroy: Poista
             new_voting: Uusi äänestystila
           create:
             invalid: Äänestyksen luonti epäonnistui.
@@ -1060,7 +1060,7 @@ fi:
         voting:
           create: "%{user_name} loi äänestyksen %{resource_name}"
           publish: "%{user_name} julkaisi äänestyksen %{resource_name}"
-          unpublish: "%{user_name} lopetti äänestyksen %{resource_name} julkaisun"
+          unpublish: "%{user_name} perui äänestyksen %{resource_name} julkaisun"
       census:
         admin:
           census:
@@ -1071,9 +1071,9 @@ fi:
               info_message: "<strong>Odota hetki</strong>, käsitelty %{processed_count} / %{raw_count} riviä tiedostosta %{file} (tämä voi kestää useita minuutteja)."
             delete:
               button: Poista kaikki henkilötietorekisterin tiedot
-              confirm: Väestörekisterin tietojen poistamista ei voi peruuttaa jälkikäteen. Haluatko varmasti jatkaa?
+              confirm: Väestörekisterin tietojen poistamista ei voi perua jälkikäteen. Haluatko varmasti jatkaa?
             destroy:
-              error: Henkilötietorekisterin poistaminen epäonnistui, yritä uudestaan myöhemmin.
+              error: Henkilötietorekisterin poisto epäonnistui, yritä uudestaan myöhemmin.
               success: Henkilötietorekisterin tiedot poistettu.
             export_access_codes:
               button: Vie äänestyksen tunnistautumiskoodit
@@ -1199,7 +1199,7 @@ fi:
             confirm: Ok, jatka
             error: Tapahtui jokin virhe. Yritä uudestaan.
             heading: Äänten uudelleenlaskenta - Allekirjoita äänestyksen päättäminen
-            info_text: Jos jatkat, et voi enää muokata mitään tietoja. Tätä toimintoa ei voi peruuttaa.
+            info_text: Jos jatkat, et voi enää muokata mitään tietoja. Tätä toimintoa ei voi perua.
             submit: Allekirjoita äänestyksen päättäminen
             success: Äänestyksen päättämisen allekirjoittaminen onnistui.
           update:
