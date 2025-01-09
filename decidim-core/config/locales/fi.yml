@@ -160,7 +160,7 @@ fi:
     account:
       blocked: Tämä käyttäjätili on estetty, koska käyttäjä ei noudattanut käyttöehtoja
       delete:
-        alert: Tätä toimintoa ei voi peruuttaa. Jos poistat tilisi, et voi enää kirjautua sisään tunnuksillasi. Tilisi poiston yhteydessä nimesi ja tietosi poistuvat kaikkien laatimiesi asioiden yhteydestä. Voit kuitenkin aina luoda uuden tilin, mutta näitä aikaisemmin laadittuja asioita ei voida enää jälkikäteen liittää uuteen tiliisi.
+        alert: Tätä toimintoa ei voi perua. Jos poistat tilisi, et voi enää kirjautua sisään tunnuksillasi. Tilisi poiston yhteydessä nimesi ja tietosi poistuvat kaikkien laatimiesi asioiden yhteydestä. Voit kuitenkin aina luoda uuden tilin, mutta näitä aikaisemmin laadittuja asioita ei voida enää jälkikäteen liittää uuteen tiliisi.
         confirm:
           close: Sulje ikkuna
           ok: Kyllä, haluan poistaa tilini
@@ -179,8 +179,8 @@ fi:
         body1: Olemme lähettäneet viestin osoitteeseen %{unconfirmed_email} vahvistaaksemme uuden sähköpostiosoitteesi.
         body2: Haluatko tilata vahvistussähköpostin uudestaan? %{resend_link} tai %{cancel_link}.
         cancel: peruuta
-        cancel_error: Sähköpostin muutosta ei voitu peruuttaa.
-        cancel_successfully: Sähköpostin muuttamisen peruuttaminen onnistui.
+        cancel_error: Sähköpostin muutosta ei voitu perua.
+        cancel_successfully: Sähköpostin muuttamisen peruminen onnistui.
         resend_error: Vahvistussähköpostia ei voitu lähettää uudestaan.
         resend_successfully: Vahvistussähköpostin lähetys osoitteeseen %{unconfirmed_email} onnistui.
         send_again: Lähetä uudestaan
@@ -366,7 +366,7 @@ fi:
           rejected: "Tämä muutos kohteelle %{amendable_type} %{proposal_link}\nhylättiin ajankohtana <strong>%{date}</strong>."
           withdrawn: |-
             Tämä muutos kohteelle %{amendable_type} %{proposal_link}
-            on peruutettu sen laatijan toimesta.
+            on peruttu sen laatijan toimesta.
       name: Muutos
       new:
         amendment_author: Muutoksen laatija
@@ -393,8 +393,8 @@ fi:
         error: Muutosluonnoksen päivitys epäonnistui.
         success: Muutosluonnoksen päivitys onnistui.
       withdraw:
-        error: Muutoksen peruuttaminen epäonnistui.
-        success: Muutos on peruutettu.
+        error: Muutoksen peruminen epäonnistui.
+        success: Muutos on peruttu.
       wizard_step_form:
         steps:
           '1': Luo muutos
@@ -1363,8 +1363,8 @@ fi:
     newsletters:
       unsubscribe:
         check_subscription: Jos haluat muuttaa asetuksiasi, voit tehdä sen <a href="%{link}" target="_blank">asetussivulla</a>.
-        error: Tilauksen peruuttaminen epäonnistui.
-        success: Tilauksen peruuttaminen onnistui.
+        error: Tilauksen peruminen epäonnistui.
+        success: Tilauksen peruminen onnistui.
         token_error: Linkki on vanhentunut.
         unsubscribe: Peruuta tilaus
     newsletters_opt_in:
@@ -1376,7 +1376,7 @@ fi:
       notify:
         body_1: Henkilötietojen käsittely ja niiden suojaaminen ovat yhä tärkeämpiä meille kaikille. Uuden yleisen tietosuoja-asetuksen (GDPR) 25.5.2018 voimaan tultua yksilöillä on paremmat mahdollisuudet hallinnoida henkilötietojaan. Tästä syystä tarvitsemme suostumuksesi lähettääksemme sinulle olennaista tietoa koskien organisaatiota %{organization_name}.
         body_2: 'Kuinka voit antaa meille suostumuksesi? Napsauta vain seuraavaa painiketta:'
-        body_3: Tämän suostumuksen avulla voit edelleen vastaanottaa tietoja palvelun mahdollisuuksista. Jos emme saa lupaasi, lopetamme viestien lähettämisen sinulle. Jos vahvistat, että haluat edelleen pysyä ajan tasalla palvelusta, sinulla on mahdollisuus peruuttaa tilaus milloin tahansa.
+        body_3: Tämän suostumuksen avulla voit edelleen vastaanottaa tietoja palvelusta. Jos emme saa lupaasi, lopetamme viestien lähettämisen sinulle. Jos vahvistat, että haluat edelleen pysyä ajan tasalla palvelusta, sinulla on mahdollisuus perua tilaus milloin tahansa.
         button: Kyllä, haluan jatkaa olennaisten tietojen vastaanottoa
         greetings: Tervehdys,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei,
@@ -1888,7 +1888,7 @@ fi:
         nickname_help: Nimimerkkisi palvelussa %{organization}. Voi sisältää ainoastaan kirjaimia, numeroita sekä yhdysmerkkejä "-" ja alaviivoja "_".
         submit_button: Tallenna
         subtitle: Jos hyväksyt kutsun, aseta käyttäjänimesi ja salasana.
-      invitation_removed: Kutsusi peruutettiin.
+      invitation_removed: Kutsusi on peruttu.
       invitation_token_invalid: Käyttämäsi kutsuavain ei ole voimassa!
       new:
         header: Lähetä kutsu
