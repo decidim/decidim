@@ -40,6 +40,7 @@ module Decidim::Admin
           expect(form.user.blocked).to be(true)
           expect(form.user.extended_data["user_name"]).to eq(user_name)
           expect(form.user.name).to eq("Blocked user")
+          expect(form.user.notifications_sending_frequency).to eq("none")
         end
 
         it "original username is stored in the action log entry's resource title" do

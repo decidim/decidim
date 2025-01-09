@@ -25,7 +25,8 @@ module Decidim
         resources :questionnaire_templates do
           member do
             post :copy
-
+            get :edit_questions
+            patch :update_questions
             resource :questionnaire, module: :questionnaire_templates # To manage the templatable resource
           end
 
