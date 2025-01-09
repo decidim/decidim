@@ -21,6 +21,11 @@ de:
         details: Zusätzliche Kommentare
       taxonomy:
         name: Name der Klassifizierung
+      taxonomy_filter:
+        internal_name: Interner Filtername
+        name: Öffentlicher Filtertitel
+        root_taxonomy_id: Aus der Klassifizierung
+        space_filter: Als Filter für partizipative Bereiche verfügbar
       user:
         about: Über
         email: Ihre E-Mail
@@ -222,6 +227,8 @@ de:
         delete: "%{user_name} hat die Komponente %{resource_name} aus %{space_name} entfernt"
         export_component: "%{user_name} hat %{resource_name} %{component_name} in %{space_name} als %{format_name} exportiert"
         publish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} veröffentlicht"
+        restore: "%{user_name} hat die %{resource_name}-Komponente im %{space_name}-Bereich wiederhergestellt"
+        soft_delete: "%{user_name} hat die %{resource_name}-Komponente im %{space_name}-Bereich in den Papierkorb verschoben"
         unpublish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} auf \"unveröffentlicht\" gesetzt"
         update_permissions_with_space: "%{user_name} hat die Berechtigungen für %{resource_name} in %{space_name} aktualisiert"
       contextual_help_section:
@@ -234,6 +241,9 @@ de:
       impersonation_log:
         manage: "%{user_name} hat %{resource_name} verwaltet, weil %{reason}"
       moderation:
+        bulk_hide: "%{user_name} hat %{reported_count} Ressourcen verborgen"
+        bulk_unhide: "%{user_name} hat %{reported_count} Ressourcen wieder sichtbar gemacht"
+        bulk_unreport: "%{user_name} hat %{reported_count} Ressourcen nicht mehr als gemeldet markiert"
         hide: "%{user_name} hat eine Ressource vom Typ %{resource_type} in %{space_name} versteckt"
         unreport: "%{user_name} hat die Meldung einer Ressource vom Typ %{resource_type} in %{space_name} aufgehoben"
       newsletter:
@@ -290,6 +300,9 @@ de:
         update_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} aktualisiert"
       user:
         block: "%{user_name} hat %{resource_name} blockiert"
+        bulk_block: "%{user_name} hat %{blocked_count} Benutzer blockiert"
+        bulk_ignore: "%{user_name} hat %{unreported_users_count} Benutzer nicht mehr als gemeldet markiert"
+        bulk_unblock: "%{user_name} hat die Blockierung von %{unblocked_count} aufgehoben"
         invite: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} eingeladen"
         officialize: "%{user_name} den Benutzer %{resource_name} offiziell anerkannt"
         promote: "%{user_name} hat %{resource_name} befördert"
@@ -300,6 +313,9 @@ de:
         unofficialize: "%{user_name} hat die offizielle Anerkennung des Benutzers %{resource_name} widerrufen"
       user_group:
         block: "%{user_name} hat die Gruppe %{resource_name} blockiert"
+        bulk_block: "%{user_name} hat %{blocked_count} Benutzer blockiert"
+        bulk_ignore: "%{user_name} hat %{unreported_users_count} Benutzer nicht mehr als gemeldet markiert"
+        bulk_unblock: "%{user_name} hat die Blockierung von %{unblocked_count} aufgehoben"
         reject: "%{user_name} hat die Gruppen-Verifikation %{resource_name} abgelehnt"
         unblock: "%{user_name} hat die Blockierung der Gruppe %{resource_name} aufgehoben"
         verify: "%{user_name} hat die Gruppe %{resource_name} verifiziert"
@@ -426,6 +442,7 @@ de:
           scope_id: Umfang
         name: Beispiel Berechtigung
       dummy_authorization_workflow:
+        explanation: Beispiel Autorisierung
         name: Arbeitsablauf Dummy Berechtigung
       errors:
         duplicate_authorization: Ein Teilnehmer mit den gleichen Daten ist bereits autorisiert. Ein Administrator wird Sie kontaktieren, um Ihre Daten zu überprüfen.
@@ -668,6 +685,9 @@ de:
           show_password: Passwort anzeigen
           shown_password: Ihr Passwort wird angezeigt
         placeholder_email: hi@beispiel.org
+    documents:
+      one: "%{count} Dokument\n%{count} Dokumente"
+      other: "%{count} Dokumente"
     doorkeeper:
       authorizations:
         new:
@@ -686,6 +706,18 @@ de:
     download_your_data:
       export:
         ready: Bereit
+      help:
+        core:
+          description: Dies sind die Dateien mit den persönlichen Daten, Beiträgen und Aktivitäten des Benutzers %{user_name}
+          title: Laden Sie Ihre Daten aus %{organization} herunter
+        follows:
+          created_at: Das Datum und die Uhrzeit, zu der die Verfolgung erstellt wurde
+          followable: Die Ressource oder der Bereich, der verfolgt wird
+          id: Der eindeutige Bezeichner dieser Verfolgung
+          updated_at: Das Datum und die Uhrzeit, zu der die Verfolgung zuletzt aktualisiert wurde
+        identities:
+          created_at: Das Datum und die Uhrzeit, zu der die ID erstellt wurde
+          id: Der eindeutige Bezeichner dieser Identität
       show:
         action: Aktion
         download_data_description_1: Hier finden Sie alle für Ihr Konto verfügbaren Downloads. Diese .zip Dateien sind zwei Wochen verfügbar, bevor sie gelöscht werden.
