@@ -112,6 +112,23 @@ fr-CA:
               other: "%{count} projets en attente d'importation. Vous serez notifié par email une fois l'import terminé."
             title: Importer des projets depuis une autre fonctionnalité
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Date de modification
+              end_date: Date de fin
+              start_date: Date de début
+            dropdown:
+              actions: Actions
+              change_dates: Modifier les dates
+              change_status: Modifier l'état
+              change_taxonomies: Modifier les taxonomies
+            status_form:
+              change_status: Modifier l'état
+              status: État
+            submit_buttons:
+              cancel: Annuler
+            taxonomies_form:
+              change_taxonomies: Modifier les taxonomies
           create:
             invalid: Un problème est survenu lors de la création de ce résultat.
             success: La réalisation a été créée avec succès.
@@ -128,6 +145,17 @@ fr-CA:
           update:
             invalid: Un problème est survenu lors de la mise à jour de cette réalisation.
             success: Réalisation mise à jour avec succès.
+          update_dates:
+            invalid: Un problème est survenu lors de la mise à jour des dates de résultats
+            success: Les dates des résultats ont été mises à jour avec succès
+          update_status:
+            invalid: Un problème est survenu lors de la mise à jour de l'état des résultats
+            success: Etat des résultats mis à jour avec succès
+          update_taxonomies:
+            invalid: Impossible de mettre à jour les taxonomies %{taxonomies} pour les résultats %{results}
+            select_a_result: Sélectionnez un résultat
+            select_a_taxonomy: Sélectionnez une taxonomie
+            success: Taxonomies %{taxonomies} mises à jour avec succès pour les résultats %{results}
         shared:
           subnav:
             statuses: Progrès
