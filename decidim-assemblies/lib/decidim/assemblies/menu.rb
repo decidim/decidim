@@ -109,12 +109,6 @@ module Decidim
                         if: allowed_to?(:read, :component, assembly: current_participatory_space),
                         submenu: { target_menu: :admin_assemblies_components_menu }
 
-          menu.add_item :categories,
-                        I18n.t("categories", scope: "decidim.admin.menu.assemblies_submenu"),
-                        decidim_admin_assemblies.categories_path(current_participatory_space),
-                        icon_name: "price-tag-3-line",
-                        if: allowed_to?(:read, :category, assembly: current_participatory_space)
-
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.assembly_attachments_path(current_participatory_space),

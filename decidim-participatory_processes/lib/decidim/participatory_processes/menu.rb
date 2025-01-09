@@ -140,13 +140,6 @@ module Decidim
                         if: allowed_to?(:read, :component),
                         submenu: { target_menu: :admin_participatory_process_components_menu }
 
-          menu.add_item :categories,
-                        I18n.t("categories", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                        decidim_admin_participatory_processes.categories_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_participatory_processes.categories_path(current_participatory_space)),
-                        icon_name: "price-tag-3-line",
-                        if: allowed_to?(:read, :category)
-
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space),

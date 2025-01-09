@@ -119,12 +119,6 @@ module Decidim
                                                 ["decidim/conferences/admin/components", %w(index new edit)]),
                         submenu: { target_menu: :admin_conferences_components_menu }
 
-          menu.add_item :categories,
-                        I18n.t("categories", scope: "decidim.admin.menu.conferences_submenu"),
-                        decidim_admin_conferences.categories_path(current_participatory_space),
-                        icon_name: "price-tag-3-line",
-                        if: allowed_to?(:read, :category, conference: current_participatory_space)
-
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.admin.menu.conferences_submenu"),
                         decidim_admin_conferences.conference_attachments_path(current_participatory_space),
