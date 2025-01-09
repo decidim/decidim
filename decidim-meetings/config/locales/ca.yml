@@ -408,6 +408,7 @@ ca:
           form:
             available_slots_help: Deixar a 0 si les inscripcions són il·limitades.
             invites: Invitacions
+            manage_questions: Gestionar les preguntes
             recommendation_message: Per raons de privacitat et recomanem que esborris aquest formulari d'inscripció quan ja no el necessitis. Per defecte això és 3 mesos després que la reunió hagi finalitzat.
             registration_email_help: Aquest text apareixerà enmig del correu de confirmació de la inscripció. Just a sota del codi d'inscripció.
             registration_form: Formulari d'inscripció
