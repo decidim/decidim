@@ -40,6 +40,8 @@ cs:
       admin:
         models:
           components:
+            allow_answers: Povolit odpovědi
+            announcement: Oznámení
             description: Popis
             tos: Podmínky služby
         questionnaires:
