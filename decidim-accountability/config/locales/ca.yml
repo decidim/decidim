@@ -112,6 +112,19 @@ ca:
               other: "Hi ha %{count} a la cua per ser importats. Es notificarà per correu electrònic, quan es completi la importació."
             title: Importar projectes des d'un altre component
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Canviar data
+              end_date: Data de finalització
+              start_date: Data d'inici
+            dropdown:
+              actions: Accions
+              change_dates: Canviar dates
+              change_status: Canvia l'estat
+            status_form:
+              status: Estat
+            submit_buttons:
+              cancel: Cancel·lar
           create:
             invalid: S'ha produït un error en crear aquest resultat.
             success: Resultat creat correctament.
@@ -119,6 +132,7 @@ ca:
             title: Editar resultat
             update: Actualitzar resultat
           index:
+            selected: Seleccionades
             title: Resultats
           manage_trash:
             title: Resultats eliminats
@@ -128,6 +142,12 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar aquest resultat.
             success: Resultat actualitzat correctament.
+          update_dates:
+            invalid: S'ha produït un error en actualitzar les dates dels resultats
+            success: Les dates dels resultats s'han actualitzat correctament
+          update_status:
+            invalid: S'ha produït un error en actualitzar l'estat dels resultats
+            success: L'estat dels resultats s'han actualitzat correctament
         shared:
           subnav:
             statuses: Estats
