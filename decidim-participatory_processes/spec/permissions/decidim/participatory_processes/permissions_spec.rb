@@ -414,7 +414,6 @@ describe Decidim::ParticipatoryProcesses::Permissions do
 
       it_behaves_like "allows any action on subject", :attachment
       it_behaves_like "allows any action on subject", :attachment_collection
-      it_behaves_like "allows any action on subject", :category
       it_behaves_like "allows any action on subject", :component
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :process
@@ -440,7 +439,6 @@ describe Decidim::ParticipatoryProcesses::Permissions do
 
       it_behaves_like "allows any action on subject", :attachment
       it_behaves_like "allows any action on subject", :attachment_collection
-      it_behaves_like "allows any action on subject", :category
       it_behaves_like "allows any action on subject", :component
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :process
