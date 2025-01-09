@@ -36,8 +36,14 @@ module Decidim
             @merged_proposal = create_new_proposal
             merge_authors
             @merged_proposal.link_resources(proposals_to_link, "merged_from_component")
-            form.proposals.each(&:destroy!) if form.same_component?
+            proposals_mark_as_withdrawn if form.same_component?
             notify_author
+          end
+        end
+
+        def proposals_mark_as_withdrawn
+          form.proposals.each do |proposal|
+            proposal.update!(withdrawn_at: Time.current)
           end
         end
 

@@ -13,11 +13,11 @@ document.addEventListener("decidim:loaded", () => {
     // Handles changes on the form
     const activateDrawerForm = () => {
       const saveForm = drawer.dialog.querySelector("#form-merge-proposals");
-      
+
       // Handles editor initialization
       saveForm.querySelectorAll(".editor-container").forEach((element) => createEditor(element));
 
-      // Handles meeting checkbox 
+      // Handles meeting checkbox
       const form = document.querySelector(".proposals_merge_form_admin");
 
       if (form) {
