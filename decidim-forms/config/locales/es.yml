@@ -131,6 +131,8 @@ es:
             already_answered_warning: No puedes modificar las preguntas porque algunas participantes ya han respondido el formulario.
             collapse: Contraer todas las preguntas
             expand: Desplegar todas las preguntas
+            update:
+              success: Pregunta/s añadida/s correctamente a la encuesta.
           separator:
             down: Bajar
             remove: Eliminar
