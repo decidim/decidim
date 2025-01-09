@@ -393,7 +393,7 @@ fi-pl:
         error: Muutosluonnoksen päivitys epäonnistui.
         success: Muutosluonnoksen päivitys onnistui.
       withdraw:
-        error: Muutoksen peruuttaminen epäonnistui.
+        error: Muutoksen peruminen epäonnistui.
         success: Muutos on peruutettu.
       wizard_step_form:
         steps:
@@ -1788,6 +1788,7 @@ fi-pl:
       no_stats: Tilastoja ei vielä ole.
       pages_count: Sivua
       participants_count: Osallistujaa
+      surveys_count: Kyselyt
       users_count: Osallistujaa
     tags:
       filter_results_for_taxonomy: 'Rajaa tulokset kohteelle: %{resource}'
