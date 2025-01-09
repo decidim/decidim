@@ -9,7 +9,6 @@ module Decidim
       include Decidim::HasComponent
       include Decidim::ScopableResource
       include Decidim::HasReference
-      include Decidim::HasCategory
       include Decidim::Reportable
       include Decidim::HasAttachments
       include Decidim::Followable

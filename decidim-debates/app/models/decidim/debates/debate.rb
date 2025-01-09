@@ -8,7 +8,6 @@ module Decidim
     class Debate < Debates::ApplicationRecord
       include Decidim::HasComponent
       include Decidim::Taxonomizable
-      include Decidim::HasCategory
       include Decidim::Resourceable
       include Decidim::Followable
       include Decidim::Comments::CommentableWithComponent

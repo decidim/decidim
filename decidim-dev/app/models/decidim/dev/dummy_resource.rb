@@ -8,7 +8,6 @@ module Decidim
       include Resourceable
       include Reportable
       include Authorable
-      include HasCategory
       include ScopableResource
       include Taxonomizable
       include Decidim::Comments::Commentable

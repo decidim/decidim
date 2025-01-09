@@ -45,7 +45,6 @@ module Decidim
   autoload :HasSettings, "decidim/has_settings"
   autoload :HasTaxonomySettings, "decidim/has_taxonomy_settings"
   autoload :HasComponent, "decidim/has_component"
-  autoload :HasCategory, "decidim/has_category"
   autoload :Followable, "decidim/followable"
   autoload :FriendlyDates, "decidim/friendly_dates"
   autoload :Nicknamizable, "decidim/nicknamizable"

@@ -5,7 +5,6 @@ module Decidim
     # Model that encapsulates the parameters of a sortition
     class Sortition < ApplicationRecord
       include Decidim::Resourceable
-      include Decidim::HasCategory
       include Decidim::Taxonomizable
       include Decidim::Authorable
       include Decidim::HasComponent

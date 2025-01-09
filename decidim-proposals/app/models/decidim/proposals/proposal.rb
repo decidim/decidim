@@ -10,7 +10,6 @@ module Decidim
       include Decidim::Taxonomizable
       include Decidim::ScopableResource
       include Decidim::HasReference
-      include Decidim::HasCategory
       include Decidim::Reportable
       include Decidim::HasAttachments
       include Decidim::Followable

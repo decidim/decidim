@@ -11,7 +11,6 @@ module Decidim
       include Decidim::HasAttachmentCollections
       include Decidim::HasComponent
       include Decidim::ScopableResource
-      include Decidim::HasCategory
       include Decidim::HasReference
       include Decidim::Comments::CommentableWithComponent
       include Decidim::Traceable
