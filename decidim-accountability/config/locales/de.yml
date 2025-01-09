@@ -42,7 +42,7 @@ de:
       actions:
         attachment_collections: Ordner
         attachments: Anhänge
-        confirm_delete_result: Möchten Sie dieses Ergebnis wirklich löschen?
+        confirm_delete_result: Sind Sie sicher, dass Sie dieses Ergebnis löschen wollen?
         confirm_destroy: Sind Sie sicher, dass Sie diese %{name}löschen möchten?
         deleted_results_info: Gelöschte Ergebnisse können aus dem Papierkorb wiederhergestellt werden.
         destroy: Löschen
@@ -112,6 +112,9 @@ de:
               other: "%{count} Projekte werden in der Warteschlange importiert. Sie werden per E-Mail benachrichtigt, sobald sie abgeschlossen sind."
             title: Projekte aus einer anderen Komponente importieren
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Datum ändern
           create:
             invalid: Beim Erstellen dieses Ergebnisses ist ein Problem aufgetreten.
             success: Ergebnis erfolgreich erstellt.
