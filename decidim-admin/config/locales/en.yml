@@ -310,6 +310,9 @@ en:
           description: Blocking a user will render their account unusable. You may provide in your justification any guidelines on ways you would consider unblocking the user.
           justification: Justification
           title: Block User %{name}
+      categories:
+        index:
+          categories_title: Categories
       component_permissions:
         update:
           error: There was a problem updating the permissions of this component.
