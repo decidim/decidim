@@ -26,7 +26,7 @@ describe Decidim::ParticipatoryProcesses::Metrics::ParticipatoryProcessesMetricM
     end
 
     it "updates metric records" do
-      create(:metric, metric_type: "participatory_processes", day:, cumulative: 1, quantity: 1, organization:, category: nil)
+      create(:metric, metric_type: "participatory_processes", day:, cumulative: 1, quantity: 1, organization:)
       registry = generate_metric_registry.first
 
       expect(Decidim::Metric.count).to eq(1)

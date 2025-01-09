@@ -23,7 +23,6 @@ describe "Decidim::Api::QueryType" do
         "updatedAt" => assembly.assembly_type.updated_at.iso8601.to_s.gsub("Z", "+00:00")
       },
       "attachments" => [],
-      "categories" => [],
       "children" => [],
       "childrenCount" => 0,
       "closingDate" => assembly.closing_date.to_date.to_s,
@@ -105,9 +104,6 @@ describe "Decidim::Api::QueryType" do
           thumbnail
         }
         bannerImage
-        categories {
-          id
-        }
         children {
           id
         }
@@ -278,9 +274,6 @@ describe "Decidim::Api::QueryType" do
           thumbnail
         }
         bannerImage
-        categories {
-          id
-        }
         children {
           id
         }

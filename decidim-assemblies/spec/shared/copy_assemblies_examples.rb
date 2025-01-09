@@ -3,12 +3,6 @@
 shared_examples "copy assemblies" do
   let!(:assembly) { create(:assembly, organization:) }
   let!(:component) { create(:component, manifest_name: :dummy, participatory_space: assembly) }
-  let!(:category) do
-    create(
-      :category,
-      participatory_space: assembly
-    )
-  end
 
   before do
     switch_to_host(organization.host)
@@ -51,26 +45,6 @@ shared_examples "copy assemblies" do
           ca: "Còpia del procés participatiu"
         )
         fill_in :assembly_slug, with: "assembly-copy"
-      end
-    end
-
-    it "copies the assembly with categories" do
-      page.check("assembly[copy_categories]")
-      click_on "Copy"
-
-      expect(page).to have_content("successfully")
-
-      within "tr", text: "Copy assembly" do
-        click_on "Configure"
-      end
-      within_admin_sidebar_menu do
-        click_on "Categories"
-      end
-
-      within ".table-list" do
-        assembly.categories.each do |category|
-          expect(page).to have_content(translated(category.name))
-        end
       end
     end
 

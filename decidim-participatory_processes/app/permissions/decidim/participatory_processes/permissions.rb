@@ -238,7 +238,6 @@ module Decidim
         is_allowed = [
           :attachment,
           :attachment_collection,
-          :category,
           :component,
           :component_data,
           :moderation,
@@ -258,7 +257,6 @@ module Decidim
         is_allowed = [
           :attachment,
           :attachment_collection,
-          :category,
           :component,
           :component_data,
           :moderation,

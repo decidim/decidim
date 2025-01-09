@@ -25,10 +25,6 @@ module Decidim
 
             create_attachments!(attached_to: current_assembly)
 
-            2.times do
-              create_category!(participatory_space: current_assembly)
-            end
-
             seed_components_manifests!(participatory_space: current_assembly)
 
             Decidim::ContentBlocksCreator.new(current_assembly).create_default!

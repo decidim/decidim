@@ -19,7 +19,6 @@ describe Decidim::OpenDataExporter do
 
   before do
     Bullet.add_safelist type: :unused_eager_loading, class_name: "Decidim::Assembly", association: :attachment_collections
-    Bullet.add_safelist type: :unused_eager_loading, class_name: "Decidim::Assembly", association: :categories
   end
 
   it_behaves_like "open data exporter"

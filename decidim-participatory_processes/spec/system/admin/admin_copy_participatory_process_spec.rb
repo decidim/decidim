@@ -7,12 +7,6 @@ describe "Admin copies participatory process" do
 
   let!(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
   let!(:component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
-  let!(:category) do
-    create(
-      :category,
-      participatory_space: participatory_process
-    )
-  end
 
   before do
     switch_to_host(organization.host)

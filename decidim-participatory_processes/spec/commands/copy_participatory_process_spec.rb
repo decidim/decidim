@@ -24,12 +24,6 @@ module Decidim::ParticipatoryProcesses
         current_user:
       )
     end
-    let!(:category) do
-      create(
-        :category,
-        participatory_space: participatory_process
-      )
-    end
 
     let(:invalid) { false }
     let(:copy_steps) { false }

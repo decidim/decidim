@@ -57,11 +57,6 @@ module Decidim
                foreign_key: "decidim_assemblies_type_id",
                class_name: "Decidim::AssembliesType",
                optional: true
-    has_many :categories,
-             foreign_key: "decidim_participatory_space_id",
-             foreign_type: "decidim_participatory_space_type",
-             dependent: :destroy,
-             as: :participatory_space
 
     has_many :components, as: :participatory_space, dependent: :destroy
 
@@ -179,7 +174,7 @@ module Decidim
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(area assembly_type scope parent children categories)
+      %w(area assembly_type scope parent children)
     end
 
     private
