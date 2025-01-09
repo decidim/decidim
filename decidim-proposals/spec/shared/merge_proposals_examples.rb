@@ -2,7 +2,8 @@
 
 shared_examples "merge proposals" do
   let!(:proposals) { create_list(:proposal, 3, :official, component: current_component) }
-  let!(:target_component) { create(:proposal_component, participatory_space: current_component.participatory_space) }
+  let(:target_component_minimal) { create(:proposal_component, participatory_space: current_component.participatory_space) }
+  let!(:target_component) { target_component_minimal }
   include Decidim::ComponentPathHelper
 
   before do
@@ -37,56 +38,104 @@ shared_examples "merge proposals" do
     end
 
     context "when merge into a new one is selected from the actions dropdown" do
-      before do
-        click_on "Actions"
-        click_on "Merge into a new one"
-      end
-
-      it "shows the component select" do
-        expect(page).to have_css("#form-merge-proposals select", count: 1)
-      end
-
-      it "shows an update button" do
-        expect(page).to have_button(id: "js-submit-merge-proposals", count: 1)
-      end
-
-      context "when submitting the form" do
-        before do
-          within "#form-merge-proposals" do
-            select translated(target_component.name), from: :target_component_id_
+      context "when Allow attachments and Maps enabled are disable" do
+        context "when submitting the form" do
+          before do
+            click_on "Actions"
+            click_on "Merge into a new one"
+            within "#form-merge-proposals" do
+              expect(page).to have_css("#target_component_id_", count: 1)
+              select translated(target_component.name), from: :target_component_id_
+              fill_in_i18n(
+                :proposals_merge_title,
+                "#proposals_merge-title-tabs",
+                en: "My result merge proposal",
+                es: "Mi resultado de fusionar las propuestas",
+                ca: "El meu result merge proposal"
+              )
+              fill_in_i18n_editor(
+                :proposals_merge_body,
+                "#proposals_merge-body-tabs",
+                en: "A longer description",
+                es: "Descripción más larga",
+                ca: "Descripció més llarga"
+              )
+            end
+            expect(page).to have_button(id: "js-submit-merge-proposals", count: 1)
             click_on(id: "js-submit-merge-proposals")
           end
+
+          it "creates a new proposal" do
+            expect(page).to have_content("Successfully merged the proposals into a new one")
+            expect(page).to have_css(".table-list tbody tr", count: 1)
+            expect(page).to have_current_path(manage_component_path(target_component))
+          end
+
+          context "when merging to the same component" do
+            let!(:target_component) { current_component }
+            let!(:proposal_ids) { proposals.map(&:id) }
+
+            context "when the proposals cannot be merged" do
+              let!(:proposals) { create_list(:proposal, 3, :with_endorsements, :with_votes, component: current_component) }
+
+              it "does not create a new proposal and displays a validation fail message" do
+                expect(page).to have_css(".table-list tbody tr", count: 3)
+                expect(page).to have_content("There was a problem merging the selected proposals")
+                expect(page).to have_content("Are not official")
+                expect(page).to have_content("Have received votes or endorsements")
+              end
+            end
+
+            it "creates a new proposal and withdraw the other ones" do
+              expect(page).to have_content("Successfully merged the proposals into a new one")
+              expect(page).to have_css(".table-list tbody tr", count: 4)
+              expect(page).to have_current_path(manage_component_path(current_component))
+
+              proposal_ids.each do |id|
+                expect(page).to have_xpath("//tr[@data-id='#{id}']")
+              end
+            end
+          end
+        end
+      end
+
+      context "when Allow attachments and Maps enabled are enable" do
+        before do
+          current_component.update!(settings: { geocoding_enabled: true, attachments_allowed: true })
+          click_on "Actions"
+          click_on "Merge into a new one"
         end
 
-        it "creates a new proposal" do
-          expect(page).to have_content("Successfully merged the proposals into a new one")
-          expect(page).to have_css(".table-list tbody tr", count: 1)
-          expect(page).to have_current_path(manage_component_path(target_component))
-        end
-
-        context "when merging to the same component" do
-          let!(:target_component) { current_component }
-          let!(:proposal_ids) { proposals.map(&:id) }
-
-          context "when the proposals cannot be merged" do
-            let!(:proposals) { create_list(:proposal, 3, :with_endorsements, :with_votes, component: current_component) }
-
-            it "does not create a new proposal and displays a validation fail message" do
-              expect(page).to have_css(".table-list tbody tr", count: 3)
-              expect(page).to have_content("There was a problem merging the selected proposals")
-              expect(page).to have_content("Are not official")
-              expect(page).to have_content("Have received votes or endorsements")
+        context "when submitting the form" do
+          before do
+            within "#form-merge-proposals" do
+              first(:option, translated(target_component.name)).select_option
+              fill_in_i18n(
+                :proposals_merge_title,
+                "#proposals_merge-title-tabs",
+                en: "My result merge proposal",
+                es: "Mi resultado de fusionar las propuestas",
+                ca: "El meu result merge proposal"
+              )
+              fill_in_i18n_editor(
+                :proposals_merge_body,
+                "#proposals_merge-body-tabs",
+                en: "A longer description",
+                es: "Descripción más larga",
+                ca: "Descripció més llarga"
+              )
             end
           end
 
-          it "creates a new proposal and deletes the other ones" do
+          it "creates a new proposal" do
+            expect(page).to have_content("Address")
+            expect(page).to have_content("Add images")
+            expect(page).to have_content("Attachment or image name")
+            expect(page).to have_button(id: "js-submit-merge-proposals", count: 1)
+            click_on(id: "js-submit-merge-proposals")
             expect(page).to have_content("Successfully merged the proposals into a new one")
             expect(page).to have_css(".table-list tbody tr", count: 1)
-            expect(page).to have_current_path(manage_component_path(current_component))
-
-            proposal_ids.each do |id|
-              expect(page).to have_no_xpath("//tr[@data-id='#{id}']")
-            end
+            expect(page).to have_current_path(manage_component_path(target_component))
           end
         end
       end

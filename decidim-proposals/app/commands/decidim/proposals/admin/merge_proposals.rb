@@ -6,6 +6,8 @@ module Decidim
       # A command with all the business logic when an admin merges proposals from
       # one component to another.
       class MergeProposals < Decidim::Command
+        include ::Decidim::AttachmentMethods
+        include ::Decidim::GalleryMethods
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -22,24 +24,33 @@ module Decidim
         def call
           return broadcast(:invalid) unless form.valid?
 
-          merge_proposals
+          if process_attachments?
+            build_attachment
+            return broadcast(:invalid) if attachment_invalid?
+          end
+
+          if process_gallery?
+            build_gallery
+            return broadcast(:invalid) if gallery_invalid?
+          end
+
+          transaction do
+            @merged_proposal = create_new_proposal
+            merge_authors
+            @merged_proposal.link_resources(proposals_to_link, "merged_from_component")
+            proposals_mark_as_withdrawn if form.same_component?
+            @attached_to = @merged_proposal
+            create_gallery if process_gallery?
+            create_attachment(weight: first_attachment_weight) if process_attachments?
+            notify_author
+          end
 
           broadcast(:ok, @merge_proposal)
         end
 
         private
 
-        attr_reader :form
-
-        def merge_proposals
-          transaction do
-            @merged_proposal = create_new_proposal
-            merge_authors
-            @merged_proposal.link_resources(proposals_to_link, "merged_from_component")
-            proposals_mark_as_withdrawn if form.same_component?
-            notify_author
-          end
-        end
+        attr_reader :form, :attachment, :gallery
 
         def proposals_mark_as_withdrawn
           form.proposals.each do |proposal|
@@ -99,6 +110,12 @@ module Decidim
             resource: @merged_proposal,
             affected_users: @merged_proposal.notifiable_identities
           )
+        end
+
+        def first_attachment_weight
+          return 1 if @merged_proposal.photos.count.zero?
+
+          @merged_proposal.photos.count
         end
       end
     end
