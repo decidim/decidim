@@ -1,0 +1,19 @@
+<div class="item_show__header__action-options hide" data-action-form="change-dates">
+  <%= decidim_form_for(bulk_actions_form, url: update_dates_results_path, method: :post, html: { class: "form form-defaults w-full" }) do |f| %>
+    <div class="form__wrapper gap-6">
+      <%= f.hidden_field :result_ids, multiple: true, data: { result_ids_field: true } %>
+
+      <div class="row">
+        <div class="columns">
+          <%= f.date_field :start_date, label: t(".start_date") %>
+        </div>
+
+        <div class="columns">
+          <%= f.date_field :end_date, label: t(".end_date") %>
+        </div>
+      </div>
+
+      <%= render partial: "decidim/accountability/admin/results/bulk_actions/submit_buttons", locals: { submit_text: t(".change_dates") } %>
+    </div>
+  <% end %>
+</div>

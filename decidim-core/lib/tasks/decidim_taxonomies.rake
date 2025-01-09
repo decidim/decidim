@@ -81,7 +81,7 @@ namespace :decidim do
 
     desc "Imports taxonomies and filters structure from all JSON files inside tmp/taxonomies"
     task :import_all_plans, [] => :environment do |_task, _args|
-      Dir[Rails.root.join("tmp/taxonomies/*_plan.json")].each do |file|
+      Rails.root.glob("tmp/taxonomies/*_plan.json").each do |file|
         log.info "Importing plan from #{file}"
         Rake::Task["decidim:taxonomies:import_plan"].invoke(file)
       end
@@ -111,7 +111,7 @@ namespace :decidim do
 
     desc "Processes all metrics for result files in tmp/taxonomies"
     task :update_all_metrics, [] => :environment do |_task, _args|
-      Dir[Rails.root.join("tmp/taxonomies/*_result.json")].each do |file|
+      Rails.root.glob("tmp/taxonomies/*_result.json").each do |file|
         log.info "Processing metrics from #{file}"
         Rake::Task["decidim:taxonomies:update_metrics"].invoke(file)
       end

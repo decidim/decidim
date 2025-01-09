@@ -1,0 +1,18 @@
+<div class="item_show__header__action-options hide" data-action-form="change-taxonomies">
+  <%= decidim_form_for(bulk_actions_form, url: update_taxonomies_results_path, method: :post, html: { class: "form form-defaults w-full" }) do |f| %>
+    <div class="form__wrapper gap-6">
+      <%= f.hidden_field :result_ids, multiple: true, data: { result_ids_field: true } %>
+
+      <% current_component_taxonomy_filters.each do |filter| %>
+        <div class="row column mb-6">
+          <%= f.select :taxonomies,
+                       options_for_select(taxonomy_items_options_for_filter(filter)),
+                       { include_blank: I18n.t("decidim.taxonomies.prompt"), label: decidim_sanitize_translated(filter.name) },
+                       { class: "w-full mt-2", id: "taxonomies_for_filter_#{filter.id}", name: "result_bulk_actions[taxonomies][]" } %>
+        </div>
+      <% end %>
+
+      <%= render partial: "decidim/accountability/admin/results/bulk_actions/submit_buttons", locals: { submit_text: t(".change_taxonomies") } %>
+    <% end %>
+  </div>
+</div>
