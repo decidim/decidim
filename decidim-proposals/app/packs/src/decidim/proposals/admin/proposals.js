@@ -136,7 +136,7 @@ $(() => {
         });
 
         $(`#js-${action}-actions`).removeClass("hide");
-        hideBulkActionsButton(true);
+        hideBulkActionsButton(!isMergeProposalsClicked);
         hideOtherActionsButtons();
       }
     });

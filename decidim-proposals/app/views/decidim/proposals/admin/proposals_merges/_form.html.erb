@@ -1,4 +1,4 @@
-<div class="form__wrapper pt-0 h-screen">
+<div class="form__wrapper py-0">
   <div class="card">
     <div class="card-section">
       <% @form.proposal_ids.each do |id| %>
@@ -7,10 +7,10 @@
       <div class="row column">
         <%= bulk_components_select((current_component.siblings + [current_component])) %>
       </div>
-      <div class="row column pt-8">
+      <div class="row column pt-4">
         <%= form.translated :text_field, :title, class: "js-hashtags", aria: { label: :title } %>
       </div>
-      <div class="row column pt-8">
+      <div class="row column pt-4">
         <%= form.translated :editor, :body, aria: { label: :body } %>
       </div>
       <% if @form.meetings %>
@@ -18,7 +18,7 @@
           <div class="row column">
             <%= form.check_box :created_in_meeting, label: t(".created_in_meeting") %>
           </div>
-          <div class="row column" id="proposals_merge_meeting">
+          <div class="row column custom-inputs" id="proposals_merge_meeting">
             <%= form.select :meeting_id,
                             options_for_select(@form.meetings&.map { |meeting| [present(meeting).title(html_escape: true), meeting.id] }, selected: meetings_as_authors_selected ),
                             { include_blank: true, label: t(".select_a_meeting") },
@@ -27,7 +27,7 @@
         </div>
       <% end %>
       <% if @form.geocoding_enabled? %>
-        <div class="row column pt-8">
+        <div class="row column pt-4 custom-inputs">
           <%= form.geocoding_field :address %>
         </div>
       <% end %>
@@ -35,7 +35,7 @@
         <%= render partial: "decidim/admin/shared/gallery", locals: { form: } %>
       <% end %>
       <% if component_settings.attachments_allowed? %>
-        <div class="row column pt-8">
+        <div class="row column pt-4 custom-inputs">
           <legend><%= t(".attachment_legend") %></legend>
           <%= form.fields_for :attachment, @form.attachment do |form| %>
             <%= form.text_field :title %>

@@ -176,3 +176,29 @@
     @apply lg:col-start-2 lg:col-span-10;
   }
 }
+
+#form-merge-proposals {
+  .custom-inputs {
+    input {
+      @apply mt-0;
+    }
+  }
+
+  .tabs-content {
+    .editor-container {
+      .editor-input {
+        @apply h-40 !important;
+      }
+    }
+  }
+
+  .upload-modal__files-container {
+    label {
+      @apply mb-0;
+    }
+
+    button {
+      @apply mt-0;
+    }
+  }
+}
