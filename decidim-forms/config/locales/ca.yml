@@ -131,6 +131,8 @@ ca:
             already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè algunes participants ja han respost el formulari.
             collapse: Replega totes les preguntes
             expand: Desplega totes les preguntes
+            update:
+              success: Pregunta/es afegida/es correctament a l'enquesta.
           separator:
             down: Baixar
             remove: Eliminar
