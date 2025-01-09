@@ -120,11 +120,15 @@ ca:
             dropdown:
               actions: Accions
               change_dates: Canviar dates
-              change_status: Canvia l'estat
+              change_status: Canvia estats
+              change_taxonomies: Canviar taxonomies
             status_form:
+              change_status: Canvia estats
               status: Estat
             submit_buttons:
               cancel: Cancel·lar
+            taxonomies_form:
+              change_taxonomies: Canviar taxonomies
           create:
             invalid: S'ha produït un error en crear aquest resultat.
             success: Resultat creat correctament.
@@ -148,6 +152,11 @@ ca:
           update_status:
             invalid: S'ha produït un error en actualitzar l'estat dels resultats
             success: L'estat dels resultats s'han actualitzat correctament
+          update_taxonomies:
+            invalid: No s'ha pogut actualitzar la taxonomia %{taxonomies} pels resultats %{results}
+            select_a_result: Selecciona un resultat
+            select_a_taxonomy: Selecciona una taxonomia
+            success: No s'ha pogut actualitzar la taxonomia %{taxonomies} pels resultats %{results}
         shared:
           subnav:
             statuses: Estats
