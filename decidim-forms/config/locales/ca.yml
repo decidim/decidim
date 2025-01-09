@@ -40,7 +40,16 @@ ca:
       admin:
         models:
           components:
+            allow_answers: Permetre respostes
+            allow_unregistered: Permet a usuàries no registrades contestar l'enquesta
+            allow_unregistered_help: Si està activat, no serà necessari iniciar sessió per a respondre l'enquesta. Això pot implicar una recollida de dades pobra o poc fiable i serà més vulnerable a atacs automatitzats. Fes-ho servir amb precaució! És important que una participant pugui respondre a la mateixa enquesta diverses vegades, fent servir diferents navegador o la funció de "navegació privada" del seu navegadro web.
+            announcement: Avís
+            clean_after_publish: Esborrar les respostes en publicar l'enquesta
             description: Descripció
+            ends_at: Respostes acceptades fins a
+            ends_at_help: Deixar en blanc si no hi ha cap data específica
+            starts_at: Respostes acceptades des de
+            starts_at_help: Deixar en blanc si no hi ha cap data específica
             tos: Termes del servei
         questionnaires:
           actions:
@@ -89,6 +98,11 @@ ca:
           edit:
             save: Desa
             title: Editar el qüestionari
+          edit_questions:
+            add_question: Afegir pregunta
+            add_separator: Afegir separador
+            add_title_and_description: Afegir títol i descripció
+            save: Desar
           form:
             add_question: Afegeix una pregunta
             collapse: Redueix totes les preguntes
@@ -113,6 +127,10 @@ ca:
             remove: Eliminar
             statement: Declaració
             up: Amunt
+          questions_form:
+            already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè algunes participants ja han respost el formulari.
+            collapse: Replega totes les preguntes
+            expand: Desplega totes les preguntes
           separator:
             down: Baixar
             remove: Eliminar
