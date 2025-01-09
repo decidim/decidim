@@ -1774,6 +1774,7 @@ ca:
       no_stats: Encara no hi ha estadístiques.
       pages_count: Pàgines
       participants_count: Participants
+      surveys_count: Enquestes
       users_count: Participants
     tags:
       filter_results_for_taxonomy: 'Resultats en filtrar per: %{resource}'
