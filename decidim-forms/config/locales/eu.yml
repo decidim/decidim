@@ -46,6 +46,10 @@ eu:
             announcement: Oharra
             clean_after_publish: Ezabatu erantzunak inkesta argitaratzean
             description: Deskribapena
+            ends_at: Erantzunak noiz arte onartuta
+            ends_at_help: Utzi zuriz data zehatzik ez badago
+            starts_at: Erantzunak noiztik onartuak
+            starts_at_help: Utzi zuriz data zehatzik ez badago
             tos: Zerbitzu-baldintzak
         questionnaires:
           actions:
@@ -94,6 +98,12 @@ eu:
           edit:
             save: Gorde
             title: Editatu galdetegia
+          edit_questions:
+            add_question: Gehitu galdera
+            add_separator: Gehitu banatzailea
+            add_title_and_description: Gehitu izenburua eta deskribapena
+            save: Gorde
+            title: Errorea.>Galderak
           form:
             add_question: Gehitu galdera
             collapse: Bildu galdera guztiak
@@ -118,6 +128,13 @@ eu:
             remove: Kendu
             statement: Adierazpena
             up: Gora
+          questions_form:
+            already_answered_warning: Formularioa erabiltzaile batzuek erantzuten dute dagoeneko; beraz, ezin dituzu galderak aldatu.
+            collapse: Kolapsatu galdera guztiak
+            expand: Zabaldu galdera guztiak
+            unpublished_warning: Galdetegia ez dago argitaratuta. Galderak alda ditzakezu, baina eginez gero, oraingo erantzunak ezabatuko dituzu.
+            update:
+              success: Inkestaren galderak zuzen gordeta.
           separator:
             down: Behera
             remove: Kendu
