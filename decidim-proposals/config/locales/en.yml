@@ -12,6 +12,8 @@ en:
         state: State
         title: Title
         user_group_id: Create collaborative draft as
+      import_participatory_text:
+        document: Document
       proposal:
         address: Address
         answer: Answer
@@ -22,6 +24,8 @@ en:
         decidim_proposals_proposal_state_id: State
         decidim_scope_id: Scope
         has_address: Has address
+        latitude: Latitude
+        longitude: Longitude
         scope_id: Scope
         state: State
         suggested_hashtags: Suggested hashtags
@@ -48,6 +52,8 @@ en:
       proposals_copy:
         copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action cannot be reversed.
         origin_component_id: Component to copy the proposals from
+      proposals_file_import:
+        file: File
       proposals_import:
         import_proposals: Import proposals
         keep_answers: Keep state and answers
