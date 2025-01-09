@@ -315,6 +315,7 @@ en:
         update: "%{user_name} updated the %{resource_name} participatory process"
       participatory_process_group:
         create: "%{user_name} created the %{resource_name} participatory process group"
+        unpublish: "%{user_name} unpublished the %{resource_name} participatory process group"
         update: "%{user_name} updated the %{resource_name} participatory process group"
       participatory_process_step:
         activate: "%{user_name} activated the %{resource_name} phase in the %{space_name} participatory process"
