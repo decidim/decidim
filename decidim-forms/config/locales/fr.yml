@@ -120,8 +120,10 @@ fr:
             statement: Déclaration
             up: Monter
           questions_form:
+            already_answered_warning: Certains utilisateurs ont déjà répondu au formulaire, vous ne pouvez donc pas modifier ses questions.
             collapse: Replier toutes les questions
             expand: Déplier toutes les questions
+            unpublished_warning: Le formulaire n'est pas publié. Vous pouvez modifier ses questions, mais cela supprimera les réponses actuelles.
             update:
               success: Les questions de l'enquête ont été sauvegardées avec succès.
           separator:
