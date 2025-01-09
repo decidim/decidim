@@ -382,8 +382,8 @@ fi:
             add_service: Lisää palvelu
             services: Palvelut
           unpublish:
-            invalid: Tapaamisen julkaisun lopettaminen epäonnistui.
-            success: Tapaamisen julkaisun lopettaminen onnistui.
+            invalid: Tapaamisen julkaisun peruminen epäonnistui.
+            success: Tapaamisen julkaisun peruminen onnistui.
           update:
             invalid: Tapaamisen päivitys epäonnistui.
             success: Tapaamisen päivitys onnistui.
@@ -408,6 +408,7 @@ fi:
           form:
             available_slots_help: Jätä arvoksi 0, mikäli tapaamiseen on rajoittamaton määrä paikkoja.
             invites: Kutsut
+            manage_questions: Hallinnoi kysymyksiä
             recommendation_message: Osallistujien yksityisyyden kannalta suosittelemme, että poistat tämän lomakkeen tiedot, kun et enää tarvitse niitä. Oletuksena se säilytetään 3 kuukautta tapaamisen päättymisen jälkeen.
             registration_email_help: Tämä teksti näytetään tapaamisilmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
             registration_form: Ilmoittautumislomake
@@ -684,7 +685,7 @@ fi:
           success: Kutsun hylkäys onnistui.
         destroy:
           invalid: Tapaamisesta poistuminen epäonnistui.
-          success: Olet poistunut tapaamisesta onnistuneesti.
+          success: Tapaamisesta poistuminen onnistui.
       type_of_meeting:
         hybrid: Hybridi
         in_person: Fyysinen
