@@ -139,8 +139,8 @@ fi-pl:
           error: Äänestyksen julkaisu epäonnistui.
           success: Äänestyksen julkaisu onnistui.
         destroy:
-          error: Äänestyksen julkaisun lopettaminen epäonnistui.
-          success: Äänestyksen julkaisun lopettaminen onnistui.
+          error: Äänestyksen julkaisun peruminen epäonnistui.
+          success: Äänestyksen julkaisun peruminen onnistui.
     components:
       elections:
         actions:
