@@ -1,13 +1,13 @@
-  <% if user_signed_in? %>
-    <div class="add-comment hidden md:flex" id="add-comment-anchor">
-      <%== cell("decidim/comments/comment_form", model, root_depth:) %>
+<% if user_signed_in? %>
+  <div class="add-comment hidden md:flex" id="add-comment-anchor">
+    <%== cell("decidim/comments/comment_form", model, root_depth:) %>
+  </div>
+<% else %>
+  <p>
+  <div class="flash flex-col warning">
+    <div class="flash__message">
+      <%= action_authorized_link_to("comment", t("decidim.components.add_comment_form.account_message"), "#", **onboarding_action_params) %>
     </div>
-  <% else %>
-    <p>
-      <div class="flash flex-col warning">
-        <div class="flash__message">
-          <%= action_authorized_link_to("comment", t("decidim.components.add_comment_form.account_message"), "#", **onboarding_action_params) %>
-        </div>
-      </div>
-    </p>
-  <% end %>
+  </div>
+  </p>
+<% end %>

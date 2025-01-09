@@ -74,17 +74,6 @@ ro:
           unconfirmed: Trebuie să îți confirmi adresa de e-mail pentru a te autoriza singur.
         destroy:
           error: A apărut o eroare la ștergerea autorizației.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Verifică în raport cu un alt exemplu de responsabil de autorizare
-            csv_census: Verifică în raport cu recensământul organizaţiei
-            dummy_authorization_handler: Verifică în raport cu exemplul de responsabil de autorizare
-            dummy_authorization_workflow: Verifică în raport cu exemplul fluxului de lucru de autorizare
-            id_documents: Obține verificarea prin încărcarea documentului de identitate
-            postal_letter: Obține verificarea prin primirea unui cod de verificare prin poștă
-            sms: Obține verificarea prin primirea unui cod de verificare prin SMS
-          title: Verifică-ți identitatea
-          verify_with_these_options: 'Acestea sunt opțiunile disponibile pentru a îți verifica identitatea:'
         index:
           expired_verification: Verificarea a expirat
           introduce_code: Introducere cod

@@ -54,11 +54,6 @@ ga:
       assembly_imports:
         new:
           import: Iompórtáil
-      assembly_members:
-        edit:
-          update: Nuashonraigh
-        new:
-          create: Cruthaigh
       assembly_user_roles:
         edit:
           update: Nuashonraigh
@@ -66,7 +61,6 @@ ga:
           create: Cruthaigh
       menu:
         assemblies_submenu:
-          assembly_members: Baill
           attachment_collections: Fillteáin
           attachment_files: Comhaid
           attachments: Ceangaltáin
@@ -81,9 +75,6 @@ ga:
             title: Teideal
           name: Tionól
         assembly_member:
-          fields:
-            full_name: Ainm
-            position: Céim
           name: Ball
           positions:
             other: Eile

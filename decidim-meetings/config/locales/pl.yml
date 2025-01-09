@@ -102,8 +102,6 @@ pl:
             'false': Nie zaakceptowano
             'true': Zaakceptowano
         meetings:
-          category_id_eq:
-            label: Kategoria
           closed_at_present:
             label: Państwo
             values:
@@ -114,8 +112,6 @@ pl:
             values:
               'false': Przeszłe
               'true': Nadchodzące
-          scope_id_eq:
-            label: Zakres
           with_any_origin:
             label: Źródło
             values:
@@ -240,8 +236,6 @@ pl:
         attachment_collections: Folder
         attachments: Załączniki
         close: Zamknij
-        confirm_destroy: Czy na pewno chcesz usunąć to spotkanie?
-        destroy: Usuń
         edit: Edytuj
         invalid_destroy:
           proposals_count:
@@ -321,8 +315,6 @@ pl:
           create:
             invalid: Podczas tworzenia tego spotkania wystąpił błąd.
             success: Spotkanie zostało utworzone. Zauważ, że jest ono nieopublikowane, musisz je opublikować ręcznie.
-          destroy:
-            success: Spotkanie zostało pomyślnie usunięte
           edit:
             title: Edytuj spotkanie
             update: Aktualizuj
@@ -416,8 +408,6 @@ pl:
         questionnaire:
           update: "%{user_name} zaktualizował(a) kwestionariusz spotkania %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: Wszystkie
         filter_meeting_space_values:
           all: Wszystkie
       calendar:
@@ -529,7 +519,6 @@ pl:
           location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku, jeśli jest to spotkanie fizyczne, lub hasło do spotkania, jeśli odbywa się ono online i ma ograniczony dostęp.'
           online_meeting_url_help: 'Link: zezwól uczestnikom na bezpośredni dostęp do Twojego spotkania'
           registration_url_help: 'Link: zezwól uczestnikom na korzystanie z usługi zewnętrznej, której używasz do rejestracji'
-          select_a_category: Wybierz kategorię
           select_a_meeting_type: Wybierz typ spotkania
           select_a_registration_type: Wybierz typ rejestracji
           select_an_iframe_access_level: Wybierz poziom dostępu iframe
@@ -540,9 +529,7 @@ pl:
           see_all_withdrawn: Zobacz wszystkie wycofane spotkania
           text_banner: Oglądasz listę spotkań wycofanych przez ich autorów. %{go_back_link}.
         meeting:
-          close_meeting: Zamknij spotkanie
           edit_close_meeting: Edytuj raport ze spotkania
-          edit_meeting: Edytuj spotkanie
           join_meeting: Dołącz do spotkania
           reply_poll: Odpowiedz na ankietę
           view_poll: Zobacz ankietę
@@ -581,7 +568,6 @@ pl:
           visit_finished: Zobacz poprzednie spotkanie
           withdraw_btn_hint: Możesz wycofać swoje spotkanie, jeśli zmienisz zdanie. Spotkanie nie zostanie usunięte, pojawi się na liście wycofanych spotkań.
           withdraw_confirmation_html: Czy na pewno chcesz wycofać to spotkanie?<br><br><strong>Tej akcji nie można anulować!</strong>
-          withdraw_meeting: Wycofaj spotkanie
         update:
           invalid: Wystąpił błąd podczas aktualizowania spotkania.
           success: Spotkanie zostało zaktualizowane.

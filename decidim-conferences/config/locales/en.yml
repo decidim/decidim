@@ -541,6 +541,21 @@ en:
         objectives: Objectives
         related_assemblies: Related assemblies
         related_participatory_processes: Related participatory processes
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: The date when the conference invitation was accepted
+          conference: The conference where this invitation was sent
+          id: The unique identifier of the conference invitation
+          registration_type: The type of the registration for this conference that was sent
+          rejected_at: The date when the conference invitation was rejected
+          sent_at: The date when this conference invitation was sent
+          user: The unique identifier of the user that the invitation was sent
+        conference_registrations:
+          conference: The conference that this belongs to
+          id: The unique identifier of the conference regisrations
+          registration_type: The type of registration that this belongs to
+          user: The unique identifier of the user for this registration
     events:
       conferences:
         conference_registration_confirmed:

@@ -391,9 +391,7 @@ tr:
           phone_number: Telefon numarası
           place_date: Yer, Tarih
           postal_code: Posta Kodu
-          print: Yazdır
           province: İlçe / İl
-          section: 'Kuruluş tarafından istenirse, lütfen belirtilen yerlerde göndermek için bu formu yazdırın ve doldurun:'
           signature: İmza
         result:
           initiative_rejected_reason: Bu girişim, imza eksikliği nedeniyle reddedildi.
@@ -408,7 +406,6 @@ tr:
           other: " imzalar"
         vote_cabin:
           already_voted: Zaten imzalanmış
-          verification_required: Girişimi imzalamak için hesabınızı doğrulayın
           vote: İmza
           votes_blocked: İmzalama devre dışı
         votes_count:

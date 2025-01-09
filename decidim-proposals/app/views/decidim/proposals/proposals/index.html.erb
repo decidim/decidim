@@ -35,7 +35,7 @@
 
   <% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? %>
     <div class="proposal-list__map">
-      <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
+      <%= dynamic_map_for proposals_data_for_map(@proposals) do %>
         <template id="marker-popup">
           <div class="space-y-6">
             <a href="${link}" class="card__list">

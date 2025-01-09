@@ -84,7 +84,6 @@ ru:
       assemblies:
         create:
           error: При попытке добавить новое собрание произошла ошибка.
-          success: Собрание успешно добавлено.
         edit:
           update: Обновить
         index:
@@ -109,21 +108,6 @@ ru:
           copy: Копировать
           select: Выберите, какие данные вы хотите продублировать
           title: Создать копию собрания
-      assembly_members:
-        create:
-          error: При попытке добавить члена президиума этого собрания произошла ошибка.
-          success: Член президиума этого собрания успешно добавлен.
-        destroy:
-          success: Член президиума этого собрания успешно удален.
-        edit:
-          update: Обновить
-        index:
-          assembly_members_title: Члены президиума собрания
-        new:
-          create: Добавить
-        update:
-          error: При попытке обновить члена президиума этого собрания произошла ошибка.
-          success: Член президиума этого собрания успешно обновлен.
       assembly_publications:
         create:
           error: При обнародовании этого собрания произошла ошибка.
@@ -150,7 +134,6 @@ ru:
         assemblies: Собрания
         assemblies_submenu:
           assembly_admins: Участники собрания
-          assembly_members: Члены президиума
           attachment_collections: Папки
           attachment_files: Прикрепленные файлы
           attachments: Прикрепленные файлы
@@ -171,11 +154,6 @@ ru:
             title: Название
           name: Собрание
         assembly_member:
-          fields:
-            ceased_date: Дата прекращения полномочий
-            designation_date: Дата предоставления полномочий
-            full_name: Имя
-            position: Должность
           name: Член президиума
           positions:
             other: Другая
@@ -221,13 +199,6 @@ ru:
         assemblies_types:
           form:
             title: Название
-        assembly_members:
-          form:
-            existing_user: Существующий участник
-            non_user: Не участник
-            select_a_position: Выберите должность
-            select_user: Выберите участника
-            user_type: Вид участника
       assemblies:
         filters:
           names:
@@ -261,8 +232,6 @@ ru:
         duration: Длительность
         private_space: Это частное собрание
     assembly_members:
-      assembly_member:
-        designated_on: 'Полномочия предоставлены:'
       index:
         title: Члены президиума
     log:

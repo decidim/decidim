@@ -152,6 +152,9 @@ fi-pl:
       titles:
         initiatives: Aloitteet
         initiatives_types: Aloitetyypit
+    download_your_data:
+      show:
+        initiatives: Aloitteiden vienti
     events:
       initiatives:
         admin:
@@ -529,9 +532,7 @@ fi-pl:
           phone_number: Puhelinnumero
           place_date: Paikka, Päivämäärä
           postal_code: Postinumero
-          print: Tulosta
           province: Lääni tai maakunta
-          section: 'Pyydettäessä tulostakaa ja täyttäkää tämä lomake lähettääksenne sen osoitettuun paikkaan:'
           signature: Allekirjoitus
         result:
           answer_title: Tähän aloitteeseen on vastattu.
@@ -553,7 +554,6 @@ fi-pl:
           other: " allekirjoitusta"
         vote_cabin:
           already_voted: Allekirjoitettu aikaisemmin
-          verification_required: Vahvista tilisi allekirjoittamaan aloite
           vote: Allekirjoita
           votes_blocked: Allekirjoitus poistettu käytöstä
         votes_count:
@@ -600,13 +600,42 @@ fi-pl:
         success: Aloitteen päivitys onnistui.
     menu:
       initiatives: Aloitteet
+    open_data:
+      help:
+        initiatives:
+          answer: Aloitteen vastaus, mikäli siihen on vastattu
+          answer_url: Vastauksen URL-osoite, mikäli aloitteeseen on vastattu
+          answered_at: Vastauksen ajankohta, mikäli aloitteeseen on vastattu
+          area: Alue, johon aloite liittyy
+          authors: Aloitteen laatijat
+          comments_count: Aloitteen kommenttien määrä
+          created_at: Tilan luontiaika
+          description: Aloitteen kuvaus
+          first_progress_notification_at: Ajankohta, jolloin ensimmäinen edistymisheräte lähetettiin
+          follows_count: Tilaa seuraavien käyttäjien määrä
+          hashtag: Aloitetta vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
+          offline_votes: Aloitteen keräämien allekirjoitusten määrä alustan ulkopuolella
+          online_votes: Aloitteen keräämien allekirjoitusten määrä verkkoalustalla (suoraan tämän alustan kautta)
+          published_at: Tilan julkaisuaika
+          reference: Tilan yksilöllinen viite
+          scope: Aloitteen teema
+          second_progress_notification_at: Ajankohta, jolloin toinen edistymisheräte lähetettiin
+          signature_end_date: Päivämäärä, jolloin aloitteen allekirjoitusten keräysaika päättyy
+          signature_start_date: Päivämäärä, jolloin aloitteen allekirjoitusten keräysaika alkaa
+          signature_type: Allekirjoitusten keräystapa (verkossa vai fyysisesti)
+          signatures: Aloitteen keräämien allekirjoitusten määrä
+          state: Aloitteen tila tällä hetkellä
+          title: Aloitteen otsikko
+          type: Aloitteen tyyppi
+          updated_at: Tilan viimeisen päivityksen aika
+          url: Tilan URL-osoite
     resources:
       initiative:
         actions:
           comment: Kommentoi
       initiatives_type:
         actions:
-          create: Luo
+          create: Luo aloite
           title: Toimet
           vote: Äänestä
   layouts:
