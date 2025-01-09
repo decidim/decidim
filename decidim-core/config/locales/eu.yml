@@ -1789,6 +1789,7 @@ eu:
       no_stats: Oraindik ez dago estatistikarik.
       pages_count: Orrialdeak
       participants_count: Erabiltzaileak
+      surveys_count: Inkestak
       users_count: Parte-hartzaileak
     tags:
       filter_results_for_taxonomy: 'Iragazkien emaitzak honetarako: %{resource}'
