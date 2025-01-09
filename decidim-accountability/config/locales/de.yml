@@ -115,6 +115,20 @@ de:
           bulk_actions:
             dates_form:
               change_dates: Datum ändern
+              end_date: Enddatum
+              start_date: Startdatum
+            dropdown:
+              actions: Aktionen
+              change_dates: Daten ändern
+              change_status: Status ändern
+              change_taxonomies: Klassifizierungen ändern
+            status_form:
+              change_status: Status ändern
+              status: Status
+            submit_buttons:
+              cancel: Abbrechen
+            taxonomies_form:
+              change_taxonomies: Klassifizierungen ändern
           create:
             invalid: Beim Erstellen dieses Ergebnisses ist ein Problem aufgetreten.
             success: Ergebnis erfolgreich erstellt.
@@ -122,6 +136,7 @@ de:
             title: Ergebnis bearbeiten
             update: Ergebnis aktualisieren
           index:
+            selected: Ausgewählt
             title: Ergebnisse
           manage_trash:
             title: Gelöschte Ergebnisse
@@ -131,6 +146,17 @@ de:
           update:
             invalid: Beim Aktualisieren dieses Ergebnisses ist ein Problem aufgetreten.
             success: Ergebnis erfolgreich aktualisiert.
+          update_dates:
+            invalid: Bei der Aktualisierung der Ergebnisdaten ist ein Problem aufgetreten
+            success: Ergebnisdaten erfolgreich aktualisiert
+          update_status:
+            invalid: Bei der Aktualisierung des Ergebnisstatus ist ein Problem aufgetreten
+            success: Ergebnisstatus erfolgreich aktualisiert
+          update_taxonomies:
+            invalid: Die Klassifizierungen %{taxonomies} für Ergebnisse %{results} konnten nicht aktualisiert werden
+            select_a_result: Ein Ergebnis auswählen
+            select_a_taxonomy: Klassifizierung auswählen
+            success: Klassifizierung %{taxonomies} für Ergebnisse %{results} erfolgreich aktualisiert
         shared:
           subnav:
             statuses: Status
