@@ -36,33 +36,6 @@ module Decidim
 
       attr_reader :resource
 
-      def serialize_categories
-        return unless resource.categories.first_class.any?
-
-        resource.categories.first_class.map do |category|
-          {
-            id: category.try(:id),
-            name: category.try(:name),
-            description: category.try(:description),
-            parent_id: category.try(:parent_id),
-            subcategories: serialize_subcategories(category.subcategories)
-          }
-        end
-      end
-
-      def serialize_subcategories(subcategories)
-        return unless subcategories.any?
-
-        subcategories.map do |subcategory|
-          {
-            id: subcategory.try(:id),
-            name: subcategory.try(:name),
-            description: subcategory.try(:description),
-            parent_id: subcategory.try(:parent_id)
-          }
-        end
-      end
-
       def serialize_attachment_collections
         return unless resource.attachment_collections.any?
 

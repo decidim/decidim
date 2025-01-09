@@ -14,10 +14,10 @@ module Decidim
             next if cumulative_value.zero?
 
             quantity_value = results[:quantity] || 0
-            space_type, space_id, category_id, related_object_type, related_object_id = key
+            space_type, space_id, taxonomy_id, related_object_type, related_object_id = key
             record = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name,
                                                            participatory_space_type: space_type, participatory_space_id: space_id,
-                                                           organization: @organization, decidim_category_id: category_id,
+                                                           organization: @organization, decidim_taxonomy_id: taxonomy_id,
                                                            related_object_type:, related_object_id:)
             record.assign_attributes(cumulative: cumulative_value, quantity: quantity_value)
             record.save!
@@ -29,7 +29,7 @@ module Decidim
         # Creates a Hashed structure with comments grouped by
         #
         #  - ParticipatorySpace (type & ID)
-        #  - Category (ID)
+        #  - Taxonomy (ID)
         #  - RelatedObject (type & ID)
         #
         def query
@@ -70,10 +70,10 @@ module Decidim
           participatory_space = retrieve_participatory_space(related_object)
           return unless participatory_space
 
-          category_id = related_object.respond_to?(:category) ? related_object.category.try(:id) : ""
+          taxonomy_id = related_object.respond_to?(:taxonomy) ? related_object.taxonomy.try(:id) : ""
           group_key = []
           group_key += [participatory_space.class.name, participatory_space.id]
-          group_key += [category_id]
+          group_key += [taxonomy_id]
           group_key += [related_object.class.name, related_object.id]
           group_key
         end

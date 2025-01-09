@@ -21,7 +21,6 @@ bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
 bin/rails decidim:upgrade:clean:invalid_records
-bin/rails decidim_proposals:upgrade:set_categories
 ```
 
 ### 1.3. Follow the steps and commands detailed in these notes
@@ -51,13 +50,7 @@ bin/rails decidim:upgrade:clean:action_logs
 
 You can read more about this change on PR [#13237](https://github.com/decidim/decidim/pull/13237).
 
-### 2.2. Refactor of `decidim:upgrade:fix_orphan_categorizations` task
-
-As of [#13380](https://github.com/decidim/decidim/pull/13380), the task named `decidim:upgrade:fix_orphan_categorizations` has been renamed to `decidim:upgrade:clean:categories` and has been included in the main `decidim:upgrade:clean:invalid_records` task.
-
-You can read more about this change on PR [#13380](https://github.com/decidim/decidim/pull/13380).
-
-### 2.3 Cells expiration time
+### 2.2 Cells expiration time
 
 Now the cache expiration time is configurable via initializers/ENV variables.
 
@@ -67,7 +60,7 @@ Also note, that now it comes with a default value of 24 hours (1440 minutes).
 
 You can read more about this change on PR [#13402](https://github.com/decidim/decidim/pull/13402).
 
-### 2.4. Ransack upgrade
+### 2.3. Ransack upgrade
 
 As part of Rails upgrade to version 7.1, we upgraded Ransack gem to version 4.2. Ransack has introduced a new security policy that requires mandatory allowlisting for the attributes and associations needed by search engine. If you have a regular Decidim installation, you can skip this step.
 
@@ -87,17 +80,7 @@ end
 
 You can read more about this change on PR [#13196](https://github.com/decidim/decidim/pull/13196).
 
-### 2.5. Amendments category fix
-
-We have identified a bug in the filtering system, as the amendments created did not share the category with the proposal it amended. This fix aims to fix historic data. To fix it, you need to run:
-
-```shell
-bin/rails decidim_proposals:upgrade:set_categories
-```
-
-You can read more about this change on PR [#13395](https://github.com/decidim/decidim/pull/13395).
-
-### 2.6. Clean deleted user records `decidim:upgrade:clean:clean_deleted_users` task
+### 2.4. Clean deleted user records `decidim:upgrade:clean:clean_deleted_users` task
 
 When a user deleted their account, we mistakenly retained some metadata, such as the personal_url and about fields. Going forward, these fields will be automatically cleared upon deletion. To fix this issue for previously deleted accounts, we've added a new rake task that should be run on your production database.
 
@@ -107,7 +90,7 @@ bin/rails decidim:upgrade:clean:clean_deleted_users
 
 You can read more about this change on PR [#13624](https://github.com/decidim/decidim/pull/13624).
 
-### 2.7. Fixes on migration files
+### 2.5. Fixes on migration files
 
 Since we have introduced the "Soft delete for spaces and components" [#13297](https://github.com/decidim/decidim/pull/13297), we have noticed there are some migrations that are failing as a result of defaults scopes we added.
 To address the issue, we created a script that will update the migration files in your project so that we can fix any migrations that are potentially broken by the code evolution.

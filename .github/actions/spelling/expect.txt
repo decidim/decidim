@@ -114,7 +114,6 @@ carrierwave
 carryforward
 catala
 Catalunya
-categorizable
 cattr
 cbracket
 CCORP
@@ -853,7 +852,6 @@ stftime
 Stylelinter
 stylelintrc
 subattributes
-subcategorized
 subelements
 subfilters
 subforms

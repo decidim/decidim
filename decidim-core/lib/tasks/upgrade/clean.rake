@@ -8,7 +8,6 @@ namespace :decidim do
         :"decidim:upgrade:clean:searchable_resources",
         :"decidim:upgrade:clean:notifications",
         :"decidim:upgrade:clean:follows",
-        :"decidim:upgrade:clean:categories",
         :"decidim:upgrade:clean:action_logs",
         :"decidim:upgrade:clean:clean_deleted_users",
         :"decidim:upgrade:clean:fix_blocked_user_notification"
@@ -105,23 +104,6 @@ namespace :decidim do
           invalid += 1
         rescue NameError
           search.destroy!
-          invalid += 1
-        end
-        logger.info("===== Deleted #{invalid} invalid resources")
-      end
-
-      desc "Removes any categorizations belonging to invalid resources"
-      task categories: :environment do
-        logger.info("=== Removing orphan categorizations...")
-        invalid = 0
-
-        Decidim::Categorization.find_each do |categorization|
-          next unless categorization.categorizable.nil?
-
-          invalid += 1
-          categorization.destroy
-        rescue NameError
-          categorization.destroy!
           invalid += 1
         end
         logger.info("===== Deleted #{invalid} invalid resources")

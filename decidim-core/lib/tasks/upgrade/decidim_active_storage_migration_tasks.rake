@@ -54,7 +54,6 @@ namespace :decidim do
           ),
           "Decidim::StaticPage" => %w(content),
           "Decidim::ContextualHelpSection" => %w(content),
-          "Decidim::Category" => %w(description),
           "Decidim::Blogs::Post" => %w(body),
           "Decidim::Pages::Page" => %w(body),
           "Decidim::Sortitions::Sortition" => %w(additional_info witnesses cancel_reason),

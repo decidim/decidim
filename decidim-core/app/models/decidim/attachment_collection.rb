@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Categories serve as a taxonomy for attachments to use for while in the
-  # context of a participatory space.
   class AttachmentCollection < ApplicationRecord
     include Traceable
     include Decidim::TranslatableResource

@@ -85,27 +85,6 @@ FactoryBot.define do
     "#{Faker::Lorem.sentence(word_count: 1, supplemental: true, random_words_to_add: 3)} #{n}"
   end
 
-  factory :category, class: "Decidim::Category" do
-    transient do
-      skip_injection { false }
-    end
-
-    name { generate_localized_title(:category_name, skip_injection:) }
-    description { generate_localized_description(:category_description, skip_injection:) }
-    weight { 0 }
-
-    association :participatory_space, factory: :participatory_process
-  end
-
-  factory :subcategory, parent: :category do
-    transient do
-      skip_injection { false }
-    end
-    parent { build(:category, skip_injection:) }
-
-    participatory_space { parent.participatory_space }
-  end
-
   factory :organization, class: "Decidim::Organization" do
     transient do
       skip_injection { false }
@@ -971,7 +950,6 @@ FactoryBot.define do
     metric_type { "random_metric" }
     cumulative { 2 }
     quantity { 1 }
-    category { create(:category) }
     participatory_space { create(:participatory_process, organization:, skip_injection:) }
     related_object { create(:component, participatory_space:, skip_injection:) }
   end

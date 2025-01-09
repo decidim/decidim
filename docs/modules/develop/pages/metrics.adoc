@@ -89,7 +89,7 @@ The `decidim_metrics` table has the following fields:
 * `decidim_organization_id`: the FK to the organization to which this Metric belongs to.
 * `participatory_space_type` + `participatory_space_id`: the FK to the participatory space to which this Metric belongs to, if any.
 * `related_object_type` + `related_object_id`: the FK to the object to which this Metric belongs to, if any.
-* `decidim_category_id`: the FK to the category for this Metric, if any.
+* `decidim_taxonomy_id`: the FK to the taxonomy for this Metric, if any.
 
 Relations around `decidim_metrics` table:
 

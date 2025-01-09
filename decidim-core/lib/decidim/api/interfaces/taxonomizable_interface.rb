@@ -2,7 +2,7 @@
 
 module Decidim
   module Core
-    # This interface represents a categorizable object.
+    # This interface represents a taxonomizable object.
     module TaxonomizableInterface
       include Decidim::Api::Types::BaseInterface
       description "An interface that can be used in taxonomizable objects."

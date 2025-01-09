@@ -58,7 +58,7 @@ describe Decidim::Metrics::ParticipantsMetricManage do
       end
 
       it "updates metric records" do
-        create(:metric, metric_type: "participants", day:, cumulative: 1, quantity: 1, organization:, category: nil, participatory_space:)
+        create(:metric, metric_type: "participants", day:, cumulative: 1, quantity: 1, organization:, participatory_space:)
         registry = generate_metric_registry
 
         expect(Decidim::Metric.count).to eq(1)

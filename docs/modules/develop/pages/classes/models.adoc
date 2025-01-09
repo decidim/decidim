@@ -53,7 +53,6 @@ Most commonly used concerns are:
 - `Decidim::HasArea`
 - `Decidim::HasAttachmentCollections`
 - `Decidim::HasAttachments`
-- `Decidim::HasCategory`
 - `Decidim::HasComponent`
 - `Decidim::HasPrivateUsers`
 - `Decidim::HasReference`

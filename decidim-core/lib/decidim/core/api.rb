@@ -2,7 +2,6 @@
 
 module Decidim
   module Core
-    autoload :CategoryList, "decidim/api/functions/category_list"
     autoload :ComponentFinderBase, "decidim/api/functions/component_finder_base"
     autoload :ComponentList, "decidim/api/functions/component_list"
     autoload :ComponentListBase, "decidim/api/functions/component_list_base"
@@ -17,7 +16,6 @@ module Decidim
     autoload :AreaApiType, "decidim/api/types/area_api_type"
     autoload :AreaTypeType, "decidim/api/types/area_type_type"
     autoload :AttachmentType, "decidim/api/types/attachment_type"
-    autoload :CategoryType, "decidim/api/types/category_type"
     autoload :TaxonomyType, "decidim/api/types/taxonomy_type"
     autoload :ComponentType, "decidim/api/types/component_type"
     autoload :CoordinatesType, "decidim/api/types/coordinates_type"
@@ -64,9 +62,7 @@ module Decidim
     autoload :AuthorInterface, "decidim/api/interfaces/author_interface"
     autoload :AuthorableInterface, "decidim/api/interfaces/authorable_interface"
     autoload :CoauthorableInterface, "decidim/api/interfaces/coauthorable_interface"
-    autoload :CategoriesContainerInterface, "decidim/api/interfaces/categories_container_interface"
     autoload :TaxonomizableInterface, "decidim/api/interfaces/taxonomizable_interface"
-    autoload :CategorizableInterface, "decidim/api/interfaces/categorizable_interface"
     autoload :ScopableInterface, "decidim/api/interfaces/scopable_interface"
     autoload :AttachableInterface, "decidim/api/interfaces/attachable_interface"
     autoload :HashtagInterface, "decidim/api/interfaces/hashtag_interface"

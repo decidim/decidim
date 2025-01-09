@@ -47,7 +47,7 @@ For orphan records, you can do the following:
       participatory_space_id
       related_object_type
       related_object_id
-      decidim_category_id).join(', ')
+      decidim_taxonomy_id).join(', ')
 
     def remove_duplicates
       sql= <<~EOSQL.strip
@@ -57,7 +57,7 @@ For orphan records, you can do the following:
       EOSQL
     end
 
-    # DELETE FROM decidim_metrics WHERE decidim_metrics.id NOT IN \n  (SELECT id FROM (\n    SELECT DISTINCT ON (day, metric_type, decidim_organization_id, participatory_space_type, participatory_space_id, related_object_type, related_object_id, decidim_category_id) * FROM decidim_metrics));
+    # DELETE FROM decidim_metrics WHERE decidim_metrics.id NOT IN \n  (SELECT id FROM (\n    SELECT DISTINCT ON (day, metric_type, decidim_organization_id, participatory_space_type, participatory_space_id, related_object_type, related_object_id, decidim_taxonomy_id) * FROM decidim_metrics));
     def count_duplicates
       sql= <<~EOSQL.strip
         SELECT count(1), #{GROUP_BY_FIELDS} FROM decidim_metrics GROUP BY #{GROUP_BY_FIELDS} HAVING COUNT(1) > 1;
