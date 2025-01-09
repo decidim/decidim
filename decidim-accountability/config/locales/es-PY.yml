@@ -112,6 +112,23 @@ es-PY:
               other: "Hay %{count} proyectos para ser importados. Se notificará por correo electrónico, cuando se complete la importación."
             title: Importar proyectos desde otro componente
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Cambiar fecha
+              end_date: Fecha de finalización
+              start_date: Fecha de inicio
+            dropdown:
+              actions: Acciones
+              change_dates: Cambiar fechas
+              change_status: Cambiar estados
+              change_taxonomies: Cambiar taxonomías
+            status_form:
+              change_status: Cambiar estados
+              status: Estado
+            submit_buttons:
+              cancel: Cancelar
+            taxonomies_form:
+              change_taxonomies: Cambiar taxonomías
           create:
             invalid: Se ha producido un error al crear este resultado.
             success: Resultado creado correctamente.
@@ -119,6 +136,7 @@ es-PY:
             title: Editar resultado
             update: Actualizar resultado
           index:
+            selected: Seleccionadas
             title: Resultados
           manage_trash:
             title: Resultados eliminados
@@ -128,6 +146,17 @@ es-PY:
           update:
             invalid: Se ha producido un error al actualizar este resultado.
             success: Resultado actualizado correctamente.
+          update_dates:
+            invalid: Se ha producido un error al actualizar las fechas de los resultados
+            success: Las fechas de los resultados se han actualizado correctamente
+          update_status:
+            invalid: Se ha producido un error al actualizar el estado de los resultados
+            success: El estado de los resultados se ha actualizado correctamente
+          update_taxonomies:
+            invalid: No se pudo actualizar la taxonomía %{taxonomies} para los resultados %{results}
+            select_a_result: Selecciona un resultado
+            select_a_taxonomy: Selecciona una taxonomía
+            success: No se pudo actualizar la taxonomía %{taxonomies} para los resultados %{results}
         shared:
           subnav:
             statuses: Estados
