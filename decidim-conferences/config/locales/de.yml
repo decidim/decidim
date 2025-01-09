@@ -545,6 +545,13 @@ de:
           id: Der eindeutige Bezeichnung der Konferenzeinladung
           registration_type: Die Art der Registrierung für diese Konferenz, zu der eingeladen wurde
           rejected_at: Das Datum, an dem die Konferenzeinladung abgelehnt wurde
+          sent_at: Das Datum, an dem diese Konferenzeinladung versendet wurde
+          user: Die eindeutige Kennung des Benutzers, an den die Einladung gesendet wurde
+        conference_registrations:
+          conference: Die Konferenz, zu der dies gehört
+          id: Die eindeutige Kennung der Konferenzanmeldungen
+          registration_type: Die Art der Registrierung, zu der diese gehört
+          user: Die eindeutige Kennung des Benutzers für diese Anmeldung
     events:
       conferences:
         conference_registration_confirmed:
