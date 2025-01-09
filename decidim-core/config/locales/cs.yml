@@ -1817,6 +1817,7 @@ cs:
       no_stats: Zatím nejsou žádné statistiky.
       pages_count: Stránky
       participants_count: Účastníci
+      surveys_count: Průzkumy
       users_count: Účastníci
     tags:
       filter_results_for_taxonomy: 'Filtrovat výsledky pro: %{resource}'
