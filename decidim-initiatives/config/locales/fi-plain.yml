@@ -270,7 +270,7 @@ fi-pl:
           reject:
             success: Aloitteen hylkääminen onnistui.
           unpublish:
-            success: Aloitteen julkaisun lopetus onnistui.
+            success: Aloitteen julkaisun peruminen onnistui.
           update:
             error: Tapahtui virhe.
             success: Aloitteen päivitys onnistui.
