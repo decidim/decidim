@@ -43,7 +43,7 @@ fi:
         promoting_committee_enabled: Ota käyttöön kannatuskomitea
         signature_type: Allekirjoitustapa
         title: Otsikko
-        undo_online_signatures_enabled: Verkossa tehtyjen allekirjoitusten peruuttaminen käytössä
+        undo_online_signatures_enabled: Verkossa tehtyjen allekirjoitusten peruminen käytössä
         validate_sms_code_on_votes: Lisää tekstiviestikoodin validointivaihe allekirjoitusprosessiin
       initiatives_type_scope:
         decidim_scopes_id: Teemat
