@@ -845,8 +845,8 @@ fi:
         splitted_text: Alkuperäinen ehdotus jaettiin osiksi ja tämä ehdotus luotiin sen pohjalta
         text: Tämä ehdotus luotiin
       destroy_draft:
-        error: Ehdotusluonnoksen poistaminen epäonnistui.
-        success: Ehdotusluonnoksen poistaminen onnistui.
+        error: Ehdotusluonnoksen poisto epäonnistui.
+        success: Ehdotusluonnoksen poisto onnistui.
       exit_modal:
         cancel: Peruuta
         exit: Jatka
@@ -865,8 +865,8 @@ fi:
           error: Laatijakutsun lähettäminen epäonnistui.
           success: "Osallistujan %{author_name} kutsuminen laatijaksi onnistui."
         destroy:
-          error: Kutsun hylkääminen epäonnistui.
-          success: Kutsun hylkääminen onnistui.
+          error: Kutsun hylkäys epäonnistui.
+          success: Kutsun hylkäys onnistui.
         update:
           error: Kutsun hyväksyminen epäonnistui.
           success: Kutsun hyväksyminen onnistui.
