@@ -26,7 +26,12 @@ module Decidim
           end
           resource :registrations, only: [:edit, :update] do
             resources :invites, only: [:index, :create]
-            resource :form, only: [:edit, :update], controller: "registration_form"
+            resource :form, only: [:edit, :update], controller: "registration_form" do
+              member do
+                get :edit_questions
+                patch :update_questions
+              end
+            end
             collection do
               get :export
               post :validate_registration_code

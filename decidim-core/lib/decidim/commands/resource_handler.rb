@@ -22,7 +22,7 @@ module Decidim
         end
 
         def form_attribute_values
-          raise "You need to define the list of attributes to be fetched from form object fetch_form_attributes" unless defined?(:form_attributes)
+          raise "You need to define the list of attributes to be fetched from form object fetch_form_attributes" if form_attributes.empty?
 
           form_attributes.index_with do |field|
             form.send(field)
@@ -30,7 +30,7 @@ module Decidim
         end
 
         def file_attribute_values
-          return {} unless defined?(:file_attributes)
+          return {} if file_attributes.empty?
 
           attachment_attributes(*file_attributes)
         end
