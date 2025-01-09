@@ -16,7 +16,6 @@ gem "decidim-dev", github: "decidim/decidim"
 ### 1.2. Run these commands
 
 ```console
-sudo apt install wkhtmltopdf # or the alternative installation process for your operating system. See "2.7. wkhtmltopdf binary change"
 bundle remove spring spring-watcher-listen
 bundle update decidim
 bin/rails decidim:upgrade
@@ -98,19 +97,7 @@ bin/rails decidim_proposals:upgrade:set_categories
 
 You can read more about this change on PR [#13395](https://github.com/decidim/decidim/pull/13395).
 
-### 2.6. wkhtmltopdf binary change
-
-For improving the support with latest versions of Ubuntu, and keeping a low size in Heroku/Docker images, we removed the `wkhtmltopdf-binary` gem dependency. This means that your package manager should have the `wkhtmltopdf` binary installed.
-
-In the case of Ubuntu/Debian, this is done with the following command:
-
-```bash
-sudo apt install wkhtmltopdf
-```
-
-You can read more about this change on PR [#13616](https://github.com/decidim/decidim/pull/13616).
-
-### 2.7. Clean deleted user records `decidim:upgrade:clean:clean_deleted_users` task
+### 2.6. Clean deleted user records `decidim:upgrade:clean:clean_deleted_users` task
 
 When a user deleted their account, we mistakenly retained some metadata, such as the personal_url and about fields. Going forward, these fields will be automatically cleared upon deletion. To fix this issue for previously deleted accounts, we've added a new rake task that should be run on your production database.
 
@@ -120,7 +107,7 @@ bin/rails decidim:upgrade:clean:clean_deleted_users
 
 You can read more about this change on PR [#13624](https://github.com/decidim/decidim/pull/13624).
 
-### 2.8. Fixes on migration files
+### 2.7. Fixes on migration files
 
 Since we have introduced the "Soft delete for spaces and components" [#13297](https://github.com/decidim/decidim/pull/13297), we have noticed there are some migrations that are failing as a result of defaults scopes we added.
 To address the issue, we created a script that will update the migration files in your project so that we can fix any migrations that are potentially broken by the code evolution.
