@@ -866,8 +866,8 @@ fi-pl:
             invalid: Osallistujien estäminen epäonnistui.
             success: Osallistujien estäminen onnistui.
           unblock:
-            invalid: Osallistujien eston peruuttaminen epäonnistui.
-            success: Osallistujien eston peruuttaminen onnistui.
+            invalid: Osallistujien eston peruminen epäonnistui.
+            success: Osallistujien eston peruminen onnistui.
         create:
           success: Osallistujan virallistaminen onnistui.
         destroy:
@@ -900,7 +900,7 @@ fi-pl:
           show: Näytä
           title: Näytä osallistujan sähköpostiosoite
         unblock:
-          error: Osallistujan eston peruuttaminen epäonnistui.
+          error: Osallistujan eston peruminen epäonnistui.
           success: Käyttäjän eston peruuttaminen onnistui.
       organization:
         edit:
@@ -975,8 +975,8 @@ fi-pl:
           error: Osallistumistilan yksityisten käyttäjien julkaiseminen epäonnistui.
           success: Osallistumistilan yksityisten käyttäjien julkaiseminen onnistui
         unpublish_all:
-          error: Osallistumistilan yksityisten käyttäjien julkaisun peruuttaminen epäonnistui.
-          success: Osallistumistilan yksityisten käyttäjien julkaisun peruuttaminen onnistui.
+          error: Osallistumistilan yksityisten käyttäjien julkaisun peruminen epäonnistui.
+          success: Osallistumistilan yksityisten käyttäjien julkaisun peruminen onnistui.
         update:
           error: Osallistumistilan yksityisen käyttäjän päivittäminen epäonnistui.
           success: Osallistumistilan yksityisen käyttäjän päivittäminen onnistui.
@@ -1081,7 +1081,7 @@ fi-pl:
           never: Ei koskaan
           new_share_token_button: Uusi pääsylinkki
           share_tokens_help_html: |
-            Luo ja jaa pääsylinkkejä, mikäli haluat näyttää muilte, miltä toistaiseksi julkaisematon asia näyttää sivustolla.
+            Luo ja jaa pääsylinkkejä, mikäli haluat näyttää muille, miltä toistaiseksi julkaisematon asia näyttää sivustolla.
             Pääsylinkit voidaan rajata ainoastaan rekisteröityneille osallistujille ja niille voidaan asettaa myös vanhentumisaika.
             Jakaaksesi pääsylinkin jollekin muulle, luo se ja kopioi se leikepöydälle käyttämällä "%{clipboard} leikepöytä" toimintokuvaketta.
           title: 'pääsylinkit kohteelle: %{name}'
@@ -1151,8 +1151,8 @@ fi-pl:
           invalid: Luokittelun luominen epäonnistui.
           success: Luokittelun luominen onnistui.
         destroy:
-          invalid: Luokittelun poistaminen epäonnistui.
-          success: Luokittelun poistaminen onnistui.
+          invalid: Luokittelun poisto epäonnistui.
+          success: Luokittelun poisto onnistui.
         edit:
           back: Takaisin
           description: Tämän luokittelun kohteita käytetään luokittelemaan tai suodattamaan asioita, kuten osallistumistiloja tai komponentteja. Listan kohteita voi järjestää haluttuun järjestykseen vetämällä ja pudottamalla kohteita halutuille paikoille.
@@ -1346,15 +1346,15 @@ fi-pl:
               success: Kohteiden piilottaminen onnistui.
             ignore:
               invalid: Yhtään käyttäjätilien moderointi-ilmoitusta ei ole valittu.
-              success: Osallistujien ilmoitusten peruuttaminen epäonnistui.
+              success: Osallistujien ilmoitusten peruminen epäonnistui.
             unhide:
               failed: 'Joidenkin kohteiden näkyviin palauttaminen epäonnistui: %{errored}'
               invalid: Yhtään moderointi-ilmoitusta ei ole valittu.
               success: Kohteiden näkyviin palauttaminen onnistui.
             unreport:
-              failed: 'Joidenkin kohteiden moderointi-ilmoitusten peruuttaminen epäonnistui: %{errored}'
+              failed: 'Joidenkin kohteiden moderointi-ilmoitusten peruminen epäonnistui: %{errored}'
               invalid: Yhtään moderointi-ilmoitusta ei ole valittu.
-              success: Kohteiden moderointi-ilmoitusten peruuttaminen onnistui.
+              success: Kohteiden moderointi-ilmoitusten peruminen onnistui.
           hide:
             invalid: Resurssin piilotuksessa tapahtui virhe.
             success: Resurssi piilotettu onnistuneesti.
