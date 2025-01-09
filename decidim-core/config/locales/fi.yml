@@ -169,8 +169,8 @@ fi:
         explanation: Syy tilisi poistoon (valinnainen).
         leaving_authorizations_behind: Tunnistautumiseesi liittyviä tietoja tallennetaan turvallisuussyistä. Jos luot uuden tilin ja tunnistaudut uudestaan samoilla tiedoilla, nämä tiedot palautetaan uudelle tilillesi.
       destroy:
-        error: Tilisi poistaminen epäonnistui.
-        success: Tilisi poistaminen onnistui.
+        error: Tilisi poisto epäonnistui.
+        success: Tilisi poisto onnistui.
       download_your_data_export:
         export_expired: Vientitiedosto on vanhentunut. Yritä luoda uusi vienti.
         file_no_exists: Tiedostoa ei ole olemassa
@@ -229,7 +229,7 @@ fi:
         publish: "%{user_name} julkaisi komponentin %{resource_name} osallistumistilassa %{space_name}"
         restore: "%{user_name} palautti komponentin %{resource_name} tilassa %{space_name}"
         soft_delete: "%{user_name} siirsi komponentin %{resource_name} roskakoriin tilassa %{space_name}"
-        unpublish: "%{user_name} lopetti komponentin %{resource_name} julkaisun osallistumistilassa %{space_name}"
+        unpublish: "%{user_name} perui komponentin %{resource_name} julkaisun osallistumistilassa %{space_name}"
         update_permissions_with_space: "%{user_name} päivitti oikeuksia kohteessa %{resource_name} tilassa %{space_name}"
       contextual_help_section:
         update: "%{user_name} päivitti ohjeosiota %{resource_name}"
@@ -1214,7 +1214,7 @@ fi:
         publish_with_space: "%{user_name} julkaisi %{resource_name} osallistumistilassa %{space_name}"
         unknown_action: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name}"
         unknown_action_with_space: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name} osallistumistilassa %{space_name}"
-        unpublish_with_space: "%{user_name} lopetti %{resource_name} julkaisun osallistumistilassa %{space_name}"
+        unpublish_with_space: "%{user_name} perui %{resource_name} julkaisun osallistumistilassa %{space_name}"
         update: "%{user_name} päivitti %{resource_name}"
         update_permissions_with_space: "%{user_name} päivitti kohteen %{resource_name} oikeuksia tilassa %{space_name}"
         update_with_space: "%{user_name} päivitti %{resource_name} osallistumistilassa %{space_name}"
@@ -1788,6 +1788,7 @@ fi:
       no_stats: Tilastoja ei vielä ole.
       pages_count: Sivua
       participants_count: Osallistujaa
+      surveys_count: Kyselyt
       users_count: Osallistujaa
     tags:
       filter_results_for_taxonomy: 'Rajaa tulokset kohteelle: %{resource}'
@@ -1967,7 +1968,7 @@ fi:
       updated: Salasanasi vaihtaminen onnistui. Olet nyt kirjautunut sisään.
       updated_not_active: Salasanasi vaihtaminen onnistui.
     registrations:
-      destroyed: Tilisi poistaminen onnistui. Toivomme näkevämme sinut pian uudestaan.
+      destroyed: Tilisi poisto onnistui. Toivomme näkevämme sinut pian uudestaan.
       new:
         sign_up: Luo tili
       signed_up: Tervetuloa! Sisäänkirjautuminen onnistui.
