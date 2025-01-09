@@ -47,7 +47,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("error", scope: "decidim.admin.conflicts.transfer")
-            redirect_to decidim.root_path
+            render action: "edit"
           end
         end
       end

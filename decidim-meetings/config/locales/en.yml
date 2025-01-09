@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      answer:
+        add_documents: Add documents
       close_meeting:
         attendees_count: Number of attendees
         attending_organizations: List of organizations that attended
@@ -94,6 +96,9 @@ en:
         other: Registrations
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Meetings
       filters:
         accepted_at_not_null:
           label: Accepted
@@ -176,6 +181,12 @@ en:
             creation_enabled_for_participants: Meeting creation by participants enabled
             creation_enabled_for_user_groups: Meeting creation by user groups enabled
     download_your_data:
+      help:
+        registrations:
+          code: The registration code
+          id: The unique identifier of the registration
+          meeting: The meeting that the user registered to
+          user: The user that made the registration
       show:
         meeting_comments: Meeting comments export
         meetings: Meetings export
@@ -400,6 +411,7 @@ en:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invitations
+            manage_questions: Manage questions
             recommendation_message: For privacy reasons we recommend that you delete this inscription form when you no longer need it. By default this is 3 months after the meeting has ended.
             registration_email_help: This text will appear in the middle of the registration confirmation email. Just after the registration code.
             registration_form: Registration form
