@@ -28,7 +28,7 @@ describe "Answer a survey" do
   end
   let(:user) { create(:user, :confirmed, organization: component.organization) }
   let!(:questionnaire) { create(:questionnaire, title:, description:) }
-  let!(:survey) { create(:survey, component:, questionnaire:) }
+  let!(:survey) { create(:survey, :published, component:, questionnaire:) }
   let!(:question) { create(:questionnaire_question, questionnaire:, position: 0, description: question_description) }
 
   include_context "with a component"
@@ -39,10 +39,14 @@ describe "Answer a survey" do
     it "does not allow answering the survey" do
       visit_component
 
+      choose "All"
+
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
 
       expect(page).to have_no_i18n_content(question.body)
+
+      click_on translated_attribute(questionnaire.title)
 
       expect(page).to have_content("The form is closed and cannot be answered.")
     end
@@ -60,6 +64,8 @@ describe "Answer a survey" do
 
       component.update!(permissions:)
       visit_component
+      choose "All"
+      click_on translated_attribute(questionnaire.title)
     end
 
     it_behaves_like "accessible page"
@@ -72,16 +78,19 @@ describe "Answer a survey" do
   context "when the survey allow answers" do
     context "when the survey is closed by start and end dates" do
       before do
-        component.update!(settings: { starts_at: 1.week.ago, ends_at: 1.day.ago })
+        survey.update!(starts_at: 1.week.ago, ends_at: 1.day.ago)
       end
 
       it "does not allow answering the survey" do
         visit_component
+        choose "All"
 
         expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
 
         expect(page).to have_no_i18n_content(question.body)
+
+        click_on translated_attribute(questionnaire.title)
 
         expect(page).to have_content("The form is closed and cannot be answered.")
       end
@@ -92,14 +101,7 @@ describe "Answer a survey" do
       let(:callout_success) { "Survey successfully answered." }
 
       before do
-        component.update!(
-          step_settings: {
-            component.participatory_space.active_step.id => {
-              allow_answers: true
-            }
-          },
-          settings: { starts_at: 1.week.ago, ends_at: 1.day.from_now }
-        )
+        survey.update!(allow_answers: true, starts_at: 1.week.ago, ends_at: 1.day.from_now)
       end
 
       it_behaves_like "has questionnaire"
@@ -107,16 +109,14 @@ describe "Answer a survey" do
 
     context "when displaying questionnaire rich content" do
       before do
-        component.update!(
-          step_settings: {
-            component.participatory_space.active_step.id => {
-              allow_answers: true,
-              allow_unregistered: true
-            }
-          },
-          settings: { starts_at: 1.week.ago, ends_at: 1.day.from_now }
+        survey.update!(
+          allow_answers: true,
+          allow_unregistered: true,
+          starts_at: 1.week.ago,
+          ends_at: 1.day.from_now
         )
         visit_component
+        click_on translated_attribute(questionnaire.title)
       end
 
       context "when displaying questionnaire description" do
@@ -129,8 +129,22 @@ describe "Answer a survey" do
     end
   end
 
+  context "when survey has a custom announcement" do
+    let!(:survey) { create(:survey, :published, :announcement, :allow_answers, :allow_unregistered, component:, questionnaire:) }
+
+    before do
+      visit_component
+      click_on translated_attribute(questionnaire.title)
+    end
+
+    it "displays the announcement in the survey" do
+      expect(page).to have_content("This is a custom announcement.")
+    end
+  end
+
   context "when survey has action log entry" do
-    let!(:action_log) { create(:action_log, user:, organization: component.organization, resource: survey, component:, participatory_space: component.participatory_space, visibility: "all") }
+    let!(:action_log) { create(:action_log, user:, action: "publish", organization: component.organization, resource: survey, component:, participatory_space: component.participatory_space, visibility: "all") }
+
     let(:router) { Decidim::EngineRouter.main_proxy(component) }
 
     it "shows action log entry" do
@@ -143,5 +157,9 @@ describe "Answer a survey" do
 
   def questionnaire_public_path
     main_component_path(component)
+  end
+
+  def see_questionnaire_questions
+    click_on translated_attribute(questionnaire.title)
   end
 end
