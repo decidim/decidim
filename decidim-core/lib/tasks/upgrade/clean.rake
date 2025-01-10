@@ -10,7 +10,8 @@ namespace :decidim do
         :"decidim:upgrade:clean:follows",
         :"decidim:upgrade:clean:categories",
         :"decidim:upgrade:clean:action_logs",
-        :"decidim:upgrade:clean:clean_deleted_users"
+        :"decidim:upgrade:clean:clean_deleted_users",
+        :"decidim:upgrade:clean:fix_blocked_user_notification"
       ]
 
       desc "Remove data from deleted users"
@@ -124,6 +125,19 @@ namespace :decidim do
           invalid += 1
         end
         logger.info("===== Deleted #{invalid} invalid resources")
+      end
+
+      desc "Update all blocked users notifications_sending_frequency setting"
+      task fix_blocked_user_notification: :environment do
+        logger.info("=== Updating all blocked users notifications_sending_frequency ...")
+        blocked_users = 0
+        Decidim::User.blocked.where.not("notifications_sending_frequency = ?", "none").find_each do |blocked_user|
+          unless blocked_user.notifications_sending_frequency == "none"
+            blocked_user.update(notifications_sending_frequency: "none")
+            blocked_users += 1
+          end
+        end
+        logger.info("===== Updated #{blocked_users} blocked users")
       end
 
       def logger
