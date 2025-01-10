@@ -631,6 +631,10 @@ describe "Authentication" do
             end
           end
 
+          after do
+            user.unlock_access!
+          end
+
           it "when reached maximum failed attempts" do
             within ".new_user" do
               fill_in :session_user_email, with: user.email
@@ -649,6 +653,10 @@ describe "Authentication" do
           user.lock_access!
 
           visit decidim.new_user_unlock_path
+        end
+
+        after do
+          user.unlock_access!
         end
 
         it "resends the unlock instructions" do
