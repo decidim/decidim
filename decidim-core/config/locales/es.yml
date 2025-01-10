@@ -1323,6 +1323,8 @@ es:
         not_started: Aún no ha comenzado
         remaining: "Queda(n) %{time_distance}"
     metrics:
+      blocked_users:
+        description: Número de participantes bloqueadas
       download:
         csv: Descargar datos (CSV)
       followers:
@@ -1333,6 +1335,10 @@ es:
         description: Número de participantes activas en la organización
         object: participantes
         title: Participantes
+      reported_users:
+        description: Número de participantes reportadas
+      user_reports:
+        description: Número de denuncias realizadas por participantes
       users:
         description: Número de participantes en la organización
         object: participantes
@@ -1398,10 +1404,12 @@ es:
     notifications_digest_mailer:
       header:
         daily: Resumen diario de notificaciones
+        real_time: En tiempo real
         weekly: Resumen semanal de notificaciones
       hello: Hola %{name},
       intro:
         daily: 'Estas son las notificaciones del último día basadas en la actividad que estás siguiendo:'
+        real_time: 'Esta es una notificación sobre la actividad que sigues:'
         weekly: 'Estas son las notificaciones de la última semana basadas en la actividad que estás siguiendo:'
       outro: Has recibido estas notificaciones porque sigues este contenido o a sus autoras. Puedes dejar de seguirlas desde sus respectivas páginas.
       see_more: Ver más notificaciones
