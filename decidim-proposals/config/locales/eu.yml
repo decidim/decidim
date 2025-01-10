@@ -10,6 +10,8 @@ eu:
         state: Egoera
         title: Izenburua
         user_group_id: Sortu zirriborro kolaboratiboa
+      import_participatory_text:
+        document: Dokumentua
       proposal:
         address: Helbidea
         answer: Erantzuna
@@ -19,6 +21,8 @@ eu:
         decidim_proposals_proposal_state_id: Egoera
         decidim_scope_id: Esparrua
         has_address: Helbidea du
+        latitude: Latitudea
+        longitude: Longitudea
         scope_id: Esparrua
         state: Egoera
         suggested_hashtags: Iradokitako traolak
@@ -45,6 +49,8 @@ eu:
       proposals_copy:
         copy_proposals: Ulertzen dut honek hautetsiaren proposamen guztiak orainaldiari egotziko dizkiola eta ezin dela ekintza hori atzera bota.
         origin_component_id: Proposamenak kopiatzeko osagaia
+      proposals_file_import:
+        file: Fitxategia
       proposals_import:
         import_proposals: Inportatu proposamenak
         keep_answers: Mantendu egoera eta erantzunak
