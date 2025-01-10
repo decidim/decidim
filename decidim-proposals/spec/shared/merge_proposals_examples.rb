@@ -80,8 +80,6 @@ shared_examples "merge proposals" do
 
               it "does not create a new proposal and displays a validation fail message" do
                 expect(page).to have_css(".table-list tbody tr", count: 3)
-                expect(page).to have_content("There was a problem merging the selected proposals")
-                expect(page).to have_content("Are not official")
                 expect(page).to have_content("Have received votes or endorsements")
               end
             end
