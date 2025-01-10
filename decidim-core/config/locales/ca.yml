@@ -1323,6 +1323,8 @@ ca:
         not_started: No s'ha iniciat encara
         remaining: "Resta(en) %{time_distance}"
     metrics:
+      blocked_users:
+        description: Número de participants bloquejades
       download:
         csv: Descarregar les dades (csv)
       followers:
@@ -1333,6 +1335,10 @@ ca:
         description: Nombre de participants actives a l'organització
         object: participants
         title: Participants
+      reported_users:
+        description: Número de participants reportades
+      user_reports:
+        description: Número de denúncies realitzades per participants
       users:
         description: Nombre de participants a l'organització
         object: participants
@@ -1398,10 +1404,12 @@ ca:
     notifications_digest_mailer:
       header:
         daily: Resum diari de notificacions
+        real_time: En temps real
         weekly: Resum setmanal de notificacions
       hello: Hola %{name},
       intro:
         daily: 'Aquestes són les notificacions del darrer dia basades en l''activitat que segueixes:'
+        real_time: 'Aquesta és una notificació sobre l''activitat que segueixes:'
         weekly: 'Aquestes són les notificacions de la darrera setmana basades en l''activitat que segueixes:'
       outro: Has rebut aquestes notificacions perquè segueixes aquest contingut o les seves autores. Pots deixar de seguir-les des de les seves respectives pàgines.
       see_more: Veure més notificacions
