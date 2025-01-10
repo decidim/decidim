@@ -458,6 +458,7 @@ en:
         fill_personal_data:
           continue: Validate your data
           help: Please, fill the following fields with your personal data to sign the initiative.
+          invalid_data: Some of the personal data provided to verify your identity is not valid.
         finish:
           back_to_initiative: Back to initiative
         sms_phone_number:
@@ -474,8 +475,6 @@ en:
           error: There was a problem signing the initiative.
           invalid: The data provided to sign the initiative is not valid.
           success_html: Congratulations! The <strong> %{title}</strong> initiative has been successfully signed.
-        personal_data:
-          invalid: Personal data is not consistent with data provided for authorization.
         sms_code:
           invalid: Your verification code does not match ours. Please double-check the SMS we sent you.
         sms_phone:
