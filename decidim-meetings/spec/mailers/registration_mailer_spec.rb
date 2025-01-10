@@ -61,21 +61,46 @@ module Decidim::Meetings
           expect(email_body(mail)).not_to match("Customized registration email content")
         end
       end
-    end
 
-    it "includes the meeting's details in a ics file" do
-      expect(mail.attachments.length).to eq(1)
-      attachment = mail.attachments.first
-      expect(attachment.filename).to match(/meeting-calendar-info.ics/)
+      describe "when custom content is enabled and graphics is used" do
+        let(:image) { create(:editor_image, organization:) }
+        let(:file) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
+        let(:image_src) { image.attached_uploader(:file).path }
+        let(:editor_content) do
+          <<~HTML
+            <p> Customized registration email content with graphic added </p>
+            <div class="editor-content-image" data-image="">
+              <img src="#{image_src}" alt="Test">
+            </div>
+          HTML
+        end
 
-      events = Icalendar::Event.parse(attachment.read)
-      event = events.first
-      expect(event.summary).to eq(translated(meeting.title))
-      expect(event.description).to include(strip_tags(translated(meeting.description)))
-      expect(event.description).to include(Decidim::ResourceLocatorPresenter.new(meeting).url)
-      expect(event.dtstart.value.to_i).to eq(Icalendar::Values::DateTime.new(meeting.start_time).value.to_i)
-      expect(event.dtend.value.to_i).to eq(Icalendar::Values::DateTime.new(meeting.end_time).value.to_i)
-      expect(event.geo).to eq([meeting.latitude, meeting.longitude])
+        before do
+          meeting.customize_registration_email = true
+          meeting.registration_email_custom_content = { "en" => editor_content }
+        end
+
+        it "includes the customized content and graphic" do
+          expect(email_body(mail)).to match("Customized registration email content with graphic added")
+          expect(email_body(mail)).to have_css(".editor-content-image")
+          expect(email_body(mail)).to have_css("img[src=\"#{image_src}\"][alt=\"Test\"]")
+        end
+      end
+
+      it "includes the meeting's details in a ics file" do
+        expect(mail.attachments.length).to eq(1)
+        attachment = mail.attachments.first
+        expect(attachment.filename).to match(/meeting-calendar-info.ics/)
+
+        events = Icalendar::Event.parse(attachment.read)
+        event = events.first
+        expect(event.summary).to eq(translated(meeting.title))
+        expect(event.description).to include(strip_tags(translated(meeting.description)))
+        expect(event.description).to include(Decidim::ResourceLocatorPresenter.new(meeting).url)
+        expect(event.dtstart.value.to_i).to eq(Icalendar::Values::DateTime.new(meeting.start_time).value.to_i)
+        expect(event.dtend.value.to_i).to eq(Icalendar::Values::DateTime.new(meeting.end_time).value.to_i)
+        expect(event.geo).to eq([meeting.latitude, meeting.longitude])
+      end
     end
   end
 end

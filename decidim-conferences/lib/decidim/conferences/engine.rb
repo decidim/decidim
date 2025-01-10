@@ -3,7 +3,6 @@
 require "rails"
 require "active_support/all"
 require "decidim/core"
-require "wicked_pdf"
 
 require "decidim/conferences/query_extensions"
 require "decidim/conferences/content_blocks/registry_manager"
@@ -48,6 +47,12 @@ module Decidim
               mount manifest.engine, at: "/", as: "decidim_conference_#{manifest.name}"
             end
           end
+        end
+      end
+
+      initializer "decidim_conferences.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Conferences::Engine, at: "/", as: "decidim_conferences"
         end
       end
 

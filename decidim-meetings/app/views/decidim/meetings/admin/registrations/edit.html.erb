@@ -20,6 +20,7 @@
         </div>
       <% end %>
       <%= link_to t("registration_form" , scope: "decidim.meetings.admin.registrations.form"), edit_meeting_registrations_form_path(meeting_id: meeting.id), class: "button button__sm button__secondary" %>
+      <%= link_to t("manage_questions" , scope: "decidim.meetings.admin.registrations.form"), edit_questions_meeting_registrations_form_path(meeting_id: meeting.id), class: "button button__sm button__secondary" %>
     </div>
   </h1>
 </div>
