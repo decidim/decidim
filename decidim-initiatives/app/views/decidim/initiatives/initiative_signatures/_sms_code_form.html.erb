@@ -9,6 +9,7 @@
     </div>
   </label>
   <%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_phone_number.your_code_is_correct"), callout_class: "secondary code-correct-announcement hidden") %>
+  <%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_phone_number.your_code_is_incorrect"), callout_class: "warning code-incorrect-announcement hidden") %>
 
   <button type="submit" class="button button__lg button__secondary hidden" disabled data-submit-verification-code>
     <span><%= t("decidim.initiatives.initiative_signatures.sms_phone_number.continue") %></span>
