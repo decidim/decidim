@@ -3,10 +3,18 @@ ca:
     attributes:
       account:
         delete_reason: Raó per eliminar el teu compte
+      attachment:
+        documents: Documents
+        photos: Fotos
       common:
         created_at: Creat el
+      content_block_attachment:
+        background_image: Imatge de fons
+        main_image: Imatge principal
       conversation:
         body: Cos
+      editor_image:
+        file: Arxiu
       group:
         about: Quant a
         avatar: Avatar
@@ -15,6 +23,8 @@ ca:
         name: Nom
         nickname: Àlies
         phone: Telèfon
+      import:
+        file: Arxiu
       message:
         body: Cos
       report:
@@ -28,6 +38,7 @@ ca:
         space_filter: Disponible com a filtre pels espais de participació
       user:
         about: Quant a
+        avatar: Imatge de perfil
         email: El teu correu electrònic
         encrypted_password: Contrasenya
         locale: Configuració regional
@@ -39,6 +50,8 @@ ca:
         personal_url: URL personal
         remove_avatar: Elimina la imatge de perfil
         tos_agreement: Termes i condicions d'ús
+      user_group:
+        avatar: Imatge de perfil
     models:
       decidim/attachment_created_event: Arxiu adjunt
       decidim/component_published_event: Component actiu
@@ -859,6 +872,9 @@ ca:
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Esmena rebutjada per %{amendable_title} a %{emendation_author_nickname}
             notification_title: L'<a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'S''ha publicat una esmena per a %{amendable_title}. La pots veure en aquesta pàgina:'
       attachments:
         attachment_created:
           email_intro: 'S''ha afegit un nou document a %{resource_title}. Pots veure''l des d''aquesta pàgina:'
