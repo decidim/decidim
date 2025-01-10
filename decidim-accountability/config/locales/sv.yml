@@ -223,8 +223,10 @@ sv:
         filters:
           all: Alla
         home:
+          categories_label: Kategorier
           empty: Det finns inget resultat ännu.
           empty_filters: Det finns inget resultat med de här kriterierna.
+          subcategories_label: Underkategorier
         home_header:
           global_status: Status för genomförande
         nav_breadcrumb:
