@@ -322,6 +322,7 @@ eu:
         update: "%{user_name} k %{resource_name} partehartze prozesua eguneratu du"
       participatory_process_group:
         create: "%{user_name} k sortu du %{resource_name} prozesu parte-hartzaileen multzoa"
+        unpublish: "%{user_name} k despublikatu du %{resource_name} prozesu parte-hartzaileen multzoa"
         update: "%{user_name} k eguneratu du %{resource_name} prozesu parte-hartzaileen multzoa"
       participatory_process_step:
         activate: "%{user_name} k %{resource_name} urratsa aktibatu du %{space_name} prozesu parte-hartzailean"
