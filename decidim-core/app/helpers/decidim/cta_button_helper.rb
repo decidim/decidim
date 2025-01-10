@@ -16,7 +16,7 @@ module Decidim
     # Finds the CTA button path to reuse it in other places.
     def cta_button_path
       if current_organization.cta_button_path.present?
-        current_organization.cta_button_path
+        "/#{current_organization.cta_button_path}"
       elsif Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?
         decidim_participatory_processes.participatory_processes_path
       elsif current_user
