@@ -64,8 +64,6 @@ module Decidim
         build_vote_form(params)
 
         if @vote_form.invalid?
-          # TODO - Use other method for invalid_authorization handler
-          flash[:alert] = I18n.t("personal_data.invalid", scope: "decidim.initiatives.initiative_votes")
           @form = @vote_form
 
           render :fill_personal_data

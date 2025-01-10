@@ -30,9 +30,9 @@ module Decidim
       attribute :handler_name, String
 
       validates :initiative, :user, presence: true
-      validates :authorized_scopes, presence: true
       validate :uniqueness
       validate :valid_metadata
+      validate :valid_authorized_scopes
 
       delegate :promote_authorization_validation_errors, :authorization_handler_form, to: :workflow_manifest
       delegate :scope, to: :initiative
@@ -209,9 +209,20 @@ module Decidim
 
             errors.add(error.attribute, error.type) unless document_number.to_s.end_with?("X")
           end
-        else
-          errors.add(:base, :invalid)
         end
+
+        add_invalid_base_error
+      end
+
+      def valid_authorized_scopes
+        return if authorized_scopes.present?
+
+        add_invalid_base_error
+      end
+
+      def add_invalid_base_error
+        errors.delete(:base)
+        errors.add(:base, I18n.t("invalid_data", scope: "decidim.initiatives.initiative_signatures.fill_personal_data"))
       end
 
       def encryptor
