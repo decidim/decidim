@@ -466,6 +466,7 @@ en:
           receive_code: Receive code
           resend_code_html: Haven't received the code? <a href="%{new_code_path}">Try again</a>
           your_code_is_correct: Your code is correct.
+          your_code_is_incorrect: The code is not correct. Review it or <a href="%{new_code_path}">try again</a>.
           your_confirmation_code: Your confirmation code
       initiative_votes:
         create:
