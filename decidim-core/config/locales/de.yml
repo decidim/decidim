@@ -3,10 +3,18 @@ de:
     attributes:
       account:
         delete_reason: Grund, Ihr Konto zu löschen
+      attachment:
+        documents: Dokumente
+        photos: Fotos
       common:
         created_at: Erstellt am
+      content_block_attachment:
+        background_image: Hintergrundbild
+        main_image: Hauptbild
       conversation:
         body: Haupttext
+      editor_image:
+        file: Datei
       group:
         about: Über
         avatar: Profilbild
@@ -15,6 +23,8 @@ de:
         name: Name
         nickname: Spitzname
         phone: Telefonnummer
+      import:
+        file: Datei
       message:
         body: Haupttext
       report:
@@ -28,6 +38,7 @@ de:
         space_filter: Als Filter für partizipative Bereiche verfügbar
       user:
         about: Über
+        avatar: Profilbild
         email: Ihre E-Mail
         encrypted_password: Passwort
         locale: Spracheinstellung
@@ -39,6 +50,8 @@ de:
         personal_url: Persönliche URL
         remove_avatar: Avatar entfernen
         tos_agreement: Nutzungsvereinbarung
+      user_group:
+        avatar: Profilbild
     models:
       decidim/attachment_created_event: Anhang
       decidim/component_published_event: Aktive Komponente
