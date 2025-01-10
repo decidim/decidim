@@ -68,6 +68,8 @@ ca:
         email: Correu electrònic
         name: Nom
         role: Rol
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
