@@ -3,10 +3,18 @@ es:
     attributes:
       account:
         delete_reason: Motivo de eliminar tu cuenta
+      attachment:
+        documents: Documentos
+        photos: Fotos
       common:
         created_at: Creado el
+      content_block_attachment:
+        background_image: Imagen de fondo
+        main_image: Imagen principal
       conversation:
         body: Cuerpo
+      editor_image:
+        file: Archivo
       group:
         about: Acerca de
         avatar: Avatar
@@ -15,6 +23,8 @@ es:
         name: Nombre
         nickname: Alias
         phone: Teléfono
+      import:
+        file: Archivo
       message:
         body: Cuerpo
       report:
@@ -28,6 +38,7 @@ es:
         space_filter: Disponible como filtro para espacios de participación
       user:
         about: Acerca de
+        avatar: Imagen de perfil
         email: Tu correo electrónico
         encrypted_password: Contraseña
         locale: Configuración regional
@@ -39,6 +50,8 @@ es:
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
         tos_agreement: Términos y condiciones uso
+      user_group:
+        avatar: Imagen de perfil
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
@@ -859,6 +872,9 @@ es:
             email_outro: Has recibido esta notificación porque estás siguiendo la enmienda "%{amendable_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Una enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
             notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'Se ha publicado una enmienda para %{amendable_title}. Puedes verla en esta página:'
       attachments:
         attachment_created:
           email_intro: 'Se ha añadido un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
