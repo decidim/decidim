@@ -1,6 +1,9 @@
 <% add_decidim_meta_tags(
   description: translated_attribute(current_participatory_space.short_description),
-  title: "#{component_name} - Page #{@proposals.current_page} of #{@proposals.total_pages}",
+  title: t("decidim.proposals.pagination.page_title",
+           component_name: component_name,
+           current_page: @proposals.current_page,
+           total_pages: @proposals.total_pages ),
   url: proposals_url,
   resource: current_component) %>
 
