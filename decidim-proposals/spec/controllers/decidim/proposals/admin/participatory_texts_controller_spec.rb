@@ -6,8 +6,6 @@ module Decidim
   module Proposals
     module Admin
       describe ParticipatoryTextsController do
-        routes { Decidim::Proposals::AdminEngine.routes }
-
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
         let(:component) { create(:proposal_component, :with_participatory_texts_enabled) }
         let(:document_file) { upload_test_file(Decidim::Dev.asset("participatory_text.md"), content_type: "text/markdown") }
