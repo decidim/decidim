@@ -20,6 +20,7 @@ const validateCode = (path, code) => {
 
 const updateSubmit = (enable, includeAnnouncement) => {
   const correctAnnouncement = document.querySelector(".code-correct-announcement");
+  const incorrectAnnouncement = document.querySelector(".code-incorrect-announcement");
   const submitButton = document.querySelector("[data-submit-verification-code]");
   const resendCodeMessage = document.querySelector("[data-resend-code]");
 
@@ -31,11 +32,18 @@ const updateSubmit = (enable, includeAnnouncement) => {
       correctAnnouncement.classList.add("hidden");
       resendCodeMessage.classList.remove("hidden");
     }
+    incorrectAnnouncement.classList.add("hidden");
     submitButton.classList.remove("hidden");
     submitButton.disabled = false;
   } else {
+    if (includeAnnouncement) {
+      incorrectAnnouncement.classList.remove("hidden");
+      resendCodeMessage.classList.add("hidden");
+    } else {
+      incorrectAnnouncement.classList.add("hidden");
+      resendCodeMessage.classList.remove("hidden");
+    }
     correctAnnouncement.classList.add("hidden");
-    resendCodeMessage.classList.remove("hidden");
     submitButton.classList.add("hidden");
     submitButton.disabled = true;
   }
