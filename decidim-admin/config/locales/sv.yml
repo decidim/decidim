@@ -728,6 +728,8 @@ sv:
           preview: 'Förhandsgranska mall: %{template_name}'
           use_template: Använd den här mallen
       newsletters:
+        confirm_recipients:
+          title: Bekräfta mottagare
         create:
           error: Det gick inte att skapa nyhetsbrevet.
           success: Nyhetsbrevet har skapats. Granska det innan du skickar.
@@ -749,9 +751,12 @@ sv:
           has_been_sent_to: 'Har skickats till: '
           not_sent: Inte skickat
           participants: 'deltagare '
+          private_members: 'privata medlemmar '
           segmented_to: 'Segmenterad till %{subject}: '
           subscribed_count: 'Prenumeranter:'
           title: Nyhetsbrev
+          verification_types: 'Verifieringstyper: %{types}'
+          verified_users: Verifierade användare
         new:
           save: Spara
           title: Nytt nyhetsbrev
