@@ -159,7 +159,7 @@ module Decidim
         return unless blob
 
         if options[:only_path] || remote? || !asset_url_available?
-          routes.rails_blob_url(blob, **default_options.merge(options))
+          routes.rails_blob_url(blob, **default_options, **options)
         else
           blob.url(**options)
         end
@@ -184,7 +184,7 @@ module Decidim
         if options[:host]
           rails_representation_url(**options)
         else
-          representation_url(**options.merge(only_path: true))
+          representation_url(**options, only_path: true)
         end
       end
 
@@ -207,10 +207,10 @@ module Decidim
       # @param options The options for building the URL
       # @return [String, nil] The converted representation URL or `nil` if the
       #   asset is not defined.
-      def rails_representation_url(**options)
+      def rails_representation_url(**)
         return unless asset
 
-        representation_url = routes.rails_representation_url(asset, **default_options.merge(options))
+        representation_url = routes.rails_representation_url(asset, **default_options, **)
 
         variation = asset.try(:variation)
         return representation_url unless variation

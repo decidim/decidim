@@ -26,7 +26,8 @@ module Decidim
           resources :questionnaire_templates do
             member do
               post :copy
-
+              get :edit_questions
+              patch :update_questions
               resource :questionnaire, module: :questionnaire_templates # To manage the templatable resource
             end
 
@@ -36,6 +37,7 @@ module Decidim
               get :preview # To provide a preview for the template in the object creation view
             end
           end
+
           resources :block_user_templates do
             member do
               post :copy

@@ -16,7 +16,6 @@ gem "decidim-dev", github: "decidim/decidim"
 ### 1.2. Run these commands
 
 ```console
-sudo apt install wkhtmltopdf # or the alternative installation process for your operating system. See "2.7. wkhtmltopdf binary change"
 bundle remove spring spring-watcher-listen
 bundle update decidim
 bin/rails decidim:upgrade
@@ -98,19 +97,7 @@ bin/rails decidim_proposals:upgrade:set_categories
 
 You can read more about this change on PR [#13395](https://github.com/decidim/decidim/pull/13395).
 
-### 2.6. wkhtmltopdf binary change
-
-For improving the support with latest versions of Ubuntu, and keeping a low size in Heroku/Docker images, we removed the `wkhtmltopdf-binary` gem dependency. This means that your package manager should have the `wkhtmltopdf` binary installed.
-
-In the case of Ubuntu/Debian, this is done with the following command:
-
-```bash
-sudo apt install wkhtmltopdf
-```
-
-You can read more about this change on PR [#13616](https://github.com/decidim/decidim/pull/13616).
-
-### 2.7. Clean deleted user records `decidim:upgrade:clean:clean_deleted_users` task
+### 2.6. Clean deleted user records `decidim:upgrade:clean:clean_deleted_users` task
 
 When a user deleted their account, we mistakenly retained some metadata, such as the personal_url and about fields. Going forward, these fields will be automatically cleared upon deletion. To fix this issue for previously deleted accounts, we've added a new rake task that should be run on your production database.
 
@@ -120,7 +107,7 @@ bin/rails decidim:upgrade:clean:clean_deleted_users
 
 You can read more about this change on PR [#13624](https://github.com/decidim/decidim/pull/13624).
 
-### 2.8. Fixes on migration files
+### 2.7. Fixes on migration files
 
 Since we have introduced the "Soft delete for spaces and components" [#13297](https://github.com/decidim/decidim/pull/13297), we have noticed there are some migrations that are failing as a result of defaults scopes we added.
 To address the issue, we created a script that will update the migration files in your project so that we can fix any migrations that are potentially broken by the code evolution.
@@ -233,7 +220,7 @@ If you would like to re-enable exposing the Decidim version number through the G
 
 ### 5.2. Changes in the routing
 
-As we were upgrading the application to Rails 7.1, we have noticed there are some changes in the routing system that led us to change the way participatory space mounting points are being used by Decidim.
+As we were upgrading the application to Rails 7.1, we have noticed there are some changes in the routing system that led us to change the way participatory space mounting points are being used by Decidim. This applies to implementers or developers that define their own routes in their modules. If you do not change the routes in your application nor a module then you do not need to do anything.
 
 Previously, the participatory space routes were mounted like follows in either the Core or Admin.
 
@@ -253,8 +240,19 @@ As of [\#13294](https://github.com/decidim/decidim/pull/13294), we have changed 
   end
 ```
 
-As a developer or as a user, you should not feel the difference of this change, however, we would like to emphasize this change, as the upgrade may impact other community libraries.
 This particular change in the way we mount things, applies also for `Comments` and `Verifications` modules.
+
+#### 5.2.1. Module developers
+
+As a module developer, when you add a new admin section you should always check if the admin is accessible to registered participants or visitors. If that is the case, you must always wrap your admin routes in a constraint like:
+
+```ruby
+  routes do
+    constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
+      resources :my_module
+    end
+  end
+```
 
 You can read more about this change on PR [#13294](https://github.com/decidim/decidim/pull/13294).
 

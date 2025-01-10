@@ -3,7 +3,7 @@ en:
   activemodel:
     attributes:
       answer:
-        add_documents: Add Documents
+        add_documents: Add documents
       close_meeting:
         attendees_count: Number of attendees
         attending_organizations: List of organizations that attended
@@ -411,6 +411,7 @@ en:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invitations
+            manage_questions: Manage questions
             recommendation_message: For privacy reasons we recommend that you delete this inscription form when you no longer need it. By default this is 3 months after the meeting has ended.
             registration_email_help: This text will appear in the middle of the registration confirmation email. Just after the registration code.
             registration_form: Registration form

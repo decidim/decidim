@@ -1820,6 +1820,7 @@ en:
       no_stats: There are no statistics yet.
       pages_count: Pages
       participants_count: Participants
+      surveys_count: Surveys
       users_count: Participants
     tags:
       filter_results_for_taxonomy: 'Filter results for: %{resource}'

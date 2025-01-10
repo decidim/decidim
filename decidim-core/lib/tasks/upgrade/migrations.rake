@@ -52,10 +52,10 @@ namespace :decidim do
       version = migration_file.split("_").first
       migration_file_base = migration_file.gsub!(/^\d+_/, "").gsub!(/\.rb$/, "")
 
-      target_file = Dir[Rails.root.join("db/migrate/**_#{migration_file_base}.*.rb")].first
+      target_file = Rails.root.glob("db/migrate/**_#{migration_file_base}.*.rb").first
       return if target_file.blank?
 
-      scope = target_file.split(".")[-2]
+      scope = target_file.to_s.split(".")[-2]
 
       source = File.binread(file_path)
 

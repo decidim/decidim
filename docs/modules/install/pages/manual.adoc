@@ -27,7 +27,7 @@ First, we are going to install https://github.com/rbenv/rbenv[rbenv], for managi
 [source,bash]
 ----
 sudo apt update
-sudo apt install -y build-essential curl git libssl-dev zlib1g-dev wkhtmltopdf
+sudo apt install -y build-essential curl git libssl-dev zlib1g-dev
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
