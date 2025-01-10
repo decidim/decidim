@@ -481,7 +481,7 @@ en:
           help_confirm_phone_number: Now you need to confirm your phone number to finish validating your identity.
           help_enter_your_number: Enter your number and you will receive a code that you should type.
           receive_code: Receive code
-          resend_code_html: Haven't received the code? <a href="%{new_code_path}">Try again</a>
+          resend_code_html: Have not received the code? <a href="%{new_code_path}">Try again</a>
           your_code_is_correct: Your code is correct.
           your_code_is_incorrect: The code is not correct. Review it or <a href="%{new_code_path}">try again</a>.
           your_confirmation_code: Your confirmation code
