@@ -121,6 +121,11 @@ shared_examples "merge proposals" do
                 expect(page).to have_xpath("//tr[@data-id='#{id}']")
               end
             end
+
+            it "shows withdrawn status in the original proposals" do
+              expect(page).to have_css(".table-list tbody tr", count: 4)
+              expect(page).to have_content("Withdrawn", count: 3)
+            end
           end
         end
       end
