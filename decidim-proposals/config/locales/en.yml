@@ -912,10 +912,10 @@ en:
           description: The coordinates will be updated when clicking on 'preview' button. However, the address does not change.
           instructions: You can move the point on the map.
         edit:
-          add_documents: Add documents
+          add_attachments: Add attachments
           attachment_legend: "(Optional) Add an attachment"
           back: Back
-          edit_documents: Edit documents
+          edit_attachments: Edit attachments
           send: Send
           title: Edit proposal
         edit_draft:
