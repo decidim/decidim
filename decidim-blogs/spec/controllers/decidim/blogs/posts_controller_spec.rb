@@ -5,7 +5,6 @@ require "spec_helper"
 module Decidim
   module Blogs
     describe PostsController do
-      routes { Decidim::Blogs::Engine.routes }
       describe "show" do
         context "when the post has not published yet" do
           let(:organization) { create(:organization) }
