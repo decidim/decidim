@@ -19,7 +19,10 @@ module Decidim
               proposals:,
               valid?: valid,
               same_component?: same_component,
-              current_user: create(:user, :admin, organization: current_component.organization)
+              current_user: create(:user, :admin, organization: current_component.organization),
+              add_photos: [],
+              title: { "en" => "Valid Long Proposal Title" },
+              body: { "en" => "Valid body text" }
             )
           end
           let(:command) { described_class.new(form) }
@@ -66,8 +69,8 @@ module Decidim
               new_proposal = Proposal.where(component: target_component).last
               proposal = proposals.first
 
-              expect(new_proposal.title).to eq(proposal.title)
-              expect(new_proposal.body).to eq(proposal.body)
+              expect(new_proposal.title).to eq({ "en" => "Valid Long Proposal Title" })
+              expect(new_proposal.body).to eq({ "en" => "Valid body text" })
               expect(new_proposal.creator_author).to eq(current_component.organization)
               expect(new_proposal.category).to eq(proposal.category)
 
@@ -81,11 +84,11 @@ module Decidim
               let(:same_component) { true }
               let(:target_component) { current_component }
 
-              it "deletes the original proposals" do
+              it "withdraw the original proposals" do
                 command.call
                 proposal_ids = proposals.map(&:id)
 
-                expect(Decidim::Proposals::Proposal.where(id: proposal_ids)).to be_empty
+                expect(Decidim::Proposals::Proposal.where(id: proposal_ids)).not_to be_empty
               end
 
               it "links the merged proposal to the links the other proposals had" do
