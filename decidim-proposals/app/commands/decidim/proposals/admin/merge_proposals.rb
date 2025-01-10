@@ -35,14 +35,7 @@ module Decidim
           end
 
           transaction do
-            @merged_proposal = create_new_proposal
-            merge_authors
-            @merged_proposal.link_resources(proposals_to_link, "merged_from_component")
-            proposals_mark_as_withdrawn if form.same_component?
-            @attached_to = @merged_proposal
-            create_gallery if process_gallery?
-            create_attachment(weight: first_attachment_weight) if process_attachments?
-            notify_author
+            merged_proposals
           end
 
           broadcast(:ok, @merge_proposal)
@@ -52,6 +45,18 @@ module Decidim
 
         attr_reader :form, :attachment, :gallery
 
+        def merged_proposals
+          @merged_proposal = create_new_proposal
+          merge_authors
+          @merged_proposal.link_resources(proposals_to_link, "merged_from_component")
+          proposals_mark_as_withdrawn if form.same_component?
+          @attached_to = @merged_proposal
+          create_gallery if process_gallery?
+          create_attachment(weight: first_attachment_weight) if process_attachments?
+          link_author_meeting if form.created_in_meeting?
+          notify_author
+        end
+
         def proposals_mark_as_withdrawn
           form.proposals.each do |proposal|
             proposal.update!(withdrawn_at: Time.current)
@@ -59,8 +64,6 @@ module Decidim
         end
 
         def proposals_to_link
-          return previous_links if form.same_component?
-
           form.proposals
         end
 
@@ -80,7 +83,11 @@ module Decidim
             extra_attributes: {
               component: form.target_component,
               title: form.title,
-              body: form.body
+              body: form.body,
+              address: form.address,
+              latitude: form.latitude,
+              longitude: form.longitude,
+              created_in_meeting: form.created_in_meeting
             },
             skip_link: true
           )
@@ -116,6 +123,10 @@ module Decidim
           return 1 if @merged_proposal.photos.count.zero?
 
           @merged_proposal.photos.count
+        end
+
+        def link_author_meeting
+          @merged_proposal.link_resources(form.author, "proposals_from_meeting")
         end
       end
     end

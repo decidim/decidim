@@ -4,6 +4,8 @@ shared_examples "merge proposals" do
   let!(:proposals) { create_list(:proposal, 3, :official, component: current_component) }
   let(:target_component_minimal) { create(:proposal_component, participatory_space: current_component.participatory_space) }
   let!(:target_component) { target_component_minimal }
+  let!(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
+  let!(:meetings) { create_list(:meeting, 3, :published, component: meeting_component) }
   include Decidim::ComponentPathHelper
 
   before do
@@ -60,6 +62,10 @@ shared_examples "merge proposals" do
                 es: "Descripción más larga",
                 ca: "Descripció més llarga"
               )
+              expect(page).to have_content("This proposal comes from a meeting")
+              check "proposals_merge_created_in_meeting"
+              expect(page).to have_content("Select a meeting")
+              select translated(meetings.first.title), from: :proposals_merge_meeting_id
             end
             expect(page).to have_button(id: "js-submit-merge-proposals", count: 1)
             click_on(id: "js-submit-merge-proposals")
@@ -69,6 +75,28 @@ shared_examples "merge proposals" do
             expect(page).to have_content("Successfully merged the proposals into a new one")
             expect(page).to have_css(".table-list tbody tr", count: 1)
             expect(page).to have_current_path(manage_component_path(target_component))
+          end
+
+          context "when merging to another component" do
+            before do
+              click_on "My result merge proposal"
+              new_proposal_url = find("a", text: "See proposal")[:href]
+              visit new_proposal_url
+            end
+
+            context "when result proposal comes from a meeting" do
+              it "creates a new proposal with meeting as author" do
+                expect(page).to have_css(".main-bar__logo")
+                expect(page).to have_content("Official proposal")
+                expect(page).to have_content("It was discussed in this meeting")
+              end
+
+              it "shows the result proposal with history panel" do
+                expect(page).to have_content("History")
+                expect(page).to have_css(".resource_history__item_icon")
+                expect(page).to have_content("This proposal was created")
+              end
+            end
           end
 
           context "when merging to the same component" do
