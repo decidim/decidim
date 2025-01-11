@@ -46,7 +46,9 @@ ar:
       actions:
         attachment_collections: الحافظات
         attachments: المرفقات
+        confirm_delete_result: هل تريد بالتأكيد حذف هذه النتيجة؟
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا %{name}؟
+        deleted_results_info: يمكن استعادة النتائج المحذوفة من سلة المهملات.
         destroy: حذف
         edit: تعديل
         import: اجلب مشروعات من مكون آخر
@@ -57,6 +59,7 @@ ar:
         preview: معاينة
         timeline_entries: تطور المشروع
         title: الإجراءات
+        view_deleted_results: عرض النتائج المحذوفة
       admin:
         exports:
           result_comments: التعليقات
@@ -111,8 +114,32 @@ ar:
             no_components: لا توجد أى مقومات فى الميزانيه فى هذا الحيز لتوريد المشاريع إلى نتائج.
             origin_component_id: عنصر أساسى
             select_component: اختيار المكون
+            success:
+              zero: "لا يوجد مشاريع في قائمة الاستيراد."
+              one: يوجد مشروع واحد في قائمة الاستيراد. سيتم إعلامك بالبريد الإلكتروني حال اكتماله.
+              two: "يوجد مشروعان في قائمة الاستيراد. سيتم إعلامك بالبريد الإلكتروني حال اكتمالهما."
+              few: "يوجد عدد %{count} من المشاريع في قائمة الاستيراد. سيتم إعلامك بالبريد الإلكتروني حال اكتمالهم."
+              many: "يوجد عدد %{count} من المشاريع في قائمة الاستيراد. سيتم إعلامك بالبريد الإلكتروني حال اكتمالهم."
+              other: "يوجد عدد %{count} من المشاريع في قائمة الاستيراد. سيتم إعلامك بالبريد الإلكتروني حال اكتمالهم."
             title: اجلب مشاريع من مكون آخر
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: تغيير التاريخ
+              end_date: تاريخ الانتهاء
+              start_date: تاريخ البدء
+            dropdown:
+              actions: الإجراءات
+              change_dates: تغيير التواريخ
+              change_status: تغيير الحالة
+              change_taxonomies: تغيير التصنيفات
+            status_form:
+              change_status: تغيير الحالة
+              status: الحالة
+            submit_buttons:
+              cancel: إلغاء
+            taxonomies_form:
+              change_taxonomies: تغيير التصنيفات
           create:
             invalid: هناك مشكلة في إنشاء هذه النتيجة.
             success: تم إنشاء النتيجة بنجاح.
@@ -120,13 +147,27 @@ ar:
             title: تحرير النتيجة
             update: تحديث النتيجة
           index:
+            selected: الخيارات المحددة
             title: النتائج
+          manage_trash:
+            title: النتائج المحذوفة
           new:
             create: إنشاء نتيجة
             title: نتيجة جديدة
           update:
             invalid: هناك مشكلة في تحديث هذه النتيجة.
             success: تم تحديث النتيجة بنجاح.
+          update_dates:
+            invalid: حدثت مشكلة في تحديث تواريخ النتائج
+            success: تم تحديث تواريخ النتائج بنجاح
+          update_status:
+            invalid: حدثت مشكلة في تحديث حالة النتائج
+            success: تم تحديث حالة النتائج بنجاح
+          update_taxonomies:
+            invalid: تعذر تحديث التصنيفات %{taxonomies} للنتائج %{results}
+            select_a_result: اختر نتيجة
+            select_a_taxonomy: اختر تصنيفاً
+            success: تم تحديث التصنيفات %{taxonomies} للنتائج %{results} بنجاح
         shared:
           subnav:
             statuses: الحالات
@@ -168,6 +209,8 @@ ar:
         result:
           create: "%{user_name} أنشأ النتيجة %{resource_name} في %{space_name}"
           delete: "%{user_name} حذف النتيجة %{resource_name} في %{space_name}"
+          restore: "قام المستخدم %{user_name} باستعادة نتيجة الـ %{resource_name} في %{space_name}"
+          soft_delete: "قام المستخدم %{user_name} بنقل نتيجة الـ %{resource_name} في %{space_name} إلى سلة المحذوفات"
           update: "%{user_name} حدث النتيجة %{resource_name} في %{space_name}"
         status:
           create: "%{user_name} أنشأ حالة %{resource_name}"
@@ -194,6 +237,13 @@ ar:
           success: نجاح استيراد النتائج. يمكنك مراجعة النتائج في واجهة الإدارة.
       import_projects_mailer:
         import:
+          added_projects:
+            zero: "لم يتم استيراد أي نتيجة من المشاريع."
+            one: تم استيراد نتيجة واحدة من المشاريع.
+            two: "تم استيراد نتيجتين من المشاريع."
+            few: "تم استيراد عدد %{count} من النتائج من المشاريع."
+            many: "تم استيراد عدد %{count} من النتائج من المشاريع."
+            other: "تم استيراد عدد %{count} من النتائج من المشاريع."
           subject: استيراد المشاريع بنجاح
           success: النتائج المستوردة إلى النتائج في مكون %{component_name}. يمكن معاينة النتائج في واجهة الإدارة.
       last_activity:
@@ -207,6 +257,7 @@ ar:
             progress: تقدم
             start_date: تاريخ البدء
             status: الحالة
+            taxonomies: التصنيفات
             title: عنوان
         status:
           fields:
@@ -230,6 +281,8 @@ ar:
         home:
           empty: لا توجد نتائج بعد.
           empty_filters: لا توجد نتائج تطابق هذه المعايير.
+          sub_taxonomies_label: الفئات الفرعية
+          taxonomies_label: الفئات
         home_header:
           global_status: حالة التنفيذ العالمي
         no_results: لا يوجد مشاريع
@@ -245,6 +298,8 @@ ar:
         results:
           status_id_eq:
             label: الحالة
+          taxonomies_part_of_contains:
+            label: التصنيف
     components:
       accountability:
         actions:
@@ -252,6 +307,7 @@ ar:
         name: المسائلة
         settings:
           global:
+            clear_all: إمسح الكل
             comments_enabled: تم تمكين التعليقات
             comments_max_length: الحد الأقصى لطول التعليقات (اترك ال0 للقيمة الافتراضية)
             display_progress_enabled: عرض التقدم
