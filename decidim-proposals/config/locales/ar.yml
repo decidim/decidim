@@ -10,6 +10,8 @@ ar:
         state: حالة
         title: عنوان
         user_group_id: إنشاء مسودة تعاونية كـ
+      import_participatory_text:
+        document: مستند
       proposal:
         address: عنوان
         answer: إجابة
@@ -18,6 +20,8 @@ ar:
         body: الجسم
         decidim_scope_id: النطاق
         has_address: لديه عنوان
+        latitude: خط العرض
+        longitude: خط الطول
         scope_id: نطاق
         state: حالة
         suggested_hashtags: الهاشتاج المقترحة
@@ -30,6 +34,8 @@ ar:
         execution_period: فترة التنفيذ
       proposals_copy:
         origin_component_id: مكون لنسخ المقترحات من
+      proposals_file_import:
+        file: ملف
       proposals_import:
         import_proposals: مقترحات الاستيراد
         keep_answers: الاحتفاظ بالحالة والإجابات
