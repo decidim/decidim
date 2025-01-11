@@ -13,6 +13,7 @@ he:
         project_ids: פרויקטים כלולים
         proposals: הצעות כלולות
         start_date: תאריך התחלה
+        subresults: תוצאות משנה
         title: כותרת
         updated_at: עודכן ב-
       status:
@@ -232,8 +233,10 @@ he:
         filters:
           all: הכל
         home:
+          categories_label: קטגוריות
           empty: אין תוצאות עדיין.
           empty_filters: אין תוצאות עם קריטריון זה.
+          subcategories_label: תתי קטגוריות
         home_header:
           global_status: סטטוס ביצוע גלובלי
         nav_breadcrumb:
@@ -262,7 +265,7 @@ he:
         name: אחריותיות
         settings:
           global:
-            comments_enabled: איפשור תגובות
+            comments_enabled: תגובות אפשריות
             comments_max_length: אורך מקסימלי להערות (השאירו 0 לערך ברירת המחדל)
             display_progress_enabled: הצגת התקדמות
             intro: הקדמה
