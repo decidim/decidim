@@ -50,6 +50,12 @@ module Decidim
         end
       end
 
+      initializer "decidim_conferences.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Conferences::Engine, at: "/", as: "decidim_conferences"
+        end
+      end
+
       initializer "decidim_conferences.register_icons" do
         Decidim.icons.register(name: "Decidim::Conference", icon: "mic-line", description: "Conference", category: "activity", engine: :conferences)
         Decidim.icons.register(name: "conference_speaker", icon: "user-voice-line", description: "Speaker", category: "conferences", engine: :conferences)
