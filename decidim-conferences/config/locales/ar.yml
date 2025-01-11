@@ -62,6 +62,8 @@ ar:
         email: البريد الإلكتروني
         name: اسم
         role: وظيفة
+      partner:
+        logo: الشعار
   activerecord:
     models:
       decidim/conference:
