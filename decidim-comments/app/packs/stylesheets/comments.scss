@@ -33,6 +33,12 @@
 
   &__header {
     @apply flex justify-between md:flex-row md:items-center mb-4;
+
+    option {
+      &.selected {
+        @apply font-bold;
+      }
+    }
   }
 
   .author__avatar-container {
