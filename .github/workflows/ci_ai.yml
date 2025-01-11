@@ -31,4 +31,4 @@ jobs:
     secrets: inherit
     with:
       working-directory: "decidim-ai"
-      test_command: bundle exec parallel_test --verbose --verbose-command  --verbose-process-command  --verbose-rerun-command -n 2  --type rspec --pattern spec/
+      test_command: bundle exec parallel_test --verbose --verbose-command  --verbose-process-command  --verbose-rerun-command  --type rspec --pattern spec/
