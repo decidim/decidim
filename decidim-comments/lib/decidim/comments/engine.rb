@@ -20,6 +20,12 @@ module Decidim
         end
       end
 
+      initializer "decidim_comments.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Comments::Engine, at: "/", as: "decidim_comments"
+        end
+      end
+
       initializer "decidim_comments.query_extensions" do
         Decidim::Api::QueryType.include QueryExtensions
       end
