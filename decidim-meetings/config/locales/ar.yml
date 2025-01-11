@@ -1,6 +1,8 @@
 ar:
   activemodel:
     attributes:
+      answer:
+        add_documents: أضف مستندات
       close_meeting:
         attendees_count: عدد الحضور
         attending_organizations: قائمة المنظمات التي حضرت
