@@ -310,12 +310,21 @@ ar:
             clear_all: إمسح الكل
             comments_enabled: تم تمكين التعليقات
             comments_max_length: الحد الأقصى لطول التعليقات (اترك ال0 للقيمة الافتراضية)
+            define_taxonomy_filters: الرجاء تحديد بعض عوامل التصفية لهذه المساحة التشاركية قبل استخدام هذا الإعداد.
             display_progress_enabled: عرض التقدم
+            geocoding_enabled: تم تمكين الخرائط
             intro: مقدمة
+            no_taxonomy_filters_found: لم يتم العثور على عوامل تصفية التصنيف.
             scope_id: النطاق
             scopes_enabled: النطاقات مفعلة
+            taxonomy_filters: حدد عوامل تصفية للمكون
+            taxonomy_filters_add: إضافة عامل تصفية
           step:
             comments_blocked: تم حظر التعليقات
+    download_your_data:
+      show:
+        result_comments: تصدير التعليقات الناتجة
+        results: تصدير النتائج
     events:
       accountability:
         proposal_linked:
@@ -347,6 +356,14 @@ ar:
           locale: اللغة التي كانت لدى المشارك عندما ترك هذا التعليق
           root_commentable_url: عنوان URL للمورد الذي يربط بهذا التعليق
           user_group: اسم مجموعة المستخدم الذي صنع هذا التعليق (إن وجد)
+        results:
+          address: عنوان النتيجة (إن وجد)
+          children_count: عدد النتائج الفرعية
+          comments_count: عدد التعليقات التي حصلت عليها هذه النتيجة
+          component: العنصر الذي تنتمي إليه النتيجة
+          created_at: تاريخ إنشاء النتيجة
+          description: وصف النتيجة
+          end_date: تاريخ انتهاء تنفيذ النتيجة وإنهاؤها
     participatory_spaces:
       highlighted_results:
         see_all: عرض كل النتائج (%{count})
