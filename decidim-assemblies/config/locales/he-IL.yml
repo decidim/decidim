@@ -54,8 +54,58 @@ he:
         show_statistics: הצגת סטטיסטיקה
         slug: כינוי לקישור
         special_features: מאפיינים מיוחדים
+        subtitle: כותרת משנה
+        target: מי משתתף
+        title: כותרת
+        twitter: X
+        weight: סידור המיקום
+        youtube: יוטיוב
+      assembly_member:
+        birthday: יום הולדת
+        birthplace: מקום לידה
+        ceased_date: תאריך סיום
+        designation_date: תאריך התפטרות
+        full_name: של מלא
+        gender: מגדר
+        non_user_avatar: אווטאר
+        position: מיקום
+        user_id: משתמש או קבוצה
+  activerecord:
+    models:
+      decidim/assembly:
+        one: אסיפה
+        two: אסיפות
+        many: אסיפות
+        other: אסיפות
+      decidim/assembly_member:
+        one: חבר אסיפה
+        two: חברי אסיפה
+        many: חברי אסיפה
+        other: חברי אסיפה
+      decidim/assembly_user_role:
+        one: תפקיד באסיפה
+        two: תפקידים באסיפה
+        many: תפקידים באסיפה
+        other: תפקידים באסיפה
   decidim:
     admin:
+      assemblies:
+        create:
+          error: יש בעיה ביצירת אסיפה חדשה.
+        edit:
+          update: עדכון
+        index:
+          private: פרטי
+          public: ציבורי
+          published: מפורסם
+          unpublished: לא מפורסם
+        update:
+          error: יש בעיה בעדכון אסיפה זו.
+          success: האסיפה עודכנה בהצלחה.
+      assemblies_copies:
+        create:
+          error: יש בעיה בשכפול אסיפה זו.
+          success: אסיפה השתכפלה בהצלחה.
       assembly_copies:
         new:
           title: שכפל אסיפה
@@ -75,6 +125,7 @@ he:
           success: חבר.ה נמחק.ה בהצלחה מאסיפה זו.
         edit:
           title: עדכון חבר.ה אסיפה
+          update: עדכון
         index:
           assembly_members_title: חברי.ות אסיפה
         new:
@@ -92,6 +143,12 @@ he:
       assembly_user_roles:
         create:
           error: הייתה בעיה בהוספת מנהל.ת עבור אסיפה זו.
+      models:
+        assembly_member:
+          fields:
+            ceased_date: תאריך סיום
+            designation_date: תאריך התפטרות
+            position: מיקום
     assemblies:
       show:
         related_participatory_processes: תהליך השתתפותי מקושר
