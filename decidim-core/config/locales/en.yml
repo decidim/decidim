@@ -685,8 +685,8 @@ en:
           hide_password: Hide password
           show_password: Show password
           shown_password: Your password is shown
-        placeholder_password: "**********"
         placeholder_email: hi@example.org
+        placeholder_password: "**********"
     documents:
       one: "%{count} document"
       other: "%{count} documents"
