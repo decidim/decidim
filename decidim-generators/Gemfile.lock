@@ -108,7 +108,7 @@ PATH
     decidim-design (0.30.0.dev)
       decidim-core (= 0.30.0.dev)
     decidim-dev (0.30.0.dev)
-      bullet (~> 7.1.6)
+      bullet (~> 8.0.0)
       byebug (~> 11.0)
       capybara (~> 3.39)
       decidim-admin (= 0.30.0.dev)
@@ -286,7 +286,7 @@ GEM
       racc
     browser (6.2.0)
     builder (3.3.0)
-    bullet (7.1.6)
+    bullet (8.0.0)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     byebug (11.1.3)
