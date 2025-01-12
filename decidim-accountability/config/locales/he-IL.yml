@@ -158,6 +158,8 @@ he:
           update_status:
             invalid: הייתה בעיה בעדכון סטטוס זה
             success: הסטטוס עודכן בהצלחה
+          update_taxonomies:
+            select_a_result: בחר תוצאה
         shared:
           subnav:
             statuses: סטטוסים
@@ -297,6 +299,9 @@ he:
             scopes_enabled: היקפים מאופשרים
           step:
             comments_blocked: תגובות חסומות
+    download_your_data:
+      show:
+        result_comments:
     events:
       accountability:
         proposal_linked:
