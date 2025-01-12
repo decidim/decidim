@@ -52,8 +52,64 @@ he:
         short_description: תיאור קצר
         slug: כינוי לקישור
         special_features: מאפיינים מיוחדים
+        subtitle: כותרת משנה
+        target: מי משתתף
+        title: כותרת
+        twitter: X
+        weight: סידור המיקום
+        youtube: יוטיוב
+      assembly_member:
+        birthday: יום הולדת
+        birthplace: מקום לידה
+        ceased_date: תאריך סיום
+        designation_date: תאריך התפטרות
+        full_name: של מלא
+        gender: מגדר
+        non_user_avatar: אווטאר
+        position: מיקום
+        user_id: משתמש או קבוצה
+  activerecord:
+    models:
+      decidim/assembly:
+        one: אסיפה
+        two: אסיפות
+        many: אסיפות
+        other: אסיפות
+      decidim/assembly_member:
+        one: חבר אסיפה
+        two: חברי אסיפה
+        many: חברי אסיפה
+        other: חברי אסיפה
+      decidim/assembly_user_role:
+        one: תפקיד באסיפה
+        two: תפקידים באסיפה
+        many: תפקידים באסיפה
+        other: תפקידים באסיפה
   decidim:
     admin:
+      actions:
+        confirm_delete_assembly: האם הנך בטוח שברצונך למחוק את האסיפה? אם תרצה לשנות את דעתך, תוכל לבטל אחרי זה.
+        view_deleted_assemblies: צפייה באסיפות מחוקות
+      assemblies:
+        create:
+          error: יש בעיה ביצירת אסיפה חדשה.
+          success: אסיפה נוצרה בהצלחה. כעת ניתן להוסיף רכיבים ולהתאים אותו.
+        edit:
+          update: עדכון
+        index:
+          private: פרטי
+          public: ציבורי
+          published: מפורסם
+          unpublished: לא מפורסם
+        manage_trash:
+          title: אסיפות מחוקות
+        update:
+          error: יש בעיה בעדכון אסיפה זו.
+          success: האסיפה עודכנה בהצלחה.
+      assemblies_copies:
+        create:
+          error: יש בעיה בשכפול אסיפה זו.
+          success: אסיפה השתכפלה בהצלחה.
       assembly_copies:
         new:
           title: שכפל אסיפה
