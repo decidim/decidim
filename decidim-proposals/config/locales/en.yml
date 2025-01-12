@@ -720,7 +720,7 @@ en:
       admin_log:
         proposal:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
-          create: "%{user_name} created the %{resource_name} proposal on the %{space_name} space as an official proposal"
+          create: "%{user_name} created the proposal %{resource_name} from the merging of %{merged_count} proposals in %{space_name}"
           publish_answer: "%{user_name} published the answer to %{resource_name} proposal on the %{space_name} space"
           restore: "%{user_name} restored the %{resource_name} proposal on the %{space_name} space"
           soft_delete: "%{user_name} moved to trash the %{resource_name} proposal on the %{space_name} space"
