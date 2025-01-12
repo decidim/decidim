@@ -12,7 +12,7 @@
   }
 
   &__omniauth {
-    @apply flex flex-row items-center gap-8 text-gray-2 font-semibold w-fit mx-auto mt-10;
+    @apply flex flex-row items-center gap-8 text-gray-2 font-semibold w-fit mx-auto mt-10 [&>a]:w-auto;
 
     &-button {
       @apply button__xl border border-gray shadow-[0_4px_6px_rgba(211,211,211,0.25)] justify-start gap-8 text-lg w-full rounded;
@@ -39,7 +39,7 @@
     }
 
     &__horizontal {
-      @apply flex-row flex-wrap w-full [&>a]:max-w-xs;
+      @apply flex-row flex-wrap [&>a]:w-auto;
     }
   }
 
