@@ -16,9 +16,9 @@ describe "rake decidim:upgrade:clean:fix_blocked_user_notification", type: :task
     let!(:users) { create_list(:user, 4, :blocked, organization:) }
 
     it "update all blocked users" do
-      expect(Decidim::User.blocked.where.not("notifications_sending_frequency = ?", "none").count).to eq(4)
+      expect(Decidim::User.blocked.where.not(notifications_sending_frequency: :none).count).to eq(4)
       expect { task.execute }.not_to raise_error
-      expect(Decidim::User.blocked.where.not("notifications_sending_frequency = ?", "none").count).to eq(0)
+      expect(Decidim::User.blocked.where.not(notifications_sending_frequency: :none).count).to eq(0)
     end
   end
 end
