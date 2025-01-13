@@ -1040,6 +1040,7 @@ es:
         file:
           explanation: 'Instrucciones para el archivo:'
           message_1: Tiene que ser una imagen o un documento.
+          message_2: Si es una imagen, preferiblemente una imagen de apaisada que no tiene ningún texto. La aplicación recorta la imagen.
         icon:
           explanation: 'Instrucciones para el icono:'
           message_1: Tiene que ser una imagen cuadrada.
