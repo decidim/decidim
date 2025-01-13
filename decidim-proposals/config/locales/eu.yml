@@ -628,9 +628,7 @@ eu:
             title: Eguneratu proposamena
             update: Eguneratu
           form:
-            attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
             created_in_meeting: Proposamen hau bilera batetik dator
-            delete_attachment: Ezabatu eranskina
             select_a_meeting: Hautatu topaketa bat
           index:
             actions: Ekintzak
