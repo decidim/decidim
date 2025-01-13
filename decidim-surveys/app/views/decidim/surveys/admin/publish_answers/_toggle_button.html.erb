@@ -12,7 +12,7 @@
       type="checkbox"
       name="<%= label %>"
       data-publish-question-answer-action="<%= question.survey_answers_published_at.present? ? "unpublish" : "publish" %>"
-      data-publish-question-answer-question-url="<%= publish_answer_path(question) %>">
+      data-publish-question-answer-question-url="<%= survey_publish_answer_path(params[:survey_id], question) %>">
       <span class="toggle__switch-toggle-content">
       </span>
       <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
