@@ -98,7 +98,6 @@ lv:
             initiative_title: Iniciatīvas nosaukums
             name_and_surname: Vārds un uzvārds
             postal_code: Pasta indekss
-            time_and_date: Laiks un datums
             timestamp: Laikspiedols
       titles:
         initiatives: Iniciatīvas
