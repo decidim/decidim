@@ -303,7 +303,6 @@ gl:
             title: Actualizar a proposta
             update: Actualización
           form:
-            attachment_legend: "(Opcional) Engada un anexo"
             created_in_meeting: Esta proposta provén dunha reunión
             select_a_meeting: Seleccione unha reunión
           index:
