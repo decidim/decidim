@@ -767,6 +767,24 @@ de:
           email: Die E-Mail-Adresse dieses Benutzers
           id: Der eindeutige Identifikator dieses Benutzers
           invitation_accepted_at: Datum und Uhrzeit, an dem die Einladung angenommen wurde
+          invitation_created_at: Datum und die Uhrzeit, an dem dieser Benutzer eingeladen wurde
+          invitation_sent_at: Datum und Uhrzeit, an dem die Einladung versendet wurde
+          invitations_count: Die Anzahl der an diesen Benutzer gesendeten Einladungen
+          invited_by: Der Benutzer, der diesen Benutzer eingeladen hat
+          last_sign_in_at: Datum und Uhrzeit des letzten Logins
+          last_sign_in_ip: Die IP-Adresse des letzten Logins
+          locale: Die Plattformsprache, die dieser Benutzer ausgewählt hat
+          managed: Ob dieser Benutzer von einem anderen Benutzer verwaltet wird
+          name: Der Name des Benutzers
+          newsletter_notifications_at: Datum und Uhrzeit, wann dieser Benutzer zuletzt einen Newsletter erhalten hat
+          nickname: Der Kontoname des Benutzers
+          notification_settings: Die Benachrichtigungseinstellungen, die dieser Benutzer ausgewählt hat
+          notifications_sending_frequency: Die Häufigkeit der Benachrichtigungen, die dieser Benutzer erhält
+          officialized_as: Der Name der offiziellen Rollen (Amtsleiterin, Bürgermeister, usw.)
+          officialized_at: Das Datum und die Uhrzeit, an der dieser Benutzer offizialisiert wurde
+          organization: Die Organisation, zu der dieser Benutzer gehört
+          personal_url: Die persönliche URL dieses Benutzers
+          remember_created_at: Das Datum und die Uhrzeit, an der der Benutzer zum Speichern ausgewählt wurde
       show:
         action: Aktion
         download_data_description_1: Hier finden Sie alle für Ihr Konto verfügbaren Downloads. Diese .zip Dateien sind zwei Wochen verfügbar, bevor sie gelöscht werden.
@@ -1760,6 +1778,7 @@ de:
       no_stats: Es gibt noch keine Statistiken.
       pages_count: Seiten
       participants_count: Teilnehmer
+      surveys_count: Umfragen
       users_count: Benutzer
     tags:
       filter_results_for_taxonomy: 'Ergebnisse filtern nach: %{resource}'
