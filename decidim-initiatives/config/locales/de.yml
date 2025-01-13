@@ -607,7 +607,8 @@ de:
           answer_url: Die URL der Antwort (falls vorhanden)
           answered_at: Das Datum der Antwort (falls vorhanden)
           area: Der Bereich dieser Initiative
-          authors: Verfassende Personen der Initiative
+          authors: Personen, die diese Initiative verfasst haben
+          comments_count: Die Anzahl der Kommentare zu dieser Initiative
     resources:
       initiative:
         actions:
