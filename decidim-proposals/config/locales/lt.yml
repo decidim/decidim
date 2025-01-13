@@ -403,9 +403,7 @@ lt:
             title: Atnaujinti pasiūlymą
             update: Atnaujinti
           form:
-            attachment_legend: "(Neprivaloma) Pridėti priedą"
             created_in_meeting: Šis pasiūlymas iškeltas susirinkime
-            delete_attachment: Ištrinti prikabintą failą
             select_a_meeting: Pasirinkite susitikimą
           index:
             actions: Veiksmai
