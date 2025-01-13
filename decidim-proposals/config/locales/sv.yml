@@ -533,9 +533,7 @@ sv:
             title: Uppdatera förslag
             update: Uppdatera
           form:
-            attachment_legend: "(Frivilligt) Lägg till en bilaga"
             created_in_meeting: Detta förslag kommer från ett möte
-            delete_attachment: Ta bort bilaga
             select_a_meeting: Välj ett möte
           index:
             actions: Åtgärder
