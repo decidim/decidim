@@ -325,9 +325,7 @@
             title: Oppdater forslag
             update: Oppdater
           form:
-            attachment_legend: "(Valgfritt) Legg til et vedlegg"
             created_in_meeting: Dette forslaget kommer fra et møte
-            delete_attachment: Slett vedlegg
             select_a_meeting: Velg et møte
           index:
             actions: Handlinger
