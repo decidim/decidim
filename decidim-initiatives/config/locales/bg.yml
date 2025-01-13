@@ -144,8 +144,6 @@ bg:
             initiative_title: Заглавие на инициативата
             name_and_surname: Име и фамилия
             postal_code: Пощенски код
-            scope: Обхват
-            time_and_date: Време и дата
             timestamp: Времево клеймо
       titles:
         initiatives: Инициативи
