@@ -145,8 +145,6 @@ fr:
             initiative_title: Titre de la pétition
             name_and_surname: Nom et surnom
             postal_code: Code postal
-            scope: Secteur
-            time_and_date: Heure et date
             timestamp: Horodatage
       titles:
         initiatives: Pétitions
