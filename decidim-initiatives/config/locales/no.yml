@@ -118,8 +118,6 @@
             initiative_title: Tittel på initiativet
             name_and_surname: Navn og etternavn
             postal_code: Postnummer
-            scope: Tema
-            time_and_date: Tid og dato
             timestamp: Tidsstempel
       titles:
         initiatives: Initiativer
