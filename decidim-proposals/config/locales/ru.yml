@@ -121,8 +121,6 @@ ru:
             submit: Отправить
           title: Частные примечания
         proposals:
-          form:
-            attachment_legend: "(Необязательно) Прикрепить файл"
           index:
             actions: Действия
             cancel: Отменить
