@@ -6,6 +6,8 @@ module Decidim
     class SessionsController < ::Devise::SessionsController
       include Decidim::DeviseControllers
       include Decidim::DeviseAuthenticationMethods
+      helper Decidim::ShortLinkHelper
+      helper Decidim::ResourceHelper
 
       before_action :check_sign_in_enabled, only: :create
 

@@ -18,6 +18,7 @@ module Decidim
       add_decidim_meta_twitter_handler(tags[:twitter_handler])
       image_url = tags[:image_url].presence || resolve_meta_image_url(tags[:resource])
       add_decidim_meta_image_url(add_base_url_to(image_url)) if image_url.present?
+      add_decidim_meta_resource(tags[:resource]) if tags[:resource].present?
     end
 
     # Adds base URL to the given path if it does not include a host.
@@ -124,6 +125,10 @@ module Decidim
     # @return [nil]
     def add_decidim_meta_image_url(image_url)
       @decidim_meta_image_url ||= image_url
+    end
+
+    def add_decidim_meta_resource(resource)
+      @decidim_meta_resource ||= resource
     end
 
     # Resolves the image URL to be used for meta tags.
