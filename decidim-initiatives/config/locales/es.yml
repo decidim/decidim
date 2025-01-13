@@ -146,8 +146,6 @@ es:
             initiative_title: Título de la iniciativa
             name_and_surname: Nombre y apellido
             postal_code: Código postal
-            scope: Ámbito
-            time_and_date: Hora y fecha
             timestamp: Marca de tiempo
       titles:
         initiatives: Iniciativas
