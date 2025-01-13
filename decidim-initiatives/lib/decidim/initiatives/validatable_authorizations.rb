@@ -24,7 +24,7 @@ module Decidim
         def authorization
           return unless user && authorization_handler_form_class
 
-          @authorization ||= if authorization_query.exists?
+          @authorization ||= if authorization_query.exists? && authorization_query.first.unique_id == authorization_handler.unique_id
                                authorization_query.first
                              elsif save_authorizations
                                create_authorization
@@ -39,7 +39,7 @@ module Decidim
           return if authorization_status.blank?
           return if authorization_status.first == :ok
 
-          errors.add(:base, :invalid)
+          errors.add(:base, I18n.t("invalid_authorization", scope: "decidim.initiatives.initiative_signatures.fill_personal_data"))
         end
 
         def create_authorization
@@ -57,11 +57,11 @@ module Decidim
         end
 
         def authorization_query
-          Verifications::Authorizations.new(**authorization_params)
+          @authorization_query ||= Verifications::Authorizations.new(**authorization_params)
         end
 
         def new_authorization
-          Decidim::Authorization.new(**authorization_params)
+          Decidim::Authorization.new(created_at: Time.current, **authorization_params)
         end
 
         def authorization_params
