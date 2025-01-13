@@ -146,8 +146,6 @@ eu:
             initiative_title: Ekimenaren izenburua
             name_and_surname: Izena eta abizena
             postal_code: Posta kodea
-            scope: Esparrua
-            time_and_date: Denbora eta data
             timestamp: Denbora-marka
       titles:
         initiatives: Ekimenak
