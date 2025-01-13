@@ -313,9 +313,7 @@ it:
             title: Aggiorna proposta
             update: Aggiornare
           form:
-            attachment_legend: "(Opzionale) Aggiungere un allegato"
             created_in_meeting: Questa proposta proviene da una riunione
-            delete_attachment: Elimina allegato
             select_a_meeting: Seleziona una riunione
           index:
             actions: Azioni
