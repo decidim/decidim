@@ -750,6 +750,23 @@ de:
           updated_at: Datum und Uhrzeit, an dem die Benachrichtigung zuletzt aktualisiert wurde
         user_groups:
           document_number: Die Dokumentennummer dieser Benutzergruppe
+          id: Die eindeutige Bezeichnung der Gruppe
+          name: Der Name dieser Benutzergruppe
+          phone: Die Telefonnummer dieser Benutzergruppe
+          verified_at: Datum und Uhrzeit, wann diese Benutzergruppe überprüft wurde
+        users:
+          about: Die Profilbeschreibung dieses Benutzers
+          admin: Ob dieser Benutzer ein Administrator ist
+          confirmation_sent_at: Datum und Uhrzeit, an dem die Bestätigung gesendet wurde
+          confirmed_at: Datum und Uhrzeit, an dem dieser Benutzer bestätigt wurde
+          created_at: Das Datum und die Uhrzeit, an der dieser Benutzer erstellt wurde
+          current_sign_in_at: Datum und Uhrzeit des aktuellen Logins
+          current_sign_in_ip: Die IP-Adresse des aktuellen Logins
+          delete_reason: Der Grund für das Löschen dieses Benutzers
+          deleted_at: Datum und Uhrzeit, an dem dieser Benutzer gelöscht wurde
+          email: Die E-Mail-Adresse dieses Benutzers
+          id: Der eindeutige Identifikator dieses Benutzers
+          invitation_accepted_at: Datum und Uhrzeit, an dem die Einladung angenommen wurde
       show:
         action: Aktion
         download_data_description_1: Hier finden Sie alle für Ihr Konto verfügbaren Downloads. Diese .zip Dateien sind zwei Wochen verfügbar, bevor sie gelöscht werden.
@@ -1007,7 +1024,6 @@ de:
         file:
           explanation: 'Anleitung für Datei:'
           message_1: Muss ein Bild oder ein Dokument sein.
-          message_2: Verwenden Sie für Bilder vorzugsweise das Querformat, der Dienst beschneidet das Bild.
         icon:
           explanation: 'Hinweise für das Bild:'
           message_1: Muss ein quadratisches Bild sein.
