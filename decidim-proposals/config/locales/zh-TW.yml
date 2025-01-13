@@ -382,9 +382,7 @@ zh-TW:
             title: 更新提案
             update: 更新
           form:
-            attachment_legend: "(可選) 新增附件"
             created_in_meeting: 這個提案來自會議
-            delete_attachment: 刪除附件
             select_a_meeting: 選擇一個會議
           index:
             actions: 操作
