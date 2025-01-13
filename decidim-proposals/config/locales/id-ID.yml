@@ -226,7 +226,6 @@ id:
             title: Perbarui proposal
             update: Memperbarui
           form:
-            attachment_legend: "(Opsional) Tambahkan lampiran"
             created_in_meeting: Proposal ini berasal dari rapat
             select_a_meeting: Pilih rapat
           index:
