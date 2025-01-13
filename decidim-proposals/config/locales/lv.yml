@@ -266,7 +266,6 @@ lv:
             title: Atjaunināt priekšlikumu
             update: Atjaunināt
           form:
-            attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
             created_in_meeting: Šis priekšlikums tika izteikts sanāksmē
             select_a_meeting: Atlasiet sanāksmi
           index:
