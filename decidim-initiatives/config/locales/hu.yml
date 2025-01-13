@@ -135,8 +135,6 @@ hu:
             initiative_title: Kezdeményezés címe
             name_and_surname: Keresztnév és Vezetéknév
             postal_code: Irányítószám
-            scope: Hatókör
-            time_and_date: Idő és dátum
             timestamp: Időbélyeg
       titles:
         initiatives: Kezdeményezések
