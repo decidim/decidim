@@ -343,7 +343,6 @@ tr:
             title: Teklifi güncelle
             update: Güncelle
           form:
-            attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
             created_in_meeting: Bu teklif bir toplantıdan geliyor
             select_a_meeting: Bir toplantı seç
           index:
