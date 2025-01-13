@@ -62,6 +62,9 @@ ru:
             created_at: 'Создано:'
             title: Виды починов
           name: Вид почина
+        initiatives_votes:
+          fields:
+            scope: Охват
       titles:
         initiatives: Почины
         initiatives_types: Виды починов
