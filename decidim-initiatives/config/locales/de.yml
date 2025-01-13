@@ -152,6 +152,9 @@ de:
       titles:
         initiatives: Initiativen
         initiatives_types: Arten von Initiativen
+    download_your_data:
+      show:
+        initiatives: Initiativen exportieren
     events:
       initiatives:
         admin:
@@ -597,6 +600,14 @@ de:
         success: Die Initiative wurde erfolgreich aktualisiert.
     menu:
       initiatives: Initiativen
+    open_data:
+      help:
+        initiatives:
+          answer: Die Antwort, die diese Initiative erhalten hat (falls vorhanden)
+          answer_url: Die URL der Antwort (falls vorhanden)
+          answered_at: Das Datum der Antwort (falls vorhanden)
+          area: Der Bereich dieser Initiative
+          authors: Verfassende Personen der Initiative
     resources:
       initiative:
         actions:
