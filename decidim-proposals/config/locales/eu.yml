@@ -499,7 +499,7 @@ eu:
             title: Eguneratu proposamena
             update: Eguneratu
           form:
-            attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
+            attachment_legend: "(Aukerakoa) Gehitu fitxategi bat"
             created_in_meeting: Proposamen hau bilera batetik dator
             delete_attachment: Ezabatu eranskina
             select_a_category: Hautatu kategoria bat
