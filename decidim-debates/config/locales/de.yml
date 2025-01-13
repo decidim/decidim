@@ -22,15 +22,21 @@ de:
         one: Debatte
         other: Debatten
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Debatten
     components:
       debates:
         actions:
           comment: Kommentar
+          create: Debatte erstellen
           endorse: Bestätigen
         name: Debatten
         settings:
           global:
             announcement: Ankündigung
+            attachments_allowed: Anhänge zulassen
             clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
@@ -49,9 +55,12 @@ de:
     debates:
       actions:
         close: Schließen
+        confirm_delete_debate: Möchten Sie diese Debatte wirklich löschen?
+        deleted_debate_info: Gelöschte Debatten können aus dem Papierkorb wiederhergestellt werden.
         edit: Bearbeiten
         new: Neue Debatte
         title: Aktionen
+        view_deleted_debates: Gelöschte Debatten anzeigen
       admin:
         debate_closes:
           edit:
@@ -65,7 +74,12 @@ de:
             title: Debatte bearbeiten
             update: Debatte aktualisieren
           form:
+            add_documents: Dokumente hinzufügen
+            attachment_legend: "(Optional) Anhang hinzufügen"
+            comments_visualization: Kommentardarstellung
+            comments_warning: Sobald der erste Kommentar veröffentlicht wurde, kann die gewählte Anzeigeoption nicht geändert werden.
             debate_type: Debatten-Typ
+            edit_documents: Dokumente bearbeiten
             finite: Zeitlich begrenzt (mit Start- und Endzeit)
             open: Offen (keine Start- und Endzeit)
           index:
