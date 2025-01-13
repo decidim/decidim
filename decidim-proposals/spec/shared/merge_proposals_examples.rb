@@ -127,7 +127,7 @@ shared_examples "merge proposals" do
               expect(page).to have_content("Withdrawn", count: 3)
             end
 
-            it "recordes the action in the admin log" do
+            it "shows the recorded action in the admin log" do
               click_on "Admin activity log"
               expect(page).to have_content("created the proposal My result merge proposal from the merging of")
             end
