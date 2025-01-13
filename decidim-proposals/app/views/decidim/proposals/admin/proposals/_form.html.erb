@@ -57,21 +57,15 @@
       <% end %>
 
       <% if component_settings.attachments_allowed? %>
-        <%= render partial: "decidim/admin/shared/gallery", locals: { form: } %>
-      <% end %>
-      <% if component_settings.attachments_allowed? %>
         <div class="row column">
-          <legend><%= t(".attachment_legend") %></legend>
-          <%= form.fields_for :attachment, @form.attachment do |form| %>
-            <%= form.text_field :title %>
-            <%= form.upload :file, button_class: "button button__sm button__transparent-secondary" %>
-            <% if params[:id].present? %>
-              <% if proposal.documents.present? %>
-                <%= form.hidden_field :id, value: proposal.documents.first.id %>
-                <%= form.check_box :delete_file, label: t(".delete_attachment"), value: proposal.documents.first.id %>
-              <% end %>
-            <% end %>
-          <% end %>
+          <%= form.attachment :documents,
+                              multiple: true,
+                              label: t("decidim.proposals.proposals.edit.add_documents"),
+                              button_label: t("decidim.proposals.proposals.edit.add_documents"),
+                              button_edit_label: t("decidim.proposals.proposals.edit.edit_documents"),
+                              button_class: "button button__lg button__transparent-secondary w-full",
+                              help_i18n_scope: "decidim.forms.file_help.file",
+                              help_text: t("attachment_legend", scope: "decidim.proposals.proposals.edit") %>
         </div>
       <% end %>
     </div>
