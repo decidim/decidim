@@ -108,7 +108,6 @@ is:
           title: Einkaskilaboð
         proposals:
           form:
-            attachment_legend: "(Valfrjálst) Bæta við viðhengi"
             select_a_category: Veldu flokk
           index:
             actions: Aðgerðir
