@@ -248,7 +248,7 @@ shared_examples "a proposal form" do |options|
         attachments_key => [Decidim::Dev.test_file("city.jpeg", "image/jpeg")]
       }
     end
-    let(:attachments_key) { options[:admin] ? :add_photos : :add_documents }
+    let(:attachments_key) { :documents }
 
     it { is_expected.to be_valid }
 
@@ -259,11 +259,11 @@ shared_examples "a proposal form" do |options|
         expect(subject).not_to be_valid
 
         if options[:i18n]
-          expect(subject.errors.full_messages).to contain_exactly("Title en cannot be blank", "Add photos Needs to be reattached")
-          expect(subject.errors.attribute_names).to contain_exactly(:title_en, :add_photos)
+          expect(subject.errors.full_messages).to contain_exactly("Title en cannot be blank")
+          expect(subject.errors.attribute_names).to contain_exactly(:title_en)
         else
-          expect(subject.errors.full_messages).to contain_exactly("Title cannot be blank", "Title is too short (under 15 characters)", "Add documents Needs to be reattached")
-          expect(subject.errors.attribute_names).to contain_exactly(:title, :add_documents)
+          expect(subject.errors.full_messages).to contain_exactly("Title cannot be blank", "Title is too short (under 15 characters)")
+          expect(subject.errors.attribute_names).to contain_exactly(:title)
         end
       end
     end
