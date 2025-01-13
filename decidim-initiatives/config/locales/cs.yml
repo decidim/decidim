@@ -152,8 +152,6 @@ cs:
             initiative_title: Název iniciativy
             name_and_surname: Jméno a příjmení
             postal_code: Poštovní směrovací číslo
-            scope: Oblast působnosti
-            time_and_date: Čas a datum
             timestamp: Časové razítko
       titles:
         initiatives: Iniciativy
