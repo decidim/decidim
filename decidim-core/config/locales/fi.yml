@@ -1038,7 +1038,6 @@ fi:
         file:
           explanation: 'Tiedoston ohjeistus:'
           message_1: On oltava kuva tai asiakirja.
-          message_2: Kuvina käytä mieluiten vaakasuuntaisia kuvia, palvelu rajaa kuvaa.
         icon:
           explanation: 'Kuvakkeen ohjeistus:'
           message_1: On oltava neliömuotoinen kuva.
