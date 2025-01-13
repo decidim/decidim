@@ -146,8 +146,6 @@ fi-pl:
             initiative_title: Aloitteen otsikko
             name_and_surname: Nimi ja sukunimi
             postal_code: Postinumero
-            scope: Teema
-            time_and_date: Aika ja päivämäärä
             timestamp: Aikaleima
       titles:
         initiatives: Aloitteet
