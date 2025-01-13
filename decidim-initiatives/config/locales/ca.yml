@@ -146,8 +146,6 @@ ca:
             initiative_title: Títol de la iniciativa
             name_and_surname: Nom i cognoms
             postal_code: Codi postal
-            scope: Àmbit
-            time_and_date: Data i hora
             timestamp: Marca de temps
       titles:
         initiatives: Iniciatives
