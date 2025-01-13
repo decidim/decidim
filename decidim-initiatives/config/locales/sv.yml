@@ -146,8 +146,6 @@ sv:
             initiative_title: Initiativets titel
             name_and_surname: Namn och efternamn
             postal_code: Postnummer
-            scope: Indelning
-            time_and_date: Tid och datum
             timestamp: Tidsstämpel
       titles:
         initiatives: Initiativ
