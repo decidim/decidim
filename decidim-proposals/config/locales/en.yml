@@ -628,9 +628,7 @@ en:
             title: Update proposal
             update: Update
           form:
-            attachment_legend: "(Optional) Add an attachment"
             created_in_meeting: This proposal comes from a meeting
-            delete_attachment: Delete attachment
             select_a_meeting: Select a meeting
           index:
             actions: Actions

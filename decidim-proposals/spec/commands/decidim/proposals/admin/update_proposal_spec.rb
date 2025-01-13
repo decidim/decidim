@@ -24,10 +24,12 @@ describe Decidim::Proposals::Admin::UpdateProposal do
   let(:has_address) { false }
   let(:address) { nil }
   let(:attachment_params) { nil }
-  let(:uploaded_photos) { [] }
-  let(:current_photos) { [] }
+  let(:uploaded_files) { [] }
+  let(:photos) { [] }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
+  let!(:file) { create(:attachment, :with_pdf, attached_to: proposal) }
+  let(:current_files) { [file] }
 
   describe "call" do
     let(:form_params) do
@@ -37,8 +39,8 @@ describe Decidim::Proposals::Admin::UpdateProposal do
         address:,
         has_address:,
         attachment: attachment_params,
-        photos: current_photos,
-        add_photos: uploaded_photos
+        documents: current_files,
+        add_documents: uploaded_files
       }
     end
 
@@ -112,24 +114,18 @@ describe Decidim::Proposals::Admin::UpdateProposal do
 
       context "when attachments are allowed" do
         let(:component) { create(:proposal_component, :with_attachments_allowed) }
-
-        let(:blob) do
-          ActiveStorage::Blob.create_and_upload!(
-            io: File.open(Decidim::Dev.test_file("city.jpeg", "image/jpeg"), "rb"),
-            filename: "city.jpeg",
-            content_type: "image/jpeg" # Or figure it out from `name` if you have non-JPEGs
-          )
+        let(:uploaded_files) do
+          [
+            file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf")
+          ]
         end
 
-        let(:attachment_params) do
-          {
-            title: "My attachment",
-            file: blob.signed_id
-          }
-        end
+        let!(:file) { create(:attachment, :with_pdf) }
+        let(:current_files) { [file] }
 
         it "creates an attachment for the proposal" do
-          expect { command.call }.to change(Decidim::Attachment, :count).by(1)
+          command.call
+          expect(Decidim::Attachment.count).to eq(Decidim::Attachment.count(+1))
           last_proposal = Decidim::Proposals::Proposal.last
           last_attachment = Decidim::Attachment.last
           expect(last_attachment.attached_to).to eq(last_proposal)
@@ -148,12 +144,14 @@ describe Decidim::Proposals::Admin::UpdateProposal do
         end
       end
 
-      it_behaves_like "admin manages resource gallery" do
-        let(:component) { create(:proposal_component, :with_attachments_allowed) }
-        let!(:resource) { proposal }
-        let(:command) { described_class.new(form, resource) }
-        let(:resource_class) { Decidim::Proposals::Proposal }
-        let(:attachment_params) { { title: "" } }
+      context "when galleries are allowed" do
+        it_behaves_like "admin manages resource gallery for resources" do
+          let(:component) { create(:proposal_component, :with_attachments_allowed) }
+          let!(:resource) { proposal }
+          let(:command) { described_class.new(form, resource) }
+          let(:resource_class) { Decidim::Proposals::Proposal }
+          let(:attachment_params) { { title: "" } }
+        end
       end
     end
   end
