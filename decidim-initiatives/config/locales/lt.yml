@@ -144,8 +144,6 @@ lt:
             initiative_title: Iniciatyvos pavadinimas
             name_and_surname: Vardas ir pavardė
             postal_code: Pašto kodas
-            scope: Apimtis
-            time_and_date: Laikas ir data
             timestamp: Laiko žymė
       titles:
         initiatives: Iniciatyvos
