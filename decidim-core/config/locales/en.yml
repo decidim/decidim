@@ -1774,7 +1774,6 @@ en:
           all: All
           future: Future
           past: Past
-        title: Search filters
       filters_small_view:
         filter: Filter
         filter_and_search: Filter and search
