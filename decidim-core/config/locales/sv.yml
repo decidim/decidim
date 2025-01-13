@@ -1444,7 +1444,7 @@ sv:
         jump_to: 'Gå till:'
         search: Sök
         state:
-          active: Aktiva
+          active: Pågående
           all: Alla
           future: Framtida
           past: Tidigare
