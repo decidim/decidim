@@ -96,7 +96,6 @@ ar:
             initiative_title: عنوان المبادرة
             name_and_surname: اسم ولقب
             postal_code: الكود البريدى
-            time_and_date: الوقت و التاريخ
             timestamp: الطابع الزمني
       titles:
         initiatives: المبادرات
