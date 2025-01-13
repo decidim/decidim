@@ -479,9 +479,7 @@ bg:
             title: Актуализиране на предложението
             update: Актуализация
           form:
-            attachment_legend: "(Незадължително) Добавяне на прикачен файл"
             created_in_meeting: Това предложение е резултат от среща
-            delete_attachment: Изтриване на прикачен файл
             select_a_meeting: Избор на среща
           index:
             actions: Активности
