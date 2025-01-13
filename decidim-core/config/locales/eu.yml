@@ -1057,6 +1057,7 @@ eu:
         file:
           explanation: 'Jarraibideak artxiborako:'
           message_1: Irudi bat edo dokumentu bat izan behar da.
+          message_2: Irudia bada, ahal dela, paisaia-irudia, testurik ez duena izan dadila. Zerbitzuak irudia lantzen du.
         icon:
           explanation: 'Jarraibideak irudirako:'
           message_1: Irudi karratua izan behar da.
