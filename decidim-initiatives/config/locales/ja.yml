@@ -143,8 +143,6 @@ ja:
             initiative_title: イニシアチブのタイトル
             name_and_surname: 名前と苗字
             postal_code: 郵便番号
-            scope: スコープ
-            time_and_date: 日時
             timestamp: タイムスタンプ
       titles:
         initiatives: イニシアチブ
