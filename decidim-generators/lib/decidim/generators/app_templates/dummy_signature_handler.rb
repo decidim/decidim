@@ -52,6 +52,12 @@ class DummySignatureHandler < Decidim::Initiatives::SignatureHandler
             inclusion: { in: :available_genders },
             allow_blank: true
 
+  def date_of_birth=(date)
+    date = nil if date.is_a?(Hash) && date.values.any?(&:blank?)
+
+    super
+  end
+
   def document_types_for_select
     document_types.map do |type|
       [
