@@ -120,7 +120,7 @@ describe Decidim::OpenDataExporter do
       let(:help_lines) do
         [
           "* id: The unique identifier of this taxonomy",
-          "* name: The name of this taxonomy",
+          "* name: The name of this taxonomy"
         ]
       end
 
