@@ -10,6 +10,7 @@ module Decidim
           let!(:proposals) { create_list(:proposal, 3, component: current_component) }
           let!(:current_component) { create(:proposal_component) }
           let!(:target_component) { create(:proposal_component, participatory_space: current_component.participatory_space) }
+          let!(:author) { create(:organization) }
           let(:form) do
             instance_double(
               ProposalsMergeForm,
@@ -27,7 +28,8 @@ module Decidim
               latitude: "",
               longitude: "",
               created_in_meeting: false,
-              created_in_meeting?: false
+              created_in_meeting?: false,
+              author:
             )
           end
           let(:command) { described_class.new(form) }

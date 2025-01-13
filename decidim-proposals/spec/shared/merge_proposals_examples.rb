@@ -80,6 +80,10 @@ shared_examples "merge proposals" do
           context "when merging to another component" do
             before do
               click_on "My result merge proposal"
+              wait = Selenium::WebDriver::Wait.new(timeout: 10)
+              wait.until { page.driver.browser.switch_to.alert }
+              alert = page.driver.browser.switch_to.alert
+              alert.accept
               new_proposal_url = find("a", text: "See proposal")[:href]
               visit new_proposal_url
             end
