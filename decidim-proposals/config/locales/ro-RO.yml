@@ -341,9 +341,7 @@ ro:
             title: Actualizează propunerea
             update: Actualizează
           form:
-            attachment_legend: "(Opțional) Adaugă un atașament"
             created_in_meeting: Această propunere provine dintr-o întâlnire
-            delete_attachment: Șterge atașamentul
             select_a_meeting: Selectează o întâlnire
           index:
             actions: Acțiuni
