@@ -21,6 +21,10 @@
         @apply w-6 h-6 flex-none;
       }
 
+      span {
+        @apply hidden md:inline;
+      }
+
       &--facebook {
         @apply flex flex-row text-white bg-omniauth-facebook hover:bg-omniauth-facebookhover;
       }

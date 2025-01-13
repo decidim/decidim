@@ -679,7 +679,7 @@ en:
             <p>Thanks for reading this!</p>
           title: Newsletter notifications
         omniauth_buttons:
-          or: Or
+          or: or
         password_fields:
           hidden_password: Your password is hidden
           hide_password: Hide password
