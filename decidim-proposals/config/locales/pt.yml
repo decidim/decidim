@@ -325,9 +325,7 @@ pt:
             title: Atualizar proposta
             update: Atualizar
           form:
-            attachment_legend: "(Opcional) Adicionar um anexo"
             created_in_meeting: Esta proposta vem de uma reunião
-            delete_attachment: Apagar anexo
             select_a_meeting: Selecione uma reunião
           index:
             actions: Ações
