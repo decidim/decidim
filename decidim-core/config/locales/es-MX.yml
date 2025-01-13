@@ -3,10 +3,18 @@ es-MX:
     attributes:
       account:
         delete_reason: Motivo de eliminar tu cuenta
+      attachment:
+        documents: Documentos
+        photos: Fotos
       common:
         created_at: Creado el
+      content_block_attachment:
+        background_image: Imagen de fondo
+        main_image: Imagen principal
       conversation:
         body: Cuerpo
+      editor_image:
+        file: Archivo
       group:
         about: Acerca de
         avatar: Avatar
@@ -15,6 +23,8 @@ es-MX:
         name: Nombre
         nickname: Alias
         phone: Teléfono
+      import:
+        file: Archivo
       message:
         body: Cuerpo
       report:
@@ -28,6 +38,7 @@ es-MX:
         space_filter: Disponible como filtro para espacios de participación
       user:
         about: Acerca de
+        avatar: Imagen de perfil
         email: Tu correo electrónico
         encrypted_password: Contraseña
         locale: Configuración regional
@@ -39,6 +50,8 @@ es-MX:
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
         tos_agreement: Términos y condiciones uso
+      user_group:
+        avatar: Imagen de perfil
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
@@ -862,6 +875,9 @@ es-MX:
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Una enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
             notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'Se ha publicado una enmienda para %{amendable_title}. Puedes verla en esta página:'
       attachments:
         attachment_created:
           email_intro: 'Se ha agregado un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
@@ -1027,7 +1043,6 @@ es-MX:
         file:
           explanation: 'Instrucciones para el archivo:'
           message_1: Tiene que ser una imagen o un documento.
-          message_2: Para las imágenes, utiliza, preferiblemente, imágenes apaisadas, el servicio recorta la imagen.
         icon:
           explanation: 'Instrucciones para el icono:'
           message_1: Tiene que ser una imagen cuadrada.
@@ -1310,6 +1325,8 @@ es-MX:
         not_started: Aún no ha comenzado
         remaining: "Queda(n) %{time_distance}"
     metrics:
+      blocked_users:
+        description: Número de participantes bloqueadas
       download:
         csv: Descargar datos (CSV)
       followers:
@@ -1320,6 +1337,10 @@ es-MX:
         description: Número de usuarios activos en la organización.
         object: participantes
         title: Participantes
+      reported_users:
+        description: Número de participantes reportadas
+      user_reports:
+        description: Número de denuncias realizadas por participantes
       users:
         description: Número de usuarios en la organización.
         object: usuarios
@@ -1385,10 +1406,12 @@ es-MX:
     notifications_digest_mailer:
       header:
         daily: Resumen diario de notificaciones
+        real_time: En tiempo real
         weekly: Resumen semanal de notificaciones
       hello: Hola %{name},
       intro:
         daily: 'Estas son las notificaciones del último día basadas en la actividad que estás siguiendo:'
+        real_time: 'Esta es una notificación sobre la actividad que sigues:'
         weekly: 'Estas son las notificaciones de la última semana basadas en la actividad que estás siguiendo:'
       outro: Has recibido estas notificaciones porque sigues este contenido o a sus autoras. Puedes dejar de seguirlas desde sus respectivas páginas.
       see_more: Ver más notificaciones
