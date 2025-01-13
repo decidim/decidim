@@ -395,7 +395,7 @@ de:
           member_of:
             member_of: Mitglied von
       show:
-        assembly_type: Montageart
+        assembly_type: Versammlungsart
         duration: Aktiv bis
         is_transparent:
           'false': undurchsichtig
