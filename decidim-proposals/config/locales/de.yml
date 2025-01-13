@@ -557,9 +557,7 @@ de:
             title: Vorschlag aktualisieren
             update: Aktualisieren
           form:
-            attachment_legend: "(Optional) Anhang hinzufügen"
             created_in_meeting: Dieser Vorschlag stammt von einer Besprechung
-            delete_attachment: Anhang löschen
             select_a_meeting: Besprechung auswählen
           index:
             actions: Aktionen
