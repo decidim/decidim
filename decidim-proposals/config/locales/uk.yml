@@ -121,8 +121,6 @@ uk:
             submit: Надіслати
           title: Приватні примітки
         proposals:
-          form:
-            attachment_legend: "(Необов'язково) Додати вкладений файл"
           index:
             actions: Дії
             cancel: Скасувати
