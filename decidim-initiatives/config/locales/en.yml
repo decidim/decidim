@@ -478,6 +478,7 @@ en:
           invalid_data: Some of the personal data provided to verify your identity is not valid.
         finish:
           back_to_initiative: Back to initiative
+          title: Initiative signature accepted
         sms_phone_number:
           confirmed_data: You have confirmed your data.
           continue: Sign initiative
