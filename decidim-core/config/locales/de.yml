@@ -785,13 +785,24 @@ de:
           organization: Die Organisation, zu der dieser Benutzer gehört
           personal_url: Die persönliche URL dieses Benutzers
           remember_created_at: Das Datum und die Uhrzeit, an der der Benutzer zum Speichern ausgewählt wurde
+          reset_password_sent_at: Datum und Uhrzeit, an dem die Zurücksetzung des Passworts ausgelöst wurde
+          sign_in_count: Die Anzahl der Anmeldungen dieses Benutzers
+          unconfirmed_email: Die E-Mail-Adresse, die dieser Benutzer noch nicht bestätigt hat
+          updated_at: Datum und Uhrzeit, an dem dieser Benutzer zuletzt aktualisiert wurde
       show:
         action: Aktion
+        download: Datei herunterladen
+        download_data: Daten-Download
         download_data_description_1: Hier finden Sie alle für Ihr Konto verfügbaren Downloads. Diese .zip Dateien sind zwei Wochen verfügbar, bevor sie gelöscht werden.
         download_data_description_2: Sie können eine .zip-Datei mit Ihren Beiträgen und personenbezogenen Daten anfordern.
         download_your_data: Personenbezogene Daten
         expiration: Ablaufdatum
         expired: Bereits abgelaufen
+        explanation:
+          body_1: Diese Dateien sind Datensätze, die aus Ihrer Aktivität in dieser Plattform exportiert werden, wie Vorschläge oder Kommentare. Sie liefern rohe, strukturierte Daten, die für Analysen, Forschung oder Integration mit anderen Tools verwendet werden können
+          body_2: Diese Dateien sind im CSV-Format (Comma-Separated Values), ein weit verbreitetes Dateiformat, das von einer Vielzahl von Softwareanwendungen geöffnet und verarbeitet werden kann, einschließlich Tabellenkalkulationsprogramme, Texteditoren und Datenanalysewerkzeugen.
+          title: Was sind diese Dateien?
+        files_to_download: Dateien zum Herunterladen
         request_data: Anfrage
         type: Art des Downloads
     editor_images:
@@ -880,6 +891,11 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Abgelehnte Änderung für %{amendable_title} von %{emendation_author_nickname}
             notification_title: Die <a href="%{emendation_path}">Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde abgelehnt.
+        emendation_promoted:
+          follower:
+            email_intro: 'Eine Änderung wurde für %{amendable_title} abgelehnt. Sie können es auf dieser Seite sehen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} mitverfasst haben.
+            email_subject: Eine Änderung von %{emendation_author_nickname} ist als neuer %{amendable_type} veröffentlicht worden
       attachments:
         attachment_created:
           email_intro: 'Ein neues Dokument wurde zu %{resource_title} hinzugefügt. Sie können es auf dieser Seite sehen:'
@@ -971,6 +987,9 @@ de:
         email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{endorser_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
         email_subject: "%{endorser_nickname} hat eine neue Befürwortung ausgesprochen"
         notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} wurde von <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> befürwortet.
+      resources:
+        soft_deleted:
+          notification_title: Ein Admin hat Ihre "%{resource_type}" "%{resource_title} " gelöscht.
       users:
         profile_updated:
           email_intro: Die <a href="%{resource_url}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
@@ -1042,6 +1061,7 @@ de:
         file:
           explanation: 'Anleitung für Datei:'
           message_1: Muss ein Bild oder ein Dokument sein.
+          message_2: Wenn es sich um ein Bild handelt, ist es vorzugsweise ein Querformat ohne Text. Es wird von der Plattform zugeschnitten.
         icon:
           explanation: 'Hinweise für das Bild:'
           message_1: Muss ein quadratisches Bild sein.
@@ -1324,6 +1344,8 @@ de:
         not_started: Noch nicht begonnen
         remaining: "%{time_distance} verbleibend"
     metrics:
+      blocked_users:
+        description: Anzahl der blockierten Teilnehmenden
       download:
         csv: Daten herunterladen (CSV)
       followers:
@@ -1334,6 +1356,10 @@ de:
         description: Anzahl der aktiven Benutzer in der Organisation
         object: Teilnehmer
         title: Teilnehmer
+      reported_users:
+        description: Anzahl der gemeldeten Teilnehmenden
+      user_reports:
+        description: Anzahl der von Teilnehmenden getätigten Meldungen
       users:
         description: Anzahl der Benutzer in der Organisation
         object: Benutzer
@@ -1399,10 +1425,12 @@ de:
     notifications_digest_mailer:
       header:
         daily: Tägliche Zusammenfassung
+        real_time: In Echtzeit
         weekly: Wöchentliche Zusammenfassung
       hello: Hallo %{name}
       intro:
         daily: 'Dies sind die Benachrichtigungen vom letzten Tag basierend auf den Aktivitäten, denen Sie folgen:'
+        real_time: 'Es gibt eine Benachrichtigung über die Aktivität, die du folgst:'
         weekly: 'Dies sind die Benachrichtigungen der letzten Woche, basierend auf den Aktivitäten, die Sie folgen:'
       outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Inhalt oder seine Verfassenden folgen. Sie können dem Inhalt direkt auf seiner Seite entfolgen.
       see_more: Weitere Benachrichtigungen ansehen
@@ -1441,6 +1469,14 @@ de:
         message_1: Es sieht so aus, als ob Sie momentan offline sind.
         message_2: Bitte später erneut versuchen.
         retry: Wiederholen
+    onboarding_action_message:
+      click_link: Hier klicken
+      cta_html: <a href="%{path}">%{link_text}</a> um %{action} auf %{resource_name} <strong>%{resource_title}</strong>
+      expired_authorization_active_title: Die Autorisierung ist abgelaufen.
+      finish_authorization_process: Sie können den Autorisierungsprozess beenden
+      incomplete_authorization_active_title: Ihre Verifizierung wurde nicht mit allen notwendigen Informationen abgeschlossen.
+      pending_authorization_active_message: Bitte füllen Sie das Formular aus, um mit dieser Aktion fortzufahren.
+      pending_authorization_active_title: Wir müssen deine Identität verifizieren.
     open_data:
       help:
         core:
@@ -1449,6 +1485,11 @@ de:
           main: Kern
           spaces: Bereiche
           title: Open Data Dateien für %{organization} 
+        metrics:
+          cumulative: Die Gesamtzahl der Metrik an diesem Tag
+          day: Erstellungsdatum dieser Metrik
+          metric_type: Typ der Metrik
+          quantity: Die Anzahl der Metriken für diesen Tag
         moderated_users:
           about: Die Beschreibung des Kontos
           block_reasons: Der Grund der Blockierung eines Kontos durch einen Admin
@@ -1782,6 +1823,8 @@ de:
       users_count: Benutzer
     tags:
       filter_results_for_taxonomy: 'Ergebnisse filtern nach: %{resource}'
+    taxonomies:
+      prompt: Bitte eine Option wählen
     translation_bar:
       help_text: "<strong>Warnung:</strong> Inhalt könnte automatisch übersetzt werden und nicht 100% korrekt sein."
       show_original: Originaltext anzeigen
