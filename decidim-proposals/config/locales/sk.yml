@@ -270,7 +270,6 @@ sk:
             title: Návrh aktualizácie
             update: Aktualizácia
           form:
-            attachment_legend: "(Voliteľné) Pridanie prílohy"
             created_in_meeting: Tento návrh pochádza z rokovania
             select_a_meeting: Vyberte schôdzku
           index:
