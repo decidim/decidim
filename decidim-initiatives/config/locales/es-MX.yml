@@ -147,7 +147,7 @@ es-MX:
             initiative_title: Título de la iniciativa
             name_and_surname: Nombre y apellido
             postal_code: código postal
-            scope: Ámbito
+            scope: Alcance
             time_and_date: Hora y fecha
             timestamp: Marca de tiempo
       titles:
