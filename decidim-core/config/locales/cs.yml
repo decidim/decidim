@@ -1067,7 +1067,6 @@ cs:
         file:
           explanation: 'Pokyny pro soubor:'
           message_1: Jedná se o obrázek nebo dokument.
-          message_2: Jako obrázky používejte obrázky na šířku, služba obrázek ořízne.
         icon:
           explanation: 'Pokyny pro ikonu:'
           message_1: Musí to být čtvercový obrázek.
