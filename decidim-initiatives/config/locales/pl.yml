@@ -150,8 +150,6 @@ pl:
             initiative_title: Tytuł inicjatywy
             name_and_surname: Imię i nazwisko
             postal_code: Kod pocztowy
-            scope: Zakres
-            time_and_date: Czas i data
             timestamp: Znacznik czasu
       titles:
         initiatives: Inicjatywy
