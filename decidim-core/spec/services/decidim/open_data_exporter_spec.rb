@@ -113,6 +113,25 @@ describe Decidim::OpenDataExporter do
       end
     end
 
+    describe "with taxonomies" do
+      let(:resource_file_name) { "taxonomies" }
+      let(:resource_title) { "### taxonomies" }
+      let!(:resource) { create(:taxonomy, organization:) }
+      let(:help_lines) do
+        [
+          "* id: The unique identifier of this taxonomy",
+          "* name: The name of this taxonomy",
+        ]
+      end
+
+      include_examples "default open data exporter"
+
+      it "includes the resource data" do
+        expect(data).to include(resource.id.to_s)
+        expect(data).to include(resource.weight.to_s)
+      end
+    end
+
     describe "with moderations" do
       let(:resource_file_name) { "moderations" }
       let(:resource_title) { "### moderations" }
