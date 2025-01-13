@@ -470,6 +470,7 @@ en:
         fill_personal_data:
           continue: Validate your data
           help: Please, fill the following fields with your personal data to sign the initiative.
+          invalid_authorization: The data provided to proceed with the action is not compatible with your existing authorizations or you have to create a granted authorization.
           invalid_data: Some of the personal data provided to verify your identity is not valid.
         finish:
           back_to_initiative: Back to initiative
