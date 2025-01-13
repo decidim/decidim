@@ -87,7 +87,7 @@ shared_examples "manage proposals" do
               expect(proposal.taxonomies).to eq([])
             end
             visit decidim_admin.root_path
-            expect(page).to have_content("created the #{translated(attributes[:title])} proposal")
+            expect(page).to have_content("created the proposal #{translated(attributes[:title])} from the merging of")
 
             visit decidim.last_activities_path
             expect(page).to have_content("New proposal: #{translated(attributes[:title])}")
