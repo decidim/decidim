@@ -627,9 +627,7 @@ es:
             title: Actualizar propuesta
             update: Actualizar
           form:
-            attachment_legend: "(Opcional) Añadir un archivo adjunto"
             created_in_meeting: Esta propuesta procede de un encuentro
-            delete_attachment: Eliminar archivo adjunto
             select_a_meeting: Selecciona un encuentro
           index:
             actions: Acciones
