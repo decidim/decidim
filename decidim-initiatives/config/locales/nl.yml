@@ -101,7 +101,6 @@ nl:
             initiative_title: Titel van het initiatief
             name_and_surname: Naam en achternaam
             postal_code: Postcode
-            time_and_date: Tijd en datum
             timestamp: tijdstempel
       titles:
         initiatives: Initiatieven
