@@ -1043,6 +1043,7 @@ es-PY:
         file:
           explanation: 'Instrucciones para el archivo:'
           message_1: Tiene que ser una imagen o un documento.
+          message_2: En el caso de una imagen, preferiblemente apaisada que no incorpore ningún texto. La aplicación ajustará la imagen.
         icon:
           explanation: 'Instrucciones para el icono:'
           message_1: Tiene que ser una imagen cuadrada.
