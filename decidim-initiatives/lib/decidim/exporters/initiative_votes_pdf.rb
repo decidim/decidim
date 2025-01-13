@@ -16,11 +16,7 @@ module Decidim
       attr_reader :initiative
 
       def page_orientation
-        if collect_user_extra_fields
-          :landscape
-        else
-          :portrait
-        end
+        :landscape
       end
 
       def add_data!
