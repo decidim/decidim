@@ -94,18 +94,11 @@ module Decidim
         end
 
         def merge_authors
-          add_organization_as_first_author
+          @merged_proposal.add_coauthor(form.author) if form.author && form.created_in_meeting? && @merged_proposal.authors.exclude?(form.author)
 
-          form.proposals.each do |proposal|
-            proposal.authors.each do |author|
-              @merged_proposal.add_coauthor(author)
-            end
-          end
-        end
+          authors = form.proposals.flat_map(&:authors).sort_by { |author| author.is_a?(Decidim::Meetings::Meeting) ? 0 : 1 }
 
-        def add_organization_as_first_author
-          organization = form.current_organization
-          @merged_proposal.add_coauthor(organization) unless @merged_proposal.authors.include?(organization)
+          authors.each { |author| @merged_proposal.add_coauthor(author) unless @merged_proposal.authors.include?(author) }
         end
 
         def notify_author
