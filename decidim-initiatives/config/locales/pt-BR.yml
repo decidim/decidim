@@ -126,8 +126,6 @@ pt-BR:
             initiative_title: Título da iniciativa
             name_and_surname: Nome e sobrenome
             postal_code: Código postal
-            scope: Escopo
-            time_and_date: Hora e data
             timestamp: Timestamp
       titles:
         initiatives: Iniciativas
