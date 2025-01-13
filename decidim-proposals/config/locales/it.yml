@@ -390,7 +390,7 @@ it:
             title: Aggiorna proposta
             update: Aggiornare
           form:
-            attachment_legend: "(Opzionale) Aggiungere un allegato"
+            attachment_legend: "(Opzionale) Aggiungi un allegato"
             created_in_meeting: Questa proposta proviene da una riunione
             delete_attachment: Elimina allegato
             select_a_category: Scegli una categoria
