@@ -80,6 +80,12 @@ fr-CA:
           update:
             invalid: Erreurs lors de la sauvegarde de l'enquête.
             success: Enquête enregistrée avec succès.
+      admin_log:
+        survey:
+          create: "%{user_name} a créé l'enquête %{resource_name} sur l'espace %{space_name}"
+          delete: "%{user_name} a supprimé l'enquête %{resource_name} sur l'espace %{space_name}"
+          publish: "%{user_name} a publié l'enquête %{resource_name} sur l'espace %{space_name}"
+          update: "%{user_name} a mis à jour l'enquête %{resource_name} sur l'espace %{space_name}"
       directory:
         surveys:
           index:
