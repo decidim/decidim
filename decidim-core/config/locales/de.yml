@@ -731,6 +731,8 @@ de:
         identities:
           created_at: Das Datum und die Uhrzeit, zu der die ID erstellt wurde
           id: Der eindeutige Bezeichner dieser Identität
+          provider: Der Anbieter dieser Identität
+          uid: Die eindeutige Bezeichnung dieser Identität
       show:
         action: Aktion
         download_data_description_1: Hier finden Sie alle für Ihr Konto verfügbaren Downloads. Diese .zip Dateien sind zwei Wochen verfügbar, bevor sie gelöscht werden.
