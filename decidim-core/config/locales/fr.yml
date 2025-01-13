@@ -934,6 +934,7 @@ fr:
         file:
           explanation: 'Orientation pour le fichier :'
           message_1: Doit être une image ou un document.
+          message_2: Si c'est une image, c'est de préférence une image de paysage qui n'a pas de texte. Le service recadre l'image.
         icon:
           explanation: 'Manuel pour l''image:'
           message_1: Doit être une image carrée.
