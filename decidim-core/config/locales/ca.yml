@@ -1040,6 +1040,7 @@ ca:
         file:
           explanation: 'Instruccions per a l''arxiu:'
           message_1: Ha de ser una imatge o un document.
+          message_2: En el cas d'una imatge, preferiblement apaïsada que no incorpori cap text. L'aplicació ajustarà la imatge.
         icon:
           explanation: 'Instruccions per a la icona:'
           message_1: Ha de ser una imatge quadrada.
