@@ -391,9 +391,7 @@ el:
             title: Ενημέρωση πρότασης
             update: Ενημέρωση
           form:
-            attachment_legend: "(Προαιρετικά) Προσθήκη συνημμένου"
             created_in_meeting: Αυτή η πρόταση προέρχεται από μια σύσκεψη
-            delete_attachment: Διαγραφή συνημμένου
             select_a_meeting: Επιλέξτε σύσκεψη
           index:
             actions: Ενέργειες
