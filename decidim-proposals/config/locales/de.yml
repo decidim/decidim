@@ -498,7 +498,7 @@ de:
             title: Vorschlag aktualisieren
             update: Aktualisieren
           form:
-            attachment_legend: "(Optional) Anhang hinzufügen"
+            attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
             created_in_meeting: Dieser Vorschlag stammt von einer Besprechung
             delete_attachment: Anhang löschen
             select_a_category: Kategorie auswählen
