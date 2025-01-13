@@ -481,9 +481,7 @@ pl:
             title: Zaktualizuj propozycję
             update: Aktualizuj
           form:
-            attachment_legend: "(Opcjonalnie) Dodaj załącznik"
             created_in_meeting: Ta propozycja pochodzi ze spotkania
-            delete_attachment: Usuń załącznik
             select_a_meeting: Wybierz spotkanie
           index:
             actions: Działania
