@@ -130,8 +130,6 @@ ro:
             initiative_title: Titlul inițiativei
             name_and_surname: Nume și prenume
             postal_code: Cod poștal
-            scope: Domeniu de interes
-            time_and_date: Ora și data
             timestamp: Ora
       titles:
         initiatives: Inițiative
