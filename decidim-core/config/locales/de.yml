@@ -733,6 +733,23 @@ de:
           id: Der eindeutige Bezeichner dieser Identität
           provider: Der Anbieter dieser Identität
           uid: Die eindeutige Bezeichnung dieser Identität
+          updated_at: Datum und Uhrzeit, an dem die Identität zuletzt aktualisiert wurde
+          user: Der Teilnehmende, zu dem diese Identität gehört
+        messaging_conversations:
+          created_at: Das Erstellungsdatum dieser Unterhaltung
+          id: Die eindeutige Bezeichnung dieser Unterhaltung
+          messages: Die Nachrichten dieser Unterhaltung
+          updated_at: Das Datum, an dem diese Unterhaltung zuletzt aktualisiert wurde
+        notifications:
+          created_at: Datum und Uhrzeit, an dem die Benachrichtigung erstellt wurde
+          event_class: Die Klasse des Ereignisses, das die Benachrichtigung ausgelöst hat
+          event_name: Der Name des Ereignisses, das die Benachrichtigung ausgelöst hat
+          extra: Zusätzliche Informationen zu dieser Benachrichtigung
+          id: Die eindeutige Bezeichnung dieser Benachrichtigung
+          resource_type: Der Typ der Ressource, mit der die Benachrichtigung verknüpft ist
+          updated_at: Datum und Uhrzeit, an dem die Benachrichtigung zuletzt aktualisiert wurde
+        user_groups:
+          document_number: Die Dokumentennummer dieser Benutzergruppe
       show:
         action: Aktion
         download_data_description_1: Hier finden Sie alle für Ihr Konto verfügbaren Downloads. Diese .zip Dateien sind zwei Wochen verfügbar, bevor sie gelöscht werden.
