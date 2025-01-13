@@ -593,9 +593,7 @@ ja:
             title: 提案を更新
             update: 更新
           form:
-            attachment_legend: "(オプション) 添付ファイルを追加"
             created_in_meeting: この提案は会議から来ています
-            delete_attachment: 添付ファイルを削除
             select_a_meeting: ミーティングを選択
           index:
             actions: アクション
