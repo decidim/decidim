@@ -248,9 +248,18 @@ de:
           created_at: Datum und Uhrzeit, an der die Debatte erstellt wurde
           description: Die Beschreibung der Debatte
           end_time: Wann die Debatte zu Ende geht, ob sie öffentlich oder zeitlich begrenzt ist
+          follows_count: Die Anzahl der Follower, die diese Debatte hat
           id: Die eindeutige Bezeichnung der Debatte
           information_updates: Die Aktualisierungen, die der Autor zur Debatte gemacht hat
+          instructions: Kommentaranleitungen für diese Debatte
+          last_comment_at: Datum, an dem diese Debatte zuletzt kommentiert wurde
+          last_comment_by: Der Inhalt des letzten Kommentars der Debatte
+          participatory_space: Zu welchem Bereich diese Debatte gehört (z.B. Partizipationsprozesse oder Gremien)
+          reference: Die eindeutige Bezeichnung der Ressource auf dieser Plattform
+          start_time: Wann diese Debatte beginnt, ob es sich um eine offene Debatte handelt oder ob sie eine begrenzte Dauer hat
           taxonomies: Die Klassifizierungen des Projekts
           title: Der Titel der Debatte
+          updated_at: Datum, an dem die Debatte zuletzt aktualisiert wurde
+          url: Die URL, unter der diese Debatte gefunden werden kann
     statistics:
       debates_count: Debatten
