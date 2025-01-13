@@ -38,6 +38,9 @@ is:
             created_at: Búið til á
             title: Frumgerð tegundir
           name: Frumgerðartegund
+        initiatives_votes:
+          fields:
+            scope: Umfang
       titles:
         initiatives: Frumkvæði
         initiatives_types: Frumgerð tegundir
