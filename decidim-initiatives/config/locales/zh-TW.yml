@@ -135,8 +135,6 @@ zh-TW:
             initiative_title: 倡議標題
             name_and_surname: 名字與姓氏
             postal_code: 郵政編碼
-            scope: 範圍
-            time_and_date: 時間與日期
             timestamp: 時間戳記
       titles:
         initiatives: 倡議
