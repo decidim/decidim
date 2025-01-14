@@ -1,8 +1,8 @@
-<% add_decidim_page_title(t(".title")) %>
+<% add_decidim_page_title(t("census_section.index.title", scope: "decidim.verifications.csv_census.admin")) %>
 <div class="card">
   <div class="item_show__header item_show__header--with-action-options">
     <h1 class="item_show__header-title">
-      <%= t(".title") %>
+      <%= t("census_section.index.title", scope: "decidim.verifications.csv_census.admin") %>
       <%= link_to t("census_section.index.add_new_record_button", scope: "decidim.verifications.csv_census.admin"), "#", method: :post, class: "button button__sm button__secondary" %>
     </h1>
   </div>
@@ -10,7 +10,7 @@
     <table class="table-list">
       <thead>
         <tr>
-          <th><%= t("census_section.index..fields.email", scope: "decidim.verifications.csv_census.admin") %></th>
+          <th><%= t("census_section.index.fields.email", scope: "decidim.verifications.csv_census.admin") %></th>
           <th></th>
         </tr>
       </thead>
