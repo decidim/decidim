@@ -60,6 +60,8 @@
   }
 
   &__modal {
+    @apply p-8;
+
     &-links {
       @apply flex flex-col md:flex-row gap-4 justify-between items-start md:items-center [&>a]:text-secondary;
     }
