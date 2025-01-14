@@ -406,6 +406,45 @@ describe "Proposals" do
       end
     end
 
+    context "when maps are enabled" do
+      let(:component) { create(:proposal_component, :with_geocoding_enabled, participatory_space: participatory_process) }
+
+      let!(:author_proposals) { create_list(:proposal, 2, :participant_author, :published, component:) }
+      let!(:group_proposals) { create_list(:proposal, 2, :user_group_author, :published, component:) }
+      let!(:official_proposals) { create_list(:proposal, 2, :official, :published, component:) }
+
+      # We are providing a list of coordinates to make sure the points are scattered all over the map
+      # otherwise, there is a chance that markers can be clustered, which may result in a flaky spec.
+      before do
+        coordinates = [
+          [-95.501705376541395, 95.10059236654689],
+          [-95.501705376541395, -95.10059236654689],
+          [95.10059236654689, -95.501705376541395],
+          [95.10059236654689, 95.10059236654689],
+          [142.15275006889419, -33.33377235135252],
+          [33.33377235135252, -142.15275006889419],
+          [-33.33377235135252, 142.15275006889419],
+          [-142.15275006889419, 33.33377235135252],
+          [-55.28745034772282, -35.587843900166945]
+        ]
+        Decidim::Proposals::Proposal.where(component:).geocoded.each_with_index do |proposal, index|
+          proposal.update!(latitude: coordinates[index][0], longitude: coordinates[index][1]) if coordinates[index]
+        end
+
+        visit_component
+      end
+
+      it "shows markers for selected proposals" do
+        expect(page).to have_css(".leaflet-marker-icon", count: 5)
+        within "#panel-dropdown-menu-origin" do
+          click_filter_item "Official"
+        end
+        expect(page).to have_css(".leaflet-marker-icon", count: 2)
+
+        expect_no_js_errors
+      end
+    end
+
     it_behaves_like "accessible page" do
       before { visit_component }
     end

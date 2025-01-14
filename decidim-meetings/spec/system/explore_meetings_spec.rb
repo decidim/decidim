@@ -74,6 +74,64 @@ describe "Explore meetings", :slow do
         expect(page).to have_content(translated(upcoming_meeting.title))
       end
 
+      context "when maps are enabled" do
+        let!(:meetings) { create_list(:meeting, 2, :not_official, :in_person, :published, component:) }
+        let!(:hybrid_meetings) { create_list(:meeting, 2, :not_official, :hybrid, :published, component:) }
+        let!(:online_meetings) { create_list(:meeting, 2, :not_official, :online, :published, component:) }
+        let!(:upcoming_meeting) { create(:meeting, :not_official, :online, :published, component:) }
+
+        # We are providing a list of coordinates to make sure the points are scattered all over the map
+        # otherwise, there is a chance that markers can be clustered, which may result in a flaky spec.
+        before do
+          coordinates = [
+            [-95.501705376541395, 95.10059236654689],
+            [-95.501705376541395, -95.10059236654689],
+            [95.10059236654689, -95.501705376541395],
+            [95.10059236654689, 95.10059236654689],
+            [142.15275006889419, -33.33377235135252],
+            [33.33377235135252, -142.15275006889419],
+            [-33.33377235135252, 142.15275006889419],
+            [-142.15275006889419, 33.33377235135252],
+            [-55.28745034772282, -35.587843900166945]
+          ]
+          Decidim::Meetings::Meeting.where(component:).geocoded.each_with_index do |meeting, index|
+            meeting.update!(latitude: coordinates[index][0], longitude: coordinates[index][1]) if coordinates[index]
+          end
+
+          visit_component
+        end
+
+        it "shows markers for 'in person' selected meetings" do
+          expect(page).to have_css(".leaflet-marker-icon", count: 4)
+          within "#panel-dropdown-menu-type" do
+            click_filter_item "In-person"
+          end
+          expect(page).to have_css(".leaflet-marker-icon", count: 2)
+
+          expect_no_js_errors
+        end
+
+        it "shows markers for 'hybrid' selected meetings" do
+          expect(page).to have_css(".leaflet-marker-icon", count: 4)
+          within "#panel-dropdown-menu-type" do
+            click_filter_item "Hybrid"
+          end
+          expect(page).to have_css(".leaflet-marker-icon", count: 2)
+
+          expect_no_js_errors
+        end
+
+        it "hides markers when 'online' selected meetings" do
+          expect(page).to have_css(".leaflet-marker-icon", count: 4)
+          within "#panel-dropdown-menu-type" do
+            click_filter_item "Online"
+          end
+          expect(page).to have_css(".leaflet-marker-icon", count: 0)
+
+          expect_no_js_errors
+        end
+      end
+
       it "does not show past meetings" do
         visit_component
         within "#meetings" do
