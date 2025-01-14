@@ -136,16 +136,20 @@ fi:
           name: Aloitetyyppi
         initiatives_votes:
           fields:
+            date_and_time: Päivämäärä ja aika
             date_of_birth: Syntymäaika
             document_number: Asiakirjan numero
             hash: Tiiviste-luku
             initiative_end_date: Päättymispäivä
             initiative_id: Aloitteen ID-tunnus
+            initiative_scope: Teema
             initiative_signatures_count: Allekirjoitusten lukumäärä
             initiative_start_date: Aloituspäivä
             initiative_title: Aloitteen otsikko
             name_and_surname: Nimi ja sukunimi
+            nickname: Nimimerkki
             postal_code: Postinumero
+            signature_count: Allekirjoitusten määrä
             timestamp: Aikaleima
       titles:
         initiatives: Aloitteet
