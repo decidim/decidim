@@ -115,7 +115,7 @@ fi:
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
           user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
         posts:
-          author: Tietoja kirjoittajasta
+          author: Tietoja laatijasta
           body: Artikkelin tekstisisältö
           comments_count: Artikkelin saamien kommenttien määrä
           component: Artikkelin komponentti
