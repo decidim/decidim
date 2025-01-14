@@ -69,7 +69,7 @@ describe "Explore projects", :slow do
             [-142.15275006889419, 33.33377235135252],
             [-55.28745034772282, -35.587843900166945]
           ]
-          Decidim::Budgets::Project.where(budget: budget).geocoded.each_with_index do |project, index|
+          Decidim::Budgets::Project.where(budget:).geocoded.each_with_index do |project, index|
             project.update!(latitude: coordinates[index][0], longitude: coordinates[index][1]) if coordinates[index]
           end
 
