@@ -1,6 +1,8 @@
 de:
   activemodel:
     attributes:
+      answer:
+        add_documents: Dokumente hinzufügen
       close_meeting:
         attendees_count: Anzahl der Teilnehmer
         attending_organizations: Liste der Organisationen, die teilgenommen haben
@@ -93,6 +95,9 @@ de:
         other: Anmeldungen
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Versammlungen
       filters:
         accepted_at_not_null:
           label: Angenommen
@@ -175,6 +180,12 @@ de:
             creation_enabled_for_participants: Besprechung-Erstellung durch Teilnehmer aktiviert
             creation_enabled_for_user_groups: Besprechung-Erstellung durch Benutzergruppen aktiviert
     download_your_data:
+      help:
+        registrations:
+          code: Der Registrierungscode
+          id: Die eindeutige Bezeichnung der Registrierung
+          meeting: Das Meeting, zu dem der Benutzer sich registriert hat
+          user: Der Benutzer, der die Registrierung durchgeführt hat
       show:
         meeting_comments: Kommentare zu Veranstaltungen exportieren
         meetings: Export für Veranstaltungen
@@ -245,6 +256,8 @@ de:
         attachment_collections: Ordner
         attachments: Anhänge
         close: Schließen
+        confirm_delete_meeting: Möchten Sie dieses Meeting wirklich löschen?
+        deleted_meetings_info: Gelöschte Meetings können aus dem Papierkorb wiederhergestellt werden.
         edit: Bearbeiten
         invalid_destroy:
           proposals_count:
@@ -255,6 +268,7 @@ de:
         preview: Vorschau
         registrations: Anmeldungen
         title: Aktionen
+        view_deleted_meetings: Gelöschte Meetings anzeigen
       admin:
         agenda:
           agenda_item:
@@ -339,7 +353,20 @@ de:
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
             select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
           index:
+            linked_meeting_warning_html: Dieses Meeting muss von <br><a href="%{href}">%{name}</a> bearbeitet werden
             title: Meetings
+          linked_spaces:
+            assign: Zuweisen
+            link_a_space: Bereich verknüpfen
+            private_meeting_warning: Verknüpfte Bereiche werden nicht angewendet, wenn das Meeting privat und nicht transparent ist.
+            private_space_warning: Verknüpfte Bereiche werden nicht angewendet, wenn das Meeting privat und nicht transparent ist.
+            select: Einen Bereich auswählen
+            table:
+              actions: Aktionen
+              component: Verknüpfte Bereiche
+            title: Verknüpfte Bereiche
+          manage_trash:
+            title: Gelöschte Meetings
           new:
             create: Erstellen
             title: Besprechung erstellen
@@ -383,6 +410,7 @@ de:
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
             invites: Lädt ein
+            manage_questions: Fragen verwalten
             recommendation_message: Aus Datenschutzgründen empfehlen wir, dass Sie dieses Einschreibeformular löschen, wenn es nicht länger benötigt wird. Standardmäßig ist das 3 Monate nachdem die Besprechung durchgeführt wurde.
             registration_email_help: Dieser Text erscheint in der Mitte der Registrierungs-E-Mail, direkt nach dem Registrierungscode.
             registration_form: Anmeldeformular
@@ -408,6 +436,8 @@ de:
           create: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat die Sitzung %{resource_name} aus %{space_name} gelöscht"
           export_registrations: "%{user_name} hat die Anmeldungen der Sitzung %{resource_name} in %{space_name} exportiert"
+          restore: "%{user_name} hat die Sitzung %{resource_name} des Bereichs %{space_name} wiederhergestellt"
+          soft_delete: "%{user_name} hat das Meeting %{resource_name} in %{space_name} in den Papierkorb verschoben"
           update: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} aktualisiert"
           value_types:
             organizer_presenter:
