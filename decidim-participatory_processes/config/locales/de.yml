@@ -127,6 +127,7 @@ de:
           info: Über diesen Prozess
           landing_page: Startseite
           moderations: Moderationen
+          private_users: Mitglieder
           process_admins: Benutzer verarbeiten
           steps: Schritte
       models:
@@ -168,6 +169,7 @@ de:
           fields:
             invitation_accepted_at: Einladung akzeptiert am
             invitation_sent_at: Einladung gesendet am
+            published: Veröffentlicht
       participatory_process_copies:
         new:
           copy: Kopieren
@@ -278,6 +280,8 @@ de:
           public: Öffentlich
           published: Veröffentlicht
           unpublished: Nicht veröffentlicht
+        manage_trash:
+          title: Gelöschte Beteiligungsprozesse
         new:
           create: Erstellen
           title: Neuer partizipativer Prozess
@@ -296,6 +300,9 @@ de:
         participatory_process_groups: Partizipative Prozessgruppen
         participatory_process_types: Beteiligungsprozesstypen
         participatory_processes: Beteiligungsprozesse
+        participatory_processes_deleted: Gelöschte Beteiligungsprozesse
+      tooltips:
+        deleted_processes_info: Prozesse können nur gelöscht werden, wenn der Status "Nicht veröffentlicht" ist.
       users:
         resend_invitation:
           error: Beim erneuten Senden der Einladung ist ein Fehler aufgetreten.
@@ -307,10 +314,13 @@ de:
         export: "%{user_name} hat den Beteiligungsprozess %{resource_name} exportiert"
         import: "%{user_name} hat den Beteiligungsprozess %{resource_name} importiert"
         publish: "%{user_name} hat den Partizipationsprozess %{resource_name} veröffentlicht"
+        restore: "%{user_name} hat den Beteiligungsprozess %{resource_name} wiederhergestellt"
+        soft_delete: "%{user_name} hat den Beteiligungsprozess %{resource_name} in den Papierkorb verschoben"
         unpublish: "%{user_name} hat den Partizipationsprozess %{resource_name} auf \"unveröffentlicht\" gesetzt"
         update: "%{user_name} hat den Partizipationsprozess %{resource_name} aktualisiert"
       participatory_process_group:
         create: "%{user_name} hat die Partizipationsprozess-Gruppe %{resource_name} erstellt"
+        unpublish: "%{user_name} hat die Veröffentlichung der Prozessgruppe %{resource_name} rückgängig gemacht"
         update: "%{user_name} hat die Partizipationsprozess-Gruppe %{resource_name} aktualisiert"
       participatory_process_step:
         activate: "%{user_name} hat den Schritt %{resource_name} in %{space_name} aktiviert"
@@ -325,6 +335,9 @@ de:
         create: "%{user_name} lud den Benutzer %{resource_name} zu dem %{space_name} Partizipationsprozess ein"
         delete: "%{user_name} entfernte den Benutzer %{resource_name} aus dem %{space_name} Partizipationsprozess"
         update: "%{user_name} änderte die Rolle des Benutzers %{resource_name} im %{space_name} Partizipationsprozess"
+    download_your_data:
+      show:
+        participatory_processes: Beteiligungsprozesse exportieren
     events:
       participatory_process:
         role_assigned:
@@ -362,7 +375,35 @@ de:
     open_data:
       help:
         participatory_processes:
+          announcement: Die Ankündigungsinformationen (Banner)
+          area: Der Bereich, in dem der Prozess stattfindet,
+          created_at: Erstellungsdatum dieses Bereichs
+          description: Eine ausführliche Beschreibung des Prozesses
+          developer_group: Die Entwicklergruppe des Prozesses. Dies ist die Organisation, die den Prozess fördert.
+          end_date: Das Enddatum des Prozesses
+          follows_count: Die Anzahl Nutzende, die diesem Bereich folgen
+          hashtag: Der des Prozesses, verwendet für Twitter/X
+          id: Die eindeutige Bezeichnung des Prozesses
+          local_area: Der lokale Bereich des Prozesses. Dies ist der Organisationsbereich, in dem der Prozess stattfindet.
+          meta_scope: Die Bereichsmetadaten des Ergebnisses
+          participatory_process_group: Die Gruppe des Prozesses, falls vorhanden
+          participatory_process_type: Der Prozesstyp
+          participatory_scope: Der partizipative Bereich des Prozesses
+          participatory_structure: Die partizipative Struktur des Prozesses, also wie innerhalb des Prozesses entschieden wird.
+          promoted: Ob der Prozess hervorgehoben ist oder nicht
+          published_at: Veröffentlichungsdatum des Bereichs
+          reference: Die eindeutige Referenz des Bereichs
+          remote_hero_image_url: Die URL des Titelbildes des Prozesses
+          scope: Der Bereich des Prozesses
+          scopes_enabled: Ob die Bereiche aktiviert sind oder nicht
+          short_description: Eine Kurzbeschreibung des Prozesses
           slug: Der URL-Slug des Prozesses (verwendet für Identifikationszwecke in der URL)
+          start_date: Das Startdatum des Prozesses
+          subtitle: Der Untertitel des Prozesses
+          target: Das Ziel des Prozesses. Welche Zielgruppe aufgerufen ist, am Prozess teilzunehmen.
+          title: Der Prozesstitel
+          updated_at: Letztes Aktualisierungsdatum dieses Bereichs
+          url: Die URL des Bereichs
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -433,6 +474,7 @@ de:
             metadata: Metadaten
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             other: Andere
+            private_notice: Sie können private Teilnehmende verwalten, nachdem Sie das Gremium als "privat" festgelegt haben
             related_processes: Ähnliche Beteiligungsprozesse
             scope_type_max_depth_help: Beschränken Sie die Bereichs-Filtertiefe; der Filter zeigt nur Ergebnisse von Allgemein bis zum ausgewählten Bereichstyp an.
             select_an_area: Wählen Sie einen Bereich aus
@@ -504,6 +546,9 @@ de:
           type: Typ
         show:
           title: Über diesen Prozess
+      participatory_space_private_users:
+        index:
+          title: Mitglieder
       show:
         belongs_to_group: Dieser Prozess gehört zu
         private_space: Dies ist ein privater Prozess
@@ -517,6 +562,8 @@ de:
           browse: Durchsuche
           browse_resource: Prozessgruppe %{resource_name} durchsuchen
           processes_count: 'Beteiligungsprozesse:'
+      participatory_process_navigation:
+        member_menu_item: Mitglieder
       participatory_processes:
         index:
           promoted_processes: Hervorgehobene Beteiligungsprozesse
