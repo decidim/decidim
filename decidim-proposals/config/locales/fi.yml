@@ -10,6 +10,8 @@ fi:
         state: Tila
         title: Ehdotuksen nimi
         user_group_id: Luo yhteistyöluonnos nimellä
+      import_participatory_text:
+        document: Asiakirja
       proposal:
         address: Osoite
         answer: Vastaus
@@ -19,6 +21,8 @@ fi:
         decidim_proposals_proposal_state_id: Tila
         decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
+        latitude: Leveysaste
+        longitude: Pituusaste
         scope_id: Teema
         state: Tila
         suggested_hashtags: Ehdotetut aihetunnisteet (hashtag)
@@ -45,6 +49,8 @@ fi:
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki ideat valitusta komponentista tähän komponenttiin ja tätä toimintoa ei voi perua.
         origin_component_id: Osio josta ehdotukset kopioidaan
+      proposals_file_import:
+        file: Tiedosto
       proposals_import:
         import_proposals: Tuo ehdotuksia
         keep_answers: Säilytä tilat ja vastaukset
@@ -366,7 +372,7 @@ fi:
             notification_title: Ehdotuksen <a href="%{resource_path}">%{resource_title}</a> tilaksi on muutettu "%{state}".
         proposal_update_taxonomies:
           email_intro: 'Hallintakäyttäjä on muuttanut ehdotuksesi "%{resource_title}" luokitteluja, voit tarkastaa muutoksen tältä sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen laatija.
           email_subject: Ehdotuksen %{resource_title} luokitteluja on muutettu
           notification_title: Hallintakäyttäjä on muuttanut ehdotuksen <a href="%{resource_path}">%{resource_title}</a> luokitteluja.
         rejected_coauthorship:
