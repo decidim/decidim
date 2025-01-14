@@ -9,7 +9,8 @@
                                 desc: h(decidim_meta_description),
                                 via: decidim_meta_twitter_handler) %>
 
-    <% resource_name = @decidim_meta_resource.class.name.demodulize.underscore resource_name = "budget_project" if resource_name == "project" %>
+    <% resource_name = @decidim_meta_resource.class.name.demodulize.underscore %>
+    <% resource_name = "budget_project" if resource_name == "project" %>
     <div class="share-modal__input">
       <input id="urlShareLink" type="text" title="<%= t("share_link" , scope: "decidim.shared.share_modal") %>" value="<%= resource_name ? short_url(route_name: resource_name, params:) : decidim_meta_url %>" readonly>
       <button type="button"
