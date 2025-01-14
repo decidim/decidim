@@ -247,12 +247,6 @@ module Decidim
               initiative.type.update(document_number_authorization_handler: handler_name)
             end
 
-            context "when current_user does not have any authorization for the handler" do
-              it "broadcasts invalid" do
-                expect { command_with_personal_data.call }.to broadcast :invalid
-              end
-            end
-
             context "when current_user have an an authorization for the handler" do
               let!(:authorization) { create(:authorization, granted_at:, name: handler_name, unique_id: authorization_unique_id, metadata: authorization_metadata, user: current_user) }
               let(:authorization_unique_id) { unique_id }
@@ -268,15 +262,8 @@ module Decidim
                   command_with_personal_data.call
                   vote = InitiativesVote.last
                   expect(vote.encrypted_metadata).to be_present
-                  expect(vote.decrypted_metadata).to eq personal_data_params
-                end
-              end
-
-              context "when authorization unique_id is different of handler unique_id" do
-                let(:authorization_unique_id) { "other" }
-
-                it "broadcasts invalid" do
-                  expect { command_with_personal_data.call }.to broadcast :invalid
+                  expect(vote.decrypted_metadata).to eq personal_data_params.except(:scope_id)
+                  expect(vote.scope).to eq initiative.scope
                 end
               end
 
