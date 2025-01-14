@@ -49,6 +49,47 @@ describe "Explore projects", :slow do
     end
 
     context "when filtering" do
+      context "when maps are enabled" do
+        let(:component) { create(:budgets_component, :with_geocoding_enabled, participatory_space: participatory_process) }
+        let!(:projects) { create_list(:project, 2, budget:) }
+        let!(:findable_project) { create(:project, budget:, title: { en: "Findable project" }) }
+        let!(:another_findable_project) { create(:project, budget:, title: { en: "Findable project number 2" }) }
+
+        # We are providing a list of coordinates to make sure the points are scattered all over the map
+        # otherwise, there is a chance that markers can be clustered, which may result in a flaky spec.
+        before do
+          coordinates = [
+            [-95.501705376541395, 95.10059236654689],
+            [-95.501705376541395, -95.10059236654689],
+            [95.10059236654689, -95.501705376541395],
+            [95.10059236654689, 95.10059236654689],
+            [142.15275006889419, -33.33377235135252],
+            [33.33377235135252, -142.15275006889419],
+            [-33.33377235135252, 142.15275006889419],
+            [-142.15275006889419, 33.33377235135252],
+            [-55.28745034772282, -35.587843900166945]
+          ]
+          Decidim::Budgets::Project.where(budget:).geocoded.each_with_index do |project, index|
+            project.update!(latitude: coordinates[index][0], longitude: coordinates[index][1]) if coordinates[index]
+          end
+
+          visit_budget
+        end
+
+        it "shows markers for selected project" do
+          expect(page).to have_css(".leaflet-marker-icon", count: 4)
+          within "#dropdown-menu-filters" do
+            fill_in("filter[search_text_cont]", with: "Findable")
+            within "div.filter-search" do
+              click_on
+            end
+          end
+          expect(page).to have_css(".leaflet-marker-icon", count: 2)
+
+          expect_no_js_errors
+        end
+      end
+
       it "allows searching by text" do
         visit_budget
         within "aside form.new_filter" do
