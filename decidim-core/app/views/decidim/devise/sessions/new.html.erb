@@ -6,8 +6,6 @@
     <h1 class="title-decorator my-12"><%= t("devise.sessions.new.log_in") %></h1>
   </div>
 
-  <span class="login__info-separator"></span>
-
   <% cache current_organization do %>
     <%= render partial: "decidim/devise/shared/omniauth_buttons", locals: { is_horizontal: true } %>
   <% end %>
