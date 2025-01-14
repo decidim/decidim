@@ -4,12 +4,20 @@ en:
     attributes:
       account:
         delete_reason: Reason to delete your account
+      attachment:
+        documents: Documents
+        photos: Photos
       common:
         created_at: Created at
       component:
         taxonomy_filters: Taxonomy filters
+      content_block_attachment:
+        background_image: Background image
+        main_image: Main image
       conversation:
         body: Body
+      editor_image:
+        file: File
       group:
         about: About
         avatar: Avatar
@@ -18,6 +26,8 @@ en:
         name: Name
         nickname: Nickname
         phone: Phone
+      import:
+        file: File
       message:
         body: Body
       report:
@@ -31,6 +41,7 @@ en:
         space_filter: Available as filter for
       user:
         about: About
+        avatar: Avatar
         email: Your email
         encrypted_password: Password
         locale: Locale
@@ -42,6 +53,8 @@ en:
         personal_url: Personal URL
         remove_avatar: Remove avatar
         tos_agreement: Terms of service agreement
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -881,6 +894,11 @@ en:
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
             email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'An emendation has been published for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An emendation from %{emendation_author_nickname} has been published as a new %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
@@ -1046,7 +1064,7 @@ en:
         file:
           explanation: 'Guidance for file:'
           message_1: Has to be an image or a document.
-          message_2: For images, use preferably landscape images, the service crops the image.
+          message_2: If it is an image, it preferably be a landscape image that does not have any text. The service crops the image.
         icon:
           explanation: 'Guidance for icon:'
           message_1: Has to be a square image.
@@ -1331,6 +1349,8 @@ en:
         not_started: Not started yet
         remaining: "%{time_distance} remaining"
     metrics:
+      blocked_users:
+        description: Number of blocked participants
       download:
         csv: Download data (CSV)
       followers:
@@ -1341,6 +1361,10 @@ en:
         description: Number of active participants in organization
         object: participants
         title: Participants
+      reported_users:
+        description: Number of reported participants
+      user_reports:
+        description: Number of reports done by participants
       users:
         description: Number of participants in organization
         object: participants
@@ -1406,10 +1430,12 @@ en:
     notifications_digest_mailer:
       header:
         daily: Daily Notification Digest
+        real_time: Real time
         weekly: Weekly Notification Digest
       hello: Hello %{name},
       intro:
         daily: 'These are the notifications from the last day based on the activity you are following:'
+        real_time: 'These is a notification on the activity you are following:'
         weekly: 'These are the notifications from the last week based on the activity you are following:'
       outro: You have received these notifications because you are following this content or its authors. You can unfollow them from their respective pages.
       see_more: See more notifications
