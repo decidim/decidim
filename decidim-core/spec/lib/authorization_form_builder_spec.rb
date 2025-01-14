@@ -46,7 +46,7 @@ module Decidim
         end
 
         it "includes a scopes selector" do
-          expect(find("select#authorization_handler_scope_id").children.first["value"]).to eq(scope.id.to_s)
+          expect(find("select#authorization_handler_scope_id").children.last["value"]).to eq(scope.id.to_s)
         end
       end
     end

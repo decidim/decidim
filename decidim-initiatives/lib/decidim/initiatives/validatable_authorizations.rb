@@ -61,7 +61,7 @@ module Decidim
         end
 
         def new_authorization
-          Decidim::Authorization.new(**authorization_params.merge(created_at: Time.current))
+          Decidim::Authorization.new(created_at: Time.current, **authorization_params)
         end
 
         def authorization_params
