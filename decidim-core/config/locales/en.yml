@@ -1062,7 +1062,7 @@ en:
         file:
           explanation: 'Guidance for file:'
           message_1: Has to be an image or a document.
-          message_2: For images, use preferably landscape images, the service crops the image.
+          message_2: If it is an image, it preferably be a landscape image that does not have any text. The service crops the image.
         icon:
           explanation: 'Guidance for icon:'
           message_1: Has to be a square image.
@@ -2234,6 +2234,8 @@ en:
         expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
       language_chooser:
         choose_language: Choose language
+      navigation:
+        aria_label: Navigation menu- %{title}
       notifications_dashboard:
         mark_all_as_read: Mark all as read
         mark_as_read: Mark as read
