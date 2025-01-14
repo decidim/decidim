@@ -46,6 +46,9 @@ jobs:
           node-version: ${{ inputs.node_version }}
           cache: 'npm'
           cache-dependency-path: ./package-lock.json
+      - run: npm config set fetch-retries 5 && npm config set fetch-retry-mintimeout 20000 && npm config set fetch-retry-maxtimeout 120000
+        name: Tune NPM configuration
+        shell: "bash"
       - uses: actions/cache@v3
         id: app-cache
         with:
