@@ -33,8 +33,8 @@ module Decidim
           participatory_space:,
           settings: {
             intro: Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) },
-            scopes_enabled: true,
-            scope_id: participatory_space.scope&.id
+            scopes_enabled: false,
+            taxonomy_filters: create_filters!.pluck(:id)
           }
         }
 
@@ -53,8 +53,11 @@ module Decidim
         end
       end
 
+      def root_taxonomy
+        @root_taxonomy ||= participatory_space.organization.taxonomies.roots.find_by("name->>'en'= ?", "Categories") || participatory_space.organization.taxonomies.roots.sample
+      end
+
       def create_taxonomies!
-        root_taxonomy = organization.taxonomies.roots.find_by("name->>'en'= ?", "Categories") || participatory_space.organization.taxonomies.roots.sample
         parent_taxonomy = root_taxonomy.children.sample || root_taxonomy.children.create!(name: Decidim::Faker::Localized.sentence(word_count: 5))
         taxonomies = [parent_taxonomy]
 
@@ -69,13 +72,16 @@ module Decidim
         taxonomies
       end
 
+      def create_filters!
+        root_taxonomy.taxonomy_filters || [create_taxonomy_filter!(root_taxonomy:, taxonomies: root_taxonomy.all_children)]
+      end
+
       def create_result!(component:, taxonomy:)
         result = Decidim.traceability.create!(
           Decidim::Accountability::Result,
           admin_user,
           {
             component:,
-            scope: participatory_space.organization.scopes.sample,
             taxonomies: [taxonomy],
             title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
