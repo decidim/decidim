@@ -83,7 +83,7 @@ module Decidim
       headers = []
       collection = []
       ActiveRecord::Base.uncached do
-        components.where(manifest_name: export_manifest.manifest.name).find_each do |component|
+        components.where(manifest_name: export_manifest.manifest.name).unscope(:order).find_each do |component|
           export_manifest.collection.call(component).find_in_batches(batch_size: 100) do |batch|
             serializer = export_manifest.open_data_serializer.nil? ? export_manifest.serializer : export_manifest.open_data_serializer
             exporter = Decidim::Exporters::CSV.new(batch, serializer)
