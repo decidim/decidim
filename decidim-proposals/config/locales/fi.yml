@@ -188,7 +188,7 @@ fi:
               most_voted: Eniten ääniä saaneet ensin
               random: Satunnainen
               recent: Viimeisimmät
-              with_more_authors: Eniten tekijöitä
+              with_more_authors: Eniten laatijoita
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             edit_time: Ehdotuksia voi muokata tämän aikamääreen sisällä
             edit_time_units:
@@ -252,7 +252,7 @@ fi:
               most_voted: Eniten ääniä saaneet ensin
               random: Satunnainen
               recent: Viimeisimmät
-              with_more_authors: Eniten tekijöitä
+              with_more_authors: Eniten laatijoita
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
@@ -345,7 +345,7 @@ fi:
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten suosittelun</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Ehdotuksesi "%{mentioned_proposal_title}" on mainittu <a href="%{resource_url}">tämän osallistumistilan</a> kommentissa.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen "%{resource_title}".
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen "%{resource_title}".
           email_subject: Ehdotuksesi "%{mentioned_proposal_title}" on mainittu
           notification_title: Ehdotuksesi %{mentioned_proposal_title} on mainittu <a href="%{resource_path}">tässä osallistumistilassa</a> kommentissa.
         proposal_published:
