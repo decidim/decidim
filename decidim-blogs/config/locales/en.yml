@@ -33,6 +33,8 @@ en:
           create:
             invalid: There was a problem creating this post.
             success: Post successfully created.
+          destroy:
+            success: Post deleted successfully.
           edit:
             save: Update
             title: Edit post
@@ -70,11 +72,27 @@ en:
             published_at: Publish time
             title: Title
       posts:
+        edit:
+          back: Back to post
+          button: Update
+          title: Edit post
+        form:
+          author_id: Author
+          body: Description
+          title: Title
         index:
           count:
             one: "%{count} post"
             other: "%{count} posts"
           empty: There are no posts yet.
+          new_post: New post
+        menu_actions:
+          button_destroy: Delete post
+          button_edit: Edit post
+        new:
+          back: Back to posts
+          button: Create
+          title: Create new post
     components:
       blogs:
         actions:

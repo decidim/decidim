@@ -90,7 +90,11 @@ module Decidim
       def public_space_or_member?
         participatory_space = context[:current_component].participatory_space
 
-        participatory_space.private_space? ? space_member?(participatory_space, user) : true
+        if participatory_space.respond_to?(:private_space?)
+          participatory_space.private_space? ? space_member?(participatory_space, user) : true
+        else
+          true
+        end
       end
 
       # Neither platform admins, nor space admins should be able to create meetings from the public side.
