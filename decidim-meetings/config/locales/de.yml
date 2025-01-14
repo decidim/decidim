@@ -217,6 +217,7 @@ de:
         attachment_collections: Ordner
         attachments: Anhänge
         close: Schließen
+        confirm_destroy: Möchten Sie dieses Meeting wirklich löschen?
         destroy: Löschen
         edit: Bearbeiten
         invalid_destroy:
