@@ -136,16 +136,20 @@ es-PY:
           name: Tipo de iniciativa
         initiatives_votes:
           fields:
+            date_and_time: Fecha y hora
             date_of_birth: Fecha de nacimiento
             document_number: Número del Documento
             hash: Picadillo
             initiative_end_date: Fecha final
             initiative_id: ID de la iniciativa
+            initiative_scope: Ámbito
             initiative_signatures_count: Número de firmas
             initiative_start_date: Fecha de inicio
             initiative_title: Título de la iniciativa
             name_and_surname: Nombre y apellido
+            nickname: Alias
             postal_code: código postal
+            signature_count: Recuento de firmas
             timestamp: Marca de tiempo
       titles:
         initiatives: Iniciativas
