@@ -46,14 +46,6 @@ module Decidim
           expect(subject["link"]).to eq(::Decidim::ResourceLocatorPresenter.new([project.budget, project]).path)
         end
       end
-
-      describe "#projects_data_for_map" do
-        subject { helper.projects_data_for_map(projects) }
-
-        it "returns preview data" do
-          expect(subject.length).to eq(5)
-        end
-      end
     end
   end
 end

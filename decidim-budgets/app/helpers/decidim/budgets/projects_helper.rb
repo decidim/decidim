@@ -101,25 +101,6 @@ module Decidim
         %(<strong>#{current_rule_call_for_action_text}</strong>. #{rule_text}).html_safe
       end
 
-      # Serialize a collection of geocoded projects to be used by the dynamic map component
-      #
-      # geocoded_projects - A collection of geocoded projects
-      def projects_data_for_map(geocoded_projects)
-        geocoded_projects.map do |project|
-          project_data_for_map(project)
-        end
-      end
-
-      def project_data_for_map(project)
-        project
-          .slice(:latitude, :longitude, :address)
-          .merge(
-            title: decidim_escape_translated(project.title),
-            link: ::Decidim::ResourceLocatorPresenter.new([project.budget, project]).path,
-            items: cell("decidim/budgets/project_metadata", project).send(:project_items_for_map).to_json
-          )
-      end
-
       def has_position?(project)
         return if project.address.blank?
 
