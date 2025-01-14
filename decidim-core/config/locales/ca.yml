@@ -1949,6 +1949,8 @@ ca:
         expire_time_html: La vostra sessió caducarà en <b><span class="minutes">%{minutes}</span> minutes</b>.
       language_chooser:
         choose_language: Triar la llengua
+      navigation:
+        aria_label: 'Menú de navegació: %{title}'
       notifications_dashboard:
         mark_all_as_read: Marcar tot com a llegit
         mark_as_read: Marcar com a llegit
