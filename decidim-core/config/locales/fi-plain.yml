@@ -1950,6 +1950,8 @@ fi-pl:
         expire_time_html: Istuntosi vanhenee <b><span class="minutes">%{minutes}</span> minuutin kuluttua</b>.
       language_chooser:
         choose_language: Valitse kieli
+      navigation:
+        aria_label: 'Navigaatiovalikko: %{title}'
       notifications_dashboard:
         mark_all_as_read: Merkitse kaikki luetuiksi
         mark_as_read: Merkitse luetuiksi
