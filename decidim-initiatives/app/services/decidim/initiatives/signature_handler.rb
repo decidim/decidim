@@ -193,7 +193,7 @@ module Decidim
       # inherited from this taking a personal data attribute like a document
       # number. If not defined the user id is used
       def uniqueness
-        add_invalid_base_error if Decidim::InitiativesVote.where(scope:, hash_id:).exists?
+        add_invalid_base_error if Decidim::InitiativesVote.exists?(scope:, hash_id:)
       end
 
       def valid_metadata
