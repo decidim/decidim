@@ -13,7 +13,7 @@ shared_examples "a soft-deletable resource" do |resource_name:, resource_path:, 
 
       patch :soft_delete, params: resource_params
 
-      expect(response).to redirect_to send(resource_path, *route_params.values)
+      expect(response).to redirect_to Decidim::EngineRouter.admin_proxy(deletable_resource.component).send(resource_path, *route_params.values)
       expect(flash[:notice]).to be_present
       expect(deletable_resource.reload.deleted_at).not_to be_nil
     end
@@ -27,7 +27,7 @@ shared_examples "a soft-deletable resource" do |resource_name:, resource_path:, 
 
       patch :restore, params: resource_params
 
-      expect(response).to redirect_to send(trash_path, *route_params.values)
+      expect(response).to redirect_to Decidim::EngineRouter.admin_proxy(deletable_resource.component).send(trash_path, *route_params.values)
       expect(flash[:notice]).to be_present
       expect(deletable_resource.reload.deleted_at).to be_nil
     end

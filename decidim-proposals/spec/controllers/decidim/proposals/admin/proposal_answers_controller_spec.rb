@@ -7,8 +7,6 @@ module Decidim
   module Proposals
     module Admin
       describe ProposalAnswersController do
-        routes { Decidim::Proposals::AdminEngine.routes }
-
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
         let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed) }
         let!(:emendation) { create(:proposal, component:) }

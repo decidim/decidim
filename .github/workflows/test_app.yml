@@ -95,8 +95,6 @@ jobs:
         with:
           chromedriver-version: ${{inputs.chrome_version}}
         name: Install Chrome version ${{inputs.chrome_version}}
-      - run: |
-          sudo apt install wkhtmltopdf
       - uses: actions/cache@v4
         id: app-cache
         with:

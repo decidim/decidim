@@ -7,7 +7,7 @@ namespace :decidim do
       task :migrate_inline_images_to_active_storage, [:admin_email] => :environment do |_t, args|
         user = Decidim::User.find_by(email: args[:admin_email])
 
-        raise "Invalid admin. Please, provide the email of an admin with permissions to create editor images" unless user&.admin? && user&.admin_terms_accepted?
+        raise "Invalid admin. Please, provide the email of an admin with permissions to create editor images" unless user&.admin? && user.admin_terms_accepted?
 
         inline_images_available_attributes.each do |model, attributes|
           puts "=== Updating model #{model.name} (attributes: #{attributes.join(", ")})..."

@@ -13,7 +13,7 @@ module Decidim
 
             attribute_value
           end
-          reportable_content.filter(&:present?).join(". ").truncate(options.fetch(:limit, 100))
+          reportable_content.compact_blank.join(". ").truncate(options.fetch(:limit, 100))
         end
       end
 

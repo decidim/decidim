@@ -133,6 +133,7 @@ ignore_unused:
   - booleans.*
   - '{date,time.formats}.*'
   - datetime.distance_in_words.*
+  - decidim.admin.actions.share
   - decidim.admin.participatory_process_steps.default_title
   - decidim.admin.admin_log.changeset.*
   - decidim.authorization_handlers.{direct,multistep}
@@ -147,6 +148,10 @@ ignore_unused:
   - decidim.forms.file_help.*
   - decidim.forms.user_answers_serializer.*
   - decidim.forms.admin_log.questionnaire.update
+  - decidim.surveys.admin_log.survey.create
+  - decidim.surveys.admin_log.survey.delete
+  - decidim.surveys.admin_log.survey.publish
+  - decidim.surveys.admin_log.survey.update
   - decidim.proposals.answers.*
   - decidim.proposals.collaborative_drafts.show.see_other_versions
   - decidim.proposals.collaborative_drafts.wizard_aside.back

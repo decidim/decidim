@@ -200,7 +200,7 @@ module Decidim
     #
     # rubocop:disable Rails/SkipsModelValidations
     def set_parents_path
-      update_column(:parents_path, [parent&.parents_path, id].select(&:present?).join("."))
+      update_column(:parents_path, [parent&.parents_path, id].compact_blank.join("."))
     end
     # rubocop:enable Rails/SkipsModelValidations
 

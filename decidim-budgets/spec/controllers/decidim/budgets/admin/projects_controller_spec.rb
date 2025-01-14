@@ -7,8 +7,6 @@ module Decidim
   module Budgets
     module Admin
       describe ProjectsController do
-        routes { Decidim::Budgets::AdminEngine.routes }
-
         let(:current_user) { create(:user, :confirmed, :admin, organization: component.organization) }
         let(:component) { create(:budgets_component) }
         let!(:project) { create(:project, component:) }
