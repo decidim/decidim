@@ -168,7 +168,7 @@ module Decidim
           get target_gemfile, "Gemfile", force: true
           append_file "Gemfile", %(\ngem "net-imap", "~> 0.5.0", group: :development)
           append_file "Gemfile", %(\ngem "net-pop", "~> 0.1.1", group: :development)
-          append_file "Gemfile", %(\ngem "net-smtp", "~> 0.3.1", group: :development)
+          append_file "Gemfile", %(\ngem "net-smtp", "~> 0.5.0", group: :development)
           get "#{target_gemfile}.lock", "Gemfile.lock", force: true
         else
           copy_file target_gemfile, "Gemfile", force: true
