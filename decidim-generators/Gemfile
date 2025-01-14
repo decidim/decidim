@@ -18,7 +18,7 @@ gem "puma", ">= 6.3.1"
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
-  gem "brakeman", "~> 6.1"
+  gem "brakeman", "~> 7.0"
   gem "decidim-dev", path: ".."
   gem "net-imap", "~> 0.5.0"
   gem "net-pop", "~> 0.1.1"
