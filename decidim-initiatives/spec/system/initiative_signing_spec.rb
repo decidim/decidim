@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/initiatives/test/initiatives_signatures_test_helpers"
 
 describe "Initiative signing" do
   let(:organization) { create(:organization, available_authorizations: authorizations) }
@@ -188,7 +189,7 @@ describe "Initiative signing" do
       fill_in :dummy_signature_handler_name_and_surname, with: confirmed_user.name
       select "Identification number", from: :dummy_signature_handler_document_type
       fill_in :dummy_signature_handler_document_number, with: "012345678X"
-      fill_in_datepicker :dummy_signature_handler_date_of_birth_date, with: 30.years.ago.strftime("01/01/%Y")
+      fill_date 30.years.ago
       fill_in :dummy_signature_handler_postal_code, with: "01234"
       select translated_attribute(initiative.scope.name), from: :dummy_signature_handler_scope_id
 
