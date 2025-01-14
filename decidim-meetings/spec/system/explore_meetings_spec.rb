@@ -77,8 +77,8 @@ describe "Explore meetings", :slow do
       context "when maps are enabled" do
         let!(:meetings) { create_list(:meeting, 2, :not_official, :in_person, :published, component:) }
         let!(:hybrid_meetings) { create_list(:meeting, 2, :not_official, :hybrid, :published, component:) }
-        let!(:online_meetings) { create_list(:meeting, 2, :not_official, :online, :published, component:) }
-        let!(:upcoming_meeting) { create(:meeting, :not_official, :online, :published, component:) }
+        let!(:online_meetings) { create_list(:meeting, 2, :not_official, :online, :published, component:, latitude: nil, longitude: nil) }
+        let!(:upcoming_meeting) { create(:meeting, :not_official, :online, :published, component:, latitude: nil, longitude: nil) }
 
         # We are providing a list of coordinates to make sure the points are scattered all over the map
         # otherwise, there is a chance that markers can be clustered, which may result in a flaky spec.
