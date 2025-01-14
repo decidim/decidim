@@ -3,7 +3,6 @@
 module Decidim
   module Budgets
     class ProjectPresenter < Decidim::ResourcePresenter
-
       # Render the proposal title
       #
       # links - should render hashtags as links?
@@ -19,7 +18,6 @@ module Decidim
       delegate_missing_to :project
 
       private
-
 
       def project
         __getobj__

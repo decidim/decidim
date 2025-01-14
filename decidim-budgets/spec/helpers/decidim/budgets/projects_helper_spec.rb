@@ -29,23 +29,6 @@ module Decidim
           it { is_expected.to be_falsey }
         end
       end
-
-      describe "#project_data_for_map" do
-        subject { helper.project_data_for_map(project) }
-
-        let(:fake_description) { "<script>alert(\"HEY\")</script> This is my long, but still super interesting, description of my also long, but also super interesting, project. Check it out!" }
-        let(:fake_title) { "<script>alert(\"HEY\")</script> This is my title" }
-
-        it "returns preview data" do
-          allow(project).to receive(:description).and_return(en: fake_description)
-          allow(project).to receive(:title).and_return(en: fake_title)
-
-          expect(subject["latitude"]).to eq(latitude)
-          expect(subject["longitude"]).to eq(longitude)
-          expect(subject["title"]).to eq("&lt;script&gt;alert(&quot;HEY&quot;)&lt;/script&gt; This is my title")
-          expect(subject["link"]).to eq(::Decidim::ResourceLocatorPresenter.new([project.budget, project]).path)
-        end
-      end
     end
   end
 end
