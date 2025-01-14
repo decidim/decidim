@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/initiatives/test/initiatives_signatures_test_helpers"
 
 describe "Initiative signing" do
   let(:organization) { create(:organization, available_authorizations: authorizations) }
@@ -189,14 +190,6 @@ def fill_sms_code
   within("[data-check-code]") do
     form_sms_code.chars.each_with_index do |digit, idx|
       fill_in "mobile_phone[verification_code][#{idx}]", with: digit
-    end
-  end
-end
-
-def fill_date(date)
-  [date.year, date.month, date.day].each_with_index do |value, i|
-    within "select[name='dummy_signature_handler[date_of_birth(#{i + 1}i)]']" do
-      find("option[value='#{value}']").select_option
     end
   end
 end
