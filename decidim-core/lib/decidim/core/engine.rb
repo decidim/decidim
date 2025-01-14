@@ -222,9 +222,6 @@ module Decidim
         Decidim.icons.register(name: "youtube-line", icon: "youtube-line", category: "social icon", description: "", engine: :core)
         Decidim.icons.register(name: "github-fill", icon: "github-fill", category: "social icon", description: "", engine: :core)
         Decidim.icons.register(name: "facebook-circle-line", icon: "facebook-circle-line", category: "social icon", description: "", engine: :core)
-
-        # Omniauth icons
-        Decidim.icons.register(name: "media/images/google.svg", icon: "media/images/google.svg", category: "system", description: "", engine: :core)
       end
 
       initializer "decidim_core.patch_webpacker", before: "shakapacker.version_checker" do
