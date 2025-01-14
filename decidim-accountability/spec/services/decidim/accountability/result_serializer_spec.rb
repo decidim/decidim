@@ -38,9 +38,13 @@ module Decidim
         end
 
         it "serializes the taxonomies" do
-          expect(serialized[:taxonomies].length).to eq(2)
-          expect(serialized[:taxonomies][:id]).to match_array(taxonomies.map(&:id))
-          expect(serialized[:taxonomies][:name]).to match_array(taxonomies.map(&:name))
+          serialized_taxonomies = taxonomies.map do |taxonomy|
+            {
+              id: taxonomy.id,
+              name: taxonomy.name
+            }
+          end
+          expect(serialized[:taxonomies]).to match_array(serialized_taxonomies)
         end
 
         it "serializes the parent" do

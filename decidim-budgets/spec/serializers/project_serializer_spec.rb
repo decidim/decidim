@@ -23,10 +23,14 @@ module Decidim::Budgets
         expect(serialized).to include(id: project.id)
       end
 
-      it "includes the taxonomies" do
-        expect(serialized[:taxonomies].length).to eq(2)
-        expect(serialized[:taxonomies][:id]).to match_array(taxonomies.map(&:id))
-        expect(serialized[:taxonomies][:name]).to match_array(taxonomies.map(&:name))
+      it "serializes the taxonomies" do
+        serialized_taxonomies = taxonomies.map do |taxonomy|
+          {
+            id: taxonomy.id,
+            name: taxonomy.name
+          }
+        end
+        expect(serialized[:taxonomies]).to match_array(serialized_taxonomies)
       end
 
       it "includes the participatory space" do
