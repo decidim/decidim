@@ -85,11 +85,11 @@ FactoryBot.define do
 
     trait :with_user_extra_fields_collection do
       extra_fields_legal_information { generate_localized_description(:initiatives_type_extra_fields_legal_information, skip_injection:) }
-      document_number_authorization_handler { "dummy_signature_handler_with_personal_data" }
+      document_number_authorization_handler { "dummy_signature_with_personal_data_handler" }
     end
 
     trait :with_sms_code_validation do
-      document_number_authorization_handler { "dummy_signature_handler_with_sms" }
+      document_number_authorization_handler { "dummy_signature_with_sms_handler" }
     end
 
     trait :with_sms_code_validation_and_user_extra_fields_collection do

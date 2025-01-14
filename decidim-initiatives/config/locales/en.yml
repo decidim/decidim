@@ -622,8 +622,14 @@ en:
       signatures:
         workflows:
           dummy_signature_handler:
-            description: Signature which takes personal information from user, validates authorization and phone number
+            description: Signature which takes personal information from user, validates authorization and checks SMS code
             name: Dummy Signature Handler
+          dummy_signature_with_personal_data_handler:
+            description: Signature which only takes personal information from user and validates it
+            name: Dummy Signature Handler With Personal Data
+          dummy_signature_with_sms_handler:
+            description: Signature which only validates phone number looking for an existing authorization associated and checks SMS code
+            name: Dummy Signature Handler With Only SMS
       states:
         accepted: Accepted
         expired: Expired
