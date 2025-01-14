@@ -54,6 +54,18 @@ module Decidim
       def event_name
         ActiveSupport::Inflector.underscore(self.class.to_s).sub("/", ".serialize.").gsub("/", ".")
       end
+
+      private
+
+      # helper method to serialize taxonomies for any resource
+      def serialize_taxonomies(resource)
+        resource.taxonomies.map do |taxonomy|
+          {
+            id: taxonomy.id,
+            name: taxonomy.name
+          }
+        end
+      end
     end
   end
 end

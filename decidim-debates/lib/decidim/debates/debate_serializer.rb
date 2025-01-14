@@ -26,10 +26,7 @@ module Decidim
           start_time: debate.start_time,
           end_time: debate.end_time,
           information_updates: debate.information_updates,
-          taxonomies: {
-            id: debate.taxonomies.map(&:id),
-            name: debate.taxonomies.map(&:name)
-          },
+          taxonomies: serialize_taxonomies(debate),
           participatory_space: {
             id: debate.participatory_space.id,
             url: Decidim::ResourceLocatorPresenter.new(debate.participatory_space).url

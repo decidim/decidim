@@ -22,10 +22,7 @@ module Decidim
           author: {
             **author_fields
           },
-          taxonomies: {
-            id: proposal.taxonomies.map(&:id),
-            name: proposal.taxonomies.map(&:name)
-          },
+          taxonomies: serialize_taxonomies(proposal),
           participatory_space: {
             id: proposal.participatory_space.id,
             url: Decidim::ResourceLocatorPresenter.new(proposal.participatory_space).url
