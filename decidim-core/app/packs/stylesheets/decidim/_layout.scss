@@ -11,7 +11,7 @@
 }
 
 .layout-1col {
-  @apply container grid grid-rows-[max-content] auto-rows-max mb-12 grow w-auto max-w-6xl;
+  @apply container grid grid-rows-[max-content] auto-rows-max mb-12 grow w-auto max-w-5xl;
 
   &.cols-6 > * {
     @apply col-span-12 md:col-start-3 md:col-span-8 lg:col-start-12 lg:col-span-6 self-start;
