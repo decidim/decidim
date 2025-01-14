@@ -80,10 +80,16 @@ de:
             comments_warning: Sobald der erste Kommentar veröffentlicht wurde, kann die gewählte Anzeigeoption nicht geändert werden.
             debate_type: Debatten-Typ
             edit_documents: Dokumente bearbeiten
+            errors:
+              comments_layout_locked: Sie können das Kommentaransicht nicht ändern, sobald Kommentare veröffentlicht wurden.
             finite: Zeitlich begrenzt (mit Start- und Endzeit)
             open: Offen (keine Start- und Endzeit)
+            single_column: 'Einzelne Spalte: Kommentare werden in chronologischer Reihenfolge angezeigt und können beantwortet werden.'
+            two_columns: 'Zwei Spalten: Kommentare werden in "Zustimmend"- und "Ablehnend"-Spalten angezeigt und können keine Antworten enthalten.'
           index:
             title: Debatten
+          manage_trash:
+            title: Gelöschte Debatten
           new:
             create: Erstelle eine Debatte
             title: Neue Debatte
@@ -97,6 +103,7 @@ de:
         debate:
           close: "%{user_name} hat die Debatte %{resource_name} in %{space_name} geschlossen"
           create: "%{user_name} hat die Debatte %{resource_name} in %{space_name} erstellt"
+          restore: "%{user_name} hat die Debatte %{resource_name} des Bereichs %{space_name} wiederhergestellt"
           update: "%{user_name} hat die Debatte %{resource_name} in %{space_name} aktualisiert"
       content_blocks:
         highlighted_debates:
