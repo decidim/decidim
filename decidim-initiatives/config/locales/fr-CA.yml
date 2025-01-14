@@ -135,6 +135,7 @@ fr-CA:
           name: Type d'initiative
         initiatives_votes:
           fields:
+            date_and_time: Date et heure
             date_of_birth: Date de naissance
             document_number: Numéro de document
             hash: Hash
