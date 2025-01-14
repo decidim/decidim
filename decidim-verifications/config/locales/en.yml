@@ -164,12 +164,19 @@ en:
               success: Successfully imported %{count} items (%{errors} errors).
             destroy_all:
               success: All census data have been deleted.
-          census_section:
+          census_records:
+            create:
+              error: There was a problem adding the census record.
+              success: Successfully added a new census record.
+            edit:
+              update: Update
             index:
               add_new_record_button: Add new record
               fields:
                 email: email
               title: Current census data
+            new:
+              create: Create
           destroy:
             confirm: Delete all the census cannot be undone. Are you sure you want to continue?
             title: Delete all census data

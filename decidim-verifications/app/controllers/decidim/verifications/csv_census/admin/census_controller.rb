@@ -27,7 +27,7 @@ module Decidim
             CreateCensusData.call(@form, current_organization) do
               on(:ok) do
                 flash[:notice] = t(".success", count: @form.data.values.count, errors: @form.data.errors.count)
-                redirect_to census_path
+                redirect_to census_records_path
               end
 
               on(:invalid) do

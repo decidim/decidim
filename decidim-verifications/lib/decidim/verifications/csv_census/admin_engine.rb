@@ -15,6 +15,9 @@ module Decidim
               delete :destroy_all
             end
           end
+
+          resources :census_records, except: [:show]
+
           root to: "census#index"
         end
       end
