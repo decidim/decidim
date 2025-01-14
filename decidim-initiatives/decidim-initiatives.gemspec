@@ -34,7 +34,6 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-comments", Decidim::Initiatives.version
   s.add_dependency "decidim-core", Decidim::Initiatives.version
   s.add_dependency "decidim-verifications", Decidim::Initiatives.version
-  s.add_dependency "hexapdf", "~> 1.0.0"
 
   s.add_development_dependency "decidim-dev", Decidim::Initiatives.version
   s.add_development_dependency "decidim-meetings", Decidim::Initiatives.version
