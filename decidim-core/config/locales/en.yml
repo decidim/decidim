@@ -9,11 +9,11 @@ en:
         photos: Photos
       common:
         created_at: Created at
+      component:
+        taxonomy_filters: Taxonomy filters
       content_block_attachment:
         background_image: Background image
         main_image: Main image
-      component:
-        taxonomy_filters: Taxonomy filters
       conversation:
         body: Body
       editor_image:
