@@ -101,6 +101,7 @@ pt:
           attachments: Anexos
           categories: Categorias
           components: Componentes
+          info:
           moderations: Moderações
           process_admins: Administradores de processo
           steps: Fases
@@ -351,6 +352,8 @@ pt:
         index:
           back_to_process: Retroceder à página do processo
       participatory_processes:
+        description:
+          title: Sobre este processo
         filters:
           counters:
             active:
