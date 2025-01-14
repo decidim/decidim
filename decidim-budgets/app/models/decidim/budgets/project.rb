@@ -71,6 +71,12 @@ module Decidim
         Decidim::Budgets::AdminLog::ProjectPresenter
       end
 
+      # Returns the presenter for this author, to be used in the views.
+      # Required by ResourceRenderer.
+      def presenter
+        Decidim::Budgets::ProjectPresenter.new(self)
+      end
+
       def resource_locator
         ::Decidim::ResourceLocatorPresenter.new([budget, self])
       end
