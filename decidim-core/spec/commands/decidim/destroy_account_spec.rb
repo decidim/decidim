@@ -58,6 +58,7 @@ module Decidim
         expect(user.email).to eq("")
         expect(user.personal_url).to eq("")
         expect(user.about).to eq("")
+        expect(user.notifications_sending_frequency).to eq("none")
       end
 
       it "destroys the current user avatar" do
