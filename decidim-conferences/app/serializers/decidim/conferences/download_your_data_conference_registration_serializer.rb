@@ -7,15 +7,15 @@ module Decidim
       def serialize
         {
           id: resource.id,
-          user: {
-            name: resource.user.name,
-            email: resource.user.email
-          },
+          created_at: resource.created_at,
+          updated_at: resource.updated_at,
+          confirmed_at: resource.confirmed_at,
           registration_type: {
             title: resource.registration_type.title,
             price: resource.registration_type.price
           },
           conference: {
+            url: Decidim::EngineRouter.main_proxy(resource.conference).conference_url(resource.conference),
             title: resource.conference.title,
             reference: resource.conference.reference,
             slogan: resource.conference.slogan,
