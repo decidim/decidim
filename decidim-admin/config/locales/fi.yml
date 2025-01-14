@@ -168,7 +168,7 @@ fi:
         slug: URL-tunniste
         title: Otsikko
       doorkeeper/application:
-        authorize_url: Varmenna URL-osoite
+        authorize_url: Vahvistuksen URL-osoite
         client_id: Asiakkaan tunniste (ID)
         client_secret: Asiakkaan salausavain (secret)
         organization_name: Organisaation nimi
@@ -704,7 +704,7 @@ fi:
           fields:
             actions: Toiminnot
             created_at: Luonnin ajankohta
-            document_number: Dokumentin numero
+            document_number: Organisaatiotunnus (esim. Y-tunnus)
             name: Nimi
             nickname: Nimimerkki
             phone: Puhelinnumero
@@ -848,7 +848,7 @@ fi:
           select_users_general: Lähetä yleinen uutiskirje
           select_verification_types: Valitse tunnistautumistavat
           send_to_all_users: Lähetä kaikille käyttäjille
-          send_to_verified_users: Lähetä varmennetuille käyttäjille
+          send_to_verified_users: Lähetä vahvistetuille käyttäjille
           title: Valitse vastaanottajat
           verified_users_help: Lähetä uutiskirje kaikille vahvistetuille ja millä tahansa tavalla tunnistautuneille käyttäjille.
           warning: "<strong>Huomio:</strong> Tämä uutiskirje lähetetään ainoastaan käyttäjille, jotka ovat valinneet asetuksen <em>Haluan vastaanottaa uutiskirjeitä</em> tilinsä ilmoitusasetuksista."
