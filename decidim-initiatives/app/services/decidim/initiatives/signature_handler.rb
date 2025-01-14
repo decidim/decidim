@@ -188,11 +188,12 @@ module Decidim
 
       private
 
-      # To be defined. It is expected to validate that no other user has voted
-      # with the same unique_id. The unique_id should always be the document
-      # number or it can be a different attrib
+      # It is expected to validate that no other user has voted with the same
+      # unique_id and scope. The unique_id should be defined by the classes
+      # inherited from this taking a personal data attribute like a document
+      # number. If not defined the user id is used
       def uniqueness
-        Decidim::InitiativesVote.where(scope:, hash_id:, author: user).none?
+        add_invalid_base_error if Decidim::InitiativesVote.where(scope:, hash_id:).exists?
       end
 
       def valid_metadata
