@@ -7,6 +7,8 @@ module Decidim
       include Decidim::DeviseControllers
 
       helper Decidim::PasswordsHelper
+      helper Decidim::ShortLinkHelper
+      helper Decidim::ResourceHelper
 
       prepend_before_action :require_no_authentication, except: [:change_password, :apply_password]
       skip_before_action :store_current_location

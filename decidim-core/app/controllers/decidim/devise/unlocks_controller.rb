@@ -5,6 +5,8 @@ module Decidim
     # Custom Devise UnlocksController to avoid namespace problems.
     class UnlocksController < ::Devise::UnlocksController
       include Decidim::DeviseControllers
+      helper Decidim::ShortLinkHelper
+      helper Decidim::ResourceHelper
 
       private
 

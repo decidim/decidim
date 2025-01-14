@@ -36,6 +36,8 @@ module Decidim
       helper Decidim::ComponentPathHelper
       helper Decidim::SanitizeHelper
       helper Decidim::BreadcrumbHelper
+      helper Decidim::ShortLinkHelper
+      helper Decidim::ResourceHelper
 
       helper Decidim::Templates::Admin::ApplicationHelper if Decidim.module_installed?(:templates) && defined?(Decidim::Templates::Admin::ApplicationHelper)
 

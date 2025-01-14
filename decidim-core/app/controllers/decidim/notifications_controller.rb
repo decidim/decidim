@@ -4,6 +4,8 @@ module Decidim
   # The controller to handle the user's notifications deletion.
   class NotificationsController < Decidim::ApplicationController
     include HasSpecificBreadcrumb
+    helper Decidim::ShortLinkHelper
+    helper Decidim::ResourceHelper
 
     def index
       enforce_permission_to :read, :notification
