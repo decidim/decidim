@@ -17,6 +17,8 @@ module Decidim
       helper Decidim::DecidimFormHelper
       helper Decidim::ReplaceButtonsHelper
       helper Decidim::System::MenuHelper
+      helper Decidim::ShortLinkHelper
+      helper Decidim::ResourceHelper
     end
   end
 end
