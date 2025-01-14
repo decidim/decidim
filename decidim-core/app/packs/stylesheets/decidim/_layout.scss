@@ -11,10 +11,10 @@
 }
 
 .layout-1col {
-  @apply container grid grid-rows-[max-content] auto-rows-max mb-12 grow w-auto max-w-5xl;
+  @apply container grid grid-rows-[max-content] grid-cols-12 auto-rows-max mb-12 grow max-w-full;
 
   &.cols-6 > * {
-    @apply col-span-12 md:col-start-3 md:col-span-8 lg:col-start-12 lg:col-span-6 self-start;
+    @apply col-span-12 md:col-start-3 md:col-span-8 lg:col-start-4 lg:col-span-6 self-start;
   }
 
   &.cols-8 > * {
