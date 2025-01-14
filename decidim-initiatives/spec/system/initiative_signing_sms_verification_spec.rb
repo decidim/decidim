@@ -24,6 +24,37 @@ describe "Initiative signing" do
     )
   end
 
+  shared_examples "ends signature with sms code" do
+    context "when inserts the wrong code number" do
+      let(:form_sms_code) { "000000" }
+
+      it "appears an invalid message" do
+        fill_sms_code
+
+        expect(page).to have_content("The code is not correct")
+        expect(page).to have_no_button("Sign initiative")
+        expect(initiative.reload.supports_count).to be_zero
+      end
+    end
+
+    context "when inserts the correct code number" do
+      let(:form_sms_code) { sms_code }
+
+      it "the vote is created" do
+        fill_sms_code
+
+        expect(page).to have_content("Your code is correct")
+        click_on "Sign initiative"
+
+        expect(page).to have_content("initiative has been successfully signed")
+        click_on "Back to initiative"
+
+        expect(page).to have_content(signature_text(1))
+        expect(initiative.reload.supports_count).to eq(1)
+      end
+    end
+  end
+
   before do
     allow(Decidim::Initiatives)
       .to receive(:do_not_require_authorization)
@@ -46,7 +77,7 @@ describe "Initiative signing" do
       fill_in :dummy_signature_handler_name_and_surname, with: confirmed_user.name
       select "Identification number", from: :dummy_signature_handler_document_type
       fill_in :dummy_signature_handler_document_number, with: document_number
-      fill_in_datepicker :dummy_signature_handler_date_of_birth_date, with: 30.years.ago.strftime("01/01/%Y")
+      fill_date 30.years.ago
       fill_in :dummy_signature_handler_postal_code, with: "01234"
       select translated_attribute(initiative.scope.name), from: :dummy_signature_handler_scope_id
 
@@ -61,6 +92,50 @@ describe "Initiative signing" do
 
     it "The sms step appears" do
       expect(page).to have_content("Mobile phone number")
+    end
+  end
+
+  context "when the signature workflow validates the phone number looking for an authorization" do
+    let(:initiatives_type) { create(:initiatives_type, :with_sms_code_validation, organization:) }
+
+    context "without authorization" do
+      it "phone number is invalid" do
+        fill_phone_number
+
+        expect(page).to have_content("The phone number is invalid or pending of authorization")
+        expect(initiative.reload.supports_count).to be_zero
+      end
+    end
+
+    context "with valid authorization" do
+      before do
+        create(:authorization, name: "sms", user: confirmed_user, granted_at: 2.seconds.ago, unique_id:)
+      end
+
+      context "and inserts wrong phone number" do
+        let(:unique_id) { "wadus" }
+
+        it "appears an invalid message" do
+          fill_phone_number
+
+          expect(page).to have_content("The phone number is invalid or pending of authorization")
+          expect(initiative.reload.supports_count).to be_zero
+        end
+      end
+
+      context "and inserts correct phone number" do
+        before do
+          fill_phone_number
+        end
+
+        it "sms code is required" do
+          expect(page).to have_content("Your confirmation code")
+          expect(page).to have_css("[data-check-code]")
+          expect(initiative.reload.supports_count).to be_zero
+        end
+
+        include_examples "ends signature with sms code"
+      end
     end
   end
 
@@ -86,73 +161,20 @@ describe "Initiative signing" do
         expect(initiative.reload.supports_count).to be_zero
       end
 
-      context "when the user fills phone number" do
-        context "without authorization" do
-          it "phone number is invalid" do
-            fill_phone_number
+      context "when the user fills phone number and the workflow does not validate the phone number looking for an authorization" do
+        let(:form_sms_code) { sms_code }
 
-            expect(page).to have_content("The phone number is invalid or pending of authorization")
-            expect(initiative.reload.supports_count).to be_zero
-          end
+        before do
+          fill_phone_number
         end
 
-        context "with valid authorization" do
-          before do
-            create(:authorization, name: "sms", user: confirmed_user, granted_at: 2.seconds.ago, unique_id:)
-          end
-
-          context "and inserts wrong phone number" do
-            let(:unique_id) { "wadus" }
-
-            it "appears an invalid message" do
-              fill_phone_number
-
-              expect(page).to have_content("The phone number is invalid or pending of authorization")
-              expect(initiative.reload.supports_count).to be_zero
-            end
-          end
-
-          context "and inserts correct phone number" do
-            let(:form_sms_code) { sms_code }
-
-            before do
-              fill_phone_number
-            end
-
-            it "sms code is required" do
-              expect(page).to have_content("Your confirmation code")
-              expect(page).to have_css("[data-check-code]")
-              expect(initiative.reload.supports_count).to be_zero
-            end
-
-            context "and inserts the wrong code number" do
-              let(:form_sms_code) { "000000" }
-
-              it "appears an invalid message" do
-                fill_sms_code
-
-                expect(page).to have_content("The code is not correct")
-                expect(page).to have_button("Sign initiative", disabled: true)
-                expect(initiative.reload.supports_count).to be_zero
-              end
-            end
-
-            context "and inserts the correct code number" do
-              it "the vote is created" do
-                fill_sms_code
-
-                expect(page).to have_content("Your code is correct")
-                click_on "Sign initiative"
-
-                expect(page).to have_content("initiative has been successfully signed")
-                click_on "Back to initiative"
-
-                expect(page).to have_content(signature_text(1))
-                expect(initiative.reload.supports_count).to eq(1)
-              end
-            end
-          end
+        it "sms code is required" do
+          expect(page).to have_content("Your confirmation code")
+          expect(page).to have_css("[data-check-code]")
+          expect(initiative.reload.supports_count).to be_zero
         end
+
+        include_examples "ends signature with sms code"
       end
     end
   end
@@ -167,6 +189,14 @@ def fill_sms_code
   within("[data-check-code]") do
     form_sms_code.chars.each_with_index do |digit, idx|
       fill_in "mobile_phone[verification_code][#{idx}]", with: digit
+    end
+  end
+end
+
+def fill_date(date)
+  [date.year, date.month, date.day].each_with_index do |value, i|
+    within "select[name='dummy_signature_handler[date_of_birth(#{i + 1}i)]']" do
+      find("option[value='#{value}']").select_option
     end
   end
 end
