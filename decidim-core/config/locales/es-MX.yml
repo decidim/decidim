@@ -2211,6 +2211,8 @@ es-MX:
         expire_time_html: Su sesión expirará en <b><span class="minutes">%{minutes}</span> minutos</b>.
       language_chooser:
         choose_language: Elegir el idioma
+      navigation:
+        aria_label: 'Menú de navegación: %{title}'
       notifications_dashboard:
         mark_all_as_read: Marcar todo como leído
         mark_as_read: Marcar como leído
