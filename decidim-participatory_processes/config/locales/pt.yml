@@ -102,6 +102,7 @@ pt:
           attachments: Anexos
           categories: Categorias
           components: Componentes
+          info:
           moderations: Moderações
           private_users: Participantes privados
           process_admins: Administradores de processo
@@ -354,6 +355,8 @@ pt:
         index:
           back_to_process: Retroceder à página do processo
       participatory_processes:
+        description:
+          title: Sobre este processo
         filters:
           counters:
             active:
