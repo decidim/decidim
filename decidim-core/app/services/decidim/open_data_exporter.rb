@@ -69,7 +69,7 @@ module Decidim
       export_manifest = (core_data_manifests + open_data_component_manifests + open_data_participatory_space_manifests)
                         .select { |manifest| manifest.name == resource.to_sym }.first
 
-      case export_manifest.manifest
+      case export_manifest.respond_to?(:manifest) && export_manifest.manifest
       when Decidim::ComponentManifest
         data_for_component(export_manifest).read
       when Decidim::ParticipatorySpaceManifest
