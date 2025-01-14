@@ -112,7 +112,7 @@ fi:
         title: 'Järjestä tulokset:'
       comments:
         against: Vastaan
-        blocked_comments_for_unauthorized_user_warning: Tilisi tulee olla varmennettu, jotta voit kommentoida tällä hetkellä. Voit kuitenkin lukea muiden jättämiä kommentteja.
+        blocked_comments_for_unauthorized_user_warning: Tilisi tulee olla vahvistettu, jotta voit kommentoida tällä hetkellä. Voit kuitenkin lukea muiden jättämiä kommentteja.
         blocked_comments_for_user_warning: Et voi kommentoida tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
         blocked_comments_warning: Kommentit on tällä hetkellä pois käytöstä, vain hallintakäyttäjät voivat vastata tai lähettää uusia kommentteja.
         comment_details_title: Kommentin yksityiskohdat
