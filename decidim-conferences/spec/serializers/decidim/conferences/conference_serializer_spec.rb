@@ -52,6 +52,24 @@ module Decidim::Conferences
         end
       end
 
+      context "when assembly has taxonomies" do
+        let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: resource.organization) }
+
+        before do
+          resource.update!(taxonomies:)
+        end
+
+        it "serializes the taxonomies" do
+          serialized_taxonomies = taxonomies.map do |taxonomy|
+            {
+              id: taxonomy.id,
+              name: taxonomy.name
+            }
+          end
+          expect(subject.serialize[:taxonomies]).to match_array(serialized_taxonomies)
+        end
+      end
+
       context "when conference has categories" do
         let!(:category) { create(:category, participatory_space: resource) }
 

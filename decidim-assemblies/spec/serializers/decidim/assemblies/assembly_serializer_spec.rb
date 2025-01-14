@@ -139,6 +139,24 @@ module Decidim::Assemblies
         end
       end
 
+      context "when assembly has taxonomies" do
+        let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: resource.organization) }
+
+        before do
+          resource.update!(taxonomies:)
+        end
+
+        it "serializes the taxonomies" do
+          serialized_taxonomies = taxonomies.map do |taxonomy|
+            {
+              id: taxonomy.id,
+              name: taxonomy.name
+            }
+          end
+          expect(subject.serialize[:taxonomies]).to match_array(serialized_taxonomies)
+        end
+      end
+
       context "when assembly has attachments" do
         let!(:attachment_collection) { create(:attachment_collection, collection_for: resource) }
         let!(:attachment) { create(:attachment, attached_to: resource, attachment_collection:) }
