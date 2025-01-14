@@ -154,12 +154,22 @@ en:
         start_exploring: start exploring
       csv_census:
         admin:
+          actions:
+            confirm_destroy: Are you sure you want to delete this %{name}?
+            destroy: Destroy
+            edit: Edit
           census:
             create:
               error: There was a problem importing census.
               success: Successfully imported %{count} items (%{errors} errors).
             destroy_all:
               success: All census data have been deleted.
+          census_section:
+            index:
+              add_new_record_button: Add new record
+              fields:
+                email: email
+              title: Current census data
           destroy:
             confirm: Delete all the census cannot be undone. Are you sure you want to continue?
             title: Delete all census data
