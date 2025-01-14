@@ -91,6 +91,7 @@ sv:
       actions:
         activate: Aktivera
         configure: Konfigurera
+        confirm_delete_process: Är du säker på att du vill ta bort den här processen? Om du ändrar dig kan du återställa den senare.
         confirm_destroy: Bekräfta radering
         destroy: Radera
         duplicate: Duplicera
@@ -108,6 +109,7 @@ sv:
         resend_invitation: Skicka inbjudan igen
         see_process: Visa process
         unpublish: Avpublicera
+        view_deleted_processes: Visa raderade processer
       filters:
         decidim_participatory_process_group_id_eq:
           label: Efter processgrupp
@@ -127,6 +129,7 @@ sv:
           info: Om processen
           landing_page: Landningssida
           moderations: Moderering
+          private_users: Medlemmar
           process_admins: Administratörer för process
           steps: Steg
       models:
@@ -168,6 +171,7 @@ sv:
           fields:
             invitation_accepted_at: Inbjudan godkänd
             invitation_sent_at: Inbjudan skickad
+            published: Publicerad
       participatory_process_copies:
         new:
           copy: Kopiera
@@ -277,6 +281,8 @@ sv:
           public: Offentlig
           published: Publicerad
           unpublished: Ej publicerad
+        manage_trash:
+          title: Raderade deltagandeprocesser
         new:
           create: Skapa
           title: Ny deltagandeprocess
@@ -295,6 +301,9 @@ sv:
         participatory_process_groups: Grupper av deltagandeprocesser
         participatory_process_types: Typer av deltagandeprocesser
         participatory_processes: Deltagandeprocesser
+        participatory_processes_deleted: Raderade deltagandeprocesser
+      tooltips:
+        deleted_processes_info: En process kan endast raderas om status är "avpublicerad".
       users:
         resend_invitation:
           error: Det gick inte att skicka inbjudan igen.
@@ -306,10 +315,13 @@ sv:
         export: "%{user_name} exporterade processen %{resource_name}"
         import: "%{user_name} importerade processen %{resource_name}"
         publish: "%{user_name} publicerade deltagandeprocessen %{resource_name}"
+        restore: "%{user_name} återställde deltagandeprocessen %{resource_name}"
+        soft_delete: "%{user_name} raderade deltagandeprocessen %{resource_name}"
         unpublish: "%{user_name} avpublicerade deltagandeprocessen %{resource_name}"
         update: "%{user_name} uppdaterade deltagandeprocessen %{resource_name}"
       participatory_process_group:
         create: "%{user_name} skapade gruppen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade gruppen av deltagandeprocesser %{resource_name}"
         update: "%{user_name} uppdaterade gruppen %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} aktiverade steget %{resource_name} i processen %{space_name}"
@@ -324,6 +336,9 @@ sv:
         create: "%{user_name} bjöd in deltagaren %{resource_name} till processen %{space_name}"
         delete: "%{user_name} tog bort deltagaren %{resource_name} från processen %{space_name}"
         update: "%{user_name} ändrade rollen för deltagaren %{resource_name} i processen %{space_name}"
+    download_your_data:
+      show:
+        participatory_processes: Export av deltagandeprocesser
     events:
       participatory_process:
         role_assigned:
@@ -358,6 +373,30 @@ sv:
         description: Antal deltagandeprocesser i organisationen
         object: deltagandeprocesser
         title: Deltagandeprocesser
+    open_data:
+      help:
+        participatory_processes:
+          announcement: Meddelande
+          area: Geografiskt område för processen
+          created_at: Datum när processen skapades
+          description: Längre beskrivning av processen
+          developer_group: Ansvariga för processen. Organisation eller grupp som står bakom processen.
+          end_date: Slutdatum för processen
+          follows_count: Antal följare
+          hashtag: Processens hashtag, används för Twitter/X
+          id: Unikt id för processen
+          local_area: Geografiskt område för processen. Det område där processen genomförs.
+          participatory_process_group: Grupp av processer, om tillämpbart
+          participatory_process_type: Typ av process
+          published_at: Datum när processen publicerades
+          reference: Unikt id för processen
+          remote_hero_image_url: URL till processens huvudbild
+          scopes_enabled: Om indelningar är aktiverat eller inte
+          short_description: Kort beskrivning av processen
+          start_date: Startdatum för processen
+          subtitle: Undertitel för processen
+          title: Processens titel
+          url: Processens URL
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -421,11 +460,14 @@ sv:
         participatory_processes:
           form:
             announcement_help: Den här texten visas direkt under informationen om processen.
+            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
             duration: Varaktighet
             filters: Filter
             images: Bilder
             metadata: Metadata
+            no_taxonomy_filters_found: Inga filter för kategorier hittades.
             other: Övrigt
+            private_notice: Du kommer att kunna hantera medlemmar om processen gjorts privat
             related_processes: Relaterade processer
             scope_type_max_depth_help: Begränsa djupet på filtret för indelningen.
             select_an_area: Välj ett område
@@ -497,6 +539,9 @@ sv:
           type: Typ
         show:
           title: Om processen
+      participatory_space_private_users:
+        index:
+          title: Medlemmar
       show:
         belongs_to_group: Den här processen tillhör
         private_space: Det här är en privat process
@@ -510,6 +555,8 @@ sv:
           browse: Bläddra
           browse_resource: Bläddra i processgruppen %{resource_name}
           processes_count: 'Processer:'
+      participatory_process_navigation:
+        member_menu_item: Medlemmar
       participatory_processes:
         index:
           promoted_processes: Viktiga processer just nu
