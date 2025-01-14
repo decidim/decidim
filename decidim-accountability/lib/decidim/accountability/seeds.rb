@@ -54,7 +54,8 @@ module Decidim
       end
 
       def root_taxonomy
-        @root_taxonomy ||= participatory_space.organization.taxonomies.roots.find_by("name->>'en'= ?", "Categories") || participatory_space.organization.taxonomies.roots.sample
+        @root_taxonomy ||= participatory_space.organization.taxonomies.roots.find_by("name->>'#{I18n.locale}'= ?",
+                                                                                     "Categories") || participatory_space.organization.taxonomies.roots.sample
       end
 
       def create_taxonomies!

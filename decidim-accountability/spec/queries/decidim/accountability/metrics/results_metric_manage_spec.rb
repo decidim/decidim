@@ -28,7 +28,7 @@ describe Decidim::Accountability::Metrics::ResultsMetricManage do
     end
 
     it "updates metric records" do
-      create(:metric, metric_type: "results", day:, cumulative: 1, quantity: 1, organization:, category: nil, participatory_space:, related_object_type: component.class.name, related_object_id: component.id)
+      create(:metric, metric_type: "results", day:, cumulative: 1, quantity: 1, organization:, taxonomy: nil, participatory_space:, related_object_type: component.class.name, related_object_id: component.id)
       registry = generate_metric_registry
 
       expect(Decidim::Metric.count).to eq(1)
