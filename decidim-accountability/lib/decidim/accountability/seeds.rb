@@ -17,10 +17,10 @@ module Decidim
         create_statuses!(component:)
 
         3.times do
-          categories = create_categories!
+          taxonomies = create_taxonomies!
 
-          categories.each do |category|
-            create_result!(component:, category:)
+          taxonomies.each do |taxonomy|
+            create_result!(component:, taxonomy:)
           end
         end
       end
@@ -53,32 +53,30 @@ module Decidim
         end
       end
 
-      def create_categories!
-        parent_category = participatory_space.categories.sample
-        categories = [parent_category]
+      def create_taxonomies!
+        root_taxonomy = organization.taxonomies.roots.find_by("name->>'en'= ?", "Categories") || participatory_space.organization.taxonomies.roots.sample
+        parent_taxonomy = root_taxonomy.children.sample || root_taxonomy.children.create!(name: Decidim::Faker::Localized.sentence(word_count: 5))
+        taxonomies = [parent_taxonomy]
 
         2.times do
-          categories << Decidim::Category.create!(
-            name: Decidim::Faker::Localized.sentence(word_count: 5),
-            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(sentence_count: 3)
-            end,
-            parent: parent_category,
-            participatory_space:
-          )
+          taxonomies << if parent_taxonomy.children.count > 1
+                          parent_taxonomy.children.sample
+                        else
+                          parent_taxonomy.children.create!(name: Decidim::Faker::Localized.sentence(word_count: 5))
+                        end
         end
 
-        categories
+        taxonomies
       end
 
-      def create_result!(component:, category:)
+      def create_result!(component:, taxonomy:)
         result = Decidim.traceability.create!(
           Decidim::Accountability::Result,
           admin_user,
           {
             component:,
             scope: participatory_space.organization.scopes.sample,
-            category:,
+            taxonomies: [taxonomy],
             title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
               Decidim::Faker::Localized.paragraph(sentence_count: 3)
