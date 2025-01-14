@@ -136,16 +136,20 @@ ca:
           name: Tipus d'iniciativa
         initiatives_votes:
           fields:
+            date_and_time: Data i hora
             date_of_birth: Data de naixement
             document_number: Número de document
             hash: Hash
             initiative_end_date: Data de finalització
             initiative_id: ID de la iniciativa
+            initiative_scope: Àmbit
             initiative_signatures_count: Nombre de signatures digitals
             initiative_start_date: Data d'inici
             initiative_title: Títol de la iniciativa
             name_and_surname: Nom i cognoms
+            nickname: Àlies
             postal_code: Codi postal
+            signature_count: Recompte de signatures
             timestamp: Marca de temps
       titles:
         initiatives: Iniciatives
