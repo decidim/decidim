@@ -195,7 +195,7 @@
         <div class="row column">
           <p class="text-gray mr-2 mt-4">
             <%= t("no_taxonomy_filters_found", scope: "decidim.assemblies.admin.assemblies.form") %>
-            <%= link_to(t("define_taxonomy_filters", scope: "decidim.assemblies.admin.assemblies.form"), participatory_space_taxonomy_filters_path, class: "button button__text-secondary") %>
+            <%= link_to(t("define_taxonomy_filters", scope: "decidim.assemblies.admin.assemblies.form"), decidim_admin.taxonomies_path, class: "button button__text-secondary") %>
           </p>
       </div>
       <% else %>

@@ -303,6 +303,9 @@ en:
         update:
           error: There was a problem updating a registration type for this conference.
           success: Conference registration type successfully updated.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: All conferences
       titles:
         conferences: Conferences
         conferences_deleted: Deleted conferences

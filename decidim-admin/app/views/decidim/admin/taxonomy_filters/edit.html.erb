@@ -9,16 +9,8 @@
   </h1>
 </div>
 
-<div class="card">
-  <%= decidim_form_for(@form, url: url_for(controller: params[:controller], action: :update, id: current_taxonomy_filter.id), html: { class: "form-defaults form new_taxonomy_filter_" }) do |f| %>
-    <div class="card-section p-4">
-      <div class="item__edit-form">
-        <div class="form-defaults">
-          <%= f.text_field :root_taxonomy_id, value: translated_attribute(current_taxonomy_filter.name), disabled: true, class: "w-full" %>
-        </div>
-      </div>
-    </div>
-
+<div class="item__edit-form">
+  <%= decidim_form_for(@form, url: taxonomy_filter_path(root_taxonomy, id: taxonomy_filter), html: { class: "form form-defaults new_taxonomy_filter_" }) do |f| %>
     <%= render partial: "decidim/admin/taxonomy_filters/form", object: f %>
 
     <div class="item__edit-sticky">

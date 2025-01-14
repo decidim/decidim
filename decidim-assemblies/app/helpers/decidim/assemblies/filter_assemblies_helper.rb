@@ -35,7 +35,7 @@ module Decidim
       end
 
       def available_taxonomy_filters
-        Decidim::TaxonomyFilter.for(:assemblies)
+        Decidim::TaxonomyFilter.for(current_organization).for_manifest(:assemblies)
       end
     end
   end

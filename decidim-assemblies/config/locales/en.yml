@@ -229,6 +229,9 @@ en:
             collaborator: Collaborator
             moderator: Moderator
             valuator: Valuator
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: All assemblies
       titles:
         assemblies: Assemblies
         assemblies_deleted: Deleted assemblies

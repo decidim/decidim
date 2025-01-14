@@ -571,20 +571,6 @@ describe Decidim::Assemblies::Permissions do
     end
   end
 
-  describe "assembly taxonomy filters" do
-    let(:action) do
-      { scope: :admin, action: :something, subject: :taxonomy_filter }
-    end
-
-    it { is_expected.to be true }
-
-    context "when user is not an admin" do
-      let(:user) { assembly_collaborator }
-
-      it { is_expected.to be false }
-    end
-  end
-
   describe "when acting with assemblies admins and children assemblies" do
     let!(:user) { create(:assembly_admin, assembly: mother_assembly) }
     let(:mother_assembly) { create(:assembly, parent: assembly, organization:, hashtag: "mother") }

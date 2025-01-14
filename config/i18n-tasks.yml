@@ -233,6 +233,8 @@ ignore_unused:
   - doorkeeper.scopes.*
   - decidim.proposals.proposals.votes_count.count.*
   - decidim.proposals.proposals.show.hidden_endorsers_count.*
+  - decidim.admin.taxonomies.breadcrumb.*
+  - decidim.admin.taxonomy_filters.breadcrumb.*
   - decidim.admin.models.*.name
   - decidim.admin.models.*.name.*
   - password_validator.*

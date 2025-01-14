@@ -88,8 +88,7 @@ shared_examples "a single root taxonomy with no children" do
         filters: [
           {
             name: root_taxonomy_name,
-            space_filter: true,
-            space_manifest:,
+            participatory_space_manifests:,
             items: [[subject.title[I18n.locale.to_s]]],
             components: []
           }
