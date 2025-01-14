@@ -32,7 +32,7 @@
   <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: registration_path(resource_name), html: { id: "register-form" }) do |f| %>
     <%= invisible_captcha %>
 
-    <div class="form__wrapper">
+    <div class="form__wrapper pb-12">
       <%= f.text_field :name, help_text: t("decidim.devise.registrations.new.username_help"), autocomplete: "name", placeholder: "John Doe" %>
 
       <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
