@@ -18,7 +18,7 @@ module Decidim
 
         @form = form(signature_form_class).from_params(
           initiative: current_initiative,
-          signer: current_user
+          user: current_user
         )
 
         VoteInitiative.call(@form) do
