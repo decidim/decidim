@@ -71,7 +71,7 @@ describe Decidim::AdminLog::ModerationPresenter, type: :helper do
       let(:action) { "bulk_hide" }
 
       before do
-        allow(Decidim::Log::DiffChangesetCalculator).to receive(:new).and_return(instance_double("Decidim::Log::DiffChangesetCalculator", changeset: { key: "value" }))
+        allow(Decidim::Log::DiffChangesetCalculator).to receive(:new).and_return(instance_double(Decidim::Log::DiffChangesetCalculator, changeset: { key: "value" }))
       end
 
       it { is_expected.to be true }
