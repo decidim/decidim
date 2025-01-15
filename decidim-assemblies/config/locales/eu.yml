@@ -188,7 +188,6 @@ eu:
           attachment_collections: Karpetak
           attachment_files: Fitxategiak
           attachments: Eranskinak
-          categories: Kategoriak
           components: Osagaiak
           info: Batzar honi buruz
           landing_page: Hasierako orria
@@ -287,7 +286,7 @@ eu:
             visibility: Ikusgarritasuna
         assemblies_types:
           form:
-            title: Editatu batzar mota
+            title: Batzar mota berria
         assembly_copies:
           form:
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
