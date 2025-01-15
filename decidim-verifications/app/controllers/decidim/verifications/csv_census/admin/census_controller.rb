@@ -21,6 +21,55 @@ module Decidim
             @status = Status.new(current_organization)
           end
 
+          def new
+            @form = form(Admin::CensusForm).instance
+          end
+
+          def create
+            @form = form(Admin::CensusForm).from_params(params)
+            @status = Status.new(current_organization)
+            Admin::CreateCensusRecord.call(@form) do
+              on(:ok) do
+                flash[:notice] = t(".success")
+                redirect_to census_records_path
+              end
+
+              on(:invalid) do
+                flash.now[:alert] = t(".error")
+                render :index
+              end
+            end
+          end
+
+          def edit
+            @form = form(Admin::CensusForm).from_model(census_data)
+          end
+
+          def update
+            @form = form(Admin::CensusForm).from_params(params)
+
+            UpdateCensusRecord.call(@form, census_data) do
+              on(:ok) do
+                flash[:notice] = I18n.t("census.update.success", scope: "decidim.verifications.csv_census.admin")
+                redirect_to census_records_path
+              end
+
+              on(:invalid) do
+                flash.now[:alert] = I18n.t("census.update.invalid", scope: "decidim.verifications.csv_census.admin")
+                render action: "edit"
+              end
+            end
+          end
+
+          def destroy
+            Decidim::Commands::DestroyResource.call(census_data, current_user) do
+              on(:ok) do
+                flash[:notice] = I18n.t("census.destroy.success", scope: "decidim.verifications.csv_census.admin")
+                redirect_to census_records_path
+              end
+            end
+          end
+
           def new_import
             @form = form(CensusDataForm).from_params(params)
           end
@@ -29,26 +78,15 @@ module Decidim
             enforce_permission_to :create, :authorization
             @form = form(CensusDataForm).from_params(params)
             @status = Status.new(current_organization)
-            CreateCensusData.call(@form, current_organization) do
+            CreateCensusRecord.call(@form, current_organization) do
               on(:ok) do
                 flash[:notice] = t(".success", count: @form.data.values.count, errors: @form.data.errors.count)
-                redirect_to census_path
+                redirect_to census_records_path
               end
 
               on(:invalid) do
-                flash[:alert] = t(".error")
+                flash.now[:alert] = t(".error")
                 render :index
-              end
-            end
-          end
-
-          def edit; end
-
-          def destroy
-            Decidim::Commands::DestroyResource.call(csv_census_data, current_user) do
-              on(:ok) do
-                flash[:notice] = I18n.t("census.destroy.success", scope: "decidim.verifications.csv_census.admin")
-                redirect_to census_path
               end
             end
           end
@@ -57,10 +95,14 @@ module Decidim
             enforce_permission_to :destroy, :authorization
             CsvDatum.clear(current_organization)
 
-            redirect_to census_path, notice: t(".success")
+            redirect_to census_records_path, notice: t(".success")
           end
 
           private
+
+          def census_data
+            @census_data ||= CsvDatum.where(organization: current_organization).find(params[:id])
+          end
 
           def csv_census_data
             @csv_census_data ||= CsvDatum.where(organization: current_organization)

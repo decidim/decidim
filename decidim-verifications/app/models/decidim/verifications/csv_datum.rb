@@ -3,6 +3,8 @@
 module Decidim
   module Verifications
     class CsvDatum < ApplicationRecord
+      include Decidim::Traceable
+
       belongs_to :organization, foreign_key: :decidim_organization_id,
                                 class_name: "Decidim::Organization"
 
