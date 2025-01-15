@@ -564,7 +564,9 @@ de:
           see_all_withdrawn: Alle zurückgezogenen Treffen ansehen
           text_banner: Hier sehen Sie alle Veranstaltungen, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
         meeting:
+          close_meeting: Schliessen
           edit_close_meeting: Veranstaltungsbericht bearbeiten
+          edit_meeting: Bearbeiten
           join_meeting: Veranstaltung beitreten
           reply_poll: Umfrage beantworten
           view_poll: Umfrage ansehen
