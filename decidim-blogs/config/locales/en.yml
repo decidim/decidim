@@ -88,6 +88,7 @@ en:
           new_post: New post
         menu_actions:
           button_destroy: Delete post
+          button_destroy_confirm: Are you sure you want to delete this post?
           button_edit: Edit post
         new:
           back: Back to posts
