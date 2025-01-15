@@ -215,6 +215,9 @@ ca:
             map: Mapa
             taxonomies: Taxonomies
             title: Títol
+      order:
+        status:
+          title: El teu vot s'ha tramitat correctament
       order_summary_mailer:
         order_summary:
           selected_projects: 'Els projectes que has seleccionat són:'
@@ -406,8 +409,6 @@ ca:
     orders:
       checkout:
         error: S'ha produït un error en processar el teu vot.
-        success_html: <p>El teu vot ha estat acceptat amb èxit.</p> <p class="text-sm font-normal">Pots <a class="text-secondary underline" href="%{rest_of_budgets_link}">consultar la resta de pressupostos</a>.</p>
-        success_no_left_budgets_html: El teu vot s'ha acceptat correctament.
       destroy:
         error: S'ha produït un error en cancel·lar el teu vot.
         success: El teu vot ha estat cancel·lat correctament.
