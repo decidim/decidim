@@ -3,7 +3,7 @@ eu:
   activemodel:
     attributes:
       post:
-        body: Gorputza
+        body: Testua
         decidim_author_id: Egilea
         published_at: Argitaratze-data
         title: Izenburua
