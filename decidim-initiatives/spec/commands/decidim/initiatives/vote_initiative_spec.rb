@@ -229,7 +229,10 @@ module Decidim
             end
           end
 
-          context "when initiative type has document number authorization handler" do
+          context "when initiative type has signature workflow handler including an authorization handler" do
+            let(:workflow_name) { "dummy_signature_handler" }
+            let(:workflow_manifest) { Decidim::Initiatives::Signatures.find_workflow_manifest(workflow_name) }
+            let(:authorization_handler_name) { workflow_manifest.authorization_handler_form }
             let(:handler_name) { "dummy_authorization_handler" }
             let(:unique_id) { "test_digest" }
             let(:metadata) do
@@ -238,17 +241,16 @@ module Decidim
                 scope_id: initiative.scoped_type.scope.id
               }
             end
-            let!(:authorization_handler) { Decidim::AuthorizationHandler.handler_for(handler_name) }
+            let!(:authorization_handler) { authorization_handler_name.constantize.new }
 
             before do
               allow(authorization_handler).to receive(:unique_id).and_return(unique_id)
               allow(authorization_handler).to receive(:metadata).and_return(metadata)
-              allow(Decidim::AuthorizationHandler).to receive(:handler_for).and_return(authorization_handler)
-              initiative.type.update(document_number_authorization_handler: handler_name)
+              initiative.type.update(document_number_authorization_handler: workflow_name)
             end
 
             context "when current_user have an an authorization for the handler" do
-              let!(:authorization) { create(:authorization, granted_at:, name: handler_name, unique_id: authorization_unique_id, metadata: authorization_metadata, user: current_user) }
+              let!(:authorization) { create(:authorization, granted_at:, name: authorization_handler.handler_name, unique_id: authorization_unique_id, metadata: authorization_metadata, user: current_user) }
               let(:authorization_unique_id) { unique_id }
               let(:authorization_metadata) { metadata }
               let(:granted_at) { 1.minute.ago }
