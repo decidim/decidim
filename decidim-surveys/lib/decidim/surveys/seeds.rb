@@ -14,26 +14,21 @@ module Decidim
       def call
         component = create_component!
 
-        questionnaire = create_questionnaire!(component:)
+        3.times do
+          questionnaire = create_questionnaire!(component:)
+          create_questions!(questionnaire:)
 
-        create_questions!(questionnaire:)
-
-        rand(200).times { create_answers!(questionnaire:) }
+          next if questionnaire.questionnaire_for.allow_answers
+          rand(200).times { create_answers!(questionnaire:) }
+        end
       end
 
       def create_component!
-        step_settings = if participatory_space.allows_steps?
-                          { participatory_space.active_step.id => { allow_answers: true } }
-                        else
-                          {}
-                        end
-
         params = {
           name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :surveys).i18n_name,
           manifest_name: :surveys,
           published_at: Time.current,
-          participatory_space:,
-          step_settings:
+          participatory_space:
         }
 
         Decidim.traceability.perform_action!(
@@ -59,7 +54,9 @@ module Decidim
 
         params = {
           component:,
-          questionnaire:
+          questionnaire:,
+          allow_answers: [true, false].sample,
+          published_at: Time.current
         }
 
         Decidim.traceability.create!(
