@@ -182,8 +182,6 @@ sv:
         attachment_collection:
           new: Ny mapp för bilagor
         browse: Bläddra
-        category:
-          new: Ny kategori
         export: Exportera allt
         export-selection: Exportera markerade
         import: Importera
@@ -293,23 +291,8 @@ sv:
           justification: Motivering
           title: Blockera användare %{name}
       categories:
-        create:
-          error: Det gick inte att skapa kategorin.
-          success: Kategori har skapats.
-        destroy:
-          error: Det gick inte att radera kategorin. Radera eventuella underkategorier först, se till att inget annat objekt tillhör kategorin och försök igen.
-          success: Kategori har raderats.
-        edit:
-          title: Redigera kategori
-          update: Uppdatera
         index:
           categories_title: Kategorier
-        new:
-          create: Skapa kategori
-          title: Ny kategori
-        update:
-          error: Det gick inte att uppdatera kategorin.
-          success: Kategorin har uppdaterats.
       component_permissions:
         update:
           error: Det gick inte att uppdatera behörigheterna för denna komponent.
