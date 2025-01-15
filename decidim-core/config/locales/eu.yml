@@ -457,6 +457,9 @@ eu:
       dummy_authorization_workflow:
         explanation: Balizko baimenaren lan-fluxua
         name: Balizko baimenaren lan-fluxua
+      ephemeral_dummy_authorization_handler:
+        fields:
+          postal_code: Posta-kodea
       errors:
         duplicate_authorization: Badago datu berak dituen parte-hartzaile baimendu bat. Administratzaile bat zurekin harremanetan jarriko da zure datuak egiaztatzeko.
       expired_at: '%{timestamp} iraungita dago'
