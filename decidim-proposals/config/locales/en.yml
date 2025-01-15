@@ -518,7 +518,7 @@ en:
         imports:
           help:
             answers: |
-              The import document should contain the following column names in case of CSV or Excel files, or key names in case of JSON files:
+              The import document should contain the following column names in case of CSV or Excel files, or key names in case of JSON files (other columns will be ignored):
               <ul>
               <li><b>id:</b> ID of the proposal to answer</li>
               <li><b>state:</b> One of "accepted", "evaluating", or "rejected"</li>
@@ -529,8 +529,7 @@ en:
               <ul>
               <li><b>title/en:</b> Title on English language. This will depend on your platform language configuration.</li>
               <li><b>body/en:</b> Body on English language. This will depend on your platform language configuration.</li>
-              <li><b>scope/id:</b> ID for the Scope</li>
-              <li><b>category/id:</b> ID for the Category</li>
+              <li><b>taxonomies/ids:</b> ID for the Taxonomies (if more than one, separate with a comma)</li>
               </ul>
           label:
             answers: Import answers from a file
