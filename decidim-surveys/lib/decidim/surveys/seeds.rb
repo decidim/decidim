@@ -19,6 +19,7 @@ module Decidim
           create_questions!(questionnaire:)
 
           next if questionnaire.questionnaire_for.allow_answers
+
           rand(200).times { create_answers!(questionnaire:) }
         end
       end
