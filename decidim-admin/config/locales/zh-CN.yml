@@ -192,23 +192,8 @@ zh-CN:
       autocomplete:
         no_results: 未找到结果
       categories:
-        create:
-          error: 创建此类别时出现问题。
-          success: 分类创建成功。
-        destroy:
-          error: 删除此类别时出错。请先删除任何子类别，请确保没有其他实体属于此类别，然后重试。
-          success: 类别删除成功。
-        edit:
-          title: 编辑类别
-          update: 更新
         index:
           categories_title: 类别管理
-        new:
-          create: 创建类别
-          title: 新类别
-        update:
-          error: 更新此类别时出现问题。
-          success: 类别更新成功。
       component_permissions:
         update:
           error: 更新此组件的权限时出现问题。
