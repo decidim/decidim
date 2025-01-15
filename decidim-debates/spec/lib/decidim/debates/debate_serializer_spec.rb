@@ -14,6 +14,9 @@ module Decidim
       let(:participatory_process) { component.participatory_space }
       let(:component) { debate.component }
       let(:new_debate) { described_class.new(debate) }
+      let(:serialized_taxonomies) do
+        { ids: taxonomies.pluck(:id) }.merge(taxonomies.to_h { |t| [t.id, t.name] })
+      end
 
       before do
         debate.update!(taxonomies:)
@@ -27,7 +30,7 @@ module Decidim
         end
 
         it "serializes the taxonomies" do
-          expect(serialized[:taxonomies]).to match_array(taxonomies.to_h { |t| [t.id, t.name] })
+          expect(serialized[:taxonomies]).to eq(serialized_taxonomies)
         end
 
         describe "author" do

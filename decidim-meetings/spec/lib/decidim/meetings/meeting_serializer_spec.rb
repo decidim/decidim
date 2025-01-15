@@ -22,6 +22,9 @@ module Decidim
         create(:component, manifest_name: :proposals, participatory_space: meeting.component.participatory_space)
       end
       let(:proposals) { create_list(:proposal, 2, component: proposal_component) }
+      let(:serialized_taxonomies) do
+        { ids: taxonomies.pluck(:id) }.merge(taxonomies.to_h { |t| [t.id, t.name] })
+      end
 
       before do
         meeting.update!(taxonomies:)
@@ -37,7 +40,7 @@ module Decidim
         end
 
         it "serializes the taxonomies" do
-          expect(serialized[:taxonomies]).to match_array(taxonomies.to_h { |t| [t.id, t.name] })
+          expect(serialized[:taxonomies]).to eq(serialized_taxonomies)
         end
 
         it "serializes the title" do

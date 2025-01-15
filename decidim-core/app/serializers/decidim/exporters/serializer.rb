@@ -59,9 +59,9 @@ module Decidim
 
       # helper method to serialize taxonomies for any resource
       def serialize_taxonomies(resource)
-        resource.taxonomies.to_h do |taxonomy|
-          [taxonomy.id, taxonomy.name]
-        end
+        {
+          ids: resource.taxonomies.map(&:id)
+        }.merge(resource.taxonomies.to_h { |taxonomy| [taxonomy.id, taxonomy.name] })
       end
     end
   end

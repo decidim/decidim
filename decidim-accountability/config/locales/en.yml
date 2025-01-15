@@ -73,8 +73,7 @@ en:
               <li>%{link_export_csv}</li>
               <li>Make the changes locally. You can only change the following columns of the CSV:
                 <ul>
-                <li><b>category/id:</b> ID for the Category</li>
-                <li><b>scope/id:</b> ID for the Scope</li>
+                <li><b>taxonomies/id:</b> ID for the Category</li>
                 <li><b>parent/id:</b> ID of the parent (for related Results). Optional</li>
                 <li><b>title/en:</b> Title on English language. This will depend on your platform language configuration.</li>
                 <li><b>description/en:</b> Description on English language. This will depend on your platform language configuration.</li>

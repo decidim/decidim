@@ -17,6 +17,9 @@ module Decidim
 
       let!(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
       let(:proposals) { create_list(:proposal, 2, component: proposal_component) }
+      let(:serialized_taxonomies) do
+        { ids: taxonomies.pluck(:id) }.merge(taxonomies.to_h { |t| [t.id, t.name] })
+      end
 
       before do
         result.update!(taxonomies:)
@@ -38,7 +41,7 @@ module Decidim
         end
 
         it "serializes the taxonomies" do
-          expect(serialized[:taxonomies]).to match_array(taxonomies.to_h { |t| [t.id, t.name] })
+          expect(serialized[:taxonomies]).to eq(serialized_taxonomies)
         end
 
         it "serializes the parent" do
