@@ -1508,6 +1508,19 @@ en:
           reported_content: The content that has been reported
           reported_url: The url of the reported resource
           reports: A list of reasons for which the resource has been reported
+        taxonomies:
+          children_count: The count of the children that this taxonomy has
+          created_at: The date when this taxonomy was created
+          filter_items_count: The number of items filters that are using this taxonomy
+          filters_count: The number of filters that is using this taxonomy
+          id: The unique identifier of this taxonomy
+          is_root: True if this taxonomy do not have any parent
+          name: The name of this taxonomy
+          parent_id: The unique identifiers of this taxonomy parent (if any)
+          part_of: Used to detect if this taxonomy is part of another taxonomy
+          taxonomizations_count: The count of the resources that use this taxonomy
+          updated_at: The date when this taxonomy was updated for the last time
+          weight: The order in which this taxonomy is shown
         user_groups:
           avatar_url: The avatar of the user group
           badge: The badge of the user group
