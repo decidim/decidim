@@ -144,8 +144,6 @@ gl:
         attachment:
           new: Novo anexo
         browse: Buscar
-        category:
-          new: Nova categoría
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
@@ -230,23 +228,8 @@ gl:
           justification: Xustificante
           title: Bloquear ao usuario %{name}
       categories:
-        create:
-          error: Houbo un erro ao crear esta categoría.
-          success: Categoría creada con éxito.
-        destroy:
-          error: Produciuse un erro ao eliminar esta categoría. Elimina primeiro calquera subcategoría, asegúrate de que outra entidade non pertence a esta categoría e téntao de novo.
-          success: Categoría eliminada con éxito.
-        edit:
-          title: Editar categoría
-          update: Actualización
         index:
           categories_title: Categorías
-        new:
-          create: Crear categoría
-          title: Nova categoría
-        update:
-          error: Produciuse un erro ao actualizar esta categoría.
-          success: A categoría actualizouse con éxito.
       component_permissions:
         update:
           error: Produciuse un problema ao actualizar os permisos deste compoñente.
