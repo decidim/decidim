@@ -171,6 +171,8 @@ pl:
             title: Tytuł
       order:
         status:
+          continue_voting: Kontynuuj głosowanie
+          download_vote: Pobierz swój głos
           title: Twój głos został przyjęty
       order_summary_mailer:
         order_summary:
