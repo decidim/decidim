@@ -184,23 +184,8 @@ bs:
       autocomplete:
         no_results: Nema rezultata
       categories:
-        create:
-          error: Nastao je problem pri stvaranju ove kategorije.
-          success: Kategorija je uspešno stvorena.
-        destroy:
-          error: Nastao je problem pri brisanju ove kategorije. Molimo Vas da prvo obrišete sve podkategorije, proverite da nijedan drugi entitet ne pripada ovoj kategoriji i pokušate ponovo.
-          success: Kategorija je uspešno obrisana.
-        edit:
-          title: Izmeni kategoriju
-          update: Ažuriraj
         index:
           categories_title: Kategorije
-        new:
-          create: Stvori kategoriju
-          title: Nova kategorija
-        update:
-          error: Nastao je problem pri ažuriranju ove kategorije.
-          success: Kategorija je uspešno ažurirana.
       component_permissions:
         update:
           error: Nastao je problem pri ažuriranju dozvola ove komponente.
