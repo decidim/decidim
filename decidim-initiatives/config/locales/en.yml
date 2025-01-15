@@ -445,7 +445,7 @@ en:
       form:
         add_attachments: Add attachments
         add_image: Add image
-        attachment_legend: "(Optional) Add an attachment"
+        attachment_legend: Add a document or an image
         edit_attachments: Edit attachments
         edit_image: Edit image
         image_legend: "(Optional) Add an image"

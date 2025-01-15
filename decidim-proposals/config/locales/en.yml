@@ -764,7 +764,7 @@ en:
           error: There was a problem creating this collaborative draft.
           success: Collaborative draft successfully created.
         edit:
-          attachment_legend: "(Optional) Add an attachment"
+          attachment_legend: Add a document or an image
           back: Back
           send: Send
           title: Edit collaborative draft
@@ -913,7 +913,7 @@ en:
           instructions: You can move the point on the map.
         edit:
           add_attachments: Add attachments
-          attachment_legend: "(Optional) Add an attachment"
+          attachment_legend: Add a document or an image
           back: Back
           edit_attachments: Edit attachments
           send: Send
