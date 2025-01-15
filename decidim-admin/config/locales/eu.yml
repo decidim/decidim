@@ -38,7 +38,7 @@ eu:
         user_group_id: Inportatu hau bezala
       newsletter:
         body: Gorputza
-        send_to_all_users: Bidali erabiltzaile guztiei
+        send_to_all_users: Bidali parte-hartzaile guztiei
         send_to_followers: Bidali jarraitzaileei
         send_to_participants: Bidali parte-hartzaileei
         subject: Gaia
@@ -97,8 +97,8 @@ eu:
         time_zone: Ordu-zona
         tos_version: Zerbitzu-baldintzen bertsioa
         twitter_handler: kudeatzailea
-        user_groups_enabled: Gaitu erabiltzaileen taldeak
-        users_registration_mode: Erabiltzaileak erregistratzeko modua
+        user_groups_enabled: Gaitu parte-hartzaileen taldeak
+        users_registration_mode: Parte-hartzaileak erregistratzeko modua
         warning_color: Abisua
         welcome_notification_body: Ongietorri-jakinarazpenaren gorputza
         welcome_notification_subject: Ongietorri-jakinarazpenaren mezuaren gaia
@@ -290,9 +290,9 @@ eu:
         new:
           action: Blokeatu kontua eta bidali justifikazioa
           already_reported_html: Ekintza honekin jarraituz, parte-hartzailearen eduki guztiak ere ezkutatuko dituzu.
-          description: Erabiltzaile baten blokeoak kontu erabilezina utziko du. Zure justifikazioan zein irizpideren arabera desblokeatuko zenukeen azaldu dezakezu.
+          description: Parte-hartzaile baten blokeoak kontu erabilezina utziko du. Zure justifikazioan zein irizpideren arabera desblokeatuko zenukeen azaldu dezakezu.
           justification: Justifikazioa
-          title: Blokeatu erabiltzaile hau %{name}
+          title: Blokeatu parte-hartzaile hau %{name}
       categories:
         create:
           error: Arazo bat egon da kategoria hau sortzean.
@@ -352,8 +352,8 @@ eu:
         attempts: Saiakerak
         'false': 'Ez'
         index:
-          text: Bilatu gaur egungo erabiltzailearen posta elektronikoaren, izenaren edo ezizenaren bidez.
-        managed_user_name: Erabiltzaile kudeatua
+          text: Bilatu gaur egungo parte-hartzailearen posta elektronikoaren, izenaren edo ezizenaren bidez.
+        managed_user_name: Parte-hartzaile kudeatua
         solved: Ebatzita
         title: Egiaztapen-arazoak
         transfer:
@@ -364,7 +364,7 @@ eu:
           success: Egungo transferentzia zuzen egina.
           title: Transferentzia
         'true': 'Bai'
-        user_name: Erabiltzailea
+        user_name: Parte-hartzaile
       content_blocks:
         create:
           error: Errorea izan da eduki-blokea sortzean
@@ -502,8 +502,8 @@ eu:
           error: Arazo bat egon da parte-hartzaileen kudeaketaren oraingo saioa ixtean.
           success: Uneko sinplifikazioa saioa zuzen amaitu da.
         create:
-          error: Arazo bat egon da erabiltzailea kudeatzean.
-          success: Erabiltzaile kudeatua zuzen sortua.
+          error: Arazo bat egon da parte-hartzailea kudeatzean.
+          success: Parte-hartzaile kudeatua zuzen sortua.
         form:
           authorization_method: Baimenaren metodoa
           name: Izena
@@ -555,7 +555,7 @@ eu:
         filters:
           participatory_space: Bilatu espazio parte-hartzailea
           text: Bilatu  erabiltzailearen helbide elektroniko, izen edo ezizenaren arabera.
-          user: Erabiltzailea
+          user: Parte-hartzailea
         logs_list:
           no_logs_yet: Oraindik ez dago erregistrorik.
           no_matching_logs: Ez dago erregistrorik hautatutako bilaketa-iragazkiekin. Erabili beste batzuk eta saiatu berriro.
