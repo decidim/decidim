@@ -11,8 +11,7 @@ module Decidim
     # Feel free to use validations to assert fields against a remote API,
     # local database, or whatever.
     #
-    # It also sets two default attributes, `user`, `initiative` and
-    # `handler_name`.
+    # It also sets two default attributes, `user` and `initiative`.
     class SignatureHandler < Form
       include ValidatableAuthorizations
 
@@ -24,10 +23,6 @@ module Decidim
 
       # The initiative to be signed
       attribute :initiative, Decidim::Initiative
-
-      # The String name of the handler, should not be modified since it is used to
-      # infer the class name of the authorization handler.
-      attribute :handler_name, String
 
       validates :initiative, :user, presence: true
       validate :uniqueness
@@ -130,18 +125,8 @@ module Decidim
         @authorization_handler ||= authorization_handler_form_class.from_params(authorization_handler_params)
       end
 
-      # A serialized version of the handler's name.
-      #
-      # Returns a String.
-      def self.handler_name
-        name.demodulize.underscore
-      end
-
-      # Same as the class method but accessible from the instance.
-      #
-      # Returns a String.
-      def handler_name
-        self.class.handler_name
+      def signature_workflow_name
+        @signature_workflow_name ||= initiative&.type&.document_number_authorization_handler
       end
 
       def authorization_handler_form_class
@@ -179,11 +164,11 @@ module Decidim
       #
       # Returns a String.
       def to_partial_path
-        "decidim/initiatives/initiative_signatures/#{handler_name.sub!(/_handler$/, "")}/form"
+        "decidim/initiatives/initiative_signatures/#{signature_workflow_name.sub(/_handler$/, "")}/form"
       end
 
       def self.requires_extra_attributes?
-        (new.form_attributes - ["handler_name"]).present?
+        new.form_attributes.present?
       end
 
       private
@@ -197,7 +182,6 @@ module Decidim
       end
 
       def valid_metadata
-        return if metadata.blank?
         return if authorization_handler.blank?
         return if authorization_handler.valid?
 
@@ -235,7 +219,7 @@ module Decidim
       end
 
       def workflow_manifest
-        @workflow_manifest ||= Decidim::Initiatives::Signatures.find_workflow_manifest(handler_name) || Decidim::Initiatives::SignatureWorkflowManifest.new
+        @workflow_manifest ||= Decidim::Initiatives::Signatures.find_workflow_manifest(signature_workflow_name) || Decidim::Initiatives::SignatureWorkflowManifest.new
       end
     end
   end
