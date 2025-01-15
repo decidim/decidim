@@ -45,7 +45,7 @@ module Decidim
 
         def resource
           @resource ||= Decidim::Proposals::Proposal.new(
-            category:,
+            taxonomies:,
             scope:,
             title:,
             body:,
@@ -57,9 +57,9 @@ module Decidim
           )
         end
 
-        def category
-          id = data.has_key?(:category) ? data[:category]["id"] : data[:"category/id"].to_i
-          Decidim::Category.find_by(id:)
+        def taxonomies
+          id = data.has_key?(:taxonomies) ? data[:taxonomies]["ids"] : data[:"taxonomies/ids"].split(",").map(&:to_i)
+          Decidim::Taxonomy.where(id:)
         end
 
         def scope
