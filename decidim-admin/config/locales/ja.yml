@@ -182,8 +182,6 @@ ja:
         attachment_collection:
           new: 新しい添付ファイルフォルダ
         browse: 検索
-        category:
-          new: 新しいカテゴリ
         confirm_delete_component: |
           このコンポーネントを削除しますか?<br>
           このコンポーネントが含むもの:<br>
@@ -310,23 +308,8 @@ ja:
           justification: 判定理由
           title: ユーザー %{name} をブロックする
       categories:
-        create:
-          error: このカテゴリの作成中に問題が発生しました。
-          success: カテゴリの作成に成功しました。
-        destroy:
-          error: このカテゴリを削除する際に問題が発生しました。最初にサブカテゴリを削除してください。他のエンティティがこのカテゴリに属していないことを確認して、もう一度やり直してください。
-          success: カテゴリを削除しました。
-        edit:
-          title: カテゴリを編集
-          update: 更新
         index:
           categories_title: カテゴリ
-        new:
-          create: カテゴリを作成
-          title: 新しいカテゴリ
-        update:
-          error: このカテゴリの更新中に問題が発生しました。
-          success: カテゴリが更新されました。
       component_permissions:
         update:
           error: このコンポーネントの権限の更新に問題がありました。
