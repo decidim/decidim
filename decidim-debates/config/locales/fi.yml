@@ -178,7 +178,7 @@ fi:
           user_followers:
             email_intro: |-
               Hei,
-              %{author_name} %{author_nickname}, jota seuraat, on luonut uuden keskustelun "%{resource_title}". Tutustu siihen ja osallistu:
+              %{author_name} %{author_nickname}, jota seuraat, on laatinut uuden keskustelun "%{resource_title}". Tutustu siihen ja osallistu:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Uusi keskustelu "%{resource_title}" käyttäjältä %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> loi keskustelun <a href="%{resource_path}">%{resource_title}</a>.
