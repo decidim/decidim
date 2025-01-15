@@ -215,6 +215,9 @@ fi-pl:
             map: Kartta
             taxonomies: Luokittelut
             title: Otsikko
+      order:
+        status:
+          title: Äänesi on hyväksytty onnistuneesti
       order_summary_mailer:
         order_summary:
           selected_projects: 'Hankkeet, jotka olet valinnut:'
@@ -415,8 +418,6 @@ fi-pl:
     orders:
       checkout:
         error: Äänesi käsittely epäonnistui.
-        success_html: <p>Äänestäminen onnistui.</p> <p class="text-sm font-normal">Voit tutkia myös <a class="text-secondary underline" href="%{rest_of_budgets_link}">muita budjetteja</a>.</p>
-        success_no_left_budgets_html: Äänesi kirjaaminen onnistui.
       destroy:
         error: Äänesi peruuttaminen epäonnistui.
         success: Äänesi on peruttu.
