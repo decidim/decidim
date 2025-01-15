@@ -182,7 +182,6 @@ module Decidim
       end
 
       def valid_metadata
-        return if metadata.blank?
         return if authorization_handler.blank?
         return if authorization_handler.valid?
 
