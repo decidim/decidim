@@ -215,6 +215,9 @@ eu:
             map: Mapa
             taxonomies: Taxonomiak
             title: Titulua
+      order:
+        status:
+          title: Zure botoa ongi bideratu da
       order_summary_mailer:
         order_summary:
           selected_projects: 'Hautatu dituzun proiektuak hauek dira:'
@@ -415,8 +418,6 @@ eu:
     orders:
       checkout:
         error: Arazo bat egon da zure botoa prozesatzean.
-        success_html: <p>Zure botoa zuzen onartu da.</p> <p class="text-sm font-normal">Gainerako aurrekontuak <a class="text-secondary underline" href="%{rest_of_budgets_link}">azter ditzakezu</a>.</p>
-        success_no_left_budgets_html: Zure botua zuzen onartu da.
       destroy:
         error: Arazo bat egon da zure botoa ezeztatzean.
         success: Zure botua behar bezala ezeztatu da.
