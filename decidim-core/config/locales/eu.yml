@@ -1862,7 +1862,7 @@ eu:
         subject: Beste erabiltzaile bat erreportatu dute hemen %{organization_name}
     user_update_mailer:
       notify:
-        body_1: Mezu hau bidaliko dizugu zure kontuaren eguneratze baten berri emateko.
+        body_1: Mezu hau bidali dizugu zure kontuaren eguneratze baten berri emateko.
         body_2: Zuk zeuk ez baduzu eguneratze hori egin, sartu zure kontuan pasahitza aldatzeko. Ezin baduzu saioa hasi, mesedez, jarri harremanetan plataformaren babeslearekin.
         greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo %{user}
