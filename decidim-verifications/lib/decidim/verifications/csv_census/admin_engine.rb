@@ -10,13 +10,13 @@ module Decidim
         paths["lib/tasks"] = nil
 
         routes do
-          resources :census, only: [:index, :create] do
+          resources :census, except: [:show] do
             collection do
+              get :new_import
               delete :destroy_all
+              post :create_import
             end
           end
-
-          resources :census_records, except: [:show]
 
           root to: "census#index"
         end

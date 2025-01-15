@@ -159,35 +159,22 @@ en:
             destroy: Destroy
             edit: Edit
           census:
-            create:
+            create_import:
               error: There was a problem importing census.
               success: Successfully imported %{count} items (%{errors} errors).
+            destroy:
+              success: Census data record have been deleted.
             destroy_all:
               success: All census data have been deleted.
-          census_records:
-            create:
-              error: There was a problem adding the census record.
-              success: Successfully added a new census record.
             edit:
               update: Update
-            index:
-              add_new_record_button: Add new record
-              fields:
-                email: email
-              title: Current census data
             new:
               create: Create
+              title: Add new census record
           destroy:
             confirm: Delete all the census cannot be undone. Are you sure you want to continue?
             title: Delete all census data
-          index:
-            data: There are %{count} records loaded in total. Last upload date was on %{due_date}.
-            empty: There are no census data. Use the form below to import it using a CSV file.
-            title: Current census data
-          instructions:
-            body: To do this you must enter system administration and add the csv_census authorizations to the organization
-            title: You need to activate the CSV census for this organization
-          new:
+          import:
             example: |
               john.doe@example.org
               jane.doe@example.org
@@ -195,6 +182,20 @@ en:
             info: 'Must be a file in CSV format with only one column with the email address:'
             submit: Upload file
             title: Upload a new census
+          index:
+            add_new_record_button: Add new record
+            data: There are %{count} records loaded in total. Last upload date was on %{due_date}.
+            empty: There are no census data. Use the form below to import it using a CSV file.
+            fields:
+              email: email
+              user: user
+            import_csv_button: Import CSV
+            no_items_found: No census records found.
+            open_uploaded_census_button: Open uploded census
+            title: Current census data
+          instructions:
+            body: To do this you must enter system administration and add the csv_census authorizations to the organization
+            title: You need to activate the CSV census for this organization
         authorizations:
           new:
             error: We could not verify your account or you are not in the organization's census.
