@@ -169,6 +169,9 @@ pl:
             id: Identyfikator
             map: Mapa
             title: Tytuł
+      order:
+        status:
+          title: Twój głos został przyjęty
       order_summary_mailer:
         order_summary:
           selected_projects: 'Wybrane przez Ciebie projekty to:'
@@ -327,8 +330,6 @@ pl:
     orders:
       checkout:
         error: Podczas przetwarzania Twojego głosu wystąpił błąd.
-        success_html: <p>Twój głos został zaakceptowany.</p> <p class="text-sm font-normal">Możesz zobaczyć <a class="text-secondary underline" href="%{rest_of_budgets_link}">pozostałe budżety</a>.</p>
-        success_no_left_budgets_html: Twój głos został przyjęty.
       destroy:
         error: Podczas anulowania Twojego głosu wystąpił błąd.
         success: Twój głos został anulowany.
