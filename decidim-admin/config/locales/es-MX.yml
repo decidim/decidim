@@ -184,8 +184,6 @@ es-MX:
         attachment_collection:
           new: Nueva colección de archivos adjuntos
         browse: Explorar
-        category:
-          new: Nueva categoría
         confirm_delete_component: |
           ¿Seguro que quieres eliminar este componente?<br>
           Este componente contiene:<br>
@@ -312,23 +310,8 @@ es-MX:
           justification: Justificación
           title: Bloquear a la usuaria %{name}
       categories:
-        create:
-          error: Se ha producido un error al crear esta categoría.
-          success: Categoría creada correctamente.
-        destroy:
-          error: Se ha producido un error al eliminar esta categoría. Por favor, elimine cualquier subcategoría en primer lugar, asegúrese de que ninguna otra entidad pertenece a esta categoría y vuelva a intentarlo.
-          success: Categoría eliminada correctamente.
-        edit:
-          title: Editar categoría
-          update: Actualizar
         index:
           categories_title: Categorías
-        new:
-          create: Crear categoría
-          title: Nueva categoría
-        update:
-          error: Se ha producido un error al actualizar esta categoría.
-          success: Categoría actualizada correctamente.
       component_permissions:
         update:
           error: Hubo un problema al actualizar los permisos de este componente.
