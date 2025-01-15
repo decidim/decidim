@@ -548,8 +548,8 @@ en:
           id: The unique identifier of the conference invitation
           registration_type: The type of the registration for this conference that was sent
           rejected_at: The date when the conference invitation was rejected
-          updated_at: The date when this invitation was updated for the last time
           sent_at: The date when this conference invitation was sent
+          updated_at: The date when this invitation was updated for the last time
         conference_registrations:
           conference: The conference that this belongs to
           confirmed_at: The date when this registration was confirmed
