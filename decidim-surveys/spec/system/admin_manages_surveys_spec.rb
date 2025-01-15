@@ -92,7 +92,9 @@ describe "Admin manages surveys" do
         context "when clean_after_publish is set to true" do
           context "when deletes previous answers after publishing" do
             it "show popup with an alert" do
-              find(:css, ".action-icon--publish").click
+              click_on translated_attribute(component.name)
+              click_on "Unpublish"
+              click_on "Publish"
               expect(page).to have_content("Confirm")
             end
 
@@ -140,7 +142,7 @@ describe "Admin manages surveys" do
           let!(:answer4) { create(:answer, question: question4, questionnaire:) }
 
           before do
-            visit questionnaire_edit_path
+            visit manage_questions_path
             click_on "Publish answers"
           end
 
@@ -200,7 +202,7 @@ describe "Admin manages surveys" do
               create(:answer_choice, answer_option:, answer:, position:, matrix_row: nil)
             end
 
-            visit questionnaire_edit_path
+            visit manage_questions_path
             click_on "Publish answers"
           end
 
@@ -281,10 +283,6 @@ describe "Admin manages surveys" do
   def see_questionnaire_questions
     choose "All"
     click_on decidim_sanitize_translated(questionnaire.title)
-  end
-
-  def questionnaire_edit_path
-    Decidim::EngineRouter.admin_proxy(component).edit_survey_path(survey)
   end
 
   def questionnaire_public_path
