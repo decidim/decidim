@@ -10,7 +10,7 @@
   </header>
 
   <div class="vertical-tabs">
-    <nav>
+    <nav role="navigation" aria-label="<%= I18n.t("layouts.decidim.navigation.aria_label", title: translated_attribute(page.title)) %>">
       <button id="dropdown-trigger-pages" data-component="dropdown" data-target="dropdown-menu-pages" data-open-md="true" data-auto-close="true">
         <span>
           <%= translated_attribute(page.title) %>

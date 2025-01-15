@@ -2234,6 +2234,8 @@ en:
         expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
       language_chooser:
         choose_language: Choose language
+      navigation:
+        aria_label: Navigation menu- %{title}
       notifications_dashboard:
         mark_all_as_read: Mark all as read
         mark_as_read: Mark as read
