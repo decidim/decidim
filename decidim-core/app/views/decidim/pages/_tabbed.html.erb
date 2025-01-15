@@ -21,7 +21,7 @@
       <ul id="dropdown-menu-pages" class="vertical-tabs__list" role="menu">
         <% pages.each do |sibling| %>
           <li class="<%= "is-active" if page == sibling %>" role="menuitem">
-            <%= link_to translated_attribute(sibling.title), page_path(sibling.slug) %>
+            <%= link_to translated_attribute(sibling.title), page_path(sibling.slug), "aria-current": (page == sibling).to_s %>
           </li>
         <% end %>
       </ul>
