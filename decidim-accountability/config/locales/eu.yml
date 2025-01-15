@@ -336,7 +336,7 @@ eu:
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uztean zuen lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
-          user_group: Iruzkin hau egin duen erabiltzaile taldearen izena (hala badagokio)
+          user_group: Iruzkin hau egin duen parte-hartzaile taldearen izena (hala badagokio)
         results:
           address: Emaitzaren helbidea (hala badagokio)
           children_count: Emaitza txikien kopurua
