@@ -177,20 +177,20 @@ en:
             new:
               create: Create
               title: Add new census record
+            new_import:
+              example: |
+                john.doe@example.org
+                jane.doe@example.org
+              file: ".csv file with emails data"
+              info: 'Must be a file in CSV format with only one column with the email address:'
+              submit: Upload file
+              title: Upload a new census
             update:
               invalid: There was a problem updating the census data record.
               success: Successfully updated census data record.
           destroy:
             confirm: Delete all the census cannot be undone. Are you sure you want to continue?
             title: Delete all census data
-          import:
-            example: |
-              john.doe@example.org
-              jane.doe@example.org
-            file: ".csv file with emails data"
-            info: 'Must be a file in CSV format with only one column with the email address:'
-            submit: Upload file
-            title: Upload a new census
           index:
             add_new_record_button: Add new record
             data: There are %{count} records loaded in total. Last upload date was on %{due_date}.

@@ -6,7 +6,7 @@
 </div>
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
-    <%= decidim_form_for(@form, url: census_records_path, method: :post, html: { class: "form-defaults form new_censu" }) do |f| %>
+    <%= decidim_form_for(@form, url: census_records_path, method: :post, html: { class: "form-defaults form new_census_record" }) do |f| %>
       <%= render partial: "form", object: f %>
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">

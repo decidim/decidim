@@ -11,6 +11,7 @@ module Decidim
                         unless: :csv_census_active?
 
           include Decidim::Admin::WorkflowsBreadcrumb
+          include Decidim::Paginable
 
           add_breadcrumb_item_from_menu :workflows_menu
 
@@ -105,7 +106,7 @@ module Decidim
           end
 
           def csv_census_data
-            @csv_census_data ||= CsvDatum.where(organization: current_organization)
+            @csv_census_data ||= CsvDatum.where(organization: current_organization).page(params[:page]).per(15)
           end
 
           def show_instructions

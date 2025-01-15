@@ -1,22 +1,23 @@
-<div class="card-divider">
-  <h2 class="card-title">
-    <%= t("admin.import.title", scope: "decidim.verifications.csv_census") %>
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <h2 class="item_show__header-title">
+    <%= t(".title") %>
   </h2>
 </div>
 <div class="card-section">
   <div class="row column">
-    <p><%= t("decidim.verifications.csv_census.admin.import.info") %></p>
-    <pre class="code-block"><%= t("decidim.verifications.csv_census.admin.import.example") %></pre>
+    <p><%= t(".info") %></p>
+    <pre class="code-block"><%= t(".example") %></pre>
   </div>
 
   <div class="row column">
     <%= decidim_form_for @form, url: create_import_census_records_path, multipart: true do |form| %>
-      <%= label_tag :file, t("admin.import.file", scope: "decidim.verifications.csv_census") %>
+      <%= label_tag :file, t("census.new_import.file", scope: "decidim.verifications.csv_census.admin") %>
       <%= form.file_field :file %>
 
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">
-          <%= submit_tag t("admin.import.submit", scope: "decidim.verifications.csv_census"), class: "button button__sm button__secondary" %>
+          <%= submit_tag t("census.new_import.submit", scope: "decidim.verifications.csv_census.admin"), class: "button button__sm button__secondary" %>
         </div>
       </div>
     <% end %>
