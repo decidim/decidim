@@ -176,8 +176,6 @@ zh-TW:
         attachment_collection:
           new: 新增附件資料夾
         browse: 瀏覽
-        category:
-          new: 新分類
         export: 全部匯出
         export-selection: 匯出選擇
         import: 匯入
@@ -284,23 +282,8 @@ zh-TW:
           justification: 理由
           title: 封鎖使用者 %{name}
       categories:
-        create:
-          error: 建立這個分類時發生錯誤
-          success: 分類建立成功
-        destroy:
-          error: 刪除這個分類時發生錯誤，請先將子類別刪除，確認這個分類沒有其他關聯後重試
-          success: 分類刪除成功
-        edit:
-          title: 編輯分類
-          update: 更新
         index:
           categories_title: 分類
-        new:
-          create: 建立類別
-          title: 新分類
-        update:
-          error: 更新這個分類時發生錯誤
-          success: 更新類別成功。
       component_permissions:
         update:
           error: 更新這個元件的權限時發生錯誤
