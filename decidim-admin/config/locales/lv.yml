@@ -182,23 +182,8 @@ lv:
       autocomplete:
         no_results: Netika atrasts neviens rezultāt
       categories:
-        create:
-          error: Šīs kategorijas izveides laikā radās problēma.
-          success: Kategorija ir veiksmīgi izveidota.
-        destroy:
-          error: Šīs kategorijas dzēšanas laikā radās problēma. Lūdzu, vispirms izdzēsiet jebkuru apakškategoriju, pārliecinieties, vai neviena cita vienība nepieder šai kategorijai, un mēģiniet vēlreiz.
-          success: Kategorija ir veiksmīgi izdzēsta.
-        edit:
-          title: Labot kategoriju
-          update: Atjaunināt
         index:
           categories_title: Kategorijas
-        new:
-          create: Izveidot kategoriju
-          title: Jauna kategorija
-        update:
-          error: Šīs kategorijas atjaunināšanas laikā radās problēma.
-          success: Kategorija ir veiksmīgi atjaunināta.
       component_permissions:
         update:
           error: Ar šī komponenta atļauju atjaunināšanas laikā radās problēma.
