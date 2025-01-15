@@ -20,7 +20,6 @@ module Decidim
       let!(:initiative_type) do
         create(
           :initiatives_type,
-          :with_sms_code_validation_and_user_extra_fields_collection,
           organization:,
           child_scope_threshold_enabled:
         )
