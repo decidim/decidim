@@ -184,8 +184,6 @@ ca:
         attachment_collection:
           new: Nova col·lecció d'arxius adjunts
         browse: Explorar
-        category:
-          new: Nova categoria
         confirm_delete_component: |
           ¿Segur que vols eliminar aquest component?<br>
           Aquest component conté:<br>
@@ -312,23 +310,8 @@ ca:
           justification: Justificació
           title: Bloquejar a la usuària %{name}
       categories:
-        create:
-          error: S'ha produït un error en crear aquesta categoria.
-          success: Categoria creada correctament.
-        destroy:
-          error: S'ha produït un error en eliminar aquesta categoria. Si us plau, elimina qualsevol subcategoria en primer lloc, assegura't que cap altra entitat pertany a aquesta categoria i torna a intentar-ho.
-          success: Categoria eliminada correctament.
-        edit:
-          title: Edita categoria
-          update: Actualitzar
         index:
           categories_title: Categories
-        new:
-          create: Crear categoria
-          title: Nova categoria
-        update:
-          error: S'ha produït un error en actualitzar aquesta categoria.
-          success: Categoria actualitzada correctament.
       component_permissions:
         update:
           error: S'ha produït un error actualitzant els permisos d'aquest component.
