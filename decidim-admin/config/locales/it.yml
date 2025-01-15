@@ -145,8 +145,6 @@ it:
         attachment:
           new: Nuovo allegato
         browse: Naviga
-        category:
-          new: Nuova categoria
         export: Esporta tutto
         export-selection: Esporta selezione
         import: Importazione
@@ -230,23 +228,8 @@ it:
           justification: Motivazione
           title: Blocca utente %{name}
       categories:
-        create:
-          error: Si è verificato un errore durante la creazione di questa categoria.
-          success: OK, la categoria è stata creata.
-        destroy:
-          error: Si è verificato un errore durante la cancellazione di questa categoria. Assicurarsi di aver cancellato prima di tutto le eventuali sotto-categorie, assicurarsi che nessuna altra entità appartenga questa categoria e provare di nuovo.
-          success: OK, categoria cancellata.
-        edit:
-          title: Modifica categoria
-          update: Aggiorna
         index:
           categories_title: Categorie
-        new:
-          create: Crea nuova categoria
-          title: Nuova categoria
-        update:
-          error: Si è verificato un errore aggiornando questa categoria.
-          success: OK, la categoria è stata aggiornata.
       component_permissions:
         update:
           error: Si è verificato un problema durante l'aggiornamento dei permessi di questo componente.
