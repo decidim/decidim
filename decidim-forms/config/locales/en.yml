@@ -105,7 +105,7 @@ en:
             add_separator: Add separator
             add_title_and_description: Add title and description
             save: Save
-            title: Est error.> Questions
+            title: Questions
           form:
             add_question: Add question
             collapse: Collapse all questions
