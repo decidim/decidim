@@ -58,7 +58,7 @@ module Decidim
         end
 
         def taxonomies
-          id = data.has_key?(:taxonomies) ? data[:taxonomies]["ids"] : data[:"taxonomies/ids"].split(",").map(&:to_i)
+          id = data.has_key?(:taxonomies) ? data[:taxonomies]["ids"] : data[:"taxonomies/ids"]&.split(",")&.map(&:to_i)
           Decidim::Taxonomy.where(id:)
         end
 
