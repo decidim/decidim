@@ -74,7 +74,7 @@ fi:
             - Sinä merkitset kirjeen lähetetyksi.
             - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi syöttää koodin ja vahvistaa tilinsä.
       csv_census:
-        explanation: Varmenna käyttäjätilisi organisaation henkilötietorekisterin avulla.
+        explanation: Vahvista käyttäjätilisi organisaation henkilötietorekisterin avulla.
         name: Organisaation rekisteritiedot
       direct: Suoraan
       help: Ohjeet
