@@ -1489,6 +1489,17 @@ es-PY:
           reported_content: El contenido que fue reportado
           reported_url: La URL del recurso que fue reportado
           reports: Una lista de las razones por las que fue reportado el recurso
+        taxonomies:
+          children_count: El recuento de "hijas" (sub-taxonomías) que tiene esta taxonomía
+          created_at: La fecha en la que se creó esta taxonomía
+          id: El identificador único de esta taxonomía
+          is_root: 'Cierto ("true"): si esta taxonomía no tiene ninguna "madre" (no cuelga de otra taxonomía)'
+          name: El nombre de esta taxonomía
+          parent_id: Los identificadores únicos de la taxonomía "madre" (si existe)
+          part_of: Utilizado para detectar si esta taxonomía es "hija" (sub-categoría) de otra taxonomía
+          taxonomizations_count: El recuento de los recursos (debates, proyectos, propuestas, encuentros, resultados, etc.) que utilizan esta taxonomía
+          updated_at: La fecha en que esta taxonomía fue actualizada por última vez
+          weight: El orden en el que se muestra esta taxonomía
         user_groups:
           avatar_url: El avatar del grupo de usuarias
           badge: La insignia del grupo de usuarias
