@@ -46,7 +46,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
             description: {},
             tos: {}
           )
-          visit questionnaire_edit_path
+          click_on "Edit"
         end
 
         it "shows the template choosing screen" do
@@ -87,7 +87,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
         description: {},
         tos: {}
       )
-      visit questionnaire_edit_path
+      click_on "Edit"
 
       select(template.name["en"], from: "select-template")
 
@@ -96,14 +96,13 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
       end
 
       click_on "Create from template"
+      click_on "Save"
     end
 
     it "copies the template data to the questionnaire on submit" do
-      within "form.edit_questionnaire" do
-        click_on "Expand all"
-        expect(page.find_by_id("questionnaire_title_en").value).to eq(template.templatable.title["en"])
-        expect(page.find("#questionnaire_questions_#{questionnaire_question.id}_body_en").value).to eq(question.body["en"])
-      end
+      click_on "Manage questions"
+      click_on "Expand all"
+      expect(page.find("#questions_questions_#{questionnaire_question.id}_body_en").value).to eq(question.body["en"])
     end
   end
 end

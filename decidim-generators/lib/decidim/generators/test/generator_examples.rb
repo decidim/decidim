@@ -65,10 +65,10 @@ shared_examples_for "a new development application" do
     Decidim::GemManager.plugins.each do |plugin|
       Dir.glob("#{plugin}db/migrate/*.rb").each do |migration|
         lines = File.readlines(migration)
-        tables.concat(lines.filter { |line| line.match? "create_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
-        dropped.concat(lines.filter { |line| line.match? "drop_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
-        tables.concat(lines.filter { |line| line.match? "rename_table" }.map { |line| line.match(/(, :)([a-z_0-9]+)/)[2] })
-        dropped.concat(lines.filter { |line| line.match? "rename_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
+        tables.concat(lines.grep(/create_table/).map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
+        dropped.concat(lines.grep(/drop_table/).map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
+        tables.concat(lines.grep(/rename_table/).map { |line| line.match(/(, :)([a-z_0-9]+)/)[2] })
+        dropped.concat(lines.grep(/rename_table/).map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
       end
     end
     tables.each do |table|

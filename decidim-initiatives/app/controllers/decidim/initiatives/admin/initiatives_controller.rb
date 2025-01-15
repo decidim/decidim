@@ -173,8 +173,13 @@ module Decidim
           @votes = current_initiative.votes
 
           serializer = Decidim::Forms::UserAnswersSerializer
-          output = Decidim::Exporters::InitiativeVotesPDF.new(@votes, current_initiative, serializer).export
-          output = pdf_signature_service.new(pdf: output.read).signed_pdf if pdf_signature_service
+          pdf_export = Decidim::Exporters::InitiativeVotesPDF.new(@votes, current_initiative, serializer).export
+
+          output = if pdf_signature_service
+                     pdf_signature_service.new(pdf: pdf_export.read).signed_pdf
+                   else
+                     pdf_export.read
+                   end
 
           respond_to do |format|
             format.pdf do
