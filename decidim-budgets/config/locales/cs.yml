@@ -223,6 +223,9 @@ cs:
             map: Mapa
             taxonomies: Taxonomie
             title: Titul
+      order:
+        status:
+          title: Váš hlas byl úspěšně přijat
       order_summary_mailer:
         order_summary:
           selected_projects: 'Vybrané projekty jsou:'
@@ -429,8 +432,6 @@ cs:
     orders:
       checkout:
         error: Při zpracování vašeho hlasování nastal problém.
-        success_html: <p>Váš hlas byl úspěšně přijat.</p> <p class="text-sm font-normal">Můžete prozkoumat <a class="text-secondary underline" href="%{rest_of_budgets_link}">zbývající rozpočty</a>.</p>
-        success_no_left_budgets_html: Váš hlas byl úspěšně přijat.
       destroy:
         error: Při rušení vašeho hlasování došlo k chybě.
         success: Váš hlas byl úspěšně zrušen.
