@@ -23,7 +23,11 @@ module Decidim
           when :questionnaire_publish_answers
             case permission_action.action
             when :index, :update, :destroy
-              permission_action.allow!
+              if context.fetch(:survey).allow_answers
+                disallow!
+              else
+                permission_action.allow!
+              end
             end
           end
 

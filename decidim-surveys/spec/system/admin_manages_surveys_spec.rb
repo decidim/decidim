@@ -128,6 +128,24 @@ describe "Admin manages surveys" do
       end
 
       context "when publishing the questions' answers" do
+        context "and the survey is open" do
+          let!(:survey) { create(:survey, :published, :allow_answers, component:, questionnaire:) }
+
+          it "does not show the 'Publish answers' button" do
+            visit manage_questions_path
+            expect(page).to have_no_content "Publish answers"
+          end
+        end
+
+        context "and the survey is closed" do
+          let!(:survey) { create(:survey, :published, component:, questionnaire:) }
+
+          it "shows the 'Publish answers' button" do
+            visit manage_questions_path
+            expect(page).to have_content "Publish answers"
+          end
+        end
+
         context "and the questions are unsupported" do
           let!(:question) { create(:questionnaire_question, questionnaire:) }
           let!(:question1) { create(:questionnaire_question, question_type: "short_answer", questionnaire:) }

@@ -8,13 +8,13 @@ module Decidim
         include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswersUrlHelper
 
         def index
-          enforce_permission_to(:index, :questionnaire_publish_answers, questionnaire:)
+          enforce_permission_to(:index, :questionnaire_publish_answers, survey:)
 
           @survey ||= survey
         end
 
         def update
-          enforce_permission_to(:update, :questionnaire_publish_answers, questionnaire:)
+          enforce_permission_to(:update, :questionnaire_publish_answers, survey:)
 
           Decidim::Surveys::PublishAnswers.call(params[:id], current_user) do
             on(:ok) do
@@ -28,7 +28,7 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to(:destroy, :questionnaire_publish_answers, questionnaire:)
+          enforce_permission_to(:destroy, :questionnaire_publish_answers, survey:)
 
           Decidim::Surveys::UnpublishAnswers.call(params[:id], current_user) do
             on(:ok) do
