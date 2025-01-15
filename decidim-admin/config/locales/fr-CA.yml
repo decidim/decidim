@@ -184,8 +184,6 @@ fr-CA:
         attachment_collection:
           new: Nouveau dossier
         browse: Parcourir
-        category:
-          new: Nouvelle catégorie
         confirm_delete_component: |
           Êtes-vous sûr de vouloir supprimer cette fonctionnalité ?<br>
           Cette fonctionnalité contient :<br>
@@ -312,23 +310,8 @@ fr-CA:
           justification: Justification
           title: Bloquer l'utilisateur %{name}
       categories:
-        create:
-          error: Une erreur s'est produite lors de la création de cette catégorie.
-          success: Catégorie créée avec succès.
-        destroy:
-          error: Une erreur s'est produite lors de la suppression de cette catégorie. Supprimez d'abord toute sous-catégorie et assurez-vous qu'aucune autre entité n'appartient à cette catégorie avant de réessayer.
-          success: Catégorie supprimée avec succès.
-        edit:
-          title: Modifier la catégorie
-          update: Mettre à jour
         index:
           categories_title: Catégories
-        new:
-          create: Créer une catégorie
-          title: Nouvelle catégorie
-        update:
-          error: Une erreur s'est produite lors de la mise à jour de cette catégorie.
-          success: Catégorie mise à jour avec succès.
       component_permissions:
         update:
           error: Un problème est survenu lors de la mise à jour des permissions de ce composant.
