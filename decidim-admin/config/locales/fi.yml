@@ -167,7 +167,7 @@ fi:
         slug: URL-tunniste
         title: Otsikko
       doorkeeper/application:
-        authorize_url: Varmenna URL-osoite
+        authorize_url: Vahvistuksen URL-osoite
         client_id: Asiakkaan tunniste (ID)
         client_secret: Asiakkaan salausavain (secret)
         organization_name: Organisaation nimi
@@ -670,7 +670,7 @@ fi:
           fields:
             actions: Toiminnot
             created_at: Luonnin ajankohta
-            document_number: Dokumentin numero
+            document_number: Organisaatiotunnus (esim. Y-tunnus)
             name: Nimi
             nickname: Nimimerkki
             phone: Puhelinnumero
@@ -707,7 +707,7 @@ fi:
             spam: Roskaposti
         reports:
           index:
-            author: Tekijä(t)
+            author: Laatija(t)
             callout_html: Sisältö tulee näkyviin moderointinäkymään, kun joku käyttäjä (kuka tahansa käyttäjä, jolla on tili alustalla) on ilmoittanut sisällön painamalla sisällön yhteydessä näkyvää %{icon} lippukuvaketta.
             content_original_language: Sisällön alkuperäinen kieli
             participatory_space: Osallistumistila
