@@ -145,8 +145,6 @@ pt:
         attachment:
           new: Novo anexo
         browse: Explorar
-        category:
-          new: Nova categoria
         export: Exportar tudo
         export-selection: Exportar selecção
         import: Importar
@@ -237,23 +235,8 @@ pt:
           justification: Justificação
           title: Bloquear utilizador %{name}
       categories:
-        create:
-          error: Ocorreu um problema ao criar esta categoria.
-          success: Categoria criada com sucesso.
-        destroy:
-          error: Ocorreu um problema ao eliminar esta categoria. Por favor elimine qualquer subcategoria primeiro, certifique-se de que nenhuma outra entidade pertence a esta categoria e tente novamente.
-          success: Categoria apagada com sucesso.
-        edit:
-          title: Editar categoria
-          update: Atualizar
         index:
           categories_title: Categorias
-        new:
-          create: Criar categoria
-          title: Nova categoria
-        update:
-          error: Ocorreu um problema ao atualizar esta categoria.
-          success: Categoria atualizada com sucesso.
       component_permissions:
         update:
           error: Ocorreu um problema ao atualizar as permissões deste componente.
