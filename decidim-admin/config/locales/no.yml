@@ -145,8 +145,6 @@
         attachment:
           new: Nytt vedlegg
         browse: Bla gjennom
-        category:
-          new: Ny kategori
         export: Eksporter alt
         export-selection: Eksporter valg
         import: Importer
@@ -234,23 +232,8 @@
           justification: Begrunnelse
           title: Blokker bruker %{name}
       categories:
-        create:
-          error: Det oppstod et problem med å oppdatere denne kategorien.
-          success: Kategorien opprettet.
-        destroy:
-          error: Det oppstod et problem med å slette denne kategorien. Vennligst slett alle underkategorier først, sørg for at ingen andre enheter hører til denne kategorien, og prøv igjen.
-          success: Kategorien slettet.
-        edit:
-          title: Rediger kategori
-          update: Oppdater
         index:
           categories_title: Kategorier
-        new:
-          create: Opprett kategori
-          title: Ny kategori
-        update:
-          error: Det oppstod et problem med å oppdatere denne kategorien.
-          success: Kategorien oppdatert.
       component_permissions:
         update:
           error: Det oppstod et problem med å oppdatere tillatelsene til denne komponenten.
