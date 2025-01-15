@@ -145,8 +145,6 @@ nl:
         attachment:
           new: Nieuwe bijlage
         browse: Browsen
-        category:
-          new: Nieuwe categorie
         export: Alles exporteren
         export-selection: Selectie exporteren
         import: Importeren
@@ -234,23 +232,8 @@ nl:
           justification: Toelichting
           title: Gebruiker %{name} blokkeren
       categories:
-        create:
-          error: Er is een fout opgetreden bij het maken van deze categorie.
-          success: Categorie succesvol gemaakt.
-        destroy:
-          error: Er is een fout opgetreden bij het verwijderen van deze categorie. Verwijder eerst een subcategorie, zorg ervoor dat er geen andere entiteit in deze categorie hoort en probeer het opnieuw.
-          success: Categorie is succesvol verwijderd.
-        edit:
-          title: Categorie bewerken
-          update: Bijwerken
         index:
           categories_title: Categorieën
-        new:
-          create: Categorie creëren
-          title: Nieuwe categorie
-        update:
-          error: Er is een fout opgetreden bij het bijwerken van deze categorie.
-          success: Categorie is succesvol bijgewerkt.
       component_permissions:
         update:
           error: Er is een probleem opgetreden bij het bijwerken van de rechten van deze component.
