@@ -157,7 +157,7 @@ fi:
               most_voted: Eniten kannatuksia saaneet
               random: Satunnainen
               recent: Viimeisimmät
-              with_more_authors: Eniten tekijöitä
+              with_more_authors: Eniten laatijoita
             geocoding_enabled: Karttatoiminnot käytössä
             minimum_votes_per_user: Kannatusten vähimmäismäärä käyttäjää kohden
             new_proposal_body_template: Uuden ehdotuksen leipätekstin mallipohja
@@ -211,7 +211,7 @@ fi:
               most_voted: Eniten kannatuksia saaneet
               random: Satunnainen
               recent: Viimeisimmät
-              with_more_authors: Eniten tekijöitä
+              with_more_authors: Eniten laatijoita
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
@@ -272,7 +272,7 @@ fi:
         proposal_accepted:
           affected_user:
             email_intro: 'Ehdotuksesi "%{resource_title}" on hyväksytty. Voit lukea vastauksen täältä:'
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen "%{resource_title}".
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen "%{resource_title}".
             email_subject: Ehdotuksesi on hyväksytty
             notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> on hyväksytty.
           follower:
@@ -283,7 +283,7 @@ fi:
         proposal_evaluating:
           affected_user:
             email_intro: 'Ehdotustasi "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen täältä:'
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen "%{resource_title}".
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen "%{resource_title}".
             email_subject: Ehdotuksesi arvioidaan
             notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> arvioidaan.
           follower:
@@ -293,7 +293,7 @@ fi:
             notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on arvioitavana.
         proposal_mentioned:
           email_intro: Ehdotuksesi "%{mentioned_proposal_title}" on mainittu <a href="%{resource_url}">tämän osallistumistilan</a> kommentissa.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen "%{resource_title}".
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen "%{resource_title}".
           email_subject: Ehdotuksesi "%{mentioned_proposal_title}" on mainittu
           notification_title: Ehdotuksesi %{mentioned_proposal_title} on mainittu <a href="%{resource_path}">tässä osallistumistilassa</a> kommentissa.
         proposal_published:
@@ -310,7 +310,7 @@ fi:
         proposal_rejected:
           affected_user:
             email_intro: 'Ehdotuksesi "%{resource_title}" on hylätty. Voit lukea vastauksen täältä:'
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen "%{resource_title}".
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen "%{resource_title}".
             email_subject: Ehdotuksesi hylättiin
             notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> on hylätty.
           follower:
@@ -320,12 +320,12 @@ fi:
             notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on hylätty.
         proposal_update_category:
           email_intro: 'Hallintakäyttäjä on päivittänyt ehdotuksesi aihepiiriin "%{resource_title}", tarkista se tältä sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen laatija.
           email_subject: Ehdotuksen %{resource_title} aihepiiri on päivitetty
           notification_title: Hallintakäyttäjä on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> aihepiirin.
         proposal_update_scope:
           email_intro: 'Hallintakäyttäjä on päivittänyt ehdotuksesi "%{resource_title}" teeman, tarkista se tältä sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen laatija.
           email_subject: Ehdotuksen %{resource_title} teema on päivitetty
           notification_title: Hallintakäyttäjä on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> teeman.
         voting_enabled:
