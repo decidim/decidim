@@ -184,8 +184,6 @@ eu:
         attachment_collection:
           new: Beste eranskin-blduma bat
         browse: Arakatu
-        category:
-          new: Beste kategoria bat
         confirm_delete_component: |
           Ziur zaude osagai hau ezabatu nahi duzula?<br>
           Osagai honek honako hauek ditu: <br>
@@ -312,23 +310,8 @@ eu:
           justification: Justifikazioa
           title: Blokeatu erabiltzaile hau %{name}
       categories:
-        create:
-          error: Arazo bat egon da kategoria hau sortzean.
-          success: Kategoria zuzen sortua.
-        destroy:
-          error: Arazo bat egon da kategoria hau ezabatzean. Mesedez, lehenik eta behin ezabatu azpikategoriak, ziurtatu beste entitaterik ez dagoela kategoria honetan eta saiatu berriro.
-          success: Kategoria behar bezala ezabatua.
-        edit:
-          title: Editatu kategoria
-          update: Eguneratu
         index:
           categories_title: Kategoriak
-        new:
-          create: Sortu kategoria
-          title: Beste kategoria bat
-        update:
-          error: Arazo bat egon da kategoria hau eguneratzean.
-          success: Kategoria zuzen eguneratua.
       component_permissions:
         update:
           error: Arazo bat egon da osagai honen baimenak eguneratzean.
