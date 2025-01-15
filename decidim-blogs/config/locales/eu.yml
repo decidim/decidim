@@ -2,7 +2,7 @@ eu:
   activemodel:
     attributes:
       post:
-        body: Gorputza
+        body: Testua
         decidim_author_id: Egilea
         published_at: Argitaratze-data
         title: Izenburua
@@ -30,8 +30,8 @@ eu:
       admin:
         posts:
           create:
-            invalid: Arazo bat egon da argitalpen hau sortzean.
-            success: Argitalpena zuzen sortua.
+            invalid: Arazo bat sortu da post hau sortzean.
+            success: Posta ondo sortu da.
           edit:
             save: Eguneratu
             title: Editatu argitalpena
@@ -48,24 +48,24 @@ eu:
             success: Argitalpena zuzen gordea.
       admin_log:
         post:
-          create: "%{user_name} k %{resource_name} blogeko argitalpena sortu du %{space_name} espazioan"
-          delete: "%{user_name} k %{resource_name} blogeko argitalpena ezabatu du %{space_name} espazioan"
+          create: "%{user_name} parte-hartzailekak %{resource_name} blogeko argitalpena sortu du %{space_name} espazioan"
+          delete: "%{user_name} parte-hartzailekak %{resource_name} blogeko argitalpena ezabatu du %{space_name} espazioan"
           restore: "%{user_name} k berreskuratu du %{resource_name} korreoa hemen: %{space_name}"
           soft_delete: "% {user_name} k hemengo: %{space_name} %{resource_name} korreoa zaborrontzira eraman du"
-          update: "%{user_name} k %{resource_name} blogeko argitalpena eguneratu egin da %{space_name} espazioan"
+          update: "%{user_name} parte-hartzailekak %{resource_name} blogeko argitalpena eguneratu egin da %{space_name} espazioan"
       content_blocks:
         highlighted_posts:
           last_published: Azken argitarapena
           name: Argitalpenak
           see_all: Ikusi argitalpen guztiak
       last_activity:
-        new_post: 'Beste argitalpen bat blogean:'
+        new_post: 'Argitalpen berria blogean:'
       models:
         post:
           fields:
             author: Egilea
-            body: Gorputza
-            official_blog_post: Argitalpen ofiziala
+            body: Testua
+            official_blog_post: Blogeko argitalpen ofiziala
             published_at: Argitaratze-data
             title: Izenburua
       posts:
