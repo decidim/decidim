@@ -182,8 +182,6 @@ cs:
         attachment_collection:
           new: Nová složka příloh
         browse: Procházet
-        category:
-          new: Nová kategorie
         confirm_delete_component: |
           Opravdu chcete odstranit tuto komponentu?<br>
           Tato komponenta obsahuje:<br>
@@ -310,23 +308,8 @@ cs:
           justification: Odůvodnění
           title: Blokovat uživatele %{name}
       categories:
-        create:
-          error: Při vytváření této kategorie došlo k chybě.
-          success: Kategorie byla úspěšně vytvořena.
-        destroy:
-          error: Při odstraňování této kategorie došlo k chybě. Vymažte nejprve podkategorie, ujistěte se, že do této kategorie nepatří žádná další entita a zkuste to znovu.
-          success: Kategorie úspěšně smazána.
-        edit:
-          title: Upravit kategorii
-          update: Aktualizace
         index:
           categories_title: Kategorie
-        new:
-          create: Vytvořit kategorii
-          title: Nová kategorie
-        update:
-          error: Při aktualizaci této kategorie došlo k chybě.
-          success: Kategorie byla úspěšně aktualizována.
       component_permissions:
         update:
           error: Při aktualizaci oprávnění této komponenty došlo k chybě.
