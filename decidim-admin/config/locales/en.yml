@@ -1020,6 +1020,8 @@ en:
         edit:
           submit: Submit
           title: Edit permissions
+        options_form:
+          ephemeral_warning: In order to enable this authorization method, you need to <a href="%{path}">revoke</a> all of the existing authorizations. This minimises the risk of verification conflicts. All the authorizations of this type will be revoked automatically in the organization if you submit changes adding this method or modifiyng its configuration once added.
         update:
           success: Permissions updated successfully.
       scope_types:
