@@ -320,12 +320,12 @@ fi-pl:
             notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on hylätty.
         proposal_update_category:
           email_intro: 'Järjestelmänvalvoja on päivittänyt ehdotuksesi aihepiiriin "%{resource_title}", tarkista se:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen laatija.
           email_subject: Ehdotuksen %{resource_title} aihepiiri on päivitetty
           notification_title: Järjestelmänvalvoja on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> aihepiirin.
         proposal_update_scope:
           email_intro: 'Hallintakäyttäjä on päivittänyt ehdotuksesi "%{resource_title}" teeman, tarkista se tältä sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen laatija.
           email_subject: Ehdotuksen %{resource_title} teema on päivitetty
           notification_title: Hallintakäyttäjä on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> teeman.
         voting_enabled:
