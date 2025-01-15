@@ -543,16 +543,20 @@ en:
         conference_invites:
           accepted_at: The date when the conference invitation was accepted
           conference: The conference where this invitation was sent
+          confirmed_at: The date when this invitation was confirmed
+          created_at: The date when this invitation was created
           id: The unique identifier of the conference invitation
           registration_type: The type of the registration for this conference that was sent
           rejected_at: The date when the conference invitation was rejected
+          updated_at: The date when this invitation was updated for the last time
           sent_at: The date when this conference invitation was sent
-          user: The unique identifier of the user that the invitation was sent
         conference_registrations:
           conference: The conference that this belongs to
+          confirmed_at: The date when this registration was confirmed
+          created_at: The date when this registration was created
           id: The unique identifier of the conference regisrations
           registration_type: The type of registration that this belongs to
-          user: The unique identifier of the user for this registration
+          updated_at: The date when this registration was updated for the last time
     events:
       conferences:
         conference_registration_confirmed:
