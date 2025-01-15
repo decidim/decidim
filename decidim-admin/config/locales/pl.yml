@@ -182,8 +182,6 @@ pl:
         attachment_collection:
           new: Nowy folder załącznika
         browse: Przeglądaj
-        category:
-          new: Nowa kategoria
         export: Eksportuj wszystko
         export-selection: Eksportuj wybrane
         import: Importuj
@@ -292,23 +290,8 @@ pl:
           justification: Uzasadnienie
           title: Zablokuj użytkownika %{name}
       categories:
-        create:
-          error: Podczas tworzenia tej kategorii wystąpił błąd.
-          success: Utworzono kategorię.
-        destroy:
-          error: Podczas usuwania tej kategorii wystąpił błąd. Usuń najpierw podkategorię, upewnij się, że żaden element nie należy do tej kategorii i spróbuj ponownie.
-          success: Kategoria została usunięta.
-        edit:
-          title: Edytuj kategorię
-          update: Aktualizuj
         index:
           categories_title: Kategorie
-        new:
-          create: Utwórz kategorię
-          title: Nowa kategoria
-        update:
-          error: Podczas aktualizowania tej kategorii wystąpił błąd.
-          success: Kategoria została zaktualizowana.
       component_permissions:
         update:
           error: Wystąpił błąd podczas aktualizowania uprawnień dla tego komponentu.
@@ -902,6 +885,8 @@ pl:
         edit:
           submit: Zatwierdź
           title: Edytuj uprawnienia
+        options_form:
+          ephemeral_warning: Aby włączyć tę metodę autoryzacji, należy <a href="%{path}">odwołać</a> wszystkie istniejące uprawnienia. Minimalizuje to ryzyko konfliktów weryfikacji. Wszystkie autoryzacje tego typu zostaną automatycznie cofnięte w organizacji w przypadku wprowadzenia zmian dodających tę metodę lub modyfikujących jej konfigurację po dodaniu.
         update:
           success: Uprawnienia zostały pomyślnie zaktualizowane.
       scope_types:
