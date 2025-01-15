@@ -553,7 +553,7 @@ eu:
               other: Bikoiztu %{columns} zutabe.
           invalid_indexes:
             lines:
-              detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
+              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
               message:
                 one: Errore bat aurkitu da inportazio-fitxategiko %{indexes} lerroan.
                 other: Erroreak aurkitu dira inportazio-fitxategiko %{indexes} lerroetan.
