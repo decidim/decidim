@@ -37,13 +37,17 @@ module Decidim
 
       def can_create_post
         current_component&.participatory_space.is_a?(Decidim::Initiative) &&
-          user == current_component&.participatory_space&.author &&
+          initiative_authorship? &&
           current_component&.participatory_space&.published? &&
           current_component&.published?
       end
 
       def can_manage_post
         can_create_post && post.author == user
+      end
+
+      def initiative_authorship?
+        current_component&.participatory_space&.has_authorship?(user)
       end
     end
   end
