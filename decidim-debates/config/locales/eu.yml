@@ -176,7 +176,7 @@ eu:
           success: Eztabaida zuzen eguneratu da.
       last_activity:
         debate_updated: 'Eztabaida eguneratu da:'
-        new_debate: 'Beste eztabaida bat:'
+        new_debate: 'Eztabaida berria:'
       models:
         debate:
           fields:
