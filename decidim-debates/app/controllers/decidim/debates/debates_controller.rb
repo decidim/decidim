@@ -16,7 +16,7 @@ module Decidim
       helper_method :debates, :debate, :form_presenter, :paginated_debates, :close_debate_form, :tab_panel_items
       before_action :authenticate_user!, only: [:new, :create]
 
-      def index;
+      def index
         @debates = paginated_debates
       end
 

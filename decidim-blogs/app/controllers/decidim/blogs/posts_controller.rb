@@ -10,8 +10,8 @@ module Decidim
 
       helper_method :posts, :post, :post_presenter, :paginate_posts, :posts_most_commented, :tabs, :panels
 
-      def index;
-      @posts = paginate_posts
+      def index
+        @posts = paginate_posts
       end
 
       def show
