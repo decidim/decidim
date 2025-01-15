@@ -182,8 +182,6 @@ hu:
         attachment_collection:
           new: Új csatolmány mappa
         browse: Böngészés
-        category:
-          new: Új kategória
         export: Összes exportálása
         export-selection: Kiválasztottak exportálása
         import: Import
@@ -292,23 +290,8 @@ hu:
           justification: Indoklás
           title: '%{name} felhasználó blokkolása'
       categories:
-        create:
-          error: Hiba történt a kategória létrehozása során.
-          success: Kategória létrehozása sikeres.
-        destroy:
-          error: Hiba történt a kategória törlésekor. Először töröld az alkategóriákat, majd győződj meg róla, hogy más entitás nem tartozik ehhez a kategóriához, majd próbáld újra.
-          success: Kategória eltávolítása sikeres.
-        edit:
-          title: Kategória szerkesztése
-          update: Frissítés
         index:
           categories_title: Kategóriák
-        new:
-          create: Kategória létrehozása
-          title: Új kategória
-        update:
-          error: Hiba történt a kategória frissítése során.
-          success: Kategória frissítése sikeres.
       component_permissions:
         update:
           error: Probléma merült fel ezen összetevő engedélyeinek frissítésekor.
