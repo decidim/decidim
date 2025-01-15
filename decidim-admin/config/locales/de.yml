@@ -184,8 +184,6 @@ de:
         attachment_collection:
           new: Neuer Ordner für Dateianhänge
         browse: Durchsuchen
-        category:
-          new: Neue Kategorie
         confirm_delete_component: |
           Sind Sie sicher, dass Sie diese Komponente löschen möchten?<br>
           Diese Komponente enthält:<br>
@@ -312,23 +310,8 @@ de:
           justification: Begründung
           title: Benutzer %{name} blockieren
       categories:
-        create:
-          error: Beim Erstellen dieser Kategorie ist ein Fehler aufgetreten.
-          success: Kategorie wurde erfolgreich erstellt.
-        destroy:
-          error: Beim Löschen dieser Kategorie ist ein Fehler aufgetreten. Bitte löschen Sie zuerst eine Unterkategorie, stellen Sie sicher, dass keine andere Entität zu dieser Kategorie gehört, und versuchen Sie es erneut.
-          success: Kategorie wurde erfolgreich gelöscht.
-        edit:
-          title: Kategorie bearbeiten
-          update: Aktualisieren
         index:
           categories_title: Kategorien
-        new:
-          create: Kategorie erstellen
-          title: Neue Kategorie
-        update:
-          error: Beim Aktualisieren dieser Kategorie ist ein Fehler aufgetreten.
-          success: Die Kategorie wurde erfolgreich aktualisiert.
       component_permissions:
         update:
           error: Es gab ein Problem beim Aktualisieren der Berechtigungen dieser Komponente.
