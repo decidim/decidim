@@ -211,6 +211,9 @@ ja:
             map: 地図
             taxonomies: タクソノミー
             title: タイトル
+      order:
+        status:
+          title: 投票は正常に承認されました
       order_summary_mailer:
         order_summary:
           selected_projects: '選択したプロジェクトは次のとおりです。'
@@ -408,8 +411,6 @@ ja:
     orders:
       checkout:
         error: 投票処理中に問題が発生しました。
-        success_html: <p>あなたの投票は正常に受理されました。</p> <p class="text-sm font-normal"> <a class="text-secondary underline" href="%{rest_of_budgets_link}">残りの予算</a>を探索できます。</p>
-        success_no_left_budgets_html: 投票が正常に受理されました。
       destroy:
         error: 投票の取り消し中に問題が発生しました。
         success: 投票をキャンセルしました。
