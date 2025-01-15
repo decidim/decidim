@@ -1486,6 +1486,17 @@ ca:
           reported_content: El contingut que va ser reportat
           reported_url: L'URL del recurs que va ser reportat
           reports: Un llistat dels motius pels quals es va reportar el recurs
+        taxonomies:
+          children_count: El recompte de "filles" (subtaxonomies) que té aquesta taxonomia
+          created_at: La data en què es va crear aquesta taxonomia
+          id: L'identificador únic d'aquesta taxonomia
+          is_root: 'Cert ("true"): si aquesta taxonomia no té cap "mare" (no penja d''una altra taxonomia)'
+          name: El nom d'aquesta taxonomia
+          parent_id: L'identificador únic de la taxonomia "mare" (si n'hi ha)
+          part_of: Utilitzat per detectar si aquesta taxonomia és "filla" (subcategoria) d'una altra taxonomia
+          taxonomizations_count: El recompte dels recursos (debats, projectes, propostes, trobades, resultats, etc.) que utilitzen aquesta taxonomia
+          updated_at: La data en què aquesta taxonomia va ser actualitzada per darrera vegada
+          weight: L'ordre en què es mostra aquesta taxonomia
         user_groups:
           avatar_url: L'avatar del grup d'usuàries
           badge: L'ensenya del grup d'usuàries
