@@ -16,6 +16,13 @@ module Decidim
 
       def index; end
 
+      def edit
+        @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
+        @form.add_answers!(questionnaire: , session_token:, ip_hash:)
+
+        render template: "decidim/forms/questionnaires/edit"
+      end
+
       def check_permissions
         render :no_permission unless action_authorized_to(:answer, resource: survey).ok?
       end

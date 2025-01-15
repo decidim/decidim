@@ -16,7 +16,7 @@ module Decidim
           helper Decidim::Forms::ApplicationHelper
           include FormFactory
 
-          helper_method :questionnaire_for, :questionnaire, :allow_answers?, :visitor_can_answer?, :visitor_already_answered?, :update_url, :form_path
+          helper_method :questionnaire_for, :questionnaire, :allow_answers?, :visitor_can_answer?, :visitor_already_answered?, :update_url, :visitor_can_edit_answers?, :form_path
 
           invisible_captcha on_spam: :spam_detected
 
@@ -25,6 +25,8 @@ module Decidim
             render template: "decidim/forms/questionnaires/show"
           end
 
+          # i18n-tasks-use t("decidim.forms.questionnaires.answer.success")
+          # i18n-tasks-use t("decidim.forms.questionnaires.answer.invalid")
           def answer
             enforce_permission_to_answer_questionnaire
 
@@ -32,13 +34,11 @@ module Decidim
 
             Decidim::Forms::AnswerQuestionnaire.call(@form, questionnaire) do
               on(:ok) do
-                # i18n-tasks-use t("decidim.forms.questionnaires.answer.success")
                 flash[:notice] = I18n.t("answer.success", scope: i18n_flashes_scope)
                 redirect_to after_answer_path
               end
 
               on(:invalid) do
-                # i18n-tasks-use t("decidim.forms.questionnaires.answer.invalid")
                 flash.now[:alert] = I18n.t("answer.invalid", scope: i18n_flashes_scope)
                 render template: "decidim/forms/questionnaires/show"
               end
@@ -97,6 +97,10 @@ module Decidim
           end
 
           private
+
+          def visitor_can_edit_answers?
+            questionnaire_for&.allow_editing_answers?
+          end
 
           def i18n_flashes_scope
             "decidim.forms.questionnaires"

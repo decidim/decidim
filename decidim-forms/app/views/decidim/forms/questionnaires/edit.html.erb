@@ -31,21 +31,10 @@
   <section>
     <% if allow_answers? %>
       <% if visitor_can_answer? %>
-        <% if visitor_already_answered? %>
-          <% if visitor_can_edit_answers? && current_component.manifest_name == "surveys" %>
-            <% body = t("decidim.forms.questionnaires.show.questionnaire_answered_edit.body",
-                        link: link_to(t("decidim.forms.questionnaires.show.questionnaire_answered_edit.edit"), edit_survey_path(questionnaire_for))
-            ) %>
-          <% else %>
-            <% body = t("decidim.forms.questionnaires.show.questionnaire_answered.body") %>
-          <% end %>
-          <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_answered.title"), body: body }) %>
+        <% if @form.responses_by_step.flatten.empty? %>
+          <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.empty")) %>
         <% else %>
-          <% if @form.responses_by_step.flatten.empty? %>
-            <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.empty")) %>
-          <% else %>
-            <%= render partial: "decidim/forms/questionnaires/questionnaire" %>
-          <% end %>
+          <%= render partial: "decidim/forms/questionnaires/questionnaire" %>
         <% end %>
       <% else %>
         <%= render partial: "decidim/forms/questionnaires/questionnaire_readonly" %>

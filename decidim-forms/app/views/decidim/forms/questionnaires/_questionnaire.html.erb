@@ -74,7 +74,8 @@
           step_index,
           total_steps: @form.total_steps,
           button_disabled: !current_participatory_space.can_participate?(current_user),
-          form:
+          form:,
+          allow_editing_answers: questionnaire_for.allow_editing_answers
         ) %>
       </div>
     </div>

@@ -28,6 +28,12 @@ module Decidim
         end
       end
 
+      def add_answers!(questionnaire:, session_token:, ip_hash:)
+        self.responses = questionnaire.questions.map do |question|
+          AnswerForm.from_model(Decidim::Forms::Answer.where(question:, session_token:, ip_hash:).first)
+        end
+      end
+
       # Add other responses to the context so AnswerForm can validate conditional questions
       def before_validation
         context.responses = attributes[:responses]

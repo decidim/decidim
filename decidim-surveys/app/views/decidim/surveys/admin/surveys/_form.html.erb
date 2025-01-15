@@ -18,6 +18,9 @@
         <%= form.check_box :clean_after_publish, label: t("models.components.clean_after_publish", scope: "decidim.forms.admin"), aria: { label: :clean_after_publish } %>
       </div>
       <div class="row column">
+        <%= form.check_box :allow_editing_answers, label: t("models.components.allow_editing_answers", scope: "decidim.forms.admin"), aria: { label: :allow_editing_answers } %>
+      </div>
+      <div class="row column">
         <%= form.translated :editor, :announcement, toolbar: :content, lines: 10, label: t("models.components.announcement", scope: "decidim.forms.admin"), aria: { label: :announcement } %>
       </div>
     </div>
