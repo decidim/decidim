@@ -64,8 +64,6 @@ ga:
       actions:
         add: Cuir leis
         browse: Brabhsáil
-        category:
-          new: Catagóir nua
         import: Iompórtáil
         manage: Bainistigh
         per_page: In aghaidh an leathanach
@@ -92,16 +90,8 @@ ga:
         index:
           attachments_title: Ceangaltáin
       categories:
-        edit:
-          title: Cuir catagóir
-          update: Nuashonraigh
         index:
           categories_title: Catagóirí
-        new:
-          create: Cruthaigh catagóir
-          title: Catagóir nua
-        update:
-          success: Catagóir nuashonraithe go rathúil.
       components:
         edit:
           update: Nuashonraigh
