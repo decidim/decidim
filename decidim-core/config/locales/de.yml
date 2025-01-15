@@ -1507,6 +1507,17 @@ de:
           reported_content: Der gemeldete Inhalt
           reported_url: Die URL der gemeldeten Ressource
           reports: Eine Liste der Gründe, weshalb das Profil gemeldet wurde
+        taxonomies:
+          children_count: Die Anzahl der Teilergebnisse, die diese Klassifizierung hat
+          created_at: Das Erstellungsdatum der Klassifizierung
+          id: Die eindeutige Bezeichnung dieser Klassifizierung
+          is_root: Wahr, wenn diese Klassifizierung keine übergeordnete Elemente hat
+          name: Der Name dieser Klassifizierung
+          parent_id: Die eindeutige Bezeichnung der übergeordneten Klassifizierung (falls vorhanden)
+          part_of: Wird verwendet, um festzustellen, ob diese Klassifizierung Teil einer anderen Klassifizierung ist
+          taxonomizations_count: Die Anzahl der Ressourcen, die diese Klassifizierung verwenden
+          updated_at: Datum, an dem diese Klassifizierung zuletzt aktualisiert wurde
+          weight: Die Reihenfolge, in der diese Klassifizierung angezeigt wird
         user_groups:
           avatar_url: Der Avatar der Gruppe
           badge: Das Abzeichen der Gruppe
