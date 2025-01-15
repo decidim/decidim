@@ -204,23 +204,8 @@ tr:
           justification: Gerekçe
           title: '%{name} Kullanıcısını Engelle'
       categories:
-        create:
-          error: Bu kategori oluşturulurken bir hata oluştu.
-          success: Kategori başarıyla oluşturuldu.
-        destroy:
-          error: Bu kategoriyi silerken bir hata oluştu. Lütfen önce herhangi bir alt kategoriyi silin, başka bir varlığın bu kategoriye ait olmadığından emin olun ve tekrar deneyin.
-          success: Kategori başarıyla silindi.
-        edit:
-          title: Kategoriyi düzenle
-          update: Güncelleştirme
         index:
           categories_title: Kategoriler
-        new:
-          create: Kategori oluştur
-          title: Yeni kategori
-        update:
-          error: Bu kategori güncellenirken bir hata oluştu.
-          success: Kategori başarıyla güncellendi.
       component_permissions:
         update:
           error: Bu bileşenin izinleri güncellenirken bir sorun oluştu.
