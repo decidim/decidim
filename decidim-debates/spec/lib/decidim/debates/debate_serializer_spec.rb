@@ -27,13 +27,7 @@ module Decidim
         end
 
         it "serializes the taxonomies" do
-          serialized_taxonomies = taxonomies.map do |taxonomy|
-            {
-              id: taxonomy.id,
-              name: taxonomy.name
-            }
-          end
-          expect(serialized[:taxonomies]).to match_array(serialized_taxonomies)
+          expect(serialized[:taxonomies]).to match_array(taxonomies.to_h { |t| [t.id, t.name] })
         end
 
         describe "author" do

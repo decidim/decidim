@@ -62,13 +62,7 @@ module Decidim::ParticipatoryProcesses
         end
 
         it "serializes the taxonomies" do
-          serialized_taxonomies = taxonomies.map do |taxonomy|
-            {
-              id: taxonomy.id,
-              name: taxonomy.name
-            }
-          end
-          expect(subject.serialize[:taxonomies]).to match_array(serialized_taxonomies)
+          expect(subject.serialize[:taxonomies]).to match_array(taxonomies.to_h { |t| [t.id, t.name] })
         end
       end
 
