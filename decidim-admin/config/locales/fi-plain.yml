@@ -105,6 +105,8 @@ fi-pl:
       participatory_space_private_user:
         email: Sähköpostiosoite
         name: Nimi
+      participatory_space_private_user_csv_import:
+        file: Tiedosto
       scope:
         code: Koodi
         name: Nimi
@@ -779,6 +781,11 @@ fi-pl:
             report_language: Ilmoituksen kieli
             report_reason: Syy
             title: Ilmoituksen lisätiedot
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Esikatsele
@@ -841,7 +848,7 @@ fi-pl:
           select_users_general: Lähetä yleinen uutiskirje
           select_verification_types: Valitse tunnistautumistavat
           send_to_all_users: Lähetä kaikille käyttäjille
-          send_to_verified_users: Lähetä varmennetuille käyttäjille
+          send_to_verified_users: Lähetä vahvistetuille käyttäjille
           title: Valitse vastaanottajat
           verified_users_help: Lähetä uutiskirje kaikille vahvistetuille ja millä tahansa tavalla tunnistautuneille käyttäjille.
           warning: "<strong>Huomio:</strong> Tämä uutiskirje lähetetään ainoastaan käyttäjille, jotka ovat valinneet asetuksen <em>Haluan vastaanottaa uutiskirjeitä</em> tilinsä ilmoitusasetuksista."
