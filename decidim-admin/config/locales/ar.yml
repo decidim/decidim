@@ -184,8 +184,6 @@ ar:
         attachment_collection:
           new: مجلد مرفقات جديد
         browse: تصفح
-        category:
-          new: فئة جديدة
         confirm_delete_component: |
           هل أنت متأكد من أنك تريد حذف هذا العنصر؟<br>
           يحتوي هذا المكون على:<br>
@@ -275,23 +273,8 @@ ar:
           justification: المبرر
           title: حظر المستخدم %{name}
       categories:
-        create:
-          error: كانت هناك مشكلة في إنشاء هذه الفئة.
-          success: تم إنشاء الفئة بنجاح.
-        destroy:
-          error: حدثت مشكلة في حذف هذه الفئة. يرجى حذف أي فئة فرعية أولاً ، تأكد من عدم وجود كيان آخر ينتمي إلى هذه الفئة وحاول مرة أخرى.
-          success: تم حذف الفئة بنجاح.
-        edit:
-          title: تحرير الفئة
-          update: تحديث
         index:
           categories_title: الاقسام
-        new:
-          create: إنشاء فئة
-          title: فئة جديدة
-        update:
-          error: حدثت مشكلة أثناء تحديث هذه الفئة.
-          success: تم تحديث الفئة بنجاح.
       component_permissions:
         update:
           success: تم تحديث الأذونات بنجاح.
