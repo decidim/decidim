@@ -182,8 +182,6 @@ pt-BR:
         attachment_collection:
           new: Nova pasta de anexos
         browse: Navegar
-        category:
-          new: Nova categoria
         export: Exportar tudo
         export-selection: Exportar selecionado
         import: Importar
@@ -293,23 +291,8 @@ pt-BR:
           justification: Justificativa
           title: Bloquear usuário %{name}
       categories:
-        create:
-          error: Ocorreu um erro ao criar esta categoria.
-          success: Categoria criada com sucesso.
-        destroy:
-          error: Ocorreu um erro ao apagar esta categoria. Por favor apague qualquer subcategoria primeiro, certifique-se de que nenhuma outra entidade pertence a esta categoria e tente novamente.
-          success: Categoria excluída com sucesso.
-        edit:
-          title: Editar categoria
-          update: Atualizar
         index:
           categories_title: Categorias
-        new:
-          create: Criar categoria
-          title: Nova categoria
-        update:
-          error: Ocorreu um erro ao atualizar esta categoria.
-          success: Categoria atualizada com sucesso.
       component_permissions:
         update:
           error: Ocorreu um erro ao atualizar as permissões deste componente.
