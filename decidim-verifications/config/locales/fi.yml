@@ -93,7 +93,7 @@ fi:
             - Heidän on syötettävä koodi vahvistaakseen tilinsä.
             - Jos he eivät saa koodia, he voivat pyytää sitä uudestaan.
       csv_census:
-        explanation: Varmenna käyttäjätilisi organisaation henkilötietorekisterin avulla.
+        explanation: Vahvista käyttäjätilisi organisaation henkilötietorekisterin avulla.
         name: Organisaation rekisteritiedot
       direct: Suoraan
       help: Ohjeet
