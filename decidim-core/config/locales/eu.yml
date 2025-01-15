@@ -2228,6 +2228,8 @@ eu:
         expire_time_html: Zure saioa iraungiko da <b><span class="minutes">%{minutes}</span>minutu barru</b>.
       language_chooser:
         choose_language: Aukeratu hizkuntza
+      navigation:
+        aria_label: '%{title} Nabigazio-menua'
       notifications_dashboard:
         mark_all_as_read: Markatu dena irakurritako gisa
         mark_as_read: Markatu irakurrita bezala
