@@ -215,6 +215,9 @@ es-PY:
             map: Mapa
             taxonomies: Taxonomías
             title: Título
+      order:
+        status:
+          title: Tu voto se ha tramitado con éxito
       order_summary_mailer:
         order_summary:
           selected_projects: 'Lo proyectos que has seleccionado son:'
@@ -406,8 +409,6 @@ es-PY:
     orders:
       checkout:
         error: Se ha producido un error al procesar tu voto.
-        success_html: <p>Tu voto ha sido aceptado con éxito.</p> <p class="text-sm font-normal">Puedes <a class="text-secondary underline" href="%{rest_of_budgets_link}">explorar el resto de presupuestos</a>.</p>
-        success_no_left_budgets_html: Tu voto se ha aceptado correctamente.
       destroy:
         error: Se ha producido un error al cancelar tu voto.
         success: Tu voto se ha cancelado correctamente.
