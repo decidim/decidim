@@ -36,7 +36,7 @@ eu:
         slug: URL laburra
         start_date: Hasiera-data
         subtitle: Azpititulua
-        target: Nork hartzen du parte
+        target: Nork parte hartzen duen
         title: Izenburua
         weight: Ordena
       participatory_process_group:
@@ -124,7 +124,6 @@ eu:
           attachment_collections: Karpetak
           attachment_files: Fitxategiak
           attachments: Eranskinak
-          categories: Kategoriak
           components: Osagaiak
           info: Prozesu honi buruz
           landing_page: Hasierako orria
