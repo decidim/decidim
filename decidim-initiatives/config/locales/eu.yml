@@ -136,16 +136,20 @@ eu:
           name: Ekimen mota
         initiatives_votes:
           fields:
+            date_and_time: Data eta ordua
             date_of_birth: Jaioteguna
             document_number: Dokumentuaren zenbakia
             hash: hash
             initiative_end_date: Amaiera data
             initiative_id: Initiative ID
+            initiative_scope: Esparrua
             initiative_signatures_count: Sinadura kopurua
             initiative_start_date: Hasiera data
             initiative_title: Ekimenaren izenburua
             name_and_surname: Izena eta abizena
+            nickname: Ezizena
             postal_code: Posta kodea
+            signature_count: Sinadurak zenbatzea
             timestamp: Denbora-marka
       titles:
         initiatives: Ekimenak
