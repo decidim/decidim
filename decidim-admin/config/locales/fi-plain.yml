@@ -184,8 +184,6 @@ fi-pl:
         attachment_collection:
           new: Uusi kansio
         browse: Selaa
-        category:
-          new: Uusi aihepiiri
         confirm_delete_component: |
           Haluatko varmasti poistaa tämän komponentin?<br>
           Tämä komponentti sisältää:<br>
@@ -312,23 +310,8 @@ fi-pl:
           justification: Perustelut
           title: Estä käyttäjä %{name}
       categories:
-        create:
-          error: Tämän aihepiirin luonnissa tapahtui virhe.
-          success: Aihepiiri luotu onnistuneesti.
-        destroy:
-          error: Tämän aihepiirin poistamisessa tapahtui virhe. Poista ensin kaikki sen ala-aihepiirit ja varmista, että mikään muu kooknaisuus ei liity tähän aihepiiriin. Kokeile sen jälkeen uudestaan.
-          success: Aihepiiri poistettu onnistuneesti.
-        edit:
-          title: Muokkaa aihepiiriä
-          update: Päivitä
         index:
           categories_title: Aihepiirit
-        new:
-          create: Luo aihepiiri
-          title: Uusi aihepiiri
-        update:
-          error: Tämän aihepiirin luonnissa tapahtui virhe.
-          success: Aihepiiri päivitetty onnistuneesti.
       component_permissions:
         update:
           error: Komponentin oikeuksien päivitys epäonnistui.
