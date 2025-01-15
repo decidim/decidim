@@ -23,7 +23,7 @@
       <div class="budget-progress" role="progressbar" aria-label="<%= t("budget", scope: "decidim.budgets.projects.order_progress") %>" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %> %" aria-valuemin="0" aria-valuemax="100">
         <div class="budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
         </div>
-        <div class="budget-summary__progressbar--meter" style="width: <%= current_order_budget_percent %>%"> </div>
+        <div class="budget-summary__progressbar--meter bg-success" style="width: <%= current_order_budget_percent %>%"> </div>
       </div>
       <div class="budget-summary__progressbar-marks">
         <span class="budget-summary__progressbar-legend" style="width: <%= current_order_budget_percent_minimum %>%;">
@@ -59,7 +59,7 @@
     <% end %>
   </div>
   <div class="budget-summary__button-modal">
-    <button type="button" data-dialog-open="budget-modal-info" aria-haspopup="dialog" tabindex="0" class="button button__text button__xs">
+    <button type="button" data-dialog-open="budget-modal-info" aria-haspopup="dialog" tabindex="0" class="button button__text button__xs underline font-bold">
       <%= t("more_information", scope: "decidim.budgets.budget_information_modal") %>
     </button>
   </div>
@@ -69,7 +69,7 @@
         <div class="budget-progress relative" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
           <div class="budget-summary__progressbar--minimum" style="width: <%= current_order_budget_percent_minimum %>%">
           </div>
-          <div class="budget-summary__progressbar--meter" style="width: <%= current_order_budget_percent %>%">
+          <div class="budget-summary__progressbar--meter bg-success" style="width: <%= current_order_budget_percent %>%">
           </div>
         </div>
         <div class="budget-summary__progressbar-marks">

@@ -205,7 +205,6 @@ en:
           attachment_collections: Folders
           attachment_files: Files
           attachments: Attachments
-          categories: Categories
           components: Components
           conference_admins: Conference admins
           conference_invites: Invites

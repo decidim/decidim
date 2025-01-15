@@ -458,6 +458,15 @@ en:
       dummy_authorization_workflow:
         explanation: Dummy authorization workflow
         name: Dummy authorization workflow
+      ephemeral_dummy_authorization_handler:
+        explanation: Get verified by introducing a document number ending with "X".
+        fields:
+          allowed_postal_codes: Allowed postal codes (separated by commas)
+          allowed_scope_id: Allowed scope
+          document_number: Document number
+          postal_code: Postal code
+          scope_id: Scope
+        name: Ephemeral example authorization
       errors:
         duplicate_authorization: A participant is already authorized with the same data. An administrator will contact you to verify your details.
       expired_at: Expired at %{timestamp}
@@ -673,6 +682,7 @@ en:
           sign_in_disabled: You can access with an external account.
           sign_up_disabled: Account creation is disabled, you can use an existing account to access.
         user:
+          ephemeral_session_closed: Your guest session has finished
           timed_out: You were inactive for too long and you have been automatically logged out from the service. If you would like to continue using the service, please log in again.
       shared:
         newsletter_modal:
@@ -825,6 +835,7 @@ en:
       others: "%{count} more"
       title: Liked by
       you: you
+    ephemeral_user: Visitor
     errors:
       files:
         file_cannot_be_processed: File cannot be processed
@@ -1473,11 +1484,13 @@ en:
     onboarding_action_message:
       click_link: Click here
       cta_html: <a href="%{path}">%{link_text}</a> in order to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: You have been successfully authorized.<br/>You have started a guest session, you can now participate.
       expired_authorization_active_title: Your authorization has expired.
       finish_authorization_process: You can finish the authorization process
       incomplete_authorization_active_title: Your verification has not been completed with all the necessary information.
       pending_authorization_active_message: Please complete the form to proceed with this action.
       pending_authorization_active_title: We need to verify your identity.
+      pending_ephemeral_authorization: Please verify your identity to proceed.
     open_data:
       help:
         core:
@@ -2238,6 +2251,8 @@ en:
         sign_up: Create an account
         terms_of_service: Terms of Service
       header:
+        close: Close
+        confirm_close_ephemeral_session: If you navigate out of this page, your session will be closed. Are you sure?
         log_in: Log in
         main_menu: Main menu
         user_menu: User menu
