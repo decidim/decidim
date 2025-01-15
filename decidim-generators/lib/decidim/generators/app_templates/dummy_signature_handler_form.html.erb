@@ -5,21 +5,19 @@
 <% content_for :title do %>
   <%= t(
         "decidim.verifications.authorizations.new.authorize_with",
-        authorizer: t("#{@form.handler_name}.name", scope: "decidim.initiatives.signatures.workflows")
+        authorizer: t("#{@form.signature_workflow_name}.name", scope: "decidim.initiatives.signatures.workflows")
       ) %>
 <% end %>
 
 <% content_for :help do %>
   <div class="form__wrapper">
     <p>
-      <%= t("#{@form.handler_name}.description", scope: "decidim.initiatives.signatures.workflows") %>
+      <%= t("#{@form.signature_workflow_name}.description", scope: "decidim.initiatives.signatures.workflows") %>
     </p>
   </div>
 <% end %>
 
 <div class="form__wrapper">
-  <%= form.hidden_field :handler_name %>
-
   <div class="row column">
     <%= form.text_field :name_and_surname %>
   </div>
