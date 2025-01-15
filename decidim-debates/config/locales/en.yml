@@ -51,6 +51,8 @@ en:
             creation_enabled: Participants can create debates
             endorsements_blocked: Endorsements blocked
             endorsements_enabled: Endorsements enabled
+      pagination:
+        page_title: "%{component_name} - Page %{current_page} of %{total_pages}"
     debates:
       actions:
         close: Close
