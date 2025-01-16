@@ -85,8 +85,8 @@ eu:
       admin_log:
         debate:
           close: "%{user_name} parte-hartzaileak %{resource_name} eztabaida sortu du %{space_name} esparruan"
-          create: "%{user_name} k %{resource_name} eztabaida sortu du %{space_name} espazioan"
-          update: "%{user_name} k %{resource_name} eztabaida eguneratu du %{space_name} espazioan"
+          create: "%{user_name} parte-hartzaileak %{resource_name} eztabaida sortu du %{space_name} espazioan"
+          update: "%{user_name} parte-hartzaileak %{resource_name} eztabaida eguneratu du %{space_name} espazioan"
       debate_m:
         commented_time_ago: Iruzkina eginda orain dela %{time}
       debates:
