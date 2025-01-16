@@ -128,7 +128,7 @@ eu:
           landing_page: Hasierako orria
           moderations: Moderazioak
           private_users: Parte-hartzaile pribatuak
-          process_admins: Prozesuaren erabiltzaileak
+          process_admins: Prozesuaren parte-hartzaileak
           steps: Prozesuaren faseak
       models:
         participatory_process:
@@ -309,7 +309,7 @@ eu:
         import: "%{user_name} parte-hartzaileak inportatu du %{resource_name} prozesu parte-hartzailea"
         publish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} prozesu parte-hartzailea"
         unpublish: "%{user_name} parte-hartzaileak despublikatu du %{resource_name} prozesu parte-hartzailea"
-        update: "%{user_name} k %{resource_name} partehartze prozesua eguneratu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} partehartze prozesua eguneratu du"
       participatory_process_group:
         create: "%{user_name} parte-hartzaileak sortu du %{resource_name} prozesu parte-hartzaileen multzoa"
         update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} prozesu parte-hartzaileen multzoa"
@@ -365,8 +365,8 @@ eu:
         extra_data:
           developer_group: Honek sustatuta
           name: Metadatuak
-          participatory_scope: Zer erabakitzen da
-          participatory_structure: Nola erabakitzen da
+          participatory_scope: Erabakitzen dena
+          participatory_structure: Erabakitzeko era
           target: Nork hartzen du parte
         html:
           name: HTML blokea
@@ -422,7 +422,7 @@ eu:
             cta_text_help: Ezartzen bada, botoia ez da agertuko.
         participatory_processes:
           form:
-            announcement_help: Hemen sartzen duzun testua erabiltzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
+            announcement_help: Hemen sartzen duzun testua parte-hartzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
             duration: Iraupena
             filters: iragazkiak
             images: Irudiak
