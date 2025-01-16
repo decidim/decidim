@@ -67,7 +67,7 @@ eu:
       decidim/removed_from_group: Taldetik kenduta
       decidim/resource_endorsed_event: Baliabideari atxiki zaio
       decidim/resource_hidden_event: Ezkutuko baliabidea
-      decidim/user_group_created_event: Erabiltzaile-taldea sortua
+      decidim/user_group_created_event: Partaide-taldea sortua
       decidim/welcome_notification_event: Ongietorri-mezua
   activerecord:
     attributes:
@@ -97,7 +97,7 @@ eu:
         other: Parte-hartzaileak
       decidim/user_group:
         one: Taldea
-        other: Erabiltzaile taldeak
+        other: Partaide-taldeak
   booleans:
     'false': 'Ez'
     'true': 'Bai'
@@ -272,9 +272,9 @@ eu:
         update: "%{user_name} k erakundearen ezarpenak eguneratu ditu"
         update_external_domain: "%{user_name} k erakundearen kanpoko domeinuak eguneratu ditu"
       participatory_space_private_user:
-        create: "%{user_name} k %{resource_name} gonbidatu du parte-hartzaile pribatua izatera"
-        create_via_csv: "%{user_name} k %{resource_name} gonbidatu du CSV bidez parte-hartzaile pribatua izatera"
-        delete: "%{user_name} k %{resource_name} parte-hartzaile pribatu gisa kendu du"
+        create: "%{user_name} parte-hatzaileak %{resource_name} gonbidatu du parte-hartzaile pribatua izatera"
+        create_via_csv: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du CSV bidez parte-hartzaile pribatua izatera"
+        delete: "%{user_name} parte-hatzaileak %{resource_name} parte-hartzaile pribatu gisa kendu du"
       scope:
         create: "%{user_name} k %{resource_name} esparrua sortu du"
         create_with_parent: "%{user_name} k %{resource_name} esparrua %{parent_scope} esparru barruan sortu du"
@@ -312,18 +312,18 @@ eu:
         update: "%{user_name} k eguneratu du %{resources ce_name} taxonomian oinarritutako iragazkia"
         update_with_filter_items_count: "%{user_name}-keguneratu du %{baliabide_name} taxonomian oinarritutako iragazkia, %{filter_items_count} filtroarekin, \n%{space_manifest_name} -rako\n"
       user:
-        block: "%{user_name} k %{resource_name} erabiltzailea blokeatu du"
-        bulk_block: "%{user_name} k %{blocked_count} erabiltzaile blokeatu du"
-        bulk_ignore: "%{user_name} k %{unreported_users_count} erabiltzaileri salaketa kendu die"
-        bulk_unblock: "%{user_name} k %{unblocked_count} erabiltzaile desblokeatu du"
-        invite: "%{user_name} k %{resource_name} parte-hartzailea gonbidatu du %{role} rolarekin"
-        officialize: "%{user_name} k %{resource_name} parte-hartzailea ofizializatu du"
+        block: "%{user_name} parte-hatzaileak %{resource_name} erabiltzailea blokeatu du"
+        bulk_block: "%{user_name} parte-hatzaileak %{blocked_count} erabiltzaile blokeatu du"
+        bulk_ignore: "%{user_name} parte-hatzaileak %{unreported_users_count} erabiltzaileri salaketa kendu die"
+        bulk_unblock: "%{user_name} parte-hatzaileak %{unblocked_count} erabiltzaile desblokeatu du"
+        invite: "%{user_name} parte-hatzaileak %{resource_name} parte-hartzailea gonbidatu du %{role} rolarekin"
+        officialize: "%{user_name} parte-hatzaileak %{resource_name} parte-hartzailea ofizializatu du"
         promote: "%{user_name} k %{resource_name} sustatu du"
-        remove_from_admin: "%{user_name} k %{resource_name} parte-hartzailea kendu du %{role} rolarekin"
-        show_email: "%{user_name} k %{resource_name} parte-hartzailearen korreo elektronikoa berreskuratu du"
-        transfer: "%{user_name} erabiltzaileak parte-hartzailea transferitu du %{resource_name}-era"
+        remove_from_admin: "%{user_name} parte-hatzaileak %{resource_name} parte-hartzailea kendu du %{role} rolarekin"
+        show_email: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailearen korreo elektronikoa berreskuratu du"
+        transfer: "%{user_name} parte-hartzaileak parte-hartzailea transferitu du %{resource_name}-era"
         unblock: "%{user_name} k desofizializatu zuen %{resource_name} erabiltzailea"
-        unofficialize: "%{user_name} k %{resource_name} parte-hartzailea desofizializatu du"
+        unofficialize: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea desofizializatu du"
       user_group:
         block: "%{user_name} k %{resource_name} erabiltzaile-taldea blokeatu du"
         bulk_block: "%{user_name} k %{blocked_count} erabiltzaile blokeatu du"
@@ -763,30 +763,30 @@ eu:
           current_sign_in_ip: Gaur egungo loginaren IP helbidea
           delete_reason: Erabiltzaile hau ezabatzeko arrazoia
           deleted_at: Zein datatan eta zein ordutan ezabatu zen erabiltzaile hau
-          email: Erabiltzaile honen helbide elektronikoa
-          id: Erabiltzaile honen identifikatzaile bakarra
+          email: Parte-hartzaile honen helbide elektronikoa
+          id: Parte-hartzaile honen identifikatzaile bakarra
           invitation_accepted_at: Zein datatan eta zein ordutan onartu zen gonbidapena
           invitation_created_at: Zein datatan eta zein ordutan gonbidatu zen erabiltzaile hau
           invitation_sent_at: Zein datatan eta zein ordutan bidali zen gonbidapena
-          invitations_count: Erabiltzaile honi bidalitako gonbidapen kopurua
-          invited_by: Erabiltzaile hau gonbidatu duen erabiltzailea
+          invitations_count: Parte-hartzaile honi bidalitako gonbidapen kopurua
+          invited_by: Parte-hartzaile hau gonbidatu duen erabiltzailea
           last_sign_in_at: Azken saioaren hasiera-data eta -ordua
           last_sign_in_ip: Azken loginaren IP helbidea
-          locale: Erabiltzaile honek aukeratu duen lokala (hizkuntza)
-          managed: Erabiltzaile hau beste erabiltzaile batek kudeatzen badu
-          name: Erabiltzaile honen izena
+          locale: Parte-hartzaile honek aukeratu duen lokala (hizkuntza)
+          managed: Parte-hartzaile hau beste erabiltzaile batek kudeatzen badu
+          name: Parte-hartzaile honen izena
           newsletter_notifications_at: Zein datatan eta zein ordutan jaso zuen erabiltzaile honek buletin bat azken aldiz
-          nickname: Erabiltzaile honen ezizena
-          notification_settings: Erabiltzaile honek aukeratu duen jakinarazpen-konfigurazioa
-          notifications_sending_frequency: Erabiltzaile honek jasotzen dituen jakinarazpenen maiztasuna
+          nickname: Parte-hartzaile honen ezizena
+          notification_settings: Parte-hartzaile honek aukeratu duen jakinarazpen-konfigurazioa
+          notifications_sending_frequency: Parte-hartzaile honek jasotzen dituen jakinarazpenen maiztasuna
           officialized_as: Ofizializazioaren izena (Kontseilaritza, Alkatetza, etab.)
-          officialized_at: Zein datatan eta zein ordutan ofizializatu zen erabiltzaile hau
-          organization: Zein erakundetakoa den erabiltzaile hau
+          officialized_at: Zein datatan eta zein ordutan ofizializatu zen parte-hartzaile hau
+          organization: Zein erakundetakoa den parte-hartzaile hau
           personal_url: Erabiltzaile honen URL pertsonala
-          remember_created_at: Zein egun eta zein ordutan aukeratu zuten erabiltzailea gogoratzeko
+          remember_created_at: Zein egun eta zein ordutan aukeratu zuten parte-hartzailea gogoratzeko
           reset_password_sent_at: Zein datatan eta zein ordutan bidali zen pasahitza berriro
           sign_in_count: Zenbat aldiz hasi duen saioa erabiltzaile honek
-          unconfirmed_email: Erabiltzaile honek oraindik baieztatu ez duen helbide elektronikoa
+          unconfirmed_email: Parte-hartzaile honek oraindik baieztatu ez duen helbide elektronikoa
           updated_at: Zein datatan eta zein ordutan eguneratu zen erabiltzaile hau azken aldiz
       show:
         action: Ekintza
@@ -839,7 +839,7 @@ eu:
         try_later: Mesedez, saiatu berriro geroago. Erroreak jarraitzen badu, mesedez, kopiatu ondoko informazio hau eta bidali plataformaren mantentzaileei partekatu nahi duzun bestelako informazioarekin batera.
         unknown: Ezezaguna
         url: URL
-        user: Erabiltzailearen ID
+        user: Parte-hartzailearen ID
       not_found:
         back_home: Itzuli hasierara
         content_doesnt_exist: Helbide hau okerra da edo ezabatua izan da.
@@ -1103,11 +1103,11 @@ eu:
           conditions:
             - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
           description: Bereizgarria jarraitzaile kopuru jakin batera iristen zarenean ematen da. %{organization_name} sare soziala eta politikoa da, zure web-orria plataforman beste pertsona batzuekin komunikatzeko ehuna egiten du.
-          description_another: Erabiltzaile honek %{score} jarraitzaile ditu.
+          description_another: Parte-hartzaile honek %{score} jarraitzaile ditu.
           description_own: "%{score} erabiltzailek jarraitzen zaituzte."
           name: Jarraitzaileak
           next_level_in: Lortu %{score} erabiltzaile gehiago jarraitzeko hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek oraindik ez du jarraitzailerik.
+          unearned_another: Parte-hartzaile honek oraindik ez du jarraitzailerik.
           unearned_own: Oraindik ez duzu jarraitzailerik.
         index:
           badge_title: "%{name} garaikurra"
@@ -1120,7 +1120,7 @@ eu:
       title: Zer dira garaikurrak?
     group_admins:
       actions:
-        are_you_sure: Ziur zaude? Honek ez du parte-hartzailea taldetik aterako.
+        are_you_sure: Ziur zaude? Honek ez du partaide-taldetik aterako.
         demote_admin: Kendu kudeatzailea
       demote:
         error: Arazo bat egon da parte-hartzaile hau administratzaileen zerrendatik kentzean.
@@ -1352,7 +1352,7 @@ eu:
         object: jarraitzaileak
         title: Jarraitzaileak
       participants:
-        description: Erakundeko erabiltzaile aktiboen kopurua
+        description: Erakundeko parte-hartzaile aktiboen kopurua
         object: parte-hartzaileak
         title: Parte-hartzaileak
       reported_users:
@@ -1490,7 +1490,7 @@ eu:
           metric_type: Metrika mota
           quantity: Metriken kopurua egun honetarako
         moderated_users:
-          about: Erabiltzailearen eremua
+          about: Parte-hartzailearen eremua
           block_reasons: Administratzaileak zergatik blokeatu zuen erabiltzailea
           blocked_at: Zein egunetan eta ordutan blokeatu den erabiltzailea
           blocking_user: Blokeoa egin duen erabiltzailearen izena
@@ -1507,18 +1507,18 @@ eu:
           reported_url: Jakinarazitako baliabidearen url-a
           reports: Profilaren berri emateko arrazoien zerrenda
         user_groups:
-          avatar_url: Erabiltzaile-taldearen avatarra
-          badge: Erabiltzaile-taldearen bereizgarria
-          deleted: Erabiltzailea ezabatuta dagoen ala ez
-          id: Erabiltzaile-taldearen identifikatzaile bakarra
+          avatar_url: Partaide-taldearen avatarra
+          badge: Partaide-taldearen bereizgarria
+          deleted: Parte-hartzailea ezabatuta dagoen ala ez
+          id: Partaide-taldearen identifikatzaile bakarra
           members: Taldekideak diren erabiltzaileen identifikazioa eta izena
-          members_count: Erabiltzaile-taldekideak diren erabiltzaile kopurua
-          name: Erabiltzaile-taldearen izena
-          nickname: Erabiltzaile-taldearen erabiltzaile-izena
+          members_count: Partaide-taldekideak diren erabiltzaile kopurua
+          name: Partaide-taldearen izena
+          nickname: Partaide-taldearen erabiltzaile-izena
           profile_url: Url profila
         users:
-          about: Erabiltzailearen testuari buruzkoa
-          avatar_url: Erabiltzailearen avatarra
+          about: Parte-hartzailearen testuari buruzkoa
+          avatar_url: Parte-hartzailearen avatarra
           badge: Erabiltzailearen garaikurra
           deleted: Erabiltzailea ezabatuta dagoen ala ez
           direct_messages_enabled: Erabiltzaileak mezu zuzenak bidaltzeko aukera ematen duen
@@ -1859,7 +1859,7 @@ eu:
       notify:
         body_1: '%{user} erabiltzailea %{token}-ek erreportatu du'
         body_2: 'Arrazoia: %{reason}'
-        details: Erabiltzaileak emandako datuak
+        details: Parte-hartzaileak emandako datuak
         greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo %{admin},
         subject: Beste erabiltzaile bat erreportatu dute hemen %{organization_name}
@@ -1945,7 +1945,7 @@ eu:
         ignore: |-
           Gonbidapena onartu nahi ez baduzu, mesedez, ez egin kasurik mezu elektroniko honi. Zure kontua ez da sortuko, goiko estekara sartu eta zure erabiltzaile-izena eta pasahitza ezarri arte.
         invited_you_as_admin: "%{invited_by} admnisitrariak %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
-        invited_you_as_private_user: "%{invited_by} k egonbidatu zaitu %{application} ko erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
+        invited_you_as_private_user: "%{invited_by} parte-hartzaileak egonbidatu zaitu %{application} ko erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
         someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onartu dezakezu.
         someone_invited_you_as_admin: Norbaitek %{application} admin gisa gonbidatu zaitu, beheko estekan onartu dezakezu.
         someone_invited_you_as_private_user: Norbaitek %{application} ko parte-hartzaile pribatu gisa gonbidatu zaitu, beheko estekan onar dezakezu.
@@ -2224,7 +2224,7 @@ eu:
       header:
         log_in: Hasi saioa
         main_menu: Menu nagusia
-        user_menu: Erabiltzailearen menua
+        user_menu: Parte-hartzailearen menua
       impersonation_warning:
         close_session: Itxi saioa
         description_html: <b>%{user_name}</b> parte-hartzailea kudeatzen ari zara.
