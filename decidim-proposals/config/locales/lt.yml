@@ -316,23 +316,6 @@ lt:
           proposal_comments: Komentarai
           proposals: Pasiūlymai
         imports:
-          help:
-            answers: |
-              Importuojamas dokumentas turėtų turėti šiuos stulpelių pavadinimus atveju, jei tai CSV ar Excel failai, arba raktų pavadinimus, jei tai JSON failai:
-
-              <ul>
-              <li><b>id:</b> Pasirinkimo atsakymo ID</li>
-              <li><b>state:</b> Vienas iš "accepted", "evaluating" arba "rejected"</li>
-              <li><b>answer/en:</b> Atsakymas anglų kalba. Tai priklauso nuo jūsų platformos kalbos konfigūracijos.</li>
-              </ul>
-            proposals: |
-              Failas privalo turėti šiuos stulpelių pavadinimus atveju, jei tai CSV ar Excel failai, arba raktų pavadinimus, jei tai JSON failai:
-              <ul>
-              <li><b>title/en:</b> Pavadinimas anglų kalba. Tai priklauso nuo jūsų platformos kalbos konfigūracijos.</li>
-              <li><b>body/en:</b> Tekstas anglų kalba. Tai priklauso nuo jūsų platformos kalbos konfigūracijos.</li>
-              <li><b>scope/id:</b> Masto ID</li>
-              <li><b>category/id:</b> Kategorijos ID</li>
-              </ul>
           label:
             answers: Importuoti atsakymus iš failo
             proposals: Importuoti pasiūlymus iš failo
