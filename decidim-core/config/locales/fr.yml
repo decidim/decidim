@@ -427,6 +427,12 @@ fr:
       dummy_authorization_workflow:
         explanation: Procédure d'autorisation factice
         name: Procédure d'autorisation factice
+      ephemeral_dummy_authorization_handler:
+        fields:
+          allowed_postal_codes: Codes postaux autorisés (séparés par des virgules)
+          document_number: Numéro du document
+          postal_code: Code postal
+        name: Exemple d'autorisation éphémère
       errors:
         duplicate_authorization: Un participant est déjà autorisé avec ces mêmes données. Un administrateur vous contactera pour vérifier vos informations.
       expired_at: Expiré à %{timestamp}
@@ -637,6 +643,7 @@ fr:
           sign_in_disabled: Vous pouvez vous connecter avec un compte externe.
           sign_up_disabled: La création de compte est désactivée, mais vous pouvez vous identifier avec un compte existant.
         user:
+          ephemeral_session_closed: Votre session d'invité est terminée
           timed_out: Vous avez été inactif pendant trop longtemps et vous avez été automatiquement déconnecté du service. Si vous souhaitez continuer à utiliser le service, veuillez vous reconnecter.
       shared:
         newsletter_modal:
@@ -706,6 +713,7 @@ fr:
     endorsers_list:
       others: "%{count} de plus"
       you: vous
+    ephemeral_user: Visiteur
     errors:
       files:
         file_cannot_be_processed: Le fichier ne peut pas être traité
@@ -1343,8 +1351,10 @@ fr:
     onboarding_action_message:
       click_link: Cliquez ici
       cta_html: <a href="%{path}">%{link_text}</a> pour %{action} dans %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: Vous avez été autorisé avec succès.<br/>Vous avez commencé une session en tant qu'invité, vous pouvez maintenant participer.
       pending_authorization_active_message: Veuillez remplir le formulaire pour procéder à cette action.
       pending_authorization_active_title: Nous devons vérifier votre identité.
+      pending_ephemeral_authorization: Veuillez vérifier votre identité pour continuer.
     open_data:
       help:
         metrics:
@@ -2048,6 +2058,8 @@ fr:
         sign_up: Créer un compte
         terms_of_service: Conditions d'utilisation
       header:
+        close: Fermer
+        confirm_close_ephemeral_session: Si vous quittez cette page, votre session sera fermée. Êtes-vous sûr(e)?
         log_in: Se connecter
         main_menu: Menu principal
         user_menu: Menu utilisateur
