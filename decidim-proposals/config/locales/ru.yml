@@ -172,7 +172,6 @@ ru:
             votes: Голоса
       proposals:
         edit:
-          attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
           send: Отправить
           title: Редактировать предложение
