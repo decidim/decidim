@@ -678,7 +678,6 @@ fr:
           error: Il y a eu un problème lors de la création de ce brouillon collaboratif.
           success: Brouillon collaboratif créé avec succès.
         edit:
-          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
           send: Envoyer
           title: Modifier un brouillon collaboratif
@@ -820,10 +819,7 @@ fr:
           description: Les coordonnées seront mises à jour en cliquant sur le bouton 'Aperçu'. Cependant, l'adresse ne change pas.
           instructions: Vous pouvez déplacer le point sur la carte.
         edit:
-          add_documents: Ajouter des documents
-          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
-          edit_documents: Modifier les documents
           send: Envoyer
           title: Modifier la proposition
         edit_draft:
