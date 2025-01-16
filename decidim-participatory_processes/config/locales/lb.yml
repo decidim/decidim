@@ -99,7 +99,6 @@ lb:
           attachment_collections: Dossieren
           attachment_files: Dateien
           attachments: Unhäng
-          categories: Kategorien
           components: Komponenten
           moderations: Moderationen
           process_admins: Benutzer verarbeiten
