@@ -18,14 +18,14 @@ module Decidim
     # @param description [String] The description of the icon. It will be used to show the purpose of the icon in DDG.
     # @param engine [String] The engine name. It is used internally to identify the module where the icon is being used.
     def register(name:, icon:, description:, category:, engine:)
-      ActiveSupport::Deprecation.warn("#{name} already registered. #{@icons[name].inspect}") if @icons[name]
+      Decidim.deprecator.warn("#{name} already registered. #{@icons[name].inspect}") if @icons[name]
 
       @icons[name] = { name:, icon:, description:, category:, engine: }
     end
 
     def find(name)
       if name.blank?
-        ActiveSupport::Deprecation.warn "The requested icon is blank."
+        Decidim.deprecator.warn "The requested icon is blank."
         name = "other"
       end
 
@@ -47,7 +47,7 @@ module Decidim
         Decidim.icons.register(name: "#{name}", icon: "#{name}", category: "system", description: "", engine: :core)
       }
 
-      ActiveSupport::Deprecation.warn(message)
+      Decidim.deprecator.warn(message)
       raise message if Rails.env.local?
 
       @icons["other"]

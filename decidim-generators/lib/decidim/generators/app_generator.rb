@@ -157,7 +157,7 @@ module Decidim
       end
 
       def rubocop
-        copy_file ".rubocop.yml", ".rubocop.yml"
+        copy_file ".rubocop.yml", ".rubocop.yml", force: true
       end
 
       def ruby_version
