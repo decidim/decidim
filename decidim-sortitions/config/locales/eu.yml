@@ -26,7 +26,7 @@ eu:
         settings:
           global:
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eusteko)
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
     events:
       sortitions:
         sortition_created:
