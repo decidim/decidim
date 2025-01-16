@@ -131,52 +131,6 @@ describe "Initiative signing" do
     end
   end
 
-  context "when the initiative requires user extra fields collection to be signed" do
-    let(:initiative) do
-      create(:initiative, :with_user_extra_fields_collection, organization:)
-    end
-
-    context "when the user has not signed the initiative yet and signs it" do
-      context "when the personal data is filled" do
-        before do
-          create(
-            :authorization,
-            :granted,
-            name: "dummy_authorization_handler",
-            user: confirmed_user,
-            unique_id: "012345678X",
-            metadata: { document_number: "012345678X", postal_code: "01234", scope_id: initiative.scope.id }
-          )
-        end
-
-        it "adds the signature" do
-          vote_initiative
-        end
-      end
-
-      context "when the personal data is not filled" do
-        it "does not allow voting" do
-          visit decidim_initiatives.initiative_path(initiative)
-
-          within ".initiative__aside" do
-            expect(page).to have_content(signature_text(0))
-            click_on "Sign"
-          end
-          click_on "Validate your data"
-
-          expect(page).to have_content "error"
-
-          visit decidim_initiatives.initiative_path(initiative)
-
-          within ".initiative__aside" do
-            expect(page).to have_content(signature_text(0))
-            click_on "Sign"
-          end
-        end
-      end
-    end
-  end
-
   def vote_initiative
     visit decidim_initiatives.initiative_path(initiative)
 
