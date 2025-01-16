@@ -99,7 +99,7 @@ module Decidim
           private
 
           def visitor_can_edit_answers?
-            questionnaire_for&.allow_editing_answers?
+            questionnaire_for.try(:allow_editing_answers?)
           end
 
           def i18n_flashes_scope

@@ -20,10 +20,10 @@ module Decidim
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
-        return broadcast(:invalid) if @form.invalid? || (user_already_answered? && !questionnaire.questionnaire_for&.allow_editing_answers?)
+        return broadcast(:invalid) if @form.invalid? || (user_already_answered? && !allow_editing_answers?)
 
         with_events do
-          clear_answers! if questionnaire.questionnaire_for&.allow_editing_answers?
+          clear_answers! if allow_editing_answers?
           answer_questionnaire
         end
 
@@ -124,6 +124,10 @@ module Decidim
 
       def user_already_answered?
         questionnaire.answered_by?(current_user || form.context.session_token)
+      end
+
+      def allow_editing_answers?
+        questionnaire.questionnaire_for.try(:allow_editing_answers?) || false
       end
     end
   end

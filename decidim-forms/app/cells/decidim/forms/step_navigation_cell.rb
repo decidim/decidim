@@ -52,7 +52,7 @@ module Decidim
                   end
         {
           data: {
-            confirm: ,
+            confirm:,
             disable: true,
             data: "survey-buttons"
           }
