@@ -66,27 +66,6 @@ cs:
           new:
             download_export: Stáhnout export s CSV formátem
             import: Importovat
-            info: |
-              <p>Doporučujeme postupovat podle těchto kroků:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Vytvořit stavy pro výsledky</a>, které chcete přidat</li>
-              <li><a href='%{link_new_result}' target='_blank'>Vytvořte alespoň jeden výsledek manuálně</a> přes tento Admin panel před použitím Importu, za lepší pochopení formátu a toho, co budete muset vyplnit.</li>
-              <li>%{link_export_csv}</li>
-              <li>Změňte lokálně. Můžete změnit pouze následující sloupce CSV:
-                <ul>
-                <li><b>category/id:</b> ID pro kategorii</li>
-                <li><b>scope/id:</b> ID pro rozsah</li>
-                <li><b>parent/id:</b> ID rodičů (pro související výsledky). Volitelné</li>
-                <li><b>title/en:</b> Název v angličtině. To bude záviset na konfiguraci jazyka vaší platformy.</li>
-                <li><b>description/en:</b> Popis anglického jazyka. To bude záviset na konfiguraci jazyka vaší platformy.</li>
-                <li><b>start_date:</b> datum zahájení provádění výsledků (formát YYYY-MM-DD)</li>
-                <li><b>end_date:</b> datum ukončení provedení výsledků (formát YYYY-MM-DD)</li>
-                <li><b>status/id:</b> ID statusu pro tento výsledek</li>
-                <li><b>progress:</b> procento (od 0 do 100) provedení</li>
-                <li><b>proposals_ids:</b> interní ID souvisejících návrhů (oddělené čárkou). Automaticky se převede na <span class='attribute-name'>proposal_url</span></li>
-                </ul>
-              </li>
-              </ol>
             title: Importovat výsledky z CSV souboru
         imports:
           create:
