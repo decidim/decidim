@@ -200,7 +200,7 @@ eu:
           notification_title: 'Hemen: <a href="%{group_path}">%{group_name} %{group_nickname}</a> egile honek: <a href="%{author_path}">%{author_name} %{author_nickname}</a> aipatu zaitu'
     metrics:
       comments:
-        description: Erabiltzaileek sortutako iruzkin kopurua
+        description: Parte-hatzaileek sortutako iruzkin kopurua
         object: iruzkinak
         title: Iruzkinak
   errors:
