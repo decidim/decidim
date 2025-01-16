@@ -442,7 +442,10 @@ de:
           email_subject: "%{applicant_nickname} möchte Ihrer Initiative beitreten"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
       form:
+        add_attachments: Anhänge hinzufügen
         add_image: Bild hinzufügen
+        attachment_legend: Dokument oder Bild hinzufügen
+        edit_attachments: Anhänge bearbeiten
         edit_image: Bild bearbeiten
         image_legend: "(Optional) Bild hinzufügen"
       index:
