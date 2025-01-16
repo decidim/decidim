@@ -414,7 +414,6 @@ it:
         create:
           success: Bozza collaborativa creata con successo.
         edit:
-          attachment_legend: "(Opzionale) Aggiungi un allegato"
           back: Indietro
           send: Inviare
           title: Modifica bozza collaborativa
@@ -509,7 +508,6 @@ it:
           description: Le coordinate verranno aggiornate quando si fa clic sul pulsante 'Anteprima'. Tuttavia, l'indirizzo non cambia.
           instructions: Puoi spostare il punto sulla mappa.
         edit:
-          attachment_legend: "(Opzionale) Aggiungi un allegato"
           back: Indietro
           send: Inviare
           title: Modifica la proposta
