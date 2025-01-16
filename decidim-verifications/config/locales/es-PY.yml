@@ -76,6 +76,12 @@ es-PY:
             - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona una verificación simple.
             - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
             - Verifícate introduciendo un número de documento que termine con "X".
+        ephemeral_dummy_authorization_handler:
+          help:
+            - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona una verificación simple.
+            - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
+            - Es una copia de la Autorización de ejemplo.
+            - Verifícate introduciendo un número de documento que termine con "X".
         id_documents:
           help:
             - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
@@ -137,6 +143,7 @@ es-PY:
         new:
           authorize: Enviar
           authorize_with: Verificar con %{authorizer}
+          tos_agreement: Al verificar tu identidad, aceptas los %{link}.
         onboarding_pending:
           completed_verifications: Tu perfil se ha verificado con éxito, ahora puedes %{action} en %{resource_name}
           granted_verifications: Verificaciones concedidas
