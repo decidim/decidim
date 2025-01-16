@@ -265,12 +265,12 @@ en:
         admin:
           proposal_assigned_to_evaluator:
             email_intro: You have been assigned as a valuator to the proposal "%{resource_title}". This means you have been trusted to give them feedback and a proper response in the next coming days. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
-            email_outro: You have received this notification because you can valuate the proposal.
+            email_outro: You have received this notification because you can evaluate the proposal.
             email_subject: You have been assigned as a valuator to the proposal %{resource_title}.
             notification_title: You have been assigned as a valuator to the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
           proposal_note_created:
             email_intro: '%{author_name} has created a private note in %{resource_title}. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.'
-            email_outro: You have received this notification because you can valuate the proposal.
+            email_outro: You have received this notification because you can evaluate the proposal.
             email_subject: Someone left a note on proposal %{resource_title}.
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> has created a private note in <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
           proposal_note_mentioned:

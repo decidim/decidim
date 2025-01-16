@@ -93,7 +93,7 @@ describe Decidim::Proposals::Admin::Permissions do
     let!(:evaluator_role) { create(:participatory_process_user_role, user:, role: :valuator, participatory_process: space) }
     let!(:user) { create(:user, organization:) }
 
-    context "and can valuate the current proposal" do
+    context "and can evaluate the current proposal" do
       let(:proposal) { create(:proposal, component: current_component) }
       let!(:assignment) { create(:evaluation_assignment, proposal:, evaluator_role:) }
 
