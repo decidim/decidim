@@ -724,7 +724,6 @@ ja:
           error: 共同草案の作成中に問題が発生しました.
           success: 共同草案を作成しました。
         edit:
-          attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
           send: 送信
           title: 共同草案を編集
@@ -862,10 +861,7 @@ ja:
           description: '「プレビュー」ボタンをクリックすると座標が更新されますが、アドレスは変更されません。'
           instructions: 地図上のポイントを移動できます。
         edit:
-          add_documents: ドキュメントを追加
-          attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
-          edit_documents: ドキュメントを編集
           send: 送信
           title: 提案を編集
         edit_draft:
