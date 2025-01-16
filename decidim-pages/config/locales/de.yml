@@ -16,6 +16,10 @@ de:
             announcement: Ankündigung
           step:
             announcement: Ankündigung
+    open_data:
+      help:
+        pages:
+          title: Der Seitentitel
     pages:
       admin:
         models:
