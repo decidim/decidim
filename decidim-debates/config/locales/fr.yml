@@ -65,10 +65,7 @@ fr:
             title: Modifier le débat
             update: Actualiser le débat
           form:
-            add_documents: Ajouter des documents
-            attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             debate_type: Type de débat
-            edit_documents: Modifier les documents
             finite: Limité (Avec les heures de début et de fin)
             open: Ouvert (pas de date de début et de fin)
           index:
