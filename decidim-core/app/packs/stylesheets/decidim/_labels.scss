@@ -6,7 +6,7 @@
   --warning: #ad4910;
   --bg-warning: #ffeebd;
 
-  @apply bg-background text-gray-2 rounded flex h-min items-center gap-1 px-2 py-1 font-semibold text-sm;
+  @apply bg-background text-gray-2 rounded inline-flex items-center gap-1 px-2 py-1 h-min font-semibold text-sm;
 
   &.success {
     @apply bg-[var(--bg-success)] text-[var(--success)];
