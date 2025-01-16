@@ -64,27 +64,6 @@ fi:
           new:
             download_export: Lataa vientitiedosto CSV-muodossa
             import: Tuo
-            info: |
-              <p>Suorittelemme tekemään seuraavat toimenpiteet suorittaaksesi tuonnin onnistuneesti:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Luo tilat tuloksille</a></li>
-              <li><a href='%{link_new_result}' target='_blank'>Luo vähintään yksi tulos käsin</a> hallintapaneelin kautta ennen tuontia, jotta ymmärrät paremmin, miltä tuontitiedoston tulee näyttää.</li>
-              <li>%{link_export_csv}</li>
-              <li>Tee tiedostoon muutoksia tietokoneellasi. Voit muuttaa ainoastaan seuraavia sarakkeita CSV-tiedostossa:
-                <ul>
-                <li><b>category/id:</b> Aihepiirin ID-tunniste</li>
-                <li><b>scope/id:</b> Teeman ID-tunniste</li>
-                <li><b>parent/id:</b> Tuloksen isännän ID-tunniste. Vapaaehtoinen</li>
-                <li><b>title/fi:</b> Otsikko suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
-                <li><b>description/fi:</b> Kuvaus suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
-                <li><b>start_date:</b> Tuloksen toteuttamisen aloituspäivämäärä (muodossa YYYY-MM-DD)</li>
-                <li><b>end_date:</b> Tuloksen toteuttamisen päättymispäivämäärä (muodossa YYYY-MM-DD)</li>
-                <li><b>status/id:</b> Tuloksen tilan ID-tunniste</li>
-                <li><b>progress:</b> Tuloksen toteutuksen prosentuaalisen etenemisen tila (välillä 0-100)</li>
-                <li><b>proposals_ids:</b> Liittyvien ehdotusten ID-numerot (pilkulla eroteltuna). Nämä muutetaan automaattisesti <span class='attribute-name'>proposal_url</span></li>
-                </ul>
-              </li>
-              </ol>
             title: Tuo tulokset CSV-tiedostosta
         imports:
           create:
