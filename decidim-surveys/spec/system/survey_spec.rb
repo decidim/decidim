@@ -76,11 +76,11 @@ describe "Answer a survey" do
   end
 
   context "when the survey allow answers" do
+    # rubocop:disable Naming/VariableNumber
     context "when survey allows editing" do
       let!(:survey) { create(:survey, :published, :allow_edit, :announcement, :allow_answers, :allow_unregistered, component:, questionnaire:) }
 
       before do
-
         visit_component
         see_questionnaire_questions
 
@@ -124,6 +124,7 @@ describe "Answer a survey" do
         expect(page).to have_field(:questionnaire_responses_0, with: "My first answer changed")
       end
     end
+    # rubocop:enable Naming/VariableNumber
 
     context "when the survey is closed by start and end dates" do
       before do

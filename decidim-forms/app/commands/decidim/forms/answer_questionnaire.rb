@@ -21,7 +21,7 @@ module Decidim
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
-        return broadcast(:invalid) if @form.invalid? || (user_already_answered? && allow_editing_answers)
+        return broadcast(:invalid) if @form.invalid? || (user_already_answered? && !allow_editing_answers)
 
         with_events do
           clear_answers! if allow_editing_answers

@@ -13,15 +13,11 @@ module Decidim
       helper_method :authorizations, :surveys
 
       before_action :check_permissions, except: [:index]
+      before_action :check_editable, only: [:edit]
 
       def index; end
 
       def edit
-        unless survey.allow_editing_answers? && survey.open?
-          flash[:error] = t("decidim.forms.step_navigation.show.disallowed")
-          render :no_permission and return
-        end
-
         @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
         @form.add_answers!(questionnaire:, session_token:, ip_hash:)
         @form.allow_editing_answers = questionnaire.questionnaire_for&.allow_editing_answers?
@@ -38,6 +34,13 @@ module Decidim
       end
 
       protected
+
+      def check_editable
+        return if survey.allow_editing_answers? && survey.open?
+
+        flash.now[:error] = t("decidim.forms.step_navigation.show.disallowed")
+        render :no_permission
+      end
 
       def allow_editing_answers?
         survey.allow_editing_answers? && survey.open?
