@@ -1519,6 +1519,16 @@ eu:
         taxonomies:
           children_count: Taxonomia honek dituen umeen zenbaketa
           created_at: Zein datatan sortu zen taxonomia hau
+          filter_items_count: Taxonomia hau erabiltzen ari diren elementu-iragazkien kopurua
+          filters_count: Taxonomia hau erabiltzen ari den iragazki kopurua
+          id: Taxonomia honen identifikatzaile bakarra
+          is_root: Egia taxonomia honek nagusirik ez badu
+          name: Taxonomia honen izena
+          parent_id: Taxonomia nagusi honen identifikatzaile bakarrak (baldin badago)
+          part_of: Taxonomia hau beste taxonomia baten parte den jakiteko erabiltzen da
+          taxonomizations_count: Taxonomia hau erabiltzen duten baliabideen zenbaketa
+          updated_at: Zein datatan eguneratu zen taxonomia hau azkenekoz
+          weight: Zein ordenatan erakusten den taxonomia hau
         user_groups:
           avatar_url: Partaide-taldearen avatarra
           badge: Partaide-taldearen bereizgarria
@@ -2235,6 +2245,8 @@ eu:
         sign_up: Sortu kontu bat
         terms_of_service: Zerbitzuaren baldintzak
       header:
+        close: Itxi
+        confirm_close_ephemeral_session: Orri honetatik kanpo nabigatzen baduzu, saioa itxita egongo da. Ziur zaude?
         log_in: Hasi saioa
         main_menu: Menu nagusia
         user_menu: Parte-hartzailearen menua
