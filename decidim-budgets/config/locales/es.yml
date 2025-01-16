@@ -217,7 +217,19 @@ es:
             title: Título
       order:
         status:
+          continue_voting: Seguir votando
+          download_vote: Descarga tu voto
+          pending_to_vote_budgets:
+            one: Puedes votar en otro presupuesto
+            other: Puedes votar en otros presupuestos
+          share_vote: Comparte tu voto
           title: Tu voto se ha tramitado correctamente
+          view_votes:
+            one: Ver voto
+            other: Ver votos
+          votes_count:
+            one: Tu voto en %{budget_name} ya se ha registrado.
+            other: Tus %{count} votos en %{budget_name} ya se han registrado.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Lo proyectos que has seleccionado son:'
