@@ -64,7 +64,6 @@ ga:
           attachment_collections: Fillteáin
           attachment_files: Comhaid
           attachments: Ceangaltáin
-          categories: Catagóirí
       models:
         assemblies_types:
           fields:
