@@ -204,7 +204,6 @@ ca:
           attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Adjunts
-          categories: Categories
           components: Components
           conference_admins: Administradors de conferències
           conference_invites: Convida
@@ -548,12 +547,10 @@ ca:
           registration_type: El tipus d'inscripció enviada per a aquesta jornada
           rejected_at: La data en què la invitació a la jornada va ser rebutjada
           sent_at: La data en què la invitació a la jornada es va enviar
-          user: L'identificador únic de la usuària a la qual es va enviar la invitació
         conference_registrations:
           conference: La jornada a la qual pertany aquesta inscripció
           id: L'identificador únic de la inscripció a la jornada
           registration_type: El tipus d'inscripció habilitat para aquesta jornada
-          user: L'identificador únic de la usuària per aquesta inscripció
     events:
       conferences:
         conference_registration_confirmed:
