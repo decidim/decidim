@@ -454,6 +454,15 @@ ca:
       dummy_authorization_workflow:
         explanation: Exemple de flux de verificació
         name: Flux de treball d'autorització d'exemple
+      ephemeral_dummy_authorization_handler:
+        explanation: Verifica't introduint un número de document que finalitzi amb "X".
+        fields:
+          allowed_postal_codes: Codis postals permesos (separats per comes)
+          allowed_scope_id: Àmbit permès
+          document_number: Número de document
+          postal_code: Codi postal
+          scope_id: Àmbit
+        name: Una altra autorització d'exemple
       errors:
         duplicate_authorization: Ja hi ha una participant autoritzada amb les mateixes dades. Una administradora es posarà en contacte amb tu per verificar les teves dades.
       expired_at: Vençut el %{timestamp}
@@ -669,6 +678,7 @@ ca:
           sign_in_disabled: Pots accedir amb un compte extern.
           sign_up_disabled: La creació de comptes està deshabilitada, pots fer servir un compte existent per accedir-hi.
         user:
+          ephemeral_session_closed: La teva sessió de convidada ha finalitzat
           timed_out: Has estat sense activitat durant massa temps i la teva sessió s'ha tancat automàticament. Si vols continuar participant, torna a iniciar sessió.
       shared:
         newsletter_modal:
@@ -805,6 +815,7 @@ ca:
       others: "%{count} més"
       title: Li ha agradat a
       you: tu
+    ephemeral_user: Visitant
     errors:
       files:
         file_cannot_be_processed: No s'ha pogut processar el fitxer
