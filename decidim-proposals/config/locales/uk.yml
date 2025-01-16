@@ -172,7 +172,6 @@ uk:
             votes: Голоси
       proposals:
         edit:
-          attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Повернутись
           send: Надіслати
           title: Редагувати пропозицію
