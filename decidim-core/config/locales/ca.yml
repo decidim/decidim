@@ -1462,11 +1462,13 @@ ca:
     onboarding_action_message:
       click_link: Fes clic aquí
       cta_html: <a href="%{path}">%{link_text}</a> per %{action} a %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: Ha estat autoritzada amb èxit.<br/>Has iniciat una sessió de convidada, ara hi pots participar.
       expired_authorization_active_title: La teva autorització ha caducat.
       finish_authorization_process: Pots finalitzar el procés de verificació
       incomplete_authorization_active_title: La teva verificació no s'ha completat amb tota la informació necessària.
       pending_authorization_active_message: Si us plau, completa el formulari per a continuar amb aquesta acció.
       pending_authorization_active_title: Necessitem verificar la teva identitat.
+      pending_ephemeral_authorization: Si us plau, verifica la teva identitat per continuar.
     open_data:
       help:
         core:
@@ -2224,6 +2226,8 @@ ca:
         sign_up: Crea un compte
         terms_of_service: Termes i condicions d'ús
       header:
+        close: Tancar
+        confirm_close_ephemeral_session: Si navegues fora d'aquesta pàgina, la teva sessió es tancarà. Segur que vols sortir d'aquesta pàgina?
         log_in: Entra
         main_menu: Menú principal
         user_menu: Menú d'usuari
