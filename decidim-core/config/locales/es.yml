@@ -1462,11 +1462,13 @@ es:
     onboarding_action_message:
       click_link: Haz clic aquí
       cta_html: <a href="%{path}">%{link_text}</a> para %{action} en %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: Ha sido autorizada con éxito.<br/>Has iniciado una sesión de invitada, ahora puedes participar.
       expired_authorization_active_title: Tu autorización ha expirado.
       finish_authorization_process: Puedes terminar el proceso de verificación
       incomplete_authorization_active_title: Tu verificación no se ha completado con toda la información necesaria.
       pending_authorization_active_message: Por favor, complete el formulario para continuar con esta acción.
       pending_authorization_active_title: Necesitamos verificar tu identidad.
+      pending_ephemeral_authorization: Por favor, verifica tu identidad para continuar.
     open_data:
       help:
         core:
@@ -2224,6 +2226,8 @@ es:
         sign_up: Crea una cuenta
         terms_of_service: Términos y condiciones de uso
       header:
+        close: Cerrar
+        confirm_close_ephemeral_session: Si navegas fuera de esta página, tu sesión se cerrara. ¿Seguro que quieres salir de esta página?
         log_in: Entra
         main_menu: Menú principal
         user_menu: Menú de usuario
