@@ -1002,6 +1002,8 @@ ca:
         edit:
           submit: Enviar
           title: Edita els permisos
+        options_form:
+          ephemeral_warning: Per habilitar aquest mètode d'autorització, necessites <a href="%{path}">revocar totes les autoritzacions existents</a>. Això minimitza el risc de conflictes de verificació. Totes les autoritzacions d'aquest tipus seran revocades automàticament a l'organització si envies els canvis afegint aquest mètode o modificant la teva configuració una vegada desada.
         update:
           success: Els permisos s'han actualitzat correctament.
       scope_types:
