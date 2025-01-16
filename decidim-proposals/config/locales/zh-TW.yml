@@ -300,24 +300,6 @@ zh-TW:
           proposal_comments: 評論
           proposals: 提案
         imports:
-          help:
-            answers: |
-              匯入文件如果是 CSV 或 Excel 檔案，應包含以下列名，如果是 JSON 檔案，則應包含以下名稱：
-
-              <ul>
-              <li><b>id：</b>要回答的提案的 ID</li>
-              <li><b>state：</b>狀態之一，可以是 "接受"、"評估中" 或 "拒絕"</li>
-              <li><b>answer/en：</b>英文語言的答案。這將取決於您平台的語言設置。</li>
-              </ul>
-            proposals: |
-              在 CSV 或 Excel 文件的情況下，或在 JSON 文件的情況下，文件必須具有以下列名稱：
-
-              <ul>
-              <li><b>title/en：</b>英文標題，這取決於您平台的語言配置。</li>
-              <li><b>body/en：</b>英文正文，這取決於您平台的語言配置。</li>
-              <li><b>scope/id：</b>範圍的 ID。</li>
-              <li><b>category/id：</b>類別的 ID。</li>
-              </ul>
           label:
             answers: 從檔案匯入回覆
             proposals: 從檔案匯入提案
