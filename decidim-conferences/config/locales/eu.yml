@@ -543,16 +543,20 @@ eu:
         conference_invites:
           accepted_at: Zein datatan onartu zen hitzaldirako gonbidapena
           conference: Zein hitzalditarako bidali zen gonbidapena
+          confirmed_at: Zein datatan berretsi zen gonbidapena
+          created_at: Zein datatan sortu zen gonbidapena
           id: Hitzaldirako gonbidapenaren identifikatzaile bakarra
           registration_type: Zein erregistro mota bidali zen hitzaldi honetarako
           rejected_at: Zein datatan ukatu zen hitzaldirako gonbidapena
           sent_at: Zein datatan bidali zen hitzaldi honetarako gonbidapena
-          user: Gonbidapena jaso duen erabiltzailearen identifikatzaile bakarra
+          updated_at: Zein datatan eguneratu zen gonbidapen hau azkenekoz
         conference_registrations:
           conference: Zein hitzaldiri dagokion hau
+          confirmed_at: Zein datatan berretsi zen erregistro hau
+          created_at: Zein datatan sortu zen erregistro hau
           id: Hitzaldirako erregistroaren identifikatzaile bakarra
           registration_type: Honetarako gaituta dagoen erregistro mota
-          user: Erregistro honetarako erabiltzailearen identifikatzaile bakarra
+          updated_at: Zein datatan eguneratu zen erregistro hau azkenekoz
     events:
       conferences:
         conference_registration_confirmed:
