@@ -377,22 +377,6 @@ pl:
           proposal_comments: Komentarze
           proposals: Propozycje
         imports:
-          help:
-            answers: |
-              Dokument importu powinien zawierać następujące nazwy kolumn w przypadku plików CSV lub Excel, lub nazwy kluczy w przypadku plików JSON:
-              <ul>
-              <li><b>id:</b> ID wniosku o odpowiedź</li>
-              <li><b>state:</b> Jeden z "accepted", "evaluating" lub "rejected"</li>
-              <li><b>answer/en:</b> Odpowiedź w języku angielskim. Będzie to zależało od konfiguracji języka Twojej platformy.</li>
-              </ul>
-            proposals: |
-              Plik musi mieć następujące nazwy kolumn w przypadku plików CSV lub Excel, lub nazwy kluczy w przypadku plików JSON:
-              <ul>
-              <li><b>title/en:</b> Tytuł w języku angielskim. Będzie to zależało od konfiguracji języka Twojej platformy.</li>
-              <li><li><b>body/en:</b> Treść w języku angielskim. Będzie to zależało od konfiguracji języka Twojej platformy.</li>
-              <li><b>scope/id:</b> ID dla zakresu</li>
-              <li><b>category/id:</b> ID dla kategorii</li>
-              </ul>
           label:
             answers: Importuj odpowiedzi z pliku
             proposals: Importuj propozycje z pliku
