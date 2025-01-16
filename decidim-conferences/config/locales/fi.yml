@@ -204,7 +204,6 @@ fi:
           attachment_collections: Kansiot
           attachment_files: Tiedostot
           attachments: Liitteet
-          categories: Aihepiirit
           components: Komponentit
           conference_admins: Konferenssin ylläpitäjät
           conference_invites: Kutsut
@@ -548,12 +547,10 @@ fi:
           registration_type: Konferenssi-ilmoittautumisen tyyppi
           rejected_at: Konferenssikutsun hylkäämisen ajankohta
           sent_at: Konferenssikutsun lähetyksen ajankohta
-          user: Konferenssikutsun vastaanottajan käyttäjätilin yksilöivä tunniste
         conference_registrations:
           conference: Konferenssi, johon tämä kuuluu
           id: Konferenssi-ilmoittautumisen yksilöivä tunniste
           registration_type: Ilmoittautumisen tyyppi, johon tämä kuuluu
-          user: Konferenssi-ilmoittautumiseen liitetyn käyttäjätilin yksilöivä tunniste
     events:
       conferences:
         conference_registration_confirmed:
