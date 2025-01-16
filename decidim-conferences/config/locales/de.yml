@@ -204,7 +204,6 @@ de:
           attachment_collections: Ordner
           attachment_files: Dateien
           attachments: Anhänge
-          categories: Kategorien
           components: Komponenten
           conference_admins: Konferenzadministratoren
           conference_invites: Lädt ein
@@ -544,16 +543,20 @@ de:
         conference_invites:
           accepted_at: Das Datum, an dem die Konferenzeinladung angenommen wurde
           conference: Die Konferenz, zu der diese Einladung versendet wurde
+          confirmed_at: Das Datum, an dem diese Einladung bestätigt wurde
+          created_at: Das Datum, an dem diese Einladung erstellt wurde
           id: Der eindeutige Bezeichnung der Konferenzeinladung
           registration_type: Die Art der Registrierung für diese Konferenz, zu der eingeladen wurde
           rejected_at: Das Datum, an dem die Konferenzeinladung abgelehnt wurde
           sent_at: Das Datum, an dem diese Konferenzeinladung versendet wurde
-          user: Die eindeutige Kennung des Benutzers, an den die Einladung gesendet wurde
+          updated_at: Das Datum, an dem diese Einladung zuletzt Mal aktualisiert wurde
         conference_registrations:
           conference: Die Konferenz, zu der dies gehört
+          confirmed_at: Das Datum, an dem diese Registrierung bestätigt wurde
+          created_at: Das Datum, an dem diese Registrierung erstellt wurde
           id: Die eindeutige Kennung der Konferenzanmeldungen
           registration_type: Die Art der Registrierung, zu der diese gehört
-          user: Die eindeutige Kennung des Benutzers für diese Anmeldung
+          updated_at: Das Datum, an dem diese Registrierung zuletzt Mal aktualisiert wurde
     events:
       conferences:
         conference_registration_confirmed:
