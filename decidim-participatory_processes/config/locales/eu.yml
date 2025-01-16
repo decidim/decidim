@@ -197,7 +197,7 @@ eu:
           title: Inportatu prozesu parte-hartzailea
       participatory_process_publications:
         create:
-          error: Arazo bat egon da prozesu partehartzaile hau argitaratzean.
+          error: Arazo bat egon da prozesu parte-hartzaile hau argitaratzean.
           success: Prozesu parte-hartzailea zuzen argitaratua.
         destroy:
           error: Arazo bat egon da prozesu parte-hartzaile hau desargitaratzean.
@@ -266,11 +266,11 @@ eu:
           create: Sortu
           title: Prozesu parte-hartzailearen beste administratzaile bat
         update:
-          error: Arazo bat egon da prozesu partehartzaile honetarako administratzaile bat eguneratzean.
+          error: Arazo bat egon da prozesu parte-hartzaile honetarako administratzaile bat eguneratzean.
           success: Administratzailea zuzen eguneratu da prozesu parte-hartzaile honetarako.
       participatory_processes:
         create:
-          error: Arazo bat egon da beste prozesu partehartzaile bat sortzean.
+          error: Arazo bat egon da beste prozesu parte-hartzaile bat sortzean.
           success: Prozesu partizipatiboa zuzen sortu da. Orain ekin iezaiozu faseak konfiguratzeari.
         edit:
           update: Eguneratu
@@ -291,7 +291,7 @@ eu:
           success: Prozesu parte-hartzailea zuzen kopiatua.
       participatory_processes_group:
         create:
-          error: Arazo bat egon da beste prozesu partehartzaileen multzo bat sortzean.
+          error: Arazo bat egon da beste prozesu parte-hartzaileen multzo bat sortzean.
           success: Prozesu parte-hartzaileen taldea zuzen eguneratua.
       titles:
         participatory_process_groups: Prozesu parte-hartzaileen taldeak
@@ -303,29 +303,29 @@ eu:
           success: Gonbidapena zuzen birbidalia.
     admin_log:
       participatory_process:
-        create: "%{user_name} k %{resource_name} prozesu parte-hartzailea sortu du"
-        duplicate: "%{user_name} k bikoiztu du %{resource_name} prozesu parte-hartzailea"
-        export: "%{user_name} k esportatu du %{resource_name} prozesu parte-hartzailea"
-        import: "%{user_name} k inportatu du %{resource_name} prozesu parte-hartzailea"
-        publish: "%{user_name} argitaratu du %{resource_name} prozesu parte-hartzailea"
-        unpublish: "%{user_name} k despublikatu du %{resource_name} prozesu parte-hartzailea"
+        create: "%{user_name} parte-hartzaileak %{resource_name} prozesu parte-hartzailea sortu du"
+        duplicate: "%{user_name} parte-hartzaileak bikoiztu du %{resource_name} prozesu parte-hartzailea"
+        export: "%{user_name} parte-hartzaileak esportatu du %{resource_name} prozesu parte-hartzailea"
+        import: "%{user_name} parte-hartzaileak inportatu du %{resource_name} prozesu parte-hartzailea"
+        publish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} prozesu parte-hartzailea"
+        unpublish: "%{user_name} parte-hartzaileak despublikatu du %{resource_name} prozesu parte-hartzailea"
         update: "%{user_name} k %{resource_name} partehartze prozesua eguneratu du"
       participatory_process_group:
-        create: "%{user_name} k sortu du %{resource_name} prozesu parte-hartzaileen multzoa"
-        update: "%{user_name} k eguneratu du %{resource_name} prozesu parte-hartzaileen multzoa"
+        create: "%{user_name} parte-hartzaileak sortu du %{resource_name} prozesu parte-hartzaileen multzoa"
+        update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} prozesu parte-hartzaileen multzoa"
       participatory_process_step:
-        activate: "%{user_name} k %{resource_name} urratsa aktibatu du %{space_name} prozesu parte-hartzailean"
-        create: "%{user_name} k %{resource_name} fasea lortu du %{space_name} prozesu parte-hartzailean"
-        delete: "%{user_name} k %{resource_name} fasea ezabatu du %{space_name} prozesu parte-hartzailean"
-        update: "%{user_name} k %{resource_name} fasea eguneratu du %{space_name} prozesu parte-hartzailean"
+        activate: "%{user_name} parte-hartzaileak %{resource_name} urratsa aktibatu du %{space_name} prozesu parte-hartzailean"
+        create: "%{user_name} parte-hartzaileak %{resource_name} fasea lortu du %{space_name} prozesu parte-hartzailean"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} fasea ezabatu du %{space_name} prozesu parte-hartzailean"
+        update: "%{user_name} parte-hartzaileak %{resource_name} fasea eguneratu du %{space_name} prozesu parte-hartzailean"
       participatory_process_type:
-        create: "%{user_name} k sortu du %{resource_name} prozesu parte-hartzaile mota"
-        delete: "%{user_name} k ezabatu du %{resource_name} prozesu parte-hartzaile mota"
-        update: "%{user_name} k eguneratu du %{resource_name} prozesu parte-hartzaile mota"
+        create: "%{user_name} parte-hartzaileak sortu du %{resource_name} prozesu parte-hartzaile mota"
+        delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} prozesu parte-hartzaile mota"
+        update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} prozesu parte-hartzaile mota"
       participatory_process_user_role:
-        create: "%{user_name} k %{resource_name} parte-hartzailea gonbidatu du %{space_name} parte hartze-prozesura"
-        delete: "%{user_name} k %{resource_name} parte-hartzailea kendu du %{space_name} prozesu parte-hartzailetik"
-        update: "%{user_name} k %{resource_name} parte-hartzailearen rola aldatu du %{space_name} prozesu parte-hartzailean"
+        create: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea gonbidatu du %{space_name} parte hartze-prozesura"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea kendu du %{space_name} prozesu parte-hartzailetik"
+        update: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailearen rola aldatu du %{space_name} prozesu parte-hartzailean"
     events:
       participatory_process:
         role_assigned:
