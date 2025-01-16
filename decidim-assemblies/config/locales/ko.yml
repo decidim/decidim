@@ -38,11 +38,6 @@ ko:
       assembly_imports:
         new:
           import: 가져오기
-      assembly_members:
-        edit:
-          update: 업데이트
-        new:
-          create: 생성하기
       assembly_user_roles:
         edit:
           update: 업데이트
@@ -50,7 +45,6 @@ ko:
           create: 생성하기
       menu:
         assemblies_submenu:
-          assembly_members: 구성원들
           attachment_collections: 폴더
           attachment_files: 파일
           attachments: 첨부 파일
@@ -58,9 +52,6 @@ ko:
           components: 구성요소
       models:
         assembly_member:
-          fields:
-            designation_date: 지정된 날짜
-            full_name: 이름
           name: 멤버
         assembly_user_role:
           fields:

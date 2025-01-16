@@ -222,7 +222,7 @@ de:
         committee_requests:
           index:
             approve: Genehmigen
-            confirm_revoke: Sind Sie sicher?
+            confirm_revoke: Sind Sie sich sicher?
             invite_to_committee_help: Teilen Sie diesen Link, um andere Teilnehmer zum Unterstützungskomitee einzuladen.
             no_members_yet: Es gibt keine Mitglieder im Unterstützungskomitee.
             revoke: Widerrufen
@@ -529,9 +529,7 @@ de:
           phone_number: Telefonnummer
           place_date: Ort, Datum
           postal_code: Postleitzahl
-          print: Drucken
           province: Bundesland
-          section: 'Falls von der Organisation angefragt, drucken Sie bitte dieses Formular aus und füllen Sie es aus, um dort einzureichen, wo angegeben wurde:'
           signature: Unterschrift
         result:
           answer_title: Diese Initiative wurde beantwortet.
@@ -553,7 +551,6 @@ de:
           other: " Signaturen"
         vote_cabin:
           already_voted: Schon unterschrieben
-          verification_required: Bestätigen Sie Ihr Konto, um die Initiative zu unterzeichnen
           vote: Signieren
           votes_blocked: Die Anmeldung ist deaktiviert
         votes_count:
@@ -606,7 +603,6 @@ de:
           comment: Kommentar
       initiatives_type:
         actions:
-          create: Erstellen
           title: Aktionen
           vote: Abstimmung
   layouts:

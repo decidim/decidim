@@ -1,25 +1,37 @@
 <% unless attachment_collection.unused? %>
-<button id="dropdown-documents-trigger-<%= attachment_collection.id %>" class="documents__collection-trigger" data-component="dropdown" data-target="dropdown-menu-documents-<%= attachment_collection.id %>" aria-expanded="false">
-  <span>
-    <span class="documents__collection-trigger__icon">
-      <%= icon "folder-line" %>
-      <%= icon "folder-open-line" %>
-    </span>
-    <%= decidim_escape_translated(attachment_collection.name) %>
-  </span>
-  <%= icon "arrow-down-s-fill" %>
-  <%= icon "arrow-up-s-fill" %>
-</button>
+<div class="documents__dropdown-container">
+  <button id="dropdown-documents-trigger-<%= attachment_collection.id %>" class="documents__collection-trigger" data-component="dropdown" data-target="dropdown-menu-documents-<%= attachment_collection.id %>" aria-expanded="false">
+   <div class="documents-details">
+      <span>
+        <span class="documents__collection-trigger__icon">
+          <%= icon "folder-line" %>
+          <%= icon "folder-open-line" %>
+        </span>
+        <%= decidim_escape_translated(attachment_collection.name) %>
+      </span>
 
-<div id="dropdown-menu-documents-<%= attachment_collection.id %>" class="documents__collection-content" aria-hidden="true">
-  <% if (description = attachment_collection.description).present? %>
-    <p><%= decidim_escape_translated(description) %></p>
-  <% end %>
+      <div class="card__list-metadata">
+        <div><%= icon "file-text-line" %><%= t("decidim.documents", count: documents.count) %></div>
+        <% sum = 0
+           documents.each { |document| sum += document.file_size.to_i } %>
+        <div><%= icon "scales-2-line" %><%= number_to_human_size(sum) %></div>
+      </div>
+    </div>
 
-  <div class="documents__container">
-    <% documents.each do |document| %>
-      <%= render partial: "decidim/application/document", formats: [:html], locals: { document: } %>
+    <%= icon "arrow-down-s-fill" %>
+    <%= icon "arrow-up-s-fill" %>
+  </button>
+
+  <div id="dropdown-menu-documents-<%= attachment_collection.id %>" class="documents__collection-content" aria-hidden="true">
+    <% if (description = attachment_collection.description).present? %>
+      <p><%= decidim_escape_translated(description) %></p>
     <% end %>
+
+    <div class="documents__container">
+      <% documents.each do |document| %>
+        <%= render partial: "decidim/application/document", formats: [:html], locals: { document: } %>
+      <% end %>
+    </div>
   </div>
 </div>
 <% end %>

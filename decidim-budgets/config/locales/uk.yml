@@ -2,8 +2,6 @@ uk:
   activemodel:
     attributes:
       project:
-        decidim_category_id: Категорія
-        decidim_scope_id: Обсяг
         description: Опис
         proposal_ids: Супутні пропозиції
         title: Назва
@@ -19,8 +17,6 @@ uk:
       actions:
         attachment_collections: Теки
         attachments: Вкладені файли
-        confirm_destroy: Ви дійсно бажаєте видалити цей проект?
-        destroy: Видалити
         edit: Редагувати
         import: Внести до проектів запозичені пропозиції
         preview: Попередній перегляд
@@ -76,8 +72,6 @@ uk:
             many: "%{count} проектів"
             other: "%{count} проектів"
         filters:
-          category: Категорія
-          scope: Обсяг
           search: Шукати
         project_budget_button:
           added: Додано

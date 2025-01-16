@@ -26,7 +26,7 @@ describe "Admin manages assemblies" do
 
       it "hides the private user menu entry" do
         within_admin_sidebar_menu do
-          expect(page).to have_content("Private participants")
+          expect(page).to have_content("Members")
         end
       end
     end
@@ -36,7 +36,7 @@ describe "Admin manages assemblies" do
 
       it "shows the private user menu entry" do
         within_admin_sidebar_menu do
-          expect(page).to have_no_content("Private participants")
+          expect(page).to have_no_content("Members")
         end
       end
     end
@@ -98,8 +98,7 @@ describe "Admin manages assemblies" do
       expect(last_assembly.taxonomies).to contain_exactly(taxonomy)
 
       within "[data-content]" do
-        expect(page).to have_current_path decidim_admin_assemblies.assemblies_path(q: { parent_id_eq: parent_assembly&.id })
-        expect(page).to have_content(translated(attributes[:title]))
+        expect(page).to have_current_path decidim_admin_assemblies.components_path(last_assembly)
       end
 
       visit decidim_admin.root_path
@@ -192,7 +191,7 @@ describe "Admin manages assemblies" do
     end
   end
 
-  context "when managing child assemblies" do
+  context "when navigating child assemblies" do
     let!(:parent_assembly) { create(:assembly, organization:) }
     let!(:child_assembly) { create(:assembly, :with_content_blocks, organization:, parent: parent_assembly, blocks_manifests: [:announcement]) }
     let(:assembly) { child_assembly }
@@ -201,24 +200,23 @@ describe "Admin manages assemblies" do
       switch_to_host(organization.host)
       login_as user, scope: :user
       visit decidim_admin_assemblies.assemblies_path
-      within "tr", text: translated(parent_assembly.title) do
-        click_on "Assemblies"
-      end
     end
 
-    it_behaves_like "manage assemblies"
-    it_behaves_like "creating an assembly"
-    it_behaves_like "manage assemblies announcements"
-
     describe "listing child assemblies" do
-      it_behaves_like "filtering collection by published/unpublished" do
-        let!(:published_space) { child_assembly }
-        let!(:unpublished_space) { create(:assembly, :unpublished, parent: parent_assembly, organization:) }
-      end
+      it "expands the parent assembly" do
+        expect(page).to have_no_content(translated(child_assembly.title))
 
-      it_behaves_like "filtering collection by private/public" do
-        let!(:public_space) { child_assembly }
-        let!(:private_space) { create(:assembly, :private, parent: parent_assembly, organization:) }
+        within "tr", text: translated(parent_assembly.title) do
+          find("a[data-arrow-down]").click
+        end
+
+        expect(page).to have_content(translated(child_assembly.title))
+
+        within "tr", text: translated(parent_assembly.title) do
+          find("a[data-arrow-up]").click
+        end
+
+        expect(page).to have_no_content(translated(child_assembly.title))
       end
     end
   end

@@ -86,7 +86,6 @@ zh-CN:
           categories: 类别管理
           components: 组件
           moderations: 版面
-          private_users: 私人参与者
           process_admins: 进程管理员
           steps: 阶段
       models:

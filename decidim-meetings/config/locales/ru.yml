@@ -130,8 +130,6 @@ ru:
         attachment_collections: Папки
         attachments: Прикрепленные файлы
         close: Закрыть
-        confirm_destroy: Вы действительно хотите удалить эту встречу?
-        destroy: Удалить
         edit: Редактировать
         preview: Предпросмотр
         registrations: Регистрации
@@ -188,8 +186,6 @@ ru:
             close: Закрыть
             title: Закрыть встречу
         meetings:
-          destroy:
-            success: Встреча успешно удалена
           edit:
             update: Обновить
           index:

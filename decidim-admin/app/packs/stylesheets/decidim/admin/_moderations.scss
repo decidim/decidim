@@ -29,6 +29,14 @@
     list-style: none;
     margin: 0;
 
+    li a {
+      @apply flex items-center;
+
+      svg {
+        @apply ml-1;
+      }
+    }
+
     .icon {
       @apply ml-2;
     }

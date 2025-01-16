@@ -1,0 +1,14 @@
+<div class="card-accordion" data-component="accordion">
+  <div class="card-accordion-divider">
+    <button class="card-accordion-divider-button" data-open="<%= open_accordion ||= false %>" data-controls="panel-title--<%= panel_id %>" type="button">
+      <h2 class="card-accordion-title" id="title">
+        <%= title %>
+      </h2>
+      <%= icon "arrow-down-s-line", class: "mb-4" %>
+    </button>
+  </div>
+
+  <div id="panel-title--<%= panel_id %>" class="card-accordion-section editor-content" aria-hidden="true">
+    <%= yield %>
+  </div>
+</div>

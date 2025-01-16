@@ -91,6 +91,7 @@ ca:
       actions:
         activate: Activar
         configure: Configurar
+        confirm_delete_process: Segur que vols esborrar aquest procés? Si canvies d'opinió, el pots restaurar més endavant.
         confirm_destroy: Confirma l'eliminació
         destroy: Suprimeix
         duplicate: Duplicar
@@ -108,6 +109,7 @@ ca:
         resend_invitation: Reenviar la invitació
         see_process: Veure el procés
         unpublish: Despublicar
+        view_deleted_processes: Veure els processos eliminats
       filters:
         decidim_participatory_process_group_id_eq:
           label: Per grup de processos
@@ -127,7 +129,7 @@ ca:
           info: Quant a aquest procés
           landing_page: Pàgina d'inici
           moderations: Moderacions
-          private_users: Participants privades
+          private_users: Membres
           process_admins: Administradores del procés
           steps: Fases del procés
       models:
@@ -169,6 +171,7 @@ ca:
           fields:
             invitation_accepted_at: Invitació acceptada el
             invitation_sent_at: Invitació enviada el
+            published: Publicats
       participatory_process_copies:
         new:
           copy: Còpia
@@ -278,6 +281,8 @@ ca:
           public: Públic
           published: Publicat
           unpublished: Despublicat
+        manage_trash:
+          title: Processos participatius eliminats
         new:
           create: Crea
           title: Nou procés participatiu
@@ -296,6 +301,9 @@ ca:
         participatory_process_groups: Grups de processos participatius
         participatory_process_types: Tipus de processos participatius
         participatory_processes: Processos participatius
+        participatory_processes_deleted: Processos participatius eliminats
+      tooltips:
+        deleted_processes_info: Un procés només es poden eliminar si el seu estat és 'Despublicat'.
       users:
         resend_invitation:
           error: S'ha produït un error en reenviar la invitació.
@@ -307,6 +315,8 @@ ca:
         export: "%{user_name} ha exportat el procés participatiu %{resource_name}"
         import: "%{user_name} ha importat el procés participatiu %{resource_name}"
         publish: "%{user_name} ha publicat el procés participatiu %{resource_name}"
+        restore: "%{user_name} ha restaurat el procés participatiu \"%{resource_name}\""
+        soft_delete: "%{user_name} ha enviat a la paperera el procés participatiu \"%{resource_name}\""
         unpublish: "%{user_name} ha despublicat el procés participatiu %{resource_name}"
         update: "%{user_name} ha actualitzat el procés participatiu %{resource_name}"
       participatory_process_group:
@@ -325,6 +335,9 @@ ca:
         create: "%{user_name} ha convidat la participant %{resource_name} al procés participatiu %{space_name}"
         delete: "%{user_name} ha eliminat la participant %{resource_name} del procés participatiu %{space_name}"
         update: "%{user_name} ha canviat el rol de la participant %{resource_name} en el procés participatiu %{space_name}"
+    download_your_data:
+      show:
+        participatory_processes: Exportar els processos participatius
     events:
       participatory_process:
         role_assigned:
@@ -359,6 +372,38 @@ ca:
         description: Nombre de processos participatius d'aquesta organització
         object: processos participatius
         title: Processos participatius
+    open_data:
+      help:
+        participatory_processes:
+          announcement: La informació de l'anunci/avís (crida)
+          area: L'àrea a què pertany aquest procés
+          created_at: La data en què es va crear aquest procés participatiu
+          description: Una descripció llarga del procés
+          developer_group: El grup promotor del procés. Qui està promovent el procés.
+          end_date: La data de finalització del procés
+          follows_count: El número d'usuàries que segueixen aquest procés participatiu
+          hashtag: L'etiqueta que fa servir el procés a Twitter/X
+          id: L'identificador únic del procés
+          local_area: L'àrea d'organització del procés. Això és l'àrea d'organització de la qual depèn d'aquest procés.
+          meta_scope: Les metadades de l'àmbit territorial del procés
+          participatory_process_group: El grup de processos, si en forma part d'algun
+          participatory_process_type: El tipus de procés
+          participatory_scope: L'àmbit territorial de la participació del procés
+          participatory_structure: L'estructura participativa del procés. Això és com es decideix al procés.
+          promoted: Si el procés està destacat o no
+          published_at: La data en què es va publicar aquest procés participatiu
+          reference: La referència única del procés participatiu
+          remote_hero_image_url: L'URL de la imatge principal del procés
+          scope: L'àmbit territorial del procés
+          scopes_enabled: Si l'àmbit territorial està habilitat o no
+          short_description: Una descripció breu del procés
+          slug: El nom curt del procés (utilitzat per a finalitats d'identificació, per a l'URL)
+          start_date: La data d'inici del procés
+          subtitle: El subtítol del procés
+          target: Les destinatàries del procés. Qui està cridat a participar en el procés.
+          title: El títol del procés
+          updated_at: La data de la darrera actualització d'aquest procés participatiu
+          url: L'URL del procés participatiu
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -422,11 +467,14 @@ ca:
         participatory_processes:
           form:
             announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació del procés.
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
             filters: Filtres
             images: Imatges
             metadata: Metadades
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             other: Altres
+            private_notice: Podràs administrar les membres un cop haguis configurar l'espai com a privat
             related_processes: Processos relacionats
             scope_type_max_depth_help: Restringeix la profunditat del filtre d'àmbit. Es mostrarà des del filtre general fins al filtre seleccionat.
             select_an_area: Selecciona una àrea
@@ -498,6 +546,9 @@ ca:
           type: Tipus
         show:
           title: Quant a aquest procés
+      participatory_space_private_users:
+        index:
+          title: Membres
       show:
         belongs_to_group: Aquest procés pertany a
         private_space: Aquest és un procés privat
@@ -511,6 +562,8 @@ ca:
           browse: Explorar
           browse_resource: Explorar el grup de processos %{resource_name}
           processes_count: 'Processos:'
+      participatory_process_navigation:
+        member_menu_item: Membres
       participatory_processes:
         index:
           promoted_processes: Processos destacats

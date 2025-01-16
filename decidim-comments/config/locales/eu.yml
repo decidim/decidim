@@ -13,7 +13,7 @@ eu:
         one: Iruzkina
         other: Iruzkinak
       decidim/comments/comment_vote:
-        one: Bozkatu
+        one: Botoa
         other: Botoak
   decidim:
     comments:
@@ -38,7 +38,8 @@ eu:
           error: Arazo bat egon da iruzkina bozkatzean.
     components:
       add_comment_form:
-        account_message: Sortu kontu bat <a href="%{sign_in_url}">Log in</a> edo <a href="%{sign_up_url}"> </a> zure iruzkina gehitzeko.
+        account_message: Sartu edo sortu kontu bat zure iruzkina gehitzeko.
+        add_comment: Gehitu iruzkina
         form:
           body:
             label: Iruzkina
@@ -48,6 +49,7 @@ eu:
           submit_root_comment: Argitaratu iruzkina
           user_group_id:
             label: 'Egin iruzkina honako honen gisa:'
+            your_profile: Zure profila
         opinion:
           label: Zure iritzia gai honi buruz
           negative: Negatiboa
@@ -63,6 +65,9 @@ eu:
         alignment:
           against: Aurka
           in_favor: Alde
+        answers:
+          one: "%{count} erantzun"
+          other: "%{count} erantzun"
         cancel_reply: Ezeztatu erantzuna
         comment_label: Iruzkindu %{comment_id}
         comment_label_reply: Iruzkindu %{comment_id} (erantzun %{parent_comment_id} iruzkinei)
@@ -73,6 +78,9 @@ eu:
         deleted_user: Parte-hartzailea ezabatua
         edit: Editatu
         edited: Editatuta
+        hide_replies:
+          one: Ezkutatu erantzuna
+          other: Ezkutatu %{count} erantzun
         moderated_at: Iruzkina %{date}-an moderatu egin da
         reply: Erantzuna
         report:
@@ -88,8 +96,9 @@ eu:
           title: Jakinarazi eduki desegokia
         show_replies:
           one: Erakutsi erantzuna
-          other: Erakutsi %{count} erantzunak
+          other: Erakutsi %{count} erantzun
         single_comment_link_title: Lortu esteka
+        sort_by: 'Nork sortua:'
       comment_order_selector:
         order:
           best_rated: Balorazio onenak

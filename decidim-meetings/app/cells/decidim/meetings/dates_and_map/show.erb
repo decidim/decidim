@@ -15,9 +15,11 @@
     </div>
   </div>
 
-  <%= static_map %>
-
-  <% if online? %>
+  <% if display_map? %>
+    <%= static_map %>
+  <% elsif online? %>
     <%= cell("decidim/address", meeting, online: true) %>
+  <% else %>
+    <%= cell("decidim/address", meeting) %>
   <% end %>
 </div>

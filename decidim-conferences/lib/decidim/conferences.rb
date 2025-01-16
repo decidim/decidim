@@ -9,5 +9,6 @@ require "decidim/conferences/participatory_space"
 module Decidim
   # Base module for the conferences engine.
   module Conferences
+    autoload :ConferenceDiplomaPDF, "decidim/conferences/conference_diploma_pdf"
   end
 end

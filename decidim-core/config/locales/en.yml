@@ -4,10 +4,18 @@ en:
     attributes:
       account:
         delete_reason: Reason to delete your account
+      attachment:
+        documents: Documents
+        photos: Photos
       common:
         created_at: Created at
+      content_block_attachment:
+        background_image: Background image
+        main_image: Main image
       conversation:
         body: Body
+      editor_image:
+        file: File
       group:
         about: About
         avatar: Avatar
@@ -16,6 +24,8 @@ en:
         name: Name
         nickname: Nickname
         phone: Phone
+      import:
+        file: File
       message:
         body: Body
       report:
@@ -29,6 +39,7 @@ en:
         space_filter: Available as filter for participatory spaces
       user:
         about: About
+        avatar: Avatar
         email: Your email
         encrypted_password: Password
         locale: Locale
@@ -40,6 +51,8 @@ en:
         personal_url: Personal URL
         remove_avatar: Remove avatar
         tos_agreement: Terms of service agreement
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -242,6 +255,9 @@ en:
       impersonation_log:
         manage: "%{user_name} has managed %{resource_name} because %{reason}"
       moderation:
+        bulk_hide: "%{user_name} hid %{reported_count} resources"
+        bulk_unhide: "%{user_name} unhid %{reported_count} resources"
+        bulk_unreport: "%{user_name} unreported %{reported_count} resources"
         hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
         unreport: "%{user_name} unreported a resource of type %{resource_type} in the %{space_name} space"
       newsletter:
@@ -298,6 +314,9 @@ en:
         update_with_filter_items_count: "%{user_name} updated a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
       user:
         block: "%{user_name} blocked user %{resource_name}"
+        bulk_block: "%{user_name} blocked %{blocked_count} users"
+        bulk_ignore: "%{user_name} unreported %{unreported_users_count} users"
+        bulk_unblock: "%{user_name} unblocked %{unblocked_count} users"
         invite: "%{user_name} invited the participant %{resource_name} with role: %{role}"
         officialize: "%{user_name} officialized the participant %{resource_name}"
         promote: "%{user_name} has promoted %{resource_name}"
@@ -308,6 +327,9 @@ en:
         unofficialize: "%{user_name} unofficialized the participant %{resource_name}"
       user_group:
         block: "%{user_name} blocked user group %{resource_name}"
+        bulk_block: "%{user_name} blocked %{blocked_count} users"
+        bulk_ignore: "%{user_name} unreported %{unreported_users_count} users"
+        bulk_unblock: "%{user_name} unblocked %{unblocked_count} users"
         reject: "%{user_name} rejected the %{resource_name} group verification"
         unblock: "%{user_name} unblocked user group %{resource_name}"
         verify: "%{user_name} verified the group %{resource_name}"
@@ -434,7 +456,17 @@ en:
           scope_id: Scope
         name: Example authorization
       dummy_authorization_workflow:
+        explanation: Dummy authorization workflow
         name: Dummy authorization workflow
+      ephemeral_dummy_authorization_handler:
+        explanation: Get verified by introducing a document number ending with "X".
+        fields:
+          allowed_postal_codes: Allowed postal codes (separated by commas)
+          allowed_scope_id: Allowed scope
+          document_number: Document number
+          postal_code: Postal code
+          scope_id: Scope
+        name: Ephemeral example authorization
       errors:
         duplicate_authorization: A participant is already authorized with the same data. An administrator will contact you to verify your details.
       expired_at: Expired at %{timestamp}
@@ -650,6 +682,7 @@ en:
           sign_in_disabled: You can access with an external account.
           sign_up_disabled: Account creation is disabled, you can use an existing account to access.
         user:
+          ephemeral_session_closed: Your guest session has finished
           timed_out: You were inactive for too long and you have been automatically logged out from the service. If you would like to continue using the service, please log in again.
       shared:
         newsletter_modal:
@@ -676,6 +709,9 @@ en:
           show_password: Show password
           shown_password: Your password is shown
         placeholder_email: hi@example.org
+    documents:
+      one: "%{count} document"
+      other: "%{count} documents"
     doorkeeper:
       authorizations:
         new:
@@ -694,15 +730,90 @@ en:
     download_your_data:
       export:
         ready: Ready
+      help:
+        core:
+          description: These are the files with the personal data, contributions and activity from the user %{user_name}
+          title: Download your data files from %{organization}
+        follows:
+          created_at: The date and time when the follow was created
+          followable: The resource or space that is being followed
+          id: The unique identifier of this follow
+          updated_at: The date and time when the follow was last updated
+        identities:
+          created_at: The date and time when the identity was created
+          id: The unique identifier of this identity
+          provider: The provider of this identity
+          uid: The unique identifier of this identity
+          updated_at: The date and time when the identity was last updated
+          user: The user that this identity belongs to
+        messaging_conversations:
+          created_at: The date when this conversation was created
+          id: The unique identifier for this conversation
+          messages: The messages of this conversation
+          updated_at: The date when this converstaion was last updated
+        notifications:
+          created_at: The date and time when the notification was created
+          event_class: The class of the event that triggered the notification
+          event_name: The name of the event that triggered the notification
+          extra: Extra information of this notification
+          id: The unique identifier of this notification
+          resource_type: The type of the resource that the notification is related to
+          updated_at: The date and time when the notification was last updated
+        user_groups:
+          document_number: The document number of this user group
+          id: The unique identifier of this user group
+          name: The name of this user group
+          phone: The phone number of this user group
+          verified_at: The date and time when this user group was verified
+        users:
+          about: The biography of this user
+          admin: Whether this user is an administrator
+          confirmation_sent_at: The date and time when the confirmation was sent
+          confirmed_at: The date and time when this user was confirmed
+          created_at: The date and time when this user was created
+          current_sign_in_at: The date and time of the current login
+          current_sign_in_ip: The IP address of the current login
+          delete_reason: The reason given for deleting this user
+          deleted_at: The date and time when this user was deleted
+          email: The email address of this user
+          id: The unique identifier of this user
+          invitation_accepted_at: The date and time when the invitation was accepted
+          invitation_created_at: The date and time when this user was invited
+          invitation_sent_at: The date and time when the invitation was sent
+          invitations_count: The number of invitations sent to this user
+          invited_by: The user who invited this user
+          last_sign_in_at: The date and time of the last login
+          last_sign_in_ip: The IP address of the last login
+          locale: The locale (language) that this user has selected
+          managed: Whether this user is managed by another user
+          name: The name of this user
+          newsletter_notifications_at: The date and time when this user last received a newsletter
+          nickname: The nickname of this user
+          notification_settings: The notification settings that this user has selected
+          notifications_sending_frequency: The frequency of the notifications that this user receives
+          officialized_as: The name of the officialization (Counsellor, Mayor, etc)
+          officialized_at: The date and time when this user was officialized
+          organization: The organization that this user belongs to
+          personal_url: The personal URL of this user
+          remember_created_at: The date and time when the user was selected to be remembered
+          reset_password_sent_at: The date and time when the password reset was sent
+          sign_in_count: The number of times this user has logged in
+          unconfirmed_email: The email address that this user has not yet confirmed
+          updated_at: The date and time when this user was last updated
       show:
         action: Action
-        download: Download
-        download_data: Downloads area
+        download: Download file
+        download_data: Data download
         download_data_description_1: Here you can find all the downloads available for your account. These .zip files will be available during two weeks before being deleted.
         download_data_description_2: You can request a .zip file with your submissions and personal data.
         download_your_data: Personal data
         expiration: Expiration
         expired: Already expired
+        explanation:
+          body_1: These files are datasets exported from your activity in this platform, such as proposals, or comments. They provide raw, structured data that can be used for analysis, research, or integration with other tools
+          body_2: These files are in CSV (Comma-Separated Values) format, which is a widely-used file format that can be opened and processed by a variety of software applications, including spreadsheet programs, text editors, and data analysis tools.
+          title: What are these files?
+        files_to_download: Files to download
         request_data: Request
         type: Download type
     editor_images:
@@ -724,6 +835,7 @@ en:
       others: "%{count} more"
       title: Liked by
       you: you
+    ephemeral_user: Visitor
     errors:
       files:
         file_cannot_be_processed: File cannot be processed
@@ -791,6 +903,11 @@ en:
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
             email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'An emendation has been published for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An emendation from %{emendation_author_nickname} has been published as a new %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
@@ -956,7 +1073,7 @@ en:
         file:
           explanation: 'Guidance for file:'
           message_1: Has to be an image or a document.
-          message_2: For images, use preferably landscape images, the service crops the image.
+          message_2: If it is an image, it preferably be a landscape image that does not have any text. The service crops the image.
         icon:
           explanation: 'Guidance for icon:'
           message_1: Has to be a square image.
@@ -1239,6 +1356,8 @@ en:
         not_started: Not started yet
         remaining: "%{time_distance} remaining"
     metrics:
+      blocked_users:
+        description: Number of blocked participants
       download:
         csv: Download data (CSV)
       followers:
@@ -1249,6 +1368,10 @@ en:
         description: Number of active participants in organization
         object: participants
         title: Participants
+      reported_users:
+        description: Number of reported participants
+      user_reports:
+        description: Number of reports done by participants
       users:
         description: Number of participants in organization
         object: participants
@@ -1314,10 +1437,12 @@ en:
     notifications_digest_mailer:
       header:
         daily: Daily Notification Digest
+        real_time: Real time
         weekly: Weekly Notification Digest
       hello: Hello %{name},
       intro:
         daily: 'These are the notifications from the last day based on the activity you are following:'
+        real_time: 'These is a notification on the activity you are following:'
         weekly: 'These are the notifications from the last week based on the activity you are following:'
       outro: You have received these notifications because you are following this content or its authors. You can unfollow them from their respective pages.
       see_more: See more notifications
@@ -1356,6 +1481,16 @@ en:
         message_1: It looks like you are currently offline.
         message_2: Please, try again later.
         retry: Retry
+    onboarding_action_message:
+      click_link: Click here
+      cta_html: <a href="%{path}">%{link_text}</a> in order to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: You have been successfully authorized.<br/>You have started a guest session, you can now participate.
+      expired_authorization_active_title: Your authorization has expired.
+      finish_authorization_process: You can finish the authorization process
+      incomplete_authorization_active_title: Your verification has not been completed with all the necessary information.
+      pending_authorization_active_message: Please complete the form to proceed with this action.
+      pending_authorization_active_title: We need to verify your identity.
+      pending_ephemeral_authorization: Please verify your identity to proceed.
     open_data:
       help:
         core:
@@ -1364,6 +1499,11 @@ en:
           main: Core
           spaces: Spaces
           title: Open Data files for %{organization}
+        metrics:
+          cumulative: The total number of the metric at this day
+          day: The day this metric was created
+          metric_type: The type of the metric
+          quantity: The number of the metrics for this day
         moderated_users:
           about: The about field of the user
           block_reasons: The reason why the admin user blocked the user
@@ -1381,6 +1521,19 @@ en:
           reported_content: The content that has been reported
           reported_url: The url of the reported resource
           reports: A list of reasons for which the resource has been reported
+        taxonomies:
+          children_count: The count of the children that this taxonomy has
+          created_at: The date when this taxonomy was created
+          filter_items_count: The number of items filters that are using this taxonomy
+          filters_count: The number of filters that is using this taxonomy
+          id: The unique identifier of this taxonomy
+          is_root: True if this taxonomy do not have any parent
+          name: The name of this taxonomy
+          parent_id: The unique identifiers of this taxonomy parent (if any)
+          part_of: Used to detect if this taxonomy is part of another taxonomy
+          taxonomizations_count: The count of the resources that use this taxonomy
+          updated_at: The date when this taxonomy was updated for the last time
+          weight: The order in which this taxonomy is shown
         user_groups:
           avatar_url: The avatar of the user group
           badge: The badge of the user group
@@ -1693,6 +1846,7 @@ en:
       no_stats: There are no statistics yet.
       pages_count: Pages
       participants_count: Participants
+      surveys_count: Surveys
       users_count: Participants
     tags:
       filter_results_for_taxonomy: 'Filter results for: %{resource}'
@@ -2097,6 +2251,8 @@ en:
         sign_up: Create an account
         terms_of_service: Terms of Service
       header:
+        close: Close
+        confirm_close_ephemeral_session: If you navigate out of this page, your session will be closed. Are you sure?
         log_in: Log in
         main_menu: Main menu
         user_menu: User menu
@@ -2106,6 +2262,8 @@ en:
         expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
       language_chooser:
         choose_language: Choose language
+      navigation:
+        aria_label: Navigation menu- %{title}
       notifications_dashboard:
         mark_all_as_read: Mark all as read
         mark_as_read: Mark as read

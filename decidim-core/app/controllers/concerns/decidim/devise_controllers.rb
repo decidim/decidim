@@ -22,6 +22,7 @@ module Decidim
       include NeedsSnippets
       include UserBlockedChecker
       include ActiveStorage::SetCurrent
+      include Decidim::OnboardingActionMethods
 
       helper Decidim::TranslationsHelper
       helper Decidim::MetaTagsHelper
@@ -36,6 +37,7 @@ module Decidim
       helper Decidim::SocialShareButtonHelper
       helper Decidim::SanitizeHelper
       helper Decidim::ApplicationHelper
+      helper Decidim::OnboardingActionHelper
 
       layout "layouts/decidim/application"
 

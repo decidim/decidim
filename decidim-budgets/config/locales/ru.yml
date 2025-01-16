@@ -2,8 +2,6 @@ ru:
   activemodel:
     attributes:
       project:
-        decidim_category_id: Категория
-        decidim_scope_id: Охват
         description: Описание
         proposal_ids: Подобные предложения
         title: Название
@@ -19,8 +17,6 @@ ru:
       actions:
         attachment_collections: Папки
         attachments: Прикрепленные файлы
-        confirm_destroy: Вы действительно хотите удалить этот проект?
-        destroy: Удалить
         edit: Редактировать
         import: Внести в проекты позаимствованные предложения
         preview: Предпросмотр
@@ -76,8 +72,6 @@ ru:
             many: "%{count} проектов"
             other: "%{count} проектов"
         filters:
-          category: Категория
-          scope: Охват
           search: Поиск
         project_budget_button:
           add: Добавить

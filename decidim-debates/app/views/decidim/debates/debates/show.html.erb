@@ -53,6 +53,8 @@ edit_link(
     </div>
   </section>
 
+  <%= cell "decidim/tab_panels", tab_panel_items %>
+
   <% if debate.closed? || translated_attribute(debate.instructions).present? || translated_attribute(debate.information_updates).present? %>
     <section class="layout-main__section">
       <%= cell("decidim/announcement", { title: t("debate_conclusions_are", scope: "decidim.debates.debates.show", date: l(debate.closed_at, format: :decidim_short)), body: simple_format(translated_attribute(debate.conclusions)) }, callout_class: "success") if debate.closed? %>

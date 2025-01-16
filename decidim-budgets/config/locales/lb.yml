@@ -3,8 +3,6 @@ lb:
     attributes:
       project:
         budget_amount: Höhe des Budgets
-        decidim_category_id: Kategorie
-        decidim_scope_id: Umfang
         description: Beschreibung
         proposal_ids: Ähnliche Vorschläge
         selected: Zur Implementierung ausgewählt
@@ -19,8 +17,6 @@ lb:
       actions:
         attachment_collections: Ordner
         attachments: Anhänge
-        confirm_destroy: Möchten Sie dieses Projekt wirklich löschen?
-        destroy: Löschen
         edit: Bearbeiten
         edit_projects: Projekte verwalten
         import: Vorschläge in Projekte importieren
@@ -120,8 +116,6 @@ lb:
             one: 1 Projekt
             other: "%{count} Projekte"
         filters:
-          category: Kategorie
-          scope: Umfang
           search: Suche
           status: Status
           status_values:

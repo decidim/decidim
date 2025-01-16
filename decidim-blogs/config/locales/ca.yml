@@ -17,24 +17,25 @@ ca:
     blogs:
       actions:
         author_id: Crear publicació com
-        confirm_destroy: Segur que vols eliminar aquesta publicació?
-        destroy: Suprimeix
+        confirm_delete_post: Segur que vols eliminar aquesta publicació?
+        deleted_posts_info: Els resultats eliminats es poden restaurar des de la paperera.
         edit: Edita
         new: Nova publicació
         title: Accions
+        view_deleted_posts: Veure les publicacions eliminades
       admin:
         posts:
           create:
             invalid: S'ha produït un error en crear aquesta publicació.
             success: Publicació creada correctament.
-          destroy:
-            success: La publicació s'ha eliminat correctament.
           edit:
             save: Actualitza
             title: Editar publicació
           index:
             not_published_yet: No publicada encara.
             title: Publicacions
+          manage_trash:
+            title: Publicacions eliminades
           new:
             create: Crear
             title: Crea una publicació
@@ -45,6 +46,8 @@ ca:
         post:
           create: "%{user_name} ha creat el post %{resource_name} al blog de %{space_name}"
           delete: "%{user_name} ha eliminat el post %{resource_name} del blog de %{space_name}"
+          restore: "%{user_name} ha restaurat la publicació %{resource_name} al blog de %{space_name}"
+          soft_delete: "%{user_name} ha mogut la publicació %{resource_name} des del blog de %{space_name} a la paperera"
           update: "%{user_name} ha actualitzat el post %{resource_name} en el blog de %{space_name}"
       content_blocks:
         highlighted_posts:

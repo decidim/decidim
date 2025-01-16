@@ -17,6 +17,19 @@ module Decidim
       field :title, Decidim::Core::TranslatedFieldType, "The title for this post", null: true
       field :body, Decidim::Core::TranslatedFieldType, "The body of this post", null: true
       field :published_at, Decidim::Core::DateTimeType, "The time this page was published", null: false
+
+      def self.authorized?(object, context)
+        context[:post] = object
+
+        chain = [
+          allowed_to?(:read, :blogpost, object, context),
+          !object.hidden?
+        ].all?
+
+        super && chain
+      rescue Decidim::PermissionAction::PermissionNotSetError
+        false
+      end
     end
   end
 end

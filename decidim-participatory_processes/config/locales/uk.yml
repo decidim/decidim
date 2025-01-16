@@ -89,7 +89,6 @@ uk:
           categories: Категорії
           components: Складові
           moderations: Дії з модерації
-          private_users: Приватні учасники
           process_admins: Учасники руху
           steps: Кроки
       models:

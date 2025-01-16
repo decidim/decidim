@@ -588,8 +588,6 @@ sv:
       application_helper:
         filter_area_values:
           all: Alla
-        filter_category_values:
-          all: Alla
         filter_scope_values:
           all: Alla
     devise:
@@ -612,7 +610,7 @@ sv:
           already_have_an_account?: Har du redan ett konto?
           log_in: Logga in
           newsletter: Få enstaka nyhetsbrev med relevant information
-          newsletter_title: Kontakttillstånd
+          newsletter_title: Tillåtelse att kontakta mig
           sign_up: Skapa ett konto
           subtitle: Skapa ett konto för att delta i plattformen.
           terms: användarvillkoren
@@ -666,25 +664,17 @@ sv:
     download_your_data:
       export:
         ready: Klar
-      show:
-        download_data: Hämta data
-        download_data_description_html: |-
-          En fil som innehåller all information kopplad till ditt konto kommer att skickas till <strong>%{user_email}</strong>. Detta e-postmeddelande kommer att innehålla en .zip-fil och ett lösenord för att öppna den.<br/><br/>För att packa upp filen behöver du <a href="https://www.7-zip.org/">7-Zip</a> (för Windows) eller <a href="https://www.keka.io/">Keka</a> (för MacOS). Om du använder Linux, för det mesta kommer du att ha den installerad som standard. Om inte, kan du använda <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> eller <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Begär data
     editor_images:
       create:
         error: Fel vid uppladdning av bild.
         success: Bilden har laddats upp.
       drag_and_drop_help: Lägg till bilder genom att dra och släppa eller klistra in dem.
     endorsement_buttons_cell:
-      already_endorsed: Ogilla
       endorse: Gilla
     endorsements:
       identities:
         done: Klar
         select_identity: Välj identitet
-    endorsers_list:
-      endorsed_by: Gillad av…
     errors:
       files:
         file_cannot_be_processed: Filen kan inte bearbetas
@@ -857,10 +847,7 @@ sv:
           notification_title: Deltagaren %{name} (%{nickname}) har fått officiell status.
     export_mailer:
       download_your_data_export:
-        click_button: 'Hämta dina data genom att klicka på länkten.<br/>Filen kommer vara tillgänglig till och med %{date}.<br/>Du kan använda <a href="https://www.7-zip.org/">7-Zip</a> (för Windows), <a href="https://www.keka.io/en/">Keka</a> (för MacOS) eller <a href="https://peazip.github.io">PeaZip</a> (för Linux) för att öppna den. Lösenord: %{password}'
         download: Hämta
-      export:
-        ready: En komprimerad version av exporten är bifogad.
       subject: Din export "%{name}" är klar
     filters:
       linked_classes:
@@ -965,9 +952,9 @@ sv:
         index:
           badge_title: "%{name} märke"
           how: Hur kan du få det
-          page_description: Märken visar att du varit aktiv som deltagare på plattformen och deltagit i behandlingen. Medan du upptäcker, deltar och samverkar på plattformen får du olika märken. Här är listan med märken och hur du kan få dem.
+          page_description: Märkena visar att du varit en aktiv deltagare på plattformen. Genom att utforska, delta och samverka på plattformen får du olika märken. Här är alla märken och hur du kan få dem.
           title: Märken
-      description: Märken visar att du varit aktiv som deltagare på plattformen och deltagit i behandlingen. Medan du upptäcker, deltar och samverkar på plattformen får du olika märken.
+      description: Märkena visar att du varit en aktiv deltagare på plattformen. Genom att utforska, delta och samverka på plattformen får du olika märken.
       level: Nivå %{level}
       reached_top: Du har nått den högsta nivån för detta märke.
       title: Vilka är märkena?
@@ -1527,12 +1514,6 @@ sv:
         sign_up: Skapa ett konto
       mentions_modal:
         remove_recipient: Ta bort mottagare %{name}
-      participatory_space_filters:
-        filters:
-          area: Område
-          areas: Områden
-          scope: Indelning
-          select_an_area: Välj ett område
       progress: Framsteg
       public_participation:
         public_participation: Visa mitt deltagande offentligt
@@ -1561,11 +1542,6 @@ sv:
       pages_count: Sidor
       participants_count: Deltagare
       users_count: Deltagare
-    tags:
-      filter_results_for_category: 'Filtrera resultat för kategori: %{resource}'
-      filter_results_for_scope: 'Filtrera resultat: %{resource}'
-    taxonomies:
-      prompt: Välj från "%{name}"
     translation_bar:
       help_text: "<strong>Obs:</strong> Innehåll kan ha översatts automatiskt och inte vara 100% korrekt."
       show_original: Visa originaltexten
@@ -1750,7 +1726,7 @@ sv:
       already_signed_out: Du är utloggad.
       new:
         log_in: Logga in
-      signed_in: Loggade in.
+      signed_in: Du är inloggad.
       signed_out: Du är utloggad.
     shared:
       links:
@@ -1955,7 +1931,6 @@ sv:
         data_consent_settings: Inställningar för cookies
         decidim_logo: Decidims logotyp
         decidim_title: Decidim
-        download_open_data: Hämta öppna datafiler
         log_in: Logga in
         made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
         resources: Innehåll
@@ -2001,7 +1976,7 @@ sv:
         account: Konto
         authorizations: Auktoriseringar
         delete_my_account: Radera mitt konto
-        my_data: Mitt data
+        my_data: Min data
         my_interests: Mina intressen
         notifications_settings: Meddelandeinställningar
         profile: Profil

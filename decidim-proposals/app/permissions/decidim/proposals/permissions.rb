@@ -4,15 +4,16 @@ module Decidim
   module Proposals
     class Permissions < Decidim::DefaultPermissions
       def permissions
-        return permission_action unless user
-
         # Delegate the admin permission checks to the admin permissions class
         return Decidim::Proposals::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
         return permission_action if permission_action.scope != :public
 
+        toggle_allow(!proposal.hidden?) if permission_action.subject == :proposal && permission_action.action == :read
+        return permission_action unless user
+
         case permission_action.subject
         when :proposal
-          apply_proposal_permissions(permission_action)
+          apply_proposal_permissions(permission_action) unless permission_action.action == :read
         when :collaborative_draft
           apply_collaborative_draft_permissions(permission_action)
         when :proposal_coauthor_invites

@@ -2,10 +2,53 @@
 
 require "spec_helper"
 require "decidim/api/test/component_context"
-require "decidim/budgets/test/factories"
+require "decidim/surveys/test/factories"
 
 describe "Decidim::Api::QueryType" do
-  include_context "with a graphql decidim component"
+  include_context "with a graphql decidim component" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Surveys {
+        survey(id: #{survey.id}){
+          createdAt
+          id
+          questionnaire{
+            createdAt
+            description {
+              translation(locale:"#{locale}")
+            }
+            forType
+            id
+            questions {
+              answerOptions {
+                id
+                body { translation(locale:"#{locale}") }
+                freeText
+              }
+              body { translation(locale:"#{locale}") }
+              createdAt
+              description { translation(locale:"#{locale}") }
+              id
+              mandatory
+              maxChoices
+              position
+              questionType
+              updatedAt
+            }
+            title {
+              translation(locale:"#{locale}")
+            }
+            tos {
+              translation(locale:"#{locale}")
+            }
+            updatedAt
+          }
+          updatedAt
+        }
+      }
+)
+    end
+  end
 
   let(:component_type) { "Surveys" }
   let!(:current_component) { create(:surveys_component, participatory_space: participatory_process) }
@@ -124,57 +167,36 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "valid query" do
-    let(:component_fragment) do
-      %(
-      fragment fooComponent on Surveys {
-        survey(id: #{survey.id}){
-          createdAt
-          id
-          questionnaire{
-            createdAt
-            description {
-              translation(locale:"#{locale}")
-            }
-            # forEntity {
-            #   id
-            #   __typename
-            # }
-            forType
-            id
-            questions {
-              answerOptions {
-                id
-                body { translation(locale:"#{locale}") }
-                freeText
-              }
-              body { translation(locale:"#{locale}") }
-              createdAt
-              description { translation(locale:"#{locale}") }
-              id
-              mandatory
-              maxChoices
-              position
-              questionType
-              updatedAt
-            }
-            title {
-              translation(locale:"#{locale}")
-            }
-            tos {
-              translation(locale:"#{locale}")
-            }
-            updatedAt
-          }
-          updatedAt
-        }
-      }
-)
-    end
-
     it "executes successfully" do
       expect { response }.not_to raise_error
     end
 
     it { expect(response["participatoryProcess"]["components"].first["survey"]).to eq(survey_single_result) }
+  end
+
+  context "with resource visibility" do
+    include_examples "with resource visibility" do
+      let(:component_factory) { :surveys_component }
+      let(:lookout_key) { "survey" }
+      let(:query_result) { survey_single_result }
+
+      before do
+        step_settings = {}
+        if current_component.participatory_space.respond_to?(:active_step)
+          step_settings = {
+            current_component.participatory_space.active_step.id => {
+              allow_answers: true,
+              allow_unregistered: true
+            }
+          }
+        end
+
+        current_component.reload
+        current_component.update!(
+          step_settings:,
+          settings: { starts_at: 1.week.ago, ends_at: 1.day.from_now }
+        )
+      end
+    end
   end
 end

@@ -296,9 +296,6 @@ id:
     download_your_data:
       export:
         ready: Siap
-      show:
-        download_data: Unduh datanya
-        request_data: Meminta data
     errors:
       internal_server_error:
         title: Ada masalah dengan server kami
@@ -418,8 +415,6 @@ id:
     export_mailer:
       download_your_data_export:
         download: Unduh
-      export:
-        ready: Silakan temukan terlampir versi zip dari ekspor Anda.
       subject: Ekspor Anda "%{name}" sudah siap
     filters:
       linked_classes:
@@ -714,10 +709,6 @@ id:
         title: Laporkan masalah
       floating_help:
         help: Membantu
-      participatory_space_filters:
-        filters:
-          areas: Area
-          select_an_area: Pilih satu area
       reference:
         reference: 'Referensi: %{reference}'
       represent_user_group:
@@ -866,7 +857,6 @@ id:
       edit_link:
         edit: Edit
       footer:
-        download_open_data: Unduh file Open Data
         made_with_open_source: Situs web dibuat dengan <a target="_blank" href="https://github.com/decidim/decidim">perangkat lunak gratis</a>.
       impersonation_warning:
         close_session: Tutup sesi

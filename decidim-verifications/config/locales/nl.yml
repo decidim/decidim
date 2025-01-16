@@ -73,17 +73,6 @@ nl:
           unconfirmed: U moet uw e-mail bevestigen om uzelf te autoriseren.
         destroy:
           error: Er is een probleem opgetreden bij het verwijderen van de autorisatie.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Controleer tegen een ander voorbeeld van autorisatieaanduiding
-            csv_census: Controleer aan de hand van de ledenadministratie van de organisatie
-            dummy_authorization_handler: Verifieer met het voorbeeld van de autorisatieaanduiding
-            dummy_authorization_workflow: Controleer aan de hand van het machtigingsworkflow voorbeeld
-            id_documents: Wordt geverifieerd door uw identiteitsdocument te uploaden
-            postal_letter: Wordt geverifieerd door een verificatiecode te ontvangen via de post
-            sms: Wordt geverifieerd door een SMS-verificatiecode te ontvangen
-          title: Verifieer uw identiteit
-          verify_with_these_options: 'Dit zijn de beschikbare opties om uw identiteit te verifiëren:'
         index:
           expired_verification: Verificatie verlopen
           pending_verification: Verificatie in behandeling

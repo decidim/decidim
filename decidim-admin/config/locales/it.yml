@@ -255,9 +255,6 @@ it:
         create:
           error: Si è verificato un errore durante la creazione di questo componente.
           success: Componente creato con successo.
-        destroy:
-          error: C'è stato un errore nell'eliminare questo componente.
-          success: Componente cancellato con successo.
         edit:
           title: Modifica componente
           update: Aggiorna
@@ -307,8 +304,6 @@ it:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Categorie
         filter_label: Filtro
         invitation_accepted_at_present:
           label: Invito accettato
@@ -349,8 +344,6 @@ it:
           values:
             'false': Pubblicato
             'true': Non pubblicato (nascosto)
-        scope_id_eq:
-          label: Ambito tematico
         search_label: Ricerca
         search_placeholder:
           name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
@@ -496,12 +489,8 @@ it:
             plural: Plurale
         share_token:
           fields:
-            created_at: Creato il
             expires_at: Scade il
-            last_used_at: Ultimo utilizzo
             times_used: Volte usate
-            token: Token
-            user: Creata da
         static_page:
           fields:
             created_at: Creato il
@@ -707,10 +696,6 @@ it:
           title: Modifica permessi
         update:
           success: Autorizzazioni aggiornate correttamente.
-      resources:
-        index:
-          headers:
-            scope: Ambito
       scope_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di ambito.
@@ -742,15 +727,7 @@ it:
           success: OK, l'àmbito è stato aggiornato.
       share_tokens:
         actions:
-          confirm_destroy: Sei sicuro di voler eliminare questo token?
           destroy: Elimina
-          share: Condividi
-        destroy:
-          error: Si è verificato un problema durante la distruzione del token.
-          success: Token eliminato correttamente.
-        share_tokens:
-          help: Questi token sono utilizzati per condividere pubblicamente questa risorsa non pubblicata con qualsiasi utente. Saranno nascosti al momento della pubblicazione della risorsa. Clicca sull'icona di condivisione del token per visitare l'URL condivisibile.
-          title: Condividi token
       shared:
         gallery:
           add_images: Aggiungi immagini
@@ -790,8 +767,6 @@ it:
           without_topic: Pagine senza argomento
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa pagina.
-      taxonomies:
-        count: Conteggio
       titles:
         admin_log: Registro di amministrazione
         area_types: Tipi di ambito territoriale

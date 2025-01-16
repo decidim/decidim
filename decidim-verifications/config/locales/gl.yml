@@ -73,17 +73,6 @@ gl:
           unconfirmed: Debes confirmar o teu correo electrónico para autorizarte.
         destroy:
           error: Produciuse un problema ao eliminar a autorización.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Verifique contra outro exemplo de controlador de autorización
-            csv_census: Comprobe contra o censo da organización
-            dummy_authorization_handler: Verifique contra o controlador de autorización de exemplo
-            dummy_authorization_workflow: Verifique contra o fluxo de traballo de autorización de exemplo
-            id_documents: Verifique a carga do documento de identidade
-            postal_letter: Verifique a recepción dun código de verificación a través do correo postal
-            sms: Verifícate ao recibir un SMS co código de verificación
-          title: Verifica a túa identidade
-          verify_with_these_options: 'Estas son as opcións dispoñibles para verificar a súa identidade:'
         index:
           expired_verification: Verificación caducada
           pending_verification: Verificación pendente

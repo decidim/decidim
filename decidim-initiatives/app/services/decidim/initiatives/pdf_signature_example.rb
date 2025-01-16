@@ -50,8 +50,6 @@ module Decidim
       private
 
       def signature_widget(doc)
-        doc.pages.add.document
-
         form = doc.acro_form(create: true)
         form.signature_flag(:append_only)
 

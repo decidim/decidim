@@ -98,17 +98,6 @@ hu:
         destroy:
           error: Hiba történt a hitelesítés törlése során.
           success: Sikeresen törölte a jogosultságot.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Ellenőrizd az engedélykezelő másik példáját
-            csv_census: Ellenőrizze a szervezet névjegyzékében
-            dummy_authorization_handler: Ellenőrizze a példakezelési engedélyezőt
-            dummy_authorization_workflow: Ellenőrizd az engedélykezelő munkafolyamatát
-            id_documents: Töltsd fel személyazonosító okmányod az ellenőrzéshez
-            postal_letter: Igazold magad egy postai levél útján elküldött kód segítségével
-            sms: Hitelesítés SMS-ellenőrző kóddal
-          title: Igazold személyazonosságod
-          verify_with_these_options: 'Személyazonosságod ellenőrzésének különféle lehetőségei:'
         index:
           expired_verification: Hitelesítés lejárt
           granted_verification: Megadott igazolás

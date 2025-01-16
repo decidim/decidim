@@ -9,8 +9,6 @@ id:
   decidim:
     blogs:
       actions:
-        confirm_destroy: Anda yakin ingin menghapus posting ini?
-        destroy: Menghapus
         edit: Edit
         new: Berita Baru
         title: Tindakan

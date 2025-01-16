@@ -2,14 +2,11 @@ zh-CN:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: 范围
         description: 描述
         title: 标题
         total_budget: 预算总额
       project:
         budget_amount: 预算金额
-        decidim_category_id: 类别
-        decidim_scope_id: 范围
         description: 描述
         proposal_ids: 有关提议
         title: 标题
@@ -22,8 +19,6 @@ zh-CN:
       actions:
         attachment_collections: 文件夹
         attachments: 附件
-        confirm_destroy: 您确定要删除此项目吗？
-        destroy: 删除
         edit: 编辑
         edit_projects: 管理项目
         import: 导入提案到项目
@@ -115,8 +110,6 @@ zh-CN:
           projects_count:
             other: "%{count} 个项目"
         filters:
-          category: 类别
-          scope: 范围
           search: 搜索
           status: 状态
           status_values:

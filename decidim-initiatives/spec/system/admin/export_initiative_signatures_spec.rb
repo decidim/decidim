@@ -20,40 +20,7 @@ describe "Admin export initiatives' signature" do
     end
 
     click_on "Export PDF of signatures"
-    within "#confirm-modal-content" do
-      click_on "OK"
-    end
 
     expect(File.basename(download_path)).to include("votes_#{initiative.id}.pdf")
-  end
-
-  describe "`collect_user_extra_fields` setting" do
-    before do
-      visit decidim_admin_initiatives.export_pdf_signatures_initiative_path(initiative)
-    end
-
-    context "when it is disabled" do
-      let(:initiative_type) { create(:initiatives_type, organization:) }
-
-      it "does not show these columns in the PDF" do
-        within all(".initiatives-votes-table")[1] do
-          expect(page).to have_no_content "Name and surname"
-          expect(page).to have_no_content "Document number"
-          expect(page).to have_no_content "Date of birth"
-        end
-      end
-    end
-
-    context "when it is enabled" do
-      let(:initiative_type) { create(:initiatives_type, :with_user_extra_fields_collection, organization:) }
-
-      it "shows these columns in the PDF" do
-        within all(".initiatives-votes-table")[1] do
-          expect(page).to have_content "Name and surname"
-          expect(page).to have_content "Document number"
-          expect(page).to have_content "Date of birth"
-        end
-      end
-    end
   end
 end

@@ -11,11 +11,15 @@ describe Decidim::Debates::UpdateDebate do
   let(:user) { create(:user, organization:) }
   let(:author) { user }
   let!(:debate) { create(:debate, author:, component: current_component) }
+  let(:current_files) { debate.attachments }
+  let(:uploaded_files) { [] }
   let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }
   let(:form) do
     Decidim::Debates::DebateForm.from_params(
       title: "title",
       description: "description",
+      documents: current_files,
+      add_documents: uploaded_files,
       taxonomies:,
       id: debate.id
     ).with_context(
@@ -58,7 +62,7 @@ describe Decidim::Debates::UpdateDebate do
     end
   end
 
-  context "when everything is ok" do
+  describe "when everything is ok" do
     it "updates the debate" do
       expect do
         subject.call
@@ -105,6 +109,95 @@ describe Decidim::Debates::UpdateDebate do
       action_log = Decidim::ActionLog.last
       expect(action_log.version).to be_present
       expect(action_log.version.event).to eq "update"
+    end
+  end
+
+  describe "when debate with attachments" do
+    let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates", settings: { "attachments_allowed" => true }) }
+    let(:uploaded_files) do
+      [
+        { file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") },
+        { file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }
+      ]
+    end
+
+    it "updates the debate with attachments" do
+      expect do
+        subject.call
+        debate.reload
+      end.to change(debate.attachments, :count).by(2)
+
+      debate_attachments = debate.attachments
+      expect(debate_attachments.count).to eq(2)
+    end
+
+    context "when attachments are invalid" do
+      let(:uploaded_files) do
+        [
+          { file: upload_test_file(Decidim::Dev.test_file("participatory_text.odt", "application/vnd.oasis.opendocument.text")) }
+        ]
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+        expect { subject.call }.not_to change(Decidim::Debates::Debate, :count)
+        expect { subject.call }.not_to change(Decidim::Attachment, :count)
+      end
+    end
+  end
+
+  describe "when debate already has attachments" do
+    let!(:attachment1) { create(:attachment, attached_to: debate, weight: 1, file: file1) }
+    let!(:attachment2) { create(:attachment, attached_to: debate, weight: 2, file: file2) }
+    let(:file1) { upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") }
+    let(:file2) { upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }
+    let(:file3) { upload_test_file(Decidim::Dev.asset("city2.jpeg"), content_type: "image/jpeg") }
+
+    let(:uploaded_files) do
+      [
+        { file: file3 }
+      ]
+    end
+
+    it "adds new attachments and calculates correct weights" do
+      expect(debate.attachments.count).to eq(2)
+      expect(debate.attachments.map(&:weight)).to eq([1, 2])
+
+      expect do
+        subject.call
+        debate.reload
+      end.to change(debate.attachments, :count).by(1)
+
+      expect(debate.attachments.count).to eq(3)
+      expect(debate.attachments.map(&:weight)).to eq([1, 2, 3])
+    end
+  end
+
+  describe "when ActiveRecord::RecordInvalid is raised" do
+    before do
+      allow(debate).to receive(:update!).and_raise(ActiveRecord::RecordInvalid.new(debate))
+    end
+
+    it "broadcasts invalid" do
+      expect { subject.call }.to broadcast(:invalid)
+    end
+
+    it "does not update the debate" do
+      expect(debate.title.except("machine_translations").values.uniq).not_to eq ["title"]
+    end
+  end
+
+  describe "when Decidim::Commands::HookError is raised" do
+    subject { command_instance }
+
+    let(:command_instance) { described_class.new(form, debate) }
+
+    before do
+      allow(command_instance).to receive(:perform!).and_raise(Decidim::Commands::HookError)
+    end
+
+    it "broadcasts invalid" do
+      expect { subject.call }.to broadcast(:invalid)
     end
   end
 end

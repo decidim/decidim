@@ -29,7 +29,7 @@ fi-pl:
       decidim:
         accountability:
           result:
-            budget_text: Tulos %{link} liitettiin hankkeeseen
+            budget_text: Tulos %{link} liitettiin projektiin
             meetings_ids: 'Tuloksesta keskusteltiin tapaamisessa: %{link}'
             project_ids: 'Tulos liitettiin hankkeeseen: %{link}'
             proposal_ids: 'Tulos liitettiin ehdotukseen: %{link}'
@@ -42,7 +42,9 @@ fi-pl:
       actions:
         attachment_collections: Kansiot
         attachments: Liitteet
+        confirm_delete_result: Haluatko varmasti poistaa tämän tuloksen?
         confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
+        deleted_results_info: Poistetut tulokset voidaan palauttaa roskakorista.
         destroy: Poista
         edit: Muokkaa
         import: Tuo hankkeita toisesta komponentista
@@ -53,6 +55,7 @@ fi-pl:
         preview: Esikatsele
         timeline_entries: Projektin edistyminen
         title: Toiminnot
+        view_deleted_results: Näytä poistetut tulokset
       admin:
         exports:
           result_comments: Kommentit
@@ -107,18 +110,18 @@ fi-pl:
             success:
               one: 1 hanke on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu.
               other: "%{count} hanketta on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu."
-            title: Tuo hankkeita toisesta komponentista
+            title: Tuo projekteja toisesta komponentista
         results:
           create:
             invalid: Tuloksen luonti epäonnistui.
             success: Tuloksen luonti onnistui.
-          destroy:
-            success: Tuloksen poisto onnistui.
           edit:
             title: Muokkaa tulosta
             update: Päivitä tulos
           index:
             title: Tulokset
+          manage_trash:
+            title: Poistetut tulokset
           new:
             create: Luo tulos
             title: Uusi tulos
@@ -166,6 +169,8 @@ fi-pl:
         result:
           create: "%{user_name} loi tuloksen %{resource_name} tilassa %{space_name}"
           delete: "%{user_name} poisti tuloksen %{resource_name} tilassa %{space_name}"
+          restore: "%{user_name} palautti tuloksen %{resource_name} kohteessa %{space_name}"
+          soft_delete: "%{user_name} siirsi tuloksen %{resource_name} roskakoriin kohteessa %{space_name}"
           update: "%{user_name} päivitti tuloksen %{resource_name} tilassa %{space_name}"
         status:
           create: "%{user_name} loi tilan %{resource_name}"
@@ -202,14 +207,13 @@ fi-pl:
       models:
         result:
           fields:
-            category: Aihepiiri
             created_at: Luontiaika
             end_date: Päättymispäivä
             id: ID
             progress: Edistyminen
-            scope: Teema
             start_date: Alkamispäivä
             status: Tila
+            taxonomies: Luokittelut
             title: Otsikko
         status:
           fields:
@@ -226,18 +230,14 @@ fi-pl:
           results_count:
             one: 1 tulos
             other: "%{count} tulosta"
-        filters:
-          all: Kaikki
         home:
-          categories_label: Aihepiirit
           empty: Ei yhtään tulosta.
           empty_filters: Tuloksia ei löytynyt annetuilla hakuehdoilla.
-          subcategories_label: Ala-aihepiiri
+          sub_taxonomies_label: Ala-aihepiiri
+          taxonomies_label: Aihepiirit
         home_header:
           global_status: Yleisen toteutuksen tila
-        nav_breadcrumb:
-          global: Yleinen toteutus
-        no_results: Hankkeita ei ole saatavilla
+        no_results: Projekteja ei ole saatavilla
         search:
           search: Hae toimintoja
         show:
@@ -248,12 +248,10 @@ fi-pl:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Aihepiiri
-          scope_id_eq:
-            label: Teema
           status_id_eq:
             label: Tila
+          taxonomies_part_of_contains:
+            label: Luokittelu
     components:
       accountability:
         actions:
@@ -261,14 +259,24 @@ fi-pl:
         name: Vastuullisuus
         settings:
           global:
+            clear_all: Tyhjennä kaikki
             comments_enabled: Kommentointi käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             display_progress_enabled: Näytä edistyminen
+            geocoding_enabled: Karttatoiminnot käytössä
             intro: Esittelyteksti
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             scope_id: Teema
             scopes_enabled: Teemat käytössä
+            taxonomy_filters: Valitse suodattimet komponentille
+            taxonomy_filters_add: Lisää suodatin
           step:
             comments_blocked: Kommentointi estetty
+    download_your_data:
+      show:
+        result_comments: Tulosten kommenttien vienti
+        results: Tulosten vienti
     events:
       accountability:
         proposal_linked:
@@ -286,6 +294,41 @@ fi-pl:
         description: Luotujen tulosten lukumäärä
         object: tulokset
         title: Tulokset
+    open_data:
+      help:
+        result_comments:
+          alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
+          author: Kommentin laatijan nimi
+          body: Kommentin teksti
+          commentable_id: Kommentoitavan asian yksilöllinen tunniste
+          commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
+          created_at: Kommentin laatimisaika
+          depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
+          id: Kommentin yksilöllinen tunniste
+          locale: Kommentoijan valitsema kieliasetus sivustolla
+          root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
+          user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
+        results:
+          address: Tuloksen osoite (jos määritetty)
+          children_count: Alatulosten määrä
+          comments_count: Tuloksen saamien kommenttien määrä
+          component: Tuloksen komponentti
+          created_at: Tuloksen laatimisaika
+          description: Tuloksen kuvaus
+          end_date: Päivämäärä, jolloin tuloksen toteutus päättyy ja tulos valmistuu
+          id: Tuloksen yksilöllinen tunniste
+          latitude: Tuloksen sijainnin leveysaste, mikäli tulos on määritetty tiettyyn paikkaan
+          longitude: Tuloksen sijainnin pituusaste, mikäli tulos on määritetty tiettyyn paikkaan
+          parent: Tuloksen isäntä, jos tulos on alitulos
+          progress: Tuloksen toimeenpanon valmistumisprosentti
+          proposal_urls: Tähän tulokseen sisällytettyjen ehdotusten URL-osoitteet
+          reference: Tuloksen yksilöllinen viite
+          start_date: Päivämäärä, jolloin tuloksen toteutus alkaa
+          status: Tuloksen tämänhetkinen tila
+          taxonomies: Tuloksen luokittelut
+          title: Tuloksen otsikko
+          updated_at: Tuloksen viimeisen päivityksen aika
+          url: URL-osoite tulokseen
     participatory_spaces:
       highlighted_results:
         see_all: Näytä kaikki (%{count} kpl)

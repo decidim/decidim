@@ -114,4 +114,62 @@ describe "Admin manages global moderations" do
       expect(page).to have_css("tbody tr", count: 1)
     end
   end
+
+  context "when performing bulk actions" do
+    let!(:reportables) { create_list(:dummy_resource, 4, component: current_component) }
+    let!(:moderations) do
+      reportables.first(3).map do |reportable|
+        moderation = create(:moderation, reportable:, report_count: 1, reported_content: reportable.reported_searchable_content_text)
+        create(:report, moderation:)
+        moderation
+      end
+    end
+    let!(:moderation) { moderations.first }
+    let!(:hidden_moderations) do
+      moderation = create(:moderation, reportable: reportables.last, report_count: 3, reported_content: reportables.last.reported_searchable_content_text, hidden_at: Time.current)
+      create_list(:report, 3, moderation:, reason: :spam)
+      [moderation]
+    end
+
+    it "hides the selected reported content" do
+      visit decidim_admin.moderations_path
+      click_on "Not hidden"
+      find_by_id("moderations_bulk").set(true)
+      expect(page).to have_content("Reported content 3")
+      click_on "Actions"
+      within "#js-bulk-actions-dropdown" do
+        click_on "Hide"
+      end
+      expect(page).to have_content("Hide selected resources")
+      click_on "Hide selected resources"
+      expect(page).to have_content("Resources successfully hidden")
+    end
+
+    it "unreports the selected reported content" do
+      visit decidim_admin.moderations_path
+      find_by_id("moderations_bulk").set(true)
+      expect(page).to have_content("Reported content 3")
+      click_on "Actions"
+      within "#js-bulk-actions-dropdown" do
+        click_on "Unreport"
+      end
+      expect(page).to have_content("Unreport selected resources")
+      click_on "Unreport selected resources"
+      expect(page).to have_content("Resources successfully unreported")
+    end
+
+    it "unhides the selected reported content" do
+      visit decidim_admin.moderations_path
+      click_on "Hidden"
+      find_by_id("moderations_bulk").set(true)
+      expect(page).to have_content("Reported content 1")
+      click_on "Actions"
+      within "#js-bulk-actions-dropdown" do
+        click_on "Unhide"
+      end
+      expect(page).to have_content("Unhide selected resources")
+      click_on "Unhide selected resources"
+      expect(page).to have_content("Resources successfully unhidden")
+    end
+  end
 end

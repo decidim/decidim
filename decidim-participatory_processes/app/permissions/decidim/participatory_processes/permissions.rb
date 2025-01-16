@@ -17,6 +17,7 @@ module Decidim
         if permission_action.scope == :public
           public_list_processes_action?
           public_list_process_groups_action?
+          public_list_members_action?
           public_read_process_group_action?
           public_read_process_action?
           return permission_action
@@ -98,6 +99,13 @@ module Decidim
       def public_list_process_groups_action?
         return unless permission_action.action == :list &&
                       permission_action.subject == :process_group
+
+        allow!
+      end
+
+      def public_list_members_action?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :members
 
         allow!
       end
@@ -231,7 +239,6 @@ module Decidim
         is_allowed = [
           :attachment,
           :attachment_collection,
-          :category,
           :component,
           :component_data,
           :moderation,
@@ -251,7 +258,6 @@ module Decidim
         is_allowed = [
           :attachment,
           :attachment_collection,
-          :category,
           :component,
           :component_data,
           :moderation,

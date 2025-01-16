@@ -2,15 +2,12 @@ lt:
   activemodel:
     attributes:
       debate:
-        category_id: Kategorija
         closed_at: Uždaryta
         conclusions: Išvados
-        decidim_category_id: Kategorija
         description: Aprašymas
         end_time: Biagiasi
         information_updates: Informacijos atnaujinimai
         instructions: Dalyvavimo instrukcija
-        scope_id: Sritis
         start_time: Prasideda
         title: Pavadinimas
         user_group_id: Sukurti diskusiją kaip
@@ -31,7 +28,6 @@ lt:
       debates:
         actions:
           comment: Komentaras
-          create: Sukurti
           endorse: Pritarti
         name: Diskusijos
         settings:
@@ -50,8 +46,6 @@ lt:
     debates:
       actions:
         close: Uždaryti
-        confirm_destroy: Ar esate tikri?
-        destroy: Ištrinti
         edit: Redaguoti
         title: Veiksmai
       admin:
@@ -63,8 +57,6 @@ lt:
           create:
             invalid: Kuriant diskusiją iškilo problema.
             success: Diskusija sukurta.
-          destroy:
-            success: Diskusija pašalinta.
           edit:
             title: Redaguoti diskusiją
             update: Atnaujinti diskusiją
@@ -80,8 +72,6 @@ lt:
           update:
             invalid: Atnaujinant šią diskusiją iškilo problema.
             success: Diskusija atnaujinta.
-        exports:
-          comments: Komentarai
       admin_log:
         debate:
           close: "%{user_name} uždarė %{resource_name} diskusiją %{space_name} erdvėje"
@@ -126,8 +116,6 @@ lt:
             closed: Uždaryta
             open: Atidaryta
           user_group: Grupės
-        form:
-          select_a_category: Pasirinkite kategoriją
         index:
           new_debate: Nauja diskusija
         new:
@@ -141,11 +129,9 @@ lt:
           recent: Naujausia
           updated: Neseniai atnaujinta
         show:
-          close_debate: Uždaryti diskusiją
           debate_closed: Uždaryta
           debate_conclusions_are: 'Diskusija uždaryta %{date} ir padarytos šios išvados:'
           edit_conclusions: Keisti išvadas
-          edit_debate: Redaguoti diskusiją
           groups_count: Grupės
           open: Atverti diskusiją
           participants_count: Dalyviai

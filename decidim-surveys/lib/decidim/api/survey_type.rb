@@ -9,6 +9,15 @@ module Decidim
       field :created_at, Decidim::Core::DateTimeType, "The time this survey was created", null: true
       field :updated_at, Decidim::Core::DateTimeType, "The time this survey was updated", null: true
       field :questionnaire, Decidim::Forms::QuestionnaireType, "The questionnaire for this survey", null: true
+
+      def self.authorized?(object, context)
+        context[:survey] = object
+        context[:current_settings] = object.component.current_settings
+
+        super
+      rescue Decidim::PermissionAction::PermissionNotSetError
+        false
+      end
     end
   end
 end

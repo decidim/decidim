@@ -17,11 +17,11 @@ module Decidim
         components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
 
         [
-          *(if participatory_space.members.not_ceased.any?
+          *(if participatory_space.members_public_page?
               [{
                 name: t("assembly_member_menu_item", scope: "layouts.decidim.assembly_navigation"),
-                url: decidim_assemblies.assembly_assembly_members_path(participatory_space),
-                active: is_active_link?(decidim_assemblies.assembly_assembly_members_path(participatory_space), :inclusive)
+                url: decidim_assemblies.assembly_participatory_space_private_users_path(participatory_space),
+                active: is_active_link?(decidim_assemblies.assembly_participatory_space_private_users_path(participatory_space), :inclusive)
               }]
             end
            )
@@ -31,7 +31,7 @@ module Decidim
             url: main_component_path(component),
             active: is_active_link?(main_component_path(component), :inclusive)
           }
-        end
+        end.compact
       end
     end
   end

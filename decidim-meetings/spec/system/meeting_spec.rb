@@ -107,10 +107,11 @@ describe "Meeting", download: true do
     context "and meeting is in_person" do
       let(:meeting) { create(:meeting, :published, :with_services, component:) }
 
-      it "hides the map section" do
+      it "hides the map section but displays address" do
         visit_meeting
 
         expect(page).to have_no_css("div.meeting__calendar-container .static-map")
+        expect(page).to have_css("div.meeting__calendar-container .address__container")
       end
     end
 

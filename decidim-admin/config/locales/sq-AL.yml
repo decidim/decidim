@@ -249,8 +249,6 @@ sq:
           JSON: JSON
         notice: Eksportimi është duke u kryer. Do të merrni një email kur të ketë perfunduar.
       filters:
-        category_id_eq:
-          label: Kategori
         filter_label: Filtra
         invitation_accepted_at_present:
           label: Ftesa u pranua
@@ -294,8 +292,6 @@ sq:
           values:
             'false': Publikuar
             'true': E papublikuar
-        scope_id_eq:
-          label: Qëllimi
         search_label: Kërko
         state_eq:
           label: Gjendja
@@ -395,11 +391,8 @@ sq:
             plural: Shumës
         share_token:
           fields:
-            created_at: Krijuar më
             expires_at: Skadon më
-            last_used_at: Hera e fundit që u përdor
             times_used: Sa herë është përdorur
-            token: Token
       moderated_users:
         index:
           reason: Arsyeja
@@ -503,7 +496,6 @@ sq:
       share_tokens:
         actions:
           destroy: Fshi
-          share: Shpërndaj
       static_page_topics:
         edit:
           title: Përpuno temën

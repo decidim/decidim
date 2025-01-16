@@ -2,15 +2,12 @@ pt:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Âmbito
         description: Descrição
         title: Título
         total_budget: Orçamento total
         weight: Posição de ordenamento
       project:
         budget_amount: Valor do orçamento
-        decidim_category_id: Categoria
-        decidim_scope_id: Âmbito
         description: Descrição
         proposal_ids: Propostas relacionadas
         selected: Seleccionado para implementação
@@ -25,8 +22,6 @@ pt:
       actions:
         attachment_collections: Pastas
         attachments: Anexos
-        confirm_destroy: Tem certeza de que deseja eliminar este projeto?
-        destroy: Eliminar
         edit: Editar
         edit_projects: Gerir projectos
         import: Importar propostas para projetos
@@ -131,8 +126,6 @@ pt:
             one: 1 projeto
             other: "%{count} projetos"
         filters:
-          category: Categoria
-          scope: Âmbito
           search: Pesquisar
           status: Estado
           status_values:

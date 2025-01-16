@@ -7,6 +7,6 @@
 <p><%= t("decidim.verifications.id_documents.authorizations.choose.choose_a_type") %></p>
 
 <div class="mt-4 flex justify-between">
-  <%= link_to t("decidim.verifications.id_documents.authorizations.choose.offline"), { action: :new, using: :offline }, class: "button button__sm md:button__lg button__transparent-secondary" %>
-  <%= link_to t("decidim.verifications.id_documents.authorizations.choose.online"), { action: :new, using: :online }, class: "button button__sm md:button__lg button__secondary" %>
+  <%= link_to t("decidim.verifications.id_documents.authorizations.choose.offline"), { action: :new, using: :offline, redirect_url: }.compact, class: "button button__sm md:button__lg button__transparent-secondary" %>
+  <%= link_to t("decidim.verifications.id_documents.authorizations.choose.online"), { action: :new, using: :online, redirect_url: }.compact, class: "button button__sm md:button__lg button__secondary" %>
 </div>

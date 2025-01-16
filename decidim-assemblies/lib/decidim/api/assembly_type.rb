@@ -58,7 +58,6 @@ module Decidim
       field :github_handler, String, "GitHub handler", null: true
       field :announcement, Decidim::Core::TranslatedFieldType, "Highlighted announcement for this assembly", null: true
 
-      field :members, [Decidim::Assemblies::AssemblyMemberType, { null: true }], "Members of this assembly", null: false
       field :children, [Decidim::Assemblies::AssemblyType, { null: true }], "Children of this assembly", null: false
 
       def hero_image

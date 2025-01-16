@@ -54,14 +54,25 @@ module Decidim
 
       describe "forEntity" do
         let(:query) { "{ forEntity { id } }" }
-        let(:meeting) { create(:meeting) }
 
         before do
           model.update(questionnaire_for: meeting)
         end
 
-        it "returns the questionnaire's entity corresponding to questionnaire_for_id" do
-          expect(response["forEntity"]["id"]).to eq(model.questionnaire_for.id.to_s)
+        context "when meeting is published" do
+          let(:meeting) { create(:meeting, :published) }
+
+          it "returns the questionnaire's entity corresponding to questionnaire_for_id" do
+            expect(response["forEntity"]["id"]).to eq(model.questionnaire_for.id.to_s)
+          end
+        end
+
+        context "when meeting is no published" do
+          let(:meeting) { create(:meeting) }
+
+          it "returns the questionnaire's entity corresponding to questionnaire_for_id" do
+            expect(response["forEntity"]).to be_nil
+          end
         end
       end
     end

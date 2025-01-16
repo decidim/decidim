@@ -27,6 +27,10 @@ module Decidim
       redirect_to profile_activity_path(nickname: params[:nickname])
     end
 
+    def tooltip
+      render json: { data: cell("decidim/author", profile_holder.presenter).profile_minicard }
+    end
+
     def following
       @content_cell = "decidim/following"
       @title_key = "following"

@@ -98,7 +98,7 @@ describe "Edit proposals" do
             click_on "Edit documents"
             within ".upload-modal" do
               expect(page).to have_content("Has to be an image or a document")
-              expect(page).to have_content("For images, use preferably landscape images, the service crops the image")
+              expect(page).to have_content("If it is an image, it preferably be a landscape image that does not have any text. The service crops the image.")
               within "[data-filename='city.jpeg']" do
                 find("input[type='text']").set(attachment_image_title)
               end
@@ -304,7 +304,7 @@ describe "Edit proposals" do
 
         within "form.edit_proposal" do
           fill_in :proposal_title, with: "A title with a #hashtag"
-          fill_in :proposal_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL"
+          fill_in :proposal_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL or a COLLABORATIVE DRAFT"
         end
         click_on "Send"
 

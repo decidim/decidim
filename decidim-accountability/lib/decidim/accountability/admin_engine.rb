@@ -19,6 +19,12 @@ module Decidim
             patch :restore
           end
 
+          collection do
+            post :update_taxonomies, controller: "results_bulk_actions"
+            post :update_status, controller: "results_bulk_actions"
+            post :update_dates, controller: "results_bulk_actions"
+          end
+
           get :proposals_picker, on: :collection
           get :manage_trash, on: :collection
 

@@ -21,6 +21,11 @@ es:
         details: Comentarios adicionales
       taxonomy:
         name: Nombre de la taxonomía
+      taxonomy_filter:
+        internal_name: Nombre interno del filtro
+        name: Título púlbico del filtro
+        root_taxonomy_id: Desde la taxonomía
+        space_filter: Disponible como filtro para espacios de participación
       user:
         about: Acerca de
         email: Tu correo electrónico
@@ -167,6 +172,7 @@ es:
         error: Se ha producido un error al eliminar tu cuenta.
         success: Tu cuenta se ha eliminado correctamente.
       download_your_data_export:
+        export_expired: La exportación ha caducado. Intenta generar una nueva exportación.
         file_no_exists: El archivo no existe
         notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
       email_change:
@@ -221,6 +227,8 @@ es:
         delete: "%{user_name} eliminó el componente %{resource_name} del espacio %{space_name}"
         export_component: "%{user_name} ha exportado %{resource_name} %{component_name} en %{space_name} como %{format_name}"
         publish: "%{user_name} publicó el componente %{resource_name} en el espacio %{space_name}"
+        restore: "%{user_name} restauró el componente %{resource_name} en el espacio %{space_name}"
+        soft_delete: "%{user_name} ha movido el componente %{resource_name} del espacio %{space_name} a la papelera"
         unpublish: "%{user_name} ha despublicado el componente %{resource_name} del espacio %{space_name}"
         update_permissions_with_space: "%{user_name} ha actualizado los permisos de %{resource_name} en %{space_name}"
       contextual_help_section:
@@ -262,6 +270,13 @@ es:
         create: "%{user_name} ha creado el tipo de ámbito %{resource_name}"
         delete: "%{user_name} ha eliminado el tipo de ámbito %{resource_name}"
         update: "%{user_name} ha actualizado el tipo de ámbito %{resource_name}"
+      share_token:
+        create: "%{user_name} ha creado un enlace de acceso en %{space_name}"
+        create_with_space: "%{user_name} ha creado un enlace de acceso para %{resource_name} en %{space_name}"
+        delete: "%{user_name} ha eliminado un enlace de acceso en %{space_name}"
+        delete_with_space: "%{user_name} ha eliminado un enlace de acceso para%{resource_name} en %{space_name}"
+        update: "%{user_name} ha actualizado un enlace de acceso en %{space_name}"
+        update_with_space: "%{user_name} ha actualizado un enlace de acceso para %{resource_name} en %{space_name}"
       static_page:
         create: "%{user_name} creó la página estática %{resource_name}"
         delete: "%{user_name} eliminó la página estática %{resource_name}"
@@ -415,6 +430,7 @@ es:
           scope_id: Ámbito
         name: Autorización de ejemplo
       dummy_authorization_workflow:
+        explanation: Ejemplo de flujo de verificación
         name: Flujo de trabajo de autorización de ejemplo
       errors:
         duplicate_authorization: Ya hay una participante autorizada con los mismos datos. Una administradora se pondrá en contacto contigo para verificar tus datos.
@@ -499,13 +515,16 @@ es:
             amendments_enabled: Enmiendas habilitadas
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             dummy_global_attribute1: Atributo de prueba 1
             dummy_global_attribute2: Atributo de prueba 2
             dummy_global_translatable_text: Texto de ejemplo traducible
             enable_pads_creation: Habilitar la creación de pads
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             resources_permissions_enabled: Permisos de recursos habilitados
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
+            taxonomy_filters: Seleccionar filtros para el componente
           step:
             amendment_creation_enabled: Creación de enmienda activada
             amendment_promotion_enabled: Promoción de enmienda activada
@@ -590,10 +609,10 @@ es:
       application_helper:
         filter_area_values:
           all: Todas
-        filter_category_values:
-          all: Todas
         filter_scope_values:
           all: Todos
+        filter_taxonomy_values:
+          all: Todas
     devise:
       omniauth_registrations:
         create:
@@ -650,6 +669,9 @@ es:
           show_password: Mostrar contraseña
           shown_password: La contraseña es visible
         placeholder_email: hi@example.org
+    documents:
+      one: "%{count} documento"
+      other: "%{count} documentos"
     doorkeeper:
       authorizations:
         new:
@@ -669,26 +691,35 @@ es:
       export:
         ready: Listo
       show:
-        download_data: Descárgate los datos
-        download_data_description_html: |-
-          Se enviará un archivo con toda la información asociada a tu cuenta a <strong>%{user_email}</strong>.
-          Este correo electrónico contendrá un archivo .zip y una contraseña para abrirlo.<br/><br/>Para descomprimir el archivo, necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) o <a href="https://www.keka.io/">Keka</a> (para MacOS). Si usas Linux, la mayoría de las veces lo tendrás instalado por defecto. 
-          Si no, puedes utilizar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Solicita datos
+        action: Acción
+        download: Descargar
+        download_data: Área de descargas
+        download_data_description_1: Aquí puedes encontrar todas las descargas disponibles para tu cuenta. Estos archivos .zip estarán disponibles durante dos semanas antes de ser eliminados.
+        download_data_description_2: Puedes solicitar un archivo .zip con tus contribuciones e información personal.
+        download_your_data: Datos personales
+        expiration: Fecha de caducidad
+        expired: Ha caducado
+        request_data: Solicitar
+        type: Tipo de descarga
     editor_images:
       create:
         error: Error al subir la imagen.
         success: Imagen subida correctamente.
       drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
     endorsement_buttons_cell:
-      already_endorsed: No me gusta
+      already_endorsed: Deshacer el "Me gusta"
       endorse: Me gusta
     endorsements:
       identities:
         done: Hecho
         select_identity: Seleccionar identidad
     endorsers_list:
-      endorsed_by: Le gusta a…
+      endorsed_by:
+        one: Le gusta a %{visible}
+        other: Le gusta a %{visible} y a %{others}
+      others: "%{count} más"
+      title: Le ha gustado a
+      you: tú
     errors:
       files:
         file_cannot_be_processed: No se ha podido procesar el archivo
@@ -847,6 +878,9 @@ es:
         email_outro: Has recibido esta notificación porque estás siguiendo a "%{endorser_nickname}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
         email_subject: "%{endorser_nickname} se ha adherido a una propuesta"
         notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> se ha adherido a la propuesta <a href="%{resource_path}">%{resource_title}</a> (%{resource_type}).
+      resources:
+        soft_deleted:
+          notification_title: 'Una administradora ha eliminado tu %{resource_type}: "%{resource_title}".'
       users:
         profile_updated:
           email_intro: La página <a href="%{resource_url}"> de perfil </a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
@@ -860,10 +894,11 @@ es:
           notification_title: La participante %{name} (%{nickname}) ha sido oficializada.
     export_mailer:
       download_your_data_export:
-        click_button: 'Haz clic en el siguiente enlace para descargar tus datos.<br/>El archivo estará disponible hasta %{date}.<br/>Necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abrirlo. Contraseña: %{password}'
+        click_button_html: Haz clic en el siguiente enlace para descargar tus datos.<br/>El archivo estará disponible para su descarga hasta el %{date}.
         download: Descargar
       export:
-        ready: Se adjunta una versión comprimida de su exportación.
+        click_button_html: Tu descarga está lista. <br/>El archivo estará disponible para su descarga hasta el %{date}.
+        download: Descargar
       subject: Su exportación "%{name}" está lista
     filters:
       linked_classes:
@@ -1008,7 +1043,7 @@ es:
         success: Solicitud de unirse correctamente aceptada.
       actions:
         are_you_sure: '¿Seguro?'
-        promote_to_admin: Hacer administrador
+        promote_to_admin: Hacer administradora
         remove_from_group: Eliminar participante
       index:
         current_members_without_admins: 'Miembros actuales (sin administradores):'
@@ -1108,6 +1143,8 @@ es:
           not_found: 'El tipo de ámbito no se encontró en la base de datos (ID: %{id})'
         taxonomy_presenter:
           not_found: 'No se ha encontrado la taxonomía en la base de datos (ID: %{id})'
+    machine_translations:
+      automatic: traducción automática a %{locale_name}
     managed_users:
       expired_session: La sesión actual de administración de una participante ha caducado.
     map:
@@ -1196,7 +1233,7 @@ es:
         active: Activas
         finished: 'Terminado el: %{end_date}'
         not_started: Aún no ha comenzado
-        remaining: "queda %{time_distance}"
+        remaining: "Queda(n) %{time_distance}"
     metrics:
       download:
         csv: Descargar datos (CSV)
@@ -1315,7 +1352,112 @@ es:
         message_1: Parece que no tienes conexión a Internet.
         message_2: Por favor, inténtalo de nuevo más tarde.
         retry: Reintentar
+    onboarding_action_message:
+      click_link: Haz clic aquí
+      cta_html: <a href="%{path}">%{link_text}</a> para %{action} en %{resource_name} <strong>%{resource_title}</strong>
+      expired_authorization_active_title: Tu autorización ha expirado.
+      finish_authorization_process: Puedes terminar el proceso de verificación
+      incomplete_authorization_active_title: Tu verificación no se ha completado con toda la información necesaria.
+      pending_authorization_active_message: Por favor, complete el formulario para continuar con esta acción.
+      pending_authorization_active_title: Necesitamos verificar tu identidad.
     open_data:
+      help:
+        core:
+          components: Componentes
+          description: Este archivo ZIP contiene archivos para estudiar e investigar sobre esta plataforma de participación.
+          main: Núcleo
+          spaces: Espacios
+          title: Archivos de datos abiertos de %{organization}
+        metrics:
+          cumulative: El número total de métricas en este día
+          day: La fecha en la que se creó esta métrica
+          metric_type: El tipo de métrica
+          quantity: El número de métricas en este día
+        moderated_users:
+          about: El texto "Acerca de" incluido en el perfil de usuaria
+          block_reasons: La razón por la que administradora bloqueó a la usuaria
+          blocked_at: Fecha y hora en que la se bloqueó a la usuaria
+          blocking_user: El nombre de usuaria de la administradora que realizó el bloqueo
+          details: Los detalles de los informes de moderación
+          reasons: Una lista de las razones por las que se ha reportado el perfil de usuaria
+          user_id: El ID único de la usuaria reportada
+        moderations:
+          hidden_at: Fecha y hora en que se ocultó el contenido
+          id: El identificador único de la moderación
+          report_count: El número de veces que ha sido reportada
+          reportable_id: El identificador único de aquello que se podía reportar
+          reportable_type: Tipo de contenido reportado
+          reported_content: El contenido que fue reportado
+          reported_url: La URL del recurso que fue reportado
+          reports: Una lista de las razones por las que fue reportado el recurso
+        user_groups:
+          avatar_url: El avatar del grupo de usuarias
+          badge: La insignia del grupo de usuarias
+          deleted: Si el grupo de usuarias fue eliminado o no
+          id: El identificador único del grupo de usuarias
+          members: El ID y el nombre de las usuarias que pertenecen al grupo
+          members_count: El número de miembros que forman parte del grupo de usuarias
+          name: El nombre que se muestra del grupo de usuarias
+          nickname: El nombre de usuaria del grupo de usuarias
+          profile_url: La URL del perfil del grupo de usuarias
+        users:
+          about: El texto "Acerca de" incluido en el perfil de usuaria
+          avatar_url: El avatar de la usuaria
+          badge: La insignia de la usuaria
+          deleted: Si la usuaria fue eliminada o no
+          direct_messages_enabled: Si la usuaria permite mensajes directos o no
+          groups: El ID y el nombre del grupo de usuarias
+          id: El identificador único de la usuaria
+          name: El nombre que se muestra de la usuaria
+          nickname: El nombre de usuaria de la usuaria
+          profile_url: La URL del perfil de la usuaria
+      index:
+        description: Bienvenida a la página de datos abiertos %{organization_name}. Aquí encontrarás archivos de datos que se generan regularmente a partir de varios procesos deliberados y de gobernanza dentro de %{organization_name}. Estos archivos están disponibles para promover la transparencia, accesibilidad y colaboración. A continuación, encontrarás información detallada sobre cuáles son estos archivos, cómo abrir y trabajar con ellos, y una descripción del contenido y la estructura de cada archivo.
+        detailed:
+          body_1: 'A continuación se muestra una descripción de cada conjunto de datos, incluyendo su esquema (estructura) y el tipo de información que contiene:'
+          components: Componentes
+          spaces: Espacios de participación
+          title: Explicación detallada de cada archivo
+        download:
+          components: Componentes
+          core: Núcleo
+          spaces: Espacio participativo
+          title: Descargar recursos
+        download_open_data: Descargar todos los archivos de datos abiertos
+        download_resource: Descargar "%{resource_name}" en formato CSV
+        explanation:
+          body_1: Estos archivos son conjuntos de datos exportados desde los procesos participativos de %{organization_name}, como propuestas, comentarios y reuniones. Se proporcionan datos crudos y estructurados que pueden ser utilizados para el análisis, la investigación o la integración con otras herramientas. Los datos se actualizan automáticamente cada 24 horas, para asegurar tener acceso a la información más reciente posible.
+          body_2: Estos archivos están en formato CSV (valores separados por comas), un formato de archivo ampliamente utilizado que puede ser abierto y procesado por una variedad de aplicaciones de software, incluyendo programas de hojas de cálculo, editores de texto y herramientas de análisis de datos.
+          title: '¿Cuáles son estos archivos?'
+        how_to:
+          step_1:
+            body_html: Haz clic en los siguientes enlaces para descargar los archivos CSV en tu ordenador.
+            title: 1. Descargar los archivos
+          step_2:
+            body_html: |-
+              <ul>
+              <li><b>Hoja de cálculo</b>: Puedes abrir archivos CSV utilizando aplicaciones como Microsoft Excel, Hojas de Google, o LibreOffice Calc. Simplemente abre la aplicación, luego selecciona "Abrir" del menú Archivo, y elige el archivo CSV descargado.</li>
+              <li><b>Ediciones de texto</b>: también se pueden abrir archivos CSV en cualquier editor de texto, como Bloc de notas o Texto Sublime. Esto mostrará los datos crudos, con cada línea que representa una fila y cada valor separado por una coma.</li>
+              <li><b>Herramientas de análisis de datos</b>: Si estás familiarizada con herramientas de análisis de datos como Python (con pandas), R, o bases de datos SQL, puedes importar estos archivos CSV directamente para procesamiento y análisis.</li>
+              </ul>
+            title: 2. Abrir los archivos
+          step_3:
+            body_html: |-
+              <ul>
+              <li><b>Filtrar y ordenar</b>: En las aplicaciones de hoja de cálculo, puedes filtrar y ordenar los datos para centrarte en subconjuntos específicos de información.</li>
+              <li><b>Análisis</b>: Utiliza los datos para realizar varios análisis, como contar el número de propuestas, analizar tendencias en los comentarios o evaluar la participación en las reuniones.</li>
+              <li><b>Visualización</b>: Puedes crear gráficos, gráficos y otras visualizaciones para ayudar a interpretar los datos.</li>
+              </ul>
+            title: 3. Trabajando con los datos
+          title: Cómo abrir y trabajar con estos archivos
+        license:
+          body_1_html: Esta base de datos de "%{organization_name}" está disponible bajo %{link_database}. Cualquier derecho sobre los contenidos individuales de la base de datos está bajo la licencia %{link_contents}.
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
+          license_contents_name: Licencia de los contenidos en la base de datos
+          license_database_link: https://opendatacommons.org/licenses/odbl/1-0/
+          license_database_name: Licencia Abierta para bases de datos
+          title: Licencia
+        title: Datos abiertos
       not_available_yet: Los ficheros Open Data aún no están disponibles, inténtalo de nuevo en unos minutos.
     pad_iframe:
       disclaimer: Los contenidos de este pad están escritos por usuarios registrados y expresan sus opiniones. %{organization} no se hace responsable de su contenido.
@@ -1533,12 +1675,6 @@ es:
         sign_up: Crea una cuenta
       mentions_modal:
         remove_recipient: Eliminar destinataria %{name}
-      participatory_space_filters:
-        filters:
-          area: Área
-          areas: Áreas
-          scope: Ámbito
-          select_an_area: Selecciona una area
       progress: Progreso
       public_participation:
         public_participation: Mostrar mi asistencia públicamente
@@ -1568,10 +1704,9 @@ es:
       participants_count: Participantes
       users_count: Participantes
     tags:
-      filter_results_for_category: 'Resultados al filtrar por la categoría: %{resource}'
-      filter_results_for_scope: 'Resultados al filtrar por el ámbito: %{resource}'
+      filter_results_for_taxonomy: 'Resultados al filtrar por: %{resource}'
     taxonomies:
-      prompt: Seleccionar de "%{name}"
+      prompt: Por favor, selecciona una opción
     translation_bar:
       help_text: "<strong>Advertencia:</strong> El contenido puede ser traducido automáticamente y no ser 100% preciso."
       show_original: Mostrar el texto original
@@ -1963,9 +2098,9 @@ es:
         data_consent_settings: Configuración de cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
-        download_open_data: Descargar ficheros de datos abiertos
         log_in: Entra
         made_with_open_source: Web creada con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
+        open_data: Datos abiertos
         resources: Recursos
         sign_up: Crea una cuenta
         terms_of_service: Términos y condiciones de uso

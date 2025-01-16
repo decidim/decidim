@@ -100,8 +100,6 @@ ca:
             'false': No acceptada
             'true': Acceptada
         meetings:
-          category_id_eq:
-            label: Categoria
           closed_at_present:
             label: Estat
             values:
@@ -112,8 +110,8 @@ ca:
             values:
               'false': Passades
               'true': Properes
-          scope_id_eq:
-            label: Àmbit
+          taxonomies_part_of_contains:
+            label: Taxonomia
           with_any_origin:
             label: Origen
             values:
@@ -155,22 +153,31 @@ ca:
         settings:
           global:
             announcement: Avís
+            clear_all: Netejar-ho tot
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
             creation_enabled_for_participants: Les participants poden crear trobades
             default_registration_terms: Termes de registre per defecte
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             enable_pads_creation: Habilitar la creació de pads
             maps_enabled: Mapes habilitats
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             registration_code_enabled: Codi d'inscripció habilitat
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
+            taxonomy_filters: Seleccionar filtres pel component
+            taxonomy_filters_add: Afegir un filtre
             terms_and_conditions_url_for_meeting_creators: URL de termes i condicions per creadores de trobades
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
             creation_enabled_for_participants: Habilitar la creació de trobades per part de les participants
             creation_enabled_for_user_groups: Habilitar la creació de trobades per part dels grups d'usuàries
+    download_your_data:
+      show:
+        meeting_comments: Exportar els comentaris a les trobades
+        meetings: Exportar les trobades
     events:
       meetings:
         meeting_closed:
@@ -238,8 +245,8 @@ ca:
         attachment_collections: Carpetes
         attachments: Adjunts
         close: Tancar
-        confirm_destroy: Segur que vols suprimir aquesta trobada?
-        destroy: Esborra
+        confirm_delete_meeting: Segur que vols suprimir aquesta trobada?
+        deleted_meetings_info: Les trobades eliminades es poden restaurar des de la paperera.
         edit: Edita
         invalid_destroy:
           proposals_count:
@@ -250,6 +257,7 @@ ca:
         preview: Previsualitzar
         registrations: Inscripcions
         title: Accions
+        view_deleted_meetings: Veure les trobades eliminades
       admin:
         agenda:
           agenda_item:
@@ -314,15 +322,11 @@ ca:
           close:
             invalid: Hi ha hagut un problema en tancar aquesta trobada.
             success: Trobada tancada amb èxit.
+          component:
+            unlink: Suprimir l'enllaç
           create:
             invalid: S'ha produït un error en crear aquesta trobada.
             success: Trobada creada correctament. Tingues en compte que encara no s'ha publicat, hauràs de publicar-la manualment.
-          destroy:
-            invalid:
-              proposals_count:
-                one: No es pot esborrar la trobada perquè té %{count} proposta relacionada.
-                other: No es pot esborrar la trobada perquè té %{count} propostes relacionades.
-            success: La trobada s'ha eliminat correctament
           edit:
             title: Editar la trobada
             update: Actualitzar
@@ -338,7 +342,20 @@ ca:
             select_a_registration_type: Si us plau selecciona un tipus d'inscripció
             select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
           index:
+            linked_meeting_warning_html: Aquesta reunió s'ha d'editar des de <br><a href="%{href}">%{name}</a>
             title: Trobades
+          linked_spaces:
+            assign: Assignar
+            link_a_space: Vincular un espai
+            private_meeting_warning: Els espais enllaçats no s'aplicaran si la reunió és privada i no transparent.
+            private_space_warning: Els espais enllaçats no s'aplicaran quan la reunió pertanyi a un espai privat no transparent.
+            select: Selecciona un espai
+            table:
+              actions: Accions
+              component: Espais vinculats
+            title: Espais vinculats
+          manage_trash:
+            title: Trobades eliminades
           new:
             create: Crear
             title: Crear trobada
@@ -407,6 +424,8 @@ ca:
           create: "%{user_name} ha creat la trobada %{resource_name} a l'espai %{space_name}"
           delete: "%{user_name} ha eliminat la trobada %{resource_name} a l'espai %{space_name}"
           export_registrations: "%{user_name} ha exportat les inscripcions de la trobada %{resource_name} de l'espai %{space_name}"
+          restore: "%{user_name} ha restaurat la trobada %{resource_name} a l'espai %{space_name}"
+          soft_delete: "%{user_name} ha mogut la trobada %{resource_name} des de %{space_name} a la paperera"
           update: "%{user_name} ha actualitzat la trobada %{resource_name} a l'espai %{space_name}"
           value_types:
             organizer_presenter:
@@ -414,8 +433,6 @@ ca:
         questionnaire:
           update: "%{user_name} ha actualitzat el qüestionari per a la trobada %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: Totes
         filter_meeting_space_values:
           all: Totes
       calendar:
@@ -525,7 +542,6 @@ ca:
           location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici si es tracta d''una reunió presencial, o la contrasenya de la reunió si es tracta d''una reunió en línia amb accés restringit.'
           online_meeting_url_help: 'Enllaç: permetre que les participants es connectin directament a la teva trobada'
           registration_url_help: 'Enllaç: permetre a les participants anar al servei extern que estàs utilitzant per a les inscripcions'
-          select_a_category: Si us plau, selecciona una categoria
           select_a_meeting_type: Si us plau selecciona un tipus de trobada
           select_a_registration_type: Si us plau selecciona un tipus d'inscripció
           select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
@@ -536,9 +552,9 @@ ca:
           see_all_withdrawn: Veure totes les trobades cancel·lades
           text_banner: Estàs veient un llistat de trobades cancel·lades per les seves autores. %{go_back_link}.
         meeting:
-          close_meeting: Tancar la trobada
+          close_meeting: Tancar
           edit_close_meeting: Editar l'informe de la trobada
-          edit_meeting: Editar la trobada
+          edit_meeting: Editar
           join_meeting: Unir-se a la trobada
           reply_poll: Respondre sondeig/consulta
           view_poll: Veure sondeig/consulta
@@ -565,6 +581,7 @@ ca:
           micro_camera_permissions_warning: Quan facis clic en el botó de sota, se't demanaran permisos per al micròfon i/o la càmera, i t'uniràs a la videoconferència
           no_slots_available: No hi ha places disponible
           organizations: Organitzacions assistents
+          redirect_notice: Aquesta trobada pertany a un altre espai de participació, motiu pel qual se t'ha traslladat a %{current_space_name}.<br>Si ho prefereixes, pots tornar a <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: El teu codi de registre
           registration_state:
             validated: VALIDAT
@@ -575,7 +592,7 @@ ca:
           visit_finished: Veure trobada passada
           withdraw_btn_hint: Pots cancel·lar la teva trobada si canvies de parer. La trobada no s'elimina, apareixerà al llistat de trobades cancel·lades.
           withdraw_confirmation_html: Segur que vols cancel·lar aquesta trobada?<br><br><strong>Aquesta acció no es pot desfer!</strong>
-          withdraw_meeting: Cancel·lar trobada
+          withdraw_meeting: Retirar
         update:
           invalid: Hi ha hagut un problema en actualitzar aquesta trobada.
           success: Has actualitzat la trobada amb èxit.
@@ -598,6 +615,7 @@ ca:
             map: Mapa
             official_meeting: Trobada oficial
             start_time: Data d'inici
+            taxonomies: Taxonomies
             title: Títol
       polls:
         answers:
@@ -674,6 +692,45 @@ ca:
         description: Nombre de trobades creades
         object: trobades
         title: Trobades
+    open_data:
+      help:
+        meeting_comments:
+          alignment: Si aquest comentari va ser a favor, en contra o neutral
+          author: El nom d'usuària de la participant que va fer el comentari
+          body: El comentari pròpiament
+          commentable_id: L'identificador únic d'allò que es podia comentar
+          commentable_type: La tipologia d'allò sobre el que es va fer el comentari (si va ser un resultat, una proposta, etc.)
+          created_at: La data en què es va crear aquest comentari
+          depth: El lloc on es troba aquest comentari a la terna de comentaris (si és un comentari, una resposta a un comentari, o la resposta d'una resposta)
+          id: L'identificador id d'aquest comentari
+          locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
+          root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
+          user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
+        meetings:
+          address: L'adreça de la trobada en cas que aquesta sigui presencial i tingui una ubicació física
+          attachments: El nombre de fitxers adjunts en aquesta reunió
+          attendees: El número de persones que van assistir a la trobada
+          author: Les dades d'autoria d'aquesta trobada
+          comments: El número de comentaris en aquesta trobada
+          component: El component al qual pertany aquesta trobada
+          contributions: El número de contribucions realitzades en aquesta trobada per les assistents
+          description: La descripció de la trobada
+          end_time: La data i l'hora en què va finalitzar aquesta trobada
+          followers: El número de seguidores d'aquesta trobada
+          id: L'identificador únic de la trobada
+          location: La localització de la trobada
+          organizations: Les organitzacions que van assistir a aquesta trobada
+          participatory_space: A quin espai pertany aquesta trobada (procés participatiu, assemblea, etc.)
+          published: Quan es va publicar la trobada
+          reference: L'identificador únic del recurs a aquesta plataforma
+          related_proposals: Les propostes relacionades amb aquesta trobada
+          related_results: Els resultats relacionats amb aquesta trobada
+          start_time: La data i l'hora en què es va iniciar aquesta trobada
+          taxonomies: Les taxonomies a les quals pertany aquesta trobada
+          title: El títol de la trobada
+          url: L'URL de la trobada
+          withdrawn: Si aquesta trobada va ser retirada/cancel·lada
+          withdrawn_at: Quan va ser retirada/cancel·lada aquesta trobada
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Trobades anteriors
@@ -687,6 +744,7 @@ ca:
         meeting_proposal: 'Propostes relacionades:'
         proposal_meeting: 'Trobades relacionades:'
     statistics:
+      attendees_count: Assistents a la reunió
       meetings_count: Trobades
   devise:
     mailer:

@@ -25,7 +25,7 @@ module Decidim
         # Public: Whether the object can have new comments or not.
         def user_allowed_to_comment?(user)
           return true if user_has_any_role?(user, component.participatory_space)
-          return unless can_participate?(user)
+          return false unless can_participate?(user)
 
           ActionAuthorizer.new(user, "comment", component, self).authorize.ok?
         end

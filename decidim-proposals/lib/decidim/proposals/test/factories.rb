@@ -357,7 +357,7 @@ FactoryBot.define do
     trait :participant_author do
       after :build do |proposal, evaluator|
         proposal.coauthorships.clear
-        user = build(:user, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
+        user = build(:user, :confirmed, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
         proposal.coauthorships.build(author: user)
       end
     end
@@ -381,8 +381,8 @@ FactoryBot.define do
     trait :official_meeting do
       after :build do |proposal, evaluator|
         proposal.coauthorships.clear
-        component = build(:meeting_component, participatory_space: proposal.component.participatory_space, skip_injection: evaluator.skip_injection)
-        proposal.coauthorships.build(author: build(:meeting, component:, skip_injection: evaluator.skip_injection))
+        component = build(:meeting_component, :published, participatory_space: proposal.component.participatory_space, skip_injection: evaluator.skip_injection)
+        proposal.coauthorships.build(author: build(:meeting, :published, component:, skip_injection: evaluator.skip_injection))
       end
     end
 
@@ -445,7 +445,8 @@ FactoryBot.define do
     trait :with_endorsements do
       after :create do |proposal, evaluator|
         5.times.collect do
-          create(:endorsement, resource: proposal, author: build(:user, organization: proposal.participatory_space.organization, skip_injection: evaluator.skip_injection),
+          create(:endorsement, resource: proposal,
+                               author: build(:user, :confirmed, organization: proposal.participatory_space.organization, skip_injection: evaluator.skip_injection),
                                skip_injection: evaluator.skip_injection)
         end
       end
@@ -490,7 +491,7 @@ FactoryBot.define do
     end
     amendable { build(:proposal, skip_injection:) }
     emendation { build(:proposal, component: amendable.component, skip_injection:) }
-    amender { build(:user, organization: amendable.component.participatory_space.organization, skip_injection:) }
+    amender { build(:user, :confirmed, organization: amendable.component.participatory_space.organization, skip_injection:) }
     state { Decidim::Amendment::STATES.keys.sample }
   end
 

@@ -523,9 +523,7 @@ ja:
           phone_number: 電話番号
           place_date: 場所、日付
           postal_code: 郵便番号
-          print: 印刷
           province: 都道府県/州
-          section: '組織から要求された場合、印刷した紙に必要事項を記入して、指定の場所に送信してください:'
           signature: 署名
         result:
           answer_title: このイニシアチブに回答がありました。
@@ -546,7 +544,6 @@ ja:
           other: " 署名"
         vote_cabin:
           already_voted: 既に署名されています
-          verification_required: イニシアチブに署名するにはアカウントを確認してください
           vote: サイン
           votes_blocked: ログインが無効になっています
         votes_count:
@@ -592,13 +589,32 @@ ja:
         success: イニシアチブを更新しました。
     menu:
       initiatives: イニシアチブ
+    open_data:
+      help:
+        initiatives:
+          answer: このイニシアチブが受け取った回答 (もしあれば)
+          answer_url: 回答の URL (もしあれば)
+          answered_at: 回答の日時 (もしあれば)
+          area: このイニシアチブのエリア
+          authors: このイニシアチブの作成者
+          description: イニシアチブの説明
+          first_progress_notification_at: 最初の進捗通知の送信日時
+          hashtag: Twitter/Xで使用されるイニシアチブのハッシュタグ
+          scope: イニシアチブのスコープ
+          second_progress_notification_at: 2回目の進捗通知の送信日時
+          signature_end_date: 署名の収集期間の終了日時
+          signature_start_date: 署名の収集期間の開始日時
+          signature_type: 署名コレクションの種類（オンラインまたは対面）
+          signatures: このイニシアチブでの署名の数
+          state: このイニシアチブの現時点での状態
+          title: イニシアチブのタイトル
+          type: イニシアチブの種別
     resources:
       initiative:
         actions:
           comment: コメント
       initiatives_type:
         actions:
-          create: 作成
           title: アクション
           vote: サイン
   layouts:

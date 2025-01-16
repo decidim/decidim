@@ -2,15 +2,12 @@ pl:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Zakres
         description: Opis
         title: Tytuł
         total_budget: Całkowity budżet
         weight: Kolejność na stronie
       project:
         budget_amount: Kwota budżetu
-        decidim_category_id: Kategoria
-        decidim_scope_id: Zakres
         description: Opis
         proposal_ids: Powiązane propozycje
         proposals: Propozycje
@@ -29,10 +26,6 @@ pl:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Kategoria
-          scope_id_eq:
-            label: Zakres
           selected_at_null:
             label: Wybrane
             values:
@@ -42,8 +35,6 @@ pl:
       actions:
         attachment_collections: Foldery
         attachments: Załączniki
-        confirm_destroy: Czy na pewno chcesz usunąć ten projekt?
-        destroy: Usuń
         edit: Edytuj
         edit_projects: Zarządzaj budżetem
         import: Importuj propozycje do projektów
@@ -57,9 +48,6 @@ pl:
           create:
             invalid: Podczas tworzenia tego budżetu wystąpił błąd.
             success: Budżet został utworzony.
-          destroy:
-            invalid: Wystąpił błąd podczas usuwania budżetu.
-            success: Budżet został usunięty.
           edit:
             title: Edytuj budżet
             update: Aktualizuj budżet
@@ -86,8 +74,6 @@ pl:
           create:
             invalid: Podczas tworzenia tego projektu wystąpił błąd.
             success: Projekt został utworzony.
-          destroy:
-            success: Projekt został usunięty.
           edit:
             title: Edytuj projekt
             update: Aktualizuj
@@ -95,8 +81,6 @@ pl:
             actions: Działania
             cancel: Anuluj
             change_budget: Zmień budżet
-            change_category: Zmień kategorię
-            change_scope: Zmień zakres
             change_selected: Zmień wybrany status
             deselect_implementation: Odznacz ze wdrożenia
             finished_orders: Ukończone głosowania
@@ -109,7 +93,6 @@ pl:
             title: Projekty
             update: Aktualizuj
             update_budget_button: Aktualizuj budżet projektu
-            update_scope_button: Aktualizuj zakres
           new:
             create: Utwórz
             title: Nowy projekt
@@ -117,28 +100,10 @@ pl:
             invalid: Podczas aktualizacji tego projektu wystąpił błąd.
             success: Zaktualizowano projekt.
           update_budget:
-            invalid: 'Te projekty są już w tym samym budżecie lub ich budżety są większe niż maksymalny dozwolony: %{projects}.'
             select_a_project: Proszę wybrać projekt.
-            success: 'Projekty zaktualizowane do budżetu o nazwie %{subject_name}: %{projects}.'
-          update_category:
-            invalid: 'Te projekty już miały kategorię %{subject_name}: %{projects}.'
-            select_a_category: Proszę wybrać kategorię.
-            select_a_project: Proszę wybrać projekt.
-            success: 'Projekty zostały zaktualizowane do kategorii %{subject_name}: %{projects}.'
-          update_scope:
-            invalid: 'Te projekty już miały zakres %{subject_name}: %{projects}.'
-            select_a_project: Proszę wybrać projekt.
-            select_a_scope: Proszę wybrać zakres.
-            success: 'Projekty zostały zaktualizowane do zakresu o nazwie %{subject_name}: %{projects}.'
           update_selected:
-            invalid:
-              selected: 'Te projekty zostały już wybrane do wdrożenia: %{projects}.'
-              unselected: 'Te projekty zostały już odznaczone od wdrożenia: %{projects}.'
             select_a_project: Proszę wybrać projekt.
             select_a_selection: Proszę wybrać stan wdrożenia.
-            success:
-              selected: 'Te projekty zostały pomyślnie wybrane do wdrożenia: %{projects}.'
-              unselected: 'Te projekty zostały pomyślnie odznaczone od wdrożenia: %{projects}.'
         proposals_imports:
           create:
             invalid: Wystąpił błąd podczas importowania propozycji do projektów.
@@ -201,7 +166,6 @@ pl:
             total_budget: Całkowity budżet
         project:
           fields:
-            category: Kategoria
             id: Identyfikator
             map: Mapa
             title: Tytuł
@@ -247,8 +211,6 @@ pl:
           message: Twój głos nie został zarejestrowany, ponieważ nie ukończyłeś/aś jeszcze procesu głosowania. Czy na pewno chcesz zakończyć głosowanie?
           title: Jeszcze nie głosowałeś/aś
         filters:
-          category: Kategoria
-          scope: Zakres
           search: Szukaj
           status: Status
           status_values:

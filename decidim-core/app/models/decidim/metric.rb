@@ -9,6 +9,7 @@ module Decidim
     belongs_to :participatory_space, foreign_type: "participatory_space_type", polymorphic: true, optional: true
     belongs_to :related_object, foreign_type: "related_object_type", polymorphic: true, optional: true
     belongs_to :category, foreign_key: "decidim_category_id", class_name: "Decidim::Category", optional: true
+    belongs_to :taxonomy, foreign_key: "decidim_taxonomy_id", class_name: "Decidim::Taxonomy", optional: true
 
     validates :day, uniqueness: { scope:
                                   [
@@ -18,7 +19,8 @@ module Decidim
                                     :participatory_space_id,
                                     :related_object_type,
                                     :related_object_id,
-                                    :decidim_category_id
+                                    :decidim_category_id,
+                                    :decidim_taxonomy_id
                                   ] }
   end
 end

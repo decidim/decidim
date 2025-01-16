@@ -1,9 +1,20 @@
-<%= content_tag :div, id: "comment_#{model.id}", class: "comment relative", role: "comment", data: { comment_id: model.id, parent: parent_element_id } do %>
+<%= content_tag :div,
+                id: "comment_#{model.id}",
+                class: ["comment", "relative", ("top-comment" if top_comment_label.present?)].compact,
+                role: "comment",
+                data: { comment_id: model.id, parent: parent_element_id } do %>
   <% if model.hidden? %>
     <%= render :moderation_data %>
   <% elsif model.deleted? %>
     <%= render :deletion_data %>
   <% else %>
+    <% if top_comment_label.present? %>
+      <div class="most-upvoted-label label">
+        <span><%= icon "star-s-line" %></span>
+        <span><%= top_comment_label %></span>
+      </div>
+    <% end %>
+
     <div class="comment__header">
       <div class="sr-only"><%= comment_label %></div>
 
@@ -53,7 +64,7 @@
                 <% end %>
               </li>
             <% end %>
-            <% if(extra_actions) %>
+            <% if (extra_actions) %>
               <% extra_actions.each do |action| %>
                 <li>
                   <%= link_to(*action) %>

@@ -30,44 +30,6 @@ module Decidim
         I18n.t(state, scope: "decidim.initiatives.admin_states", default: :created)
       end
 
-      def authorized_create_modal_button(type, html_options, &)
-        tag = "button"
-        html_options ||= {}
-
-        if current_user
-          if action_authorized_to("create", permissions_holder: type).ok?
-            html_options["data-dialog-open"] = "not-authorized-modal"
-          else
-            html_options["data-dialog-open"] = "authorizationModal"
-            html_options["data-dialog-remote-url"] = authorization_create_modal_initiative_path(type)
-          end
-        else
-          html_options["data-dialog-open"] = "loginModal"
-        end
-
-        html_options["onclick"] = "event.preventDefault();"
-
-        send("#{tag}_to", "/", html_options, &)
-      end
-
-      def authorized_vote_modal_button(initiative, html_options, &)
-        return if current_user && action_authorized_to("vote", resource: initiative, permissions_holder: initiative.type).ok?
-
-        tag = "button"
-        html_options ||= {}
-
-        if current_user
-          html_options["data-dialog-open"] = "authorizationModal"
-          html_options["data-dialog-remote-url"] = authorization_sign_modal_initiative_path(initiative)
-        else
-          html_options["data-dialog-open"] = "loginModal"
-        end
-
-        html_options["onclick"] = "event.preventDefault();"
-
-        send("#{tag}_to", "/", html_options, &)
-      end
-
       def can_edit_custom_signature_end_date?(initiative)
         return false unless initiative.custom_signature_end_date_enabled?
 

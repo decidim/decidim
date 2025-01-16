@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = Decidim::Conferences.version
   s.authors = ["Isaac Massot Gil"]
   s.email = ["isaac.mg@coditramuntana.com"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
@@ -32,7 +32,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-core", Decidim::Conferences.version
   s.add_dependency "decidim-meetings", Decidim::Conferences.version
-  s.add_dependency "wicked_pdf", "~> 2.7"
 
   s.add_development_dependency "decidim-admin", Decidim::Conferences.version
   s.add_development_dependency "decidim-dev", Decidim::Conferences.version

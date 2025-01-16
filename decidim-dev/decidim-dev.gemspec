@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.version = Decidim::Dev.version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
@@ -42,13 +42,13 @@ Gem::Specification.new do |s|
   s.add_dependency "factory_bot_rails", "~> 6.2"
   s.add_dependency "faker", "~> 3.2"
 
-  s.add_dependency "bullet", "~> 7.1.6"
+  s.add_dependency "bullet", "~> 8.0.0"
   s.add_dependency "byebug", "~> 11.0"
-  s.add_dependency "erb_lint", "~> 0.6.0"
+  s.add_dependency "erb_lint", "~> 0.8.0"
   s.add_dependency "i18n-tasks", "~> 1.0"
   s.add_dependency "nokogiri", "~> 1.16", ">= 1.16.2"
   s.add_dependency "parallel_tests", "~> 4.2"
-  s.add_dependency "puma", "~> 6.2", ">= 6.3.1"
+  s.add_dependency "puma", "~> 6.5"
   s.add_dependency "rails-controller-testing", "~> 1.0"
   s.add_dependency "rspec", "~> 3.12"
   s.add_dependency "rspec-cells", "~> 0.3.7"
@@ -56,7 +56,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec_junit_formatter", "~> 0.6.0"
   s.add_dependency "rspec-rails", "~> 6.0"
   s.add_dependency "rspec-retry", "~> 0.6.2"
-  s.add_dependency "rubocop", "~> 1.65.0"
+  s.add_dependency "rubocop", "~> 1.69.0"
   s.add_dependency "rubocop-capybara", "~> 2.21"
   s.add_dependency "rubocop-factory_bot", "~> 2.26"
   s.add_dependency "rubocop-faker", "~> 1.1"

@@ -23,11 +23,6 @@ kaa:
       assembly_imports:
         new:
           import: Importlaw
-      assembly_members:
-        edit:
-          update: Jańalaw
-        new:
-          create: Jaratıw
       assembly_user_roles:
         edit:
           update: Jańalaw

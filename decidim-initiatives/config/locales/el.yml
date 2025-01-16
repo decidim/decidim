@@ -329,7 +329,6 @@ el:
           other: "υπογραφές"
         vote_cabin:
           already_voted: Έχει ήδη υπογραφεί
-          verification_required: Επαληθεύστε τον λογαριασμό σας για να υπογράψετε την πρωτοβουλία
           vote: Υπογραφή
           votes_blocked: Η υπογραφή απενεργοποιήθηκε
         votes_count:

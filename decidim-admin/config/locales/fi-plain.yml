@@ -184,6 +184,13 @@ fi-pl:
         browse: Selaa
         category:
           new: Uusi aihepiiri
+        confirm_delete_component: |
+          Haluatko varmasti poistaa tämän komponentin?<br>
+          Tämä komponentti sisältää:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} resurssia</li>
+          </ul>
+          Mikäli muutat mieltäsi, voit palauttaa tuloksen myöhemmin.
         export: Vie kaikki
         export-selection: Vie valitut
         import: Tuo
@@ -195,11 +202,15 @@ fi-pl:
         per_page: Per sivu
         permissions: Oikeudet
         reject: Hylkää
+        restore: Palauta
         send_me_a_test_email: Lähetä minulle testisähköposti
         share: Jaa
+        share_tokens: Pääsylinkit
+        soft_delete: Siirrä roskakoriin
         user:
           new: Uusi hallintakäyttäjä
         verify: Vahvista
+        view_deleted_components: Näytä poistetut komponentit
       admin_terms_of_service:
         accept:
           error: Hallintakäyttäjän ehtojen hyväksyminen epäonnistui.
@@ -319,9 +330,6 @@ fi-pl:
           error: Tämän komponentin luomisessa tapahtui virhe.
           success: Komponentti luotu onnistuneesti.
           success_landing_page: Komponentin luonti onnistui. Voit lisätä sisältölohkon tälle komponentille osallistumistilan etusivulle. Siirry <a href="%{landing_page_path}">Laskeutumissivu-osioon</a> lisätäksesi komponentin osallistumistilan etusivulle.
-        destroy:
-          error: Tämän komponentin tuhoamisessa tapahtui virhe.
-          success: Komponentti poistettu onnistuneesti.
         edit:
           title: Muokkaa komponenttia
           update: Päivitä
@@ -338,11 +346,21 @@ fi-pl:
             name: Komponentin nimi
             type: Komponentin tyyppi
             visibility: Näkyvyys
+        manage_trash:
+          title: Poistetut komponentit
         new:
           add: Lisää komponentti
           title: 'Lisää komponentti: %{name}'
         publish:
           success: Komponentti julkaistu onnistuneesti.
+        taxonomy_filters_badge:
+          remove: Poista
+        taxonomy_filters_drawer:
+          add_filter: Lisää suodatin
+          clear_all: Tyhjennä kaikki
+          filters: Suodattimet
+          save: Tallenna
+          title: Suodattimet
         title: Komponentit
         unpublish:
           success: Komponentti julkaistu onnistuneesti.
@@ -409,8 +427,6 @@ fi-pl:
           JSON: JSON
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       filters:
-        category_id_eq:
-          label: Aihepiiri
         filter_label: Suodata
         invitation_accepted_at_present:
           label: Kutsu hyväksytty
@@ -459,8 +475,6 @@ fi-pl:
             'false': Julkaistu
             'true': Julkaisematon
         remove_all: Poista kaikki
-        scope_id_eq:
-          label: Teema
         search_label: Hae
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection}: Hae sähköpostilla, nimellä tai nimimerkillä'
@@ -567,6 +581,8 @@ fi-pl:
         logs_list:
           no_logs_yet: Ei vielä lokitietoja.
           no_matching_logs: Lokitietoja ei löytynyt annetuilla hakukriteereillä. Yritä muuttaa hakua ja kokeile uudestaan.
+      manage_trash:
+        deleted_items_warning: Sivu näyttää poistettuja kohteita. Mikäli haluat tehdä muutoksia, kohteet tulee ensin palauttaa.
       managed_users:
         promotion:
           error: Hallitun käyttäjän oikeuksien korotuksessa tapahtui virhe.
@@ -598,6 +614,7 @@ fi-pl:
         scopes: Teemat
         see_site: Näytä sivusto
         settings: Asetukset
+        share_tokens: Pääsylinkit
         static_page_topics: Aiheet
         static_pages: Sivut
         taxonomies: Luokittelut
@@ -655,12 +672,11 @@ fi-pl:
             plural: Monikko
         share_token:
           fields:
-            created_at: Luontiaika
+            actions: Toiminnot
             expires_at: Vanhentumisaika
-            last_used_at: Viimeinen käyttöaika
+            registered_only: Ainoastaan rekisteröityneille käyttäjille?
             times_used: Käyttökertojen määrä
-            token: Tunniste
-            user: Tekijä
+            token: Pääsylinkki
         static_page:
           fields:
             created_at: Luonnin ajankohta
@@ -930,10 +946,6 @@ fi-pl:
           title: Muokkaa käyttöoikeuksia
         update:
           success: Käyttöoikeudet päivitetty onnistuneesti.
-      resources:
-        index:
-          headers:
-            scope: Teema
       scope_types:
         create:
           error: Uuden teematyypin luomisessa tapahtui virhe.
@@ -967,16 +979,50 @@ fi-pl:
           success: Teema päivitetty onnistuneesti
       share_tokens:
         actions:
-          confirm_destroy: Haluatko varmasti poistaa tämän tunnisteen?
+          confirm_destroy: Haluatko varmasti poistaa tämän pääsylinkin?
+          copy_link: Kopioi linkki
           destroy: Poista
-          share: Jaa
+          edit: Muokkaa
+          preview: Esikatsele
+        create:
+          invalid: Pääsylinkin luonti epäonnistui.
+          success: Pääsylinkin luonti onnistui.
         destroy:
-          error: Tunnisteen poistaminen epäonnistui.
-          success: Tunnisteen poistaminen onnistui.
-        share_tokens:
-          empty: Aktiivisia tunnisteita ei ole tällä hetkellä.
-          help: Näitä tunnisteita käytetään jaettaessa tätä kohdetta muille käyttäjille. Ne piilotetaan, kun kohde julkaistaan. Klikkaa tunnisteen jakoikonia vieraillaksesi jaettavassa URL-osoitteessa.
-          title: Jakotunnisteet
+          error: Pääsylinkin poisto epäonnistui.
+          success: Pääsylinkin poisto onnistui.
+        edit:
+          title: 'Muokkaa pääsylinkkiä kohteelle: %{name}'
+          update: Päivitä
+        form:
+          automatic: Automaattinen
+          custom: Mukautettu
+          custom_expiration: Mukautettu vanhentuminen
+          custom_token: Mukautettu sana
+          expires_at: Vanhentumisajankohta
+          'false': 'Ei'
+          never_expire: Ei koskaan
+          registered_only: Ainoastaan rekisteröityneille käyttäjille?
+          token: Pääsyavain
+          'true': 'Kyllä'
+        index:
+          back_to_share_tokens: Takaisin pääsyoikeuslinkkeihin
+          copied: Pääsylinkki kopioitu!
+          copy_message: Linkin kopiointi leikepöydälle onnistui.
+          create_new_token: Luo ensimmäinen pääsylinkkisi!
+          empty_html: Aktiivisia pääsylinkkejä ei ole. %{new_token_link}
+          never: Ei koskaan
+          new_share_token_button: Uusi pääsylinkki
+          share_tokens_help_html: |
+            Luo ja jaa pääsylinkkejä, mikäli haluat näyttää muilte, miltä toistaiseksi julkaisematon asia näyttää sivustolla.
+            Pääsylinkit voidaan rajata ainoastaan rekisteröityneille osallistujille ja niille voidaan asettaa myös vanhentumisaika.
+            Jakaaksesi pääsylinkin jollekin muulle, luo se ja kopioi se leikepöydälle käyttämällä "%{clipboard} leikepöytä" toimintokuvaketta.
+          title: 'pääsylinkit kohteelle: %{name}'
+        new:
+          create: Luo
+          title: 'Uusi pääsylinkki kohteelle: %{name}'
+        update:
+          error: Pääsylinkin päivittäminen epäonnistui.
+          success: Pääsylinkin päivittäminen onnistui.
       shared:
         adjacent_navigation:
           next: Seuraava
@@ -1031,8 +1077,8 @@ fi-pl:
           success: Sivun päivitys onnistui.
       taxonomies:
         actions: Toiminnot
-        amount: Määrä
-        count: Määrä
+        amount: Kohteiden määrä
+        count: Liitetyt asiat
         create:
           invalid: Luokittelun luominen epäonnistui.
           success: Luokittelun luominen onnistui.
@@ -1062,7 +1108,7 @@ fi-pl:
           to_next_page: Vedä seuraavalle sivulle
           to_prev_page: Vedä edelliselle sivulle
         taxonomy_actions:
-          confirm_destroy: Haluatko varmasti poistaa luokittelun %{name}? Tämä poistaa myös kaikki kyseisen luokittelun alle määritetyt kohteet. Luokitteluun liitettyjä sisältöjä ei kuitenkaan poisteta, mutta itse luokittelutieto häviää niiltä.
+          confirm_destroy: 'Haluatko varmasti poistaa kohteen %{name}? Tämä poistaa myös kaikki sen alla olevat kohteet. HUOMIOI: Tätä luokittelua hyödyntäviin resursseihin ei tehdä muutoksia, mutta ne menettävät liitoksen tähän luokitteluun.'
         update:
           invalid: Luokittelun päivittäminen epäonnistui.
           success: Luokittelun päivittäminen onnistui.
@@ -1070,7 +1116,7 @@ fi-pl:
         actions:
           new_taxonomy_filter: Uusi luokitteluiden suodatin
         callout:
-          modify_taxonomy_html: Jos haluat muokata tätä luokittelua tai sen kohteita, voit tehdä sen <a href="%{url}">Luokittelut-osion</a> asetusten kautta.
+          modify_taxonomy_html: Jos haluat muokata tätä luokittelua tai sen kohteita, voit tehdä muutoksia <a href="%{url}">Luokittelut-osion</a> asetusten kautta.
         create:
           error: Luokittelun suodattimen luonti epäonnistui.
           success: Luokittelun suodattimen luonti onnistui.
@@ -1079,27 +1125,35 @@ fi-pl:
           success: Luokittelun suodattimen poisto onnistui.
         edit:
           back: Takaisin
-          items: "%{count} kohdetta valittu"
-          no_items: Tälle luokittelulle ei ole vielä luotu yhtään kohdetta. Voit luoda kohteita luokittelun asetusten kautta.
           title: Muokkaa luokittelun suodatinta
           update: Päivitä luokittelun suodatin
         form:
-          select_taxonomy: Valitse luokittelu
+          all: Kaikki
+          items:
+            one: "%{count} kohde valittu"
+            other: "%{count} kohdetta valittu"
+          name_help: Sivustolla näytettävä suodattimen otsikko.
+          no_items: Tälle luokittelulle ei ole vielä luotu yhtään kohdetta. Voit luoda kohteita luokittelun asetusten kautta.
+          space_filter: Saatavilla suodattimena kaikille %{manifest_name} -kohteille
         index:
           description: Luokittelun suodatin mahdollistaa hallintakäyttäjille osallistumistilojen järjestämisen ja suodatuksen luokittelun perusteella. Voit esimerkiksi lisätä maantieteellisen luokittelun asioille.
           empty: Yhtään luokitteluiden suodatinta ei ole luotu. Lisää uusia luokitteluiden suodattimia järjestääksesi tai suodattaaksesi osallistumistiloja kyseisen luokittelun mukaan.
         new:
           back: Takaisin
           create: Luo luokitteluiden suodatin
-          items: "Yhteensä %{count} kohdetta"
+          select_taxonomy: Valitse luokittelu
           title: Uusi luokitteluiden suodatin
         table:
           actions: Toiminnot
-          confirm_destroy: Oletko varma, että haluat poistaa suodattimen nimeltä "%{name}"?
-          count: Kohteiden määrä
+          components_count: Liitetyt komponentit
+          confirm_destroy: 'Oletko varma, että haluat poistaa suodattimen %{name}? HUOMIOI: Tätä suodatinta hyödyntäviin resursseihin ei tehdä muutoksia, mutta ne menettävät liitoksen tähän suodattimeen.'
+          count: Käytettyjen kohteiden määrä
           destroy: Poista
           edit: Muokkaa
-          name: Nimi
+          internal_name: Sisäinen suodattimen nimi
+          name: Julkinen suodattimen otsikko
+          space_filter: Käytetään suodattamaan %{manifest_name} -kohteita
+          taxonomy: Luokittelusta
         update:
           error: Luokittelun suodattimen päivittäminen epäonnistui.
           success: Luokittelun suodattimen päivittäminen onnistui.
@@ -1135,6 +1189,15 @@ fi-pl:
         taxonomy_filters: Luokitteluiden suodattimet
         user_groups: Käyttäjäryhmät
         users: Hallintakäyttäjät
+      tooltips:
+        deleted_component_info: Komponentti voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
+      trash_management:
+        restore:
+          invalid: Kohteen %{resource_name} palauttaminen epäonnistui.
+          success: "Kohteen %{resource_name} palauttaminen onnistui."
+        soft_delete:
+          invalid: Kohteen %{resource_name} poisto epäonnistui.
+          success: "Kohteen %{resource_name} poisto onnistui."
       user_group:
         csv_verify:
           invalid: CSV-tiedoston käsittelyssä tapahtui virhe.

@@ -89,6 +89,66 @@ module Decidim
           expect(response["reference"]).to eq(model.reference)
         end
       end
+
+      context "when participatory space is private and transparent" do
+        let(:participatory_space) { create(:assembly, :published, :transparent, :private) }
+        let(:component) { create(:budgets_component, :published, participatory_space:) }
+        let(:budget) { create(:budget, component:) }
+        let(:model) { create(:project, budget:) }
+
+        let(:query) { "{ id }" }
+
+        it "returns the object" do
+          expect(response).to eq({ "id" => model.id.to_s })
+        end
+      end
+
+      context "when participatory space is private" do
+        let(:participatory_space) { create(:participatory_process, :with_steps, :private, organization: current_organization) }
+        let(:component) { create(:budgets_component, participatory_space:) }
+        let(:budget) { create(:budget, component:) }
+        let(:model) { create(:project, budget:) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      context "when participatory space is not published" do
+        let(:participatory_space) { create(:participatory_process, :with_steps, :unpublished, organization: current_organization) }
+        let(:component) { create(:budgets_component, participatory_space:) }
+        let(:budget) { create(:budget, component:) }
+        let(:model) { create(:project, budget:) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      context "when component is not published" do
+        let(:component) { create(:budgets_component, :unpublished, organization: current_organization) }
+        let(:model) { create(:project, component:) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      context "when budget is not visible" do
+        let(:component) { create(:budgets_component, organization: current_organization) }
+        let(:budget) { create(:budget, component:) }
+        let(:model) { create(:project, budget:) }
+        let(:query) { "{ id }" }
+        let(:root_value) { model.reload }
+
+        it "returns all the required fields" do
+          allow(model).to receive(:visible?).and_return(false)
+          expect(response).to be_nil
+        end
+      end
     end
   end
 end

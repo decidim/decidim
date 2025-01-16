@@ -167,3 +167,7 @@
     @apply inline-block;
   }
 }
+
+.table-list__title-ellipsis {
+  @apply whitespace-nowrap overflow-hidden text-ellipsis max-w-[200px] sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-2xl inline-block align-middle;
+}

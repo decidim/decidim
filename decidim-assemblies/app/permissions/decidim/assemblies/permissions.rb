@@ -266,13 +266,11 @@ module Decidim
         is_allowed = [
           :attachment,
           :attachment_collection,
-          :category,
           :component,
           :component_data,
           :moderation,
           :assembly,
           :assembly_user_role,
-          :assembly_member,
           :export_space,
           :share_tokens,
           :import
@@ -286,13 +284,11 @@ module Decidim
         is_allowed = [
           :attachment,
           :attachment_collection,
-          :category,
           :component,
           :component_data,
           :moderation,
           :assembly,
           :assembly_user_role,
-          :assembly_member,
           :export_space,
           :share_tokens,
           :import

@@ -26,6 +26,12 @@ extra_admin_link(
 <% append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
 <% append_javascript_pack_tag "decidim_proposals" %>
 
+<% content_for :item_header do %>
+<div class="<%= "layout-item-complementary" if show_voting_rules? %>">
+  <%= render partial: "update_proposal_voting_rules" %>
+  </div>
+<% end %>
+
 <% content_for :aside do %>
   <%= render partial: "proposal_aside" %>
 <% end %>
@@ -33,7 +39,9 @@ extra_admin_link(
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: component_settings.participatory_texts_enabled? ? main_component_path(current_component) : proposals_path } do %>
 
   <section class="layout-main__section layout-main__heading">
-    <%= render partial: "voting_rules" %>
+    <% if show_voting_rules? && remaining_minimum_votes_count_for(current_user).positive? && current_component.participatory_space.can_participate?(current_user) %>
+      <%= render partial: "exit_modal" %>
+    <% end %>
 
     <%= cell("decidim/announcement", proposal_reason_callout_announcement, callout_styles: @proposal.proposal_state&.css_style) if @proposal.answered? && @proposal.published_state? %>
 
@@ -107,10 +115,10 @@ extra_admin_link(
        <%= content_tag :li, resource_reference(@proposal), class: "metadata__item" %>
        <%= content_tag :li, resource_version(proposal_presenter, versions_path: proposal_version_path(@proposal, proposal_presenter.versions.count)), class: "metadata__item" %>
 
-       <% fingerprint_id = dom_id(@proposal, :fingerprint_dialog) %>
-       <%= content_tag :li, class: "metadata__item" do %>
-         <%= content_tag :button, t("decidim.fingerprint.check"), data: { dialog_open: fingerprint_id } %>
-       <% end %>
+      <% fingerprint_id = dom_id(@proposal, :fingerprint_dialog) %>
+      <%= content_tag :li, class: "metadata__item" do %>
+        <%= content_tag :button, t("decidim.fingerprint.check"), data: { dialog_open: fingerprint_id } %>
+      <% end %>
     </ul>
     <%= decidim_modal id: fingerprint_id, class: "fingerprint-modal" do %>
       <div data-dialog-container>

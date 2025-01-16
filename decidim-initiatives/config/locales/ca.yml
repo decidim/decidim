@@ -152,6 +152,9 @@ ca:
       titles:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
+    download_your_data:
+      show:
+        initiatives: Exportar les iniciatives
     events:
       initiatives:
         admin:
@@ -529,9 +532,7 @@ ca:
           phone_number: Número de telèfon
           place_date: Lloc, data
           postal_code: Codi postal
-          print: Imprimir
           province: Província
-          section: 'Si l''organització ho demana, imprimeix i omple aquest formulari per presentar-lo quan s''indiqui:'
           signature: Signatura
         result:
           answer_title: S'ha respost aquesta iniciativa.
@@ -553,7 +554,6 @@ ca:
           other: " signatures"
         vote_cabin:
           already_voted: Ja has signat
-          verification_required: Verifica el teu compte per a signar la iniciativa
           vote: Signar
           votes_blocked: S'ha desactivat la signatura
         votes_count:
@@ -600,13 +600,42 @@ ca:
         success: La iniciativa s'ha actualitzat correctament.
     menu:
       initiatives: Iniciatives
+    open_data:
+      help:
+        initiatives:
+          answer: La resposta que ha rebut aquesta iniciativa (si n'hi ha)
+          answer_url: L'URL de la resposta (si n'hi ha)
+          answered_at: La data de la resposta (si n'hi ha)
+          area: L'àrea d'aquesta iniciativa
+          authors: Les autores d'aquesta iniciativa
+          comments_count: El número de comentaris que té aquesta iniciativa
+          created_at: La data en què es va crear aquesta iniciativa
+          description: La descripció de la iniciativa
+          first_progress_notification_at: La data en què es va enviar la primera notificació de progrés
+          follows_count: El número d'usuàries que segueixen aquesta iniciativa
+          hashtag: L'etiqueta que fa servir la iniciativa a Twitter/X
+          offline_votes: El número de signatures que va recollir aquesta iniciativa presencialment (en paper)
+          online_votes: El número de signatures digitals que va recollir aquesta iniciativa (directament a través de la plataforma)
+          published_at: La data en què es va publicar aquesta iniciativa
+          reference: La referència única de la iniciativa
+          scope: L'àmbit territorial de la iniciativa
+          second_progress_notification_at: La data en què es va enviar la segona notificació de progrés
+          signature_end_date: La data en què va finalitzar el període la recollida de signatures
+          signature_start_date: La data en què es va iniciar el període la recollida de signatures
+          signature_type: El tipus de recollida de signatures (presencial, digital o mixta)
+          signatures: El número de signatures que va recollir aquesta iniciativa
+          state: L'estat en què es troba aquesta iniciativa en aquest moment
+          title: El títol de la iniciativa
+          type: El tipus d'iniciativa
+          updated_at: La data de la darrera actualització d'aquesta iniciativa
+          url: L'URL de la iniciativa
     resources:
       initiative:
         actions:
           comment: Comentar
       initiatives_type:
         actions:
-          create: Crear
+          create: Crear una iniciativa
           title: Accions
           vote: Signar
   layouts:

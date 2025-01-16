@@ -27,7 +27,7 @@ describe "Admin filters assemblies private space users" do
       login_as user, scope: :user
       visit decidim_admin_assemblies.edit_assembly_path(assembly)
       within_admin_sidebar_menu do
-        click_on "Private participants"
+        click_on "Members"
       end
     end
 

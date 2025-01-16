@@ -93,15 +93,16 @@ ca:
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: Segur que vols esborrar aquesta assemblea? Si canvies d'opinió, la pots restaurar més endavant.
         import_assembly: Importar
         new_assembly: Nova assemblea
-        new_assembly_member: Afegir membre
         new_assembly_type: Nou tipus d'assemblea
         new_assembly_user_role: Afegir administradora
+        view_deleted_assemblies: Veure les assemblees eliminades
       assemblies:
         create:
           error: S'ha produït un error en crear una nova assemblea.
-          success: Assemblea creada correctament.
+          success: Assemblea creada amb èxit. Ara pots afegir-hi components i configurar-los.
         edit:
           update: Actualitzar
         index:
@@ -109,6 +110,8 @@ ca:
           public: Públic
           published: Publicat
           unpublished: Despublicada
+        manage_trash:
+          title: Assemblees eliminades
         new:
           create: Crea
           title: Nova assemblea
@@ -144,23 +147,6 @@ ca:
           import: Importar
           select: Selecciona quines dades vols importar
           title: Importar assemblea
-      assembly_members:
-        create:
-          error: S'ha produït un error en afegir un membre per a aquesta assemblea.
-          success: El membre d'aquesta assemblea s'ha creat correctament.
-        destroy:
-          success: El membre per a aquesta assemblea s'ha eliminat correctament.
-        edit:
-          title: Actualitzar membre de l'assemblea
-          update: Actualitza
-        index:
-          assembly_members_title: Membres de l'assemblea
-        new:
-          create: Crea
-          title: Afegir membre
-        update:
-          error: S'ha produït un error en actualitzar el membre d'aquesta assemblea.
-          success: Membre actualitzat correctament per a aquesta assemblea.
       assembly_publications:
         create:
           error: S'ha produït un error en publicar aquesta assemblea.
@@ -199,7 +185,6 @@ ca:
         assemblies: Assemblees
         assemblies_submenu:
           assembly_admins: Administradores de l'assemblea
-          assembly_members: Membres
           attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Adjunts
@@ -208,7 +193,7 @@ ca:
           info: Quant a aquesta assemblea
           landing_page: Pàgina d'inici
           moderations: Moderacions
-          private_users: Participants privades
+          private_users: Membres
           see_assembly: Veure l'assemblea
         assemblies_types: Tipus d'assemblees
       models:
@@ -226,11 +211,6 @@ ca:
             title: Títol
           name: Assemblea
         assembly_member:
-          fields:
-            ceased_date: Data de cessament
-            designation_date: Data de designació
-            full_name: Nom
-            position: Posició
           name: Membre
           positions:
             other: Altre
@@ -250,7 +230,10 @@ ca:
             valuator: Avaluadora
       titles:
         assemblies: Assemblees
+        assemblies_deleted: Assemblees eliminades
         assemblies_types: Tipus d'assemblees
+      tooltips:
+        deleted_assemblies_info: Aquesta assemblea es pot eliminar si el seu estat és 'Despublicada'.
     admin_log:
       assembly:
         create: "%{user_name} ha creat l'assemblea %{resource_name}"
@@ -258,6 +241,8 @@ ca:
         export: "%{user_name} ha exportat l'assemblea %{resource_name}"
         import: "%{user_name} ha importat l'assemblea %{resource_name}"
         publish: "%{user_name} ha publicat l'assemblea %{resource_name}"
+        restore: "%{user_name} ha restaurat l'assemblea %{resource_name}"
+        soft_delete: "%{user_name} ha mogut a la paperera l'assemblea %{resource_name}"
         unpublish: "%{user_name} ha despublicat l'assemblea %{resource_name}"
         update: "%{user_name} ha actualitzat l'assemblea %{resource_name}"
       assembly_member:
@@ -281,13 +266,16 @@ ca:
         assemblies:
           form:
             announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació de l'assemblea.
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
             duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
             filters: Filtres
             images: Imatges
             included_at_help: Selecciona la data en què es va afegir aquesta assemblea a la plataforma. No necessàriament ha de ser la mateixa que la data de creació.
             metadata: Metadades
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             other: Altre
+            private_notice: Podràs administrar les participants privades un cop haguis configurar l'espai com a privat
             select_a_created_by: Selecciona una creadora
             select_an_area: Selecciona una Àrea
             select_an_assembly_type: Selecciona un tipus d'assemblea
@@ -308,14 +296,9 @@ ca:
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_members:
           form:
-            existing_user: Participant existent
             explanation: 'Instruccions per a la imatge:'
             image_guide: Preferiblement una imatge apaïsada que no tingui cap text.
-            non_user: No participant
             non_user_avatar_help: Cal tenir el consentiment de la persona abans publicar-la com a membre.
-            select_a_position: Selecciona una posició
-            select_user: Selecciona una participant
-            user_type: Tipus de participant
         content_blocks:
           highlighted_assemblies:
             max_results: Quantitat màxima d'elements que es mostraran
@@ -399,10 +382,11 @@ ca:
         private_space: Aquesta és una assemblea privada
         social_networks_title: Visita l'assemblea a
     assembly_members:
-      assembly_member:
-        designated_on: 'Data de designació:'
       index:
         title: Membres
+    download_your_data:
+      show:
+        assemblies: Exportar les assemblees
     events:
       assemblies:
         create_assembly_member:
@@ -435,6 +419,55 @@ ca:
         description: Nombre d'assemblees creades
         object: assemblees
         title: Assemblees
+    open_data:
+      help:
+        assemblies:
+          announcement: La informació de l'anunci/avís (crida)
+          area: L'àrea a la qual correspon l'assemblea
+          assembly_type: El tipus d'assemblea
+          closing_date: La data de tancament de l'assemblea
+          closing_date_reason: Perquè es va tancar l'assemblea
+          composition: La composició de l'assemblea
+          created_at: La data en què es va crear aquesta assemblea
+          created_by: Qui va crear l'assemblea
+          created_by_other: L'àrea a la qual correspon l'assemblea
+          creation_date: La data de creació d'aquesta assemblea
+          decidim_scope_id: L'àmbit territorial de l'assemblea
+          description: Una descripció llarga de l'assemblea
+          developer_group: El grup promotor de l'assemblea
+          duration: La durada de l'assemblea
+          facebook_handler: Controlador de xarxes socials per a Facebook
+          follows_count: El número d'usuàries que segueixen aquesta assemblea
+          github_handler: Controlador de xarxes socials per a GitHub
+          hashtag: L'etiqueta que fa servir l'assemblea a Twitter/X
+          id: L'identificador únic del resultat
+          included_at: La data en què l'assemblea es va incloure a la plataforma
+          instagram_handler: Controlador de xarxes socials per a Instagram
+          internal_organisation: L'organització interna d'aquesta assemblea
+          is_transparent: Si l'assemblea és transparent o no
+          local_area: L'àrea d'organització de l'assemblea
+          meta_scope: Les metadades de l'àmbit territorial de l'assemblea
+          participatory_scope: L'àmbit territorial de la participació de l'assemblea
+          participatory_structure: L'estructura participativa de l'assemblea
+          promoted: Si l'assemblea està destacada o no
+          published_at: La data en què es va publicar aquesta assemblea
+          purpose_of_action: El propòsit de l'acció de l'assemblea
+          reference: La referència única de l'assemblea
+          remote_banner_image_url: L'URL de la imatge de capçalera (imatge principal) de l'assemblea
+          remote_hero_image_url: L'URL de la imatge principal de l'assemblea
+          scope: L'àmbit territorial de l'assemblea
+          scopes_enabled: Si l'àmbit territorial està habilitat o no
+          short_description: Una descripció breu de l'assemblea
+          slug: El nom curt de l'assemblea (utilitzat per a finalitats d'identificació, per a l'URL)
+          special_features: Quines característiques especials té aquesta assemblea
+          subtitle: El subtítol d'assemblea
+          target: L'objectiu de l'assemblea
+          taxonomies: Les taxonomies del projecte
+          title: El títol de l'assemblea
+          twitter_handler: Controlador de xarxes socials per a Twitter/X
+          updated_at: La data de la darrera actualització d'aquesta assemblea
+          url: L'URL de l'assemblea
+          youtube_handler: Controlador de xarxes socials per a YouTube
     participatory_processes:
       show:
         related_assemblies: Assemblees relacionades

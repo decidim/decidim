@@ -2,15 +2,12 @@ es:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Ámbito
         description: Descripción
         title: Título
         total_budget: Presupuesto total
         weight: Orden de posición
       project:
         budget_amount: Importe del presupuesto
-        decidim_category_id: Categoría
-        decidim_scope_id: Ámbito
         description: Descripción
         proposal_ids: Propuestas relacionadas
         proposals: Propuestas
@@ -34,21 +31,20 @@ es:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Categoría
-          scope_id_eq:
-            label: Ámbito
           selected_at_null:
             label: Seleccionado
             values:
               'false': Seleccionado para implementar
               'true': No seleccionado para implementar
+          taxonomies_part_of_contains:
+            label: Taxonomía
     budgets:
       actions:
         attachment_collections: Carpetas
         attachments: Adjuntos
-        confirm_destroy: '¿Seguro que deseas eliminar este proyecto?'
-        destroy: Borrar
+        confirm_delete_budget: '¿Seguro que deseas eliminar este presupuesto?'
+        confirm_delete_project: '¿Seguro que deseas eliminar este proyecto?'
+        deleted_budgets_info: Los presupuestos eliminados se pueden restaurar desde papelera.
         edit: Editar
         edit_projects: Gestionar proyectos
         import: Importar propuestas a proyectos
@@ -57,14 +53,13 @@ es:
         preview: Previsualizar
         send_voting_reminders: Enviar recordatorios de votación
         title: Acciones
+        view_deleted_budgets: Ver los presupuestos eliminados
+        view_deleted_projects: Ver los proyectos eliminados
       admin:
         budgets:
           create:
             invalid: Se ha producido un error al crear este proyecto.
             success: Presupuesto creado correctamente.
-          destroy:
-            invalid: Se ha producido un error al eliminar este presupuesto.
-            success: Presupuesto eliminado correctamente.
           edit:
             title: Editar presupuesto
             update: Actualizar presupuesto
@@ -74,6 +69,8 @@ es:
             title: Presupuestos
             users_with_finished_orders: Usuarias con votos finalizados
             users_with_pending_orders: Usuarias con votos pendientes
+          manage_trash:
+            title: Presupuestos eliminados
           new:
             create: Crear presupuesto
             title: Nuevo presupuesto
@@ -91,8 +88,6 @@ es:
           create:
             invalid: Se ha producido un error al crear este proyecto.
             success: Proyecto creado correctamente.
-          destroy:
-            success: Proyecto eliminado correctamente.
           edit:
             title: Editar proyecto
             update: Actualizar
@@ -100,9 +95,8 @@ es:
             actions: Acciones
             cancel: Cancelar
             change_budget: Cambiar presupuesto
-            change_category: Cambiar categoría
-            change_scope: Cambiar ámbito
             change_selected: Cambiar estado seleccionado
+            change_taxonomies: Cambiar taxonomías
             deselect_implementation: No seleccionado para implementar
             finished_orders: Votos terminados
             pending_orders: Votos pendientes
@@ -114,7 +108,8 @@ es:
             title: Proyectos
             update: Actualizar
             update_budget_button: Actualizar el presupuesto del proyecto
-            update_scope_button: Actualizar ámbito
+          manage_trash:
+            title: Proyectos eliminados
           new:
             create: Crear
             title: Nuevo proyecto
@@ -122,28 +117,23 @@ es:
             invalid: Se ha producido un error al actualizar este proyecto.
             success: Proyecto actualizado correctamente.
           update_budget:
-            invalid: 'Estos proyectos ya están en el mismo presupuesto o sus presupuestos son superiores al máximo permitido: %{projects}.'
+            invalid: 'Estos proyectos ya están en el mismo presupuesto o sus presupuestos son superiores al máximo permitido: %{errored}.'
             select_a_project: Por favor, selecciona un proyecto.
-            success: 'Proyectos actualizados correctamente para el presupuesto %{subject_name}: %{projects}.'
-          update_category:
-            invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{projects}.'
-            select_a_category: Por favor, selecciona una categoría.
-            select_a_project: Por favor, selecciona un proyecto.
-            success: 'Los proyectos se han actualizado correctamente a la categoría %{subject_name}: %{projects}.'
-          update_scope:
-            invalid: 'Estos proyectos ya pertenecían al ámbito %{subject_name}: %{projects}.'
-            select_a_project: Por favor, selecciona un proyecto.
-            select_a_scope: Por favor, selecciona un ámbito.
-            success: 'Los proyectos se han actualizado correctamente al ámbito %{subject_name}: %{projects}.'
+            success: 'Proyectos actualizados correctamente para el presupuesto %{subject_name}: %{successful}.'
           update_selected:
             invalid:
-              selected: 'Estos proyectos ya han sido seleccionados para ser implementados: %{projects}.'
-              unselected: 'Estos proyectos ya han sido deseleccionados para ser implementados: %{projects}.'
+              selected: 'Estos proyectos ya han sido seleccionados para ser implementados: %{errored}.'
+              unselected: 'Estos proyectos que aparecían para ser implementados ya han sido deseleccionados: %{errored}.'
             select_a_project: Por favor, selecciona un proyecto.
             select_a_selection: Por favor, selecciona un estado de implementación.
             success:
-              selected: 'Estos proyectos fueron seleccionados con éxito para ser implementados: %{projects}.'
-              unselected: 'Estos proyectos fueron deseleccionados con éxito para ser implementados: %{projects}.'
+              selected: 'Estos proyectos fueron seleccionados con éxito para ser implementados: %{successful}.'
+              unselected: 'Estos proyectos que aparecían para implementar fueron deseleccionados con éxito: %{successful}.'
+          update_taxonomies:
+            invalid: 'Las taxonomías %{taxonomies} ya estaban asignadas a estos proyectos: %{errored}.'
+            select_a_project: Por favor, selecciona un proyecto.
+            select_a_taxonomy: Por favor, selecciona una taxonomía.
+            success: 'Los proyectos se han actualizado correctamente a las taxonomias "%{taxonomies}": %{successful}.'
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas a proyectos.
@@ -166,10 +156,14 @@ es:
         budget:
           create: "%{user_name} creó el presupuesto %{resource_name} en el espacio %{space_name}"
           delete: "%{user_name} borró el presupuesto %{resource_name} en el espacio %{space_name}"
+          restore: "%{user_name} restauró el presupuesto %{resource_name} en %{space_name}"
+          soft_delete: "%{user_name} ha movido el presupuesto %{resource_name} en %{space_name} a la papelera"
           update: "%{user_name} actualizó el presupuesto %{resource_name} en el espacio %{space_name}"
         project:
           create: "%{user_name} creó el proyecto %{resource_name} en el espacio %{space_name}"
           delete: "%{user_name} borró el proyecto %{resource_name} en el espacio %{space_name}"
+          restore: "%{user_name} restauró el proyecto %{resource_name} en %{space_name}"
+          soft_delete: "%{user_name} ha movido el proyecto %{resource_name} en %{space_name} a la papelera"
           update: "%{user_name} actualizó el proyecto %{resource_name} en el espacio %{space_name}"
       budget_information_modal:
         back_to: Volver a %{component_name}
@@ -214,9 +208,9 @@ es:
             total_budget: Presupuesto total
         project:
           fields:
-            category: Categoría
             id: ID
             map: Mapa
+            taxonomies: Taxonomías
             title: Título
       order_summary_mailer:
         order_summary:
@@ -258,8 +252,6 @@ es:
           message: Tu voto no ha sido registrado porque aún no has completado el proceso de votación. ¿Seguro que quieres salir de la votación?
           title: Aún no has votado
         filters:
-          category: Categoría
-          scope: Ámbito
           search: Buscar
           status: Estado
           status_values:
@@ -328,8 +320,10 @@ es:
         settings:
           global:
             announcement: Aviso
+            clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             form:
               errors:
                 budget_voting_rule_only_one: Solo debe habilitarse una norma de votación.
@@ -337,10 +331,13 @@ es:
             geocoding_enabled: Mapas habilitados
             landing_page_content: Página de inicio de presupuestos
             more_information_modal: Modal de "Más información"
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             projects_per_page: Proyectos por página
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada proyecto
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
+            taxonomy_filters: Seleccionar filtros para el componente
+            taxonomy_filters_add: Añadir un filtro
             title: Título
             total_budget: Presupuesto total
             vote_minimum_budget_projects_number: Número mínimo de proyectos a votar
@@ -368,6 +365,9 @@ es:
               disabled: Votación deshabilitada
               enabled: Votación habilitada
               finished: Votación finalizada
+    download_your_data:
+      show:
+        projects: Exportar los proyectos
     events:
       budgets:
         budget_published:
@@ -375,6 +375,24 @@ es:
           email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: El componente %{resource_title} está ahora activo para %{participatory_space_title}.
           notification_title: El presupuesto <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title} ya está activo.
+    open_data:
+      help:
+        projects:
+          address: La localización (dirección) del proyecto (si tiene)
+          budget_amount: La cantidad total de presupuesto para este proyecto
+          comments: El número de comentarios que ha recibido este proyecto
+          component: El componente al que pertenece el proyecto
+          confirmed_votes: El número de votos confirmados que ha recibido este proyecto
+          created_at: La fecha y hora en que se creó el proyecto
+          description: La descripción del proyecto
+          id: El identificador único del proyecto
+          participatory_space: A qué espacio pertenece este proyecto (proceso participativo, asamblea, etc.)
+          related_proposal_titles: Los títulos de las propuestas relacionadas
+          related_proposal_urls: Las URL de las propuestas relacionadas
+          related_proposals: Las propuestas relacionadas con este proyecto
+          taxonomies: Las taxonomías del proyecto
+          title: El título del proyecto
+          url: La URL del proyecto
     orders:
       checkout:
         error: Se ha producido un error al procesar tu voto.

@@ -1,0 +1,17 @@
+<%= decidim_modal id: "exit-proposal-notification" do %>
+  <div data-dialog-container data-minimum-votes-reached="<%= remaining_minimum_votes_count_for(current_user).zero? %>" data-minimum-votes-count="<%= minimum_votes_per_user - remaining_minimum_votes_count_for(current_user) %>">
+    <%= icon "information-line" %>
+    <h3 class="h3 text-base" id="dialog-title-exit-proposal-notification" tabindex="-1" data-dialog-title>
+      <%= t("title", scope: "decidim.proposals.exit_modal", number: remaining_minimum_votes_count_for(current_user)) %>
+    </h3>
+    <p id="dialog-desc-budget-modal">
+      <%= t("message", scope: "decidim.proposals.exit_modal", number: remaining_minimum_votes_count_for(current_user)) %>
+    </p>
+  </div>
+  <div data-dialog-actions>
+    <button data-dialog-close="exit-proposal-notification" class="button button__sm md:button__lg button__secondary">
+      <%= t("cancel", scope: "decidim.proposals.exit_modal") %>
+    </button>
+    <%= link_to t("exit", scope: "decidim.proposals.exit_modal"), proposals_path, id: "exit-proposal-notification-link", class: "button button__sm md:button__lg button__secondary" %>
+  </div>
+<% end %>

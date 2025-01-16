@@ -57,13 +57,6 @@ Decidim::Core::Engine.routes.draw do
 
   post :locate, to: "geolocation#locate"
 
-  Decidim.participatory_space_manifests.each do |manifest|
-    mount manifest.context(:public).engine, at: "/", as: "decidim_#{manifest.name}"
-  end
-
-  mount Decidim::Verifications::Engine, at: "/", as: "decidim_verifications"
-  mount Decidim::Comments::Engine, at: "/", as: "decidim_comments"
-
   Decidim.global_engines.each do |name, engine_data|
     mount engine_data[:engine], at: engine_data[:at], as: name
   end
@@ -139,6 +132,7 @@ Decidim::Core::Engine.routes.draw do
     get "group_members", to: "profiles#group_members", as: "profile_group_members"
     get "group_admins", to: "profiles#group_admins", as: "profile_group_admins"
     get "activity", to: "user_activities#index", as: "profile_activity"
+    get "tooltip", to: "profiles#tooltip", as: "profile_tooltip"
     resources :conversations, except: [:destroy], controller: "user_conversations", as: "profile_conversations"
   end
 

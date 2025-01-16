@@ -98,8 +98,6 @@ ko:
           create:
             invalid: 결과를 가져오는 도중 문제가 생겼습니다.
             success: 결과가 성공적으로 생성되었습니다.
-          destroy:
-            success: 결과가 성공적으로 삭제되었습니다.
           edit:
             title: 결과 수정
             update: 결과 업데이트
@@ -161,12 +159,10 @@ ko:
       models:
         result:
           fields:
-            category: 분류
             created_at: 생성됨
             end_date: 종료 날짜
             id: 아이디
             progress: 진행 상황
-            scope: 범위
             start_date: 시작 날짜
             status: 상태
             title: 제목
@@ -184,13 +180,9 @@ ko:
         count:
           results_count:
             other: "%{count} 개의 결과"
-        filters:
-          all: 전체
         home:
-          categories_label: 분류
           empty: 결과가 없습니다
           empty_filters: 이 기준에는 결과가 없습니다.
-          subcategories_label: '하위 분류:'
         no_results: 프로젝트가 없습니다.
         search:
           search: 작업 검색
@@ -200,10 +192,6 @@ ko:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: 분류
-          scope_id_eq:
-            label: 범위
           status_id_eq:
             label: 상태
     components:

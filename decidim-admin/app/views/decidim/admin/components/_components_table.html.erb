@@ -2,13 +2,14 @@
   <table class="table-list">
     <thead>
     <tr>
+      <th></th>
       <th><%= t("index.headers.name", scope: "decidim.admin.components") %></th>
       <th><%= t("index.headers.type", scope: "decidim.admin.components") %></th>
       <th><%= t("index.headers.visibility", scope: "decidim.admin.components") %></th>
       <th><%= t("index.headers.actions", scope: "decidim.admin.components") %></th>
     </tr>
     </thead>
-    <tbody>
+    <tbody class="draggable-table" data-sort-url="<%= reorder_components_path %>" data-draggable-table>
     <% components.each do |component| %>
       <%= render partial: "component_row", locals: { component:, view: } %>
     <% end %>

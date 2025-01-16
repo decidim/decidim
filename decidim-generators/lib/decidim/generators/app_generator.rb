@@ -166,9 +166,9 @@ module Decidim
 
         if branch.present?
           get target_gemfile, "Gemfile", force: true
-          append_file "Gemfile", %(\ngem "net-imap", "~> 0.2.3", group: :development)
+          append_file "Gemfile", %(\ngem "net-imap", "~> 0.5.0", group: :development)
           append_file "Gemfile", %(\ngem "net-pop", "~> 0.1.1", group: :development)
-          append_file "Gemfile", %(\ngem "net-smtp", "~> 0.3.1", group: :development)
+          append_file "Gemfile", %(\ngem "net-smtp", "~> 0.5.0", group: :development)
           get "#{target_gemfile}.lock", "Gemfile.lock", force: true
         else
           copy_file target_gemfile, "Gemfile", force: true
@@ -216,20 +216,22 @@ module Decidim
 
         template "sidekiq.yml.erb", "config/sidekiq.yml", force: true
 
+        gsub_file "config/environments/development.rb",
+                  /Rails.application.configure do/,
+                  "Rails.application.configure do\n  config.active_job.queue_adapter = :sidekiq\n"
         gsub_file "config/environments/production.rb",
                   /# config.active_job.queue_adapter     = :resque/,
                   "config.active_job.queue_adapter = ENV['QUEUE_ADAPTER'] if ENV['QUEUE_ADAPTER'].present?"
 
         prepend_file "config/routes.rb", "require \"sidekiq/web\"\n\n"
+
         route <<~RUBY
           authenticate :user, ->(u) { u.admin? } do
             mount Sidekiq::Web => "/sidekiq"
           end
         RUBY
 
-        add_production_gems do
-          gem "sidekiq"
-        end
+        append_file "Gemfile", %(gem "sidekiq")
       end
 
       def add_production_gems(&block)
@@ -363,6 +365,7 @@ module Decidim
         return unless options[:demo]
 
         copy_file "dummy_authorization_handler.rb", "app/services/dummy_authorization_handler.rb"
+        copy_file "ephemeral_dummy_authorization_handler.rb", "app/services/ephemeral_dummy_authorization_handler.rb"
         copy_file "another_dummy_authorization_handler.rb", "app/services/another_dummy_authorization_handler.rb"
         copy_file "verifications_initializer.rb", "config/initializers/decidim_verifications.rb"
       end

@@ -97,14 +97,13 @@ en:
         confirm_delete_assembly: Are you sure you want to delete this assembly?  If you change your mind, you can restore it later.
         import_assembly: Import
         new_assembly: New assembly
-        new_assembly_member: New assembly member
         new_assembly_type: New assembly type
         new_assembly_user_role: New assembly admin
         view_deleted_assemblies: View deleted assemblies
       assemblies:
         create:
           error: There was a problem creating a new assembly.
-          success: Assembly created successfully.
+          success: Assembly created successfully. You can now add components and configure it.
         edit:
           update: Update
         index:
@@ -149,23 +148,6 @@ en:
           import: Import
           select: Select which data you would like to import
           title: Import assembly
-      assembly_members:
-        create:
-          error: There was a problem adding a member for this assembly.
-          success: Member successfully created for this assembly.
-        destroy:
-          success: Member successfully deleted for this assembly.
-        edit:
-          title: Update assembly member
-          update: Update
-        index:
-          assembly_members_title: Assembly members
-        new:
-          create: Create
-          title: New assembly member
-        update:
-          error: There was a problem updating the member for this assembly.
-          success: Member successfully updated for this assembly.
       assembly_publications:
         create:
           error: There was a problem publishing this assembly.
@@ -204,16 +186,14 @@ en:
         assemblies: Assemblies
         assemblies_submenu:
           assembly_admins: Assembly admins
-          assembly_members: Members
           attachment_collections: Folders
           attachment_files: Files
           attachments: Attachments
-          categories: Categories
           components: Components
           info: About this assembly
           landing_page: Landing page
           moderations: Moderations
-          private_users: Private participants
+          private_users: Members
           see_assembly: See assembly
         assemblies_types: Assemblies types
       models:
@@ -231,11 +211,6 @@ en:
             title: Title
           name: Assembly
         assembly_member:
-          fields:
-            ceased_date: Ceased date
-            designation_date: Designation date
-            full_name: Name
-            position: Position
           name: Member
           positions:
             other: Other
@@ -300,6 +275,7 @@ en:
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
             other: Other
+            private_notice: You will be able to manage private participants after setting it as private
             select_a_created_by: Select a created by
             select_an_area: Select an Area
             select_an_assembly_type: Select an assembly type
@@ -320,14 +296,9 @@ en:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_members:
           form:
-            existing_user: Existing participant
             explanation: 'Guidance for image:'
             image_guide: Preferably a portrait image that does not have any text.
-            non_user: Non participant
             non_user_avatar_help: You should get the consent of the persons before publishing them as a member.
-            select_a_position: Select a position
-            select_user: Select a participant
-            user_type: Participant type
         content_blocks:
           highlighted_assemblies:
             max_results: Maximum amount of elements to show
@@ -411,8 +382,6 @@ en:
         private_space: This is a private assembly
         social_networks_title: Visit assembly on
     assembly_members:
-      assembly_member:
-        designated_on: Designated on
       index:
         title: Members
     download_your_data:

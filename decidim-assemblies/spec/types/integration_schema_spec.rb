@@ -47,7 +47,6 @@ describe "Decidim::Api::QueryType" do
       "isTransparent" => assembly.is_transparent?,
       "linkedParticipatorySpaces" => [],
       "localArea" => { "translation" => assembly.local_area[locale] },
-      "members" => assembly.members.map { |m| { "id" => m.id.to_s } },
       "metaScope" => { "translation" => assembly.meta_scope[locale] },
       "parent" => assembly.parent,
       "parentsPath" => assembly.parents_path.to_s,
@@ -152,9 +151,6 @@ describe "Decidim::Api::QueryType" do
         }
         localArea {
           translation(locale:"#{locale}")
-        }
-        members {
-          id
         }
         metaScope {
           translation(locale:"#{locale}")
@@ -328,9 +324,6 @@ describe "Decidim::Api::QueryType" do
         }
         localArea {
           translation(locale:"#{locale}")
-        }
-        members {
-          id
         }
         metaScope {
           translation(locale:"#{locale}")

@@ -1,15 +1,33 @@
-<tr>
-  <td>
+<tr data-assembly-id="<%= assembly.id %>" data-parent-id="<%= assembly.parent_id %>" data-level="<%= assembly.ancestors.count %>">
+  <td class="whitespace-nowrap">
+    <% if parent_assembly_id %>
+      <% [assembly.ancestors.count - 1, 0].max.times do |index| %>
+        <span class="px-3"></span>
+      <% end %>
+      <span class="px-3 text-xl text-secondary opacity-10">|</span>
+    <% end %>
+
     <% if assembly.promoted? %>
       <%= icon_with_tooltip "star-s-fill", t("models.assembly.fields.promoted", scope: "decidim.admin") %>
     <% end %>
 
-    <% if allowed_to? :update, :assembly, assembly: assembly %>
-      <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %>
-    <% elsif allowed_to? :read, :component, assembly: assembly %>
-      <%= link_to translated_attribute(assembly.title), components_path(assembly) %><br>
-    <% else %>
-      <%= translated_attribute(assembly.title) %>
+    <span class="table-list__title-ellipsis">
+      <% if allowed_to? :update, :assembly, assembly: assembly %>
+        <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %>
+      <% elsif allowed_to? :read, :component, assembly: assembly %>
+        <%= link_to translated_attribute(assembly.title), components_path(assembly) %><br>
+      <% else %>
+        <%= translated_attribute(assembly.title) %>
+      <% end %>
+    </span>
+
+    <% if assembly.children.count.positive? %>
+      <%= link_to url_for(query_params_with(parent_id_eq: assembly.id)), remote: true, data: { arrow_down: true } do %>
+        <%= icon "arrow-down-s-line", class: "w-4 h-4 ml-2" %>
+      <% end %>
+      <%= link_to "#", class: "hidden", data: { arrow_up: true } do %>
+        <%= icon "arrow-up-s-line", class: "w-4 h-4 ml-2" %>
+      <% end %>
     <% end %>
   </td>
   <td class="table-list__date">
@@ -44,14 +62,6 @@
       <% end %>
       <% if allowed_to? :update, :assembly, assembly: assembly %>
         <%= icon_link_to "pencil-line", edit_assembly_path(assembly), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
-      <% else %>
-        <span class="action-space icon"></span>
-      <% end %>
-      <% if assembly.children.count.positive? || allowed_to?(:read, :assembly, assembly:) %>
-        <%= icon_link_to "government-line",
-                         url_for(query_params_with(parent_id_eq: assembly.id)),
-                         t("decidim.admin.titles.assemblies"),
-                         class: "action-icon--dial #{"highlighted" if assembly.children.count.positive?}" %>
       <% else %>
         <span class="action-space icon"></span>
       <% end %>

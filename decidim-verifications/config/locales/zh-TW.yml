@@ -98,17 +98,6 @@ zh-TW:
         destroy:
           error: 刪除授權時出現問題。
           success: 您已成功刪除授權。
-        first_login:
-          actions:
-            another_dummy_authorization_handler: 使用另一個授權處理器進行驗證
-            csv_census: 根據組織的人口統計進行驗證
-            dummy_authorization_handler: 根據範例授權處理器進行驗證
-            dummy_authorization_workflow: 根據範例授權工作流程進行驗證
-            id_documents: 通過上傳身份證明文件進行驗證
-            postal_letter: 通過郵寄獲得驗證碼進行驗證
-            sms: 通過收到SMS短信驗證碼進行驗證
-          title: 驗證你的身份
-          verify_with_these_options: '這是可以驗證您身份的可用選項:'
         index:
           expired_verification: 驗證已過期
           granted_verification: 已授權驗證

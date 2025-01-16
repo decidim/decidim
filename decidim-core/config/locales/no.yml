@@ -420,9 +420,6 @@
     download_your_data:
       export:
         ready: Klar
-      show:
-        download_data: Last ned informasjonen
-        request_data: Etterspør informasjonen
     editor_images:
       drag_and_drop_help: Legg til bilder ved å dra og slippe eller lime dem inn.
     endorsements:
@@ -570,10 +567,7 @@
           notification_title: <a href="%{resource_path}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
     export_mailer:
       download_your_data_export:
-        click_button: 'Klikk på neste link for å laste ned dataen.<br/>Filen vil være tilgjengelig til %{date}.<br/>Du vil trenge <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) eller <a href="https://peazip.github.io">PeaZip</a> (for Linux) for å åpne den. Passord: %{password}'
         download: Last ned
-      export:
-        ready: Vennligst finn vedlagte en zip-versjon av eksporten din.
       subject: Eksporten din "%{name}" er klar
     filters:
       linked_classes:
@@ -1011,10 +1005,6 @@
         title: Rapporter upassende bruker
       floating_help:
         help: Hjelp
-      participatory_space_filters:
-        filters:
-          areas: Områder
-          select_an_area: Velg et område
       public_participation:
         public_participation: Vis min deltagelse offentlig
       reference:
@@ -1041,9 +1031,6 @@
       pages_count: Sider
       participants_count: Deltakere
       users_count: Deltakere
-    tags:
-      filter_results_for_category: 'Filtrer resultater for kategori: %{resource}'
-      filter_results_for_scope: 'Filtrere resultater for tema: %{resource}'
     translation_bar:
       help_text: "<strong>Advarsel:</strong> Innhold kan automatisk bli oversatt og ikke alltid være 100 % nøyaktig."
       show_original: Vis originaltekst
@@ -1236,7 +1223,6 @@
       footer:
         cc_by_license: Creative Commons lisens
         decidim_logo: Decidim logo
-        download_open_data: Last ned Åpen Data filer
         log_in: Logg inn
         made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">fri programvare</a>.
       header:

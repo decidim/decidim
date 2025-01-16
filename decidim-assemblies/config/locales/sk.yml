@@ -86,7 +86,6 @@ sk:
       assemblies:
         create:
           error: Pri tvorbe nového zhromaždenia nastala chyba.
-          success: Zhromaždenie úspešne vytvorené.
         edit:
           update: Aktualizovať
         index:

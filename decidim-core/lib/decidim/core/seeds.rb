@@ -14,8 +14,6 @@ module Decidim
         Rails.application.reloader.reload! if Rails.application.reloader.check!
         reset_column_information
 
-        ActiveJob::Base.queue_adapter = :inline
-
         organization = create_organization!
 
         if organization.taxonomies.none?
@@ -33,6 +31,7 @@ module Decidim
           3.times do
             create_taxonomy!(name: ::Faker::Lorem.word, parent: sub_taxonomy)
           end
+
           sub_taxonomy = create_taxonomy!(name: "Sectorial", parent: taxonomy)
           5.times do
             create_taxonomy!(name: ::Faker::Lorem.word, parent: sub_taxonomy)

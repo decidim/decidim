@@ -41,7 +41,9 @@ ja:
       actions:
         attachment_collections: フォルダー
         attachments: 添付ファイル
+        confirm_delete_result: この結果を削除してもよろしいですか？
         confirm_destroy: この %{name} を削除してもよろしいですか？
+        deleted_results_info: 削除された結果はゴミ箱から復元できます。
         destroy: 削除
         edit: 編集
         import: 別のコンポーネントからプロジェクトをインポート
@@ -52,6 +54,7 @@ ja:
         preview: プレビュー
         timeline_entries: プロジェクトの進化
         title: アクション
+        view_deleted_results: 削除された結果を表示
       admin:
         exports:
           result_comments: コメント
@@ -109,13 +112,13 @@ ja:
           create:
             invalid: 結果の作成中に問題がありました。
             success: 結果が正常に作成されました。
-          destroy:
-            success: 結果を削除しました。
           edit:
             title: 結果を編集
             update: 結果を更新
           index:
             title: 結果
+          manage_trash:
+            title: 削除された結果
           new:
             create: 結果を作成
             title: 新しい結果
@@ -163,6 +166,8 @@ ja:
         result:
           create: "%{user_name} が結果 %{resource_name} を %{space_name} に作成しました"
           delete: "%{user_name} が %{resource_name} の結果 %{space_name} を削除しました"
+          restore: "%{user_name} は %{space_name} の結果 %{resource_name} を復元しました"
+          soft_delete: "%{user_name} は %{space_name} の結果 %{resource_name} をゴミ箱に移動しました"
           update: "%{user_name} の結果 %{resource_name} を %{space_name} に更新しました"
         status:
           create: "%{user_name} が %{resource_name} ステータスを作成しました"
@@ -198,14 +203,13 @@ ja:
       models:
         result:
           fields:
-            category: カテゴリ
             created_at: 作成日時
             end_date: 終了日
             id: ID
             progress: 進捗状況
-            scope: スコープ
             start_date: 開始日
             status: ステータス
+            taxonomies: タクソノミー
             title: タイトル
         status:
           fields:
@@ -221,17 +225,13 @@ ja:
         count:
           results_count:
             other: "%{count} 件の結果"
-        filters:
-          all: すべて
         home:
-          categories_label: カテゴリ
           empty: まだ結果はありません。
           empty_filters: この条件の結果はありません。
-          subcategories_label: サブカテゴリ
+          sub_taxonomies_label: サブカテゴリ
+          taxonomies_label: カテゴリ
         home_header:
           global_status: グローバル実行状況
-        nav_breadcrumb:
-          global: グローバル実行
         no_results: プロジェクトがありません
         search:
           search: アクションを検索
@@ -243,12 +243,10 @@ ja:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: カテゴリ
-          scope_id_eq:
-            label: スコープ
           status_id_eq:
             label: ステータス
+          taxonomies_part_of_contains:
+            label: タクソノミー
     components:
       accountability:
         actions:
@@ -256,14 +254,24 @@ ja:
         name: アカウンタビリティ
         settings:
           global:
+            clear_all: すべてクリア
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             display_progress_enabled: 進行状況を表示
+            geocoding_enabled: 地図は有効です
             intro: はじめに
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             scope_id: スコープ
             scopes_enabled: スコープが有効
+            taxonomy_filters: コンポーネントのフィルタを選択
+            taxonomy_filters_add: フィルターを追加
           step:
             comments_blocked: コメントをブロック
+    download_your_data:
+      show:
+        result_comments: 結果コメントのエクスポート
+        results: 結果のエクスポート
     events:
       accountability:
         proposal_linked:
@@ -281,6 +289,41 @@ ja:
         description: 生成した結果の数
         object: 結果
         title: 結果
+    open_data:
+      help:
+        result_comments:
+          alignment: このコメントが好意的、反対的、中立的であった場合
+          author: このコメントを作成した参加者の名前
+          body: コメント本体
+          commentable_id: コメント対象の固有ID
+          commentable_type: コメント対象の種別 (結果、提案など)
+          created_at: このコメントが作成された日時
+          depth: このコメントがコメントツリーのどこに位置しているか（もしそれが回答であるか、または回答の回答である場合）
+          id: このコメントのID
+          locale: このコメントを残すときに参加者が使っていたロケール（言語）
+          root_commentable_url: このコメントに関連するリソースの URL
+          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
+        results:
+          address: 結果のアドレス (もしあれば)
+          children_count: 子の結果の数
+          comments_count: この結果のコメント数
+          component: 結果が属するコンポーネント
+          created_at: 結果の作成日時
+          description: 結果の説明
+          end_date: 結果の実行が終わり、完了した日付
+          id: 結果の固有ID
+          latitude: 結果に物理的な場所がある場合の結果の緯度
+          longitude: 結果に物理的な場所がある場合の結果の経度
+          parent: 結果の親の結果 (もしあれば)
+          progress: 結果の実行の割合
+          proposal_urls: この結果に含まれる提案のURL
+          reference: 結果のユニークな参照
+          start_date: 結果の実行を開始した日時
+          status: この結果の現在の状態
+          taxonomies: 結果のタクソノミー
+          title: 結果のタイトル
+          updated_at: この結果が更新された日時
+          url: この結果が見つかるURL
     participatory_spaces:
       highlighted_results:
         see_all: すべての結果を見る (%{count})

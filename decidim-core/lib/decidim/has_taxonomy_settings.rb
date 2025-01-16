@@ -35,9 +35,7 @@ module Decidim
       def update_components_counter_cache
         return unless has_taxonomy_settings?
 
-        available_taxonomy_filters.each do |taxonomy_filter|
-          taxonomy_filter.update(components_count: taxonomy_filter.components.count)
-        end
+        available_taxonomy_filters.each(&:update_component_count)
       end
     end
   end

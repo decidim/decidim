@@ -95,13 +95,11 @@ sv:
       actions:
         import_assembly: Importera
         new_assembly: Nytt samråd
-        new_assembly_member: Ny medlem i samråd
         new_assembly_type: Ny typ av samråd
         new_assembly_user_role: Ny administratör av samråd
       assemblies:
         create:
           error: Det gick inte att skapa ett nytt samråd.
-          success: Samrådet har skapats.
         edit:
           update: Uppdatera
         index:
@@ -144,23 +142,6 @@ sv:
           import: Importera
           select: Välj vilka uppgifter du vill importera
           title: Importera samråd
-      assembly_members:
-        create:
-          error: Det gick inte att lägga till en medlem i samrådet.
-          success: Skapade medlem i samrådet.
-        destroy:
-          success: Medlemmen har raderats från samrådet.
-        edit:
-          title: Uppdatera medlem i samråd
-          update: Uppdatera
-        index:
-          assembly_members_title: Medlemmar i samrådet
-        new:
-          create: Skapa
-          title: Ny medlem i samråd
-        update:
-          error: Det gick inte att uppdatera medlemmen i samrådet.
-          success: Medlemmen i gruppen har uppdaterats.
       assembly_publications:
         create:
           error: Det gick inte att publicera samrådet.
@@ -199,7 +180,6 @@ sv:
         assemblies: Samråd
         assemblies_submenu:
           assembly_admins: Administratörer för samråd
-          assembly_members: Medlemmar
           attachment_collections: Mappar
           attachment_files: Filer
           attachments: Bilagor
@@ -208,7 +188,6 @@ sv:
           info: Om samrådet
           landing_page: Landningssida
           moderations: Moderering
-          private_users: Privata deltagare
           see_assembly: Visa samråd
         assemblies_types: Typer av samråd
       models:
@@ -226,11 +205,6 @@ sv:
             title: Titel
           name: Samråd
         assembly_member:
-          fields:
-            ceased_date: Slutade datum
-            designation_date: Utnämningsdatum
-            full_name: Namn
-            position: Position
           name: Medlem
           positions:
             other: Andra
@@ -308,14 +282,9 @@ sv:
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         assembly_members:
           form:
-            existing_user: Befintlig deltagare
             explanation: 'Instruktioner för bild:'
             image_guide: Helst en porträttbild utan text.
-            non_user: Ej deltagande
             non_user_avatar_help: Du bör få medgivande av personerna innan du lägger till dem som medlemmar.
-            select_a_position: Välj en position
-            select_user: Välj en deltagare
-            user_type: Typ av deltagare
         content_blocks:
           highlighted_assemblies:
             max_results: Maximalt antal element att visa
@@ -399,8 +368,6 @@ sv:
         private_space: Det här är ett privat samråd
         social_networks_title: Besök samrådet på
     assembly_members:
-      assembly_member:
-        designated_on: Utsedd den
       index:
         title: Medlemmar
     events:

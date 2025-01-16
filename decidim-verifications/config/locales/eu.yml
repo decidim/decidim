@@ -124,17 +124,6 @@ eu:
         destroy:
           error: Arazo bat egon da baimena ezabatzean.
           success: Baimena zuzen ezabatu duzu.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Egiaztatu baimenen kudeatzailearen beste adibide baten aurka
-            csv_census: Egiaztatu erakundearen zentsuaren aurka
-            dummy_authorization_handler: Egiaztatu adibide-baimenaren kudeatzailearen aurka
-            dummy_authorization_workflow: Egiaztatu baimenen laneko fluxuaren aurka
-            id_documents: Egiaztatu zure identifikazio dokumentua kargatzen
-            postal_letter: Egiaztatu egiaztapen-kodea posta-posta bidez egiaztatuz
-            sms: Identifikatu zaitez SMS bidez bidalitako kode baten bitartez
-          title: Egiaztatu zure identitatea
-          verify_with_these_options: 'Hauek dira zure identitatea egiaztatzeko erabilgarri dauden aukerak:'
         index:
           expired_verification: Egiaztapena iraungi egin da
           granted_verification: Egiaztapen emana
@@ -146,6 +135,13 @@ eu:
         new:
           authorize: Bidali
           authorize_with: Egiaztatu %{authorizer} rekin
+        onboarding_pending:
+          completed_verifications: 'Bainema zuzen lortu duzu, orain zuk ahal duzu %{action} hemen: %{resource_name}'
+          granted_verifications: Emandako egiaztapenak
+          onboarding_message_html: 'Ia prest zaude %{action} ekintzarako hemen: <strong>%{resource_title}</strong> %{resource_name}. Mesedez, egiaztatu zure kontua baimen hauek betez.'
+          pending_admin_approval_verifications: Admin. onespenaren egiaztapenen zain
+          pending_verifications: Egiaztatzeke
+          unauthorized: Ez duzu baimenik %{ekintza} ekintzarako baliabide honetan
         renew_modal:
           cancel: Ezeztatu
           continue: Jarraitu
@@ -287,7 +283,7 @@ eu:
             error: Arazo bat egon da zure eskaerarekin.
             success: Mila esker! SMS bat bidali dugu zure telefonora.
           destroy:
-            success: Egiaztapen-kodea arrakastaz berrezarri da. Mesedez, sartu berriro zure telefono zenbakia.
+            success: Egiaztapen-kodea zuzen berrezarri da. Mesedez, sartu berriro zure telefono zenbakia.
           edit:
             confirm_destroy: Ziur egiaztapen-kodea berrezarri nahi duzula?
             destroy: Berrezarri egiaztapen-kodea

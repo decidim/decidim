@@ -120,7 +120,6 @@ el:
           categories: Κατηγορίες
           components: Στοιχεία
           moderations: Εποπτεύσεις
-          private_users: Ιδιωτικοί συμμετέχοντες
           process_admins: Διαχειριστές διαδικασιών
           steps: Φάσεις
       models:

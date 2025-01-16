@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.version = Decidim::Forms.version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva", "Rubén González Valero"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com", "rbngzlv@gmail.com"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
@@ -33,7 +33,6 @@ Gem::Specification.new do |s|
   end
 
   s.add_dependency "decidim-core", Decidim::Forms.version
-  s.add_dependency "wicked_pdf", "~> 2.1"
 
   s.add_development_dependency "decidim-admin", Decidim::Forms.version
   s.add_development_dependency "decidim-dev", Decidim::Forms.version

@@ -53,16 +53,6 @@ id:
         create:
           error: Ada kesalahan saat membuat otorisasi.
           unconfirmed: Anda perlu mengkonfirmasi email Anda untuk mengotorisasi diri Anda sendiri.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Verifikasi terhadap contoh lain dari pengendali otorisasi
-            csv_census: Verifikasi terhadap sensus organisasi
-            dummy_authorization_handler: Verifikasi terhadap contoh handler otorisasi
-            dummy_authorization_workflow: Verifikasi terhadap contoh alur kerja otorisasi
-            id_documents: Dapatkan verifikasi dengan mengunggah dokumen identitas Anda
-            postal_letter: Dapatkan verifikasi dengan menerima kode verifikasi melalui surat pos
-          title: Verifikasi identitas Anda
-          verify_with_these_options: 'Ini adalah opsi yang tersedia untuk memverifikasi identitas Anda:'
         new:
           authorize: Kirim
           authorize_with: Verifikasi dengan %{authorizer}

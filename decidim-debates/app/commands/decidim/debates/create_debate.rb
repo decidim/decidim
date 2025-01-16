@@ -5,7 +5,26 @@ module Decidim
     # This command is executed when the user creates a Debate from the public
     # views.
     class CreateDebate < Decidim::Commands::CreateResource
+      include ::Decidim::MultipleAttachmentsMethods
+
       fetch_form_attributes :taxonomizations
+
+      def call
+        return broadcast(:invalid) if invalid?
+
+        if process_attachments?
+          build_attachments
+          return broadcast(:invalid) if attachments_invalid?
+        end
+
+        perform!
+        broadcast(:ok, resource)
+      rescue ActiveRecord::RecordInvalid
+        add_file_attribute_errors!
+        broadcast(:invalid)
+      rescue Decidim::Commands::HookError
+        broadcast(:invalid)
+      end
 
       private
 
@@ -20,6 +39,8 @@ module Decidim
       end
 
       def run_after_hooks
+        @attached_to = resource
+        create_attachments(first_weight: 1) if process_attachments?
         send_notification_to_author_followers
         send_notification_to_space_followers
         follow_debate

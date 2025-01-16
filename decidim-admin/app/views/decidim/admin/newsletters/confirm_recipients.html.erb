@@ -1,0 +1,64 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t ".title" %>
+  </h1>
+  <div class="flex ml-auto items-center gap-x-4">
+    <%= link_to t("actions.edit", scope: "decidim.admin"),
+                select_recipients_to_deliver_newsletter_path(@newsletter, newsletter: newsletter_params),
+                class: "button button__sm button__secondary" %>
+  </div>
+</div>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <div class="table-scroll">
+      <table class="stack table-list">
+        <thead>
+        <tr>
+          <th><%= t(".name") %></th>
+          <th><%= t(".email") %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @recipients.each do |user| %>
+          <tr>
+            <td><%= user.name %><br></td>
+            <td><%= user.email %><br></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <% unless @newsletter.sent? %>
+          <%= form_with url: deliver_newsletter_path(@newsletter), method: :post, html: { class: "form form-defaults newsletter_deliver" } do |f| %>
+            <%= hidden_field_tag "newsletter[send_to_all_users]", params.dig(:newsletter, :send_to_all_users) || "0" %>
+            <%= hidden_field_tag "newsletter[send_to_verified_users]", params.dig(:newsletter, :send_to_verified_users) %>
+            <%= hidden_field_tag "newsletter[send_to_participants]", params.dig(:newsletter, :send_to_participants) %>
+            <%= hidden_field_tag "newsletter[send_to_followers]", params.dig(:newsletter, :send_to_followers) %>
+            <%= hidden_field_tag "newsletter[send_to_private_members]", params.dig(:newsletter, :send_to_private_members) %>
+
+            <% @form.participatory_space_types.each do |space_type| %>
+              <%= f.fields_for "newsletter[participatory_space_types][#{space_type.manifest_name}]", space_type do |ff| %>
+                <%= ff.hidden_field :manifest_name, value: space_type.manifest_name %>
+                <% space_type.ids.each do |id| %>
+                  <%= hidden_field_tag "newsletter[participatory_space_types][#{space_type.manifest_name}][ids][]", id %>
+                <% end %>
+              <% end %>
+            <% end %>
+
+            <% @form.verification_types.each do |verification_type| %>
+              <%= hidden_field_tag "newsletter[verification_types][]", verification_type, id: "verification_types_#{verification_type}" %>
+            <% end %>
+
+            <%= submit_tag t("select_recipients_to_deliver.deliver", scope: "decidim.admin.newsletters"),
+                           id: "deliver-button", class: "button button__sm button__secondary",
+                           data: { confirm: t("select_recipients_to_deliver.confirm_deliver", scope: "decidim.admin.newsletters") } %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= decidim_paginate @recipients %>

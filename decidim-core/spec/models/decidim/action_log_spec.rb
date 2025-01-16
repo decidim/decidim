@@ -9,6 +9,8 @@ describe Decidim::ActionLog do
 
   it { is_expected.to be_valid }
 
+  include_examples "has taxonomies"
+
   describe "validations" do
     context "when no user is given" do
       let(:action_log) { build(:action_log, user: nil, organization: build(:organization)) }

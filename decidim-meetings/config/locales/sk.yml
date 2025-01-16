@@ -132,8 +132,6 @@ sk:
         attachment_collections: Zložky
         attachments: Prílohy
         close: Zavrieť
-        confirm_destroy: Naozaj chcete túto schôdzku vymazať?
-        destroy: Odstrániť
         edit: Upraviť
         preview: Náhľad
         registrations: Registrácia
@@ -190,8 +188,6 @@ sk:
             close: Zavrieť
             title: Zatvorte schôdzku
         meetings:
-          destroy:
-            success: Stretnutie bolo úspešne vymazané
           edit:
             update: Aktualizácia
           form:

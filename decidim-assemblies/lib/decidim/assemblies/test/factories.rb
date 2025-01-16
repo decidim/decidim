@@ -195,26 +195,4 @@ FactoryBot.define do
              skip_injection: evaluator.skip_injection)
     end
   end
-
-  factory :assembly_member, class: "Decidim::AssemblyMember" do
-    transient do
-      skip_injection { false }
-    end
-    assembly { create(:assembly, skip_injection:) }
-
-    full_name { Faker::Name.name }
-    gender { Faker::Lorem.word }
-    birthday { Faker::Date.birthday(min_age: 18, max_age: 65) }
-    birthplace { Faker::Lorem.word }
-    position { Decidim::AssemblyMember::POSITIONS.first }
-    designation_date { Faker::Date.between(from: 1.year.ago, to: 1.month.ago) }
-
-    trait :ceased do
-      ceased_date { Faker::Date.between(from: 1.day.ago, to: 5.days.ago) }
-    end
-
-    trait :with_user do
-      user { create(:user, organization: assembly.organization, skip_injection:) }
-    end
-  end
 end

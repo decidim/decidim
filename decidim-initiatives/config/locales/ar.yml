@@ -323,7 +323,6 @@ ar:
           other: " التوقيعات"
         vote_cabin:
           already_voted: وقعت بالفعل
-          verification_required: تحقق من حسابك لتوقيع المبادرة
           vote: إشارة
           votes_blocked: توقيع المعوقين
         votes_count:

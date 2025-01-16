@@ -17,6 +17,7 @@ module Decidim
       helper PaginateHelper
       helper InitiativeHelper
       helper SignatureTypeOptionsHelper
+      helper Decidim::ActionAuthorizationHelper
 
       include InitiativeSlug
       include FilterResource

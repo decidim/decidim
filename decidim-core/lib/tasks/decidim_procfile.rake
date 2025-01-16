@@ -11,6 +11,12 @@ namespace :decidim do
         shakapacker: bin/shakapacker-dev-server
       RUBY
 
+      if defined?(Sidekiq)
+        actions :append_file, "Procfile.dev", <<~RUBY
+          sidekiq: bundle exec sidekiq -C config/sidekiq.yml
+        RUBY
+      end
+
       actions :create_file, "bin/dev", %(#!/usr/bin/env sh
 
 set -e

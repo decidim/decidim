@@ -124,17 +124,6 @@ es:
         destroy:
           error: Se ha producido un error al borrar la autorización.
           success: Has borrado la autorización correctamente.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Verificar contra otro ejemplo de controlador de autorización
-            csv_census: Verifícate contra el censo de la organización
-            dummy_authorization_handler: Verifícate contra el gestor de autorización de ejemplo
-            dummy_authorization_workflow: Verifícate contra el flujo de autorización de ejemplo
-            id_documents: Verifícate subiendo tu documento de identidad
-            postal_letter: Verifícate recibiendo un código de verificación a través de correo postal
-            sms: Verifícate a través de un código enviado por SMS
-          title: Verifica tu identidad
-          verify_with_these_options: 'Estas son las opciones disponibles para verificar tu identidad:'
         index:
           expired_verification: La verificación ha caducado
           granted_verification: Autorización concedida
@@ -146,6 +135,13 @@ es:
         new:
           authorize: Enviar
           authorize_with: Verificar con %{authorizer}
+        onboarding_pending:
+          completed_verifications: Tu perfil se ha verificado con éxito, ahora puedes %{action} en %{resource_name}
+          granted_verifications: Verificaciones concedidas
+          onboarding_message_html: 'Faltan unos pasos previos para poder %{action} en <strong>%{resource_title}</strong>%{resource_name}. Por favor, verifica tu cuenta completando las siguientes verificaciones:'
+          pending_admin_approval_verifications: Verificaciones pendientes de aprobación de una administradora
+          pending_verifications: Verificaciones pendientes
+          unauthorized: No tienes la autorización correspondiente para %{action} en este recurso
         renew_modal:
           cancel: Cancelar
           continue: Continuar

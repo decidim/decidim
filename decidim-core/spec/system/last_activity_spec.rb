@@ -31,13 +31,14 @@ describe "Last activity" do
            organization:)
   end
   let(:long_body_comment) { "This is my very long comment for Last Activity card that must be shorten up because is more than 100 chars" }
-  let(:another_comment) { create(:comment, body: long_body_comment) }
+  let(:another_comment) { create(:comment, body: long_body_comment, commentable: second_commentable) }
   let(:component) do
     create(:component, :published, organization:)
   end
   let(:resource) do
     create(:dummy_resource, component:, published_at: Time.current)
   end
+  let(:second_commentable) { create(:dummy_resource, component:) }
 
   before do
     allow(Decidim::ActionLog).to receive(:public_resource_types).and_return(

@@ -91,6 +91,7 @@ es:
       actions:
         activate: Activar
         configure: Configurar
+        confirm_delete_process: '¿Seguro que quieres eliminar este proceso? Si cambias de opinión, puedes restaurarlo más tarde.'
         confirm_destroy: Confirmar eliminación
         destroy: Borrar
         duplicate: Duplicar
@@ -108,6 +109,7 @@ es:
         resend_invitation: Reenviar invitación
         see_process: Ver el proceso
         unpublish: Despublicar
+        view_deleted_processes: Ver los procesos eliminados
       filters:
         decidim_participatory_process_group_id_eq:
           label: Por grupo de procesos
@@ -127,7 +129,7 @@ es:
           info: Acerca de este proceso
           landing_page: Página de inicio
           moderations: Moderaciones
-          private_users: Participantes privadas
+          private_users: Miembros
           process_admins: Administradoras del proceso
           steps: Fases del proceso
       models:
@@ -169,6 +171,7 @@ es:
           fields:
             invitation_accepted_at: Invitación aceptada el
             invitation_sent_at: Invitación enviada el
+            published: Publicados
       participatory_process_copies:
         new:
           copy: Copiar
@@ -279,6 +282,8 @@ es:
           public: Público
           published: Publicada
           unpublished: Despublicado
+        manage_trash:
+          title: Procesos participativos eliminados
         new:
           create: Crear
           title: Nuevo proceso participativo
@@ -297,6 +302,9 @@ es:
         participatory_process_groups: Grupos de procesos participativos
         participatory_process_types: Tipos de procesos participativos
         participatory_processes: Procesos participativos
+        participatory_processes_deleted: Procesos participativos eliminados
+      tooltips:
+        deleted_processes_info: Un proceso solo se pueden eliminar si su estado es 'Despublicado'.
       users:
         resend_invitation:
           error: Se ha producido un error al reenviar la invitación.
@@ -308,6 +316,8 @@ es:
         export: "%{user_name} ha exportado el proceso participativo %{resource_name}"
         import: "%{user_name} ha importado el proceso participativo %{resource_name}"
         publish: "%{user_name} publicó el proceso participativo %{resource_name}"
+        restore: "%{user_name} restauró el proceso participativo \"%{resource_name}\""
+        soft_delete: "%{user_name} ha enviado a la papelera el proceso participativo \"%{resource_name}\""
         unpublish: "%{user_name} despublicó el proceso participativo %{resource_name}"
         update: "%{user_name} actualizó el proceso participativo %{resource_name}"
       participatory_process_group:
@@ -326,6 +336,9 @@ es:
         create: "%{user_name} invitó a la participante %{resource_name} al proceso participativo %{space_name}"
         delete: "%{user_name} eliminó a la participante %{resource_name} del proceso participativo %{space_name}"
         update: "%{user_name} cambió el rol de la participante %{resource_name} en el proceso participativo %{space_name}"
+    download_your_data:
+      show:
+        participatory_processes: Exportar los procesos participativos
     events:
       participatory_process:
         role_assigned:
@@ -360,6 +373,38 @@ es:
         description: Número de procesos participativos en esta organización
         object: procesos participativos
         title: Procesos participativos
+    open_data:
+      help:
+        participatory_processes:
+          announcement: La información del anuncio/aviso (llamada)
+          area: El área a la que pertenece el proceso
+          created_at: La fecha en la que se creó este proceso participativo
+          description: Una descripción larga del proceso
+          developer_group: El grupo promotor del proceso. Quien está promoviendo el proceso.
+          end_date: La fecha de finalización del proceso
+          follows_count: El número de usuarias que siguen este proceso participativo
+          hashtag: La etiqueta que utiliza el proceso en Twitter/X
+          id: El identificador único del proceso
+          local_area: El área de organización del proceso. Esto es el área de organización de la que depende este proceso.
+          meta_scope: Los metadatos del ámbito territorial del proceso
+          participatory_process_group: El grupo del proceso, si forma parte de alguno
+          participatory_process_type: El tipo del proceso
+          participatory_scope: El ámbito territorial de la participación del proceso
+          participatory_structure: La estructura participativa del proceso. Esto es como se decide en el proceso.
+          promoted: Si el proceso está destacado o no
+          published_at: La fecha en la que se publicó este proceso participativo
+          reference: La referencia única del proceso participativo
+          remote_hero_image_url: La URL de la imagen principal del proceso
+          scope: El ámbito territorial del proceso
+          scopes_enabled: Si el ámbito territorial está habilitado o no
+          short_description: Una breve descripción del proceso
+          slug: El nombre corto del proceso (usado para fines de identificación, para la URL)
+          start_date: La fecha de inicio del proceso
+          subtitle: El subtítulo del proceso
+          target: Las destinatarias del proceso. Quien está llamado a participar en el proceso.
+          title: El título del proceso
+          updated_at: La fecha de la última actualización de este proceso participativo
+          url: La URL del proceso participativo
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -423,11 +468,14 @@ es:
         participatory_processes:
           form:
             announcement_help: El texto que ingreses aquí se mostrará a la participante justo debajo de la información del proceso.
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
             filters: Filtros
             images: Imágenes
             metadata: Metadatos
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             other: Otro
+            private_notice: Podrás administrar las miembros después de configurar el espacio como privado
             related_processes: Procesos relacionados
             scope_type_max_depth_help: Restringe la profundidad del filtro de ámbito; se mostrará el filtro desde el ámbito general hasta el seleccionado.
             select_an_area: Selecciona una área
@@ -499,6 +547,9 @@ es:
           type: Tipo
         show:
           title: Acerca de este proceso
+      participatory_space_private_users:
+        index:
+          title: Miembros
       show:
         belongs_to_group: Este proceso pertenece a
         private_space: Este es un proceso privado
@@ -512,6 +563,8 @@ es:
           browse: Explorar
           browse_resource: Explorar el grupo de procesos %{resource_name}
           processes_count: 'Procesos:'
+      participatory_process_navigation:
+        member_menu_item: Miembros
       participatory_processes:
         index:
           promoted_processes: Procesos destacados

@@ -1,0 +1,119 @@
+"target: developer-experience":
+  - head-branch: ["^refactor"]
+
+"type: feature":
+  - head-branch: ["^feature"]
+
+"type: fix":
+  - head-branch: ["^fix"]
+
+"type: internal":
+  - head-branch: ["^deps", "^chore"]
+
+configuration:
+  - changed-files:
+      - any-glob-to-any-file:
+        - .github/**/*
+        - /config/**/*
+        - /*.json
+        - /*.yml
+        - /*.yaml
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+        - "*.gemspec"
+        - Gemfile
+        - Gemfile.lock
+        - package.json
+        - package-lock.json
+
+javascript:
+  - changed-files:
+      - any-glob-to-any-file: "*.js"
+"module: accountability":
+  - changed-files:
+      - any-glob-to-any-file: decidim-accountability/**/*
+"module: admin":
+  - changed-files:
+      - any-glob-to-any-file: decidim-admin/**/*
+"module: ai":
+  - changed-files:
+      - any-glob-to-any-file: decidim-ai/**/*
+"module: api":
+  - changed-files:
+      - any-glob-to-any-file: decidim-api/**/*
+"module: assemblies":
+  - changed-files:
+      - any-glob-to-any-file: decidim-assemblies/**/*
+"module: blogs":
+  - changed-files:
+      - any-glob-to-any-file: decidim-blogs/**/*
+"module: budgets":
+  - changed-files:
+      - any-glob-to-any-file: decidim-budgets/**/*
+"module: comments":
+  - changed-files:
+      - any-glob-to-any-file: decidim-comments/**/*
+"module: conferences":
+  - changed-files:
+      - any-glob-to-any-file: decidim-conferences/**/*
+"module: consultations":
+  - changed-files:
+      - any-glob-to-any-file: decidim-consultations/**/*
+"module: core":
+  - changed-files:
+      - any-glob-to-any-file: decidim-core/**/*
+"module: debates":
+  - changed-files:
+      - any-glob-to-any-file: decidim-debates/**/*
+"module: design":
+  - changed-files:
+      - any-glob-to-any-file: decidim-design/**/*
+"module: dev":
+  - changed-files:
+      - any-glob-to-any-file: decidim-dev/**/*
+"module: elections":
+  - changed-files:
+      - any-glob-to-any-file: decidim-elections/**/*
+"module: forms":
+  - changed-files:
+      - any-glob-to-any-file: decidim-forms/**/*
+"module: generators":
+  - changed-files:
+      - any-glob-to-any-file: decidim-generators/**/*
+"module: initiatives":
+  - changed-files:
+      - any-glob-to-any-file: decidim-initiatives/**/*
+"module: meetings":
+  - changed-files:
+      - any-glob-to-any-file: decidim-meetings/**/*
+"module: pages":
+  - changed-files:
+      - any-glob-to-any-file: decidim-pages/**/*
+"module: participatory processes":
+  - changed-files:
+      - any-glob-to-any-file: decidim-participatory_processes/**/*
+"module: proposals":
+  - changed-files:
+      - any-glob-to-any-file: decidim-proposals/**/*
+"module: sortitions":
+  - changed-files:
+      - any-glob-to-any-file: decidim-sortitions/**/*
+"module: surveys":
+  - changed-files:
+      - any-glob-to-any-file: decidim-surveys/**/*
+"module: system":
+  - changed-files:
+      - any-glob-to-any-file: decidim-system/**/*
+"module: templates":
+  - changed-files:
+      - any-glob-to-any-file: decidim-templates/**/*
+"module: verifications":
+  - changed-files:
+      - any-glob-to-any-file: decidim-verifications/**/*
+"team: documentation":
+  - changed-files:
+      - any-glob-to-any-file:
+        - docs/**/*
+        - /README.adoc

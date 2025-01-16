@@ -84,7 +84,6 @@ id:
           categories: Kategori
           components: Komponen
           moderations: Moderasi
-          private_users: Pengguna Pribadi
           process_admins: Memproses pengguna
           steps: Tangga
       models:

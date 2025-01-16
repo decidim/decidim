@@ -105,12 +105,10 @@ pt:
       models:
         result:
           fields:
-            category: Categoria
             created_at: Criado em
             end_date: Data final
             id: ID
             progress: Progresso
-            scope: Âmbito
             start_date: Data de início
             status: Estado
             title: Título
@@ -128,15 +126,8 @@ pt:
           results_count:
             one: 1 resultado
             other: "%{count} resultados"
-        filters:
-          all: Todos
-        home:
-          categories_label: Categorias
-          subcategories_label: Subcategorias
         home_header:
           global_status: Estado de execução global
-        nav_breadcrumb:
-          global: Execução global
         search:
           search: Pesquisa por ações
         show:
@@ -147,10 +138,6 @@ pt:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Categoria
-          scope_id_eq:
-            label: Âmbito
           status_id_eq:
             label: Estado
     components:

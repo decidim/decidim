@@ -195,11 +195,14 @@ fr-CA:
         per_page: Par page
         permissions: Autorisations
         reject: Rejeter
+        restore: Restaurer
         send_me_a_test_email: Envoyez-moi un e-mail de test
         share: Partager
+        share_tokens: Liens d'accès
         user:
           new: Nouvel administrateur
         verify: Vérifier
+        view_deleted_components: Voir les composants supprimés
       admin_terms_of_service:
         accept:
           error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation relatives aux administrateurs.
@@ -319,9 +322,6 @@ fr-CA:
           error: Une erreur s'est produite lors de la création de cette fonctionnalité.
           success: Fonctionnalité créée avec succès.
           success_landing_page: Fonctionnalité créée avec succès. Vous pouvez ajouter un bloc de contenu pour cette fonctionnalité sur la page d'accueil de l'espace. Rendez-vous sur <a href="%{landing_page_path}">la page d'accueil de l'espace</a> pour la configurer.
-        destroy:
-          error: Une erreur s'est produite lors de la suppression de cette fonctionnalité.
-          success: La fonctionnalité a été supprimée avec succès.
         edit:
           title: Modifier la fonctionnalité
           update: Mettre à jour
@@ -338,6 +338,8 @@ fr-CA:
             name: Nom de la fonctionnalité
             type: Type de fonctionnalité
             visibility: Visibilité
+        manage_trash:
+          title: Composants supprimés
         new:
           add: Ajouter une fonctionnalité
           title: 'Ajouter une fonctionnalité : %{name}'
@@ -409,8 +411,6 @@ fr-CA:
           JSON: JSON
         notice: Votre export est en cours. Vous recevrez un email quand il sera terminé.
       filters:
-        category_id_eq:
-          label: Catégorie
         filter_label: Filtre
         invitation_accepted_at_present:
           label: Invitation acceptée
@@ -459,8 +459,6 @@ fr-CA:
             'false': Publié
             'true': Dépublié
         remove_all: Tout supprimer
-        scope_id_eq:
-          label: Périmètre d'application
         search_label: Rechercher
         search_placeholder:
           name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
@@ -595,6 +593,7 @@ fr-CA:
         scopes: Périmètres d’application
         see_site: Voir le site
         settings: Paramètres
+        share_tokens: Liens d'accès
         static_page_topics: Sujets
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -650,12 +649,11 @@ fr-CA:
             plural: Pluriel
         share_token:
           fields:
-            created_at: Créée le
+            actions: Actions
             expires_at: Expire le
-            last_used_at: Dernière utilisation
+            registered_only: Enregistrés uniquement ?
             times_used: Nombre d'utilisations
-            token: Jeton
-            user: Créé par
+            token: Lien d’accès
         static_page:
           fields:
             created_at: Créée le
@@ -885,12 +883,19 @@ fr-CA:
         destroy:
           error: Une erreur s'est produite lors de la suppression d'un utilisateur privé pour cet espace participatif.
           success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
+        edit:
+          title: Modifier le participant privé de l'espace participatif.
+          update: Mettre à jour
         index:
           import_via_csv: Importer via csv
+          publish_all: Tout publier
           title: Utilisateur privé de l'espace participatif
+          unpublish_all: Tout dépublier
         new:
           create: Créer
           title: Nouvel utilisateur privé de l'espace participatif.
+        update:
+          success: Participant privé de l'espace participatif mis à jour avec succès
       participatory_space_private_users_csv_imports:
         create:
           invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
@@ -925,10 +930,6 @@ fr-CA:
           title: Modifier les autorisations
         update:
           success: Autorisations mises à jour avec succès.
-      resources:
-        index:
-          headers:
-            scope: Secteur
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de secteur.
@@ -962,16 +963,50 @@ fr-CA:
           success: Périmètre d'application mis à jour avec succès
       share_tokens:
         actions:
-          confirm_destroy: Souhaitez-vous vraiment supprimer ce jeton?
+          confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer cet accès?
+          copy_link: Copier le lien
           destroy: Supprimer
-          share: Partager
+          edit: Modifier
+          preview: Aperçu
+        create:
+          invalid: Un problème est survenu lors de la génération du lien d'accès.
+          success: Lien d'accès créé avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la destruction du jeton.
-          success: Jeton détruit avec succès.
-        share_tokens:
-          empty: Il n'y a pas de jeton actif.
-          help: Ces jetons sont utilisés pour partager cette ressource non publiée à n'importe quel utilisateur. Ils seront cachés dès que la ressource sera publiée. Cliquez sur l'icône du jeton pour visiter l'URL partageable.
-          title: Partager les jetons
+          error: Un problème est survenu lors de la suppression du lien d'accès.
+          success: Lien d'accès supprimé avec succès.
+        edit:
+          title: 'Modifier les liens d''accès pour: %{name}'
+          update: Mettre à jour
+        form:
+          automatic: Automatique
+          custom: Personnalisé
+          custom_expiration: Expiration personnalisée
+          custom_token: Mot personnalisé
+          expires_at: Expire le
+          'false': 'Non'
+          never_expire: Jamais
+          registered_only: Enregistrés uniquement ?
+          token: Clé d'accès
+          'true': 'Oui'
+        index:
+          back_to_share_tokens: Retour aux liens d'accès
+          copied: Lien d'accès copié !
+          copy_message: Le texte a été copié dans le presse-papiers.
+          create_new_token: Créez votre premier lien d'accès !
+          empty_html: Il n'y a pas de liens d'accès actifs. %{new_token_link}
+          never: Jamais
+          new_share_token_button: Nouveau lien d'accès
+          share_tokens_help_html: |
+            Créer et partager un lien d'accès pour autoriser d'autres personnes à voir cette ressource non publiée.
+            Les liens d'accès peuvent être valides uniquement pour les participants enregistrés ou peuvent avoir une date d'expiration si nécessaire.
+            Pour partager un nouveau lien d'accès avec quelqu'un, créez-le puis copiez le lien en utilisant l'icône d'action représentant le "%{clipboard} presse-papier".
+          title: 'liens d''accès pour: %{name}'
+        new:
+          create: Créer
+          title: 'Nouveau lien d''accès pour : %{name}'
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cet accès.
+          success: Lien d'accès mis à jour avec succès.
       shared:
         adjacent_navigation:
           next: Suivant
@@ -1024,31 +1059,22 @@ fr-CA:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
           success: Page mise à jour avec succès.
-      taxonomies:
-        count: Compteur
       taxonomy_filters:
         edit:
           back: Revenir en arrière
-          no_items: Aucun élément n'est disponible pour cette taxonomie. Vous pouvez créer des éléments dans les paramètres de configuration de taxonomie.
           title: Modifier le filtre de taxonomie
           update: Mettre à jour le filtre de taxonomie
-        form:
-          select_taxonomy: Sélectionner une taxonomie
         index:
           description: Un filtre de taxonomie permet aux administrateurs de trier et de filtrer les espaces participatifs selon une taxonomie. Par exemple, ajoutez un filtre de taxonomie pour trier les processus par étendue géographique.
           empty: Il n'y a actuellement aucun filtre de taxonomie. Créez une liste de filtres de taxonomie ici pour trier et filtrer les espaces participatifs basés sur une taxonomie.
         new:
           back: Revenir en arrière
           create: Créer un filtre de taxonomie
-          items: "%{count} éléments disponibles"
           title: Nouveau filtre de taxonomie
         table:
           actions: Actions
-          confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer le filtre %{name}?
-          count: Nombre d'éléments
           destroy: Supprimer
           edit: Modifier
-          name: Nom
         update:
           error: Il y a eu un problème lors de la mise à jour de ce filtre de taxonomie.
           success: Filtre de taxonomie mis à jour avec succès.
@@ -1075,6 +1101,15 @@ fr-CA:
         taxonomy_filters: Filtres de taxonomie
         user_groups: Groupes d'utilisateurs
         users: Administrateurs
+      tooltips:
+        deleted_component_info: Ce composant ne peut être supprimé que si son statut est 'non publié'.
+      trash_management:
+        restore:
+          invalid: Il y a eu un problème lors de la restauration de %{resource_name}.
+          success: "%{resource_name} restauré(e) avec succès."
+        soft_delete:
+          invalid: Il y a eu un problème lors de la suppression de %{resource_name}.
+          success: "%{resource_name} supprimé(e) avec succès."
       user_group:
         csv_verify:
           invalid: Une erreur s'est produite lors de la lecture du fichier CSV.

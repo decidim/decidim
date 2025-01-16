@@ -25,6 +25,10 @@ cs:
         questionnaire:
           request_invalid: Při zpracování požadavku se vyskytl problém. Zkuste to znovu.
   decidim:
+    download_your_data:
+      show:
+        answers: Export odpovědí
+        survey_user_answers: Odpovědi uživatele na dotazník
     forms:
       admin:
         models:

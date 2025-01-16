@@ -2,15 +2,12 @@ gl:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Ámbito
         description: Descripción
         title: Título
         total_budget: Orzamento total
         weight: Orde de posición
       project:
         budget_amount: Importe do orzamento
-        decidim_category_id: Categoría
-        decidim_scope_id: Alcance
         description: Descrición
         proposal_ids: Propostas relacionadas
         title: Título
@@ -23,10 +20,6 @@ gl:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Categoría
-          scope_id_eq:
-            label: Ámbito
           selected_at_null:
             label: Seleccionado
             values:
@@ -36,8 +29,6 @@ gl:
       actions:
         attachment_collections: Carpetas
         attachments: Anexos
-        confirm_destroy: Estás seguro de que queres eliminar este proxecto?
-        destroy: Eliminar
         edit: Editar
         edit_projects: Xestionar proxectos
         import: Importa propostas a proxectos
@@ -110,7 +101,6 @@ gl:
             total_budget: Orzamento total
         project:
           fields:
-            category: Categoría
             id: ID
             title: Título
       order_summary_mailer:
@@ -141,8 +131,6 @@ gl:
           message: O teu voto non foi rexistrado xa que aínda non completaches o proceso de votación. Estás certo/a de querer saír da votación?
           title: Aínda non votaches
         filters:
-          category: Categoría
-          scope: Alcance
           search: Busca
           status: Estado
           status_values:

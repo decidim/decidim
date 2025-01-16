@@ -13,10 +13,16 @@
     </div>
   <% end %>
 
+  <% if current_user.ephemeral? && !current_user.tos_accepted? %>
+    <%= render partial: "tos_acceptance_field", locals: { form: } %>
+  <% end %>
+
   <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <%= link_to authorizations_path, class: "button button__sm md:button__lg button__text-secondary" do %>
-      <%= icon "arrow-left-line", class: "fill-current" %>
-      <span><%= t("decidim.wizard_step_form.wizard_aside.back") %></span>
+    <% if onboarding_manager.available_authorization_selection_page? %>
+      <%= link_to authorizations_back_path(current_user, redirect_url:), class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line", class: "fill-current" %>
+        <span><%= t("decidim.wizard_step_form.wizard_aside.back") %></span>
+      <% end %>
     <% end %>
     <button type="submit" class="button button__sm md:button__lg button__secondary">
       <span><%= t("decidim.verifications.authorizations.new.authorize") %></span>
@@ -24,7 +30,9 @@
     </button>
   </div>
 
-  <p class="prose prose-a:text-secondary">
-    <%= t("decidim.verifications.authorizations.skip_verification", link: link_to(t("decidim.verifications.authorizations.start_exploring"), cta_button_path).html_safe).html_safe %>.
-  </p>
+  <% unless onboarding_manager.ephemeral? %>
+    <p class="prose prose-a:text-secondary">
+      <%= t("decidim.verifications.authorizations.skip_verification", link: link_to(t("decidim.verifications.authorizations.start_exploring"), cta_button_path).html_safe).html_safe %>.
+    </p>
+  <% end %>
 <% end %>

@@ -127,7 +127,6 @@ lt:
           components: Komponentai
           landing_page: Pagrindinis puslapis
           moderations: Moderavimai
-          private_users: Privatūs dalyviai
           process_admins: Proceso administratoriai
           steps: Etapai
       models:

@@ -4,12 +4,17 @@ module Decidim
   module Debates
     # This class holds a Form to create/update debates from Decidim's public views.
     class DebateForm < Decidim::Form
+      include Decidim::HasUploadValidations
+      include Decidim::AttachmentAttributes
       include Decidim::TranslatableAttributes
       include Decidim::HasTaxonomyFormAttributes
 
       attribute :title, String
       attribute :description, String
       attribute :user_group_id, Integer
+      attribute :attachment, AttachmentForm
+
+      attachments_attribute :documents
 
       validates :title, presence: true
       validates :description, presence: true
@@ -23,6 +28,7 @@ module Decidim
         self.title = debate.title.values.first
         self.description = debate.description.values.first
         self.user_group_id = debate.decidim_user_group_id
+        self.documents = debate.attachments
       end
 
       def participatory_space_manifest

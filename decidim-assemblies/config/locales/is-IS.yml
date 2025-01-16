@@ -72,8 +72,6 @@ is-IS:
         new_assembly: Nýtt þing
         new_assembly_type: Ný þing tegund
       assemblies:
-        create:
-          success: Samkoma búin til með góðum árangri.
         edit:
           update: Uppfæra
         index:
@@ -95,13 +93,6 @@ is-IS:
         new:
           import: Flytja inn
           title: Flytja inn þing
-      assembly_members:
-        edit:
-          update: Uppfæra
-        index:
-          assembly_members_title: Þingmenn
-        new:
-          create: Búa til
       assembly_user_roles:
         edit:
           update: Uppfæra
@@ -110,7 +101,6 @@ is-IS:
       menu:
         assemblies: Þing
         assemblies_submenu:
-          assembly_members: Meðlimir
           attachment_files: Skrár
           attachments: Viðhengi
           categories: Flokkar
@@ -130,11 +120,6 @@ is-IS:
             title: Titill
           name: Þing
         assembly_member:
-          fields:
-            ceased_date: Hættudagur
-            designation_date: Tilnefningardagur
-            full_name: Nafn
-            position: Staða
           name: Meðlimur
           positions:
             other: Annað
@@ -177,9 +162,6 @@ is-IS:
         assemblies_types:
           form:
             title: Titill
-        assembly_members:
-          form:
-            select_a_position: Veldu stöðu
       assemblies:
         filters:
           names:

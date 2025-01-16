@@ -14,6 +14,7 @@ module Decidim
       helper Decidim::Admin::IconLinkHelper
       helper InitiativeHelper
       helper SignatureTypeOptionsHelper
+      helper Decidim::ActionAuthorizationHelper
 
       helper_method :scopes
       helper_method :areas

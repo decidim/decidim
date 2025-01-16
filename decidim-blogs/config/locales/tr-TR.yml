@@ -16,8 +16,6 @@ tr:
   decidim:
     blogs:
       actions:
-        confirm_destroy: Bu yayını silmek istediğinize emin misiniz?
-        destroy: silmek
         edit: Düzenle
         new: Yeni posta
         title: Eylemler

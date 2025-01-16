@@ -38,7 +38,7 @@ fi:
           error: Kommentin äänestys epäonnistui.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Kirjaudu sisään</a> tai <a href="%{sign_up_url}">luo tili</a> kommentoidaksesi.
+        account_message: Kirjaudu sisään tai luo tili kommentoidaksesi.
         form:
           body:
             label: Kommentti
@@ -63,6 +63,9 @@ fi:
         alignment:
           against: Vastaan
           in_favor: Puolesta
+        answers:
+          one: "%{count} vastaus"
+          other: "%{count} vastausta"
         cancel_reply: Peruuta vastaus
         comment_label: Kommentti %{comment_id}
         comment_label_reply: Kommentti %{comment_id} (vastauksena kommenttiin %{parent_comment_id})
@@ -93,6 +96,7 @@ fi:
           one: Näytä vastaus
           other: Näytä %{count} vastausta
         single_comment_link_title: Linkki kommenttiin
+        sort_by: 'Järjestä: '
       comment_order_selector:
         order:
           best_rated: Parhaiksi arvioidut

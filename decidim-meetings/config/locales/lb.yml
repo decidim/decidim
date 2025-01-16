@@ -55,8 +55,6 @@ lb:
     admin:
       filters:
         meetings:
-          category_id_eq:
-            label: Kategorie
           closed_at_present:
             label: Zustand
             values:
@@ -67,8 +65,6 @@ lb:
             values:
               'false': Vergaangenes
               'true': Demnächst stattfannend
-          scope_id_eq:
-            label: Ëmfang
           with_any_origin:
             values:
               user_group: Benotzergruppen
@@ -182,8 +178,6 @@ lb:
         meetings:
           create:
             success: Sitzung erfolgreich erstellt. Beachten Sie, dass dies noch nicht veröffentlicht wurde. Sie müssen es manuell veröffentlichen.
-          destroy:
-            success: Das Meeting wurde erfolgreich gelöscht
           edit:
             title: Meeting bearbeiten
             update: Aktualisieren

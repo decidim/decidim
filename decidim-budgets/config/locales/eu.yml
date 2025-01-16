@@ -2,15 +2,12 @@ eu:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Esparrua
         description: Deskribapena
         title: Izenburua
         total_budget: Aurrekontua guztira
         weight: Kokapenaren hurrenkera
       project:
         budget_amount: Aurrekontuaren zenbatekoa
-        decidim_category_id: Kategoria
-        decidim_scope_id: Esparrua
         description: Descripción
         proposal_ids: Honekin lotutako proposamenak
         proposals: Proposamenak
@@ -34,21 +31,20 @@ eu:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Kategoria
-          scope_id_eq:
-            label: Esparrua
           selected_at_null:
             label: Hautatua
             values:
               'false': Gauzatzeko hautatua
               'true': Ez hautaua gauzatzeko
+          taxonomies_part_of_contains:
+            label: Taxonomia
     budgets:
       actions:
         attachment_collections: Karpetak
         attachments: Fitxategi erantsiak
-        confirm_destroy: Ziur zaude proiektu hau ezabatu nahi duzula?
-        destroy: Ezabatu
+        confirm_delete_budget: Ziur zaude aurrekontu hau ezabatu nahi duzula?
+        confirm_delete_project: Ziur zaude proiektu hau ezabatu nahi duzula?
+        deleted_budgets_info: Ezabatutako aurrekontuak berreskura daitezke zaborrontzitik.
         edit: Editatu
         edit_projects: Kudeatu proiektuak
         import: Inportatu proposamenak proiektuetarako
@@ -57,14 +53,13 @@ eu:
         preview: Aurreikusi
         send_voting_reminders: Bidali bozketa gogorarazteko
         title: Ekintzak
+        view_deleted_budgets: Ikusi ezabatutako aurrekontuak
+        view_deleted_projects: Ikusi ezabatutako proiektuak
       admin:
         budgets:
           create:
             invalid: Arazo bat egon da aurrekontu hau sortzean.
             success: Aurrekontua zuzen sortua.
-          destroy:
-            invalid: Arazo bat egon da aurrekontu hau ezabatzean.
-            success: Aurrekontua behar bezala ezabatua.
           edit:
             title: Editatu aurrekontua
             update: Eguneratu aurrekontua
@@ -74,6 +69,8 @@ eu:
             title: Aurrekontuak
             users_with_finished_orders: Erabiltzaile hauek botoak emanda
             users_with_pending_orders: Erabiltzaile hauek botoak emateke
+          manage_trash:
+            title: Ezabatutako aurrekoantuak
           new:
             create: Sortu aurrekontua
             title: Beste aurrekontu bat
@@ -91,8 +88,6 @@ eu:
           create:
             invalid: Arazo bat egon da proiektu hau sortzean.
             success: Proiektua zuzen sortua.
-          destroy:
-            success: Proiektua behar bezala ezabatua.
           edit:
             title: Editatu proiektua
             update: Eguneratu
@@ -100,9 +95,8 @@ eu:
             actions: Ekintzak
             cancel: Ezeztatu
             change_budget: Aldatu aurrekontua
-            change_category: Aldatu kategoria
-            change_scope: Aldatu esparrua
             change_selected: Aldatu hautatutako egoera
+            change_taxonomies: Aldatu taxonomiak
             deselect_implementation: Kendu gauzatzekoetatik
             finished_orders: Amaitutako botoak
             pending_orders: Zain dauden botoak
@@ -114,7 +108,8 @@ eu:
             title: Proiektuak
             update: Eguneratu
             update_budget_button: Eguneratu proiektuaren aurrekontua
-            update_scope_button: Eguneratu esparrua
+          manage_trash:
+            title: Ezabatutako proiektuak
           new:
             create: Sortu
             title: Beste proiektu bat
@@ -122,28 +117,23 @@ eu:
             invalid: Arazo bat egon da proiektu hau eguneratzean.
             success: Proiektua zuzen eguneratua.
           update_budget:
-            invalid: 'Proiektu horiek aurrekontu berean daude jada, edo aurrekontu horiek baimendutako gehienekoa baino handiagoak dira: % {projects}.'
+            invalid: 'Proiektu hauek dagoeneko aurrekontu berean daude edo euren aurrekontuak onartutakoak baino gehiago dira: %{errored}.'
             select_a_project: Mesedez, hautatu proiektu bat.
-            success: 'Proiektuak zuzen eguneratuta %{subject_name} aurrekontuan: %{projects}.'
-          update_category:
-            invalid: 'Proiektu hauek bazuten %{subject_name}: %{projects} kategoria.'
-            select_a_category: Mesedez, hautatu kategoria bat.
-            select_a_project: Mesedez, hautatu proiektu bat.
-            success: 'Proiektuak zuzen eguneratuta %{subject_name}: %{projects} kategoriara.'
-          update_scope:
-            invalid: 'Proposamen hauek bazuten %{subject_name}: %{projects} esparrua.'
-            select_a_project: Mesedez, hautatu proiektu bat.
-            select_a_scope: Mesedez, hautatu esparru bat.
-            success: 'Proiektuak zuzen eguneratuta %{subject_name}: %{projects} esparruan.'
+            success: 'Proiektuak zuzen eguneratu dira %{subject_name} aurrekontura: %{arrakastatsua}.'
           update_selected:
             invalid:
-              selected: 'Honako proiektu hauek dagoeneko gauzatzeko hautatu dira: %{projects}.'
-              unselected: 'Honako proiektu hauek dagoeneko gauzatzekoetatik kendu dira: %{projects}.'
+              selected: 'Proiektu hauek jada hautatuak izan ziren martxan jartzeko: %{errored}.'
+              unselected: 'Proiektu horiek dagoeneko ez ziren aukeratu inplementaziotik: %{errored}.'
             select_a_project: Mesedez, hautatu proiektu bat.
             select_a_selection: Mesedez, hautatu ezarpen-egoera bat.
             success:
-              selected: 'Honako proiektu hauek dagoeneko gauzatzeko hautatu dira: %{projects}.'
-              unselected: 'Honako proiektu hauek dagoeneko gauzatzekoetatik kendu dira: %{projects}.'
+              selected: "Proiektu hauek arrakastaz\nProiektu hauek zuzen aukeratu dira inplementatzeko: %{successful}."
+              unselected: 'Proiektu hauek zuzen kendu dira inplementaziotik: %{successful}.'
+          update_taxonomies:
+            invalid: 'Taxonomiak %{taxonomies}, proiektu hauetan dagoeneko esleituak: %{errored}.'
+            select_a_project: Mesedez, hautatu proiektu bat.
+            select_a_taxonomy: Mesedez, hautatu taxonomia bat.
+            success: 'Proiektuak zuzen eguneratuta %{taxonomies} taxonomietan: %{successful}.'
         proposals_imports:
           create:
             invalid: Arazo bat egon da proposamenak proiektuetara inportatzean.
@@ -159,14 +149,21 @@ eu:
         reminders:
           orders:
             description: Erabiltzaileek mezu elektroniko bat jasoko dute, eskaera bat egiteke duten aurrekontuetarako estekekin.
+            title:
+              one: Gogorarazpen bat bidaltzear zaude posta elektronikoz % {count} erabiltzaileri
+              other: Gogorarazpen bat bidaltzear zaude posta elektronikoz % {count} erabiltzaileri
       admin_log:
         budget:
           create: "%{user_name} k sortu du %{resource_name} aurrekontua %{space_name} esparruan"
           delete: "%{user_name} k ezabatu du %{resource_name} aurrekontua %{space_name} esparruan"
+          restore: "%{user_name} k berreskuratu du %{resource_name} aurrekontua hemen: %{space_name}"
+          soft_delete: "%{user_name} k eraman du hemengo: %{space_name} %{resource_name} aurrekontua zaborrontzira"
           update: "%{user_name} k eguneratu du %{resource_name} aurrekontua %{space_name} esparruan"
         project:
           create: "%{user_name} k %{resource_name} proiektua %{space_name} espazioan sortu zen"
           delete: "%{user_name} k %{resource_name} proiektua %{space_name} espazioan ezabatu da"
+          restore: "%{user_name} k berreskuratu du %{resource_name} proiektua hemen: %{space_name}"
+          soft_delete: "%{user_name} k eraman du hemengo: %{space_name} %{resource_name} proiektua zaborrontzira"
           update: "%{user_name} k %{resource_name} proiektuaren %{space_name} espazio eguneratu du"
       budget_information_modal:
         back_to: Itzuli hona %{component_name}
@@ -178,6 +175,9 @@ eu:
         cancel_order:
           more_than_one: ezabatu zure botoa hemen %{name} eta hasi berriro
           only_one: ezabatu zure botoa eta hasi berriro.
+        count:
+          one: "%{count} aurrekontu"
+          other: "%{count} aurrekontu"
         empty: Oraindik ez dago aurrekonturik
         finished_message: Amaitu duzu bozkatzeko prozesua. Eskerrik asko parte hartzeagatik!
         highlighted_cta: Botoa eman hemen %{name}
@@ -208,9 +208,9 @@ eu:
             total_budget: Aurrekontua guztira
         project:
           fields:
-            category: Kategoria
             id: ID
             map: Mapa
+            taxonomies: Taxonomiak
             title: Titulua
       order_summary_mailer:
         order_summary:
@@ -252,8 +252,6 @@ eu:
           message: Zure botoa ez da erregistratu, oraindik ez duzulako osatu bozketa-prozesua. Ziur zaude bozketatik irten nahi duzula?
           title: Oraindik ez duzu bozkatu
         filters:
-          category: Kategoria
-          scope: Esparrua
           search: Bilatu
           status: Egoera
           status_values:
@@ -310,6 +308,9 @@ eu:
           email_intro: Aurrekontu partehartzaileen bozketa hasi duzu, baina ez duzu osatu.
           email_link: 'Joan hona: Jarraitu bozkatzen'
           email_outro: Mesedez, gogoratu bozketa osatzea. Botoa emateko, lehenik eta behin, zein proiekturi buruz bozkatu nahi duzun aukeratu behar duzu, eta, ondoren, zure botoa berretsi, "Bozkatu" botoia sakatuz.
+          email_subject:
+            one: Aurrekontu partehartzaileen bozketan amaitu gabeko boto bat duzu
+            other: Aurrekontu partehartzaileen bozketan amaitu gabeko botoak dituzu
     components:
       budgets:
         actions:
@@ -319,8 +320,10 @@ eu:
         settings:
           global:
             announcement: Oharra
+            clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (uzti 0 defektuz konfigurazioa mantendu nahi baduzu)
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             form:
               errors:
                 budget_voting_rule_only_one: Soilik bozketa-arau bat gaitu behar da.
@@ -328,10 +331,13 @@ eu:
             geocoding_enabled: Mapak gaituta
             landing_page_content: Aurrekontuen hasierako orria
             more_information_modal: '"Informazio gehiago"ren modala'
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             projects_per_page: Orrialde bakoitzeko proiektuak
             resources_permissions_enabled: Ekintza-baimenak ezarri ahal dira proiektu bakoitzerako
             scope_id: Esparrua
             scopes_enabled: Eremuak gaituta
+            taxonomy_filters: Hautatu iragazkiak osagairako
+            taxonomy_filters_add: Erantsi iragazkia
             title: Izenburua
             total_budget: Aurrekontu osoa
             vote_minimum_budget_projects_number: Bozkatzeko gutxieneko proiektu kopurua
@@ -359,6 +365,9 @@ eu:
               disabled: Bozketa desgaituta
               enabled: Bozketa gaituta
               finished: Bozketa amaituta
+    download_your_data:
+      show:
+        projects: Esportatu proiektuak
     events:
       budgets:
         budget_published:
@@ -366,6 +375,24 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko lotura jarraituz.
           email_subject: '%{resource_title} osagaia orain aktibo dago %{participatory_space_title} rentzat.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> aurrekontua aktibo dago hemen %{participatory_space_title}.
+    open_data:
+      help:
+        projects:
+          address: Proiektuaren helbidea (hala badagokio)
+          budget_amount: Proiektu honetarako aurrekontuaren zenbateko osoa
+          comments: Proiektu honek zenbat iruzkin jaso ditu?
+          component: Proiektuaren osagaia
+          confirmed_votes: Zenbat boto baieztatuta ditu proiektu honek?
+          created_at: Zein data eta zein ordutan sortu zen proiektu hau
+          description: Proiektuaren deskribapena
+          id: Proiektuaren identifikatzaile bakarra
+          participatory_space: Proiektu hau zein espaziotakoa da (adibidez, Prozesu Parte-hartzailea edo Batzarra)?
+          related_proposal_titles: Zerrendatutako proposamenen izenburuak
+          related_proposal_urls: Zerrendatutako proposamenen URLak
+          related_proposals: Zerrendatutako proposamenak proiektu honetarako
+          taxonomies: Proiektuaren taxonomiak
+          title: Proiektuaren izenburua
+          url: Proiektuaren URLa
     orders:
       checkout:
         error: Arazo bat egon da zure botoa prozesatzean.

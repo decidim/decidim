@@ -209,9 +209,6 @@ sk:
         create:
           error: Vyskytol sa problém s vytvorením tejto súčasti.
           success: Súčasť bola vytvorená úspešne.
-        destroy:
-          error: Vyskytol sa problém s vymazaním tejto súčasti.
-          success: Súčasť bola vymazaná úspešne.
         edit:
           title: Upraviť súčasť
           update: Aktualizovať
@@ -242,8 +239,6 @@ sk:
       exports:
         export_as: "%{name} ako %{export_format}"
       filters:
-        category_id_eq:
-          label: Kategória
         filter_label: Filter
         officialized_at_null:
           label: Štát
@@ -260,8 +255,6 @@ sk:
           values:
             'false': Zverejnené
             'true': Nepublikované
-        scope_id_eq:
-          label: Rozsah
         search_label: Hľadať
         search_placeholder:
           name_or_nickname_or_email_cont: Hľadať {collection} podľa e-mailu, mena alebo prezývky.
@@ -603,8 +596,6 @@ sk:
           without_topic: Stránky bez témy
         update:
           error: Pri aktualizácii stránky nastala chyba.
-      taxonomies:
-        count: Počet
       titles:
         admin_log: Záznam činnosti admina
         area_types: Typy oblastí

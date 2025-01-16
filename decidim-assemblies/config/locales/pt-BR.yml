@@ -95,13 +95,11 @@ pt-BR:
       actions:
         import_assembly: Importar
         new_assembly: Nova assembleia
-        new_assembly_member: Novo membro da assembleia
         new_assembly_type: Novo tipo de assembleia
         new_assembly_user_role: Novo administrador da assembleia
       assemblies:
         create:
           error: Ocorreu um erro ao criar uma nova assembleia.
-          success: Assembleia criada com sucesso.
         edit:
           update: Atualizar
         index:
@@ -144,23 +142,6 @@ pt-BR:
           import: Importar
           select: Selecione quais dados você gostaria de importar
           title: Importar assembleia
-      assembly_members:
-        create:
-          error: Ocorreu um erro ao adicionar um membro para esta assembleia.
-          success: Membro criado com sucesso para esta assembleia.
-        destroy:
-          success: Membro excluído com êxito para esta assembleia.
-        edit:
-          title: Atualizar membro da assembleia
-          update: Atualizar
-        index:
-          assembly_members_title: Membros da assembleia
-        new:
-          create: Criar
-          title: Novo membro da assembleia
-        update:
-          error: Houve um erro ao atualizar o membro para esta assembleia.
-          success: Membro atualizado com êxito para esta assembleia.
       assembly_publications:
         create:
           error: Ocorreu um erro ao publicar esta assembleia.
@@ -199,7 +180,6 @@ pt-BR:
         assemblies: Assembleias
         assemblies_submenu:
           assembly_admins: Administradores da assembleia
-          assembly_members: Membros
           attachment_collections: Pastas
           attachment_files: arquivos
           attachments: Anexos
@@ -225,11 +205,6 @@ pt-BR:
             title: Título
           name: Assembleia
         assembly_member:
-          fields:
-            ceased_date: Data de cessação
-            designation_date: Data de designação
-            full_name: Nome
-            position: Posição
           name: Membro
           positions:
             other: De outros
@@ -305,13 +280,8 @@ pt-BR:
             slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         assembly_members:
           form:
-            existing_user: Participante existente
             explanation: 'Orientação para a imagem:'
-            non_user: Não-participante
             non_user_avatar_help: Você deve receber o consentimento das pessoas antes de publicá-las como membro.
-            select_a_position: Selecione uma posição
-            select_user: Selecione um participante
-            user_type: Tipo de participante
         content_blocks:
           highlighted_assemblies:
             max_results: Quantidade máxima de elementos para mostrar
@@ -395,8 +365,6 @@ pt-BR:
         private_space: Esta é uma assembleia privada
         social_networks_title: Visite assembleia em
     assembly_members:
-      assembly_member:
-        designated_on: Designado em
       index:
         title: Membros
     events:

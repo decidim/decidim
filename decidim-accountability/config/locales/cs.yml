@@ -44,7 +44,9 @@ cs:
       actions:
         attachment_collections: Složky
         attachments: Přílohy
+        confirm_delete_result: Opravdu chcete odstranit tento výsledek?
         confirm_destroy: Opravdu chcete smazat tento %{name}?
+        deleted_results_info: Odstraněné výsledky mohou být obnoveny z koše.
         destroy: Odstranit
         edit: Upravit
         import: Importovat projekty z jiné komponenty
@@ -55,6 +57,7 @@ cs:
         preview: Náhled
         timeline_entries: Vývoj projektu
         title: Akce
+        view_deleted_results: Zobrazit odstraněné výsledky
       admin:
         exports:
           result_comments: Komentáře
@@ -118,13 +121,13 @@ cs:
           create:
             invalid: Při vytváření tohoto výsledku nastal problém.
             success: Výsledek byl úspěšně vytvořen.
-          destroy:
-            success: Výsledek byl úspěšně smazán.
           edit:
             title: Upravit výsledek
             update: Aktualizovat výsledek
           index:
             title: Výsledky
+          manage_trash:
+            title: Odstraněné výsledky
           new:
             create: Vytvořit výsledek
             title: Nový výsledek
@@ -172,6 +175,8 @@ cs:
         result:
           create: "%{user_name} vytvořen výsledek %{resource_name} v %{space_name}"
           delete: "%{user_name} odstranil %{resource_name} výsledek v %{space_name}"
+          restore: "%{user_name} obnovil výsledek %{resource_name} v %{space_name}"
+          soft_delete: "%{user_name} přesunul výsledek %{resource_name} v %{space_name} do koše"
           update: "%{user_name} aktualizovaný výsledek %{resource_name} v %{space_name}"
         status:
           create: "%{user_name} vytvořil/a stav %{resource_name}"
@@ -210,14 +215,13 @@ cs:
       models:
         result:
           fields:
-            category: Kategorie
             created_at: Vytvořeno
             end_date: Datum ukončení
             id: ID
             progress: Průběh
-            scope: Oblast působnosti
             start_date: Počáteční datum
             status: Stav
+            taxonomies: Taxonomie
             title: Název
         status:
           fields:
@@ -236,17 +240,13 @@ cs:
             few: "%{count} výsledků"
             many: "%{count} výsledků"
             other: "%{count} výsledků"
-        filters:
-          all: Vše
         home:
-          categories_label: Kategorie
           empty: Zatím nejsou žádné výsledky.
           empty_filters: S těmito kritérii nejsou žádné výsledky.
-          subcategories_label: Podkategorie
+          sub_taxonomies_label: Podkategorie
+          taxonomies_label: Kategorie
         home_header:
           global_status: Globální stav provedení
-        nav_breadcrumb:
-          global: Globální provedení
         no_results: Nebyly nalezeny žádné projekty
         search:
           search: Hledat akce
@@ -258,12 +258,10 @@ cs:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategorie
-          scope_id_eq:
-            label: Oblast působnosti
           status_id_eq:
             label: Stav
+          taxonomies_part_of_contains:
+            label: Taxonomie
     components:
       accountability:
         actions:
@@ -271,14 +269,24 @@ cs:
         name: Odpovědnost
         settings:
           global:
+            clear_all: Vymazat vše
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             display_progress_enabled: Zobrazit průběh
+            geocoding_enabled: Mapy povoleny
             intro: Intro
+            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             scope_id: Oblast působnosti
             scopes_enabled: Oblast působnosti povolena
+            taxonomy_filters: Vyberte filtry pro komponentu
+            taxonomy_filters_add: Přidat filtr
           step:
             comments_blocked: Komentáře blokovány
+    download_your_data:
+      show:
+        result_comments: Export výsledků komentářů
+        results: Export výsledků
     events:
       accountability:
         proposal_linked:
@@ -296,6 +304,41 @@ cs:
         description: Počet vygenerovaných výsledků
         object: výsledky
         title: Výsledky
+    open_data:
+      help:
+        result_comments:
+          alignment: Pokud byl tento komentář příznivý, proti nebo neutrální
+          author: Jméno účastníka, který vytvořil tento komentář
+          body: Samotný komentář
+          commentable_id: Jedinečné ID komentovatelného
+          commentable_type: Typ komentovatelného (pokud to byl výsledek, návrh atd.)
+          created_at: Datum, kdy byl komentář vytvořen
+          depth: Místo, kde se tato poznámka nachází ve třech komentářích (pokud se jedná o odpověď nebo odpověď na odpověď)
+          id: Id pro tento komentář
+          locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
+          root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
+          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
+        results:
+          address: Adresa výsledku (pokud existuje)
+          children_count: Počet výsledků
+          comments_count: Počet komentářů, které tento výsledek má
+          component: Komponenta, do které náleží výsledek
+          created_at: Datum, kdy byl výsledek vytvořen
+          description: Popis výsledku
+          end_date: Datum, kdy je výsledek ukončen a dokončen
+          id: Jedinečný identifikátor výsledku
+          latitude: Zeměpisná šířka výsledku v případě, že má fyzickou polohu
+          longitude: Zeměpisná délka výsledku v případě, že má fyzickou polohu
+          parent: Nadřazený výsledek (pokud existuje) výsledku
+          progress: Procento provedení výsledku
+          proposal_urls: URL návrhů, které jsou součástí tohoto výsledku
+          reference: Jedinečný odkaz na výsledek
+          start_date: Datum, kdy se výsledek spustí
+          status: Aktuální stav tohoto výsledku
+          taxonomies: Taxonomie výsledku
+          title: Název výsledku
+          updated_at: Poslední datum, kdy byl výsledek aktualizován
+          url: URL, kde lze tento výsledek nalézt
     participatory_spaces:
       highlighted_results:
         see_all: Zobrazit všechny výsledky (%{count})

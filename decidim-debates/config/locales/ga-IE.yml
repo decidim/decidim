@@ -2,8 +2,6 @@ ga:
   activemodel:
     attributes:
       debate:
-        category_id: Catagóir
-        decidim_category_id: Catagóir
         end_time: Deireadh ag
         title: Teideal
     models:
@@ -13,7 +11,6 @@ ga:
       debates:
         actions:
           comment: Tabhair Trácht
-          create: Cruthaigh
           endorse: Formhuinigh
         name: Díospóireachtaí
         settings:
@@ -22,7 +19,6 @@ ga:
     debates:
       actions:
         close: Dún
-        destroy: Scrios
         edit: Eagar
         title: Gníomhartha
       admin:
@@ -32,8 +28,6 @@ ga:
         debates:
           index:
             title: Díospóireachtaí
-        exports:
-          comments: Tráchtanna
       debates:
         edit:
           back: Ar Ais
@@ -48,8 +42,6 @@ ga:
           state_values:
             closed: Dúnta
             open: Oscail
-        form:
-          select_a_category: Roghnaigh catagóir le do thoil
         new:
           back: Ar Ais
           create: Cruthaigh

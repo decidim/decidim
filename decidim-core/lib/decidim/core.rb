@@ -620,6 +620,18 @@ module Decidim
         collection: ->(organization) { Decidim::UserGroup.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob) },
         serializer: Decidim::Exporters::OpenDataUserGroupSerializer,
         include_in_open_data: true
+      ),
+      CoreDataManifest.new(
+        name: :metrics,
+        collection: ->(organization) { Decidim::Metric.where(organization:) },
+        serializer: Decidim::Exporters::OpenDataMetricSerializer,
+        include_in_open_data: true
+      ),
+      CoreDataManifest.new(
+        name: :taxonomies,
+        collection: ->(organization) { Decidim::Taxonomy.where(organization:) },
+        serializer: Decidim::Exporters::OpenDataTaxonomySerializer,
+        include_in_open_data: true
       )
     ]
   end
@@ -881,6 +893,12 @@ module Decidim
   # ActiveJob::DeserializationError
   config_accessor :machine_translation_delay do
     0.seconds
+  end
+
+  # The etiquette validator is applied to the create and edit forms of Proposals, Meetings,
+  # and Debates for both regular and admin users.
+  config_accessor :enable_etiquette_validator do
+    true
   end
 
   def self.machine_translation_service_klass

@@ -21,6 +21,11 @@ cs:
         details: Další komentáře
       taxonomy:
         name: Název taxonomie
+      taxonomy_filter:
+        internal_name: Interní název filtru
+        name: Veřejný název filtru
+        root_taxonomy_id: Z taxonomie
+        space_filter: K dispozici jako filtr pro participační prostory
       user:
         about: O nás
         email: Váš email
@@ -195,6 +200,7 @@ cs:
         error: Při mazání účtu došlo k chybě.
         success: Účet byl úspěšně smazán.
       download_your_data_export:
+        export_expired: Export vypršel. Zkuste vytvořit nový export.
         file_no_exists: Soubor neexistuje
         notice: Probíhá stahování vašich dat. Po dokončení obdržíte e-mail.
       email_change:
@@ -249,6 +255,8 @@ cs:
         delete: "%{user_name} odstranila %{resource_name} komponentu z %{space_name} místa"
         export_component: "%{user_name} exportoval %{resource_name} %{component_name} v %{space_name} jako %{format_name}"
         publish: "%{user_name} publikoval %{resource_name} komponentu ve %{space_name} prostoru"
+        restore: "%{user_name} obnovil komponentu %{resource_name} v prostoru %{space_name}"
+        soft_delete: "%{user_name} přesunul do koše komponenty %{resource_name} v prostoru %{space_name}"
         unpublish: "%{user_name} nepublikoval %{resource_name} komponentu z %{space_name} místa"
         update_permissions_with_space: "%{user_name} aktualizoval oprávnění %{resource_name} v %{space_name}"
       contextual_help_section:
@@ -290,6 +298,13 @@ cs:
         create: "%{user_name} vytvořil/a typ rozsahu %{resource_name}"
         delete: "%{user_name} odstranil typ rozsahu %{resource_name}"
         update: "%{user_name} aktualizoval typ rozsahu %{resource_name}"
+      share_token:
+        create: "%{user_name} vytvořil přístupový odkaz v %{space_name}"
+        create_with_space: "%{user_name} vytvořil přístupový odkaz pro %{resource_name} v %{space_name}"
+        delete: "%{user_name} smazal přístupový odkaz v %{space_name}"
+        delete_with_space: "%{user_name} smazal přístupový odkaz pro %{resource_name} v %{space_name}"
+        update: "%{user_name} aktualizoval přístupový odkaz v %{space_name}"
+        update_with_space: "%{user_name} aktualizoval přístupový odkaz pro %{resource_name} v %{space_name}"
       static_page:
         create: "%{user_name} vytvořila %{resource_name} statickou stránku"
         delete: "%{user_name} odstranila %{resource_name} statickou stránku"
@@ -452,6 +467,7 @@ cs:
           scope_id: Oblast působnosti
         name: Příklad autorizace
       dummy_authorization_workflow:
+        explanation: Ukázkový pracovní postup autorizace
         name: Pracovní postup autorizace
       errors:
         duplicate_authorization: Uživatel má již oprávnění se stejnými daty. Administrátor vás bude kontaktovat k ověření vašich údajů.
@@ -538,13 +554,16 @@ cs:
             amendments_enabled: Pozměňovací návrhy povoleny
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentářů
+            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             dummy_global_attribute1: Zástupný atribut 1
             dummy_global_attribute2: Zástupný atribut 2
             dummy_global_translatable_text: Zástupný text k přeložení
             enable_pads_creation: Povolit vytvoření sdíleného textu
+            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             resources_permissions_enabled: Oprávnění zdrojů povoleno
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
+            taxonomy_filters: Vyberte filtry pro komponentu
           step:
             amendment_creation_enabled: Umožnit změnu a doplnění
             amendment_promotion_enabled: Propagace změn byla povolena
@@ -629,9 +648,9 @@ cs:
       application_helper:
         filter_area_values:
           all: Vše
-        filter_category_values:
-          all: Vše
         filter_scope_values:
+          all: Vše
+        filter_taxonomy_values:
           all: Vše
     devise:
       omniauth_registrations:
@@ -693,6 +712,11 @@ cs:
           show_password: Zobrazit heslo
           shown_password: Vaše heslo je zobrazeno
         placeholder_email: hi@example.org
+    documents:
+      one: "%{count} dokument"
+      few: "%{count} dokumenty"
+      many: "%{count} dokumentů"
+      other: "%{count} dokumentů"
     doorkeeper:
       authorizations:
         new:
@@ -712,24 +736,37 @@ cs:
       export:
         ready: Připraven
       show:
-        download_data: Stáhnout data
-        download_data_description_html: |-
-          Soubor obsahující všechny informace spojené s vaším účtem bude odeslán na adresu <strong>%{user_email}</strong>. Tento e-mail bude obsahovat .zip soubor a heslo pro jeho otevření.<br/><br/>Pro rozbalení souboru budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows) nebo <a href="https://www.keka.io/">Keku</a> (pro MacOS). Pokud používáte Linux, většinou jej budete mít nainstalovaný ve výchozím nastavení. Pokud ne, můžete použít <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> nebo <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Vyžádat data
+        action: Akce
+        download: Stáhnout
+        download_data: Oblast stahování
+        download_data_description_1: Zde naleznete všechna stažení, která jsou k dispozici pro váš účet. Tyto .zip soubory budou k dispozici po dobu dvou týdnů než budou odstraněny.
+        download_data_description_2: Můžete požádat o .zip soubor s vašimi příspěvky a osobními údaji.
+        download_your_data: Osobní údaje
+        expiration: Vypršení platnosti
+        expired: Již vypršela platnost
+        request_data: Požadavek
+        type: Typ stahování
     editor_images:
       create:
         error: Chyba při nahrávání obrázku.
         success: Obrázek byl úspěšně nahrán.
       drag_and_drop_help: Přidejte obrázky přetažením nebo vložením.
     endorsement_buttons_cell:
-      already_endorsed: Nelíbí se mi
+      already_endorsed: Vrátit označení Líbí se
       endorse: Líbí se mi
     endorsements:
       identities:
         done: Hotovo
         select_identity: Vybrat identitu
     endorsers_list:
-      endorsed_by: Líbí se…
+      endorsed_by:
+        one: Líbí se %{visible}
+        few: Líbí se %{visible} a %{others}
+        many: Líbí se %{visible} a %{others}
+        other: Líbí se %{visible} a %{others}
+      others: "%{count} dalších"
+      title: Líbí se
+      you: vy
     errors:
       files:
         file_cannot_be_processed: Soubor nelze zpracovat
@@ -888,6 +925,9 @@ cs:
         email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{endorser_nickname}. Po kliknutí na předchozí odkaz můžete přestat přijímat oznámení.
         email_subject: "%{endorser_nickname} provedl nové schválení"
         notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} byl schválen <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+      resources:
+        soft_deleted:
+          notification_title: Administrátor odstranil váš "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">Profilová stránka</a> od %{name} (%{nickname}), kterého sledujete, byla aktualizována.
@@ -901,10 +941,11 @@ cs:
           notification_title: Uživatel %{name} (%{nickname}) byl oficiálně zveřejněn.
     export_mailer:
       download_your_data_export:
-        click_button: 'Klikněte na následující odkaz pro stažení vašich dat.<br/>Soubor bude k dispozici do %{date}.<br/>Budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows), <a href="https://www.keka.io/en/">Keka</a> (pro MacOS) nebo <a href="https://peazip.github.io">PeaZip</a> (pro Linux) pro jeho otevření. Heslo: %{password}'
+        click_button_html: Klikněte na následující odkaz pro stažení vašich dat.<br/>Soubor bude k dispozici ke stažení do %{date}.
         download: Stažení
       export:
-        ready: V příloze naleznete zazipovanou verzi vašeho exportu.
+        click_button_html: Vaše stahování je připraveno. <br/>Soubor bude k dispozici ke stažení do %{date}.
+        download: Stáhnout
       subject: Váš export "%{name}" je připraven
     filters:
       linked_classes:
@@ -1153,6 +1194,8 @@ cs:
           not_found: 'Typ oboru nebyl nalezen v databázi (ID: %{id})'
         taxonomy_presenter:
           not_found: 'Taxonomie nebyla v databázi nalezena (ID: %{id})'
+    machine_translations:
+      automatic: automatický překlad do %{locale_name}
     managed_users:
       expired_session: Aktuální relace správy účastníka vypršela.
     map:
@@ -1360,7 +1403,112 @@ cs:
         message_1: Vypadá to, že jste v režimu offline.
         message_2: Prosím, zkuste to znovu později.
         retry: Zkusit znovu
+    onboarding_action_message:
+      click_link: Klikněte zde
+      cta_html: <a href="%{path}">%{link_text}</a> pro %{action} v %{resource_name} <strong>%{resource_title}</strong>
+      expired_authorization_active_title: Vaše autorizace vypršela.
+      finish_authorization_process: Můžete dokončit proces autorizace
+      incomplete_authorization_active_title: Vaše ověření nebylo dokončeno všemi nezbytnými informacemi.
+      pending_authorization_active_message: Pro pokračování této akce vyplňte formulář.
+      pending_authorization_active_title: Potřebujeme ověřit Vaši totožnost.
     open_data:
+      help:
+        core:
+          components: Komponenty
+          description: Tento ZIP soubor obsahuje soubory pro studium a výzkum této participační platformy.
+          main: Jádro
+          spaces: Prostory
+          title: Soubory otevřených dat pro %{organization}
+        metrics:
+          cumulative: Celkový počet metrik v tento den
+          day: Den, kdy byla tato metrika vytvořena
+          metric_type: Typ metriky
+          quantity: Počet metrik za tento den
+        moderated_users:
+          about: Informační pole uživatele
+          block_reasons: Důvod, proč administrátor zablokoval uživatele
+          blocked_at: Datum a čas, kdy byl uživatel zablokován
+          blocking_user: Jméno uživatele, který provedl blokování
+          details: Podrobnosti zpráv
+          reasons: Seznam důvodů, proč byl profil nahlášen
+          user_id: Jedinečné ID nahlášeného uživatele
+        moderations:
+          hidden_at: Datum a čas, kdy byl obsah skryt
+          id: Jedinečný identifikátor moderace
+          report_count: Kolikrát to bylo nahlášeno
+          reportable_id: Jedinečné Id oznamovatelů
+          reportable_type: Typ nahlášení
+          reported_content: Nahlášený obsah
+          reported_url: Adresa url nahlášeného zdroje
+          reports: Seznam důvodů, pro které byl zdroj nahlášen
+        user_groups:
+          avatar_url: Avatar uživatelské skupiny
+          badge: Odznak uživatelské skupiny
+          deleted: Zda je uživatel odstraněn nebo ne
+          id: Jedinečný identifikátor skupiny uživatelů
+          members: ID a jméno uživatelů patřících do skupiny
+          members_count: Počet uživatelů patřících do skupiny uživatelů
+          name: Zobrazované jméno uživatelské skupiny
+          nickname: Uživatelské jméno skupiny uživatelů
+          profile_url: URL profilu
+        users:
+          about: Text o uživateli
+          avatar_url: Avatar uživatele
+          badge: Odznak uživatele
+          deleted: Zda je uživatel odstraněn nebo ne
+          direct_messages_enabled: Zda uživatel povolí přímé zprávy
+          groups: ID a jméno skupiny uživatelů
+          id: Jedinečný identifikátor uživatele
+          name: Zobrazované jméno uživatele
+          nickname: Uživatelské jméno
+          profile_url: URL profilu
+      index:
+        description: Vítejte na stránce %{organization_name} Open Data. Zde naleznete datové soubory, které jsou pravidelně generovány z různých účelových procesů a procesů řízení v rámci %{organization_name}. Tyto soubory jsou k dispozici pro podporu transparentnosti, přístupnosti a spolupráce. Níže naleznete podrobné informace o tom, jaké jsou tyto soubory. jak s nimi otevřít a pracovat a popsat obsah a strukturu každého souboru.
+        detailed:
+          body_1: 'Níže je uveden popis každého souboru údajů, včetně schématu (struktury) a druhu informací, které obsahuje:'
+          components: Komponenty
+          spaces: Participační prostory
+          title: Podrobné vysvětlení každého souboru
+        download:
+          components: Komponenty
+          core: Jádro
+          spaces: Participační prostory
+          title: Stáhněte si zdroje
+        download_open_data: Stáhnout všechny otevřené datové soubory
+        download_resource: Stáhnout %{resource_name} ve formátu CSV
+        explanation:
+          body_1: Tyto soubory jsou datové soubory exportované z participačních procesů %{organization_name} jako návrhy, připomínky a schůzky. Poskytují surové, strukturované údaje, které lze použít k analýze, výzkumu nebo integraci s jinými nástroji. Data jsou automaticky aktualizována každých 24 hodin, takže máte přístup k nejnovějším informacím.
+          body_2: Tyto soubory jsou ve formátu CSV (Comma-Separated Values) který je široce používaný formát souboru, který lze otevřít a zpracovat různými softwarovými aplikacemi, včetně tabulkových programů, textových editorů a nástrojů pro analýzu údajů.
+          title: Jaké jsou tyto soubory?
+        how_to:
+          step_1:
+            body_html: Klikněte na níže uvedené odkazy pro stažení CSV souborů do vašeho počítače.
+            title: 1. Stáhněte soubory
+          step_2:
+            body_html: |-
+              <ul>
+              <li><b>Spreadsheet Aplikace</b>: CSV soubory můžete otevřít pomocí aplikací jako Microsoft Excel, Google Sheets, neboli LibreOffice Calc. Jednoduše otevřete aplikaci, poté vyberte "Otevřít" ze souboru a vyberte stažený CSV soubor.</li>
+              <li><b>Textové editory</b>: CSV soubory mohou být také otevřeny v libovolném textovém editoru, např. Notepad nebo Sublime Text. Zobrazí se surová data s každým řádkem, který představuje řádek a každou hodnotu oddělenou čárkou.</li>
+              <li><b>Nástroje pro analýzu dat</b>: Pokud jste obeznámeni s nástroji pro analýzu dat, jako je Python (s pandas), R, nebo SQL databáze, tyto CSV soubory můžete importovat přímo pro zpracování a analýzu.</li>
+              </ul>
+            title: 2. Otevřete soubory
+          step_3:
+            body_html: |-
+              <ul>
+              <li><b>Filtrování a třídění</b>: V tabulkových aplikacích můžete filtrovat a řadit data, která se zaměřují na konkrétní podmnožiny informací.</li>
+              <li><b>Analýza</b>: Použijte údaje k provedení různých analýz, jako je počítání počtu návrhů, analýza trendů v komentářích nebo hodnocení účasti na setkáních.</li>
+              <li><b>Vizualizace</b>: Můžete vytvořit grafy, grafy a další vizualizace, které pomohou interpretovat data.</li>
+              </ul>
+            title: 3. Pracujte s daty
+          title: Jak tyto soubory otevřít a pracovat s nimi
+        license:
+          body_1_html: Tato databáze %{organization_name} je k dispozici pod %{link_database}. Jakákoli práva v jednotlivém obsahu databáze jsou licencována pod %{link_contents}.
+          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_name: Licence obsahu databáze
+          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
+          license_database_name: Open Database License
+          title: Licence
+        title: Otevřená data
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
     pad_iframe:
       disclaimer: Obsah této podložky jsou napsány registrovanými uživateli a vyjadřují jejich názory. %{organization} nemůže být zodpovědný za jeho obsah.
@@ -1578,12 +1726,6 @@ cs:
         sign_up: Vytvořit účet
       mentions_modal:
         remove_recipient: Odebrat příjemce %{name}
-      participatory_space_filters:
-        filters:
-          area: Oblast
-          areas: Oblasti
-          scope: Oblast působnosti
-          select_an_area: Vyberte oblast
       progress: Průběh
       public_participation:
         public_participation: Ukázat svou účast veřejně
@@ -1613,10 +1755,9 @@ cs:
       participants_count: Účastníci
       users_count: Účastníci
     tags:
-      filter_results_for_category: 'Filtrovat výsledky pro kategorii: %{resource}'
-      filter_results_for_scope: 'Výsledky filtru pro rozsah: %{resource}'
+      filter_results_for_taxonomy: 'Filtrovat výsledky pro: %{resource}'
     taxonomies:
-      prompt: Vybrat z "%{name}"
+      prompt: Vyberte prosím možnost
     translation_bar:
       help_text: "<strong>Upozornění:</strong> Obsah může být automaticky přeložen a nemusí být 100% přesný."
       show_original: Zobrazit původní text
@@ -2015,9 +2156,9 @@ cs:
         data_consent_settings: Nastavení cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
-        download_open_data: Stáhněte si soubory s otevřenými daty
         log_in: Přihlásit
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
+        open_data: Otevřená data
         resources: Zdroje
         sign_up: Vytvořit účet
         terms_of_service: Podmínky služby
@@ -2139,6 +2280,7 @@ cs:
       long_with_particles: "%B %d, %Y v %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Smazané

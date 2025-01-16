@@ -2,12 +2,9 @@ ko:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: 범위
         description: 상세정보
         title: 제목
       project:
-        decidim_category_id: 카테고리
-        decidim_scope_id: 범위
         description: 상세정보
         proposal_ids: 포함된 제안
         proposals: 제안
@@ -22,10 +19,6 @@ ko:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: 카테고리
-          scope_id_eq:
-            label: 범위
           selected_at_null:
             label: 선택됨
     budgets:
@@ -36,19 +29,14 @@ ko:
         projects:
           create:
             success: 프로젝트가 성공적으로 생성되었습니다.
-          destroy:
-            success: 프로젝트가 성공적으로 삭제되었습니다.
           edit:
             title: 프로젝트 수정
             update: 업데이트
           index:
             actions: 작업
             cancel: 취소
-            change_category: 카테고리 변경
-            change_scope: 범위 변경
             title: 프로젝트
             update: 업데이트
-            update_scope_button: 범위 업데이트
           new:
             create: 생성하기
             title: 새 프로젝트

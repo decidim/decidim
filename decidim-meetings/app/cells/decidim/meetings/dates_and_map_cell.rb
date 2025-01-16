@@ -14,7 +14,7 @@ module Decidim
       delegate :snippets, to: :controller
 
       def static_map
-        return render :static_map if display_map?
+        return render :static_map
       end
 
       def year

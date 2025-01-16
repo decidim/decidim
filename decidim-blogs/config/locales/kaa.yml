@@ -2,7 +2,6 @@ kaa:
   decidim:
     blogs:
       actions:
-        destroy: Óshiriw
         edit: Ózgeris kirgiziw
         title: Háreketler
       admin:

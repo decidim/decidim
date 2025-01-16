@@ -2,8 +2,6 @@ gl:
   activemodel:
     attributes:
       debate:
-        category_id: Categoría
-        decidim_category_id: Categoría
         description: Descrición
         end_time: Remata a
         information_updates: Actualizacións de información
@@ -23,8 +21,6 @@ gl:
   decidim:
     components:
       debates:
-        actions:
-          create: Crear
         name: Debates
         settings:
           global:
@@ -36,8 +32,6 @@ gl:
             creation_enabled: Os participantes poden crear debates
     debates:
       actions:
-        confirm_destroy: Estás seguro?
-        destroy: Eliminar
         edit: Editar
         title: Accións
       admin:
@@ -45,8 +39,6 @@ gl:
           create:
             invalid: Produciuse un problema ao crear o debate.
             success: Debate creouse con éxito.
-          destroy:
-            success: Debate eliminado con éxito.
           edit:
             title: Editar debate
             update: Actualizar debate
@@ -78,8 +70,6 @@ gl:
           origin: Orixe
           participants: Participantes
           search: Busca
-        form:
-          select_a_category: Selecciona unha categoría
         index:
           new_debate: Novo debate
         new:

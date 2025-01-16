@@ -83,7 +83,6 @@ sl:
       assemblies:
         create:
           error: Pojavila se je težava pri kreiranju združbe.
-          success: Združba uspešno ustvarjena.
         edit:
           update: Posodobi
         index:
@@ -125,17 +124,10 @@ sl:
           import: Uvozi
           select: Izberi, katere podatke želiš uvoziti
           title: Uvozi združbo
-      assembly_members:
-        create:
-          error: Pojavila se je težava pri dodanju člana v to združbo.
-          success: Član uspešno kreiran v tej združbi.
-        destroy:
-          success: Član uspešno izbrisan v tej združbi.
       menu:
         assemblies: Združbe
         assemblies_submenu:
           assembly_admins: Skrbniki združbe
-          assembly_members: Člani
           attachment_collections: Mape
           attachment_files: Datoteke
           attachments: Priponke

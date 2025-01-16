@@ -76,8 +76,6 @@ is-IS:
       actions:
         attachments: Viðhengi
         close: Loka
-        confirm_destroy: Ertu viss um að þú viljir eyða þessum fundi?
-        destroy: Eyða
         edit: Breyta
         preview: Preview
         registrations: Skráningar
@@ -93,8 +91,6 @@ is-IS:
             close: Loka
             title: Loka fundi
         meetings:
-          destroy:
-            success: Fundur með góðum árangri eytt
           edit:
             update: Uppfæra
           index:

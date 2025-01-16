@@ -7,9 +7,6 @@ module Decidim
     #
     class FormPDF < PDF
       # i18n-tasks-use t('decidim.admin.exports.formats.FormPDF')
-
-      include Decidim::TranslatableAttributes
-      include Decidim::SanitizeHelper
       include ActionView::Helpers::NumberHelper
       include Decidim::Forms::Admin::QuestionnaireAnswersHelper
 

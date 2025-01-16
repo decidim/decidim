@@ -33,7 +33,7 @@ de:
         import_attachments: Anhänge importieren
         import_categories: Kategorien importieren
         import_components: Komponenten importieren
-        included_at: Hinzugefügt am
+        included_at: Inbegriffen in
         instagram: Instagram
         internal_organisation: Interne Organisation
         is_transparent: Ist transparent
@@ -95,13 +95,11 @@ de:
       actions:
         import_assembly: Importieren
         new_assembly: Neues Gremium
-        new_assembly_member: Neues Gremienmitglied
         new_assembly_type: Neuer Gremiumtyp
         new_assembly_user_role: Neuer Gremium-Admin
       assemblies:
         create:
           error: Beim Erstellen eines neuen Gremiums ist ein Fehler aufgetreten.
-          success: Das Gremium wurde erfolgreich erstellt.
         edit:
           update: Aktualisieren
         index:
@@ -144,23 +142,6 @@ de:
           import: Importieren
           select: Wählen Sie aus, welche Daten Sie importieren möchten
           title: Gremium importieren
-      assembly_members:
-        create:
-          error: Beim Hinzufügen eines Mitglieds zu diesem Gremium ist ein Fehler aufgetreten.
-          success: Mitglied wurde diesem Gremium erfolgreich hinzugefügt.
-        destroy:
-          success: Mitglied wurde erfolgreich aus diesem Gremium entfernt.
-        edit:
-          title: Versammlungsmitglieder aktualisieren
-          update: Aktualisieren
-        index:
-          assembly_members_title: Gremienmitglieder
-        new:
-          create: Erstellen
-          title: Neues Gremienmitglied
-        update:
-          error: Beim Aktualisieren des Mitglieds dieses Gremiums ist ein Fehler aufgetreten.
-          success: Mitglied dieses Gremiums erfolgreich aktualisiert.
       assembly_publications:
         create:
           error: Beim Veröffentlichen dieses Gremiums ist ein Fehler aufgetreten.
@@ -199,7 +180,6 @@ de:
         assemblies: Gremien
         assemblies_submenu:
           assembly_admins: Assembly Benutzer
-          assembly_members: Mitglieder
           attachment_collections: Ordner
           attachment_files: Dateien
           attachments: Anhänge
@@ -208,7 +188,6 @@ de:
           info: Über dieses Gremium
           landing_page: Startseite
           moderations: Moderationen
-          private_users: Private Teilnehmende
           see_assembly: Gremium ansehen
         assemblies_types: Versammlungstypen
       models:
@@ -226,11 +205,6 @@ de:
             title: Titel
           name: Gremium
         assembly_member:
-          fields:
-            ceased_date: Aufgegebenes Datum
-            designation_date: Datum der Benennung
-            full_name: Name
-            position: Position
           name: Mitglied
           positions:
             other: Andere
@@ -281,12 +255,14 @@ de:
         assemblies:
           form:
             announcement_help: Der Text, den Sie hier eingeben, wird dem Benutzer direkt unter den Gremien-Informationen angezeigt.
+            define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             duration: Aktiv bis
             duration_help: Wenn die Dauer dieses Gremiums begrenzt ist, dann wählen Sie hier das Enddatum aus. Andernfalls wird das Datum als unbestimmt angezeigt.
             filters: Filter
             images: Bilder
             included_at_help: Wählen Sie das Datum aus, an dem dieses Gremium zur Plattform hinzugefügt wurde. Das Datum muss nicht zwingend mit dem Gründungsdatum übereinstimmen.
             metadata: Metadaten
+            no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             other: Andere
             select_a_created_by: Wählen Sie eine erstellt von aus
             select_an_area: Wählen Sie einen Bereich
@@ -294,7 +270,7 @@ de:
             select_parent_assembly: Übergeordnetes Gremium auswählen
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
-            taxonomies: Taxonomien
+            taxonomies: Klassifizierungen
             title: Allgemeine Information
             visibility: Sichtbarkeit
         assemblies_types:
@@ -308,14 +284,9 @@ de:
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_members:
           form:
-            existing_user: Existierender Benutzer
             explanation: 'Hinweise für das Bild:'
             image_guide: Vorzugsweise ein Portraitbild, das keinen Text enthält.
-            non_user: Nichtbenutzer
             non_user_avatar_help: Sie sollten die Zustimmung der Personen einholen, bevor Sie sie als Mitglied veröffentlichen.
-            select_a_position: Wählen Sie eine Position
-            select_user: Wählen Sie einen Benutzer aus
-            user_type: Benutzertyp
         content_blocks:
           highlighted_assemblies:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
@@ -399,17 +370,18 @@ de:
         private_space: Dies ist eine private Versammlung
         social_networks_title: Gremium besuchen unter
     assembly_members:
-      assembly_member:
-        designated_on: Bezeichnet am
       index:
         title: Mitglieder
+    download_your_data:
+      show:
+        assemblies: Export der Gremien
     events:
       assemblies:
         create_assembly_member:
           email_intro: Ein Administrator des Gremiums <a href="%{resource_url}">%{resource_name}</a> hat Sie als Mitglied eingeladen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einem Gremium eingeladen wurden. Gehen Sie zur <a href="%{resource_url}">Gremiumsseite</a>, um mitzumachen!
           email_subject: Sie wurden als Mitglied des Gremiums %{resource_name} eingeladen!
-          notification_title: Sie wurden als Mitglied des Gremiums <a href="%{resource_path}">%{resource_name}</a> registriert. Gehen Sie zur <a href="%{resource_path}">Gremiumsseite</a>, um mitzuwirken!
+          notification_title: Sie wurden als Mitglied des Gremiums <a href="%{resource_path}">%{resource_name}</a> eingetragen. Gehen Sie zur <a href="%{resource_path}">Gremiumsseite</a>, um mitzuwirken!
       assembly:
         role_assigned:
           email_intro: Sie wurden als %{role} für die Versammlung "%{resource_title}" ausgewählt.
@@ -435,6 +407,55 @@ de:
         description: Anzahl der erstellten Gremien
         object: Gremien
         title: Gremien
+    open_data:
+      help:
+        assemblies:
+          announcement: Die Ankündigungsinformationen (Banner)
+          area: Der Bereich des Gremiums
+          assembly_type: Der Typ des Gremiums
+          closing_date: Das Auflösungsdatum des Gremiums
+          closing_date_reason: Der Auflösungsgrund des Gremiums
+          composition: Die Zusammensetzung des Gremiums
+          created_at: Erstellungsdatum des Raums
+          created_by: Wer hat dieses Gremium gegründet hat
+          created_by_other: Weitere Gründungspersonen des Gremiums
+          creation_date: Das Gründungsdatum des Gremiums
+          decidim_scope_id: Die Themen des Gremiums
+          description: Eine lange Beschreibung des Gremiums
+          developer_group: Die Entwicklungsgruppe des Gremiums
+          duration: Die Dauer des Gremiums
+          facebook_handler: Social Media Handler für Facebook
+          follows_count: Die Anzahl der Benutzer, die diesem Raum folgen
+          github_handler: Social Media Handler für GitHub
+          hashtag: Der Gremium-Hashtag, verwendet für Twitter/X
+          id: Die eindeutige Bezeichnung dieser Assembly
+          included_at: Datum des Einbezugs des Ergebnisses
+          instagram_handler: Social Media Handler für Instagram
+          internal_organisation: Die interne Organisation dieses Gremiums
+          is_transparent: Ob das Gremium öffentlich zugänglich ist oder nicht
+          local_area: Der lokale Bereich des Gremiums
+          meta_scope: Die Bereichsmetadaten des Ergebnisses
+          participatory_scope: Der partizipative Bereich des Gremiums
+          participatory_structure: Die partizipative Struktur des Gremiums
+          promoted: Ob das Gremium hervorgehoben ist oder nicht
+          published_at: Das Datum der Veröffentlichung des Raums
+          purpose_of_action: Der Zweck des Gremiums
+          reference: Die eindeutige Referenz des Bereichs
+          remote_banner_image_url: Die URL des Gremium-Bannerbildes
+          remote_hero_image_url: Die URL des Gremium-Titelbildes
+          scope: Die Themen des Gremiums
+          scopes_enabled: Ob Themen aktiviert sind oder nicht
+          short_description: Eine kurze Beschreibung des Gremiums
+          slug: Der URL-Slug des Gremiums (verwendet für Identifikationszwecke in der URL)
+          special_features: Welche besonderen Merkmale dieses Gremium hat
+          subtitle: Der Untertitel des Gremiums
+          target: Das Ziel des Gremiums
+          taxonomies: Die Klassifizierungen des Projekts
+          title: Der Titel des Gremiums
+          twitter_handler: Social Media Handler für X/Twitter
+          updated_at: Letztes Aktualisierungsdatum dieses Bereichs
+          url: Die URL des Bereichs
+          youtube_handler: Social Media Handler für YouTube
     participatory_processes:
       show:
         related_assemblies: Ähnliche Versammlungen

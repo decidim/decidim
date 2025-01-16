@@ -19,8 +19,6 @@ pl:
     blogs:
       actions:
         author_id: Utwórz wpis jako
-        confirm_destroy: Czy na pewno chcesz usunąć ten wpis?
-        destroy: Usuń
         edit: Edytuj
         new: Nowy wpis
         title: Działania
@@ -29,8 +27,6 @@ pl:
           create:
             invalid: Podczas tworzenia tego posta wystąpił błąd.
             success: Post został utworzony.
-          destroy:
-            success: Post został usunięty.
           edit:
             save: Aktualizuj
             title: Edytuj wpis

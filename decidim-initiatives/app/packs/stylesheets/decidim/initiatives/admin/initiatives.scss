@@ -1,0 +1,13 @@
+#committee_members {
+  .card-section {
+    .row {
+      div[data-committee_link] {
+        @apply flex items-center;
+
+        svg {
+          @apply mx-1;
+        }
+      }
+    }
+  }
+}

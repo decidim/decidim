@@ -93,6 +93,45 @@ describe Decidim::OpenDataExporter do
       it_behaves_like "open users data exporter"
     end
 
+    describe "with metrics" do
+      let(:resource_file_name) { "metrics" }
+      let(:resource_title) { "### metrics" }
+      let!(:resource) { create(:metric, organization:) }
+      let(:help_lines) do
+        [
+          "* day: The day this metric was created",
+          "* metric_type: The type of the metric"
+        ]
+      end
+
+      include_examples "default open data exporter"
+
+      it "includes the resource data" do
+        expect(data).to include(resource.quantity.to_s)
+        expect(data).to include(resource.cumulative.to_s)
+        expect(data).to include(resource.day.to_s)
+      end
+    end
+
+    describe "with taxonomies" do
+      let(:resource_file_name) { "taxonomies" }
+      let(:resource_title) { "### taxonomies" }
+      let!(:resource) { create(:taxonomy, organization:) }
+      let(:help_lines) do
+        [
+          "* id: The unique identifier of this taxonomy",
+          "* name: The name of this taxonomy"
+        ]
+      end
+
+      include_examples "default open data exporter"
+
+      it "includes the resource data" do
+        expect(data).to include(resource.id.to_s)
+        expect(data).to include(resource.weight.to_s)
+      end
+    end
+
     describe "with moderations" do
       let(:resource_file_name) { "moderations" }
       let(:resource_title) { "### moderations" }

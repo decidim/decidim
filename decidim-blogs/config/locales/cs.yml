@@ -19,24 +19,25 @@ cs:
     blogs:
       actions:
         author_id: Vytvořit příspěvek jako
-        confirm_destroy: Opravdu chcete tento příspěvek smazat?
-        destroy: Smazat
+        confirm_delete_post: Opravdu chcete odstranit tento příspěvek?
+        deleted_posts_info: Smazané příspěvky mohou být obnoveny z koše.
         edit: Upravit
         new: Nový příspěvek
         title: Akce
+        view_deleted_posts: Zobrazit odstraněné příspěvky
       admin:
         posts:
           create:
             invalid: Při vytváření tohoto příspěvku nastal problém.
             success: Příspěvek byl úspěšně vytvořen.
-          destroy:
-            success: Příspěvek byl úspěšně smazán.
           edit:
             save: Aktualizovat
             title: Upravit příspěvek
           index:
             not_published_yet: Zatím nezveřejněno.
             title: Příspěvky
+          manage_trash:
+            title: Smazané příspěvky
           new:
             create: Vytvořit
             title: Vytvořit příspěvek
@@ -47,6 +48,8 @@ cs:
         post:
           create: "%{user_name} vytvořil příspěvek %{resource_name} v %{space_name}"
           delete: "%{user_name} odstranil příspěvek %{resource_name} z %{space_name}"
+          restore: "%{user_name} obnovil příspěvek %{resource_name} v %{space_name}"
+          soft_delete: "%{user_name} přesunul příspěvek %{resource_name} v %{space_name} do koše"
           update: "%{user_name} aktualizoval příspěvek %{resource_name} v %{space_name}"
       content_blocks:
         highlighted_posts:

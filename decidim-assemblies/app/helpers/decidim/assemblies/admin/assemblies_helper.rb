@@ -15,10 +15,32 @@ module Decidim
           end
         end
 
-        # Public: A collection of Assemblies that can be selected as parent
-        # assemblies for another assembly; to be used in forms.
-        def parent_assemblies_for_select
-          @parent_assemblies_for_select ||= ParentAssembliesForSelect.for(current_organization, current_assembly)
+        # Public: select options representing a collection of Assemblies that
+        # can be selected as parent assemblies for another assembly; to be used in forms.
+        def parent_assemblies_options
+          options = []
+          root_assemblies = ParentAssembliesForSelect.for(current_organization, current_assembly).where(parent_id: nil).sort_by(&:weight)
+
+          root_assemblies.each do |assembly|
+            build_assembly_options(assembly, options)
+          end
+
+          options
+        end
+
+        private
+
+        # Recursively build the options for the assembly tree
+        def build_assembly_options(assembly, options, level = 0)
+          name = sanitize("#{"&nbsp;" * 4 * level} #{assembly.translated_title}")
+          options << [name, assembly.id]
+
+          # Skip the current assembly to avoid selecting a child as parent
+          return if assembly == current_assembly
+
+          assembly.children.each do |child|
+            build_assembly_options(child, options, level + 1)
+          end
         end
       end
     end

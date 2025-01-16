@@ -2,15 +2,12 @@ fr:
   activemodel:
     attributes:
       debate:
-        category_id: Catégorie
         closed_at: Clôturé le
         conclusions: Conclusions
-        decidim_category_id: Catégorie
         description: Description
         end_time: Prend fin à
         information_updates: Informations mises à jour
         instructions: Instructions pour participer
-        scope_id: Secteur
         start_time: Commence à
         title: Titre
         user_group_id: Créer un débat en tant que
@@ -29,12 +26,13 @@ fr:
       debates:
         actions:
           comment: Commenter
-          create: Créer
+          create: Créer un débat
           endorse: Soutenir
         name: Débats
         settings:
           global:
             announcement: Annonce
+            attachments_allowed: Autoriser les pièces jointes
             comments_enabled: Commentaires activés
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
             scope_id: Secteur
@@ -48,11 +46,12 @@ fr:
     debates:
       actions:
         close: Fermer
-        confirm_destroy: Êtes-vous certain ?
-        destroy: Supprimer
+        confirm_delete_debate: Êtes-vous sûr(e) de vouloir supprimer ce débat?
+        deleted_debate_info: Un débat supprimé peut être restauré à partir de la corbeille.
         edit: Modifier
         new: Nouveau débat
         title: Actions
+        view_deleted_debates: Voir les débats supprimés
       admin:
         debate_closes:
           edit:
@@ -62,17 +61,20 @@ fr:
           create:
             invalid: Il y a eu un problème lors de la création du débat.
             success: Débat créé avec succès.
-          destroy:
-            success: Débat supprimé avec succès.
           edit:
             title: Modifier le débat
             update: Actualiser le débat
           form:
+            add_documents: Ajouter des documents
+            attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             debate_type: Type de débat
+            edit_documents: Modifier les documents
             finite: Limité (Avec les heures de début et de fin)
             open: Ouvert (pas de date de début et de fin)
           index:
             title: Débats
+          manage_trash:
+            title: Débats supprimés
           new:
             create: Créer un débat
             title: Nouveau débat
@@ -80,12 +82,17 @@ fr:
             invalid: Il y a eu un problème lors de la mise à jour de ce débat.
             success: Débat mis à jour avec succès.
         exports:
-          comments: Commentaires
+          debate_comments: Commentaires
+          debates: Débats
       admin_log:
         debate:
           close: "%{user_name} a clos le débat %{resource_name} dans l'espace %{space_name}"
           create: "%{user_name} a créé le débat %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour le débat %{resource_name} sur l'espace %{space_name}"
+      content_blocks:
+        highlighted_debates:
+          name: Débats
+          see_all: Voir tous les débats
       debate_m:
         commented_time_ago: Commenté il y a %{time}
       debates:
@@ -126,8 +133,6 @@ fr:
             closed: Fermé
             open: Ouvert
           user_group: Groupes
-        form:
-          select_a_category: Veuillez sélectionner une catégorie
         index:
           new_debate: Nouveau débat
         new:
@@ -141,11 +146,11 @@ fr:
           recent: Les plus récents
           updated: Mis à jour récemment
         show:
-          close_debate: Clore le débat
+          close_debate: Clore
           debate_closed: Fermé
           debate_conclusions_are: 'Le débat a été clos le %{date} avec ces conclusions:'
           edit_conclusions: Modifier les conclusions
-          edit_debate: Modifier le débat
+          edit_debate: Modifier
           groups_count: Groupes
           open: Ouvrir le débat
           participants_count: Participants
@@ -164,6 +169,10 @@ fr:
             start: Début
             start_time: Date de début
             title: Titre
+    download_your_data:
+      show:
+        debate_comments: Export des commentaires des débats
+        debates: Export des débats
     events:
       debates:
         create_debate_event:
@@ -219,5 +228,23 @@ fr:
         description: Nombre de débats créés
         object: débats
         title: Débats
+    open_data:
+      help:
+        debate_comments:
+          author: Le nom du participant qui a fait ce commentaire
+          body: Le commentaire lui-même
+          created_at: La date de création de ce commentaire
+          id: L'identifiant de ce commentaire
+        debates:
+          closed_at: La date de clôture de ce débat
+          conclusions: Les conclusions du débat s'il est clos
+          created_at: La date et l'heure de création du débat
+          description: La description du débat
+          endorsements_count: Le nombre de soutiens au débat
+          follows_count: Le nombre de personnes qui suivent ce débat
+          id: L'identifiant unique du débat
+          last_comment_by: Les données du dernier commentaire du débat
+          title: Le titre du débat
+          updated_at: La date de la dernière mise à jour du débat
     statistics:
       debates_count: Débats

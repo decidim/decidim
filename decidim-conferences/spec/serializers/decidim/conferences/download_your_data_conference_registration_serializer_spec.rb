@@ -9,17 +9,11 @@ module Decidim::Conferences
     subject { described_class.new(resource) }
 
     describe "#serialize" do
-      it "includes the id" do
+      it "includes the registration metadata" do
         expect(subject.serialize).to include(id: resource.id)
-      end
-
-      it "includes the user" do
-        expect(subject.serialize[:user]).to(
-          include(name: resource.user.name)
-        )
-        expect(subject.serialize[:user]).to(
-          include(email: resource.user.email)
-        )
+        expect(subject.serialize).to include(created_at: resource.created_at)
+        expect(subject.serialize).to include(updated_at: resource.updated_at)
+        expect(subject.serialize).to include(confirmed_at: resource.confirmed_at)
       end
 
       it "includes the registration_type" do
@@ -32,6 +26,10 @@ module Decidim::Conferences
       end
 
       it "includes the conference" do
+        expect(subject.serialize[:conference]).to(
+          include(url: Decidim::EngineRouter.main_proxy(resource.conference).conference_url(resource.conference))
+        )
+
         expect(subject.serialize[:conference]).to(
           include(title: resource.conference.title)
         )

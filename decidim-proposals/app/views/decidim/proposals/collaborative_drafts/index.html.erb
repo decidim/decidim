@@ -12,7 +12,7 @@
   <h1 id="drafts-count" class="title-decorator"><%= component_name %></h1>
 
   <% if current_settings.creation_enabled %>
-    <%= action_authorized_link_to :create, new_collaborative_draft_path, class: "button button__sm button__transparent-secondary", data: { "redirect_url" => new_collaborative_draft_path } do %>
+    <%= action_authorized_link_to :create, new_collaborative_draft_path, permissions_holder: current_component, class: "button button__sm button__transparent-secondary", data: { "redirect_url" => new_collaborative_draft_path } do %>
       <span><%= t("new_collaborative_draft", scope: "decidim.proposals.collaborative_drafts.new_collaborative_draft_button") %></span>
       <%= icon "add-line" %>
     <% end %>

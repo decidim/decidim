@@ -100,6 +100,8 @@ cs:
           cancelled: Zrušeno
           category: Kategorie
           state: Stav
+        index:
+          empty: Zatím zde nejsou žádné roztřídění.
         linked_sortitions:
           selected_proposals: Vybrané návrhy
         orders:

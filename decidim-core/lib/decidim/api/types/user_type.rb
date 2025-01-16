@@ -62,6 +62,10 @@ module Decidim
       def groups
         object.accepted_user_groups
       end
+
+      def self.authorized?(object, context)
+        super && object.confirmed? && !object.blocked? && !object.deleted?
+      end
     end
   end
 end

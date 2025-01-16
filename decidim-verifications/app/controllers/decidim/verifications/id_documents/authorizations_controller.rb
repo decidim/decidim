@@ -14,7 +14,9 @@ module Decidim
         before_action :load_authorization
 
         def choose
-          return redirect_to action: :new, using: verification_type if available_methods.count == 1
+          url_params = { redirect_url: }.compact
+
+          return redirect_to(action: :new, **url_params.merge(using: verification_type)) if available_methods.count == 1
 
           render :choose
         end

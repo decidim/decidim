@@ -5,8 +5,11 @@ module Decidim
     # This controller allows users to create and destroy their authorizations. It
     # should not be necessary to expand it to add new authorization schemes.
     class AuthorizationsController < Verifications::ApplicationController
-      helper_method :handler, :unauthorized_methods, :authorization_method, :authorization
-      before_action :valid_handler, only: [:new, :create]
+      helper_method :handler, :unauthorized_methods, :authorization_method, :authorization,
+                    :granted_authorizations, :pending_authorizations, :active_authorization_methods
+
+      before_action :valid_handler, :authorize_handler, only: [:new, :create]
+      before_action :set_ephemeral_user, only: :renew_onboarding_data
 
       include Decidim::UserProfile
       include Decidim::HtmlSafeFlash
@@ -16,23 +19,40 @@ module Decidim
       helper Decidim::AuthorizationFormHelper
       helper Decidim::TranslationsHelper
 
-      layout "layouts/decidim/authorizations", except: :index
+      layout "layouts/decidim/authorizations", except: [:index, :onboarding_pending]
 
       def new; end
 
-      def index
-        @granted_authorizations = granted_authorizations
-        @pending_authorizations = pending_authorizations
-      end
+      def index; end
 
-      def first_login
-        if unauthorized_methods.length == 1
-          redirect_to(
-            action: :new,
-            handler: unauthorized_methods.first.name,
-            redirect_url: decidim.account_path
+      def onboarding_pending
+        return redirect_back(fallback_location: authorizations_path) unless onboarding_manager.valid?
+
+        authorizations = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources)
+
+        authorization_status = authorizations.global_code
+        if authorizations.single_authorization_required?
+          flash.keep
+          return redirect_to(authorizations.statuses.first.current_path(redirect_url: decidim_verifications.onboarding_pending_authorizations_path))
+        end
+        return unless onboarding_manager.finished_verifications?(active_authorization_methods) || authorization_status == :unauthorized
+
+        if authorization_status == :unauthorized
+          flash[:alert] = t("authorizations.onboarding_pending.unauthorized", scope: "decidim.verifications", action: onboarding_manager.action_text.downcase)
+        elsif current_user.ephemeral?
+          flash[:notice] = t("ephemeral_authorized_message", scope: "decidim.onboarding_action_message")
+        else
+          flash[:notice] = t(
+            "authorizations.onboarding_pending.completed_verifications",
+            scope: "decidim.verifications",
+            action: onboarding_manager.action_text.downcase,
+            resource_name: onboarding_manager.model_name.human.downcase
           )
         end
+
+        redirect_to onboarding_manager.finished_redirect_path
+
+        clear_onboarding_data!(current_user)
       end
 
       def create
@@ -57,11 +77,29 @@ module Decidim
             redirect_to redirect_url || authorizations_path
           end
 
+          on(:transfer_user) do |authorized_user|
+            authorized_user.update(last_sign_in_at: Time.current, deleted_at: nil)
+            sign_out(current_user)
+            sign_in(authorized_user)
+
+            redirect_to decidim_verifications.onboarding_pending_authorizations_path
+          end
+
           on(:invalid) do
             flash[:alert] = t("authorizations.create.error", scope: "decidim.verifications")
             render action: :new
           end
         end
+      end
+
+      def renew_onboarding_data
+        store_onboarding_cookie_data!(current_user)
+
+        redirect_to onboarding_pending_authorizations_path
+      end
+
+      def clear_onboarding_data
+        clear_onboarding_data!(current_user)
       end
 
       protected
@@ -103,6 +141,25 @@ module Decidim
         redirect_to(authorizations_path) && (return false)
       end
 
+      def authorize_handler
+        raise Decidim::ActionForbidden if current_user.ephemeral? && !Decidim::Verifications::Adapter.from_element(handler_name).ephemeral?
+      end
+
+      def set_ephemeral_user
+        return if user_signed_in?
+
+        onboarding_manager = Decidim::OnboardingManager.new(Decidim::User.new(extended_data: onboarding_cookie_data))
+        authorizations = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources)
+        return unless authorizations.ephemeral?
+
+        form = Decidim::EphemeralUserForm.new(organization: current_organization, locale: current_locale)
+        CreateEphemeralUser.call(form) do
+          on(:ok) do |ephemeral_user|
+            sign_in(ephemeral_user)
+          end
+        end
+      end
+
       def unauthorized_methods
         @unauthorized_methods ||= available_verification_workflows.reject do |handler|
           active_authorization_methods.include?(handler.key)
@@ -110,15 +167,15 @@ module Decidim
       end
 
       def active_authorization_methods
-        Authorizations.new(organization: current_organization, user: current_user).pluck(:name)
+        @active_authorization_methods ||= Authorizations.new(organization: current_organization, user: current_user).pluck(:name)
       end
 
       def granted_authorizations
-        Authorizations.new(organization: current_organization, user: current_user, granted: true)
+        @granted_authorizations ||= Authorizations.new(organization: current_organization, user: current_user, granted: true)
       end
 
       def pending_authorizations
-        Authorizations.new(organization: current_organization, user: current_user, granted: false)
+        @pending_authorizations ||= Authorizations.new(organization: current_organization, user: current_user, granted: false)
       end
 
       def store_current_location

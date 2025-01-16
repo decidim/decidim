@@ -561,8 +561,6 @@ pl:
       application_helper:
         filter_area_values:
           all: Wszystkie
-        filter_category_values:
-          all: Wszystkie
         filter_scope_values:
           all: Wszystkie
     devise:
@@ -635,27 +633,17 @@ pl:
     download_your_data:
       export:
         ready: Gotowy
-      show:
-        download_data: Pobierz dane
-        download_data_description_html: |-
-          Plik zawierający wszystkie informacje związane z twoim kontem zostanie wysłany na adres <strong>%{user_email}</strong>. 
-          W e-mailu znajdziesz plik .zip i hasło potrzebne do otworzenia go.<br/><br/>Aby rozpakować plik, będziesz potrzebować programu <a href="https://www.7-zip.org/">7-Zip</a> (dla systemu Windows) albo <a href="https://www.keka.io/">Keka</a> (dla systemu MacOS).
-          Jeśli korzystasz z systemu Linux, w większości przypadków program będzie zainstalowany domyślnie. Jeśli nie, możesz użyć programu <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> albo <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Poproś o dane
     editor_images:
       create:
         error: Wystąpił błąd podczas przesyłania obrazu.
         success: Obraz przesłany pomyślnie.
       drag_and_drop_help: Dodaj obrazy, przeciągając i upuszczając lub wklejając je.
     endorsement_buttons_cell:
-      already_endorsed: Nie lubię tego
       endorse: Lubię to
     endorsements:
       identities:
         done: Gotowe
         select_identity: Wybierz tożsamość
-    endorsers_list:
-      endorsed_by: Polubione przez…
     errors:
       files:
         file_cannot_be_processed: Plik nie może zostać przetworzony
@@ -827,10 +815,7 @@ pl:
           notification_title: Uczestnik %{name} (%{nickname}) został oficjalnie zarejestrowany.
     export_mailer:
       download_your_data_export:
-        click_button: 'Kliknij poniższy przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''''https://www.7-zip.org/''''>7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) lub <a href="https://peazip.github.io">PeaZip</a> (Linux) do otwarcia pliku. Hasło: %{password}'
         download: Pobieranie
-      export:
-        ready: Mail zawiera załączony plik eksportu.
       subject: Twój eksport "%{name}" jest gotowy
     filters:
       linked_classes:
@@ -1490,12 +1475,6 @@ pl:
         sign_up: Utwórz konto
       mentions_modal:
         remove_recipient: Usuń odbiorcę %{name}
-      participatory_space_filters:
-        filters:
-          area: Obszar
-          areas: Kategorie
-          scope: Zakres
-          select_an_area: Wybierz kategorię
       progress: Postęp
       public_participation:
         public_participation: Wyświetl publicznie moje uczestnictwo
@@ -1524,9 +1503,6 @@ pl:
       pages_count: Stron
       participants_count: Użytkowników
       users_count: Uczestników
-    tags:
-      filter_results_for_category: 'Filtruj wyniki dla kategorii: %{resource}'
-      filter_results_for_scope: 'Filtruj wyniki dla zakresu: %{resource}'
     translation_bar:
       help_text: "<strong>Uwaga:</strong> Zawartość może być tłumaczeniem automatycznym i może nie być w 100% dokładna."
       show_original: Pokaż oryginalny tekst
@@ -1919,7 +1895,6 @@ pl:
         data_consent_settings: Ustawienia cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
-        download_open_data: Pobierz pliki Open Data
         log_in: Zaloguj się
         made_with_open_source: Strona internetowa powstała z użyciem <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Zasoby

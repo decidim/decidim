@@ -567,8 +567,6 @@ bg:
       application_helper:
         filter_area_values:
           all: Всички
-        filter_category_values:
-          all: Всички
         filter_scope_values:
           all: Всички
     devise:
@@ -642,27 +640,17 @@ bg:
     download_your_data:
       export:
         ready: Готов
-      show:
-        download_data: Изтегляне на данни
-        download_data_description_html: |-
-          Файл, съдържащ цялата информация, свързана с вашия акаунт, ще бъде изпратен до <strong>%{user_email}</strong>.
-          Този имейл ще съдържа .zip файл и парола за отварянето му.<br/><br/>За да разархивирате файла, ще ви трябва <a href="https://www.7-zip.org/"> 7-Zip</a> (за Windows) или <a href="https://www.keka.io/">Keka</a> (за MacOS).
-          Ако използвате Linux, през повечето време ще го имате инсталиран по подразбиране. Ако не, можете да използвате <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> или <a href="https://peazip.github.io" >PeaZip</a>).
-        request_data: Заяви данни
     editor_images:
       create:
         error: Грешка при качването на изображението.
         success: Изображението е качено успешно.
       drag_and_drop_help: Добавете изображения чрез плъзгане и пускане или поставяне (paste).
     endorsement_buttons_cell:
-      already_endorsed: Не харесвам
       endorse: Харесвам
     endorsements:
       identities:
         done: Готово
         select_identity: Изберете самоличност
-    endorsers_list:
-      endorsed_by: Харесано от…
     errors:
       files:
         file_cannot_be_processed: Файлът не може да бъде обработен
@@ -834,10 +822,7 @@ bg:
           notification_title: Участник %{name} (%{nickname}) е официализиран.
     export_mailer:
       download_your_data_export:
-        click_button: 'Щракнете върху следващата връзка, за да изтеглите вашите данни.<br/>Файлът ще бъде достъпен до %{date}.<br/>Ще ви трябва <a href="https://www.7-zip.org/"> 7-Zip</a> (за Windows), <a href="https://www.keka.io/en/">Keka</a> (за MacOS) или <a href="https:// peazip.github.io">PeaZip</a> (за Linux), за да го отворите. Парола: %{password}'
         download: Сваляне
-      export:
-        ready: Ще намерите като прикачен файл, компресирана версия на Вашия експорт.
       subject: Вашият експорт "%{name}" е готов
     filters:
       linked_classes:
@@ -1495,12 +1480,6 @@ bg:
         please_log_in: Моля влез в профила си
       mentions_modal:
         remove_recipient: Премахване на получател %{name}
-      participatory_space_filters:
-        filters:
-          area: Област
-          areas: Райони
-          scope: Обхват
-          select_an_area: Избери район
       progress: Прогрес
       public_participation:
         public_participation: Показване на присъствието ми публично
@@ -1529,9 +1508,6 @@ bg:
       pages_count: Страници
       participants_count: Участници
       users_count: Участници
-    tags:
-      filter_results_for_category: 'Филтриране на резултатите за категорията: %{resource}'
-      filter_results_for_scope: 'Филтриране на резултатите за обхвата: %{resource}'
     translation_bar:
       help_text: "<strong>Предупреждение:</strong> Възможно е съдържанието да е преведено автоматично и да не е 100 % точно."
       show_original: Показване на оригиналния текст
@@ -1915,7 +1891,6 @@ bg:
         data_consent_settings: Настройки на бисквитките
         decidim_logo: Лого на Civil Power
         decidim_title: Civil Power
-        download_open_data: Изтеглете файлове с отворени данни
         log_in: Вход
         made_with_open_source: Уебсайта работи със <a target="_blank" href="https://github.com/decidim/decidim">свободен софтуер</a>.
         resources: Ресурси

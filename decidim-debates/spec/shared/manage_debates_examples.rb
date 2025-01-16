@@ -78,6 +78,27 @@ RSpec.shared_examples "manage debates" do
         end
       end
     end
+
+    context "when debate has existing comments" do
+      let!(:debate) { create(:debate, component: current_component, comments_layout: "two_columns") }
+      let!(:comment) { create(:comment, commentable: debate, body: { "en" => "This is a test comment" }) }
+
+      it "prevents admin from updating debate layout once comments have been posted" do
+        within "tr", text: translated(debate.title) do
+          page.find(".action-icon--edit").click
+        end
+
+        within ".edit_debate" do
+          choose "Single column"
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("You cannot change the comment layout once comments have been posted")
+
+        debate.reload
+        expect(debate.comments_layout).to eq("two_columns")
+      end
+    end
   end
 
   describe "previewing debates" do
@@ -162,6 +183,125 @@ RSpec.shared_examples "manage debates" do
 
     visit decidim_admin.root_path
     expect(page).to have_content("created the #{translated(attributes[:title])} debate on the")
+  end
+
+  it "creates a new debate with two columns layout" do
+    click_on "New debate"
+
+    within ".new_debate" do
+      fill_in_i18n(:debate_title, "#debate-title-tabs", **attributes[:title].except("machine_translations"))
+      fill_in_i18n_editor(:debate_description, "#debate-description-tabs", **attributes[:description].except("machine_translations"))
+      fill_in_i18n_editor(:debate_instructions, "#debate-instructions-tabs", **attributes[:instructions].except("machine_translations"))
+
+      choose "Open"
+      choose "Two columns"
+    end
+
+    within ".new_debate" do
+      find("*[type=submit]").click
+    end
+
+    expect(page).to have_admin_callout "Debate successfully created"
+
+    within "table" do
+      expect(page).to have_content(translated(attributes[:title]))
+    end
+  end
+
+  describe "Attachments in a debate" do
+    let(:image_filename) { "city2.jpeg" }
+    let(:image_path) { Decidim::Dev.asset(image_filename) }
+    let(:document_filename) { "Exampledocument.pdf" }
+    let(:document_path) { Decidim::Dev.asset(document_filename) }
+    let(:invalid_document) { Decidim::Dev.asset("invalid_extension.log") }
+
+    before do
+      component_settings = current_component["settings"]["global"].merge!(attachments_allowed: true)
+      current_component.update!(settings: component_settings)
+    end
+
+    context "when creating a debate with attachments" do
+      before do
+        click_on "New debate"
+      end
+
+      it "creates a new debate with attachments" do
+        within ".new_debate" do
+          fill_in_i18n(:debate_title, "#debate-title-tabs", **attributes[:title].except("machine_translations"))
+          fill_in_i18n_editor(:debate_description, "#debate-description-tabs", **attributes[:description].except("machine_translations"))
+          fill_in_i18n_editor(:debate_instructions, "#debate-instructions-tabs", **attributes[:instructions].except("machine_translations"))
+
+          choose "Open"
+        end
+
+        dynamically_attach_file(:debate_documents, image_path)
+        dynamically_attach_file(:debate_documents, document_path)
+
+        within ".new_debate" do
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_admin_callout "Debate successfully created"
+
+        within "tr[data-id=\"#{Decidim::Debates::Debate.last.id}\"]" do
+          click_on "Edit"
+        end
+
+        expect(page).to have_css("img[src*='#{image_filename}']")
+        expect(page).to have_content(document_filename)
+      end
+
+      it "shows validation error when format is not accepted" do
+        dynamically_attach_file(:debate_documents, invalid_document, keep_modal_open: true) do
+          expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions.join(", ")}")
+        end
+        expect(page).to have_content("Validation error!")
+      end
+    end
+
+    context "when editing a debate with attachments" do
+      before do
+        within "tr[data-id=\"#{debate.id}\"]" do
+          click_on "Edit"
+        end
+      end
+
+      it "updates the debate with new attachments", :slow do
+        within ".edit_debate" do
+          fill_in_i18n(:debate_title, "#debate-title-tabs", **attributes[:title].except("machine_translations"))
+          fill_in_i18n_editor(:debate_description, "#debate-description-tabs", **attributes[:description].except("machine_translations"))
+          fill_in_i18n_editor(:debate_instructions, "#debate-instructions-tabs", **attributes[:instructions].except("machine_translations"))
+        end
+
+        dynamically_attach_file(:debate_documents, image_path)
+        dynamically_attach_file(:debate_documents, document_path)
+
+        within ".edit_debate" do
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_admin_callout "Debate successfully updated"
+
+        within "tr[data-id=\"#{debate.id}\"]" do
+          click_on "Edit"
+        end
+
+        expect(page).to have_css("img[src*='#{image_filename}']")
+        expect(page).to have_content(document_filename)
+      end
+    end
+
+    context "when attachments are not allowed" do
+      before do
+        component_settings = current_component["settings"]["global"].merge!(attachments_allowed: false)
+        current_component.update!(settings: component_settings)
+        click_on "New debate"
+      end
+
+      it "does not show the attachments form", :slow do
+        expect(page).to have_no_css("#debate_documents_button")
+      end
+    end
   end
 
   describe "closing a debate", versioning: true do

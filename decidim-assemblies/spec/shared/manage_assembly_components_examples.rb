@@ -216,6 +216,28 @@ shared_examples "manage assembly components" do
     end
   end
 
+  describe "reorders a component" do
+    let!(:component1) { create(:component, name: { en: "Component 1" }, participatory_space:) }
+    let!(:component2) { create(:component, name: { en: "Component 2" }, participatory_space:) }
+    let!(:component3) { create(:component, name: { en: "Component 3" }, participatory_space:) }
+
+    before do
+      visit participatory_space_components_path(participatory_space)
+    end
+
+    it "changes the order of the components" do
+      expect(page.text.index("Component 1")).to be < page.text.index("Component 2")
+      expect(page.text.index("Component 2")).to be < page.text.index("Component 3")
+
+      first("td.dragging-handle").drag_to(find("tbody.draggable-table tr:last-child"))
+
+      visit current_path
+
+      expect(page.text.index("Component 2")).to be < page.text.index("Component 1")
+      expect(page.text.index("Component 1")).to be < page.text.index("Component 3")
+    end
+  end
+
   def participatory_space
     assembly
   end

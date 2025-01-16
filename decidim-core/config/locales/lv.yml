@@ -360,9 +360,6 @@ lv:
     download_your_data:
       export:
         ready: Gatavs
-      show:
-        download_data: Lejupielādēt datus
-        request_data: Pieprasīt datus
     endorsements:
       identities:
         done: Pabeigts
@@ -501,8 +498,6 @@ lv:
     export_mailer:
       download_your_data_export:
         download: Lejupielādēt
-      export:
-        ready: Lūdzu, jūsu eksportēto datu saspiestā versija.
       subject: Jūsu eksportētais "%{name}" ir gatavs.
     filters:
       linked_classes:
@@ -850,10 +845,6 @@ lv:
         spam: Satur klikšķu ēsmu (clickbait), reklāmu, krāpšanu vai skriptu robotprogrammatūru.
       floating_help:
         help: Palīdzība
-      participatory_space_filters:
-        filters:
-          areas: Jomas
-          select_an_area: Izvēlieties jomu
       reference:
         reference: 'Atsauce: %{reference}'
       represent_user_group:
@@ -1037,7 +1028,6 @@ lv:
       edit_link:
         edit: Labot
       footer:
-        download_open_data: Lejupielādējiet atvērto datu failus
         log_in: Pieteikties
         made_with_open_source: Vietne, kas izveidota ar <a target="_blank" href="https://github.com/decidim/decidim"> bezmaksas programmatūru </a>.
       header:

@@ -2,9 +2,7 @@
 
 module Decidim
   module Meetings
-    class MeetingsType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ComponentInterface
-
+    class MeetingsType < Decidim::Core::ComponentType
       graphql_name "Meetings"
       description "A meetings component of a participatory space."
 

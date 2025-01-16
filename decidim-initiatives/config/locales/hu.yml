@@ -475,9 +475,7 @@ hu:
           phone_number: Telefonszám
           place_date: Hely, dátum
           postal_code: Irányítószám
-          print: Nyomtatás
           province: Megye
-          section: 'Ha a szervezet kéri, kérjük, nyomtassa ki és töltse ki ezt az űrlapot, és küldje be a megadott helyre:'
           signature: Aláírás
         result:
           initiative_rejected_reason: A kezdeményezést a támogatás hiánya miatt elutasították.
@@ -490,7 +488,6 @@ hu:
           other: " aláírások"
         vote_cabin:
           already_voted: Már aláírtad
-          verification_required: Ellenőrizze fiókját, hogy aláírja a kezdeményezést
           vote: Aláírás
           votes_blocked: Aláírás letiltva
         votes_count:
@@ -532,7 +529,6 @@ hu:
           comment: Megjegyzés
       initiatives_type:
         actions:
-          create: Létrehozás
           title: Hozzászólások
           vote: Szavazás
   layouts:

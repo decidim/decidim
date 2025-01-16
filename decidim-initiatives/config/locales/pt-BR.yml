@@ -456,9 +456,7 @@ pt-BR:
           phone_number: Número de telefone
           place_date: Local, data
           postal_code: CEP/CEP
-          print: Imprimir
           province: Cidade/Estado
-          section: 'Se solicitado pela organização, por favor imprima e preencha este formulário para enviar quando indicado:'
           signature: Assinatura
         result:
           initiative_rejected_reason: Esta iniciativa foi rejeitada devido à falta de suporte.
@@ -477,7 +475,6 @@ pt-BR:
           other: " assinaturas"
         vote_cabin:
           already_voted: Já assinadas
-          verification_required: Confirme sua conta para assinar a iniciativa
           vote: Placa
           votes_blocked: Assinatura desativada
         votes_count:

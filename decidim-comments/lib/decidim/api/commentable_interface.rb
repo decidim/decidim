@@ -17,7 +17,7 @@ module Decidim
 
       field :comments_have_votes, GraphQL::Types::Boolean, "Whether the object comments have votes or not", method: :comments_have_votes?, null: false
 
-      field :comments, [Decidim::Comments::CommentType], null: false do
+      field :comments, [Decidim::Comments::CommentType, { null: false }], null: false do
         argument :order_by, GraphQL::Types::String, "Order the comments", required: false
         argument :single_comment_id, GraphQL::Types::String, "ID of the single comment to look at", required: false
       end
@@ -44,6 +44,12 @@ module Decidim
 
       def user_allowed_to_comment
         object.commentable? && object.user_allowed_to_comment?(context[:current_user])
+      end
+
+      definition_methods do
+        def resolve_type(object, _context)
+          GraphQL::Types.const_get("#{object.class.name}Type")
+        end
       end
     end
   end

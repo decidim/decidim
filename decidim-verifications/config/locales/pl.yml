@@ -123,17 +123,6 @@ pl:
         destroy:
           error: Wystąpił błąd podczas usuwania uprawnień.
           success: Usunięcie autoryzacji się powiodło.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Sprawdź na przykładzie innego przykładu procedury obsługi autoryzacji
-            csv_census: Zweryfikuj w oparciu o spis organizacji
-            dummy_authorization_handler: Sprawdź na podstawie przykładowej procedury autoryzacji
-            dummy_authorization_workflow: Sprawdź w przykładowym przepływie pracy autoryzacji
-            id_documents: Uzyskaj weryfikację, przesyłając swój dokument tożsamości
-            postal_letter: Uzyskaj weryfikację, otrzymując kod weryfikacyjny za pośrednictwem poczty
-            sms: Uzyskaj weryfikację za pomocą SMS-a z kodem weryfikacyjnym
-          title: Zweryfikuj swoją tożsamość
-          verify_with_these_options: 'Oto dostępne opcje weryfikacji tożsamości:'
         index:
           expired_verification: Weryfikacja wygasła
           granted_verification: Przyznana weryfikacja

@@ -49,9 +49,12 @@ describe "Admin manages projects" do
       select decidim_sanitize_translated(another_taxonomy.name), from: "taxonomies_for_filter_#{another_taxonomy_filter.id}"
       click_on "Change taxonomies"
 
-      expect(page).to have_admin_callout "Projects successfully updated to the #{translated(taxonomy.name)} and #{translated(another_taxonomy.name)} taxonomies"
-      expect(Decidim::Budgets::Project.find(project.id).taxonomies.first).to eq(taxonomy)
-      expect(Decidim::Budgets::Project.find(project2.id).taxonomies.first).to be_nil
+      expect(page).to have_admin_callout "Projects successfully updated"
+      expect(page).to have_admin_callout translated(taxonomy.name)
+      expect(page).to have_admin_callout translated(another_taxonomy.name)
+      expect(project.reload.taxonomies).to include(taxonomy)
+      expect(project.taxonomies).to include(another_taxonomy)
+      expect(project2.reload.taxonomies).to be_empty
     end
 
     it "selects projects to implementation" do

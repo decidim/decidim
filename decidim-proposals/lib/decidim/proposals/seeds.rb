@@ -64,7 +64,8 @@ module Decidim
             vote_limit: 0,
             attachments_allowed: [true, false].sample,
             amendments_enabled: participatory_space.id.odd?,
-            collaborative_drafts_enabled: true
+            collaborative_drafts_enabled: true,
+            geocoding_enabled: [true, false].sample
           },
           step_settings:
         }
@@ -95,6 +96,14 @@ module Decidim
           state_published_at:,
           published_at: Time.current
         }
+
+        if component.settings.geocoding_enabled?
+          params = params.merge({
+                                  address: "#{::Faker::Address.street_address} #{::Faker::Address.zip} #{::Faker::Address.city}",
+                                  latitude: ::Faker::Address.latitude,
+                                  longitude: ::Faker::Address.longitude
+                                })
+        end
 
         proposal = Decidim.traceability.perform_action!(
           "publish",

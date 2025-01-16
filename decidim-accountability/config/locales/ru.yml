@@ -108,15 +108,8 @@ ru:
             few: "%{count} итога"
             many: "%{count} итогов"
             other: "%{count} итога"
-        filters:
-          all: Все
-        home:
-          categories_label: Категории
-          subcategories_label: Подкатегории
         home_header:
           global_status: Состояние общего исполнения
-        nav_breadcrumb:
-          global: Всеобщее исполнение
         search:
           search: Поиск действий
         show:
