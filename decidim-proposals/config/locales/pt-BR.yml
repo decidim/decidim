@@ -468,7 +468,6 @@ pt-BR:
           error: Houve um problema ao criar este rascunho colaborativo.
           success: Rascunho colaborativo criado com sucesso.
         edit:
-          attachment_legend: "(Opcional) Adicione um anexo"
           back: Costas
           send: Enviar
           title: Editar rascunho colaborativo
@@ -567,10 +566,7 @@ pt-BR:
           description: As coordenadas serão atualizadas quando clicar no botão 'visualizar'. No entanto, o endereço não muda.
           instructions: Você pode mover o ponto no mapa.
         edit:
-          add_documents: Adicionar documentos
-          attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
-          edit_documents: Editar documentos
           send: Enviar
           title: Editar proposta
         edit_draft:
