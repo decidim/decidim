@@ -515,22 +515,6 @@ ca:
           proposal_comments: Comentaris
           proposals: Propostes
         imports:
-          help:
-            answers: |
-              El document d'importació ha d'incloure els següents noms de columna en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON:
-              <ul>
-              <li><b>id:</b> ID de la proposta a responder</li>
-              <li>state<b>:</b> Un d'aquests "acceptada", "en avaluació" o "rebutjada"</li>
-              <li><b>answer/ca</b> Resposta en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
-              </ul>
-            proposals: |
-              El document ha d'incloure els següents noms de columna en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON:
-              <ul>
-              <li><b>title/ca:</b> Títol en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
-              <li><b>body/ca:</b> Descripció en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
-              <li><b>scope/id:</b> ID de l'Àmbit</li>
-              <li><b>category/id:</b> ID de la Categoria</li>
-              </ul>
           label:
             answers: Importar respostes des d'un fitxer
             proposals: Importar propostes des d'un fitxer
