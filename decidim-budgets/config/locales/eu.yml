@@ -157,15 +157,15 @@ eu:
               other: Gogorarazpen bat bidaltzear zaude posta elektronikoz % {count} erabiltzaileri
       admin_log:
         budget:
-          create: "%{user_name} k sortu du %{resource_name} aurrekontua %{space_name} esparruan"
-          delete: "%{user_name} k ezabatu du %{resource_name} aurrekontua %{space_name} esparruan"
-          restore: "%{user_name} k berreskuratu du %{resource_name} aurrekontua hemen: %{space_name}"
-          soft_delete: "%{user_name} k eraman du hemengo: %{space_name} %{resource_name} aurrekontua zaborrontzira"
-          update: "%{user_name} k eguneratu du %{resource_name} aurrekontua %{space_name} esparruan"
+          create: "%{user_name} parte-hartzaileak sortu du %{resource_name} aurrekontua %{space_name} esparruan"
+          delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} aurrekontua %{space_name} esparruan"
+          restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} aurrekontua hemen: %{space_name}"
+          soft_delete: "%{user_name} parte-hartzaileak eraman du hemengo: %{space_name} %{resource_name} aurrekontua zaborrontzira"
+          update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} aurrekontua %{space_name} esparruan"
         project:
-          create: "%{user_name} k %{resource_name} proiektua %{space_name} espazioan sortu zen"
-          delete: "%{user_name} k %{resource_name} proiektua %{space_name} espazioan ezabatu da"
-          restore: "%{user_name} k berreskuratu du %{resource_name} proiektua hemen: %{space_name}"
+          create: "%{user_name} parte-hartzaileak %{resource_name} proiektua %{space_name} espazioan sortu zen"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} proiektua %{space_name} espazioan ezabatu da"
+          restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} proiektua hemen: %{space_name}"
           soft_delete: "%{user_name} k eraman du hemengo: %{space_name} %{resource_name} proiektua zaborrontzira"
           update: "%{user_name} k %{resource_name} proiektuaren %{space_name} espazio eguneratu du"
       budget_information_modal:
@@ -217,7 +217,19 @@ eu:
             title: Titulua
       order:
         status:
+          continue_voting: Jarraitu bozkatzen
+          download_vote: Deskargatu zure botoa
+          pending_to_vote_budgets:
+            one: Beste aurrekontu batean bozkatu dezakezu
+            other: Beste aurrekontu batzuetan bozkatu dezakezu
+          share_vote: Partekatu zure botoa
           title: Zure botoa ongi bideratu da
+          view_votes:
+            one: Ikusi botoa
+            other: Ikusi botoak
+          votes_count:
+            one: 'Zure botoa honentzat: %{budget_name} erregistratu da.'
+            other: 'Zure %{count} botoak honentzat: %{budget_name} erregistratu dira.'
       order_summary_mailer:
         order_summary:
           selected_projects: 'Hautatu dituzun proiektuak hauek dira:'
