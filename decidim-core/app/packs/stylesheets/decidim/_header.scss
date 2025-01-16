@@ -49,14 +49,6 @@ header {
       @apply col-span-3 max-w-[11rem] xl:max-w-full xl:col-span-2 prose prose-img:max-h-16 prose-img:my-0;
     }
 
-    &__logo-desktop {
-      @apply block;
-    }
-
-    &__logo-mobile {
-      @apply hidden;
-    }
-
     &__search {
       @apply hidden md:block col-span-2 col-start-5 xl:col-start-4;
 
