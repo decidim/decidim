@@ -367,7 +367,6 @@ lv:
         create:
           success: Sadarbības projekts ir veiksmīgi izveidots.
         edit:
-          attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
           back: Atpakaļ
           send: Sūtīt
           title: Rediģēt sadarbības projektu
@@ -458,7 +457,6 @@ lv:
           comment: Komentēt
       proposals:
         edit:
-          attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
           back: Atpakaļ
           send: Sūtīt
           title: Rediģēt priekšlikumu
