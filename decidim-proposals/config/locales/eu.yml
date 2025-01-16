@@ -351,7 +351,7 @@ eu:
             - Nabigatu eta irakurri besteen proposamenak
             - Eman babesa gustatzen zaizkizun edo interesgarriak iruditzen zaizkizun proposamenei
           description: Garaikur hori beste pertsona batzuen proposamenak babesten dituzunean ematen da.
-          description_another: Erabiltzaile honek %{score} proposamen babestu ditu.
+          description_another: Parte-hartzaile honek %{score} proposamen babestu ditu.
           description_own: '%{score} proposameni eman diezu babesa.'
           name: Proposamenaren aldeko botoak
           next_level_in: Eman babesa % {score} proposamen gehiagori hurrengo mailara iristeko!
@@ -395,7 +395,7 @@ eu:
         edit_proposal: Editatu proposamena
         import: Inportatu proposamenak beste osagai batetik
         new: Proposamen berria
-        participatory_texts: Testu partehartzaileak
+        participatory_texts: Testu parte-hartzaileak
         show: Ikusi proposamena
         title: Ekintzak
       admin:
