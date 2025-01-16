@@ -764,7 +764,7 @@ en:
           error: There was a problem creating this collaborative draft.
           success: Collaborative draft successfully created.
         edit:
-          attachment_legend: "(Optional) Add an attachment"
+          attachment_legend: Add a document or an image
           back: Back
           send: Send
           title: Edit collaborative draft
@@ -912,10 +912,10 @@ en:
           description: The coordinates will be updated when clicking on 'preview' button. However, the address does not change.
           instructions: You can move the point on the map.
         edit:
-          add_documents: Add documents
-          attachment_legend: "(Optional) Add an attachment"
+          add_attachments: Add attachments
+          attachment_legend: Add a document or an image
           back: Back
-          edit_documents: Edit documents
+          edit_attachments: Edit attachments
           send: Send
           title: Edit proposal
         edit_draft:
