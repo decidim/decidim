@@ -66,27 +66,6 @@ he:
           new:
             download_export: להורדת הייצוא כקובץ CSV
             import: ייבוא
-            info: |
-              <p>אנו ממליצים לעקוב אחר השלבים הבאים</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>ליצור את הסטאטוס לתוצאה</a> שברצונך להוסיף</li>
-              <li><a href='%{link_new_result}' target='_blank'>מומלץ ליצור לפחות תוצאה אחת ידנית</a>  ד Import, for having a better understanding of the format and what you will need to fill out.</li>
-              <li>%{link_export_csv}</li>
-              <li>Make the changes locally. You can only change the following columns of the CSV:
-                <ul>
-                <li><b>category/id:</b> ID for the Category</li>
-                <li><b>scope/id:</b> ID for the Scope</li>
-                <li><b>parent/id:</b> ID of the parent (for related Results). Optional</li>
-                <li><b>title/en:</b> Title on English language. This will depend on your platform language configuration.</li>
-                <li><b>description/en:</b> Description on English language. This will depend on your platform language configuration.</li>
-                <li><b>start_date:</b> date when the result starts execution (format YYYY-MM-DD)</li>
-                <li><b>end_date:</b> date when the result ends execution (format YYYY-MM-DD)</li>
-                <li><b>status/id:</b> ID of the Status for this result</li>
-                <li><b>progress:</b> Percentage (from 0 to 100) of the execution</li>
-                <li><b>proposals_ids:</b> internal ID of the related proposals (separated with a comma). It gets automatically converted to <span class='attribute-name'>proposal_url</span></li>
-                </ul>
-              </li>
-              </ol>
             title: ייבוא תוצאות מקובץ CSV
         imports:
           create:
