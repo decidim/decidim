@@ -76,6 +76,12 @@ ca:
             - Un exemple de gestor d'autorització perquè les desenvolupadores puguin entendre com funciona una verificació simple.
             - Està dirigit a les desenvolupadores perquè puguin entendre com implementar el seu propi sistema de verificació.
             - Verifica't introduint un número de document que finalitzi amb "X".
+        ephemeral_dummy_authorization_handler:
+          help:
+            - Un exemple de gestor d'autorització perquè les desenvolupadores puguin entendre com funciona una verificació simple.
+            - Està dirigit a les desenvolupadores perquè puguin entendre com implementar el seu propi sistema de verificació.
+            - És una còpia de l'Autorització d'exemple.
+            - Verifica't introduint un número de document que finalitzi amb "X".
         id_documents:
           help:
             - Les participants omplen la informació de la seva identitat i carreguen una còpia del seu document.
@@ -137,6 +143,7 @@ ca:
         new:
           authorize: Enviar
           authorize_with: Verifica amb %{authorizer}
+          tos_agreement: En verificar la teva identitat, acceptes els %{link}.
         onboarding_pending:
           completed_verifications: El teu perfil s'ha verificat amb èxit, ara pots %{action} a %{resource_name}
           granted_verifications: Verificacions concedides
