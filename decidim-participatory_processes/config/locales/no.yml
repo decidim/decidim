@@ -121,7 +121,6 @@
           attachment_collections: Mapper
           attachment_files: Filer
           attachments: Vedlegg
-          categories: Kategorier
           components: Komponenter
           info: Om denne prosessen
           landing_page: Landingsside
