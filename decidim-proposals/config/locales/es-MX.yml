@@ -763,7 +763,6 @@ es-MX:
           error: Se ha producido un error al crear este borrador colaborativo.
           success: Borrador colaborativo creado con éxito.
         edit:
-          attachment_legend: "(Opcional) Añadir un archivo adjunto"
           back: Volver
           send: Enviar
           title: Editar borrador colaborativo
@@ -911,10 +910,7 @@ es-MX:
           description: Las coordenadas se actualizarán cuando hagas clic en el botón 'previsualizar'. Sin embargo, la dirección no cambia.
           instructions: Puedes mover la ubicación en el mapa.
         edit:
-          add_documents: Añadir documentos
-          attachment_legend: "(Opcional) Agregar un archivo adjunto"
           back: Atrás
-          edit_documents: Editar documentos
           send: Enviar
           title: Editar propuesta
         edit_draft:
