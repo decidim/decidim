@@ -158,7 +158,6 @@ it:
           attachment_collections: Cartelle
           attachment_files: File
           attachments: Allegati
-          categories: Categorie
           components: Componenti
           moderations: Moderazione
         assemblies_types: Tipi di assemblea
