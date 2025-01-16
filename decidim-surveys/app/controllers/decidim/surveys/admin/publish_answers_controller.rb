@@ -3,7 +3,7 @@
 module Decidim
   module Surveys
     module Admin
-      # This controller allows the user to update a Page.
+      # This controller allows the user to see which questions' answers can be published, and publish or unpublish them
       class PublishAnswersController < Admin::ApplicationController
         include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswersUrlHelper
 

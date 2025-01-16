@@ -12,7 +12,7 @@ module Decidim
         @current_user = current_user
       end
 
-      # Unpublishes the questions' answer
+      # Unpublishes the questions' answers
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
