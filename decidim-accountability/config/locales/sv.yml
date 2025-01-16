@@ -64,27 +64,6 @@ sv:
           new:
             download_export: Ladda ner exporten som CSV-fil
             import: Importera
-            info: |
-              <p>Vi rekommenderar att du följer de här stegen:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Skapa status för de resultat</a> som du vill lägga till</li>
-              <li><a href='%{link_new_result}' target='_blank'>Skapa minst ett resultat manuellt</a> från administratörspanelen innan du importerar, för att få en bättre förståelse för formatet och vad du behöver fylla i.</li>
-              <li>%{link_export_csv}</li>
-              <li>Genomför ändringarna lokalt. Du kan endast ändra följande kolumner i CSV-filen:
-              <ul>
-              <li><b>category/id:</b> ID för kategorin</li>
-              <li><b>scope/id:</b> ID för tillämpningsområdet</li>
-              <li><b>parent/id:</b> ID för överordnad (för relaterade resultat). Alternativ</li>
-              <li><b>title/I18N:</b> Titel på X språk</li>
-              <li><b>description/I18N:</b> Beskrivning av X språk</li>
-              <li><b>start_date:</b> datum då resultatet börjar genomföras (format ÅÅÅÅ-MM-DD)</li>
-              <li><b>end_date:</b> datum då resultatet slutar genomföras (format ÅÅÅÅ-MM-DD)</li>
-              <li><b>status/id:</b> ID för statusen för detta resultat</li>
-              <li><b>progress:</b> Procent (från 0 till 100) av genomförandet</li>
-              <li><b>proposals_ids:</b>internt ID för relaterade förslag (kommaseparerade). Omvandlas automatiskt till <span class='attribute-name'>proposal_url</span></li>
-              </ul>
-              </li>
-              </ol>
             title: Importera resultat från CSV-fil
         imports:
           create:
