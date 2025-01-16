@@ -441,8 +441,26 @@ de:
           author: Der Name des Teilnehmenden, der diesen Kommentar erstellt hat
           body: Der Kommentarinhalt
           commentable_id: Die eindeutige ID des kommentierten Objekts
+          commentable_type: Die Art des kommentierten Objekts (ob es ein Ergebnis, Vorschlag o.ä. war)
+          created_at: Das Erstellungsdatum des Kommentars
+          depth: Die Position dieses Kommentars im Thread (ob es sich um eine Antwort oder eine Antwort auf eine Antwort handelt)
+          id: Die ID dieses Kommentars
+          locale: Die eingestellte Plattformsprache der kommentierenden Person
+          root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
+          user_group: Der Name der Gruppe, die diesen Kommentar erstellt hat (falls vorhanden)
         proposals:
+          address: Die Adresse des Vorschlags, falls es an einem Standort stattfindet
+          answer: Die Antwort auf den Vorschlag im Falle einer Beantwortung
+          answered_at: Das Datum, an dem dieser Vorschlag beantwortet wurde
+          attachments: Die Anzahl der Anhänge dieses Vorschlags
+          author: Die Angaben über die verfassende Person dieses Vorschlags
+          body: Der Inhalt des Vorschlags
+          coauthorships_count: Die Anzahl mitverfassende Personen des Vorschlags
+          comments: Die Anzahl Kommentare dieses Vorschlags
+          component: Komponente, zu der dieser Vorschlag gehört
+          cost: Die Gesamtkosten des Vorschlags
           taxonomies: Die Klassifizierungen, zu denen dieser Vorschlag gehört
+          withdrawn_at: Wann dieser Vorschlag zurückgezogen wurde
     participatory_spaces:
       highlighted_proposals:
         last: Letzte Vorschläge
@@ -466,28 +484,14 @@ de:
         title: Aktionen
       admin:
         actions:
+          confirm_delete_proposal: Möchten Sie diesen Vorschlag wirklich löschen?
           deleted_proposals_info: Gelöschte Vorschläge können aus dem Papierkorb wiederhergestellt werden.
           preview: Vorschau
+          view_deleted_proposals: Gelöschte Vorschläge anzeigen
         exports:
           proposal_comments: Kommentare
           proposals: Vorschläge
         imports:
-          help:
-            answers: |
-              Das Importdokument sollte die folgenden Spaltennamen bei CSV- oder Excel-Dateien enthalten bzw. Schlüsselnamen im Falle von JSON-Dateien:
-              <ul>
-              <li><b>id:</b> ID des Vorschlages zur Beantwortung</li>
-              <li><b>state:</b> Einer von "accepted", "evaluating" oder "rejected"</li>
-              <li><b>answer/de:</b> Antwort in Deutscher Sprache. Dies hängt von der Sprachkonfiguration Ihrer Plattform ab.</li>
-              </ul>
-            proposals: |
-              Die Datei muss bei CSV- oder Excel-Dateien die folgenden Spaltennamen haben bzw. Schlüsselnamen bei JSON-Dateien:
-              <ul>
-              <li><b>title/de:</b> Titel in Deutscher Sprache. Dies hängt von der Sprachkonfiguration Ihrer Plattform ab.</li>
-              <li><b>body/de:</b> Beschreibung in Deutscher Sprache. Dies hängt von der Sprachkonfiguration Ihrer Plattform ab.</li>
-              <li><b>scope/id:</b> ID für das Thema</li>
-              <li><b>category/id:</b> ID für die Kategorie</li>
-              </ul>
           label:
             answers: Antworten aus einer Datei importieren
             proposals: Vorschläge aus einer Datei importieren
@@ -670,6 +674,7 @@ de:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
           create: "%{user_name} hat den %{resource_name} Vorschlag auf den %{space_name} Feldern als offizieller Vorschlag erstellt"
           publish_answer: "%{user_name} veröffentlichte die Antwort auf den Vorschlag %{resource_name} im Bereich %{space_name}"
+          restore: "%{user_name} hat den Vorschlag %{resource_name} für den Bereich %{space_name} wiederhergestellt"
           soft_delete: "%{user_name} hat den Vorschlag %{resource_name} im Bereich %{space_name} in den Papierkorb verschoben"
           update: "%{user_name} aktualisiert den %{resource_name} offiziellen Vorschlag für die %{space_name} Flächen"
         proposal_note:
@@ -719,6 +724,7 @@ de:
           error: Beim Erstellen dieses kollaborativen Entwurfs ist ein Problem aufgetreten.
           success: Collaborative Draft wurde erfolgreich erstellt.
         edit:
+          attachment_legend: Dokument oder Bild hinzufügen
           back: Zurück
           send: Abschicken
           title: Gemeinsamen Entwurf bearbeiten
@@ -800,6 +806,9 @@ de:
         error: Beim Speichern des Vorschlags ist ein Fehler aufgetreten.
         success: Der Vorschlag wurde erfolgreich erstellt. Gespeichert als Entwurf.
       creation:
+        imported_text: Es wurde zu diesem Vorschlag
+        merged_text: Sie wurden zu diesem Vorschlag
+        splitted_text: Es wurde zu diesem Vorschlag
         text: Dieser Vorschlag wurde erstellt
       destroy_draft:
         error: Es gab Fehler beim Löschen des Vorschlagsentwurfs.
@@ -807,7 +816,12 @@ de:
       exit_modal:
         cancel: Abbrechen
         exit: Fortsetzen
+        message: Wählen Sie %{number} weitere Vorschläge aus, damit Ihre Stimmen gewertet werden können.
+        title: Denken Sie daran, dass Sie %{number} Stimmen übrig haben
       forms:
+        errors:
+          device_not_supported: Ihr Gerät unterstützt keine Ortungsdienste. Bitte geben Sie die Adresse manuell ein.
+          no_device_location: Leider konnten wir Ihren Standort nicht erkennen. Bitte geben Sie die Adresse manuell ein.
         use_my_location: Meinen aktuellen Standort verwenden
       invite_coauthors:
         cancel:
@@ -858,7 +872,10 @@ de:
           description: Die Koordinaten werden aktualisiert, wenn Sie auf "Vorschau" klicken. Die angegebene Adresse wird sich jedoch nicht ändern.
           instructions: Sie können den Punkt auf der Karte verschieben.
         edit:
+          add_attachments: Anhänge hinzufügen
+          attachment_legend: Dokument oder Bild hinzufügen
           back: Zurück
+          edit_attachments: Anhänge bearbeiten
           send: Abschicken
           title: Vorschlag bearbeiten
         edit_draft:
@@ -956,10 +973,17 @@ de:
             one: Stimme
             other: Stimmen
         voting_rules:
+          already_vote:
+            description: Denken Sie daran, dass Sie noch %{number} verschiedene Vorschläge unterstützen müssen, damit Ihre Unterstützung gewertet werden kann.
+            see_other_proposals: Andere Vorschläge anzeigen
+            title: Sie haben noch %{number} Unterstützungen übrig
           can_accumulate_votes_beyond_threshold:
             description: Jeder Vorschlag kann mehr als %{limit} Stimmen sammeln
+          minimum_votes_per_user:
+            description: Sie müssen ein Minimum an %{votes} Unterstützung auf verschiedene Vorschläge verteilen, damit Ihre Unterstützung gewertet werden kann.
           proposal_limit:
             description: Sie können bis zu %{limit} Vorschläge erstellen.
+          success: Ihre Stimmen wurden erfolgreich akzeptiert
           threshold_per_proposal:
             description: Vorschläge müssen %{limit} Stimmen erreichen, um berücksichtigt zu werden.
           title: Regeln zur Teilnahme
