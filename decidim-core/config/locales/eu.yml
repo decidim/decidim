@@ -465,6 +465,7 @@ eu:
           document_number: Agiri zenbakia
           postal_code: Posta-kodea
           scope_id: Esparrua
+        name: Baimenen adibide iragankorra
       errors:
         duplicate_authorization: Badago datu berak dituen parte-hartzaile baimendu bat. Administratzaile bat zurekin harremanetan jarriko da zure datuak egiaztatzeko.
       expired_at: '%{timestamp} iraungita dago'
@@ -680,6 +681,7 @@ eu:
           sign_in_disabled: Kanpoko kontu batez sartu ahal zara.
           sign_up_disabled: Kontuak sortzea desgaituta dago, sartzeko lehendik dagoen kontu bat erabil dezakezu.
         user:
+          ephemeral_session_closed: Amaitu da zure gonbidatuen saioa
           timed_out: Denbora luzeegi egon zara jarduerarik gabe, eta zure saioa automatikoki itxi da. Parte hartzen jarraitu nahi baduzu, hasi saioa berriro.
       shared:
         newsletter_modal:
@@ -703,7 +705,7 @@ eu:
           shown_password: Zure pasahitza ikusgarri dago
         placeholder_email: kaixo@adibide.org
     documents:
-      one: "%{count} dokumtu"
+      one: "%{count} dokumentu"
       other: "%{count} dokumentu"
     doorkeeper:
       authorizations:
@@ -828,6 +830,7 @@ eu:
       others: "%{count} gehiago"
       title: 'Nork atsegin du:'
       you: zu(k)
+    ephemeral_user: Bisitaria
     errors:
       files:
         file_cannot_be_processed: Fitxategia ezin izan da prozesatu
@@ -1288,26 +1291,26 @@ eu:
           subject: "%{manager} k mezu berriak bidali ditu %{group} gisa"
         new_conversation:
           greeting: Kaixo, %{recipient}!
-          intro: "%{sender} k beste elkarrizketa bat hasi du zurekin. Egin klik hemen ikusteko:"
+          intro: "%{sender} bidaltzaileak beste elkarrizketa bat hasi du zurekin. Egin klik hemen ikusteko:"
           outro: Gozatu plataforma!
-          subject: "%{sender} elkarrizketa bat hasi da zurekin"
+          subject: "%{sender} bidaltzailea elkarrizketa bat hasi da zurekin"
         new_group_conversation:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
-          intro: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
+          intro: "%{sender} bidaltzaileak elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
           outro: Gozatu plataforma!
           subject: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin"
         new_group_message:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
-          intro: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
+          intro: "%{sender} bidaltzaileak elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
           outro: Gozatu plataforma!
-          subject: "%{group} k %{sender} ren mezu berriak ditu"
+          subject: "%{group} taldeak %{sender} bidatzailearen mezu berriak ditu"
         new_message:
           greeting: Kaixo, %{recipient}!
-          intro: "%{sender} k elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
+          intro: "%{sender} bidaltzaileak elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
           outro: Gozatu plataforma!
-          subject: '%{sender} ren mezu berriak dituzu'
+          subject: '%{sender} bidaltzailearen mezu berriak dituzu'
       conversations:
         add_conversation_users:
           add_max_users: 'Gehitu parte-hartzaileak elkarrizketara: gehienez 9 erabiltzaile'
@@ -1476,11 +1479,13 @@ eu:
     onboarding_action_message:
       click_link: Klikatu hemen
       cta_html: <a href="%{path}">%{link_text}</a> horretarako %{action} hemen %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: Zuzen gonbidatu zaituzte. <br/>Gonbidatuen saio bat hasi duzu eta orain parte har dezakezu.
       expired_authorization_active_title: Zure baimena iraungi egin da.
       finish_authorization_process: Baimen-prozesua bukatu ahal duzu
       incomplete_authorization_active_title: Zure egiaztapena ez da osatu behar den informazio guztiarekin.
       pending_authorization_active_message: Mesedez, bete formularioa ekintza honekin aurrera egiteko.
       pending_authorization_active_title: Zure nortasuna egiaztatu behar dugu.
+      pending_ephemeral_authorization: Mesedez, egiaztatu zure nortasuna aurrera egiteko.
     open_data:
       help:
         core:
@@ -1511,6 +1516,9 @@ eu:
           reported_content: Jakinarazi zen edukia
           reported_url: Jakinarazitako baliabidearen url-a
           reports: Profilaren berri emateko arrazoien zerrenda
+        taxonomies:
+          children_count: Taxonomia honek dituen umeen zenbaketa
+          created_at: Zein datatan sortu zen taxonomia hau
         user_groups:
           avatar_url: Partaide-taldearen avatarra
           badge: Partaide-taldearen bereizgarria
