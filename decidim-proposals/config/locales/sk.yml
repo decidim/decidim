@@ -372,7 +372,6 @@ sk:
         create:
           success: Projekt spolupráce bol úspešne vytvorený.
         edit:
-          attachment_legend: "(Voliteľné) Pridanie prílohy"
           back: Zadná
           send: Poslať
           title: Úprava konceptu spolupráce
@@ -466,7 +465,6 @@ sk:
           comment: Komentár
       proposals:
         edit:
-          attachment_legend: "(Voliteľné) Pridanie prílohy"
           back: Zadná
           send: Poslať
           title: Upraviť návrh
