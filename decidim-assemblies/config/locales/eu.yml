@@ -69,7 +69,7 @@ eu:
         gender: Generoa
         non_user_avatar: Abatarra
         position: Posizioa
-        user_id: Erabiltzailea edo taldea
+        user_id: Parte-hartzaile edo taldea
         weight: Kokapenaren hurrenkera
       assembly_user_role:
         email: E-maila
@@ -91,7 +91,7 @@ eu:
         other: Batzar kideak
       decidim/assembly_user_role:
         one: Batzarreko erabiltzaileen rola
-        other: Batzar erabiltzailearen rolak
+        other: Batzar parte-hartzailearen rolak
   decidim:
     admin:
       actions:
@@ -276,7 +276,7 @@ eu:
         update: "%{user_name} k %{resource_name} batzar mota eguneratu du"
       assembly_user_role:
         create: "%{user_name} k %{resource_name} gonbidatu du %{space_name} batzarrera"
-        delete: "%{user_name} k %{resource_name} parte-hartzailea %{space_name} muntaia kendu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea %{space_name} muntaia kendu du"
         update: "%{user_name} k %{resource_name} rola aldatu du %{space_name} batzarrerako"
     assemblies:
       admin:
@@ -316,7 +316,7 @@ eu:
             non_user_avatar_help: Pertsonen baimena lortu beharko zenuke, kide gisa argitaratu baino lehen.
             select_a_position: Hautatu posizio bat
             select_user: Hautatu parte-hartzaile bat
-            user_type: Erabiltzaile mota
+            user_type: Parte-hartzaile mota
         content_blocks:
           highlighted_assemblies:
             max_results: Erakusteko elementu gehienen kopurua
