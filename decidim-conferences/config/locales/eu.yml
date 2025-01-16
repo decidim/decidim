@@ -49,7 +49,7 @@ eu:
         email: Helbide elektronikoa
         name: Izena
         registration_type_id: Erregistro mota
-        user_id: Erabiltzailea
+        user_id: Parte-hatzailea
       conference_registration_type:
         description: Deskribapena
         price: Prezioa
@@ -64,7 +64,7 @@ eu:
         position: Lekua
         short_bio: Biografia laburra
         twitter_handle: X ezizena
-        user_id: Erabiltzailea
+        user_id: Parte-hartzailea
       conference_user_role:
         email: Helbide elektronikoa
         name: Izena
@@ -206,7 +206,7 @@ eu:
           registration_types: Izen-emate motak
           registrations: Izen-emateak
           see_conference: Ikusi hitzaldia
-          user_registrations: Erabiltzaileen erregistroak
+          user_registrations: Parte-hatzaileen erregistroak
       models:
         conference:
           fields:
@@ -307,7 +307,7 @@ eu:
         update: "%{user_name} k %{resource_name} hizlaria eguneratu du %{space_name} hitzaldian"
       conference_user_role:
         create: "%{user_name} k %{resource_name} gonbidatu du %{space_name} hitzaldira"
-        delete: "%{user_name} k %{resource_name} administratzailea kendu du %{space_name} hitzalditik"
+        delete: "%{user_name} part-hartzaileak %{resource_name} administratzailea kendu du %{space_name} hitzalditik"
         update: "%{user_name} k %{resource_name} ren rola aldatu du %{space_name} hitzaldian"
       conferences:
         conference_registration:
@@ -339,8 +339,8 @@ eu:
             slug_help_html: 'URL slugak erabiltzen dira konferentzia honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: % {url}'
         conference_invites:
           create:
-            error: Arazo bat izan da erabiltzaileak konferentziara sartzeko gonbidatuta.
-            success: Erabiltzailea behar bezala gonbidatu da biltzarrean parte hartzeko.
+            error: Arazo bat izan da parte-hartzaileak konferentziara sartzeko gonbidatuta.
+            success: Parte-hatzailea behar bezala gonbidatu da biltzarrean parte hartzeko.
           form:
             attendee_type: Parte-hartzaile mota
             existing_user: Parte-hartzailea badago
@@ -359,7 +359,7 @@ eu:
           new:
             explanation: Parte-hartzailea gonbidatuko da hitzaldi batera lotzera. Bere posta elektronikoa erregistratuta ez badago, erakundera ere gonbidatuko dute.
             invite: gonbidatu
-            new_invite: Gonbidatu erabiltzailea
+            new_invite: Gonbidatu parte-hartzaile
         conference_registrations:
           index:
             registrations: Izen-emateak
@@ -367,8 +367,8 @@ eu:
           form:
             existing_user: Parte-hartzailea badago
             non_user: Parte-hartzailerik ez
-            select_user: Aukeratu erabiltzailea
-            user_type: Erabiltzaile mota
+            select_user: Aukeratu parte-hartzaile
+            user_type: Parte-hatzaile mota
           index:
             search: Bilatu
         conferences:
