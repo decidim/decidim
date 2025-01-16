@@ -302,7 +302,6 @@ id:
         create:
           success: Draf kolaboratif berhasil dibuat.
         edit:
-          attachment_legend: "(Opsional) Tambahkan lampiran"
           back: Kembali
           send: Kirim
           title: Edit draf kolaboratif
@@ -387,7 +386,6 @@ id:
           comment: Komentar
       proposals:
         edit:
-          attachment_legend: "(Opsional) Tambahkan lampiran"
           back: Kembali
           send: Kirim
           title: Edit proposal
