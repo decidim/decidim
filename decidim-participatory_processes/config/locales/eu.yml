@@ -129,7 +129,7 @@ eu:
           landing_page: Hasierako orria
           moderations: Moderazioak
           private_users: Kideak
-          process_admins: Prozesuaren erabiltzaileak
+          process_admins: Prozesuaren parte-hartzaileak
           steps: Prozesuaren faseak
       models:
         participatory_process:
@@ -318,7 +318,7 @@ eu:
         restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} prozesu parte-hartzailea"
         soft_delete: "%{user_name} parte-hartzaileak zaborrontzira eraman du %{resource_name} prozesu parte-hartzailea"
         unpublish: "%{user_name} parte-hartzaileak despublikatu du %{resource_name} prozesu parte-hartzailea"
-        update: "%{user_name} k %{resource_name} partehartze prozesua eguneratu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} partehartze prozesua eguneratu du"
       participatory_process_group:
         create: "%{user_name} parte-hartzaileak sortu du %{resource_name} prozesu parte-hartzaileen multzoa"
         unpublish: "%{user_name} parte-hartzaileak despublikatu du %{resource_name} prozesu parte-hartzaileen multzoa"
@@ -382,8 +382,8 @@ eu:
           description: Prozesuaren deskribapen luzea
           developer_group: Prozesuaren talde garatzailea. Hau da prozesua sustatzen duen erakundea.
           end_date: Prozesuaren amaiera-data
-          follows_count: Espazio hau zenbat erabiltzailek jarraitzen duten
-          hashtag: Prozesuaren traola, Twitter/Xerako erabilia
+          follows_count: Espazio hau zenbat parte-hartzailek jarraitzen duten
+          hashtag: Prozesuaren traola, X sarerako erabilia
           id: Prozesu honen identifikatzaile bakarra
           local_area: Prozesuaren tokiko eremua. Hau da prozesua garatzen ari den erakundearen arloa.
           meta_scope: Prozesuaren esparru-metadatuak
@@ -410,8 +410,8 @@ eu:
         extra_data:
           developer_group: Honek sustatuta
           name: Metadatuak
-          participatory_scope: Zer erabakitzen da
-          participatory_structure: Nola erabakitzen da
+          participatory_scope: Erabakitzen dena
+          participatory_structure: Erabakitzeko era
           target: Nork hartzen du parte
         html:
           name: HTML blokea
@@ -467,7 +467,7 @@ eu:
             cta_text_help: Ezartzen bada, botoia ez da agertuko.
         participatory_processes:
           form:
-            announcement_help: Hemen sartzen duzun testua erabiltzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
+            announcement_help: Hemen sartzen duzun testua parte-hartzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
             filters: iragazkiak
