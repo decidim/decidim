@@ -483,22 +483,6 @@ ja:
           proposal_comments: コメント
           proposals: 提案
         imports:
-          help:
-            answers: |
-              インポートドキュメントには、CSVやExcelファイルの場合は以下のカラム名、JSONファイルの場合はキー名が含まれている必要があります:
-              <ul>
-              <li><b>id:</b> 回答する提案のID</li>
-              <li><b>state:</b> "accepted", "evaluating", "rejected"のうちのどれか</li>
-              <li><b>answer/en:</b> 英語での回答。これはプラットフォームの言語設定に依存します。</li>
-              </ul>
-            proposals: |
-              CSVファイルやExcelファイルの場合は以下のカラム名、JSONファイルの場合はキー名が必要です:
-              <ul>
-              <li><b>title/en:</b> 英語でのタイトル。これはプラットフォームの言語設定に依存します。</li>
-              <li><b>body/en:</b> 英語での本文。これはプラットフォームの言語設定に依存します。</li>
-              <li><b>scope/id:</b> スコープのID</li>
-              <li><b>category/id:</b> カテゴリーのID</li>
-              </ul>
           label:
             answers: ファイルから回答をインポート
             proposals: ファイルから提案をインポート
