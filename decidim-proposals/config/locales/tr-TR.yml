@@ -444,7 +444,6 @@ tr:
         create:
           success: Ortak taslak başarıyla oluşturuldu.
         edit:
-          attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
           back: Geri
           send: Gönder
           title: Ortak taslak düzenle
@@ -539,7 +538,6 @@ tr:
           comment: Yorum Yap
       proposals:
         edit:
-          attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
           back: Geri
           send: Gönder
           title: Teklifi düzenle
