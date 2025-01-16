@@ -476,22 +476,6 @@ sv:
           proposal_comments: Kommentarer
           proposals: Förslag
         imports:
-          help:
-            answers: |
-              Importdokumentet ska innehålla följande kolumnnamn vid CSV eller Excel-filer, eller nyckelnamn vid JSON-filer:
-              <ul>
-              <li><b>id:</b> ID för förslaget att svara</li>
-              <li><b>stat:</b> En av "godkänd", "utvärdering", eller "avvisade"</li>
-              <li><b>svar/:</b> Svar på engelska. Beror på din plattforms språkkonfiguration.</li>
-              </ul>
-            proposals: |
-              Filen måste ha följande kolumnnamn för CSV eller Excel-filer, eller nyckelnamn för JSON-filer:
-              <ul>
-              <li><b>title/en:</b> Titel på engelska. Detta beror på din plattforms språkkonfiguration.</li>
-              <li><b>body/en:</b> Innehåll på engelska. Detta beror på din plattforms språkkonfiguration.</li>
-              <li><b>scope/id:</b> ID för Scope</li>
-              <li><b>category/id:</b> ID för kategori</li>
-              </ul>
           label:
             answers: Importera svar från en fil
             proposals: Importerar förslag från en fil
