@@ -76,6 +76,12 @@ eu:
             - Baimen-emaile adibide bat garatzaileek uler dezaten nola funtzionatzen duen egiaztapen sinple batek.
             - Garatzaileentzat da, beren egiaztapen-sistema ezartzeko modua uler dezaten.
             - Egiaztatu "X" letraz hasten den pasaporte zenbaki bat sartuz.
+        ephemeral_dummy_authorization_handler:
+          help:
+            - Baimen-emaile adibide bat garatzaileek uler dezaten nola funtzionatzen duen egiaztapen sinple batek.
+            - Garatzaileentzat da, beren egiaztapen-sistema ezartzeko modua uler dezaten.
+            - Ereduzko baimenaren kopia da.
+            - Egiaztatu "X" zenbakiaz amaitzen den dokumentu zenbaki bat sartuz.
         id_documents:
           help:
             - Parte-hartzaileek beren identifikazio informazioa bete, eta dokumentuaren kopia bat kargatzen dute.
@@ -137,6 +143,7 @@ eu:
         new:
           authorize: Bidali
           authorize_with: Egiaztatu %{authorizer} rekin
+          tos_agreement: 'Zure nortasuna egiaztatzeko, onartu: % {link}.'
         onboarding_pending:
           completed_verifications: 'Bainema zuzen lortu duzu, orain zuk ahal duzu %{action} hemen: %{resource_name}'
           granted_verifications: Emandako egiaztapenak
