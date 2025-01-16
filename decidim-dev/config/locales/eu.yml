@@ -53,7 +53,7 @@ eu:
           conditions:
             - Erabili probako ingurunea erabakitzeko.
           description: Parte-hartzaileek garaikur hau lortzen dute probak sortzeagatik.
-          description_another: Erabiltzaile honek %{score} proba egin ditu.
+          description_another: Parte-hartzaile honek %{score} proba egin ditu.
           description_own: '%{score} proba sortu dituzu.'
           name: Probak
           next_level_in: Sortu %{score} proba gehiago hurrengo mailara iristeko!
