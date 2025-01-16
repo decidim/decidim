@@ -202,7 +202,7 @@ eu:
           description_own: '%{score} ekimen dituzu argitaratuta.'
           name: Argitaratutako ekimenak
           next_level_in: Talde %{score} ekimen gehiago argitaratu hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek oraindik ez du ekimenik argitaratuta.
+          unearned_another: Parte-hartzaile honek oraindik ez du ekimenik argitaratuta.
           unearned_own: Ez duzu oraindik argitaratutako ekimenik.
     help:
       participatory_spaces:
@@ -330,16 +330,16 @@ eu:
             success: Ekimen mota zuzen eguneratu da.
       admin_log:
         initiative:
-          publish: "%{user_name} k %{resource_name} ekimena argitaratu du"
-          send_to_technical_validation: "%{user_name} k %{resource_name} ekimena baliozkotze teknikora bidali du"
+          publish: "%{user_name} parte-hartzaileak %{resource_name} ekimena argitaratu du"
+          send_to_technical_validation: "%{user_name} parte-hartzaileak %{resource_name} ekimena baliozkotze teknikora bidali du"
           unpublish: "%{user_name} k %{resource_name} ekimena baztertu du"
-          update: "%{user_name} k %{resource_name} ekimena eguneratu du"
+          update: "%{user_name} parte-hartzaileak %{resource_name} ekimena eguneratu du"
         initiatives_settings:
-          update: "%{user_name} k ekimenen ezarpenak eguneratu ditu"
+          update: "%{user_name} parte-hartzaieak batzarren konfigurazioa eguneratu du"
         initiatives_type:
-          create: "%{user_name} k %{resource_name} ekimen motak sortu ditu"
-          delete: "%{user_name} k %{resource_name} ekimen motak ezabatu ditu"
-          update: "%{user_name} k %{resource_name} ekimen motak eguneratu ditu"
+          create: "%{user_name} parte-hartzaileak %{resource_name} ekimen motak sortu ditu"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} ekimen motak ezabatu ditu"
+          update: "%{user_name} parte-hartzaileak %{resource_name} ekimen motak eguneratu ditu"
       admin_states:
         accepted: Beharrezko sinadurak lortu ditu
         created: Sortu
@@ -614,8 +614,8 @@ eu:
           created_at: Zein datatan sortu zen espazio hau
           description: Ekimenaren deskribapena
           first_progress_notification_at: Zein datatan bidali zen aurrerapenaren lehen jakinarazpena?
-          follows_count: Espazio hau zenbat erabiltzailek jarraitzen duten
-          hashtag: Ekimenaren traola, Twitter/Xerako erabilia
+          follows_count: Espazio hau zenbat parte-hartzaileek jarraitzen duten
+          hashtag: Ekimenaren traola, X sarerako erabilia
           offline_votes: Ekimen honek plataforma honetatik kanpo jaso dituen sinadura kopurua
           online_votes: Ekimen honek online jaso duen sinadura kopurua (plataformaren bidez zuzenean)
           published_at: Zein egunetan argitaratu zen espazio hau
