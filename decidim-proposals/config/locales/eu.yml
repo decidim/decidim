@@ -515,23 +515,6 @@ eu:
           proposal_comments: Iruzkinak
           proposals: Proposamenak
         imports:
-          help:
-            answers: |
-              Inportazio-dokumentuak honako zutabe-izen hauek izan behar ditu CSV edo Excel fitxategien kasuan, edo gako-izen batzuk JSON fitxategien kasuan:
-              <ul>
-              <li><b>id:</b> Proposamenaren erantzunaren IDa</li>
-              <li><b>egoera:</b> Bat "onartua", "ebaluatzailea" edo "baztertua"."</li>
-              <li><b>erantzuna/eu:</b> Erantzuna euskeraz. Zure plataformaren hizkuntzaren konfigurazioaren araberakoa izango da.
-              </li>
-              </ul>
-            proposals: |
-              Fitxategiak zutabeko izen hauek izan behar ditu CSV edo Excel fitxategien kasuan, edo gako-izenak JSON fitxategien kasuan:
-              <ul>
-              <li><b>Izenburua/en:</b>Ingelesari buruzko titulua. Zure plataformaren hizkuntzaren konfigurazioaren araberakoa izango da..</li>
-              <li><b>Testua/en:</b>Testua ingelesez. Zure plataformaren hizkuntzaren konfigurazioaren araberakoa izango da.</li>
-              <li><b>Eremua/id:</b> Eremauren ID-a</li>
-              <li><b>Kategoria/id:</b> Kategoriaren ID-a</li>
-              </ul>
           label:
             answers: Inportatu erantzunak errenkada batetik
             proposals: Inportatu proposamenak errenkada batetik
