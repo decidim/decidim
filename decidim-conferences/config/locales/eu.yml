@@ -49,7 +49,7 @@ eu:
         email: Helbide elektronikoa
         name: Izena
         registration_type_id: Erregistro mota
-        user_id: Parte-hatzailea
+        user_id: Parte-hartzailea
       conference_registration_type:
         description: Deskribapena
         price: Prezioa
@@ -295,37 +295,37 @@ eu:
         conferences: Hitzaldiak
     admin_log:
       conference:
-        create: "%{user_name} k sortu du %{resource_name} hitzaldia"
-        publish: "%{user_name} k argitaratu du %{resource_name} hitzaldia"
-        send_conference_diplomas: "%{user_name} k bertaratze-ziurtagiriak bidali dizkie %{resource_name} hitzaldira bertaratuei"
-        unpublish: "%{user_name} k desargitaratu du %{resource_name} hitzaldia"
-        update: "%{user_name} k eguneratu du %{resource_name} hitzaldia"
-        update_diploma: "%{user_name} k bertaratze-agirien konfigurazioa eguneratu du %{resource_name} hitzaldirako"
+        create: "%{user_name} parte-hartzaileak sortu du %{resource_name} hitzaldia"
+        publish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} hitzaldia"
+        send_conference_diplomas: "%{user_name} parte-hartzaileak bertaratze-ziurtagiriak bidali dizkie %{resource_name} hitzaldira bertaratuei"
+        unpublish: "%{user_name} parte-hartzaileak desargitaratu du %{resource_name} hitzaldia"
+        update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} hitzaldia"
+        update_diploma: "%{user_name} parte-hartzaileak bertaratze-agirien konfigurazioa eguneratu du %{resource_name} hitzaldirako"
       conference_speaker:
-        create: "%{user_name} k %{resource_name} hizlaria sortu du %{space_name} hitzaldian"
-        delete: "%{user_name} k %{resource_name} hizlaria kendu du %{space_name} hitzalditik"
-        update: "%{user_name} k %{resource_name} hizlaria eguneratu du %{space_name} hitzaldian"
+        create: "%{user_name} parte-hartzaileak %{resource_name} hizlaria sortu du %{space_name} hitzaldian"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} hizlaria kendu du %{space_name} hitzalditik"
+        update: "%{user_name} parte-hartzaileak %{resource_name} hizlaria eguneratu du %{space_name} hitzaldian"
       conference_user_role:
-        create: "%{user_name} k %{resource_name} gonbidatu du %{space_name} hitzaldira"
+        create: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du %{space_name} hitzaldira"
         delete: "%{user_name} part-hartzaileak %{resource_name} administratzailea kendu du %{space_name} hitzalditik"
-        update: "%{user_name} k %{resource_name} ren rola aldatu du %{space_name} hitzaldian"
+        update: "%{user_name} parte-hartzaileak %{resource_name} ren rola aldatu du %{space_name} hitzaldian"
       conferences:
         conference_registration:
-          confirm: "%{user_name} k berretsi du bere izen-ematea %{resource_name} hitzaldian"
+          confirm: "%{user_name} parte-hartzaileak berretsi du bere izen-ematea %{resource_name} hitzaldian"
         partner:
-          create: "%{user_name} k %{resource_name} kidea sortu du %{space_name} hitzaldian"
-          delete: "%{user_name} k %{resource_name} kidea ezabatu du %{space_name} hitzalditik"
-          update: "%{user_name} k %{resource_name} kidea eguneratu du %{space_name} hitzaldian"
+          create: "%{user_name} parte-hartzaileak %{resource_name} kidea sortu du %{space_name} hitzaldian"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} kidea ezabatu du %{space_name} hitzalditik"
+          update: "%{user_name} parte-hartzaileak%{resource_name} kidea eguneratu du %{space_name} hitzaldian"
         registration_type:
-          create: "%{user_name} k %{resource_name} izen-emate mota sortu du %{space_name} hitzaldian"
-          delete: "%{user_name} k %{resource_name} izen-emate mota ezabatu du %{space_name} hitzaldian"
-          publish: "%{user_name} k %{resource_name} izen-emate mota argitaratu du %{space_name} hitzaldian"
-          unpublish: "%{user_name} k %{resource_name} izen-emate mota desargitaratu du %{space_name} hitzaldian"
-          update: "%{user_name} k %{resource_name} izen-emate mota eguneratu du %{space_name} hitzaldian"
+          create: "%{user_name} parte-hartzaileak %{resource_name} izen-emate mota sortu du %{space_name} hitzaldian"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} izen-emate mota ezabatu du %{space_name} hitzaldian"
+          publish: "%{user_name} parte-hartzaileak %{resource_name} izen-emate mota argitaratu du %{space_name} hitzaldian"
+          unpublish: "%{user_name} parte-hartzaileak %{resource_name} izen-emate mota desargitaratu du %{space_name} hitzaldian"
+          update: "%{user_name} parte-hartzaileak %{resource_name} izen-emate mota eguneratu du %{space_name} hitzaldian"
       media_link:
-        create: "%{user_name} k %{resource_name} medioetarako lotura sortu du %{space_name} hitzaldian"
-        delete: "%{user_name} k %{resource_name} medioetarako lotura kendu du %{space_name} hitzalditik"
-        update: "%{user_name} k eguneratu du %{resource_name} komunikabideen arteko %{space_name} lotura"
+        create: "%{user_name} parte-hartzaileak %{resource_name} medioetarako lotura sortu du %{space_name} hitzaldian"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} medioetarako lotura kendu du %{space_name} hitzalditik"
+        update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} komunikabideen arteko %{space_name} lotura"
     conference_program:
       index:
         title: Programa
@@ -340,7 +340,7 @@ eu:
         conference_invites:
           create:
             error: Arazo bat izan da parte-hartzaileak konferentziara sartzeko gonbidatuta.
-            success: Parte-hatzailea behar bezala gonbidatu da biltzarrean parte hartzeko.
+            success: Parte-hartzailea behar bezala gonbidatu da biltzarrean parte hartzeko.
           form:
             attendee_type: Parte-hartzaile mota
             existing_user: Parte-hartzailea badago
@@ -442,7 +442,7 @@ eu:
           invalid: Arazo bat egon da hitzaldi hau uztean.
           success: Kongresua behar bezala utzi duzu.
       conference_speaker:
-        go_to_twitter: Zoaz hona
+        go_to_twitter: X sarera joan
         more_info: informazio gehiago
         personal_website: Webgune pertsonala
         show:
