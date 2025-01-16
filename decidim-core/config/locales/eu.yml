@@ -1111,26 +1111,26 @@ eu:
           subject: "%{manager} k mezu berriak bidali ditu %{group} gisa"
         new_conversation:
           greeting: Kaixo, %{recipient}!
-          intro: "%{sender} k beste elkarrizketa bat hasi du zurekin. Egin klik hemen ikusteko:"
+          intro: "%{sender} bidaltzaileak beste elkarrizketa bat hasi du zurekin. Egin klik hemen ikusteko:"
           outro: Gozatu plataforma!
-          subject: "%{sender} elkarrizketa bat hasi da zurekin"
+          subject: "%{sender} bidaltzailea elkarrizketa bat hasi da zurekin"
         new_group_conversation:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
-          intro: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
+          intro: "%{sender} bidaltzaileak elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
           outro: Gozatu plataforma!
           subject: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin"
         new_group_message:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
-          intro: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
+          intro: "%{sender} bidaltzaileak elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
           outro: Gozatu plataforma!
-          subject: "%{group} k %{sender} ren mezu berriak ditu"
+          subject: "%{group} taldeak %{sender} bidatzailearen mezu berriak ditu"
         new_message:
           greeting: Kaixo, %{recipient}!
-          intro: "%{sender} k elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
+          intro: "%{sender} bidaltzaileak elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
           outro: Gozatu plataforma!
-          subject: '%{sender} ren mezu berriak dituzu'
+          subject: '%{sender} bidaltzailearen mezu berriak dituzu'
       conversations:
         add_conversation_users:
           add_max_users: 'Gehitu parte-hartzaileak elkarrizketara: gehienez 9 erabiltzaile'
