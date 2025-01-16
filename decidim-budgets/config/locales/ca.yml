@@ -217,7 +217,19 @@ ca:
             title: Títol
       order:
         status:
+          continue_voting: Seguir votant
+          download_vote: Descarrega el teu vot
+          pending_to_vote_budgets:
+            one: Pots votar en un altre pressupost
+            other: Pots votar en altres pressupostos
+          share_vote: Comparteix el teu vot
           title: El teu vot s'ha tramitat correctament
+          view_votes:
+            one: Veure vot
+            other: Veure vots
+          votes_count:
+            one: El teu vot a %{budget_name} ja s'ha registrat.
+            other: El teus %{count} vots a %{budget_name} ja s'han registrat.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Els projectes que has seleccionat són:'
