@@ -415,7 +415,6 @@
         create:
           success: Samarbeids utkast opprettet.
         edit:
-          attachment_legend: "(Valgfritt) Legg til et vedlegg"
           back: Tilbake
           send: Send
           title: Rediger samarbeids utkastet
@@ -502,7 +501,6 @@
           comment: Kommentar
       proposals:
         edit:
-          attachment_legend: "(Valgfritt) Legg til et vedlegg"
           back: Tilbake
           send: Send
           title: Rediger forslaget
