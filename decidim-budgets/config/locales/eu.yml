@@ -161,12 +161,12 @@ eu:
               other: Gogorarazpen bat bidaltzear zaude posta elektronikoz % {count} erabiltzaileri
       admin_log:
         budget:
-          create: "%{user_name} k sortu du %{resource_name} aurrekontua %{space_name} esparruan"
-          delete: "%{user_name} k ezabatu du %{resource_name} aurrekontua %{space_name} esparruan"
-          update: "%{user_name} k eguneratu du %{resource_name} aurrekontua %{space_name} esparruan"
+          create: "%{user_name} parte-hartzaileak sortu du %{resource_name} aurrekontua %{space_name} esparruan"
+          delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} aurrekontua %{space_name} esparruan"
+          update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} aurrekontua %{space_name} esparruan"
         project:
-          create: "%{user_name} k %{resource_name} proiektua %{space_name} espazioan sortu zen"
-          delete: "%{user_name} k %{resource_name} proiektua %{space_name} espazioan ezabatu da"
+          create: "%{user_name} parte-hartzaileak %{resource_name} proiektua %{space_name} espazioan sortu zen"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} proiektua %{space_name} espazioan ezabatu da"
           update: "%{user_name} k %{resource_name} proiektuaren %{space_name} espazio eguneratu du"
       budget_information_modal:
         back_to: Itzuli hona %{component_name}
