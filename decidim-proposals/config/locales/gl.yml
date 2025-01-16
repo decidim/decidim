@@ -389,7 +389,6 @@ gl:
         create:
           success: Creouse un borrador colaborativo.
         edit:
-          attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
           send: Enviar
           title: Editar borrador colaborativo
@@ -483,10 +482,7 @@ gl:
         dynamic_map_instructions:
           instructions: Podes mover o punto no mapa.
         edit:
-          add_documents: Engadir documentos
-          attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
-          edit_documents: Editar documentos
           send: Enviar
           title: Editar proposta
         edit_draft:
