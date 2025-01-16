@@ -425,10 +425,7 @@ sv:
           email_subject: "%{applicant_nickname} vill gå med i ditt initiativ"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ansökte om att gå med i kampanjgruppen för ditt initiativ <a href="%{resource_url}">%{resource_title}</a>. För att acceptera eller avvisa klickar du <a href="%{resource_url}/edit">här</a>.
       form:
-        add_documents: Lägg till dokument
         add_image: Lägg till bild
-        attachment_legend: "(Valfritt) Lägg till en bilaga"
-        edit_documents: Redigera dokument
         edit_image: Redigera bild
         image_legend: "(Valfritt) Lägg till en bild"
       index:
