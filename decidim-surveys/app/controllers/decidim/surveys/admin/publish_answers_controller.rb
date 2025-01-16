@@ -7,6 +7,8 @@ module Decidim
       class PublishAnswersController < Admin::ApplicationController
         include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswersUrlHelper
 
+        helper PublishAnswersHelper
+
         def index
           enforce_permission_to(:index, :questionnaire_publish_answers, survey:)
 
