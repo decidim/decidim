@@ -103,11 +103,7 @@
   }
 
   &__grid-text-title {
-    @apply flex justify-between flex-row md:flex-col md:items-start lg:flex-row lg:items-center;
-
-    .label {
-      @apply md:mt-2;
-    }
+    @apply flex justify-between flex-row md:flex-col items-start lg:flex-row;
   }
 
   &__list-metadata {

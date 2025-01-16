@@ -384,6 +384,7 @@ module Decidim
         return unless options[:demo]
 
         copy_file "dummy_authorization_handler.rb", "app/services/dummy_authorization_handler.rb"
+        copy_file "ephemeral_dummy_authorization_handler.rb", "app/services/ephemeral_dummy_authorization_handler.rb"
         copy_file "another_dummy_authorization_handler.rb", "app/services/another_dummy_authorization_handler.rb"
         copy_file "verifications_initializer.rb", "config/initializers/decidim_verifications.rb"
       end
