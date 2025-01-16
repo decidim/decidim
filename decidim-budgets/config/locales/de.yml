@@ -217,7 +217,16 @@ de:
             title: Titel
       order:
         status:
+          continue_voting: Abstimmung fortsetzen
+          download_vote: Stimme herunterladen
+          pending_to_vote_budgets:
+            one: Sie können in einem anderen Budget abstimmen
+            other: Sie können in anderen Budgets abstimmen
+          share_vote: Teilen Sie Ihre Stimme
           title: Ihre Stimme wurde erfolgreich angenommen
+          view_votes:
+            one: Stimme anzeigen
+            other: Stimmen anzeigen
       order_summary_mailer:
         order_summary:
           selected_projects: 'Die ausgewählten Projekte sind:'
