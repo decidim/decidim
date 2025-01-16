@@ -43,7 +43,7 @@ eu:
         attachment_collections: Karpetak
         attachments: Erantsitako artxiboak
         confirm_delete_result: Ziur zaude emaitza hau ezabatu nahi duzula?
-        confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
+        confirm_destroy: Ziur zaude %{name} ezabatu nahi duzula?
         deleted_results_info: Ezabatutako emaitzak berreskura daitezke zaborrontzitik.
         destroy: Ezabatu
         edit: Editatu
@@ -196,19 +196,19 @@ eu:
             success: Sarrera zuzen eguneratua.
       admin_log:
         result:
-          create: "%{user_name} erabiltzaileak emaitza sortu du %{resource_name} %{space_name} espazioan"
-          delete: "%{user_name} erabiltzaileak %{resource_name} emaitza ezabatu du %{space_name} espazioan"
-          restore: "% {user_name} k % {baliabide_name}} emaitza berreskuratu du hemen:% {space_name}"
-          soft_delete: "% {user_name} k hemengo: %{space_name} {baliabide_name} emaitza zaborrontzira eraman zuen"
-          update: "%{user_name} erabiltzaileak %{resource_name} emaitza eguneratu du %{space_name} espazioan"
+          create: "%{user_name} parte-hartzaileak emaitza sortu du %{resource_name} %{space_name} espazioan"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} emaitza ezabatu du %{space_name} espazioan"
+          restore: "% {user_name} parte-hartzaieak % {baliabide_name}} emaitza berreskuratu du hemen:% {space_name}"
+          soft_delete: "% {user_name} parte-hartzaileak hemengo: %{space_name} {baliabide_name} emaitza zaborrontzira eraman zuen"
+          update: "%{user_name} parte-hartzaileak %{resource_name} emaitza eguneratu du %{space_name} espazioan"
         status:
-          create: "%{user_name} erabiltzaileak %{resource_name} egoera sortu du"
-          delete: "%{user_name} k %{resource_name} egoera ezabatu du"
-          update: "%{user_name} erabiltzaileak %{resource_name} egoera eguneratu du"
+          create: "%{user_name} parte-hartzaileak %{resource_name} egoera sortu du"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} egoera ezabatu du"
+          update: "%{user_name} parte-hartzaileak %{resource_name} egoera eguneratu du"
         timeline_entry:
-          create: "%{user_name} erabiltzaileak %{resource_name} sarrera sortu du kronologian"
-          delete: "%{user_name} erabiltzaileak %{resource_name} sarrera ezabatu du kronologiatik"
-          update: "%{user_name} erabiltzaileak %{resource_name} sarrera eguneratu du kronologian"
+          create: "%{user_name} parte-hartzaileak %{resource_name} sarrera sortu du kronologian"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} sarrera ezabatu du kronologiatik"
+          update: "%{user_name} parte-hartzaileak %{resource_name} sarrera eguneratu du kronologian"
         value_types:
           parent_presenter:
             not_found: 'Nagusia ez zen aurkitu (ID: %{id}) datu-basean'
