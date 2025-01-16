@@ -48,7 +48,6 @@ ga:
           attachment_collections: Fillteáin
           attachment_files: Comhaid
           attachments: Ceangaltáin
-          categories: Catagóirí
           process_admins: Riaracháin próiseas
           steps: Céimeanna
       models:
