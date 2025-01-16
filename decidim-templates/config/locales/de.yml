@@ -88,6 +88,7 @@ de:
           edit:
             edit: Bearbeiten
             empty: Es gibt noch keine Fragen.
+            manage_questions: Fragen verwalten
             questionnaire: Fragebogen
             title: Formular-Vorlage bearbeiten
           edit_questions:
