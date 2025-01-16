@@ -763,7 +763,6 @@ ca:
           error: S'ha produït un error en crear aquest esborrany col·laboratiu.
           success: Esborrany col·laboratiu creat correctament.
         edit:
-          attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
           back: Torna
           send: Envia
           title: Edita l'esborrany col·laboratiu
@@ -911,10 +910,7 @@ ca:
           description: Les coordenades s'actualitzaran quan facis clic en el botó 'previsualitzar'. No obstant això, la direcció no canvia.
           instructions: Pots moure la ubicació en el mapa.
         edit:
-          add_documents: Afegir documents
-          attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
           back: Torna
-          edit_documents: Editar documents
           send: Envia
           title: Edita proposta
         edit_draft:
