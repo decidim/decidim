@@ -17,10 +17,7 @@ module Decidim
       def serialize
         {
           id: result.id,
-          taxonomies: {
-            id: result.taxonomies.map(&:id),
-            name: result.taxonomies.map(&:name)
-          },
+          taxonomies:,
           parent: {
             id: result.parent.try(:id)
           },
