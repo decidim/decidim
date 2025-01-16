@@ -11,7 +11,7 @@ module Decidim
             enforce_permission_to :assign_to_valuator, :proposals, proposal:
           end
 
-          Admin::AssignProposalsToValuator.call(@form) do
+          Admin::AssignProposalsToEvaluator.call(@form) do
             on(:ok) do |_proposal|
               flash[:notice] = I18n.t("valuation_assignments.create.success", scope: "decidim.proposals.admin")
               redirect_to EngineRouter.admin_proxy(current_component).root_path
@@ -27,11 +27,11 @@ module Decidim
         def destroy
           @form = form(Admin::ValuationAssignmentForm).from_params(params)
 
-          @form.valuator_roles.each do |valuator_role|
-            enforce_permission_to :unassign_from_valuator, :proposals, valuator: valuator_role.user
+          @form.evaluator_roles.each do |evaluator_role|
+            enforce_permission_to :unassign_from_valuator, :proposals, valuator: evaluator_role.user
           end
 
-          Admin::UnassignProposalsFromValuator.call(@form) do
+          Admin::UnassignProposalsFromEvaluator.call(@form) do
             on(:ok) do |_proposal|
               flash.keep[:notice] = I18n.t("valuation_assignments.delete.success", scope: "decidim.proposals.admin")
               redirect_back fallback_location: EngineRouter.admin_proxy(current_component).root_path

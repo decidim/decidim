@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Proposals
     module Admin
-      describe UnassignProposalsFromValuator do
+      describe UnassignProposalsFromEvaluator do
         describe "call" do
           let!(:assigned_proposal) { create(:proposal, component: current_component) }
           let!(:unassigned_proposal) { create(:proposal, component: current_component) }

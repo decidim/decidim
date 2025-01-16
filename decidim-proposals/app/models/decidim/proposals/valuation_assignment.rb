@@ -2,8 +2,8 @@
 
 module Decidim
   module Proposals
-    # A valuation assignment links a proposal and a Valuator user role.
-    # Valuators will be users in charge of defining the monetary cost of a
+    # A valuation assignment links a proposal and a Evaluator user role.
+    # Evaluators will be users in charge of defining the monetary cost of a
     # proposal.
     class ValuationAssignment < ApplicationRecord
       include Decidim::Traceable

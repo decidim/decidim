@@ -50,12 +50,12 @@ module Decidim
             ProposalState.where(component: current_component).pluck(:token) + ["withdrawn"]
           end
 
-          def valuator_role_ids
+          def evaluator_role_ids
             current_participatory_space.user_roles(:valuator).order_by_name.pluck(:id)
           end
 
-          def translated_valuator_role_ids_has(valuator_role_id)
-            user_role = current_participatory_space.user_roles(:valuator).find_by(id: valuator_role_id)
+          def translated_evaluator_role_ids_has(evaluator_role_id)
+            user_role = current_participatory_space.user_roles(:valuator).find_by(id: evaluator_role_id)
             user_role&.user&.name
           end
         end

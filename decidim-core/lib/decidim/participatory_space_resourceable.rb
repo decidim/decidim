@@ -126,7 +126,7 @@ module Decidim
         when :admin # ParticipatorySpace admin
           Decidim::ParticipatorySpaceRoleConfig::ParticipatorySpaceAdmin.new(user)
         when :valuator
-          Decidim::ParticipatorySpaceRoleConfig::Valuator.new(user)
+          Decidim::ParticipatorySpaceRoleConfig::Evaluator.new(user)
         when :moderator
           Decidim::ParticipatorySpaceRoleConfig::Moderator.new(user)
         when :collaborator

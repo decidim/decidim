@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Valuator uses proposal answer templates" do
+describe "Evaluator uses proposal answer templates" do
   let(:field_values) { { proposal_state_id: } }
   let(:token) { "rejected" }
   let!(:organization) { create(:organization) }

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Valuator checks components" do
+describe "Evaluator checks components" do
   let(:current_component) { create(:component, manifest_name: "proposals", participatory_space: assembly) }
   let!(:assigned_proposal) { create(:proposal, component: current_component) }
   let(:assembly) { create(:assembly, organization:) }
@@ -11,7 +11,7 @@ describe "Valuator checks components" do
   end
   let(:components_path) { participatory_space_path }
   let!(:user) { create(:user, :confirmed, :admin_terms_accepted, admin: false, organization:) }
-  let!(:valuator_role) { create(:assembly_user_role, role: :valuator, user:, assembly:) }
+  let!(:evaluator_role) { create(:assembly_user_role, role: :valuator, user:, assembly:) }
   let(:another_component) { create(:component, participatory_space: assembly) }
 
   include Decidim::ComponentPathHelper
@@ -19,7 +19,7 @@ describe "Valuator checks components" do
   include_context "when administrating an assembly"
 
   before do
-    create(:valuation_assignment, proposal: assigned_proposal, valuator_role:)
+    create(:valuation_assignment, proposal: assigned_proposal, evaluator_role:)
 
     switch_to_host(organization.host)
     login_as user, scope: :user

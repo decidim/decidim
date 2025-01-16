@@ -220,7 +220,7 @@ module Decidim::Comments
           end
 
           context "and the user is a valuator in the same participatory space" do
-            let!(:valuator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: component.participatory_space, role: :valuator) }
+            let!(:evaluator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: component.participatory_space, role: :valuator) }
 
             it "renders the reply form" do
               expect(subject).to have_css(".add-comment")
@@ -228,7 +228,7 @@ module Decidim::Comments
           end
 
           context "and the user is a valuator in another participatory process" do
-            let!(:valuator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: create(:participatory_process, organization: component.organization), role: :valuator) }
+            let!(:evaluator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: create(:participatory_process, organization: component.organization), role: :valuator) }
 
             it "does not render the reply form" do
               expect(subject).to have_no_css(".add-comment")
@@ -237,7 +237,7 @@ module Decidim::Comments
 
           context "and the user is a valuator in another participatory space" do
             let!(:component) { create(:component, participatory_space: assembly) }
-            let!(:valuator_role) { create(:assembly_user_role, user: current_user, assembly: create(:assembly, organization: component.organization), role: :valuator) }
+            let!(:evaluator_role) { create(:assembly_user_role, user: current_user, assembly: create(:assembly, organization: component.organization), role: :valuator) }
 
             it "does not render the reply form" do
               expect(subject).to have_no_css(".add-comment")

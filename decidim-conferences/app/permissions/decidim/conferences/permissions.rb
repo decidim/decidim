@@ -51,7 +51,7 @@ module Decidim
 
         moderator_action?
         collaborator_action?
-        valuator_action?
+        evaluator_action?
         conference_admin_action?
 
         permission_action
@@ -254,8 +254,8 @@ module Decidim
         allow! if permission_action.action == :read || permission_action.action == :preview
       end
 
-      # Valuators can only read components
-      def valuator_action?
+      # Evaluators can only read components
+      def evaluator_action?
         return unless can_manage_conference?(role: :valuator)
 
         allow! if permission_action.action == :read && permission_action.subject == :component

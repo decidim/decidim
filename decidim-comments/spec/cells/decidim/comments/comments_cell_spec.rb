@@ -127,7 +127,7 @@ module Decidim::Comments
           end
 
           context "and the user is a valuator in the same participatory space" do
-            let!(:valuator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: component.participatory_space, role: :valuator) }
+            let!(:evaluator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: component.participatory_space, role: :valuator) }
 
             it "renders add comment" do
               expect(subject).to have_css(".add-comment #new_comment_for_DummyResource_#{commentable.id}")
@@ -135,7 +135,7 @@ module Decidim::Comments
           end
 
           context "and the user is a valuator in a different participatory space" do
-            let!(:valuator_role) { create(:participatory_process_user_role, user: current_user, role: :valuator) }
+            let!(:evaluator_role) { create(:participatory_process_user_role, user: current_user, role: :valuator) }
 
             it "does not render add comment" do
               expect(subject).to have_no_css(".add-comment #new_comment_for_DummyResource_#{commentable.id}")

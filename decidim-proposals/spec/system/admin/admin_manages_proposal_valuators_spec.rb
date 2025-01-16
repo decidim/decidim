@@ -150,7 +150,7 @@ describe "Admin manages proposals valuators" do
       end
 
       it "unassigns the proposals from the valuator" do
-        expect(page).to have_content("Valuator unassigned from proposals successfully")
+        expect(page).to have_content("Evaluator unassigned from proposals successfully")
 
         within "tr", text: translated(proposal.title) do
           expect(page).to have_css("td.valuators-count", text: 0)
@@ -185,7 +185,7 @@ describe "Admin manages proposals valuators" do
       end
 
       it "unassigns the proposals from the valuator" do
-        expect(page).to have_content("Valuator unassigned from proposals successfully")
+        expect(page).to have_content("Evaluator unassigned from proposals successfully")
 
         within "tr", text: translated(proposal.title) do
           expect(page).to have_css("td.valuators-count", text: 0)
@@ -215,7 +215,7 @@ describe "Admin manages proposals valuators" do
         end
       end
 
-      expect(page).to have_content("Valuator unassigned from proposals successfully")
+      expect(page).to have_content("Evaluator unassigned from proposals successfully")
 
       expect(page).to have_no_selector("#valuators")
     end

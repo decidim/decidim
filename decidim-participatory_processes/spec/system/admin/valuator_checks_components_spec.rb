@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Valuator checks components" do
+describe "Evaluator checks components" do
   let(:manifest_name) { "proposals" }
   let!(:assigned_proposal) { create(:proposal, component: current_component) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
@@ -10,7 +10,7 @@ describe "Valuator checks components" do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
   end
   let!(:user) { create(:user, organization:) }
-  let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process:) }
+  let!(:evaluator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process:) }
   let(:another_component) { create(:component, participatory_space: participatory_process) }
 
   include Decidim::ComponentPathHelper
@@ -20,7 +20,7 @@ describe "Valuator checks components" do
   before do
     user.update(admin: false)
 
-    create(:valuation_assignment, proposal: assigned_proposal, valuator_role:)
+    create(:valuation_assignment, proposal: assigned_proposal, evaluator_role:)
 
     visit current_path
   end

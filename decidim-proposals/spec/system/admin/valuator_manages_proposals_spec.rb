@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Valuator manages proposals" do
+describe "Evaluator manages proposals" do
   let(:manifest_name) { "proposals" }
   let!(:assigned_proposal) { create(:proposal, component: current_component) }
   let!(:unassigned_proposal) { create(:proposal, component: current_component) }

@@ -21,7 +21,7 @@ module Decidim
 
         def diff_fields_mapping
           {
-            valuator_role_id: "Decidim::Proposals::AdminLog::ValueTypes::ValuatorRoleUserPresenter"
+            valuator_role_id: "Decidim::Proposals::AdminLog::ValueTypes::EvaluatorRoleUserPresenter"
           }
         end
 

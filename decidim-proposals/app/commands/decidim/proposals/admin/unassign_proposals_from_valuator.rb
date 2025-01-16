@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic to unassign proposals from a given
       # valuator.
-      class UnassignProposalsFromValuator < Decidim::Command
+      class UnassignProposalsFromEvaluator < Decidim::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -33,18 +33,18 @@ module Decidim
         def unassign_proposals
           transaction do
             form.proposals.flat_map do |proposal|
-              form.valuator_roles.each do |valuator_role|
-                assignment = find_assignment(proposal, valuator_role)
+              form.evaluator_roles.each do |evaluator_role|
+                assignment = find_assignment(proposal, evaluator_role)
                 unassign(assignment) if assignment
               end
             end
           end
         end
 
-        def find_assignment(proposal, valuator_role)
+        def find_assignment(proposal, evaluator_role)
           Decidim::Proposals::ValuationAssignment.find_by(
             proposal:,
-            valuator_role:
+            evaluator_role:
           )
         end
 

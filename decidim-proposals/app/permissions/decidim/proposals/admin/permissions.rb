@@ -8,7 +8,7 @@ module Decidim
           # The public part needs to be implemented yet
           return permission_action if permission_action.scope != :admin
 
-          # Valuators can only perform these actions
+          # Evaluators can only perform these actions
           if user_is_valuator?
             if valuator_assigned_to_proposal?
               can_create_proposal_note?

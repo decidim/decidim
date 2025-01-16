@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Proposals
     module Admin
-      describe AssignProposalsToValuator do
+      describe AssignProposalsToEvaluator do
         describe "call" do
           let!(:proposal) { create(:proposal, component: current_component) }
           let!(:current_component) { create(:proposal_component) }
