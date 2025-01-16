@@ -515,21 +515,6 @@ fi-pl:
           proposal_comments: Kommentit
           proposals: Ehdotukset
         imports:
-          help:
-            answers: |
-              CSV- tai Excel-tuontitiedostossa on oltava seuraavat sarakenimet ja JSON-tuontitiedostossa vastaavat avainten nimet:
-              <ul>
-              <li><b>id:</b> Vastattavan ehdotuksen ID-tunniste</li>
-              <li><b>state:</b> Jokin vaihtoehdoista "accepted", "evaluating", tai "rejected"</li>
-              <li><b>answer/fi:</b> Vastaus suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
-              </ul>
-            proposals: |
-              CSV- tai Excel-tiedostossa on oltava seuraavat sarakenimet ja JSON-tiedostossa vastaavat avainten nimet:
-              <ul><li><b>title/fi:</b> Otsikko suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
-              <li><b>body/fi:</b> Kuvaus suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
-              <li><b>scope/id:</b> Teeman ID-tunniste</li>
-              <li><b>category/id:</b> Aihepiirin ID-tunniste</li>
-              </ul>
           label:
             answers: Tuo vastaukset tiedostosta
             proposals: Tuo ehdotuksia tiedostosta
