@@ -603,7 +603,6 @@ pl:
           error: Przy tworzeniu wspólnego szkicu pojawił się problem.
           success: Utworzono wspólny szkic.
         edit:
-          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
           send: Wyślij
           title: Edytuj wspólny szkic
@@ -725,10 +724,7 @@ pl:
           description: Współrzędne zostaną zaktualizowane po kliknięciu przycisku 'podgląd'. Jednakże adres nie ulegnie zmianie.
           instructions: Możesz przenieść punkt na mapie.
         edit:
-          add_documents: Dodaj dokumenty
-          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
-          edit_documents: Edytuj dokumenty
           send: Wyślij
           title: Edytuj propozycję
         edit_draft:
