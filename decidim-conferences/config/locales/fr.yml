@@ -533,6 +533,16 @@ fr:
         objectives: Objectifs
         related_assemblies: Assemblées connexes
         related_participatory_processes: Concertations associées
+    download_your_data:
+      help:
+        conference_invites:
+          confirmed_at: La date à laquelle cette invitation a été confirmée
+          created_at: La date à laquelle cette invitation a été créée
+          updated_at: La date à laquelle cette invitation a été mise à jour pour la dernière fois
+        conference_registrations:
+          confirmed_at: La date à laquelle cette inscription a été confirmée
+          created_at: La date à laquelle cette inscription a été créée
+          updated_at: La date à laquelle cette inscription a été mise à jour pour la dernière fois
     events:
       conferences:
         conference_registration_confirmed:
