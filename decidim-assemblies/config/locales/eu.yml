@@ -255,29 +255,29 @@ eu:
         assemblies_types: Batzar motak
     admin_log:
       assembly:
-        create: "%{user_name} k %{resource_name} batzarra sortu zuen"
-        duplicate: "%{user_name} k %{resource_name} batzarra bikoiztu zuen"
-        export: "%{user_name} k %{resource_name} batzarra esportatu zuen"
-        import: "%{user_name} k %{resource_name} batzarra inportatu zuen"
-        publish: "%{user_name} k%{resource_name} batzarra argitaratu du"
-        unpublish: "%{user_name} k %{resource_name} batzarra desargitaratu du"
-        update: "%{user_name} k %{resource_name} batzarra eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} batzarra sortu zuen"
+        duplicate: "%{user_name} parte-hartzaileak %{resource_name} batzarra bikoiztu zuen"
+        export: "%{user_name} parte-hartzaileak %{resource_name} batzarra esportatu zuen"
+        import: "%{user_name} parte-hartzaileak %{resource_name} batzarra inportatu zuen"
+        publish: "%{user_name} parte-hartzaileak %{resource_name} batzarra argitaratu du"
+        unpublish: "%{user_name} parte-hartzaileak %{resource_name} batzarra desargitaratu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} batzarra eguneratu du"
       assembly_member:
-        create: "%{user_name} k %{resource_name} kidea sortu du %{space_name} batzarrean"
-        delete: "%{user_name} k kendu du %{resource_name} kidea %{space_name} batzarretik"
-        update: "%{user_name} k %{resource_name} kidea eguneratu du %{space_name} batzarrean"
+        create: "%{user_name} parte-hartzaileak %{resource_name} kidea sortu du %{space_name} batzarrean"
+        delete: "%{user_name} parte-hartzaileak kendu du %{resource_name} kidea %{space_name} batzarretik"
+        update: "%{user_name} parte-hartzaileak %{resource_name} kidea eguneratu du %{space_name} batzarrean"
       assembly_setting:
-        update: "%{user_name} k batzarren konfigurazioa eguneratu du"
+        update: "%{user_name} parte-hartzaileak batzarren konfigurazioa eguneratu du"
       assembly_type:
-        create: "%{user_name} k %{resource_name} batzar mota sortu du"
-        delete: "%{user_name} k %{resource_name} batzar mota ezabatu du"
-        publish: "%{user_name} k %{resource_name} batzar mota argitaratu du"
-        unpublish: "%{user_name} k %{resource_name} batzar mota despublikatu du"
-        update: "%{user_name} k %{resource_name} batzar mota eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} batzar mota sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} batzar mota ezabatu du"
+        publish: "%{user_name} parte-hartzaileak %{resource_name} batzar mota argitaratu du"
+        unpublish: "%{user_name} parte-hartzaileak %{resource_name} batzar mota despublikatu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} batzar mota eguneratu du"
       assembly_user_role:
-        create: "%{user_name} k %{resource_name} gonbidatu du %{space_name} batzarrera"
+        create: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du %{space_name} batzarrera"
         delete: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea %{space_name} muntaia kendu du"
-        update: "%{user_name} k %{resource_name} rola aldatu du %{space_name} batzarrerako"
+        update: "%{user_name} parte-hartzaileak %{resource_name} rola aldatu du %{space_name} batzarrerako"
     assemblies:
       admin:
         assemblies:
