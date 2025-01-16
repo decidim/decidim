@@ -11,9 +11,9 @@ describe "Admin manages proposals valuators" do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
   end
   let!(:valuator) { create(:user, organization:) }
-  let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process:) }
+  let!(:evaluator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process:) }
   let!(:other_valuator) { create(:user, organization:) }
-  let!(:other_valuator_role) { create(:participatory_process_user_role, role: :valuator, user: other_valuator, participatory_process:) }
+  let!(:other_evaluator_role) { create(:participatory_process_user_role, role: :valuator, user: other_valuator, participatory_process:) }
 
   include Decidim::ComponentPathHelper
 
@@ -42,7 +42,7 @@ describe "Admin manages proposals valuators" do
     context "when submitting the form" do
       before do
         within "#js-form-assign-proposals-to-valuator" do
-          tom_select("#assign_valuator_role_ids", option_id: valuator_role.id)
+          tom_select("#assign_evaluator_role_ids", option_id: evaluator_role.id)
           click_on(id: "js-submit-assign-proposals-to-valuator")
         end
       end
@@ -77,7 +77,7 @@ describe "Admin manages proposals valuators" do
     context "when submitting the form" do
       before do
         within "#js-form-assign-proposals-to-valuator" do
-          tom_select("#assign_valuator_role_ids", option_id: [valuator_role.id, other_valuator_role.id])
+          tom_select("#assign_evaluator_role_ids", option_id: [evaluator_role.id, other_evaluator_role.id])
           click_on(id: "js-submit-assign-proposals-to-valuator")
         end
       end
@@ -97,7 +97,7 @@ describe "Admin manages proposals valuators" do
     let(:assigned_proposal) { proposal }
 
     before do
-      create(:valuation_assignment, proposal:, valuator_role:)
+      create(:valuation_assignment, proposal:, evaluator_role:)
 
       visit current_path
     end
@@ -121,7 +121,7 @@ describe "Admin manages proposals valuators" do
     let(:assigned_proposal) { proposal }
 
     before do
-      create(:valuation_assignment, proposal:, valuator_role:)
+      create(:valuation_assignment, proposal:, evaluator_role:)
 
       visit current_path
 
@@ -144,7 +144,7 @@ describe "Admin manages proposals valuators" do
     context "when submitting the form" do
       before do
         within "#js-form-unassign-proposals-from-valuator" do
-          tom_select("#unassign_valuator_role_ids", option_id: valuator_role.id)
+          tom_select("#unassign_evaluator_role_ids", option_id: evaluator_role.id)
           click_on(id: "js-submit-unassign-proposals-from-valuator")
         end
       end
@@ -163,8 +163,8 @@ describe "Admin manages proposals valuators" do
     let(:assigned_proposal) { proposal }
 
     before do
-      create(:valuation_assignment, proposal:, valuator_role:)
-      create(:valuation_assignment, proposal:, valuator_role: other_valuator_role)
+      create(:valuation_assignment, proposal:, evaluator_role:)
+      create(:valuation_assignment, proposal:, evaluator_role: other_evaluator_role)
 
       visit current_path
 
@@ -179,7 +179,7 @@ describe "Admin manages proposals valuators" do
     context "when submitting the form" do
       before do
         within "#js-form-unassign-proposals-from-valuator" do
-          tom_select("#unassign_valuator_role_ids", option_id: [valuator_role.id, other_valuator_role.id])
+          tom_select("#unassign_evaluator_role_ids", option_id: [evaluator_role.id, other_evaluator_role.id])
           click_on(id: "js-submit-unassign-proposals-from-valuator")
         end
       end
@@ -198,7 +198,7 @@ describe "Admin manages proposals valuators" do
     let(:assigned_proposal) { proposal }
 
     before do
-      create(:valuation_assignment, proposal:, valuator_role:)
+      create(:valuation_assignment, proposal:, evaluator_role:)
 
       visit current_path
       within "tr", text: translated(proposal.title) do

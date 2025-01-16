@@ -159,10 +159,10 @@ module Decidim
       }
 
       def self.with_valuation_assigned_to(user, space)
-        valuator_roles = space.user_roles(:valuator).where(user:)
+        evaluator_roles = space.user_roles(:valuator).where(user:)
 
         includes(:valuation_assignments)
-          .where(decidim_proposals_valuation_assignments: { valuator_role_id: valuator_roles })
+          .where(decidim_proposals_valuation_assignments: { evaluator_role_id: evaluator_roles })
       end
 
       acts_as_list scope: :decidim_component_id
@@ -392,10 +392,10 @@ module Decidim
       end
 
       # method to filter by assigned valuator role ID
-      def self.valuator_role_ids_has(value)
+      def self.evaluator_role_ids_has(value)
         query = <<-SQL.squish
         :value = any(
-          (SELECT decidim_proposals_valuation_assignments.valuator_role_id
+          (SELECT decidim_proposals_valuation_assignments.evaluator_role_id
           FROM decidim_proposals_valuation_assignments
           WHERE decidim_proposals_valuation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
           )
@@ -405,7 +405,7 @@ module Decidim
       end
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_origin, :with_any_state, :state_eq, :voted_by, :coauthored_by, :related_to, :with_any_taxonomies, :valuator_role_ids_has]
+        [:with_any_origin, :with_any_state, :state_eq, :voted_by, :coauthored_by, :related_to, :with_any_taxonomies, :evaluator_role_ids_has]
       end
 
       # Create i18n ransackers for :title and :body.

@@ -11,9 +11,9 @@ describe "Evaluator manages proposals" do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
   end
   let!(:user) { create(:user, organization:) }
-  let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process:) }
+  let!(:evaluator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process:) }
   let!(:another_user) { create(:user, organization:) }
-  let!(:another_valuator_role) { create(:participatory_process_user_role, role: :valuator, user: another_user, participatory_process:) }
+  let!(:another_evaluator_role) { create(:participatory_process_user_role, role: :valuator, user: another_user, participatory_process:) }
 
   include Decidim::ComponentPathHelper
 
@@ -22,8 +22,8 @@ describe "Evaluator manages proposals" do
   before do
     user.update(admin: false)
 
-    create(:valuation_assignment, proposal: assigned_proposal, valuator_role:)
-    create(:valuation_assignment, proposal: assigned_proposal, valuator_role: another_valuator_role)
+    create(:valuation_assignment, proposal: assigned_proposal, evaluator_role:)
+    create(:valuation_assignment, proposal: assigned_proposal, evaluator_role: another_evaluator_role)
 
     visit current_path
   end

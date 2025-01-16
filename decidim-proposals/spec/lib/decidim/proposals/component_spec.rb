@@ -239,10 +239,10 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
 
     context "when the user is a valuator" do
       let!(:user) { create(:user, admin: false, organization:) }
-      let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process:) }
+      let!(:evaluator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process:) }
 
       before do
-        create(:valuation_assignment, proposal: assigned_proposal, valuator_role:)
+        create(:valuation_assignment, proposal: assigned_proposal, evaluator_role:)
       end
 
       it "only exports assigned proposals" do

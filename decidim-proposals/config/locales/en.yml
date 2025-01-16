@@ -52,7 +52,7 @@ en:
         keep_authors: Keep original authors
       valuation_assignment:
         admin_log:
-          valuator_role_id: Evaluator name
+          evaluator_role_id: Evaluator name
     errors:
       models:
         participatory_text:
@@ -134,7 +134,7 @@ en:
               withdrawn: Withdrawn
           taxonomies_part_of_contains:
             label: Taxonomy
-          valuator_role_ids_has:
+          evaluator_role_ids_has:
             label: Assigned to valuator
           with_any_state:
             label: Answered
@@ -619,7 +619,7 @@ en:
             actions: Actions
             apply_answer_template: Apply answer template
             assign_to_valuator: Assign to valuator
-            assign_to_valuator_button: Assign
+            assign_to_evaluator_button: Assign
             cancel: Cancel
             change_taxonomies: Change taxonomies
             merge: Merge into a new one
@@ -635,7 +635,7 @@ en:
             statuses: Statuses
             title: Proposals
             unassign_from_valuator: Unassign from valuator
-            unassign_from_valuator_button: Unassign
+            unassign_from_evaluator_button: Unassign
             update: Update
           manage_trash:
             title: Deleted proposals

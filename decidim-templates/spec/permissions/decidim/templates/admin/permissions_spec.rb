@@ -70,8 +70,8 @@ describe Decidim::Templates::Admin::Permissions do
 
     context "when user is a valuator" do
       let(:user) { create(:user, :confirmed, organization:) }
-      let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: participatory_space) }
-      let!(:valuation_assignment) { create(:valuation_assignment, proposal:, valuator_role:) }
+      let!(:evaluator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: participatory_space) }
+      let!(:valuation_assignment) { create(:valuation_assignment, proposal:, evaluator_role:) }
       let(:proposal) { create(:proposal, component:) }
       let(:component) { create(:proposal_component, participatory_space:) }
       let(:participatory_space) { create(:participatory_process, organization:) }

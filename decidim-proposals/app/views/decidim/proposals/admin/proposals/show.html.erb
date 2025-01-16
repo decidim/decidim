@@ -206,7 +206,7 @@
                 <% if allowed_to? :unassign_from_valuator, :proposals, valuator: assignment.valuator %>
                   <%= icon_link_to(
                         "delete-bin-line",
-                        valuation_assignment_path(proposal_ids: [proposal.id], valuator_role_ids: [assignment.valuator_role.id]),
+                        valuation_assignment_path(proposal_ids: [proposal.id], evaluator_role_ids: [assignment.evaluator_role.id]),
                         t(".remove_assignment"),
                         method: :delete,
                         data: { confirm: t(".remove_assignment_confirmation") },

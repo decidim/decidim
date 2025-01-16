@@ -90,12 +90,12 @@ describe Decidim::Proposals::Admin::Permissions do
   context "when user is a valuator" do
     let(:organization) { space.organization }
     let(:space) { current_component.participatory_space }
-    let!(:valuator_role) { create(:participatory_process_user_role, user:, role: :valuator, participatory_process: space) }
+    let!(:evaluator_role) { create(:participatory_process_user_role, user:, role: :valuator, participatory_process: space) }
     let!(:user) { create(:user, organization:) }
 
     context "and can valuate the current proposal" do
       let(:proposal) { create(:proposal, component: current_component) }
-      let!(:assignment) { create(:valuation_assignment, proposal:, valuator_role:) }
+      let!(:assignment) { create(:valuation_assignment, proposal:, evaluator_role:) }
 
       it_behaves_like "can create proposal notes"
       it_behaves_like "can answer proposals"

@@ -14,16 +14,16 @@ module Decidim
           let(:organization) { space.organization }
           let(:user) { create(:user, organization:) }
           let(:valuator) { create(:user, organization:) }
-          let(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process: space) }
-          let(:valuator_roles) { [valuator_role] }
-          let!(:assignment) { create(:valuation_assignment, proposal: assigned_proposal, valuator_role:) }
+          let(:evaluator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process: space) }
+          let(:evaluator_roles) { [evaluator_role] }
+          let!(:assignment) { create(:valuation_assignment, proposal: assigned_proposal, evaluator_role:) }
           let(:form) do
             instance_double(
               ValuationAssignmentForm,
               current_user: user,
               current_component:,
               current_organization: current_component.organization,
-              valuator_roles:,
+              evaluator_roles:,
               proposals: [assigned_proposal, unassigned_proposal],
               valid?: valid
             )
@@ -54,7 +54,7 @@ module Decidim
             it "destroys the valuation assignment between the user and the proposal" do
               expect do
                 command.call
-              end.to change { ValuationAssignment.where(valuator_role:).count }.from(1).to(0)
+              end.to change { ValuationAssignment.where(evaluator_role:).count }.from(1).to(0)
             end
 
             it "traces the action", versioning: true do

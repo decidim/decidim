@@ -7,8 +7,8 @@ describe "Evaluator uses proposal answer templates" do
   let(:token) { "rejected" }
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization:) }
-  let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: participatory_space) }
-  let!(:valuation_assignment) { create(:valuation_assignment, proposal:, valuator_role:) }
+  let!(:evaluator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: participatory_space) }
+  let!(:valuation_assignment) { create(:valuation_assignment, proposal:, evaluator_role:) }
   let(:participatory_space) { create(:participatory_process, title: { en: "A participatory process" }, organization:) }
   let!(:templatable) { create(:proposal_component, name: { en: "A component" }, participatory_space:) }
   let(:proposal_state_id) { Decidim::Proposals::ProposalState.find_by(component: templatable, token:).id }

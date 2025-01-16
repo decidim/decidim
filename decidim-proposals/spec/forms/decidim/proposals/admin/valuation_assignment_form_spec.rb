@@ -11,12 +11,12 @@ module Decidim
         let(:organization) { component.participatory_space.organization }
         let(:proposals) { create_list(:proposal, 2, component:) }
         let(:component) { create(:proposal_component) }
-        let(:valuator_process) { component.participatory_space }
+        let(:evaluator_process) { component.participatory_space }
         let(:valuator) { create(:user, organization:) }
-        let(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process: valuator_process) }
+        let(:evaluator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process: evaluator_process) }
         let(:params) do
           {
-            valuator_role_ids: [valuator_role.try(:id)],
+            evaluator_role_ids: [evaluator_role.try(:id)],
             proposal_ids: proposals.map(&:id)
           }
         end
@@ -33,7 +33,7 @@ module Decidim
         end
 
         context "without valuator roles" do
-          let(:valuator_role) { nil }
+          let(:evaluator_role) { nil }
 
           it { is_expected.to be_invalid }
         end
@@ -45,7 +45,7 @@ module Decidim
         end
 
         context "when given a valuator role from another space" do
-          let(:valuator_process) { create(:participatory_process, organization:) }
+          let(:evaluator_process) { create(:participatory_process, organization:) }
 
           it { is_expected.to be_invalid }
         end

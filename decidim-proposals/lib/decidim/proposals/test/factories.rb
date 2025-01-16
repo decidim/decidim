@@ -570,7 +570,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     proposal
-    valuator_role do
+    evaluator_role do
       space = proposal.component.participatory_space
       organization = space.organization
       build(:participatory_process_user_role, role: :valuator, skip_injection:, user: build(:user, organization:, skip_injection:))
