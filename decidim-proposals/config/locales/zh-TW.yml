@@ -495,7 +495,6 @@ zh-TW:
           error: 建立協作草稿時發生問題。
           success: 協作草稿建立成功。
         edit:
-          attachment_legend: "(可選) 新增附件"
           back: 返回
           send: 發送
           title: 編輯協作草稿
@@ -599,10 +598,7 @@ zh-TW:
           description: 當點擊“預覽”按鈕時，座標將會更新，但地址不會更改。
           instructions: 您可以在地圖上移動點。
         edit:
-          add_documents: 新增文件
-          attachment_legend: "(可選) 新增附件"
           back: 返回
-          edit_documents: 編輯文件
           send: 發送
           title: 編輯提案
         edit_draft:
