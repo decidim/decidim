@@ -278,13 +278,6 @@ hu:
         exports:
           proposals: Javaslatok
         imports:
-          help:
-            answers: |
-              Az importálási dokumentumnak CSV- vagy Excel-fájlok esetén a következő oszlopneveket, JSON-fájlok esetén pedig a kulcsneveket kell tartalmaznia:
-              <ul> 
-              <li><b>id:</b> A javaslat azonosítója a</li> 
-              <li><b>state:</b> Az "elfogadott", "értékelés alatt" vagy "elutasított" egyike</li> 
-              <li><b>answer/en:</b> Válasz angol nyelven. Ez a platform nyelvi konfigurációjától függ.</li> </ul>
           label:
             proposals: Javaslatok importálása fájlból
           resources:
