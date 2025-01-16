@@ -3,8 +3,8 @@
   <p><%= t("extra_explanation.postal_codes", scope: "decidim.verifications.dummy_authorization", postal_codes: postal_codes.join(", "), count: postal_codes.count, user_postal_code: params["user_postal_code"]) %></p>
 <% end %>
 
-<% if params["scope"] && (scope = Decidim::Scope.find(params["scope"]&.to_i)) %>
-  <p><%= t("extra_explanation.scope", scope: "decidim.verifications.dummy_authorization", scope_name: translated_attribute(scope.name), user_scope_name: params["user_scope_name"]) %></p>
+<% if request["scope"] && (scope = Decidim::Scope.find_by_id(request["scope"]&.to_i)) %>
+  <p><%= t("extra_explanation.scope", scope: "decidim.verifications.dummy_authorization", scope_name: translated_attribute(scope.name), user_scope_name: request["user_scope_name"]) %></p>
 <% end %>
 
 <div class="form__wrapper" data-partial-demo>

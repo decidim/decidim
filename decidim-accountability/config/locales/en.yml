@@ -71,10 +71,9 @@ en:
               <li><a href='%{link_new_status}' target='_blank'>Create the Statuses for the Results</a> that you want to add</li>
               <li><a href='%{link_new_result}' target='_blank'>Create at least one Result manually</a> through this Admin panel before using Import, for having a better understanding of the format and what you will need to fill out.</li>
               <li>%{link_export_csv}</li>
-              <li>Make the changes locally. You can only change the following columns of the CSV:
+              <li>Make the changes locally. You can only change the following columns of the CSV (the rest will be ignored):</li>
                 <ul>
-                <li><b>category/id:</b> ID for the Category</li>
-                <li><b>scope/id:</b> ID for the Scope</li>
+                <li><b>taxonomies/ids:</b> IDs for the Taxonomies (if more than one, separate with a comma)</li>
                 <li><b>parent/id:</b> ID of the parent (for related Results). Optional</li>
                 <li><b>title/en:</b> Title on English language. This will depend on your platform language configuration.</li>
                 <li><b>description/en:</b> Description on English language. This will depend on your platform language configuration.</li>
@@ -114,6 +113,23 @@ en:
               other: "%{count} projects queued to be imported. You will be notified by email, once completed."
             title: Import projects from another component
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Change date
+              end_date: End date
+              start_date: Start date
+            dropdown:
+              actions: Actions
+              change_dates: Change dates
+              change_status: Change status
+              change_taxonomies: Change taxonomies
+            status_form:
+              change_status: Change status
+              status: Status
+            submit_buttons:
+              cancel: Cancel
+            taxonomies_form:
+              change_taxonomies: Change taxonomies
           create:
             invalid: There was a problem creating this result.
             success: Result successfully created.
@@ -121,6 +137,7 @@ en:
             title: Edit result
             update: Update result
           index:
+            selected: Selected
             title: Results
           manage_trash:
             title: Deleted results
@@ -130,6 +147,17 @@ en:
           update:
             invalid: There was a problem updating this result.
             success: Result successfully updated.
+          update_dates:
+            invalid: There was a problem updating the results dates
+            success: Results dates successfully updated
+          update_status:
+            invalid: There was a problem updating the results status
+            success: Results status successfully updated
+          update_taxonomies:
+            invalid: Could not update taxonomies %{taxonomies} for results %{results}
+            select_a_result: Select a result
+            select_a_taxonomy: Select a taxonomy
+            success: Successfully updated taxonomies %{taxonomies} for results %{results}
         shared:
           subnav:
             statuses: Statuses

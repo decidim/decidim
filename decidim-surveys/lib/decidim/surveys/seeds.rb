@@ -150,7 +150,7 @@ module Decidim
 
       def create_answer_for_text_question_type!(options)
         Decidim::Forms::Answer.create!(
-          **options.merge({ body: ::Faker::Lorem.paragraph(sentence_count: 1) })
+          **options, body: ::Faker::Lorem.paragraph(sentence_count: 1)
         )
       end
 

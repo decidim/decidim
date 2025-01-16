@@ -33,6 +33,6 @@ jobs:
     secrets: inherit
     with:
       working-directory: "decidim-conferences"
-      test_command: bundle exec parallel_test --type rspec --pattern spec/
+      test_command: bundle exec parallel_rspec --verbose --verbose-command  --verbose-process-command  --verbose-rerun-command   --pattern spec/
       bullet_n_plus_one: false
       bullet_unused_eager_loading: false

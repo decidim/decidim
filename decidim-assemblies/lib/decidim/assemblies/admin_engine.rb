@@ -50,8 +50,6 @@ module Decidim
           end
 
           scope "/assemblies/:assembly_slug" do
-            resources :categories, except: [:show]
-
             resources :components do
               collection do
                 put :reorder

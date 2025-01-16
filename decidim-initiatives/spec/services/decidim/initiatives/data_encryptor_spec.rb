@@ -8,10 +8,12 @@ module Decidim
       let(:secret) { ::Faker::Hipster.word }
       let(:plain_text_payload) { "This is a test message" }
       let(:hash_payload) do
-        { name_and_surname: ::Faker::Name.name,
-          document_number: ::Faker::IDNumber.spanish_citizen_number,
+        {
+          name_and_surname: ::Faker::Name.name,
+          document_number: ::Faker::IdNumber.spanish_citizen_number,
           date_of_birth: ::Faker::Date.birthday(min_age: 18, max_age: 40).to_s,
-          postal_code: ::Faker::Address.zip_code }
+          postal_code: ::Faker::Address.zip_code
+        }
       end
       let(:encryptor) { described_class.new(secret:) }
 

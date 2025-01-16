@@ -166,13 +166,13 @@ module Decidim
 
     describe "#wrap_upload_maximum_file_size" do
       it "turns the passed value into megabytes" do
-        expect(subject.wrap_upload_maximum_file_size(1)).to eq(1.megabytes)
+        expect(subject.wrap_upload_maximum_file_size(1)).to eq(1.megabyte)
       end
     end
 
     describe "#wrap_upload_maximum_file_size_avatar" do
       it "turns the passed value into megabytes" do
-        expect(subject.wrap_upload_maximum_file_size_avatar(1)).to eq(1.megabytes)
+        expect(subject.wrap_upload_maximum_file_size_avatar(1)).to eq(1.megabyte)
       end
     end
 

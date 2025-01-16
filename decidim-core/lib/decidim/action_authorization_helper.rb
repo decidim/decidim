@@ -69,7 +69,7 @@ module Decidim
       redirect_path = valid_redirect(url, tag:, method: html_options[:method])
       onboarding_options = onboarding_data_attributes(authorization_status, action, resource, permissions_holder, redirect_path)
 
-      if !current_user
+      if sign_in_required?(authorization_status)
         html_options = clean_authorized_to_data_open(html_options.merge(onboarding_options))
         html_options["data-dialog-open"] = "loginModal"
 
@@ -173,6 +173,12 @@ module Decidim
       return if opts[:method].present? && opts[:method].to_s != "get"
 
       path
+    end
+
+    def sign_in_required?(authorization_status)
+      return if current_user.present?
+
+      !authorization_status&.ephemeral?
     end
   end
 end

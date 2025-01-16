@@ -10,7 +10,7 @@ describe Decidim::Proposals::Import::ProposalCreator do
     {
       :id => 1337,
       "id" => "101",
-      :category => category,
+      :taxonomies => taxonomies,
       :scope => scope,
       :"title/en" => Faker::Lorem.sentence,
       :"body/en" => Faker::Lorem.paragraph(sentence_count: 3),
@@ -34,7 +34,10 @@ describe Decidim::Proposals::Import::ProposalCreator do
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:proposal_component, participatory_space: participatory_process) }
   let(:scope) { create(:scope, organization:) }
-  let(:category) { create(:category, participatory_space: participatory_process) }
+  let(:root_taxonomy) { create(:taxonomy, organization:) }
+  let(:taxonomy1) { create(:taxonomy, parent: root_taxonomy, organization:) }
+  let(:taxonomy2) { create(:taxonomy, parent: root_taxonomy, organization:) }
+  let(:taxonomies) { { "ids" => [taxonomy1.id, taxonomy2.id] } }
 
   it "removes the IDs from the hash" do
     expect(subject.instance_variable_get(:@data)).not_to have_key(:id)
@@ -52,7 +55,7 @@ describe Decidim::Proposals::Import::ProposalCreator do
       expect(subject.resource_attributes).to eq(
         "title/en": data[:"title/en"],
         "body/en": data[:"body/en"],
-        category: data[:category],
+        taxonomies: data[:taxonomies],
         scope: data[:scope],
         address: data[:address],
         latitude: data[:latitude],
@@ -68,7 +71,7 @@ describe Decidim::Proposals::Import::ProposalCreator do
       record = subject.produce
 
       expect(record).to be_a(Decidim::Proposals::Proposal)
-      expect(record.category).to eq(category)
+      expect(record.taxonomies).to contain_exactly(taxonomy1, taxonomy2)
       expect(record.scope).to eq(scope)
       expect(record.title["en"]).to eq(data[:"title/en"])
       expect(record.body["en"]).to eq(data[:"body/en"])

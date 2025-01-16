@@ -57,7 +57,7 @@ module Decidim
         when "participants"
           return only_amendables unless user
 
-          where.not(id: joins(:amendable).where.not("decidim_amendments.decidim_user_id = ?", user.id))
+          where.not(id: joins(:amendable).where.not(decidim_amendments: { decidim_user_id: user.id }))
         else # Assume 'all'
           all
         end

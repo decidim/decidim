@@ -425,6 +425,8 @@ describe "Authentication" do
       perform_enqueued_jobs { user.confirm }
       switch_to_host(user.organization.host)
       login_as user, scope: :user
+      # Prevent flaky spec where user is not logged in
+      sleep 1
       visit decidim.root_path
     end
 
@@ -603,6 +605,8 @@ describe "Authentication" do
     describe "Log Out" do
       before do
         login_as user, scope: :user
+        # Prevent flaky spec where user is not logged in
+        sleep 1
         visit decidim.root_path
       end
 

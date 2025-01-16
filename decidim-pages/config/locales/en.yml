@@ -17,6 +17,17 @@ en:
             announcement: Announcement
           step:
             announcement: Announcement
+    open_data:
+      help:
+        pages:
+          body: The body of the page
+          component: The component that the page belongs to
+          created_at: The date this page was created
+          id: The unique identifier of this page
+          participatory_space: To which space (e.g. Participatory Process, or Assembly) this page belongs to
+          title: The page title
+          updated_at: The last date this page was updated
+          url: The URL for this page
     pages:
       admin:
         models:

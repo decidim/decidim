@@ -3,7 +3,7 @@ en:
   activemodel:
     attributes:
       authorization:
-        verification_attachment: Verification Attachment
+        verification_attachment: Verification attachment
       config:
         available_methods: Available methods
         offline: Offline
@@ -77,6 +77,12 @@ en:
           - An example authorization handler so developers can understand how a simple verification works.
           - It is aimed for developers so they can understand how to implement their own verification system.
           - Get verified by introducing a document number ending with "X".
+        ephemeral_dummy_authorization_handler:
+          help:
+          - An example of ephemeral authorization handler so developers can understand how a simple verification works.
+          - It is aimed for developers so they can understand how to implement their own verification system.
+          - It is a copy of Example authorization.
+          - Get verified by introducing a document number ending with "X".
         id_documents:
           help:
           - Users fill in their identity information and upload a copy of their document.
@@ -138,6 +144,7 @@ en:
         new:
           authorize: Send
           authorize_with: Verify with %{authorizer}
+          tos_agreement: By verifying your identity you accept %{link}.
         onboarding_pending:
           completed_verifications: You have been successfully authorized, now you can %{action} in the %{resource_name}
           granted_verifications: Granted verifications
