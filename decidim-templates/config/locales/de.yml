@@ -90,6 +90,10 @@ de:
             empty: Es gibt noch keine Fragen.
             questionnaire: Fragebogen
             title: Formular-Vorlage bearbeiten
+          edit_questions:
+            add_question: Frage hinzufügen
+            add_separator: Trennzeichen hinzufügen
+            add_title_and_description: Titel und Beschreibung hinzufügen
           form:
             title: Fragebogenvorlage %{questionnaire_for}
           index:
