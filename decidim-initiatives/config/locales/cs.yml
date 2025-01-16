@@ -444,10 +444,7 @@ cs:
           email_subject: "%{applicant_nickname} se chce připojit k vaší iniciativě"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> požádal o funkci ve výboru vaší iniciativy <a href="%{resource_url}">%{resource_title}</a>. Chcete-li přijmout nebo odmítnout <a href="%{resource_url}/edit">, klepněte zde</a>.
       form:
-        add_documents: Přidat dokumenty
         add_image: Přidat obrázek
-        attachment_legend: "(Volitelné) Přidat přílohu"
-        edit_documents: Upravit dokumenty
         edit_image: Upravit obrázek
         image_legend: "(Volitelné) Přidat obrázek"
       index:
