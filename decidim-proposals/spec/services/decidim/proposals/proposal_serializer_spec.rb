@@ -21,6 +21,9 @@ module Decidim
       let(:other_proposals) { create_list(:proposal, 2, component: proposals_component) }
 
       let(:serialized) { subject.serialize }
+      let(:serialized_taxonomies) do
+        { ids: taxonomies.pluck(:id) }.merge(taxonomies.to_h { |t| [t.id, t.name] })
+      end
 
       let(:expected_answer) do
         answer = proposal.answer
@@ -47,9 +50,7 @@ module Decidim
         end
 
         it "serializes the taxonomies" do
-          expect(serialized[:taxonomies].length).to eq(2)
-          expect(serialized[:taxonomies][:id]).to match_array(taxonomies.map(&:id))
-          expect(serialized[:taxonomies][:name]).to match_array(taxonomies.map(&:name))
+          expect(serialized[:taxonomies]).to eq(serialized_taxonomies)
         end
 
         describe "author" do
