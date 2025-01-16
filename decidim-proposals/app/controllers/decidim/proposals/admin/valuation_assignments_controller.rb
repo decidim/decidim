@@ -8,7 +8,7 @@ module Decidim
           @form = form(Admin::ValuationAssignmentForm).from_params(params)
 
           @form.proposals.each do |proposal|
-            enforce_permission_to :assign_to_valuator, :proposals, proposal:
+            enforce_permission_to :assign_to_evaluator, :proposals, proposal:
           end
 
           Admin::AssignProposalsToEvaluator.call(@form) do
@@ -28,7 +28,7 @@ module Decidim
           @form = form(Admin::ValuationAssignmentForm).from_params(params)
 
           @form.evaluator_roles.each do |evaluator_role|
-            enforce_permission_to :unassign_from_valuator, :proposals, valuator: evaluator_role.user
+            enforce_permission_to :unassign_from_evaluator, :proposals, valuator: evaluator_role.user
           end
 
           Admin::UnassignProposalsFromEvaluator.call(@form) do

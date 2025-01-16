@@ -178,7 +178,7 @@ FactoryBot.define do
     end
   end
 
-  factory :assembly_valuator, parent: :user, class: "Decidim::User" do
+  factory :assembly_evaluator, parent: :user, class: "Decidim::User" do
     transient do
       skip_injection { false }
       assembly { create(:assembly) }

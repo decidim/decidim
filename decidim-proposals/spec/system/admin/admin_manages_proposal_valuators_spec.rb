@@ -12,8 +12,8 @@ describe "Admin manages proposals valuators" do
   end
   let!(:valuator) { create(:user, organization:) }
   let!(:evaluator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process:) }
-  let!(:other_valuator) { create(:user, organization:) }
-  let!(:other_evaluator_role) { create(:participatory_process_user_role, role: :valuator, user: other_valuator, participatory_process:) }
+  let!(:other_evaluator) { create(:user, organization:) }
+  let!(:other_evaluator_role) { create(:participatory_process_user_role, role: :valuator, user: other_evaluator, participatory_process:) }
 
   include Decidim::ComponentPathHelper
 

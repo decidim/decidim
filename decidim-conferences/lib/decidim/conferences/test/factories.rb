@@ -115,7 +115,7 @@ FactoryBot.define do
     end
   end
 
-  factory :conference_valuator, parent: :user, class: "Decidim::User" do
+  factory :conference_evaluator, parent: :user, class: "Decidim::User" do
     transient do
       skip_injection { false }
       conference { create(:conference, skip_injection:) }

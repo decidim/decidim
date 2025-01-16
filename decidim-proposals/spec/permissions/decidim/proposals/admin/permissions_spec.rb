@@ -212,7 +212,7 @@ describe Decidim::Proposals::Admin::Permissions do
 
   describe "assign proposals to a valuator" do
     let(:action) do
-      { scope: :admin, action: :assign_to_valuator, subject: :proposals }
+      { scope: :admin, action: :assign_to_evaluator, subject: :proposals }
     end
 
     it { is_expected.to be true }
@@ -220,7 +220,7 @@ describe Decidim::Proposals::Admin::Permissions do
 
   describe "unassign proposals from a valuator" do
     let(:action) do
-      { scope: :admin, action: :unassign_from_valuator, subject: :proposals }
+      { scope: :admin, action: :unassign_from_evaluator, subject: :proposals }
     end
 
     it { is_expected.to be true }

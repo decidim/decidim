@@ -13,7 +13,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
   let(:process_admin) { create(:process_admin, participatory_process: process) }
   let(:process_collaborator) { create(:process_collaborator, participatory_process: process) }
   let(:process_moderator) { create(:process_moderator, participatory_process: process) }
-  let(:process_valuator) { create(:process_valuator, participatory_process: process) }
+  let(:process_evaluator) { create(:process_evaluator, participatory_process: process) }
 
   shared_examples "allows any action on subject" do |action_subject|
     context "when action subject is #{action_subject}" do
@@ -60,7 +60,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     end
 
     context "when user is a space valuator" do
-      let(:user) { process_valuator }
+      let(:user) { process_evaluator }
 
       it_behaves_like "access for role", access[:valuator]
     end
@@ -456,7 +456,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     end
 
     context "when user is a valuator" do
-      let(:user) { process_valuator }
+      let(:user) { process_evaluator }
 
       context "when reading a component" do
         let(:action) do

@@ -263,7 +263,7 @@ en:
         accepted_coauthorship:
           notification_title: You have been added as a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
         admin:
-          proposal_assigned_to_valuator:
+          proposal_assigned_to_evaluator:
             email_intro: You have been assigned as a valuator to the proposal "%{resource_title}". This means you have been trusted to give them feedback and a proper response in the next coming days. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
             email_outro: You have received this notification because you can valuate the proposal.
             email_subject: You have been assigned as a valuator to the proposal %{resource_title}.
@@ -618,7 +618,7 @@ en:
           index:
             actions: Actions
             apply_answer_template: Apply answer template
-            assign_to_valuator: Assign to valuator
+            assign_to_evaluator: Assign to valuator
             assign_to_evaluator_button: Assign
             cancel: Cancel
             change_taxonomies: Change taxonomies
@@ -628,13 +628,13 @@ en:
             publish: Publish
             publish_answers: Publish answers
             select_component: Select a component
-            select_valuators: Select one or more evaluators
+            select_evaluators: Select one or more evaluators
             selected: selected
             split: Split proposals
             split_button: Split
             statuses: Statuses
             title: Proposals
-            unassign_from_valuator: Unassign from valuator
+            unassign_from_evaluator: Unassign from valuator
             unassign_from_evaluator_button: Unassign
             update: Update
           manage_trash:
@@ -647,7 +647,7 @@ en:
             select_a_proposal: Please select a proposal.
           show:
             amendments_count: Amendments count
-            assigned_valuators: Assigned evaluators
+            assigned_evaluators: Assigned evaluators
             body: Body
             comments_count: Comments count
             documents: Documents

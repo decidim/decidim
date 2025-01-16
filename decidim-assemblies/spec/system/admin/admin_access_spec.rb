@@ -20,7 +20,7 @@ describe "AdminAccess" do
   end
 
   context "with participatory space valuator" do
-    let(:role) { create(:assembly_valuator, :confirmed, organization:, assembly: participatory_space) }
+    let(:role) { create(:assembly_evaluator, :confirmed, organization:, assembly: participatory_space) }
     let(:target_path) { decidim_admin_assemblies.components_path(participatory_space) }
     let(:unauthorized_target_path) { decidim_admin_assemblies.components_path(other_participatory_space) }
 

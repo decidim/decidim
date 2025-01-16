@@ -20,7 +20,7 @@ describe "AdminAccess" do
   end
 
   context "with participatory space valuator" do
-    let(:role) { create(:conference_valuator, :confirmed, organization:, conference: participatory_space) }
+    let(:role) { create(:conference_evaluator, :confirmed, organization:, conference: participatory_space) }
     let(:target_path) { decidim_admin_conferences.components_path(participatory_space) }
     let(:unauthorized_target_path) { decidim_admin_conferences.components_path(other_participatory_space) }
 

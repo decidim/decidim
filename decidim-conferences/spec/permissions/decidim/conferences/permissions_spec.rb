@@ -13,7 +13,7 @@ describe Decidim::Conferences::Permissions do
   let(:conference_admin) { create(:conference_admin, conference:) }
   let(:conference_collaborator) { create(:conference_collaborator, conference:) }
   let(:conference_moderator) { create(:conference_moderator, conference:) }
-  let(:conference_valuator) { create(:conference_valuator, conference:) }
+  let(:conference_evaluator) { create(:conference_evaluator, conference:) }
 
   shared_examples "access for role" do |access|
     case access
@@ -50,7 +50,7 @@ describe Decidim::Conferences::Permissions do
     end
 
     context "when user is a space valuator" do
-      let(:user) { conference_valuator }
+      let(:user) { conference_evaluator }
 
       it_behaves_like "access for role", access[:valuator]
     end

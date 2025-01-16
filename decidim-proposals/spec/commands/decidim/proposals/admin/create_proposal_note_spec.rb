@@ -86,7 +86,7 @@ module Decidim
           end
 
           context "when not affected users are mentioned" do
-            let(:body) { body_with_mentions(normal_user, other_participatory_space_admin, other_proposal_valuator) }
+            let(:body) { body_with_mentions(normal_user, other_participatory_space_admin, other_proposal_evaluator) }
 
             it "only the valuators are notified" do
               expect(Decidim::EventsManager)

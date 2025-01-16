@@ -1111,7 +1111,7 @@ shared_examples "comments blocked" do
       end
 
       shared_examples "evaluator role in different participatory space" do |space_type|
-        let!(:another_space_valuator_role) do
+        let!(:another_space_evaluator_role) do
           create(:"#{space_type}_user_role", role: :valuator, user:, "#{space_type}": create(space_type, organization:))
         end
 

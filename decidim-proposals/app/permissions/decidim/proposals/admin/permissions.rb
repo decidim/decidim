@@ -9,7 +9,7 @@ module Decidim
           return permission_action if permission_action.scope != :admin
 
           # Evaluators can only perform these actions
-          if user_is_valuator?
+          if user_is_evaluator?
             if evaluator_assigned_to_proposal?
               can_create_proposal_note?
               can_create_proposal_answer?
@@ -84,7 +84,7 @@ module Decidim
           @user_evaluator_role ||= space.user_roles(:valuator).find_by(user:)
         end
 
-        def user_is_valuator?
+        def user_is_evaluator?
           return if user.admin?
 
           user_evaluator_role.present?
@@ -143,11 +143,11 @@ module Decidim
         end
 
         def can_unassign_evaluator_from_proposals?
-          allow! if permission_action.subject == :proposals && permission_action.action == :unassign_from_valuator
+          allow! if permission_action.subject == :proposals && permission_action.action == :unassign_from_evaluator
         end
 
         def can_assign_evaluator_to_proposal?
-          allow! if permission_action.subject == :proposals && permission_action.action == :assign_to_valuator
+          allow! if permission_action.subject == :proposals && permission_action.action == :assign_to_evaluator
         end
 
         def can_export_proposals?

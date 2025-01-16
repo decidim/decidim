@@ -14,7 +14,7 @@ describe Decidim::Assemblies::Permissions do
   let(:assembly_admin) { create(:assembly_admin, assembly:) }
   let(:assembly_collaborator) { create(:assembly_collaborator, assembly:) }
   let(:assembly_moderator) { create(:assembly_moderator, assembly:) }
-  let(:assembly_valuator) { create(:assembly_valuator, assembly:) }
+  let(:assembly_evaluator) { create(:assembly_evaluator, assembly:) }
 
   shared_examples "access for role" do |access|
     case access
@@ -51,7 +51,7 @@ describe Decidim::Assemblies::Permissions do
     end
 
     context "when user is a space valuator" do
-      let(:user) { assembly_valuator }
+      let(:user) { assembly_evaluator }
 
       it_behaves_like "access for role", access[:valuator]
     end

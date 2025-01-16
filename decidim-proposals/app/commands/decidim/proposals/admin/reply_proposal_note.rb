@@ -74,7 +74,7 @@ module Decidim
         end
 
         def notify_mentioned
-          affected_users = mentioned_admins_or_valuators - [parent_author]
+          affected_users = mentioned_admins_or_evaluators - [parent_author]
 
           return if affected_users.blank?
 
