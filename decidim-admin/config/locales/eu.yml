@@ -96,7 +96,7 @@ eu:
         tertiary_color: Hirugarren
         time_zone: Ordu-zona
         tos_version: Zerbitzu-baldintzen bertsioa
-        twitter_handler: kudeatzailea
+        twitter_handler: X sarerako kudeatzailea
         user_groups_enabled: Gaitu parte-hartzaileen taldeak
         users_registration_mode: Parte-hartzaileak erregistratzeko modua
         warning_color: Abisua
@@ -192,7 +192,7 @@ eu:
         newsletter:
           new: Beste buletin bat
         participatory_space_private_user:
-          new: Eremu parte-hartzaileko beste erabiltzaile pribatu bat
+          new: Eremu parte-hartzaileko beste parte-hartzaile pribatu bat
         per_page: Orrialdeko
         permissions: Baimenak
         reject: Ukatu
@@ -204,7 +204,7 @@ eu:
       admin_terms_of_service:
         accept:
           error: Errore bat egon da zerbitzuaren administrazio-baldintzak onartzean.
-          success: Ederto! Onartu dituzu zerbitzuaren administrazio-baldintzak.
+          success: Bikain! Onartu dituzu zerbitzuaren administrazio-baldintzak.
         actions:
           accept: Bat nator baldintzekin
           are_you_sure: Ziur zaude ez dituzula onartu nahi zerbitzuaren administratzailearen baldintzak?
@@ -679,7 +679,7 @@ eu:
       moderated_users:
         index:
           actions:
-            block: Blokeatu erabiltzailea
+            block: Blokeatu parte-hartzaileaa
             title: Ekintzak
             unblock: Desblokeatu parte-hartzaile
             unreport: Ez erreportatu
@@ -764,7 +764,7 @@ eu:
           deliver: Bidali buletina
           followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu jarraitzen duten parte-hartzaile guztiei bidaltzen die.
           none: Bat ere ez
-          participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu parte-hartzailetan esku hartu duten erabiltzaile guztiei bidaltzen die.
+          participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu parte-hartzailetan esku hartu duten parte-hartzaile guztiei bidaltzen die.
           recipients_count: 'Buletin hau parte-hartzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
           scopes_help: Albisteen buletina "Nire interesekoak" konfigurazioan edozein esparru aktibatuta duten erabiltzaileei bidaltzen die.
           select_scopes: Iragazi "Nire interesekoak" konfigurazioan edozein esparru aktibatu duten erabiltzaileentzat.
@@ -900,7 +900,7 @@ eu:
             explanation: '%{count} parte-hartzaile pribatu dituzu.'
             title: Ezabatu parte-hartzaile pribatuak
           example_file: 'Fitxategi eredua:'
-          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean parte-hartze prozesura gehitu nahi dituzun erabiltzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
+          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean parte-hartze prozesura gehitu nahi dituzun parte-hartzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
@@ -1028,8 +1028,8 @@ eu:
         edit_external_domains: Baimendutako kanpoko domeinuen zerrenda
         edit_landing_page: Orriaren edukiak
         edit_organization_appearance: Editatu hasierako orriaren itxura
-        impersonatable_users: Erabiltzaile erabilgarriak
-        impersonations: Erabiltzaileen kudeaketa
+        impersonatable_users: Parte-hartzaile erabilgarriak
+        impersonations: Parte-hartzaileen kudeaketa
         menu: Menua
         metrics: Metrikak
         page_topics: Gaiak
@@ -1087,7 +1087,7 @@ eu:
           last_day: Azken eguna
           last_month: Azken hila
           last_week: Azken astea
-          no_users_count_statistics_yet: Oraindik ez dago erabiltzaileen zenbaketa-estatistikarik.
+          no_users_count_statistics_yet: Oraindik ez dago parte-hartzaileen zenbaketa-estatistikarik.
           participants: Parte-hartzaileak
     forms:
       errors:
