@@ -83,7 +83,7 @@ eu:
             add_question: Gehitu galdera
             add_separator: Gehitu banatzailea
             add_title_and_description: Gehitu izenburua eta deskribapena
-            already_answered_warning: Formularioa erabiltzaile batzuek erantzuten dute dagoeneko; beraz, ezin dituzu galderak aldatu.
+            already_answered_warning: Formularioa parte-hartzaile batzuek erantzuten dute dagoeneko; beraz, ezin dituzu galderak aldatu.
             collapse: Bildu galdera guztiak
             expand: Zabaldu galdera guztiak
             preview: Aurreikusi
@@ -171,7 +171,7 @@ eu:
             body: Galdetegia itxita dago eta ezin da erantzun.
             title: Galdeketa itxia
           questionnaire_for_private_users:
-            body: Galdetegia erabiltzaile pribatuentzat soilik dago erabilgarri
+            body: Galdetegia parte-hartzaile pribatuentzat soilik dago erabilgarri
             title: Galdeketa itxia
           questionnaire_js_disabled:
             body: Galdetegi honen ezaugarri batzuk desaktibatu egingo dira. Zure esperientzia hobetzeko, gaitu JavaScript zure nabigatzailean.
