@@ -12,11 +12,17 @@ de:
         one: Antworten
         other: Antworten
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: Umfragen
     components:
       surveys:
         actions:
           answer: Antworten
+        name: Umfragen
         settings:
+          announcement: Ankündigung
           global:
             announcement: Ankündigung
             scope_id: Bereich
@@ -43,15 +49,64 @@ de:
     statistics:
       answers_count: Antworten
     surveys:
+      actions:
+        answers_alert: Das Löschen von Antworten bei der Veröffentlichung ist für diese Umfrage aktiv. Derzeit gibt es %{answers_count} Antworten, die gelöscht werden, wenn Sie fortfahren.
+        confirm_destroy: Möchten Sie fortfahren und die Antworten löschen?
+        destroy: Löschen
+        edit: Bearbeiten
+        manage_questions: Fragen verwalten
+        new_survey: Neue Umfrage
+        preview: Vorschau
+        title: Aktionen
       admin:
+        answers:
+          index:
+            title: "%{total} Antworten insgesamt"
+          show:
+            title: 'Antwort #%{number}'
         exports:
           survey_user_answers: Umfrage Benutzer Antworten
         surveys:
+          create:
+            invalid: Beim Erstellen der Umfrage ist ein Problem aufgetreten.
+            success: Umfrage erfolgreich erstellt.
+          destroy:
+            success: Umfrage erfolgreich gelöscht.
+          edit:
+            title: Umfrage bearbeiten
+          index:
+            title: Umfragen
+          publish:
+            invalid: Beim Veröffentlichen dieser Umfrage ist ein Problem aufgetreten.
+            success: Umfrage erfolgreich veröffentlicht.
+          unpublish:
+            invalid: Beim Aufheben der Veröffentlichung dieser Umfrage ist ein Fehler aufgetreten.
+            success: Veröffentlichung der Umfrage erfolgreich aufgehoben.
           update:
             invalid: Beim Speichern der Umfrage sind Fehler aufgetreten.
             success: Umfrage wurde erfolgreich gespeichert.
+      admin_log:
+        survey:
+          create: "%{user_name} hat das Umfrage %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat das Umfrage %{resource_name} in %{space_name} gelöscht"
+          publish: "%{user_name} hat die Umfrage %{resource_name} im Bereichs %{space_name} veröffentlicht"
+          update: "%{user_name} hat die Umfrage %{resource_name} im Bereich %{space_name} aktualisiert"
+      directory:
+        surveys:
+          index:
+            surveys: Umfragen
       last_activity:
         new_survey: 'Neue Umfrage:'
+      models:
+        survey:
+          fields:
+            answers: Antworten
+            questions: Fragen
+            status: Status
+            title: Titel
+          status:
+            closed: Geschlossen
+            open: Offen
       survey_confirmation_mailer:
         confirmation:
           body: Sie haben die Umfrage %{questionnaire_title} auf %{participatory_space} erfolgreich beantwortet
@@ -62,3 +117,17 @@ de:
           invalid: Bei der Beantwortung der Umfrage sind Fehler aufgetreten.
           spam_detected: Bei der Beantwortung der Umfrage ist ein Fehler aufgetreten. Möglicherweise waren Sie zu schnell, können Sie es erneut versuchen?
           success: Umfrage erfolgreich beantwortet.
+        count:
+          surveys_count:
+            one: "%{count} Umfrage"
+            other: "%{count} Umfragen"
+        filters:
+          all: Alle
+          state_values:
+            closed: Geschlossen
+            open: Offen
+        no_surveys_warning: Keine Umfragen entsprechen Ihren Suchkriterien oder es ist keine Umfrage geöffnet.
+        show:
+          closed: Geschlossen
+          open: Offen
+          questions: Fragen
