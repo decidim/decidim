@@ -442,22 +442,6 @@ fr-CA:
           proposal_comments: Commentaires
           proposals: Propositions
         imports:
-          help:
-            answers: |
-              Le document d'importation doit contenir les noms de colonnes suivants en cas de fichiers CSV ou Excel ou noms de clés suivants dans le cas de fichiers JSON :
-              <ul>
-              <li><b>id:</b> ID de la proposition à laquelle on répond</li>
-              <li><b>state:</b>"accepted", "evaluating", ou "rejected"</li>
-              <li><b>answer/en:</b> Réponse en langue anglaise. Cela dépendra de la configuration de langue de votre plateforme.</li>
-              </ul>
-            proposals: |
-              Le fichier doit avoir les noms de colonnes suivants en cas de fichiers CSV ou Excel ou noms de clés suivants en cas de fichiers JSON :
-              <ul>
-              <li><b>title/en:</b> Titre en langue anglaise. Cela dépendra de la configuration de la langue de votre plateforme.</li>
-              <li><b>corps/en:</b> Corps en langue anglaise. Cela dépendra de la configuration de la langue de votre plateforme.</li>
-              <li><b>scope/id :</b> ID du périmêtre d'application</li>
-              <li><b>category/id :</b> ID de la catégorie</li>
-              </ul>
           label:
             answers: Importer des valeurs depuis un fichier
             proposals: Importer des propositions depuis un fichier
@@ -678,6 +662,7 @@ fr-CA:
           error: Il y a eu un problème lors de la création de ce brouillon collaboratif.
           success: Brouillon collaboratif créé avec succès.
         edit:
+          attachment_legend: Ajouter un document ou une image
           back: Retour
           send: Envoyer
           title: Modifier un brouillon collaboratif
@@ -819,7 +804,10 @@ fr-CA:
           description: Les coordonnées seront mises à jour en cliquant sur le bouton 'Aperçu'. Cependant, l'adresse ne change pas.
           instructions: Vous pouvez déplacer le point sur la carte.
         edit:
+          add_attachments: Ajouter des pièces jointes
+          attachment_legend: Ajouter un document ou une image
           back: Retour
+          edit_attachments: Modifier les pièces jointes
           send: Envoyer
           title: Modifier la proposition
         edit_draft:
