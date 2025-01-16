@@ -91,6 +91,7 @@ de:
       actions:
         activate: Aktivieren
         configure: Konfigurieren
+        confirm_delete_process: Sind Sie sicher, dass Sie diesen Prozess löschen möchten? Wenn Sie Ihre Meinung ändern, können Sie ihn später wiederherstellen.
         confirm_destroy: Löschen bestätigen
         destroy: Löschen
         duplicate: Duplizieren
@@ -108,6 +109,7 @@ de:
         resend_invitation: Einladung erneut senden
         see_process: Prozess ansehen
         unpublish: Veröffentlichung rückgängig machen
+        view_deleted_processes: Gelöschte Prozesse anzeigen
       filters:
         decidim_participatory_process_group_id_eq:
           label: Nach Prozessgruppe
