@@ -18,7 +18,7 @@ eu:
         customize_registration_email: Pertsonalizatu izena emateko helbide elektronikoa
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
-        decidim_user_group_id: Erabiltzaile-taldea
+        decidim_user_group_id: Partaide-taldea
         description: Deskribapena
         end_time: Bukaera ordua
         id: ID
@@ -122,7 +122,7 @@ eu:
             values:
               official: Ofiziala
               participants: Parte-hartzailea
-              user_group: Erabiltzaile-taldeak
+              user_group: Partaide-taldeak
           with_any_type:
             label: Topaketa mota
             values:
@@ -177,14 +177,14 @@ eu:
           step:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
-            creation_enabled_for_participants: Partehartzaileek topaketak sortu dizatkete
-            creation_enabled_for_user_groups: Erabiltzaileek topaketak sor ditzakete taldearen arabera
+            creation_enabled_for_participants: Parte-hartzaileek topaketak sortu dizatkete
+            creation_enabled_for_user_groups: Parte-hartzaileek topaketak sor ditzakete taldearen arabera
     download_your_data:
       help:
         registrations:
           code: Erregistro-kodea
           id: Erregistroaren identifikatzaile bakarra
-          meeting: Erabiltzailea zein topaketatan erregistratu zen
+          meeting: Parte-hartzailea zein topaketatan erregistratu zen
           user: Erregistroa egin zuen erabiltzailea
       show:
         meeting_comments: Esportatu topaketen iruzkinak
@@ -318,8 +318,8 @@ eu:
             attendee_type: Parte-hartzaile mota
             existing_user: Parte-hartzailea badago
             invite: Gonbidatu
-            invite_explanation: Erabiltzailea topaketaan eta erakundean sartzeko gonbidatuko da.
-            non_user: Erabiltzailea ez dago
+            invite_explanation: Parte-hartzaile topaketaan eta erakundean sartzeko gonbidatuko da.
+            non_user: Parte-hartzailea ez dago
             select_user: Hautatu parte-hartzailea
           index:
             invite_attendee: Gonbidatu
