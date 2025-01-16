@@ -971,6 +971,8 @@ fr-CA:
         edit:
           submit: Soumettre
           title: Modifier les autorisations
+        options_form:
+          ephemeral_warning: Afin d'activer cette méthode d'autorisation, vous devez <a href="%{path}">révoquer</a> toutes les autorisations existantes. Cela minimise le risque de conflits de vérification. Toutes les autorisations de ce type seront automatiquement révoquées dans l'organisation si vous soumettez des modifications en ajoutant cette méthode ou en modifiant sa configuration une fois ajoutée.
         update:
           success: Autorisations mises à jour avec succès.
       scope_types:
