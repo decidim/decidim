@@ -113,7 +113,7 @@ eu:
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
-          user_group: Iruzkin hau egin duen erabiltzaile-taldearen izena (baldin badago)
+          user_group: Iruzkin hau egin duen partaide-taldearen izena (baldin badago)
         posts:
           author: Egilearen informazioa
           body: Argitaratuaren gorputza
