@@ -499,10 +499,10 @@ eu:
         edit_proposal_state: Editatu egoera
         import: Inportatu proposamenak beste osagai batetik
         mark_as_coauthor: Markatu egilekide gisa
-        mark_as_coauthor_confirm: Ziur zaude erabiltzaile hau egilekide gisa markatu nahi duzula? Parte-hartzaileak jakinarazpena jasoko du gonbidapena onartzeko edo baztertzeko.
+        mark_as_coauthor_confirm: Ziur zaude parte-hartzaile hau egilekide gisa markatu nahi duzula? Parte-hartzaileak jakinarazpena jasoko du gonbidapena onartzeko edo baztertzeko.
         new: Proposamen berria
         new_proposal_state: Beste egoera bat
-        participatory_texts: Testu partehartzaileak
+        participatory_texts: Testu parte-hartzaileak
         show: Ikusi proposamena
         title: Ekintzak
       admin:
