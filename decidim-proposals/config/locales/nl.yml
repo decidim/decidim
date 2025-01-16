@@ -427,7 +427,6 @@ nl:
         create:
           success: Gezamenlijk ontwerp met succes gemaakt.
         edit:
-          attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
           send: Verzenden
           title: Bewerk gezamenlijk ontwerp
@@ -522,7 +521,6 @@ nl:
           description: De coördinaten worden bijgewerkt bij het klikken op de 'preview' knop. Het adres verandert echter niet.
           instructions: Je kunt het punt op de kaart verplaatsen.
         edit:
-          attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
           send: Verzenden
           title: Bewerk voorstel
