@@ -74,12 +74,9 @@ es-MX:
             title: Editar debate
             update: Actualizar debate
           form:
-            add_documents: Añadir documentos
-            attachment_legend: "(Opcional) Añadir un archivo adjunto"
             comments_visualization: Visualización de los comentarios
             comments_warning: Una vez que se publique el primer comentario, la opción de visualización seleccionada no se puede cambiar.
             debate_type: Tipo de debate
-            edit_documents: Editar documentos
             errors:
               comments_layout_locked: No puedes cambiar el diseño del comentario una vez que se haya publicado algún comentario.
             finite: Finito (con hora de inicio y final)
