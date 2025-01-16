@@ -218,6 +218,7 @@ module Decidim
         Decidim.icons.register(name: "whatsapp-line", icon: "whatsapp-line", category: "social icon", description: "", engine: :core)
         Decidim.icons.register(name: "telegram-line", icon: "telegram-line", category: "social icon", description: "", engine: :core)
         Decidim.icons.register(name: "twitter-x-fill", icon: "twitter-x-fill", category: "social icon", description: "", engine: :core)
+        Decidim.icons.register(name: "google-fill", icon: "google-fill", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "facebook-fill", icon: "facebook-fill", category: "social icon", description: "", engine: :core)
         Decidim.icons.register(name: "instagram-line", icon: "instagram-line", category: "social icon", description: "", engine: :core)
         Decidim.icons.register(name: "youtube-line", icon: "youtube-line", category: "social icon", description: "", engine: :core)
