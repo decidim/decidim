@@ -457,6 +457,15 @@ es-PY:
       dummy_authorization_workflow:
         explanation: Ejemplo de flujo de verificación
         name: Flujo de trabajo de autorización de ejemplo
+      ephemeral_dummy_authorization_handler:
+        explanation: Verifícate introduciendo un número de documento que termine con "X".
+        fields:
+          allowed_postal_codes: Códigos postales permitidos (separados por comas)
+          allowed_scope_id: Ámbito permitido
+          document_number: Número de documento
+          postal_code: Código postal
+          scope_id: Ámbito
+        name: Otro ejemplo de autorización
       errors:
         duplicate_authorization: Ya hay una participante autorizada con los mismos datos. Una administradora se pondrá en contacto contigo para verificar tus datos.
       expired_at: Caducado el %{timestamp}
@@ -672,6 +681,7 @@ es-PY:
           sign_in_disabled: Puedes acceder con una cuenta externa.
           sign_up_disabled: La creación de cuentas está deshabilitada, puedes utilizar una cuenta existente para acceder.
         user:
+          ephemeral_session_closed: Su sesión de invitada ha finalizado
           timed_out: Has estado sin actividad durante demasiado tiempo y tu sesión se ha cerrado automáticamente. Si quieres seguir participando, inicia sesión de nuevo.
       shared:
         newsletter_modal:
@@ -808,6 +818,7 @@ es-PY:
       others: "%{count} más"
       title: Le ha gustado a
       you: tú
+    ephemeral_user: Visitante
     errors:
       files:
         file_cannot_be_processed: No se ha podido procesar el archivo
@@ -1454,11 +1465,13 @@ es-PY:
     onboarding_action_message:
       click_link: Haz clic aquí
       cta_html: <a href="%{path}">%{link_text}</a> para %{action} en %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: Ha sido autorizada con éxito.<br/>Has iniciado una sesión de invitada, ahora puedes participar.
       expired_authorization_active_title: Tu autorización ha expirado.
       finish_authorization_process: Puedes terminar el proceso de verificación
       incomplete_authorization_active_title: Tu verificación no se ha completado con toda la información necesaria.
       pending_authorization_active_message: Por favor, complete el formulario para continuar con esta acción.
       pending_authorization_active_title: Necesitamos verificar tu identidad.
+      pending_ephemeral_authorization: Por favor, verifica tu identidad para continuar.
     open_data:
       help:
         core:
@@ -2213,6 +2226,8 @@ es-PY:
         sign_up: Crea una cuenta
         terms_of_service: Términos y condiciones de uso
       header:
+        close: Cerrar
+        confirm_close_ephemeral_session: Si navegas fuera de esta página, tu sesión se cerrara. ¿Seguro que quieres salir de esta página?
         log_in: Entra
         main_menu: Menú principal
         user_menu: Menú de usuario
