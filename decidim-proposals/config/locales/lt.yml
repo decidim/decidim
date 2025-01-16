@@ -519,7 +519,6 @@ lt:
           error: Kuriant šį bendrąjį juodraštį iškilo problema.
           success: Bendrasis juodraštis sukurtas.
         edit:
-          attachment_legend: "(Neprivaloma) Pridėti priedą"
           back: Atgal
           send: Siųsti
           title: Redaguoti bendrąjį juodraštį
@@ -635,10 +634,7 @@ lt:
           description: Koordinatės bus atnaujintos paspaudus mygtuką „Peržiūrėti“. Tačiau adresas nesikeičia.
           instructions: Galite perkelti tašką žemėlapyje.
         edit:
-          add_documents: Pridėti dokumentus
-          attachment_legend: "(Neprivaloma) Pridėti priedą"
           back: Atgal
-          edit_documents: Redaguoti dokumentus
           send: Siųsti
           title: Redaguoti pasiūlymą
         edit_draft:
