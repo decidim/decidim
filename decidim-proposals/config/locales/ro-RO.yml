@@ -444,7 +444,6 @@ ro:
         create:
           success: Ciorna colaborativă a fost creată cu succes.
         edit:
-          attachment_legend: "(Opțional) Adaugă un atașament"
           back: Înapoi
           send: Trimite
           title: Editează ciorna colaborativă
@@ -541,7 +540,6 @@ ro:
           description: Coordonatele vor fi actualizate când apeși pe butonul 'previzualizează'. Cu toate acestea, adresa nu se schimbă.
           instructions: Poți muta punctul de pe hartă.
         edit:
-          attachment_legend: "(Opțional) Adaugă un atașament"
           back: Înapoi
           send: Trimite
           title: Editează propunerea
