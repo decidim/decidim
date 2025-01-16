@@ -457,7 +457,6 @@ hu:
         create:
           success: Közös vázlat létrehozása sikeres.
         edit:
-          attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
           back: Vissza
           send: Küldés
           title: Közös vázlat szerkesztése
@@ -552,10 +551,7 @@ hu:
           comment: Megjegyzés
       proposals:
         edit:
-          add_documents: Dokumentum hozzáadása
-          attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
           back: Vissza
-          edit_documents: Dokumentum szerkesztése
           send: Küldés
           title: Javaslat szerkesztése
         edit_draft:
