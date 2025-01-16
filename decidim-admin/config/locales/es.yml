@@ -1002,6 +1002,8 @@ es:
         edit:
           submit: Enviar
           title: Editar permisos
+        options_form:
+          ephemeral_warning: Para habilitar este método de autorización, necesitas <a href="%{path}">revocar todas las autorizaciones existentes</a>. Esto minimiza el riesgo de conflictos de verificación. Todas las autorizaciones de este tipo serán revocadas automáticamente en la organización si envías los cambios añadiendo este método o modificando tu configuración una vez guardada.
         update:
           success: Los permisos se han actualizado correctamente.
       scope_types:
