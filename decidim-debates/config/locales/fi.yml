@@ -74,12 +74,9 @@ fi:
             title: Muokkaa keskustelua
             update: Päivitä keskustelu
           form:
-            add_documents: Lisää asiakirjoja
-            attachment_legend: "(Valinnainen) Lisää liitetiedosto"
             comments_visualization: Kommenttien visualisointi
             comments_warning: Ensimmäisen kommentin jälkeen kommenttien esitysmuotoasetusta ei voi muuttaa.
             debate_type: Keskustelun tyyppi
-            edit_documents: Muokkaa asiakirjoja
             errors:
               comments_layout_locked: Et voi muuttaa kommenttien esitysmuotoa sen jälkeen, kun kommentteja on laadittu.
             finite: Määräaikainen (keskustelulla on alku- ja loppuaika)
