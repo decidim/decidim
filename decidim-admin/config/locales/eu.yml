@@ -95,7 +95,7 @@ eu:
         tertiary_color: Hirugarren
         time_zone: Ordu-zona
         tos_version: Zerbitzu-baldintzen bertsioa
-        twitter_handler: kudeatzailea
+        twitter_handler: X sarerako kudeatzailea
         user_groups_enabled: Gaitu parte-hartzaileen taldeak
         users_registration_mode: Parte-hartzaileak erregistratzeko modua
         warning_color: Abisua
@@ -198,7 +198,7 @@ eu:
         newsletter:
           new: Beste buletin bat
         participatory_space_private_user:
-          new: Eremu parte-hartzaileko beste erabiltzaile pribatu bat
+          new: Eremu parte-hartzaileko beste parte-hartzaile pribatu bat
         per_page: Orrialdeko
         permissions: Baimenak
         reject: Ukatu
@@ -214,7 +214,7 @@ eu:
       admin_terms_of_service:
         accept:
           error: Arazoa izan da zerbitzuaren baldintzak onartzean.
-          success: Ederto! Onartu dituzu zerbitzuaren administrazio-baldintzak.
+          success: Bikain! Onartu dituzu zerbitzuaren administrazio-baldintzak.
         actions:
           accept: Bat nator baldintzekin
           are_you_sure: Ziur zaude ez dituzula onartu nahi zerbitzuaren administratzailearen baldintzak?
@@ -300,7 +300,7 @@ eu:
         bulk_new:
           action: Blokeatu kontuak eta bidali justifikazioa
           already_reported_html: Ekintza honekin jarraituz gero, parte-hartzaile guztien edukiak ere ezkutatuko dituzu.
-          description: Parte-hartzaile bat blokeatzeak bere kontua erabilezin bihurtuko du. Zure justifikazioan edozein jarraibide eman dezakezu erabiltzailea desblokeatzeko moduei buruz.
+          description: Parte-hartzaile bat blokeatzeak bere kontua erabilezin bihurtuko du. Zure justifikazioan edozein jarraibide eman dezakezu parte-hartzailea desblokeatzeko moduei buruz.
           justification: Justifikazioa
           title: Blokeatu parte-hartzaileak
         new:
@@ -696,7 +696,7 @@ eu:
       moderated_users:
         index:
           actions:
-            block: Blokeatu erabiltzailea
+            block: Blokeatu parte-hartzaileaa
             bulk_actions:
               actions_dropdown: Ekintzak
               block:
@@ -819,7 +819,7 @@ eu:
           confirm_recipients: Baieztatu hartzaileak
           deliver: Bidali buletina
           followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu jarraitzen duten parte-hartzaile guztiei bidaltzen die.
-          participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu parte-hartzailetan esku hartu duten erabiltzaile guztiei bidaltzen die.
+          participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu parte-hartzailetan esku hartu duten parte-hartzaile guztiei bidaltzen die.
           private_members_help: Bidali buletin bat aukeratutako parte hartzeko espazio pribatuetan gehitu diren baieztatutako parte-hartzaile guztiei.
           recipients_count: 'Buletin hau parte-hartzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
           select_assemblies: Hautatu batzarrak
@@ -830,7 +830,7 @@ eu:
           select_users_for_participatory_space: Bidali buletina espazio parte-hartzaile bati baino gehiagori
           select_users_general: Bidali buletin orokorra
           select_verification_types: Hautatu egiaztapen-metodoak
-          send_to_all_users: Bidali erabiltzaile guztiei
+          send_to_all_users: Bidali parte-hartzaile guztiei
           send_to_verified_users: Bidali egiaztatutako parte-hartzaileei
           title: Hautatu hartzaileak entregatzeko
           verified_users_help: Buletin bat bidaltzen du egiaztatutako eta baieztatutako parte-hartzaile guztiei, aukeratutako edozein egiaztatze-metodo erabiliz.
@@ -984,7 +984,7 @@ eu:
             explanation: '%{count} parte-hartzaile pribatu dituzu.'
             title: Ezabatu parte-hartzaile pribatuak
           example_file: 'Fitxategi eredua:'
-          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean parte-hartze prozesura gehitu nahi dituzun erabiltzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
+          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean parte-hartze prozesura gehitu nahi dituzun parte-hartzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
@@ -1002,6 +1002,8 @@ eu:
         edit:
           submit: Bidali
           title: Editatu baimenak
+        options_form:
+          ephemeral_warning: Baimen-metodo hori ahalbidetzeko, <a href="% {path}"> indarrean dauden baimen guztiak ezeztatu behar dira. Horrela, egiaztatze-gatazkak izateko arriskua murrizten da. Horrelako baimen guztiak automatikoki ezeztatuko dira erakundean, baldin eta metodo hori gehitzen duten aldaketak aurkezten badituzu edo, gehitu ondoren, konfigurazioa aldatzen baduzu.
         update:
           success: Baimenak behar bezala eguneratuak.
       scope_types:
@@ -1232,8 +1234,8 @@ eu:
         edit_external_domains: Baimendutako kanpoko domeinuen zerrenda
         edit_landing_page: Orriaren edukiak
         edit_organization_appearance: Editatu hasierako orriaren itxura
-        impersonatable_users: Erabiltzaile erabilgarriak
-        impersonations: Erabiltzaileen kudeaketa
+        impersonatable_users: Parte-hartzaile erabilgarriak
+        impersonations: Parte-hartzaileen kudeaketa
         menu: Menua
         metrics: Metrikak
         page_topics: Gaiak
@@ -1302,7 +1304,7 @@ eu:
           last_day: Azken eguna
           last_month: Azken hila
           last_week: Azken astea
-          no_users_count_statistics_yet: Oraindik ez dago erabiltzaileen zenbaketa-estatistikarik.
+          no_users_count_statistics_yet: Oraindik ez dago parte-hartzaileen zenbaketa-estatistikarik.
           participants: Parte-hartzaileak
     forms:
       errors:
