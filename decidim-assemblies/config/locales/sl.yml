@@ -131,7 +131,6 @@ sl:
           attachment_collections: Mape
           attachment_files: Datoteke
           attachments: Priponke
-          categories: Kategorije
           components: Komponente
         assemblies_types: Vrste združb
       models:
