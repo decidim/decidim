@@ -398,8 +398,6 @@ zh-TW:
           email_outro: '你收到這個通知是因為你是該倡議 %{resource_title} 的作者。'
           email_subject: "%{applicant_nickname} 想加入你的倡議"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> 申請加入你的倡議 <a href="%{resource_url}">%{resource_title}</a> 的推動委員會。點擊<a href="%{resource_url}/edit">這裡</a>接受或拒絕申請。
-      form:
-        attachment_legend: "(可選) 新增附件"
       index:
         uninitialized: 尚未由管理員設置倡議。
       initiative_signatures:
