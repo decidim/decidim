@@ -1301,7 +1301,7 @@ de:
           how_to_participate: Wie nehme ich an einem Prozess teil?
           meetings: Meetings
           meetings_explanation: Finden Sie heraus, wo und wann Sie an öffentlichen Veranstaltungen teilnehmen können.
-          more_info: Mehr Informationen
+          more_info: Mehr Informationen über %{resource_name}
           proposals: Vorschläge
           proposals_explanation: Machen Sie Vorschläge, unterstützen Sie bestehende und fördern Sie die Änderungen, die Sie sehen möchten.
         footer_sub_hero:
