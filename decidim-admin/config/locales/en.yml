@@ -185,8 +185,6 @@ en:
         attachment_collection:
           new: New attachment folder
         browse: Browse
-        category:
-          new: New category
         confirm_delete_component: |
           Are you sure you want to delete this component?<br>
           This component contains:<br>
@@ -313,23 +311,8 @@ en:
           justification: Justification
           title: Block User %{name}
       categories:
-        create:
-          error: There was a problem creating this category.
-          success: Category created successfully.
-        destroy:
-          error: There was a problem deleting this category. Please delete any subcategory first, make sure no other entity belongs to this category and try again.
-          success: Category deleted successfully.
-        edit:
-          title: Edit category
-          update: Update
         index:
           categories_title: Categories
-        new:
-          create: Create category
-          title: New category
-        update:
-          error: There was a problem updating this category.
-          success: Category updated successfully.
       component_permissions:
         update:
           error: There was a problem updating the permissions of this component.
