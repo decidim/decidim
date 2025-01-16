@@ -386,8 +386,6 @@ ro:
           email_outro: 'Ai primit această notificare deoarece ești autorul acestei inițiative: %{resource_title}'
           email_subject: "%{applicant_nickname} vrea să se alăture inițiativei tale"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a depus cerere pentru comitetul de promovare al inițiativa tale <a href="%{resource_url}">%{resource_title}</a>. Pentru a accepta sau respinge apasă <a href="%{resource_url}/edit">aici</a>.
-      form:
-        attachment_legend: "(Opțional) Adaugă un atașament"
       initiative_signatures:
         fill_personal_data:
           continue: Continuă
