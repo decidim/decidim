@@ -67,7 +67,7 @@ eu:
         gender: Generoa
         non_user_avatar: Abatarra
         position: Posizioa
-        user_id: Erabiltzailea edo taldea
+        user_id: Parte-hartzaile edo taldea
         weight: Kokapenaren hurrenkera
       assembly_user_role:
         email: E-maila
@@ -89,7 +89,7 @@ eu:
         other: Batzar kideak
       decidim/assembly_user_role:
         one: Batzarreko erabiltzaileen rola
-        other: Batzar erabiltzailearen rolak
+        other: Batzar parte-hartzailearen rolak
   decidim:
     admin:
       actions:
@@ -258,7 +258,7 @@ eu:
         update: "%{user_name} k %{resource_name} batzar mota eguneratu du"
       assembly_user_role:
         create: "%{user_name} k %{resource_name} gonbidatu du %{space_name} batzarrera"
-        delete: "%{user_name} k %{resource_name} parte-hartzailea %{space_name} muntaia kendu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea %{space_name} muntaia kendu du"
         update: "%{user_name} k %{resource_name} rola aldatu du %{space_name} batzarrerako"
     assemblies:
       admin:
@@ -436,7 +436,7 @@ eu:
           developer_group: Batzarraren talde garatzailea
           duration: Batzarraren iraupena
           facebook_handler: Sare sozialetako arduraduna Facebookerako
-          follows_count: Espazio hau zenbat erabiltzailek jarraitzen duten
+          follows_count: Espazio hau zenbat parte-hatzailek jarraitzen duten
           github_handler: Sare sozialetako arduraduna GitHuberako
           hashtag: Batzarraren traola, Twitter/Xentzat erabilia
           id: Batzar honen identifikatzaile bakarra
