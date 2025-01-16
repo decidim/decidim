@@ -76,6 +76,12 @@ fr-CA:
             - Un exemple de gestionnaire d'autorisation pour que les développeurs puissent comprendre comment une simple vérification fonctionne.
             - Il est destiné aux développeurs afin qu'ils puissent comprendre comment implémenter leur propre système de vérification.
             - Obtenir une vérification en saisissant un numéro de document se terminant par "X".
+        ephemeral_dummy_authorization_handler:
+          help:
+            - Un exemple de gestionnaire d'autorisation éphémère pour que les développeurs puissent comprendre comment une simple vérification fonctionne.
+            - Il est destiné aux développeurs afin qu'ils puissent comprendre comment implémenter leur propre système de vérification.
+            - Il s'agit d'une copie d'un exemple d'autorisation.
+            - 
         id_documents:
           help:
             - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
@@ -137,6 +143,7 @@ fr-CA:
         new:
           authorize: Envoyer
           authorize_with: Vérifier votre identité avec %{authorizer}
+          tos_agreement: En vérifiant votre identité, vous acceptez %{link}.
         onboarding_pending:
           pending_verifications: Vérifications en attente
           unauthorized: Vous n'êtes pas autorisé(e) à %{action} dans cette ressource
