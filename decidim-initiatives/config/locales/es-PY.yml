@@ -442,10 +442,7 @@ es-PY:
           email_subject: "%{applicant_nickname} quiere unirse a tu iniciativa"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha solicitado unirse al comité promotor de tu iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceptar o rechazar la solicitud haz clic <a href="%{resource_url}/edit">aquí</a>.
       form:
-        add_documents: Añadir documentos
         add_image: Añadir imagen
-        attachment_legend: "(Opcional) Añadir un archivo adjunto"
-        edit_documents: Editar documentos
         edit_image: Editar imagen
         image_legend: "(Opcional) Añadir una imágen"
       index:
