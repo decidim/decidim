@@ -442,10 +442,7 @@ eu:
           email_subject: "%{applicant_nickname} k zure ekimenarekin bat egin nahi du"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> k eskatu du <a href="%{resource_url}">%{resource_title}</a> zure ekimenaren batzorde bultzatzailearekin bat egitea. Eskaera onartzeko edo ukatzeko, egin klik hemen <a href="%{resource_url}/edit">aquí</a>.
       form:
-        add_documents: Gehitu dokumentuak
         add_image: Gehitu irudia
-        attachment_legend: "(Aukerakoa) Gehitu eranskina"
-        edit_documents: Editatu dokumentuak
         edit_image: Editatu irudia
         image_legend: "(Aukerakoa) Gehitu irudi bat"
       index:
