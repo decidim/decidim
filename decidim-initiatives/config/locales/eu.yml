@@ -198,7 +198,7 @@ eu:
           description_own: '%{score} ekimen dituzu argitaratuta.'
           name: Argitaratutako ekimenak
           next_level_in: Talde %{score} ekimen gehiago argitaratu hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek oraindik ez du ekimenik argitaratuta.
+          unearned_another: Parte-hartzaile honek oraindik ez du ekimenik argitaratuta.
           unearned_own: Ez duzu oraindik argitaratutako ekimenik.
     help:
       participatory_spaces:
@@ -322,16 +322,16 @@ eu:
             success: Ekimen mota zuzen eguneratu da.
       admin_log:
         initiative:
-          publish: "%{user_name} k %{resource_name} ekimena argitaratu du"
-          send_to_technical_validation: "%{user_name} k %{resource_name} ekimena baliozkotze teknikora bidali du"
+          publish: "%{user_name} parte-hartzaileak %{resource_name} ekimena argitaratu du"
+          send_to_technical_validation: "%{user_name} parte-hartzaileak %{resource_name} ekimena baliozkotze teknikora bidali du"
           unpublish: "%{user_name} k %{resource_name} ekimena baztertu du"
-          update: "%{user_name} k %{resource_name} ekimena eguneratu du"
+          update: "%{user_name} parte-hartzaileak %{resource_name} ekimena eguneratu du"
         initiatives_settings:
-          update: "%{user_name} k ekimenen ezarpenak eguneratu ditu"
+          update: "%{user_name} parte-hartzaieak batzarren konfigurazioa eguneratu du"
         initiatives_type:
-          create: "%{user_name} k %{resource_name} ekimen motak sortu ditu"
-          delete: "%{user_name} k %{resource_name} ekimen motak ezabatu ditu"
-          update: "%{user_name} k %{resource_name} ekimen motak eguneratu ditu"
+          create: "%{user_name} parte-hartzaileak %{resource_name} ekimen motak sortu ditu"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} ekimen motak ezabatu ditu"
+          update: "%{user_name} parte-hartzaileak %{resource_name} ekimen motak eguneratu ditu"
       admin_states:
         accepted: Beharrezko sinadurak lortu ditu
         created: Sortu
