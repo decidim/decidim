@@ -199,7 +199,6 @@ ja:
           attachment_collections: フォルダ
           attachment_files: ファイル
           attachments: 添付ファイル
-          categories: カテゴリ
           components: コンポーネント
           conference_admins: カンファレンス管理者
           conference_invites: 招待
@@ -541,12 +540,10 @@ ja:
           registration_type: 送信されたカンファレンス参加登録の種別
           rejected_at: カンファレンスへの招待が却下された日時
           sent_at: カンファレンスへの招待が送信された日時
-          user: 招待状が送信されたユーザーの固有ID
         conference_registrations:
           conference: 所属するカンファレンス
           id: カンファレンス参加登録の固有ID
           registration_type: これが属する参加登録の種別
-          user: 参加登録したユーザーの固有ID
     events:
       conferences:
         conference_registration_confirmed:
