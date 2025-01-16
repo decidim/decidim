@@ -55,6 +55,8 @@ module Decidim
         ActiveSupport::Inflector.underscore(self.class.to_s).sub("/", ".serialize.").gsub("/", ".")
       end
 
+      protected
+
       delegate :component, to: :resource
 
       def profile_url(user)
@@ -69,6 +71,13 @@ module Decidim
 
       def host
         resource.organization.host
+      end
+
+      # helper method to serialize taxonomies for any resource
+      def taxonomies
+        {
+          ids: resource.taxonomies.map(&:id)
+        }.merge(resource.taxonomies.to_h { |taxonomy| [taxonomy.id, taxonomy.name] })
       end
     end
   end
