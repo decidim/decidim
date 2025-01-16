@@ -1,6 +1,5 @@
 ---
 en:
-
   activemodel:
     attributes:
       answer:
@@ -42,8 +41,8 @@ en:
       admin:
         models:
           components:
-            allow_editing_answers: Allow editing answers
             allow_answers: Allow answers
+            allow_editing_answers: Allow editing answers
             allow_unregistered: Allow unregistered users to answer the survey
             allow_unregistered_help: If active, no login will be required in order to answer the survey. This may lead to poor or unreliable data and it will be more vulnerable to automated attacks. Use with caution! Mind that a participant could answer the same survey multiple times, by using different browsers or the "private browsing" feature of her web browser.
             announcement: Announcement
@@ -186,10 +185,6 @@ en:
         question:
           max_choices: 'Max choices: %{n}'
         show:
-          questionnaire_answered_edit:
-            edit: Edit your answers
-            title: Already answered
-            body: You have already answered this form. %{link}
           answer_questionnaire:
             already_have_an_account?: Already have an account?
             are_you_new?: New user?
@@ -202,6 +197,9 @@ en:
           questionnaire_answered:
             body: You have already answered this form.
             title: Already answered
+          questionnaire_answered_edit:
+            body: You have already answered this form. %{link}
+            edit: Edit your answers
           questionnaire_closed:
             body: The form is closed and cannot be answered.
             title: Form closed

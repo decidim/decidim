@@ -46,7 +46,7 @@ module Decidim
 
       def confirm_data
         confirm = if allow_editing_answers?
-                    t("decidim.forms.step_navigation.show.are_you_sure")
+                    t("decidim.forms.step_navigation.show.are_you_sure_edit")
                   else
                     t("decidim.forms.step_navigation.show.are_you_sure_no_edit")
                   end
