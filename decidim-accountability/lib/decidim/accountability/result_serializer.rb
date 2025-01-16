@@ -17,7 +17,7 @@ module Decidim
       def serialize
         {
           id: result.id,
-          taxonomies: serialize_taxonomies(result),
+          taxonomies:,
           parent: {
             id: result.parent.try(:id)
           },

@@ -16,7 +16,7 @@ module Decidim
       def serialize
         {
           id: project.id,
-          taxonomies: serialize_taxonomies(project),
+          taxonomies:,
           participatory_space: {
             id: project.participatory_space.id,
             url: Decidim::ResourceLocatorPresenter.new(project.participatory_space).url

@@ -24,7 +24,7 @@ module Decidim
             id: meeting.participatory_space.id,
             url: Decidim::ResourceLocatorPresenter.new(meeting.participatory_space).url
           },
-          taxonomies: serialize_taxonomies(meeting),
+          taxonomies:,
           component: { id: component.id },
           title: meeting.title,
           description: meeting.description,
