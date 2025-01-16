@@ -92,7 +92,7 @@ module Decidim
 
         def evaluator_assigned_to_proposal?
           @evaluator_assigned_to_proposal ||=
-            Decidim::Proposals::ValuationAssignment
+            Decidim::Proposals::EvaluationAssignment
             .where(proposal:, evaluator_role: user_evaluator_role)
             .any?
         end

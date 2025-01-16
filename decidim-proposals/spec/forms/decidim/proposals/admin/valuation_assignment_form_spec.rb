@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Proposals
     module Admin
-      describe ValuationAssignmentForm do
+      describe EvaluationAssignmentForm do
         subject { form }
 
         let(:organization) { component.participatory_space.organization }

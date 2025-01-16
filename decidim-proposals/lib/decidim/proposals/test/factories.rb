@@ -565,7 +565,7 @@ FactoryBot.define do
     component { create(:proposal_component, skip_injection:) }
   end
 
-  factory :valuation_assignment, class: "Decidim::Proposals::ValuationAssignment" do
+  factory :valuation_assignment, class: "Decidim::Proposals::EvaluationAssignment" do
     transient do
       skip_injection { false }
     end

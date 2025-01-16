@@ -19,7 +19,7 @@ module Decidim
           let!(:assignment) { create(:valuation_assignment, proposal: assigned_proposal, evaluator_role:) }
           let(:form) do
             instance_double(
-              ValuationAssignmentForm,
+              EvaluationAssignmentForm,
               current_user: user,
               current_component:,
               current_organization: current_component.organization,
@@ -40,7 +40,7 @@ module Decidim
             it "does not destroy the assignments" do
               expect do
                 command.call
-              end.not_to change(ValuationAssignment, :count)
+              end.not_to change(EvaluationAssignment, :count)
             end
           end
 
@@ -54,7 +54,7 @@ module Decidim
             it "destroys the valuation assignment between the user and the proposal" do
               expect do
                 command.call
-              end.to change { ValuationAssignment.where(evaluator_role:).count }.from(1).to(0)
+              end.to change { EvaluationAssignment.where(evaluator_role:).count }.from(1).to(0)
             end
 
             it "traces the action", versioning: true do

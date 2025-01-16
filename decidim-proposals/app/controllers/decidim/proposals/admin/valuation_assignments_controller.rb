@@ -3,9 +3,9 @@
 module Decidim
   module Proposals
     module Admin
-      class ValuationAssignmentsController < Admin::ApplicationController
+      class EvaluationAssignmentsController < Admin::ApplicationController
         def create
-          @form = form(Admin::ValuationAssignmentForm).from_params(params)
+          @form = form(Admin::EvaluationAssignmentForm).from_params(params)
 
           @form.proposals.each do |proposal|
             enforce_permission_to :assign_to_evaluator, :proposals, proposal:
@@ -25,7 +25,7 @@ module Decidim
         end
 
         def destroy
-          @form = form(Admin::ValuationAssignmentForm).from_params(params)
+          @form = form(Admin::EvaluationAssignmentForm).from_params(params)
 
           @form.evaluator_roles.each do |evaluator_role|
             enforce_permission_to :unassign_from_evaluator, :proposals, valuator: evaluator_role.user

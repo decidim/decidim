@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     module Admin
-      class ValuationAssignmentForm < Decidim::Form
+      class EvaluationAssignmentForm < Decidim::Form
         attribute :id, Integer
         attribute :proposal_ids, Array
         attribute :evaluator_role_ids, Array

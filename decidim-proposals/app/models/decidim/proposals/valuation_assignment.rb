@@ -5,7 +5,7 @@ module Decidim
     # A valuation assignment links a proposal and a Evaluator user role.
     # Evaluators will be users in charge of defining the monetary cost of a
     # proposal.
-    class ValuationAssignment < ApplicationRecord
+    class EvaluationAssignment < ApplicationRecord
       include Decidim::Traceable
       include Decidim::Loggable
 
@@ -14,7 +14,7 @@ module Decidim
       belongs_to :evaluator_role, polymorphic: true
 
       def self.log_presenter_class_for(_log)
-        Decidim::Proposals::AdminLog::ValuationAssignmentPresenter
+        Decidim::Proposals::AdminLog::EvaluationAssignmentPresenter
       end
 
       def valuator

@@ -8,7 +8,7 @@ module Decidim
           def present
             return unless value
 
-            role = Decidim::Proposals::ValuationAssignment.find_by(evaluator_role_id: value).evaluator_role
+            role = Decidim::Proposals::EvaluationAssignment.find_by(evaluator_role_id: value).evaluator_role
             user = role.user
             user.try(:name)
           end

@@ -20,7 +20,7 @@ module Decidim
         end
 
         def proposal_evaluators
-          @proposal_evaluators ||= Decidim::Proposals::ValuationAssignment.where(proposal:).filter_map do |assignment|
+          @proposal_evaluators ||= Decidim::Proposals::EvaluationAssignment.where(proposal:).filter_map do |assignment|
             assignment.valuator unless assignment.valuator == form.current_user
           end
         end

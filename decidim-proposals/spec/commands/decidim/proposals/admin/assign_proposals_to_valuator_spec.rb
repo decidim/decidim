@@ -16,7 +16,7 @@ module Decidim
           let(:evaluator_roles) { [evaluator_role] }
           let(:form) do
             instance_double(
-              ValuationAssignmentForm,
+              EvaluationAssignmentForm,
               current_user: user,
               current_component:,
               current_organization: current_component.organization,
@@ -37,7 +37,7 @@ module Decidim
             it "does not create the assignments" do
               expect do
                 command.call
-              end.not_to change(ValuationAssignment, :count)
+              end.not_to change(EvaluationAssignment, :count)
             end
           end
 
@@ -51,13 +51,13 @@ module Decidim
             it "creates the valuation assignment between the user and the proposal" do
               expect do
                 command.call
-              end.to change { ValuationAssignment.where(proposal:, evaluator_role:).count }.by(1)
+              end.to change { EvaluationAssignment.where(proposal:, evaluator_role:).count }.by(1)
             end
 
             it "traces the action", versioning: true do
               expect(Decidim.traceability)
                 .to receive(:create!)
-                .with(Decidim::Proposals::ValuationAssignment, form.current_user, proposal:, evaluator_role:)
+                .with(Decidim::Proposals::EvaluationAssignment, form.current_user, proposal:, evaluator_role:)
                 .and_call_original
 
               expect { command.call }.to change(Decidim::ActionLog, :count)
@@ -68,7 +68,7 @@ module Decidim
 
             context "when it raises an error while creating assignments" do
               before do
-                allow(Decidim::Proposals::ValuationAssignment).to receive(:create!).and_raise(ActiveRecord::RecordInvalid)
+                allow(Decidim::Proposals::EvaluationAssignment).to receive(:create!).and_raise(ActiveRecord::RecordInvalid)
               end
 
               it "broadcasts invalid" do
@@ -76,7 +76,7 @@ module Decidim
               end
 
               it "does not create any assignment" do
-                expect { command.call }.not_to change(ValuationAssignment, :count)
+                expect { command.call }.not_to change(EvaluationAssignment, :count)
               end
             end
           end

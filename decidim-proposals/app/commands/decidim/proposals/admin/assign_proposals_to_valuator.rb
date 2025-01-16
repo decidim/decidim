@@ -44,7 +44,7 @@ module Decidim
         end
 
         def find_assignment(proposal, evaluator_role)
-          Decidim::Proposals::ValuationAssignment.find_by(
+          Decidim::Proposals::EvaluationAssignment.find_by(
             proposal:,
             evaluator_role:
           )
@@ -52,7 +52,7 @@ module Decidim
 
         def assign_proposal(proposal, evaluator_role)
           Decidim.traceability.create!(
-            Decidim::Proposals::ValuationAssignment,
+            Decidim::Proposals::EvaluationAssignment,
             form.current_user,
             proposal:,
             evaluator_role:

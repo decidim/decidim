@@ -42,7 +42,7 @@ module Decidim
         end
 
         def find_assignment(proposal, evaluator_role)
-          Decidim::Proposals::ValuationAssignment.find_by(
+          Decidim::Proposals::EvaluationAssignment.find_by(
             proposal:,
             evaluator_role:
           )
