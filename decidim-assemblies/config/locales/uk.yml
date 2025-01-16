@@ -137,7 +137,6 @@ uk:
           attachment_collections: Теки
           attachment_files: Вкладені файли
           attachments: Вкладені файли
-          categories: Категорії
           components: Складові
           moderations: Дії з модерації
       models:
