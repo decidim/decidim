@@ -227,6 +227,9 @@ de:
           view_votes:
             one: Stimme anzeigen
             other: Stimmen anzeigen
+          votes_count:
+            one: Ihre Stimme für %{budget_name} wurde bereits registriert.
+            other: Ihre %{count} Stimmen für %{budget_name} wurden bereits registriert.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Die ausgewählten Projekte sind:'
