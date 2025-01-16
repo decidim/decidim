@@ -770,6 +770,7 @@ de:
             error: Konnte nicht als Mitarbeiter abgelehnt werden, versuche es später erneut.
             success: "@%{user} wurde als Mitwirkende erfolgreich abgelehnt."
         show:
+          edit: Bearbeiten
           final_proposal: Endgültiger Vorschlag
           final_proposal_help_text: Dieser Entwurf ist fertig. Sie können den endgültigen fertigen Vorschlag sehen
           hidden_authors_count:
@@ -804,6 +805,11 @@ de:
       destroy_draft:
         error: Es gab Fehler beim Löschen des Vorschlagsentwurfs.
         success: Der Vorschlagsentwurf wurde erfolgreich gelöscht.
+      exit_modal:
+        cancel: Abbrechen
+        exit: Fortsetzen
+      forms:
+        use_my_location: Meinen aktuellen Standort verwenden
       invite_coauthors:
         cancel:
           error: Beim Zurückziehen der Einladung zur Mitverfassung ist ein Fehler aufgetreten.
@@ -923,6 +929,7 @@ de:
         show:
           answer: Antworten
           changes_at_title: Ergänzung zu „%{title}“
+          edit_proposal: Bearbeiten
           estimated_cost: Geschätzte Kosten
           hidden_endorsers_count:
             one: und %{count} weitere Person
@@ -938,6 +945,7 @@ de:
           proposal_rejected_reason: 'Dieser Vorschlag wurde abgelehnt, weil:'
           withdraw_btn_hint: Sie können Ihren Vorschlag zurückziehen, wenn Sie es sich anders überlegen, solange Sie keine Stimme erhalten haben. Der Vorschlag wird nicht gelöscht, er erscheint in der Liste der zurückgezogenen Vorschläge.
           withdraw_confirmation_html: Sind Sie sicher, dass Sie diesen Vorschlag zurückziehen möchten?<br><br><strong>Diese Aktion kann nicht abgebrochen werden!</strong>
+          withdraw_proposal: Zurückziehen
         update:
           title: Vorschlag aktualisieren
         vote_button:
@@ -958,6 +966,7 @@ de:
             description: Sie können bis zu %{limit} Vorschläge erstellen.
           threshold_per_proposal:
             description: Vorschläge müssen %{limit} Stimmen erreichen, um berücksichtigt zu werden.
+          title: Regeln zur Teilnahme
           vote_limit:
             description: Sie können bis zu %{limit} Vorschläge abstimmen.
             votes: '%{number} Stimmen verbleibend'
