@@ -173,7 +173,7 @@ eu:
               infinite: Utzi proposamenak editatzen epe mugagabe batean
               limited: Utzi proposamenak editatzen epe zehatz baten barruan
             proposal_length: Proposamen-testuaren gehieneko luzera
-            proposal_limit: Proposamen-muga erabiltzaile bakoitzeko
+            proposal_limit: Proposamen-muga parte-hartzaile bakoitzeko
             proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
             proposal_wizard_step_2_help_text: Proposamen laguntzailea "Konparatu" urrats laguntza testua
             proposal_wizard_step_3_help_text: Proposamen laguntzailea "Bete" urrats laguntza testua
@@ -217,7 +217,7 @@ eu:
             proposal_answering_enabled: Proposamena erantzutea gaituta dago
             publish_answers_immediately: Argitaratu berehala proposamen erantzunak
             publish_answers_immediately_help_html: 'Kontuz, proposamenen bati erantzuten badiozu hau gabe, eskuz argitaratu beharko dituzu, aukeratuz eta argitaratzeko ekintza erabiliz. Nola funtzionatzen duen jakiteko, ikus <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank"> proposals'' answers documentation page</a>proposamenen erantzunen dokumentazio-orria.'
-            suggested_hashtags: Traolek erabiltzaileei proposamen berriak proposatu dizkie
+            suggested_hashtags: Traolek parte-hartzaileei proposamen berriak proposatu dizkie
             votes_blocked: Aldeko botoak blokeatuta
             votes_enabled: Aldeko botoak gaituta
             votes_hidden: Aldeko botoak ezkutatuta (aldeko bozkak gaituta badadaude, hau egiaztatuz aldeko bozka kopurua ezkutatuko da)
@@ -243,7 +243,7 @@ eu:
           email_intro: '%{requester_name} -k eskatu du laguntzaile gisa sartzeko. <strong>onartu edo baztertu egin dezakezu </strong> <a href="%{resource_url}">%{resource_title}</a> testu kolaboratibo ziriborroan.'
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzailea zarelako.
           email_subject: "%{requester_name}-k sarbidea eskatu du %{resource_title}-an aritzeko."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> erabiltzaileak eskatu zuen <a href="%{resource_path}">%{resource_title}</a> ziriborro kolaboratiboan parte hartzeko. Mesedez, onartu edo baztertu eskaera.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> parte-hartzaileak eskatu zuen <a href="%{resource_path}">%{resource_title}</a> ziriborro kolaboratiboan parte hartzeko. Mesedez, onartu edo baztertu eskaera.
         collaborative_draft_access_requester_accepted:
           email_intro: Onartu zaituzte <a href="%{resource_url}">%{resource_title}</a> </a>testu kolaboratiboan laguntzaile gisa sartzeko.
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzaile izatea eskatu duzulako.
@@ -586,10 +586,10 @@ eu:
             success: Proposamenentzako ebaluatzailea zuzen desesleitua.
       admin_log:
         proposal:
-          answer: "%{user_name} erabiltzaileak %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
-          create: "%{user_name} erabiltzaileak %{resource_name} proposamena sortu du %{space_name} espazioan proposamen ofizial gisa"
-          publish_answer: "%{user_name} k argitaratu zuen %{resource_name} proposamenaren erantzuna %{space_name} espazioan"
-          update: "%{user_name} erabiltzaileak %{resource_name} proposamena eguneratu du %{space_name} espazioan"
+          answer: "%{user_name} parte-hartzaileak %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
+          create: "%{user_name} parte-hartzaileak %{resource_name} proposamena sortu du %{space_name} espazioan proposamen ofizial gisa"
+          publish_answer: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} proposamenaren erantzuna %{space_name} espazioan"
+          update: "%{user_name} parte-hartzaileak %{resource_name} proposamena eguneratu du %{space_name} espazioan"
         proposal_note:
           create: "%{user_name} k %{resource_name} proposamenari buruzko ohar pribatu bat utzi du %{space_name} espazioan"
         valuation_assignment:
