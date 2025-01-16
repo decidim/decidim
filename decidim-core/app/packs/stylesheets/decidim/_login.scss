@@ -1,3 +1,8 @@
+$facebook_background: #1877F2;
+$facebook_background_hover: #155CBA; // 30% opacity
+$google_background: #F2F2F2;
+$google_background_hover: #DCDCDC; // 30% opacity
+
 .login {
   &__info {
     @apply text-gray-2 text-lg space-y-4 mt-10 prose-a:text-secondary prose-a:underline;
@@ -30,7 +35,13 @@
       }
 
       &--facebook {
-        @apply flex flex-row text-white bg-omniauth-facebook hover:bg-omniauth-facebookhover;
+        @apply flex flex-row text-white;
+
+        background-color: $facebook_background;
+      }
+
+      &--facebook:hover {
+        background-color: $facebook_background_hover;
       }
 
       &--x {
@@ -38,7 +49,13 @@
       }
 
       &--google {
-        @apply flex flex-row text-black bg-omniauth-google hover:bg-omniauth-googlehover border border-background;
+        @apply flex flex-row text-black border border-background;
+
+        background-color: $google_background;
+      }
+
+      &--google:hover {
+        background-color: $google_background_hover;
       }
     }
 
