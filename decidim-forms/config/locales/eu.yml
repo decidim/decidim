@@ -126,7 +126,7 @@ eu:
             success: Galdetegia zuzen gorde da.
       admin_log:
         questionnaire:
-          update: "%{user_name} erabiltzaileak %{resource_name} galdetegia eguneratu du"
+          update: "%{user_name} parte-hartzaileak %{resource_name} galdetegia eguneratu du"
       errors:
         answer:
           body: "Gorputza ezin da hutsik egon\n"
@@ -157,7 +157,7 @@ eu:
         show:
           answer_questionnaire:
             already_have_an_account?: Baduzu kontu bat?
-            are_you_new?: Erabiltzaile berria?
+            are_you_new?: Parte-hartzaile berria?
             sign_in_description: Hasi saioa inkesta egiteko
             sign_up_description: Sortu parte-hartzaileen kontua inkesta egiteko
             title: Erantzun formularioa
@@ -193,6 +193,6 @@ eu:
         ip_hash: IP Helbidearen Hash
         question: Galdera
         registered: Erregistratuta
-        session_token: Erabiltzailearen identifikatzailea
+        session_token: Parte-hartzailearen identifikatzailea
         unregistered: Erregistratu gabe
-        user_status: Erabiltzailearen egoera
+        user_status: Parte-hartzailearen egoera
