@@ -32,16 +32,16 @@ eu:
           id: Erantzunaren identifikatzaile bakarra
           question: Erantzun zen galdera
           questionnaire: Erantzun zen galdetegia
-          user: Inkesta erantzun zuen erabiltzailea
+          user: Inkesta erantzun zuen parte-hartzailea
       show:
         answers: Esportatu erantzunak
-        survey_user_answers: Inkesta erabiltzaile erantzunak
+        survey_user_answers: Inkesta parte-hartzaile erantzunak
     forms:
       admin:
         models:
           components:
             allow_answers: Baimendu erantzunak
-            allow_unregistered: Baimentzea erregistratu gabeko erabiltzaileek inkesta erantzutea
+            allow_unregistered: Baimentzea erregistratu gabeko parte-hartzaileek inkesta erantzutea
             allow_unregistered_help: Aktibatuta badago ez da beharrezkoa saioa hastea inkesta erantzuteko. Honen ondorioz datu eskas edo fidagarritasun gutxikoak bildu litezke. Kontuz erabili! Izan ere, parte-hartzaile berak hainbat aldiz erantzun litzake nabigatzaile desberdinetatik edo "nabigazio pribatuaren" aukera erabiliz.
             announcement: Oharra
             clean_after_publish: Ezabatu erantzunak inkesta argitaratzean
@@ -129,7 +129,7 @@ eu:
             statement: Adierazpena
             up: Gora
           questions_form:
-            already_answered_warning: Formularioa erabiltzaile batzuek erantzuten dute dagoeneko; beraz, ezin dituzu galderak aldatu.
+            already_answered_warning: Formularioa parte-hartzaile batzuek erantzuten dute dagoeneko; beraz, ezin dituzu galderak aldatu.
             collapse: Kolapsatu galdera guztiak
             expand: Zabaldu galdera guztiak
             unpublished_warning: Galdetegia ez dago argitaratuta. Galderak alda ditzakezu, baina eginez gero, oraingo erantzunak ezabatuko dituzu.
@@ -199,7 +199,7 @@ eu:
             body: Galdetegia itxita dago eta ezin da erantzun.
             title: Galdeketa itxia
           questionnaire_for_private_users:
-            body: Galdetegia erabiltzaile pribatuentzat soilik dago erabilgarri
+            body: Galdetegia parte-hartzaile pribatuentzat soilik dago erabilgarri
             title: Galdeketa itxia
           questionnaire_js_disabled:
             body: Galdetegi honen ezaugarri batzuk desaktibatu egingo dira. Zure esperientzia hobetzeko, gaitu JavaScript zure nabigatzailean.
