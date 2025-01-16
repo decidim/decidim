@@ -13,6 +13,7 @@ module Decidim
       attribute :public_participation, Boolean, default: false
 
       attribute :tos_agreement, Boolean
+      attribute :allow_editing_answers, Boolean, default: false
 
       before_validation :before_validation
 
