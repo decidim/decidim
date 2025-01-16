@@ -1002,6 +1002,8 @@ de:
         edit:
           submit: einreichen
           title: Berechtigungen bearbeiten
+        options_form:
+          ephemeral_warning: Um diese Autorisierungsmethode zu aktivieren, müssen Sie alle bestehenden Autorisierungen <a href="%{path}“>zurücknehmen</a>. Dadurch wird das Risiko von Überprüfungskonflikten minimiert. Alle Berechtigungen dieses Typs werden in der Organisation automatisch entzogen, wenn Sie Änderungen einreichen, die diese Methode hinzufügen oder ihre Konfiguration verändern, nachdem sie hinzugefügt wurde.
         update:
           success: Berechtigungen wurden erfolgreich aktualisiert.
       scope_types:
