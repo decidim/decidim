@@ -425,7 +425,6 @@ pt:
         create:
           success: Rascunho colaborativo criado corretamente.
         edit:
-          attachment_legend: "(Opcional) Adicione um anexo"
           back: Retroceder
           send: Enviar
           title: Editar rascunho colaborativo
@@ -520,7 +519,6 @@ pt:
           description: As coordenadas serão actualizadas quando clicar no botão ‘pré-visualização’. No entanto, o endereço não será alterado.
           instructions: Pode mover o ponto no mapa.
         edit:
-          attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
           send: Enviar
           title: Editar proposta
