@@ -48,7 +48,7 @@ eu:
       decidim/removed_from_group: Taldetik kenduta
       decidim/resource_endorsed_event: Baliabideari atxiki zaio
       decidim/resource_hidden_event: Ezkutuko baliabidea
-      decidim/user_group_created_event: Erabiltzaile-taldea sortua
+      decidim/user_group_created_event: Partaide-taldea sortua
       decidim/welcome_notification_event: Ongietorri-mezua
   activerecord:
     attributes:
@@ -74,7 +74,7 @@ eu:
         other: Parte-hartzaileak
       decidim/user_group:
         one: Taldea
-        other: Erabiltzaile taldeak
+        other: Partaide-taldeak
   booleans:
     'false': 'Ez'
     'true': 'Bai'
@@ -243,9 +243,9 @@ eu:
         update: "%{user_name} k erakundearen ezarpenak eguneratu ditu"
         update_external_domain: "%{user_name} k erakundearen kanpoko domeinuak eguneratu ditu"
       participatory_space_private_user:
-        create: "%{user_name} k %{resource_name} gonbidatu du parte-hartzaile pribatua izatera"
-        create_via_csv: "%{user_name} k %{resource_name} gonbidatu du CSV bidez parte-hartzaile pribatua izatera"
-        delete: "%{user_name} k %{resource_name} parte-hartzaile pribatu gisa kendu du"
+        create: "%{user_name} parte-hatzaileak %{resource_name} gonbidatu du parte-hartzaile pribatua izatera"
+        create_via_csv: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du CSV bidez parte-hartzaile pribatua izatera"
+        delete: "%{user_name} parte-hatzaileak %{resource_name} parte-hartzaile pribatu gisa kendu du"
       scope:
         create: "%{user_name} k %{resource_name} esparrua sortu du"
         create_with_parent: "%{user_name} k %{resource_name} esparrua %{parent_scope} esparru barruan sortu du"
@@ -262,15 +262,15 @@ eu:
         delete: "%{user_name} k %{resource_name} orri estatikoa ezabatu du"
         update: "%{user_name} k %{resource_name} orri estatikoa eguneratu du"
       user:
-        block: "%{user_name} k %{resource_name} erabiltzailea blokeatu du"
-        invite: "%{user_name} k %{resource_name} parte-hartzailea gonbidatu du %{role} rolarekin"
-        officialize: "%{user_name} k %{resource_name} parte-hartzailea ofizializatu du"
+        block: "%{user_name} parte-hatzaileak %{resource_name} erabiltzailea blokeatu du"
+        invite: "%{user_name} parte-hatzaileak %{resource_name} parte-hartzailea gonbidatu du %{role} rolarekin"
+        officialize: "%{user_name} parte-hatzaileak %{resource_name} parte-hartzailea ofizializatu du"
         promote: "%{user_name} k %{resource_name} sustatu du"
-        remove_from_admin: "%{user_name} k %{resource_name} parte-hartzailea kendu du %{role} rolarekin"
-        show_email: "%{user_name} k %{resource_name} parte-hartzailearen korreo elektronikoa berreskuratu du"
-        transfer: "%{user_name} erabiltzaileak parte-hartzailea transferitu du %{resource_name}-era"
+        remove_from_admin: "%{user_name} parte-hatzaileak %{resource_name} parte-hartzailea kendu du %{role} rolarekin"
+        show_email: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailearen korreo elektronikoa berreskuratu du"
+        transfer: "%{user_name} parte-hartzaileak parte-hartzailea transferitu du %{resource_name}-era"
         unblock: "%{user_name} k desofizializatu zuen %{resource_name} erabiltzailea"
-        unofficialize: "%{user_name} k %{resource_name} parte-hartzailea desofizializatu du"
+        unofficialize: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea desofizializatu du"
       user_group:
         block: "%{user_name} k %{resource_name} erabiltzaile-taldea blokeatu du"
         reject: "%{user_name} k ukatu du %{resource_name} taldearen egiaztapena"
@@ -686,7 +686,7 @@ eu:
         try_later: Mesedez, saiatu berriro geroago. Erroreak jarraitzen badu, mesedez, kopiatu ondoko informazio hau eta bidali plataformaren mantentzaileei partekatu nahi duzun bestelako informazioarekin batera.
         unknown: Ezezaguna
         url: URL
-        user: Erabiltzailearen ID
+        user: Parte-hartzailearen ID
       not_found:
         back_home: Itzuli hasierara
         content_doesnt_exist: Helbide hau okerra da edo ezabatua izan da.
@@ -941,11 +941,11 @@ eu:
           conditions:
             - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
           description: Bereizgarria jarraitzaile kopuru jakin batera iristen zarenean ematen da. %{organization_name} sare soziala eta politikoa da, zure web-orria plataforman beste pertsona batzuekin komunikatzeko ehuna egiten du.
-          description_another: Erabiltzaile honek %{score} jarraitzaile ditu.
+          description_another: Parte-hartzaile honek %{score} jarraitzaile ditu.
           description_own: "%{score} erabiltzailek jarraitzen zaituzte."
           name: Jarraitzaileak
           next_level_in: Lortu %{score} erabiltzaile gehiago jarraitzeko hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek oraindik ez du jarraitzailerik.
+          unearned_another: Parte-hartzaile honek oraindik ez du jarraitzailerik.
           unearned_own: Oraindik ez duzu jarraitzailerik.
         index:
           badge_title: "%{name} garaikurra"
@@ -958,7 +958,7 @@ eu:
       title: Zer dira garaikurrak?
     group_admins:
       actions:
-        are_you_sure: Ziur zaude? Honek ez du parte-hartzailea taldetik aterako.
+        are_you_sure: Ziur zaude? Honek ez du partaide-taldetik aterako.
         demote_admin: Kendu kudeatzailea
       demote:
         error: Arazo bat egon da parte-hartzaile hau administratzaileen zerrendatik kentzean.
@@ -1186,7 +1186,7 @@ eu:
         object: jarraitzaileak
         title: Jarraitzaileak
       participants:
-        description: Erakundeko erabiltzaile aktiboen kopurua
+        description: Erakundeko parte-hartzaile aktiboen kopurua
         object: parte-hartzaileak
         title: Parte-hartzaileak
       users:
@@ -1581,7 +1581,7 @@ eu:
       notify:
         body_1: '%{user} erabiltzailea %{token}-ek erreportatu du'
         body_2: 'Arrazoia: %{reason}'
-        details: Erabiltzaileak emandako datuak
+        details: Parte-hartzaileak emandako datuak
         greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo %{admin},
         subject: Beste erabiltzaile bat erreportatu dute hemen %{organization_name}
@@ -1667,7 +1667,7 @@ eu:
         ignore: |-
           Gonbidapena onartu nahi ez baduzu, mesedez, ez egin kasurik mezu elektroniko honi. Zure kontua ez da sortuko, goiko estekara sartu eta zure erabiltzaile-izena eta pasahitza ezarri arte.
         invited_you_as_admin: "%{invited_by} admnisitrariak %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
-        invited_you_as_private_user: "%{invited_by} k egonbidatu zaitu %{application} ko erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
+        invited_you_as_private_user: "%{invited_by} parte-hartzaileak egonbidatu zaitu %{application} ko erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
         someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onartu dezakezu.
         someone_invited_you_as_admin: Norbaitek %{application} admin gisa gonbidatu zaitu, beheko estekan onartu dezakezu.
         someone_invited_you_as_private_user: Norbaitek %{application} ko parte-hartzaile pribatu gisa gonbidatu zaitu, beheko estekan onar dezakezu.
@@ -1945,7 +1945,7 @@ eu:
       header:
         log_in: Hasi saioa
         main_menu: Menu nagusia
-        user_menu: Erabiltzailearen menua
+        user_menu: Parte-hartzailearen menua
       impersonation_warning:
         close_session: Itxi saioa
         description_html: <b>%{user_name}</b> parte-hartzailea kudeatzen ari zara.
