@@ -17,6 +17,11 @@ module Decidim
       def index; end
 
       def edit
+        unless survey.allow_editing_answers? && survey.open?
+          flash[:error] = t("decidim.forms.step_navigation.show.disallowed")
+          render :no_permission and return
+        end
+
         @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
         @form.add_answers!(questionnaire:, session_token:, ip_hash:)
         @form.allow_editing_answers = questionnaire.questionnaire_for&.allow_editing_answers?
@@ -34,12 +39,16 @@ module Decidim
 
       protected
 
+      def allow_editing_answers?
+        survey.allow_editing_answers? && survey.open?
+      end
+
       def allow_answers?
-        !current_component.published? || @survey.open?
+        !current_component.published? || survey.open?
       end
 
       def allow_unregistered?
-        @survey.allow_unregistered
+        survey.allow_unregistered
       end
 
       def form_path
