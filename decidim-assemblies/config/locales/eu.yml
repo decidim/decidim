@@ -235,31 +235,31 @@ eu:
         deleted_assemblies_info: Batzar bat soilik ezabatu daiteke egoera "Argitaratugabea" bada.
     admin_log:
       assembly:
-        create: "%{user_name} k %{resource_name} batzarra sortu zuen"
-        duplicate: "%{user_name} k %{resource_name} batzarra bikoiztu zuen"
-        export: "%{user_name} k %{resource_name} batzarra esportatu zuen"
-        import: "%{user_name} k %{resource_name} batzarra inportatu zuen"
-        publish: "%{user_name} k%{resource_name} batzarra argitaratu du"
-        restore: "%{user_name} k %{resource_name} batzarra berreskuratu du"
-        soft_delete: "%{user_name} k %{resource_name} batzarra zaborrontzira eraman du"
-        unpublish: "%{user_name} k %{resource_name} batzarra desargitaratu du"
-        update: "%{user_name} k %{resource_name} batzarra eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} batzarra sortu zuen"
+        duplicate: "%{user_name} parte-hartzaileak %{resource_name} batzarra bikoiztu zuen"
+        export: "%{user_name} parte-hartzaileak %{resource_name} batzarra esportatu zuen"
+        import: "%{user_name} parte-hartzaileak %{resource_name} batzarra inportatu zuen"
+        publish: "%{user_name} parte-hartzaileak %{resource_name} batzarra argitaratu du"
+        restore: "%{user_name} parte-hartzaileak %{resource_name} batzarra berreskuratu du"
+        soft_delete: "%{user_name} parte-hartzaileak %{resource_name} batzarra zaborrontzira eraman du"
+        unpublish: "%{user_name} parte-hartzaileak %{resource_name} batzarra desargitaratu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} batzarra eguneratu du"
       assembly_member:
-        create: "%{user_name} k %{resource_name} kidea sortu du %{space_name} batzarrean"
-        delete: "%{user_name} k kendu du %{resource_name} kidea %{space_name} batzarretik"
-        update: "%{user_name} k %{resource_name} kidea eguneratu du %{space_name} batzarrean"
+        create: "%{user_name} parte-hartzaileak %{resource_name} kidea sortu du %{space_name} batzarrean"
+        delete: "%{user_name} parte-hartzaileak kendu du %{resource_name} kidea %{space_name} batzarretik"
+        update: "%{user_name} parte-hartzaileak %{resource_name} kidea eguneratu du %{space_name} batzarrean"
       assembly_setting:
-        update: "%{user_name} k batzarren konfigurazioa eguneratu du"
+        update: "%{user_name} parte-hartzaileak batzarren konfigurazioa eguneratu du"
       assembly_type:
-        create: "%{user_name} k %{resource_name} batzar mota sortu du"
-        delete: "%{user_name} k %{resource_name} batzar mota ezabatu du"
-        publish: "%{user_name} k %{resource_name} batzar mota argitaratu du"
-        unpublish: "%{user_name} k %{resource_name} batzar mota despublikatu du"
-        update: "%{user_name} k %{resource_name} batzar mota eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} batzar mota sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} batzar mota ezabatu du"
+        publish: "%{user_name} parte-hartzaileak %{resource_name} batzar mota argitaratu du"
+        unpublish: "%{user_name} parte-hartzaileak %{resource_name} batzar mota despublikatu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} batzar mota eguneratu du"
       assembly_user_role:
-        create: "%{user_name} k %{resource_name} gonbidatu du %{space_name} batzarrera"
+        create: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du %{space_name} batzarrera"
         delete: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea %{space_name} muntaia kendu du"
-        update: "%{user_name} k %{resource_name} rola aldatu du %{space_name} batzarrerako"
+        update: "%{user_name} parte-hartzaileak %{resource_name} rola aldatu du %{space_name} batzarrerako"
     assemblies:
       admin:
         assemblies:
@@ -436,7 +436,7 @@ eu:
           developer_group: Batzarraren talde garatzailea
           duration: Batzarraren iraupena
           facebook_handler: Sare sozialetako arduraduna Facebookerako
-          follows_count: Espazio hau zenbat parte-hatzailek jarraitzen duten
+          follows_count: Espazio hau zenbat parte-hartzailek jarraitzen duten
           github_handler: Sare sozialetako arduraduna GitHuberako
           hashtag: Batzarraren traola, Twitter/Xentzat erabilia
           id: Batzar honen identifikatzaile bakarra
@@ -458,12 +458,12 @@ eu:
           scopes_enabled: Esparruak gaituta dauden ala ez
           short_description: Batzarraren deskribapen laburra
           slug: Batzarraren lerroa (identifikaziorako erabiltzen da, URLrako)
-          special_features: Zein ezaugarri berezi ditu batzar honek
+          special_features: Zein ezaugarri berezi ditu batzar honek?
           subtitle: Batzarraren azpititulua
           target: Batzarraren helburua
           taxonomies: Proiektuaren taxonomiak
           title: Batzarraren izenburua
-          twitter_handler: Sare sozialetako arduraduna Twitterrerako
+          twitter_handler: Sare sozialetako arduraduna X sarerako
           updated_at: Zein egunetan eguneratu zen azken aldiz espazio hau
           url: Espazioaren URLa
           youtube_handler: Sare sozialetako arduraduna You Tuberako
