@@ -719,7 +719,6 @@ de:
           error: Beim Erstellen dieses kollaborativen Entwurfs ist ein Problem aufgetreten.
           success: Collaborative Draft wurde erfolgreich erstellt.
         edit:
-          attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
           send: Abschicken
           title: Gemeinsamen Entwurf bearbeiten
@@ -859,10 +858,7 @@ de:
           description: Die Koordinaten werden aktualisiert, wenn Sie auf "Vorschau" klicken. Die angegebene Adresse wird sich jedoch nicht ändern.
           instructions: Sie können den Punkt auf der Karte verschieben.
         edit:
-          add_documents: Dokumente hinzufügen
-          attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
-          edit_documents: Dokumente bearbeiten
           send: Abschicken
           title: Vorschlag bearbeiten
         edit_draft:
