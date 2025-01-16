@@ -19,7 +19,6 @@ module Decidim
 
           def index
             enforce_permission_to :index, :authorization
-            @status = Status.new(current_organization)
           end
 
           def new
@@ -28,7 +27,6 @@ module Decidim
 
           def create
             @form = form(Admin::CensusForm).from_params(params)
-            @status = Status.new(current_organization)
             Admin::CreateCensusRecord.call(@form) do
               on(:ok) do
                 flash[:notice] = t(".success")
@@ -73,6 +71,7 @@ module Decidim
 
           def new_import
             @form = form(CensusDataForm).from_params(params)
+            @status = Status.new(current_organization)
           end
 
           def create_import
@@ -92,13 +91,6 @@ module Decidim
             end
           end
 
-          def destroy_all
-            enforce_permission_to :destroy, :authorization
-            CsvDatum.clear(current_organization)
-
-            redirect_to census_records_path, notice: t(".success")
-          end
-
           private
 
           def census_data
@@ -106,7 +98,7 @@ module Decidim
           end
 
           def csv_census_data
-            @csv_census_data ||= CsvDatum.where(organization: current_organization).page(params[:page]).per(15)
+            @csv_census_data ||= CsvDatum.where(organization: current_organization).page(params[:page]).per(3)
           end
 
           def show_instructions

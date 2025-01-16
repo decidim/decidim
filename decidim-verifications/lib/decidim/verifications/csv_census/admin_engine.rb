@@ -13,7 +13,6 @@ module Decidim
           resources :census_records, except: [:show], controller: "census" do
             collection do
               get :new_import
-              delete :destroy_all
               post :create_import
             end
           end

@@ -5,6 +5,7 @@
   </h2>
 </div>
 <div class="card-section">
+  <div class="row column  font-semibold pb-4"><%= t(".upload_new_census") %></div>
   <div class="row column">
     <p><%= t(".info") %></p>
     <pre class="code-block"><%= t(".example") %></pre>
@@ -12,8 +13,10 @@
 
   <div class="row column">
     <%= decidim_form_for @form, url: create_import_census_records_path, multipart: true do |form| %>
-      <%= label_tag :file, t("census.new_import.file", scope: "decidim.verifications.csv_census.admin") %>
-      <%= form.file_field :file %>
+      <div class="font-semibold">
+        <%= label_tag :file, t("census.new_import.file", scope: "decidim.verifications.csv_census.admin") %>
+        <%= form.file_field :file %>
+      </div>
 
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">
