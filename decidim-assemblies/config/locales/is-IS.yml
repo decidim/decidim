@@ -103,7 +103,6 @@ is-IS:
         assemblies_submenu:
           attachment_files: Skrár
           attachments: Viðhengi
-          categories: Flokkar
           components: Hluti
           moderations: Moderations
       models:
