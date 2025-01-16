@@ -458,11 +458,14 @@ de:
         explanation: Beispiel Autorisierung
         name: Arbeitsablauf Dummy Berechtigung
       ephemeral_dummy_authorization_handler:
+        explanation: Lassen Sie sich durch die Einführung einer Dokumentnummer verifizieren, die mit "X" endet.
         fields:
+          allowed_postal_codes: Erlaubte Postleitzahl (durch Kommas getrennt)
           allowed_scope_id: Erlaubter Bereich
           document_number: Dokumentnummer
           postal_code: Postleitzahl
           scope_id: Bereich
+        name: Ephemere Beispiel-Autorisierung
       errors:
         duplicate_authorization: Ein Teilnehmer mit den gleichen Daten ist bereits autorisiert. Ein Administrator wird Sie kontaktieren, um Ihre Daten zu überprüfen.
       expired_at: Abgelaufen am %{timestamp}
@@ -1520,6 +1523,8 @@ de:
         taxonomies:
           children_count: Die Anzahl der Teilergebnisse, die diese Klassifizierung hat
           created_at: Das Erstellungsdatum der Klassifizierung
+          filter_items_count: Die Anzahl der Elementfilter die diese Klassifizierung verwenden
+          filters_count: Die Anzahl der Filter, die diese Klassifizierung verwenden
           id: Die eindeutige Bezeichnung dieser Klassifizierung
           is_root: Wahr, wenn diese Klassifizierung keine übergeordnete Elemente hat
           name: Der Name dieser Klassifizierung
@@ -2246,6 +2251,7 @@ de:
         terms_of_service: Nutzungsbedingungen
       header:
         close: Schliessen
+        confirm_close_ephemeral_session: Wenn Sie diese Seite verlassen, wird Ihre Sitzung geschlossen. Sind Sie sicher?
         log_in: Anmelden
         main_menu: Hauptmenü
         user_menu: Benutzer-Menü
