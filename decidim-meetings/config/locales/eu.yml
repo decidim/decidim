@@ -273,7 +273,7 @@ eu:
         invites:
           create:
             error: Arazo bat egon da parte-hartzailea topaketara gonbidatzean.
-            success: Erabiltzailea behar bezala gonbidatu da topaketa batera.
+            success: Parte-hartzailea behar bezala gonbidatu da topaketa batera.
           form:
             attendee_type: Parte-hartzaile mota
             existing_user: Parte-hartzailea badago
@@ -313,9 +313,9 @@ eu:
             update: Eguneratu
           form:
             address_help: 'Helbidea: Geocoderrek erabiltzen du kokapena aurkitzeko'
-            disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko erabiltzaileek emandako datuen erantzule.'
+            disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko parte-hartzaileek emandako datuen erantzule.'
             iframe_embed_type_html: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
-            location_help: 'Kokapena: erabiltzaileentzako mezua, non bildu behar dugun adierazten duena'
+            location_help: 'Kokapena: parte-hartzaileentzako mezua, non bildu behar dugun adierazten duena'
             location_hints_help: 'Kokapen-aholkuak: informazio gehigarria. Adibidez: eraikinaren solairua, aurrez aurreko topaketa bat bada, edo topaketarako pasahitza, sarbide mugatuko online topaketa bat bada.'
             online_meeting_url_help: 'Esteka: Utzi parte-hartzaileei zuzenean konektatzen zure topaketara'
             registration_url_help: 'Esteka: parte-hartzaileei aukera ematea izena emateko erabiltzen ari zaren kanpoko zerbitzura joateko'
@@ -377,20 +377,20 @@ eu:
             success: Izen-ematearen kodea behar bezala balioztatu da.
       admin_log:
         invite:
-          create: "%{user_name} k %{attendee_name} gonbidatu du %{resource_name} topaketara lotzeko %{space_name} espazioan"
+          create: "%{user_name} parte-hartzaileak %{attendee_name} gonbidatu du %{resource_name} topaketara lotzeko %{space_name} espazioan"
           deleted: "%{user_name}-k %{attendee_name}-ri gonbidapena egiteari utzi dio %{space_name} espazioan parte hartzeko"
-          update: "%{user_name}-ek %{attendee_name}-ri gonbidatuta %{space_name} espazioan parte hartzeko"
+          update: "%{user_name} parte-hartzaileak %{attendee_name} gonbidatu du %{space_name} espazioan parte hartzeko"
         meeting:
-          close: "%{user_name}-k %{resource_name} topaketa %{space_name} espazioan itxi zen"
-          create: "%{user_name}-k %{resource_name} topaketa sortu du %{space_name} espazioan"
-          delete: "%{user_name}-k %{resource_name} topaketa ezabatu du %{space_name} espazioan"
-          export_registrations: "%{user_name} -k %{resource_name} topaketarako erregistroak esportatu ditu %{space_name} espazioan"
-          update: "%{user_name} k %{resource_name} topaketa %{space_name} espazioan eguneratu du"
+          close: "%{user_name} parte-hartzaileak %{space_name} ko %{resource_name} topaketa itxi du"
+          create: "%{user_name} parte-hartzaileak %{resource_name} topaketa sortu du %{space_name} espazioan"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} topaketa ezabatu du %{space_name} espazioan"
+          export_registrations: "%{user_name} parte-hartzailea %{resource_name} topaketarako erregistroak esportatu ditu %{space_name} espazioan"
+          update: "%{user_name} parte-hartzaileak %{resource_name} topaketa %{space_name} espazioan eguneratu du"
           value_types:
             organizer_presenter:
               not_found: 'Antolatzailea ez da aurkitu (ID: %{id}) datu-basean'
         questionnaire:
-          update: "%{user_name} erabiltzaileak galdetegia eguneratu du %{meeting_name} topaketan"
+          update: "%{user_name} parte-hartzaileak galdetegia eguneratu du %{meeting_name} topaketan"
       application_helper:
         filter_category_values:
           all: Denak
@@ -499,7 +499,7 @@ eu:
           address_help: 'Helbidea: Geocoderrek erabilia kokapena aurkitzeko'
           available_slots_help: Uzti 0an erabiltzeko espazio mugatua baduzu
           create_as: Sortu topaketa honela
-          disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko erabiltzaileek emandako datuen erantzule.'
+          disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko parte-hartzaileek emandako datuen erantzule.'
           iframe_embed_type_html: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
           location_help: 'Kokapena: mezua part-hartzaileei zuzendua biltzeko lekua adieraziz'
           location_hints_help: 'Kokapen-aholkuak: informazio gehigarria. Adibidea: eraikinaren solairua, aurrez aurreko topaketa bada, edo aretoaren pasahitza, sarrera mugatua duen online topaketa bada.'
