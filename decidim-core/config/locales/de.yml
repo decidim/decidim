@@ -457,6 +457,12 @@ de:
       dummy_authorization_workflow:
         explanation: Beispiel Autorisierung
         name: Arbeitsablauf Dummy Berechtigung
+      ephemeral_dummy_authorization_handler:
+        fields:
+          allowed_scope_id: Erlaubter Bereich
+          document_number: Dokumentnummer
+          postal_code: Postleitzahl
+          scope_id: Bereich
       errors:
         duplicate_authorization: Ein Teilnehmer mit den gleichen Daten ist bereits autorisiert. Ein Administrator wird Sie kontaktieren, um Ihre Daten zu überprüfen.
       expired_at: Abgelaufen am %{timestamp}
@@ -672,6 +678,7 @@ de:
           sign_in_disabled: Sie können mit einem externen Konto darauf zugreifen.
           sign_up_disabled: Registrierungen sind deaktiviert. Verwenden Sie ein bestehendes Konto für den Zugriff.
         user:
+          ephemeral_session_closed: Ihre Gastteilnahme ist beendet
           timed_out: Sie waren zu lange inaktiv und wurden automatisch abgemeldet. Wenn Sie den Dienst weiterhin nutzen möchten, melden Sie sich bitte erneut an.
       shared:
         newsletter_modal:
@@ -824,6 +831,7 @@ de:
       others: "%{count} weitere"
       title: Zustimmende
       you: du
+    ephemeral_user: Gast
     errors:
       files:
         file_cannot_be_processed: Datei konnte nicht verarbeitet werden
@@ -1472,11 +1480,13 @@ de:
     onboarding_action_message:
       click_link: Hier klicken
       cta_html: <a href="%{path}">%{link_text}</a> um %{action} auf %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: Sie wurden erfolgreich autorisiert.<br/>Sie haben eine Gastteilnahme gestartet und können jetzt teilnehmen.
       expired_authorization_active_title: Die Autorisierung ist abgelaufen.
       finish_authorization_process: Sie können den Autorisierungsprozess beenden
       incomplete_authorization_active_title: Ihre Verifizierung wurde nicht mit allen notwendigen Informationen abgeschlossen.
       pending_authorization_active_message: Bitte füllen Sie das Formular aus, um mit dieser Aktion fortzufahren.
       pending_authorization_active_title: Wir müssen deine Identität verifizieren.
+      pending_ephemeral_authorization: Bitte überprüfen Sie Ihre Identität, um fortzufahren.
     open_data:
       help:
         core:
@@ -1599,7 +1609,7 @@ de:
           how_to_participate: Wie nehme ich an einem Prozess teil?
           meetings: Meetings
           meetings_explanation: Finden Sie heraus, wo und wann Sie an öffentlichen Veranstaltungen teilnehmen können.
-          more_info: Mehr Informationen
+          more_info: Mehr Informationen über %{resource_name}
           proposals: Vorschläge
           proposals_explanation: Machen Sie Vorschläge, unterstützen Sie bestehende und fördern Sie die Änderungen, die Sie sehen möchten.
         footer_sub_hero:
@@ -2235,6 +2245,7 @@ de:
         sign_up: Konto erstellen
         terms_of_service: Nutzungsbedingungen
       header:
+        close: Schliessen
         log_in: Anmelden
         main_menu: Hauptmenü
         user_menu: Benutzer-Menü
