@@ -101,7 +101,7 @@ eu:
           debates: Eztabaidak
       admin_log:
         debate:
-          close: "%{user_name} erabiltzaileak %{resource_name} eztabaida sortu du %{space_name} esparruan"
+          close: "%{user_name} parte-hartzaileak %{resource_name} eztabaida sortu du %{space_name} esparruan"
           create: "%{user_name} k %{resource_name} eztabaida sortu du %{space_name} espazioan"
           restore: "%{user_name} k berreskuratu du %{resource_name} eztabaida %{space_name} espazioan"
           soft_delete: "%{user_name} k eraman du %{space_name} espazioko %{resource_name} eztabaida zaborrontzira"
@@ -239,7 +239,7 @@ eu:
           description_own: '%{score} eztabaidatan hartu duzu parte.'
           name: Eztabaidak
           next_level_in: Parte hartu %{score} eztabaidagai gehiago hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek eztabaida batean parte hartu du oraindik.
+          unearned_another: Parte-hartzaile honek eztabaida batean parte hartu du oraindik.
           unearned_own: Oraindik ez duzu parte hartu eztabaida batean ere.
     metrics:
       debates:
@@ -259,7 +259,7 @@ eu:
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
-          user_group: Iruzkin hau egin duen erabiltzaile-taldearen izena (baldin badago)
+          user_group: Iruzkin hau egin duen partaide-taldearen izena (baldin badago)
         debates:
           author: Eztabaida honen egilearen data
           closed_at: Zein datatan itxi zen eztabaida hau
