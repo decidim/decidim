@@ -762,7 +762,6 @@ fi:
           error: Yhteistyöluonnoksen luominen epäonnistui.
           success: Yhteistyöluonnoksen luonti onnistui.
         edit:
-          attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
           send: Lähetä
           title: Muokkaa yhteistyöluonnosta
@@ -910,10 +909,7 @@ fi:
           description: Koordinaatit päivitetään, kun painat Esikatsele-painiketta. Osoitetekstiä ei muuteta.
           instructions: Voit siirtää pistettä kartalla.
         edit:
-          add_documents: Lisää asiakirjoja
-          attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
-          edit_documents: Muokkaa asiakirjoja
           send: Lähetä
           title: Muokkaa ehdotusta
         edit_draft:
