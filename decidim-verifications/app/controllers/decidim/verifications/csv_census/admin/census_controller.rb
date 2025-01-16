@@ -17,9 +17,7 @@ module Decidim
 
           helper_method :csv_census_data
 
-          def index
-            enforce_permission_to :index, :authorization
-          end
+          def index; end
 
           def new
             @form = form(Admin::CensusForm).instance

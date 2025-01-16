@@ -3,7 +3,9 @@
   <div class="item_show__header item_show__header--with-action-options">
     <h1 class="item_show__header-title">
       <%= t("index.title", scope: "decidim.verifications.csv_census.admin") %>
-      <%= link_to t("index.add_new_record_button", scope: "decidim.verifications.csv_census.admin"), new_census_record_path, method: :get, class: "button button__sm button__secondary" %>
+      <button type="button" data-action="add-new-census-record" data-csvcensus-dialog="census_drawer" data-csvcensus-url="<%= new_census_record_path %>" class= "button button__sm button__secondary">
+        <%= t("index.add_new_record_button", scope: "decidim.verifications.csv_census.admin") %>
+      </button>
     </h1>
   </div>
   <div class="table-scroll mt-8">
@@ -42,3 +44,7 @@
   </div>
 </div>
 <%= decidim_paginate csv_census_data %>
+
+<%= render partial: "csvcensus_drawer" %>
+
+<%= append_javascript_pack_tag "decidim_verifications" %>
