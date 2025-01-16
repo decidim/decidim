@@ -13,7 +13,7 @@ describe Decidim::Proposals::Engine do
     context "when removing participatory_space admin" do
       let(:space) { evaluator_role.participatory_process }
       let(:evaluator_role) { create(:participatory_process_user_role) }
-      let!(:assignment) { create(:valuation_assignment, proposal:, evaluator_role:) }
+      let!(:assignment) { create(:evaluation_assignment, proposal:, evaluator_role:) }
 
       it "removes the record" do
         expect do
@@ -25,7 +25,7 @@ describe Decidim::Proposals::Engine do
     context "when removing assembly admin" do
       let(:space) { evaluator_role.assembly }
       let(:evaluator_role) { create(:assembly_user_role) }
-      let!(:assignment) { create(:valuation_assignment, proposal:, evaluator_role:) }
+      let!(:assignment) { create(:evaluation_assignment, proposal:, evaluator_role:) }
 
       it "removes the record" do
         expect do
@@ -37,7 +37,7 @@ describe Decidim::Proposals::Engine do
     context "when removing conference admin" do
       let(:space) { evaluator_role.conference }
       let(:evaluator_role) { create(:conference_user_role) }
-      let!(:assignment) { create(:valuation_assignment, proposal:, evaluator_role:) }
+      let!(:assignment) { create(:evaluation_assignment, proposal:, evaluator_role:) }
 
       it "removes the record" do
         expect do

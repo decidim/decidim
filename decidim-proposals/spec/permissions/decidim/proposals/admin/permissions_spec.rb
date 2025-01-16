@@ -95,7 +95,7 @@ describe Decidim::Proposals::Admin::Permissions do
 
     context "and can valuate the current proposal" do
       let(:proposal) { create(:proposal, component: current_component) }
-      let!(:assignment) { create(:valuation_assignment, proposal:, evaluator_role:) }
+      let!(:assignment) { create(:evaluation_assignment, proposal:, evaluator_role:) }
 
       it_behaves_like "can create proposal notes"
       it_behaves_like "can answer proposals"

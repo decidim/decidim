@@ -19,7 +19,7 @@ describe "Evaluator checks components" do
   include_context "when administrating a conference"
 
   before do
-    create(:valuation_assignment, proposal: assigned_proposal, evaluator_role:)
+    create(:evaluation_assignment, proposal: assigned_proposal, evaluator_role:)
 
     switch_to_host(organization.host)
     login_as user, scope: :user

@@ -16,7 +16,7 @@ module Decidim
           let(:valuator) { create(:user, organization:) }
           let(:evaluator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process: space) }
           let(:evaluator_roles) { [evaluator_role] }
-          let!(:assignment) { create(:valuation_assignment, proposal: assigned_proposal, evaluator_role:) }
+          let!(:assignment) { create(:evaluation_assignment, proposal: assigned_proposal, evaluator_role:) }
           let(:form) do
             instance_double(
               EvaluationAssignmentForm,

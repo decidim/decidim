@@ -161,7 +161,7 @@ module Decidim
       def self.with_valuation_assigned_to(user, space)
         evaluator_roles = space.user_roles(:valuator).where(user:)
 
-        includes(:valuation_assignments)
+        includes(:evaluation_assignments)
           .where(decidim_proposals_valuation_assignments: { evaluator_role_id: evaluator_roles })
       end
 

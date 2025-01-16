@@ -20,7 +20,7 @@ describe "Evaluator checks components" do
   before do
     user.update(admin: false)
 
-    create(:valuation_assignment, proposal: assigned_proposal, evaluator_role:)
+    create(:evaluation_assignment, proposal: assigned_proposal, evaluator_role:)
 
     visit current_path
   end

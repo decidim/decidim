@@ -97,7 +97,7 @@ describe "Admin manages proposals valuators" do
     let(:assigned_proposal) { proposal }
 
     before do
-      create(:valuation_assignment, proposal:, evaluator_role:)
+      create(:evaluation_assignment, proposal:, evaluator_role:)
 
       visit current_path
     end
@@ -121,7 +121,7 @@ describe "Admin manages proposals valuators" do
     let(:assigned_proposal) { proposal }
 
     before do
-      create(:valuation_assignment, proposal:, evaluator_role:)
+      create(:evaluation_assignment, proposal:, evaluator_role:)
 
       visit current_path
 
@@ -163,8 +163,8 @@ describe "Admin manages proposals valuators" do
     let(:assigned_proposal) { proposal }
 
     before do
-      create(:valuation_assignment, proposal:, evaluator_role:)
-      create(:valuation_assignment, proposal:, evaluator_role: other_evaluator_role)
+      create(:evaluation_assignment, proposal:, evaluator_role:)
+      create(:evaluation_assignment, proposal:, evaluator_role: other_evaluator_role)
 
       visit current_path
 
@@ -198,7 +198,7 @@ describe "Admin manages proposals valuators" do
     let(:assigned_proposal) { proposal }
 
     before do
-      create(:valuation_assignment, proposal:, evaluator_role:)
+      create(:evaluation_assignment, proposal:, evaluator_role:)
 
       visit current_path
       within "tr", text: translated(proposal.title) do
