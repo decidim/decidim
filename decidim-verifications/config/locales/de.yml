@@ -76,6 +76,12 @@ de:
             - Ein Beispiel-Autorisierungshandler, damit Entwickler verstehen können, wie eine einfache Verifizierung funktioniert.
             - Es ist für Entwickler gedacht, damit sie verstehen können, wie sie ihr eigenes Verifizierungssystem implementieren.
             - Lassen Sie sich verifizieren, indem Sie eine Dokumentennummer eingeben, die mit "X" endet.
+        ephemeral_dummy_authorization_handler:
+          help:
+            - Ein Beispiel für ephemere Autorisierungshandler, damit Entwickler verstehen können, wie eine einfache Verifizierung funktioniert.
+            - Es ist für Entwickler gedacht, damit sie verstehen können, wie sie ihr eigenes Verifizierungssystem implementieren.
+            - Es ist eine Kopie der Beispielgenehmigung.
+            - Lassen Sie sich durch die Einführung einer Dokumentnummer verifizieren, die mit "X" endet.
         id_documents:
           help:
             - Benutzer geben ihre Identitätsinformationen ein und laden eine Kopie ihres Dokuments hoch.
@@ -137,6 +143,14 @@ de:
         new:
           authorize: Senden
           authorize_with: Bestätigen Sie mit %{authorizer}
+          tos_agreement: Durch die Überprüfung Ihrer Identität akzeptieren Sie %{link}.
+        onboarding_pending:
+          completed_verifications: Sie wurden erfolgreich autorisiert, jetzt können Sie %{action} auf %{resource_name}
+          granted_verifications: Verifizierung erfolgeich
+          onboarding_message_html: Sie sind fast bereit für die %{action} auf <strong>%{resource_title}</strong> %{resource_name}. Bitte überprüfen Sie Ihr Konto durch das Ausfüllen der folgenden Berechtigungen.
+          pending_admin_approval_verifications: Ausstehende Administrator-Freigabeüberprüfungen
+          pending_verifications: Ausstehende Verifizierung
+          unauthorized: Sie sind nicht berechtigt für %{action} in dieser Ressource
         renew_modal:
           cancel: Abbrechen
           continue: Weiter
