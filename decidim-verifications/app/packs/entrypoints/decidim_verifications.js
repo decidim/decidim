@@ -1,5 +1,5 @@
 // CSS
 import "stylesheets/verifications.scss"
 
-//JS
+// JS
 import "src/csv_census"
