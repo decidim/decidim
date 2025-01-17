@@ -52,12 +52,20 @@ module Decidim
         I18n.t("#{key}.name", scope: "decidim.signature_workflows", default: name.humanize)
       end
 
+      def signature_form_class
+        form&.safe_constantize || Decidim::Initiatives::SignatureHandler
+      end
+
       def action_authorizer_class
         if action_authorizer.present?
           action_authorizer.constantize
         else
           DefaultSignatureAuthorizer
         end
+      end
+
+      def authorization_handler_form_class
+        authorization_handler_form&.safe_constantize
       end
 
       def sms_mobile_phone_form_class
