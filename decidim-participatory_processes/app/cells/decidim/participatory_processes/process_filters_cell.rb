@@ -16,11 +16,6 @@ module Decidim
         get_filter_in(:with_date, ALL_FILTERS, model[:default_filter])
       end
 
-      def current_type_filter_name
-        participatory_process_types_for_select.find { |_, id| id == get_filter(:with_any_type) }&.first ||
-          I18n.t("all_types", scope: "decidim.participatory_processes.participatory_processes.filters")
-      end
-
       def get_filter(filter_name, default = nil)
         params&.dig(:filter, filter_name) || default
       end
@@ -35,19 +30,17 @@ module Decidim
           filter: {
             with_date: date_filter,
             with_any_scope: get_filter(:with_any_scope),
-            with_any_area: get_filter(:with_any_area),
-            with_any_type: type_filter || get_filter(:with_any_type)
+            with_any_area: get_filter(:with_any_area)
           }
         }
       end
 
-      def filtered_processes(date_filter, filter_with_type: true)
+      def filtered_processes(date_filter)
         query = ParticipatoryProcess.where(organization: current_organization).ransack(
           {
             with_date: date_filter,
             with_any_scope: get_filter(:with_any_scope),
-            with_any_area: get_filter(:with_any_area),
-            with_any_type: filter_with_type ? get_filter(:with_any_type) : nil
+            with_any_area: get_filter(:with_any_area)
           },
           current_user:
         ).result
@@ -86,10 +79,6 @@ module Decidim
         I18n.t(current_filter, scope: "decidim.participatory_processes.participatory_processes.filters.counters", count: process_count_by_filter[current_filter])
       end
 
-      def filter_type_label
-        I18n.t("filter_by", scope: "decidim.participatory_processes.participatory_processes.filters")
-      end
-
       def filter_name(filter)
         I18n.t(filter, scope: "decidim.participatory_processes.participatory_processes.filters.names")
       end
@@ -107,21 +96,6 @@ module Decidim
         return "no_active" if process_count_by_filter["upcoming"].positive?
 
         "no_active_nor_upcoming"
-      end
-
-      def participatory_process_types
-        @participatory_process_types ||= Decidim::ParticipatoryProcessType.joins(:processes).where(
-          decidim_participatory_processes: { id: filtered_processes(current_filter, filter_with_type: false) }
-        ).distinct
-      end
-
-      def participatory_process_types_for_select
-        return if participatory_process_types.blank?
-
-        [[I18n.t("all_types", scope: "decidim.participatory_processes.participatory_processes.filters"), ""]] +
-          participatory_process_types.map do |type|
-            [translated_attribute(type.title), type.id.to_s]
-          end
       end
     end
   end

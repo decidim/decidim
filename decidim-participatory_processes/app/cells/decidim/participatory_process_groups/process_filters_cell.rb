@@ -52,13 +52,12 @@ module Decidim
         end
       end
 
-      def filtered_processes(date_filter, filter_with_type: true)
+      def filtered_processes(date_filter)
         query = base_relation.ransack(
           {
             with_date: date_filter,
             with_any_scope: get_filter(:with_any_scope),
-            with_any_area: get_filter(:with_any_area),
-            with_any_type: filter_with_type ? get_filter(:with_any_type) : nil
+            with_any_area: get_filter(:with_any_area)
           },
           current_user:,
           organization: current_organization
