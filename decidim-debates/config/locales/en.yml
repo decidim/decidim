@@ -75,12 +75,12 @@ en:
             title: Edit debate
             update: Update debate
           form:
-            add_documents: Add documents
-            attachment_legend: "(Optional) Add an attachment"
+            add_attachments: Add attachments
+            attachment_legend: Add a document or an image
             comments_visualization: Comments visualization
             comments_warning: Once the first comment is posted, the selected display option cannot be changed.
             debate_type: Debate type
-            edit_documents: Edit documents
+            edit_attachments: Edit attachments
             errors:
               comments_layout_locked: You cannot change the comment layout once comments have been posted.
             finite: Finite (With start and end times)
