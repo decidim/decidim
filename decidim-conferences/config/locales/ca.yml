@@ -543,14 +543,20 @@ ca:
         conference_invites:
           accepted_at: La data en què la invitació a la jornada es va acceptar
           conference: La jornada a la qual correspon aquesta invitació
+          confirmed_at: La data en què es va confirmar la invitació
+          created_at: La data en què va ser crear la invitació
           id: L'identificador únic de la invitació a la jornada
           registration_type: El tipus d'inscripció enviada per a aquesta jornada
           rejected_at: La data en què la invitació a la jornada va ser rebutjada
           sent_at: La data en què la invitació a la jornada es va enviar
+          updated_at: La data en què aquesta taxonomia es va actualitzar per darrera vegada
         conference_registrations:
           conference: La jornada a la qual pertany aquesta inscripció
+          confirmed_at: La data en què es va confirmar la inscripció
+          created_at: La data en què va ser crear la inscripció
           id: L'identificador únic de la inscripció a la jornada
           registration_type: El tipus d'inscripció habilitat para aquesta jornada
+          updated_at: La data en què aquesta inscripció es va actualitzar per darrera vegada
     events:
       conferences:
         conference_registration_confirmed:
