@@ -188,7 +188,7 @@ eu:
         cancel: Ezeztatu
       password_change:
         alert: Pasahitza aldatu behar duzu aurrera jarraitu ahal izateko.
-        notification: Administratzaile rola duten erabiltzaileek pasahitza aldatu behar dute %{days} egunik behin.
+        notification: Administratzaile rola duten parte-hartzaileek pasahitza aldatu behar dute %{days} egunik behin.
     admin_log:
       area:
         create: "%{user_name} parte-hartzaileak%{resource_name} arloa sortu du"
@@ -642,7 +642,7 @@ eu:
           publish_content: Argitaratu edukia zuretzat
           see_email: Ikusi zure helbide elektronikoa
           see_name: Ikusi zure izena
-          see_username: Ikusi zure erabiltzaile-izena
+          see_username: Ikusi zure parte-hartzailearen izena
           this_application_will_be_able_to: 'Aplikazio hau gai izango da:'
           this_application_will_not_be_able_to: 'Aplikazio honek ezin izango du:'
           update_profile: Eguneratu profila
@@ -934,9 +934,9 @@ eu:
             - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
           description: Bereizgarria jarraitzaile kopuru jakin batera iristen zarenean ematen da. %{organization_name} sare soziala eta politikoa da, zure web-orria plataforman beste pertsona batzuekin komunikatzeko ehuna egiten du.
           description_another: Parte-hartzaile honek %{score} jarraitzaile ditu.
-          description_own: "%{score} erabiltzailek jarraitzen zaituzte."
+          description_own: "%{score} parte-hartzailek jarraitzen zaituzte."
           name: Jarraitzaileak
-          next_level_in: Lortu %{score} erabiltzaile gehiago jarraitzeko hurrengo mailara iristeko!
+          next_level_in: Lortu %{score} parte-hartzaile gehiago jarraitzeko hurrengo mailara iristeko!
           unearned_another: Parte-hartzaile honek oraindik ez du jarraitzailerik.
           unearned_own: Oraindik ez duzu jarraitzailerik.
         index:
@@ -1037,7 +1037,7 @@ eu:
     help:
       main_topic:
         default_page:
-          content: "<p> %{organization} gai desberdinetan parte hartu eta erabaki dezakezu, menu nagusian ikusten dituzun espazioen bidez: Prozesuak, Biltzarrak, Ekimenak, Kontsultak.</p> <p>Parte bakoitzean parte hartzeko aukera desberdinak aurkituko dituzu: proposamenak egitea, banaka edo beste pertsona batzuekin, eztabaidetan parte hartzea, proiektuak gauzatzeko aurreikusitako aurrekontuak, aurrez aurreko topaketak eta bestelako ekintzak biltzea.</p>\n"
+          content: "<p> %{organization} gai desberdinetan parte hartu eta erabaki dezakezu, menu nagusian ikusten dituzun espazioen bidez: Prozesuak, Jardunaldiak, Ekimenak, Kontsultak.</p> <p>Parte bakoitzean parte hartzeko aukera desberdinak aurkituko dituzu: proposamenak egitea, banaka edo beste pertsona batzuekin, eztabaidetan parte hartzea, proiektuak gauzatzeko aurreikusitako aurrekontuak, aurrez aurreko topaketak eta bestelako ekintzak biltzea.</p>\n"
           title: Zer egin dezaket %{organization}?
         description: 'Irakurri gehiago honetaz: %{organization}.'
         title: Laguntza orokorra
@@ -1348,7 +1348,7 @@ eu:
         error: Arazo bat egon da pasahitza eguneratzean.
         success: Pasahitza zuzen eguneratua.
     profile:
-      deleted: Erabiltzailea ezabatua
+      deleted: Parte-hartzaile ezabatua
       inaccessible_message: Profil hau eskuraezina da, erabilera-irizpideak eta baldintzak urratzeagatik!
     profiles:
       default_officialization_text_for_user_groups: Talde hau publikoki egiaztatuta dago, bere izena egiaztatu da bere benetako izenarekin bat etor dadin.
@@ -1545,7 +1545,7 @@ eu:
       show_translated: Erakutsi automatikoki itzulitako testua
     user_activity:
       index:
-        no_activities_warning: Erabiltzaile honek oraindik ez du jarduerarik izan.
+        no_activities_warning: Parte-hartzaile honek oraindik ez du jarduerarik izan.
     user_contact_disabled: Parte-hartzaile honek ez du mezu zuzenik onartzen.
     user_conversations:
       create:
