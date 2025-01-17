@@ -381,6 +381,8 @@ en:
               disabled: Voting disabled
               enabled: Voting enabled
               finished: Voting finished
+      pagination:
+        page_title: "%{component_name} - Page %{current_page} of %{total_pages}"
     download_your_data:
       help:
         orders:

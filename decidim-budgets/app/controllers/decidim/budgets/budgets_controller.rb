@@ -8,9 +8,11 @@ module Decidim
 
       include Decidim::Budgets::Orderable
       include Decidim::TranslatableAttributes
+      include Decidim::Paginable
 
       def index
         redirect_to budget_projects_path(current_workflow.single) if current_workflow.single?
+        @projects = paginate(Decidim::Budgets::Project.joins(:budget).where(decidim_budgets_budgets: { component: current_component }))
       end
 
       def show

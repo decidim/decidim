@@ -1,6 +1,9 @@
 <% add_decidim_meta_tags(
   description: translated_attribute(current_component.participatory_space.try(:description)),
-  title: component_name,
+  title: t("decidim.components.pagination.page_title",
+           component_name: translated_attribute(current_component.name),
+           current_page: @projects.current_page,
+           total_pages: @projects.total_pages ),
   url: budgets_url,
   resource: current_component) %>
 
