@@ -49,10 +49,10 @@ describe Decidim::Conferences::Permissions do
       it_behaves_like "access for role", access[:moderator]
     end
 
-    context "when user is a space valuator" do
+    context "when user is a space evaluator" do
       let(:user) { conference_evaluator }
 
-      it_behaves_like "access for role", access[:valuator]
+      it_behaves_like "access for role", access[:evaluator]
     end
   end
 
@@ -67,7 +67,7 @@ describe Decidim::Conferences::Permissions do
         org_admin: true,
         admin: true,
         collaborator: true,
-        valuator: true,
+        evaluator: true,
         moderator: true
       )
     end
@@ -85,7 +85,7 @@ describe Decidim::Conferences::Permissions do
         admin: true,
         collaborator: false,
         moderator: true,
-        valuator: false
+        evaluator: false
       )
     end
 
@@ -208,7 +208,7 @@ describe Decidim::Conferences::Permissions do
       org_admin: true,
       admin: true,
       collaborator: true,
-      valuator: true,
+      evaluator: true,
       moderator: true
     )
   end
@@ -223,7 +223,7 @@ describe Decidim::Conferences::Permissions do
       org_admin: true,
       admin: true,
       collaborator: true,
-      valuator: true,
+      evaluator: true,
       moderator: true
     )
   end
@@ -241,7 +241,7 @@ describe Decidim::Conferences::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: :not_set,
-        valuator: true
+        evaluator: true
       )
     end
 
@@ -257,7 +257,7 @@ describe Decidim::Conferences::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: :not_set,
-        valuator: :not_set
+        evaluator: :not_set
       )
     end
   end
@@ -272,7 +272,7 @@ describe Decidim::Conferences::Permissions do
       org_admin: true,
       admin: true,
       collaborator: true,
-      valuator: true,
+      evaluator: true,
       moderator: true
     )
   end
@@ -288,7 +288,7 @@ describe Decidim::Conferences::Permissions do
       org_admin: true,
       admin: true,
       collaborator: true,
-      valuator: true,
+      evaluator: true,
       moderator: true
     )
   end
@@ -304,7 +304,7 @@ describe Decidim::Conferences::Permissions do
       org_admin: true,
       admin: true,
       collaborator: true,
-      valuator: true,
+      evaluator: true,
       moderator: true
     )
   end
@@ -319,7 +319,7 @@ describe Decidim::Conferences::Permissions do
       org_admin: true,
       admin: false,
       collaborator: false,
-      valuator: false,
+      evaluator: false,
       moderator: false
     )
   end
@@ -337,7 +337,7 @@ describe Decidim::Conferences::Permissions do
         org_admin: true,
         admin: true,
         collaborator: :not_set,
-        valuator: :not_set,
+        evaluator: :not_set,
         moderator: true
       )
     end
@@ -352,7 +352,7 @@ describe Decidim::Conferences::Permissions do
         org_admin: true,
         admin: true,
         collaborator: :not_set,
-        valuator: :not_set,
+        evaluator: :not_set,
         moderator: :not_set
       )
     end

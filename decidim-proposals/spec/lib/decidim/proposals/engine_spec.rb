@@ -7,7 +7,7 @@ describe Decidim::Proposals::Engine do
 
   describe "decidim_proposals.remove_space_admins" do
     let(:component) { create(:proposal_component, participatory_space: space) }
-    let(:valuator) { create(:user, organization:) }
+    let(:evaluator) { create(:user, organization:) }
     let(:proposal) { create(:proposal, component:) }
 
     context "when removing participatory_space admin" do

@@ -256,7 +256,7 @@ module Decidim
 
       # Evaluators can only read components
       def evaluator_action?
-        return unless can_manage_conference?(role: :valuator)
+        return unless can_manage_conference?(role: :evaluator)
 
         allow! if permission_action.action == :read && permission_action.subject == :component
         allow! if permission_action.action == :export && permission_action.subject == :component_data

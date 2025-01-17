@@ -11,7 +11,7 @@ describe "Evaluator checks components" do
   end
   let(:components_path) { participatory_space_path }
   let!(:user) { create(:user, :confirmed, :admin_terms_accepted, admin: false, organization:) }
-  let!(:evaluator_role) { create(:assembly_user_role, role: :valuator, user:, assembly:) }
+  let!(:evaluator_role) { create(:assembly_user_role, role: :evaluator, user:, assembly:) }
   let(:another_component) { create(:component, participatory_space: assembly) }
 
   include Decidim::ComponentPathHelper

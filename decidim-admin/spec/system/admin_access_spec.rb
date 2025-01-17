@@ -68,7 +68,7 @@ describe "AdminAccess" do
     end
   end
 
-  context "when the user is a valuator" do
+  context "when the user is a evaluator" do
     let(:user) { create(:process_evaluator, :confirmed, participatory_process:) }
 
     before do

@@ -159,7 +159,7 @@ module Decidim
       }
 
       def self.with_valuation_assigned_to(user, space)
-        evaluator_roles = space.user_roles(:valuator).where(user:)
+        evaluator_roles = space.user_roles(:evaluator).where(user:)
 
         includes(:evaluation_assignments)
           .where(decidim_proposals_valuation_assignments: { evaluator_role_id: evaluator_roles })
@@ -391,7 +391,7 @@ module Decidim
         ProposalSearch.new(self, params, options)
       end
 
-      # method to filter by assigned valuator role ID
+      # method to filter by assigned evaluator role ID
       def self.evaluator_role_ids_has(value)
         query = <<-SQL.squish
         :value = any(

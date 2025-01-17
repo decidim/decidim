@@ -28,7 +28,7 @@ module Decidim
           @form = form(Admin::EvaluationAssignmentForm).from_params(params)
 
           @form.evaluator_roles.each do |evaluator_role|
-            enforce_permission_to :unassign_from_evaluator, :proposals, valuator: evaluator_role.user
+            enforce_permission_to :unassign_from_evaluator, :proposals, evaluator: evaluator_role.user
           end
 
           Admin::UnassignProposalsFromEvaluator.call(@form) do

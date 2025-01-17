@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     module Admin
       # A command with all the business logic to unassign proposals from a given
-      # valuator.
+      # evaluator.
       class UnassignProposalsFromEvaluator < Decidim::Command
         # Public: Initializes the command.
         #

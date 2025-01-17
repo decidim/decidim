@@ -45,10 +45,10 @@ module Decidim
           # Every user allowed by the space can split proposals to another component
           allow! if permission_action.subject == :proposals && permission_action.action == :split
 
-          # Every user allowed by the space can assign proposals to a valuator
+          # Every user allowed by the space can assign proposals to a evaluator
           can_assign_evaluator_to_proposal?
 
-          # Every user allowed by the space can unassign a valuator from proposals
+          # Every user allowed by the space can unassign a evaluator from proposals
           can_unassign_evaluator_from_proposals?
 
           # Only admin users can publish many answers at once
@@ -81,7 +81,7 @@ module Decidim
         end
 
         def user_evaluator_role
-          @user_evaluator_role ||= space.user_roles(:valuator).find_by(user:)
+          @user_evaluator_role ||= space.user_roles(:evaluator).find_by(user:)
         end
 
         def user_is_evaluator?

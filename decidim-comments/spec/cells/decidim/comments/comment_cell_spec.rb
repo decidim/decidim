@@ -219,25 +219,25 @@ module Decidim::Comments
             end
           end
 
-          context "and the user is a valuator in the same participatory space" do
-            let!(:evaluator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: component.participatory_space, role: :valuator) }
+          context "and the user is a evaluator in the same participatory space" do
+            let!(:evaluator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: component.participatory_space, role: :evaluator) }
 
             it "renders the reply form" do
               expect(subject).to have_css(".add-comment")
             end
           end
 
-          context "and the user is a valuator in another participatory process" do
-            let!(:evaluator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: create(:participatory_process, organization: component.organization), role: :valuator) }
+          context "and the user is a evaluator in another participatory process" do
+            let!(:evaluator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: create(:participatory_process, organization: component.organization), role: :evaluator) }
 
             it "does not render the reply form" do
               expect(subject).to have_no_css(".add-comment")
             end
           end
 
-          context "and the user is a valuator in another participatory space" do
+          context "and the user is a evaluator in another participatory space" do
             let!(:component) { create(:component, participatory_space: assembly) }
-            let!(:evaluator_role) { create(:assembly_user_role, user: current_user, assembly: create(:assembly, organization: component.organization), role: :valuator) }
+            let!(:evaluator_role) { create(:assembly_user_role, user: current_user, assembly: create(:assembly, organization: component.organization), role: :evaluator) }
 
             it "does not render the reply form" do
               expect(subject).to have_no_css(".add-comment")

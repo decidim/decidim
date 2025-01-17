@@ -144,7 +144,7 @@ en:
           taxonomies_part_of_contains:
             label: Taxonomy
           evaluator_role_ids_has:
-            label: Assigned to valuator
+            label: Assigned to evaluator
           with_any_state:
             label: Answered
             values:
@@ -273,10 +273,10 @@ en:
           notification_title: You have been added as a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
         admin:
           proposal_assigned_to_evaluator:
-            email_intro: You have been assigned as a valuator to the proposal "%{resource_title}". This means you have been trusted to give them feedback and a proper response in the next coming days. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
+            email_intro: You have been assigned as a evaluator to the proposal "%{resource_title}". This means you have been trusted to give them feedback and a proper response in the next coming days. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
             email_outro: You have received this notification because you can evaluate the proposal.
-            email_subject: You have been assigned as a valuator to the proposal %{resource_title}.
-            notification_title: You have been assigned as a valuator to the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
+            email_subject: You have been assigned as a evaluator to the proposal %{resource_title}.
+            notification_title: You have been assigned as a evaluator to the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
           proposal_note_created:
             email_intro: '%{author_name} has created a private note in %{resource_title}. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.'
             email_outro: You have received this notification because you can evaluate the proposal.
@@ -633,7 +633,7 @@ en:
           index:
             actions: Actions
             apply_answer_template: Apply answer template
-            assign_to_evaluator: Assign to valuator
+            assign_to_evaluator: Assign to evaluator
             assign_to_evaluator_button: Assign
             cancel: Cancel
             change_taxonomies: Change taxonomies
@@ -649,7 +649,7 @@ en:
             split_button: Split
             statuses: Statuses
             title: Proposals
-            unassign_from_evaluator: Unassign from valuator
+            unassign_from_evaluator: Unassign from evaluator
             unassign_from_evaluator_button: Unassign
             update: Update
           manage_trash:
@@ -677,7 +677,7 @@ en:
             ranking: "%{ranking} of %{total}"
             related_meetings: Related meetings
             remove_assignment: Remove assignment
-            remove_assignment_confirmation: Are you sure you want to remove the valuator from this proposal?
+            remove_assignment_confirmation: Are you sure you want to remove the evaluator from this proposal?
             votes_count: Votes count
           update_taxonomies:
             invalid: 'These proposals already had the %{taxonomies} taxonomies: %{proposals}.'
@@ -704,10 +704,10 @@ en:
             success: Successfully splitted the proposals into new ones.
         valuation_assignments:
           create:
-            invalid: There was a problem assigning proposals to a valuator.
-            success: Proposals assigned to a valuator successfully.
+            invalid: There was a problem assigning proposals to a evaluator.
+            success: Proposals assigned to a evaluator successfully.
           delete:
-            invalid: There was a problem unassigning proposals from a valuator.
+            invalid: There was a problem unassigning proposals from a evaluator.
             success: evaluator unassigned from proposals successfully.
       admin_log:
         proposal:
@@ -720,8 +720,8 @@ en:
         proposal_note:
           create: "%{user_name} left a private note on the %{resource_name} proposal on the %{space_name} space"
         valuation_assignment:
-          create: "%{user_name} assigned the %{resource_name} proposal to a valuator"
-          delete: "%{user_name} unassigned a valuator from the %{proposal_title} proposal"
+          create: "%{user_name} assigned the %{resource_name} proposal to a evaluator"
+          delete: "%{user_name} unassigned a evaluator from the %{proposal_title} proposal"
       answers:
         accepted: Accepted
         evaluating: Evaluating

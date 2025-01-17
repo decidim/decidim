@@ -10,7 +10,7 @@ describe "Evaluator checks components" do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
   end
   let!(:user) { create(:user, organization:) }
-  let!(:evaluator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process:) }
+  let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process:) }
   let(:another_component) { create(:component, participatory_space: participatory_process) }
 
   include Decidim::ComponentPathHelper

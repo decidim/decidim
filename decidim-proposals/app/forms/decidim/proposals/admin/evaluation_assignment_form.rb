@@ -17,7 +17,7 @@ module Decidim
 
         def evaluator_roles
           @evaluator_roles ||= current_component.participatory_space
-                                                .user_roles(:valuator)
+                                                .user_roles(:evaluator)
                                                 .order_by_name
                                                 .where(id: evaluator_role_ids)
         end

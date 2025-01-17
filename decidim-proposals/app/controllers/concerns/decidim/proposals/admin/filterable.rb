@@ -27,7 +27,7 @@ module Decidim
           end
 
           def accessible_proposals_collection
-            return collection if current_participatory_space.user_roles(:valuator).where(user: current_user).empty?
+            return collection if current_participatory_space.user_roles(:evaluator).where(user: current_user).empty?
 
             collection.with_valuation_assigned_to(current_user, current_participatory_space)
           end
@@ -51,11 +51,11 @@ module Decidim
           end
 
           def evaluator_role_ids
-            current_participatory_space.user_roles(:valuator).order_by_name.pluck(:id)
+            current_participatory_space.user_roles(:evaluator).order_by_name.pluck(:id)
           end
 
           def translated_evaluator_role_ids_has(evaluator_role_id)
-            user_role = current_participatory_space.user_roles(:valuator).find_by(id: evaluator_role_id)
+            user_role = current_participatory_space.user_roles(:evaluator).find_by(id: evaluator_role_id)
             user_role&.user&.name
           end
         end

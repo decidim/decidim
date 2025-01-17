@@ -87,10 +87,10 @@ describe Decidim::Proposals::Admin::Permissions do
     end
   end
 
-  context "when user is a valuator" do
+  context "when user is a evaluator" do
     let(:organization) { space.organization }
     let(:space) { current_component.participatory_space }
-    let!(:evaluator_role) { create(:participatory_process_user_role, user:, role: :valuator, participatory_process: space) }
+    let!(:evaluator_role) { create(:participatory_process_user_role, user:, role: :evaluator, participatory_process: space) }
     let!(:user) { create(:user, organization:) }
 
     context "and can evaluate the current proposal" do
@@ -210,7 +210,7 @@ describe Decidim::Proposals::Admin::Permissions do
     end
   end
 
-  describe "assign proposals to a valuator" do
+  describe "assign proposals to a evaluator" do
     let(:action) do
       { scope: :admin, action: :assign_to_evaluator, subject: :proposals }
     end
@@ -218,7 +218,7 @@ describe Decidim::Proposals::Admin::Permissions do
     it { is_expected.to be true }
   end
 
-  describe "unassign proposals from a valuator" do
+  describe "unassign proposals from a evaluator" do
     let(:action) do
       { scope: :admin, action: :unassign_from_evaluator, subject: :proposals }
     end

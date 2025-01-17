@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # A set of methods and features related to proposal valuations.
-    module Valuatable
+    module Evaluatable
       extend ActiveSupport::Concern
       include Decidim::Comments::Commentable
 
@@ -11,9 +11,9 @@ module Decidim
         has_many :evaluation_assignments, foreign_key: "decidim_proposal_id", dependent: :destroy,
                                           counter_cache: :evaluation_assignments_count, class_name: "Decidim::Proposals::EvaluationAssignment"
 
-        def valuators
+        def evaluators
           evaluator_role_ids = valuation_assignments.where(proposal: self).pluck(:evaluator_role_id)
-          user_ids = participatory_space.user_roles(:valuator).where(id: evaluator_role_ids).pluck(:decidim_user_id)
+          user_ids = participatory_space.user_roles(:evaluator).where(id: evaluator_role_ids).pluck(:decidim_user_id)
           participatory_space.organization.users.where(id: user_ids)
         end
       end

@@ -12,8 +12,8 @@ module Decidim
         let(:proposals) { create_list(:proposal, 2, component:) }
         let(:component) { create(:proposal_component) }
         let(:evaluator_process) { component.participatory_space }
-        let(:valuator) { create(:user, organization:) }
-        let(:evaluator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process: evaluator_process) }
+        let(:evaluator) { create(:user, organization:) }
+        let(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user: evaluator, participatory_process: evaluator_process) }
         let(:params) do
           {
             evaluator_role_ids: [evaluator_role.try(:id)],
@@ -32,7 +32,7 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "without valuator roles" do
+        context "without evaluator roles" do
           let(:evaluator_role) { nil }
 
           it { is_expected.to be_invalid }
@@ -44,7 +44,7 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when given a valuator role from another space" do
+        context "when given a evaluator role from another space" do
           let(:evaluator_process) { create(:participatory_process, organization:) }
 
           it { is_expected.to be_invalid }

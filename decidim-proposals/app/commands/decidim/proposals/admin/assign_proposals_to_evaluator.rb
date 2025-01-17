@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     module Admin
       # A command with all the business logic to assign proposals to a given
-      # valuator.
+      # evaluator.
       class AssignProposalsToEvaluator < Decidim::Command
         # Public: Initializes the command.
         #

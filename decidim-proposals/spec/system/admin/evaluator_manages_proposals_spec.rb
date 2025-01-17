@@ -11,9 +11,9 @@ describe "Evaluator manages proposals" do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
   end
   let!(:user) { create(:user, organization:) }
-  let!(:evaluator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process:) }
+  let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process:) }
   let!(:another_user) { create(:user, organization:) }
-  let!(:another_evaluator_role) { create(:participatory_process_user_role, role: :valuator, user: another_user, participatory_process:) }
+  let!(:another_evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user: another_user, participatory_process:) }
 
   include Decidim::ComponentPathHelper
 
@@ -35,7 +35,7 @@ describe "Evaluator manages proposals" do
     end
   end
 
-  context "when bulk unassigning valuators" do
+  context "when bulk unassigning evaluators" do
     before do
       within "tr", text: translated(assigned_proposal.title) do
         page.first(".js-proposal-list-check").set(true)
@@ -45,7 +45,7 @@ describe "Evaluator manages proposals" do
     end
 
     it "cannot unassign others" do
-      expect(page).to have_no_content("Unassign from valuator")
+      expect(page).to have_no_content("Unassign from evaluator")
     end
   end
 

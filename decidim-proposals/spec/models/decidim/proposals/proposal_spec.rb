@@ -261,7 +261,7 @@ module Decidim
       describe "#with_valuation_assigned_to" do
         let(:user) { create(:user, organization:) }
         let(:space) { component.participatory_space }
-        let!(:evaluator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: space) }
+        let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process: space) }
         let(:assigned_proposal) { create(:proposal, component:) }
         let!(:assignment) { create(:evaluation_assignment, proposal: assigned_proposal, evaluator_role:) }
 
