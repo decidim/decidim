@@ -29,7 +29,7 @@ module Decidim
       validate :valid_metadata
       validate :valid_authorized_scopes
 
-      delegate :promote_authorization_validation_errors, :authorization_handler_form, to: :workflow_manifest
+      delegate :promote_authorization_validation_errors, :authorization_handler_form_class, to: :workflow_manifest
       delegate :scope, to: :initiative
 
       alias signer user
@@ -127,10 +127,6 @@ module Decidim
 
       def signature_workflow_name
         @signature_workflow_name ||= initiative&.type&.document_number_authorization_handler
-      end
-
-      def authorization_handler_form_class
-        authorization_handler_form&.safe_constantize
       end
 
       def hash_id
