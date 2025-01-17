@@ -30,7 +30,7 @@ eu:
             starts_at_help: Utzi zuriz data zehatzik ez badago
           step:
             allow_answers: Baimendu erantzunak
-            allow_unregistered: Baimendu erregistratu gabe dauden erabiltzaileei galdetegia erantzutea
+            allow_unregistered: Baimendu erregistratu gabe dauden parte-hartzailei galdetegia erantzutea
             allow_unregistered_help: Aktibatuta badago ez da beharrezkoa saioa hastea inkesta erantzuteko. Honen ondorioz datu eskas edo fidagarritasun gutxikoak bildu litezke. Kontuz erabili! Izan ere, parte-hartzaile berak hainbat aldiz erantzun litzake nabigatzaile desberdinetatik edo nabigazio pribatuaren aukera erabiliz.
             announcement: Oharra
     events:
