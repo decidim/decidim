@@ -261,7 +261,7 @@ eu:
           success: Erakundea zuzen eguneratu da.
         users_registration_mode:
           disabled: Sarbidea soilik kanpoko kontuekin egin daiteke
-          enabled: Baimendu erabiltzaileei erregistratzea eta saioa hasteko
+          enabled: Baimendu parte-hartzaileei erregistratzea eta saioa hasteko
           existing: Ez utzi parte-hartzaile gehiagori erregistratzen, baina utzi existitzen diren parte-hartzaileei saioa hasten
       shared:
         notices:
