@@ -23,7 +23,6 @@ en:
         local_area: Organization area
         meta_scope: Scope metadata
         participatory_process_group_id: Processes group
-        participatory_process_type_id: Processes type
         participatory_scope: What is decided
         participatory_structure: How is it decided
         private_space: Private process
@@ -60,8 +59,6 @@ en:
         end_date: End date
         short_description: Short description
         start_date: Start date
-        title: Title
-      participatory_process_type:
         title: Title
       participatory_process_user_role:
         email: Email
@@ -103,7 +100,6 @@ en:
         new_process: New process
         new_process_group: New process group
         new_process_step: New phase
-        new_process_type: New process type
         new_process_user_role: New process admin
         preview: Preview
         publish: Publish
@@ -119,7 +115,6 @@ en:
         participatory_process_groups_submenu:
           info: Info
           landing_page: Landing page
-        participatory_process_types: Process types
         participatory_processes: Processes
         participatory_processes_submenu:
           attachment_collections: Folders
@@ -151,11 +146,6 @@ en:
             start_date: Start date
             title: Title
           name: Participatory process phase
-        participatory_process_type:
-          fields:
-            created_at: Created at
-            title: Title
-          name: Process type
         participatory_process_user_role:
           fields:
             email: Email
@@ -239,21 +229,6 @@ en:
         update:
           error: There was a problem updating this phase of the participatory process.
           success: Participatory phase successfully updated.
-      participatory_process_types:
-        create:
-          error: There was a problem creating a new process type.
-          success: Process type successfully created.
-        destroy:
-          success: Process type successfully deleted.
-        edit:
-          title: Edit process type
-          update: Update
-        new:
-          create: Create
-          title: New process type
-        update:
-          error: There was a problem updating this process type.
-          success: Process type successfully updated.
       participatory_process_user_roles:
         create:
           error: There was a problem adding a participant for this participatory process.
@@ -300,7 +275,6 @@ en:
           success: Participatory process group successfully created.
       titles:
         participatory_process_groups: Participatory process groups
-        participatory_process_types: Participatory process types
         participatory_processes: Participatory processes
         participatory_processes_deleted: Deleted participatory processes
       tooltips:
@@ -475,12 +449,10 @@ en:
             images: Images
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
-            other: Other
             private_notice: You will be able to manage members after setting it as private
             related_processes: Related processes
             scope_type_max_depth_help: Restrict the scope filter depth; The filter will show from general to the selected scope type.
             select_an_area: Select an Area
-            select_participatory_process_type: Select a process type
             select_process_group: Select a process group
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             taxonomies: Taxonomies

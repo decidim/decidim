@@ -5,11 +5,11 @@ module Decidim
     class ProcessFiltersCell < Decidim::ViewModel
       ALL_FILTERS = %w(active upcoming past all).freeze
 
-      def filter_link(date_filter, type_filter = nil)
+      def filter_link(date_filter)
         Decidim::ParticipatoryProcesses::Engine
           .routes
           .url_helpers
-          .participatory_processes_path(**filter_params(date_filter, type_filter))
+          .participatory_processes_path(**filter_params(date_filter))
       end
 
       def current_filter
@@ -25,7 +25,7 @@ module Decidim
         options.include?(value) ? value : default
       end
 
-      def filter_params(date_filter, type_filter)
+      def filter_params(date_filter)
         {
           filter: {
             with_date: date_filter,

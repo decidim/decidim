@@ -25,11 +25,11 @@ module Decidim
     #   date_filter: "active"
     # )
     class ProcessFiltersCell < Decidim::ParticipatoryProcesses::ProcessFiltersCell
-      def filter_link(date_filter, type_filter = nil)
+      def filter_link(date_filter)
         Decidim::ParticipatoryProcesses::Engine
           .routes
           .url_helpers
-          .participatory_process_group_path(model, **filter_params(date_filter, type_filter))
+          .participatory_process_group_path(model, **filter_params(date_filter))
       end
 
       def current_filter

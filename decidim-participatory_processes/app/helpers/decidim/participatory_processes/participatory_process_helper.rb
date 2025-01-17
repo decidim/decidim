@@ -100,10 +100,6 @@ module Decidim
         Decidim::TaxonomyFilter.for(:participatory_processes)
       end
 
-      def filter_types_values
-        filter_tree_from_array(type_values)
-      end
-
       def filter_dates_values
         flat_filter_values(:all, :upcoming, :past, :active, scope: "decidim.participatory_processes.participatory_processes.filters.names")
       end
