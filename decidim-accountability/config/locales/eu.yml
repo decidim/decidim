@@ -7,7 +7,7 @@ eu:
         decidim_scope_id: Esparrua
         description: Deskribapena
         end_date: Bukaera-data
-        progress: Aurrera egiten
+        progress: Aurrerapena
         start_date: Hasiera-data
         subresults: Azpiemaitzak
         title: Izenburua
@@ -43,7 +43,7 @@ eu:
         attachment_collections: Karpetak
         attachments: Erantsitako artxiboak
         confirm_delete_result: Ziur zaude emaitza hau ezabatu nahi duzula?
-        confirm_destroy: Ziur zaude %{name} ezabatu nahi duzula?
+        confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
         deleted_results_info: Ezabatutako emaitzak berreskura daitezke zaborrontzitik.
         destroy: Ezabatu
         edit: Editatu
@@ -81,8 +81,8 @@ eu:
             create: Inportatu
             import_all_selected_projects: Inportatu inplementatzeko aukeratu dituzun proiektu guztiak
             new_items:
-              one: Aukeratutako proiektu bat inportatuko da
-              other: "Aukeratutako proiektuak bat inportatuko dira"
+              one: Aukeratutako proiektu 1 inportatuko da
+              other: "Aukeratutako proiektu bat inportatuko da"
             no_components: Ez dago aurrekontuen osagairik parte-hartze espazio honetan proiektuak emaitzetara inportatzeko.
             origin_component_id: Jatorrizko osagaia
             select_component: Hautatu osagaia
@@ -177,12 +177,12 @@ eu:
         result:
           create: "%{user_name} parte-hartzaileak emaitza sortu du %{resource_name} %{space_name} espazioan"
           delete: "%{user_name} parte-hartzaileak %{resource_name} emaitza ezabatu du %{space_name} espazioan"
-          restore: "% {user_name} parte-hartzaieak % {baliabide_name}} emaitza berreskuratu du hemen:% {space_name}"
+          restore: "% {user_name} parte-hartzaileak % {baliabide_name}} emaitza berreskuratu du hemen:% {space_name}"
           soft_delete: "% {user_name} parte-hartzaileak hemengo: %{space_name} {baliabide_name} emaitza zaborrontzira eraman zuen"
           update: "%{user_name} parte-hartzaileak %{resource_name} emaitza eguneratu du %{space_name} espazioan"
         status:
           create: "%{user_name} parte-hartzaileak %{resource_name} egoera sortu du"
-          delete: "%{user_name} parte-hartzaileak %{resource_name} egoera ezabatu du"
+          delete: "%{user_name} parte-hartzaieak %{resource_name} egoera ezabatu du"
           update: "%{user_name} parte-hartzaileak %{resource_name} egoera eguneratu du"
         timeline_entry:
           create: "%{user_name} parte-hartzaileak %{resource_name} sarrera sortu du kronologian"
