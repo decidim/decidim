@@ -45,6 +45,7 @@ describe "Initiative signing with workflows" do
       postal_code: "01234"
     }
   end
+  let(:promote_authorization_validation_errors) { false }
 
   before do
     allow(Decidim::Initiatives::Signatures)
@@ -149,21 +150,44 @@ describe "Initiative signing with workflows" do
       let(:workflow_attributes) do
         {
           form: "DummySignatureHandler",
-          authorization_handler_form: "DummyAuthorizationHandler"
+          authorization_handler_form: "DummyAuthorizationHandler",
+          promote_authorization_validation_errors:
         }
       end
 
       shared_examples "sending authorization handler invalid personal data" do
         let(:document_number) { "111111111Z" }
 
-        it "an invalid data message is shown and no vote or authorization are created" do
+        it "a global invalid data message is shown and no vote or authorization are created" do
           expect do
             expect do
               click_on "Validate your data"
 
               expect(page).to have_content "Some of the personal data provided to verify your identity is not valid."
+
+              expect(page).to have_no_css("form.new_dummy_signature_handler div", text: "is invalid")
+              expect(page).to have_no_css("div.field_with_errors")
             end.not_to change(Decidim::InitiativesVote, :count)
           end.not_to change(Decidim::Authorization, :count)
+        end
+
+        context "when workflow promotes authorization validation errors" do
+          let(:promote_authorization_validation_errors) { true }
+
+          it "an extra invalid data message is shown next to the failing field and no vote or authorization are created" do
+            expect do
+              expect do
+                click_on "Validate your data"
+
+                expect(page).to have_content "Some of the personal data provided to verify your identity is not valid."
+
+                expect(page).to have_css("form.new_dummy_signature_handler div", text: "is invalid")
+                within("div.field_with_errors") do
+                  expect(page).to have_field("dummy_signature_handler[document_number]")
+                end
+              end.not_to change(Decidim::InitiativesVote, :count)
+            end.not_to change(Decidim::Authorization, :count)
+          end
         end
       end
 
@@ -204,7 +228,8 @@ describe "Initiative signing with workflows" do
           {
             form: "DummySignatureHandler",
             authorization_handler_form: "DummyAuthorizationHandler",
-            save_authorizations: false
+            save_authorizations: false,
+            promote_authorization_validation_errors:
           }
         end
 
@@ -229,7 +254,8 @@ describe "Initiative signing with workflows" do
           {
             form: "DummySignatureHandler",
             authorization_handler_form: "DummyAuthorizationHandler",
-            action_authorizer: Decidim::Initiatives::DefaultSignatureAuthorizer
+            action_authorizer: Decidim::Initiatives::DefaultSignatureAuthorizer,
+            promote_authorization_validation_errors:
           }
         end
 
@@ -325,7 +351,8 @@ describe "Initiative signing with workflows" do
               form: "DummySignatureHandler",
               authorization_handler_form: "DummyAuthorizationHandler",
               action_authorizer: Decidim::Initiatives::DefaultSignatureAuthorizer,
-              save_authorizations: false
+              save_authorizations: false,
+              promote_authorization_validation_errors:
             }
           end
 
