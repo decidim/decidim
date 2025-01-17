@@ -642,7 +642,7 @@ eu:
             expired_at: 'Iraungitze-data:'
             reason: Arrazoia
             started_at: 'Hasiera-ordua:'
-            user: Parte-hartzailea
+            user: Parte-hartzaileak
         newsletter:
           fields:
             created_at: Noiz sortua
@@ -696,7 +696,7 @@ eu:
       moderated_users:
         index:
           actions:
-            block: Blokeatu parte-hartzaileaa
+            block: Blokeatu erabiltzailea
             bulk_actions:
               actions_dropdown: Ekintzak
               block:
@@ -710,7 +710,7 @@ eu:
             ignore:
               update_moderated_user_button: Ez erreportatu parte-hartzaileak
             title: Ekintzak
-            unblock: Desblokeatu parte-hartzaile
+            unblock: Desblokeatu erabiltzailea
             unreport: Ez erreportatu
           cancel: Ezeztatu
           name: Izena
@@ -823,7 +823,7 @@ eu:
           private_members_help: Bidali buletin bat aukeratutako parte hartzeko espazio pribatuetan gehitu diren baieztatutako parte-hartzaile guztiei.
           recipients_count: 'Buletin hau parte-hartzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
           select_assemblies: Hautatu batzarrak
-          select_conferences: Hautatu hitzaldiak
+          select_conferences: Hautatu jardunaldiak
           select_initiatives: Hautatu ekimenak
           select_participatory_processes: Hautatu prozesu parte-hartzaileak
           select_spaces: Hautatu espazioak buletina zatitzeko
