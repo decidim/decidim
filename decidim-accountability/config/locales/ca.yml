@@ -64,6 +64,27 @@ ca:
           new:
             download_export: Descarregar l'exportació en format CSV
             import: Importar
+            info: |
+              <p>Et recomanem que segueixis les passes següents:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Crea els estats per als resultats</a> que vulguis afegir</li>
+              <li><a href='%{link_new_result}' target='_blank'>Crea com a mínim un resultat manualment</a> a través del taulell d'administració abans d'importar, per a entendre millor el format i com cal omplir-ho.</li>
+              <li>%{link_export_csv}</li>
+              <li>Fes els canvis en local. Només pots modificar les següents columnes del CSV (la resta seran ignorades):
+              <ul>
+              <li><b>taxonomies/ids:</b> IDs per la taxonomies (si n'hi ha més d'una, separeu-les amb una coma)</li>
+              <li><b>parent/id:</b> ID per al pare (per a resultats relacionats).
+              <br>Opcional</li>
+              <li><b>title/I18N:</b> Title en la llengua X</li>
+              <li><b>description/I18N:</b> Descripció en la lleguna X </li>
+              <li><b>start_date:</b> data en la que s'inicia l'execució del resultat (format YYYY-MM-DD)</li>
+              <li><b>end_date:</b> data en la que finalitza l'execució del resultat (format YYYY-MM-DD)</li>
+              <li><b>status/id:</b> ID de l'estat per a aquest resultat</li>
+              <li><b>progress:</b> Tant per cent (de 0 a 100) d'execució</li>
+              <li><b>proposals_ids:</b> ID intern de les propostes relacionades (separades per comes). Es convertirà automàticament en <span class='attribute-name'>proposal_url</span></li>
+              </ul>
+              </li>
+              </ol>
             title: Importar resultats des d'un fitxer CSV
         imports:
           create:
