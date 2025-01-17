@@ -208,6 +208,7 @@ en:
       titles:
         assemblies: Assemblies
         assemblies_deleted: Deleted assemblies
+        assemblies_types: Assemblies types
       tooltips:
         deleted_assemblies_info: An assembly can only be deleted if status is "Unpublished".
     admin_log:
