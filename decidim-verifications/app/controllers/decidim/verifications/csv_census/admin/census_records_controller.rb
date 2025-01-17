@@ -18,12 +18,12 @@ module Decidim
             Admin::CreateCensusRecord.call(@form) do
               on(:ok) do
                 flash[:notice] = t(".success")
-                redirect_to census_logs_path
+                render json: { redirect_url: census_logs_path }, status: :ok
               end
 
               on(:invalid) do
                 flash.now[:alert] = t(".error")
-                render :index
+                render :new_record, status: :unprocessable_entity
               end
             end
           end
@@ -38,12 +38,12 @@ module Decidim
             Admin::UpdateCensusRecord.call(@form, census_data) do
               on(:ok) do
                 flash[:notice] = I18n.t("census_records.update_record.success", scope: "decidim.verifications.csv_census.admin")
-                redirect_to census_logs_path
+                render json: { redirect_url: census_logs_path }, status: :ok
               end
 
               on(:invalid) do
                 flash.now[:alert] = I18n.t("census_records.update_record.invalid", scope: "decidim.verifications.csv_census.admin")
-                render action: "edit"
+                render action: "edit_record", status: :unprocessable_entity
               end
             end
           end

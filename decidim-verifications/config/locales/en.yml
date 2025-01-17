@@ -182,6 +182,8 @@ en:
             edit_record:
               save: Save
               title: Edit census record
+            form:
+              email: Email
             new_record:
               save: Save
               title: Add new census record
