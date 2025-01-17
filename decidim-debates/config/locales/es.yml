@@ -74,9 +74,12 @@ es:
             title: Editar debate
             update: Actualizar debate
           form:
+            add_attachments: Agregar archivo(s) adjunto(s)
+            attachment_legend: Añadir un documento o una imagen
             comments_visualization: Visualización de los comentarios
             comments_warning: Una vez que se publique el primer comentario, la opción de visualización seleccionada no se puede cambiar.
             debate_type: Tipo de debate
+            edit_attachments: Editar los archivos adjuntos
             errors:
               comments_layout_locked: No puedes cambiar el diseño del comentario una vez que se haya publicado algún comentario.
             finite: Finito (con hora de inicio y final)
