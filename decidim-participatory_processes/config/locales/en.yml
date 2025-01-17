@@ -275,7 +275,7 @@ en:
           success: Participatory process group successfully created.
       titles:
         participatory_process_groups: Participatory process groups
-        participatory_processes_types: Participatory process types
+        participatory_process_types: Participatory process types
         participatory_processes: Participatory processes
         participatory_processes_deleted: Deleted participatory processes
       tooltips:
