@@ -28,10 +28,10 @@ module Decidim
 
     devise :confirmable, :decidim_validatable, confirmation_keys: [:decidim_organization_id, :email]
 
-    scope :verified, -> { where.not("extended_data->>'verified_at' IS ?", nil) }
-    scope :not_verified, -> { where("extended_data->>'verified_at' IS ?", nil) }
-    scope :rejected, -> { where.not("extended_data->>'rejected_at' IS ?", nil) }
-    scope :pending, -> { where("extended_data->>'rejected_at' IS ? AND extended_data->>'verified_at' IS ?", nil, nil) }
+    scope :verified, -> { where.not("extended_data->>'verified_at' IS ?", Arel.sql("NULL")) }
+    scope :not_verified, -> { where("extended_data->>'verified_at' IS ?", Arel.sql("NULL")) }
+    scope :rejected, -> { where.not("extended_data->>'rejected_at' IS ?", Arel.sql("NULL")) }
+    scope :pending, -> { where("extended_data->>'rejected_at' IS ? AND extended_data->>'verified_at' IS ?", Arel.sql("NULL"), Arel.sql("NULL")) }
 
     searchable_fields(
       {
