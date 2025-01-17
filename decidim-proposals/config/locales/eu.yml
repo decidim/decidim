@@ -159,7 +159,7 @@ eu:
               recent: Azkenak
               with_more_authors: Egile gehiagorekin
             geocoding_enabled: Geokodifikazioa gaituta dago
-            minimum_votes_per_user: Erabiltzaile bakoitzeko gutxieneko aldeko botoak
+            minimum_votes_per_user: Parte-hartzaile bakoitzeko gutxieneko aldeko botoak
             new_proposal_body_template: Plantilla proposamen berriaren testurako
             new_proposal_body_template_help: Proposamen berriek izango duten testu aurredefinitua zehaztu ahal duzu
             new_proposal_help_text: Proposamen berriaren laguntza testua
@@ -182,7 +182,7 @@ eu:
             scope_id: Esparrua
             scopes_enabled: Esparruak gaituta
             threshold_per_proposal: Proposamen bakoitzeko atalasea
-            vote_limit: Partaide bakoitzeko aldeko botoen muga
+            vote_limit: Parte-hartzaile bakoitzeko aldeko botoen muga
           step:
             amendment_creation_enabled: Zuzenketa sortzea aktibatuta
             amendment_creation_enabled_help: Parte-hartzaileak proposamenak alda ditzake.
