@@ -154,7 +154,7 @@ eu:
             description: Parte-hatzaileek mezu elektroniko bat jasoko dute, eskaera bat egiteke duten aurrekontuetarako estekekin.
             title:
               one: Gogorarazpen bat bidaltzear zaude posta elektronikoz % {count} erabiltzaileri
-              other: Gogorarazpen bat bidaltzear zaude posta elektronikoz % {count} erabiltzaileri
+              other: Gogorarazpen bat bidaltzear zaude posta elektronikoz % {count} parte-hartzaileri
       admin_log:
         budget:
           create: "%{user_name} parte-hartzaileak sortu du %{resource_name} aurrekontua %{space_name} esparruan"
