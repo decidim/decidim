@@ -74,9 +74,12 @@ ca:
             title: Editar debat
             update: Actualitzar debat
           form:
+            add_attachments: Afegir fitxer(s) adjunt(s)
+            attachment_legend: Afegir un document o una imatge
             comments_visualization: Visualització dels comentaris
             comments_warning: Una vegada que es publica el primer comentari, l'opció de visualització seleccionada no es pot canviar.
             debate_type: Tipus de debat
+            edit_attachments: Edita els fitxers adjunts
             errors:
               comments_layout_locked: No pots canviar el disseny del comentari una vegada que s'hagi publicat algun comentario.
             finite: Finit (amb moments d'inici i de fi)
