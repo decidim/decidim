@@ -45,6 +45,7 @@ module Decidim
       end
 
       def index
+        @meetings = paginate(search.result)
         return unless search.result.blank? && params.dig("filter", "date") != %w(past)
 
         @past_meetings ||= search_with(filter_params.merge(with_any_date: %w(past)))
