@@ -159,22 +159,13 @@ en:
             destroy: Destroy
             edit: Edit
           census:
-            create:
-              error: There was a problem adding the census data record.
-              success: Successfully added census data record.
             create_import:
               error: There was a problem importing census.
               success: Successfully imported %{count} items (%{errors} errors).
             destroy:
               success: Census data record have been deleted.
-            edit:
-              title: Edit census record
-              update: Update
             index:
               empty: There are no census data. Use the button Import CSV to import it using a CSV file.
-            new:
-              create: Create
-              title: Add new census record
             new_import:
               example: |
                 john.doe@example.org
@@ -184,7 +175,17 @@ en:
               submit: Upload file
               title: Import census data
               upload_new_census: Upload a new census
-            update:
+          census_records:
+            create_record:
+              error: There was a problem adding the census data record.
+              success: Successfully added census data record.
+            edit_record:
+              save: Save
+              title: Edit census record
+            new_record:
+              save: Save
+              title: Add new census record
+            update_record:
               invalid: There was a problem updating the census data record.
               success: Successfully updated census data record.
           index:
@@ -194,8 +195,8 @@ en:
               created_at: Created At
               email: Email
               user_verification: User verification
+            import_csv: Import CSV
             title: Current census data
-            upload_file: Upload file
           instructions:
             body: To do this you must enter system administration and add the csv_census authorizations to the organization
             title: You need to activate the CSV census for this organization

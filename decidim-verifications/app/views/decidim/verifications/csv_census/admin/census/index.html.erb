@@ -3,7 +3,8 @@
   <div class="item_show__header item_show__header--with-action-options">
     <h1 class="item_show__header-title">
       <%= t("index.title", scope: "decidim.verifications.csv_census.admin") %>
-      <button type="button" data-action="add-new-census-record" data-csvcensus-dialog="census_drawer" data-csvcensus-url="<%= new_census_record_path %>" class= "button button__sm button__secondary">
+      <%= link_to t("index.import_csv", scope: "decidim.verifications.csv_census.admin"), new_import_census_logs_path, method: :get, class: "button button__sm button__transparent-secondary" %>
+      <button type="button" data-action="csvcensus-record" data-csvcensus-dialog="census_drawer" data-csvcensus-url="<%= new_record_census_logs_path %>" class= "button button__sm button__secondary">
         <%= t("index.add_new_record_button", scope: "decidim.verifications.csv_census.admin") %>
       </button>
     </h1>
@@ -26,8 +27,8 @@
               <td><%= l data.created_at, format: :decidim_short %></td>
               <td></td>
               <td class="table-list__actions">
-                  <%= icon_link_to "pencil-line", edit_census_record_path(data), t("actions.edit", scope: "decidim.verifications.csv_census.admin"), class: "action-icon--edit" %>
-                  <%= icon_link_to "delete-bin-line", census_record_path(data), t("actions.destroy", scope: "decidim.verifications.csv_census.admin"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.verifications.csv_census.admin") } %>
+                  <%= icon_link_to "pencil-line", "#", t("actions.edit", scope: "decidim.verifications.csv_census.admin"), class: "action-icon--edit", data: { action: "csvcensus-record", csvcensus_dialog: "census_drawer", csvcensus_url: edit_record_census_logs_path(data) } %>
+                  <%= icon_link_to "delete-bin-line", census_log_path(data), t("actions.destroy", scope: "decidim.verifications.csv_census.admin"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.verifications.csv_census.admin") } %>
               </td>
             </tr>
           <% end %>
@@ -36,11 +37,6 @@
         <% end %>
       </tbody>
     </table>
-  </div>
-  <div class="item__edit-sticky">
-    <div class="item__edit-sticky-container">
-      <%= link_to t("index.upload_file", scope: "decidim.verifications.csv_census.admin"), new_import_census_records_path, method: :get, class: "button button__sm button__secondary" %>
-    </div>
   </div>
 </div>
 <%= decidim_paginate csv_census_data %>
