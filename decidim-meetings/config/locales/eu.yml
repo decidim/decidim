@@ -433,7 +433,7 @@ eu:
           greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Kaixo %{username},
           subject: Zuk orain "%{meeting_title}" topaketa itxi ahal duzu txosten batekin
-      conference_venues: Hitzaldi aretoak
+      conference_venues: Jardunaldi aretoak
       content_blocks:
         upcoming_meetings:
           name: Hurrengo topaketak
