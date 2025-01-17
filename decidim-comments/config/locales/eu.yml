@@ -128,7 +128,7 @@ eu:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} egileak iruzkin bat utzi du %{resource_title} helbidean. Orri honetan irakur dezakezu:"
-          email_outro: Jakinarazpen hau jaso duzu %{author_name} erabiltzailea jarraitzen duzulako. Nahi izatekotan erabiltzaile hori bere profil-orritik jarraitzeari utz diezaiokezu.
+          email_outro: Jakinarazpen hau jaso duzu %{author_name} parte-hartzailea jarraitzen duzulako. Nahi izatekotan erabiltzaile hori bere profil-orritik jarraitzeari utz diezaiokezu.
           email_subject: '%{author_name} k beste iruzkin bat egin du hemen: %{resource_title}'
           notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> k iruzkin berri bat egin du hemen: <a href="%{resource_path}">%{resource_title}</a>-an.'
         comment_by_followed_user_group:
