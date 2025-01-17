@@ -624,7 +624,7 @@ eu:
             expired_at: 'Iraungitze-data:'
             reason: Arrazoia
             started_at: 'Hasiera-ordua:'
-            user: Parte-hartzailea
+            user: Parte-hartzaileak
         newsletter:
           fields:
             created_at: Noiz sortua
@@ -679,9 +679,9 @@ eu:
       moderated_users:
         index:
           actions:
-            block: Blokeatu parte-hartzaileaa
+            block: Blokeatu erabiltzailea
             title: Ekintzak
-            unblock: Desblokeatu parte-hartzaile
+            unblock: Desblokeatu erabiltzailea
             unreport: Ez erreportatu
           name: Izena
           nickname: Ezizena
@@ -766,10 +766,10 @@ eu:
           none: Bat ere ez
           participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu parte-hartzailetan esku hartu duten parte-hartzaile guztiei bidaltzen die.
           recipients_count: 'Buletin hau parte-hartzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
-          scopes_help: Albisteen buletina "Nire interesekoak" konfigurazioan edozein esparru aktibatuta duten erabiltzaileei bidaltzen die.
-          select_scopes: Iragazi "Nire interesekoak" konfigurazioan edozein esparru aktibatu duten erabiltzaileentzat.
+          scopes_help: Albisteen buletina "Nire interesekoak" konfigurazioan edozein esparru aktibatuta duten parte-hartzaileei bidaltzen die.
+          select_scopes: Iragazi "Nire interesekoak" konfigurazioan edozein esparru aktibatu duten parte-hartzaileentzat.
           select_spaces: Hautatu espazioak buletina zatitzeko
-          select_users: Hautatu zein erabiltzaileri bidali nahi diezun buletina
+          select_users: Hautatu zein parte-hartzaileri bidali nahi diezun buletina
           title: Hautatu hartzaileak entregatzeko
           warning: "<strong>Adi:</strong> Jakinarazpen-doikuntzetan “Albiste-buletinak jaso nahi ditut” aktibatu duten parte-hartzaileei baino ez zaie bidaliko buletin hau."
         send:
