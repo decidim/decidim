@@ -13,7 +13,7 @@ module Decidim
       included do
         helper_method :signature_has_steps?
 
-        delegate :sms_mobile_phone_form_class, :sms_mobile_phone_validator_class, :sms_code_validator_class, to: :signature_workflow_manifest
+        delegate :signature_form_class, :sms_mobile_phone_form_class, :sms_mobile_phone_validator_class, :sms_code_validator_class, to: :signature_workflow_manifest
 
         private
 
@@ -22,12 +22,6 @@ module Decidim
             handler_name = current_initiative.type.document_number_authorization_handler
             Decidim::Initiatives::Signatures.find_workflow_manifest(handler_name) || Decidim::Initiatives::SignatureWorkflowManifest.new
           end
-        end
-
-        def signature_form_class
-          return Decidim::Initiatives::SignatureHandler if signature_workflow_manifest.form.blank?
-
-          signature_workflow_manifest.form.constantize
         end
 
         def signature_has_steps?
