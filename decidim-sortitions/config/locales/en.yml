@@ -18,6 +18,8 @@ en:
         other: Sortitions
   decidim:
     components:
+      pagination:
+        page_title: "%{component_name} - Page %{current_page} of %{total_pages}"
       sortitions:
         actions:
           comment: Comment
