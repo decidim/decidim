@@ -515,6 +515,21 @@ ca:
           proposal_comments: Comentaris
           proposals: Propostes
         imports:
+          help:
+            answers: |
+              El document d'importació ha d'incloure els següents noms de columna en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON (s'ignoraran altres columnes):
+              <ul>
+              <li><b>id:</b> ID de la proposta a responder</li>
+              <li>state<b>:</b> Un d'aquests "acceptada", "en avaluació" o "rebutjada"</li>
+              <li><b>answer/ca</b> Resposta en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
+              </ul>
+            proposals: |
+              El document ha d'incloure els següents noms de columna en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON:
+              <ul>
+              <li><b>title/ca:</b> Títol en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
+              <li><b>body/ca:</b> Descripció en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
+              <li><b>taxonomies/ids:</b> IDs for the Taxonomies (if more than one, separate with a comma)</li>
+              </ul>
           label:
             answers: Importar respostes des d'un fitxer
             proposals: Importar propostes des d'un fitxer
@@ -747,6 +762,7 @@ ca:
           error: S'ha produït un error en crear aquest esborrany col·laboratiu.
           success: Esborrany col·laboratiu creat correctament.
         edit:
+          attachment_legend: Afegir un document o una imatge
           back: Torna
           send: Envia
           title: Edita l'esborrany col·laboratiu
@@ -894,7 +910,10 @@ ca:
           description: Les coordenades s'actualitzaran quan facis clic en el botó 'previsualitzar'. No obstant això, la direcció no canvia.
           instructions: Pots moure la ubicació en el mapa.
         edit:
+          add_attachments: Afegir fitxer(s) adjunt(s)
+          attachment_legend: Afegir un document o una imatge
           back: Torna
+          edit_attachments: Edita els fitxers adjunts
           send: Envia
           title: Edita proposta
         edit_draft:
