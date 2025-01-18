@@ -75,7 +75,11 @@ module Decidim
               end
 
               it "returns the correct builder options" do
-                expect(ActiveSupport::Deprecation).to receive(:warn)
+                mock_object = instance_double(ActiveSupport::Deprecation)
+                allow(Decidim).to receive(:deprecator).and_return(mock_object) # always return this mock instance when constructor is invoked
+                expect(mock_object).to receive(:warn)
+
+                # expect_any_instance_of(ActiveSupport::Deprecation).to receive(:warn)
                 expect(subject.builder_options).to eq(
                   marker_color: "#e02d2d",
                   tile_layer: {
