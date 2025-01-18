@@ -12,7 +12,7 @@ module Decidim::Accountability
     let(:current_user) { create(:user, :confirmed, :admin, organization:) }
 
     before do
-      allow_any_instance_of(described_class).to receive(:results_path).and_return(Decidim::EngineRouter.admin_proxy(current_component).results_path)
+      allow(controller).to receive(:results_path).and_return(Decidim::EngineRouter.admin_proxy(current_component).results_path)
       request.env["decidim.current_organization"] = organization
       request.env["decidim.current_component"] = current_component
       sign_in current_user

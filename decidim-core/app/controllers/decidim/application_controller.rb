@@ -68,6 +68,8 @@ module Decidim
 
     private
 
+    def allow_browser(**); end
+
     # This overrides Devise's method for extracting the path from the URL. We
     # want to ensure the path to be stored in the cookie is not too long in
     # order to avoid ActionDispatch::Cookies::CookieOverflow exception. If the
