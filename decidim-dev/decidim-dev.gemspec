@@ -32,6 +32,8 @@ Gem::Specification.new do |s|
     end
   end
 
+  s.add_dependency "bullet", "~> 8.0.0"
+  s.add_dependency "byebug", "~> 11.0"
   s.add_dependency "capybara", "~> 3.39"
   s.add_dependency "decidim-admin", Decidim::Dev.version
   s.add_dependency "decidim-api", Decidim::Dev.version
@@ -39,11 +41,9 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-core", Decidim::Dev.version
   s.add_dependency "decidim-generators", Decidim::Dev.version
   s.add_dependency "decidim-verifications", Decidim::Dev.version
+  s.add_dependency "erb_lint", "~> 0.8.0"
   s.add_dependency "factory_bot_rails", "~> 6.2"
   s.add_dependency "faker", "~> 3.2"
-  s.add_dependency "bullet", "~> 8.0.0"
-  s.add_dependency "byebug", "~> 11.0"
-  s.add_dependency "erb_lint", "~> 0.8.0"
   s.add_dependency "i18n-tasks", "~> 1.0"
   s.add_dependency "nokogiri", "~> 1.16", ">= 1.16.2"
   s.add_dependency "parallel_tests", "~> 4.2"

@@ -120,7 +120,14 @@ Capybara.register_driver :iphone do |app|
   options.args << "--no-sandbox"
   # Do not limit browser resources
   options.args << "--disable-dev-shm-usage"
-  options.add_emulation(device_name: "iPhone 6")
+
+  # upgrade from iphone 6 to 13 using IoS 18
+  # Fix for Rails modern browser support
+  mobile_emulation = {
+    deviceMetrics: { width: 428, height: 926, pixelRatio: 3.0 },
+    userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0.1 Mobile/15E148 Safari/604.1"
+  }
+  options.add_emulation(**mobile_emulation)
 
   Capybara::Selenium::Driver.new(
     app,
