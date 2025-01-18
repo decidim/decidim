@@ -33,23 +33,23 @@ jobs:
       fail-fast: false
       matrix:
         test:
-          - command: bundle exec parallel_rspec  --pattern spec/runtime/branch_flag_spec.rb
+          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/branch_flag_spec.rb
             name: BranchFlag
-          - command: bundle exec parallel_rspec  --pattern spec/runtime/component_generator_spec.rb
+          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/component_generator_spec.rb
             name: ComponentGenerator
-          - command: bundle exec parallel_rspec  --pattern spec/runtime/edge_flag_spec.rb
+          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/edge_flag_spec.rb
             name: EdgeFlag
-          - command: bundle exec parallel_rspec  --pattern spec/runtime/no_flags_spec.rb
+          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/no_flags_spec.rb
             name: NoFlags
-          - command: bundle exec parallel_rspec  --pattern spec/runtime/path_flag_spec.rb
+          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/path_flag_spec.rb
             name: PathFlag
-          - command: bundle exec parallel_rspec  --pattern spec/runtime/queue_flag_spec.rb
+          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/queue_flag_spec.rb
             name: QueueFlag
-          - command: bundle exec parallel_rspec  --pattern spec/runtime/storage_flag_spec.rb
+          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/storage_flag_spec.rb
             name: StorageFlag
-          - command: bundle exec parallel_rspec  --pattern spec/runtime/full_app_generator_spec.rb
+          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/full_app_generator_spec.rb
             name: FullAppGenerator
-          - command: bundle exec parallel_rspec  --pattern spec/lib/
+          - command: bundle exec parallel_test --type rspec --pattern spec/lib/
             name: Lib
     name: ${{ matrix.test.name }}
     runs-on: ubuntu-22.04
