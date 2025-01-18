@@ -485,6 +485,16 @@ ar:
         objectives: الأهداف
         related_assemblies: الجمعيات ذات الصلة
         related_participatory_processes: العمليات التشاركية ذات الصلة
+    download_your_data:
+      help:
+        conference_invites:
+          confirmed_at: التاريخ الذي تم فيه تأكيد هذه الدعوة
+          created_at: التاريخ الذي تم فيه إنشاء هذه الدعوة
+          updated_at: تاريخ آخر مرة تم فيه تحديث هذه الدعوة
+        conference_registrations:
+          confirmed_at: التاريخ الذي تم فيه تأكيد هذا التسجيل
+          created_at: التاريخ الذي تم فيه إنشاء هذا التسجيل
+          updated_at: تاريخ آخر مرة تم فيها تحديث هذا التسجيل
     events:
       conferences:
         conference_registration_confirmed:
