@@ -30,13 +30,13 @@ jobs:
       fail-fast: false
       matrix:
         test:
-          - command: bundle exec parallel_rspec  --verbose --verbose-command  --verbose-process-command  --verbose-rerun-command  --pattern spec/lib
+          - command: bundle exec parallel_rspec   --pattern spec/lib
             name: "Lib specs"
-          - command: bundle exec parallel_rspec  --verbose --verbose-command  --verbose-process-command  --verbose-rerun-command  --pattern spec/system
+          - command: bundle exec parallel_rspec   --pattern spec/system
             name: "System specs"
-          - command: bundle exec parallel_rspec  --verbose --verbose-command  --verbose-process-command  --verbose-rerun-command  --pattern spec/ --exclude-pattern 'spec/(system|lib|tasks)'
+          - command: bundle exec parallel_rspec   --pattern spec/ --exclude-pattern 'spec/(system|lib|tasks)'
             name: "Tests without system, lib and tasks specs"
-          - command: bundle exec parallel_rspec  --verbose --verbose-command  --verbose-process-command  --verbose-rerun-command  --pattern spec/tasks --exclude-pattern 'spec/tasks/decidim_tasks_webpacker_spec.rb'
+          - command: bundle exec parallel_rspec   --pattern spec/tasks --exclude-pattern 'spec/tasks/decidim_tasks_webpacker_spec.rb'
             name: "Tasks specs"
           - command: bundle exec rspec spec/tasks/decidim_tasks_webpacker_spec.rb
             name: "Webpacker tasks specs"

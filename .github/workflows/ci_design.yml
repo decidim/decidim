@@ -31,6 +31,6 @@ jobs:
     secrets: inherit
     with:
       working-directory: "decidim-design"
-      test_command: bundle exec parallel_rspec --verbose --verbose-command  --verbose-process-command  --verbose-rerun-command   --pattern spec/
+      test_command: bundle exec parallel_rspec   --pattern spec/
       bullet_n_plus_one: true
       bullet_unused_eager_loading: true
