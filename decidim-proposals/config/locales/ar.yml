@@ -487,6 +487,7 @@ ar:
           error: طرأت مشكلة خلال إنشاء هذه المسودة التعاونية.
           success: تم إنشاء مشروع تعاوني بنجاح.
         edit:
+          attachment_legend: إضافة مستند أو صورة
           back: الى الخلف
           send: إرسال
           title: تحرير المسودة التعاونية
@@ -594,7 +595,10 @@ ar:
           description: سيتم تحديث الإحداثيات لدى النقر على زر "السابق". غير أن العنوان لن يتغير.
           instructions: يمكنك تحريك النقطة على الخريطة.
         edit:
+          add_attachments: إضافة مرفقات
+          attachment_legend: إضافة مستند أو صورة
           back: الى الخلف
+          edit_attachments: تعديل المرفقات
           send: إرسال
           title: تعديل الاقتراح
         edit_draft:
