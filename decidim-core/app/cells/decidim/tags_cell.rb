@@ -25,7 +25,7 @@ module Decidim
       @taxonomies ||= model.taxonomies.map do |taxonomy|
         {
           name: decidim_sanitize_translated(taxonomy.name),
-          url: resource_locator(model).index(filter: { with_any_taxonomies: [taxonomy.root_taxonomy&.id,taxonomy.id].compact_blank })
+          url: resource_locator(model).index(filter: { with_any_taxonomies: [taxonomy.root_taxonomy&.id, taxonomy.id].compact_blank })
         }
       end
     end
