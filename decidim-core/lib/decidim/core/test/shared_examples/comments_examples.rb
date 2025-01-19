@@ -144,6 +144,8 @@ shared_examples "comments" do
     before do
       login_as user, scope: :user
       visit resource_path
+      sleep 1
+      visit resource_path
     end
 
     it "shows form to add comments to user" do
@@ -180,6 +182,8 @@ shared_examples "comments" do
         visit decidim.root_path
         click_on "Accept all"
         login_as user, scope: :user
+        visit resource_path
+        sleep 1
         visit resource_path
       end
 
