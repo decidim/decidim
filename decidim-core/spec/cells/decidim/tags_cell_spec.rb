@@ -51,7 +51,7 @@ describe Decidim::TagsCell, type: :cell do
     it "renders the correct filtering link" do
       html = cell("decidim/tags", resource_taxonomies, context: { extra_classes: ["tags--resource"] }).call
       path = Decidim::ResourceLocatorPresenter.new(resource_taxonomies).index
-      query = { filter: { "with_any_taxonomies[#{root_taxonomy.id}]" => [taxonomy.id] } }.to_query
+      query = { filter: { :with_any_taxonomies => [root_taxonomy.id, taxonomy.id] } }.to_query
       expect(html).to have_css(%(a[href="#{path}?#{query}"]))
     end
 
