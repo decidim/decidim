@@ -64,6 +64,27 @@ es-PY:
           new:
             download_export: Descargar la exportación con formato CSV
             import: Importar
+            info: |
+              <p>Te recomendamos que sigas los siguientes pasos:</p>
+              <ol>
+              <li> <a href='%{link_new_status}' target='_blank'>Crea los estados para los resultados</a> que quieras agregar</li>
+              <li><a href='%{link_new_result}' target='_blank'> Crea por lo menos un resultado manualmente</a> a través del panel de administración antes de importar, para entender mejor el formato y cómo rellenarlo.</li>
+              <li>%{link_export_csv}</li>
+              <li>Haz los cambios en local. Sólo puedes modificar las siguientes columnas del CSV  (el resto será ignorado):
+                <ul>
+                <li><b>taxonomies/ids:</b> IDs para la taxonomia (si hay más de una, sepárelas con una coma)</li>
+                <li><b>parent/id:</b> ID para el padre (para resultados relacionados). 
+              <br>Opcional</li>
+                <li><b>title/I18N:</b> título en el idioma X</li>
+                <li><b>description/I18N:</b> descripción en el idioma X</li>
+                <li><b>start_date:</b> fecha en la que se inicia la ejecución del resultado (formato AAAA-MM-DD)</li>
+                <li><b>end_date:</b> fecha en la que finaliza la ejecución del resultado (formato AAAA-MM-DD) </li>
+                <li><b>status/id:</b> ID del estado para este resultado</li>
+                <li><b>progress:</b> Tanto por ciento (de 0 a 100) de ejecución</li>
+                <li><b>proposals_ids:</b> ID interno de las propuestas relacionadas (separadas por comas). Se convertirá automáticamente en <span class = 'attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
             title: Importar resultados desde un archivo CSV
         imports:
           create:
