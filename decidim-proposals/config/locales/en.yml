@@ -156,6 +156,8 @@ en:
       geocoding:
         not_configured: Geocoding is not configured!
     components:
+      pagination:
+        page_title: "%{component_name} - Page %{current_page} of %{total_pages}"
       proposals:
         actions:
           amend: Amend
@@ -896,8 +898,6 @@ en:
           title: Status
       new:
         limit_reached: You cannot create new proposals since you have exceeded the limit.
-      pagination:
-        page_title: "%{component_name} - Page %{current_page} of %{total_pages}"
       participatory_text_proposal:
         alternative_title: There are no participatory texts at the moment
         buttons:
