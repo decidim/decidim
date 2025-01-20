@@ -38,7 +38,7 @@ module Decidim
 
     # Components enabled for a new initiative
     config_accessor :default_components do
-      [:pages, :meetings]
+      [:pages, :meetings, :blogs]
     end
 
     # Notifies when the given percentage of supports is reached for an
