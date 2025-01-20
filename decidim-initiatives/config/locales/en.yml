@@ -484,7 +484,7 @@ en:
           help_enter_your_number: Enter your number and you will receive a code that you should type.
           receive_code: Receive code
           resend_code_html: Have not received the code? <a href="%{new_code_path}">Try again</a>
-          your_code_is_correct: Your code is correct.
+          your_code_is_correct: "(Your code is correct)"
           your_code_is_incorrect: The code is not correct. Review it or <a href="%{new_code_path}">try again</a>.
           your_confirmation_code: Your confirmation code
       initiative_votes:
@@ -684,6 +684,9 @@ en:
         finish: Finish
         promotal_committee: Promoter committee
         select_initiative_type: Choose
+      initiative_signature_creation_header:
+        help_information_html: To sign the initiative <strong>%{initiative_title}</strong> promoted by %{initiative_author} you need to provide some information that will make the initiative signing legally binding. No information about you will be made public.
+        verify_your_identity: Verify your identity
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: No initiatives yet!
