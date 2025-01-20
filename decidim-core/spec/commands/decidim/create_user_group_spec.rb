@@ -68,7 +68,7 @@ module Decidim
               name: form.name,
               nickname: form.nickname,
               email: form.email,
-              avatar: form.avatar,
+              avatar: form.avatar.signed_id,
               about: form.about,
               organization:,
               extended_data: {
