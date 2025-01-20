@@ -42,6 +42,10 @@ module Decidim::Admin
       end
       let(:command) { described_class.new(newsletter, form) }
 
+      before do
+        ActiveJob::Base.queue_adapter = :inline
+      end
+
       def user_localized_body(user)
         newsletter.template.settings.body.stringify_keys[user.locale]
       end
