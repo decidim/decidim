@@ -183,6 +183,7 @@ header {
 
         svg + span {
           @apply text-sm first-letter:uppercase w-auto;
+
           flex-shrink: 0;
         }
       }
