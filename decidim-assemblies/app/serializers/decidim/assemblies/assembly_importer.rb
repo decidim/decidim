@@ -68,12 +68,6 @@ module Decidim
         end
       end
 
-      def import_assemblies_type(type_id)
-        return if Decidim::AssembliesType.find_by(id: type_id).nil?
-
-        @imported_assembly.decidim_assemblies_type_id = type_id
-      end
-
       def import_categories(categories)
         return if categories.nil?
 
