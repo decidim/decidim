@@ -10,6 +10,7 @@ module Decidim
           before_action :show_instructions,
                         unless: :csv_census_active?
 
+          include Decidim::Verifications::Admin::Filterable
           include Decidim::Admin::WorkflowsBreadcrumb
           include Decidim::Paginable
 
@@ -57,7 +58,11 @@ module Decidim
           end
 
           def csv_census_data
-            @csv_census_data ||= CsvDatum.where(organization: current_organization).page(params[:page]).per(15)
+            @csv_census_data ||= filtered_collection
+          end
+
+          def collection
+            @collection ||= CsvDatum.where(organization: current_organization)
           end
 
           def show_instructions
