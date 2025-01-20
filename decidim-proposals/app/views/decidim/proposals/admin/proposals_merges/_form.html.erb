@@ -11,7 +11,7 @@
         <%= form.translated :text_field, :title, class: "js-hashtags", aria: { label: :title } %>
       </div>
       <div class="row column pt-4">
-        <%= form.translated :editor, :body, aria: { label: :body } %>
+        <%= form.translated :editor, :body, html: { style: "height: 10rem;" }, aria: { label: :body } %>
       </div>
       <% if @form.meetings %>
         <div class="meeting-fields">

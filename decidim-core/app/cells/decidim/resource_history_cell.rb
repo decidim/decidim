@@ -47,10 +47,11 @@ module Decidim
         title = decidim_sanitize_translated(resource.title)
         url = resource_locator(resource).path
         link = link_to(title, url, class: "underline decoration-current text-secondary font-semibold")
+        date = resource.respond_to?(:published_at) ? resource.published_at : resource.updated_at
 
         @history_items << {
           id: "#{options[:link_name]}_#{resource.id}",
-          date: resource.published_at,
+          date:,
           text: t(options[:text_key], scope: "activerecord.models", link:),
           icon: resource_type_icon_key(options[:icon_key])
         }

@@ -16,10 +16,11 @@ document.addEventListener("decidim:loaded", () => {
 
       // Handles editor initialization
       saveForm.querySelectorAll(".editor-container").forEach((element) => createEditor(element));
+      const form = document.querySelector(".proposals_merge_form_admin");
+      const editorInput = form.querySelector(".editor-input");
+      editorInput.style.height = `${parseFloat(window.getComputedStyle(editorInput).height) / 2}px`;
 
       // Handles meeting checkbox
-      const form = document.querySelector(".proposals_merge_form_admin");
-
       if (form) {
         const proposalCreatedInMeeting = form.querySelector("#proposals_merge_created_in_meeting");
         const proposalMeeting = form.querySelector("#proposals_merge_meeting");
