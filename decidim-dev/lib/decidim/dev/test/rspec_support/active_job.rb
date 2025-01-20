@@ -7,6 +7,8 @@ RSpec.configure do |config|
     clear_enqueued_jobs
     clear_performed_jobs
   end
-end
 
-ActiveJob::Base.queue_adapter = :test
+  config.before do
+    ActiveJob::Base.queue_adapter = :inline
+  end
+end
