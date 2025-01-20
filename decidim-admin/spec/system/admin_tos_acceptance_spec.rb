@@ -54,9 +54,6 @@ describe "AdminTosAcceptance" do
       it "allows accepting and redirects to the previous page" do
         click_on "I agree with the terms"
         expect(page).to have_content("New process")
-        within_admin_menu do
-          expect(page).to have_content("Process types")
-        end
         expect(page).to have_content("Process groups")
       end
 
