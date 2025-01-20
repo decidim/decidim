@@ -169,8 +169,8 @@ shared_examples "merge proposals" do
 
           it "creates a new proposal" do
             expect(page).to have_content("Address")
-            expect(page).to have_content("Add images")
-            expect(page).to have_content("Attachment or image name")
+            expect(page).to have_content("Add attachments")
+            expect(page).to have_content("Add a document or an image")
             expect(page).to have_button(id: "js-submit-merge-proposals", count: 1)
             click_on(id: "js-submit-merge-proposals")
             expect(page).to have_content("Successfully merged the proposals into a new one")

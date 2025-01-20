@@ -50,7 +50,7 @@ module Decidim
 
         @history_items << {
           id: "#{options[:link_name]}_#{resource.id}",
-          date: resource.updated_at,
+          date: resource.published_at,
           text: t(options[:text_key], scope: "activerecord.models", link:),
           icon: resource_type_icon_key(options[:icon_key])
         }

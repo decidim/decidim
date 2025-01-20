@@ -22,6 +22,7 @@ module Decidim
               same_component?: same_component,
               current_user: create(:user, :admin, organization: current_component.organization),
               add_photos: [],
+              add_documents: [],
               title: { "en" => "Valid Long Proposal Title" },
               body: { "en" => "Valid body text" },
               address: "",

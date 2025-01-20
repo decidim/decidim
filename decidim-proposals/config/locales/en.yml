@@ -703,9 +703,7 @@ en:
             invalid: 'There was a problem merging the selected proposals because some of them:'
             success: Successfully merged the proposals into a new one.
           form:
-            attachment_legend: "(Optional) Add an attachment"
             created_in_meeting: This proposal comes from a meeting
-            delete_attachment: Delete attachment
             select_a_meeting: Select a meeting
           new:
             title: Merge into a new one
