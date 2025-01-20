@@ -14,7 +14,7 @@
 
     &-container {
       @apply flex flex-wrap flex-col md:flex-row gap-2 border-4 border-background rounded;
-      
+
       ul {
         @apply flex-1 p-2;
       }
