@@ -46,6 +46,7 @@ module Decidim
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :tos_agreement, acceptance: true, if: :user_invited?
+    validates :tos_agreement, acceptance: true, if: :ephemeral?
     validates :email, :nickname, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? || nickname.blank? }
 
     validate :all_roles_are_valid
@@ -74,6 +75,8 @@ module Decidim
     }
 
     scope :org_admins_except_me, ->(user) { where(organization: user.organization, admin: true).where.not(id: user.id) }
+
+    scope :ephemeral, -> { where("extended_data @> ?", Arel.sql({ ephemeral: true }.to_json)) }
 
     attr_accessor :newsletter_notifications
 
@@ -196,7 +199,7 @@ module Decidim
     end
 
     def tos_accepted?
-      return true if managed
+      return true if managed && !ephemeral?
       return false if accepted_tos_version.nil?
 
       # For some reason, if we do not use `#to_i` here we get some
@@ -277,6 +280,10 @@ module Decidim
         return true if participatory_space_type.moderators(organization).exists?(id:)
       end
       false
+    end
+
+    def ephemeral?
+      extended_data["ephemeral"]
     end
 
     def after_confirmation

@@ -17,7 +17,6 @@ describe "Conference admin accesses admin sections" do
     within_admin_sidebar_menu do
       expect(page).to have_content("About this conference")
       expect(page).to have_content("Components")
-      expect(page).to have_content("Categories")
       expect(page).to have_content("Attachments")
       expect(page).to have_content("Media Links")
       expect(page).to have_content("Partners")
