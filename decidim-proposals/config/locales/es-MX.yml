@@ -515,6 +515,21 @@ es-MX:
           proposal_comments: Comentarios
           proposals: Propuestas
         imports:
+          help:
+            answers: |
+              El documento de importación debe contener los siguientes nombres de columna en caso de archivos CSV o Excel. o nombres de claves en caso de archivos JSON (se ignorarán otras columnas):
+              <ul>
+              <li><b>id:</b> ID de la propuesta a responder</li>
+              <li>estado<b>:</b> Uno de estos "aceptada", "en evaluación" o "rechazada"</li>
+              <li><b>respuesta/en:</b> Respuesta en idioma inglés. Esto dependerá de la configuración de idioma predeterminado de tu plataforma.</li>
+              </ul>
+            proposals: |
+              El documento de importación debe contener los siguientes nombres de columna en caso de archivos CSV o Excel. o nombres de claves en caso de archivos JSON:
+              <ul>
+              <li><b>title/es:</b> Título en castellano. Esto dependerá de la configuración de idioma predeterminado de tu plataforma.</li>
+              <li><b>body/en:</b> Descripció en castellano. Esto dependerá de la configuración de idioma predeterminado de tu plataforma.</li>
+              <li><b>taxonomies/ids:</b> IDs para la taxonomia (si hay más de una, sepárelas con una coma)</li>
+              </ul>
           label:
             answers: Importar respuestas desde un archivo
             proposals: Importar propuestas desde un archivo
@@ -747,6 +762,7 @@ es-MX:
           error: Se ha producido un error al crear este borrador colaborativo.
           success: Borrador colaborativo creado con éxito.
         edit:
+          attachment_legend: Añadir un documento o una imagen
           back: Volver
           send: Enviar
           title: Editar borrador colaborativo
@@ -894,7 +910,10 @@ es-MX:
           description: Las coordenadas se actualizarán cuando hagas clic en el botón 'previsualizar'. Sin embargo, la dirección no cambia.
           instructions: Puedes mover la ubicación en el mapa.
         edit:
+          add_attachments: Agregar archivo(s) adjunto(s)
+          attachment_legend: Añadir un documento o una imagen
           back: Atrás
+          edit_attachments: Editar los archivos adjuntos
           send: Enviar
           title: Editar propuesta
         edit_draft:
