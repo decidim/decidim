@@ -11,6 +11,8 @@ en:
         state: State
         title: Title
         user_group_id: Create collaborative draft as
+      import_participatory_text:
+        document: Document
       proposal:
         address: Address
         answer: Answer
@@ -20,6 +22,8 @@ en:
         decidim_proposals_proposal_state_id: State
         decidim_scope_id: Scope
         has_address: Has address
+        latitude: Latitude
+        longitude: Longitude
         scope_id: Scope
         state: State
         suggested_hashtags: Suggested hashtags
@@ -46,6 +50,8 @@ en:
       proposals_copy:
         copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action cannot be reversed.
         origin_component_id: Component to copy the proposals from
+      proposals_file_import:
+        file: File
       proposals_import:
         import_proposals: Import proposals
         keep_answers: Keep state and answers
@@ -113,6 +119,9 @@ en:
         other: Votes
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Proposals
       filters:
         proposals:
           is_emendation_true:
@@ -447,10 +456,16 @@ en:
           attachments: The number of attachments this proposal has
           author: The data for the author of this proposal
           body: The proposal body
+          coauthorships_count: The number of co-authorships the proposal represents
           comments: The number of comments this proposal has
           component: The component that the proposal belongs to
+          cost: The total cost of the proposal in question
+          cost_report: A report of costs for the proposal
+          created_at: The date the proposal was created
+          created_in_meeting: Whether the proposal was created in a meeting
           endorsements: The number of endorsements ("likes") this proposal has
-          followers: The number of followers this proposal has
+          execution_period: The period at which the proposal ran from beginning to end
+          follows_count: The number of followers this proposal has
           id: The unique identifier for the proposal
           is_amend: Wheter this proposal is ammedning another proposal
           latitude: The latitude of the proposal in case it has a physical location
@@ -462,8 +477,10 @@ en:
           reference: The unique identifier of the resource in this platform
           related_proposals: The proposals related to this proposal
           state: The status of this proposal (e.g. "Accepted")
+          state_published_at: A time stamp of the state of the proposal when published
           taxonomies: The taxonomies that this proposal belongs to
           title: The proposal title
+          updated_at: The date the proposal was last updated
           url: The URL where this proposal can be found
           votes: The number of votes this proposal has
           withdrawn: Wheter this proposal has been withdrawn
@@ -501,7 +518,7 @@ en:
         imports:
           help:
             answers: |
-              The import document should contain the following column names in case of CSV or Excel files, or key names in case of JSON files:
+              The import document should contain the following column names in case of CSV or Excel files, or key names in case of JSON files (other columns will be ignored):
               <ul>
               <li><b>id:</b> ID of the proposal to answer</li>
               <li><b>state:</b> One of "accepted", "evaluating", or "rejected"</li>
@@ -512,8 +529,7 @@ en:
               <ul>
               <li><b>title/en:</b> Title on English language. This will depend on your platform language configuration.</li>
               <li><b>body/en:</b> Body on English language. This will depend on your platform language configuration.</li>
-              <li><b>scope/id:</b> ID for the Scope</li>
-              <li><b>category/id:</b> ID for the Category</li>
+              <li><b>taxonomies/ids:</b> ID for the Taxonomies (if more than one, separate with a comma)</li>
               </ul>
           label:
             answers: Import answers from a file
@@ -611,9 +627,7 @@ en:
             title: Update proposal
             update: Update
           form:
-            attachment_legend: "(Optional) Add an attachment"
             created_in_meeting: This proposal comes from a meeting
-            delete_attachment: Delete attachment
             select_a_meeting: Select a meeting
           index:
             actions: Actions
@@ -749,7 +763,7 @@ en:
           error: There was a problem creating this collaborative draft.
           success: Collaborative draft successfully created.
         edit:
-          attachment_legend: "(Optional) Add an attachment"
+          attachment_legend: Add a document or an image
           back: Back
           send: Send
           title: Edit collaborative draft
@@ -838,6 +852,11 @@ en:
       destroy_draft:
         error: There was a problem deleting the collaborative draft.
         success: Proposal draft was successfully deleted.
+      exit_modal:
+        cancel: Cancel
+        exit: Continue
+        message: You have to give %{number} more votes between different proposals for your votes to be taken into account.
+        title: Remember you have %{number} votes left
       forms:
         errors:
           device_not_supported: Your device does not support location services. Please enter the address manually.
@@ -892,10 +911,10 @@ en:
           description: The coordinates will be updated when clicking on 'preview' button. However, the address does not change.
           instructions: You can move the point on the map.
         edit:
-          add_documents: Add documents
-          attachment_legend: "(Optional) Add an attachment"
+          add_attachments: Add attachments
+          attachment_legend: Add a document or an image
           back: Back
-          edit_documents: Edit documents
+          edit_attachments: Edit attachments
           send: Send
           title: Edit proposal
         edit_draft:
@@ -993,19 +1012,22 @@ en:
             one: Vote
             other: Votes
         voting_rules:
+          already_vote:
+            description: Remember that you still have to give %{number} supports between different proposals so that your supports are taken into account.
+            see_other_proposals: See other proposals
+            title: You have %{number} supports left
           can_accumulate_votes_beyond_threshold:
             description: Each proposal can accumulate more than %{limit} votes
           minimum_votes_per_user:
-            description: You must distribute a minimum of %{votes} votes among different proposals.
-            given_enough_votes: You have given enough votes.
-            votes_remaining: You have to vote %{remaining_votes} more proposals for your votes to be taken into account.
+            description: You have to distribute a minimum of %{votes} supports among different proposals so that your supports are taken into account.
           proposal_limit:
             description: You can create up to %{limit} proposals.
+          success: Your votes have been successfully accepted
           threshold_per_proposal:
             description: In order to be validated proposals need to reach %{limit} votes.
-          title: 'Votes are subject to the following rules:'
+          title: Rules of participation
           vote_limit:
-            description: You can vote up to %{limit} proposals.
+            description: You can support up to %{limit} proposals.
             votes: Remaining %{number} votes
         wizard_aside:
           back: Back

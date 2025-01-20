@@ -23,6 +23,10 @@ en:
         one: Debate
         other: Debates
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Debates
     components:
       debates:
         actions:
@@ -71,12 +75,18 @@ en:
             title: Edit debate
             update: Update debate
           form:
-            add_documents: Add documents
-            attachment_legend: "(Optional) Add an attachment"
+            add_attachments: Add attachments
+            attachment_legend: Add a document or an image
+            comments_visualization: Comments visualization
+            comments_warning: Once the first comment is posted, the selected display option cannot be changed.
             debate_type: Debate type
-            edit_documents: Edit documents
+            edit_attachments: Edit attachments
+            errors:
+              comments_layout_locked: You cannot change the comment layout once comments have been posted.
             finite: Finite (With start and end times)
             open: Open (No start or end times)
+            single_column: 'Single column: Comments are displayed in chronological order and can have replies.'
+            two_columns: 'Two columns: Comments are displayed under "In favor" and "Against" columns and cannot have replies.'
           index:
             title: Debates
           manage_trash:

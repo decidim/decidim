@@ -100,8 +100,6 @@ th:
           create:
             invalid: เกิดปัญหาในการสร้างผลลัพธ์นี้
             success: สร้างผลลัพธ์สำเร็จแล้ว
-          destroy:
-            success: ลบผลลัพธ์เรียบร้อยแล้ว
           edit:
             title: แก้ไขผลลัพธ์
             update: อัพเดทผลครับ
@@ -141,14 +139,10 @@ th:
             success: ลบรายการเรียบร้อยแล้ว
       results:
         home:
-          categories_label: หมวดหมู่
           empty: ยังไม่มีผลลัพธ์
           empty_filters: ไม่มีผลลัพธ์ตามเกณฑ์นี้
-          subcategories_label: หมวดหมู่ย่อย
         home_header:
           global_status: สถานะการดำเนินการทั่วโลก
-        nav_breadcrumb:
-          global: การดำเนินการระดับโลก
         no_results: ไม่มีโครงการ
         search:
           search: ค้นหาการกระทำ
@@ -160,10 +154,6 @@ th:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: หมวดหมู่
-          scope_id_eq:
-            label: ขอบเขต
           status_id_eq:
             label: สถานะ
     components:

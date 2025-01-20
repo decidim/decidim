@@ -287,9 +287,6 @@ ru:
     download_your_data:
       export:
         ready: Готово
-      show:
-        download_data: Загрузить данные
-        request_data: Запросить данные
     errors:
       internal_server_error:
         title: При попытке связи с нашим сервером произошла ошибка
@@ -333,8 +330,6 @@ ru:
     export_mailer:
       download_your_data_export:
         download: Скачать
-      export:
-        ready: К настоящему прилагается в архивированном виде сохраненный вами файл.
       subject: Ваш сохраненный файл «%{name}» готов
     filters:
       linked_classes:

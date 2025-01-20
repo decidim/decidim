@@ -522,8 +522,6 @@ hu:
       application_helper:
         filter_area_values:
           all: Összes
-        filter_category_values:
-          all: Összes
         filter_scope_values:
           all: Összes
     devise:
@@ -582,23 +580,17 @@ hu:
     download_your_data:
       export:
         ready: Kész
-      show:
-        download_data: Töltsd le az adatokat
-        request_data: Adatkérés
     editor_images:
       create:
         error: Hiba történt a kép feltöltése közben.
         success: Kép sikeresen feltöltve.
       drag_and_drop_help: Képek hozzáadása húzással és ejtéssel vagy beillesztéssel.
     endorsement_buttons_cell:
-      already_endorsed: Nem tetszik
       endorse: Tetszik
     endorsements:
       identities:
         done: Kész
         select_identity: Válassz azonosítót
-    endorsers_list:
-      endorsed_by: Kedvelte…
     errors:
       files:
         file_resolution_too_large: A fájl felbontása túl nagy
@@ -767,10 +759,7 @@ hu:
           email_subject: "%{name} regisztrációja hivatalossá lett téva"
     export_mailer:
       download_your_data_export:
-        click_button: 'Kattintson a következő linkre az adatainak letöltéséhez. <br/> A fájl elérhető marad eddig %{date}<br/> Szüksége lesz egy a zip fájlt kicsomagoló programra. <a href="https://www.7-zip.org/"> 7-Zip</a>Windowson,<a href="https://www.keka.io/en/">Keka</a> (Mac-en) vagy <a href="https://peazip.github.io">PeaZip</a> (Linuxon). Jelszó: %{password}'
         download: Letöltés
-      export:
-        ready: Mellékelve találod az exportálás tömörített változatát.
       subject: A(z) "%{name}" exportálás kész
     filters:
       linked_classes:
@@ -1373,12 +1362,6 @@ hu:
         please_log_in: Kérjük, jelentkezz be
       mentions_modal:
         remove_recipient: '%{name} címzett eltávolítása'
-      participatory_space_filters:
-        filters:
-          area: Terület
-          areas: Területek
-          scope: Hatókör
-          select_an_area: Válasszon ki egy területet
       progress: Folyamat
       public_participation:
         public_participation: Nyilvánosan mutassa a részvételemet
@@ -1407,8 +1390,6 @@ hu:
       pages_count: Oldalak
       participants_count: Résztvevők
       users_count: Résztvevők
-    tags:
-      filter_results_for_category: 'A kategória találatainak szűrése: %{resource}'
     translation_bar:
       help_text: "<strong>Figyelem:</strong> A tartalmat automatikusan fordíthatták, és nem 100% -ban pontos."
       show_original: Eredeti szöveg mutatása
@@ -1778,7 +1759,6 @@ hu:
         data_consent_settings: Süti beállítások
         decidim_logo: Decidim-logó
         decidim_title: Decidim
-        download_open_data: Töltse le a Nyílt Adat fájlokat
         log_in: Bejelentkezés
         made_with_open_source: Az oldal <a target="_blank" href="https://github.com/decidim/decidim">nyílt forráskódú szoftverrel</a> készült.
         resources: Segédanyagok

@@ -98,7 +98,6 @@ el:
       assemblies:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία μιας νέας συνέλευσης.
-          success: Η συνέλευση δημιουργήθηκε με επιτυχία.
         edit:
           update: Ενημέρωση
         index:
@@ -140,21 +139,6 @@ el:
           import: Εισαγωγή
           select: Επιλέξετε ποιά δεδομένα θα θέλατε να εισάγετε
           title: Εισαγωγή συνέλευσης
-      assembly_members:
-        create:
-          error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός μέλους για αυτήν τη συνέλευση.
-          success: Το μέλος δημιουργήθηκε με επιτυχία για αυτήν τη συνέλευση.
-        destroy:
-          success: Το μέλος διαγράφηκε με επιτυχία για αυτήν τη συνέλευση.
-        edit:
-          update: Ενημέρωση
-        index:
-          assembly_members_title: Μέλη συνέλευσης
-        new:
-          create: Δημιουργία
-        update:
-          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση του μέλους για αυτήν τη συνέλευση.
-          success: Το μέλος ενημερώθηκε με επιτυχία για αυτήν τη συνέλευση.
       assembly_publications:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση αυτής της συνέλευσης.
@@ -184,7 +168,6 @@ el:
         assemblies: Συνελεύσεις
         assemblies_submenu:
           assembly_admins: Διαχειριστές συνέλευσης
-          assembly_members: Μέλη
           attachment_collections: Φάκελοι
           attachment_files: Αρχεία
           attachments: Συνημμένα
@@ -206,11 +189,6 @@ el:
             title: Τίτλος
           name: Συνέλευση
         assembly_member:
-          fields:
-            ceased_date: Ημερομηνία παύσης
-            designation_date: Ημερομηνία διορισμού
-            full_name: Όνομα
-            position: Θέση
           name: Μέλος
           positions:
             other: Άλλο
@@ -279,13 +257,8 @@ el:
             title: Τίτλος
         assembly_members:
           form:
-            existing_user: Υπάρχων συμμετέχων
             explanation: 'Οδηγίες για την εικόνα:'
-            non_user: Μη συμμετέχων
             non_user_avatar_help: Θα πρέπει να λάβετε τη συγκατάθεση των προσώπων πριν τα δημοσιεύσετε ως μέλος.
-            select_a_position: Επιλέξτε θέση
-            select_user: Επιλέξτε συμμετέχοντα
-            user_type: Τύπος συμμετέχοντα
         content_blocks:
           highlighted_assemblies:
             max_results: Μέγιστη ποσότητα στοιχείων προς εμφάνιση
@@ -340,8 +313,6 @@ el:
         private_space: Αυτή είναι μια ιδιωτική συνέλευση
         social_networks_title: Επίσκεψη στη συνέλευση στις
     assembly_members:
-      assembly_member:
-        designated_on: Διορίστηκε στις
       index:
         title: Μέλη
     events:

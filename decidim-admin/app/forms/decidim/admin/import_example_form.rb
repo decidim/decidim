@@ -35,7 +35,7 @@ module Decidim
       end
 
       def reader
-        @reader ||= reader_klass ? reader_klass.new("/dev/null") : nil
+        @reader ||= reader_klass ? reader_klass.new(File::NULL) : nil
       end
 
       def reader_klass

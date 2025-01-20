@@ -2,15 +2,12 @@ fi-pl:
   activemodel:
     attributes:
       debate:
-        category_id: Aihepiiri
         closed_at: Sulkeutumisaika
         conclusions: Johtopäätökset
-        decidim_category_id: Aihepiiri
         description: Kuvaus
         end_time: Päättymisaika
         information_updates: Tietojen päivitykset
         instructions: Osallistumisohjeet
-        scope_id: Teema
         start_time: Alkamisaika
         title: Otsikko
         user_group_id: Luo keskustelu käyttäjänä
@@ -29,16 +26,22 @@ fi-pl:
       debates:
         actions:
           comment: Kommentoi
-          create: Luo
+          create: Luo keskustelu
           endorse: Suosittele
         name: Keskustelut
         settings:
           global:
             announcement: Ilmoitus
+            attachments_allowed: Salli liitteet
+            clear_all: Tyhjennä kaikki
             comments_enabled: Kommentointi käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             scope_id: Teema
             scopes_enabled: Teemat käytössä
+            taxonomy_filters: Valitse suodattimet komponentille
+            taxonomy_filters_add: Lisää suodatin
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
@@ -48,11 +51,12 @@ fi-pl:
     debates:
       actions:
         close: Sulje
-        confirm_destroy: Oletko varma?
-        destroy: Poista
+        confirm_delete_debate: Haluatko varmasti poistaa tämän keskustelun?
+        deleted_debate_info: Poistetut keskustelut voidaan palauttaa roskakorista.
         edit: Muokkaa
         new: Uusi keskustelu
         title: Toiminnot
+        view_deleted_debates: Näytä poistetut keskustelut
       admin:
         debate_closes:
           edit:
@@ -62,17 +66,20 @@ fi-pl:
           create:
             invalid: Keskustelua luotaessa tapahtui virhe.
             success: Keskustelu luotu onnistuneesti.
-          destroy:
-            success: Keskustelu poistettu onnistuneesti.
           edit:
             title: Muokkaa keskustelua
             update: Päivitä keskustelu
           form:
+            add_documents: Lisää asiakirjoja
+            attachment_legend: "(Valinnainen) Lisää liitetiedosto"
             debate_type: Keskustelun tyyppi
+            edit_documents: Muokkaa asiakirjoja
             finite: Määräaikainen (keskustelulla on alku- ja loppuaika)
             open: Avoin (keskustelulla ei ole alku- ja loppuaikaa)
           index:
             title: Keskustelut
+          manage_trash:
+            title: Poistetut keskustelut
           new:
             create: Luo keskustelu
             title: Uusi keskustelu
@@ -80,12 +87,19 @@ fi-pl:
             invalid: Keskustelun päivittämisessä tapahtui virhe.
             success: Keskustelu päivitetty onnistuneesti.
         exports:
-          comments: Kommentit
+          debate_comments: Kommentit
+          debates: Keskustelut
       admin_log:
         debate:
           close: "%{user_name} sulki keskustelun %{resource_name} osallistumistilassa %{space_name}"
           create: "%{user_name} loi keskustelun %{resource_name} tilaan %{space_name}"
+          restore: "%{user_name} palautti keskustelun %{resource_name} tilassa %{space_name}"
+          soft_delete: "%{user_name} siirsi keskustelun %{resource_name} roskakoriin tilassa %{space_name}"
           update: "%{user_name} päivitti keskustelun %{resource_name} tilassa %{space_name}"
+      content_blocks:
+        highlighted_debates:
+          name: Keskustelut
+          see_all: Näytä kaikki keskustelut
       debate_m:
         commented_time_ago: Kommentoitu %{time} sitten
       debates:
@@ -126,8 +140,6 @@ fi-pl:
             closed: Suljetut
             open: Avoimet
           user_group: Ryhmät
-        form:
-          select_a_category: Valitse aihepiiri
         index:
           new_debate: Uusi keskustelu
         new:
@@ -141,11 +153,11 @@ fi-pl:
           recent: Viimeisimmät
           updated: Viimeksi päivitetyt
         show:
-          close_debate: Sulje keskustelu
+          close_debate: Päätä
           debate_closed: Suljettu
           debate_conclusions_are: 'Keskustelu on suljettu %{date} seuraavin johtopäätöksin:'
           edit_conclusions: Muokkaa johtopäätöksiä
-          edit_debate: Muokkaa keskustelua
+          edit_debate: Muokkaa
           groups_count: Ryhmiä
           open: Avoin keskustelu
           participants_count: Osallistujia
@@ -163,7 +175,12 @@ fi-pl:
             official_debate: Virallinen keskustelu
             start: Alkamisaika
             start_time: Alkamispäivä
+            taxonomies: Luokittelut
             title: Otsikko
+    download_your_data:
+      show:
+        debate_comments: Keskustelujen kommenttien vienti
+        debates: Keskustelujen vienti
     events:
       debates:
         create_debate_event:
@@ -219,5 +236,43 @@ fi-pl:
         description: Keskustelujen määrä
         object: keskustelut
         title: Keskustelut
+    open_data:
+      help:
+        debate_comments:
+          alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
+          author: Kommentin laatijan nimi
+          body: Kommentin teksti
+          commentable_id: Kommentoitavan asian yksilöllinen tunniste
+          commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
+          created_at: Kommentin laatimisaika
+          depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
+          id: Kommentin yksilöllinen tunniste
+          locale: Kommentoijan valitsema kieliasetus sivustolla
+          root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
+          user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
+        debates:
+          author: Keskustelun laatijan tiedot
+          closed_at: Keskustelun sulkemisaika
+          comments: Keskustelun kommenttien määrä
+          comments_enabled: Onko tällä keskustelulla ollut kommentit sallittuna vai ei
+          component: Keskustelun komponentti
+          conclusions: Keskustelun johtopäätökset, mikäli se on päätetty
+          created_at: Keskustelun luontiaika
+          description: Keskustelun kuvaus
+          end_time: Keskustelun päättymisaika, mikäli kyseessä on aikamääreeltään rajattu keskustelu
+          endorsements_count: Keskustelun suositusten ("tykkäykset") lukumäärä
+          follows_count: Keskustelun seuraajien lukumäärä
+          id: Keskustelun yksilöllinen tunniste
+          information_updates: Muutokset, joita keskustelun laatija on tehnyt keskusteluun
+          instructions: Keskustelun osallistumisohjeet
+          last_comment_at: Keskustelun viimeisimmän kommentin ajankohta
+          last_comment_by: Keskustelun viimeisimmän kommentin laatimisaika
+          participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä keskustelu kuuluu
+          reference: Keskustelun yksilöllinen tunniste tällä alustalla
+          start_time: Keskustelun alkamisaika, mikäli kyseessä on aikamääreeltään rajattu keskustelu
+          taxonomies: Projektin luokittelut
+          title: Keskustelun otsikko
+          updated_at: Keskustelun viimeisin päivitysaika
+          url: URL-osoite keskusteluun
     statistics:
       debates_count: Keskustelua

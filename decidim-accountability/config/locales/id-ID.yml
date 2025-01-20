@@ -102,15 +102,8 @@ id:
         count:
           results_count:
             other: "%{count} hasil"
-        filters:
-          all: Semua
-        home:
-          categories_label: Kategori
-          subcategories_label: Subkategori
         home_header:
           global_status: Status eksekusi global
-        nav_breadcrumb:
-          global: Eksekusi global
         search:
           search: Cari tindakan
         show:

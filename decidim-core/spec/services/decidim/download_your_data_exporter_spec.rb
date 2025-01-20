@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/download_your_data_shared_examples"
 
 module Decidim
   describe DownloadYourDataExporter do
@@ -45,24 +46,49 @@ module Decidim
         end
         expect(file_prefixes).to be_empty
       end
+    end
 
-      context "when the user has a comment" do
-        let(:participatory_space) { create(:participatory_process, organization:) }
-        let(:component) { create(:component, participatory_space:) }
-        let(:commentable) { create(:dummy_resource, component:) }
+    describe "#readme" do
+      describe "the user" do
+        let(:help_definition_string) { "The username of the user" }
 
-        let!(:comment) { create(:comment, commentable:, author: user) }
+        it_behaves_like "a download your data entity"
+      end
 
-        it "returns the comment data" do
-          user_data, = subject.send(:data_and_attachments_for_user)
+      context "when the user has a user group" do
+        let!(:user_group) { create(:user_group, users: [user]) }
+        let(:help_definition_string) { "The username of the user" }
 
-          user_data.find { |entity, _| entity == "decidim-comments-comments" }.tap do |_, exporter_data|
-            csv_comments = exporter_data.read.split("\n")
-            expect(csv_comments.count).to eq 2
-            expect(csv_comments.first).to start_with "id;created_at;body;locale;author/id;author/name;alignment;depth;"
-            expect(csv_comments.second).to start_with "#{comment.id};"
-          end
-        end
+        it_behaves_like "a download your data entity"
+      end
+
+      context "when the user has a follow" do
+        let!(:follow) { create(:follow, user:) }
+        let(:help_definition_string) { "The resource or space that is being followed" }
+
+        it_behaves_like "a download your data entity"
+      end
+
+      context "when the user has a notification" do
+        let!(:notification) { create(:notification, user:) }
+        let(:help_definition_string) { "The type of the resource that the notification is related to" }
+
+        it_behaves_like "a download your data entity"
+      end
+
+      context "when the user has a conversation" do
+        let!(:conversation) { create(:conversation, originator: user) }
+        let!(:message) { create(:message, conversation:) }
+        let(:help_definition_string) { "The messages of this conversation" }
+
+        it_behaves_like "a download your data entity"
+      end
+
+      context "when the user has an identity" do
+        let!(:identity) { create(:identity, user:) }
+        let(:help_definition_string) { "The user that this identity belongs to" }
+
+        it_behaves_like "a download your data entity"
       end
     end
   end

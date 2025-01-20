@@ -42,7 +42,9 @@ ca:
       actions:
         attachment_collections: Carpetes
         attachments: Fitxers adjunts
+        confirm_delete_result: Segur que voleu suprimir aquest resultat?
         confirm_destroy: Segur que vols suprimir aquest %{name}?
+        deleted_results_info: Els resultats eliminats es poden restaurar des de la paperera.
         destroy: Esborrar
         edit: Editar
         import: Importar projectes des d'un altre component
@@ -53,6 +55,7 @@ ca:
         preview: Previsualitzar
         timeline_entries: Evolució del projecte
         title: Accions
+        view_deleted_results: Veure els resultats eliminats
       admin:
         exports:
           result_comments: Comentaris
@@ -112,13 +115,13 @@ ca:
           create:
             invalid: S'ha produït un error en crear aquest resultat.
             success: Resultat creat correctament.
-          destroy:
-            success: Resultat eliminat correctament.
           edit:
             title: Editar resultat
             update: Actualitzar resultat
           index:
             title: Resultats
+          manage_trash:
+            title: Resultats eliminats
           new:
             create: Crear resultat
             title: Nou resultat
@@ -166,6 +169,8 @@ ca:
         result:
           create: "%{user_name} ha creat el resultat %{resource_name} en %{space_name}"
           delete: "%{user_name} ha eliminat el resultat %{resource_name} de l'espai %{space_name}"
+          restore: "%{user_name} ha eliminat el resultat %{resource_name} de l'espai %{space_name}"
+          soft_delete: "%{user_name} ha mogut el resultat %{resource_name} des de %{space_name} a la paperera"
           update: "%{user_name} ha actualitzat el resultat %{resource_name} en %{space_name}"
         status:
           create: "%{user_name} ha creat l'estat %{resource_name}"
@@ -202,14 +207,13 @@ ca:
       models:
         result:
           fields:
-            category: Categoria
             created_at: Creat
             end_date: Fi
             id: ID
             progress: Progrés
-            scope: Àmbit
             start_date: Inici
             status: Estat
+            taxonomies: Taxonomies
             title: Títol
         status:
           fields:
@@ -226,17 +230,13 @@ ca:
           results_count:
             one: Un resultat
             other: "%{count} resultats"
-        filters:
-          all: Tots
         home:
-          categories_label: Categories
           empty: Encara no hi ha cap resultat.
           empty_filters: No hi ha cap resultat amb aquest criteri.
-          subcategories_label: Subcategories
+          sub_taxonomies_label: Subcategories
+          taxonomies_label: Categories
         home_header:
           global_status: Estat d'execució global
-        nav_breadcrumb:
-          global: Execució global
         no_results: No hi ha projectes
         search:
           search: Cercar actuacions
@@ -248,12 +248,10 @@ ca:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Categoria
-          scope_id_eq:
-            label: Àmbit
           status_id_eq:
             label: Estat
+          taxonomies_part_of_contains:
+            label: Taxonomia
     components:
       accountability:
         actions:
@@ -261,14 +259,24 @@ ca:
         name: Seguiment
         settings:
           global:
+            clear_all: Netejar-ho tot
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             display_progress_enabled: Mostrar el progrés
+            geocoding_enabled: Mapes habilitats
             intro: Introducció
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
+            taxonomy_filters: Seleccionar filtres pel component
+            taxonomy_filters_add: Afegir un filtre
           step:
             comments_blocked: Comentaris bloquejats
+    download_your_data:
+      show:
+        result_comments: Exportar els comentaris als resultats
+        results: Exportar els resultats
     events:
       accountability:
         proposal_linked:
@@ -286,6 +294,41 @@ ca:
         description: Nombre de resultats generats
         object: resultats
         title: Resultats
+    open_data:
+      help:
+        result_comments:
+          alignment: Si aquest comentari va ser a favor, en contra o neutral
+          author: El nom d'usuària de la participant que va fer el comentari
+          body: El comentari pròpiament
+          commentable_id: L'identificador únic d'allò que es podia comentar
+          commentable_type: La tipologia d'allò sobre el que es va fer el comentari (si va ser un resultat, una proposta, etc.)
+          created_at: La data en què es va crear aquest comentari
+          depth: El lloc on es troba aquest comentari a la terna de comentaris (si és un comentari, una resposta a un comentari, o la resposta d'una resposta)
+          id: L'identificador id d'aquest comentari
+          locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
+          root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
+          user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
+        results:
+          address: La data del resultat (si n'hi ha)
+          children_count: El número de resultats fills (imbricats)
+          comments_count: El número de comentaris que té aquest resultat
+          component: El component al qual pertany aquest resultat
+          created_at: La data en què es va crear aquest resultat
+          description: La descripció del resultat
+          end_date: La data prevista per a la finalització de l'execució del resultat
+          id: L'identificador únic del resultat
+          latitude: La latitud del resultat en cas que aquesta tingui una ubicació física
+          longitude: La latitud del resultat en cas que aquesta tingui una ubicació física
+          parent: El resultat pare (si existeix) del resultat
+          progress: El percentatge d'execució del resultat
+          proposal_urls: Les URL de les propostes que estan incloses en aquest resultat
+          reference: La referència única del resultat
+          start_date: La data en la qual estava previst l'inici de l'execució del resultat
+          status: L'estat actual d'aquest resultat
+          taxonomies: Les taxonomies del resultat
+          title: El títol del resultat
+          updated_at: La data de la darrera actualització d'aquest resultat
+          url: L'URL on es pot trobar aquest resultat
     participatory_spaces:
       highlighted_results:
         see_all: Veure tots els resultats

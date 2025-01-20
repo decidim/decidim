@@ -2,15 +2,12 @@ sv:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Indelning
         description: Beskrivning
         title: Titel
         total_budget: Total budget
         weight: Position i listan
       project:
         budget_amount: Belopp
-        decidim_category_id: Kategori
-        decidim_scope_id: Indelning
         description: Beskrivning
         proposal_ids: Relaterade förslag
         proposals: Förslag
@@ -30,10 +27,6 @@ sv:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Kategori
-          scope_id_eq:
-            label: Indelning
           selected_at_null:
             label: Valda
             values:
@@ -43,8 +36,6 @@ sv:
       actions:
         attachment_collections: Mappar
         attachments: Bilagor
-        confirm_destroy: Vill du radera projektet?
-        destroy: Radera
         edit: Redigera
         edit_projects: Hantera projekt
         import: Importera förslag till projekt
@@ -58,9 +49,6 @@ sv:
           create:
             invalid: Det gick inte att skapa budgeten.
             success: Budgeten har skapats.
-          destroy:
-            invalid: Det gick inte att radera budgeten.
-            success: Budgeten har raderats.
           edit:
             title: Redigera budget
             update: Uppdatera budget
@@ -87,8 +75,6 @@ sv:
           create:
             invalid: Det gick inte att skapa projektet.
             success: Projektet har skapats.
-          destroy:
-            success: Projektet har raderats.
           edit:
             title: Redigera projekt
             update: Uppdatera
@@ -96,8 +82,6 @@ sv:
             actions: Åtgärder
             cancel: Avbryt
             change_budget: Ändra budget
-            change_category: Ändra kategori
-            change_scope: Ändra indelning
             change_selected: Ändra status
             deselect_implementation: Välj bort från genomförande
             finished_orders: Avslutade omröstningar
@@ -110,7 +94,6 @@ sv:
             title: Projekt
             update: Uppdatera
             update_budget_button: Uppdatera projektets budget
-            update_scope_button: Uppdatera indelning
           new:
             create: Skapa
             title: Nytt projekt
@@ -118,28 +101,10 @@ sv:
             invalid: Det gick inte att uppdatera projektet.
             success: Projektet har uppdaterats.
           update_budget:
-            invalid: 'Projekten ingår redan i samma budget eller överstiger det maximala beloppet: %{projects}.'
             select_a_project: Välj ett projekt.
-            success: 'Projekten till budgeten %{subject_name} har uppdaterats: %{projects}.'
-          update_category:
-            invalid: 'De här projekten tillhörde redan kategorin %{subject_name}: %{projects}.'
-            select_a_category: Välj en kategori.
-            select_a_project: Välj ett projekt.
-            success: 'Projekt som tilldelats kategorin %{subject_name}: %{projects}.'
-          update_scope:
-            invalid: 'De här projekten tillhörde redan indelningen %{subject_name}: %{projects}.'
-            select_a_project: Välj ett projekt.
-            select_a_scope: Välj en indelning.
-            success: 'Projekten uppdaterades till %{subject_name}: %{projects}.'
           update_selected:
-            invalid:
-              selected: 'De här projekten har redan valts för genomförande: %{projects}.'
-              unselected: 'Projekten har redan valts bort för genomförande: %{projects}.'
             select_a_project: Välj ett projekt.
             select_a_selection: Välj status för genomförandet.
-            success:
-              selected: 'Projekten har valts för genomförande: %{projects}.'
-              unselected: 'Projekten har valts bort från genomförande: %{projects}.'
         proposals_imports:
           create:
             invalid: Det gick inte att importera förslagen till projekten.
@@ -208,7 +173,6 @@ sv:
             total_budget: Total budget
         project:
           fields:
-            category: Kategori
             id: ID
             map: Karta
             title: Titel
@@ -223,7 +187,7 @@ sv:
           are_you_sure: Om du ändrar dig kan du ändra rösten senare.
           cancel: Avbryt
           confirm: Bekräfta
-          description: De projekt där du har valt att delta i budgeten.
+          description: Projekt du har valt inom budgeten.
           title: Bekräfta röst
         budget_excess:
           budget_excess:
@@ -252,8 +216,6 @@ sv:
           message: Din röst har inte registrerats eftersom du ännu inte har slutfört omröstningen. Är du säker på att du vill lämna omröstningen?
           title: Du har ännu inte röstat
         filters:
-          category: Kategori
-          scope: Indelning
           search: Sök
           status: Status
           status_values:
@@ -261,7 +223,7 @@ sv:
             not_selected: Inte vald
             selected: Valda
         order_progress:
-          assigned: Tilldelade
+          assigned: Valda
           budget: Budget
           dynamic_help:
             keep_adding_projects: Fortsätt lägga till projekt

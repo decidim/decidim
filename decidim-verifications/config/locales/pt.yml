@@ -73,17 +73,6 @@ pt:
           unconfirmed: Precisa de confirmar o seu e-mail para se poder autorizar.
         destroy:
           error: Ocorreu um problema ao eliminar a autorização.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Verificar contra outro exemplo de manipulador de autorização
-            csv_census: Verificar contra o censo da organização
-            dummy_authorization_handler: Verificar contra o manipulador de autorização de exemplo
-            dummy_authorization_workflow: Verificar contra o fluxo de autorização de exemplo
-            id_documents: Seja verificado ao enviar o seu documento de identidade
-            postal_letter: Seja verificado ao receber um código de verificação por correio postal
-            sms: Seja verificado ao receber um código de verificação por SMS
-          title: Verificar a sua identidade
-          verify_with_these_options: 'Estas são as opções disponíveis para verificar a sua identidade:'
         index:
           expired_verification: Verificação expirada
           pending_verification: Verificação pendente

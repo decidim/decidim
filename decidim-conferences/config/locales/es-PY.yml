@@ -89,6 +89,7 @@ es-PY:
     admin:
       actions:
         confirm: Confirmar
+        confirm_delete_conference: '¿Seguro que quieres eliminar esta jornada? Si cambias de opinión, puedes restaurarla más tarde.'
         new_conference: Nueva conferencia
         new_conference_user_role: Añadir administradora
         new_media_link: Añadir enlace multimedia
@@ -96,6 +97,7 @@ es-PY:
         new_registration_type: Añadir tipo de inscripción
         new_speaker: Añadir ponente
         send_diplomas: Enviar certificados de asistencia.
+        view_deleted_conferences: Ver las jornadas eliminadas
       conference_copies:
         new:
           copy: Dupdo
@@ -165,6 +167,8 @@ es-PY:
         index:
           published: Publicado
           unpublished: Despublicada
+        manage_trash:
+          title: Jornadas eliminadas
         new:
           create: Crear
           title: Conferencia
@@ -298,11 +302,16 @@ es-PY:
           success: Tipo de registro actualizado con éxito para esta conferencia.
       titles:
         conferences: Conferencias
+        conferences_deleted: Jornadas eliminadas
+      tooltips:
+        deleted_conferences_info: Las jornadas solo se pueden eliminar si su estado es 'Despublicada'.
     admin_log:
       conference:
         create: "%{user_name} creó la %{resource_name} conferencia"
         publish: "%{user_name} publicado la %{resource_name} conferencia"
+        restore: "%{user_name} restauró la jornada %{resource_name}"
         send_conference_diplomas: "%{user_name} certificados de asistencia enviados a los asistentes a %{resource_name} conferencia"
+        soft_delete: "%{user_name} ha movido a la papelera la jornada %{resource_name}"
         unpublish: "%{user_name} inédito la %{resource_name} conferencia."
         update: "%{user_name} actualizado la %{resource_name} conferencia"
         update_diploma: "%{user_name} actualización de la configuración de certificados de asistencia para %{resource_name} conferencia."
@@ -373,10 +382,13 @@ es-PY:
         conferences:
           form:
             available_slots_help: Déjalo en 0 si tienes ranuras ilimitadas disponibles.
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             registrations_count:
               one: Ha habido 1 registro.
               other: Ha habido %{count} registros.
             slug_help_html: 'Las URL amigables se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            taxonomies: Taxonomías
         content_blocks:
           highlighted_conferences:
             max_results: Cantidad máxima de elementos a mostrar
@@ -572,6 +584,33 @@ es-PY:
         title: Medios y enlaces
     menu:
       conferences: Conferencias
+    open_data:
+      help:
+        conferences:
+          created_at: La fecha en la que se creó esta jornada
+          decidim_scope_id: El ámbito territorial de la jornada
+          description: Una descripción larga de la jornada
+          end_date: La fecha en la que finalizó esta jornada.
+          follows_count: El número de usuarias que siguen esta jornada
+          hashtag: La etiqueta que utiliza la jornada en Twitter/X
+          id: El identificador único de la jornada
+          location: El lugar de celebración de la jornada. Donde se llevó a cabo esta jornada.
+          objectives: Los objetivos de esta jornada. Cuál fue la meta.
+          promoted: Si la jornada está destacada o no
+          published_at: La fecha en la que se publicó esta jornada
+          reference: La referencia única de la jornada
+          remote_banner_image_url: La URL de la imagen de la cabecera de la jornada
+          remote_hero_image_url: La URL de la imagen principal de la jornada
+          scope: El ámbito territorial de la jornada
+          scopes_enabled: Si el ámbito territorial está habilitado o no
+          short_description: Una breve descripción de la jornada
+          slogan: El lema de esta jornada
+          slug: El nombre corto de la jornada (usado para fines de identificación, para la URL)
+          start_date: La fecha en la que comenzó esta jornada.
+          taxonomies: Las taxonomías de la jornada
+          title: El título de la jornada
+          updated_at: La fecha de la última actualización de esta jornada
+          url: La URL de la jornada
     statistics:
       conferences_count: Jornadas
   devise:

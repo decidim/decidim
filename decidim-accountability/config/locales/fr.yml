@@ -37,7 +37,9 @@ fr:
       actions:
         attachment_collections: Dossiers
         attachments: Pièces jointes
+        confirm_delete_result: Êtes-vous sûr(e) de vouloir supprimer ce résultat?
         confirm_destroy: Êtes-vous sûr de vouloir supprimer ce %{name}?
+        deleted_results_info: Les résultats supprimés peuvent être restaurés à partir de la corbeille.
         destroy: Supprimer
         edit: Modifier
         import: Importer des projets depuis une autre fonctionnalité
@@ -48,6 +50,7 @@ fr:
         preview: Aperçu
         timeline_entries: Évolution de la réalisation
         title: Actions
+        view_deleted_results: Voir les résultats supprimés
       admin:
         exports:
           result_comments: Commentaires
@@ -107,13 +110,13 @@ fr:
           create:
             invalid: Un problème est survenu lors de la création de ce résultat.
             success: La réalisation a été créée avec succès.
-          destroy:
-            success: La réalisation a été supprimée avec succès.
           edit:
             title: Modifier la réalisation
             update: Mise à jour de la réalisation
           index:
             title: Réalisations
+          manage_trash:
+            title: Résultats supprimés
           new:
             create: Créer une réalisation
             title: Nouvelle réalisation
@@ -195,12 +198,10 @@ fr:
       models:
         result:
           fields:
-            category: Catégorie
             created_at: Créé le
             end_date: Date de fin
             id: ID
             progress: Avancement
-            scope: Secteur
             start_date: Date de début
             status: Statut
             title: Titre
@@ -219,17 +220,11 @@ fr:
           results_count:
             one: 1 réalisation
             other: "%{count} réalisations"
-        filters:
-          all: Tous
         home:
-          categories_label: Catégories
           empty: Il n'y a aucun résultat pour le moment.
           empty_filters: Il n'y a aucun résultat avec ces critères.
-          subcategories_label: Sous-catégories
         home_header:
           global_status: État d'exécution global
-        nav_breadcrumb:
-          global: Exécution globale
         no_results: Il n'y a aucun projet.
         search:
           search: Rechercher des réalisations
@@ -241,10 +236,6 @@ fr:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Catégorie
-          scope_id_eq:
-            label: Secteur
           status_id_eq:
             label: Statut
     components:
@@ -257,11 +248,16 @@ fr:
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
             display_progress_enabled: Afficher les progrès
+            geocoding_enabled: Cartes activées
             intro: Introduction
             scope_id: Secteur
             scopes_enabled: Secteurs activés
           step:
             comments_blocked: Bloquer la création de nouveaux commentaires
+    download_your_data:
+      show:
+        result_comments: Export des commentaires des résultats
+        results: Export des résultats
     events:
       accountability:
         proposal_linked:
@@ -279,6 +275,22 @@ fr:
         description: Nombre de résultats générés
         object: résultats
         title: Résultats
+    open_data:
+      help:
+        result_comments:
+          author: Le nom du participant qui a fait ce commentaire
+          body: Le commentaire lui-même
+          commentable_id: L'identifiant unique de l"élément commenté
+          commentable_type: Le type de l'élément commenté (si c'était un résultat, une proposition, etc.)
+          id: L'identifiant de ce commentaire
+          user_group: Le nom du groupe d'utilisateurs qui a fait ce commentaire (le cas échéant)
+        results:
+          description: La description du résultat
+          id: L'identifiant unique du résultat
+          parent: Le résultat parent (le cas échéant) du résultat
+          progress: Le pourcentage d'exécution du résultat
+          status: Le statut actuel de ce résultat
+          title: Le titre du résultat
     participatory_spaces:
       highlighted_results:
         see_all: Voir tous les résultats

@@ -86,6 +86,7 @@ ja:
     admin:
       actions:
         confirm: 確認する
+        confirm_delete_conference: このカンファレンスを削除してもよろしいですか？気が変わった場合は、後で復元できます。
         new_conference: 新しいカンファレンス
         new_conference_user_role: 新しいカンファレンス管理者
         new_media_link: 新しいメディア リンク
@@ -93,6 +94,7 @@ ja:
         new_registration_type: 新規登録種別
         new_speaker: 新しいスピーカー
         send_diplomas: 出席証明書を送信
+        view_deleted_conferences: 削除されたカンファレンスを表示
       conference_copies:
         new:
           copy: コピー
@@ -162,6 +164,8 @@ ja:
         index:
           published: 公開済み
           unpublished: 未公開
+        manage_trash:
+          title: 削除されたカンファレンス
         new:
           create: 作成
           title: カンファレンス
@@ -295,11 +299,16 @@ ja:
           success: カンファレンスの登録種別を更新しました。
       titles:
         conferences: カンファレンス
+        conferences_deleted: 削除されたカンファレンス
+      tooltips:
+        deleted_conferences_info: カンファレンスは、ステータスが "未公開" の場合にのみ削除できます。
     admin_log:
       conference:
         create: "%{user_name} が %{resource_name} カンファレンスを作成しました"
         publish: "%{user_name} が %{resource_name} カンファレンスを公開しました"
+        restore: "%{user_name} が %{resource_name} カンファレンスを復元しました"
         send_conference_diplomas: "%{user_name} が %{resource_name} カンファレンスに出席証明書を送信しました"
+        soft_delete: "%{user_name} が %{resource_name} カンファレンスをゴミ箱に移動しました"
         unpublish: "%{user_name} が %{resource_name} カンファレンスを非公開にしました"
         update: "%{user_name} が %{resource_name} のカンファレンスを更新しました"
         update_diploma: "%{user_name} が %{resource_name} カンファレンスの出席設定証明書を更新しました"
@@ -370,9 +379,12 @@ ja:
         conferences:
           form:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             registrations_count:
               other: '%{count} 件の登録がありました。'
             slug_help_html: 'URLスラグは、このカンファレンスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
+            taxonomies: タクソノミー
         content_blocks:
           highlighted_conferences:
             max_results: 表示する要素の最大数
@@ -567,6 +579,33 @@ ja:
         title: メディアとリンク
     menu:
       conferences: カンファレンス
+    open_data:
+      help:
+        conferences:
+          created_at: このスペースが作成された日時
+          decidim_scope_id: カンファレンスのスコープ
+          description: カンファレンスの詳しい説明
+          end_date: カンファレンスの終了日時
+          follows_count: このスペースをフォローしているユーザー数
+          hashtag: Twitter/Xで使用されるカンファレンスハッシュタグ
+          id: このカンファレンスの固有ID
+          location: カンファレンスの場所. このカンファレンスが開催されるところ.
+          objectives: この感ファンレスの目的。開催する目標は何か。
+          promoted: カンファレンスがプロモートされるかどうか
+          published_at: このスペースが公開された日時
+          reference: スペースのユニークな参照
+          remote_banner_image_url: カンファレンスバナー画像のURL
+          remote_hero_image_url: カンファレンスのヒーロー画像のURL
+          scope: カンファレンスのスコープ
+          scopes_enabled: スコープが有効かどうか
+          short_description: カンファレンスの簡単な説明
+          slogan: このカンファレンスのスローガン
+          slug: カンファレンスのスラグ（識別目的、URLに使用）
+          start_date: カンファレンスの開始日時
+          taxonomies: このカンファレンスのタクソノミー
+          title: カンファレンスのタイトル
+          updated_at: このスペースの最終更新日時
+          url: スペースのURL
     statistics:
       conferences_count: カンファレンス
   devise:

@@ -2,8 +2,6 @@ sk:
   activemodel:
     attributes:
       debate:
-        category_id: Kategória
-        decidim_category_id: Kategória
         description: Popis
         end_time: Končí
         information_updates: Aktualizácia Informácií
@@ -24,8 +22,6 @@ sk:
   decidim:
     components:
       debates:
-        actions:
-          create: Vytvoriť
         name: Debaty
         settings:
           global:
@@ -36,8 +32,6 @@ sk:
             comments_blocked: Komentáre blokované
     debates:
       actions:
-        confirm_destroy: Ste si istí?
-        destroy: Odstrániť
         edit: Upraviť
         title: Akcie
       admin:
@@ -45,8 +39,6 @@ sk:
           create:
             invalid: Pri vytváraní debaty sa vyskytol problém.
             success: Debata úspešne vytvorená.
-          destroy:
-            success: Debata úspešne zmazaná.
           edit:
             title: Upraviť debatu
             update: Aktualizovať debatu
@@ -79,8 +71,6 @@ sk:
           official: Oficiálni
           origin: Pôvod
           search: Vyhľadávanie
-        form:
-          select_a_category: Vyberte kategóriu
         index:
           new_debate: Nová debata
         new:

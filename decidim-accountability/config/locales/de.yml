@@ -26,6 +26,14 @@ de:
       decidim/accountability/result_progress_updated_event: Ergebnisfortschritt aktualisiert
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: 'Einbezug des Ergebnisses: %{link} '
+            meetings_ids: 'Diskutiert in der Veranstaltung: %{link}'
+            project_ids: 'Einbezug ins Projekt: %{link}'
+            proposal_ids: 'Einbezug in den Vorschlag: %{link}'
+            text: 'Einbezug zum Ergebnis: %{link}'
       decidim/accountability/result:
         one: Ergebnis
         other: Ergebnisse
@@ -104,8 +112,6 @@ de:
           create:
             invalid: Beim Erstellen dieses Ergebnisses ist ein Problem aufgetreten.
             success: Ergebnis erfolgreich erstellt.
-          destroy:
-            success: Ergebnis erfolgreich gelöscht.
           edit:
             title: Ergebnis bearbeiten
             update: Ergebnis aktualisieren
@@ -194,14 +200,13 @@ de:
       models:
         result:
           fields:
-            category: Kategorie
             created_at: Erstellt am
             end_date: Enddatum
             id: ID
             progress: Fortschritt
-            scope: Themenbereich
             start_date: Startdatum
             status: Status
+            taxonomies: Klassifizierungen
             title: Titel
         status:
           fields:
@@ -218,17 +223,13 @@ de:
           results_count:
             one: 1 Ergebnis
             other: "%{count} Ergebnisse"
-        filters:
-          all: Alle
         home:
-          categories_label: Kategorien
           empty: Es liegen noch keine Ergebnisse vor.
           empty_filters: Es liegen noch keine Ergebnisse mit diesen Kriterien vor.
-          subcategories_label: Unterkategorien
+          sub_taxonomies_label: Unterkategorien
+          taxonomies_label: Kategorien
         home_header:
           global_status: Globaler Umsetzungsstatus
-        nav_breadcrumb:
-          global: Globale Ausführung
         no_results: Es gibt keine Projekte
         search:
           search: Suche nach Aktionen
@@ -240,12 +241,10 @@ de:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategorie
-          scope_id_eq:
-            label: Themenbereich
           status_id_eq:
             label: Status
+          taxonomies_part_of_contains:
+            label: Klassifizierung
     components:
       accountability:
         actions:
@@ -253,14 +252,24 @@ de:
         name: Rechenschaftspflicht
         settings:
           global:
+            clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             display_progress_enabled: Fortschritt anzeigen
+            geocoding_enabled: Karten aktiviert
             intro: Einführung
+            no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
+            taxonomy_filters: Filter für die Komponente auswählen
+            taxonomy_filters_add: Filter hinzufügen
           step:
             comments_blocked: Kommentare blockiert
+    download_your_data:
+      show:
+        result_comments: Kommentare zu Ergebnissen exportieren
+        results: Ergebnisse exportieren
     events:
       accountability:
         proposal_linked:
@@ -278,6 +287,34 @@ de:
         description: Anzahl der generierten Ergebnisse
         object: Ergebnisse
         title: Ergebnisse
+    open_data:
+      help:
+        result_comments:
+          alignment: Ob dieser Kommentar zustimmend, ablehnen oder neutral war
+          author: Der Name des Teilnehmers, der diesen Kommentar erstellt hat
+          body: Der Kommentar selbst
+          commentable_id: Die eindeutige ID des kommentierten Objekts
+          commentable_type: Die Art des kommentierten Objekts (ob es ein Ergebnis, Vorschlag o.ä. war)
+          created_at: Das Erstellungsdatum des Kommentars
+          depth: Die Position dieses Kommentars im Thread (ob es sich um eine Antwort oder eine Antwort auf eine Antwort handelt).
+          id: Die ID dieses Kommentars
+          locale: Die eingestellte Plattformsprache der kommentierenden Person
+          root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
+          user_group: Der Name der Gruppe, die diesen Kommentar erstellt hat (falls vorhanden)
+        results:
+          component: Komponente, zu der das Ergebnis gehört
+          created_at: Das Erstellungsdatum des Ergebnisses
+          description: Die Beschreibung des Ergebnisses
+          end_date: Das Datum, an dem das Ergebnis umgesetzt und beendet ist
+          id: Die eindeutige Bezeichnung des Ergebnisses
+          parent: Das übergeordnete Ergebnis (falls vorhanden) des Ergebnisses
+          progress: Der Prozentsatz der Umsetzung des Ergebnisses
+          proposal_urls: Die URLs der Vorschläge, die in diesem Ergebnis enthalten sind
+          start_date: Das Datum, an dem das Ergebnis mit der Umsetzung beginnt
+          status: Der aktuelle Status dieses Ergebnisses
+          taxonomies: Die Klassifizierungen des Ergebnisses
+          title: Der Titel des Ergebnisses
+          url: Die URL, unter der dieses Ergebnis gefunden werden kann
     participatory_spaces:
       highlighted_results:
         see_all: Alle Ergebnisse ansehen (%{count})

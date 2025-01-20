@@ -205,9 +205,6 @@ ru:
         create:
           error: При попытке создать эту составляющую произошла ошибка.
           success: Составляющая успешно создана.
-        destroy:
-          error: При попытке удалить эту составляющую произошла ошибка.
-          success: Составляющая успешно удалена.
         edit:
           title: Редактировать составляющую
           update: Обновить
@@ -238,8 +235,6 @@ ru:
       exports:
         export_as: "%{name} как %{export_format}"
       filters:
-        category_id_eq:
-          label: Категория
         officialized_at_null:
           label: Cостояние
           values:
@@ -524,8 +519,6 @@ ru:
           title: Создать страницу
         update:
           error: При попытке обновить эту страницу произошла ошибка.
-      taxonomies:
-        count: Количество
       titles:
         admin_log: Журнал администратора
         area_types: Виды участков

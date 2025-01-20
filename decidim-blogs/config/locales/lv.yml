@@ -11,8 +11,6 @@ lv:
   decidim:
     blogs:
       actions:
-        confirm_destroy: Vai tiešām vēlaties dzēst šo ziņu?
-        destroy: Dzēst
         edit: Labot
         new: Jauna ziņa
         title: Darbības

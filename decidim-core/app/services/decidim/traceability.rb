@@ -69,6 +69,19 @@ module Decidim
       end
     end
 
+    # Performs the given block and sets the author of the action without log.
+    #
+    # author - An object that implements `to_gid` or a String
+    #
+    # Returns whatever the given block returns.
+    def perform_action_without_log!(author)
+      PaperTrail.request(whodunnit: gid(author)) do
+        Decidim::ApplicationRecord.transaction do
+          block_given? ? yield : nil
+        end
+      end
+    end
+
     # Updates the `resource` with `update!` and sets the author of the version.
     #
     # resource - An ActiveRecord instance that implements `Decidim::Traceable`

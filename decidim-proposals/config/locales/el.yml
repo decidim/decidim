@@ -4,7 +4,6 @@ el:
       collaborative_draft:
         address: Διεύθυνση
         body: Σώμα
-        category_id: Κατηγορία
         decidim_scope_id: Πεδίο εφαρμογής
         has_address: Έχει διεύθυνση
         scope_id: Πεδίο εφαρμογής
@@ -17,7 +16,6 @@ el:
         answered_at: Απαντήθηκε στις
         automatic_hashtags: Προστέθηκε αυτόματα hashtag
         body: Σώμα
-        category_id: Κατηγορία
         decidim_scope_id: Πεδίο εφαρμογής
         has_address: Έχει διεύθυνση
         scope_id: Πεδίο εφαρμογής
@@ -66,8 +64,6 @@ el:
             base:
               not_official: Δεν είναι επίσημο
     models:
-      decidim/proposals/admin/update_proposal_category_event: Η κατηγορία πρότασης άλλαξε
-      decidim/proposals/admin/update_proposal_scope_event: Το πεδίο εφαρμογής της πρότασης άλλαξε
       decidim/proposals/creation_enabled_event: Η δημιουργία πρότασης ενεργοποιήθηκε
       decidim/proposals/endorsing_enabled_event: Η επιδοκιμασία πρότασης ενεργοποιήθηκε
       decidim/proposals/proposal_mentioned_event: Η πρόταση αναφέρθηκε
@@ -88,15 +84,11 @@ el:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Κατηγορία
           is_emendation_true:
             label: Τύπος
             values:
               'false': Προτάσεις
               'true': Τροποποιήσεις
-          scope_id_eq:
-            label: Πεδίο εφαρμογής
           state_eq:
             label: Κατάσταση
             values:
@@ -121,7 +113,6 @@ el:
         actions:
           amend: Τροποποίηση
           comment: Σχόλιο
-          create: Δημιουργία
           endorse: Επιδοκιμασία
           vote_comment: Ψηφίστε το σχόλιο
           withdraw: Απόσυρση
@@ -256,16 +247,6 @@ el:
           email_subject: Η νέα πρόταση «%{resource_title}» προστέθηκε στον χώρο συμμετοχής %{participatory_space_title}
           notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> έχει προστεθεί στο %{participatory_space_title} από %{author}.
           notification_title_official: Η επίσημη πρόταση <a href="%{resource_path}">%{resource_title}</a> έχει προστεθεί στο %{participatory_space_title}.
-        proposal_update_category:
-          email_intro: 'Ένας διαχειριστής ενημέρωσε την κατηγορία της πρότασής σας «%{resource_title}», δείτε την σε αυτήν τη σελίδα:'
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε ο συντάκτης της πρότασης.
-          email_subject: Η κατηγορία της πρότασης %{resource_title} ενημερώθηκε
-          notification_title: Η κατηγορία της πρότασης <a href="%{resource_path}">%{resource_title}</a> ενημερώθηκε από έναν διαχειριστή.
-        proposal_update_scope:
-          email_intro: 'Ένας διαχειριστής ενημέρωσε το πεδίο εφαρμογής της πρότασής σας «%{resource_title}», δείτε την σε αυτήν τη σελίδα:'
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε ο συντάκτης της πρότασης.
-          email_subject: Το πεδίο εφαρμογής της πρότασης %{resource_title} ενημερώθηκε
-          notification_title: Το πεδίο εφαρμογής της πρότασης <a href="%{resource_path}">%{resource_title}</a> ενημερώθηκε από έναν διαχειριστή.
         voting_enabled:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
     gamification:
@@ -413,15 +394,12 @@ el:
             attachment_legend: "(Προαιρετικά) Προσθήκη συνημμένου"
             created_in_meeting: Αυτή η πρόταση προέρχεται από μια σύσκεψη
             delete_attachment: Διαγραφή συνημμένου
-            select_a_category: Επιλέξτε μια κατηγορία
             select_a_meeting: Επιλέξτε σύσκεψη
           index:
             actions: Ενέργειες
             assign_to_valuator: Εκχώρηση σε εκτιμητή
             assign_to_valuator_button: Εκχώρηση
             cancel: Ακύρωση
-            change_category: Αλλαγή κατηγορίας
-            change_scope: Αλλαγή πεδίου εφαρμογής
             merge: Συγχώνευση σε νέο
             merge_button: Συγχώνευση
             publish: Δημοσίευση
@@ -434,7 +412,6 @@ el:
             unassign_from_valuator: Κατάργηση εκχώρησης από εκτιμητή
             unassign_from_valuator_button: Κατάργηση εκχώρησης
             update: Ενημέρωση
-            update_scope_button: Ενημέρωση πεδίου εφαρμογής
           new:
             create: Δημιουργία
             title: Δημιουργία πρότασης
@@ -457,16 +434,6 @@ el:
             remove_assignment: Κατάργηση εκχώρησης
             remove_assignment_confirmation: Είστε βέβαιοι ότι θέλετε να καταργήσετε τον εκτιμητή από αυτήν την πρόταση;
             valuators: Εκτιμητές
-          update_category:
-            invalid: 'Αυτές οι προτάσεις είχαν ήδη την κατηγορία %{subject_name}: %{proposals}.'
-            select_a_category: Παρακαλώ επιλέξτε μια κατηγορία.
-            select_a_proposal: Επιλέξτε μια πρόταση.
-            success: 'Οι προτάσεις ενημερώθηκαν με επιτυχία στην κατηγορία %{subject_name}: %{proposals}.'
-          update_scope:
-            invalid: 'Αυτές οι προτάσεις είχαν ήδη το πεδίο εφαρμογής %{subject_name}: %{proposals}.'
-            select_a_proposal: Επιλέξτε μια πρόταση.
-            select_a_scope: Παρακαλώ επιλέξτε ένα πεδίο εφαρμογής.
-            success: 'Οι προτάσεις ενημερώθηκαν με επιτυχία στο πεδίο εφαρμογής %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Υπήρξε ένα πρόβλημα κατά την εισαγωγή των προτάσεων.
@@ -542,17 +509,14 @@ el:
         edit:
           attachment_legend: "(Προαιρετικά) Προσθήκη συνημμένου"
           back: Πίσω
-          select_a_category: Επιλέξτε μια κατηγορία
           send: Αποστολή
           title: Επεξεργασία προσχεδίου συνεργασίας
         filters:
           all: Όλα
           amendment: Τροποποιήσεις
-          category: Κατηγορία
           open: Ανοιχτή
           published: Δημοσιεύτηκε
           related_to: Σχετίζεται με
-          scope: Πεδίο εφαρμογής
           search: Αναζήτηση
           state: Κατάσταση
           withdrawn: Αποσύρθηκε
@@ -591,7 +555,6 @@ el:
             error: Δεν ήταν δυνατή η απόρριψη ως συνεργάτη. Δοκιμάστε ξανά αργότερα.
             success: "@%{user} έχει απορριφθεί με επιτυχία ως συνεργάτης."
         show:
-          edit: Επεξεργασία προσχεδίου συνεργασίας
           final_proposal: τελική πρόταση
           final_proposal_help_text: Αυτό το προσχέδιο ολοκληρώθηκε. Δείτε την τελική πρόταση
           hidden_authors_count:
@@ -627,14 +590,12 @@ el:
       models:
         proposal:
           fields:
-            category: Κατηγορία
             comments: Σχόλια
             id: Αναγνωριστικό
             notes: Σημειώσεις
             official_proposal: Επίσημη πρόταση
             published_answer: Δημοσιευμένη απάντηση
             published_at: Δημοσιεύτηκε στις
-            scope: Πεδίο εφαρμογής
             state: Κατάσταση
             title: Τίτλος
             valuator: Εκτιμητής
@@ -656,7 +617,6 @@ el:
           attachment_legend: "(Προαιρετικά) Προσθήκη συνημμένου"
           back: Πίσω
           edit_documents: Επεξεργασία εγγράφων
-          select_a_category: Επιλέξτε μια κατηγορία
           send: Αποστολή
           title: Επεξεργασία πρότασης
         edit_draft:
@@ -667,7 +627,6 @@ el:
           activity: Η δραστηριότητά μου
           all: Όλα
           amendment_type: Τύπος
-          category: Κατηγορία
           my_proposals: Οι προτάσεις μου
           origin: Προέλευση
           related_to: Σχετίζεται με
@@ -713,7 +672,6 @@ el:
         show:
           answer: Απάντηση
           changes_at_title: Τροποποίηση σε «%{title}»
-          edit_proposal: Επεξεργασία πρότασης
           estimated_cost: Εκτιμώμενο κόστος
           hidden_endorsers_count:
             one: και %{count} ακόμη άτομο
@@ -728,7 +686,6 @@ el:
           proposal_in_evaluation_reason: Αυτή η πρόταση αξιολογείται
           proposal_rejected_reason: 'Αυτή η πρόταση απορρίφθηκε επειδή:'
           withdraw_confirmation_html: Είστε σίγουροι ότι θέλετε να αποσύρετε αυτή την πρόταση; <br><br><strong> Αυτή η ενέργεια δεν ακυρώνεται!</strong>
-          withdraw_proposal: Απόσυρση πρότασης
         update:
           title: Ενημέρωση πρότασης
         voting_rules:

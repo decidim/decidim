@@ -265,9 +265,6 @@ ko:
           error: 이 구성요소를 생성하는 도중 문제가 생겼습니다.
           success: 구성요소가 성공적으로 생성되었습니다.
           success_landing_page: 구성 요소가 성공적으로 생성되었습니다. 공간 홈에 이 구성 요소의 내용 블록을 추가할 수 있습니다. <a href="%{landing_page_path}">Landing page</a>로 이동하여 구성하십시오.
-        destroy:
-          error: 이 구성요소를 삭제하는 도중 문제가 생겼습니다.
-          success: 구성요소가 성공적으로 삭제되었습니다.
         edit:
           title: 구성 요소 편집
           update: 업데이트
@@ -321,8 +318,6 @@ ko:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: 카테고리
         filter_label: 필터
         invitation_accepted_at_present:
           label: 초대 수락됨
@@ -356,8 +351,6 @@ ko:
           values:
             'false': 게시됨
             'true': 게시되지 않음
-        scope_id_eq:
-          label: 범위
         search_label: 검색
         search_placeholder:
           name_or_nickname_or_email_cont: 이메일, 이름 또는 닉네임으로 %{collection} 을(를) 검색합니다.
@@ -485,12 +478,8 @@ ko:
             name: 이름
         share_token:
           fields:
-            created_at: 생성일
             expires_at: 만료일
-            last_used_at: 마지막으로 사용한 시간
             times_used: 사용 시간
-            token: 토큰
-            user: 작성자
         static_page:
           fields:
             created_at: 생성 위치
@@ -626,10 +615,6 @@ ko:
           title: 권한 수정
         update:
           success: 권한을 성공적으로 업데이트했습니다.
-      resources:
-        index:
-          headers:
-            scope: 범위
       scope_types:
         create:
           error: 새 영역 타입을 생성하는 도중 문제가 생겼습니다.
@@ -647,13 +632,6 @@ ko:
       share_tokens:
         actions:
           destroy: 삭제
-          share: 공유
-        destroy:
-          error: 토큰 삭제에 문제가 발생했습니다.
-          success: 토큰 삭제 성공
-        share_tokens:
-          empty: 활성 토큰이 없습니다.
-          title: 토큰 공유하기
       shared:
         gallery:
           add_images: 이미지 추가

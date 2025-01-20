@@ -91,6 +91,7 @@ fr:
       actions:
         activate: Activer
         configure: Configurer
+        confirm_delete_process: Êtes-vous sûr(e) de vouloir supprimer ce processus ? Si vous changez d'avis, vous pourrez le restaurer plus tard.
         confirm_destroy: Confirmez la suppression
         destroy: Supprimer
         duplicate: Dupliquer
@@ -108,6 +109,7 @@ fr:
         resend_invitation: Renvoyer l'invitation
         see_process: Voir la concertation
         unpublish: Dépublier
+        view_deleted_processes: Voir les processus supprimés
       filters:
         decidim_participatory_process_group_id_eq:
           label: Par groupe de concertations
@@ -127,7 +129,7 @@ fr:
           info: A propos de cette concertation
           landing_page: Page d'accueil
           moderations: Modérations
-          private_users: Utilisateurs privés
+          private_users: Membres
           process_admins: Administrateurs de la concertation
           steps: Étapes
       models:
@@ -169,6 +171,7 @@ fr:
           fields:
             invitation_accepted_at: Invitation acceptée à
             invitation_sent_at: Invitation envoyée à
+            published: Publié
       participatory_process_copies:
         new:
           copy: Copier
@@ -278,6 +281,8 @@ fr:
           public: Publique
           published: Publiée
           unpublished: Non publié
+        manage_trash:
+          title: Processus participatifs supprimés
         new:
           create: Créer
           title: Nouvelle concertation
@@ -296,6 +301,9 @@ fr:
         participatory_process_groups: Groupes de concertations
         participatory_process_types: Types de concertation
         participatory_processes: Concertations
+        participatory_processes_deleted: Processus participatifs supprimés
+      tooltips:
+        deleted_processes_info: Un processus ne peut être supprimé que si son statut est "non publié".
       users:
         resend_invitation:
           error: Une erreur s'est produite lors de l'envoi de l’invitation.
@@ -325,6 +333,9 @@ fr:
         create: "%{user_name} a invité l'utilisateur %{resource_name} à la concertation %{space_name}"
         delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de la concertation %{space_name}"
         update: "%{user_name} a changé le rôle de l'utilisateur %{resource_name} dans la concertation %{space_name}"
+    download_your_data:
+      show:
+        participatory_processes: Export des processus participatifs
     events:
       participatory_process:
         role_assigned:
@@ -498,6 +509,9 @@ fr:
           type: Type
         show:
           title: A propos de cette concertation
+      participatory_space_private_users:
+        index:
+          title: Membres
       show:
         belongs_to_group: Cette concertation appartient à
         private_space: Ceci est une concertation privée
@@ -511,6 +525,8 @@ fr:
           browse: Parcourir
           browse_resource: Parcourir le groupe de concertation %{resource_name}
           processes_count: 'Concertations :'
+      participatory_process_navigation:
+        member_menu_item: Membres
       participatory_processes:
         index:
           promoted_processes: Concertations mises en avant

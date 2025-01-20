@@ -131,8 +131,6 @@ zh-CN:
         attachment_collections: 文件夹
         attachments: 附件
         close: 关闭
-        confirm_destroy: 您确定要删除这个会议吗？
-        destroy: 删除
         edit: 编辑
         invalid_destroy:
           proposals_count:
@@ -192,8 +190,6 @@ zh-CN:
             close: 关闭
             title: 关闭会议
         meetings:
-          destroy:
-            success: 会议已成功删除
           edit:
             update: 更新
           form:
@@ -291,7 +287,6 @@ zh-CN:
           address_help: '地址：由地理编码器用来查找位置'
           create_as: 创建会议为
           location_help: '位置：发送给用户的消息，这些消息暗示要会见的地点'
-          select_a_category: 请选择一个类别
         index:
           new_meeting: 新会议
         meetings:

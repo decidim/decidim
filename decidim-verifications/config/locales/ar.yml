@@ -53,16 +53,6 @@ ar:
         create:
           error: كانت هناك مشكلة في إنشاء الترخيص.
           unconfirmed: تحتاج إلى تأكيد بريدك الإلكتروني من أجل تفويض نفسك.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: تحقق من مثال آخر على معالج التخويل
-            csv_census: تحقق من تعداد المنظمة
-            dummy_authorization_handler: تحقق من مقابل معالج التخويل
-            dummy_authorization_workflow: تحقق من سير عمل تخويل المثال
-            id_documents: الحصول على التحقق عن طريق تحميل وثيقة الهوية الخاصة بك
-            postal_letter: الحصول على التحقق من خلال تلقي رمز التحقق عبر البريد العادي
-          title: تحقق من هويتك
-          verify_with_these_options: 'هذه هي الخيارات المتاحة للتحقق من هويتك:'
         new:
           authorize: إرسال
           authorize_with: تحقق مع %{authorizer}

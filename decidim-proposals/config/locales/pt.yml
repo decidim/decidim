@@ -4,7 +4,6 @@ pt:
       collaborative_draft:
         address: Endereço
         body: Corpo
-        category_id: Categoria
         decidim_scope_id: Âmbito
         has_address: Tem endereço
         scope_id: Âmbito
@@ -17,7 +16,6 @@ pt:
         answered_at: Respondido em
         automatic_hashtags: Hashtags adicionados automaticamente
         body: Corpo
-        category_id: Categoria
         decidim_scope_id: Âmbito
         has_address: Tem endereço
         scope_id: Âmbito
@@ -61,8 +59,6 @@ pt:
             base:
               not_official: Não são oficiais
     models:
-      decidim/proposals/admin/update_proposal_category_event: Categoria da proposta modificada
-      decidim/proposals/admin/update_proposal_scope_event: Âmbito da proposta modificado
       decidim/proposals/creation_enabled_event: Criação de proposta ativada
       decidim/proposals/endorsing_enabled_event: Endossamento de proposta ativado
       decidim/proposals/proposal_mentioned_event: Proposta mencionada
@@ -83,15 +79,11 @@ pt:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Categoria
           is_emendation_true:
             label: Tipo
             values:
               'false': Propostas
               'true': Revisões
-          scope_id_eq:
-            label: Âmbito
           state_eq:
             label: Estado
             values:
@@ -110,7 +102,6 @@ pt:
         actions:
           amend: Modificar
           comment: Comentar
-          create: Criar
           endorse: Endossar
           vote_comment: Cometário ao voto
           withdraw: Retirar
@@ -228,16 +219,6 @@ pt:
           email_intro: A proposta "%{resource_title}" foi adicionada a "%{participatory_space_title}" que você segue.
           email_outro: Recebeu esta notificação porque segue "%{participatory_space_title}". Pode deixar de receber notificações seguindo a hiperligação anterior.
           email_subject: Nova proposta "%{resource_title}" adicionada a %{participatory_space_title}
-        proposal_update_category:
-          email_intro: 'Um administrador atualizou a categoria da sua proposta "%{resource_title}", verifique nesta página:'
-          email_outro: Recebeu esta notificação porque é o autor da proposta.
-          email_subject: A categoria da proposta %{resource_title} foi atualizada
-          notification_title: A categoria da proposta <a href="%{resource_path}">%{resource_title}</a> foi atualizada por um administrador.
-        proposal_update_scope:
-          email_intro: 'Um administrador atualizou o âmbito da sua proposta "%{resource_title}". Consulte-o nesta página:'
-          email_outro: Recebeu esta notificação porque é o autor da proposta.
-          email_subject: O âmbito da proposta %{resource_title} foi atualizado
-          notification_title: O âmbito da proposta <a href="%{resource_path}">%{resource_title}</a> foi atualizado por um administrador.
         voting_enabled:
           email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
     gamification:
@@ -347,15 +328,12 @@ pt:
             attachment_legend: "(Opcional) Adicionar um anexo"
             created_in_meeting: Esta proposta vem de uma reunião
             delete_attachment: Apagar anexo
-            select_a_category: Selecione uma categoria
             select_a_meeting: Selecione uma reunião
           index:
             actions: Ações
             assign_to_valuator: Atribuir a avaliador
             assign_to_valuator_button: Atribuir
             cancel: Cancelar
-            change_category: Modificar categoria
-            change_scope: Modificar âmbito
             merge: Junte-se a um novo
             merge_button: Fundir
             publish: Publicar
@@ -368,7 +346,6 @@ pt:
             unassign_from_valuator: Remover atribuição ao avaliador
             unassign_from_valuator_button: Remover atribuição
             update: Atualizar
-            update_scope_button: Atualizar Âmbito
           new:
             create: Criar
             title: Criar proposta
@@ -389,12 +366,6 @@ pt:
             remove_assignment: Remover atribuição
             remove_assignment_confirmation: Tem a certeza de que pretende remover o avaliador desta proposta?
             valuators: Avaliadores
-          update_category:
-            invalid: 'Estas propostas já possuíam a categoria %{subject_name}: %{proposals}.'
-            success: 'Propostas atualizadas corretamente para a categoria %{subject_name}: %{proposals}.'
-          update_scope:
-            invalid: 'Estas propostas já possuíam o âmbito %{subject_name}: %{proposals}.'
-            success: 'Propostas atualizadas corretamente para o âmbito %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
             create: Importar propostas
@@ -458,17 +429,14 @@ pt:
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Retroceder
-          select_a_category: Por favor, selecione uma categoria
           send: Enviar
           title: Editar rascunho colaborativo
         filters:
           all: Todos
           amendment: Modificações
-          category: Categoria
           open: Abrir
           published: Publicados
           related_to: Relacionado com
-          scope: Âmbito
           search: Pesquisar
           state: Estado
           withdrawn: Retirado
@@ -502,7 +470,6 @@ pt:
           rejected_request:
             error: Não foi possível rejeitá-lo como colaborador, por favor tente novamente mais tarde.
         show:
-          edit: Editar rascunho colaborativo
           final_proposal: proposta final
           final_proposal_help_text: Este rascunho está terminado. Verifique a proposta final
           hidden_authors_count:
@@ -534,14 +501,12 @@ pt:
       models:
         proposal:
           fields:
-            category: Categoria
             comments: Comentários
             id: ID
             notes: Notas
             official_proposal: Proposta oficial
             published_answer: Resposta publicada
             published_at: Publicado em
-            scope: Âmbito
             state: Estado
             title: Título
             valuator: Avaliador
@@ -559,7 +524,6 @@ pt:
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
-          select_a_category: Por favor selecione uma categoria
           send: Enviar
           title: Editar proposta
         edit_draft:
@@ -570,7 +534,6 @@ pt:
           activity: A minha atividade
           all: Todos
           amendment_type: Tipo
-          category: Categoria
           my_proposals: As minhas propostas
           origin: Origem
           related_to: Relacionado com
@@ -612,7 +575,6 @@ pt:
         show:
           answer: Responder
           changes_at_title: Modificação a "%{title}"
-          edit_proposal: Editar proposta
           estimated_cost: Custo estimado
           hidden_endorsers_count:
             one: e mais %{count} pessoa
@@ -627,7 +589,6 @@ pt:
           proposal_in_evaluation_reason: Esta proposta está sob avaliação
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
           withdraw_confirmation_html: Tem a certeza de que deseja retirar esta proposta?<br><br><strong>Esta ação não pode ser cancelada!</strong>
-          withdraw_proposal: Retirar proposta
         update:
           title: Atualizar proposta
         voting_rules:

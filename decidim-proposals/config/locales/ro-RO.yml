@@ -4,7 +4,6 @@ ro:
       collaborative_draft:
         address: Adresa
         body: Conținut
-        category_id: Categorie
         decidim_scope_id: Domeniu de interes
         has_address: Are adresă
         scope_id: Domeniu de interes
@@ -17,7 +16,6 @@ ro:
         answered_at: Răspuns la
         automatic_hashtags: Hashtag-uri adăugate automat
         body: Conținut
-        category_id: Categorie
         decidim_scope_id: Domeniu de interes
         has_address: Are adresă
         scope_id: Domeniu de interes
@@ -61,8 +59,6 @@ ro:
             base:
               not_official: Nu sunt oficiale
     models:
-      decidim/proposals/admin/update_proposal_category_event: Categorie de propunere modificată
-      decidim/proposals/admin/update_proposal_scope_event: Domeniu de interes al propunerii modificat
       decidim/proposals/creation_enabled_event: Crearea de propuneri este activată
       decidim/proposals/endorsing_enabled_event: Susținerea propunerii este activată
       decidim/proposals/proposal_mentioned_event: Propunere menționată
@@ -86,15 +82,11 @@ ro:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Categorie
           is_emendation_true:
             label: Tip
             values:
               'false': Propuneri
               'true': Amendamente
-          scope_id_eq:
-            label: Domeniu de interes
           state_eq:
             label: Stadiu
             values:
@@ -113,7 +105,6 @@ ro:
         actions:
           amend: Trimite un amendament
           comment: Comentează
-          create: Creează
           endorse: Susține
           vote_comment: Votează comentariul
           withdraw: Retrage
@@ -231,16 +222,6 @@ ro:
           email_intro: Propunerea "%{resource_title}" a fost adăugată la "%{participatory_space_title}", spațiu participativ pe care îl urmărești.
           email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula aceste notificări de la link-ul anterior.
           email_subject: O nouă propunere "%{resource_title}" a fost adăugată la %{participatory_space_title}
-        proposal_update_category:
-          email_intro: 'Un administrator a actualizat categoria propunerii tale „%{resource_title}", verifică modificarea în această pagină:'
-          email_outro: Ai primit această notificare deoarece ești autorul acestei propuneri.
-          email_subject: Categoria propunerii %{resource_title} a fost actualizată
-          notification_title: Categoria propunerii <a href="%{resource_path}">%{resource_title}</a> a fost actualizată de către un administrator.
-        proposal_update_scope:
-          email_intro: 'Un administrator a actualizat domeniul de interes al propunerii tale „%{resource_title}”, verifică modificarea în această pagină:'
-          email_outro: Ai primit această notificare deoarece ești autorul acestei propuneri.
-          email_subject: Domeniul de interes al propunerii %{resource_title} a fost actualizat
-          notification_title: Domeniul de interes al propunerii <a href="%{resource_path}">%{resource_title}</a> a fost actualizat de către un administrator.
         voting_enabled:
           email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
     gamification:
@@ -363,15 +344,12 @@ ro:
             attachment_legend: "(Opțional) Adaugă un atașament"
             created_in_meeting: Această propunere provine dintr-o întâlnire
             delete_attachment: Șterge atașamentul
-            select_a_category: Selectează o categorie
             select_a_meeting: Selectează o întâlnire
           index:
             actions: Acțiuni
             assign_to_valuator: Atribuie evaluatorului
             assign_to_valuator_button: Atribuie
             cancel: Anulează
-            change_category: Schimbă categoria
-            change_scope: Schimbă domeniul
             merge: Combină într-o propunere nouă
             merge_button: Combină
             publish: Publică
@@ -385,7 +363,6 @@ ro:
             unassign_from_valuator: Atribuire către evaluator anulată
             unassign_from_valuator_button: Neatribuit
             update: Actualizează
-            update_scope_button: Actualizează domeniu
           new:
             create: Creează
             title: Creează propunere
@@ -407,12 +384,6 @@ ro:
             remove_assignment: Elimină atribuirea
             remove_assignment_confirmation: Sigur dorești să elimini evaluatorul din această propunere?
             valuators: Evaluatori
-          update_category:
-            invalid: 'Aceste propuneri aveau deja categoria %{subject_name} : %{proposals}.'
-            success: 'Propuneri actualizate cu succes la categoria %{subject_name} : %{proposals}.'
-          update_scope:
-            invalid: 'Aceste propuneri aveau deja domeniul %{subject_name} : %{proposals}.'
-            success: 'Propuneri actualizate cu succes în domeniul %{subject_name} : %{proposals}.'
         proposals_imports:
           new:
             create: Importă propuneri
@@ -477,17 +448,14 @@ ro:
         edit:
           attachment_legend: "(Opțional) Adaugă un atașament"
           back: Înapoi
-          select_a_category: Te rugăm selectează o categorie
           send: Trimite
           title: Editează ciorna colaborativă
         filters:
           all: Toate
           amendment: Amendamente
-          category: Categorie
           open: Deschise
           published: Publicate
           related_to: Asociate cu
-          scope: Domeniu de interes
           search: Caută
           state: Stadiu
           withdrawn: Retrase
@@ -522,7 +490,6 @@ ro:
           rejected_request:
             error: Nu ai putut fi respins drept colaborator, te rugăm să încerci din nou mai târziu.
         show:
-          edit: Editează ciorna colaborativă
           final_proposal: propunere finală
           final_proposal_help_text: Această ciornă este finalizată. Verifică propunerea finală
           hidden_authors_count:
@@ -555,14 +522,12 @@ ro:
       models:
         proposal:
           fields:
-            category: Categorie
             comments: Comentarii
             id: ID
             notes: Note
             official_proposal: Propunere oficială
             published_answer: Răspuns publicat
             published_at: Publicat la
-            scope: Domeniu de interes
             state: Stadiu
             title: Titlu
             valuator: Evaluator
@@ -580,7 +545,6 @@ ro:
         edit:
           attachment_legend: "(Opțional) Adaugă un atașament"
           back: Înapoi
-          select_a_category: Te rugăm selectează o categorie
           send: Trimite
           title: Editează propunerea
         edit_draft:
@@ -593,7 +557,6 @@ ro:
           activity: Activitatea mea
           all: Toate
           amendment_type: Tip
-          category: Categorie
           my_proposals: Propunerile mele
           origin: Origine
           related_to: Asociate cu
@@ -637,7 +600,6 @@ ro:
         show:
           answer: Răspuns
           changes_at_title: Amendament pentru „%{title}”
-          edit_proposal: Editează propunerea
           estimated_cost: Cost estimat
           hidden_endorsers_count:
             one: și încă %{count} persoană
@@ -653,7 +615,6 @@ ro:
           proposal_in_evaluation_reason: Această propunere este în curs de evaluare
           proposal_rejected_reason: 'Această propunere a fost respinsă deoarece:'
           withdraw_confirmation_html: Sigur dorești să retragi această propunere?<br><br><strong>Această acțiune nu poate fi anulată!</strong>
-          withdraw_proposal: Retrage propunerea
         update:
           title: Actualizează propunerea
         voting_rules:

@@ -2,15 +2,12 @@ de:
   activemodel:
     attributes:
       debate:
-        category_id: Kategorie
         closed_at: Geschlossen am
         conclusions: Zusammenfassung
-        decidim_category_id: Kategorie
         description: Beschreibung
         end_time: Endet am
         information_updates: Informationsaktualisierungen
         instructions: Anweisungen zur Teilnahme
-        scope_id: Themenbereich
         start_time: Startet um
         title: Titel
         user_group_id: Debatte erstellen als
@@ -29,16 +26,20 @@ de:
       debates:
         actions:
           comment: Kommentar
-          create: Erstellen
           endorse: Bestätigen
         name: Debatten
         settings:
           global:
             announcement: Ankündigung
+            clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
+            no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
+            taxonomy_filters: Filter für die Komponente auswählen
+            taxonomy_filters_add: Filter hinzufügen
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
@@ -48,8 +49,6 @@ de:
     debates:
       actions:
         close: Schließen
-        confirm_destroy: Sind Sie sich sicher?
-        destroy: Löschen
         edit: Bearbeiten
         new: Neue Debatte
         title: Aktionen
@@ -62,8 +61,6 @@ de:
           create:
             invalid: Es gab ein Problem beim Erstellen der Debatte.
             success: Diskussion erfolgreich erstellt
-          destroy:
-            success: Die Diskussion wurde erfolgreich gelöscht.
           edit:
             title: Debatte bearbeiten
             update: Debatte aktualisieren
@@ -80,12 +77,17 @@ de:
             invalid: Bei der Aktualisierung dieser Debatte ist ein Problem aufgetreten.
             success: Die Diskussion wurde erfolgreich aktualisiert.
         exports:
-          comments: Kommentare
+          debate_comments: Kommentare
+          debates: Debatten
       admin_log:
         debate:
           close: "%{user_name} hat die Debatte %{resource_name} in %{space_name} geschlossen"
           create: "%{user_name} hat die Debatte %{resource_name} in %{space_name} erstellt"
           update: "%{user_name} hat die Debatte %{resource_name} in %{space_name} aktualisiert"
+      content_blocks:
+        highlighted_debates:
+          name: Debatten
+          see_all: Alle Debatten ansehen
       debate_m:
         commented_time_ago: Vor %{time} kommentiert
       debates:
@@ -126,8 +128,6 @@ de:
             closed: Geschlossen
             open: Offen
           user_group: Gruppen
-        form:
-          select_a_category: Bitte wählen sie eine Kategorie
         index:
           new_debate: Neue Debatte
         new:
@@ -141,11 +141,11 @@ de:
           recent: Neueste zuerst
           updated: Kürzlich aktualisiert
         show:
-          close_debate: Debatte schließen
+          close_debate: Schliessen
           debate_closed: Geschlossen
           debate_conclusions_are: 'Die Debatte wurde am %{date} mit diesen Ergebnissen geschlossen:'
           edit_conclusions: Schlussfolgerungen bearbeiten
-          edit_debate: Debatte bearbeiten
+          edit_debate: Bearbeiten
           groups_count: Gruppen
           open: Offene Debatte
           participants_count: Teilnehmer
@@ -163,7 +163,12 @@ de:
             official_debate: Offizielle Debatte
             start: Start
             start_time: Anfangsdatum
+            taxonomies: Klassifizierungen
             title: Titel
+    download_your_data:
+      show:
+        debate_comments: Kommentare zu Debatten exportieren
+        debates: Debatten exportieren
     events:
       debates:
         create_debate_event:
@@ -219,5 +224,32 @@ de:
         description: Anzahl der erstellten Debatten
         object: Debatten
         title: Debatten
+    open_data:
+      help:
+        debate_comments:
+          alignment: Ob dieser Kommentar zustimmend, ablehnen oder neutral war
+          author: Der Name des Teilnehmers, der diesen Kommentar erstellt hat
+          body: Der Kommentar selbst
+          commentable_id: Die eindeutige ID des kommentierten Objekts
+          commentable_type: Die Art des kommentierten Objekts (ob es ein Ergebnis, Vorschlag o.ä. war)
+          created_at: Das Erstellungsdatum des Kommentars
+          depth: Die Position dieses Kommentars im Thread (ob es sich um eine Antwort oder eine Antwort auf eine Antwort handelt)
+          id: Die ID dieses Kommentars
+          locale: Die eingestellte Plattformsprache der kommentierenden Person
+          root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
+          user_group: Der Name der Gruppe, die diesen Kommentar erstellt hat (falls vorhanden)
+        debates:
+          author: Die Angaben über die verfassende Person dieser Debatte
+          closed_at: Das Datum, an dem diese Debatte geschlossen wurde
+          comments: Die Anzahl der Kommentare dieser Debatte
+          comments_enabled: Ob diese Debatte Kommentare aktiviert hat oder nicht
+          component: Die Komponente, zu der die Debatte gehört
+          conclusions: Die Erkenntnisse der Debatte, sollte sie geschlossen sein
+          created_at: Datum und Uhrzeit, an der die Debatte erstellt wurde
+          description: Die Beschreibung der Debatte
+          end_time: Wann die Debatte zu Ende geht, ob sie öffentlich oder zeitlich begrenzt ist
+          id: Die eindeutige Bezeichnung der Debatte
+          taxonomies: Die Klassifizierungen des Projekts
+          title: Der Titel der Debatte
     statistics:
       debates_count: Debatten

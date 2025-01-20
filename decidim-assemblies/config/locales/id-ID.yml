@@ -76,7 +76,6 @@ id:
       assemblies:
         create:
           error: Ada kesalahan saat membuat perakitan baru.
-          success: Majelis berhasil dibuat.
         edit:
           update: Memperbarui
         index:
@@ -101,21 +100,6 @@ id:
           copy: Salinan
           select: Pilih data mana yang ingin Anda gandakan
           title: Rakitan duplikat
-      assembly_members:
-        create:
-          error: Terjadi kesalahan saat menambahkan anggota untuk majelis ini.
-          success: Anggota berhasil dibuat untuk perakitan ini.
-        destroy:
-          success: Anggota berhasil dihapus untuk perakitan ini.
-        edit:
-          update: Memperbarui
-        index:
-          assembly_members_title: Anggota dewan
-        new:
-          create: Membuat
-        update:
-          error: Terjadi kesalahan saat memperbarui anggota untuk perakitan ini.
-          success: Anggota berhasil diperbarui untuk perakitan ini.
       assembly_publications:
         create:
           error: Terjadi kesalahan saat mempublikasikan perakitan ini.
@@ -142,7 +126,6 @@ id:
         assemblies: Assemblies
         assemblies_submenu:
           assembly_admins: Pengguna majelis
-          assembly_members: Anggota
           attachment_collections: Folder
           attachment_files: File
           attachments: Lampiran
@@ -163,11 +146,6 @@ id:
             title: Judul
           name: Majelis
         assembly_member:
-          fields:
-            ceased_date: Tanggal berhenti
-            designation_date: Tanggal penunjukan
-            full_name: Nama
-            position: Posisi
           name: Anggota
           positions:
             other: Lain
@@ -219,13 +197,6 @@ id:
         assemblies_types:
           form:
             title: Judul
-        assembly_members:
-          form:
-            existing_user: Pengguna yang sudah ada
-            non_user: Non-pengguna
-            select_a_position: Pilih posisi
-            select_user: Pilih seorang pengguna
-            user_type: Tipe Pengguna
         content_blocks:
           highlighted_assemblies:
             max_results: Jumlah maksimum elemen untuk ditampilkan
@@ -271,8 +242,6 @@ id:
         duration: Lamanya
         private_space: Ini adalah pertemuan pribadi
     assembly_members:
-      assembly_member:
-        designated_on: Ditunjuk pada
       index:
         title: Anggota
     help:

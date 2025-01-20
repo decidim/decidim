@@ -129,8 +129,6 @@ lv:
         attachment_collections: Mapes
         attachments: Pielikumi
         close: Aizvērt
-        confirm_destroy: Vai tiešām vēlaties dzēst šo sanāksmi?
-        destroy: Dzēst
         edit: Labot
         preview: Priekšskatīt
         registrations: Reģistrācija
@@ -187,8 +185,6 @@ lv:
             close: Aizvērt
             title: Slēgt sanāksmi
         meetings:
-          destroy:
-            success: Sanāksme ir veiksmīgi izdzēsta
           edit:
             update: Atjaunināt
           form:

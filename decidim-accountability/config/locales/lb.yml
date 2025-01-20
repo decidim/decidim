@@ -100,12 +100,10 @@ lb:
       models:
         result:
           fields:
-            category: Kategorie
             created_at: Erstellt am
             end_date: Enddatum
             id: ID
             progress: Fortschritt
-            scope: Themenbereich
             start_date: Startdatum
             status: Status
             title: Titel
@@ -123,15 +121,8 @@ lb:
           results_count:
             one: 1 Ergebnis
             other: "%{count} Ergebnisse"
-        filters:
-          all: Alle
-        home:
-          categories_label: Kategorien
-          subcategories_label: Unterkategorien
         home_header:
           global_status: Globaler Umsetzungsstatus
-        nav_breadcrumb:
-          global: Globale Ausführung
         search:
           search: Suche nach Aktionen
         show:
@@ -142,10 +133,6 @@ lb:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategorie
-          scope_id_eq:
-            label: Themenberäich
           status_id_eq:
             label: Status
     components:

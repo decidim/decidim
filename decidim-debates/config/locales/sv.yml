@@ -2,15 +2,12 @@ sv:
   activemodel:
     attributes:
       debate:
-        category_id: Kategori
         closed_at: Avslutades
         conclusions: Slutsatser
-        decidim_category_id: Kategori
         description: Beskrivning
         end_time: Slutar vid
         information_updates: Uppdatering av uppgifter
         instructions: Instruktioner för att delta
-        scope_id: Indelning
         start_time: Startdatum
         title: Titel
         user_group_id: Skapa debatt som
@@ -29,7 +26,6 @@ sv:
       debates:
         actions:
           comment: Kommentera
-          create: Skapa
           endorse: Gilla
         name: Debatter
         settings:
@@ -48,8 +44,6 @@ sv:
     debates:
       actions:
         close: Stäng
-        confirm_destroy: Är du säker?
-        destroy: Radera
         edit: Redigera
         new: Ny debatt
         title: Åtgärder
@@ -62,8 +56,6 @@ sv:
           create:
             invalid: Det gick inte att skapa debatten.
             success: Debatten har skapats.
-          destroy:
-            success: Debatten har raderats.
           edit:
             title: Redigera debatt
             update: Uppdatera debatt
@@ -79,8 +71,6 @@ sv:
           update:
             invalid: Det gick inte att uppdatera debatten.
             success: Debatten uppdaterades.
-        exports:
-          comments: Kommentarer
       admin_log:
         debate:
           close: "%{user_name} avslutade debatten %{resource_name} i %{space_name}"
@@ -126,8 +116,6 @@ sv:
             closed: Avslutade
             open: Öppna
           user_group: Grupper
-        form:
-          select_a_category: Välj en kategori
         index:
           new_debate: Ny debatt
         new:
@@ -141,11 +129,9 @@ sv:
           recent: Senaste
           updated: Senast uppdaterade
         show:
-          close_debate: Avsluta debatt
           debate_closed: Avslutade
           debate_conclusions_are: 'Debatten avslutades %{date} med följande slutsatser:'
           edit_conclusions: Redigera slutsatser
-          edit_debate: Redigera debatt
           groups_count: Grupper
           open: Öppen debatt
           participants_count: Deltagare

@@ -38,7 +38,8 @@ es-MX:
           error: Ha habido errores al votar el comentario.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Inicia sesión</a> o <a href="%{sign_up_url}">crea una cuenta</a> para añadir tu comentario.
+        account_message: Inicia sesión o crea una cuenta para añadir tu comentario.
+        add_comment: Añadir un comentario
         form:
           body:
             label: Comentario
@@ -48,6 +49,7 @@ es-MX:
           submit_root_comment: Publicar comentario
           user_group_id:
             label: Comentar como
+            your_profile: Tu perfil
         opinion:
           label: Tu opinión sobre este tema
           negative: Negativa
@@ -63,6 +65,9 @@ es-MX:
         alignment:
           against: En contra
           in_favor: A favor
+        answers:
+          one: "%{count} respuesta"
+          other: "%{count} respuestas"
         cancel_reply: Cancelar respuesta
         comment_label: Comentario %{comment_id}
         comment_label_reply: Comentario %{comment_id} (responder al comentario %{parent_comment_id})
@@ -93,6 +98,7 @@ es-MX:
           one: Mostrar la respuesta
           other: Mostrar las %{count} respuestas
         single_comment_link_title: Obtener enlace
+        sort_by: 'Ordenar por: '
       comment_order_selector:
         order:
           best_rated: Mejor valoración

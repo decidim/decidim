@@ -259,9 +259,6 @@
         create:
           error: Det oppstod et problem med å opprette denne komponenten.
           success: Komponent ble opprettet.
-        destroy:
-          error: Det oppstod et problem med å ødelegge denne komponenten.
-          success: Komponent ble slettet.
         edit:
           title: Rediger komponent
           update: Oppdater
@@ -323,8 +320,6 @@
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Kategori
         filter_label: Filter
         invitation_accepted_at_present:
           label: Invitasjonen er akseptert
@@ -372,8 +367,6 @@
           values:
             'false': Publisert
             'true': Avpublisert
-        scope_id_eq:
-          label: Tema
         search_label: Søk
         search_placeholder:
           name_or_nickname_or_email_cont: Søk %{collection} via email, navn eller kallenavn.
@@ -544,12 +537,8 @@
             plural: Flertall
         share_token:
           fields:
-            created_at: Opprettet i
             expires_at: Utløper
-            last_used_at: Sist brukt
             times_used: Ganger brukt
-            token: Token
-            user: Opprettet av
         static_page:
           fields:
             created_at: Opprettet på
@@ -764,10 +753,6 @@
           title: Endre tillatelser
         update:
           success: Tillatelsene ble oppdatert.
-      resources:
-        index:
-          headers:
-            scope: Tema
       scope_types:
         create:
           error: Det oppstod et problem med å lage en ny tematype.
@@ -799,15 +784,7 @@
           success: Temaet ble oppdatert
       share_tokens:
         actions:
-          confirm_destroy: Er du sikker på at du vil slette denne token?
           destroy: Slett
-          share: Del
-        destroy:
-          error: Et problem oppstod under ødelggelsen av token.
-          success: Token ble ødelagt.
-        share_tokens:
-          help: Disse tokenene brukes til å dele denne upubliserte ressursen til hvilken som helst bruker. De vil bli skjult når ressursen publiseres. Klikk på tokenenes deleikon for å besøke den delte URL-en.
-          title: Del tokener
       shared:
         gallery:
           add_images: Legg til bilder
@@ -848,8 +825,6 @@
           without_topic: Sider uten emne
         update:
           error: Det oppstod et problem med å oppdatere denne siden.
-      taxonomies:
-        count: Antall
       titles:
         admin_log: Admin logg
         area_types: Områdetyper

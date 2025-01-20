@@ -54,8 +54,6 @@
     admin:
       filters:
         meetings:
-          category_id_eq:
-            label: Kategori
           closed_at_present:
             label: Status
             values:
@@ -66,8 +64,6 @@
             values:
               'false': Tidligere
               'true': Kommende
-          scope_id_eq:
-            label: Tema
           with_any_origin:
             values:
               user_group: Brukergrupper
@@ -169,8 +165,6 @@
         attachment_collections: Mapper
         attachments: Vedlegg
         close: Lukk
-        confirm_destroy: Er du sikker på at du vil slette dette møtet?
-        destroy: Slett
         edit: Rediger
         invalid_destroy:
           proposals_count:
@@ -236,8 +230,6 @@
         meetings:
           create:
             success: Møtet ble opprettet. Merk at dette ikke er publisert enda, du må publisere det manuelt.
-          destroy:
-            success: Møtet ble slettet
           edit:
             title: Rediger møte
             update: Oppdater
@@ -304,8 +296,6 @@
             organizer_presenter:
               not_found: 'Arrangøren ble ikke funnet i databasen (ID: %{id})'
       application_helper:
-        filter_category_values:
-          all: Alle
         filter_meeting_space_values:
           all: Alle
       calendar_modal:
@@ -385,7 +375,6 @@
           address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
           available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig
           create_as: Opprett møte som
-          select_a_category: Velg en kategori
           select_a_meeting_type: Velg en møtetype
           select_a_registration_type: Velg en registreringstype
           select_an_iframe_access_level: Velg et tilgangsnivå for iframe

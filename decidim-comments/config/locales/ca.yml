@@ -39,6 +39,7 @@ ca:
     components:
       add_comment_form:
         account_message: Inicia sessió o crea un compte per afegir el teu comentari.
+        add_comment: Afegir un comentari
         form:
           body:
             label: Comentari
@@ -48,6 +49,7 @@ ca:
           submit_root_comment: Publicar comentari
           user_group_id:
             label: Comentar com a
+            your_profile: El teu perfil
         opinion:
           label: La teva opinió sobre aquest tema
           negative: Negativa
@@ -63,6 +65,9 @@ ca:
         alignment:
           against: En contra
           in_favor: A favor
+        answers:
+          one: "%{count} resposta"
+          other: "%{count} respuestas"
         cancel_reply: Cancel·lar resposta
         comment_label: Comentari %{comment_id}
         comment_label_reply: Comentari %{comment_id} (respon al comentari %{parent_comment_id})
@@ -93,6 +98,7 @@ ca:
           one: Mostra la resposta
           other: Mostra les %{count} respostes
         single_comment_link_title: Obtenir enllaç
+        sort_by: 'Ordenar per: '
       comment_order_selector:
         order:
           best_rated: Més ben valorats
@@ -136,7 +142,7 @@ ca:
           email_subject: Hi ha un nou comentari de %{author_name} en %{resource_title}
           notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
-          email_intro: "S'ha comentat %{resource_title}. Pots llegir el comentari d'aquesta pàgina:"
+          email_intro: "Algú ha deixat un comentari a \"%{resource_title}\". Pots llegir el comentari a través del següent enllaç:"
           email_outro: Has rebut aquesta notificació perquè estàs seguint el comentari "%{resource_title}" o la seva autora. Pots deixar de seguir-la des de l'enllaç anterior.
           email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
           notification_title: Hi ha un nou comentari de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>

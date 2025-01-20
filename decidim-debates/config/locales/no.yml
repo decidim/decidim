@@ -2,10 +2,8 @@
   activemodel:
     attributes:
       debate:
-        category_id: Kategori
         closed_at: Stengt
         conclusions: Konklusjoner
-        decidim_category_id: Kategori
         description: Beskrivelse
         end_time: Avsluttes den
         information_updates: Oppdateringer
@@ -28,7 +26,6 @@
       debates:
         actions:
           comment: Kommenter
-          create: Opprett
           endorse: Påtegne
         name: Innspillstråder
         settings:
@@ -47,8 +44,6 @@
     debates:
       actions:
         close: Lukk
-        confirm_destroy: Er du sikker?
-        destroy: Slett
         edit: Rediger
         title: Handling
       admin:
@@ -60,8 +55,6 @@
           create:
             invalid: Det oppstod et problem med å opprette innspillstråden.
             success: Innspillstråden ble opprettet.
-          destroy:
-            success: Innspillstråden ble slettet.
           edit:
             title: Rediger innspillstråd
             update: Oppdater innspillstråd
@@ -77,8 +70,6 @@
           update:
             invalid: Det oppstod et problem med å oppdatere denne innspillstråden.
             success: Innspillstråden ble oppdatert.
-        exports:
-          comments: Kommentarer
       admin_log:
         debate:
           close: "%{user_name} lukket tråden %{resource_name} under området %{space_name}"
@@ -119,8 +110,6 @@
           state_values:
             closed: Lukket
             open: Åpen
-        form:
-          select_a_category: Velg en kategori
         index:
           new_debate: Ny innspillstråd
         new:
@@ -134,11 +123,9 @@
           recent: Nyeste
           updated: Sist oppdatert
         show:
-          close_debate: Avslutt innspillstråd
           debate_closed: Lukket
           debate_conclusions_are: 'Innspillstråden er avsluttet den %{date}, med denne oppsummeringen:'
           edit_conclusions: Rediger oppsummering
-          edit_debate: Rediger innspillstråd
           groups_count: Grupper
           open: Åpen debatt
           participants_count: Deltakere

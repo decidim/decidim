@@ -11,3 +11,33 @@
   [id*="comment"][class="comment-reply"][aria-hidden="false"] {
   display: block;
 }
+
+.card-accordion {
+  @apply border-b border-gray-3 mt-6;
+
+  &-title {
+    @apply text-primary font-semibold text-xl inline-block;
+  }
+
+  &-divider-button {
+    @apply flex items-center justify-between items-end w-full;
+
+    svg {
+      @apply inline-block w-6 h-6 fill-primary;
+    }
+
+    &[aria-expanded="true"] {
+      svg {
+        @apply rotate-180 transition-transform;
+      }
+    }
+  }
+
+  &-section {
+    @apply pb-8;
+
+    ul {
+      @apply mb-0;
+    }
+  }
+}

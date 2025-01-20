@@ -20,6 +20,10 @@ module Decidim
       where(decidim_user_id: user.id)
     end
 
+    def self.private_user_ids_for_participatory_spaces(spaces)
+      joins(:user).where(privatable_to: spaces).distinct.pluck(:decidim_user_id)
+    end
+
     def self.export_serializer
       Decidim::DownloadYourDataSerializers::DownloadYourDataParticipatorySpacePrivateUserSerializer
     end

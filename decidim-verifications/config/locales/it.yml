@@ -73,17 +73,6 @@ it:
           unconfirmed: Devi confermare la tua e-mail per autorizzarti.
         destroy:
           error: Si è verificato un errore durante l'eliminazione dell'autorizzazione.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Verificare contro un altro esempio di gestore di autorizzazioni
-            csv_census: Verifica contro il censimento dell'organizzazione
-            dummy_authorization_handler: Verificare contro il gestore di autorizzazione di esempio
-            dummy_authorization_workflow: Verificare il flusso di lavoro di autorizzazione di esempio
-            id_documents: Ottieni la verifica caricando il tuo documento di identità
-            postal_letter: Ottieni la verifica ricevendo un codice di verifica tramite posta ordinaria
-            sms: Ricevi la verifica ricevendo un codice di verifica via SMS
-          title: Verifica la tua identità
-          verify_with_these_options: 'Queste sono le opzioni disponibili per verificare la tua identità:'
         index:
           expired_verification: Verifica scaduta
           pending_verification: In attesa di conferma

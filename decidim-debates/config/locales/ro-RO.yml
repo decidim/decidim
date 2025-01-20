@@ -2,15 +2,12 @@ ro:
   activemodel:
     attributes:
       debate:
-        category_id: Categorie
         closed_at: Închisă la
         conclusions: Concluzii
-        decidim_category_id: Categorie
         description: Descriere
         end_time: Se termină la
         information_updates: Actualizări informații
         instructions: Instrucţiuni de participare
-        scope_id: Domeniu de interes
         start_time: Începe la
         title: Titlu
         user_group_id: Creați o dezbatere în calitate de
@@ -30,7 +27,6 @@ ro:
       debates:
         actions:
           comment: Comentează
-          create: Creează
           endorse: Susține
         name: Dezbateri
         settings:
@@ -49,8 +45,6 @@ ro:
     debates:
       actions:
         close: Închide
-        confirm_destroy: Sigur dorești asta?
-        destroy: Ștergere
         edit: Editare
         title: Acțiuni
       admin:
@@ -62,8 +56,6 @@ ro:
           create:
             invalid: A existat o problemă la crearea dezbaterii.
             success: Dezbatere creată cu succes.
-          destroy:
-            success: Dezbatere cu succes.
           edit:
             title: Editare dezbatere
             update: Actualizează dezbaterea
@@ -79,8 +71,6 @@ ro:
           update:
             invalid: A apărut o problemă la actualizarea acestei dezbateri.
             success: Dezbatere actualizata cu succes.
-        exports:
-          comments: Comentarii
       admin_log:
         debate:
           close: "%{user_name} a închis dezbaterea %{resource_name} cu privire la spațiul %{space_name}"
@@ -122,8 +112,6 @@ ro:
           state_values:
             closed: Închisă
             open: Deschide
-        form:
-          select_a_category: Te rugăm selectează o categorie
         index:
           new_debate: Dezbatere nouă
         new:
@@ -137,11 +125,9 @@ ro:
           recent: Cele mai recente
           updated: Actualizate recent
         show:
-          close_debate: Închide dezbaterea
           debate_closed: Închisă
           debate_conclusions_are: 'Dezbaterea s-a încheiat la %{date} cu următoarele concluzii:'
           edit_conclusions: Editează concluziile
-          edit_debate: Editează dezbaterea
           groups_count: Grupuri
           open: Dezbatere deschisă
           participants_count: Participanţi

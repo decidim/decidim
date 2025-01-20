@@ -42,7 +42,9 @@ es:
       actions:
         attachment_collections: Carpetas
         attachments: Archivos adjuntos
+        confirm_delete_result: '¿Seguro que quieres eliminar este resultado?'
         confirm_destroy: '¿Seguro que quieres eliminar este %{name}?'
+        deleted_results_info: Los resultados eliminados se pueden restaurar desde papelera.
         destroy: Borrar
         edit: Editar
         import: Importar proyectos desde otro componente
@@ -53,6 +55,7 @@ es:
         preview: Previsualizar
         timeline_entries: Evolución del proyecto
         title: Acciones
+        view_deleted_results: Ver los resultados eliminados
       admin:
         exports:
           result_comments: Comentarios
@@ -112,13 +115,13 @@ es:
           create:
             invalid: Se ha producido un error al crear este resultado.
             success: Resultado creado correctamente.
-          destroy:
-            success: Resultado eliminado correctamente.
           edit:
             title: Editar resultado
             update: Actualizar resultado
           index:
             title: Resultados
+          manage_trash:
+            title: Resultados eliminados
           new:
             create: Crear resultado
             title: Nuevo resultado
@@ -166,6 +169,8 @@ es:
         result:
           create: "%{user_name} creó el resultado %{resource_name} en %{space_name}"
           delete: "%{user_name} borró el resultado %{resource_name} en %{space_name}"
+          restore: "%{user_name} ha eliminado el resultado %{resource_name} en %{space_name}"
+          soft_delete: "%{user_name} ha movido el resultado %{resource_name} desde %{space_name} a la papelera"
           update: "%{user_name} actualizó el resultado %{resource_name} en %{space_name}"
         status:
           create: "%{user_name} ha creado el estado %{resource_name}"
@@ -202,14 +207,13 @@ es:
       models:
         result:
           fields:
-            category: Categoría
             created_at: Creado
             end_date: Fin
             id: ID
             progress: Progreso
-            scope: Ámbito
             start_date: Inicio
             status: Estado
+            taxonomies: Taxonomías
             title: Título
         status:
           fields:
@@ -226,17 +230,13 @@ es:
           results_count:
             one: Un resultado
             other: "%{count} resultados"
-        filters:
-          all: Todos
         home:
-          categories_label: Categorías
           empty: Aún no hay ningún resultado.
           empty_filters: No hay resultados con estos criterios.
-          subcategories_label: Subcategorías
+          sub_taxonomies_label: Subcategorías
+          taxonomies_label: Categorías
         home_header:
           global_status: Estado de ejecución global
-        nav_breadcrumb:
-          global: Ejecución global
         no_results: No hay proyectos
         search:
           search: Buscar actuaciones
@@ -248,12 +248,10 @@ es:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Categoría
-          scope_id_eq:
-            label: Ámbito
           status_id_eq:
             label: Estado
+          taxonomies_part_of_contains:
+            label: Taxonomía
     components:
       accountability:
         actions:
@@ -261,14 +259,24 @@ es:
         name: Seguimiento
         settings:
           global:
+            clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             display_progress_enabled: Mostrar progreso
+            geocoding_enabled: Mapas habilitados
             intro: Introducción
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
+            taxonomy_filters: Seleccionar filtros para el componente
+            taxonomy_filters_add: Añadir un filtro
           step:
             comments_blocked: Comentarios bloqueados
+    download_your_data:
+      show:
+        result_comments: Exportar los comentarios a los resultados
+        results: Exportar los resultados
     events:
       accountability:
         proposal_linked:
@@ -286,6 +294,41 @@ es:
         description: Número de resultados generados
         object: resultados
         title: Resultados
+    open_data:
+      help:
+        result_comments:
+          alignment: Si este comentario fue un favor, en contra o neutral
+          author: El nombre usuaria de la participante que hizo este comentario
+          body: El comentario en sí
+          commentable_id: El identificador único de aquello que se podía comentar
+          commentable_type: La tipología de aquello sobre lo que se realizó el comentario (si fue un resultado, una propuesta, etc.)
+          created_at: La fecha en la que se creó este comentario
+          depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es un comentario, una respuesta a un comentario, o la respuesta de una respuesta)
+          id: El identificador de este comentario
+          locale: La configuración regional (idioma) que la participante tuvo al dejar este comentario
+          root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
+          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
+        results:
+          address: La dirección del resultado (si existe)
+          children_count: El número de resultados hijos (anidados)
+          comments_count: El número de comentarios que tiene este resultado
+          component: El componente al que pertenece el resultado
+          created_at: La fecha en la que se creó este resultado
+          description: La descripción del resultado
+          end_date: La fecha prevista para la finalización de la ejecución del resultado
+          id: El identificador único del resultado
+          latitude: La latitud del resultado en caso de que esta tenga una ubicación física
+          longitude: La longitud del resultado en caso de que esta tenga una ubicación física
+          parent: El resultado padre (si existe) del resultado
+          progress: El porcentaje de ejecución del resultado
+          proposal_urls: Las URL de las propuestas que se incluyen en este resultado
+          reference: La referencia única del resultado
+          start_date: La fecha en la que estaba previsto el inicio de la ejecución del resultado
+          status: El estado actual de este resultado
+          taxonomies: Las taxonomías del resultado
+          title: El título del resultado
+          updated_at: La fecha de la última actualización de este resultado
+          url: La URL donde se puede encontrar este resultado
     participatory_spaces:
       highlighted_results:
         see_all: Ver todos los resultados

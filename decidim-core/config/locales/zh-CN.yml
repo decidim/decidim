@@ -357,9 +357,6 @@ zh-CN:
     download_your_data:
       export:
         ready: 准备好
-      show:
-        download_data: 下载数据
-        request_data: 请求数据
     endorsements:
       identities:
         done: 完成
@@ -496,8 +493,6 @@ zh-CN:
     export_mailer:
       download_your_data_export:
         download: 下载
-      export:
-        ready: 请找到您导出的压缩版本。
       subject: 您导出的"%{name}"已准备好
     filters:
       linked_classes:
@@ -898,10 +893,6 @@ zh-CN:
         title: 报告不恰当的内容
       floating_help:
         help: 帮助
-      participatory_space_filters:
-        filters:
-          areas: 地区
-          select_an_area: 选择区域
       reference:
         reference: '引用: %{reference}'
       represent_user_group:
@@ -915,9 +906,6 @@ zh-CN:
         share_link: 分享链接
     statistics:
       comments_count: 评论
-    tags:
-      filter_results_for_category: '分类筛选结果: %{resource}'
-      filter_results_for_scope: '范围筛选结果: %{resource}'
     translation_bar:
       help_text: "<strong>警告：</strong> 内容可能会被自动翻译而不是100%的准确性。"
       show_original: 显示原始文本
@@ -1094,7 +1082,6 @@ zh-CN:
       footer:
         cc_by_license: 知识共享许可证
         decidim_logo: 解码徽标
-        download_open_data: 下载打开的数据文件
         made_with_open_source: 使用 <a target="_blank" href="https://github.com/decidim/decidim">免费软件</a> 创建的网站。
       impersonation_warning:
         close_session: 关闭会话

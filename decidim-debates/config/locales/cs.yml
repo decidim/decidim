@@ -2,15 +2,12 @@ cs:
   activemodel:
     attributes:
       debate:
-        category_id: Kategorie
         closed_at: Uzavřeno v
         conclusions: Závěry
-        decidim_category_id: Kategorie
         description: Popis
         end_time: Končí v
         information_updates: Aktualizace informací
         instructions: Pokyny k účasti
-        scope_id: Oblast působnosti
         start_time: Začíná v
         title: Titul
         user_group_id: Vytvořte debatu jako
@@ -22,25 +19,31 @@ cs:
   activerecord:
     models:
       decidim/debates/debate:
-        one: Rozprava
+        one: Debata
         few: Debaty
-        many: Debaty
-        other: Debaty
+        many: Debat
+        other: Debat
   decidim:
     components:
       debates:
         actions:
           comment: Komentář
-          create: Vytvořit
+          create: Vytvořit debatu
           endorse: Schválit
         name: Debaty
         settings:
           global:
             announcement: Oznámení
+            attachments_allowed: Povolit přílohy
+            clear_all: Vymazat vše
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
+            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
+            taxonomy_filters: Vyberte filtry pro komponentu
+            taxonomy_filters_add: Přidat filtr
           step:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
@@ -50,11 +53,12 @@ cs:
     debates:
       actions:
         close: Zavřít
-        confirm_destroy: Jste si jisti?
-        destroy: Odstranit
+        confirm_delete_debate: Opravdu chcete odstranit tuto debatu?
+        deleted_debate_info: Smazaná debata může být obnovena z koše.
         edit: Upravit
         new: Nová debata
         title: Akce
+        view_deleted_debates: Zobrazit odstraněné debaty
       admin:
         debate_closes:
           edit:
@@ -64,17 +68,20 @@ cs:
           create:
             invalid: Během debaty vznikl problém.
             success: Debata byla úspěšně vytvořena.
-          destroy:
-            success: Debata byla úspěšně smazána.
           edit:
             title: Upravit debatu
             update: Aktualizovat debatu
           form:
+            add_documents: Přidat dokumenty
+            attachment_legend: "(Volitelné) Přidat přílohu"
             debate_type: Typ debaty
+            edit_documents: Upravit dokumenty
             finite: Konečný (s počátečním a koncovým obdobím)
             open: Otevřený (žádné počáteční nebo koncové období)
           index:
             title: Debaty
+          manage_trash:
+            title: Smazané debaty
           new:
             create: Vytvořit debatu
             title: Nová debata
@@ -82,12 +89,19 @@ cs:
             invalid: Při aktualizaci této debaty došlo k problému.
             success: Debata byla úspěšně aktualizována.
         exports:
-          comments: Komentáře
+          debate_comments: Komentáře
+          debates: Debaty
       admin_log:
         debate:
           close: "%{user_name} ukončil debatu %{resource_name} ve skupině %{space_name}"
           create: "%{user_name} vytvořil debatu %{resource_name} o skupině %{space_name}"
+          restore: "%{user_name} obnovil debatu %{resource_name} v prostoru %{space_name}"
+          soft_delete: "%{user_name} přesunul debatu o %{resource_name} v prostoru %{space_name} do koše"
           update: "%{user_name} aktualizovala %{resource_name} diskusi o %{space_name} prostoru"
+      content_blocks:
+        highlighted_debates:
+          name: Debaty
+          see_all: Zobrazit všechny debaty
       debate_m:
         commented_time_ago: Komentováno před %{time}
       debates:
@@ -120,7 +134,7 @@ cs:
           category: Kategorie
           category_prompt: Vyberte kategorii
           commented: Okomentováno
-          my_debates: Moje rozpravy
+          my_debates: Moje debaty
           official: Oficiální
           origin: Původ
           participants: Účastníci
@@ -130,8 +144,6 @@ cs:
             closed: Uzavřeno
             open: Otevřeno
           user_group: Skupiny
-        form:
-          select_a_category: Vyberte kategorii
         index:
           new_debate: Nová debata
         new:
@@ -140,21 +152,21 @@ cs:
           title: Nová debata
         orders:
           commented: Nejvíce komentované
-          label: Řazení rozprav podle
+          label: Řazení debat podle
           random: Náhodné pořadí
           recent: Nejnovější
           updated: Naposledy aktualizované
         show:
-          close_debate: Ukončit debatu
+          close_debate: Zavřít‏
           debate_closed: Uzavřeno
           debate_conclusions_are: 'Debata byla uzavřena dne %{date} těmito závěry:'
           edit_conclusions: Upravit závěry
-          edit_debate: Upravit debatu
+          edit_debate: Upravit
           groups_count: Skupiny
           open: Otevřená diskuse
           participants_count: Účastníci
         update:
-          invalid: Při aktualizaci rozpravy došlo k chybě.
+          invalid: Při aktualizaci debaty došlo k chybě.
           success: Debata byla úspěšně aktualizována.
       last_activity:
         debate_updated: 'Debata aktualizována:'
@@ -167,7 +179,12 @@ cs:
             official_debate: Oficiální debata
             start: Začátek
             start_time: Datum zahájení
+            taxonomies: Taxonomie
             title: Titul
+    download_your_data:
+      show:
+        debate_comments: Export komentářů debat
+        debates: Export debat
     events:
       debates:
         create_debate_event:
@@ -223,5 +240,43 @@ cs:
         description: Počet vytvořených debat
         object: debaty
         title: Debaty
+    open_data:
+      help:
+        debate_comments:
+          alignment: Pokud byl tento komentář příznivý, proti nebo neutrální
+          author: Jméno účastníka, který vytvořil tento komentář
+          body: Samotný komentář
+          commentable_id: Jedinečné ID komentovatelného
+          commentable_type: Typ komentovatelného (pokud to byl výsledek, návrh atd.)
+          created_at: Datum, kdy byl komentář vytvořen
+          depth: Místo, kde se tento komentář nachází je ve třech komentářích (pokud se jedná o odpověď nebo odpověď na odpověď)
+          id: ID pro tento komentář
+          locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
+          root_commentable_url: Adresa URL zdroje, který má vazbu na tento komentář
+          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
+        debates:
+          author: Data pro autora této debaty
+          closed_at: Datum, kdy byla tato debata uzavřena
+          comments: Počet komentářů, které má tato debata
+          comments_enabled: Zda tato debata byla povolena nebo ne
+          component: Komponenta, do které debata patří
+          conclusions: Závěry debaty, pokud byla uzavřena
+          created_at: Datum a čas, kdy byla debata zahájena
+          description: Popis debaty
+          end_time: Když tato debata skončí, pokud se jedná o otevřenou debatu a má omezenou dobu
+          endorsements_count: Počet potvrzení, která debata získala
+          follows_count: Počet sledujících tuto debatu
+          id: Jedinečný identifikátor debaty
+          information_updates: Aktualizace, které autor provedl v debatě
+          instructions: Jaké jsou pokyny k připomínkám v této debatě
+          last_comment_at: Datum, kdy byla tato debata naposledy komentována
+          last_comment_by: Data posledního komentáře v rámci debaty
+          participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tato debata
+          reference: Jedinečný identifikátor zdroje na této platformě
+          start_time: Když tato debata začne, pokud se jedná o otevřenou debatu a má omezenou dobu
+          taxonomies: Taxonomie projektu
+          title: Název debaty
+          updated_at: Datum poslední aktualizace debaty
+          url: URL, kde lze tuto debatu nalézt
     statistics:
       debates_count: Debaty

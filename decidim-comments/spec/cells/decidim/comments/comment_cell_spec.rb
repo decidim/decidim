@@ -303,5 +303,94 @@ module Decidim::Comments
         expect(hash).to include(actions.to_s)
       end
     end
+
+    describe "#can_reply?" do
+      before do
+        allow(commentable).to receive(:user_allowed_to_comment?).and_return(true)
+        allow(commentable).to receive(:accepts_new_comments?).and_return(true)
+      end
+
+      context "when two columns layout is enabled" do
+        before do
+          allow(commentable).to receive(:two_columns_layout?).and_return(true)
+        end
+
+        it "returns false" do
+          expect(my_cell.send(:can_reply?)).to be false
+        end
+
+        it "does not render the reply button" do
+          expect(subject).to have_no_css("button[data-controls*='panel-']")
+        end
+      end
+
+      context "when two columns layout is disabled" do
+        before do
+          allow(commentable).to receive(:two_columns_layout?).and_return(false)
+        end
+
+        it "returns true when user has the right role and comments are allowed" do
+          allow(controller).to receive(:current_participatory_space).and_return(component.participatory_space)
+          allow(my_cell).to receive(:user_has_any_role?).and_return(true)
+
+          expect(my_cell.send(:can_reply?)).to be_truthy
+        end
+
+        it "renders the reply button when user has the right role and comments are allowed" do
+          allow(controller).to receive(:current_participatory_space).and_return(component.participatory_space)
+          allow(my_cell).to receive(:user_has_any_role?).and_return(true)
+
+          expect(subject).to have_css("button[data-controls*='panel-']", text: I18n.t("decidim.components.comment.reply"))
+        end
+
+        it "returns true when user is signed in and allowed to comment" do
+          allow(controller).to receive(:user_signed_in?).and_return(true)
+
+          expect(my_cell.send(:can_reply?)).to be_truthy
+        end
+
+        it "renders the reply button when user is signed in and allowed to comment" do
+          allow(controller).to receive(:user_signed_in?).and_return(true)
+
+          expect(subject).to have_css("button[data-controls*='panel-']", text: I18n.t("decidim.components.comment.reply"))
+        end
+
+        it "returns false when comments are blocked" do
+          allow(commentable).to receive(:accepts_new_comments?).and_return(false)
+
+          expect(my_cell.send(:can_reply?)).to be false
+        end
+
+        it "does not render the reply button when comments are blocked" do
+          allow(commentable).to receive(:accepts_new_comments?).and_return(false)
+
+          expect(subject).to have_no_css("button[data-controls*='panel-']")
+        end
+
+        it "returns false when user is not allowed to comment" do
+          allow(commentable).to receive(:user_allowed_to_comment?).and_return(false)
+
+          expect(my_cell.send(:can_reply?)).to be false
+        end
+
+        it "does not render the reply button when user is not allowed to comment" do
+          allow(commentable).to receive(:user_allowed_to_comment?).and_return(false)
+
+          expect(subject).to have_no_css("button[data-controls*='panel-']")
+        end
+
+        it "returns false when user is not signed in" do
+          allow(controller).to receive(:user_signed_in?).and_return(false)
+
+          expect(my_cell.send(:can_reply?)).to be false
+        end
+
+        it "does not render the reply button when user is not signed in" do
+          allow(controller).to receive(:user_signed_in?).and_return(false)
+
+          expect(subject).to have_no_css("button[data-controls*='panel-']")
+        end
+      end
+    end
   end
 end

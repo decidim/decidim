@@ -99,15 +99,16 @@ cs:
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: Opravdu chcete odstranit toto shromáždění? Pokud změníte názor, můžete ho obnovit později.
         import_assembly: Importovat
         new_assembly: Nové shromáždění
-        new_assembly_member: Nový člen shromáždění
         new_assembly_type: Nový typ shromáždění
         new_assembly_user_role: Nový administrátor shromáždění
+        view_deleted_assemblies: Zobrazit odstraněné shromáždění
       assemblies:
         create:
           error: Při vytváření nového shromáždění došlo k chybě.
-          success: Shromáždění bylo úspěšně vytvořeno.
+          success: Shromáždění bylo úspěšně vytvořeno. Nyní můžete přidat komponenty a nakonfigurovat je.
         edit:
           update: Aktualizace
         index:
@@ -115,6 +116,8 @@ cs:
           public: Veřejné
           published: Publikováno
           unpublished: Nezveřejněno
+        manage_trash:
+          title: Smazané shromáždění
         new:
           create: Vytvořit
           title: Nové shromáždění
@@ -150,23 +153,6 @@ cs:
           import: Importovat
           select: Vyberte data, která chcete importovat
           title: Importovat shromáždění
-      assembly_members:
-        create:
-          error: Při přidávání člena tohoto shromáždění došlo k chybě.
-          success: Člen úspěšně vytvořen pro toto shromáždění.
-        destroy:
-          success: Člen byl úspěšně smazán pro toto shromáždění.
-        edit:
-          title: Aktualizovat člena shromáždění
-          update: Aktualizace
-        index:
-          assembly_members_title: Členové shromáždění
-        new:
-          create: Vytvořit
-          title: Nový člen shromáždění
-        update:
-          error: Při aktualizaci člena tohoto shromáždění došlo k chybě.
-          success: Člen byl úspěšně aktualizován pro toto shromáždění.
       assembly_publications:
         create:
           error: Při publikování tohoto shromáždění došlo k chybě.
@@ -205,7 +191,6 @@ cs:
         assemblies: Shromáždění
         assemblies_submenu:
           assembly_admins: Administrátoři shromáždění
-          assembly_members: Členové
           attachment_collections: Složky
           attachment_files: Soubory
           attachments: Přílohy
@@ -214,7 +199,7 @@ cs:
           info: O tomto shromáždění
           landing_page: Úvodní stránka
           moderations: Moderování
-          private_users: Soukromí účastníci
+          private_users: Členové
           see_assembly: Zobrazit shromáždění
         assemblies_types: Typy shromáždění
       models:
@@ -232,11 +217,6 @@ cs:
             title: Název
           name: Shromáždění
         assembly_member:
-          fields:
-            ceased_date: Datum ukončení
-            designation_date: Datum označení
-            full_name: Název
-            position: Pozice
           name: Člen
           positions:
             other: Ostatní
@@ -256,7 +236,10 @@ cs:
             valuator: Hodnotitel
       titles:
         assemblies: Shromáždění
+        assemblies_deleted: Smazané shromáždění
         assemblies_types: Typy shromáždění
+      tooltips:
+        deleted_assemblies_info: Shromáždění může být odstraněno pouze v případě, že je stav "Nezveřejněný".
     admin_log:
       assembly:
         create: "%{user_name} vytvořil %{resource_name} shromáždění"
@@ -264,6 +247,8 @@ cs:
         export: "%{user_name} exportoval shromáždění %{resource_name}"
         import: "%{user_name} importoval shromáždění %{resource_name}"
         publish: "%{user_name} publikoval %{resource_name} shromáždění"
+        restore: "%{user_name} obnovil shromáždění %{resource_name}"
+        soft_delete: "%{user_name} přesunul do koše shromáždění %{resource_name}"
         unpublish: "%{user_name} odebral %{resource_name} shromáždění"
         update: "%{user_name} aktualizoval shromáždění %{resource_name}"
       assembly_member:
@@ -287,13 +272,16 @@ cs:
         assemblies:
           form:
             announcement_help: Text, který sem vložíte, se uživateli zobrazí přímo pod informacemi o procesu.
+            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
             duration_help: Pokud je doba trvání tohoto shromáždění omezená, zvolte konečné datum, jinak se objeví jako neurčitá.
             filters: Filtry
             images: Obrázky
             included_at_help: Vyberte datum, kdy byla tato sestava přidána na platformu. Nemusí být nutně stejné jako datum vytvoření.
             metadata: Metadata
+            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             other: Ostatní
+            private_notice: Budete moci spravovat soukromé účastníky po nastavení jako soukromé
             select_a_created_by: Vybrat vytvořeno od
             select_an_area: Vyberte oblast
             select_an_assembly_type: Vyberte typ shromáždění
@@ -314,14 +302,9 @@ cs:
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_members:
           form:
-            existing_user: Existující účastník
             explanation: 'Pokyny pro obrázek:'
             image_guide: Je vhodnější obrázek na výšku, který nemá žádný text.
-            non_user: Není účastník
             non_user_avatar_help: Měli byste získat souhlas osob před jejich zveřejněním jako člena.
-            select_a_position: Vyberte pozici
-            select_user: Vybrat účastníka
-            user_type: Typ účastníka
         content_blocks:
           highlighted_assemblies:
             max_results: Maximální množství prvků, které chcete zobrazit
@@ -405,10 +388,11 @@ cs:
         private_space: Toto je soukromé shromáždění
         social_networks_title: Navštivte shromáždění na
     assembly_members:
-      assembly_member:
-        designated_on: Určen pro
       index:
         title: Členové
+    download_your_data:
+      show:
+        assemblies: Export shromáždění
     events:
       assemblies:
         create_assembly_member:
@@ -441,6 +425,55 @@ cs:
         description: Počet vytvořených shromáždění
         object: shromáždění
         title: Shromáždění
+    open_data:
+      help:
+        assemblies:
+          announcement: Oznámení (vvyhlášení) informací
+          area: Oblast shromáždění
+          assembly_type: Typ shromáždění
+          closing_date: Datum ukončení shromáždění
+          closing_date_reason: Proč bylo shromáždění uzavřeno
+          composition: Složení shromáždění
+          created_at: Datum, kdy byl tento prostor vytvořen
+          created_by: Kdo vytvořil toto shromáždění
+          created_by_other: Ostatní tvůrci shromáždění
+          creation_date: Datum vytvoření tohoto shromáždění
+          decidim_scope_id: Rozsah shromáždění
+          description: Dlouhý popis shromáždění
+          developer_group: Skupina vývojářů shromáždění
+          duration: Doba trvání shromáždění
+          facebook_handler: Handler sociálních médií pro Facebook
+          follows_count: Počet uživatelů sledujících tento prostor
+          github_handler: Handler sociálních médií pro GitHub
+          hashtag: Hashtag Shromáždění, používaný pro Twitter/X
+          id: Jedinečný identifikátor ttohoto shromáždění
+          included_at: Datum, kdy bylo shromáždění zahrnuto
+          instagram_handler: Handler sociálních médií pro Instagram
+          internal_organisation: Vnitřní organizace tohoto shromáždění
+          is_transparent: Zda je shromáždění transparentní, nebo ne
+          local_area: Místní oblast shromáždění
+          meta_scope: Rozsah metadat shromáždění
+          participatory_scope: Participační rozsah shromáždění
+          participatory_structure: Participační struktura shromáždění
+          promoted: Zda je shromáždění propagováno, nebo ne
+          published_at: Datum, kdy byl tento prostor publikován
+          purpose_of_action: Účel konání shromáždění
+          reference: Jedinečný odkaz na prostor
+          remote_banner_image_url: URL obrázku banneru shromáždění
+          remote_hero_image_url: URL obrázku předáka shromáždění
+          scope: Rozsah shromáždění
+          scopes_enabled: Zda jsou rozsahy povoleny nebo ne
+          short_description: Stručný popis shromáždění
+          slug: Slug shromáždění (používá se pro účely identifikace, pro URL)
+          special_features: Jaké speciální vlastnosti má toto shromáždění
+          subtitle: Podnadpis shromáždění
+          target: Cíl shromáždění
+          taxonomies: Taxonomie projektu
+          title: Název shromáždění
+          twitter_handler: Handler sociálních médií pro Twitter
+          updated_at: Poslední datum, kdy byl tento prostor aktualizován
+          url: URL prostoru
+          youtube_handler: Handler sociálních médií pro YouTube
     participatory_processes:
       show:
         related_assemblies: Související shromáždění

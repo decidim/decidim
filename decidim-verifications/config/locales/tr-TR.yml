@@ -65,17 +65,6 @@ tr:
           unconfirmed: Kendinizi yetkilendirmek için e-postanızı onaylamanız gerekiyor.
         destroy:
           error: Yetkilendirme silinirken bir sorun oluştu.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Başka bir yetkilendirme işleyicisi örneğiyle doğrulayın
-            csv_census: Kuruluşun sayımına göre doğrulayın
-            dummy_authorization_handler: Örnek yetkilendirme işleyicisine karşı doğrulayın
-            dummy_authorization_workflow: Örnek yetkilendirme iş akışına karşı doğrulayın
-            id_documents: Kimlik belgenizi yükleyerek doğrulanma
-            postal_letter: Posta koduyla doğrulama kodu alarak doğrulanma
-            sms: Bir SMS doğrulama kodu alarak doğrulanın
-          title: Kimliğini doğrula
-          verify_with_these_options: 'Bunlar kimliğinizi doğrulamak için kullanılabilecek seçenekler:'
         index:
           expired_verification: Doğrulamanın süresi doldu
           pending_verification: Doğrulama beklemede

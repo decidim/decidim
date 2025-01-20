@@ -104,8 +104,6 @@ sv:
           create:
             invalid: Det gick inte att skapa resultatet.
             success: Resultatet har skapats.
-          destroy:
-            success: Resultatet har raderats.
           edit:
             title: Redigera resultat
             update: Uppdatera resultat
@@ -192,12 +190,10 @@ sv:
       models:
         result:
           fields:
-            category: Kategori
             created_at: Skapad
             end_date: Slutdatum
             id: ID
             progress: Genomförande
-            scope: Indelning
             start_date: Startdatum
             status: Status
             title: Titel
@@ -216,17 +212,11 @@ sv:
           results_count:
             one: Ett resultat
             other: "%{count} resultat"
-        filters:
-          all: Alla
         home:
-          categories_label: Kategorier
           empty: Det finns inget resultat ännu.
           empty_filters: Det finns inget resultat med de här kriterierna.
-          subcategories_label: Underkategorier
         home_header:
           global_status: Status för genomförande
-        nav_breadcrumb:
-          global: Globalt genomförande
         no_results: Det finns inga projekt
         search:
           search: Sök efter åtgärder
@@ -238,10 +228,6 @@ sv:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategori
-          scope_id_eq:
-            label: Indelning
           status_id_eq:
             label: Status
     components:

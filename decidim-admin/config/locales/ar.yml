@@ -252,9 +252,6 @@ ar:
         create:
           error: حدثت مشكلة أثناء إنشاء هذا المكون.
           success: مكون تم إنشاؤه بنجاح.
-        destroy:
-          error: حدثت مشكلة أثناء تدمير هذا المكون.
-          success: تم حذف المكون بنجاح.
         edit:
           title: تحرير المكون
           update: تحديث
@@ -304,8 +301,6 @@ ar:
           FormPDF: ملف (PDF)
           JSON: ملفات بصيغة (JSON)
       filters:
-        category_id_eq:
-          label: الفئة
         filter_label: تصفية
         invitation_accepted_at_present:
           label: تم قبول الدعوة
@@ -353,8 +348,6 @@ ar:
           values:
             'false': تم نشره
             'true': لم يُنشَر
-        scope_id_eq:
-          label: المجال
         search_label: بحث
         search_placeholder:
           name_or_nickname_or_email_cont: البحث عن %{collection} بحسب عنوان البريد الإكتروني أو الإسم أو الإسم المستعار.
@@ -506,8 +499,6 @@ ar:
         share_token:
           fields:
             expires_at: تنتهي صلاحيته في
-            token: رمز التشفير - Token
-            user: تم الإنشاء بواسطة
         static_page:
           fields:
             created_at: أنشئت في
@@ -695,10 +686,6 @@ ar:
           title: تعديل الترخيصات
         update:
           success: تم تحديث الأذونات بنجاح.
-      resources:
-        index:
-          headers:
-            scope: المجال
       scope_types:
         create:
           error: حدثت مشكلة أثناء إنشاء نوع مجال جديد.
@@ -731,7 +718,6 @@ ar:
       share_tokens:
         actions:
           destroy: حذف
-          share: مشاركة
       shared:
         gallery:
           add_images: إضافة صور
@@ -771,8 +757,6 @@ ar:
           without_topic: صفحات بدون موضوع
         update:
           error: حدثت مشكلة أثناء تحديث هذه الصفحة.
-      taxonomies:
-        count: عد
       titles:
         admin_log: سجل المسؤول
         area_types: أنواع المناطق

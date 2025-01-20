@@ -96,8 +96,6 @@ sv:
             'false': Inte tackat ja
             'true': Tackat ja
         meetings:
-          category_id_eq:
-            label: Kategori
           closed_at_present:
             label: Status
             values:
@@ -108,8 +106,6 @@ sv:
             values:
               'false': Tidigare
               'true': Kommande
-          scope_id_eq:
-            label: Indelning
           with_any_origin:
             label: Ursprungligt
             values:
@@ -234,8 +230,6 @@ sv:
         attachment_collections: Mappar
         attachments: Bifogade filer
         close: Stäng
-        confirm_destroy: Är du säker på att du vill radera mötet?
-        destroy: Radera
         edit: Redigera
         invalid_destroy:
           proposals_count:
@@ -313,12 +307,6 @@ sv:
           create:
             invalid: Det gick inte att skapa mötet.
             success: Mötet har skapats men är ännu inte publicerat, du måste publicera det manuellt.
-          destroy:
-            invalid:
-              proposals_count:
-                one: Mötet kan inte raderas eftersom det finns %{count} relaterat förslag.
-                other: Mötet kan inte raderas eftersom det finns %{count} relaterade förslag.
-            success: Mötet har tagits bort
           edit:
             title: Redigera möte
             update: Uppdatera
@@ -410,8 +398,6 @@ sv:
         questionnaire:
           update: "%{user_name} uppdaterade enkäten för mötet %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: Alla
         filter_meeting_space_values:
           all: Alla
       calendar:
@@ -521,7 +507,6 @@ sv:
           location_hints_help: 'Ytterligare vägbeskrivning. Till exempel till en lokal eller lösenord till ett digitalt möte.'
           online_meeting_url_help: 'Länk: låt deltagare ansluta sig direkt till mötet'
           registration_url_help: 'Länk: låt deltagare registrera sig via en extern tjänst'
-          select_a_category: Välj en kategori
           select_a_meeting_type: Välj typ av möte
           select_a_registration_type: Välj sätt att registrera sig
           select_an_iframe_access_level: Välj vem som får tillgång till iframe
@@ -532,9 +517,7 @@ sv:
           see_all_withdrawn: Visa alla inställda möten
           text_banner: Du visar möten som ställts in av sin arrangör. %{go_back_link}.
         meeting:
-          close_meeting: Avsluta möte
           edit_close_meeting: Redigera mötesrapport
-          edit_meeting: Redigera möte
           join_meeting: Gå med i mötet
           reply_poll: Svarsenkät
           view_poll: Visa enkät
@@ -571,7 +554,6 @@ sv:
           visit_finished: Visa tidigare möten
           withdraw_btn_hint: Du kan ställa in mötet om du ändrar dig. Mötet raderas inte utan kommer att synas i en lista med inställda möten.
           withdraw_confirmation_html: Är du säker på att du vill ställa in mötet?<br><br><strong>Den här åtgärden kan inte ångras!</strong>
-          withdraw_meeting: Ställ in möte
         update:
           invalid: Det gick inte att uppdatera mötet.
           success: Du har uppdaterat mötet.
@@ -683,6 +665,7 @@ sv:
         meeting_proposal: 'Relaterade förslag:'
         proposal_meeting: 'Relaterade möten:'
     statistics:
+      attendees_count: Mötesdeltagare
       meetings_count: Möten
   devise:
     mailer:

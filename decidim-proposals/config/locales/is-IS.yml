@@ -5,7 +5,6 @@ is-IS:
         answer: Svara
         answered_at: Svarað á
         body: Líkami
-        category_id: Flokkur
         has_address: Hefur heimilisfang
         state: Ríki
         title: Titill
@@ -18,7 +17,6 @@ is-IS:
     components:
       proposals:
         actions:
-          create: Búa til
           endorse: Styðja
           withdraw: Afturkalla
         name: Tillögur
@@ -57,12 +55,6 @@ is-IS:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna var gefin út af <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Tillagan "%{resource_title}" hefur verið bætt við "%{participatory_space_title}" sem þú fylgist með.
-        proposal_update_category:
-          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert höfundur tillögunnar.
-          email_subject: '%{resource_title} tillöguflokkinn hefur verið uppfærður'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> tillögu flokkurinn hefur verið uppfærður af admin.
-        proposal_update_scope:
-          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert höfundur tillögunnar.
         voting_enabled:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
     proposals:
@@ -89,11 +81,9 @@ is-IS:
         proposals:
           form:
             attachment_legend: "(Valfrjálst) Bæta við viðhengi"
-            select_a_category: Veldu flokk
           index:
             actions: Aðgerðir
             cancel: Hætta við
-            change_category: Breyta flokki
             selected: valin
             title: Tillögur
             update: Uppfæra
@@ -125,18 +115,15 @@ is-IS:
       models:
         proposal:
           fields:
-            category: Flokkur
             comments: Athugasemdir
             id: Auðkenni
             notes: Skýringar
             official_proposal: Opinber tillaga
-            scope: Umfang
             title: Titill
             votes: Atkvæði
       proposals:
         edit:
           back: Til baka
-          select_a_category: Vinsamlegast veldu flokk
           send: Senda
           title: Breyta tillögu
         edit_draft:
@@ -144,7 +131,6 @@ is-IS:
           discard_confirmation: Ertu viss um að þú viljir fleygja þessari tillögu drög?
           send: Preview
         filters:
-          category: Flokkur
           origin: Uppruni
           related_to: Tengjast
           search: Leita
@@ -166,11 +152,9 @@ is-IS:
           title: Birta tillöguna þína
         show:
           answer: Svara
-          edit_proposal: Breyta tillögu
           proposal_accepted_reason: 'Þessi tillaga hefur verið samþykkt vegna þess að:'
           proposal_in_evaluation_reason: Þessi tillaga er metin
           proposal_rejected_reason: 'Þessi tillaga hefur verið hafnað vegna þess að:'
-          withdraw_proposal: Afturkalla tillögu
         voting_rules:
           proposal_limit:
             description: Þú getur búið til allt að %{limit} tillögur.

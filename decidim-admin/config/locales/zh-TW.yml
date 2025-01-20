@@ -309,9 +309,6 @@ zh-TW:
         create:
           error: 這個元件創建時出了問題
           success: 新增元件成功。
-        destroy:
-          error: 刪除這個元件時發生錯誤
-          success: 成功刪除元件
         edit:
           title: 編輯組件
           update: 更新
@@ -365,8 +362,6 @@ zh-TW:
           JSON: JSON
         notice: 匯出處理中，完成後會發出通知
       filters:
-        category_id_eq:
-          label: 類別
         filter_label: 篩選
         invitation_accepted_at_present:
           label: 邀請已接受
@@ -414,8 +409,6 @@ zh-TW:
           values:
             'false': 已發佈
             'true': 取消發佈
-        scope_id_eq:
-          label: 範圍
         search_label: 搜尋
         search_placeholder:
           name_or_nickname_or_email_cont: 按電子郵件、姓名或暱稱搜索%{collection}。
@@ -598,12 +591,8 @@ zh-TW:
             plural: 複數
         share_token:
           fields:
-            created_at: 建立於
             expires_at: 到期日
-            last_used_at: 上次使用時間
             times_used: 使用次數
-            token: 代幣
-            user: 創建者
         static_page:
           fields:
             created_at: 建立於
@@ -841,10 +830,6 @@ zh-TW:
           title: 編輯權限
         update:
           success: 權限更新成功
-      resources:
-        index:
-          headers:
-            scope: 範圍
       scope_types:
         create:
           error: 建立新範圍類型時發生問題。
@@ -878,16 +863,7 @@ zh-TW:
           success: 範圍更新成功。
       share_tokens:
         actions:
-          confirm_destroy: 您確定要刪除此標記嗎？
           destroy: 刪除
-          share: 分享
-        destroy:
-          error: 刪除代幣時出現問題。
-          success: 代幣成功刪除。
-        share_tokens:
-          empty: 沒有有效的代幣.
-          help: 這些代幣用於向任何使用者公開分享此未發佈的資源。當資源被發佈時，它們將被隱藏。點擊代幣的分享圖標，以訪問可分享的URL。
-          title: 分享代幣
       shared:
         gallery:
           add_images: 添加圖案
@@ -933,8 +909,6 @@ zh-TW:
         update:
           error: 更新此頁面時出現問題。
           success: 頁面已更新成功.
-      taxonomies:
-        count: 計數
       titles:
         admin_log: 管理日誌
         area_types: 區域類型

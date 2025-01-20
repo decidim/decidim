@@ -140,6 +140,16 @@ module Decidim
         self.class.name
       end
 
+      # Public: Checks whether the comments are displayed in a single-column layout.
+      def single_column_layout?
+        comments_layout == "single_column"
+      end
+
+      # Public: Checks whether the comments are displayed in a two-column layout.
+      def two_columns_layout?
+        comments_layout == "two_columns"
+      end
+
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
       def users_to_notify_on_comment_created
         return Decidim::User.where(id: followers).or(Decidim::User.where(id: component.participatory_space.admins)).distinct if official?

@@ -152,6 +152,9 @@ eu:
       titles:
         initiatives: Ekimenak
         initiatives_types: Ekimen motak
+    download_your_data:
+      show:
+        initiatives: Esportatu ekimenak
     events:
       initiatives:
         admin:
@@ -529,9 +532,7 @@ eu:
           phone_number: Telefono zenbakia
           place_date: Lekua, data
           postal_code: Posta-kodea/ZIP
-          print: Inprimatu
           province: Probintzia/Estatua
-          section: 'Antolakuntzak eskatzen badu, mesedez, inprimatu eta bete formulario hau, adierazten den tokira bidaltzeko:'
           signature: Sinadura
         result:
           answer_title: Ekimen hau erantzun egin da.
@@ -553,7 +554,6 @@ eu:
           other: " sinadurak"
         vote_cabin:
           already_voted: Dagoeneko sinatuta
-          verification_required: Egiaztatu kontua ekimena sinatzeko
           vote: Saioa
           votes_blocked: Sinadura desgaituta dago
         votes_count:
@@ -600,13 +600,42 @@ eu:
         success: Ekimena zuzen eguneratu da.
     menu:
       initiatives: Ekimenak
+    open_data:
+      help:
+        initiatives:
+          answer: Ekimen honek jaso duen erantzuna (balego)
+          answer_url: Erantzunaren URLa (balego)
+          answered_at: Erantzunaren data (balego)
+          area: Ekimen honen arloa
+          authors: Ekimen honen egileak
+          comments_count: Ekimen honek zenbat iruzkin dituen
+          created_at: Zein datatan sortu zen espazio hau
+          description: Ekimenaren deskribapena
+          first_progress_notification_at: Zein datatan bidali zen aurrerapenaren lehen jakinarazpena?
+          follows_count: Espazio hau zenbat erabiltzailek jarraitzen duten
+          hashtag: Ekimenaren traola, Twitter/Xerako erabilia
+          offline_votes: Ekimen honek plataforma honetatik kanpo jaso dituen sinadura kopurua
+          online_votes: Ekimen honek online jaso duen sinadura kopurua (plataformaren bidez zuzenean)
+          published_at: Zein egunetan argitaratu zen espazio hau
+          reference: Espazioaren erreferentzia bakarra
+          scope: Ekimenaren esparrua
+          second_progress_notification_at: Zein datatan bidali zen aurrerapenaren bigarren jakinarazpena
+          signature_end_date: Zein datatan amaitzen da sinadura biltzeko epea
+          signature_start_date: Zein datatan hasten da sinadura biltzeko epea
+          signature_type: Zein motatako sinadura bilketa (online edo aurrez aurre)
+          signatures: Zenbat sinadura ditu ekimen honek?
+          state: Zein egoera du ekimen honek une honetan?
+          title: Ekimenaren izenburua
+          type: Ekimen mota
+          updated_at: Zein egunetan eguneratu zen azken aldiz espazio hau
+          url: Espazioaren URLa
     resources:
       initiative:
         actions:
           comment: Egin iruzkina
       initiatives_type:
         actions:
-          create: Sortu
+          create: Sortu ekimen bat
           title: Ekintzak
           vote: Bozkatu
   layouts:

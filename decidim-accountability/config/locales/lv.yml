@@ -111,15 +111,8 @@ lv:
             zero: "%{count} rezultāti"
             one: 1 rezultāts
             other: "%{count} rezultāti"
-        filters:
-          all: Visi
-        home:
-          categories_label: Kategorijas
-          subcategories_label: Apakškategorijas
         home_header:
           global_status: Globālais izpildes statuss
-        nav_breadcrumb:
-          global: Globālā izpilde
         search:
           search: Meklēt darbības
         show:

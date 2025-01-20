@@ -50,11 +50,11 @@ describe Decidim::Accountability::DiffRenderer, versioning: true do
     it "generates the labels correctly" do
       expected_labels = {
         description_ca: "Description (Català)",
-        description_machine_translations_es: "Description (automatic translation in Castellano)",
+        description_machine_translations_es: "Description (traducción automática a Castellano)",
         progress: "Progress",
         start_date: "Start date",
         title_en: "Title (English)",
-        title_machine_translations_es: "Title (automatic translation in Castellano)"
+        title_machine_translations_es: "Title (traducción automática a Castellano)"
       }
       labels = subject.to_h { |attribute, data| [attribute.to_sym, data[:label]] }
       expect(labels).to eq expected_labels

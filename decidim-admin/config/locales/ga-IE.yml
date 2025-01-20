@@ -125,8 +125,6 @@ ga:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Catagóir
         filter_label: Scagaire
         invitation_accepted_at_present:
           values:
@@ -153,8 +151,6 @@ ga:
           values:
             'false': Poblach
             'true': Príobháideach
-        scope_id_eq:
-          label: Scóip
         search_label: Cuardaigh
         state_eq:
           label: Staid
@@ -234,9 +230,6 @@ ga:
           fields:
             name: Ainm
             plural: Iolra
-        share_token:
-          fields:
-            token: Licín
         static_page:
           fields:
             title: Teideal
@@ -323,10 +316,6 @@ ga:
       resource_permissions:
         edit:
           submit: Deimhnigh
-      resources:
-        index:
-          headers:
-            scope: Scóip
       scope_types:
         edit:
           update: Nuashonraigh
@@ -336,7 +325,6 @@ ga:
       share_tokens:
         actions:
           destroy: Scrios
-          share: Roinn
       static_pages:
         edit:
           update: Nuashonraigh
@@ -344,8 +332,6 @@ ga:
           none: Ceann ar Bith
         new:
           title: Leathanach nua
-      taxonomies:
-        count: Líon
       titles:
         areas: Ceantair
         authorization_workflows: Modhanna deimhnithe

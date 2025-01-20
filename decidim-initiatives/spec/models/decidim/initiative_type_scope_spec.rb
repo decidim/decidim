@@ -39,5 +39,35 @@ module Decidim
         end
       end
     end
+
+    describe "taxonomy_name" do
+      let(:name) { initiatives_type_scope.taxonomy_name["en"] }
+
+      context "without a taxonomy" do
+        before do
+          initiatives_type_scope.decidim_taxonomy_id = nil
+        end
+
+        it "returns unavailable taxonomy" do
+          expect(name).to eq("Unavailable scope")
+        end
+      end
+
+      context "with an existing taxonomy" do
+        it "returns the taxonomy name" do
+          expect(name).to eq(initiatives_type_scope.taxonomy.name["en"])
+        end
+      end
+
+      context "with an invalid taxonomy" do
+        before do
+          initiatives_type_scope.decidim_taxonomy_id = 9999
+        end
+
+        it "returns unavailable taxonomy" do
+          expect(name).to eq("Unavailable scope")
+        end
+      end
+    end
   end
 end

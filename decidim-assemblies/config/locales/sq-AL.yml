@@ -83,13 +83,11 @@ sq:
       actions:
         import_assembly: Importo
         new_assembly: Asamble e re
-        new_assembly_member: Anëtar i ri asambleje
         new_assembly_type: Tip i ri asambleje
         new_assembly_user_role: Administrator i ri asambleje
       assemblies:
         create:
           error: Ndodhi një gabim gjatë krijimit të asamblesë.
-          success: Asambleja u krijua me sukses.
         edit:
           update: Përditëso
         index:
@@ -132,23 +130,6 @@ sq:
           import: Importo
           select: Zgjidh të dhënat që dëshiron të importosh
           title: Importo asamblenë
-      assembly_members:
-        create:
-          error: Ndodhi një gabim gjatë shtimit të anëtarit të asamblesë.
-          success: Anëtari i asamblesl u krijua me sukses.
-        destroy:
-          success: Anëtari i asamblesë u fshi me sukses.
-        edit:
-          title: Përditëso anëtarin e asamblesë
-          update: Përditëso
-        index:
-          assembly_members_title: Anëtarët e asamblesë
-        new:
-          create: Krijo
-          title: Anëtar i ri asambleje
-        update:
-          error: Ndodhi një gabim gjatë përditësimit të anëtarit të asamblesë.
-          success: Anëtari i asamblesë u përditësuar me sukses.
       assembly_publications:
         create:
           error: Ndodhi një gabim gjatë publikimit të asamblesë.
@@ -187,7 +168,6 @@ sq:
         assemblies: Asambletë
         assemblies_submenu:
           assembly_admins: Administratorët e asamblesë
-          assembly_members: Anëtarët
           attachment_collections: Skedarët
           attachment_files: Skedat
           attachments: Skedat e bashkëlidhura
@@ -213,11 +193,6 @@ sq:
             title: Titulli
           name: Asambleja
         assembly_member:
-          fields:
-            ceased_date: Data e përfundimit
-            designation_date: Data e dezignimit
-            full_name: Emri
-            position: Pozicioni
           name: Anëtar
           positions:
             other: Tjetër
@@ -294,14 +269,9 @@ sq:
             slug_help_html: 'Për gjenerimin e URL së kësaj asambleje përdoren URL slugs. Pranohen vetëm gërma, numra dhe viza horizontale, dhe duhet të fillojë me gërmë. Shembull: %{url}'
         assembly_members:
           form:
-            existing_user: Pjesëmarrës ekzistues
             explanation: 'Udhëzime për imazhin:'
             image_guide: Preferohet imazh me format portret (vertikal) pa tekst.
-            non_user: Mospjesëmarrës
             non_user_avatar_help: Duhet të marrësh pëlqimin e personit para se ta publikosh si anëtar.
-            select_a_position: Zgjidh një pozicion
-            select_user: Zgjidh një pjesëmarrës
-            user_type: Lloji i pjesëmarrësit
         content_blocks:
           highlighted_assemblies:
             max_results: Numri maksimal i elementeve që do shfaqen
@@ -383,7 +353,5 @@ sq:
         private_space: Kjo është asamble private
         social_networks_title: Vizito asamblenë në
     assembly_members:
-      assembly_member:
-        designated_on: Caktuar më
       index:
         title: Anëtarët

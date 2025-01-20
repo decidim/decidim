@@ -78,7 +78,6 @@ zh-CN:
       assemblies:
         create:
           error: 创建新议会时出现问题。
-          success: 程序集创建成功。
         edit:
           update: 更新
         index:
@@ -120,21 +119,6 @@ zh-CN:
           import: 导入
           select: 选择您想要导入的数据
           title: 导入程序集
-      assembly_members:
-        create:
-          error: 在为这个会议添加成员时出现问题。
-          success: 会员已成功创建此程序集。
-        destroy:
-          success: 成功删除此组件的会员。
-        edit:
-          update: 更新
-        index:
-          assembly_members_title: 大会成员
-        new:
-          create: 创建
-        update:
-          error: 更新这个会议的成员时出现问题。
-          success: 会员已成功更新此程序集。
       assembly_publications:
         create:
           error: 发布这个组件时出现问题。
@@ -161,7 +145,6 @@ zh-CN:
         assemblies: 程序集
         assemblies_submenu:
           assembly_admins: 集合管理员
-          assembly_members: 成员
           attachment_collections: 文件夹
           attachment_files: 文件
           attachments: 附件
@@ -183,11 +166,6 @@ zh-CN:
             title: 标题
           name: 程序集
         assembly_member:
-          fields:
-            ceased_date: 缓存日期
-            designation_date: 指定日期
-            full_name: 名称
-            position: 位置
           name: 成员
           positions:
             other: 其他
@@ -248,13 +226,6 @@ zh-CN:
         assemblies_types:
           form:
             title: 标题
-        assembly_members:
-          form:
-            existing_user: 现有参与者
-            non_user: Non participant
-            select_a_position: 选择一个位置
-            select_user: 选择一名参与者
-            user_type: 参与者类型
         content_blocks:
           highlighted_assemblies:
             max_results: 显示元素的最大数量
@@ -301,8 +272,6 @@ zh-CN:
         duration: 期限
         private_space: 这是一个私人装饰
     assembly_members:
-      assembly_member:
-        designated_on: 指定于
       index:
         title: 成员
     events:

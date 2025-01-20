@@ -55,8 +55,6 @@ nl:
     admin:
       filters:
         meetings:
-          category_id_eq:
-            label: Categorie
           closed_at_present:
             label: Status
             values:
@@ -67,8 +65,6 @@ nl:
             values:
               'false': Verleden
               'true': Toekomstige
-          scope_id_eq:
-            label: Scope
           with_any_origin:
             label: Afkomstig van
             values:
@@ -175,8 +171,6 @@ nl:
         attachment_collections: Mappen
         attachments: Bijlagen
         close: Sluit
-        confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
-        destroy: Verwijderen
         edit: Bewerk
         invalid_destroy:
           proposals_count:
@@ -242,8 +236,6 @@ nl:
         meetings:
           create:
             success: Vergadering met succes aangemaakt. Merk op dat deze nog niet gepubliceerd is, je moet deze nog handmatig publiceren.
-          destroy:
-            success: Vergadering succesvol verwijderd
           edit:
             title: Vergadering bewerken
             update: Bijwerken
@@ -313,8 +305,6 @@ nl:
         questionnaire:
           update: "%{user_name} heeft de vragenlijst bijgewerkt voor het %{meeting_name} event"
       application_helper:
-        filter_category_values:
-          all: Alle
         filter_meeting_space_values:
           all: Alle
       calendar_modal:
@@ -410,7 +400,6 @@ nl:
           location_hints_help: 'Locatie hints: aanvullende informatie. Bijvoorbeeld: de verdieping van het gebouw als het een fysieke vergadering is, of het vergaderwachtwoord als het een online vergadering is met beperkte toegang.'
           online_meeting_url_help: 'Link: laat deelnemers direct verbinding maken met je vergadering'
           registration_url_help: 'Link: verleen deelnemers toegang tot de externe dienst die je gebruikt voor registraties'
-          select_a_category: Selecteer een categorie
           select_a_meeting_type: Selecteer een vergaderingstype
           select_a_registration_type: Selecteer een registratietype
           select_an_iframe_access_level: Selecteer een iframe toegangsniveau
@@ -452,7 +441,6 @@ nl:
           visit_finished: Bekijk voorbije vergadering
           withdraw_btn_hint: Je kunt je vergadering afgelasten indien nodig. De vergadering wordt niet verwijderd, deze verschijnt in de lijst met afgelaste vergaderingen.
           withdraw_confirmation_html: Weet je zeker dat je deze vergadering wil afgelasten? <br><br><strong>Deze actie kan niet worden ongedaan gemaakt</strong>
-          withdraw_meeting: Vergadering afgelasten
         update:
           invalid: Er was een probleem bij het bijwerken van de vergadering.
           success: De vergadering is succesvol bijgewerkt.

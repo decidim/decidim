@@ -4,7 +4,6 @@ fi:
       collaborative_draft:
         address: Osoite
         body: Ehdotuksen kuvaus
-        category_id: Aihepiiri
         decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
         scope_id: Teema
@@ -17,7 +16,6 @@ fi:
         answered_at: Vastattu osoitteessa
         automatic_hashtags: Aihetunnisteet (hashtag), jotka lisätään automaattisesti
         body: Ehdotuksen kuvaus
-        category_id: Aihepiiri
         decidim_proposals_proposal_state_id: Tila
         decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
@@ -82,8 +80,7 @@ fi:
               not_official: Ehdotukset eivät ole virallisia ehdotuksia
               voted: On vastaanottanut ääniä tai suosituksia
     models:
-      decidim/proposals/admin/update_proposal_category_event: Ehdotuksen aihepiiri muutettu
-      decidim/proposals/admin/update_proposal_scope_event: Ehdotuksen teema muutettu
+      decidim/proposals/admin/update_proposal_taxonomies_event: Ehdotuksen luokitteluja on muutettu
       decidim/proposals/creation_enabled_event: Ehdotuksen luominen käytössä
       decidim/proposals/endorsing_enabled_event: Ehdotuksen suosittelu käytössä
       decidim/proposals/proposal_mentioned_event: Ehdotus mainittiin
@@ -117,8 +114,6 @@ fi:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Aihepiiri
           is_emendation_true:
             label: Tyyppi
             values:
@@ -126,8 +121,6 @@ fi:
               'true': Muutokset
           proposal_state_id_eq:
             label: Tila
-          scope_id_eq:
-            label: Teema
           state_eq:
             label: Tila
             values:
@@ -138,6 +131,8 @@ fi:
               rejected: Hylätty
               validating: Teknisessä validoinnissa
               withdrawn: Peruutettu
+          taxonomies_part_of_contains:
+            label: Luokittelu
           valuator_role_ids_has:
             label: Annettu tehtäväksi arvioijalle
           with_any_state:
@@ -147,12 +142,15 @@ fi:
               state_published: Vastattu
         search_placeholder:
           id_string_or_title_cont: '%{collection}: Hae ID-numeron tai otsikon perusteella'
+    application:
+      geocoding:
+        not_configured: Karttatoimintojen asetuksia ei ole määritetty!
     components:
       proposals:
         actions:
           amend: Muokkaa
           comment: Kommentoi
-          create: Luo
+          create: Luo ehdotus
           endorse: Suosittele
           vote: Äänestä
           vote_comment: Äänestä kommenttia
@@ -167,6 +165,7 @@ fi:
             attachments_allowed: Salli liitteet
             attachments_allowed_help: Ottamalla tämän asetuksen käyttöön, ehdotukset näytetään oletuksena ruudukkonäkymässä ja ensimmäinen ehdotukseen liitetty kuva näytetään ehdotuskortilla.
             can_accumulate_votes_beyond_threshold: Voi kerätä ääniä yli kynnysarvon
+            clear_all: Tyhjennä kaikki
             collaborative_drafts_enabled: Yhteistyöluonnokset ovat käytössä
             comments_enabled: Kommentit käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
@@ -181,6 +180,7 @@ fi:
               random: Satunnainen
               recent: Viimeisimmät
               with_more_authors: Eniten tekijöitä
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             edit_time: Ehdotuksia voi muokata tämän aikamääreen sisällä
             edit_time_units:
               days: Päivää
@@ -191,6 +191,7 @@ fi:
             new_proposal_body_template: Uuden ehdotuksen leipätekstin mallipohja
             new_proposal_body_template_help: Voit määritellä esitäytetyn oletustekstin, joka uusille ehdotuksille näytetään automaattisesti
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             official_proposals_enabled: Viralliset ehdotukset käytössä
             participatory_texts_enabled: Ehdotusaineistot ovat käytössä
             participatory_texts_enabled_readonly: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo olemassa. Luo uusi "Ehdotukset-komponentti", mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki tuodut ehdotukset "Ehdotusaineistot" -toiminnosta, mikäli haluat ottaa sen pois käytöstä.
@@ -210,6 +211,8 @@ fi:
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle ehdotukselle
             scope_id: Teema
             scopes_enabled: Teemat käytössä
+            taxonomy_filters: Valitse suodattimet komponentille
+            taxonomy_filters_add: Lisää suodatin
             threshold_per_proposal: Ehdotusten kannatusten määrän kynnysarvo
             vote_limit: Käytettävissä olevien äänten määrä käyttäjää kohden
           step:
@@ -250,6 +253,10 @@ fi:
             votes_blocked: Äänet ovat tukossa
             votes_enabled: Äänet käytössä
             votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tämä valitseminen piilottaa äänimäärän)
+    download_your_data:
+      show:
+        proposal_comments: Ehdotuksen kommenttien vienti
+        proposals: Ehdotusten vienti
     events:
       proposals:
         accepted_coauthorship:
@@ -354,16 +361,11 @@ fi:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{resource_title}". Voit lopettaa sen seuraamisen edellä esitetyn linkin kautta.
             email_subject: Seuraamasi ehdotuksen tila on muuttunut (%{state})
             notification_title: Ehdotuksen <a href="%{resource_path}">%{resource_title}</a> tilaksi on muutettu "%{state}".
-        proposal_update_category:
-          email_intro: 'Hallintakäyttäjä on päivittänyt ehdotuksesi aihepiiriin "%{resource_title}", tarkista se tältä sivulta:'
+        proposal_update_taxonomies:
+          email_intro: 'Hallintakäyttäjä on muuttanut ehdotuksesi "%{resource_title}" luokitteluja, voit tarkastaa muutoksen tältä sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
-          email_subject: Ehdotuksen %{resource_title} aihepiiri on päivitetty
-          notification_title: Hallintakäyttäjä on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> aihepiirin.
-        proposal_update_scope:
-          email_intro: 'Hallintakäyttäjä on päivittänyt ehdotuksesi "%{resource_title}" teeman, tarkista se tältä sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
-          email_subject: Ehdotuksen %{resource_title} teema on päivitetty
-          notification_title: Hallintakäyttäjä on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> teeman.
+          email_subject: Ehdotuksen %{resource_title} luokitteluja on muutettu
+          notification_title: Hallintakäyttäjä on muuttanut ehdotuksen <a href="%{resource_path}">%{resource_title}</a> luokitteluja.
         rejected_coauthorship:
           notification_title: Olet hylännyt osallistujan <a href="%{author_path}">%{author_name}</a> lähettämän laatijakutsun ehdotukselle <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
@@ -423,6 +425,48 @@ fi:
         description: Ehdotuksiin kohdistuneiden äänten määrä
         object: äänet
         title: Äänet
+    open_data:
+      help:
+        proposal_comments:
+          alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
+          author: Kommentin laatijan nimi
+          body: Kommentin teksti
+          commentable_id: Kommentoitavan asian yksilöllinen tunniste
+          commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
+          created_at: Kommentin laatimisaika
+          depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
+          id: Kommentin yksilöllinen tunniste
+          locale: Kommentoijan valitsema kieliasetus sivustolla
+          root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
+          user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
+        proposals:
+          address: Ehdotuksen osoite, mikäli ehdotus on määritetty tiettyyn paikkaan
+          answer: Ehdotuksen vastaus, mikäli siihen on vastattu
+          answered_at: Ehdotuksen vastausaika
+          attachments: Ehdotuksen liitteiden lukumäärä
+          author: Ehdotuksen laatijan tiedot
+          body: Ehdotuksen kuvaus
+          comments: Ehdotuksen saamien kommenttien määrä
+          component: Ehdotuksen komponentti
+          endorsements: Ehdotuksen keräämien suositusten ("tykkäykset") lukumäärä
+          followers: Ehdotusten seuraajien lukumäärä
+          id: Ehdotuksen yksilöllinen tunniste
+          is_amend: Onko tämä ehdotus toisen ehdotuksen muutosehdotus
+          latitude: Ehdotuksen sijainnin leveysaste, mikäli ehdotus on määritetty tiettyyn paikkaan
+          longitude: Ehdotuksen sijainnin pituusaste, mikäli ehdotus on määritetty tiettyyn paikkaan
+          meeting_urls: Tapaamisten URL-osoitteet, joissa tämä ehdotus esiteltiin tai siitä keskusteltiin
+          original_proposal: Alkuperäisen ehdotuksen viite, mikäli kyseessä on muutosehdotus
+          participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä ehdotus kuuluu
+          published_at: Ehdotuksen julkaisun ajankohta
+          reference: Tämän ehdotuksen yksilöllinen tunniste tällä alustalla
+          related_proposals: Muut ehdotukset, jotka liittyvät tähän ehdotukseen
+          state: Ehdotuksen tila (esim. "Hyväksytty")
+          taxonomies: Tälle ehdotukselle määritetyt luokittelut
+          title: Ehdotuksen otsikko
+          url: URL-osoite ehdotukseen
+          votes: Ehdotuksen saamien äänten määrä
+          withdrawn: Oliko tämä ehdotus peruutettu
+          withdrawn_at: Ajankohta, jolloin ehdotus peruutettiin
     participatory_spaces:
       highlighted_proposals:
         last: Viimeisimmät ehdotukset
@@ -446,7 +490,10 @@ fi:
         title: Toiminnot
       admin:
         actions:
+          confirm_delete_proposal: Haluatko varmasti poistaa tämän ehdotuksen?
+          deleted_proposals_info: Poistetut ehdotukset voidaan palauttaa roskakorista.
           preview: Esikatsele
+          view_deleted_proposals: Näytä poistetut ehdotukset
         exports:
           proposal_comments: Kommentit
           proposals: Ehdotukset
@@ -565,7 +612,6 @@ fi:
             attachment_legend: "(Valinnainen) Lisää liite"
             created_in_meeting: Tämä ehdotus on luotu tapaamisessa
             delete_attachment: Poista liite
-            select_a_category: Valitse aihepiiri
             select_a_meeting: Valitse tapaaminen
           index:
             actions: Toiminnot
@@ -573,8 +619,7 @@ fi:
             assign_to_valuator: Anna tehtäväksi arvioijalle
             assign_to_valuator_button: Anna tehtäväksi
             cancel: Peruuta
-            change_category: Vaihda aihepiiri
-            change_scope: Vaihda teema
+            change_taxonomies: Muuta luokitteluja
             merge: Yhdistä uuteen
             merge_button: Yhdistä
             no_templates_available: Mallipohjia ei ole käytettävissä
@@ -590,7 +635,8 @@ fi:
             unassign_from_valuator: Poista tehtävä arvioijalta
             unassign_from_valuator_button: Poista tehtävä
             update: Päivitä
-            update_scope_button: Päivitä teema
+          manage_trash:
+            title: Poistetut ehdotukset
           new:
             create: Luo
             title: Luo ehdotus
@@ -616,16 +662,11 @@ fi:
             remove_assignment_confirmation: Haluatko varmasti poistaa arvioijan tältä ehdotukselta?
             valuators: Arvioijat
             votes_count: Äänten määrä
-          update_category:
-            invalid: 'Näillä ehdotuksilla oli jo aihepiiri %{subject_name}: %{proposals}.'
-            select_a_category: Valitse aihepiiri.
+          update_taxonomies:
+            invalid: 'Seuraavat ehdotukset oli jo määritetty %{taxonomies} luokitteluihin: %{proposals}.'
             select_a_proposal: Valitse ehdotus.
-            success: 'Seuraavien ehdotusten aihepiirin päivitys onnistui %{subject_name}: %{proposals}.'
-          update_scope:
-            invalid: 'Näillä ehdotuksilla oli jo teema %{subject_name}: %{proposals}.'
-            select_a_proposal: Valitse ehdotus.
-            select_a_scope: Valitse teema.
-            success: 'Seuraavien ehdotusten teeman päivitys onnistui %{subject_name}: %{proposals}.'
+            select_a_taxonomy: Valitse luokittelu.
+            success: 'Seuraavien ehdotusten määrittely luokitteluihin %{taxonomies} onnistui: %{proposals}.'
         proposals_imports:
           create:
             invalid: Ehdotusten tuonti epäonnistui.
@@ -656,6 +697,8 @@ fi:
           answer: "%{user_name} vastasi ehdotukseen %{resource_name} osallistumistilassa %{space_name}"
           create: "%{user_name} loi ehdotuksen %{resource_name} osallistumistilaan %{space_name} virallisena ehdotuksena"
           publish_answer: "%{user_name} julkaisi vastauksen ehdotukselle %{resource_name} osallistumistilassa %{space_name}"
+          restore: "%{user_name} palautti ehdotuksen %{resource_name} tilassa %{space_name}"
+          soft_delete: "%{user_name} siirsi ehdotuksen %{resource_name} roskakoriin tilassa %{space_name}"
           update: "%{user_name} päivitti virallisen ehdotuksen %{resource_name} osallistumistilassa %{space_name}"
         proposal_note:
           create: "%{user_name} jätti yksityisen viestin ehdotuksesta %{resource_name} osallistumistilaan %{space_name}"
@@ -706,7 +749,6 @@ fi:
         edit:
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
-          select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Muokkaa yhteistyöluonnosta
         empty: Yhteistyöluonnoksia ei ole vielä
@@ -714,11 +756,9 @@ fi:
         filters:
           all: Kaikki
           amendment: Muutokset
-          category: Aihepiiri
           open: Avaa
           published: Julkaistu
           related_to: Liittyy
-          scope: Teema
           search: Hae
           state: Tila
           withdrawn: Peruttu
@@ -758,7 +798,7 @@ fi:
             error: Osallistujaa ei voitu hylätä, yritä myöhemmin uudestaan.
             success: "Käyttäjän @%{user} osallistumispyynnön hylkäys onnistui."
         show:
-          edit: Muokkaa yhteistyöluonnosta
+          edit: Muokkaa
           final_proposal: Lopullinen ehdotus
           final_proposal_help_text: Tämä luonnos on valmis. Tutustu lopulliseen ehdotukseen
           hidden_authors_count:
@@ -796,6 +836,11 @@ fi:
       destroy_draft:
         error: Ehdotusluonnoksen poistaminen epäonnistui.
         success: Ehdotusluonnoksen poistaminen onnistui.
+      forms:
+        errors:
+          device_not_supported: Laitteesi ei tue sijaintipalveluita. Syötä osoite manuaalisesti.
+          no_device_location: Valitettavasti sijaintijasi ei voitu tunnistaa automaattisesti. Syötä osoite manuaalisesti.
+        use_my_location: Käytä nykyistä sijaintiani
       invite_coauthors:
         cancel:
           error: Laatijakutsun peruuttaminen epäonnistui.
@@ -815,15 +860,14 @@ fi:
       models:
         proposal:
           fields:
-            category: Aihepiiri
             comments: Kommentit
             id: ID
             notes: Huomautuksia
             official_proposal: Virallinen ehdotus
             published_answer: Julkaistu vastaus
             published_at: Julkaistu
-            scope: Teema
             state: Tila
+            taxonomies: Luokittelut
             title: Otsikko
             valuator: Arvioija
             valuators: Arvioijat
@@ -850,7 +894,6 @@ fi:
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
           edit_documents: Muokkaa asiakirjoja
-          select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Muokkaa ehdotusta
         edit_draft:
@@ -864,13 +907,13 @@ fi:
           activity: Oma toiminta
           all: Kaikki
           amendment_type: Tyyppi
-          category: Aihepiiri
           my_proposals: Omat ehdotukset
           origin: Alkuperä
           related_to: Liittyy aiheeseen
           scope: Teema
           search: Haku
           state: Tila
+          taxonomy_filters: Suodattimet
           type: Tyyppi
           voted: Äänestetty
         index:
@@ -917,7 +960,7 @@ fi:
         show:
           answer: Vastaus
           changes_at_title: Muokkaus kohteelle "%{title}"
-          edit_proposal: Muokkaa ehdotusta
+          edit_proposal: Muokkaa
           estimated_cost: Arvioitu kustannus
           hidden_endorsers_count:
             one: ja %{count} muu henkilö
@@ -933,7 +976,7 @@ fi:
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
           withdraw_btn_hint: Voit peruuttaa ehdotuksesi, jos muutat mieltäsi ja ehdotus ei ole vielä saanut ääniä. Ehdotusta ei poisteta, vaan se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation_html: Haluatko varmasti peruuttaa tämän ehdotuksen?<br><br><strong>Tätä toimintoa ei voi peruuttaa!</strong>
-          withdraw_proposal: Peruuta ehdotus
+          withdraw_proposal: Peru
         update:
           title: Muokkaa ehdotusta
         vote_button:
@@ -995,9 +1038,9 @@ fi:
       copied_from_component:
         proposal_proposal: Liittyvät ehdotukset
       included_projects:
-        project_result: 'Ehdotus sisältyy seuraaviin hankkeisiin:'
+        project_result: 'Ehdotus sisältyy seuraaviin projekteihin:'
       included_proposals:
-        proposal_project: 'Ehdotus sisältyy seuraaviin hankkeisiin:'
+        proposal_project: 'Ehdotus sisältyy seuraaviin projekteihin:'
         proposal_result: 'Ehdotus sisältyy seuraaviin tuloksiin:'
     statistics:
       proposals_accepted: Hyväksyttyä ehdotusta

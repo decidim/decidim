@@ -101,8 +101,6 @@ lt:
           create:
             invalid: Kuriant šį rezultatą iškilo problema.
             success: Rezultatas sėkmingai sukurtas.
-          destroy:
-            success: Rezultatas sėkmingai ištrintas.
           edit:
             title: Keisti rezultatą
             update: Atnaujinti rezultatą
@@ -191,12 +189,10 @@ lt:
       models:
         result:
           fields:
-            category: Kategorija
             created_at: Sukurta
             end_date: Pabaigos data
             id: ID
             progress: Progresas
-            scope: Apimtis
             start_date: Pradžios data
             status: Statusas
             title: Pavadinimas
@@ -217,15 +213,8 @@ lt:
             few: "%{count} rezultatai"
             many: "%{count} rezultatai"
             other: "%{count} rezultatai"
-        filters:
-          all: Visi
-        home:
-          categories_label: Kategorijos
-          subcategories_label: Subkategorijos
         home_header:
           global_status: Bendra vykdymo būsena
-        nav_breadcrumb:
-          global: Bendras vykdymas
         no_results: Projektų nėra
         search:
           search: Ieškoti veiksmų
@@ -237,10 +226,6 @@ lt:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategorija
-          scope_id_eq:
-            label: Apimtis
           status_id_eq:
             label: Būsena
     components:

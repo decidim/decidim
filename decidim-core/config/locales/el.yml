@@ -497,16 +497,12 @@ el:
     download_your_data:
       export:
         ready: Έτοιμο
-      show:
-        download_data: Πραγματοποιήστε λήψη των δεδομένων
-        request_data: Αίτηση για δεδομένα
     editor_images:
       create:
         error: Σφάλμα φόρτωσης εικόνας.
         success: Η εικόνα ανέβηκε επιτυχώς.
       drag_and_drop_help: Προσθήκη εικόνων σύροντας τις & ρίχνοντας ή επικολλώντας αυτές.
     endorsement_buttons_cell:
-      already_endorsed: Δεν μου αρέσει
       endorse: Μου αρέσει
     endorsements:
       identities:
@@ -646,8 +642,6 @@ el:
     export_mailer:
       download_your_data_export:
         download: Λήψη
-      export:
-        ready: Επισυνάπτεται μια συμπιεσμένη έκδοση της εξαγωγής σας.
       subject: Η εξαγωγή «%{name}» είναι έτοιμη
     filters:
       linked_classes:
@@ -1159,10 +1153,6 @@ el:
         title: Αναφορά ακατάλληλου περιεχομένου
       floating_help:
         help: Βοήθεια
-      participatory_space_filters:
-        filters:
-          areas: Τομείς
-          select_an_area: Επιλέξτε τομέα
       reference:
         reference: 'Αναφορά: %{reference}'
       represent_user_group:
@@ -1176,9 +1166,6 @@ el:
         share_link: Κοινοποίηση συνδέσμου
     statistics:
       comments_count: Σχόλια
-    tags:
-      filter_results_for_category: 'Φιλτράρισμα αποτελεσμάτων για την κατηγορία: %{resource}'
-      filter_results_for_scope: 'Φιλτράρισμα αποτελεσμάτων για το πεδίο εφαρμογής: %{resource}'
     user_contact_disabled: Αυτός ο συμμετέχων δεν δέχεται άμεσα μηνύματα.
     user_conversations:
       create:
@@ -1355,7 +1342,6 @@ el:
       footer:
         cc_by_license: Άδεια Creative Commons
         decidim_logo: Λογότυπο decidim
-        download_open_data: Λήψη αρχείων Open Data
         log_in: Σύνδεση
         made_with_open_source: Ο ιστότοπος δημιουργήθηκε με <a target="_blank" href="https://github.com/decidim/decidim">δωρεάν λογισμικό</a>.
       header:

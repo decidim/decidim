@@ -36,7 +36,7 @@ ja:
           error: コメントに投票中に問題がありました。
     components:
       add_comment_form:
-        account_message: コメントを追加するには<a href="%{sign_in_url}">ログインする</a> か <a href="%{sign_up_url}">アカウントを作成</a>してください
+        account_message: コメントを追加するにはログインするかアカウントを作成してください
         form:
           body:
             label: コメント
@@ -61,6 +61,8 @@ ja:
         alignment:
           against: 反対
           in_favor: 賛成
+        answers:
+          other: "%{count} 件の回答"
         cancel_reply: 返信をキャンセル
         comment_label: コメント %{comment_id}
         comment_label_reply: コメント %{comment_id} (コメント %{parent_comment_id} への返信)
@@ -89,6 +91,7 @@ ja:
         show_replies:
           other: '%{count} 件の返信を表示'
         single_comment_link_title: リンク取得
+        sort_by: '並べ替え: '
       comment_order_selector:
         order:
           best_rated: 評価の高い順

@@ -21,6 +21,11 @@ eu:
         details: Iruzkin gehigarriak
       taxonomy:
         name: Taxonomiaren izena
+      taxonomy_filter:
+        internal_name: Barne iragazkiaren izena
+        name: Iragazki publikoaren titulua
+        root_taxonomy_id: Taxonomiatik
+        space_filter: Parte hartzeko espazioetarako iragazki bezala eskuragarri
       user:
         about: Honi buruz
         email: Zure helbide elektronikoa
@@ -64,6 +69,10 @@ eu:
         password_confirmation: Baieztatu pasahitza
         remember_me: Gogoratu
     models:
+      decidim:
+        history:
+          one: Historiala
+          other: Historiala
       decidim/amendment:
         one: Zuzenketa
         other: Zuzenketak
@@ -72,10 +81,10 @@ eu:
         other: Atxikimenduak
       decidim/user:
         one: Parte-hartzailea
-        other: Erabiltzaileak
+        other: Parte-hartzaileak
       decidim/user_group:
         one: Taldea
-        other: Taldeak
+        other: Erabiltzaile taldeak
   booleans:
     'false': 'Ez'
     'true': 'Bai'
@@ -103,6 +112,12 @@ eu:
         one: hilabete inguru
         other: '%{count} hilabete inguru'
       half_a_minute: minutu erdia
+      less_than_x_minutes:
+        one: minutu bat baino gutxiago
+        other: '%{count} minutu baino gutxiago'
+      less_than_x_seconds:
+        one: segundo 1 baino gutxiago
+        other: '%{count} segundo baino gutxiago'
       short:
         about_x_days: "%{count} egun"
         about_x_hours: "%{count}h"
@@ -122,13 +137,13 @@ eu:
         x_years: "%{count} urte"
       x_days:
         one: Egun 1
-        other: "Egun bat"
+        other: "%{count} egun"
       x_hours:
         one: Ordu 1
         other: "%{count} ordu"
       x_minutes:
         one: Minutu 1
-        other: "Minutu %{count}"
+        other: "%{count} minutu"
       x_months:
         one: 1 hilabete
         other: "%{count} hilabete"
@@ -157,6 +172,7 @@ eu:
         error: Arazo bat egon da zure kontua ezabatzean.
         success: Zure kontua ezabatu egin da.
       download_your_data_export:
+        export_expired: Esportazioa amaitu da. Saiatu beste esportazio bat sortzen.
         file_no_exists: Fitxategia ez dago
         notice: Zure datuen deskarga aurrera doa. Posta elektroniko bat jasoko duzu osorik dagoenean.
       email_change:
@@ -211,6 +227,8 @@ eu:
         delete: "%{user_name} k %{resource_name} osagaia %{space_name} espaziotik kendu du"
         export_component: "%{user_name} k esportatu du %{resource_name} %{component_name} %{space_name} espazioan %{format_name} gisa"
         publish: "%{user_name} k %{resource_name} osagaia %{space_name} espazioan argitaratu du"
+        restore: "%{user_name} k berreskuratu du %{resource_name} osagaia %{space_name} espazioan"
+        soft_delete: "%{user_name} k eraman du %{resource_name} osagaia %{space_name} espaziora"
         unpublish: "%{user_name} k %{resource_name} osagaia %{space_name} espaziotik despublikatu du"
         update_permissions_with_space: "%{user_name} k %{resource_name} ren baimenak eguneratu ditu %{space_name} espazioan"
       contextual_help_section:
@@ -252,6 +270,13 @@ eu:
         create: "%{user_name} k %{resource_name} esparru mota sortu du"
         delete: "%{user_name} k %{resource_name} esparru mota ezabatu du"
         update: "%{user_name} k %{resource_name} esparru mota eguneratu du"
+      share_token:
+        create: "% {user_name} k sarbide-esteka bat sortu du % {space_name} espazioan"
+        create_with_space: "%{user_name} k sarbide-esteka sortu du %{resource_name} %{space_name} espazioan"
+        delete: "% {user_name} k sarbide-esteka bat ezabatu du % {space_name} espazioan"
+        delete_with_space: "% {user_name} k sarbide-esteka bat eguneratu du honentzat: %{resource_name}% {space_name} espazioan"
+        update: "%{user_name} k eguneratu du sarbide-esteka bat %{space_name} espazioan"
+        update_with_space: "%{user_name} k eguneratu du sarbide-esteka bat honentzat: %{resource_name} %{space_name} espazioan"
       static_page:
         create: "%{user_name} k %{resource_name} orri estatikoa sortu du"
         delete: "%{user_name} k %{resource_name} orri estatikoa ezabatu du"
@@ -298,10 +323,14 @@ eu:
         success: Aldaketa ongi onartu da.
       amendable:
         button: Zuzendu %{model_name}
-        error: Errore bat gertatu da baliabidea aldatzen.
+        error: Arazo bat egon da baliabide hori aldatzean.
         promote_button: '%{model_name}suspertzea'
         promote_confirm_text: Ziur al zaude zuzenketa hau sustatu nahi duzula?
         promote_help_text: Zuzenketa hau sustatu eta %{model_name} independiente gisa argitara dezakezu.
+      amendments:
+        title:
+          one: "%{count} zuzenketa"
+          other: "%{count} zuzenketa"
       created:
         error: Arazo bat izan da zuzenketaren zirriborroa sortzean.
         success: Zuzenketa-zirriborroa zuzen sortu da.
@@ -404,6 +433,7 @@ eu:
           scope_id: Esparrua
         name: Baimen-adibidea
       dummy_authorization_workflow:
+        explanation: Balizko baimenaren lan-fluxua
         name: Balizko baimenaren lan-fluxua
       errors:
         duplicate_authorization: Badago datu berak dituen parte-hartzaile baimendu bat. Administratzaile bat zurekin harremanetan jarriko da zure datuak egiaztatzeko.
@@ -488,13 +518,16 @@ eu:
             amendments_enabled: Zuzenketak gaituta
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             dummy_global_attribute1: Balizko atributua 1
             dummy_global_attribute2: Balizko atributua 2
             dummy_global_translatable_text: Itzul daitekeen balizko testua
             enable_pads_creation: Gaitu ohar-blokeak sortzea
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             resources_permissions_enabled: Baliabideen baimenak gaituta
             scope_id: Esparrua
             scopes_enabled: Esparruak gaituta
+            taxonomy_filters: Hautatu iragazkiak osagairako
           step:
             amendment_creation_enabled: Zuzenketa sortzea aktibatuta
             amendment_promotion_enabled: Zuzenketa sustatzea aktibatuta
@@ -579,9 +612,9 @@ eu:
       application_helper:
         filter_area_values:
           all: Guztiak
-        filter_category_values:
-          all: Guztiak
         filter_scope_values:
+          all: Guztiak
+        filter_taxonomy_values:
           all: Guztiak
     devise:
       omniauth_registrations:
@@ -639,6 +672,9 @@ eu:
           show_password: Erakutsi pasahitza
           shown_password: Zure pasahitza ikusgarri dago
         placeholder_email: kaixo@adibide.org
+    documents:
+      one: "%{count} dokumtu"
+      other: "%{count} dokumentu"
     doorkeeper:
       authorizations:
         new:
@@ -658,26 +694,35 @@ eu:
       export:
         ready: Prest
       show:
-        download_data: Deskargatu datuak
-        download_data_description_html: |-
-          Artxibo bat bidaliko da zure kontura lotutako informazio guztiarekin hona: <strong>%{user_email}</strong>.
-          Korreo honek .zip artxibo bat izango du eta pasahitz bat zabaldu ahal izateko.<br/><br/>Artxiboa deskonprimitzeko, beharko duzu: <a href="https://www.7-zip.org/">7-Zip</a> (Windows) edo <a href="https://www.keka.io/">Keka</a> (MacOS). Linux erabiltzen baduzu, gehienetan instalatuta izango duzu defektuz. 
-          Bestela, erabil dezakezu: <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Eskaera datuak
+        action: Ekintza
+        download: Deskargatu
+        download_data: Deskargen arloa
+        download_data_description_1: Hemen aurkituko dituzu zure konturako deskarga guztiak.Fitxategi hauek (.zip) bi astetan egongo dira eskuragarri ezabatu aurretik.
+        download_data_description_2: Zure bidalketak eta datu pertsonalak dituen .zip fitxategi bat eska dezakezu.
+        download_your_data: Datu pertsonalak
+        expiration: Iraungitze-data
+        expired: Dagoeneko iraungita
+        request_data: Eskaera
+        type: Deskarga mota
     editor_images:
       create:
         error: Errore bat egon da irudia eguneratzean.
         success: Irudia zuzen igota.
       drag_and_drop_help: Gehitu irudiak arrastatuz edo itsatsiz.
     endorsement_buttons_cell:
-      already_endorsed: Ez dut atsegin
+      already_endorsed: Desegin "atsegin dut"
       endorse: Atsegin dut
     endorsements:
       identities:
         done: Eginda
         select_identity: Hautatu identitatea
     endorsers_list:
-      endorsed_by: Gustuko du…
+      endorsed_by:
+        one: 'Nork atsegin du: %{visible}'
+        other: 'Nortzuek atsegin dute: %{visible} eta %{others}'
+      others: "%{count} gehiago"
+      title: 'Nork atsegin du:'
+      you: zu(k)
     errors:
       files:
         file_cannot_be_processed: Fitxategia ezin izan da prozesatu
@@ -836,6 +881,9 @@ eu:
         email_outro: Jakinarazpen hau jaso duzu % “ endorser_nickname”ri jarraitzen diozulako. Jakinarazpenak jasotzeari utzi ahal diozu, esteka hau jarraituz %{endorser_nickname}.
         email_subject: "%{endorser_nickname} proposamen bati atxiki zaio"
         notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> atxiki zaio honako proposamen honi <a href="%{resource_path}">%{resource_title}</a> (%{resource_type}).
+      resources:
+        soft_deleted:
+          notification_title: Administratzaile batek ezabatu du zure "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
           email_intro: </a> de %{name} (%{nickname}) profilaren <a href="%{resource_url}"> orria, jarraitzen ari zarena, eguneratu egin da.
@@ -849,10 +897,11 @@ eu:
           notification_title: '%{name} (%{nickname}) parte-hartzailea ofizializatu egin da.'
     export_mailer:
       download_your_data_export:
-        click_button: 'Egin klik hurrengo loturan zure datuak deskargatzeko. <br/>Artxiboa eskuragai egongo da data honetara arte %{date}.<br/>Irekitzeko beharko duzu <a href="https://www.7-zip.org/">7-Zip</a> (Windowserako), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (Linuxerako). Pasahitza: %{password}'
+        click_button_html: Sakatu hurrengo estekan zure datuak deskargatzeko. <br/> fitxategia eskuragarri egongo da %{date} arte.
         download: Deskarga
       export:
-        ready: Mesedez, atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
+        click_button_html: Zure deskarga prest dago. <br/> fitxategia deskargatu ahal izango da %{date} arte.
+        download: Deskargatu
       subject: Prest duzu "%{name}" izeneko esportazioa
     filters:
       linked_classes:
@@ -878,6 +927,9 @@ eu:
         other: "%{count} jarraitzaileak"
       no_followers: Ez da jarraitzailerik oraindik.
     following:
+      following_count:
+        one: "%{count} jarraitzaile"
+        other: "%{count} jarraitzaile"
       no_followings: Oraindik ez du inor edo ezer jarraitzen.
       non_public_followings: Jarraitutako baliabide batzuk ez dira publikoak.
     follows:
@@ -893,7 +945,7 @@ eu:
         explanation: Gida erantsitako fitxategien esteketarako
         help_messages:
           - URL formatu zuzenak onartzen dira soilik.
-          - Kontuan izan estekak publikoak izan behar direla parte-hartzaile guztiak sartu ahal izateko.
+          - Mesedez, kontuan izan estekak publikoak izan behar direla parte-hartzaile guztiak sartu ahal izateko.
       errors:
         decidim/user:
           password: Pasahitza laburregia da.
@@ -1094,6 +1146,8 @@ eu:
           not_found: 'Esparru mota ez da aurkitu (ID: %{id}) datu-basean'
         taxonomy_presenter:
           not_found: 'Taxonomia ez da aurkitu (ID: %{id}) datu-basean'
+    machine_translations:
+      automatic: 'itzulpen automatikoa hemen: %{locale_name}'
     managed_users:
       expired_session: Parte-hartzaile baten egungo administrazio-saioa iraungi egin da.
     map:
@@ -1301,7 +1355,112 @@ eu:
         message_1: Badirudi ez duzula Interneterako konexiorik.
         message_2: Mesedez, saiatu berriro geroago.
         retry: Saiatu berriro
+    onboarding_action_message:
+      click_link: Klikatu hemen
+      cta_html: <a href="%{path}">%{link_text}</a> horretarako %{action} hemen %{resource_name} <strong>%{resource_title}</strong>
+      expired_authorization_active_title: Zure baimena iraungi egin da.
+      finish_authorization_process: Baimen-prozesua bukatu ahal duzu
+      incomplete_authorization_active_title: Zure egiaztapena ez da osatu behar den informazio guztiarekin.
+      pending_authorization_active_message: Mesedez, bete formularioa ekintza honekin aurrera egiteko.
+      pending_authorization_active_title: Zure nortasuna egiaztatu behar dugu.
     open_data:
+      help:
+        core:
+          components: Osagaiak
+          description: ZIP fitxategi honetan fitxategiak daude plataforma prte-hartzaile hau aztertu eta ikertzeko.
+          main: Mamia
+          spaces: Espazioak
+          title: Open Data fitxategiak %{organization} erakunderako
+        metrics:
+          cumulative: Metrikaren kopuru osoa gaur egun
+          day: Metrika hau sortu zen eguna
+          metric_type: Metrika mota
+          quantity: Metriken kopurua egun honetarako
+        moderated_users:
+          about: Erabiltzailearen eremua
+          block_reasons: Administratzaileak zergatik blokeatu zuen erabiltzailea
+          blocked_at: Zein egunetan eta ordutan blokeatu den erabiltzailea
+          blocking_user: Blokeoa egin duen erabiltzailearen izena
+          details: Txostenen xehetasunak
+          reasons: Profilaren berri emateko arrazoien zerrenda
+          user_id: Salatutako erabiltzailearen ID bakarra
+        moderations:
+          hidden_at: Zein egunetan eta ordutan ezkutatu den edukia
+          id: Eztabaidaren identifikatzaile bakarra
+          report_count: Zenbat aldiz jakinarazi den
+          reportable_id: Txostenaren id bakarra
+          reportable_type: Txosten mota
+          reported_content: Jakinarazi zen edukia
+          reported_url: Jakinarazitako baliabidearen url-a
+          reports: Profilaren berri emateko arrazoien zerrenda
+        user_groups:
+          avatar_url: Erabiltzaile-taldearen avatarra
+          badge: Erabiltzaile-taldearen bereizgarria
+          deleted: Erabiltzailea ezabatuta dagoen ala ez
+          id: Erabiltzaile-taldearen identifikatzaile bakarra
+          members: Taldekideak diren erabiltzaileen identifikazioa eta izena
+          members_count: Erabiltzaile-taldekideak diren erabiltzaile kopurua
+          name: Erabiltzaile-taldearen izena
+          nickname: Erabiltzaile-taldearen erabiltzaile-izena
+          profile_url: Url profila
+        users:
+          about: Erabiltzailearen testuari buruzkoa
+          avatar_url: Erabiltzailearen avatarra
+          badge: Erabiltzailearen garaikurra
+          deleted: Erabiltzailea ezabatuta dagoen ala ez
+          direct_messages_enabled: Erabiltzaileak mezu zuzenak bidaltzeko aukera ematen duen
+          groups: Erabiltzaile-taldearen identifikazioa eta izena
+          id: Erabiltzailearen identifikatzaile bakarra
+          name: Erabiltzailearen izena
+          nickname: Erabiltzailearen erabiltzaile-izena
+          profile_url: Url profila
+      index:
+        description: 'Ongi etorri %{organization_name} Open Data orrira. Hemen, datu-fitxategiak aurkituko dituzu, aldian-aldian hainbat deliberazio- eta gobernantza-prozesutatik sortzen direnak honen barruan: %{organization_name}. Fitxategi horiek gardentasuna, irisgarritasuna eta lankidetza sustatzeko daude eskuragarri. Jarraian, aurkituko duzu fitxategi horiek zer diren, nola ireki eta nola landu behar diren eta fitxategi bakoitzaren edukiaren eta egituraren deskribapena.'
+        detailed:
+          body_1: 'Jarraian, dataset bakoitzaren deskribapena dago, eskema (egitura) eta daukan informazio mota barne:'
+          components: Osagaiak
+          spaces: Espazio parte-hartzaileak
+          title: Espediente bakoitzaren azalpen zehatza
+        download:
+          components: Osagaiak
+          core: Mamia
+          spaces: Espazio parte-hartzaileak
+          title: Deskargatu baliabideak
+        download_open_data: Deskargatu Open Data fitxategi guztiak
+        download_resource: Deskargatu %{resource_name} CSV formatuan
+        explanation:
+          body_1: Fitxategi hauek %{organization_name} erakundetik esportatutako datu baseak dira, hala nola proposamenak, iruzkinak eta bilerak. Datu gordinak ematen dituzte, egituratuak, analisirako, ikerketarako edo beste tresna batzuekin integratzeko erabil daitezkeenak. Datuak automatikoki eguneratzen dira 24 orduro, informazio berriena eskura duzula ziurtatuz.
+          body_2: Fitxategi horiek CSV (Conma-Separated Values) formatuan daude. Fitxategi formatu hori oso erabilia da, eta hainbat software-aplikazioren bidez ireki eta prozesa daiteke, kalkulu-orriak, testu-editoreak eta datuak aztertzeko tresnak barne.
+          title: Zer dira artxibo hauek?
+        how_to:
+          step_1:
+            body_html: Sakatu CSV fitxategiak zure ordenagailura deskargatzeko esteketan.
+            title: 1. Deskargatu artxiboak
+          step_2:
+            body_html: |-
+              <ul>
+              <li><b>Kalkulu-orrien aplikazioak</b>: CSV fitxategiak ireki daitezke, Microsoft Excel, Google Sheets edo LibreOffice Calc bezalako aplikazioak erabiliz. Besterik gabe, ireki aplikazioa, hautatu "Ireki" Fitxategiaren menutik, eta aukeratu deskargatutako CSV fitxategia.</li>
+              <li><b>Testu-editoreak</b>: CSV fitxategiak edozein testu-editoretan ere ireki daitezke, hala nola Notepad edo Sublime Text. Honek datu gordinak erakutsiko ditu, lerro bakoitzak lerro bat eta balio bakoitza koma batez bereizita.</li>
+              <li><b>Datuak analizatzeko tresnak</b>:: Datuak analizatzeko tresnak ezagutzen badituzu, hala nola Python (pandekin), R, edo SQL datu-baseak, CSV fitxategi horiek inporta ditzakezu zuzenean tratatzeko eta aztertzeko.</li>
+              </ul>
+            title: 2. Ireki artxiboak
+          step_3:
+            body_html: |-
+              <ul>
+              <li><b>Iragazi eta sailkatu</b>: Kalkulu-orrien aplikazioetan datuak iragazi eta ordenatu daitezke informazio-azpimultzo zehatzetan zentratzeko.</li>
+              <li><b>Azterketa</b>: Erabili datuak hainbat analisi egiteko, hala nola proposamenen kopurua zenbatzeko, iruzkinen joerak aztertzeko edo bileretan parte hartzea ebaluatzeko.</li>
+              <li><b>Bistaratzea</b>: Grafikoak, historialak eta beste bistaratze batzuk sor ditzakezu datuak interpretatzen laguntzeko.</li>
+              </ul>
+            title: 3. Datuekin lanean
+          title: Nola ireki eta lan egin fitxategi hauekin
+        license:
+          body_1_html: '%{organization_name} datu-base hau % {link_database} datu-basearen azpian eginda dago. Datu-basearen eduki indibidualen gaineko edozein eskubide % {link_content} -ren arabera dago baimenduta.'
+          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_name: Datu-basearen Edukien Lizentzia
+          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
+          license_database_name: Open Database Lizentzia
+          title: Lizentzia
+        title: Datu Irekiak
       not_available_yet: Open Data fitxategiak oraindik ez daude erabilgarri, saiatu berriro minutu gutxi barru.
     pad_iframe:
       disclaimer: Ohar-blok honen edukiak erregistratutako erabiltzaileek idatzi dituzte eta euren iritziak adierazi dituzte. %{organization} erakundea ezin da bere edukien erantzule izan.
@@ -1519,12 +1678,6 @@ eu:
         sign_up: Sortu kontu bat
       mentions_modal:
         remove_recipient: Kendu %{name} hartzailea
-      participatory_space_filters:
-        filters:
-          area: Arloa
-          areas: Arloak
-          scope: Esparrua
-          select_an_area: Hautatu arlo bat
       progress: Aurrerapena 
       public_participation:
         public_participation: Erakutsi nire asistentzia publikoki
@@ -1554,10 +1707,9 @@ eu:
       participants_count: Erabiltzaileak
       users_count: Parte-hartzaileak
     tags:
-      filter_results_for_category: 'Emaitzak kategoriaren arabera iragaztean: %{resource}'
-      filter_results_for_scope: 'Emaitzak %{resource} esparruaren arabera iragaztean'
+      filter_results_for_taxonomy: 'Iragazkien emaitzak honetarako: %{resource}'
     taxonomies:
-      prompt: 'Hautatu hemendik: "%{name}"'
+      prompt: Mesedez, hautatu aukera bat
     translation_bar:
       help_text: "<strong>Oharra:</strong> Edukia automatikoki itzul daiteke eta ez izan zuzena %100ean."
       show_original: Erakutsi jatorrizko testua
@@ -1734,9 +1886,9 @@ eu:
       destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu berriro.
       new:
         sign_up: Sortu kontu bat
-      signed_up: Ongi etorri! Eginda sinatu duzu.
+      signed_up: Ongi etorri!  Ondo eman duzu izena.
       signed_up_but_inactive: Eginda sinatu duzu. Hala ere, ezin izan dugu saioa hasi kontua oraindik ez baita aktibatuta.
-      signed_up_but_locked: Eginda sinatu duzu. Hala ere, ezin izan dugu saioa hasi kontua blokeatuta dagoelako.
+      signed_up_but_locked: Ongi eman duzu izena. Hala ere, ezin duzu saioa hasi zure kontua giltzapetuta dagoelako.
       signed_up_but_unconfirmed: Berrespen-esteka duen mezu bat zure helbide elektronikora bidali da. Jarraitu esteka zure kontua aktibatzeko.
       update_needs_confirmation: Zure kontua arrakastaz eguneratu duzu, baina helbide elektroniko berria egiaztatu behar dugu. Egiaztatu zure posta elektronikoa eta berretsi esteka jarraitu zure helbide elektroniko berria berresteko.
       updated: Zure kontua ondo eguneratu da.
@@ -1949,9 +2101,9 @@ eu:
         data_consent_settings: Cookien konfigurazioa
         decidim_logo: Decidim-en logoa
         decidim_title: Decidim
-        download_open_data: Deskargatu Open Data fitxategiak
-        log_in: Sartu
+        log_in: Hasi saioa
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
+        open_data: Datu Irekiak
         resources: Baliabideak
         sign_up: Sortu kontu bat
         terms_of_service: Zerbitzuaren baldintzak
@@ -2002,7 +2154,7 @@ eu:
         title: Parte-hartzailearen ezarpenak
         user_groups: Taldeak
   locale:
-    name: Euskera
+    name: Euskara
     name_with_error: Euskera (akatsa!)
   password_validator:
     denied: ukatu egin da

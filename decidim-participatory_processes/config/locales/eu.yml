@@ -91,6 +91,7 @@ eu:
       actions:
         activate: Aktibatu
         configure: Konfiguratu
+        confirm_delete_process: Ziur zaude prozesu hau ezabatu nahi duzula? Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.
         confirm_destroy: Berretsi ezabatu
         destroy: ezabatu
         duplicate: Bikoiztu
@@ -108,6 +109,7 @@ eu:
         resend_invitation: Birbidali gonbita
         see_process: Ikusi prozesuak
         unpublish: Despublikatu
+        view_deleted_processes: Ikusi ezabatutako prozesuak
       filters:
         decidim_participatory_process_group_id_eq:
           label: Prozesu-taldeen arabera
@@ -127,7 +129,7 @@ eu:
           info: Prozesu honi buruz
           landing_page: Hasierako orria
           moderations: Moderazioak
-          private_users: Parte-hartzaile pribatuak
+          private_users: Kideak
           process_admins: Prozesuaren erabiltzaileak
           steps: Prozesuaren faseak
       models:
@@ -169,6 +171,7 @@ eu:
           fields:
             invitation_accepted_at: Gonbidapena egun honetan onartu zen
             invitation_sent_at: Gonbidapena egun honetan bidali zen
+            published: Argitaratua
       participatory_process_copies:
         new:
           copy: Kopiatu
@@ -279,6 +282,8 @@ eu:
           public: Publiko
           published: Argitaratua
           unpublished: Argitaratu gabea
+        manage_trash:
+          title: Ezabatutako prozesu parte-hartzaileak
         new:
           create: Sortu
           title: Beste prozesu parte-hartzaile bat
@@ -297,6 +302,9 @@ eu:
         participatory_process_groups: Prozesu parte-hartzaileen taldeak
         participatory_process_types: Prozesu parte-hartzaile motak
         participatory_processes: Prozesu pare-hartzaileak
+        participatory_processes_deleted: Ezabatutako prozesu parte-hartzaileak
+      tooltips:
+        deleted_processes_info: Prozesu bat soilik ezabatu daiteke egoera "Argitaratugabea" bada.
       users:
         resend_invitation:
           error: Arazo bat egon da gonbidapena berriro bidaltzean.
@@ -308,6 +316,8 @@ eu:
         export: "%{user_name} k esportatu du %{resource_name} prozesu parte-hartzailea"
         import: "%{user_name} k inportatu du %{resource_name} prozesu parte-hartzailea"
         publish: "%{user_name} argitaratu du %{resource_name} prozesu parte-hartzailea"
+        restore: "%{user_name} k berreskuratu du %{resource_name} prozesu parte-hartzailea"
+        soft_delete: "%{user_name} zaborrontzira eraman du %{resource_name} prozesu parte-hartzailea"
         unpublish: "%{user_name} k despublikatu du %{resource_name} prozesu parte-hartzailea"
         update: "%{user_name} k %{resource_name} partehartze prozesua eguneratu du"
       participatory_process_group:
@@ -326,6 +336,9 @@ eu:
         create: "%{user_name} k %{resource_name} parte-hartzailea gonbidatu du %{space_name} parte hartze-prozesura"
         delete: "%{user_name} k %{resource_name} parte-hartzailea kendu du %{space_name} prozesu parte-hartzailetik"
         update: "%{user_name} k %{resource_name} parte-hartzailearen rola aldatu du %{space_name} prozesu parte-hartzailean"
+    download_your_data:
+      show:
+        participatory_processes: Esportatu Prozesu Parte-hartzailea
     events:
       participatory_process:
         role_assigned:
@@ -360,6 +373,38 @@ eu:
         description: Erakundeko prozesu parte-hartzaile kopurua
         object: prozesu parte-hartzaileak
         title: Prozesu parte-hartzaileak
+    open_data:
+      help:
+        participatory_processes:
+          announcement: Informazioa iragarpenaz (deia)
+          area: Prozesua zein eremutan gertatzen ari da?
+          created_at: Zein datatan sortu zen espazio hau
+          description: Prozesuaren deskribapen luzea
+          developer_group: Prozesuaren talde garatzailea. Hau da prozesua sustatzen duen erakundea.
+          end_date: Prozesuaren amaiera-data
+          follows_count: Espazio hau zenbat erabiltzailek jarraitzen duten
+          hashtag: Prozesuaren traola, Twitter/Xerako erabilia
+          id: Prozesu honen identifikatzaile bakarra
+          local_area: Prozesuaren tokiko eremua. Hau da prozesua garatzen ari den erakundearen arloa.
+          meta_scope: Prozesuaren esparru-metadatuak
+          participatory_process_group: Prozesuaren taldea, baldin badago
+          participatory_process_type: Prozesu mota
+          participatory_scope: Prozesuaren parte-hartze esparrua
+          participatory_structure: Prozesuaren egitura parte-hartzailea. Horrela erabakitzen da prozesua.
+          promoted: Prozesua sustatu den ala ez
+          published_at: Zein egunetan argitaratu zen espazio hau
+          reference: Espazioaren erreferentzia bakarra
+          remote_hero_image_url: Prozesuaren irudi nagusiaren URLa
+          scope: Prozesuaren esparrua
+          scopes_enabled: Esparruak gaituta dauden ala ez
+          short_description: Prozesuaren deskribapen laburra
+          slug: Batzarraren lerroa (helburuen identifikaziorako erabiltzen da, URLrako)
+          start_date: Prozesuaren hasiera-data
+          subtitle: Prosezuaren azpititulua
+          target: Prozesuaren helburuak. Honi deitzen zaio prozesuan parte hartzeko.
+          title: Prozesuaren izenburua
+          updated_at: Zein egunetan eguneratu zen azken aldiz espazio hau
+          url: Espazioaren URLa
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -406,7 +451,7 @@ eu:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help_html: 'URL testu laburrak erabiltzen dira prozesu honi aurre egiteko URLan sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
+            slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadatuak
@@ -423,11 +468,14 @@ eu:
         participatory_processes:
           form:
             announcement_help: Hemen sartzen duzun testua erabiltzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
             filters: iragazkiak
             images: Irudiak
-            metadata: Metadata
+            metadata: Metadatuak
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             other: Beste
+            private_notice: Kiak kudeatu ahal izango dituzu pribatu gisa ezarri ondoren
             related_processes: Elkarrekin lotutako prozesuak
             scope_type_max_depth_help: Murriztu esparru-iragazkiaren sakonera; iragazkia esparru orokorretik hautatutakora erakutsiko da.
             select_an_area: Hautatu eremu bat
@@ -499,6 +547,9 @@ eu:
           type: Mota
         show:
           title: Prozesu honi buruz
+      participatory_space_private_users:
+        index:
+          title: Kideak
       show:
         belongs_to_group: Prozesu hau honi dagokio
         private_space: Prozesu pribatua da
@@ -512,6 +563,8 @@ eu:
           browse: Arakatu
           browse_resource: Aztertu %{resource_name} prozesuen multzoa
           processes_count: 'Prozesuak:'
+      participatory_process_navigation:
+        member_menu_item: Kideak
       participatory_processes:
         index:
           promoted_processes: Prozesu nabarmenduak

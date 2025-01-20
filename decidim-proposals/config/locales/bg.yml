@@ -4,7 +4,6 @@ bg:
       collaborative_draft:
         address: Адрес
         body: Тяло
-        category_id: Категория
         decidim_scope_id: Сфера
         has_address: Има адрес
         scope_id: Обхват
@@ -17,7 +16,6 @@ bg:
         answered_at: Отговорено като
         automatic_hashtags: Хаштаговете се добавят автоматично
         body: Основен текст
-        category_id: Категория
         decidim_scope_id: Сфера
         has_address: Има адрес
         scope_id: Обхват
@@ -81,8 +79,6 @@ bg:
               not_official: Не са официални
               voted: Получили са гласове или одобрения
     models:
-      decidim/proposals/admin/update_proposal_category_event: Категорията на предложението е променена
-      decidim/proposals/admin/update_proposal_scope_event: Сферата на предложението е променена
       decidim/proposals/creation_enabled_event: Създаването на предложения е разрешено
       decidim/proposals/endorsing_enabled_event: Одобряването на предложения е разрешено
       decidim/proposals/proposal_mentioned_event: Предложението е споменато
@@ -106,8 +102,6 @@ bg:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Категория
           is_emendation_true:
             label: Тип
             values:
@@ -115,8 +109,6 @@ bg:
               'true': Изменения
           proposal_state_id_eq:
             label: Състояние
-          scope_id_eq:
-            label: Обхват
           state_eq:
             label: Състояние
             values:
@@ -141,7 +133,6 @@ bg:
         actions:
           amend: Промяна
           comment: Коментар
-          create: Създай
           endorse: Одобри
           vote: Глас
           vote_comment: Оцени коментара
@@ -302,16 +293,6 @@ bg:
             email_outro: Получавате това известие, защото следвате "%{resource_title}". Може да премахнете следването чрез предната връзка.
             email_subject: Предложение, което следвате, е променило състоянието си (%{state})
             notification_title: Вашето предложение <a href="%{resource_path}">%{resource_title}</a> промени състоянието си на „%{state}“.
-        proposal_update_category:
-          email_intro: 'Администратор актуализира категорията на Вашето предложение „%{resource_title}“. Вижте повече на тази страница:'
-          email_outro: Получавате това известие, защото сте авторът на предложението.
-          email_subject: Категорията на предложението %{resource_title} беше актуализирана
-          notification_title: Категорията на предложението <a href="%{resource_path}">%{resource_title}</a> беше актуализирана от администратор.
-        proposal_update_scope:
-          email_intro: 'Администратор актуализира обхвата на Вашето предложение „%{resource_title}“. Вижте повече на тази страница:'
-          email_outro: Получавате това известие, защото сте авторът на предложението.
-          email_subject: Обхватът на предложението %{resource_title} беше актуализиран
-          notification_title: Обхватът на предложението <a href="%{resource_path}">%{resource_title}</a> беше актуализиран от администратор.
         voting_enabled:
           email_intro: 'Можете да гласувате за предложения в %{participatory_space_title}! Започнете да участвате в тази страница:'
           email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
@@ -501,15 +482,12 @@ bg:
             attachment_legend: "(Незадължително) Добавяне на прикачен файл"
             created_in_meeting: Това предложение е резултат от среща
             delete_attachment: Изтриване на прикачен файл
-            select_a_category: Изберете категория
             select_a_meeting: Избор на среща
           index:
             actions: Активности
             assign_to_valuator: Възлагане на оценител
             assign_to_valuator_button: Възлагане
             cancel: Отказ
-            change_category: Промяна на категория
-            change_scope: Промяна на обхвата
             merge: Сливане в едно ново
             merge_button: Сливане
             publish: Публикувай
@@ -524,7 +502,6 @@ bg:
             unassign_from_valuator: Отнемане възложеното на оценителя
             unassign_from_valuator_button: Отнемане на възложеното
             update: Актуализация
-            update_scope_button: Актуализиране на обхвата
           new:
             create: Създаване
             title: Създаване на предложение
@@ -550,16 +527,6 @@ bg:
             remove_assignment_confirmation: Наистина ли искате да премахнете оценителя от това предложение?
             valuators: Оценители
             votes_count: Брой гласове
-          update_category:
-            invalid: 'Тези предложения вече имат категорията %{subject_name}: %{proposals}.'
-            select_a_category: Моля, изберете категория.
-            select_a_proposal: Моля, изберете предложение.
-            success: 'Предложенията бяха актуализирани успешно в категорията %{subject_name}: %{proposals}.'
-          update_scope:
-            invalid: 'Тези предложения вече имат обхват %{subject_name}: %{proposals}.'
-            select_a_proposal: Моля, изберете предложение.
-            select_a_scope: Моля, изберете обхват.
-            success: 'Предложенията бяха актуализирани успешно в обхвата %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Възникна проблем при импортирането на предложенията.
@@ -636,7 +603,6 @@ bg:
         edit:
           attachment_legend: "(Незадължително) Добавяне на прикачен файл"
           back: Назад
-          select_a_category: Моля, изберете категория
           send: Изпрати
           title: Редактиране на съвместната чернова
         empty: Все още няма съвместни чернови
@@ -644,11 +610,9 @@ bg:
         filters:
           all: Всички
           amendment: Изменения
-          category: Категория
           open: Отворен
           published: Публикувано
           related_to: Свързано с
-          scope: Обхват
           search: Търсене
           state: Статус
           withdrawn: Оттеглено
@@ -688,7 +652,6 @@ bg:
             error: Неуспешно отхвърляне като сътрудник, моля, опитайте отново по-късно.
             success: "@%{user} беше отхвърлен(а) успешно като сътрудник."
         show:
-          edit: Редактиране на съвместната чернова
           final_proposal: Окончателно предложение
           final_proposal_help_text: Тази чернова е завършена. Вижте окончателното предложение
           hidden_authors_count:
@@ -727,14 +690,12 @@ bg:
       models:
         proposal:
           fields:
-            category: Категория
             comments: Коментари
             id: ID
             notes: Бележки
             official_proposal: Официално предложение
             published_answer: Публикуван отговор
             published_at: Публикувано на
-            scope: Обхват
             state: Статус
             title: Заглавие
             valuator: Оценител
@@ -762,7 +723,6 @@ bg:
           attachment_legend: "(Незадължително) Добавяне на прикачен файл"
           back: Назад
           edit_documents: Редактиране на документ
-          select_a_category: Моля, изберете категория
           send: Изпрати
           title: Редактиране на предложение
         edit_draft:
@@ -775,7 +735,6 @@ bg:
           activity: Моята дейност
           all: Всички
           amendment_type: Тип
-          category: Категория
           my_proposals: Моите предложения
           origin: Произход
           related_to: Свързано с
@@ -828,7 +787,6 @@ bg:
         show:
           answer: Отговор
           changes_at_title: Изменение на „%{title}“
-          edit_proposal: Редактиране на предложение
           estimated_cost: Предвидени разходи
           hidden_endorsers_count:
             one: и още %{count} човек
@@ -844,7 +802,6 @@ bg:
           proposal_rejected_reason: 'Това предложение е отхвърлено, защото:'
           withdraw_btn_hint: Там можете да оттеглите предложението си, ако промените решението си, стига да не сте получили нито един глас. Предложението не се изтрива, то ще се появи в списъка с оттеглени предложения. беше проблем с гласуването на предложението.
           withdraw_confirmation_html: Наистина ли искате да оттеглите това предложение?<br><br><strong>Това действие не може да се отмени!</strong>
-          withdraw_proposal: Оттегляне на предложението
         update:
           title: Актуализиране на предложението
         vote_button:

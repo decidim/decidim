@@ -47,6 +47,12 @@ module Decidim
         end
       end
 
+      initializer "decidim_participatory_processes.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::ParticipatoryProcesses::Engine, at: "/", as: "decidim_participatory_processes"
+        end
+      end
+
       initializer "decidim_participatory_processes.register_icons" do
         Decidim.icons.register(name: "Decidim::ParticipatoryProcess", icon: "treasure-map-line", description: "Participatory Process", category: "activity",
                                engine: :participatory_process)

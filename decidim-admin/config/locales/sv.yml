@@ -319,9 +319,6 @@ sv:
           error: Det gick inte att skapa komponenten.
           success: Komponenten har skapats.
           success_landing_page: Komponenten har skapats. Du kan även lägga till ett innehållsblock för komponenten på processens startsida. Gå till <a href="%{landing_page_path}">Landningssidan</a> för att konfigurera den.
-        destroy:
-          error: Det gick inte att radera komponenten.
-          success: Komponenten har raderats.
         edit:
           title: Redigera komponent
           update: Uppdatera
@@ -409,8 +406,6 @@ sv:
           JSON: JSON
         notice: Din export håller på att behandlas. Du får ett e-postmeddelande när det är klart.
       filters:
-        category_id_eq:
-          label: Kategori
         filter_label: Filtrera
         invitation_accepted_at_present:
           label: Inbjudan har accepterats
@@ -459,8 +454,6 @@ sv:
             'false': Publicerade
             'true': Ej publicerade
         remove_all: Ta bort allt
-        scope_id_eq:
-          label: Indelning
         search_label: Sök
         search_placeholder:
           name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn.
@@ -655,12 +648,8 @@ sv:
             plural: Flertal
         share_token:
           fields:
-            created_at: Skapad
             expires_at: Förfaller den
-            last_used_at: Senast använd
             times_used: Använd antal gånger
-            token: Token
-            user: Skapad av
         static_page:
           fields:
             created_at: Skapad
@@ -930,10 +919,6 @@ sv:
           title: Redigera behörigheter
         update:
           success: Behörigheterna har uppdaterats.
-      resources:
-        index:
-          headers:
-            scope: Indelning
       scope_types:
         create:
           error: Det gick inte att skapa en ny typ av indelning.
@@ -967,16 +952,7 @@ sv:
           success: Indelningen har uppdaterats
       share_tokens:
         actions:
-          confirm_destroy: Vill du ta bort den här token?
           destroy: Radera
-          share: Dela
-        destroy:
-          error: Det gick inte att radera token.
-          success: Token har tagits bort.
-        share_tokens:
-          empty: Det finns inga aktiva tokens.
-          help: 'Tokens används för att dela en opublicerad sida till andra användare. De kommer att döljas när sidan publiceras. Klicka på dela-ikon för token för att besöka den delade URL: en.'
-          title: Delade tokens
       shared:
         adjacent_navigation:
           next: Nästa
@@ -1019,7 +995,7 @@ sv:
           none: Ingen
           slug_help_html: 'Använd relativa sökvägar, inte fullständiga URL: er. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med en bokstav. Exempel: %{url}'
         index:
-          last_notable_change: Senast märkbara förändring
+          last_notable_change: Senaste större ändring
         new:
           create: Skapa sida
           title: Ny sida
@@ -1031,8 +1007,6 @@ sv:
           success: Sidan har uppdaterats.
       taxonomies:
         actions: Åtgärder
-        amount: Antal
-        count: Antal
         create:
           invalid: Det gick inte att skapa kategorin.
           success: Kategorin har skapats.
@@ -1057,20 +1031,15 @@ sv:
         new:
           create: Skapa kategorisering
           title: Ny kategorisering
-        no_taxonomies: Det finns inga kategorier. Skapa en lista på kategorier och underkategorier här för att kunna använda för filtrering av innehåll.
         table:
           to_next_page: Dra till nästa sida
           to_prev_page: Dra till föregående sida
-        taxonomy_actions:
-          confirm_destroy: Är du säker på att du vill ta bort %{name}? Det kommer också att ta bort underkategorier.
         update:
           invalid: Det gick inte att uppdatera kategorin.
           success: Kategorin har uppdaterats.
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Nytt filter från kategori
-        callout:
-          modify_taxonomy_html: Om du behöver ändra kategorin eller underkategorierna kan du göra det via inställningarna under <a href="%{url}">Kategorier</a>.
         create:
           error: Det gick inte att skapa filtret för kategorin.
           success: Filtret för kategorin har skapats.
@@ -1079,27 +1048,19 @@ sv:
           success: Filtret för kategorin har tagits bort.
         edit:
           back: Tillbaka
-          items: "%{count} objekt valda"
-          no_items: Inga underkategorier är tillgängliga för kategorin. Du kan skapa underkategorier i inställningarna för kategorin.
           title: Redigera filter för kategori
           update: Uppdatera filter för kategori
-        form:
-          select_taxonomy: Välj en kategori
         index:
           description: Ett kategorifilter gör det möjligt för administratörer att sortera och filtrera deltagarutrymmen baserat på en kategorisering. Använd till exempel filter för att sortera processer efter geografisk omfattning.
           empty: Det finns för närvarande inga kategorifilter. Skapa en lista över filter här för att sortera och filtrera deltagarutrymmen baserat på kategorier.
         new:
           back: Tillbaka
           create: Skapa filter för kategori
-          items: "%{count} objekt tillgängliga"
           title: Nytt filter för kategori
         table:
           actions: Åtgärder
-          confirm_destroy: Är du säker på att du vill ta bort filtret %{name}?
-          count: Antal objekt
           destroy: Radera
           edit: Redigera
-          name: Namn
         update:
           error: Det gick inte att uppdatera filtret för kategorin.
           success: Filtret för kategorin har uppdaterats.

@@ -2,15 +2,12 @@ fi-pl:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Teema
         description: Kuvaus
         title: Otsikko
         total_budget: Kokonaisbudjetti
         weight: Järjestysnumero
       project:
         budget_amount: Budjetti
-        decidim_category_id: Aihepiiri
-        decidim_scope_id: Teema
         description: Kuvaus
         proposal_ids: Liittyvät ehdotukset
         proposals: Ehdotukset
@@ -34,37 +31,35 @@ fi-pl:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Aihepiiri
-          scope_id_eq:
-            label: Teema
           selected_at_null:
             label: Valittu
             values:
               'false': Valittu toteutukseen
               'true': Ei valittu toteutukseen
+          taxonomies_part_of_contains:
+            label: Luokittelu
     budgets:
       actions:
         attachment_collections: Kansiot
         attachments: Liitteet
-        confirm_destroy: Haluatko varmasti poistaa tämän suunnitelman?
-        destroy: Poista
+        confirm_delete_budget: Haluatko varmasti poistaa tämän budjetin?
+        confirm_delete_project: Haluatko varmasti poistaa tämän projektin?
+        deleted_budgets_info: Poistetut budjetit voidaan palauttaa roskakorista.
         edit: Muokkaa
         edit_projects: Hallinnoi projekteja
         import: Tuo ehdotuksia suunnitelmiin
         new_budget: Uusi budjetti
-        new_project: Uusi hanke
+        new_project: Uusi projekti
         preview: Esikatsele
         send_voting_reminders: Lähetä äänestysmuistutukset
         title: Toiminnot
+        view_deleted_budgets: Näytä poistetut budjetit
+        view_deleted_projects: Näytä poistetut projektit
       admin:
         budgets:
           create:
             invalid: Budjetin luonti epäonnistui.
             success: Budjetin luonti onnistui.
-          destroy:
-            invalid: Budjetin poisto epäonnistui.
-            success: Budjetin poisto onnistui.
           edit:
             title: Muokkaa budjettia
             update: Päivitä budjetti
@@ -74,6 +69,8 @@ fi-pl:
             title: Budjetit
             users_with_finished_orders: Käyttäjien määrä, joilla on valmiita ääniä
             users_with_pending_orders: Käyttäjien määrä, joilla on odottavia ääniä
+          manage_trash:
+            title: Poistetut budjetit
           new:
             create: Luo budjetti
             title: Uusi budjetti
@@ -91,8 +88,6 @@ fi-pl:
           create:
             invalid: Hankkeen luonti epäonnistui.
             success: Hankkeen luonti onnistui.
-          destroy:
-            success: Hankkeen poisto onnistui.
           edit:
             title: Muokkaa suunnitelmaa
             update: Päivitä
@@ -100,9 +95,8 @@ fi-pl:
             actions: Toiminnot
             cancel: Peruuta
             change_budget: Muuta budjettia
-            change_category: Vaihda aihepiiri
-            change_scope: Vaihda teema
             change_selected: Muuta tilaa
+            change_taxonomies: Muuta luokitteluja
             deselect_implementation: Ei valittu toteutukseen
             finished_orders: Valmiit äänet
             pending_orders: Odottavat äänet
@@ -113,8 +107,9 @@ fi-pl:
               'yes': 'Kyllä'
             title: Suunnitelmat
             update: Päivitä
-            update_budget_button: Päivitä hankkeen budjetti
-            update_scope_button: Muuta teema
+            update_budget_button: Päivitä projektin budjetti
+          manage_trash:
+            title: Poistetut projektit
           new:
             create: Luo
             title: Uusi suunnitelma
@@ -122,28 +117,23 @@ fi-pl:
             invalid: Hankkeen poisto epäonnistui.
             success: Hankkeen päivitys onnistui.
           update_budget:
-            invalid: 'Nämä hankkeet ovat jo samassa budjetissa tai niiden budjetit ovat enemmän kuin suurin sallittu määrä: %{projects}.'
-            select_a_project: Valitse hanke.
-            success: 'Seuraavat hankkeet päivitys onnistui budjetissa %{subject_name}: %{projects}.'
-          update_category:
-            invalid: 'Näillä projekteilla oli jo aihepiiri %{subject_name}: %{projects}.'
-            select_a_category: Valitse aihepiiri.
-            select_a_project: Valitse hanke.
-            success: 'Seuraavien projektien aihepiirin päivitys onnistui %{subject_name}: %{projects}.'
-          update_scope:
-            invalid: 'Näillä projekteilla oli jo teema %{subject_name}: %{projects}.'
-            select_a_project: Valitse hanke.
-            select_a_scope: Valitse teema.
-            success: 'Seuraavien projektien teeman päivitys onnistui %{subject_name}: %{projects}.'
+            invalid: 'Seuraavat projektit ovat jo samassa budjetissa tai niiden budjetit ylittävät määritellyn budjetin enimmäismäärän: %{errored}.'
+            select_a_project: Valitse projekti.
+            success: 'Seuraavien projektien siirtäminen budjettiin %{subject_name} onnistui: %{successful}.'
           update_selected:
             invalid:
-              selected: 'Nämä hankkeet oli jo valittu toteutukseen: %{projects}.'
-              unselected: 'Näitä hankkeita ei oltu valittu toteutukseen: %{projects}.'
+              selected: 'Seuraavat projektit on jo valittu toteutukseen: %{errored}.'
+              unselected: 'Seuraavia projekteja ei oltu valittu toteutukseen: %{errored}.'
             select_a_project: Valitse hanke.
             select_a_selection: Valitse toteutuksen tila.
             success:
-              selected: 'Näiden hankkeiden valinta toteutukseen onnistui: %{projects}.'
-              unselected: 'Näiden hankkeiden toteutukseen valinnan poistaminen onnistui: %{projects}.'
+              selected: 'Seuraavien projektien valinta toteutukseen onnistui: %{successful}.'
+              unselected: 'Seuraavien projektien poistaminen toteutuksesta onnistui: %{successful}.'
+          update_taxonomies:
+            invalid: 'Luokittelut %{taxonomies} on jo määritelty seuraaville projekteille: %{errored}.'
+            select_a_project: Valitse projekti.
+            select_a_taxonomy: Valitse luokittelu.
+            success: 'Seuraavien projektien määrittely luokitteluihin %{taxonomies} onnistui: %{successful}.'
         proposals_imports:
           create:
             invalid: Ehdotusten tuominen hankkeiksi epäonnistui.
@@ -155,7 +145,7 @@ fi-pl:
             no_components: Tässä osallisuustilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
             origin_component_id: Lähdekomponentti
             select_component: Valitse komponentti
-            title: Tuo ehdotuksia hankkeiksi
+            title: Tuo ehdotuksia projekteiksi
         reminders:
           orders:
             description: Käyttäjät saavat sähköpostiviestin, jossa on linkit budjetteihin, joissa heillä on odottavia ääniä.
@@ -166,10 +156,14 @@ fi-pl:
         budget:
           create: "%{user_name} loi budjetin %{resource_name} osallistumistilassa %{space_name}"
           delete: "%{user_name} poisti budjetin %{resource_name} osallistumistilassa %{space_name}"
+          restore: "%{user_name} palautti budjetin %{resource_name} kohteessa %{space_name}"
+          soft_delete: "%{user_name} siirsi budjetin %{resource_name} roskakoriin kohteessa %{space_name}"
           update: "%{user_name} päivitti budjettia %{resource_name} osallistumistilassa %{space_name}"
         project:
           create: "%{user_name} loi %{resource_name} -suunnitelman %{space_name} -tilassa"
           delete: "%{user_name} poisti %{resource_name} -suunnitelman %{space_name} -tilassa"
+          restore: "%{user_name} palautti projektin %{resource_name} kohteessa %{space_name}"
+          soft_delete: "%{user_name} siirsi projektin %{resource_name} roskakoriin kohteessa %{space_name}"
           update: "%{user_name} päivitti %{resource_name} -suunnitelman %{space_name} -tilassa"
       budget_information_modal:
         back_to: Takaisin %{component_name}
@@ -214,9 +208,9 @@ fi-pl:
             total_budget: Kokonaisbudjetti
         project:
           fields:
-            category: Aihepiiri
             id: ID
             map: Kartta
+            taxonomies: Luokittelut
             title: Otsikko
       order_summary_mailer:
         order_summary:
@@ -251,15 +245,13 @@ fi-pl:
           projects_count:
             one: 1 suunnitelma
             other: "%{count} suunnitelmaa"
-        empty: Ei yhtään hanketta
+        empty: Ei yhtään projektia
         exit_modal:
           cancel: Palaa äänestykseen
           exit: Poistu äänestyksestä
           message: Ääntäsi ei ole kirjattu, koska et ole vielä suorittanut äänestystä loppuun asti. Haluatko varmasti poistua äänestyksestä?
           title: Et ole vielä äänestänyt
         filters:
-          category: Aihepiiri
-          scope: Teema
           search: Haku
           status: Tila
           status_values:
@@ -270,18 +262,18 @@ fi-pl:
           assigned: Varattu
           budget: Budjetti
           dynamic_help:
-            keep_adding_projects: Jatka hankkeiden lisäämistä
+            keep_adding_projects: Jatka projektien valitsemista
             minimum_reached: Olet saavuttanut äänestystä varten vaaditun vähimmäismäärän
-            start_adding_projects: Aloita lisäämällä hankkeita
+            start_adding_projects: Aloita valitsemalla projekteja
           minimum: Vähintään
           minimum_projects_rule:
-            description: Valitse vähintään %{minimum_number} haluamaasi hanketta ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
+            description: Valitse vähintään %{minimum_number} haluamaasi projektia ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
           projects_rule:
-            description: Valitse vähintään %{minimum_number} ja enintään %{maximum_number} haluamaasi hanketta ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
+            description: Valitse vähintään %{minimum_number} ja enintään %{maximum_number} haluamaasi projektia ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
           projects_rule_maximum_only:
-            description: Valitse enintään %{maximum_number} haluamaasi hanketta ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
+            description: Valitse enintään %{maximum_number} haluamaasi projektia ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
           vote_threshold_percent_rule:
-            description: Varaa vähintään %{minimum_budget} hankkeille ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
+            description: Varaa vähintään %{minimum_budget} projekteille ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
         orders:
           highest_cost: Kallein ensin
           label: Järjestä suunnitelmat
@@ -306,7 +298,7 @@ fi-pl:
           added: Lisätty
           all: Kaikki
         projects_for: Projektit kohteelle %{name}
-        select_projects: Valitse hankkeita
+        select_projects: Valitse projekteja
         show:
           budget: Budjetti
       prompt: Valitse budjetti
@@ -328,8 +320,10 @@ fi-pl:
         settings:
           global:
             announcement: Ilmoitus
+            clear_all: Tyhjennä kaikki
             comments_enabled: Kommentit ovat käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             form:
               errors:
                 budget_voting_rule_only_one: Ainoastaan yksi äänestyssääntö voi olla kerrallaan valittuna.
@@ -337,10 +331,13 @@ fi-pl:
             geocoding_enabled: Karttatoiminnot käytössä
             landing_page_content: Budjetoinnin aloitussivun teksti
             more_information_modal: Lisätietoikkunan teksti
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             projects_per_page: Suunnitelmat sivua kohden
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle suunnitelmalle
             scope_id: Teema
             scopes_enabled: Teemat käytössä
+            taxonomy_filters: Valitse suodattimet komponentille
+            taxonomy_filters_add: Lisää suodatin
             title: Otsikko
             total_budget: Kokonaisbudjetti
             vote_minimum_budget_projects_number: Valittavien projektien vähimmäismäärä
@@ -368,6 +365,9 @@ fi-pl:
               disabled: Äänestys estetty
               enabled: Äänestys on käytössä
               finished: Äänestys päättynyt
+    download_your_data:
+      show:
+        projects: Projektien vienti
     events:
       budgets:
         budget_published:
@@ -375,6 +375,24 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Budjetti %{resource_title} on nyt aktiivinen osallistumistilassa %{participatory_space_title}.
           notification_title: Budjetti <a href="%{resource_path}">%{resource_title}</a> on nyt aktiivinen osallistumistilassa %{participatory_space_title}.
+    open_data:
+      help:
+        projects:
+          address: Projektin osoite (jos määritetty)
+          budget_amount: Budjetin kokonaismäärä tälle projektille
+          comments: Projektin saamien kommenttien määrä
+          component: Projektin komponentti
+          confirmed_votes: Vahvistettujen äänten määrä tälle projektille
+          created_at: Projektin luontiaika
+          description: Projektin kuvaus
+          id: Projektin yksilöllinen tunniste
+          participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä projekti kuuluu
+          related_proposal_titles: Projektiin liitettyjen ehdotusten otsikot
+          related_proposal_urls: Projektiin liitettyjen ehdotusten URL-osoitteet
+          related_proposals: Projektiin liitetyt ehdotukset
+          taxonomies: Projektin luokittelut
+          title: Projektin otsikko
+          url: Projektin URL-osoite
     orders:
       checkout:
         error: Äänesi käsittely epäonnistui.

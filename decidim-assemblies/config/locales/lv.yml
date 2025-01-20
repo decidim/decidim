@@ -79,7 +79,6 @@ lv:
       assemblies:
         create:
           error: Jaunas asamblejas izveides laikā radās problēma.
-          success: Asambleja ir veiksmīgi izveidota.
         edit:
           update: Atjaunināt
         index:
@@ -113,21 +112,6 @@ lv:
           copy: Kopēt
           select: Atlasiet, kurus datus vēlaties dublēt
           title: Dublēt asambleju
-      assembly_members:
-        create:
-          error: Pievienojot dalībnieku šai asamblejai, radās problēma.
-          success: Dalībnieks šai asamblejai ir veiksmīgi izveidots.
-        destroy:
-          success: Dalībnieks šai asamblejai ir veiksmīgi izdzēsts.
-        edit:
-          update: Atjaunināt
-        index:
-          assembly_members_title: Asamblejas dalībnieki
-        new:
-          create: Izveidot
-        update:
-          error: Šī asamblejas dalībnieka atjaunināšanas laikā radās problēma.
-          success: Šīs asamblejas dalībnieks ir veiksmīgi atjaunināts.
       assembly_publications:
         create:
           error: Šīs asamblejas publicēšanas laikā radās problēma.
@@ -154,7 +138,6 @@ lv:
         assemblies: Asambleja
         assemblies_submenu:
           assembly_admins: Asamblejas administratori
-          assembly_members: Dalībnieki
           attachment_collections: Mapes
           attachment_files: Faili
           attachments: Pielikumi
@@ -176,11 +159,6 @@ lv:
             title: Nosaukums
           name: Asambleja
         assembly_member:
-          fields:
-            ceased_date: Beigu datums
-            designation_date: Iecelšanas datums
-            full_name: Nosaukums
-            position: Pozīcija
           name: Dalībnieks
           positions:
             other: Cits
@@ -241,13 +219,6 @@ lv:
         assemblies_types:
           form:
             title: Nosaukums
-        assembly_members:
-          form:
-            existing_user: Esošais dalībnieks
-            non_user: Nepiedalās
-            select_a_position: Izvēlieties pozīciju
-            select_user: Izvēlieties dalībnieku
-            user_type: Dalībnieka veids
         content_blocks:
           highlighted_assemblies:
             max_results: Maksimālais parādāmo elementu daudzums
@@ -294,8 +265,6 @@ lv:
         duration: Ilgums
         private_space: Šī ir privāta asambleja
     assembly_members:
-      assembly_member:
-        designated_on: Izraudzīts
       index:
         title: Dalībnieki
     events:

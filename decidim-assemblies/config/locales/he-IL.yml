@@ -65,23 +65,6 @@ he:
           import: ייבוא
           select: בחירת הנתונים לייבוא
           title: ייבוא אסיפה
-      assembly_members:
-        create:
-          error: הייתה בעיה בהוספת חבר.ה עבור אסיפה זו.
-          success: חבר.ה נוצר.ה בהצלחה עבור האסיפה הזו.
-        destroy:
-          success: חבר.ה נמחק.ה בהצלחה מאסיפה זו.
-        edit:
-          title: עדכון חבר.ה אסיפה
-          update: עדכון
-        index:
-          assembly_members_title: חברי.ות אסיפה
-        new:
-          create: יצירה
-          title: חבר.ה אסיפה חדש.ה
-        update:
-          error: הייתה בעיה בעדכון חבר.ה עבור אסיפה זו.
-          success: חבר.ה עודכנ.ה בהצלחה עבור אסיפה זו.
       assembly_publications:
         create:
           error: הייתה בעיה בפרסום ​​אסיפה זו.

@@ -523,9 +523,7 @@ pl:
           phone_number: Numer telefonu
           place_date: Miejsce, data
           postal_code: Kod pocztowy
-          print: Drukuj
           province: Województwo
-          section: 'Na wniosek organizacji proszę wydrukować i wypełnić niniejszy formularz w celu przesłania, jeśli jest to wskazane:'
           signature: Podpis
         result:
           answer_title: Odpowiedziano na tę inicjatywę.
@@ -549,7 +547,6 @@ pl:
           other: " podpisy"
         vote_cabin:
           already_voted: Już podpisano
-          verification_required: Zweryfikuj swoje konto, aby podpisać inicjatywę
           vote: Podpisz
           votes_blocked: Podpisywanie wyłączone
         votes_count:
@@ -602,7 +599,6 @@ pl:
           comment: Skomentuj
       initiatives_type:
         actions:
-          create: Utwórz
           title: Działania
           vote: Wspieranie
   layouts:

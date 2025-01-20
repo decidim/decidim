@@ -16,24 +16,25 @@ ja:
     blogs:
       actions:
         author_id: 次のように投稿を作成
-        confirm_destroy: この投稿を削除してもよろしいですか？
-        destroy: 削除
+        confirm_delete_post: この投稿を削除してもよろしいですか？
+        deleted_posts_info: 削除された投稿はゴミ箱から復元できます。
         edit: 編集
         new: 新規投稿
         title: アクション
+        view_deleted_posts: 削除された投稿を表示
       admin:
         posts:
           create:
             invalid: 投稿の作成中に問題が発生しました。
             success: 投稿を作成しました。
-          destroy:
-            success: 投稿を削除しました。
           edit:
             save: 更新
             title: 投稿を編集
           index:
             not_published_yet: まだ公開されていません。
             title: 投稿
+          manage_trash:
+            title: 削除された投稿
           new:
             create: 作成
             title: 投稿を作成
@@ -44,6 +45,8 @@ ja:
         post:
           create: "%{user_name} が %{space_name} でブログ投稿 %{resource_name} を作成しました"
           delete: "%{user_name} がブログ投稿 %{resource_name} を %{space_name} から削除しました"
+          restore: "%{user_name} が %{space_name} のブログ投稿 %{resource_name} を復元しました"
+          soft_delete: "%{user_name} は %{space_name} のブログ投稿 %{resource_name} をゴミ箱に移動しました"
           update: "%{user_name} が %{space_name} のブログ投稿 %{resource_name} を更新しました"
       content_blocks:
         highlighted_posts:

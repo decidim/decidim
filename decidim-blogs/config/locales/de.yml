@@ -17,8 +17,6 @@ de:
     blogs:
       actions:
         author_id: Beitrag erstellen als
-        confirm_destroy: Möchten Sie diesen Beitrag wirklich löschen?
-        destroy: Löschen
         edit: Bearbeiten
         new: Neuer Beitrag
         title: Aktionen
@@ -27,8 +25,6 @@ de:
           create:
             invalid: Beim Erstellen dieses Beitrags ist ein Problem aufgetreten.
             success: Beitrag wurde erfolgreich erstellt.
-          destroy:
-            success: Beitrag wurde erfolgreich gelöscht.
           edit:
             save: Aktualisieren
             title: Post bearbeiten

@@ -55,8 +55,6 @@ it:
     admin:
       filters:
         meetings:
-          category_id_eq:
-            label: Categoria
           closed_at_present:
             label: Stato
             values:
@@ -67,8 +65,6 @@ it:
             values:
               'false': Conclusi
               'true': Prossimi
-          scope_id_eq:
-            label: Ambito
           with_any_origin:
             values:
               user_group: Gruppi di utenti
@@ -170,8 +166,6 @@ it:
         attachment_collections: Cartelle
         attachments: Allegati
         close: Chiuso
-        confirm_destroy: Sei certo di voler cancellare questo meeting?
-        destroy: Cancella
         edit: Modifica
         invalid_destroy:
           proposals_count:
@@ -237,8 +231,6 @@ it:
         meetings:
           create:
             success: Riunione creata con successo. Nota che non è ancora pubblicata, devi pubblicarla manualmente.
-          destroy:
-            success: OK, il meeting è stato cancellato.
           edit:
             title: Modifica la riunione
             update: Modifica
@@ -375,7 +367,6 @@ it:
           location_hints_help: 'Suggerimenti: informazioni aggiuntive. Esempio: il pavimento dell''edificio se si tratta di una riunione di persona o la password di riunione se si tratta di una riunione online con accesso ristretto.'
           online_meeting_url_help: 'Link: permette ai partecipanti di connettersi direttamente alla tua riunione'
           registration_url_help: 'Link: consentire ai partecipanti di accedere al servizio esterno che stai utilizzando per le iscrizioni'
-          select_a_category: Scegli una categoria
           select_a_meeting_type: Seleziona un tipo di riunione
           select_a_registration_type: Seleziona un tipo di registrazione
         index:

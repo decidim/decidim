@@ -168,6 +168,56 @@ module Decidim::Comments
           end
         end
       end
+
+      context "when two_columns_layout? is true" do
+        let(:current_user) { create(:user, :confirmed, organization: component.organization) }
+
+        before do
+          allow(controller).to receive(:current_user).and_return(current_user)
+          allow(controller).to receive(:user_signed_in?).and_return(true)
+          commentable.define_singleton_method(:two_columns_layout?) { true }
+          allow(commentable).to receive(:closed?).and_return(false)
+        end
+
+        it "calls render_comments_in_two_columns" do
+          expect(my_cell).to receive(:render_comments_in_two_columns)
+          my_cell.render_comments
+        end
+
+        it "renders the comments in two columns layout" do
+          my_cell.render_comments
+          expect(subject).to have_css(".comments-two-columns")
+        end
+
+        context "when alignment is enabled" do
+          before do
+            allow(commentable).to receive(:comments_have_alignment?).and_return(true)
+          end
+
+          it "renders the alignment buttons" do
+            expect(subject).to have_css("button[data-toggle-ok]")
+            expect(subject).to have_css("button[data-toggle-ko]")
+          end
+        end
+      end
+
+      context "when supports_two_columns_layout? is false" do
+        before do
+          allow(commentable).to receive(:two_columns_layout?).and_return(false)
+          allow(my_cell).to receive(:two_columns_layout?).and_return(false)
+        end
+
+        it "does not call render_comments_in_two_columns" do
+          expect(my_cell).not_to receive(:render_comments_in_two_columns)
+          my_cell.render_comments
+        end
+
+        it "renders the comments in single column layout" do
+          my_cell.render_comments
+          expect(subject).to have_no_css(".comments-two-columns")
+          expect(subject).to have_css(".comment-threads")
+        end
+      end
     end
   end
 end

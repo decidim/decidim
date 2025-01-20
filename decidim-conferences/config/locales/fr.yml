@@ -89,6 +89,7 @@ fr:
     admin:
       actions:
         confirm: Confirmer
+        confirm_delete_conference: Êtes-vous sûr(e) de vouloir supprimer cette conférence ? Si vous changez d'avis, vous pourrez la restaurer plus tard.
         new_conference: Nouvelle conférence
         new_conference_user_role: Nouvel administrateur de conférence
         new_media_link: Nouveau lien média
@@ -96,6 +97,7 @@ fr:
         new_registration_type: Nouveau type d'inscription
         new_speaker: Nouveau conférencier
         send_diplomas: Envoyer des certificats de présence
+        view_deleted_conferences: Voir les conférences supprimées
       conference_copies:
         new:
           copy: Copier
@@ -165,6 +167,8 @@ fr:
         index:
           published: Publié
           unpublished: Non publié
+        manage_trash:
+          title: Conférences supprimées
         new:
           create: Créer
           title: Conférence
@@ -298,6 +302,9 @@ fr:
           success: Le type d'inscription a été mis à jour avec succès pour cette conférence.
       titles:
         conferences: Conférences
+        conferences_deleted: Conférences supprimées
+      tooltips:
+        deleted_conferences_info: Les conférences ne peuvent être supprimées que si leur statut est "non publiée".
     admin_log:
       conference:
         create: "%{user_name} créé la %{resource_name} conférence"

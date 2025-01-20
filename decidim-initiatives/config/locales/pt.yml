@@ -419,9 +419,7 @@ pt:
           phone_number: Número de telefone
           place_date: Local, data
           postal_code: Código postal
-          print: Impressão
           province: Província/Estado
-          section: 'Se for requerido pela organização, por favor imprima e preencha este formulário a submeter onde indicado:'
           signature: Assinatura
         result:
           initiative_rejected_reason: Esta iniciativa foi rejeitada devido à falta de assinaturas.
@@ -434,7 +432,6 @@ pt:
           other: " assinaturas"
         vote_cabin:
           already_voted: Já assinou
-          verification_required: Verifique a sua conta para assinar a iniciativa
           vote: Assinar
           votes_blocked: Assinatura desativada
         votes_count:

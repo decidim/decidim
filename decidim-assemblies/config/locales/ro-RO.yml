@@ -101,7 +101,6 @@ ro:
       assemblies:
         create:
           error: A apărut o problemă la crearea unui nou tip de grup de lucru.
-          success: Grupul de lucru a fost creat cu succes.
         edit:
           update: Actualizează
         index:
@@ -143,21 +142,6 @@ ro:
           import: Importă
           select: Selectați ce date doriți să importați
           title: Importă grupul de lucru
-      assembly_members:
-        create:
-          error: A apărut o problemă la adăugarea unui membru pentru acest grup de lucru.
-          success: Membru creat cu succes pentru acest grup de lucru.
-        destroy:
-          success: Membru şters cu succes pentru acest grup de lucru.
-        edit:
-          update: Actualizează
-        index:
-          assembly_members_title: Membrii grupului de lucru
-        new:
-          create: Creează
-        update:
-          error: A apărut o problemă la adăugarea unui membru pentru acest grup de lucru.
-          success: Membrul a fost actualizat cu succes pentru acest grup de lucru.
       assembly_publications:
         create:
           error: A apărut o problemă la publicarea acestui grup de lucru.
@@ -187,7 +171,6 @@ ro:
         assemblies: Grupuri de lucru
         assemblies_submenu:
           assembly_admins: Administratorii grupului de lucru
-          assembly_members: Membri
           attachment_collections: Dosare
           attachment_files: Fișiere
           attachments: Atașamente
@@ -210,11 +193,6 @@ ro:
             title: Titlu
           name: Grup de lucru
         assembly_member:
-          fields:
-            ceased_date: Data încetării
-            designation_date: Data desemnării
-            full_name: Nume
-            position: Poziție
           name: Membru
           positions:
             other: Alta
@@ -284,13 +262,8 @@ ro:
             title: Titlu
         assembly_members:
           form:
-            existing_user: Participant existent
             explanation: 'Îndrumare pentru imagine:'
-            non_user: Non participant
             non_user_avatar_help: Ar trebui să obţii consimţământul persoanelor înainte de a îi publica drept membri.
-            select_a_position: Selectaţi o poziţie
-            select_user: Selectați un participant
-            user_type: Tipul participantului
         content_blocks:
           highlighted_assemblies:
             max_results: Număr maxim de elemente care vor fi afișate
@@ -358,8 +331,6 @@ ro:
         private_space: Acesta este un grup de lucru privat
         social_networks_title: Vizitează adunarea pe
     assembly_members:
-      assembly_member:
-        designated_on: Desemnat la
       index:
         title: Membri
     events:

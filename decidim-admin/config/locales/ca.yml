@@ -184,6 +184,13 @@ ca:
         browse: Explorar
         category:
           new: Nova categoria
+        confirm_delete_component: |
+          ¿Segur que vols eliminar aquest component?<br>
+          Aquest component conté:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} recursos</li>
+          </ul>
+          Si canvies d'opinió, el pots restaurar més endavant.
         export: Exportar tot
         export-selection: Exportar selecció
         import: Importar
@@ -195,11 +202,15 @@ ca:
         per_page: Per pàgina
         permissions: Permisos
         reject: Rebutjar
+        restore: Restaurar
         send_me_a_test_email: Envia'm un correu electrònic de prova
         share: Compartir
+        share_tokens: Enllaços d'accés
+        soft_delete: Enviar a la paperera
         user:
           new: Nova administradora
         verify: Verificar
+        view_deleted_components: Veure els components eliminats
       admin_terms_of_service:
         accept:
           error: Hi ha hagut un problema en acceptar els Termes i Condicions d'administració.
@@ -319,9 +330,6 @@ ca:
           error: S'ha produït un error en crear aquest component.
           success: El component s'ha creat correctament.
           success_landing_page: Component creat amb èxit. Pots afegir un bloc de contingut per aquest component a la pàgina d'inici de l'espai de participació. <a href="%{landing_page_path}">Vés a la pàgina d'inici</a> per a configurar-la.
-        destroy:
-          error: S'ha produït un error en eliminar aquest component.
-          success: El component s'ha eliminat correctament.
         edit:
           title: Edita el component
           update: Actualitzar
@@ -338,11 +346,21 @@ ca:
             name: Nom del component
             type: Tipus de component
             visibility: Visibilitat
+        manage_trash:
+          title: Components eliminats
         new:
           add: Afegeix un component
           title: 'Afegir component: %{name}'
         publish:
           success: El component s'ha publicat correctament.
+        taxonomy_filters_badge:
+          remove: Eliminar
+        taxonomy_filters_drawer:
+          add_filter: Afegir un filtre
+          clear_all: Netejar-ho tot
+          filters: Filtres
+          save: Desar
+          title: Filtres
         title: Components
         unpublish:
           success: El component s'ha despublicat correctament.
@@ -409,8 +427,6 @@ ca:
           JSON: JSON
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
       filters:
-        category_id_eq:
-          label: Categoria
         filter_label: Filtre
         invitation_accepted_at_present:
           label: 'Invitació: acceptada'
@@ -459,8 +475,6 @@ ca:
             'false': Publicat
             'true': Despublicat
         remove_all: Eliminar tots
-        scope_id_eq:
-          label: Àmbit
         search_label: Cercar
         search_placeholder:
           name_or_nickname_or_email_cont: Buscar %{collection} per correu electrònic, nom o àlies.
@@ -567,6 +581,8 @@ ca:
         logs_list:
           no_logs_yet: Encara no hi ha cap registre d'activitat.
           no_matching_logs: No hi ha cap registre d'activitat amb els filtres de cerca seleccionats. Prova de canviar-los i intenta-ho de nou.
+      manage_trash:
+        deleted_items_warning: Actualment estàs veient elements eliminats. Per fer qualsevol modificació o canvi, primer els has de restaurar.
       managed_users:
         promotion:
           error: S'ha produït un error en promoure aquesta participant.
@@ -598,6 +614,7 @@ ca:
         scopes: Àmbits
         see_site: Veure el lloc web
         settings: Configuració
+        share_tokens: Enllaços d'accés
         static_page_topics: Temes
         static_pages: Pàgines
         taxonomies: Taxonomies
@@ -655,12 +672,11 @@ ca:
             plural: Plural
         share_token:
           fields:
-            created_at: Creat el
+            actions: Accions
             expires_at: Caduca el
-            last_used_at: Darrer cop que es va fer servir
+            registered_only: '¿Només per a usuàries registrades?'
             times_used: Cops utilitzat
-            token: Token
-            user: Creat per
+            token: Enllaç d'accés
         static_page:
           fields:
             created_at: Data de creació
@@ -890,12 +906,26 @@ ca:
         destroy:
           error: S'ha produït un error en eliminar una participant participada d'aquest espai participatiu.
           success: L'accés de la participant a l'espai de participació privat s'ha eliminat correctament.
+        edit:
+          title: Editar participant privada de l'espai de participació.
+          update: Actualitzar
         index:
           import_via_csv: Importar des de CSV
+          publish_all: Publicar tot
           title: Participant de l'espai participatiu privat
+          unpublish_all: Despublicar tot
         new:
           create: Crear
           title: Nova participant de l'espai privat.
+        publish_all:
+          error: S'ha produït un error en publicar totes les participants privades d'aquest espai de participació.
+          success: S'han publicat correctament totes les participants privades d'aquest espai de participació
+        unpublish_all:
+          error: S'ha produït un error en despublicar totes les participants privades d'aquest espai de participació.
+          success: S'han despublicat correctament totes les participants privades d'aquest espai de participació
+        update:
+          error: S'ha produït un error en actualitzar una participant participada d'aquest espai de participació.
+          success: S'ha actualitzat correctament l'espai de participació privat
       participatory_space_private_users_csv_imports:
         create:
           invalid: S'ha produït un error llegint el fitxer CSV. Si us plau, assegura't d'haver seguit les instruccions.
@@ -930,10 +960,6 @@ ca:
           title: Edita els permisos
         update:
           success: Els permisos s'han actualitzat correctament.
-      resources:
-        index:
-          headers:
-            scope: Àmbit
       scope_types:
         create:
           error: S'ha produït un error en crear un nou tipus d'àmbit.
@@ -967,16 +993,50 @@ ca:
           success: Àmbit actualitzat correctament
       share_tokens:
         actions:
-          confirm_destroy: Segur que vols eliminar aquest token?
+          confirm_destroy: Segur que vols eliminar aquest accés?
+          copy_link: Copiar l'enllaç
           destroy: Eliminar
-          share: Compartir
+          edit: Editar
+          preview: Previsualitzar
+        create:
+          invalid: Hi ha hagut un problema en generar l'enllaç d'accés.
+          success: Enllaç d'accés creat correctament.
         destroy:
-          error: S'ha produït un error en eliminar aquest token.
-          success: El token s'ha eliminat correctament.
-        share_tokens:
-          empty: No hi ha tokens actius.
-          help: Aquests tokens s'utilitzen per a compartir públicament aquest recurs no publicat a qualsevol usuari. S'ocultaran quan es publiqui el recurs. Fes clic en la icona de compartir el token per a visitar la URL compartible.
-          title: Compartir tokens
+          error: S'ha produït un error en eliminar aquest enllaç d'accés.
+          success: Enllaç d'accés eliminat correctament.
+        edit:
+          title: 'Editar l''enllaç d''accés per a: %{name}'
+          update: Actualitzar
+        form:
+          automatic: Automàtic
+          custom: Personalitzat
+          custom_expiration: Caducitat personalitzada
+          custom_token: Paraula personalitzada
+          expires_at: Caduca el
+          'false': 'No'
+          never_expire: Mai
+          registered_only: '¿Només per a usuàries registrades?'
+          token: Clau d'accés
+          'true': 'Sí'
+        index:
+          back_to_share_tokens: Tornar als enllaços d'accés
+          copied: Enllaç d'accés copiat!
+          copy_message: S'ha copiat el text al porta-retalls correctament.
+          create_new_token: Crea el teu primer enllaç d'accés!
+          empty_html: No hi ha cap enllaç d'accés actiu. %{new_token_link}
+          never: Mai
+          new_share_token_button: Nou enllaç d'accés
+          share_tokens_help_html: |
+            Crea i comparteix un enllaç d'accés perquè altres persones puguin veure aquest recurs inèdit.
+            Els enllaços d'accés poden ser vàlids només per a les participants registrades o tenir una data de caducitat si cal.
+            Per compartir un enllaç d'accés nou amb algú, crea'l i, a continuació, copia l'enllaç fent servir la icona d'acció del «%{clipboard} porta-retalls».
+          title: 'Enllaços d''accés per a: %{name}'
+        new:
+          create: Crear
+          title: 'Nou enllaç d''accés per a: %{name}'
+        update:
+          error: S'ha produït un error en actualitzar aquest accés.
+          success: Enllaç d'accés actualitzat amb èxit.
       shared:
         adjacent_navigation:
           next: Següent
@@ -1031,8 +1091,8 @@ ca:
           success: La pàgina s'ha actualitzat correctament.
       taxonomies:
         actions: Accions
-        amount: Import
-        count: Recompte
+        amount: Número d'elements
+        count: Recursos associats
         create:
           invalid: S'ha produït un error en crear aquesta taxonomia.
           success: Taxonomia creada correctament.
@@ -1057,12 +1117,12 @@ ca:
         new:
           create: Crear taxonomia
           title: Nova taxonomia
-        no_taxonomies: Actualment no hi ha taxonomies. Crea una llista de taxonomies i defineix-ne els elements per classificar o filtrar recursos.
+        no_taxonomies: Actualment no hi ha taxonomies. Crea una llista de taxonomies i defineix-ne els elements per classificar-los o filtrar els recursos.
         table:
           to_next_page: Passa a la pàgina següent
-          to_prev_page: Passa a la pàgina anterior
+          to_prev_page: Arrossega per passar a la pàgina anterior
         taxonomy_actions:
-          confirm_destroy: Segur que vols eliminar "%{name}"? També s'eliminaran tots els elements inclosos en aquesta.
+          confirm_destroy: 'Segur que voleu suprimir %{name}? Això també suprimirà tots els elements secundaris. NOTA: Els recursos que utilitzen aquesta taxonomia no es veuran afectats, però perdran la referència a aquesta taxonomia.'
         update:
           invalid: S'ha produït un error en actualitzar aquesta taxonomia.
           success: Taxonomia actualitzada correctament.
@@ -1070,7 +1130,7 @@ ca:
         actions:
           new_taxonomy_filter: Nou filtre de taxonomia
         callout:
-          modify_taxonomy_html: Si et cal modificar aquesta taxonomia o els seus elements, fes-ho a través de la configuració a la secció <a href="%{url}">Taxonomies</a>.
+          modify_taxonomy_html: Si et cal modificar aquesta taxonomia o els seus elements, si us plau, fes-ho a través de la configuració a la secció <a href="%{url}">Taxonomies</a>.
         create:
           error: S'ha produït un error en crear aquesta taxonomia.
           success: Filtre de taxonomia creat correctament.
@@ -1079,27 +1139,35 @@ ca:
           success: Filtre de taxonomia eliminat correctament.
         edit:
           back: Enrere
-          items: "%{count} elements seleccionats"
-          no_items: Encara no hi ha elements disponibles a aquesta taxonomia. Pots afegir-hi elements a través de les opcions de configuració de la taxonomia.
           title: Editar el filtre de taxonomia
           update: Actualitzar el filtre de taxonomia
         form:
-          select_taxonomy: Seleccionar una taxonomia
+          all: Totes
+          items:
+            one: "%{count} element seleccionat"
+            other: "%{count} elements seleccionats"
+          name_help: El títol del filtre que es mostrarà a la part pública.
+          no_items: Encara no hi ha elements disponibles a aquesta taxonomia. Pots afegir-hi elements a través de les opcions de configuració de la taxonomia.
+          space_filter: Disponible com a filtre per a tots els %{manifest_name}
         index:
           description: Un filtre de taxonomia permet a les administradores ordenar i filtrar espais de participació basats en una taxonomia. Per exemple, afegir un filtre de taxonomies per ordenar processos per àmbit territorial.
           empty: Actualment no hi ha cap filtre de taxonomia. Creeu una llista de filtres de taxonomia aquí per ordenar i filtrar els espais de participació basats en una taxonomia.
         new:
           back: Enrere
           create: Crear un filtre de taxonomia
-          items: "%{count} elements disponibles"
+          select_taxonomy: Seleccionar una taxonomia
           title: Nou filtre de taxonomia
         table:
           actions: Accions
-          confirm_destroy: Segur que vols esborrar el filtre "%{name}"?
-          count: Número d'elements
+          components_count: Components associats
+          confirm_destroy: 'Segur que voleu suprimir el filtre %{name}? NOTA: Els recursos que utilitzen aquest filtre no es veuran afectats però perdran la referència a aquest filtre.'
+          count: Número d'elements emprats
           destroy: Esborrar
           edit: Editar
-          name: Nom
+          internal_name: Nom intern del filtre
+          name: Títol públic del filtre
+          space_filter: Emprat per filtrar %{manifest_name}
+          taxonomy: Des de la taxonomia
         update:
           error: Hi ha hagut un problema actualitzant aquest filtre de taxonomia.
           success: Filtre de taxonomia actualitzat correctament.
@@ -1135,6 +1203,15 @@ ca:
         taxonomy_filters: Filtres de taxonomies
         user_groups: Grups
         users: Administradores
+      tooltips:
+        deleted_component_info: Aquest component només es pot eliminar si el seu estat és 'Despublicat'.
+      trash_management:
+        restore:
+          invalid: S'ha produït un problema en restaurar %{resource_name}.
+          success: "%{resource_name} s'ha importat correctament."
+        soft_delete:
+          invalid: S'ha produït un problema en eliminar %{resource_name}.
+          success: "%{resource_name} s'ha eliminat correctament."
       user_group:
         csv_verify:
           invalid: S'ha produït un error en llegir el fitxer CSV.

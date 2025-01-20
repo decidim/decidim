@@ -5,8 +5,6 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe CollaborativeDraftCollaboratorRequestsController do
-      routes { Decidim::Proposals::Engine.routes }
-
       let(:component) { create(:proposal_component, :with_creation_enabled, :with_collaborative_drafts_enabled) }
       let(:params) { { component_id: component.id } }
       let(:user) { create(:user, :confirmed, organization: component.organization) }

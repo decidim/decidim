@@ -84,7 +84,6 @@ pt:
       assemblies:
         create:
           error: Ocorreu um problema ao criar uma nova reunião.
-          success: Assembléia criada com sucesso.
         edit:
           update: Atualizar
         index:
@@ -126,21 +125,6 @@ pt:
           import: Importar
           select: Selecione os dados que pretende importar
           title: Importar reunião
-      assembly_members:
-        create:
-          error: Ocorreu um problema ao adicionar um membro a esta reunião.
-          success: Membro criado corretamente nesta reunião.
-        destroy:
-          success: Membro eliminado corretamente nesta reunião.
-        edit:
-          update: Atualizar
-        index:
-          assembly_members_title: Membros da reunião
-        new:
-          create: Criar
-        update:
-          error: Ocorreu um problema ao atualizar o membro nesta reunião.
-          success: Membro atualizado corretamente nesta reunião.
       assembly_publications:
         create:
           error: Ocorreu um problema ao publicar esta reunião.
@@ -170,7 +154,6 @@ pt:
         assemblies: Reuniões
         assemblies_submenu:
           assembly_admins: Administradores da Reunião
-          assembly_members: Membros
           attachment_collections: Pastas
           attachment_files: Ficheiros
           attachments: Anexos
@@ -192,11 +175,6 @@ pt:
             title: Título
           name: Assembléia
         assembly_member:
-          fields:
-            ceased_date: Data de cessação
-            designation_date: Data de designação
-            full_name: Nome
-            position: Posição
           name: Membro
           positions:
             other: Outros
@@ -261,13 +239,8 @@ pt:
             title: Título
         assembly_members:
           form:
-            existing_user: Participante existente
             explanation: 'Orientações para imagem:'
-            non_user: Não participante
             non_user_avatar_help: Deve obter o consentimento das pessoas antes de as publicar como membros.
-            select_a_position: Selecione uma posição
-            select_user: Selecione um participante
-            user_type: Tipo de participante
         content_blocks:
           highlighted_assemblies:
             max_results: Quantidade máxima de elementos a mostrar
@@ -317,8 +290,6 @@ pt:
         duration: Duração
         private_space: Esta é uma reunião privada
     assembly_members:
-      assembly_member:
-        designated_on: Designado em
       index:
         title: Membros
     events:

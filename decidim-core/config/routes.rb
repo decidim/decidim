@@ -57,13 +57,6 @@ Decidim::Core::Engine.routes.draw do
 
   post :locate, to: "geolocation#locate"
 
-  Decidim.participatory_space_manifests.each do |manifest|
-    mount manifest.context(:public).engine, at: "/", as: "decidim_#{manifest.name}"
-  end
-
-  mount Decidim::Verifications::Engine, at: "/", as: "decidim_verifications"
-  mount Decidim::Comments::Engine, at: "/", as: "decidim_comments"
-
   Decidim.global_engines.each do |name, engine_data|
     mount engine_data[:engine], at: engine_data[:at], as: name
   end

@@ -229,9 +229,6 @@ tr:
         create:
           error: Bu bileşeni oluştururken bir hata oluştu.
           success: Bileşen başarıyla oluşturuldu.
-        destroy:
-          error: Bu bileşeni yok eden bir hata oluştu.
-          success: Bileşen başarıyla silindi.
         edit:
           title: Bileşeni düzenle
           update: Güncelleştirme
@@ -280,8 +277,6 @@ tr:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Kategori
         filter_label: Filtrele
         moderations:
           reportable_type_string_eq:
@@ -301,8 +296,6 @@ tr:
           values:
             'false': Yayınlandı
             'true': Yayından kaldırıldı
-        scope_id_eq:
-          label: Kapsam
         search_label: Arama
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection} e-posta, isim veya takma ad ile arayın.'
@@ -425,12 +418,8 @@ tr:
             plural: Çoğul
         share_token:
           fields:
-            created_at: Oluşturulma tarihi
             expires_at: Süre sonu
-            last_used_at: Son kullanıldığı zaman
             times_used: Kullanım Sayısı
-            token: Jeton
-            user: Oluşturan
         static_page:
           fields:
             created_at: Düzenlendi
@@ -623,10 +612,6 @@ tr:
           title: İzinleri düzenle
         update:
           success: İzinler başarıyla güncellendi.
-      resources:
-        index:
-          headers:
-            scope: Kapsam
       scope_types:
         create:
           error: Yeni kapsam türü oluştururken bir hata oluştu.
@@ -658,15 +643,7 @@ tr:
           success: Kapsam başarıyla güncellendi
       share_tokens:
         actions:
-          confirm_destroy: Bu jetonu silmek istediğinizden emin misiniz?
           destroy: Sil
-          share: Paylaş
-        destroy:
-          error: Bu jetonu yok ederken bir hata oluştu.
-          success: Jeton başarılı bir şekilde yok edildi.
-        share_tokens:
-          help: Bu jeton, yayınlanmamış kaynağı herhangi bir kullanıcıyla herkese açık olarak paylaşmak için kullanılır. Kaynak yayınlandığında gizlenecekler. Paylaşılabilir URL'yi ziyaret etmek için jetonun paylaş simgesine tıklayın.
-          title: Jeton paylaş
       shared:
         gallery:
           add_images: Resim ekle
@@ -706,8 +683,6 @@ tr:
           without_topic: Konu olmayan sayfalar
         update:
           error: Bu sayfa güncellenirken bir hata oluştu.
-      taxonomies:
-        count: saymak
       titles:
         admin_log: Yönetici günlüğü
         area_types: Alan türleri

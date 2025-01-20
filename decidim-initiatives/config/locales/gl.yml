@@ -292,7 +292,6 @@ gl:
           other: " sinaturas"
         vote_cabin:
           already_voted: Xa está asinado
-          verification_required: Verifica a túa conta para asinar a iniciativa
           vote: Iniciar sesión
           votes_blocked: A sinatura está desactivada
         votes_count:

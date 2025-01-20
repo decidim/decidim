@@ -88,13 +88,11 @@ tr:
       actions:
         import_assembly: İçeri aktar
         new_assembly: Yeni kurul
-        new_assembly_member: Yeni Meclis Üyesi
         new_assembly_type: Yeni kurul türü
         new_assembly_user_role: Yeni Meclis Yöneticisi
       assemblies:
         create:
           error: Yeni bir kurul oluştururken bir hata oluştu.
-          success: Kurul başarıyla oluşturuldu.
         edit:
           update: Güncelle
         index:
@@ -136,21 +134,6 @@ tr:
           import: İçe aktar
           select: Hangi verileri içe aktarmak istediğinizi seçin
           title: Kurulu içe aktar
-      assembly_members:
-        create:
-          error: Bu kurul için üye eklenirken bir hata oluştu.
-          success: Üye bu kurul için başarıyla oluşturuldu.
-        destroy:
-          success: Üye bu kuruldan başarıyla silindi.
-        edit:
-          update: Güncelle
-        index:
-          assembly_members_title: Kurul üyeleri
-        new:
-          create: Oluştur
-        update:
-          error: Bu kurul için üye güncellenirken bir hata oluştu.
-          success: Üye bu kurul için başarıyla güncellendi.
       assembly_publications:
         create:
           error: Bu kurul yayınlanırken bir hata oluştu.
@@ -180,7 +163,6 @@ tr:
         assemblies: Kurullar
         assemblies_submenu:
           assembly_admins: Kurul yöneticileri
-          assembly_members: Üyeler
           attachment_collections: Klasörler
           attachment_files: Dosyalar
           attachments: Ekler
@@ -202,11 +184,6 @@ tr:
             title: Başlık
           name: Kurul
         assembly_member:
-          fields:
-            ceased_date: Bitiş tarihi
-            designation_date: Atama tarihi
-            full_name: Adı
-            position: Pozisyon
           name: Üye
           positions:
             other: Diğer
@@ -269,13 +246,6 @@ tr:
         assemblies_types:
           form:
             title: Başlık
-        assembly_members:
-          form:
-            existing_user: Mevcut katılımcı
-            non_user: Katılımcı olmayan
-            select_a_position: Bir pozisyon seç
-            select_user: Bir katılımcı seçin
-            user_type: Katılımcı tipi
         content_blocks:
           highlighted_assemblies:
             max_results: Gösterilecek maksimum öğe miktarı
@@ -325,8 +295,6 @@ tr:
         duration: Süre
         private_space: Bu özel bir kurul
     assembly_members:
-      assembly_member:
-        designated_on: Üzerinde belirlenen
       index:
         title: Üyeler
     events:

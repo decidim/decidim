@@ -103,11 +103,7 @@
   }
 
   &__grid-text-title {
-    @apply flex justify-between flex-row md:flex-col md:items-start lg:flex-row lg:items-center;
-
-    .label {
-      @apply md:mt-2;
-    }
+    @apply flex justify-between flex-row md:flex-col items-start lg:flex-row;
   }
 
   &__list-list {
@@ -331,5 +327,48 @@
     .active {
       @apply text-white bg-secondary;
     }
+  }
+}
+
+#proposal-voting-rules {
+  [id="dropdown-menu-proposal-voting-rules"] {
+    &[aria-hidden="true"] {
+      @apply hidden;
+    }
+  }
+
+  [data-target="dropdown-menu-proposal-voting-rules"] {
+    @apply w-full flex items-center justify-between gap-2 p-2 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+
+    & > span {
+      @apply hidden font-semibold text-secondary;
+
+      &:only-of-type,
+      &.is-active {
+        @apply flex items-center gap-2 [&_svg]:fill-current;
+      }
+    }
+
+    > svg {
+      @apply w-6 h-6 flex-none text-secondary fill-current;
+    }
+
+    &[aria-expanded="false"] > svg:last-of-type,
+    &[aria-expanded="true"] > svg:first-of-type {
+      @apply hidden;
+    }
+
+    &[aria-expanded="true"] > svg:last-of-type,
+    &[aria-expanded="false"] > svg:first-of-type {
+      @apply block;
+    }
+  }
+}
+
+.layout-item-complementary {
+  @apply container grid grid-cols-1 lg:grid-cols-12;
+
+  .item_voting_rules {
+    @apply lg:col-start-2 lg:col-span-10;
   }
 }

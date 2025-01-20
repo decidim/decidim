@@ -14,18 +14,22 @@ module Decidim
       let!(:non_deliverable_user) { create(:user, :confirmed, newsletter_notifications_at: nil, organization:) }
       let!(:deleted_user) { create(:user, :confirmed, :deleted, newsletter_notifications_at: Time.current, organization:) }
       let(:send_to_all_users) { true }
+      let(:send_to_verified_users) { false }
       let(:send_to_followers) { false }
       let(:send_to_participants) { false }
+      let(:send_to_private_members) { false }
       let(:participatory_space_types) { [] }
-      let(:scope_ids) { [] }
+      let(:verification_types) { [] }
 
       let(:form_params) do
         {
           send_to_all_users:,
+          send_to_verified_users:,
           send_to_followers:,
           send_to_participants:,
           participatory_space_types:,
-          scope_ids:
+          send_to_private_members:,
+          verification_types:
         }
       end
 
@@ -63,7 +67,9 @@ module Decidim
           "send_to_followers" => false,
           "send_to_participants" => false,
           "participatory_space_types" => [],
-          "scope_ids" => []
+          "verification_types" => [],
+          "send_to_private_members" => false,
+          "send_to_verified_users" => false
         )
       end
     end

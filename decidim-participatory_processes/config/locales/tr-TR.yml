@@ -103,7 +103,6 @@ tr:
           components: Bileşenler
           info: Süreç Hakkında
           moderations: Denetimler
-          private_users: Özel Kullanıcılar
           process_admins: İşlemi gerçekleştiren kullanıcılar
           steps: adımlar
       models:

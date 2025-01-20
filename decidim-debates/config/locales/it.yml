@@ -2,10 +2,8 @@ it:
   activemodel:
     attributes:
       debate:
-        category_id: Categoria
         closed_at: Chiuso il
         conclusions: Conclusioni
-        decidim_category_id: Categoria
         description: Descrizione
         end_time: Finisce a
         information_updates: Aggiornamenti delle informazioni
@@ -28,7 +26,6 @@ it:
       debates:
         actions:
           comment: Commenta
-          create: Creare
           endorse: Sottoscrivi
         name: Dibattiti
         settings:
@@ -47,8 +44,6 @@ it:
     debates:
       actions:
         close: Chiudi
-        confirm_destroy: Sei sicuro?
-        destroy: Elimina
         edit: Modifica
         title: Azioni
       admin:
@@ -60,8 +55,6 @@ it:
           create:
             invalid: C'è stato un problema durante la creazione del dibattito.
             success: Dibattito creato con successo.
-          destroy:
-            success: Dibattito cancellato con successo.
           edit:
             title: Modifica dibattito
             update: Aggiornamento del dibattito
@@ -77,8 +70,6 @@ it:
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo dibattito.
             success: Dibattito aggiornato con successo.
-        exports:
-          comments: Commenti
       admin_log:
         debate:
           close: "%{user_name} ha chiuso il dibattito %{resource_name} sullo spazio %{space_name}"
@@ -119,8 +110,6 @@ it:
           state_values:
             closed: Chiuso
             open: Apri
-        form:
-          select_a_category: Si prega di selezionare una categoria
         index:
           new_debate: Nuovo dibattito
         new:
@@ -134,11 +123,9 @@ it:
           recent: Più recenti
           updated: Aggiornato di recente
         show:
-          close_debate: Chiudi dibattito
           debate_closed: Chiuso
           debate_conclusions_are: 'Il dibattito si è concluso il %{date} con queste conclusioni:'
           edit_conclusions: Modifica conclusioni
-          edit_debate: Modifica dibattito
           groups_count: Gruppi
           open: Apri il dibattito
           participants_count: Partecipanti

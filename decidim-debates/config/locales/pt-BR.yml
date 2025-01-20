@@ -2,15 +2,12 @@ pt-BR:
   activemodel:
     attributes:
       debate:
-        category_id: Categoria
         closed_at: Fechado em
         conclusions: Conclusões
-        decidim_category_id: Categoria
         description: Descrição
         end_time: Termina em
         information_updates: Atualizações de informações
         instructions: Instruções para participar
-        scope_id: Escopo
         start_time: Começa em
         title: Título
         user_group_id: Criar debate como
@@ -29,7 +26,6 @@ pt-BR:
       debates:
         actions:
           comment: Comentário
-          create: Criar
           endorse: Endossar
         name: Debates
         settings:
@@ -48,8 +44,6 @@ pt-BR:
     debates:
       actions:
         close: Fechar
-        confirm_destroy: Você tem certeza?
-        destroy: Excluir
         edit: Editar
         new: Novo debate
         title: Ações
@@ -62,8 +56,6 @@ pt-BR:
           create:
             invalid: Houve um problema ao criar o debate.
             success: Debate criado com sucesso.
-          destroy:
-            success: Debate excluído com sucesso.
           edit:
             title: Editar debate
             update: Atualização do debate
@@ -79,8 +71,6 @@ pt-BR:
           update:
             invalid: Ocorreu um problema ao atualizar esse debate.
             success: Debate atualizado com sucesso.
-        exports:
-          comments: Comentários
       admin_log:
         debate:
           close: "%{user_name} fechou o debate %{resource_name} no espaço %{space_name}"
@@ -126,8 +116,6 @@ pt-BR:
             closed: Fechado
             open: Aberto
           user_group: Grupos
-        form:
-          select_a_category: Selecione uma categoria
         index:
           new_debate: Novo debate
         new:
@@ -141,11 +129,9 @@ pt-BR:
           recent: Mais recente
           updated: Atualizado recentemente
         show:
-          close_debate: Fechar debate
           debate_closed: Fechado
           debate_conclusions_are: 'O debate foi encerrado em %{date} com estas conclusões:'
           edit_conclusions: Editar conclusões
-          edit_debate: Editar debate
           groups_count: Grupos
           open: Debate aberto
           participants_count: Participantes

@@ -4,7 +4,6 @@ lt:
       collaborative_draft:
         address: Adresas
         body: Pagrindinė dalis
-        category_id: Kategorija
         decidim_scope_id: Apimtis
         has_address: Turi adresą
         scope_id: Apimtis
@@ -17,7 +16,6 @@ lt:
         answered_at: Atsakyta
         automatic_hashtags: Grotažymės pridėtos automatiškai
         body: Pagrindinė dalis
-        category_id: Kategorija
         decidim_scope_id: Apimtis
         has_address: Turi adresą
         scope_id: Apimtis
@@ -66,8 +64,6 @@ lt:
             base:
               not_official: Nėra oficialūs
     models:
-      decidim/proposals/admin/update_proposal_category_event: Pasiūlymo kategorija pakeista
-      decidim/proposals/admin/update_proposal_scope_event: Pasiūlymo sritis pakeista
       decidim/proposals/creation_enabled_event: Pasiūlymo sukūrimas aktyvintas
       decidim/proposals/endorsing_enabled_event: Parama pasiūlymui aktyvinta
       decidim/proposals/proposal_mentioned_event: Pasiūlymas paminėtas
@@ -94,15 +90,11 @@ lt:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Kategorija
           is_emendation_true:
             label: Tipas
             values:
               'false': Pasiūlymai
               'true': Pataisos
-          scope_id_eq:
-            label: Apimtis
           state_eq:
             label: Būsena
             values:
@@ -127,7 +119,6 @@ lt:
         actions:
           amend: Pakeisti
           comment: Komentuoti
-          create: Sukurti
           endorse: Palaikyti
           vote_comment: Balsuoti už komentarą
           withdraw: Atsiimti
@@ -262,16 +253,6 @@ lt:
           email_subject: '%{participatory_space_title} pridėtas naujas pasiūlymas „%{resource_title}“'
           notification_title: '%{participatory_space_title} pridėtas pasiūlymas <a href="%{resource_path}">%{resource_title}</a>.'
           notification_title_official: Erdvėje %{participatory_space_title} pridėtas oficialus pasiūlymas <a href="%{resource_path}">%{resource_title}</a>.
-        proposal_update_category:
-          email_intro: 'Administratorius atnaujino jūsų pasiūlymo „%{resource_title}“ kategoriją, patikrinkite tai šiame puslapyje:'
-          email_outro: Šį pranešimą gavote dėl to, kad esate pasiūlymo autorius.
-          email_subject: '%{resource_title} pasiūlymo kategorija buvo atnaujinta'
-          notification_title: Administratorius atnaujino <a href="%{resource_path}">%{resource_title}</a> pasiūlymo kategoriją.
-        proposal_update_scope:
-          email_intro: 'Administratorius atnaujino jūsų pasiūlymo „%{resource_title}“ apimtį, patikrinkite tai šiame puslapyje:'
-          email_outro: Šį pranešimą gavote dėl to, kad esate pasiūlymo autorius.
-          email_subject: '%{resource_title} pasiūlymo apimtis buvo atnaujinta'
-          notification_title: Administratorius atnaujino <a href="%{resource_path}">%{resource_title}</a> pasiūlymo apimtį.
         voting_enabled:
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
     gamification:
@@ -425,15 +406,12 @@ lt:
             attachment_legend: "(Neprivaloma) Pridėti priedą"
             created_in_meeting: Šis pasiūlymas iškeltas susirinkime
             delete_attachment: Ištrinti prikabintą failą
-            select_a_category: Pasirinkite kategoriją
             select_a_meeting: Pasirinkite susitikimą
           index:
             actions: Veiksmai
             assign_to_valuator: Priskirti vertintojui
             assign_to_valuator_button: Priskirti
             cancel: Atšaukti
-            change_category: Keisti kategoriją
-            change_scope: Keisti apimtį
             merge: Sulieti į vieną
             merge_button: Sulieti
             publish: Publikuoti
@@ -446,7 +424,6 @@ lt:
             unassign_from_valuator: Panaikinti vertintojui pavestą užduotį
             unassign_from_valuator_button: Atšaukti priskyrimą
             update: Atnaujinti
-            update_scope_button: Atnaujinti apimtį
           new:
             create: Sukurti
             title: Sukurti pasiūlymą
@@ -471,16 +448,6 @@ lt:
             remove_assignment: Pašalinti užduotį
             remove_assignment_confirmation: Ar tikrai norite nušalinti vertintoją nuo šio pasiūlymo?
             valuators: Vertintojai
-          update_category:
-            invalid: 'Šie pasiūlymai jau priskirti kategorijai %{subject_name}: %{proposals}.'
-            select_a_category: Pasirinkite kategoriją.
-            select_a_proposal: Pasirinkite pasiūlymą.
-            success: 'Pasiūlymas atnaujintas ir priskirtas kategorijai %{subject_name}: %{proposals}.'
-          update_scope:
-            invalid: 'Šie pasiūlymai jau turi %{subject_name} apimtį: %{proposals}.'
-            select_a_proposal: Pasirinkite pasiūlymą.
-            select_a_scope: Pasirinkite sritį.
-            success: 'Pasiūlymai sėkmingai atnaujinti į %{subject_name} sritį: %{proposals}.'
         proposals_imports:
           create:
             invalid: Importuojant pasiūlymus iškilo problema.
@@ -556,7 +523,6 @@ lt:
         edit:
           attachment_legend: "(Neprivaloma) Pridėti priedą"
           back: Atgal
-          select_a_category: Pasirinkite kategoriją
           send: Siųsti
           title: Redaguoti bendrąjį juodraštį
         empty: Dar nėra bendrų juodraščių
@@ -564,11 +530,9 @@ lt:
         filters:
           all: Visi
           amendment: Pataisos
-          category: Kategorija
           open: Atidaryta
           published: Paskelbta
           related_to: Susiję su
-          scope: Apimtis
           search: Ieškoti
           state: Būsena
           withdrawn: Atsiimta
@@ -610,7 +574,6 @@ lt:
             error: Nepavyko atmesti kaip bendraautoriaus. Bandykite dar kartą vėliau.
             success: "@%{user} atmestas kaip bendraautorius."
         show:
-          edit: Redaguoti bendrąjį juodraštį
           final_proposal: galutinis pasiūlymas
           final_proposal_help_text: Šis juodraštis baigtas. Patikrinkite galutinį pasiūlymą
           hidden_authors_count:
@@ -651,14 +614,12 @@ lt:
       models:
         proposal:
           fields:
-            category: Kategorija
             comments: Komentarai
             id: ID
             notes: Užrašai
             official_proposal: Oficialus pasiūlymas
             published_answer: Paskelbtas atsakymas
             published_at: Paskelbta
-            scope: Apimtis
             state: Būsena
             title: Pavadinimas
             valuator: Vertintojas
@@ -680,7 +641,6 @@ lt:
           attachment_legend: "(Neprivaloma) Pridėti priedą"
           back: Atgal
           edit_documents: Redaguoti dokumentus
-          select_a_category: Pasirinkite kategoriją
           send: Siųsti
           title: Redaguoti pasiūlymą
         edit_draft:
@@ -691,7 +651,6 @@ lt:
           activity: Mano veikla
           all: Visi
           amendment_type: Tipas
-          category: Kategorija
           my_proposals: Mano pasiūlymai
           origin: Kilmė
           related_to: Susiję su
@@ -744,7 +703,6 @@ lt:
         show:
           answer: Atsakymas
           changes_at_title: '„%{title}“ pakeitimas'
-          edit_proposal: Redaguoti pasiūlymą
           estimated_cost: Numatomos išlaidos
           hidden_endorsers_count:
             one: ir dar %{count} žmogus
@@ -761,7 +719,6 @@ lt:
           proposal_in_evaluation_reason: Šis pasiūlymas šiuo metu vertinamas
           proposal_rejected_reason: 'Šis pasiūlymas buvo atmestas, nes:'
           withdraw_confirmation_html: Ar tikrai norite atsiimti šį pasiūlymą? <br><br><strong>Šio veiksmo atšaukti negalima!</strong>
-          withdraw_proposal: Atsiimti pasiūlymą
         update:
           title: Atnaujinti pasiūlymą
         voting_rules:

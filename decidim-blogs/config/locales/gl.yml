@@ -11,8 +11,6 @@ gl:
     blogs:
       actions:
         author_id: Crear publicación como
-        confirm_destroy: Tes a certeza de querer eliminar esta publicación?
-        destroy: Eliminar
         edit: Editar
         new: Nova publicación
         title: Accións

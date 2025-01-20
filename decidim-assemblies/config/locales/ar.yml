@@ -105,7 +105,6 @@ ar:
       assemblies:
         create:
           error: حدثت مشكلة أثناء إنشاء جمعية جديدة.
-          success: تم إنشاء الجمعية بنجاح.
         edit:
           update: تحديث
         index:
@@ -147,21 +146,6 @@ ar:
           import: استيراد
           select: اختر البيانات التي ترغب في استيرادها
           title: استيراد الجمعية
-      assembly_members:
-        create:
-          error: حدثت مشكلة أثناء إضافة عضو لهذا التجميع.
-          success: تم إنشاء العضو بنجاح لهذا التجميع.
-        destroy:
-          success: تم حذف العضو بنجاح لهذا التجميع.
-        edit:
-          update: تحديث
-        index:
-          assembly_members_title: أعضاء الجمعية
-        new:
-          create: إنشاء
-        update:
-          error: حدثت مشكلة أثناء تحديث العضو لهذا التجميع.
-          success: تم تحديث العضو بنجاح لهذا التجميع.
       assembly_publications:
         create:
           error: حدثت مشكلة في نشر هذا التجميع.
@@ -191,7 +175,6 @@ ar:
         assemblies: الجمعيات
         assemblies_submenu:
           assembly_admins: مدراء الجمعية
-          assembly_members: الأعضاء
           attachment_collections: المجلدات
           attachment_files: الملفات
           attachments: المرفقات
@@ -213,11 +196,6 @@ ar:
             title: العنوان
           name: الجمعية
         assembly_member:
-          fields:
-            ceased_date: تاريخ التوقف
-            designation_date: تاريخ التعيين
-            full_name: الاسم
-            position: موضع
           name: عضو
           positions:
             other: آخر
@@ -286,13 +264,8 @@ ar:
             title: العنوان
         assembly_members:
           form:
-            existing_user: المشارك الحالي
             explanation: 'إرشادات للصورة:'
-            non_user: غير مشارك
             non_user_avatar_help: يجب أن تحصل على موافقة الأشخاص قبل نشرهم كأعضاء.
-            select_a_position: اختر المنصب
-            select_user: اختيار مشارك
-            user_type: نوع المشارك
         content_blocks:
           highlighted_assemblies:
             max_results: أقصى قدر من العناصر لإظهارها
@@ -349,8 +322,6 @@ ar:
         private_space: هذه جمعية خاصة
         social_networks_title: زيارة التجمع على
     assembly_members:
-      assembly_member:
-        designated_on: المعينة على
       index:
         title: الأعضاء
     events:

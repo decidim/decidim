@@ -4,7 +4,6 @@
       collaborative_draft:
         address: Adresse
         body: Body
-        category_id: Kategori
         decidim_scope_id: Tema
         has_address: Har adresse
         scope_id: Tema
@@ -17,7 +16,6 @@
         answered_at: Besvart på
         automatic_hashtags: Hashtagger ble automatisk lagt til
         body: Tekst
-        category_id: Kategori
         decidim_scope_id: Tema
         has_address: Har adresse
         scope_id: Tema
@@ -58,8 +56,6 @@
             base:
               not_official: Er ikke offisiell
     models:
-      decidim/proposals/admin/update_proposal_category_event: Forslags kategorien ble endret
-      decidim/proposals/admin/update_proposal_scope_event: Forslagstema er endret
       decidim/proposals/creation_enabled_event: Opprettelse av forslag aktivert
       decidim/proposals/endorsing_enabled_event: Forslags påtegning aktivert
       decidim/proposals/proposal_mentioned_event: Forslag nevnt
@@ -80,15 +76,11 @@
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Kategori
           is_emendation_true:
             label: Type
             values:
               'false': Forslag
               'true': Endringer
-          scope_id_eq:
-            label: Tema
           state_eq:
             label: Tilstand
             values:
@@ -105,7 +97,6 @@
         actions:
           amend: Endre
           comment: Kommentar
-          create: Opprett
           endorse: Påtegne
           vote_comment: Stem på kommentar
           withdraw: Trekk tilbake
@@ -217,13 +208,6 @@
           email_intro: Forslaget "%{resource_title}" er blitt lagt til "%{participatory_space_title}" som du følger.
           email_outro: Du har mottatt denne varslingen fordi du følger "%{participatory_space_title}". Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: Nytt forslag "%{resource_title}" lagt til %{participatory_space_title}
-        proposal_update_category:
-          email_intro: 'En admin har oppdatert kategorien for forslaget ditt "%{resource_title}", sjekk det ut på denne siden:'
-          email_outro: Du har mottatt denne varslingen fordi du er forfatteren av forslaget.
-          email_subject: Forslags kategorien %{resource_title} ble oppdatert
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> forslags kategorien er blitt oppdatert av en administrator.
-        proposal_update_scope:
-          email_outro: Du har mottatt denne varslingen fordi du er forfatteren av forslaget.
         voting_enabled:
           email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
     gamification:
@@ -344,14 +328,11 @@
             attachment_legend: "(Valgfritt) Legg til et vedlegg"
             created_in_meeting: Dette forslaget kommer fra et møte
             delete_attachment: Slett vedlegg
-            select_a_category: Velg en kategori
             select_a_meeting: Velg et møte
           index:
             actions: Handlinger
             assign_to_valuator_button: Tildel
             cancel: Avbryt
-            change_category: Endre kategori
-            change_scope: Endre tema
             merge: Slå sammen til en ny
             merge_button: Slå sammen
             publish: Publiser
@@ -363,7 +344,6 @@
             title: Forslag
             unassign_from_valuator_button: Fjern tilegning
             update: Oppdater
-            update_scope_button: Oppdater tema
           new:
             create: Opprett
             title: Opprett forslag
@@ -439,17 +419,14 @@
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
           back: Tilbake
-          select_a_category: Velg en kategori
           send: Send
           title: Rediger samarbeids utkastet
         filters:
           all: Alle
           amendment: Endringer
-          category: Kategori
           open: Åpen
           published: Publisert
           related_to: Relatert til
-          scope: Tema
           search: Søk
           state: Status
           withdrawn: Trukket tilbake
@@ -483,7 +460,6 @@
           rejected_request:
             error: Kunne ikke bli avvist som en samarbeidspartner, Prøv igjen senere.
         show:
-          edit: Rediger samarbeids utkastet
           final_proposal: endelig forslag
           final_proposal_help_text: Dette utkastet er ferdig. Sjekk ut det endelige forslaget
           hidden_authors_count:
@@ -513,13 +489,11 @@
       models:
         proposal:
           fields:
-            category: Kategori
             comments: Kommentarer
             id: ID
             notes: Merknader
             official_proposal: Offisielt forslag
             published_at: Publisert på
-            scope: Tema
             state: Status
             title: Tittel
             votes: Stemmer
@@ -532,7 +506,6 @@
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
           back: Tilbake
-          select_a_category: Velg en kategori
           send: Send
           title: Rediger forslaget
         edit_draft:
@@ -543,7 +516,6 @@
           activity: Min aktivitet
           all: Alle
           amendment_type: Type
-          category: Kategori
           my_proposals: Mine forslag
           origin: Opprinnelse
           related_to: Relatert til
@@ -584,7 +556,6 @@
         show:
           answer: Svar
           changes_at_title: Endring til "%{title}"
-          edit_proposal: Rediger forslaget
           estimated_cost: Estimert kostnad
           hidden_endorsers_count:
             one: og %{count} til person
@@ -599,7 +570,6 @@
           proposal_in_evaluation_reason: Dette forslaget blir evaluert
           proposal_rejected_reason: 'Dette forslaget ble avvist fordi:'
           withdraw_confirmation_html: Er du sikker på at du vil trekke tilbake dette forslaget?<br><br><strong>Denne handlingen kan ikke avbrytes!</strong>
-          withdraw_proposal: Trekk tilbake forslag
         update:
           title: Oppdater forslag
         voting_rules:

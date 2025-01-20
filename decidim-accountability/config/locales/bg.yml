@@ -103,8 +103,6 @@ bg:
           create:
             invalid: Възникна проблем при създаването на този резултат.
             success: Резултатът беше създаден успешно.
-          destroy:
-            success: Резултатът беше изтрит успешно.
           edit:
             title: Редактирай резултат
             update: Обнови резултат
@@ -191,12 +189,10 @@ bg:
       models:
         result:
           fields:
-            category: Категория
             created_at: Създаден
             end_date: Крайна дата
             id: ID
             progress: Напредък
-            scope: Обхват
             start_date: Начална дата
             status: Статус
             title: Заглавие
@@ -215,17 +211,11 @@ bg:
           results_count:
             one: 1 резултат
             other: "%{count} резултата"
-        filters:
-          all: Всички
         home:
-          categories_label: Категории
           empty: Все още няма резултати.
           empty_filters: Няма резултати по този критерий.
-          subcategories_label: Подкатегории
         home_header:
           global_status: Общо състояние на изпълнение
-        nav_breadcrumb:
-          global: Общо изпълнение
         no_results: Няма проекти
         search:
           search: Търсене на действия
@@ -237,10 +227,6 @@ bg:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Категория
-          scope_id_eq:
-            label: Обхват
           status_id_eq:
             label: Статус
     components:

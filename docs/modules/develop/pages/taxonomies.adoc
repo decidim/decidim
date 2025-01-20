@@ -2,7 +2,21 @@
 
 The concept of being "taxonomizable" in Decidim refers to the ability of various entities (such as proposals, participatory processes, assemblies, etc.) to be categorized and organized using taxonomies. This allows for better organization, filtering, and searching of these entities within the platform.
 
-Taxonomies replaces the old concepts of "Scopes", "Areas" and "Categories" in Decidim. They are a more flexible although require admins to define the taxonomies and assign them to the entities.
+Taxonomies replaces the old concepts of "Participatory process types", "Assemblies types", "Scopes", "Areas" and "Categories" in Decidim. They are a more flexible although require admins to define the taxonomies and assign them to the entities.
+
+== Architecture of the taxonomies
+
+Taxonomies in Decidim are organized in a tree structure (with a maximum of three levels).
+
+In order to assign a taxonomy to a resource, first some filters must be defined in the admin for each participatory space. These filters are associated with a root taxonomy and will have a list of child filter items, each of them associated with a child taxonomy. These items will indicate which taxonomies are available to filter the entities in that particular participatory space or component. Note that this filters does not prevent any resource to be assigned to any taxonomy, they are just used to filter which taxonomies are available to admins or users to assign or search.
+
+image::taxonomies.png[Architecture of the taxonomies]
+
+1. **Taxonomies table**: Can have a parent or not. Taxonomies without a parent are "root taxonomies", they cannot be linked to any resource directly.
+
+2. **Taxonomy filters**: Filters are defined for each participatory space type (meaning they are valid for all of spaces of the same type). They are linked to a root category, with no limit of filters allowed to be linked to a single root taxonomy. Each filter, has many "filter items".
+
+3. **Taxonomy filter item**: This is used to allow filtering the final taxonomies that are shown in the web frontend. This way, certain component can show some parts of taxonomies and another other, while all of them are linked to the same taxonomy tables.
 
 == Types of taxonomies
 
@@ -20,7 +34,8 @@ The `Taxonomizable` concern in Decidim is a module that provides functionality t
 
 Here is an example of how the `Taxonomizable` concern might be used in a model:
 
-```ruby
+[source,ruby]
+....
 # frozen_string_literal: true
 
 module Decidim
@@ -30,16 +45,432 @@ module Decidim
     # Other model code...
   end
 end
-```
+....
 
 In this example, the `ParticipatoryProcess` model includes the `Decidim::Taxonomizable` concern, which allows it to be categorized using taxonomies that can be found as associations like:
 
-```ruby
+[source,ruby]
+....
 participatory_process.taxonomies
-```
+....
 
 == Taxonomy filters
 
 Taxonomies can be used to filter entities in the frontend. The `Decidim::TaxonomyFilter` class is used to define the filters in each participatory space that will apply in the frontend.
 
 Each filter is associated with a root taxonomy and it will have a list of child filter items, each of them associated with a child taxonomy. These items will indicate which taxonomies are available to filter the entities in that particular participatory space or component.
+
+
+== ActiveRecord implementation
+
+**Root taxonomies** and taxonomy items are in the same table. A "root taxonomy" is simply the first level (no parents). A resource can be associated to a taxonomy through the "taxonomizations" table. Validations are in place to prevent associate a resource to a root taxonomy. Currently, there are no validations to prevent destroy a taxonomy if it has taxonomizations (this might change in the future, but this is by design at this point).
+
+[source,ruby]
+....
+module Decidim
+  class Taxonomy < ApplicationRecord
+    before_validation :update_part_of, on: :update
+    after_create_commit :create_part_of
+    belongs_to :organization, inverse_of: :taxonomies
+    belongs_to :parent, inverse_of: :children, optional: true
+    has_many :children, inverse_of: :parent, dependent: :destroy
+    has_many :taxonomizations, dependent: :destroy
+    has_many :taxonomy_filters, dependent: :destroy
+    has_many :taxonomy_filter_items, dependent: :destroy
+
+    validates :name, presence: true
+    validate :validate_max_children_levels
+    validate :forbid_cycles
+...
+....
+
+**Taxonomy filters** are associated to a root taxonomy and have many taxonomy_filter_items, which in turn are associated to a specific taxonomy. The final tree of taxonomies is built in the frontend using the specified items only.
+
+[source,ruby]
+....
+module Decidim
+  class TaxonomyFilter < ApplicationRecord
+    belongs_to :root_taxonomy, inverse_of: :taxonomy_filters
+    has_many :filter_items, inverse_of: :taxonomy_filter, dependent: :destroy
+
+    validate :root_taxonomy_is_root
+    validate :space_manifest_is_registered
+
+    delegate :name, to: :root_taxonomy
+...
+....
+
+[source,ruby]
+....
+module Decidim
+  class TaxonomyFilterItem < ApplicationRecord
+    belongs_to :taxonomy_filter, inverse_of: :filter_items
+    belongs_to :taxonomy_item, inverse_of: :taxonomy_filter_items
+
+    validate :taxonomy_item_is_not_root
+    validate :taxonomy_item_is_child_of_taxonomy_filter_root
+...
+....
+
+Note that filters use the same name as the parent taxonomy by default, but it is possible either to assign a public (presented in the frontend for final users) and an internal name (for admins reference) to the filter.
+
+== Reusable parts
+
+=== The taxonomy_filters Settings type
+
+See `decidim-admin/app/helpers/decidim/admin/settings_helper.rb` and `decidim-core/lib/decidim/settings_manifest.rb`.
+
+It is a new type of form field for components to allow specify the ids of the taxonomy filters that going to be used in that component. Uses a lateral drawer modal to choose from the available ones. To use it, it is enough to add the attribute `taxonomy_filters` in the components definition:
+
+[source,ruby]
+....
+# decidim-debates/lib/decidim/debates/component.rb
+Decidim.register_component(:debates) do |component|
+  component.engine = Decidim::Debates::Engine
+ ...
+component.settings(:global) do |settings|
+  settings.attribute :taxonomy_filters, type: :taxonomy_filters
+...
+....
+
+=== The concern HasTaxonomySettings
+
+See `decidim-core/lib/decidim/has_taxonomy_settings.rb`.
+
+Provides methods to extract available taxonomies and filters according to the components settings' configuration. These are intended to be used in places where the user has to assign taxonomies to a resource. It is included in the `Component` model.
+
+=== The concern HasTaxonomyFormAttributes
+
+See `decidim-admin/app/forms/concerns/decidim/has_taxonomy_form_attributes.rb`
+
+Provides with attribute definitions for adding multiple taxonomies in a `Decidim::Form` object. It only requires for the implementing class to return the manifest of the participatory space (which is used to obtain the list of filters available). Used in every resource form that needs to include taxonomies (ie: `AssemblyForm`, `ProposalForm`, etc...).
+
+A related file is `decidim-core/app/helpers/decidim/taxonomies_helper.rb` which defines the method `taxonomy_items_options_for_filter` that is used in the form views as:
+
+[source,erb]
+----
+  <% if @form.taxonomy_filters&.any? %>
+    <% @form.taxonomy_filters.each do |filter| %>
+      <div class="row column">
+        <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
+      </div>
+    <% end %>
+  <% end %>
+----
+
+=== The concern Filterable
+
+See `decidim-admin/app/controllers/concerns/decidim/admin/filterable.rb`
+
+Provides methods to obtain taxonomies and defines ransack attributes for searching resources using taxonomies. Added in every controller that need to search by taxonomy (public or admin side).
+For instance, to show the taxonomies in the sidebar of the public frontend usually you just need it to add to the filter_sections method like we do in the FilterAssembliesHelper (`decidim-assemblies/app/helpers/decidim/assemblies/filter_assemblies_helper.rb`):
+
+[source,ruby]
+....
+  def filter_sections
+    items = [
+      { method: :with_any_type, collection: filter_types_values, label: t("decidim.assemblies.assemblies.filters.type"), id: "type" }
+    ]
+
+    available_taxonomy_filters.find_each do |taxonomy_filter|
+      items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+                    collection: filter_taxonomy_values_for(taxonomy_filter),
+                    label: decidim_sanitize_translated(taxonomy_filter.name),
+                    id: "taxonomy")
+    end
+
+    items.reject { |item| item[:collection].blank? }
+  end
+
+  # in case of a resource this is just `current_component.available_taxonomy_filters` provided by `HasTaxonomySettings`
+  def available_taxonomy_filters
+    Decidim::TaxonomyFilter.for(:assemblies)
+  end
+....
+
+== Importing taxonomies from old models (categories, scopes, etc)
+
+In order to import the old taxonomies to the new system, a rake task is provided. This rake task will create the new taxonomies and assign the old resources to them. It also creates the filters and its associated filter items in each type of participatory space to match as close as possible the old system.
+
+The importing script works in two stages:
+
+=== Create the plan of the import
+
+This step will create a JSON file with the plan of the import. This file will contain the old taxonomies (for reference only) and the new taxonomies that will be created along with all the associated resources for each of them. It will also contain the filters and filter items that will be created for each type of participatory space.
+
+This file is created in the `tmp` directory of the running Decidim instance. One file per organization is created inside a subfolder called "taxonomies".
+
+Example. If you have an organization with a host called "example.com", the file will be created in `tmp/taxonomies/example.com_plan.json`.
+
+To create the plan, run the following command:
+
+[source,bash]
+----
+bin/rails decidim:taxonomies:make_plan
+----
+
+This command will output the path of the file(s) created. Then you can inspect the file to see if everything is correct or even modify it if needed (see the last section of this document for a description of the file format).
+
+=== Execute the import
+
+This step will execute the plan created in the previous step. It will create the new taxonomies and assign the resources to them. It will also create the filters and filter items for each type of participatory space.
+
+You can run the import for a specific organization by passing plan file as an argument. For instance, to import the taxonomies for the organization with the host "example.com", run the following command:
+
+[source,bash]
+----
+bin/rails decidim:taxonomies:import_plan[tmp/taxonomies/example.com_plan.json]
+----
+
+If you want to import the taxonomies for all organizations at once, you can run the following command:
+
+[source,bash]
+----
+bin/rails decidim:taxonomies:import_all_plans
+----
+
+This command will look for all the plan files in the `tmp/taxonomies` directory
+
+==== Updating metrics
+
+Internal metrics can be assigned to a category. However as this table can be very large, it is not included in the import process.
+To update the metrics, you can use the `decidim:taxonomies:update_metrics[tmp/taxonomies/example.com_result.json]` rake task. This task will convert the old categorization metrics to the new taxonomy metrics.
+
+You can also update all the metrics for all organizations at once by running the following command:
+
+[source,bash]
+----
+bin/rails decidim:taxonomies:update_all_metrics
+----
+
+This command will look for all the result files in the `tmp/taxonomies` directory.
+
+[NOTE]
+----
+**IMPORTANT NOTES**
+
+1. The import script will create each root taxonomy prefixed with the symbol `~`. Just to make sure that the new taxonomies are merged with any existing ones.
+2. The import script is idempotent, meaning that you can run it multiple times without any side effects. If a taxonomy already exists, it will not be created again.
+3. If you are not happy with the results of the import, rolling back is as simple as removing the root taxonomies created by the import script from the admin interface, everything related will be removed automatically.
+4. The process of importing the taxonomies is complex and can take a long time depending on the number of resources to be assigned. It is also provided in good faith and without any warranty. It is recommended to test it in a staging environment with a copy of the production database before running it in production.
+5. You can specify which models to import by setting the `IMPORTS` environment variable. For instance, to import only the participatory process types and assemblies types, you can run the following command: `IMPORTS="ParticipatoryProcessTypes AssembliesTypes" bin/rails decidim:taxonomies:import_all_plans` (valid models are `ParticipatoryProcessTypes`, `AssembliesTypes`, `Categories`, `Scopes`, `Areas`).
+----
+
+=== Other utilities
+
+Another rake task is provided to reset the counters for the tables related to taxonomies. It might be handy if you suspect that some of the counters are not correct (for instance, if you have deleted some taxonomies manually).
+
+To reset the counters, run the following command:
+
+[source,bash]
+----
+bin/rails decidim:taxonomies:reset_counters
+----
+
+=== Imported equivalences
+
+The following table shows the equivalences between the old taxonomies and the new ones:
+
+[cols="1,1,1"]
+|===
+| Old categorization model | Root taxonomy created | Filters created
+
+| Categories
+| **"~ Categories"**
+For each participatory space with defined categories, a child taxonomy will be created with the name of the participatory space.
+| A filter for use in components in each participatory space with defined categories. Each filter will be named after the participatory space name and will be associated with the root taxonomy "~ Categories" with the items corresponding to the child taxonomy created for that space.
+
+| Scopes
+| **"~ Scopes"**
+Simply all existing scopes will be recreated as child taxonomies. However, as scopes can have more than three levels, the import script will only create the first three levels. The deeper levels will be replaced in the third level and renamed with all the names of the parents.
+| A unique filter for use in components or spaces in each type of participatory space will be created. This filter will be associated with the root taxonomy "~ Scopes" and will have all the scopes as items.
+
+| Areas
+| **"~ Areas"**
+Will behave exactly as scopes but for areas. However, it will not be more than three levels deep in this case as areas are not expected to be that deep.
+| A unique filter for use in components or spaces in each type of participatory space will be created. This filter will be associated with the root taxonomy "~ Areas" and will have all the areas as items.
+
+| Participatory process types
+| **"~ Participatory process types"**
+All the participatory process types will be recreated as child taxonomies. Each participatory process will be assigned to the corresponding taxonomy.
+| A unique filter for use in participatory processes will be created. This filter will be associated with the root taxonomy "~ Participatory process types" and will have all the participatory process types as items.
+
+| Assemblies types
+| **"~ Assemblies types"**
+Same as participatory process types but for assemblies.
+| A unique filter for use in assemblies will be created. This filter will be associated with the root taxonomy "~ Assemblies types" and will have all the assemblies types as items.
+
+|===
+
+
+=== Plan file format
+
+The plan file is a JSON file with three main items in its structure:
+
+[source,json]
+----
+{
+  "organization": {
+    ...
+  },
+  "existing_taxonomies": {
+    ...
+  },
+  "imported_taxonomies": {
+    ...
+  }
+}
+----
+
+==== organization
+
+This item contains the information about the organization for which the plan was created. It contains the following fields:
+
+- `id`: The ID of the organization.
+- `name`: The name of the organization.
+- `host`: The host of the organization.
+- `locale`: The default locale of the organization.
+
+[source,json]
+----
+"organization": {
+  "id": 1,
+  "name": "Example Organization",
+  "host": "example.com",
+  "locale": "en"
+}
+----
+
+The most important field is the `locale` field, as it will be used to translate the names of the taxonomies and filters and to make comparisons with the existing taxonomies.
+
+==== existing_taxonomies
+
+This item contains the information about the existing taxonomies in the system. It is for reference only and will not be used in the import process. It will contain the tree structure of the existing taxonomies in the system formatted as a JSON object using only the locale of the organization.
+
+[source,json]
+----
+"existing_taxonomies": {
+  "Scopes": {
+    "Scope 1": {
+      "Scope 1.1": {},
+      "Scope 1.2": {}
+    },
+    "Scope 2": {}
+  },
+  "Another taxonomization": {
+    "Another item": {}
+  }
+  ...
+}
+----
+
+==== imported_taxonomies
+
+This item contains the information about the new taxonomies that will be created in the system. It will contain the tree structure of the new taxonomies in the system formatted as a JSON object using only the locale of the organization as keys (but all languages in the values if they can be imported from the old models). It also contains the associated resources for each taxonomy, the filters and filter items for each type of participatory space type.
+
+[source,json]
+----
+  "imported_taxonomies": {
+    "decidim_participatory_process_types": {
+      ...
+    },
+    "decidim_assemblies_types": {
+      ...
+    },
+    "decidim_categories": {
+      ...
+    },
+    "decidim_scopes": {
+      ...
+    },
+    "decidim_areas": {
+      ...
+    }
+  }
+----
+
+Each section will contain the following structure:
+
+[source,json]
+----
+"section": {
+  "Root taxonomy name": {
+    "taxonomies": {
+      ...
+    },
+    "filters": {
+      ...
+    }
+  }
+}
+----
+
+===== `taxonomies`
+
+A JSON object with the tree structure of the taxonomies to be created. The keys are the names of the taxonomies (using the default locale for the organization) and the values are JSON objects with the properties along with the possible children taxonomies. The properties are:
+
+- `name`: A JSON object with the translations of the name of the taxonomy
+- `children`: A JSON object with the children taxonomies (repeating the same structure). If empty it must be an empty object.
+- `resources`: A JSON object with the resources that will be assigned to the taxonomy. The keys are the GIDs of the resources and the values are the descriptions of the resources. The values are not used in the import process but are useful for reference (depending on the resource, it can be the name or the title).
+
+===== `filters`
+
+An array of JSON objects with the filters to be created. Each object will contain the following properties:
+
+- `name`: The name of the filter (using the default locale for the organization). Admins can translated it later.
+- `internal_name`: The internal name of the filter (optional).
+- `space_filter`: A boolean indicating if the filter is a space filter or not (space filters can be used in the participatory space settings).
+- `space_manifest`: The manifest of the participatory space type to which the filter will be associated.
+- `items`: An array with the names of the taxonomies that will be associated with the filter. As taxonomies can have multiple levels, each name is an array with the names of the taxonomies in the path to the taxonomy. For instance, if the taxonomy is "Scope 1.1" and it is a child of "Scope 1", the name will be `["Scope 1", "Scope 1.1"]`.
+- `components`: An array of GIDs of the components that will use the filter (see the component setting `taxonomy_filters`).
+
+For instance, the `decidim_participatory_process_types` section could look like this:
+
+[source,json]
+----
+"decidim_participatory_process_types": {
+  "~ Participatory process types": {
+    "taxonomies": {
+      "omnis": {
+        "name": {
+          "ca": "explicabo",
+          "en": "omnis",
+          "machine_translations": {
+            "es": "quia"
+          }
+        },
+        "children": {},
+        "resources": {
+          "gid://decidim-development-app/Decidim::ParticipatoryProcess/2": "Architecto vitae dolor minima iure."
+        }
+      },
+      "debitis": {
+        "name": {
+          "ca": "qui",
+          "en": "debitis",
+          "machine_translations": {
+            "es": "et"
+          }
+        },
+        "children": {
+        },
+        "resources": {
+          "gid://decidim-development-app/Decidim::ParticipatoryProcess/1": "Process with no scopes"
+        }
+      }
+    },
+    "filters": [
+      {
+        "name": "~ Participatory process types",
+        "space_filter": true,
+        "space_manifest": "participatory_processes",
+        "items": [
+          ["omnis"],
+          ["debitis"]
+        ],
+        "components": []
+      }
+    ]
+  }
+}
+----

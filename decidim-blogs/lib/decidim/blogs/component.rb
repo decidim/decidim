@@ -39,6 +39,32 @@ Decidim.register_component(:blogs) do |component|
     resource.searchable = true
   end
 
+  component.exports :posts do |exports|
+    exports.collection do |component_instance|
+      Decidim::Blogs::Post
+        .not_hidden
+        .published
+        .where(component: component_instance)
+        .includes(component: { participatory_space: :organization })
+    end
+
+    exports.include_in_open_data = true
+
+    exports.serializer Decidim::Blogs::PostSerializer
+  end
+
+  component.exports :post_comments do |exports|
+    exports.collection do |component_instance|
+      Decidim::Comments::Export.comments_for_resource(
+        Decidim::Blogs::Post, component_instance
+      ).includes(:author, :user_group, root_commentable: { component: { participatory_space: :organization } })
+    end
+
+    exports.include_in_open_data = true
+
+    exports.serializer Decidim::Comments::CommentSerializer
+  end
+
   component.seeds do |participatory_space|
     require "decidim/blogs/seeds"
 

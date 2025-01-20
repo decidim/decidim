@@ -7,7 +7,7 @@ module Decidim
       include Decidim::NewslettersHelper
       include Decidim::Admin::NewslettersHelper
       include Paginable
-      helper_method :newsletter, :recipients_count_query, :content_block
+      helper_method :newsletter, :recipients_count_query, :content_block, :selected_options, :newsletter_params
 
       def index
         enforce_permission_to :index, :newsletter
@@ -103,20 +103,22 @@ module Decidim
 
       def select_recipients_to_deliver
         enforce_permission_to(:update, :newsletter, newsletter:)
-        @form = form(SelectiveNewsletterForm).from_model(newsletter)
-        @form.send_to_all_users = current_user.admin?
+
+        @form = if newsletter_params.present?
+                  form(SelectiveNewsletterForm).from_params(newsletter_params)
+                else
+                  form(SelectiveNewsletterForm).from_model(newsletter)
+                end
       end
 
       def recipients_count
-        data = params.permit(newsletter: {}).to_h[:newsletter]
-
-        @form = form(SelectiveNewsletterForm).from_params(data)
+        @form = form(SelectiveNewsletterForm).from_params(newsletter_params)
         render plain: recipients_count_query
       end
 
       def deliver
         enforce_permission_to(:update, :newsletter, newsletter:)
-        @form = form(SelectiveNewsletterForm).from_params(params)
+        @form = form(SelectiveNewsletterForm).from_params(newsletter_params)
 
         DeliverNewsletter.call(newsletter, @form) do
           on(:ok) do
@@ -136,7 +138,48 @@ module Decidim
         end
       end
 
+      def confirm_recipients
+        enforce_permission_to(:update, :newsletter, newsletter:)
+        @form = form(SelectiveNewsletterForm).from_params(newsletter_params)
+        @recipients = NewsletterRecipients.for(@form).order(:email)
+        @recipients = paginate(@recipients)
+
+        render :confirm_recipients
+      end
+
       private
+
+      def newsletter_params
+        params.fetch(:newsletter, {}).permit(
+          :send_to_all_users,
+          :send_to_verified_users,
+          :send_to_followers,
+          :send_to_participants,
+          :send_to_private_members,
+          verification_types: [],
+          participatory_space_types: {
+            assemblies: [:manifest_name, { ids: [] }],
+            conferences: [:manifest_name, { ids: [] }],
+            initiatives: [:manifest_name, { ids: [] }],
+            participatory_processes: [:manifest_name, { ids: [] }]
+          }
+        )
+      end
+
+      def selected_options(key)
+        @selected_options ||= {}
+        @selected_options[key] ||= extract_selected_ids(params[:newsletter], key)
+      end
+
+      def extract_selected_ids(newsletter_params, key)
+        return {} unless newsletter_params.present? && newsletter_params[key].present?
+
+        if newsletter_params[key].is_a?(Array)
+          { key => newsletter_params[key].map(&:to_s) }
+        else
+          (newsletter_params[key] || {}).transform_values { |space| space["ids"] || [] }
+        end
+      end
 
       def collection
         @collection ||= Newsletter.where(organization: current_organization)

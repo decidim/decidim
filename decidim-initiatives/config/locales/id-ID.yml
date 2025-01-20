@@ -281,7 +281,6 @@ id:
           other: " tanda tangan"
         vote_cabin:
           already_voted: Sudah ditandatangani
-          verification_required: Verifikasi akun Anda untuk menandatangani inisiatif
           vote: Tanda
           votes_blocked: Penandatanganan dinonaktifkan
         votes_count:

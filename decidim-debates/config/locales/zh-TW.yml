@@ -2,15 +2,12 @@ zh-TW:
   activemodel:
     attributes:
       debate:
-        category_id: 類別
         closed_at: 關閉於
         conclusions: 結論
-        decidim_category_id: 類別
         description: 說明
         end_time: 結束於
         information_updates: 資訊更新
         instructions: 參加指南
-        scope_id: 範圍
         start_time: 開始於
         title: 標題
         user_group_id: 建立辯論為
@@ -28,7 +25,6 @@ zh-TW:
       debates:
         actions:
           comment: 留言
-          create: 建立
           endorse: 連署
         name: 辯論
         settings:
@@ -47,8 +43,6 @@ zh-TW:
     debates:
       actions:
         close: 關閉
-        confirm_destroy: 您確定嗎？
-        destroy: 刪除
         edit: 編輯
         title: 操作
       admin:
@@ -60,8 +54,6 @@ zh-TW:
           create:
             invalid: 建立辯論時出現問題。
             success: 辯論建立成功。
-          destroy:
-            success: 辯論已成功刪除。
           edit:
             title: 編輯辯論
             update: 更新辯論
@@ -77,8 +69,6 @@ zh-TW:
           update:
             invalid: 更新此辯論時發生問題。
             success: 辯論已成功更新
-        exports:
-          comments: 評論
       admin_log:
         debate:
           close: "%{user_name} 在 %{space_name} 空間關閉了 %{resource_name} 辯論。"
@@ -118,8 +108,6 @@ zh-TW:
           state_values:
             closed: 關閉
             open: 開啟
-        form:
-          select_a_category: 請選擇一個類別
         index:
           new_debate: 新辯論
         new:
@@ -133,11 +121,9 @@ zh-TW:
           recent: 最近
           updated: 最近更新
         show:
-          close_debate: 關閉辯論
           debate_closed: 關閉
           debate_conclusions_are: '此辯論已於 %{date} 結束，以下是總結結論：'
           edit_conclusions: 修改結論
-          edit_debate: 編輯辯論
           groups_count: 群組
           open: 開放性辯論
           participants_count: 參與者

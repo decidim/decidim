@@ -91,6 +91,7 @@ fi:
       actions:
         activate: Aktivoi
         configure: Asetukset
+        confirm_delete_process: Haluatko varmasti poistaa tämän prosessin? Mikäli muutat mieltäsi, voit palauttaa prosessin myöhemmin.
         confirm_destroy: Vahvista poistaminen
         destroy: Poista
         duplicate: Kopioi
@@ -108,6 +109,7 @@ fi:
         resend_invitation: Lähetä kutsu uudestaan
         see_process: Näytä prosessi
         unpublish: Lopeta julkaisu
+        view_deleted_processes: Näytä poistetut prosessit
       filters:
         decidim_participatory_process_group_id_eq:
           label: Prosessiryhmä
@@ -127,7 +129,6 @@ fi:
           info: Tietoa tästä prosessista
           landing_page: Laskeutumissivu
           moderations: Moderoinnit
-          private_users: Yksityiset käyttäjät
           process_admins: Prosessin hallintakäyttäjät
           steps: Vaiheet
       models:
@@ -278,6 +279,8 @@ fi:
           public: Julkinen
           published: Julkaistu
           unpublished: Julkaisematon
+        manage_trash:
+          title: Poistetut osallistumisprosessit
         new:
           create: Luo
           title: Uusi osallistumisprosessi
@@ -296,6 +299,9 @@ fi:
         participatory_process_groups: Osallistumisprosessiryhmät
         participatory_process_types: Osallistumisprosessien tyypit
         participatory_processes: Osallistumisprosessit
+        participatory_processes_deleted: Poistetut osallistumisprosessit
+      tooltips:
+        deleted_processes_info: Prosessi voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
       users:
         resend_invitation:
           error: Kutsun uudestaanlähetys epäonnistui.
@@ -307,6 +313,8 @@ fi:
         export: "%{user_name} vei osallistumisprosessin %{resource_name}"
         import: "%{user_name} toi osallistumisprosessin %{resource_name}"
         publish: "%{user_name} julkaisi osallistumisprosessin %{resource_name}"
+        restore: "%{user_name} palautti osallistumisprosessin %{resource_name}"
+        soft_delete: "%{user_name} siirsi osallistumisprosessin %{resource_name} roskakoriin"
         unpublish: "%{user_name} muutti osallistumisprosessin %{resource_name} julkaisemattomaksi"
         update: "%{user_name} päivitti osallistumisprosessin %{resource_name}"
       participatory_process_group:
@@ -325,6 +333,9 @@ fi:
         create: "%{user_name} kutsui käyttäjän %{resource_name} osallistumisprosessiin %{space_name}"
         delete: "%{user_name} poisti käyttäjän %{resource_name} osallistumisprosessista %{space_name}"
         update: "%{user_name} muutti käyttäjän %{resource_name} roolia osallistumisprosessissa %{space_name}"
+    download_your_data:
+      show:
+        participatory_processes: Osallistumisprosessien vienti
     events:
       participatory_process:
         role_assigned:
@@ -359,6 +370,38 @@ fi:
         description: Osallistumisprosessien määrä tässä organisaatiossa
         object: osallistumisprosessit
         title: Osallistumisprosessit
+    open_data:
+      help:
+        participatory_processes:
+          announcement: Ilmoituksen sisältö
+          area: Alue, jota prosessi koskee
+          created_at: Tilan luontiaika
+          description: Prosessin pitkä kuvaus
+          developer_group: Prosessin kehittäjäryhmä, joka edistää tämän prosessin toteutumista.
+          end_date: Prosessin päättymispäivä
+          follows_count: Tilaa seuraavien käyttäjien määrä
+          hashtag: Prosessia vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
+          id: Prosessin yksilöllinen tunniste
+          local_area: Prosessin paikallisalue, eli millä alueella prosessi tapahtuu.
+          meta_scope: Prosessin teeman metatiedot
+          participatory_process_group: Prosessin ryhmä, mikäli sellainen on määritetty
+          participatory_process_type: Prosessin tyyppi
+          participatory_scope: Prosessin osallistumisen laajuus
+          participatory_structure: Prosessin osallistumisrakenne. Määrittää, miten prosessin lopputulokset määrätään.
+          promoted: Onko prosessi korostettu vai ei
+          published_at: Tilan julkaisuaika
+          reference: Tilan yksilöllinen viite
+          remote_hero_image_url: Prosessin hero-kuvan URL-osoite
+          scope: Prosessin teema
+          scopes_enabled: Ovatko teemat otettu käyttöön vai eivät
+          short_description: Prosessin lyhyt kuvaus
+          slug: Prosessin URL-tunniste (URL-osoitteen osa, joka erottaa prosessin muista prosesseista)
+          start_date: Prosessin alkamispäivä
+          subtitle: Prosessin alaotsikko
+          target: Prosessin tavoite. Määrittää esimerkiksi, keitä prosessiin osallistuu.
+          title: Prosessin otsikko
+          updated_at: Tilan viimeisen päivityksen aika
+          url: Tilan URL-osoite
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -422,10 +465,12 @@ fi:
         participatory_processes:
           form:
             announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             duration: Kesto
             filters: Suodattimet
             images: Kuvat
             metadata: Metatiedot
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             other: Muut
             related_processes: Liittyvät prosessit
             scope_type_max_depth_help: Rajaa teemasuodattimen syvyyttä; suodatin näyttää yleisestä teemasta valittuun teematyyppiin saakka.
