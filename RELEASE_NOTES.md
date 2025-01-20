@@ -193,7 +193,7 @@ We have changed the icons for the social logins so they align better with the so
 
 If on the other hand you have set up this social logins, you can change it by replacing your `config/secrets.yml`:
 
-Where it says:
+As an example, where it says:
 
 ```yaml
       icon: google-fill
