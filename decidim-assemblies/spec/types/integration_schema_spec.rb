@@ -10,7 +10,7 @@ describe "Decidim::Api::QueryType" do
   let(:locale) { "en" }
 
   let!(:taxonomy) { create(:taxonomy, :with_parent, organization: current_organization) }
-  let!(:assembly) { create(:assembly, :with_type, organization: current_organization, taxonomies: [taxonomy]) }
+  let!(:assembly) { create(:assembly, organization: current_organization, taxonomies: [taxonomy]) }
 
   let(:assembly_data) do
     {
