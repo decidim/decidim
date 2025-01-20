@@ -1661,12 +1661,22 @@ en:
     participants_account_mailer:
       inactivity_notification:
         hello: "Dear %{username},"
-        body: "Your %{organization_name} account has been inactive for %{days} days and is scheduled for deletion soon unless you take action."
-        greetings: "Kind regards,\n%{organization_name}"
+        body: |
+          Our records indicate you created a %{organization_name} account on %{date_account_creation} and have not been active since %{date_last_connection}.
+          To protect your privacy, this account has been scheduled for automatic deletion in %{days} days.
+          If you wish to keep your %{organization_name} account, simply log in before this time, and your account will be preserved.
+        greetings: |
+          Kind regards,
+          %{organization_name}
+        never_logged_in: never logged in
+        subject: "Inactive account warning"
       removal_notification:
         hello: "Dear %{username},"
         body: "Your %{organization_name} account has been deleted due to inactivity."
-        greetings: "Kind regards,\n%{organization_name}"
+        greetings: |
+          Kind regards,
+          %{organization_name}
+        subject: "Inactive account deleted"
     passwords:
       update:
         error: There was a problem updating the password.
