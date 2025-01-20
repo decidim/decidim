@@ -6,13 +6,14 @@ module Decidim
     class PostForm < Decidim::Form
       include TranslatableAttributes
 
-      attribute :title, String
-      attribute :body, String
+      translatable_attribute :title, String
+      translatable_attribute :body, Decidim::Attributes::RichText
 
       attribute :decidim_author_id, Integer
 
-      validates :title, presence: true
-      validates :body, presence: true
+      validates :body, translatable_presence: true
+      validates :title, translatable_presence: true
+
       validate :can_set_author
 
       def map_model(model)
