@@ -178,8 +178,6 @@ en:
             comments_blocked: Comments blocked
             creation_enabled_for_participants: Meeting creation by participants enabled
             creation_enabled_for_user_groups: Meeting creation by user groups enabled
-      pagination:
-        page_title: "%{component_name} - Page %{current_page} of %{total_pages}"
     download_your_data:
       help:
         invites:

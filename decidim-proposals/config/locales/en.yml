@@ -156,8 +156,6 @@ en:
       geocoding:
         not_configured: Geocoding is not configured!
     components:
-      pagination:
-        page_title: "%{component_name} - Page %{current_page} of %{total_pages}"
       proposals:
         actions:
           amend: Amend
