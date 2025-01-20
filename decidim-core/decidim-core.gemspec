@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   end
 
   # Lock Temporarily as it is failing in 0.29 branch. More info: https://github.com/rails/rails/pull/54264
-  s.add_dependency "concurrent-ruby", "= 1.3.4"
+  s.add_dependency "concurrent-ruby", "= 1.2.2"
 
   s.add_dependency "active_link_to", "~> 1.0"
   s.add_dependency "acts_as_list", "~> 1.0"
