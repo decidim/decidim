@@ -29,7 +29,7 @@ module Decidim
           def accessible_proposals_collection
             return collection if current_participatory_space.user_roles(:evaluator).where(user: current_user).empty?
 
-            collection.with_valuation_assigned_to(current_user, current_participatory_space)
+            collection.with_evaluation_assigned_to(current_user, current_participatory_space)
           end
 
           def search_field_predicate

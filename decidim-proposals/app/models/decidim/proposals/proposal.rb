@@ -121,11 +121,11 @@ module Decidim
         includes(:votes).where(decidim_proposals_proposal_votes: { decidim_author_id: user })
       }
 
-      scope :sort_by_valuation_assignments_count_asc, lambda {
+      scope :sort_by_evaluation_assignments_count_asc, lambda {
         order(valuation_assignments_count: :asc)
       }
 
-      scope :sort_by_valuation_assignments_count_desc, lambda {
+      scope :sort_by_evaluation_assignments_count_desc, lambda {
         order(valuation_assignments_count: :desc)
       }
 
@@ -158,11 +158,11 @@ module Decidim
         scoped_query
       }
 
-      def self.with_valuation_assigned_to(user, space)
+      def self.with_evaluation_assigned_to(user, space)
         evaluator_roles = space.user_roles(:evaluator).where(user:)
 
         includes(:evaluation_assignments)
-          .where(decidim_proposals_valuation_assignments: { evaluator_role_id: evaluator_roles })
+          .where(decidim_proposals_evaluation_assignments: { evaluator_role_id: evaluator_roles })
       end
 
       acts_as_list scope: :decidim_component_id
@@ -395,9 +395,9 @@ module Decidim
       def self.evaluator_role_ids_has(value)
         query = <<-SQL.squish
         :value = any(
-          (SELECT decidim_proposals_valuation_assignments.evaluator_role_id
-          FROM decidim_proposals_valuation_assignments
-          WHERE decidim_proposals_valuation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
+          (SELECT decidim_proposals_evaluation_assignments.evaluator_role_id
+          FROM decidim_proposals_evaluation_assignments
+          WHERE decidim_proposals_evaluation_assignments.decidim_proposal_id = decidim_proposals_proposals.id
           )
         )
         SQL

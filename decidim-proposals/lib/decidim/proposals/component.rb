@@ -141,7 +141,7 @@ Decidim.register_component(:proposals) do |component|
                    .includes(:taxonomies, :component)
 
       if space.user_roles(:evaluator).where(user:).any?
-        collection.with_valuation_assigned_to(user, space)
+        collection.with_evaluation_assigned_to(user, space)
       else
         collection
       end

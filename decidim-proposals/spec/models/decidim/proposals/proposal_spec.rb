@@ -258,7 +258,7 @@ module Decidim
         it { is_expected.not_to be_published_state }
       end
 
-      describe "#with_valuation_assigned_to" do
+      describe "#with_evaluation_assigned_to" do
         let(:user) { create(:user, organization:) }
         let(:space) { component.participatory_space }
         let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process: space) }
@@ -266,7 +266,7 @@ module Decidim
         let!(:assignment) { create(:evaluation_assignment, proposal: assigned_proposal, evaluator_role:) }
 
         it "only returns the assigned proposals for the given space" do
-          results = described_class.with_valuation_assigned_to(user, space)
+          results = described_class.with_evaluation_assigned_to(user, space)
 
           expect(results).to eq([assigned_proposal])
         end
