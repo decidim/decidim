@@ -1,4 +1,4 @@
-<div class="form__wrapper py-0">
+<div class="form__wrapper py-0 form-proposals-merge-styles">
   <div class="card">
     <div class="card-section">
       <% @form.proposal_ids.each do |id| %>
@@ -15,8 +15,8 @@
       </div>
       <% if @form.meetings %>
         <div class="meeting-fields">
-          <div class="row column">
-            <%= form.check_box :created_in_meeting, label: t(".created_in_meeting") %>
+          <div class="row column proposal-field-custom-style">
+            <%= form.check_box :created_in_meeting, label: t(".created_in_meeting"), class: "text-sm" %>
           </div>
           <div class="row column custom-inputs" id="proposals_merge_meeting">
             <%= form.select :meeting_id,
@@ -32,21 +32,15 @@
         </div>
       <% end %>
       <% if component_settings.attachments_allowed? %>
-        <%= render partial: "decidim/admin/shared/gallery", locals: { form: } %>
-      <% end %>
-      <% if component_settings.attachments_allowed? %>
-        <div class="row column pt-4 custom-inputs">
-          <legend><%= t(".attachment_legend") %></legend>
-          <%= form.fields_for :attachment, @form.attachment do |form| %>
-            <%= form.text_field :title %>
-            <%= form.upload :file, button_class: "button button__sm button__transparent-secondary" %>
-            <% if params[:id].present? %>
-              <% if proposal.documents.present? %>
-                <%= form.hidden_field :id, value: proposal.documents.first.id %>
-                <%= form.check_box :delete_file, label: t(".delete_attachment"), value: proposal.documents.first.id %>
-              <% end %>
-            <% end %>
-          <% end %>
+        <div class="row column">
+          <%= form.attachment :documents,
+                              multiple: true,
+                              label: t("decidim.proposals.proposals.edit.add_attachments"),
+                              button_label: t("decidim.proposals.proposals.edit.add_attachments"),
+                              button_edit_label: t("decidim.proposals.proposals.edit.edit_attachments"),
+                              button_class: "button button__lg button__transparent-secondary w-full",
+                              help_i18n_scope: "decidim.forms.file_help.file",
+                              help_text: t("attachment_legend", scope: "decidim.proposals.proposals.edit") %>
         </div>
       <% end %>
     </div>

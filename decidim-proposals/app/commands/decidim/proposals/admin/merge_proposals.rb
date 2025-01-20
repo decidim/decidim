@@ -6,8 +6,7 @@ module Decidim
       # A command with all the business logic when an admin merges proposals from
       # one component to another.
       class MergeProposals < Decidim::Command
-        include ::Decidim::AttachmentMethods
-        include ::Decidim::GalleryMethods
+        include ::Decidim::MultipleAttachmentsMethods
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -25,13 +24,8 @@ module Decidim
           return broadcast(:invalid) unless form.valid?
 
           if process_attachments?
-            build_attachment
-            return broadcast(:invalid) if attachment_invalid?
-          end
-
-          if process_gallery?
-            build_gallery
-            return broadcast(:invalid) if gallery_invalid?
+            build_attachments
+            return broadcast(:invalid) if attachments_invalid?
           end
 
           transaction do
@@ -43,7 +37,7 @@ module Decidim
 
         private
 
-        attr_reader :form, :attachment, :gallery
+        attr_reader :form, :attachment
 
         def merged_proposals
           @merged_proposal = create_new_proposal
@@ -51,8 +45,7 @@ module Decidim
           @merged_proposal.link_resources(proposals_to_link, "merged_from_component")
           proposals_mark_as_withdrawn if form.same_component?
           @attached_to = @merged_proposal
-          create_gallery if process_gallery?
-          create_attachment(weight: first_attachment_weight) if process_attachments?
+          create_attachments(first_weight: first_attachment_weight) if process_attachments?
           link_author_meeting if form.created_in_meeting?
           notify_author
         end

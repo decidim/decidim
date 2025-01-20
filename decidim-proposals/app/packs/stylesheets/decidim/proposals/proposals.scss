@@ -183,7 +183,7 @@
   .tabs-content {
     .editor-container {
       .editor-input {
-        @apply h-40;
+        height: 10rem !important;
       }
     }
   }
@@ -195,6 +195,16 @@
 
     button {
       @apply mt-0;
+    }
+  }
+}
+
+.form__wrapper,
+.form-proposals-merge-styles {
+  .proposal-field-custom-style {
+    & label:not(&-checkbox-label),
+    &-block label:not(&-checkbox-label) {
+      @apply font-normal text-sm;
     }
   }
 }
