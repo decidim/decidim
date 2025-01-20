@@ -259,6 +259,14 @@ module Decidim
     :en
   end
 
+  config_accessor :inactivity_period do
+    ENV.fetch("DELETE_INACTIVE_USERS_EMAIL_AFTER_DAYS", 365).to_i
+  end
+
+  config_accessor :minimum_inactivity_period do
+    30
+  end
+
   # Disable the redirection to the external host when performing redirect back
   # For more details https://github.com/rails/rails/issues/39643
   # Additional context: This has been revealed as an issue during a security audit on Future of Europe installation

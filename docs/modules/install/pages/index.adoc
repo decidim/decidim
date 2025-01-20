@@ -127,6 +127,9 @@ For production environments, you can configure these tasks with `crontab -e`. Fo
 
 # Change active step in participatory processes
 */15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_participatory_processes:change_active_step
+
+# Delete inactive participants accounts
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_inactive_participants
 ----
 
 === Further configuration
