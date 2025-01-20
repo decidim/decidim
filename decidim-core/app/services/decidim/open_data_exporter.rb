@@ -69,7 +69,7 @@ module Decidim
       export_manifest = (core_data_manifests + open_data_component_manifests + open_data_participatory_space_manifests)
                         .select { |manifest| manifest.name == resource.to_sym }.first
 
-      case export_manifest.manifest
+      case export_manifest.respond_to?(:manifest) && export_manifest.manifest
       when Decidim::ComponentManifest
         data_for_component(export_manifest).read
       when Decidim::ParticipatorySpaceManifest
@@ -83,7 +83,7 @@ module Decidim
       headers = []
       collection = []
       ActiveRecord::Base.uncached do
-        components.where(manifest_name: export_manifest.manifest.name).find_each do |component|
+        components.where(manifest_name: export_manifest.manifest.name).unscope(:order).find_each do |component|
           export_manifest.collection.call(component).find_in_batches(batch_size: 100) do |batch|
             serializer = export_manifest.open_data_serializer.nil? ? export_manifest.serializer : export_manifest.open_data_serializer
             exporter = Decidim::Exporters::CSV.new(batch, serializer)

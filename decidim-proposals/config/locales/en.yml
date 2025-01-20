@@ -11,6 +11,8 @@ en:
         state: State
         title: Title
         user_group_id: Create collaborative draft as
+      import_participatory_text:
+        document: Document
       proposal:
         address: Address
         answer: Answer
@@ -20,6 +22,8 @@ en:
         decidim_proposals_proposal_state_id: State
         decidim_scope_id: Scope
         has_address: Has address
+        latitude: Latitude
+        longitude: Longitude
         scope_id: Scope
         state: State
         suggested_hashtags: Suggested hashtags
@@ -46,6 +50,8 @@ en:
       proposals_copy:
         copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action cannot be reversed.
         origin_component_id: Component to copy the proposals from
+      proposals_file_import:
+        file: File
       proposals_import:
         import_proposals: Import proposals
         keep_answers: Keep state and answers
@@ -517,7 +523,7 @@ en:
         imports:
           help:
             answers: |
-              The import document should contain the following column names in case of CSV or Excel files, or key names in case of JSON files:
+              The import document should contain the following column names in case of CSV or Excel files, or key names in case of JSON files (other columns will be ignored):
               <ul>
               <li><b>id:</b> ID of the proposal to answer</li>
               <li><b>state:</b> One of "accepted", "evaluating", or "rejected"</li>
@@ -528,8 +534,7 @@ en:
               <ul>
               <li><b>title/en:</b> Title on English language. This will depend on your platform language configuration.</li>
               <li><b>body/en:</b> Body on English language. This will depend on your platform language configuration.</li>
-              <li><b>scope/id:</b> ID for the Scope</li>
-              <li><b>category/id:</b> ID for the Category</li>
+              <li><b>taxonomies/ids:</b> ID for the Taxonomies (if more than one, separate with a comma)</li>
               </ul>
           label:
             answers: Import answers from a file
@@ -627,9 +632,7 @@ en:
             title: Update proposal
             update: Update
           form:
-            attachment_legend: "(Optional) Add an attachment"
             created_in_meeting: This proposal comes from a meeting
-            delete_attachment: Delete attachment
             select_a_meeting: Select a meeting
           index:
             actions: Actions
@@ -772,7 +775,7 @@ en:
           error: There was a problem creating this collaborative draft.
           success: Collaborative draft successfully created.
         edit:
-          attachment_legend: "(Optional) Add an attachment"
+          attachment_legend: Add a document or an image
           back: Back
           send: Send
           title: Edit collaborative draft
@@ -920,10 +923,10 @@ en:
           description: The coordinates will be updated when clicking on 'preview' button. However, the address does not change.
           instructions: You can move the point on the map.
         edit:
-          add_documents: Add documents
-          attachment_legend: "(Optional) Add an attachment"
+          add_attachments: Add attachments
+          attachment_legend: Add a document or an image
           back: Back
-          edit_documents: Edit documents
+          edit_attachments: Edit attachments
           send: Send
           title: Edit proposal
         edit_draft:
