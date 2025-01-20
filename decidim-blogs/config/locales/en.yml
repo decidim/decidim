@@ -78,7 +78,7 @@ en:
           title: Edit post
         form:
           author_id: Author
-          body: Description
+          body: Body
           title: Title
         index:
           count:
