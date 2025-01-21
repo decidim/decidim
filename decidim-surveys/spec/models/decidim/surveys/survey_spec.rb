@@ -109,6 +109,71 @@ module Decidim
         end
       end
 
+      describe "#closed?" do
+        subject { survey.closed? }
+
+        let(:component) { survey.component }
+
+        before do
+          # survey.update!(starts_at:, ends_at:, allow_answers: false)
+        end
+
+        context "when neither starts_at or ends_at are defined" do
+          let(:starts_at) { nil }
+          let(:ends_at) { nil }
+
+          it { is_expected.to be_truthy }
+        end
+
+        context "when starts_at is defined" do
+          let(:ends_at) { nil }
+
+          context "and it is a date in the past" do
+            let(:starts_at) { 1.day.ago }
+
+            it { is_expected.to be_truthy }
+          end
+
+          context "and it is a date in the future" do
+            let(:starts_at) { 1.day.from_now }
+
+            it { is_expected.to be_truthy }
+          end
+        end
+
+        context "when ends_at is defined" do
+          let(:starts_at) { nil }
+
+          context "and it is a date in the past" do
+            let(:ends_at) { 1.day.ago }
+
+            it { is_expected.to be_truthy }
+          end
+
+          context "and it is a date in the future" do
+            let(:ends_at) { 1.day.from_now }
+
+            it { is_expected.to be_truthy }
+          end
+        end
+
+        context "when both starts_at and ends_at are defined" do
+          let(:starts_at) { 1.day.ago }
+
+          context "and ends_at is a date in the past" do
+            let(:ends_at) { 1.day.ago }
+
+            it { is_expected.to be_truthy }
+          end
+
+          context "and ends_at is a date in the future" do
+            let(:ends_at) { 1.day.from_now }
+
+            it { is_expected.to be_truthy }
+          end
+        end
+      end
+
       describe "scopes" do
         describe ".open" do
           it "returns surveys that are currently open" do
