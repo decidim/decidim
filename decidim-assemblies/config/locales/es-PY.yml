@@ -1,8 +1,6 @@
 es-PY:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Título
       assembly:
         announcement: Aviso
         area_id: Área
@@ -19,7 +17,6 @@ es-PY:
         created_by_other: Creado por otro
         creation_date: Fecha de creacion
         decidim_area_id: Área
-        decidim_assemblies_type_id: Tipo de montaje
         decidim_scope_id: Ámbito
         description: Descripción
         developer_group: Grupo promotor
@@ -35,7 +32,6 @@ es-PY:
         import_components: Importar componentes
         included_at: Incluido en
         instagram: Instagram
-        internal_organisation: Organización interna
         is_transparent: Es transparente
         local_area: Área de organización
         meta_scope: 'Metadatos: ámbito'
@@ -96,7 +92,6 @@ es-PY:
         confirm_delete_assembly: '¿Seguro que quieres eliminar esta asamblea? Si cambias de opinión, puedes restaurarla más tarde.'
         import_assembly: Importar
         new_assembly: Nueva asamblea
-        new_assembly_type: Nuevo tipo de asamblea
         new_assembly_user_role: Añadir administradora
         view_deleted_assemblies: Ver las asambleas eliminadas
       assemblies:
@@ -122,18 +117,6 @@ es-PY:
         create:
           error: Se produjo un error al duplicar esta asamblea.
           success: Asamblea duplicada correctamente.
-      assemblies_types:
-        create:
-          error: Se ha producido un error al crear un nuevo tipo de asamblea.
-          success: Tipo de asamblea creado correctamente.
-        destroy:
-          success: Tipo de asamblea eliminado correctamente.
-        new:
-          create: Crear
-          title: Nuevo tipo de asamblea
-        update:
-          error: Hubo un problema al actualizar este tipo de asamblea.
-          success: Tipo de asamblea actualizado correctamente.
       assembly_copies:
         new:
           copy: Copiar
@@ -177,8 +160,6 @@ es-PY:
           values:
             'false': No cesada
             'true': Cesada
-        decidim_assemblies_type_id_eq:
-          label: Tipo de asamblea
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Buscar por nombre o alias
       menu:
@@ -194,12 +175,7 @@ es-PY:
           moderations: Moderaciones
           private_users: Miembros
           see_assembly: Ver la asamblea
-        assemblies_types: Tipos de asamblea
       models:
-        assemblies_types:
-          fields:
-            created_at: Fecha de creación
-            title: Título
         assembly:
           fields:
             actions: Acciones
@@ -277,16 +253,12 @@ es-PY:
             private_notice: Podrás administrar las participantes privadas después de configurar el espacio como privado
             select_a_created_by: Selecciona creada por
             select_an_area: Seleccione un Área
-            select_an_assembly_type: Selecciona tipo de asamblea
             select_parent_assembly: Seleccionar ensamblaje principal
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
             taxonomies: Taxonomías
             title: Información general
             visibility: Visibilidad
-        assemblies_types:
-          form:
-            title: Título
         assembly_copies:
           form:
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -330,14 +302,6 @@ es-PY:
       assembly_members:
         index:
           members: Miembros
-      assembly_types:
-        commission: Comisión
-        consultative_advisory: Consultivo / Asesor
-        executive: Ejecutivo
-        government: Gobierno
-        others: Otros
-        participatory: Participativo
-        working_group: Grupo de trabajo
       content_blocks:
         children_assemblies:
           name: Asambleas
@@ -376,7 +340,6 @@ es-PY:
           member_of:
             member_of: Miembro de
       show:
-        assembly_type: Tipo de asambleas
         duration: Duración
         private_space: Esta es una asamblea privada
         social_networks_title: Visita la asamblea en
