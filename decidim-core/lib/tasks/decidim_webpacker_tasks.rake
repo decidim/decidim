@@ -199,17 +199,17 @@ namespace :decidim do
 
     # Skip if the load path is already added
     return if lines.grep(
-      %r{^\$LOAD_PATH.unshift "#\{Gem.loaded_specs\["decidim-core"\].full_gem_path\}/lib/gem_overrides"$}
+      %r{^require "decidim/webpacker/shakapacker"$}
     ).size.positive?
 
     contents = ""
     lines.each do |line|
-      contents += line
-      next unless line =~ %r{^require "bundler/setup"$}
 
-      contents += "\n"
-      contents += "# Add the Decidim override load path to override webpacker functionality\n"
-      contents += "$LOAD_PATH.unshift \"\#{Gem.loaded_specs[\"decidim-core\"].full_gem_path}/lib/gem_overrides\"\n"
+      contents += if line =~ %r{^require "shakapacker"$}
+                    %(require "decidim/webpacker/shakapacker"\n)
+                  else
+                    line
+                  end
     end
 
     File.write(file, contents)

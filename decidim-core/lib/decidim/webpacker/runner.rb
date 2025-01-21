@@ -8,8 +8,8 @@ module Decidim
         base.send :private, :original_initialize
 
         base.define_method :initialize do |argv|
-          original_initialize(argv)
           decidim_initialize(argv)
+          original_initialize(argv)
         end
       end
 
@@ -22,7 +22,7 @@ module Decidim
         Decidim::Assets::Tailwind.write_runtime_configuration
 
         # Write the runtime configuration and override the configuration
-        @shakapacker_config = Decidim::Webpacker.configuration.configuration_file
+        ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
       end
     end
   end
