@@ -416,7 +416,7 @@ de:
           follows_count: Die Anzahl Folgende des Projekts
           id: Die eindeutige Bezeichnung des Projekts
           latitude: Der Breitengrad des Projekts, falls es einen verortet wurde
-          longitude: Der Längengrad des Projekts, falls es einen verortet wurde
+          longitude: Der Längengrad des Projekts, falls es verortet wurde
           participatory_space: Zu welchem Bereich dieses Projekt gehört (z.B. Partizipationsprozesse oder Gremien)
           reference: Die eindeutige Referenz des Projekts
           related_proposal_titles: Titel der verknüpften Vorschläge
