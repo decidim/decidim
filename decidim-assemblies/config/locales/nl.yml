@@ -2,6 +2,8 @@
 nl:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Titel
       assembly:
         area_id: Onderwerp
         assembly_type: Groepstype
@@ -178,7 +180,7 @@ nl:
           categories: Categorieën
           components: Onderdelen
           moderations: Moderaties
-        assemblies_types: Soorten groepen
+        assemblies_types: Groepstype
       models:
         assemblies_types:
           fields:
