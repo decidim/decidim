@@ -22,7 +22,6 @@ eu:
         local_area: Antolakuntza Arloa
         meta_scope: 'Metadatuak: esparrua'
         participatory_process_group_id: Prozesu-multzoa
-        participatory_process_type_id: Prozesu mota
         participatory_scope: Zer erabaki da
         participatory_structure: Nola erabakitzen da?
         private_space: Prozesu pribatua
@@ -59,8 +58,6 @@ eu:
         end_date: Bukaera-data
         short_description: Deskribapen laburra
         start_date: Hasiera-data
-        title: Izenburua
-      participatory_process_type:
         title: Izenburua
       participatory_process_user_role:
         email: Helbide elektronikoa
@@ -102,7 +99,6 @@ eu:
         new_process: Beste prozesu bat
         new_process_group: Beste prozesu-talde bat
         new_process_step: Beste urrats bat
-        new_process_type: Beste prozesu mota bat
         new_process_user_role: Prozesuaren beste administratzaile bat
         preview: Aurreikusi
         publish: Argitaratu
@@ -118,7 +114,6 @@ eu:
         participatory_process_groups_submenu:
           info: Informazioa
           landing_page: Hasierako orrialdea
-        participatory_process_types: Prozesu motak
         participatory_processes: Prozesuak
         participatory_processes_submenu:
           attachment_collections: Karpetak
@@ -150,11 +145,6 @@ eu:
             start_date: Hasiera-data
             title: Izenburua
           name: Prozesu parte-hartzailearen fasea
-        participatory_process_type:
-          fields:
-            created_at: Noiz sortua
-            title: Izenburua
-          name: Prozesu mota
         participatory_process_user_role:
           fields:
             email: Helbide elektronikoa
@@ -238,21 +228,6 @@ eu:
         update:
           error: Arazo bat egon da prozesu parte-hartzaile honan fase hau eguneratzean.
           success: Parte hartzeko fasea zuzen eguneratua.
-      participatory_process_types:
-        create:
-          error: Arazo bat egon da beste prozesu mota bat sortzean.
-          success: Prozesu mota zuzen sortua.
-        destroy:
-          success: Prozesu mota zuzen ezabatua.
-        edit:
-          title: Editatu prozesu mota
-          update: Eguneratu
-        new:
-          create: Sortu
-          title: Beste prozesu mota bat
-        update:
-          error: Arazo bat egon da prozesu mota hau eguneratzean.
-          success: Prozesu mota zuzen eguneratua.
       participatory_process_user_roles:
         create:
           error: Arazo bat egon da prozesu parte-hartzaile honetarako parte-hartzailea gehitzean.
@@ -474,12 +449,10 @@ eu:
             images: Irudiak
             metadata: Metadatuak
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
-            other: Beste
             private_notice: Kiak kudeatu ahal izango dituzu pribatu gisa ezarri ondoren
             related_processes: Elkarrekin lotutako prozesuak
             scope_type_max_depth_help: Murriztu esparru-iragazkiaren sakonera; iragazkia esparru orokorretik hautatutakora erakutsiko da.
             select_an_area: Hautatu eremu bat
-            select_participatory_process_type: Aukeratu prozesu-mota bat
             select_process_group: Hautatu prozesu-talde bat
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
             taxonomies: Taxonomiak
