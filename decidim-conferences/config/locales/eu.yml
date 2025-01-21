@@ -199,7 +199,7 @@ eu:
           error: Arazo bat egon da multimedia link hau eguneratzean.
           success: Hedabideen lotura zuzen eguneratua.
       menu:
-        conferences: Jardunaldiak
+        conferences: Hitzaldiak
         conferences_submenu:
           attachment_collections: Karpetak
           attachment_files: Fitxategiak
@@ -234,7 +234,7 @@ eu:
             email: Helbide elektronikoa
             name: Izena
             role: Rola
-          name: Jardunaldiaren administratzailea
+          name: Hitzaldiaren administratzailea
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
@@ -408,7 +408,7 @@ eu:
             title: Kideak
         registration_types:
           form:
-            select_conference_meetings: Hautatu jardunaldiren topaketak
+            select_conference_meetings: Hautatu jardunaldiaren topaketak
           index:
             title: Izen-emate motak
         send_conference_diploma_mailer:
@@ -479,7 +479,7 @@ eu:
           make_conference_registration: Eman izena jardunaldian
           manage_registration: Kudeatu erregistroa
           register: Eman izena
-          sign_in_description: Hasi saioa jardunaldian erregistratzeko
+          sign_in_description: Hasi saioa hitzaldian erregistratzeko
           sign_up_description: Sortu kontu bat jardunaldian erregistratzeko
       content_blocks:
         highlighted_conferences:
@@ -491,7 +491,7 @@ eu:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Zure erregistroa hitzaldian baieztatu da.
+            subject: Zure erregistroa jardunaldian baieztatu da.
           pending_validation:
             subject: Zure erregistroa jardunaldian baieztatzearen zain dago.
         invite_join_conference_mailer:
