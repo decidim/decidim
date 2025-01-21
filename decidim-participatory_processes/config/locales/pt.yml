@@ -336,7 +336,6 @@ pt:
             filters: Filtros
             images: Imagens
             metadata: Metadados
-            other: Outros
             related_processes: Processos relacionados
             scope_type_max_depth_help: Restrinja a abrangência do filtro de âmbito; O filtro irá mostrar desde o tipo de âmbito geral até ao tipo de âmbito selecionado.
             select_an_area: Selecione uma Área
