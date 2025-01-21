@@ -115,6 +115,50 @@ We added as part of the upgrade script, so you do not need to do anything about 
 
 You can read more about this change on PR [#13690](https://github.com/decidim/decidim/pull/13624).
 
+### 2.8. Initiatives digital signature process change
+
+The application changes the configuration of initiatives signature in initiatives types to allow developers to define the process in a flexible way. This is achieved by introducing signature workflows [#13729](https://github.com/decidim/decidim/pull/13729).
+
+To define a signature workflow create an initializer in your application and register it:
+
+For example, in `config/initializers/decidim_initiatives.rb`:
+
+```ruby
+Decidim::Initiatives::Signatures.register_workflow(:dummy_signature_handler) do |workflow|
+  workflow.form = "DummySignatureHandler"
+  workflow.authorization_handler_form = "DummyAuthorizationHandler"
+  workflow.action_authorizer = "DummySignatureHandler::DummySignatureActionAuthorizer"
+  workflow.promote_authorization_validation_errors = true
+  workflow.sms_verification = true
+  workflow.sms_mobile_phone_validator = "DummySmsMobilePhoneValidator"
+end
+
+Decidim::Initiatives::Signatures.register_workflow(:dummy_signature_with_sms_handler) do |workflow|
+  workflow.form = "Decidim::Initiatives::SignatureHandler"
+  workflow.sms_verification = true
+end
+
+Decidim::Initiatives::Signatures.register_workflow(:dummy_signature_with_personal_data_handler) do |workflow|
+  workflow.form = "DummySignatureHandler"
+  workflow.authorization_handler_form = "DummyAuthorizationHandler"
+  workflow.action_authorizer = "DummySignatureHandler::DummySignatureActionAuthorizer"
+  workflow.promote_authorization_validation_errors = true
+  workflow.save_authorizations = false
+end
+
+Decidim::Initiatives::Signatures.register_workflow(:legacy_signature_handler) do |workflow|
+  workflow.form = "Decidim::Initiatives::LegacySignatureHandler"
+  workflow.authorization_handler_form = "DummyAuthorizationHandler"
+  workflow.sms_verification = true
+end
+```
+
+All the attributes of a workflow are optional except the registered name with which the workflow is registered. A flow without attributes uses default values that generate a direct signature process without steps.
+
+To migrate old signature configurations define review the One time actions section
+
+For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
@@ -187,7 +231,38 @@ For more information about this process, please refer to the documentation at ht
 
 You can see more details about this change on PR [\#13669](https://github.com/decidim/decidim/pull/13669)
 
-### 3.5. [[TITLE OF THE ACTION]]
+### 3.5. Migrate signature configuration of initiatives types
+
+If there is any type of initiative with online signature enabled, you will have to reproduce the configuration by defining signature workflows. For direct signing is not necessary to define one or define an empty workflow.
+
+Use the following definition scheme and adapt the values as indicated in the comments:
+
+```ruby
+Decidim::Initiatives::Signatures.register_workflow(:legacy_signature_handler) do |workflow|
+  # Enable this form to enable the same user data collection and store the same
+  # fields in the vote metadata when the "Collect participant personal data on
+  # signature" were checked
+  workflow.form = "Decidim::Initiatives::LegacySignatureHandler"
+
+  # Change this form and use the same handler selected in the "Authorization to
+  # verify document number on signatures" field
+  workflow.authorization_handler_form = "DummyAuthorizationHandler"
+
+  # This setting prevents the automatic creation of authorizations as in the
+  # old feature. You can remove this setting if the workflow does not use an
+  # authorization handler form. The default value is true.
+  workflow.save_authorizations = false
+
+  # Set this setting to false or remove to skip SMS verification step
+  workflow.sms_verification = true
+end
+```
+
+Register a workflow for each different signature configuration and select them in the initiative type admin "Signature workflow" field
+
+You can read more about this change on PR [#13729](https://github.com/decidim/decidim/pull/13729).
+
+### 3.6. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
