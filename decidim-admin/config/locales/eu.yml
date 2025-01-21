@@ -523,7 +523,7 @@ eu:
               other: Bikoiztu %{columns} zutabe.
           invalid_indexes:
             lines:
-              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
+              detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
               message:
                 one: Errore bat aurkitu da inportazio-fitxategiko %{indexes} lerroan.
                 other: Erroreak aurkitu dira inportazio-fitxategiko %{indexes} lerroetan.
@@ -681,7 +681,7 @@ eu:
           actions:
             block: Blokeatu erabiltzailea
             title: Ekintzak
-            unblock: Desblokeatu erabiltzailea
+            unblock: Desblokeatu parte-hartzailea
             unreport: Ez erreportatu
           name: Izena
           nickname: Ezizena
@@ -1028,8 +1028,8 @@ eu:
         edit_external_domains: Baimendutako kanpoko domeinuen zerrenda
         edit_landing_page: Orriaren edukiak
         edit_organization_appearance: Editatu hasierako orriaren itxura
-        impersonatable_users: Parte-hartzaile erabilgarriak
-        impersonations: Parte-hartzaileen kudeaketa
+        impersonatable_users: Erabiltzaile erabilgarriak
+        impersonations: Erabiltzaileen kudeaketa
         menu: Menua
         metrics: Metrikak
         page_topics: Gaiak
