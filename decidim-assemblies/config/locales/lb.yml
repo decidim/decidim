@@ -16,7 +16,6 @@ lb:
         created_by_other: Erstellt von anderen
         creation_date: Datum erstellt
         decidim_area_id: Bereich
-        decidim_assemblies_type_id: Versammlungstyp
         decidim_scope_id: Umfang
         description: Beschreibung
         developer_group: Promoter-Gruppe
@@ -28,7 +27,6 @@ lb:
         hero_image: Hauptbild
         included_at: Inbegriffen bei
         instagram: Instagram
-        internal_organisation: Interne Organisation
         is_transparent: Ist transparent
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
@@ -80,7 +78,6 @@ lb:
       actions:
         import_assembly: Importieren
         new_assembly: Neues Gremium
-        new_assembly_type: Neuer Gremiumtyp
       assemblies:
         create:
           error: Beim Erstellen eines neuen Gremiums ist ein Fehler aufgetreten.
@@ -100,18 +97,6 @@ lb:
         create:
           error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Das Gremium wurde erfolgreich dupliziert.
-      assemblies_types:
-        create:
-          error: Beim Erstellen eines neuen Gremiumtyps ist ein Fehler aufgetreten.
-          success: Gremiumtyp wurde erfolgreich erstellt.
-        destroy:
-          success: Gremiumtyp wurde erfolgreich gelöscht.
-        new:
-          create: Erstellen
-          title: Neuer Gremiumtyp
-        update:
-          error: Beim Aktualisieren dieses Gremiumtyps ist ein Fehler aufgetreten.
-          success: Gremiumtyp wurde erfolgreich aktualisiert.
       assembly_copies:
         new:
           copy: Kopieren
@@ -155,12 +140,7 @@ lb:
           attachment_files: Dateien
           components: Komponenten
           moderations: Moderationen
-        assemblies_types: Versammlungstypen
       models:
-        assemblies_types:
-          fields:
-            created_at: Hergestellt in
-            title: Titel
         assembly:
           fields:
             created_at: Hergestellt in
@@ -182,9 +162,6 @@ lb:
             name: Name
     assemblies:
       admin:
-        assemblies_types:
-          form:
-            title: Titel
         content_blocks:
           highlighted_assemblies:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
@@ -198,14 +175,6 @@ lb:
       assembly_members:
         index:
           members: Mitglieder
-      assembly_types:
-        commission: Kommission
-        consultative_advisory: Beratende / Beratende
-        executive: Exekutive
-        government: Regierung
-        others: Andere
-        participatory: Teilnehmend
-        working_group: Arbeitsgruppe
       content_blocks:
         highlighted_assemblies:
           name: Hervorgehobene Gremien
@@ -230,7 +199,6 @@ lb:
           member_of:
             member_of: Mitglied von
       show:
-        assembly_type: Montageart
         duration: Dauer
         private_space: Dies ist eine private Versammlung
     assembly_members:
