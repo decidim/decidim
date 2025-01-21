@@ -45,9 +45,6 @@ ga:
           public: Poblach
         new:
           create: Cruthaigh
-      assemblies_types:
-        new:
-          create: Cruthaigh
       assembly_copies:
         new:
           copy: Cóipeáil
@@ -65,9 +62,6 @@ ga:
           attachment_files: Comhaid
           attachments: Ceangaltáin
       models:
-        assemblies_types:
-          fields:
-            title: Teideal
         assembly:
           fields:
             private: Príobháideach
@@ -95,9 +89,6 @@ ga:
             metadata: Meiteashonraí
             other: Eile
             social_handlers: Sóisialta
-        assemblies_types:
-          form:
-            title: Teideal
         new_import:
           accepted_types:
             json: JSON
@@ -108,8 +99,6 @@ ga:
       assembly_members:
         index:
           members: Baill
-      assembly_types:
-        others: Eile
       created_by:
         others: Eile
         public: Poblach
