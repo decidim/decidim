@@ -17,7 +17,7 @@ module Decidim
       let!(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: participatory_process) }
       let(:meetings) { create_list(:meeting, 2, :published, component: meetings_component) }
 
-      let!(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: participatory_process) }
+      let!(:proposals_component) { create(:proposal_component, participatory_space: participatory_process) }
       let(:other_proposals) { create_list(:proposal, 2, component: proposals_component) }
 
       let(:serialized) { subject.serialize }
@@ -85,6 +85,20 @@ module Decidim
 
             it "serializes the link to its profile" do
               expect(serialized[:author]).to include(url: [profile_url(proposal.creator_author.nickname)])
+            end
+
+            context "when author is deleted" do
+              let!(:user) { create(:user, :deleted, organization: component.organization) }
+              let(:component) { create(:proposal_component) }
+              let!(:proposal) { create(:proposal, component:, users: [user]) }
+
+              it "serializes the user name" do
+                expect(serialized[:author]).to include(id: [user.id])
+              end
+
+              it "serializes the link to its profile" do
+                expect(serialized[:author]).to include(url: [""])
+              end
             end
           end
 

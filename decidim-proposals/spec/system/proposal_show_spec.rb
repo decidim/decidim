@@ -69,6 +69,15 @@ describe "Show a Proposal" do
             expect(page).to have_link("Send private message")
           end
         end
+
+        context "when participant is deleted" do
+          let!(:user) { create(:user, :deleted, organization: component.organization) }
+          let!(:proposal) { create(:proposal, component:, users: [user]) }
+
+          it "successfully shows the page" do
+            expect(page).to have_content("Deleted participant")
+          end
+        end
       end
     end
   end
