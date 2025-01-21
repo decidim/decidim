@@ -56,6 +56,8 @@ tr:
         short_description: Kısa Açıklama
         start_date: Başlangıç tarihi
         title: Başlık
+      participatory_process_type:
+        title: Başlık
       participatory_process_user_role:
         email: E-posta
         name: isim
@@ -129,6 +131,10 @@ tr:
             start_date: Başlangıç tarihi
             title: Başlık
           name: Katılımcı süreç adımı
+        participatory_process_type:
+          fields:
+            created_at: Düzenlendi
+            title: Başlık
         participatory_process_user_role:
           fields:
             email: E-posta
@@ -201,6 +207,11 @@ tr:
         update:
           error: Bu katılımcı süreç adımı güncellenirken bir hata oluştu.
           success: Katılımcı süreç adımı başarıyla güncellendi.
+      participatory_process_types:
+        edit:
+          update: Güncelleştirme
+        new:
+          create: yaratmak
       participatory_process_user_roles:
         create:
           error: Bu katılımcı süreç için bir kullanıcı eklenirken bir hata oluştu.
