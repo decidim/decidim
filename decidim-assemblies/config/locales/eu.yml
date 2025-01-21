@@ -1,8 +1,6 @@
 eu:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Izenburua
       assembly:
         announcement: Jakinarazpena
         area_id: Arloa
@@ -19,7 +17,6 @@ eu:
         created_by_other: Beste batek sortua
         creation_date: Sortze-data
         decidim_area_id: Arloa
-        decidim_assemblies_type_id: Batzar mota
         decidim_scope_id: Esparrua
         description: Deskribapena
         developer_group: Talde sustatzailea
@@ -35,7 +32,6 @@ eu:
         import_components: Inportatu osagaiak
         included_at: 'Honen barne:'
         instagram: Instagram
-        internal_organisation: Barneko antolaketa
         is_transparent: Gardena da
         local_area: Antolakuntza Arloa
         meta_scope: Esparruko metadatuak
@@ -67,7 +63,7 @@ eu:
         gender: Generoa
         non_user_avatar: Abatarra
         position: Posizioa
-        user_id: Parte-hartzaile edo taldea
+        user_id: Parte-hartzailea edo taldea
         weight: Kokapenaren hurrenkera
       assembly_user_role:
         email: E-maila
@@ -96,7 +92,6 @@ eu:
         confirm_delete_assembly: Ziur zaude batzar hau ezabatu nahi duzula? Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.
         import_assembly: Inportatu
         new_assembly: Beste batzar bat
-        new_assembly_type: Beste batzar mota bat
         new_assembly_user_role: Batzarraren beste administratzaile bat
         view_deleted_assemblies: Ikusi ezabatutako batzarrak
       assemblies:
@@ -122,18 +117,6 @@ eu:
         create:
           error: Arazo bat egon da batzar hau bikoiztean.
           success: Batzarra zuzen bikoiztua.
-      assemblies_types:
-        create:
-          error: Arazo bat egon da beste batzar mota bat sortzean.
-          success: Batzar mota zuzen sortua.
-        destroy:
-          success: Batzar mota behar bezala ezabatua.
-        new:
-          create: Sortu
-          title: Beste batzar mota bat
-        update:
-          error: Arazo bat egon da batzar mota hau eguneratzean.
-          success: Batzar mota zuzen eguneratua.
       assembly_copies:
         new:
           copy: Kopiatu
@@ -177,8 +160,6 @@ eu:
           values:
             'false': Ez utzia
             'true': Utzia
-        decidim_assemblies_type_id_eq:
-          label: Batzar mota
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Bilatu izen edo ezizenaren arabera
       menu:
@@ -194,12 +175,7 @@ eu:
           moderations: Moderazioak
           private_users: Kideak
           see_assembly: Ikusi batzarra
-        assemblies_types: Batzar motak
       models:
-        assemblies_types:
-          fields:
-            created_at: Sortze-data
-            title: Izenburua
         assembly:
           fields:
             actions: Ekintzak
@@ -277,16 +253,12 @@ eu:
             private_notice: Parte hartzaile pribatuak kudeatu ahal izango dituzu pribatu gisa ezarri ondoren
             select_a_created_by: Hautatu egilea
             select_an_area: Hautatu Arlo bat
-            select_an_assembly_type: Hautatu batzar mota bat
             select_parent_assembly: Hautatu batzar nagusia
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
             social_handlers: Soziala
             taxonomies: Taxonomiak
             title: Informazio orokorra
             visibility: Ikusgarritasuna
-        assemblies_types:
-          form:
-            title: Batzar mota berria
         assembly_copies:
           form:
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
@@ -330,14 +302,6 @@ eu:
       assembly_members:
         index:
           members: Kideak
-      assembly_types:
-        commission: Batzordea
-        consultative_advisory: Aholkularia
-        executive: Exekutiboa
-        government: Gobernua
-        others: Beste batzuk
-        participatory: Parte-hartzailea
-        working_group: Lan-taldea
       content_blocks:
         children_assemblies:
           name: Batzarrak
@@ -376,7 +340,6 @@ eu:
           member_of:
             member_of: 'Honen kidea:'
       show:
-        assembly_type: Batzar mota
         duration: Iraupena
         private_space: Hau batzar pribatua da
         social_networks_title: 'Bisitatu batzarra:'
