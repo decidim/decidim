@@ -267,13 +267,6 @@
       </div>
 
       <div class="row column">
-        <%= form.select :decidim_assemblies_type_id,
-                        @form.assembly_types_for_select,
-                        { include_blank: t(".select_an_assembly_type") },
-                        { multiple: false } %>
-      </div>
-
-      <div class="row column">
         <% if @form.processes_for_select %>
           <%= form.select :participatory_processes_ids,
                           options_for_select(
