@@ -16,7 +16,6 @@ zh-CN:
         created_by_other: 由其他人创建
         creation_date: 创建日期
         decidim_area_id: 区域
-        decidim_assemblies_type_id: 程序集类型
         decidim_scope_id: 范围
         description: 描述
         developer_group: 促销者组
@@ -28,7 +27,6 @@ zh-CN:
         hero_image: 首页图像
         included_at: 包含于
         instagram: Instagram
-        internal_organisation: 内部组织
         is_transparent: 是否透明度
         local_area: 组织区域
         meta_scope: 范围元数据
@@ -74,7 +72,6 @@ zh-CN:
       actions:
         import_assembly: 导入
         new_assembly: 新建程序集
-        new_assembly_type: 新装配体类型
       assemblies:
         create:
           error: 创建新议会时出现问题。
@@ -94,18 +91,6 @@ zh-CN:
         create:
           error: 复制这个组件时出现问题。
           success: 已成功复制组合。
-      assemblies_types:
-        create:
-          error: 创建新组装类型时出现问题。
-          success: 程序集类型创建成功。
-        destroy:
-          success: 程序集类型已成功删除。
-        new:
-          create: 创建
-          title: 新装配体类型
-        update:
-          error: 更新此组装类型时出现问题。
-          success: 程序类型已成功更新。
       assembly_copies:
         new:
           copy: 复制
@@ -150,12 +135,7 @@ zh-CN:
           attachments: 附件
           components: 组件
           moderations: 版面
-        assemblies_types: 程序集类型
       models:
-        assemblies_types:
-          fields:
-            created_at: 创建于
-            title: 标题
         assembly:
           fields:
             created_at: 创建于
@@ -218,13 +198,9 @@ zh-CN:
             other: 其他
             select_a_created_by: 选择创建者：
             select_an_area: 选择区域
-            select_an_assembly_type: 选择程序集类型
             select_parent_assembly: 选择父程序集
             social_handlers: 社交活动
             title: 一般信息
-        assemblies_types:
-          form:
-            title: 标题
         content_blocks:
           highlighted_assemblies:
             max_results: 显示元素的最大数量
@@ -235,14 +211,6 @@ zh-CN:
       assembly_members:
         index:
           members: 成员
-      assembly_types:
-        commission: 加密的
-        consultative_advisory: 咨询/咨询
-        executive: 行政机构
-        government: 政府
-        others: 其 他
-        participatory: 参与
-        working_group: 工作组
       content_blocks:
         highlighted_assemblies:
           name: 突出显示的会议
@@ -267,7 +235,6 @@ zh-CN:
           member_of:
             member_of: 成员
       show:
-        assembly_type: 程序集类型
         duration: 期限
         private_space: 这是一个私人装饰
     assembly_members:
