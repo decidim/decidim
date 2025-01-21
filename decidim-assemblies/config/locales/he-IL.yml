@@ -262,4 +262,5 @@ he:
           form:
             title: עריכת סוג אסיפה
       show:
+        assembly_type: סוג אסיפה
         related_participatory_processes: תהליך השתתפותי מקושר
