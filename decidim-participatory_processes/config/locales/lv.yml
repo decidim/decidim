@@ -44,6 +44,8 @@ lv:
         short_description: Īss apraksts
         start_date: Sākuma datums
         title: Nosaukums
+      participatory_process_type:
+        title: Nosaukums
       participatory_process_user_role:
         email: E-pasts
         name: Nosaukums
@@ -112,6 +114,10 @@ lv:
             start_date: Sākuma datums
             title: Nosaukums
           name: Līdzdalības procesa fāze
+        participatory_process_type:
+          fields:
+            created_at: Izveidots plkst.
+            title: Nosaukums
         participatory_process_user_role:
           fields:
             email: E-pasts
@@ -184,6 +190,11 @@ lv:
         update:
           error: Šīs līdzdalības procesa fāzes atjaunināšanas laikā radās problēma.
           success: Līdzdalības procesa fāze ir veiksmīgi atjaunināta.
+      participatory_process_types:
+        edit:
+          update: Atjaunināt
+        new:
+          create: Izveidot
       participatory_process_user_roles:
         create:
           error: Pievienojot dalībnieku šim līdzdalības procesam, radās problēma.
