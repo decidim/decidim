@@ -302,7 +302,7 @@ eu:
           already_reported_html: Ekintza honekin jarraituz gero, parte-hartzaile guztien edukiak ere ezkutatuko dituzu.
           description: Parte-hartzaile bat blokeatzeak bere kontua erabilezin bihurtuko du. Zure justifikazioan edozein jarraibide eman dezakezu parte-hartzailea desblokeatzeko moduei buruz.
           justification: Justifikazioa
-          title: Blokeatu parte-hartzaileak
+          title: Blokeatu Parte-hartzaileak
         new:
           action: Blokeatu kontua eta bidali justifikazioa
           already_reported_html: Ekintza honekin jarraituz, parte-hartzailearen eduki guztiak ere ezkutatuko dituzu.
@@ -536,7 +536,7 @@ eu:
               other: Bikoiztu %{columns} zutabe.
           invalid_indexes:
             lines:
-              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
+              detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
               message:
                 one: Errore bat aurkitu da inportazio-fitxategiko %{indexes} lerroan.
                 other: Erroreak aurkitu dira inportazio-fitxategiko %{indexes} lerroetan.
@@ -710,7 +710,7 @@ eu:
             ignore:
               update_moderated_user_button: Ez erreportatu parte-hartzaileak
             title: Ekintzak
-            unblock: Desblokeatu erabiltzailea
+            unblock: Desblokeatu parte-hartzailea
             unreport: Ez erreportatu
           cancel: Ezeztatu
           name: Izena
@@ -1234,8 +1234,8 @@ eu:
         edit_external_domains: Baimendutako kanpoko domeinuen zerrenda
         edit_landing_page: Orriaren edukiak
         edit_organization_appearance: Editatu hasierako orriaren itxura
-        impersonatable_users: Parte-hartzaile erabilgarriak
-        impersonations: Parte-hartzaileen kudeaketa
+        impersonatable_users: Erabiltzaile erabilgarriak
+        impersonations: Erabiltzaileen kudeaketa
         menu: Menua
         metrics: Metrikak
         page_topics: Gaiak
