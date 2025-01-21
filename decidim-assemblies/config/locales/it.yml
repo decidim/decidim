@@ -2,6 +2,8 @@
 it:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Titolo
       assembly:
         area_id: Area
         assembly_type: Tipo di assemblea
@@ -294,7 +296,7 @@ it:
         executive: Esecutivo
         government: Governo
         others: Altri
-        participatory: Participatory
+        participatory: Partecipativo
         working_group: Gruppo di lavoro
       content_blocks:
         highlighted_assemblies:
