@@ -31,7 +31,7 @@ describe "Show a Proposal" do
         end
 
         context "when I am an admin user" do
-          let(:user) { create(:user, :admin, :confirmed, organization:) }
+          let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
           it "has a link to answer to the proposal at the admin" do
             within "header" do
@@ -42,7 +42,7 @@ describe "Show a Proposal" do
         end
 
         context "when I am a regular user" do
-          let(:user) { create(:user, :confirmed, organization:) }
+          let!(:user) { create(:user, :confirmed, organization:) }
 
           it "does not have a link to answer the proposal at the admin" do
             within "header" do
@@ -57,6 +57,7 @@ describe "Show a Proposal" do
         let(:user) { create(:user, :confirmed, organization:) }
 
         before do
+          visit_proposal
           login_as user, scope: :user
           visit current_path
         end
@@ -71,8 +72,8 @@ describe "Show a Proposal" do
         end
 
         context "when participant is deleted" do
-          let!(:user) { create(:user, :deleted, organization: component.organization) }
-          let!(:proposal) { create(:proposal, component:, users: [user]) }
+          let!(:author) { create(:user, :deleted, organization: component.organization) }
+          let!(:proposal) { create(:proposal, component:, users: [author]) }
 
           it "successfully shows the page" do
             expect(page).to have_content("Deleted participant")
