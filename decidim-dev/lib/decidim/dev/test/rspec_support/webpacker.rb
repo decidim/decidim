@@ -6,7 +6,7 @@ RSpec.configure do |config|
     raise "package.json file does not exist" unless Rails.root.join("package.json").exist?
     raise "Node modules directory does not exist" unless Rails.root.join("node_modules").exist?
 
-    Dir.chdir(Rails.root) { Webpacker.compile }
+    Dir.chdir(Rails.root) { Shakapacker.compile }
   rescue Errno::ENOENT
     node_modules_contents = `ls #{Rails.root.join("node_modules")}`
 
