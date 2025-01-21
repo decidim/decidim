@@ -102,5 +102,25 @@ describe Decidim::DeleteInactiveParticipantsJob do
         end
       end
     end
+
+    context "when users log in after receiving notifications" do
+      let!(:user_logged_in_after_notification) do
+        create(
+          :user,
+          organization:,
+          last_sign_in_at: 1.day.ago,
+          removal_date: 15.days.from_now,
+          last_inactivity_notice_sent_at: 5.days.ago,
+          created_at: 400.days.ago
+        )
+      end
+
+      it "resets removal_date and last_inactivity_notice_sent_at" do
+        perform_enqueued_jobs { subject.perform_later(organization) }
+
+        expect(user_logged_in_after_notification.reload.removal_date).to be_nil
+        expect(user_logged_in_after_notification.reload.last_inactivity_notice_sent_at).to be_nil
+      end
+    end
   end
 end
