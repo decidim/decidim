@@ -21,7 +21,6 @@ module Decidim
           let(:budget) { create(:budget, component: current_component) }
           let!(:current_user) { create(:user, :admin, organization: current_component.participatory_space.organization) }
           let!(:organization) { current_component.participatory_space.organization }
-          let(:scope) { nil }
           let!(:form) do
             instance_double(
               ProjectImportProposalsForm,
@@ -30,7 +29,6 @@ module Decidim
               current_user:,
               default_budget:,
               import_all_accepted_proposals:,
-              scope_id: scope&.id,
               budget:,
               valid?: valid
             )
@@ -40,23 +38,6 @@ module Decidim
           let(:import_all_accepted_proposals) { true }
 
           let(:command) { described_class.new(form) }
-
-          shared_context "with scoped proposals" do
-            let(:scope) { create(:scope, organization:) }
-            let(:scoped_proposals) { proposals[0..1] }
-
-            before do
-              current_component.participatory_space.update!(scope: space_scope) if respond_to?(:space_scope)
-
-              settings = current_component.settings
-              settings.scope_id = component_scope.id if respond_to?(:component_scope)
-              settings.scopes_enabled = true
-              current_component.settings = settings
-              current_component.save!
-
-              scoped_proposals.each { |pr| pr.update!(decidim_scope_id: scope.id) }
-            end
-          end
 
           describe "when the form is not valid" do
             let(:valid) { false }
@@ -81,24 +62,6 @@ module Decidim
 
             it "creates the projects" do
               expect { command.call }.to change { Project.where(budget:).count }.by(3)
-            end
-
-            context "when a scope is defined" do
-              include_context "with scoped proposals"
-
-              it "only imports the proposals mapped to the defined scope" do
-                expect { command.call }.to(change { Project.where(budget:).where(scope:).count }.by(scoped_proposals.count))
-              end
-            end
-
-            context "when there are no proposals in the selected scope" do
-              let(:scope) { create(:scope, organization:) }
-
-              it "does not create any project" do
-                expect do
-                  command.call
-                end.not_to(change { Project.where(budget:).where(scope:).count })
-              end
             end
 
             context "when a proposal was already imported" do
@@ -169,7 +132,6 @@ module Decidim
               expect(new_project.title).to eq(proposal.title)
               expect(new_project.description).to eq(proposal.body)
               expect(new_project.category).to eq(proposal.category)
-              expect(new_project.scope).to eq(proposal.scope)
               expect(new_project.budget_amount).to eq(proposal.cost)
             end
 

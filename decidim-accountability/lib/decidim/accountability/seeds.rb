@@ -32,9 +32,7 @@ module Decidim
           published_at: Time.current,
           participatory_space:,
           settings: {
-            intro: Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) },
-            scopes_enabled: true,
-            scope_id: participatory_space.scope&.id
+            intro: Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) }
           }
         }
 
