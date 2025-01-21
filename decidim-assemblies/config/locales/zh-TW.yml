@@ -1,8 +1,6 @@
 zh-TW:
   activemodel:
     attributes:
-      assemblies_type:
-        title: 標題
       assembly:
         announcement: 公告
         area_id: 區域
@@ -19,7 +17,6 @@ zh-TW:
         created_by_other: 由其他人創建
         creation_date: 創建日期
         decidim_area_id: 區域
-        decidim_assemblies_type_id: 大會類型
         decidim_scope_id: 範圍
         description: 說明
         developer_group: 促銷團隊
@@ -35,7 +32,6 @@ zh-TW:
         import_components: 導入組件
         included_at: 包含於
         instagram: Instagram
-        internal_organisation: 內部組織
         is_transparent: 透明
         local_area: 組織區域
         meta_scope: 元數據範圍
@@ -91,7 +87,6 @@ zh-TW:
       actions:
         import_assembly: 匯入
         new_assembly: 新大會
-        new_assembly_type: 新大會類型
       assemblies:
         create:
           error: 建立新大會時發生問題
@@ -111,18 +106,6 @@ zh-TW:
         create:
           error: 複製此大會時出現問題
           success: 大會已成功複製
-      assemblies_types:
-        create:
-          error: 創建新大會類型時出現問題
-          success: 大會類型創建成功
-        destroy:
-          success: 集會類型已成功刪除
-        new:
-          create: 創建
-          title: 新大會類型
-        update:
-          error: 更新此大會時出現問題
-          success: 大會類型已成功更新
       assembly_copies:
         new:
           copy: 複製
@@ -158,9 +141,6 @@ zh-TW:
         update:
           error: 更新此大會的管理員時出現問題
           success: 此大會的管理員已成功更新。
-      filters:
-        decidim_assemblies_type_id_eq:
-          label: 大會類型
       menu:
         assemblies: 大會
         assemblies_submenu:
@@ -170,12 +150,7 @@ zh-TW:
           attachments: 附件
           components: 元件
           moderations: 版主
-        assemblies_types: 大會類型
       models:
-        assemblies_types:
-          fields:
-            created_at: 建立於
-            title: 標題
         assembly:
           fields:
             created_at: 建立於
@@ -244,13 +219,9 @@ zh-TW:
             other: 其他
             select_a_created_by: 選擇一位創建者
             select_an_area: 選擇一個地區
-            select_an_assembly_type: 選擇一個大會類型
             select_parent_assembly: 選擇父組件
             social_handlers: 社群
             title: 基本資訊
-        assemblies_types:
-          form:
-            title: 標題
         assembly_members:
           form:
             explanation: '圖像的指導'
@@ -270,14 +241,6 @@ zh-TW:
       assembly_members:
         index:
           members: 成員
-      assembly_types:
-        commission: 手續費
-        consultative_advisory: 諮詢/顧問
-        executive: 管理人員
-        government: 政府
-        others: 其他
-        participatory: 參與式
-        working_group: 工作群組
       content_blocks:
         highlighted_assemblies:
           name: 關注的大會
@@ -304,7 +267,6 @@ zh-TW:
           member_of:
             member_of: 的成員
       show:
-        assembly_type: 大會類型
         duration: 持續時間
         private_space: 這是一個私人大會
         social_networks_title: 訪問大會
