@@ -85,8 +85,7 @@ module Decidim
 
       def filter_sections
         items = [
-          { method: :with_date, collection: filter_dates_values, label: t("decidim.participatory_processes.participatory_processes.filters.date"), id: "date" },
-          { method: :with_any_type, collection: filter_types_values, label: t("decidim.participatory_processes.participatory_processes.filters.type"), id: "type" }
+          { method: :with_date, collection: filter_dates_values, label: t("decidim.participatory_processes.participatory_processes.filters.date"), id: "date" }
         ]
         available_taxonomy_filters.find_each do |taxonomy_filter|
           items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
@@ -99,19 +98,6 @@ module Decidim
 
       def available_taxonomy_filters
         Decidim::TaxonomyFilter.for(:participatory_processes)
-      end
-
-      def process_types
-        @process_types ||= Decidim::ParticipatoryProcessType.joins(:processes).distinct
-      end
-
-      def filter_types_values
-        return if process_types.blank?
-
-        type_values = process_types.map { |type| [type.id.to_s, translated_attribute(type.title)] }
-        type_values.prepend(["", t("decidim.participatory_processes.participatory_processes.filters.names.all")])
-
-        filter_tree_from_array(type_values)
       end
 
       def filter_dates_values

@@ -40,7 +40,6 @@ module Decidim
         # org admins and space admins can do everything in the admin section
         org_admin_action?
         taxonomy_filter_action?
-        participatory_process_type_action?
 
         return permission_action unless process
 
@@ -283,19 +282,6 @@ module Decidim
 
         # in the future we might want to prevent destruction if participatory processes are associated with the current taxonomy
         allow!
-      end
-
-      def participatory_process_type_action?
-        return unless permission_action.subject == :participatory_process_type
-        return disallow! unless user.admin?
-
-        participatory_process_type = context.fetch(:participatory_process_type, nil)
-        case permission_action.action
-        when :destroy
-          toggle_allow(participatory_process_type&.processes&.none?)
-        else
-          allow!
-        end
       end
 
       # Checks if the permission_action is to read the admin processes list or

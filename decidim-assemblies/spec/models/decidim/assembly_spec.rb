@@ -184,11 +184,5 @@ module Decidim
         end
       end
     end
-
-    describe "types" do
-      let!(:assembly) { create(:assembly, :with_type) }
-
-      it { is_expected.to be_valid }
-    end
   end
 end
