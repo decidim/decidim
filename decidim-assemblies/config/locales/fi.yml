@@ -350,11 +350,11 @@ fi:
           members: Jäsenet
       assembly_types:
         commission: Komissio
-        consultative_advisory: Neuvoa-antava
+        consultative_advisory: Konsultti/neuvonantaja
         executive: Johtaja
-        government: Hallitus
+        government: Hallinto
         others: Muut
-        participatory: Osallistuva
+        participatory: Osallistava
         working_group: Työryhmä
       content_blocks:
         children_assemblies:
