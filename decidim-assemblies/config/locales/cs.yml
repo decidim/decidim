@@ -3,7 +3,7 @@ cs:
   activemodel:
     attributes:
       assemblies_type:
-        title: Název
+        title: Titul
       assembly:
         announcement: Oznámení
         area_id: Oblast
@@ -357,7 +357,7 @@ cs:
           members: Členové
       assembly_types:
         commission: Komise
-        consultative_advisory: Konzultační / poradní
+        consultative_advisory: Poradní / poradní
         executive: Výkonný
         government: Vládní
         others: Ostatní
