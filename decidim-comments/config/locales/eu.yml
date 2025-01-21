@@ -72,7 +72,7 @@ eu:
         answers:
           one: "%{count} erantzun"
           other: "%{count} erantzun"
-        cancel_reply: Erantzuna ezabatu
+        cancel_reply: Ezeztatu erantzuna
         comment_label: Iruzkindu %{comment_id}
         comment_label_reply: Iruzkindu %{comment_id} (erantzun %{parent_comment_id} iruzkinei)
         confirm_destroy: Ziur zaude iruzkin hau ezabatu nahi duzula?
