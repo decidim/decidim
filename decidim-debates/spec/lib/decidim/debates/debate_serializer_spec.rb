@@ -53,6 +53,7 @@ module Decidim
 
           context "when it is a user" do
             let(:author) { create(:user, name: "John Doe", organization: component.organization) }
+            let(:component) { create(:debates_component) }
             let!(:debate) { create(:debate, component:, author:) }
 
             it "serializes the user name" do
@@ -65,7 +66,6 @@ module Decidim
 
             context "when author is deleted" do
               let(:author) { create(:user, :deleted, organization: component.organization) }
-              let(:component) { create(:debates_component) }
               let!(:debate) { create(:debate, component:, author:) }
 
               it "serializes the user id" do
