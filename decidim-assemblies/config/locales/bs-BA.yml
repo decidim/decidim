@@ -1,21 +1,6 @@
 bs:
   decidim:
     admin:
-      actions:
-        new_assembly_type: Novi tip veća
-      assemblies_types:
-        create:
-          error: Nastao je problem pri stvaranju novog tipa veća.
-          success: Tip veća uspešno stvoren.
-        destroy:
-          success: Tip veća uspešno obrisan.
-        new:
-          title: Novi tip veća
-        update:
-          error: Nastao je problem pri ažuriranju ovog tipa veća.
-          success: Tip veća uspešno ažuriran.
-      menu:
-        assemblies_types: Tipovi veća
       models:
         assembly_user_role:
           roles:
