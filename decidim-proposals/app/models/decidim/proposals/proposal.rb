@@ -25,7 +25,7 @@ module Decidim
       include Decidim::NewsletterParticipant
       include Decidim::Randomable
       include Decidim::Endorsable
-      include Decidim::Proposals::Valuatable
+      include Decidim::Proposals::Evaluatable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
       include Decidim::FilterableResource
