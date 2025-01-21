@@ -35,7 +35,7 @@ $google_background_hover: #dcdcdc; // 30% opacity
       }
 
       &--facebook {
-        @apply flex flex-row text-white;
+        @apply flex flex-row text-white border border-background;
 
         background-color: $facebook_background;
       }
