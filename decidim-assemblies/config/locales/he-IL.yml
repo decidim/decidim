@@ -260,3 +260,5 @@ he:
         assemblies_types:
           form:
             title: עריכת סוג אסיפה
+      show:
+        assembly_type: סוג אסיפה
