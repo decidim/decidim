@@ -50,6 +50,8 @@ gl:
         short_description: Descrición curta
         start_date: Data de inicio
         title: Título
+      participatory_process_type:
+        title: Título
       participatory_process_user_role:
         email: Correo electrónico
         name: Nome
@@ -120,6 +122,10 @@ gl:
             start_date: Data de inicio
             title: Título
           name: Paso de proceso participativo
+        participatory_process_type:
+          fields:
+            created_at: Creado en
+            title: Título
         participatory_process_user_role:
           fields:
             email: Correo electrónico
@@ -185,6 +191,11 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este paso de proceso participativo.
           success: Paso de proceso participativo actualizado con éxito.
+      participatory_process_types:
+        edit:
+          update: Actualización
+        new:
+          create: Crear
       participatory_process_user_roles:
         create:
           error: Houbo un erro engadindo un usuario a este proceso participativo.
