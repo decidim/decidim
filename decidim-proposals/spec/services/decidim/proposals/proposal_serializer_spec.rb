@@ -72,12 +72,9 @@ module Decidim
           end
 
           context "when it is a user" do
-            let!(:proposal) { create(:proposal, :participant_author) }
-
-            before do
-              proposal.creator_author.update!(name: "John Doe")
-              proposal.reload
-            end
+            let!(:user) { create(:user, name: "John Doe", organization: component.organization) }
+            let(:component) { create(:proposal_component) }
+            let!(:proposal) { create(:proposal, component:, users: [user]) }
 
             it "serializes the user name" do
               expect(serialized[:author]).to include(name: ["John Doe"])
@@ -89,11 +86,14 @@ module Decidim
 
             context "when author is deleted" do
               let!(:user) { create(:user, :deleted, organization: component.organization) }
-              let(:component) { create(:proposal_component) }
               let!(:proposal) { create(:proposal, component:, users: [user]) }
 
-              it "serializes the user name" do
+              it "serializes the user id" do
                 expect(serialized[:author]).to include(id: [user.id])
+              end
+
+              it "serializes the user name" do
+                expect(serialized[:author]).to include(name: [""])
               end
 
               it "serializes the link to its profile" do

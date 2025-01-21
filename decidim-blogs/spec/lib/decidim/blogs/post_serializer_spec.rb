@@ -23,10 +23,8 @@ module Decidim
 
         describe "author" do
           context "when it is a user" do
-            before do
-              post.author.update!(name: "John Doe")
-              post.reload
-            end
+            let(:author) { create(:user, name: "John Doe", organization: component.organization) }
+            let!(:post) { create(:post, component:, author:) }
 
             it "serializes the user name" do
               expect(serialized[:author]).to include(name: "John Doe")
@@ -34,6 +32,23 @@ module Decidim
 
             it "serializes the link to its profile" do
               expect(serialized[:author]).to include(url: profile_url(post.author.nickname))
+            end
+
+            context "when author is deleted" do
+              let(:author) { create(:user, :deleted, organization: component.organization) }
+              let!(:debate) { create(:post, component:, author:) }
+
+              it "serializes the user id" do
+                expect(serialized[:author]).to include(id: author.id)
+              end
+
+              it "serializes the user name" do
+                expect(serialized[:author]).to include(name: "")
+              end
+
+              it "serializes the link to its profile" do
+                expect(serialized[:author]).to include(url: "")
+              end
             end
           end
 

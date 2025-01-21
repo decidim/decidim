@@ -52,12 +52,8 @@ module Decidim
           end
 
           context "when it is a user" do
-            let!(:debate) { create(:debate, :participant_author) }
-
-            before do
-              debate.author.update!(name: "John Doe")
-              debate.reload
-            end
+            let(:author) { create(:user, name: "John Doe", organization: component.organization) }
+            let!(:debate) { create(:debate, component:, author:) }
 
             it "serializes the user name" do
               expect(serialized[:author]).to include(name: "John Doe")
@@ -65,6 +61,24 @@ module Decidim
 
             it "serializes the link to its profile" do
               expect(serialized[:author]).to include(url: profile_url(debate.author.nickname))
+            end
+
+            context "when author is deleted" do
+              let(:author) { create(:user, :deleted, organization: component.organization) }
+              let(:component) { create(:debates_component) }
+              let!(:debate) { create(:debate, component:, author:) }
+
+              it "serializes the user id" do
+                expect(serialized[:author]).to include(id: author.id)
+              end
+
+              it "serializes the user name" do
+                expect(serialized[:author]).to include(name: "")
+              end
+
+              it "serializes the link to its profile" do
+                expect(serialized[:author]).to include(url: "")
+              end
             end
           end
 
