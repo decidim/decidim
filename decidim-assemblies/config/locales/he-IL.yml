@@ -1,8 +1,6 @@
 he:
   activemodel:
     attributes:
-      assemblies_type:
-        title: כותרת
       assembly:
         announcement: הכרזה
         area_id: אזור
@@ -19,7 +17,6 @@ he:
         created_by_other: נוצר על ידי אחרים
         creation_date: תאריך יצירה
         decidim_area_id: אזור
-        decidim_assemblies_type_id: סוג אסיפה
         decidim_scope_id: היקף
         description: תיאור
         developer_group: קבוצת יזמים
@@ -35,7 +32,6 @@ he:
         import_components: ייבוא רכיבים
         included_at: נכלל ב
         instagram: אינסטגרם
-        internal_organisation: ארגון פנימי
         is_transparent: שקוף
         local_area: אזור ארגון
         meta_scope: מטא נתונים של היקף
@@ -96,7 +92,6 @@ he:
         confirm_delete_assembly: האם הנך בטוח שברצונך למחוק את האסיפה? אם תרצה לשנות את דעתך, תוכל לבטל אחרי זה.
         import_assembly: יבוא
         new_assembly: אסיפה חדשה
-        new_assembly_type: סוג אסיפה חדש
         new_assembly_user_role: מנהל אסיפה חדש
         view_deleted_assemblies: צפייה באסיפות מחוקות
       assemblies:
@@ -122,18 +117,6 @@ he:
         create:
           error: יש בעיה בשכפול אסיפה זו.
           success: אסיפה השתכפלה בהצלחה.
-      assemblies_types:
-        create:
-          error: יש בעיה ביצירת סוג אסיפה חדש.
-          success: סוג אסיפה נוצר בהצלחה.
-        destroy:
-          success: סוג אסיפה נמחק בהצלחה.
-        new:
-          create: יצירה
-          title: סוג אסיפה חדש
-        update:
-          error: יש בעיה בעדכון סוג האסיפה.
-          success: סוג אסיפה עודכן בהצלחה.
       assembly_copies:
         new:
           copy: העתקה
@@ -170,8 +153,6 @@ he:
           values:
             'false': לא הסתיימו
             'true': הסתיימו
-        decidim_assemblies_type_id_eq:
-          label: סוג אסיפה
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: חיפוש לפי שם או כינוי
       menu:
@@ -187,12 +168,7 @@ he:
           moderations: שינויים
           private_users: חברים
           see_assembly: ראה אסיפה
-        assemblies_types: סוגי אסיפות
       models:
-        assemblies_types:
-          fields:
-            created_at: נוצרו ב
-            title: כותרת
         assembly:
           fields:
             actions: פעולות
@@ -235,12 +211,8 @@ he:
             other: אחר
             select_a_created_by: בחירת מי יצר
             select_an_area: בחירת אזור
-            select_an_assembly_type: בחירת סוג אסיפה
             select_parent_assembly: בחירת אסיפת אם
             social_handlers: חברתי
             taxonomies: טקסונומיות
             title: מידע כללי
             visibility: נראות
-        assemblies_types:
-          form:
-            title: עריכת סוג אסיפה
