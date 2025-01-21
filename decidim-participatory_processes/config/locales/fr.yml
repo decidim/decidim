@@ -151,7 +151,7 @@ fr:
           name: Étape de la concertation
         participatory_process_type:
           fields:
-            created_at: Crée le
+            created_at: Créée le
             title: Titre
           name: Type de concertation
         participatory_process_user_role:
