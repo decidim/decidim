@@ -15,6 +15,8 @@ module Decidim
       class QuestionPresenter < Decidim::Log::BasePresenter
         private
 
+        # i18n-tasks-use t("decidim.forms.admin_log.question.publish_answers")
+        # i18n-tasks-use t("decidim.forms.admin_log.question.unpublish_answers")
         def action_string
           case action
           when "publish_answers", "unpublish_answers"
