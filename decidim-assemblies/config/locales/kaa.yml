@@ -14,9 +14,6 @@ kaa:
           update: Jańalaw
         new:
           create: Jaratıw
-      assemblies_types:
-        new:
-          create: Jaratıw
       assembly_copies:
         new:
           copy: Kóshirip alıw
