@@ -1,8 +1,6 @@
 sv:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Titel
       assembly:
         announcement: Meddelande
         area_id: Område
@@ -19,7 +17,6 @@ sv:
         created_by_other: Skapad av andra
         creation_date: Skapad datum
         decidim_area_id: Område
-        decidim_assemblies_type_id: Typ av samråd
         decidim_scope_id: Indelning
         description: Beskrivning
         developer_group: Arrangör
@@ -35,7 +32,6 @@ sv:
         import_components: Importera komponenter
         included_at: Publicerad
         instagram: Instagram
-        internal_organisation: Organisation
         is_transparent: Är transparent
         local_area: Område
         meta_scope: Omfattning
@@ -95,7 +91,6 @@ sv:
       actions:
         import_assembly: Importera
         new_assembly: Nytt samråd
-        new_assembly_type: Ny typ av samråd
         new_assembly_user_role: Ny administratör av samråd
       assemblies:
         create:
@@ -117,18 +112,6 @@ sv:
         create:
           error: Det gick inte att duplicera samrådet.
           success: Samrådet har duplicerats.
-      assemblies_types:
-        create:
-          error: Det gick inte att skapa en ny typ av samråd.
-          success: Typen av samråd har skapats.
-        destroy:
-          success: Typen av samråd har raderats.
-        new:
-          create: Skapa
-          title: Ny typ av samråd
-        update:
-          error: Det gick inte att uppdatera typen av samråd.
-          success: Typen av samråd har uppdaterats.
       assembly_copies:
         new:
           copy: Kopiera
@@ -172,8 +155,6 @@ sv:
           values:
             'false': Ej avslutade
             'true': Avslutade
-        decidim_assemblies_type_id_eq:
-          label: Typ av samråd
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Sök på namn eller användarnamn
       menu:
@@ -188,12 +169,7 @@ sv:
           landing_page: Landningssida
           moderations: Moderering
           see_assembly: Visa samråd
-        assemblies_types: Typer av samråd
       models:
-        assemblies_types:
-          fields:
-            created_at: Skapad
-            title: Titel
         assembly:
           fields:
             actions: Åtgärder
@@ -263,16 +239,12 @@ sv:
             other: Övrigt
             select_a_created_by: Välj en skapad av
             select_an_area: Välj ett område
-            select_an_assembly_type: Välj typ av samråd
             select_parent_assembly: Välj överordnat samråd
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
             social_handlers: Sociala medier
             taxonomies: Kategorier
             title: Allmän information
             visibility: Synlighet
-        assemblies_types:
-          form:
-            title: Redigera typ av samråd
         assembly_copies:
           form:
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
@@ -316,14 +288,6 @@ sv:
       assembly_members:
         index:
           members: Medlemmar
-      assembly_types:
-        commission: Kommission
-        consultative_advisory: Rådgivande
-        executive: Verkställande
-        government: Styrande
-        others: Övriga
-        participatory: Deltagande
-        working_group: Arbetsgrupp
       content_blocks:
         children_assemblies:
           name: Samråd
@@ -362,7 +326,6 @@ sv:
           member_of:
             member_of: Medlem av
       show:
-        assembly_type: Typ av samråd
         duration: Varaktighet
         private_space: Det här är ett privat samråd
         social_networks_title: Besök samrådet på
