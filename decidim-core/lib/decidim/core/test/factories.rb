@@ -201,6 +201,8 @@ FactoryBot.define do
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     notifications_sending_frequency { "real_time" }
+    last_inactivity_notice_sent_at { nil }
+    removal_date { nil }
     email_on_moderations { true }
     email_on_assigned_proposals { true }
     password_updated_at { Time.current }
