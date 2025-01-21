@@ -2,6 +2,8 @@
 zh-CN:
   activemodel:
     attributes:
+      assemblies_type:
+        title: 标题
       assembly:
         area_id: 区域
         assembly_type: 程序集类型
@@ -159,6 +161,9 @@ zh-CN:
         update:
           error: 更新这个会议的管理员时出现问题。
           success: 管理员已成功更新此程序集。
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: 程序集类型
       menu:
         assemblies: 程序集
         assemblies_submenu:
