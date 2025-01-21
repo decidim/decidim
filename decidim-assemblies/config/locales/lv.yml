@@ -2,6 +2,8 @@
 lv:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Nosaukums
       assembly:
         area_id: Joma
         assembly_type: Asamblejas veids
@@ -152,6 +154,9 @@ lv:
         update:
           error: Atjauninot administratoru šai asamblejai, radās problēma.
           success: Šīs asamblejas administrators ir veiksmīgi atjaunināts.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Asamblejas veids
       menu:
         assemblies: Asambleja
         assemblies_submenu:
