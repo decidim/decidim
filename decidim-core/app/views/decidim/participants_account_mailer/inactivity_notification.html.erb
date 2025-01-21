@@ -3,8 +3,8 @@
 <p class="email-instructions"><%= t(
                                     ".body",
                                     organization_name: organization_name(@organization),
-                                    date_account_creation: @user.created_at.strftime('%Y-%m-%d'),
-                                    date_last_connection: @user.last_sign_in_at&.strftime('%Y-%m-%d') || t(".never_logged_in"),
+                                    date_account_creation: @user.created_at.strftime("%Y-%m-%d"),
+                                    date_last_connection: @user.last_sign_in_at&.strftime("%Y-%m-%d") || t(".never_logged_in"),
                                     days: @days_before_deletion
                                   ) %></p>
 <p class="email-closing">
