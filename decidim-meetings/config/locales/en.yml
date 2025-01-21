@@ -741,6 +741,7 @@ en:
           registration_form_enabled: Whether the registration form was enabled or not
           registration_terms: The terms agreed prior to meeting participation
           registration_url: URL of the meeting registration
+          registrations_enabled: Whether registrations were permitted
           related_proposals: The proposals related to this meeting
           related_results: The results related to this meeting
           start_time: The date and time that this meeting starts
@@ -750,7 +751,7 @@ en:
           updated_at: The time at which the meeting was last updated
           url: The URL of the meeting
           vidoe_url: Video recording of the meeting
-          withdrawn: Wheter this meeting has been withdrawn
+          withdrawn: Whether this meeting has been withdrawn
           withdrawn_at: When this meeting was withdrawn
     participatory_spaces:
       highlighted_meetings:

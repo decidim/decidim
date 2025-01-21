@@ -69,7 +69,8 @@ module Decidim
           audio_url: meeting.audio_url,
           closed_at: meeting.closed_at,
           registration_terms: meeting.registration_terms,
-          available_slots: meeting.available_slots
+          available_slots: meeting.available_slots,
+          registrations_enabled: meeting.registrations_enabled
         }
       end
 

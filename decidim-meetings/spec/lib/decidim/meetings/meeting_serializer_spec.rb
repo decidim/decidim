@@ -196,6 +196,10 @@ module Decidim
           expect(serialized).to include(available_slots: meeting.available_slots)
         end
 
+        it "serializes the if registrations were activiated" do
+          expect(serialized).to include(registrations_enabled: meeting.registrations_enabled)
+        end
+
         describe "closing report and visibility" do
           context "when the meeting is completed" do
             let!(:meeting) { create(:meeting, :closed) }
