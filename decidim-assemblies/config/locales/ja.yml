@@ -1,8 +1,6 @@
 ja:
   activemodel:
     attributes:
-      assemblies_type:
-        title: タイトル
       assembly:
         announcement: お知らせ
         area_id: エリア
@@ -19,7 +17,6 @@ ja:
         created_by_other: 他によって作成
         creation_date: 作成日
         decidim_area_id: エリア
-        decidim_assemblies_type_id: 参加スペース種別
         decidim_scope_id: スコープ
         description: 説明
         developer_group: プロモーターグループ
@@ -35,7 +32,6 @@ ja:
         import_components: コンポーネントをインポート
         included_at: 含まれた日
         instagram: Instagram
-        internal_organisation: 内部組織
         is_transparent: 透明性
         local_area: 組織エリア
         meta_scope: スコープメタデータ
@@ -93,7 +89,6 @@ ja:
         confirm_delete_assembly: このアセンブリを削除してもよろしいですか？気が変わった場合は、後で復元できます。
         import_assembly: インポート
         new_assembly: 新しい参加スペース
-        new_assembly_type: 新しい参加スペース種別
         new_assembly_user_role: 新しい参加スペース管理者
         view_deleted_assemblies: 削除されたアセンブリを表示
       assemblies:
@@ -119,18 +114,6 @@ ja:
         create:
           error: この参加スペースの複製中に問題が発生しました。
           success: 参加スペースを複製しました。
-      assemblies_types:
-        create:
-          error: 新しい参加スペース種別の作成に問題がありました。
-          success: 参加スペース種別が正常に作成されました。
-        destroy:
-          success: 参加スペース種別を削除しました。
-        new:
-          create: 作成
-          title: 新しい参加スペース種別
-        update:
-          error: 参加スペース種別の更新中に問題が発生しました。
-          success: 参加スペース種別が正常に更新されました。
       assembly_copies:
         new:
           copy: コピー
@@ -174,8 +157,6 @@ ja:
           values:
             'false': 未完了
             'true': 終了済み
-        decidim_assemblies_type_id_eq:
-          label: 参加スペース種別
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: 名前またはニックネームで検索
       menu:
@@ -191,12 +172,7 @@ ja:
           moderations: モデレーション
           private_users: メンバー
           see_assembly: 参加スペースを見る
-        assemblies_types: 参加スペース種別
       models:
-        assemblies_types:
-          fields:
-            created_at: 作成日時
-            title: タイトル
         assembly:
           fields:
             actions: アクション
@@ -274,16 +250,12 @@ ja:
             private_notice: プライベートとして設定した後、プライベート参加者を管理することができます
             select_a_created_by: 作成者を選択してください
             select_an_area: エリアを選択
-            select_an_assembly_type: 参加スペース種別を選択
             select_parent_assembly: 親参加スペースを選択
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             social_handlers: ソーシャル
             taxonomies: タクソノミー
             title: 一般情報
             visibility: 公開範囲
-        assemblies_types:
-          form:
-            title: タイトル
         assembly_copies:
           form:
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
@@ -327,14 +299,6 @@ ja:
       assembly_members:
         index:
           members: メンバー
-      assembly_types:
-        commission: 委員会
-        consultative_advisory: 協議会/アドバイザリボード
-        executive: 役員会
-        government: 政府
-        others: その他
-        participatory: 参加者
-        working_group: ワーキンググループ
       content_blocks:
         children_assemblies:
           name: 参加スペース
@@ -373,7 +337,6 @@ ja:
           member_of:
             member_of: メンバー
       show:
-        assembly_type: 参加スペース種別
         duration: 持続期間
         private_space: これは私的参加スペースです
         social_networks_title: 参加スペースを訪問
