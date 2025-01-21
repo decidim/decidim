@@ -54,12 +54,13 @@ module Decidim
     #     information about personal data to the user. (default: false)
     # - :action_authorizer (String) This is the name of the action authorizer
     #     class responsible for checking the status of the authorization
-    #     associated to the signature. If this class is not defined, class
-    #     Decidim::Initiatives::DefaultSignatureAuthorizer is used, which
+    #     associated to the signature. If this class is not defined, the
+    #     authorization status will be ignored. You can define a handler
+    #     inherited from Decidim::Initiatives::DefaultSignatureAuthorizer which
     #     inherits from Decidim::Verifications::DefaultActionAuthorizer and
     #     checks the authorization status with an instance initialized only
     #     with the authorization (without a component or a resource).
-    #     (default: "Decidim::Initiatives::DefaultSignatureAuthorizer")
+    #     (default: nil)
     # - :sms_verification (Boolean) (optional) This option enables an
     #     additional SMS verification step. It uses by default the sms
     #     verification flow defined in decidim_verifications and expects the
@@ -118,11 +119,9 @@ module Decidim
       end
 
       def action_authorizer_class
-        if action_authorizer.present?
-          action_authorizer.constantize
-        else
-          DefaultSignatureAuthorizer
-        end
+        return if action_authorizer.blank?
+
+        action_authorizer.safe_constantize || DefaultSignatureAuthorizer
       end
 
       def authorization_handler_form_class
