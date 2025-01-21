@@ -204,8 +204,7 @@ namespace :decidim do
 
     contents = ""
     lines.each do |line|
-
-      contents += if line =~ %r{^require "shakapacker"$}
+      contents += if line =~ /^require "shakapacker"$/
                     %(require "decidim/webpacker/shakapacker"\n)
                   else
                     line
