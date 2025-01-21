@@ -2,6 +2,8 @@
 id:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Judul
       assembly:
         area_id: Daerah
         assembly_type: Tipe perakitan
@@ -140,6 +142,9 @@ id:
         update:
           error: Terjadi kesalahan saat memperbarui pengguna untuk perakitan ini.
           success: Pengguna berhasil diperbarui untuk perakitan ini.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipe perakitan
       menu:
         assemblies: Assemblies
         assemblies_submenu:
