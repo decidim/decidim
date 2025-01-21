@@ -9,7 +9,7 @@ eu:
         description: Deskribapena
         end_date: Bukaera-data
         meetings_ids: Honekin lotutako topaketak
-        progress: Aurrerapena
+        progress: Aurrera egiten
         project_ids: Barne dauden proiektuak
         proposals: Barne dauden proposamenak
         start_date: Hasiera-data
@@ -82,7 +82,7 @@ eu:
         imports:
           create:
             invalid: Arazo bat egon da emaitzak inportatzean.
-            success: Espedientea inportatzen hasi da. Datozen minutuetan posta elektroniko bat jasoko duzu inportazioaren emaitzarekin.
+            success: Espedientea inportatzen hasi da. Hurrengo minutuan posta elektroniko bat jasoko duzu inportazioaren emaitzarekin.
         models:
           result:
             name: Emaitza
@@ -160,12 +160,12 @@ eu:
             success: Sarrera zuzen eguneratua.
       admin_log:
         result:
-          create: "%{user_name} parte-hartzaileak emaitza sortu du %{resource_name} %{space_name} espazioan"
+          create: "%{user_name} erabiltzaileak %{resource_name} emaitza sortu du %{space_name} espazioan"
           delete: "%{user_name} parte-hartzaileak %{resource_name} emaitza ezabatu du %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} emaitza eguneratu du %{space_name} espazioan"
         status:
           create: "%{user_name} parte-hartzaileak %{resource_name} egoera sortu du"
-          delete: "%{user_name} parte-hartzaieak %{resource_name} egoera ezabatu du"
+          delete: "%{user_name} erabiltzaileak %{resource_name} egoera ezabatu du"
           update: "%{user_name} parte-hartzaileak %{resource_name} egoera eguneratu du"
         timeline_entry:
           create: "%{user_name} parte-hartzaileak %{resource_name} sarrera sortu du kronologian"
@@ -198,7 +198,7 @@ eu:
           fields:
             category: Kategoria
             created_at: Noiz sortua
-            end_date: Bukaera-data
+            end_date: Amaiera-data
             id: ID
             progress: Aurrerapena
             scope: Esparrua
