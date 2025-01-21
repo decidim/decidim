@@ -181,7 +181,7 @@ sq:
             'false': E papërfunduar
             'true': Përfunduar
         decidim_assemblies_type_id_eq:
-          label: Tipi i asamblesë
+          label: Lloji i asamblesë
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Kërko me emër ose nofkë
       menu:
@@ -338,7 +338,7 @@ sq:
         consultative_advisory: Këshilluese
         executive: Ekzekutive
         government: Qeverisja
-        others: Tjetër
+        others: Të tjerët
         participatory: Pjesëmarrëse
         working_group: Grup pune
       content_blocks:
@@ -379,7 +379,7 @@ sq:
           member_of:
             member_of: Anëtar i
       show:
-        assembly_type: Tipi i asamblesë
+        assembly_type: Lloji i asamblesë
         duration: Kohëzgjatja
         private_space: Kjo është asamble private
         social_networks_title: Vizito asamblenë në
