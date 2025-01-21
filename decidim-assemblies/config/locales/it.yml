@@ -16,7 +16,6 @@ it:
         created_by_other: Creato da altri
         creation_date: Data di creazione
         decidim_area_id: La zona
-        decidim_assemblies_type_id: Tipo di assemblea
         decidim_scope_id: Ambito
         description: Descrizione
         developer_group: Promotore
@@ -28,7 +27,6 @@ it:
         hero_image: Immagine della home page
         included_at: Fino a
         instagram: Instagram
-        internal_organisation: Organizzazione interna
         is_transparent: È trasparente
         local_area: Area organizzativa
         meta_scope: Metadati di ambito
@@ -80,7 +78,6 @@ it:
       actions:
         import_assembly: Importa
         new_assembly: Nuova assemblea
-        new_assembly_type: Nuovo tipo di assemblea
       assemblies:
         create:
           error: Si è verificato un errore durante la creazione di una nuova assemblea.
@@ -101,18 +98,6 @@ it:
         create:
           error: Si è verificato un errore durante la duplicazione di questa assemblea.
           success: L'assemblea è stata duplicata con successo.
-      assemblies_types:
-        create:
-          error: Si è verificato un errore durante la creazione di un nuovo tipo di assemblea.
-          success: Tipo di Assemblea creato con successo.
-        destroy:
-          success: Tipo di Assemblea eliminato correttamente.
-        new:
-          create: Crea
-          title: Nuovo tipo di assemblea
-        update:
-          error: Si è verificato un errore durante l'aggiornamento di questo tipo di assemblea.
-          success: Tipo di Assemblea aggiornato correttamente.
       assembly_copies:
         new:
           copy: Copia
@@ -148,9 +133,6 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di un amministratore per questa assemblea.
           success: Admin aggiornato correttamente per questa assemblea.
-      filters:
-        decidim_assemblies_type_id_eq:
-          label: Tipo di assemblea
       menu:
         assemblies: Assemblee
         assemblies_submenu:
@@ -160,12 +142,7 @@ it:
           attachments: Allegati
           components: Componenti
           moderations: Moderazione
-        assemblies_types: Tipi di assemblea
       models:
-        assemblies_types:
-          fields:
-            created_at: Data/ora di creazione
-            title: Titolo
         assembly:
           fields:
             created_at: Data/ora di creazione
@@ -230,13 +207,9 @@ it:
             other: Altro
             select_a_created_by: Seleziona un creatore
             select_an_area: Seleziona un'Area
-            select_an_assembly_type: Seleziona un tipo di assemblea
             select_parent_assembly: Seleziona l'assemblea madre
             social_handlers: Social networks
             title: Informazioni generali
-        assemblies_types:
-          form:
-            title: Titolo
         assembly_members:
           form:
             explanation: 'Guida per l''immagine:'
@@ -256,14 +229,6 @@ it:
       assembly_members:
         index:
           members: Utenti
-      assembly_types:
-        commission: Commissione
-        consultative_advisory: Consultivo / Advisory
-        executive: Esecutivo
-        government: Governo
-        others: Altri
-        participatory: Participatory
-        working_group: Gruppo di lavoro
       content_blocks:
         highlighted_assemblies:
           name: Assiemi evidenziati
@@ -288,7 +253,6 @@ it:
           member_of:
             member_of: Membro di
       show:
-        assembly_type: Tipo di assemblea
         duration: Durata
         private_space: Questa è un'assemblea privata
     assembly_members:
