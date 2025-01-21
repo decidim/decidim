@@ -515,6 +515,21 @@ eu:
           proposal_comments: Iruzkinak
           proposals: Proposamenak
         imports:
+          help:
+            answers: |
+              Inportazio-dokumentuak zutabe-izen hauek izan behar ditu CSV edo Excel fitxategien kasuan, edo gako-izenak JSON fitxategien kasuan (beste zutabe batzuk ez dira kontuan hartuko):
+              <ul>
+              <li>ERANTZUN BEHARREKO PROPOSAMENAREN IDENTIFIKAZIOA<b></b> </li>
+              <li>Bat "onartua", "ebaluatzailea" edo "baztertua"<b>.</b> </li>
+              <li>Erantzuna ingelesez, plataformaren hizkuntza-konfigurazioaren araberakoa izango da.<b></b> </li>
+              </ul>
+            proposals: |
+              Fitxategiak zutabeko izen hauek izan behar ditu CSV edo Excel fitxategien kasuan, edo gako-izenak JSON fitxategien kasuan:
+              <ul>
+              <li>izenburua<b>/k:</b> Ingelesari buruzko titulua. Plataformaren hizkuntza-konfigurazioaren araberakoa izango da.</li>
+              <li>Zure plataforma hizkuntzaren konfigurazioaren araberakoa izango da.<b></b> </li>
+              <li><b>taxonomies/ids:</b> ID Taxonomietarako (bat baino gehiago bada, bereizi koma batez) </li>
+              </ul>
           label:
             answers: Inportatu erantzunak errenkada batetik
             proposals: Inportatu proposamenak errenkada batetik
@@ -747,6 +762,7 @@ eu:
           error: Arazo bat izan da lankidetza-zirriborroak sortzean.
           success: Zirriborro kolaboratiboa sortu da.
         edit:
+          attachment_legend: Gehitu dokumentu bat edo irudi bat
           back: Atzera
           send: Bidali
           title: Editatu zirriborro kolaboratiboa
@@ -894,7 +910,10 @@ eu:
           description: Koordenatuak eguneratu egingo dira 'aurrebistaratu' botoian klik egiten duzunean. Baina helbidea ez da aldatzen.
           instructions: Kokapena mugitu ahal duzu mapan.
         edit:
+          add_attachments: Gehitu eranskinak
+          attachment_legend: Gehitu dokumentu bat edo irudi bat
           back: Atzera
+          edit_attachments: Editatu eranskinak
           send: Bidali
           title: Editatu proposamena
         edit_draft:
