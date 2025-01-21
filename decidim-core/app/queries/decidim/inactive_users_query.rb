@@ -10,9 +10,10 @@ module Decidim
     # @param organization [Decidim::Organization] the organization to scope the query to.
     # @param reminder_period [ActiveSupport::Duration] the period before account deletion to send reminders.
     # @param inactivity_period [Integer] the number of days of inactivity before marking the user for deletion.
-    def initialize(organization, reminder_period, inactivity_period)
+    def initialize(organization, reminder_period, delete_period, inactivity_period)
       @organization = organization
       @reminder_period = reminder_period
+      @delete_period = delete_period
       @inactivity_period = inactivity_period
     end
 
@@ -27,8 +28,8 @@ module Decidim
     def inactive_users
       base_query
         .merge(Decidim::User.where(removal_date: nil))
-        .where(created_at: ...@inactivity_period.days.ago)
-        .where("last_sign_in_at < ? OR last_sign_in_at IS NULL", @inactivity_period.days.ago)
+        .where(created_at: ..(@inactivity_period.days.ago - @delete_period))
+        .where("last_sign_in_at < ? OR last_sign_in_at IS NULL", @inactivity_period.days.ago + @delete_period)
     end
 
     # Finds users who are scheduled for deletion and are due for a reminder notification.
@@ -36,7 +37,7 @@ module Decidim
       base_query
         .where.not(removal_date: nil)
         .where(removal_date: ..(@reminder_period.from_now))
-        .where(last_inactivity_notice_sent_at: ...(@reminder_period.ago))
+        .where.not(last_inactivity_notice_sent_at: nil)
     end
 
     # Finds users who are ready for deletion based on their removal_date.

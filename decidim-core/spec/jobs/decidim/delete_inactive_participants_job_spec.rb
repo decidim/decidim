@@ -9,6 +9,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
 
   let!(:inactive_never_signed_in) { create(:user, organization: organization, last_sign_in_at: nil, created_at: 400.days.ago) }
   let!(:active_never_signed_in) { create(:user, organization: organization, last_sign_in_at: nil, created_at: 200.days.ago) }
+  let!(:inactive_just_270_days) { create(:user, organization: organization, last_sign_in_at: 270.days.ago, created_at: 400.days.ago) }
   let!(:inactive_recent_sign_in) { create(:user, organization: organization, last_sign_in_at: 400.days.ago, created_at: 400.days.ago) }
   let!(:active_recent_sign_in) { create(:user, organization: organization, last_sign_in_at: 200.days.ago, created_at: 400.days.ago) }
   let!(:removal_pending_user) { create(:user, organization: organization, removal_date: 7.days.from_now, last_inactivity_notice_sent_at: nil, created_at: 400.days.ago) }
@@ -75,6 +76,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
 
   describe "#perform" do
     context "when assigning removal dates" do
+      it_behaves_like "assigns removal date and sends 30-day notifications", :inactive_just_270_days, true, true
       it_behaves_like "assigns removal date and sends 30-day notifications", :inactive_never_signed_in, true, true
       it_behaves_like "assigns removal date and sends 30-day notifications", :active_never_signed_in, false, false
       it_behaves_like "assigns removal date and sends 30-day notifications", :inactive_recent_sign_in, true, true
@@ -82,6 +84,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
     end
 
     context "when sending reminders 7 days before removal" do
+      it_behaves_like "sends 7-day reminders", :inactive_just_270_days, false
       it_behaves_like "sends 7-day reminders", :reminder_sent_user, true
       it_behaves_like "sends 7-day reminders", :removal_pending_user, false
     end

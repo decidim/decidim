@@ -9,7 +9,7 @@ module Decidim
     REMINDER_PERIOD = 7.days.freeze
 
     def perform(organization)
-      query = InactiveUsersQuery.new(organization, REMINDER_PERIOD, inactivity_period)
+      query = InactiveUsersQuery.new(organization, REMINDER_PERIOD, DELETE_PERIOD, inactivity_period)
 
       reset_inactivity_marks(query.reset_inactivity_marks)
       assign_removal_dates(query.inactive_users)
