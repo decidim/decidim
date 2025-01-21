@@ -2,6 +2,8 @@
 ru:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Название
       assembly:
         area_id: Участок
         assembly_type: Вид собрания
@@ -147,6 +149,9 @@ ru:
         update:
           error: При попытке обновить члена президиума этого собрания произошла ошибка.
           success: Участник этого собрания успешно обновлен.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Вид собрания
       menu:
         assemblies: Собрания
         assemblies_submenu:
@@ -238,12 +243,7 @@ ru:
           members: Члены президиума
       assembly_types:
         commission: Комиссия
-        consultative_advisory: Совещательное / Консультативное
-        executive: Исполнительное
-        government: Правительственное
-        others: Другое
-        participatory: Соучастное
-        working_group: Рабочая группа
+        others: Другие
       content_blocks:
         highlighted_assemblies:
           name: Рекомендуемые собрания
