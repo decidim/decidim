@@ -155,7 +155,6 @@ If you want to calculate this metric you could run the following command, where 
 
 You can see more details about this change on PR [\#13442](https://github.com/decidim/decidim/pull/13442)
 
-
 ### 3.4. Convert old categorization models (Categories, Scopes, Areas, Participatory Process and Assembly types) into taxonomies
 
 All those models have been deprecated, now a unique entity called "Taxonomies" is used for classifying all the content in Decidim (see https://docs.decidim.org/en/develop/develop/taxonomies.html for reference).
