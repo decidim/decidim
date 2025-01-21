@@ -68,7 +68,7 @@ eu:
         gender: Generoa
         non_user_avatar: Abatarra
         position: Posizioa
-        user_id: Parte-hartzaile edo taldea
+        user_id: Parte-hartzailea edo taldea
         weight: Kokapenaren hurrenkera
       assembly_user_role:
         email: E-maila
@@ -215,7 +215,7 @@ eu:
       models:
         assemblies_types:
           fields:
-            created_at: Sortze-data
+            created_at: Noiz sortua
             title: Izenburua
         assembly:
           fields:
@@ -299,7 +299,7 @@ eu:
             visibility: Ikusgarritasuna
         assemblies_types:
           form:
-            title: Batzar mota berria
+            title: Editatu batzar mota
         assembly_copies:
           form:
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
