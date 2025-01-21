@@ -105,6 +105,8 @@ ja:
       participatory_space_private_user:
         email: Eメールアドレス
         name: 名前
+      participatory_space_private_user_csv_import:
+        file: ファイル
       scope:
         code: コード
         name: 名前
@@ -757,6 +759,11 @@ ja:
             report_language: 報告の言語
             report_reason: '理由:'
             title: 報告の詳細
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: プレビュー
@@ -810,6 +817,9 @@ ja:
           participants_help: 選択した参加型スペースに参加しているすべての確認済みユーザーにニュースレターを送信します。
           recipients_count: このニュースレターは、 <strong id='recipients_count'>%{count}</strong> のユーザーに送信されます。
           select_assemblies: 参加スペースを選択
+          select_conferences: カンファレンスを選択
+          select_initiatives: イニシアチブを選択
+          select_participatory_processes: 参加型プロセスを選択
           select_spaces: ニュースレターをセグメント化するスペースを選択
           send_to_all_users: すべてのユーザーに送信
           send_to_verified_users: 検証済みユーザーに送る
