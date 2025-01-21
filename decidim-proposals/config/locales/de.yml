@@ -459,7 +459,30 @@ de:
           comments: Die Anzahl Kommentare dieses Vorschlags
           component: Komponente, zu der dieser Vorschlag gehört
           cost: Die Gesamtkosten des Vorschlags
+          cost_report: Ein Kostenbericht für den Vorschlag
+          created_at: Erstellungsdatum dieses Vorschlags
+          created_in_meeting: Ob der Vorschlag in einer Sitzung erstellt wurde
+          endorsements: Die Anzahl Unterstützungen dieses Vorschlags
+          execution_period: Der Zeitraum, in dem der Vorschlag von Anfang bis Ende lief
+          follows_count: Die Anzahl Folgende dieses Vorschlags
+          id: Die eindeutige Bezeichnung des Vorschlags
+          is_amend: Ob dieser Vorschlag einen anderen Vorschlag ändert
+          latitude: Der Breitengrad des Vorschlags, falls es einen verortet wurde
+          longitude: Der Längengrad des Vorschlags, falls er verortet wurde
+          meeting_urls: Die URLs der Sitzungen, an denen dieser Vorschlag vorgestellt oder diskutiert wurde
+          original_proposal: Referenz des ursprünglichen Vorschlags, falls es sich um einen Änderungsantrag handelt
+          participatory_space: Zu welchem Bereich dieser Vorschlag gehört (z.B. Partizipationsprozesse oder Gremien)
+          published_at: Das Datum, an dem dieser Vorschlag veröffentlicht wurde
+          reference: Die eindeutige Bezeichnung der Ressource auf dieser Plattform
+          related_proposals: Mit diesem Vorschlag verknüpfte Vorschläge
+          state: Der Status dieses Vorschlags (z.B. "Akzeptiert")
+          state_published_at: Ein Zeitstempel des Status des Vorschlags bei Veröffentlichung
           taxonomies: Die Klassifizierungen, zu denen dieser Vorschlag gehört
+          title: Titel des Vorschlags
+          updated_at: Datum der letzten Aktualisierung des Vorschlags
+          url: Die URL, unter der dieser Vorschlag gefunden werden kann
+          votes: Die Anzahl Stimmen zu diesem Vorschlag
+          withdrawn: Ob dieser Vorschlag zurückgezogen wurde
           withdrawn_at: Wann dieser Vorschlag zurückgezogen wurde
     participatory_spaces:
       highlighted_proposals:
@@ -492,6 +515,21 @@ de:
           proposal_comments: Kommentare
           proposals: Vorschläge
         imports:
+          help:
+            answers: |
+              Das Importdokument sollte die folgenden Spaltennamen bei CSV- oder Excel-Dateien enthalten bzw. Schlüsselnamen im Falle von JSON-Dateien:
+              <ul>
+              <li><b>id:</b> ID des Vorschlages zur Beantwortung</li>
+              <li><b>state:</b> Einer von "akzeptiert", "in Bearbeitung" oder "abgelehnt"</li>
+              <li><b>answer/de:</b> Antwort in Deutscher Sprache. Dies hängt von der Sprachkonfiguration Ihrer Plattform ab.</li>
+              </ul>
+            proposals: |
+              Die Datei muss bei CSV- oder Excel-Dateien die folgenden Spaltennamen haben bzw. Schlüsselnamen bei JSON-Dateien:
+              <ul>
+              <li><b>title/de:</b> Titel in Deutscher Sprache. Dies hängt von der Sprachkonfiguration Ihrer Plattform ab.</li>
+              <li><b>body/de:</b> Beschreibung in Deutscher Sprache. Dies hängt von der Sprachkonfiguration Ihrer Plattform ab.</li>
+              <li><b>taxonomies/ids</b> ID der Klassifizierungen (falls mehr als eine vorhanden, bitte durch Kommas trennen)</li>
+              </ul>
           label:
             answers: Antworten aus einer Datei importieren
             proposals: Vorschläge aus einer Datei importieren
