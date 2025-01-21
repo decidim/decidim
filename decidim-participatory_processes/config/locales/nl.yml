@@ -333,7 +333,6 @@ nl:
             filters: Filters
             images: Afbeeldingen
             metadata: Metadata
-            other: Overige
             related_processes: Verwante thema's
             scope_type_max_depth_help: Beperk de scope filter diepte; de filter zal uit het algemeen worden weergegeven tot het geselecteerde scope type.
             select_an_area: Selecteer een onderwerp
