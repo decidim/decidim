@@ -3,12 +3,12 @@
 RSpec.configure do |config|
   config.include ActiveJob::TestHelper
 
-  config.after do
-    clear_enqueued_jobs
-    clear_performed_jobs
+  config.before(:each) do
+    ActiveJob::Base.queue_adapter = :inline
   end
 
-  config.before do
-    ActiveJob::Base.queue_adapter = :inline
+  config.after(:each) do
+    clear_enqueued_jobs
+    clear_performed_jobs
   end
 end
