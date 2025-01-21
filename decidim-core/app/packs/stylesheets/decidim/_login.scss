@@ -27,7 +27,7 @@ $google_background_hover: #dcdcdc; // 30% opacity
       }
 
       span {
-        @apply hidden md:inline;
+        @apply hidden xl:inline;
       }
 
       &--developer {

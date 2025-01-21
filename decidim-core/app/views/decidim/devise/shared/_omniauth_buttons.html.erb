@@ -5,9 +5,7 @@
       <% link_classes = "login__omniauth-button login__omniauth-button--#{normalize_provider_name(provider)}" %>
       <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: link_classes, method: :post, title: t("devise.shared.links.log_in_with_provider", provider: normalize_provider_name(provider).titleize) do %>
         <%= oauth_icon provider %>
-        <span class="hidden md:inline">
-          <%= "Log in with #{normalize_provider_name(provider).titleize}" %>
-        </span>
+        <span><%= "Log in with #{normalize_provider_name(provider).titleize}" %></span>
       <% end %>
     <% end %>
   </div>
