@@ -149,6 +149,7 @@ end
 Decidim::Initiatives::Signatures.register_workflow(:legacy_signature_handler) do |workflow|
   workflow.form = "Decidim::Initiatives::LegacySignatureHandler"
   workflow.authorization_handler_form = "DummyAuthorizationHandler"
+  workflow.save_authorizations = false
   workflow.sms_verification = true
 end
 ```
