@@ -178,21 +178,21 @@ describe "Admin manages surveys" do
         end
 
         context "and the questions are supported" do
-          let(:question_single_option) { create(:questionnaire_question, :with_answer_options, question_type: "single_option", questionnaire:) }
+          let(:question_single_option) { create(:questionnaire_question, :with_answer_options, position: 0, question_type: "single_option", questionnaire:) }
 
-          let(:question_multiple_option) { create(:questionnaire_question, :with_answer_options, question_type: "multiple_option", questionnaire:) }
+          let(:question_multiple_option) { create(:questionnaire_question, :with_answer_options, position: 1, question_type: "multiple_option", questionnaire:) }
 
-          let(:question_matrix_single) { create(:questionnaire_question, :with_answer_options, question_type: "matrix_single", questionnaire:) }
+          let(:question_matrix_single) { create(:questionnaire_question, :with_answer_options, position: 2, question_type: "matrix_single", questionnaire:) }
           let!(:question_matrix_row_single1) { create(:question_matrix_row, question: question_matrix_single) }
           let!(:question_matrix_row_single2) { create(:question_matrix_row, question: question_matrix_single) }
           let!(:question_matrix_row_single3) { create(:question_matrix_row, question: question_matrix_single) }
 
-          let(:question_matrix_multiple) { create(:questionnaire_question, :with_answer_options, question_type: "matrix_multiple", questionnaire:) }
+          let(:question_matrix_multiple) { create(:questionnaire_question, :with_answer_options, position: 3, question_type: "matrix_multiple", questionnaire:) }
           let!(:question_matrix_row_multiple1) { create(:question_matrix_row, question: question_matrix_multiple) }
           let!(:question_matrix_row_multiple2) { create(:question_matrix_row, question: question_matrix_multiple) }
           let!(:question_matrix_row_multiple3) { create(:question_matrix_row, question: question_matrix_multiple) }
 
-          let(:question_sorting) { create(:questionnaire_question, :with_answer_options, question_type: "sorting", questionnaire:) }
+          let(:question_sorting) { create(:questionnaire_question, :with_answer_options, position: 4, question_type: "sorting", questionnaire:) }
 
           before do
             10.times do
