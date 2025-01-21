@@ -124,6 +124,8 @@ en:
           proposals: Proposals
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: Assigned to evaluator
           is_emendation_true:
             label: Type
             values:
@@ -143,8 +145,6 @@ en:
               withdrawn: Withdrawn
           taxonomies_part_of_contains:
             label: Taxonomy
-          evaluator_role_ids_has:
-            label: Assigned to evaluator
           with_any_state:
             label: Answered
             values:
