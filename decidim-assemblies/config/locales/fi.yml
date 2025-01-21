@@ -1,8 +1,6 @@
 fi:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Otsikko
       assembly:
         announcement: Ilmoitus
         area_id: Alue
@@ -19,7 +17,6 @@ fi:
         created_by_other: Luotu muualta
         creation_date: Luontipäivämäärä
         decidim_area_id: alue
-        decidim_assemblies_type_id: Ryhmän tyyppi
         decidim_scope_id: Teema
         description: Kuvaus
         developer_group: Edistäjäryhmä
@@ -35,7 +32,6 @@ fi:
         import_components: Tuo komponentteja
         included_at: Lisäysaika
         instagram: Instagram
-        internal_organisation: Sisäinen organisaatio
         is_transparent: Läpinäkyvä
         local_area: Organisaatioalue
         meta_scope: Teeman metadata
@@ -96,7 +92,6 @@ fi:
         confirm_delete_assembly: Haluatko varmasti poistaa tämän ryhmän? Mikäli muutat mieltäsi, voit palauttaa ryhmän myöhemmin.
         import_assembly: Tuo
         new_assembly: Uusi ryhmä
-        new_assembly_type: Uusi ryhmätyyppi
         new_assembly_user_role: Uusi ryhmän hallintakäyttäjä
         view_deleted_assemblies: Näytä poistetut ryhmät
       assemblies:
@@ -122,18 +117,6 @@ fi:
         create:
           error: Ryhmän kopiointi epäonnistui.
           success: Ryhmän kopiointi onnistui.
-      assemblies_types:
-        create:
-          error: Uuden ryhmätyypin luonti epäonnistui.
-          success: Ryhmätyypin luonti onnistui.
-        destroy:
-          success: Ryhmätyypin poisto onnistui.
-        new:
-          create: Luo
-          title: Uusi ryhmätyyppi
-        update:
-          error: Ryhmätyypin päivitys epäonnistui.
-          success: Ryhmätyypin päivitys onnistui.
       assembly_copies:
         new:
           copy: Kopioi
@@ -177,8 +160,6 @@ fi:
           values:
             'false': Ei lopetettu
             'true': Lopetettu
-        decidim_assemblies_type_id_eq:
-          label: Ryhmän tyyppi
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Etsi nimellä tai käyttäjänimellä
       menu:
@@ -194,12 +175,7 @@ fi:
           moderations: Moderoinnit
           private_users: Jäsenet
           see_assembly: Näytä ryhmä
-        assemblies_types: Ryhmien tyypit
       models:
-        assemblies_types:
-          fields:
-            created_at: Luonnin ajankohta
-            title: Otsikko
         assembly:
           fields:
             actions: Toiminnot
@@ -277,16 +253,12 @@ fi:
             private_notice: Voit hallinnoida osallistumistilan yksityisiä käyttäjiä asettamalla osallistumistilan yksityiseksi
             select_a_created_by: Valitse luoja
             select_an_area: Valitse alue
-            select_an_assembly_type: Valitse ryhmän tyyppi
             select_parent_assembly: Valitse pääryhmä
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
             social_handlers: Sosiaalinen media
             taxonomies: Luokittelut
             title: Yleiset tiedot
             visibility: Näkyvyys
-        assemblies_types:
-          form:
-            title: Muokkaa ryhmätyyppiä
         assembly_copies:
           form:
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
@@ -330,14 +302,6 @@ fi:
       assembly_members:
         index:
           members: Jäsenet
-      assembly_types:
-        commission: Komissio
-        consultative_advisory: Neuvoa-antava
-        executive: Johtaja
-        government: Hallitus
-        others: Muut
-        participatory: Osallistuva
-        working_group: Työryhmä
       content_blocks:
         children_assemblies:
           name: Ryhmät
@@ -376,7 +340,6 @@ fi:
           member_of:
             member_of: Jäsen ryhmässä
       show:
-        assembly_type: Ryhmän tyyppi
         duration: Kesto
         private_space: Tämä on yksityinen ryhmä
         social_networks_title: Vieraile ryhmän sivulla palvelussa
