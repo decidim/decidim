@@ -103,6 +103,10 @@ module Decidim
       def answers_count
         questionnaire.answers.where(question: self).count
       end
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Forms::AdminLog::QuestionPresenter
+      end
     end
   end
 end

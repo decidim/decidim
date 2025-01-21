@@ -5,6 +5,8 @@ module Decidim
     # This command is executed when the admin publishes the Answers from the admin
     # panel.
     class PublishAnswers < Decidim::Command
+      include Decidim::TranslatableAttributes
+
       # Initializes a PublishAnswers Command.
       #
       def initialize(question_id, current_user)
@@ -16,8 +18,9 @@ module Decidim
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
-        Decidim.traceability.perform_action!(:publish_answers, question, current_user) do
+        transaction do
           publish_survey_answer
+          create_action_log
         end
 
         broadcast(:ok)
@@ -35,6 +38,17 @@ module Decidim
 
       def question
         Decidim::Forms::Question.find(question_id)
+      end
+
+      def create_action_log
+        Decidim::ActionLogger.log(
+          "publish_answers",
+          current_user,
+          question,
+          nil,
+          resource: { title: translated_attribute(question.body) },
+          participatory_space: { title: question.questionnaire.questionnaire_for.title }
+        )
       end
     end
   end

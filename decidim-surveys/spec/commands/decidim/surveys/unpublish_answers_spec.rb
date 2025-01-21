@@ -19,10 +19,17 @@ module Decidim::Surveys
       end
 
       it "traces the action", versioning: true do
-        expect(Decidim.traceability)
+        expect(Decidim::ActionLogger)
           .to(
-            receive(:perform_action!)
-              .with(:unpublish_answers, question, current_user)
+            receive(:log)
+              .with(
+                "unpublish_answers",
+                current_user,
+                question,
+                nil,
+                resource: { title: translated_attribute(question.body) },
+                participatory_space: { title: question.questionnaire.questionnaire_for.title }
+              )
               .and_call_original
           )
 
