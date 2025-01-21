@@ -154,7 +154,7 @@ eu:
           name: Prozesu parte-hartzailearen fasea
         participatory_process_type:
           fields:
-            created_at: Noiz sortua
+            created_at: Sortze-data
             title: Izenburua
           name: Prozesu mota
         participatory_process_user_role:
