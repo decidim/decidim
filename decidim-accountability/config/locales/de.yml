@@ -64,6 +64,26 @@ de:
           new:
             download_export: Export im CSV-Format herunterladen
             import: Importieren
+            info: |
+              <p>Wir empfehlen, dass Sie die folgende Schritte befolgen:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Erstellen Sie den Status der Ergebnisse</a>, die Sie hinzufügen möchten</li>
+              <li><a href='%{link_new_result}' target='_blank'>Erstellen Sie mindestens ein Ergebnis manuell</a> über das Admin-Backend bevor Sie die Importfunktion nutzen, damit Sie mit dem Format und den benötigten Eingaben vertraut sind.</li>
+              <li>%{link_export_csv}</li>
+              <li>Machen Sie Änderungen lokal. Sie können nur die folgenden Spalten des CSV ändern (der Rest wird ignoriert):</li>
+              <ul>
+              <li><b>taxonomies/id:</b> ID der Klassifizierungen (falls mehr als eiine vorhanden, trenne sie mit Kommas)</li>
+              <li><b>parent/id:</b> ID des übergeordneten Themenbereichs (für verwandte Ergebnisse). Optional</li>
+              <li><b>title/de:</b> Titel auf Deutsch. Dies wird von der Konfiguration ihrer Plattformsprachen abgängig sein.</li>
+              <li><b>description/de:</b> Beschreibung auf Deutsch. Dies wird von der Konfiguration ihrer Plattformsprachen abgängig sein.</li>
+              <li><b>start_date:</b> Datum, an dem die Umsetzung des Ergebnisses beginnt (Format JJJJ-MM-TT)</li>
+              <li><b>end_date:</b> Datum, an dem die Umsetzung des Ergebnisses endet (Format JJJJ-MM-TT)</li>
+              <li><b>status/id:</b> ID des Status dieses Ergebnisses</li>
+              <li><b>progress:</b> Prozentualer Fortschritt der Durchführung (von 0 bis 100)</li>
+              <li><b>proposals_ids:</b> Interne ID der verwandten Vorschläge (kommagetrennt). Diese werden automatisch umgewandelt in <span class='attribute-name'>proposal_url</span></li>
+              </ul>
+              </li>
+              </ol>
             title: Ergebnisse aus CSV importieren
         imports:
           create:
@@ -326,7 +346,7 @@ de:
           end_date: Das Datum, an dem das Ergebnis umgesetzt und beendet ist
           id: Die eindeutige Bezeichnung des Ergebnisses
           latitude: Der Breitengrad des Ergebnisses, falls es einen verortet wurde
-          longitude: Der Längengrad des Ergebnisses, falls es einen verortet wurde
+          longitude: Der Längengrad des Ergebnisses, falls es verortet wurde
           parent: Das übergeordnete Ergebnis (falls vorhanden) des Ergebnisses
           progress: Der Prozentsatz der Umsetzung des Ergebnisses
           proposal_urls: Die URLs der Vorschläge, die in diesem Ergebnis enthalten sind
