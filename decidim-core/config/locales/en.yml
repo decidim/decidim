@@ -184,7 +184,7 @@ en:
         leaving_authorizations_behind: Some data bound to your authorization will be saved for security. If you create another account and authorize again, this data will be recovered to your new account.
       destroy:
         error: There was a problem deleting your account.
-        inactive_account_removal_reason: "Account removed after %{inactivity_period} days of inactivity"
+        inactive_account_removal_reason: Account removed after %{inactivity_period} days of inactivity
         success: Your account was successfully deleted.
       download_your_data_export:
         export_expired: The export has expired. Try to generate a new export.
@@ -1660,7 +1660,6 @@ en:
           title: 'Required: Review updates to our terms of service'
     participants_account_mailer:
       inactivity_notification:
-        hello: "Dear %{username},"
         body: |
           Our records indicate you created a %{organization_name} account on %{date_account_creation} and have not been active since %{date_last_connection}.
           To protect your privacy, this account has been scheduled for automatic deletion in %{days} days.
@@ -1668,15 +1667,16 @@ en:
         greetings: |
           Kind regards,
           %{organization_name}
+        hello: Dear %{username},
         never_logged_in: never logged in
-        subject: "Inactive account warning"
+        subject: Inactive account warning
       removal_notification:
-        hello: "Dear %{username},"
-        body: "Your %{organization_name} account has been deleted due to inactivity."
+        body: Your %{organization_name} account has been deleted due to inactivity.
         greetings: |
           Kind regards,
           %{organization_name}
-        subject: "Inactive account deleted"
+        hello: Dear %{username},
+        subject: Inactive account deleted
     passwords:
       update:
         error: There was a problem updating the password.

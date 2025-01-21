@@ -30,7 +30,7 @@ module Decidim
 
       subject = I18n.t(
         "decidim.participants_account_mailer.removal_notification.subject",
-        organization_name: organization_name(@organization),
+        organization_name: organization_name(@organization)
       )
 
       mail(to: user.email, subject:)
