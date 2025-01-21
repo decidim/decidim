@@ -22,7 +22,6 @@ de:
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
         participatory_process_group_id: Prozessgruppe
-        participatory_process_type_id: Prozesstyp
         participatory_scope: Was wird entschieden?
         participatory_structure: Wie wird es entschieden?
         private_space: Privater Prozess
@@ -59,8 +58,6 @@ de:
         end_date: Enddatum
         short_description: Kurzbeschreibung
         start_date: Startdatum
-        title: Titel
-      participatory_process_type:
         title: Titel
       participatory_process_user_role:
         email: E-Mail
@@ -102,7 +99,6 @@ de:
         new_process: Neuer Beteiligungsprozess
         new_process_group: Neue Prozessgruppe
         new_process_step: Neue Phase
-        new_process_type: Neuer Prozesstyp
         new_process_user_role: Neuer Prozess-Administrator
         preview: Vorschau
         publish: Veröffentlichen
@@ -118,7 +114,6 @@ de:
         participatory_process_groups_submenu:
           info: Info
           landing_page: Startseite
-        participatory_process_types: Prozesstypen
         participatory_processes: Beteiligungsprozesse
         participatory_processes_submenu:
           attachment_collections: Ordner
@@ -150,11 +145,6 @@ de:
             start_date: Anfangsdatum
             title: Titel
           name: Partizipativer Prozessschritt
-        participatory_process_type:
-          fields:
-            created_at: Erstellt am
-            title: Titel
-          name: Prozesstyp
         participatory_process_user_role:
           fields:
             email: Email
@@ -238,21 +228,6 @@ de:
         update:
           error: Beim Aktualisieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
           success: Partizipativer Prozessschritt erfolgreich aktualisiert.
-      participatory_process_types:
-        create:
-          error: Beim Erstellen eines neuen Prozesstyps ist ein Fehler aufgetreten.
-          success: Prozesstyp erfolgreich erstellt.
-        destroy:
-          success: Prozesstyp erfolgreich gelöscht.
-        edit:
-          title: Prozesstyp bearbeiten
-          update: Aktualisieren
-        new:
-          create: Erstellen
-          title: Neuer Prozesstyp
-        update:
-          error: Beim Aktualisieren dieses Prozesstyps ist ein Fehler aufgetreten.
-          success: Prozesstyp erfolgreich aktualisiert.
       participatory_process_user_roles:
         create:
           error: Beim Hinzufügen eines Benutzers für diesen partizipativen Prozess ist ein Fehler aufgetreten.
@@ -474,12 +449,10 @@ de:
             images: Bilder
             metadata: Metadaten
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
-            other: Andere
             private_notice: Sie können private Teilnehmende verwalten, nachdem Sie das Gremium als "privat" festgelegt haben
             related_processes: Ähnliche Beteiligungsprozesse
             scope_type_max_depth_help: Beschränken Sie die Bereichs-Filtertiefe; der Filter zeigt nur Ergebnisse von Allgemein bis zum ausgewählten Bereichstyp an.
             select_an_area: Wählen Sie einen Bereich aus
-            select_participatory_process_type: Wählen Sie einen Prozesstyp aus
             select_process_group: Wählen Sie eine Prozessgruppe aus
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             taxonomies: Klassifizierungen
