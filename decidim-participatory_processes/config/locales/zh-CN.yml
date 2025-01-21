@@ -297,7 +297,6 @@ zh-CN:
             filters: 筛选器
             images: 图像
             metadata: 元数据
-            other: 其他
             related_processes: 相关进程
             scope_type_max_depth_help: 限制范围过滤器深度; 过滤器将从一般到所选范围类型显示。
             select_an_area: 选择区域
