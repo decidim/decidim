@@ -715,6 +715,7 @@ en:
           attending_organizations: The organizations attending the meeting
           audio_url: Audio recording of the meeting
           author: The data for the author of this meeting
+          available_slots: The number of slots available in a meeting
           closed_at: The date at which the meeting closed
           closing_report: Report of the closed meeting
           closing_visible: The visibilty of the meeting
@@ -738,6 +739,7 @@ en:
           published: When the meeting has been published
           reference: The unique identifier of the resource in this platform
           registration_form_enabled: Whether the registration form was enabled or not
+          registration_terms: The terms agreed prior to meeting participation
           registration_url: URL of the meeting registration
           related_proposals: The proposals related to this meeting
           related_results: The results related to this meeting
