@@ -22,7 +22,6 @@ sv:
         local_area: Område
         meta_scope: Omfattning
         participatory_process_group_id: Grupp av processer
-        participatory_process_type_id: Typ av processer
         participatory_scope: Vad beslutas
         participatory_structure: Hur fattas beslut
         private_space: Privat process
@@ -59,8 +58,6 @@ sv:
         end_date: Slutdatum
         short_description: Kort beskrivning
         start_date: Startdatum
-        title: Titel
-      participatory_process_type:
         title: Titel
       participatory_process_user_role:
         email: E-post
@@ -102,7 +99,6 @@ sv:
         new_process: Ny process
         new_process_group: Ny grupp av processer
         new_process_step: Nytt steg
-        new_process_type: Ny typ av process
         new_process_user_role: Ny administratör för process
         preview: Förhandsvisa
         publish: Publicera
@@ -118,7 +114,6 @@ sv:
         participatory_process_groups_submenu:
           info: Info
           landing_page: Landningssida
-        participatory_process_types: Typ av processer
         participatory_processes: Processer
         participatory_processes_submenu:
           attachment_collections: Mappar
@@ -150,11 +145,6 @@ sv:
             start_date: Startdatum
             title: Titel
           name: Steg i process
-        participatory_process_type:
-          fields:
-            created_at: Skapad
-            title: Titel
-          name: Typ av process
         participatory_process_user_role:
           fields:
             email: E-post
@@ -237,21 +227,6 @@ sv:
         update:
           error: Det gick inte att uppdatera steget i processen.
           success: Steget i processen har uppdaterats.
-      participatory_process_types:
-        create:
-          error: Det gick inte att skapa en ny typ av process.
-          success: Typen av process har skapats.
-        destroy:
-          success: Typen av process har raderats.
-        edit:
-          title: Redigera typ av process
-          update: Uppdatera
-        new:
-          create: Skapa
-          title: Ny typ av process
-        update:
-          error: Det gick inte att uppdatera typen av process.
-          success: Typen av process har uppdaterats.
       participatory_process_user_roles:
         create:
           error: Det gick inte att lägga till en deltagare till processen.
@@ -465,12 +440,10 @@ sv:
             images: Bilder
             metadata: Metadata
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
-            other: Övrigt
             private_notice: Du kommer att kunna hantera medlemmar om processen gjorts privat
             related_processes: Relaterade processer
             scope_type_max_depth_help: Begränsa djupet på filtret för indelningen.
             select_an_area: Välj ett område
-            select_participatory_process_type: Välj typ av process
             select_process_group: Välj en grupp av processer
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
             taxonomies: Kategorisering
