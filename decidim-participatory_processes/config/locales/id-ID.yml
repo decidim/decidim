@@ -273,7 +273,6 @@ id:
             filters: Filter
             images: Gambar
             metadata: Metadata
-            other: Lain
             related_processes: Proses terkait
             select_an_area: Pilih suatu Area
             select_process_group: Pilih grup proses
