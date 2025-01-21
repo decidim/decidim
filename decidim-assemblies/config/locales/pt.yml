@@ -16,7 +16,6 @@ pt:
         created_by_other: Criado por outro
         creation_date: Data de criação
         decidim_area_id: Área
-        decidim_assemblies_type_id: Tipo de reunião
         decidim_scope_id: Âmbito
         description: Descrição
         developer_group: Grupo promotor
@@ -28,7 +27,6 @@ pt:
         hero_image: Imagem inicial
         included_at: Incluído em
         instagram: Instagram
-        internal_organisation: Organização interna
         is_transparent: É transparente
         local_area: Área de organização
         meta_scope: Metadados do âmbito
@@ -80,7 +78,6 @@ pt:
       actions:
         import_assembly: Importar
         new_assembly: Nova reunião
-        new_assembly_type: Novo tipo de reunião
       assemblies:
         create:
           error: Ocorreu um problema ao criar uma nova reunião.
@@ -100,18 +97,6 @@ pt:
         create:
           error: Ocorreu um problema ao duplicar esta reunião.
           success: Reunião duplicada corretamente.
-      assemblies_types:
-        create:
-          error: Ocorreu um problema ao criar um novo tipo de reunião.
-          success: Tipo de reunião criado corretamente.
-        destroy:
-          success: Tipo de reunião eliminado corretamente.
-        new:
-          create: Criar
-          title: Novo tipo de reunião
-        update:
-          error: Ocorreu um problema ao atualizar este tipo de reunião.
-          success: Tipo de reunião atualizado corretamente.
       assembly_copies:
         new:
           copy: Cópia
@@ -147,9 +132,6 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar um administrador para esta reunião.
           success: Administrador atualizador corretamente para esta reunião.
-      filters:
-        decidim_assemblies_type_id_eq:
-          label: Tipo de assembleia
       menu:
         assemblies: Reuniões
         assemblies_submenu:
@@ -159,12 +141,7 @@ pt:
           attachments: Anexos
           components: Componentes
           moderations: Moderação
-        assemblies_types: Tipos de reuniões
       models:
-        assemblies_types:
-          fields:
-            created_at: Criado em
-            title: Título
         assembly:
           fields:
             created_at: Criado em
@@ -229,13 +206,9 @@ pt:
             other: Outros
             select_a_created_by: Selecione um criado por
             select_an_area: Selecione uma Área
-            select_an_assembly_type: Selecione um tipo de reunião
             select_parent_assembly: Selecione a reunião pai
             social_handlers: Social
             title: Informação geral
-        assemblies_types:
-          form:
-            title: Título
         assembly_members:
           form:
             explanation: 'Orientações para imagem:'
@@ -253,14 +226,6 @@ pt:
       assembly_members:
         index:
           members: Membros
-      assembly_types:
-        commission: Comissão
-        consultative_advisory: Consultivo
-        executive: Executivo
-        government: Governo
-        others: Outros
-        participatory: Participativo
-        working_group: Grupo de trabalho
       content_blocks:
         highlighted_assemblies:
           name: Reuniões realçadas
@@ -285,7 +250,6 @@ pt:
           member_of:
             member_of: Membro de
       show:
-        assembly_type: Tipo de reunião
         duration: Duração
         private_space: Esta é uma reunião privada
     assembly_members:
