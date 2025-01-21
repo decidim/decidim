@@ -67,7 +67,8 @@ module Decidim
           decidim_author_type: meeting.decidim_author_type,
           video_url: meeting.video_url,
           audio_url: meeting.audio_url,
-          closed_at: meeting.closed_at
+          closed_at: meeting.closed_at,
+          registration_terms: meeting.registration_terms
         }
       end
 

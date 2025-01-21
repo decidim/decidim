@@ -188,6 +188,10 @@ module Decidim
           expect(serialized).to include(closed_at: meeting.closed_at)
         end
 
+        it "serializes the registration terms of the meeting" do
+          expect(serialized).to include(registration_terms: meeting.registration_terms)
+        end
+
         describe "closing report and visibility" do
           context "when the meeting is completed" do
             let!(:meeting) { create(:meeting, :closed) }
