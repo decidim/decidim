@@ -13,7 +13,7 @@ module Decidim
       included do
         validate :valid_authorization
 
-        delegate :action_authorizer, :save_authorizations, to: :workflow_manifest
+        delegate :action_authorizer, :save_authorizations, :action_authorizer_class, to: :workflow_manifest
 
         def authorization_status
           return unless authorization && action_authorizer_class
@@ -50,10 +50,6 @@ module Decidim
           end
 
           authorization_query.first
-        end
-
-        def action_authorizer_class
-          action_authorizer&.safe_constantize
         end
 
         def authorization_query
