@@ -15,7 +15,6 @@ module Decidim
       view.extend AuthorizationFormHelper
       view.extend DecidimFormHelper
       view.extend CtaButtonHelper
-      view.extend ScopesHelper
       allow(view).to receive(:current_organization).and_return(organization)
       allow(view).to receive(:handler).and_return(handler)
       allow(view).to receive(:params).and_return(handler: "dummy_authorization_handler")

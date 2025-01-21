@@ -5,8 +5,6 @@ module Decidim
     # This class contains helpers needed in order for component settings to
     # properly render.
     module SettingsHelper
-      include Decidim::ScopesHelper
-
       TYPES = {
         boolean: :check_box,
         integer: :number_field,
@@ -14,7 +12,6 @@ module Decidim
         float: :number_field,
         text: :text_area,
         select: :select_field,
-        scope: :scope_field,
         enum: :collection_radio_buttons,
         time: :datetime_field,
         integer_with_units: :integer_with_units,
@@ -69,8 +66,6 @@ module Decidim
           render_enum_form_field(form, attribute, name, i18n_scope, options)
         when :select_field
           render_select_form_field(form, attribute, name, i18n_scope, options)
-        when :scope_field
-          scopes_select_field(form, name)
         when :integer_with_units
           integer_with_units(form, attribute, name, i18n_scope, options)
         when :taxonomy_filters

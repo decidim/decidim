@@ -6,7 +6,6 @@ module Decidim
     include Decidim::Core::Engine.routes.url_helpers
     include ActionView::Helpers::FormOptionsHelper
     include Decidim::FiltersHelper
-    include Decidim::ScopesHelper
 
     def form
       model
