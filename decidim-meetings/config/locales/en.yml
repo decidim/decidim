@@ -747,6 +747,7 @@ en:
           related_results: The results related to this meeting
           start_time: The date and time that this meeting starts
           taxonomies: The taxonomies that this meeting belongs to
+          type_of_meeting: The meeting type
           title: The title of the meeting
           transparent: The visabilty of the meetng for non-members
           updated_at: The time at which the meeting was last updated
