@@ -30,7 +30,7 @@ describe "rake decidim:check_users_newsletter_opt_in", type: :task do
       ActiveJob::Base.queue_adapter = :test
 
       allow($stdin).to receive(:gets).and_return("Y")
-      expect { task.execute }.to have_been_performed.exactly(8)
+      expect { task.execute }.to have_enqueued_job.exactly(8)
       ActiveJob::Base.queue_adapter = previous_adapter
     end
 
