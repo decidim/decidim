@@ -39,6 +39,8 @@ ru:
         short_description: Краткое описание
         start_date: Дата начала
         title: Название
+      participatory_process_type:
+        title: Название
       participatory_process_user_role:
         email: Эл. адрес
         name: Имя
@@ -109,6 +111,10 @@ ru:
             start_date: Дата начала
             title: Название
           name: Шаг движения соучастия
+        participatory_process_type:
+          fields:
+            created_at: 'Создано:'
+            title: Название
         participatory_process_user_role:
           fields:
             email: Эл. адрес
@@ -171,6 +177,11 @@ ru:
         update:
           error: При попытке обновить этот шаг движения соучастия произошла ошибка.
           success: Шаг движения соучастия успешно обновлен.
+      participatory_process_types:
+        edit:
+          update: Обновить
+        new:
+          create: Создать
       participatory_process_user_roles:
         create:
           error: При попытке добавить участника в это движение соучастия произошла ошибка.
