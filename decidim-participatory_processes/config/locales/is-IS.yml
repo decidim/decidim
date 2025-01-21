@@ -36,6 +36,8 @@ is:
         short_description: Stutt lýsing
         start_date: Upphafsdagur
         title: Titill
+      participatory_process_type:
+        title: Titill
       participatory_process_user_role:
         email: Email
         name: Nafn
@@ -75,6 +77,10 @@ is:
             end_date: Loka dagsetning
             start_date: Upphafsdagur
             title: Titill
+        participatory_process_type:
+          fields:
+            created_at: Búið til á
+            title: Titill
         participatory_process_user_role:
           fields:
             email: Email
@@ -102,6 +108,11 @@ is:
           title: Nýr ferli hópur
       participatory_process_steps:
         default_title: Kynning
+        edit:
+          update: Uppfæra
+        new:
+          create: Búa til
+      participatory_process_types:
         edit:
           update: Uppfæra
         new:
