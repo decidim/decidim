@@ -1293,7 +1293,7 @@ eu:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} bidaltzaileak beste elkarrizketa bat hasi du zurekin. Egin klik hemen ikusteko:"
           outro: Gozatu plataforma!
-          subject: "%{sender} bidaltzailea elkarrizketa bat hasi da zurekin"
+          subject: "%{sender} bidaltzaileak elkarrizketa bat hasi du zurekin"
         new_group_conversation:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
@@ -1360,7 +1360,7 @@ eu:
         object: jarraitzaileak
         title: Jarraitzaileak
       participants:
-        description: Erakundeko parte-hartzaile aktiboen kopurua
+        description: Erakundeko erabiltzaile aktiboen kopurua
         object: parte-hartzaileak
         title: Parte-hartzaileak
       reported_users:
@@ -1370,7 +1370,7 @@ eu:
       users:
         description: Parte-hartzaile kopurua erakundean
         object: parte-hartzaileak
-        title: Parte-hartzaileak
+        title: erabiltzaileak
     newsletter_mailer:
       newsletter:
         no_reply_notice: Posta elektroniko hori jakinarazpen-helbide batetik bidali da, eta ezin du posta elektronikorik sartu. Mesedez, ez erantzun mezu honi.
