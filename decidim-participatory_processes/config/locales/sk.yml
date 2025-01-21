@@ -44,6 +44,8 @@ sk:
         short_description: Stručný opis
         start_date: Dátum začatia
         title: Titul
+      participatory_process_type:
+        title: Titul
       participatory_process_user_role:
         email: E-mailom
         name: názov
@@ -115,6 +117,10 @@ sk:
             start_date: Dátum začatia
             title: Titul
           name: Participatívne krok procesu
+        participatory_process_type:
+          fields:
+            created_at: Vytvorené u
+            title: Titul
         participatory_process_user_role:
           fields:
             email: E-mailom
@@ -187,6 +193,11 @@ sk:
         update:
           error: Pri aktualizácii tohto kroku procesu participácie došlo k chybe.
           success: Úspešný krok procesu bol úspešne aktualizovaný.
+      participatory_process_types:
+        edit:
+          update: Aktualizácia
+        new:
+          create: Vytvoriť
       participatory_process_user_roles:
         create:
           error: Pri pridávaní používateľa pre tento participačné proces došlo k chybe.
