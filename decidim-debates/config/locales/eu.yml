@@ -74,9 +74,12 @@ eu:
             title: Editatu eztabaida
             update: Eguneratu eztabaida
           form:
+            add_attachments: Gehitu eranskinak
+            attachment_legend: Gehitu dokumentu bat edo irudi bat
             comments_visualization: Iruzkinak bistaratzea
             comments_warning: Lehen iruzkina argitaratu ondoren, ezin da aldatu aukeratutako bistaratze-aukera.
             debate_type: Eztabaida mota
+            edit_attachments: Editatu eranskinak
             errors:
               comments_layout_locked: Iruzkinen planoa ezin da aldatu iruzkinak argitaratu ondoren.
             finite: Amaiera (hasiera- eta amaiera-ordua)
