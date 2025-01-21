@@ -56,6 +56,8 @@ pt-BR:
         short_description: Pequena descrição
         start_date: Data de início
         title: Título
+      participatory_process_type:
+        title: Título
       participatory_process_user_role:
         email: O email
         name: Nome
@@ -135,6 +137,10 @@ pt-BR:
             start_date: Data de início
             title: Título
           name: Etapa do processo participativo
+        participatory_process_type:
+          fields:
+            created_at: Criado em
+            title: Título
         participatory_process_user_role:
           fields:
             email: Endereço de e-mail
@@ -216,6 +222,8 @@ pt-BR:
         edit:
           title: Editar tipo de processo
           update: Atualizar
+        new:
+          create: Criar
         update:
           error: Ocorreu um erro ao atualizar este tipo de processo.
           success: Tipo de processo atualizado com sucesso.
