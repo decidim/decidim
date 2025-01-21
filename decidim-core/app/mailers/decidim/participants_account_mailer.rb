@@ -5,37 +5,33 @@ module Decidim
   class ParticipantsAccountMailer < Decidim::ApplicationMailer
     # Notify user about inactivity and potential account removal
     def inactivity_notification(user, days)
-      return unless user
+      with_user(user) do
+        @user = user
+        @organization = user.organization
+        @days_before_deletion = days
 
-      @user = user
-      @organization = user.organization
-      @days_before_deletion = days
+        subject = I18n.t(
+          "decidim.participants_account_mailer.inactivity_notification.subject",
+          organization_name: organization_name(@organization)
+        )
 
-      subject = I18n.t(
-        "decidim.participants_account_mailer.inactivity_notification.subject",
-        organization_name: organization_name(@organization)
-      )
-
-      mail(to: user.email, subject:)
-    rescue StandardError => e
-      Rails.logger.error "Failed to send inactivity notification to #{user.email}: #{e.message}"
+        mail(to: user.email, subject:)
+      end
     end
 
     # Notify user about account removal due to inactivity
     def removal_notification(user)
-      return unless user
+      with_user(user) do
+        @user = user
+        @organization = user.organization
 
-      @user = user
-      @organization = user.organization
+        subject = I18n.t(
+          "decidim.participants_account_mailer.removal_notification.subject",
+          organization_name: organization_name(@organization)
+        )
 
-      subject = I18n.t(
-        "decidim.participants_account_mailer.removal_notification.subject",
-        organization_name: organization_name(@organization)
-      )
-
-      mail(to: user.email, subject:)
-    rescue StandardError => e
-      Rails.logger.error "Failed to send removal notification to #{user.email}: #{e.message}"
+        mail(to: user.email, subject:)
+      end
     end
   end
 end
