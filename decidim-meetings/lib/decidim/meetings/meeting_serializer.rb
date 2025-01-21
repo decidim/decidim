@@ -71,7 +71,8 @@ module Decidim
           registration_terms: meeting.registration_terms,
           available_slots: meeting.available_slots,
           registrations_enabled: meeting.registrations_enabled,
-          customize_registration_email: meeting.customize_registration_email
+          customize_registration_email: meeting.customize_registration_email,
+          type_of_meeting: meeting.type_of_meeting
         }
       end
 

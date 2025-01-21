@@ -204,6 +204,10 @@ module Decidim
           expect(serialized).to include(customize_registration_email: meeting.customize_registration_email)
         end
 
+        it "serializes the the type of meeting" do
+          expect(serialized).to include(type_of_meeting: meeting.type_of_meeting)
+        end
+
         describe "closing report and visibility" do
           context "when the meeting is completed" do
             let!(:meeting) { create(:meeting, :closed) }
