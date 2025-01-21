@@ -13,11 +13,6 @@
 #   A handler named Decidim::CensusSignatureHandler would look for its partial in:
 #   decidim/initiatives/initiative_signatures/census_signature/form
 #
-# When testing your signature handler, add this line to be sure it has a
-# valid public api:
-#
-#   it_behaves_like "a signature handler"
-#
 # See Decidim::Initiatives::SignatureHandler for more documentation.
 class DummySignatureHandler < Decidim::Initiatives::SignatureHandler
   # i18n-tasks-use t("decidim.initiatives.initiative_signatures.dummy_signature.form.fields.gender.options.man")
