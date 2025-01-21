@@ -22,7 +22,6 @@ fi-pl:
         local_area: Järjestöalue
         meta_scope: Teeman metadata
         participatory_process_group_id: Prosessiryhmä
-        participatory_process_type_id: Prosessin tyyppi
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
         private_space: Yksityinen prosessi
@@ -59,8 +58,6 @@ fi-pl:
         end_date: Päättymispäivä
         short_description: Lyhyt kuvaus
         start_date: Alkamispäivä
-        title: Otsikko
-      participatory_process_type:
         title: Otsikko
       participatory_process_user_role:
         email: Sähköposti
@@ -102,7 +99,6 @@ fi-pl:
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
-        new_process_type: Uusi prosessityyppi
         new_process_user_role: Uusi prosessikäyttäjä
         preview: Esikatsele
         publish: Julkaise
@@ -118,7 +114,6 @@ fi-pl:
         participatory_process_groups_submenu:
           info: Tiedot
           landing_page: Laskeutumissivu
-        participatory_process_types: Prosessityypit
         participatory_processes: Prosessit
         participatory_processes_submenu:
           attachment_collections: Kansiot
@@ -150,11 +145,6 @@ fi-pl:
             start_date: Alkamispäivä
             title: Otsikko
           name: Osallisuusprosessin vaihe
-        participatory_process_type:
-          fields:
-            created_at: Luontiaika
-            title: Otsikko
-          name: Prosessityyppi
         participatory_process_user_role:
           fields:
             email: Sähköposti
@@ -237,21 +227,6 @@ fi-pl:
         update:
           error: Tämän osallisuusprosessin vaiheen päivityksessä tapahtui virhe.
           success: Osallisuusprosessin vaihe päivitetty onnistuneesti.
-      participatory_process_types:
-        create:
-          error: Prosessityypin luonti epäonnistui.
-          success: Prosessityypin luonti onnistui.
-        destroy:
-          success: Prosessityypin poisto onnistui.
-        edit:
-          title: Muokkaa prosessityyppiä
-          update: Päivitä
-        new:
-          create: Luo
-          title: Uusi prosessityyppi
-        update:
-          error: Prosessityypin päivitys epäonnistui.
-          success: Prosessityypin päivittäminen onnistui.
       participatory_process_user_roles:
         create:
           error: Tapahtui virhe lisätessä käyttäjää osallisuusprosessiin.
@@ -473,12 +448,10 @@ fi-pl:
             images: kuvat
             metadata: metadata
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
-            other: muut
             private_notice: Voit hallinnoida osallistumistilan yksityisiä käyttäjiä asettamalla osallistumistilan yksityiseksi
             related_processes: Liittyvät prosessit
             scope_type_max_depth_help: Rajaa teemasuodattimen syvyyttä; suodatin näyttää yleisestä teemasta valittuun teematyyppiin saakka.
             select_an_area: Valitse alue
-            select_participatory_process_type: Valitse prosessityyppi
             select_process_group: Valitse prosessiryhmä
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
             taxonomies: Luokittelut
