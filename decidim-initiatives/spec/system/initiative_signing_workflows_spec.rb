@@ -485,7 +485,7 @@ describe "Initiative signing with workflows" do
           click_on "Receive code"
           expect(page).to have_content "Your confirmation code"
           fill_sms_code("010203")
-          expect(page).to have_content "Your code is correct."
+          expect(page).to have_content "Your code is correct"
           click_on "Sign initiative"
 
           expect(page).to have_content "Initiative signature accepted"
@@ -525,7 +525,7 @@ describe "Initiative signing with workflows" do
               click_on "Receive code"
               expect(page).to have_content "Your confirmation code"
               fill_sms_code("010203")
-              expect(page).to have_content "Your code is correct."
+              expect(page).to have_content "Your code is correct"
               click_on "Sign initiative"
 
               expect(page).to have_content "Initiative signature accepted"
