@@ -723,7 +723,7 @@ en:
           contributions: The number of contributions in this meeting made by the atteendes
           created_at: The date at which the meeting was created
           customize_registration_email: The ability to allow a custom email at registration
-          decidim_author__type: Author type of the meeting's author
+          decidim_author_type: Author type of the meeting's author
           decidim_user_group_id: User group ID of people involved in the meeting
           description: The description of the meeting
           end_time: The date and time that this meeting ends
