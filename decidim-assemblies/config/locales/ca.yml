@@ -1,8 +1,6 @@
 ca:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Títol
       assembly:
         announcement: Avís
         area_id: Àrea
@@ -19,7 +17,6 @@ ca:
         created_by_other: Creat per una altre
         creation_date: Data de creació
         decidim_area_id: Àrea
-        decidim_assemblies_type_id: Tipus d'assemblea
         decidim_scope_id: Àmbit
         description: Descripció
         developer_group: Grup promotor
@@ -35,7 +32,6 @@ ca:
         import_components: Importar components
         included_at: Inclòs a
         instagram: Instagram
-        internal_organisation: Organització interna
         is_transparent: És transparent
         local_area: Àrea d'organització
         meta_scope: Metadades d'àmbit
@@ -96,7 +92,6 @@ ca:
         confirm_delete_assembly: Segur que vols esborrar aquesta assemblea? Si canvies d'opinió, la pots restaurar més endavant.
         import_assembly: Importar
         new_assembly: Nova assemblea
-        new_assembly_type: Nou tipus d'assemblea
         new_assembly_user_role: Afegir administradora
         view_deleted_assemblies: Veure les assemblees eliminades
       assemblies:
@@ -122,18 +117,6 @@ ca:
         create:
           error: S'ha produït un error en duplicar aquesta assemblea.
           success: L'assemblea s'ha duplicat correctament.
-      assemblies_types:
-        create:
-          error: S'ha produït un error en crear una nova assemblea.
-          success: Tipus d'assemblea creat correctament.
-        destroy:
-          success: Tipus d'assemblea esborrat amb èxit.
-        new:
-          create: Crea
-          title: Nou tipus d'assemblea
-        update:
-          error: S'ha produït un error a l'actualitzar el tipus d'assemblea.
-          success: Tipus d'assemblea esborrat amb èxit.
       assembly_copies:
         new:
           copy: Còpia
@@ -177,8 +160,6 @@ ca:
           values:
             'false': No cessada
             'true': Cessada
-        decidim_assemblies_type_id_eq:
-          label: Tipus d'assemblea
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Cerca per nom o àlies
       menu:
@@ -194,12 +175,7 @@ ca:
           moderations: Moderacions
           private_users: Membres
           see_assembly: Veure l'assemblea
-        assemblies_types: Tipus d'assemblees
       models:
-        assemblies_types:
-          fields:
-            created_at: Data de creació
-            title: Títol
         assembly:
           fields:
             actions: Accions
@@ -277,16 +253,12 @@ ca:
             private_notice: Podràs administrar les participants privades un cop haguis configurar l'espai com a privat
             select_a_created_by: Selecciona una creadora
             select_an_area: Selecciona una Àrea
-            select_an_assembly_type: Selecciona un tipus d'assemblea
             select_parent_assembly: Selecciona una assemblea mare
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             social_handlers: Social
             taxonomies: Taxonomies
             title: Informació general
             visibility: Visibilitat
-        assemblies_types:
-          form:
-            title: Títol
         assembly_copies:
           form:
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
@@ -330,14 +302,6 @@ ca:
       assembly_members:
         index:
           members: Membres
-      assembly_types:
-        commission: Comissió
-        consultative_advisory: Consultiva / Assessora
-        executive: Executiva
-        government: Govern
-        others: Altres
-        participatory: Participativa
-        working_group: Grup de treball
       content_blocks:
         children_assemblies:
           name: Assemblees
@@ -376,7 +340,6 @@ ca:
           member_of:
             member_of: Membre de
       show:
-        assembly_type: Tipus d'assemblea
         duration: Durada
         private_space: Aquesta és una assemblea privada
         social_networks_title: Visita l'assemblea a
