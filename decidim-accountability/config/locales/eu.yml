@@ -7,7 +7,7 @@ eu:
         decidim_scope_id: Esparrua
         description: Deskribapena
         end_date: Bukaera-data
-        progress: Aurrerapena
+        progress: Aurrera egiten
         start_date: Hasiera-data
         subresults: Azpiemaitzak
         title: Izenburua
@@ -64,11 +64,31 @@ eu:
           new:
             download_export: Deskargatu esportatutakoa CSV formatuan
             import: Inportatu
+            info: |
+              <p>Urrats hauek egitea gomendatzen dizugu:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Sortu Estatistikak</a> gehitu nahi dituzun emaitzetarako</li>
+              <li><a href='%{link_new_result}' target='_blank'>Sortu gutxienez emaitza bat eskuz</a> Admin panel honen bidez Import erabili aurretik, formatua eta bete beharko duzuna hobeto ulertzeko.</li>
+              <li>% {link_export_csv}</li>
+              <li>CSVko zutabe hauek bakarrik alda ditzakezu (gainerakoak ez dira kontuan hartuko):</li>
+              <ul>
+              <li><b>taxonomiak/idoiak:</b> Taxonomietarako identifikazioak (bat baino gehiago izanez gero, bereizi koma batez) </li>
+              <li><b>Gurasoen</b> NANa (erlazionatutako emaitzetarako).</li>
+              <li>izenburua<b>/k:</b> Ingelesari buruzko titulua. Plataformaren hizkuntza-konfigurazioaren araberakoa izango da.</li>
+              <li>Deskribapena ingelesez. Plataformaren hizkuntza-konfigurazioaren araberakoa izango da.<b></b> </li>
+              <li><b>Hasiera-data:</b> emaitza exekutatzen hasten den data (YYYY-MM-DD formatua) </li>
+              <li><b>Emaitzaren</b> exekuzioa amaitzen den data (YYYY-MM-DD formatua) </li>
+              <li><b>Egoera/ID:</b> Emaitza honen Estatusaren ID</li>
+              <li><b>Aurrerapena:</b> exekuzioaren ehunekoa (0tik 100era)</li>
+              <li><b>proposals_ids:</b> erlazionatutako proposamenen barne-identifikazioa (koma batez bereizita). Automatikoki bihurtzen da <span class='attribute-name'>proposal_url.</span></li>
+              </ul>
+              </li>
+              </ol>
             title: Inportatu emaitzak CSV fitxategitik
         imports:
           create:
             invalid: Arazo bat egon da emaitzak inportatzean.
-            success: Espedientea inportatzen hasi da. Datozen minutuetan posta elektroniko bat jasoko duzu inportazioaren emaitzarekin.
+            success: Espedientea inportatzen hasi da. Hurrengo minutuan posta elektroniko bat jasoko duzu inportazioaren emaitzarekin.
         models:
           result:
             name: Emaitza
@@ -175,14 +195,14 @@ eu:
             success: Sarrera zuzen eguneratua.
       admin_log:
         result:
-          create: "%{user_name} parte-hartzaileak emaitza sortu du %{resource_name} %{space_name} espazioan"
+          create: "%{user_name} erabiltzaileak %{resource_name} emaitza sortu du %{space_name} espazioan"
           delete: "%{user_name} parte-hartzaileak %{resource_name} emaitza ezabatu du %{space_name} espazioan"
           restore: "% {user_name} parte-hartzaileak % {baliabide_name}} emaitza berreskuratu du hemen:% {space_name}"
           soft_delete: "% {user_name} parte-hartzaileak hemengo: %{space_name} {baliabide_name} emaitza zaborrontzira eraman zuen"
           update: "%{user_name} parte-hartzaileak %{resource_name} emaitza eguneratu du %{space_name} espazioan"
         status:
           create: "%{user_name} parte-hartzaileak %{resource_name} egoera sortu du"
-          delete: "%{user_name} parte-hartzaieak %{resource_name} egoera ezabatu du"
+          delete: "%{user_name} erabiltzaileak %{resource_name} egoera ezabatu du"
           update: "%{user_name} parte-hartzaileak %{resource_name} egoera eguneratu du"
         timeline_entry:
           create: "%{user_name} parte-hartzaileak %{resource_name} sarrera sortu du kronologian"
@@ -216,7 +236,7 @@ eu:
         result:
           fields:
             created_at: Noiz sortua
-            end_date: Bukaera-data
+            end_date: Amaiera-data
             id: ID
             progress: Aurrerapena
             start_date: Hasiera-data
