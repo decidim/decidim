@@ -24,7 +24,7 @@ module Decidim
              through: :scopes,
              class_name: "Decidim::Initiative"
 
-    enum signature_type: [:online, :offline, :any], _suffix: true
+    enum :signature_type, [:online, :offline, :any], suffix: true
 
     validates :title, :description, :signature_type, presence: true
     validates :document_number_authorization_handler, presence: true, if: ->(form) { form.collect_user_extra_fields? }
