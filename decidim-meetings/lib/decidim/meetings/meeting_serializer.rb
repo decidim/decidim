@@ -70,7 +70,8 @@ module Decidim
           closed_at: meeting.closed_at,
           registration_terms: meeting.registration_terms,
           available_slots: meeting.available_slots,
-          registrations_enabled: meeting.registrations_enabled
+          registrations_enabled: meeting.registrations_enabled,
+          customize_registration_email: meeting.customize_registration_email
         }
       end
 
