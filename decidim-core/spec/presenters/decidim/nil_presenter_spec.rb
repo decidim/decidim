@@ -16,7 +16,7 @@ module Decidim
       let(:method) { :avatar_url }
 
       it "returns the default avatar url" do
-        expect(subject).to eq("//localhost:#{Capybara.server_port}#{::Webpacker.instance.manifest.lookup("media/images/default-avatar.svg")}")
+        expect(subject).to eq("//localhost:#{Capybara.server_port}#{::Shakapacker.instance.manifest.lookup("media/images/default-avatar.svg")}")
         expect(subject.ends_with?(".svg")).to be true
       end
     end
