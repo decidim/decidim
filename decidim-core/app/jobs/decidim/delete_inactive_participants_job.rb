@@ -54,8 +54,8 @@ module Decidim
       end
     end
 
-    def send_notification(user, mailer_method, *args)
-      ParticipantsAccountMailer.public_send(mailer_method, user, *args).deliver_later
+    def send_notification(user, mailer_method, *)
+      ParticipantsAccountMailer.public_send(mailer_method, user, *).deliver_later
     rescue StandardError => e
       Rails.logger.error "[DeleteInactiveParticipantsJob] Failed to send #{mailer_method} to user #{user.id} (#{user.email}): #{e.message}"
     end
