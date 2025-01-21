@@ -17,7 +17,7 @@ module Decidim
 
         def action_string
           case action
-          when "delete", "create", "update", "publish"
+          when "delete", "create", "update", "publish", "unpublish"
             "decidim.surveys.admin_log.survey.#{action}"
           else
             super
