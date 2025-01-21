@@ -192,6 +192,10 @@ module Decidim
           expect(serialized).to include(registration_terms: meeting.registration_terms)
         end
 
+        it "serializes the avaliable slots of the meeting" do
+          expect(serialized).to include(available_slots: meeting.available_slots)
+        end
+
         describe "closing report and visibility" do
           context "when the meeting is completed" do
             let!(:meeting) { create(:meeting, :closed) }
