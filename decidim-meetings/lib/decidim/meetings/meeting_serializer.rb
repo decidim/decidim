@@ -73,24 +73,6 @@ module Decidim
         end
       end
 
-      def profile_url(author)
-        return "" if author.respond_to?(:deleted?) && author.deleted?
-
-        Decidim::Core::Engine.routes.url_helpers.profile_url(author.nickname, host:)
-      end
-
-      def root_url
-        Decidim::Core::Engine.routes.url_helpers.root_url(host:)
-      end
-
-      def host
-        resource.organization.host
-      end
-
-      def component
-        meeting.component
-      end
-
       def related_proposals
         meeting.linked_resources(:proposals, "proposals_from_meeting").map do |proposal|
           Decidim::ResourceLocatorPresenter.new(proposal).url
