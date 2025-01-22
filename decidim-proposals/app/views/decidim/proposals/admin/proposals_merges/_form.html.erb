@@ -32,7 +32,7 @@
         </div>
       <% end %>
       <% if component_settings.attachments_allowed? %>
-        <div class="row column">
+        <div class="row column pt-4">
           <%= form.attachment :documents,
                               multiple: true,
                               label: t("decidim.proposals.proposals.edit.add_attachments"),
