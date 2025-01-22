@@ -12,7 +12,7 @@
   </div>
 
   <div class="row column">
-    <%= decidim_form_for @form, url: create_import_census_path, multipart: true do |form| %>
+    <%= decidim_form_for @form, url: create_import_census_logs_path, multipart: true do |form| %>
       <div class="font-semibold">
         <%= label_tag :file, t("census.new_import.file", scope: "decidim.verifications.csv_census.admin") %>
         <%= form.file_field :file %>

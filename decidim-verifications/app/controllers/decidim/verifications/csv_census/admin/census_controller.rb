@@ -16,7 +16,7 @@ module Decidim
 
           add_breadcrumb_item_from_menu :workflows_menu
 
-          helper_method :csv_census_data
+          helper_method :csv_census_data, :last_login
 
           def index; end
 
@@ -72,6 +72,16 @@ module Decidim
 
           def csv_census_active?
             current_organization.available_authorizations.include?("csv_census")
+          end
+
+          def last_login(data)
+            user = current_organization.users.available.find_by(email: data.email)
+
+            return t(".no_user") unless user
+
+            authorized = Decidim::Authorization.where.not(granted: nil), exists?(handler_name: :csv_census, user:)
+
+            (authorized ? "check" : "uncheck") + l(user.last_sign_in_at, format: :decidim_short)
           end
         end
       end
