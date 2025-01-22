@@ -38,7 +38,7 @@ module Decidim
             enforce_permission_to :create, :authorization
             @form = form(CensusDataForm).from_params(params)
             @status = Status.new(current_organization)
-            CreateCensusRecord.call(@form, current_organization) do
+            CreateCensusData.call(@form, current_organization) do
               on(:ok) do
                 flash[:notice] = t(".success", count: @form.data.values.count, errors: @form.data.errors.count)
                 redirect_to census_logs_path
