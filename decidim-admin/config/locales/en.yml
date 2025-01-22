@@ -245,6 +245,7 @@ en:
         create:
           error: There was a problem creating a new area.
           success: Area created successfully.
+        deprecated: Mind that areas are deprecated and will be removed in future versions. Please use taxonomies instead. The only module currently using areas is the initiatives module.
         destroy:
           has_spaces: This area has dependent spaces. Please make sure no Participatory Space references this area before deleting it.
           success: Area successfully destroyed.
@@ -1026,6 +1027,7 @@ en:
         create:
           error: There was a problem creating a new scope.
           success: Scope created successfully.
+        deprecated: Mind that scopes are deprecated and will be removed in future versions. Please use taxonomies instead. The only module currently using scopes is the initiatives module.
         destroy:
           success: Scope successfully destroyed.
         edit:

@@ -181,7 +181,6 @@ ignore_unused:
   - decidim.system.organizations.omniauth_settings.*
   - decidim.verifications.id_documents.{identification_number,passport}
   - decidim.verifications.dummy_authorization.extra_explanation.user_postal_codes.{one,other}
-  - decidim.verifications.dummy_authorization.extra_explanation.user_scope
   - errors.messages.*
   - invisible_captcha.*
   - social_share_button.*

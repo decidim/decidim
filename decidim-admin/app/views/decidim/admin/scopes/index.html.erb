@@ -9,6 +9,9 @@
       <% end %>
     </h1>
   </div>
+  
+  <div class="callout warning"><%= t("scopes.deprecated", scope: "decidim.admin") %></div>
+
   <% if @scopes.any? %>
     <div class="table-scroll">
       <table class="table-list">
