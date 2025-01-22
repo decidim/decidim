@@ -31,7 +31,7 @@ module Decidim::Verifications::CsvCensus::Admin
         allow(controller).to receive(:csv_census_active?).and_return(true)
       end
 
-      it "assigns a new form and status" do
+      it "assigns a new form" do
         get :new_import
 
         expect(response).to render_template(:new_import)
