@@ -452,7 +452,7 @@ describe "Initiative signing with workflows" do
           fill_personal_data
           click_on "Validate your data"
 
-          expect(page).to have_content "Now you need to confirm your phone number to finish validating your identity."
+          expect(page).to have_content "Please enter your phone number. You will then receive an SMS with a validation code."
         end
       end
 
@@ -466,7 +466,7 @@ describe "Initiative signing with workflows" do
         end
 
         it "sends the user to the phone number step" do
-          expect(page).to have_content "Now you need to confirm your phone number to finish validating your identity."
+          expect(page).to have_content "Please enter your phone number. You will then receive an SMS with a validation code."
         end
       end
 
