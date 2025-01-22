@@ -57,6 +57,8 @@ module Decidim
       end
 
       def author_fields
+        return {} if resource.author.respond_to?(:deleted?) && resource.author.deleted?
+
         {
           id: resource.author.id,
           name: user_name(resource.author),

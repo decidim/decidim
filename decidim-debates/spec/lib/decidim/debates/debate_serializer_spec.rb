@@ -68,16 +68,8 @@ module Decidim
               let(:author) { create(:user, :deleted, organization: component.organization) }
               let!(:debate) { create(:debate, component:, author:) }
 
-              it "serializes the user id" do
-                expect(serialized[:author]).to include(id: author.id)
-              end
-
-              it "serializes the user name" do
-                expect(serialized[:author]).to include(name: "")
-              end
-
-              it "serializes the link to its profile" do
-                expect(serialized[:author]).to include(url: "")
+              it "does not serialize the fields" do
+                expect(serialized[:author]).to eq({})
               end
             end
           end
