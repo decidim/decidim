@@ -23,8 +23,6 @@
     <%= form_required_explanation %>
   </div>
 
-    <span class="login__info-separator"></span>
-
     <% cache current_organization do %>
       <%= render "decidim/devise/shared/omniauth_buttons" %>
     <% end %>
