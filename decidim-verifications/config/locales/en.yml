@@ -183,6 +183,8 @@ en:
               submit: Upload file
               title: Import census data
               upload_new_census: Upload a new census
+            last_login:
+              no_user: No user
           census_records:
             create_record:
               error: There was a problem adding the census data record.
