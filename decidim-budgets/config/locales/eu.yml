@@ -98,12 +98,12 @@ eu:
             actions: Ekintzak
             cancel: Ezeztatu
             change_budget: Aldatu aurrekontua
-            change_selected: Aldatu hautatutako egoera
+            change_selected: Aldatu hautatutako eremua
             change_taxonomies: Aldatu taxonomiak
-            deselect_implementation: Kendu gauzatzekoetatik
+            deselect_implementation: Gauzatzekoetatik kendu
             finished_orders: Amaitutako botoak
             pending_orders: Zain dauden botoak
-            select_for_implementation: Hautatu gauzatzeko
+            select_for_implementation: Gauzatzeko hautatua
             selected: Hautatua
             selected_options:
               'no': 'Ez'
