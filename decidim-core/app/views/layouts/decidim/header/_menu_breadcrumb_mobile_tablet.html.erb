@@ -2,7 +2,7 @@
 <div class="menu-bar__breadcrumb-mobile__dropdown-trigger">
   <span>
     <% breadcrumb_items.last(2).each_with_index do |item, i| %>
-      <% item_label = decidim_html_escape(translated_attribute(item[:label])) %>
+      <% item_label = decidim_escape_translated(item[:label]).html_safe %>
       <% if i.positive? %>
         <span>/</span>
       <% end %>
