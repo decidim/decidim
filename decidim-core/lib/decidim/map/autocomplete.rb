@@ -87,14 +87,6 @@ module Decidim
             organization: @template.current_organization
           )
 
-          if Rails.env.test?
-            pp "No autocomplete_utility defined"
-            pp options
-            pp geocoding_options
-            pp attribute
-            pp @autocomplete_utility
-          end
-
           return text_field(attribute, options) unless @autocomplete_utility
 
           # Decidim::Map::Autocomplete::Builder
