@@ -48,7 +48,7 @@ eu:
     metrics:
       survey_answers:
         description: Parte-hartzaileek erantzundako inkesta kopurua
-        object: inkesten erantzunak
+        object: inkestei erantzunak
         title: Inkestei erantzunak
     statistics:
       answers_count: Erantzunak
@@ -72,6 +72,6 @@ eu:
         export_name: Inkestaren erantzunak
       surveys:
         answer:
-          invalid: Arazo bat egon da inkesta erantzutean.
+          invalid: Inkesta erantzutean errorea gertatu da.
           spam_detected: Arazo bat izan da galdetegia erantzutean. Agian azkarregi joan zara, berriro egin dezakezu?
           success: Inkesta ondo bete da.
