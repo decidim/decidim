@@ -62,35 +62,6 @@ module Decidim
       end
     end
 
-    # A custom helper to include a scope picker field without requiring a form
-    # object
-    #
-    # name - The input name
-    # value - The input value as a scope id
-    # options - The set of options to send to the field
-    #           :id - The id to generate for the element (optional)
-    #
-    # Returns a scopes picker tag to be included in an html template.
-    def scopes_picker_field_tag(name, value, id: nil)
-      picker_options = {
-        id: id || sanitize_to_id(name),
-        class: "picker-single",
-        name:
-      }
-
-      prompt_params = yield(nil)
-      selected_scopes = value ? Decidim::Scope.where(id: value) : []
-      scopes = selected_scopes.map { |scope| [scope, yield(scope)] }
-
-      template = ""
-      template += render("decidim/scopes/scopes_picker_input",
-                         picker_options:,
-                         prompt_params:,
-                         scopes:,
-                         values_on_top: true)
-      template.html_safe
-    end
-
     # A custom helper to include a translated field without requiring a form object.
     #
     # type        - The type of the translated input field.
