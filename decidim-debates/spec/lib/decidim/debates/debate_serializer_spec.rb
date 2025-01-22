@@ -207,7 +207,7 @@ module Decidim
             expect(serialized[:last_comment_by]).to eq(
               id: last_comment_by.id,
               name: "User",
-              url: new_debate.send(:user_url, last_comment_by)
+              url: profile_url(last_comment_by.nickname)
             )
           end
         end
