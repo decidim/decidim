@@ -1737,7 +1737,6 @@ en:
       create:
         error: There was a problem during the endorsement action.
     scopes:
-      scopes: Scopes
       global: Global scope
       picker:
         cancel: Cancel
@@ -1746,6 +1745,7 @@ en:
         currently_selected: Currently selected scope
         title: Select %{field}
       prompt: Select a scope
+      scopes: Scopes
       scopes_picker_input:
         select_scope: 'Select a scope (currently: %{current})'
     search:
