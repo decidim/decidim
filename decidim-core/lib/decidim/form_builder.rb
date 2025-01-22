@@ -223,35 +223,6 @@ module Decidim
       end
     end
 
-    # Public: Generates a select field with the categories. Only leaf categories can be set as selected.
-    #
-    # name       - The name of the field (usually category_id)
-    # collection - A collection of categories.
-    # options    - An optional Hash with options:
-    # - prompt   - An optional String with the text to display as prompt.
-    # - disable_parents - A Boolean to disable parent categories. Defaults to `true`.
-    # html_options - HTML options for the select
-    #
-    # Returns a String.
-    def categories_select(name, collection, options = {}, html_options = {})
-      options = {
-        disable_parents: true
-      }.merge(options)
-
-      disable_parents = options[:disable_parents]
-
-      selected = object.send(name)
-      selected = selected.first if selected.is_a?(Array) && selected.length > 1
-      categories = categories_for_select(collection)
-      disabled = if disable_parents
-                   disabled_categories_for(collection)
-                 else
-                   []
-                 end
-
-      select(name, @template.options_for_select(categories, selected:, disabled:), options, html_options)
-    end
-
     # Public: Generates a select field for areas.
     #
     # name       - The name of the field (usually area_id)

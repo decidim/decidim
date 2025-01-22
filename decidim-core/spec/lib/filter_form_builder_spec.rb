@@ -63,22 +63,5 @@ module Decidim
         it_behaves_like "having a help text"
       end
     end
-
-    describe "#categories_select" do
-      let(:output) do
-        builder.categories_select :category_id, categories, disable_parents: false, label: false, include_blank: true
-      end
-      let(:parsed) { Nokogiri::HTML(output) }
-
-      context "when a help text is defined" do
-        let(:field) { "<select" }
-        let(:help_text_text) { "This is the help text" }
-        let(:output) do
-          builder.categories_select :category_id, categories, disable_parents: false, label: false, include_blank: true, help_text: help_text_text
-        end
-
-        it_behaves_like "having a help text"
-      end
-    end
   end
 end
