@@ -7,7 +7,6 @@ module Decidim::Conferences
     subject { described_class.new(form, conference) }
 
     let(:organization) { create(:organization) }
-    let(:scope) { create(:scope, organization:) }
     let(:errors) { double.as_null_object }
     let!(:conference) { create(:conference) }
     let!(:component) { create(:component, manifest_name: :dummy, participatory_space: conference) }
@@ -17,19 +16,11 @@ module Decidim::Conferences
         invalid?: invalid,
         title: { en: "title" },
         slug: "copied-slug",
-        copy_categories?: copy_categories,
         copy_components?: copy_components
-      )
-    end
-    let!(:category) do
-      create(
-        :category,
-        participatory_space: conference
       )
     end
 
     let(:invalid) { false }
-    let(:copy_categories) { false }
     let(:copy_components) { false }
 
     context "when the form is not valid" do
@@ -56,7 +47,6 @@ module Decidim::Conferences
         expect(new_conference.hashtag).to eq(old_conference.hashtag)
         expect(new_conference.short_description).to eq(old_conference.short_description)
         expect(new_conference.promoted).to eq(old_conference.promoted)
-        expect(new_conference.scope).to eq(old_conference.scope)
         expect(new_conference.objectives).to eq(old_conference.objectives)
         expect(new_conference.start_date).to eq(old_conference.start_date)
         expect(new_conference.end_date).to eq(old_conference.end_date)
@@ -64,22 +54,6 @@ module Decidim::Conferences
 
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
-      end
-    end
-
-    context "when copy_categories exists" do
-      let(:copy_categories) { true }
-
-      it "duplicates a conference and the categories" do
-        expect { subject.call }.to change(Decidim::Category, :count).by(1)
-        expect(Decidim::Category.unscoped.distinct.pluck(:decidim_participatory_space_id).count).to eq 2
-
-        old_conference_category = Decidim::Category.unscoped.first
-        new_conference_category = Decidim::Category.unscoped.last
-
-        expect(new_conference_category.name).to eq(old_conference_category.name)
-        expect(new_conference_category.description).to eq(old_conference_category.description)
-        expect(new_conference_category.parent).to eq(old_conference_category.parent)
       end
     end
 

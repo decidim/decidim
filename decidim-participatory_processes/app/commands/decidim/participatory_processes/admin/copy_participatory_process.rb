@@ -30,7 +30,6 @@ module Decidim
               copy_participatory_process
               copy_participatory_process_attachments
               copy_participatory_process_steps if @form.copy_steps?
-              copy_participatory_process_categories if @form.copy_categories?
               copy_participatory_process_components if @form.copy_components?
             end
           end
@@ -52,10 +51,8 @@ module Decidim
             description: @participatory_process.description,
             short_description: @participatory_process.short_description,
             promoted: @participatory_process.promoted,
-            scope: @participatory_process.scope,
             developer_group: @participatory_process.developer_group,
             local_area: @participatory_process.local_area,
-            area: @participatory_process.area,
             target: @participatory_process.target,
             participatory_scope: @participatory_process.participatory_scope,
             participatory_structure: @participatory_process.participatory_structure,
@@ -87,25 +84,6 @@ module Decidim
               active: step.active
             )
             @steps_relationship[step.id.to_s] = new_step.id.to_s
-          end
-        end
-
-        def copy_participatory_process_categories
-          @participatory_process.categories.first_class.each do |category|
-            new_category = Category.create!(
-              name: category.name,
-              description: category.description,
-              participatory_space: @copied_process
-            )
-
-            category.descendants.each do |child|
-              Category.create!(
-                name: child.name,
-                description: child.description,
-                participatory_space: @copied_process,
-                parent: new_category
-              )
-            end
           end
         end
 

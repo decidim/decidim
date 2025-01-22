@@ -131,7 +131,6 @@ module Decidim
               new_project = Project.where(budget:).order(:id).first
               expect(new_project.title).to eq(proposal.title)
               expect(new_project.description).to eq(proposal.body)
-              expect(new_project.category).to eq(proposal.category)
               expect(new_project.budget_amount).to eq(proposal.cost)
             end
 

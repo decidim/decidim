@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A Helper to render scopes, including a global scope, for forms.
+  # A Helper to render taxonomies for forms.
   module TaxonomiesHelper
     include DecidimFormHelper
     include TranslatableAttributes

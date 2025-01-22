@@ -45,7 +45,7 @@ end
 shared_examples "a single root taxonomy" do
   let(:generated_taxonomies) { described_class.with(organization).to_taxonomies }
 
-  it "returns the participatory Scopes" do
+  it "returns the taxonomy" do
     expect(generated_taxonomies).to eq(
       root_taxonomy_name => described_class.to_h
     )

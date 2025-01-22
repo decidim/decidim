@@ -37,10 +37,6 @@ module Decidim
 
           create_attachments!(attached_to: process)
 
-          2.times do
-            create_category!(participatory_space: process)
-          end
-
           seed_components_manifests!(participatory_space: process)
         end
       end

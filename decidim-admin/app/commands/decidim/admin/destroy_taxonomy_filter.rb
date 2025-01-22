@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    # A command with all the business logic to destroy a category in the
+    # A command with all the business logic to destroy a taxonomy in the
     # system.
     class DestroyTaxonomyFilter < Decidim::Commands::DestroyResource
       private

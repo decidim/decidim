@@ -163,9 +163,5 @@ module Decidim
 
       base + %w(published_at)
     end
-
-    def self.ransackable_associations(_auth_object = nil)
-      %w(categories scope)
-    end
   end
 end

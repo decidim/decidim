@@ -7,7 +7,7 @@ module Decidim
     let(:handler) do
       DummyAuthorizationHandler.new({})
     end
-    let(:organization) { double(cta_button_path: "/", scopes: Decidim::Scope.none) }
+    let(:organization) { double(cta_button_path: "/") }
     let(:user) { create(:user, :confirmed) }
     let(:onboarding_manager) { Decidim::OnboardingManager.new(user) }
 

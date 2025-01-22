@@ -86,7 +86,6 @@ module Decidim
 
         params = {
           component:,
-          category: participatory_space.categories.sample,
           scope: random_scope(participatory_space:),
           title: { en: ::Faker::Lorem.sentence(word_count: 2) },
           body: { en: ::Faker::Lorem.paragraphs(number: 2).join("\n") },
