@@ -15,6 +15,11 @@ module Decidim
       class SurveyPresenter < Decidim::Log::BasePresenter
         private
 
+        # i18n-tasks-use t("decidim.surveys.admin_log.survey.create")
+        # i18n-tasks-use t("decidim.surveys.admin_log.survey.delete")
+        # i18n-tasks-use t("decidim.surveys.admin_log.survey.publish")
+        # i18n-tasks-use t("decidim.surveys.admin_log.survey.unpublish")
+        # i18n-tasks-use t("decidim.surveys.admin_log.survey.update")
         def action_string
           case action
           when "delete", "create", "update", "publish", "unpublish"
