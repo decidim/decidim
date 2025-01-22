@@ -7,6 +7,12 @@ require "decidim/core/test/shared_examples/form_builder_examples"
 module Decidim
   module Map
     describe Autocomplete do
+
+      before(:each) do
+        Decidim::Map.reset_utility_configuration!
+        GeocoderHelpers.configure_maps
+      end
+
       include_context "with map utility" do
         subject { utility }
       end
