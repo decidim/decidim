@@ -24,7 +24,7 @@ module Decidim
             case permission_action.action
             when :index, :update, :destroy
               if context.fetch(:survey).allow_answers
-                disallow!
+                permission_action.disallow!
               else
                 permission_action.allow!
               end
