@@ -7,7 +7,7 @@ eu:
         decidim_scope_id: Esparrua
         description: Deskribapena
         end_date: Bukaera-data
-        progress: Aurrera egiten
+        progress: Aurrerapena
         start_date: Hasiera-data
         subresults: Azpiemaitzak
         title: Izenburua
@@ -22,7 +22,7 @@ eu:
         entry_date: Data
         title: Izenburua
     models:
-      decidim/accountability/proposal_linked_event: Emaitza batean sartutako proposamena
+      decidim/accountability/proposal_linked_event: Proposamena emaitza batean dago
       decidim/accountability/result_progress_updated_event: Emaitzen aurrerapena eguneratu da
   activerecord:
     models:
@@ -88,7 +88,7 @@ eu:
         imports:
           create:
             invalid: Arazo bat egon da emaitzak inportatzean.
-            success: Espedientea inportatzen hasi da. Hurrengo minutuan posta elektroniko bat jasoko duzu inportazioaren emaitzarekin.
+            success: Fitxeroa inportatzen ari da. Hurrengo minutuetan mezu elektroniko bat jasoko duzu inportazioaren emaitzak dituena.
         models:
           result:
             name: Emaitza
@@ -155,7 +155,7 @@ eu:
             invalid: Ezin izan dira eguneratu %{taxonomies} taxonomiak %{results} emaitzetarako
             select_a_result: Hautatu emaitza
             select_a_taxonomy: Hautatu taxonomia bat
-            success: Zuzen eguneratuak %{taxonomies} taxonomiak %{results} emaitzetarako
+            success: Zuzen eguneratua %{taxonomies} taxonomia %{results} emaitzetarako
         shared:
           subnav:
             statuses: Egoerak
@@ -195,7 +195,7 @@ eu:
             success: Sarrera zuzen eguneratua.
       admin_log:
         result:
-          create: "%{user_name} erabiltzaileak %{resource_name} emaitza sortu du %{space_name} espazioan"
+          create: "%{user_name} parte-hartzaileak %{resource_name} emaitza sortu du %{space_name} espazioan"
           delete: "%{user_name} parte-hartzaileak %{resource_name} emaitza ezabatu du %{space_name} espazioan"
           restore: "% {user_name} parte-hartzaileak % {baliabide_name}} emaitza berreskuratu du hemen:% {space_name}"
           soft_delete: "% {user_name} parte-hartzaileak hemengo: %{space_name} {baliabide_name} emaitza zaborrontzira eraman zuen"
@@ -325,7 +325,7 @@ eu:
     open_data:
       help:
         result_comments:
-          alignment: Iruzkin hau aldekkoa, kontrakoa edo neutrala bazen
+          alignment: Iruzkin hau aldekoa, kontrakoa edo neutrala bazen
           author: Iruzkin hau egin duen parte-hartzailearen izena
           body: Iruzkin bera
           commentable_id: Iruzkingarriaren identifikazio bakarra
@@ -339,7 +339,7 @@ eu:
         results:
           address: Emaitzaren helbidea (hala badagokio)
           children_count: Emaitza txikien kopurua
-          comments_count: Emaitza horrek zenbat iruzkin dituen
+          comments_count: Ekimen honek zenbat iruzkin dituen
           component: Emaitzaren osagaia honi dagokio
           created_at: Zein datatan sortu zen emaitza
           description: Emaitzaren deskribapena
