@@ -34,7 +34,7 @@ Decidim::Initiatives::Signatures.register_workflow(:legacy_signature_handler) do
 
   # This setting prevents the automatic creation of authorizations as in the
   # old feature. You can remove this setting if the workflow does not use an
-  # authorization hanlder form
+  # authorization handler form. The default value is true.
   workflow.save_authorizations = false
 
   # Set this setting to false to skip SMS verification step
