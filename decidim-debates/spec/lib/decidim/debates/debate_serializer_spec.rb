@@ -202,6 +202,28 @@ module Decidim
               url: profile_url(last_comment_by.nickname)
             )
           end
+
+          context "when the last comment is from a user group" do
+            let(:last_comment_by) { create(:user_group, name: "ACME") }
+            let(:debate) { create(:debate, last_comment_by:) }
+
+            it "serializes the last comment by fields" do
+              expect(serialized[:last_comment_by]).to eq(
+                id: last_comment_by.id,
+                name: "ACME",
+                url: profile_url(last_comment_by.nickname)
+              )
+            end
+          end
+
+          context "when the last comment is from a deleted user" do
+            let(:last_comment_by) { create(:user, :deleted) }
+            let(:debate) { create(:debate, last_comment_by:) }
+
+            it "does not serialize the fields" do
+              expect(serialized[:last_comment_by]).to eq({})
+            end
+          end
         end
 
         context "when there is no last comment" do

@@ -48,6 +48,7 @@ module Decidim
 
       def last_comment_by_fields
         return {} unless resource.last_comment_by
+        return {} if resource.last_comment_by.respond_to?(:deleted?) && resource.last_comment_by.deleted?
 
         {
           id: resource.last_comment_by.id,
