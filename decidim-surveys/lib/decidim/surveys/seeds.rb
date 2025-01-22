@@ -163,7 +163,7 @@ module Decidim
       def create_answer_for_sorting_question_type(options)
         answer = Decidim::Forms::Answer.create!(**options)
         answer_options = options[:question].answer_options
-        available_positions = (0..(answer_options.count - 1)).to_a
+        available_positions = (0..(answer_options.size - 1)).to_a
 
         answer_options.each do |answer_option|
           position = available_positions.sample
