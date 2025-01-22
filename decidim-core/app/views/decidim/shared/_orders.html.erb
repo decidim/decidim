@@ -3,7 +3,7 @@
   <%= icon "arrow-up-s-line" %>
   <span><%= t("#{i18n_scope}.label") %></span>
 </button>
-<div id="dropdown-menu-order" class="order-by">
+<div id="dropdown-menu-order" class="order-by <%= class_css %>">
   <% orders.each do |order_name| %>
     <%= order_link order_name,
                    i18n_scope:,
