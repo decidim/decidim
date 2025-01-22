@@ -51,6 +51,10 @@ module Decidim
           survey
         end
 
+        def questionnaire_url
+          Decidim::EngineRouter.admin_proxy(questionnaire_for.component).edit_questions_survey_path(questionnaire_for)
+        end
+
         private
 
         def survey
