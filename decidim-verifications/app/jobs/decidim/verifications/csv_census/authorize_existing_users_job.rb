@@ -7,7 +7,7 @@ module Decidim
         def perform(data)
           user = current_organization.users.available.find_by(email: data.email)
 
-          return t(".no_user") unless user
+          return t("census.last_login.no_user", scope: "decidim.verifications.csv_census.admin") unless user
 
           authorization = Decidim::Authorization.find_or_initialize_by(
             user:,
