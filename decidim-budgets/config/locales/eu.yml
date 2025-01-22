@@ -99,11 +99,11 @@ eu:
             change_budget: Aldatu aurrekontua
             change_category: Aldatu kategoria
             change_scope: Aldatu esparrua
-            change_selected: Aldatu hautatutako egoera
-            deselect_implementation: Kendu gauzatzekoetatik
+            change_selected: Aldatu hautatutako eremua
+            deselect_implementation: Gauzatzekoetatik kendu
             finished_orders: Amaitutako botoak
             pending_orders: Zain dauden botoak
-            select_for_implementation: Hautatu gauzatzeko
+            select_for_implementation: Gauzatzeko hautatua
             selected: Hautatua
             selected_options:
               'no': 'Ez'
