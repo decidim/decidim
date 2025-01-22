@@ -57,7 +57,7 @@ eu:
         facebook_handler: Facebook kudeatzailea
         favicon: Ikonoa
         force_authentication: Behartu autentikazioa
-        force_users_to_authenticate_before_access_organization: Behartu erabiltzaileak egiaztatzera erakundean sartu baino lehen
+        force_users_to_authenticate_before_access_organization: Behartu parte-hartzaileak egiaztatzera erakundean sartu baino lehen
         from: Igorlearen helbide elektronikoa
         github_handler: GitHub kudeatzailea
         header_snippets: Goiburuko zatiak
@@ -170,7 +170,7 @@ eu:
       doorkeeper/application:
         authorize_url: Baimendu URLa
         client_id: Bezeroaren IDa
-        client_secret: Bezeroa isilpean
+        client_secret: Isilpeko bezeroa
         organization_name: Erakundearen izena
         organization_url: Erakundearen URLa
         redirect_uri: Birbideratu URIa
@@ -182,11 +182,11 @@ eu:
         attachment:
           new: Beste eranskin bat
         attachment_collection:
-          new: Beste eranskin-blduma bat
+          new: Beste eranskin-bilduma bat
         browse: Arakatu
         confirm_delete_component: |
-          Ziur zaude osagai hau ezabatu nahi duzula?<br>
-          Osagai honek honako hauek ditu: <br>
+          Ziur zaude osagai hau ezabatu nahi duzula?
+          Osagai honek honako hauek ditu: 
           <ul class="list-disc ml-6 my-2">
            <li class="font-bold">%{baliabide_kopurua} resources</li>
           </ul>
@@ -203,7 +203,7 @@ eu:
         permissions: Baimenak
         reject: Ukatu
         restore: Berreskuratu
-        send_me_a_test_email: Bidali probako posta elektronikoa
+        send_me_a_test_email: Bidali proba-posta elektronikoa
         share: Partekatu
         share_tokens: Sarbide-estekak
         soft_delete: Ezabatze biguna
@@ -302,7 +302,7 @@ eu:
           already_reported_html: Ekintza honekin jarraituz gero, parte-hartzaile guztien edukiak ere ezkutatuko dituzu.
           description: Parte-hartzaile bat blokeatzeak bere kontua erabilezin bihurtuko du. Zure justifikazioan edozein jarraibide eman dezakezu parte-hartzailea desblokeatzeko moduei buruz.
           justification: Justifikazioa
-          title: Blokeatu Parte-hartzaileak
+          title: Blokeatu parte-hartzaileak
         new:
           action: Blokeatu kontua eta bidali justifikazioa
           already_reported_html: Ekintza honekin jarraituz, parte-hartzailearen eduki guztiak ere ezkutatuko dituzu.
@@ -366,8 +366,8 @@ eu:
         attempts: Saiakerak
         'false': 'Ez'
         index:
-          text: Bilatu gaur egungo parte-hartzailearen posta elektronikoaren, izenaren edo ezizenaren bidez.
-        managed_user_name: Parte-hartzaile kudeatua
+          text: Bilatu egungo parte-hartzailearen posta elektronikoaren, izenaren edo ezizenaren bidez.
+        managed_user_name: Parte-hartzailearen kudeatua
         solved: Ebatzita
         title: Egiaztapen-arazoak
         transfer:
@@ -378,7 +378,7 @@ eu:
           success: Egungo transferentzia zuzen egina.
           title: Transferentzia
         'true': 'Bai'
-        user_name: Parte-hartzaile
+        user_name: Parte-hartzailea
       content_blocks:
         create:
           error: Arazo bat izan da edukien blokea sortzean.
@@ -416,7 +416,7 @@ eu:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Zure esportazioa bidean da une honetan. Mezu elektroniko bat jasoko duzu bukatutakoan.
+        notice: Zure esportazioa bidean da. Mezu elektroniko bat jasoko duzu bukatutakoan.
       filters:
         filter_label: Iragazkia
         invitation_accepted_at_present:
@@ -710,7 +710,7 @@ eu:
             ignore:
               update_moderated_user_button: Ez erreportatu parte-hartzaileak
             title: Ekintzak
-            unblock: Desblokeatu parte-hartzailea
+            unblock: Desblokeatu parte-hartzaile
             unreport: Ez erreportatu
           cancel: Ezeztatu
           name: Izena
@@ -994,7 +994,7 @@ eu:
         create:
           error: Arazo bat egon da ohartarazpenak sortzean.
           success:
-            one: "%{count} erabiltzaile gogoratuko da."
+            one: "Pparte-hartzaile bat gogoratuko da."
             other: "%{count} parte-hartzaile gogoratuko dira."
         new:
           submit: Bidali
@@ -1045,11 +1045,11 @@ eu:
           edit: Editatu
           preview: Aurreikusi
         create:
-          invalid: Arazo bat izan da sarbide-lotura sortzean.
-          success: Lotura zuzen sortua.
+          invalid: Arazo bat izan da sarbide-esteka sortzean.
+          success: Esteka zuzen sortua.
         destroy:
-          error: Arazo bat izan da sarbide-lotura suntsitzean.
-          success: Sarbide-lotura zuzen suntsitua.
+          error: Arazo bat izan da sarbide-esteka suntsitzean.
+          success: Sarbide-esteka zuzen suntsitua.
         edit:
           title: 'Editatu sarbide-estekak honetarako: %{name}'
           update: Eguneratu
@@ -1152,7 +1152,7 @@ eu:
           no_items: Gaur egun ez dago taxonomia honetako elementurik. Sortu hemen elementuen zerrenda bat baliabideak sailkatzeko edo iragazteko, hala nola espazio edo osagai parte-hartzaileak. Elementuak hiru mailatan sailka daitezke.
           subtitle: 'Elementuak hemen: "%{taxonomy_name}"'
           title: Editatu "%{taxonomy_name}" taxonomia
-          update: Eguneratu
+          update: Gorde
         filters:
           search_placeholder: Bilatu
         index:
@@ -1190,14 +1190,14 @@ eu:
         form:
           all: Guztiak
           items:
-            one: "%{count} item hautatuta"
+            one: "Item bat hautatuta"
             other: "%{count} item hautatuta"
           name_help: Aurrealdean erakutsiko den iragazkiaren izenburua.
           no_items: Taxonomia honetarako ez dago elementurik. Artikuluak sor ditzakezu taxonomia konfiguratzeko ezarpenetan.
           space_filter: Eskuragarri iragazki gisa %{manifest_name} guztientzat
         index:
           description: Taxonomia-iragazki batek aukera ematen die administratzaileei espazio parte-hartzaileak taxonomia batean oinarrituta ordenatzeko eta iragazteko. Adibidez, gehitu taxonomia-iragazki bat prozesuak eremu geografikoaren arabera sailkatzeko.
-          empty: Gaur egun ez dago taxonomia-iragazkirik. Sortutaxonomia-iragazkien zerrenda bat, espazio parte-hartzaileak taxonomia baten arabera ordenatu eta iragazteko.
+          empty: Egun ez dago taxonomia-iragazkirik. Sortutaxonomia-iragazkien zerrenda bat, espazio parte-hartzaileak taxonomia baten arabera ordenatu eta iragazteko.
         new:
           back: Atzera
           create: Sortu taxonomia-iragazkia
@@ -1316,7 +1316,7 @@ eu:
         title: Parte-hartzaile blokeatuak
       reported_users:
         object: erabiltzaile erreportatuak
-        title: Parte-hartzaile erreportatuak
+        title: Erabiltzaile erreportatuak
       user_reports:
         object: parte-hartzailearen erreporteak
         title: Parte-hartzaileak erreportatzen du
