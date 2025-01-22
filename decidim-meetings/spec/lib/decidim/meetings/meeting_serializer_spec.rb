@@ -192,7 +192,7 @@ module Decidim
           expect(serialized).to include(registration_terms: meeting.registration_terms)
         end
 
-        it "serializes the avaliable slots of the meeting" do
+        it "serializes the available slots of the meeting" do
           expect(serialized).to include(available_slots: meeting.available_slots)
         end
 
