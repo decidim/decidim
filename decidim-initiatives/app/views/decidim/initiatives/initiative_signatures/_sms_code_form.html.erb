@@ -8,7 +8,7 @@
       <%= form.hidden_field(:verification_code, data: { check_code_path: sms_code_initiative_signatures_path }) %>
     </div>
   </label>
-  <span class="code-correct-announcement hidden"><%= t("decidim.initiatives.initiative_signatures.sms_phone_number.your_code_is_correct") %></span>
+  <%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_phone_number.your_code_is_correct"), callout_class: "success code-correct-announcement hidden") %>
   <%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_phone_number.your_code_is_incorrect"), callout_class: "warning code-incorrect-announcement hidden") %>
 
   <button type="submit" class="button button__lg button__secondary hidden" disabled data-submit-verification-code>
