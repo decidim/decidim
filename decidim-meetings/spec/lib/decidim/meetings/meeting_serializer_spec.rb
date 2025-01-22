@@ -196,7 +196,7 @@ module Decidim
           expect(serialized).to include(available_slots: meeting.available_slots)
         end
 
-        it "serializes the if registrations were activiated" do
+        it "serializes the if registrations were activated" do
           expect(serialized).to include(registrations_enabled: meeting.registrations_enabled)
         end
 
@@ -204,7 +204,7 @@ module Decidim
           expect(serialized).to include(customize_registration_email: meeting.customize_registration_email)
         end
 
-        it "serializes the the type of meeting" do
+        it "serializes the type of meeting" do
           expect(serialized).to include(type_of_meeting: meeting.type_of_meeting)
         end
 
