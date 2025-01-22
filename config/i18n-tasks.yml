@@ -179,6 +179,7 @@ ignore_unused:
   - decidim.resource_links.*
   - decidim.system.default_pages.placeholders.*
   - decidim.system.organizations.omniauth_settings.*
+  - decidim.verifications.csv_census.admin.census.index.no_sign_in
   - decidim.verifications.csv_census.admin.census.index.no_user
   - decidim.verifications.id_documents.{identification_number,passport}
   - decidim.verifications.dummy_authorization.extra_explanation.user_postal_codes.{one,other}

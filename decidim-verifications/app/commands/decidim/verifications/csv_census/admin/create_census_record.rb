@@ -14,7 +14,7 @@ module Decidim
           def resource_class = Decidim::Verifications::CsvDatum
 
           def run_after_hooks
-            AuthorizeExistingUsersJob.perform_later([resource.email])
+            AuthorizeExistingUsersJob.perform_later([resource.email], resource.organization)
           end
         end
       end

@@ -79,10 +79,13 @@ module Decidim
 
             return t(".no_user") unless user
 
-            authorized = Decidim::Authorization.where.not(granted: nil), exists?(handler_name: :csv_census, user:)
+            authorized = Decidim::Authorization.where(name: "csv_census", user: user)
+                                               .where.not(granted_at: nil)
+                                               .exists?
 
-            icon = authorized ? '<%= icon "checkbox-circle-line" %>' : '<%= icon "close-circle-line" %>'
-            icon + l(user.last_sign_in_at, format: :decidim_short)
+            icon = authorized ? "✅" : "❌"
+            last_sign_in = user.last_sign_in_at ? l(user.last_sign_in_at, format: :decidim_short) : t(".no_sign_in")
+            icon + last_sign_in
           end
         end
       end

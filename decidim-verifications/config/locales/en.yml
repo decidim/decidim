@@ -173,8 +173,10 @@ en:
               success: Census data record have been deleted.
             index:
               empty: There are no census data. Use the button Import CSV to import it using a CSV file.
-              no_user: No user
+              no_sign_in: No sign in
+              no_user: No user found
             last_login:
+              no_sign_in: No sign in
               no_user: No user
             new_import:
               example: |

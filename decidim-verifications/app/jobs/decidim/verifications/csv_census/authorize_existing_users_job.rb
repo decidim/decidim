@@ -4,17 +4,21 @@ module Decidim
   module Verifications
     module CsvCensus
       class AuthorizeExistingUsersJob < ApplicationJob
-        def perform(data)
-          user = current_organization.users.available.find_by(email: data.email)
+        queue_as :default
 
-          return t("census.last_login.no_user", scope: "decidim.verifications.csv_census.admin") unless user
+        def perform(data, current_organization = organization)
+          data.each do |email|
+            user = current_organization.users.available.find_by(email:)
 
-          authorization = Decidim::Authorization.find_or_initialize_by(
-            user:,
-            name: "csv_census"
-          )
+            return t("census.last_login.no_user", scope: "decidim.verifications.csv_census.admin") unless user
 
-          authorization.grant! unless authorization.granted?
+            authorization = Decidim::Authorization.find_or_initialize_by(
+              user:,
+              name: "csv_census"
+            )
+
+            authorization.grant! unless authorization.granted?
+          end
         end
       end
     end
