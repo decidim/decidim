@@ -1002,6 +1002,8 @@ fi:
         edit:
           submit: Lähetä
           title: Muokkaa käyttöoikeuksia
+        options_form:
+          ephemeral_warning: Ottaaksesi tämän vahvistustavan käyttöön, sinun tulee ensin <a href="%{path}">kumota kaikki aikaisemmat käyttäjätilien vahvistukset</a>. Tämä pienentää riskiä vahvistusten konflikteille. Kaikki tällä tavalla tehdyt tilien vahvistukset kumotaan automaattisesti, mikäli otat tämän vahvistustavan käyttöön tai muutat tämän vahvistustavan asetuksia.
         update:
           success: Käyttöoikeuksien päivitys onnistui.
       scope_types:
