@@ -9,7 +9,7 @@ eu:
         description: Deskribapena
         end_date: Bukaera-data
         meetings_ids: Honekin lotutako topaketak
-        progress: Aurrera egiten
+        progress: Aurrerapena
         project_ids: Barne dauden proiektuak
         proposals: Barne dauden proposamenak
         start_date: Hasiera-data
@@ -26,7 +26,7 @@ eu:
         entry_date: Data
         title: Izenburua
     models:
-      decidim/accountability/proposal_linked_event: Emaitza batean sartutako proposamena
+      decidim/accountability/proposal_linked_event: Proposamena emaitza batean dago
       decidim/accountability/result_progress_updated_event: Emaitzen aurrerapena eguneratu da
   activerecord:
     models:
@@ -82,7 +82,7 @@ eu:
         imports:
           create:
             invalid: Arazo bat egon da emaitzak inportatzean.
-            success: Espedientea inportatzen hasi da. Hurrengo minutuan posta elektroniko bat jasoko duzu inportazioaren emaitzarekin.
+            success: Fitxeroa inportatzen ari da. Hurrengo minutuetan mezu elektroniko bat jasoko duzu inportazioaren emaitzak dituena.
         models:
           result:
             name: Emaitza
@@ -160,7 +160,7 @@ eu:
             success: Sarrera zuzen eguneratua.
       admin_log:
         result:
-          create: "%{user_name} erabiltzaileak %{resource_name} emaitza sortu du %{space_name} espazioan"
+          create: "%{user_name} parte-hartzaileak %{resource_name} emaitza sortu du %{space_name} espazioan"
           delete: "%{user_name} parte-hartzaileak %{resource_name} emaitza ezabatu du %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} emaitza eguneratu du %{space_name} espazioan"
         status:
