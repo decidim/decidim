@@ -8,64 +8,56 @@ module Decidim
       include Decidim::ApplicationHelper
       include Decidim::ResourceHelper
 
-      # Public: Initializes the serializer with a debate.
-      def initialize(debate)
-        @debate = debate
-      end
-
-      # Public: Exports a hash with the serialized data for this debate.
+      # Public: Exports a hash with the serialized data for this resource.
       def serialize
         {
-          id: debate.id,
+          id: resource.id,
           author: {
             **author_fields
           },
-          title: debate.title,
-          description: debate.description,
-          instructions: debate.instructions,
-          start_time: debate.start_time,
-          end_time: debate.end_time,
-          information_updates: debate.information_updates,
+          title: resource.title,
+          description: resource.description,
+          instructions: resource.instructions,
+          start_time: resource.start_time,
+          end_time: resource.end_time,
+          information_updates: resource.information_updates,
           taxonomies:,
           participatory_space: {
-            id: debate.participatory_space.id,
-            url: Decidim::ResourceLocatorPresenter.new(debate.participatory_space).url
+            id: resource.participatory_space.id,
+            url: Decidim::ResourceLocatorPresenter.new(resource.participatory_space).url
           },
           component: { id: component.id },
-          reference: debate.reference,
-          comments: debate.comments_count,
-          follows_count: debate.follows_count,
+          reference: resource.reference,
+          comments: resource.comments_count,
+          follows_count: resource.follows_count,
           url:,
-          last_comment_at: debate.last_comment_at,
+          last_comment_at: resource.last_comment_at,
           last_comment_by: {
             **last_comment_by_fields
           },
-          comments_enabled: debate.comments_enabled,
-          conclusions: debate.conclusions,
-          closed_at: debate.closed_at,
-          created_at: debate.created_at,
-          updated_at: debate.updated_at,
-          endorsements_count: debate.endorsements_count
+          comments_enabled: resource.comments_enabled,
+          conclusions: resource.conclusions,
+          closed_at: resource.closed_at,
+          created_at: resource.created_at,
+          updated_at: resource.updated_at,
+          endorsements_count: resource.endorsements_count
         }
       end
 
       private
 
-      attr_reader :debate
-      alias resource debate
-
       def last_comment_by_fields
-        return {} unless debate.last_comment_by
+        return {} unless resource.last_comment_by
 
         {
-          id: debate.last_comment_by.id,
-          name: user_name(debate.last_comment_by),
-          url: user_url(debate.last_comment_by)
+          id: resource.last_comment_by.id,
+          name: user_name(resource.last_comment_by),
+          url: user_url(resource.last_comment_by)
         }
       end
 
       def url
-        Decidim::ResourceLocatorPresenter.new(debate).url
+        Decidim::ResourceLocatorPresenter.new(resource).url
       end
 
       def author_fields
