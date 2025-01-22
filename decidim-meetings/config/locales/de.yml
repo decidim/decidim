@@ -3,7 +3,7 @@ de:
   activemodel:
     attributes:
       close_meeting:
-        attendees_count: Anzahl der Teilnehmer
+        attendees_count: Anzahl Teilnehmende
         attending_organizations: Liste der Organisationen, die teilgenommen haben
         audio_url: Audio-URL
         closing_report: Protokoll
@@ -13,7 +13,7 @@ de:
         video_url: Video-URL
       meeting:
         address: Adresse
-        available_slots: Verfügbare Slots für dieses Meeting
+        available_slots: Verfügbare Plätze für diese Veranstaltung
         customize_registration_email: Registrierungs-E-Mail anpassen
         decidim_category_id: Kategorie
         decidim_scope_id: Umfang
@@ -29,14 +29,14 @@ de:
         online_meeting_url: Online Meeting URL
         organizer_gid: Erstellt als
         organizer_id: Veranstalter
-        private_meeting: Privates Treffen
+        private_meeting: Private Veranstaltung
         registration_email_custom_content: Angepasster Inhalt des Registrierungs-E-Mails
         registration_form_enabled: Anmeldeformular aktiviert
         registration_terms: Registrierungsbedingungen
         registration_type: Registrierungstyp
         registration_url: Registrierungs-URL
         registrations_enabled: Registrierungen aktiviert
-        reserved_slots: Reservierte Slots für diese Veranstaltung
+        reserved_slots: Reservierte Plätze für diese Veranstaltung
         start_time: Startzeit
         title: Titel
         transparent: Transparent
@@ -71,17 +71,17 @@ de:
             email:
               already_invited: Das mit dieser E-Mail verknüpfte Konto wurde bereits eingeladen.
     models:
-      decidim/meetings/close_meeting_event: Sitzung geschlossen
-      decidim/meetings/create_meeting_event: Sitzung
+      decidim/meetings/close_meeting_event: Veranstaltung abgeschlossen
+      decidim/meetings/create_meeting_event: Veranstaltung
       decidim/meetings/meeting_registrations_enabled_event: Registrierungen aktiviert
       decidim/meetings/meeting_registrations_over_percentage_event: Anmeldungen über Limit
-      decidim/meetings/upcoming_meeting_event: Kommende Sitzung
-      decidim/meetings/update_meeting_event: Besprechung aktualisiert
+      decidim/meetings/upcoming_meeting_event: Bevorstehende Veranstaltung
+      decidim/meetings/update_meeting_event: Veranstaltung aktualisiert
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Sitzung
-        other: Sitzungen
+        one: Veranstaltung
+        other: Veranstaltungen
       decidim/meetings/minutes:
         one: Protokoll
         other: Protokoll
@@ -113,38 +113,38 @@ de:
               participants: Teilnehmer
               user_group: Benutzergruppen
           with_any_type:
-            label: Art des Treffens
+            label: Art der Veranstaltung
             values:
               hybrid: Hybrid
               in_person: Persönlich
               online: Online
       meeting_copies:
         create:
-          error: Es gab einen Fehler beim Duplizieren dieses Meetings.
-          success: Dupliziertes Meeting erfolgreich
+          error: Es gab einen Fehler beim Duplizieren dieser Veranstaltung.
+          success: Veranstaltung erfolgreich dupliziert.
         new:
           copy: Kopieren
-          title: Doppelte Besprechung
+          title: Veranstaltung duplizieren
     components:
       meetings:
         actions:
           comment: Kommentar
           join: Beitreten
-        name: Meetings
+        name: Veranstaltungen
         settings:
           global:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
-            creation_enabled_for_participants: Teilnehmer können Besprechungen erstellen
+            creation_enabled_for_participants: Teilnehmende können Veranstaltungen erstellen
             default_registration_terms: Standard-Registrierungsbedingungen
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             maps_enabled: Karten aktiviert
             registration_code_enabled: Registrierungscode aktiviert
-            resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
+            resources_permissions_enabled: Aktionsberechtigungen können für jede Veranstaltung festgelegt werden
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
-            terms_and_conditions_url_for_meeting_creators: Nutzungsbedingungen URL für Meeting-Ersteller
+            terms_and_conditions_url_for_meeting_creators: URL zu den Nutzungsbedingungen für Veranstaltungsersteller
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
