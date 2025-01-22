@@ -14,7 +14,7 @@ module Decidim
       render partial: "decidim/shared/orders", locals: {
         orders:,
         i18n_scope: options[:i18n_scope],
-        class_css: options[:class_css]
+        css_class: options[:css_class]
       }
     end
 
