@@ -71,12 +71,9 @@ zh-CN:
             title: 编辑问题单
           form:
             add_question: 添加问题
-            add_separator: 添加分隔符
-            already_answered_warning: 某些用户已经回答了表单，因此您不能修改其问题。
             collapse: 收起所有问题
             expand: 展开所有问题
             preview: 预览
-            unpublished_warning: 表单未发布。您可以修改它的问题，但这样做将删除当前答案。
           matrix_row:
             matrix_row: 行
             remove: 删除

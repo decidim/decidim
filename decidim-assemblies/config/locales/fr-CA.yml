@@ -350,11 +350,11 @@ fr-CA:
           members: Membres
       assembly_types:
         commission: Commission
-        consultative_advisory: Organe consultatif
-        executive: Organe exécutif
-        government: Comité de pilotage
+        consultative_advisory: Consultatif
+        executive: Exécutif
+        government: Gouvernement
         others: Autres
-        participatory: Organe participatif
+        participatory: Participatif
         working_group: Groupe de travail
       content_blocks:
         children_assemblies:

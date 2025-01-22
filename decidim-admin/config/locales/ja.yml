@@ -208,7 +208,7 @@ ja:
         actions:
           accept: 利用規約に同意する
           are_you_sure: 管理者向け利用規約を本当に拒否しますか？
-          refuse: 管理者規約を拒否する
+          refuse: 管理者規約に同意しない
           title: 利用規約に同意する
         required_review:
           alert: '必須：管理者の利用規約を確認してください'
@@ -1101,7 +1101,7 @@ ja:
       actions:
         expand: 展開
         hidden: 非表示
-        hide: 非表示
+        hide: 非表示にする
         not_hidden: 表示
         title: アクション
         unhide: 非表示解除

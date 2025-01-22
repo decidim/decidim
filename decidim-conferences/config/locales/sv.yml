@@ -16,7 +16,7 @@ sv:
         hero_image: Bild till startsida
         location: Plats
         main_logo: Logotyp
-        objectives: Mål
+        objectives: Syfte
         participatory_processes_ids: Relaterade deltagandeprocesser
         promoted: Utvald
         published_at: Publicerad
@@ -26,7 +26,7 @@ sv:
         scopes_enabled: Aktivera indelningar
         short_description: Kort beskrivning
         show_statistics: Visa statistik
-        sign_date: Underskriftsdatum
+        sign_date: Datum för underskrift
         signature: Underskrift
         signature_name: Signaturens namn
         slogan: Slogan
@@ -62,7 +62,7 @@ sv:
         full_name: Fullständigt namn
         personal_url: Personlig hemsida
         position: Befattning
-        short_bio: Kort biographi
+        short_bio: Kort beskrivning
         user_id: Användare
       conference_user_role:
         email: E-post
@@ -239,7 +239,7 @@ sv:
             price: Pris
             registrations_count: Antal registreringar
             title: Titel
-            weight: Vikt
+            weight: Position i listan
           name: Registreringstyp
       partners:
         create:
@@ -415,7 +415,7 @@ sv:
         personal_website: Personlig hemsida
         show:
           more_info: mer information
-          speaking_at: Talar vid
+          speaking_at: Tid
       conference_speaker_cell:
         personal_url:
           personal_website: Personlig hemsida
@@ -468,7 +468,7 @@ sv:
         home:
           highlighted_conferences:
             active_spaces: Pågående konferenser
-            see_all_spaces: Se alla konferenser
+            see_all_spaces: Visa alla konferenser
       registration_types:
         index:
           choose_an_option: 'Välj registreringsalternativ:'
@@ -503,10 +503,10 @@ sv:
           email_subject: Konferensen "%{resource_title}" tar nu emot registreringar.
           notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> tar nu emot registreringar.
         role_assigned:
-          email_intro: Du har tilldelats som %{role} för konferens "%{resource_title}".
-          email_outro: Du har fått det här meddelandet eftersom du är %{role} av konferensen "%{resource_title}".
-          email_subject: Du har tilldelats som %{role} för "%{resource_title}".
-          notification_title: Du har tilldelats %{role} för konferens <a href="%{resource_url}">%{resource_title}</a>.
+          email_intro: Du har tilldelats rollen %{role} för konferensen "%{resource_title}".
+          email_outro: Du har fått det här meddelandet eftersom du är %{role} för konferensen "%{resource_title}".
+          email_subject: Du har tilldelats rollen %{role} för "%{resource_title}".
+          notification_title: Du har tilldelats rollen %{role} för konferensen <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'Konferensen "%{resource_title}" äger rum om två dagar. Läs mer på dess sida:'
           email_outro: Du har fått det här meddelandet eftersom du följer konferensen "%{resource_title}". Du kan sluta att följa den från föregående länk.

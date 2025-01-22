@@ -350,11 +350,11 @@ de:
           members: Mitglieder
       assembly_types:
         commission: Kommission
-        consultative_advisory: Beratende / Beratende
-        executive: Exekutive
+        consultative_advisory: Beratung / Beratung
+        executive: Executive
         government: Regierung
         others: Andere
-        participatory: Teilnehmend
+        participatory: Partizipativ
         working_group: Arbeitsgruppe
       content_blocks:
         children_assemblies:
@@ -394,7 +394,7 @@ de:
           member_of:
             member_of: Mitglied von
       show:
-        assembly_type: Montageart
+        assembly_type: Versammlungstyp
         duration: Aktiv bis
         private_space: Dies ist eine private Versammlung
         social_networks_title: Gremium besuchen unter

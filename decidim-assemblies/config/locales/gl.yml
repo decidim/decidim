@@ -2,6 +2,8 @@
 gl:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Título
       assembly:
         area_id: Área
         assembly_type: Tipo de montaxe
@@ -166,7 +168,7 @@ gl:
           success: O usuario actualizouse con éxito para este conxunto.
       filters:
         decidim_assemblies_type_id_eq:
-          label: Tipo de xuntanza
+          label: Tipo de montaxe
       menu:
         assemblies: Asembleas
         assemblies_submenu:
@@ -178,7 +180,7 @@ gl:
           categories: Categorías
           components: Compoñentes
           moderations: Moderacións
-        assemblies_types: Tipos de xuntanzas
+        assemblies_types: Tipo de xuntanzas
       models:
         assemblies_types:
           fields:

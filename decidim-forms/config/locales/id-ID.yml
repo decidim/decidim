@@ -32,7 +32,6 @@ id:
             save: Menyimpan
           form:
             add_question: Tambahkan pertanyaan
-            already_answered_warning: Formulir sudah dijawab oleh beberapa pengguna sehingga Anda tidak dapat mengubah pertanyaannya.
           matrix_row:
             remove: Menghapus
             statement: Pernyataan

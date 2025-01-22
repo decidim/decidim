@@ -33,10 +33,10 @@ eu:
           error: Arazo bat ego da iruzkina eguneratzean.
       comments_title: Iruzkina
       last_activity:
-        new_comment: 'Beste iruzkin bat:'
+        new_comment: 'Iruzkin berria:'
       votes:
         create:
-          error: Arazo bat egon da iruzkina bozkatzean.
+          error: Arazo bat dago iruzkina bozkatzeko.
     components:
       add_comment_form:
         account_message: Sortu kontu bat <a href="%{sign_in_url}">Log in</a> edo <a href="%{sign_up_url}"> </a> zure iruzkina gehitzeko.
@@ -45,8 +45,8 @@ eu:
             label: Iruzkina
             placeholder: Zer deritzozu honi?
           form_error: Testua behar da, eta ezin du izan %{length} karaktere baino gehiago.
-          submit_reply: Argitaratu erantzuna
-          submit_root_comment: Argitaratu iruzkina
+          submit_reply: Erantzuna argitaratu
+          submit_root_comment: Iruzkina argitaratu
           user_group_id:
             label: 'Egin iruzkina honako honen gisa:'
         opinion:
@@ -64,7 +64,7 @@ eu:
         alignment:
           against: Aurka
           in_favor: Alde
-        cancel_reply: Ezeztatu erantzuna
+        cancel_reply: Erantzuna ezabatu
         comment_label: Iruzkindu %{comment_id}
         comment_label_reply: Iruzkindu %{comment_id} (erantzun %{parent_comment_id} iruzkinei)
         confirm_destroy: Ziur zaude iruzkin hau ezabatu nahi duzula?
@@ -128,7 +128,7 @@ eu:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} egileak iruzkin bat utzi du %{resource_title} helbidean. Orri honetan irakur dezakezu:"
-          email_outro: Jakinarazpen hau jaso duzu %{author_name} erabiltzailea jarraitzen duzulako. Nahi izatekotan erabiltzaile hori bere profil-orritik jarraitzeari utz diezaiokezu.
+          email_outro: Jakinarazpen hau jaso duzu %{author_name} parte-hartzailea jarraitzen duzulako. Nahi izatekotan erabiltzaile hori bere profil-orritik jarraitzeari utz diezaiokezu.
           email_subject: '%{author_name} k beste iruzkin bat egin du hemen: %{resource_title}'
           notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> k iruzkin berri bat egin du hemen: <a href="%{resource_path}">%{resource_title}</a>-an.'
         comment_by_followed_user_group:
@@ -168,7 +168,7 @@ eu:
           notification_title: 'Hemen: <a href="%{group_path}">%{group_name} %{group_nickname}</a> egile honek: <a href="%{author_path}">%{author_name} %{author_nickname}</a> aipatu zaitu'
     metrics:
       comments:
-        description: Erabiltzaileek sortutako iruzkin kopurua
+        description: Parte-hatzaileek sortutako iruzkin kopurua
         object: iruzkinak
         title: Iruzkinak
   errors:

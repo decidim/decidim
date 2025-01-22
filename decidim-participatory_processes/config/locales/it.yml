@@ -54,6 +54,8 @@ it:
         short_description: Descrizione breve
         start_date: Data di inizio
         title: Titolo
+      participatory_process_type:
+        title: Titolo
       participatory_process_user_role:
         email: Email
         name: Titolo
@@ -124,6 +126,10 @@ it:
             start_date: Data di inizio
             title: Titolo
           name: Fase del processo partecipativo
+        participatory_process_type:
+          fields:
+            created_at: Data/ora di creazione
+            title: Titolo
         participatory_process_user_role:
           fields:
             email: Email
@@ -196,6 +202,11 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa fase del processo partecipativo.
           success: Questa fase del processo partecipativo è stata aggiornata.
+      participatory_process_types:
+        edit:
+          update: Modifica
+        new:
+          create: Crea
       participatory_process_user_roles:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente per questo processo partecipativo.

@@ -82,13 +82,13 @@ de:
           form:
             add_question: Frage hinzufügen
             add_separator: Trennzeichen hinzufügen
-            add_title_and_description: Füge Titel und Beschreibung hinzu
+            add_title_and_description: Titel und Beschreibung hinzufügen
             already_answered_warning: Der Fragebogen wird bereits von einigen Benutzern beantwortet, sodass Sie die Fragen nicht ändern können.
             collapse: Alle Fragen einklappen
             expand: Alle Fragen ausklappen
             preview: Vorschau
             title: Formular für %{questionnaire_for} bearbeiten
-            unpublished_warning: Das Formular ist nicht öffentlich. Sie können die Fragen ändern, dabei werden allerdings die aktuellen Antworten gelöscht.
+            unpublished_warning: Das Formular ist nicht veröffentlicht. Sie können die Fragen ändern, aber dadurch werden die aktuellen Antworten gelöscht.
           matrix_row:
             matrix_row: Zeile
             remove: Löschen

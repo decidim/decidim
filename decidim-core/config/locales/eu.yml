@@ -48,7 +48,7 @@ eu:
       decidim/removed_from_group: Taldetik kenduta
       decidim/resource_endorsed_event: Baliabideari atxiki zaio
       decidim/resource_hidden_event: Ezkutuko baliabidea
-      decidim/user_group_created_event: Erabiltzaile-taldea sortua
+      decidim/user_group_created_event: Partaide-taldea sortua
       decidim/welcome_notification_event: Ongietorri-mezua
   activerecord:
     attributes:
@@ -74,7 +74,7 @@ eu:
         other: Parte-hartzaileak
       decidim/user_group:
         one: Taldea
-        other: Erabiltzaile taldeak
+        other: Partaide-taldeak
   booleans:
     'false': 'Ez'
     'true': 'Bai'
@@ -189,96 +189,96 @@ eu:
         cancel: Ezeztatu
       password_change:
         alert: Pasahitza aldatu behar duzu aurrera jarraitu ahal izateko.
-        notification: Administratzaile rola duten erabiltzaileek pasahitza aldatu behar dute %{days} egunik behin.
+        notification: Administratzaile rola duten parte-hartzaileek pasahitza aldatu behar dute %{days} egunik behin.
     admin_log:
       area:
-        create: "%{user_name} k %{resource_name} arloa sortu du"
-        delete: "%{user_name} k %{resource_name} arloa ezabatu da"
-        update: "%{user_name} k %{resource_name} arloa eguneratu du"
+        create: "%{user_name} parte-hartzaileak%{resource_name} arloa sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} arloa ezabatu da"
+        update: "%{user_name} parte-hartzaileak %{resource_name} arloa eguneratu du"
       area_type:
-        create: "%{user_name} k %{resource_name} arlo mota sortu du"
-        delete: "%{user_name} k %{resource_name} arlo mota ezabatu du"
-        update: "%{user_name} k %{resource_name} arlo mota eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} arlo mota sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} arlo mota ezabatu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} arlo mota eguneratu du"
       attachment:
-        create: "%{user_name} k %{resource_name} eranskina sortu du"
-        delete: "%{user_name} k %{resource_name} eranskina ezabatu du"
-        update: "%{user_name} k %{resource_name} eranskina eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} eranskina sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} eranskina ezabatu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} eranskina eguneratu du"
       attachment_collection:
-        create: "%{user_name} k %{resource_name} eranskin-bilduma sortu du"
-        delete: "%{user_name} k %{resource_name} eranskin-bilduma ezabatu du"
-        update: "%{user_name} k %{resource_name} eranskin-bilduma eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} eranskin-bilduma sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} eranskin-bilduma ezabatu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} eranskin-bilduma eguneratu du"
       category:
-        create: "%{user_name} k %{resource_name} kategoria gehitu du %{space_name} espaziora"
-        delete: "%{user_name} k %{resource_name} kategoria ezabatu du %{space_name} espaziotik"
-        update: "%{user_name} k %{resource_name} kategoria eguneratu du %{space_name} espazioan"
+        create: "%{user_name} parte-hartzaileak %{resource_name} kategoria gehitu du %{space_name} espaziora"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} kategoria ezabatu du %{space_name} espaziotik"
+        update: "%{user_name} parte-hartzaileak %{resource_name} kategoria eguneratu du %{space_name} espazioan"
       component:
-        create: "%{user_name} k %{resource_name} osagaia %{space_name} espaziora gehitu du"
-        delete: "%{user_name} k %{resource_name} osagaia %{space_name} espaziotik kendu du"
-        export_component: "%{user_name} k esportatu du %{resource_name} %{component_name} %{space_name} espazioan %{format_name} gisa"
-        publish: "%{user_name} k %{resource_name} osagaia %{space_name} espazioan argitaratu du"
-        unpublish: "%{user_name} k %{resource_name} osagaia %{space_name} espaziotik despublikatu du"
-        update_permissions_with_space: "%{user_name} k %{resource_name} ren baimenak eguneratu ditu %{space_name} espazioan"
+        create: "%{user_name} parte-hartzaileak %{resource_name} osagaia %{space_name} espaziora gehitu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} osagaia %{space_name} espaziotik kendu du"
+        export_component: "%{user_name} parte-hartzaileak esportatu du %{resource_name} %{component_name} %{space_name} espazioan %{format_name} gisa"
+        publish: "%{user_name} parte-hartzaileak %{resource_name} osagaia %{space_name} espazioan argitaratu du"
+        unpublish: "%{user_name} parte-hartzaileak %{resource_name} osagaia %{space_name} espaziotik despublikatu du"
+        update_permissions_with_space: "%{user_name} parte-hartzaileak %{resource_name} ren baimenak eguneratu ditu %{space_name} espazioan"
       contextual_help_section:
-        update: "%{user_name} k eguneratu du %{resource_name} laguntza-arloa"
+        update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} laguntza-arloa"
       helpers:
         answers: erantzunak
         comments: iruzkinak
         projects: proiektuak
         results: emaitzak
       impersonation_log:
-        manage: "%{user_name} k %{resource_name} kudeatu du arrazoi honengatik %{reason}"
+        manage: "%{user_name} parte-hartzaileak %{resource_name} kudeatu du arrazoi honengatik %{reason}"
       moderation:
-        hide: "%{user_name} k %{resource_type} baliabide mota %{space_name} espazioan ezkutatu du"
-        unreport: "%{user_name} k %{resource_type} baliabide motaren salaketa kendu du %{space_name} espazioan"
+        hide: "%{user_name} parte-hartzaileak %{resource_type} baliabide mota %{space_name} espazioan ezkutatu du"
+        unreport: "%{user_name} parte-hartzaileak %{resource_type} baliabide motaren salaketa kendu du %{space_name} espazioan"
       newsletter:
-        create: "%{user_name} k %{resource_name} buletina sortu du"
-        delete: "%{user_name} k %{resource_name} buletina ezabatu du"
-        deliver: "%{user_name} k %{resource_name} buletina entregatu du"
-        update: "%{user_name} k %{resource_name} buletina eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} buletina sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} buletina ezabatu du"
+        deliver: "%{user_name} parte-hartzaileak %{resource_name} buletina entregatu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} buletina eguneratu du"
       oauth_application:
-        create: "%{user_name} k %{resource_name} OAuth aplikazioa sortu du"
-        delete: "%{user_name} k %{resource_name} OAuth aplikazioa ezabatu du"
-        update: "%{user_name} k %{resource_name} OAuth aplikazioa eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} OAuth aplikazioa sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} OAuth aplikazioa ezabatu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} OAuth aplikazioa eguneratu du"
       organization:
-        update: "%{user_name} k erakundearen ezarpenak eguneratu ditu"
-        update_external_domain: "%{user_name} k erakundearen kanpoko domeinuak eguneratu ditu"
+        update: "%{user_name} parte-hartzaileak erakundearen ezarpenak eguneratu ditu"
+        update_external_domain: "%{user_name} parte-hartzaileak erakundearen kanpoko domeinuak eguneratu ditu"
       participatory_space_private_user:
-        create: "%{user_name} k %{resource_name} gonbidatu du parte-hartzaile pribatua izatera"
-        create_via_csv: "%{user_name} k %{resource_name} gonbidatu du CSV bidez parte-hartzaile pribatua izatera"
-        delete: "%{user_name} k %{resource_name} parte-hartzaile pribatu gisa kendu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du parte-hartzaile pribatua izatera"
+        create_via_csv: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du CSV bidez parte-hartzaile pribatua izatera"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzaile pribatu gisa kendu du"
       scope:
-        create: "%{user_name} k %{resource_name} esparrua sortu du"
-        create_with_parent: "%{user_name} k %{resource_name} esparrua %{parent_scope} esparru barruan sortu du"
-        delete: "%{user_name} k %{resource_name} esparrua ezabatu du"
-        delete_with_parent: "%{user_name} k %{resource_name} esparrua ezabatu du %{parent_scope} esparruaren barruan"
-        update: "%{user_name} k %{resource_name} esparrua eguneratu du"
-        update_with_parent: "%{user_name} k %{resource_name} esparrua %{parent_scope} esparru barruan eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} esparrua sortu du"
+        create_with_parent: "%{user_name} parte-hartzaileak %{resource_name} esparrua %{parent_scope} esparru barruan sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} esparrua ezabatu du"
+        delete_with_parent: "%{user_name} parte-hartzaileak %{resource_name} esparrua ezabatu du %{parent_scope} esparruaren barruan"
+        update: "%{user_name} parte-hartzaileak %{resource_name} esparrua eguneratu du"
+        update_with_parent: "%{user_name} parte-hartzaileak %{resource_name} esparrua %{parent_scope} esparru barruan eguneratu du"
       scope_type:
-        create: "%{user_name} k %{resource_name} esparru mota sortu du"
-        delete: "%{user_name} k %{resource_name} esparru mota ezabatu du"
-        update: "%{user_name} k %{resource_name} esparru mota eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} esparru mota sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} esparru mota ezabatu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} esparru mota eguneratu du"
       static_page:
-        create: "%{user_name} k %{resource_name} orri estatikoa sortu du"
-        delete: "%{user_name} k %{resource_name} orri estatikoa ezabatu du"
-        update: "%{user_name} k %{resource_name} orri estatikoa eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} orri estatikoa sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} orri estatikoa ezabatu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} orri estatikoa eguneratu du"
       user:
-        block: "%{user_name} k %{resource_name} erabiltzailea blokeatu du"
-        invite: "%{user_name} k %{resource_name} parte-hartzailea gonbidatu du %{role} rolarekin"
-        officialize: "%{user_name} k %{resource_name} parte-hartzailea ofizializatu du"
-        promote: "%{user_name} k %{resource_name} sustatu du"
-        remove_from_admin: "%{user_name} k %{resource_name} parte-hartzailea kendu du %{role} rolarekin"
-        show_email: "%{user_name} k %{resource_name} parte-hartzailearen korreo elektronikoa berreskuratu du"
-        transfer: "%{user_name} erabiltzaileak parte-hartzailea transferitu du %{resource_name}-era"
-        unblock: "%{user_name} k desofizializatu zuen %{resource_name} erabiltzailea"
-        unofficialize: "%{user_name} k %{resource_name} parte-hartzailea desofizializatu du"
+        block: "%{user_name} parte-hartzaileak %{resource_name} erabiltzailea blokeatu du"
+        invite: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea gonbidatu du %{role} rolarekin"
+        officialize: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea ofizializatu du"
+        promote: "%{user_name} parte-hartzaileak %{resource_name} sustatu du"
+        remove_from_admin: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea kendu du %{role} rolarekin"
+        show_email: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailearen korreo elektronikoa berreskuratu du"
+        transfer: "%{user_name} parte-hartzaileak parte-hartzailea transferitu du %{resource_name}-era"
+        unblock: "%{user_name} parte-hartzaileak desofizializatu zuen %{resource_name} erabiltzailea"
+        unofficialize: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea desofizializatu du"
       user_group:
-        block: "%{user_name} k %{resource_name} erabiltzaile-taldea blokeatu du"
-        reject: "%{user_name} k ukatu du %{resource_name} taldearen egiaztapena"
-        unblock: "%{user_name} k %{resource_name} erabiltzaile-taldea desblokeatu du"
-        verify: "%{user_name} k egiaztatu du %{resource_name} taldea"
-        verify_via_csv: "%{user_name} k egiaztatu du %{resource_name} erabiltzaile-taldea CSV fitxategi baten bidez"
+        block: "%{user_name} parte-hartzaileak %{resource_name} erabiltzaile-taldea blokeatu du"
+        reject: "%{user_name} parte-hartzaileak ukatu du %{resource_name} taldearen egiaztapena"
+        unblock: "%{user_name} parte-hartzaileak %{resource_name} erabiltzaile-taldea desblokeatu du"
+        verify: "%{user_name} parte-hartzaileak egiaztatu du %{resource_name} taldea"
+        verify_via_csv: "%{user_name} parte-hartzaileak egiaztatu du %{resource_name} erabiltzaile-taldea CSV fitxategi baten bidez"
       user_moderation:
-        unreport: "%{user_name} k desegin du %{resource_type} - %{unreported_user_name} erreportea"
+        unreport: "%{user_name} parte-hartzaileak desegin du %{resource_type} - %{unreported_user_name} erreportea"
     admin_terms_of_service:
       default_body: "<h2>ZERBITZUAREN ADMINISTRAZIO BALDINTZAK</h2><p>Sistemaren tokiko administratzailearen ohiko azalpena jaso duzulakoan gaude. Oro har, hiru gauza hauetara mugatzen da:</p><ol><li>Errespetatu besteen pribatutasuna.</li><li>Klikatu aurretik pentsatu.</li><li>Botere handiak erantzukizun handia dakar.</li></ol>"
     alert:
@@ -641,7 +641,7 @@ eu:
           publish_content: Argitaratu edukia zuretzat
           see_email: Ikusi zure helbide elektronikoa
           see_name: Ikusi zure izena
-          see_username: Ikusi zure erabiltzaile-izena
+          see_username: Ikusi zure parte-hartzailearen izena
           this_application_will_be_able_to: 'Aplikazio hau gai izango da:'
           this_application_will_not_be_able_to: 'Aplikazio honek ezin izango du:'
           update_profile: Eguneratu profila
@@ -686,7 +686,7 @@ eu:
         try_later: Mesedez, saiatu berriro geroago. Erroreak jarraitzen badu, mesedez, kopiatu ondoko informazio hau eta bidali plataformaren mantentzaileei partekatu nahi duzun bestelako informazioarekin batera.
         unknown: Ezezaguna
         url: URL
-        user: Erabiltzailearen ID
+        user: Parte-hartzailearen ID
       not_found:
         back_home: Itzuli hasierara
         content_doesnt_exist: Helbide hau okerra da edo ezabatua izan da.
@@ -941,11 +941,11 @@ eu:
           conditions:
             - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
           description: Bereizgarria jarraitzaile kopuru jakin batera iristen zarenean ematen da. %{organization_name} sare soziala eta politikoa da, zure web-orria plataforman beste pertsona batzuekin komunikatzeko ehuna egiten du.
-          description_another: Erabiltzaile honek %{score} jarraitzaile ditu.
-          description_own: "%{score} erabiltzailek jarraitzen zaituzte."
+          description_another: Parte-hartzaile honek %{score} jarraitzaile ditu.
+          description_own: "%{score} parte-hartzailek jarraitzen zaituzte."
           name: Jarraitzaileak
-          next_level_in: Lortu %{score} erabiltzaile gehiago jarraitzeko hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek oraindik ez du jarraitzailerik.
+          next_level_in: Lortu %{score} parte-hartzaile gehiago jarraitzeko hurrengo mailara iristeko!
+          unearned_another: Parte-hartzaile honek oraindik ez du jarraitzailerik.
           unearned_own: Oraindik ez duzu jarraitzailerik.
         index:
           badge_title: "%{name} garaikurra"
@@ -958,7 +958,7 @@ eu:
       title: Zer dira garaikurrak?
     group_admins:
       actions:
-        are_you_sure: Ziur zaude? Honek ez du parte-hartzailea taldetik aterako.
+        are_you_sure: Ziur zaude? Honek ez du partaide-taldetik aterako.
         demote_admin: Kendu kudeatzailea
       demote:
         error: Arazo bat egon da parte-hartzaile hau administratzaileen zerrendatik kentzean.
@@ -1033,7 +1033,7 @@ eu:
       new:
         create_user_group: Sortu taldea
         new_user_group: Beste talde bat
-        subtitle: Sortu talde bat eta gonbidatu beste erabiltzaile batzuk lotzera, modu kolektiboan parte hartzeko.
+        subtitle: Sortu talde bat eta gonbidatu beste parte-hartzaile batzuk lotzera, modu kolektiboan parte hartzeko.
       no_user_groups: Oraindik ez du talderik.
       roles:
         admin: Administratzailea
@@ -1045,7 +1045,7 @@ eu:
     help:
       main_topic:
         default_page:
-          content: "<p> %{organization} gai desberdinetan parte hartu eta erabaki dezakezu, menu nagusian ikusten dituzun espazioen bidez: Prozesuak, Biltzarrak, Ekimenak, Kontsultak.</p> <p>Parte bakoitzean parte hartzeko aukera desberdinak aurkituko dituzu: proposamenak egitea, banaka edo beste pertsona batzuekin, eztabaidetan parte hartzea, proiektuak gauzatzeko aurreikusitako aurrekontuak, aurrez aurreko topaketak eta bestelako ekintzak biltzea.</p>\n"
+          content: "<p> %{organization} gai desberdinetan parte hartu eta erabaki dezakezu, menu nagusian ikusten dituzun espazioen bidez: Prozesuak, Jardunaldiak, Ekimenak, Kontsultak.</p> <p>Parte bakoitzean parte hartzeko aukera desberdinak aurkituko dituzu: proposamenak egitea, banaka edo beste pertsona batzuekin, eztabaidetan parte hartzea, proiektuak gauzatzeko aurreikusitako aurrekontuak, aurrez aurreko topaketak eta bestelako ekintzak biltzea.</p>\n"
           title: Zer egin dezaket %{organization}?
         description: 'Irakurri gehiago honetaz: %{organization}.'
         title: Orokorra
@@ -1067,14 +1067,14 @@ eu:
         title: Ireki kanpoko lotura
     log:
       base_presenter:
-        create: "%{user_name} sortu %{resource_name}"
+        create: "%{user_name} parte-hartzaileak %{resource_name} sortu du"
         create_with_space: "%{user_name} sortu %{resource_name} en %{space_name}"
-        delete: "%{user_name} ezabatu %{resource_name}"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} ezabatu du"
         delete_with_space: "%{user_name} ezabatu %{resource_name} en %{space_name}"
-        publish_with_space: "%{user_name} k %{resource_name} argitaratu du %{space_name} espazioan"
-        unknown_action: "%{user_name} Ekintza batzuk egin %{resource_name}"
+        publish_with_space: "%{user_name} parte-hartzaileak %{resource_name} argitaratu du %{space_name} espazioan"
+        unknown_action: "%{user_name} parte-hartzaileak ekintza batzuk egin ditu %{resource_name} ean"
         unknown_action_with_space: "%{user_name} Ekintza batzuk egin %{resource_name} en %{space_name}"
-        unpublish_with_space: "%{user_name} k %{resource_name} despublikatu du %{space_name} espaziotik"
+        unpublish_with_space: "%{user_name} parte-hartzaileak %{resource_name} despargitaratu du %{space_name} espaziotik"
         update: "%{user_name} k %{resource_name} eguneratu du"
         update_permissions_with_space: "%{user_name} k %{resource_name} ren baimenak eguneratu ditu %{space_name} espazioan"
         update_with_space: "%{user_name} k eguneratu du %{resource_name} hemen %{space_name}"
@@ -1119,29 +1119,29 @@ eu:
           subject: "%{manager} k mezu berriak bidali ditu %{group} gisa"
         new_conversation:
           greeting: Kaixo, %{recipient}!
-          intro: "%{sender} k beste elkarrizketa bat hasi du zurekin. Egin klik hemen ikusteko:"
-          outro: Gozatu plataforma!
-          subject: "%{sender} elkarrizketa bat hasi da zurekin"
+          intro: "%{sender} bidaltzaileak beste elkarrizketa bat hasi du zurekin. Egin klik hemen ikusteko:"
+          outro: Ongi etorri plataformara!
+          subject: "%{sender} bidaltzaileak elkarrizketa bat hasi du zurekin"
         new_group_conversation:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
-          intro: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
-          outro: Gozatu plataforma!
+          intro: "%{sender} bidaltzaileak elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
+          outro: Ongi etorri plataformara!
           subject: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin"
         new_group_message:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
-          intro: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
-          outro: Gozatu plataforma!
-          subject: "%{group} k %{sender} ren mezu berriak ditu"
+          intro: "%{sender} bidaltzaileak elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
+          outro: Ongi etorri plataformara!
+          subject: "%{group} taldeak %{sender} bidatzailearen mezu berriak ditu"
         new_message:
           greeting: Kaixo, %{recipient}!
-          intro: "%{sender} k elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
-          outro: Gozatu plataforma!
-          subject: '%{sender} ren mezu berriak dituzu'
+          intro: "%{sender} bidaltzaileak elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
+          outro: Ongi etorri plataformara!
+          subject: '%{sender} bidaltzailearen mezu berriak dituzu'
       conversations:
         add_conversation_users:
-          add_max_users: 'Gehitu erabiltzaileak elkarrizketara: gehienez 9 erabiltzaile'
+          add_max_users: 'Gehitu parte-hartzaileak elkarrizketara: gehienez 9 erabiltzaile'
           add_users_placeholder: Bilatu...
           modal_title: Beste elkarrizketa bat
           no_results: Emaitzarik ez
@@ -1215,7 +1215,7 @@ eu:
         body: Testua
         cta_text: Ekintza-botoiaren testua
         cta_url: Ekintza-botoiaren URLa
-        interpolations_hint: 'Iradokizuna: "%{name}" erabil dezakezu sarreraren, gorputzaren, ekintza-botoiaren testuaren edo gaiaren edozein lekutan, eta horren ordez erabiltzailearen izena agertuko da.'
+        interpolations_hint: 'Iradokizuna: "%{name}" erabil dezakezu sarreraren, gorputzaren, ekintza-botoiaren testuaren edo gaiaren edozein lekutan, eta horren ordez parte-hartzailearen izena agertuko da.'
         introduction: Sarrera
         main_image: Irudi nagusia
     newsletters:
@@ -1297,7 +1297,7 @@ eu:
     open_data:
       not_available_yet: Open Data fitxategiak oraindik ez daude erabilgarri, saiatu berriro minutu gutxi barru.
     pad_iframe:
-      disclaimer: Ohar-blok honen edukiak erregistratutako erabiltzaileek idatzi dituzte eta euren iritziak adierazi dituzte. %{organization} erakundea ezin da bere edukien erantzule izan.
+      disclaimer: Ohar-blok honen edukiak erregistratutako parte-hartzaileek idatzi dituzte eta euren iritziak adierazi dituzte. %{organization} erakundea ezin da bere edukien erantzule izan.
       explanation: Erabili ohar-blok hau topaketan zehar oharrak modu kolaboratiboan hartzeko, gero akta idaztea errazagoa izan dadin.
       pad: pad
     pages:
@@ -1310,7 +1310,7 @@ eu:
           meetings_explanation: Ezagutu non eta noiz bilera publikoetan parte har dezakezu.
           more_info: Argibide gehiago
           proposals: proposamenak
-          proposals_explanation: Egin proposamenak, lehendik dauden laguntza eta ikusi nahi dituzun aldaketak sustatu.
+          proposals_explanation: Egin proposamenak, lehendik dauden babestu eta ikusi nahi dituzun aldaketak sustatu.
         footer_sub_hero:
           footer_sub_hero_body_html: Eraiki dezagun gizarte irekiago, gardenago eta kolaboratiboagoa <br /> Lotu, parte hartu eta erabaki.
           footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
@@ -1336,7 +1336,7 @@ eu:
       terms_of_service:
         accept:
           error: Arazo bat egon da zerbitzuaren baldintzak onartzean.
-          success: Ederto! Onartu dituzu zerbitzuaren baldintzak.
+          success: Bikain! Onartu dituzu zerbitzuaren baldintzak.
         form:
           agreement: Ados nago baldintza hauekin
           legend: Adostu zerbitzuaren baldintzak
@@ -1355,7 +1355,7 @@ eu:
         error: Arazo bat egon da pasahitza eguneratzean.
         success: Pasahitza zuzen eguneratua.
     profile:
-      deleted: Erabiltzailea ezabatua
+      deleted: Parte-hartzaile ezabatua
       inaccessible_message: Profil hau eskuraezina da, erabilera-irizpideak eta baldintzak urratzeagatik!
     profiles:
       default_officialization_text_for_user_groups: Talde hau publikoki egiaztatuta dago, bere izena egiaztatu da bere benetako izenarekin bat etor dadin.
@@ -1493,13 +1493,13 @@ eu:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         block: Blokeatu parte-hartzaile hau
         close: Itxi
-        description: Erabiltzailearen zer da desegokia?
+        description: Parte-hartzailearen zer da desegokia?
         does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
         hide: Ezkutatu bere eduki guztiak
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
         report: Jakinarazi
         spam: Bertan badago clickbait-ik, publizitaterik edo gidoi-robotik.
-        title: Salatu erabiltzaile desegokia
+        title: Salatu parte-hartzaile desegokia
       floating_help:
         help: Laguntza
       follow_button:
@@ -1541,7 +1541,7 @@ eu:
       headline: Estatistikak
       no_stats: Oraindik ez dago estatistikarik.
       pages_count: Orrialdeak
-      participants_count: Erabiltzaileak
+      participants_count: Parte-hartzaileak
       users_count: Parte-hartzaileak
     tags:
       filter_results_for_category: 'Emaitzak kategoriaren arabera iragaztean: %{resource}'
@@ -1552,7 +1552,7 @@ eu:
       show_translated: Erakutsi automatikoki itzulitako testua
     user_activity:
       index:
-        no_activities_warning: Erabiltzaile honek oraindik ez du jarduerarik izan.
+        no_activities_warning: Parte-hartzaile honek oraindik ez du jarduerarik izan.
     user_contact_disabled: Parte-hartzaile honek ez du mezu zuzenik onartzen.
     user_conversations:
       create:
@@ -1579,15 +1579,15 @@ eu:
         success: Zure interesak zuzen eguneratuak.
     user_report_mailer:
       notify:
-        body_1: '%{user} erabiltzailea %{token}-ek erreportatu du'
+        body_1: '%{user} parte-hartzailea %{token}-ek erreportatu du'
         body_2: 'Arrazoia: %{reason}'
-        details: Erabiltzaileak emandako datuak
+        details: Parte-hartzaileak emandako datuak
         greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo %{admin},
-        subject: Beste erabiltzaile bat erreportatu dute hemen %{organization_name}
+        subject: Beste parte-hartzaile bat erreportatu dute hemen %{organization_name}
     user_update_mailer:
       notify:
-        body_1: Mezu hau bidaliko dizugu zure kontuaren eguneratze baten berri emateko.
+        body_1: Mezu hau bidali dizugu zure kontuaren eguneratze baten berri emateko.
         body_2: Zuk zeuk ez baduzu eguneratze hori egin, sartu zure kontuan pasahitza aldatzeko. Ezin baduzu saioa hasi, mesedez, jarri harremanetan plataformaren babeslearekin.
         greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo %{user}
@@ -1665,9 +1665,9 @@ eu:
         decline: Deuseztatu gonbita
         hello: Kaixo, %{email},
         ignore: |-
-          Gonbidapena onartu nahi ez baduzu, mesedez, ez egin kasurik mezu elektroniko honi. < br/> Zure kontua ez da sortuko, goiko estekara sartu eta zure erabiltzaile-izena eta pasahitza ezarri arte.
-        invited_you_as_admin: "%{invited_by} %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
-        invited_you_as_private_user: "%{invited_by} k egonbidatu zaitu %{application} ko erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
+          Gonbidapena onartu nahi ez baduzu, mesedez, ez egin kasurik mezu elektroniko honi. Zure kontua ez da sortuko, goiko estekara sartu eta zure erabiltzaile-izena eta pasahitza ezarri arte.
+        invited_you_as_admin: "%{invited_by} admnisitrariak %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
+        invited_you_as_private_user: "%{invited_by} parte-hartzaileak egonbidatu zaitu %{application} ko erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
         someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onartu dezakezu.
         someone_invited_you_as_admin: Norbaitek %{application} admin gisa gonbidatu zaitu, beheko estekan onartu dezakezu.
         someone_invited_you_as_private_user: Norbaitek %{application} ko parte-hartzaile pribatu gisa gonbidatu zaitu, beheko estekan onar dezakezu.
@@ -1889,13 +1889,13 @@ eu:
             type: Mota
           items:
             _session_id:
-              description: Webguneei aukera ematen die erabiltzaileari webgune baten barruan gogorarazteko, webguneen artean mugitzen denean.
+              description: Webguneei aukera ematen die parte-hartzaileari webgune baten barruan gogorarazteko, webguneen artean mugitzen denean.
               service: Webgune hau
             decidim-consent:
-              description: Informazioa gordetzen du erabiltzaileak webgune honetan baimendutako cookieei buruz.
+              description: Informazioa gordetzen du parte-hartzaileak webgune honetan baimendutako cookieei buruz.
               service: Webgune hau
             pwaInstallPromptSeen:
-              description: Egoera gordetzen du, erabiltzaileak ikusia badu web aplikazio progresiboaren (PWA) instalazioaren jakinarazpena.
+              description: Egoera gordetzen du, parte-hartzaileak ikusia badu web aplikazio progresiboaren (PWA) instalazioaren jakinarazpena.
               service: Webgune hau
           types:
             cookie: Cookie
@@ -1903,7 +1903,7 @@ eu:
         dialog:
           accept_all: Onartu dena
           accept_only_essential: Funtsezkoak soiik onartu.
-          description: Cookie-ak erabiltzen ditugu gure webgunean, haien errendimendua eta edukia hobetzeko. Cookieei esker, erabiltzaile-esperientzia eta eduki pertsonalizatuagoak eskain ditzakegu sare sozialetako gure kanaletatik.
+          description: Cookie-ak erabiltzen ditugu gure webgunean, haien errendimendua eta edukia hobetzeko. Cookieei esker, parte-hartzailearen esperientzia eta eduki pertsonalizatuagoak eskain ditzakegu sare sozialetako gure kanaletatik.
           settings: Ezarpenak
           title: Informazioa webgunean erabiltzen diren cookiei buruz
         modal:
@@ -1914,13 +1914,13 @@ eu:
             title: Analitikak eta estatistikak
           description: Cookieak erabiltzen ditugu webgunearen oinarrizko funtzioak bermatzeko eta zure online esperientzia hobetzeko. Cookien erabilera konfiguratu eta onartu ahal duzu eta nahi duzunean aldatu haiek onesteko aukerak.
           essential:
-            description: Cookie horiek webgunearen funtsezko funtzionaltasuna ahalbidetzen dute eta erabiltzaileak seguru mantentzen laguntzen dute. Automatikoki gordetzen dira nabigatzailean eta ezin dira desaktibatu.
+            description: Cookie horiek webgunearen funtsezko funtzionaltasuna ahalbidetzen dute eta parte-hartzaileak seguru mantentzen laguntzen dute. Automatikoki gordetzen dira nabigatzailean eta ezin dira desaktibatu.
             title: Funtsezkoak
           marketing:
             description: Cookie hauek web orria erabiltzeko moduari buruzko informazioa biltzen dute eta erabil daitezke zuri zerbitzu pertsonalizatuagoa emateko parte hartzen duzun gune desberdinetan.
             title: Marketina
           preferences:
-            description: Cookie horiei esker, webguneak gogora ditzake iraganean webgune honetan hautatu diren aukerak, erabiltzaileei esperientzia pertsonalizatuagoa emateko.
+            description: Cookie horiei esker, webguneak gogora ditzake iraganean webgune honetan hautatu diren aukerak, parte-hartzaileei esperientzia pertsonalizatuagoa emateko.
             title: Lehentasunak
           save_settings: Gorde ezarpenak
           title: Cookien konfigurazioa
@@ -1945,13 +1945,15 @@ eu:
       header:
         log_in: Hasi saioa
         main_menu: Menu nagusia
-        user_menu: Erabiltzailearen menua
+        user_menu: Parte-hartzailearen menua
       impersonation_warning:
         close_session: Itxi saioa
         description_html: <b>%{user_name}</b> parte-hartzailea kudeatzen ari zara.
         expire_time_html: Zure saioa iraungiko da <b><span class="minutes">%{minutes}</span>minutu barru</b>.
       language_chooser:
         choose_language: Aukeratu hizkuntza
+      navigation:
+        aria_label: '%{title} Nabigazio-menua'
       notifications_dashboard:
         mark_all_as_read: Markatu dena irakurritako gisa
         mark_as_read: Markatu irakurrita bezala
@@ -1969,7 +1971,7 @@ eu:
         log_out: Amaitu saioa
         title: Saioan jarraitu nahi duzu?
       user_menu:
-        account: '%{name} erabiltzailearen kontua'
+        account: '%{name} parte-hartzailearen kontua'
         admin_dashboard: Administrazioko aginte-mahaia
         configuration: Ezarpena
         conversations: Elkarrizketak
@@ -2025,7 +2027,7 @@ eu:
     share_to: 'Partekatu honekin: %{name}'
     telegram: Telegram
     tumblr: Tumblr
-    twitter: Twitter
+    twitter: X
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Ireki zure WeChat, egin klik "Discover" botoian, eta gero, egin klik berriro "Eskaneatu QR kodea” menuan.

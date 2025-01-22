@@ -2,6 +2,8 @@
 is:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Titill
       assembly:
         area_id: Svæði
         assembly_type: Samsetning gerð
@@ -108,6 +110,9 @@ is:
           update: Uppfæra
         new:
           create: Búa til
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Samsetning gerð
       menu:
         assemblies: Þing
         assemblies_submenu:
@@ -190,12 +195,7 @@ is:
           members: Meðlimir
       assembly_types:
         commission: Nefndin
-        consultative_advisory: Ráðgjafar / ráðgjafar
-        executive: Framkvæmdastjóri
-        government: Ríkisstjórn
         others: Aðrir
-        participatory: Þátttaka
-        working_group: Vinnuhópur
       created_by:
         city_council: Borgarstjórn
         others: Aðrir

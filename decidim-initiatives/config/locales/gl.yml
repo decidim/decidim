@@ -87,6 +87,7 @@ gl:
             initiative_title: Título da iniciativa
             name_and_surname: Nome e apelidos
             postal_code: Código postal
+            scope: Alcance
             time_and_date: Hora e data
             timestamp: Timestamp
       titles:

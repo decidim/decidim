@@ -44,6 +44,8 @@ zh-CN:
         short_description: 简短描述
         start_date: 开始日期
         title: 标题
+      participatory_process_type:
+        title: 标题
       participatory_process_user_role:
         email: 电子邮件地址
         name: 名称
@@ -106,6 +108,10 @@ zh-CN:
             start_date: 开始日期
             title: 标题
           name: 参与进程阶段
+        participatory_process_type:
+          fields:
+            created_at: 创建于
+            title: 标题
         participatory_process_user_role:
           fields:
             email: 电子邮件地址
@@ -178,6 +184,11 @@ zh-CN:
         update:
           error: 在更新这一阶段的参与进程时遇到了问题。
           success: 参与阶段更新成功。
+      participatory_process_types:
+        edit:
+          update: 更新
+        new:
+          create: 创建
       participatory_process_user_roles:
         create:
           error: 在这个参与进程中增加参与者时遇到了问题。

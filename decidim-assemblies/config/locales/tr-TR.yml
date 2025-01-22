@@ -3,7 +3,7 @@ tr:
   activemodel:
     attributes:
       assemblies_type:
-        title: Başlik / Unvani 
+        title: Başlık
       assembly:
         announcement: Duyuru
         area_id: Alan
@@ -20,7 +20,7 @@ tr:
         created_by_other: Diğer tarafından oluşturuldu
         creation_date: Tarih oluşturuldu
         decidim_area_id: alan
-        decidim_assemblies_type_id: Montaj tipi
+        decidim_assemblies_type_id: Kurul türü
         decidim_scope_id: kapsam
         description: Açıklama
         developer_group: Tanıtım grubu
@@ -176,7 +176,7 @@ tr:
           success: Yönetici bu kurul için başarıyla güncellendi.
       filters:
         decidim_assemblies_type_id_eq:
-          label: Montaj tipi
+          label: Kurul türü
       menu:
         assemblies: Kurullar
         assemblies_submenu:
@@ -188,7 +188,7 @@ tr:
           categories: Kategoriler
           components: Bileşenler
           moderations: Yönetim
-        assemblies_types: Kurul türü
+        assemblies_types: Kurul türleri
       models:
         assemblies_types:
           fields:

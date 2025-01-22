@@ -131,8 +131,8 @@ fi-pl:
           invalid: Puhujan julkaiseminen epäonnistui.
           success: Konferenssin puhujan julkaiseminen onnistui.
         unpublish:
-          invalid: Puhujan julkaisun lopettaminen epäonnistui.
-          success: Konferenssin puhujan julkaisu onnistui.
+          invalid: Puhujan julkaisun peruminen epäonnistui.
+          success: Konferenssin puhujan julkaisun peruminen onnistui.
         update:
           error: Konferenssin puhujan päivittämisessä tapahtui virhe.
           success: Konferenssin puhuja päivitettiin onnistuneesti.

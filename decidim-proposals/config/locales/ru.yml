@@ -133,7 +133,6 @@ ru:
           title: Частные примечания
         proposals:
           form:
-            attachment_legend: "(Необязательно) Прикрепить файл"
             select_a_category: Выберите категорию
           index:
             actions: Действия

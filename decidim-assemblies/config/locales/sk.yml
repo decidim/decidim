@@ -2,6 +2,8 @@
 sk:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Názov
       assembly:
         area_id: Oblasť
         assembly_type: Typ zhromaždenia
@@ -117,6 +119,9 @@ sk:
           update: Aktualizovať
         new:
           create: Vytvoriť
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Typ zhromaždenia
       menu:
         assemblies_types: Typy zhromaždení
       models:
@@ -145,6 +150,8 @@ sk:
         assemblies_types:
           form:
             title: Názov
+      show:
+        assembly_type: Typ zhromaždenia
     events:
       assemblies:
         create_assembly_member:

@@ -62,6 +62,9 @@ uk:
             created_at: 'Створено:'
             title: Різновиди починів
           name: Різновид почину
+        initiatives_votes:
+          fields:
+            scope: Обсяг
       titles:
         initiatives: Почини
         initiatives_types: Різновиди починів

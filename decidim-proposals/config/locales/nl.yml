@@ -273,7 +273,7 @@ nl:
         title: voorstellen
     participatory_spaces:
       highlighted_proposals:
-        see_all: Alles zien (%{count})
+        see_all: Alles zien
     proposals:
       actions:
         answer_proposal: Antwoord voorstel
@@ -347,7 +347,7 @@ nl:
             title: Voorstel bijwerken
             update: Bijwerken
           form:
-            attachment_legend: "(Optioneel) Een bijlage toevoegen"
+            attachment_legend: "(Optioneel) Voeg een bijlage toe"
             created_in_meeting: Dit voorstel komt uit een vergadering
             delete_attachment: Bijlage verwijderen
             select_a_category: Kies een categorie

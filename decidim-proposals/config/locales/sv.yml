@@ -19,6 +19,7 @@ sv:
         automatic_hashtags: Hashtags läggs till automatiskt
         body: Innehåll
         category_id: Kategori
+        decidim_proposals_proposal_state_id: Status
         decidim_scope_id: Indelning
         has_address: Har adress
         scope_id: Indelning
@@ -309,10 +310,12 @@ sv:
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har ändrat status till "%{state}".
         proposal_update_category:
           email_intro: 'En administratör har uppdaterat kategorin för ditt förslag "%{resource_title}", ta en titt på följande sida:'
+          email_outro: Du har fått det här meddelandet eftersom du har skrivit förslaget.
           email_subject: Förslagskategorin %{resource_title} har uppdaterats
           notification_title: Förslagskategorin <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         proposal_update_scope:
           email_intro: 'En administratör har uppdaterat indelningen för ditt förslag "%{resource_title}", ta en titt på följande sida:'
+          email_outro: Du har fått det här meddelandet eftersom du har skrivit förslaget.
           email_subject: Indelningen för förslaget %{resource_title} har uppdaterats
           notification_title: Indelningen för förslaget <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         voting_enabled:

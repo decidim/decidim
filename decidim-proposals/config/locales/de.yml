@@ -310,10 +310,12 @@ de:
             notification_title: Der Status des Vorschlags <a href="%{resource_path}">%{resource_title}</a> hat sich zu "%{state}" geändert.
         proposal_update_category:
           email_intro: 'Ein Administrator hat die Kategorie Ihres Vorschlags "%{resource_title}" aktualisiert, sehen Sie es sich an:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag verfasst haben.
           email_subject: Die Vorschlagskategorie %{resource_title} wurde aktualisiert
           notification_title: Die Vorschlagskategorie <a href="%{resource_path}">%{resource_title}</a> wurde von einem Administrator aktualisiert.
         proposal_update_scope:
           email_intro: 'Ein Administrator hat den Bereich Ihres Vorschlags „%{resource_title}“ aktualisiert, sehen Sie es sich das auf dieser Seite an:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag verfasst haben.
           email_subject: Der Bereich des Vorschlags %{resource_title} wurde aktualisiert
           notification_title: Der Bereich des Vorschlags <a href="%{resource_path}">%{resource_title}</a> wurde von einem Administrator aktualisiert.
         voting_enabled:
@@ -376,7 +378,7 @@ de:
     participatory_spaces:
       highlighted_proposals:
         last: Letzte Vorschläge
-        see_all: Alle anzeigen (%{count})
+        see_all: Alle anzeigen
     proposals:
       actions:
         answer_proposal: Vorschlag beantworten
@@ -505,7 +507,7 @@ de:
             title: Vorschlag aktualisieren
             update: Aktualisieren
           form:
-            attachment_legend: "(Optional) Anhang hinzufügen"
+            attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
             created_in_meeting: Dieser Vorschlag stammt von einer Besprechung
             delete_attachment: Anhang löschen
             select_a_category: Kategorie auswählen
@@ -748,7 +750,7 @@ de:
             scope: Umfang
             state: Status
             title: Titel
-            valuator: BewerterIn
+            valuator: Bewertende
             valuators: Bewertende
             votes: Stimmen
         proposal_state:

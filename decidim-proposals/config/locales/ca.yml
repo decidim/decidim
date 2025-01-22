@@ -507,7 +507,7 @@ ca:
             title: Actualitza la proposta
             update: Actualizar
           form:
-            attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
+            attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
             created_in_meeting: Aquesta proposta prové d'una trobada
             delete_attachment: Suprimeix l'adjunt
             select_a_category: Selecciona una categoria

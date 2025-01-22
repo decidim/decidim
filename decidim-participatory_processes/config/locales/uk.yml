@@ -39,6 +39,8 @@ uk:
         short_description: Стислий опис
         start_date: Дата початку
         title: Назва
+      participatory_process_type:
+        title: Назва
       participatory_process_user_role:
         email: Адреса електронної пошти
         name: Ім'я
@@ -109,6 +111,10 @@ uk:
             start_date: Дата початку
             title: Назва
           name: Крок руху співучасті
+        participatory_process_type:
+          fields:
+            created_at: 'Додано:'
+            title: Назва
         participatory_process_user_role:
           fields:
             email: Адреса електронної пошти
@@ -171,6 +177,11 @@ uk:
         update:
           error: При спробі оновити цей крок руху співучасті сталася помилка.
           success: Крок руху співучасті успішно оновлено.
+      participatory_process_types:
+        edit:
+          update: Оновити
+        new:
+          create: Створити
       participatory_process_user_roles:
         create:
           error: При спробі додати учасника в цей рух співучасті сталася помилка.

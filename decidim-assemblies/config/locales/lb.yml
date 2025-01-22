@@ -2,6 +2,8 @@
 lb:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Titel
       assembly:
         area_id: Bereich
         assembly_type: Versammlungstyp
@@ -164,6 +166,9 @@ lb:
         update:
           error: Bei einem Fehler ist ein Benutzer für diese Assembly aktualisiert worden.
           success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Versammlungstyp
       menu:
         assemblies: Gremien
         assemblies_submenu:
@@ -174,7 +179,6 @@ lb:
           categories: Kategorien
           components: Komponenten
           moderations: Moderationen
-        assemblies_types: Versammlungstypen
       models:
         assemblies_types:
           fields:
@@ -231,11 +235,11 @@ lb:
           members: Mitglieder
       assembly_types:
         commission: Kommission
-        consultative_advisory: Beratende / Beratende
-        executive: Exekutive
+        consultative_advisory: Beratung / Beratung
+        executive: Executive
         government: Regierung
         others: Andere
-        participatory: Teilnehmend
+        participatory: Partizipativ
         working_group: Arbeitsgruppe
       content_blocks:
         highlighted_assemblies:
@@ -261,7 +265,7 @@ lb:
           member_of:
             member_of: Mitglied von
       show:
-        assembly_type: Montageart
+        assembly_type: Versammlungstyp
         duration: Dauer
         private_space: Dies ist eine private Versammlung
     assembly_members:

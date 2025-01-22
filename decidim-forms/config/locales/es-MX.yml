@@ -83,12 +83,11 @@ es-MX:
             add_question: Añadir pregunta
             add_separator: Añadir separador
             add_title_and_description: Añadir título y descripción
-            already_answered_warning: Algunos usuarios ya han respondido al cuestionario, por lo que no puedes modificar las preguntas.
+            already_answered_warning: No puedes modificar las preguntas porque algunas participantes ya han respondido el formulario.
             collapse: Contraer todas las preguntas
             expand: Expandir todos las preguntas
             preview: Previsualizar
             title: Editar formulario para %{questionnaire_for}
-            unpublished_warning: El formulario no está publicado. Puedes modificar sus preguntas, pero al hacerlo eliminará las respuestas actuales.
           matrix_row:
             matrix_row: Fila
             remove: Retirar

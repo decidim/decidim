@@ -76,13 +76,10 @@ pt:
             title: Editar questionário
           form:
             add_question: Adicionar questão
-            add_separator: Adicionar separador
-            already_answered_warning: O questionário já foi respondido por alguns utilizadores por isso não pode modificar as suas questões.
             collapse: Colapsar todas as questões
             expand: Expandir todas as questões
             preview: Pré-visualizar
             title: Editar formulário para %{questionnaire_for}
-            unpublished_warning: O formulário não está publicado. Pode modificar as suas questões, mas essa ação eliminará as respostas atuais.
           matrix_row:
             matrix_row: Linha
             remove: Remover

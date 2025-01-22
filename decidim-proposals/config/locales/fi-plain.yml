@@ -310,12 +310,12 @@ fi-pl:
             notification_title: Ehdotuksen <a href="%{resource_path}">%{resource_title}</a> tilaksi on muutettu "%{state}".
         proposal_update_category:
           email_intro: 'Järjestelmänvalvoja on päivittänyt ehdotuksesi aihepiiriin "%{resource_title}", tarkista se:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen laatija.
           email_subject: Ehdotuksen %{resource_title} aihepiiri on päivitetty
           notification_title: Järjestelmänvalvoja on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> aihepiirin.
         proposal_update_scope:
           email_intro: 'Hallintakäyttäjä on päivittänyt ehdotuksesi "%{resource_title}" teeman, tarkista se tältä sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen laatija.
           email_subject: Ehdotuksen %{resource_title} teema on päivitetty
           notification_title: Hallintakäyttäjä on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> teeman.
         voting_enabled:
@@ -378,7 +378,7 @@ fi-pl:
     participatory_spaces:
       highlighted_proposals:
         last: Viimeisimmät ehdotukset
-        see_all: Näytä kaikki (%{count})
+        see_all: Näytä kaikki ehdotukset
     proposals:
       actions:
         answer_proposal: Vastaa ehdotukseen
@@ -855,14 +855,14 @@ fi-pl:
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_in_evaluation_reason: Tämä ehdotus on arvioitavana
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
-          withdraw_btn_hint: Voit peruuttaa ehdotuksesi, jos muutat mieltäsi ja ehdotus ei ole vielä saanut ääniä. Ehdotusta ei poisteta, vaan se näkyy peruutettujen ehdotusten luettelossa.
+          withdraw_btn_hint: Voit perua ehdotuksesi, jos muutat mieltäsi ja ehdotus ei ole vielä saanut ääniä. Ehdotusta ei poisteta, vaan se näkyy peruttujen ehdotusten luettelossa.
           withdraw_confirmation_html: Haluatko varmasti peruuttaa tämän ehdotuksen?<br><br><strong>Tätä toimintoa ei voi peruuttaa!</strong>
           withdraw_proposal: Peruuta ehdotus
         update:
           title: Muokkaa ehdotusta
         vote_button:
           already_voted: Jo äänestetty
-          already_voted_hover: Peruuta ääni
+          already_voted_hover: Peru ääni
           maximum_votes_reached: Kaikki äänet käytetty
           no_votes_remaining: Ei ääniä jäljellä
           vote: Äänestä
@@ -914,7 +914,7 @@ fi-pl:
           title: Versiot
       withdraw:
         errors:
-          has_votes: Tätä ehdotusta ei voi peruuttaa, koska se on saanut jo ääniä.
+          has_votes: Tätä ehdotusta ei voi perua, koska se on saanut jo ääniä.
     resource_links:
       copied_from_component:
         proposal_proposal: Liittyvät ehdotukset

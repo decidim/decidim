@@ -298,7 +298,7 @@ pt-BR:
         title: Votos
     participatory_spaces:
       highlighted_proposals:
-        see_all: Ver todos (%{count})
+        see_all: Ver todos
     proposals:
       actions:
         answer_proposal: Responder proposta
@@ -387,7 +387,7 @@ pt-BR:
             title: Atualizar proposta
             update: Atualizar
           form:
-            attachment_legend: "(Opcional) Adicionar um anexo"
+            attachment_legend: "(Opcional) Adicione um anexo"
             created_in_meeting: Esta proposta vem de uma reunião
             delete_attachment: Excluir anexo
             select_a_category: Selecionar uma categoria

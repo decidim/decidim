@@ -2,6 +2,8 @@
 "no":
   activemodel:
     attributes:
+      assemblies_type:
+        title: Tittel
       assembly:
         area_id: Område
         assembly_type: Forsamlingstype

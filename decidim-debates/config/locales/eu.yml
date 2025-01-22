@@ -84,9 +84,9 @@ eu:
           comments: Iruzkinak
       admin_log:
         debate:
-          close: "%{user_name} erabiltzaileak %{resource_name} eztabaida sortu du %{space_name} esparruan"
-          create: "%{user_name} k %{resource_name} eztabaida sortu du %{space_name} espazioan"
-          update: "%{user_name} k %{resource_name} eztabaida eguneratu du %{space_name} espazioan"
+          close: "%{user_name} parte-hartzaileak %{resource_name} eztabaida sortu du %{space_name} esparruan"
+          create: "%{user_name} parte-hartzaileak %{resource_name} eztabaida sortu du %{space_name} espazioan"
+          update: "%{user_name} parte-hartzaileak %{resource_name} eztabaida eguneratu du %{space_name} espazioan"
       debate_m:
         commented_time_ago: Iruzkina eginda orain dela %{time}
       debates:
@@ -155,7 +155,7 @@ eu:
           success: Eztabaida zuzen eguneratu da.
       last_activity:
         debate_updated: 'Eztabaida eguneratu da:'
-        new_debate: 'Beste eztabaida bat:'
+        new_debate: 'Eztabaida berria:'
       models:
         debate:
           fields:
@@ -213,7 +213,7 @@ eu:
           description_own: '%{score} eztabaidatan hartu duzu parte.'
           name: Eztabaidak
           next_level_in: Parte hartu %{score} eztabaidagai gehiago hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek eztabaida batean parte hartu du oraindik.
+          unearned_another: Parte-hartzaile honek eztabaida batean parte hartu du oraindik.
           unearned_own: Oraindik ez duzu parte hartu eztabaida batean ere.
     metrics:
       debates:

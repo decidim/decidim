@@ -32,8 +32,6 @@ gl:
             save: Gardar
           form:
             add_question: Engadir pregunta
-            add_title_and_description: Engadir títutlo e descrición
-            already_answered_warning: Algúns usuarios xa responderon o cuestionario para que non poida modificar as súas preguntas.
           matrix_row:
             remove: Quitar
             statement: Declaración

@@ -240,7 +240,7 @@ zh-CN:
         title: 建议
     participatory_spaces:
       highlighted_proposals:
-        see_all: 查看所有建议 (%{count})
+        see_all: 查看所有建议
     proposals:
       actions:
         answer_proposal: 答复建议

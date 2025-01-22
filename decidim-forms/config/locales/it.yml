@@ -76,13 +76,10 @@ it:
             title: Modifica questionario
           form:
             add_question: Aggiungi domanda
-            add_separator: Aggiungi separatore
-            already_answered_warning: Alcuni utenti hanno già risposto al questionario, quindi non è possibile modificare le sue domande.
             collapse: Comprimi tutte le domande
             expand: Espandi tutte le domande
             preview: Anteprima
             title: Modifica formulario per %{questionnaire_for}
-            unpublished_warning: Il modulo non è pubblicato. Puoi modificare le sue domande, ma in questo modo cancellerai le risposte correnti.
           matrix_row:
             matrix_row: Riga
             remove: Rimuovere

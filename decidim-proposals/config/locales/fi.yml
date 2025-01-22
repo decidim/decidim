@@ -46,7 +46,7 @@ fi:
           yellow: Keltainen
         text_color: Tekstin väri
       proposals_copy:
-        copy_proposals: Ymmärrän, että tämä tuo kaikki ideat valitusta komponentista tähän komponenttiin ja tätä toimintoa ei voi peruuttaa.
+        copy_proposals: Ymmärrän, että tämä tuo kaikki ideat valitusta komponentista tähän komponenttiin ja tätä toimintoa ei voi perua.
         origin_component_id: Osio josta ehdotukset kopioidaan
       proposals_import:
         import_proposals: Tuo ehdotuksia
@@ -128,7 +128,7 @@ fi:
               published: Julkaistu
               rejected: Hylätty
               validating: Teknisessä validoinnissa
-              withdrawn: Peruutettu
+              withdrawn: Peruttu
           valuator_role_ids_has:
             label: Annettu tehtäväksi arvioijalle
           with_any_state:
@@ -171,7 +171,7 @@ fi:
               most_voted: Eniten ääniä saaneet ensin
               random: Satunnainen
               recent: Viimeisimmät
-              with_more_authors: Eniten tekijöitä
+              with_more_authors: Eniten laatijoita
             geocoding_enabled: Karttatoiminnot käytössä
             minimum_votes_per_user: Vähimmäisäänimäärä käyttäjää kohden
             new_proposal_body_template: Uuden ehdotuksen leipätekstin mallipohja
@@ -223,7 +223,7 @@ fi:
               most_voted: Eniten ääniä saaneet ensin
               random: Satunnainen
               recent: Viimeisimmät
-              with_more_authors: Eniten tekijöitä
+              with_more_authors: Eniten laatijoita
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
@@ -283,7 +283,7 @@ fi:
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">ehdotusten suosittelun</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_mentioned:
           email_intro: Ehdotuksesi "%{mentioned_proposal_title}" on mainittu <a href="%{resource_url}">tämän osallistumistilan</a> kommentissa.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen "%{resource_title}".
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen "%{resource_title}".
           email_subject: Ehdotuksesi "%{mentioned_proposal_title}" on mainittu
           notification_title: Ehdotuksesi %{mentioned_proposal_title} on mainittu <a href="%{resource_path}">tässä osallistumistilassa</a> kommentissa.
         proposal_published:
@@ -310,12 +310,12 @@ fi:
             notification_title: Ehdotuksen <a href="%{resource_path}">%{resource_title}</a> tilaksi on muutettu "%{state}".
         proposal_update_category:
           email_intro: 'Hallintakäyttäjä on päivittänyt ehdotuksesi aihepiiriin "%{resource_title}", tarkista se tältä sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen laatija.
           email_subject: Ehdotuksen %{resource_title} aihepiiri on päivitetty
           notification_title: Hallintakäyttäjä on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> aihepiirin.
         proposal_update_scope:
           email_intro: 'Hallintakäyttäjä on päivittänyt ehdotuksesi "%{resource_title}" teeman, tarkista se tältä sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen laatija.
           email_subject: Ehdotuksen %{resource_title} teema on päivitetty
           notification_title: Hallintakäyttäjä on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> teeman.
         voting_enabled:
@@ -609,7 +609,7 @@ fi:
         evaluating: Arvioitavana
         not_answered: Vastaamaton
         rejected: Hylätty
-        withdrawn: Peruutettu
+        withdrawn: Peruttu
       application_helper:
         filter_origin_values:
           all: Kaikki
@@ -632,7 +632,7 @@ fi:
               body: Luonnoksen julkaisemisen jälkeen ehdotus ei ole enää muokattavissa. Uusia tekijöitä tai muutoksia ehdotukseen ei enää hyväksytä tämän jälkeen.
               cancel: Peruuta
               ok: Julkaise ehdotuksena
-              title: Seuraavat toimenpiteet ovat peruuttamattomia
+              title: Seuraavia toimenpiteitä ei voi perua
             success: Yhteistyöluonnoksen julkaisu ehdotuksena onnistui.
           withdraw:
             error: Yhteistyöluonnoksen sulkeminen epäonnistui.
@@ -640,8 +640,8 @@ fi:
               body: Luonnoksen sulkemisen jälkeen luonnos ei enää ole muokattavissa. Luonnos ei hyväksy uusia tekijöitä tai osallistumisia.
               cancel: Peruuta
               ok: Peru yhteistyöluonnos
-              title: Seuraavat toimenpiteet ovat peruuttamattomia
-            success: Yhteistyöluonnoksen peruuttaminen onnistui.
+              title: Seuraavia toimenpiteitä ei voi perua
+            success: Yhteistyöluonnoksen peruminen onnistui.
         create:
           error: Yhteistyöluonnoksen luominen epäonnistui.
           success: Yhteistyöluonnoksen luonti onnistui.
@@ -712,11 +712,11 @@ fi:
           published_proposal: Julkaistu ehdotus
           request_access: Pyydä käyttöoikeutta
           requested_access: Käyttöoikeutta pyydetty
-          withdraw: peruuttaa luonnos
+          withdraw: peru luonnos
         states:
           open: Avaa
           published: Julkaistu
-          withdrawn: Peruutettu
+          withdrawn: Peruttu
         update:
           error: Yhteistyöluonnoksen tallennus epäonnistui.
           success: Yhteistyöluonnoksen päivitys onnistui.
@@ -731,8 +731,8 @@ fi:
         error: Ehdotuksen tallennus epäonnistui.
         success: Ehdotuksen luonti onnistui. Ehdotus on tallennettu luonnoksena.
       destroy_draft:
-        error: Ehdotusluonnoksen poistaminen epäonnistui.
-        success: Ehdotusluonnoksen poistaminen onnistui.
+        error: Ehdotusluonnoksen poisto epäonnistui.
+        success: Ehdotusluonnoksen poisto onnistui.
       last_activity:
         new_proposal: 'Uusi ehdotus:'
         proposal_updated: 'Ehdotusta on päivitetty:'
@@ -807,8 +807,8 @@ fi:
           list_mode: Listanäkymä
           new_proposal: Uusi ehdotus
           see_all: Näytä kaikki ehdotukset
-          see_all_withdrawn: Näytä kaikki peruutetut ehdotukset
-          text_banner: Katselet peruutettuja ehdotuksia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
+          see_all_withdrawn: Näytä kaikki perutut ehdotukset
+          text_banner: Katselet ehdotuksia, jotka on peruttu niiden laatijoiden toimesta. %{go_back_link}.
         new:
           send: Jatka
           title: Luo ehdotuksesi
@@ -855,14 +855,14 @@ fi:
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_in_evaluation_reason: Tämä ehdotus on arvioitavana
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
-          withdraw_btn_hint: Voit peruuttaa ehdotuksesi, jos muutat mieltäsi ja ehdotus ei ole vielä saanut ääniä. Ehdotusta ei poisteta, vaan se näkyy peruutettujen ehdotusten luettelossa.
-          withdraw_confirmation_html: Haluatko varmasti peruuttaa tämän ehdotuksen?<br><br><strong>Tätä toimintoa ei voi peruuttaa!</strong>
+          withdraw_btn_hint: Voit perua ehdotuksesi, jos muutat mieltäsi ja ehdotus ei ole vielä saanut ääniä. Ehdotusta ei poisteta, vaan se näkyy peruttujen ehdotusten luettelossa.
+          withdraw_confirmation_html: Haluatko varmasti perua tämän ehdotuksen?<br><br><strong>Tätä toimintoa ei voi perua!</strong>
           withdraw_proposal: Peruuta ehdotus
         update:
           title: Muokkaa ehdotusta
         vote_button:
           already_voted: Jo äänestetty
-          already_voted_hover: Peruuta ääni
+          already_voted_hover: Peru ääni
           maximum_votes_reached: Kaikki äänet käytetty
           no_votes_remaining: Ei ääniä jäljellä
           vote: Äänestä
@@ -914,7 +914,7 @@ fi:
           title: Versiot
       withdraw:
         errors:
-          has_votes: Tätä ehdotusta ei voi peruuttaa, koska se on saanut jo ääniä.
+          has_votes: Tätä ehdotusta ei voi perua, koska se on saanut jo ääniä.
     resource_links:
       copied_from_component:
         proposal_proposal: Liittyvät ehdotukset
