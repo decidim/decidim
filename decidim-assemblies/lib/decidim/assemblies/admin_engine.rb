@@ -17,7 +17,6 @@ module Decidim
 
       routes do
         constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
-          resources :assemblies_types
           resources :assembly_filters, except: [:show]
 
           resources :assemblies, param: :slug, except: [:show, :destroy] do

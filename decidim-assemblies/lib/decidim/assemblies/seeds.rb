@@ -77,7 +77,6 @@ module Decidim
           composition: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
-          assembly_type: Decidim::AssembliesType.create!(organization:, title: Decidim::Faker::Localized.word),
           creation_date: 1.day.from_now,
           created_by: "others",
           created_by_other: Decidim::Faker::Localized.word,
