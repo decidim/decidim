@@ -81,7 +81,8 @@ module Decidim
 
             authorized = Decidim::Authorization.where.not(granted: nil), exists?(handler_name: :csv_census, user:)
 
-            (authorized ? "check" : "uncheck") + l(user.last_sign_in_at, format: :decidim_short)
+            icon = authorized ? '<%= icon "checkbox-circle-line" %>' : '<%= icon "close-circle-line" %>'
+            icon + l(user.last_sign_in_at, format: :decidim_short)
           end
         end
       end
