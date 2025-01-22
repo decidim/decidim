@@ -30,7 +30,7 @@ module Decidim
           reference: resource.reference,
           comments: resource.comments_count,
           follows_count: resource.follows_count,
-          url:,
+          url: Decidim::ResourceLocatorPresenter.new(resource).url,
           last_comment_at: resource.last_comment_at,
           last_comment_by: {
             **last_comment_by_fields
@@ -54,10 +54,6 @@ module Decidim
           name: user_name(resource.last_comment_by),
           url: user_url(resource.last_comment_by)
         }
-      end
-
-      def url
-        Decidim::ResourceLocatorPresenter.new(resource).url
       end
 
       def author_fields
