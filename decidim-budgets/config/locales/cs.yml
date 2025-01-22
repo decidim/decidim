@@ -33,6 +33,9 @@ cs:
         other: Projekty
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Projekty
       filters:
         projects:
           selected_at_null:
@@ -220,6 +223,9 @@ cs:
             map: Mapa
             taxonomies: Taxonomie
             title: Titul
+      order:
+        status:
+          title: Váš hlas byl úspěšně přijat
       order_summary_mailer:
         order_summary:
           selected_projects: 'Vybrané projekty jsou:'
@@ -380,6 +386,15 @@ cs:
               enabled: Hlasování povoleno
               finished: Hlasování dokončeno
     download_your_data:
+      help:
+        orders:
+          budget: Rozpočet související s pokynem
+          checked_out_at: Datum a čas, kdy byl pokyn zkontrolován
+          component: Komponenta, ke které se pokyn vztahuje
+          created_at: Datum a čas, kdy byl pokyn vytvořen
+          id: Jedinečný identifikátor pokynu
+          projects: Projekty, v kterých pokyn hlasovaný
+          updated_at: Datum a čas, kdy byl pokyn aktualizován
       show:
         projects: Export projektů
     events:
@@ -393,25 +408,30 @@ cs:
       help:
         projects:
           address: Adresa projektu (pokud existuje)
+          budget: Údaje týkající se rozpočtu projektu (např. „2021 rozpočet“)
           budget_amount: Celková částka rozpočtu pro tento projekt
           comments: Počet komentářů, které tento projekt obdržel
           component: Složka, do které projekt patří,
           confirmed_votes: Počet potvrzených hlasů tohoto projektu
           created_at: Datum a čas, kdy byl projekt vytvořen
           description: Popis projektu
+          follows_count: Počet sledujících tohoto projektu
           id: Jedinečný identifikátor projektu
+          latitude: Zeměpisná šířka projektu v případě, že má fyzickou polohu
+          longitude: Zeměpisná délka projektu v případě, že má fyzickou polohu
           participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tento projekt
+          reference: Jedinečný odkaz na projekt
           related_proposal_titles: Názvy souvisejících návrhů
           related_proposal_urls: URL adresy souvisejících návrhů
           related_proposals: Související návrhy k tomuto projektu
+          selected_at: Doba, kdy byl projekt vybrán
           taxonomies: Taxonomie projektu
           title: Název projektu
+          updated_at: Poslední datum, kdy byl projekt aktualizován
           url: URL adresa projektu
     orders:
       checkout:
         error: Při zpracování vašeho hlasování nastal problém.
-        success_html: <p>Váš hlas byl úspěšně přijat.</p> <p class="text-sm font-normal">Můžete prozkoumat <a class="text-secondary underline" href="%{rest_of_budgets_link}">zbývající rozpočty</a>.</p>
-        success_no_left_budgets_html: Váš hlas byl úspěšně přijat.
       destroy:
         error: Při rušení vašeho hlasování došlo k chybě.
         success: Váš hlas byl úspěšně zrušen.

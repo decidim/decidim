@@ -13,7 +13,7 @@ eu:
         from_label: Etiketa
         password: Pasahitza
         port: Portua
-        user_name: Erabiltzaile-izena
+        user_name: Parte-hartzailearen izena
       organization_file_uploads:
         allowed_content_types:
           admin: Administrazio-panelaren MIME motak
@@ -201,12 +201,12 @@ eu:
         file_upload_settings:
           content_types:
             admin_hint: MIME mota horiek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, artxiboen igoeretan zuhurragoak izatea espero daiteke.
-            default_hint: MIME mota hauek, lehenetsiz, baimenduta daude erabiltzaile guztientzat.
+            default_hint: MIME mota hauek, lehenetsiz, baimenduta daude parte-hartzaile guztientzat.
             intro_html: 'Gehitu izartxoa duten komodinak MIME motetarako, adibidez: <code>image/*</code>.'
             title: Baimendutako MIME motak
           file_extensions:
             admin_hint: Artxibo-luzapen hauek baimenduta daude administrazio-paneletik igotzeko. Administratzaileek dokumentuen formatu batzuk igotzean dauden arriskuez jabetu behar dute, eta, beraz, artxiboen igoeretan zuhurragoak izatea espero daiteke.
-            default_hint: Artxibo-luzapen hauek, lehenetsiz, baimenduta daude erabiltzaile guztientzat.
+            default_hint: Artxibo-luzapen hauek, lehenetsiz, baimenduta daude parte-hartzaile guztientzat.
             image_hint: Artxibo-luzapen hauek baimenduta daude edozein motatako irudi-igoeratarako.
             title: Baimendutako fitxategi-luzapenak
           file_sizes:
@@ -216,13 +216,13 @@ eu:
           intro: |
             Mesedez, kontuz ibili doikuntza horiek aldatzean.
             Zenbat eta aukera gutxiago, hobe.
-            Fitxategi espezifikoen luzapenak edo MIME motakoak baimentzeak segurtasun-arriskuen eraginpean jar ditzake sistemaren erabiltzaileak, eta webgunearen irisgarritasunari ere eragin diezaioke.
+            Fitxategi espezifikoen luzapenak edo MIME motakoak baimentzeak segurtasun-arriskuen eraginpean jar ditzake sistemaren parte-hartzaileak, eta webgunearen irisgarritasunari ere eragin diezaioke.
         index:
           title: Erakundeak
         new:
           default: Lehenetsita?
           enabled: Gaituta
-          locale: Tokikoa
+          locale: Tokiko ezarpenak
           organization_admin_email_hint: Mezu elektroniko bat bidaliko dugu helbide honetara, baieztatu eta pasahitza jar dezazun.
           reference_prefix_hint: Erreferentzia-aurrizkia erakunde guztietan baliabideak identifikatzeko erabiltzen da.
           secondary_hosts_hint: Sartu haietako bakoitza beste lerro batean.

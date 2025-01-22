@@ -901,7 +901,6 @@ sv:
         file:
           explanation: 'Instruktioner för fil:'
           message_1: Måste vara en bild eller ett dokument.
-          message_2: Använd helst liggande bilder. Bilden beskärs automatiskt.
         icon:
           explanation: 'Instruktioner för ikon:'
           message_1: Måste vara en kvadratisk bild.
@@ -1453,7 +1452,7 @@ sv:
         jump_to: 'Gå till:'
         search: Sök
         state:
-          active: Aktiva
+          active: Pågående
           all: Alla
           future: Framtida
           past: Tidigare

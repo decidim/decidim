@@ -147,6 +147,9 @@ zh-TW:
           fields:
             id: ID
             title: 標題
+      order:
+        status:
+          title: 您的投票已成功接受
       order_summary_mailer:
         order_summary:
           selected_projects: '你選擇的專案如下：'

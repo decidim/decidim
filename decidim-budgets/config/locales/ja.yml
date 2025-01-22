@@ -27,6 +27,9 @@ ja:
         other: プロジェクト
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: プロジェクト
       filters:
         projects:
           selected_at_null:
@@ -208,6 +211,9 @@ ja:
             map: 地図
             taxonomies: タクソノミー
             title: タイトル
+      order:
+        status:
+          title: 投票は正常に承認されました
       order_summary_mailer:
         order_summary:
           selected_projects: '選択したプロジェクトは次のとおりです。'
@@ -359,6 +365,15 @@ ja:
               enabled: 投票は有効になっています
               finished: 投票完了
     download_your_data:
+      help:
+        orders:
+          budget: 注文に関連する予算
+          checked_out_at: 注文がチェックアウトされた日時
+          component: 注文に関連するコンポーネント
+          created_at: 注文の作成日時
+          id: 注文の固有ID
+          projects: 注文が投票したプロジェクト
+          updated_at: 注文の更新日時
       show:
         projects: プロジェクトのエクスポート
     events:
@@ -372,25 +387,30 @@ ja:
       help:
         projects:
           address: プロジェクトのアドレス (もしあれば)
+          budget: プロジェクトの予算（例：「2021年度予算」）に関するデータ
           budget_amount: このプロジェクトの予算の合計
           comments: このプロジェクトが受け取ったコメント数
           component: プロジェクトが属するコンポーネント
           confirmed_votes: このプロジェクトが受け取った確認済み投票数
           created_at: プロジェクトの作成日時
           description: プロジェクトの説明
+          follows_count: プロジェクトのフォロー数
           id: プロジェクトの固有ID
+          latitude: プロジェクトに物理的な場所がある場合のその緯度
+          longitude: プロジェクトに物理的な場所がある場合のその経度
           participatory_space: このプロジェクトが所属するスペース（参加型プロセス、参加スペースなど）
+          reference: プロジェクトのユニークな参照
           related_proposal_titles: 関連する提案のタイトル
           related_proposal_urls: 関連する提案のURL
           related_proposals: このプロジェクトに関連する提案
+          selected_at: プロジェクトが選択された日時
           taxonomies: このプロジェクトのタクソノミー
           title: プロジェクトのタイトル
+          updated_at: プロジェクトの更新日時
           url: プロジェクトの URL
     orders:
       checkout:
         error: 投票処理中に問題が発生しました。
-        success_html: <p>あなたの投票は正常に受理されました。</p> <p class="text-sm font-normal"> <a class="text-secondary underline" href="%{rest_of_budgets_link}">残りの予算</a>を探索できます。</p>
-        success_no_left_budgets_html: 投票が正常に受理されました。
       destroy:
         error: 投票の取り消し中に問題が発生しました。
         success: 投票をキャンセルしました。

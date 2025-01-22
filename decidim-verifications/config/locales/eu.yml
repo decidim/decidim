@@ -1,6 +1,8 @@
 eu:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: Egiaztapen-eranskina
       config:
         available_methods: Metodo erabilgarriak
         offline: Offline
@@ -14,12 +16,12 @@ eu:
       id_document_upload:
         document_number: Dokumentuaren zenbakia (letraz)
         document_type: Zure dokumentuaren mota
-        user: Erabiltzaileak
+        user: Parte-hartzaileak
         verification_attachment: Zure dokumentuaren eskaneatutako kopia
       mobile_phone:
         mobile_phone_number: Telefono mugikorraren zenbakia
       offline_confirmation:
-        email: Erabiltzailearen helbide elektronikoa
+        email: Parte-hartzaileren helbide elektronikoa
       postal_letter_address:
         full_address: Helbide osoa
       postal_letter_confirmation:
@@ -51,9 +53,9 @@ eu:
         authorization_workflows: Baimenak
     admin_log:
       organization:
-        update_id_documents_config: "%{user_name} k eguneratu du nortasun agiriko dokumentuen konfiguraziorako baimena"
+        update_id_documents_config: "%{user_name} parte-hartzaileak eguneratu du nortasun agiriko dokumentuen konfiguraziorako baimena"
       user:
-        grant_id_documents_offline_verification: "%{user_name} k egiaztatu zuen %{resource_name} nortasun agirien baimen bat erabiliz"
+        grant_id_documents_offline_verification: "%{user_name} parte-hartzaileak egiaztatu zuen %{resource_name} nortasun agirien baimen bat erabiliz"
     authorization_handlers:
       admin:
         another_dummy_authorization_handler:
@@ -74,18 +76,24 @@ eu:
             - Baimen-emaile adibide bat garatzaileek uler dezaten nola funtzionatzen duen egiaztapen sinple batek.
             - Garatzaileentzat da, beren egiaztapen-sistema ezartzeko modua uler dezaten.
             - Egiaztatu "X" letraz hasten den pasaporte zenbaki bat sartuz.
+        ephemeral_dummy_authorization_handler:
+          help:
+            - Baimen-emaile adibide bat garatzaileek uler dezaten nola funtzionatzen duen egiaztapen sinple batek.
+            - Garatzaileentzat da, beren egiaztapen-sistema ezartzeko modua uler dezaten.
+            - Ereduzko baimenaren kopia da.
+            - Egiaztatu "X" zenbakiaz amaitzen den dokumentu zenbaki bat sartuz.
         id_documents:
           help:
-            - Erabiltzaileek beren identifikazio informazioa bete, eta dokumentuaren kopia bat kargatzen dute.
+            - Parte-hartzaileek beren identifikazio informazioa bete, eta dokumentuaren kopia bat kargatzen dute.
             - Kargatutako irudian dagoen informazio hau bete behar duzu.
-            - Informazioak edozein erabiltzailek bete duenarekin bat egin beharko luke.
-            - Informazioa ezin baduzu argi ikusi edo ezin baduzu egiaztatu, eskaera ukatu dezakezu eta erabiltzaileak konpondu ahal izango du.
+            - Informazioak edozein parte-hartzailek bete duenarekin bat egin beharko luke.
+            - Informazioa ezin baduzu argi ikusi edo ezin baduzu egiaztatu, eskaera ukatu dezakezu eta parte-hartzaileak konpondu ahal izango du.
         postal_letter:
           help:
-            - Erabiltzaileek egiaztapen-kodea eskatu behar dute euren helbidea bidaltzeko.
+            - Parte-hartzaileek egiaztapen-kodea eskatu behar dute euren helbidea bidaltzeko.
             - Posta-helbidea bere helbidean bidaltzen du egiaztapen-kodearekin.
             - Markatu mezua bidalita bezala.
-            - Behin bidalitako mezua markatzen duzunean, erabiltzaileak kodea sartu eta egiaztatu egingo du.
+            - Behin bidalitako mezua markatzen duzunean, parte-hartzaileak kodea sartu eta egiaztatu egingo du.
         sms:
           help:
             - Parte-hartzaileek egiaztapen-kode bat eskatzen dute telefonora bidaltzeko.
@@ -135,6 +143,7 @@ eu:
         new:
           authorize: Bidali
           authorize_with: Egiaztatu %{authorizer} rekin
+          tos_agreement: 'Zure nortasuna egiaztatzeko, onartu: % {link}.'
         onboarding_pending:
           completed_verifications: 'Bainema zuzen lortu duzu, orain zuk ahal duzu %{action} hemen: %{resource_name}'
           granted_verifications: Emandako egiaztapenak
@@ -183,8 +192,8 @@ eu:
         extra_explanation:
           postal_codes:
             one: Partehartzea mugatua da %{postal_codes} kode postalarekin duten erabiltzaileentzat.
-            other: 'Parte-hartzea honako posta-kode hauetakoren bat duten erabiltzaileentzat mugatuta dago: %{postal_codes}.'
-          scope: Partehartzea mugatua da %{scope_name} eremuan egiaztatutako erabiltzaileentzat.
+            other: 'Parte-hartzea honako posta-kode hauetakoren bat duten eparte-hartzaileentzat mugatuta dago: %{postal_codes}.'
+          scope: Partehartzea mugatua da %{scope_name} eremuan egiaztatutako parte-hartzaileentzat.
           user_postal_codes:
             one: Parte-hartzea mugatuta dago %{postal_codes} posta-kodea duten parte-hartzaileentzat eta zure posta-kodea hau da %{user_postal_code}.
             other: 'Parte-hartzea mugatuta dago %{postal_codes} posta-kodea duten parte-hartzaileentzat eta zure posta-kodea hau da %{user_postal_code}.'
@@ -212,7 +221,7 @@ eu:
               success: Parte-hartzailea zuzen egiaztatua.
             new:
               cancel: Ezeztatu
-              introduce_user_data: Sartu erabiltzailearen helbide elektronikoa eta dokumentuaren datuak
+              introduce_user_data: Sartu parte-hartzailearen helbide elektronikoa eta dokumentuaren datuak
               verify: Ziurtatu
           pending_authorizations:
             index:

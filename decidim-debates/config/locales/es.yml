@@ -22,6 +22,10 @@ es:
         one: Debate
         other: Debates
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Debates
     components:
       debates:
         actions:
@@ -70,12 +74,18 @@ es:
             title: Editar debate
             update: Actualizar debate
           form:
-            add_documents: Añadir documentos
-            attachment_legend: "(Opcional) Añadir un archivo adjunto"
+            add_attachments: Agregar archivo(s) adjunto(s)
+            attachment_legend: Añadir un documento o una imagen
+            comments_visualization: Visualización de los comentarios
+            comments_warning: Una vez que se publique el primer comentario, la opción de visualización seleccionada no se puede cambiar.
             debate_type: Tipo de debate
-            edit_documents: Editar documentos
+            edit_attachments: Editar los archivos adjuntos
+            errors:
+              comments_layout_locked: No puedes cambiar el diseño del comentario una vez que se haya publicado algún comentario.
             finite: Finito (con hora de inicio y final)
             open: Abierto (no hay hora de inicio o final)
+            single_column: 'Columna única: Los comentarios se muestran en orden cronológico y pueden recibir respuestas.'
+            two_columns: 'Dos columnas: Los comentarios se muestran en las columnas: "A favor" y "En contra", y no pueden recibir respuestas.'
           index:
             title: Debates
           manage_trash:

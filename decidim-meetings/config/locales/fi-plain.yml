@@ -1,6 +1,8 @@
 fi-pl:
   activemodel:
     attributes:
+      answer:
+        add_documents: Lisää asiakirjoja
       close_meeting:
         attendees_count: Osallistujien määrä
         attending_organizations: Osallistuvien organisaatioiden lista
@@ -93,6 +95,9 @@ fi-pl:
         other: Ilmoittautumiset
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Tapaamiset
       filters:
         accepted_at_not_null:
           label: Hyväksytyt
@@ -175,6 +180,12 @@ fi-pl:
             creation_enabled_for_participants: Tapahtuman luonti sallittu osallistujille
             creation_enabled_for_user_groups: Tapahtuman luonti sallittu ryhmille
     download_your_data:
+      help:
+        registrations:
+          code: Ilmoittautumiskoodi
+          id: Ilmoittautumisen yksilöivä tunniste
+          meeting: Tapaaminen, johon käyttäjä ilmoittautui
+          user: Ilmoittautunut käyttäjä
       show:
         meeting_comments: Tapaamisten kommenttien vienti
         meetings: Tapaamisten vienti
@@ -399,6 +410,7 @@ fi-pl:
           form:
             available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invites: Kutsut
+            manage_questions: Hallinnoi kysymyksiä
             recommendation_message: Yksityisyytesi takia suosittelemme, että poistat tämän kirjoituksen, kun et enää tarvitse sitä. Oletuksena se säilytetään 3 kuukautta tapahtuman päättymisen jälkeen.
             registration_email_help: Tämä teksti näytetään tapahtumailmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
             registration_form: Ilmoittautumislomake
@@ -685,7 +697,7 @@ fi-pl:
         transparent: Läpinäkyvä
         withdraw: Peruutettu
       withdraw:
-        error: Tapaamisen peruuttaminen epäonnistui.
+        error: Tapaamisen peruminen epäonnistui.
         success: Tapaaminen on peruttu.
     metrics:
       meetings:
@@ -698,11 +710,11 @@ fi-pl:
           alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
           author: Kommentin laatijan nimi
           body: Kommentin teksti
-          commentable_id: Kommentoitavan asian yksilöllinen tunniste
+          commentable_id: Kommentoitavan asian yksilöivä tunniste
           commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
           created_at: Kommentin laatimisaika
           depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
-          id: Kommentin yksilöllinen tunniste
+          id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
           user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
@@ -717,12 +729,12 @@ fi-pl:
           description: Tapaamisen kuvaus
           end_time: Tapaamisen päättymisajankohta
           followers: Tapaamisen seuraajien lukumäärä
-          id: Tapaamisen yksilöllinen tunniste
+          id: Tapaamisen yksilöivä tunniste
           location: Tapaamisen sijainti
           organizations: Tapaamiseen osallistuvat tai osallistuneet organisaatiot
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä tapaaminen kuuluu
           published: Tapaamisen julkaisuajankohta
-          reference: Tapaamisen yksilöllinen tunniste tällä alustalla
+          reference: Tapaamisen yksilöivä tunniste tällä alustalla
           related_proposals: Ehdotukset, jotka liittyvät tähän tapaamiseen
           related_results: Tulokset, jotka liittyvät tähän tapaamiseen
           start_time: Tapaamisen alkamisajankohta
@@ -730,7 +742,7 @@ fi-pl:
           title: Tapaamisen otsikko
           url: Tapaamisen URL-osoite
           withdrawn: Onko tämä tapaaminen peruttu
-          withdrawn_at: Ajankohta, jolloin tapaaminen peruutettiin
+          withdrawn_at: Ajankohta, jolloin tapaaminen peruttiin
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Aiemmat tapahtumat

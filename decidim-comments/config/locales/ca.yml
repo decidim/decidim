@@ -16,6 +16,10 @@ ca:
         one: Vot
         other: Vots
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Comentaris
     comments:
       admin:
         shared:
@@ -107,16 +111,19 @@ ca:
           recent: Recent
         title: 'Ordenar per:'
       comments:
+        against: En contra
         blocked_comments_for_unauthorized_user_warning: Has d'estar verificat abans de poder fer comentaris, però pots llegir els comentaris anteriors.
         blocked_comments_for_user_warning: No pots fer comentaris en aquest moment, però pots llegir els anteriors.
         blocked_comments_warning: Els comentaris estan deshabilitats en aquests moments, només les administradores poden respondre o publicar-ne de nous.
         comment_details_title: Detalls del comentari
+        in_favor: A favor
         loading: Carregant els comentaris ...
         single_comment_warning: <a href="%{url}">Mostra tots els comentaris</a>
         single_comment_warning_title: Estàs veient un sol comentari
         title:
           one: "%{count} comentari"
           other: "%{count} comentaris"
+        top_comment_label: Més ben valorat
       down_vote_button:
         text: No estic d'acord amb aquest comentari
       edit_comment_modal_form:
@@ -129,6 +136,20 @@ ca:
         title: Edita el teu comentari
       up_vote_button:
         text: Estic d'acord amb aquest comentari
+    download_your_data:
+      help:
+        comments:
+          alignment: Si aquest comentari va ser a favor, en contra o neutral
+          author: El nom d'usuària de la participant que va fer aquest comentari
+          body: El comentari pròpiament
+          commentable_id: L'identificador únic d'allò que es podia comentar
+          commentable_type: La tipologia d'allò sobre el que es va fer el comentari (si va ser un resultat, una proposta, etc.)
+          created_at: La data en què es va crear aquest comentari
+          depth: El lloc on es troba aquest comentari a la terna de comentaris (si és una resposta a un comentari, o la resposta d'una resposta)
+          id: L'identificador d'aquest comentari
+          locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
+          root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
+          user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
     events:
       comments:
         comment_by_followed_user:

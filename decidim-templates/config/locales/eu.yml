@@ -48,14 +48,14 @@ eu:
       admin:
         block_user_templates:
           edit:
-            title: Editatu erabiltzailearen kontua blokeatzeko mezuaren txantiloia
+            title: Editatu parte-hartzailearen kontua blokeatzeko mezuaren txantiloia
           form:
             save: Gorde
           index:
             confirm_delete: Ziur zaude txantiloi hau ezabatu nahi duzula?
-            title: Blokeatu erabiltzailearen mezuak
+            title: Blokeatu parte-hartzailearen mezuak
           new:
-            title: Txantiloi berria erabiltzaile-kontua blokeatzeko mezurako
+            title: Txantiloi berria parte-hartzailearen kontua blokeatzeko mezurako
           template_chooser:
             select_template: Hautatu txantiloi-fitxategi bat
         proposal_answer_templates:
@@ -88,8 +88,13 @@ eu:
           edit:
             edit: Editatu
             empty: Oraindik ez dago galderarik.
+            manage_questions: Kudeatu galderak
             questionnaire: Galdetegia
             title: Editatu galdetegiaren txantiloia
+          edit_questions:
+            add_question: Gehitu galdera
+            add_separator: Gehitu banatzailea
+            add_title_and_description: Gehitu izenburua eta deskribapena
           form:
             title: '%{questionnaire_for}% galdetegiaren txantiloia'
           index:
@@ -103,11 +108,11 @@ eu:
             tos_agreement: Parte hartzean erabilera-irizpideak eta baldintzak onartzen dituzu
       admin_log:
         template:
-          create: "%{user_name} -k %{resource_name} galdetegia eguneratu du"
-          delete: "%{user_name} -k %{resource_name} galdetegia eguneratu du"
-          duplicate: "%{user_name} -k %{resource_name} galdetegia bikoiztu du"
-          update: "%{user_name} -k %{resource_name} galdetegia eguneratu du"
+          create: "%{user_name} parte-hartzaileak %{resource_name} galdetegia eguneratu du"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} galdetegia eguneratu du"
+          duplicate: "%{user_name} parte-hartzaileak %{resource_name} galdetegia bikoiztu du"
+          update: "%{user_name} parte-hartzaileak %{resource_name} galdetegia eguneratu du"
       template_types:
-        block_user: Blokeatu erabiltzailearen mezuak
+        block_user: Blokeatu parte-hartzailearen mezuak
         proposal_answer_templates: Proposamenen erantzunak
         questionnaires: Galdetegiak

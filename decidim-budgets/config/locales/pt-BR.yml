@@ -176,6 +176,9 @@ pt-BR:
             id: ID
             map: Mapa
             title: Título
+      order:
+        status:
+          title: Seu voto foi aceito com sucesso
       order_summary_mailer:
         order_summary:
           selected_projects: 'Os projetos que você selecionou são:'
@@ -334,8 +337,6 @@ pt-BR:
     orders:
       checkout:
         error: Ocorreu um erro ao processar seu voto.
-        success_html:
-        success_no_left_budgets_html: Seu voto foi aceito com sucesso.
       destroy:
         error: Ocorreu um erro ao cancelar o seu voto.
         success: Seu voto foi cancelado com sucesso.

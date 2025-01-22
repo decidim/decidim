@@ -80,14 +80,10 @@ sv:
             title: Redigera enkät
           form:
             add_question: Lägg till fråga
-            add_separator: Lägg till avgränsare
-            add_title_and_description: Lägg till titel och beskrivning
-            already_answered_warning: Frågeformuläret har redan besvarats av användare och du kan inte längre ändra frågorna.
             collapse: Dölj alla frågor
             expand: Visa alla frågor
             preview: Förhandsgranska
             title: Redigera formulär för %{questionnaire_for}
-            unpublished_warning: Formuläret har inte publicerats. Du kan ändra frågorna, men det kommer att göra att befintliga svar raderas.
           matrix_row:
             matrix_row: Rad
             remove: Ta bort
