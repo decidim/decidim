@@ -58,7 +58,7 @@ eu:
         facebook_handler: Facebook kudeatzailea
         favicon: Ikonoa
         force_authentication: Behartu autentikazioa
-        force_users_to_authenticate_before_access_organization: Behartu erabiltzaileak egiaztatzera erakundean sartu baino lehen
+        force_users_to_authenticate_before_access_organization: Behartu parte-hartzaileak egiaztatzera erakundean sartu baino lehen
         from: Igorlearen helbide elektronikoa
         github_handler: GitHub kudeatzailea
         header_snippets: Goiburuko zatiak
@@ -169,7 +169,7 @@ eu:
       doorkeeper/application:
         authorize_url: Baimendu URLa
         client_id: Bezeroaren IDa
-        client_secret: Bezeroa isilpean
+        client_secret: Isilpeko bezeroa
         organization_name: Erakundearen izena
         organization_url: Erakundearen URLa
         redirect_uri: Birbideratu URIa
@@ -181,7 +181,7 @@ eu:
         attachment:
           new: Beste eranskin bat
         attachment_collection:
-          new: Beste eranskin-blduma bat
+          new: Beste eranskin-bilduma bat
         browse: Arakatu
         category:
           new: Beste kategoria bat
@@ -196,7 +196,7 @@ eu:
         per_page: Orrialdeko
         permissions: Baimenak
         reject: Ukatu
-        send_me_a_test_email: Bidali probako posta elektronikoa
+        send_me_a_test_email: Bidali proba-posta elektronikoa
         share: Partekatu
         user:
           new: Beste administratzaile bat
@@ -352,8 +352,8 @@ eu:
         attempts: Saiakerak
         'false': 'Ez'
         index:
-          text: Bilatu gaur egungo parte-hartzailearen posta elektronikoaren, izenaren edo ezizenaren bidez.
-        managed_user_name: Parte-hartzaile kudeatua
+          text: Bilatu egungo parte-hartzailearen posta elektronikoaren, izenaren edo ezizenaren bidez.
+        managed_user_name: Parte-hartzailearen kudeatua
         solved: Ebatzita
         title: Egiaztapen-arazoak
         transfer:
@@ -364,7 +364,7 @@ eu:
           success: Egungo transferentzia zuzen egina.
           title: Transferentzia
         'true': 'Bai'
-        user_name: Parte-hartzaile
+        user_name: Parte-hartzailea
       content_blocks:
         create:
           error: Errorea izan da eduki-blokea sortzean
@@ -402,7 +402,7 @@ eu:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
-        notice: Zure esportazioa bidean da une honetan. Mezu elektroniko bat jasoko duzu bukatutakoan.
+        notice: Zure esportazioa bidean da. Mezu elektroniko bat jasoko duzu bukatutakoan.
       filters:
         category_id_eq:
           label: Kategoria
@@ -681,7 +681,7 @@ eu:
           actions:
             block: Blokeatu erabiltzailea
             title: Ekintzak
-            unblock: Desblokeatu parte-hartzailea
+            unblock: Desblokeatu parte-hartzaile
             unreport: Ez erreportatu
           name: Izena
           nickname: Ezizena
@@ -910,7 +910,7 @@ eu:
         create:
           error: Arazo bat egon da ohartarazpenak sortzean.
           success:
-            one: "%{count} erabiltzaile gogoratuko da."
+            one: "Pparte-hartzaile bat gogoratuko da."
             other: "%{count} parte-hartzaile gogoratuko dira."
         new:
           submit: Bidali
@@ -1094,7 +1094,7 @@ eu:
         title: Parte-hartzaile blokeatuak
       reported_users:
         object: erabiltzaile erreportatuak
-        title: Parte-hartzaile erreportatuak
+        title: Erabiltzaile erreportatuak
       user_reports:
         object: parte-hartzailearen erreporteak
         title: Parte-hartzaileak erreportatzen du
