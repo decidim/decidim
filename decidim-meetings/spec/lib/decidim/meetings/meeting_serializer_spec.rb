@@ -216,6 +216,10 @@ module Decidim
           expect(serialized).to include(iframe_embed_type: meeting.iframe_embed_type)
         end
 
+        it "serializes the reserved slots of the meeting" do
+          expect(serialized).to include(reserved_slots: meeting.reserved_slots)
+        end
+
         describe "closing report and visibility" do
           context "when the meeting is completed" do
             let!(:meeting) { create(:meeting, :closed) }

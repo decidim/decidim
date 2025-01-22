@@ -747,6 +747,7 @@ en:
           registrations_enabled: Whether registrations were permitted
           related_proposals: The proposals related to this meeting
           related_results: The results related to this meeting
+          reserved_slots: The number of reserved slots the meeting has
           start_time: The date and time that this meeting starts
           taxonomies: The taxonomies that this meeting belongs to
           title: The title of the meeting
