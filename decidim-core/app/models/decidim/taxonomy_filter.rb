@@ -5,7 +5,6 @@ module Decidim
   class TaxonomyFilter < ApplicationRecord
     include Decidim::TranslatableResource
     include Decidim::Traceable
-    include Decidim::SanitizeHelper
 
     translatable_fields :name, :internal_name
 
@@ -28,6 +27,11 @@ module Decidim
     scope :for, ->(organization) { joins(:root_taxonomy).where(decidim_taxonomies: { decidim_organization_id: organization.id }) }
 
     delegate :organization, to: :root_taxonomy
+    delegate :translated_name, :translated_internal_name, to: :presenter
+
+    def presenter
+      Decidim::TaxonomyFilterPresenter.new(self)
+    end
 
     # Returns the presenter class for this log.
     #

@@ -81,7 +81,6 @@ id:
             initiative_title: Judul inisiatif
             name_and_surname: Nama dan nama keluarga
             postal_code: Kode Pos
-            time_and_date: Waktu dan tanggal
             timestamp: Stempel waktu
       titles:
         initiatives: Inisiatif

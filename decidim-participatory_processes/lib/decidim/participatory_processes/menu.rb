@@ -44,8 +44,7 @@ module Decidim
                         icon_name: "treasure-map-line",
                         position: 2,
                         active: is_active_link?(decidim_admin_participatory_processes.participatory_processes_path, :inclusive) ||
-                                is_active_link?(decidim_admin_participatory_processes.participatory_process_groups_path, :inclusive) ||
-                                is_active_link?(decidim_admin_participatory_processes.participatory_process_types_path),
+                                is_active_link?(decidim_admin_participatory_processes.participatory_process_groups_path, :inclusive),
                         if: allowed_to?(:enter, :space_area, space_name: :processes) || allowed_to?(:enter, :space_area, space_name: :process_groups)
         end
       end
@@ -139,13 +138,6 @@ module Decidim
                         if: allowed_to?(:read, :component),
                         submenu: { target_menu: :admin_participatory_process_components_menu }
 
-          menu.add_item :categories,
-                        I18n.t("categories", scope: "decidim.admin.menu.participatory_processes_submenu"),
-                        decidim_admin_participatory_processes.categories_path(current_participatory_space),
-                        active: is_active_link?(decidim_admin_participatory_processes.categories_path(current_participatory_space)),
-                        icon_name: "price-tag-3-line",
-                        if: allowed_to?(:read, :category)
-
           menu.add_item :attachments,
                         I18n.t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"),
                         decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space),
@@ -220,14 +212,6 @@ module Decidim
                         icon_name: "upload-line",
                         if: allowed_to?(:import, :process),
                         active: is_active_link?(decidim_admin_participatory_processes.new_import_path)
-
-          menu.add_item :participatory_process_types,
-                        I18n.t("menu.participatory_process_types", scope: "decidim.admin"),
-                        decidim_admin_participatory_processes.participatory_process_types_path,
-                        position: 3,
-                        icon_name: "price-tag-3-line",
-                        if: allowed_to?(:manage, :participatory_process_type),
-                        active: is_active_link?(decidim_admin_participatory_processes.participatory_process_types_path)
         end
       end
     end

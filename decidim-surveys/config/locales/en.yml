@@ -91,6 +91,7 @@ en:
           create: "%{user_name} created the %{resource_name} survey on the %{space_name} space as an survey"
           delete: "%{user_name} deleted the %{resource_name} survey on the %{space_name} space as an survey"
           publish: "%{user_name} published the %{resource_name} survey on the %{space_name} space"
+          unpublish: "%{user_name} unpublished the %{resource_name} survey on the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} survey on the %{space_name} space"
       directory:
         surveys:

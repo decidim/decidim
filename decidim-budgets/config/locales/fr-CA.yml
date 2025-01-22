@@ -185,6 +185,21 @@ fr-CA:
             id: ID
             map: Carte
             title: Titre
+      order:
+        status:
+          continue_voting: Continuer le vote
+          download_vote: Télécharger votre vote
+          pending_to_vote_budgets:
+            one: Vous pouvez voter dans un autre budget
+            other: Vous pouvez voter dans d'autres budgets
+          share_vote: Partagez votre vote
+          title: Votre vote a été enregistré avec succès
+          view_votes:
+            one: Voir le vote
+            other: Voir les votes
+          votes_count:
+            one: Votre vote pour %{budget_name} a déjà été enregistré.
+            other: Vos votes %{count} pour %{budget_name} ont déjà été enregistrés.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Les projets que vous avez sélectionnés sont :'
@@ -356,8 +371,6 @@ fr-CA:
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote.
-        success_html: <p>Votre vote a été soumis avec succès.</p> <p class="text-sm font-normal">Vous pouvez maintenant explorer le <a class="text-secondary underline" href="%{rest_of_budgets_link}">reste des budgets</a>.</p>
-        success_no_left_budgets_html: Votre vote a été enregistré avec succès.
       destroy:
         error: Un problème est survenu lors de l'annulation de votre vote.
         success: Votre vote a été annulé avec succès.

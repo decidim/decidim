@@ -27,13 +27,8 @@ module Decidim
                                 taxonomies: taxonomy.all_children,
                                 participatory_space_manifests: [:participatory_processes])
 
-        process_types = []
-        2.times do
-          process_types << create_process_type!
-        end
-
         2.times do |_n|
-          process = create_process!(process_group: process_groups.sample, process_type: process_types.sample)
+          process = create_process!(process_group: process_groups.sample)
 
           create_follow!(Decidim::User.where(organization:, admin: true).first, process)
           create_follow!(Decidim::User.where(organization:, admin: false).first, process)
@@ -79,14 +74,7 @@ module Decidim
         )
       end
 
-      def create_process_type!
-        Decidim::ParticipatoryProcessType.create!(
-          title: Decidim::Faker::Localized.word,
-          organization:
-        )
-      end
-
-      def create_process!(process_group: nil, process_type: nil)
+      def create_process!(process_group: nil)
         n = rand(2)
         params = {
           title: Decidim::Faker::Localized.sentence(word_count: 5),
@@ -112,7 +100,6 @@ module Decidim
           start_date: Date.current,
           end_date: 2.months.from_now,
           participatory_process_group: process_group,
-          participatory_process_type: process_type,
           scope: n.positive? ? nil : Decidim::Scope.all.sample
         }
 

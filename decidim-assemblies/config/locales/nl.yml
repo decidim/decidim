@@ -16,7 +16,6 @@ nl:
         created_by_other: Aangemaakt door iemand anders
         creation_date: Gemaakt op
         decidim_area_id: onderwerp
-        decidim_assemblies_type_id: Groepstype
         decidim_scope_id: Bereik
         description: Beschrijving
         developer_group: Organisator
@@ -28,7 +27,6 @@ nl:
         hero_image: Afbeelding van de startpagina
         included_at: Opgenomen op
         instagram: Instagram
-        internal_organisation: Interne organisatie
         is_transparent: Is transparant
         local_area: Organisatiegebied
         meta_scope: Scope metadata
@@ -80,7 +78,6 @@ nl:
       actions:
         import_assembly: Importeren
         new_assembly: Nieuwe groep
-        new_assembly_type: Nieuw groepstype
       assemblies:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe groep.
@@ -100,18 +97,6 @@ nl:
         create:
           error: Er was een fout bij het dupliceren van deze groep.
           success: Groep succesvol gedupliceerd.
-      assemblies_types:
-        create:
-          error: Er is een fout opgetreden bij het maken van een nieuw groepstype.
-          success: Groepstype is succesvol gecreëerd.
-        destroy:
-          success: Groep succesvol verwijderd.
-        new:
-          create: creëren
-          title: Nieuw groepstype
-        update:
-          error: Er is een fout opgetreden bij het bijwerken van dit groepstype.
-          success: Groepstype is succesvol bijgewerkt.
       assembly_copies:
         new:
           copy: Kopiëren
@@ -147,9 +132,6 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van een admin voor deze groep.
           success: Admin is succesvol bijgewerkt voor deze groep.
-      filters:
-        decidim_assemblies_type_id_eq:
-          label: Groepstype
       menu:
         assemblies: Groepen
         assemblies_submenu:
@@ -157,15 +139,9 @@ nl:
           attachment_collections: Mappen
           attachment_files: Bestanden
           attachments: Bijlagen
-          categories: Categorieën
           components: Onderdelen
           moderations: Moderaties
-        assemblies_types: Soorten groepen
       models:
-        assemblies_types:
-          fields:
-            created_at: Aangemaakt op
-            title: Titel
         assembly:
           fields:
             created_at: Aangemaakt op
@@ -234,13 +210,9 @@ nl:
             other: Overige
             select_a_created_by: Selecteer op 'gemaakt door'
             select_an_area: Selecteer een onderwerp
-            select_an_assembly_type: Selecteer een groepstype
             select_parent_assembly: Selecteer de hoofdgroep
             social_handlers: sociaal
             title: Algemene informatie
-        assemblies_types:
-          form:
-            title: Titel
         assembly_members:
           form:
             explanation: 'Eigenschappen afbeelding:'
@@ -260,14 +232,6 @@ nl:
       assembly_members:
         index:
           members: Leden
-      assembly_types:
-        commission: Comissie
-        consultative_advisory: Adviesgroep
-        executive: Uitvoerend
-        government: Regering
-        others: Overige
-        participatory: Participatief
-        working_group: Werkgroep
       content_blocks:
         highlighted_assemblies:
           name: Gemarkeerde groepen
@@ -292,7 +256,6 @@ nl:
           member_of:
             member_of: Lid van
       show:
-        assembly_type: Groepstype
         duration: Duur
         private_space: Dit is een privé event
         social_networks_title: Bezoek groep op
