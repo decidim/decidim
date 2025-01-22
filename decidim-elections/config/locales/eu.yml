@@ -34,7 +34,7 @@ eu:
       trustees_participatory_space:
         user_id: Parte-hartzailea
       voting:
-        banner_image: Banner-irudia
+        banner_image: Bannerra
         census_contact_information: Erroldako kontaktoen informazioa
         description: Deskribapena
         end_time: Bozketaren amaiera-data
@@ -136,7 +136,7 @@ eu:
             'true': Baliozkotua
       voting_publications:
         create:
-          error: Arazo bat egon da bozketa hau argitaratzean.
+          error: Arazo bat sortu da bozketa hau argitaratzean.
           success: Bozketa zuzen argitaratu da.
         destroy:
           error: Arazo bat sortu da bozketa honen argitalpena kentzean.
@@ -644,7 +644,7 @@ eu:
             success: Zure identifikazio-gako publikoa zuzen gorde da.
       votes:
         ballot_decision:
-          audit: ( Ikuskatu boto-papera )
+          audit: Boto-orria ikuskatu
           back: Hasi berriro bozkatzeko prozesua
           ballot_hash: 'Boto-paperaren identifikatzailea hau da:'
           cast: Eman boto-papera zure bozketa amaitzeko
@@ -666,7 +666,7 @@ eu:
           feedback: Emaguzu zure iritzia
           header: Baieztatutako botoa
           lead: Zure botoa eman da!
-          text: 'Egiaztatu ahal duzu zure botoa zuzen sartu dela hautesontzian honako identifikatzailearekin: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          text: 'Ondorengo identifikatzaileari esker zure botoa hautestontzian zuzen sartu dela egiaztatu ahal duzu: '
           verify_link: 'Egiaztatzeko, kopiatu identifikatzailea eta itsatsi hemen: <a href="%{link}">página de verificación de voto</a>'
         create:
           error: Arazo bat egon da botoa ematean. Mesedez, saiatu berriro.
