@@ -34,7 +34,7 @@ eu:
       trustees_participatory_space:
         user_id: Parte-hartzailea
       voting:
-        banner_image: Banner-irudia
+        banner_image: Bannerra
         census_contact_information: Erroldako kontaktoen informazioa
         description: Deskribapena
         end_time: Bozketaren amaiera-data
@@ -136,7 +136,7 @@ eu:
             'true': Baliozkotua
       voting_publications:
         create:
-          error: Arazo bat egon da bozketa hau argitaratzean.
+          error: Arazo bat sortu da bozketa hau argitaratzean.
           success: Bozketa zuzen argitaratu da.
         destroy:
           error: Arazo bat sortu da bozketa honen argitalpena kentzean.
@@ -388,25 +388,25 @@ eu:
             success: '%{trustee} bermatzailea zuzen eguneratua.'
       admin_log:
         election:
-          create: "%{user_name} k %{space_name} ko %{resource_name} aukera sortu du"
-          delete: "%{user_name} k ezabatu du %{space_name} ko %{resource_name} aukera"
-          end_vote: "%{user_name} k amaitu du bozketaldia %{space_name} ko %{resource_name} bozketarako Iragarki Taulan"
-          publish: "%{user_name} k argitaratu du %{space_name} ko %{resource_name} hautaketa"
-          publish_results: "%{user_name} k argitaratu ditu %{resource_name} hautaketarako emaitzak %{space_name} Iragarki Taulan"
-          report_missing_trustee: "% {user_name} k jakinarazi zion % {trustee_name} ri  desagertutako bermatzaile gisa % {space_name} aukeraren % {resource_name} zenbaketan Iragarki-taulan"
-          setup: "%{user_name} k sortu du %{space_name} ko %{resource_name} hautaketa Iragarki Taulan"
-          start_key_ceremony: "%{user_name} k hasi du kontaketa %{resource_name} hautaketarako Iragarki Taulan"
-          start_tally: "%{user_name} k hasi zuen kontaketa %{resource_name} aukerarako Iragarki Taulan"
-          start_vote: "%{user_name} k hasi du bozketaldia %{space_name} ko %{resource_name} hautaketarako Iragarki Taulan"
-          unpublish: "%{user_name} k despublikatu du %{space_name} ko %{resource_name} hautaketa"
-          update: "%{user_name} k eguneratu du %{space_name} ko %{resource_name} hautaketa"
+          create: "%{user_name} parte-hartzaileak %{space_name} ko %{resource_name} aukera sortu du"
+          delete: "%{user_name} parte-hartzaileak ezabatu du %{space_name} ko %{resource_name} aukera"
+          end_vote: "%{user_name} parte-hartzaileak amaitu du bozketaldia %{space_name} ko %{resource_name} bozketarako Iragarki Taulan"
+          publish: "%{user_name} parte-hartzaileak argitaratu du %{space_name} ko %{resource_name} hautaketa"
+          publish_results: "%{user_name} parte-hartzaileak argitaratu ditu %{resource_name} hautaketarako emaitzak %{space_name} Iragarki Taulan"
+          report_missing_trustee: "% {user_name} parte-hartzaileak jakinarazi zion % {trustee_name} ri desagertutako bermatzaile gisa % {space_name} aukeraren % {resource_name} zenbaketan Iragarki-taulan"
+          setup: "%{user_name} parte-hartzaileak sortu du %{space_name} ko %{resource_name} hautaketa Iragarki Taulan"
+          start_key_ceremony: "%{user_name} parte-hartzaileak hasi du kontaketa %{resource_name} hautaketarako Iragarki Taulan"
+          start_tally: "%{user_name} parte-hartzaileak hasi zuen kontaketa %{resource_name} aukerarako Iragarki Taulan"
+          start_vote: "%{user_name} parte-hartzaileak hasi du bozketaldia %{space_name} ko %{resource_name} hautaketarako Iragarki Taulan"
+          unpublish: "%{user_name} parte-hartzaileak despublikatu du %{space_name} ko %{resource_name} hautaketa"
+          update: "%{user_name} parte-hartzaileak eguneratu du %{space_name} ko %{resource_name} hautaketa"
         trustee:
-          create: "%{user_name} k %{trustee_user} erabiltzailea esleitu du bermatzaile gisa"
+          create: "%{user_name} parte-hartzaileak %{trustee_user} parte-hartzailea esleitu du bermatzaile gisa"
       connection:
         failed:
           modal:
             close: Itxi
-            communication_lost: Zoritxarrez, badirudi (Iragarki-taula) boto-zerbitzariarekin komunikazioa galdu egin dela.<br>Baliteke Interneterako konexioa hautsita egotea edo zerbitzaria lanpetuta egotea.<br>Saiatu geroago, edo jarri kontaktuan, arazo honek irauten badu.
+            communication_lost: Zoritxarrez, badirudi (Iragarki-taula) boto-zerbitzariarekin komunikazioa galdu egin dela.<br>Baliteke Interneterako konexioa hautsita egotea edo zerbitzaria lanpetuta egotea.<br>Saiatu geroago, edo jarri kontaktuan babeslearekin, arazo honek irauten badu.
             generic_error: Zoritxarrez, errore ezezagun bat izan da. Ziur aski, zure nabigatzaileak ez du pairatzen edo modu "ezkutuan" edo "pribatuan" erabiltzen ari zara, bateragarria ez izanik.
             title: Zerbait gaizki joan da
       election_m:
@@ -644,7 +644,7 @@ eu:
             success: Zure identifikazio-gako publikoa zuzen gorde da.
       votes:
         ballot_decision:
-          audit: ( Ikuskatu boto-papera )
+          audit: Boto-orria ikuskatu
           back: Hasi berriro bozkatzeko prozesua
           ballot_hash: 'Boto-paperaren identifikatzailea hau da:'
           cast: Eman boto-papera zure bozketa amaitzeko
@@ -666,7 +666,7 @@ eu:
           feedback: Emaguzu zure iritzia
           header: Baieztatutako botoa
           lead: Zure botoa eman da!
-          text: 'Egiaztatu ahal duzu zure botoa zuzen sartu dela hautesontzian honako identifikatzailearekin: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          text: 'Ondorengo identifikatzaileari esker zure botoa hautestontzian zuzen sartu dela egiaztatu ahal duzu: '
           verify_link: 'Egiaztatzeko, kopiatu identifikatzailea eta itsatsi hemen: <a href="%{link}">página de verificación de voto</a>'
         create:
           error: Arazo bat egon da botoa ematean. Mesedez, saiatu berriro.
@@ -1040,27 +1040,27 @@ eu:
             success: Bozketa zuzen eguneratua.
       admin_log:
         ballot_style:
-          create: "%{user_name} k sortu du boto-paper bat kode honekin: %{ballot_style_code} espazio honetan: %{space_name}"
-          delete: "%{user_name} k ezabatu du boto-paper mota hau kode honekin: %{ballot_style_code} espazio honetan: %{space_name}"
-          update: "%{user_name} k eguneratu du boto-paper mota kode honekin: %{ballot_style_code} espazio honetan: %{space_name}"
+          create: "%{user_name} parte-hartzaileak sortu du boto-paper bat kode honekin: %{ballot_style_code} espazio honetan: %{space_name}"
+          delete: "%{user_name} parte-hartzaileak ezabatu du boto-paper mota hau kode honekin: %{ballot_style_code} espazio honetan: %{space_name}"
+          update: "%{user_name} parte-hartzaileak eguneratu du boto-paper mota kode honekin: %{ballot_style_code} espazio honetan: %{space_name}"
         census:
-          create: "%{user_name} k sortu du errolda espazio honetarako: %{space_name}"
-          delete: "%{user_name} k ezabatu du errolda espazio honetarako: %{space_name}"
-          update: "%{user_name} k eguneratu du errolda espazio honetarako: %{space_name}"
+          create: "%{user_name} parte-hartzaileak sortu du errolda espazio honetarako: %{space_name}"
+          delete: "%{user_name} parte-hartzaileak ezabatu du errolda espazio honetarako: %{space_name}"
+          update: "%{user_name} parte-hartzaileak eguneratu du errolda espazio honetarako: %{space_name}"
         monitoring_committee_member:
-          create: "%{user_name} k esleitu du %{monitoring_committee_member_user} erabiltzailea jarraipen-batzordeko kide gisa espazio honetan: %{space_name}"
-          delete: "%{user_name} k desesleitu du %{monitoring_committee_member_user} erabiltzailea jarraipen-batzordeko kide gisa espazio honetan: %{space_name}"
+          create: "%{user_name} parte-hartzaileak esleitu du %{monitoring_committee_member_user} parte-hartzailea jarraipen-batzordeko kide gisa espazio honetan: %{space_name}"
+          delete: "%{user_name} parte-hartzailek desesleitu du %{monitoring_committee_member_user} parte-hartzailea jarraipen-batzordeko kide gisa espazio honetan: %{space_name}"
         polling_officer:
-          create: "%{user_name} k esleitu du %{polling_officer_user} erabiltzailea jarraipen-batzordeko kide gisa espazio honetan: %{space_name}"
-          delete: "%{user_name} k desesleitu du %{polling_officer_user} erabiltzailea jarraipen-batzordeko kide gisa espazio honetan: %{space_name}"
+          create: "%{user_name} parte-hartzailek esleitu du %{polling_officer_user} parte-hartzailea jarraipen-batzordeko kide gisa espazio honetan: %{space_name}"
+          delete: "%{user_name} parte-hartzailek desesleitu du %{polling_officer_user} parte-hartzailea jarraipen-batzordeko kide gisa espazio honetan: %{space_name}"
         polling_station:
-          create: "%{user_name} k sortu du %{resource_name} bozketa-gunea %{space_name} espazioan"
-          delete: "%{user_name} k ezabatu du %{resource_name} bozketa-gunea %{space_name} espazioan"
-          update: "%{user_name} k eguneratu du %{resource_name} bozketa-gunea %{space_name} espazioan"
+          create: "%{user_name} parte-hartzaileak sortu du %{resource_name} bozketa-gunea %{space_name} espazioan"
+          delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} bozketa-gunea %{space_name} espazioan"
+          update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} bozketa-gunea %{space_name} espazioan"
         voting:
-          create: "%{user_name}-k sortu du %{resource_name} bozketa"
-          publish: "%{user_name}-k argitaratu du %{resource_name} bozketa"
-          unpublish: "%{user_name}-k desargitaratu du %{resource_name} bozketa"
+          create: "%{user_name} parte-hartzaileak sortu du %{resource_name} bozketa"
+          publish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} bozketa"
+          unpublish: "%{user_name} parte-hartzaileak desargitaratu du %{resource_name} bozketa"
       census:
         admin:
           census:

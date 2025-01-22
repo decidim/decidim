@@ -57,6 +57,8 @@ pt:
         short_description: Pequena descrição
         start_date: Data de início
         title: Título
+      participatory_process_type:
+        title: Título
       participatory_process_user_role:
         email: E-mail
         name: Nome
@@ -105,6 +107,7 @@ pt:
           attachments: Anexos
           categories: Categorias
           components: Componentes
+          info:
           moderations: Moderações
           private_users: Participantes privados
           process_admins: Administradores de processo
@@ -127,6 +130,10 @@ pt:
             start_date: Data de início
             title: Título
           name: Fase do processo participativo
+        participatory_process_type:
+          fields:
+            created_at: Criado em
+            title: Título
         participatory_process_user_role:
           fields:
             email: E-mail
@@ -199,6 +206,11 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar esta fase do processo participativo.
           success: Fase participativa atualizada corretamente.
+      participatory_process_types:
+        edit:
+          update: Atualizar
+        new:
+          create: Criar
       participatory_process_user_roles:
         create:
           error: Ocorreu um problema ao adicionar um participante para este processo participativo.
@@ -358,6 +370,8 @@ pt:
         index:
           back_to_process: Retroceder à página do processo
       participatory_processes:
+        description:
+          title: Sobre este processo
         filters:
           counters:
             active:

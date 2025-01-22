@@ -154,7 +154,7 @@ ca:
           name: Fase del procés participatiu
         participatory_process_type:
           fields:
-            created_at: Creat el
+            created_at: Data de creació
             title: Títol
           name: Tipus de procés
         participatory_process_user_role:
@@ -246,9 +246,9 @@ ca:
           success: Tipus de procés eliminat correctament.
         edit:
           title: Editar el tipus de procés
-          update: Actualitzar
+          update: Actualitza
         new:
-          create: Crear
+          create: Crea
           title: Nou tipus de procés
         update:
           error: S'ha produït un error en actualitzar aquest tipus de procés.

@@ -323,7 +323,7 @@ it:
         title: Voti
     participatory_spaces:
       highlighted_proposals:
-        see_all: Vedi tutto (%{count})
+        see_all: Vedi tutto
     proposals:
       actions:
         answer_proposal: Proposta di Risposta
@@ -390,7 +390,7 @@ it:
             title: Aggiorna proposta
             update: Aggiornare
           form:
-            attachment_legend: "(Opzionale) Aggiungere un allegato"
+            attachment_legend: "(Opzionale) Aggiungi un allegato"
             created_in_meeting: Questa proposta proviene da una riunione
             delete_attachment: Elimina allegato
             select_a_category: Scegli una categoria
@@ -646,6 +646,7 @@ it:
             one: "%{count} proposta"
             other: "%{count} proposte"
           new_proposal: Nuova proposta
+          see_all: Vedi tutto
           see_all_withdrawn: Vedi tutte le proposte ritirate
         new:
           send: Continua

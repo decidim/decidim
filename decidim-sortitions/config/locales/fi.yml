@@ -37,7 +37,7 @@ fi:
     sortitions:
       admin:
         actions:
-          destroy: Peruuta satunnaisvalinta
+          destroy: Peru satunnaisvalinta
           edit: Muokkaa
           new_sortition: Uusi satunnaisvalinta
           show: Satunnaisvalinnan tarkemmat tiedot
@@ -55,15 +55,15 @@ fi:
               title: Otsikko
         sortitions:
           confirm_destroy:
-            confirm_destroy: Haluatko varmasti peruuttaa tämän satunnaisvalinnan?
-            destroy: Peruuta satunnaisvalinta
-            title: Satunnaisvalinnan peruuttaminen
+            confirm_destroy: Haluatko varmasti perua tämän satunnaisvalinnan?
+            destroy: Peru satunnaisvalinta
+            title: Satunnaisvalinnan peruminen
           create:
             error: Uuden satunnaisvalinnan luonti epäonnistui.
             success: Satunnaisvalinnan luonti onnistui.
           destroy:
-            error: Satunnaisvalintaa ei voi peruuttaa.
-            success: Satunnaisvalinnan peruuttaminen onnistui.
+            error: Satunnaisvalintaa ei voi perua.
+            success: Satunnaisvalinnan peruminen onnistui.
           edit:
             title: Päivitä satunnaisvalinnan tiedot
             update: Päivitä
@@ -73,7 +73,7 @@ fi:
           index:
             title: Satunnaisvalinnat
           new:
-            confirm: Kun painat painiketta, palvelin tallentaa päivämäärän ja kellonajan (sekunnin tarkkuudella) ja näitä tietoja käytetään yhdessä nopanheiton kanssa satunnaisen valinnan luomiseen. Toimintoa ei voi peruuttaa. Kun painiketta painetaan, arvonnan tulos julkaistaan tähän lomakkeeseen syötettyjen tietojen kanssa. Tietoja ei voi muuttaa jälkikäteen, joten tarkista sisältö huolellisesti.
+            confirm: Kun painat painiketta, palvelin tallentaa päivämäärän ja kellonajan (sekunnin tarkkuudella) ja näitä tietoja käytetään yhdessä nopanheiton tuloksen kanssa satunnaisen valinnan luomiseen. Toimintoa ei voi perua. Kun painiketta painetaan, arvonnan tulos julkaistaan tähän lomakkeeseen syötettyjen tietojen kanssa. Tietoja ei voi muuttaa jälkikäteen, joten tarkista sisältö huolellisesti.
             create: Luo
             title: Uusi satunnaisvalinta
           show:
@@ -84,7 +84,7 @@ fi:
       admin_log:
         sortition:
           create: "%{user_name} loi satunnaisvalinnan %{resource_name} kohtaan %{space_name}"
-          delete: "%{user_name} peruutti satunnaisvalinnan %{resource_name} kohdassa %{space_name}"
+          delete: "%{user_name} perui satunnaisvalinnan %{resource_name} tilassa %{space_name}"
           update: "%{user_name} päivitti satunnaisvalinnan %{resource_name} kohdassa %{space_name}"
       sortitions:
         count:

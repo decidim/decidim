@@ -367,7 +367,7 @@ zh-TW:
         title: 支援
     participatory_spaces:
       highlighted_proposals:
-        see_all: 檢視所有提案 (%{count})
+        see_all: 檢視所有提案
     proposals:
       actions:
         answer_proposal: 回覆提案

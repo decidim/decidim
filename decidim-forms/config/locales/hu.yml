@@ -33,8 +33,6 @@ hu:
             save: Mentés
           form:
             add_question: Kérdés hozzáadása
-            add_title_and_description: Adj hozzá címet és leírást
-            already_answered_warning: Néhány felhasználó már válaszolt a kérdőívre, így nem változtathatja meg kérdéseit.
             collapse: Minden kérdés összecsukása
             expand: Minden kérdés kibontása
           matrix_row:

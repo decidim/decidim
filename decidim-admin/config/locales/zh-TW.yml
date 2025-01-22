@@ -347,7 +347,6 @@ zh-TW:
         title: 驗證衝突
         transfer:
           email: 電子郵件
-          error: 轉移現在參與者到管理參與者時發生錯誤
           name: 名稱
           reason: 理由
           success: 目前的轉換完成

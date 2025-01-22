@@ -214,6 +214,7 @@ ja:
         attachment_collections: フォルダ
         attachments: 添付ファイル
         close: 閉じる
+        confirm_destroy: このミーティングを削除してもよろしいですか？
         destroy: 削除
         edit: 編集
         invalid_destroy:
@@ -632,7 +633,7 @@ ja:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: 過去のミーティング
-        see_all: すべてのミーティングを見る (%{count})
+        see_all: すべてのミーティングを見る
         upcoming_meetings: 今後のミーティング
     resource_links:
       meetings_through_proposals:

@@ -20,9 +20,9 @@ sv:
             readonly_attribute: Skrivskyddat attribut
             test: Ett test
             test_choices:
-              a: Ett val
-              b: B val
-              c: C val
+              a: Alternativ A
+              b: Alternativ B
+              c: Alternativ C
             test_options:
               bar: Bar
               baz: Baz
@@ -30,7 +30,7 @@ sv:
           step:
             endorsements_blocked: Blockera gilla-markeringar
             endorsements_enabled: Aktivera gilla-markeringar
-            readonly_step_attribute: Skrivskyddade steg attribut
+            readonly_step_attribute: Attribut för skrivskyddat steg
             test_options:
               bar: Bar
               baz: Baz

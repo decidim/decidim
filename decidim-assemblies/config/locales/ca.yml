@@ -352,10 +352,10 @@ ca:
       assembly_types:
         commission: Comissió
         consultative_advisory: Consultiva / Assessora
-        executive: Executiva
+        executive: Executiu
         government: Govern
         others: Altres
-        participatory: Participativa
+        participatory: Participatiu
         working_group: Grup de treball
       content_blocks:
         children_assemblies:

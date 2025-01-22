@@ -13,6 +13,7 @@ fr:
         project_ids: Projets inclus
         proposals: Propositions incluses
         start_date: Date de début
+        subresults: Sous-résultats
         title: Titre
         updated_at: Mise à jour à
       status:
@@ -222,8 +223,10 @@ fr:
         filters:
           all: Tous
         home:
+          categories_label: Catégories
           empty: Il n'y a aucun résultat pour le moment.
           empty_filters: Il n'y a aucun résultat avec ces critères.
+          subcategories_label: Sous-catégories
         home_header:
           global_status: État d'exécution global
         nav_breadcrumb:

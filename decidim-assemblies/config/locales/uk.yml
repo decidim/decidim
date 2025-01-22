@@ -2,6 +2,8 @@
 uk:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Назва
       assembly:
         area_id: Дільниця
         assembly_type: Різновид зборів
@@ -148,6 +150,9 @@ uk:
         update:
           error: При спробі оновити учасника цих зборів сталася помилка.
           success: Учасника цих зборів успішно оновлено.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Різновид зборів
       menu:
         assemblies: Збори
         assemblies_submenu:
@@ -239,12 +244,7 @@ uk:
           members: Члени президії
       assembly_types:
         commission: Робочий гурт
-        consultative_advisory: Дорадчі / Консультативні
-        executive: Виконавчі
-        government: Урядові
         others: Інші
-        participatory: Співучасні
-        working_group: Робочий гурт
       content_blocks:
         highlighted_assemblies:
           name: Висвітлені збори

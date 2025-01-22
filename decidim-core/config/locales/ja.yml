@@ -519,8 +519,8 @@ ja:
         html_content: HTML コンテンツ
         name: HTMLブロック
       last_activity:
-        name: 最後のアクティビティ
-        title: 最後のアクティビティ
+        name: 最近のアクティビティ
+        title: 最近のアクティビティ
         view_all: すべて表示
       last_activity_settings_form:
         max_last_activity_users: 最近のアクティビティを表示するユーザーアバターの最大数
@@ -741,7 +741,7 @@ ja:
         level_up:
           email_intro: おめでとうございます！ <a href="%{resource_url}">%{badge_name} バッジ</a>のレベル %{current_level} に到達しました！
           email_outro: サイトでの活動によって、この通知を受け取りました。
-          email_subject: '%{current_level} バッジのレベル %{badge_name} に達しました！'
+          email_subject: '%{badge_name} バッジがレベル %{current_level} に達しました！'
           notification_title: おめでとうございます！ <a href="%{resource_path}">%{badge_name} バッジ</a>のレベル %{current_level} に到達しました！
       groups:
         demoted_membership:
@@ -1023,8 +1023,8 @@ ja:
     last_activities:
       all: すべてのアクティビティ種別
       index:
-        last_activity: 最後のアクティビティ
-      name: 最後のアクティビティ
+        last_activity: 最近のアクティビティ
+      name: 最近のアクティビティ
       no_activities_warning: このアクティビティ種別に表示するエントリがありません。
     linked_resource_from:
       included_in: 含まれるリスト
@@ -1058,6 +1058,8 @@ ja:
           not_found: 'スコープがデータベース上に見つかりませんでした (ID: %{id})'
         scope_type_presenter:
           not_found: 'スコープ種別がデータベース上に見つかりませんでした (ID: %{id})'
+    machine_translations:
+      automatic: '%{locale_name} の自動翻訳'
     managed_users:
       expired_session: 参加者の現在の管理セッションの有効期限が切れています。
     map:
@@ -1233,10 +1235,10 @@ ja:
     notifications_settings:
       show:
         administrators: 管理者
-        allow_public_contact: 私をフォローしていないユーザーからでもダイレクトメッセージを送信できます
-        allow_push_notifications: プラットフォーム上にいないときに何が起きているかを知るためにプッシュ通知を受け取ります。いつでもオフにできます。
+        allow_public_contact: フォローしていない人からのダイレクトメッセージを受信する
+        allow_push_notifications: プラットフォーム上にいないときに何が起きているかを知るためにプッシュ通知を受け取る。いつでもオフにできます。
         direct_messages: ダイレクトメッセージを受信する
-        email_on_moderations: 私はモデレーションの報告がなされたたびに毎回メールを受け取りたいです。
+        email_on_moderations: モデレーションの報告がなされたたびに毎回メールを受け取りたい
         everything_followed: 自分がフォローしているすべて
         newsletter_notifications: ニュースレターを受け取る
         newsletters: ニュースレター
@@ -1248,10 +1250,10 @@ ja:
           real_time: リアルタイム
           weekly: 週1回
         notifications_sending_frequency: 通知メールを受信する頻度は？
-        own_activity: 誰かが提案にコメントしたり、私に言及したりした時など、自分自身の活動
+        own_activity: 誰かが私の提案にコメントしたり、私に言及したりした時など、自分自身の活動
         push_notifications: プッシュ通知
         push_notifications_reminder: プラットフォームから通知を受け取るには、まずブラウザの設定で通知を許可する必要があります。
-        receive_notifications_about: 通知を受け取りたい
+        receive_notifications_about: 受け取りたい通知
         update_notifications_settings: 変更を保存
       update:
         error: 通知設定の更新中に問題が発生しました。
@@ -1579,7 +1581,7 @@ ja:
       show:
         version_index: バージョン %{index}
     welcome_notification:
-      default_body: <p>{{name}} さん、{{organization}} への参加ありがとうございます！</p><ul><li>このサイトで何ができるかを概観したい場合は、<a href="{{help_url}}">ヘルプ</a>セクションをご覧ください。</li><li>目を通していただけると、最初のバッジを手に入れることができます。こちらは{{organization}} で参加することで手に入るすべてのバッジの<a href="{{badges_url}}">リスト</a>です。</li><li>そして、他の人々と一緒に{{organization}} に参加した経験を共有しましょう。提案を行い、コメントをし、議論を行い、共通の利益に貢献する方法を考え、説得するための根拠を提供し、読んで説得され、具体的かつ直接的に自分の意見を表現し、忍耐強く決定的に応答し、自分の考えを守り、協力して他の人々のアイデアに参加するために心を開いてください。</li></ul>
+      default_body: <p>こんにちは {{name}} さん, {{organization}} へご参加いただきありがとうございます。</p><ul><li>このサイトの使い方は、 <a href="{{help_url}}">ヘルプ</a> セクションをご参照ください。</li><li>目を通していただけると、最初のバッジを獲得できます。<a href="{{badges_url}}">全てのバッジの一覧</a> から、この {{organization}} への参加で獲得できるバッジを見ることができます。</li><li>他の人と一緒に参加し、この {{organization}} へ参加した経験をシェアしましょう。提案を作り、コメントし、議論を行い、共通の利益に貢献する方法を考え、議論に説得力をもたせ、主張を聞いたり読んだりしながら納得し、具体的かつ直接的な方法であなたの考えを表明し、忍耐と決断を持って対応し、自らの考えを守り、他人の考えを取り入れて協力し合いましょう。</li></ul>
       default_subject: '{{organization}} に参加していただきありがとうございます！'
     wizard_step_form:
       wizard_aside:

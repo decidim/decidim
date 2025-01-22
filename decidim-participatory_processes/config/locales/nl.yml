@@ -57,6 +57,8 @@ nl:
         short_description: Korte beschrijving
         start_date: Startdatum
         title: Titel
+      participatory_process_type:
+        title: Titel
       participatory_process_user_role:
         email: E-mail
         name: Naam
@@ -127,6 +129,10 @@ nl:
             start_date: Startdatum
             title: Titel
           name: Stap van het inspraakproces
+        participatory_process_type:
+          fields:
+            created_at: Aangemaakt op
+            title: Titel
         participatory_process_user_role:
           fields:
             email: E-mail
@@ -199,6 +205,11 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze processtap.
           success: Fase van participatief proces succesvol bijgewerkt.
+      participatory_process_types:
+        edit:
+          update: Bijwerken
+        new:
+          create: Creëren
       participatory_process_user_roles:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een gebruiker aan dit inspraakproces.

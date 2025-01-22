@@ -2,6 +2,8 @@
 ga:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Teideal
       assembly:
         area_id: Ceantar
         copy_categories: Cóipeáil catagóirí

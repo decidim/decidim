@@ -292,7 +292,7 @@ zh-CN:
         title: 支持
     participatory_spaces:
       highlighted_proposals:
-        see_all: 查看所有建议 (%{count})
+        see_all: 查看所有建议
     proposals:
       actions:
         answer_proposal: 答复建议

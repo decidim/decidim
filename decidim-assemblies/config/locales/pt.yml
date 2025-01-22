@@ -2,6 +2,8 @@
 pt:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Título
       assembly:
         area_id: Área
         assembly_type: Tipo de reunião
@@ -167,7 +169,7 @@ pt:
           success: Administrador atualizador corretamente para esta reunião.
       filters:
         decidim_assemblies_type_id_eq:
-          label: Tipo de assembleia
+          label: Tipo de reunião
       menu:
         assemblies: Reuniões
         assemblies_submenu:

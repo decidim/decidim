@@ -326,7 +326,7 @@
         title: Støtter
     participatory_spaces:
       highlighted_proposals:
-        see_all: Vis alle (%{count})
+        see_all: Vis alle
     proposals:
       actions:
         answer_proposal: Svar på forslag

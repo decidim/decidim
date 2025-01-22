@@ -194,7 +194,7 @@ es-PY:
             'false': No cesada
             'true': Cesada
         decidim_assemblies_type_id_eq:
-          label: Tipo de asamblea
+          label: Tipo de montaje
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Buscar por nombre o alias
       menu:
@@ -212,7 +212,7 @@ es-PY:
           moderations: Moderaciones
           private_users: Participantes privadas
           see_assembly: Ver la asamblea
-        assemblies_types: Tipos de asamblea
+        assemblies_types: Tipo de asamblea
       models:
         assemblies_types:
           fields:
@@ -351,7 +351,7 @@ es-PY:
           members: Miembros
       assembly_types:
         commission: Comisión
-        consultative_advisory: Consultivo / Asesor
+        consultative_advisory: Consultivo / Asesoramiento
         executive: Ejecutivo
         government: Gobierno
         others: Otros
@@ -395,7 +395,7 @@ es-PY:
           member_of:
             member_of: Miembro de
       show:
-        assembly_type: Tipo de asambleas
+        assembly_type: Tipo de montaje
         duration: Duración
         is_transparent:
           'false': opaco

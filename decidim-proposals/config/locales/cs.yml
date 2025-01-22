@@ -396,7 +396,7 @@ cs:
     participatory_spaces:
       highlighted_proposals:
         last: Poslední návrhy
-        see_all: Zobrazit všechny (%{count})
+        see_all: Zobrazit všechny
     proposals:
       actions:
         answer_proposal: Odpověď na návrh

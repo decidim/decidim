@@ -2,6 +2,8 @@
 sl:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Naziv
       assembly:
         area_id: Področje
         assembly_type: Vrsta združbe
@@ -137,6 +139,9 @@ sl:
           update: Posodobi
         new:
           create: Ustvari
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Vrsta združbe
       menu:
         assemblies: Združbe
         assemblies_submenu:

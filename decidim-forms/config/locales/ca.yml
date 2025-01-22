@@ -83,12 +83,11 @@ ca:
             add_question: Afegeix una pregunta
             add_separator: Afegir separador
             add_title_and_description: Afegir títol i descripció
-            already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè ja ha estat contestat per algunes participants.
+            already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè algunes participants ja han respost el formulari.
             collapse: Redueix totes les preguntes
             expand: Expandeix totes les preguntes
             preview: Previsualitzar
             title: Editar formulari per %{questionnaire_for}
-            unpublished_warning: El formulari no està publicat. Pots modificar les preguntes, però al fer-ho s'esborraran les respostes actuals.
           matrix_row:
             matrix_row: Fila
             remove: Elimina

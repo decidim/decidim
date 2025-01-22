@@ -1,1 +1,8 @@
+---
 bs:
+  decidim:
+    meetings:
+      admin:
+        registrations:
+          form:
+            recommendation_message: Zbog vaše privatnosti preporučujemo da obrišete ovaj prijavni formular kada vam više ne treba, obično 3 meseca nakon što se sastanak završio.

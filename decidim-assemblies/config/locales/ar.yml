@@ -188,7 +188,7 @@ ar:
           success: تم تحديث المشرف على هذه الجمعية بنجاح.
       filters:
         decidim_assemblies_type_id_eq:
-          label: نوع الجمعية
+          label: نوع التجمع
       menu:
         assemblies: الجمعيات
         assemblies_submenu:
@@ -200,7 +200,7 @@ ar:
           categories: الفئات
           components: المكونات
           moderations: الإعتدال
-        assemblies_types: نوع التجمّعات
+        assemblies_types: أنواع التجمّعات
       models:
         assemblies_types:
           fields:
@@ -315,9 +315,9 @@ ar:
         commission: اللجنة
         consultative_advisory: استشاري / الاستشارية
         executive: تنفيذية
-        government: حكومية
+        government: الحكومية
         others: أخرى
-        participatory: تشاركية
+        participatory: التشاركية
         working_group: فريق العمل
       content_blocks:
         children_assemblies:
@@ -347,7 +347,7 @@ ar:
           member_of:
             member_of: عضو في
       show:
-        assembly_type: نوع الجمعية
+        assembly_type: نوع التجمع
         duration: المدة الزمنية
         is_transparent:
           'false': مبهمة

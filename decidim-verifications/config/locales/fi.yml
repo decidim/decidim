@@ -42,13 +42,13 @@ fi:
           button: Kumoa kaikki
           button_before: Kumoa ennen tiettyä päivämäärää luodut
           destroy:
-            confirm: Ennen valittua päivämäärää tehtyjen vahvistustietojen tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
-            confirm_all: Vahvistusten tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
+            confirm: Ennen valittua päivämäärää tehtyjen vahvistustietojen kumoamista ei voi perua. Haluatko varmasti jatkaa?
+            confirm_all: Vahvistusten kumoamista ei voi perua. Haluatko varmasti jatkaa?
           destroy_nok: Vahvistusten kumoaminen epäonnistui.
-          destroy_ok: Kaikkien hakua vastanneiden tunnistautumisten peruuttaminen onnistui.
+          destroy_ok: Kaikkien hakua vastanneiden tunnistautumisten kumoaminen onnistui.
           info: Yhteensä %{count} vahvistettua osallistujaa.
           no_data: Ei vahvistettuja osallistujia.
-          title: Tunnistautumisten peruuttaminen
+          title: Tunnistautumisten kumoaminen
         authorization_workflows: Tunnistautumistavat
     admin_log:
       organization:
@@ -74,7 +74,7 @@ fi:
             - Sinä merkitset kirjeen lähetetyksi.
             - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi syöttää koodin ja vahvistaa tilinsä.
       csv_census:
-        explanation: Varmenna käyttäjätilisi organisaation henkilötietorekisterin avulla.
+        explanation: Vahvista käyttäjätilisi organisaation henkilötietorekisterin avulla.
         name: Organisaation rekisteritiedot
       direct: Suoraan
       help: Ohjeet
@@ -144,7 +144,7 @@ fi:
             destroy_all:
               success: Kaikki henkilötietorekisterin tiedot on poistettu.
           destroy:
-            confirm: Henkilötietorekisterin tietojen tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
+            confirm: Henkilötietorekisterin tietojen poistoa ei voi perua. Haluatko varmasti jatkaa?
             title: Poista kaikki rekisteritiedot
           index:
             data: Ladattuja tietueita on yhteensä %{count}. Viimeisin latauspäivä oli %{due_date}.

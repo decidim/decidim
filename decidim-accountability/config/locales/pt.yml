@@ -13,6 +13,7 @@ pt:
         project_ids: Projetos incluídos
         proposals: Propostas incluídas
         start_date: Data de início
+        subresults: Sub-resultados
         title: Título
         updated_at: Atualizado em
       status:
@@ -44,6 +45,7 @@ pt:
         import_csv: Importar resultados de um CSV
         new_result: Novo resultado
         new_status: Novo estado
+        new_timeline_entry: Nova entrada no cronograma
         preview: Pré-visualizar
         timeline_entries: Evolução do projeto
         title: Ações
@@ -134,6 +136,9 @@ pt:
             other: "%{count} resultados"
         filters:
           all: Todos
+        home:
+          categories_label: Categorias
+          subcategories_label: Subcategorias
         home_header:
           global_status: Estado de execução global
         nav_breadcrumb:

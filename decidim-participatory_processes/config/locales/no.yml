@@ -154,7 +154,7 @@
           name: Medvirkningsfase
         participatory_process_type:
           fields:
-            created_at: Opprettet
+            created_at: Opprettet på
             title: Tittel
           name: Prosesstype
         participatory_process_user_role:

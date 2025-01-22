@@ -358,7 +358,6 @@ pt-BR:
         title: Conflitos de verificação
         transfer:
           email: E-mail
-          error: Houve um erro ao transferir o usuário atual para o usuário gerenciado.
           name: Nome
           reason: Motivo
           success: A transferência atual foi concluída com sucesso.

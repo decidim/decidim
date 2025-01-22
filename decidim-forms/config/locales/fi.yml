@@ -83,12 +83,12 @@ fi:
             add_question: Lisää kysymys
             add_separator: Lisää erotinviiva
             add_title_and_description: Lisää otsikko ja kuvaus
-            already_answered_warning: Jotkut käyttäjät ovat jo vastanneet tähän kyselylomakkeeseen, joten et voi enää muokata kysymyksiä.
+            already_answered_warning: Jotkut käyttäjät ovat jo vastanneet lomakkeeseen, joten et voi muokata sen kysymyksiä.
             collapse: Sulje kaikki kysymykset
             expand: Avaa kaikki kysymykset
             preview: Esikatsele
             title: Muokkaa lomaketta kyselylle %{questionnaire_for}
-            unpublished_warning: Lomaketta ei ole julkaistu. Voit muokata sen kysymyksiä, mutta muokkaaminen poistaa nykyiset vastaukset.
+            unpublished_warning: Lomaketta ei ole julkaistu. Voit muokata sen kysymyksiä, mutta tällöin aikaisemmat vastaukset poistetaan.
           matrix_row:
             matrix_row: Rivi
             remove: Poista
@@ -181,7 +181,7 @@ fi:
           tos_agreement: Osallistumalla hyväksyt käyttöehdot
       step_navigation:
         show:
-          are_you_sure: Tätä toimintoa ei voi kumota, etkä voi muokata vastauksiasi. Oletko varma?
+          are_you_sure: Tätä toimintoa ei voi perua, etkä voi muokata vastauksiasi. Oletko varma?
           back: Takaisin
           continue: Jatka
           submit: Lähetä

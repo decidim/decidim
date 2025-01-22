@@ -303,7 +303,6 @@ ko:
         title: 인증 충돌 발생
         transfer:
           email: 이메일
-          error: 현재 참여자를 관리된 참여자로 옮기는 중 문제가 발생했습니다.
           name: 이름
           reason: 이유
           success: 현재 전송이 성공적으로 완료되었습니다.

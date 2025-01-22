@@ -345,7 +345,7 @@ ro:
         title: Voturi
     participatory_spaces:
       highlighted_proposals:
-        see_all: Afișează toate propunerile (%{count})
+        see_all: Afișează toate propunerile
     proposals:
       actions:
         answer_proposal: Răspundeți la propunere
@@ -357,14 +357,14 @@ ro:
         title: Acțiuni
       admin:
         actions:
-          preview: Previzualizează
+          preview: Previzualizați
         exports:
           proposal_comments: Comentarii
           proposals: Propuneri
         imports:
           label:
-            answers: Importă răspunsuri dintr-un fişier
-            proposals: Importă propuneri dintr-un fişier
+            answers: Importați răspunsuri dintr-un fișier
+            proposals: Importați propuneri dintr-un fișier
           resources:
             answers:
               one: răspuns la propunere
@@ -392,7 +392,7 @@ ro:
             info_1: Următoarele secțiuni au fost convertite în propuneri. Acum le poți revizui și ajusta înainte de a le publica.
             publish_document: Publică documentul
             save_draft: Salvează ciorna
-            title: Pevizualizează textul participativ
+            title: Previzualizați textul participativ
           new_import:
             accepted_mime_types:
               md: Markdown
@@ -460,7 +460,7 @@ ro:
             comments_count: Număr de comentarii
             documents: Documente
             endorsements_count: Număr de susțineri
-            endorsers: Susţinători
+            endorsers: Susținători
             n_more_endorsers:
               one: și încă 1
               few: și încă %{count}
@@ -666,7 +666,7 @@ ro:
         edit_draft:
           discard: Renunță la această ciornă
           discard_confirmation: Sigur dorești să renunți la această ciornă de propunere?
-          send: Previzualizează
+          send: Previzualizați
         filters:
           activity: Activitatea mea
           all: Toate

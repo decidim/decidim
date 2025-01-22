@@ -1944,6 +1944,8 @@ fr:
         expire_time_html: Votre session expirera dans <b><span class="minutes">%{minutes}</span> minutes</b>.
       language_chooser:
         choose_language: Choisir la langue
+      navigation:
+        aria_label: Menu de navigation - %{title}
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
         mark_as_read: Marquer comme lu

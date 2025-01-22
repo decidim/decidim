@@ -270,7 +270,7 @@ fi-pl:
           reject:
             success: Aloitteen hylkääminen onnistui.
           unpublish:
-            success: Aloitteen julkaisun lopetus onnistui.
+            success: Aloitteen julkaisun peruminen onnistui.
           update:
             error: Tapahtui virhe.
             success: Aloitteen päivitys onnistui.
@@ -541,7 +541,7 @@ fi-pl:
           initiative_data: Aloitteen tiedot
           scope: Teema
           send_to_technical_validation: Lähetä tekniseen validointiin
-          send_to_technical_validation_announcement: Jos kaikki näyttää hyvältä, paina "Lähetä tekniseen validointiin" -painiketta, jotta hallinnointikäyttäjä voi tarkistaa ja julkaista aloitteesi
+          send_to_technical_validation_announcement: Jos kaikki näyttää hyvältä, paina "Lähetä tekniseen validointiin" -painiketta, jotta hallintakäyttäjä voi tarkistaa ja julkaista aloitteesi
           signature_collection: Allekirjoituksen keräämistapa
           state: Tila
           type: Tyyppi

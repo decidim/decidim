@@ -38,8 +38,12 @@ ar:
         user_group_id: إنشاء الاستيرادات ك
       newsletter:
         body: النص
+        send_to_all_users: إرسال إلى كافة المستخدمين
+        send_to_followers: إرسال إلى المتابِعين
+        send_to_participants: إرسال إلى المشتركين
         subject: الموضوع
       organization:
+        admin_terms_of_service_body: نص شروط الخدمة للمشرف
         alert_color: تنبيه
         available_authorizations: التراخيص المتاحة
         badges_enabled: تمكين الشارات
@@ -53,8 +57,12 @@ ar:
         enable_participatory_space_filters: تفعيل أختيارات فرز الفضاء التشاركي
         facebook_handler: مُعرّف حساب فيسبوك
         favicon: أيقونة
+        force_authentication: فرض المصادقة
+        force_users_to_authenticate_before_access_organization: إلزام المستخدمين على المصادقة قبل الدخول إلى المنظمة
+        from: البريد الإلكتروني للمرسل
         github_handler: مُعرّف حساب غِت هَب
         header_snippets: قصاصات رأس
+        highlight_alternative_color: تحديد، البديل
         highlight_color: تظليل
         highlighted_content_banner_action_subtitle: نص زر الإجراء
         highlighted_content_banner_action_title: عنوان زر الإجراء
@@ -85,9 +93,12 @@ ar:
         secondary_hosts: المستضيفين الثانويين
         send_welcome_notification: إرسال إشعار بالترحيب
         success_color: نجاح
+        tertiary_color: المستوى الثالث
         time_zone: المنطقة الزمنية
         tos_version: شروط وأحكام الخدمة
+        twitter_handler: X handler
         user_groups_enabled: تمكين المجموعات
+        users_registration_mode: وضع تسجيل المستخدمين
         warning_color: تحذير
         welcome_notification_body: محتوى إشعار الترحيب
         welcome_notification_subject: موضوع إشعار الترحيب
@@ -109,24 +120,46 @@ ar:
       settings:
         scope_id: المجال
       static_page:
+        allow_public_access: السماح بالوصول دون مصادقة
         changed_notably: كانت هناك تغييرات ملحوظة.
         content: المحتوى
         organization: المنظمة
         show_in_footer: تظهر في تذييل الصفحة
         slug: سبيكة العنوان الشبكي
         title: العنوان
+        topic_id: الموضوع
+        weight: موضع الطلب
       static_page_topic:
         description: وصف
+        name: عنوان الموضوع
         show_in_footer: تظهر في تذييل الصفحة
         title: العنوان
+        weight: موضع الطلب
       user_group_csv_verification:
         file: ملف
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: حدد مساحة تشاركية واحدة على الأقل.
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: ملف صورة غير صالح
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: خطأ في ملفّ الاستيراد، يرجى قراءة التعليمات بعناية والتأكد من أن ترميز الملف هو UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: خطأ في ملفّ الاستيراد، يرجى قراءة التعليمات بعناية والتأكد من أن ترميز الملف هو UTF-8.
+      new_import:
+        attributes:
+          file:
+            invalid_file: الملف غير صالح، يرجى التأكد من تنسيق الملف بشكل صحيح.
+            invalid_mime_type: ملف من نوع MIME غير صالح.
   activerecord:
     attributes:
       decidim/static_page:
@@ -145,10 +178,15 @@ ar:
     admin:
       actions:
         add: إضافة
+        attachment:
+          new: إضافة مرفق
+        attachment_collection:
+          new: مجلد مرفقات جديد
         browse: تصفح
         category:
           new: فئة جديدة
         export: تصدير الكل
+        export-selection: تصدير الإختيار
         import: استيراد
         manage: تدبير
         newsletter:
@@ -289,7 +327,6 @@ ar:
         title: تضارب التحقق
         transfer:
           email: البريد الإلكتروني
-          error: كانت هناك مشكلة في نقل المشارك الحالي إلى مشارك مُدار.
           name: الإسم
           reason: السبب
           success: قد اكتمل النقل الحالي بنجاح.
@@ -603,7 +640,7 @@ ar:
           all_spaces: الكل
           confirm_deliver: هل أنت متأكد من أنك تريد تسليم هذه الرسالة الإخبارية؟ لا يمكن التراجع عن هذا الإجراء.
           deliver: تسليم النشرة الإخبارية
-          none: لا شَيْء
+          none: لا شيء
           scopes_help: إرسال النشرة الإخبارية للمستخدمين الذين لديهم أي من المجالات المحددة تم تفعيله في إعدادات "اهتماماتي" لحسابهم.
           select_scopes: أختر للمستخدمين الذين فعلوا أي مجال محدد في إعدادات أهتماماتي لحساباتهم.
           title: حدد المستلمين للإرسال اليهم

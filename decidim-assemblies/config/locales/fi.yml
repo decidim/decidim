@@ -168,8 +168,8 @@ fi:
           error: Ryhmän julkaiseminen epäonnistui.
           success: Ryhmän julkaisu onnistui.
         destroy:
-          error: Ryhmän julkaisun lopettaminen epäonnistui.
-          success: Ryhmän julkaisun lopettaminen onnistui.
+          error: Ryhmän julkaisun peruminen epäonnistui.
+          success: Ryhmän julkaisun peruminen onnistui.
       assembly_user_roles:
         create:
           error: Hallintakäyttäjän lisäys ryhmään epäonnistui.
@@ -260,7 +260,7 @@ fi:
         export: "%{user_name} vei ryhmän %{resource_name}"
         import: "%{user_name} toi ryhmän %{resource_name}"
         publish: "%{user_name} julkaisi %{resource_name} ryhmän"
-        unpublish: "%{user_name} lopetti ryhmän %{resource_name} julkaisun"
+        unpublish: "%{user_name} perui ryhmän %{resource_name} julkaisun"
         update: "%{user_name} päivitti %{resource_name} ryhmän"
       assembly_member:
         create: "%{user_name} loi %{resource_name} jäsenen %{space_name} ryhmässä"
@@ -272,7 +272,7 @@ fi:
         create: "%{user_name} loi ryhmätyypin %{resource_name}"
         delete: "%{user_name} poisti ryhmätyypin %{resource_name}"
         publish: "%{user_name} julkaisi ryhmätyypin %{resource_name}"
-        unpublish: "%{user_name} lopetti ryhmätyypin %{resource_name} julkaisun"
+        unpublish: "%{user_name} perui ryhmätyypin %{resource_name} julkaisun"
         update: "%{user_name} päivitti ryhmätyypin %{resource_name}"
       assembly_user_role:
         create: "%{user_name} kutsui %{resource_name} %{space_name} ryhmään"
@@ -351,11 +351,11 @@ fi:
           members: Jäsenet
       assembly_types:
         commission: Komissio
-        consultative_advisory: Neuvoa-antava
+        consultative_advisory: Konsultti/neuvonantaja
         executive: Johtaja
-        government: Hallitus
+        government: Hallinto
         others: Muut
-        participatory: Osallistuva
+        participatory: Osallistava
         working_group: Työryhmä
       content_blocks:
         children_assemblies:

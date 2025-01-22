@@ -188,7 +188,7 @@ de:
         cancel: Abbrechen
       password_change:
         alert: Sie müssen Ihr Passwort ändern, um fortzufahren.
-        notification: Administratoren müssen ihr Passwort alle %{days} Tage ändern.
+        notification: Admins müssen ihr Passwort alle %{days} Tage ändern.
     admin_log:
       area:
         create: "%{user_name} hat den Bereich %{resource_name} erstellt"
@@ -851,7 +851,7 @@ de:
         answer: Antwort
         collaborative_draft: Kollaborativer Entwurf
         dummy_resource: Dummy-Ressourcen
-        meeting: Meetings
+        meeting: Veranstaltungen
         project: Projekte
         proposal: Vorschläge
         result: Ergebnisse
@@ -1291,7 +1291,7 @@ de:
       not_available_yet: Die Open Data-Dateien sind noch nicht verfügbar. Bitte versuchen Sie es in einigen Minuten erneut.
     pad_iframe:
       disclaimer: Der Inhalt dieses Blocks wird von registrierten Benutzern verfasst und gibt deren Meinung wieder. %{organization} kann nicht für den Inhalt verantwortlich gemacht werden.
-      explanation: Verwenden Sie dieses Pad, um während des Meetings gemeinsam Notizen zu machen, was die Protokollerstellung erleichtert.
+      explanation: Verwenden Sie dieses Pad, um während der Veranstaltung gemeinsam Notizen zu machen, was die Protokollerstellung erleichtert.
       pad: Pad
     pages:
       home:
@@ -1299,9 +1299,9 @@ de:
           debates: Diskussionen
           debates_explanation: Teilen Sie Ihre Ansichten und bereichern Sie die aus Ihrer Sicht relevanten Themen.
           how_to_participate: Wie nehme ich an einem Prozess teil?
-          meetings: Meetings
+          meetings: Veranstaltungen
           meetings_explanation: Finden Sie heraus, wo und wann Sie an öffentlichen Veranstaltungen teilnehmen können.
-          more_info: Mehr Informationen
+          more_info: Mehr Informationen über %{resource_name}
           proposals: Vorschläge
           proposals_explanation: Machen Sie Vorschläge, unterstützen Sie bestehende und fördern Sie die Änderungen, die Sie sehen möchten.
         footer_sub_hero:
@@ -1479,7 +1479,7 @@ de:
         does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
         hide: Verbergen
         hide_content: Diesen Inhalt verbergen
-        offensive: Er enthält Formen von Rassismus, Sexismus, Verunglimpfungen, persönlichen Angriffen, Morddrohungen, Selbstmord oder jeder Form von Hassreden.
+        offensive: Enthält Formen von Rassismus, Sexismus, Verleumdungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder andere Formen von seelischer Gewalt.
         reason: Begründung
         report: Meldung erfassen
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
@@ -1491,7 +1491,7 @@ de:
         description: Was ist unangebracht über den Benutzer?
         does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
         hide: Alle dessen Inhalte verbergen
-        offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder eine Form von Hassrede.
+        offensive: Enthält Formen von Rassismus, Sexismus, Verleumdungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder andere Formen von seelischer Gewalt.
         report: Melden
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
         title: Unangemessenen Nutzer melden
@@ -1531,7 +1531,7 @@ de:
         share_to: Teilen mit %{service}
     statistics:
       comments_count: Kommentare
-      endorsements_count: Befürworungen
+      endorsements_count: Befürwortungen
       followers_count: Follower
       headline: Statistik
       no_stats: Es gibt noch keine Statistiken.
@@ -1880,13 +1880,13 @@ de:
             description: Beschreibung
             name: Name
             service: Service
-            type: Art
+            type: Typ
           items:
             _session_id:
               description: Ermöglicht es Websites, sich an Benutzer zu erinnern, wenn diese verschiedene Seiten aufrufen.
               service: Diese Website
             decidim-consent:
-              description: Speichert Informationen über die vom Benutzer erlaubten Cookies auf dieser Website.
+              description: Speichert Informationen über die nutzendenseitig zugelassenen Cookies auf dieser Website.
               service: Diese Website
             pwaInstallPromptSeen:
               description: Speichert den Status, wenn die progressive Web-Anwendung (PWA) Installationsbenachrichtigung bereits vom Nutzenden gesehen wurde.
@@ -1946,6 +1946,8 @@ de:
         expire_time_html: Ihre Sitzung wird in <b><span class="minutes">%{minutes}</span> Minuten</b>ablaufen.
       language_chooser:
         choose_language: Sprache wählen
+      navigation:
+        aria_label: 'Navigationsmenü: %{title}'
       notifications_dashboard:
         mark_all_as_read: Alles als gelesen markieren
         mark_as_read: Als gelesen markieren

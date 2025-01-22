@@ -296,7 +296,6 @@ nl:
         title: Controle conflicten
         transfer:
           email: E-mail
-          error: Er is een probleem opgetreden bij het overbrengen van de huidige deelnemer naar een beheerde deelnemer.
           name: Naam
           reason: Reden
           success: De overdracht is met succes voltooid.

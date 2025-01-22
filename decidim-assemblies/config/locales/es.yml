@@ -212,7 +212,7 @@ es:
           moderations: Moderaciones
           private_users: Participantes privadas
           see_assembly: Ver la asamblea
-        assemblies_types: Tipos de asamblea
+        assemblies_types: Tipo de asamblea
       models:
         assemblies_types:
           fields:
@@ -352,10 +352,10 @@ es:
       assembly_types:
         commission: Comisión
         consultative_advisory: Consultiva / Asesora
-        executive: Ejecutiva
+        executive: Ejecutivo
         government: Gobierno
         others: Otros
-        participatory: Participativa
+        participatory: Participativo
         working_group: Grupo de trabajo
       content_blocks:
         children_assemblies:
@@ -395,7 +395,7 @@ es:
           member_of:
             member_of: Miembro de
       show:
-        assembly_type: Tipo de asambleas
+        assembly_type: Tipo de asamblea
         duration: Duración
         is_transparent:
           'false': opaca

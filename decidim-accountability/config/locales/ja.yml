@@ -223,7 +223,7 @@ ja:
           empty_filters: この条件の結果はありません。
           subcategories_label: サブカテゴリ
         home_header:
-          global_status: グローバル実行状況
+          global_status: 全体の実行状況
         nav_breadcrumb:
           global: グローバル実行
         no_results: プロジェクトがありません

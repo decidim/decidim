@@ -69,7 +69,7 @@ eu:
         gender: Generoa
         non_user_avatar: Abatarra
         position: Posizioa
-        user_id: Erabiltzailea edo taldea
+        user_id: Parte-hartzailea edo taldea
         weight: Kokapenaren hurrenkera
       assembly_user_role:
         email: E-maila
@@ -91,7 +91,7 @@ eu:
         other: Batzar kideak
       decidim/assembly_user_role:
         one: Batzarreko erabiltzaileen rola
-        other: Batzar erabiltzailearen rolak
+        other: Batzar parte-hartzailearen rolak
   decidim:
     admin:
       actions:
@@ -156,7 +156,7 @@ eu:
           title: Eguneratu batzarkidea
           update: Eguneratu
         index:
-          assembly_members_title: Batzarkideak
+          assembly_members_title: Batzarraen kideak
         new:
           create: Sortu
           title: Beste batzarkide bat
@@ -216,7 +216,7 @@ eu:
       models:
         assemblies_types:
           fields:
-            created_at: Sortze-data
+            created_at: Noiz sortua
             title: Izenburua
         assembly:
           fields:
@@ -255,29 +255,29 @@ eu:
         assemblies_types: Batzar motak
     admin_log:
       assembly:
-        create: "%{user_name} k %{resource_name} batzarra sortu zuen"
-        duplicate: "%{user_name} k %{resource_name} batzarra bikoiztu zuen"
-        export: "%{user_name} k %{resource_name} batzarra esportatu zuen"
-        import: "%{user_name} k %{resource_name} batzarra inportatu zuen"
-        publish: "%{user_name} k%{resource_name} batzarra argitaratu du"
-        unpublish: "%{user_name} k %{resource_name} batzarra desargitaratu du"
-        update: "%{user_name} k %{resource_name} batzarra eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} batzarra sortu zuen"
+        duplicate: "%{user_name} parte-hartzaileak %{resource_name} batzarra bikoiztu zuen"
+        export: "%{user_name} parte-hartzaileak %{resource_name} batzarra esportatu zuen"
+        import: "%{user_name} parte-hartzaileak %{resource_name} batzarra inportatu zuen"
+        publish: "%{user_name} parte-hartzaileak %{resource_name} batzarra argitaratu du"
+        unpublish: "%{user_name} parte-hartzaileak %{resource_name} batzarra desargitaratu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} batzarra eguneratu du"
       assembly_member:
-        create: "%{user_name} k %{resource_name} kidea sortu du %{space_name} batzarrean"
-        delete: "%{user_name} k kendu du %{resource_name} kidea %{space_name} batzarretik"
-        update: "%{user_name} k %{resource_name} kidea eguneratu du %{space_name} batzarrean"
+        create: "%{user_name} parte-hartzaileak %{resource_name} kidea sortu du %{space_name} batzarrean"
+        delete: "%{user_name} parte-hartzaileak kendu du %{resource_name} kidea %{space_name} batzarretik"
+        update: "%{user_name} parte-hartzaileak %{resource_name} kidea eguneratu du %{space_name} batzarrean"
       assembly_setting:
-        update: "%{user_name} k batzarren konfigurazioa eguneratu du"
+        update: "%{user_name} parte-hartzaileak batzarren konfigurazioa eguneratu du"
       assembly_type:
-        create: "%{user_name} k %{resource_name} batzar mota sortu du"
-        delete: "%{user_name} k %{resource_name} batzar mota ezabatu du"
-        publish: "%{user_name} k %{resource_name} batzar mota argitaratu du"
-        unpublish: "%{user_name} k %{resource_name} batzar mota despublikatu du"
-        update: "%{user_name} k %{resource_name} batzar mota eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} batzar mota sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} batzar mota ezabatu du"
+        publish: "%{user_name} parte-hartzaileak %{resource_name} batzar mota argitaratu du"
+        unpublish: "%{user_name} parte-hartzaileak %{resource_name} batzar mota despublikatu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} batzar mota eguneratu du"
       assembly_user_role:
-        create: "%{user_name} k %{resource_name} gonbidatu du %{space_name} batzarrera"
-        delete: "%{user_name} k %{resource_name} parte-hartzailea %{space_name} muntaia kendu du"
-        update: "%{user_name} k %{resource_name} rola aldatu du %{space_name} batzarrerako"
+        create: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du %{space_name} batzarrera"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea %{space_name} muntaia kendu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} rola aldatu du %{space_name} batzarrerako"
     assemblies:
       admin:
         assemblies:
@@ -312,11 +312,11 @@ eu:
             existing_user: Parte-hartzailea existitzen da
             explanation: 'Jarraibideak irudirako:'
             image_guide: Ahal izanez gero, irudi bertikal bat testurik gabe.
-            non_user: Erabiltzailea ez
+            non_user: Ez da parte-hartzailea
             non_user_avatar_help: Pertsonen baimena lortu beharko zenuke, kide gisa argitaratu baino lehen.
             select_a_position: Hautatu posizio bat
             select_user: Hautatu parte-hartzaile bat
-            user_type: Erabiltzaile mota
+            user_type: Parte-hartzaile mota
         content_blocks:
           highlighted_assemblies:
             max_results: Erakusteko elementu gehienen kopurua

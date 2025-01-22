@@ -54,10 +54,86 @@ he:
         show_statistics: הצגת סטטיסטיקה
         slug: כינוי לקישור
         special_features: מאפיינים מיוחדים
+        subtitle: כותרת משנה
+        target: מי משתתף
+        title: כותרת
+        twitter: X
+        weight: סידור המיקום
+        youtube: יוטיוב
+      assembly_member:
+        birthday: יום הולדת
+        birthplace: מקום לידה
+        ceased_date: תאריך סיום
+        designation_date: תאריך התפטרות
+        full_name: של מלא
+        gender: מגדר
+        non_user_avatar: אווטאר
+        position: מיקום
+        user_id: משתמש או קבוצה
+        weight: סידור המיקום
+      assembly_user_role:
+        email: דוא"ל
+        name: שם
+        role: תפקיד
+  activerecord:
+    models:
+      decidim/assembly:
+        one: אסיפה
+        two: אסיפות
+        many: אסיפות
+        other: אסיפות
+      decidim/assembly_member:
+        one: חבר אסיפה
+        two: חברי אסיפה
+        many: חברי אסיפה
+        other: חברי אסיפה
+      decidim/assembly_user_role:
+        one: תפקיד באסיפה
+        two: תפקידים באסיפה
+        many: תפקידים באסיפה
+        other: תפקידים באסיפה
   decidim:
     admin:
+      actions:
+        import_assembly: יבוא
+        new_assembly: אסיפה חדשה
+        new_assembly_type: סוג אסיפה חדש
+        new_assembly_user_role: מנהל אסיפה חדש
+      assemblies:
+        create:
+          error: יש בעיה ביצירת אסיפה חדשה.
+        edit:
+          update: עדכון
+        index:
+          private: פרטי
+          public: ציבורי
+          published: מפורסם
+          unpublished: לא מפורסם
+        new:
+          create: יצירה
+          title: אסיפה חדשה
+        update:
+          error: יש בעיה בעדכון אסיפה זו.
+          success: האסיפה עודכנה בהצלחה.
+      assemblies_copies:
+        create:
+          error: יש בעיה בשכפול אסיפה זו.
+          success: אסיפה השתכפלה בהצלחה.
+      assemblies_types:
+        create:
+          error: יש בעיה ביצירת סוג אסיפה חדש.
+          success: סוג אסיפה נוצר בהצלחה.
+        destroy:
+          success: סוג אסיפה נמחק בהצלחה.
+        new:
+          create: יצירה
+          title: סוג אסיפה חדש
+        update:
+          error: יש בעיה בעדכון סוג האסיפה.
+          success: סוג אסיפה עודכן בהצלחה.
       assembly_copies:
         new:
+          copy: העתקה
           title: שכפל אסיפה
       assembly_imports:
         create:
@@ -75,9 +151,11 @@ he:
           success: חבר.ה נמחק.ה בהצלחה מאסיפה זו.
         edit:
           title: עדכון חבר.ה אסיפה
+          update: עדכון
         index:
           assembly_members_title: חברי.ות אסיפה
         new:
+          create: יצירה
           title: חבר.ה אסיפה חדש.ה
         update:
           error: הייתה בעיה בעדכון חבר.ה עבור אסיפה זו.
@@ -92,6 +170,97 @@ he:
       assembly_user_roles:
         create:
           error: הייתה בעיה בהוספת מנהל.ת עבור אסיפה זו.
+        edit:
+          title: עדכון מנהל אסיפה
+          update: עדכון
+        index:
+          assembly_admins_title: מנהלי אסיפה
+        new:
+          create: יצירה
+          title: מנהל אסיפה חדש
+      filters:
+        ceased_date_not_null:
+          label: הסתיימו
+          values:
+            'false': לא הסתיימו
+            'true': הסתיימו
+        decidim_assemblies_type_id_eq:
+          label: סוג אסיפה
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: חיפוש לפי שם או כינוי
+      menu:
+        assemblies: אסיפות
+        assemblies_submenu:
+          assembly_admins: מנהלי אסיפה
+          attachment_collections: תיקיות
+          attachment_files: קבצים
+          attachments: קבצים מצורפים
+          categories: קטגוריות
+          components: רכיבים
+          info: אודות האסיפה
+          landing_page: דף נחיתה
+          moderations: שינויים
+          see_assembly: ראה אסיפה
+        assemblies_types: סוגי אסיפות
+      models:
+        assemblies_types:
+          fields:
+            created_at: נוצרו ב
+            title: כותרת
+        assembly:
+          fields:
+            actions: פעולות
+            created_at: נוצרו ב
+            private: פרטי
+            promoted: מודגשים
+            published: פורסמו
+            title: כותרת
+          name: אסיפה
+        assembly_member:
+          fields:
+            ceased_date: תאריך סיום
+            designation_date: תאריך התפטרות
+            full_name: שם
+            position: מיקום
+          name: חבר
+          positions:
+            other: אחר
+            president: נשיא
+            secretary: מזכיר
+            vice_president: סגן נשיא
+        assembly_user_role:
+          fields:
+            email: דוא"ל
+            name: שם
+            role: תפקיד
+          name: מנהל אסיפה
+          roles:
+            admin: מנהל
+            collaborator: שותף
+            moderator: פקח
+            valuator: מעריך
+      titles:
+        assemblies: אסיפות
+        assemblies_types: סוגי אסיפות
     assemblies:
+      admin:
+        assemblies:
+          form:
+            duration: משך
+            filters: מסננים
+            images: תמונות
+            metadata: מטא-דאטה
+            other: אחר
+            select_a_created_by: בחירת מי יצר
+            select_an_area: בחירת אזור
+            select_an_assembly_type: בחירת סוג אסיפה
+            select_parent_assembly: בחירת אסיפת אם
+            social_handlers: חברתי
+            title: מידע כללי
+            visbility: נראות
+        assemblies_types:
+          form:
+            title: עריכת סוג אסיפה
       show:
+        assembly_type: סוג אסיפה
         related_participatory_processes: תהליך השתתפותי מקושר

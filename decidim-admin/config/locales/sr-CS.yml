@@ -451,7 +451,6 @@ sr:
           confirm_deliver: Da li ste sigurni da želite da dostavite ovaj bilten? Ova radnja se ne može poništiti.
           deliver: Dostavi bilten
           followers_help: Pošalji bilten svim potvrđenim učesnicima koji prate bilo koji od odabranih prostora za učešće sa liste.
-          none: Nijеdan
           participants_help: Pošalji bilten svim potvrđenim učesnicima koji su učestvovali u bilo kojem od odabranih prostora za učešće sa liste.
           recipients_count: Ovaj bilten biće dostavljen <strong id='recipients_count'>%{count}</strong> korisnicima.
           scopes_help: Šalje bilten korisnicima koji su aktivirali makar jedan od odabranih opsega u podešavanjima "Moji interesi" svog naloga.

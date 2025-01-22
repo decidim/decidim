@@ -33,7 +33,6 @@ sk:
             save: Uložiť
           form:
             add_question: Pridať otázku
-            already_answered_warning: Na formulár už niekto odpovedal, takže nemôžete meniť jeho otázky.
           matrix_row:
             remove: Odstrániť
             statement: Prehlásenie

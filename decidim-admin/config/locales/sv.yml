@@ -760,7 +760,7 @@ sv:
           confirm_deliver: Vill du skicka nyhetsbrevet? Den här åtgärden kan inte ångras.
           deliver: Leverera nyhetsbrev
           followers_help: Skickar nyhetsbrevet till alla verifierade användare som följer något av de markerade deltagarutrymmena i listan.
-          none: Inga
+          none: Ingen
           participants_help: Skickar nyhetsbrevet till alla verifierade användare som har deltagit i något av de markerade deltagarutrymmena i listan.
           recipients_count: Nyhetsbrevet kommer att skickas till <strong id='recipients_count'>%{count}</strong> användare.
           scopes_help: Skickar nyhetsbrev till användare som markerat någon av de valda indelningarna under "Mina intressen".

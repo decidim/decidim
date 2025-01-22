@@ -83,12 +83,12 @@ eu:
             add_question: Gehitu galdera
             add_separator: Gehitu banatzailea
             add_title_and_description: Gehitu izenburua eta deskribapena
-            already_answered_warning: Formularioa erabiltzaile batzuek erantzuten dute; beraz, ezin dira galderak aldatu.
+            already_answered_warning: Formularioa parte-hartzaile batzuek erantzuten dute dagoeneko; beraz, ezin dituzu galderak aldatu.
             collapse: Bildu galdera guztiak
             expand: Zabaldu galdera guztiak
             preview: Aurreikusi
             title: Editatu galdetegia honetarako %{questionnaire_for}
-            unpublished_warning: Galdetegia ez dago argitaratuta. Bere galderak aldatu ahal dituzu, baina egitean oraingo erantzunak ezabatuko dira.
+            unpublished_warning: Galdetegia ez dago argitaratuta. Galderak alda ditzakezu, baina eginez gero, oraingo erantzunak ezabatuko dituzu.
           matrix_row:
             matrix_row: Errenkada
             remove: Kendu
@@ -126,7 +126,7 @@ eu:
             success: Galdetegia zuzen gorde da.
       admin_log:
         questionnaire:
-          update: "%{user_name} erabiltzaileak %{resource_name} galdetegia eguneratu du"
+          update: "%{user_name} parte-hartzaileak %{resource_name} galdetegia eguneratu du"
       errors:
         answer:
           body: "Gorputza ezin da hutsik egon\n"
@@ -157,7 +157,7 @@ eu:
         show:
           answer_questionnaire:
             already_have_an_account?: Baduzu kontu bat?
-            are_you_new?: Erabiltzaile berria?
+            are_you_new?: Parte-hartzaile berria?
             sign_in_description: Hasi saioa inkesta egiteko
             sign_up_description: Sortu parte-hartzaileen kontua inkesta egiteko
             title: Erantzun formularioa
@@ -171,7 +171,7 @@ eu:
             body: Galdetegia itxita dago eta ezin da erantzun.
             title: Galdeketa itxia
           questionnaire_for_private_users:
-            body: Galdetegia erabiltzaile pribatuentzat soilik dago erabilgarri
+            body: Galdetegia parte-hartzaile pribatuentzat soilik dago erabilgarri
             title: Galdeketa itxia
           questionnaire_js_disabled:
             body: Galdetegi honen ezaugarri batzuk desaktibatu egingo dira. Zure esperientzia hobetzeko, gaitu JavaScript zure nabigatzailean.
@@ -193,6 +193,6 @@ eu:
         ip_hash: IP Helbidearen Hash
         question: Galdera
         registered: Erregistratuta
-        session_token: Erabiltzailearen identifikatzailea
+        session_token: Parte-hartzailearen identifikatzailea
         unregistered: Erregistratu gabe
-        user_status: Erabiltzailearen egoera
+        user_status: Parte-hartzailearen egoera

@@ -65,7 +65,7 @@ cs:
         start_date: Datum zahájení
         title: Titul
       participatory_process_type:
-        title: Název
+        title: Titul
       participatory_process_user_role:
         email: E-mailem
         name: Název
@@ -161,7 +161,7 @@ cs:
         participatory_process_type:
           fields:
             created_at: Vytvořeno v
-            title: Název
+            title: Titul
           name: Typ procesu
         participatory_process_user_role:
           fields:
@@ -253,7 +253,7 @@ cs:
           success: Typ procesu byl úspěšně odstraněn.
         edit:
           title: Upravit typ procesu
-          update: Aktualizovat
+          update: Aktualizace
         new:
           create: Vytvořit
           title: Nový typ procesu

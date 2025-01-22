@@ -115,7 +115,7 @@ sv:
     elections:
       actions:
         confirm_destroy: Är du säker?
-        destroy: Förstör
+        destroy: Radera
         edit: Redigera
         feedback: Väljarfeedback
         import: Importera förslag till svar
@@ -241,7 +241,7 @@ sv:
       election_m:
         badge_name:
           finished: Avslutad
-          ongoing: Aktiv
+          ongoing: Pågående
           upcoming: Kommande
         end_date: Slutar
         footer:
@@ -273,7 +273,7 @@ sv:
           title: Omröstningslogg
           vote_title: Omröstningsprocess
         filters:
-          active: Aktiv
+          active: Pågående
           all: Allt
           date: Datum
           finished: Avslutad
@@ -698,7 +698,7 @@ sv:
         elections_log:
           title: Omröstningslogg
         filters:
-          active: Aktiva
+          active: Pågående
           all: Alla
           date: Datum
           finished: Avslutade

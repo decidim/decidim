@@ -1,1 +1,528 @@
+---
 bs:
+  activemodel:
+    attributes:
+      area:
+        area_type: Tip oblasti
+        name: Ime
+        organization: Organizacija
+      area_type:
+        name: Ime
+        organization: Organizacija
+        plural: Množina
+      attachment:
+        attachment_collection_id: Fascikla
+        description: Opis
+        file: Fajl
+      attachment_collection:
+        description: Opis
+        name: Ime
+      category:
+        description: Opis
+        name: Ime
+        parent_id: Roditelj
+      component:
+        name: Ime
+        published_at: Objavljeno
+      id: ID
+      newsletter:
+        body: Glavni deo teksta
+        subject: Naslov
+      organization:
+        alert_color: Upozorenje
+        badges_enabled: Omogući značke
+        cta_button_path: Put dugmeta poziva na akciju
+        cta_button_text: Tekst dugmeta poziva na akciju
+        customize_welcome_notification: Prilagodi obaveštenje dobrodošlice
+        default_locale: Podrazumevana vrednost
+        description: Opis
+        enable_omnipresent_banner: Prikaži sveprisutni baner
+        facebook_handler: Administrator Facebook-a
+        favicon: Ikona
+        github_handler: Administrator GitHub-a
+        header_snippets: Fragmenti zaglavlja
+        highlighted_content_banner_action_subtitle: Podnastlov dugmeta akcije
+        highlighted_content_banner_action_title: Naslov dugmeta akcije
+        highlighted_content_banner_action_url: Link dugmeta akcije
+        highlighted_content_banner_enabled: Prikaži istaknut baner sadržaja
+        highlighted_content_banner_image: Slika
+        highlighted_content_banner_short_description: Kratak opis
+        highlighted_content_banner_title: Naslov
+        instagram_handler: Administrator Instagram-a
+        logo: Logo
+        name: Ime
+        official_img_footer: Zvanično podnožje logoa
+        official_url: Zvaničan link organizacije
+        omnipresent_banner_short_description: Kratak opis
+        omnipresent_banner_title: Naslov
+        omnipresent_banner_url: Adresa
+        primary_color: Primarni
+        reference_prefix: Prefiks reference
+        rich_text_editor_in_public_views: Omogući korisnicima uređivanje teksta sa formatiranjem
+        secondary_color: Sekundarni
+        send_welcome_notification: Pošalji obaveštenje dobrodošlice
+        success_color: Uspeh
+        time_zone: Vremenska zona
+        tos_version: Verzija uslova korišćenja
+        user_groups_enabled: Omogući grupe
+        warning_color: Upozorenje
+        welcome_notification_body: Glavni tekst obaveštenja dobrodošlice
+        welcome_notification_subject: Naslov obaveštenja dobrodošlice
+        youtube_handler: Administrator YouTube-a
+      scope:
+        code: Kod
+        name: Ime
+        organization: Organizacija
+        parent_id: Roditelj
+        scope_type: Tip opsega
+        scope_type_id: Tip opsega
+      scope_type:
+        name: Ime
+        organization: Organizacija
+        plural: Množina
+      static_page:
+        changed_notably: Bilo je primetnih promena.
+        content: Sadržaj
+        organization: Organizacija
+        show_in_footer: Prikaži u podnožju
+        slug: Zadnji deo URL-a
+        title: Naslov
+      static_page_topic:
+        description: Opis
+        show_in_footer: Prikaži u podnožju
+        title: Naslov
+      user_group_csv_verification:
+        file: Fajl
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Neodgovarajući fajl slike
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Sadržaj
+        slug: Zadnji deo URL-a
+        title: Naslov
+      doorkeeper/application:
+        authorize_url: Autorizuj URL
+        client_id: Identitet klijenta
+        client_secret: Tajni ključ klijenta
+        organization_name: Ime organizacije
+        organization_url: Link organizacije
+        redirect_uri: Preusmeren URL
+        site: Veb stranica
+  decidim:
+    admin:
+      actions:
+        add: Dodaj
+        browse: Pregledaj
+        manage: Upravljaj
+        per_page: Po stranici
+        permissions: Dozvole
+        reject: Odbaci
+        verify: Overi
+      area_types:
+        create:
+          error: Nastao je problem pri stvaranju novog tipa oblasti.
+          success: Tip oblasti je uspešno stvoren.
+        edit:
+          title: Izmeni tip oblasti
+          update: Ažuriraj
+        new:
+          create: Stvori tip oblasti
+          title: Nov tip oblasti
+        update:
+          error: Nastao je problem pri ažuriranju ovog tipa oblasti.
+      areas:
+        create:
+          error: Nastao je problem pri stvaranju nove oblasti.
+          success: Oblast je uspešno stvorena.
+        edit:
+          title: Uređivanje oblasti
+          update: Ažuriraj
+        new:
+          create: Stvori oblast
+          title: Nova oblast
+        no_areas: Nema Oblasti
+        update:
+          error: Nastao je problem pri ažuriranju ove oblasti.
+      attachment_collections:
+        create:
+          error: Nastao je problem pri stvaranju nove fascikle.
+          success: Fascikla je uspešno stvorena.
+        destroy:
+          success: Fascikla je uspešno uništena.
+        edit:
+          title: Izmeni fasciklu
+          update: Ažuriraj
+        index:
+          attachment_collections_title: Fascikle priloga
+        new:
+          create: Stvori
+          title: Nova fascikla
+        update:
+          error: Nastao je problem pri ažuriranju ove fascikle.
+          success: Fascikla je uspešno ažurirana.
+      attachments:
+        create:
+          error: Nastao je problem pri stvaranju novog priloga.
+          success: Prilog je uspešno stvoren.
+        destroy:
+          success: Prilog je uspešno uništen.
+        edit:
+          title: Izmeni prilog
+          update: Ažuriraj
+        index:
+          attachments_title: Prilozi
+        new:
+          create: Stvori prilog
+          title: Novi prilog
+        update:
+          error: Nastao je problem pri ažuriranju ovog priloga.
+          success: Prilog je uspešno ažuriran.
+      autocomplete:
+        no_results: Nema rezultata
+      categories:
+        create:
+          error: Nastao je problem pri stvaranju ove kategorije.
+          success: Kategorija je uspešno stvorena.
+        destroy:
+          error: Nastao je problem pri brisanju ove kategorije. Molimo Vas da prvo obrišete sve podkategorije, proverite da nijedan drugi entitet ne pripada ovoj kategoriji i pokušate ponovo.
+          success: Kategorija je uspešno obrisana.
+        edit:
+          title: Izmeni kategoriju
+          update: Ažuriraj
+        index:
+          categories_title: Kategorije
+        new:
+          create: Stvori kategoriju
+          title: Nova kategorija
+        update:
+          error: Nastao je problem pri ažuriranju ove kategorije.
+          success: Kategorija je uspešno ažurirana.
+      component_permissions:
+        update:
+          error: Nastao je problem pri ažuriranju dozvola ove komponente.
+          success: Dozvole su uspešno ažurirane.
+      components:
+        create:
+          error: Nastao je problem pri stvaranju ove komponente.
+          success: Komponenta je uspešno stvorena.
+        destroy:
+          error: Nastao je problem pri uništavanju ove komponente.
+          success: Komponenta je uspešno obrisana.
+        edit:
+          title: Uređivanje komponente
+          update: Ažuriraj
+        form:
+          default_step_settings: Podrazumevana podešavanja koraka
+          global_settings: Opšta podešavanja
+          step_settings: Podešavanja koraka
+        index:
+          add: Dodavanje komponente
+          headers:
+            actions: Akcije
+            name: Ime komponente
+            type: Tip komponente
+        new:
+          add: Dodaj komponentu
+          title: 'Dodaj komponentu: %{name}'
+        publish:
+          success: Komponenta je uspešno objavljena.
+        title: Komponente
+        unpublish:
+          success: Objava komponente je uspešno povučena.
+        update:
+          error: Pojavio se problem pri ažuriranju ove komponente.
+          success: Komponenta je uspešno ažurirana.
+      dashboard:
+        show:
+          view_more_logs: Pogledaj još zapisa iz evidencije
+      exports:
+        export_as: "%{name} kao %{export_format}"
+      filters:
+        category_id_eq:
+          label: Kategorija
+        filter_label: Filter
+        officialized_at_null:
+          label: Državno
+          values:
+            'false': Službeno
+            'true': Neslužbeno
+        private_space_eq:
+          label: Privatno
+          values:
+            'false': Javno
+            'true': Privatno
+        published_at_null:
+          label: Objavljeno
+          values:
+            'false': Objavljeno
+            'true': Neobjavljeno
+        search_label: Pretraži
+        search_placeholder:
+          name_or_nickname_or_email_cont: Pretraži %{collection} prema e-pošti, imenu ili nadimku.
+          title_cont: Pretraži %{collection} prema nazivu.
+      help_sections:
+        form:
+          save: Sačuvaj
+      impersonatable_users:
+        index:
+          filter:
+            all: Sve
+            managed: Obrađeno
+            not_managed: Neobrađeno
+          impersonate: Predstavlja
+          impersonate_new_managed_user: Upravljanje novim učesnikom
+          managed: Obrađeno
+          name: Ime
+          needs_authorization_warning: Potrebna vam je barem jedna aktivirana autorizacija za ovu organizaciju.
+          not_managed: Neobrađeno
+          promote: Unapredi
+          search: Pretraži
+          status: Status
+          view_logs: Pogledaj evidenciju
+      impersonations:
+        close_session:
+          error: Pojavio se problem pri zatvaranju aktuelne sesije upravljanja učesnicima.
+          success: Aktuelna sesija predstavljanja je uspešno okončana.
+        create:
+          error: Pojavio se problem prilikom upravljanja učesnikom.
+          success: Upravljani učesnik je uspešno kreiran.
+        form:
+          authorization_method: Metod autorizacije
+          name: Ime
+          reason: Razlog
+        new:
+          impersonate: Predstavlja
+          impersonate_existing_managed_user: Upravljaj učesnikom "%{name}"
+          impersonate_existing_user: Upravljaj učesnikom "%{name}"
+          impersonate_new_managed_user: Upravljanje novim učesnikom
+      managed_users:
+        promotion:
+          error: Pojavio se problem pri unapređivanju učesnika.
+          success: Upravljani učesnik je uspešno unapređen.
+        promotions:
+          new:
+            explanation: Upravljani učesnici mogu biti unapređeni u regularne učesnike. To znači da će biti pozvani da se prijave, nakon čega nećete više biti u mogućnosti da upravljate njihovim nalozima. Pozvani učesnici će primiti e-mail i potrebno je da prihvate poziv.
+            new_managed_user_promotion: Unapređenje novog upravljanog učesnika
+            promote: Unapredi
+      menu:
+        admin_log: Zapisnik aktivnosti administratora
+        admins: Administratori
+        appearance: Izgled
+        area_types: Tipovi oblasti
+        areas: Oblasti
+        configuration: Konfiguracija
+        help_sections: Sekcije za pomoć
+        homepage: Početna stranica
+        impersonations: Predstavljanja
+        manage: Upravljaj
+        newsletters: Bilteni
+        participants: Učesnici
+        scope_types: Vrste oblasti
+        scopes: Oblasti
+        settings: Podešavanja
+        static_pages: Stranice
+        user_groups: Grupe
+        users: Učesnici
+      metrics:
+        metrics:
+          see_more_metrics: Prikaži više metrika
+      models:
+        area:
+          fields:
+            area_type: Tip oblasti
+            name: Ime
+        area_type:
+          fields:
+            name: Ime
+            plural: Množina
+        attachment:
+          fields:
+            collection: Fascikla
+            content_type: Tip
+            file_size: Veličina
+            title: Naslov
+          name: Prilog
+        attachment_collection:
+          name: Fascikla
+        category:
+          name: Kategorija
+        impersonation_log:
+          fields:
+            admin: Administrator
+            ended_at: Završilo se
+            expired_at: Isteklo
+            reason: Razlog
+            started_at: Počelo
+            user: Učesnik
+        newsletter:
+          fields:
+            created_at: Stvoreno
+            progress: Napredak
+            sent_at: Poslato
+            sent_to: Poslato
+            subject: Naslov
+          name: Bilten
+        participatory_space_private_user:
+          name: Privatni učesnik prostora za diskusiju
+        scope:
+          fields:
+            name: Ime
+            scope_type: Tip opsega
+        scope_type:
+          fields:
+            name: Ime
+            plural: Množina
+        share_token:
+          fields:
+            created_at: Stvoreno
+        static_page:
+          fields:
+            created_at: Kreirano na
+            title: Naslov
+        user:
+          fields:
+            created_at: Datum kreiranja
+            email: E-pošta
+            name: Ime
+            role: Uloga
+            roles:
+              admin: Administrator
+              user_manager: Rukovodilac učesnika
+          name: Učesnik
+        user_group:
+          fields:
+            actions: Akcije
+            created_at: Kreirano na
+            document_number: Broj dokumenta
+            name: Ime
+            phone: Telefon
+            state: Država
+            users_count: Broj učesnika
+      moderations:
+        report:
+          reasons:
+            does_not_belong: Ne pripada
+            offensive: Uvredljivo
+            spam: Spam
+      newsletter_templates:
+        index:
+          preview_template: Pregled
+          title: Šabloni biltena
+          use_template: Koristite ovaj šablon
+        show:
+          preview: 'Pregledajte šablon %{template_name}'
+          use_template: Koristite ovaj šablon
+      newsletters:
+        create:
+          error: Pojavio se problem pri kreiranju ovog biltena.
+        deliver:
+          error: Pojavio se problem pri dostavljanju ovog biltena.
+          success: Bilten je uspešno dostavljen.
+        destroy:
+          error_already_sent: 'Bilten se ne može ukloniti jer je već dostavljen.'
+          success: Bilten je uspešno uklonjen.
+        edit:
+          save_and_preview: Sačuvaj i pregledaj
+          title: Uredi bilten
+        index:
+          all: sve
+          all_users: 'Svi korisnici'
+          and: 'i'
+          confirm_delete: Da li ste sigurni da želite da obrišete ovaj bilten?
+          followers: 'pratioci'
+          has_been_sent_to: 'Poslat je:'
+          no_scopes: Nema oblasti
+          not_sent: Nije poslato
+          participants: 'učesnici'
+          segmented_to: 'Podeljeno po %{subject}:'
+          subscribed_count: 'Broj pratilaca:'
+          title: Bilteni
+        new:
+          save: Sačuvaj
+          title: Novi bilten
+        select_recipients_to_deliver:
+          all_spaces: Svi
+          all_users_help: Pošalji biltene svim potvrđenim učesnicima.
+          confirm_deliver: Da li ste sigurni da želite da dostavite ovaj bilten? Ova radnja se ne može poništiti.
+          deliver: Dostavi bilten
+          followers_help: Pošalji bilten svim potvrđenim učesnicima koji prate bilo koji od odabranih prostora za učešće sa liste.
+          participants_help: Pošalji bilten svim potvrđenim učesnicima koji su učestvovali u bilo kojem od odabranih prostora za učešće sa liste.
+          recipients_count: Ovaj bilten biće dostavljen %{count} korisnicima.
+          scopes_help: Šalje bilten korisnicima koji su aktivirali makar jedan od odabranih opsega u podešavanjima "Moji interesi" svog naloga.
+          select_scopes: Filter za korisnike koji su aktivirali makar jedan od odabranih opsega u podešavanjima "Moji interesi" svog naloga.
+          select_spaces: Izaberite prostore da podelite bilten
+          select_users: Izaberite kojim korisnicima želite da pošaljete bilten
+          title: Izaberi primaoce za dostavu
+          warning: "Pažnja: Ovaj bilten će biti poslan samo korisnicima koji su aktivirali Želim da dobijam biltene u svojim podešavanjima obaveštenja."
+        show:
+          preview: Pregled
+          select_recipients_to_deliver: Izaberi primaoce za dostavu
+          subject: Naslov
+        update:
+          error: Nastao je problem pri ažuriranju ovog biltena.
+          success: Bilten je uspešno ažuriran. Molimo vas da ga pregledate pre slanja.
+      officializations:
+        index:
+          actions: Akcije
+          badge: Bedž
+          created_at: Kreirano u
+          name: Ime
+          nickname: Nadimak
+          not_officialized: Nije ozvaničeno
+          officialize: Ozvaniči
+          officialized: Ozvaničen
+          reofficialize: Ponovo ozvaniči
+          show_email: Prikaži adresu e-pošte
+          status: Status
+          unofficialize: Razreši zvaničnog statusa
+        new:
+          badge: Zvanična oznaka
+          officialize: Ozvaniči
+          title: Ozvaniči status učesnika "%{name}"
+        show_email_modal:
+          email_address: Adresa e-pošte
+          full_name: Puno ime
+          hidden: sakriveno
+          show: Prikaži
+      organization:
+        edit:
+          title: Uredi organizaciju
+          update: Ažuriraj
+        form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          rich_text_editor_in_public_views_help: U pojedinim delovima teksta učesnici će uz pomoć programa moći da ubace HTML oznake.
+          social_handlers: Društvene
+          youtube: YouTube
+        update:
+          error: Pojavio se problem pri ažuriranju ove organizacije.
+          success: Organizacija je uspešno ažurirana.
+      organization_appearance:
+        edit:
+          update: Ažuriraj
+        form:
+          homepage_appearance_title: Promeni izgled početne stranice
+          images:
+            preview: Pregled
+          omnipresent_banner_appearance_title: Izmeni sveprisutni baner
+      organization_external_domain_whitelist:
+        edit:
+          update: Ažuriraj
+      shared:
+        gallery:
+          add_images: Dodaj slike
+          gallery_legend: Dodaj galeriju slika (opciono)
+      titles:
+        metrics: Metrika
+        statistics: Aktivnost
+      users_statistics:
+        users_count:
+          last_day: Poslednji dan
+          last_month: Poslednji mesec
+          last_week: Poslednje nedelje

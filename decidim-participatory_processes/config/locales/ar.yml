@@ -46,6 +46,8 @@ ar:
         short_description: وصف قصير
         start_date: تاريخ البداية
         title: العنوان
+      participatory_process_type:
+        title: عنوان
       participatory_process_user_role:
         email: البريد الإلكتروني
         name: اسم
@@ -123,6 +125,10 @@ ar:
             start_date: تاريخ البدء
             title: عنوان
           name: مرحلة العملية التشاركية
+        participatory_process_type:
+          fields:
+            created_at: أنشئت في
+            title: عنوان
         participatory_process_user_role:
           fields:
             email: البريد الإلكتروني
@@ -189,6 +195,11 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذه المرحلة من العملية التشاركية.
           success: تم تحديث المرحلة التشاركية بنجاح.
+      participatory_process_types:
+        edit:
+          update: تحديث
+        new:
+          create: إنشاء
       participatory_process_user_roles:
         create:
           error: حدثت مشكلة أثناء إضافة مشارك لهذه العملية التشاركية.

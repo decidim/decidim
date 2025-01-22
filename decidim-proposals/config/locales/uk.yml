@@ -157,7 +157,6 @@ uk:
           title: Приватні примітки
         proposals:
           form:
-            attachment_legend: "(Необов'язково) Додати вкладений файл"
             select_a_category: Оберіть категорію
           index:
             actions: Дії
