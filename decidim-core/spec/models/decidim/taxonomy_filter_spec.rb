@@ -42,6 +42,7 @@ module Decidim
       it "has the custom name" do
         expect(taxonomy_filter.name["en"]).to eq("Custom name")
         expect(taxonomy_filter.internal_name).to eq(root_taxonomy.name)
+        expect(taxonomy_filter.translated_name).to eq("Custom name")
       end
     end
 
@@ -60,6 +61,7 @@ module Decidim
       it "has the custom internal name" do
         expect(taxonomy_filter.internal_name["en"]).to eq("Custom internal name")
         expect(taxonomy_filter.name).to eq(root_taxonomy.name)
+        expect(taxonomy_filter.translated_internal_name).to eq("Custom internal name")
       end
     end
 
