@@ -223,7 +223,7 @@ ro:
       newsletter:
         create: "%{user_name} a creat newsletterul %{resource_name}"
         delete: "%{user_name} a șters newsletterul %{resource_name}"
-        deliver: "%{user_name} a livrat buletinul informativ %{resource_name}"
+        deliver: "%{user_name} a livrat newsletterul %{resource_name}"
         update: "%{user_name} a actualizat newsletterul %{resource_name}"
       oauth_application:
         create: "%{user_name} a creat aplicația OAuth %{resource_name}"
@@ -303,7 +303,7 @@ ro:
         actions:
           button_accept: Acceptaţi
           button_reject: Respingeți
-          help_text: Reexaminează modificările și acceptă-le sau respinge acest amendament. O notificare va fi trimisă autorului(autorilor) său(săi).
+          help_text: Examinați modificările și acceptați sau respingeți acest amendament. O notificare va fi trimisă autorului (autorilor).
         announcement:
           accepted: |-
             Acest amendament pentru %{amendable_type} %{proposal_link} a fost acceptat la data de <strong>%{date}</strong>.
@@ -1345,43 +1345,43 @@ ro:
       not_found_in_database: '%{authentication_keys} sau parolă invalidă.'
     invitations:
       edit:
-        header: Finalizează crearea contului tău
+        header: Finalizați crearea contului dumneavoastră
         submit_button: Salvează
         subtitle: Dacă acceptați invitația, vă rugăm să vă setați porecla și parola.
-      invitation_removed: Invitația ta a fost eliminată.
+      invitation_removed: Invitația dumneavoastră a fost eliminată.
       invitation_token_invalid: Codul de invitație furnizat nu este valid!
       new:
-        header: Trimite invitație
-        submit_button: Trimite o invitație
+        header: Trimiteți invitația
+        submit_button: Trimiteți o invitație
       no_invitations_remaining: Nicio invitație rămasă
       send_instructions: Un e-mail de invitație a fost trimis la %{email}.
       updated: Parola ta a fost setată cu succes. Acum ești conectat.
       updated_not_active: Parola ta a fost setată cu succes.
     mailer:
       confirmation_instructions:
-        action: Confirmă contul meu
-        greeting: Bine ai venit %{recipient}!
+        action: Confirmaţi contul
+        greeting: Bun venit %{recipient}!
         instruction: 'Puteţi confirma contul de e-mail prin link-ul de mai jos:'
-        subject: Instrucţiuni de confirmare
+        subject: Instrucțiuni de confirmare
       email_changed:
         greeting: Bună ziua %{recipient}!
-        subject: E-mail modificat
+        subject: Adresa e-mai a fost schimbată
       invitation_instructions:
-        accept: Acceptă invitația
-        accept_until: Această invitație va fi scadentă în %{due_date}.
+        accept: Acceptați invitația
+        accept_until: Această invitație va expira la %{due_date}.
         decline: Refuzați invitația
         hello: Bună ziua %{email},
-        invited_you_as_admin: "%{invited_by} te-a invitat ca administrator de %{application}. Poți să îl accepți prin link-ul de mai jos."
-        invited_you_as_private_user: "%{invited_by} te-a invitat ca participant privat de %{application}. Îl poți accepta prin link-ul de mai jos."
-        someone_invited_you: Cineva te-a invitat la %{application}. Îl poți accepta prin link-ul de mai jos.
-        someone_invited_you_as_admin: Cineva te-a invitat ca administrator al %{application}, îl poți accepta prin link-ul de mai jos.
-        someone_invited_you_as_private_user: Cineva te-a invitat ca participant privat la %{application}, îl poți accepta prin link-ul de mai jos.
-        subject: Instrucţiuni de invitaţie
+        invited_you_as_admin: "%{invited_by} v-a invitat ca administrator al %{application}. Îl puteți accepta prin link-ul de mai jos."
+        invited_you_as_private_user: "%{invited_by} v-a invitat ca participant privat la %{application}. Puteți accepta prin linkul de mai jos."
+        someone_invited_you: Cineva v-a invitat la %{application}. Puteți accepta prin linkul de mai jos.
+        someone_invited_you_as_admin: Cineva v-a invitat să administrați %{application}. Puteți accepta prin linkul de mai jos.
+        someone_invited_you_as_private_user: Cineva v-a invitat ca participant privat la %{application}, puteți accepta prin intermediul linkului de mai jos.
+        subject: Instrucțiuni pentru invitație
       password_change:
         greeting: Bună ziua %{recipient}!
-        subject: Parolă schimbată
+        subject: Parola a fost schimbată
       reset_password_instructions:
-        action: Schimbă-mi parola
+        action: Modificați parola mea
         greeting: Bună ziua %{recipient}!
         instruction: Cineva a solicitat un link pentru a vă schimba parola, şi puteţi face acest lucru prin link-ul de mai jos.
         subject: Instrucțiuni resetare parolă
@@ -1391,30 +1391,30 @@ ro:
         instruction: 'Faceți clic pe link-ul de mai jos pentru a vă debloca contul:'
         subject: Instrucțiuni de deblocare
     omniauth_callbacks:
-      failure: Nu te-a putut autentifica de la %{kind} deoarece "%{reason}".
+      failure: Nu ați putut fi autentificat din %{kind} deoarece "%{reason}".
       success: Autentificat cu succes din contul %{kind}.
     passwords:
       edit:
-        change_my_password: Schimbă-mi parola
-        confirm_new_password: Confirmare parolă nouă
+        change_my_password: Modificați parola mea
+        confirm_new_password: Confirmați parola nouă
         new_password: Parola nouă
       new:
-        forgot_your_password: Ți-ai uitat parola?
-        send_me_reset_password_instructions: Trimite-mi instrucțiunile de resetare a parolei
+        forgot_your_password: Ați uitat parola?
+        send_me_reset_password_instructions: Trimiteți-mi instrucțiunile de resetare a parolei
       send_instructions: Veţi primi un e-mail cu instrucţiuni despre cum să resetaţi parola în câteva minute.
-      send_paranoid_instructions: Dacă adresa ta de e-mail există în baza noastră de date, vei primi în câteva minute un link de recuperare a parolei la adresa ta de e-mail.
-      updated: Parola ta a fost schimbată cu succes. Acum ești conectat.
-      updated_not_active: Parola dvs. a fost schimbată cu succes.
+      send_paranoid_instructions: În cazul în care adresa dumneavoastră e-mail există în baza noastră de date, în câteva minute veți primi un link de recuperare a parolei la adresa dvs. e-mail.
+      updated: Parola ta a fost schimbată cu succes. Acum sunteți conectat(ă).
+      updated_not_active: Parola dumneavoastră a fost schimbată cu succes.
     registrations:
-      destroyed: Contul tău a fost anulat cu succes. Sperăm să te revedem în curând.
+      destroyed: Contul dumneavoastră a fost anulat. Sperăm să reveniți în curând.
       new:
         sign_up: Înscrie-te
       signed_up: Bine ați venit! V-ați înregistrat cu succes.
       signed_up_but_inactive: V-ați înregistrat cu succes. Cu toate acestea, nu vă putem conecta deoarece contul dvs. nu este încă activat.
       signed_up_but_locked: V-ați înregistrat cu succes. Cu toate acestea, nu vă putem conecta deoarece contul dvs. este blocat.
-      signed_up_but_unconfirmed: Un mesaj cu un link de confirmare a fost trimis la adresa ta de e-mail. Te rugăm să urmezi link-ul pentru a-ți activa contul.
-      update_needs_confirmation: Ți-ai actualizat contul cu succes, dar trebuie să verificăm noua ta adresă de e-mail. Vă rugăm să verificați adresa de e-mail și să urmați link-ul de confirmare pentru a confirma noua dvs. adresă de e-mail.
-      updated: Contul dvs. a fost actualizat cu succes.
+      signed_up_but_unconfirmed: Un mesaj cu un link de confirmare a fost trimis la adresa dumneavoastră de e-mail. Vă rugăm să urmați link-ul pentru a vă activa contul.
+      update_needs_confirmation: V-ați actualizat contul, însă trebuie să vă verificăm noua adresă de e-mail. Vă rugăm să verificați e-mailul și să urmați linkul de confirmare pentru a vă confirma noua adresă de e-mail.
+      updated: Contul dumneavoastră fost actualizat cu succes.
     sessions:
       new:
         log_in: Autentificare
@@ -1430,12 +1430,12 @@ ro:
         other: "(minimum %{count} caractere)"
     unlocks:
       new:
-        resend_unlock_instructions: Retrimite instrucțiunile de deblocare
+        resend_unlock_instructions: Retrimiteți instrucțiunile de deblocare
       send_instructions: Veți primi un e-mail cu instrucțiuni despre cum să vă deblocați contul în câteva minute.
       send_paranoid_instructions: Dacă contul tău există, vei primi un e-mail cu instrucțiuni pentru cum să-l deblochezi în câteva minute.
   doorkeeper:
     scopes:
-      public: Informațiile dvs. publice.
+      public: Informațiile dumneavoastră publice.
   errors:
     messages:
       confirmation_period_expired: trebuie să fie confirmat în %{period}, vă rugăm să solicitați unul nou
@@ -1483,25 +1483,25 @@ ro:
       header:
         log_in: Autentificare
         main_menu: Meniul principal
-        user_menu: Meniu utilizator
+        user_menu: Meniu de utilizator
       impersonation_warning:
-        close_session: Închide sesiunea
+        close_session: Închideți sesiunea
         description_html: Gestionați participantul <b>%{user_name}</b>.
-        expire_time_html: Sesiunea dvs. va expira în <b><span class="minutes">%{minutes}</span> minute</b>.
+        expire_time_html: Sesiunea dumneavoastră va expira în <b><span class="minutes">%{minutes}</span> minute</b>.
       language_chooser:
-        choose_language: Alege limba
+        choose_language: Alegeți limba
       notifications_dashboard:
-        mark_all_as_read: Marchează toate ca citite
-        mark_as_read: Marchează ca citit
+        mark_all_as_read: Marcați totul ca fiind citit
+        mark_as_read: Marcați ca fiind citit
       social_media_links:
         facebook: "%{organization} pe Facebook"
         github: "%{organization} pe GitHub"
-        instagram: "%{organization} la Instagram"
+        instagram: "%{organization} pe Instagram"
         youtube: "%{organization} pe YouTube"
       timeout_modal:
-        body: Ai fost inactiv de %{minutes} minute. Dacă continui să fii inactiv, vei fi deconectat automat pentru propria ta securitate.
-        continue_session: Continuă sesiunea
-        title: Vreți să continuați sesiunea?
+        body: Ați fost inactiv pentru %{minutes} minute. Dacă veți continua să fiți inactiv, veți fi deconectat automat pentru propria securitate.
+        continue_session: Continuați sesiunea
+        title: Doriți să continuați sesiunea?
       user_menu:
         account: 'Cont de utilizator: %{name}'
         admin_dashboard: Panou de administrare
@@ -1517,7 +1517,7 @@ ro:
         my_data: Datele mele
         my_interests: Interesele mele
         notifications_settings: Setări notificări
-        title: Setările participantului
+        title: Setări participant
         user_groups: Grupuri
   locale:
     name: Română
@@ -1527,12 +1527,12 @@ ro:
     email_included_in_password: este prea asemănător cu adresa de e-mail
     fallback: nu este valid
     name_included_in_password: este prea asemănător cu numele dumneavoastră
-    nickname_included_in_password: este prea similar cu nickname-ul dvs
+    nickname_included_in_password: este prea asemănător cu nickname-ul dvs
     not_enough_unique_characters: nu are destule caractere unice
     password_not_allowed: nu este permis
     password_too_common: este prea frecvent
-    password_too_long: este prea lung
-    password_too_short: este prea scurt
+    password_too_long: este prea lungă
+    password_too_short: este prea scurtă
   social_share_button:
     delicious: Delicios
     douban: Dublu
@@ -1545,7 +1545,7 @@ ro:
     pinterest: Pinterest
     qq: Qzone
     reddit: Reddit
-    share_to: Distribuie către %{name}
+    share_to: Distribuiți către %{name}
     telegram: Telegram
     tumblr: Tumblr
     twitter: Twitter
