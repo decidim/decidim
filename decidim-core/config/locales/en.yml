@@ -9,6 +9,8 @@ en:
         photos: Photos
       common:
         created_at: Created at
+      component:
+        taxonomy_filters: Taxonomy filters
       content_block_attachment:
         background_image: Background image
         main_image: Main image
@@ -33,10 +35,10 @@ en:
       taxonomy:
         name: Taxonomy name
       taxonomy_filter:
-        internal_name: Internal filter name
-        name: Public filter title
+        internal_name: Internal label
+        name: Label
         root_taxonomy_id: From taxonomy
-        space_filter: Available as filter for participatory spaces
+        space_filter: Available as filter for
       user:
         about: About
         avatar: Avatar
@@ -306,12 +308,12 @@ en:
         update: "%{user_name} updated the %{resource_name} taxonomy"
         update_with_parent: "%{user_name} updated the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
       taxonomy_filter:
-        create: "%{user_name} created a filter based on the taxonomy %{resource_name}"
-        create_with_filter_items_count: "%{user_name} created a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
-        delete: "%{user_name} deleted a filter based on the taxonomy %{resource_name}"
-        delete_with_filter_items_count: "%{user_name} deleted a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
-        update: "%{user_name} updated a filter based on the taxonomy %{resource_name}"
-        update_with_filter_items_count: "%{user_name} updated a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
+        create: "%{user_name} created the filter %{resource_name}"
+        create_with_filter_info: '%{user_name} created the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
+        delete: "%{user_name} deleted the filter %{resource_name}"
+        delete_with_filter_info: '%{user_name} deleted the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
+        update: "%{user_name} updated the filter %{resource_name}"
+        update_with_filter_info: '%{user_name} updated the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
       user:
         block: "%{user_name} blocked user %{resource_name}"
         bulk_block: "%{user_name} blocked %{blocked_count} users"
@@ -1251,6 +1253,8 @@ en:
         unknown_action_with_space: "%{user_name} performed some action on %{resource_name} in %{space_name}"
         unpublish_with_space: "%{user_name} unpublished %{resource_name} from %{space_name}"
         update: "%{user_name} updated %{resource_name}"
+        update_filters: "%{user_name} updated the filters of %{resource_name}"
+        update_filters_with_space: "%{user_name} updated the filters of %{resource_name} in %{space_name}"
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
         update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
       value_types:

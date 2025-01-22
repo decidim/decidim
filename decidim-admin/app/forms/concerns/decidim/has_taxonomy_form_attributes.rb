@@ -25,12 +25,12 @@ module Decidim
         @taxonomy_filters ||= if defined?(current_component) && current_component&.settings.respond_to?(:taxonomy_filters)
                                 all_taxonomy_filters.where(id: current_component.settings.taxonomy_filters)
                               else
-                                all_taxonomy_filters.space_filters
+                                all_taxonomy_filters.for_manifest(participatory_space_manifest)
                               end
       end
 
       def all_taxonomy_filters
-        @all_taxonomy_filters ||= TaxonomyFilter.for(participatory_space_manifest).where(root_taxonomy: root_taxonomies)
+        @all_taxonomy_filters ||= TaxonomyFilter.where(root_taxonomy: root_taxonomies)
       end
 
       def root_taxonomies

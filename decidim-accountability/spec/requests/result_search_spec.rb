@@ -15,7 +15,7 @@ RSpec.describe "Result search" do
   let(:taxonomy2) { create(:taxonomy, parent: root_taxonomy, organization:) }
   let(:child_taxonomy1) { create(:taxonomy, organization:, parent: taxonomy1) }
   let(:child_taxonomy2) { create(:taxonomy, organization:, parent: taxonomy2) }
-  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, space_manifest: participatory_space.manifest.name) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [participatory_space.manifest.name]) }
   let!(:taxonomy_filter_item1) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy1) }
   let!(:taxonomy_filter_item2) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy2) }
   let!(:taxonomy_filter_item3) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: child_taxonomy1) }

@@ -8,7 +8,7 @@ describe "Collaborative drafts" do
 
   let(:root_taxonomy) { create(:taxonomy, organization:) }
   let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
-  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, space_manifest: participatory_process.manifest.name) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [participatory_process.manifest.name]) }
   let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
   let!(:user) { create(:user, :confirmed, organization:) }
   let(:taxonomy_filter_ids) { [taxonomy_filter.id] }

@@ -273,6 +273,9 @@ en:
         create:
           error: There was a problem creating a new participatory process group.
           success: Participatory process group successfully created.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: All participatory processes
       titles:
         participatory_process_groups: Participatory process groups
         participatory_process_types: Participatory process types
