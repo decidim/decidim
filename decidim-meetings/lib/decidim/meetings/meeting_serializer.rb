@@ -75,7 +75,8 @@ module Decidim
           type_of_meeting: meeting.type_of_meeting,
           iframe_access_level: meeting.iframe_access_level,
           iframe_embed_type: meeting.iframe_embed_type,
-          reserved_slots: meeting.reserved_slots
+          reserved_slots: meeting.reserved_slots,
+          registration_type: meeting.registration_type
         }
       end
 

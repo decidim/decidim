@@ -743,6 +743,7 @@ en:
           reference: The unique identifier of the resource in this platform
           registration_form_enabled: Whether the registration form was enabled or not
           registration_terms: The terms agreed prior to meeting participation
+          registration_type: The type of registration of the meeting
           registration_url: URL of the meeting registration
           registrations_enabled: Whether registrations were permitted
           related_proposals: The proposals related to this meeting
