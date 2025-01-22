@@ -73,7 +73,8 @@ module Decidim
           registrations_enabled: meeting.registrations_enabled,
           customize_registration_email: meeting.customize_registration_email,
           type_of_meeting: meeting.type_of_meeting,
-          iframe_access_level: meeting.iframe_access_level
+          iframe_access_level: meeting.iframe_access_level,
+          iframe_embed_type: meeting.iframe_embed_type
         }
       end
 

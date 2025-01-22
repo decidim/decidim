@@ -212,6 +212,10 @@ module Decidim
           expect(serialized).to include(iframe_access_level: meeting.iframe_access_level)
         end
 
+        it "serializes the iframe_embed_type" do
+          expect(serialized).to include(iframe_embed_type: meeting.iframe_embed_type)
+        end
+
         describe "closing report and visibility" do
           context "when the meeting is completed" do
             let!(:meeting) { create(:meeting, :closed) }
