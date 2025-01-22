@@ -32,6 +32,7 @@ ca:
         import_components: Importar components
         included_at: Inclòs a
         instagram: Instagram
+        internal_organisation: Organització interna
         is_transparent: És transparent
         local_area: Àrea d'organització
         meta_scope: Metadades d'àmbit
