@@ -17,8 +17,6 @@ module Decidim
 
       routes do
         constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
-          resources :assemblies_types
-
           resources :assemblies, param: :slug, except: [:show, :destroy] do
             resource :publish, controller: "assembly_publications", only: [:create, :destroy]
             resources :copies, controller: "assembly_copies", only: [:new, :create]
@@ -49,8 +47,6 @@ module Decidim
           end
 
           scope "/assemblies/:assembly_slug" do
-            resources :categories, except: [:show]
-
             resources :components do
               collection do
                 put :reorder

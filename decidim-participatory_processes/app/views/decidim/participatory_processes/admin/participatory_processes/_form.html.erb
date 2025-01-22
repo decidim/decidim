@@ -237,29 +237,5 @@
       </div>
     </div>
   </div>
-
-  <div class="card" data-component="accordion" id="accordion-other">
-    <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-other" type="button">
-        <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="other">
-          <%= t("other", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-        </h2>
-      </button>
-    </div>
-
-    <div id="panel-other" class="card-section">
-      <% if @form.participatory_process_types_for_select.present? %>
-        <div class="row column">
-          <%= form.select(
-                :participatory_process_type_id,
-                @form.participatory_process_types_for_select,
-                include_blank: t(".select_participatory_process_type")
-              ) %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
 </div>
 <%= append_javascript_pack_tag "decidim_participatory_processes_admin" %>

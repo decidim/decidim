@@ -31,10 +31,13 @@ Gem::Specification.new do |s|
     end
   end
 
+  # Lock Temporarily as it is failing in 0.29 branch. More info: https://github.com/rails/rails/pull/54264
+  s.add_dependency "concurrent-ruby", "= 1.3.4"
+
   s.add_dependency "active_link_to", "~> 1.0"
   s.add_dependency "acts_as_list", "~> 1.0"
-  s.add_dependency "batch-loader", "~> 1.2"
-  s.add_dependency "browser", "~> 2.7"
+  s.add_dependency "batch-loader", "~> 2.0"
+  s.add_dependency "browser", "~> 6.2.0"
   s.add_dependency "cells-erb", "~> 0.1.0"
   s.add_dependency "cells-rails", "~> 0.1.3"
   s.add_dependency "charlock_holmes", "~> 0.7"
@@ -62,7 +65,7 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth-google-oauth2", "~> 1.0"
   s.add_dependency "omniauth-rails_csrf_protection", "~> 1.0"
   s.add_dependency "omniauth-twitter", "~> 1.4"
-  s.add_dependency "paper_trail", "~> 15.1"
+  s.add_dependency "paper_trail", "~> 16.0"
   s.add_dependency "paranoia", "~> 3.0.0"
   s.add_dependency "pg", "~> 1.5.0", "< 2"
   s.add_dependency "pg_search", "~> 2.2"
@@ -77,9 +80,9 @@ Gem::Specification.new do |s|
   s.add_dependency "rubyXL", "~> 3.4"
   s.add_dependency "rubyzip", "~> 2.0"
   s.add_dependency "shakapacker", "~> 7.1.0"
-  s.add_dependency "valid_email2", "~> 4.0"
+  s.add_dependency "valid_email2", "~> 7.0"
   s.add_dependency "web-push", "~> 3.0"
-  s.add_dependency "wisper", "~> 2.0"
+  s.add_dependency "wisper", "~> 3.0"
 
   s.add_development_dependency "decidim-api", Decidim::Core.version
   s.add_development_dependency "decidim-dev", Decidim::Core.version

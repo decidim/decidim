@@ -446,10 +446,10 @@ en:
           email_subject: "%{applicant_nickname} wants to join your initiative"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> applied for the promoter committee of your initiative <a href="%{resource_url}">%{resource_title}</a>. To accept or reject click <a href="%{resource_url}/edit">here</a>.
       form:
-        add_documents: Add documents
+        add_attachments: Add attachments
         add_image: Add image
-        attachment_legend: "(Optional) Add an attachment"
-        edit_documents: Edit documents
+        attachment_legend: Add a document or an image
+        edit_attachments: Edit attachments
         edit_image: Edit image
         image_legend: "(Optional) Add an image"
       index:

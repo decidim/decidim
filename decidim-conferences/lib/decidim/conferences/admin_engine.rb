@@ -67,8 +67,6 @@ module Decidim
           end
 
           scope "/conferences/:conference_slug" do
-            resources :categories, except: [:show]
-
             resources :components do
               collection do
                 put :reorder
