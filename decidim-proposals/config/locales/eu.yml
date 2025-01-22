@@ -92,7 +92,7 @@ eu:
         other: Oharrak
       decidim/proposals/proposal_vote:
         one: Babesa
-        other: Bozkak
+        other: Babesak
   decidim:
     admin:
       filters:
@@ -220,7 +220,7 @@ eu:
             suggested_hashtags: Traolek parte-hartzaileei proposamen berriak proposatu dizkie
             votes_blocked: Aldeko botoak blokeatuta
             votes_enabled: Aldeko botoak gaituta
-            votes_hidden: Aldeko botoak ezkutatuta (aldeko bozkak gaituta badadaude, hau egiaztatuz aldeko bozka kopurua ezkutatuko da)
+            votes_hidden: Botoak ezkutatuta (bozkak gaituta badadaude, hau egiaztatuz bozka kopurua ezkutatuko da)
     events:
       proposals:
         admin:
@@ -329,9 +329,9 @@ eu:
           email_subject: '%{resource_title} proposamenaren esparrua eguneratu egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren eremua administratzaile batek eguneratu du.
         voting_enabled:
-          email_intro: 'Proposamenak babestu ditzakezu %{participatory_space_title}-n! Hasi parte hartzen ondorengo orrian:'
+          email_intro: 'Proposamenak bozkatu ditzakezu %{participatory_space_title}-n! Hasi parte hartzen ondorengo orrian:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen duzulako. Jakinarazpenak jasotzeari uti ahal diozu aurreko estekan.
-          email_subject: Proposamenetarako babesak hasi dira hemen %{participatory_space_title}
+          email_subject: Proposamenetarako bozketak hasi dira %{participatory_space_title}-ean
           notification_title: Orain has dezakezu <a href="%{resource_path}">bozka-proposamena hemen:</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
@@ -350,9 +350,9 @@ eu:
           conditions:
             - Nabigatu eta irakurri besteen proposamenak
             - Eman babesa gustatzen zaizkizun edo interesgarriak iruditzen zaizkizun proposamenei
-          description: Garaikur hori beste pertsona batzuen proposamenak babesten dituzunean ematen da.
+          description: Bereizgarri hori beste pertsona batzuen proposamenak boskatzen dituzunean ematen da.
           description_another: Parte-hartzaile honek %{score} proposamen babestu ditu.
-          description_own: '%{score} proposameni eman diezu babesa.'
+          description_own: '%{score} proposamenei man diezu zure babesa.'
           name: Proposamenaren aldeko botoak
           next_level_in: Eman babesa % {score} proposamen gehiagori hurrengo mailara iristeko!
           unearned_another: Parte-hartzaile honek oraindik ez dio babesik eman proposamen bati ere.
@@ -383,7 +383,7 @@ eu:
         title: Proposamenak
       votes:
         description: Proposamenen babes kopurua
-        object: babesak
+        object: botoak
         title: Babesak
     participatory_spaces:
       highlighted_proposals:
@@ -499,7 +499,7 @@ eu:
             title: Eguneratu proposamena
             update: Eguneratu
           form:
-            attachment_legend: "(Aukerakoa) Gehitu fitxategi bat"
+            attachment_legend: "(Aukerakoa) Erantsi fitxategi bat"
             created_in_meeting: Proposamen hau bilera batetik dator
             delete_attachment: Ezabatu eranskina
             select_a_category: Hautatu kategoria bat
