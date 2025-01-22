@@ -28,7 +28,6 @@ require "decidim/core/test/shared_examples/components_controller_reorder_shared_
 require "decidim/core/test/shared_examples/components_controller_hide_shared_examples"
 require "decidim/core/test/shared_examples/paginated_resource_examples"
 require "decidim/core/test/shared_examples/errors"
-require "decidim/core/test/shared_examples/scope_helper_examples"
 require "decidim/core/test/shared_examples/follows_examples"
 require "decidim/core/test/shared_examples/simple_event"
 require "decidim/core/test/shared_examples/component_type"

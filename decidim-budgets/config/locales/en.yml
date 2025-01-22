@@ -236,7 +236,6 @@ en:
           selected_projects: 'The projects that you have selected are:'
           subject: You have voted on the %{space_name} participatory space
           voted_on_space: You have voted on the %{budget_name} budget for the %{space_name} participatory space.
-          voted_on_space_with_scope: You have voted on the %{budget_name} budget for the %{space_name} participatory space on %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: If you change your mind, you can change your vote later.

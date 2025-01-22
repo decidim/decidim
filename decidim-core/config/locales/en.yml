@@ -1745,7 +1745,6 @@ en:
         currently_selected: Currently selected scope
         title: Select %{field}
       prompt: Select a scope
-      scopes: Scopes
       scopes_picker_input:
         select_scope: 'Select a scope (currently: %{current})'
     search:
