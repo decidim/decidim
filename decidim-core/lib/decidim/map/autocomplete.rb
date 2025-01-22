@@ -82,11 +82,21 @@ module Decidim
       #     <%= form.geocoding_field(:address) %>
       #   <% end %>
       module FormBuilder
-        def geocoding_field(attribute, options = {}, geocoding_options = {})
+        def  geocoding_field(attribute, options = {}, geocoding_options = {})
           @autocomplete_utility ||= Decidim::Map.autocomplete(
             organization: @template.current_organization
           )
-          return text_field(attribute, options) unless @autocomplete_utility
+
+          unless @autocomplete_utility
+            if Rails.env.test?
+              pp "No autocomplete_utility defined"
+              pp options
+              pp geocoding_options
+              pp attribute
+              pp @autocomplete_utility
+            end
+            return text_field(attribute, options)
+          end
 
           # Decidim::Map::Autocomplete::Builder
           builder = @autocomplete_utility.create_builder(
