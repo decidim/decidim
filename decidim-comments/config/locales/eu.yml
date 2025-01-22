@@ -36,10 +36,10 @@ eu:
           error: Arazo bat ego da iruzkina eguneratzean.
       comments_title: Iruzkina
       last_activity:
-        new_comment: 'Beste iruzkin bat:'
+        new_comment: 'Iruzkin berria:'
       votes:
         create:
-          error: Arazo bat egon da iruzkina bozkatzean.
+          error: Arazo bat dago iruzkina bozkatzeko.
     components:
       add_comment_form:
         account_message: Sartu edo sortu kontu bat zure iruzkina gehitzeko.
@@ -49,8 +49,8 @@ eu:
             label: Iruzkina
             placeholder: Zer deritzozu honi?
           form_error: Testua behar da, eta ezin du izan %{length} karaktere baino gehiago.
-          submit_reply: Argitaratu erantzuna
-          submit_root_comment: Argitaratu iruzkina
+          submit_reply: Erantzuna argitaratu
+          submit_root_comment: Iruzkina argitaratu
           user_group_id:
             label: 'Egin iruzkina honako honen gisa:'
             your_profile: Zure profila
@@ -72,7 +72,7 @@ eu:
         answers:
           one: "%{count} erantzun"
           other: "%{count} erantzun"
-        cancel_reply: Ezeztatu erantzuna
+        cancel_reply: Erantzuna ezabatu
         comment_label: Iruzkindu %{comment_id}
         comment_label_reply: Iruzkindu %{comment_id} (erantzun %{parent_comment_id} iruzkinei)
         confirm_destroy: Ziur zaude iruzkin hau ezabatu nahi duzula?
