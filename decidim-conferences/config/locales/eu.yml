@@ -92,7 +92,7 @@ eu:
         confirm: Berretsi
         new_conference: Beste jardunaldi bat
         new_conference_user_role: Jardunaldiaren beste administratzaile bat
-        new_media_link: Hedabideen beste lotura bat
+        new_media_link: Hedabideen beste esteka bat
         new_partner: Beste kide bat
         new_registration_type: Beste erregistro mota bat
         new_speaker: Beste hizlari bat
@@ -179,7 +179,7 @@ eu:
       media_links:
         create:
           error: Arazo bat egon da beste komunikazio-esteka bat sortzean.
-          success: Hedabideen lotura zuzen sortua.
+          success: Hedabideen esteka zuzen sortua.
         destroy:
           success: Hedabideen lotura behar bezala ezabatua.
         edit:
@@ -239,7 +239,7 @@ eu:
         media_link:
           fields:
             date: Data
-            link: Linka
+            link: Esteka
             title: Izenburua
           name: Hedabideen lotura
         partner:
@@ -465,7 +465,7 @@ eu:
           are_you_new?: Beste parte-hartzaile bat?
           login_as: '%{name} <%{email}> gisa erregistratuta zaude'
           make_conference_registration: Eman izena jardunaldian
-          manage_registration: Kudeatu erregistroa
+          manage_registration: Erregistroa kudeatu
           register: Eman izena
           sign_in_description: Hasi saioa hitzaldian erregistratzeko
           sign_up_description: Sortu kontu bat jardunaldian erregistratzeko
@@ -513,7 +513,7 @@ eu:
         home:
           highlighted_conferences:
             active_spaces: Jardunaldi aktiboak
-            see_all_spaces: Ikusi jardunaldi guztiak
+            see_all_spaces: Ikusi hitzaldi guztiak
       registration_types:
         index:
           choose_an_option: 'Aukeratu zure erregistro-aukera:'
