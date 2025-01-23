@@ -990,7 +990,6 @@ sv:
           error: Det gick inte att uppdatera sidan.
           success: Sidan har uppdaterats.
       taxonomies:
-        actions: Åtgärder
         create:
           invalid: Det gick inte att skapa kategorin.
           success: Kategorin har skapats.
@@ -1008,7 +1007,6 @@ sv:
         filters:
           search_placeholder: Sök
         index:
-          description: Kategorier används för att ordna innehåll. Använd kategorier för processer eller geografiska indelningar.
           new_taxonomy: Ny kategorisering
           no_items_found: Inga kategorier stämmer in på kriterierna.
         name: Namn
@@ -1077,7 +1075,6 @@ sv:
         scopes: Indelningar
         statistics: Aktivitet
         taxonomies: Kategorier
-        taxonomy_filters: Kategorifilter
         user_groups: Grupper
         users: Administratörer
       user_group:
