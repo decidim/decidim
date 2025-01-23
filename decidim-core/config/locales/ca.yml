@@ -32,10 +32,7 @@ ca:
       taxonomy:
         name: Nom de la taxonomia
       taxonomy_filter:
-        internal_name: Nom intern del filtre
-        name: Títol públic del filtre
         root_taxonomy_id: Des de la taxonomia
-        space_filter: Disponible com a filtre pels espais de participació
       user:
         about: Quant a
         avatar: Imatge de perfil
@@ -304,13 +301,6 @@ ca:
         delete_with_parent: "%{user_name} ha esborrat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
         update: "%{user_name} ha acutalitzat la taxonomia \"%{resource_name}\""
         update_with_parent: "%{user_name} ha actualitzat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
-      taxonomy_filter:
-        create: "En/na %{user_name} ha creat un filtre basat en la taxonomia \"%{resource_name}\""
-        create_with_filter_items_count: "En/na %{user_name} ha creat un filtre basat en la taxonomia \"%{resource_name}\" amb %{filter_items_count} filtres per \"%{space_manifest_name}\""
-        delete: "En/na %{user_name} ha eliminat un filtre basat en la taxonomia \"%{resource_name}\""
-        delete_with_filter_items_count: "En/na %{user_name} ha eliminat un filtre basat en la taxonomia \"%{resource_name}\" amb %{filter_items_count} filtres per \"%{space_manifest_name}\""
-        update: "En/na %{user_name} ha actualitzat un filtre basat en la taxonomia \"%{resource_name}\""
-        update_with_filter_items_count: "En/na %{user_name} ha actualitzat un filtre basat en la taxonomia \"%{resource_name}\" amb %{filter_items_count} filtres per \"%{space_manifest_name}\""
       user:
         block: "%{user_name} ha bloquejat a la usuària %{resource_name}"
         bulk_block: "%{user_name} ha bloquejat a %{blocked_count} usuàries"
