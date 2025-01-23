@@ -32,10 +32,7 @@ eu:
       taxonomy:
         name: Taxonomiaren izena
       taxonomy_filter:
-        internal_name: Barne iragazkiaren izena
-        name: Iragazki publikoaren titulua
         root_taxonomy_id: Taxonomiatik
-        space_filter: Parte hartzeko espazioetarako iragazki bezala eskuragarri
       user:
         about: Honi buruz
         avatar: Abatarra
@@ -304,13 +301,6 @@ eu:
         delete_with_parent: "%{user_name} parte-hartzaileak %{resource_name} taxonomia ezabatu du %{parent_taxonomy} taxonomia barruan"
         update: "%{user_name} parte-hartzaileak %{resource_name} taxonomia eguneratu du"
         update_with_parent: "%{user_name} parte-hartzaileak %{resource_name} taxonomia eeguneratu du %{parent_taxonomy} taxonomia barruan"
-      taxonomy_filter:
-        create: "% {user_name} parte-hartzaileak iragazki bat sortu du %{resources ce_name} taxonomian oinarrituta"
-        create_with_filter_items_count: "%{user_name} parte-hartzaileak iragazkia sortu du %{baliabide_name} taxonomian oinarrituta, %{filter_items_count} filtroarekin, \n%{space_manifest_name} -rako"
-        delete: "%{user_name} parte-hartzaileak iragazki bat ezabatu zuen %{resources ce_name} taxonomian oinarrituta"
-        delete_with_filter_items_count: "%{user_name} parte-hartzaileak iragazki bat ezabatu du %{baliabide_name} taxonomian oinarrituta, %{filter_items_count} filtroarekin, %{space_manifest_name} -rako"
-        update: "%{user_name} parte-hartzaileak eguneratu du %{resources ce_name} taxonomian oinarritutako iragazkia"
-        update_with_filter_items_count: "%{user_name} parte-hartzaileak eguneratu du %{baliabide_name} taxonomian oinarritutako iragazkia, %{filter_items_count} filtroarekin, \n%{space_manifest_name} -rako"
       user:
         block: "%{user_name} parte-hartzaileak %{resource_name} erabiltzailea blokeatu du"
         bulk_block: "%{user_name} parte-hartzaileak %{blocked_count} erabiltzaile blokeatu du"
@@ -504,7 +494,7 @@ eu:
           title: Baimena oraindik ere egiten ari da
         unauthorized:
           explanation: Sentitzen dugu, baina ezin diozu heldu ekintza honi, zure baimen-datuetako batzuk ez datozelako bat.
-          invalid_field: "%{field} en balioa %{value} ez da baliozkoa."
+          invalid_field: "%{field} datu-eremuaren balioa %{value} ez da baliozkoa."
           ok: Ados
           title: Ez dago baimenduta
         unconfirmed:
@@ -740,7 +730,7 @@ eu:
           provider: Identitate honen hornitzailea
           uid: Identitate honen identifikatzaile bakarra
           updated_at: Zein datatan eta zein ordutan eguneratu zen identitatea azken aldiz
-          user: Zein erabiltzaileri dagokio identitate hau
+          user: Zein parte-hartzaileri dagokio identitate hau
         messaging_conversations:
           created_at: Zein datatan sortu zen elkarrizketa hau
           id: Elkarrizketa honen identifikatzaile bakarra
@@ -755,25 +745,25 @@ eu:
           resource_type: Jakinarazpena zein baliabide motarekin dago lotuta
           updated_at: Zein datatan eta zein ordutan eguneratu zen jakinarazpena azken aldiz
         user_groups:
-          document_number: Erabiltzaile-talde honen dokumentu-zenbakia
-          id: Erabiltzaile-talde honen identifikatzaile bakarra
-          name: Erabiltzaile-talde honen izena
-          phone: Erabiltzaile-talde honen telefono-zenbakia
-          verified_at: Zein datatan eta zein ordutan egiaztatu zen erabiltzaile-talde hori
+          document_number: Partaide-talde honen dokumentu-zenbakia
+          id: Partaide-talde honen identifikatzaile bakarra
+          name: Partaide-talde honen izena
+          phone: Partaide-talde honen telefono-zenbakia
+          verified_at: Zein datatan eta zein ordutan egiaztatu zen partaide-talde hori
         users:
           about: Erabiltzaile honen biografia
-          admin: Erabiltzaile hau administratzailea bada
+          admin: Parte-hartzaile hau administratzailea bada
           confirmation_sent_at: Zein datatan eta zein ordutan bidali zen konfirmazioa
-          confirmed_at: Zein datatan eta zein ordutan konfirmatu zen erabiltzaile hau
-          created_at: Zein datatan eta zein ordutan sortu zen erabiltzaile hau
+          confirmed_at: Zein datatan eta zein ordutan konfirmatu zen parte-hartzaile hau
+          created_at: Zein datatan eta zein ordutan sortu zen parte-hartzaile hau
           current_sign_in_at: Gaur egungo loginaren hasiera-data eta -ordua
           current_sign_in_ip: Gaur egungo loginaren IP helbidea
-          delete_reason: Erabiltzaile hau ezabatzeko arrazoia
-          deleted_at: Zein datatan eta zein ordutan ezabatu zen erabiltzaile hau
+          delete_reason: Parte-hartzaile hau ezabatzeko arrazoia
+          deleted_at: Zein datatan eta zein ordutan ezabatu zen parte-hartzaile hau
           email: Parte-hartzaile honen helbide elektronikoa
           id: Parte-hartzaile honen identifikatzaile bakarra
           invitation_accepted_at: Zein datatan eta zein ordutan onartu zen gonbidapena
-          invitation_created_at: Zein datatan eta zein ordutan gonbidatu zen erabiltzaile hau
+          invitation_created_at: Zein datatan eta zein ordutan gonbidatu zen parte-hartzaile hau
           invitation_sent_at: Zein datatan eta zein ordutan bidali zen gonbidapena
           invitations_count: Parte-hartzaile honi bidalitako gonbidapen kopurua
           invited_by: Parte-hartzaile hau gonbidatu duen erabiltzailea
@@ -789,7 +779,7 @@ eu:
           officialized_as: Ofizializazioaren izena (Kontseilaritza, Alkatetza, etab.)
           officialized_at: Zein datatan eta zein ordutan ofizializatu zen parte-hartzaile hau
           organization: Zein erakundetakoa den parte-hartzaile hau
-          personal_url: Erabiltzaile honen URL pertsonala
+          personal_url: Parte-hartzaile honen URL pertsonala
           remember_created_at: Zein egun eta zein ordutan aukeratu zuten parte-hartzailea gogoratzeko
           reset_password_sent_at: Zein datatan eta zein ordutan bidali zen pasahitza berriro
           sign_in_count: Zenbat aldiz hasi duen saioa parte-hartzaile honek
@@ -1356,11 +1346,11 @@ eu:
       download:
         csv: Deskargatu datuak (CSV)
       followers:
-        description: Parte hartzeko espazio hau jarraitzen duten erabiltzaile kopurua
+        description: Parte hartzeko espazio hau jarraitzen duten parte-hartzaile kopurua
         object: jarraitzaileak
         title: Jarraitzaileak
       participants:
-        description: Erakundeko erabiltzaile aktiboen kopurua
+        description: Erakundekoparte-hartzaile aktiboen kopurua
         object: parte-hartzaileak
         title: Parte-hartzaileak
       reported_users:
@@ -1667,7 +1657,7 @@ eu:
         badges: Garaikurrak
         conversations: Elkarrizketak
         followers: Jarraitzaileak
-        following: Jarraitu
+        following: Jarraitzen
         group_admins: Kudeatu administratzaileak
         group_members: Kudeatu kideak
         groups: Taldeak
@@ -1697,7 +1687,7 @@ eu:
         edit_profile: Editatu profila
         edit_user_group: Editatu taldearen profila
         fill_in_email_to_confirm_it: Mesedez, sartu zure taldearen korreo elektronikoa, berresteko.
-        invite_user: Gonbidatu erabiltzailea
+        invite_user: Gonbidatu parte-hartzailea
         join_user_group: Eskatu taldera lotzea
         leave_user_group: Utzi taldea
         manage_user_group_admins: Kudeatu administratzaileak
@@ -1719,7 +1709,7 @@ eu:
         id: ID
         participatory_space: Parte hartzeko espazioa
         reason: Arrazoia
-        report_html: <p>Hurrengo <a href="%{url}">edukia</a> salatua izan da.</p>
+        report_html: <p>Hurrengo <a href="%{url}"> edukia </a> salatua izan da.</p>
         see_report: Ikusi erreportea
         subject: Eduki bat salatua izan da
     reports:
