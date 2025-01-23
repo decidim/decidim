@@ -61,19 +61,6 @@ module Decidim
     scope :officialized, -> { where.not(officialized_at: nil) }
     scope :not_officialized, -> { where(officialized_at: nil) }
 
-    scope :interested_in_scopes, lambda { |scope_ids|
-      actual_ids = scope_ids.select(&:presence)
-      if actual_ids.count.positive?
-        ids = actual_ids.map(&:to_i).join(",")
-        where(Arel.sql("extended_data->'interested_scopes' @> ANY('{#{ids}}')").to_s)
-      else
-        # Do not apply the scope filter when there are scope ids available. Note
-        # that the active record scope must always return an active record
-        # collection.
-        self
-      end
-    }
-
     scope :org_admins_except_me, ->(user) { where(organization: user.organization, admin: true).where.not(id: user.id) }
 
     scope :ephemeral, -> { where("extended_data @> ?", Arel.sql({ ephemeral: true }.to_json)) }
@@ -81,7 +68,6 @@ module Decidim
     attr_accessor :newsletter_notifications
 
     searchable_fields({
-                        # scope_id: :decidim_scope_id,
                         organization_id: :decidim_organization_id,
                         A: :name,
                         B: :nickname,
@@ -219,14 +205,6 @@ module Decidim
 
     def being_impersonated?
       ImpersonationLog.active.exists?(user: self)
-    end
-
-    def interested_scopes_ids
-      extended_data["interested_scopes"] || []
-    end
-
-    def interested_scopes
-      @interested_scopes ||= organization.scopes.where(id: interested_scopes_ids)
     end
 
     def user_name
