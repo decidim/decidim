@@ -42,6 +42,7 @@ module Decidim
           @autocomplete_utility ||= Decidim::Map.autocomplete(
             organization: @template.current_organization
           )
+
           return text_field(attribute, options) unless @autocomplete_utility
 
           # Decidim::Map::Autocomplete::Builder
