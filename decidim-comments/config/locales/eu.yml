@@ -155,7 +155,7 @@ eu:
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uztean erabili zuen tokiko hizkuntza
           root_commentable_url: Iruzkin honekin lotzen den baliabidearen URLa (web helbidea)
-          user_group: Iruzkin hau egin duen erabiltzaile-taldearen izena (baldin badago)
+          user_group: Iruzkin hau egin duen partaide-taldearen izena (baldin badago)
     events:
       comments:
         comment_by_followed_user:
