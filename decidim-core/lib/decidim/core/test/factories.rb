@@ -251,6 +251,15 @@ FactoryBot.define do
       managed { true }
     end
 
+    trait :tos_not_accepted do
+      accepted_tos_version { nil }
+    end
+
+    trait :ephemeral do
+      managed
+      extended_data { { ephemeral: true } }
+    end
+
     trait :officialized do
       officialized_at { Time.current }
       officialized_as { generate_localized_title(:officialized_as, skip_injection:) }
@@ -686,7 +695,7 @@ FactoryBot.define do
 
   factory :taxonomy_filter, class: "Decidim::TaxonomyFilter" do
     root_taxonomy { association(:taxonomy) }
-    space_manifest { "participatory_processes" }
+    participatory_space_manifests { ["participatory_processes"] }
 
     trait :with_items do
       transient do

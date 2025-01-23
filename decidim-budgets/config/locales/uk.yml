@@ -50,6 +50,9 @@ uk:
         project:
           fields:
             title: Назва
+      order:
+        status:
+          title: Ваш голос успішно прийнято
       projects:
         budget_confirm:
           cancel: Скасувати

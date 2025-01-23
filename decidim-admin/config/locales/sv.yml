@@ -182,8 +182,6 @@ sv:
         attachment_collection:
           new: Ny mapp för bilagor
         browse: Bläddra
-        category:
-          new: Ny kategori
         export: Exportera allt
         export-selection: Exportera markerade
         import: Importera
@@ -293,23 +291,8 @@ sv:
           justification: Motivering
           title: Blockera användare %{name}
       categories:
-        create:
-          error: Det gick inte att skapa kategorin.
-          success: Kategori har skapats.
-        destroy:
-          error: Det gick inte att radera kategorin. Radera eventuella underkategorier först, se till att inget annat objekt tillhör kategorin och försök igen.
-          success: Kategori har raderats.
-        edit:
-          title: Redigera kategori
-          update: Uppdatera
         index:
           categories_title: Kategorier
-        new:
-          create: Skapa kategori
-          title: Ny kategori
-        update:
-          error: Det gick inte att uppdatera kategorin.
-          success: Kategorin har uppdaterats.
       component_permissions:
         update:
           error: Det gick inte att uppdatera behörigheterna för denna komponent.
@@ -728,6 +711,8 @@ sv:
           preview: 'Förhandsgranska mall: %{template_name}'
           use_template: Använd den här mallen
       newsletters:
+        confirm_recipients:
+          title: Bekräfta mottagare
         create:
           error: Det gick inte att skapa nyhetsbrevet.
           success: Nyhetsbrevet har skapats. Granska det innan du skickar.
@@ -747,12 +732,14 @@ sv:
           confirm_delete: Vill du radera nyhetsbrevet?
           followers: 'följare '
           has_been_sent_to: 'Har skickats till: '
-          no_scopes: Ingen indelning
           not_sent: Inte skickat
           participants: 'deltagare '
+          private_members: 'privata medlemmar '
           segmented_to: 'Segmenterad till %{subject}: '
           subscribed_count: 'Prenumeranter:'
           title: Nyhetsbrev
+          verification_types: 'Verifieringstyper: %{types}'
+          verified_users: Verifierade användare
         new:
           save: Spara
           title: Nytt nyhetsbrev
@@ -762,13 +749,10 @@ sv:
           confirm_deliver: Vill du skicka nyhetsbrevet? Den här åtgärden kan inte ångras.
           deliver: Leverera nyhetsbrev
           followers_help: Skickar nyhetsbrevet till alla verifierade användare som följer något av de markerade deltagarutrymmena i listan.
-          none: Inga
           participants_help: Skickar nyhetsbrevet till alla verifierade användare som har deltagit i något av de markerade deltagarutrymmena i listan.
           recipients_count: Nyhetsbrevet kommer att skickas till <strong id='recipients_count'>%{count}</strong> användare.
-          scopes_help: Skickar nyhetsbrev till användare som markerat någon av de valda indelningarna under "Mina intressen".
-          select_scopes: Filtrera användare som markerat någon av de valda indelningarna under "Mina intressen".
           select_spaces: Segmentera nyhetsbrevet genom att markera utrymmen
-          select_users: Välj vilka användare som ska få nyhetsbrevet
+          send_to_all_users: Skicka till alla användare
           title: Välj mottagare att skicka till
           warning: "<strong>Obs:</strong> Detta nyhetsbrev kommer endast att skickas till de användare som har markerat <em>Jag vill få nyhetsbrev</em> i sina meddelandeinställningar."
         send:

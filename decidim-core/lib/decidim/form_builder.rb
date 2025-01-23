@@ -388,7 +388,7 @@ module Decidim
     # options      - A Hash with options to build the field. See upload method for
     # more detailed information.
     def attachment(attribute, options = {})
-      object_attachment = object.attachment.present?
+      object_attachment = object.respond_to?(:attachment) && object.attachment.present?
       record = object_attachment ? object.attachment : object
       options = {
         titled: options[:multiple],

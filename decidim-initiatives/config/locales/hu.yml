@@ -135,8 +135,6 @@ hu:
             initiative_title: Kezdeményezés címe
             name_and_surname: Keresztnév és Vezetéknév
             postal_code: Irányítószám
-            scope: Hatókör
-            time_and_date: Idő és dátum
             timestamp: Időbélyeg
       titles:
         initiatives: Kezdeményezések
@@ -400,8 +398,6 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert Te vagy a %{resource_title} kezdeményezés elindítója.'
           email_subject: "%{applicant_nickname} szeretne csatlakozni a kezdeményezésedhez"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a <a href="%{resource_url}"> %{resource_title}</a> kezdeményezésed előterjesztő bizottságába jelentkezett. Az elfogadáshoz vagy elutasításhoz kattints <a href="%{resource_url}/edit">ide</a>.
-      form:
-        attachment_legend: "(Opcionális) Csatolmány hozzáadása"
       initiative_signatures:
         fill_personal_data:
           continue: Tovább

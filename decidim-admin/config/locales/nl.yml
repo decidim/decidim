@@ -145,8 +145,6 @@ nl:
         attachment:
           new: Nieuwe bijlage
         browse: Browsen
-        category:
-          new: Nieuwe categorie
         export: Alles exporteren
         export-selection: Selectie exporteren
         import: Importeren
@@ -234,23 +232,8 @@ nl:
           justification: Toelichting
           title: Gebruiker %{name} blokkeren
       categories:
-        create:
-          error: Er is een fout opgetreden bij het maken van deze categorie.
-          success: Categorie succesvol gemaakt.
-        destroy:
-          error: Er is een fout opgetreden bij het verwijderen van deze categorie. Verwijder eerst een subcategorie, zorg ervoor dat er geen andere entiteit in deze categorie hoort en probeer het opnieuw.
-          success: Categorie is succesvol verwijderd.
-        edit:
-          title: Categorie bewerken
-          update: Bijwerken
         index:
           categories_title: Categorieën
-        new:
-          create: Categorie creëren
-          title: Nieuwe categorie
-        update:
-          error: Er is een fout opgetreden bij het bijwerken van deze categorie.
-          success: Categorie is succesvol bijgewerkt.
       component_permissions:
         update:
           error: Er is een probleem opgetreden bij het bijwerken van de rechten van deze component.
@@ -626,7 +609,6 @@ nl:
           confirm_delete: Weet u zeker dat u deze nieuwsbrief wilt verwijderen?
           followers: 'volgers '
           has_been_sent_to: 'Is verzonden naar: '
-          no_scopes: Geen scopes
           not_sent: Niet verzonden
           participants: 'deelnemers '
           segmented_to: 'Gesplitst naar %{subject}: '
@@ -641,13 +623,10 @@ nl:
           confirm_deliver: Weet u zeker dat u deze nieuwsbrief wilt bezorgen? Deze actie kan niet ongedaan gemaakt worden.
           deliver: Stuur nieuwsbrief
           followers_help: Verstuurt nieuwsbrief naar alle bevestigde gebruikers die de geselecteerde participatieve ruimtes in de lijst volgen.
-          none: Geen
           participants_help: Verstuurt nieuwsbrief naar alle bevestigde gebruikers die hebben deelgenomen aan een van de geselecteerde participatieve ruimten in de lijst.
           recipients_count: Deze nieuwsbrief zal worden verzonden naar <strong id='recipients_count'>%{count}</strong> gebruikers.
-          scopes_help: Verstuurt nieuwsbrief naar gebruikers die de geselecteerde scope geactiveerd hebben in de "Mijn interesses" instellingen van hun account.
-          select_scopes: Filter gebruikers uit die een scope geselecteerd hebben in de Mijn interesses instellingen van hun account.
           select_spaces: Selecteer ruimtes om de nieuwsbrief te segmenteren
-          select_users: Selecteer welke gebruikers u de nieuwsbrief wilt verzenden
+          send_to_all_users: Stuur naar alle gebruikers
           title: Selecteer ontvangers
           warning: "<strong>Opgelet:</strong> Deze nieuwsbrief zal alleen worden verzonden naar gebruikers die <em>Ik wil nieuwsbrieven ontvangen</em> in hun notificatie instellingen hebben geactiveerd."
         show:

@@ -42,7 +42,9 @@ de:
       actions:
         attachment_collections: Ordner
         attachments: Anhänge
+        confirm_delete_result: Sind Sie sicher, dass Sie dieses Ergebnis löschen wollen?
         confirm_destroy: Sind Sie sicher, dass Sie diese %{name}löschen möchten?
+        deleted_results_info: Gelöschte Ergebnisse können aus dem Papierkorb wiederhergestellt werden.
         destroy: Löschen
         edit: Bearbeiten
         import: Projekte aus einer anderen Komponente importieren
@@ -53,6 +55,7 @@ de:
         preview: Vorschau
         timeline_entries: Projektentwicklung
         title: Aktionen
+        view_deleted_results: Gelöschte Ergebnisse anzeigen
       admin:
         exports:
           result_comments: Bemerkungen
@@ -67,10 +70,9 @@ de:
               <li><a href='%{link_new_status}' target='_blank'>Erstellen Sie den Status der Ergebnisse</a>, die Sie hinzufügen möchten</li>
               <li><a href='%{link_new_result}' target='_blank'>Erstellen Sie mindestens ein Ergebnis manuell</a> über das Admin-Backend bevor Sie die Importfunktion nutzen, damit Sie mit dem Format und den benötigten Eingaben vertraut sind.</li>
               <li>%{link_export_csv}</li>
-              <li>Machen Sie Änderungen lokal. Sie können nur die folgenden Spalten des CSV ändern:
+              <li>Machen Sie Änderungen lokal. Sie können nur die folgenden Spalten des CSV ändern (der Rest wird ignoriert):</li>
               <ul>
-              <li><b>category/id:</b> ID der Kategorie</li>
-              <li><b>scope/id:</b> ID des Themenbereichs</li>
+              <li><b>taxonomies/id:</b> ID der Klassifizierungen (falls mehr als eiine vorhanden, trenne sie mit Kommas)</li>
               <li><b>parent/id:</b> ID des übergeordneten Themenbereichs (für verwandte Ergebnisse). Optional</li>
               <li><b>title/de:</b> Titel auf Deutsch. Dies wird von der Konfiguration ihrer Plattformsprachen abgängig sein.</li>
               <li><b>description/de:</b> Beschreibung auf Deutsch. Dies wird von der Konfiguration ihrer Plattformsprachen abgängig sein.</li>
@@ -109,6 +111,23 @@ de:
               other: "%{count} Projekte werden in der Warteschlange importiert. Sie werden per E-Mail benachrichtigt, sobald sie abgeschlossen sind."
             title: Projekte aus einer anderen Komponente importieren
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Datum ändern
+              end_date: Enddatum
+              start_date: Startdatum
+            dropdown:
+              actions: Aktionen
+              change_dates: Daten ändern
+              change_status: Status ändern
+              change_taxonomies: Klassifizierungen ändern
+            status_form:
+              change_status: Status ändern
+              status: Status
+            submit_buttons:
+              cancel: Abbrechen
+            taxonomies_form:
+              change_taxonomies: Klassifizierungen ändern
           create:
             invalid: Beim Erstellen dieses Ergebnisses ist ein Problem aufgetreten.
             success: Ergebnis erfolgreich erstellt.
@@ -116,13 +135,27 @@ de:
             title: Ergebnis bearbeiten
             update: Ergebnis aktualisieren
           index:
+            selected: Ausgewählt
             title: Ergebnisse
+          manage_trash:
+            title: Gelöschte Ergebnisse
           new:
             create: Ergebnis erstellen
             title: Neues Ergebnis
           update:
             invalid: Beim Aktualisieren dieses Ergebnisses ist ein Problem aufgetreten.
             success: Ergebnis erfolgreich aktualisiert.
+          update_dates:
+            invalid: Bei der Aktualisierung der Ergebnisdaten ist ein Problem aufgetreten
+            success: Ergebnisdaten erfolgreich aktualisiert
+          update_status:
+            invalid: Bei der Aktualisierung des Ergebnisstatus ist ein Problem aufgetreten
+            success: Ergebnisstatus erfolgreich aktualisiert
+          update_taxonomies:
+            invalid: Die Klassifizierungen %{taxonomies} für Ergebnisse %{results} konnten nicht aktualisiert werden
+            select_a_result: Ein Ergebnis auswählen
+            select_a_taxonomy: Klassifizierung auswählen
+            success: Klassifizierung %{taxonomies} für Ergebnisse %{results} erfolgreich aktualisiert
         shared:
           subnav:
             statuses: Status
@@ -164,6 +197,8 @@ de:
         result:
           create: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} gelöscht"
+          restore: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} wiederhergestellt"
+          soft_delete: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} in den Papierkorb verschoben"
           update: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} aktualisiert"
         status:
           create: "%{user_name} hat den Status %{resource_name} erstellt"
@@ -290,7 +325,7 @@ de:
     open_data:
       help:
         result_comments:
-          alignment: Ob dieser Kommentar zustimmend, ablehnen oder neutral war
+          alignment: Ob dieser Kommentar zustimmend, ablehnend oder neutral war
           author: Der Name des Teilnehmers, der diesen Kommentar erstellt hat
           body: Der Kommentar selbst
           commentable_id: Die eindeutige ID des kommentierten Objekts
@@ -302,18 +337,25 @@ de:
           root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
           user_group: Der Name der Gruppe, die diesen Kommentar erstellt hat (falls vorhanden)
         results:
+          address: Projektadresse (falls vorhanden)
+          children_count: Die Anzahl der Teilergebnisse
+          comments_count: Die Anzahl der Kommentare zu diesem Ergebnis
           component: Komponente, zu der das Ergebnis gehört
           created_at: Das Erstellungsdatum des Ergebnisses
           description: Die Beschreibung des Ergebnisses
           end_date: Das Datum, an dem das Ergebnis umgesetzt und beendet ist
           id: Die eindeutige Bezeichnung des Ergebnisses
+          latitude: Der Breitengrad des Ergebnisses, falls es einen verortet wurde
+          longitude: Der Längengrad des Ergebnisses, falls es verortet wurde
           parent: Das übergeordnete Ergebnis (falls vorhanden) des Ergebnisses
           progress: Der Prozentsatz der Umsetzung des Ergebnisses
           proposal_urls: Die URLs der Vorschläge, die in diesem Ergebnis enthalten sind
+          reference: Die eindeutige Referenz des Ergebnisses
           start_date: Das Datum, an dem das Ergebnis mit der Umsetzung beginnt
           status: Der aktuelle Status dieses Ergebnisses
           taxonomies: Die Klassifizierungen des Ergebnisses
           title: Der Titel des Ergebnisses
+          updated_at: Letztes Aktualisierungsdatum dieses Ergebnisses
           url: Die URL, unter der dieses Ergebnis gefunden werden kann
     participatory_spaces:
       highlighted_results:

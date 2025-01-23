@@ -97,7 +97,6 @@ ar:
           attachment_collections: المجلدات
           attachment_files: ملفات
           attachments: مرفقات
-          categories: الاقسام
           components: المكونات
           moderations: الإعتدال
           process_admins: مدراء العملية
@@ -236,6 +235,8 @@ ar:
         publish: "%{user_name} نشر عملية المشاركة %{resource_name}"
         unpublish: "%{user_name} لم تنشر العملية التشاركية %{resource_name}"
         update: "%{user_name} تحديث العملية التشاركية %{resource_name}"
+      participatory_process_group:
+        unpublish: "المستخدم %{user_name} قام بإلغاء نشر مجموعة عملية المشاركة %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} تفعيل المرحلة %{resource_name} في عملية المشاركة %{space_name}"
         create: "%{user_name} خلق المرحلة %{resource_name} في العملية التشاركية %{space_name}"
@@ -297,7 +298,6 @@ ar:
             filters: مرشحات
             images: صور
             metadata: البيانات الوصفية
-            other: آخر
             related_processes: العمليات ذات الصلة
             select_an_area: اختر منطقة
             select_process_group: حدد مجموعة عملية

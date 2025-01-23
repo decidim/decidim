@@ -182,8 +182,6 @@ cs:
         attachment_collection:
           new: Nová složka příloh
         browse: Procházet
-        category:
-          new: Nová kategorie
         confirm_delete_component: |
           Opravdu chcete odstranit tuto komponentu?<br>
           Tato komponenta obsahuje:<br>
@@ -297,6 +295,12 @@ cs:
         no_results: Nenalezeny žádné výsledky
         search_prompt: Zadejte alespoň tři znaky pro vyhledávání.
       block_user:
+        bulk_new:
+          action: Zablokovat účty a odeslat zdůvodnění
+          already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků.
+          description: Blokováním uživatele bude jejich účet nepoužitelný. Ve svém zdůvodnění můžete uvést veškerá pravidla pro způsob, jakým byste uvažovali o odblokování uživatele.
+          justification: Odůvodnění
+          title: Zablokovat uživatele
         new:
           action: Blokovat účet a odeslat odůvodnění
           already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků.
@@ -304,23 +308,8 @@ cs:
           justification: Odůvodnění
           title: Blokovat uživatele %{name}
       categories:
-        create:
-          error: Při vytváření této kategorie došlo k chybě.
-          success: Kategorie byla úspěšně vytvořena.
-        destroy:
-          error: Při odstraňování této kategorie došlo k chybě. Vymažte nejprve podkategorie, ujistěte se, že do této kategorie nepatří žádná další entita a zkuste to znovu.
-          success: Kategorie úspěšně smazána.
-        edit:
-          title: Upravit kategorii
-          update: Aktualizace
         index:
           categories_title: Kategorie
-        new:
-          create: Vytvořit kategorii
-          title: Nová kategorie
-        update:
-          error: Při aktualizaci této kategorie došlo k chybě.
-          success: Kategorie byla úspěšně aktualizována.
       component_permissions:
         update:
           error: Při aktualizaci oprávnění této komponenty došlo k chybě.
@@ -716,13 +705,27 @@ cs:
         index:
           actions:
             block: Blokovat uživatele
+            bulk_actions:
+              actions_dropdown: Akce
+              block:
+                title: Blokovat
+                update_moderated_user_button: Zablokovat uživatele
+              unblock:
+                title: Odblokovat
+                update_moderated_user_button: Odblokovat uživatele
+              unreport:
+                title: Zrušit nahlášení
+            ignore:
+              update_moderated_user_button: Zrušit nahlášení uživatelů
             title: Akce
             unblock: Odblokovat uživatele
             unreport: Zrušit nahlášení
+          cancel: Zrušit
           name: Jméno
           nickname: Přezdívka
           reason: Důvod
           reports: Počet zpráv
+          selected: Vybráno
           title: Nahlášení účastníci
         report:
           reasons:
@@ -734,6 +737,19 @@ cs:
           unblocked: Neblokováno
       moderations:
         index:
+          actions:
+            actions_dropdown: Akce
+            hide:
+              title: Skrýt
+              update_moderation_button: Skrýt vybrané zdroje
+            unhide:
+              title: Zrušit skrytí
+              update_moderation_button: Odkrýt vybrané zdroje
+            unreport:
+              title: Zrušit nahlášení
+              update_moderation_button: Zrušit nahlášení vybraných zdrojů
+          cancel: Zrušit
+          selected: vybráno
           title: Nahlášený obsah
         report:
           reasons:
@@ -765,6 +781,10 @@ cs:
           preview: 'Náhled šablony: %{template_name}'
           use_template: Použít tuto šablonu
       newsletters:
+        confirm_recipients:
+          email: E-mail
+          name: Název
+          title: Potvrdit příjemce
         create:
           error: Při vytváření tohoto zpravodaje došlo k chybě.
           success: Zpravodaj byl úspěšně vytvořen. Před odesláním si jej zkontrolujte.
@@ -784,12 +804,14 @@ cs:
           confirm_delete: Opravdu chcete tento zpravodaj smazat?
           followers: 'sledující '
           has_been_sent_to: 'Byl poslán: '
-          no_scopes: Žádné oblasti působnosti
           not_sent: Neodesláno
           participants: 'účastníci '
+          private_members: 'soukromí členové '
           segmented_to: 'Rozděleno na %{subject}: '
           subscribed_count: 'Přihlášeno:'
           title: Zpravodaje
+          verification_types: 'Typy ověření: %{types}'
+          verified_users: Ověření uživatelé
         new:
           save: Uložit
           title: Nový zpravodaj
@@ -797,16 +819,24 @@ cs:
           all_spaces: Vše
           all_users_help: Poslat Zpravodaj všem potvrzeným uživatelům.
           confirm_deliver: Opravdu chcete tento zpravodaj doručit? Tuto akci nelze vrátit zpět.
+          confirm_recipients: Potvrdit příjemce
           deliver: Doručit zpravodaj
           followers_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
-          none: Žádný
           participants_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
+          private_members_help: Odešle newsletter všem potvrzeným uživatelům, kteří byli přidáni do vybraných soukromých participačních prostor.
           recipients_count: Tento zpravodaj bude odeslán <strong id='recipients_count'>%{count}</strong> uživatelům.
-          scopes_help: Odešle zpravodaj uživatelům, kteří mají některý z vybraných oblastí působnosti aktivovaný v nastavení svého účtu "Moje zájmy".
-          select_scopes: Filtrovat uživatele, kteří aktivovali jakoukoli vybranou oblast působnosti v nastavení jejich účtu Moje Zájmy.
+          select_assemblies: Vybrat shromáždění
+          select_conferences: Vybrat konference
+          select_initiatives: Vybrat iniciativy
+          select_participatory_processes: Vybrat participační procesy
           select_spaces: Vybrat mezery pro rozdělení zpravodaje
-          select_users: Vybrat, kterým uživatelům chcete poslat zpravodaj
+          select_users_for_participatory_space: Poslat newsletter na jeden nebo více participačních prostor
+          select_users_general: Odeslat obecný newsletter
+          select_verification_types: Zvolte ověřovací metody
+          send_to_all_users: Odeslat všem uživatelům
+          send_to_verified_users: Poslat ověřeným uživatelům
           title: Vybrat příjemce k doručení
+          verified_users_help: Odešle newsletter všem potvrzeným a ověřeným uživatelům prostřednictvím zvolené metody ověřování.
           warning: "<strong> Pozor: </strong> Tento zpravodaj bude zasílán pouze uživatelům, kteří si aktivovali <em> chci dostávat zpravodaj </em> v nastavení oznámení."
         send:
           no_recipients: Žádní příjemci pro tento výběr.
@@ -824,6 +854,13 @@ cs:
         block:
           error: Při blokování účastníka došlo k chybě.
           success: Účastník byl úspěšně zablokován.
+        bulk_action:
+          block:
+            invalid: Při blokování účastníků došlo k chybě.
+            success: Účastníci byli úspěšně zablokováni.
+          unblock:
+            invalid: Při odblokování účastníků došlo k chybě.
+            success: Účastníci byli úspěšně odblokováni.
         create:
           success: Účastník úspěšně oficiálně zaregistrován.
         destroy:
@@ -1299,6 +1336,22 @@ cs:
         unreport: Zrušit nahlášení
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Vyskytl se problém při skrývání některých zdrojů: %{errored}'
+              invalid: Nebyla vybrána žádná moderace.
+              success: Zdroje byly úspěšně skryty.
+            ignore:
+              invalid: Nebyla vybrána žádná moderace uživatelů.
+              success: Účastníci úspěšně neohlášeni.
+            unhide:
+              failed: 'Vyskytl se problém při odkrytí některých zdrojů: %{errored}'
+              invalid: Nebyla vybrána žádná moderace.
+              success: Zdroje byly úspěšně odkryty.
+            unreport:
+              failed: 'Došlo k chybě při odebrání z hlášení některých zdrojů: %{errored}'
+              invalid: Nebyla vybrána žádná moderace.
+              success: Zdroje byly úspěšně odebrány z hlášení.
           hide:
             invalid: Došlo k potížím při skrývání zdroje.
             success: Zdroj byl úspěšně skryt.

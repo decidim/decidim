@@ -175,20 +175,6 @@ describe Decidim::Conferences::Permissions do
     it_behaves_like "permission is not set"
   end
 
-  context "when taxonomy filters" do
-    let(:action) do
-      { scope: :admin, action: :something, subject: :taxonomy_filter }
-    end
-
-    it { is_expected.to be true }
-
-    context "when user is not an admin" do
-      let(:user) { create(:user, organization:) }
-
-      it { is_expected.to be false }
-    end
-  end
-
   context "when the scope is not public" do
     let(:action) do
       { scope: :foo, action: :read, subject: :dummy_resource }
@@ -408,7 +394,6 @@ describe Decidim::Conferences::Permissions do
 
       it_behaves_like "allows any action on subject", :attachment
       it_behaves_like "allows any action on subject", :attachment_collection
-      it_behaves_like "allows any action on subject", :category
       it_behaves_like "allows any action on subject", :component
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :conference
@@ -439,7 +424,6 @@ describe Decidim::Conferences::Permissions do
 
       it_behaves_like "allows any action on subject", :attachment
       it_behaves_like "allows any action on subject", :attachment_collection
-      it_behaves_like "allows any action on subject", :category
       it_behaves_like "allows any action on subject", :component
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :conference

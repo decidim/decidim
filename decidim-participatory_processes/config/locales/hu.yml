@@ -22,7 +22,6 @@ hu:
         local_area: Szervezet területe
         meta_scope: Metaadatok hatásköre
         participatory_process_group_id: Folyamatcsoport
-        participatory_process_type_id: Folyamattípus
         participatory_scope: Miről születik döntés
         participatory_structure: Így születik döntés
         private_space: Magán folyamat
@@ -59,8 +58,6 @@ hu:
         end_date: Befejezés dátuma
         short_description: Rövid leírás
         start_date: Kezdő dátum
-        title: Cím
-      participatory_process_type:
         title: Cím
       participatory_process_user_role:
         email: Email
@@ -100,7 +97,6 @@ hu:
         new_process: Új folyamat
         new_process_group: Új folyamat csoport
         new_process_step: Új fázis
-        new_process_type: Új folyamat típus
         new_process_user_role: Új folyamat adminisztrátor
         preview: Előnézet
         publish: Közzétesz
@@ -111,13 +107,11 @@ hu:
         participatory_process_groups_submenu:
           info: Info
           landing_page: Landing oldal
-        participatory_process_types: Folyamat típusok
         participatory_processes: Folyamatok
         participatory_processes_submenu:
           attachment_collections: Mappák
           attachment_files: Fájlok
           attachments: Mellékletek
-          categories: Kategóriák
           components: Elemek
           moderations: Moderálások
           process_admins: Folyamat adminisztrátorok
@@ -140,11 +134,6 @@ hu:
             start_date: Kezdő dátum
             title: Cím
           name: Részvételi folyamat fázis
-        participatory_process_type:
-          fields:
-            created_at: Létrehozva
-            title: Cím
-          name: Folyamat típusa
         participatory_process_user_role:
           fields:
             email: Email
@@ -219,21 +208,6 @@ hu:
         update:
           error: Hiba történt a részvételi folyamat fázisainak frissítése során.
           success: Részvételi folyamat fázis frissítése sikerült.
-      participatory_process_types:
-        create:
-          error: Hiba történt az új folyamat típus létrehozásakor.
-          success: Folyamat típus sikeresen létrehozva.
-        destroy:
-          success: Folyamat-típus sikeresen törölve.
-        edit:
-          title: Folyamat típus szerkesztése
-          update: Frissítés
-        new:
-          create: Létrehozás
-          title: Új folyamat típus
-        update:
-          error: Hiba történt a folyamat típus frissítése során.
-          success: A folyamat típus sikeresen frissítésre került.
       participatory_process_user_roles:
         create:
           error: Hiba a felhasználó részvételi folyamathoz való hozzáadásakor.
@@ -389,11 +363,9 @@ hu:
             filters: Szűrők
             images: Képek
             metadata: Metaadatok
-            other: Más
             related_processes: Kapcsolódó folyamatok
             scope_type_max_depth_help: Hatáskör szűrő mélység korlátozása; A szűrő az általánostól a kiválasztott hatáskörtípus típusáig jelenik meg.
             select_an_area: Válasszon egy területet
-            select_participatory_process_type: Válasszon folyamat típust
             select_process_group: Válassza ki a folyamatcsoportot
             title: Általános információk
       content_blocks:

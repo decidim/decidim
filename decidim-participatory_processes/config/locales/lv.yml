@@ -89,7 +89,6 @@ lv:
           attachment_collections: Mapes
           attachment_files: Faili
           attachments: Pielikumi
-          categories: Kategorijas
           components: Komponenti
           moderations: Moderācijas
           process_admins: Procesa administratori
@@ -304,7 +303,6 @@ lv:
             filters: Filtri
             images: Attēli
             metadata: Metadati
-            other: Cits
             related_processes: Saistītie procesi
             scope_type_max_depth_help: Ierobežojiet tvēruma filtra dziļumu; filtrētais rezultāts rādīs no vispārējā uz izvēlēto tvēruma veidu.
             select_an_area: Izvēlieties jomu

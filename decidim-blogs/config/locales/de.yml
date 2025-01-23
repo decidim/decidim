@@ -14,12 +14,19 @@ de:
         one: Post
         other: Beiträge
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Beiträge
     blogs:
       actions:
         author_id: Beitrag erstellen als
+        confirm_delete_post: Möchten Sie diesen Beitrag wirklich löschen?
+        deleted_posts_info: Gelöschte Beiträge können aus dem Papierkorb wiederhergestellt werden.
         edit: Bearbeiten
         new: Neuer Beitrag
         title: Aktionen
+        view_deleted_posts: Gelöschte Beiträge anzeigen
       admin:
         posts:
           create:
@@ -31,6 +38,8 @@ de:
           index:
             not_published_yet: Noch nicht veröffentlicht.
             title: Beiträge
+          manage_trash:
+            title: Gelöschte Beiträge
           new:
             create: Erstellen
             title: Post erstellen
@@ -41,6 +50,8 @@ de:
         post:
           create: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} gelöscht"
+          restore: "%{user_name} hat den Blogbeitrag %{resource_name} in %{space_name} wiederhergestellt"
+          soft_delete: "%{user_name} hat den Blogbeitrag %{resource_name} in %{space_name} in den Papierkorb verschoben"
           update: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} aktualisiert"
       content_blocks:
         highlighted_posts:
@@ -89,5 +100,33 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Neuer Beitrag in %{participatory_space_title}
           notification_title: Der Beitrag <a href="%{resource_path}">%{resource_title}</a> wurde in %{participatory_space_title} veröffentlicht
+    open_data:
+      help:
+        post_comments:
+          alignment: Ob dieser Kommentar zustimmend, ablehnend oder neutral war
+          author: Der Name des Teilnehmenden, der diesen Kommentar erstellt hat
+          body: Der Kommentar selbst
+          commentable_id: Die eindeutige ID des kommentierten Objekts
+          commentable_type: Die Art des kommentierten Objekts (ob es ein Ergebnis, Vorschlag o.ä. war)
+          created_at: Das Erstellungsdatum des Kommentars
+          depth: Die Position dieses Kommentars im Thread (ob es sich um eine Antwort oder eine Antwort auf eine Antwort handelt)
+          id: Die ID dieses Kommentars
+          locale: Die eingestellte Plattformsprache der kommentierenden Person
+          root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
+          user_group: Der Name der Gruppe, die diesen Kommentar erstellt hat (falls vorhanden)
+        posts:
+          author: Die Informationen des Autors
+          body: Der Inhalt des Beitrags
+          comments_count: Die Anzahl Kommentare zu diesem Beitrag
+          component: Komponente, zu der dieses Beitrag gehört
+          created_at: Erstellungsdatum dieses Beitrags
+          endorsements_count: Die Anzahl Unterstützungen dieses Beitrags
+          follows_count: Die Anzahl Folgende dieses Beitrags
+          id: Die eindeutige Bezeichnung des Beitrags
+          participatory_space: Zu welchem Bereich dieser Beitrag gehört (z.B. Partizipationsprozesse oder Gremien)
+          published_at: Veröffentlichungsdatum des Beitrags
+          title: Der Titel des Beitrags
+          updated_at: Letztes Aktualisierungsdatum dieses Beitrags
+          url: Die URL für diesen Beitrag
     statistics:
       posts_count: Beiträge

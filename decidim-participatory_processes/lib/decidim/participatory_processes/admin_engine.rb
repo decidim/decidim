@@ -22,8 +22,7 @@ module Decidim
               resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "participatory_process_group_landing_page_content_blocks"
             end
           end
-          resources :participatory_process_types
-          resources :participatory_process_filters, except: [:show]
+
           resources :participatory_processes, param: :slug, except: [:show, :destroy] do
             resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]
             resources :copies, controller: "participatory_process_copies", only: [:new, :create]
@@ -59,8 +58,6 @@ module Decidim
           end
 
           scope "/participatory_processes/:participatory_process_slug" do
-            resources :categories, except: [:show]
-
             resources :components do
               collection do
                 put :reorder
