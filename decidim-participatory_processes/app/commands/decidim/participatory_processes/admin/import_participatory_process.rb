@@ -42,7 +42,6 @@ module Decidim
             Decidim.traceability.perform_action!("import", Decidim::ParticipatoryProcess, current_user) do
               @imported_process = importer.import(original_process, current_user, title: form.title, slug: form.slug)
               importer.import_participatory_process_steps(original_process["participatory_process_steps"]) if form.import_steps?
-              importer.import_categories(original_process["participatory_process_categories"]) if form.import_categories?
               importer.import_folders_and_attachments(original_process["attachments"]) if form.import_attachments?
               importer.import_components(original_process["components"]) if form.import_components?
               @imported_process

@@ -223,35 +223,6 @@ module Decidim
       end
     end
 
-    # Public: Generates a select field with the categories. Only leaf categories can be set as selected.
-    #
-    # name       - The name of the field (usually category_id)
-    # collection - A collection of categories.
-    # options    - An optional Hash with options:
-    # - prompt   - An optional String with the text to display as prompt.
-    # - disable_parents - A Boolean to disable parent categories. Defaults to `true`.
-    # html_options - HTML options for the select
-    #
-    # Returns a String.
-    def categories_select(name, collection, options = {}, html_options = {})
-      options = {
-        disable_parents: true
-      }.merge(options)
-
-      disable_parents = options[:disable_parents]
-
-      selected = object.send(name)
-      selected = selected.first if selected.is_a?(Array) && selected.length > 1
-      categories = categories_for_select(collection)
-      disabled = if disable_parents
-                   disabled_categories_for(collection)
-                 else
-                   []
-                 end
-
-      select(name, @template.options_for_select(categories, selected:, disabled:), options, html_options)
-    end
-
     # Public: Generates a select field for areas.
     #
     # name       - The name of the field (usually area_id)
@@ -710,30 +681,6 @@ module Decidim
 
       text = I18n.t(defaults.shift, **options)
       content_tag(:span, text, class: "form-error")
-    end
-
-    def categories_for_select(scope)
-      sorted_main_categories = scope.first_class.includes(:subcategories).sort_by do |category|
-        [category.weight, translated_attribute(category.name, category.participatory_space.organization)]
-      end
-
-      sorted_main_categories.flat_map do |category|
-        parent = [[translated_attribute(category.name, category.participatory_space.organization), category.id]]
-
-        sorted_subcategories = category.subcategories.sort_by do |subcategory|
-          [subcategory.weight, translated_attribute(subcategory.name, subcategory.participatory_space.organization)]
-        end
-
-        sorted_subcategories.each do |subcategory|
-          parent << ["- #{translated_attribute(subcategory.name, subcategory.participatory_space.organization)}", subcategory.id]
-        end
-
-        parent
-      end
-    end
-
-    def disabled_categories_for(scope)
-      scope.first_class.joins(:subcategories).pluck(:id)
     end
 
     def tab_element_class_for(type, index)
