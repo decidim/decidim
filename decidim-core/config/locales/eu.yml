@@ -438,7 +438,7 @@ eu:
           title: Baimena oraindik ere egiten ari da
         unauthorized:
           explanation: Sentitzen dugu, baina ezin diozu heldu ekintza honi, zure baimen-datuetako batzuk ez datozelako bat.
-          invalid_field: "%{field} en balioa %{value} ez da baliozkoa."
+          invalid_field: "%{field} datu-eremuaren balioa %{value} ez da baliozkoa."
           ok: Ados
           title: Ez dago baimenduta
         unconfirmed:
@@ -1182,11 +1182,11 @@ eu:
       download:
         csv: Deskargatu datuak (CSV)
       followers:
-        description: Parte hartzeko espazio hau jarraitzen duten erabiltzaile kopurua
+        description: Parte hartzeko espazio hau jarraitzen duten parte-hartzaile kopurua
         object: jarraitzaileak
         title: Jarraitzaileak
       participants:
-        description: Erakundeko erabiltzaile aktiboen kopurua
+        description: Erakundekoparte-hartzaile aktiboen kopurua
         object: parte-hartzaileak
         title: Parte-hartzaileak
       users:
@@ -1365,7 +1365,7 @@ eu:
         badges: Garaikurrak
         conversations: Elkarrizketak
         followers: Jarraitzaileak
-        following: Jarraitu
+        following: Jarraitzen
         group_admins: Kudeatu administratzaileak
         group_members: Kudeatu kideak
         groups: Taldeak
@@ -1395,7 +1395,7 @@ eu:
         edit_profile: Editatu profila
         edit_user_group: Editatu taldearen profila
         fill_in_email_to_confirm_it: Mesedez, sartu zure taldearen korreo elektronikoa, berresteko.
-        invite_user: Gonbidatu erabiltzailea
+        invite_user: Gonbidatu parte-hartzailea
         join_user_group: Eskatu taldera lotzea
         leave_user_group: Utzi taldea
         manage_user_group_admins: Kudeatu administratzaileak
@@ -1417,7 +1417,7 @@ eu:
         id: ID
         participatory_space: Parte hartzeko espazioa
         reason: Arrazoia
-        report_html: <p>Hurrengo <a href="%{url}">edukia</a> salatua izan da.</p>
+        report_html: <p>Hurrengo <a href="%{url}"> edukia </a> salatua izan da.</p>
         see_report: Ikusi erreportea
         subject: Eduki bat salatua izan da
     reports:
