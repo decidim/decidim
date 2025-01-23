@@ -72,21 +72,6 @@ describe "Action Authorization" do
         expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
       end
 
-      context "when the user does not match the authorization criteria" do
-        let!(:user_authorization) do
-          create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.second.ago,
-                                 metadata: { postal_code: "1234" })
-        end
-
-        it "prompts user to check their authorization status" do
-          visit main_component_path(component)
-          click_on "New proposal"
-
-          expect(page).to have_content("Not authorized")
-          expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
-        end
-      end
-
       context "when the user does not match one of the authorization criteria" do
         let(:postal_code) { "1234" }
         let!(:user_authorization) do
@@ -96,6 +81,18 @@ describe "Action Authorization" do
 
         before do
           visit main_component_path(component)
+        end
+
+        context "when the code is incorrect" do
+          let(:postal_code) { "aaaa" }
+
+          it "prompts user to check their authorization status" do
+            visit main_component_path(component)
+            click_on "New proposal"
+
+            expect(page).to have_content("Not authorized")
+            expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
+          end
         end
 
         context "when the postal code is missing" do
@@ -224,21 +221,6 @@ describe "Action Authorization" do
         expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
       end
 
-      context "when the user does not match the authorization criteria" do
-        let!(:user_authorization) do
-          create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.second.ago,
-                                 metadata: { postal_code: "1234" })
-        end
-
-        it "prompts user to check their authorization status" do
-          visit main_component_path(component)
-          click_on "New proposal"
-
-          expect(page).to have_content("Not authorized")
-          expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
-        end
-      end
-
       context "when the user does not match one of the authorization criteria" do
         let(:postal_code) { "1234" }
         let!(:user_authorization) do
@@ -248,6 +230,18 @@ describe "Action Authorization" do
 
         before do
           visit main_component_path(component)
+        end
+
+        context "when incorrect code" do
+          let(:postal_code) { "aaaa" }
+
+          it "prompts user to check their authorization status" do
+            visit main_component_path(component)
+            click_on "New proposal"
+
+            expect(page).to have_content("Not authorized")
+            expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
+          end
         end
 
         context "when the postal code is missing" do
