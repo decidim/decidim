@@ -21,7 +21,7 @@ module Decidim
       user = Decidim::User.find_or_initialize_by(email:)
       user.update!(
         name: ::Faker::Name.name,
-        nickname: ::Faker::Twitter.unique.screen_name,
+        nickname: "#{::Faker::Twitter.unique.screen_name}-#{rand(10_000)}"[0...20],
         password: "decidim123456789",
         organization:,
         confirmed_at: Time.current,
