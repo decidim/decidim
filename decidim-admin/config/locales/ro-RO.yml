@@ -946,7 +946,6 @@ ro:
         scope_types: Tipuri de domeniu
         scopes: Domenii de interes
         statistics: Activitate
-        taxonomy_filters: Filtre taxonomie
         user_groups: Grupuri
         users: Administratori
       user_group:
