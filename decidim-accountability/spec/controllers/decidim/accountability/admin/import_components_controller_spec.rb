@@ -5,7 +5,9 @@ require "spec_helper"
 module Decidim
   module Accountability
     module Admin
-      describe ProjectsImportController do
+      describe ImportComponentsController do
+        routes { Decidim::Accountability::AdminEngine.routes }
+
         describe "GET show" do
           let(:current_user) { create(:user, :confirmed, :admin, organization:) }
           let(:organization) { create(:organization) }
@@ -20,7 +22,7 @@ module Decidim
           it "renders the import result form" do
             get :new
             expect(response).to have_http_status(:ok)
-            expect(response).to render_template("decidim/accountability/admin/projects_import/new")
+            expect(response).to render_template("decidim/accountability/admin/import_components/new")
           end
         end
       end
