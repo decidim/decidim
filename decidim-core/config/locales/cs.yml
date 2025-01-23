@@ -22,10 +22,7 @@ cs:
       taxonomy:
         name: Název taxonomie
       taxonomy_filter:
-        internal_name: Interní název filtru
-        name: Veřejný název filtru
         root_taxonomy_id: Z taxonomie
-        space_filter: K dispozici jako filtr pro participační prostory
       user:
         about: O nás
         email: Váš email
@@ -316,13 +313,6 @@ cs:
         delete_with_parent: "%{user_name} odstranil taxonomii %{resource_name} v taxonomii %{parent_taxonomy}"
         update: "%{user_name} aktualizoval taxonomii %{resource_name}"
         update_with_parent: "%{user_name} aktualizoval taxonomii %{resource_name} uvnitř taxonomie %{parent_taxonomy}"
-      taxonomy_filter:
-        create: "%{user_name} vytvořil filtr založený na taxonomii %{resource_name}"
-        create_with_filter_items_count: "%{user_name} vytvořil filtr založený na taxonomii %{resource_name} s %{filter_items_count} filtry pro %{space_manifest_name}"
-        delete: "%{user_name} odstranil filtr založený na taxonomii %{resource_name}"
-        delete_with_filter_items_count: "%{user_name} odstranil filtr založený na taxonomii %{resource_name} s %{filter_items_count} filtry pro %{space_manifest_name}"
-        update: "%{user_name} aktualizoval filtr založený na taxonomii %{resource_name}"
-        update_with_filter_items_count: "%{user_name} aktualizoval filtr založený na taxonomii %{resource_name} s %{filter_items_count} filtry pro %{space_manifest_name}"
       user:
         block: "%{user_name} zablokoval uživatele %{resource_name}"
         invite: "%{user_name} pozval uživatele %{resource_name} s rolí: %{role}"
