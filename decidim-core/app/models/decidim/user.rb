@@ -207,14 +207,6 @@ module Decidim
       ImpersonationLog.active.exists?(user: self)
     end
 
-    def interested_scopes_ids
-      extended_data["interested_scopes"] || []
-    end
-
-    def interested_scopes
-      @interested_scopes ||= organization.scopes.where(id: interested_scopes_ids)
-    end
-
     def user_name
       extended_data["user_name"] || name
     end
