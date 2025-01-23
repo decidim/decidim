@@ -210,7 +210,7 @@ sk:
         title: Návrhy
     participatory_spaces:
       highlighted_proposals:
-        see_all: Zobraziť všetky (%{count})
+        see_all: Zobraziť všetky
     proposals:
       actions:
         answer_proposal: Odpoveď na návrh
@@ -270,7 +270,6 @@ sk:
             title: Návrh aktualizácie
             update: Aktualizácia
           form:
-            attachment_legend: "(Voliteľné) Pridanie prílohy"
             created_in_meeting: Tento návrh pochádza z rokovania
             select_a_meeting: Vyberte schôdzku
           index:
@@ -373,7 +372,6 @@ sk:
         create:
           success: Projekt spolupráce bol úspešne vytvorený.
         edit:
-          attachment_legend: "(Voliteľné) Pridanie prílohy"
           back: Zadná
           send: Poslať
           title: Úprava konceptu spolupráce
@@ -467,7 +465,6 @@ sk:
           comment: Komentár
       proposals:
         edit:
-          attachment_legend: "(Voliteľné) Pridanie prílohy"
           back: Zadná
           send: Poslať
           title: Upraviť návrh
@@ -535,6 +532,8 @@ sk:
         voting_rules:
           proposal_limit:
             description: Môžete vytvoriť až %{limit} návrhov.
+          vote_limit:
+            description: Môžete hlasovať až pre %{limit} návrhov.
         wizard_aside:
           back: Zadná
         wizard_steps:

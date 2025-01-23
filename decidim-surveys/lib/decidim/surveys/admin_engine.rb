@@ -23,6 +23,7 @@ module Decidim
               get :export_response
             end
           end
+          resources :publish_answers, only: [:index, :update, :destroy]
         end
         root to: "surveys#index"
       end

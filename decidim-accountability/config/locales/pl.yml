@@ -55,27 +55,6 @@ pl:
           new:
             download_export: Pobierz Eksport w formacie CSV
             import: Importuj
-            info: |
-              <p>Rekomendujemy podjęcie następujących kroków:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Utwórz statusy dla wyników</a>, które chcesz dodać</li>
-              <li><a href='%{link_new_result}' target='_blank'>Utwórz przynajmniej jeden wynik ręcznie</a> przez portal administratora przed użyciem importu w celu lepszego zrozumienia formatu i tego, co będzie trzeba uzupełnić.</li>
-              <li>%{link_export_csv}</li>
-              <li>Dokonaj zmian lokalnie. Możesz tylko zmienić następujące kolumny pliku CSV::
-                <ul>
-                <li><b>category/id:</b> ID kategorii</li>
-                <li><b>scope/id:</b> ID zakresu</li>
-                <li><b>parent/id:</b> ID rodzica (dla powiązanych wyników). Opcjonalne</li>
-                <li><b>title/en:</b> Tytuł po angielsku. Będzie zależał od wyboru języka platformy w konfiguracji.</li>
-                <li><b>description/en:</b> Opis po angielsku. Będzie zależał od wyboru języka platformy w konfiguracji.</li>
-                <li><b>start_date:</b> data rozpoczęcia wykonania wyniku (format YYYY-MM-DD)</li>
-                <li><b>end_date:</b> data zakończenia wykonania wyniku (format YYYY-MM-DD)</li>
-                <li><b>status/id:</b> ID statusu dla tego wyniku</li>
-                <li><b>progress:</b> Postęp wykonania w procentach (od 0 do 100)</li>
-                <li><b>proposals_ids:</b> wewnętrzne ID powiązanych propozycji (oddzielone przecinkiem). Jest automatycznie konwertowane do <span class='attribute-name'>proposal_url</span></li>
-                </ul>
-              </li>
-              </ol>
             title: Importuj wyniki z pliku CSV
         imports:
           create:

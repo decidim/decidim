@@ -169,7 +169,6 @@
           attachment_collections: Mapper
           attachment_files: Filer
           attachments: Vedlegg
-          categories: Kategorier
           components: Komponenter
           conference_admins: Konferanse administratorer
           conference_invites: Invitasjoner

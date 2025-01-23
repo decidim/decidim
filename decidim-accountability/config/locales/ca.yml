@@ -70,11 +70,11 @@ ca:
               <li><a href='%{link_new_status}' target='_blank'>Crea els estats per als resultats</a> que vulguis afegir</li>
               <li><a href='%{link_new_result}' target='_blank'>Crea com a mínim un resultat manualment</a> a través del taulell d'administració abans d'importar, per a entendre millor el format i com cal omplir-ho.</li>
               <li>%{link_export_csv}</li>
-              <li>Fes els canvis en local. Només pots modificar les següents columnes del CSV:
+              <li>Fes els canvis en local. Només pots modificar les següents columnes del CSV (la resta seran ignorades):
               <ul>
-              <li><b>id category/id:</b> ID per la categoria</li>
-              <li><b>scope/id:</b> ID per a l'àmbit</li>
-              <li><b>parent/id:</b> ID per al pare (per a resultats relacionats). Opcional</li>
+              <li><b>taxonomies/ids:</b> IDs per la taxonomies (si n'hi ha més d'una, separeu-les amb una coma)</li>
+              <li><b>parent/id:</b> ID per al pare (per a resultats relacionats).
+              <br>Opcional</li>
               <li><b>title/I18N:</b> Title en la llengua X</li>
               <li><b>description/I18N:</b> Descripció en la lleguna X </li>
               <li><b>start_date:</b> data en la que s'inicia l'execució del resultat (format YYYY-MM-DD)</li>
@@ -112,6 +112,23 @@ ca:
               other: "Hi ha %{count} a la cua per ser importats. Es notificarà per correu electrònic, quan es completi la importació."
             title: Importar projectes des d'un altre component
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Canviar data
+              end_date: Data de finalització
+              start_date: Data d'inici
+            dropdown:
+              actions: Accions
+              change_dates: Canviar dates
+              change_status: Canvia estats
+              change_taxonomies: Canviar taxonomies
+            status_form:
+              change_status: Canvia estats
+              status: Estat
+            submit_buttons:
+              cancel: Cancel·lar
+            taxonomies_form:
+              change_taxonomies: Canviar taxonomies
           create:
             invalid: S'ha produït un error en crear aquest resultat.
             success: Resultat creat correctament.
@@ -119,6 +136,7 @@ ca:
             title: Editar resultat
             update: Actualitzar resultat
           index:
+            selected: Seleccionades
             title: Resultats
           manage_trash:
             title: Resultats eliminats
@@ -128,6 +146,17 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar aquest resultat.
             success: Resultat actualitzat correctament.
+          update_dates:
+            invalid: S'ha produït un error en actualitzar les dates dels resultats
+            success: Les dates dels resultats s'han actualitzat correctament
+          update_status:
+            invalid: S'ha produït un error en actualitzar l'estat dels resultats
+            success: L'estat dels resultats s'han actualitzat correctament
+          update_taxonomies:
+            invalid: No s'ha pogut actualitzar la taxonomia %{taxonomies} pels resultats %{results}
+            select_a_result: Selecciona un resultat
+            select_a_taxonomy: Selecciona una taxonomia
+            success: No s'ha pogut actualitzar la taxonomia %{taxonomies} pels resultats %{results}
         shared:
           subnav:
             statuses: Estats

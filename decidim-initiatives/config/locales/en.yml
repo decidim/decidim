@@ -152,6 +152,9 @@ en:
             postal_code: Postal code
             signature_count: Signature count
             timestamp: Timestamp
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: All initiatives
       titles:
         initiatives: Initiatives
         initiatives_types: Initiative types

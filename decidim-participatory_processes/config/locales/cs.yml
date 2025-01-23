@@ -22,7 +22,6 @@ cs:
         local_area: Oblast působnosti organizace
         meta_scope: Metadata Oblasti působnosti
         participatory_process_group_id: Skupina procesů
-        participatory_process_type_id: Typ procesů
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
         private_space: Soukromý proces
@@ -60,8 +59,6 @@ cs:
         short_description: Stručný popis
         start_date: Datum zahájení
         title: Titul
-      participatory_process_type:
-        title: Název
       participatory_process_user_role:
         email: E-mailem
         name: Název
@@ -108,7 +105,6 @@ cs:
         new_process: Nový proces
         new_process_group: Nová skupina procesů
         new_process_step: Nový krok
-        new_process_type: Nový typ procesu
         new_process_user_role: Nový uživatel procesu
         preview: Náhled
         publish: Publikovat
@@ -124,13 +120,11 @@ cs:
         participatory_process_groups_submenu:
           info: Info
           landing_page: Úvodní stránka
-        participatory_process_types: Typy procesů
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Složky
           attachment_files: Soubory
           attachments: Přílohy
-          categories: Kategorie
           components: Komponenty
           info: O tomto procesu
           landing_page: Úvodní stránka
@@ -157,11 +151,6 @@ cs:
             start_date: Datum zahájení
             title: Titul
           name: Participační krok procesu
-        participatory_process_type:
-          fields:
-            created_at: Vytvořeno v
-            title: Název
-          name: Typ procesu
         participatory_process_user_role:
           fields:
             email: E-mailem
@@ -245,21 +234,6 @@ cs:
         update:
           error: Při aktualizaci tohoto kroku procesu participace došlo k chybě.
           success: Úspěšný krok procesu byl úspěšně aktualizován.
-      participatory_process_types:
-        create:
-          error: Při vytváření nového typu procesu došlo k chybě.
-          success: Typ procesu byl úspěšně vytvořen.
-        destroy:
-          success: Typ procesu byl úspěšně odstraněn.
-        edit:
-          title: Upravit typ procesu
-          update: Aktualizovat
-        new:
-          create: Vytvořit
-          title: Nový typ procesu
-        update:
-          error: Při aktualizaci tohoto typu procesu došlo k chybě.
-          success: Typ procesu byl úspěšně aktualizován.
       participatory_process_user_roles:
         create:
           error: Při přidávání uživatele pro tento participační proces došlo k chybě.
@@ -482,12 +456,10 @@ cs:
             images: Obrázky
             metadata: Metadata
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
-            other: Ostatní
             private_notice: Po nastavení jako soukromé budete moci spravovat členy
             related_processes: Související procesy
             scope_type_max_depth_help: Omezit hloubku filtru rozsahu. Filtr se zobrazí od obecného k vybranému typu rozsahu.
             select_an_area: Vyberte oblast
-            select_participatory_process_type: Vyberte typ procesu
             select_process_group: Vyberte skupinu procesů
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
             taxonomies: Taxonomie

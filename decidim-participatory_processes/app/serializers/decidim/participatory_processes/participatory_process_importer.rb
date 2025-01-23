@@ -42,8 +42,7 @@ module Decidim
             announcement: attributes["announcement"],
             private_space: attributes["private_space"],
             scopes_enabled: attributes["scopes_enabled"],
-            participatory_process_group: import_process_group(attributes["participatory_process_group"]),
-            participatory_process_type: import_participatory_process_type(attributes["participatory_process_type"])
+            participatory_process_group: import_process_group(attributes["participatory_process_group"])
           )
           @imported_process.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
 
@@ -71,19 +70,6 @@ module Decidim
         end
       end
 
-      def import_participatory_process_type(participatory_process_type)
-        return if participatory_process_type.blank?
-
-        return if compact_translation(participatory_process_type["title"]).blank?
-
-        Decidim.traceability.perform_action!("create", ParticipatoryProcessType, @user) do
-          Decidim::ParticipatoryProcessType.find_or_create_by(
-            title: participatory_process_type["title"],
-            organization: @organization
-          )
-        end
-      end
-
       def import_participatory_process_steps(steps)
         return if steps.nil?
 
@@ -99,33 +85,6 @@ module Decidim
             active: step_attributes["active"],
             position: step_attributes["position"]
           )
-        end
-      end
-
-      def import_categories(categories)
-        return if categories.nil?
-
-        categories.map do |category_attributes|
-          category = Decidim.traceability.create!(
-            Category,
-            @user,
-            name: category_attributes["name"],
-            description: category_attributes["description"],
-            parent_id: category_attributes["parent_id"],
-            participatory_space: @imported_process
-          )
-          next if category_attributes["subcategories"].nil?
-
-          category_attributes["subcategories"].map do |subcategory_attributes|
-            Decidim.traceability.create!(
-              Category,
-              @user,
-              name: subcategory_attributes["name"],
-              description: subcategory_attributes["description"],
-              parent_id: category.id,
-              participatory_space: @imported_process
-            )
-          end
         end
       end
 

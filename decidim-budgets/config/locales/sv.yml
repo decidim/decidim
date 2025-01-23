@@ -176,6 +176,9 @@ sv:
             id: ID
             map: Karta
             title: Titel
+      order:
+        status:
+          title: Din röst har tagits emot
       order_summary_mailer:
         order_summary:
           selected_projects: 'Du har valt följande projekt:'
@@ -334,8 +337,6 @@ sv:
     orders:
       checkout:
         error: Det gick inte att behandla din röst.
-        success_html: <p>Din röst har godkänts.</p> <p class="text-sm font-normal">Du kan utforska <a class="text-secondary underline" href="%{rest_of_budgets_link}">resten av budgeten här</a>.</p>
-        success_no_left_budgets_html: Din röst har tagits emot.
       destroy:
         error: Det gick inte att dra tillbaka din röst.
         success: Din röst har dragits tillbaka.

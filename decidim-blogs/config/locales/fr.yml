@@ -94,5 +94,14 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Nouvel article publié dans %{participatory_space_title}
           notification_title: L'article <a href="%{resource_path}">%{resource_title}</a> a été publié dans %{participatory_space_title}
+    open_data:
+      help:
+        post_comments:
+          alignment: Si ce commentaire était pour, contre ou neutre
+          author: Le nom du participant qui a fait ce commentaire
+          body: Le commentaire lui-même
+          commentable_id: L'identifiant unique du commentaire
+          created_at: La date de création de ce commentaire
+          id: L'id de ce commentaire
     statistics:
       posts_count: Articles

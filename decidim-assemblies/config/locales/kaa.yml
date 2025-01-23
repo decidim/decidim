@@ -14,9 +14,6 @@ kaa:
           update: Jańalaw
         new:
           create: Jaratıw
-      assemblies_types:
-        new:
-          create: Jaratıw
       assembly_copies:
         new:
           copy: Kóshirip alıw
@@ -30,7 +27,6 @@ kaa:
         assemblies_submenu:
           attachment_collections: Papkalar
           attachment_files: Fayllar
-          categories: Kategoriyalar
       models:
         assembly_user_role:
           fields:

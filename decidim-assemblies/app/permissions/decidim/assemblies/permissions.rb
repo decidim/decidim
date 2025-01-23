@@ -37,8 +37,6 @@ module Decidim
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
-        assembly_filters_action?
-        assemblies_type_action?
 
         return permission_action unless assembly
 
@@ -59,27 +57,6 @@ module Decidim
         return unless assembly.private_space?
 
         toggle_allow(user.admin? || can_manage_assembly?(role: :admin) || can_manage_assembly?(role: :collaborator))
-      end
-
-      def assembly_filters_action?
-        return unless permission_action.subject == :taxonomy_filter
-
-        toggle_allow(user.admin?)
-      end
-
-      def assemblies_type_action?
-        return unless [:assembly_type, :assemblies_type].include? permission_action.subject
-        return disallow! unless user.admin?
-
-        assembly_type = context.fetch(:assembly_type, nil)
-        case permission_action.action
-        when :destroy
-          assemblies_is_empty = assembly_type && assembly_type.assemblies.empty?
-
-          toggle_allow(assemblies_is_empty)
-        else
-          allow!
-        end
       end
 
       # It is an admin user if it is an organization admin or is a space admin

@@ -186,14 +186,6 @@ module Decidim
                         active: is_active_link?(decidim_admin_conferences.conferences_path),
                         icon_name: "government-line",
                         if: allowed_to?(:read, :conference_list)
-
-          menu.add_item :taxonomy_filters,
-                        I18n.t("menu.taxonomy_filters", scope: "decidim.admin"),
-                        decidim_admin_conferences.conference_filters_path,
-                        position: 3,
-                        icon_name: "price-tag-3-line",
-                        if: allowed_to?(:manage, :taxonomy_filter),
-                        active: is_active_link?(decidim_admin_conferences.conference_filters_path)
         end
       end
 
@@ -204,8 +196,7 @@ module Decidim
                         decidim_admin_conferences.conferences_path,
                         icon_name: "live-line",
                         position: 2.8,
-                        active: is_active_link?(decidim_admin_conferences.conferences_path, :inclusive) ||
-                                is_active_link?(decidim_admin_conferences.conference_filters_path, :inclusive),
+                        active: is_active_link?(decidim_admin_conferences.conferences_path, :inclusive),
                         if: allowed_to?(:enter, :space_area, space_name: :conferences)
         end
       end

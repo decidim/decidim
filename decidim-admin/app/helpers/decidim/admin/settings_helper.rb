@@ -74,11 +74,11 @@ module Decidim
         when :integer_with_units
           integer_with_units(form, attribute, name, i18n_scope, options)
         when :taxonomy_filters
-          if current_taxonomy_filters.blank?
+          if TaxonomyFilter.for(current_organization).blank?
             label_tag(name, t(name, scope: i18n_scope)) +
               content_tag(:p) do
                 content_tag(:span, t("no_taxonomy_filters_found", scope: i18n_scope), class: "text-gray mr-2") +
-                  link_to(t("define_taxonomy_filters", scope: i18n_scope), participatory_space_taxonomy_filters_path, class: "button button__text-secondary")
+                  link_to(t("define_taxonomy_filters", scope: i18n_scope), decidim_admin.taxonomies_path, class: "button button__text-secondary")
               end.html_safe
           else
             taxonomy_filters(form, name, i18n_scope)
@@ -219,48 +219,34 @@ module Decidim
       # Renders a form field that includes a taxonomy filters input hidden for each taxonomy filter
       # and a button to open a drawer with all the available taxonomy filters with actions to manage them.
       #
-      # @param form (see #settings_attribute_input)
       # @param name (see #settings_attribute_input)
       # @param i18n_scope (see #settings_attribute_input)
       def taxonomy_filters(form, name, i18n_scope)
-        values = (form.object.send(name) || []).filter_map do |id|
-          current_taxonomy_filters.find { |item| item[1].to_s == id.to_s }
-        end || []
-
-        button = content_tag(:div, class: "mt-2") do
-          content_tag(:button, t("#{name}_add", scope: i18n_scope), class: "button button__xs button__transparent-secondary", data: { dialog_open: "taxonomy_filters-dialog" })
+        current_filters = content_tag(:div, class: "js-current-filters") do
+          render partial: "decidim/admin/taxonomy_filters_selector/component_table",
+                 locals: { field_name: "#{form.object_name}[#{name}][]", component_filters:, component: @component }
         end
-
-        container = content_tag(:div, id: "#{name}-filters_container") do
-          values.map do |fname, fid|
-            render partial: "decidim/admin/components/taxonomy_filters_badge", locals: { value: fid, title: fname, name:, object_name: form.object_name }
-          end.join.html_safe
+        add_button = content_tag(:div, class: "mt-2") do
+          content_tag(:button,
+                      t("#{name}_add", scope: i18n_scope),
+                      class: "button button__xs button__transparent-secondary js-add-taxonomy-filter",
+                      data: {
+                        url: decidim_admin.taxonomy_filters_selector_index_path(component_id: @component.id)
+                      })
         end
-
-        current_items = content_tag(:div, class: "flex") do
-          container + link_to(t("clear_all", scope: i18n_scope), "#", class: "button button__text-secondary ml-4 #{"hidden" if values.blank?}", data: { clear_all: true })
+        container = content_tag(:div, class: "js-taxonomy-filters-container", data: { drawer: "#{name}-dialog" }) do
+          current_filters + add_button
         end
 
         drawer = decidim_drawer id: "#{name}-dialog" do
-          render partial: "decidim/admin/components/taxonomy_filters_drawer", locals: { form:, available_filters: current_taxonomy_filters, name: }
+          render partial: "decidim/admin/components/taxonomy_filters_drawer"
         end
 
-        label_tag(name, t(name, scope: i18n_scope)) + current_items + button + drawer
+        label_tag(name, t(name, scope: i18n_scope)) + container + drawer
       end
 
-      def current_taxonomy_filters
-        @current_taxonomy_filters ||= TaxonomyFilter.for(current_manifest.name).map do |filter|
-          ["#{decidim_sanitize_translated(filter.internal_name)} (#{filter.filter_items_count})", filter.id]
-        end
-      end
-
-      def participatory_space_taxonomy_filters_path
-        model = current_participatory_space || current_manifest.model_class_name.constantize.new
-        Decidim::EngineRouter.new(model.mounted_admin_engine, {}).send("#{current_manifest.route_name}_filters_path")
-      end
-
-      def current_manifest
-        defined?(current_participatory_space_manifest) ? current_participatory_space_manifest : current_participatory_space.manifest
+      def component_filters
+        @component_filters ||= TaxonomyFilter.for(current_organization).where(id: @component.settings.taxonomy_filters)
       end
     end
   end
