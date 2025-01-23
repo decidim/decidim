@@ -90,6 +90,7 @@ eu:
           create: "%{user_name} parte-hartzaileak sortu du %{resource_name} inkesta %{space_name} esparruan inkesta gisa"
           delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} inkesta %{space_name} esparruan inkesta gisa"
           publish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} inkesta %{space_name} espazioan"
+          unpublish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} inkesta %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} inkesta %{space_name} espazioan"
       directory:
         surveys:
