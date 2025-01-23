@@ -164,24 +164,24 @@ eu:
             invalid: Arazo bat egon da egoera hau sortzean.
             success: Egoera zuzen sortua.
           destroy:
-            success: Egoera behar bezala ezabatua.
+            success: Egoera ondo ezabatu da.
           edit:
             title: Editatu egoera
-            update: Eguneratu egoera
+            update: Egoera eguneratu
           index:
             title: Egoerak
           new:
             create: Egoera sortu
             title: Beste egoera bat
           update:
-            invalid: Arazo bat egon da egoera hau eguneratzean.
-            success: Egoera zuzen eguneratua.
+            invalid: Arazoren bat gertatu da egoera hau sortzean.
+            success: Egoera ondo eguneratu da.
         timeline_entries:
           create:
-            invalid: Arazo bat egon da sarrera hau sortzean.
-            success: Sarrera zuzen sortua.
+            invalid: Arazoen bat gertatu da sarrera hau sortzean.
+            success: Sarrera ondo sortu da.
           destroy:
-            success: Sarrera behar bezala ezabatua.
+            success: Sarrera ondo ezabatu da.
           edit:
             title: Editatu sarrera
             update: Eguneratu sarrera
@@ -191,8 +191,8 @@ eu:
             create: Sortu sarrera
             title: Beste sarrera bat
           update:
-            invalid: Arazo bat egon da sarrera hau eguneratzean.
-            success: Sarrera zuzen eguneratua.
+            invalid: Arazoren bat gertatu da sarrera hau eguneratzean.
+            success: Sarrera ondo sortu da.
       admin_log:
         result:
           create: "%{user_name} parte-hartzaileak %{resource_name} emaitza sortu du %{space_name} espazioan"
@@ -202,7 +202,7 @@ eu:
           update: "%{user_name} parte-hartzaileak %{resource_name} emaitza eguneratu du %{space_name} espazioan"
         status:
           create: "%{user_name} parte-hartzaileak %{resource_name} egoera sortu du"
-          delete: "%{user_name} erabiltzaileak %{resource_name} egoera ezabatu du"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} egoera ezabatu du"
           update: "%{user_name} parte-hartzaileak %{resource_name} egoera eguneratu du"
         timeline_entry:
           create: "%{user_name} parte-hartzaileak %{resource_name} sarrera sortu du kronologian"
@@ -219,7 +219,7 @@ eu:
       import_mailer:
         import:
           errors: Erroreak
-          errors_present: Arazo bat egon da emaitzak inportatzean.
+          errors_present: Arazoren bat gertatu da emaitzak inportatzean.
           row_number: Errenkada
           subject: Emaitzak zuzen inportatu dira
           success: Emaitzak zuzen inportatu dira. Emaitzak administrazioaren panelaren bidez berrikusi ahal dituzu.
@@ -313,10 +313,10 @@ eu:
           email_subject: 'Eguneraketa bat honetarako: %{proposal_title}'
           notification_title: <a href="%{proposal_path}">%{proposal_title}</a> proposamena <a href="%{resource_path}">%{resource_title}</a> emaitzan sartu da.
         result_progress_updated:
-          email_intro: '"%{proposal_title}" proposamena duen "%{resource_title}" emaitza % %{progress}% osatu da. Orrialde honetan ikusi dezakezu:'
+          email_intro: '"%{proposal_title}" proposamena duen "%{resource_title}" emaitza, % %{progress}% osatu da. Orrialde honetan ikusi dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu "%{proposal_title}" jarraitzen ari zarelako, eta proposamen hori "%{resource_title}" emaitzaren barruan dago. Aurreko estekan sartu jakinarazpenak jasotzeari utzi nahi badiozu.
-          email_subject: Eguneraketa bat %{resource_title} honetarako
-          notification_title: <a href="%{proposal_path}">%{proposal_title}</a> proposamena duen <a href="%{resource_path}">%{resource_title}</a> emaitza %{progress}% osatu da.
+          email_subject: Eguneraketa bat %{resource_title} bilakaeran
+          notification_title: <a href="%{proposal_path}">%{proposal_title}</a> proposamena duen <a href="%{resource_path}">%{resource_title}</a> emaitza, % %{progress}% osatu da.
     metrics:
       results:
         description: Sortutako emaitza kopurua
@@ -359,7 +359,7 @@ eu:
           url: Emaitza hau aurkitu daitekeen URLa
     participatory_spaces:
       highlighted_results:
-        see_all: Ikusi emaitza guztiak (%{count})
+        see_all: Ikusi emaitza guztiak
     resource_links:
       included_projects:
         result_project: Emaitza honetan sartutako proiektuak
