@@ -709,7 +709,7 @@ en:
           root_commentable_url: The URL of the resource that ties to this comment
           user_group: The name of the user group that made this comment (if any)
         meetings:
-          address: The address of the meeting in case it is in person and has a physical lAuocation
+          address: The address of the meeting in case it is in person and has a physical location
           attachments: The number of attachments in this meeting
           attendees: The number of people attending this meeting
           attending_organizations: The organizations attending the meeting
