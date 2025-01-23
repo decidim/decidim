@@ -262,8 +262,6 @@ pt-BR:
         create: "%{user_name} criou o %{resource_name} página estática"
         delete: "%{user_name} apagou o %{resource_name} página estática"
         update: "%{user_name} atualizou o %{resource_name} página estática"
-      taxonomy_filter:
-        create: "%{user_name} criou um filtro baseado na taxonomia %{resource_name}"
       user:
         block: "%{user_name} bloqueou o usuário %{resource_name}"
         invite: "%{user_name} convidou o usuário %{resource_name} com papel: %{role}"
