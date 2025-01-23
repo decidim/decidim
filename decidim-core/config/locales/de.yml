@@ -32,10 +32,7 @@ de:
       taxonomy:
         name: Name der Klassifizierung
       taxonomy_filter:
-        internal_name: Interner Filtername
-        name: Öffentlicher Filtertitel
         root_taxonomy_id: Aus der Klassifizierung
-        space_filter: Als Filter für partizipative Bereiche verfügbar
       user:
         about: Über
         avatar: Profilbild
@@ -304,13 +301,6 @@ de:
         delete_with_parent: "%{user_name} hat die Klassifizierung %{resource_name} innerhalb der Klassifizierung %{parent_taxonomy} gelöscht"
         update: "%{user_name} hat die Klassifizierung %{resource_name} aktualisiert"
         update_with_parent: "%{user_name} hat die Klassifizierung %{resource_name} innerhalb der Klassifizierung %{parent_taxonomy} aktualisiert"
-      taxonomy_filter:
-        create: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} erstellt"
-        create_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} erstellt"
-        delete: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} gelöscht"
-        delete_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} gelöscht"
-        update: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} aktualisiert"
-        update_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} aktualisiert"
       user:
         block: "%{user_name} hat %{resource_name} blockiert"
         bulk_block: "%{user_name} hat %{blocked_count} Benutzer blockiert"
