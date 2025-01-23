@@ -217,7 +217,19 @@ fi-pl:
             title: Otsikko
       order:
         status:
+          continue_voting: Jatka äänestystä
+          download_vote: Lataa äänesi
+          pending_to_vote_budgets:
+            one: Voit äänestää toisesta budjetista
+            other: Voit äänestää myös muista budjeteista
+          share_vote: Jaa äänesi
           title: Äänesi on hyväksytty onnistuneesti
+          view_votes:
+            one: Näytä ääni
+            other: Näytä äänet
+          votes_count:
+            one: Olet jo äänestänyt budjetin %{budget_name} äänestyksessä.
+            other: Olet jo antanut %{count} ääntä budjetin %{budget_name} äänestyksessä.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Hankkeet, jotka olet valinnut:'
