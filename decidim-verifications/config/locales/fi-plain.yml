@@ -76,6 +76,12 @@ fi-pl:
             - Esimerkkikäsittelijä vahvistuksille, jonka avulla kehittäjät ymmärtävät paremmin, kuinka käyttäjätilien vahvistaminen toimii.
             - Se on tarkoitettu kehittäjille, jotta he voivat ymmärtää, miten omia käyttäjätilien vahvistamistoimintoja voi toteuttaa järjestelmään.
             - Vahvista itsesi syöttämällä X-kirjaimella alkava asiakirjan numero.
+        ephemeral_dummy_authorization_handler:
+          help:
+            - Esimerkkikäsittelijä väliaikaiselle vahvistukselle, jonka avulla kehittäjät ymmärtävät paremmin, kuinka käyttäjätilien vahvistaminen toimii.
+            - Se on tarkoitettu kehittäjille, jotta he voivat ymmärtää, miten omia käyttäjätilien vahvistamistoimintoja voi toteuttaa järjestelmään.
+            - Se on kopio esimerkkivahvistuksesta.
+            - Vahvista tilisi syöttämällä asiakirjan numero, joka päättyy kirjaimeen "X".
         id_documents:
           help:
             - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
@@ -137,6 +143,7 @@ fi-pl:
         new:
           authorize: Lähetä
           authorize_with: Vahvista palvelulla %{authorizer}
+          tos_agreement: Vahvistamalla henkilöllisyytesi hyväksyt %{link}.
         onboarding_pending:
           completed_verifications: Käyttäjätilisi vahvistaminen onnistui, voit nyt suorittaa toiminnon %{action} kohteessa %{resource_name}
           granted_verifications: Myönnetyt vahvistukset
