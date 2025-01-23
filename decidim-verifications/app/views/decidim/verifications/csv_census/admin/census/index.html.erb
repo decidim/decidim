@@ -25,7 +25,15 @@
             <tr>
               <td><%= data.email %></td>
               <td><%= l data.created_at, format: :decidim_short %></td>
-              <td><%= last_login(data) %></td>
+              <td class="custom-text-align">
+                <% last_login_info = last_login(data) || { icon: nil, text: t(".no_user"), last_sign_in: nil } %>
+                <% if last_login_info[:icon].present? %>
+                  <%= icon_with_tooltip(last_login_info[:icon], last_login_info[:text]) %>
+                <% else %>
+                  <%= last_login_info[:text] || t(".no_user") %>
+                <% end %>
+                <%= last_login_info[:last_sign_in] %>
+              </td>
               <td class="table-list__actions">
                   <%= icon_link_to "pencil-line", "#", t("actions.edit", scope: "decidim.verifications.csv_census.admin"), class: "action-icon--edit", data: { action: "csv_census-record", census_dialog: "census_drawer", census_url: edit_record_census_log_path(data) } %>
                   <%= icon_link_to "delete-bin-line", census_log_path(data), t("actions.destroy", scope: "decidim.verifications.csv_census.admin"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.verifications.csv_census.admin") } %>
@@ -44,3 +52,4 @@
 <%= render partial: "csv_census_drawer" %>
 
 <%= append_javascript_pack_tag "decidim_verifications" %>
+<%= append_stylesheet_pack_tag "decidim_verifications" %>

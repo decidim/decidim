@@ -173,10 +173,10 @@ en:
               success: Census data record have been deleted.
             index:
               empty: There are no census data. Use the button Import CSV to import it using a CSV file.
-              no_sign_in: No sign in
+              no_sign_in: Never signed in
               no_user: No user found
             last_login:
-              no_sign_in: No sign in
+              no_sign_in: Never signed in
               no_user: No user
             new_import:
               example: |
@@ -204,12 +204,14 @@ en:
               success: Successfully updated census data record.
           index:
             add_new_record_button: Add new record
+            authorized: User authorized
             fields:
               actions: Actions
               created_at: Created At
               email: Email
               user_verification: User verification
             import_csv: Import CSV
+            no_authorized: User unauthorized
             title: Current census data
           instructions:
             body: To do this you must enter system administration and add the csv_census authorizations to the organization

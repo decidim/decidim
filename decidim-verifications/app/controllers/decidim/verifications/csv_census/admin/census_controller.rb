@@ -77,15 +77,17 @@ module Decidim
           def last_login(data)
             user = current_organization.users.available.find_by(email: data.email)
 
-            return t(".no_user") unless user
+            return { icon: nil, text: t(".no_user"), last_sign_in: nil } unless user
 
-            authorized = Decidim::Authorization.where(name: "csv_census", user: user)
+            authorized = Decidim::Authorization.where(name: "csv_census", user:)
                                                .where.not(granted_at: nil)
                                                .exists?
 
-            icon = authorized ? "✅" : "❌"
+            icon = authorized ? "checkbox-circle-line" : "close-circle-line"
+            text = authorized ? t("index.authorized", scope: "decidim.verifications.csv_census.admin") : t("index.no_authorized", scope: "decidim.verifications.csv_census.admin")
             last_sign_in = user.last_sign_in_at ? l(user.last_sign_in_at, format: :decidim_short) : t(".no_sign_in")
-            icon + last_sign_in
+
+            { icon:, text:, last_sign_in: }
           end
         end
       end
