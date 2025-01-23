@@ -344,14 +344,6 @@ ja:
           title: 'コンポーネントを追加: %{name}'
         publish:
           success: コンポーネントは正常に公開されました。
-        taxonomy_filters_badge:
-          remove: 削除
-        taxonomy_filters_drawer:
-          add_filter: フィルターを追加
-          clear_all: すべてクリア
-          filters: フィルター
-          save: 保存
-          title: フィルター
         title: コンポーネント
         unpublish:
           success: コンポーネントの非公開に成功しました。
@@ -1116,8 +1108,6 @@ ja:
           error: このページの更新中に問題が発生しました。
           success: ページが更新されました。
       taxonomies:
-        actions: アクション
-        amount: アイテムの数
         count: 関連するリソース
         create:
           invalid: タクソノミーの作成中に問題が発生しました。
@@ -1136,7 +1126,6 @@ ja:
         filters:
           search_placeholder: 検索
         index:
-          description: タクソノミーを使用すると、管理者がコンテンツを分類および整理できます。例えば、プロセスを地理的範囲で分類するためにタクソノミーを追加できます。
           new_taxonomy: 新しいタクソノミー
           no_items_found: 検索条件に一致するタクソノミーが見つかりませんでした。
         name: 名前
@@ -1155,8 +1144,6 @@ ja:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: 新規タクソノミフィルター
-        callout:
-          modify_taxonomy_html: このタクソノミーまたはそのアイテムを変更する必要がある場合は、 <a href="%{url}">タクソノミー</a> セクションの設定から行ってください。
         create:
           error: タクソノミーフィルタの作成中に問題が発生しました。
           success: タクソノミーフィルターを作成しました。
@@ -1173,26 +1160,18 @@ ja:
             other: "%{count} 個のアイテムを選択しました"
           name_help: フロントエンドに表示するフィルタのタイトル。
           no_items: このタクソノミーで使えるアイテムはありません。タクソノミー設定でアイテムを作成できます。
-          space_filter: すべての %{manifest_name} のフィルターとして利用できます
         index:
           description: タクソノミーフィルターは、管理者がタクソノミーに基づいて参加型スペースを分類したりフィルタリングしたりできるようにするものです。例えば、地理的範囲でプロセスをソートするためにタクソノミーフィルターを追加することができます。
           empty: 現在、タクソノミーフィルターはありません。タクソノミーフィルターのリストを作成し、タクソノミーに基づいて参加型スペースをソートおよびフィルタリングしてください。
         new:
           back: 戻る
           create: タクソノミーフィルタを作成
-          select_taxonomy: タクソノミーを選択
           title: 新規タクソノミーフィルター
         table:
           actions: アクション
-          components_count: 関連するコンポーネント
           confirm_destroy: 'フィルター %{name} を削除してもよろしいですか？ 注意: このフィルタを使用しているリソース自体は影響を受けませんが、このフィルタへの参照は失われます。'
-          count: 使用しているアイテムの数
           destroy: 削除
           edit: 編集
-          internal_name: 内部フィルター名
-          name: 公開フィルタータイトル
-          space_filter: '%{manifest_name} へのフィルターに使用'
-          taxonomy: タクソノミーから
         update:
           error: タクソノミーフィルタの更新に問題がありました。
           success: タクソノミーフィルターを更新しました。
@@ -1225,7 +1204,6 @@ ja:
         scopes: スコープ
         statistics: アクティビティ
         taxonomies: タクソノミー
-        taxonomy_filters: タクソノミーフィルター
         user_groups: グループ
         users: 管理者
       tooltips:
