@@ -3,7 +3,7 @@ eu:
   activemodel:
     attributes:
       area:
-        area_type: Arlo mota
+        area_type: Eremu mota
         name: Izena
         organization: Erakundea
       area_type:
@@ -150,11 +150,11 @@ eu:
         participatory_space_private_user_csv_import:
           attributes:
             file:
-              malformed: Inportazio-fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
+              malformed: Fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
         user_group_csv_verification:
           attributes:
             file:
-              malformed: Inportazio-fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
+              malformed: Fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
       new_import:
         attributes:
           file:
@@ -223,7 +223,7 @@ eu:
           success: Arlo mota behar bezala suntsitua.
         edit:
           title: Editatu arlo mota
-          update: Eguneratu
+          update: Onartu
         new:
           create: Sortu arlo mota
           title: Beste arlo mota bat
@@ -239,7 +239,7 @@ eu:
           success: Arloa behar bezala suntsitua.
         edit:
           title: Editatu arloa
-          update: Eguneratu
+          update: Onartu
         new:
           create: Sortu arloa
           title: Beste arlo bat
@@ -255,7 +255,7 @@ eu:
           success: Karpeta behar bezala suntsitua.
         edit:
           title: Editatu karpeta
-          update: Eguneratu
+          update: Onartu
         index:
           attachment_collections_title: Erantsitako karpetak
         new:
@@ -302,7 +302,7 @@ eu:
           success: Kategoria behar bezala ezabatua.
         edit:
           title: Editatu kategoria
-          update: Eguneratu
+          update: Onartu
         index:
           categories_title: Kategoriak
         new:
@@ -319,13 +319,13 @@ eu:
         create:
           error: Arazo bat egon da osagai hau sortzean.
           success: Osagaia zuzen sortua.
-          success_landing_page: Osagaia zuzuen osatua. Eduki bloke bat gehitu ahal duzu osagai honetarako parte hartzeko espazioaren hasiera-orrian. Zoaz hasiera-orrira konfiguratzeko. <a href="%{landing_page_path}">.
+          success_landing_page: Osagaia zuzen sortu da. Espazio honen hasiera orrian eduki atal bat gehitu ahal duzu. Joan <a href="%{landing_page_path}">orrira</a> konfiguratzeko.
         destroy:
           error: Arazo bat egon da osagai hau suntsitzean.
           success: Osagaia behar bezala ezabatua.
         edit:
           title: Editatu osagaia
-          update: Eguneratu
+          update: Onartu
         form:
           default_step_settings: Faseen ezarpen lehenetsiak
           global_settings: Ezarpen globalak
@@ -523,12 +523,12 @@ eu:
               other: Bikoiztu %{columns} zutabe.
           invalid_indexes:
             lines:
-              detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
+              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
               message:
                 one: Errore bat aurkitu da inportazio-fitxategiko %{indexes} lerroan.
                 other: Erroreak aurkitu dira inportazio-fitxategiko %{indexes} lerroetan.
             records:
-              detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
+              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
               message:
                 one: Errore bat aurkitu da % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
                 other: Erroreak aurkitu dira % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
@@ -681,7 +681,7 @@ eu:
           actions:
             block: Blokeatu erabiltzailea
             title: Ekintzak
-            unblock: Desblokeatu parte-hartzaile
+            unblock: Desblokeatu parte-hartzailea
             unreport: Ez erreportatu
           name: Izena
           nickname: Ezizena
@@ -864,7 +864,7 @@ eu:
           omnipresent_banner_appearance_title: Editatu banner nonahikoa
       organization_external_domain_whitelist:
         edit:
-          update: Eguneratu
+          update: Onartu
         external_domain:
           down: Jaitsi
           external_domain: Kanpoko domeinua
@@ -910,8 +910,8 @@ eu:
         create:
           error: Arazo bat egon da ohartarazpenak sortzean.
           success:
-            one: "Pparte-hartzaile bat gogoratuko da."
-            other: "%{count} parte-hartzaile gogoratuko dira."
+            one: "%{count} parte-hartzaile gogoratuko da."
+            other: "%{count} parte-hartzailea gogoratuko dira."
         new:
           submit: Bidali
       resource_permissions:
@@ -1023,18 +1023,18 @@ eu:
         edit_external_domains: Kanpoko domeinuen zerrenda
         edit_landing_page: Orriaren edukiak
         edit_organization_appearance: Editatu hasierako orriaren itxura
-        impersonatable_users: Erabiltzaile erabilgarriak
-        impersonations: Erabiltzaileen kudeaketa
+        impersonatable_users: Parte-hartzaile erabilgarriak
+        impersonations: Parte-hartzaileen kudeaketa
         menu: Menua
         metrics: Metrikak
         page_topics: Gaiak
         pages: Orriak
         panel: Administratzailea
-        participants: erabiltzaileak
+        participants: Parte-hartzaileak
         scope_types: Esparru motak
         scopes: Esparruak
         statistics: Jarduera
-        user_groups: Erabiltzaile-taldeak
+        user_groups: Partaide-taldeak
         users: Administratzaileak
       user_group:
         csv_verify:
@@ -1090,13 +1090,13 @@ eu:
           reason: Arrazoi bat adierazi behar duzu kudeatu gabeko parte-hartzaile bat kudeatzeko.
     metrics:
       blocked_users:
-        object: erabiltzaile blokeatuak
+        object: parte-hartzaile blokeatuak
         title: Parte-hartzaile blokeatuak
       reported_users:
-        object: erabiltzaile erreportatuak
-        title: Erabiltzaile erreportatuak
+        object: parte-hartzaile erreportatuak
+        title: Parte-hartzaile erreportatuak
       user_reports:
-        object: parte-hartzailearen erreporteak
+        object: parte-hartzaileak erreportatzen du
         title: Parte-hartzaileak erreportatzen du
     moderations:
       actions:
