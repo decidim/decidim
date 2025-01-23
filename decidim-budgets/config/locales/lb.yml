@@ -89,6 +89,9 @@ lb:
         project:
           fields:
             title: Titel
+      order:
+        status:
+          title: Ihre Stimme wurde erfolgreich angenommen
       order_summary_mailer:
         order_summary:
           selected_projects: 'Die ausgewählten Projekte sind:'

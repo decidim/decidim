@@ -90,6 +90,9 @@ ja:
         other: 登録
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: ミーティング
       filters:
         accepted_at_not_null:
           label: 承認済み
@@ -171,6 +174,16 @@ ja:
             comments_blocked: コメントをブロック
             creation_enabled_for_participants: 参加者によるミーティングの作成が有効です
             creation_enabled_for_user_groups: ユーザーグループによるミーティングの作成が有効です
+    download_your_data:
+      help:
+        registrations:
+          code: 参加登録コード
+          id: 参加登録の固有ID
+          meeting: ユーザーが参加登録したミーティング
+          user: 参加登録したユーザー
+      show:
+        meeting_comments: ミーティングコメントのエクスポート
+        meetings: ミーティングのエクスポート
     events:
       meetings:
         meeting_closed:
@@ -238,6 +251,8 @@ ja:
         attachment_collections: フォルダ
         attachments: 添付ファイル
         close: 閉じる
+        confirm_delete_meeting: このミーティングを削除してもよろしいですか？
+        deleted_meetings_info: 削除されたミーティングはゴミ箱から復元できます。
         edit: 編集
         invalid_destroy:
           proposals_count:
@@ -247,6 +262,7 @@ ja:
         preview: プレビュー
         registrations: 登録
         title: アクション
+        view_deleted_meetings: 削除されたミーティングを表示
       admin:
         agenda:
           agenda_item:
@@ -343,6 +359,8 @@ ja:
               actions: アクション
               component: リンクされたスペース
             title: リンクされたスペース
+          manage_trash:
+            title: 削除されたミーティング
           new:
             create: 作成
             title: ミーティングを作成
@@ -410,6 +428,8 @@ ja:
           create: "%{user_name} が %{resource_name} スペースで %{space_name} ミーティングを作成しました"
           delete: "%{user_name} が %{resource_name} スペースの %{space_name} ミーティングを削除しました"
           export_registrations: "%{user_name} は %{resource_name} スペースに %{space_name} ミーティングの登録をエクスポートしました"
+          restore: "%{user_name} が %{space_name} スペースのミーティング %{resource_name} を復元しました"
+          soft_delete: "%{user_name} は %{space_name} スペースでのミーティング %{resource_name} をゴミ箱に移動しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} ミーティングを更新しました"
           value_types:
             organizer_presenter:
@@ -691,6 +711,7 @@ ja:
           address: ミーティングの場所、対面で行われ物理的な場所がある場合の所在地
           attachments: このミーティングの添付ファイル数
           attendees: このミーティングに出席する人数
+          author: このミーティングの作者のデータ
           comments: このミーティングでのコメント数
           component: ミーティングが属しているコンポーネント
           contributions: このミーティングの参加者による貢献数
@@ -714,7 +735,7 @@ ja:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: 過去のミーティング
-        see_all: すべてのミーティングを見る (%{count})
+        see_all: すべてのミーティングを見る
         upcoming_meetings: 今後のミーティング
     resource_links:
       meetings_through_proposals:

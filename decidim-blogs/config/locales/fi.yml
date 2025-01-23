@@ -14,6 +14,10 @@ fi:
         one: Artikkeli
         other: Artikkelia
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Artikkelit
     blogs:
       actions:
         author_id: Luo artikkeli käyttäjänä
@@ -96,5 +100,33 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Uusi artikkeli julkaistiin osallistumistilassa %{participatory_space_title}
           notification_title: Kohteessa %{participatory_space_title} on julkaistu artikkeli <a href="%{resource_path}">%{resource_title}</a>
+    open_data:
+      help:
+        post_comments:
+          alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
+          author: Kommentin laatijan nimi
+          body: Kommentin teksti
+          commentable_id: Kommentoitavan asian yksilöivä tunniste
+          commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
+          created_at: Kommentin laatimisaika
+          depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
+          id: Kommentin yksilöivä tunniste
+          locale: Kommentoijan valitsema kieliasetus sivustolla
+          root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
+          user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
+        posts:
+          author: Tietoja laatijasta
+          body: Artikkelin tekstisisältö
+          comments_count: Artikkelin saamien kommenttien määrä
+          component: Artikkelin komponentti
+          created_at: Artikkelin laatimisaika
+          endorsements_count: Artikkelin suositusten ("tykkäykset") lukumäärä
+          follows_count: Artikkelin seuraajien lukumäärä
+          id: Artikkelin yksilöivä tunniste
+          participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä artikkeli kuuluu
+          published_at: Artikkelin julkaisuaika
+          title: Artikkelin otsikko
+          updated_at: Artikkelin viimeisimmän päivityksen ajankohta
+          url: Artikkelin URL-osoite
     statistics:
       posts_count: Artikkelia

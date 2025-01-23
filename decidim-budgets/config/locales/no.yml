@@ -112,6 +112,9 @@
           fields:
             id: ID
             title: Tittel
+      order:
+        status:
+          title: Stemmen din ble godtatt
       order_summary_mailer:
         order_summary:
           selected_projects: 'Prosjektene du har valgt er:'

@@ -99,7 +99,6 @@ lb:
           attachment_collections: Dossieren
           attachment_files: Dateien
           attachments: Unhäng
-          categories: Kategorien
           components: Komponenten
           moderations: Moderationen
           process_admins: Benutzer verarbeiten
@@ -281,7 +280,6 @@ lb:
       admin:
         participatory_processes:
           form:
-            other: Andere
             related_processes: Ähnliche Beteiligungsprozesse
             scope_type_max_depth_help: Beschränken Sie die Bereichs-Filtertiefe; der Filter zeigt nur Ergebnisse von Allgemein bis zum ausgewählten Bereichstyp an.
             select_an_area: Wählen Sie einen Bereich aus

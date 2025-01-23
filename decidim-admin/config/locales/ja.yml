@@ -105,6 +105,8 @@ ja:
       participatory_space_private_user:
         email: Eメールアドレス
         name: 名前
+      participatory_space_private_user_csv_import:
+        file: ファイル
       scope:
         code: コード
         name: 名前
@@ -182,8 +184,6 @@ ja:
         attachment_collection:
           new: 新しい添付ファイルフォルダ
         browse: 検索
-        category:
-          new: 新しいカテゴリ
         confirm_delete_component: |
           このコンポーネントを削除しますか?<br>
           このコンポーネントが含むもの:<br>
@@ -218,7 +218,7 @@ ja:
         actions:
           accept: 利用規約に同意する
           are_you_sure: 管理者向け利用規約を本当に拒否しますか？
-          refuse: 管理者規約を拒否する
+          refuse: 管理者規約に同意しない
           title: 利用規約に同意する
         required_review:
           alert: '必須：管理者の利用規約を確認してください'
@@ -297,6 +297,12 @@ ja:
         no_results: 結果が見つかりませんでした
         search_prompt: 検索には3文字以上入力してください。
       block_user:
+        bulk_new:
+          action: アカウントをブロックして理由を送信
+          already_reported_html: この操作を続けると、すべての参加者のコンテンツも非表示になります。
+          description: ユーザーをブロックすると、そのアカウントは利用できなくなります。ユーザーのブロックを解除することを検討する方法に関するガイドラインを判定通知に含めることができます。
+          justification: 判定理由
+          title: ユーザーをブロック
         new:
           action: アカウントをブロックして理由を送信
           already_reported_html: このアクションを続けると、参加者のすべてのコンテンツも非表示になります。
@@ -304,23 +310,8 @@ ja:
           justification: 判定理由
           title: ユーザー %{name} をブロックする
       categories:
-        create:
-          error: このカテゴリの作成中に問題が発生しました。
-          success: カテゴリの作成に成功しました。
-        destroy:
-          error: このカテゴリを削除する際に問題が発生しました。最初にサブカテゴリを削除してください。他のエンティティがこのカテゴリに属していないことを確認して、もう一度やり直してください。
-          success: カテゴリを削除しました。
-        edit:
-          title: カテゴリを編集
-          update: 更新
         index:
           categories_title: カテゴリ
-        new:
-          create: カテゴリを作成
-          title: 新しいカテゴリ
-        update:
-          error: このカテゴリの更新中に問題が発生しました。
-          success: カテゴリが更新されました。
       component_permissions:
         update:
           error: このコンポーネントの権限の更新に問題がありました。
@@ -701,13 +692,27 @@ ja:
         index:
           actions:
             block: ユーザーをブロック
+            bulk_actions:
+              actions_dropdown: アクション
+              block:
+                title: ブロック
+                update_moderated_user_button: ユーザーをブロック
+              unblock:
+                title: ブロック解除
+                update_moderated_user_button: ユーザーのブロックを解除
+              unreport:
+                title: 通報を解除
+            ignore:
+              update_moderated_user_button: ユーザーの通報を解除
             title: アクション
             unblock: ユーザーのブロックを解除
             unreport: 報告解除
+          cancel: キャンセル
           name: 名前
           nickname: ニックネーム
           reason: 理由
           reports: レポート数
+          selected: 選択済み
           title: 報告された参加者
         report:
           reasons:
@@ -719,6 +724,19 @@ ja:
           unblocked: 未ブロック
       moderations:
         index:
+          actions:
+            actions_dropdown: アクション
+            hide:
+              title: 非表示
+              update_moderation_button: 選択したリソースを非表示
+            unhide:
+              title: 非表示解除
+              update_moderation_button: 選択したリソースの非表示を解除
+            unreport:
+              title: 通報を解除
+              update_moderation_button: 選択したリソースの通報を解除
+          cancel: キャンセル
+          selected: 選択済み
           title: 報告されたコンテンツ
         report:
           reasons:
@@ -741,6 +759,11 @@ ja:
             report_language: 報告の言語
             report_reason: '理由:'
             title: 報告の詳細
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: プレビュー
@@ -750,6 +773,10 @@ ja:
           preview: 'テンプレートをプレビュー: %{template_name}'
           use_template: このテンプレートを使用
       newsletters:
+        confirm_recipients:
+          email: Eメールアドレス
+          name: 名前
+          title: 受取人を確認
         create:
           error: このニュースレターの作成中に問題が発生しました。
           success: ニュースレターが正常に作成されました。送信する前に確認してください。
@@ -769,12 +796,14 @@ ja:
           confirm_delete: このニュースレターを削除してもよろしいですか？
           followers: 'フォロワー '
           has_been_sent_to: '送信先: '
-          no_scopes: スコープなし
           not_sent: 送信されていません
           participants: '参加者 '
+          private_members: 'プライベートメンバー '
           segmented_to: '%{subject}にセグメント : '
           subscribed_count: '購読済み:'
           title: ニュースレター
+          verification_types: '検証の種別: %{types}'
+          verified_users: 検証済みユーザー
         new:
           save: 保存
           title: 新しいニュースレター
@@ -782,16 +811,20 @@ ja:
           all_spaces: すべて
           all_users_help: 確認済みのすべてのユーザーにニュースレターを送信します。
           confirm_deliver: このニュースレターを配信してもよろしいですか？この操作は元に戻せません。
+          confirm_recipients: 受取人を確認
           deliver: ニュースレターを配信する
           followers_help: リスト内の選択した参加型スペースに従っているすべての確認済みユーザーにニュースレターを送信します。
-          none: なし
           participants_help: 選択した参加型スペースに参加しているすべての確認済みユーザーにニュースレターを送信します。
           recipients_count: このニュースレターは、 <strong id='recipients_count'>%{count}</strong> のユーザーに送信されます。
-          scopes_help: アカウントの「私の興味」設定で選択したスコープのいずれかを有効にしているユーザーにニュースレターを送信します。
-          select_scopes: アカウントの「趣味」設定で選択したスコープを有効にしているユーザーをフィルタリングします。
+          select_assemblies: 参加スペースを選択
+          select_conferences: カンファレンスを選択
+          select_initiatives: イニシアチブを選択
+          select_participatory_processes: 参加型プロセスを選択
           select_spaces: ニュースレターをセグメント化するスペースを選択
-          select_users: ニュースレターを送信したいユーザーを選択してください
+          send_to_all_users: すべてのユーザーに送信
+          send_to_verified_users: 検証済みユーザーに送る
           title: 配信する宛先を選択
+          verified_users_help: 選択した検証方法ですべての確認済みおよび検証済みユーザーにニュースレターを送信します。
           warning: "<strong>注意:</strong> このニュースレターは、通知設定で <em>ニュースレターを受信したい</em> ユーザーにのみ送信されます。"
         send:
           no_recipients: 受信者が選択されていません。
@@ -1270,7 +1303,7 @@ ja:
       actions:
         expand: 展開
         hidden: 非表示
-        hide: 非表示
+        hide: 非表示にする
         not_hidden: 表示
         title: アクション
         unhide: 非表示解除

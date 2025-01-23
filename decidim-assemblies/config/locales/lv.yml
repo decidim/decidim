@@ -16,7 +16,6 @@ lv:
         created_by_other: Izveidojis cits
         creation_date: Izveidošanas datums
         decidim_area_id: Joma
-        decidim_assemblies_type_id: Asamblejas veids
         decidim_scope_id: Darbības tvērums
         description: Apraksts
         developer_group: Atbalstītāju grupa
@@ -25,7 +24,6 @@ lv:
         hashtag: Tēmturis
         hero_image: Sākuma attēls
         included_at: Iekļauts plkst.
-        internal_organisation: Iekšējā organizācija
         is_transparent: Ir caurskatāms
         local_area: Organizācijas joma
         meta_scope: Tvēruma metadati
@@ -75,7 +73,6 @@ lv:
     admin:
       actions:
         new_assembly: Jauna asambleja
-        new_assembly_type: Jauns asamblejas veids
       assemblies:
         create:
           error: Jaunas asamblejas izveides laikā radās problēma.
@@ -95,18 +92,6 @@ lv:
         create:
           error: Šīs asamblejas dublēšanas laikā radās problēma.
           success: Asamblejas dublēšana ir veiksmīgi pabeigta.
-      assemblies_types:
-        create:
-          error: Jaunas asamblejas veida izveides laikā radās problēma.
-          success: Asamblejas veids ir veiksmīgi izveidots.
-        destroy:
-          success: Asamblejas veids ir veiksmīgi dzēsts.
-        new:
-          create: Izveidot
-          title: Jauns asamblejas veids
-        update:
-          error: Šīs asamblejas veida atjaunināšanas laikā radās problēma.
-          success: Asamblejas veids ir veiksmīgi atjaunināts.
       assembly_copies:
         new:
           copy: Kopēt
@@ -141,15 +126,9 @@ lv:
           attachment_collections: Mapes
           attachment_files: Faili
           attachments: Pielikumi
-          categories: Kategorijas
           components: Komponenti
           moderations: Moderācijas
-        assemblies_types: Asambleju veidi
       models:
-        assemblies_types:
-          fields:
-            created_at: Izveidots plkst.
-            title: Nosaukums
         assembly:
           fields:
             created_at: Izveidots plkst.
@@ -212,13 +191,9 @@ lv:
             other: Cits
             select_a_created_by: Izvēlieties izveidotāju
             select_an_area: Izvēlieties jomu
-            select_an_assembly_type: Izvēlieties asamblejas veidu
             select_parent_assembly: Izvēlieties saistīto asambleju
             social_handlers: Sociālie plašsaziņas līdzekļi
             title: Vispārēja informācija
-        assemblies_types:
-          form:
-            title: Nosaukums
         content_blocks:
           highlighted_assemblies:
             max_results: Maksimālais parādāmo elementu daudzums
@@ -229,14 +204,6 @@ lv:
       assembly_members:
         index:
           members: Dalībnieki
-      assembly_types:
-        commission: Komisija
-        consultative_advisory: Konsultatīvs/padomdevējs
-        executive: Izpildinstitūcija
-        government: Valdība
-        others: Citi
-        participatory: Līdzdalības
-        working_group: Darba grupa
       content_blocks:
         highlighted_assemblies:
           name: Izceltās asamblejas
@@ -261,7 +228,6 @@ lv:
           member_of:
             member_of: Dalībnieks
       show:
-        assembly_type: Asamblejas veids
         duration: Ilgums
         private_space: Šī ir privāta asambleja
     assembly_members:

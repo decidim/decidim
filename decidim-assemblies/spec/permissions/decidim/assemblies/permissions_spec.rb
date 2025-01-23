@@ -456,17 +456,60 @@ describe Decidim::Assemblies::Permissions do
     end
   end
 
-  describe "assembly taxonomy filters" do
-    let(:action) do
-      { scope: :admin, action: :something, subject: :taxonomy_filter }
+  context "when listing assemblies list" do
+    let!(:user) { create(:user, organization:) }
+    let(:context) { { assembly: } }
+
+    context "when assembly is a root assembly" do
+      before do
+        create(:assembly_user_role, user:, assembly:)
+      end
+
+      let(:action) do
+        { scope: :admin, action: :list, subject: :assembly }
+      end
+
+      it { is_expected.to be(true) }
     end
 
-    it { is_expected.to be true }
+    context "when the assembly has one ancestor" do
+      before do
+        create(:assembly_user_role, user:, assembly: child_assembly)
+      end
 
-    context "when user is not an admin" do
-      let(:user) { assembly_collaborator }
+      let(:child_assembly) { create(:assembly, parent: assembly, organization:) }
+      let(:action) do
+        { scope: :admin, action: :list, subject: :assembly }
+      end
 
-      it { is_expected.to be false }
+      it { is_expected.to be(true) }
+    end
+
+    context "when the assembly has more than one ancestor" do
+      before do
+        create(:assembly_user_role, user:, assembly: grand_child_assembly)
+      end
+
+      let(:child_assembly) { create(:assembly, parent: assembly, organization:) }
+      let(:grand_child_assembly) { create(:assembly, parent: child_assembly, organization:) }
+      let(:action) do
+        { scope: :admin, action: :list, subject: :assembly }
+      end
+
+      it { is_expected.to be(true) }
+    end
+
+    context "when the assembly has one successor" do
+      before do
+        create(:assembly_user_role, user:, assembly: assembly.parent)
+      end
+
+      let!(:assembly) { create(:assembly, :with_parent, organization:) }
+      let(:action) do
+        { scope: :admin, action: :list, subject: :assembly }
+      end
+
+      it { is_expected.to be(true) }
     end
   end
 

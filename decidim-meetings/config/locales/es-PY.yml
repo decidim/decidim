@@ -1,6 +1,8 @@
 es-PY:
   activemodel:
     attributes:
+      answer:
+        add_documents: Añadir documentos
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Lista de organizaciones que han participado
@@ -93,6 +95,9 @@ es-PY:
         other: Registros
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Encuentros
       filters:
         accepted_at_not_null:
           label: Aceptada
@@ -175,6 +180,12 @@ es-PY:
             creation_enabled_for_participants: Habilitar la creación de encuentros por parte de las participantes
             creation_enabled_for_user_groups: Habilitar la creación de encuentros por parte de los grupos de usuarias
     download_your_data:
+      help:
+        registrations:
+          code: El código de inscripción
+          id: El identificador único de la inscripción
+          meeting: El encuentro al que se inscribió la usuaria
+          user: La usuaria que realizó la inscripción
       show:
         meeting_comments: Exportar los comentarios en los encuentros
         meetings: Exportar los encuentros
@@ -399,6 +410,7 @@ es-PY:
           form:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
             invites: Invitaciones
+            manage_questions: Gestionar las preguntas
             recommendation_message: Por razones de privacidad te recomendamos que elimines este formulario de inscripción cuando ya no lo necesites. Por defecto, esto es 3 meses después de que la reunión haya finalizado.
             registration_email_help: Este texto aparecerá en medio del correo de confirmación de inscripción. Justo después del código de inscripción.
             registration_form: Formulario de inscripción

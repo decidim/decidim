@@ -52,12 +52,9 @@ module Decidim
           end
 
           context "when it is a user" do
-            let!(:debate) { create(:debate, :participant_author) }
-
-            before do
-              debate.author.update!(name: "John Doe")
-              debate.reload
-            end
+            let(:author) { create(:user, name: "John Doe", organization: component.organization) }
+            let(:component) { create(:debates_component) }
+            let!(:debate) { create(:debate, component:, author:) }
 
             it "serializes the user name" do
               expect(serialized[:author]).to include(name: "John Doe")
@@ -65,6 +62,15 @@ module Decidim
 
             it "serializes the link to its profile" do
               expect(serialized[:author]).to include(url: profile_url(debate.author.nickname))
+            end
+
+            context "when author is deleted" do
+              let(:author) { create(:user, :deleted, organization: component.organization) }
+              let!(:debate) { create(:debate, component:, author:) }
+
+              it "does not serialize the fields" do
+                expect(serialized[:author]).to eq({})
+              end
             end
           end
 
@@ -193,8 +199,30 @@ module Decidim
             expect(serialized[:last_comment_by]).to eq(
               id: last_comment_by.id,
               name: "User",
-              url: new_debate.send(:user_url, last_comment_by)
+              url: profile_url(last_comment_by.nickname)
             )
+          end
+
+          context "when the last comment is from a user group" do
+            let(:last_comment_by) { create(:user_group, name: "ACME") }
+            let(:debate) { create(:debate, last_comment_by:) }
+
+            it "serializes the last comment by fields" do
+              expect(serialized[:last_comment_by]).to eq(
+                id: last_comment_by.id,
+                name: "ACME",
+                url: profile_url(last_comment_by.nickname)
+              )
+            end
+          end
+
+          context "when the last comment is from a deleted user" do
+            let(:last_comment_by) { create(:user, :deleted) }
+            let(:debate) { create(:debate, last_comment_by:) }
+
+            it "does not serialize the fields" do
+              expect(serialized[:last_comment_by]).to eq({})
+            end
           end
         end
 
@@ -208,7 +236,7 @@ module Decidim
       end
 
       def profile_url(nickname)
-        Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:)
+        Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:, port: Capybara.server_port)
       end
 
       def root_url

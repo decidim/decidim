@@ -39,7 +39,6 @@ module Decidim
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
-        taxonomy_filter_action?
 
         return permission_action unless process
 
@@ -274,14 +273,6 @@ module Decidim
         context[:share_token].present? && Decidim::ShareToken.use!(token_for: process, token: context[:share_token], user:)
       rescue ActiveRecord::RecordNotFound, StandardError
         nil
-      end
-
-      def taxonomy_filter_action?
-        return unless permission_action.subject == :taxonomy_filter
-        return disallow! unless user.admin?
-
-        # in the future we might want to prevent destruction if participatory processes are associated with the current taxonomy
-        allow!
       end
 
       # Checks if the permission_action is to read the admin processes list or
