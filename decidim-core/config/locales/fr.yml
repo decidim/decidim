@@ -281,13 +281,6 @@ fr:
         create: "%{user_name} a créé la page statique %{resource_name}"
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
         update: "%{user_name} a mis à jour la page statique %{resource_name}"
-      taxonomy_filter:
-        create: "%{user_name} a créé un filtre basé sur la taxonomie %{resource_name}"
-        create_with_filter_items_count: "%{user_name} a créé un filtre basé sur la taxonomie %{resource_name} avec %{filter_items_count} filtres pour %{space_manifest_name}"
-        delete: "%{user_name} a supprimé un filtre basé sur la taxonomie %{resource_name}"
-        delete_with_filter_items_count: "%{user_name} a supprimé un filtre basé sur la taxonomie %{resource_name} avec %{filter_items_count} filtres pour %{space_manifest_name}"
-        update: "%{user_name} a mis à jour un filtre basé sur la taxonomie %{resource_name}"
-        update_with_filter_items_count: "%{user_name} a mis à jour un filtre basé sur la taxonomie %{resource_name} avec %{filter_items_count} filtres pour %{space_manifest_name}"
       user:
         block: "%{user_name} a bloqué l'utilisateur %{resource_name}"
         invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle : %{role}"
