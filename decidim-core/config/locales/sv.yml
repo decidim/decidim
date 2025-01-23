@@ -269,13 +269,6 @@ sv:
         delete_with_parent: "%{user_name} raderade kategorierna %{resource_name} under kategorierna %{parent_taxonomy}"
         update: "%{user_name} uppdaterade kategorin %{resource_name}"
         update_with_parent: "%{user_name} uppdaterade kategorierna %{resource_name} under kategorierna %{parent_taxonomy}"
-      taxonomy_filter:
-        create: "%{user_name} skapade ett filter baserat på kategorin %{resource_name}"
-        create_with_filter_items_count: "%{user_name} skapade ett filter baserat på kategorin %{resource_name} med %{filter_items_count} filter för %{space_manifest_name}"
-        delete: "%{user_name} tog bort ett filter baserat på kategorin %{resource_name}"
-        delete_with_filter_items_count: "%{user_name} raderade ett filter baserat på kategorin %{resource_name} med %{filter_items_count} filter för %{space_manifest_name}"
-        update: "%{user_name} uppdaterade ett filter baserat på kategorin %{resource_name}"
-        update_with_filter_items_count: "%{user_name} uppdaterade ett filter baserat på kategorin %{resource_name} med %{filter_items_count} filter för %{space_manifest_name}"
       user:
         block: "%{user_name} blockerade användaren %{resource_name}"
         invite: "%{user_name} bjöd in användaren %{resource_name} med rollen: %{role}"
