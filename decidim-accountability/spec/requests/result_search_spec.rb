@@ -69,7 +69,7 @@ RSpec.describe "Result search" do
   describe "home" do
     subject { response.body }
 
-    it "displays all categories that have top-level results" do
+    it "displays all taxonomies that have top-level results" do
       expect(subject).to include(decidim_escape_translated(taxonomy1.name))
       expect(subject).to include(decidim_escape_translated(taxonomy2.name))
       expect(subject).not_to include(decidim_escape_translated(child_taxonomy1.name))
