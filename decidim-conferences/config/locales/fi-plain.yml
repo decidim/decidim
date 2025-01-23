@@ -543,14 +543,20 @@ fi-pl:
         conference_invites:
           accepted_at: Konferenssikutsun hyväksymisen ajankohta
           conference: Konferenssi, jolle tämä kutsu oli osoitettu
+          confirmed_at: Kutsun hyväksymisaika
+          created_at: Kutsun laatimisaika
           id: Konferenssikutsun yksilöivä tunniste
           registration_type: Konferenssi-ilmoittautumisen tyyppi
           rejected_at: Konferenssikutsun hylkäämisen ajankohta
           sent_at: Konferenssikutsun lähetyksen ajankohta
+          updated_at: Kutsun viimeisimmän päivityksen ajankohta
         conference_registrations:
           conference: Konferenssi, johon tämä kuuluu
+          confirmed_at: Ilmoittautumisen vahvistusaika
+          created_at: Ilmoittautumisaika
           id: Konferenssi-ilmoittautumisen yksilöivä tunniste
           registration_type: Ilmoittautumisen tyyppi, johon tämä kuuluu
+          updated_at: Ilmoittautumisen viimeisimmän päivityksen ajankohta
     events:
       conferences:
         conference_registration_confirmed:
