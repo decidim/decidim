@@ -550,7 +550,7 @@ eu:
           create_as: Sortu topaketa honela
           disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko parte-hartzaileek emandako datuen erantzule.'
           iframe_embed_type_html: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
-          location_help: 'Kokapena: mezua part-hartzaileei zuzendua biltzeko lekua adieraziz'
+          location_help: 'Kokapena: mezua parte-hartzaileei zuzendua biltzeko lekua adieraziz'
           location_hints_help: 'Kokapen-aholkuak: informazio gehigarria. Adibidea: eraikinaren solairua, aurrez aurreko topaketa bada, edo aretoaren pasahitza, sarrera mugatua duen online topaketa bada.'
           online_meeting_url_help: 'Lotura: Utzi parte-hartzaileei zuzenean konektatzen zure topaketara'
           registration_url_help: 'Esteka: parte-hartzaileei aukera ematea izena emateko erabiltzen ari zaren kanpoko zerbitzura joateko'
