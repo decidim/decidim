@@ -38,7 +38,7 @@ describe Decidim::Proposals::Metrics::EndorsementsMetricManage do
     end
 
     it "updates metric records" do
-      create(:metric, metric_type: "endorsements", day:, cumulative: 1, quantity: 1, organization:, category: nil, participatory_space:, related_object: proposal)
+      create(:metric, metric_type: "endorsements", day:, cumulative: 1, quantity: 1, organization:, taxonomy: nil, participatory_space:, related_object: proposal)
       registry = generate_metric_registry
 
       expect(Decidim::Metric.count).to eq(1)

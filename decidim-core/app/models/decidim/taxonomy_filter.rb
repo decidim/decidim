@@ -56,14 +56,6 @@ module Decidim
       super
     end
 
-    def translated_name
-      decidim_sanitize_translated(name)
-    end
-
-    def translated_internal_name
-      decidim_sanitize_translated(internal_name)
-    end
-
     # Components that have this taxonomy filter enabled.
     def components
       @components ||= Decidim::Component.where("(settings->'global'->'taxonomy_filters') @> ?", "\"#{id}\"")
