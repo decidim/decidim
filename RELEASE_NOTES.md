@@ -31,6 +31,7 @@ sudo apt install p7zip # or the alternative installation process for your operat
 sudo apt install wkhtmltopdf # or the alternative installation process for your operating system. See "2.7. wkhtmltopdf binary change"
 bundle remove spring spring-watcher-listen
 bundle update decidim
+rm config/initializers/carrierwave.rb
 bin/rails decidim:upgrade
 bin/rails db:migrate
 bin/rails decidim:upgrade:clean:invalid_records
