@@ -64,6 +64,26 @@ fi-pl:
           new:
             download_export: Lataa vientitiedosto CSV-muodossa
             import: Tuo
+            info: |
+              <p>Suosittelemme, että toteutat seuraavat toimenpiteet:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Lisää tuloksille haluamasi tilat</a></li>
+              <li><a href='%{link_new_result}' target='_blank'>Luo vähintään yksi tulos</a> hallintapaneelin lomakkeen kautta ennen kuin käytät tuontitoimintoa, jotta ymmärtäisit paremmin tuontitiedoston muodon ja mitä tietoja sen tulee sisältää.</li>
+              <li>%{link_export_csv}</li>
+              <li>Tee muutokset tuontitiedostoon omalla tietokoneellasi. Voit muuttaa ainoastaan seuraavia CSV-tiedoston sarakkeita (muut sarakkeet jätetään huomiotta):
+                <ul>
+                <li><b>taxonomies/ids:</b> Luokittelujen yksilöivät ID-numerot (erota useammat arvot pilkulla)</li>
+                <li><b>parent/id:</b> Isäntätuloksen yksilöivä ID-numero (ainoastaan alatuloksille). Vapaaehtoinen</li>
+                <li><b>title/fi:</b> Otsikko suomeksi. Sarakkeen nimi riippuu alustan kieliasetuksista.</li>
+                <li><b>description/fi:</b> Kuvaus suomeksi. Sarakkeen nimi riippuu alustan kieliasetuksista.</li>
+                <li><b>start_date:</b> Tuloksen toteuttamisen alkamispäivä (muoto: VVVV-KK-PP)</li>
+                <li><b>end_date:</b> Tuloksen toteuttamisen päättymispäivä (muoto: VVVV-KK-PP)</li>
+                <li><b>status/id:</b> Tuloksen tilan ID-tunniste</li>
+                <li><b>progress:</b> Tuloksen toteutuksen edistysmisprosentti (arvo välillä 0-100)</li>
+                <li><b>proposals_ids:</b> Tulokseen liitettyjen ehdotusten yksilöivät ID-numerot (pilkulla erotettuna). Nämä muutetaan automaattisesti URL-osoitteiksi (<span class='attribute-name'>proposal_url</span>)</li>
+                </ul>
+              </li>
+              </ol>
             title: Tuo tulokset CSV-tiedostosta
         imports:
           create:
