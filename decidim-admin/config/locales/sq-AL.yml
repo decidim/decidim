@@ -149,8 +149,6 @@ sq:
         attachment:
           new: Shtojcë e re
         browse: Shfleto
-        category:
-          new: Kategoria e re
         export: Eksporto të gjitha
         import: Importo
         newsletter:
@@ -200,22 +198,8 @@ sq:
           justification: Arsye
           title: Blloko përdoruesin %{name}
       categories:
-        create:
-          error: Ndodhi një gabim gjatë krijimit të kësaj kategorie.
-          success: Kategoria u krijua me sukses.
-        destroy:
-          success: Kategoria u fshi me sukses.
-        edit:
-          title: Përpuno kategoritë
-          update: Përditëso
         index:
           categories_title: Kategoritë
-        new:
-          create: Krijo kategori
-          title: Kategori e re
-        update:
-          error: Ndodhi një gabim gjatë përditësimit të kësaj kategorie.
-          success: Kategoria u përditësua me sukses.
       component_permissions:
         update:
           success: Të drejtat u përditësuan me sukses.
@@ -457,7 +441,6 @@ sq:
           all_users_help: Dërgo buletinin te të gjithë përdoruesit e konfirmuar.
           confirm_deliver: A je i sigurt që do ta dërgosh këtë buletin? Veprimi nuk mund të anulohet.
           deliver: Dërgo buletinin
-          none: Asnjë
         show:
           preview: Parapamje
           subject: Tema

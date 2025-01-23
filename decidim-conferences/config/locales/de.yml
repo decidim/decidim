@@ -68,6 +68,8 @@ de:
         email: Email
         name: Name
         role: Rolle
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
@@ -89,6 +91,7 @@ de:
     admin:
       actions:
         confirm: Bestätigen
+        confirm_delete_conference: Sind Sie sicher, dass Sie diese Konferenz löschen möchten? Wenn Sie Ihre Meinung ändern, können Sie sie später wiederherstellen.
         new_conference: Neue Konferenz
         new_conference_user_role: Neuer Konferenz-Admin
         new_media_link: Neuer Medienlink
@@ -96,6 +99,7 @@ de:
         new_registration_type: Neuer Registrierungstyp
         new_speaker: Neuer Redner
         send_diplomas: Senden Sie eine Teilnahmebestätigung
+        view_deleted_conferences: Gelöschte Konferenzen anzeigen
       conference_copies:
         new:
           copy: Kopieren
@@ -165,6 +169,8 @@ de:
         index:
           published: Veröffentlicht
           unpublished: Nicht veröffentlicht
+        manage_trash:
+          title: Gelöschte Konferenzen
         new:
           create: Erstellen
           title: Konferenz
@@ -198,7 +204,6 @@ de:
           attachment_collections: Ordner
           attachment_files: Dateien
           attachments: Anhänge
-          categories: Kategorien
           components: Komponenten
           conference_admins: Konferenzadministratoren
           conference_invites: Lädt ein
@@ -253,7 +258,7 @@ de:
             main_promotor: Hauptförderer
         registration_type:
           fields:
-            conference_meetings: Konferenzsitzungen
+            conference_meetings: Veranstaltungen der Konferenz
             price: Preis
             registrations_count: Registrierungen zählen
             title: Titel
@@ -298,11 +303,16 @@ de:
           success: Die Registrierung wurde für diese Konferenz erfolgreich aktualisiert.
       titles:
         conferences: Konferenzen
+        conferences_deleted: Gelöschte Konferenzen
+      tooltips:
+        deleted_conferences_info: Konferenzen können nur gelöscht werden, wenn der Status "Nicht veröffentlicht" ist.
     admin_log:
       conference:
         create: "%{user_name} hat die Konferenz %{resource_name} erstellt"
         publish: "%{user_name} hat die Konferenz %{resource_name} veröffentlicht"
+        restore: "%{user_name} hat die Konferenz %{resource_name} wiederhergestellt"
         send_conference_diplomas: "%{user_name} hat Teilnahmebescheinigungen an die Teilnehmenden der Konferenz %{resource_name} gesendet"
+        soft_delete: "%{user_name} hat die Konferenz %{resource_name} in den Papierkorb verschoben"
         unpublish: "%{user_name} hat die Konferenz %{resource_name} auf \"unveröffentlicht\" gesetzt"
         update: "%{user_name} hat die Konferenz %{resource_name} aktualisiert"
         update_diploma: "%{user_name} hat die Konfiguration der Teilnahmebescheinigungen für die Konferenz %{resource_name} aktualisiert"
@@ -398,7 +408,7 @@ de:
             title: Partner
         registration_types:
           form:
-            select_conference_meetings: Konferenzmeetings auswählen
+            select_conference_meetings: Konferenzveranstaltungen auswählen
           index:
             title: Registrierungsarten
         send_conference_diploma_mailer:
@@ -528,6 +538,25 @@ de:
         objectives: Ziele
         related_assemblies: Ähnliche Gremien
         related_participatory_processes: Ähnliche Beteiligungsprozesse
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: Das Datum, an dem die Konferenzeinladung angenommen wurde
+          conference: Die Konferenz, zu der diese Einladung versendet wurde
+          confirmed_at: Das Datum, an dem diese Einladung bestätigt wurde
+          created_at: Das Datum, an dem diese Einladung erstellt wurde
+          id: Der eindeutige Bezeichnung der Konferenzeinladung
+          registration_type: Die Art der Registrierung für diese Konferenz, zu der eingeladen wurde
+          rejected_at: Das Datum, an dem die Konferenzeinladung abgelehnt wurde
+          sent_at: Das Datum, an dem diese Konferenzeinladung versendet wurde
+          updated_at: Das Datum, an dem diese Einladung zuletzt Mal aktualisiert wurde
+        conference_registrations:
+          conference: Die Konferenz, zu der dies gehört
+          confirmed_at: Das Datum, an dem diese Registrierung bestätigt wurde
+          created_at: Das Datum, an dem diese Registrierung erstellt wurde
+          id: Die eindeutige Kennung der Konferenzanmeldungen
+          registration_type: Die Art der Registrierung, zu der diese gehört
+          updated_at: Das Datum, an dem diese Registrierung zuletzt Mal aktualisiert wurde
     events:
       conferences:
         conference_registration_confirmed:

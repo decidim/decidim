@@ -176,8 +176,6 @@ zh-TW:
         attachment_collection:
           new: 新增附件資料夾
         browse: 瀏覽
-        category:
-          new: 新分類
         export: 全部匯出
         export-selection: 匯出選擇
         import: 匯入
@@ -284,23 +282,8 @@ zh-TW:
           justification: 理由
           title: 封鎖使用者 %{name}
       categories:
-        create:
-          error: 建立這個分類時發生錯誤
-          success: 分類建立成功
-        destroy:
-          error: 刪除這個分類時發生錯誤，請先將子類別刪除，確認這個分類沒有其他關聯後重試
-          success: 分類刪除成功
-        edit:
-          title: 編輯分類
-          update: 更新
         index:
           categories_title: 分類
-        new:
-          create: 建立類別
-          title: 新分類
-        update:
-          error: 更新這個分類時發生錯誤
-          success: 更新類別成功。
       component_permissions:
         update:
           error: 更新這個元件的權限時發生錯誤
@@ -689,7 +672,6 @@ zh-TW:
           confirm_delete: 您確定要刪除這份通訊嗎？
           followers: '追隨者'
           has_been_sent_to: '已發送至： '
-          no_scopes: 無範圍
           not_sent: 未發送
           participants: '參與者 '
           segmented_to: '分段至 %{subject}: '
@@ -704,13 +686,10 @@ zh-TW:
           confirm_deliver: 您確定要發送這封通訊嗎？此操作無法撤銷。
           deliver: 發送通訊
           followers_help: 將通訊發送給清單中所有已確認且關注任何選定參與空間的使用者。
-          none: 無
           participants_help: 發送通訊給所有在列表中任何選定的參與空間中參與過的已確認使用者。
           recipients_count: 此通訊將發送給<strong id='recipients_count'>%{count}</strong>位使用者。
-          scopes_help: 向在其帳戶的「我的興趣」設置中啟用任何選定範圍的使用者發送通訊。
-          select_scopes: 篩選條件為在其帳戶的「我的興趣」設置中啟用任何選定範圍的使用者。
           select_spaces: 選擇要將通訊進行分割的空間
-          select_users: 選擇您想要發送通訊的使用者
+          send_to_all_users: 傳送給所有使用者
           title: 選擇要傳送的收件人
           warning: "<strong>注意：</strong>此通訊將僅傳送給已在其通知設定中啟用<em>我想收到通訊</em>的使用者。"
         send:

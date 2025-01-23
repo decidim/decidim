@@ -48,7 +48,7 @@ en:
         deleted_results_info: Deleted results can be restored from the trash.
         destroy: Delete
         edit: Edit
-        import: Import projects from another component
+        import: Import results from another component
         import_csv: Import results from CSV file
         new_result: New result
         new_status: New status
@@ -61,6 +61,30 @@ en:
         exports:
           result_comments: Comments
           results: Results
+        import_components:
+          create:
+            invalid: There was a problem importing the results, please follow the instructions carefully and make sure you have selected projects for implementation.
+          filters:
+            new_items_projects:
+              one: 1 selected project will be imported
+              other: "%{count} selected projects will be imported"
+              zero: There are no selected projects in this origin component
+            new_items_proposals:
+              one: 1 proposal will be imported
+              other: "%{count} proposals will be imported"
+              zero: There are no proposals in this origin component
+            proposal_state: Proposal status
+            select_state: Select status
+          form:
+            create: Import
+            no_components: There are no components in this participatory space to import.
+            origin_component_id: Origin component
+            select_component: Select a component
+          new:
+            success:
+              one: 1 result queued to be imported. You will be notified by email, once completed.
+              other: "%{count} results queued to be imported. You will be notified by email, once completed."
+            title: Import results from another component
         import_results:
           new:
             download_export: Download the Export with CSV format
@@ -71,10 +95,9 @@ en:
               <li><a href='%{link_new_status}' target='_blank'>Create the Statuses for the Results</a> that you want to add</li>
               <li><a href='%{link_new_result}' target='_blank'>Create at least one Result manually</a> through this Admin panel before using Import, for having a better understanding of the format and what you will need to fill out.</li>
               <li>%{link_export_csv}</li>
-              <li>Make the changes locally. You can only change the following columns of the CSV:
+              <li>Make the changes locally. You can only change the following columns of the CSV (the rest will be ignored):</li>
                 <ul>
-                <li><b>category/id:</b> ID for the Category</li>
-                <li><b>scope/id:</b> ID for the Scope</li>
+                <li><b>taxonomies/ids:</b> IDs for the Taxonomies (if more than one, separate with a comma)</li>
                 <li><b>parent/id:</b> ID of the parent (for related Results). Optional</li>
                 <li><b>title/en:</b> Title on English language. This will depend on your platform language configuration.</li>
                 <li><b>description/en:</b> Description on English language. This will depend on your platform language configuration.</li>
@@ -96,23 +119,6 @@ en:
             name: Result
           status:
             name: Status
-        projects_import:
-          create:
-            invalid: There was a problem importing the projects into results, please follow the instructions carefully and make sure you have selected projects for implementation.
-          new:
-            create: Import
-            import_all_selected_projects: Import all projects selected for implementation
-            new_items:
-              one: 1 selected project will be imported
-              other: "%{count} selected projects will be imported"
-              zero: There are no selected projects in this origin component
-            no_components: There are no budgets components in this participatory space to import the projects into results.
-            origin_component_id: Origin component
-            select_component: Select a component
-            success:
-              one: 1 project queued to be imported. You will be notified by email, once completed.
-              other: "%{count} projects queued to be imported. You will be notified by email, once completed."
-            title: Import projects from another component
         results:
           bulk_actions:
             dates_form:
@@ -233,6 +239,13 @@ en:
             other: "%{count} results were imported from projects."
           subject: Successful import of projects
           success: Successful imported projects to results in the %{component_name} component. You can review the results in the administration interface.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: One result was imported from proposals
+            other: "%{count} results were imported from proposals."
+          subject: Successful import of proposals
+          success: Successful imported proposals to results in the %{component_name} component. You can review the results in the administration interface.
       last_activity:
         new_result: 'New result:'
       models:

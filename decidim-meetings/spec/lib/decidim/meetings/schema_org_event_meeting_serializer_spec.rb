@@ -73,6 +73,19 @@ module Decidim::Meetings
             expect(serialized[:organizer][:name]).to eq(meeting.author.name)
             expect(serialized[:organizer][:url]).to eq("http://#{organization.host}:#{Capybara.server_port}/profiles/#{meeting.author.nickname}")
           end
+
+          context "with deleted author" do
+            let(:organization) { create(:organization) }
+            let(:user) { create(:user, :deleted, organization:) }
+            let(:component) { create(:meeting_component, :published, organization:) }
+            let!(:meeting) { create(:meeting, :published, author: user.reload, component:, latitude:, longitude:) }
+
+            it "serializes the organizer" do
+              expect(serialized[:organizer][:@type]).to eq("Person")
+              expect(serialized[:organizer][:name]).to eq(meeting.author.name)
+              expect(serialized[:organizer][:url]).to eq("")
+            end
+          end
         end
 
         context "with user group author" do

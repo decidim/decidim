@@ -148,10 +148,6 @@ ignore_unused:
   - decidim.forms.file_help.*
   - decidim.forms.user_answers_serializer.*
   - decidim.forms.admin_log.questionnaire.update
-  - decidim.surveys.admin_log.survey.create
-  - decidim.surveys.admin_log.survey.delete
-  - decidim.surveys.admin_log.survey.publish
-  - decidim.surveys.admin_log.survey.update
   - decidim.proposals.answers.*
   - decidim.proposals.collaborative_drafts.show.see_other_versions
   - decidim.proposals.collaborative_drafts.wizard_aside.back
@@ -181,7 +177,6 @@ ignore_unused:
   - decidim.system.organizations.omniauth_settings.*
   - decidim.verifications.id_documents.{identification_number,passport}
   - decidim.verifications.dummy_authorization.extra_explanation.user_postal_codes.{one,other}
-  - decidim.verifications.dummy_authorization.extra_explanation.user_scope
   - errors.messages.*
   - invisible_captcha.*
   - social_share_button.*
@@ -233,6 +228,8 @@ ignore_unused:
   - doorkeeper.scopes.*
   - decidim.proposals.proposals.votes_count.count.*
   - decidim.proposals.proposals.show.hidden_endorsers_count.*
+  - decidim.admin.taxonomies.breadcrumb.*
+  - decidim.admin.taxonomy_filters.breadcrumb.*
   - decidim.admin.models.*.name
   - decidim.admin.models.*.name.*
   - password_validator.*

@@ -16,8 +16,6 @@ module Decidim
 
       routes do
         constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
-          resources :conference_filters, except: [:show]
-
           resources :conferences, param: :slug, except: [:show, :destroy] do
             resource :publish, controller: "conference_publications", only: [:create, :destroy]
             resources :copies, controller: "conference_copies", only: [:new, :create]

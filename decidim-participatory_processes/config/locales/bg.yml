@@ -22,7 +22,6 @@ bg:
         local_area: Район на организацията
         meta_scope: Метаданни сфера
         participatory_process_group_id: Група процеси
-        participatory_process_type_id: Тип на процесите
         participatory_scope: Какво е решено
         participatory_structure: Как е решено
         private_space: Частен процес
@@ -59,8 +58,6 @@ bg:
         end_date: Крайна дата
         short_description: Кратко описание
         start_date: Начална дата
-        title: Заглавие
-      participatory_process_type:
         title: Заглавие
       participatory_process_user_role:
         email: Имейл
@@ -100,7 +97,6 @@ bg:
         new_process: Нов процес
         new_process_group: Нова група на процеса
         new_process_step: Нова фаза
-        new_process_type: Нов тип процес
         new_process_user_role: Нов администратор на процес
         preview: Преглед
         publish: Публикувай
@@ -115,13 +111,11 @@ bg:
         participatory_process_groups_submenu:
           info: Информация
           landing_page: Целева страница
-        participatory_process_types: Типове процеси
         participatory_processes: Процеси
         participatory_processes_submenu:
           attachment_collections: Папки
           attachment_files: Файлове
           attachments: Прикачени файлове
-          categories: Категории
           components: Компоненти
           info: Относно този процес
           landing_page: Целева страница
@@ -147,11 +141,6 @@ bg:
             start_date: Начална дата
             title: Заглавие
           name: Фаза на процес на участие
-        participatory_process_type:
-          fields:
-            created_at: Създадено на
-            title: Заглавие
-          name: Вид на процеса
         participatory_process_user_role:
           fields:
             email: Имейл
@@ -233,21 +222,6 @@ bg:
         update:
           error: Възникна проблем при актуализирането на тази фаза от процеса на участие.
           success: Фазата на участие е актуализирана успешно.
-      participatory_process_types:
-        create:
-          error: Възникна проблем при създаването на нов тип процес.
-          success: Типът процес е създаден успешно.
-        destroy:
-          success: Типът процес е изтрит успешно.
-        edit:
-          title: Редактиране на типа процес
-          update: Актуализация
-        new:
-          create: Създаване
-          title: Нов тип процес
-        update:
-          error: Възникна проблем при актуализирането на този тип процес.
-          success: Типът процес е актуализиран успешно.
       participatory_process_user_roles:
         create:
           error: Възникна проблем при добавянето на участник за този процес на участие.
@@ -424,11 +398,9 @@ bg:
             filters: Филтри
             images: Изображения
             metadata: Метаданни
-            other: Друго
             related_processes: Свързани процеси
             scope_type_max_depth_help: Ограничете дълбочината на филтъра за обхвата; Филтърът ще извежда данни от общото положение до избрания тип обхват.
             select_an_area: Изберете област
-            select_participatory_process_type: Изберете тип процес
             select_process_group: Изберете група на процеса
             slug_help_html: 'Съкратените URL се използват за генериране на URL адреси, които сочат към този процес. Приема само букви, цифри и тирета и трябва да започва с буква. Пример: %{url}'
             title: Основна информация

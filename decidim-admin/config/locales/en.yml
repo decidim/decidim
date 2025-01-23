@@ -345,14 +345,6 @@ en:
           title: 'Add component: %{name}'
         publish:
           success: The component has been successfully published.
-        taxonomy_filters_badge:
-          remove: Remove
-        taxonomy_filters_drawer:
-          add_filter: Add filter
-          clear_all: Clear all
-          filters: Filters
-          save: Save
-          title: Filters
         title: Components
         unpublish:
           success: The component has been successfully unpublished.
@@ -1138,8 +1130,14 @@ en:
           error: There was a problem updating this page.
           success: Page updated successfully.
       taxonomies:
-        actions: Actions
-        amount: Number of items
+        actions:
+          actions: Actions
+          destroy: Delete taxonomy & items
+          edit: Edit taxonomy & items
+          filters: Manage filters
+        breadcrumb:
+          edit: Edit taxonomy
+          new: New taxonomy
         count: Associated resources
         create:
           invalid: There was a problem creating this taxonomy.
@@ -1158,7 +1156,7 @@ en:
         filters:
           search_placeholder: Search
         index:
-          description: A taxonomy allows admins categorizing and organizing content. For example, add a taxonomy to classify processes by geographical scope.
+          description: Taxonomies and filters allow administrators to sort and organize content. For example, add a taxonomy with the city's districts and neighborhoods and then create filters only with the districts or for a specific neighborhood.
           new_taxonomy: New taxonomy
           no_items_found: No taxonomies found matching the search criteria.
         name: Name
@@ -1171,14 +1169,18 @@ en:
           to_prev_page: Drag over for previous page
         taxonomy_actions:
           confirm_destroy: 'Are you sure you want to delete %{name}? This will also delete all the children items. NOTE: Resources that are using this taxonomy will not be affected but they will lose the reference to this taxonomy.'
+        total_filters: Filters
+        total_items: Items in the taxonomy
         update:
           invalid: There was a problem updating this taxonomy.
           success: Taxonomy updated successfully.
       taxonomy_filters:
         actions:
           new_taxonomy_filter: New taxonomy filter
-        callout:
-          modify_taxonomy_html: If you need to modify this taxonomy or its items, please do it through the configuration settings in the <a href="%{url}">Taxonomies</a> section.
+        breadcrumb:
+          edit: Edit filter
+          filters: Filters
+          new: New filter
         create:
           error: There was a problem creating this taxonomy filter.
           success: Taxonomy filter created successfully.
@@ -1196,29 +1198,39 @@ en:
             other: "%{count} items selected"
           name_help: The title of the filter to be displayed in the frontend.
           no_items: No items are available for this taxonomy. You can create items in the taxonomy configuration settings.
-          space_filter: Available as filter for all %{manifest_name}
+          space_filter: Available as filter for
         index:
           description: A taxonomy filter allows admins to sort and filter participatory spaces based on a taxonomy. For example, add a taxonomy filter to sort processes by geographical scope.
           empty: There are currently no taxonomy filters. Create a list of taxonomy filters here to sort and filter participatory spaces based on a taxonomy.
+          new_filter: New filter
         new:
           back: Back
           create: Create taxonomy filter
-          select_taxonomy: Select a taxonomy
           title: New taxonomy filter
         table:
           actions: Actions
-          components_count: Associated components
+          components_count: Components using this
           confirm_destroy: 'Are you sure you want to delete the filter %{name}? NOTE: Resources that are using this filter will not be affected but they will lose the reference to this filter.'
-          count: Number of items used
           destroy: Delete
           edit: Edit
-          internal_name: Internal filter name
-          name: Public filter title
-          space_filter: Used to filter %{manifest_name}
-          taxonomy: From taxonomy
+          internal_name: Internal label
+          name: Label
         update:
           error: There was a problem updating this taxonomy filter.
           success: Taxonomy filter updated successfully.
+      taxonomy_filters_selector:
+        new:
+          add_new_items_html: If you need to set a new filter or item, do it through the configuration settings or by clicking <a href="%{url}">here</a>.
+          items_count: "%{count} items"
+          save: Save
+        show:
+          items_count: "%{count} items"
+          remove: Remove
+        taxonomies_select:
+          filters: Filters
+          select_filter: Select a filter
+          select_taxonomy: Select a taxonomy
+          taxonomies: Taxonomies
       taxonomy_items:
         edit:
           title: Edit item in %{taxonomy}
@@ -1248,7 +1260,7 @@ en:
         scopes: Scopes
         statistics: Activity
         taxonomies: Taxonomies
-        taxonomy_filters: Taxonomy filters
+        taxonomy_filters: Taxonomy filters for "%{taxonomy}"
         user_groups: Groups
         users: Administrators
       tooltips:
@@ -1384,3 +1396,5 @@ en:
       admin:
         global_moderations:
           title: Global moderations
+        taxonomy_filters_selector:
+          title: Filters

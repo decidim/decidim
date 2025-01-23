@@ -22,7 +22,6 @@ el:
         local_area: Τομέας οργανισμού
         meta_scope: Μεταδεδομένα πεδίου εφαρμογής
         participatory_process_group_id: Ομάδα διαδικασιών
-        participatory_process_type_id: Τύπος διεργασιών
         participatory_scope: Τι αποφασίστηκε
         participatory_structure: Πώς αποφασίζεται
         private_space: Ιδιωτική διαδικασία
@@ -59,8 +58,6 @@ el:
         end_date: Ημερομηνία λήξης
         short_description: Σύντομη περιγραφή
         start_date: Ημερομηνία έναρξης
-        title: Τίτλος
-      participatory_process_type:
         title: Τίτλος
       participatory_process_user_role:
         email: Email
@@ -100,7 +97,6 @@ el:
         new_process: Νέα διαδικασία
         new_process_group: Νέα ομάδα διαδικασιών
         new_process_step: Νέα φάση
-        new_process_type: Νέος τύπος διαδικασίας
         new_process_user_role: Νέος διαχειριστής διαδικασιών
         preview: Προεπισκόπηση
         publish: Δημοσίευση
@@ -111,13 +107,11 @@ el:
         participatory_process_groups_submenu:
           info: Πληροφορίες
           landing_page: Σελίδα άφιξης
-        participatory_process_types: Τύποι διεργασιών
         participatory_processes: Διαδικασίες
         participatory_processes_submenu:
           attachment_collections: Φάκελοι
           attachment_files: Αρχεία
           attachments: Συνημμένα
-          categories: Κατηγορίες
           components: Στοιχεία
           moderations: Εποπτεύσεις
           process_admins: Διαχειριστές διαδικασιών
@@ -140,11 +134,6 @@ el:
             start_date: Ημερομηνία έναρξης
             title: Τίτλος
           name: Φάση διαδικασίας συμμετοχής
-        participatory_process_type:
-          fields:
-            created_at: Δημιουργήθηκε στις
-            title: Τίτλος
-          name: Τύπος διεργασίας
         participatory_process_user_role:
           fields:
             email: Email
@@ -219,21 +208,6 @@ el:
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της διαδικασίας συμμετοχής.
           success: Η φάση συμμετοχής ενημερώθηκε με επιτυχία.
-      participatory_process_types:
-        create:
-          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου τύπου διεργασίας.
-          success: Ο τύπος διεργασίας δημιουργήθηκε επιτυχώς.
-        destroy:
-          success: Ο τύπος διεργασίας διαγράφηκε επιτυχώς.
-        edit:
-          title: Επεξεργασία τύπου διεργασίας
-          update: Ενημέρωση
-        new:
-          create: Δημιουργία
-          title: Νέος τύπος διεργασίας
-        update:
-          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του τύπου διεργασίας.
-          success: Ο τύπος διεργασίας ενημερώθηκε επιτυχώς.
       participatory_process_user_roles:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός συμμετέχοντα για αυτήν τη διαδικασία συμμετοχής.
@@ -389,11 +363,9 @@ el:
             filters: Φίλτρα
             images: Εικόνες
             metadata: Μεταδεδομένα
-            other: Άλλο
             related_processes: Σχετικές διαδικασίες
             scope_type_max_depth_help: Περιορίστε το βάθος του φίλτρου πεδίου εφαρμογής. Το φίλτρο θα εμφανίζεται από γενικό έως τον επιλεγμένο τύπο πεδίου εφαρμογής.
             select_an_area: Επιλέξτε «Τομέα»
-            select_participatory_process_type: Επιλέξτε έναν τύπο διεργασίας
             select_process_group: Επιλέξτε ομάδα διαδικασίας
             title: Γενικές πληροφορίες
       content_blocks:

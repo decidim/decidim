@@ -24,10 +24,7 @@ module Decidim
             id: meeting.participatory_space.id,
             url: Decidim::ResourceLocatorPresenter.new(meeting.participatory_space).url
           },
-          taxonomies: {
-            id: meeting.taxonomies.map(&:id),
-            name: meeting.taxonomies.map(&:name)
-          },
+          taxonomies:,
           component: { id: component.id },
           title: meeting.title,
           description: meeting.description,
@@ -74,24 +71,6 @@ module Decidim
         else
           root_url # is a Decidim::Organization
         end
-      end
-
-      def profile_url(author)
-        return "" if author.respond_to?(:deleted?) && author.deleted?
-
-        Decidim::Core::Engine.routes.url_helpers.profile_url(author.nickname, host:)
-      end
-
-      def root_url
-        Decidim::Core::Engine.routes.url_helpers.root_url(host:)
-      end
-
-      def host
-        resource.organization.host
-      end
-
-      def component
-        meeting.component
       end
 
       def related_proposals

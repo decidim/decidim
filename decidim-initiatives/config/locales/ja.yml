@@ -143,8 +143,6 @@ ja:
             initiative_title: イニシアチブのタイトル
             name_and_surname: 名前と苗字
             postal_code: 郵便番号
-            scope: スコープ
-            time_and_date: 日時
             timestamp: タイムスタンプ
       titles:
         initiatives: イニシアチブ
@@ -434,10 +432,7 @@ ja:
           email_subject: "%{applicant_nickname} があなたのイニシアチブに参加しようとしています"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> があなたのイニシアチブの推進委員会に申請しました <a href="%{resource_url}">%{resource_title}</a>. 受け入れるか拒否するには <a href="%{resource_url}/edit">ここ</a>をクリックしてください。
       form:
-        add_documents: ドキュメントを追加
         add_image: 画像を追加
-        attachment_legend: "(オプション) 添付ファイルを追加"
-        edit_documents: ドキュメントを編集
         edit_image: 画像を編集
         image_legend: "(オプション) 画像を追加"
       index:

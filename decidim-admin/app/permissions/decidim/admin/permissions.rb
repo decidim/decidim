@@ -60,10 +60,6 @@ module Decidim
           allow! if permission_action.subject == :share_token
           allow! if permission_action.subject == :reminder
 
-          if permission_action.subject == :taxonomy
-            permission_action.action == :destroy ? allow_destroy_taxonomy? : allow!
-          end
-
           if permission_action.action.in? [:manage_trash, :restore, :soft_delete]
             if permission_action.action == :soft_delete
               toggle_allow(trashable_deleted_resource.respond_to?(:deleted?) && !trashable_deleted_resource.deleted?)
@@ -74,6 +70,10 @@ module Decidim
             end
           end
 
+          if permission_action.subject == :taxonomy
+            permission_action.action == :destroy ? allow_destroy_taxonomy? : allow!
+          end
+          allow! if permission_action.subject == :taxonomy_filter
           allow! if permission_action.subject == :taxonomy_item
         end
 
