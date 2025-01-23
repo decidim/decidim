@@ -90,7 +90,7 @@ eu:
         one: Batzarkidea
         other: Batzar kideak
       decidim/assembly_user_role:
-        one: Batzarreko erabiltzaileen rola
+        one: Batzarreko parte-hartzailearen rola
         other: Batzar parte-hartzailearen rolak
   decidim:
     admin:
@@ -178,7 +178,7 @@ eu:
           success: Batzar honetatik administratzailea zuzen kendua.
         edit:
           title: Eguneratu batzarraren administratzailea
-          update: Eguneratu
+          update: Onartu
         index:
           assembly_admins_title: Batzarraren administratzaileak
         new:
