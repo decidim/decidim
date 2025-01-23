@@ -2,7 +2,7 @@ eu:
   activemodel:
     attributes:
       area:
-        area_type: Arlo mota
+        area_type: Eremu mota
         name: Izena
         organization: Erakundea
       area_type:
@@ -151,11 +151,11 @@ eu:
         participatory_space_private_user_csv_import:
           attributes:
             file:
-              malformed: Inportazio-fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
+              malformed: Fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
         user_group_csv_verification:
           attributes:
             file:
-              malformed: Inportazio-fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
+              malformed: Fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
       new_import:
         attributes:
           file:
@@ -233,7 +233,7 @@ eu:
           success: Arlo mota behar bezala suntsitua.
         edit:
           title: Editatu arlo mota
-          update: Eguneratu
+          update: Onartu
         new:
           create: Sortu arlo mota
           title: Beste arlo mota bat
@@ -249,7 +249,7 @@ eu:
           success: Arloa behar bezala suntsitua.
         edit:
           title: Editatu arloa
-          update: Eguneratu
+          update: Onartu
         new:
           create: Sortu arloa
           title: Beste arlo bat
@@ -265,7 +265,7 @@ eu:
           success: Karpeta behar bezala suntsitua.
         edit:
           title: Editatu karpeta
-          update: Eguneratu
+          update: Onartu
         index:
           attachment_collections_title: Erantsitako karpetak
         new:
@@ -320,10 +320,10 @@ eu:
         create:
           error: Arazo bat egon da osagai hau sortzean.
           success: Osagaia zuzen sortua.
-          success_landing_page: Osagaia zuzuen osatua. Eduki bloke bat gehitu ahal duzu osagai honetarako parte hartzeko espazioaren hasiera-orrian. Zoaz hasiera-orrira konfiguratzeko. <a href="%{landing_page_path}">.
+          success_landing_page: Osagaia zuzen sortu da. Espazio honen hasiera orrian eduki atal bat gehitu ahal duzu. Joan <a href="%{landing_page_path}">orrira</a> konfiguratzeko.
         edit:
           title: Editatu osagaia
-          update: Eguneratu
+          update: Onartu
         form:
           default_step_settings: Faseen ezarpen lehenetsiak
           global_settings: Ezarpen globalak
@@ -344,14 +344,6 @@ eu:
           title: 'Gehitu osagaia: %{name}'
         publish:
           success: Osagaia zuzen argitaratua.
-        taxonomy_filters_badge:
-          remove: Kendu
-        taxonomy_filters_drawer:
-          add_filter: Erantsi iragazkia
-          clear_all: Garbitu dena
-          filters: Iragazkiak
-          save: Gorde
-          title: Iragazkiak
         title: Osagaiak
         unpublish:
           success: Osagaia behar bezala desargitaratua.
@@ -536,12 +528,12 @@ eu:
               other: Bikoiztu %{columns} zutabe.
           invalid_indexes:
             lines:
-              detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
+              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
               message:
                 one: Errore bat aurkitu da inportazio-fitxategiko %{indexes} lerroan.
                 other: Erroreak aurkitu dira inportazio-fitxategiko %{indexes} lerroetan.
             records:
-              detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
+              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
               message:
                 one: Errore bat aurkitu da % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
                 other: Erroreak aurkitu dira % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
@@ -710,7 +702,7 @@ eu:
             ignore:
               update_moderated_user_button: Ez erreportatu parte-hartzaileak
             title: Ekintzak
-            unblock: Desblokeatu parte-hartzaile
+            unblock: Desblokeatu parte-hartzailea
             unreport: Ez erreportatu
           cancel: Ezeztatu
           name: Izena
@@ -994,8 +986,8 @@ eu:
         create:
           error: Arazo bat egon da ohartarazpenak sortzean.
           success:
-            one: "Pparte-hartzaile bat gogoratuko da."
-            other: "%{count} parte-hartzaile gogoratuko dira."
+            one: "%{count} parte-hartzaile gogoratuko da."
+            other: "%{count} parte-hartzailea gogoratuko dira."
         new:
           submit: Bidali
       resource_permissions:
@@ -1136,8 +1128,6 @@ eu:
           error: Arazo bat egon da orri hau eguneratzean.
           success: Orria zuzen eguneratua.
       taxonomies:
-        actions: Ekintzak
-        amount: Item kopurua
         count: Lotutako baliabideak
         create:
           invalid: Arazo bat egon da kategoria hau sortzean.
@@ -1152,11 +1142,10 @@ eu:
           no_items: Gaur egun ez dago taxonomia honetako elementurik. Sortu hemen elementuen zerrenda bat baliabideak sailkatzeko edo iragazteko, hala nola espazio edo osagai parte-hartzaileak. Elementuak hiru mailatan sailka daitezke.
           subtitle: 'Elementuak hemen: "%{taxonomy_name}"'
           title: Editatu "%{taxonomy_name}" taxonomia
-          update: Gorde
+          update: Eguneratu
         filters:
           search_placeholder: Bilatu
         index:
-          description: Taxonomiak edukiak sailkatzeko eta antolatzeko aukera ematen die administratuei. Adibidez, gehitu taxonomia bat prozesuak sailkatzeko eremu geografikoaren arabera.
           new_taxonomy: Taxonomia berria
           no_items_found: Ez dago bilaketa-irizpidearekin bat datorren taxonomiarik.
         name: Izena
@@ -1175,8 +1164,6 @@ eu:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Beste taxonomia-iragazki bat
-        callout:
-          modify_taxonomy_html: 'Taxonomia hau edo bere elementuak aldatu behar badituzu, mesesdez, egin ezazu konfigurazio ezarpenen bidez atal honetan: <a href="%{url}">Taxonomies</a>.'
         create:
           error: Arazo bai izan da taxonomia-iragazki hau sortzean.
           success: Taxonomia-iragazkia zuzen sortua.
@@ -1194,26 +1181,18 @@ eu:
             other: "%{count} item hautatuta"
           name_help: Aurrealdean erakutsiko den iragazkiaren izenburua.
           no_items: Taxonomia honetarako ez dago elementurik. Artikuluak sor ditzakezu taxonomia konfiguratzeko ezarpenetan.
-          space_filter: Eskuragarri iragazki gisa %{manifest_name} guztientzat
         index:
           description: Taxonomia-iragazki batek aukera ematen die administratzaileei espazio parte-hartzaileak taxonomia batean oinarrituta ordenatzeko eta iragazteko. Adibidez, gehitu taxonomia-iragazki bat prozesuak eremu geografikoaren arabera sailkatzeko.
-          empty: Egun ez dago taxonomia-iragazkirik. Sortutaxonomia-iragazkien zerrenda bat, espazio parte-hartzaileak taxonomia baten arabera ordenatu eta iragazteko.
+          empty: Gaur egun ez dago taxonomia-iragazkirik. Sortu taxonomia-iragazkien zerrenda bat, espazio parte-hartzaileak taxonomia baten arabera ordenatu eta iragazteko.
         new:
           back: Atzera
           create: Sortu taxonomia-iragazkia
-          select_taxonomy: Hautatu taxonomia bat
           title: Beste taxonomia-iragazki bat
         table:
           actions: Ekintzak
-          components_count: Osagai elkartuak
           confirm_destroy: 'Ziur zaude %{name} iragazkia ezabatu nahi duzula? OHARRA: Iragazki hau erabiltzen ari diren baliabideei ez zaie eragingo, baina iragazki horren erreferentzia galduko dute.'
-          count: Erabilitako artikuluen kopurua
           destroy: Ezabatu
           edit: Editatu
-          internal_name: Barne iragazkiaren izena
-          name: Iragazki publikoaren titulua
-          space_filter: Iragazteko erabilia %{manifest_name}
-          taxonomy: Taxonomiatik
         update:
           error: Arazo bai izan da taxonomia-iragazki hau eguneratzean.
           success: Taxonomia-iragazkia zuzen eguneratua.
@@ -1234,20 +1213,19 @@ eu:
         edit_external_domains: Baimendutako kanpoko domeinuen zerrenda
         edit_landing_page: Orriaren edukiak
         edit_organization_appearance: Editatu hasierako orriaren itxura
-        impersonatable_users: Erabiltzaile erabilgarriak
-        impersonations: Erabiltzaileen kudeaketa
+        impersonatable_users: Parte-hartzaile erabilgarriak
+        impersonations: Parte-hartzaileen kudeaketa
         menu: Menua
         metrics: Metrikak
         page_topics: Gaiak
         pages: Orriak
         panel: Administratzailea
-        participants: erabiltzaileak
+        participants: Parte-hartzaileak
         scope_types: Esparru motak
         scopes: Esparruak
         statistics: Jarduera
         taxonomies: Taxonomiak
-        taxonomy_filters: Taxonomia-iragazkiak
-        user_groups: Erabiltzaile-taldeak
+        user_groups: Partaide-taldeak
         users: Administratzaileak
       tooltips:
         deleted_component_info: Osagai hau ezabatu ahal izateko, egoera "Argitaratugabea" izan behar da.
@@ -1312,13 +1290,13 @@ eu:
           reason: Arrazoi bat adierazi behar duzu kudeatu gabeko parte-hartzaile bat kudeatzeko.
     metrics:
       blocked_users:
-        object: erabiltzaile blokeatuak
+        object: parte-hartzaile blokeatuak
         title: Parte-hartzaile blokeatuak
       reported_users:
-        object: erabiltzaile erreportatuak
-        title: Erabiltzaile erreportatuak
+        object: parte-hartzaile erreportatuak
+        title: Parte-hartzaile erreportatuak
       user_reports:
-        object: parte-hartzailearen erreporteak
+        object: parte-hartzaileak erreportatzen du
         title: Parte-hartzaileak erreportatzen du
     moderations:
       actions:
