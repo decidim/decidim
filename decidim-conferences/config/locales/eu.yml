@@ -86,7 +86,7 @@ eu:
         other: Jardunaldiko hizlariak
       decidim/conference_user_role:
         one: Hitzaldiko erabiltzaile rola
-        other: Jardunaldiko hizlariaren rolak
+        other: Jardunaldiko parte-hartzaile rolak
   decidim:
     admin:
       actions:
@@ -131,7 +131,7 @@ eu:
           create: Sortu
           title: Beste hizlari bat.
         publish:
-          invalid: Arazo bat izan zen hizlari hau argitaratzean.
+          invalid: Arazo bat izan da hizlari hau argitaratzean.
           success: Hizlaria behar bezala argitaratua.
         unpublish:
           invalid: Arazo bat izan da hizlari hau despublikatzean.
@@ -234,7 +234,7 @@ eu:
             email: Helbide elektronikoa
             name: Izena
             role: Rola
-          name: Hitzaldiaren administratzailea
+          name: Jardunaldiaren administratzailea
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
@@ -322,7 +322,7 @@ eu:
         update: "%{user_name} parte-hartzaileak %{resource_name} hizlaria eguneratu du %{space_name} jardunaldian"
       conference_user_role:
         create: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du %{space_name} jardunaldira"
-        delete: "%{user_name} part-hartzaileak %{resource_name} administratzailea kendu du %{space_name} jardunalditik"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} administratzailea kendu du %{space_name} jardunalditik"
         update: "%{user_name} parte-hartzaileak %{resource_name} ren rola aldatu du %{space_name} jardunaldian"
       conferences:
         conference_registration:
@@ -611,7 +611,7 @@ eu:
           decidim_scope_id: Jardunaldiaren esparrua
           description: Jardunaldiaren deskribapen luzea
           end_date: Zein datatan amaitu zen jardunaldi hau.
-          follows_count: Espazio hau zenbat erabiltzailek jarraitzen duten
+          follows_count: Espazio hau zenbat parte-hartzaileek jarraitzen duten
           hashtag: Jardunaldiaren traola, Twitter/Xerako erabilia
           id: Jardunaldi honen identifikatzaile bakarra
           location: Jardunaldiaren kokalekua. Non egingo da hitzaldi hau.
