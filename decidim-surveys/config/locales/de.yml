@@ -90,6 +90,7 @@ de:
           create: "%{user_name} hat das Umfrage %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat das Umfrage %{resource_name} in %{space_name} gelöscht"
           publish: "%{user_name} hat die Umfrage %{resource_name} im Bereichs %{space_name} veröffentlicht"
+          unpublish: "%{user_name} hat die Umfrage %{resource_name} im Bereich %{space_name} zurückgezogen"
           update: "%{user_name} hat die Umfrage %{resource_name} im Bereich %{space_name} aktualisiert"
       directory:
         surveys:
