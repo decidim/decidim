@@ -22,10 +22,7 @@ ja:
       taxonomy:
         name: タクソノミー名
       taxonomy_filter:
-        internal_name: 内部フィルター名
-        name: 公開フィルタータイトル
         root_taxonomy_id: タクソノミーから
-        space_filter: 参加型スペースのフィルターとして利用できます
       user:
         about: 私について
         email: あなたのメールアドレス
@@ -274,13 +271,6 @@ ja:
         delete_with_parent: "%{user_name} が タクソノミー %{parent_taxonomy} 内のタクソノミー %{resource_name} を削除しました"
         update: "%{user_name} がタクソノミー %{resource_name} を更新しました"
         update_with_parent: "%{user_name} が タクソノミー %{parent_taxonomy} 内のタクソノミー %{resource_name} を更新しました"
-      taxonomy_filter:
-        create: "%{user_name} がタクソノミー %{resource_name} に基づいたフィルターを作成しました"
-        create_with_filter_items_count: "%{user_name} はタクソノミー %{resource_name} に基づき、%{space_manifest_name} のために %{filter_items_count} 個のフィルターを使ってフィルターを作成しました"
-        delete: "%{user_name} がタクソノミー %{resource_name} に基づいたフィルターを削除しました"
-        delete_with_filter_items_count: "%{user_name} はタクソノミー %{resource_name} に基づき、%{space_manifest_name} のために %{filter_items_count} 個のフィルターを使ってフィルターを削除しました"
-        update: "%{user_name} はタクソノミー %{resource_name} に基づいてフィルターを更新しました"
-        update_with_filter_items_count: "%{user_name} はタクソノミー %{resource_name} に基づき、%{space_manifest_name} のために %{filter_items_count} 個のフィルターを使ってフィルターを更新しました"
       user:
         block: "%{user_name} がユーザー %{resource_name} をブロックしました"
         invite: "%{user_name} が参加者 %{resource_name} をロール %{role} で招待しました"
