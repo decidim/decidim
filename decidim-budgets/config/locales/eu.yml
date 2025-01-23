@@ -18,7 +18,7 @@ eu:
         selected: Ezarpenerako hautatuak
         title: Izenburua
       proposals_import:
-        scope_id: Esparrua
+        scope_id: Eremua
   activerecord:
     models:
       decidim/budgets/budget:
@@ -52,7 +52,7 @@ eu:
         new_budget: Beste aurrekontu bat
         new_project: Beste proiektu bat
         preview: Aurreikusi
-        send_voting_reminders: Bidali bozketa gogorarazteko
+        send_voting_reminders: Botoa gogorarazi
         title: Ekintzak
       admin:
         budgets:
@@ -100,7 +100,7 @@ eu:
             change_category: Aldatu kategoria
             change_scope: Aldatu esparrua
             change_selected: Aldatu hautatutako eremua
-            deselect_implementation: Gauzatzekoetatik kendu
+            deselect_implementation: Kendu gauzatzekoetatik
             finished_orders: Amaitutako botoak
             pending_orders: Zain dauden botoak
             select_for_implementation: Gauzatzeko hautatua
@@ -172,7 +172,7 @@ eu:
         back_to: Itzuli hona %{component_name}
         close_modal: Itxi modala
         continue: Jarraitu
-        more_information: Informazio gehiago aurrekontuaz
+        more_information: Informazio gehiago aurrekontuari buruz
       budgets_list:
         budgets: Aurrekontuak
         cancel_order:
@@ -300,7 +300,7 @@ eu:
         project_filter:
           added: Gehituta
           all: Guztiak
-        projects_for: '%{name} ren proiektuak'
+        projects_for: '%{name} parte-hartzailearen proiektuak'
         select_projects: Hautatu proiektuak 
         show:
           budget: Aurrekontua
