@@ -49,15 +49,13 @@ describe "Action Authorization" do
     end
 
     context "and action authorized with custom action authorizer options" do
-      let(:scope) { create(:scope, organization:) }
       let(:permissions) do
         {
           create: {
             authorization_handlers: {
               dummy_authorization_handler: {
                 options: {
-                  allowed_postal_codes: "1234, 4567",
-                  allowed_scope_id: scope.id
+                  allowed_postal_codes: "1234, 4567"
                 }
               }
             }
@@ -72,14 +70,12 @@ describe "Action Authorization" do
 
         expect(page).to have_css("h1", text: "Verify with Example authorization")
         expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
-        expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
       end
 
       context "when the user does not match the authorization criteria" do
-        let(:other_scope) { create(:scope, organization:) }
         let!(:user_authorization) do
           create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.second.ago,
-                                 metadata: { postal_code: "1234", scope_id: other_scope.id })
+                                 metadata: { postal_code: "1234" })
         end
 
         it "prompts user to check their authorization status" do
@@ -88,16 +84,14 @@ describe "Action Authorization" do
 
           expect(page).to have_content("Not authorized")
           expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
-          expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}, and your scope is #{other_scope.name["en"]}.")
         end
       end
 
       context "when the user does not match one of the authorization criteria" do
-        let(:user_scope) { create(:scope, organization:) }
         let(:postal_code) { "1234" }
         let!(:user_authorization) do
           create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.second.ago,
-                                 metadata: { postal_code:, scope_id: user_scope&.id })
+                                 metadata: { postal_code: })
         end
 
         before do
@@ -113,33 +107,6 @@ describe "Action Authorization" do
             expect(page).to have_content("Not authorized")
             expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
             expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
-            expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}, and your scope is #{user_scope.name["en"]}.")
-          end
-        end
-
-        context "when the scope is missing" do
-          let(:user_scope) { nil }
-
-          it "prompts user to check their authorization status" do
-            click_on "New proposal"
-
-            expect(page).to have_content("Not authorized")
-            expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
-            expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
-          end
-        end
-
-        context "when the scope and postal code is missing" do
-          let(:user_scope) { nil }
-          let(:postal_code) { nil }
-
-          it "prompts user to check their authorization status" do
-            click_on "New proposal"
-
-            expect(page).to have_content("Not authorized")
-            expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
-            expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
-            expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
           end
         end
       end
@@ -152,7 +119,6 @@ describe "Action Authorization" do
                 dummy_authorization_handler: {
                   options: {
                     allowed_postal_codes: "1234, 4567",
-                    allowed_scope_id: scope.id,
                     extra_param: "wadus"
                   }
                 }
@@ -160,14 +126,13 @@ describe "Action Authorization" do
             }
           }
         end
-        let(:user_scope) { create(:scope, organization:) }
+
         let!(:user_authorization) do
           create(
             :authorization,
             name: "dummy_authorization_handler",
             user:,
-            granted_at: 1.second.ago,
-            metadata: { scope_id: user_scope&.id }
+            granted_at: 1.second.ago
           )
         end
 
@@ -233,15 +198,13 @@ describe "Action Authorization" do
     end
 
     context "and action authorized with custom action authorizer options" do
-      let(:scope) { create(:scope, organization:) }
       let(:permissions) do
         {
           create: {
             authorization_handlers: {
               dummy_authorization_handler: {
                 options: {
-                  allowed_postal_codes: "1234, 4567",
-                  allowed_scope_id: scope.id
+                  allowed_postal_codes: "1234, 4567"
                 }
               },
               another_dummy_authorization_handler: {}
@@ -259,14 +222,12 @@ describe "Action Authorization" do
 
         expect(page).to have_css("h1", text: "Verify with Example authorization")
         expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
-        expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
       end
 
       context "when the user does not match the authorization criteria" do
-        let(:other_scope) { create(:scope, organization:) }
         let!(:user_authorization) do
           create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.second.ago,
-                                 metadata: { postal_code: "1234", scope_id: other_scope.id })
+                                 metadata: { postal_code: "1234" })
         end
 
         it "prompts user to check their authorization status" do
@@ -275,16 +236,14 @@ describe "Action Authorization" do
 
           expect(page).to have_content("Not authorized")
           expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
-          expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}, and your scope is #{other_scope.name["en"]}.")
         end
       end
 
       context "when the user does not match one of the authorization criteria" do
-        let(:user_scope) { create(:scope, organization:) }
         let(:postal_code) { "1234" }
         let!(:user_authorization) do
           create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.second.ago,
-                                 metadata: { postal_code:, scope_id: user_scope&.id })
+                                 metadata: { postal_code: })
         end
 
         before do
@@ -300,33 +259,6 @@ describe "Action Authorization" do
             expect(page).to have_content("Not authorized")
             expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
             expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
-            expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}, and your scope is #{user_scope.name["en"]}.")
-          end
-        end
-
-        context "when the scope is missing" do
-          let(:user_scope) { nil }
-
-          it "prompts user to check their authorization status" do
-            click_on "New proposal"
-
-            expect(page).to have_content("Not authorized")
-            expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
-            expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
-          end
-        end
-
-        context "when the scope and postal code is missing" do
-          let(:user_scope) { nil }
-          let(:postal_code) { nil }
-
-          it "prompts user to check their authorization status" do
-            click_on "New proposal"
-
-            expect(page).to have_content("Not authorized")
-            expect(page).to have_content("Sorry, you cannot perform this action as some of your authorization data does not match.")
-            expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
-            expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
           end
         end
       end
