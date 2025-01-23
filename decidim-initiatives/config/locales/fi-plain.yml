@@ -442,7 +442,10 @@ fi-pl:
           email_subject: "%{applicant_nickname} haluaa liittyä mukaan aloitteeseesi"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> haki jäseneksi aloitteesi <a href="%{resource_url}">%{resource_title}</a> kannatuskomiteaan. Voit hyväksyä tai hylätä pyynnön <a href="%{resource_url}/edit">aloitteen muokkaussivulta</a>.
       form:
+        add_attachments: Lisää liitteitä
         add_image: Lisää kuva
+        attachment_legend: Lisää asiakirja tai kuva
+        edit_attachments: Muokkaa liitteitä
         edit_image: Muokkaa kuvaa
         image_legend: "(Vapaaehtoinen) Lisää kuva"
       index:
