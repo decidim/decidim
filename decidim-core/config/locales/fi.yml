@@ -32,10 +32,7 @@ fi:
       taxonomy:
         name: Luokittelun nimi
       taxonomy_filter:
-        internal_name: Sisäinen suodattimen nimi
-        name: Julkinen suodattimen otsikko
         root_taxonomy_id: Luokittelusta
-        space_filter: Määritettävissä osallistumistilojen suodattimeksi
       user:
         about: Profiilikuvaus
         avatar: Profiilikuva
@@ -304,13 +301,6 @@ fi:
         delete_with_parent: "%{user_name} poisti kohteen %{resource_name} luokittelun %{parent_taxonomy} alta"
         update: "%{user_name} päivitti luokittelua %{resource_name}"
         update_with_parent: "%{user_name} päivitti kohdetta %{resource_name} luokittelun %{parent_taxonomy} alla"
-      taxonomy_filter:
-        create: "%{user_name} loi suodattimen luokittelulle %{resource_name}"
-        create_with_filter_items_count: "%{user_name} loi suodattimen luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
-        delete: "%{user_name} poisti suodattimen luokittelulle %{resource_name}"
-        delete_with_filter_items_count: "%{user_name} poisti suodattimen luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
-        update: "%{user_name} päivitti suodatinta luokittelulle %{resource_name}"
-        update_with_filter_items_count: "%{user_name} päivitti suodatinta luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
       user:
         block: "%{user_name} esti käyttäjän %{resource_name}"
         bulk_block: "%{user_name} esti %{blocked_count} käyttäjätiliä"
