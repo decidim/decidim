@@ -344,14 +344,6 @@ de:
           title: 'Komponente hinzufügen: %{name}'
         publish:
           success: Die Komponente wurde erfolgreich veröffentlicht.
-        taxonomy_filters_badge:
-          remove: Entfernen
-        taxonomy_filters_drawer:
-          add_filter: Filter hinzufügen
-          clear_all: Alles löschen
-          filters: Filter
-          save: Speichern
-          title: Filter
         title: Komponenten
         unpublish:
           success: Die Veröffentlichung der Komponente wurde erfolgreich zurückgezogen.
@@ -1136,8 +1128,6 @@ de:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
           success: Seite wurde erfolgreich aktualisiert.
       taxonomies:
-        actions: Aktionen
-        amount: Anzahl Elemente
         count: Verknüpfte Ressourcen
         create:
           invalid: Beim Erstellen dieser Klassifizierung ist ein Fehler aufgetreten.
@@ -1156,7 +1146,6 @@ de:
         filters:
           search_placeholder: Suchen
         index:
-          description: Eine Klassifizierung erlaubt Admins Inhalte zu kategorisieren und zu organisieren. Zum Beispiel können Sie eine Taxonomie hinzufügen, um Prozesse nach geographischem Bereichen zu klassifizieren.
           new_taxonomy: Neue Klassifizierung
           no_items_found: Es wurden keine Klassifizierungen gefunden, die Ihren Suchkriterien entsprechen.
         name: Name
@@ -1175,8 +1164,6 @@ de:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Neuer Klassifizierung-Filter
-        callout:
-          modify_taxonomy_html: Wenn Sie diese Klassifizierung oder ihre Elemente ändern möchten, finden Sie die Konfigurationseinstellungen unter <a href="%{url}">Klassifizierungen</a>.
         create:
           error: Beim Erstellen dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
           success: Klassifizierungsfilter wurde erfolgreich erstellt.
@@ -1194,26 +1181,18 @@ de:
             other: "%{count} ausgewählte Elemente"
           name_help: Der Titel des Filters, der im Frontend angezeigt wird.
           no_items: Keine Elemente für diese Klassifizierungen verfügbar. Sie können Elemente in den Klassifizierungseinstellungen erstellen.
-          space_filter: Als Filter für alle %{manifest_name} verfügbar
         index:
           description: Ein Klassifizierungsfilter erlaubt es Admins, partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern. Fügen Sie zum Beispiel einen Taxonomie-Filter hinzu, um Prozesse nach geografischen Typologien zu sortieren.
           empty: Derzeit gibt es keine Klassifizierungsfilter. Erstellen Sie hier eine Liste von Klassifizierungsfilter, um partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern.
         new:
           back: Zurück
           create: Klassifizierungsfilter erstellen
-          select_taxonomy: Klassifizierung auswählen
           title: Neuer Klassifizierungsfilter
         table:
           actions: Aktionen
-          components_count: Verknüpfte Komponenten
           confirm_destroy: 'Sind Sie sicher, dass Sie den Filter %{name} löschen möchten? HINWEIS: Ressourcen, die diesen Filter verwenden, sind nicht betroffen, aber sie verlieren den Verweis auf diesen Filter.'
-          count: Anzahl der verwendeten Elemente
           destroy: Löschen
           edit: Bearbeiten
-          internal_name: Interner Filtername
-          name: Öffentlicher Filtertitel
-          space_filter: Wird verwendet, um %{manifest_name} zu filtern
-          taxonomy: Von der Klassifizierung
         update:
           error: Beim Aktualisieren dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
           success: Klassifizierungsfilter wurde erfolgreich aktualisiert.
@@ -1246,7 +1225,6 @@ de:
         scopes: Bereiche
         statistics: Aktivität
         taxonomies: Klassifizierungen
-        taxonomy_filters: Klassifizierungsfilter
         user_groups: Benutzergruppen
         users: Administratoren
       tooltips:
