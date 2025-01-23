@@ -36,14 +36,12 @@ module Decidim
             target: attributes["target"],
             participatory_scope: attributes["participatory_scope"],
             participatory_structure: attributes["participatory_structure"],
-            scopes_enabled: attributes["scopes_enabled"],
             private_space: attributes["private_space"],
             reference: attributes["reference"],
             purpose_of_action: attributes["purpose_of_action"],
             composition: attributes["composition"],
             duration: attributes["duration"],
             creation_date: attributes["creation_date"],
-            decidim_scope_id: attributes["decidim_scope_id"],
             closing_date_reason: attributes["closing_date_reason"],
             included_at: attributes["included_at"],
             closing_date: attributes["closing_date"],
@@ -66,12 +64,6 @@ module Decidim
           @imported_assembly.save!
           @imported_assembly
         end
-      end
-
-      def import_assemblies_type(type_id)
-        return if Decidim::AssembliesType.find_by(id: type_id).nil?
-
-        @imported_assembly.decidim_assemblies_type_id = type_id
       end
 
       def import_folders_and_attachments(attachments)

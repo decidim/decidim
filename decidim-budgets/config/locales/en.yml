@@ -216,12 +216,26 @@ en:
             map: Map
             taxonomies: Taxonomies
             title: Title
+      order:
+        status:
+          continue_voting: Continue voting
+          download_vote: Download your vote
+          pending_to_vote_budgets:
+            one: You can vote in other budget
+            other: You can vote in other budgets
+          share_vote: Share your vote
+          title: Your vote has been successfully accepted
+          view_votes:
+            one: View vote
+            other: View votes
+          votes_count:
+            one: Your vote for %{budget_name} has already been registered.
+            other: Your %{count} votes for %{budget_name} have already been registered.
       order_summary_mailer:
         order_summary:
           selected_projects: 'The projects that you have selected are:'
           subject: You have voted on the %{space_name} participatory space
           voted_on_space: You have voted on the %{budget_name} budget for the %{space_name} participatory space.
-          voted_on_space_with_scope: You have voted on the %{budget_name} budget for the %{space_name} participatory space on %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: If you change your mind, you can change your vote later.
@@ -416,8 +430,6 @@ en:
     orders:
       checkout:
         error: There was a problem processing your vote.
-        success_html: <p>Your vote has been successfully accepted.</p> <p class="text-sm font-normal">You can explore the <a class="text-secondary underline" href="%{rest_of_budgets_link}">rest of budgets</a>.</p>
-        success_no_left_budgets_html: Your vote has been successfully accepted.
       destroy:
         error: There was a problem canceling your vote.
         success: Your vote has been successfully canceled.

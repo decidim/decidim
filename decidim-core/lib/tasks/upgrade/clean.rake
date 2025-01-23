@@ -16,7 +16,7 @@ namespace :decidim do
       desc "Remove data from deleted users"
       task clean_deleted_users: :environment do
         logger.info("=== Removing extra data from deleted users")
-        Decidim::User.where.not(deleted_at: nil).update_all(personal_url: "", about: "") # rubocop:disable Rails/SkipsModelValidations
+        Decidim::User.where.not(deleted_at: nil).update_all(personal_url: "", about: "", notifications_sending_frequency: "none") # rubocop:disable Rails/SkipsModelValidations
       end
 
       desc "Removes any action logs belonging to invalid resources"
@@ -113,7 +113,7 @@ namespace :decidim do
       task fix_blocked_user_notification: :environment do
         logger.info("=== Updating all blocked users notifications_sending_frequency ...")
         blocked_users = 0
-        Decidim::User.blocked.where.not("notifications_sending_frequency = ?", "none").find_each do |blocked_user|
+        Decidim::User.blocked.where.not(notifications_sending_frequency: :none).find_each do |blocked_user|
           unless blocked_user.notifications_sending_frequency == "none"
             blocked_user.update(notifications_sending_frequency: "none")
             blocked_users += 1

@@ -96,8 +96,6 @@ module Decidim
       end
     }
 
-    scope :with_any_type, ->(*type_ids) { where(decidim_participatory_process_type_id: type_ids) }
-
     searchable_fields({
                         scope_id: :decidim_scope_id,
                         participatory_space: :itself,
@@ -206,7 +204,7 @@ module Decidim
     ransacker_i18n :title
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:with_date, :with_any_taxonomies, :with_any_type]
+      [:with_date, :with_any_taxonomies]
     end
 
     def self.ransackable_attributes(auth_object = nil)

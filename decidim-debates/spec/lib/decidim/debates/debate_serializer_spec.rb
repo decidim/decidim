@@ -14,6 +14,9 @@ module Decidim
       let(:participatory_process) { component.participatory_space }
       let(:component) { debate.component }
       let(:new_debate) { described_class.new(debate) }
+      let(:serialized_taxonomies) do
+        { ids: taxonomies.pluck(:id) }.merge(taxonomies.to_h { |t| [t.id, t.name] })
+      end
 
       before do
         debate.update!(taxonomies:)
@@ -27,9 +30,7 @@ module Decidim
         end
 
         it "serializes the taxonomies" do
-          expect(serialized[:taxonomies].length).to eq(2)
-          expect(serialized[:taxonomies][:id]).to match_array(taxonomies.map(&:id))
-          expect(serialized[:taxonomies][:name]).to match_array(taxonomies.map(&:name))
+          expect(serialized[:taxonomies]).to eq(serialized_taxonomies)
         end
 
         describe "author" do
@@ -51,12 +52,9 @@ module Decidim
           end
 
           context "when it is a user" do
-            let!(:debate) { create(:debate, :participant_author) }
-
-            before do
-              debate.author.update!(name: "John Doe")
-              debate.reload
-            end
+            let(:author) { create(:user, name: "John Doe", organization: component.organization) }
+            let(:component) { create(:debates_component) }
+            let!(:debate) { create(:debate, component:, author:) }
 
             it "serializes the user name" do
               expect(serialized[:author]).to include(name: "John Doe")
@@ -64,6 +62,23 @@ module Decidim
 
             it "serializes the link to its profile" do
               expect(serialized[:author]).to include(url: profile_url(debate.author.nickname))
+            end
+
+            context "when author is deleted" do
+              let(:author) { create(:user, :deleted, organization: component.organization) }
+              let!(:debate) { create(:debate, component:, author:) }
+
+              it "serializes the user id" do
+                expect(serialized[:author]).to include(id: author.id)
+              end
+
+              it "serializes the user name" do
+                expect(serialized[:author]).to include(name: "")
+              end
+
+              it "serializes the link to its profile" do
+                expect(serialized[:author]).to include(url: "")
+              end
             end
           end
 
@@ -207,7 +222,7 @@ module Decidim
       end
 
       def profile_url(nickname)
-        Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:)
+        Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:, port: Capybara.server_port)
       end
 
       def root_url

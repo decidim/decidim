@@ -230,6 +230,15 @@ FactoryBot.define do
       managed { true }
     end
 
+    trait :tos_not_accepted do
+      accepted_tos_version { nil }
+    end
+
+    trait :ephemeral do
+      managed
+      extended_data { { ephemeral: true } }
+    end
+
     trait :officialized do
       officialized_at { Time.current }
       officialized_as { generate_localized_title(:officialized_as, skip_injection:) }

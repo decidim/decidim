@@ -8,9 +8,9 @@ module Decidim::Assemblies
 
     let(:organization) { create(:organization) }
     let(:user) { create(:user, organization:) }
-    let(:scope) { create(:scope, organization:) }
     let(:errors) { double.as_null_object }
-    let!(:assembly) { create(:assembly) }
+    let!(:assembly) { create(:assembly, organization:, taxonomies: [taxonomy]) }
+    let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
     let!(:component) { create(:component, manifest_name: :dummy, participatory_space: assembly) }
     let(:form) do
       instance_double(
@@ -48,13 +48,13 @@ module Decidim::Assemblies
         expect(new_assembly.description).to eq(old_assembly.description)
         expect(new_assembly.short_description).to eq(old_assembly.short_description)
         expect(new_assembly.promoted).to eq(old_assembly.promoted)
-        expect(new_assembly.scope).to eq(old_assembly.scope)
         expect(new_assembly.developer_group).to eq(old_assembly.developer_group)
         expect(new_assembly.local_area).to eq(old_assembly.local_area)
         expect(new_assembly.target).to eq(old_assembly.target)
         expect(new_assembly.participatory_scope).to eq(old_assembly.participatory_scope)
         expect(new_assembly.meta_scope).to eq(old_assembly.meta_scope)
         expect(new_assembly.announcement).to eq(old_assembly.announcement)
+        expect(new_assembly.taxonomies).to eq(old_assembly.taxonomies)
       end
 
       it "broadcasts ok" do
@@ -123,7 +123,6 @@ module Decidim::Assemblies
           expect(new_assembly.description).to eq(old_assembly.description)
           expect(new_assembly.short_description).to eq(old_assembly.short_description)
           expect(new_assembly.promoted).to eq(old_assembly.promoted)
-          expect(new_assembly.scope).to eq(old_assembly.scope)
           expect(new_assembly.parent).to eq(old_assembly.parent)
           expect(new_assembly.developer_group).to eq(old_assembly.developer_group)
           expect(new_assembly.local_area).to eq(old_assembly.local_area)

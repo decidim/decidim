@@ -52,27 +52,6 @@ hu:
           new:
             download_export: A CSV formátumú exportálás letöltése
             import: Importál
-            info: |
-              <p>Javasoljuk, hogy kövesse az alábbi lépéseket:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Hozzáadni kívánt eredmények státuszainak létrehozása</a> </li>
-              <li>Az Importálás használata előtt<a href='%{link_new_result}' target='_blank'>hozzon létre legalább egy Eredményt manuálisan</a> ezen az adminisztrációs panelen keresztül, hogy jobban megértse a formátumot és azt, hogy mit kell kitöltenie.</li>
-              <li>%{link_export_csv}</li>
-              <li>Végezze el a módosításokat helyben. Csak a CSV következő oszlopait tudja módosítani:
-                <ul>
-                <li><b>kategória/id:</b> A kategória azonosítója</li>
-                <li><b>scope/id:</b> A hatókör azonosítója</li>
-                <li><b>parent/id:</b> A szülő azonosítója (a kapcsolódó eredményekhez). Választható</li>
-                <li><b>title/en:</b> Angol nyelvű cím. Ez a platform nyelvi konfigurációjától függ.</li>
-                <li><b>description/en:</b> Leírás angol nyelven. Ez a platform nyelvi konfigurációjától függ.</li>
-                <li><b>start_date:</b> az eredmény végrehajtásának kezdeti időpontja (formátum ÉÉÉÉÉ-HH-HH-NN)</li>
-                <li><b>end_date:</b> az eredmény végrehajtásának befejezésének dátuma (formátum ÉÉÉÉÉ-HH-HH-NN)</li>
-                <li><b>status/id:</b> Az eredmény státuszának azonosítója</li>
-                <li><b>progress:</b> A végrehajtás százalékos aránya (0-tól 100-ig)</li>
-                <li><b>proposals_ids:</b> a kapcsolódó javaslatok belső azonosítója (vesszővel elválasztva). Automatikusan átkonvertálódik <span class='attribute-name'>proposal_url</span> címre</li>
-                </ul>
-              </li>
-              </ol>
             title: Eredmények importálása CSV-fájlból
         imports:
           create:

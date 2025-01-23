@@ -92,7 +92,6 @@ sk:
           attachment_collections: Zložky
           attachment_files: Súbory
           attachments: Prílohy
-          categories: Kategória
           components: Komponenty
           moderations: Moderovanie
           process_admins: Spracovať užívateľa
@@ -302,7 +301,6 @@ sk:
             filters: Filtre
             images: snímky
             metadata: Metadata
-            other: iný
             related_processes: Súvisiace procesy
             scope_type_max_depth_help: Obmedziť hĺbku filtra rozsahu; filter umožňuje zobraziť všeobecné alebo vybrané druhy rozsahov.
             select_an_area: Vyberte rozsah

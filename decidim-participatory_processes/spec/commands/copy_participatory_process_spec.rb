@@ -8,8 +8,9 @@ module Decidim::ParticipatoryProcesses
 
     let(:organization) { create(:organization) }
     let(:current_user) { create(:user, organization:) }
-    let(:participatory_process_group) { create(:participatory_process_group, organization:) }
+    let(:participatory_process_group) { create(:participatory_process_group, organization:, taxonomies: [taxonomy]) }
     let(:scope) { create(:scope, organization:) }
+    let(:taxonomy) { create(:taxonomy, with_parent, organization:) }
     let(:errors) { double.as_null_object }
     let!(:participatory_process) { create(:participatory_process, :with_steps) }
     let!(:component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
@@ -61,6 +62,7 @@ module Decidim::ParticipatoryProcesses
         expect(new_participatory_process.end_date).to eq(old_participatory_process.end_date)
         expect(new_participatory_process.participatory_process_group).to eq(old_participatory_process.participatory_process_group)
         expect(new_participatory_process.private_space).to eq(old_participatory_process.private_space)
+        expect(new_participatory_process.taxonomies).to eq(old_participatory_process.taxonomies)
       end
 
       it "broadcasts ok" do

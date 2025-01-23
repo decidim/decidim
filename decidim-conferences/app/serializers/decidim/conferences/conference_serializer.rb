@@ -8,6 +8,7 @@ module Decidim
       def serialize
         super.merge(
           {
+            taxonomies:,
             attachments: {
               attachment_collections: serialize_attachment_collections,
               files: serialize_attachments

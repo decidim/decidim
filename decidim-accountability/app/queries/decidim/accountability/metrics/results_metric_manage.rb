@@ -38,9 +38,9 @@ module Decidim
           @query = Decidim::Accountability::Result.select(:decidim_component_id)
                                                   .where(component: visible_components_from_spaces(spaces))
                                                   .joins(:component)
-                                                  .left_outer_joins(:taxonomy)
+                                                  .left_outer_joins(:taxonomizations)
           @query = @query.where(decidim_accountability_results: { created_at: ..end_time })
-          @query = @query.group("decidim_taxonomizations.decidim_taxonomy_id",
+          @query = @query.group("decidim_taxonomizations.taxonomy_id",
                                 :participatory_space_type,
                                 :participatory_space_id,
                                 :decidim_component_id)

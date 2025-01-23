@@ -41,9 +41,7 @@ module Decidim
             end_date: attributes["end_date"],
             announcement: attributes["announcement"],
             private_space: attributes["private_space"],
-            scopes_enabled: attributes["scopes_enabled"],
-            participatory_process_group: import_process_group(attributes["participatory_process_group"]),
-            participatory_process_type: import_participatory_process_type(attributes["participatory_process_type"])
+            participatory_process_group: import_process_group(attributes["participatory_process_group"])
           )
           @imported_process.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
 
@@ -68,19 +66,6 @@ module Decidim
           group.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
           group.save!
           group
-        end
-      end
-
-      def import_participatory_process_type(participatory_process_type)
-        return if participatory_process_type.blank?
-
-        return if compact_translation(participatory_process_type["title"]).blank?
-
-        Decidim.traceability.perform_action!("create", ParticipatoryProcessType, @user) do
-          Decidim::ParticipatoryProcessType.find_or_create_by(
-            title: participatory_process_type["title"],
-            organization: @organization
-          )
         end
       end
 

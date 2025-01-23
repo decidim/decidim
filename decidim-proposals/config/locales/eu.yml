@@ -10,6 +10,8 @@ eu:
         state: Egoera
         title: Izenburua
         user_group_id: Sortu zirriborro kolaboratiboa
+      import_participatory_text:
+        document: Dokumentua
       proposal:
         address: Helbidea
         answer: Erantzuna
@@ -19,6 +21,8 @@ eu:
         decidim_proposals_proposal_state_id: Egoera
         decidim_scope_id: Esparrua
         has_address: Helbidea du
+        latitude: Latitudea
+        longitude: Longitudea
         scope_id: Esparrua
         state: Egoera
         suggested_hashtags: Iradokitako traolak
@@ -45,6 +49,8 @@ eu:
       proposals_copy:
         copy_proposals: Ulertzen dut honek hautetsiaren proposamen guztiak orainaldiari egotziko dizkiola eta ezin dela ekintza hori atzera bota.
         origin_component_id: Proposamenak kopiatzeko osagaia
+      proposals_file_import:
+        file: Fitxategia
       proposals_import:
         import_proposals: Inportatu proposamenak
         keep_answers: Mantendu egoera eta erantzunak
@@ -112,6 +118,9 @@ eu:
         other: Botoak
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Proposamenak
       filters:
         proposals:
           is_emendation_true:
@@ -187,7 +196,7 @@ eu:
               hours: Orduak
               minutes: Minutuak
             geocoding_enabled: Mapak gaituta
-            minimum_votes_per_user: Gutxieneko botoak erabiltzaile bakoitzeko
+            minimum_votes_per_user: Gutxieneko botoak parte-hartzaile bakoitzeko
             new_proposal_body_template: Plantilla proposamen berriaren testurako
             new_proposal_body_template_help: Proposamen berriek izango duten testu aurredefinitua zehaztu ahal duzu
             new_proposal_help_text: Proposamen berriaren laguntza testua
@@ -205,7 +214,7 @@ eu:
               hours: Orduak
               minutes: Minutuak
             proposal_length: Proposamen-testuaren gehieneko luzera
-            proposal_limit: Proposamen-muga erabiltzaile bakoitzeko
+            proposal_limit: Proposamen-muga parte-hartzaile bakoitzeko
             proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
             proposal_wizard_step_2_help_text: Proposamen laguntzailea "Argitaratu" urrats-laguntza testua
             resources_permissions_enabled: Ekintza-baimenak proposamen bakoitzerako ezarri daitezke
@@ -249,7 +258,7 @@ eu:
             proposal_answering_enabled: Proposamena erantzutea gaituta dago
             publish_answers_immediately: Argitaratu berehala proposamen erantzunak
             publish_answers_immediately_help_html: 'Kontuz, proposamenen bati erantzuten badiozu hau gabe, eskuz argitaratu beharko dituzu, aukeratuz eta argitaratzeko ekintza erabiliz. Nola funtzionatzen duen jakiteko, ikus <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank"> proposals'' answers documentation page</a>proposamenen erantzunen dokumentazio-orria.'
-            suggested_hashtags: Traolek erabiltzaileei proposamen berriak proposatu dizkie
+            suggested_hashtags: Traolek parte-hartzaileei proposamen berriak proposatu dizkie
             votes_blocked: Bozketak blokeatuta
             votes_enabled: Bozketak gaituta
             votes_hidden: Boto ezkutuak (botoak gaituta badaude, hau markatuz boto kopurua ezkutuan geratuko da)
@@ -308,7 +317,7 @@ eu:
           email_intro: '%{requester_name} -k eskatu du laguntzaile gisa sartzeko. <strong>onartu edo baztertu egin dezakezu </strong> <a href="%{resource_url}">%{resource_title}</a> testu kolaboratibo ziriborroan.'
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzailea zarelako.
           email_subject: "%{requester_name}-k sarbidea eskatu du %{resource_title}-an aritzeko."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> erabiltzaileak eskatu zuen <a href="%{resource_path}">%{resource_title}</a> ziriborro kolaboratiboan parte hartzeko. Mesedez, onartu edo baztertu eskaera.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> parte-hartzaileak eskatu zuen <a href="%{resource_path}">%{resource_title}</a> ziriborro kolaboratiboan parte hartzeko. Mesedez, onartu edo baztertu eskaera.
         collaborative_draft_access_requester_accepted:
           email_intro: Onartu zaituzte <a href="%{resource_url}">%{resource_title}</a> </a>testu kolaboratiboan laguntzaile gisa sartzeko.
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzaile izatea eskatu duzulako.
@@ -438,7 +447,7 @@ eu:
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
-          user_group: Iruzkin hau egin duen erabiltzaile taldearen izena (baldin badago)
+          user_group: Iruzkin hau egin duen parte-hartzaile taldearen izena (baldin badago)
         proposals:
           address: Proposamenaren helbidea, baldin eta proposamenak kokagune fisikoa badu
           answer: Proposamenaren erantzuna, erantzunda baldin badago
@@ -446,10 +455,16 @@ eu:
           attachments: Proposamen honek duen iruzkin kopurua
           author: Proposamen honen egilearen data
           body: Proposamenaren gorputza
+          coauthorships_count: Zenbat egilekide ordezkatzen dituen proposamenak
           comments: Proposamen honek duen boto kopurua
           component: Proposamena osagai honen barruan dago
+          cost: Proposamen honen kostua, guztira
+          cost_report: Proposamenaren kostuen txostena
+          created_at: Zein datatan sortu zen proposamen hau
+          created_in_meeting: Proposamena bilera batean sortu bazen
           endorsements: Proposamen honek duen onarpen ("atsegin dut") kopurua
-          followers: Proposamen honek duen jarraitzaile kopurua
+          execution_period: Proposamena burutzeko aldia, hasieratik bukaerara arte
+          follows_count: Proposamen honek duen jarraitzaile kopurua
           id: Proposamenaren identifikatzaile bakarra
           is_amend: Proposamen honek beste proposamen bat dakarren
           latitude: Proposamenaren latitudea, baldin eta kokagune fisikoa badu
@@ -461,8 +476,10 @@ eu:
           reference: Baliabidearen identifikatzaile bakarra plataforma honetan
           related_proposals: Proposamen honekin lotutako proposamenak
           state: Proposamen honen egoera (adibidez, "Onartua")
+          state_published_at: Proposamenaren egoeraren denbora-zigilua, argitaratu zenekoa
           taxonomies: Proposamen honi dagozkion taxonomiak
           title: Proposamenaren izenburua
+          updated_at: Proposamenaren azken eguneraketaren data
           url: Proposamen hau URL honetan aurki daiteke
           votes: Proposamen honek duen boto kopurua
           withdrawn: Proposamen hau bertan behera geratu den
@@ -470,7 +487,7 @@ eu:
     participatory_spaces:
       highlighted_proposals:
         last: Azken proposamenak
-        see_all: Ikusi (%{count}) proposamenak
+        see_all: Ikusi proposamenak
     proposals:
       actions:
         answer_proposal: Erantzun proposamenari
@@ -482,10 +499,10 @@ eu:
         edit_proposal_state: Editatu egoera
         import: Inportatu proposamenak beste osagai batetik
         mark_as_coauthor: Markatu egilekide gisa
-        mark_as_coauthor_confirm: Ziur zaude erabiltzaile hau egilekide gisa markatu nahi duzula? Parte-hartzaileak jakinarazpena jasoko du gonbidapena onartzeko edo baztertzeko.
+        mark_as_coauthor_confirm: Ziur zaude parte-hartzaile hau egilekide gisa markatu nahi duzula? Parte-hartzaileak jakinarazpena jasoko du gonbidapena onartzeko edo baztertzeko.
         new: Proposamen berria
         new_proposal_state: Beste egoera bat
-        participatory_texts: Testu partehartzaileak
+        participatory_texts: Testu parte-hartzaileak
         show: Ikusi proposamena
         title: Ekintzak
       admin:
@@ -500,20 +517,18 @@ eu:
         imports:
           help:
             answers: |
-              Inportazio-dokumentuak honako zutabe-izen hauek izan behar ditu CSV edo Excel fitxategien kasuan, edo gako-izen batzuk JSON fitxategien kasuan:
+              Inportazio-dokumentuak zutabe-izen hauek izan behar ditu CSV edo Excel fitxategien kasuan, edo gako-izenak JSON fitxategien kasuan (beste zutabe batzuk ez dira kontuan hartuko):
               <ul>
-              <li><b>id:</b> Proposamenaren erantzunaren IDa</li>
-              <li><b>egoera:</b> Bat "onartua", "ebaluatzailea" edo "baztertua"."</li>
-              <li><b>erantzuna/eu:</b> Erantzuna euskeraz. Zure plataformaren hizkuntzaren konfigurazioaren araberakoa izango da.
-              </li>
+              <li>ERANTZUN BEHARREKO PROPOSAMENAREN IDENTIFIKAZIOA<b></b> </li>
+              <li>Bat "onartua", "ebaluatzailea" edo "baztertua"<b>.</b> </li>
+              <li>Erantzuna ingelesez, plataformaren hizkuntza-konfigurazioaren araberakoa izango da.<b></b> </li>
               </ul>
             proposals: |
               Fitxategiak zutabeko izen hauek izan behar ditu CSV edo Excel fitxategien kasuan, edo gako-izenak JSON fitxategien kasuan:
               <ul>
-              <li><b>Izenburua/en:</b>Ingelesari buruzko titulua. Zure plataformaren hizkuntzaren konfigurazioaren araberakoa izango da..</li>
-              <li><b>Testua/en:</b>Testua ingelesez. Zure plataformaren hizkuntzaren konfigurazioaren araberakoa izango da.</li>
-              <li><b>Eremua/id:</b> Eremauren ID-a</li>
-              <li><b>Kategoria/id:</b> Kategoriaren ID-a</li>
+              <li>izenburua<b>/k:</b> Ingelesari buruzko titulua. Plataformaren hizkuntza-konfigurazioaren araberakoa izango da.</li>
+              <li>Zure plataforma hizkuntzaren konfigurazioaren araberakoa izango da.<b></b> </li>
+              <li><b>taxonomies/ids:</b> ID Taxonomietarako (bat baino gehiago bada, bereizi koma batez) </li>
               </ul>
           label:
             answers: Inportatu erantzunak errenkada batetik
@@ -611,9 +626,7 @@ eu:
             title: Eguneratu proposamena
             update: Eguneratu
           form:
-            attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
             created_in_meeting: Proposamen hau bilera batetik dator
-            delete_attachment: Ezabatu eranskina
             select_a_meeting: Hautatu topaketa bat
           index:
             actions: Ekintzak
@@ -696,12 +709,12 @@ eu:
             success: Proposamenentzako ebaluatzailea zuzen desesleitua.
       admin_log:
         proposal:
-          answer: "%{user_name} erabiltzaileak %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
-          create: "%{user_name} erabiltzaileak %{resource_name} proposamena sortu du %{space_name} espazioan proposamen ofizial gisa"
-          publish_answer: "%{user_name} k argitaratu zuen %{resource_name} proposamenaren erantzuna %{space_name} espazioan"
-          restore: "%{user_name} k berreskuratu du %{resource_name} proposamena %{space_name} espazioan"
-          soft_delete: "%{user_name} k eraman du %{resource_name} proposamena %{space_name} espaziora"
-          update: "%{user_name} erabiltzaileak %{resource_name} proposamena eguneratu du %{space_name} espazioan"
+          answer: "%{user_name} parte-hartzaileak %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
+          create: "%{user_name} parte-hartzaileak %{resource_name} proposamena sortu du %{space_name} espazioan proposamen ofizial gisa"
+          publish_answer: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} proposamenaren erantzuna %{space_name} espazioan"
+          restore: "%{user_name} parte-hartzailea berreskuratu du %{resource_name} proposamena %{space_name} espazioan"
+          soft_delete: "%{user_name} parte-hartzailea eraman du %{resource_name} proposamena %{space_name} espaziora"
+          update: "%{user_name} parte-hartzaileak %{resource_name} proposamena eguneratu du %{space_name} espazioan"
         proposal_note:
           create: "%{user_name} k %{resource_name} proposamenari buruzko ohar pribatu bat utzi du %{space_name} espazioan"
         valuation_assignment:
@@ -749,7 +762,7 @@ eu:
           error: Arazo bat izan da lankidetza-zirriborroak sortzean.
           success: Zirriborro kolaboratiboa sortu da.
         edit:
-          attachment_legend: "(Aukerakoa) Gehitu fitxategi bat"
+          attachment_legend: Gehitu dokumentu bat edo irudi bat
           back: Atzera
           send: Bidali
           title: Editatu zirriborro kolaboratiboa
@@ -838,6 +851,11 @@ eu:
       destroy_draft:
         error: Arazo bat egon da proposamenaren zirriborroa ezabatzean.
         success: Proposamenaren zirriborroa zuzen ezabatu da.
+      exit_modal:
+        cancel: Ezeztatu
+        exit: Jarraitu
+        message: Proposamen ezberdinen artean %{number} boto gehiago eman behar dizkiezu proposamenei zure botoak kontuan har daitezen.
+        title: Gogoratu botoen %{number} geratzen zaizula
       forms:
         errors:
           device_not_supported: Zure gailuak ez ditu kokapen-zerbitzuak onartzen. Mesedez, sartu helbidea eskuz.
@@ -892,10 +910,10 @@ eu:
           description: Koordenatuak eguneratu egingo dira 'aurrebistaratu' botoian klik egiten duzunean. Baina helbidea ez da aldatzen.
           instructions: Kokapena mugitu ahal duzu mapan.
         edit:
-          add_documents: Gehitu dokumentuak
-          attachment_legend: "(Aukerakoa) Gehitu eranskina"
+          add_attachments: Gehitu eranskinak
+          attachment_legend: Gehitu dokumentu bat edo irudi bat
           back: Atzera
-          edit_documents: Editatu dokumentuak
+          edit_attachments: Editatu eranskinak
           send: Bidali
           title: Editatu proposamena
         edit_draft:
@@ -993,19 +1011,22 @@ eu:
             one: Botoa
             other: Botoak
         voting_rules:
+          already_vote:
+            description: Gogoratu oraindik % {number} euskarri eman behar dituzula proposamen ezberdinen artean zure euskarriak kontuan har daitezen.
+            see_other_proposals: Ikusi beste proposamen batzuk
+            title: '% {number} euskarri geratzen zaizkizu'
           can_accumulate_votes_beyond_threshold:
             description: Proposamen bakoitzak %{limit} boto baino gehiago jaso dezake
           minimum_votes_per_user:
-            description: Gutxienez %{votes} boto banatu behar dituzu proposamen desberdinen artean.
-            given_enough_votes: Boto gehiegi eman dituzu.
-            votes_remaining: '%{remaining_votes} boto gehiago eman behar dizkiezu proposamenei zure botoak kontuan har daitezen.'
+            description: Gutxienez % {boto} euskarri banatu behar duzu proposamen ezberdinen artean zure euskarriak kontuan har daitezen.
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
+          success: Zure botoak ongi onartu dira
           threshold_per_proposal:
             description: Proposamenak baliagarriak izan daitezen, %{limit} boto izatera iritsi behar da.
-          title: 'Botoek arau hauek bete behar dituzte:'
+          title: Parte hartzeko arauak
           vote_limit:
-            description: Gehienez, %{limit} proposamen bozkatu ahal dituzu.
+            description: '%{limit} proposameni eman ahal diozu babesa.'
             votes: Gainerako % {kopurua} boto
         wizard_aside:
           back: Atzera

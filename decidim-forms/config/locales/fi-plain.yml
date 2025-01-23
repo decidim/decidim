@@ -26,6 +26,13 @@ fi-pl:
           request_invalid: Pyynnön käsittely epäonnistui. Yritä uudestaan myöhemmin.
   decidim:
     download_your_data:
+      help:
+        answers:
+          answer: Kysymyksen vastaus
+          id: Vastauksen yksilöivä tunniste
+          question: Kysymys, johon vastattiin
+          questionnaire: Kysely, johon vastattiin
+          user: Käyttäjä, joka vastasi kyselyyn
       show:
         answers: Vastausten vienti
         survey_user_answers: Käyttäjän luomat kyselyjen vastaukset
@@ -33,7 +40,16 @@ fi-pl:
       admin:
         models:
           components:
+            allow_answers: Salli vastaukset
+            allow_unregistered: Salli rekisteröitymättömien käyttäjien vastata tähän kyselyyn
+            allow_unregistered_help: Jos asetus on käytössä, käyttäjän ei tarvitse kirjautua sisään vastatakseen kyselyyn. Tämä voi johtaa heikkotasoiseen tai epäluotettavaan tietoon ja se on alttiimpi automatisoiduille hyökkäyksille. Käytä varoen! Muista, että osallistuja voisi vastata samaan kyselyyn useita kertoja, käyttämällä eri selaimia tai selaimen "yksityisen selauksen" ominaisuutta.
+            announcement: Ilmoitus
+            clean_after_publish: Poista vastaukset kyselyn julkaisun yhteydessä
             description: Kuvaus
+            ends_at: Vastausajan päättymisajankohta
+            ends_at_help: Jätä tyhjäksi, jos vastausaikaa ei ole rajattu
+            starts_at: Vastausajan alkamisajankohta
+            starts_at_help: Jätä tyhjäksi, jos vastausaikaa ei ole rajattu
             tos: Käyttöehdot
         questionnaires:
           actions:
@@ -82,16 +98,18 @@ fi-pl:
           edit:
             save: Tallenna
             title: Muokkaa kyselyä
-          form:
+          edit_questions:
             add_question: Lisää kysymys
             add_separator: Lisää erotinviiva
             add_title_and_description: Lisää otsikko ja kuvaus
-            already_answered_warning: Jotkut käyttäjät ovat jo vastanneet kyselyyn, joten et voi muokata kysymyksiä.
+            save: Tallenna
+            title: Kysymykset
+          form:
+            add_question: Lisää kysymys
             collapse: Sulje kaikki kysymykset
             expand: Avaa kaikki kysymykset
             preview: Esikatsele
             title: Muokkaa lomaketta kyselylle %{questionnaire_for}
-            unpublished_warning: Lomaketta ei ole julkaistu. Voit muokata sen kysymyksiä, mutta muokkaaminen poistaa nykyiset vastaukset.
           matrix_row:
             matrix_row: Rivi
             remove: Poista
@@ -110,6 +128,13 @@ fi-pl:
             remove: Poista
             statement: Selite
             up: Ylös
+          questions_form:
+            already_answered_warning: Jotkut käyttäjät ovat jo vastanneet lomakkeeseen, joten et voi muokata sen kysymyksiä.
+            collapse: Supista kaikki kysymykset
+            expand: Laajenna kaikki kysymykset
+            unpublished_warning: Lomaketta ei ole julkaistu. Voit muokata sen kysymyksiä, mutta tällöin aikaisemmat vastaukset poistetaan.
+            update:
+              success: Kyselyn kysymysten tallentaminen onnistui.
           separator:
             down: Alas
             remove: Poista

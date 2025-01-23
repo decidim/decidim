@@ -26,6 +26,13 @@ ca:
           request_invalid: Hi ha hagut un problema en gestionar la sol·licitud. Si us plau, torna-ho a provar.
   decidim:
     download_your_data:
+      help:
+        answers:
+          answer: La resposta a la pregunta
+          id: L'identificador únic de la resposta
+          question: La pregunta que es va respondre
+          questionnaire: L'enquesta que es va respondre
+          user: La usuària que va respondre l'enquesta
       show:
         answers: Exportar les respostes
         survey_user_answers: Respostes de les usuàries a l'enquesta
@@ -33,7 +40,16 @@ ca:
       admin:
         models:
           components:
+            allow_answers: Permetre respostes
+            allow_unregistered: Permet a usuàries no registrades contestar l'enquesta
+            allow_unregistered_help: Si està activat, no serà necessari iniciar sessió per a respondre l'enquesta. Això pot implicar una recollida de dades pobra o poc fiable i serà més vulnerable a atacs automatitzats. Fes-ho servir amb precaució! És important que una participant pugui respondre a la mateixa enquesta diverses vegades, fent servir diferents navegador o la funció de "navegació privada" del seu navegadro web.
+            announcement: Avís
+            clean_after_publish: Esborrar les respostes en publicar l'enquesta
             description: Descripció
+            ends_at: Respostes acceptades fins a
+            ends_at_help: Deixar en blanc si no hi ha cap data específica
+            starts_at: Respostes acceptades des de
+            starts_at_help: Deixar en blanc si no hi ha cap data específica
             tos: Termes del servei
         questionnaires:
           actions:
@@ -82,16 +98,17 @@ ca:
           edit:
             save: Desa
             title: Editar el qüestionari
-          form:
-            add_question: Afegeix una pregunta
+          edit_questions:
+            add_question: Afegir pregunta
             add_separator: Afegir separador
             add_title_and_description: Afegir títol i descripció
-            already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè ja ha estat contestat per algunes participants.
+            save: Desar
+          form:
+            add_question: Afegeix una pregunta
             collapse: Redueix totes les preguntes
             expand: Expandeix totes les preguntes
             preview: Previsualitzar
             title: Editar formulari per %{questionnaire_for}
-            unpublished_warning: El formulari no està publicat. Pots modificar les preguntes, però al fer-ho s'esborraran les respostes actuals.
           matrix_row:
             matrix_row: Fila
             remove: Elimina
@@ -110,6 +127,12 @@ ca:
             remove: Eliminar
             statement: Declaració
             up: Amunt
+          questions_form:
+            already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè algunes participants ja han respost el formulari.
+            collapse: Replega totes les preguntes
+            expand: Desplega totes les preguntes
+            update:
+              success: Pregunta/es afegida/es correctament a l'enquesta.
           separator:
             down: Baixar
             remove: Eliminar

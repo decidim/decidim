@@ -176,6 +176,9 @@ bg:
             id: ID
             map: Карта
             title: Заглавие
+      order:
+        status:
+          title: Вашият глас е приет успешно
       order_summary_mailer:
         order_summary:
           selected_projects: 'Избраните от Вас проекти са:'
@@ -333,8 +336,6 @@ bg:
     orders:
       checkout:
         error: Възникна проблем при обработването на Вашия глас.
-        success_html: <p>Вашият глас беше приет успешно.</p> <p class="text-sm font-normal">Можете да разгледате <a class="text-secondary underline" href="%{rest_of_budgets_link}"> останали бюджети</a>.</p>
-        success_no_left_budgets_html: Вашият глас е приет успешно.
       destroy:
         error: Възникна проблем при отмяната на вашето гласуване.
         success: Вашият глас беше отменен успешно.

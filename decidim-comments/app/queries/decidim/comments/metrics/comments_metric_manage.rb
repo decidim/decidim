@@ -39,14 +39,15 @@ module Decidim
             related_object = comment.root_commentable
             next grouped_comments unless related_object
 
-            group_key = generate_group_key(related_object)
-            next grouped_comments unless group_key
+            group_keys = generate_group_keys(related_object)
 
-            grouped_comments[group_key] ||= { cumulative: 0, quantity: 0 }
-            grouped_comments[group_key][:cumulative] += 1
-            grouped_comments[group_key][:quantity] += 1 if comment.created_at >= start_time
+            next grouped_comments unless group_keys
 
-            grouped_comments
+            group_keys.map do |group_key|
+              grouped_comments[group_key] ||= { cumulative: 0, quantity: 0 }
+              grouped_comments[group_key][:cumulative] += 1
+              grouped_comments[group_key][:quantity] += 1 if comment.created_at >= start_time
+            end
           end
 
           @query
@@ -66,16 +67,20 @@ module Decidim
         end
 
         # Generates a group key from the related object of a Comment
-        def generate_group_key(related_object)
+        def generate_group_keys(related_object)
           participatory_space = retrieve_participatory_space(related_object)
           return unless participatory_space
 
-          taxonomy_id = related_object.respond_to?(:taxonomy) ? related_object.taxonomy.try(:id) : ""
-          group_key = []
-          group_key += [participatory_space.class.name, participatory_space.id]
-          group_key += [taxonomy_id]
-          group_key += [related_object.class.name, related_object.id]
-          group_key
+          return unless related_object.respond_to?(:taxonomies)
+
+          taxonomy_ids = related_object.taxonomies.pluck(:id)
+          taxonomy_ids.each_with_object([]) do |taxonomy_id, group_keys|
+            group_key = []
+            group_key += [participatory_space.class.name, participatory_space.id]
+            group_key += [taxonomy_id]
+            group_key += [related_object.class.name, related_object.id]
+            group_keys << group_key
+          end
         end
 
         # Gets current ParticipatorySpace of a given 'related_object'

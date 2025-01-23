@@ -50,7 +50,6 @@ module Decidim
             description: @assembly.description,
             short_description: @assembly.short_description,
             promoted: @assembly.promoted,
-            scope: @assembly.scope,
             parent: @assembly.parent,
             developer_group: @assembly.developer_group,
             local_area: @assembly.local_area,
@@ -59,7 +58,8 @@ module Decidim
             participatory_scope: @assembly.participatory_scope,
             participatory_structure: @assembly.participatory_structure,
             meta_scope: @assembly.meta_scope,
-            announcement: @assembly.announcement
+            announcement: @assembly.announcement,
+            taxonomies: @assembly.taxonomies
           )
         end
 

@@ -270,46 +270,6 @@ module Decidim
       select(name, @template.options_for_select(resources, selected: options[:selected]), options)
     end
 
-    # Public: Generates a picker field for scope selection.
-    #
-    # attribute     - The name of the field (usually scope_id)
-    # options       - An optional Hash with options:
-    # - multiple    - Multiple mode, to allow multiple scopes selection.
-    # - label       - Show label?
-    # - checkboxes_on_top - Show checked picker values on top (default) or below the picker prompt (only for multiple pickers)
-    # - namespace   - prepend a custom name to the html element's DOM id.
-    #
-    # Also it should receive a block that returns a Hash with :url and :text for each selected scope (and for null scope for prompt)
-    #
-    # Returns a String.
-    def scopes_picker(attribute, options = {})
-      id = if self.options.has_key?(:namespace)
-             "#{self.options[:namespace]}_#{sanitize_for_dom_selector(@object_name)}"
-           else
-             "#{sanitize_for_dom_selector(@object_name)}_#{attribute}"
-           end
-
-      picker_options = {
-        id:,
-        class: "picker-#{options[:multiple] ? "multiple" : "single"}",
-        name: "#{@object_name}[#{attribute}]"
-      }
-
-      picker_options[:class] += " is-invalid-input" if error?(attribute)
-
-      prompt_params = yield(nil)
-      scopes = selected_scopes(attribute).map { |scope| [scope, yield(scope)] }
-      template = ""
-      template += "<label>#{label_for(attribute) + required_for_attribute(attribute)}</label>" unless options[:label] == false
-      template += @template.render("decidim/scopes/scopes_picker_input",
-                                   picker_options:,
-                                   prompt_params:,
-                                   scopes:,
-                                   values_on_top: !options[:multiple] || options[:checkboxes_on_top])
-      template += error_and_help_text(attribute, options)
-      template.html_safe
-    end
-
     # Public: Generates a picker field for selection (either simple or multiselect).
     #
     # attribute     - The name of the object's attribute.
@@ -359,7 +319,7 @@ module Decidim
     # options      - A Hash with options to build the field. See upload method for
     # more detailed information.
     def attachment(attribute, options = {})
-      object_attachment = object.attachment.present?
+      object_attachment = object.respond_to?(:attachment) && object.attachment.present?
       record = object_attachment ? object.attachment : object
       options = {
         titled: options[:multiple],
@@ -744,15 +704,6 @@ module Decidim
         data: { tooltip: true, disable_hover: false, keep_on_hover: true },
         class: "label-required"
       ).html_safe
-    end
-
-    # Private: Returns an array of scopes related to object attribute
-    def selected_scopes(attribute)
-      selected = object.send(attribute) || []
-      selected = selected.values if selected.is_a?(Hash)
-      selected = [selected] unless selected.is_a?(Array)
-      selected = Decidim::Scope.where(id: selected.map(&:to_i)) unless selected.first.is_a?(Decidim::Scope)
-      selected
     end
 
     # Private: Returns the help text and error tags at the end of the field.

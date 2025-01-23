@@ -32,8 +32,6 @@ module Decidim
               keep_authors:,
               keep_answers:,
               states:,
-              scopes:,
-              scope_ids:,
               current_user: create(:user, organization:),
               valid?: valid
             )
@@ -41,8 +39,6 @@ module Decidim
           let(:keep_authors) { false }
           let(:keep_answers) { false }
           let(:states) { ["accepted"] }
-          let(:scopes) { [] }
-          let(:scope_ids) { scopes.map(&:id) }
           let(:command) { described_class.new(form) }
 
           describe "when the form is not valid" do
@@ -173,43 +169,6 @@ module Decidim
                 end.to change { Proposal.where(component: current_component).count }.by(2)
 
                 expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
-              end
-            end
-
-            describe "proposal scopes" do
-              let(:states) { ProposalsImportForm::VALID_STATES.dup }
-              let(:scope) { create(:scope, organization:) }
-              let(:other_scope) { create(:scope, organization:) }
-
-              let(:scopes) { [scope] }
-              let(:scope_ids) { [scope.id] }
-
-              let!(:proposals) do
-                [
-                  create(:proposal, component: proposal_component, scope:),
-                  create(:proposal, component: proposal_component, scope: other_scope)
-                ]
-              end
-
-              it "only imports proposals from the selected scope" do
-                expect do
-                  command.call
-                end.to change { Proposal.where(component: current_component).count }.by(1)
-
-                expect(Proposal.where(component: current_component).pluck(:decidim_scope_id)).to eq([scope.id])
-              end
-
-              context "when the global scope is selected" do
-                let(:scope) { nil }
-                let(:scope_ids) { [nil] }
-
-                it "only imports proposals from the global scope" do
-                  expect do
-                    command.call
-                  end.to change { Proposal.where(component: current_component).count }.by(2)
-
-                  expect(Proposal.where(component: current_component).pluck(:decidim_scope_id)).to eq([nil, nil])
-                end
               end
             end
 
