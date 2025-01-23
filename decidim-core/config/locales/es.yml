@@ -32,10 +32,7 @@ es:
       taxonomy:
         name: Nombre de la taxonomía
       taxonomy_filter:
-        internal_name: Nombre interno del filtro
-        name: Título púlbico del filtro
         root_taxonomy_id: Desde la taxonomía
-        space_filter: Disponible como filtro para espacios de participación
       user:
         about: Acerca de
         avatar: Imagen de perfil
@@ -304,13 +301,6 @@ es:
         delete_with_parent: "%{user_name} ha borrado \"%{resource_name}\" dentro de la taxonomía \"%{parent_taxonomy}\""
         update: "%{user_name} ha actualizado la taxonomía \"%{resource_name}\""
         update_with_parent: "%{user_name} ha actulizado \"%{resource_name}\" dentro de la taxonomía \"%{parent_taxonomy}\""
-      taxonomy_filter:
-        create: "%{user_name} ha creado un filtro basado en la taxonomía \"%{resource_name}\""
-        create_with_filter_items_count: "%{user_name} ha creado un filtro de taxonomía basado en la taxonomía \"%{resource_name}\" con %{filter_items_count} filtros para \"%{space_manifest_name}\""
-        delete: "%{user_name} ha eliminado un filtro basado en la taxonomía \"%{resource_name}\""
-        delete_with_filter_items_count: "%{user_name} ha eliminado un filtro de taxonomía basado en la taxonomía \"%{resource_name}\" con %{filter_items_count} filtros para \"%{space_manifest_name}\""
-        update: "%{user_name} ha eliminado un filtro basado en la taxonomía \"%{resource_name}\""
-        update_with_filter_items_count: "%{user_name} ha eliminado un filtro de taxonomía basado en la taxonomía \"%{resource_name}\" con %{filter_items_count} filtros para \"%{space_manifest_name}\""
       user:
         block: "%{user_name} ha bloqueado a la usuaria %{resource_name}"
         bulk_block: "%{user_name} ha bloqueado a %{blocked_count} usuarias"
