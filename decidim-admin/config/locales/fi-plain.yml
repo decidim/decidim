@@ -344,14 +344,6 @@ fi-pl:
           title: 'Lisää komponentti: %{name}'
         publish:
           success: Komponentti julkaistu onnistuneesti.
-        taxonomy_filters_badge:
-          remove: Poista
-        taxonomy_filters_drawer:
-          add_filter: Lisää suodatin
-          clear_all: Tyhjennä kaikki
-          filters: Suodattimet
-          save: Tallenna
-          title: Suodattimet
         title: Komponentit
         unpublish:
           success: Komponentti julkaistu onnistuneesti.
@@ -1002,6 +994,8 @@ fi-pl:
         edit:
           submit: Lähetä
           title: Muokkaa käyttöoikeuksia
+        options_form:
+          ephemeral_warning: Ottaaksesi tämän vahvistustavan käyttöön, sinun tulee ensin <a href="%{path}">kumota kaikki aikaisemmat käyttäjätilien vahvistukset</a>. Tämä pienentää riskiä vahvistusten konflikteille. Kaikki tällä tavalla tehdyt tilien vahvistukset kumotaan automaattisesti, mikäli otat tämän vahvistustavan käyttöön tai muutat tämän vahvistustavan asetuksia.
         update:
           success: Käyttöoikeudet päivitetty onnistuneesti.
       scope_types:
@@ -1134,8 +1128,6 @@ fi-pl:
           error: Tämän sivun päivityksessä tapahtui virhe.
           success: Sivun päivitys onnistui.
       taxonomies:
-        actions: Toiminnot
-        amount: Kohteiden määrä
         count: Liitetyt asiat
         create:
           invalid: Luokittelun luominen epäonnistui.
@@ -1154,7 +1146,6 @@ fi-pl:
         filters:
           search_placeholder: Hae
         index:
-          description: Luokittelu mahdollistaa asioiden ja sisällön luokittelun ja järjestämisen. Voit esimerkiksi lisätä luokittelun maantieteellisten alueiden mukaan.
           new_taxonomy: Uusi luokittelu
           no_items_found: Hakukriteerejä vastaavia luokitteluja ei löytynyt.
         name: Nimi
@@ -1173,8 +1164,6 @@ fi-pl:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Uusi luokitteluiden suodatin
-        callout:
-          modify_taxonomy_html: Jos haluat muokata tätä luokittelua tai sen kohteita, voit tehdä muutoksia <a href="%{url}">Luokittelut-osion</a> asetusten kautta.
         create:
           error: Luokittelun suodattimen luonti epäonnistui.
           success: Luokittelun suodattimen luonti onnistui.
@@ -1192,26 +1181,18 @@ fi-pl:
             other: "%{count} kohdetta valittu"
           name_help: Sivustolla näytettävä suodattimen otsikko.
           no_items: Tälle luokittelulle ei ole vielä luotu yhtään kohdetta. Voit luoda kohteita luokittelun asetusten kautta.
-          space_filter: Saatavilla suodattimena kaikille %{manifest_name} -kohteille
         index:
           description: Luokittelun suodatin mahdollistaa hallintakäyttäjille osallistumistilojen järjestämisen ja suodatuksen luokittelun perusteella. Voit esimerkiksi lisätä maantieteellisen luokittelun asioille.
           empty: Yhtään luokitteluiden suodatinta ei ole luotu. Lisää uusia luokitteluiden suodattimia järjestääksesi tai suodattaaksesi osallistumistiloja kyseisen luokittelun mukaan.
         new:
           back: Takaisin
           create: Luo luokitteluiden suodatin
-          select_taxonomy: Valitse luokittelu
           title: Uusi luokitteluiden suodatin
         table:
           actions: Toiminnot
-          components_count: Liitetyt komponentit
           confirm_destroy: 'Oletko varma, että haluat poistaa suodattimen %{name}? HUOMIOI: Tätä suodatinta hyödyntäviin resursseihin ei tehdä muutoksia, mutta ne menettävät liitoksen tähän suodattimeen.'
-          count: Käytettyjen kohteiden määrä
           destroy: Poista
           edit: Muokkaa
-          internal_name: Sisäinen suodattimen nimi
-          name: Julkinen suodattimen otsikko
-          space_filter: Käytetään suodattamaan %{manifest_name} -kohteita
-          taxonomy: Luokittelusta
         update:
           error: Luokittelun suodattimen päivittäminen epäonnistui.
           success: Luokittelun suodattimen päivittäminen onnistui.
@@ -1244,7 +1225,6 @@ fi-pl:
         scopes: Teemat
         statistics: Toiminta
         taxonomies: Luokittelut
-        taxonomy_filters: Luokitteluiden suodattimet
         user_groups: Käyttäjäryhmät
         users: Hallintakäyttäjät
       tooltips:
