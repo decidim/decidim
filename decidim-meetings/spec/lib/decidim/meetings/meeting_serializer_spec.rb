@@ -73,10 +73,6 @@ module Decidim
           expect(serialized).to include(address: meeting.address)
         end
 
-        it "serializes the location" do
-          expect(serialized).to include(location: meeting.location)
-        end
-
         it "serializes the url" do
           expect(serialized[:url]).to include("http", meeting.id.to_s)
         end
@@ -222,6 +218,38 @@ module Decidim
 
         it "serializes the registration type" do
           expect(serialized).to include(registration_type: meeting.registration_type)
+        end
+
+        describe "meeting location and iframe access level" do
+          context "when iframe_access_level is set to registered" do
+            before do
+              meeting.update!(iframe_access_level: :registered)
+            end
+
+            it "does not serialize the location" do
+              expect(serialized).not_to include(location: meeting.location)
+            end
+          end
+
+          context "when iframe_access_level is set to signed_in" do
+            before do
+              meeting.update!(iframe_access_level: :signed_in)
+            end
+
+            it "does not serialize the location" do
+              expect(serialized).not_to include(location: meeting.location)
+            end
+          end
+
+          context "when iframe_access_level is all" do
+            before do
+              meeting.update!(iframe_access_level: :all)
+            end
+
+            it "serializes the location" do
+              expect(serialized).to include(location: meeting.location)
+            end
+          end
         end
 
         describe "closing report and visibility" do

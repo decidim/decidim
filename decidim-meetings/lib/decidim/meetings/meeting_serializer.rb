@@ -37,7 +37,7 @@ module Decidim
           contributions: meeting.contributions_count.to_i,
           organizations: meeting.attending_organizations,
           address: meeting.address,
-          location: meeting.location,
+          location: include_location? ? meeting.location : nil,
           reference: meeting.reference,
           attachments: meeting.attachments.size,
           url:,
@@ -148,6 +148,10 @@ module Decidim
           enabled: meeting.comments_enabled,
           count: meeting.comments_count
         }
+      end
+
+      def include_location?
+        meeting.iframe_access_level == "all"
       end
     end
   end
