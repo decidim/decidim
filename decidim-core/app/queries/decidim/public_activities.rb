@@ -90,12 +90,6 @@ module Decidim
       end
     end
 
-    def interesting_scopes_conditions(interesting_scopes)
-      return [] if interesting_scopes.blank?
-
-      [Decidim::ActionLog.arel_table[:decidim_scope_id].in(interesting_scopes.map(&:id))]
-    end
-
     def participatory_space_classes
       Decidim.participatory_space_manifests.map(&:model_class_name)
     end
