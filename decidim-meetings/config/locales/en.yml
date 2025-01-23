@@ -756,7 +756,7 @@ en:
           type_of_meeting: The meeting type
           updated_at: The time at which the meeting was last updated
           url: The URL of the meeting
-          vidoe_url: Video recording of the meeting
+          video_url: Video recording of the meeting
           withdrawn: Whether this meeting has been withdrawn
           withdrawn_at: When this meeting was withdrawn
     participatory_spaces:
