@@ -43,7 +43,7 @@ module Decidim
           end
 
           it "does not serialize the link to its profile" do
-            expect(serialized).not_to include(author: {url: profile_url(debate.author.nickname)})
+            expect(serialized).not_to include(author: { url: profile_url(debate.author.nickname) })
           end
         end
       end
