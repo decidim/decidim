@@ -220,6 +220,10 @@ module Decidim
           expect(serialized).to include(registration_type: meeting.registration_type)
         end
 
+        it "does not serialize the custom registration email content" do
+          expect(serialized).not_to include(registration_email_custom_content: meeting.registration_email_custom_content)
+        end
+
         describe "meeting location and iframe access level" do
           context "when iframe_access_level is set to registered" do
             before do
