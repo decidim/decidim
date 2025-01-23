@@ -344,14 +344,6 @@ es-PY:
           title: 'Agregar componente: %{name}'
         publish:
           success: El componente se ha publicado con éxito.
-        taxonomy_filters_badge:
-          remove: Eliminar
-        taxonomy_filters_drawer:
-          add_filter: Añadir un filtro
-          clear_all: Limpiar todo
-          filters: Filtros
-          save: Guardar
-          title: Filtros
         title: Componentes
         unpublish:
           success: El componente se ha despublicado sin éxito.
@@ -1136,8 +1128,6 @@ es-PY:
           error: Se ha producido un error en la actualización de ésta página.
           success: La página se ha actualizado correctamente.
       taxonomies:
-        actions: Acciones
-        amount: Número de elementos
         count: Recursos asociados
         create:
           invalid: Se ha producido un error al crear esta taxonomía.
@@ -1156,7 +1146,6 @@ es-PY:
         filters:
           search_placeholder: Buscar
         index:
-          description: Una taxonomía permite a las administradoras categorizar y organizar el contenido. Por ejemplo, añadir una taxonomía para clasificar procesos por ámbito geográfico.
           new_taxonomy: Nueva taxonomía
           no_items_found: No se encontraron taxonomías que coincidan con los criterios de búsqueda.
         name: Nombre
@@ -1175,8 +1164,6 @@ es-PY:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Nuevo filtro de taxonomía
-        callout:
-          modify_taxonomy_html: Si necesitas modificar esta taxonomía o sus elementos, por favor, hazlo a través de la configuración en la sección <a href="%{url}">Taxonomías</a>.
         create:
           error: Se ha producido un error al crear esta taxonomía.
           success: Filtro de taxonomía creado correctamente.
@@ -1194,26 +1181,18 @@ es-PY:
             other: "%{count} elementos seleccionados"
           name_help: El título del filtro que se mostrará en la parte pública.
           no_items: Aún no hay elementos disponibles para esta taxonomía. Puedes añadir elementos a través de los ajustes configuración de la taxonomía.
-          space_filter: Disponible como filtro para todos los %{manifest_name}
         index:
           description: Un filtro de taxonomía permite a las administradoras ordenar y filtrar espacios de participación basados en una taxonomía. Por ejemplo, añadir un filtro de taxonomías para ordenar procesos por ámbito territorial.
           empty: Actualmente no hay ningún filtro de taxonomía. Crea una lista de filtros de taxonomía aquí para ordenar y filtrar los espacios de participación basados en una taxonomía.
         new:
           back: Atrás
           create: Crear un filtro de taxonomía
-          select_taxonomy: Seleccionar una taxonomía
           title: Nuevo filtro de taxonomía
         table:
           actions: Acciones
-          components_count: Componentes asociados
           confirm_destroy: '¿Seguro que desea eliminar el filtro %{name}? NOTA: Los recursos que están usando este filtro no se verán afectados pero perderán la referencia a este filtro.'
-          count: Número de elementos usados
           destroy: Borrar
           edit: Editar
-          internal_name: Nombre interno del filtro
-          name: Título púlbico del filtro
-          space_filter: Utilizado para filtrar %{manifest_name}
-          taxonomy: Desde la taxonomía
         update:
           error: Se ha producido un problema actualizando este filtro de taxonomía.
           success: Filtro de taxonomía actualizado correctamente.
@@ -1246,7 +1225,6 @@ es-PY:
         scopes: Ámbitos
         statistics: Actividad
         taxonomies: Taxonomías
-        taxonomy_filters: Filtros de taxonomía
         user_groups: Grupos de usuarios
         users: Administradoras
       tooltips:
