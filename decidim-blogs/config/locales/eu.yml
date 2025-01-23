@@ -2,7 +2,7 @@ eu:
   activemodel:
     attributes:
       post:
-        body: Testua
+        body: Gorputza
         decidim_author_id: Egilea
         published_at: Argitaratze-data
         title: Izenburua
@@ -30,8 +30,8 @@ eu:
       admin:
         posts:
           create:
-            invalid: Arazo bat sortu da post hau sortzean.
-            success: Posta ondo sortu da.
+            invalid: Arazo bat egon da argitalpen hau sortzean.
+            success: Argitalpena zuzen sortua.
           edit:
             save: Eguneratu
             title: Editatu argitalpena
@@ -59,19 +59,19 @@ eu:
           name: Argitalpenak
           see_all: Ikusi argitalpen guztiak
       last_activity:
-        new_post: 'Argitalpen berria blogean:'
+        new_post: 'Beste argitalpen bat blogean:'
       models:
         post:
           fields:
             author: Egilea
-            body: Testua
-            official_blog_post: Blogeko argitalpen ofiziala
+            body: Gorputza
+            official_blog_post: Argitalpen ofiziala
             published_at: Argitaratze-data
             title: Izenburua
       posts:
         index:
           count:
-            one: "%{count} argitalpen"
+            one: "Argitalpen %{count}"
             other: "%{count} argitalpen"
           empty: Oraindik ez dago argitalpenik.
     components:
