@@ -11,11 +11,23 @@ module Decidim
           attribute :file
 
           def data
-            CsvCensus::Data.new(file.path)
-          rescue CSV::MalformedCSVError
-            errors.add(:file, :malformed)
+            @data ||= CsvCensus::Data.new(file.path)
+          end
 
-            nil
+          def csv_must_be_readable
+            data.read
+
+            errors.add(:base, t("decidim.verifications.errors.no_emails")) if data.values.empty?
+
+            data.values.each do |value|
+              errors.add(:base, t("decidim.verifications.errors.invalid_emails", invalid_emails: value)) unless valid_email?(value)
+            end
+          end
+
+          private
+
+          def valid_email?(email)
+            URI::MailTo::EMAIL_REGEXP.match?(email)
           end
         end
       end

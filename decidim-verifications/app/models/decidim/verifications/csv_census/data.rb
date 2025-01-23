@@ -20,10 +20,14 @@ module Decidim
           @file = file
           @values = []
           @errors = []
+        end
 
+        def read
           CSV.foreach(@file, encoding: "BOM|UTF-8") do |row|
             process_row(row)
           end
+        rescue CSV::MalformedCSVError => e
+          errors << ["Error: #{e.message}"]
         end
 
         private

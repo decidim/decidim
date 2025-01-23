@@ -168,7 +168,8 @@ en:
           census:
             create_import:
               error: There was a problem importing census.
-              success: Successfully imported %{count} items (%{errors} errors).
+              no_user: No user found
+              success: Successfully imported %{count} items.
             destroy:
               success: Census data record have been deleted.
             index:
@@ -230,6 +231,9 @@ en:
             one: Participation is restricted to participants with the postal code %{postal_codes}, and your postal code is %{user_postal_code}.
             other: 'Participation is restricted to participants with any of the following postal codes: %{postal_codes}. Your postal code is %{user_postal_code}.'
           user_scope: Participation is restricted to participants with the scope %{scope_name}, and your scope is %{user_scope_name}.
+      errors:
+        invalid_emails: 'The following email addresses are invalid: %{invalid_emails}.'
+        no_emails: The file must contain emails
       id_documents:
         admin:
           config:
