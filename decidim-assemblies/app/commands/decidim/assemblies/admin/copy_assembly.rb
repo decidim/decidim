@@ -58,7 +58,8 @@ module Decidim
             participatory_scope: @assembly.participatory_scope,
             participatory_structure: @assembly.participatory_structure,
             meta_scope: @assembly.meta_scope,
-            announcement: @assembly.announcement
+            announcement: @assembly.announcement,
+            taxonomies: @assembly.taxonomies
           )
         end
 

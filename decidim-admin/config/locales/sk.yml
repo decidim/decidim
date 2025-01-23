@@ -184,23 +184,8 @@ sk:
       autocomplete:
         no_results: Neboli nájdené žiadne výsledky
       categories:
-        create:
-          error: Vyskytol sa problém s vytváraním tejto kategórie.
-          success: Kategória vytvorená úspešne.
-        destroy:
-          error: Vyskytol sa problém pri vymazávaní tejto kategórie. Prosíme, vymažte najprv všetky podkategórie a uistite sa, že do tejto kategórie nič nepatrí, a potom skúste znova.
-          success: Kategória vymazaná úspešne.
-        edit:
-          title: Upraviť kategóriu
-          update: Aktualizovať
         index:
           categories_title: Kategórie
-        new:
-          create: Vytvoriť kategóriu
-          title: Nová kategória
-        update:
-          error: Vyskytol sa problém s aktualizáciou tejto kategórie.
-          success: Kategória upravená úspešne.
       component_permissions:
         update:
           error: Vyskytol sa problém pri zmene práv pre súčasť.
@@ -427,7 +412,6 @@ sk:
           confirm_delete: Naozaj chcete tento spravodaj vymazať?
           followers: 'sledujúci '
           has_been_sent_to: 'Bol poslaný týmto: '
-          no_scopes: Žiadne rozsahy
           not_sent: Neodoslané
           participants: 'účastníci '
           segmented_to: 'Rozdelené na %{subject}: '
@@ -442,13 +426,10 @@ sk:
           confirm_deliver: Naozaj chcete odstrániť tento spravodaj? Túto akciu nie je možné vrátiť späť.
           deliver: Odoslať spravodaj
           followers_help: Poslať spravodaj všetkým potvrdeným účastníkom, ktorí sledujú niektorý z participatívnych priestorov na zozname.
-          none: Žiadne
           participants_help: Poslať spravodaj všetkým potvrdeným účastníkom, ktorí participovali na niektorom z participatívnych priestorov na zozname.
           recipients_count: Tento spravodaj bude zasielaný <strong id='recipients_count'>%{count}</strong> používateľom.
-          scopes_help: Poslať spravodaj užívateľom, ktorí majú aspoň jednu z označených oblastí aktivovanú vo svojich nastaveniach "Moje záujmy".
-          select_scopes: Filtrovať užívateľov, ktorí aktivovali aspoň jednu označenú oblasť vo svojich nastaveniach "Moje záujmy".
           select_spaces: Vyberte skupiny pre rozdelenie spravodaja
-          select_users: Vyberte, ktorým účastníkom chcete rozoslať spravodaj
+          send_to_all_users: Poslať všetkým účastníkom
           title: Vyberte príjemcov
           warning: "<strong>Pozor:</strong> Tento spravodaj bude odoslaný len účastníkom, ktorí aktivovali možnosť <em>Chcem dostávať spravodaje</em> vo svojich nastaveniach."
         show:

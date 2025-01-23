@@ -93,6 +93,18 @@ module Decidim
       )
     end
 
+    def create_taxonomy_filter!(root_taxonomy:, taxonomies:, participatory_space_manifests: [])
+      Decidim::TaxonomyFilter.create!(
+        root_taxonomy:,
+        participatory_space_manifests:,
+        filter_items: taxonomies.map do |taxonomy_item|
+          Decidim::TaxonomyFilterItem.new(
+            taxonomy_item:
+          )
+        end
+      )
+    end
+
     def create_report!(reportable:, current_user:)
       moderation = Moderation.find_or_create_by!(reportable:, participatory_space: reportable.participatory_space)
 

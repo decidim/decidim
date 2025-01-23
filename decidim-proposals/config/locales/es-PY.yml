@@ -10,6 +10,8 @@ es-PY:
         state: Estado
         title: Título
         user_group_id: Crear borrador colaborativo como
+      import_participatory_text:
+        document: Documento
       proposal:
         address: Dirección
         answer: Respuesta
@@ -19,6 +21,8 @@ es-PY:
         decidim_proposals_proposal_state_id: Estado
         decidim_scope_id: Ámbito
         has_address: Tiene dirección
+        latitude: Latitud
+        longitude: Longitud
         scope_id: Ámbito
         state: Estado
         suggested_hashtags: Hashtags sugeridos
@@ -45,6 +49,8 @@ es-PY:
       proposals_copy:
         copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede deshacer.
         origin_component_id: Componente para copiar las propuestas de
+      proposals_file_import:
+        file: Archivo
       proposals_import:
         import_proposals: Propuestas de importación
         keep_answers: Mantener estado y respuestas
@@ -112,6 +118,9 @@ es-PY:
         other: Votos
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Propuestas
       filters:
         proposals:
           is_emendation_true:
@@ -446,10 +455,16 @@ es-PY:
           attachments: El número de archivos adjuntos que tiene esta propuesta
           author: Los datos de autoría de esta propuesta
           body: La descripción de la propuesta
+          coauthorships_count: El número de coautorias que la propuesta representa
           comments: El número de comentarios que tiene esta propuesta
           component: El componente al que pertenece esta propuesta
+          cost: El coste total que representa la propuesta en cuestión
+          cost_report: Un informe de los costes que representa la propuesta
+          created_at: La fecha en la que se creó la propuesta
+          created_in_meeting: Si la propuesta se ha elaborado en un encuentro
           endorsements: El número de adhesiones ("me gusta") que tiene esta propuesta
-          followers: El número de seguidoras que tiene esta propuesta
+          execution_period: El período de ejecución de la propuesta, de principio a fin
+          follows_count: El número de seguidoras que tiene esta propuesta
           id: El identificador único de la propuesta
           is_amend: Si esta propuesta es una enmienda a otra propuesta o no
           latitude: La latitud de la propuesta en caso de que esta tenga una ubicación física
@@ -461,8 +476,10 @@ es-PY:
           reference: El identificador único del recurso en esta plataforma
           related_proposals: Las propuestas relacionadas con esta propuesta
           state: El estado de esta propuesta (por ejemplo, "Aceptado")
+          state_published_at: Un sello de tiempo del momento en que se publicó la proposta
           taxonomies: Las taxonomías a las que pertenece esta propuesta
           title: El título de la propuesta
+          updated_at: La fecha de última actualización de la propuesta
           url: La URL donde se puede encontrar esta propuesta
           votes: El número de apoyos que tiene esta propuesta
           withdrawn: Si esta propuesta fue retirada o no
@@ -470,7 +487,7 @@ es-PY:
     participatory_spaces:
       highlighted_proposals:
         last: Propuestas más recientes
-        see_all: Ver todo (%{count})
+        see_all: Ver todo
     proposals:
       actions:
         answer_proposal: Responder a la propuesta
@@ -500,7 +517,7 @@ es-PY:
         imports:
           help:
             answers: |
-              El documento de importación debe contener los siguientes nombres de columna en caso de archivos CSV o Excel. o nombres de claves en caso de archivos JSON:
+              El documento de importación debe contener los siguientes nombres de columna en caso de archivos CSV o Excel. o nombres de claves en caso de archivos JSON (se ignorarán otras columnas):
               <ul>
               <li><b>id:</b> ID de la propuesta a responder</li>
               <li>estado<b>:</b> Uno de estos "aceptada", "en evaluación" o "rechazada"</li>
@@ -511,8 +528,7 @@ es-PY:
               <ul>
               <li><b>title/es:</b> Título en castellano. Esto dependerá de la configuración de idioma predeterminado de tu plataforma.</li>
               <li><b>body/en:</b> Descripció en castellano. Esto dependerá de la configuración de idioma predeterminado de tu plataforma.</li>
-              <li><b>scope/id:</b> ID de l'Ámbito</li>
-              <li><b>category/id:</b> ID de la Categoria</li>
+              <li><b>taxonomies/ids:</b> IDs para la taxonomia (si hay más de una, sepárelas con una coma)</li>
               </ul>
           label:
             answers: Importar respuestas desde un archivo
@@ -610,9 +626,7 @@ es-PY:
             title: Actualizar propuesta
             update: Actualizar
           form:
-            attachment_legend: "(Opcional) Añadir un archivo adjunto"
             created_in_meeting: Esta propuesta viene de una reunión.
-            delete_attachment: Eliminar archivo adjunto
             select_a_meeting: Seleccione una reunion
           index:
             actions: Acciones
@@ -748,7 +762,7 @@ es-PY:
           error: Hubo un problema al crear este borrador colaborativo.
           success: Borrador colaborativo creado con éxito.
         edit:
-          attachment_legend: "(Opcional) Añadir un archivo adjunto"
+          attachment_legend: Añadir un documento o una imagen
           back: Volver
           send: Enviar
           title: Editar borrador colaborativo
@@ -837,6 +851,11 @@ es-PY:
       destroy_draft:
         error: Se han producido errores al eliminar el borrador de la propuesta.
         success: El borrador de la propuesta fue eliminado con éxito.
+      exit_modal:
+        cancel: Cancelar
+        exit: Continuar
+        message: Has de dar %{number} apoyo/s más entre las diferentes propuestas para que tus apoyos sean tenidos en cuenta.
+        title: Recuerda que aún te queda/n %{number} apoyo/s
       forms:
         errors:
           device_not_supported: Su dispositivo no soporta servicios de ubicación. Por favor, introduzca la dirección postal completa manualmente (tipo de vía, nombre de la vía, número, código postal y ciudad).
@@ -891,10 +910,10 @@ es-PY:
           description: Las coordenadas se actualizarán cuando hagas clic en el botón 'previsualizar'. Sin embargo, la dirección no cambia.
           instructions: Puedes mover la ubicación en el mapa.
         edit:
-          add_documents: Añadir documentos
-          attachment_legend: "(Opcional) Agregar un archivo adjunto"
+          add_attachments: Agregar archivo(s) adjunto(s)
+          attachment_legend: Añadir un documento o una imagen
           back: Volver
-          edit_documents: Editar documentos
+          edit_attachments: Editar los archivos adjuntos
           send: Enviar
           title: Editar propuesta
         edit_draft:
@@ -992,17 +1011,20 @@ es-PY:
             one: Apoyo
             other: Apoyos
         voting_rules:
+          already_vote:
+            description: Recuerda que aún has de dar %{number} apoyo/s más entre las diferentes propuestas para que tus apoyos sean tenidos en cuenta.
+            see_other_proposals: Ver otras propuestas
+            title: Tienes %{number} apoyo/s restante/s
           can_accumulate_votes_beyond_threshold:
             description: Cada propuesta puede acumular más de %{limit} apoyos
           minimum_votes_per_user:
-            description: Debes distribuir un mínimo de %{votes} votos entre las diferentes propuestas.
-            given_enough_votes: Has dado apoyos suficientes.
-            votes_remaining: Has de dar %{remaining_votes} apoyo/s más a propuestas para que tus apoyos sean tenidos en cuenta.
+            description: Tienes que repartir un mínimo de %{votes} apoyos entre diferentes propuestas para que tus apoyos sean tenidos en cuenta.
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
+          success: Tus apoyos se han registrado correctamente
           threshold_per_proposal:
             description: Para que una propuesta se valide, debe recibir %{limit} apoyos.
-          title: 'La recogida de apoyos se rige por las siguientes normas:'
+          title: Reglas de participación
           vote_limit:
             description: Puedes votar hasta %{limit} propuestas.
             votes: Queda/n %{number} apoyo/s

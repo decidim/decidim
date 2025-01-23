@@ -8,15 +8,11 @@ require "decidim/core/test/shared_examples/form_builder_examples"
 module Decidim
   describe FilterFormBuilder do
     let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
-    let(:categories) do
-      create_list(:category, 3)
-      Category.all
-    end
     let(:scopes) { create_list(:scope, 3) }
 
     let(:resource) do
       Class.new do
-        attr_reader :order_start_time, :scope_id, :category_id
+        attr_reader :order_start_time, :scope_id
       end.new
     end
 

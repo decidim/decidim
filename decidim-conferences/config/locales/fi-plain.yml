@@ -68,6 +68,8 @@ fi-pl:
         email: Sähköposti
         name: Nimi
         role: Rooli
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
@@ -132,8 +134,8 @@ fi-pl:
           invalid: Puhujan julkaiseminen epäonnistui.
           success: Konferenssin puhujan julkaiseminen onnistui.
         unpublish:
-          invalid: Puhujan julkaisun lopettaminen epäonnistui.
-          success: Konferenssin puhujan julkaisu onnistui.
+          invalid: Puhujan julkaisun peruminen epäonnistui.
+          success: Konferenssin puhujan julkaisun peruminen onnistui.
         update:
           error: Konferenssin puhujan päivittämisessä tapahtui virhe.
           success: Konferenssin puhuja päivitettiin onnistuneesti.
@@ -202,7 +204,6 @@ fi-pl:
           attachment_collections: Kansiot
           attachment_files: Tiedostot
           attachments: Liitteet
-          categories: Aihepiirit
           components: Komponentit
           conference_admins: Konferenssin ylläpitäjät
           conference_invites: Kutsut
@@ -537,6 +538,19 @@ fi-pl:
         objectives: Tavoitteet
         related_assemblies: Liittyvät ryhmät
         related_participatory_processes: Liittyvät osallisuusprosessit
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: Konferenssikutsun hyväksymisen ajankohta
+          conference: Konferenssi, jolle tämä kutsu oli osoitettu
+          id: Konferenssikutsun yksilöivä tunniste
+          registration_type: Konferenssi-ilmoittautumisen tyyppi
+          rejected_at: Konferenssikutsun hylkäämisen ajankohta
+          sent_at: Konferenssikutsun lähetyksen ajankohta
+        conference_registrations:
+          conference: Konferenssi, johon tämä kuuluu
+          id: Konferenssi-ilmoittautumisen yksilöivä tunniste
+          registration_type: Ilmoittautumisen tyyppi, johon tämä kuuluu
     events:
       conferences:
         conference_registration_confirmed:
@@ -593,12 +607,12 @@ fi-pl:
           end_date: Konferenssin päättymispäivä.
           follows_count: Tilaa seuraavien käyttäjien määrä
           hashtag: Konferenssia vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
-          id: Konferenssin yksilöllinen tunniste
+          id: Konferenssin yksilöivä tunniste
           location: Konferenssin paikka, eli missä konferenssi järjestetään.
           objectives: Konferenssin tavoitteet tai päämäärät.
           promoted: Onko konferenssi korostettu vai ei
           published_at: Tilan julkaisuaika
-          reference: Tilan yksilöllinen viite
+          reference: Tilan yksilöivä viite
           remote_banner_image_url: Konferenssin bannerikuvan URL-osoite
           remote_hero_image_url: Konferenssin hero-kuvan URL-osoite
           scope: Konferenssin teema
@@ -609,7 +623,7 @@ fi-pl:
           start_date: Konferenssin alkamispäivä.
           taxonomies: Konferenssin luokittelut
           title: Konferenssin otsikko
-          updated_at: Tilan viimeisen päivityksen aika
+          updated_at: Osallistumistilan viimeisimmän päivityksen ajankohta
           url: Tilan URL-osoite
     statistics:
       conferences_count: Konferenssia

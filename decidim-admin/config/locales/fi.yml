@@ -105,6 +105,8 @@ fi:
       participatory_space_private_user:
         email: Sähköpostiosoite
         name: Nimi
+      participatory_space_private_user_csv_import:
+        file: Tiedosto
       scope:
         code: Koodi
         name: Nimi
@@ -166,7 +168,7 @@ fi:
         slug: URL-tunniste
         title: Otsikko
       doorkeeper/application:
-        authorize_url: Varmenna URL-osoite
+        authorize_url: Vahvistuksen URL-osoite
         client_id: Asiakkaan tunniste (ID)
         client_secret: Asiakkaan salausavain (secret)
         organization_name: Organisaation nimi
@@ -182,8 +184,6 @@ fi:
         attachment_collection:
           new: Uusi kansio
         browse: Selaa
-        category:
-          new: Uusi aihepiiri
         confirm_delete_component: |
           Haluatko varmasti poistaa tämän komponentin?<br>
           Tämä komponentti sisältää:<br>
@@ -262,7 +262,7 @@ fi:
           error: Uuden kansion luonti epäonnistui.
           success: Kansion luonti onnistui.
         destroy:
-          success: Kansion tuhoaminen onnistui.
+          success: Kansion poisto onnistui.
         edit:
           title: Muokkaa kansiota
           update: Päivitä
@@ -279,7 +279,7 @@ fi:
           error: Uuden liitteen luonti epäonnistui.
           success: Liitteen luonti onnistui.
         destroy:
-          success: Liitteen tuhoaminen onnistui.
+          success: Liitteen poisto onnistui.
         edit:
           title: Muokkaa liitettä
           update: Päivitä
@@ -297,6 +297,12 @@ fi:
         no_results: Ei tuloksia
         search_prompt: Kirjoita vähintään kolme merkkiä hakeaksesi.
       block_user:
+        bulk_new:
+          action: Estä tilit ja lähetä perustelut
+          already_reported_html: Tämä toiminto piilottaa myös kaiken sisällön, jota nämä osallistujat ovat luoneet.
+          description: Käyttäjätilien estäminen estää kyseisten käyttäjien pääsyn omalle tililleen. Voit antaa perusteluissasi ja ohjeistuksissasi tietoa siitä, mitä käyttäjät voivat tehdä palauttaakseen pääsyn tileilleen.
+          justification: Perustelut
+          title: Estä käyttäjät
         new:
           action: Estä tili ja lähetä perustelut
           already_reported_html: Tämä toiminto piilottaa myös kaiken sisällön, jonka kyseinen osallistuja on luonut.
@@ -304,23 +310,8 @@ fi:
           justification: Perustelut
           title: Estä käyttäjä %{name}
       categories:
-        create:
-          error: Aihepiirin luonti epäonnistui.
-          success: Aihepiirin luonti onnistui.
-        destroy:
-          error: Tämän aihepiirin poistaminen epäonnistui. Poista ensin kaikki sen ala-aihepiirit ja varmista, että mikään muu kohde ei liity tähän aihepiiriin. Kokeile sen jälkeen uudelleen.
-          success: Aihepiirin poistaminen onnistui.
-        edit:
-          title: Muokkaa aihepiiriä
-          update: Päivitä
         index:
           categories_title: Aihepiirit
-        new:
-          create: Luo aihepiiri
-          title: Uusi aihepiiri
-        update:
-          error: Aihepiirin päivitys epäonnistui.
-          success: Aihepiirin päivitys onnistui.
       component_permissions:
         update:
           error: Komponentin oikeuksien päivitys epäonnistui.
@@ -363,7 +354,7 @@ fi:
           title: Suodattimet
         title: Komponentit
         unpublish:
-          success: Komponentin julkaisun lopettaminen onnistui.
+          success: Komponentin julkaisun peruminen onnistui.
         update:
           error: Komponentin päivitys epäonnistui.
           success: Komponentin päivitys onnistui.
@@ -696,7 +687,7 @@ fi:
           fields:
             actions: Toiminnot
             created_at: Luonnin ajankohta
-            document_number: Dokumentin numero
+            document_number: Organisaatiotunnus (esim. Y-tunnus)
             name: Nimi
             nickname: Nimimerkki
             phone: Puhelinnumero
@@ -706,13 +697,27 @@ fi:
         index:
           actions:
             block: Estä käyttäjä
+            bulk_actions:
+              actions_dropdown: Toiminnot
+              block:
+                title: Estä
+                update_moderated_user_button: Estä käyttäjät
+              unblock:
+                title: Poista esto
+                update_moderated_user_button: Poista käyttäjien esto
+              unreport:
+                title: Poista ilmoitus
+            ignore:
+              update_moderated_user_button: Poista käyttäjätilien ilmoitukset
             title: Toiminnot
             unblock: Poista käyttäjän esto
             unreport: Poista ilmoitus
+          cancel: Peruuta
           name: Nimi
           nickname: Nimimerkki
           reason: Syy
           reports: Ilmoitusten määrä
+          selected: Valitut
           title: Ilmoitetut osallistujat
         report:
           reasons:
@@ -724,6 +729,19 @@ fi:
           unblocked: Ei estetty
       moderations:
         index:
+          actions:
+            actions_dropdown: Toiminnot
+            hide:
+              title: Piilota
+              update_moderation_button: Piilota valitut sisällöt
+            unhide:
+              title: Poista piilotus
+              update_moderation_button: Poista valittujen sisältöjen piilotus
+            unreport:
+              title: Poista ilmoitus
+              update_moderation_button: Poista valittujen sisältöjen ilmoitukset
+          cancel: Peruuta
+          selected: valittu
           title: Ilmoitettu sisältö
         report:
           reasons:
@@ -733,7 +751,7 @@ fi:
             spam: Roskaposti
         reports:
           index:
-            author: Tekijä(t)
+            author: Laatija(t)
             callout_html: Sisältö tulee näkyviin moderointinäkymään, kun joku käyttäjä (kuka tahansa käyttäjä, jolla on tili alustalla) on ilmoittanut sisällön painamalla sisällön yhteydessä näkyvää %{icon} lippukuvaketta.
             content_original_language: Sisällön alkuperäinen kieli
             participatory_space: Osallistumistila
@@ -746,6 +764,11 @@ fi:
             report_language: Ilmoituksen kieli
             report_reason: Syy
             title: Ilmoituksen lisätiedot
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Esikatsele
@@ -755,6 +778,10 @@ fi:
           preview: 'Esikatsele pohjaa: %{template_name}'
           use_template: Käytä tätä pohjaa
       newsletters:
+        confirm_recipients:
+          email: Sähköposti
+          name: Nimi
+          title: Vahvista vastaanottajat
         create:
           error: Uutiskirjeen luonti epäonnistui.
           success: Uutiskirjeen luonti onnistui. Tarkasta se ennen lähetystä.
@@ -762,8 +789,8 @@ fi:
           error: Uutiskirjeen toimitus epäonnistui.
           success: Uutiskirjeen toimitus onnistui.
         destroy:
-          error_already_sent: 'Uutiskirjettä ei voi tuhota: se on jo lähetetty.'
-          success: Uutiskirjeen tuhoaminen onnistui.
+          error_already_sent: 'Uutiskirjettä ei voi poistaa: se on jo lähetetty.'
+          success: Uutiskirjeen poisto onnistui.
         edit:
           save_and_preview: Tallenna ja esikatsele
           title: Muokkaa uutiskirjettä
@@ -774,29 +801,39 @@ fi:
           confirm_delete: Haluatko varmasti poistaa tämän uutiskirjeen?
           followers: 'seuraajat '
           has_been_sent_to: 'Lähetettiin vastaanottajille: '
-          no_scopes: Ei teemoja
           not_sent: Ei lähetetty
           participants: 'osallistujat '
+          private_members: 'yksityiset käyttäjät '
           segmented_to: 'Kohdennettu vastaanottajille %{subject}: '
           subscribed_count: 'Tilaukset:'
           title: Uutiskirjeet
+          verification_types: 'Vahvistusten tyypit: %{types}'
+          verified_users: Vahvistetut käyttäjät
         new:
           save: Tallenna
           title: Uusi uutiskirje
         select_recipients_to_deliver:
           all_spaces: Kaikki
           all_users_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille.
-          confirm_deliver: Haluatko varmasti toimittaa tämän uutiskirjeen? Tätä toimintoa ei voi peruuttaa.
+          confirm_deliver: Haluatko varmasti toimittaa tämän uutiskirjeen? Tätä toimintoa ei voi perua.
+          confirm_recipients: Vahvista vastaanottajat
           deliver: Toimita uutiskirje
           followers_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka seuraavat jotain listan osallistumistiloista.
-          none: Ei kenellekään
           participants_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka ovat osallistuneet jossain listan valituista osallistumistiloista.
+          private_members_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka on lisätty yksityisiin osallistumistiloihin.
           recipients_count: Tämä uutiskirje lähetetään <strong id='recipients_count'>%{count}</strong>:lle käyttäjälle.
-          scopes_help: Lähetä uutiskirje käyttäjille, jotka ovat valinneet minkä tahansa teeman heidän tilinsä "Kiinnostuksen kohteet" -asetuksesta.
-          select_scopes: Suodata käyttäjiä, jotka ovat valinneet minkä tahansa teeman tilinsä "Kiinnostuksen kohteet" -asetuksesta.
+          select_assemblies: Valitse ryhmät
+          select_conferences: Valitse konferenssit
+          select_initiatives: Valitse aloitteet
+          select_participatory_processes: Valitse osallistumisprosessit
           select_spaces: Valitse tilat, joille haluat kohdistaa uutiskirjeen
-          select_users: Valitse käyttäjät, joille haluat lähettää uutiskirjeen
+          select_users_for_participatory_space: Lähetä uutiskirje yhteen tai useampaan osallistumistilaan
+          select_users_general: Lähetä yleinen uutiskirje
+          select_verification_types: Valitse tunnistautumistavat
+          send_to_all_users: Lähetä kaikille käyttäjille
+          send_to_verified_users: Lähetä vahvistetuille käyttäjille
           title: Valitse vastaanottajat
+          verified_users_help: Lähetä uutiskirje kaikille vahvistetuille ja millä tahansa tavalla tunnistautuneille käyttäjille.
           warning: "<strong>Huomio:</strong> Tämä uutiskirje lähetetään ainoastaan käyttäjille, jotka ovat valinneet asetuksen <em>Haluan vastaanottaa uutiskirjeitä</em> tilinsä ilmoitusasetuksista."
         send:
           no_recipients: Ei yhtään vastaanottajaa valituille rajauksille.
@@ -814,10 +851,17 @@ fi:
         block:
           error: Osallistujan estäminen epäonnistui.
           success: Osallistujan estäminen onnistui.
+        bulk_action:
+          block:
+            invalid: Osallistujien estäminen epäonnistui.
+            success: Osallistujien estäminen onnistui.
+          unblock:
+            invalid: Osallistujien eston peruminen epäonnistui.
+            success: Osallistujien eston peruminen onnistui.
         create:
           success: Osallistujan virallistaminen onnistui.
         destroy:
-          success: Osallistujan virallistamisen peruuttaminen onnistui.
+          success: Osallistujan virallistamisen peruminen onnistui.
         index:
           actions: Toiminnot
           badge: Kunniamerkki
@@ -846,8 +890,8 @@ fi:
           show: Näytä
           title: Näytä osallistujan sähköpostiosoite
         unblock:
-          error: Osallistujan eston peruuttaminen epäonnistui.
-          success: Käyttäjän eston peruuttaminen onnistui.
+          error: Osallistujan eston peruminen epäonnistui.
+          success: Käyttäjän eston peruminen onnistui.
       organization:
         edit:
           title: Muokkaa organisaatiota
@@ -905,13 +949,27 @@ fi:
           success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeuden lisäys onnistui.
         destroy:
           error: Osallistumistilan yksityisen käyttäjän poistaminen epäonnistui.
-          success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeuden tuhoaminen onnistui.
+          success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeuden poistaminen onnistui.
+        edit:
+          title: Muokkaa osallistumistilan yksityistä käyttäjää.
+          update: Päivitä
         index:
           import_via_csv: Tuo CSV-tiedostosta
+          publish_all: Julkaise kaikki
           title: Osallistumistilan yksityinen käyttäjä
+          unpublish_all: Lopeta kaikkien julkaisu
         new:
           create: Luo
           title: Uusi osallistumistilan yksityinen käyttäjä.
+        publish_all:
+          error: Osallistumistilan yksityisten käyttäjien julkaiseminen epäonnistui.
+          success: Osallistumistilan yksityisten käyttäjien julkaiseminen onnistui
+        unpublish_all:
+          error: Osallistumistilan yksityisten käyttäjien julkaisun peruminen epäonnistui.
+          success: Osallistumistilan yksityisten käyttäjien julkaisun peruminen onnistui.
+        update:
+          error: Osallistumistilan yksityisen käyttäjän päivittäminen epäonnistui.
+          success: Osallistumistilan yksityisen käyttäjän päivittäminen onnistui.
       participatory_space_private_users_csv_imports:
         create:
           invalid: CSV-tiedoston lukeminen epäonnistui. Tarkasta, että olet seurannut esitettyjä ohjeita.
@@ -921,7 +979,7 @@ fi:
             title: Lataa CSV-tiedosto
           destroy:
             button: Poista kaikki yksityiset osallistujat
-            confirm: Oletko varma, että haluat poistaa kaikki yksityiset osallistujat? Tätä toimintoa ei voi peruuttaa ja poistettuja osallistujia ei voi palauttaa.
+            confirm: Oletko varma, että haluat poistaa kaikki yksityiset osallistujat? Tätä toimintoa ei voi perua ja poistettuja osallistujia ei voi palauttaa.
             empty: Tässä osallistumistilassa ei ole yksityisiä osallistujia.
             explanation: Tässä osallistumistilassa on %{count} yksityistä osallistujaa.
             title: Poista kaikki yksityiset osallistujat
@@ -944,6 +1002,8 @@ fi:
         edit:
           submit: Lähetä
           title: Muokkaa käyttöoikeuksia
+        options_form:
+          ephemeral_warning: Ottaaksesi tämän vahvistustavan käyttöön, sinun tulee ensin <a href="%{path}">kumota kaikki aikaisemmat käyttäjätilien vahvistukset</a>. Tämä pienentää riskiä vahvistusten konflikteille. Kaikki tällä tavalla tehdyt tilien vahvistukset kumotaan automaattisesti, mikäli otat tämän vahvistustavan käyttöön tai muutat tämän vahvistustavan asetuksia.
         update:
           success: Käyttöoikeuksien päivitys onnistui.
       scope_types:
@@ -951,7 +1011,7 @@ fi:
           error: Uuden teematyypin luonti epäonnistui.
           success: Teematyypin luonti onnistui.
         destroy:
-          success: Teematyypin tuhoaminen onnistui
+          success: Teematyypin poisto onnistui
         edit:
           title: Muokkaa teematyyppiä
           update: Päivitä
@@ -966,7 +1026,7 @@ fi:
           error: Uuden teeman luonti epäonnistui.
           success: Teeman luonti onnistui.
         destroy:
-          success: Teeman tuhoaminen onnistui.
+          success: Teeman poisto onnistui.
         edit:
           title: Muokkaa teemaa
           update: Päivitä
@@ -1013,7 +1073,7 @@ fi:
           never: Ei koskaan
           new_share_token_button: Uusi pääsylinkki
           share_tokens_help_html: |
-            Luo ja jaa pääsylinkkejä, mikäli haluat näyttää muilte, miltä toistaiseksi julkaisematon asia näyttää sivustolla.
+            Luo ja jaa pääsylinkkejä, mikäli haluat näyttää muille, miltä toistaiseksi julkaisematon asia näyttää sivustolla.
             Pääsylinkit voidaan rajata ainoastaan rekisteröityneille osallistujille ja niille voidaan asettaa myös vanhentumisaika.
             Jakaaksesi pääsylinkin jollekin muulle, luo se ja kopioi se leikepöydälle käyttämällä "%{clipboard} leikepöytä" toimintokuvaketta.
           title: 'pääsylinkit kohteelle: %{name}'
@@ -1038,7 +1098,7 @@ fi:
           error: Uuden aiheen luonti epäonnistui.
           success: Aiheen luonti onnistui.
         destroy:
-          success: Aiheen poistaminen onnistui.
+          success: Aiheen poisto onnistui.
         edit:
           title: Muokkaa aihetta
           update: Päivitä aihe
@@ -1055,7 +1115,7 @@ fi:
           error: Uuden sivun luonti epäonnistui.
           success: Sivun luonti onnistui.
         destroy:
-          success: Sivun tuhoaminen onnistui
+          success: Sivun poisto onnistui
         edit:
           changed_notably_help: Jos valitset tämän, käyttäjiä pyydetään hyväksymään päivitetyt käyttöehdot.
           last_notable_change: 'Viimeisin merkittävä muutos: %{tos_version_formatted}'
@@ -1083,8 +1143,8 @@ fi:
           invalid: Luokittelun luominen epäonnistui.
           success: Luokittelun luominen onnistui.
         destroy:
-          invalid: Luokittelun poistaminen epäonnistui.
-          success: Luokittelun poistaminen onnistui.
+          invalid: Luokittelun poisto epäonnistui.
+          success: Luokittelun poisto onnistui.
         edit:
           back: Takaisin
           description: Tämän luokittelun kohteita käytetään luokittelemaan tai suodattamaan asioita, kuten osallistumistiloja tai komponentteja. Listan kohteita voi järjestää haluttuun järjestykseen vetämällä ja pudottamalla kohteita halutuille paikoille.
@@ -1271,6 +1331,22 @@ fi:
         unreport: Poista ilmoitus
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Joidenkin kohteiden piilottaminen epäonnistui: %{errored}'
+              invalid: Yhtään moderointi-ilmoitusta ei ole valittu.
+              success: Kohteiden piilottaminen onnistui.
+            ignore:
+              invalid: Yhtään käyttäjätilien moderointi-ilmoitusta ei ole valittu.
+              success: Osallistujien ilmoitusten peruminen epäonnistui.
+            unhide:
+              failed: 'Joidenkin kohteiden näkyviin palauttaminen epäonnistui: %{errored}'
+              invalid: Yhtään moderointi-ilmoitusta ei ole valittu.
+              success: Kohteiden näkyviin palauttaminen onnistui.
+            unreport:
+              failed: 'Joidenkin kohteiden moderointi-ilmoitusten peruminen epäonnistui: %{errored}'
+              invalid: Yhtään moderointi-ilmoitusta ei ole valittu.
+              success: Kohteiden moderointi-ilmoitusten peruminen onnistui.
           hide:
             invalid: Kohteen piilotus epäonnistui.
             success: Resurssin piilotus onnistui.

@@ -50,7 +50,8 @@ module Decidim
             promoted: @conference.promoted,
             objectives: @conference.objectives,
             start_date: @conference.start_date,
-            end_date: @conference.end_date
+            end_date: @conference.end_date,
+            taxonomies: @conference.taxonomies
           )
         end
 

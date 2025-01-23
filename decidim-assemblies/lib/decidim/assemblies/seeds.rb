@@ -12,6 +12,10 @@ module Decidim
         2.times do
           create_taxonomy!(name: ::Faker::Lorem.word, parent: taxonomy)
         end
+        # filters for assemblies only
+        create_taxonomy_filter!(root_taxonomy: taxonomy,
+                                taxonomies: taxonomy.all_children,
+                                participatory_space_manifests: [:assemblies])
 
         2.times do |_n|
           assembly = create_assembly!

@@ -105,6 +105,8 @@ ca:
       participatory_space_private_user:
         email: Correu electrònic
         name: Nom
+      participatory_space_private_user_csv_import:
+        file: Arxiu
       scope:
         code: Codi
         name: Nom
@@ -182,8 +184,6 @@ ca:
         attachment_collection:
           new: Nova col·lecció d'arxius adjunts
         browse: Explorar
-        category:
-          new: Nova categoria
         confirm_delete_component: |
           ¿Segur que vols eliminar aquest component?<br>
           Aquest component conté:<br>
@@ -297,6 +297,12 @@ ca:
         no_results: No s'han trobat resultats
         search_prompt: Escriu com a mínim tres caràcters per cercar.
       block_user:
+        bulk_new:
+          action: Bloquejar comptes i enviar justificació
+          already_reported_html: Si segueixes amb aquesta acció, amagaràs tots els continguts de les participants.
+          description: El bloqueig de les usuàries deixarà els seus comptes inutilitzables. Pots proporcionar en la teva justificació els criteris sota els quals consideraries desbloquejar-les.
+          justification: Justificació
+          title: Bloquejar usuàries
         new:
           action: Bloquejar compte i enviar justificació
           already_reported_html: Si segueixes amb aquesta acció, amagaràs tots els continguts de la participant.
@@ -304,23 +310,8 @@ ca:
           justification: Justificació
           title: Bloquejar a la usuària %{name}
       categories:
-        create:
-          error: S'ha produït un error en crear aquesta categoria.
-          success: Categoria creada correctament.
-        destroy:
-          error: S'ha produït un error en eliminar aquesta categoria. Si us plau, elimina qualsevol subcategoria en primer lloc, assegura't que cap altra entitat pertany a aquesta categoria i torna a intentar-ho.
-          success: Categoria eliminada correctament.
-        edit:
-          title: Edita categoria
-          update: Actualitzar
         index:
           categories_title: Categories
-        new:
-          create: Crear categoria
-          title: Nova categoria
-        update:
-          error: S'ha produït un error en actualitzar aquesta categoria.
-          success: Categoria actualitzada correctament.
       component_permissions:
         update:
           error: S'ha produït un error actualitzant els permisos d'aquest component.
@@ -706,13 +697,27 @@ ca:
         index:
           actions:
             block: Bloquejar usuària
+            bulk_actions:
+              actions_dropdown: Accions
+              block:
+                title: Bloquejar
+                update_moderated_user_button: Bloquejar usuàries
+              unblock:
+                title: Desbloquejar
+                update_moderated_user_button: Desbloquejar usuàries
+              unreport:
+                title: Desfer la denúncia
+            ignore:
+              update_moderated_user_button: Desfer la denúncia a les usuàries
             title: Accions
             unblock: Desbloquejar usuària
             unreport: Desfer denúncia
+          cancel: Cancel·lar
           name: Nom
           nickname: Àlies
           reason: Raó
           reports: Número de denúncies
+          selected: Seleccionades
           title: Participants reportades
         report:
           reasons:
@@ -724,6 +729,19 @@ ca:
           unblocked: No bloquejat
       moderations:
         index:
+          actions:
+            actions_dropdown: Accions
+            hide:
+              title: Amagar
+              update_moderation_button: Amagar els continguts seleccionats
+            unhide:
+              title: Tornar a mostrar
+              update_moderation_button: Tornar a mostrar els continguts seleccionats
+            unreport:
+              title: Desfer la denúncia
+              update_moderation_button: Desfer la denúncia dels continguts seleccionats
+          cancel: Cancel·lar
+          selected: seleccionades
           title: Contingut reportat
         report:
           reasons:
@@ -746,6 +764,11 @@ ca:
             report_language: Idioma de l'informe
             report_reason: Motiu
             title: Detalls de l'informe
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Previsualitzar
@@ -755,6 +778,10 @@ ca:
           preview: 'Previsualitzar la plantilla: %{template_name}'
           use_template: Utilitzar aquesta plantilla
       newsletters:
+        confirm_recipients:
+          email: Correu electrònic
+          name: Nom
+          title: Confirmar destinatàries
         create:
           error: S'ha produït un error en crear aquest butlletí.
           success: Butlletí creat correctament. Si us plau, revisa'l abans d'enviar-lo.
@@ -774,12 +801,14 @@ ca:
           confirm_delete: Segur que vols suprimir aquest butlletí?
           followers: 'seguidores '
           has_been_sent_to: 'Ha estat enviat a: '
-          no_scopes: Sense àmbits
           not_sent: No enviat
           participants: 'participants '
+          private_members: 'membres privades'
           segmented_to: 'Segmentat a %{subject}: '
           subscribed_count: 'Subscrites:'
           title: Butlletins
+          verification_types: 'Tipus de verificació: %{types}'
+          verified_users: Usuàries verificades
         new:
           save: Desar
           title: Nou butlletí
@@ -787,16 +816,24 @@ ca:
           all_spaces: Totes
           all_users_help: Envia el butlletí a tots els usuaris confimats.
           confirm_deliver: Segur que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
+          confirm_recipients: Confirmar destinatàries
           deliver: Enviar butlletí
           followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
-          none: Cap
           participants_help: Envia el butlletí a tots els usuaris confirmats que hagin participat a qualsevol dels espais participatius de la llista.
+          private_members_help: Envia un butlletí informatiu a totes les usuàries confirmades que han estat afegides als espais de participació privats seleccionats.
           recipients_count: Aquest bulleti s'enviarà a <strong id='recipients_count'>%{count}</strong> participants.
-          scopes_help: Envia el butlletí als usuaris que tinguin qualsevol dels àmbits seleccionats activat als paràmetres "Els meus interessos" del seu compte.
-          select_scopes: Filtra per als usuaris que hagin activat qualsevol àmbit seleccionat a la configuració "Els meus interessos" del seu compte.
+          select_assemblies: Seleccionar assemblees
+          select_conferences: Seleccionar jornades
+          select_initiatives: Seleccionar iniciatives
+          select_participatory_processes: Seleccionar processos participatius
           select_spaces: Selecciona espais per segmentar el butlletí
-          select_users: Selecciona a quines participants vols enviar el butlletí de notícies
+          select_users_for_participatory_space: Enviar el butlletí informatiu a un o més espais de participació
+          select_users_general: Enviar un butlletí general
+          select_verification_types: Seleccionar mètodes de verificació
+          send_to_all_users: Envia a totes les participants
+          send_to_verified_users: Enviar a usuàries verificades
           title: Selecciona les destinatàries a lliurar
+          verified_users_help: Envia un butlletí informatiu a tots els usuaris confirmats i verificats amb qualsevol dels mètodes de verificació seleccionats.
           warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà a les participants que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
         send:
           no_recipients: No hi ha destinatàries per a aquesta selecció.
@@ -814,6 +851,13 @@ ca:
         block:
           error: Hi ha hagut un problema en bloquejar a la participant.
           success: Participant bloquejada correctament.
+        bulk_action:
+          block:
+            invalid: Hi ha hagut un problema en bloquejar a les participants.
+            success: Participants bloquejades correctament.
+          unblock:
+            invalid: Hi ha hagut un problema en desbloquejar a les participants.
+            success: Participants desbloquejades correctament.
         create:
           success: Participant oficialitzada correctament.
         destroy:
@@ -958,6 +1002,8 @@ ca:
         edit:
           submit: Enviar
           title: Edita els permisos
+        options_form:
+          ephemeral_warning: Per habilitar aquest mètode d'autorització, necessites <a href="%{path}">revocar totes les autoritzacions existents</a>. Això minimitza el risc de conflictes de verificació. Totes les autoritzacions d'aquest tipus seran revocades automàticament a l'organització si envies els canvis afegint aquest mètode o modificant la teva configuració una vegada desada.
         update:
           success: Els permisos s'han actualitzat correctament.
       scope_types:
@@ -1285,6 +1331,22 @@ ca:
         unreport: Desfer denúncia
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Hi ha hagut un problema en amagar alguns continguts: %{errored}'
+              invalid: No hi ha cap moderació seleccionada.
+              success: Els continguts s'han amagat correctament.
+            ignore:
+              invalid: No hi ha cap moderació d'usuària seleccionada.
+              success: Les denuncies sobre les usuàries han estat retirades correctament.
+            unhide:
+              failed: 'Hi ha hagut un problema tornant a mostrar alguns continguts: %{errored}'
+              invalid: No hi ha cap moderació seleccionada.
+              success: Els continguts s'han tornat a mostrar correctament.
+            unreport:
+              failed: 'Hi ha hagut un problema en retirar la denúncia d''alguns continguts: %{errored}'
+              invalid: No hi ha cap moderació seleccionada.
+              success: S'ha desfet la denúncia als continguts correctament.
           hide:
             invalid: S'ha produït un error en ocultar el contingut.
             success: Contingut amagat correctament.

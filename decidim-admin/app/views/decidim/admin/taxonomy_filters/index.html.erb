@@ -1,10 +1,13 @@
-<% add_decidim_page_title(t("taxonomy_filters", scope: "decidim.admin.titles")) %>
+<% add_decidim_page_title(t("decidim.admin.titles.taxonomy_filters", taxonomy: translated_attribute(root_taxonomy.name))) %>
 
 <div class="card" aria-labelledby="taxonomy_filters-title">
   <div class="item_show__header">
     <div class="w-full">
       <h1 class="item_show__header-title" id="taxonomy_filters-title">
-        <%= t "decidim.admin.titles.taxonomy_filters" %>
+        <%= t("decidim.admin.titles.taxonomy_filters", taxonomy: translated_attribute(root_taxonomy.name)) %>
+        <% if allowed_to? :create, :taxonomy %>
+          <%= link_to t(".new_filter"), new_taxonomy_filter_path(root_taxonomy), class: "button button__sm button__secondary new" %>
+        <% end %>
       </h1>
 
       <p class="mt-2 text-gray-600">

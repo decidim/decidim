@@ -24,12 +24,14 @@ module Decidim
       let(:organization) { create(:organization) }
 
       let(:current_participatory_space) { create(:participatory_process, organization:) }
+      let(:component) { create(:dummy_component, participatory_space: current_participatory_space) }
 
       before do
         allow(view).to receive(:current_participatory_space).and_return(current_participatory_space)
         allow(view).to receive(:current_organization).and_return(organization)
         allow(view).to receive(:current_participatory_space_manifest).and_return(current_participatory_space.manifest)
         allow(view).to receive(:decidim_sanitize_translated).and_return("A text")
+        view.instance_variable_set(:@component, component)
         allow(nil).to receive(:html_safe).and_return("")
       end
 
@@ -176,10 +178,16 @@ module Decidim
         let(:choices) { [["A text (0)", taxonomy_filter1.id], ["A text (0)", taxonomy_filter2.id]] }
         let(:options) { { include_blank: "Select a taxonomy filter" } }
         let(:value) { [taxonomy_filter1.id] }
+        let(:component_filters) { Decidim::TaxonomyFilter.where(id: taxonomy_filter1.id) }
+
+        before do
+          component.update!(settings: { taxonomy_filters: [taxonomy_filter1.id] })
+          allow(view).to receive(:component_filters).and_return(component_filters)
+        end
 
         it "is supported" do
-          expect(view).to receive(:render).with(partial: "decidim/admin/components/taxonomy_filters_badge", locals: { value: taxonomy_filter1.id, title: "A text (0)", name:, object_name: form.object_name })
-          expect(view).to receive(:render).with(partial: "decidim/admin/components/taxonomy_filters_drawer", locals: { available_filters: choices, name: :test, form: })
+          expect(view).to receive(:render).with(partial: "decidim/admin/taxonomy_filters_selector/component_table", locals: { field_name: "test[test][]", component_filters:, component: })
+          expect(view).to receive(:render).with(partial: "decidim/admin/components/taxonomy_filters_drawer")
           render_input
         end
       end

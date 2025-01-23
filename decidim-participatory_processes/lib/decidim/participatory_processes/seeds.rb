@@ -22,6 +22,10 @@ module Decidim
         2.times do
           create_taxonomy!(name: ::Faker::Lorem.word, parent: taxonomy)
         end
+        # filters for processes only
+        create_taxonomy_filter!(root_taxonomy: taxonomy,
+                                taxonomies: taxonomy.all_children,
+                                participatory_space_manifests: [:participatory_processes])
 
         2.times do |_n|
           process = create_process!(process_group: process_groups.sample)

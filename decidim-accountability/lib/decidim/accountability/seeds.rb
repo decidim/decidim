@@ -15,6 +15,14 @@ module Decidim
         component = create_component!
 
         create_statuses!(component:)
+
+        3.times do
+          taxonomies = create_taxonomies!
+
+          taxonomies.each do |taxonomy|
+            create_result!(component:, taxonomy:)
+          end
+        end
       end
 
       def create_component!
@@ -24,7 +32,8 @@ module Decidim
           published_at: Time.current,
           participatory_space:,
           settings: {
-            intro: Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) }
+            intro: Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) },
+            taxonomy_filters: create_filters!.pluck(:id)
           }
         }
 
@@ -43,12 +52,37 @@ module Decidim
         end
       end
 
-      def create_result!(component:)
+      def root_taxonomy
+        @root_taxonomy ||= participatory_space.organization.taxonomies.roots.find_by("name->>'#{I18n.locale}'= ?",
+                                                                                     "Categories") || participatory_space.organization.taxonomies.roots.sample
+      end
+
+      def create_taxonomies!
+        parent_taxonomy = root_taxonomy.children.sample || root_taxonomy.children.create!(name: Decidim::Faker::Localized.sentence(word_count: 5))
+        taxonomies = [parent_taxonomy]
+
+        2.times do
+          taxonomies << if parent_taxonomy.children.count > 1
+                          parent_taxonomy.children.sample
+                        else
+                          parent_taxonomy.children.create!(name: Decidim::Faker::Localized.sentence(word_count: 5))
+                        end
+        end
+
+        taxonomies
+      end
+
+      def create_filters!
+        root_taxonomy.taxonomy_filters || [create_taxonomy_filter!(root_taxonomy:, taxonomies: root_taxonomy.all_children)]
+      end
+
+      def create_result!(component:, taxonomy:)
         result = Decidim.traceability.create!(
           Decidim::Accountability::Result,
           admin_user,
           {
             component:,
+            taxonomies: [taxonomy],
             title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
               Decidim::Faker::Localized.paragraph(sentence_count: 3)

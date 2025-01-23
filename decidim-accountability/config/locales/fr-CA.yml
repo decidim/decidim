@@ -9,6 +9,7 @@ fr-CA:
         end_date: Date de fin
         progress: Avancement
         start_date: Date de début
+        subresults: Sous-résultats
         title: Titre
         updated_at: Mise à jour à
       status:
@@ -29,6 +30,10 @@ fr-CA:
         accountability:
           result:
             budget_text: Ce résultat %{link} a été inclus
+            meetings_ids: 'Discuté lors de cette réunion : %{link}'
+            project_ids: 'Inclus dans ce projet : %{link}'
+            proposal_ids: 'Inclus dans cette proposition : %{link}'
+            text: 'Ajouté à ce résultat : %{link}'
       decidim/accountability/result:
         one: Réalisation
         other: Réalisations
@@ -59,27 +64,6 @@ fr-CA:
           new:
             download_export: Télécharger l'export au format CSV
             import: Importer
-            info: |
-              <p>Nous vous recommandons les étapes suivantes:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Créer les Status pour les résultats</a> que vous voulez ajouter</li>
-              <li><a href='%{link_new_result}' target='_blank'>Créer au moins un résultat manuellement</a> via ce panneau admin avant d'utiliser l'import, pour mieux comprendre le format et ce que vous devrez compléter.</li>
-              <li>%{link_export_csv}</li>
-              <li>Faites les changements directement sur le fichier. Vous ne pouvez changer que les colonnes suivantes du CSV:
-                <ul>
-                <li><b>category/id:</b> ID de la catégorie</li>
-                <li><b>scope/id:</b> ID du secteur</li>
-                <li><b>parent/id:</b> ID du résultat parent (résultat liés). Facultatif</li>
-                <li><b>title/en:</b> Titre en anglais. Cela dépend de la configuration des langues sur votre plateforme.</li>
-                <li><b>description/en:</b> Description en anglais. Cela dépend de la configuration des langues sur votre plateforme.</li>
-                <li><b>start_date:</b> date à partir de laquelle le résultat est mis en œuvre (format AAAA-MM-JJ)</li>
-                <li><b>end_date:</b> date à laquelle se termine la mise en œuvre du résultat (format AAAA-MM-JJ)</li>
-                <li><b>status/id:</b> ID du statut de ce résultat</li>
-                <li><b>progress:</b> Pourcentage d'exécution (de 0 à 100)</li>
-                <li><b>proposals_ids:</b> IDs des propositions liées (séparés par une virgule). Ces ID seront automatiquement converti en <span class='attribute-name'>proposal_url</span></li>
-                </ul>
-              </li>
-              </ol>
             title: Importer les résultats depuis un fichier CSV
         imports:
           create:
@@ -107,6 +91,23 @@ fr-CA:
               other: "%{count} projets en attente d'importation. Vous serez notifié par email une fois l'import terminé."
             title: Importer des projets depuis une autre fonctionnalité
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Date de modification
+              end_date: Date de fin
+              start_date: Date de début
+            dropdown:
+              actions: Actions
+              change_dates: Modifier les dates
+              change_status: Modifier l'état
+              change_taxonomies: Modifier les taxonomies
+            status_form:
+              change_status: Modifier l'état
+              status: État
+            submit_buttons:
+              cancel: Annuler
+            taxonomies_form:
+              change_taxonomies: Modifier les taxonomies
           create:
             invalid: Un problème est survenu lors de la création de ce résultat.
             success: La réalisation a été créée avec succès.
@@ -123,6 +124,17 @@ fr-CA:
           update:
             invalid: Un problème est survenu lors de la mise à jour de cette réalisation.
             success: Réalisation mise à jour avec succès.
+          update_dates:
+            invalid: Un problème est survenu lors de la mise à jour des dates de résultats
+            success: Les dates des résultats ont été mises à jour avec succès
+          update_status:
+            invalid: Un problème est survenu lors de la mise à jour de l'état des résultats
+            success: Etat des résultats mis à jour avec succès
+          update_taxonomies:
+            invalid: Impossible de mettre à jour les taxonomies %{taxonomies} pour les résultats %{results}
+            select_a_result: Sélectionnez un résultat
+            select_a_taxonomy: Sélectionnez une taxonomie
+            success: Taxonomies %{taxonomies} mises à jour avec succès pour les résultats %{results}
         shared:
           subnav:
             statuses: Progrès
@@ -164,6 +176,8 @@ fr-CA:
         result:
           create: "%{user_name} a créé la réalisation %{resource_name} dans %{space_name}"
           delete: "%{user_name} a supprimé la réalisation %{resource_name} dans %{space_name}"
+          restore: "%{user_name} a restauré le résultat %{resource_name} dans %{space_name}"
+          soft_delete: "%{user_name} a déplacé le résultat %{resource_name} de %{space_name} vers la corbeille"
           update: "%{user_name} a mis à jour la réalisation %{resource_name} dans %{space_name}"
         status:
           create: "%{user_name} a créé le statut %{resource_name}"
@@ -179,6 +193,8 @@ fr-CA:
       content_blocks:
         highlighted_results:
           results: Réalisations
+      creation:
+        text: Ce résultat a été créé
       import_mailer:
         import:
           errors: Erreurs
@@ -204,6 +220,7 @@ fr-CA:
             progress: Avancement
             start_date: Date de début
             status: Statut
+            taxonomies: Taxonomies
             title: Titre
         status:
           fields:
@@ -223,6 +240,8 @@ fr-CA:
         home:
           empty: Il n'y a aucun résultat pour le moment.
           empty_filters: Il n'y a aucun résultat avec ces critères.
+          sub_taxonomies_label: Sous-catégories
+          taxonomies_label: Catégories
         home_header:
           global_status: État d'exécution global
         no_results: Il n'y a aucun projet.
@@ -238,6 +257,8 @@ fr-CA:
         results:
           status_id_eq:
             label: Statut
+          taxonomies_part_of_contains:
+            label: Taxonomie
     components:
       accountability:
         actions:
@@ -245,13 +266,18 @@ fr-CA:
         name: Suivi
         settings:
           global:
+            clear_all: Tout supprimer
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            define_taxonomy_filters: Pour utiliser ce paramètre, des filtres doivent être définis dans cet espace participatif.
             display_progress_enabled: Afficher les progrès
             geocoding_enabled: Cartes activées
             intro: Introduction
+            no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
             scope_id: Secteur
             scopes_enabled: Secteurs activés
+            taxonomy_filters: Sélectionner les filtres pour la fonctionnalité
+            taxonomy_filters_add: Ajouter un filtre
           step:
             comments_blocked: Bloquer la création de nouveaux commentaires
     download_your_data:
@@ -278,14 +304,24 @@ fr-CA:
     open_data:
       help:
         result_comments:
+          alignment: Si ce commentaire était pour, contre ou neutre
           author: Le nom du participant qui a fait ce commentaire
           body: Le commentaire lui-même
           commentable_id: L'identifiant unique de l"élément commenté
           commentable_type: Le type de l'élément commenté (si c'était un résultat, une proposition, etc.)
+          created_at: La date de création de ce commentaire
+          depth: L'endroit où ce commentaire se trouve dans l'arborescence des commentaires (si c'est une réponse ou une réponse d'une réponse)
           id: L'identifiant de ce commentaire
+          locale: La langue que le participant a eu en créant ce commentaire
+          root_commentable_url: L'URL de la ressource liée à ce commentaire
           user_group: Le nom du groupe d'utilisateurs qui a fait ce commentaire (le cas échéant)
         results:
+          address: L'adresse du résultat (optionnel)
+          children_count: Le nombre de sous-résultats
+          comments_count: Le nombre de commentaires reçu pour ce résultat
+          created_at: La date de création de ce résultat
           description: La description du résultat
+          end_date: La date à laquelle le résultat se termine
           id: L'identifiant unique du résultat
           parent: Le résultat parent (le cas échéant) du résultat
           progress: Le pourcentage d'exécution du résultat

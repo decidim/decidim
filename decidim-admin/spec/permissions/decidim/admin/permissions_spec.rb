@@ -9,6 +9,7 @@ describe Decidim::Admin::Permissions do
   let(:organization) { build(:organization) }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
+  let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
   let(:registrations_enabled) { true }
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }
@@ -203,6 +204,33 @@ describe Decidim::Admin::Permissions do
 
     context "when any other action" do
       it_behaves_like "permission is not set"
+    end
+  end
+
+  describe "taxonomies" do
+    let(:action_subject) { :taxonomy }
+
+    context "when any action" do
+      it { is_expected.to be true }
+    end
+
+    context "when destroying is not allowed" do
+      let(:context) { { taxonomy: } }
+      let(:action_name) { :destroy }
+
+      before do
+        allow(taxonomy).to receive(:removable?).and_return(false)
+      end
+
+      it { is_expected.to be false }
+    end
+  end
+
+  describe "taxonomy filters" do
+    let(:action_subject) { :taxonomy_filter }
+
+    context "when any action" do
+      it { is_expected.to be true }
     end
   end
 
