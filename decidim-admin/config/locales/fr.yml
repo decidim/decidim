@@ -344,14 +344,6 @@ fr:
           title: 'Ajouter une fonctionnalité : %{name}'
         publish:
           success: La fonctionnalité a été publiée avec succès.
-        taxonomy_filters_badge:
-          remove: Supprimer
-        taxonomy_filters_drawer:
-          add_filter: Ajouter un filtre
-          clear_all: Tout supprimer
-          filters: Filtres
-          save: Sauver
-          title: Filtres
         title: Fonctionnalités
         unpublish:
           success: La fonctionnalité a été dépubliée avec succès.
@@ -1143,7 +1135,6 @@ fr:
         scope_types: Types de secteur
         scopes: Secteurs
         statistics: Activité
-        taxonomy_filters: Filtres de taxonomie
         user_groups: Groupes d'utilisateurs
         users: Administrateurs
       tooltips:
