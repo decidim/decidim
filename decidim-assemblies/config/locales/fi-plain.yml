@@ -32,6 +32,7 @@ fi-pl:
         import_components: Tuo komponentteja
         included_at: Mukana osoitteessa
         instagram: Instagram
+        internal_organisation: Sisäinen järjestäytyminen
         is_transparent: On läpinäkyvä
         local_area: Organisaatioalue
         meta_scope: Teeman metadata
