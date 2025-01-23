@@ -719,6 +719,7 @@ en:
           closed_at: The date at which the meeting closed
           closing_report: Report of the closed meeting
           closing_visible: The visibilty of the meeting
+          comments: The comments data of the meeting
           component: The component that the meeting belongs to
           contributions: The number of contributions in this meeting made by the atteendes
           created_at: The date at which the meeting was created
