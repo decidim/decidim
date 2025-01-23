@@ -515,6 +515,21 @@ fi-pl:
           proposal_comments: Kommentit
           proposals: Ehdotukset
         imports:
+          help:
+            answers: |
+              CSV- tai Excel-tuontitiedostossa on oltava seuraavat sarakenimet ja JSON-tuontitiedostossa vastaavat avainten nimet (muut sarakkeet tai nimikkeet jätetään huomiotta):
+              <ul>
+              <li><b>id:</b> Vastattavan ehdotuksen yksilöivä ID-tunniste</li>
+              <li><b>state:</b> Jokin vaihtoehdoista "accepted", "evaluating" tai "rejected"</li>
+              <li><b>answer/fi:</b> Vastaus suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
+              </ul>
+            proposals: |
+              CSV- tai Excel-tiedostossa on oltava seuraavat sarakenimet ja JSON-tiedostossa vastaavat avainten nimet:
+              <ul>
+              <li><b>title/fi:</b> Otsikko suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
+              <li><b>body/fi:</b> Kuvaus suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
+              <li><b>taxonomies/ids:</b> Luokittelujen yksilöivät ID-tunnisteet (liitettäessä useampia arvoja, erota arvot toisistaan pilkulla)</li>
+              </ul>
           label:
             answers: Tuo vastaukset tiedostosta
             proposals: Tuo ehdotuksia tiedostosta
@@ -747,6 +762,7 @@ fi-pl:
           error: Yhteistyöluonnoksen luominen epäonnistui.
           success: Yhteistyöluonnos luotu onnistuneesti.
         edit:
+          attachment_legend: Lisää asiakirja tai kuva
           back: Takaisin
           send: Lähetä
           title: Muokkaa yhteistyöluonnosta
@@ -894,7 +910,10 @@ fi-pl:
           description: Koordinaatit päivitetään, kun painat Esikatsele-painiketta. Osoitetekstiä ei muuteta.
           instructions: Voit siirtää pistettä kartalla.
         edit:
+          add_attachments: Lisää liitteitä
+          attachment_legend: Lisää asiakirja tai kuva
           back: Takaisin
+          edit_attachments: Muokkaa liitteitä
           send: Lähetä
           title: Muokkaa ehdotusta
         edit_draft:
