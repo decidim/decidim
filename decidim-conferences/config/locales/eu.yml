@@ -85,7 +85,7 @@ eu:
         other: Jardunaldiko hizlariak
       decidim/conference_user_role:
         one: Hitzaldiko erabiltzaile rola
-        other: Jardunaldiko hizlariaren rolak
+        other: Jardunaldiko parte-hartzaile rolak
   decidim:
     admin:
       actions:
@@ -224,7 +224,7 @@ eu:
             email: Helbide elektronikoa
             name: Izena
             role: Rola
-          name: Hitzaldiaren administratzailea
+          name: Jardunaldiaren administratzailea
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
@@ -307,7 +307,7 @@ eu:
         update: "%{user_name} parte-hartzaileak %{resource_name} hizlaria eguneratu du %{space_name} jardunaldian"
       conference_user_role:
         create: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du %{space_name} jardunaldira"
-        delete: "%{user_name} part-hartzaileak %{resource_name} administratzailea kendu du %{space_name} jardunalditik"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} administratzailea kendu du %{space_name} jardunalditik"
         update: "%{user_name} parte-hartzaileak %{resource_name} ren rola aldatu du %{space_name} jardunaldian"
       conferences:
         conference_registration:

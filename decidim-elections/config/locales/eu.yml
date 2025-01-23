@@ -377,7 +377,7 @@ eu:
             invalid: Arazo bat egon da bermatzaile hau kentzean.
             success: Bermatzailea zuzen ezabatua.
           form:
-            select_user: Hautatu erabiltzailea
+            select_user: Hautatu parte-hartzailea
           index:
             title: Bermatzaileak
           new:
@@ -680,10 +680,10 @@ eu:
           try_again: Saiatu berriro
         header:
           ballot_decision: Eman edo ikuskatu zure botoa
-          confirm: Baieztatu botoa
+          confirm: Berretsi
           election: Hautaketa
           register: Erregistroa
-          vote_for: Bozkatu %{title} (r) en alde
+          vote_for: '%{title} (r) en alde bozkatu'
         messages:
           invalid_token: Bozketa-kabinan egindako saioa ez da baliozkoa. Saiatu berriro bozkatzen.
           not_allowed: Une honetan ezin duzu botoa eman bozketa honetan.
@@ -1153,7 +1153,7 @@ eu:
           certify:
             add_images: Gehiru irudiak
             error: Arazo bat izan da ziurtagiria eranstean, mesedez, saiatu berriro.
-            form_legend: Igo Hauteskundearen Itxieraren Egiaztagiriaren agazkia
+            form_legend: Hauteskundearen itxieraren egiaztagiriaren agazkia igo
             heading: Botoen zenbaketa - Igo ziurtagiria
             info_text: Mesedez, igo bozketa-itxieraren ziurtagiriaren argazki bat.
             submit: Igo ziurtagiria
