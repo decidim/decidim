@@ -32,10 +32,7 @@ fi-pl:
       taxonomy:
         name: Luokittelun nimi
       taxonomy_filter:
-        internal_name: Sisäinen suodattimen nimi
-        name: Julkinen suodattimen otsikko
         root_taxonomy_id: Luokittelusta
-        space_filter: Määritettävissä osallistumistilojen suodattimeksi
       user:
         about: Profiilikuvaus
         avatar: Profiilikuva
@@ -304,13 +301,6 @@ fi-pl:
         delete_with_parent: "%{user_name} poisti kohteen %{resource_name} luokittelun %{parent_taxonomy} alta"
         update: "%{user_name} päivitti luokittelua %{resource_name}"
         update_with_parent: "%{user_name} päivitti kohdetta %{resource_name} luokittelun %{parent_taxonomy} alla"
-      taxonomy_filter:
-        create: "%{user_name} loi suodattimen luokittelulle %{resource_name}"
-        create_with_filter_items_count: "%{user_name} loi suodattimen luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
-        delete: "%{user_name} poisti suodattimen luokittelulle %{resource_name}"
-        delete_with_filter_items_count: "%{user_name} poisti suodattimen luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
-        update: "%{user_name} päivitti suodatinta luokittelulle %{resource_name}"
-        update_with_filter_items_count: "%{user_name} päivitti suodatinta luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
       user:
         block: "%{user_name} esti käyttäjän %{resource_name}"
         bulk_block: "%{user_name} esti %{blocked_count} käyttäjätiliä"
@@ -457,6 +447,15 @@ fi-pl:
       dummy_authorization_workflow:
         explanation: Esimerkkivahvistuksen työnkulku
         name: Dummy-varmennuksen työnkulku
+      ephemeral_dummy_authorization_handler:
+        explanation: Vahvista tilisi syöttämällä asiakirjan numero, joka päättyy kirjaimeen "X".
+        fields:
+          allowed_postal_codes: Sallitut postinumerot (pilkuilla erotettuna)
+          allowed_scope_id: Sallittu teema
+          document_number: Asiakirjan numero
+          postal_code: Postinumero
+          scope_id: Teema
+        name: Väliaikainen esimerkkivahvistustapa
       errors:
         duplicate_authorization: Osallistuja on jo tunnistettu vastaavilla tiedoilla. Hallintakäyttäjä ottaa sinuun yhteyttä tarkastakseen tietosi.
       expired_at: Umpeutuu %{timestamp}
@@ -672,6 +671,7 @@ fi-pl:
           sign_in_disabled: Voit käyttää ulkoista tiliä.
           sign_up_disabled: Tilien luonti on poistettu käytöstä, mutta voit kirjautua olemassaolevalla käyttäjätilillä.
         user:
+          ephemeral_session_closed: Vierailijaistuntosi on päättynyt
           timed_out: Palvelua ei ole käytetty hetkeen, minkä takia sinut on kirjattu palvelusta ulos automaattisesti. Jos haluat jatkaa palvelun käyttöä, kirjaudu uudestaan sisään.
       shared:
         newsletter_modal:
@@ -820,6 +820,7 @@ fi-pl:
       others: "%{count} lisää"
       title: Tykänneet
       you: sinä
+    ephemeral_user: Vierailija
     errors:
       files:
         file_cannot_be_processed: Tiedostoa ei voida käsitellä
@@ -1467,11 +1468,13 @@ fi-pl:
     onboarding_action_message:
       click_link: Paina tästä
       cta_html: <a href="%{path}">%{link_text}</a> suorittaaksesi toiminnon %{action} kohteelle %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: Tilisi vahvistaminen onnistui.<br/>Olet aloittanut vierailijaistunnon ja voit nyt osallistua päätöksentekoon tällä alustalla.
       expired_authorization_active_title: Vahvistus on vanhentunut.
       finish_authorization_process: Voit suorittaa vahvistuksen loppuun
       incomplete_authorization_active_title: Vahvistustasi ei ole suoritettu loppuun kaikkine tarvittavine tietoineen.
       pending_authorization_active_message: Täytä esitetty lomake suorittaaksesi tämän toiminnon loppuun.
       pending_authorization_active_title: Meidän on vahvistettava henkilöllisyytesi.
+      pending_ephemeral_authorization: Vahvista henkilöllisyytesi jatkaaksesi palvelun käyttöä.
     open_data:
       help:
         core:
@@ -1502,6 +1505,19 @@ fi-pl:
           reported_content: Ilmoitettu sisältö
           reported_url: Ilmoitetun asian URL-osoite
           reports: Lista ilmoittamisen syistä
+        taxonomies:
+          children_count: Luokitteluun liitettyjen alaluokittelujen määrä
+          created_at: Luokittelun laatimisaika
+          filter_items_count: Tätä luokittelua hyödyntävien hakusuodattimien asioiden lukumäärä
+          filters_count: Tätä luokittelua hyödyntävien hakusuodattimien lukumäärä
+          id: Luokittelun yksilöivä tunniste
+          is_root: Onko kyseessä juuritason luokittelu
+          name: Luokittelun nimi
+          parent_id: Luokittelun isäntä
+          part_of: Onko tämä luokittelu osa jotain muuta luokittelua
+          taxonomizations_count: Tähän luokitteluun liitettyjen asioiden lukumäärä
+          updated_at: Luokittelun viimeisimmän päivityksen ajankohta
+          weight: Luokittelun järjestysnumero
         user_groups:
           avatar_url: Käyttäjäryhmän avatar-kuva
           badge: Käyttäjäryhmän tunnusmerkki
@@ -2216,6 +2232,8 @@ fi-pl:
         sign_up: Luo tili
         terms_of_service: Käyttöehdot
       header:
+        close: Sulje
+        confirm_close_ephemeral_session: Jos siirryt pois tältä sivulta, istuntosi päätetään. Haluatko varmasti jatkaa?
         log_in: Kirjaudu sisään
         main_menu: Päävalikko
         user_menu: Käyttäjän valikko
