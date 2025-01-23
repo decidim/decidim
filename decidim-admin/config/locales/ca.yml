@@ -344,14 +344,6 @@ ca:
           title: 'Afegir component: %{name}'
         publish:
           success: El component s'ha publicat correctament.
-        taxonomy_filters_badge:
-          remove: Eliminar
-        taxonomy_filters_drawer:
-          add_filter: Afegir un filtre
-          clear_all: Netejar-ho tot
-          filters: Filtres
-          save: Desar
-          title: Filtres
         title: Components
         unpublish:
           success: El component s'ha despublicat correctament.
@@ -1136,8 +1128,6 @@ ca:
           error: S'ha produït un error en l'actualització d'aquesta pàgina.
           success: La pàgina s'ha actualitzat correctament.
       taxonomies:
-        actions: Accions
-        amount: Número d'elements
         count: Recursos associats
         create:
           invalid: S'ha produït un error en crear aquesta taxonomia.
@@ -1156,7 +1146,6 @@ ca:
         filters:
           search_placeholder: Cercar
         index:
-          description: Una taxonomia permet a les administradores categoritzar i organitzar-ne el contingut. Per exemple, afegir una taxonomia per classificar processos per àmbit geogràfic.
           new_taxonomy: Nova taxonomia
           no_items_found: No s'han trobat taxonomies que coincideixin amb els criteris de cerca.
         name: Nom
@@ -1175,8 +1164,6 @@ ca:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Nou filtre de taxonomia
-        callout:
-          modify_taxonomy_html: Si et cal modificar aquesta taxonomia o els seus elements, si us plau, fes-ho a través de la configuració a la secció <a href="%{url}">Taxonomies</a>.
         create:
           error: S'ha produït un error en crear aquesta taxonomia.
           success: Filtre de taxonomia creat correctament.
@@ -1194,26 +1181,18 @@ ca:
             other: "%{count} elements seleccionats"
           name_help: El títol del filtre que es mostrarà a la part pública.
           no_items: Encara no hi ha elements disponibles a aquesta taxonomia. Pots afegir-hi elements a través de les opcions de configuració de la taxonomia.
-          space_filter: Disponible com a filtre per a tots els %{manifest_name}
         index:
           description: Un filtre de taxonomia permet a les administradores ordenar i filtrar espais de participació basats en una taxonomia. Per exemple, afegir un filtre de taxonomies per ordenar processos per àmbit territorial.
           empty: Actualment no hi ha cap filtre de taxonomia. Creeu una llista de filtres de taxonomia aquí per ordenar i filtrar els espais de participació basats en una taxonomia.
         new:
           back: Enrere
           create: Crear un filtre de taxonomia
-          select_taxonomy: Seleccionar una taxonomia
           title: Nou filtre de taxonomia
         table:
           actions: Accions
-          components_count: Components associats
           confirm_destroy: 'Segur que voleu suprimir el filtre %{name}? NOTA: Els recursos que utilitzen aquest filtre no es veuran afectats però perdran la referència a aquest filtre.'
-          count: Número d'elements emprats
           destroy: Esborrar
           edit: Editar
-          internal_name: Nom intern del filtre
-          name: Títol públic del filtre
-          space_filter: Emprat per filtrar %{manifest_name}
-          taxonomy: Des de la taxonomia
         update:
           error: Hi ha hagut un problema actualitzant aquest filtre de taxonomia.
           success: Filtre de taxonomia actualitzat correctament.
@@ -1246,7 +1225,6 @@ ca:
         scopes: Àmbits
         statistics: Activitat
         taxonomies: Taxonomies
-        taxonomy_filters: Filtres de taxonomies
         user_groups: Grups
         users: Administradores
       tooltips:
