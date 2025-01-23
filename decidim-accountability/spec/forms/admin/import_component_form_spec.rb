@@ -81,8 +81,7 @@ module Decidim::Accountability
 
       context "when the project has not copied yet" do
         it "returns false" do
-          rlt = subject.project_already_copied?(project)
-          expect(rlt).to be(false)
+          expect(subject.project_already_copied?(project)).to be(false)
         end
       end
 
@@ -92,8 +91,7 @@ module Decidim::Accountability
         end
 
         it "returns true" do
-          rlt = subject.project_already_copied?(project)
-          expect(rlt).to be(true)
+          expect(subject.project_already_copied?(project)).to be(true)
         end
       end
     end
@@ -105,8 +103,7 @@ module Decidim::Accountability
 
       context "when the proposal has not copied yet" do
         it "returns false" do
-          rlt = subject.proposal_already_copied?(proposal)
-          expect(rlt).to be(false)
+          expect(subject.proposal_already_copied?(proposal)).to be(false)
         end
       end
 
@@ -116,8 +113,7 @@ module Decidim::Accountability
         end
 
         it "returns true" do
-          rlt = subject.proposal_already_copied?(proposal)
-          expect(rlt).to be(true)
+          expect(subject.proposal_already_copied?(proposal)).to be(true)
         end
       end
     end
