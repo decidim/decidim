@@ -264,14 +264,6 @@ pt:
           title: 'Adicionar componente: %{name}'
         publish:
           success: O componente foi publicado corretamente.
-        taxonomy_filters_badge:
-          remove: Remover
-        taxonomy_filters_drawer:
-          add_filter: Adicionar filtro
-          clear_all: Apagar Tudo
-          filters: Filtros
-          save: Guardar
-          title: Filtros
         title: Componentes
         unpublish:
           success: O componente deixou de estar publicado corretamente.
