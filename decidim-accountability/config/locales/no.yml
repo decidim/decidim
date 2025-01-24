@@ -54,6 +54,9 @@
             name: Resultat
           status:
             name: Status
+        projects_import:
+          new:
+            create: Importer
         results:
           edit:
             title: Rediger resultatet
