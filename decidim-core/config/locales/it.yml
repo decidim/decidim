@@ -1044,13 +1044,6 @@ it:
         send: Invia
       update:
         error: Messaggio non inviato. Riprova più tardi
-    user_interests:
-      show:
-        my_interests: I miei interessi
-        update_my_interests: Aggiorna i miei interessi
-      update:
-        error: Si è verificato un errore durante l'aggiornamento dei tuoi interessi.
-        success: I tuoi interessi sono stati aggiornati con successo.
     user_report_mailer:
       notify:
         body_1: L'utente %{user} è stato segnalato da %{token}
@@ -1256,7 +1249,6 @@ it:
         authorizations: Autorizzazioni
         delete_my_account: Cancella il mio account
         my_data: I miei dati
-        my_interests: I miei interessi
         notifications_settings: Impostazioni delle notifiche
         title: Impostazioni utente
         user_groups: gruppi
