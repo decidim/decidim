@@ -39,6 +39,9 @@ si:
             name: ප්‍රතිඵලය
           status:
             name: තත්වය
+        projects_import:
+          new:
+            create: ආයාත කරන්න
         results:
           index:
             title: ප්‍රතිඵල
