@@ -50,7 +50,6 @@ module Decidim
             description: @assembly.description,
             short_description: @assembly.short_description,
             promoted: @assembly.promoted,
-            scope: @assembly.scope,
             parent: @assembly.parent,
             developer_group: @assembly.developer_group,
             local_area: @assembly.local_area,

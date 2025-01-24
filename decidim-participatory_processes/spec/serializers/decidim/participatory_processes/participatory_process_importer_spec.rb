@@ -36,7 +36,6 @@ module Decidim::ParticipatoryProcesses
           "end_date" => "2023-08-01",
           "announcement" => Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title },
           "private_space" => false,
-          "scopes_enabled" => false,
           "participatory_process_group" => group_data
         }
       end

@@ -47,7 +47,6 @@ module Decidim
         def proposals
           @proposals = Decidim::Proposals::Proposal
                        .where(component: origin_component)
-          @proposals = @proposals.where(scope: proposal_scopes) unless proposal_scopes.empty?
 
           @proposals = if @form.states.include?("not_answered")
                          @proposals.not_answered.or(@proposals.where(id: @proposals.only_status(@form.states).pluck(:id)))
@@ -56,10 +55,6 @@ module Decidim
                        end
 
           @proposals
-        end
-
-        def proposal_scopes
-          @form.scopes
         end
 
         def origin_component

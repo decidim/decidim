@@ -160,19 +160,6 @@ module Decidim
         end
       end
 
-      describe "scopes" do
-        let(:type) { :scope }
-        let!(:scope1) { create(:scope, organization:, name: { "en" => "Scope1" }) }
-        let!(:scope2) { create(:scope, organization:, name: { "en" => "Scope2" }) }
-        let(:choices) { [["  Scope1", scope1.id], ["  Scope2", scope2.id]] }
-        let(:options) { { include_blank: "Select a scope" } }
-
-        it "is supported" do
-          expect(form).to receive(:select).with(:test, choices, options, {})
-          render_input
-        end
-      end
-
       describe "times" do
         let(:type) { :time }
 

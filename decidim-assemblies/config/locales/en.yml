@@ -45,8 +45,6 @@ en:
         promoted: Highlighted
         published_at: Published at
         purpose_of_action: Purpose of action
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
         short_description: Short description
         slug: URL slug
         special_features: Special features
@@ -249,7 +247,6 @@ en:
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
-            filters: Filters
             images: Images
             included_at_help: Select the date when this assembly was added to the platform. It does not necessarily have to be the same as the creation date.
             metadata: Metadata
@@ -257,7 +254,6 @@ en:
             other: Other
             private_notice: You will be able to manage private participants after setting it as private
             select_a_created_by: Select a created by
-            select_an_area: Select an Area
             select_parent_assembly: Select parent assembly
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             social_handlers: Social
