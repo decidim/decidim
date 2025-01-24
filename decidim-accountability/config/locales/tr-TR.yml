@@ -36,7 +36,6 @@ tr:
         confirm_destroy: Bu %{name}silmek istediğinize emin misiniz?
         destroy: silmek
         edit: Düzenle
-        import: Başka bir bileşenden proje aktar
         import_csv: Sonuçları CSV dosyasından içe aktarın
         new_result: Yeni sonuç
         new_status: Yeni Durum
@@ -62,16 +61,6 @@ tr:
             name: Sonuç
           status:
             name: durum
-        projects_import:
-          create:
-            invalid: Projelerin sonuçlara aktarılmasında bir sorun oluştu. Lütfen talimatları dikkatlice takip edin ve projeleri seçtiğinizden emin olun.
-          new:
-            create: İçe aktar
-            import_all_selected_projects: Seçilen tüm projeleri içe aktarın
-            no_components: Bu katılımcı alanda projeleri sonuçlara dönüştürecek bütçe bileşenleri yoktur.
-            origin_component_id: Asıl bileşen
-            select_component: Bir bileşen seç
-            title: Projeleri başka bir bileşenden içe aktarın
         results:
           create:
             invalid: Sonuçlar sorgulanırken bir sorun oluştu.
