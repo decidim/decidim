@@ -1032,13 +1032,6 @@ tr:
         send: Gönder
       update:
         error: Mesaj gönderilmedi. Daha sonra tekrar deneyin
-    user_interests:
-      show:
-        my_interests: İlgi alanlarım
-        update_my_interests: İlgi alanlarımı güncelle
-      update:
-        error: İlgi alanlarınız güncellenirken bir hata oluştu.
-        success: İlgi alanlarınız başarıyla güncellendi.
     user_report_mailer:
       notify:
         body_1: Kullanıcı %{user}, %{token} tarafından rapor edildi
@@ -1246,7 +1239,6 @@ tr:
         authorizations: Yetkileri
         delete_my_account: Hesabımı sil
         my_data: Benim verim
-        my_interests: İlgi alanlarım
         notifications_settings: Bildirimler ayarları
         title: Kullanıcı ayarları
         user_groups: Gruplar
