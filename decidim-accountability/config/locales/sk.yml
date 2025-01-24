@@ -52,6 +52,9 @@ sk:
             name: Výsledok
           status:
             name: Stav
+        projects_import:
+          new:
+            create: Importovať
         results:
           edit:
             title: Upraviť výsledok
