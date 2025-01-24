@@ -96,14 +96,7 @@ pl:
           new:
             create: Importuj
             import_all_selected_projects: Importuj wszystkie projekty wybrane do wdrożenia
-            new_items:
-              one: 1 wybrany projekt zostanie zaimportowany
-              few: "%{count} wybrane projekty zostaną zaimportowane"
-              many: "%{count} wybranych projektów zostanie zaimportowanych"
-              other: "%{count} wybranych projektów zostanie zaimportowanych"
             no_components: W tej przestrzeni partycypacyjnej nie ma komponentów budżetu, aby zaimportować projekty do wyników.
-            origin_component_id: Oryginalny komponent
-            select_component: Wybierz komponent
             title: Importuj projekty z innego komponentu
         results:
           create:
