@@ -46,7 +46,6 @@ ja:
         deleted_results_info: 削除された結果はゴミ箱から復元できます。
         destroy: 削除
         edit: 編集
-        import: 別のコンポーネントからプロジェクトをインポート
         import_csv: CSVファイルから結果をインポート
         new_result: 新しい結果
         new_status: 新しいステータス
@@ -63,6 +62,26 @@ ja:
           new:
             download_export: CSV形式でエクスポートをダウンロード
             import: インポート
+            info: |
+              <p>以下の手順に従うことをお勧めします:</p>
+              <ol>
+              <li>追加したい<a href='%{link_new_status}' target='_blank'>結果のステータスを作成</a>してください。</li>
+              <li>インポートを使用する前に、この管理画面を通じて<a href='%{link_new_result}' target='_blank'>少なくとも1つの結果を手動で作成</a>して、形式や入力が必要な項目をよりよく理解してください。</li>
+              <li>%{link_export_csv}</li>
+              <li>変更作業はローカルで行ってください。CSV の以下のカラムのみ変更可能です（それ以外は無視されます）:</li>
+                <ul>
+                <li><b>taxonomies/ids:</b> タクソノミーのID（複数ある場合はカンマで区切る）</li>
+                <li><b>parent/id:</b> 親のID（関連する結果用）。任意</li>
+                <li><b>title/en:</b> 英語でのタイトル。この項目はプラットフォームの言語設定に依存します。</li>
+                <li><b>description/en:</b> 英語での説明。この項目はプラットフォームの言語設定に依存します。</li>
+                <li><b>start_date:</b> 結果の実行開始日（形式 YYYY-MM-DD）</li>
+                <li><b>end_date:</b> 結果の実行終了日（形式 YYYY-MM-DD）</li>
+                <li><b>status/id:</b> この結果に対するステータスのID</li>
+                <li><b>progress:</b> 実行の進捗率（0 から 100 までのパーセンテージ）</li>
+                <li><b>proposals_ids:</b> 関連する提案の内部ID（カンマ区切り）。<span class='attribute-name'>proposal_url</span>に自動的に変換されます。</li>
+                </ul>
+              </li>
+              </ol>
             title: CSVファイルから結果をインポート
         imports:
           create:
@@ -73,21 +92,24 @@ ja:
             name: 結果
           status:
             name: ステータス
-        projects_import:
-          create:
-            invalid: プロジェクトを結果にインポートする際に問題が発生しました。指示に従い、実装のためにプロジェクトを選択していることを確認してください。
-          new:
-            create: インポート
-            import_all_selected_projects: 実装のために選択されたすべてのプロジェクトをインポート
-            new_items:
-              other: "選択した %{count} 件のプロジェクトがインポートされます"
-            no_components: この参加スペースにはプロジェクトを結果にインポートするための予算コンポーネントはありません。
-            origin_component_id: 元のコンポーネント
-            select_component: コンポーネントを選択
-            success:
-              other: "%{count} 件のプロジェクトがインポートする準備を行いました。完了次第、メールで通知します。"
-            title: 別のコンポーネントからプロジェクトをインポート
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: 日付の変更
+              end_date:
+              start_date: 開始日
+            dropdown:
+              actions: アクション
+              change_dates: 日付の変更
+              change_status: ステータスの変更
+              change_taxonomies: タクソノミーの変更
+            status_form:
+              change_status: ステータスの変更
+              status: ステータス
+            submit_buttons:
+              cancel: キャンセル
+            taxonomies_form:
+              change_taxonomies: タクソノミーの変更
           create:
             invalid: 結果の作成中に問題がありました。
             success: 結果が正常に作成されました。
@@ -95,6 +117,7 @@ ja:
             title: 結果を編集
             update: 結果を更新
           index:
+            selected: 選択済み
             title: 結果
           manage_trash:
             title: 削除された結果
@@ -104,6 +127,17 @@ ja:
           update:
             invalid: 結果の更新中に問題が発生しました。
             success: 結果を更新しました。
+          update_dates:
+            invalid: 結果の日付を更新する際に問題が発生しました
+            success: 結果の日付を更新しました
+          update_status:
+            invalid: 結果のステータスの更新中に問題が発生しました
+            success: 結果のステータスを更新しました
+          update_taxonomies:
+            invalid: 結果 %{results} のタクソノミー %{taxonomies} を更新できませんでした
+            select_a_result: 結果を選択
+            select_a_taxonomy: タクソノミーを選択
+            success: 結果 %{results} のタクソノミー %{taxonomies} を更新しました
         shared:
           subnav:
             statuses: ステータス
