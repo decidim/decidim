@@ -47,7 +47,6 @@ de:
         deleted_results_info: Gelöschte Ergebnisse können aus dem Papierkorb wiederhergestellt werden.
         destroy: Löschen
         edit: Bearbeiten
-        import: Projekte aus einer anderen Komponente importieren
         import_csv: Ergebnisse aus CSV importieren
         new_result: Neues Ergebnis
         new_status: Neuer Status
@@ -94,22 +93,6 @@ de:
             name: Ergebnis
           status:
             name: Status
-        projects_import:
-          create:
-            invalid: Es gab ein Problem beim Importieren der Projekte in Ergebnisse, bitte befolgen Sie die Anweisungen sorgfältig und stellen Sie sicher, dass Sie Projekte für die Umsetzung ausgewählt haben.
-          new:
-            create: Importieren
-            import_all_selected_projects: Alle zur Umsetzung ausgewählten Projekte importieren
-            new_items:
-              one: 1 ausgewähltes Projekt wird importiert
-              other: "%{count} ausgewählte Projekte werden importiert"
-            no_components: Es gibt keine weiteren Budgetkomponenten in diesem Beteiligunsgbereich, um die Projekte in Ergebnisse zu importieren.
-            origin_component_id: Ursprungskomponente
-            select_component: Komponente auswählen
-            success:
-              one: Ein Projekt wird importiert. Sie werden per E-Mail benachrichtigt, sobald der Import abgeschlossen ist.
-              other: "%{count} Projekte werden in der Warteschlange importiert. Sie werden per E-Mail benachrichtigt, sobald sie abgeschlossen sind."
-            title: Projekte aus einer anderen Komponente importieren
         results:
           bulk_actions:
             dates_form:
