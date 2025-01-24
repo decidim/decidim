@@ -66,6 +66,19 @@ eu:
             title: '#%{number} erantzun'
         exports:
           survey_user_answers: Inkestako parte-hartzaileen erantzunak
+        publish_answers:
+          index:
+            answers:
+              one: "%{count} erantzun"
+              other: "%{count} erantzun"
+            description: |-
+              Galderen erantzunak argitaratzean, jendaurrean ikusgai jarriko dituzu.
+              Argitaratu nahi dituzun erantzunak hauta ditzakezu galdera bakoitzaren ondoan dagoen laukitxoan klik eginez.
+              Galdera mota hauek baino ezin dira argitaratu: "Aukera bakarra", "Aukera anitza", "Matrizea (aukera bakarra)", "Matrizea (aukera anitza)" eta "Sailkapena".
+            status:
+              not_published: Argitaratu gabe
+              published: Argitaratua
+            title: Argitaratu erantzunak
         surveys:
           create:
             invalid: Arazo bat egon da inkesta sortzean.
