@@ -311,8 +311,6 @@ en:
             geocoding_enabled: Maps enabled
             intro: Intro
             no_taxonomy_filters_found: No taxonomy filters found.
-            scope_id: Scope
-            scopes_enabled: Scopes enabled
             taxonomy_filters: Select filters for the component
             taxonomy_filters_add: Add filter
           step:

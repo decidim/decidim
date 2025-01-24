@@ -22,8 +22,6 @@ en:
         published_at: Published at
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
         short_description: Short description
         show_statistics: Show statistics
         sign_date: Sign date
@@ -626,7 +624,6 @@ en:
           remote_banner_image_url: The URL of the conference banner image
           remote_hero_image_url: The URL of the conference hero image
           scope: The scope of the conference
-          scopes_enabled: Weather the scopes are enabled or not
           short_description: A short description of the conference
           slogan: The slogan for this conference
           slug: The conference slug (used for identification purposes, for the URL)

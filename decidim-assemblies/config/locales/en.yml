@@ -45,8 +45,6 @@ en:
         promoted: Highlighted
         published_at: Published at
         purpose_of_action: Purpose of action
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
         short_description: Short description
         slug: URL slug
         special_features: Special features
@@ -420,8 +418,6 @@ en:
           reference: The unique reference of the space
           remote_banner_image_url: The URL of the assembly banner image
           remote_hero_image_url: The URL of the assembly hero image
-          scope: The scope of the assembly
-          scopes_enabled: Weather the scopes are enabled or not
           short_description: A short description of the assembly
           slug: The assembly slug (used for identification purposes, for the URL)
           special_features: Which special features this assembly has
