@@ -1840,15 +1840,6 @@ ca:
         send: Enviar
       update:
         error: Missatge no enviat. Torna-ho a provar més tard
-    user_interests:
-      show:
-        my_interests: Els meus interessos
-        no_scopes: Aquesta organització encara no té cap àmbit!
-        select_your_interests: Selecciona els temes del teu interès per rebre notificacions relacionades amb aquests a la pestanya de la Línia de temps dins del teu perfil públic.
-        update_my_interests: Actualitza els meus interessos
-      update:
-        error: S'ha produït un error en actualitzar els teus interessos.
-        success: Els teus interessos s'han actualitzat correctament.
     user_report_mailer:
       notify:
         body_1: La usuària %{user} ha estat reportada per %{token}
@@ -2260,7 +2251,6 @@ ca:
         authorizations: Autoritzacions
         delete_my_account: Eliminar el meu compte
         my_data: Les meves dades
-        my_interests: Els meus interessos
         notifications_settings: Configuració de les notificacions
         profile: Perfil
         title: Configuració de la participant
