@@ -36,7 +36,6 @@ sq:
         confirm_destroy: Je i sigurt që dëshiron ta fshish këtë %{name}?
         destroy: Fshij
         edit: Përpuno
-        import: Importo projekte nga një komponente tjetër
         import_csv: Importo rezultate nga CSV
         new_result: Rezultat i ri
         new_status: Status i ri
@@ -62,22 +61,6 @@ sq:
             name: Rezultati
           status:
             name: Statusi
-        projects_import:
-          create:
-            invalid: Ndodhi një problem gjatë importimit të projekteve në rezultate, ju lutem ndiqni udhëzimet me kujdes dhe kujdesuni që të zgjidhni projektet për implementim.
-          new:
-            create: Importo
-            import_all_selected_projects: Importo të gjitha projektet për implementim
-            new_items:
-              one: 1 projekt i seleksinuar do të importohet
-              other: "%{count} projekt i seleksionuar do të importohet"
-            no_components: Nuk ka komponente buxheti në këtë hapësirë të pjesëmarrjes për të shndërruar projekte në rezultate.
-            origin_component_id: Komponenti i origjinës
-            select_component: Zgjedh një komponent
-            success:
-              one: 1 projekt në rradhë për t'u importuar. Do të njoftohesh me email, kur të përfundojë.
-              other: "%{count} projekte në rradhë për t'u importuar. Do të njoftohesh me email, kur të përfundojnë."
-            title: Importo projekte nga një komponente tjetër
         results:
           create:
             invalid: Ndodhi një gabim gjatë krijimit të këtij rezultati.
