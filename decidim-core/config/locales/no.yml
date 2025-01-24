@@ -1049,13 +1049,6 @@
         send: Send
       update:
         error: Melding ikke sendt. Prøv igjen senere
-    user_interests:
-      show:
-        my_interests: Mine interesser
-        update_my_interests: Oppdater interessene mine
-      update:
-        error: Det oppstod et problem med å oppdatere interessene dine.
-        success: Interessene dine er oppdatert.
     user_report_mailer:
       notify:
         body_1: Brukeren %{user} er rapportert av %{token}
@@ -1260,7 +1253,6 @@
         authorizations: Fullmakter
         delete_my_account: Slett kontoen min
         my_data: Min data
-        my_interests: Mine interesser
         notifications_settings: Varslingsinnstillinger
         title: Deltaker innstillinger
         user_groups: Grupper
