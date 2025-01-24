@@ -29,6 +29,8 @@ fr-CA:
         body: Corps de texte
       report:
         details: Commentaires supplémentaires
+      taxonomy_filter:
+        space_filter: Disponible comme filtre pour
       user:
         about: A propos de moi
         avatar: Avatar
@@ -281,6 +283,10 @@ fr-CA:
         create: "%{user_name} a créé la page statique %{resource_name}"
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
         update: "%{user_name} a mis à jour la page statique %{resource_name}"
+      taxonomy_filter:
+        create: "%{user_name} a créé le filtre %{resource_name}"
+        delete: "%{user_name} a supprimé le filtre %{resource_name}"
+        update: "%{user_name} a mis à jour le filtre %{resource_name}"
       user:
         block: "%{user_name} a bloqué l'utilisateur %{resource_name}"
         invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle : %{role}"
@@ -1113,6 +1119,8 @@ fr-CA:
         unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
         unpublish_with_space: "%{user_name} a dépublié %{resource_name} de %{space_name}"
         update: "%{user_name} a mis à jour %{resource_name}"
+        update_filters: "%{user_name} a mis à jour les filtres de %{resource_name}"
+        update_filters_with_space: "%{user_name} a mis à jour les filtres de %{resource_name} dans %{space_name}"
         update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
@@ -1675,15 +1683,6 @@ fr-CA:
         send: Envoyer
       update:
         error: Message non envoyé. Réessayez plus tard
-    user_interests:
-      show:
-        my_interests: Mes intérêts
-        no_scopes: Cette organisation n'a pas encore de secteurs !
-        select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir les événements qui y sont liés dans l'onglet Chronologie de votre profil.
-        update_my_interests: Mettre à jour mes intérêts
-      update:
-        error: Une erreur s'est produite lors de la mise à jour de vos centres d'intérêt.
-        success: Vos intérêts ont été mis à jour avec succès.
     user_report_mailer:
       notify:
         body_1: L'utilisateur %{user} a été signalé par %{token}
@@ -2092,7 +2091,6 @@ fr-CA:
         authorizations: Autorisations
         delete_my_account: Supprimer mon compte
         my_data: Mes données
-        my_interests: Mes intérêts
         notifications_settings: Paramètres des notifications
         profile: Profil
         title: Paramètres utilisateur
