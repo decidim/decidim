@@ -1223,10 +1223,15 @@ pt:
         details:
           columns:
             type: Tipo
+        modal:
+          title: Definições de “cookies”
+        warning:
+          change_settings: Alterar configurações de “cookies”
       edit_link:
         edit: Editar
       footer:
         cc_by_license: Licença Creative Commons
+        data_consent_settings: Definições de cookies
         decidim_logo: Logótipo do Decidim
         download_open_data: Transferir ficheiros Open Data
         log_in: Entrar
