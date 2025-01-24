@@ -94,8 +94,6 @@ tr:
             create: İçe aktar
             import_all_selected_projects: Seçilen tüm projeleri içe aktarın
             no_components: Bu katılımcı alanda projeleri sonuçlara dönüştürecek bütçe bileşenleri yoktur.
-            origin_component_id: Asıl bileşen
-            select_component: Bir bileşen seç
             title: Projeleri başka bir bileşenden içe aktarın
         results:
           create:
