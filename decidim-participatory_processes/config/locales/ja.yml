@@ -268,6 +268,9 @@ ja:
         create:
           error: 新しい参加型プロセスグループの作成中に問題が発生しました。
           success: 参加型プロセスグループを作成しました。
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: すべての参加型プロセス
       titles:
         participatory_process_groups: 参加型プロセスグループ
         participatory_process_types: 参加型プロセス種別
