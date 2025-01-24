@@ -1128,6 +1128,14 @@ eu:
           error: Arazo bat egon da orri hau eguneratzean.
           success: Orria zuzen eguneratua.
       taxonomies:
+        actions:
+          actions: Ekintzak
+          destroy: Ezabatu taxonomia eta elementuak
+          edit: Editatu taxonomia eta elementuak
+          filters: Kudeatu iragazkiak
+        breadcrumb:
+          edit: Editatu taxonomia
+          new: Beste taxonomia bat
         count: Lotutako baliabideak
         create:
           invalid: Arazo bat egon da kategoria hau sortzean.
@@ -1146,6 +1154,7 @@ eu:
         filters:
           search_placeholder: Bilatu
         index:
+          description: Taxonomiek eta iragazkiek aukera ematen diete administratzaileei edukiak ordenatzeko eta antolatzeko. Adibidez, gehitu taxonomia bat hiriko auzo eta barrutiekin, eta gero sortu iragazkiak barrutiekin edo auzo jakin baterako.
           new_taxonomy: Taxonomia berria
           no_items_found: Ez dago bilaketa-irizpidearekin bat datorren taxonomiarik.
         name: Izena
@@ -1158,12 +1167,18 @@ eu:
           to_prev_page: Arrastatu aurreko orrira
         taxonomy_actions:
           confirm_destroy: 'Ziur zaude %{name} ezabatu nahi duzula? Honek, gainera, haurren objektu guztiak ezabatuko ditu. OHARRA: Taxonomia hori erabiltzen ari diren baliabideek ez dute eraginik izango, baina taxonomia horren erreferentzia galduko dute.'
+        total_filters: Iragazkiak
+        total_items: Elementuak taxonomian
         update:
           invalid: Arazo bat izan da taxonomia hau eguneratzean.
           success: Taxonomia zuzen eguneratua.
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Beste taxonomia-iragazki bat
+        breadcrumb:
+          edit: Editatu iragazkia
+          filters: Iragazkiak
+          new: Beste iragazki bat
         create:
           error: Arazo bai izan da taxonomia-iragazki hau sortzean.
           success: Taxonomia-iragazkia zuzen sortua.
@@ -1181,21 +1196,39 @@ eu:
             other: "%{count} item hautatuta"
           name_help: Aurrealdean erakutsiko den iragazkiaren izenburua.
           no_items: Taxonomia honetarako ez dago elementurik. Artikuluak sor ditzakezu taxonomia konfiguratzeko ezarpenetan.
+          space_filter: Iragazki gisa eskuragarri honetarako
         index:
           description: Taxonomia-iragazki batek aukera ematen die administratzaileei espazio parte-hartzaileak taxonomia batean oinarrituta ordenatzeko eta iragazteko. Adibidez, gehitu taxonomia-iragazki bat prozesuak eremu geografikoaren arabera sailkatzeko.
           empty: Gaur egun ez dago taxonomia-iragazkirik. Sortu taxonomia-iragazkien zerrenda bat, espazio parte-hartzaileak taxonomia baten arabera ordenatu eta iragazteko.
+          new_filter: Beste iragazki bat
         new:
           back: Atzera
           create: Sortu taxonomia-iragazkia
           title: Beste taxonomia-iragazki bat
         table:
           actions: Ekintzak
+          components_count: Osagaiak erabiltzen dituzte
           confirm_destroy: 'Ziur zaude %{name} iragazkia ezabatu nahi duzula? OHARRA: Iragazki hau erabiltzen ari diren baliabideei ez zaie eragingo, baina iragazki horren erreferentzia galduko dute.'
           destroy: Ezabatu
           edit: Editatu
+          internal_name: Barneko etiketa
+          name: Etiketa
         update:
           error: Arazo bai izan da taxonomia-iragazki hau eguneratzean.
           success: Taxonomia-iragazkia zuzen eguneratua.
+      taxonomy_filters_selector:
+        new:
+          add_new_items_html: 'Beste iragazki edo elementu bat jarri behar baduzu, egin konfigurazio-ezarpenaren bidez edo klikatuz: <a href="%{url}">here</a>.'
+          items_count: "%{count} elementu"
+          save: Gorde
+        show:
+          items_count: "%{count} elementu"
+          remove: Kendu
+        taxonomies_select:
+          filters: Iragazkiak
+          select_filter: Hautatu iragazki bat
+          select_taxonomy: Hautatu taxonomia bat
+          taxonomies: Taxonomiak
       taxonomy_items:
         edit:
           title: 'Editatu elementua hemen: %{taxonomy}'
@@ -1225,6 +1258,7 @@ eu:
         scopes: Esparruak
         statistics: Jarduera
         taxonomies: Taxonomiak
+        taxonomy_filters: 'Taxonomia-iragazkiak honetarako: "%{taxonomy}"'
         user_groups: Partaide-taldeak
         users: Administratzaileak
       tooltips:
@@ -1360,3 +1394,5 @@ eu:
       admin:
         global_moderations:
           title: Moderazio globalak
+        taxonomy_filters_selector:
+          title: Iragazkiak
