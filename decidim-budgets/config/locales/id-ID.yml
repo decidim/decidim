@@ -47,6 +47,9 @@ id:
         project:
           fields:
             title: Judul
+      order:
+        status:
+          title: Pilihan Anda telah berhasil diterima
       projects:
         budget_confirm:
           cancel: Membatalkan

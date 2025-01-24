@@ -70,16 +70,16 @@ es-PY:
               <li> <a href='%{link_new_status}' target='_blank'>Crea los estados para los resultados</a> que quieras agregar</li>
               <li><a href='%{link_new_result}' target='_blank'> Crea por lo menos un resultado manualmente</a> a través del panel de administración antes de importar, para entender mejor el formato y cómo rellenarlo.</li>
               <li>%{link_export_csv}</li>
-              <li>Haz los cambios en local. Sólo puedes modificar las siguientes columnas del CSV:
+              <li>Haz los cambios en local. Sólo puedes modificar las siguientes columnas del CSV  (el resto será ignorado):
                 <ul>
-                <li><b> id category/id:</b> ID para la categoría</li>
-                <li><b>scope/id:</b> ID para el ámbito</li>
-                <li><b>parent/id:</b> ID para el padre (para resultados relacionados). Opcional</li>
+                <li><b>taxonomies/ids:</b> IDs para la taxonomia (si hay más de una, sepárelas con una coma)</li>
+                <li><b>parent/id:</b> ID para el padre (para resultados relacionados). 
+              <br>Opcional</li>
                 <li><b>title/I18N:</b> título en el idioma X</li>
                 <li><b>description/I18N:</b> descripción en el idioma X</li>
                 <li><b>start_date:</b> fecha en la que se inicia la ejecución del resultado (formato AAAA-MM-DD)</li>
                 <li><b>end_date:</b> fecha en la que finaliza la ejecución del resultado (formato AAAA-MM-DD) </li>
-                <li><b> status/id:</b> ID del estado para este resultado</li>
+                <li><b>status/id:</b> ID del estado para este resultado</li>
                 <li><b>progress:</b> Tanto por ciento (de 0 a 100) de ejecución</li>
                 <li><b>proposals_ids:</b> ID interno de las propuestas relacionadas (separadas por comas). Se convertirá automáticamente en <span class = 'attribute-name'>proposal_url</span></li>
                 </ul>
@@ -112,6 +112,23 @@ es-PY:
               other: "Hay %{count} proyectos para ser importados. Se notificará por correo electrónico, cuando se complete la importación."
             title: Importar proyectos desde otro componente
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Cambiar fecha
+              end_date: Fecha de finalización
+              start_date: Fecha de inicio
+            dropdown:
+              actions: Acciones
+              change_dates: Cambiar fechas
+              change_status: Cambiar estados
+              change_taxonomies: Cambiar taxonomías
+            status_form:
+              change_status: Cambiar estados
+              status: Estado
+            submit_buttons:
+              cancel: Cancelar
+            taxonomies_form:
+              change_taxonomies: Cambiar taxonomías
           create:
             invalid: Se ha producido un error al crear este resultado.
             success: Resultado creado correctamente.
@@ -119,6 +136,7 @@ es-PY:
             title: Editar resultado
             update: Actualizar resultado
           index:
+            selected: Seleccionadas
             title: Resultados
           manage_trash:
             title: Resultados eliminados
@@ -128,6 +146,17 @@ es-PY:
           update:
             invalid: Se ha producido un error al actualizar este resultado.
             success: Resultado actualizado correctamente.
+          update_dates:
+            invalid: Se ha producido un error al actualizar las fechas de los resultados
+            success: Las fechas de los resultados se han actualizado correctamente
+          update_status:
+            invalid: Se ha producido un error al actualizar el estado de los resultados
+            success: El estado de los resultados se ha actualizado correctamente
+          update_taxonomies:
+            invalid: No se pudo actualizar la taxonomía %{taxonomies} para los resultados %{results}
+            select_a_result: Selecciona un resultado
+            select_a_taxonomy: Selecciona una taxonomía
+            success: No se pudo actualizar la taxonomía %{taxonomies} para los resultados %{results}
         shared:
           subnav:
             statuses: Estados

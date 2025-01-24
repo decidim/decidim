@@ -51,7 +51,11 @@
         <%= render partial: "decidim/forms/questionnaires/questionnaire_readonly" %>
       <% end %>
     <% else %>
-      <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_closed.title"), body: t("decidim.forms.questionnaires.show.questionnaire_closed.body") }, callout_class: "warning") %>
+      <% if questionnaire_for.class.name == "Decidim::Surveys::Survey" && show_published_questions_answers? %>
+        <%= render partial: "decidim/surveys/surveys/published_questions_answers" %>
+      <% else %>
+        <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_closed.title"), body: t("decidim.forms.questionnaires.show.questionnaire_closed.body") }, callout_class: "warning") %>
+      <% end %>
     <% end %>
   </section>
 

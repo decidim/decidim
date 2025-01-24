@@ -263,7 +263,7 @@ pt:
         title: Propostas
     participatory_spaces:
       highlighted_proposals:
-        see_all: Ver todos (%{count})
+        see_all: Ver todos
     proposals:
       actions:
         answer_proposal: Responder a proposta
@@ -325,9 +325,7 @@ pt:
             title: Atualizar proposta
             update: Atualizar
           form:
-            attachment_legend: "(Opcional) Adicionar um anexo"
             created_in_meeting: Esta proposta vem de uma reunião
-            delete_attachment: Apagar anexo
             select_a_meeting: Selecione uma reunião
           index:
             actions: Ações
@@ -427,7 +425,6 @@ pt:
         create:
           success: Rascunho colaborativo criado corretamente.
         edit:
-          attachment_legend: "(Opcional) Adicione um anexo"
           back: Retroceder
           send: Enviar
           title: Editar rascunho colaborativo
@@ -522,7 +519,6 @@ pt:
           description: As coordenadas serão actualizadas quando clicar no botão ‘pré-visualização’. No entanto, o endereço não será alterado.
           instructions: Pode mover o ponto no mapa.
         edit:
-          attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
           send: Enviar
           title: Editar proposta
@@ -594,6 +590,8 @@ pt:
         voting_rules:
           proposal_limit:
             description: Pode criar até %{limit} propostas.
+          vote_limit:
+            description: Pode votar até %{limit} propostas.
         wizard_aside:
           back: Retroceder
           back_from_step_1: Retroceder para as propostas

@@ -124,6 +124,7 @@ cdp
 cellphone
 centerblock
 changeme
+chartkick
 cherrypicking
 childs
 chromedriver

@@ -50,6 +50,77 @@ describe "Answer a survey" do
 
       expect(page).to have_content("The form is closed and cannot be answered.")
     end
+
+    context "when the survey has questions' answers published" do
+      let(:question_single_option) { create(:questionnaire_question, :with_answer_options, position: 0, question_type: "single_option", questionnaire:) }
+
+      let(:question_multiple_option) { create(:questionnaire_question, :with_answer_options, position: 1, question_type: "multiple_option", questionnaire:) }
+
+      let(:question_matrix_single) { create(:questionnaire_question, :with_answer_options, position: 2, question_type: "matrix_single", questionnaire:) }
+      let!(:question_matrix_row_single1) { create(:question_matrix_row, question: question_matrix_single) }
+      let!(:question_matrix_row_single2) { create(:question_matrix_row, question: question_matrix_single) }
+      let!(:question_matrix_row_single3) { create(:question_matrix_row, question: question_matrix_single) }
+
+      let(:question_matrix_multiple) { create(:questionnaire_question, :with_answer_options, position: 3, question_type: "matrix_multiple", questionnaire:) }
+      let!(:question_matrix_row_multiple1) { create(:question_matrix_row, question: question_matrix_multiple) }
+      let!(:question_matrix_row_multiple2) { create(:question_matrix_row, question: question_matrix_multiple) }
+      let!(:question_matrix_row_multiple3) { create(:question_matrix_row, question: question_matrix_multiple) }
+
+      let(:question_sorting) { create(:questionnaire_question, :with_answer_options, position: 4, question_type: "sorting", questionnaire:) }
+
+      before do
+        10.times do
+          answer = create(:answer, question: question_single_option, questionnaire:)
+          answer_option = question_single_option.answer_options.sample
+          create(:answer_choice, answer_option:, answer:, matrix_row: nil)
+
+          answer = create(:answer, question: question_multiple_option, questionnaire:)
+          answer_option = question_multiple_option.answer_options.sample
+          create(:answer_choice, answer_option:, answer:, matrix_row: nil)
+
+          answer = create(:answer, question: question_matrix_single, questionnaire:)
+          answer_option = question_matrix_single.answer_options.sample
+          matrix_row = question_matrix_single.matrix_rows.sample
+          create(:answer_choice, answer_option:, answer:, matrix_row:)
+
+          answer = create(:answer, question: question_matrix_multiple, questionnaire:)
+          answer_option = question_matrix_multiple.answer_options.sample
+          matrix_row = question_matrix_multiple.matrix_rows.sample
+          create(:answer_choice, answer_option:, answer:, matrix_row:)
+
+          answer = create(:answer, question: question_sorting, questionnaire:)
+          answer_option = question_sorting.answer_options.sample
+          position = (0..(question_sorting.answer_options.count - 1)).to_a.sample
+          create(:answer_choice, answer_option:, answer:, position:, matrix_row: nil)
+        end
+      end
+
+      it "shows the charts when questions answers are published" do
+        visit_component
+        choose "All"
+        click_on translated_attribute(questionnaire.title)
+
+        # does not show the charts if not published
+        expect(page.html).not_to include('new Chartkick["ColumnChart"]("chart-1"')
+        expect(page.html).not_to include('new Chartkick["ColumnChart"]("chart-2"')
+        expect(page.html).not_to include('new Chartkick["ColumnChart"]("chart-3"')
+        expect(page.html).not_to include('new Chartkick["ColumnChart"]("chart-4"')
+        expect(page.html).not_to include('new Chartkick["BarChart"]("chart-5"')
+
+        [question_single_option, question_multiple_option, question_matrix_single, question_matrix_multiple, question_sorting].each do |question|
+          question.update!(survey_answers_published_at: Time.current)
+        end
+
+        visit current_path
+
+        # shows the charts
+        expect(page.html).to include('new Chartkick["ColumnChart"]("chart-1"')
+        expect(page.html).to include('new Chartkick["ColumnChart"]("chart-2"')
+        expect(page.html).to include('new Chartkick["ColumnChart"]("chart-3"')
+        expect(page.html).to include('new Chartkick["ColumnChart"]("chart-4"')
+        expect(page.html).to include('new Chartkick["BarChart"]("chart-5"')
+      end
+    end
   end
 
   context "when the survey requires permissions to be answered" do

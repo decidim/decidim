@@ -50,10 +50,6 @@ module Decidim
       attr_reader :result
       alias resource result
 
-      def component
-        result.component
-      end
-
       def proposals
         result.linked_resources(:proposals, "included_proposals").map do |proposal|
           Decidim::ResourceLocatorPresenter.new(proposal).url

@@ -65,23 +65,22 @@ fi:
             download_export: Lataa vientitiedosto CSV-muodossa
             import: Tuo
             info: |
-              <p>Suorittelemme tekemään seuraavat toimenpiteet suorittaaksesi tuonnin onnistuneesti:</p>
+              <p>Suosittelemme, että toteutat seuraavat toimenpiteet:</p>
               <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Luo tilat tuloksille</a></li>
-              <li><a href='%{link_new_result}' target='_blank'>Luo vähintään yksi tulos käsin</a> hallintapaneelin kautta ennen tuontia, jotta ymmärrät paremmin, miltä tuontitiedoston tulee näyttää.</li>
+              <li><a href='%{link_new_status}' target='_blank'>Lisää tuloksille haluamasi tilat</a></li>
+              <li><a href='%{link_new_result}' target='_blank'>Luo vähintään yksi tulos</a> hallintapaneelin lomakkeen kautta ennen kuin käytät tuontitoimintoa, jotta ymmärtäisit paremmin tuontitiedoston muodon ja mitä tietoja sen tulee sisältää.</li>
               <li>%{link_export_csv}</li>
-              <li>Tee tiedostoon muutoksia tietokoneellasi. Voit muuttaa ainoastaan seuraavia sarakkeita CSV-tiedostossa:
+              <li>Tee muutokset tuontitiedostoon omalla tietokoneellasi. Voit muuttaa ainoastaan seuraavia CSV-tiedoston sarakkeita (muut sarakkeet jätetään huomiotta):
                 <ul>
-                <li><b>category/id:</b> Aihepiirin ID-tunniste</li>
-                <li><b>scope/id:</b> Teeman ID-tunniste</li>
-                <li><b>parent/id:</b> Tuloksen isännän ID-tunniste. Vapaaehtoinen</li>
-                <li><b>title/fi:</b> Otsikko suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
-                <li><b>description/fi:</b> Kuvaus suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
-                <li><b>start_date:</b> Tuloksen toteuttamisen aloituspäivämäärä (muodossa YYYY-MM-DD)</li>
-                <li><b>end_date:</b> Tuloksen toteuttamisen päättymispäivämäärä (muodossa YYYY-MM-DD)</li>
+                <li><b>taxonomies/ids:</b> Luokittelujen yksilöivät ID-numerot (erota useammat arvot pilkulla)</li>
+                <li><b>parent/id:</b> Isäntätuloksen yksilöivä ID-numero (ainoastaan alatuloksille). Vapaaehtoinen</li>
+                <li><b>title/fi:</b> Otsikko suomeksi. Sarakkeen nimi riippuu alustan kieliasetuksista.</li>
+                <li><b>description/fi:</b> Kuvaus suomeksi. Sarakkeen nimi riippuu alustan kieliasetuksista.</li>
+                <li><b>start_date:</b> Tuloksen toteuttamisen alkamispäivä (muoto: VVVV-KK-PP)</li>
+                <li><b>end_date:</b> Tuloksen toteuttamisen päättymispäivä (muoto: VVVV-KK-PP)</li>
                 <li><b>status/id:</b> Tuloksen tilan ID-tunniste</li>
-                <li><b>progress:</b> Tuloksen toteutuksen prosentuaalisen etenemisen tila (välillä 0-100)</li>
-                <li><b>proposals_ids:</b> Liittyvien ehdotusten ID-numerot (pilkulla eroteltuna). Nämä muutetaan automaattisesti <span class='attribute-name'>proposal_url</span></li>
+                <li><b>progress:</b> Tuloksen toteutuksen edistysmisprosentti (arvo välillä 0-100)</li>
+                <li><b>proposals_ids:</b> Tulokseen liitettyjen ehdotusten yksilöivät ID-numerot (pilkulla erotettuna). Nämä muutetaan automaattisesti URL-osoitteiksi (<span class='attribute-name'>proposal_url</span>)</li>
                 </ul>
               </li>
               </ol>
@@ -112,6 +111,23 @@ fi:
               other: "%{count} projektia on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu."
             title: Tuo projekteja toisesta komponentista
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Muuta päivämäärää
+              end_date: Päättymispäivä
+              start_date: Alkamispäivä
+            dropdown:
+              actions: Toiminnot
+              change_dates: Muuta päivämääriä
+              change_status: Muuta tilaa
+              change_taxonomies: Muuta luokitteluja
+            status_form:
+              change_status: Muuta tilaa
+              status: Tila
+            submit_buttons:
+              cancel: Peruuta
+            taxonomies_form:
+              change_taxonomies: Muuta luokitteluja
           create:
             invalid: Tuloksen luonti epäonnistui.
             success: Tuloksen luonti onnistui.
@@ -119,6 +135,7 @@ fi:
             title: Muokkaa tulosta
             update: Päivitä tulos
           index:
+            selected: Valittu
             title: Tulokset
           manage_trash:
             title: Poistetut tulokset
@@ -128,6 +145,17 @@ fi:
           update:
             invalid: Tuloksen päivitys epäonnistui.
             success: Tuloksen päivitys onnistui.
+          update_dates:
+            invalid: Tulosten päivämäärien päivittäminen epäonnistui.
+            success: Tulosten päivämäärien päivittäminen onnistui.
+          update_status:
+            invalid: Tulosten tilojen päivittäminen epäonnistui.
+            success: Tulosten tilojen päivittäminen onnistui.
+          update_taxonomies:
+            invalid: Luokittelujen %{taxonomies} määrittäminen tulokselle %{results} epäonnistui.
+            select_a_result: Valitse tulos
+            select_a_taxonomy: Valitse luokittelu
+            success: Luokittelujen %{taxonomies} määrittäminen tulokselle %{results} onnistui.
         shared:
           subnav:
             statuses: Tilat
@@ -300,11 +328,11 @@ fi:
           alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
           author: Kommentin laatijan nimi
           body: Kommentin teksti
-          commentable_id: Kommentoitavan asian yksilöllinen tunniste
+          commentable_id: Kommentoitavan asian yksilöivä tunniste
           commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
           created_at: Kommentin laatimisaika
           depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
-          id: Kommentin yksilöllinen tunniste
+          id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
           user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
@@ -316,18 +344,18 @@ fi:
           created_at: Tuloksen laatimisaika
           description: Tuloksen kuvaus
           end_date: Päivämäärä, jolloin tuloksen toteutus päättyy ja tulos valmistuu
-          id: Tuloksen yksilöllinen tunniste
+          id: Tuloksen yksilöivä tunniste
           latitude: Tuloksen sijainnin leveysaste, mikäli tulos on määritetty tiettyyn paikkaan
           longitude: Tuloksen sijainnin pituusaste, mikäli tulos on määritetty tiettyyn paikkaan
           parent: Tuloksen isäntä, jos tulos on alitulos
           progress: Tuloksen toimeenpanon valmistumisprosentti
           proposal_urls: Tähän tulokseen sisällytettyjen ehdotusten URL-osoitteet
-          reference: Tuloksen yksilöllinen viite
+          reference: Tuloksen yksilöivä viite
           start_date: Päivämäärä, jolloin tuloksen toteutus alkaa
           status: Tuloksen tämänhetkinen tila
           taxonomies: Tuloksen luokittelut
           title: Tuloksen otsikko
-          updated_at: Tuloksen viimeisen päivityksen aika
+          updated_at: Tuloksen viimeisimmän päivityksen ajankohta
           url: URL-osoite tulokseen
     participatory_spaces:
       highlighted_results:

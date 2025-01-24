@@ -10,7 +10,7 @@ describe Decidim::AdminLog::TaxonomyFilterPresenter, type: :helper do
       let(:admin_log_extra_data) do
         {
           extra: {
-            space_manifest: "participatory_processes",
+            participatory_space_manifests: ["participatory_processes"],
             filter_items_count: 99
           }
         }

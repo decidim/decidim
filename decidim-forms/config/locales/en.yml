@@ -56,6 +56,7 @@ en:
         questionnaires:
           actions:
             back: Back to questions
+            publish_answers: Publish answers
             show: Show responses
           answer_option:
             answer_option: Answer option
@@ -105,7 +106,7 @@ en:
             add_separator: Add separator
             add_title_and_description: Add title and description
             save: Save
-            title: Est error.> Questions
+            title: Questions
           form:
             add_question: Add question
             collapse: Collapse all questions
@@ -155,6 +156,9 @@ en:
             invalid: There was a problem saving the form.
             success: Form successfully saved.
       admin_log:
+        question:
+          publish_answers: "%{user_name} published the %{resource_name} question's answers on the %{space_name} space"
+          unpublish_answers: "%{user_name} unpublished the %{resource_name} question's answers on the %{space_name} space"
         questionnaire:
           update: "%{user_name} updated the %{resource_name} questionnaire"
       errors:

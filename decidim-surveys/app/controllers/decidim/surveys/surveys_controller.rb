@@ -10,7 +10,8 @@ module Decidim
       include FilterResource
       include Paginable
 
-      helper_method :authorizations, :surveys
+      helper PublishAnswersHelper
+      helper_method :authorizations, :surveys, :show_published_questions_answers?
 
       before_action :check_permissions, except: [:index]
       before_action :check_editable, only: [:edit]
@@ -44,6 +45,10 @@ module Decidim
 
       def allow_editing_answers?
         survey.allow_editing_answers? && survey.open?
+      end
+
+      def show_published_questions_answers?
+        survey.closed? && survey.questionnaire.questions.pluck(:survey_answers_published_at).any?
       end
 
       def allow_answers?

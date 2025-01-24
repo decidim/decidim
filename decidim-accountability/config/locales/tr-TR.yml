@@ -52,27 +52,6 @@ tr:
           new:
             download_export: '  İhracat i CSV formatında indirin '
             import: İçe aktar
-            info: |
-              <p>Şu adımları uygulamanızı öneririz:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Eklemek istediğiniz Sonuçlar için kayıtları</a></li>
-              Biçimi ve neye ihtiyacınız olacağını daha iyi anlamak için, İçe Aktarmayı kullanmadan önce bu Yönetici paneli aracılığıyla <li><a href='%{link_new_result}' target='_blank'>manuel olarak en az bir Sonuç oluşturun</a> doldurmak için.</li>
-              <li>%{link_export_csv</li>
-              <li>Değişiklikleri yerel olarak yapın. CSV'nin yalnızca aşağıdaki sütunlarını değiştirebilirsiniz:
-                 <ul>
-                 <li><b>kategori/kimlik:</b> Kategorinin kimliği</li>
-                 <li><b>kapsam/kimlik:</b> Kapsamın kimliği</li>
-                 <li><b>ebeveyn/kimlik:</b> Ebeveynin kimliği (ilgili Sonuçlar için). İsteğe bağlı</li>
-                 <li><b>title/en:</b> İngilizce dilindeki başlık. Bu, platform dili yapılandırmanıza bağlı olacaktır.</li>
-                 <li><b>description/tr:</b> İngilizce diliyle ilgili açıklama. Bu, platform dili yapılandırmanıza bağlı olacaktır.</li>
-                 <li><b>başlangıç_tarihi:</b> sonucun yürütülmeye başlayacağı tarih (YYYY-AA-GG biçiminde)</li>
-                 <li><b>bitiş_tarihi:</b> sonucun yürütülmesinin sona erdiği tarih (YYYY-AA-GG biçiminde)</li>
-                 <li><b>durum/kimlik:</b> Bu sonuca ilişkin Durumun kimliği</li>
-                 <li><b>ilerleme:</b> Yürütme yüzdesi (0'dan 100'e kadar)</li>
-                 <li><b>teklifler_kimlikleri:</b> İlgili tekliflerin dahili kimliği (virgülle ayrılmış). Otomatik olarak <span class='attribute-name'>proposal_url</span></li> biçimine dönüştürülür
-                 </ul>
-              </li>
-              </ol>
             title: Sonuçları CSV dosyasından içe aktarın
         imports:
           create:

@@ -68,39 +68,6 @@ module Decidim
         end
       end
 
-      def import_assemblies_type(type_id)
-        return if Decidim::AssembliesType.find_by(id: type_id).nil?
-
-        @imported_assembly.decidim_assemblies_type_id = type_id
-      end
-
-      def import_categories(categories)
-        return if categories.nil?
-
-        categories.map do |category_attributes|
-          category = Decidim.traceability.create!(
-            Category,
-            @user,
-            name: category_attributes["name"],
-            description: category_attributes["description"],
-            parent_id: category_attributes["parent_id"],
-            participatory_space: @imported_assembly
-          )
-          next if category_attributes["subcategories"].nil?
-
-          category_attributes["subcategories"].map do |subcategory_attributes|
-            Decidim.traceability.create!(
-              Category,
-              @user,
-              name: subcategory_attributes["name"],
-              description: subcategory_attributes["description"],
-              parent_id: category.id,
-              participatory_space: @imported_assembly
-            )
-          end
-        end
-      end
-
       def import_folders_and_attachments(attachments)
         return if attachments["files"].nil?
 

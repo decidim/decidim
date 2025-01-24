@@ -96,6 +96,9 @@ tr:
         project:
           fields:
             title: Başlık
+      order:
+        status:
+          title: Oyunuz başarıyla kabul edildi
       order_summary_mailer:
         order_summary:
           selected_projects: 'Seçtiğiniz projeler şunlardır:'

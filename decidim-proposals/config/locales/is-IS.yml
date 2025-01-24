@@ -79,8 +79,6 @@ is-IS:
             submit: Senda inn
           title: Einkaskilaboð
         proposals:
-          form:
-            attachment_legend: "(Valfrjálst) Bæta við viðhengi"
           index:
             actions: Aðgerðir
             cancel: Hætta við

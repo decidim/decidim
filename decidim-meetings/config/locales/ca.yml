@@ -1,6 +1,8 @@
 ca:
   activemodel:
     attributes:
+      answer:
+        add_documents: Afegir documents
       close_meeting:
         attendees_count: Nombre d'assistents
         attending_organizations: Llista d'organitzacions que han participat
@@ -93,6 +95,9 @@ ca:
         other: Inscripcions
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Trobades
       filters:
         accepted_at_not_null:
           label: Acceptada
@@ -175,6 +180,12 @@ ca:
             creation_enabled_for_participants: Habilitar la creació de trobades per part de les participants
             creation_enabled_for_user_groups: Habilitar la creació de trobades per part dels grups d'usuàries
     download_your_data:
+      help:
+        registrations:
+          code: El codi d'inscripció
+          id: L'identificador únic de la inscripció
+          meeting: La trobada a la qual es va inscriure la usuària
+          user: La usuària que va realitzar la inscripció
       show:
         meeting_comments: Exportar els comentaris a les trobades
         meetings: Exportar les trobades
@@ -399,6 +410,7 @@ ca:
           form:
             available_slots_help: Deixar a 0 si les inscripcions són il·limitades.
             invites: Invitacions
+            manage_questions: Gestionar les preguntes
             recommendation_message: Per raons de privacitat et recomanem que esborris aquest formulari d'inscripció quan ja no el necessitis. Per defecte això és 3 mesos després que la reunió hagi finalitzat.
             registration_email_help: Aquest text apareixerà enmig del correu de confirmació de la inscripció. Just a sota del codi d'inscripció.
             registration_form: Formulari d'inscripció

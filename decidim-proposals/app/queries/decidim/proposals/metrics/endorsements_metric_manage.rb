@@ -13,9 +13,9 @@ module Decidim
             next if cumulative_value.zero?
 
             quantity_value = quantity[key] || 0
-            category_id, space_type, space_id, proposal_id = key
+            taxonomy_id, space_type, space_id, proposal_id = key
             record = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name,
-                                                           organization: @organization, decidim_category_id: category_id,
+                                                           organization: @organization, decidim_taxonomy_id: taxonomy_id,
                                                            participatory_space_type: space_type, participatory_space_id: space_id,
                                                            related_object_type: "Decidim::Proposals::Proposal", related_object_id: proposal_id)
             record.assign_attributes(cumulative: cumulative_value, quantity: quantity_value)
@@ -31,18 +31,18 @@ module Decidim
           components = Decidim::Component.where(participatory_space: retrieve_participatory_spaces).published
           proposals = Decidim::Proposals::Proposal.where(component: components).not_withdrawn
           join_components = "INNER JOIN decidim_components ON decidim_components.manifest_name = 'proposals' AND proposals.decidim_component_id = decidim_components.id"
-          join_categories = <<~EOJOINCATS
-            LEFT OUTER JOIN decidim_categorizations
-            ON (proposals.id = decidim_categorizations.categorizable_id
-            AND decidim_categorizations.categorizable_type = 'Decidim::Proposals::Proposal')
+          join_taxonomies = <<~EOJOINCATS
+            LEFT OUTER JOIN decidim_taxonomizations
+            ON (proposals.id = decidim_taxonomizations.taxonomizable_id
+            AND decidim_taxonomizations.taxonomizable_type = 'Decidim::Proposals::Proposal')
           EOJOINCATS
           @query = Decidim::Endorsement.joins("INNER JOIN decidim_proposals_proposals proposals ON resource_id = proposals.id")
                                        .joins(join_components)
-                                       .joins(join_categories)
+                                       .joins(join_taxonomies)
                                        .where(resource_id: proposals.pluck(:id))
                                        .where(resource_type: Decidim::Proposals::Proposal.name)
           @query = @query.where(decidim_endorsements: { created_at: ..end_time })
-          @query = @query.group("decidim_categorizations.id",
+          @query = @query.group("decidim_taxonomizations.taxonomy_id",
                                 :participatory_space_type,
                                 :participatory_space_id,
                                 :resource_id)

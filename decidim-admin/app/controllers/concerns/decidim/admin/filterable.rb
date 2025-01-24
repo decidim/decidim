@@ -30,7 +30,6 @@ module Decidim
                       :search_field_predicate,
                       :adjacent_items
 
-        delegate :categories, to: :current_component
         delegate :scopes, to: :current_organization
         delegate :taxonomies, to: :current_organization
         delegate :available_root_taxonomies, to: :current_component
@@ -193,13 +192,6 @@ module Decidim
 
         def taxonomy_order_or_search?
           ransack_params[:taxonomies_part_of_contains].present? || ransack_params[:s]&.include?("taxonomies_name")
-        end
-
-        # A tree of Category IDs. Leaves are `nil`.
-        def category_ids_hash(categories)
-          categories.each_with_object({}) do |category, hash|
-            hash[category.id] = category.subcategories.any? ? category_ids_hash(category.subcategories) : nil
-          end
         end
 
         # A tree of Scope IDs. Leaves are `nil`.
