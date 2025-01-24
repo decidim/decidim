@@ -167,7 +167,6 @@ en:
             edit: Edit
           census:
             create_import:
-              error: There was a problem importing census.
               no_user: No user found
               success: Successfully imported %{count} items.
             destroy:
@@ -232,8 +231,10 @@ en:
             other: 'Participation is restricted to participants with any of the following postal codes: %{postal_codes}. Your postal code is %{user_postal_code}.'
           user_scope: Participation is restricted to participants with the scope %{scope_name}, and your scope is %{user_scope_name}.
       errors:
+        has_headers: The file must not contain headers.
         invalid_emails: 'The following email addresses are invalid: %{invalid_emails}.'
         no_emails: The file must contain emails
+        wrong_number_columns: "%{expected} column were expected, but %{actual} were found."
       id_documents:
         admin:
           config:

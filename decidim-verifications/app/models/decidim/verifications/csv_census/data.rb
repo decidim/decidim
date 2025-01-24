@@ -20,14 +20,29 @@ module Decidim
           @file = file
           @values = []
           @errors = []
+          @column_count = nil
         end
 
         def read
           CSV.foreach(@file, encoding: "BOM|UTF-8") do |row|
             process_row(row)
+            @column_count ||= row.size
           end
+
+          @errors << I18n.t("decidim.verifications.errors.wrong_number_columns", expected: 1, actual: @column_count) if @column_count && @column_count > 1
         rescue CSV::MalformedCSVError => e
-          errors << ["Error: #{e.message}"]
+          @errors << "Error: #{e.message}"
+        end
+
+        def count
+          @column_count || 0
+        end
+
+        def headers
+          CSV.open(@file, encoding: "BOM|UTF-8") do |csv|
+            first_row = csv.first
+            return first_row ? first_row.map(&:strip) : []
+          end
         end
 
         private

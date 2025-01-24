@@ -37,24 +37,19 @@ module Decidim
           def create_import
             enforce_permission_to :create, :authorization
             @form = form(CensusDataForm).from_params(params)
+            @form.csv_must_be_readable
             @status = Status.new(current_organization)
 
-            @form.csv_must_be_readable
-
             if @form.errors.any?
-              flash.now[:alert] = @form.errors.full_messages.join(", ")
+              error_messages = @form.errors.full_messages.map { |msg| "<li>#{msg}</li>" }.join
+              flash.now[:alert] = "<ul>#{error_messages}</ul>"
               render(:index) && return
-            end
-
-            CreateCensusData.call(@form, current_organization) do
-              on(:ok) do
-                flash[:notice] = t(".success", count: @form.data.values.count)
-                redirect_to census_logs_path
-              end
-
-              on(:invalid) do
-                flash.now[:alert] = t(".error")
-                render :index
+            else
+              CreateCensusData.call(@form, current_organization) do
+                on(:ok) do
+                  flash[:notice] = t(".success", count: @form.data.values.count)
+                  redirect_to census_logs_path
+                end
               end
             end
           end
