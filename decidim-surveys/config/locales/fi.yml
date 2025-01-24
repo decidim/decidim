@@ -66,6 +66,19 @@ fi:
             title: 'Vastaus #%{number}'
         exports:
           survey_user_answers: Kyselyiden vastaukset
+        publish_answers:
+          index:
+            answers:
+              one: "%{count} vastaus"
+              other: "%{count} vastausta"
+            description: |-
+              Voit julkaista kyselyn vastaukset näkyville kaikille alustan käyttäjille.
+              Voit valita julkaistavat vastaukset valitsemalla kunkin kysymyksen vieressä näkyvän valintaruudun.
+              Voit julkaista ainoastaan seuraavantyyppisten kysymysten vastaukset: "Yksi vaihtoehto", "Useita vaihtoehtoja", "Kysymysmatriisi (yksi valinta)", "Kysymysmatriisi (useita valintoja)" ja "Järjestäminen".
+            status:
+              not_published: Ei julkaistu
+              published: Julkaistu
+            title: Julkaise vastaukset
         surveys:
           create:
             invalid: Kyselyn luonti epäonnistui.
@@ -90,6 +103,7 @@ fi:
           create: "%{user_name} loi kyselyn nimeltä %{resource_name} osallistumistilassa %{space_name}"
           delete: "%{user_name} poisti kyselyn nimeltä %{resource_name} osallistumistilassa %{space_name}"
           publish: "%{user_name} julkaisi kyselyn nimeltä %{resource_name} osallistumistilassa %{space_name}"
+          unpublish: "%{user_name} perui kyselyn %{resource_name} julkaisun osallistumistilassa %{space_name}"
           update: "%{user_name} päivitti kyselyä nimeltä %{resource_name} osallistumistilassa %{space_name}"
       directory:
         surveys:
