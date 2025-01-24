@@ -301,6 +301,9 @@ fi:
         update:
           error: Tämän konferenssin ilmoittautumistyyppin päivitys epäonnistui.
           success: Konferenssin ilmoittautumistyypin päivitys onnistui.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Kaikki konferenssit
       titles:
         conferences: Konferenssit
         conferences_deleted: Poistetut konferenssit
