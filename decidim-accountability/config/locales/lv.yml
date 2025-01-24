@@ -49,6 +49,9 @@ lv:
             name: Rezultāts
           status:
             name: Statuss
+        projects_import:
+          new:
+            create: Importēt
         results:
           edit:
             title: Labot rezultātu
