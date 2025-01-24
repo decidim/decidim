@@ -99,6 +99,9 @@ cs:
         other: Registrace
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Schůzky
       filters:
         accepted_at_not_null:
           label: Přijato
@@ -181,6 +184,12 @@ cs:
             creation_enabled_for_participants: Vytváření schůzek od účastníků povoleno
             creation_enabled_for_user_groups: Vytvoření schůzky od skupin uživatelů povoleno
     download_your_data:
+      help:
+        registrations:
+          code: Registrační kód
+          id: Jedinečný identifikátor registrace
+          meeting: Schůzka, na kterou se uživatel zaregistroval
+          user: Uživatel, který provedl registraci
       show:
         meeting_comments: Export komentářů schůzky
         meetings: Exportovat schůzky

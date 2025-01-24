@@ -266,7 +266,6 @@ lv:
             title: Atjaunināt priekšlikumu
             update: Atjaunināt
           form:
-            attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
             created_in_meeting: Šis priekšlikums tika izteikts sanāksmē
             select_a_meeting: Atlasiet sanāksmi
           index:
@@ -368,7 +367,6 @@ lv:
         create:
           success: Sadarbības projekts ir veiksmīgi izveidots.
         edit:
-          attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
           back: Atpakaļ
           send: Sūtīt
           title: Rediģēt sadarbības projektu
@@ -459,7 +457,6 @@ lv:
           comment: Komentēt
       proposals:
         edit:
-          attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
           back: Atpakaļ
           send: Sūtīt
           title: Rediģēt priekšlikumu
@@ -524,6 +521,8 @@ lv:
         voting_rules:
           proposal_limit:
             description: Jūs varat izveidot līdz %{limit} priekšlikumiem.
+          vote_limit:
+            description: Jūs varat atbalstīt līdz %{limit} priekšlikumiem.
         wizard_aside:
           back: Atpakaļ
         wizard_steps:

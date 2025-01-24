@@ -252,7 +252,7 @@
         title: Forslag
     participatory_spaces:
       highlighted_proposals:
-        see_all: Vis alle (%{count})
+        see_all: Vis alle
     proposals:
       actions:
         answer_proposal: Svar på forslag
@@ -325,9 +325,7 @@
             title: Oppdater forslag
             update: Oppdater
           form:
-            attachment_legend: "(Valgfritt) Legg til et vedlegg"
             created_in_meeting: Dette forslaget kommer fra et møte
-            delete_attachment: Slett vedlegg
             select_a_meeting: Velg et møte
           index:
             actions: Handlinger
@@ -417,7 +415,6 @@
         create:
           success: Samarbeids utkast opprettet.
         edit:
-          attachment_legend: "(Valgfritt) Legg til et vedlegg"
           back: Tilbake
           send: Send
           title: Rediger samarbeids utkastet
@@ -504,7 +501,6 @@
           comment: Kommentar
       proposals:
         edit:
-          attachment_legend: "(Valgfritt) Legg til et vedlegg"
           back: Tilbake
           send: Send
           title: Rediger forslaget
@@ -575,6 +571,8 @@
         voting_rules:
           proposal_limit:
             description: Du kan lage opptil %{limit} forslag.
+          vote_limit:
+            description: Du kan støtte opptil %{limit} forslag.
         wizard_aside:
           back: Tilbake
           back_from_step_1: Tilbake til forslag

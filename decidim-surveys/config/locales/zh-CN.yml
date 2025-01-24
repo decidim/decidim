@@ -14,16 +14,12 @@ zh-CN:
       surveys:
         actions:
           answer: 答案
-        name: 调查
         settings:
           global:
             announcement: 通 知
-            clean_after_publish: 在发布调查时删除答案
             scope_id: 范围
             scopes_enabled: 范围已启用
           step:
-            allow_answers: 允许答案
-            allow_unregistered: 允许未注册用户回答调查
             announcement: 通 知
     events:
       surveys:

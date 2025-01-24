@@ -67,6 +67,19 @@ en:
             title: 'Answer #%{number}'
         exports:
           survey_user_answers: Survey participant answers
+        publish_answers:
+          index:
+            answers:
+              one: "%{count} answer"
+              other: "%{count} answers"
+            description: |-
+              By publishing the questions' answers, you will make them visible to the public.
+              You can select the answers you want to publish by clicking on the checkbox next to each question.
+              You can only publish the following question types: "Single option", "Multiple option", "Matrix (single option)", "Matrix (multiple option)", and "Sorting".
+            status:
+              not_published: Not published
+              published: Published
+            title: Publish answers
         surveys:
           create:
             invalid: There was a problem creating the survey.
@@ -91,6 +104,7 @@ en:
           create: "%{user_name} created the %{resource_name} survey on the %{space_name} space as an survey"
           delete: "%{user_name} deleted the %{resource_name} survey on the %{space_name} space as an survey"
           publish: "%{user_name} published the %{resource_name} survey on the %{space_name} space"
+          unpublish: "%{user_name} unpublished the %{resource_name} survey on the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} survey on the %{space_name} space"
       directory:
         surveys:

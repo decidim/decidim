@@ -29,17 +29,9 @@ module Decidim::Budgets
       it { is_expected.not_to be_valid }
     end
 
-    context "when the category is from another organization" do
-      let(:category) { create(:category) }
-      let(:project) { build(:project, category:) }
-
-      it { is_expected.not_to be_valid }
-    end
-
     describe ".ordered_ids" do
       let(:budget) { create(:budget, total_budget: 1_000_000) }
-      let(:category) { create(:category, participatory_space: budget.participatory_space) }
-      let(:projects) { create_list(:project, 50, budget:, budget_amount: 100_000, category:) }
+      let(:projects) { create_list(:project, 50, budget:, budget_amount: 100_000) }
       let(:test_ids) do
         first = described_class.where(budget:).order(:id).pluck(:id)[0..3]
         ids = described_class.where(budget:).pluck(:id).shuffle
@@ -64,10 +56,6 @@ module Decidim::Budgets
 
       it "returns the correctly ordered projects" do
         expect(described_class.ordered_ids(test_ids).pluck(:id)).to eq(test_ids)
-      end
-
-      it "returns the correctly ordered projects after filtering by category" do
-        expect(described_class.with_any_category([category.id]).ordered_ids(test_ids).pluck(:id)).to eq(test_ids)
       end
     end
 

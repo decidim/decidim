@@ -49,27 +49,6 @@ ko:
           new:
             download_export: CSV 포맷으로 다운로드
             import: 가져오기
-            info: |
-              <p>아래 몇가지 단계를 밟으시는 걸 추천드립니다:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>결과</a>에 추가하고자하는 상태를 생성하세요</li>
-              <li><a href='%{link_new_result}' target='_blank'>포맷과 무엇을 채워야 할 지에 대해 더 잘 이해하기 위해, 내보내기 이용 전에 관리자 패널을 통해 최소 하나의 결과를 직접 생성하세요.</li>
-              <li>%{link_export_csv}</li>
-              <li>변경사항들을 local화 하세요. CSV의 해당하는 열만 바꿀 수 있습니다:
-               <ul>
-               <li><b>category/id:</b>카테고리의 ID</li>
-               <li><b>scope/id:</b>Scope의ID</li>
-               <li><b>parent/id:</b>parent의 ID (관련된 결과). 선택사항</li>
-               <li><b>title/en:</b>영문 제목. 당신의 플랫폼 기본 언어 설정에  따릅니다.</li>
-               <li><b>description/en:</b>영문에 대한 설명. 당신의 플랫폼 기본 언어 설정에 따릅니다.</li>
-               <li><b>start_date:</b>결과가 실행되기 시작한 날 (포맷 YYYY-MM-DD)</li>
-               <li><b>end_date:</b>결과가 실행 종료된 날(포맷 YYYY-MM-DD)</li>
-               <li><b>status_id:</b>해당 결과의 상태 ID</li>
-               <li><b>progress:</b>실행의 진행률을 백분위로 나타낸 값</li>
-               <li><b>proposals_ids:</b> 연관된 제안 (쉼표로 구분) 의 내부 ID. 자동으로 <span class='attribute-name'>proposal_id 로 전환됩니다.</span></li>
-               </ul>
-              </li>
-              </ol>
             title: CSV 파일에서 결과 가져오기
         imports:
           create:

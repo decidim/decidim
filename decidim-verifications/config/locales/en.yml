@@ -225,7 +225,6 @@ en:
           postal_codes:
             one: Participation is restricted to participants with the postal code %{postal_codes}.
             other: 'Participation is restricted to participants with any of the following postal codes: %{postal_codes}.'
-          scope: Participation is restricted to participants with the scope %{scope_name}.
           user_postal_codes:
             one: Participation is restricted to participants with the postal code %{postal_codes}, and your postal code is %{user_postal_code}.
             other: 'Participation is restricted to participants with any of the following postal codes: %{postal_codes}. Your postal code is %{user_postal_code}.'

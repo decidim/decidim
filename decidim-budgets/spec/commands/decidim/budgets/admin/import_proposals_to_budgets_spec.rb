@@ -7,7 +7,8 @@ module Decidim
     module Admin
       describe ImportProposalsToBudgets do
         describe "call" do
-          let!(:proposals) { create_list(:proposal, 3, :accepted, component: proposals_component) }
+          let!(:proposals) { create_list(:proposal, 3, :accepted, taxonomies: [taxonomy], component: proposals_component) }
+          let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
           let(:proposals_component) { create(:proposal_component) }
 
           let!(:proposal) { proposals.first }
@@ -168,7 +169,7 @@ module Decidim
               new_project = Project.where(budget:).order(:id).first
               expect(new_project.title).to eq(proposal.title)
               expect(new_project.description).to eq(proposal.body)
-              expect(new_project.category).to eq(proposal.category)
+              expect(new_project.taxonomies).to eq(proposal.taxonomies)
               expect(new_project.scope).to eq(proposal.scope)
               expect(new_project.budget_amount).to eq(proposal.cost)
             end
