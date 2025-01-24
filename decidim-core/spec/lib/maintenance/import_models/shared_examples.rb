@@ -17,6 +17,16 @@ shared_context "with taxonomy importer model context" do
   let!(:external_participatory_process) { create(:participatory_process, title: { "en" => "INVALID Participatory Process" }, organization: external_organization) }
   let!(:external_component) { create(:dummy_component, name: { "en" => "INVALID Dummy Component" }, participatory_space: external_assembly) }
   let!(:external_resource) { create(:dummy_resource, title: { "en" => "INVALID Dummy Resource" }, component: external_component, scope: nil) }
+
+  before do
+    # the dummy component does not have these properties for anything else than testing the old imports
+    Decidim.component_registry.find(:dummy).tap do |component|
+      component.settings(:global) do |settings|
+        settings.attribute :scopes_enabled, type: :boolean, default: false
+        settings.attribute :scope_id, type: :scope
+      end
+    end
+  end
 end
 
 shared_examples "a resource with title" do

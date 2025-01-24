@@ -9,6 +9,7 @@ module Decidim::Maintenance::ImportModels
     subject { scope }
 
     include_context "with taxonomy importer model context"
+
     # avoid using factories for this test in case old models are removed
     let(:scope) { described_class.create!(name: { "en" => "Scope 1", "ca" => "Àmbit 1" }, code: "1", decidim_organization_id: organization.id) }
     let(:another_scope) { described_class.create!(name: { "en" => "Scope 2", "ca" => "Àmbit 2" }, code: "2", decidim_organization_id: organization.id) }
