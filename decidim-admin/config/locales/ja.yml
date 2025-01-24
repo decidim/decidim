@@ -703,7 +703,7 @@ ja:
         reports:
           index:
             author: 投稿者
-            callout_html: コンテンツは、そのアイテムの横にある %{icon} フラグをクリックすることによって、ユーザー（登録済みアカウントを持っている人であれば誰でも）によって通知されたときに、モデレーションパネルに表示されます。
+            callout_html: コンテンツは、その項目の横にある %{icon} フラグをクリックすることによって、ユーザー（登録済みアカウントを持っている人であれば誰でも）によって通知されたときに、モデレーションパネルに表示されます。
             content_original_language: コンテンツのオリジナル言語
             participatory_space: 参加型スペース
             reported_content: 報告されたコンテンツ
@@ -964,9 +964,9 @@ ja:
       shared:
         adjacent_navigation:
           next: 次へ
-          next_title: 次のアイテム
+          next_title: 次の項目
           previous: 前へ
-          previous_title: 前のアイテム
+          previous_title: 前の項目
         gallery:
           add_images: 画像を追加
           edit_images: 画像を編集
