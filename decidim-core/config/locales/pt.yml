@@ -1029,13 +1029,6 @@ pt:
         send: Enviar
       update:
         error: Mensagem não enviada. Tente novamente mais tarde
-    user_interests:
-      show:
-        my_interests: Os meus interesses
-        update_my_interests: Atualizar os meus interesses
-      update:
-        error: Ocorreu um problema ao atualizar os seus interesses.
-        success: Os seus interesses foram atualizados corretamente.
     user_report_mailer:
       notify:
         body_1: O utilizador %{user} foi denunciado por %{token}
@@ -1198,10 +1191,15 @@ pt:
         details:
           columns:
             type: Tipo
+        modal:
+          title: Definições de “cookies”
+        warning:
+          change_settings: Alterar configurações de “cookies”
       edit_link:
         edit: Editar
       footer:
         cc_by_license: Licença Creative Commons
+        data_consent_settings: Definições de cookies
         decidim_logo: Logótipo do Decidim
         log_in: Entrar
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
@@ -1240,7 +1238,6 @@ pt:
         authorizations: Autorizações
         delete_my_account: Eliminar a minha conta
         my_data: Os meus dados
-        my_interests: Os meus interesses
         notifications_settings: Configurações de notificações
         title: Configurações do participante
         user_groups: Grupos
