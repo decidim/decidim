@@ -1096,25 +1096,46 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
           success: Page mise à jour avec succès.
+      taxonomies:
+        actions:
+          actions: Actions
+          filters: Gérer les filtres
+        total_filters: Filtres
       taxonomy_filters:
+        breadcrumb:
+          edit: Modifier le filtre
+          filters: Filtres
+          new: Nouveau filtre
         edit:
           back: Revenir en arrière
           title: Modifier le filtre de taxonomie
           update: Mettre à jour le filtre de taxonomie
+        form:
+          space_filter: Disponible comme filtre pour
         index:
           description: Un filtre de taxonomie permet aux administrateurs de trier et de filtrer les espaces participatifs selon une taxonomie. Par exemple, ajoutez un filtre de taxonomie pour trier les processus par étendue géographique.
           empty: Il n'y a actuellement aucun filtre de taxonomie. Créez une liste de filtres de taxonomie ici pour trier et filtrer les espaces participatifs basés sur une taxonomie.
+          new_filter: Nouveau filtre
         new:
           back: Revenir en arrière
           create: Créer un filtre de taxonomie
           title: Nouveau filtre de taxonomie
         table:
           actions: Actions
+          components_count: Composants utilisant ceci
           destroy: Supprimer
           edit: Modifier
         update:
           error: Il y a eu un problème lors de la mise à jour de ce filtre de taxonomie.
           success: Filtre de taxonomie mis à jour avec succès.
+      taxonomy_filters_selector:
+        new:
+          items_count: "%{count} éléments"
+          save: Enregistrer
+        show:
+          items_count: "%{count} éléments"
+        taxonomies_select:
+          filters: Filtres
       titles:
         admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée
@@ -1254,3 +1275,5 @@ fr:
       admin:
         global_moderations:
           title: Modération globale
+        taxonomy_filters_selector:
+          title:
