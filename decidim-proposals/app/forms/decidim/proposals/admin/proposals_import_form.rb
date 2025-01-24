@@ -21,9 +21,10 @@ module Decidim
         validate :valid_states
 
         def states_collection
-          @states_collection ||= begin
-            ProposalState.where(component: current_component) + [ ProposalState.new(token: "not_answered", title: I18n.t(:not_answered, scope: "decidim.proposals.answers"))]
-          end
+          @states_collection ||= ProposalState.where(component: current_component) + [ProposalState.new(token: "not_answered",
+                                                                                                        title: I18n.t(
+                                                                                                          :not_answered, scope: "decidim.proposals.answers"
+                                                                                                        ))]
         end
 
         def states
