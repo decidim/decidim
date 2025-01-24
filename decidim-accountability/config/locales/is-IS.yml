@@ -52,6 +52,9 @@ is:
             name: Niðurstaða
           status:
             name: Staða
+        projects_import:
+          new:
+            create: Flytja inn
         results:
           edit:
             title: Breyta niðurstöðum
