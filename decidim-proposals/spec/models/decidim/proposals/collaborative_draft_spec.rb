@@ -13,7 +13,6 @@ module Decidim
       let(:coauthorable) { collaborative_draft }
 
       include_examples "coauthorable"
-      include_examples "has scope"
       include_examples "has taxonomies"
       include_examples "resourceable"
 

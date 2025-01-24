@@ -8,8 +8,6 @@ module Decidim::Assemblies
 
     let(:organization) { create(:organization) }
     let(:current_user) { create(:user, :admin, :confirmed, organization:) }
-    let(:scope) { create(:scope, organization:) }
-    let(:area) { create(:area, organization:) }
     let(:errors) { double.as_null_object }
     let(:participatory_processes) do
       create_list(
@@ -47,9 +45,6 @@ module Decidim::Assemblies
         description: { en: "description" },
         short_description: { en: "short_description" },
         organization:,
-        scopes_enabled: true,
-        scope:,
-        area:,
         taxonomizations:,
         parent: nil,
         private_space: false,
@@ -128,8 +123,7 @@ module Decidim::Assemblies
           banner_image:,
           description: { en: "description" },
           short_description: { en: "short_description" },
-          organization:,
-          scopes_enabled: false
+          organization:
         ).with_context(
           current_organization: organization,
           current_user:

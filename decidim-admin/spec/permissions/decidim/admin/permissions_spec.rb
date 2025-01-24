@@ -436,7 +436,6 @@ describe Decidim::Admin::Permissions do
     it { is_expected.to be true }
   end
 
-  it_behaves_like "can perform any action for", :category
   it_behaves_like "can perform any action for", :component
   it_behaves_like "can perform any action for", :admin_user
   it_behaves_like "can perform any action for", :attachment
