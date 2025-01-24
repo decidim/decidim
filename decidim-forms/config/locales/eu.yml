@@ -54,6 +54,7 @@ eu:
         questionnaires:
           actions:
             back: Itzuli galderetara
+            publish_answers: Argitaratu erantzunak
             show: Erakutsi erantzunak
           answer_option:
             answer_option: Erantzun aukera
@@ -103,7 +104,7 @@ eu:
             add_separator: Gehitu banatzailea
             add_title_and_description: Gehitu izenburua eta deskribapena
             save: Gorde
-            title: Errorea.>Galderak
+            title: Galderak
           form:
             add_question: Gehitu galdera
             collapse: Bildu galdera guztiak
@@ -153,6 +154,9 @@ eu:
             invalid: Arazo bat egon da inprimakia gordetzean.
             success: Galdetegia zuzen gorde da.
       admin_log:
+        question:
+          publish_answers: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} inkesta %{space_name} espazioan"
+          unpublish_answers: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} inkesta %{space_name} espazioan"
         questionnaire:
           update: "%{user_name} parte-hartzaileak %{resource_name} galdetegia eguneratu du"
       errors:
