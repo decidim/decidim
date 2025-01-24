@@ -852,13 +852,6 @@ sk:
     user_conversations:
       update:
         error: Zpráva nebyla odeslána. Zkuste to později znovu
-    user_interests:
-      show:
-        my_interests: Moje záujmy
-        update_my_interests: Aktualizujte svoje záujmy
-      update:
-        error: Počas aktualizácie vašich záujmov došlo k chybe.
-        success: Vaše záujmy boli úspešne aktualizované.
     welcome_notification:
       default_subject: Ďakujeme, že ste sa pripojili k {{organization}}!
     wizard_step_form:
@@ -1020,7 +1013,6 @@ sk:
         authorizations: Autorizácia
         delete_my_account: Zmazať môj účet
         my_data: Moje dáta
-        my_interests: Moje záujmy
         notifications_settings: Nastavenie oznámenia
         title: Užívateľské nastavenia
         user_groups: Skupiny
