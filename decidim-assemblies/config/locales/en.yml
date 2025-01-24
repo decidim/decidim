@@ -418,6 +418,8 @@ en:
           reference: The unique reference of the space
           remote_banner_image_url: The URL of the assembly banner image
           remote_hero_image_url: The URL of the assembly hero image
+          scope: The scope of the assembly
+          scopes_enabled: Weather the scopes are enabled or not
           short_description: A short description of the assembly
           slug: The assembly slug (used for identification purposes, for the URL)
           special_features: Which special features this assembly has
@@ -427,8 +429,6 @@ en:
           title: The assembly title
           twitter_handler: Social media handler for Twitter
           updated_at: The last date this space was updated
-          scope: The scope of the assembly
-          scopes_enabled: Weather the scopes are enabled or not
           url: The URL of the space
           youtube_handler: Social media handler for YouTube
     participatory_processes:
