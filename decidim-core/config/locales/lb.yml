@@ -1025,13 +1025,6 @@ lb:
         send: Senden
       update:
         error: Noriicht gouf net geschéckt. Probéier méi spéit nach eng Kéier
-    user_interests:
-      show:
-        my_interests: Meng Interessen
-        update_my_interests: Interessen aktualiséieren
-      update:
-        error: Et gouf e Problem beim Aktualiséieren vun den Interessen.
-        success: D'Interessen goufen aktualiséiert.
     user_report_mailer:
       notify:
         body_1: Den Benotzer %{user} gouf gemellt vun %{token}
@@ -1236,7 +1229,6 @@ lb:
         authorizations: Berechtegungen
         delete_my_account: Mäin Kont läschen
         my_data: Meng Donnéeën
-        my_interests: Meng Interessen
         notifications_settings: Astellung fir Noriichten
         title: Astellung fir Benotzer
         user_groups: Gruppen
