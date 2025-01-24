@@ -29,15 +29,13 @@ describe "ephemeral action authorization" do
 
   context "with not user signed in" do
     context "and action authorized with ephemeral authorization" do
-      let(:scope) { create(:scope, organization:, name: { en: "Scope" }) }
       let(:permissions) do
         {
           create: {
             authorization_handlers: {
               ephemeral_dummy_authorization_handler: {
                 options: {
-                  allowed_postal_codes: "1234, 4567",
-                  allowed_scope_id: scope.id
+                  allowed_postal_codes: "1234, 4567"
                 }
               }
             }
@@ -81,7 +79,6 @@ describe "ephemeral action authorization" do
           fill_in :authorization_handler_document_number, with: document_number
           fill_in :authorization_handler_postal_code, with: postal_code
           fill_in_datepicker :authorization_handler_birthday_date, with: birthdate
-          select "Scope", from: :authorization_handler_scope_id
         end
 
         context "and does not check tos agreement" do
@@ -128,7 +125,6 @@ describe "ephemeral action authorization" do
               fill_in :authorization_handler_document_number, with: document_number
               fill_in :authorization_handler_postal_code, with: postal_code
               fill_in_datepicker :authorization_handler_birthday_date, with: birthdate
-              select "Scope", from: :authorization_handler_scope_id
               check :authorization_handler_tos_agreement
               click_on "Send"
 
@@ -158,7 +154,6 @@ describe "ephemeral action authorization" do
               fill_in :authorization_handler_document_number, with: document_number
               fill_in :authorization_handler_postal_code, with: postal_code
               fill_in_datepicker :authorization_handler_birthday_date, with: birthdate
-              select "Scope", from: :authorization_handler_scope_id
               check :authorization_handler_tos_agreement
               click_on "Send"
 
@@ -175,7 +170,6 @@ describe "ephemeral action authorization" do
               fill_in :authorization_handler_document_number, with: document_number
               fill_in :authorization_handler_postal_code, with: valid_postal_code
               fill_in_datepicker :authorization_handler_birthday_date, with: birthdate
-              select "Scope", from: :authorization_handler_scope_id
               check :authorization_handler_tos_agreement
               click_on "Send"
               expect(page).to have_content "You have been successfully authorized"
@@ -189,15 +183,13 @@ describe "ephemeral action authorization" do
     end
 
     context "and action authorized with regular authorization" do
-      let(:scope) { create(:scope, organization:) }
       let(:permissions) do
         {
           create: {
             authorization_handlers: {
               dummy_authorization_handler: {
                 options: {
-                  allowed_postal_codes: "1234, 4567",
-                  allowed_scope_id: scope.id
+                  allowed_postal_codes: "1234, 4567"
                 }
               }
             }

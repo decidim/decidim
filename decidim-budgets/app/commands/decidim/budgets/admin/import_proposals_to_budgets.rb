@@ -47,7 +47,7 @@ module Decidim
             title: original_proposal.title,
             description: original_proposal.body,
             budget_amount: budget_for(original_proposal),
-            category: original_proposal.category,
+            taxonomies: original_proposal.taxonomies,
             scope: original_proposal.scope,
             address: original_proposal.address,
             latitude: original_proposal.latitude,

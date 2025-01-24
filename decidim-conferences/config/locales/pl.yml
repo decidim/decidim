@@ -204,7 +204,6 @@ pl:
           attachment_collections: Foldery
           attachment_files: Pliki
           attachments: Załączniki
-          categories: Kategorie
           components: Komponenty
           conference_admins: Administratorzy konferencji
           conference_invites: Zaprasza

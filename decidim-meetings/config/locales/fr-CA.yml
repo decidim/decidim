@@ -1,6 +1,8 @@
 fr-CA:
   activemodel:
     attributes:
+      answer:
+        add_documents: Ajouter des documents
       close_meeting:
         attendees_count: Nombre de participants
         attending_organizations: Liste des organisations qui ont participé à cette rencontre
@@ -386,6 +388,7 @@ fr-CA:
           form:
             available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité.
             invites: Invitations
+            manage_questions: Gérer les questions
             recommendation_message: Pour des raisons de confidentialité, nous vous recommandons de supprimer ce formulaire d'inscription lorsque vous n'en avez plus besoin. Par défaut, il le sera 3 mois après la fin de la réunion.
             registration_email_help: Ce texte apparaîtra au milieu de l'e-mail de confirmation d'inscription, juste après le code d'inscription.
             registration_form: Formulaire d'inscription

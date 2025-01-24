@@ -33,7 +33,15 @@ fr-CA:
       admin:
         models:
           components:
+            allow_answers: Autoriser les réponses
+            allow_unregistered: Autoriser les utilisateurs non enregistrés à répondre à l'enquête
+            announcement: Annonce
+            clean_after_publish: Supprimer les réponses lors de la publication de l’enquête
             description: La description
+            ends_at: Réponses acceptées jusqu'au
+            ends_at_help: Laisser vide si aucune date spécifique
+            starts_at: Réponses acceptées à partir du
+            starts_at_help: Laisser vide si aucune date spécifique
             tos: Conditions d'utilisation
         questionnaires:
           actions:
@@ -82,16 +90,17 @@ fr-CA:
           edit:
             save: sauvegarder
             title: Modifier le questionnaire
-          form:
+          edit_questions:
             add_question: Ajouter une question
             add_separator: Ajouter un séparateur
             add_title_and_description: Ajouter un titre et une description
-            already_answered_warning: Certains utilisateurs ont déjà répondu au questionnaire, vous ne pouvez donc pas modifier ses questions.
+            save: Enregistrer
+          form:
+            add_question: Ajouter une question
             collapse: Réduire toutes les questions
             expand: Développer toutes les questions
             preview: Aperçu
             title: Modifier le questionnaire pour %{questionnaire_for}
-            unpublished_warning: Le formulaire n'est pas publié. Vous pouvez modifier ses questions, mais cela supprimera les réponses actuelles.
           matrix_row:
             matrix_row: Ligne
             remove: Retirer
@@ -110,6 +119,13 @@ fr-CA:
             remove: Retirer
             statement: Déclaration
             up: Monter
+          questions_form:
+            already_answered_warning: Certains utilisateurs ont déjà répondu au formulaire, vous ne pouvez donc pas modifier ses questions.
+            collapse: Replier toutes les questions
+            expand: Déplier toutes les questions
+            unpublished_warning: Le formulaire n'est pas publié. Vous pouvez modifier ses questions, mais cela supprimera les réponses actuelles.
+            update:
+              success: Les questions de l'enquête ont été sauvegardées avec succès.
           separator:
             down: Bas
             remove: Retirer

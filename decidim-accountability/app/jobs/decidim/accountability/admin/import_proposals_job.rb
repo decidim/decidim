@@ -25,7 +25,6 @@ module Decidim
             title: proposal.title,
             description: proposal.body,
             taxonomies: proposal.taxonomies,
-            scope: proposal.scope,
             component:,
             status:,
             progress: status&.progress || 0,

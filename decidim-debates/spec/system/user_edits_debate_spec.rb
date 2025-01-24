@@ -7,7 +7,7 @@ describe "User edits a debate" do
   include_context "with taxonomy filters context"
   let(:manifest_name) { "debates" }
   let(:attachments_allowed) { false }
-  let(:space_manifest) { participatory_process.manifest.name }
+  let(:participatory_space_manifests) { [participatory_process.manifest.name] }
   let(:taxonomies) { [taxonomy] }
   let!(:debate) do
     create(

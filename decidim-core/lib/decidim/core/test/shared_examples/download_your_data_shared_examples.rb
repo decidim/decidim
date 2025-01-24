@@ -8,7 +8,7 @@ shared_examples_for "a download your data entity" do
   end
 
   it "does not have any missing translation" do
-    expect(data).not_to include("Translation missing")
+    expect(data).not_to include("Translation missing"), data
   end
 
   it "has the correct help definition" do

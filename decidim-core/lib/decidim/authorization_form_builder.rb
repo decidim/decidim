@@ -43,7 +43,6 @@ module Decidim
 
     def input_field(name, type)
       return hidden_field(name) if name.to_s == "handler_name"
-      return scopes_selector if name.to_s == "scope_id"
 
       case type
       when :date, :datetime, :time, :"decidim/attributes/localized_date"

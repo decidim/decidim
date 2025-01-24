@@ -10,8 +10,6 @@ module Decidim
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
         let(:organization) { create(:organization) }
-        let(:assembly_type) { create(:assemblies_type, organization:) }
-        let(:assembly_type_id) { assembly_type.id }
         let(:title) do
           {
             en: "Title",
@@ -108,10 +106,10 @@ module Decidim
         let(:assembly_id) { nil }
         let(:root_taxonomy) { create(:taxonomy, organization:) }
         let!(:taxonomies) { create_list(:taxonomy, 3, parent: root_taxonomy, organization:) }
-        let!(:taxonomy_filter1) { create(:taxonomy_filter, space_manifest: "assemblies", root_taxonomy:, space_filter: true) }
-        let!(:taxonomy_filter2) { create(:taxonomy_filter, space_manifest: "assemblies", root_taxonomy:, space_filter: true) }
-        let!(:taxonomy_filter3) { create(:taxonomy_filter, space_manifest: "participatory_processes", root_taxonomy:, space_filter: true) }
-        let!(:taxonomy_filter4) { create(:taxonomy_filter, space_manifest: "assemblies", root_taxonomy:, space_filter: false) }
+        let!(:taxonomy_filter1) { create(:taxonomy_filter, participatory_space_manifests: ["assemblies"], root_taxonomy:) }
+        let!(:taxonomy_filter2) { create(:taxonomy_filter, participatory_space_manifests: ["assemblies"], root_taxonomy:) }
+        let!(:taxonomy_filter3) { create(:taxonomy_filter, participatory_space_manifests: ["participatory_processes"], root_taxonomy:) }
+        let!(:taxonomy_filter4) { create(:taxonomy_filter, participatory_space_manifests: ["assemblies"]) }
         let(:attributes) do
           {
             "assembly" => {
@@ -134,7 +132,6 @@ module Decidim
               "purpose_of_action_en" => purpose_of_action[:en],
               "purpose_of_action_es" => purpose_of_action[:es],
               "purpose_of_action_ca" => purpose_of_action[:ca],
-              "decidim_assemblies_type_id" => assembly_type_id,
               "creation_date" => creation_date,
               "created_by" => created_by,
               "created_by_other_en" => created_by_other[:en],
@@ -197,19 +194,6 @@ module Decidim
 
         context "when images are not the expected type" do
           let(:attachment) { upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")) }
-
-          it { is_expected.not_to be_valid }
-        end
-
-        context "when assembly type is null" do
-          let(:assembly_type_id) { nil }
-
-          it { is_expected.to be_valid }
-        end
-
-        context "when assembly type is in a different organization" do
-          let(:alt_organization) { create(:organization) }
-          let(:assembly_type) { create(:assemblies_type, organization: alt_organization) }
 
           it { is_expected.not_to be_valid }
         end
@@ -327,7 +311,6 @@ module Decidim
                 participatory_processes_ids: nil,
                 purpose_of_action: assembly.purpose_of_action,
                 composition: assembly.composition,
-                decidim_assemblies_type_id: assembly_type_id,
                 creation_date: assembly.creation_date,
                 created_by: assembly.created_by,
                 created_by_other: assembly.created_by_other,
@@ -386,7 +369,6 @@ module Decidim
                 participatory_processes_ids: nil,
                 purpose_of_action: assembly.purpose_of_action,
                 composition: assembly.composition,
-                decidim_assemblies_type_id: assembly_type_id,
                 creation_date: assembly.creation_date,
                 created_by: assembly.created_by,
                 created_by_other: assembly.created_by_other,

@@ -14,6 +14,10 @@ ca:
         one: Publicació
         other: Publicacions
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Entrades al blog
     blogs:
       actions:
         author_id: Crear publicació com
@@ -96,5 +100,33 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: Nova publicació publicada a %{participatory_space_title}
           notification_title: La publicació <a href="%{resource_path}">%{resource_title}</a> ha estat publicada a %{participatory_space_title}
+    open_data:
+      help:
+        post_comments:
+          alignment: Si aquest comentari va ser a favor, en contra o neutral
+          author: El nom d'usuària de la participant que va fer aquest comentari
+          body: El comentari pròpiament
+          commentable_id: L'identificador únic d'allò que es podia comentar
+          commentable_type: La tipologia d'allò sobre el que es va fer el comentari (si va ser un resultat, una proposta, etc.)
+          created_at: La data en què es va crear aquest comentari
+          depth: El lloc on es troba aquest comentari a la terna de comentaris (si és un comentari, una resposta a un comentari, o la resposta d'una resposta)
+          id: L'identificador id d'aquest comentari
+          locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
+          root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
+          user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
+        posts:
+          author: La informació de l'autoria
+          body: El contingut de la publicació
+          comments_count: El número de comentaris que té aquesta publicació
+          component: El component al qual pertany aquesta publicació
+          created_at: La data en què es va crear aquesta publicació
+          endorsements_count: El número d'adhesions que té aquesta publicació
+          follows_count: El número de seguidores que té aquesta publicació
+          id: L'identificador únic de la publicació
+          participatory_space: A quin espai pertany aquesta publicació (procés participatiu, assemblea, etc.)
+          published_at: La data en què es va publicar aquesta entrada al blog
+          title: El títol de la publicació
+          updated_at: La data de la darrera actualització d'aquesta publicació
+          url: L'URL d'aquesta publicació
     statistics:
       posts_count: Publicacions

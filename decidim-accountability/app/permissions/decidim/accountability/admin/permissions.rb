@@ -10,8 +10,8 @@ module Decidim
           permission_action.allow! if can_perform_actions_on?(:result, result)
           permission_action.allow! if can_perform_actions_on?(:status, status)
           permission_action.allow! if can_perform_actions_on?(:timeline_entry, timeline_entry)
-          permission_action.allow! if can_perform_actions_on?(:import_component, nil)
           permission_action.allow! if can_perform_actions_on?(:bulk_update, nil)
+          permission_action.allow! if can_perform_actions_on?(:import_component, nil)
 
           permission_action
         end

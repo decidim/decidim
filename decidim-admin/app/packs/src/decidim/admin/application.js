@@ -7,6 +7,8 @@ import Configuration from "src/decidim/configuration";
 import InputCharacterCounter from "src/decidim/input_character_counter";
 import managedUsersForm from "src/decidim/admin/managed_users";
 
+import "chartkick/chart.js";
+
 window.Decidim = window.Decidim || {};
 window.Decidim.managedUsersForm = managedUsersForm;
 window.Decidim.config = new Configuration();

@@ -1,8 +1,6 @@
 lt:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Pavadinimas
       assembly:
         announcement: Pranešimas
         area_id: Aplinka
@@ -19,7 +17,6 @@ lt:
         created_by_other: Sukurta kito
         creation_date: Sukūrimo data
         decidim_area_id: Aplinka
-        decidim_assemblies_type_id: Asamblėjos tipas
         decidim_scope_id: Apimtis
         description: Aprašymas
         developer_group: Rėmėjų grupė
@@ -35,7 +32,6 @@ lt:
         import_components: Importuoti komponentus
         included_at: Įtraukta
         instagram: Instagram
-        internal_organisation: Vidinė organizacija
         is_transparent: Yra skaidri
         local_area: Organizacijos aplinka
         meta_scope: Srities metaduomenys
@@ -100,7 +96,6 @@ lt:
       actions:
         import_assembly: Importuoti
         new_assembly: Nauja asamblėja
-        new_assembly_type: Naujas asamblėjos tipas
       assemblies:
         create:
           error: Kuriant naują asamblėją iškilo problema.
@@ -120,18 +115,6 @@ lt:
         create:
           error: Dubliuojant šią asamblėją iškilo problema.
           success: Asamblėja dubliuota.
-      assemblies_types:
-        create:
-          error: Kuriant naujos asamblėjos tipą iškilo problema.
-          success: Asamblėjos tipas sukurtas.
-        destroy:
-          success: Asamblėjos tipas pašalintas.
-        new:
-          create: Sukurti
-          title: Naujas asamblėjos tipas
-        update:
-          error: Atnaujinant asamblėjos tipą iškilo problema.
-          success: Asamblėjos tipas atnaujintas.
       assembly_copies:
         new:
           copy: Kopijuoti
@@ -167,9 +150,6 @@ lt:
         update:
           error: Atnaujinant asamblėjos administratorių kilo problema.
           success: Šios asamblėjos administratorius sėkmingai atnaujintas.
-      filters:
-        decidim_assemblies_type_id_eq:
-          label: Asamblėjos tipas
       menu:
         assemblies: Asamblėjos
         assemblies_submenu:
@@ -177,16 +157,10 @@ lt:
           attachment_collections: Aplankai
           attachment_files: Dokumentai
           attachments: Priedai
-          categories: Kategorijos
           components: Komponentai
           landing_page: Pagrindinis puslapis
           moderations: Moderavimai
-        assemblies_types: Asamblėjų tipai
       models:
-        assemblies_types:
-          fields:
-            created_at: Sukurta
-            title: Pavadinimas
         assembly:
           fields:
             created_at: Sukurta
@@ -255,13 +229,9 @@ lt:
             other: Kita
             select_a_created_by: Pasirinkti pagal kūrėją
             select_an_area: Pasirinkti aplinką
-            select_an_assembly_type: Pasirinkti asamblėjos tipą
             select_parent_assembly: Pasirinkti pagrindinę asamblėją
             social_handlers: Socialiniai
             title: Bendroji informacija
-        assemblies_types:
-          form:
-            title: Pavadinimas
         assembly_members:
           form:
             explanation: 'Paveikslėliui skirtos gairės:'
@@ -298,14 +268,6 @@ lt:
       assembly_members:
         index:
           members: Nariai
-      assembly_types:
-        commission: Komisija
-        consultative_advisory: Konsultacinė / Patariamoji
-        executive: Vykdomoji
-        government: Vyriausybe
-        others: Kita
-        participatory: Dalyvaujamoji
-        working_group: Darbo grupė
       content_blocks:
         children_assemblies:
           name: Asamblėjos
@@ -344,7 +306,6 @@ lt:
           member_of:
             member_of: Narys
       show:
-        assembly_type: Asamblėjos tipas
         duration: Trukmė
         private_space: Tai yra uždara asamblėja
         social_networks_title: Aplankyti asamblėją

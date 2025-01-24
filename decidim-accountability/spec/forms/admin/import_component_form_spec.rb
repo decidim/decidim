@@ -81,8 +81,7 @@ module Decidim::Accountability
 
       context "when the project has not copied yet" do
         it "returns false" do
-          rlt = subject.project_already_copied?(project)
-          expect(rlt).to be(false)
+          expect(subject.project_already_copied?(project)).to be(false)
         end
       end
 
@@ -92,8 +91,29 @@ module Decidim::Accountability
         end
 
         it "returns true" do
-          rlt = subject.project_already_copied?(project)
-          expect(rlt).to be(true)
+          expect(subject.project_already_copied?(project)).to be(true)
+        end
+      end
+    end
+
+    describe "#proposal_already_copied?" do
+      subject { described_class.from_model(current_component).with_context(context) }
+      let(:proposal) { create(:proposal, component: proposal_component) }
+      let!(:result) { create(:result, component: current_component) }
+
+      context "when the proposal has not copied yet" do
+        it "returns false" do
+          expect(subject.proposal_already_copied?(proposal)).to be(false)
+        end
+      end
+
+      context "when the proposal has already copied" do
+        before do
+          result.link_resources([proposal], "included_proposals")
+        end
+
+        it "returns true" do
+          expect(subject.proposal_already_copied?(proposal)).to be(true)
         end
       end
     end

@@ -88,8 +88,13 @@ fr-CA:
           edit:
             edit: Modifier
             empty: Il n'y a pas encore de question.
+            manage_questions: Gérer les questions
             questionnaire: Questionnaire
             title: Modifier le modèle de questionnaire
+          edit_questions:
+            add_question: Ajouter une question
+            add_separator: Ajouter un séparateur
+            add_title_and_description: Ajouter un titre et une description
           form:
             title: Modèle de questionnaire %{questionnaire_for}
           index:

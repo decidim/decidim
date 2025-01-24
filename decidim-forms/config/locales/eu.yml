@@ -26,14 +26,30 @@ eu:
           request_invalid: Arazo bat izan da eskaera kudeatzean. Mesedez, saiatu berriro.
   decidim:
     download_your_data:
+      help:
+        answers:
+          answer: Galderaren erantzuna
+          id: Erantzunaren identifikatzaile bakarra
+          question: Erantzun zen galdera
+          questionnaire: Erantzun zen galdetegia
+          user: Inkesta erantzun zuen parte-hartzailea
       show:
         answers: Esportatu erantzunak
-        survey_user_answers: Inkesta erabiltzaile erantzunak
+        survey_user_answers: Inkesta parte-hartzaile erantzunak
     forms:
       admin:
         models:
           components:
+            allow_answers: Baimendu erantzunak
+            allow_unregistered: Baimentzea erregistratu gabeko parte-hartzaileek inkesta erantzutea
+            allow_unregistered_help: Aktibatuta badago ez da beharrezkoa saioa hastea inkesta erantzuteko. Honen ondorioz datu eskas edo fidagarritasun gutxikoak bildu litezke. Kontuz erabili! Izan ere, parte-hartzaile berak hainbat aldiz erantzun litzake nabigatzaile desberdinetatik edo "nabigazio pribatuaren" aukera erabiliz.
+            announcement: Oharra
+            clean_after_publish: Ezabatu erantzunak inkesta argitaratzean
             description: Deskribapena
+            ends_at: Erantzunak noiz arte onartuta
+            ends_at_help: Utzi zuriz data zehatzik ez badago
+            starts_at: Erantzunak noiztik onartuak
+            starts_at_help: Utzi zuriz data zehatzik ez badago
             tos: Zerbitzu-baldintzak
         questionnaires:
           actions:
@@ -82,16 +98,18 @@ eu:
           edit:
             save: Gorde
             title: Editatu galdetegia
-          form:
+          edit_questions:
             add_question: Gehitu galdera
             add_separator: Gehitu banatzailea
             add_title_and_description: Gehitu izenburua eta deskribapena
-            already_answered_warning: Formularioa erabiltzaile batzuek erantzuten dute; beraz, ezin dira galderak aldatu.
+            save: Gorde
+            title: Errorea.>Galderak
+          form:
+            add_question: Gehitu galdera
             collapse: Bildu galdera guztiak
             expand: Zabaldu galdera guztiak
             preview: Aurreikusi
             title: Editatu galdetegia honetarako %{questionnaire_for}
-            unpublished_warning: Galdetegia ez dago argitaratuta. Bere galderak aldatu ahal dituzu, baina egitean oraingo erantzunak ezabatuko dira.
           matrix_row:
             matrix_row: Errenkada
             remove: Kendu
@@ -110,6 +128,13 @@ eu:
             remove: Kendu
             statement: Adierazpena
             up: Gora
+          questions_form:
+            already_answered_warning: Formularioa parte-hartzaile batzuek erantzuten dute dagoeneko; beraz, ezin dituzu galderak aldatu.
+            collapse: Kolapsatu galdera guztiak
+            expand: Zabaldu galdera guztiak
+            unpublished_warning: Galdetegia ez dago argitaratuta. Galderak alda ditzakezu, baina eginez gero, oraingo erantzunak ezabatuko dituzu.
+            update:
+              success: Inkestaren galderak zuzen gordeta.
           separator:
             down: Behera
             remove: Kendu
@@ -129,7 +154,7 @@ eu:
             success: Galdetegia zuzen gorde da.
       admin_log:
         questionnaire:
-          update: "%{user_name} erabiltzaileak %{resource_name} galdetegia eguneratu du"
+          update: "%{user_name} parte-hartzaileak %{resource_name} galdetegia eguneratu du"
       errors:
         answer:
           body: "Gorputza ezin da hutsik egon\n"
@@ -160,7 +185,7 @@ eu:
         show:
           answer_questionnaire:
             already_have_an_account?: Baduzu kontu bat?
-            are_you_new?: Erabiltzaile berria?
+            are_you_new?: Parte-hartzaile berria?
             sign_in_description: Hasi saioa inkesta egiteko
             sign_up_description: Sortu parte-hartzaileen kontua inkesta egiteko
             title: Erantzun formularioa
@@ -174,7 +199,7 @@ eu:
             body: Galdetegia itxita dago eta ezin da erantzun.
             title: Galdeketa itxia
           questionnaire_for_private_users:
-            body: Galdetegia erabiltzaile pribatuentzat soilik dago erabilgarri
+            body: Galdetegia parte-hartzaile pribatuentzat soilik dago erabilgarri
             title: Galdeketa itxia
           questionnaire_js_disabled:
             body: Galdetegi honen ezaugarri batzuk desaktibatu egingo dira. Zure esperientzia hobetzeko, gaitu JavaScript zure nabigatzailean.
@@ -196,6 +221,6 @@ eu:
         ip_hash: IP Helbidearen Hash
         question: Galdera
         registered: Erregistratuta
-        session_token: Erabiltzailearen identifikatzailea
+        session_token: Parte-hartzailearen identifikatzailea
         unregistered: Erregistratu gabe
-        user_status: Erabiltzailearen egoera
+        user_status: Parte-hartzailearen egoera
