@@ -56,6 +56,9 @@ it:
             name: Risultato
           status:
             name: Stato
+        projects_import:
+          new:
+            create: Importa
         results:
           edit:
             title: Modifica il risultato
