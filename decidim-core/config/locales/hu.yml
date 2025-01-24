@@ -1412,13 +1412,6 @@ hu:
         send: Küldés
       update:
         error: Üzenet elküldése sikertelen. Próbáld újra később
-    user_interests:
-      show:
-        my_interests: Érdeklődési köreim
-        update_my_interests: Érdeklődési köreim frissítése
-      update:
-        error: Hiba történt az érdeklődési körök frissítése közben.
-        success: Az érdeklődési köreid sikeresen frissültek.
     user_report_mailer:
       notify:
         body_1: '%{user} felhasználót jelentette %{token}'
@@ -1803,7 +1796,6 @@ hu:
         authorizations: Engedélyezések
         delete_my_account: Fiók törlése
         my_data: Adataim
-        my_interests: Érdeklődési köröm
         notifications_settings: Értesítési beállítások
         profile: Profil
         title: A résztvevő beállításai
