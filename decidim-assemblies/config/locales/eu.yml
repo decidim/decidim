@@ -204,6 +204,9 @@ eu:
             collaborator: Kolaboratzaile
             moderator: Moderatzailea
             valuator: Ebaluatzailea
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: Batzar guztiak
       titles:
         assemblies: Batzarrak
         assemblies_deleted: Ezabatutako batzarrak
