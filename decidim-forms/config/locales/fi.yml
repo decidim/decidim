@@ -54,6 +54,7 @@ fi:
         questionnaires:
           actions:
             back: Takaisin kysymyksiin
+            publish_answers: Julkaise vastaukset
             show: Näytä vastaukset
           answer_option:
             answer_option: Vastausvaihtoehto
@@ -153,6 +154,9 @@ fi:
             invalid: Kyselylomakkeen tallentaminen epäonnistui.
             success: Lomakkeen tallennus onnistui.
       admin_log:
+        question:
+          publish_answers: "%{user_name} julkaisi kyselyn %{resource_name} vastaukset osallistumistilassa %{space_name}"
+          unpublish_answers: "%{user_name} perui kyselyn %{resource_name} vastausten julkaisun osallistumistilassa %{space_name}"
         questionnaire:
           update: "%{user_name} päivitti kyselyä %{resource_name}"
       errors:
