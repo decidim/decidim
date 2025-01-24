@@ -8,7 +8,8 @@ module Decidim
       describe ImportProposals do
         describe "call" do
           let!(:organization) { create(:organization) }
-          let!(:proposal) { create(:proposal, :accepted, component: proposal_component) }
+          let!(:proposal) { create(:proposal, :accepted, component: proposal_component, taxonomies:) }
+          let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }
           let!(:proposal_component) do
             create(
               :proposal_component,
@@ -69,7 +70,7 @@ module Decidim
             end
 
             context "when a proposal was already imported" do
-              let(:second_proposal) { create(:proposal, :accepted, component: proposal_component) }
+              let(:second_proposal) { create(:proposal, :accepted, component: proposal_component, taxonomies:) }
 
               before do
                 command.call
@@ -115,7 +116,7 @@ module Decidim
               expect(new_proposal.title).to eq(proposal.title)
               expect(new_proposal.body).to eq(proposal.body)
               expect(new_proposal.creator_author).to eq(organization)
-              expect(new_proposal.category).to eq(proposal.category)
+              expect(new_proposal.taxonomies).to eq(proposal.taxonomies)
 
               expect(new_proposal.state).to be_nil
               expect(new_proposal.answer).to be_nil
@@ -159,8 +160,8 @@ module Decidim
               let(:states) { %w(not_answered rejected) }
 
               before do
-                create(:proposal, :rejected, component: proposal_component)
-                create(:proposal, component: proposal_component)
+                create(:proposal, :rejected, component: proposal_component, taxonomies:)
+                create(:proposal, component: proposal_component, taxonomies:)
               end
 
               it "only imports proposals from the selected states" do
