@@ -8,6 +8,8 @@ fi-pl:
         photos: Kuvat
       common:
         created_at: Luontiaika
+      component:
+        taxonomy_filters: Luokittelun suodattimet
       content_block_attachment:
         background_image: Taustakuva
         main_image: Pääkuva
@@ -32,7 +34,10 @@ fi-pl:
       taxonomy:
         name: Luokittelun nimi
       taxonomy_filter:
+        internal_name: Sisäinen nimike
+        name: Nimike
         root_taxonomy_id: Luokittelusta
+        space_filter: Määritettävissä suodattimeksi kohteelle
       user:
         about: Profiilikuvaus
         avatar: Profiilikuva
@@ -301,6 +306,13 @@ fi-pl:
         delete_with_parent: "%{user_name} poisti kohteen %{resource_name} luokittelun %{parent_taxonomy} alta"
         update: "%{user_name} päivitti luokittelua %{resource_name}"
         update_with_parent: "%{user_name} päivitti kohdetta %{resource_name} luokittelun %{parent_taxonomy} alla"
+      taxonomy_filter:
+        create: "%{user_name} loi suodattimen %{resource_name}"
+        create_with_filter_info: '%{user_name} loi suodattimen %{resource_name} luokittelulle "%{taxonomy_name}", jolle on määritetty %{filter_items_count} kohdetta'
+        delete: "%{user_name} poisti suodattimen %{resource_name}"
+        delete_with_filter_info: '%{user_name} poisti suodattimen %{resource_name} luokittelulle "%{taxonomy_name}", jolle on määritetty %{filter_items_count} kohdetta'
+        update: "%{user_name} päivitti suodatinta %{resource_name}"
+        update_with_filter_info: '%{user_name} päivitti suodatinta %{resource_name} luokittelulle "%{taxonomy_name}", jolle on määritetty %{filter_items_count} kohdetta'
       user:
         block: "%{user_name} esti käyttäjän %{resource_name}"
         bulk_block: "%{user_name} esti %{blocked_count} käyttäjätiliä"
@@ -1235,6 +1247,8 @@ fi-pl:
         unknown_action_with_space: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name} tilassa %{space_name}"
         unpublish_with_space: "%{user_name} lopetti %{resource_name} julkaisun osallistumistilassa %{space_name}"
         update: "%{user_name} päivitti %{resource_name}"
+        update_filters: "%{user_name} päivitti suodattimia kohteelle %{resource_name}"
+        update_filters_with_space: "%{user_name} päivitti suodattimia kohteelle %{resource_name} osallistumistilassa %{space_name}"
         update_permissions_with_space: "%{user_name} päivitti kohteen %{resource_name} oikeuksia tilassa %{space_name}"
         update_with_space: "%{user_name} päivitti %{resource_name} tilassa %{space_name}"
       value_types:
@@ -1858,15 +1872,6 @@ fi-pl:
         send: Lähetä
       update:
         error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
-    user_interests:
-      show:
-        my_interests: Omat kiinnostuksen kohteet
-        no_scopes: Tällä organisaatiolla ei ole vielä teemaa!
-        select_your_interests: Valitse ne aiheet, joista olet kiinnostunut vastaanottamaan tietoa profiilisi aikajana-välilehdellä.
-        update_my_interests: Päivitä omat kiinnostuksen kohteet
-      update:
-        error: Kiinnostuksen kohteiden päivittämisessä tapahtui virhe.
-        success: Kiinnostuksen kohteet on päivitetty onnistuneesti.
     user_report_mailer:
       notify:
         body_1: Käyttäjä %{user} on ilmoitettu käyttäjän %{token} toimesta
@@ -2276,7 +2281,6 @@ fi-pl:
         authorizations: Varmennukset
         delete_my_account: Poista tilini
         my_data: Omat tiedot
-        my_interests: Kiinnostuksen kohteeni
         notifications_settings: Ilmoitusten asetukset
         profile: Profiili
         title: Käyttäjätilin asetukset
