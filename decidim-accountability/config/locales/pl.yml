@@ -39,7 +39,6 @@ pl:
         confirm_destroy: Czy na pewno chcesz usunąć %{name}?
         destroy: Usuń
         edit: Edytuj
-        import: Importuj projekty z innego komponentu
         import_csv: Importuj wyniki z pliku CSV
         new_result: Nowy wynik
         new_status: Nowy status
@@ -65,21 +64,6 @@ pl:
             name: Wynik
           status:
             name: Status
-        projects_import:
-          create:
-            invalid: Wystąpił problem z importem projektów do wyników, proszę postępować ostrożnie zgodnie z instrukcjami i upewnić się, że wybrałeś projekty do realizacji.
-          new:
-            create: Importuj
-            import_all_selected_projects: Importuj wszystkie projekty wybrane do wdrożenia
-            new_items:
-              one: 1 wybrany projekt zostanie zaimportowany
-              few: "%{count} wybrane projekty zostaną zaimportowane"
-              many: "%{count} wybranych projektów zostanie zaimportowanych"
-              other: "%{count} wybranych projektów zostanie zaimportowanych"
-            no_components: W tej przestrzeni partycypacyjnej nie ma komponentów budżetu, aby zaimportować projekty do wyników.
-            origin_component_id: Oryginalny komponent
-            select_component: Wybierz komponent
-            title: Importuj projekty z innego komponentu
         results:
           create:
             invalid: Podczas tworzenia tego wyniku wystąpił błąd.
