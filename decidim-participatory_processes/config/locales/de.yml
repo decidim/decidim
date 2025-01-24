@@ -272,6 +272,9 @@ de:
         create:
           error: Beim Erstellen einer neuen partizipativen Prozessgruppe ist ein Fehler aufgetreten.
           success: Partizipative Prozessgruppe erfolgreich erstellt.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Alle Beteiligungsprozesse
       titles:
         participatory_process_groups: Partizipative Prozessgruppen
         participatory_process_types: Beteiligungsprozesstypen
