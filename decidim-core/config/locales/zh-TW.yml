@@ -1372,15 +1372,6 @@ zh-TW:
         send: 發送
       update:
         error: 訊息未送出，請稍後再試。
-    user_interests:
-      show:
-        my_interests: 我的興趣
-        no_scopes: 這個組織目前還沒有設定範圍！
-        select_your_interests: 選擇您感興趣的主題，以接收與其相關的活動，並在您的個人檔案時間軸選項卡中查看。
-        update_my_interests: 更新我的興趣
-      update:
-        error: 更新您的興趣時發生問題。
-        success: 您的興趣已成功更新。
     user_report_mailer:
       notify:
         body_1: 使用者 %{user} 已被 %{token} 舉報。
@@ -1669,7 +1660,6 @@ zh-TW:
         authorizations: 授權
         delete_my_account: 刪除我的帳號
         my_data: 我的資料
-        my_interests: 我的興趣
         notifications_settings: 通知設定
         title: 參與者設定
         user_groups: 群組
