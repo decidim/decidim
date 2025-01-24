@@ -94,12 +94,7 @@ eu:
           new:
             create: Inportatu
             import_all_selected_projects: Inportatu inplementatzeko aukeratu dituzun proiektu guztiak
-            new_items:
-              one: Aukeratutako proiektu 1 inportatuko da
-              other: "Aukeratutako proiektu bat inportatuko da"
             no_components: Ez dago aurrekontuen osagairik parte-hartze espazio honetan proiektuak emaitzetara inportatzeko.
-            origin_component_id: Jatorrizko osagaia
-            select_component: Hautatu osagaia
             success:
               one: Proiektu 1 ilaran dago inportazioaren zain. Eginda dagoenean posta elektronikoz jakinaraziko zaizu.
               other: "%{count} proiektu inportazioaren zain. Eginda dagoenean posta elektronikoz jakinaraziko zaizu."
