@@ -8,6 +8,8 @@ de:
         photos: Fotos
       common:
         created_at: Erstellt am
+      component:
+        taxonomy_filters: Klassifizierungsfilter
       content_block_attachment:
         background_image: Hintergrundbild
         main_image: Hauptbild
@@ -32,7 +34,10 @@ de:
       taxonomy:
         name: Name der Klassifizierung
       taxonomy_filter:
+        internal_name: Interne Bezeichnung
+        name: Bezeichnung
         root_taxonomy_id: Aus der Klassifizierung
+        space_filter: Als Filter verfügbar für
       user:
         about: Über
         avatar: Profilbild
@@ -301,6 +306,13 @@ de:
         delete_with_parent: "%{user_name} hat die Klassifizierung %{resource_name} innerhalb der Klassifizierung %{parent_taxonomy} gelöscht"
         update: "%{user_name} hat die Klassifizierung %{resource_name} aktualisiert"
         update_with_parent: "%{user_name} hat die Klassifizierung %{resource_name} innerhalb der Klassifizierung %{parent_taxonomy} aktualisiert"
+      taxonomy_filter:
+        create: "%{user_name} hat den Filter %{resource_name} erstellt"
+        create_with_filter_info: '%{user_name} hat den Filter %{resource_name} basierend auf der Klassifizierung "%{taxonomy_name}" mit %{filter_items_count} Elementen erstellt'
+        delete: "%{user_name} hat den Filter %{resource_name} gelöscht"
+        delete_with_filter_info: '%{user_name} hat den Filter %{resource_name} basierend auf der Klassifizierung "%{taxonomy_name}" mit %{filter_items_count} Elementen gelöscht'
+        update: "%{user_name} hat den Filter %{resource_name} aktualisiert"
+        update_with_filter_info: '%{user_name} hat den Filter %{resource_name} basierend auf der Klassifizierung "%{taxonomy_name}" mit %{filter_items_count} Elementen aktualisiert'
       user:
         block: "%{user_name} hat %{resource_name} blockiert"
         bulk_block: "%{user_name} hat %{blocked_count} Benutzer blockiert"
@@ -1240,6 +1252,8 @@ de:
         unknown_action_with_space: "%{user_name} hat eine Aktion an %{resource_name} in %{space_name} ausgeführt"
         unpublish_with_space: "%{user_name} hat die Veröffentlichung von %{resource_name} in %{space_name} aufgehoben"
         update: "%{user_name} hat %{resource_name} aktualisiert"
+        update_filters: "%{user_name} hat die Filter %{resource_name} aktualisiert"
+        update_filters_with_space: "%{user_name} hat die Filter %{resource_name} in %{space_name} aktualisiert"
         update_permissions_with_space: "%{user_name} hat die Berechtigungen für %{resource_name} in %{space_name} aktualisiert"
         update_with_space: "%{user_name} hat %{resource_name} in %{space_name} aktualisiert"
       value_types:
@@ -1863,15 +1877,6 @@ de:
         send: Senden
       update:
         error: Nachricht wurde nicht gesendet. Versuchen Sie es später noch einmal
-    user_interests:
-      show:
-        my_interests: Meine Interessen
-        no_scopes: Dieser Organisation ist noch kein Thema zugewiesen!
-        select_your_interests: Wählen Sie die Themen aus, an denen Sie interessiert sind, um dazu Benachrichtigungen auf der Registerkarte "Zeitleiste" Ihres Profils zu erhalten.
-        update_my_interests: Meine Interessen aktualisieren
-      update:
-        error: Beim Aktualisieren Ihrer Interessen ist ein Fehler aufgetreten.
-        success: Ihre Interessen wurden erfolgreich aktualisiert.
     user_report_mailer:
       notify:
         body_1: Benutzer %{user} wurde von %{token} gemeldet
@@ -2284,7 +2289,6 @@ de:
         authorizations: Berechtigungen
         delete_my_account: Löschen Sie mein Konto
         my_data: Meine Daten
-        my_interests: Meine Interessen
         notifications_settings: Benachrichtigungseinstellungen
         profile: Profil
         title: Benutzereinstellungen
