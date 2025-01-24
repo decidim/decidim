@@ -68,6 +68,8 @@ ja:
         email: Eメールアドレス
         name: 名前
         role: ロール
+      partner:
+        logo: ロゴ
     errors:
       models:
         conference_registration_invite:
@@ -296,6 +298,9 @@ ja:
         update:
           error: このカンファレンスの登録種別の更新に問題がありました。
           success: カンファレンスの登録種別を更新しました。
+      taxonomy_filters:
+        space_filter_for:
+          conferences: すべてのカンファレンス
       titles:
         conferences: カンファレンス
         conferences_deleted: 削除されたカンファレンス
@@ -536,14 +541,20 @@ ja:
         conference_invites:
           accepted_at: カンファレンスへの招待が承認された日時
           conference: この招待状が送信されたカンファレンス
+          confirmed_at: この招待の確認日時
+          created_at: この招待の作成日時
           id: カンファレンス招待の固有ID
           registration_type: 送信されたカンファレンス参加登録の種別
           rejected_at: カンファレンスへの招待が却下された日時
           sent_at: カンファレンスへの招待が送信された日時
+          updated_at: この招待の最終更新日時
         conference_registrations:
           conference: 所属するカンファレンス
+          confirmed_at: この登録の確認日時
+          created_at: この登録の作成日時
           id: カンファレンス参加登録の固有ID
           registration_type: これが属する参加登録の種別
+          updated_at: この登録の最終更新日時
     events:
       conferences:
         conference_registration_confirmed:
