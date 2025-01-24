@@ -7,26 +7,15 @@
 // 
 
 const footer = document.querySelector("footer");
-const stickyButtons = document.querySelectorAll("[data-sticky-buttons]");
-
-const isElementInViewport = (element) => {
-  const rect = element.getBoundingClientRect();
-  return rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
-};
+const stickyButtons = document.querySelector("[data-sticky-buttons]");
 
 const adjustCtasButtons = () => {
-  if (!stickyButtons || !stickyButtons.length) {
+  if (!stickyButtons) {
     return;
   }
 
-  let visibleButtons = Array.from(stickyButtons).filter(isElementInViewport);
-
-  if (visibleButtons.length > 0) {
-    const marginBottom = Math.max(...visibleButtons.map((ctasButton) => ctasButton.offsetHeight));
-    footer.style.marginBottom = `${marginBottom}px`;
-  } else {
-    footer.style.marginBottom = 0;
-  }
+  const marginBottom = stickyButtons.offsetHeight;
+  footer.style.marginBottom = `${marginBottom}px`;
 };
 
 if (stickyButtons) {
