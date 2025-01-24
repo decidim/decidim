@@ -1843,15 +1843,6 @@ es-MX:
         send: Enviar
       update:
         error: Mensaje no enviado. Inténtalo de nuevo más tarde
-    user_interests:
-      show:
-        my_interests: Mis intereses
-        no_scopes: '¡Esta organización aún no tiene ningún ámbito!'
-        select_your_interests: Selecciona los temas de tu interés para recibir notificaciones relacionadas con estos en la pestaña de Línea de tiempo dentro de tu perfil público.
-        update_my_interests: Actualizar mis intereses
-      update:
-        error: Hubo un error al actualizar tus intereses.
-        success: Sus intereses se han actualizado con éxito.
     user_report_mailer:
       notify:
         body_1: La usuaria %{user} ha sido reportada por %{token}
@@ -2260,7 +2251,6 @@ es-MX:
         authorizations: Autorizaciones
         delete_my_account: Eliminar mi cuenta
         my_data: Mis datos
-        my_interests: Mis intereses
         notifications_settings: Configuracion de notificaciones
         profile: Perfil
         title: Ajustes de usuario
