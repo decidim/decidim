@@ -29,6 +29,7 @@ pt:
       decidim:
         accountability:
           result:
+            budget_text: Este resultado %{link} foi incluído
             meetings_ids: 'Discutido nesta reunião: %{link}'
             project_ids: 'Incluído neste projeto: %{link}'
             proposal_ids: 'Incluído nesta proposição: %{link}'
@@ -44,7 +45,6 @@ pt:
         confirm_destroy: Tem certeza de que deseja eliminar este %{name}?
         destroy: Eliminar
         edit: Editar
-        import: Importar projetos de outro componente
         import_csv: Importar resultados de um CSV
         new_result: Novo resultado
         new_status: Novo estado
