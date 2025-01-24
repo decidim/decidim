@@ -37,7 +37,7 @@ module Decidim
       protected
 
       def check_editable
-        return if survey.allow_editing_answers? && survey.open?
+        return if allow_editing_answers?
 
         flash.now[:error] = t("decidim.forms.step_navigation.show.disallowed")
         render :no_permission

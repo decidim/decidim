@@ -31,7 +31,7 @@ module Decidim
 
       def add_answers!(questionnaire:, session_token:, ip_hash:)
         self.responses = questionnaire.questions.map do |question|
-          AnswerForm.from_model(Decidim::Forms::Answer.where(question:, session_token:, ip_hash:).first)
+          AnswerForm.from_model(Decidim::Forms::Answer.where(question:, user: current_user, session_token:, ip_hash:).first_or_initialize)
         end
       end
 

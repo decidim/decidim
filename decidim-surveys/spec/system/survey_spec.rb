@@ -149,7 +149,19 @@ describe "Answer a survey" do
   context "when the survey allow answers" do
     # rubocop:disable Naming/VariableNumber
     context "when survey allows editing" do
+      let(:options) do
+        [
+          { "body" => Decidim::Faker::Localized.sentence },
+          { "body" => Decidim::Faker::Localized.sentence },
+          { "body" => Decidim::Faker::Localized.sentence }
+        ]
+      end
+      let(:max_characters) { 0 }
+      let(:max_choices) { nil }
+
       let!(:survey) { create(:survey, :published, :allow_edit, :announcement, :allow_answers, :allow_unregistered, component:, questionnaire:) }
+      let!(:second_question) { create(:questionnaire_question, position: 1, questionnaire:, question_type: :multiple_option, max_choices:, max_characters:, options:) }
+      let!(:question) { create(:questionnaire_question, questionnaire:, mandatory: true, position: 0, description: question_description) }
 
       before do
         visit_component
