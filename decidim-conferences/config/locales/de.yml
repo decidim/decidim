@@ -301,6 +301,9 @@ de:
         update:
           error: Bei einem Fehler ist ein Registrierungstyp für diese Konferenz aktualisiert worden.
           success: Die Registrierung wurde für diese Konferenz erfolgreich aktualisiert.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Alle Konferenzen
       titles:
         conferences: Konferenzen
         conferences_deleted: Gelöschte Konferenzen
