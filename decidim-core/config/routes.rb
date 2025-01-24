@@ -146,8 +146,6 @@ Decidim::Core::Engine.routes.draw do
 
   get "/link", to: "links#new", as: :link
 
-  get "/scopes/picker", to: "scopes#picker", as: :scopes_picker
-
   get "/static_map", to: "static_map#show", as: :static_map
   put "/pages/terms-of-service/accept", to: "tos#accept_tos", as: :accept_tos
 

@@ -14,7 +14,6 @@ module Decidim
       it { is_expected.to act_as_paranoid }
 
       include_examples "has component"
-      include_examples "has scope"
       include_examples "has taxonomies"
       include_examples "has reference"
       include_examples "resourceable"

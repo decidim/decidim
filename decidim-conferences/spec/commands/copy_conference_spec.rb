@@ -7,7 +7,6 @@ module Decidim::Conferences
     subject { described_class.new(form, conference) }
 
     let(:organization) { create(:organization) }
-    let(:scope) { create(:scope, organization:) }
     let(:errors) { double.as_null_object }
     let!(:conference) { create(:conference, organization:, taxonomies: [taxonomy]) }
     let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
@@ -49,7 +48,6 @@ module Decidim::Conferences
         expect(new_conference.hashtag).to eq(old_conference.hashtag)
         expect(new_conference.short_description).to eq(old_conference.short_description)
         expect(new_conference.promoted).to eq(old_conference.promoted)
-        expect(new_conference.scope).to eq(old_conference.scope)
         expect(new_conference.objectives).to eq(old_conference.objectives)
         expect(new_conference.start_date).to eq(old_conference.start_date)
         expect(new_conference.end_date).to eq(old_conference.end_date)

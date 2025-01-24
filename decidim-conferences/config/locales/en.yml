@@ -22,8 +22,6 @@ en:
         published_at: Published at
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
         short_description: Short description
         show_statistics: Show statistics
         sign_date: Sign date
