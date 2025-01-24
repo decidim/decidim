@@ -213,7 +213,16 @@ ja:
             title: タイトル
       order:
         status:
+          continue_voting: 投票を続ける
+          download_vote: 投票のダウンロード
+          pending_to_vote_budgets:
+            other: 他の予算に投票できます
+          share_vote: 投票を共有する
           title: 投票は正常に承認されました
+          view_votes:
+            other: 投票を表示
+          votes_count:
+            other: あなたの%{count}票は、%{budget_name}に対してすでに登録されています。
       order_summary_mailer:
         order_summary:
           selected_projects: '選択したプロジェクトは次のとおりです。'
