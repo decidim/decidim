@@ -167,12 +167,13 @@ en:
             edit: Edit
           census:
             create_import:
+              error: There was a problem importing census.
               no_user: No user found
               success: Successfully imported %{count} items.
             destroy:
               success: Census data record have been deleted.
             index:
-              empty: There are no census data. Use the button Import CSV to import it using a CSV file.
+              empty: There are no census data. Use %{import_csv} to import a CSV file.
               no_sign_in: Never signed in
               no_user: No user found
             last_login:

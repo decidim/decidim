@@ -17,15 +17,15 @@ module Decidim
           def csv_must_be_readable
             data.read
 
-            errors.add(:base, I18n.t("decidim.verifications.errors.has_headers")) if data.headers.any?
-
             errors.add(:base, I18n.t("decidim.verifications.errors.wrong_number_columns", expected: 1, actual: data.count)) if data.count != 1
 
             errors.add(:base, I18n.t("decidim.verifications.errors.no_emails")) if data.values.empty?
 
             data.values.each do |value|
-              errors.add(:base, t("decidim.verifications.errors.invalid_emails", invalid_emails: value)) unless valid_email?(value)
+              errors.add(:base, I18n.t("decidim.verifications.errors.invalid_emails", invalid_emails: value)) unless valid_email?(value)
             end
+
+            errors.add(:base, I18n.t("decidim.verifications.errors.has_headers")) if data.headers.any?
           end
 
           private

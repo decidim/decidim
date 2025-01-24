@@ -9,18 +9,18 @@
       </button>
     </h1>
   </div>
-  <div class="table-scroll mt-8">
-    <table class="table-list">
-      <thead>
-        <tr>
-          <th><%= t("index.fields.email", scope: "decidim.verifications.csv_census.admin") %></th>
-          <th><%= t("index.fields.created_at", scope: "decidim.verifications.csv_census.admin") %></th>
-          <th><%= t("index.fields.user_verification", scope: "decidim.verifications.csv_census.admin") %></th>
-          <th><%= t("index.fields.actions", scope: "decidim.verifications.csv_census.admin") %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% if csv_census_data.any? %>
+  <% if csv_census_data.any? %>
+    <div class="table-scroll mt-8">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("index.fields.email", scope: "decidim.verifications.csv_census.admin") %></th>
+            <th><%= t("index.fields.created_at", scope: "decidim.verifications.csv_census.admin") %></th>
+            <th><%= t("index.fields.user_verification", scope: "decidim.verifications.csv_census.admin") %></th>
+            <th><%= t("index.fields.actions", scope: "decidim.verifications.csv_census.admin") %></th>
+          </tr>
+        </thead>
+        <tbody>
           <% csv_census_data.each do |data| %>
             <tr>
               <td><%= data.email %></td>
@@ -40,12 +40,12 @@
               </td>
             </tr>
           <% end %>
-        <% else %>
-          <p><%= t(".empty") %></p>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <p><%= t(".empty", import_csv: link_to(t("index.import_csv", scope: "decidim.verifications.csv_census.admin"), new_import_census_logs_path, class: "underline decoration-solid decoration-secondary font-semibold text-secondary").html_safe).html_safe %></p>
+  <% end %>
 </div>
 <%= decidim_paginate csv_census_data %>
 

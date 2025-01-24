@@ -39,13 +39,21 @@ module Decidim
         end
 
         def headers
-          CSV.open(@file, encoding: "BOM|UTF-8") do |csv|
-            first_row = csv.first
-            return first_row ? first_row.map(&:strip) : []
-          end
+          first_row = CSV.open(@file, encoding: "BOM|UTF-8", &:first)
+
+          return [] unless first_row
+
+          return [] if valid_email?(first_row.first)
+
+          errors << I18n.t("decidim.verifications.errors.has_headers")
+          return first_row.map(&:strip)
         end
 
         private
+
+        def valid_email?(email)
+          email.present? && email.match?(::Devise.email_regexp)
+        end
 
         def process_row(row)
           user_mail = row.first
