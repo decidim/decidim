@@ -36,7 +36,6 @@ it:
         confirm_destroy: Sei sicuro di voler eliminare questo %{name}?
         destroy: Cancella
         edit: Modifica
-        import: Importa progetti da un'altro componenete
         new_result: Nuovo risultato
         preview: Anteprima
         timeline_entries: Evoluzione del progetto
