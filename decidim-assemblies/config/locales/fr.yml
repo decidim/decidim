@@ -204,6 +204,9 @@ fr:
             collaborator: Collaborateur
             moderator: Modérateur
             valuator: Évaluateur
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: Toutes les assemblées
       titles:
         assemblies: Assemblées
         assemblies_deleted: Assemblées supprimées
