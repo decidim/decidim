@@ -45,8 +45,6 @@ en:
         promoted: Highlighted
         published_at: Published at
         purpose_of_action: Purpose of action
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
         short_description: Short description
         slug: URL slug
         special_features: Special features

@@ -29,8 +29,6 @@ en:
         promoted: Promoted
         published_at: Published at
         related_process_ids: Related processes
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
         short_description: Short description
         slug: URL slug
         start_date: Start date

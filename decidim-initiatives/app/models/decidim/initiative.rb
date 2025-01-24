@@ -162,7 +162,7 @@ module Decidim
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(area scope)
+      %w(area scope taxonomies)
     end
 
     def self.ransackable_scopes(_auth_object = nil)

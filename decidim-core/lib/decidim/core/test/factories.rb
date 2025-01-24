@@ -921,7 +921,6 @@ FactoryBot.define do
     organization { resource.component.organization }
     decidim_participatory_space { resource.component.participatory_space }
     locale { I18n.locale }
-    scope { resource.scope }
     content_a { Faker::Lorem.sentence }
     datetime { Time.current }
   end
