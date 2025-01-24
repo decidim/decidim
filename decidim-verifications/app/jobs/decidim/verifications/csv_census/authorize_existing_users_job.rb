@@ -10,7 +10,7 @@ module Decidim
           data.each do |email|
             user = current_organization.users.available.find_by(email:)
 
-            return t("census.last_login.no_user", scope: "decidim.verifications.csv_census.admin") unless user
+            return I18n.t("census.last_login.no_user", scope: "decidim.verifications.csv_census.admin") unless user
 
             authorization = Decidim::Authorization.find_or_initialize_by(
               user:,

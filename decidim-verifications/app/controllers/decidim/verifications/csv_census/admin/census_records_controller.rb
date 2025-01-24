@@ -17,12 +17,12 @@ module Decidim
             @form = form(Admin::CensusForm).from_params(params)
             Admin::CreateCensusRecord.call(@form) do
               on(:ok) do
-                flash[:notice] = t(".success")
+                flash[:notice] = I18n.t("census_records.create_record.success", scope: "decidim.verifications.csv_census.admin")
                 render json: { redirect_url: census_logs_path }, status: :ok
               end
 
               on(:invalid) do
-                flash.now[:alert] = t(".error")
+                flash.now[:alert] = I18n.t("census_records.create_record.error", scope: "decidim.verifications.csv_census.admin")
                 render :new_record, status: :unprocessable_entity
               end
             end
