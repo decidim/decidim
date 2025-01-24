@@ -47,7 +47,6 @@ fr-CA:
         deleted_results_info: Les résultats supprimés peuvent être restaurés à partir de la corbeille.
         destroy: Supprimer
         edit: Modifier
-        import: Importer des projets depuis une autre fonctionnalité
         import_csv: Importer les résultats depuis un fichier CSV
         new_result: Nouvelle réalisation
         new_status: Nouveau statut
@@ -74,22 +73,6 @@ fr-CA:
             name: Réalisation
           status:
             name: Progression
-        projects_import:
-          create:
-            invalid: Il y a eu un problème lors de l'importation des projets, veuillez suivre attentivement les instructions et assurez-vous que vous avez bien sélectionné les projets à mettre en œuvre.
-          new:
-            create: Importer
-            import_all_selected_projects: Importer tous les projets sélectionnés
-            new_items:
-              one: 1 projet sélectionné va être importé
-              other: "%{count} projets sélectionnés vont être importés"
-            no_components: Il n'y a aucune fonctionnalité Budget dans cet espace participatif depuis laquelle importer des projets.
-            origin_component_id: Fonctionnalité d'origine
-            select_component: Sélectionner une fonctionnalité
-            success:
-              one: Projet en attente d'importation. Vous serez notifié par courriel, une fois l'import terminé.
-              other: "%{count} projets en attente d'importation. Vous serez notifié par email une fois l'import terminé."
-            title: Importer des projets depuis une autre fonctionnalité
         results:
           bulk_actions:
             dates_form:
