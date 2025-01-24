@@ -10,7 +10,7 @@ module Decidim
 
         fetch_form_attributes :organization, :title, :subtitle, :weight, :slug, :hashtag, :description,
                               :short_description, :promoted, :taxonomizations, :announcement,
-                              :scope_type_max_depth, :private_space, :developer_group, :local_area, :target,
+                              :private_space, :developer_group, :local_area, :target,
                               :participatory_scope, :participatory_structure, :meta_scope, :start_date, :end_date,
                               :participatory_process_group
 
