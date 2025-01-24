@@ -87,8 +87,8 @@ module Decidim
         params = {
           component:,
           scope: random_scope(participatory_space:),
-          title: { en: ::Faker::Lorem.sentence(word_count: 2) },
-          body: { en: ::Faker::Lorem.paragraphs(number: 2).join("\n") },
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          body: Decidim::Faker::Localized.paragraph(sentence_count: 1),
           proposal_state:,
           answer:,
           answered_at: proposal_state.present? ? Time.current : nil,
@@ -199,8 +199,8 @@ module Decidim
         params = {
           component: proposal.component,
           scope: random_scope(participatory_space:),
-          title: { en: "#{proposal.title["en"]} #{::Faker::Lorem.sentence(word_count: 1)}" },
-          body: { en: "#{proposal.body["en"]} #{::Faker::Lorem.sentence(word_count: 3)}" },
+          title: Decidim::Faker::Localized.literal(proposal.title[I18n.locale]),
+          body: Decidim::Faker::Localized.paragraph(sentence_count: 3),
           proposal_state: Decidim::Proposals::ProposalState.where(component: proposal.component, token: :evaluating).first,
           answer: nil,
           answered_at: Time.current,
