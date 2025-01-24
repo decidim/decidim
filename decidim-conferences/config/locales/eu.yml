@@ -301,6 +301,9 @@ eu:
         update:
           error: Arazo bat egon da jardunaldi honetarako izen-emate mota hau eguneratzean.
           success: Izen-emate mota arrakastaz eguneratu da jardunaldi honetarako.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Jardunaldi guztiak
       titles:
         conferences: Jardunaldiak
         conferences_deleted: Ezabatutako jardunaldiak
