@@ -53,6 +53,9 @@ gl:
             name: Resultado
           status:
             name: Estado
+        projects_import:
+          new:
+            create: Importar
         results:
           edit:
             title: Editar resultado
