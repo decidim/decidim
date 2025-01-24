@@ -271,6 +271,9 @@ fi:
         create:
           error: Uuden osallistumisprosessien ryhmän luonti epäonnistui.
           success: Osallistumisprosessien ryhmän luonti onnistui.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Kaikki osallistumisprosessit
       titles:
         participatory_process_groups: Osallistumisprosessiryhmät
         participatory_process_types: Osallistumisprosessien tyypit
