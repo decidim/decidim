@@ -47,7 +47,6 @@ sv:
         deleted_results_info: Borttagna resultat kan återställas från papperskorgen.
         destroy: Radera
         edit: Redigera
-        import: Importera från en annan komponent
         import_csv: Importera resultat från CSV-fil
         new_result: Nytt resultat
         new_status: Ny status
@@ -74,22 +73,6 @@ sv:
             name: Resultat
           status:
             name: Status
-        projects_import:
-          create:
-            invalid: Det gick inte att importera projekten till resultat, följ instruktionerna noga och se till att du har valt projekt för genomförande.
-          new:
-            create: Importera
-            import_all_selected_projects: Importera alla projekt som valts för genomförande
-            new_items:
-              one: 1 valt projekt kommer att importeras
-              other: "%{count} valda projekt kommer att importeras"
-            no_components: Det finns inga budget-komponenter att importera projekt från i den här processen.
-            origin_component_id: Ursprungskomponent
-            select_component: Välj en komponent
-            success:
-              one: 1 projekt väntar på att importeras. Du får ett e-postmeddelande när det är klart.
-              other: "%{count} projekt väntar på att importeras. Du får ett e-postmeddelande när det är klart."
-            title: Importera från en annan komponent
         results:
           bulk_actions:
             dates_form:
