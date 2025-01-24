@@ -271,6 +271,9 @@ fr-CA:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau groupe de concertations.
           success: Groupe de concertations créé avec succès.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Tous les processus participatifs
       titles:
         participatory_process_groups: Groupes de concertations
         participatory_process_types: Types de concertation
