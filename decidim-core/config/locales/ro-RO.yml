@@ -1294,13 +1294,6 @@ ro:
         send: Trimite
       update:
         error: Mesajul nu a fost trimis. Încercați din nou mai târziu
-    user_interests:
-      show:
-        my_interests: Interesele mele
-        update_my_interests: Actualizează-mi interesele
-      update:
-        error: A apărut o eroare la actualizarea intereselor tale.
-        success: Interesele tale au fost actualizate cu succes.
     user_report_mailer:
       notify:
         body_1: Utilizatorul %{user} a fost raportat de %{token}
@@ -1507,7 +1500,6 @@ ro:
         authorizations: Autorizări
         delete_my_account: Ștergere cont
         my_data: Datele mele
-        my_interests: Interesele mele
         notifications_settings: Setări notificări
         title: Setări participant
         user_groups: Grupuri
