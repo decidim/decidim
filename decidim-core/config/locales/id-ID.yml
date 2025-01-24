@@ -724,13 +724,6 @@ id:
     user_conversations:
       update:
         error: Pesan tidak terkirim. Coba lagi nanti
-    user_interests:
-      show:
-        my_interests: Minat saya
-        update_my_interests: Perbarui minat saya
-      update:
-        error: Terjadi kesalahan saat memperbarui minat Anda.
-        success: Minat Anda telah berhasil diperbarui.
     welcome_notification:
       default_subject: Terima kasih telah bergabung dengan {{organization}}!
   devise:
@@ -875,7 +868,6 @@ id:
         authorizations: Otorisasi
         delete_my_account: Hapus akun Saya
         my_data: Data saya
-        my_interests: Minat saya
         notifications_settings: Pengaturan Notifikasi
         title: Pengaturan pengguna
         user_groups: Grup
