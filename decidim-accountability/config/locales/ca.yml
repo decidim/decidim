@@ -94,12 +94,7 @@ ca:
           new:
             create: Importar
             import_all_selected_projects: Importar tots els projectes seleccionats per a ser implementats
-            new_items:
-              one: S'importarà 1 projecte seleccionat
-              other: "S'importaran %{count} projectes seleccionats"
             no_components: No hi ha cap component de pressupostos en aquest espai de participació per a poder importar els projectes com a resultats.
-            origin_component_id: Component d'origen
-            select_component: Selecciona un component
             success:
               one: Hi ha 1 projecte a la cua per ser importat. Es notificarà per correu electrònic, quan es completi la importació.
               other: "Hi ha %{count} a la cua per ser importats. Es notificarà per correu electrònic, quan es completi la importació."
