@@ -204,7 +204,6 @@ describe "Initiative signing with workflows" do
           expect(authorization.unique_id).to eq(personal_data[:document_number])
           expect(authorization.metadata["postal_code"]).to eq(personal_data[:postal_code])
           expect(authorization.metadata["document_number"]).to eq(personal_data[:document_number])
-          expect(authorization.metadata["scope_id"]).to eq(initiative.scope.id)
         end
       end
 
@@ -340,7 +339,6 @@ describe "Initiative signing with workflows" do
               expect(authorization.unique_id).to eq("333333333X")
               expect(authorization.metadata["postal_code"]).to eq(personal_data[:postal_code])
               expect(authorization.metadata["document_number"]).to eq("333333333X")
-              expect(authorization.metadata["scope_id"]).to eq(initiative.scope.id)
             end
           end
         end
@@ -380,7 +378,7 @@ describe "Initiative signing with workflows" do
                 name: "dummy_authorization_handler",
                 user: confirmed_user,
                 unique_id: "012345678X",
-                metadata: { document_number: "012345678X", postal_code: "01234", scope_id: initiative.scope.id }
+                metadata: { document_number: "012345678X", postal_code: "01234" }
               )
 
               fill_personal_data
