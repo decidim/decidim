@@ -193,11 +193,9 @@ fi-pl:
           postal_codes:
             one: Osallistuminen on rajoitettu niille käyttäjille, joilla on postinumero %{postal_codes}.
             other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}.'
-          scope: Osallistuminen on rajoitettu niille käyttäjille, joilla on teema %{scope_name}.
           user_postal_codes:
             one: Osallistuminen on rajoitettu osallistujille, joilla on postinumero %{postal_codes}. Oma postinumerosi on %{user_postal_code}.
             other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}. Oma postinumerosi on %{user_postal_code}.'
-          user_scope: Osallistuminen on rajoitettu osallistujille, joilla on teema %{scope_name}. Oma teemasi on %{user_scope_name}.
       id_documents:
         admin:
           config:
