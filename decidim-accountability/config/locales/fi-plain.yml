@@ -47,7 +47,6 @@ fi-pl:
         deleted_results_info: Poistetut tulokset voidaan palauttaa roskakorista.
         destroy: Poista
         edit: Muokkaa
-        import: Tuo hankkeita toisesta komponentista
         import_csv: Tuo tulokset CSV-tiedostosta
         new_result: Uusi tulos
         new_status: Uusi tila
@@ -94,22 +93,6 @@ fi-pl:
             name: Tulos
           status:
             name: Tila
-        projects_import:
-          create:
-            invalid: Hankkeiden tuominen tuloksiin epäonnistui, seuraa ohjeita tarkasti ja tarkasta, että olet valinnut hankkeita toteutukseen.
-          new:
-            create: Tuo
-            import_all_selected_projects: Tuo kaikki toteutukseen valitut hankkeet
-            new_items:
-              one: 1 toteutukseen valittu hanke tuodaan
-              other: "%{count} toteutukseen valittua hanketta tuodaan"
-            no_components: Tässä osallistumistilassa ei ole yhtään budjetointikomponenttia, josta hankkeet voitaisiin tuoda tuloksiksi.
-            origin_component_id: Lähdekomponentti
-            select_component: Valitse komponentti
-            success:
-              one: 1 hanke on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu.
-              other: "%{count} hanketta on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu."
-            title: Tuo projekteja toisesta komponentista
         results:
           bulk_actions:
             dates_form:
