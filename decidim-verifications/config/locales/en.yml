@@ -228,7 +228,6 @@ en:
           user_postal_codes:
             one: Participation is restricted to participants with the postal code %{postal_codes}, and your postal code is %{user_postal_code}.
             other: 'Participation is restricted to participants with any of the following postal codes: %{postal_codes}. Your postal code is %{user_postal_code}.'
-          user_scope: Participation is restricted to participants with the scope %{scope_name}, and your scope is %{user_scope_name}.
       errors:
         has_headers: The file must not contain headers.
         invalid_emails: 'The following email addresses are invalid: %{invalid_emails}.'
