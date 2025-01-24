@@ -54,6 +54,9 @@ nl:
             name: Resultaat
           status:
             name: Status
+        projects_import:
+          new:
+            create: Importeren
         results:
           edit:
             title: Bewerk resultaat
