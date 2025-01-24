@@ -427,6 +427,8 @@ en:
           title: The assembly title
           twitter_handler: Social media handler for Twitter
           updated_at: The last date this space was updated
+          scope: The scope of the assembly
+          scopes_enabled: Weather the scopes are enabled or not
           url: The URL of the space
           youtube_handler: Social media handler for YouTube
     participatory_processes:

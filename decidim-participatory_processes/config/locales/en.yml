@@ -373,6 +373,8 @@ en:
           remote_hero_image_url: The URL of the process hero image
           short_description: A short description of the process
           slug: The process slug (used for identification purposes, for the URL)
+          scope: The scope of the process
+          scopes_enabled: Whether the scopes are enabled or not
           start_date: The start date of the process
           subtitle: The subtitle of the process
           target: The target of the process. This is who is called to participate in the process.
