@@ -95,8 +95,8 @@ eu:
             create: Inportatu
             import_all_selected_projects: Inportatu inplementatzeko aukeratu dituzun proiektu guztiak
             new_items:
-              one: Aukeratutako proiektu 1 inportatuko da
-              other: "Aukeratutako proiektu bat inportatuko da"
+              one: Aukeratutako proiektu bat inportatuko da
+              other: "Hautatutako %{count} proiektu inportatuko dira"
             no_components: Ez dago aurrekontuen osagairik parte-hartze espazio honetan proiektuak emaitzetara inportatzeko.
             origin_component_id: Jatorrizko osagaia
             select_component: Hautatu osagaia
@@ -258,7 +258,7 @@ eu:
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 hasierako konfigurazioari eusteko)
             display_progress_enabled: Erakutsi aurrerapena
-            intro: Intro
+            intro: Sarrera
             scope_id: Esparrua
             scopes_enabled: Esparruak gaituta
           step:
