@@ -61,6 +61,19 @@ fr-CA:
             title: 'Réponse #%{number}'
         exports:
           survey_user_answers: Réponses des participants à l'enquête
+        publish_answers:
+          index:
+            answers:
+              one: "%{count} réponse"
+              other: "%{count} réponses"
+            description: |-
+              En publiant les réponses aux questions, vous lez rendrez publiquement visibles.
+              Vous pouvez sélectionner les réponses que vous voulez publier en cochant la case en regard de chaque question.
+              Vous ne pouvez uniquement publier que les types de question suivants : "Choix unique", "Choix multiple", "Matrice (choix unique)", "Matrice (choix multiple)" et "Tri".
+            status:
+              not_published: Non publié
+              published: Publié
+            title: Publier les réponses
         surveys:
           create:
             invalid: Un problème est survenu lors de la création de l’enquête.
