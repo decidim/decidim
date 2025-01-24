@@ -6,6 +6,7 @@ module Decidim
       # A form object to be used when admin users want to import a collection of proposals
       # from another component.
       class ProposalsImportForm < Decidim::Form
+        include TranslatableAttributes
         mimic :proposals_import
 
         attribute :origin_component_id, Integer
@@ -19,15 +20,8 @@ module Decidim
         validates :import_proposals, allow_nil: false, acceptance: true
         validate :valid_states
 
-        VALID_STATES = %w(accepted not_answered evaluating rejected).freeze
-
         def states_collection
-          VALID_STATES.map do |state|
-            OpenStruct.new(
-              name: I18n.t(state, scope: "decidim.proposals.answers"),
-              value: state
-            )
-          end
+          @states_collection ||= ProposalState.where(component: current_component)
         end
 
         def states
@@ -56,7 +50,7 @@ module Decidim
 
         def valid_states
           return if states.all? do |state|
-            VALID_STATES.include?(state)
+            states_collection.pluck(:token).include?(state)
           end
 
           errors.add(:states, :invalid)

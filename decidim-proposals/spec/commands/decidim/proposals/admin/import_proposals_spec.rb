@@ -161,11 +161,8 @@ module Decidim
 
             describe "proposal states" do
               let(:states) { %w(not_answered rejected) }
-
-              before do
-                create(:proposal, :rejected, component: proposal_component)
-                create(:proposal, component: proposal_component)
-              end
+              let!(:rejected_proposal) { create(:proposal, :rejected, component: proposal_component) }
+              let!(:random_proposal) { create(:proposal, component: proposal_component) }
 
               it "only imports proposals from the selected states" do
                 expect do
@@ -174,10 +171,31 @@ module Decidim
 
                 expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
               end
+
+              context "when using translation" do
+                around do |example|
+                  locale = Decidim.default_locale
+                  Decidim.default_locale = :ca
+                  example.run
+                  Decidim.default_locale = locale
+                end
+
+                let!(:proposal) { create(:proposal, :accepted, component: proposal_component, state: "acceptada") }
+                let(:states) { %w(not_answered rebutjada) }
+                let!(:rejected_proposal) { create(:proposal, :rejected, component: proposal_component, state: "rebutjada") }
+
+                it "only imports proposals from the selected states" do
+                  expect do
+                    command.call
+                  end.to change { Proposal.where(component: current_component).count }.by(2)
+
+                  expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
+                end
+              end
             end
 
             describe "proposal scopes" do
-              let(:states) { ProposalsImportForm::VALID_STATES.dup }
+              let(:states) { %w(accepted not_answered evaluating rejected) }
               let(:scope) { create(:scope, organization:) }
               let(:other_scope) { create(:scope, organization:) }
 
