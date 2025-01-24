@@ -46,6 +46,7 @@ fr:
         questionnaires:
           actions:
             back: Retour aux questions
+            publish_answers: Publier les réponses
             show: Afficher les réponses
           answer_option:
             answer_option: Option de réponse
@@ -95,6 +96,7 @@ fr:
             add_separator: Ajouter un séparateur
             add_title_and_description: Ajouter un titre et une description
             save: Enregistrer
+            title: Questions
           form:
             add_question: Ajouter une question
             collapse: Réduire toutes les questions
@@ -144,6 +146,9 @@ fr:
             invalid: Il y a eu des erreurs lors de la sauvegarde du questionnaire.
             success: Le questionnaire a bien été sauvegardé.
       admin_log:
+        question:
+          publish_answers: "%{user_name} a publié les réponses aux questions de %{resource_name} sur l'espace %{space_name}"
+          unpublish_answers: "%{user_name} a dépublié les réponses aux questions de %{resource_name} sur l'espace %{space_name}"
         questionnaire:
           update: "%{user_name} a modifié le questionnaire %{resource_name}"
       errors:
