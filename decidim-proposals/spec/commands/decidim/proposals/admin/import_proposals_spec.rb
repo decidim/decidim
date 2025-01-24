@@ -173,20 +173,14 @@ module Decidim
               end
 
               context "when using translation" do
-                around do |example|
-                  locale = Decidim.default_locale
-                  Decidim.default_locale = :ca
-                  example.run
-                  Decidim.default_locale = locale
-                end
-
-                let!(:proposal) { create(:proposal, :accepted, component: proposal_component, state: "acceptada") }
                 let(:states) { %w(not_answered rebutjada) }
-                let!(:rejected_proposal) { create(:proposal, :rejected, component: proposal_component, state: "rebutjada") }
 
                 it "only imports proposals from the selected states" do
+                  Decidim::Proposals::ProposalState.where(component: proposal_component).where(token: "rejected").update(token: "rebutjada")
+                  Decidim::Proposals::ProposalState.where(component: proposal_component).where(token: "accepted").update(token: "acceptada")
+
                   expect do
-                    command.call
+                    I18n.with_locale(:ca) { command.call }
                   end.to change { Proposal.where(component: current_component).count }.by(2)
 
                   expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
