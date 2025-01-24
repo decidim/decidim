@@ -21,7 +21,7 @@ module Decidim
           return permission_action
         end
 
-        return permission_action if permission_action.scope != :admin
+        return permission_action unless permission_action.scope == :admin
 
         if permission_action.action.in?([:update, :destroy])
           toggle_allow(can_manage_post)
@@ -48,7 +48,7 @@ module Decidim
       end
 
       def can_manage_post
-        can_create_post && post.author == user
+        can_create_post && post&.author == user
       end
 
       def initiative_authorship?
