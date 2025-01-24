@@ -272,6 +272,9 @@ eu:
         create:
           error: Arazo bat egon da beste prozesu parte-hartzaileen multzo bat sortzean.
           success: Prozesu parte-hartzaileen taldea zuzen eguneratua.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Prozesu parte-hartzaile guztiak
       titles:
         participatory_process_groups: Prozesu parte-hartzaileen taldeak
         participatory_process_types: Prozesu parte-hartzaile motak
