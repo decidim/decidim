@@ -1464,13 +1464,6 @@ pt-BR:
         send: Enviar
       update:
         error: Mensagem não enviada. Tente mais tarde
-    user_interests:
-      show:
-        my_interests: Meus interesses
-        update_my_interests: Atualize meus interesses
-      update:
-        error: Ocorreu um erro ao atualizar seus interesses.
-        success: Seus interesses foram atualizados com sucesso.
     user_report_mailer:
       notify:
         body_1: O usuário %{user} foi denunciado por %{token}
@@ -1823,7 +1816,6 @@ pt-BR:
         authorizations: Autorizações
         delete_my_account: Excluir minha conta
         my_data: Meus dados
-        my_interests: Meus interesses
         notifications_settings: Configurações de notificações
         profile: Perfil
         title: Configurações do usuário
