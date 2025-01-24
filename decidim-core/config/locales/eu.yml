@@ -8,6 +8,8 @@ eu:
         photos: Argazkiak
       common:
         created_at: Sortze-data
+      component:
+        taxonomy_filters: Taxonomia-iragazkiak
       content_block_attachment:
         background_image: Atzeko planoko irudia
         main_image: Irudi nagusia
@@ -32,7 +34,10 @@ eu:
       taxonomy:
         name: Taxonomiaren izena
       taxonomy_filter:
+        internal_name: Barneko etiketa
+        name: Etiketa
         root_taxonomy_id: Taxonomiatik
+        space_filter: Iragazki gisa eskuragarri honetarako
       user:
         about: Honi buruz
         avatar: Abatarra
@@ -301,6 +306,13 @@ eu:
         delete_with_parent: "%{user_name} parte-hartzaileak %{resource_name} taxonomia ezabatu du %{parent_taxonomy} taxonomia barruan"
         update: "%{user_name} parte-hartzaileak %{resource_name} taxonomia eguneratu du"
         update_with_parent: "%{user_name} parte-hartzaileak %{resource_name} taxonomia eeguneratu du %{parent_taxonomy} taxonomia barruan"
+      taxonomy_filter:
+        create: "%{user_name} parte-hartzaileak %{resource_name} iragazkia sortu du"
+        create_with_filter_info: '%{user_name} parte-hartzaileak %{resource_name} iragazkia sortu du "%{taxonomy_name}" taxonomian oinarrituta %{filter_items_count} elementurekin'
+        delete: "%{user_name} parte-hartzaileak %{resource_name} iragazkia ezabatu du"
+        delete_with_filter_info: '%{user_name} parte-hartzaileak %{resource_name} iragazkia ezabatu du "%{taxonomy_name}" taxonomian oinarrituta %{filter_items_count} elementurekin'
+        update: "%{user_name} parte-hartzaileak %{resource_name} iragazkia eguneratu du"
+        update_with_filter_info: '%{user_name} parte-hartzaileak %{resource_name} iragazkia eguneratu du "%{taxonomy_name}" taxonomian oinarrituta %{filter_items_count} elementurekin'
       user:
         block: "%{user_name} parte-hartzaileak %{resource_name} erabiltzailea blokeatu du"
         bulk_block: "%{user_name} parte-hartzaileak %{blocked_count} erabiltzaile blokeatu du"
@@ -1236,6 +1248,8 @@ eu:
         unknown_action_with_space: "%{user_name} Ekintza batzuk egin %{resource_name} en %{space_name}"
         unpublish_with_space: "%{user_name} parte-hartzaileak %{resource_name} despargitaratu du %{space_name} espaziotik"
         update: "%{user_name} k %{resource_name} eguneratu du"
+        update_filters: "%{user_name} parte-hartzaileak %{resource_name} iragazkia eguneratu du"
+        update_filters_with_space: "%{user_name} parte-hartzaileak %{resource_name} ren iragazkiak eguneratu ditu %{space_name} espazioan"
         update_permissions_with_space: "%{user_name} k %{resource_name} ren baimenak eguneratu ditu %{space_name} espazioan"
         update_with_space: "%{user_name} k eguneratu du %{resource_name} hemen %{space_name}"
       value_types:
@@ -1859,15 +1873,6 @@ eu:
         send: Bidali
       update:
         error: Mezua ez da bidali. Saiatu berriro geroago
-    user_interests:
-      show:
-        my_interests: Nire interesekoak
-        no_scopes: Erakunde honek oraindik ez du esparrurik!
-        select_your_interests: Hautatu zure intereseko gaiak, horien gaineko jakinarazpenak jasotzeko zure profilaren barruko Denbora Lerroan.
-        update_my_interests: Eguneratu nire interesak
-      update:
-        error: Arazo bat egon da zure interesak eguneratzean.
-        success: Zure interesak zuzen eguneratuak.
     user_report_mailer:
       notify:
         body_1: '%{user} parte-hartzailea %{token}-ek erreportatu du'
@@ -2279,7 +2284,6 @@ eu:
         authorizations: Baimenak
         delete_my_account: Ezabatu nire kontua
         my_data: Nire datuak
-        my_interests: Nire interesak
         notifications_settings: Jakinarazpen-konfigurazioa
         profile: Profila
         title: Parte-hartzailearen ezarpenak
