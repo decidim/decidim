@@ -151,6 +151,9 @@ eu:
             postal_code: Posta kodea
             signature_count: Sinadurak zenbatzea
             timestamp: Denbora-marka
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: Ekimen gzutiak
       titles:
         initiatives: Ekimenak
         initiatives_types: Ekimen motak
