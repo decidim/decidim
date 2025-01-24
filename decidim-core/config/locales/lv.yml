@@ -872,13 +872,6 @@ lv:
         send: Sūtīt
       update:
         error: Ziņojums nav nosūtīts. Pamēģini vēlreiz vēlāk
-    user_interests:
-      show:
-        my_interests: Manas intereses
-        update_my_interests: Atjaunināt manas intereses
-      update:
-        error: Jūsu interešu atjaunināšanas laikā radās problēma.
-        success: Jūsu intereses ir veiksmīgi atjauninātas.
     version:
       show:
         back_to_resource: Atgriezties
@@ -1049,7 +1042,6 @@ lv:
         authorizations: Autorizācijas
         delete_my_account: Izdzēst manu kontu.
         my_data: Mani dati
-        my_interests: Manas intereses
         notifications_settings: Paziņojumu iestatījumi
         title: Dalībnieka iestatījumi
         user_groups: Grupas
