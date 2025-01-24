@@ -41,7 +41,7 @@ module Decidim
 
       private
 
-      attr_reader :name_query, :state
+      attr_reader :name_query, :state, :scope
 
       def filter_by_search(users)
         return users if name_query.blank?

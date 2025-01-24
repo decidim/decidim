@@ -9,7 +9,6 @@ module Decidim::ParticipatoryProcesses
     let(:organization) { create(:organization) }
     let(:current_user) { create(:user, organization:) }
     let(:participatory_process_group) { create(:participatory_process_group, organization:, taxonomies: [taxonomy]) }
-    let(:scope) { create(:scope, organization:) }
     let(:taxonomy) { create(:taxonomy, with_parent, organization:) }
     let(:errors) { double.as_null_object }
     let!(:participatory_process) { create(:participatory_process, :with_steps) }
@@ -53,7 +52,6 @@ module Decidim::ParticipatoryProcesses
         expect(new_participatory_process.description).to eq(old_participatory_process.description)
         expect(new_participatory_process.short_description).to eq(old_participatory_process.short_description)
         expect(new_participatory_process.promoted).to eq(old_participatory_process.promoted)
-        expect(new_participatory_process.scope).to eq(old_participatory_process.scope)
         expect(new_participatory_process.developer_group).to eq(old_participatory_process.developer_group)
         expect(new_participatory_process.local_area).to eq(old_participatory_process.local_area)
         expect(new_participatory_process.target).to eq(old_participatory_process.target)

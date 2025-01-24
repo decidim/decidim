@@ -48,7 +48,6 @@ module Decidim
             description: original_proposal.body,
             budget_amount: budget_for(original_proposal),
             taxonomies: original_proposal.taxonomies,
-            scope: original_proposal.scope,
             address: original_proposal.address,
             latitude: original_proposal.latitude,
             longitude: original_proposal.longitude
