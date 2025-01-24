@@ -1524,15 +1524,6 @@ pl:
         send: Wyślij
       update:
         error: Wiadomość nie została wysłana. Spróbuj ponownie później
-    user_interests:
-      show:
-        my_interests: Moje zainteresowania
-        no_scopes: Ta organizacja nie ma jeszcze żadnego zakresu!
-        select_your_interests: Wybierz tematy, które Cię interesują, aby widzieć wydarzenia z nimi związane w zakładce Oś czasu na Twoim profilu.
-        update_my_interests: Zaktualizuj moje zainteresowania
-      update:
-        error: Wystąpił błąd podczas aktualizowania Twoich zainteresowań.
-        success: Twoje zainteresowania zostały zaktualizowane.
     user_report_mailer:
       notify:
         body_1: Użytkownik %{user} został zgłoszony przez %{token}
@@ -1940,7 +1931,6 @@ pl:
         authorizations: Autoryzacje
         delete_my_account: Usuń moje konto
         my_data: Moje dane
-        my_interests: Moje zainteresowania
         notifications_settings: Ustawienia powiadomień
         profile: Profil
         title: Ustawienia użytkownika
