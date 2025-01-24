@@ -104,7 +104,7 @@ pt:
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          info:
+          info: Sobre este processo
           moderations: Moderações
           private_users: Participantes privados
           process_admins: Administradores de processo
@@ -337,6 +337,7 @@ pt:
         participatory_process_groups:
           form:
             metadata: Meta dados
+            title: Sobre este processo
             visibility: Visibilidade
         participatory_process_imports:
           form:
@@ -390,6 +391,8 @@ pt:
             past: Passado
             upcoming: Próximos
           see: Ver
+        show:
+          title: Sobre este processo
       show:
         belongs_to_group: Este processo pertence a
         private_space: Este é um processo privado
