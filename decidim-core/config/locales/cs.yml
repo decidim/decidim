@@ -1834,15 +1834,6 @@ cs:
         send: Odeslat
       update:
         error: Zpráva nebyla odeslána. Zkuste to později
-    user_interests:
-      show:
-        my_interests: Mé zájmy
-        no_scopes: Tato organizace zatím nemá žádnou oblast působnosti!
-        select_your_interests: Vyberte témata, která vás zajímají, abyste v záložce Harmonogram ve svém profilu viděli události, které s nimi souvisejí.
-        update_my_interests: Aktualizujte své zájmy
-      update:
-        error: Během aktualizace vašich zájmů došlo k chybě.
-        success: Vaše zájmy byly úspěšně aktualizovány.
     user_report_mailer:
       notify:
         body_1: Uživatel %{user} byl nahlášen od %{token}
@@ -2257,7 +2248,6 @@ cs:
         authorizations: Autorizace
         delete_my_account: Smazat můj účet
         my_data: Moje data
-        my_interests: Mé zájmy
         notifications_settings: Nastavení oznámení
         profile: Profil
         title: Uživatelské nastavení
