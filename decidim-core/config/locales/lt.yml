@@ -1502,15 +1502,6 @@ lt:
         send: Siųsti
       update:
         error: Pranešimas neišsiųstas. Bandykite dar kartą vėliau
-    user_interests:
-      show:
-        my_interests: Mano interesai
-        no_scopes: Šioje organizacijoje dar nėra aplinkų!
-        select_your_interests: Pasirinkite jus dominančias temas, kad savo profilio kortelėje „Laiko juosta“ gautumėte su jomis susijusių renginių nuorodų.
-        update_my_interests: Atnaujinti mane dominančias temas
-      update:
-        error: Atnaujinant jūs dominančias temas iškilo problema.
-        success: Jus dominančios temos atnaujintos.
     user_report_mailer:
       notify:
         body_1: '%{token} pranešė apie naudotoją %{user}'
@@ -1867,7 +1858,6 @@ lt:
         authorizations: Autorizacijos
         delete_my_account: Ištrinti mano paskyrą
         my_data: Mano duomenys
-        my_interests: Mano interesai
         notifications_settings: Pranešimų nustatymai
         profile: Profilis
         title: Dalyvio nuostatos
