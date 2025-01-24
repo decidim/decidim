@@ -924,13 +924,6 @@ zh-CN:
         send: 发送
       update:
         error: 消息发送失败，请稍后再试
-    user_interests:
-      show:
-        my_interests: 我的利益
-        update_my_interests: 更新我的兴趣
-      update:
-        error: 更新您的兴趣时出现问题。
-        success: 您的兴趣已成功更新。
     version:
       show:
         back_to_resource: 后退
@@ -1109,7 +1102,6 @@ zh-CN:
         authorizations: 授权
         delete_my_account: 删除我的帐户
         my_data: 我的数据
-        my_interests: 我的利益
         notifications_settings: 通知设置
         title: 参与者设置
         user_groups: 群組
