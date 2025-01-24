@@ -45,6 +45,9 @@ sl:
             name: Rezultat
           status:
             name: Status
+        projects_import:
+          new:
+            create: Uvozi
         results:
           index:
             title: Rezultati
