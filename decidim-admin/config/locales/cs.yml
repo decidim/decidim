@@ -105,6 +105,8 @@ cs:
       participatory_space_private_user:
         email: E-mail
         name: Název
+      participatory_space_private_user_csv_import:
+        file: Soubor
       scope:
         code: Kód
         name: Název
@@ -764,6 +766,11 @@ cs:
             report_language: Jazyk zprávy
             report_reason: Důvod
             title: Detaily hlášení
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Náhled
@@ -1131,6 +1138,8 @@ cs:
           error: Při aktualizaci této stránky došlo k chybě.
           success: Stránka byla úspěšně aktualizována.
       taxonomies:
+        actions:
+          actions: Akce
         count: Související zdroje
         create:
           invalid: Při vytváření této taxonomie došlo k chybě.
@@ -1161,12 +1170,18 @@ cs:
           to_prev_page: Přetáhněte pro předchozí stránku
         taxonomy_actions:
           confirm_destroy: 'Jste si jisti, že chcete odstranit %{name}? Tímto odstraníte také všechny podřízené položky. POZNÁMKA: Zdroje, které používají tuto taxonomii, nebudou ovlivněny, ale ztratí odkaz na tuto taxonomii.'
+        total_filters: Filtry
+        total_items: Položky v taxonomii
         update:
           invalid: Při aktualizaci této taxonomie došlo k chybě.
           success: Taxonomie byla úspěšně aktualizována.
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Nový filtr taxonomie
+        breadcrumb:
+          edit: Upravit filtr
+          filters: Filtry
+          new: Nový filtr
         create:
           error: Při vytváření tohoto filtru taxonomie došlo k chybě.
           success: Filtr taxonomie byl úspěšně vytvořen.
