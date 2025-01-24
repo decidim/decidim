@@ -1306,13 +1306,6 @@ ar:
         send: إرسال
       update:
         error: لم يتم إرسال الرسالة. حاول مرة أخرى في وقت لاحق
-    user_interests:
-      show:
-        my_interests: اهتماماتي
-        update_my_interests: تحديث اهتماماتي
-      update:
-        error: حدثت مشكلة أثناء تحديث اهتماماتك.
-        success: اهتماماتك تم تحديثها بنجاح
     user_report_mailer:
       notify:
         body_1: تم الإبلاغ عن المستخدم %{user} من قبل %{token}
@@ -1613,7 +1606,6 @@ ar:
         authorizations: التراخيص
         delete_my_account: احذف حسابي
         my_data: بياناتي
-        my_interests: اهتماماتي
         notifications_settings: إعدادات الإخطارات
         profile: الملف الشخصي
         title: إعدادات المشارك
