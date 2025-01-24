@@ -49,7 +49,6 @@ cs:
         deleted_results_info: Odstraněné výsledky mohou být obnoveny z koše.
         destroy: Odstranit
         edit: Upravit
-        import: Importovat projekty z jiné komponenty
         import_csv: Importovat výsledky z CSV souboru
         new_result: Nový výsledek
         new_status: Nový status
@@ -62,6 +61,14 @@ cs:
         exports:
           result_comments: Komentáře
           results: Výsledky
+        import_components:
+          filters:
+            select_state: Vybrat status
+          form:
+            create: Import
+            no_components: V tomto participačním prostoru nejsou žádné komponenty pro import.
+            origin_component_id: Původ komponenty
+            select_component: Vybrat komponentu
         import_results:
           new:
             download_export: Stáhnout export s CSV formátem
@@ -76,26 +83,6 @@ cs:
             name: Výsledek
           status:
             name: Stav
-        projects_import:
-          create:
-            invalid: Došlo k potížím při importu projektů do výsledků, postupujte prosím pečlivě podle pokynů a ujistěte se, že jste vybrali projekty pro realizaci.
-          new:
-            create: Importovat
-            import_all_selected_projects: Importovat všechny projekty vybrané pro realizaci
-            new_items:
-              one: 1 vybraný projekt bude importován
-              few: "%{count} vybrané projekty budou importovány"
-              many: "%{count} vybraných projektů bude importováno"
-              other: "%{count} vybraných projektů bude importováno"
-            no_components: V tomto participačním prostoru nejsou žádné složky rozpočtů pro import projektů do výsledků.
-            origin_component_id: Původ komponenty
-            select_component: Vybrat komponentu
-            success:
-              one: 1 projekt, který má být importován. Po dokončení budete upozorněni e-mailem.
-              few: "%{count} projekty, které mají být importovány. Po dokončení budete upozorněni e-mailem."
-              many: "%{count} projektů, které mají být importovány. Po dokončení budete upozorněni e-mailem."
-              other: "%{count} projektů, které mají být importovány. Po dokončení budete upozorněni e-mailem."
-            title: Importovat projekty z jiné komponenty
         results:
           bulk_actions:
             dates_form:
