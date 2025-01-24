@@ -1712,15 +1712,6 @@ ja:
         send: 送信
       update:
         error: メッセージが送信されませんでした。後でもう一度お試しください。
-    user_interests:
-      show:
-        my_interests: 興味のあるもの
-        no_scopes: この組織にはスコープが設定されていません
-        select_your_interests: プロフィールのタイムラインタブに関連するイベントを受け取るために、興味のあるトピックを選択してください。
-        update_my_interests: 興味を更新する
-      update:
-        error: 更新中に問題が発生しました。
-        success: 興味のある情報は正常に更新されました。
     user_report_mailer:
       notify:
         body_1: ユーザー %{user} が %{token} によって報告されました
@@ -2125,7 +2116,6 @@ ja:
         authorizations: 権限
         delete_my_account: アカウントを削除する
         my_data: 自分のデータ
-        my_interests: 興味のあるもの
         notifications_settings: 通知の設定
         profile: プロフィール
         title: 参加者の設定
