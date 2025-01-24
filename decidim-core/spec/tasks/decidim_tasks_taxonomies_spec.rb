@@ -35,14 +35,6 @@ describe "Executing Decidim Taxonomy importer tasks" do
   let(:settings) { { scopes_enabled: true, scope_id: sub_scope.id } }
 
   before do
-    # the dummy component does not have these properties for anything else than testing the old imports
-    Decidim.component_registry.find(:dummy).tap do |component|
-      component.settings(:global) do |settings|
-        settings.attribute :scopes_enabled, type: :boolean, default: false
-        settings.attribute :scope_id, type: :scope
-      end
-    end
-
     allow($stdout).to receive(:puts).and_call_original
 
     scope.update!(part_of: [scope.id])

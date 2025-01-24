@@ -120,10 +120,11 @@ module Decidim
         def self.filter_item_for_component(component, space)
           return unless component.settings.respond_to?(:taxonomy_filters)
 
-          scopes_enabled = component.settings[:scopes_enabled]
+          scopes_enabled = component.attributes.dig("settings", "global", "scopes_enabled")
+          scope_id = component.attributes.dig("settings", "global", "scope_id")
           return unless scopes_enabled
 
-          scope = find_by(id: component.settings[:scope_id]) || (space.scopes_enabled? && find_by(id: space.decidim_scope_id))
+          scope = find_by(id: scope_id) || (space.scopes_enabled? && find_by(id: space.decidim_scope_id))
           list = scope ? [scope] + scope.all_children : all
 
           {

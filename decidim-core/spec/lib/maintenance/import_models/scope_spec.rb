@@ -9,7 +9,6 @@ module Decidim::Maintenance::ImportModels
     subject { scope }
 
     include_context "with taxonomy importer model context"
-
     # avoid using factories for this test in case old models are removed
     let(:scope) { described_class.create!(name: { "en" => "Scope 1", "ca" => "Àmbit 1" }, code: "1", decidim_organization_id: organization.id) }
     let(:another_scope) { described_class.create!(name: { "en" => "Scope 2", "ca" => "Àmbit 2" }, code: "2", decidim_organization_id: organization.id) }
@@ -34,7 +33,12 @@ module Decidim::Maintenance::ImportModels
       sub5_scope.update!(part_of: [scope.id, sub2_scope.id, sub3_scope.id, sub4_scope.id, sub5_scope.id])
       assembly.update!(decidim_scope_id: sub2_scope.id, scopes_enabled: space_scopes_enabled)
       participatory_process.update!(decidim_scope_id: sub2_scope.id)
-      dummy_component.update!(settings:)
+      # as scope settings are disabled now, we need to update the settings directly as it was already there
+      # rubocop:disable Rails/SkipsModelValidations
+      dummy_component.update_column(:settings, {
+                                      "global" => settings
+                                    })
+      # rubocop:enable Rails/SkipsModelValidations
       dummy_resource.update!(decidim_scope_id: sub4_scope.id) if dummy_resource
       external_assembly.update!(decidim_scope_id: external_scope.id, scopes_enabled: true)
     end
