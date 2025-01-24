@@ -800,13 +800,6 @@ gl:
     user_conversations:
       update:
         error: Mensaxe non enviada. Téntao de novo máis tarde
-    user_interests:
-      show:
-        my_interests: Os meus intereses
-        update_my_interests: Actualiza os meus intereses
-      update:
-        error: Produciuse un erro ao actualizar os teus intereses.
-        success: Os teus intereses foron actualizados correctamente.
     user_report_mailer:
       notify:
         details: Detalles fornecidos polo usuario
@@ -963,7 +956,6 @@ gl:
         authorizations: Autorizacións
         delete_my_account: Eliminar a miña conta
         my_data: Os meus datos
-        my_interests: Os meus intereses
         notifications_settings: Configuración de notificacións
         title: Configuración do usuario
         user_groups: Grupos
