@@ -1180,13 +1180,6 @@ el:
         send: Αποστολή
       update:
         error: Το μήνυμα δεν στάλθηκε. Δοκιμάστε ξανά αργότερα.
-    user_interests:
-      show:
-        my_interests: Τα ενδιαφέροντά μου
-        update_my_interests: Ενημέρωση των ενδιαφερόντων μου
-      update:
-        error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση των ενδιαφερόντων σας.
-        success: Τα ενδιαφέροντά σας ενημερώθηκαν με επιτυχία.
     version:
       show:
         back_to_resource: Επιστροφή
@@ -1372,7 +1365,6 @@ el:
         authorizations: Εξουσιοδοτήσεις
         delete_my_account: Διαγραφή του λογαριασμού μου
         my_data: Τα δεδομένα μου
-        my_interests: Τα ενδιαφέροντά μου
         notifications_settings: Ρυθμίσεις ειδοποιήσεων
         title: Ρυθμίσεις συμμετέχοντα
         user_groups: Ομάδες
