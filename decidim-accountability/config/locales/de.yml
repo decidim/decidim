@@ -94,12 +94,7 @@ de:
           new:
             create: Importieren
             import_all_selected_projects: Alle zur Umsetzung ausgewählten Projekte importieren
-            new_items:
-              one: 1 ausgewähltes Projekt wird importiert
-              other: "%{count} ausgewählte Projekte werden importiert"
             no_components: Es gibt keine weiteren Budgetkomponenten in diesem Beteiligunsgbereich, um die Projekte in Ergebnisse zu importieren.
-            origin_component_id: Ursprungskomponente
-            select_component: Komponente auswählen
             success:
               one: Ein Projekt wird importiert. Sie werden per E-Mail benachrichtigt, sobald der Import abgeschlossen ist.
               other: "%{count} Projekte werden in der Warteschlange importiert. Sie werden per E-Mail benachrichtigt, sobald sie abgeschlossen sind."
