@@ -1023,13 +1023,6 @@ nl:
         send: Verzenden
       update:
         error: Bericht niet verzonden. Probeer het later opnieuw
-    user_interests:
-      show:
-        my_interests: Mijn interesses
-        update_my_interests: Update mijn interesses
-      update:
-        error: Er is een fout opgetreden bij het bijwerken van uw interesses.
-        success: Uw interesses zijn succesvol bijgewerkt.
     version:
       show:
         back_to_resource: Ga terug
@@ -1233,7 +1226,6 @@ nl:
         authorizations: Bevoegdheden
         delete_my_account: Verwijder mijn account
         my_data: Mijn data
-        my_interests: Mijn interesses
         notifications_settings: Notificaties instellen
         title: Gebruikersinstellingen
         user_groups: Gebruikersgroepen
