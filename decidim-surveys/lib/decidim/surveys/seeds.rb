@@ -167,7 +167,7 @@ module Decidim
 
         answer_options.each do |answer_option|
           position = available_positions.sample
-          body = answer_option["en"]
+          body = answer_option[I18n.locale]
 
           Decidim::Forms::AnswerChoice.create!(
             answer:,
@@ -181,7 +181,7 @@ module Decidim
       def create_answer_for_multiple_choice_question_type(options)
         answer = Decidim::Forms::Answer.create!(**options)
         answer_option = options[:question].answer_options.sample
-        body = answer_option["en"]
+        body = answer_option[I18n.locale]
 
         Decidim::Forms::AnswerChoice.create!(
           answer:,
@@ -194,7 +194,7 @@ module Decidim
         answer = Decidim::Forms::Answer.create!(**options)
         answer_option = options[:question].answer_options.sample
         matrix_row = options[:question].matrix_rows.sample
-        body = answer_option["en"]
+        body = answer_option[I18n.locale]
 
         Decidim::Forms::AnswerChoice.create!(
           answer:,
