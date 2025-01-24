@@ -1553,15 +1553,6 @@ sv:
         send: Skicka
       update:
         error: Meddelandet skickades inte. Försök igen senare
-    user_interests:
-      show:
-        my_interests: Mina intressen
-        no_scopes: Organisationen har inga indelningar än!
-        select_your_interests: Välj ämnen du är intresserad av för att få information om relevanta händelser under fliken Tidslinje på din profilsida.
-        update_my_interests: Uppdatera mina intressen
-      update:
-        error: Det gick inte att uppdatera dina intressen.
-        success: Dina intressen har uppdaterats.
     user_report_mailer:
       notify:
         body_1: Användaren %{user} har rapporterats av %{token}
@@ -1969,7 +1960,6 @@ sv:
         authorizations: Auktoriseringar
         delete_my_account: Radera mitt konto
         my_data: Min data
-        my_interests: Mina intressen
         notifications_settings: Meddelandeinställningar
         profile: Profil
         title: Deltagarinställningar
