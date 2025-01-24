@@ -204,6 +204,9 @@ de:
             collaborator: Mitarbeiter
             moderator: Moderator
             valuator: Bewertende
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: Alle Gremien
       titles:
         assemblies: Gremien
         assemblies_deleted: Gelöschte Gremien
