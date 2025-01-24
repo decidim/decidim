@@ -53,6 +53,9 @@ lb:
             name: Resultat
           status:
             name: Status
+        projects_import:
+          new:
+            create: Import
         results:
           edit:
             title: Ergebnis bearbeiten
