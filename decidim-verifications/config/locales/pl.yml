@@ -177,13 +177,11 @@ pl:
             few: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
             many: 'Udział jest ograniczony do użytkowników posiadających jeden z następujących kodów pocztowych: %{postal_codes}.'
             other: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
-          scope: Uczestnictwo jest ograniczone do uczestników z zakresu %{scope_name}.
           user_postal_codes:
             one: Uczestnictwo jest ograniczone do użytkowników z kodem pocztowym %{postal_codes} a twój kod to %{user_postal_code}.
             few: 'Uczestnictwo jest ograniczone do użytkowników z kodami pocztowymi %{postal_codes} a twój kod to %{user_postal_code}.'
             many: 'Uczestnictwo jest ograniczone do użytkowników z kodami pocztowymi %{postal_codes} a twój kod to %{user_postal_code}.'
             other: 'Uczestnictwo jest ograniczone do użytkowników z kodami pocztowymi %{postal_codes} a twój kod to %{user_postal_code}.'
-          user_scope: Uczestnictwo jest ograniczone do użytkowników z zakresu %{scope_name} a twój zakres to %{user_scope_name}.
       id_documents:
         admin:
           config:
