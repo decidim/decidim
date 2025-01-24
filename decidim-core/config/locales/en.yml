@@ -555,8 +555,6 @@ en:
             enable_pads_creation: Enable pads creation
             no_taxonomy_filters_found: No taxonomy filters found.
             resources_permissions_enabled: Resources permissions enabled
-            scope_id: Scope
-            scopes_enabled: Scopes enabled
             taxonomy_filters: Select filters for the component
           step:
             amendment_creation_enabled: Amendment creation enabled

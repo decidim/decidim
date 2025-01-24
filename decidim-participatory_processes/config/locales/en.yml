@@ -29,8 +29,6 @@ en:
         promoted: Promoted
         published_at: Published at
         related_process_ids: Related processes
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
         short_description: Short description
         slug: URL slug
         start_date: Start date
@@ -373,8 +371,6 @@ en:
           published_at: The date this space was published
           reference: The unique reference of the space
           remote_hero_image_url: The URL of the process hero image
-          scope: The scope of the process
-          scopes_enabled: Whether the scopes are enabled or not
           short_description: A short description of the process
           slug: The process slug (used for identification purposes, for the URL)
           start_date: The start date of the process
