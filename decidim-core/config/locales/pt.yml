@@ -66,6 +66,8 @@ pt:
     'false': 'Não'
     'true': 'Sim'
   date:
+    buttons:
+      select: Selecionar
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -1312,6 +1314,8 @@ pt:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Selecionar
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
