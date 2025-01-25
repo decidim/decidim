@@ -148,6 +148,7 @@ hu:
             proposal_wizard_step_2_help_text: Javaslat varázsló "Összehasonlítás" gomb súgójának szövege
             proposal_wizard_step_3_help_text: Javaslat varázsló "Teljesítés" gomb súgójának szövege
             resources_permissions_enabled: Egyes javaslatokhoz műveleti engedélyeket állíthatsz be
+            scope_id: Hatáskör
             threshold_per_proposal: Küszöbérték javaslatonként
             vote_limit: Támogatási limit felhasználónként
           step:
