@@ -191,7 +191,7 @@ de:
             proposal_wizard_step_1_help_text: Hilfetext "Erstellen"-Schritt im Vorschlagsassistenten
             proposal_wizard_step_2_help_text: Hilfetext "Veröffentlichen"-Schritt im Vorschlagsassistenten
             resources_permissions_enabled: Berechtigungen können für jeden Vorschlag festgelegt werden
-            scope_id: Bereich
+            scope_id: Umfang
             scopes_enabled: Bereiche aktiviert
             threshold_per_proposal: Schwellenwert pro Vorschlag
             vote_limit: Maximal mögliche Anzahl Stimmen eines Abstimmenden
