@@ -22,9 +22,6 @@ pt:
         promoted: Destacado
         published_at: Publicado em
         related_process_ids: Processos relacionados
-        scope_id: Âmbito
-        scope_type_max_depth_id: Abrangência do filtro de âmbito
-        scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
         slug: Campo de dados dinâmicos de URL
         start_date: Data de início
@@ -334,12 +331,9 @@ pt:
           form:
             announcement_help: O texto que insere aqui será mostrado ao utilizador logo abaixo das informações do processo.
             duration: Duração
-            filters: Filtros
             images: Imagens
             metadata: Metadados
             related_processes: Processos relacionados
-            scope_type_max_depth_help: Restrinja a abrangência do filtro de âmbito; O filtro irá mostrar desde o tipo de âmbito geral até ao tipo de âmbito selecionado.
-            select_an_area: Selecione uma Área
             select_process_group: Selecione um grupo do processo
             title: Informação geral
       content_blocks:
