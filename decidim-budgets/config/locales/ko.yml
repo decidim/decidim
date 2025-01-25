@@ -3,10 +3,12 @@ ko:
   activemodel:
     attributes:
       budget:
+        decidim_scope_id: 범위
         description: 상세정보
         title: 제목
       project:
         decidim_category_id: 카테고리
+        decidim_scope_id: 범위
         description: 상세정보
         proposal_ids: 포함된 제안
         proposals: 제안
@@ -23,6 +25,8 @@ ko:
         projects:
           category_id_eq:
             label: 카테고리
+          scope_id_eq:
+            label: 범위
           selected_at_null:
             label: 선택됨
     budgets:
@@ -52,3 +56,11 @@ ko:
           update:
             invalid: 이 프로젝트를 업데이트하는 동안 문제가 발생했습니다.
             success: 프로젝트가 성공적으로 업데이트되었습니다.
+      projects:
+        filters:
+          scope: 범위
+    components:
+      budgets:
+        settings:
+          global:
+            scope_id: 범위
