@@ -3,7 +3,6 @@ pt:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Âmbito
         description: Descrição
         title: Título
         total_budget: Orçamento total
@@ -11,7 +10,6 @@ pt:
       project:
         budget_amount: Valor do orçamento
         decidim_category_id: Categoria
-        decidim_scope_id: Âmbito
         description: Descrição
         proposal_ids: Propostas relacionadas
         selected: Seleccionado para implementação
@@ -22,11 +20,6 @@ pt:
         one: Projeto
         other: Projetos
   decidim:
-    admin:
-      filters:
-        projects:
-          scope_id_eq:
-            label: Âmbito
     budgets:
       actions:
         attachment_collections: Pastas
@@ -137,7 +130,6 @@ pt:
             other: "%{count} projetos"
         filters:
           category: Categoria
-          scope: Âmbito
           search: Pesquisar
           status: Estado
           status_values:
@@ -177,7 +169,6 @@ pt:
             more_information_modal: Mais informações modal
             projects_per_page: Projetos por página
             resources_permissions_enabled: Permissões de acções podem ser definidas para cada projecto
-            scope_id: Âmbito
             scopes_enabled: Âmbitos activados
             title: Título
             total_budget: Orçamento total
