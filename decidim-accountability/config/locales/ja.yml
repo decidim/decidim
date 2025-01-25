@@ -275,8 +275,6 @@ ja:
             geocoding_enabled: 地図は有効です
             intro: はじめに
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
-            scope_id: スコープ
-            scopes_enabled: スコープが有効
             taxonomy_filters: コンポーネントのフィルタを選択
             taxonomy_filters_add: フィルターを追加
           step:
