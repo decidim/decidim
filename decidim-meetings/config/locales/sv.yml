@@ -155,8 +155,6 @@ sv:
             maps_enabled: Aktivera visning på karta
             registration_code_enabled: Aktivera registreringskod
             resources_permissions_enabled: Behörigheter kan ställas in för varje möte
-            scope_id: Indelning
-            scopes_enabled: Aktivera indelningar
             terms_and_conditions_url_for_meeting_creators: URL till användarvillkor för de som skapar möten
           step:
             announcement: Meddelande
