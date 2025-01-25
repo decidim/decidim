@@ -42,8 +42,6 @@ fi-pl:
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
-            scope_id: Teema
-            scopes_enabled: Teemat käytössä
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
           step:
