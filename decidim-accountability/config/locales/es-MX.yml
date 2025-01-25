@@ -279,8 +279,6 @@ es-MX:
             geocoding_enabled: Mapas habilitados
             intro: Introducción
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
           step:
