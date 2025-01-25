@@ -21,8 +21,6 @@ es:
         published_at: Publicada en
         registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Habilitar inscripciones
-        scope_id: Ámbito
-        scopes_enabled: Ámbitos habilitados
         short_description: Breve descripción
         show_statistics: Mostrar estadísticas
         sign_date: Fecha de firma
@@ -301,6 +299,9 @@ es:
         update:
           error: Se ha producido un error al actualizar un tipo de inscripción para esta jornada.
           success: Tipo de inscripción actualizado correctamente para esta jornada.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Todas las jornadas
       titles:
         conferences: Jornadas
         conferences_deleted: Jornadas eliminadas
