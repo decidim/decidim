@@ -27,8 +27,6 @@ cs:
         settings:
           global:
             announcement: Oznámení
-            scope_id: Oblast působnosti
-            scopes_enabled: Oblasti působnosti povoleny
           step:
             announcement: Oznámení
     events:
