@@ -235,7 +235,6 @@ fi-pl:
           selected_projects: 'Hankkeet, jotka olet valinnut:'
           subject: Olet äänestänyt osallistumistilassa %{space_name}
           voted_on_space: Olet äänestänyt budjetista %{budget_name} osallistumistilassa %{space_name}.
-          voted_on_space_with_scope: Olet äänestänyt budjetista %{budget_name} osallistumistilassa %{space_name} koskien teemaa %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Jos muutat mieltäsi, voit muuttaa ääntäsi myöhemmin.
@@ -352,8 +351,6 @@ fi-pl:
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             projects_per_page: Suunnitelmat sivua kohden
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle suunnitelmalle
-            scope_id: Teema
-            scopes_enabled: Teemat käytössä
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
             title: Otsikko
