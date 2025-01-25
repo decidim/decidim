@@ -149,6 +149,7 @@ bs:
             heading_leaf_level_results: Ime za "Projekte"
             heading_parent_level_results: Ime za "Rezultate"
             intro: Uvod
+            scope_id: Opseg
             subcategories_label: Ime za "Podkategorije"
           step:
             comments_blocked: Komentari su onemogućeni
