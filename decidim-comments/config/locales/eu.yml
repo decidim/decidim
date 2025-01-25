@@ -153,7 +153,7 @@ eu:
           created_at: Zein datatan sortu zen iruzkin hau
           depth: Zein lekutan dago iruzkin hau hiru iruzkinetan (iruzkinaren erantzuna bada edo erantzunaren erantzuna bada)
           id: Identifikazioa iruzkin honetarako
-          locale: Parte-hartzaileak iruzkin hau uztean erabili zuen tokiko hizkuntza
+          locale: Parte-hartzaileak iruzkin hau uztean erabili du tokiko hizkuntza
           root_commentable_url: Iruzkin honekin lotzen den baliabidearen URLa (web helbidea)
           user_group: Iruzkin hau egin duen partaide-taldearen izena (baldin badago)
     events:
