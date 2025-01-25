@@ -166,12 +166,12 @@ eu:
         notice: Zure datuen deskarga aurrera doa. Posta elektroniko bat jasoko duzu osorik dagoenean.
       email_change:
         body1: Mezu elektroniko bat bidali dugu %{unconfirmed_email} postara zure helbide elektroniko berria egiaztatzeko.
-        body2: Birbidali behar dizugu egiaztatzeko korreoa? %{resend_link} edo %{cancel_link}.
+        body2: Birbidali behar dizugu egiaztatzeko helbide elektronikoa? %{resend_link} edo %{cancel_link}.
         cancel: ezeztatu
-        cancel_error: Ezin izan da ezeztatu korreo elektronikoaren aldaketa.
+        cancel_error: Ezin izan da ezeztatu helbide elektronikoaren aldaketa.
         cancel_successfully: Posta elektronikoaren aldaketa zuzen ezeztatua.
-        resend_error: Ezin izan da birbidali berresteko korreoa.
-        resend_successfully: Correo de confirmación reenviado con éxito a %{unconfirmed_email}.
+        resend_error: Ezin izan da birbidali berresteko helbide elektronikoa.
+        resend_successfully: 'Berresteko posta elektronikoa zuzen birbidalia hona: %{unconfirmed_email}.'
         send_again: Bidali berriro
         title: Posta elektronikoaren aldaketak egiaztatzea
       show:
@@ -267,9 +267,9 @@ eu:
         officialize: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea ofizializatu du"
         promote: "%{user_name} parte-hartzaileak %{resource_name} sustatu du"
         remove_from_admin: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea kendu du %{role} rolarekin"
-        show_email: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailearen korreo elektronikoa berreskuratu du"
+        show_email: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailearen helbide elektroniko berreskuratu du"
         transfer: "%{user_name} parte-hartzaileak parte-hartzailea transferitu du %{resource_name}-era"
-        unblock: "%{user_name} parte-hartzaileak desofizializatu zuen %{resource_name} erabiltzailea"
+        unblock: "%{user_name} parte-hartzaileak desofizializatu du %{resource_name} erabiltzailea"
         unofficialize: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea desofizializatu du"
       user_group:
         block: "%{user_name} parte-hartzaileak %{resource_name} erabiltzaile-taldea blokeatu du"
@@ -745,8 +745,8 @@ eu:
           notification_title: '<a href="%{resource_path}"> dokumentu berri bat</a> gehitu zaio honi: <a href="%{attached_to_url}">%{resource_title}</a>'
       components:
         component_published:
-          email_intro: '%{resource_title} osagaia %{participatory_space_title}da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
-          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_intro: '%{resource_title} osagaia %{participatory_space_title} da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: '%{participatory_space_title} eguneratze bat'
           notification_title: '%{resource_title} osagaia aktibo dago honetarako: <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
@@ -831,7 +831,7 @@ eu:
       users:
         profile_updated:
           email_intro: </a> de %{name} (%{nickname}) profilaren <a href="%{resource_url}"> orria, jarraitzen ari zarena, eguneratu egin da.
-          email_outro: Jakinarazpen hau jaso duzu %{nickname} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari utzi ahal diozu.
+          email_outro: Jakinarazpena jaso duzu %{nickname} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: "%{nickname} k bere profila eguneratu du"
           notification_title: </a> de %{name} (%{nickname}) profilaren <a href="%{resource_path}"> orria, jarraitzen ari zarena, eguneratu egin da.
         user_officialized:
@@ -893,7 +893,7 @@ eu:
         decidim/user:
           password: Pasahitza laburregia da.
           password_confirmation: Pasahitzaren egiaztapena zure pasahitzarekin bat etorri behar da.
-        error: Errore bat dago eremu honetan.
+        error: Errore bat dago datu-eremu honetan.
       file_help:
         file:
           explanation: 'Jarraibideak artxiborako:'
@@ -1070,14 +1070,14 @@ eu:
         create: "%{user_name} parte-hartzaileak %{resource_name} sortu du"
         create_with_space: "%{user_name} sortu %{resource_name} en %{space_name}"
         delete: "%{user_name} parte-hartzaileak %{resource_name} ezabatu du"
-        delete_with_space: "%{user_name} ezabatu %{resource_name} en %{space_name}"
+        delete_with_space: "%{user_name} parte-hartzaileak %{resource_name} ezabatu du %{space_name} espazioan"
         publish_with_space: "%{user_name} parte-hartzaileak %{resource_name} argitaratu du %{space_name} espazioan"
         unknown_action: "%{user_name} parte-hartzaileak ekintza batzuk egin ditu %{resource_name} ean"
-        unknown_action_with_space: "%{user_name} Ekintza batzuk egin %{resource_name} en %{space_name}"
+        unknown_action_with_space: "%{user_name} parte-hartzaileak ekintza batzuk egin ditu %{resource_name} ean %{space_name} espazioan"
         unpublish_with_space: "%{user_name} parte-hartzaileak %{resource_name} despargitaratu du %{space_name} espaziotik"
         update: "%{user_name} k %{resource_name} eguneratu du"
         update_permissions_with_space: "%{user_name} k %{resource_name} ren baimenak eguneratu ditu %{space_name} espazioan"
-        update_with_space: "%{user_name} k eguneratu du %{resource_name} hemen %{space_name}"
+        update_with_space: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} hemen %{space_name}"
       value_types:
         area_presenter:
           not_found: 'Arloa ez da (ID: %{id}) datu-basean aurkitu'
@@ -1197,7 +1197,7 @@ eu:
       newsletter:
         no_reply_notice: Posta elektroniko hori jakinarazpen-helbide batetik bidali da, eta ezin du posta elektronikorik sartu. Mesedez, ez erantzun mezu honi.
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
-        see_on_website: Ezin duzu ondo ikusi korreo elektroniko hau? Sartu bere web-bertsiora <a href="%{link}" target="_blank" class="see-on-website"</a>.
+        see_on_website: Ezin duzu ondo ikusi helbide elektroniko hau? Sartu bere web-bertsiora <a href="%{link}" target="_blank" class="see-on-website"</a>.
         unsubscribe: Mezu mota hau jasotzea desaktibatzeko, <a href="%{link}" target="_blank" class="unsubscribe"> Harpidetu</a>.
     newsletter_templates:
       basic_only_text:
@@ -1389,12 +1389,12 @@ eu:
           manage_user_group_admins: Kudeatu administratzaileak
           manage_user_group_users: Kudeatu kideak
           message: Mezua
-          resend_email_confirmation_instructions: Birbidali korreo bat berresteko instrukzioekin
-        confirmation_instructions_sent: Berresteko instrukzioak korreoz bidalita.
+          resend_email_confirmation_instructions: Birbidali helbide elektroniko bat berresteko instrukzioekin
+        confirmation_instructions_sent: Berresteko instrukzioak helbide elektronikoz bidalita.
         create_user_group: Sortu taldea
         edit_profile: Editatu profila
         edit_user_group: Editatu taldearen profila
-        fill_in_email_to_confirm_it: Mesedez, sartu zure taldearen korreo elektronikoa, berresteko.
+        fill_in_email_to_confirm_it: Mesedez, sartu zure taldearen helbide elektronikoa, berresteko.
         invite_user: Gonbidatu parte-hartzailea
         join_user_group: Eskatu taldera lotzea
         leave_user_group: Utzi taldea
@@ -1609,7 +1609,7 @@ eu:
       show:
         version_index: '%{total} en %{index} bertsioa'
     welcome_notification:
-      default_body: "\n<p>Kaixo {{name}}, eskerrik asko {{organization}} ra lotzeagatik eta ongi etorria!</p><ul><li>Hemen zer egin dezakezun ideia azkar bat nahi baduzu, begiratu <a href=\"{{help_url}}\">Laguntza</a> atalean.</li><li>Behin irakurri ondoren, zure lehen garaikurra jasoko duzu. Hemen da <a href=\"{{badges_url}}\">garaikur guztien zerrenda</a> zuk lor ditzakezunak {{organization}}</li><li> ean parte hartuz. Azkenik, lotu beste pertsona batzuei eta partekatu haiekin inplikatzearen eta {{organization}} ean parte hartzearen esperientzia. Egin proposamenak, iruzkinak, eztabaidak, pentsatu nola lagundu denon onerako, eman argudioak konbentzitzeko, entzun eta irakurri zeure burua konbentzitzeko, adierazi zure ideiak modu zehatzean, erantzun pazientziaz eta erabakiz, defendatu zure ideiak eta mantendu burua zabalik, beste pertsona batzuen ideietan lankidetzan aritzeko.</li></ul>\n"
+      default_body: <p>Kaixo {{name}}, eskerrik asko {{organization}}-era lotzeagatik eta ongi etorria!</p><ul><li>Hemen zer egin dezakezun ideia azkar bat nahi baduzu, begiratu <a href="{{help_url}}">Laguntza</a> atalean.</li><li>Behin irakurri ondoren, zure lehen garaikurra jasoko duzu. Hemen da <a href="{{badges_url}}">garaikur guztien zerrenda</a> zuk lor ditzakezunak {{organization}} ean parte hartuz.</li><li> Azkenik, lotu beste pertsona batzuei eta partekatu haiekin inplikatzearen eta {{organization}} ean parte hartzearen esperientzia. Egin proposamenak, iruzkinak, eztabaidak, pentsatu nola lagundu denon onerako, eman argudioak konbentzitzeko, entzun eta irakurri zeure burua konbentzitzeko, adierazi zure ideiak modu zehatzean, erantzun pazientziaz eta erabakiz, defendatu zure ideiak eta mantendu burua zabalik, beste pertsona batzuen ideietan lankidetzan aritzeko.</li></ul>
       default_subject: Eskerrik asko sartzeko {{organization}}!
     wizard_step_form:
       wizard_aside:
