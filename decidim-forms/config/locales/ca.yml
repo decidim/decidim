@@ -54,6 +54,7 @@ ca:
         questionnaires:
           actions:
             back: Tornar a les preguntes
+            publish_answers: Publica respostes
             show: Mostrar les respostes
           answer_option:
             answer_option: Opció de resposta
@@ -103,6 +104,7 @@ ca:
             add_separator: Afegir separador
             add_title_and_description: Afegir títol i descripció
             save: Desar
+            title: Preguntes
           form:
             add_question: Afegeix una pregunta
             collapse: Redueix totes les preguntes
@@ -151,6 +153,9 @@ ca:
             invalid: S'ha produït un error en desar el formulari.
             success: Formulari desat correctament.
       admin_log:
+        question:
+          publish_answers: "%{user_name} va publicar respostes a les preguntes de l'enquesta %{resource_name} a l'espai de participació %{space_name}"
+          unpublish_answers: "%{user_name} va despublicar respostes a les preguntes de l'enquesta %{resource_name} a l'espai de participació %{space_name}"
         questionnaire:
           update: "%{user_name} ha actualitzat el qüestionari %{resource_name}"
       errors:
