@@ -21,8 +21,6 @@ bg:
         published_at: Публикувано на
         registration_terms: Условия за регистрация
         registrations_enabled: Регистрациите са активирани
-        scope_id: Обхват
-        scopes_enabled: Обхватите са активирани
         short_description: Кратко описание
         show_statistics: Покажи статистиките
         sign_date: Дата на подпис
