@@ -65,7 +65,7 @@ eu:
         user_id: Parte-hartzailea edo taldea
         weight: Kokapenaren hurrenkera
       assembly_user_role:
-        email: E-maila
+        email: Helbide elektronikoa
         name: Izena
         role: Rola
     errors:
@@ -213,10 +213,10 @@ eu:
         deleted_assemblies_info: Batzar bat soilik ezabatu daiteke egoera "Argitaratugabea" bada.
     admin_log:
       assembly:
-        create: "%{user_name} parte-hartzaileak %{resource_name} batzarra sortu zuen"
-        duplicate: "%{user_name} parte-hartzaileak %{resource_name} batzarra bikoiztu zuen"
-        export: "%{user_name} parte-hartzaileak %{resource_name} batzarra esportatu zuen"
-        import: "%{user_name} parte-hartzaileak %{resource_name} batzarra inportatu zuen"
+        create: "%{user_name} parte-hartzaileak %{resource_name} batzarra sortu du"
+        duplicate: "%{user_name} parte-hartzaileak %{resource_name} batzarra bikoiztu du"
+        export: "%{user_name} parte-hartzaileak %{resource_name} batzarra esportatu du"
+        import: "%{user_name} parte-hartzaileak %{resource_name} batzarra inportatu du"
         publish: "%{user_name} parte-hartzaileak %{resource_name} batzarra argitaratu du"
         restore: "%{user_name} parte-hartzaileak %{resource_name} batzarra berreskuratu du"
         soft_delete: "%{user_name} parte-hartzaileak %{resource_name} batzarra zaborrontzira eraman du"
@@ -254,17 +254,17 @@ eu:
             private_notice: Parte hartzaile pribatuak kudeatu ahal izango dituzu pribatu gisa ezarri ondoren
             select_a_created_by: Hautatu egilea
             select_parent_assembly: Hautatu batzar nagusia
-            slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
+            slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
             social_handlers: Soziala
             taxonomies: Taxonomiak
             title: Informazio orokorra
             visibility: Ikusgarritasuna
         assembly_copies:
           form:
-            slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
+            slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         assembly_imports:
           form:
-            slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
+            slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         assembly_members:
           form:
             explanation: 'Jarraibideak irudirako:'
@@ -365,8 +365,8 @@ eu:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Batzar bat erakunde bateko kideen taldea da, eta aldiro elkartzen da erakundearen eremu edo esparru zehatz bati buruzko erabakiak hartzeko.</p> <p>Batzarrak biltzen dira, batzuk pribatuak eta batzuk irekita daude. Ireki ezkero, haiekin parte har dezakete (esate baterako: gaitasuna ahalbidetzen duen tokian parte hartzera, agenda puntuak gehituz edo organo horri egindako proposamenak eta erabakiak iruzkinatuz).</p> <p>Adibideak: Batzar orokorra (urtebete betetzen du antolakuntzaren jarduera-ildo nagusiak eta organo exekutiboak boto bidez), berdintasun aholku-kontseiluak (bi hilero behin biltzen ditu genero-harremanak hobetzeko proposamenak egiteko erakundean), ebaluazio-batzorde bat (hilero biltzen dena prozesu bat kontrolatzeko) edo berme-organo bat (gertakariak, abusuak edo erabakiak hartzeko prozedurak hobetzeko proposamenak biltzen dituena) dira.</p>\n"
-          page: "<p>Batzar bat erakunde bateko kideen taldea da, eta aldiro elkartzen da erakundearen eremu edo esparru zehatz bati buruzko erabakiak hartzeko.</p> <p>Batzarrak biltzen dira, batzuk pribatuak eta batzuk irekita daude. Ireki ezkero, haiekin parte har dezakete (esate baterako: gaitasuna ahalbidetzen duen tokian parte hartzera, agenda puntuak gehituz edo organo horri egindako proposamenak eta erabakiak iruzkinatuz).</p> <p>Adibideak: Batzar orokorra (urtebete betetzen du antolakuntzaren jarduera-ildo nagusiak eta organo exekutiboak boto bidez), berdintasun aholku-kontseiluak (bi hilero behin biltzen ditu genero-harremanak hobetzeko proposamenak egiteko erakundean), ebaluazio-batzorde bat (hilero biltzen dena prozesu bat kontrolatzeko) edo berme-organo bat (gertakariak, abusuak edo erabakiak hartzeko prozedurak hobetzeko proposamenak biltzen dituena) dira.</p>\n"
+          contextual: "<p><strong>Batzarra </strong> erakunde bateko kideen talde bat da, aldian-aldian biltzen dena erakundearen arlo edo esparru jakin bati buruzko erabakiak hartzeko.</p> <p>Batzarrek bilerak egiten dituzte, batzuk pribatuak eta beste batzuk irekiak. Irekiak badira, parte hartzea posible da (adibidez: bertaratzea edukiera badago, gaiak agendara gehitzea, edo organo honek hartutako proposamenei eta erabakiei buruzko iruzkinak egitea). </p> <p>Adibideak: Batzar nagusia (urtean behin biltzen dena erakundearen ekintza-ildo nagusiak eta bere organo exekutiboak bozketa bidez definitzeko), berdintasun aholku-batzordea (bi hilabetean behin biltzen dena erakundearen genero-harremanak hobetzeko proposamenak egiteko), ebaluazio-batzordea (hilabetean behin biltzen dena prozesu baten jarraipena egiteko) edo berme-organoa (intzidenteak, gehiegikeriak edo erabakiak hartzeko prozedurak hobetzeko proposamenak biltzen dituena) batzordeen adibideak dira. </p>\n"
+          page: "<p><strong>Batzarra</strong> erakunde bateko kideen talde bat da, aldian-aldian biltzen dena erakundearen arlo edo esparru jakin bati buruzko erabakiak hartzeko.</p>\n\n<p>Batzarrek bilerak egiten dituzte, batzuk pribatuak eta beste batzuk irekiak. Irekiak badira, parte hartzea posible da (adibidez: bertaratzea edukiera badago, gaiak agendara gehitzea, edo organo honek hartutako proposamenei eta erabakiei buruzko iruzkinak egitea).</p>\n\n<p>Adibideak: Batzar nagusia (urtean behin biltzen dena erakundearen ekintza-ildo nagusiak eta bere organo exekutiboak bozketa bidez definitzeko), berdintasun aholku-batzordea (bi hilabetean behin biltzen dena erakundearen genero-harremanak hobetzeko proposamenak egiteko), ebaluazio-batzordea (hilabetean behin biltzen dena prozesu baten jarraipena egiteko) edo berme-organoa (intzidenteak, gehiegikeriak edo erabakiak hartzeko prozedurak hobetzeko proposamenak biltzen dituena) batzarren adibideak dira.</p>dira\n"
           title: Zer dira batzarrak?
     log:
       value_types:
@@ -391,9 +391,9 @@ eu:
           closing_date_reason: Zergatik itxi zen batzarra
           composition: Batzarraren osaera
           created_at: Zein datatan sortu zen espazio hau
-          created_by: Nork sortu zuen batzar hau
+          created_by: Nork sortu du batzar hau
           created_by_other: Batzarraren beste sortzaile bat
-          creation_date: Zein datatan sortu zen batzar hau
+          creation_date: Zein datatan sortu da batzar hau
           decidim_scope_id: Batzarraren esparrua
           description: Batzarraren deskribapen luzea
           developer_group: Batzarraren talde garatzailea
