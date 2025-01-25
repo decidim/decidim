@@ -418,10 +418,8 @@ fr:
         explanation: Obtenir une vérification en saisissant un numéro de document terminant par "X".
         fields:
           allowed_postal_codes: Codes postaux autorisés (séparés par des virgules)
-          allowed_scope_id: Secteur autorisé
           document_number: Numéro de document
           postal_code: Code postal
-          scope_id: Secteur
         name: Exemple d'autorisation
       dummy_authorization_workflow:
         explanation: Procédure d'autorisation factice
@@ -520,8 +518,6 @@ fr:
             dummy_global_translatable_text: Texte traduisible factice
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
-            scope_id: Secteur
-            scopes_enabled: Secteurs activés
           step:
             amendment_creation_enabled: Création d'amendement activée
             amendment_promotion_enabled: Promotion d'amendement activée
@@ -1551,16 +1547,7 @@ fr:
         error: Il y a eu un problème lors de l'action de soutien.
     scopes:
       global: Portée générale
-      picker:
-        cancel: Annuler
-        change: Changer le secteur sélectionné
-        choose: Sélectionner
-        currently_selected: Secteur actuellement sélectionné
-        title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
-      scopes: Secteurs
-      scopes_picker_input:
-        select_scope: 'Sélectionnez un secteur (actuellement: %{current})'
     search:
       name: Rechercher
       results: Résultats de recherche
