@@ -99,6 +99,7 @@ id:
             proposal_wizard_step_2_help_text: Proposal wizard "Bandingkan" langkah bantuan teks
             proposal_wizard_step_3_help_text: Panduan proposal, selesaikan langkah bantuan teks
             resources_permissions_enabled: Izin tindakan dapat diatur untuk setiap proposal
+            scope_id: Cakupan
             threshold_per_proposal: Ambang batas per proposal
             vote_limit: Batas suara per pengguna
           step:
