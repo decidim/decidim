@@ -21,8 +21,6 @@ fi:
         published_at: Julkaisuaika
         registration_terms: Ilmoittautumisehdot
         registrations_enabled: Ilmoittautumiset ovat käytössä
-        scope_id: Teema
-        scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
         show_statistics: Näytä tilastot
         sign_date: Allekirjoituksen päivämäärä
