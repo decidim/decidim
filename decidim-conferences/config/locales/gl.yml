@@ -21,8 +21,6 @@ gl:
         published_at: Publicado en
         registration_terms: Condicións do rexistro
         registrations_enabled: Rexistro habilitado
-        scope_id: Alcance
-        scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
         show_statistics: Amosar estatísticas
         sign_date: Data de sinatura
