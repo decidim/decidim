@@ -451,10 +451,8 @@ cs:
         explanation: Ověřte se zavedením čísla dokumentu končícího "X".
         fields:
           allowed_postal_codes: Povolené poštovní směrovací kódy (oddělené čárkami)
-          allowed_scope_id: Povolená oblast působnosti
           document_number: Číslo dokumentu
           postal_code: Poštovní směrovací číslo
-          scope_id: Oblast působnosti
         name: Příklad autorizace
       dummy_authorization_workflow:
         explanation: Ukázkový pracovní postup autorizace
@@ -551,8 +549,6 @@ cs:
             enable_pads_creation: Povolit vytvoření sdíleného textu
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             resources_permissions_enabled: Oprávnění zdrojů povoleno
-            scope_id: Oblast působnosti
-            scopes_enabled: Oblasti působnosti povoleny
             taxonomy_filters: Vyberte filtry pro komponentu
           step:
             amendment_creation_enabled: Umožnit změnu a doplnění
@@ -1698,16 +1694,7 @@ cs:
         error: Během akce schválení došlo k chybě.
     scopes:
       global: Globální oblast působnosti
-      picker:
-        cancel: Zrušit
-        change: Změnit vybraný rozsah
-        choose: Vybrat
-        currently_selected: Aktuálně vybraný rozsah
-        title: Vyberte %{field}
       prompt: Vyberte oblast působnosti
-      scopes: Oblasti působnosti
-      scopes_picker_input:
-        select_scope: 'Vyberte oblast působnosti (v současné době: %{current})'
     search:
       name: Hledat
       results: Výsledky hledání
