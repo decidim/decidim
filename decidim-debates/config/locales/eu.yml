@@ -84,7 +84,7 @@ eu:
           comments: Iruzkinak
       admin_log:
         debate:
-          close: "%{user_name} parte-hartzaileak %{resource_name} eztabaida sortu du %{space_name} esparruan"
+          close: "%{user_name} parte-hartzaileak %{resource_name} eztabaida sortu du %{space_name} espazioan"
           create: "%{user_name} parte-hartzaileak %{resource_name} eztabaida sortu du %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak %{resource_name} eztabaida eguneratu du %{space_name} espazioan"
       debate_m:
@@ -144,7 +144,7 @@ eu:
         show:
           close_debate: Itxi eztabaida
           debate_closed: Itxita
-          debate_conclusions_are: 'Eztabaida %{date} egunean itxi zen ondorio hauekin:'
+          debate_conclusions_are: 'Eztabaida %{date} espazioan itxi da ondorio hauekin:'
           edit_conclusions: Editatu ondorioak
           edit_debate: Editatu eztabaida
           groups_count: Taldeak
@@ -185,10 +185,10 @@ eu:
         creation_disabled:
           email_intro: 'Eztabaida sortzea dagoeneko ez dago aktibo %{participatory_space_title}. Oraindik irekita dauden eztabaidetan parte har dezakezu orri honetatik:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
-          email_subject: Debate sortzea desgaituta %{participatory_space_title}
+          email_subject: Eztabaida sortzea desgaituta %{participatory_space_title}
           notification_title: Eztabaiden sorrera orain desaktibatuta dago <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Oraineztabaida berriak hasi ditzakezu hemen: %{participatory_space_title}! Hasi parte-hartzea orri honetan:'
+          email_intro: 'Orain eztabaida berriak hasi ditzakezu hemen: %{participatory_space_title}! Hasi parte-hartzea orri honetan:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
           email_subject: 'Eztabaidak orain eskuragarri hemen: %{participatory_space_title}'
           notification_title: 'Orain <a href="%{resource_path}">eztabaida berriak hasi ditzakezu hemen: </a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
