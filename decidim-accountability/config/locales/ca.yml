@@ -279,8 +279,6 @@ ca:
             geocoding_enabled: Mapes habilitats
             intro: Introducció
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
-            scope_id: Àmbit
-            scopes_enabled: Àmbits habilitats
             taxonomy_filters: Seleccionar filtres pel component
             taxonomy_filters_add: Afegir un filtre
           step:
