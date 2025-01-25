@@ -61,6 +61,8 @@ tr:
     'false': 'Hayır'
     'true': 'Evet'
   date:
+    buttons:
+      select: seçmek
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -947,7 +949,7 @@ tr:
     scopes:
       global: Küresel kapsamı
       picker:
-        cancel: İptal etmek
+        cancel: İptal Et
         change: Seçili kapsamı değiştir
         choose: seçmek
         currently_selected: Şu anda seçili kapsam
@@ -1313,6 +1315,8 @@ tr:
     x: X
     xing: Xing
   time:
+    buttons:
+      select: seçmek
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
