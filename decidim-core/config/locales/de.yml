@@ -451,10 +451,8 @@ de:
         explanation: Lassen Sie sich verifizieren, indem Sie eine Dokumentennummer eingeben, die mit "X" endet.
         fields:
           allowed_postal_codes: Erlaubte Postleitzahlen (durch Komma getrennt)
-          allowed_scope_id: Erlaubter Umfang
           document_number: Dokumentnummer
           postal_code: Postleitzahl
-          scope_id: Umfang
         name: Beispiel Berechtigung
       dummy_authorization_workflow:
         explanation: Beispiel Autorisierung
@@ -463,10 +461,8 @@ de:
         explanation: Lassen Sie sich durch die Einführung einer Dokumentnummer verifizieren, die mit "X" endet.
         fields:
           allowed_postal_codes: Erlaubte Postleitzahl (durch Kommas getrennt)
-          allowed_scope_id: Erlaubter Bereich
           document_number: Dokumentnummer
           postal_code: Postleitzahl
-          scope_id: Bereich
         name: Ephemere Beispiel-Autorisierung
       errors:
         duplicate_authorization: Ein Teilnehmer mit den gleichen Daten ist bereits autorisiert. Ein Administrator wird Sie kontaktieren, um Ihre Daten zu überprüfen.
@@ -558,8 +554,6 @@ de:
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             resources_permissions_enabled: Ressourcenberechtigungen aktiviert
-            scope_id: Bereich
-            scopes_enabled: Bereiche aktiviert
             taxonomy_filters: Filter für die Komponente auswählen
           step:
             amendment_creation_enabled: Änderungserstellung aktiviert
@@ -1741,16 +1735,7 @@ de:
         error: Bei der Befürwortung ist ein Fehler aufgetreten.
     scopes:
       global: Globaler Umfang
-      picker:
-        cancel: Abbrechen
-        change: Ausgewählten Bereich ändern
-        choose: Wählen
-        currently_selected: Aktuell ausgewählter Bereich
-        title: Wählen Sie %{field}
       prompt: Wählen Sie einen Bereich aus
-      scopes: Bereiche
-      scopes_picker_input:
-        select_scope: 'Wählen Sie einen Bereich (aktuell: %{current})'
     search:
       name: Suchen
       results: Suchergebnisse
