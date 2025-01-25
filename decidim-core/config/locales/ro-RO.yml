@@ -1172,7 +1172,7 @@ ro:
     scopes:
       global: Domeniul global de interes
       picker:
-        cancel: Anulează
+        cancel: Anulați
         change: Schimbă domeniul selectat
         choose: Selectare
         currently_selected: Domeniul selectat în prezent
