@@ -252,7 +252,7 @@ pt-BR:
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             display_progress_enabled: Mostrar progresso
             intro: Introdução
-            scope_id: Escopo
+            scope_id: Âmbito
             scopes_enabled: Escopos habilitados
           step:
             comments_blocked: Comentários bloqueados
