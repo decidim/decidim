@@ -21,8 +21,6 @@ fr-CA:
           announcement: Annonce
           global:
             announcement: Annonce
-            scope_id: Secteur
-            scopes_enabled: Secteurs activés
           step:
             announcement: Annonce
     events:
