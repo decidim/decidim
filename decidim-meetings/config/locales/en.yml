@@ -170,8 +170,6 @@ en:
             no_taxonomy_filters_found: No taxonomy filters found.
             registration_code_enabled: Registration code enabled
             resources_permissions_enabled: Actions permissions can be set for each meeting
-            scope_id: Scope
-            scopes_enabled: Scopes enabled
             taxonomy_filters: Select filters for the component
             taxonomy_filters_add: Add filter
             terms_and_conditions_url_for_meeting_creators: Terms and conditions URL for meeting creators

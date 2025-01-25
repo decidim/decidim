@@ -1,8 +1,6 @@
 ro:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Titlu
       assembly:
         announcement: Anunţ
         area_id: Zonă
@@ -19,7 +17,6 @@ ro:
         created_by_other: Creat de altcineva
         creation_date: Data creării
         decidim_area_id: Zonă
-        decidim_assemblies_type_id: Tipul grupului de lucru
         decidim_scope_id: Domeniu
         description: Descriere
         developer_group: Grup promotor
@@ -35,7 +32,6 @@ ro:
         import_components: Importă componente
         included_at: Inclus la
         instagram: Instagram
-        internal_organisation: Organizare internă
         is_transparent: Este transparent
         local_area: Zona grupului de lucru
         meta_scope: Metadate privind domeniul
@@ -97,7 +93,6 @@ ro:
       actions:
         import_assembly: Importă
         new_assembly: Grup de lucru nou
-        new_assembly_type: Tip nou de grup de lucru
       assemblies:
         create:
           error: A apărut o problemă la crearea unui nou tip de grup de lucru.
@@ -117,18 +112,6 @@ ro:
         create:
           error: A apărut o problemă la duplicarea acestui grup de lucru.
           success: Grupul de lucru a fost duplicat cu succes.
-      assemblies_types:
-        create:
-          error: A apărut o problemă la crearea unui nou tip de grup de lucru.
-          success: Tipul grupului de lucru a fost creat cu succes.
-        destroy:
-          success: Tipul grupului de lucru a fost șters cu succes.
-        new:
-          create: Creează
-          title: Tip nou de grup de lucru
-        update:
-          error: A apărut o eroare la actualizarea acestui grup de lucru.
-          success: Tipul grupului de lucru a fost actualizat cu succes.
       assembly_copies:
         new:
           copy: Copiază
@@ -164,9 +147,6 @@ ro:
         update:
           error: A apărut o eroare la actualizarea unui administrator pentru acest grup de lucru.
           success: Administratorul a fost actualizat cu succes pentru acest grup de lucru.
-      filters:
-        decidim_assemblies_type_id_eq:
-          label: Tipul grupului de lucru
       menu:
         assemblies: Grupuri de lucru
         assemblies_submenu:
@@ -174,16 +154,10 @@ ro:
           attachment_collections: Dosare
           attachment_files: Fișiere
           attachments: Atașamente
-          categories: Categorii
           components: Componente
           landing_page: Pagina principală
           moderations: Moderări
-        assemblies_types: Tipuri de grupuri de lucru
       models:
-        assemblies_types:
-          fields:
-            created_at: Creat la
-            title: Titlu
         assembly:
           fields:
             created_at: Creat la
@@ -252,14 +226,10 @@ ro:
             other: Altul
             select_a_created_by: Selectați după persoana care a creat
             select_an_area: Selectați o zonă
-            select_an_assembly_type: Selectaţi un tip de grup de lucru
             select_parent_assembly: Selectați grupul de lucru părinte
             social_handlers: Rețele de socializare
             taxonomies: Taxonomii
             title: Informaţii generale
-        assemblies_types:
-          form:
-            title: Titlu
         assembly_members:
           form:
             explanation: 'Îndrumare pentru imagine:'
@@ -292,14 +262,6 @@ ro:
       assembly_members:
         index:
           members: Membri
-      assembly_types:
-        commission: Comisie
-        consultative_advisory: Organ consultativ
-        executive: Executiv
-        government: Conducere
-        others: Altele
-        participatory: Participativ
-        working_group: Sub-grup de lucru
       content_blocks:
         highlighted_assemblies:
           name: Grupuri de lucru evidențiate
@@ -326,7 +288,6 @@ ro:
           member_of:
             member_of: Membru al
       show:
-        assembly_type: Tipul grupului de lucru
         duration: Durată
         private_space: Acesta este un grup de lucru privat
         social_networks_title: Vizitează adunarea pe

@@ -25,8 +25,6 @@ Decidim.register_component(:accountability) do |component|
   end
 
   component.settings(:global) do |settings|
-    settings.attribute :scopes_enabled, type: :boolean, default: true
-    settings.attribute :scope_id, type: :scope
     settings.attribute :taxonomy_filters, type: :taxonomy_filters
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: true

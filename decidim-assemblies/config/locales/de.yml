@@ -1,8 +1,6 @@
 de:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Titel
       assembly:
         announcement: Ankündigung
         area_id: Bereich
@@ -19,7 +17,6 @@ de:
         created_by_other: Erstellt von anderen
         creation_date: Gründungsdatum
         decidim_area_id: Bereich
-        decidim_assemblies_type_id: Versammlungstyp
         decidim_scope_id: Umfang
         description: Beschreibung
         developer_group: Promoter-Gruppe
@@ -93,13 +90,15 @@ de:
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: Sind Sie sicher, dass Sie dieses Gremium löschen möchten? Wenn Sie Ihre Meinung ändern, können Sie sie später wiederherstellen.
         import_assembly: Importieren
         new_assembly: Neues Gremium
-        new_assembly_type: Neuer Gremiumtyp
         new_assembly_user_role: Neuer Gremium-Admin
+        view_deleted_assemblies: Gelöschte Gremien anzeigen
       assemblies:
         create:
           error: Beim Erstellen eines neuen Gremiums ist ein Fehler aufgetreten.
+          success: Gremium erfolgreich erstellt. Sie können nun Komponenten hinzufügen und konfigurieren.
         edit:
           update: Aktualisieren
         index:
@@ -107,6 +106,8 @@ de:
           public: Öffentlich
           published: Veröffentlicht
           unpublished: Nicht veröffentlicht
+        manage_trash:
+          title: Gelöschte Gremien
         new:
           create: Erstellen
           title: Neues Gremium
@@ -117,18 +118,6 @@ de:
         create:
           error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Das Gremium wurde erfolgreich dupliziert.
-      assemblies_types:
-        create:
-          error: Beim Erstellen eines neuen Gremiumtyps ist ein Fehler aufgetreten.
-          success: Gremiumtyp wurde erfolgreich erstellt.
-        destroy:
-          success: Gremiumtyp wurde erfolgreich gelöscht.
-        new:
-          create: Erstellen
-          title: Neuer Gremiumtyp
-        update:
-          error: Beim Aktualisieren dieses Gremiumtyps ist ein Fehler aufgetreten.
-          success: Gremiumtyp wurde erfolgreich aktualisiert.
       assembly_copies:
         new:
           copy: Kopieren
@@ -172,8 +161,6 @@ de:
           values:
             'false': Nicht eingestellt
             'true': Eingestellt
-        decidim_assemblies_type_id_eq:
-          label: Versammlungstyp
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Name oder Kontoname suchen
       menu:
@@ -183,18 +170,13 @@ de:
           attachment_collections: Ordner
           attachment_files: Dateien
           attachments: Anhänge
-          categories: Kategorien
           components: Komponenten
           info: Über dieses Gremium
           landing_page: Startseite
           moderations: Moderationen
+          private_users: Mitglieder
           see_assembly: Gremium ansehen
-        assemblies_types: Versammlungstypen
       models:
-        assemblies_types:
-          fields:
-            created_at: Erstellt am
-            title: Titel
         assembly:
           fields:
             actions: Aktionen
@@ -224,7 +206,10 @@ de:
             valuator: Bewertende
       titles:
         assemblies: Gremien
+        assemblies_deleted: Gelöschte Gremien
         assemblies_types: Versammlungstypen
+      tooltips:
+        deleted_assemblies_info: Ein Gremium kann nur gelöscht werden, wenn der Status "Nicht veröffentlicht" ist.
     admin_log:
       assembly:
         create: "%{user_name} hat das Gremium %{resource_name} erstellt"
@@ -232,6 +217,8 @@ de:
         export: "%{user_name} hat das Gremium %{resource_name} exportiert"
         import: "%{user_name} hat das Gremium %{resource_name} importiert"
         publish: "%{user_name} hat das Gremium %{resource_name} veröffentlicht"
+        restore: "%{user_name} hat das Gremium %{resource_name} wiederhergestellt"
+        soft_delete: "%{user_name} hat das Gremium %{resource_name} in den Papierkorb verschoben"
         unpublish: "%{user_name} hat das Gremium %{resource_name} auf \"unveröffentlicht\" gesetzt"
         update: "%{user_name} hat das Gremium %{resource_name} aktualisiert"
       assembly_member:
@@ -264,18 +251,15 @@ de:
             metadata: Metadaten
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             other: Andere
+            private_notice: Sie werden in der Lage sein, private Teilnehmer zu verwalten, nachdem Sie das Gremium als privat festgelegt haben
             select_a_created_by: Wählen Sie eine erstellt von aus
             select_an_area: Wählen Sie einen Bereich
-            select_an_assembly_type: Wählen Sie einen Gremiumstyp
             select_parent_assembly: Übergeordnetes Gremium auswählen
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
             taxonomies: Klassifizierungen
             title: Allgemeine Information
             visibility: Sichtbarkeit
-        assemblies_types:
-          form:
-            title: Titel
         assembly_copies:
           form:
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
@@ -319,14 +303,6 @@ de:
       assembly_members:
         index:
           members: Mitglieder
-      assembly_types:
-        commission: Kommission
-        consultative_advisory: Beratende / Beratende
-        executive: Exekutive
-        government: Regierung
-        others: Andere
-        participatory: Teilnehmend
-        working_group: Arbeitsgruppe
       content_blocks:
         children_assemblies:
           name: Gremien
@@ -365,7 +341,6 @@ de:
           member_of:
             member_of: Mitglied von
       show:
-        assembly_type: Montageart
         duration: Aktiv bis
         private_space: Dies ist eine private Versammlung
         social_networks_title: Gremium besuchen unter

@@ -118,8 +118,6 @@
             initiative_title: Tittel på initiativet
             name_and_surname: Navn og etternavn
             postal_code: Postnummer
-            scope: Tema
-            time_and_date: Tid og dato
             timestamp: Tidsstempel
       titles:
         initiatives: Initiativer
@@ -353,8 +351,6 @@
           email_outro: 'Du mottok dette varselet fordi du søkte på dette initiativet: %{resource_title}.'
           email_subject: "%{author_nickname} avviste din søknad til promotørkomiteen"
           notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> avviste søknaden din om å være en del av promotørutvalget i følgende initiativ <a href="%{resource_url}">%{resource_title}</a>.
-      form:
-        attachment_legend: "(Valgfritt) Legg til et vedlegg"
       initiative_signatures:
         fill_personal_data:
           continue: Fortsett

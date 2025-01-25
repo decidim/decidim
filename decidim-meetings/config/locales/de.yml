@@ -1,8 +1,10 @@
 de:
   activemodel:
     attributes:
+      answer:
+        add_documents: Dokumente hinzufügen
       close_meeting:
-        attendees_count: Anzahl der Teilnehmer
+        attendees_count: Anzahl Teilnehmende
         attending_organizations: Liste der Organisationen, die teilgenommen haben
         audio_url: Audio-URL
         closing_report: Protokoll
@@ -12,7 +14,7 @@ de:
         video_url: Video-URL
       meeting:
         address: Adresse
-        available_slots: Verfügbare Slots für dieses Meeting
+        available_slots: Verfügbare Plätze für diese Veranstaltung
         customize_registration_email: Registrierungs-E-Mail anpassen
         decidim_category_id: Kategorie
         decidim_scope_id: Umfang
@@ -28,14 +30,14 @@ de:
         online_meeting_url: Online Meeting URL
         organizer_gid: Erstellt als
         organizer_id: Veranstalter
-        private_meeting: Privates Treffen
+        private_meeting: Private Veranstaltung
         registration_email_custom_content: Angepasster Inhalt des Registrierungs-E-Mails
         registration_form_enabled: Anmeldeformular aktiviert
         registration_terms: Registrierungsbedingungen
         registration_type: Registrierungstyp
         registration_url: Registrierungs-URL
         registrations_enabled: Registrierungen aktiviert
-        reserved_slots: Reservierte Slots für diese Veranstaltung
+        reserved_slots: Reservierte Plätze für diese Veranstaltung
         start_time: Startzeit
         title: Titel
         transparent: Transparent
@@ -70,12 +72,12 @@ de:
             email:
               already_invited: Das mit dieser E-Mail verknüpfte Konto wurde bereits eingeladen.
     models:
-      decidim/meetings/close_meeting_event: Sitzung geschlossen
-      decidim/meetings/create_meeting_event: Sitzung
+      decidim/meetings/close_meeting_event: Veranstaltung abgeschlossen
+      decidim/meetings/create_meeting_event: Veranstaltung
       decidim/meetings/meeting_registrations_enabled_event: Registrierungen aktiviert
       decidim/meetings/meeting_registrations_over_percentage_event: Anmeldungen über Limit
-      decidim/meetings/upcoming_meeting_event: Kommende Sitzung
-      decidim/meetings/update_meeting_event: Besprechung aktualisiert
+      decidim/meetings/upcoming_meeting_event: Bevorstehende Veranstaltung
+      decidim/meetings/update_meeting_event: Veranstaltung aktualisiert
   activerecord:
     models:
       decidim:
@@ -83,8 +85,8 @@ de:
           meeting:
             text: 'Diskutiert in der Veranstaltung: %{link}'
       decidim/meetings/meeting:
-        one: Sitzung
-        other: Sitzungen
+        one: Veranstaltung
+        other: Veranstaltungen
       decidim/meetings/minutes:
         one: Protokoll
         other: Protokoll
@@ -93,6 +95,9 @@ de:
         other: Anmeldungen
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Veranstaltungen
       filters:
         accepted_at_not_null:
           label: Angenommen
@@ -119,7 +124,7 @@ de:
               participants: Teilnehmer
               user_group: Benutzergruppen
           with_any_type:
-            label: Art des Treffens
+            label: Art der Veranstaltung
             values:
               hybrid: Hybrid
               in_person: Persönlich
@@ -138,43 +143,49 @@ de:
             'true': Gesendet
       meeting_copies:
         create:
-          error: Es gab einen Fehler beim Duplizieren dieses Meetings.
-          success: Dupliziertes Meeting erfolgreich
+          error: Es gab einen Fehler beim Duplizieren dieser Veranstaltung.
+          success: Veranstaltung erfolgreich dupliziert.
         new:
           copy: Kopieren
-          title: Doppelte Besprechung
+          title: Veranstaltung duplizieren
     components:
       meetings:
         actions:
           comment: Kommentar
           join: Beitreten
           reply_poll: Umfrage beantworten
-        name: Meetings
+        name: Veranstaltungen
         settings:
           global:
             announcement: Ankündigung
             clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
-            creation_enabled_for_participants: Teilnehmer können Besprechungen erstellen
+            creation_enabled_for_participants: Teilnehmende können Veranstaltungen erstellen
             default_registration_terms: Standard-Registrierungsbedingungen
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             maps_enabled: Karten aktiviert
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             registration_code_enabled: Registrierungscode aktiviert
-            resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
+            resources_permissions_enabled: Aktionsberechtigungen können für jede Veranstaltung festgelegt werden
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
             taxonomy_filters: Filter für die Komponente auswählen
             taxonomy_filters_add: Filter hinzufügen
-            terms_and_conditions_url_for_meeting_creators: Nutzungsbedingungen URL für Meeting-Ersteller
+            terms_and_conditions_url_for_meeting_creators: URL zu den Nutzungsbedingungen für Veranstaltungsersteller
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
             creation_enabled_for_participants: Besprechung-Erstellung durch Teilnehmer aktiviert
             creation_enabled_for_user_groups: Besprechung-Erstellung durch Benutzergruppen aktiviert
     download_your_data:
+      help:
+        registrations:
+          code: Der Registrierungscode
+          id: Die eindeutige Bezeichnung der Registrierung
+          meeting: Das Meeting, zu dem der Benutzer sich registriert hat
+          user: Der Benutzer, der die Registrierung durchgeführt hat
       show:
         meeting_comments: Kommentare zu Veranstaltungen exportieren
         meetings: Export für Veranstaltungen
@@ -245,6 +256,8 @@ de:
         attachment_collections: Ordner
         attachments: Anhänge
         close: Schließen
+        confirm_delete_meeting: Möchten Sie dieses Meeting wirklich löschen?
+        deleted_meetings_info: Gelöschte Meetings können aus dem Papierkorb wiederhergestellt werden.
         edit: Bearbeiten
         invalid_destroy:
           proposals_count:
@@ -255,6 +268,7 @@ de:
         preview: Vorschau
         registrations: Anmeldungen
         title: Aktionen
+        view_deleted_meetings: Gelöschte Meetings anzeigen
       admin:
         agenda:
           agenda_item:
@@ -339,7 +353,20 @@ de:
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
             select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
           index:
+            linked_meeting_warning_html: Dieses Meeting muss von <br><a href="%{href}">%{name}</a> bearbeitet werden
             title: Meetings
+          linked_spaces:
+            assign: Zuweisen
+            link_a_space: Bereich verknüpfen
+            private_meeting_warning: Verknüpfte Bereiche werden nicht angewendet, wenn das Meeting privat und nicht transparent ist.
+            private_space_warning: Verknüpfte Bereiche werden nicht angewendet, wenn das Meeting privat und nicht transparent ist.
+            select: Einen Bereich auswählen
+            table:
+              actions: Aktionen
+              component: Verknüpfte Bereiche
+            title: Verknüpfte Bereiche
+          manage_trash:
+            title: Gelöschte Meetings
           new:
             create: Erstellen
             title: Besprechung erstellen
@@ -383,6 +410,7 @@ de:
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
             invites: Lädt ein
+            manage_questions: Fragen verwalten
             recommendation_message: Aus Datenschutzgründen empfehlen wir, dass Sie dieses Einschreibeformular löschen, wenn es nicht länger benötigt wird. Standardmäßig ist das 3 Monate nachdem die Besprechung durchgeführt wurde.
             registration_email_help: Dieser Text erscheint in der Mitte der Registrierungs-E-Mail, direkt nach dem Registrierungscode.
             registration_form: Anmeldeformular
@@ -408,6 +436,8 @@ de:
           create: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat die Sitzung %{resource_name} aus %{space_name} gelöscht"
           export_registrations: "%{user_name} hat die Anmeldungen der Sitzung %{resource_name} in %{space_name} exportiert"
+          restore: "%{user_name} hat die Sitzung %{resource_name} des Bereichs %{space_name} wiederhergestellt"
+          soft_delete: "%{user_name} hat das Meeting %{resource_name} in %{space_name} in den Papierkorb verschoben"
           update: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} aktualisiert"
           value_types:
             organizer_presenter:
@@ -534,7 +564,9 @@ de:
           see_all_withdrawn: Alle zurückgezogenen Treffen ansehen
           text_banner: Hier sehen Sie alle Veranstaltungen, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
         meeting:
+          close_meeting: Schliessen
           edit_close_meeting: Veranstaltungsbericht bearbeiten
+          edit_meeting: Bearbeiten
           join_meeting: Veranstaltung beitreten
           reply_poll: Umfrage beantworten
           view_poll: Umfrage ansehen
@@ -561,6 +593,7 @@ de:
           micro_camera_permissions_warning: Wenn Sie auf die Schaltfläche unten klicken, werden Sie nach Mikrofon- und/oder Kamera-Berechtigungen gefragt und Sie werden der Videokonferenz hinzugefügt
           no_slots_available: Keine Plätze verfügbar
           organizations: Teilnahme an Organisationen
+          redirect_notice: Dieses Meeting ist Teil eines anderen Bereichs, daher wurden Sie zu %{current_space_name} weitergeleitet. <br>Wenn Sie es bevorzugen, können Sie zu <a href="%{previous_space_url}">%{previous_space_name}</a> zurückkehren.
           registration_code_help_text: Ihr Registrierungscode
           registration_state:
             validated: GÜLTIG
@@ -571,6 +604,7 @@ de:
           visit_finished: Vergangene Treffen anzeigen
           withdraw_btn_hint: Sie können Ihr Treffen zurückziehen, wenn Sie Ihre Meinung ändern. Das Meeting wird nicht gelöscht, es wird in der Liste der zurückgezogenen Meetings angezeigt.
           withdraw_confirmation_html: Sind Sie sicher, dass Sie diese Veranstaltung zurückziehen möchten?<br><br><strong> Diese Aktion kann nicht rückgängig gemacht werden!</strong>
+          withdraw_meeting: Zurückziehen
         update:
           invalid: Beim Aktualisieren der Besprechung ist ein Fehler aufgetreten.
           success: Sie haben die Sitzung erfolgreich aktualisiert.
@@ -672,8 +706,43 @@ de:
         title: Meetings
     open_data:
       help:
+        meeting_comments:
+          alignment: Ob dieser Kommentar zustimmend, ablehnend oder neutral war
+          author: Der Name des Teilnehmenden, der diesen Kommentar erstellt hat
+          body: Der Kommentarinhalt
+          commentable_id: Die eindeutige ID des kommentierten Objekts
+          commentable_type: Die Art des kommentierten Objekts (ob es ein Ergebnis, Vorschlag o.ä. war)
+          created_at: Das Erstellungsdatum des Kommentars
+          depth: Die Position dieses Kommentars im Thread (ob es sich um eine Antwort oder eine Antwort auf eine Antwort handelt)
+          id: Die ID dieses Kommentars
+          locale: Die eingestellte Plattformsprache der kommentierenden Person
+          root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
+          user_group: Der Name der Gruppe, die diesen Kommentar erstellt hat (falls vorhanden)
         meetings:
+          address: Die Adresse des Meetings, falls es an einem Standort stattfindet
+          attachments: Die Anzahl der Anhänge in diesem Meeting
+          attendees: Die Anzahl der Personen, die an diesem Meeting teilnehmen
+          author: Die Angaben über die verfassende Person dieses Meetings
+          comments: Die Anzahl der Kommentare in dieser Sitzung
+          component: Die Komponente, zu der die Sitzung gehört
+          contributions: Die Anzahl der durch die Teilnehmenden der Sitzung gemachten Beiträge
+          description: Die Beschreibung der Sitzung
+          end_time: Das Datum und die Uhrzeit dieses Abschlusses der Sitzung
+          followers: Die Anzahl der Follower dieser Sitzung
+          id: Die eindeutige Bezeichnung der Sitzung
+          location: Der Ort des Meetings
+          organizations: Die Organisationen, die an diesem Treffen teilnehmen
+          participatory_space: Zu welchem Bereich diese Sitzung gehört (z.B. Partizipationsprozesse oder Gremien)
+          published: Wann die Sitzung veröffentlicht wurde
+          reference: Die eindeutige Bezeichnung der Ressource auf dieser Plattform
+          related_proposals: Mit dieser Sitzung verknüpfte Vorschläge
+          related_results: Die mit dieser Sitzung verknüpfte Ergebnisse
+          start_time: Datum und Uhrzeit des Beginns dieser Sitzung
           taxonomies: Die Klassifizierungen, zu denen diese Veranstaltung gehört
+          title: Der Titel der Sitzung
+          url: Die URL der Sitzung
+          withdrawn: Ob diese Sitzung zurückgezogen wurde
+          withdrawn_at: Wann diese Sitzung zurückgezogen wurde
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vergangene Treffen
@@ -687,6 +756,7 @@ de:
         meeting_proposal: 'Ähnliche Vorschläge:'
         proposal_meeting: 'Ähnliche Treffen:'
     statistics:
+      attendees_count: Sitzungsteilnehmende
       meetings_count: Sitzungen
   devise:
     mailer:

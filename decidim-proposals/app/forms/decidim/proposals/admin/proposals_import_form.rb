@@ -13,7 +13,6 @@ module Decidim
         attribute :keep_answers, Boolean
         attribute :keep_authors, Boolean
         attribute :states, Array
-        attribute :scope_ids, Array
 
         validates :origin_component_id, :origin_component, :states, :current_component, presence: true
         validates :import_proposals, allow_nil: false, acceptance: true
@@ -32,10 +31,6 @@ module Decidim
 
         def states
           super.compact_blank
-        end
-
-        def scopes
-          Decidim::Scope.where(organization: current_organization, id: scope_ids)
         end
 
         def origin_component

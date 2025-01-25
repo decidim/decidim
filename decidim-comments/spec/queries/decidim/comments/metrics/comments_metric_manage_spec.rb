@@ -6,7 +6,8 @@ describe Decidim::Comments::Metrics::CommentsMetricManage do
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:component, participatory_space: participatory_process) }
-  let(:commentable) { create(:dummy_resource, component:) }
+  let(:commentable) { create(:dummy_resource, component:, taxonomies:) }
+  let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }
   let(:author) { create(:user, organization:) }
   let(:day) { Time.zone.yesterday }
   let!(:comments) { create_list(:comment, 5, created_at: day, author:, commentable:) }
@@ -18,9 +19,9 @@ describe Decidim::Comments::Metrics::CommentsMetricManage do
     it "creates new metric records" do
       registry = generate_metric_registry
 
-      expect(registry.collect(&:day)).to eq([day])
-      expect(registry.collect(&:cumulative)).to eq([10])
-      expect(registry.collect(&:quantity)).to eq([5])
+      expect(registry.collect(&:day)).to eq([day, day])
+      expect(registry.collect(&:cumulative)).to eq([10, 10])
+      expect(registry.collect(&:quantity)).to eq([5, 5])
     end
 
     it "does not create any record if there is no data" do
@@ -31,12 +32,12 @@ describe Decidim::Comments::Metrics::CommentsMetricManage do
     end
 
     it "updates metric records" do
-      create(:metric, metric_type: "comments", day:, cumulative: 1, quantity: 1, organization:, related_object: commentable, category: nil, participatory_space: participatory_process)
+      create(:metric, metric_type: "comments", day:, cumulative: 1, quantity: 1, organization:, related_object: commentable, taxonomy: taxonomies.first, participatory_space: participatory_process)
       registry = generate_metric_registry
 
-      expect(Decidim::Metric.count).to eq(1)
-      expect(registry.collect(&:cumulative)).to eq([10])
-      expect(registry.collect(&:quantity)).to eq([5])
+      expect(Decidim::Metric.count).to eq(2)
+      expect(registry.collect(&:cumulative)).to eq([10, 10])
+      expect(registry.collect(&:quantity)).to eq([5, 5])
     end
   end
 end

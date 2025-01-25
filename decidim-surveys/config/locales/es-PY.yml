@@ -12,25 +12,22 @@ es-PY:
         one: Respuesta
         other: Respuestas
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: Encuestas
     components:
       surveys:
         actions:
           answer: Responder
-        name: Encuesta
+        name: Encuestas
         settings:
+          announcement: Aviso
           global:
             announcement: Anuncio
-            clean_after_publish: Borrar respuestas al publicar la encuesta
-            ends_at: Respuestas aceptadas hasta
-            ends_at_help: Dejar en blanco para ninguna fecha específica
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
-            starts_at: Respuestas aceptadas de
-            starts_at_help: Dejar en blanco para ninguna fecha específica
           step:
-            allow_answers: Permitir respuestas
-            allow_unregistered: Permitir a las usuarias no registradas responder a la encuesta
-            allow_unregistered_help: Si está activo, no será necesario iniciar sesión para responder a la encuesta. Esto puede llevar a datos pobres o poco fiables y será más vulnerable a ataques automatizados. ¡Usar con precaución! Es importante que un participante pueda responder a la misma encuesta varias veces, utilizando diferentes navegadores o la función de "navegación privada" de su navegador web.
             announcement: Anuncio
     events:
       surveys:
@@ -52,18 +49,64 @@ es-PY:
     statistics:
       answers_count: Respuestas
     surveys:
+      actions:
+        answers_alert: La opción de borrar las respuestas al publicar la encuesta está activada. Si sigues, se borrarán las %{answers_count} existentes actualmente.
+        confirm_destroy: '¿Seguro que lo quieres eliminar?'
+        destroy: Eliminar
+        edit: Editar
+        manage_questions: Gestionar las preguntas
+        new_survey: Nueva encuesta
+        preview: Previsualizar
+        title: Acciones
       admin:
-        component:
-          actions:
-            answers_alert: Si publicas el componente, se eliminaran todos los resultados.
+        answers:
+          index:
+            title: "%{total} respuestas totales"
+          show:
+            title: 'Respuesta #%{number}'
         exports:
           survey_user_answers: Respuestas de los usuarios de la encuesta
         surveys:
+          create:
+            invalid: Se ha producido un error creando la encuesta.
+            success: Encuesta creada correctamente.
+          destroy:
+            success: Encuesta eliminada correctamente.
+          edit:
+            title: Editar la encuesta
+          index:
+            title: Encuestas
+          publish:
+            invalid: Se ha producido un error al publicar esta encuesta.
+            success: Encuesta publicada correctamente.
+          unpublish:
+            invalid: Se ha producido un error al despublicar esta encuesta.
+            success: Encuesta despublicada correctamente.
           update:
             invalid: Se han producido errores al guardar la encuesta.
             success: Encuesta guardada correctamente.
+      admin_log:
+        survey:
+          create: "%{user_name} creó la encuesta %{resource_name} en el espacio de participación %{space_name}"
+          delete: "%{user_name} ha eliminado la encuesta %{resource_name} en el espacio de participación %{space_name}"
+          publish: "%{user_name} publicó la encuesta %{resource_name} en el espacio de participación %{space_name}"
+          update: "%{user_name} ha actualizado la encuesta %{resource_name} en el espacio de participación %{space_name}"
+      directory:
+        surveys:
+          index:
+            surveys: Encuestas
       last_activity:
         new_survey: 'Nueva encuesta:'
+      models:
+        survey:
+          fields:
+            answers: Respuestas
+            questions: Preguntas
+            status: Estado
+            title: Título
+          status:
+            closed: Cerrada
+            open: Abierta
       survey_confirmation_mailer:
         confirmation:
           body: Has respondido con éxito a la encuesta %{questionnaire_title} dentro de %{participatory_space}
@@ -74,3 +117,17 @@ es-PY:
           invalid: Se han producido errores al responder a la encuesta.
           spam_detected: Hubo un problema respondiendo al formulario. Tal vez has sido demasiado rápido, ¿puedes intentarlo de nuevo?
           success: La encuesta ha sido respondida con éxito.
+        count:
+          surveys_count:
+            one: "%{count} encuesta"
+            other: "%{count} encuestas"
+        filters:
+          all: Todas
+          state_values:
+            closed: Cerrada
+            open: Abiertas
+        no_surveys_warning: No hay encuestas que coincidan con tu criterio de búsqueda o no hay ninguna encuesta.
+        show:
+          closed: Cerrada
+          open: Abierta
+          questions: preguntas
