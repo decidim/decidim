@@ -72,6 +72,7 @@ lv:
             default_registration_terms: Noklusējuma reģistrācijas noteikumi
             enable_pads_creation: Iespējot kopdokumentu izveidi
             resources_permissions_enabled: Katrā sanāksmē var iestatīt darbības atļaujas
+            scope_id: Darbības tvērums
           step:
             announcement: Paziņojums
             comments_blocked: Komentāri ir bloķēti
