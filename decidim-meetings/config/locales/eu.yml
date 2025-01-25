@@ -169,8 +169,6 @@ eu:
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             registration_code_enabled: Izena emateko kodea aktibatuta
             resources_permissions_enabled: Topaketa bakoitzerako ekintza-baimenak ezar daitezke
-            scope_id: Esparrua
-            scopes_enabled: Esparruak gaituta
             taxonomy_filters: Hautatu iragazkiak osagairako
             taxonomy_filters_add: Erantsi iragazkia
             terms_and_conditions_url_for_meeting_creators: Irizpide eta baldintzen URLa topaketen egileentzat
