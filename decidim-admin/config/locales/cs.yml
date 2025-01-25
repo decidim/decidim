@@ -1140,6 +1140,9 @@ cs:
       taxonomies:
         actions:
           actions: Akce
+          filters: Spravovat filtry
+        breadcrumb:
+          new: Nová taxonomie
         count: Související zdroje
         create:
           invalid: Při vytváření této taxonomie došlo k chybě.
@@ -1204,6 +1207,7 @@ cs:
         index:
           description: Filtr taxonomie umožňuje správcům seřadit a filtrovat participační prostory na základě taxonomie. Přidejte například taxonomický filtr pro řazení procesů podle geografického rozsahu.
           empty: V současné době nejsou žádné filtry taxonomie. Vytvořte seznam taxonomických filtrů pro řazení a filtrování participačních prostor na základě taxonomie.
+          new_filter: Nový filtr
         new:
           back: Zpět
           create: Vytvořit filtr taxonomie
@@ -1213,9 +1217,22 @@ cs:
           confirm_destroy: 'Jste si jisti, že chcete odstranit filtr %{name}? POZNÁMKA: Zdroje, které používají tento filtr, nebudou ovlivněny, ale ztratí odkaz na tento filtr.'
           destroy: Smazat
           edit: Upravit
+          internal_name: Interní štítek
+          name: Štítek
         update:
           error: Při aktualizaci tohoto filtru taxonomie došlo k chybě.
           success: Filtr taxonomie byl úspěšně aktualizován.
+      taxonomy_filters_selector:
+        new:
+          save: Uložit
+        show:
+          items_count: "%{count} položek"
+          remove: Odebrat
+        taxonomies_select:
+          filters: Filtry
+          select_filter: Vyberte filtr
+          select_taxonomy: Vyberte taxonomii
+          taxonomies: Taxonomie
       taxonomy_items:
         edit:
           title: Upravit položku v %{taxonomy}
@@ -1245,6 +1262,7 @@ cs:
         scopes: Oblasti působnosti
         statistics: Aktivita
         taxonomies: Taxonomie
+        taxonomy_filters: Filtry taxonomie pro "%{taxonomy}"
         user_groups: Skupiny
         users: Administrátoři
       tooltips:
@@ -1380,3 +1398,5 @@ cs:
       admin:
         global_moderations:
           title: Globální moderace
+        taxonomy_filters_selector:
+          title: Filtry
