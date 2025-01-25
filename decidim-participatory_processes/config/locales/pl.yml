@@ -28,9 +28,6 @@ pl:
         promoted: Promowany
         published_at: Opublikowano
         related_process_ids: Powiązane procesy
-        scope_id: Zakres
-        scope_type_max_depth_id: Głębokość filtra zakresu
-        scopes_enabled: Zakresy włączone
         short_description: Krótki opis
         slug: URL slug
         start_date: Data rozpoczęcia
@@ -403,12 +400,9 @@ pl:
           form:
             announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o procesie.
             duration: Czas trwania
-            filters: Filtry
             images: Obrazy
             metadata: Metadane
             related_processes: Powiązane procesy
-            scope_type_max_depth_help: Ogranicz głębokość filtra zakresu; Filtr pokaże typy zakresu od ogólnego do wybranego.
-            select_an_area: Wybierz kategorię
             select_process_group: Wybierz grupę procesów
             slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tego procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
             title: Informacje ogólne
