@@ -88,7 +88,7 @@ module Decidim
           { method: :with_date, collection: filter_dates_values, label: t("decidim.participatory_processes.participatory_processes.filters.date"), id: "date" }
         ]
         available_taxonomy_filters.find_each do |taxonomy_filter|
-          items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+          items.append(method: :with_any_taxonomies,
                        collection: filter_taxonomy_values_for(taxonomy_filter),
                        label: decidim_sanitize_translated(taxonomy_filter.name),
                        id: "taxonomy")
