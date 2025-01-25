@@ -169,8 +169,6 @@ es-PY:
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             registration_code_enabled: Código de inscripción activado
             resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada encuentro
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
             terms_and_conditions_url_for_meeting_creators: URL de términos y condiciones para las creadoras de encuentros
