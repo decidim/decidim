@@ -157,7 +157,7 @@ it:
             proposal_wizard_step_2_help_text: Procedura guidata di proposta "Confronta" il testo della guida del passo
             proposal_wizard_step_3_help_text: Procedura guidata "Completa" del testo della guida guidata della proposta
             resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni proposta
-            scope_id: Ambito
+            scope_id: Scopo
             scopes_enabled: Ambiti abilitati
             threshold_per_proposal: Voti necessari per l'approvazione della proposta
             vote_limit: Limite di voto per utente
