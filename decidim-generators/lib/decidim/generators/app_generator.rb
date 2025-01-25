@@ -346,7 +346,7 @@ module Decidim
 
       def patch_test
         gsub_file "config/environments/test.rb", /^end\n$/, <<~CONFIG
-            config.active_job.queue_adapter = :inline
+            config.active_job.queue_adapter = :test
           end
         CONFIG
       end

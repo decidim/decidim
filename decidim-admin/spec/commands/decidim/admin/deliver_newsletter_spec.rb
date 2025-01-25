@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe DeliverNewsletter do
+  describe DeliverNewsletter, :with_inline_queue do
     describe "call" do
       let(:organization) { create(:organization) }
       let(:newsletter) do
@@ -41,10 +41,6 @@ module Decidim::Admin
         )
       end
       let(:command) { described_class.new(newsletter, form) }
-
-      before do
-        ActiveJob::Base.queue_adapter = :inline
-      end
 
       def user_localized_body(user)
         newsletter.template.settings.body.stringify_keys[user.locale]

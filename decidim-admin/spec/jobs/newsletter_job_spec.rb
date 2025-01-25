@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe NewsletterJob do
+    describe NewsletterJob, :with_inline_queue do
       let!(:newsletter) { create(:newsletter, organization:, total_deliveries: 0) }
       let(:form_params) do
         {
@@ -39,10 +39,6 @@ module Decidim
       let(:send_to_private_members) { false }
       let(:participatory_space_types) { [] }
       let(:verification_types) { [] }
-
-      before do
-        ActiveJob::Base.queue_adapter = :inline
-      end
 
       it "delivers a newsletter to a the eligible users" do
         expect(NewsletterDeliveryJob).to receive(:perform_later).with(deliverable_user, newsletter)
