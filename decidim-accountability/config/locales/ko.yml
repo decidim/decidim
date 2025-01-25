@@ -169,8 +169,6 @@ ko:
             comments_max_length: 댓글 최대 길이(기본값은 0으로 남김)
             display_progress_enabled: 진행사항 보기
             intro: 소개
-            scope_id: 범위
-            scopes_enabled: 범위 활성화됨
           step:
             comments_blocked: 댓글 차단됨
     events:
