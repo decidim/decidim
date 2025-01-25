@@ -124,6 +124,7 @@ ar:
     components:
       budgets:
         actions:
+          comment: تعليق
           vote: تصويت
         name: الميزانيات
         settings:
