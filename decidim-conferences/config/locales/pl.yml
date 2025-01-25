@@ -21,8 +21,6 @@ pl:
         published_at: Opublikowano
         registration_terms: Warunki rejestracji
         registrations_enabled: Rejestracja włączona
-        scope_id: Zakres
-        scopes_enabled: Zakresy dozwolone
         short_description: Krótki opis
         show_statistics: Pokaż statystyki
         sign_date: Data podpisania
