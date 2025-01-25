@@ -256,7 +256,7 @@ tr:
             heading_leaf_level_results: '"Projeler" için isim'
             heading_parent_level_results: '"Sonuçların" Adı'
             intro: Tanıtım
-            scope_id: Kapsam
+            scope_id: kapsam
             scopes_enabled: Kapsamlar etkinleştirildi
             subcategories_label: '"Alt kategoriler" için isim'
           step:
