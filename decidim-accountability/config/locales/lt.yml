@@ -199,8 +199,6 @@ lt:
             comments_max_length: Maksimalus komentaro ilgis (įrašyti 0 įprastam ilgiui)
             display_progress_enabled: Rodyti progresą
             intro: Įžanga
-            scope_id: Apimtis
-            scopes_enabled: Apimtys įjungtos
           step:
             comments_blocked: Komentarai užblokuoti
     events:
