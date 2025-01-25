@@ -21,8 +21,6 @@ ca:
         published_at: Publicat a
         registration_terms: Condicions d'inscripció
         registrations_enabled: Inscripcions habilitades
-        scope_id: Àmbit
-        scopes_enabled: Àmbits habilitats
         short_description: Breu descripció
         show_statistics: Mostrar estadístiques
         sign_date: Data de signatura
@@ -301,6 +299,9 @@ ca:
         update:
           error: S'ha produït un error en actualitzar un tipus d'inscripció per a aquesta jornada.
           success: El tipus d'inscripció s'ha actualitzat correctament per a aquesta jornada.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Totes les jornades
       titles:
         conferences: Jornades
         conferences_deleted: Jornades eliminades
