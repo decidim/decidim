@@ -3,7 +3,7 @@ eu:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Esparrua
+        decidim_scope_id: Eremua
         description: Deskribapena
         title: Izenburua
         total_budget: Aurrekontua guztira
@@ -11,7 +11,7 @@ eu:
       project:
         budget_amount: Aurrekontuaren zenbatekoa
         decidim_category_id: Kategoria
-        decidim_scope_id: Esparrua
+        decidim_scope_id: Eremua
         description: Descripción
         proposal_ids: Honekin lotutako proposamenak
         proposals: Proposamenak
@@ -34,7 +34,7 @@ eu:
           category_id_eq:
             label: Kategoria
           scope_id_eq:
-            label: Esparrua
+            label: Eremua
           selected_at_null:
             label: Hautatua
             values:
@@ -254,7 +254,7 @@ eu:
           title: Oraindik ez duzu bozkatu
         filters:
           category: Kategoria
-          scope: Esparrua
+          scope: Eremua
           search: Bilatu
           status: Egoera
           status_values:
@@ -334,7 +334,7 @@ eu:
             more_information_modal: '"Informazio gehiago"ren modala'
             projects_per_page: Orrialde bakoitzeko proiektuak
             resources_permissions_enabled: Ekintza-baimenak ezarri ahal dira proiektu bakoitzerako
-            scope_id: Esparrua
+            scope_id: Eremua
             scopes_enabled: Eremuak gaituta
             title: Izenburua
             total_budget: Aurrekontu osoa
