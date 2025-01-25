@@ -21,8 +21,6 @@ zh-TW:
         published_at: 發佈於
         registration_terms: 註冊條款
         registrations_enabled: 啟用註冊
-        scope_id: 範圍
-        scopes_enabled: 啟用範圍
         short_description: 簡短說明
         show_statistics: 顯示統計資料
         sign_date: 簽到日期
