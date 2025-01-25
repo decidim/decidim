@@ -3,14 +3,12 @@ tr:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Kapsam
         description: Açıklama
         title: Başlık
         total_budget: Toplam bütçe
       project:
         budget_amount: Bütçe tutarı
         decidim_category_id: Kategori
-        decidim_scope_id: Kapsam
         description: Açıklama
         proposal_ids: İlgili teklifler
         selected: Uygulama için seçildi
@@ -21,11 +19,6 @@ tr:
         one: Proje
         other: Projeler
   decidim:
-    admin:
-      filters:
-        projects:
-          scope_id_eq:
-            label: Kapsam
     budgets:
       actions:
         attachment_collections: Klasörler
@@ -137,7 +130,6 @@ tr:
             other: "%{count} proje"
         filters:
           category: Kategori
-          scope: Kapsam
           search: Arama
           status: Durum
           status_values:
@@ -176,7 +168,6 @@ tr:
             more_information_modal: Daha fazla bilgi
             projects_per_page: Sayfa başına projeler
             resources_permissions_enabled: Her proje için eylem izinleri ayarlanabilir
-            scope_id: Kapsam
             scopes_enabled: Kapsamlar etkinleştirildi
             title: Başlık
             total_budget: Toplam bütçe
