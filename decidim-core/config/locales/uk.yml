@@ -421,7 +421,6 @@ uk:
     scopes:
       global: Всеохопний обсяг
       picker:
-        cancel: Скасувати
         choose: Оберіть
         title: Оберіть %{field}
       prompt: Оберіть обсяг
