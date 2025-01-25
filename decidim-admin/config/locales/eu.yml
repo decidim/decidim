@@ -37,7 +37,7 @@ eu:
       import:
         user_group_id: Inportatu hau bezala
       newsletter:
-        body: Gorputza
+        body: Testu-gorputza
         send_to_all_users: Bidali parte-hartzaile guztiei
         send_to_followers: Bidali jarraitzaileei
         send_to_participants: Bidali parte-hartzaileei
