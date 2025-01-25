@@ -151,8 +151,6 @@ it:
             comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             display_progress_enabled: Mostra avanzamento
             intro: Introduzione
-            scope_id: Ambito
-            scopes_enabled: Ambiti abilitati
           step:
             comments_blocked: Commenti bloccati
     events:
