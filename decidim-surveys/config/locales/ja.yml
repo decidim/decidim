@@ -23,8 +23,6 @@ ja:
           announcement: お知らせ
           global:
             announcement: お知らせ
-            scope_id: スコープ
-            scopes_enabled: スコープが有効
           step:
             announcement: お知らせ
     events:
