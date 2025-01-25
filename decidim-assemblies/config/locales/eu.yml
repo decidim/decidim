@@ -44,8 +44,6 @@ eu:
         promoted: Nabarmendua
         published_at: Noiz argitaratua
         purpose_of_action: Ekintzaren xedea
-        scope_id: Esparrua
-        scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
         slug: URL laburra
         special_features: Ezaugarri bereziak
@@ -248,7 +246,6 @@ eu:
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
             duration_help: Batzar honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
-            filters: Iragazkiak
             images: Irudiak
             included_at_help: Hautatu zein egunetan gehitu zen batzar hori plataformara. Ez du zertan sortze-data bera izan.
             metadata: Metadata
@@ -256,7 +253,6 @@ eu:
             other: Beste bat
             private_notice: Parte hartzaile pribatuak kudeatu ahal izango dituzu pribatu gisa ezarri ondoren
             select_a_created_by: Hautatu egilea
-            select_an_area: Hautatu Arlo bat
             select_parent_assembly: Hautatu batzar nagusia
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
             social_handlers: Soziala
