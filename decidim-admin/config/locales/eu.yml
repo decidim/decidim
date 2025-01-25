@@ -37,7 +37,7 @@ eu:
       import:
         user_group_id: Inportatu hau bezala
       newsletter:
-        body: Gorputza
+        body: Testu-gorputza
         send_to_all_users: Bidali parte-hartzaile guztiei
         send_to_followers: Bidali jarraitzaileei
         send_to_participants: Bidali parte-hartzaileei
@@ -75,8 +75,8 @@ eu:
         instagram_handler: Instagramen kudeatzailea
         logo: Logotipoa
         machine_translation_display_priority: Itzulpen automatikoaren lehentasuna
-        machine_translation_display_priority_original: Lehen jatorrizko testua
-        machine_translation_display_priority_translation: Lehen itzulitako testua
+        machine_translation_display_priority_original: Jatorrizko testua lehenik
+        machine_translation_display_priority_translation: Itzulitako testua lehenik
         name: Izena
         official_img_footer: Orri-oinaren logotipo ofiziala
         official_url: Erakundearen URL ofiziala
