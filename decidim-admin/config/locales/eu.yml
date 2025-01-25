@@ -3,7 +3,7 @@ eu:
   activemodel:
     attributes:
       area:
-        area_type: Eremu mota
+        area_type: Arlo mota
         name: Izena
         organization: Erakundea
       area_type:
@@ -44,17 +44,17 @@ eu:
         subject: Gaia
       organization:
         admin_terms_of_service_body: Administratzailearen zerbitzu-baldintzen testuaren gorputza
-        alert_color: Alerta
+        alert_color: Abisua
         available_authorizations: Baimen erabilgarriak
         badges_enabled: Gaitu garaikurrak
         comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
-        cta_button_path: Deitu ekintza botoiaren bideora
+        cta_button_path: Ekintza-botoiaren testua
         cta_button_text: Ekintza-botoiaren testua
         customize_welcome_notification: Pertsonalizatu ongietorri-jakinarazpena
         default_locale: Kokapen lehenetsia
         description: Deskribapena
         enable_omnipresent_banner: Erakutsi banner nonahikoa
-        enable_participatory_space_filters: Gaitu iragazkiak parte hartzeko gunean
+        enable_participatory_space_filters: Gaitu iragazkiak parte hartzeko espazioan
         facebook_handler: Facebook kudeatzailea
         favicon: Ikonoa
         force_authentication: Behartu autentikazioa
@@ -78,7 +78,7 @@ eu:
         machine_translation_display_priority_original: Jatorrizko testua lehenik
         machine_translation_display_priority_translation: Itzulitako testua lehenik
         name: Izena
-        official_img_footer: Orri-oinaren logotipo ofiziala
+        official_img_footer: Logotipoaren logotipo ofiziala
         official_url: Erakundearen URL ofiziala
         omnipresent_banner_short_description: Deskribapen laburra
         omnipresent_banner_title: Izenburua
@@ -126,7 +126,7 @@ eu:
         organization: Erakundea
         show_in_footer: Erakutsi orri-oinean
         slug: URL l
-        title: Titulua
+        title: Izenburua
         topic_id: Gaia
         weight: Kokapenaren hurrenkera
       static_page_topic:
@@ -165,7 +165,7 @@ eu:
       decidim/static_page:
         content: Contenido
         slug: URL laburra
-        title: Titulua
+        title: Izenburua
       doorkeeper/application:
         authorize_url: Baimendu URLa
         client_id: Bezeroaren IDa
@@ -192,7 +192,7 @@ eu:
         newsletter:
           new: Beste buletin bat
         participatory_space_private_user:
-          new: Eremu parte-hartzaileko beste parte-hartzaile pribatu bat
+          new: Espazio parte-hartzaile berria, erabiltzaile pribatua
         per_page: Orrialdeko
         permissions: Baimenak
         reject: Ukatu
@@ -239,7 +239,7 @@ eu:
           success: Arloa behar bezala suntsitua.
         edit:
           title: Editatu arloa
-          update: Onartu
+          update: Eguneratu
         new:
           create: Sortu arloa
           title: Beste arlo bat
@@ -530,8 +530,8 @@ eu:
             records:
               detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
               message:
-                one: Errore bat aurkitu da % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
-                other: Erroreak aurkitu dira % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
+                one: Errore bat aurkitu da %{indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
+                other: Erroreak aurkitu dira %{indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
           missing_headers:
             detail: Mesedez, egiaztatu fitxategiak eskatutako zutabeak dituela.
             message:
@@ -611,7 +611,7 @@ eu:
             collection: Karpeta
             content_type: Mota
             file_size: Tamaina
-            title: Titulua
+            title: Izenburua
           name: Eranskina
         attachment_collection:
           name: Karpeta
@@ -654,7 +654,7 @@ eu:
         static_page:
           fields:
             created_at: Noiz sortua
-            title: Titulua
+            title: Izenburua
         user:
           fields:
             created_at: Sortze-data
@@ -710,7 +710,7 @@ eu:
             author: Egilea(k)
             callout_html: Eduki bat moderazio-panelean agertzen da parte-hartzaile batek (erregistratutako kontu bat duen edozein pertsona izan daiteke) txostena bidaltzen duenean, edukiaren ondoan dagoen %{icon} ikonoan klik eginez.
             content_original_language: Jatorrizko edukiaren hizkuntza
-            participatory_space: Parte hartzeko esparrua
+            participatory_space: Parte hartzeko espazioa
             reported_content: Erreportatutako edukia
             see_current: Ikusi egungoa
             see_original: Ikusi jatorrizkoa
@@ -762,9 +762,9 @@ eu:
           all_users_help: Albisteen buletina baieztatu duten parte-hartzaile guztiei bidaltzen die.
           confirm_deliver: Ziur zaude buletin hau bidali nahi duzula? Ekintza hau ezin da desegin.
           deliver: Bidali buletina
-          followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu jarraitzen duten parte-hartzaile guztiei bidaltzen die.
+          followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein parte hartze espazio jarraitzen duten parte-hartzaile guztiei bidaltzen die.
           none: Bat ere ez
-          participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu parte-hartzailetan esku hartu duten parte-hartzaile guztiei bidaltzen die.
+          participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein espazio parte-hartzailetan esku hartu duten parte-hartzaile guztiei bidaltzen die.
           recipients_count: 'Buletin hau parte-hartzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
           scopes_help: Albisteen buletina "Nire interesekoak" konfigurazioan edozein esparru aktibatuta duten parte-hartzaileei bidaltzen die.
           select_scopes: Iragazi "Nire interesekoak" konfigurazioan edozein esparru aktibatu duten parte-hartzaileentzat.
@@ -1117,7 +1117,7 @@ eu:
             success: Edukia zuzen desezkutatua.
           unreport:
             invalid: Arazo bat egon da salaketa bertan behera uztean.
-            success: Salaketa behar bezala ezeztatua.
+            success: Salaketa zuzen ezeztatu da.
       models:
         moderation:
           fields:
