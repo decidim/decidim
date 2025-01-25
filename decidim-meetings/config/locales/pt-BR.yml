@@ -159,7 +159,7 @@ pt-BR:
             maps_enabled: Mapas ativados
             registration_code_enabled: Código de registro habilitado
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada encontro
-            scope_id: Escopo
+            scope_id: Âmbito
             scopes_enabled: Escopos habilitados
             terms_and_conditions_url_for_meeting_creators: URL de Termos e condições para criadores da reunião
           step:
