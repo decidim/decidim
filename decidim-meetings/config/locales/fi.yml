@@ -169,8 +169,6 @@ fi:
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             registration_code_enabled: Ilmoittautumiskoodit käytössä
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapaamiselle
-            scope_id: Teema
-            scopes_enabled: Teemat käytössä
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
             terms_and_conditions_url_for_meeting_creators: Ehtojen osoite (URL) tapaamisten luojille
