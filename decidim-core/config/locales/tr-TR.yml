@@ -60,6 +60,8 @@ tr:
     'false': 'Hayır'
     'true': 'Evet'
   date:
+    buttons:
+      select: seçmek
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -231,10 +233,8 @@ tr:
       dummy_authorization_handler:
         fields:
           allowed_postal_codes: İzin verilen posta kodları (virgülle ayrılmış)
-          allowed_scope_id: İzin Verilen Kapsamlar
           document_number: Doküman numarası
           postal_code: Posta kodu
-          scope_id: Kapsam
         name: Örnek yetkilendirme
       dummy_authorization_workflow:
         name: Sahte yetkilendirme iş akışı
@@ -316,8 +316,6 @@ tr:
             dummy_global_translatable_text: Sahte Çevrilebilir Metin
             enable_pads_creation: Altlık oluşturmayı etkinleştirin
             resources_permissions_enabled: Kaynak izinleri etkin
-            scope_id: Kapsam
-            scopes_enabled: Kapsamlar etkinleştirildi
           step:
             amendment_creation_enabled: Değişiklik oluşturma etkinleştirildi
             amendment_promotion_enabled: Değişiklik promosyonu etkinleştirildi
@@ -933,16 +931,7 @@ tr:
         error: Onay işlemi sırasında bir hata oluştu.
     scopes:
       global: Küresel kapsamı
-      picker:
-        cancel: İptal etmek
-        change: Seçili kapsamı değiştir
-        choose: seçmek
-        currently_selected: Şu anda seçili kapsam
-        title: '%{field}Seç'
       prompt: Bir kapsam seçin
-      scopes: kapsamları
-      scopes_picker_input:
-        select_scope: 'Bir kapsam seçin (şu anda: %{current})'
     search:
       results: Arama sonuçları
       results_found_for_term: '%{count} Arama için sonuçlar: "%{term}"'
@@ -1280,6 +1269,8 @@ tr:
     x: X
     xing: Xing
   time:
+    buttons:
+      select: seçmek
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
