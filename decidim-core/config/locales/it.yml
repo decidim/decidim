@@ -68,7 +68,7 @@ it:
   date:
     buttons:
       close: Chiudere
-      select: Seleziona
+      select: Selezionare
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -1329,6 +1329,8 @@ it:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Selezionare
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
