@@ -47,6 +47,7 @@ eu:
         deleted_results_info: Ezabatutako emaitzak berreskura daitezke zaborrontzitik.
         destroy: Ezabatu
         edit: Editatu
+        import: Inportatu proiektuak beste osagai batetik
         import_csv: Inportatu emaitzak CSV fitxategitik
         new_result: Beste emaitza bat
         new_status: Beste egoera bat
@@ -59,6 +60,28 @@ eu:
         exports:
           result_comments: Iruzkinak
           results: Emaitzak
+        import_components:
+          create:
+            invalid: Arazo bat gertatu da proiektuak emaitzetara inportatzean, mesedez, jarraitu arretaz argibideak eta ziurtatu proiektuak inplementatzeko aukeratu dituzula.
+          filters:
+            new_items_projects:
+              one: Aukeratutako proiektu bat inportatuko da
+              other: "Hautatutako %{count} proiektu inportatuko dira"
+            new_items_proposals:
+              one: Proposamen bat inportatuko da
+              other: "%{count} proposamen inportatuko dira"
+            proposal_state: Proposamenaren egoera
+            select_state: Hautatu egoera
+          form:
+            create: Inportatu
+            no_components: Espazio parte-hartzaile honetan ez dago inportatu beharreko osagairik.
+            origin_component_id: Jatorrizko osagaia
+            select_component: Hautatu osagaia
+          new:
+            success:
+              one: Emaitza bat ilaran zegoen inportatu ahal izateko. Posta elektronikoz jakinaraziko dizute, amaitutakoan.
+              other: "%{count} emaitza ilaran, inportatu ahal izateko. Posta elektronikoz jakinaraziko dizute, amaitutakoan."
+            title: Inportatu beste osagai baten emaitzak
         import_results:
           new:
             download_export: Deskargatu esportatutakoa CSV formatuan
@@ -213,6 +236,13 @@ eu:
             other: "%{count} emaitza inportatu dira proiektuetatik."
           subject: Proiektuak zuzen inportatu dira
           success: Zuzen inportatu dira proiektuak emaitzetara %{component_name} osagaian. Emaitza administrazio-interfacean ikus dezakezu.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Emaitza bat proposamenetatik atera da
+            other: "%{count} emaitza proposamenetatik atera dira."
+          subject: Proiektuak zuzen inportatu dira
+          success: Zuzen inportatu dira proiektuak emaitzetara %{component_name} osagaian. Emaitza administrazio-interfacean ikus dezakezu.
       last_activity:
         new_result: 'Beste emaitza bat:'
       models:
@@ -276,10 +306,8 @@ eu:
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu iragazki batzuk espazio parte-hartzaile honetarako.
             display_progress_enabled: Erakutsi aurrerapena
             geocoding_enabled: Mapak gaituta
-            intro: Intro
+            intro: Sarrera
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
-            scope_id: Esparrua
-            scopes_enabled: Esparruak gaituta
             taxonomy_filters: Hautatu iragazkiak osagairako
             taxonomy_filters_add: Erantsi iragazkia
           step:
@@ -338,7 +366,7 @@ eu:
           status: Emaitza honen egungo egoera
           taxonomies: Emaitzaren taxonomiak
           title: Emaitzaren izenburua
-          updated_at: Zein egunetan eguneratu zen azken aldiz emaitza hau
+          updated_at: Zein egunetan eguneratu da azken aldiz emaitza hau
           url: Emaitza hau aurkitu daitekeen URLa
     participatory_spaces:
       highlighted_results:
