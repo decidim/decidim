@@ -24,7 +24,6 @@ lv:
         promoted: Veicināts
         published_at: Publicēts plkst.
         related_process_ids: Saistītie procesi
-        scope_id: Darbības tvērums
         scope_type_max_depth_id: Tvēruma filtra dziļums
         scopes_enabled: Darbības tvērumi ir iespējoti
         short_description: Īss apraksts
