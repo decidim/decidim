@@ -71,7 +71,7 @@ eu:
     models:
       decidim/proposals/accepted_proposal_event: Poposamena onartura
       decidim/proposals/admin/update_proposal_category_event: Proposamen kategoria aldatu da
-      decidim/proposals/admin/update_proposal_scope_event: Proposamen-eremua aldatuta
+      decidim/proposals/admin/update_proposal_scope_event: Proposamen-esparrua aldatuta
       decidim/proposals/creation_enabled_event: Proposamenaren sorrera gaituta
       decidim/proposals/endorsing_enabled_event: Onartutako proposamena gaituta
       decidim/proposals/evaluating_proposal_event: Proposamena ebaluatzen ari da
@@ -243,7 +243,7 @@ eu:
           email_intro: '%{requester_name} -k eskatu du laguntzaile gisa sartzeko. <strong>onartu edo baztertu egin dezakezu </strong> <a href="%{resource_url}">%{resource_title}</a> testu kolaboratibo ziriborroan.'
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzailea zarelako.
           email_subject: "%{requester_name}-k sarbidea eskatu du %{resource_title}-an aritzeko."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> parte-hartzaileak eskatu zuen <a href="%{resource_path}">%{resource_title}</a> ziriborro kolaboratiboan parte hartzeko. Mesedez, onartu edo baztertu eskaera.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> parte-hartzaileak eskatu du <a href="%{resource_path}">%{resource_title}</a> ziriborro kolaboratiboan parte hartzeko. Mesedez, onartu edo baztertu eskaera.
         collaborative_draft_access_requester_accepted:
           email_intro: Onartu zaituzte <a href="%{resource_url}">%{resource_title}</a> </a>testu kolaboratiboan laguntzaile gisa sartzeko.
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzaile izatea eskatu duzulako.
@@ -267,7 +267,7 @@ eu:
         endorsing_enabled:
           email_intro: 'Proposamenak egin ditzakezu %{participatory_space_title} parte hartze espazioan! Hasi orri honetan parte hartzen:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen duzulako. Jakinarazpenak jasotzeari utz diezaiokezu aurreko estekan.
-          email_subject: Onarpen proposamenak %{participatory_space_title}-an hasi dira
+          email_subject: Onarpen proposamenak %{participatory_space_title} espazioan hasi dira
           notification_title: 'Orain has zaitezke <a href="%{resource_path}"></a> proposamenak onartzen hemen: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
         proposal_accepted:
           affected_user:
@@ -305,7 +305,7 @@ eu:
           email_intro: '"%{resource_title}" proposamena jarraizten ari zaren ondorengo "%{participatory_space_title}" espazioan erantsi zaizu.'
           email_outro: Jakinarazpen hau jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Jarraitzeari uzti ahal diozu aurreko estekan.
           email_subject: '"%{resource_title}" proposamen berria hona %{participatory_space_title} gehitu da'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena %{participatory_space_title}-era gehitu du %{author} k.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena %{participatory_space_title}-era gehitu du %{author} egileak.
           notification_title_official: 'Proposamen ofiziala hona gehitu da: <a href="%{resource_path}">%{resource_title}</a>.'
         proposal_rejected:
           affected_user:
@@ -327,11 +327,11 @@ eu:
           email_intro: 'Administratzaile batek %{resource_title} zure proposamenaren eremua eguneratu du, orri honetan egiazta dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea zarelako.
           email_subject: '%{resource_title} proposamenaren esparrua eguneratu egin da'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren eremua administratzaile batek eguneratu du.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren eparrua administratzaile batek eguneratu du.
         voting_enabled:
-          email_intro: 'Proposamenak bozkatu ditzakezu %{participatory_space_title}-n! Hasi parte hartzen ondorengo orrian:'
+          email_intro: 'Proposamenak bozkatu ditzakezu %{participatory_space_title} espazioan! Hasi parte hartzen ondorengo orrian:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen duzulako. Jakinarazpenak jasotzeari uti ahal diozu aurreko estekan.
-          email_subject: Proposamenetarako bozketak hasi dira %{participatory_space_title}-ean
+          email_subject: Proposamenetarako bozketak hasi dira %{participatory_space_title} espazioan
           notification_title: Orain has dezakezu <a href="%{resource_path}">bozka-proposamena hemen:</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
@@ -359,7 +359,7 @@ eu:
           unearned_own: Oraindik ez duzu proposamen bat ere babestu.
         proposals:
           conditions:
-            - Aukeratu zure interesekoa den parte hartzeko gunea, gaitutako proposamenak aurkeztuta
+            - Aukeratu zure interesekoa den parte hartzeko espazioa, gaitutako proposamenak aurkeztuta
             - Sortu beste proposamen bat
           description: Garaikur hau proposamen berriekin modu aktiboan parte hartzen duzunean ematen da.
           description_another: Parte-hartzaile honek %{score} proposamen sortu ditu.
@@ -419,7 +419,7 @@ eu:
               <ul>
               <li><b>Izenburua/en:</b>Ingelesari buruzko titulua. Zure plataformaren hizkuntzaren konfigurazioaren araberakoa izango da..</li>
               <li><b>Testua/en:</b>Testua ingelesez. Zure plataformaren hizkuntzaren konfigurazioaren araberakoa izango da.</li>
-              <li><b>Eremua/id:</b> Eremauren ID-a</li>
+              <li><b>Esparrua/id:</b> Esparruaren ID-a</li>
               <li><b>Kategoria/id:</b> Kategoriaren ID-a</li>
               </ul>
           label:
@@ -523,7 +523,7 @@ eu:
             unassign_from_valuator: Desesleitu ebaluatzaileari
             unassign_from_valuator_button: Desesleitu
             update: Eguneratu
-            update_scope_button: Eguneratu eremua
+            update_scope_button: Eguneratu esparrua
           new:
             create: Sortu
             title: Sortu proposamena
@@ -555,10 +555,10 @@ eu:
             select_a_proposal: Mesedez, hautatu proposamen bat.
             success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} kategoriara.'
           update_scope:
-            invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} eremua.'
+            invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} esparrua.'
             select_a_proposal: Mesedez, hautatu proposamen bat.
             select_a_scope: Mesedez, hautatu esparru bat.
-            success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} eremuan.'
+            success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} esparruan.'
         proposals_imports:
           create:
             invalid: Arazo bat egon da proposamenak inportatzean.
@@ -594,7 +594,7 @@ eu:
           create: "%{user_name} k %{resource_name} proposamenari buruzko ohar pribatu bat utzi du %{space_name} espazioan"
         valuation_assignment:
           create: "%{user_name} k esleitu zion %{resource_name} proposamena ebaluatzaile bati"
-          delete: "%{user_name} k desesleitu zuen ebaluatzaile bat %{proposal_title} proposamenetik"
+          delete: "%{user_name} k desesleitu du ebaluatzaile bat %{proposal_title} proposamenetik"
       answers:
         accepted: Onartuta
         evaluating: Ebaluatzen
