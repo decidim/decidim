@@ -95,6 +95,8 @@ fr-CA:
             create: Importer
             import_all_selected_projects: Importer tous les projets sélectionnés
             no_components: Il n'y a aucune fonctionnalité Budget dans cet espace participatif depuis laquelle importer des projets.
+            origin_component_id: Composant d'origine
+            select_component: Sélectionnez un composant
             success:
               one: Projet en attente d'importation. Vous serez notifié par courriel, une fois l'import terminé.
               other: "%{count} projets en attente d'importation. Vous serez notifié par email une fois l'import terminé."
@@ -254,7 +256,7 @@ fr-CA:
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
             display_progress_enabled: Afficher les progrès
             intro: Introduction
-            scope_id: Secteur
+            scope_id: Périmètre d'application
             scopes_enabled: Secteurs activés
           step:
             comments_blocked: Bloquer la création de nouveaux commentaires
