@@ -23,7 +23,7 @@ tr:
         promoted: Tanıtılan
         published_at: Yayınlandı
         related_process_ids: İlgili süreçler
-        scope_id: kapsam
+        scope_id: Kapsam
         scope_type_max_depth_id: Kapsam filtre derinliği
         scopes_enabled: Kapsamlar etkin
         short_description: Kısa Açıklama
