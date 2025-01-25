@@ -157,7 +157,6 @@ el:
           selected_projects: 'Τα έργα που έχετε επιλέξει είναι τα εξής:'
           subject: Ψηφίσατε για τον χώρο συμμετοχής %{space_name}
           voted_on_space: Ψηφίσατε τον %{budget_name} προϋπολογισμό για τον %{space_name} συμμετοχικό χώρο.
-          voted_on_space_with_scope: Ψηφίσατε τον %{budget_name} προϋπολογισμό για τον %{space_name} συμμετοχικό χώρο στο %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Αν αλλάξετε γνώμη, μπορείτε να αλλάξετε την ψήφο σας αργότερα.
@@ -246,8 +245,6 @@ el:
             more_information_modal: Παράθυρο για περισσότερες πληροφορίες
             projects_per_page: Έργα ανά σελίδα
             resources_permissions_enabled: Τα δικαιώματα ενεργειών μπορούν να οριστούν για κάθε έργο
-            scope_id: Πεδίο εφαρμογής
-            scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
             title: Τίτλος
             total_budget: Συνολικός προϋπολογισμός
             vote_minimum_budget_projects_number: Ελάχιστος αριθμός έργων προς ψηφοφορία
