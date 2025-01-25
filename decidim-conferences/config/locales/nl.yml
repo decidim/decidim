@@ -21,8 +21,6 @@ nl:
         published_at: Gepubliceerd op
         registration_terms: Registratievoorwaarden
         registrations_enabled: Registraties ingeschakeld
-        scope_id: Scope
-        scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
         show_statistics: Toon statistieken
         sign_date: Datum ondertekenen
