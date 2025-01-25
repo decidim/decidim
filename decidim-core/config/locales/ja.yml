@@ -400,10 +400,8 @@ ja:
         explanation: '「X」で終わるドキュメント番号を入力して確認します'
         fields:
           allowed_postal_codes: 許可する郵便番号 (コンマで区切る)
-          allowed_scope_id: 許可されたスコープ
           document_number: ドキュメント番号
           postal_code: 郵便番号
-          scope_id: スコープ
         name: 許可の例：
       dummy_authorization_workflow:
         explanation: ダミー認証ワークフロー
@@ -497,8 +495,6 @@ ja:
             enable_pads_creation: パッドの作成を有効にする
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             resources_permissions_enabled: リソースの権限を有効にする
-            scope_id: スコープ
-            scopes_enabled: スコープが有効
             taxonomy_filters: コンポーネントのフィルタを選択
           step:
             amendment_creation_enabled: 修正の作成は有効です
@@ -1577,16 +1573,7 @@ ja:
         error: オススメする際に問題がありました。
     scopes:
       global: グローバルスコープ
-      picker:
-        cancel: キャンセル
-        change: 選択したスコープを変更
-        choose: 選択
-        currently_selected: 現在選択中のスコープ
-        title: '%{field} を選択'
       prompt: スコープを選択
-      scopes: スコープ
-      scopes_picker_input:
-        select_scope: 'スコープを選択 (現在: %{current})'
     search:
       name: 検索
       results: 検索結果
