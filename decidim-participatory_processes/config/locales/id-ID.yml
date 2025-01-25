@@ -24,7 +24,6 @@ id:
         promoted: Dipromosikan
         published_at: Diterbitkan di
         related_process_ids: Proses terkait
-        scope_id: Cakupan
         scopes_enabled: Lingkup diaktifkan
         short_description: Deskripsi Singkat
         show_statistics: Tampilkan statistik
