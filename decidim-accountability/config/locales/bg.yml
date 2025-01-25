@@ -202,8 +202,6 @@ bg:
             comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
             display_progress_enabled: Показвай развитието
             intro: Въведение
-            scope_id: Сфера
-            scopes_enabled: Сферите са разрешени
           step:
             comments_blocked: Коментарите са блокирани
     events:
