@@ -139,6 +139,7 @@ sr:
             comments_enabled: Komentari su omogućeni
             display_progress_enabled: Prikaži napredak
             intro: Uvod
+            scope_id: Opseg
           step:
             comments_blocked: Komentari su onemogućeni
     events:
