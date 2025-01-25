@@ -73,6 +73,7 @@ uk:
             comments_enabled: Коментарі увімкнено
             default_registration_terms: Умови реєстрації за умовчанням
             resources_permissions_enabled: Права на дії можна встановити для кожної зустрічі
+            scope_id: Обсяг
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
