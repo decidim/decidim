@@ -3,7 +3,7 @@ eu:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Eremua
+        decidim_scope_id: Esparrua
         description: Deskribapena
         title: Izenburua
         total_budget: Aurrekontua guztira
@@ -11,14 +11,14 @@ eu:
       project:
         budget_amount: Aurrekontuaren zenbatekoa
         decidim_category_id: Kategoria
-        decidim_scope_id: Eremua
+        decidim_scope_id: Esparrua
         description: Descripción
         proposal_ids: Honekin lotutako proposamenak
         proposals: Proposamenak
         selected: Ezarpenerako hautatuak
         title: Izenburua
       proposals_import:
-        scope_id: Eremua
+        scope_id: Esparrua
   activerecord:
     models:
       decidim/budgets/budget:
@@ -34,7 +34,7 @@ eu:
           category_id_eq:
             label: Kategoria
           scope_id_eq:
-            label: Eremua
+            label: Esparrua
           selected_at_null:
             label: Hautatua
             values:
@@ -99,7 +99,7 @@ eu:
             change_budget: Aldatu aurrekontua
             change_category: Aldatu kategoria
             change_scope: Aldatu esparrua
-            change_selected: Aldatu hautatutako eremua
+            change_selected: Aldatu hautatutako esparrua
             deselect_implementation: Kendu gauzatzekoetatik
             finished_orders: Amaitutako botoak
             pending_orders: Zain dauden botoak
@@ -161,13 +161,13 @@ eu:
               other: Gogorarazpen bat bidaltzear zaude posta elektronikoz % {count} parte-hartzaileri
       admin_log:
         budget:
-          create: "%{user_name} parte-hartzaileak sortu du %{resource_name} aurrekontua %{space_name} esparruan"
-          delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} aurrekontua %{space_name} esparruan"
-          update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} aurrekontua %{space_name} esparruan"
+          create: "%{user_name} parte-hartzaileak sortu du %{resource_name} aurrekontua %{space_name} espazioan"
+          delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} aurrekontua %{space_name} espazioan"
+          update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} aurrekontua %{space_name} espazioan"
         project:
-          create: "%{user_name} parte-hartzaileak %{resource_name} proiektua %{space_name} espazioan sortu zen"
+          create: "%{user_name} parte-hartzaileak %{resource_name} proiektua %{space_name} espazioan sortu da"
           delete: "%{user_name} parte-hartzaileak %{resource_name} proiektua %{space_name} espazioan ezabatu da"
-          update: "%{user_name} k %{resource_name} proiektuaren %{space_name} espazio eguneratu du"
+          update: "%{user_name} parte-hartzaileak %{resource_name} proiektua %{space_name} espazioan sortu da"
       budget_information_modal:
         back_to: Itzuli hona %{component_name}
         close_modal: Itxi modala
@@ -212,12 +212,12 @@ eu:
             category: Kategoria
             id: ID
             map: Mapa
-            title: Titulua
+            title: Izenburua
       order_summary_mailer:
         order_summary:
           selected_projects: 'Hautatu dituzun proiektuak hauek dira:'
-          subject: Botoa eman duzu parte hartzeko esparru honetan %{space_name}
-          voted_on_space: Botoa eman duzu %{budget_name} aurrekontuan %{space_name} parte hartzeko esparrurako.
+          subject: Botoa eman duzu parte hartzeko espazio honetan %{space_name}
+          voted_on_space: Botoa eman duzu %{budget_name} aurrekontuan %{space_name} parte hartzeko espaziorako.
           voted_on_space_with_scope: Botoa eman duzu %{budget_name} aurrekontuan %{space_name} de %{scope_name} (%{scope_type}) parte hartzeko esparruan.
       projects:
         budget_confirm:
@@ -254,7 +254,7 @@ eu:
           title: Oraindik ez duzu bozkatu
         filters:
           category: Kategoria
-          scope: Eremua
+          scope: Esparrua
           search: Bilatu
           status: Egoera
           status_values:
@@ -334,7 +334,7 @@ eu:
             more_information_modal: '"Informazio gehiago"ren modala'
             projects_per_page: Orrialde bakoitzeko proiektuak
             resources_permissions_enabled: Ekintza-baimenak ezarri ahal dira proiektu bakoitzerako
-            scope_id: Eremua
+            scope_id: Esparrua
             scopes_enabled: Eremuak gaituta
             title: Izenburua
             total_budget: Aurrekontu osoa
@@ -366,9 +366,9 @@ eu:
     events:
       budgets:
         budget_published:
-          email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title} rako. Orrialde honetatik ikus dezakezu:'
+          email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title} espziorako. Orrialde honetatik ikus dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko lotura jarraituz.
-          email_subject: '%{resource_title} osagaia orain aktibo dago %{participatory_space_title} rentzat.'
+          email_subject: '%{resource_title} osagaia orain aktibo dago %{participatory_space_title} espziorentzat.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> aurrekontua aktibo dago hemen %{participatory_space_title}.
     orders:
       checkout:
