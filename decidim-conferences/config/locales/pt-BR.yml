@@ -21,8 +21,6 @@ pt-BR:
         published_at: Publicado em
         registration_terms: Termos de registro
         registrations_enabled: Inscrições habilitadas
-        scope_id: Escopo
-        scopes_enabled: Escopos habilitados
         short_description: Pequena descrição
         show_statistics: Mostre estatisticas
         sign_date: Data de assinatura
