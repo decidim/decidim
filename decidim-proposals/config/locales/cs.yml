@@ -187,7 +187,7 @@ cs:
             proposal_wizard_step_3_help_text: Text průvodce kroku nápovědy „Dokončit“ Návrh
             proposal_wizard_step_4_help_text: Text nápovědy ke kroku "Zveřejnit" průvodce návrhem
             resources_permissions_enabled: Pro každý návrh lze nastavit oprávnění akce
-            scope_id: Oblast působnosti
+            scope_id: Rozsah
             scopes_enabled: Oblasti působnosti povoleny
             threshold_per_proposal: Prah na návrh
             vote_limit: Počet hlasů na uživatele
