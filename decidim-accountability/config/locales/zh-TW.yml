@@ -189,8 +189,6 @@ zh-TW:
             comments_max_length: 留言字數上限 (0 表示使用預設)
             display_progress_enabled: 顯示進度
             intro: 介紹
-            scope_id: 範圍
-            scopes_enabled: 啟用的範圍
           step:
             comments_blocked: 留言已封鎖
     events:
