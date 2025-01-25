@@ -3,7 +3,7 @@ fr-CA:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Secteur
+        decidim_scope_id: Périmètre d'application
         description: Description
         title: Titre
         total_budget: Budget total
@@ -11,7 +11,7 @@ fr-CA:
       project:
         budget_amount: Montant du budget
         decidim_category_id: Catégorie
-        decidim_scope_id: Secteur
+        decidim_scope_id: Périmètre d'application
         description: Description
         proposal_ids: Propositions liées
         proposals: Propositions
@@ -34,7 +34,7 @@ fr-CA:
           category_id_eq:
             label: Catégorie
           scope_id_eq:
-            label: Secteur
+            label: Périmètre d'application
           selected_at_null:
             label: Sélectionnés
             values:
@@ -253,7 +253,7 @@ fr-CA:
           title: Vous n'avez pas encore voté
         filters:
           category: Catégorie
-          scope: Secteur
+          scope: Périmètre d'application
           search: Rechercher
           status: Statut
           status_values:
@@ -333,7 +333,7 @@ fr-CA:
             more_information_modal: Plus d’informations
             projects_per_page: Projets par page
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque projet
-            scope_id: Secteur
+            scope_id: Périmètre d'application
             scopes_enabled: Secteurs activés
             title: Titre
             total_budget: Budget total
