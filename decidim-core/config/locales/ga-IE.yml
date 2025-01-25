@@ -29,6 +29,8 @@ ga:
     'false': 'Níl'
     'true': 'Is ea'
   date:
+    buttons:
+      select: Roghnaigh
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -317,6 +319,8 @@ ga:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Roghnaigh
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
