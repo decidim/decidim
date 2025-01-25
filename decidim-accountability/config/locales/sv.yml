@@ -258,8 +258,6 @@ sv:
             geocoding_enabled: Aktivera visning på karta
             intro: Intro
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
-            scope_id: Indelning
-            scopes_enabled: Aktivera indelningar
             taxonomy_filters: Välj filter för komponenten
             taxonomy_filters_add: Lägg till filter
           step:
