@@ -103,6 +103,8 @@ ar:
     'false': 'لا'
     'true': 'نعم'
   date:
+    buttons:
+      select: تحديد
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -291,6 +293,7 @@ ar:
           withdrawn: |-
             تم سحب هذا التعديل على %{amendable_type} %{amendable_link}
             من قبل المؤلف.
+      name: تعديل
       new:
         amendment_author: مؤلف التعديل
         send: إنشاء
@@ -351,10 +354,8 @@ ar:
       dummy_authorization_handler:
         fields:
           allowed_postal_codes: الرموز البريدية المسموح بها (مفصولة بفواصل)
-          allowed_scope_id: النطاق المسموح به
           document_number: رقم المستند
           postal_code: الكود البريدى
-          scope_id: نطاق
         name: مثال إذن
       dummy_authorization_workflow:
         name: سير العمل التخويل وهمية
@@ -441,8 +442,6 @@ ar:
             dummy_global_translatable_text: نص افتراضي قابل للترجمة
             enable_pads_creation: تمكين إنشاء منصات
             resources_permissions_enabled: تم تمكين أذونات الموارد
-            scope_id: نطاق
-            scopes_enabled: النطاقات مفعلة
           step:
             amendment_creation_enabled: إنشاء التعديلات مُفعّلة
             amendment_promotion_enabled: ترقية التعديلات مُفعّلة
@@ -463,6 +462,8 @@ ar:
         description: الوصف
       footer_sub_hero:
         name: تذييل البطل الفرعي راية
+      global_menu:
+        name: القائمة العامة
       hero_settings_form:
         background_image: الصورة الخلفية
         welcome_text: نص الترحيب
@@ -482,8 +483,12 @@ ar:
         name: النشاط الاخير
         title: النشاط الاخير
         view_all: عرض الكل
+      metadata:
+        name: البيانات الوصفية
       metrics:
         name: مقاييس المنظمة
+      participatory_space_metrics:
+        name: المقاييس
       participatory_space_stats:
         name: الإحصائيات
       social_networks_metadata:
@@ -1191,16 +1196,7 @@ ar:
         error: كانت هناك مشكلة أثناء اجراء الدعم.
     scopes:
       global: النطاق العالمي
-      picker:
-        cancel: إلغاء
-        change: تغيير النطاق المحدد
-        choose: تحديد
-        currently_selected: النطاق المحدد حالياً
-        title: اختر %{field}
       prompt: حدد النطاق
-      scopes: نطاقات
-      scopes_picker_input:
-        select_scope: 'يرجى تحديد نطاق (حالياً: %{current})'
     search:
       name: البحث
       results: نتائج البحث
@@ -1655,6 +1651,8 @@ ar:
     whatsapp_web: واتساب
     xing: شينغ
   time:
+    buttons:
+      select: تحديد
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
