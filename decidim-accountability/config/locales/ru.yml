@@ -151,6 +151,7 @@ ru:
             heading_leaf_level_results: Название для "Проекты"
             heading_parent_level_results: Название для "Итоги"
             intro: Вступление
+            scope_id: Охват
             subcategories_label: Название для "Подкатегории"
           step:
             comments_blocked: Комментарии отключены
