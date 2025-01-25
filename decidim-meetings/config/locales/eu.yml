@@ -183,7 +183,7 @@ eu:
           code: Erregistro-kodea
           id: Erregistroaren identifikatzaile bakarra
           meeting: Parte-hartzailea zein topaketatan erregistratu zen
-          user: Erregistroa egin zuen parte-hartzailea
+          user: Erregistroa egin du parte-hartzailea
       show:
         meeting_comments: Esportatu topaketen iruzkinak
         meetings: Esportatu topaketak
@@ -430,7 +430,7 @@ eu:
           deleted: "%{user_name}-k %{attendee_name}-ri gonbidapena egiteari utzi dio %{space_name} espazioan parte hartzeko"
           update: "%{user_name} parte-hartzaileak %{attendee_name} gonbidatu du %{space_name} espazioan parte hartzeko"
         meeting:
-          close: "%{user_name} parte-hartzaileak %{space_name} ko %{resource_name} topaketa itxi du"
+          close: "%{user_name} parte-hartzaileak %{space_name} espazioko %{resource_name} topaketa itxi du"
           create: "%{user_name} parte-hartzaileak %{resource_name} topaketa sortu du %{space_name} espazioan"
           delete: "%{user_name} parte-hartzaileak %{resource_name} topaketa ezabatu du %{space_name} espazioan"
           export_registrations: "%{user_name} parte-hartzailea %{resource_name} topaketarako erregistroak esportatu ditu %{space_name} espazioan"
@@ -713,7 +713,7 @@ eu:
           created_at: Zein datatan sortu zen iruzkin hau
           depth: Iruzkin hau hiru iruzkinetan dago (erantzuna bada edo erantzun batren erantzuna)
           id: Identifikazioa iruzkin honetarako
-          locale: Parte-hartzaileak iruzkin hau uztean zuen lokala (hizkuntza)
+          locale: Parte-hartzaileak iruzkin hau uztean du lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
           user_group: Iruzkin hau egin duen parte-hartzaile taldearen izena (hala badagokio)
         meetings:
