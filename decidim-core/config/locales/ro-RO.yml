@@ -394,10 +394,8 @@ ro:
       dummy_authorization_handler:
         fields:
           allowed_postal_codes: Coduri poștale permise (separate prin virgulă)
-          allowed_scope_id: Domeniu de interes permis
           document_number: Număr document
           postal_code: Cod poștal
-          scope_id: Domeniu de interes
         name: Exemplu de autorizare
       dummy_authorization_workflow:
         name: Flux de lucru test pentru autorizare
@@ -480,8 +478,6 @@ ro:
             dummy_global_translatable_text: Text-test traductibil
             enable_pads_creation: Activează crearea de pad-uri
             resources_permissions_enabled: Drepturi pentru resurse activate
-            scope_id: Domeniu de interes
-            scopes_enabled: Domenii activate
           step:
             amendment_creation_enabled: Crearea de amendamente activată
             amendment_promotion_enabled: Promovarea amendamentelor activată
@@ -1183,16 +1179,7 @@ ro:
         error: A apărut o problemă în timpul înregistrării susținerii.
     scopes:
       global: Domeniul global de interes
-      picker:
-        cancel: Anulează
-        change: Schimbă domeniul selectat
-        choose: Selectare
-        currently_selected: Domeniul selectat în prezent
-        title: Selectează %{field}
       prompt: Selectează un domeniu
-      scopes: Domenii de interes
-      scopes_picker_input:
-        select_scope: 'Selectează un domeniu (actual: %{current})'
     search:
       results: Rezultatele căutării
       results_found_for_term: '%{count} Rezultate pentru căutare: "%{term}"'
@@ -1541,6 +1528,8 @@ ro:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Selectare
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
