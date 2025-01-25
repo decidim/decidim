@@ -21,8 +21,6 @@ eu:
         published_at: Argitaratze-data
         registration_terms: Erregistro-baldintzak
         registrations_enabled: Izen-emateak gaituta
-        scope_id: Esparrua
-        scopes_enabled: Esparruak gaituta
         short_description: Deskribapen laburra
         show_statistics: Erakutsi estatistikak
         sign_date: Sinatze-data
