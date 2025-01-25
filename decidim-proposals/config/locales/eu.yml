@@ -218,8 +218,6 @@ eu:
             proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
             proposal_wizard_step_2_help_text: Proposamen laguntzailea "Argitaratu" urrats-laguntza testua
             resources_permissions_enabled: Ekintza-baimenak proposamen bakoitzerako ezarri daitezke
-            scope_id: Esparrua
-            scopes_enabled: Esparruak gaituta
             taxonomy_filters: Hautatu iragazkiak osagairako
             taxonomy_filters_add: Erantsi iragazkia
             threshold_per_proposal: Proposamen bakoitzeko atalasea
