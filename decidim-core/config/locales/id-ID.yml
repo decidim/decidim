@@ -44,6 +44,8 @@ id:
     'false': 'Tidak'
     'true': 'iya nih'
   date:
+    buttons:
+      select: Memilih
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -673,12 +675,7 @@ id:
         success: Laporan telah berhasil dibuat dan akan ditinjau oleh admin.
     scopes:
       global: Ruang lingkup global
-      picker:
-        cancel: Membatalkan
-        choose: Memilih
-        title: Pilih %{field}
       prompt: Pilih cakupan
-      scopes: Scopes
     search:
       results_found_for_term: '%{count} Hasil untuk pencarian: "%{term}"'
       term_input_placeholder: Pencarian
@@ -905,6 +902,8 @@ id:
     weibo: Sina Weibo
     xing: Xing
   time:
+    buttons:
+      select: Memilih
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
