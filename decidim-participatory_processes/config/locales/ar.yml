@@ -24,7 +24,6 @@ ar:
         promoted: رقية
         published_at: نشرت في
         related_process_ids: العمليات ذات الصلة
-        scope_id: نطاق
         scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
         show_metrics: اظهر المقاييس
@@ -112,6 +111,7 @@ ar:
       models:
         participatory_process:
           fields:
+            actions: الإجراءات
             created_at: أنشئت في
             private: نشر
             published: نشرت
