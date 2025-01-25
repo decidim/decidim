@@ -245,7 +245,7 @@ tr:
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
             display_progress_enabled: İlerlemeyi göster
             intro: Tanıtım
-            scope_id: Kapsam
+            scope_id: kapsam
             scopes_enabled: Kapsamlar etkinleştirildi
           step:
             comments_blocked: Yorumlar engellendi
