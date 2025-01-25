@@ -100,7 +100,7 @@ module Decidim
           end
         end
 
-        def self.filter_item_for_space_manifest(space_manifest)
+        def self.filter_item_for_space_manifest(participatory_space_manifests)
           items = []
           all_in_org.where(parent_id: nil).find_each do |scope|
             items << [scope.name[I18n.locale.to_s]]
@@ -110,15 +110,14 @@ module Decidim
           end
 
           {
-            space_filter: true,
-            space_manifest:,
+            participatory_space_manifests:,
             name: root_taxonomy_name,
             items:,
             components: []
           }
         end
 
-        def self.filter_item_for_component(component, space, space_manifest)
+        def self.filter_item_for_component(component, space)
           return unless component.settings.respond_to?(:taxonomy_filters)
 
           scopes_enabled = component.settings[:scopes_enabled]
@@ -128,8 +127,6 @@ module Decidim
           list = scope ? [scope] + scope.all_children : all
 
           {
-            space_filter: false,
-            space_manifest:,
             name: root_taxonomy_name,
             internal_name: "#{root_taxonomy_name}: #{component.name[I18n.locale.to_s]}",
             items: list.map(&:all_names),
@@ -138,19 +135,22 @@ module Decidim
         end
 
         def self.all_filters
-          Scope.participatory_space_classes.each_with_object([]) do |space_class, hash|
-            space_manifest = space_class.to_s.split("::").last.underscore.pluralize
+          manifests = []
+          filters = []
+          Scope.participatory_space_classes.each do |space_class|
+            manifests << space_class.to_s.split("::").last.underscore.pluralize
             # 1 filter per participatory space as space_filter=true
-            hash << filter_item_for_space_manifest(space_manifest)
             # 1 filter per component as space_filter=false on those with scopes, suffix: "Component Name"
             # Only for components with scopes
             space_class.where(organization:).each do |space|
               space.components.each do |component|
-                component_filter = filter_item_for_component(component, space, space_manifest)
-                hash << component_filter if component_filter
+                component_filter = filter_item_for_component(component, space)
+                filters << component_filter if component_filter
               end
             end
           end
+          filters << filter_item_for_space_manifest(manifests)
+          filters
         end
 
         def self.all_taxonomies

@@ -20,15 +20,19 @@ module Decidim
 
     def taxonomy_items_options_for_filter(filter)
       @taxonomy_items_options_for_filter ||= {}
-      @taxonomy_items_options_for_filter[filter.id] ||= taxonomy_items_options_for_taxonomies_tree(filter.taxonomies)
+      @taxonomy_items_options_for_filter[filter.id] ||= begin
+        min_parent_count = filter.taxonomies.values.min_by { |item| item[:taxonomy].parent_ids.count }
+        first_parent_level = (min_parent_count && min_parent_count[:taxonomy].parent_ids.count) || 1
+        taxonomy_items_options_for_taxonomies_tree(filter.taxonomies, first_parent_level)
+      end
     end
 
-    def taxonomy_items_options_for_taxonomies_tree(taxonomies_tree)
+    def taxonomy_items_options_for_taxonomies_tree(taxonomies_tree, first_parent_level = 1)
       options = []
       taxonomies_tree.each do |id, item|
-        name = " #{"&nbsp;" * 4 * (item[:taxonomy].parent_ids.count - 1)} #{decidim_sanitize_translated(item[:taxonomy].name)}".html_safe
+        name = " #{"&nbsp;" * 4 * (item[:taxonomy].parent_ids.count - first_parent_level)} #{decidim_sanitize_translated(item[:taxonomy].name)}".html_safe
         options.append([name, id])
-        options.concat(taxonomy_items_options_for_taxonomies_tree(item[:children])) if item[:children].any?
+        options.concat(taxonomy_items_options_for_taxonomies_tree(item[:children], first_parent_level)) if item[:children].any?
       end
       options
     end

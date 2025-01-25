@@ -1,0 +1,25 @@
+<table class="table-list w-full my-4">
+  <thead>
+    <tr>
+      <th><%= t("decidim.admin.taxonomy_filters.table.name") %></th>
+      <th><%= t("decidim.admin.taxonomy_filters.table.internal_name") %></th>
+      <th class="w-16"><%= t("decidim.admin.taxonomy_filters.table.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% component_filters.each do |taxonomy_filter| %>
+        <%= hidden_field_tag(field_name, taxonomy_filter.id) %>
+      <tr>
+        <td><%= taxonomy_filter.translated_name %></td>
+        <td><%= taxonomy_filter.translated_internal_name %></td>
+        <td>
+          <%= icon_link_to("pencil-line",
+                           decidim_admin.taxonomy_filters_selector_path(component_id: component.id, taxonomy_id: taxonomy_filter.root_taxonomy_id, taxonomy_filter_id: taxonomy_filter.id),
+                           t("decidim.admin.taxonomy_filters.table.edit"),
+                           class: "js-edit-taxonomy-filter",
+                           data: { drawer: "taxonomy_filters-dialog" }) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

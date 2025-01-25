@@ -66,27 +66,6 @@ cs:
           new:
             download_export: Stáhnout export s CSV formátem
             import: Importovat
-            info: |
-              <p>Doporučujeme postupovat podle těchto kroků:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Vytvořit stavy pro výsledky</a>, které chcete přidat</li>
-              <li><a href='%{link_new_result}' target='_blank'>Vytvořte alespoň jeden výsledek manuálně</a> přes tento Admin panel před použitím Importu, za lepší pochopení formátu a toho, co budete muset vyplnit.</li>
-              <li>%{link_export_csv}</li>
-              <li>Změňte lokálně. Můžete změnit pouze následující sloupce CSV:
-                <ul>
-                <li><b>category/id:</b> ID pro kategorii</li>
-                <li><b>scope/id:</b> ID pro rozsah</li>
-                <li><b>parent/id:</b> ID rodičů (pro související výsledky). Volitelné</li>
-                <li><b>title/en:</b> Název v angličtině. To bude záviset na konfiguraci jazyka vaší platformy.</li>
-                <li><b>description/en:</b> Popis anglického jazyka. To bude záviset na konfiguraci jazyka vaší platformy.</li>
-                <li><b>start_date:</b> datum zahájení provádění výsledků (formát YYYY-MM-DD)</li>
-                <li><b>end_date:</b> datum ukončení provedení výsledků (formát YYYY-MM-DD)</li>
-                <li><b>status/id:</b> ID statusu pro tento výsledek</li>
-                <li><b>progress:</b> procento (od 0 do 100) provedení</li>
-                <li><b>proposals_ids:</b> interní ID souvisejících návrhů (oddělené čárkou). Automaticky se převede na <span class='attribute-name'>proposal_url</span></li>
-                </ul>
-              </li>
-              </ol>
             title: Importovat výsledky z CSV souboru
         imports:
           create:
@@ -118,6 +97,23 @@ cs:
               other: "%{count} projektů, které mají být importovány. Po dokončení budete upozorněni e-mailem."
             title: Importovat projekty z jiné komponenty
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Změnit datum
+              end_date: Datum ukončení
+              start_date: Datum zahájení
+            dropdown:
+              actions: Akce
+              change_dates: Změnit data
+              change_status: Změnit stav
+              change_taxonomies: Změnit taxonomie
+            status_form:
+              change_status: Změnit stav
+              status: Stav
+            submit_buttons:
+              cancel: Zrušit
+            taxonomies_form:
+              change_taxonomies: Změnit taxonomie
           create:
             invalid: Při vytváření tohoto výsledku nastal problém.
             success: Výsledek byl úspěšně vytvořen.
@@ -125,6 +121,7 @@ cs:
             title: Upravit výsledek
             update: Aktualizovat výsledek
           index:
+            selected: Vybráno
             title: Výsledky
           manage_trash:
             title: Odstraněné výsledky
@@ -134,6 +131,16 @@ cs:
           update:
             invalid: Při aktualizaci tohoto výsledku došlo k chybě.
             success: Výsledek byl úspěšně aktualizován.
+          update_dates:
+            invalid: Při aktualizaci datumu výsledků došlo k chybě
+            success: Výsledky byly úspěšně aktualizovány
+          update_status:
+            invalid: Při aktualizaci stavu výsledků došlo k chybě
+            success: Stav výsledků byl úspěšně aktualizován
+          update_taxonomies:
+            invalid: Nelze aktualizovat taxonomie %{taxonomies} pro výsledky %{results}
+            select_a_result: Vyberte výsledek
+            select_a_taxonomy: Vyberte taxonomii
         shared:
           subnav:
             statuses: Stavy

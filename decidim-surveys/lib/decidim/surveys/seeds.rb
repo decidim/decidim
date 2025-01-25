@@ -14,26 +14,22 @@ module Decidim
       def call
         component = create_component!
 
-        questionnaire = create_questionnaire!(component:)
+        3.times do
+          questionnaire = create_questionnaire!(component:)
+          create_questions!(questionnaire:)
 
-        create_questions!(questionnaire:)
+          next if questionnaire.questionnaire_for.allow_answers
 
-        rand(20).times { create_answers!(questionnaire:) }
+          rand(200).times { create_answers!(questionnaire:) }
+        end
       end
 
       def create_component!
-        step_settings = if participatory_space.allows_steps?
-                          { participatory_space.active_step.id => { allow_answers: true } }
-                        else
-                          {}
-                        end
-
         params = {
           name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :surveys).i18n_name,
           manifest_name: :surveys,
           published_at: Time.current,
-          participatory_space:,
-          step_settings:
+          participatory_space:
         }
 
         Decidim.traceability.perform_action!(
@@ -59,7 +55,9 @@ module Decidim
 
         params = {
           component:,
-          questionnaire:
+          questionnaire:,
+          allow_answers: [true, false].sample,
+          published_at: Time.current
         }
 
         Decidim.traceability.create!(
@@ -96,8 +94,12 @@ module Decidim
             question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
           end
 
+          # Files type questions do not support being conditionals for another questions
+          files_question = questionnaire.questions.where(question_type: "files")
+          possible_condition_questions = questionnaire.questions.excluding(files_question)
+
           question.display_conditions.create!(
-            condition_question: questionnaire.questions.find_by(position: question.position - 2),
+            condition_question: possible_condition_questions.sample,
             question:,
             condition_type: :answered,
             mandatory: true
@@ -127,7 +129,7 @@ module Decidim
       end
 
       def create_answers!(questionnaire:, user: nil)
-        user = find_or_initialize_user_by(email: "survey-#{questionnaire.id}-#{rand(10_000)}@example.org") if user.nil?
+        user = find_or_initialize_user_by(email: "survey-#{questionnaire.id}-#{rand(1_000_000)}@example.org") if user.nil?
 
         answer_options = {
           user:,
@@ -140,18 +142,40 @@ module Decidim
           case question.question_type
           when "short_answer", "long_answer"
             create_answer_for_text_question_type!(answer_options.merge({ question: }))
-          when "single_option", "multiple_option", "sorting"
+          when "single_option", "multiple_option"
             create_answer_for_multiple_choice_question_type(answer_options.merge({ question: }))
+          when "sorting"
+            create_answer_for_sorting_question_type(answer_options.merge({ question: }))
           when "matrix_single", "matrix_multiple"
             create_answer_for_matrix_question_type(answer_options.merge({ question: }))
           end
         end
+      rescue ActiveRecord::RecordInvalid
+        # Silently ignore the error as we do not care if the user already exists
       end
 
       def create_answer_for_text_question_type!(options)
         Decidim::Forms::Answer.create!(
           **options, body: ::Faker::Lorem.paragraph(sentence_count: 1)
         )
+      end
+
+      def create_answer_for_sorting_question_type(options)
+        answer = Decidim::Forms::Answer.create!(**options)
+        answer_options = options[:question].answer_options
+        available_positions = (0..(answer_options.size - 1)).to_a
+
+        answer_options.each do |answer_option|
+          position = available_positions.sample
+          body = answer_option["en"]
+
+          Decidim::Forms::AnswerChoice.create!(
+            answer:,
+            answer_option:,
+            body:,
+            position:
+          )
+        end
       end
 
       def create_answer_for_multiple_choice_question_type(options)

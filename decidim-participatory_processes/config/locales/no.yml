@@ -22,7 +22,6 @@
         local_area: Organisasjonsområde
         meta_scope: Omfang av metadata
         participatory_process_group_id: Prosessgruppe
-        participatory_process_type_id: Prosesstype
         participatory_scope: Medvirkningen gjelder
         participatory_structure: Hvordan det blir gjort
         private_space: Privat prosess
@@ -59,8 +58,6 @@
         end_date: Sluttdato
         short_description: Kort beskrivelse
         start_date: Startdato
-        title: Tittel
-      participatory_process_type:
         title: Tittel
       participatory_process_user_role:
         email: Epost
@@ -100,7 +97,6 @@
         new_process: Ny prosess
         new_process_group: Ny prosessgruppe
         new_process_step: Ny medvirkningsfase
-        new_process_type: Ny prosesstype
         new_process_user_role: Ny prosessadministrator
         preview: Forhåndsvis
         publish: Publiser
@@ -115,13 +111,11 @@
         participatory_process_groups_submenu:
           info: Informasjon
           landing_page: Landingsside
-        participatory_process_types: Prosesstyper
         participatory_processes: Prosesser
         participatory_processes_submenu:
           attachment_collections: Mapper
           attachment_files: Filer
           attachments: Vedlegg
-          categories: Kategorier
           components: Komponenter
           info: Om denne prosessen
           landing_page: Landingsside
@@ -147,11 +141,6 @@
             start_date: Startdato
             title: Tittel
           name: Medvirkningsfase
-        participatory_process_type:
-          fields:
-            created_at: Opprettet
-            title: Tittel
-          name: Prosesstype
         participatory_process_user_role:
           fields:
             email: Epost
@@ -233,21 +222,6 @@
         update:
           error: Det oppstod et problem med å oppdatere denne medvirkningsfasen.
           success: Medvirkningsfase oppdatert.
-      participatory_process_types:
-        create:
-          error: Det oppstod et problem med å lage en ny prosesstype.
-          success: Prosesstypen ble opprettet.
-        destroy:
-          success: Prosesstypen ble slettet.
-        edit:
-          title: Rediger prosesstype
-          update: Oppdater
-        new:
-          create: Opprett
-          title: Ny prosesstype
-        update:
-          error: Det oppsto et problem med å oppdatere denne prosesstypen.
-          success: Prosesstypen ble oppdatert.
       participatory_process_user_roles:
         create:
           error: Det oppstod et problem med å legge til en deltaker for denne prosessen.
@@ -408,11 +382,9 @@
             filters: Filtere
             images: Bilder
             metadata: Metadata
-            other: Annet
             related_processes: Relaterte prosesser
             scope_type_max_depth_help: Begrens temaets filternivå; Filteret viser fra generelt til valgt tematype.
             select_an_area: Velg et Område
-            select_participatory_process_type: Velg en type prosess
             select_process_group: Velg en prosessgruppe
             title: Generell informasjon
       content_blocks:

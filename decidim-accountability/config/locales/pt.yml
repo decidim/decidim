@@ -9,6 +9,7 @@ pt:
         end_date: Data final
         progress: Progresso
         start_date: Data de início
+        subresults: Sub-resultados
         title: Título
         updated_at: Atualizado em
       status:
@@ -25,6 +26,13 @@ pt:
       decidim/accountability/result_progress_updated_event: Progresso do resultado atualizado
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            meetings_ids: 'Discutido nesta reunião: %{link}'
+            project_ids: 'Incluído neste projeto: %{link}'
+            proposal_ids: 'Incluído nesta proposição: %{link}'
+            text: 'Adicionado a este resultado: %{link}'
       decidim/accountability/result:
         one: Resultado
         other: Resultados
@@ -40,6 +48,7 @@ pt:
         import_csv: Importar resultados de um CSV
         new_result: Novo resultado
         new_status: Novo estado
+        new_timeline_entry: Nova entrada no cronograma
         preview: Pré-visualizar
         timeline_entries: Evolução do projeto
         title: Ações
@@ -89,6 +98,8 @@ pt:
         result:
           create: "%{user_name} criou o resultado %{resource_name} em %{space_name}"
           delete: "%{user_name} eliminou o resultado %{resource_name} em %{space_name}"
+          restore: "%{user_name} reativou o resultado %{resource_name} no %{space_name}"
+          soft_delete: "%{user_name} moveu o resultado %{resource_name} do espaço %{space_name} para a lixeira"
           update: "%{user_name} atualizou o resultado %{resource_name} em %{space_name}"
         value_types:
           parent_presenter:
@@ -96,6 +107,8 @@ pt:
       content_blocks:
         highlighted_results:
           results: Resultados
+      creation:
+        text: Este resultado foi criado
       import_mailer:
         import:
           errors: Erros
@@ -111,6 +124,7 @@ pt:
             progress: Progresso
             start_date: Data de início
             status: Estado
+            taxonomies: Taxonomias
             title: Título
         status:
           fields:
@@ -126,6 +140,9 @@ pt:
           results_count:
             one: 1 resultado
             other: "%{count} resultados"
+        home:
+          sub_taxonomies_label: Subcategorias
+          taxonomies_label: Categorias
         home_header:
           global_status: Estado de execução global
         search:
@@ -140,6 +157,8 @@ pt:
         results:
           status_id_eq:
             label: Estado
+          taxonomies_part_of_contains:
+            label: Taxonomia
     components:
       accountability:
         actions:
@@ -147,12 +166,17 @@ pt:
         name: Prestação de contas
         settings:
           global:
+            clear_all: Apagar tudo
             comments_enabled: Comentários ativados
             comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
+            define_taxonomy_filters: Para usar esta definição, filtros devem estar definidos neste espaço participativo.
             display_progress_enabled: Mostrar progresso
             intro: Introdução
+            no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
             scope_id: Âmbito
             scopes_enabled: Âmbitos activados
+            taxonomy_filters: Selecione filtros para a funcionalidade
+            taxonomy_filters_add: Adicionar filtro
           step:
             comments_blocked: Comentários bloqueados
     events:
@@ -172,6 +196,21 @@ pt:
         description: Número de resultados gerados
         object: resultados
         title: Resultados
+    open_data:
+      help:
+        result_comments:
+          alignment: Se este comentário foi em favor, contra ou neutro
+          created_at: A data em que este comentário foi criado
+          depth: O lugar onde este comentário se encontra na hierarquia de comentários (se é uma resposta ou uma resposta de outra resposta).
+          locale: A linguagem que o participante teve ao deixar este comentário
+          root_commentable_url: A URL do recurso ligado a este comentário
+        results:
+          address: O endereço do resultado (se houver)
+          children_count: O número de sub-resultados
+          comments_count: O número de comentários que este resultado tem
+          component: A funcionalidade a qual o resultado pertence
+          created_at: A data em que o resultado foi criado
+          end_date: A data de quando o resultado está concluída
     participatory_spaces:
       highlighted_results:
         see_all: Ver todos os resultados (%{count})

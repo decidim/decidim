@@ -19,6 +19,7 @@ module Decidim
 
       describe "integration" do
         it "is correctly scheduled" do
+          previous_adapter = ActiveJob::Base.queue_adapter
           ActiveJob::Base.queue_adapter = :test
           proposal_metadata[:linked_proposals] << linked_proposal
           proposal_metadata[:linked_proposals] << linked_proposal_official
@@ -27,6 +28,7 @@ module Decidim
           expect do
             Decidim::Comments::CommentCreation.publish(comment, proposal: proposal_metadata)
           end.to have_enqueued_job.with(comment.id, proposal_metadata.linked_proposals)
+          ActiveJob::Base.queue_adapter = previous_adapter
         end
       end
 

@@ -10,7 +10,7 @@ module Decidim
     include Decidim::Traceable
 
     before_create :set_default_weight
-    before_validation :update_part_of, on: :update
+    before_validation :update_part_of, on: [:update, :create]
     after_create_commit :create_part_of
 
     translatable_fields :name
@@ -42,6 +42,7 @@ module Decidim
     validate :forbid_cycles
 
     default_scope { order(:weight) }
+    scope :for, ->(organization) { where(organization:) }
     scope :roots, -> { where(parent_id: nil) }
     scope :non_roots, -> { where.not(parent_id: nil) }
 
@@ -80,17 +81,18 @@ module Decidim
     end
 
     def parent_ids
-      @parent_ids ||= parent_id ? parent.parent_ids + [parent_id] : []
+      @parent_ids ||= part_of.excluding(id)
     end
 
     def root? = parent_id.nil?
 
+    # this might change in the future if we want to prevent the deletion of taxonomies with associated resources
     def removable?
       true
     end
 
     def all_children
-      @all_children ||= children.flat_map { |child| [child] + child.all_children }
+      @all_children ||= Decidim::Taxonomy.non_roots.part_of(id).reorder(Arel.sql("array_length(part_of, 1) ASC"), "parent_id ASC", "weight ASC")
     end
 
     def reset_all_counters

@@ -116,6 +116,9 @@ ro:
           fields:
             id: ID
             title: Titlu
+      order:
+        status:
+          title: Votul tău a fost acceptat cu succes
       order_summary_mailer:
         order_summary:
           selected_projects: 'Proiectele pe care le-ai selectat sunt:'

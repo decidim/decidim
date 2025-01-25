@@ -3,10 +3,6 @@
   <p><%= t("extra_explanation.postal_codes", scope: "decidim.verifications.dummy_authorization", postal_codes: postal_codes.join(", "), count: postal_codes.count, user_postal_code: params["user_postal_code"]) %></p>
 <% end %>
 
-<% if params["scope"] && (scope = Decidim::Scope.find_by_id(params["scope"]&.to_i)) %>
-  <p><%= t("extra_explanation.scope", scope: "decidim.verifications.dummy_authorization", scope_name: translated_attribute(scope.name), user_scope_name: params["user_scope_name"]) %></p>
-<% end %>
-
 <div class="form__wrapper" data-partial-demo>
   <%= form.hidden_field :handler_name %>
   <%= form.text_field :document_number %>
@@ -14,5 +10,4 @@
   <div class="row">
     <%= form.date_field :birthday %>
   </div>
-  <%= scopes_select_field(form, :scope_id) %>
 </div>

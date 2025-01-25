@@ -48,6 +48,12 @@ module Decidim
                foreign_key: "decidim_condition_question_id",
                class_name: "Question"
 
+      has_many :answers,
+               class_name: "Answer",
+               foreign_key: "decidim_question_id",
+               dependent: :destroy,
+               inverse_of: :question
+
       validates :question_type, inclusion: { in: TYPES }
 
       scope :not_separator, -> { where.not(question_type: SEPARATOR_TYPE) }
@@ -97,6 +103,10 @@ module Decidim
 
       def answers_count
         questionnaire.answers.where(question: self).count
+      end
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Forms::AdminLog::QuestionPresenter
       end
     end
   end

@@ -8,15 +8,11 @@ require "decidim/core/test/shared_examples/form_builder_examples"
 module Decidim
   describe FilterFormBuilder do
     let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
-    let(:categories) do
-      create_list(:category, 3)
-      Category.all
-    end
     let(:scopes) { create_list(:scope, 3) }
 
     let(:resource) do
       Class.new do
-        attr_reader :order_start_time, :scope_id, :category_id
+        attr_reader :order_start_time, :scope_id
       end.new
     end
 
@@ -58,23 +54,6 @@ module Decidim
         let(:help_text_text) { "This is the help text" }
         let(:output) do
           builder.collection_check_boxes :scope_id, scopes, :id, :name, help_text: help_text_text
-        end
-
-        it_behaves_like "having a help text"
-      end
-    end
-
-    describe "#categories_select" do
-      let(:output) do
-        builder.categories_select :category_id, categories, disable_parents: false, label: false, include_blank: true
-      end
-      let(:parsed) { Nokogiri::HTML(output) }
-
-      context "when a help text is defined" do
-        let(:field) { "<select" }
-        let(:help_text_text) { "This is the help text" }
-        let(:output) do
-          builder.categories_select :category_id, categories, disable_parents: false, label: false, include_blank: true, help_text: help_text_text
         end
 
         it_behaves_like "having a help text"

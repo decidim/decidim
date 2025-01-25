@@ -16,7 +16,6 @@ sk:
         created_by_other: Vytvorené iným
         creation_date: Dátum vytvorenia
         decidim_area_id: Oblasť
-        decidim_assemblies_type_id: Typ zhromaždenia
         decidim_scope_id: Rozsah
         description: Popis
         developer_group: Propagačná skupina
@@ -28,7 +27,6 @@ sk:
         hero_image: Obrázok na hlavnej stránke
         included_at: Zahrnuté v
         instagram: Instagram
-        internal_organisation: Interné organizácie
         is_transparent: Je transparentné
         local_area: Oblasť organizácie
         meta_scope: Rozsah metadát
@@ -82,7 +80,6 @@ sk:
     admin:
       actions:
         new_assembly: Nové zhromaždenie
-        new_assembly_type: Nový typ zhromaždenia
       assemblies:
         create:
           error: Pri tvorbe nového zhromaždenia nastala chyba.
@@ -98,24 +95,7 @@ sk:
         update:
           error: Pri tvorbe nového zhromaždenia nastala chyba.
           success: Zhromaždenie úspešne aktualizované.
-      assemblies_types:
-        create:
-          error: Pri tvorbe nového typu zhromaždenia nastala chyba.
-          success: Nový typ zhromaždenia úspešne vytvorený.
-        destroy:
-          success: Typ zhromaždenia úspešne zmazaný.
-        new:
-          create: Vytvoriť
-          title: "N"
-        update:
-          error: Pri tvorbe nového typu zhromaždenia nastala chyba.
-          success: Typ zhromaždenia úspešne aktualizovaný.
-      menu:
-        assemblies_types: Typy zhromaždení
       models:
-        assemblies_types:
-          fields:
-            title: Názov
         assembly_user_role:
           roles:
             valuator: Hodnotiteľ
@@ -127,11 +107,6 @@ sk:
         publish: "%{user_name} vytvoril nový typ zhromaždenia %{resource_name}"
         unpublish: "%{user_name} zrušil publikovanie typu zhromaždenia %{resource_name}"
         update: "%{user_name} aktualizoval typ zhromaždenia %{resource_name}"
-    assemblies:
-      admin:
-        assemblies_types:
-          form:
-            title: Názov
     events:
       assemblies:
         create_assembly_member:

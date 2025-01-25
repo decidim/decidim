@@ -695,7 +695,7 @@ FactoryBot.define do
 
   factory :taxonomy_filter, class: "Decidim::TaxonomyFilter" do
     root_taxonomy { association(:taxonomy) }
-    space_manifest { "participatory_processes" }
+    participatory_space_manifests { ["participatory_processes"] }
 
     trait :with_items do
       transient do

@@ -10,6 +10,8 @@ fr-CA:
         state: État
         title: Titre
         user_group_id: Créez un brouillon collaboratif comme
+      import_participatory_text:
+        document: Document
       proposal:
         address: Adresse
         answer: Répondre
@@ -19,6 +21,8 @@ fr-CA:
         decidim_proposals_proposal_state_id: État
         decidim_scope_id: Portée
         has_address: Renseigner une adresse
+        latitude: Latitude
+        longitude: Longitude
         scope_id: Périmètre d'application
         state: État
         suggested_hashtags: Hashtags suggérés
@@ -45,6 +49,8 @@ fr-CA:
       proposals_copy:
         copy_proposals: Je comprends que cela importera toutes les propositions de la fonctionnalité sélectionnée dans la fonctionnalité actuelle et que cette action ne peut être annulée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
+      proposals_file_import:
+        file: Fichier
       proposals_import:
         import_proposals: Importer des propositions
         keep_answers: Garder l'état et les réponses
@@ -393,10 +399,22 @@ fr-CA:
         description: Nombre de votes sur des propositions
         object: votes
         title: Votes
+    open_data:
+      help:
+        proposals:
+          coauthorships_count: Le nombre de coauteurs que la proposition représente
+          cost: Le coût total de la proposition en question
+          cost_report: Un rapport sur les coûts de la proposition
+          created_at: La date de création de la proposition
+          created_in_meeting: Si la proposition a été créée dans une réunion
+          execution_period: La période à laquelle la proposition s'est déroulée du début à la fin
+          follows_count: Le nombre de personnes qui suivent cette proposition
+          state_published_at: Un horodatage de l'état de la proposition lorsqu'elle est publiée
+          updated_at: La date de la dernière mise à jour de la proposition
     participatory_spaces:
       highlighted_proposals:
         last: Dernières propositions
-        see_all: Tout voir (%{count})
+        see_all: Voir toutes les propositions
     proposals:
       actions:
         answer_proposal: Répondre à la proposition
@@ -424,22 +442,6 @@ fr-CA:
           proposal_comments: Commentaires
           proposals: Propositions
         imports:
-          help:
-            answers: |
-              Le document d'importation doit contenir les noms de colonnes suivants en cas de fichiers CSV ou Excel ou noms de clés suivants dans le cas de fichiers JSON :
-              <ul>
-              <li><b>id:</b> ID de la proposition à laquelle on répond</li>
-              <li><b>state:</b>"accepted", "evaluating", ou "rejected"</li>
-              <li><b>answer/en:</b> Réponse en langue anglaise. Cela dépendra de la configuration de langue de votre plateforme.</li>
-              </ul>
-            proposals: |
-              Le fichier doit avoir les noms de colonnes suivants en cas de fichiers CSV ou Excel ou noms de clés suivants en cas de fichiers JSON :
-              <ul>
-              <li><b>title/en:</b> Titre en langue anglaise. Cela dépendra de la configuration de la langue de votre plateforme.</li>
-              <li><b>corps/en:</b> Corps en langue anglaise. Cela dépendra de la configuration de la langue de votre plateforme.</li>
-              <li><b>scope/id :</b> ID du périmêtre d'application</li>
-              <li><b>category/id :</b> ID de la catégorie</li>
-              </ul>
           label:
             answers: Importer des valeurs depuis un fichier
             proposals: Importer des propositions depuis un fichier
@@ -534,9 +536,7 @@ fr-CA:
             title: Mise à jour de la proposition
             update: Mettre à jour
           form:
-            attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             created_in_meeting: Cette proposition provient d'une réunion
-            delete_attachment: Supprimer la pièce jointe
             select_a_meeting: Sélectionnez une réunion
           index:
             actions: Actions
@@ -662,7 +662,7 @@ fr-CA:
           error: Il y a eu un problème lors de la création de ce brouillon collaboratif.
           success: Brouillon collaboratif créé avec succès.
         edit:
-          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
+          attachment_legend: Ajouter un document ou une image
           back: Retour
           send: Envoyer
           title: Modifier un brouillon collaboratif
@@ -746,6 +746,11 @@ fr-CA:
       destroy_draft:
         error: Des erreurs sont survenues lors de la suppression du brouillon de la proposition.
         success: Le brouillon de la proposition a bien été supprimé.
+      exit_modal:
+        cancel: Annuler
+        exit: Continuer
+        message: Vous devez encore donner %{number} votes de plus à différentes propositions afin que l'ensemble de vos votes soient pris en compte.
+        title: N'oubliez pas qu'il vous reste encore %{number}
       forms:
         errors:
           device_not_supported: Votre appareil ne prend pas en charge les services de localisation. Veuillez entrer l'adresse manuellement.
@@ -799,10 +804,10 @@ fr-CA:
           description: Les coordonnées seront mises à jour en cliquant sur le bouton 'Aperçu'. Cependant, l'adresse ne change pas.
           instructions: Vous pouvez déplacer le point sur la carte.
         edit:
-          add_documents: Ajouter des documents
-          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
+          add_attachments: Ajouter des pièces jointes
+          attachment_legend: Ajouter un document ou une image
           back: Retour
-          edit_documents: Modifier les documents
+          edit_attachments: Modifier les pièces jointes
           send: Envoyer
           title: Modifier la proposition
         edit_draft:
@@ -900,17 +905,16 @@ fr-CA:
             one: Vote
             other: Votes
         voting_rules:
+          already_vote:
+            see_other_proposals: Voir les autres propositions
           can_accumulate_votes_beyond_threshold:
             description: Chaque proposition peut accumuler plus de %{limit} votes
-          minimum_votes_per_user:
-            description: Vous devez répartir un minimum de %{votes} voix entre différentes propositions.
-            given_enough_votes: Vous avez attribué suffisamment de votes.
-            votes_remaining: Vous devez voter pour %{remaining_votes} propositions supplémentaires pour que vos votes soient pris en compte.
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
+          success: Vos votes ont été acceptés avec succès
           threshold_per_proposal:
             description: Pour être acceptées, les propositions doivent atteindre %{limit} votes.
-          title: 'Les votes sont soumis aux règles suivantes :'
+          title: Règles de participation
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
             votes: '%{number} votes restants'
