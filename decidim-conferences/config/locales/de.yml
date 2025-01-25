@@ -21,8 +21,6 @@ de:
         published_at: Veröffentlicht am
         registration_terms: Registrierungsbedingungen
         registrations_enabled: Registrierungen aktiviert
-        scope_id: Umfang
-        scopes_enabled: Bereiche aktiviert
         short_description: Kurze Beschreibung
         show_statistics: Zeige Statistiken
         sign_date: Unterzeichnungsdatum
