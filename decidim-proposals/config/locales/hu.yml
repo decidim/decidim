@@ -142,6 +142,7 @@ hu:
             proposal_limit: Javaslat limit felhasználónként
             proposal_wizard_step_1_help_text: Javaslat varázsló "Létrehozás" gomb súgójának szövege
             resources_permissions_enabled: Egyes javaslatokhoz műveleti engedélyeket állíthatsz be
+            scope_id: Hatáskör
             threshold_per_proposal: Küszöbérték javaslatonként
           step:
             amendment_creation_enabled: A módosítás létrehozása engedélyezett
