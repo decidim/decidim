@@ -38,8 +38,6 @@ sk:
         promoted: Zvýraznené
         published_at: Publikované
         purpose_of_action: Cieľ aktivity
-        scope_id: Rozsah
-        scopes_enabled: Povolené rozsahy
         short_description: Stručný opis
         slug: URL krátky odkaz
         special_features: Špeciálne funkcie
