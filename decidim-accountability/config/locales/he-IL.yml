@@ -253,8 +253,6 @@ he:
             comments_max_length: אורך מקסימלי להערות (השאירו 0 לערך ברירת המחדל)
             display_progress_enabled: הצגת התקדמות
             intro: הקדמה
-            scope_id: היקף
-            scopes_enabled: היקפים מאופשרים
           step:
             comments_blocked: תגובות חסומות
     download_your_data:
