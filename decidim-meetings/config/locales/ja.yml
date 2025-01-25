@@ -166,8 +166,6 @@ ja:
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             registration_code_enabled: 登録コードが有効
             resources_permissions_enabled: アクションの権限はミーティングごとに設定できます
-            scope_id: スコープ
-            scopes_enabled: スコープが有効
             taxonomy_filters: コンポーネントのフィルタを選択
             taxonomy_filters_add: フィルターを追加
             terms_and_conditions_url_for_meeting_creators: ミーティング作成者の利用規約URL
