@@ -391,10 +391,8 @@ pt-BR:
         explanation: Para verificar sua conta, introduza um número de documento que termine com "X".
         fields:
           allowed_postal_codes: Códigos postais permitidos (separados por vírgulas)
-          allowed_scope_id: Escopos Permitidos
           document_number: Número do documento
           postal_code: Código postal
-          scope_id: Escopo
         name: Exemplo de autorização
       dummy_authorization_workflow:
         name: Fluxo de trabalho de autorização falsa
@@ -483,8 +481,6 @@ pt-BR:
             dummy_global_translatable_text: Texto Tradutor Falso
             enable_pads_creation: Ativar criação de blocos
             resources_permissions_enabled: Permissões de recursos ativadas
-            scope_id: Escopo
-            scopes_enabled: Escopos habilitados
           step:
             amendment_creation_enabled: Criação de alteração ativada
             amendment_promotion_enabled: Promoção de alteração ativada
@@ -1341,16 +1337,7 @@ pt-BR:
         error: Houve um problema durante a ação de endosso.
     scopes:
       global: Âmbito global
-      picker:
-        cancel: Cancelar
-        change: Alterar o escopo selecionado
-        choose: Selecionar
-        currently_selected: Escopo atualmente selecionado
-        title: Selecione %{field}
       prompt: Selecione um âmbito
-      scopes: Âmbitos
-      scopes_picker_input:
-        select_scope: 'Selecione um escopo (atualmente: %{current})'
     search:
       name: Pesquisar
       results: Procurar resultados
@@ -1870,6 +1857,7 @@ pt-BR:
     buttons:
       close: Fechar
       reset: Resetar
+      select: Selecionar
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
