@@ -269,7 +269,7 @@ ar:
             comments_max_length: الحد الأقصى لطول التعليقات (اترك ال0 للقيمة الافتراضية)
             display_progress_enabled: عرض التقدم
             intro: مقدمة
-            scope_id: النطاق
+            scope_id: نطاق
             scopes_enabled: النطاقات مفعلة
           step:
             comments_blocked: تم حظر التعليقات
