@@ -20,7 +20,7 @@ eu:
         import_categories: Inportatu kategoriak
         import_components: Inportatu osagaiak
         import_steps: Inportatu faseak
-        local_area: Antolakuntza Arloa
+        local_area: Antolakuntza arloa
         meta_scope: 'Metadatuak: esparrua'
         participatory_process_group_id: Prozesu-multzoa
         participatory_process_type_id: Prozesu mota
@@ -46,7 +46,7 @@ eu:
         group_url: Web gunea
         hashtag: Traola
         hero_image: Irudia
-        local_area: Antolakuntza Arloa
+        local_area: Antolakuntza arloa
         meta_scope: Esparruaren metadatuak
         participatory_process_ids: Elkarrekin lotutako prozesuak
         participatory_scope: Zer erabakitzen da
@@ -430,7 +430,7 @@ eu:
             other: Beste
             related_processes: Elkarrekin lotutako prozesuak
             scope_type_max_depth_help: Murriztu esparru-iragazkiaren sakonera; iragazkia esparru orokorretik hautatutakora erakutsiko da.
-            select_an_area: Hautatu eremu bat
+            select_an_area: Hautatu arlo bat
             select_participatory_process_type: Aukeratu prozesu-mota bat
             select_process_group: Hautatu prozesu-talde bat
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
