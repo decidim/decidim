@@ -451,10 +451,8 @@ eu:
         explanation: Egiaztatu pasaporte zenbaki bat aurkeztuz, "X" letraz amaituta.
         fields:
           allowed_postal_codes: Onartutako posta-kodeak (komaz bereizita)
-          allowed_scope_id: Onartutako esparrua
           document_number: Dokumentuaren zenbakia
           postal_code: Posta kodea
-          scope_id: Esparrua
         name: Baimen-adibidea
       dummy_authorization_workflow:
         explanation: Balizko baimenaren lan-fluxua
@@ -463,10 +461,8 @@ eu:
         explanation: Egiaztatu "X" zenbakiaz amaitzen den dokumentu zenbaki bat sartuz.
         fields:
           allowed_postal_codes: Baimendutako posta-kodeak (komen bidez bereiziak)
-          allowed_scope_id: Baimendutako esparrua
           document_number: Agiri zenbakia
           postal_code: Posta-kodea
-          scope_id: Esparrua
         name: Baimenen adibide iragankorra
       errors:
         duplicate_authorization: Badago datu berak dituen parte-hartzaile baimendu bat. Administratzaile bat zurekin harremanetan jarriko da zure datuak egiaztatzeko.
@@ -558,8 +554,6 @@ eu:
             enable_pads_creation: Gaitu ohar-blokeak sortzea
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             resources_permissions_enabled: Baliabideen baimenak gaituta
-            scope_id: Esparrua
-            scopes_enabled: Esparruak gaituta
             taxonomy_filters: Hautatu iragazkiak osagairako
           step:
             amendment_creation_enabled: Zuzenketa sortzea aktibatuta
@@ -1737,16 +1731,7 @@ eu:
         error: Arazo bat egon da atxikimendu-ekintzan zehar.
     scopes:
       global: Esparru orokorra
-      picker:
-        cancel: Ezeztatu
-        change: Aldatu hautatutako esparrua
-        choose: Hautatu
-        currently_selected: Esparrua zuzen hautatu da
-        title: Hautatu %{field}
       prompt: Hautatu esparrua
-      scopes: Esparruak
-      scopes_picker_input:
-        select_scope: 'Hautatu esparru bat (gaur egun: %{current})'
     search:
       name: Bilatu
       results: Bilatu emaitzak
