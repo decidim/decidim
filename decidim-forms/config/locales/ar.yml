@@ -29,6 +29,9 @@ ar:
             free_text: نص حر
             remove: إزالة
             statement: بيان
+          answers:
+            actions:
+              export: تصدير
           display_condition:
             condition_question: سؤال
             remove: حذف
