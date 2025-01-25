@@ -48,7 +48,7 @@ ar:
         promoted: سلط الضوء
         published_at: نشرت في
         purpose_of_action: الغرض من العمل
-        scope_id: نطاق
+        scope_id: النطاق
         scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
         show_statistics: عرض الإحصائيات
@@ -208,6 +208,7 @@ ar:
             title: العنوان
         assembly:
           fields:
+            actions: الإجراءات
             created_at: تاريخ الإنشاء
             private: خاص
             promoted: سلط الضوء
