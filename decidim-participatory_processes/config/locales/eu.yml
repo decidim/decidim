@@ -19,7 +19,7 @@ eu:
         import_categories: Inportatu kategoriak
         import_components: Inportatu osagaiak
         import_steps: Inportatu faseak
-        local_area: Antolakuntza Arloa
+        local_area: Antolakuntza arloa
         meta_scope: 'Metadatuak: esparrua'
         participatory_process_group_id: Prozesu-multzoa
         participatory_scope: Zer erabaki da
@@ -41,7 +41,7 @@ eu:
         group_url: Web gunea
         hashtag: Traola
         hero_image: Irudia
-        local_area: Antolakuntza Arloa
+        local_area: Antolakuntza arloa
         meta_scope: Esparruaren metadatuak
         participatory_process_ids: Elkarrekin lotutako prozesuak
         participatory_scope: Zer erabakitzen da
@@ -352,7 +352,7 @@ eu:
       help:
         participatory_processes:
           announcement: Informazioa iragarpenaz (deia)
-          area: Prozesua zein eremutan gertatzen ari da?
+          area: Prozesua zein arlotan gertatzen ari da
           created_at: Zein datatan sortu zen espazio hau
           description: Prozesuaren deskribapen luzea
           developer_group: Prozesuaren talde garatzailea. Hau da prozesua sustatzen duen erakundea.
@@ -360,7 +360,7 @@ eu:
           follows_count: Espazio hau zenbat parte-hartzailek jarraitzen duten
           hashtag: Prozesuaren traola, X sarerako erabilia
           id: Prozesu honen identifikatzaile bakarra
-          local_area: Prozesuaren tokiko eremua. Hau da prozesua garatzen ari den erakundearen arloa.
+          local_area: Prozesuaren tokiko arloa. Hau da prozesua garatzen ari den erakundearen arloa.
           meta_scope: Prozesuaren esparru-metadatuak
           participatory_process_group: Prozesuaren taldea, baldin badago
           participatory_process_type: Prozesu mota
