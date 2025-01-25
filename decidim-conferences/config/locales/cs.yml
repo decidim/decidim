@@ -21,8 +21,6 @@ cs:
         published_at: Publikováno v
         registration_terms: Podmínky registrace
         registrations_enabled: Registrace povoleny
-        scope_id: Oblast působnosti
-        scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis
         show_statistics: Zobrazit statistiky
         sign_date: Datum podpisu
