@@ -160,7 +160,7 @@ de:
             maps_enabled: Karten aktiviert
             registration_code_enabled: Registrierungscode aktiviert
             resources_permissions_enabled: Aktionsberechtigungen können für jede Veranstaltung festgelegt werden
-            scope_id: Bereich
+            scope_id: Umfang
             scopes_enabled: Bereiche aktiviert
             terms_and_conditions_url_for_meeting_creators: URL zu den Nutzungsbedingungen für Veranstaltungsersteller
           step:
