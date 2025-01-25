@@ -202,8 +202,6 @@ sq:
             comments_max_length: Madhësia maks. e komenteve
             display_progress_enabled: Shfaq ecurinë
             intro: Hyrje
-            scope_id: Fushëveprimi
-            scopes_enabled: Fushveprimet e aktivizuara
           step:
             comments_blocked: Komentet të bllokuara
     events:
