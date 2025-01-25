@@ -76,6 +76,8 @@ el:
     'false': 'Όχι'
     'true': 'Ναι'
   date:
+    buttons:
+      select: Επιλέξτε
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -387,8 +389,6 @@ el:
             dummy_global_translatable_text: Εικονικό μετατρέψιμο κείμενο
             enable_pads_creation: Ενεργοποίηση δημιουργίας πινάκων σημειώσεων
             resources_permissions_enabled: Τα δικαιώματα πόρων ενεργοποιήθηκαν
-            scope_id: Πεδίο εφαρμογής
-            scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
           step:
             amendment_creation_enabled: Η δημιουργία τροποποίησης ενεργοποιήθηκε
             amendment_promotion_enabled: Η προώθηση τροποποίησης ενεργοποιήθηκε
@@ -1098,16 +1098,7 @@ el:
         error: Υπήρξε ένα πρόβλημα κατά την ενέργεια επιδοκιμασίας.
     scopes:
       global: Καθολικό πεδίο εφαρμογής
-      picker:
-        cancel: Ακύρωση
-        change: Αλλαγή επιλεγμένου πεδίου εφαρμογής
-        choose: Επιλέξτε
-        currently_selected: Τρέχων επιλεγμένο πεδίο εφαρμογής
-        title: Επιλέξτε πεδίο %{field}
       prompt: Επιλέξτε πεδίο εφαρμογής
-      scopes: Πεδία εφαρμογής
-      scopes_picker_input:
-        select_scope: 'Επιλέξτε ένα πεδίο εφαρμογής (Τρέχων: %{current})'
     search:
       results: Αποτελέσματα αναζήτησης
       results_found_for_term: '%{count} αποτελέσματα για την αναζήτηση του όρου: «%{term}»'
@@ -1405,6 +1396,8 @@ el:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Επιλέξτε
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
