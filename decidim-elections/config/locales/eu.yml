@@ -396,7 +396,7 @@ eu:
           report_missing_trustee: "% {user_name} parte-hartzaileak jakinarazi zion % {trustee_name} ri desagertutako bermatzaile gisa % {space_name} aukeraren % {resource_name} zenbaketan Iragarki-taulan"
           setup: "%{user_name} parte-hartzaileak sortu du %{space_name} ko %{resource_name} hautaketa Iragarki Taulan"
           start_key_ceremony: "%{user_name} parte-hartzaileak hasi du kontaketa %{resource_name} hautaketarako Iragarki Taulan"
-          start_tally: "%{user_name} parte-hartzaileak hasi zuen kontaketa %{resource_name} aukerarako Iragarki Taulan"
+          start_tally: "%{user_name} parte-hartzaileak hasi du kontaketa %{resource_name} aukerarako Iragarki Taulan"
           start_vote: "%{user_name} parte-hartzaileak hasi du bozketaldia %{space_name} ko %{resource_name} hautaketarako Iragarki Taulan"
           unpublish: "%{user_name} parte-hartzaileak despublikatu du %{space_name} ko %{resource_name} hautaketa"
           update: "%{user_name} parte-hartzaileak eguneratu du %{space_name} ko %{resource_name} hautaketa"
@@ -541,7 +541,7 @@ eu:
         trustees_participatory_space:
           fields:
             considered: kontuan hartuta
-            email: E-maila
+            email: Helbide elektronikoa
             inactive: inaktibo
             name: Izena
             notification: Jakinarazpena egun honetan bidali zen
@@ -861,11 +861,11 @@ eu:
               code: Kodea
           monitoring_committee_member:
             fields:
-              email: E-maila
+              email: Helbide elektronikoa
               name: Izena
           polling_officer:
             fields:
-              email: E-maila
+              email: Helbide elektronikoa
               name: Izena
               polling_station: Bozketa-gunea (rola)
           polling_station:
