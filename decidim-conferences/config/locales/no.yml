@@ -21,8 +21,6 @@
         published_at: Publisert på
         registration_terms: Registreringsvilkår
         registrations_enabled: Registreringer aktivert
-        scope_id: Tema
-        scopes_enabled: Aktiverte temaer
         short_description: Kort beskrivelse
         show_statistics: Vis statistikk
         sign_date: Underskriftsdato
