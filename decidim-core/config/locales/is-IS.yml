@@ -24,6 +24,8 @@ is:
     'false': 'Nei'
     'true': 'Já'
   date:
+    buttons:
+      select: Veldu
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
@@ -264,7 +266,6 @@ is:
     scopes:
       global: Global umfang
       picker:
-        cancel: Hætta við
         choose: Veldu
         title: Veldu %{field}
       prompt: Veldu umfang
@@ -358,6 +359,8 @@ is:
     weibo: Sina Weibo
     xing: Xing
   time:
+    buttons:
+      select: Veldu
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
