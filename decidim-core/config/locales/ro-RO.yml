@@ -84,7 +84,7 @@ ro:
   date:
     buttons:
       close: Închideți
-      select: Selectați
+      select: Selectare
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -1158,7 +1158,7 @@ ro:
     scopes:
       global: Domeniul global de interes
       picker:
-        cancel: Anulează
+        cancel: Anulați
         change: Schimbă domeniul selectat
         choose: Selectare
         currently_selected: Domeniul selectat în prezent
@@ -1536,6 +1536,8 @@ ro:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Selectare
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
