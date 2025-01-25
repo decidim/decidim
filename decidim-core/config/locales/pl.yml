@@ -378,10 +378,8 @@ pl:
         explanation: Uzyskaj weryfikację, wprowadzając numer dokumentu kończący się na "X".
         fields:
           allowed_postal_codes: Dozwolone kody pocztowe (oddzielone przecinkami)
-          allowed_scope_id: Dozwolony zakres
           document_number: Numer dokumentu
           postal_code: Kod pocztowy
-          scope_id: Niniejsze rozporządzenie stosuje się od dnia 1 stycznia 2018 r.
         name: Przykładowa autoryzacja
       dummy_authorization_workflow:
         name: Przykładowy proces autoryzacji
@@ -475,8 +473,6 @@ pl:
             dummy_global_translatable_text: Przykładowy tekst do tłumaczenia
             enable_pads_creation: Włącz tworzenie padów
             resources_permissions_enabled: Włączono uprawnienia do zasobów
-            scope_id: Zakres
-            scopes_enabled: Zakresy włączone
           step:
             amendment_creation_enabled: Tworzenie poprawek włączone
             amendment_promotion_enabled: Promowanie poprawek włączone
@@ -1394,16 +1390,7 @@ pl:
         error: Wystąpił błąd podczas udzielania rekomendacji.
     scopes:
       global: Zakres globalny
-      picker:
-        cancel: Anuluj
-        change: Zmień wybrany zakres
-        choose: Wybierz
-        currently_selected: Aktualnie wybrany zakres
-        title: Wybierz %{field}
       prompt: Wybierz zakres
-      scopes: Zakresy
-      scopes_picker_input:
-        select_scope: 'Wybierz zakres (obecny: %{current})'
     search:
       name: Szukaj
       results: Wyniki wyszukiwania
