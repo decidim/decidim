@@ -169,8 +169,6 @@ ca:
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             registration_code_enabled: Codi d'inscripció habilitat
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
-            scope_id: Àmbit
-            scopes_enabled: Àmbits habilitats
             taxonomy_filters: Seleccionar filtres pel component
             taxonomy_filters_add: Afegir un filtre
             terms_and_conditions_url_for_meeting_creators: URL de termes i condicions per creadores de trobades
