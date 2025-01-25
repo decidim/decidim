@@ -126,8 +126,6 @@ nl:
             proposal_limit: Beperking van het aantal voorstellen per gebruiker
             proposal_wizard_step_1_help_text: Helptekst "Maak" bij het maken van een nieuw voorstel
             resources_permissions_enabled: Actiemachtigingen kunnen voor elk voorstel worden ingesteld
-            scope_id: Scope
-            scopes_enabled: Scopes ingeschakeld
             threshold_per_proposal: Limiet per voorstel
           step:
             amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
