@@ -1895,6 +1895,7 @@ pt-BR:
     buttons:
       close: Fechar
       reset: Resetar
+      select: Selecionar
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
