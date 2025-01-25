@@ -220,8 +220,6 @@ cs:
             proposal_wizard_step_1_help_text: Text průvodce kroku nápovědy "Vytvořit" Návrh
             proposal_wizard_step_2_help_text: Text nápovědy ke kroku "Zveřejnit" průvodce návrhem
             resources_permissions_enabled: Pro každý návrh lze nastavit oprávnění akce
-            scope_id: Oblast působnosti
-            scopes_enabled: Oblasti působnosti povoleny
             taxonomy_filters: Vyberte filtry pro komponentu
             taxonomy_filters_add: Přidat filtr
             threshold_per_proposal: Prah na návrh
