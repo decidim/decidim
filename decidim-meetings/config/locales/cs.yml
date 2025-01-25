@@ -173,8 +173,6 @@ cs:
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             registration_code_enabled: Registrační kód povolen
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
-            scope_id: Oblast působnosti
-            scopes_enabled: Oblasti působnosti povoleny
             taxonomy_filters: Vyberte filtry pro komponentu
             taxonomy_filters_add: Přidat filtr
             terms_and_conditions_url_for_meeting_creators: URL pro Zásady a podmínky ke schůzce tvůrců
