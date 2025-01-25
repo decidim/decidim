@@ -3,14 +3,12 @@ zh-CN:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: 范围
         description: 描述
         title: 标题
         total_budget: 预算总额
       project:
         budget_amount: 预算金额
         decidim_category_id: 类别
-        decidim_scope_id: 范围
         description: 描述
         proposal_ids: 有关提议
         title: 标题
@@ -19,11 +17,6 @@ zh-CN:
       decidim/budgets/project:
         other: 项目
   decidim:
-    admin:
-      filters:
-        projects:
-          scope_id_eq:
-            label: 范围
     budgets:
       actions:
         attachment_collections: 文件夹
@@ -121,7 +114,6 @@ zh-CN:
             other: "%{count} 个项目"
         filters:
           category: 类别
-          scope: 范围
           search: 搜索
           status: 状态
           status_values:
@@ -158,7 +150,6 @@ zh-CN:
             landing_page_content: 预算登陆页
             more_information_modal: 更多信息模式
             projects_per_page: 每页项目数
-            scope_id: 范围
             scopes_enabled: 范围已启用
             title: 标题
             total_budget: 预算总额
