@@ -25,8 +25,6 @@ fi-pl:
           announcement: Ilmoitus
           global:
             announcement: Ilmoitus
-            scope_id: Teema
-            scopes_enabled: Teemat käytössä
           step:
             announcement: Ilmoitus
     events:
