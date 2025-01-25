@@ -44,8 +44,6 @@ de:
         promoted: Hervorgehoben
         published_at: Veröffentlicht am
         purpose_of_action: Handlungszweck
-        scope_id: Umfang
-        scopes_enabled: Bereiche aktiviert
         short_description: Kurze Beschreibung
         slug: URL-Block
         special_features: Besondere Merkmale
@@ -248,7 +246,6 @@ de:
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             duration: Aktiv bis
             duration_help: Wenn die Dauer dieses Gremiums begrenzt ist, dann wählen Sie hier das Enddatum aus. Andernfalls wird das Datum als unbestimmt angezeigt.
-            filters: Filter
             images: Bilder
             included_at_help: Wählen Sie das Datum aus, an dem dieses Gremium zur Plattform hinzugefügt wurde. Das Datum muss nicht zwingend mit dem Gründungsdatum übereinstimmen.
             metadata: Metadaten
@@ -256,7 +253,6 @@ de:
             other: Andere
             private_notice: Sie werden in der Lage sein, private Teilnehmer zu verwalten, nachdem Sie das Gremium als privat festgelegt haben
             select_a_created_by: Wählen Sie eine erstellt von aus
-            select_an_area: Wählen Sie einen Bereich
             select_parent_assembly: Übergeordnetes Gremium auswählen
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
