@@ -169,8 +169,6 @@ de:
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             registration_code_enabled: Registrierungscode aktiviert
             resources_permissions_enabled: Aktionsberechtigungen können für jede Veranstaltung festgelegt werden
-            scope_id: Bereich
-            scopes_enabled: Bereiche aktiviert
             taxonomy_filters: Filter für die Komponente auswählen
             taxonomy_filters_add: Filter hinzufügen
             terms_and_conditions_url_for_meeting_creators: URL zu den Nutzungsbedingungen für Veranstaltungsersteller
