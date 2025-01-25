@@ -79,7 +79,7 @@ tr:
             enable_pads_creation: Altlık oluşturmayı etkinleştirin
             registration_code_enabled: Kayıt kodu etkinleştirildi
             resources_permissions_enabled: Her toplantı için işlem izinleri ayarlanabilir
-            scope_id: Kapsam
+            scope_id: kapsam
             scopes_enabled: Kapsamlar etkinleştirildi
             terms_and_conditions_url_for_meeting_creators: Toplantı oluşturucuları için şartlar ve koşullar URL'si
           step:
