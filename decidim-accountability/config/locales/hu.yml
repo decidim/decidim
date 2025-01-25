@@ -262,7 +262,7 @@ hu:
             heading_leaf_level_results: '"Projektek" neve'
             heading_parent_level_results: '"Eredmények" neve'
             intro: Intro
-            scope_id: Hatáskör
+            scope_id: Hatókör
             scopes_enabled: Hatáskörök engedélyezve
             subcategories_label: '"Alkategóriák" neve'
           step:
