@@ -47,6 +47,7 @@ fr-CA:
         deleted_results_info: Les résultats supprimés peuvent être restaurés à partir de la corbeille.
         destroy: Supprimer
         edit: Modifier
+        import: Importer les résultats d'un autre composant
         import_csv: Importer les résultats depuis un fichier CSV
         new_result: Nouvelle réalisation
         new_status: Nouveau statut
@@ -59,6 +60,25 @@ fr-CA:
         exports:
           result_comments: Commentaires
           results: Réalisations
+        import_components:
+          create:
+            invalid: Il y a eu un problème lors de l'importation des résultats, veuillez suivre attentivement les instructions et assurez-vous que vous avez sélectionné les projets à mettre en œuvre.
+          filters:
+            new_items_proposals:
+              one: 1 proposition sera importée
+              other: "%{count} propositions seront importées"
+            proposal_state: Statut de la proposition
+            select_state: Sélectionnez le statut
+          form:
+            create: Importer
+            no_components: Il n'y a aucun composant dans cet espace participatif à importer.
+            origin_component_id: Composant d'origine
+            select_component: Sélectionnez un composant
+          new:
+            success:
+              one: 1 résultat mis en file d'attente pour être importé. Vous serez notifié par e-mail une fois l'importation terminée.
+              other: "%{count} résultats ont été mis en file d'attente pour être importés. Vous serez notifié par e-mail une fois l'importation terminée."
+            title: Importer les résultats d'un autre composant
         import_results:
           new:
             download_export: Télécharger l'export au format CSV
@@ -192,6 +212,13 @@ fr-CA:
             other: "%{count} réalisations ont été importées depuis des projets."
           subject: Importation des projets réalisée avec succès
           success: Projets importés avec succès dans la fonctionnalité %{component_name}. Vous pouvez consulter les réalisations dans l'interface d'administration.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Un résultat a été importé depuis les propositions
+            other: "%{count} résultats ont été importés depuis les propositions."
+          subject: Importation des propositions réussie
+          success: Propositions importées avec succès dans les résultats du composant %{component_name} . Vous pouvez consulter les résultats dans l'interface d'administration.
       last_activity:
         new_result: 'Nouvelle réalisation :'
       models:
@@ -257,8 +284,6 @@ fr-CA:
             geocoding_enabled: Cartes activées
             intro: Introduction
             no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
-            scope_id: Secteur
-            scopes_enabled: Secteurs activés
             taxonomy_filters: Sélectionner les filtres pour la fonctionnalité
             taxonomy_filters_add: Ajouter un filtre
           step:
