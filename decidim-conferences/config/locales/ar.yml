@@ -21,8 +21,6 @@ ar:
         published_at: نشرت في
         registration_terms: شروط التسجيل
         registrations_enabled: التسجيلات مفعلة
-        scope_id: نطاق
-        scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
         show_statistics: عرض الإحصائيات
         sign_date: تاريخ التوقيع
