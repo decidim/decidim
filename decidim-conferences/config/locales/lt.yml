@@ -21,8 +21,6 @@ lt:
         published_at: Publikuota
         registration_terms: Registracijos sąlygos
         registrations_enabled: Registracijos įjungtos
-        scope_id: Apimtis
-        scopes_enabled: Sritys įjungtos
         short_description: Trumpas aprašymas
         show_statistics: Rodyti statistiką
         sign_date: Pasirašymo data
