@@ -32,6 +32,7 @@ cs:
         import_components: Importovat komponenty
         included_at: Zahrnuty v
         instagram: Instagram
+        internal_organisation: Vnitřní organizace
         is_transparent: Transparentní
         local_area: Oblast působnosti organizace
         meta_scope: Metadata Oblasti působnosti
@@ -43,8 +44,6 @@ cs:
         promoted: Propagováno
         published_at: Publikováno v
         purpose_of_action: Účel akce
-        scope_id: Oblast působnosti
-        scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis
         slug: URL slug
         special_features: Speciální funkce
@@ -209,6 +208,9 @@ cs:
             collaborator: Spolupracovník
             moderator: Moderátor
             valuator: Hodnotitel
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: Všechna shromáždění
       titles:
         assemblies: Shromáždění
         assemblies_deleted: Smazané shromáždění
@@ -250,7 +252,6 @@ cs:
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
             duration_help: Pokud je doba trvání tohoto shromáždění omezená, zvolte konečné datum, jinak se objeví jako neurčitá.
-            filters: Filtry
             images: Obrázky
             included_at_help: Vyberte datum, kdy byla tato sestava přidána na platformu. Nemusí být nutně stejné jako datum vytvoření.
             metadata: Metadata
@@ -258,7 +259,6 @@ cs:
             other: Ostatní
             private_notice: Budete moci spravovat soukromé účastníky po nastavení jako soukromé
             select_a_created_by: Vybrat vytvořeno od
-            select_an_area: Vyberte oblast
             select_parent_assembly: Vybrat nadřazené shromáždění
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
             social_handlers: Sociální
