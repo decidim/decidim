@@ -209,8 +209,6 @@ pl:
             comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
             display_progress_enabled: Wyświetl postęp
             intro: Wprowadzenie
-            scope_id: Zakres
-            scopes_enabled: Zakresy włączone
           step:
             comments_blocked: Komentarze zablokowane
     events:
