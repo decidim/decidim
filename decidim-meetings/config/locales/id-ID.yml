@@ -66,6 +66,7 @@ id:
             default_registration_terms: Ketentuan pendaftaran default
             enable_pads_creation: Aktifkan pembuatan bantalan
             resources_permissions_enabled: Izin tindakan dapat diatur untuk setiap pertemuan
+            scope_id: Cakupan
           step:
             announcement: Pengumuman
             comments_blocked: Komentar diblokir
