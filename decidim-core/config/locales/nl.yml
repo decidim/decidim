@@ -963,7 +963,7 @@ nl:
     scopes:
       global: Globale scope
       picker:
-        cancel: Annuleer
+        cancel: annuleren
         change: Wijzig geselecteerde scope
         choose: Selecteer
         currently_selected: Momenteel geselecteerde scope
