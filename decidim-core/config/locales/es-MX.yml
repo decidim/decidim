@@ -8,6 +8,8 @@ es-MX:
         photos: Fotos
       common:
         created_at: Creado el
+      component:
+        taxonomy_filters: Filtros de taxonomía
       content_block_attachment:
         background_image: Imagen de fondo
         main_image: Imagen principal
@@ -32,7 +34,10 @@ es-MX:
       taxonomy:
         name: Nombre de la taxonomía
       taxonomy_filter:
+        internal_name: Etiqueta interna
+        name: Etiqueta
         root_taxonomy_id: Desde la taxonomía
+        space_filter: Disponible como filtro para
       user:
         about: Acerca de
         avatar: Imagen de perfil
@@ -301,6 +306,13 @@ es-MX:
         delete_with_parent: "%{user_name} ha borrado \"%{resource_name}\" dentro de la taxonomía \"%{parent_taxonomy}\""
         update: "%{user_name} ha actualizado la taxonomía \"%{resource_name}\""
         update_with_parent: "%{user_name} ha actulizado \"%{resource_name}\" dentro de la taxonomía \"%{parent_taxonomy}\""
+      taxonomy_filter:
+        create: "%{user_name} creó el filtro %{resource_name}"
+        create_with_filter_info: '%{user_name} creó el filtro %{resource_name} basado en la taxonomía "%{taxonomy_name}" con %{filter_items_count} elemento(s)'
+        delete: "%{user_name} eliminó el filtro %{resource_name}"
+        delete_with_filter_info: '%{user_name} eliminó el filtro %{resource_name} basado en la taxonomía "%{taxonomy_name}" con %{filter_items_count} elemento(s)'
+        update: "%{user_name} actualizó el filtro %{resource_name}"
+        update_with_filter_info: '%{user_name} actualizó el filtro %{resource_name} basado en la taxonomía "%{taxonomy_name}" con %{filter_items_count} elemento(s)'
       user:
         block: "%{user_name} ha bloqueado a la usuaria %{resource_name}"
         bulk_block: "%{user_name} ha bloqueado a %{blocked_count} usuarias"
@@ -439,10 +451,8 @@ es-MX:
         explanation: Verifícate introduciendo un número de documento que termine con "X".
         fields:
           allowed_postal_codes: Códigos postales permitidos (separados por comas)
-          allowed_scope_id: Ámbito permitido
           document_number: Número de documento
           postal_code: Código postal
-          scope_id: Ámbito
         name: Autorización de ejemplo
       dummy_authorization_workflow:
         explanation: Ejemplo de flujo de verificación
@@ -451,10 +461,8 @@ es-MX:
         explanation: Verifícate introduciendo un número de documento que termine con "X".
         fields:
           allowed_postal_codes: Códigos postales permitidos (separados por comas)
-          allowed_scope_id: Ámbito permitido
           document_number: Número de documento
           postal_code: Código postal
-          scope_id: Ámbito
         name: Otro ejemplo de autorización
       errors:
         duplicate_authorization: Ya hay una participante autorizada con los mismos datos. Una administradora se pondrá en contacto contigo para verificar tus datos.
@@ -546,8 +554,6 @@ es-MX:
             enable_pads_creation: Habilitar la creación de pads
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             resources_permissions_enabled: Habilitar permisos de recursos
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
             taxonomy_filters: Seleccionar filtros para el componente
           step:
             amendment_creation_enabled: Creación de enmienda activada
@@ -1222,6 +1228,8 @@ es-MX:
         unknown_action_with_space: "%{user_name} realizó una acción en %{resource_name} en %{space_name}"
         unpublish_with_space: "%{user_name} ha despublicado %{resource_name} en %{space_name}"
         update: "%{user_name} actualizó %{resource_name}"
+        update_filters: "%{user_name} actualizó el filtro de %{resource_name}"
+        update_filters_with_space: "%{user_name} actualizó los filtros de %{resource_name} en %{space_name}"
         update_permissions_with_space: "%{user_name} ha actualizado los permisos de %{resource_name} en %{space_name}"
         update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
       value_types:
@@ -1707,16 +1715,7 @@ es-MX:
         error: Se ha producido un error durante la acción de adhesión.
     scopes:
       global: Alcance global
-      picker:
-        cancel: Cancelar
-        change: Cambiar el ámbito seleccionado
-        choose: Seleccionar
-        currently_selected: Ámbito seleccionado actualmente
-        title: Seleccione %{field}
       prompt: Seleccione un ámbito
-      scopes: Ámbitos
-      scopes_picker_input:
-        select_scope: 'Seleccionar un ámbito (actualmente: %{current})'
     search:
       name: Buscar
       results: Resultados de la búsqueda
