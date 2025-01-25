@@ -278,8 +278,6 @@ de:
             geocoding_enabled: Karten aktiviert
             intro: Einführung
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
-            scope_id: Bereich
-            scopes_enabled: Bereiche aktiviert
             taxonomy_filters: Filter für die Komponente auswählen
             taxonomy_filters_add: Filter hinzufügen
           step:
