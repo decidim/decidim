@@ -192,8 +192,6 @@ el:
             comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για το προκαθορισμένο μέγεθος)
             display_progress_enabled: Εμφάνιση προόδου
             intro: Εισαγωγή
-            scope_id: Πεδίο εφαρμογής
-            scopes_enabled: Ενεργοποιημένα πεδία εφαρμογής
           step:
             comments_blocked: Τα σχόλια αποκλείστηκαν
     events:
