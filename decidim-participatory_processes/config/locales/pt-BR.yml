@@ -26,7 +26,7 @@ pt-BR:
         promoted: Destacado
         published_at: Publicado em
         related_process_ids: Processos relacionados
-        scope_id: Âmbito
+        scope_id: Escopo
         scope_type_max_depth_id: Profundidade de filtro de escopo
         scopes_enabled: Âmbitos ativados
         short_description: Descrição curta
