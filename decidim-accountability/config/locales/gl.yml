@@ -162,7 +162,7 @@ gl:
             comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
             display_progress_enabled: Mostrar o progreso
             intro: Intro
-            scope_id: Ámbito
+            scope_id: Alcance
             scopes_enabled: Ámbitos habilitados
           step:
             comments_blocked: Comentarios bloqueados
