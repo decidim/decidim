@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe NewsletterJob do
+    describe NewsletterJob, :with_inline_queue do
       let!(:newsletter) { create(:newsletter, organization:, total_deliveries: 0) }
       let!(:organization) { create(:organization) }
       let!(:another_organization) { create(:organization) }
