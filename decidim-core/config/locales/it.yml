@@ -240,10 +240,8 @@ it:
       dummy_authorization_handler:
         fields:
           allowed_postal_codes: Codici postali consentiti (separati da virgole)
-          allowed_scope_id: Ambito consentito
           document_number: Numero del documento
           postal_code: Codice postale
-          scope_id: Ambito
         name: Esempio di autorizzazione
       dummy_authorization_workflow:
         name: Flusso di lavoro fittizio di autorizzazione
@@ -325,8 +323,6 @@ it:
             dummy_global_translatable_text: Testo traducibile Dummy
             enable_pads_creation: Abilita la creazione di pad
             resources_permissions_enabled: Permessi di risorse abilitati
-            scope_id: Ambito
-            scopes_enabled: Ambiti abilitati
           step:
             amendment_creation_enabled: Creazione di emendamenti abilitata
             amendment_promotion_enabled: Promozione dell'emendamento abilitata
@@ -938,16 +934,7 @@ it:
         error: C'è stato un problema durante l'azione di appoggio.
     scopes:
       global: Ambito globale
-      picker:
-        cancel: Annulla
-        change: Cambia l'ambito selezionato
-        choose: Selezionare
-        currently_selected: Ambito attualmente selezionato
-        title: Seleziona %{field}
       prompt: Seleziona un ambito
-      scopes: Ambiti
-      scopes_picker_input:
-        select_scope: 'Seleziona un ambito (attualmente: %{current})'
     search:
       results: Risultato della ricerca
       results_found_for_term: '%{count} Risultati per la ricerca: "%{term}"'
@@ -1290,6 +1277,8 @@ it:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Selezionare
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
