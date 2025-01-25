@@ -43,8 +43,6 @@ sv:
         promoted: Utvald
         published_at: Publicerad
         purpose_of_action: Syfte
-        scope_id: Indelning
-        scopes_enabled: Aktivera indelningar
         short_description: Kort beskrivning
         slug: URL-slug
         special_features: Specialfunktioner
@@ -232,13 +230,11 @@ sv:
             announcement_help: Den här texten visas direkt under informationen om samrådet.
             duration: Varaktighet
             duration_help: Välj ett slutdatum om samrådet är tidsbegränsat.
-            filters: Filter
             images: Bilder
             included_at_help: Markera datumet när samrådet lades till på plattformen. Det behöver inte nödvändigtvis vara samma som datumet det skapades.
             metadata: Metadata
             other: Övrigt
             select_a_created_by: Välj en skapad av
-            select_an_area: Välj ett område
             select_parent_assembly: Välj överordnat samråd
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
             social_handlers: Sociala medier
