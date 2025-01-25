@@ -961,7 +961,7 @@ tr:
     scopes:
       global: Küresel kapsamı
       picker:
-        cancel: İptal etmek
+        cancel: İptal Et
         change: Seçili kapsamı değiştir
         choose: seçmek
         currently_selected: Şu anda seçili kapsam
