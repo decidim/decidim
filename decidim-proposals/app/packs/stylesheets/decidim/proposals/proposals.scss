@@ -117,7 +117,7 @@
           @apply gap-y-1 md:flex md:flex-row md:items-center md:gap-y-1 md:gap-x-2 md:mt-0.5;
 
           & > div {
-            @apply md:pl-0 md:pr-2
+            @apply md:pl-0 md:pr-2;
           }
         }
       }
@@ -199,7 +199,6 @@
 
     .card__proposals-item {
       @apply flex flex-col justify-between border-solid border-[#D3D5D9] border rounded;
-
 
       .card__grid {
         @apply mb-2.5 md:mb-0 flex-1 justify-between;
