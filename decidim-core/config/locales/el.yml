@@ -77,6 +77,8 @@ el:
     'false': 'Όχι'
     'true': 'Ναι'
   date:
+    buttons:
+      select: Επιλέξτε
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -1438,6 +1440,8 @@ el:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Επιλέξτε
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
