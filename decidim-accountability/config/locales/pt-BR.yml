@@ -263,7 +263,7 @@ pt-BR:
             heading_leaf_level_results: Nome para "Projetos"
             heading_parent_level_results: Nome para "Resultados"
             intro: Introdução
-            scope_id: Escopo
+            scope_id: Âmbito
             scopes_enabled: Escopos habilitados
             subcategories_label: Nome para "Subcategorias"
           step:
