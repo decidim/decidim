@@ -131,8 +131,6 @@ ro:
             maps_enabled: Hărți activate
             registration_code_enabled: Cod de înregistrare activat
             resources_permissions_enabled: Drepturile de acțiune pot fi setate pentru fiecare întâlnire
-            scope_id: Domeniu de interes
-            scopes_enabled: Domenii de interes activate
             terms_and_conditions_url_for_meeting_creators: URL condiții pentru întrunirea creatorilor
           step:
             announcement: Anunţ
