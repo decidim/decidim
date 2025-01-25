@@ -31,7 +31,7 @@ el:
         promoted: Προωθήθηκε
         published_at: Δημοσιεύτηκε στις
         related_process_ids: Σχετικές διαδικασίες
-        scope_id: Πεδίο εφαρμογής
+        scope_id: Πεδία εφαρμογής
         scope_type_max_depth_id: Βάθος φίλτρου πεδίου εφαρμογής
         scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
         short_description: Σύντομη περιγραφή
