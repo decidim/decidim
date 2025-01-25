@@ -38,8 +38,6 @@ lb:
         promoted: Hervorgehoben
         published_at: Veröffentlicht am
         purpose_of_action: Zweck der Aktion
-        scope_id: Umfang
-        scopes_enabled: Bereiche aktiviert
         short_description: Kurze Beschreibung
         slug: URL-Block
         special_features: Besondere Merkmale
