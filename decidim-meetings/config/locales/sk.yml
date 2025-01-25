@@ -75,6 +75,7 @@ sk:
             default_registration_terms: Východiskové podmienky registrácia
             enable_pads_creation: Povoliť vytvorenie zdieľaného texte
             resources_permissions_enabled: Nastavenie povolení možno nastaviť pre každú schôdzku
+            scope_id: Rozsah
           step:
             announcement: Oznámenie
             comments_blocked: Komentáre blokované
