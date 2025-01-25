@@ -28,7 +28,7 @@ eu:
       initiatives_settings:
         initiatives_order: Ordena
       initiatives_type:
-        area_enabled: Gaitu egileak beren ekimenerako eremua aukeratzeko
+        area_enabled: Gaitu egileak beren ekimenerako arloa aukeratzeko
         attachments_enabled: Gaitu eranskinak
         banner_image: Banner irudia
         child_scope_threshold_enabled: Gaitu sinadurak azpiesparruaren arabera
@@ -191,7 +191,7 @@ eu:
       badges:
         initiatives:
           conditions:
-            - Joan zaitez Intiatives-ko partaidetza eremura
+            - Joan zaitez Intiatives-ko partaidetza espaziora
             - Jarraitu urrats berriak beste ekimen bat sortzeko
           description: Garaikur hau ekimen berriak martxan jartzean ematen da, beste batzuekin partekatuz horiek lortzeko.
           description_another: Parte-hartzaile honek %{score} ekimen argitaratzea lortu du.
@@ -489,7 +489,7 @@ eu:
             other: "%{count} ekimenak"
         filters:
           any: Edozein
-          area: Area
+          area: Arloa
           author: Egilea
           myself: Nire ekimenak
           scope: Esparrua
@@ -516,7 +516,7 @@ eu:
           address: Helbidea
           author_title: Ekimenaren egilea
           city: Hiria
-          email: E-maila
+          email: Helbide elektronikoa
           full_name: Izen osoa
           general_title: Ekimen batean onartzeko eskaera
           id_number: ID zenbakia
