@@ -44,8 +44,6 @@ es-MX:
         promoted: Destacado
         published_at: Publicado
         purpose_of_action: Propósito de la acción
-        scope_id: Ámbito
-        scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
         slug: Texto corto de URL
         special_features: Características especiales
@@ -204,6 +202,9 @@ es-MX:
             collaborator: Colaborador
             moderator: Moderador
             valuator: Evaluadora
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: Todas las asambleas
       titles:
         assemblies: Asambleas
         assemblies_deleted: Asambleas eliminadas
@@ -245,7 +246,6 @@ es-MX:
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
             duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
-            filters: Filtros
             images: Imágenes
             included_at_help: Selecciona la fecha en la que se añadió esta asamblea a la plataforma. No es necesario que sea la misma que la fecha de creación.
             metadata: Metadatos
@@ -253,7 +253,6 @@ es-MX:
             other: Otro
             private_notice: Podrás administrar las participantes privadas después de configurar el espacio como privado
             select_a_created_by: Selecciona creada por
-            select_an_area: Seleccione un Área
             select_parent_assembly: Selecciona asamblea principal
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
