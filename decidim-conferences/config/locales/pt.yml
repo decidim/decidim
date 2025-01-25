@@ -21,8 +21,6 @@ pt:
         published_at: Publicado em
         registration_terms: Termos de registo
         registrations_enabled: Registos ativados
-        scope_id: Âmbito
-        scopes_enabled: Âmbitos ativados
         short_description: Breve descrição
         show_statistics: Mostrar estatísticas
         sign_date: Data de assinatura
