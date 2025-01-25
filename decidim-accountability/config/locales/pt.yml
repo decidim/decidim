@@ -173,8 +173,6 @@ pt:
             display_progress_enabled: Mostrar progresso
             intro: Introdução
             no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
-            scope_id: Âmbito
-            scopes_enabled: Âmbitos activados
             taxonomy_filters: Selecione filtros para a funcionalidade
             taxonomy_filters_add: Adicionar filtro
           step:
