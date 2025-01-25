@@ -344,10 +344,8 @@ hu:
         explanation: Ellenőriztesd magad egy "X" betűvel végződő dokumentum számmal.
         fields:
           allowed_postal_codes: Engedélyezett irányítószámok (vesszővel elválasztva)
-          allowed_scope_id: Engedélyezett hatáskör
           document_number: Dokumentum száma
           postal_code: Irányítószám
-          scope_id: Hatáskör
         name: Példa feljogosításra
       dummy_authorization_workflow:
         name: Dummy feljogosítási folyamat
@@ -439,8 +437,6 @@ hu:
             dummy_global_translatable_text: Kenyérszöveg - nem valódi fordítható szöveg
             enable_pads_creation: A közös dokumentum létrehozásának engedélyezése
             resources_permissions_enabled: Erőforrás-engedélyek biztosítva
-            scope_id: Hatáskör
-            scopes_enabled: Hatáskörök engedélyezve
           step:
             amendment_creation_enabled: A módosítás létrehozása engedélyezett
             amendment_promotion_enabled: A módosítás előléptetése engedélyezett
@@ -1286,16 +1282,7 @@ hu:
         error: Hiba történt a támogatási művelet során.
     scopes:
       global: Globális hatáskör
-      picker:
-        cancel: Mégse
-        change: Kiválasztott alkalmazási terület módosítása
-        choose: Kijelölés
-        currently_selected: Jelenleg kiválasztott alkalmazási terület
-        title: '%{field} kijelölése'
       prompt: Válassz hatáskört
-      scopes: Hatáskörök
-      scopes_picker_input:
-        select_scope: 'Alkalmazási terület választása (jelenleg: %{current})'
     search:
       name: Keresés
       results: Keresési eredmények
