@@ -45,6 +45,8 @@ id:
     'false': 'Tidak'
     'true': 'iya nih'
   date:
+    buttons:
+      select: Memilih
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -930,6 +932,8 @@ id:
     weibo: Sina Weibo
     xing: Xing
   time:
+    buttons:
+      select: Memilih
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
