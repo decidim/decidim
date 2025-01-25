@@ -184,7 +184,6 @@ sv:
           selected_projects: 'Du har valt följande projekt:'
           subject: Du har röstat i %{space_name}
           voted_on_space: Du har röstat på budgeten %{budget_name} i %{space_name}.
-          voted_on_space_with_scope: Du har röstat på budgeten %{budget_name} i %{space_name} för %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Om du ändrar dig kan du ändra rösten senare.
@@ -298,8 +297,6 @@ sv:
             more_information_modal: Fönster "Mer information"
             projects_per_page: Projekt per sida
             resources_permissions_enabled: Behörigheter kan ställas in för varje projekt
-            scope_id: Indelning
-            scopes_enabled: Aktivera indelningar
             title: Titel
             total_budget: Total budget
             vote_minimum_budget_projects_number: Minsta antal projekt att rösta på
