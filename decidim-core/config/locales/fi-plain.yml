@@ -451,10 +451,8 @@ fi-pl:
         explanation: Vahvista itsesi syöttämällä X-kirjaimella alkava asiakirjan numero.
         fields:
           allowed_postal_codes: Sallitut postinumerot (erottele pilkuilla)
-          allowed_scope_id: Sallittu teema
           document_number: Organisaatiotunnus (esim. Y-tunnus)
           postal_code: Postinumero
-          scope_id: Teema
         name: Esimerkkivarmennus
       dummy_authorization_workflow:
         explanation: Esimerkkivahvistuksen työnkulku
@@ -463,10 +461,8 @@ fi-pl:
         explanation: Vahvista tilisi syöttämällä asiakirjan numero, joka päättyy kirjaimeen "X".
         fields:
           allowed_postal_codes: Sallitut postinumerot (pilkuilla erotettuna)
-          allowed_scope_id: Sallittu teema
           document_number: Asiakirjan numero
           postal_code: Postinumero
-          scope_id: Teema
         name: Väliaikainen esimerkkivahvistustapa
       errors:
         duplicate_authorization: Osallistuja on jo tunnistettu vastaavilla tiedoilla. Hallintakäyttäjä ottaa sinuun yhteyttä tarkastakseen tietosi.
@@ -558,8 +554,6 @@ fi-pl:
             enable_pads_creation: Ota käyttöön muistioiden luominen
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             resources_permissions_enabled: Resurssien käyttöoikeudet ovat käytössä
-            scope_id: Teema
-            scopes_enabled: Teemat käytössä
             taxonomy_filters: Valitse suodattimet komponentille
           step:
             amendment_creation_enabled: Muutosten luonti on käytössä
@@ -1736,16 +1730,7 @@ fi-pl:
         error: Suosituksen antaminen ei onnistunut.
     scopes:
       global: Yleinen teema
-      picker:
-        cancel: Peruuta
-        change: Muuta valittua teemaa
-        choose: Valitse
-        currently_selected: Tällä hetkellä valittu teema
-        title: Valitse %{field}
       prompt: Valitse teema
-      scopes: Teemat
-      scopes_picker_input:
-        select_scope: 'Valitse teema (tämänhetkinen valinta: %{current})'
     search:
       name: Hae
       results: Hakutulokset
