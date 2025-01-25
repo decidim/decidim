@@ -3,7 +3,7 @@ de:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Bereich
+        decidim_scope_id: Themenbereich
         description: Beschreibung
         title: Titel
         total_budget: Gesamtbudget
@@ -11,7 +11,7 @@ de:
       project:
         budget_amount: Höhe des Budgets
         decidim_category_id: Kategorie
-        decidim_scope_id: Bereich
+        decidim_scope_id: Themenbereich
         description: Beschreibung
         proposal_ids: Ähnliche Vorschläge
         proposals: Vorschläge
@@ -34,7 +34,7 @@ de:
           category_id_eq:
             label: Kategorie
           scope_id_eq:
-            label: Bereich
+            label: Themenbereich
           selected_at_null:
             label: Ausgewählt
             values:
@@ -254,7 +254,7 @@ de:
           title: Sie haben noch nicht abgestimmt
         filters:
           category: Kategorie
-          scope: Bereich
+          scope: Themenbereich
           search: Suche
           status: Status
           status_values:
@@ -334,7 +334,7 @@ de:
             more_information_modal: Weitere Informationen
             projects_per_page: Projekte pro Seite
             resources_permissions_enabled: Berechtigungen können für jedes Projekt festgelegt werden
-            scope_id: Bereich
+            scope_id: Themenbereich
             scopes_enabled: Bereiche aktiviert
             title: Titel
             total_budget: Gesamtbudget; Gesamtetat
