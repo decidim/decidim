@@ -38,8 +38,6 @@ gl:
         promoted: Promocionado
         published_at: Publicado en
         purpose_of_action: Propósito da acción
-        scope_id: Alcance
-        scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
         slug: URL slug
         special_features: Características especiais
@@ -200,13 +198,11 @@ gl:
             announcement_help: O texto que insires aquí amosarase ao participante xusto debaixo da información da xuntanza.
             duration: Duración
             duration_help: Se a duración deste conxunto é limitada, seleccione a data de finalización. Se non, aparecerá como indefinido.
-            filters: Filtros
             images: Imaxes
             included_at_help: Selecciona a data na que engadiches esta xuntanza á plataforma. Non ten por que ser a mesma que a data de creación.
             metadata: Metadatos
             other: Outra
             select_a_created_by: Seleccione un creado por
-            select_an_area: Seleccione unha área
             select_parent_assembly: Seleccione o conxunto primario
             social_handlers: Social
             title: Información xeral
