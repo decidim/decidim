@@ -21,8 +21,6 @@ it:
         published_at: Pubblicato il
         registration_terms: Termini di registrazione
         registrations_enabled: Registrazioni abilitate
-        scope_id: Obiettivo
-        scopes_enabled: Ambiti abilitati
         short_description: Breve descrizione
         show_statistics: Mostra statistiche
         sign_date: Firmato il
