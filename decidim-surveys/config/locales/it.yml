@@ -19,8 +19,6 @@ it:
         settings:
           global:
             announcement: Annuncio
-            scope_id: Obiettivo
-            scopes_enabled: Obiettivi abilitati
           step:
             announcement: Annuncio
     events:
