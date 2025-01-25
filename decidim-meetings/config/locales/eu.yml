@@ -381,7 +381,7 @@ eu:
           deleted: "%{user_name}-k %{attendee_name}-ri gonbidapena egiteari utzi dio %{space_name} espazioan parte hartzeko"
           update: "%{user_name} parte-hartzaileak %{attendee_name} gonbidatu du %{space_name} espazioan parte hartzeko"
         meeting:
-          close: "%{user_name} parte-hartzaileak %{space_name} ko %{resource_name} topaketa itxi du"
+          close: "%{user_name} parte-hartzaileak %{space_name} espazioko %{resource_name} topaketa itxi du"
           create: "%{user_name} parte-hartzaileak %{resource_name} topaketa sortu du %{space_name} espazioan"
           delete: "%{user_name} parte-hartzaileak %{resource_name} topaketa ezabatu du %{space_name} espazioan"
           export_registrations: "%{user_name} parte-hartzailea %{resource_name} topaketarako erregistroak esportatu ditu %{space_name} espazioan"
