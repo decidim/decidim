@@ -94,7 +94,12 @@ eu:
           new:
             create: Inportatu
             import_all_selected_projects: Inportatu inplementatzeko aukeratu dituzun proiektu guztiak
+            new_items:
+              one: Aukeratutako proiektu bat inportatuko da
+              other: "Hautatutako %{count} proiektu inportatuko dira"
             no_components: Ez dago aurrekontuen osagairik parte-hartze espazio honetan proiektuak emaitzetara inportatzeko.
+            origin_component_id: Jatorrizko osagaia
+            select_component: Hautatu osagaia
             success:
               one: Proiektu 1 ilaran dago inportazioaren zain. Eginda dagoenean posta elektronikoz jakinaraziko zaizu.
               other: "%{count} proiektu inportazioaren zain. Eginda dagoenean posta elektronikoz jakinaraziko zaizu."
@@ -264,7 +269,7 @@ eu:
             display_progress_enabled: Erakutsi aurrerapena
             heading_leaf_level_results: '"Proiektuak" izena'
             heading_parent_level_results: '"Emaitzak" izena'
-            intro: Intro
+            intro: Sarrera
             scope_id: Esparrua
             scopes_enabled: Esparruak gaituta
             subcategories_label: '"Azpikategoriak" izena'
