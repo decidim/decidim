@@ -21,8 +21,6 @@ hu:
         published_at: Megjelent a
         registration_terms: Regisztrációs feltételek
         registrations_enabled: Regisztráció engedélyezve
-        scope_id: terület
-        scopes_enabled: A hatókör engedélyezett
         short_description: Rövid leírás
         show_statistics: Statisztikák megjelenítése
         signature: Aláírás
