@@ -280,7 +280,7 @@ ar:
             heading_leaf_level_results: اسم "المشاريع"
             heading_parent_level_results: اسم "النتائج"
             intro: مقدمة
-            scope_id: النطاق
+            scope_id: نطاق
             scopes_enabled: النطاقات مفعلة
             subcategories_label: اسم "الفئات الفرعية"
           step:
