@@ -235,7 +235,6 @@ eu:
           selected_projects: 'Hautatu dituzun proiektuak hauek dira:'
           subject: Botoa eman duzu parte hartzeko esparru honetan %{space_name}
           voted_on_space: Botoa eman duzu %{budget_name} aurrekontuan %{space_name} parte hartzeko esparrurako.
-          voted_on_space_with_scope: Botoa eman duzu %{budget_name} aurrekontuan %{space_name} de %{scope_name} (%{scope_type}) parte hartzeko esparruan.
       projects:
         budget_confirm:
           are_you_sure: Iritzia aldatzen baduzu, zure botoa alda dezakezu geroago.
@@ -352,8 +351,6 @@ eu:
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             projects_per_page: Orrialde bakoitzeko proiektuak
             resources_permissions_enabled: Ekintza-baimenak ezarri ahal dira proiektu bakoitzerako
-            scope_id: Esparrua
-            scopes_enabled: Eremuak gaituta
             taxonomy_filters: Hautatu iragazkiak osagairako
             taxonomy_filters_add: Erantsi iragazkia
             title: Izenburua
