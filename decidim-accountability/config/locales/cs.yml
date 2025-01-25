@@ -63,12 +63,15 @@ cs:
           results: Výsledky
         import_components:
           filters:
+            proposal_state: Stav návrhu
             select_state: Vybrat status
           form:
             create: Import
             no_components: V tomto participačním prostoru nejsou žádné komponenty pro import.
             origin_component_id: Původ komponenty
             select_component: Vybrat komponentu
+          new:
+            title: Importovat výsledky z jiné komponenty
         import_results:
           new:
             download_export: Stáhnout export s CSV formátem
@@ -204,6 +207,9 @@ cs:
             other: "%{count} výsledků bylo importováno z projektů."
           subject: Úspěšný import projektů
           success: Úspěšný import projektů do výsledků v komponentě %{component_name}. Výsledky si můžete prohlédnout v administračním rozhraní.
+      import_proposals_mailer:
+        import:
+          subject: Úspěšný import návrhů
       last_activity:
         new_result: 'Nový výsledek:'
       models:
@@ -271,8 +277,6 @@ cs:
             geocoding_enabled: Mapy povoleny
             intro: Intro
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
-            scope_id: Oblast působnosti
-            scopes_enabled: Oblast působnosti povolena
             taxonomy_filters: Vyberte filtry pro komponentu
             taxonomy_filters_add: Přidat filtr
           step:
