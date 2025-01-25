@@ -28,9 +28,6 @@ eu:
         promoted: Nabarmendua
         published_at: Argitaratze-data
         related_process_ids: Elkarrekin lotutako prozesuak
-        scope_id: Esparrua
-        scope_type_max_depth_id: Esparruaren iragazkiaren sakonera
-        scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
         slug: URL laburra
         start_date: Hasiera-data
@@ -448,14 +445,11 @@ eu:
             announcement_help: Hemen sartzen duzun testua parte-hartzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
-            filters: iragazkiak
             images: Irudiak
             metadata: Metadatuak
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             private_notice: Kiak kudeatu ahal izango dituzu pribatu gisa ezarri ondoren
             related_processes: Elkarrekin lotutako prozesuak
-            scope_type_max_depth_help: Murriztu esparru-iragazkiaren sakonera; iragazkia esparru orokorretik hautatutakora erakutsiko da.
-            select_an_area: Hautatu eremu bat
             select_process_group: Hautatu prozesu-talde bat
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
             taxonomies: Taxonomiak
