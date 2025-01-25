@@ -14,7 +14,7 @@ eu:
         selected: Ezarpenerako hautatuak
         title: Izenburua
       proposals_import:
-        scope_id: Eremua
+        scope_id: Esparrua
   activerecord:
     models:
       decidim:
@@ -98,7 +98,7 @@ eu:
             actions: Ekintzak
             cancel: Ezeztatu
             change_budget: Aldatu aurrekontua
-            change_selected: Aldatu hautatutako eremua
+            change_selected: Aldatu hautatutako esparrua
             change_taxonomies: Aldatu taxonomiak
             deselect_implementation: Kendu gauzatzekoetatik
             finished_orders: Amaitutako botoak
@@ -157,17 +157,17 @@ eu:
               other: Gogorarazpen bat bidaltzear zaude posta elektronikoz % {count} parte-hartzaileri
       admin_log:
         budget:
-          create: "%{user_name} parte-hartzaileak sortu du %{resource_name} aurrekontua %{space_name} esparruan"
-          delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} aurrekontua %{space_name} esparruan"
+          create: "%{user_name} parte-hartzaileak sortu du %{resource_name} aurrekontua %{space_name} espazioan"
+          delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} aurrekontua %{space_name} espazioan"
           restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} aurrekontua hemen: %{space_name}"
           soft_delete: "%{user_name} parte-hartzaileak eraman du hemengo: %{space_name} %{resource_name} aurrekontua zaborrontzira"
-          update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} aurrekontua %{space_name} esparruan"
+          update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} aurrekontua %{space_name} espazioan"
         project:
-          create: "%{user_name} parte-hartzaileak %{resource_name} proiektua %{space_name} espazioan sortu zen"
+          create: "%{user_name} parte-hartzaileak %{resource_name} proiektua %{space_name} espazioan sortu da"
           delete: "%{user_name} parte-hartzaileak %{resource_name} proiektua %{space_name} espazioan ezabatu da"
           restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} proiektua hemen: %{space_name}"
-          soft_delete: "%{user_name} k eraman du hemengo: %{space_name} %{resource_name} proiektua zaborrontzira"
-          update: "%{user_name} k %{resource_name} proiektuaren %{space_name} espazio eguneratu du"
+          soft_delete: "%{user_name} parte-hartzaileak eraman du hemengo: %{space_name} %{resource_name} proiektua zaborrontzira"
+          update: "%{user_name} parte-hartzaileak %{resource_name} proiektua %{space_name} espazioan sortu da"
       budget_information_modal:
         back_to: Itzuli hona %{component_name}
         close_modal: Itxi modala
@@ -214,7 +214,7 @@ eu:
             id: ID
             map: Mapa
             taxonomies: Taxonomiak
-            title: Titulua
+            title: Izenburua
       order:
         status:
           continue_voting: Jarraitu bozkatzen
@@ -233,8 +233,8 @@ eu:
       order_summary_mailer:
         order_summary:
           selected_projects: 'Hautatu dituzun proiektuak hauek dira:'
-          subject: Botoa eman duzu parte hartzeko esparru honetan %{space_name}
-          voted_on_space: Botoa eman duzu %{budget_name} aurrekontuan %{space_name} parte hartzeko esparrurako.
+          subject: Botoa eman duzu parte hartzeko espazio honetan %{space_name}
+          voted_on_space: Botoa eman duzu %{budget_name} aurrekontuan %{space_name} parte hartzeko espaziorako.
       projects:
         budget_confirm:
           are_you_sure: Iritzia aldatzen baduzu, zure botoa alda dezakezu geroago.
@@ -395,9 +395,9 @@ eu:
     events:
       budgets:
         budget_published:
-          email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title} rako. Orrialde honetatik ikus dezakezu:'
+          email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title} espziorako. Orrialde honetatik ikus dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko lotura jarraituz.
-          email_subject: '%{resource_title} osagaia orain aktibo dago %{participatory_space_title} rentzat.'
+          email_subject: '%{resource_title} osagaia orain aktibo dago %{participatory_space_title} espziorentzat.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> aurrekontua aktibo dago hemen %{participatory_space_title}.
     open_data:
       help:
@@ -408,7 +408,7 @@ eu:
           comments: Proiektu honek zenbat iruzkin jaso ditu?
           component: Proiektuaren osagaia
           confirmed_votes: Zenbat boto baieztatuta ditu proiektu honek?
-          created_at: Zein data eta zein ordutan sortu zen proiektu hau
+          created_at: Zein data eta zein ordutan sortu da proiektu hau
           description: Proiektuaren deskribapena
           follows_count: Proiektu honek duen jarraitzaile kopurua
           id: Proiektuaren identifikatzaile bakarra
@@ -419,10 +419,10 @@ eu:
           related_proposal_titles: Zerrendatutako proposamenen izenburuak
           related_proposal_urls: Zerrendatutako proposamenen URLak
           related_proposals: Zerrendatutako proposamenak proiektu honetarako
-          selected_at: Zein ordutan hautatu zen proiektua
+          selected_at: Zein ordutan hautatu da proiektua
           taxonomies: Proiektuaren taxonomiak
           title: Proiektuaren izenburua
-          updated_at: Zein egunetan eguneratu zen azken aldiz proiektua
+          updated_at: Zein egunetan eguneratu da azken aldiz proiektua
           url: Proiektuaren URLa
     orders:
       checkout:
