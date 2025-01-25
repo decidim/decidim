@@ -400,10 +400,8 @@ sv:
         explanation: Bli verifierad genom att ange ett dokumentnummer som slutar på ”X”.
         fields:
           allowed_postal_codes: Tillåtna postnummer (separerade med kommatecken)
-          allowed_scope_id: Tillåten indelning
           document_number: Dokumentnummer
           postal_code: Postnummer
-          scope_id: Indelning
         name: Exempelbekräftelse
       dummy_authorization_workflow:
         name: Dummy-arbetsflöde för bekräftelse
@@ -495,8 +493,6 @@ sv:
             dummy_global_translatable_text: Översättningsbar exempeltext
             enable_pads_creation: Aktivera gemensamma anteckningar
             resources_permissions_enabled: Resursbehörigheter på
-            scope_id: Indelning
-            scopes_enabled: Aktivera indelningar
           step:
             amendment_creation_enabled: Tillåt att skapa ändringsförslag
             amendment_promotion_enabled: Tillåt att annonsera ändringsförslag
@@ -1425,16 +1421,7 @@ sv:
         error: Det gick inte att gilla.
     scopes:
       global: Global indelning
-      picker:
-        cancel: Avbryt
-        change: Ändra indelning
-        choose: Välj
-        currently_selected: Vald indelning
-        title: Välj %{field}
       prompt: Välj en indelning
-      scopes: Indelningar
-      scopes_picker_input:
-        select_scope: 'Välj indelning (nuvarande: %{current})'
     search:
       name: Sök
       results: Sökresultat
