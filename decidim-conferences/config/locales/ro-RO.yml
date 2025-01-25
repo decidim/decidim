@@ -21,8 +21,6 @@ ro:
         published_at: Publicat la
         registration_terms: Condiții de înscriere
         registrations_enabled: Înregistrare activată
-        scope_id: Domeniu de interes
-        scopes_enabled: Domenii activate
         short_description: Descriere scurtă
         show_statistics: Arată statistici
         sign_date: Data semnării
