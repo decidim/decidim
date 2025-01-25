@@ -1128,6 +1128,14 @@ es:
           error: Se ha producido un error en la actualización de ésta página.
           success: La página se ha actualizado correctamente.
       taxonomies:
+        actions:
+          actions: Acciones
+          destroy: Eliminar taxonomía y elementos
+          edit: Editar taxonomía y elementos
+          filters: Administrar filtros
+        breadcrumb:
+          edit: Editar taxonomía
+          new: Nueva taxonomía
         count: Recursos asociados
         create:
           invalid: Se ha producido un error al crear esta taxonomía.
@@ -1146,6 +1154,7 @@ es:
         filters:
           search_placeholder: Buscar
         index:
+          description: Las taxonomías y los filtros permiten a las administradoras ordenar y organizar los contenidos. Por ejemplo, añadir una taxonomía con los distritos de la ciudad y los barrios y luego crear filtros solo con los distritos o para un barrio en concreto.
           new_taxonomy: Nueva taxonomía
           no_items_found: No se encontraron taxonomías que coincidan con los criterios de búsqueda.
         name: Nombre
@@ -1158,12 +1167,18 @@ es:
           to_prev_page: Arrastrar para pasar a la página anterior
         taxonomy_actions:
           confirm_destroy: '¿Seguro que desea eliminar %{name}? Esto también eliminará todos los elementos secundarios. NOTA: Los recursos que utilizan esta taxonomía no se verán afectados pero perderán la referencia a esta taxonomía.'
+        total_filters: Filtros
+        total_items: Elementos en la taxonomía
         update:
           invalid: Se ha producido un error al actualizar esta taxonomía.
           success: Taxonomía actualizada correctamente.
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Nuevo filtro de taxonomía
+        breadcrumb:
+          edit: Editar filtro
+          filters: Filtros
+          new: Nuevo filtro
         create:
           error: Se ha producido un error al crear esta taxonomía.
           success: Filtro de taxonomía creado correctamente.
@@ -1181,21 +1196,39 @@ es:
             other: "%{count} elementos seleccionados"
           name_help: El título del filtro que se mostrará en la parte pública.
           no_items: Aún no hay elementos disponibles para esta taxonomía. Puedes añadir elementos a través de los ajustes configuración de la taxonomía.
+          space_filter: Disponible como filtro para
         index:
           description: Un filtro de taxonomía permite a las administradoras ordenar y filtrar espacios de participación basados en una taxonomía. Por ejemplo, añadir un filtro de taxonomías para ordenar procesos por ámbito territorial.
           empty: Actualmente no hay ningún filtro de taxonomía. Crea una lista de filtros de taxonomía aquí para ordenar y filtrar los espacios de participación basados en una taxonomía.
+          new_filter: Nuevo filtro
         new:
           back: Atrás
           create: Crear un filtro de taxonomía
           title: Nuevo filtro de taxonomía
         table:
           actions: Acciones
+          components_count: Componentes lo usan
           confirm_destroy: '¿Seguro que desea eliminar el filtro %{name}? NOTA: Los recursos que están usando este filtro no se verán afectados pero perderán la referencia a este filtro.'
           destroy: Borrar
           edit: Editar
+          internal_name: Estado interno
+          name: Etiqueta
         update:
           error: Se ha producido un problema actualizando este filtro de taxonomía.
           success: Filtro de taxonomía actualizado correctamente.
+      taxonomy_filters_selector:
+        new:
+          add_new_items_html: Si necesitas establecer un nuevo filtro o elemento, hazlo a través de la configuración o clicando <a href="%{url}">aquí</a>.
+          items_count: "%{count} elementos"
+          save: Guardar
+        show:
+          items_count: "%{count} elementos"
+          remove: Eliminar
+        taxonomies_select:
+          filters: Filtros
+          select_filter: Seleccionar un filtro
+          select_taxonomy: Selecciona una taxonomía
+          taxonomies: Taxonomías
       taxonomy_items:
         edit:
           title: Editar elemento en "%{taxonomy}"
@@ -1225,6 +1258,7 @@ es:
         scopes: Ámbitos
         statistics: Actividad
         taxonomies: Taxonomías
+        taxonomy_filters: Filtros de taxonomía para "%{taxonomy}"
         user_groups: Grupos
         users: Administradoras
       tooltips:
@@ -1360,3 +1394,5 @@ es:
       admin:
         global_moderations:
           title: Moderaciones globales
+        taxonomy_filters_selector:
+          title: Filtros
