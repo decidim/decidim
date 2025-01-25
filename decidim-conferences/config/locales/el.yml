@@ -21,8 +21,6 @@ el:
         published_at: Δημοσιεύτηκε στις
         registration_terms: Όροι εγγραφής
         registrations_enabled: Ενεργοποιημένες εγγραφές
-        scope_id: Πεδίο εφαρμογής
-        scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
         short_description: Σύντομη περιγραφή
         show_statistics: Εμφάνιση στατιστικών
         sign_date: Ημερομηνία υπογραφής
