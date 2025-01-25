@@ -47,6 +47,7 @@ fi-pl:
         deleted_results_info: Poistetut tulokset voidaan palauttaa roskakorista.
         destroy: Poista
         edit: Muokkaa
+        import: Tuo tuloksia toisesta komponentista
         import_csv: Tuo tulokset CSV-tiedostosta
         new_result: Uusi tulos
         new_status: Uusi tila
@@ -59,6 +60,28 @@ fi-pl:
         exports:
           result_comments: Kommentit
           results: Tulokset
+        import_components:
+          create:
+            invalid: Tulosten tuominen epäonnistui, seuraa ohjeita tarkasti ja tarkasta, että olet valinnut projekteja toteutukseen.
+          filters:
+            new_items_projects:
+              one: 1 toteutukseen valittu projekti tuodaan
+              other: "%{count} toteutukseen valittua projektia tuodaan"
+            new_items_proposals:
+              one: 1 ehdotus tuodaan
+              other: "%{count} ehdotusta tuodaan"
+            proposal_state: Ehdotuksen tila
+            select_state: Valitse tila
+          form:
+            create: Tuo
+            no_components: Tässä osallistumistilassa ei ole yhtään tuotavaa komponenttia.
+            origin_component_id: Lähdekomponentti
+            select_component: Valitse komponentti
+          new:
+            success:
+              one: 1 tulos on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu.
+              other: "%{count} tulosta on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu."
+            title: Tuo tuloksia toisesta komponentista
         import_results:
           new:
             download_export: Lataa vientitiedosto CSV-muodossa
@@ -213,6 +236,13 @@ fi-pl:
             other: "%{count} tulosta tuotiin hankkeista."
           subject: Tulosten tuonti onnistui
           success: Hankkeiden tuonti tuloksiksi %{component_name} -komponentista onnistui. Voit tarkastaa tuonnin tulokset hallintapaneelista.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Yksi tulos tuotiin ehdotuksista
+            other: "%{count} tulosta tuotiin ehdotuksista."
+          subject: Ehdotusten tuonti onnistui
+          success: Ehdotusten tuonti tuloksiksi %{component_name} -komponentista onnistui. Voit tarkastaa tuonnin tulokset hallintapaneelista.
       last_activity:
         new_result: 'Uusi tulos:'
       models:
@@ -278,8 +308,6 @@ fi-pl:
             geocoding_enabled: Karttatoiminnot käytössä
             intro: Esittelyteksti
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
-            scope_id: Teema
-            scopes_enabled: Teemat käytössä
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
           step:
