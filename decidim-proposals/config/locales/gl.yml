@@ -151,7 +151,7 @@ gl:
             proposal_wizard_step_2_help_text: Asistente de propostas "Comparar" texto de axuda paso a paso
             proposal_wizard_step_3_help_text: Asistente de propostas Texto de axuda de paso "Completo"
             resources_permissions_enabled: Os permisos de acción pódense establecer para cada proposta
-            scope_id: Ámbito
+            scope_id: Alcance
             scopes_enabled: Ámbitos habilitados
             threshold_per_proposal: Umbral por proposta
             vote_limit: Límite de voto por usuario
