@@ -67,6 +67,8 @@ sk:
     'false': 'Nie'
     'true': 'Áno'
   date:
+    buttons:
+      select: Vybrat
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -814,7 +816,7 @@ sk:
     scopes:
       global: Globální oblast působnosti
       picker:
-        cancel: zrušenie
+        cancel: Zrušiť
         choose: Vybrat
         title: Vyberte %{field}
       prompt: Vyberte oblast
@@ -1085,6 +1087,8 @@ sk:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Vybrat
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
