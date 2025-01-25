@@ -244,6 +244,7 @@ fi-pl:
         create:
           error: Uuden alueen luomisessa tapahtui virhe.
           success: Alue luotu onnistuneesti.
+        deprecated: Huomioithan, että alueet-ominaisus on poistumassa järjestelmän uudemmissa versioissa. Käytäthän niiden sijaan luokitteluja. Ainoa moduuli, joka käyttää alueita, on aloitteet.
         destroy:
           has_spaces: Tällä alueella on riippuvia osallistumistiloja. Tarkasta huolellisesti, että alueella ei ole yhtään riippuuvuuksia osallistumistiloihin ennen sen poistoa.
           success: Alueen poisto onnistui.
@@ -1017,6 +1018,7 @@ fi-pl:
         create:
           error: Uuden teeman luonnissa tapahtui virhe.
           success: Teema luotu onnistuneesti.
+        deprecated: Huomioithan, että teemat-ominaisus on poistumassa järjestelmän uudemmissa versioissa. Käytäthän niiden sijaan luokitteluja. Ainoa moduuli, joka käyttää teemoja, on aloitteet.
         destroy:
           success: Teeman tuhoaminen onnistui.
         edit:
