@@ -63,6 +63,9 @@ ar:
         exports:
           result_comments: التعليقات
           results: النتائج
+        import_components:
+          form:
+            create: استيراد
         import_results:
           new:
             download_export: تحميل التصدير بصيغه CSV
@@ -270,8 +273,6 @@ ar:
             geocoding_enabled: تم تمكين الخرائط
             intro: مقدمة
             no_taxonomy_filters_found: لم يتم العثور على عوامل تصفية التصنيف.
-            scope_id: النطاق
-            scopes_enabled: النطاقات مفعلة
             taxonomy_filters: حدد عوامل تصفية للمكون
             taxonomy_filters_add: إضافة عامل تصفية
           step:
