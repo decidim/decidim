@@ -66,6 +66,8 @@ lb:
     'false': 'Nee'
     'true': 'Jo'
   date:
+    buttons:
+      select: Wiel
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -1304,6 +1306,8 @@ lb:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Wiel
     formats:
       day_of_month: "%b%b"
       day_of_week: "%a"
