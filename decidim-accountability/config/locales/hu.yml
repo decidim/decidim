@@ -202,8 +202,6 @@ hu:
             comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
             display_progress_enabled: Állapot megjelenítése
             intro: Intro
-            scope_id: Hatáskör
-            scopes_enabled: Hatáskörök engedélyezve
           step:
             comments_blocked: Megjegyzések letiltva
     events:
