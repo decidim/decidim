@@ -81,7 +81,7 @@ hu:
   date:
     buttons:
       close: Bezár
-      select: Kiválaszt
+      select: Kijelölés
     formats:
       decidim_short: "%Y.%m.%d"
       decidim_short_dashed: "%d-%m-%Y"
@@ -1886,7 +1886,7 @@ hu:
     buttons:
       close: Bezárás
       reset: Visszaállítás
-      select: Kiválaszt
+      select: Kijelölés
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
