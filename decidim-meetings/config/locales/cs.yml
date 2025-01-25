@@ -148,7 +148,7 @@ cs:
             maps_enabled: Mapy povoleny
             registration_code_enabled: Registrační kód povolen
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
-            scope_id: Oblast působnosti
+            scope_id: Rozsah
             scopes_enabled: Oblasti působnosti povoleny
             terms_and_conditions_url_for_meeting_creators: URL pro Zásady a podmínky ke schůzce tvůrců
           step:
