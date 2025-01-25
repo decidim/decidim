@@ -21,8 +21,6 @@ ja:
         published_at: 公開日時
         registration_terms: 参加規約
         registrations_enabled: 登録可能
-        scope_id: スコープ
-        scopes_enabled: スコープは有効です
         short_description: 短い説明
         show_statistics: 統計情報を表示
         sign_date: 署名日
