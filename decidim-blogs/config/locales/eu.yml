@@ -21,12 +21,12 @@ eu:
     blogs:
       actions:
         author_id: Sortu argitalpena hau bezala
-        confirm_delete_post: Ziur zaude korreo hau ezabatu nahi duzula?
+        confirm_delete_post: Ziur zaude korreo elektronikoa hau ezabatu nahi duzula?
         deleted_posts_info: Ezabatutako korreoak berreskura daitezke zaborrontzitik.
         edit: Editatu
         new: Beste argitalpen bat
         title: Ekintzak
-        view_deleted_posts: Ikusdi ezabatutako korreoak
+        view_deleted_posts: Ikusdi ezabatutako helbide elektronikoak
       admin:
         posts:
           create:
@@ -39,7 +39,7 @@ eu:
             not_published_yet: Oraindik argitaratu gabe.
             title: Argitalpenak
           manage_trash:
-            title: Ezabatutako korreoak
+            title: Ezabatutako helbide elektronikoak
           new:
             create: Sortu
             title: Sortu argitalpena
@@ -50,8 +50,8 @@ eu:
         post:
           create: "%{user_name} parte-hartzailekak %{resource_name} blogeko argitalpena sortu du %{space_name} espazioan"
           delete: "%{user_name} parte-hartzailekak %{resource_name} blogeko argitalpena ezabatu du %{space_name} espazioan"
-          restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} korreoa hemen: %{space_name}"
-          soft_delete: "% {user_name} parte-hartzaileak hemengo: %{space_name} %{resource_name} korreoa zaborrontzira eraman du"
+          restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} helbide elektronikoa hemen: %{space_name}"
+          soft_delete: "% {user_name} parte-hartzaileak hemengo: %{space_name} %{resource_name} helbide elektronikoa zaborrontzira eraman du"
           update: "%{user_name} parte-hartzailekak %{resource_name} blogeko argitalpena eguneratu egin da %{space_name} espazioan"
       content_blocks:
         highlighted_posts:
@@ -99,7 +99,7 @@ eu:
           email_intro: '"%{resource_title}" argitalpena jarraitzen ari zaren "%{participatory_space_title}" espazioan argitaratu da.'
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Aurreko estekan utzi ahal diozu jarraitzeari.
           email_subject: Argitalpen berria %{participatory_space_title} espazioan
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> posta %{participatory_space_title} argitaratu da
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> sarrera %{participatory_space_title} argitaratu da
     open_data:
       help:
         post_comments:
@@ -126,7 +126,7 @@ eu:
           participatory_space: Argitalpen hau zein espaziotakoa da (adibidez, Prozesu Parte-hartzailea, Batzarra)
           published_at: Zein datatan argitaratu zen atgitalpen hau
           title: Argitalpenaren izenburua
-          updated_at: Zein egunetan eguneratu zen azken aldiz argitalpen hau
+          updated_at: Zein egunetan eguneratu da azken aldiz argitalpen hau
           url: Argitalpen honetarakko URLa
     statistics:
       posts_count: Argitalpenak
