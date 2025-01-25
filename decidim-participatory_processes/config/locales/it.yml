@@ -23,7 +23,7 @@ it:
         promoted: Promossa
         published_at: Pubblicato a
         related_process_ids: Processi correlati
-        scope_id: Obiettivi
+        scope_id: Ambito
         scope_type_max_depth_id: Profondità del filtro dell'ambito
         scopes_enabled: Gli ambiti abilitati
         short_description: Descrizione breve
