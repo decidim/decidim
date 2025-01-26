@@ -82,7 +82,7 @@ module Decidim::Meetings
       stub_geocoding(address, [latitude, longitude])
     end
 
-    it_behaves_like "etiquette validator", fields: [:title, :description]
+    it_behaves_like "etiquette validator", fields: [:title, :description], i18n: true
 
     describe "taxonomies" do
       let(:component) { current_component }
