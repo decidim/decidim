@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      answer:
+        add_documents: Add documents
       close_meeting:
         attendees_count: Number of attendees
         attending_organizations: List of organizations that attended
@@ -168,8 +170,6 @@ en:
             no_taxonomy_filters_found: No taxonomy filters found.
             registration_code_enabled: Registration code enabled
             resources_permissions_enabled: Actions permissions can be set for each meeting
-            scope_id: Scope
-            scopes_enabled: Scopes enabled
             taxonomy_filters: Select filters for the component
             taxonomy_filters_add: Add filter
             terms_and_conditions_url_for_meeting_creators: Terms and conditions URL for meeting creators
@@ -409,6 +409,7 @@ en:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invitations
+            manage_questions: Manage questions
             recommendation_message: For privacy reasons we recommend that you delete this inscription form when you no longer need it. By default this is 3 months after the meeting has ended.
             registration_email_help: This text will appear in the middle of the registration confirmation email. Just after the registration code.
             registration_form: Registration form

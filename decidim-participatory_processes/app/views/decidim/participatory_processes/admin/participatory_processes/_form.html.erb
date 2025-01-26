@@ -140,7 +140,7 @@
         <div class="row column">
           <p class="text-gray mr-2 mt-4">
             <%= t("no_taxonomy_filters_found", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-            <%= link_to(t("define_taxonomy_filters", scope: "decidim.participatory_processes.admin.participatory_processes.form"), participatory_space_taxonomy_filters_path, class: "button button__text-secondary") %>
+            <%= link_to(t("define_taxonomy_filters", scope: "decidim.participatory_processes.admin.participatory_processes.form"), decidim_admin.taxonomies_path, class: "button button__text-secondary") %>
           </p>
         </div>
       <% else %>
@@ -150,42 +150,6 @@
           </div>
         <% end %>
       <% end %>
-    </div>
-  </div>
-
-  <div class="card" data-component="accordion" id="accordion-filters">
-    <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-filters" type="button">
-        <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="filters">
-          <%= t("filters", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-        </h2>
-      </button>
-    </div>
-    <div id="panel-filters" class="card-section">
-      <div class="row column">
-        <%= form.check_box :scopes_enabled %>
-      </div>
-
-      <div class="row column">
-        <%= scopes_select_field form, :scope_id, root: nil %>
-      </div>
-
-      <div class="row column" id="scope-depth ">
-        <%= form.collection_select :scope_type_max_depth_id,
-                                   organization_scope_depths,
-                                   :id,
-                                   :name,
-                                   scope_type_depth_select_options,
-                                   scope_type_depth_select_html_options %>
-      </div>
-
-      <div class="row column">
-        <%= form.areas_select :area_id,
-                              areas_for_select(current_organization),
-                              selected: current_participatory_process.try(:decidim_area_id),
-                              include_blank: t(".select_an_area") %>
-      </div>
     </div>
   </div>
 
@@ -237,29 +201,4 @@
       </div>
     </div>
   </div>
-
-  <div class="card" data-component="accordion" id="accordion-other">
-    <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-other" type="button">
-        <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="other">
-          <%= t("other", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-        </h2>
-      </button>
-    </div>
-
-    <div id="panel-other" class="card-section">
-      <% if @form.participatory_process_types_for_select.present? %>
-        <div class="row column">
-          <%= form.select(
-                :participatory_process_type_id,
-                @form.participatory_process_types_for_select,
-                include_blank: t(".select_participatory_process_type")
-              ) %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
 </div>
-<%= append_javascript_pack_tag "decidim_participatory_processes_admin" %>

@@ -48,7 +48,6 @@ ko:
           attachment_collections: 폴더
           attachment_files: 파일
           attachments: 첨부 파일
-          categories: 카테고리
           components: 구성요소
       models:
         assembly_member:

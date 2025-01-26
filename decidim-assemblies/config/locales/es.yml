@@ -1,8 +1,6 @@
 es:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Título
       assembly:
         announcement: Aviso
         area_id: Área
@@ -19,7 +17,6 @@ es:
         created_by_other: Creado por otra
         creation_date: Fecha de creacion
         decidim_area_id: Área
-        decidim_assemblies_type_id: Tipo de asamblea
         decidim_scope_id: Ámbito
         description: Descripción
         developer_group: Grupo promotor
@@ -96,7 +93,6 @@ es:
         confirm_delete_assembly: '¿Seguro que quieres eliminar esta asamblea? Si cambias de opinión, puedes restaurarla más tarde.'
         import_assembly: Importar
         new_assembly: Nueva asamblea
-        new_assembly_type: Nuevo tipo de asamblea
         new_assembly_user_role: Añadir administradora
         view_deleted_assemblies: Ver las asambleas eliminadas
       assemblies:
@@ -122,18 +118,6 @@ es:
         create:
           error: Se ha producido un error al duplicar esta asamblea.
           success: Asamblea duplicada correctamente.
-      assemblies_types:
-        create:
-          error: Se ha producido un error al crear un nuevo tipo de asamblea.
-          success: Tipo de asamblea creado correctamente.
-        destroy:
-          success: Tipo de asamblea eliminado correctamente.
-        new:
-          create: Crear
-          title: Nuevo tipo de asamblea
-        update:
-          error: Hubo un problema al actualizar este tipo de asamblea.
-          success: Tipo de asamblea actualizado correctamente.
       assembly_copies:
         new:
           copy: Copiar
@@ -177,8 +161,6 @@ es:
           values:
             'false': No cesada
             'true': Cesada
-        decidim_assemblies_type_id_eq:
-          label: Tipo de asamblea
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Buscar por nombre o alias
       menu:
@@ -188,19 +170,13 @@ es:
           attachment_collections: Carpetas
           attachment_files: Archivos
           attachments: Adjuntos
-          categories: Categorías
           components: Componentes
           info: Acerca de esta asamblea
           landing_page: Página de inicio
           moderations: Moderaciones
           private_users: Miembros
           see_assembly: Ver la asamblea
-        assemblies_types: Tipos de asamblea
       models:
-        assemblies_types:
-          fields:
-            created_at: Fecha de creación
-            title: Título
         assembly:
           fields:
             actions: Acciones
@@ -278,16 +254,12 @@ es:
             private_notice: Podrás administrar las participantes privadas después de configurar el espacio como privado
             select_a_created_by: Selecciona una creadora
             select_an_area: Selecciona un área
-            select_an_assembly_type: Selecciona un tipo de asamblea
             select_parent_assembly: Selecciona una asamblea madre
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
             taxonomies: Taxonomías
             title: Información general
             visibility: Visibilidad
-        assemblies_types:
-          form:
-            title: Editar tipo de asamblea
         assembly_copies:
           form:
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
@@ -331,14 +303,6 @@ es:
       assembly_members:
         index:
           members: Miembros
-      assembly_types:
-        commission: Comisión
-        consultative_advisory: Consultiva / Asesora
-        executive: Ejecutiva
-        government: Gobierno
-        others: Otros
-        participatory: Participativa
-        working_group: Grupo de trabajo
       content_blocks:
         children_assemblies:
           name: Asambleas
@@ -377,7 +341,6 @@ es:
           member_of:
             member_of: Miembro de
       show:
-        assembly_type: Tipo de asambleas
         duration: Duración
         private_space: Esta es una asamblea privada
         social_networks_title: Visita la asamblea en

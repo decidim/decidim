@@ -29,8 +29,6 @@ Decidim.register_component(:proposals) do |component|
   POSSIBLE_SORT_ORDERS = %w(automatic random recent most_endorsed most_voted most_commented most_followed with_more_authors).freeze
 
   component.settings(:global) do |settings|
-    settings.attribute :scopes_enabled, type: :boolean, default: false
-    settings.attribute :scope_id, type: :scope
     settings.attribute :taxonomy_filters, type: :taxonomy_filters
     settings.attribute :vote_limit, type: :integer, default: 0, required: true
     settings.attribute :minimum_votes_per_user, type: :integer, default: 0, required: true

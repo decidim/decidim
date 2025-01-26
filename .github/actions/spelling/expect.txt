@@ -124,6 +124,7 @@ cdp
 cellphone
 centerblock
 changeme
+chartkick
 cherrypicking
 childs
 chromedriver
@@ -473,6 +474,7 @@ Lalalilo
 lastcenter
 lastleft
 latlng
+Layouter
 LCell
 legacysupport
 Lesch
@@ -524,6 +526,7 @@ marydoe
 Massot
 matrixmultiple
 matutes
+maxtimeout
 mcdoggo
 mcell
 medios
@@ -548,6 +551,7 @@ Milhouse
 millor
 Millora
 minicard
+mintimeout
 minuscat
 misogi
 mlat

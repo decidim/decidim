@@ -16,6 +16,10 @@ cs:
         many: Příspěvky
         other: Příspěvky
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Příspěvky
     blogs:
       actions:
         author_id: Vytvořit příspěvek jako
@@ -100,5 +104,33 @@ cs:
           email_outro: Obdrželi jste toto oznámení, protože sledujete "%{participatory_space_title}". Můžete ho zrušit z předchozího odkazu.
           email_subject: Nový příspěvek publikován v %{participatory_space_title}
           notification_title: Příspěvek <a href="%{resource_path}">%{resource_title}</a> byl zveřejněn ve %{participatory_space_title}
+    open_data:
+      help:
+        post_comments:
+          alignment: Pokud byl tento komentář příznivý, proti nebo neutrální
+          author: Jméno účastníka, který vytvořil tento komentář
+          body: Samotný komentář
+          commentable_id: Jedinečné ID komentáře
+          commentable_type: Typ komentáře (pokud byl výsledek, návrh atd.)
+          created_at: Datum, kdy byl komentář vytvořen
+          depth: Místo, kde se tento komentář nachází je ve třech komentářích (pokud se jedná o odpověď nebo odpověď na odpověď)
+          id: ID pro tento komentář
+          locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
+          root_commentable_url: Adresa URL zdroje, který má vazbu na tento komentář
+          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
+        posts:
+          author: Informace autora
+          body: Tělo příspěvku
+          comments_count: Počet komentářů, které má tento příspěvek
+          component: Komponenta, do které příspěvek patří,
+          created_at: Datum, kdy byl příspěvek vytvořen
+          endorsements_count: Počet podpor, které má tento příspěvek
+          follows_count: Počet sledujících tohoto příspěvku
+          id: Jedinečný identifikátor tohoto příspěvku
+          participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tento příspěvek
+          published_at: Datum zveřejnění tohoto příspěvku
+          title: Název příspěvku
+          updated_at: Poslední datum, kdy byl příspěvek aktualizován
+          url: URL pro tento příspěvek
     statistics:
       posts_count: Příspěvky

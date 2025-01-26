@@ -23,7 +23,7 @@ describe "Answer a survey" do
     }
   end
   let!(:questionnaire) { create(:questionnaire, title:, description:) }
-  let!(:survey) { create(:survey, component:, questionnaire:) }
+  let!(:survey) { create(:survey, :published, component:, questionnaire:) }
   let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
 
   include_context "with a component"
@@ -31,6 +31,8 @@ describe "Answer a survey" do
   context "when the survey does not allow answers" do
     it "does not allow answering the survey" do
       visit_component
+      choose "All"
+      click_on translated_attribute(questionnaire.title)
 
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
@@ -45,18 +47,12 @@ describe "Answer a survey" do
     let(:last_answer) { questionnaire.answers.last }
 
     before do
-      component.update!(
-        step_settings: {
-          component.participatory_space.active_step.id => {
-            allow_answers: true,
-            allow_unregistered: true
-          }
-        }
-      )
+      survey.update!(allow_answers: true, allow_unregistered: true)
     end
 
     it "allows answering the questionnaire" do
       visit_component
+      click_on translated_attribute(questionnaire.title)
 
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
@@ -82,6 +78,7 @@ describe "Answer a survey" do
     context "and honeypot is filled" do
       it "fails with spam complain" do
         visit_component
+        click_on translated_attribute(questionnaire.title)
         fill_in question.body["en"], with: "My first answer"
         fill_in "honeypot_id", with: "I am a robot"
 

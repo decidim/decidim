@@ -14,6 +14,10 @@ es-MX:
         one: Publicación
         other: Publicaciones
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Entradas en el blog
     blogs:
       actions:
         author_id: Crear publicación como
@@ -96,5 +100,33 @@ es-MX:
           email_outro: Recibió esta notificación porque está siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: Nueva publicación publicada en %{participatory_space_title}
           notification_title: La publicación <a href="%{resource_path}">%{resource_title}</a> se publicó en %{participatory_space_title}.
+    open_data:
+      help:
+        post_comments:
+          alignment: Si este comentario fue a favor, en contra o neutral
+          author: El nombre usuaria de la participante que hizo este comentario
+          body: El comentario en sí
+          commentable_id: El identificador único de aquello que se podía comentar
+          commentable_type: La tipología de aquello sobre lo que se realizó el comentario (si fue un resultado, una propuesta, etc.)
+          created_at: La fecha en la que se creó este comentario
+          depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es un comentario, una respuesta a un comentario, o la respuesta de una respuesta)
+          id: El identificador de este comentario
+          locale: La configuración regional (idioma) que la participante tenía al dejar este comentario
+          root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
+          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
+        posts:
+          author: La información de la autoría
+          body: El contenido de la publicación
+          comments_count: El número de comentarios que tiene esta publicación
+          component: El componente al que pertenece la publicación
+          created_at: La fecha en la que se creó esta publicación
+          endorsements_count: El número de adhesiones que tiene esta publicación
+          follows_count: El número de seguidoras que tiene esta publicación
+          id: El identificador único de la publicación
+          participatory_space: A qué espacio pertenece esta publicación (proceso participativo, asamblea, etc.)
+          published_at: La fecha en la que se publicó esta entrada en el blog
+          title: El título de la publicación
+          updated_at: La fecha de la última actualización de esta publicación
+          url: La URL para esta publicación
     statistics:
       posts_count: Publicaciones

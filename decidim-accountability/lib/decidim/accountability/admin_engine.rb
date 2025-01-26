@@ -19,6 +19,12 @@ module Decidim
             patch :restore
           end
 
+          collection do
+            post :update_taxonomies, controller: "results_bulk_actions"
+            post :update_status, controller: "results_bulk_actions"
+            post :update_dates, controller: "results_bulk_actions"
+          end
+
           get :proposals_picker, on: :collection
           get :manage_trash, on: :collection
 
@@ -26,7 +32,9 @@ module Decidim
           resources :attachments, except: [:show]
           resources :timeline_entries, except: [:show]
         end
-        resources :projects_import, only: [:new, :create]
+        resources :import_components, only: [:new, :create] do
+          get :preview, on: :collection
+        end
         get :import_results, to: "import_results#new"
         post :import_results, to: "import_results#create"
         root to: "results#index"

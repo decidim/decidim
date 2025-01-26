@@ -26,6 +26,13 @@ cs:
           request_invalid: Při zpracování požadavku se vyskytl problém. Zkuste to znovu.
   decidim:
     download_your_data:
+      help:
+        answers:
+          answer: Odpověď na otázku
+          id: Jedinečný identifikátor odpovědi
+          question: Otázka, která byla zodpovězena
+          questionnaire: Dotazník, který byl zodpovězen
+          user: Uživatel, který odpověděl na dotazník
       show:
         answers: Export odpovědí
         survey_user_answers: Odpovědi uživatele na dotazník
@@ -33,6 +40,8 @@ cs:
       admin:
         models:
           components:
+            allow_answers: Povolit odpovědi
+            announcement: Oznámení
             description: Popis
             tos: Podmínky služby
         questionnaires:
@@ -84,14 +93,10 @@ cs:
             title: Upravit dotazník
           form:
             add_question: Přidat otázku
-            add_separator: Přidat oddělovač
-            add_title_and_description: Přidat název a popis
-            already_answered_warning: Formulář je již zodpovězen některými uživateli, takže jeho otázky nemůžete upravovat.
             collapse: Sbalit všechny otázky
             expand: Rozbalit všechny otázky
             preview: Náhled
             title: Upravit formulář pro %{questionnaire_for}
-            unpublished_warning: Formulář není zveřejněn. Můžete změnit jeho otázky, ale tím odstraníte aktuální odpovědi.
           matrix_row:
             matrix_row: Řádek
             remove: Odstranit

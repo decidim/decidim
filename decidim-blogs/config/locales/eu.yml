@@ -2,7 +2,7 @@ eu:
   activemodel:
     attributes:
       post:
-        body: Gorputza
+        body: Testua
         decidim_author_id: Egilea
         published_at: Argitaratze-data
         title: Izenburua
@@ -14,6 +14,10 @@ eu:
         one: Argitalpena
         other: Argitalpenak
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Argitalpenak
     blogs:
       actions:
         author_id: Sortu argitalpena hau bezala
@@ -26,8 +30,8 @@ eu:
       admin:
         posts:
           create:
-            invalid: Arazo bat egon da argitalpen hau sortzean.
-            success: Argitalpena zuzen sortua.
+            invalid: Arazo bat sortu da post hau sortzean.
+            success: Posta ondo sortu da.
           edit:
             save: Eguneratu
             title: Editatu argitalpena
@@ -44,24 +48,24 @@ eu:
             success: Argitalpena zuzen gordea.
       admin_log:
         post:
-          create: "%{user_name} k %{resource_name} blogeko argitalpena sortu du %{space_name} espazioan"
-          delete: "%{user_name} k %{resource_name} blogeko argitalpena ezabatu du %{space_name} espazioan"
-          restore: "%{user_name} k berreskuratu du %{resource_name} korreoa hemen: %{space_name}"
-          soft_delete: "% {user_name} k hemengo: %{space_name} %{resource_name} korreoa zaborrontzira eraman du"
-          update: "%{user_name} k %{resource_name} blogeko argitalpena eguneratu egin da %{space_name} espazioan"
+          create: "%{user_name} parte-hartzailekak %{resource_name} blogeko argitalpena sortu du %{space_name} espazioan"
+          delete: "%{user_name} parte-hartzailekak %{resource_name} blogeko argitalpena ezabatu du %{space_name} espazioan"
+          restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} korreoa hemen: %{space_name}"
+          soft_delete: "% {user_name} parte-hartzaileak hemengo: %{space_name} %{resource_name} korreoa zaborrontzira eraman du"
+          update: "%{user_name} parte-hartzailekak %{resource_name} blogeko argitalpena eguneratu egin da %{space_name} espazioan"
       content_blocks:
         highlighted_posts:
           last_published: Azken argitarapena
           name: Argitalpenak
           see_all: Ikusi argitalpen guztiak
       last_activity:
-        new_post: 'Beste argitalpen bat blogean:'
+        new_post: 'Argitalpen berria blogean:'
       models:
         post:
           fields:
             author: Egilea
-            body: Gorputza
-            official_blog_post: Argitalpen ofiziala
+            body: Testua
+            official_blog_post: Blogeko argitalpen ofiziala
             published_at: Argitaratze-data
             title: Izenburua
       posts:
@@ -96,5 +100,33 @@ eu:
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Aurreko estekan utzi ahal diozu jarraitzeari.
           email_subject: Argitalpen berria %{participatory_space_title} espazioan
           notification_title: <a href="%{resource_path}">%{resource_title}</a> posta %{participatory_space_title} argitaratu da
+    open_data:
+      help:
+        post_comments:
+          alignment: Iruzkin hau aldekoa, kontrakoa edo neutrala bazen
+          author: Iruzkin hau egin duen parte-hartzailearen izena
+          body: Iruzkin bera
+          commentable_id: Iruzkin daitekeenaren id bakarra
+          commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
+          created_at: Zein datatan sortu zen iruzkin hau
+          depth: Iruzkin hau hiru iruzkinetan dago (erantzuna edo erantzunaren erantzuna bada)
+          id: Identifikazioa iruzkin honetarako
+          locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
+          root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
+          user_group: Iruzkin hau egin duen partaide-taldearen izena (baldin badago)
+        posts:
+          author: Egilearen informazioa
+          body: Argitaratuaren gorputza
+          comments_count: Argitalpen honek duen iruzkin kopurua
+          component: Zein osagairi dagokion argitalpena
+          created_at: Zein datatan sortu zen argitalpen hau
+          endorsements_count: Argitalpen honek duen abal kopurua
+          follows_count: Argitalpen honek duen jarraitzaile kopurua
+          id: Argitalpen honen identifikatzaile bakarra
+          participatory_space: Argitalpen hau zein espaziotakoa da (adibidez, Prozesu Parte-hartzailea, Batzarra)
+          published_at: Zein datatan argitaratu zen atgitalpen hau
+          title: Argitalpenaren izenburua
+          updated_at: Zein egunetan eguneratu zen azken aldiz argitalpen hau
+          url: Argitalpen honetarakko URLa
     statistics:
       posts_count: Argitalpenak

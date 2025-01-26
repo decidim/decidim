@@ -1,8 +1,6 @@
 tr:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Başlik / Unvani 
       assembly:
         announcement: Duyuru
         area_id: Alan
@@ -19,7 +17,6 @@ tr:
         created_by_other: Diğer tarafından oluşturuldu
         creation_date: Tarih oluşturuldu
         decidim_area_id: alan
-        decidim_assemblies_type_id: Montaj tipi
         decidim_scope_id: kapsam
         description: Açıklama
         developer_group: Tanıtım grubu
@@ -35,7 +32,6 @@ tr:
         import_components: Bireşenleri içe aktar 
         included_at: Dahil
         instagram: Instagram
-        internal_organisation: İç organizasyon
         is_transparent: Şeffaf mı
         local_area: Organizasyon alanı
         meta_scope: Kapsam meta verileri
@@ -88,7 +84,6 @@ tr:
       actions:
         import_assembly: İçeri aktar
         new_assembly: Yeni kurul
-        new_assembly_type: Yeni kurul türü
         new_assembly_user_role: Yeni Meclis Yöneticisi
       assemblies:
         create:
@@ -109,18 +104,6 @@ tr:
         create:
           error: Bu kurul çoğaltırken bir hata oluştu.
           success: Kurul başarıyla kopyalandı.
-      assemblies_types:
-        create:
-          error: Yeni bir kurul türü oluşturulurken bir sorun meydana geldi.
-          success: Kurul türü başarıyla oluşturuldu.
-        destroy:
-          success: Kurul türü başarıyla silindi.
-        new:
-          create: Oluştur
-          title: Yeni kurul türü
-        update:
-          error: Bu kurul türü güncellenirken bir sorun oluştu.
-          success: Kurul türü başarıyla güncellendi.
       assembly_copies:
         new:
           copy: Kopya
@@ -156,9 +139,6 @@ tr:
         update:
           error: Bu kurul için bir yönetici güncellenirken bir sorun oluştu.
           success: Yönetici bu kurul için başarıyla güncellendi.
-      filters:
-        decidim_assemblies_type_id_eq:
-          label: Montaj tipi
       menu:
         assemblies: Kurullar
         assemblies_submenu:
@@ -166,15 +146,9 @@ tr:
           attachment_collections: Klasörler
           attachment_files: Dosyalar
           attachments: Ekler
-          categories: Kategoriler
           components: Bileşenler
           moderations: Yönetim
-        assemblies_types: Kurul türü
       models:
-        assemblies_types:
-          fields:
-            created_at: Düzenlendi
-            title: Başlık
         assembly:
           fields:
             created_at: Düzenlendi
@@ -239,13 +213,9 @@ tr:
             other: Diğer
             select_a_created_by: tarafından oluşturulanı seçin
             select_an_area: Bir alan seçin
-            select_an_assembly_type: Bir kurul türü seçin
             select_parent_assembly: Bağlı olduğu kurulu seçin
             social_handlers: Sosyal
             title: Genel bilgi
-        assemblies_types:
-          form:
-            title: Başlık
         content_blocks:
           highlighted_assemblies:
             max_results: Gösterilecek maksimum öğe miktarı
@@ -259,14 +229,6 @@ tr:
       assembly_members:
         index:
           members: Üyeler
-      assembly_types:
-        commission: Komisyon
-        consultative_advisory: Danışma/Tavsiye
-        executive: İcra
-        government: Devlet
-        others: Diğerleri
-        participatory: Katılımcı
-        working_group: Çalışma Grubu
       content_blocks:
         highlighted_assemblies:
           name: Vurgulanan kurullar
@@ -291,7 +253,6 @@ tr:
           member_of:
             member_of: Üyesi
       show:
-        assembly_type: Kurul türü
         duration: Süre
         private_space: Bu özel bir kurul
     assembly_members:

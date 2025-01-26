@@ -411,16 +411,29 @@ export default class CommentsComponent {
   * @returns {Void} - Returns nothing
   */
   _initializeSortDropdown() {
-    const orderSelect = document.querySelector("[data-order-comment-select]");
+    const desktopOrderSelect = document.querySelector("[data-desktop-order-comment-select]");
+    const mobileOrderSelect = document.querySelector("[data-mobile-order-comment-select]");
 
-    if (!orderSelect) {
+    if (!desktopOrderSelect && !mobileOrderSelect) {
       return;
     }
-    orderSelect.style.fontWeight = "bold";
-    orderSelect.style.borderColor = "black";
 
-    orderSelect.addEventListener("change", function(event) {
-      const selectedOption = orderSelect.querySelector(`[value=${event.target.value}]`);
+    desktopOrderSelect.style.borderColor = "black";
+    mobileOrderSelect.style.borderColor = "black";
+
+    desktopOrderSelect.addEventListener("change", function(event) {
+      const selectedOption = desktopOrderSelect.querySelector(`[value=${event.target.value}]`);
+      const orderUrl = selectedOption.dataset.orderCommentUrl;
+
+      Rails.ajax({
+        url: orderUrl,
+        type: "GET",
+        error: (data) => (console.error(data))
+      });
+    });
+
+    mobileOrderSelect.addEventListener("change", function(event) {
+      const selectedOption = mobileOrderSelect.querySelector(`[value=${event.target.value}]`);
       const orderUrl = selectedOption.dataset.orderCommentUrl;
 
       Rails.ajax({

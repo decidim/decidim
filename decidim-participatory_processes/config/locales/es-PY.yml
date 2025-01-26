@@ -22,7 +22,6 @@ es-PY:
         local_area: Área de organización
         meta_scope: 'Metadatos: ámbito'
         participatory_process_group_id: Grupo de procesos
-        participatory_process_type_id: Tipo de proceso
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
         private_space: Proceso privado
@@ -59,8 +58,6 @@ es-PY:
         end_date: Fecha de finalización
         short_description: Descripción breve
         start_date: Fecha de inicio
-        title: Título
-      participatory_process_type:
         title: Título
       participatory_process_user_role:
         email: Correo electrónico
@@ -102,7 +99,6 @@ es-PY:
         new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase
-        new_process_type: Nuevo tipo de proceso
         new_process_user_role: Nuevo usuario de proceso
         preview: Previsualizar
         publish: Publicar
@@ -118,13 +114,11 @@ es-PY:
         participatory_process_groups_submenu:
           info: Información
           landing_page: Página de inicio
-        participatory_process_types: Tipo de proceso
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas
           attachment_files: Archivos
           attachments: Archivos adjuntos
-          categories: Categorías
           components: Componentes
           info: Acerca de este proceso
           landing_page: Página de inicio
@@ -151,11 +145,6 @@ es-PY:
             start_date: Fecha de inicio
             title: Título
           name: Fase de proceso participativo
-        participatory_process_type:
-          fields:
-            created_at: Creado el
-            title: Título
-          name: Tipo de proceso
         participatory_process_user_role:
           fields:
             email: Correo electrónico
@@ -239,21 +228,6 @@ es-PY:
         update:
           error: Se ha producido un error en la actualización de esta fase de proceso participativo.
           success: La fase de proceso participativo se ha actualizado correctamente.
-      participatory_process_types:
-        create:
-          error: Se ha producido un error al crear un nuevo tipo de proceso.
-          success: Tipo de proceso creado correctamente.
-        destroy:
-          success: Tipo de proceso eliminado correctamente.
-        edit:
-          title: Editar el tipo de proceso
-          update: Actualizar
-        new:
-          create: Crear
-          title: Nuevo tipo de proceso
-        update:
-          error: Se ha producido un error al actualizar este tipo de proceso.
-          success: Tipo de procés actualizado correctamente.
       participatory_process_user_roles:
         create:
           error: Ha habido un error al agregar un usuario a este proceso participativo.
@@ -322,6 +296,7 @@ es-PY:
         update: "%{user_name} actualizó el proceso participativo %{resource_name}"
       participatory_process_group:
         create: "%{user_name} creó el grupo de procesos participativos de %{resource_name}"
+        unpublish: "%{user_name} ha despublicado el grupo de procesos participativos: %{resource_name}"
         update: "%{user_name} actualizó el grupo de procesos participativos de %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} activó la fase %{resource_name} en el proceso participativo %{space_name}"
@@ -474,12 +449,10 @@ es-PY:
             images: Imágenes
             metadata: Metadatos
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
-            other: Otro
             private_notice: Podrás administrar las miembros después de configurar el espacio como privado
             related_processes: Procesos relacionados
             scope_type_max_depth_help: Restringe la profundidad del filtro de ámbito; se mostrará el filtro desde el ámbito general hasta el seleccionado.
             select_an_area: Seleccione una área
-            select_participatory_process_type: Selecciona un tipo de proceso
             select_process_group: Seleccione un grupo de proceso
             slug_help_html: 'Los nombres cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             taxonomies: Taxonomías

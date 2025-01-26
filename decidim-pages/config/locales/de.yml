@@ -16,6 +16,17 @@ de:
             announcement: Ankündigung
           step:
             announcement: Ankündigung
+    open_data:
+      help:
+        pages:
+          body: Der Inhalt der Seite
+          component: Die Komponente, zu der die Seite gehört
+          created_at: Erstellungsdatum dieser Seite
+          id: Die eindeutige Bezeichnung des Seite
+          participatory_space: Zu welchem Bereich diese Seite gehört (z.B. Partizipationsprozesse oder Gremien)
+          title: Der Seitentitel
+          updated_at: Letztes Aktualisierungsdatum dieser Seite
+          url: Die URL für diese Seite
     pages:
       admin:
         models:

@@ -17,10 +17,7 @@ module Decidim
       def serialize
         {
           id: result.id,
-          taxonomies: {
-            id: result.taxonomies.map(&:id),
-            name: result.taxonomies.map(&:name)
-          },
+          taxonomies:,
           parent: {
             id: result.parent.try(:id)
           },
@@ -52,10 +49,6 @@ module Decidim
 
       attr_reader :result
       alias resource result
-
-      def component
-        result.component
-      end
 
       def proposals
         result.linked_resources(:proposals, "included_proposals").map do |proposal|

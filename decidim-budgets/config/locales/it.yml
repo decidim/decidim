@@ -102,6 +102,9 @@ it:
         project:
           fields:
             title: Titolo
+      order:
+        status:
+          title: OK, il tuo voto è stato acquisito.
       order_summary_mailer:
         order_summary:
           selected_projects: 'I progetti che hai selezionato sono:'
