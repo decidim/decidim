@@ -8,7 +8,7 @@ module Decidim
       subject do
         described_class.new(proposal)
       end
-
+      let!(:body) { { en: ::Faker::Lorem.sentence } }
       let!(:proposal) { create(:proposal, :accepted, body:) }
       let!(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: component.organization) }
       let(:participatory_process) { component.participatory_space }
@@ -19,7 +19,8 @@ module Decidim
 
       let!(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: participatory_process) }
       let(:other_proposals) { create_list(:proposal, 2, component: proposals_component) }
-      let(:body) { Decidim::Faker::Localized.localized { ::Faker::Lorem.sentences(number: 3).join("\n") } }
+
+      let(:serialized) { subject.serialize }
 
       let(:expected_answer) do
         answer = proposal.answer
@@ -209,6 +210,18 @@ module Decidim
           expect(serialized).to include(attachments: proposal.attachments.count)
         end
 
+        it "serializes the state at which the proposal was published at" do
+          expect(serialized).to include(state_published_at: proposal.state_published_at)
+        end
+
+        it "serializes the how many co-authorships exist" do
+          expect(serialized).to include(coauthorships_count: proposal.coauthorships_count)
+        end
+
+        it "serializes the number of followers of the proposal" do
+          expect(serialized).to include(follows_count: proposal.follows_count)
+        end
+
         it "serializes the endorsements" do
           expect(serialized[:endorsements]).to include(total_count: proposal.endorsements.count)
           expect(serialized[:endorsements]).to include(user_endorsements: proposal.endorsements.for_listing.map { |identity| identity.normalized_author&.name })
@@ -228,11 +241,98 @@ module Decidim
           expect(serialized[:original_proposal][:url]).to be_nil || include("http", proposal.id.to_s)
         end
 
+        it "serialize the created at date" do
+          expect(serialized).to include(created_at: proposal.created_at)
+        end
+
+        it "serialize the updated at date" do
+          expect(serialized).to include(updated_at: proposal.updated_at)
+        end
+
+        it "serializes whether the proposal was created in a meeting" do
+          expect(serialized).to include(created_in_meeting: proposal.created_in_meeting)
+        end
+
+        it "serializes the cost of the proposal" do
+          expect(serialized).to include(cost: proposal.cost)
+        end
+
+        it "serializes the execution period of the proposal" do
+          expect(serialized).to include(execution_period: proposal.execution_period)
+        end
+
+        # This is an internal field for admins which should not be published
+        context "when proposal notes count are hidden" do
+          it "does not publish them" do
+            expect(serialized).not_to include(proposal_notes_count: proposal.proposal_notes_count)
+          end
+        end
+
+        # This is an internal field for admins which should not be published
+        context "when valuation assignments are hidden" do
+          it "does not publish them" do
+            expect(serialized).not_to include(valuation_assignments_count: proposal.valuation_assignments_count)
+          end
+        end
+
+        context "when proposals with costs that are not published" do
+          let!(:proposal) { create(:proposal, :with_answer) }
+          let(:cost) { proposal.cost }
+          let(:cost_report) { proposal.cost_report }
+          let(:execution_period) { proposal.execution_period }
+          let(:answer) { proposal.answer }
+
+          before do
+            proposal.update!(cost: nil, cost_report: nil, execution_period: nil, answer: nil, state_published_at: nil)
+          end
+
+          it "includes costs with a proposal not published" do
+            expect(serialized).to include(
+              cost: nil,
+              cost_report: nil,
+              execution_period: nil,
+              answer: expected_answer,
+              state_published_at: nil
+            )
+          end
+        end
+
         context "with proposal having an answer" do
           let!(:proposal) { create(:proposal, :with_answer) }
 
           it "serializes the answer" do
             expect(serialized).to include(answer: expected_answer)
+          end
+        end
+
+        context "when the proposal is answered but not published" do
+          before do
+            proposal.update!(answered_at:, state_published_at: nil)
+          end
+
+          let(:answered_at) { Time.current }
+
+          it "includes the answered_at timestamp and leaves state_published_at nil" do
+            expect(serialized).to include(
+              answered_at:,
+              state_published_at: nil
+            )
+          end
+        end
+
+        context "when the proposal is answered and published" do
+          before do
+            proposal.update!(answered_at:, state_published_at:)
+          end
+
+          let(:answered_at) { Time.current }
+          let(:state_published_at) { answered_at + 1.day }
+
+          it "includes both answered_at and state_published_at timestamps" do
+            expect(serialized).to include(
+              answered_at:,
+              state_published_at:
+            )
           end
         end
 

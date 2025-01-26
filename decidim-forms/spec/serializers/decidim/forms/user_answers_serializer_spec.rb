@@ -219,6 +219,13 @@ module Decidim
           end
         end
       end
+
+      describe "questions_hash" do
+        it "generates a hash of questions ordered by position" do
+          questions.shuffle!
+          expect(subject.instance_eval { questions_hash }.keys.map { |key| key[0].to_i }.uniq).to eq(questions.sort_by(&:position).map { |question| question.position + 1 })
+        end
+      end
     end
   end
 end

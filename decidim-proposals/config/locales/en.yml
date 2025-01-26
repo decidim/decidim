@@ -450,10 +450,16 @@ en:
           attachments: The number of attachments this proposal has
           author: The data for the author of this proposal
           body: The proposal body
+          coauthorships_count: The number of co-authorships the proposal represents
           comments: The number of comments this proposal has
           component: The component that the proposal belongs to
+          cost: The total cost of the proposal in question
+          cost_report: A report of costs for the proposal
+          created_at: The date the proposal was created
+          created_in_meeting: Whether the proposal was created in a meeting
           endorsements: The number of endorsements ("likes") this proposal has
-          followers: The number of followers this proposal has
+          execution_period: The period at which the proposal ran from beginning to end
+          follows_count: The number of followers this proposal has
           id: The unique identifier for the proposal
           is_amend: Wheter this proposal is ammedning another proposal
           latitude: The latitude of the proposal in case it has a physical location
@@ -465,8 +471,10 @@ en:
           reference: The unique identifier of the resource in this platform
           related_proposals: The proposals related to this proposal
           state: The status of this proposal (e.g. "Accepted")
+          state_published_at: A time stamp of the state of the proposal when published
           taxonomies: The taxonomies that this proposal belongs to
           title: The proposal title
+          updated_at: The date the proposal was last updated
           url: The URL where this proposal can be found
           votes: The number of votes this proposal has
           withdrawn: Wheter this proposal has been withdrawn
@@ -841,6 +849,11 @@ en:
       destroy_draft:
         error: There was a problem deleting the collaborative draft.
         success: Proposal draft was successfully deleted.
+      exit_modal:
+        cancel: Cancel
+        exit: Continue
+        message: You have to give %{number} more votes between different proposals for your votes to be taken into account.
+        title: Remember you have %{number} votes left
       forms:
         errors:
           device_not_supported: Your device does not support location services. Please enter the address manually.
@@ -996,19 +1009,22 @@ en:
             one: Vote
             other: Votes
         voting_rules:
+          already_vote:
+            description: Remember that you still have to give %{number} supports between different proposals so that your supports are taken into account.
+            see_other_proposals: See other proposals
+            title: You have %{number} supports left
           can_accumulate_votes_beyond_threshold:
             description: Each proposal can accumulate more than %{limit} votes
           minimum_votes_per_user:
-            description: You must distribute a minimum of %{votes} votes among different proposals.
-            given_enough_votes: You have given enough votes.
-            votes_remaining: You have to vote %{remaining_votes} more proposals for your votes to be taken into account.
+            description: You have to distribute a minimum of %{votes} supports among different proposals so that your supports are taken into account.
           proposal_limit:
             description: You can create up to %{limit} proposals.
+          success: Your votes have been successfully accepted
           threshold_per_proposal:
             description: In order to be validated proposals need to reach %{limit} votes.
-          title: 'Votes are subject to the following rules:'
+          title: Rules of participation
           vote_limit:
-            description: You can vote up to %{limit} proposals.
+            description: You can support up to %{limit} proposals.
             votes: Remaining %{number} votes
         wizard_aside:
           back: Back
