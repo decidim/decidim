@@ -49,6 +49,7 @@ cs:
         deleted_results_info: Odstraněné výsledky mohou být obnoveny z koše.
         destroy: Odstranit
         edit: Upravit
+        import: Importovat výsledky z jiné komponenty
         import_csv: Importovat výsledky z CSV souboru
         new_result: Nový výsledek
         new_status: Nový status
@@ -62,6 +63,8 @@ cs:
           result_comments: Komentáře
           results: Výsledky
         import_components:
+          create:
+            invalid: Došlo k potížím při importu výsledků, postupujte prosím pečlivě podle pokynů a ujistěte se, že jste vybrali projekty pro realizaci.
           filters:
             proposal_state: Stav návrhu
             select_state: Vybrat status
