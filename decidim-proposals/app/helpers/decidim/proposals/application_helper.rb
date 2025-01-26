@@ -145,7 +145,7 @@ module Decidim
       end
 
       def layout_item_classes
-        "layout-item lg:pt-4"
+        "layout-item"
       end
 
       def show_voting_rules?
