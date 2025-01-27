@@ -93,7 +93,11 @@ ja:
           new:
             create: インポート
             import_all_selected_projects: 実装のために選択されたすべてのプロジェクトをインポート
+            new_items:
+              other: "選択した %{count} 件のプロジェクトがインポートされます"
             no_components: この参加スペースにはプロジェクトを結果にインポートするための予算コンポーネントはありません。
+            origin_component_id: 元のコンポーネント
+            select_component: コンポーネントを選択
             success:
               other: "%{count} 件のプロジェクトがインポートする準備を行いました。完了次第、メールで通知します。"
             title: 別のコンポーネントからプロジェクトをインポート
