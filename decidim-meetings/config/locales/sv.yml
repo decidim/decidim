@@ -1,6 +1,8 @@
 sv:
   activemodel:
     attributes:
+      answer:
+        add_documents: Lägg till dokument
       close_meeting:
         attendees_count: Antal deltagare
         attending_organizations: Lista med organisationer som deltog
@@ -78,6 +80,10 @@ sv:
       decidim/meetings/update_meeting_event: Möte uppdaterat
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'Diskuterades på det här mötet: %{link}'
       decidim/meetings/meeting:
         one: Möte
         other: Möten
@@ -89,6 +95,9 @@ sv:
         other: Registreringar
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Möten
       filters:
         accepted_at_not_null:
           label: Tackat ja
@@ -106,6 +115,8 @@ sv:
             values:
               'false': Tidigare
               'true': Kommande
+          taxonomies_part_of_contains:
+            label: Kategorisering
           with_any_origin:
             label: Ursprungligt
             values:
@@ -147,20 +158,35 @@ sv:
         settings:
           global:
             announcement: Meddelande
+            clear_all: Återställ
             comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             creation_enabled_for_participants: Deltagarna kan skapa möten
             default_registration_terms: Villkor för standardregistrering
+            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
             enable_pads_creation: Aktivera gemensamma anteckningar
             maps_enabled: Aktivera visning på karta
+            no_taxonomy_filters_found: Inga filter för kategorier hittades.
             registration_code_enabled: Aktivera registreringskod
             resources_permissions_enabled: Behörigheter kan ställas in för varje möte
+            taxonomy_filters: Välj filter för komponenten
+            taxonomy_filters_add: Lägg till filter
             terms_and_conditions_url_for_meeting_creators: URL till användarvillkor för de som skapar möten
           step:
             announcement: Meddelande
             comments_blocked: Stäng av kommentarer
             creation_enabled_for_participants: Låt deltagare skapa möten
             creation_enabled_for_user_groups: Låt användargrupper skapa möten
+    download_your_data:
+      help:
+        registrations:
+          code: Anmälningskod
+          id: Unikt id för anmälan
+          meeting: Mötet som användaren anmälde sig till
+          user: Användaren som anmälde sig
+      show:
+        meeting_comments: Export av möteskommentarer
+        meetings: Exportera möten
     events:
       meetings:
         meeting_closed:
@@ -228,6 +254,8 @@ sv:
         attachment_collections: Mappar
         attachments: Bifogade filer
         close: Stäng
+        confirm_delete_meeting: Är du säker på att du vill radera mötet?
+        deleted_meetings_info: Borttagna möten kan återställas från papperskorgen.
         edit: Redigera
         invalid_destroy:
           proposals_count:
@@ -238,6 +266,7 @@ sv:
         preview: Förhandsvisa
         registrations: Registreringar
         title: Åtgärder
+        view_deleted_meetings: Visa raderade möten
       admin:
         agenda:
           agenda_item:
@@ -302,6 +331,8 @@ sv:
           close:
             invalid: Det gick inte att avsluta mötet.
             success: Mötet avslutades.
+          component:
+            unlink: Ta bort länkning
           create:
             invalid: Det gick inte att skapa mötet.
             success: Mötet har skapats men är ännu inte publicerat, du måste publicera det manuellt.
@@ -320,7 +351,20 @@ sv:
             select_a_registration_type: Välj sätt att registrera sig
             select_an_iframe_access_level: Välj vem får tillgång till iframe
           index:
+            linked_meeting_warning_html: Mötet måste redigeras från <br><a href="%{href}">%{name}</a>
             title: Möten
+          linked_spaces:
+            assign: Tilldela
+            link_a_space: Länka en process
+            private_meeting_warning: Processer kan inte länkas om mötet är privat eller inte transparent.
+            private_space_warning: Processer kan inte länkas om mötet är privat eller inte transparent.
+            select: Välj en process
+            table:
+              actions: Åtgärder
+              component: Länkade processer
+            title: Länkade processer
+          manage_trash:
+            title: Borttagna möten
           new:
             create: Skapa
             title: Skapa möte
@@ -364,6 +408,7 @@ sv:
           form:
             available_slots_help: Lämna det till 0 om du har obegränsade platser.
             invites: Inbjudningar
+            manage_questions: Hantera frågor
             recommendation_message: Av sekretesskäl rekommenderar vi att du tar bort anmälningsformuläret när det inte längre används. Som standard är det 3 månader efter att mötet avslutats.
             registration_email_help: Texten visas i e-postmeddelandet med registreringsbekräftelsen, efter registreringskoden.
             registration_form: Anmälningsformulär
@@ -389,6 +434,8 @@ sv:
           create: "%{user_name} skapade mötet %{resource_name} för %{space_name}"
           delete: "%{user_name} raderade mötet %{resource_name} för %{space_name}"
           export_registrations: "%{user_name} exporterade anmälningarna till mötet %{resource_name} för %{space_name}"
+          restore: "%{user_name} återställde mötet %{resource_name} i %{space_name}"
+          soft_delete: "%{user_name} flyttade mötet %{resource_name} i %{space_name} till papperskorgen"
           update: "%{user_name} uppdaterade mötet %{resource_name} för %{space_name}"
           value_types:
             organizer_presenter:
@@ -515,7 +562,9 @@ sv:
           see_all_withdrawn: Visa alla inställda möten
           text_banner: Du visar möten som ställts in av sin arrangör. %{go_back_link}.
         meeting:
+          close_meeting: Stäng
           edit_close_meeting: Redigera mötesrapport
+          edit_meeting: Redigera
           join_meeting: Gå med i mötet
           reply_poll: Svarsenkät
           view_poll: Visa enkät
@@ -542,6 +591,7 @@ sv:
           micro_camera_permissions_warning: När du klickar på knappen nedan kommer du att bli ombedd att godkänna att webbplatsen använder din mikrofon och/eller kamera och du kommer att ansluta till videokonferensen
           no_slots_available: Inga platser kvar
           organizations: Delta i organisationer
+          redirect_notice: Mötet är en del av ett annat utrymme, så du har flyttats till %{current_space_name}. <br>Om du vill kan du gå tillbaka till <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Din registreringskod
           registration_state:
             validated: VALIDERAD
@@ -552,6 +602,7 @@ sv:
           visit_finished: Visa tidigare möten
           withdraw_btn_hint: Du kan ställa in mötet om du ändrar dig. Mötet raderas inte utan kommer att synas i en lista med inställda möten.
           withdraw_confirmation_html: Är du säker på att du vill ställa in mötet?<br><br><strong>Den här åtgärden kan inte ångras!</strong>
+          withdraw_meeting: Dra tillbaka
         update:
           invalid: Det gick inte att uppdatera mötet.
           success: Du har uppdaterat mötet.
@@ -574,6 +625,7 @@ sv:
             map: Karta
             official_meeting: Officiellt möte
             start_time: Startdatum
+            taxonomies: Kategorisering
             title: Titel
       polls:
         answers:
@@ -650,6 +702,21 @@ sv:
         description: Antal skapade möten
         object: möten
         title: Möten
+    open_data:
+      help:
+        meeting_comments:
+          alignment: Positiva, negativa eller neutrala kommentarer
+          author: Namn på den som kommenterat
+          body: Kommentaren
+          commentable_id: Kommentarens unika id
+          commentable_type: Vad som kommenterades (resultat, förslag etc)
+          comments: Uppgifter om kommentarer från mötet
+          created_at: Datum för kommentaren
+          depth: Kommentarens plats i en hierarki av kommentarer (om den är ett svar på en annan kommentar)
+          id: Id för kommentaren
+          locale: Kommentarförfattarens språk
+          root_commentable_url: URL till innehållet för kommentaren
+          user_group: Namn på gruppen som kommenterat (om det var en grupp)
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Tidigare möten
