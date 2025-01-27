@@ -47,6 +47,7 @@ de:
         deleted_results_info: Gelöschte Ergebnisse können aus dem Papierkorb wiederhergestellt werden.
         destroy: Löschen
         edit: Bearbeiten
+        import: Ergebnisse aus einer anderen Komponente importieren
         import_csv: Ergebnisse aus CSV importieren
         new_result: Neues Ergebnis
         new_status: Neuer Status
@@ -59,6 +60,28 @@ de:
         exports:
           result_comments: Bemerkungen
           results: Ergebnisse
+        import_components:
+          create:
+            invalid: Es gab ein Problem beim Importieren der Ergebnisse. Bitte befolgen Sie die Anweisungen sorgfältig und stellen Sie sicher, dass Sie vorgängig Projekte zur Umsetzung ausgewählt haben.
+          filters:
+            new_items_projects:
+              one: 1 ausgewähltes Projekt wird importiert
+              other: "%{count} ausgewählte Projekte werden importiert"
+            new_items_proposals:
+              one: 1 Vorschlag wird importiert
+              other: "%{count} Vorschläge werden importiert"
+            proposal_state: Vorschlagsstatus
+            select_state: Status auswählen
+          form:
+            create: Importieren
+            no_components: Es gibt keine Komponenten, die in diesen Beteiligungsbereich importiert werden können.
+            origin_component_id: Ursprungskomponente
+            select_component: Komponente auswählen
+          new:
+            success:
+              one: Es befindet sich ein zu importierendes Ergebnis in der Warteschlange. Sie werden per E-Mail benachrichtigt, sobald der Import abgeschlossen ist.
+              other: "Es befindet sich %{count} zu importierende Ergebnisse in der Warteschlange. Sie werden per E-Mail benachrichtigt, sobald der Import abgeschlossen ist."
+            title: Importiere Ergebnisse aus einer anderen Komponente
         import_results:
           new:
             download_export: Export im CSV-Format herunterladen
@@ -213,6 +236,13 @@ de:
             other: "%{count} Ergebnisse wurden aus Projekten importiert."
           subject: Projekte wurden erfolgreich importiert
           success: Projekte wurden erfolgreich in die Ergebnisse der %{component_name}-Komponente importiert. Sie können die Ergebnisse in der Administrationsoberfläche überprüfen.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Ein Ergebnis wurde aus Vorschlägen importiert
+            other: "%{count} Ergebnisse wurden aus Vorschlägen importiert."
+          subject: Erfolgreicher Import von Vorschlägen
+          success: Vorschläge erfolgreich zu den Ergebnissen in der Komponente %{component_name} importiert. Sie können die Ergebnisse im Administrationsbereich überprüfen.
       last_activity:
         new_result: 'Neues Ergebnis:'
       models:
