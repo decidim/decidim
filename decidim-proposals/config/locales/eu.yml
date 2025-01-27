@@ -148,11 +148,11 @@ eu:
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
             default_sort_order: Proposamenen hurrenkera lehenetsia
-            default_sort_order_help: Automatikoak esan nahi du, botoak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta botoak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
+            default_sort_order_help: Automatikoak esan nahi du, babesak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta babesak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
             default_sort_order_options:
               automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
-              most_endorsed: Aldeko boto gehien dituztenak
+              most_endorsed: Aldeko atxikimendu gehien dituztenak
               most_followed: Jarraitzaile gehien dituztenak
               most_voted: Aldeko boto gehien
               random: Ausazkoa
@@ -202,11 +202,11 @@ eu:
             creation_enabled: Parte-hartzaileek eztabaidak sor ditzakete
             creation_enabled_readonly: Aukera hori desaktibatu egiten da Testuen Parte-hartzaile funtzionaltasuna aktibatzean. Testu parte-hartzaile gisa proposamenak kargatzeko, egin klik Testu parte-hartzaileak botoian eta jarraitu jarraibideak.
             default_sort_order: Proposamenen hurrenkera lehenetsia
-            default_sort_order_help: Automatikoak esan nahi du, botoak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta botoak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
+            default_sort_order_help: Automatikoak esan nahi du, babesak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta babesak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
             default_sort_order_options:
               automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
-              most_endorsed: Aldeko boto gehien dituztenak
+              most_endorsed: Aldeko atxikimendu gehien dituztenak
               most_followed: Jarraitzaile gehien dituztenak
               most_voted: Aldeko boto gehien
               random: Ausazkoa
@@ -353,7 +353,7 @@ eu:
           description: Bereizgarri hori beste pertsona batzuen proposamenak boskatzen dituzunean ematen da.
           description_another: Parte-hartzaile honek %{score} proposamen babestu ditu.
           description_own: '%{score} proposamenei man diezu zure babesa.'
-          name: Proposamenaren aldeko botoak
+          name: Proposamenaren aldeko babesak
           next_level_in: Eman babesa % {score} proposamen gehiagori hurrengo mailara iristeko!
           unearned_another: Parte-hartzaile honek oraindik ez dio babesik eman proposamen bati ere.
           unearned_own: Oraindik ez duzu proposamen bat ere babestu.
@@ -745,7 +745,7 @@ eu:
             title: Titulua
             valuator: Ebaluatzailea
             valuators: Ebaluatzaileak
-            votes: Botoak
+            votes: Babesak
       new:
         limit_reached: Ezin duzu proposamen gehiago egin, muga gainditu duzulako.
       participatory_text_proposal:
@@ -809,9 +809,9 @@ eu:
         orders:
           label: 'Antolatu proposamenak honen arabera:'
           most_commented: Iruzkin gehien dituztenak
-          most_endorsed: Aldeko boto gehien dituztenak
+          most_endorsed: Aldeko atxikimendu gehien dituztenak
           most_followed: Jarraitzaile gehien dituztenak
-          most_voted: Aldeko boto gehien
+          most_voted: Aldeko atxikimendu gehien dituztenak
           random: Ausazko ordena
           recent: Berrienak
           with_more_authors: Egile gehiagorekin
@@ -871,7 +871,7 @@ eu:
           minimum_votes_per_user:
             description: Gutxienez %{votes} babes banatu behar dituzu proposamen desberdinen artean.
             given_enough_votes: Nahiko babes eman dituzu.
-            supports_remaining: '%{remaining_votes} proposamen gehiago babestu behar dituzu zure aldeko botoak kontuan hartzeko.'
+            supports_remaining: '%{remaining_votes} proposamen gehiago babestu behar dituzu zure aldeko babesak kontuan hartzeko.'
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
           threshold_per_proposal:
@@ -924,4 +924,4 @@ eu:
     statistics:
       proposals_accepted: Onartutako proposamenak
       proposals_count: Proposamenak
-      supports_count: Aldeko botoak
+      supports_count: Aldeko babesak
