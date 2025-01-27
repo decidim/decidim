@@ -11,6 +11,7 @@ module Decidim
       #
       # form - The form from which to get the data.
       # questionnaire - The current instance of the questionnaire to be answered.
+      # allow_editing_answers - Flag that ensures a form can or cannot be editable after the questionnaire's answers have been provided.
       def initialize(form, questionnaire, allow_editing_answers: false)
         @form = form
         @questionnaire = questionnaire
