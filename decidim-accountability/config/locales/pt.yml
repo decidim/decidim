@@ -64,6 +64,7 @@ pt:
         projects_import:
           new:
             create: Importar
+            import_all_selected_projects: Importar todos os projetos selecionados para implementação
         results:
           edit:
             title: Editar resultado
