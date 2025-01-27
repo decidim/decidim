@@ -148,3 +148,7 @@
 .survey-section-buttons {
   @apply flex-row last:[&>button]:font-semibold md:[&>button]:font-normal last:[&>button]:text-lg md:last:[&>button]:text-sm md:first:[&>button]:text-sm last:[&>button]:py-3 md:last:[&>button]:py-1.5 md:first:[&>button]:py-1.5;
 }
+
+.login-max-width {
+  @apply max-w-full;
+}

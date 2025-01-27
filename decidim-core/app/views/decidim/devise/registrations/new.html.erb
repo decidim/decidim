@@ -3,59 +3,60 @@
 <% content_for :devise_links do %>
   <%= render "decidim/devise/shared/links" %>
 <% end %>
+<div class="login-max-width">
+  <%= render layout: "layouts/decidim/shared/layout_center" do %>
+    <div class="flex justify-center">
+      <h1 class="title-decorator my-12"><%= t("decidim.devise.registrations.new.sign_up") %></h1>
+    </div>
 
-<%= render layout: "layouts/decidim/shared/layout_center" do %>
-  <div class="flex justify-center">
-    <h1 class="title-decorator my-12"><%= t("decidim.devise.registrations.new.sign_up") %></h1>
-  </div>
+    <div class="login__info">
+      <p>
+        <%= t("decidim.devise.registrations.new.subtitle") %>
+      </p>
+      <p class="font-semibold">
+        <%= t("decidim.devise.registrations.new.already_have_an_account?") %>
+        <%= link_to t("decidim.devise.registrations.new.log_in"), new_user_session_path %>
+      </p>
+    </div>
 
-  <div class="login__info">
-    <p>
-      <%= t("decidim.devise.registrations.new.subtitle") %>
-    </p>
-    <p class="font-semibold">
-      <%= t("decidim.devise.registrations.new.already_have_an_account?") %>
-      <%= link_to t("decidim.devise.registrations.new.log_in"), new_user_session_path %>
-    </p>
-  </div>
+    <div class="login__info-required">
+      <%= form_required_explanation %>
+    </div>
 
-  <div class="login__info-required">
-    <%= form_required_explanation %>
-  </div>
+      <% cache current_organization do %>
+        <%= render "decidim/devise/shared/omniauth_buttons" %>
+      <% end %>
 
-    <% cache current_organization do %>
-      <%= render "decidim/devise/shared/omniauth_buttons" %>
+    <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: registration_path(resource_name), html: { id: "register-form" }) do |f| %>
+      <%= invisible_captcha %>
+
+      <div class="form__wrapper pb-12">
+        <%= f.text_field :name, help_text: t("decidim.devise.registrations.new.username_help"), autocomplete: "name", placeholder: "John Doe" %>
+
+        <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
+
+        <%= render partial: "decidim/account/password_fields", locals: { form: f, user: :user } %>
+      </div>
+
+      <%= render partial: "decidim/devise/shared/tos_fields", locals: { form: f, user: :user } %>
+
+      <div class="form__wrapper-block">
+        <button type="submit" class="button button__lg button__secondary">
+          <%= t("decidim.devise.registrations.new.sign_up") %>
+        </button>
+      </div>
+
+      <div class="login__links">
+        <%- if current_organization.sign_up_enabled? && devise_mapping.confirmable? && controller_name != "confirmations" %>
+          <%= link_to t("devise.shared.links.didn_t_receive_confirmation_instructions"), new_confirmation_path(resource_name) %>
+        <% end -%>
+
+        <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != "unlocks" %>
+          <%= link_to t("devise.shared.links.didn_t_receive_unlock_instructions"), new_unlock_path(resource_name) %>
+        <% end -%>
+      </div>
     <% end %>
-
-  <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: registration_path(resource_name), html: { id: "register-form" }) do |f| %>
-    <%= invisible_captcha %>
-
-    <div class="form__wrapper pb-12">
-      <%= f.text_field :name, help_text: t("decidim.devise.registrations.new.username_help"), autocomplete: "name", placeholder: "John Doe" %>
-
-      <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
-
-      <%= render partial: "decidim/account/password_fields", locals: { form: f, user: :user } %>
-    </div>
-
-    <%= render partial: "decidim/devise/shared/tos_fields", locals: { form: f, user: :user } %>
-
-    <div class="form__wrapper-block">
-      <button type="submit" class="button button__lg button__secondary">
-        <%= t("decidim.devise.registrations.new.sign_up") %>
-      </button>
-    </div>
-
-    <div class="login__links">
-      <%- if current_organization.sign_up_enabled? && devise_mapping.confirmable? && controller_name != "confirmations" %>
-         <%= link_to t("devise.shared.links.didn_t_receive_confirmation_instructions"), new_confirmation_path(resource_name) %>
-      <% end -%>
-
-      <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != "unlocks" %>
-        <%= link_to t("devise.shared.links.didn_t_receive_unlock_instructions"), new_unlock_path(resource_name) %>
-      <% end -%>
-    </div>
   <% end %>
-<% end %>
+</div>
 
 <%= render "decidim/devise/shared/newsletter_modal" %>
