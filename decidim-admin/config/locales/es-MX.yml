@@ -244,6 +244,7 @@ es-MX:
         create:
           error: Hubo un error al crear una nueva área.
           success: Área creada correctamente.
+        deprecated: Ten en cuenta que las áreas están obsoletas y se eliminarán en futuras versiones. Por favor, utiliza taxonomías en su lugar. El único espacio de participación que actualmente utiliza áreas es el de iniciativas.
         destroy:
           has_spaces: Esta área tiene espacios dependientes. Asegúrate de que no hace referencia a ningún espacio de participación antes de eliminarla.
           success: Área eliminada correctamente.
@@ -1017,6 +1018,7 @@ es-MX:
         create:
           error: Se ha producido un error al crear un nuevo ámbito.
           success: Ámbito creado correctamente.
+        deprecated: Ten en cuenta que los ámbitos están obsoletos y se eliminarán en futuras versiones. Por favor, utiliza taxonomías en su lugar. El único espacio de participación que actualmente utiliza ámbitos es el de iniciativas.
         destroy:
           success: Ámbito eliminado correctamente.
         edit:
