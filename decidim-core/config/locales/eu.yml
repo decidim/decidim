@@ -518,7 +518,7 @@ eu:
         name: Irudi nagusia eta ekintza botoia
       hero_settings_form:
         background_image: Atzeko planoko irudia
-        welcome_text: Ongietorri-testua
+        welcome_text: Ongi etorri testua
       highlighted_content_banner:
         name: Nabarmendutako edukia banner
       highlighted_elements_settings_form:
@@ -1108,7 +1108,7 @@ eu:
         comanagers_new_conversation:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
-          intro: "%{manager} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
+          intro: "%{manager} kudeatzaileak elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
           outro: Gozatu plataforma!
           subject: "%{manager} k elkarrizketa berri bat hasi du %{group} taldearekin"
         comanagers_new_message:
@@ -1486,7 +1486,7 @@ eu:
         hide_content: Edukia ezkutatu
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
         reason: Arrazoia
-        report: Txostena
+        report: Salatu
         spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
         title: Salatu eduki desegokia
       flag_user_modal:
