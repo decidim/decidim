@@ -176,21 +176,8 @@ shared_examples "a proposal form" do |options|
       context "when the proposal is unchanged" do
         let(:previous_proposal) { create(:proposal, address:) }
 
-        let(:title) do
-          if options[:skip_etiquette_validation]
-            previous_proposal.title
-          else
-            translated(previous_proposal.title)
-          end
-        end
-
-        let(:body) do
-          if options[:skip_etiquette_validation]
-            previous_proposal.body
-          else
-            translated(previous_proposal.body)
-          end
-        end
+        let(:title) { translated(previous_proposal.title) }
+        let(:body) { translated(previous_proposal.body) }
 
         let(:params) do
           {
