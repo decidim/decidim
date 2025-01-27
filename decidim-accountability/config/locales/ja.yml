@@ -46,6 +46,7 @@ ja:
         deleted_results_info: 削除された結果はゴミ箱から復元できます。
         destroy: 削除
         edit: 編集
+        import: 別のコンポーネントから結果をインポート
         import_csv: CSVファイルから結果をインポート
         new_result: 新しい結果
         new_status: 新しいステータス
@@ -58,6 +59,25 @@ ja:
         exports:
           result_comments: コメント
           results: 結果
+        import_components:
+          create:
+            invalid: 結果のインポートに問題が発生しました。手順を注意深く確認し、実施するプロジェクトを選択していることを確認してください。
+          filters:
+            new_items_projects:
+              other: "選択した %{count} 件のプロジェクトがインポートされます"
+            new_items_proposals:
+              other: "%{count} 件の提案がインポートされます"
+            proposal_state: 提案状況
+            select_state: ステータスを選択
+          form:
+            create: インポート
+            no_components: この参加スペースにはインポートできるコンポーネントがありません。
+            origin_component_id: 元のコンポーネント
+            select_component: コンポーネントを選択
+          new:
+            success:
+              other: "%{count} 件の結果をインポートする準備を行いました。完了次第、メールで通知します。"
+            title: 別のコンポーネントから結果をインポート
         import_results:
           new:
             download_export: CSV形式でエクスポートをダウンロード
@@ -211,6 +231,12 @@ ja:
             other: "%{count} 件の結果がプロジェクトからインポートされました。"
           subject: プロジェクトのインポートに成功しました
           success: '%{component_name} コンポーネントに結果をインポートしました。管理インターフェイスで結果を確認できます。'
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            other: "%{count} 件の結果が提案からインポートされました。"
+          subject: 提案のインポートに成功
+          success: 提案を%{component_name}コンポーネントの結果にインポートしました。管理画面で結果を確認できます。
       last_activity:
         new_result: '新しい結果:'
       models:
