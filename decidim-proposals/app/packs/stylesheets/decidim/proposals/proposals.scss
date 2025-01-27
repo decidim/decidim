@@ -103,18 +103,18 @@
   }
 
   &__grid-text-title {
-    @apply flex justify-between flex-row md:flex-col items-start lg:flex-row;
+    @apply flex justify-between items-start gap-y-2 flex-row md:flex-col lg:flex-row;
   }
 
   &__list-list {
     .card__proposals-item {
-      @apply border-l-4 border-[#D3D5D9] hover:border-tertiary focus-visible:border-tertiary flex flex-col md:flex-row md:justify-between min-h-0 md:min-h-[127px] lg:min-h-[83px];
+      @apply border-l-4 rounded-[10px] md:rounded-md border-[#F5F5F5] hover:border-tertiary focus-visible:border-tertiary flex flex-col md:items-center md:flex-row md:justify-between min-h-0 md:min-h-[127px] lg:min-h-[83px];
 
       .card__list {
         @apply border-none md:flex-1 md:items-center mb-2.5 md:mb-0;
 
         &-metadata {
-          @apply gap-y-1 md:flex md:flex-row md:items-center md:gap-y-1 md:gap-x-2 md:mt-0.5;
+          @apply gap-y-1 md:flex md:flex-row md:items-center md:gap-x-2 md:mt-0.5;
 
           & > div {
             @apply md:pl-0 md:pr-2;
@@ -123,18 +123,18 @@
       }
 
       .card__proposals-votes {
-        @apply flex md:flex-col lg:flex-row bg-[#F5F5F5EE] justify-around md:flex-[0.6] items-center md:items-stretch lg:items-center p-3;
+        @apply flex md:flex-col lg:flex-row bg-[#F5F5F5] justify-around md:flex-[0.6] lg:flex-[0.8] items-center md:items-stretch lg:items-center lg:min-w-[196px] h-[68px] md:h-auto lg:h-[68px];
 
         button {
           @apply bg-[var(--secondary)];
 
           &[disabled] {
-            @apply opacity-50 text-white border-current;
+            @apply opacity-50 text-white border-current cursor-not-allowed;
           }
         }
 
         .with_votes_limit {
-          @apply flex flex-col md:flex-row md:flex-wrap lg:flex-col lg:flex-nowrap flex-1 md:flex-none lg:flex-1 justify-center;
+          @apply flex flex-col p-0 md:p-2 lg:p-0 md:flex-row md:flex-wrap lg:flex-col lg:flex-nowrap flex-1 md:flex-none lg:flex-1 justify-center;
 
           .proposals__aside-progress {
             @apply flex flex-col w-[80%] items-center md:order-1 lg:order-none md:flex-[1_1_100%] lg:flex-none;
@@ -176,7 +176,7 @@
         }
 
         .proposal_votes_container {
-          @apply flex-1 md:w-full md:flex-none lg:flex-1;
+          @apply flex-1 md:w-full md:flex-none p-2 lg:p-0 lg:m-3 lg:w-[164px];
 
           button {
             @apply text-sm leading-[18px] font-semibold py-1;
@@ -188,7 +188,7 @@
         @apply md:flex-none;
 
         .proposal_votes_container {
-          @apply md:flex-none md:w-[140px];
+          @apply md:flex-none md:w-[130px] lg:w-[164px] lg:p-0;
         }
       }
     }
@@ -204,12 +204,8 @@
         @apply mb-2.5 md:mb-0 flex-1 justify-between;
         box-shadow: none !important;
 
-        &-text-title {
-          @apply flex-col items-start gap-y-2;
-        }
-
         &-text {
-          @apply justify-end;
+          @apply justify-end lg:gap-y-8;
         }
 
         &-metadata {
@@ -230,13 +226,13 @@
       }
 
       .card__proposals-votes {
-        @apply flex bg-[#F5F5F5EE] justify-around items-center p-3;
+        @apply flex bg-[#F5F5F5EE] justify-around items-center px-4 h-[68px];
 
         button {
           @apply bg-[var(--secondary)];
 
           &[disabled] {
-            @apply opacity-50 text-white border-current;
+            @apply opacity-50 text-white border-current cursor-not-allowed;
           }
         }
 
@@ -287,10 +283,14 @@
         }
 
         .proposal_votes_container {
-          @apply flex-1;
+          @apply flex-1 lg:w-[164px] lg:flex-none;
 
           button {
             @apply text-sm leading-[18px] font-semibold py-1;
+
+            .already-voted-icon {
+              @apply w-4 h-4;
+            }
           }
         }
       }
@@ -299,10 +299,10 @@
         @apply md:justify-end;
 
         .proposal_votes_container {
-          @apply md:flex-none md:w-[110px] lg:w-[140px];
+          @apply md:flex-none md:w-[130px] lg:w-[164px];
 
           button {
-            @apply md:px-3 lg:px-6;
+            @apply md:px-0 lg:px-6;
           }
         }
       }

@@ -6,11 +6,11 @@
   <% end %>
     <% if has_actions? %>
       <% if current_settings.votes_hidden? %>
-        <div class="card__proposals-votes votes_hidden">
+        <div class="card__proposals-votes votes_hidden block md:hidden">
           <%= cell proposal_vote_cell, resource, **options %>
         </div>
       <% else %>
-        <div class="card__proposals-votes">
+        <div class="card__proposals-votes block md:hidden">
           <%= cell proposal_vote_cell, resource, **options %>
         </div>
       <% end %>

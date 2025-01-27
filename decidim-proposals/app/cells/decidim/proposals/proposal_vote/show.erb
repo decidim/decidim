@@ -45,10 +45,12 @@
                   replace: t("decidim.proposals.proposals.vote_button.already_voted_hover"),
                   "redirect-url": proposal_path(resource)
                 },
-                class: "#{button_classes} is-hover",
+                disabled: current_settings.votes_blocked?,
+                class: "#{button_classes}",
                 id: "vote_button-#{resource.id}"
               ) do %>
             <%= t("decidim.proposals.proposals.vote_button.already_voted") %>
+            <%= icon "check-line", class: "already-voted-icon" %>
             <span class="sr-only"><%= decidim_html_escape(present(resource).title) %></span>
           <% end %>
         <% else %>
