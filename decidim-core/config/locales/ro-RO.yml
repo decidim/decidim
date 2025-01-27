@@ -1451,6 +1451,13 @@ ro:
         details:
           columns:
             type: Tip
+        dialog:
+          accept_all: Acceptați toate
+          description: Folosim cookie-uri pe site-ul nostru pentru a îmbunătăți performanța și conținutul site-ului. Cookie-urile ne permit să oferim mai multă experiență individualizată utilizatorilor și pentru rețelele sociale.
+          settings: Setări
+          title: Informații despre cookie-urile utilizate pe site
+        modal:
+          accept_all: Acceptați toate
       edit_link:
         edit: Editare
       footer:
@@ -1459,6 +1466,7 @@ ro:
         download_open_data: Descarcă fișierele de date deschise
         log_in: Autentificare
         made_with_open_source: Site web creat cu <a target="_blank" href="https://github.com/decidim/decidim">software gratuit</a>.
+        resources: Resurse
       header:
         log_in: Autentificare
         main_menu: Meniul principal
