@@ -721,12 +721,10 @@ es:
           attachments: El número de archivos adjuntos en este encuentro
           attendees: El número de personas que asistieron a este encuentro
           author: Los datos de autoría de este encuentro
-          comments: El número de comentarios en este encuentro
           component: El componente al que pertenece este encuentro
           contributions: El número de contribuciones realizadas en este encuentro por las asistentes
           description: La descripción del encuentro
           end_time: La fecha y hora en que terminó este encuentro
-          followers: El número de seguidoras de este encuentro
           id: El identificador único del encuentro
           location: La localización del encuentro
           organizations: Las organizaciones que asistieron a esta reunión
@@ -739,7 +737,6 @@ es:
           taxonomies: Las taxonomías a las que pertenece este encuentro
           title: El título del encuentro
           url: La URL del encuentro
-          withdrawn: Si este encuentro fue retirado/cancelado
           withdrawn_at: Cuando fue retirado/cancelado este encuentro
     participatory_spaces:
       highlighted_meetings:
