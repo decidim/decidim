@@ -244,6 +244,7 @@ de:
         create:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich erstellt.
+        deprecated: Beachten Sie, dass Gebiete veraltet sind und in zukünftigen Versionen entfernt werden. Bitte verwenden Sie stattdessen Taxonomien. Das einzige Modul, das derzeit Gebiete verwendet, ist das Initiativmodul.
         destroy:
           has_spaces: Dieser Bereich hat abhängige partizipative Räume. Bitte stellen Sie sicher, dass kein partizipativer Raum mehr diesen Bereich referenziert, bevor sie ihn löschen.
           success: Bereich wurde erfolgreich gelöscht.
@@ -1017,6 +1018,7 @@ de:
         create:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich erfolgreich erstellt
+        deprecated: Beachten Sie, dass Bereiche veraltet sind und in zukünftigen Versionen entfernt werden. Bitte verwenden Sie stattdessen Taxonomien. Das einzige Modul, das derzeit Bereiche verwendet, ist das Initiativmodul.
         destroy:
           success: Scope erfolgreich gelöscht.
         edit:
