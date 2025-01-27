@@ -710,6 +710,7 @@ eu:
           body: Iruzkin bera
           commentable_id: Iruzkingarriaren identifikazio bakarra
           commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
+          comments: Topaketaren iruzkinen datua
           created_at: Zein datatan sortu zen iruzkin hau
           depth: Iruzkin hau hiru iruzkinetan dago (erantzuna bada edo erantzun batren erantzuna)
           id: Identifikazioa iruzkin honetarako
@@ -720,14 +721,26 @@ eu:
           address: Topaketaren helbidea, baldin eta aurrez aurre badago eta kokapen fisikoa badu
           attachments: Bilera honetako atxikipen kopurua
           attendees: Zenbat jende bildu da topaketa honetan?
+          attending_organizations: Topaketan izan diren erakundeak
+          audio_url: Topaketaren audiograbazioa
           author: Topaketa honen egilearen data
-          comments: Zenbat iruzkin egin dira topaketa honetan?
+          available_slots: Topaketa batean leku libre kopurua
+          closed_at: Zein datatan itxi zen topaketa
+          closing_report: Itxitako topaketaren txostena
+          closing_visible: Topaketaren ikusgarritasuna
+          comments: Topaketaren iruzkinen datua
           component: Topaketari dagokion osagaia
           contributions: Zenbat ekarpen egin dituzte nerabeek topaketa honetan?
+          created_at: Zein datatan sortu zen topaketa
+          customize_registration_email: Posta elektroniko pertsonalizatua erregistratzeko aukera
+          decidim_author_type: Topaketaren egile mota
+          decidim_user_group_id: Topaketan parte hartu duten parte-hartzaileen taldearen identifikazioa
           description: Topaketaren deskribapena
           end_time: Zein datatan eta ordutan amaituko da topaketa hau?
-          followers: Zenbat jarraitzaile ditu topaketa honek?
+          follows_count: Topaketa honek duen jarraitzaile kopurua
           id: Topaketaren identifikatzaile bakarra
+          iframe_access_level: Topaketaren sarrera maila
+          iframe_embed_type: Topaketan agertu zen "Iframe" mota
           location: Topaketaren kokapena
           organizations: Zein erakundek hartu du parte topaketa honetan?
           participatory_space: Zein espaziotakoa datopaketa hau (adibidez, Prozesu Parte-hartzailea edo Batzarra)?
@@ -739,7 +752,6 @@ eu:
           taxonomies: Topaketa honi dagozkion taxonomiak
           title: Topaketaren izenburua
           url: Topaketaren URLa
-          withdrawn: Topaketa bertan behera geratu den ala ez
           withdrawn_at: Noiz utzi zen bertan behera topaketa hau?
     participatory_spaces:
       highlighted_meetings:
