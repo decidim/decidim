@@ -193,7 +193,7 @@ en:
           media_links_title: Media Links
         new:
           create: Create
-          title: Create media link.
+          title: Create media link
         update:
           error: There was a problem updating this media link.
           success: Media Link successfully updated.
