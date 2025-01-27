@@ -79,12 +79,12 @@ eu:
           attributes:
             base:
               not_official: Ez dira ofizialak
-              voted: Botoak edo atxikimenduak jaso izana
+              voted: Babesak edo atxikimenduak jaso izana
         proposals_split:
           attributes:
             base:
               not_official: Ez dira ofizialak
-              voted: Botoak edo atxikimenduak jaso izana
+              voted: Babesak edo atxikimenduak jaso izana
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Proposamen taxonomiak aldatuta
       decidim/proposals/creation_enabled_event: Proposamenaren sorrera gaituta
@@ -114,8 +114,8 @@ eu:
         one: Oharra
         other: Oharrak
       decidim/proposals/proposal_vote:
-        one: Botoa
-        other: Botoak
+        one: Babesa
+        other: Babesak
   decidim:
     admin:
       admin_log:
@@ -173,17 +173,17 @@ eu:
             announcement: Jakinarazpena
             attachments_allowed: Onartu eranskinak
             attachments_allowed_help: Aukera hori gaituta, proposamenak lehenetsita lauki moduan erakutsiko dira, eta lehen irudia txartelean agertuko da.
-            can_accumulate_votes_beyond_threshold: Botoak metatu ditzake atalasetik haratago
+            can_accumulate_votes_beyond_threshold: Babesak metatu ditzake atalasetik haratago
             clear_all: Garbitu dena
             collaborative_drafts_enabled: Lankidetza zirriborroak gaituta
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
             default_sort_order: Proposamenen hurrenkera lehenetsia
-            default_sort_order_help: Automatikoak esan nahi du, botoak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta botoak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
+            default_sort_order_help: Automatikoak esan nahi du, babesak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta babesak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
             default_sort_order_options:
               automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
-              most_endorsed: Aldeko boto gehien dituztenak
+              most_endorsed: Aldeko atxikimendu gehien dituztenak
               most_followed: Jarraitzaile gehien dituztenak
               most_voted: Bozkatuenak
               random: Ausazkoa
@@ -196,7 +196,7 @@ eu:
               hours: Orduak
               minutes: Minutuak
             geocoding_enabled: Mapak gaituta
-            minimum_votes_per_user: Gutxieneko botoak parte-hartzaile bakoitzeko
+            minimum_votes_per_user: Gutxieneko babesak parte-hartzaile bakoitzeko
             new_proposal_body_template: Plantilla proposamen berriaren testurako
             new_proposal_body_template_help: Proposamen berriek izango duten testu aurredefinitua zehaztu ahal duzu
             new_proposal_help_text: Proposamen berriaren laguntza testua
@@ -241,11 +241,11 @@ eu:
             creation_enabled: Parte-hartzaileek eztabaidak sor ditzakete
             creation_enabled_readonly: Aukera hori desaktibatu egiten da Testuen Parte-hartzaile funtzionaltasuna aktibatzean. Testu parte-hartzaile gisa proposamenak kargatzeko, egin klik Testu parte-hartzaileak botoian eta jarraitu jarraibideak.
             default_sort_order: Proposamenen hurrenkera lehenetsia
-            default_sort_order_help: Automatikoak esan nahi du, botoak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta botoak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
+            default_sort_order_help: Automatikoak esan nahi du, babesak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta babesak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
             default_sort_order_options:
               automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
-              most_endorsed: Aldeko boto gehien dituztenak
+              most_endorsed: Aldeko atxikimendu gehien dituztenak
               most_followed: Jarraitzaile gehien dituztenak
               most_voted: Bozkatuenak
               random: Ausazkoa
@@ -259,7 +259,7 @@ eu:
             suggested_hashtags: Traolek parte-hartzaileei proposamen berriak proposatu dizkie
             votes_blocked: Bozketak blokeatuta
             votes_enabled: Bozketak gaituta
-            votes_hidden: Boto ezkutuak (botoak gaituta badaude, hau markatuz boto kopurua ezkutuan geratuko da)
+            votes_hidden: Boto ezkutuak (babesak gaituta badaude, hau markatuz boto kopurua ezkutuan geratuko da)
     download_your_data:
       show:
         proposal_comments: Esportatu proposamenen iruzkinak
@@ -430,8 +430,8 @@ eu:
         title: Proposamenak
       votes:
         description: Zenbat boto proposamenei
-        object: botoak
-        title: Botoak
+        object: babesak
+        title: Babesak
     open_data:
       help:
         proposal_comments:
@@ -852,7 +852,7 @@ eu:
       exit_modal:
         cancel: Ezeztatu
         exit: Jarraitu
-        message: Proposamen ezberdinen artean %{number} boto gehiago eman behar dizkiezu proposamenei zure botoak kontuan har daitezen.
+        message: Proposamen ezberdinen artean %{number} babes gehiago eman behar dizkiezu proposamenei zure botoak kontuan har daitezen.
         title: Gogoratu botoen %{number} geratzen zaizula
       forms:
         errors:
@@ -889,7 +889,7 @@ eu:
             title: Titulua
             valuator: Ebaluatzailea
             valuators: Ebaluatzaileak
-            votes: Botoak
+            votes: Babesak
         proposal_state:
           css_class: CSS klasea
           title: Egoera
@@ -952,7 +952,7 @@ eu:
         orders:
           label: 'Antolatu proposamenak honen arabera:'
           most_commented: Iruzkin gehien dituztenak
-          most_endorsed: Aldeko boto gehien dituztenak
+          most_endorsed: Aldeko atxikimendu gehien dituztenak
           most_followed: Jarraitzaile gehien dituztenak
           most_voted: Bozkatuenak
           random: Ausazko ordena
@@ -1002,12 +1002,12 @@ eu:
           already_voted_hover: Kendu botoa
           maximum_votes_reached: Botoen muga lortua
           no_votes_remaining: Ez da gelditzen botorik
-          vote: Botoa
-          votes_blocked: Bozketa desaktibatu da
+          vote: Alde egin
+          votes_blocked: Babesa ematea desaktibatu da
         votes_count:
           count:
-            one: Botoa
-            other: Botoak
+            one: Babesa
+            other: Babesak
         voting_rules:
           already_vote:
             description: Gogoratu oraindik % {number} euskarri eman behar dituzula proposamen ezberdinen artean zure euskarriak kontuan har daitezen.
@@ -1019,7 +1019,7 @@ eu:
             description: Gutxienez % {boto} euskarri banatu behar duzu proposamen ezberdinen artean zure euskarriak kontuan har daitezen.
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
-          success: Zure botoak ongi onartu dira
+          success: Zure babesak ongi onartu dira
           threshold_per_proposal:
             description: Proposamenak baliagarriak izan daitezen, %{limit} boto izatera iritsi behar da.
           title: Parte hartzeko arauak
@@ -1054,7 +1054,7 @@ eu:
           title: Bertsioak
       withdraw:
         errors:
-          has_votes: Proposamen hau ezin da kendu dagoeneko botoak duelako.
+          has_votes: Proposamen hau ezin da kendu dagoeneko babesak dituelako.
     resource_links:
       copied_from_component:
         proposal_proposal: Lotutako proposamenak
@@ -1066,4 +1066,4 @@ eu:
     statistics:
       proposals_accepted: Onartutako proposamenak
       proposals_count: Proposamenak
-      votes_count: Botoak
+      votes_count: Babesak
