@@ -90,7 +90,7 @@ en:
             label: State
             values:
               accepted: Enough signatures
-              created: Created
+              created: Drafted
               discarded: Discarded
               open: Open
               rejected: Not enough signatures
@@ -346,7 +346,7 @@ en:
           update: "%{user_name} updated the %{resource_name} initiatives type"
       admin_states:
         accepted: Enough signatures
-        created: Created
+        created: Drafted
         discarded: Discarded
         open: Open
         rejected: Not enough signatures
@@ -605,7 +605,7 @@ en:
       show:
         badge_name:
           accepted: Enough signatures
-          created: Created
+          created: Drafted
           discarded: Discarded
           open: Open
           rejected: Not enough signatures
