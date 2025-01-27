@@ -410,6 +410,11 @@ ro:
         title: Procese participative
       last_activity:
         new_participatory_process: 'Proces participativ nou:'
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Procese participative active
+            see_all_spaces: Vedeți toate
       participatory_process_steps:
         index:
           back_to_process: Înapoi la pagina de proces
