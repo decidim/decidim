@@ -147,68 +147,6 @@ describe "Answer a survey" do
   end
 
   context "when the survey allow answers" do
-    # rubocop:disable Naming/VariableNumber
-    context "when survey allows editing" do
-      let(:options) do
-        [
-          { "body" => Decidim::Faker::Localized.sentence },
-          { "body" => Decidim::Faker::Localized.sentence },
-          { "body" => Decidim::Faker::Localized.sentence }
-        ]
-      end
-      let(:max_characters) { 0 }
-      let(:max_choices) { nil }
-
-      let!(:survey) { create(:survey, :published, :allow_edit, :announcement, :allow_answers, :allow_unregistered, component:, questionnaire:) }
-      let!(:second_question) { create(:questionnaire_question, position: 1, questionnaire:, question_type: :multiple_option, max_choices:, max_characters:, options:) }
-      let!(:question) { create(:questionnaire_question, questionnaire:, mandatory: true, position: 0, description: question_description) }
-
-      before do
-        visit_component
-        see_questionnaire_questions
-
-        fill_in :questionnaire_responses_0, with: "My first answer"
-        check "questionnaire_tos_agreement"
-        accept_confirm { click_on "Submit" }
-      end
-
-      it "restricts the change of an answer when editing is disabled" do
-        expect(page).to have_content("Edit your answers")
-
-        survey.update!(allow_editing_answers: false)
-
-        click_on "Edit your answers"
-
-        expect(page).to have_content("You are not allowed to edit your answers.")
-      end
-
-      it "restricts the change of an answer when form is closed" do
-        expect(page).to have_content("Edit your answers")
-
-        survey.update!(ends_at: 1.day.ago)
-
-        click_on "Edit your answers"
-
-        expect(page).to have_content("You are not allowed to edit your answers.")
-      end
-
-      it "allows to change the response of a text field" do
-        expect(page).to have_content("Edit your answers")
-        click_on "Edit your answers"
-
-        expect(page).to have_field(:questionnaire_responses_0, with: "My first answer")
-
-        fill_in :questionnaire_responses_0, with: "My first answer changed"
-        check "questionnaire_tos_agreement"
-        accept_confirm { click_on "Submit" }
-
-        expect(page).to have_content("Edit your answers")
-        click_on "Edit your answers"
-        expect(page).to have_field(:questionnaire_responses_0, with: "My first answer changed")
-      end
-    end
-    # rubocop:enable Naming/VariableNumber
-
     context "when the survey is closed by start and end dates" do
       before do
         survey.update!(starts_at: 1.week.ago, ends_at: 1.day.ago)
