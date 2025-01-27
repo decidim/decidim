@@ -64,6 +64,19 @@ de:
             title: 'Antwort #%{number}'
         exports:
           survey_user_answers: Umfrage Benutzer Antworten
+        publish_answers:
+          index:
+            answers:
+              one: "%{count} Antwort"
+              other: "%{count} Antworten"
+            description: |-
+              Indem Sie die Antworten der Fragen veröffentlichen, machen Sie sie für die Öffentlichkeit sichtbar.
+              Sie können die zu veröffentlichenden Antworten auswählen, indem Sie auf das Kontrollkästchen neben jeweiligen Frage klicken.
+              Sie können nur folgende Fragentypen veröffentlichen: "Einzelne Option", "Mehrfachoption", "Matrix (Einzelne Option)", "Matrix (Mehrfachoption)" und "Sortierung".
+            status:
+              not_published: Nicht veröffentlicht
+              published: Veröffentlicht
+            title: Antworten veröffentlichen
         surveys:
           create:
             invalid: Beim Erstellen der Umfrage ist ein Problem aufgetreten.
