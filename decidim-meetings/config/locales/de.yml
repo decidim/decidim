@@ -710,6 +710,7 @@ de:
           body: Der Kommentarinhalt
           commentable_id: Die eindeutige ID des kommentierten Objekts
           commentable_type: Die Art des kommentierten Objekts (ob es ein Ergebnis, Vorschlag o.ä. war)
+          comments: Die Daten der Kommentare der Veranstaltung
           created_at: Das Erstellungsdatum des Kommentars
           depth: Die Position dieses Kommentars im Thread (ob es sich um eine Antwort oder eine Antwort auf eine Antwort handelt)
           id: Die ID dieses Kommentars
@@ -720,13 +721,21 @@ de:
           address: Die Adresse der Veranstaltung, falls sie an einem Standort stattfindet
           attachments: Die Anzahl der Anhänge in dieser Veranstaltung
           attendees: Die Anzahl der Personen, die an dieser Veranstaltung teilnehmen
+          attending_organizations: Die Organisationen, die an der Veranstaltung teilnehmen
+          audio_url: Audioaufnahme der Veranstaltung
           author: Die Angaben über die verfassende Person dieser Veranstaltung
-          comments: Die Anzahl der Kommentare in dieser Sitzung
+          available_slots: Die Anzahl der verfügbaren Plätze in einer Veranstaltung
+          closed_at: Das Datum, an dem die Veranstaltung abgeschlossen wurde
+          closing_report: Bericht über die geschlossene Veranstaltung
+          closing_visible: Die Sichtbarkeit der Veranstaltung
+          comments: Die Daten der Kommentare der Veranstaltung
           component: Die Komponente, zu der die Sitzung gehört
           contributions: Die Anzahl der durch die Teilnehmenden der Sitzung gemachten Beiträge
+          created_at: Das Datum, an dem das Veranstaltung erstellt wurde
+          customize_registration_email: Die Möglichkeit, eine benutzerdefinierte E-Mail bei der Registrierung zu erlauben
+          decidim_author_type: Autorentyp des Veranstaltungsautors
           description: Die Beschreibung der Sitzung
           end_time: Das Datum und die Uhrzeit dieses Abschlusses der Sitzung
-          followers: Die Anzahl der Follower dieser Sitzung
           id: Die eindeutige Bezeichnung der Sitzung
           location: Der Ort der Veranstaltung
           organizations: Die Organisationen, die an diesem Treffen teilnehmen
@@ -739,7 +748,6 @@ de:
           taxonomies: Die Klassifizierungen, zu denen diese Veranstaltung gehört
           title: Der Titel der Sitzung
           url: Die URL der Sitzung
-          withdrawn: Ob diese Sitzung zurückgezogen wurde
           withdrawn_at: Wann diese Sitzung zurückgezogen wurde
     participatory_spaces:
       highlighted_meetings:
