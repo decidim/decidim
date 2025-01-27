@@ -14,8 +14,8 @@ eu:
         one: Iruzkina
         other: Iruzkinak
       decidim/comments/comment_vote:
-        one: Botoa
-        other: Botoak
+        one: Babesa
+        other: Babesak
   decidim:
     comments:
       admin:
