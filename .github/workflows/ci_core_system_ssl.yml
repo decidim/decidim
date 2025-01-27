@@ -73,7 +73,7 @@ jobs:
           token: ${{ env.CODECOV_TOKEN }}
           name: decidim-core-system-ssl
           flags: decidim-core-system-ssl
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: screenshots
