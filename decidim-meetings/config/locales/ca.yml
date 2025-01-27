@@ -721,12 +721,10 @@ ca:
           attachments: El nombre de fitxers adjunts en aquesta reunió
           attendees: El número de persones que van assistir a la trobada
           author: Les dades d'autoria d'aquesta trobada
-          comments: El número de comentaris en aquesta trobada
           component: El component al qual pertany aquesta trobada
           contributions: El número de contribucions realitzades en aquesta trobada per les assistents
           description: La descripció de la trobada
           end_time: La data i l'hora en què va finalitzar aquesta trobada
-          followers: El número de seguidores d'aquesta trobada
           id: L'identificador únic de la trobada
           location: La localització de la trobada
           organizations: Les organitzacions que van assistir a aquesta trobada
@@ -739,7 +737,6 @@ ca:
           taxonomies: Les taxonomies a les quals pertany aquesta trobada
           title: El títol de la trobada
           url: L'URL de la trobada
-          withdrawn: Si aquesta trobada va ser retirada/cancel·lada
           withdrawn_at: Quan va ser retirada/cancel·lada aquesta trobada
     participatory_spaces:
       highlighted_meetings:
