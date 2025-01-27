@@ -43,6 +43,7 @@ en:
           components:
             allow_answers: Allow answers
             allow_editing_answers: Allow editing answers
+            allow_editing_answers_help: If active, answers from registered participants can be edited after submission.
             allow_unregistered: Allow unregistered users to answer the survey
             allow_unregistered_help: If active, no login will be required in order to answer the survey. This may lead to poor or unreliable data and it will be more vulnerable to automated attacks. Use with caution! Mind that a participant could answer the same survey multiple times, by using different browsers or the "private browsing" feature of her web browser.
             announcement: Announcement
