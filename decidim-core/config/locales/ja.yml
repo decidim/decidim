@@ -3,10 +3,20 @@ ja:
     attributes:
       account:
         delete_reason: アカウントを削除する理由
+      attachment:
+        documents: ドキュメント
+        photos: 写真
       common:
         created_at: 作成日時
+      component:
+        taxonomy_filters: タクソノミーフィルター
+      content_block_attachment:
+        background_image: 背景画像
+        main_image: メイン画像
       conversation:
         body: 本文
+      editor_image:
+        file: ファイル
       group:
         about: グループについて
         avatar: アバター
@@ -15,6 +25,8 @@ ja:
         name: 名前
         nickname: アカウントID
         phone: 電話番号
+      import:
+        file: ファイル
       message:
         body: 本文
       report:
@@ -22,9 +34,13 @@ ja:
       taxonomy:
         name: タクソノミー名
       taxonomy_filter:
+        internal_name: 内部ラベル
+        name: ラベル
         root_taxonomy_id: タクソノミーから
+        space_filter: フィルタとして利用可能
       user:
         about: 私について
+        avatar: アバター
         email: あなたのメールアドレス
         encrypted_password: パスワード
         locale: 地域
@@ -36,6 +52,8 @@ ja:
         personal_url: 個人用URL
         remove_avatar: アバターを削除
         tos_agreement: 利用規約
+      user_group:
+        avatar: アバター
     models:
       decidim/attachment_created_event: 添付ファイル
       decidim/component_published_event: アクティブなコンポーネント
