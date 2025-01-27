@@ -45,11 +45,6 @@ module Decidim
       end
 
       def confirm_data
-        confirm = if allow_editing_answers?
-                    t("decidim.forms.step_navigation.show.are_you_sure_edit")
-                  else
-                    t("decidim.forms.step_navigation.show.are_you_sure_no_edit")
-                  end
         {
           data: {
             confirm:,
@@ -57,6 +52,13 @@ module Decidim
             data: "survey-buttons"
           }
         }
+      end
+
+      def confirm
+        return t("decidim.forms.step_navigation.show.are_you_sure_no_edit") unless allow_editing_answers?
+        return t("decidim.forms.step_navigation.show.are_you_sure_edit_guest") unless current_user
+
+        t("decidim.forms.step_navigation.show.are_you_sure_edit")
       end
     end
   end

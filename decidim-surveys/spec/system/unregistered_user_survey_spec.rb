@@ -83,38 +83,12 @@ describe "Answer a survey" do
       end
 
       it "restricts the change of an answer when editing is disabled" do
-        expect(page).to have_content("Edit your answers")
-
-        survey.update!(allow_editing_answers: false)
-
-        click_on "Edit your answers"
-
-        expect(page).to have_content("You are not allowed to edit your answers.")
+        expect(page).to have_content("Already answered")
       end
 
-      it "restricts the change of an answer when form is closed" do
-        expect(page).to have_content("Edit your answers")
-
-        survey.update!(ends_at: 1.day.ago)
-
-        click_on "Edit your answers"
-
-        expect(page).to have_content("You are not allowed to edit your answers.")
-      end
-
-      it "allows to change the response of a text field" do
-        expect(page).to have_content("Edit your answers")
-        click_on "Edit your answers"
-
-        expect(page).to have_field(:questionnaire_responses_0, with: "My first answer")
-
-        fill_in :questionnaire_responses_0, with: "My first answer changed"
-        check "questionnaire_tos_agreement"
-        accept_confirm { click_on "Submit" }
-
-        expect(page).to have_content("Edit your answers")
-        click_on "Edit your answers"
-        expect(page).to have_field(:questionnaire_responses_0, with: "My first answer changed")
+      it "hides the form when on edit page" do
+        visit Decidim::EngineRouter.main_proxy(survey.component).edit_survey_path(survey)
+        expect(page).to have_content("Already answered")
       end
     end
     # rubocop:enable Naming/VariableNumber

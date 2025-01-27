@@ -103,7 +103,7 @@ module Decidim
           end
 
           def visitor_can_edit_answers?
-            questionnaire_for.try(:allow_editing_answers?)
+            current_user.present? && questionnaire_for.try(:allow_editing_answers?)
           end
 
           def i18n_flashes_scope

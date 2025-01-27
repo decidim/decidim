@@ -40,11 +40,11 @@ module Decidim
         return if allow_editing_answers?
 
         flash.now[:error] = t("decidim.forms.step_navigation.show.disallowed")
-        render :no_permission
+        render :not_allowed
       end
 
       def allow_editing_answers?
-        survey.allow_editing_answers? && survey.open?
+        visitor_can_edit_answers? && survey.open?
       end
 
       def show_published_questions_answers?
