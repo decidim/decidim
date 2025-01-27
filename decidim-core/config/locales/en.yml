@@ -1183,8 +1183,8 @@ en:
         confirm_modal: 
           title_add: Confirm the new administrator
           title_remove: Remove the administrator
-          ok_add: Ajouter un administrateur
-          ok_remove: Supprimer l'administrateur
+          ok_add: Add an administrator
+          ok_remove: Remove the administrator
         confirm_promote_to_admin: Are you sure you want to add this user as an administrator?
         confirm_remove_from_group: Are you sure you want to remove the user from this group?
         promote_to_admin: Make admin
