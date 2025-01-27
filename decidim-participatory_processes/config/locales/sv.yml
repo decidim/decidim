@@ -268,6 +268,9 @@ sv:
         create:
           error: Det gick inte att skapa en ny grupp för processer.
           success: Gruppen har skapats.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Alla deltagandeprocesser
       titles:
         participatory_process_groups: Grupper av deltagandeprocesser
         participatory_process_types: Typer av deltagandeprocesser
