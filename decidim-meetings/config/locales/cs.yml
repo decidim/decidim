@@ -734,12 +734,10 @@ cs:
           attachments: Počet příloh v této schůzce
           attendees: Počet lidí účastnících se této schůzky
           author: Data autora této schůzky
-          comments: Počet komentářů k této schůzce
           component: Komponenta, ke které schůzka patří,
           contributions: Počet příspěvků na této schůzce zúčastněných stran
           description: Popis schůzky
           end_time: Datum a čas ukončení této schůzky
-          followers: Počet sledujících tuto schůzku
           id: Jedinečný identifikátor sschůzky
           location: Místo schůzky
           organizations: Organizace, které se účastní této schůzky
@@ -752,7 +750,6 @@ cs:
           taxonomies: Taxonomie, do kterých tato schůzka patří,
           title: Název schůzky
           url: URL schůzky
-          withdrawn: Kdy byla tato schůzka stažena
           withdrawn_at: Kdy byla tato schůzka odvolána
     participatory_spaces:
       highlighted_meetings:
