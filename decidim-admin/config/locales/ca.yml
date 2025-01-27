@@ -244,6 +244,7 @@ ca:
         create:
           error: S'ha produït un error en crear una nova àrea.
           success: Àrea creada correctament.
+        deprecated: Tingues en compte que les àrees estan obsoletes i s'eliminaran en versions futures. Si us plau, utilitza taxonomies al seu lloc. L'únic espai de participació que actualment fa servir àrees és el d'iniciatives.
         destroy:
           has_spaces: Aquesta àrea té espais dependents. Assegura't que no fa referència a cap espai de participació abans d'eliminar-la.
           success: Àrea eliminada correctament.
@@ -1017,6 +1018,7 @@ ca:
         create:
           error: S'ha produït un error en crear un nou àmbit.
           success: Àmbit creat correctament.
+        deprecated: Tingues en compte que els àmbits estan obsoletes i s'eliminaran en versions futures. Si us plau, utilitza taxonomies al seu lloc. L'únic espai de participació que actualment fa servir àmbits és el d'iniciatives.
         destroy:
           success: Àmbit eliminat correctament.
         edit:
