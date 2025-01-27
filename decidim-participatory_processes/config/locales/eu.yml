@@ -472,8 +472,8 @@ eu:
           all_types: Mota guztiak
           counters:
             active:
-              one: 1 prozesu aktibo
-              other: "%{count} prozesu aktiboak"
+              one: Prozesu bat aktibo
+              other: "%{count} prozesu aktibo"
             all:
               one: 1 prozesu
               other: "%{count} prozesu"
@@ -486,8 +486,8 @@ eu:
           date: Data
           explanations:
             no_active: Ez dago prozesu aktiborik.
-            no_active_nor_upcoming: Ez dago prozesu aktiborik ez etorkizunekorik.
-            no_active_nor_upcoming_callout: Prozesu aktibo eta ez datoz bat. Hona hemen iraganekoen zerrenda.
+            no_active_nor_upcoming: Ez dago prozesurik martxan, ezta aurreikuspenik ere.
+            no_active_nor_upcoming_callout: Ez dago prozesurik martxan edo aurreikusita. Jarraian, iraganeko prozesuen zerrenda.
           filter_by: Erakutsi
           names:
             active: Aktiboa
