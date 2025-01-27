@@ -21,6 +21,8 @@ module Decidim
       helper_method :current_initiative
       helper_method :initiative_type
       helper_method :promotal_committee_required?
+      helper_method :minimum_committee_members
+      helper_method :promoters_committee_members
 
       before_action :authenticate_user!
       before_action :ensure_type_exists,
@@ -85,6 +87,10 @@ module Decidim
 
       private
 
+      def membership_request
+        @membership_request ||= current_initiative.committee_members.find(params[:committee_member_id])
+      end
+
       def ensure_user_can_create_initiative
         enforce_permission_to :create, :initiative, { initiative_type: }
       end
@@ -130,9 +136,19 @@ module Decidim
         return false if initiative_type.blank?
         return false unless initiative_type.promoting_committee_enabled?
 
-        minimum_committee_members = initiative_type.minimum_committee_members ||
-                                    Decidim::Initiatives.minimum_committee_members
-        minimum_committee_members.present? && minimum_committee_members.positive?
+        minimum_committee_members.positive?
+      end
+
+      def minimum_committee_members
+        @minimum_committee_members ||= if initiative_type.blank? || !initiative_type.promoting_committee_enabled?
+                                         0
+                                       else
+                                         initiative_type.minimum_committee_members || Decidim::Initiatives.minimum_committee_members
+                                       end
+      end
+
+      def promoters_committee_members
+        @promoters_committee_members ||= current_initiative.committee_members.approved
       end
     end
   end

@@ -1,0 +1,8 @@
+<%= link_to resource_path, class: "flex items-center" do %>
+  <div class="rounded-full overflow-hidden w-8 h-8 mr-2">
+    <%= image_tag avatar, alt: t("decidim.author.avatar", name: decidim_sanitize(name)), class: "object-cover" %>
+  </div>
+  <div class="text-secondary text-md">
+    <%= name %>
+  </div>
+<% end %>

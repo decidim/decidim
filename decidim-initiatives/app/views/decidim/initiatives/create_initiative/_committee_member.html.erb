@@ -1,0 +1,28 @@
+<div class="flex items-center justify-between my-1">
+  <%= cell("decidim/user_name", request.user) %>
+
+  <div>
+    <% if allowed_to? :approve, :initiative_committee_member, initiative: current_initiative, request: request %>
+      <%= link_to(
+              approve_initiative_committee_request_path(current_initiative, request),
+              data: { confirm: t(".confirm_approve") },
+              class: "button button__xs button__transparent-secondary"
+            ) do %>
+              <span><%= t(".approve") %></span>
+              <%= icon "check-line" %>
+            <% end %>
+    <% end %>
+    <% if allowed_to? :revoke, :initiative_committee_member, initiative: current_initiative, request: request %>
+      <%= link_to(
+              revoke_initiative_committee_request_path(current_initiative, request),
+              method: :delete,
+              data: { confirm: t(".confirm_revoke") },
+              class: "button button__xs button__transparent-secondary"
+            ) do %>
+              <span><%= t(".revoke") %></span>
+              <%= icon "forbid-line" %>
+            <% end %>
+    <% end %>
+  </div>
+</div>
+

@@ -7,40 +7,27 @@
 
 <%= cell("decidim/announcement", { body: announcement_body }, callout_class: "secondary") %>
 
+<h3 class="title-decorator text-2xl mt-8"><%= t(".subtitle") %></h3>
+
 <div class="initiatives__selection">
-  <% initiative_types_each do |type| %>
-    <% if allowed_to?(:create, :initiative, { initiative_type: type }) %>
-      <%= decidim_form_for(@form, url: select_initiative_type_create_initiative_index_path, method: :put, html: { id: "new_initiative_#{type.id}", class: "form-defaults " }) do |f| %>
-        <%= f.hidden_field :type_id, value: type.id, id: "initiative_type_id_#{type.id}" %>
-        <button class="card__highlight w-full">
-          <%= icon "lightbulb-flash-line", class: "verification__icon " %>
-          <div class="initiatives__selection__text">
-            <h2 class="h5 text-secondary"><%= translated_attribute(type.title) %></h2>
-            <span><%= decidim_sanitize_admin(translated_attribute(type.description)) %></span>
-          </div>
-          <%= icon "arrow-right-s-line", class: "fill-secondary initiatives__selection__icon" %>
-        </button>
+  <%= decidim_form_for(@form, url: select_initiative_type_create_initiative_index_path, method: :put, html: { id: "new_initiative_form", class: "form-defaults " }) do |f| %>
+    <% initiative_types_each do |type| %>
+      <% if allowed_to?(:create, :initiative, { initiative_type: type }) %>
+        <%= render layout: "decidim/application/radio_accordion", locals: {
+          open_accordion: false,
+          panel_id: type.id,
+          title: translated_attribute(type.title),
+          input_radio_name: "initiative[type_id]",
+          input_radio_value: type.id
+        } do %>
+          <%= decidim_sanitize_admin(translated_attribute(type.description)) %>
+        <% end %>
       <% end %>
-    <% else %>
-      <div class="card__highlight card__highlight-authorized">
-        <%= icon "lightbulb-flash-line", class: "verification__icon " %>
-        <div class="initiatives__selection__text">
-          <h2 class="h5 text-secondary"><%= translated_attribute(type.title) %></h2>
-          <span><%= decidim_sanitize_admin(translated_attribute(type.description)) %></span>
-          <%= action_authorized_link_to(
-                :create,
-                fill_data_create_initiative_index_path(initiative: { type_id: type.id }),
-                authorizations_modal_path: authorization_create_modal_initiative_path(type),
-                permissions_holder: type,
-                class: "button button__sm button__secondary",
-                "data-dialog-open": "not-authorized-modal",
-                onclick: "event.preventDefault();"
-              ) do %>
-              <%= t("verification_required", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
-          <% end %>
-        </div>
-      </div>
     <% end %>
+
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between border-0">
+      <%= f.submit t(".continue"), class: "button button__sm md:button__lg button__secondary", data: { disable_with: true } %>
+    </div>
   <% end %>
 </div>
 
