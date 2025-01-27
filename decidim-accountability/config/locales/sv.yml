@@ -47,6 +47,7 @@ sv:
         deleted_results_info: Borttagna resultat kan återställas från papperskorgen.
         destroy: Radera
         edit: Redigera
+        import: Importera resultat från en annan komponent
         import_csv: Importera resultat från CSV-fil
         new_result: Nytt resultat
         new_status: Ny status
@@ -59,10 +60,53 @@ sv:
         exports:
           result_comments: Kommentarer
           results: Resultat
+        import_components:
+          create:
+            invalid: Det gick inte att importera resultaten, följ instruktionerna noga och se till att du har valt projekt för genomförande.
+          filters:
+            new_items_projects:
+              one: 1 valt projekt kommer att importeras
+              other: "%{count} valda projekt kommer att importeras"
+            new_items_proposals:
+              one: 1 förslag kommer att importeras
+              other: "%{count} förslag kommer att importeras"
+            proposal_state: Förslagets status
+            select_state: Välj status
+          form:
+            create: Importera
+            no_components: Det finns inga komponenter i deltagarutrymmet att importera.
+            origin_component_id: Ursprungskomponent
+            select_component: Välj en komponent
+          new:
+            success:
+              one: 1 projekt väntar på att importeras. Du får ett e-postmeddelande när det är klart.
+              other: "%{count} projekt väntar på att importeras. Du får ett e-postmeddelande när det är klart."
+            title: Importera resultat från en annan komponent
         import_results:
           new:
             download_export: Ladda ner exporten som CSV-fil
             import: Importera
+            info: |
+              <p>Vi rekommenderar att du följer de här stegen:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Skapa status för de resultat</a> som du vill lägga till</li>
+              <li><a href='%{link_new_result}' target='_blank'>Skapa minst ett resultat manuellt</a> från administratörspanelen innan du importerar, för att få en bättre förståelse för formatet och vad du behöver fylla i.</li>
+              <li>%{link_export_csv}</li>
+              <li>Genomför ändringarna lokalt. Du kan endast ändra följande kolumner i CSV-filen:
+              <ul>
+              <li><b>category/id:</b> ID för kategorin</li>
+              <li><b>scope/id:</b> ID för tillämpningsområdet</li>
+              <li><b>parent/id:</b> ID för överordnad (för relaterade resultat). Alternativ</li>
+              <li><b>title/I18N:</b> Titel på X språk</li>
+              <li><b>description/I18N:</b> Beskrivning av X språk</li>
+              <li><b>start_date:</b> datum då resultatet börjar genomföras (format ÅÅÅÅ-MM-DD)</li>
+              <li><b>end_date:</b> datum då resultatet slutar genomföras (format ÅÅÅÅ-MM-DD)</li>
+              <li><b>status/id:</b> ID för statusen för detta resultat</li>
+              <li><b>progress:</b> Procent (från 0 till 100) av genomförandet</li>
+              <li><b>proposals_ids:</b>internt ID för relaterade förslag (kommaseparerade). Omvandlas automatiskt till <span class='attribute-name'>proposal_url</span></li>
+              </ul>
+              </li>
+              </ol>
             title: Importera resultat från CSV-fil
         imports:
           create:
@@ -193,6 +237,13 @@ sv:
             other: "%{count} resultat importerades från projekt."
           subject: Projekten har importerats
           success: Projekten har importerats till resultat i %{component_name}. Du kan se resultaten i administrationsgränssnittet.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Ett resultat importerades från förslagen
+            other: "%{count} resultat importerades från förslagen."
+          subject: Förslagen har importerats
+          success: Förslagen har importerats till resultat i %{component_name}. Du kan se resultatet i administrationsgränssnittet.
       last_activity:
         new_result: 'Nytt resultat:'
       models:
