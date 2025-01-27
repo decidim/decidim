@@ -62,9 +62,29 @@ module Decidim
         when Decidim::UserGroup
           post.author.users.include?(user)
         when Decidim::Organization
-          user.admin?
+          space_admin?
         else
           false
+        end
+      end
+
+      def space_admin?
+        space_admins.include?(user)
+      end
+
+      def space_admins
+        participatory_space = current_component&.participatory_space
+
+        return [] unless participatory_space
+
+        @space_admins ||= begin
+          space_admins = if participatory_space.respond_to?(:user_roles)
+                           participatory_space.user_roles(:admin)&.collect(&:user)
+                         else
+                           []
+                         end
+          global_admins = current_component.organization.admins
+          (global_admins + space_admins).uniq
         end
       end
 
