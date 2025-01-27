@@ -68,10 +68,10 @@ eu:
             update: Eguneratu aurrekontua
           index:
             finished_orders: Emandako botoak
-            pending_orders: Emateke dauden botoak
+            pending_orders: Emateke dauden babesak
             title: Aurrekontuak
-            users_with_finished_orders: Parte-hatzaile hauek botoak emanda
-            users_with_pending_orders: Parte-hatzaile hauek botoak emateke
+            users_with_finished_orders: Parte-hatzaile hauek babesak emanda
+            users_with_pending_orders: Parte-hatzaile hauek babesak emateke
           manage_trash:
             title: Ezabatutako aurrekoantuak
           new:
@@ -101,7 +101,7 @@ eu:
             change_selected: Aldatu hautatutako esparrua
             change_taxonomies: Aldatu taxonomiak
             deselect_implementation: Kendu gauzatzekoetatik
-            finished_orders: Amaitutako botoak
+            finished_orders: Amaitutako babesak
             pending_orders: Zain dauden botoak
             select_for_implementation: Gauzatzeko hautatua
             selected: Hautatua
@@ -202,7 +202,7 @@ eu:
         new_vote_at: 'Beste aurrekontu-bozketa bat hemen:'
       limit_announcement:
         cant_vote: Ezin duzu botoa eman aurrekontu honetan. <a href="%{landing_path}"> Saiatu beste aurrekontu batean</a>.
-        limit_reached: Badituzu botoak aktibo hemen %{links}. Aurrekontu honetan botoa emateko <a href="%{landing_path}">ezabatu behar duzu zure botoa eta berriro hasi</a>.
+        limit_reached: Badituzu babesak aktibo hemen %{links}. Aurrekontu honetan botoa emateko <a href="%{landing_path}">ezabatu behar duzu zure botoa eta berriro hasi</a>.
       models:
         budget:
           fields:
@@ -226,10 +226,10 @@ eu:
           title: Zure botoa ongi bideratu da
           view_votes:
             one: Ikusi botoa
-            other: Ikusi botoak
+            other: Ikusi babesak
           votes_count:
             one: 'Zure botoa honentzat: %{budget_name} erregistratu da.'
-            other: 'Zure %{count} botoak honentzat: %{budget_name} erregistratu dira.'
+            other: 'Zure %{count} babes honentzat: %{budget_name} erregistratu dira.'
       order_summary_mailer:
         order_summary:
           selected_projects: 'Hautatu dituzun proiektuak hauek dira:'
@@ -304,7 +304,7 @@ eu:
           selected: Hautatua
           votes:
             one: botoa
-            other: botoak
+            other: babesak
           you_voted: Honen aldeko botoa eman duzu
         project_budget_button:
           add: Gehitu
@@ -327,7 +327,7 @@ eu:
           email_outro: Mesedez, gogoratu bozketa osatzea. Botoa emateko, lehenik eta behin, zein proiekturi buruz bozkatu nahi duzun aukeratu behar duzu, eta, ondoren, zure botoa berretsi, "Bozkatu" botoia sakatuz.
           email_subject:
             one: Aurrekontu parte-hartzaileen bozketan amaitu gabeko boto bat duzu
-            other: Aurrekontu parte-hartzaileen bozketan amaitu gabeko botoak dituzu
+            other: Aurrekontu parte-hartzaileen babes jasotzea amaitu gabeko babesak dituzu
     components:
       budgets:
         actions:
@@ -373,12 +373,12 @@ eu:
             landing_page_content: Aurrekontuen hasierako orrialdea
             list_heading: Zerrendaren izenburua
             more_information_modal: '"Informazio gehiago"ren modala'
-            show_votes: Erakutsi botoak
+            show_votes: Erakutsi babesak
             title: Izenburua
             votes: Bozketa
             votes_choices:
               disabled: Bozketa desgaituta
-              enabled: Bozketa gaituta
+              enabled: Babes ematea gaituta
               finished: Bozketa amaituta
     download_your_data:
       help:
@@ -434,7 +434,7 @@ eu:
       included_proposals:
         project_proposal: Proiektu honetan sartuta dauden proposamenak
     statistics:
-      orders_count: Aldeko botoak
+      orders_count: Aldeko babesak
       projects_count: Proiektuak
   index:
     confirmed_orders_count: Botoen zenbaketa
