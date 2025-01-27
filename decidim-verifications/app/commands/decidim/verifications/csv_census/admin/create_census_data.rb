@@ -27,7 +27,7 @@ module Decidim
             CsvDatum.insert_all(@organization, data.values)
             # rubocop:enable Rails/SkipsModelValidations
             RemoveDuplicatesJob.perform_later(@organization)
-            AuthorizeExistingUsersJob.call(wait: 1.minute).perform_later(data.values, @organization)
+            AuthorizeExistingUsersJob.perform_later(data.values, @organization)
             broadcast(:ok)
           end
         end
