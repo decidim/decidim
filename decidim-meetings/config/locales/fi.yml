@@ -721,12 +721,10 @@ fi:
           attachments: Tapaamisen liitteiden lukumäärä
           attendees: Tapaamisen osallistuvien tai osallistuneiden ihmisten määrä
           author: Tapaamisen laatijan tiedot
-          comments: Tapaamisen kommenttien lukumäärä
           component: Tapaamisen komponentti
           contributions: Tapaamisen osallistujien tekemien kontribuutioiden lukumäärä
           description: Tapaamisen kuvaus
           end_time: Tapaamisen päättymisajankohta
-          followers: Tapaamisen seuraajien lukumäärä
           id: Tapaamisen yksilöivä tunniste
           location: Tapaamisen sijainti
           organizations: Tapaamiseen osallistuvat tai osallistuneet organisaatiot
@@ -739,7 +737,6 @@ fi:
           taxonomies: Tälle tapaamiselle määritetyt luokittelut
           title: Tapaamisen otsikko
           url: Tapaamisen URL-osoite
-          withdrawn: Onko tämä tapaaminen peruttu
           withdrawn_at: Ajankohta, jolloin tapaaminen peruttiin
     participatory_spaces:
       highlighted_meetings:
