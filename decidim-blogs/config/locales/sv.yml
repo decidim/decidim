@@ -18,6 +18,7 @@ sv:
     blogs:
       actions:
         author_id: Skapa inlägg som
+        confirm_destroy: Är du säker på att du vill radera inlägget?
         destroy: Radera
         edit: Redigera
         new: Nytt inlägg
