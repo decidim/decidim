@@ -342,7 +342,7 @@ eu:
             mark_as_missing: Marka desagertu da
             mark_as_missing_description: Bermatzaile guztiek parte hartu beharko lukete prozesu honetan, baina horietako batek ezin badu parte hartu, desagertu gisa markatu dezakezu.
             success: Desagertutako bermatzailearen txostena zuzen bidali da Iragarki-taulara.
-            tally_completion: Prozesua amaitu egingo da bermatzaileak aktibo daudenean edo desagertutzat jotzen direnean. Gutxienez % {quorum} bermatzaile behar dira prozesua amaitzeko.
+            tally_completion: Prozesua amaitutzat emango da administratzaile guztiak aktibo daudenean edo desagertuta markatuta daudenean. Gutxienez %{quorum} administratzaile behar dira prozesua osatzeko.
             title: Zenbatzeko prozesua
             undo_mark_as_missing: Akats baten ondorioz desagertu gisa markatutako bermatzaile batek parte hartu ahal izango du prozesua amaitu aurretik. Ohi bezala joka dezakete, eta absentearen marka ez da kontuan hartuko.
           vote:
@@ -364,7 +364,7 @@ eu:
             no_vote_statistics_yet: Oraindik ez dago boto-estatistikarik
             title: Boto-estatistikak
             voters: Boto-emaileak
-            votes: Botoak
+            votes: Babesak
         trustees_participatory_spaces:
           actions:
             disable: Desgaitu
@@ -524,7 +524,7 @@ eu:
             proposals: Proposamenak
             selected: Hautatua
             title: Izenburua
-            votes: Botoak
+            votes: Babesak
         election:
           fields:
             bb_status: Iragarki Taularen egoera
@@ -1255,7 +1255,7 @@ eu:
             polling_officer_role_description: Plataforma honetan egindako aukeraketa batzuetan mahaiko kudeatzaile gisa (Presidentea edo Administratzailea) jarduteko izendatu zaituzte.
             polling_station:
               address: Helbidea
-              count_votes: Zenbatu botoak
+              count_votes: Zenbatu babesak
               election: Aukera
               identify_person: Identifikatu pertsona bat
               name: Izena
