@@ -54,6 +54,7 @@ de:
         questionnaires:
           actions:
             back: Zurück zu Fragen
+            publish_answers: Antworten veröffentlichen
             show: Antworten anzeigen
           answer_option:
             answer_option: Antwortoption
@@ -103,6 +104,7 @@ de:
             add_separator: Trennzeichen hinzufügen
             add_title_and_description: Titel und Beschreibung hinzufügen
             save: Speichern
+            title: Fragen
           form:
             add_question: Frage hinzufügen
             collapse: Alle Fragen einklappen
@@ -152,6 +154,9 @@ de:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.
       admin_log:
+        question:
+          publish_answers: "%{user_name} hat die Antworten zu den Fragen %{resource_name} im Bereich %{space_name} veröffentlicht"
+          unpublish_answers: "%{user_name} hat die Antworten zu den Fragen %{resource_name} im Bereich %{space_name} verborgen"
         questionnaire:
           update: "%{user_name} hat die Umfrage %{resource_name} aktualisiert"
       errors:
