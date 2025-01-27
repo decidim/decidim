@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
-# A custom validator to check for presence in I18n-enabled fields. In order to
-# use it do the following:
+# This validator takes care of i18n fields ensuring the validated content is
+# respectful, does not use caps, and overall is meaningful.
 #
-#   validates :my_i18n_field, translatable_presence: true
-#
-# This will automatically check for presence for the default locale of the form
-# object (or the `default_locale` of the form's organization) for the given field.
+#   validates :my_i18n_field, translated_etiquette: true
 class TranslatedEtiquetteValidator < EtiquetteValidator
   def validate_each(record, attribute, _value)
     translated_attr = "#{attribute}_#{default_locale_for(record)}".gsub("-", "__")
