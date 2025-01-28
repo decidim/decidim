@@ -46,7 +46,7 @@ module Decidim
       def create_votes
         @votes = form.authorized_scopes.map do |scope|
           initiative.votes.create!(
-            author: form.signer,
+            author: form.user,
             encrypted_metadata: form.encrypted_metadata,
             timestamp:,
             hash_id: form.hash_id,
