@@ -91,7 +91,7 @@ eu:
       decidim/proposals/endorsing_enabled_event: Onartutako proposamena gaituta
       decidim/proposals/proposal_mentioned_event: Proposamena aipatua
       decidim/proposals/publish_proposal_event: Proposatutakoa argitaratua
-      decidim/proposals/voting_enabled_event: Proposamenaren botoa gaituta
+      decidim/proposals/voting_enabled_event: Proposamenaren babesa gaituta
   activerecord:
     models:
       decidim:
@@ -161,7 +161,7 @@ eu:
           comment: Iruzkina
           create: Sortu proposamena
           endorse: Atxikitu
-          vote: Eman botoa
+          vote: Eman babesa
           vote_comment: Bozkatu iruzkina
           withdraw: Kendu
         name: Proposamenak
@@ -221,7 +221,7 @@ eu:
             taxonomy_filters: Hautatu iragazkiak osagairako
             taxonomy_filters_add: Erantsi iragazkia
             threshold_per_proposal: Proposamen bakoitzeko atalasea
-            vote_limit: Botoen muga partaide bakoitzeko
+            vote_limit: Babesen muga partaide bakoitzeko
           step:
             amendment_creation_enabled: Zuzenketa sortzea aktibatuta
             amendment_creation_enabled_help: Parte-hartzaileak proposamenak alda ditzake.
@@ -429,7 +429,7 @@ eu:
         object: proposamenak
         title: Proposamenak
       votes:
-        description: Zenbat boto proposamenei
+        description: Zenbat babes proposamenei
         object: babesak
         title: Babesak
     open_data:
@@ -454,7 +454,7 @@ eu:
           author: Proposamen honen egilearen data
           body: Proposamenaren gorputza
           coauthorships_count: Zenbat egilekide ordezkatzen dituen proposamenak
-          comments: Proposamen honek duen boto kopurua
+          comments: Proposamen honek duen babes kopurua
           component: Proposamena osagai honen barruan dago
           cost: Proposamen honen kostua, guztira
           cost_report: Proposamenaren kostuen txostena
@@ -479,7 +479,7 @@ eu:
           title: Proposamenaren izenburua
           updated_at: Proposamenaren azken eguneraketaren data
           url: Proposamen hau URL honetan aurki daiteke
-          votes: Proposamen honek duen boto kopurua
+          votes: Proposamen honek duen babes kopurua
           withdrawn: Proposamen hau bertan behera geratu den
           withdrawn_at: Noiz utzi zen bertan behera proposamen hau
     participatory_spaces:
@@ -674,7 +674,7 @@ eu:
             remove_assignment: Desegin esleipena
             remove_assignment_confirmation: Ziur zaude proposamen honen ebaluatzailea desesleitu nahi duzula?
             valuators: Ebaluatzaileak
-            votes_count: Boto kopurua
+            votes_count: Babes kopurua
           update_taxonomies:
             invalid: 'Proposamen hauek bazuten %{taxonomia} taxonomia: %{proposals}.'
             select_a_proposal: Mesedez, hautatu proposamen bat.
@@ -853,7 +853,7 @@ eu:
         cancel: Ezeztatu
         exit: Jarraitu
         message: Proposamen ezberdinen artean %{number} babes gehiago eman behar dizkiezu proposamenei zure botoak kontuan har daitezen.
-        title: Gogoratu botoen %{number} geratzen zaizula
+        title: Gogoratu babesen %{number} geratzen zaizula
       forms:
         errors:
           device_not_supported: Zure gailuak ez ditu kokapen-zerbitzuak onartzen. Mesedez, sartu helbidea eskuz.
@@ -992,16 +992,16 @@ eu:
           proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
           proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
-          withdraw_btn_hint: Zure proposamena atzera bota dezakezu iritziz aldatzen baduzu, botorik jaso ez baduzu. Proposamena ez da ezabatzen, baztertutako proposamenen zerrendan agertuko da.
+          withdraw_btn_hint: Zure proposamena atzera babes eman dezakezu iritziz aldatzen baduzu, botorik jaso ez baduzu. Proposamena ez da ezabatzen, baztertutako proposamenen zerrendan agertuko da.
           withdraw_confirmation_html: Ziur zaude proposamen hau kendu nahi duzula? <br><br><strong>Ekintza hau ezin da desegin!</strong>
           withdraw_proposal: Kendu
         update:
           title: Eguneratu proposamena
         vote_button:
           already_voted: Bozkatuta duzu
-          already_voted_hover: Kendu botoa
-          maximum_votes_reached: Botoen muga lortua
-          no_votes_remaining: Ez da gelditzen botorik
+          already_voted_hover: Kendu babesa
+          maximum_votes_reached: Babesen muga lortua
+          no_votes_remaining: Ez da gelditzen babesik
           vote: Alde egin
           votes_blocked: Babesa ematea desaktibatu da
         votes_count:
@@ -1010,22 +1010,22 @@ eu:
             other: Babesak
         voting_rules:
           already_vote:
-            description: Gogoratu oraindik % {number} euskarri eman behar dituzula proposamen ezberdinen artean zure euskarriak kontuan har daitezen.
+            description: Gogoratu oraindik %{number} babes eman behar dituzula proposamen ezberdinen artean zure euskarriak kontuan har daitezen.
             see_other_proposals: Ikusi beste proposamen batzuk
-            title: '% {number} euskarri geratzen zaizkizu'
+            title: '%{number} babes geratzen zaizkizu'
           can_accumulate_votes_beyond_threshold:
-            description: Proposamen bakoitzak %{limit} boto baino gehiago jaso dezake
+            description: Proposamen bakoitzak %{limit} babes baino gehiago jaso dezake
           minimum_votes_per_user:
-            description: Gutxienez % {boto} euskarri banatu behar duzu proposamen ezberdinen artean zure euskarriak kontuan har daitezen.
+            description: Gutxienez %{votes} babes banatu behar duzu proposamen ezberdinen artean zure euskarriak kontuan har daitezen.
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
           success: Zure babesak ongi onartu dira
           threshold_per_proposal:
-            description: Proposamenak baliagarriak izan daitezen, %{limit} boto izatera iritsi behar da.
+            description: Proposamenak baliagarriak izan daitezen, %{limit} babes izatera iritsi behar da.
           title: Parte hartzeko arauak
           vote_limit:
             description: '%{limit} proposameni eman ahal diozu babesa.'
-            votes: Gainerako % {kopurua} boto
+            votes: Gainerako % {kopurua} babes
         wizard_aside:
           back: Atzera
           back_from_step_1: Itzuli proposamenetara
