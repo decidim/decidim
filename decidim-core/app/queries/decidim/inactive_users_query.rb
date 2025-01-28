@@ -14,22 +14,22 @@ module Decidim
 
     def users_to_mark_for_deletion
       base_query
-        .where("last_sign_in_at IS NULL OR last_sign_in_at < ?", Time.current - (@inactivity_period_days - @initial_warning_period_days).days)
+        .merge(users_never_logged_in.or(users_last_seen_before(inactivity_date)))
         .where(marked_for_deletion_at: nil)
     end
 
     def users_to_send_reminder
       base_query
         .marked_for_deletion
-        .where(marked_for_deletion_at: ..(Time.current - (@initial_warning_period_days - @final_reminder_period_days).days))
-        .where(last_sign_in_at: ...(Time.current - (@inactivity_period_days - @final_reminder_period_days).days))
+        .where(marked_for_deletion_at: ..reminder_date)
+        .merge(users_last_seen_before(final_reminder_date))
     end
 
     def users_to_remove
       base_query
         .marked_for_deletion
-        .where(marked_for_deletion_at: ..(Time.current - @initial_warning_period_days.days))
-        .where(last_sign_in_at: ..(Time.current - @inactivity_period_days.days))
+        .where(marked_for_deletion_at: ..deletion_date)
+        .merge(users_last_seen_before(full_inactivity_date))
     end
 
     def users_to_unmark_for_deletion
@@ -40,14 +40,47 @@ module Decidim
 
     private
 
-    attr_reader :organization
+    attr_reader :organization, :inactivity_period_days,
+                :initial_warning_period_days, :final_reminder_period_days
 
     def base_query
       Decidim::User.unscoped
-                   .where(organization:)
-                   .where(created_at: ...(Time.current - @inactivity_period_days.days))
+                   .where(organization:, created_at: ...(Time.current - inactivity_period_days.days))
                    .not_deleted
                    .where.not(email: "")
+    end
+
+    def users_never_logged_in
+      Decidim::User.where(last_sign_in_at: nil)
+    end
+
+    def users_last_seen_before(date)
+      Decidim::User.where(Decidim::User.arel_table[:last_sign_in_at].lt(date))
+    end
+
+    # Date for marking users as inactive.
+    def inactivity_date
+      (inactivity_period_days - initial_warning_period_days).days.ago
+    end
+
+    # Date for sending a final reminder notification.
+    def final_reminder_date
+      (inactivity_period_days - final_reminder_period_days).days.ago
+    end
+
+    # Date for sending a reminder notification.
+    def reminder_date
+      (initial_warning_period_days - final_reminder_period_days).days.ago
+    end
+
+    # Date for considering a user for deletion.
+    def deletion_date
+      initial_warning_period_days.days.ago
+    end
+
+    # Date for full inactivity period.
+    def full_inactivity_date
+      inactivity_period_days.days.ago
     end
   end
 end
