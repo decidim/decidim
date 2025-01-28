@@ -217,7 +217,7 @@ eu:
           info_initiative:
             created_at: Sortutako at
             description: Deskribapena
-            initiative_votes_count: Botoien zenbaketa
+            initiative_votes_count: Babesen zenbaketa
             initiatives: Ekimenak
             state: Estatu
         committee_requests:
@@ -252,7 +252,7 @@ eu:
             confirm_send_to_technical_validation: Ziur zaude?
             discard: Ekimena baztertu
             export_pdf_signatures: Esportatu sinaduren PDF
-            export_votes: Esportatu euskarriak
+            export_votes: Esportatu sinadurak
             reject: Ukatu ekimena
             send_to_technical_validation: Bidali baliozkotzeko teknikora
             success: Ekimena baliozkotze teknikora bidali da.
@@ -567,7 +567,7 @@ eu:
           check_initiative_details: Ekimenaren xehetasunak ikus ditzakezu
           here: hemen
         more_information: Hemen ekimenaren sorrera prozesuari buruzko informazio gehiago duzu.
-        progress_report_body_for: '%{title} ekimenak eskatutako euskarrien%{percentage}% gainditu du.'
+        progress_report_body_for: '%{title} ekimenak eskatutako sinaduren %{percentage}% gainditu du.'
         progress_report_for: 'Laburpena %{title} ekimenari buruz'
         promotal_committee_help: Gogoan izan gutxienez %{member_count} pertsona gonbidatu behar dituzula sustatzaile batzordera. Birbidali hurrengo estekara gonbidatzeko jendea sustatzaile batzordera
         status_change_body_for: '%{title} ekimenak bere egoera aldatu du: %{state}'
