@@ -4,54 +4,73 @@ require "spec_helper"
 
 describe Decidim::InactiveUsersQuery do
   let(:organization) { create(:organization) }
-  let(:reminder_period) { 7.days }
-  let(:delete_period) { 30.days }
-  let(:inactivity_period) { 300 } # days
+  let(:inactivity_period_days) { 300 }
+  let(:initial_warning_period_days) { 30 }
+  let(:final_reminder_period_days) { 7 }
 
-  let(:query) { described_class.new(organization, reminder_period, delete_period, inactivity_period) }
+  let(:query) { described_class.new(organization, inactivity_period_days, initial_warning_period_days, final_reminder_period_days) }
 
-  let!(:inactive_never_signed_in) { create(:user, organization:, last_sign_in_at: nil, created_at: 400.days.ago, removal_date: nil) }
-  let!(:active_never_signed_in) { create(:user, organization:, last_sign_in_at: nil, created_at: 200.days.ago, removal_date: nil) }
-  let!(:inactive_just_270_days) { create(:user, organization:, last_sign_in_at: 270.days.ago, created_at: 400.days.ago, removal_date: nil) }
-  let!(:inactive_recent_sign_in) { create(:user, organization:, last_sign_in_at: 400.days.ago, created_at: 400.days.ago, removal_date: nil) }
-  let!(:active_recent_sign_in) { create(:user, organization:, last_sign_in_at: 200.days.ago, created_at: 200.days.ago, removal_date: nil) }
-  let!(:user_reminder_due) { create(:user, organization:, removal_date: 5.days.from_now, last_inactivity_notice_sent_at: 10.days.ago) }
-  let!(:user_ready_for_removal) { create(:user, organization:, removal_date: 1.day.ago) }
-  let!(:user_logged_in_after_notification) { create(:user, organization:, removal_date: 10.days.from_now, last_sign_in_at: 1.day.ago) }
+  let!(:inactive_never_signed_in) { create(:user, organization:, last_sign_in_at: nil, created_at: 400.days.ago, marked_for_deletion_at: nil) }
+  let!(:active_never_signed_in) { create(:user, organization:, last_sign_in_at: nil, created_at: 200.days.ago, marked_for_deletion_at: nil) }
+  let!(:inactive_just_below_threshold) { create(:user, organization:, last_sign_in_at: 270.days.ago, created_at: 350.days.ago, marked_for_deletion_at: nil) }
+  let!(:inactive_recent_sign_in) { create(:user, organization:, last_sign_in_at: 400.days.ago, created_at: 400.days.ago, marked_for_deletion_at: nil) }
+  let!(:active_recent_sign_in) { create(:user, organization:, last_sign_in_at: 200.days.ago, created_at: 200.days.ago, marked_for_deletion_at: nil) }
+  let!(:user_reminder_due) { create(:user, organization:, marked_for_deletion_at: 23.days.ago, last_sign_in_at: 294.days.ago, created_at: 400.days.ago) }
+  let!(:user_ready_for_removal) { create(:user, organization:, marked_for_deletion_at: 40.days.ago, last_sign_in_at: 400.days.ago, created_at: 400.days.ago) }
+  let!(:user_logged_in_after_notification) { create(:user, organization:, marked_for_deletion_at: 10.days.ago, last_sign_in_at: 1.day.ago, created_at: 400.days.ago) }
 
-  describe "#reset_inactivity_marks" do
-    it "finds users who logged in after receiving a removal date" do
-      result = query.reset_inactivity_marks
+  describe "#users_to_mark_for_deletion" do
+    it "finds users who should be marked for deletion" do
+      result = query.users_to_mark_for_deletion
 
-      expect(result).to include(user_logged_in_after_notification)
-      expect(result).not_to include(inactive_never_signed_in, user_reminder_due, user_ready_for_removal)
+      expect(result).to include(inactive_never_signed_in, inactive_recent_sign_in, inactive_just_below_threshold)
+      expect(result).not_to include(active_never_signed_in, active_recent_sign_in, user_reminder_due, user_ready_for_removal, user_logged_in_after_notification)
     end
   end
 
-  describe "#inactive_users" do
-    it "finds users who are inactive and have no removal date set" do
-      result = query.inactive_users
-
-      expect(result).to include(inactive_never_signed_in, inactive_recent_sign_in, inactive_just_270_days)
-      expect(result).not_to include(active_never_signed_in, active_recent_sign_in, user_reminder_due, user_ready_for_removal)
-    end
-  end
-
-  describe "#users_for_reminder" do
+  describe "#users_to_send_reminder" do
     it "finds users due for a reminder notification" do
-      result = query.users_for_reminder
+      result = query.users_to_send_reminder
 
       expect(result).to include(user_reminder_due)
-      expect(result).not_to include(inactive_never_signed_in, active_never_signed_in, user_ready_for_removal, inactive_just_270_days)
+      expect(result).not_to include(
+        inactive_never_signed_in,
+        active_never_signed_in,
+        inactive_just_below_threshold,
+        user_logged_in_after_notification,
+        inactive_recent_sign_in
+      )
     end
   end
 
-  describe "#users_for_removal" do
+  describe "#users_to_remove" do
     it "finds users who are ready for deletion" do
-      result = query.users_for_removal
+      result = query.users_to_remove
 
       expect(result).to include(user_ready_for_removal)
-      expect(result).not_to include(inactive_never_signed_in, user_reminder_due, active_never_signed_in, inactive_just_270_days)
+      expect(result).not_to include(
+        inactive_never_signed_in,
+        user_reminder_due,
+        active_never_signed_in,
+        inactive_just_below_threshold,
+        user_logged_in_after_notification,
+        inactive_recent_sign_in
+      )
+    end
+  end
+
+  describe "#users_to_unmark_for_deletion" do
+    it "finds users who logged in after being marked for deletion" do
+      result = query.users_to_unmark_for_deletion
+
+      expect(result).to include(user_logged_in_after_notification)
+      expect(result).not_to include(
+        inactive_never_signed_in,
+        user_reminder_due,
+        user_ready_for_removal,
+        inactive_just_below_threshold,
+        active_never_signed_in
+      )
     end
   end
 end

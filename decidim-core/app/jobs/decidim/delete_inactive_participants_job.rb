@@ -5,33 +5,38 @@ module Decidim
   class DeleteInactiveParticipantsJob < ApplicationJob
     queue_as :delete_inactive_participants
 
-    DELETE_PERIOD = 30.days.freeze
-    REMINDER_PERIOD = 7.days.freeze
+    INITIAL_WARNING_PERIOD_DAYS = 30
+    FINAL_REMINDER_PERIOD_DAYS = 7
 
     def perform(organization)
-      query = InactiveUsersQuery.new(organization, REMINDER_PERIOD, DELETE_PERIOD, inactivity_period)
+      query = InactiveUsersQuery.new(
+        organization,
+        inactivity_period,
+        INITIAL_WARNING_PERIOD_DAYS,
+        FINAL_REMINDER_PERIOD_DAYS
+      )
 
-      reset_inactivity_marks(query.reset_inactivity_marks)
-      assign_removal_dates(query.inactive_users)
-      send_reminder_notifications(query.users_for_reminder)
-      remove_inactive_users(query.users_for_removal)
+      unmark_active_users(query.users_to_unmark_for_deletion)
+      mark_users_for_deletion(query.users_to_mark_for_deletion)
+      send_reminder_notifications(query.users_to_send_reminder)
+      remove_inactive_users(query.users_to_remove)
     end
 
     private
 
-    def reset_inactivity_marks(users)
+    def unmark_active_users(users)
       users.find_each do |user|
         user.transaction do
-          user.update!(removal_date: nil, last_inactivity_notice_sent_at: nil)
+          user.update!(marked_for_deletion_at: nil)
         end
       end
     end
 
-    def assign_removal_dates(users)
+    def mark_users_for_deletion(users)
       users.find_each do |user|
         user.transaction do
-          user.update!(removal_date: DELETE_PERIOD.from_now, last_inactivity_notice_sent_at: Time.zone.now)
-          send_notification(user, :inactivity_notification, DELETE_PERIOD / 1.day)
+          send_notification(user, :inactivity_notification, INITIAL_WARNING_PERIOD_DAYS)
+          user.update!(marked_for_deletion_at: Time.current)
         end
       end
     end
@@ -39,25 +44,24 @@ module Decidim
     def send_reminder_notifications(users)
       users.find_each do |user|
         user.transaction do
-          send_notification(user, :inactivity_notification, REMINDER_PERIOD / 1.day)
-          user.update!(last_inactivity_notice_sent_at: Time.zone.now)
+          send_notification(user, :inactivity_notification, FINAL_REMINDER_PERIOD_DAYS)
         end
       end
     end
 
     def remove_inactive_users(users)
       users.find_each do |user|
-        user.transaction do
-          send_notification(user, :removal_notification)
-          delete_user_account(user)
+        if user.removable?(inactivity_period)
+          user.transaction do
+            send_notification(user, :removal_notification)
+            delete_user_account(user)
+          end
         end
       end
     end
 
     def send_notification(user, mailer_method, *)
       ParticipantsAccountMailer.public_send(mailer_method, user, *).deliver_later
-    rescue StandardError => e
-      Rails.logger.error "[DeleteInactiveParticipantsJob] Failed to send #{mailer_method} to user #{user.id} (#{user.email}): #{e.message}"
     end
 
     def delete_user_account(user)
@@ -69,7 +73,7 @@ module Decidim
     end
 
     def inactivity_period
-      Decidim.inactivity_period
+      Decidim.inactivity_period_days
     end
   end
 end

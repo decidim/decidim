@@ -259,7 +259,7 @@ module Decidim
     :en
   end
 
-  config_accessor :inactivity_period do
+  config_accessor :inactivity_period_days do
     ENV.fetch("DELETE_INACTIVE_USERS_EMAIL_AFTER_DAYS", 365).to_i
   end
 

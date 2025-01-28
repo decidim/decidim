@@ -5,56 +5,47 @@ module Decidim
   # This class provides methods to retrieve specific groups of users based on their
   # activity status, removal date, and notification timestamps.
   class InactiveUsersQuery < Decidim::Query
-    # Initializes the query with the necessary parameters.
-    #
-    # @param organization [Decidim::Organization] the organization to scope the query to.
-    # @param reminder_period [ActiveSupport::Duration] the period before account deletion to send reminders.
-    # @param inactivity_period [Integer] the number of days of inactivity before marking the user for deletion.
-    def initialize(organization, reminder_period, delete_period, inactivity_period)
+    def initialize(organization, inactivity_period_days, initial_warning_period_days, final_reminder_period_days)
       @organization = organization
-      @reminder_period = reminder_period
-      @delete_period = delete_period
-      @inactivity_period = inactivity_period
+      @inactivity_period_days = inactivity_period_days
+      @initial_warning_period_days = initial_warning_period_days
+      @final_reminder_period_days = final_reminder_period_days
     end
 
-    # Finds users who logged in after receiving a removal date.
-    def reset_inactivity_marks
+    def users_to_mark_for_deletion
       base_query
-        .where.not(removal_date: nil)
-        .where("last_sign_in_at > ?", @inactivity_period.days.ago)
+        .where("last_sign_in_at IS NULL OR last_sign_in_at < ?", Time.current - (@inactivity_period_days - @initial_warning_period_days).days)
+        .where(marked_for_deletion_at: nil)
     end
 
-    # Finds users who are inactive and have no removal_date set.
-    def inactive_users
+    def users_to_send_reminder
       base_query
-        .merge(Decidim::User.where(removal_date: nil))
-        .where(created_at: ..(@inactivity_period.days.ago - @delete_period))
-        .where("last_sign_in_at < ? OR last_sign_in_at IS NULL", @inactivity_period.days.ago + @delete_period)
+        .marked_for_deletion
+        .where(marked_for_deletion_at: ..(Time.current - (@initial_warning_period_days - @final_reminder_period_days).days))
+        .where(last_sign_in_at: ...(Time.current - (@inactivity_period_days - @final_reminder_period_days).days))
     end
 
-    # Finds users who are scheduled for deletion and are due for a reminder notification.
-    def users_for_reminder
+    def users_to_remove
       base_query
-        .where.not(removal_date: nil)
-        .where(removal_date: ..(@reminder_period.from_now))
-        .where.not(last_inactivity_notice_sent_at: nil)
+        .marked_for_deletion
+        .where(marked_for_deletion_at: ..(Time.current - @initial_warning_period_days.days))
+        .where(last_sign_in_at: ..(Time.current - @inactivity_period_days.days))
     end
 
-    # Finds users who are ready for deletion based on their removal_date.
-    def users_for_removal
+    def users_to_unmark_for_deletion
       base_query
-        .where.not(removal_date: nil)
-        .where(removal_date: ..Time.zone.now)
+        .where.not(marked_for_deletion_at: nil)
+        .where("last_sign_in_at > marked_for_deletion_at")
     end
 
     private
 
     attr_reader :organization
 
-    # Base query that scopes to the organization and filters out deleted users or users without email.
     def base_query
       Decidim::User.unscoped
                    .where(organization:)
+                   .where(created_at: ...(Time.current - @inactivity_period_days.days))
                    .not_deleted
                    .where.not(email: "")
     end

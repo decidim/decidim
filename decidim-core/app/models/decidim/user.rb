@@ -53,6 +53,8 @@ module Decidim
 
     has_one_attached :download_your_data_file
 
+    scope :marked_for_deletion, -> { where.not(marked_for_deletion_at: nil) }
+
     scope :not_deleted, -> { where(deleted_at: nil) }
 
     scope :managed, -> { where(managed: true) }
@@ -111,6 +113,14 @@ module Decidim
     #   otherwise returns nil.
     def self.has_pending_invitations?(organization_id, email)
       invitation_not_accepted.find_by(decidim_organization_id: organization_id, email:)
+    end
+
+    def marked_for_deletion?
+      marked_for_deletion_at.present?
+    end
+
+    def removable?(removal_period)
+      marked_for_deletion? && last_sign_in_at < Time.current - removal_period
     end
 
     # Returns the presenter for this author, to be used in the views.
