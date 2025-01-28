@@ -84,9 +84,14 @@ module Decidim
         it_behaves_like "a download your data entity"
       end
 
-      context "when the user has an identity" do
-        let!(:identity) { create(:identity, user:) }
-        let(:help_definition_string) { "The user that this identity belongs to" }
+      context "when the user has a report" do
+        let(:moderation) { create(:moderation, reportable:, participatory_space:) }
+        let(:participatory_space) { create(:participatory_process, organization:) }
+        let(:reportable) { create(:proposal, component:) }
+        let(:component) { create(:proposal_component, organization:) }
+        let!(:report) { create(:report, moderation:, user:) }
+
+        let(:help_definition_string) { "The reason of this report" }
 
         it_behaves_like "a download your data entity"
       end
