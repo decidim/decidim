@@ -92,6 +92,8 @@ module Decidim
       end
 
       def initiative_authorship?
+        return false unless Decidim.module_installed?("initiatives")
+
         participatory_space = context[:current_component].participatory_space
 
         participatory_space.is_a?(Decidim::Initiative) &&

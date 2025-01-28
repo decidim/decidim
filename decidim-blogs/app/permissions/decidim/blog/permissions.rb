@@ -24,7 +24,7 @@ module Decidim
         return permission_action unless permission_action.scope == :admin
 
         if permission_action.action.in?([:update, :destroy])
-          toggle_allow(can_manage_post)
+          toggle_allow(admin_can_manage_post)
           return permission_action
         end
 
@@ -41,14 +41,52 @@ module Decidim
       end
 
       def can_create_post
-        current_component&.participatory_space.is_a?(Decidim::Initiative) &&
+        Decidim.module_installed?("initiatives") &&
+          current_component&.participatory_space.is_a?(Decidim::Initiative) &&
           initiative_authorship? &&
           current_component&.participatory_space&.published? &&
           current_component&.published?
       end
 
       def can_manage_post
+        return false unless post&.author
+
         can_create_post && post&.author == user
+      end
+
+      def admin_can_manage_post
+        return false unless post&.author
+
+        case post.author
+        when Decidim::User
+          post.author == user
+        when Decidim::UserGroup
+          post.author.users.include?(user)
+        when Decidim::Organization
+          space_admin?
+        else
+          false
+        end
+      end
+
+      def space_admin?
+        space_admins.include?(user)
+      end
+
+      def space_admins
+        participatory_space = current_component&.participatory_space
+
+        return [] unless participatory_space
+
+        @space_admins ||= begin
+          space_admins = if participatory_space.respond_to?(:user_roles)
+                           participatory_space.user_roles(:admin)&.collect(&:user)
+                         else
+                           []
+                         end
+          global_admins = current_component.organization.admins
+          (global_admins + space_admins).uniq
+        end
       end
 
       def initiative_authorship?
