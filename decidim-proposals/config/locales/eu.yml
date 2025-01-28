@@ -78,7 +78,7 @@ eu:
       decidim/proposals/proposal_mentioned_event: Proposamena aipatua
       decidim/proposals/publish_proposal_event: Proposatutakoa argitaratua
       decidim/proposals/rejected_proposal_event: Proposamena baztertu da
-      decidim/proposals/voting_enabled_event: Proposamenaren botoa gaituta
+      decidim/proposals/voting_enabled_event: Proposamenaren babesa gaituta
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
@@ -548,7 +548,7 @@ eu:
             remove_assignment: Desegin esleipena
             remove_assignment_confirmation: Ziur zaude proposamen honen ebaluatzailea desesleitu nahi duzula?
             valuators: Ebaluatzaileak
-            votes_count: Aldeko botoen zenbaketa
+            votes_count: Aldeko babesen zenbaketa
           update_category:
             invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} kategoria.'
             select_a_category: Mesedez, hautatu kategoria bat.
