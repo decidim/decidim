@@ -385,6 +385,51 @@ sv:
       help:
         assemblies:
           announcement: Meddelande
+          area: Samrådets område
+          assembly_type: Typ av samråd
+          closing_date: Slutdatum för samrådet
+          closing_date_reason: Anledning till att samrådet avslutades
+          composition: Samrådets sammansättning
+          created_at: Datum när processen skapades
+          created_by: Initiativtagare till samrådet
+          created_by_other: Andra som står bakom samrådet
+          creation_date: Datum när samrådet skapades
+          decidim_scope_id: Samrådets område
+          description: Längre beskrivning av samrådet
+          developer_group: Ansvariga för samrådet
+          duration: Varaktighet för samrådet
+          facebook_handler: Facebook-namn
+          follows_count: Antal följare
+          github_handler: Github-namn
+          hashtag: Samrådets hashtag, används för Twitter/X
+          id: Unikt id för samrådet
+          included_at: Datum när samrådet skapades
+          instagram_handler: Instagram-namn
+          internal_organisation: Samrådets organisation
+          is_transparent: Om samrådet är transparent eller inte
+          local_area: Geografiskt område för samrådet
+          meta_scope: Samrådets omfattning
+          participatory_scope: Samrådets inflytande
+          participatory_structure: Samrådets sammansättning
+          promoted: Om samrådet är utvalt eller inte
+          published_at: Publiceringsdatum för samrådet
+          purpose_of_action: Samrådets syfte
+          reference: Unikt id för samrådet
+          remote_banner_image_url: URL till samrådets bannerbild
+          remote_hero_image_url: URL till samrådets huvudbild
+          scope: Samrådets område
+          scopes_enabled: Om indelningar är aktiverat eller inte
+          short_description: Kort beskrivning av samrådet
+          slug: Samrådets URL-slug (används för identifiering och för URL)
+          special_features: Specialfunktioner för samrådet
+          subtitle: Undertitel för samrådet
+          target: Samrådets mål
+          taxonomies: Kategorier för projektet
+          title: Samrådets titel
+          twitter_handler: Twitter-namn
+          updated_at: Senaste datum när utrymmet uppdaterades
+          url: Samrådets URL
+          youtube_handler: YouTube-namn
     participatory_processes:
       show:
         related_assemblies: Relaterade samråd
