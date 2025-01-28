@@ -431,6 +431,7 @@ ro:
             all: Toate
             official: Oficial
             participants: Participanți
+            user_group: Grupuri
           search: Caută
           type: Tip
           type_values:
