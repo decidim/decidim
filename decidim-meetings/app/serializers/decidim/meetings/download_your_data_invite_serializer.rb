@@ -10,12 +10,11 @@ module Decidim
           sent_at: resource.sent_at,
           accepted_at: resource.accepted_at,
           rejected_at: resource.rejected_at,
-          user: {
-            name: resource.user.name,
-            email: resource.user.email
-          },
+          created_at: resource.created_at,
+          updated_at: resource.updated_at,
           meeting: {
             title: resource.meeting.title,
+            url: Decidim::ResourceLocatorPresenter.new(resource.meeting).url,
             description: resource.meeting.description,
             start_time: resource.meeting.start_time,
             end_time: resource.meeting.end_time,
