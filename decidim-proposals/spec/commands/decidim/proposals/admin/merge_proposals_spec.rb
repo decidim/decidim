@@ -33,7 +33,8 @@ module Decidim
               longitude: "",
               created_in_meeting: false,
               created_in_meeting?: false,
-              author:
+              author:,
+              documents: []
             )
           end
           let(:command) { described_class.new(form) }
@@ -55,6 +56,80 @@ module Decidim
 
           describe "when the form is valid" do
             let(:valid) { true }
+
+            context "when process_attachments? is true" do
+              before do
+                allow(command).to receive(:process_attachments?).and_return(true)
+                allow(command).to receive(:build_attachments)
+              end
+
+              context "and attachments are invalid" do
+                before do
+                  allow(command).to receive(:attachments_invalid?).and_return(true)
+                end
+
+                it "broadcasts invalid and stops processing" do
+                  expect { command.call }.to broadcast(:invalid)
+                  expect(command).to have_received(:build_attachments)
+                end
+              end
+
+              context "and attachments are valid" do
+                before do
+                  allow(command).to receive(:process_attachments?).and_return(true)
+                  allow(command).to receive(:attachments_invalid?).and_return(false)
+                  allow(command).to receive(:build_attachments).and_call_original
+                end
+
+                let(:valid_photo) do
+                  { file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") }
+                end
+
+                let(:valid_document) do
+                  { file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }
+                end
+
+                let(:form) do
+                  instance_double(
+                    ProposalsMergeForm,
+                    current_component:,
+                    current_organization: current_component.organization,
+                    target_component:,
+                    proposals:,
+                    valid?: true,
+                    same_component?: same_component,
+                    current_user: create(:user, :admin, organization: current_component.organization),
+                    add_photos: [valid_photo],
+                    add_documents: [valid_document],
+                    title: { "en" => "Valid very Long Proposal Title" },
+                    body: { "en" => "Valid body text" },
+                    address: "",
+                    latitude: "",
+                    longitude: "",
+                    created_in_meeting: false,
+                    created_in_meeting?: false,
+                    author:
+                  )
+                end
+
+                it "builds attachments and proceeds" do
+                  expect(command).to receive(:create_attachments).with(first_weight: anything)
+                  expect { command.call }.to broadcast(:ok)
+                end
+              end
+            end
+
+            describe "when process_attachments? is false" do
+              before do
+                allow(command).to receive(:process_attachments?).and_return(false)
+                allow(command).to receive(:build_attachments)
+              end
+
+              it "does not process attachments" do
+                command.call
+                expect(command).not_to have_received(:build_attachments)
+              end
+            end
 
             context "when created_in_meeting is false" do
               let(:created_in_meeting) { false }
