@@ -32,8 +32,6 @@ module Decidim
       delegate :promote_authorization_validation_errors, :authorization_handler_form_class, to: :workflow_manifest
       delegate :scope, to: :initiative
 
-      alias signer user
-
       # A unique ID to be implemented by the signature handler that ensures
       # no duplicates are created.
       def unique_id
