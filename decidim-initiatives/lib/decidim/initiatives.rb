@@ -90,5 +90,10 @@ module Decidim
     config_accessor :do_not_require_authorization do
       false
     end
+
+    # Encryption secret to use with signatures metadata
+    config_accessor :signature_handler_encryption_secret do
+      "personal user metadata"
+    end
   end
 end
