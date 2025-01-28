@@ -219,7 +219,7 @@ module Decidim
       def taxonomy_filters(form, name, i18n_scope)
         current_filters = content_tag(:div, class: "js-current-filters") do
           render partial: "decidim/admin/taxonomy_filters_selector/component_table",
-                 locals: { field_name: "#{form.object_name}[#{name}][]", component_filters:, component: @component }
+                 locals: { field_name: "#{form.object_name}[#{name}][]", component: @component }
         end
         add_button = content_tag(:div, class: "mt-2") do
           content_tag(:button,
@@ -238,10 +238,6 @@ module Decidim
         end
 
         label_tag(name, t(name, scope: i18n_scope)) + container + drawer
-      end
-
-      def component_filters
-        @component_filters ||= TaxonomyFilter.for(current_organization).where(id: @component.settings.taxonomy_filters)
       end
     end
   end
