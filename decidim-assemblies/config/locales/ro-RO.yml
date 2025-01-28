@@ -280,6 +280,10 @@ ro:
       last_activity:
         new_assembly: 'Adunare nouă:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Grupuri de lucru active
+            see_all_spaces: Vedeți tot
         user_profile:
           member_of:
             member_of: Membru al
