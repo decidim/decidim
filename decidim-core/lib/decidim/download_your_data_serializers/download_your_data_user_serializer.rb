@@ -15,10 +15,6 @@ module Decidim
           name: resource.name,
           nickname: resource.nickname,
           locale: resource.locale,
-          organization: {
-            id: resource.organization.try(:id),
-            name: translated_attribute(resource.organization.try(:name))
-          },
           newsletter_notifications_at: resource.newsletter_notifications_at,
           notifications_sending_frequency: resource.notifications_sending_frequency,
           admin: resource.admin,
@@ -44,11 +40,15 @@ module Decidim
           confirmed_at: resource.confirmed_at,
           confirmation_sent_at: resource.confirmation_sent_at,
           unconfirmed_email: resource.unconfirmed_email,
-          delete_reason: resource.delete_reason,
-          deleted_at: resource.deleted_at,
           managed: resource.managed,
           officialized_at: resource.officialized_at,
-          officialized_as: resource.officialized_as
+          officialized_as: resource.officialized_as,
+          roles: resource.roles,
+          accepted_tos_version: resource.accepted_tos_version,
+          type: resource.type,
+          following_count: resource.following_count,
+          followers_count: resource.followers_count,
+          password_updated_at: resource.password_updated_at
         }
       end
     end

@@ -30,15 +30,6 @@ module Decidim
         expect(serialized).to include(locale: resource.locale)
       end
 
-      it "includes the organization" do
-        expect(serialized[:organization]).to(
-          include(id: resource.organization.id)
-        )
-        expect(serialized[:organization]).to(
-          include(name: translated(resource.organization.name))
-        )
-      end
-
       it "includes the newsletter notifications" do
         expect(serialized).to include(newsletter_notifications_at: resource.newsletter_notifications_at)
       end
@@ -132,14 +123,6 @@ module Decidim
         expect(serialized).to include(unconfirmed_email: resource.unconfirmed_email)
       end
 
-      it "includes the delete reason" do
-        expect(serialized).to include(delete_reason: resource.delete_reason)
-      end
-
-      it "includes the deleted at" do
-        expect(serialized).to include(deleted_at: resource.deleted_at)
-      end
-
       it "includes the managed" do
         expect(serialized).to include(managed: resource.managed)
       end
@@ -150,6 +133,30 @@ module Decidim
 
       it "includes the officialized as" do
         expect(serialized).to include(officialized_as: resource.officialized_as)
+      end
+
+      it "includes the roles" do
+        expect(serialized).to include(roles: resource.roles)
+      end
+
+      it "includes the accepted_tos_version" do
+        expect(serialized).to include(accepted_tos_version: resource.accepted_tos_version)
+      end
+
+      it "includes the type" do
+        expect(serialized).to include(type: resource.type)
+      end
+
+      it "includes the followings_count" do
+        expect(serialized).to include(following_count: resource.following_count)
+      end
+
+      it "includes the followers_count" do
+        expect(serialized).to include(followers_count: resource.followers_count)
+      end
+
+      it "includes the password_updated_at" do
+        expect(serialized).to include(password_updated_at: resource.password_updated_at)
       end
     end
   end
