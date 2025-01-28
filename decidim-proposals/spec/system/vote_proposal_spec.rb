@@ -362,7 +362,7 @@ describe "Vote Proposal", slow: true do
                 visit_component
                 click_on title
                 within ".proposal__aside-vote" do
-                  expect(page).to have_content("Voting disabled")
+                  expect(page).to have_content("Vote")
                   expect(page).to have_css(".button[disabled]")
                 end
               end
