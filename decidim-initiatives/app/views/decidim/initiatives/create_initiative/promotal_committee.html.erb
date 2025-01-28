@@ -6,8 +6,30 @@
 
 <%= cell("decidim/announcement", { body: announcement_body }, callout_class: "secondary") %>
 
-<div class="form__wrapper">
-  <%= render partial: "share_committee_link" %>
+<h3 class="title-decorator text-2xl my-8"><%= t(".invite_link_title") %></h3>
+
+<%= render partial: "share_committee_link" %>
+
+<h3 class="title-decorator text-2xl mb-8 mt-10"><%= t(".promoters_committee_title") %></h3>
+
+<div class="block">
+  <span class="help-text mb-4">
+    <%= t(".promoters_committee_help", committee_size: minimum_committee_members, committee_members_count: promoters_committee_members.count) %>
+  </span>
+</div>
+
+<% if promoters_committee_members.count.positive? %>
+  <div class="block">
+    <% current_initiative.committee_members.each do |request| %>
+      <%= render partial: "committee_member", locals: { request: request } %>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="block">
+  <span class="help-text mt-4 mb-8 font-semibold">
+    <%= t(".promoters_committee_help_2") %>
+  </span>
 </div>
 
 <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
@@ -15,5 +37,10 @@
     <%= icon "arrow-left-line", class: "fill-current" %>
     <%= t("back", scope: "decidim.initiatives.create_initiative.previous_form") %>
   <% end %>
-  <%= link_to t("continue", scope: "decidim.initiatives.create_initiative.previous_form"), finish_create_initiative_index_path, class: "button button__sm md:button__lg button__secondary" %>
+  <div>
+    <%= link_to t(".return_initiatives"), initiatives_path, class: "button button__sm md:button__lg button__transparent-secondary mr-2" %>
+    <%= link_to t(".send"), finish_create_initiative_index_path,
+                            class: "button button__sm md:button__lg button__secondary",
+                            disabled: !current_initiative.enough_committee_members? %>
+  </div>
 </div>

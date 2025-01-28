@@ -33,8 +33,7 @@ module Decidim
               weight: participatory_process.weight,
               description: participatory_process.description,
               short_description: participatory_process.short_description,
-              slug: participatory_process.slug,
-              scopes_enabled: participatory_process.scopes_enabled
+              slug: participatory_process.slug
             }
           end
 

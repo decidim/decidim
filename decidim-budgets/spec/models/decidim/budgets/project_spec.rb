@@ -22,13 +22,6 @@ module Decidim::Budgets
       it { is_expected.not_to be_valid }
     end
 
-    context "when the scope is from another organization" do
-      let(:scope) { create(:scope) }
-      let(:project) { build(:project, scope:) }
-
-      it { is_expected.not_to be_valid }
-    end
-
     describe ".ordered_ids" do
       let(:budget) { create(:budget, total_budget: 1_000_000) }
       let(:projects) { create_list(:project, 50, budget:, budget_amount: 100_000) }

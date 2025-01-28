@@ -86,7 +86,6 @@ module Decidim
 
         params = {
           component:,
-          scope: random_scope(participatory_space:),
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           body: Decidim::Faker::Localized.paragraph(sentence_count: 1),
           proposal_state:,
@@ -198,7 +197,6 @@ module Decidim
 
         params = {
           component: proposal.component,
-          scope: random_scope(participatory_space:),
           title: Decidim::Faker::Localized.literal(proposal.title[I18n.locale]),
           body: Decidim::Faker::Localized.paragraph(sentence_count: 3),
           proposal_state: Decidim::Proposals::ProposalState.where(component: proposal.component, token: :evaluating).first,
@@ -259,7 +257,6 @@ module Decidim
         draft = Decidim.traceability.perform_action!("create", Decidim::Proposals::CollaborativeDraft, author) do
           draft = Decidim::Proposals::CollaborativeDraft.new(
             component:,
-            scope: random_scope(participatory_space:),
             title: ::Faker::Lorem.sentence(word_count: 2),
             body: ::Faker::Lorem.paragraphs(number: 2).join("\n"),
             state:,
@@ -289,7 +286,6 @@ module Decidim
           Decidim::Proposals::CollaborativeDraft.all.sample,
           Decidim::User.where(organization:).all.sample,
           component:,
-          scope: random_scope(participatory_space:),
           title: ::Faker::Lorem.sentence(word_count: 2),
           body: ::Faker::Lorem.paragraphs(number: 2).join("\n")
         )

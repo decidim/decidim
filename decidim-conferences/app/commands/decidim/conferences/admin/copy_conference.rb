@@ -48,8 +48,6 @@ module Decidim
             short_description: @conference.short_description,
             location: @conference.location,
             promoted: @conference.promoted,
-            scopes_enabled: @conference.scopes_enabled,
-            scope: @conference.scope,
             objectives: @conference.objectives,
             start_date: @conference.start_date,
             end_date: @conference.end_date,

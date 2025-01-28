@@ -23,8 +23,6 @@
     <span><%= t(".back_to_initiatives") %></span>
   <% end %>
 
-  <%= link_to t(".edit_my_initiative"), edit_initiative_path(current_initiative), class: "button button__sm md:button__lg button__transparent-secondary md:ml-auto" %>
-
   <%= link_to t(".go_to_my_initiatives"), decidim_initiatives.initiatives_path(filter: { author: "myself", with_any_state: "" }), class: "button button__sm md:button__lg button__secondary" %>
 
   <% unless promotal_committee_required? %>

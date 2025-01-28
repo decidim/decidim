@@ -177,7 +177,7 @@ module Decidim
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(area scope parent children taxonomies)
+      %w(parent children taxonomies)
     end
 
     private

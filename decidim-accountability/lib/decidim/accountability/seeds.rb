@@ -33,7 +33,6 @@ module Decidim
           participatory_space:,
           settings: {
             intro: Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) },
-            scopes_enabled: false,
             taxonomy_filters: create_filters!.pluck(:id)
           }
         }

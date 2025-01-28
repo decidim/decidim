@@ -90,7 +90,7 @@ en:
             label: State
             values:
               accepted: Enough signatures
-              created: Created
+              created: Drafted
               discarded: Discarded
               open: Open
               rejected: Not enough signatures
@@ -346,7 +346,7 @@ en:
           update: "%{user_name} updated the %{resource_name} initiatives type"
       admin_states:
         accepted: Enough signatures
-        created: Created
+        created: Drafted
         discarded: Discarded
         open: Open
         rejected: Not enough signatures
@@ -375,6 +375,11 @@ en:
         highlighted_initiatives:
           name: Highlighted initiatives
       create_initiative:
+        committee_member:
+          approve: Approve
+          confirm_approve: Are you sure you want to approve this member?
+          confirm_revoke: Are you sure you want to revoke this member?
+          revoke: Revoke
         fill_data:
           back: Back
           continue: Continue
@@ -398,14 +403,22 @@ en:
           continue: Continue
         promotal_committee:
           individual_help_text: This kind of initiative requires a Promoting Commission consisting of at least %{committee_size} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
+          invite_link_title: Link to invite people
           more_information: "(More information)"
+          promoters_committee_help: You need %{committee_size} members of the promoters committee to start, you have %{committee_members_count}/%{committee_size}.
+          promoters_committee_help_2: Remember that for your initiative to be published you must complete the required information and send it to technical validation for review by an administrator.
+          promoters_committee_title: Promoters Committee
+          return_initiatives: Return to initiatives
+          send: Send to technical validation
         select_initiative_type:
           back: Back
           choose_html: I want to create a <strong>%{title}</strong>
+          continue: Continue
           more_information: More information
           new: Create a new initiative
           select: I want to promote this initiative
           select_initiative_type_help: Initiatives are a means by which the participants can intervene so that the organization can undertake actions in defence of the general interest. Which initiative do you want to launch?
+          subtitle: What initiative do you want to promote?
           verification_required: Verify your account to promote this initiative
         share_committee_link:
           invite_to_committee_help: Link to invite people that will be part of the promoter committee
@@ -613,7 +626,7 @@ en:
       show:
         badge_name:
           accepted: Enough signatures
-          created: Created
+          created: Drafted
           discarded: Discarded
           open: Open
           rejected: Not enough signatures
@@ -683,8 +696,8 @@ en:
     decidim:
       initiative_creation_header:
         fill_data: Create
-        finish: Finish
-        promotal_committee: Promoter committee
+        finish: Technical validation
+        promotal_committee: Look for promoters
         select_initiative_type: Choose
       initiative_signature_creation_header:
         help_information_html: To sign the initiative <strong>%{initiative_title}</strong> promoted by %{initiative_author} you need to provide some information that will make the initiative signing legally binding. No information about you will be made public.

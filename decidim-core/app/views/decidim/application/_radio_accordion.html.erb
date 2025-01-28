@@ -1,0 +1,16 @@
+<div class="radio-accordion" data-component="accordion">
+  <div class="radio-accordion-divider">
+    <input class="radio-accordion-radio reset-defaults" type="radio" name="<%= input_radio_name %>" value="<%= input_radio_value %>">
+
+    <button class="radio-accordion-divider-button" data-open="<%= open_accordion ||= false %>" data-controls="panel-title--<%= panel_id %>" type="button">
+      <h2 class="radio-accordion-title" id="title">
+        <%= title %>
+      </h2>
+      <%= icon "arrow-down-s-line" %>
+    </button>
+  </div>
+
+  <div id="panel-title--<%= panel_id %>" class="radio-accordion-section editor-content" aria-hidden="true">
+    <%= yield %>
+  </div>
+</div>
