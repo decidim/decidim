@@ -71,7 +71,7 @@ module Decidim
 
           Decidim::Proposals::ProposalBuilder.copy(
             original_proposal,
-            author: form.current_organization,
+            author: form.created_in_meeting ? form.author : form.current_organization,
             action_user: form.current_user,
             extra_attributes: {
               component: form.target_component,
@@ -87,8 +87,6 @@ module Decidim
         end
 
         def merge_authors
-          @merged_proposal.add_coauthor(form.author) if form.author && form.created_in_meeting? && @merged_proposal.authors.exclude?(form.author)
-
           authors = form.proposals.flat_map(&:authors).sort_by { |author| author.is_a?(Decidim::Meetings::Meeting) ? 0 : 1 }
 
           authors.each { |author| @merged_proposal.add_coauthor(author) unless @merged_proposal.authors.include?(author) }

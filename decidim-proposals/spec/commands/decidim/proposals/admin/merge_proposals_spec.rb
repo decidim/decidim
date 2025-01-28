@@ -10,7 +10,9 @@ module Decidim
           let!(:proposals) { create_list(:proposal, 3, component: current_component) }
           let!(:current_component) { create(:proposal_component) }
           let!(:target_component) { create(:proposal_component, participatory_space: current_component.participatory_space) }
-          let!(:author) { create(:organization) }
+          let(:user) { create(:user, :confirmed, :admin, organization:) }
+          let(:organization) { create(:organization) }
+          let(:author) { create(:user, organization:) }
           let(:form) do
             instance_double(
               ProposalsMergeForm,
@@ -53,6 +55,19 @@ module Decidim
           describe "when the form is valid" do
             let(:valid) { true }
 
+            context "when created_in_meeting is false" do
+              let(:created_in_meeting) { false }
+
+              it "does not link the proposal to the meeting" do
+                command.call
+
+                proposal = Proposal.where(component: target_component).last
+                linked = proposal.linked_resources(:proposals, "proposals_from_meeting")
+
+                expect(linked).to be_empty
+              end
+            end
+
             it "broadcasts ok" do
               expect { command.call }.to broadcast(:ok)
             end
@@ -86,6 +101,32 @@ module Decidim
               expect(new_proposal.answer).to be_nil
               expect(new_proposal.answered_at).to be_nil
               expect(new_proposal.reference).not_to eq(proposal.reference)
+            end
+
+            context "when merging from the same component" do
+              let(:same_component) { true }
+              let(:target_component) { current_component }
+
+              it "shows the original proposals as withdrawn" do
+                command.call
+
+                expect(form.proposals.pluck(:withdrawn_at)).to all(be_present)
+              end
+
+              it "verifies the merged proposal in the target component" do
+                other_component = create(:proposal_component, participatory_space: current_component.participatory_space)
+                other_proposals = create_list(:proposal, 3, component: other_component)
+
+                proposals.each_with_index do |proposal, index|
+                  proposal.link_resources(other_proposals[index], "merged_from_component")
+                  expect(proposal.linked_resources(:proposals, "merged_from_component")).to include(other_proposals[index])
+                end
+
+                command.call
+
+                merged_proposal = Proposal.where(component: target_component).last
+                expect(merged_proposal).not_to be_nil
+              end
             end
           end
         end

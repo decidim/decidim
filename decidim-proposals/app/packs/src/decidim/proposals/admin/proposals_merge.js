@@ -58,7 +58,6 @@ document.addEventListener("decidim:loaded", () => {
 
           if (response.status === "ok") {
             window.location.reload();
-            drawer.close();
           } else {
             window.location.href = response.redirect_url;
           }
