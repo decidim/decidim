@@ -141,9 +141,9 @@ eu:
         comment_votes:
           comment: Bozkatutako iruzkinaren identifikazioa
           created_at: Zein datatan sortu zen bozketa hau
-          id: Botoaren identifikazioa
+          id: Babesaren identifikazioa
           updated_at: Zein datatan eguneratu zen azken aldiz bozketa hau
-          weight: Botoaren balioa (1 boto gehiago, -1 boto gutxiago)
+          weight: Babesaren balioa (1 boto gehiago, -1 boto gutxiago)
         comments:
           alignment: Iruzkin hau aldekoa bazen, kontrakoa edo neutrala
           author: Iruzkin hau egin duen parte-hartzailearen izena
@@ -174,7 +174,7 @@ eu:
           email_subject: '%{author_name} k beste iruzkin berri bat egin du hemen: %{resource_title}'
           notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> k iruzkin berri bat egin du hemen: <a href="%{resource_path}">%{resource_title}</a></a>'
         comment_downvoted:
-          email_intro: Zure iruzkina hemen "%{resource_title}" negatiboki bozkatu da. Orain %{upvotes} boto positibo eta %{downvotes} boto negatibo dituzu guztira.
+          email_intro: Zure iruzkina hemen "%{resource_title}" negatiboki bozkatu da. Orain %{upvotes} babes positibo eta %{downvotes} boto negatibo dituzu guztira.
           email_outro: Jakinarazpen hau jaso duzu iruzkin honen egilea zarelako.
           email_subject: Zure iruzkina hemen "%{resource_title}" negatiboki bozkatu da.
           notification_title: Zure <a href="%{resource_path}">iruzkina</a> hemen "%{resource_title}" negatiboki bozkatu da. Orain guztira %{upvotes} boto positibo eta %{downvotes} boto negatibo dituzu.
