@@ -158,11 +158,8 @@ module Decidim
 
             describe "proposal states" do
               let(:states) { %w(not_answered rejected) }
-
-              before do
-                create(:proposal, :rejected, component: proposal_component, taxonomies:)
-                create(:proposal, component: proposal_component, taxonomies:)
-              end
+              let!(:rejected_proposal) { create(:proposal, :rejected, component: proposal_component, taxonomies:) }
+              let!(:random_proposal) { create(:proposal, component: proposal_component, taxonomies:) }
 
               it "only imports proposals from the selected states" do
                 expect do
@@ -170,6 +167,21 @@ module Decidim
                 end.to change { Proposal.where(component: current_component).count }.by(2)
 
                 expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
+              end
+
+              context "when using translation" do
+                let(:states) { %w(not_answered rebutjada) }
+
+                it "only imports proposals from the selected states" do
+                  Decidim::Proposals::ProposalState.where(component: proposal_component).where(token: "rejected").update(token: "rebutjada")
+                  Decidim::Proposals::ProposalState.where(component: proposal_component).where(token: "accepted").update(token: "acceptada")
+
+                  expect do
+                    I18n.with_locale(:ca) { command.call }
+                  end.to change { Proposal.where(component: current_component).count }.by(2)
+
+                  expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
+                end
               end
             end
 
