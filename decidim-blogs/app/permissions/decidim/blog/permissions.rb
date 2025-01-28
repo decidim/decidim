@@ -41,7 +41,8 @@ module Decidim
       end
 
       def can_create_post
-        current_component&.participatory_space.is_a?(Decidim::Initiative) &&
+        Decidim.module_installed?("initiatives") &&
+          current_component&.participatory_space.is_a?(Decidim::Initiative) &&
           initiative_authorship? &&
           current_component&.participatory_space&.published? &&
           current_component&.published?
