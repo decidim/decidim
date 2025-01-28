@@ -44,6 +44,7 @@ sv:
       actions:
         attachment_collections: Mappar
         attachments: Bilagor
+        confirm_destroy: Är du säker på att du vill radera projektet?
         destroy: Radera
         edit: Redigera
         edit_projects: Hantera projekt
