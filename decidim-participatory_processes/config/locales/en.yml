@@ -29,9 +29,6 @@ en:
         promoted: Promoted
         published_at: Published at
         related_process_ids: Related processes
-        scope_id: Scope
-        scope_type_max_depth_id: Scope filter depth
-        scopes_enabled: Scopes enabled
         short_description: Short description
         slug: URL slug
         start_date: Start date
@@ -273,6 +270,9 @@ en:
         create:
           error: There was a problem creating a new participatory process group.
           success: Participatory process group successfully created.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: All participatory processes
       titles:
         participatory_process_groups: Participatory process groups
         participatory_process_types: Participatory process types
@@ -446,14 +446,11 @@ en:
             announcement_help: The text you enter here will be shown to the user right below the process information.
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
-            filters: Filters
             images: Images
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
             private_notice: You will be able to manage members after setting it as private
             related_processes: Related processes
-            scope_type_max_depth_help: Restrict the scope filter depth; The filter will show from general to the selected scope type.
-            select_an_area: Select an Area
             select_process_group: Select a process group
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             taxonomies: Taxonomies

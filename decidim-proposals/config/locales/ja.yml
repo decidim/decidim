@@ -437,7 +437,6 @@ ja:
           comments: 提案のコメント数
           component: 提案が属するコンポーネント
           endorsements: この提案のオススメ(「いいね」) の数
-          followers: 提案のフォロワー数
           id: 提案の固有ID
           is_amend: この提案が別の提案の修正版かどうか
           latitude: 提案に物理的な場所がある場合の提案の緯度
@@ -458,7 +457,7 @@ ja:
     participatory_spaces:
       highlighted_proposals:
         last: 最近の提案
-        see_all: すべての提案を見る (%{count})
+        see_all: すべての提案を見る
     proposals:
       actions:
         answer_proposal: 提案に回答
@@ -484,22 +483,6 @@ ja:
           proposal_comments: コメント
           proposals: 提案
         imports:
-          help:
-            answers: |
-              インポートドキュメントには、CSVやExcelファイルの場合は以下のカラム名、JSONファイルの場合はキー名が含まれている必要があります:
-              <ul>
-              <li><b>id:</b> 回答する提案のID</li>
-              <li><b>state:</b> "accepted", "evaluating", "rejected"のうちのどれか</li>
-              <li><b>answer/en:</b> 英語での回答。これはプラットフォームの言語設定に依存します。</li>
-              </ul>
-            proposals: |
-              CSVファイルやExcelファイルの場合は以下のカラム名、JSONファイルの場合はキー名が必要です:
-              <ul>
-              <li><b>title/en:</b> 英語でのタイトル。これはプラットフォームの言語設定に依存します。</li>
-              <li><b>body/en:</b> 英語での本文。これはプラットフォームの言語設定に依存します。</li>
-              <li><b>scope/id:</b> スコープのID</li>
-              <li><b>category/id:</b> カテゴリーのID</li>
-              </ul>
           label:
             answers: ファイルから回答をインポート
             proposals: ファイルから提案をインポート
@@ -594,9 +577,7 @@ ja:
             title: 提案を更新
             update: 更新
           form:
-            attachment_legend: "(オプション) 添付ファイルを追加"
             created_in_meeting: この提案は会議から来ています
-            delete_attachment: 添付ファイルを削除
             select_a_meeting: ミーティングを選択
           index:
             actions: アクション
@@ -727,7 +708,6 @@ ja:
           error: 共同草案の作成中に問題が発生しました.
           success: 共同草案を作成しました。
         edit:
-          attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
           send: 送信
           title: 共同草案を編集
@@ -782,7 +762,7 @@ ja:
           final_proposal_help_text: この草案は終了しました。最終提案を確認してください。
           hidden_authors_count:
             other: '%{count} 人以上'
-          info-message: これは提案のための<strong>共同草案</strong>です。コメントセクションを使用して著者に提案を形成するのを手伝うことができます。また、編集アクセスを要求することで直接改善することもできます。著者がアクセスを許可したら、このドラフトを変更できるようになります。
+          info-message: これは提案のための <strong>共同草案</strong> です。 これは、以下のコメントセクションを使用して提案を作成したり、編集するためのアクセスを要求することで、提案を改善したりすることができることを意味します。 作成者がアクセスを許可すると、この草案を変更できるようになります。
           publish: 公開
           publish_info: このバージョンの草案を公開するか、
           published_proposal: 公開された提案
@@ -865,10 +845,7 @@ ja:
           description: '「プレビュー」ボタンをクリックすると座標が更新されますが、アドレスは変更されません。'
           instructions: 地図上のポイントを移動できます。
         edit:
-          add_documents: ドキュメントを追加
-          attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
-          edit_documents: ドキュメントを編集
           send: 送信
           title: 提案を編集
         edit_draft:
@@ -964,17 +941,12 @@ ja:
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: 各提案は %{limit} 票を超えることができます
-          minimum_votes_per_user:
-            description: 異なる提案には、 %{votes} 票以上の票を配布する必要があります。
-            given_enough_votes: 十分な投票を行いました。
-            votes_remaining: あなたの投票が考慮されるためには、あと %{remaining_votes} 件の提案に投票する必要があります。
           proposal_limit:
             description: 最大 %{limit} 件の提案を作成できます。
           threshold_per_proposal:
             description: 提案が検証されるためには、 %{limit} 票に到達する必要があります。
-          title: '投票は以下のルールに従います：'
           vote_limit:
-            description: '%{limit} 件までの提案に投票できます。'
+            description: 最大 %{limit} 件の提案をサポートできます。
             votes: 残り %{number} 票
         wizard_aside:
           back: 戻る

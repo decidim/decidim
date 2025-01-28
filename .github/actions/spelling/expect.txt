@@ -4,6 +4,7 @@ abans
 abcd
 abcert
 abcloktpes
+acceptada
 accesslist
 Aceasta
 acentos
@@ -124,6 +125,7 @@ cdp
 cellphone
 centerblock
 changeme
+chartkick
 cherrypicking
 childs
 chromedriver
@@ -750,6 +752,7 @@ Raymundo
 rbngzlv
 reallowed
 rebornix
+rebutjada
 recapitated
 reconfirmable
 redcarpet

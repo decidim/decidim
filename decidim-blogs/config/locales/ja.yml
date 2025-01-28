@@ -13,6 +13,10 @@ ja:
       decidim/blogs/post:
         other: 投稿
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: 投稿
     blogs:
       actions:
         author_id: 次のように投稿を作成
@@ -94,5 +98,33 @@ ja:
           email_outro: '「%{participatory_space_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
           email_subject: '%{participatory_space_title} に新しい投稿が公開されました'
           notification_title: '%{participatory_space_title} で投稿 <a href="%{resource_path}">%{resource_title}</a> が公開されました'
+    open_data:
+      help:
+        post_comments:
+          alignment: このコメントが好意的、敵対的、中立的であった場合
+          author: このコメントを作成した参加者の名前
+          body: コメントそのもの
+          commentable_id: コメント対象の固有ID
+          commentable_type: コメント対象の種別 (結果、提案など)
+          created_at: コメントの作成日時
+          depth: コメントがコメントツリーのどこに位置しているか（回答、または回答の回答である場合）
+          id: コメントのID
+          locale: コメントを残した参加者の使っていたロケール（言語）
+          root_commentable_url: コメントに関連するリソースの URL
+          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
+        posts:
+          author: 作者の情報
+          body: 投稿の本文
+          comments_count: 投稿のコメント数
+          component: ポストが属するコンポーネント
+          created_at: この投稿の作成日時
+          endorsements_count: 投稿のオススメ数
+          follows_count: 投稿のフォロー数
+          id: 投稿の固有ID
+          participatory_space: この投稿が所属するスペース（参加型プロセス、参加スペースなど）
+          published_at: この投稿の公開日時
+          title: 投稿のタイトル
+          updated_at: この投稿が更新された日時
+          url: この投稿の URL
     statistics:
       posts_count: 投稿

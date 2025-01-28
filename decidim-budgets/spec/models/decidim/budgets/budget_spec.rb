@@ -11,7 +11,6 @@ describe Decidim::Budgets::Budget do
   include_examples "has component"
   include_examples "has taxonomies"
   include_examples "resourceable"
-  include_examples "has scope"
 
   describe "check the log result" do
     it "overwrites the log presenter" do

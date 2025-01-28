@@ -8,6 +8,7 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import "jquery"
+import "chartkick/chart.js"
 
 // REDESIGN_PENDING: deprecated
 import "foundation-sites";
@@ -48,6 +49,7 @@ import "src/decidim/data_consent"
 import "src/decidim/abide_form_validator_fixer"
 import "src/decidim/sw"
 import "src/decidim/sticky_header"
+import "src/decidim/sticky_footer"
 import "src/decidim/attachments"
 
 // local deps that require initialization

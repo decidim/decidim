@@ -22,6 +22,10 @@ module Decidim
         2.times do
           create_taxonomy!(name: ::Faker::Lorem.word, parent: taxonomy)
         end
+        # filters for processes only
+        create_taxonomy_filter!(root_taxonomy: taxonomy,
+                                taxonomies: taxonomy.all_children,
+                                participatory_space_manifests: [:participatory_processes])
 
         2.times do |_n|
           process = create_process!(process_group: process_groups.sample)
@@ -36,10 +40,6 @@ module Decidim
           Decidim::ContentBlocksCreator.new(process).create_default!
 
           create_attachments!(attached_to: process)
-
-          2.times do
-            create_category!(participatory_space: process)
-          end
 
           seed_components_manifests!(participatory_space: process)
         end

@@ -10,6 +10,8 @@ fi-pl:
         state: Tila
         title: Ehdotuksen nimi
         user_group_id: Luo yhteistyöluonnos nimellä
+      import_participatory_text:
+        document: Asiakirja
       proposal:
         address: Osoite
         answer: Vastaus
@@ -19,6 +21,8 @@ fi-pl:
         decidim_proposals_proposal_state_id: Tila
         decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
+        latitude: Leveysaste
+        longitude: Pituusaste
         scope_id: Teema
         state: Tila
         suggested_hashtags: Ehdotetut hashtagit
@@ -45,6 +49,8 @@ fi-pl:
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki ideat valitusta komponentista tähän komponenttiin ja tätä toimintoa ei voi peruuttaa.
         origin_component_id: Osio josta ehdotukset kopioidaan
+      proposals_file_import:
+        file: Tiedosto
       proposals_import:
         import_proposals: Tuo ehdotuksia
         keep_answers: Säilytä tilat ja vastaukset
@@ -112,6 +118,9 @@ fi-pl:
         other: Äänet
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Ehdotukset
       filters:
         proposals:
           is_emendation_true:
@@ -363,7 +372,7 @@ fi-pl:
             notification_title: Ehdotuksen <a href="%{resource_path}">%{resource_title}</a> tilaksi on muutettu "%{state}".
         proposal_update_taxonomies:
           email_intro: 'Hallintakäyttäjä on muuttanut ehdotuksesi "%{resource_title}" luokitteluja, voit tarkastaa muutoksen tältä sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen laatija.
           email_subject: Ehdotuksen %{resource_title} luokitteluja on muutettu
           notification_title: Hallintakäyttäjä on muuttanut ehdotuksen <a href="%{resource_path}">%{resource_title}</a> luokitteluja.
         rejected_coauthorship:
@@ -431,11 +440,11 @@ fi-pl:
           alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
           author: Kommentin laatijan nimi
           body: Kommentin teksti
-          commentable_id: Kommentoitavan asian yksilöllinen tunniste
+          commentable_id: Kommentoitavan asian yksilöivä tunniste
           commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
           created_at: Kommentin laatimisaika
           depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
-          id: Kommentin yksilöllinen tunniste
+          id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
           user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
@@ -446,11 +455,17 @@ fi-pl:
           attachments: Ehdotuksen liitteiden lukumäärä
           author: Ehdotuksen laatijan tiedot
           body: Ehdotuksen kuvaus
+          coauthorships_count: Ehdotuksen laatijoiden lukumäärä
           comments: Ehdotuksen saamien kommenttien määrä
           component: Ehdotuksen komponentti
+          cost: Ehdotuksen kokonaiskustannukset
+          cost_report: Ehdotuksen kustannusraportti
+          created_at: Ehdotuksen laatimisaika
+          created_in_meeting: Oliko ehdotus laadittu tapaamisessa
           endorsements: Ehdotuksen keräämien suositusten ("tykkäykset") lukumäärä
-          followers: Ehdotusten seuraajien lukumäärä
-          id: Ehdotuksen yksilöllinen tunniste
+          execution_period: Ehdotuksen toteutuksen aikaväli
+          follows_count: Ehdotuksen seuraajien lukumäärä
+          id: Ehdotuksen yksilöivä tunniste
           is_amend: Onko tämä ehdotus toisen ehdotuksen muutosehdotus
           latitude: Ehdotuksen sijainnin leveysaste, mikäli ehdotus on määritetty tiettyyn paikkaan
           longitude: Ehdotuksen sijainnin pituusaste, mikäli ehdotus on määritetty tiettyyn paikkaan
@@ -458,24 +473,26 @@ fi-pl:
           original_proposal: Alkuperäisen ehdotuksen viite, mikäli kyseessä on muutosehdotus
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä ehdotus kuuluu
           published_at: Ehdotuksen julkaisun ajankohta
-          reference: Tämän ehdotuksen yksilöllinen tunniste tällä alustalla
+          reference: Tämän ehdotuksen yksilöivä tunniste tällä alustalla
           related_proposals: Muut ehdotukset, jotka liittyvät tähän ehdotukseen
           state: Ehdotuksen tila (esim. "Hyväksytty")
+          state_published_at: Ehdotuksen julkaisun ajankohta
           taxonomies: Tälle ehdotukselle määritetyt luokittelut
           title: Ehdotuksen otsikko
+          updated_at: Ehdotuksen viimeisimmän päivityksen ajankohta
           url: URL-osoite ehdotukseen
           votes: Ehdotuksen saamien äänten määrä
-          withdrawn: Oliko tämä ehdotus peruutettu
-          withdrawn_at: Ajankohta, jolloin ehdotus peruutettiin
+          withdrawn: Oliko tämä ehdotus peruttu
+          withdrawn_at: Ajankohta, jolloin ehdotus peruttiin
     participatory_spaces:
       highlighted_proposals:
         last: Viimeisimmät ehdotukset
-        see_all: Näytä kaikki (%{count})
+        see_all: Näytä kaikki ehdotukset
     proposals:
       actions:
         answer_proposal: Vastaa ehdotukseen
-        cancel_coauthor_invitation: Peruuta kutsu laatijaksi
-        cancel_coauthor_invitation_confirm: Haluatko varmasti peruuttaa kutsun laatijaksi?
+        cancel_coauthor_invitation: Peru kutsu laatijaksi
+        cancel_coauthor_invitation_confirm: Haluatko varmasti perua kutsun laatijaksi?
         delete_proposal_state_confirm: Haluatko varmasti poistaa tämän tilan?
         destroy: Poista tila
         edit_proposal: Muokkaa ehdotusta
@@ -498,21 +515,6 @@ fi-pl:
           proposal_comments: Kommentit
           proposals: Ehdotukset
         imports:
-          help:
-            answers: |
-              CSV- tai Excel-tuontitiedostossa on oltava seuraavat sarakenimet ja JSON-tuontitiedostossa vastaavat avainten nimet:
-              <ul>
-              <li><b>id:</b> Vastattavan ehdotuksen ID-tunniste</li>
-              <li><b>state:</b> Jokin vaihtoehdoista "accepted", "evaluating", tai "rejected"</li>
-              <li><b>answer/fi:</b> Vastaus suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
-              </ul>
-            proposals: |
-              CSV- tai Excel-tiedostossa on oltava seuraavat sarakenimet ja JSON-tiedostossa vastaavat avainten nimet:
-              <ul><li><b>title/fi:</b> Otsikko suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
-              <li><b>body/fi:</b> Kuvaus suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
-              <li><b>scope/id:</b> Teeman ID-tunniste</li>
-              <li><b>category/id:</b> Aihepiirin ID-tunniste</li>
-              </ul>
           label:
             answers: Tuo vastaukset tiedostosta
             proposals: Tuo ehdotuksia tiedostosta
@@ -609,9 +611,7 @@ fi-pl:
             title: Päivitä ehdotusta
             update: Päivitä
           form:
-            attachment_legend: "(Valinnainen) Lisää liite"
             created_in_meeting: Tämä ehdotus on luotu tapaamisessa
-            delete_attachment: Poista liite
             select_a_meeting: Valitse tapaaminen
           index:
             actions: Toiminnot
@@ -747,7 +747,6 @@ fi-pl:
           error: Yhteistyöluonnoksen luominen epäonnistui.
           success: Yhteistyöluonnos luotu onnistuneesti.
         edit:
-          attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
           send: Lähetä
           title: Muokkaa yhteistyöluonnosta
@@ -836,6 +835,11 @@ fi-pl:
       destroy_draft:
         error: Ehdotusluonnoksen poistamisessa tapahtui virheistä.
         success: Ehdotusluonnos poistettiin onnistuneesti.
+      exit_modal:
+        cancel: Peruuta
+        exit: Jatka
+        message: Sinun on äänestettävä vielä %{number} ehdotusta, jotta äänesi otetaan huomioon.
+        title: Sinulla on %{number} ääntä jäljellä
       forms:
         errors:
           device_not_supported: Laitteesi ei tue sijaintipalveluita. Syötä osoite manuaalisesti.
@@ -843,13 +847,13 @@ fi-pl:
         use_my_location: Käytä nykyistä sijaintiani
       invite_coauthors:
         cancel:
-          error: Laatijakutsun peruuttaminen epäonnistui.
-          success: Laatijakutsun peruuttaminen onnistui.
+          error: Laatijakutsun peruminen epäonnistui.
+          success: Laatijakutsun peruminen onnistui.
         create:
           error: Laatijakutsun lähettäminen epäonnistui.
           success: "Osallistujan %{author_name} kutsuminen laatijaksi onnistui."
         destroy:
-          error: Kutsun hylkääminen epäonnistui.
+          error: Kutsun hylkäys epäonnistui.
           success: Kutsun hylkääminen onnistui.
         update:
           error: Kutsun hyväksyminen epäonnistui.
@@ -890,10 +894,7 @@ fi-pl:
           description: Koordinaatit päivitetään, kun painat Esikatsele-painiketta. Osoitetekstiä ei muuteta.
           instructions: Voit siirtää pistettä kartalla.
         edit:
-          add_documents: Lisää asiakirjoja
-          attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
-          edit_documents: Muokkaa asiakirjoja
           send: Lähetä
           title: Muokkaa ehdotusta
         edit_draft:
@@ -974,14 +975,14 @@ fi-pl:
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_in_evaluation_reason: Tämä ehdotus on arvioitavana
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
-          withdraw_btn_hint: Voit peruuttaa ehdotuksesi, jos muutat mieltäsi ja ehdotus ei ole vielä saanut ääniä. Ehdotusta ei poisteta, vaan se näkyy peruutettujen ehdotusten luettelossa.
+          withdraw_btn_hint: Voit perua ehdotuksesi, jos muutat mieltäsi ja ehdotus ei ole vielä saanut ääniä. Ehdotusta ei poisteta, vaan se näkyy peruttujen ehdotusten luettelossa.
           withdraw_confirmation_html: Haluatko varmasti peruuttaa tämän ehdotuksen?<br><br><strong>Tätä toimintoa ei voi peruuttaa!</strong>
           withdraw_proposal: Peru
         update:
           title: Muokkaa ehdotusta
         vote_button:
           already_voted: Jo äänestetty
-          already_voted_hover: Peruuta ääni
+          already_voted_hover: Peru ääni
           maximum_votes_reached: Kaikki äänet käytetty
           no_votes_remaining: Ei ääniä jäljellä
           vote: Äänestä
@@ -991,17 +992,20 @@ fi-pl:
             one: Ääni
             other: Ääntä
         voting_rules:
+          already_vote:
+            description: Sinun on annettava vielä %{number} ääntä ehdotuksille, jotta äänesi otetaan huomioon.
+            see_other_proposals: Näytä muut ehdotukset
+            title: Sinulla on %{number} ääntä jäljellä
           can_accumulate_votes_beyond_threshold:
             description: Jokainen ehdotus voi kerätä yli %{limit} ääntä
           minimum_votes_per_user:
-            description: Sinun on annettava vähintään %{votes} ääntä eri ehdotuksille.
-            given_enough_votes: Olet äänestänyt tarpeeksi monta ehdotusta.
-            votes_remaining: Sinun on äänestettävä vielä %{remaining_votes} ehdotusta, jotta äänesi otetaan huomioon.
+            description: Sinun on annettava vähintään %{votes} ääntä eri ehdotuksille, jotta äänesi otetaan huomioon.
           proposal_limit:
             description: Voit luoda enintään %{limit} ehdotusta.
+          success: Antamasi äänet on hyväksytty
           threshold_per_proposal:
             description: Jotta ehdotukset vahvistettaisiin, niiden on saavutettava %{limit} ääntä.
-          title: 'Äänestykseen sovelletaan seuraavia sääntöjä:'
+          title: Osallistumista koskevat säännöt
           vote_limit:
             description: Voit äänestää enintään %{limit} ehdotusta.
             votes: 'Käytettävissä olevien äänten määrä: %{number}'
@@ -1033,7 +1037,7 @@ fi-pl:
           title: Versiot
       withdraw:
         errors:
-          has_votes: Tätä ehdotusta ei voi peruuttaa, koska se on saanut jo ääniä.
+          has_votes: Tätä ehdotusta ei voi perua, koska se on saanut jo ääniä.
     resource_links:
       copied_from_component:
         proposal_proposal: Liittyvät ehdotukset

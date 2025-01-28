@@ -46,7 +46,9 @@ ar:
       actions:
         attachment_collections: الحافظات
         attachments: المرفقات
+        confirm_delete_result: هل تريد بالتأكيد حذف هذه النتيجة؟
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا %{name}؟
+        deleted_results_info: يمكن استعادة النتائج المحذوفة من سلة المهملات.
         destroy: حذف
         edit: تعديل
         import: اجلب مشروعات من مكون آخر
@@ -57,6 +59,7 @@ ar:
         preview: معاينة
         timeline_entries: تطور المشروع
         title: الإجراءات
+        view_deleted_results: عرض النتائج المحذوفة
       admin:
         exports:
           result_comments: التعليقات
@@ -65,26 +68,6 @@ ar:
           new:
             download_export: تحميل التصدير بصيغه CSV
             import: استيراد
-            info: |
-              <p>نحن ننصح باتباع هذه الخطوات:</p>
-              <ol>
-               <li>قم بإنشاء حالات النتائج التي تريد إضافتها (<a href="%{link_new_status}" target="_blank">الرابط</a>)</li>
-               <li>قم بإنشاء نتيجة واحدة على الأقل يدويًا من خلال لوحة المدير هذه (<a href="%{link_new_result}" target="_blank">link</a>) قبل أستخدام الاستيراد, للحصول على فهم أفضل للتنسيق وما ستحتاج لملئه.</li>
-               <li>قم بتنزيل التصدير بتنسيق CSV(%{link_export_csv})</li>
-               <li>قم بإجراء التغييرات محليًا على جهازك. يمكنك فقط تغيير الأعمدة التالية من ملف CSV:</li>
-              </ol>
-              <ul>
-               <li><b>category/id:</b>رقم مٌعرف للفئه</li>
-               <li><b>scope/id:</b>رقم مٌعرف للمجال</li>
-               <li><b>parent/id:</b> رقم مٌعرف بالأب (للنتائج ذات الصلة). اختياري</li>
-               <li><b>title/I18N:</b> عنوان اللغه</li>
-               <li><b>description/I18N:</b> وصف اللغه</li>
-               <li><b>start_date:</b>التاريخ الذي يبدأ فيه تنفيذ النتيجة (التنسيق YYYY-MM-DD)</li>
-               <li><b>end_date:</b> التاريخ الذي ينتهى فيه تنفيذ النتيجة (التنسيق YYYY-MM-DD</li>
-               <li><b>status/id:</b> رقم مٌعرف لحالة النتيجة</li>
-               <li><b>progress:</b> النسبة المئوية (من 0 الى 100) للتنفيذ</li>
-               <li><b>proposals_ids:</b> رقم مُعرف داخلى للمقترحات ذات الصلة (مفصولاً بفاصلة). يتم تحويله تلقائيًا إلى <span class="attribute-name">رابط للمقترح</span></li>
-              </ul>
             title: اجلب النتائج من ملف CSV
         imports:
           create:
@@ -111,8 +94,32 @@ ar:
             no_components: لا توجد أى مقومات فى الميزانيه فى هذا الحيز لتوريد المشاريع إلى نتائج.
             origin_component_id: عنصر أساسى
             select_component: اختيار المكون
+            success:
+              zero: "لا يوجد مشاريع في قائمة الاستيراد."
+              one: يوجد مشروع واحد في قائمة الاستيراد. سيتم إعلامك بالبريد الإلكتروني حال اكتماله.
+              two: "يوجد مشروعان في قائمة الاستيراد. سيتم إعلامك بالبريد الإلكتروني حال اكتمالهما."
+              few: "يوجد عدد %{count} من المشاريع في قائمة الاستيراد. سيتم إعلامك بالبريد الإلكتروني حال اكتمالهم."
+              many: "يوجد عدد %{count} من المشاريع في قائمة الاستيراد. سيتم إعلامك بالبريد الإلكتروني حال اكتمالهم."
+              other: "يوجد عدد %{count} من المشاريع في قائمة الاستيراد. سيتم إعلامك بالبريد الإلكتروني حال اكتمالهم."
             title: اجلب مشاريع من مكون آخر
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: تغيير التاريخ
+              end_date: تاريخ الانتهاء
+              start_date: تاريخ البدء
+            dropdown:
+              actions: الإجراءات
+              change_dates: تغيير التواريخ
+              change_status: تغيير الحالة
+              change_taxonomies: تغيير التصنيفات
+            status_form:
+              change_status: تغيير الحالة
+              status: الحالة
+            submit_buttons:
+              cancel: إلغاء
+            taxonomies_form:
+              change_taxonomies: تغيير التصنيفات
           create:
             invalid: هناك مشكلة في إنشاء هذه النتيجة.
             success: تم إنشاء النتيجة بنجاح.
@@ -120,13 +127,27 @@ ar:
             title: تحرير النتيجة
             update: تحديث النتيجة
           index:
+            selected: الخيارات المحددة
             title: النتائج
+          manage_trash:
+            title: النتائج المحذوفة
           new:
             create: إنشاء نتيجة
             title: نتيجة جديدة
           update:
             invalid: هناك مشكلة في تحديث هذه النتيجة.
             success: تم تحديث النتيجة بنجاح.
+          update_dates:
+            invalid: حدثت مشكلة في تحديث تواريخ النتائج
+            success: تم تحديث تواريخ النتائج بنجاح
+          update_status:
+            invalid: حدثت مشكلة في تحديث حالة النتائج
+            success: تم تحديث حالة النتائج بنجاح
+          update_taxonomies:
+            invalid: تعذر تحديث التصنيفات %{taxonomies} للنتائج %{results}
+            select_a_result: اختر نتيجة
+            select_a_taxonomy: اختر تصنيفاً
+            success: تم تحديث التصنيفات %{taxonomies} للنتائج %{results} بنجاح
         shared:
           subnav:
             statuses: الحالات
@@ -168,6 +189,8 @@ ar:
         result:
           create: "%{user_name} أنشأ النتيجة %{resource_name} في %{space_name}"
           delete: "%{user_name} حذف النتيجة %{resource_name} في %{space_name}"
+          restore: "قام المستخدم %{user_name} باستعادة نتيجة الـ %{resource_name} في %{space_name}"
+          soft_delete: "قام المستخدم %{user_name} بنقل نتيجة الـ %{resource_name} في %{space_name} إلى سلة المحذوفات"
           update: "%{user_name} حدث النتيجة %{resource_name} في %{space_name}"
         status:
           create: "%{user_name} أنشأ حالة %{resource_name}"
@@ -194,6 +217,13 @@ ar:
           success: نجاح استيراد النتائج. يمكنك مراجعة النتائج في واجهة الإدارة.
       import_projects_mailer:
         import:
+          added_projects:
+            zero: "لم يتم استيراد أي نتيجة من المشاريع."
+            one: تم استيراد نتيجة واحدة من المشاريع.
+            two: "تم استيراد نتيجتين من المشاريع."
+            few: "تم استيراد عدد %{count} من النتائج من المشاريع."
+            many: "تم استيراد عدد %{count} من النتائج من المشاريع."
+            other: "تم استيراد عدد %{count} من النتائج من المشاريع."
           subject: استيراد المشاريع بنجاح
           success: النتائج المستوردة إلى النتائج في مكون %{component_name}. يمكن معاينة النتائج في واجهة الإدارة.
       last_activity:
@@ -207,6 +237,7 @@ ar:
             progress: تقدم
             start_date: تاريخ البدء
             status: الحالة
+            taxonomies: التصنيفات
             title: عنوان
         status:
           fields:
@@ -230,6 +261,8 @@ ar:
         home:
           empty: لا توجد نتائج بعد.
           empty_filters: لا توجد نتائج تطابق هذه المعايير.
+          sub_taxonomies_label: الفئات الفرعية
+          taxonomies_label: الفئات
         home_header:
           global_status: حالة التنفيذ العالمي
         no_results: لا يوجد مشاريع
@@ -245,6 +278,8 @@ ar:
         results:
           status_id_eq:
             label: الحالة
+          taxonomies_part_of_contains:
+            label: التصنيف
     components:
       accountability:
         actions:
@@ -252,14 +287,24 @@ ar:
         name: المسائلة
         settings:
           global:
+            clear_all: إمسح الكل
             comments_enabled: تم تمكين التعليقات
             comments_max_length: الحد الأقصى لطول التعليقات (اترك ال0 للقيمة الافتراضية)
+            define_taxonomy_filters: الرجاء تحديد بعض عوامل التصفية لهذه المساحة التشاركية قبل استخدام هذا الإعداد.
             display_progress_enabled: عرض التقدم
+            geocoding_enabled: تم تمكين الخرائط
             intro: مقدمة
+            no_taxonomy_filters_found: لم يتم العثور على عوامل تصفية التصنيف.
             scope_id: النطاق
             scopes_enabled: النطاقات مفعلة
+            taxonomy_filters: حدد عوامل تصفية للمكون
+            taxonomy_filters_add: إضافة عامل تصفية
           step:
             comments_blocked: تم حظر التعليقات
+    download_your_data:
+      show:
+        result_comments: تصدير التعليقات الناتجة
+        results: تصدير النتائج
     events:
       accountability:
         proposal_linked:
@@ -291,6 +336,27 @@ ar:
           locale: اللغة التي كانت لدى المشارك عندما ترك هذا التعليق
           root_commentable_url: عنوان URL للمورد الذي يربط بهذا التعليق
           user_group: اسم مجموعة المستخدم الذي صنع هذا التعليق (إن وجد)
+        results:
+          address: عنوان النتيجة (إن وجد)
+          children_count: عدد النتائج الفرعية
+          comments_count: عدد التعليقات التي حصلت عليها هذه النتيجة
+          component: العنصر الذي تنتمي إليه النتيجة
+          created_at: تاريخ إنشاء النتيجة
+          description: وصف النتيجة
+          end_date: تاريخ انتهاء تنفيذ النتيجة وإنهاؤها
+          id: معرّف النتيجة
+          latitude: نطاق النتيجة في حالة وجود موقع مادي لها
+          longitude: طول النتيجة في حالة وجود موقع مادي لها
+          parent: النتيجة الرئيسية (إن وجد) للنتيجة
+          progress: نسبة التنفيذ المئوية للنتيجة
+          proposal_urls: روابط المقترحات المتضمنة في هذه النتيجة
+          reference: المرجع المعرّف للنتيجة
+          start_date: تاريخ بَدْء تنفيذ النتيجة
+          status: الحالة الراهنة لهذه النتيجة
+          taxonomies: تصنيفات النتيجة
+          title: عنوان النتيجة
+          updated_at: تاريخ آخر تحديث لهذه النتيجة
+          url: الرابط حيث يمكن ايجاد هذه النتيجة
     participatory_spaces:
       highlighted_results:
         see_all: عرض كل النتائج (%{count})

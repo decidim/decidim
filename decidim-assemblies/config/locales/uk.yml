@@ -16,7 +16,6 @@ uk:
         created_by_other: Створено кимось іншим
         creation_date: Дата створення
         decidim_area_id: Дільниця
-        decidim_assemblies_type_id: Різновид зборів
         decidim_scope_id: Обсяг
         description: Опис
         developer_group: Робочий гурт з просування
@@ -28,7 +27,6 @@ uk:
         hero_image: Зображення головної сторінки
         included_at: Включено в
         instagram: Інстаграм
-        internal_organisation: Внутрішня організація
         is_transparent: Є прозорими
         local_area: Дільниця організації
         meta_scope: Метавідомості обсягу
@@ -100,9 +98,6 @@ uk:
         create:
           error: При спробі створити копію цих зборів сталася помилка.
           success: Успішно створено копію зборів.
-      assemblies_types:
-        new:
-          create: Додати
       assembly_copies:
         new:
           copy: Скопіювати
@@ -137,14 +132,9 @@ uk:
           attachment_collections: Теки
           attachment_files: Вкладені файли
           attachments: Вкладені файли
-          categories: Категорії
           components: Складові
           moderations: Дії з модерації
       models:
-        assemblies_types:
-          fields:
-            created_at: 'Додано:'
-            title: Назва
         assembly:
           fields:
             created_at: 'Додано:'
@@ -193,12 +183,8 @@ uk:
             duration_help: Якщо тривалість цих зборів обмежена, оберіть дату завершення. В іншому випадку вони будуть показуватися як безстрокові.
             select_a_created_by: Вкажіть, ким створені
             select_an_area: Оберіть дільницю
-            select_an_assembly_type: Оберіть різновид зборів
             social_handlers: Соціальні мережі
             title: Загальні відомості
-        assemblies_types:
-          form:
-            title: Назва
       assemblies:
         filters:
           names:
@@ -206,14 +192,6 @@ uk:
       assembly_members:
         index:
           members: Члени президії
-      assembly_types:
-        commission: Робочий гурт
-        consultative_advisory: Дорадчі / Консультативні
-        executive: Виконавчі
-        government: Урядові
-        others: Інші
-        participatory: Співучасні
-        working_group: Робочий гурт
       content_blocks:
         highlighted_assemblies:
           name: Висвітлені збори
@@ -228,7 +206,6 @@ uk:
           member_of:
             member_of: 'Входить у склад:'
       show:
-        assembly_type: Різновид зборів
         duration: Тривалість
         private_space: Це приватні збори
     assembly_members:

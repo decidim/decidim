@@ -88,7 +88,6 @@ sk:
             initiative_title: Názov iniciatívy
             name_and_surname: Meno a priezvisko
             postal_code: Poštové smerovacie číslo
-            time_and_date: Čas a dátum
             timestamp: Časová pečiatka
       titles:
         initiatives: Iniciatívy
