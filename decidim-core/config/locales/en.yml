@@ -755,6 +755,13 @@ en:
           id: The unique identifier of this notification
           resource_type: The type of the resource that the notification is related to
           updated_at: The date and time when the notification was last updated
+        participatory_space_private_users:
+          created_at: The date and time when this private user was created
+          id: The unique identifier of this private user
+          privatable_to: To which space this private user belongs
+          published: Wether this private user is published or not
+          role: The role that this private user has
+          updated_at: The date and time when this private user was last updated
         reports:
          id: The unique identifier of this report
          moderation: The moderation that this report has
