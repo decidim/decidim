@@ -60,7 +60,7 @@ $google_background_hover: #dcdcdc; // 30% opacity
     }
 
     &-separator {
-      @apply mt-10 flex items-center justify-center gap-12 after:content-[''] before:content-[''] after:h-px before:h-px after:bg-background before:bg-background after:grow before:grow;
+      @apply mt-10 flex items-center justify-center gap-8 after:content-[''] before:content-[''] after:h-0.5 before:h-0.5 after:bg-background before:bg-background after:grow before:grow;
     }
 
     &__horizontal {
