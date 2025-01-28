@@ -763,13 +763,13 @@ en:
           role: The role that this private user has
           updated_at: The date and time when this private user was last updated
         reports:
+         created_at: The date and time when this report was created
+         details: The details of this report
          id: The unique identifier of this report
+         locale: The language of this report
          moderation: The moderation that this report has
          reason: The reason of this report
-         details: The details of this report
-         created_at: The date and time when this report was created
          updated_at: The date and time when this report was last updated
-         locale: The language of this report
         user_groups:
           document_number: The document number of this user group
           id: The unique identifier of this user group
