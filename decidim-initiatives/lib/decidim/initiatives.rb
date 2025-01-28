@@ -90,5 +90,10 @@ module Decidim
     config_accessor :do_not_require_authorization do
       Decidim::Env.new("INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION").present?
     end
+
+    # Encryption secret to use with signatures metadata
+    config_accessor :signature_handler_encryption_secret do
+      Decidim::Env.new("INITIATIVES_SIGNATURE_HANDLER_ENCRYPTION_SECRET", "personal user metadata").to_s
+    end
   end
 end
