@@ -192,7 +192,7 @@ module Decidim
             end
 
             describe "proposal scopes" do
-              let(:states) { ProposalsImportForm::VALID_STATES.dup }
+              let(:states) { %w(accepted not_answered evaluating rejected) }
               let(:scope) { create(:scope, organization:) }
               let(:other_scope) { create(:scope, organization:) }
 
