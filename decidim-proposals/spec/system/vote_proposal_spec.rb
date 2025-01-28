@@ -63,9 +63,26 @@ describe "Vote Proposal", slow: true do
              participatory_space: participatory_process)
     end
 
-    it "shows the vote count and the vote button is disabled" do
+    before do
       visit_component
-      expect_page_not_to_include_votes
+    end
+
+    context "when on proposal page" do
+      it "shows the vote count and the vote button is disabled" do
+        expect_page_not_to_include_votes
+      end
+    end
+
+    context "when on proposals listing page" do
+      it "displays the vote button as disabled" do
+        within "#proposal-#{proposal.id}-vote-button" do
+          expect(page).to have_button("Vote", disabled: true)
+        end
+
+        within "#proposal-#{proposal.id}-votes-count" do
+          expect(page).to have_content("0\nVotes")
+        end
+      end
     end
   end
 
@@ -96,49 +113,99 @@ describe "Vote Proposal", slow: true do
       end
 
       context "when the proposal is not voted yet" do
-        before do
-          visit_component
-          find(".card__list#proposals__proposal_#{proposal.id}").click
-        end
-
-        it "is able to vote the proposal" do
-          within "#proposal-#{proposal.id}-vote-button" do
-            click_on "Vote"
-            expect(page).to have_button("Already voted")
+        context "when on proposal page" do
+          before do
+            visit_component
+            find(".card__list#proposals__proposal_#{proposal.id}").click
           end
 
-          within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1\nVote")
+          it "is able to vote the proposal" do
+            within "#proposal-#{proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Already voted")
+            end
+
+            within "#proposal-#{proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+          end
+        end
+
+        context "when on proposals listing page" do
+          before do
+            visit_component
+          end
+
+          it "is able to vote the proposal" do
+            within "#proposal-#{proposal.id}-vote-button" do
+              click_on "Vote"
+              expect(page).to have_button("Already voted")
+            end
+
+            within "#proposal-#{proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
           end
         end
       end
 
       context "when the proposal is already voted" do
-        before do
-          create(:proposal_vote, proposal:, author: user)
-          visit_component
-          find(".card__list#proposals__proposal_#{proposal.id}").click
+        context "when on proposal page" do
+          before do
+            create(:proposal_vote, proposal:, author: user)
+            visit_component
+            find(".card__list#proposals__proposal_#{proposal.id}").click
+          end
+
+          it "is not able to vote it again" do
+            within "#proposal-#{proposal.id}-vote-button" do
+              expect(page).to have_button("Already voted")
+              expect(page).to have_no_button("Vote")
+            end
+
+            within "#proposal-#{proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+          end
+
+          it "is able to undo the vote" do
+            within "#proposal-#{proposal.id}-vote-button" do
+              click_on "Already voted"
+              expect(page).to have_button("Vote")
+            end
+
+            within "#proposal-#{proposal.id}-votes-count" do
+              expect(page).to have_content("0\nVotes")
+            end
+          end
         end
 
-        it "is not able to vote it again" do
-          within "#proposal-#{proposal.id}-vote-button" do
-            expect(page).to have_button("Already voted")
-            expect(page).to have_no_button("Vote")
+        context "when on proposals listing page" do
+          before do
+            create(:proposal_vote, proposal:, author: user)
+            visit_component
           end
 
-          within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1\nVote")
-          end
-        end
+          it "is not able to vote it again" do
+            within "#proposal-#{proposal.id}-vote-button" do
+              expect(page).to have_button("Already voted")
+              expect(page).to have_no_button("Vote")
+            end
 
-        it "is able to undo the vote" do
-          within "#proposal-#{proposal.id}-vote-button" do
-            click_on "Already voted"
-            expect(page).to have_button("Vote")
+            within "#proposal-#{proposal.id}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
           end
 
-          within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("0\nVotes")
+          it "is able to undo the vote" do
+            within "#proposal-#{proposal.id}-vote-button" do
+              click_on "Already voted"
+              expect(page).to have_button("Vote")
+            end
+
+            within "#proposal-#{proposal.id}-votes-count" do
+              expect(page).to have_content("0\nVotes")
+            end
           end
         end
       end
@@ -228,15 +295,24 @@ describe "Vote Proposal", slow: true do
         end
 
         context "when the proposal is not voted yet" do
-          before do
-            visit_component
-            find(".card__list#proposals__proposal_#{proposal.id}").click
+          context "when on proposal page" do
+            before do
+              visit_component
+              find(".card__list#proposals__proposal_#{proposal.id}").click
+            end
+
+            it "updates the remaining votes counter" do
+              within ".proposal__aside-vote" do
+                click_on "Vote"
+                expect(page).to have_button("Already voted")
+              end
+            end
           end
 
-          it "updates the remaining votes counter" do
-            within ".proposal__aside-vote" do
-              click_on "Vote"
-              expect(page).to have_button("Already voted")
+          context "when on proposals listing page" do
+            it "displays foobar" do
+              visit_component
+              expect(page).to have_content("foobar")
             end
           end
         end
@@ -295,27 +371,36 @@ describe "Vote Proposal", slow: true do
         end
 
         context "when the proposal is already voted" do
-          before do
-            create(:proposal_vote, proposal:, author: user)
-            visit_component
-            find(".card__list#proposals__proposal_#{proposal.id}").click
-          end
+          context "when on proposal page" do
+            before do
+              create(:proposal_vote, proposal:, author: user)
+              visit_component
+              find(".card__list#proposals__proposal_#{proposal.id}").click
+            end
 
-          it "is not able to vote it again" do
-            within "#proposal-#{proposal.id}-vote-button" do
-              expect(page).to have_button("Already voted")
-              expect(page).to have_no_button("Vote")
+            it "is not able to vote it again" do
+              within "#proposal-#{proposal.id}-vote-button" do
+                expect(page).to have_button("Already voted")
+                expect(page).to have_no_button("Vote")
+              end
+            end
+
+            it "is able to undo the vote" do
+              within ".proposal__aside-vote" do
+                click_on "Already voted"
+                expect(page).to have_button("Vote")
+              end
+
+              within "#proposal-#{proposal.id}-votes-count" do
+                expect(page).to have_content("0\nVotes")
+              end
             end
           end
 
-          it "is able to undo the vote" do
-            within ".proposal__aside-vote" do
-              click_on "Already voted"
-              expect(page).to have_button("Vote")
-            end
-
-            within "#proposal-#{proposal.id}-votes-count" do
-              expect(page).to have_content("0\nVotes")
+          context "when on proposals listing page" do
+            it "displays foobar" do
+              visit_component
+              expect(page).to have_content("foobar")
             end
           end
         end
@@ -323,36 +408,13 @@ describe "Vote Proposal", slow: true do
         context "when the user has reached the votes limit" do
           let(:vote_limit) { 1 }
 
-          before do
-            create(:proposal_vote, proposal:, author: user)
-            visit_component
-          end
-
-          it "is not able to vote other proposals" do
-            find(".card__list#proposals__proposal_#{proposal.id}").click
-            within ".proposal__aside-vote" do
-              expect(page).to have_content("1\nVote")
-            end
-
-            other_proposals_titles.each do |title|
+          context "when on proposal page" do
+            before do
+              create(:proposal_vote, proposal:, author: user)
               visit_component
-              click_on title
-              within ".proposal__aside-vote" do
-                expect(page).to have_content("No votes remaining")
-                expect(page).to have_css(".button[disabled]")
-              end
-            end
-          end
-
-          context "when votes are blocked" do
-            let!(:component) do
-              create(:proposal_component,
-                     :with_votes_blocked,
-                     manifest:,
-                     participatory_space: participatory_process)
             end
 
-            it "shows the vote count but not the vote button" do
+            it "is not able to vote other proposals" do
               find(".card__list#proposals__proposal_#{proposal.id}").click
               within ".proposal__aside-vote" do
                 expect(page).to have_content("1\nVote")
@@ -362,10 +424,42 @@ describe "Vote Proposal", slow: true do
                 visit_component
                 click_on title
                 within ".proposal__aside-vote" do
-                  expect(page).to have_content("Vote")
+                  expect(page).to have_content("No votes remaining")
                   expect(page).to have_css(".button[disabled]")
                 end
               end
+            end
+
+            context "when votes are blocked" do
+              let!(:component) do
+                create(:proposal_component,
+                       :with_votes_blocked,
+                       manifest:,
+                       participatory_space: participatory_process)
+              end
+
+              it "shows the vote count but not the vote button" do
+                find(".card__list#proposals__proposal_#{proposal.id}").click
+                within ".proposal__aside-vote" do
+                  expect(page).to have_content("1\nVote")
+                end
+
+                other_proposals_titles.each do |title|
+                  visit_component
+                  click_on title
+                  within ".proposal__aside-vote" do
+                    expect(page).to have_content("Vote")
+                    expect(page).to have_css(".button[disabled]")
+                  end
+                end
+              end
+            end
+          end
+
+          context "when on proposals listing page" do
+            it "displays foobar" do
+              visit_component
+              expect(page).to have_content("foobar")
             end
           end
         end
@@ -422,18 +516,27 @@ describe "Vote Proposal", slow: true do
           let!(:vote_limit) { 4 }
           let!(:minimum_votes_per_user) { 2 }
 
-          before do
-            visit_component
-            click_on proposal_title, match: :first
-            click_on "Vote"
+          context "when on proposal page" do
+            before do
+              visit_component
+              click_on proposal_title, match: :first
+              click_on "Vote"
+            end
+
+            it "shows a notification indicating how many votes participant has left to give" do
+              expect(page).to have_content("You have 1 supports left")
+              expect(page).to have_content("Remember that you still have to give 1 supports between different proposals so that your supports are taken into account.")
+
+              click_on "Already vote"
+              expect(page).to have_content("You have 2 supports left")
+            end
           end
 
-          it "shows a notification indicating how many votes participant has left to give" do
-            expect(page).to have_content("You have 1 supports left")
-            expect(page).to have_content("Remember that you still have to give 1 supports between different proposals so that your supports are taken into account.")
-
-            click_on "Already vote"
-            expect(page).to have_content("You have 2 supports left")
+          context "when on proposals listing page" do
+            it "displays foobar" do
+              visit_component
+              expect(page).to have_content("foobar")
+            end
           end
         end
 
@@ -441,56 +544,65 @@ describe "Vote Proposal", slow: true do
           let!(:vote_limit) { 2 }
           let!(:minimum_votes_per_user) { 1 }
 
-          before do
-            visit_component
-            click_on proposal_title, match: :first
-            click_on "Vote"
-          end
+          context "when on proposal page" do
+            before do
+              visit_component
+              click_on proposal_title, match: :first
+              click_on "Vote"
+            end
 
-          it "shows a notification indicating that participant have correctly given all the minimum votes" do
-            expect(page).to have_content("Your votes have been successfully accepted")
-          end
+            it "shows a notification indicating that participant have correctly given all the minimum votes" do
+              expect(page).to have_content("Your votes have been successfully accepted")
+            end
 
-          context "when participant start voting proposals" do
-            let!(:vote_limit) { 4 }
-            let!(:minimum_votes_per_user) { 2 }
+            context "when participant start voting proposals" do
+              let!(:vote_limit) { 4 }
+              let!(:minimum_votes_per_user) { 2 }
 
-            it "shows the exit modal" do
+              it "shows the exit modal" do
+                expect(page).to have_content("Already voted")
+
+                expect(page).to have_content("Proposals")
+                first("a", text: "Proposals").click
+
+                expect(page).to have_content("Remember you have 1 votes left", wait: 10)
+                expect(page).to have_content("You have to give 1 more votes between different proposals for your votes to be taken into account.")
+                expect(page).to have_content("Continue")
+                expect(page).to have_content("Cancel")
+
+                click_on "Cancel"
+
+                expect(page).to have_content("You have 1 supports left", wait: 10)
+                expect(page).to have_content("Remember that you still have to give")
+              end
+            end
+
+            it "does not show the exit modal" do
               expect(page).to have_content("Already voted")
+              expect(page).to have_content("Your votes have been successfully accepted")
 
-              expect(page).to have_content("Proposals")
-              first("a", text: "Proposals").click
-
-              expect(page).to have_content("Remember you have 1 votes left", wait: 10)
-              expect(page).to have_content("You have to give 1 more votes between different proposals for your votes to be taken into account.")
-              expect(page).to have_content("Continue")
-              expect(page).to have_content("Cancel")
-
-              click_on "Cancel"
-
+              click_on "Already voted"
+              expect(page).to have_content("See other proposals")
               expect(page).to have_content("You have 1 supports left", wait: 10)
-              expect(page).to have_content("Remember that you still have to give")
+
+              click_on "See other proposals"
+              expect(page).to have_content("3 proposals")
+              expect(page).to have_css("#proposals__proposal_#{proposal.id}")
+
+              click_on translated_attribute(proposal.title), match: :first
+              click_on "Vote"
+              expect(page).to have_content("Your votes have been successfully accepted")
+
+              page.find(".main-bar__logo a").click
+              expect(page).to have_no_content("Already voted", wait: 10)
             end
           end
 
-          it "does not show the exit modal" do
-            expect(page).to have_content("Already voted")
-            expect(page).to have_content("Your votes have been successfully accepted")
-
-            click_on "Already voted"
-            expect(page).to have_content("See other proposals")
-            expect(page).to have_content("You have 1 supports left", wait: 10)
-
-            click_on "See other proposals"
-            expect(page).to have_content("3 proposals")
-            expect(page).to have_css("#proposals__proposal_#{proposal.id}")
-
-            click_on translated_attribute(proposal.title), match: :first
-            click_on "Vote"
-            expect(page).to have_content("Your votes have been successfully accepted")
-
-            page.find(".main-bar__logo a").click
-            expect(page).to have_no_content("Already voted", wait: 10)
+          context "when on proposals listing page" do
+            it "displays foobar" do
+              visit_component
+              expect(page).to have_content("foobar")
+            end
           end
         end
       end
@@ -533,23 +645,49 @@ describe "Vote Proposal", slow: true do
         login_as user, scope: :user
       end
 
-      it "does not allow users to vote to a proposal that is reached the limit" do
-        create(:proposal_vote, proposal:)
-        visit_component
-        find(".card__list#proposals__proposal_#{proposal.id}").click
+      context "when on proposal page" do
+        it "does not allow users to vote to a proposal that is reached the limit" do
+          create(:proposal_vote, proposal:)
+          visit_component
+          find(".card__list#proposals__proposal_#{proposal.id}").click
 
-        within "#proposal-#{proposal.id}-vote-button" do
-          expect(page).to have_content("Vote limit reached")
+          within "#proposal-#{proposal.id}-vote-button" do
+            expect(page).to have_content("Vote limit reached")
+          end
+        end
+
+        it "allows users to vote on proposals under the limit" do
+          visit_component
+          find(".card__list#proposals__proposal_#{proposal.id}").click
+
+          within ".proposal__aside-vote" do
+            click_on "Vote"
+            expect(page).to have_content("Already voted")
+          end
         end
       end
 
-      it "allows users to vote on proposals under the limit" do
-        visit_component
-        find(".card__list#proposals__proposal_#{proposal.id}").click
+      context "when on proposals listing page" do
+        it "does not allow users to vote to a proposal that is reached the limit" do
+          create(:proposal_vote, proposal:)
+          visit_component
 
-        within ".proposal__aside-vote" do
-          click_on "Vote"
-          expect(page).to have_content("Already voted")
+          within "#proposal-#{proposal.id}-vote-button" do
+            expect(page).to have_content("Vote limit reached")
+          end
+        end
+
+        it "allows users to vote on proposals under the limit" do
+          visit_component
+
+          within "#proposal-#{proposal.id}-vote-button" do
+            click_on "Vote"
+            expect(page).to have_content("Already voted")
+          end
+
+          within "#proposal-#{proposal.id}-votes-count" do
+            expect(page).to have_content("1\nVote")
+          end
         end
       end
     end
@@ -568,14 +706,31 @@ describe "Vote Proposal", slow: true do
         login_as user, scope: :user
       end
 
-      it "allows users to vote on proposals over the limit" do
-        create(:proposal_vote, proposal:)
-        visit_component
+      context "when on proposal page" do
+        it "allows users to vote on proposals over the limit" do
+          create(:proposal_vote, proposal:)
+          visit_component
 
-        find(".card__list#proposals__proposal_#{proposal.id}").click
+          find(".card__list#proposals__proposal_#{proposal.id}").click
 
-        within ".proposal__aside-vote" do
-          expect(page).to have_content("1\nVote")
+          within ".proposal__aside-vote" do
+            expect(page).to have_content("1\nVote")
+          end
+        end
+      end
+
+      context "when on proposals listing page" do
+        it "allows users to vote on proposals over the limit" do
+          visit_component
+
+          within "#proposal-#{proposal.id}-vote-button" do
+            click_on "Vote"
+            sleep(1)
+            expect(page).to have_content("Already voted")
+          end
+          within "#proposal-#{proposal.id}-votes-count" do
+            expect(page).to have_content("1\nVote")
+          end
         end
       end
     end
@@ -594,45 +749,85 @@ describe "Vote Proposal", slow: true do
         login_as user, scope: :user
       end
 
-      it "does not count votes unless the minimum is achieved" do
-        visit_component
+      context "when on proposal page" do
+        it "does not count votes unless the minimum is achieved" do
+          visit_component
 
-        proposal_ids = proposals.map(&:id)
+          proposal_ids = proposals.map(&:id)
 
-        find(".card__list#proposals__proposal_#{proposal_ids[0]}").click
+          find(".card__list#proposals__proposal_#{proposal_ids[0]}").click
 
-        within ".proposal__aside-vote" do
-          click_on "Vote"
-          expect(page).to have_content("Already voted")
-          expect(page).to have_content("0\nVotes")
+          within ".proposal__aside-vote" do
+            click_on "Vote"
+            expect(page).to have_content("Already voted")
+            expect(page).to have_content("0\nVotes")
+          end
+
+          visit_component
+          find(".card__list#proposals__proposal_#{proposal_ids[1]}").click
+          within ".proposal__aside-vote" do
+            click_on "Vote"
+            expect(page).to have_content("Already voted")
+            expect(page).to have_content("0\nVotes")
+          end
+
+          visit_component
+          find(".card__list#proposals__proposal_#{proposal_ids[2]}").click
+          within ".proposal__aside-vote" do
+            click_on "Vote"
+            expect(page).to have_content("Already voted")
+            expect(page).to have_content("1\nVote")
+          end
+
+          visit_component
+          find(".card__list#proposals__proposal_#{proposal_ids[0]}").click
+          within ".proposal__aside-vote" do
+            expect(page).to have_content("1\nVote")
+          end
+
+          visit_component
+          find(".card__list#proposals__proposal_#{proposal_ids[1]}").click
+          within ".proposal__aside-vote" do
+            expect(page).to have_content("1\nVote")
+          end
         end
+      end
 
-        visit_component
-        find(".card__list#proposals__proposal_#{proposal_ids[1]}").click
-        within ".proposal__aside-vote" do
-          click_on "Vote"
-          expect(page).to have_content("Already voted")
-          expect(page).to have_content("0\nVotes")
-        end
+      context "when on proposals listing page" do
+        it "does not count votes unless the minimum is achieved" do
+          visit_component
 
-        visit_component
-        find(".card__list#proposals__proposal_#{proposal_ids[2]}").click
-        within ".proposal__aside-vote" do
-          click_on "Vote"
-          expect(page).to have_content("Already voted")
-          expect(page).to have_content("1\nVote")
-        end
+          proposal_ids = proposals.map(&:id)
 
-        visit_component
-        find(".card__list#proposals__proposal_#{proposal_ids[0]}").click
-        within ".proposal__aside-vote" do
-          expect(page).to have_content("1\nVote")
-        end
+          within "#proposal-#{proposal_ids[0]}-vote-button" do
+            click_on "Vote"
+            sleep(1)
+            expect(page).to have_content("Already voted")
+          end
+          within "#proposal-#{proposal_ids[0]}-votes-count" do
+            expect(page).to have_content("0\nVotes")
+          end
 
-        visit_component
-        find(".card__list#proposals__proposal_#{proposal_ids[1]}").click
-        within ".proposal__aside-vote" do
-          expect(page).to have_content("1\nVote")
+          within "#proposal-#{proposal_ids[1]}-vote-button" do
+            click_on "Vote"
+            sleep(1)
+            expect(page).to have_content("Already voted")
+          end
+          within "#proposal-#{proposal_ids[1]}-votes-count" do
+            expect(page).to have_content("0\nVotes")
+          end
+
+          within "#proposal-#{proposal_ids[2]}-vote-button" do
+            click_on "Vote"
+            sleep(1)
+            expect(page).to have_content("Already voted")
+          end
+
+          3.times do |index|
+            within "#proposal-#{proposal_ids[index]}-votes-count" do
+              expect(page).to have_content("1\nVote")
+            end
+          end
         end
       end
     end
