@@ -145,7 +145,11 @@ module Decidim
       end
 
       def layout_item_classes
-        "layout-item"
+        if show_voting_rules?
+          "layout-item lg:pt-4"
+        else
+          "layout-item"
+        end
       end
 
       def show_voting_rules?
