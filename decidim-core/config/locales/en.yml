@@ -1186,9 +1186,7 @@ en:
         success: Join request successfully accepted.
       actions:
         confirm_modal: 
-          title_add: Confirm the new member
           title_remove: Remove the member
-          ok_add: Add an member
           ok_remove: Remove the member
         confirm_promote_to_admin: Are you sure you want to add this user as an administrator?
         confirm_remove_from_group: Are you sure you want to remove the user from this group?
