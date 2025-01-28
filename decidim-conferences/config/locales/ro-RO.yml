@@ -491,6 +491,7 @@ ro:
         home:
           highlighted_conferences:
             active_spaces: Conferințe active
+            see_all_spaces: Vedeți toate
       registration_types:
         index:
           choose_an_option: 'Alegeți opțiunea de înregistrare:'
