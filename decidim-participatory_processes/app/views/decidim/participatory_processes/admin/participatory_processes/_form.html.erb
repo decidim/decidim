@@ -146,7 +146,7 @@
       <% else %>
         <% @form.taxonomy_filters.each do |filter| %>
           <div class="row column">
-            <%= filter_taxonomy_items_select_field form, :taxonomies, filter, internal: true %>
+            <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
           </div>
         <% end %>
       <% end %>

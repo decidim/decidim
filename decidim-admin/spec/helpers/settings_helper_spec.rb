@@ -178,15 +178,13 @@ module Decidim
         let(:choices) { [["A text (0)", taxonomy_filter1.id], ["A text (0)", taxonomy_filter2.id]] }
         let(:options) { { include_blank: "Select a taxonomy filter" } }
         let(:value) { [taxonomy_filter1.id] }
-        let(:component_filters) { Decidim::TaxonomyFilter.where(id: taxonomy_filter1.id) }
 
         before do
           component.update!(settings: { taxonomy_filters: [taxonomy_filter1.id] })
-          allow(view).to receive(:component_filters).and_return(component_filters)
         end
 
         it "is supported" do
-          expect(view).to receive(:render).with(partial: "decidim/admin/taxonomy_filters_selector/component_table", locals: { field_name: "test[test][]", component_filters:, component: })
+          expect(view).to receive(:render).with(partial: "decidim/admin/taxonomy_filters_selector/component_table", locals: { field_name: "test[test][]", component: })
           expect(view).to receive(:render).with(partial: "decidim/admin/components/taxonomy_filters_drawer")
           render_input
         end
