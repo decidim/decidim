@@ -518,7 +518,7 @@ ro:
       last_activity:
         name: Ultima activitate
         title: Ultima activitate
-        view_all: Vezi toate
+        view_all: Vedeți tot
       metrics:
         name: Valorile organizației
       static_page:
@@ -556,7 +556,7 @@ ro:
         new:
           already_have_an_account?: Ai deja un cont?
           log_in: Autentificare
-          newsletter: Primește un buletin informativ ocazional cu informații relevante
+          newsletter: Primiți un buletin informativ ocazional cu informații relevante
           newsletter_title: Drepturi privind contactele
           sign_up: Creați un cont
           subtitle: Creați un cont pentru a participa la platformă.
@@ -604,6 +604,9 @@ ro:
           user: Utilizatorul căruia îi aparține această identitate
         messaging_conversations:
           created_at: Data la care a fost creată această conversație
+      show:
+        download_data: Descărcare date
+        download_data_description_2: Puteți solicita un fișier .zip cu conținutul generat, precum și datele dumneavoastră personale.
     editor_images:
       drag_and_drop_help: Adaugă imagini prin tragere & plasare sau lipirea lor.
     endorsement_buttons_cell:
@@ -1065,7 +1068,10 @@ ro:
     notifications_settings:
       show:
         administrators: Administratori
+        allow_public_contact: Permit tuturor să îmi trimită un mesaj direct, chiar dacă nu îi urmăresc.
+        assigned_to_proposal: Vreau să primesc un e-mail atunci când cineva îmi atribuie o propunere pentru evaluare
         direct_messages: Primește mesaje directe de la oricine
+        email_on_moderations: Vreau să primesc un e-mail de fiecare dată când se raportează ceva pentru moderare.
         everything_followed: Tot ce urmăresc
         newsletter_notifications: Vreau să primesc buletine informative
         newsletters: Newslettere
@@ -1074,6 +1080,7 @@ ro:
           none: Nimic
           real_time: În timp real
           weekly: Săptămânal
+        notifications_sending_frequency: Cât de des doriți să primiți e-mailul de notificări?
         own_activity: Propria mea activitate, ca atunci când cineva comentează în propunerea mea sau mă menționează
         push_notifications: Notificări Instant
         receive_notifications_about: Vreau să primesc notificări despre
@@ -1248,7 +1255,7 @@ ro:
         select_user_group: Selectați un grup
       results_per_page:
         label: 'Rezultate pe pagină:'
-        title: Selectaţi numărul de rezultate pe pagină
+        title: Selectați numărul de rezultate pe pagină
       share_modal:
         copy_share_link: Copiază
         copy_share_link_clarification: Copiază link-ul de partajare în clipboard
@@ -1453,6 +1460,11 @@ ro:
         details:
           columns:
             type: Tip
+          items:
+            _session_id:
+              description: Permite site-urilor web să rețină utilizatorul din cadrul unui site web atunci când se mută între paginile web.
+            decidim-consent:
+              description: Stochează informații despre cookie-urile permise de utilizator pe acest site.
         dialog:
           accept_all: Acceptați toate
           accept_only_essential: Acceptați numai esențiale
@@ -1463,10 +1475,12 @@ ro:
           accept_all: Acceptați toate
           accept_only_essential: Acceptați numai esențiale
           analytics:
+            description: Aceste cookie-uri sunt utilizate pentru a măsura și analiza publicul site-ului web pentru a ajuta la îmbunătățirea acestuia.
             title: Analize și statistici
           essential:
             title: Esențiale
           marketing:
+            description: Aceste cookie-uri colectează informații despre modul în care utilizați site-ul și pot fi utilizate pentru a vă oferi experiență de marketing personalizată pe diferitele site-uri pe care le utilizați.
             title: Marketing
           preferences:
             title: Preferințe
