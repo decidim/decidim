@@ -144,7 +144,7 @@ eu:
     components:
       elections:
         actions:
-          vote: Eman botoa
+          vote: Eman babesa
         name: Bozketak
         settings:
           global:
@@ -496,19 +496,19 @@ eu:
             other: "%{count} boto"
         show:
           action_button:
-            change_vote: Aldatu zure botoa
-            vote: Botoa ematen hasi
-            vote_again: Berriro eman botoa
+            change_vote: Aldatu zure babesa
+            vote: Babesa ematen hasi
+            vote_again: Berriro eman babesa
           callout:
-            already_voted: Jada botoa eman duzu aukera honetan. Zure botoa alda dezakezu edo egiaztatu.
-            pending_vote: Zure botoa ematen ari da zerbitzarian.
-            vote_rejected: Ezin izan da zure botoa egiaztatu. Mesedez, egizu berriro.
+            already_voted: Jada babesa eman duzu aukera honetan. Zure babesa alda dezakezu edo egiaztatu.
+            pending_vote: Zure babesa ematen ari da zerbitzarian.
+            vote_rejected: Ezin izan da zure babesa egiaztatu. Mesedez, egizu berriro.
           election_log: Aukeraketaren erregistroa
           preview: Aurreikusi
           verify:
             already_voted: Bozkatu duzu?
-            verify_here: Egiaztatu zure botoa hemen.
-            will_verify: Zure botoa egiaztatu ahal izango duzu hautaketa hasten denean.
+            verify_here: Egiaztatu zure babesa hemen.
+            will_verify: Zure babesa egiaztatu ahal izango duzu hautaketa hasten denean.
           voting_period_status:
             finished: Bozketa hasi zen %{start_time} eta amaitu zen %{end_time}
             ongoing: 'Bozketa aktibo %{end_time} arte'
@@ -651,42 +651,42 @@ eu:
           description: Hemen dituzu zure boto-papera emateko aukerak, behar bezala zenbatua izateko edo, bestela, auditatu dezakezu zure boto-papera behar bezala zifratu zela. Segurtasun-arrazoiak direla eta, boto-txartela auditatzea balio gabe utziko da, eta horrek esan nahi du zure botoa emateko prozesua berriz hasi beharko duzula.
           header: 'Boto-papera zifratu da: bidali edo ikuskatu'
         casting:
-          header: Botoa ematen ari da...
+          header: Babesa ematen ari da...
           text: Zure bozketa-papera hautetsontzian jartzen ari da.
         confirm:
           answer_number: '%{number} erantzun'
           confirm: Baieztatu
           edit: editatu
-          header: Baieztatu botoa
-          intro: Hemen duzu emango duzun botoaren laburpena. < br> Mesedez, berretsi zure botoa edo editatu zure erantzunak.
+          header: Baieztatu babesa
+          intro: Hemen duzu emango duzun babesaren laburpena. < br> Mesedez, berretsi zure botoa edo editatu zure erantzunak.
           nota_option: Hutsik
         confirmed:
           back: Itzuli bozketetara
           experience: Nola baloratzen duzu esperientzia?
           feedback: Emaguzu zure iritzia
-          header: Baieztatutako botoa
-          lead: Zure botoa eman da!
+          header: Baieztatutako babesa
+          lead: Zure babesa eman da!
           text: 'Ondorengo identifikatzaileari esker zure botoa hautestontzian zuzen sartu dela egiaztatu ahal duzu: '
           verify_link: 'Egiaztatzeko, kopiatu identifikatzailea eta itsatsi hemen: <a href="%{link}">página de verificación de voto</a>'
         create:
-          error: Arazo bat egon da botoa ematean. Mesedez, saiatu berriro.
+          error: Arazo bat egon da babesa ematean. Mesedez, saiatu berriro.
         encrypting:
-          header: Botoa zifratzen ari da...
+          header: Babesa zifratzen ari da...
           text: Zure boto-papera zifratzen ari da boto sekretua bermatzeko.
         failed:
           header: Boto okerra
-          lead: Ez duzu eman botoa!
+          lead: Ez duzu eman babesa!
           text: Zerbait txarto irten da, mesedez, saiatu berriro.
           try_again: Saiatu berriro
         header:
-          ballot_decision: Eman edo ikuskatu zure botoa
+          ballot_decision: Eman edo ikuskatu zure babesa
           confirm: Berretsi
           election: Hautaketa
           register: Erregistroa
           vote_for: '%{title} (r) en alde bozkatu'
         messages:
           invalid_token: Bozketa-kabinan egindako saioa ez da baliozkoa. Saiatu berriro bozkatzen.
-          not_allowed: Une honetan ezin duzu botoa eman bozketa honetan.
+          not_allowed: Une honetan ezin duzu babesa eman bozketa honetan.
         modal:
           close: Itxi
           proposal_header: 'Proposamenak:'
@@ -703,10 +703,10 @@ eu:
           no_account: Ez, eskerrik asko.
           title: Berria plataforman?
         update:
-          error: Arazo bat egon da botoaren egoera eguneratzean. Mesedez, saiatu berriro.
+          error: Arazo bat egon da babesaren egoera eguneratzean. Mesedez, saiatu berriro.
         verify:
           content:
-            heading: Egiaztatu zure botoa
+            heading: Egiaztatu zure babesa
             info: Egiaztatzaile horrek egiaztatu behar du zure botoa, zifratutako testu-batekin identifikatua, zuzen eman dela eta hautestontziaren barruan dagoela.
           error:
             header: Botoa ez da aurkitu!
@@ -717,9 +717,9 @@ eu:
             vote_identifier: 'Kode identifikatzailea:'
             vote_identifier_help: Hau da eman zizuten identifikatzailea botoa eman ondoren (ez da bozkatzeko kutxan sartzeko kodea).
           header:
-            title: Egiaztatu zure botoa
+            title: Egiaztatu zure babesa
           success:
-            header: Botoa aurkituta!
+            header: Babesa aurkituta!
             info: Zure boto zifratua %{link} hautestontzian dago.
         voting_step:
           back: Atzera
@@ -747,9 +747,9 @@ eu:
             notification_title: <a href="%{participatory_space_url}">%{resource_name}</a> ren bermatzailea zara.
         votes:
           accepted_votes:
-            email_intro: 'Zure botoa onartu egin da! Zure botoaren tokena erabiliz: %{encrypted_vote_hash}, zure botoa egiaztatu ahal duzu<a href="%{verify_url}">hemen</a>.'
-            email_outro: Jakinarazpen hau jaso duzu %{resource_name} aukeran botoa eman duzulako.
-            email_subject: Zure botoa %{resource_name} aukerarako onartu egin da.
+            email_intro: 'Zure babesa onartu egin da! Zure botoaren tokena erabiliz: %{encrypted_vote_hash}, zure babesa egiaztatu ahal duzu<a href="%{verify_url}">hemen</a>.'
+            email_outro: Jakinarazpen hau jaso duzu %{resource_name} aukeran babesa eman duzulako.
+            email_subject: Zure babesa %{resource_name} aukerarako onartu egin da.
             notification_title: 'Zure botoa onartu egin da. Egiaztatu zure botoa <a href="%{verify_url}">hemen</a> zure botoaren tokena erabiliz: %{encrypted_vote_hash}'
       votings:
         polling_officers:
@@ -1376,10 +1376,10 @@ eu:
   layouts:
     decidim:
       voting_navigation:
-        check_census: Botoa eman dezaket?
+        check_census: Babesa eman dezaket?
         election_log: Aukeraketaren erregistroa
       votings:
         index:
           promoted_votings: Bozketa nabarmenduak
         promoted_voting:
-          vote: Eman botoa
+          vote: Eman babesa
