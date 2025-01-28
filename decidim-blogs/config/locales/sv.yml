@@ -120,8 +120,10 @@ sv:
           comments_count: Antalet kommentarer till inlägget
           component: Komponenten som inlägget tillhör
           created_at: Datum för inlägget
+          endorsements_count: Antal gilla-markeringar för inlägget
           follows_count: Antal följare för inlägget
           id: Unikt id för inlägget
+          participatory_space: Vilket utrymme (deltagandeprocess eller samråd) inlägget tillhör
           published_at: Publiceringsdatum för inlägget
           title: Titeln på inlägget
           updated_at: Senaste datum när inlägget uppdaterades
