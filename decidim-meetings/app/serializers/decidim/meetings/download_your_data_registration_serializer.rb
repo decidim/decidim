@@ -8,12 +8,13 @@ module Decidim
         {
           id: resource.id,
           code: resource.code,
-          user: {
-            name: resource.user.name,
-            email: resource.user.email
-          },
+          created_at: resource.created_at,
+          updated_at: resource.updated_at,
+          validated_at: resource.validated_at,
+          public_participation: resource.public_participation,
           meeting: {
             title: resource.meeting.title,
+            url: Decidim::ResourceLocatorPresenter.new(resource.meeting).url,
             description: resource.meeting.description,
             start_time: resource.meeting.start_time,
             end_time: resource.meeting.end_time,
