@@ -156,7 +156,7 @@ end
 
 All the attributes of a workflow are optional except the registered name with which the workflow is registered. A flow without attributes uses default values that generate a direct signature process without steps.
 
-To migrate old signature configurations define review the One time actions section
+To migrate old signature configurations review the One time actions section
 
 For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`
 
