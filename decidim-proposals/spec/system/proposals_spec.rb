@@ -582,6 +582,7 @@ describe "Proposals" do
 
       it "ordering proposals by selected option", "Most voted" do
         expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(most_voted_proposal.title))
+        sleep 3
         within all("[id^='proposals__proposal']").last do
           within ".card__list-content" do
             expect(page).to have_css("div.card__list-title", text: translated(less_voted_proposal.title))

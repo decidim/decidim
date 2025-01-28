@@ -395,14 +395,14 @@ describe "Vote Proposal", slow: true do
           expect(page).to have_content("You can support up to 8 proposals.")
           expect(page).to have_content("You have to distribute a minimum of 5 supports among different proposals so that your supports are taken into account.")
 
-          click_on proposal_title
+          click_on proposal_title, match: :first
 
           expect(page).to have_css("#proposal-voting-rules")
         end
 
         it "shows a modal dialog" do
           visit_component
-          click_on proposal_title
+          click_on proposal_title, match: :first
           expect(page).to have_content("Vote")
           click_on "Vote"
           expect(page).to have_content("Already voted")
@@ -424,7 +424,7 @@ describe "Vote Proposal", slow: true do
 
           before do
             visit_component
-            click_on proposal_title
+            click_on proposal_title, match: :first
             click_on "Vote"
           end
 
@@ -443,7 +443,7 @@ describe "Vote Proposal", slow: true do
 
           before do
             visit_component
-            click_on proposal_title
+            click_on proposal_title, match: :first
             click_on "Vote"
           end
 
@@ -485,7 +485,7 @@ describe "Vote Proposal", slow: true do
             expect(page).to have_content("3 proposals")
             expect(page).to have_css("#proposals__proposal_#{proposal.id}")
 
-            click_on translated_attribute(proposal.title)
+            click_on translated_attribute(proposal.title), match: :first
             click_on "Vote"
             expect(page).to have_content("Your votes have been successfully accepted")
 

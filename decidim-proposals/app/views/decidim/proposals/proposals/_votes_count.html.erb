@@ -9,7 +9,8 @@
       progress,
       total:,
       units_name: "decidim.proposals.proposals.votes_count.count",
-      element_id: "proposal-#{proposal.id}-votes-count"
+      element_id: "proposal-#{proposal.id}-votes-count",
+      class: total.positive? ? "with_votes_limit" : "without_votes_limit"
     ) %>
   <% end %>
 <% end %>
