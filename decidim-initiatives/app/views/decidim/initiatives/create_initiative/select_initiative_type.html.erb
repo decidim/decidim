@@ -1,7 +1,8 @@
 <% add_decidim_page_title(t("new", scope: "decidim.initiatives.create_initiative.select_initiative_type")) %>
 <% default_type = available_initiative_types.first %>
 <% announcement_body = capture do %>
-  <%= t("select_initiative_type_help", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
+  <%= t("select_initiative_type_help", scope: "decidim.initiatives.create_initiative.select_initiative_type").html_safe %>
+  <br>
   <%= link_to t("more_information", scope: "decidim.initiatives.create_initiative.select_initiative_type"), decidim.page_path("initiatives"), target: "_blank", class: "button button__sm button__text-secondary block text-left" %>
 <% end %>
 
@@ -9,7 +10,7 @@
 
 <h3 class="title-decorator text-2xl mt-8"><%= t(".subtitle") %></h3>
 
-<div class="initiatives__selection">
+<div class="initiatives__selection" id="select-initiative-type">
   <%= decidim_form_for(@form, url: select_initiative_type_create_initiative_index_path, method: :put, html: { id: "new_initiative_form", class: "form-defaults " }) do |f| %>
     <% initiative_types_each do |type| %>
       <% if allowed_to?(:create, :initiative, { initiative_type: type }) %>
@@ -20,13 +21,20 @@
           input_radio_name: "initiative[type_id]",
           input_radio_value: type.id
         } do %>
-          <%= decidim_sanitize_admin(translated_attribute(type.description)) %>
+          <p>
+            <%= decidim_sanitize_admin(translated_attribute(type.description)) %>
+          </p>
+
+          <p>
+            <%= link_to t("consult_existing_initiatives", scope: "decidim.initiatives.create_initiative.select_initiative_type"),
+                        initiatives_path(filter: { with_any_type: type.id }), target: "_blank" %>
+          </p>
         <% end %>
       <% end %>
     <% end %>
 
     <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between border-0">
-      <%= f.submit t(".continue"), class: "button button__sm md:button__lg button__secondary", data: { disable_with: true } %>
+      <%= f.submit t(".continue"), class: "button button__sm md:button__lg button__secondary" %>
     </div>
   <% end %>
 </div>
