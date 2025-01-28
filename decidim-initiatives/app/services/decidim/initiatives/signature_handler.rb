@@ -32,8 +32,6 @@ module Decidim
       delegate :promote_authorization_validation_errors, :authorization_handler_form_class, to: :workflow_manifest
       delegate :scope, to: :initiative
 
-      alias signer user
-
       # A unique ID to be implemented by the signature handler that ensures
       # no duplicates are created.
       def unique_id
@@ -207,11 +205,7 @@ module Decidim
       end
 
       def encryptor
-        @encryptor ||= DataEncryptor.new(secret: encryption_secret)
-      end
-
-      def encryption_secret
-        "personal user metadata"
+        @encryptor ||= DataEncryptor.new(secret: Decidim::Initiatives.signature_handler_encryption_secret)
       end
 
       def workflow_manifest
