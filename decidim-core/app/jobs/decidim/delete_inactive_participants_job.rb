@@ -25,38 +25,34 @@ module Decidim
     private
 
     def unmark_active_users(users)
-      users.find_each do |user|
-        user.transaction do
-          user.update!(marked_for_deletion_at: nil)
-        end
-      end
+      process_users(users) { |user| user.update!(marked_for_deletion_at: nil) }
     end
 
     def mark_users_for_deletion(users)
-      users.find_each do |user|
-        user.transaction do
-          send_notification(user, :inactivity_notification, INITIAL_WARNING_PERIOD_DAYS)
-          user.update!(marked_for_deletion_at: Time.current)
-        end
+      process_users(users) do |user|
+        send_notification(user, :inactivity_notification, INITIAL_WARNING_PERIOD_DAYS)
+        user.update!(marked_for_deletion_at: Time.current)
       end
     end
 
     def send_reminder_notifications(users)
-      users.find_each do |user|
-        user.transaction do
-          send_notification(user, :inactivity_notification, FINAL_REMINDER_PERIOD_DAYS)
-        end
+      process_users(users) do |user|
+        send_notification(user, :inactivity_notification, FINAL_REMINDER_PERIOD_DAYS)
       end
     end
 
     def remove_inactive_users(users)
+      process_users(users) do |user|
+        next unless user.removable?(inactivity_period)
+
+        send_notification(user, :removal_notification)
+        delete_user_account(user)
+      end
+    end
+
+    def process_users(users, &block)
       users.find_each do |user|
-        if user.removable?(inactivity_period)
-          user.transaction do
-            send_notification(user, :removal_notification)
-            delete_user_account(user)
-          end
-        end
+        user.transaction { block.call(user) }
       end
     end
 
@@ -67,8 +63,8 @@ module Decidim
     def delete_user_account(user)
       Decidim::DestroyAccount.call(
         Decidim::DeleteAccountForm.from_params(
-          { delete_reason: I18n.t("decidim.account.destroy.inactive_account_removal_reason", inactivity_period:) }
-        ).with_context({ current_user: user })
+          delete_reason: I18n.t("decidim.account.destroy.inactive_account_removal_reason", inactivity_period: inactivity_period)
+        ).with_context(current_user: user)
       )
     end
 
