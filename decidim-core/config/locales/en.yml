@@ -763,20 +763,23 @@ en:
           verified_at: The date and time when this user group was verified
         users:
           about: The biography of this user
+          accepted_tos_version: The date when the Terms of Service of this platform was accepted by the user
           admin: Whether this user is an administrator
           confirmation_sent_at: The date and time when the confirmation was sent
           confirmed_at: The date and time when this user was confirmed
           created_at: The date and time when this user was created
           current_sign_in_at: The date and time of the current login
           current_sign_in_ip: The IP address of the current login
-          delete_reason: The reason given for deleting this user
           deleted_at: The date and time when this user was deleted
+          delete_reason: The reason given for deleting this user
           email: The email address of this user
+          followers_count: The number of participants that are following to this user
+          following_count: The number of participants this user is following
           id: The unique identifier of this user
           invitation_accepted_at: The date and time when the invitation was accepted
           invitation_created_at: The date and time when this user was invited
-          invitation_sent_at: The date and time when the invitation was sent
           invitations_count: The number of invitations sent to this user
+          invitation_sent_at: The date and time when the invitation was sent
           invited_by: The user who invited this user
           last_sign_in_at: The date and time of the last login
           last_sign_in_ip: The IP address of the last login
@@ -790,10 +793,13 @@ en:
           officialized_as: The name of the officialization (Counsellor, Mayor, etc)
           officialized_at: The date and time when this user was officialized
           organization: The organization that this user belongs to
+          password_updated_at: The date when their password was changed for the last time
           personal_url: The personal URL of this user
           remember_created_at: The date and time when the user was selected to be remembered
           reset_password_sent_at: The date and time when the password reset was sent
+          roles: The role this user has, if they has any
           sign_in_count: The number of times this user has logged in
+          type: The type that this user has
           unconfirmed_email: The email address that this user has not yet confirmed
           updated_at: The date and time when this user was last updated
       show:
