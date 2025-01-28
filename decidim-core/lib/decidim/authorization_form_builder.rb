@@ -5,8 +5,6 @@ require "decidim/form_builder"
 module Decidim
   # A custom form builder to render AuthorizationHandler forms.
   class AuthorizationFormBuilder < Decidim::FormBuilder
-    include Decidim::ScopesHelper
-
     # Renders all form attributes defined by the handler.
     #
     # Returns a String.
@@ -35,10 +33,6 @@ module Decidim
       end
     end
 
-    def current_organization
-      object.user.organization
-    end
-
     private
 
     def input_field(name, type)
@@ -50,12 +44,6 @@ module Decidim
       else
         text_field name
       end
-    end
-
-    def scopes_selector
-      return if object.user.blank?
-
-      scopes_select_field(self, :scope_id)
     end
 
     def find_input_type(name)
