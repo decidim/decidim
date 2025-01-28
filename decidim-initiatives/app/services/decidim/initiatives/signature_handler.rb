@@ -205,11 +205,7 @@ module Decidim
       end
 
       def encryptor
-        @encryptor ||= DataEncryptor.new(secret: encryption_secret)
-      end
-
-      def encryption_secret
-        "personal user metadata"
+        @encryptor ||= DataEncryptor.new(secret: Decidim::Initiatives.signature_handler_encryption_secret)
       end
 
       def workflow_manifest

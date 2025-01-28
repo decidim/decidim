@@ -467,6 +467,9 @@ if Decidim.module_installed? :initiatives
       config.print_enabled = Rails.application.secrets.dig(:decidim, :initiatives, :print_enabled).present?
     end
     config.do_not_require_authorization = Rails.application.secrets.dig(:decidim, :initiatives, :do_not_require_authorization).present?
+    if Rails.application.secrets.dig(:decidim, :initiatives, :signature_handler_encryption_secret)
+      config.signature_handler_encryption_secret = Rails.application.secrets.dig(:decidim, :initiatives, :signature_handler_encryption_secret)
+    end
   end
 end
 
