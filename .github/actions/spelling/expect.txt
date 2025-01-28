@@ -4,6 +4,7 @@ abans
 abcd
 abcert
 abcloktpes
+acceptada
 accesslist
 acentos
 acro
@@ -733,6 +734,7 @@ Raymundo
 rbngzlv
 reallowed
 rebornix
+rebutjada
 recapitated
 reconfirmable
 redcarpet
