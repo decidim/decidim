@@ -84,6 +84,13 @@ module Decidim
         it_behaves_like "a download your data entity"
       end
 
+      context "when the user has an identity" do
+        let!(:identity) { create(:identity, user:) }
+        let(:help_definition_string) { "The provider of this identity" }
+
+        it_behaves_like "a download your data entity"
+      end
+
       context "when the user has a report" do
         let(:moderation) { create(:moderation, reportable:, participatory_space:) }
         let(:participatory_space) { create(:participatory_process, organization:) }
