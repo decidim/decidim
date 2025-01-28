@@ -89,7 +89,7 @@ shared_examples "merge proposals" do
             end
 
             context "when result proposal comes from a meeting" do
-              it "creates a new proposal with meeting as author" do
+              it "shows meeting as the first author" do
                 expect(page).to have_css(".main-bar__logo")
                 expect(page).to have_content("Official proposal")
                 expect(page).to have_content("It was discussed in this meeting")
@@ -176,6 +176,26 @@ shared_examples "merge proposals" do
             expect(page).to have_content("Successfully merged the proposals into a new one")
             expect(page).to have_css(".table-list tbody tr", count: 1)
             expect(page).to have_current_path(manage_component_path(target_component))
+          end
+
+          context "when result proposal does not comes from a meeting" do
+            before do
+              click_on "Create"
+              click_on "My result merge proposal"
+              new_proposal_url = find("a", text: "See proposal")[:href]
+              visit new_proposal_url
+            end
+
+            it "shows official proposal as the first author" do
+              expect(page).to have_css(".main-bar__logo")
+              expect(page).to have_content("Official proposal")
+            end
+
+            it "shows the result proposal with history panel" do
+              expect(page).to have_content("History")
+              expect(page).to have_css(".resource_history__item_icon")
+              expect(page).to have_content("This proposal was created")
+            end
           end
         end
       end
