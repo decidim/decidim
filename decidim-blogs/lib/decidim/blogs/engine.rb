@@ -14,7 +14,7 @@ module Decidim
       isolate_namespace Decidim::Blogs
 
       routes do
-        resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+        resources :posts
         scope "/posts" do
           root to: "posts#index"
         end
