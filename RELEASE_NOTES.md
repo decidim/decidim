@@ -197,12 +197,16 @@ As an example, where it says:
 
 ```yaml
       icon: google-fill
+      icon: facebook-fill
+      icon: twitter-x-fill
 ```
 
-Now it needs to say
+Now it needs to say for the correct path name and updated SVGs.
 
 ```yaml
       icon_path: "media/images/google.svg"
+      icon_path: "media/images/facebook.svg"
+      icon_path: "media/images/twitter-x.svg"
 ```
 
 You can read more about this change on PR [#13481](https://github.com/decidim/decidim/pull/13481).
