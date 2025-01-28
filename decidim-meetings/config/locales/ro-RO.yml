@@ -438,6 +438,7 @@ ro:
             all: Toate
             official: Oficial
             participants: Participanți
+            user_group: Grupuri
           search: Caută
           type: Tip
           type_values:
@@ -582,7 +583,7 @@ ro:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Întâlniri anterioare
-        see_all: Afișează toate întâlnirile (%{count})
+        see_all: Afișează toate întâlnirile
         upcoming_meetings: Întâlniri viitoare
     resource_links:
       meetings_through_proposals:
