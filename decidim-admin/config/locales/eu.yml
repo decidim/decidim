@@ -163,7 +163,7 @@ eu:
   activerecord:
     attributes:
       decidim/static_page:
-        content: Contenido
+        content: Edukia
         slug: URL laburra
         title: Izenburua
       doorkeeper/application:
