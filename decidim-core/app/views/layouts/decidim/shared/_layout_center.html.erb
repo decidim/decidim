@@ -8,7 +8,6 @@ css_class = case columns
             when 8 then "cols-8"
             else "cols-6"
             end
-css_class += " #{local_assigns[:omniauth_width]}" if local_assigns[:omniauth_width]
 %>
 
 <%= content_tag main_tag, class: "layout-1col #{css_class}" do %>
