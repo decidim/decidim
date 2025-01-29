@@ -22,7 +22,7 @@ describe "Conference admin accesses admin sections" do
       expect(page).to have_content("Partners")
       expect(page).to have_content("Speakers")
       expect(page).to have_content("Registrations")
-      expect(page).to have_content("Registration Types")
+      expect(page).to have_content("Registration types")
       expect(page).to have_content("Invites")
       expect(page).to have_content("Certificate of attendance")
       expect(page).to have_content("Conference admins")
