@@ -156,7 +156,6 @@
           tos_agreement: Ved å delta godtar du vilkårene for bruk
       step_navigation:
         show:
-          are_you_sure: Denne handlingen kan ikke angres, og du kan ikke redigere svarene dine. Er du sikker?
           back: Tilbake
           continue: Fortsett
           submit: Send inn
