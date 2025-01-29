@@ -114,12 +114,8 @@ module Decidim::Initiatives
         expect(serialized[:type]).to include(title: initiative.type.title)
       end
 
-      it "includes the authors' ids" do
-        expect(serialized[:authors]).to include(id: initiative.author_users.map(&:id))
-      end
-
-      it "includes the authors' names" do
-        expect(serialized[:authors]).to include(name: initiative.author_users.map(&:name))
+      it "excludes the authors" do
+        expect(serialized).not_to have_key(:authors)
       end
 
       it "includes the area id" do
