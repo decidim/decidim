@@ -41,6 +41,7 @@ es:
         models:
           components:
             allow_answers: Permitir respuestas
+            allow_editing_answers: Permitir a las usuarias registradas editar sus respuestas en la encuesta
             allow_unregistered: Permitir a las usuarias no registradas responder a la encuesta
             allow_unregistered_help: Si está activo, no será necesario iniciar sesión para responder a la encuesta. Esto puede llevar a datos pobres o poco fiables y será más vulnerable a ataques automatizados. ¡Usar con precaución! Es importante que un participante pueda responder a la misma encuesta varias veces, utilizando diferentes navegadores o la función de "navegación privada" de su navegador web.
             announcement: Aviso
@@ -198,6 +199,9 @@ es:
           questionnaire_answered:
             body: Ya has respondido a este formulario.
             title: Ya has respondido
+          questionnaire_answered_edit:
+            body: 'Ya has respondido a este formulario: %{link}'
+            edit: Editar las respuestas
           questionnaire_closed:
             body: El formulario está cerrado y no puedes responder.
             title: Formulario cerrado
@@ -212,9 +216,12 @@ es:
           tos_agreement: Al participar aceptas los Términos y condiciones de uso
       step_navigation:
         show:
-          are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Estás segura?
+          are_you_sure_edit: Podrás editar tus respuestas. ¿Seguro que quieres continuar?
+          are_you_sure_edit_guest: Si quieres poder editar tus respuestas más tarde, necesitas inicies tu sesión o crees una cuenta.
+          are_you_sure_no_edit: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Seguro que quieres continuar?
           back: Atrás
           continue: Continuar
+          disallowed: No puedes editar tus respuestas.
           submit: Enviar respuestas
       user_answers_serializer:
         body: Respuesta
