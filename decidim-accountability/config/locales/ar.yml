@@ -239,8 +239,6 @@ ar:
         home:
           empty: لا توجد نتائج بعد.
           empty_filters: لا توجد نتائج تطابق هذه المعايير.
-          sub_taxonomies_label: الفئات الفرعية
-          taxonomies_label: الفئات
         home_header:
           global_status: حالة التنفيذ العالمي
         no_results: لا يوجد مشاريع
