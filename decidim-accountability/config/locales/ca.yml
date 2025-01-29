@@ -245,8 +245,6 @@ ca:
         home:
           empty: Encara no hi ha cap resultat.
           empty_filters: No hi ha cap resultat amb aquest criteri.
-          sub_taxonomies_label: Subcategories
-          taxonomies_label: Categories
         home_header:
           global_status: Estat d'execució global
         no_results: No hi ha projectes
