@@ -41,6 +41,7 @@ ca:
         models:
           components:
             allow_answers: Permetre respostes
+            allow_editing_answers: Permetre a les usuàries registrades editar les seves respostes a l'enquesta
             allow_unregistered: Permet a usuàries no registrades contestar l'enquesta
             allow_unregistered_help: Si està activat, no serà necessari iniciar sessió per a respondre l'enquesta. Això pot implicar una recollida de dades pobra o poc fiable i serà més vulnerable a atacs automatitzats. Fes-ho servir amb precaució! És important que una participant pugui respondre a la mateixa enquesta diverses vegades, fent servir diferents navegador o la funció de "navegació privada" del seu navegadro web.
             announcement: Avís
@@ -198,6 +199,9 @@ ca:
           questionnaire_answered:
             body: Ja has respost a aquest formulari.
             title: Ja has respost
+          questionnaire_answered_edit:
+            body: 'Ja has respost a aquest formulari: %{link}'
+            edit: Edita les respostes
           questionnaire_closed:
             body: El formulari està tancat i no es pot respondre.
             title: S'ha tancat el formulari
@@ -212,9 +216,12 @@ ca:
           tos_agreement: En participar acceptes els Termes i condicions d'ús
       step_navigation:
         show:
-          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Segur?
+          are_you_sure_edit: Podràs editar les teves respostes. Segur que vols continuar?
+          are_you_sure_edit_guest: Si vols poder editar les teves respostes més tard, cal que iniciïs la teva sessió o que creïs un compte.
+          are_you_sure_no_edit: Aquesta acció no es pot desfer i no podràs editar les respostes. Segur que vols continuar?
           back: Enrere
           continue: Continuar
+          disallowed: No pots editar les teves respostes.
           submit: Enviar respostes
       user_answers_serializer:
         body: Resposta
