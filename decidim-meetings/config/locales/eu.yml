@@ -741,17 +741,33 @@ eu:
           id: Topaketaren identifikatzaile bakarra
           iframe_access_level: Topaketaren sarrera maila
           iframe_embed_type: Topaketan agertu zen "Iframe" mota
+          latitude: Topaketaren latitudea
           location: Topaketaren kokapena
+          location_hints: Kokapenaren xehetasuna, topaketa egin zen lekuaren barruan
+          longitude: Topaketaren luzera
+          online_meeting_url: Online topaketaren URLa
           organizations: Zein erakundek hartu du parte topaketa honetan?
           participatory_space: Zein espaziotakoa datopaketa hau (adibidez, Prozesu Parte-hartzailea edo Batzarra)?
+          private_meeting: Topaketa pribatua izan zen ala ez adierazteko
           published: Noiz argitaratu da topaketa?
           reference: Plataforma honetako baliabidearen identifikatzaile bakarra
+          registration_form_enabled: Izena emateko inprimakia prest zegoen ala ez
+          registration_terms: Parte hartu aurretik adostutako baldintzak
+          registration_type: Topaketaren erregistro mota
+          registration_url: Topaketaren erregistroaren URLa
+          registrations_enabled: Erregistroak baimenduta zeuden ala ez
           related_proposals: Topaketa honi buruzko proposamenak
           related_results: Topaketa honen emaitzak
+          reserved_slots: Topaketak duen erreserbatutako ordu-tarte kopurua
           start_time: Zein data eta ordutan hasi da topaketa hau
           taxonomies: Topaketa honi dagozkion taxonomiak
           title: Topaketaren izenburua
+          transparent: Topaketaren ikusgarritasuna bisitarientzat
+          type_of_meeting: Topaketa mota
+          updated_at: Zein datatan eguneratu zen topaketa azken aldiz
           url: Topaketaren URLa
+          video_url: Topaketaren bideograbazioa
+          withdrawn: Topaketa bertan behera geratu zen ala ez
           withdrawn_at: Noiz utzi zen bertan behera topaketa hau?
     participatory_spaces:
       highlighted_meetings:
