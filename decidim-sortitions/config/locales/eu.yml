@@ -25,7 +25,7 @@ eu:
         settings:
           global:
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eusteko)
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
     events:
       sortitions:
         sortition_created:
@@ -74,7 +74,7 @@ eu:
           new:
             confirm: Botoia sakatzean plataformak egun eta ordua (segundu gutxi batzuk gora behera) eta dadoak botatzean ateratako zenbakia gorde egingo ditu ausazko hautaketa bat egiteko. Botoia sakatu ondoren ez dago atzera egiterik eta zozketaren emaitzak zein txantiloi honetan sartutako datuak argitaratuko dira eta ezin izango dira aldatu. Beraz, mesedez, arretaz jarraitu.
             create: Sortu
-            title: Beste zozketa bat
+            title: Zozketa berria
           show:
             selected_proposals: Zozketatzeko aukeratutako proposamenak
           update:
@@ -82,9 +82,9 @@ eu:
             success: Zozketa zuzen eguneratu da.
       admin_log:
         sortition:
-          create: "%{user_name} k %{resource_name} zozketa sortu du %{space_name} espazioan"
-          delete: "%{user_name} k %{resource_name} zozketa bertan behera utzi du %{space_name} espazioan"
-          update: "%{user_name} k %{resource_name} zozketa eguneratu du %{space_name} espazioan"
+          create: "%{user_name} parte-hartzaileak %{resource_name} zozketa sortu du %{space_name} espazioan"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} zozketa bertan behera utzi du %{space_name} espazioan"
+          update: "%{user_name} parte-hartzaileak %{resource_name} zozketa eguneratu du %{space_name} espazioan"
       sortitions:
         count:
           proposals_count:

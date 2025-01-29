@@ -68,6 +68,8 @@ es-PY:
         email: Correo electrónico
         name: Nombre
         role: Papel
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
@@ -202,7 +204,6 @@ es-PY:
           attachment_collections: Carpetas
           attachment_files: Archivos
           attachments: Archivos adjuntos
-          categories: Categorías
           components: Componentes
           conference_admins: Administradores de conferencia
           conference_invites: Invita
@@ -537,6 +538,25 @@ es-PY:
         objectives: Objetivos
         related_assemblies: Asambleas relacionadas
         related_participatory_processes: Procesos participativos relacionados
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: La fecha en que la invitación a la jornada fue aceptada
+          conference: La jornada a la que corresponde esta invitación
+          confirmed_at: La fecha en la que se confirmó la invitación
+          created_at: La fecha en la que se creó la invitación
+          id: El identificador único de la invitación a la jornada
+          registration_type: El tipo de inscripción enviada para esta jornada
+          rejected_at: La fecha en que la invitación a la jornada fue rechazada
+          sent_at: La fecha en que esta invitación a la conferencia fue enviada
+          updated_at: La fecha en que esta invitación se actualizó por última vez
+        conference_registrations:
+          conference: La jornada a la que pertenece esta inscripción
+          confirmed_at: La fecha en la que se confirmó la inscripción
+          created_at: La fecha en la que se creó la inscripción
+          id: El identificador único de la inscripción a la jornada
+          registration_type: El tipo de inscripción habilitado para esta jornada
+          updated_at: La fecha en que esta inscripción se actualizó por última vez
     events:
       conferences:
         conference_registration_confirmed:

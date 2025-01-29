@@ -192,23 +192,8 @@ zh-CN:
       autocomplete:
         no_results: 未找到结果
       categories:
-        create:
-          error: 创建此类别时出现问题。
-          success: 分类创建成功。
-        destroy:
-          error: 删除此类别时出错。请先删除任何子类别，请确保没有其他实体属于此类别，然后重试。
-          success: 类别删除成功。
-        edit:
-          title: 编辑类别
-          update: 更新
         index:
           categories_title: 类别管理
-        new:
-          create: 创建类别
-          title: 新类别
-        update:
-          error: 更新此类别时出现问题。
-          success: 类别更新成功。
       component_permissions:
         update:
           error: 更新此组件的权限时出现问题。
@@ -446,7 +431,6 @@ zh-CN:
           confirm_delete: 您确定要删除这个通讯吗？
           followers: '关注者 '
           has_been_sent_to: '已发送到： '
-          no_scopes: 无范围
           not_sent: 未发送
           participants: '参与者 '
           segmented_to: '分段到 %{subject}： '
@@ -461,13 +445,9 @@ zh-CN:
           confirm_deliver: 您确定要发送这个通讯吗？此操作不能撤消。
           deliver: 发送通讯
           followers_help: 发送通讯给所有已确认的用户，它们跟随列表中任何选定的参与空间。
-          none: 无
           participants_help: 向参与名单中任何选定参与空间的所有经确认的用户发送通讯。
           recipients_count: 这份通讯将发送给 <strong id='recipients_count'>%{count}</strong> 用户。
-          scopes_help: 发送通讯给在其帐户的“我的兴趣”设置中激活任何选定范围的用户。
-          select_scopes: 筛选已激活其账户中任何选定范围的用户。
           select_spaces: 选择要断开通讯的空格
-          select_users: 选择您想要发送消息的用户
           title: 选择要交付的收件人
           warning: "<strong>注意:</strong> 这份通讯将只发送给已激活 <em>我想在其通知设置中接收新闻简讯</em>。"
         show:

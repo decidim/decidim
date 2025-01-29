@@ -3,18 +3,28 @@ fi:
     attributes:
       account:
         delete_reason: Syy tilisi poistoon
+      attachment:
+        documents: Asiakirjat
+        photos: Kuvat
       common:
         created_at: Luontiaika
+      content_block_attachment:
+        background_image: Taustakuva
+        main_image: Pääkuva
       conversation:
         body: Viestin teksti
+      editor_image:
+        file: Tiedosto
       group:
         about: Tietoja
         avatar: Avatar
-        document_number: Dokumentin numero
+        document_number: Organisaatiotunnus (esim. Y-tunnus)
         email: Sähköposti
         name: Nimi
         nickname: Nimimerkki
         phone: Puhelinnumero
+      import:
+        file: Tiedosto
       message:
         body: Viestin teksti
       report:
@@ -28,6 +38,7 @@ fi:
         space_filter: Määritettävissä osallistumistilojen suodattimeksi
       user:
         about: Profiilikuvaus
+        avatar: Profiilikuva
         email: Sähköpostiosoitteesi
         encrypted_password: Salasana
         locale: Kieli
@@ -39,6 +50,8 @@ fi:
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
         tos_agreement: Käyttöehtojen hyväksyntä
+      user_group:
+        avatar: Profiilikuva
     models:
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
@@ -160,7 +173,7 @@ fi:
     account:
       blocked: Tämä käyttäjätili on estetty, koska käyttäjä ei noudattanut käyttöehtoja
       delete:
-        alert: Tätä toimintoa ei voi peruuttaa. Jos poistat tilisi, et voi enää kirjautua sisään tunnuksillasi. Tilisi poiston yhteydessä nimesi ja tietosi poistuvat kaikkien laatimiesi asioiden yhteydestä. Voit kuitenkin aina luoda uuden tilin, mutta näitä aikaisemmin laadittuja asioita ei voida enää jälkikäteen liittää uuteen tiliisi.
+        alert: Tätä toimintoa ei voi perua. Jos poistat tilisi, et voi enää kirjautua sisään tunnuksillasi. Tilisi poiston yhteydessä nimesi ja tietosi poistuvat kaikkien laatimiesi asioiden yhteydestä. Voit kuitenkin aina luoda uuden tilin, mutta näitä aikaisemmin laadittuja asioita ei voida enää jälkikäteen liittää uuteen tiliisi.
         confirm:
           close: Sulje ikkuna
           ok: Kyllä, haluan poistaa tilini
@@ -169,8 +182,8 @@ fi:
         explanation: Syy tilisi poistoon (valinnainen).
         leaving_authorizations_behind: Tunnistautumiseesi liittyviä tietoja tallennetaan turvallisuussyistä. Jos luot uuden tilin ja tunnistaudut uudestaan samoilla tiedoilla, nämä tiedot palautetaan uudelle tilillesi.
       destroy:
-        error: Tilisi poistaminen epäonnistui.
-        success: Tilisi poistaminen onnistui.
+        error: Tilisi poisto epäonnistui.
+        success: Tilisi poisto onnistui.
       download_your_data_export:
         export_expired: Vientitiedosto on vanhentunut. Yritä luoda uusi vienti.
         file_no_exists: Tiedostoa ei ole olemassa
@@ -179,8 +192,8 @@ fi:
         body1: Olemme lähettäneet viestin osoitteeseen %{unconfirmed_email} vahvistaaksemme uuden sähköpostiosoitteesi.
         body2: Haluatko tilata vahvistussähköpostin uudestaan? %{resend_link} tai %{cancel_link}.
         cancel: peruuta
-        cancel_error: Sähköpostin muutosta ei voitu peruuttaa.
-        cancel_successfully: Sähköpostin muuttamisen peruuttaminen onnistui.
+        cancel_error: Sähköpostin muutosta ei voitu perua.
+        cancel_successfully: Sähköpostin muuttamisen peruminen onnistui.
         resend_error: Vahvistussähköpostia ei voitu lähettää uudestaan.
         resend_successfully: Vahvistussähköpostin lähetys osoitteeseen %{unconfirmed_email} onnistui.
         send_again: Lähetä uudestaan
@@ -229,7 +242,7 @@ fi:
         publish: "%{user_name} julkaisi komponentin %{resource_name} osallistumistilassa %{space_name}"
         restore: "%{user_name} palautti komponentin %{resource_name} tilassa %{space_name}"
         soft_delete: "%{user_name} siirsi komponentin %{resource_name} roskakoriin tilassa %{space_name}"
-        unpublish: "%{user_name} lopetti komponentin %{resource_name} julkaisun osallistumistilassa %{space_name}"
+        unpublish: "%{user_name} perui komponentin %{resource_name} julkaisun osallistumistilassa %{space_name}"
         update_permissions_with_space: "%{user_name} päivitti oikeuksia kohteessa %{resource_name} tilassa %{space_name}"
       contextual_help_section:
         update: "%{user_name} päivitti ohjeosiota %{resource_name}"
@@ -241,6 +254,9 @@ fi:
       impersonation_log:
         manage: "%{user_name} hallinnoi käyttäjää %{resource_name}, koska %{reason}"
       moderation:
+        bulk_hide: "%{user_name} piilotti %{reported_count} kohdetta"
+        bulk_unhide: "%{user_name} palautti %{reported_count} kohdetta näkyviin"
+        bulk_unreport: "%{user_name} poisti %{reported_count} kohteen ilmoitukset"
         hide: "%{user_name} piilotti %{resource_type} tyyppisen resurssin osallistumistilaan %{space_name}"
         unreport: "%{user_name} poisti %{resource_type} -tyyppisen resurssin ilmoituksen osallistumistilassa %{space_name}"
       newsletter:
@@ -297,6 +313,9 @@ fi:
         update_with_filter_items_count: "%{user_name} päivitti suodatinta luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
       user:
         block: "%{user_name} esti käyttäjän %{resource_name}"
+        bulk_block: "%{user_name} esti %{blocked_count} käyttäjätiliä"
+        bulk_ignore: "%{user_name} poisti %{unreported_users_count} käyttäjätilin ilmoitukset"
+        bulk_unblock: "%{user_name} poisti %{unblocked_count} käyttäjätilin eston"
         invite: "%{user_name} kutsui käyttäjän %{resource_name} roolilla: %{role}"
         officialize: "%{user_name} virallisti käyttäjän %{resource_name}"
         promote: "%{user_name} on korottanut käyttäjän %{resource_name} oikeudet"
@@ -307,6 +326,9 @@ fi:
         unofficialize: "%{user_name} poisti käyttäjän %{resource_name} virallistamisen"
       user_group:
         block: "%{user_name} esti käyttäjän %{resource_name}"
+        bulk_block: "%{user_name} esti %{blocked_count} käyttäjätiliä"
+        bulk_ignore: "%{user_name} poisti %{unreported_users_count} käyttäjätilin ilmoituksen"
+        bulk_unblock: "%{user_name} poisti %{unblocked_count} käyttäjätilin eston"
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
         unblock: "%{user_name} poisti eston käyttäjältä %{resource_name}"
         verify: "%{user_name} vahvisti käyttäjäryhmän %{resource_name}"
@@ -357,7 +379,7 @@ fi:
           rejected: "Tämä muutos kohteelle %{amendable_type} %{proposal_link}\nhylättiin ajankohtana <strong>%{date}</strong>."
           withdrawn: |-
             Tämä muutos kohteelle %{amendable_type} %{proposal_link}
-            on peruutettu sen laatijan toimesta.
+            on peruttu sen laatijan toimesta.
       name: Muutos
       new:
         amendment_author: Muutoksen laatija
@@ -384,8 +406,8 @@ fi:
         error: Muutosluonnoksen päivitys epäonnistui.
         success: Muutosluonnoksen päivitys onnistui.
       withdraw:
-        error: Muutoksen peruuttaminen epäonnistui.
-        success: Muutos on peruutettu.
+        error: Muutoksen peruminen epäonnistui.
+        success: Muutos on peruttu.
       wizard_step_form:
         steps:
           '1': Luo muutos
@@ -435,6 +457,15 @@ fi:
       dummy_authorization_workflow:
         explanation: Esimerkkivahvistuksen työnkulku
         name: Esimerkkivahvistuksen työnkulku
+      ephemeral_dummy_authorization_handler:
+        explanation: Vahvista tilisi syöttämällä asiakirjan numero, joka päättyy kirjaimeen "X".
+        fields:
+          allowed_postal_codes: Sallitut postinumerot (pilkuilla erotettuna)
+          allowed_scope_id: Sallittu teema
+          document_number: Asiakirjan numero
+          postal_code: Postinumero
+          scope_id: Teema
+        name: Väliaikainen esimerkkivahvistustapa
       errors:
         duplicate_authorization: Osallistuja on jo tunnistettu vastaavilla tiedoilla. Hallintakäyttäjä ottaa sinuun yhteyttä tarkastakseen tietosi.
       expired_at: Umpeutuu %{timestamp}
@@ -457,7 +488,7 @@ fi:
           title: Vahvistus on vanhentunut
         incomplete:
           cancel: Peruuta
-          explanation: 'Vaikka kirjautumisesi on tällä hetkellä varmennettu varmennustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
+          explanation: 'Vaikka kirjautumisesi on tällä hetkellä vahvistettu vahvistustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
           invalid_field: "%{field}"
           reauthorize: Vahvista uudestaan
           title: Vahvista uudestaan
@@ -472,10 +503,10 @@ fi:
           resume: Tarkista "%{authorization}" vahvistuksen eteneminen.
           title: Vahvistus on edelleen kesken
         unauthorized:
-          explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
+          explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska tilisi vahvistustiedot eivät vastaa asetettuja vaatimuksia.
           invalid_field: "Kentän %{field} arvo %{value} ei kelpaa."
           ok: Ok
-          title: Ei vahvistettu
+          title: Tiliäsi ei ole vahvistettu
         unconfirmed:
           confirmation_instructions: 'Jos et ole saanut vahvistusohjeita, voit pyytää ne uudestaan:'
           explanation_html: Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettu toiminnon suorittamiseen. Ennen tätä sinun on vahvistettava sähköpostiosoitteesi <strong>%{email}</strong>.
@@ -650,6 +681,7 @@ fi:
           sign_in_disabled: Voit käyttää ulkoista tiliä.
           sign_up_disabled: Tilien luonti on poistettu käytöstä, mutta voit kirjautua olemassaolevalla käyttäjätilillä.
         user:
+          ephemeral_session_closed: Vierailijaistuntosi on päättynyt
           timed_out: Palvelua ei ole käytetty hetkeen, minkä takia sinut on kirjattu palvelusta ulos automaattisesti. Jos haluat jatkaa palvelun käyttöä, kirjaudu uudestaan sisään.
       shared:
         newsletter_modal:
@@ -672,6 +704,9 @@ fi:
           show_password: Näytä salasana
           shown_password: Salasanasi näytetään
         placeholder_email: hei@esimerkki.org
+    documents:
+      one: "%{count} asiakirja"
+      other: "%{count} asiakirjaa"
     doorkeeper:
       authorizations:
         new:
@@ -690,15 +725,90 @@ fi:
     download_your_data:
       export:
         ready: Valmis
+      help:
+        core:
+          description: Nämä tiedostot sisältävät käyttäjätilin %{user_name} henkilökohtaisia tietoja sekä tietoja käyttäjän toiminnasta tällä alustalla
+          title: Lataa tietosi palvelusta %{organization}
+        follows:
+          created_at: Seurannan ajankohta
+          followable: Kohde tai osallistumistila, jota seuranta koskee
+          id: Seurannan yksilöivä tunniste
+          updated_at: Seurannan viimeisimmän päivityksen ajankohta
+        identities:
+          created_at: Identiteetin luontiaika
+          id: Identiteetin yksilöivä tunniste
+          provider: Identiteetin tunnistautumistapa
+          uid: Identiteetin yksilöivä tunniste
+          updated_at: Identiteetin viimeisimmän päivityksen ajankohta
+          user: Käyttäjätili, jolle tämä identiteetti on määritetty
+        messaging_conversations:
+          created_at: Keskustelun luontiaika
+          id: Keskustelun yksilöivä tunniste
+          messages: Keskustelun viestit
+          updated_at: Keskustelun viimeisimmän päivityksen ajankohta
+        notifications:
+          created_at: Ilmoituksen luontiaika
+          event_class: Tapahtuman tyyppi, jota ilmoitus koskee
+          event_name: Tapahtuman nimi, jota ilmoitus koskee
+          extra: Ilmoitusta koskevat lisätiedot
+          id: Ilmoituksen yksilöivä tunniste
+          resource_type: Ilmoituksen kohteen tyyppi
+          updated_at: Ilmoituksen viimeisimmän päivityksen ajankohta
+        user_groups:
+          document_number: Käyttäjäryhmän organisaatiotunnus (esim. Y-tunnus)
+          id: Käyttäjäryhmän yksilöivä tunniste
+          name: Käyttäjäryhmän nimi
+          phone: Käyttäjäryhmän puhelinnumero
+          verified_at: Käyttäjäryhmän vahvistamisen ajankohta
+        users:
+          about: Käyttäjätilin profiilin kuvaus
+          admin: Onko tämä käyttäjä hallintakäyttäjä
+          confirmation_sent_at: Käyttäjätilin vahvistusviestin lähetysaika
+          confirmed_at: Käyttäjätilin vahvistamisen ajankohta
+          created_at: Käyttäjätilin luontiaika
+          current_sign_in_at: Nykyisen kirjautumisen ajankohta
+          current_sign_in_ip: Nykyisen kirjautumisen IP-osoite
+          delete_reason: Käyttäjätilin poistamisen syy
+          deleted_at: Käyttäjätilin poistamisen ajankohta
+          email: Käyttäjätilin sähköpostiosoite
+          id: Käyttäjätilin yksilöivä tunniste
+          invitation_accepted_at: Käyttäjätilin kutsun hyväksymisen ajankohta
+          invitation_created_at: Käyttäjän kutsumisen ajankohta
+          invitation_sent_at: Käyttäjän kutsun lähetyksen ajankohta
+          invitations_count: Käyttäjälle lähetettyjen kutsujen lukumäärä
+          invited_by: Kutsun lähettänyt käyttäjä
+          last_sign_in_at: Edellisen kirjautumisen ajankohta
+          last_sign_in_ip: Edellisen kirjautumisen IP-osoite
+          locale: Käyttäjän valitsema kieliasetus
+          managed: Onko tämä käyttäjätili toisen käyttäjän hallinnoima
+          name: Käyttäjän nimi
+          newsletter_notifications_at: Uutiskirjeiden tilauksen ajankohta
+          nickname: Käyttäjän nimimerkki
+          notification_settings: Käyttäjän määrittämät ilmoitusten asetukset
+          notifications_sending_frequency: Käyttäjän vastaanottamien ilmoitusten tiheys
+          officialized_as: Virallistamisen nimi (valtuutettu, kunnanjohtaja, pormestari, jne.)
+          officialized_at: Käyttäjän virallistamisen ajankohta
+          organization: Käyttäjän organisaatio
+          personal_url: Käyttäjäprofiilin URL-osoite
+          remember_created_at: Kirjautumisen muistamisen valinnan ajankohta
+          reset_password_sent_at: Salasanan nollauslinkin lähetyksen ajankohta
+          sign_in_count: Käyttäjän kirjautumisten lukumäärä
+          unconfirmed_email: Vahvistamaton sähköpostiosoite
+          updated_at: Käyttäjätilin viimeisimmän päivityksen ajankohta
       show:
         action: Toiminto
-        download: Lataa
-        download_data: Latausosio
+        download: Lataa tiedosto
+        download_data: Tietojen lataus
         download_data_description_1: Täältä löydät kaikki tililtäsi ladattavissa olevat tiedot. Nämä ZIP-tiedostot ovat ladattavissa kahden viikon ajan ennen kuin ne poistetaan.
         download_data_description_2: Voit pyytää ZIP-tiedoston henkilökohtaisista tiedoistasi.
         download_your_data: Omat tiedot
         expiration: Vanhentumisaika
         expired: Vanhentunut
+        explanation:
+          body_1: Nämä tiedostot sisältävät tietoa toiminnastasi tällä alustalla, kuten laatimistasi ehdotuksista tai kommenteista. Tiedot ovat raakamuotoista dataa, jota voidaan hyödyntää analysointi-, tutkimus- tai integrointitarkoituksiin muiden työkalujen kanssa.
+          body_2: Nämä tiedostot ovat CSV-muodossa (comma-separated values), joka on laajasti käytetty ja useiden eri ohjelmistojen tukema tiedostoformaatti. Tiedostot voi avata esimerkiksi taulukkolaskentaohjelmissa, tekstieditoreissa tai analysointityökaluissa.
+          title: Mitä nämä tiedostot ovat?
+        files_to_download: Ladattavat tiedostot
         request_data: Pyydä
         type: Latauksen tyyppi
     editor_images:
@@ -720,6 +830,7 @@ fi:
       others: "%{count} lisää"
       title: Tykänneet
       you: sinä
+    ephemeral_user: Vierailija
     errors:
       files:
         file_cannot_be_processed: Tiedostoa ei voida käsitellä
@@ -746,7 +857,7 @@ fi:
         amendment_accepted:
           affected_user:
             email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hyväksytty. Voit tutustua siihen sivulta:'
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen %{amendable_title}.
             email_subject: Kohdetta %{amendable_title} koskeva muutos on hyväksytty käyttäjältä %{emendation_author_nickname}
             notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> hyväksyttiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
@@ -757,7 +868,7 @@ fi:
         amendment_created:
           affected_user:
             email_intro: 'Uusi muutos on luotu kohteelle %{amendable_title}. Voit tutustua siihen sivulta:'
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen %{amendable_title}.
             email_subject: Uusi muutos kohteelle %{amendable_title}
             notification_title: Kohteelle <a href="%{amendable_path}">%{amendable_title}</a> luotiin uusi muutos.
           follower:
@@ -768,7 +879,7 @@ fi:
         amendment_promoted:
           affected_user:
             email_intro: 'Kohdetta %{amendable_title} koskeva muutos on julkaistu uutena kohteena %{amendable_type}. Voit tutustua siihen sivulta:'
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen %{amendable_title}.
             email_subject: Käyttäjän %{emendation_author_nickname} laatima muutos on julkaistu uutena %{amendable_type} -kohteena
             notification_title: <a href="%{emendation_path}">Hylätty muutos</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> on julkaistu uutena %{amendable_type} -kohteena käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> toimesta.
           follower:
@@ -779,14 +890,19 @@ fi:
         amendment_rejected:
           affected_user:
             email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hylätty. Voit tutustua siihen sivulta:'
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen %{amendable_title}.
             email_subject: Kohdetta %{amendable_title} koskeva muutos on hylätty käyttäjältä %{emendation_author_nickname}
-            notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> hylättiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> laatima <a href="%{emendation_path}">muutos</a> hylättiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hylätty. Voit tutustua siihen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Kohdetta %{amendable_title} koskeva muutos on hylätty käyttäjältä %{emendation_author_nickname}
-            notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> hylättiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> laatima <a href="%{emendation_path}">muutos</a> hylättiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'Muutos on julkaistu kohteelle %{amendable_title}. Näet sen tältä sivulta:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut kohteen %{amendable_title}.
+            email_subject: Laatijan %{emendation_author_nickname} muutos on julkaistu uutena kohteena %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Uusi asiakirja on lisätty kohteeseen %{resource_title}. Voit tutustua siihen sivulta:'
@@ -852,15 +968,15 @@ fi:
           email_subject: Sinut on poistettu ryhmästä %{user_group_name}!
           notification_title: Sinut on poistettu ryhmästä <a href="%{resource_path}">%{user_group_name}</a>.
         user_group_created:
-          email_intro: Uusi ryhmä on luotu nimellä %{user_group_name}. Voit varmentaa ryhmän <a href="%{groups_admin_url}">hallintapaneelin kautta</a>.
+          email_intro: Uusi ryhmä on luotu nimellä %{user_group_name}. Voit vahvistaa ryhmän <a href="%{groups_admin_url}">hallintapaneelin kautta</a>.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet palvelun hallintakäyttäjä.
           email_subject: Uusi ryhmä on luotu
-          notification_title: Uusi ryhmä nimellä %{user_group_name} on luotu. Voit varmentaa ryhmän <a href="%{groups_admin_path}">hallintapaneelin kautta</a>.
+          notification_title: Uusi ryhmä nimellä %{user_group_name} on luotu. Voit vahvistaa ryhmän <a href="%{groups_admin_path}">hallintapaneelin kautta</a>.
         user_group_updated:
-          email_intro: Ryhmä nimeltä %{user_group_name} on päivittänyt profiiliaan, jättäen käyttäjän varmentamattomaksi. Voit varmentaa ryhmän <a href="%{groups_admin_url}">hallintapaneelin kautta</a>.
+          email_intro: Ryhmä nimeltä %{user_group_name} on päivittänyt profiiliaan, jättäen käyttäjän vahvistamattomaksi. Voit vahvistaa ryhmän <a href="%{groups_admin_url}">hallintapaneelin kautta</a>.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet palvelun hallintakäyttäjä.
           email_subject: Ryhmä on päivittänyt profiiliaan
-          notification_title: Ryhmä nimeltä %{user_group_name} on päivittänyt profiiliaan, jättäen ryhmän varmentamattomaksi. Voit varmentaa ryhmän <a href="%{groups_admin_path}">hallintapaneelin kautta</a>.
+          notification_title: Ryhmä nimeltä %{user_group_name} on päivittänyt profiiliaan, jättäen ryhmän vahvistamattomaksi. Voit vahvistaa ryhmän <a href="%{groups_admin_path}">hallintapaneelin kautta</a>.
       nickname_event:
         notification_body: Olemme muuttaneet nimimerkkien sääntöjä varmistaaksemme, että alustalla ei ole useampaa tiliä samalla nimimerkillä eri tavalla kirjoitettuna. <br/> Tilisi on luotu toisen samaa nimimerkkiä käyttäneen henkilön jälkeen, joten olemme vaihtaneet nimimerkkiäsi automaattisesti. Halutessasi voit vaihtaa nimimerkkiäsi <a href="%{link_to_account_settings}">tilisi asetuksista</a>.
       notification_event:
@@ -868,7 +984,7 @@ fi:
       reports:
         resource_hidden:
           email_intro: Hallintakäyttäjä poisti luomasi kohteen %{resource_type}, koska se ilmoitettiin asiattomana syyllä "%{report_reasons}".
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut poistetun kohteen.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet laatinut poistetun kohteen.
           email_subject: Laatimasi %{resource_type} on ilmoitettu
           notification_title: |-
             Hallintakäyttäjä poisti luomasi kohteen %{resource_type}, koska se on ilmoitettu asiattomana syyllä "%{report_reasons}".</br><i>%{resource_content}</i>
@@ -951,7 +1067,7 @@ fi:
         file:
           explanation: 'Tiedoston ohjeistus:'
           message_1: On oltava kuva tai asiakirja.
-          message_2: Kuvina käytä mieluiten vaakasuuntaisia kuvia, palvelu rajaa kuvaa.
+          message_2: Mikäli lataat kuvan, käytä mieluiten vaakasuuntaista kuvaa, joka ei sisällä ole tekstiä. Palvelu rajaa kuvaa.
         icon:
           explanation: 'Kuvakkeen ohjeistus:'
           message_1: On oltava neliömuotoinen kuva.
@@ -1089,7 +1205,7 @@ fi:
         subtitle: Luo ryhmä ja pyydä muita käyttäjiä osallistumaan yhteisöllisellä tasolla.
       no_user_groups: Ei kuulu vielä yhteenkään ryhmään.
       roles:
-        admin: Ylläpitäjä
+        admin: Hallinnoija
         creator: Hallinnoija
         member: Jäsen
       update:
@@ -1127,7 +1243,7 @@ fi:
         publish_with_space: "%{user_name} julkaisi %{resource_name} osallistumistilassa %{space_name}"
         unknown_action: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name}"
         unknown_action_with_space: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name} osallistumistilassa %{space_name}"
-        unpublish_with_space: "%{user_name} lopetti %{resource_name} julkaisun osallistumistilassa %{space_name}"
+        unpublish_with_space: "%{user_name} perui %{resource_name} julkaisun osallistumistilassa %{space_name}"
         update: "%{user_name} päivitti %{resource_name}"
         update_permissions_with_space: "%{user_name} päivitti kohteen %{resource_name} oikeuksia tilassa %{space_name}"
         update_with_space: "%{user_name} päivitti %{resource_name} osallistumistilassa %{space_name}"
@@ -1234,6 +1350,8 @@ fi:
         not_started: Ei vielä aloitettu
         remaining: "%{time_distance} jäljellä"
     metrics:
+      blocked_users:
+        description: Estettyjen osallistujien määrä
       download:
         csv: Lataa tiedot (CSV)
       followers:
@@ -1244,6 +1362,10 @@ fi:
         description: Organisaation aktiivisten käyttäjien määrä
         object: osallistujat
         title: Osallistujat
+      reported_users:
+        description: Ilmoitettujen osallistujien määrä
+      user_reports:
+        description: Osallistujien lähettämien ilmoitusten määrä
       users:
         description: Organisaation käyttäjien määrä
         object: käyttäjät
@@ -1276,8 +1398,8 @@ fi:
     newsletters:
       unsubscribe:
         check_subscription: Jos haluat muuttaa asetuksiasi, voit tehdä sen <a href="%{link}" target="_blank">asetussivulla</a>.
-        error: Tilauksen peruuttaminen epäonnistui.
-        success: Tilauksen peruuttaminen onnistui.
+        error: Tilauksen peruminen epäonnistui.
+        success: Tilauksen peruminen onnistui.
         token_error: Linkki on vanhentunut.
         unsubscribe: Peruuta tilaus
     newsletters_opt_in:
@@ -1289,7 +1411,7 @@ fi:
       notify:
         body_1: Henkilötietojen käsittely ja niiden suojaaminen ovat yhä tärkeämpiä meille kaikille. Uuden yleisen tietosuoja-asetuksen (GDPR) 25.5.2018 voimaan tultua yksilöillä on paremmat mahdollisuudet hallinnoida henkilötietojaan. Tästä syystä tarvitsemme suostumuksesi lähettääksemme sinulle olennaista tietoa koskien organisaatiota %{organization_name}.
         body_2: 'Kuinka voit antaa meille suostumuksesi? Napsauta vain seuraavaa painiketta:'
-        body_3: Tämän suostumuksen avulla voit edelleen vastaanottaa tietoja palvelun mahdollisuuksista. Jos emme saa lupaasi, lopetamme viestien lähettämisen sinulle. Jos vahvistat, että haluat edelleen pysyä ajan tasalla palvelusta, sinulla on mahdollisuus peruuttaa tilaus milloin tahansa.
+        body_3: Tämän suostumuksen avulla voit edelleen vastaanottaa tietoja palvelusta. Jos emme saa lupaasi, lopetamme viestien lähettämisen sinulle. Jos vahvistat, että haluat edelleen pysyä ajan tasalla palvelusta, sinulla on mahdollisuus perua tilaus milloin tahansa.
         button: Kyllä, haluan jatkaa olennaisten tietojen vastaanottoa
         greetings: Tervehdys,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hei,
@@ -1309,10 +1431,12 @@ fi:
     notifications_digest_mailer:
       header:
         daily: Päivittäinen ilmoitusyhteenveto
+        real_time: Reaaliajassa
         weekly: Viikottainen ilmoitusyhteenveto
       hello: Hei %{name},
       intro:
         daily: 'Tässä on lista edellisen päivän ilmoituksista niistä asioista, joita seuraat:'
+        real_time: 'Tämä on ilmoitus seuraamistasi alustalla tapahtuneista asioista:'
         weekly: 'Tässä on lista edellisen viikon ilmoituksista niistä asioista, joita seuraat:'
       outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat ilmoitukseen liittyviä sisältöjä tai niiden tekijöitä. Voit lopettaa seuraamisen näiden sisältöjen sivuilta.
       see_more: Näytä lisää ilmoituksia
@@ -1354,11 +1478,13 @@ fi:
     onboarding_action_message:
       click_link: Paina tästä
       cta_html: <a href="%{path}">%{link_text}</a> suorittaaksesi toiminnon %{action} kohteelle %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: Tilisi vahvistaminen onnistui.<br/>Olet aloittanut vierailijaistunnon ja voit nyt osallistua päätöksentekoon tällä alustalla.
       expired_authorization_active_title: Vahvistus on vanhentunut.
       finish_authorization_process: Voit suorittaa vahvistuksen loppuun
       incomplete_authorization_active_title: Vahvistustasi ei ole suoritettu loppuun kaikkine tarvittavine tietoineen.
       pending_authorization_active_message: Täytä esitetty lomake suorittaaksesi tämän toiminnon loppuun.
       pending_authorization_active_title: Meidän on vahvistettava henkilöllisyytesi.
+      pending_ephemeral_authorization: Vahvista henkilöllisyytesi jatkaaksesi palvelun käyttöä.
     open_data:
       help:
         core:
@@ -1379,22 +1505,35 @@ fi:
           blocking_user: Eston tehneen käyttäjän nimi
           details: Ilmoituksen tiedot
           reasons: Lista profiilin ilmoittamisen syistä
-          user_id: Ilmoitetun käyttäjän yksilöllinen tunniste (ID)
+          user_id: Ilmoitetun käyttäjän yksilöivä tunniste (ID)
         moderations:
           hidden_at: Päivämäärä ja aika, sisältö piilotettiin
-          id: Moderoinnin yksilöllinen tunniste
+          id: Moderointi-ilmoituksen yksilöivä tunniste
           report_count: Ilmoitusten lukumäärä
-          reportable_id: Ilmoitettavan asian yksilöllinen tunniste
+          reportable_id: Ilmoitettavan asian yksilöivä tunniste
           reportable_type: Ilmoitettavan asian tyyppi
           reported_content: Ilmoitettu sisältö
           reported_url: Ilmoitetun asian URL-osoite
           reports: Lista ilmoittamisen syistä
+        taxonomies:
+          children_count: Luokitteluun liitettyjen alaluokittelujen määrä
+          created_at: Luokittelun laatimisaika
+          filter_items_count: Tätä luokittelua hyödyntävien hakusuodattimien asioiden lukumäärä
+          filters_count: Tätä luokittelua hyödyntävien hakusuodattimien lukumäärä
+          id: Luokittelun yksilöivä tunniste
+          is_root: Onko kyseessä juuritason luokittelu
+          name: Luokittelun nimi
+          parent_id: Luokittelun isäntä
+          part_of: Onko tämä luokittelu osa jotain muuta luokittelua
+          taxonomizations_count: Tähän luokitteluun liitettyjen asioiden lukumäärä
+          updated_at: Luokittelun viimeisimmän päivityksen ajankohta
+          weight: Luokittelun järjestysnumero
         user_groups:
           avatar_url: Käyttäjäryhmän avatar-kuva
           badge: Käyttäjäryhmän tunnusmerkki
           deleted: Onko käyttäjä poistettu vai ei
-          id: Käyttäjäryhmän yksilöllinen tunniste
-          members: Ryhmään kuuluvien käyttäjien yksilöllinen tunniste (ID) ja nimi
+          id: Käyttäjäryhmän yksilöivä tunniste
+          members: Ryhmään kuuluvien käyttäjien yksilöivät tunnisteet (ID) ja nimet
           members_count: Käyttäjäryhmään kuuluvien käyttäjien määrä
           name: Käyttäjäryhmän nimi
           nickname: Käyttäjäryhmän käyttäjänimi
@@ -1520,8 +1659,8 @@ fi:
       deleted: Poistettu osallistuja
       inaccessible_message: Tämä käyttäjäprofiili ei ole käytettävissä, koska käyttäjä on rikkonut käyttöehtoja!
     profiles:
-      default_officialization_text_for_user_groups: Tämä ryhmä on julkisesti varmennettu, ja sen nimen on varmennettu vastaavan todellista nimeä.
-      default_officialization_text_for_users: Tämä osallistuja on julkisesti varmennettu, ja hänen nimensä tai asemansa on varmennettu vastaavan hänen oikeaa nimeään ja asemaansa.
+      default_officialization_text_for_user_groups: Tämä ryhmä on julkisesti vahvistettu, ja ryhmän nimen oikeellisuus on varmistettu.
+      default_officialization_text_for_users: Tämä osallistuja on julkisesti vahvistettu, ja hänen nimensä sekä asemansa oikeellisuus on varmistettu.
       show:
         activity: Toiminta
         badges: Kunniamerkit
@@ -1701,6 +1840,7 @@ fi:
       no_stats: Tilastoja ei vielä ole.
       pages_count: Sivua
       participants_count: Osallistujaa
+      surveys_count: Kyselyt
       users_count: Osallistujaa
     tags:
       filter_results_for_taxonomy: 'Rajaa tulokset kohteelle: %{resource}'
@@ -1800,7 +1940,7 @@ fi:
         nickname_help: Nimimerkkisi palvelussa %{organization}. Voi sisältää ainoastaan kirjaimia, numeroita sekä yhdysmerkkejä "-" ja alaviivoja "_".
         submit_button: Tallenna
         subtitle: Jos hyväksyt kutsun, aseta käyttäjänimesi ja salasana.
-      invitation_removed: Kutsusi peruutettiin.
+      invitation_removed: Kutsusi on peruttu.
       invitation_token_invalid: Käyttämäsi kutsuavain ei ole voimassa!
       new:
         header: Lähetä kutsu
@@ -1880,7 +2020,7 @@ fi:
       updated: Salasanasi vaihtaminen onnistui. Olet nyt kirjautunut sisään.
       updated_not_active: Salasanasi vaihtaminen onnistui.
     registrations:
-      destroyed: Tilisi poistaminen onnistui. Toivomme näkevämme sinut pian uudestaan.
+      destroyed: Tilisi poisto onnistui. Toivomme näkevämme sinut pian uudestaan.
       new:
         sign_up: Luo tili
       signed_up: Tervetuloa! Sisäänkirjautuminen onnistui.
@@ -2105,6 +2245,8 @@ fi:
         sign_up: Luo tili
         terms_of_service: Käyttöehdot
       header:
+        close: Sulje
+        confirm_close_ephemeral_session: Jos siirryt pois tältä sivulta, istuntosi päätetään. Haluatko varmasti jatkaa?
         log_in: Kirjaudu sisään
         main_menu: Päävalikko
         user_menu: Käyttäjän valikko
@@ -2114,6 +2256,8 @@ fi:
         expire_time_html: Istuntosi vanhenee <b><span class="minutes">%{minutes}</span> minuutin kuluttua</b>.
       language_chooser:
         choose_language: Valitse kieli
+      navigation:
+        aria_label: 'Navigaatiovalikko: %{title}'
       notifications_dashboard:
         mark_all_as_read: Merkitse kaikki luetuiksi
         mark_as_read: Merkitse luetuiksi

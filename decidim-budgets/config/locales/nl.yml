@@ -121,6 +121,9 @@ nl:
           fields:
             id: ID
             title: Titel
+      order:
+        status:
+          title: Uw stem is aanvaard
       order_summary_mailer:
         order_summary:
           selected_projects: 'De projecten die je hebt geselecteerd zijn:'

@@ -33,7 +33,12 @@ module Decidim::Maintenance::ImportModels
       sub5_scope.update!(part_of: [scope.id, sub2_scope.id, sub3_scope.id, sub4_scope.id, sub5_scope.id])
       assembly.update!(decidim_scope_id: sub2_scope.id, scopes_enabled: space_scopes_enabled)
       participatory_process.update!(decidim_scope_id: sub2_scope.id)
-      dummy_component.update!(settings:)
+      # as scope settings are disabled now, we need to update the settings directly as it was already there
+      # rubocop:disable Rails/SkipsModelValidations
+      dummy_component.update_column(:settings, {
+                                      "global" => settings
+                                    })
+      # rubocop:enable Rails/SkipsModelValidations
       dummy_resource.update!(decidim_scope_id: sub4_scope.id) if dummy_resource
       external_assembly.update!(decidim_scope_id: external_scope.id, scopes_enabled: true)
     end
@@ -150,28 +155,23 @@ module Decidim::Maintenance::ImportModels
           scope.name[I18n.locale.to_s] => scope.taxonomies,
           another_scope.name[I18n.locale.to_s] => another_scope.taxonomies
         )
-        expect(hash[:filters].count).to eq(5)
+        expect(hash[:filters].count).to eq(2)
       end
 
       it "returns the filters for each space" do
-        %w(assemblies participatory_processes conferences initiatives).each do |space_manifest|
-          expect(hash[:filters]).to include(
-            {
-              space_filter: true,
-              space_manifest:,
-              name: root_taxonomy_name,
-              items: all_items,
-              components: []
-            }
-          )
-        end
+        expect(hash[:filters]).to include(
+          {
+            participatory_space_manifests: %w(assemblies participatory_processes conferences initiatives),
+            name: root_taxonomy_name,
+            items: all_items,
+            components: []
+          }
+        )
       end
 
       it "returns the filters for each component" do
         expect(hash[:filters]).to include(
           {
-            space_filter: false,
-            space_manifest: "assemblies",
             name: root_taxonomy_name,
             internal_name: "#{root_taxonomy_name}: Dummy Component",
             items: [
@@ -201,10 +201,10 @@ module Decidim::Maintenance::ImportModels
         let(:dummy_resource) { nil }
 
         it "Skips the component" do
-          expect(hash[:filters].count).to eq(4)
+          expect(hash[:filters].count).to eq(1)
 
           hash[:filters].each do |filter|
-            expect(filter[:space_filter]).to be_truthy
+            expect(filter[:participatory_space_manifests]).to be_present
             expect(filter[:components]).to be_empty
           end
         end

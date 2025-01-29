@@ -1,0 +1,24 @@
+<% add_decidim_meta_tags(
+  description: translated_attribute(current_component.participatory_space.try(:description)),
+  title: translated_attribute(current_component.name),
+  url: surveys_url,
+  resource: current_component
+) %>
+
+<% add_decidim_page_title(t("decidim.surveys.directory.surveys.index.surveys")) %>
+
+<% content_for :aside do %>
+  <% title = current_component.present? ? translated_attribute(current_component.name) : t("decidim.components.surveys.name") %>
+  <h1 class="title-decorator"><%= title %></h1>
+
+  <%= render layout: "decidim/shared/filters", locals: { filter_sections:, skip_to_id: "surveys" } do %>
+  <% end %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <%= render partial: "decidim/shared/component_announcement" %>
+
+  <section id="surveys" class="layout-main__section layout-main__heading">
+    <%= render partial: "surveys" %>
+  </section>
+<% end %>

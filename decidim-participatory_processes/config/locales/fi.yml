@@ -22,7 +22,6 @@ fi:
         local_area: Järjestöalue
         meta_scope: Teeman metadata
         participatory_process_group_id: Prosessiryhmä
-        participatory_process_type_id: Prosessin tyyppi
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
         private_space: Yksityinen prosessi
@@ -60,8 +59,6 @@ fi:
         short_description: Lyhyt kuvaus
         start_date: Alkamispäivä
         title: Otsikko
-      participatory_process_type:
-        title: Otsikko
       participatory_process_user_role:
         email: Sähköposti
         name: Nimi
@@ -92,7 +89,7 @@ fi:
         activate: Aktivoi
         configure: Asetukset
         confirm_delete_process: Haluatko varmasti poistaa tämän prosessin? Mikäli muutat mieltäsi, voit palauttaa prosessin myöhemmin.
-        confirm_destroy: Vahvista poistaminen
+        confirm_destroy: Vahvista poisto
         destroy: Poista
         duplicate: Kopioi
         edit: Muokkaa
@@ -102,13 +99,12 @@ fi:
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
-        new_process_type: Uusi prosessityyppi
         new_process_user_role: Uusi prosessin hallintakäyttäjä
         preview: Esikatsele
         publish: Julkaise
         resend_invitation: Lähetä kutsu uudestaan
         see_process: Näytä prosessi
-        unpublish: Lopeta julkaisu
+        unpublish: Peru julkaisu
         view_deleted_processes: Näytä poistetut prosessit
       filters:
         decidim_participatory_process_group_id_eq:
@@ -118,17 +114,16 @@ fi:
         participatory_process_groups_submenu:
           info: Tiedot
           landing_page: Laskeutumissivu
-        participatory_process_types: Prosessityypit
         participatory_processes: Prosessit
         participatory_processes_submenu:
           attachment_collections: Kansiot
           attachment_files: Tiedostot
           attachments: Liitteet
-          categories: Aihepiirit
           components: Komponentit
           info: Tietoa tästä prosessista
           landing_page: Laskeutumissivu
           moderations: Moderoinnit
+          private_users: Jäsenet
           process_admins: Prosessin hallintakäyttäjät
           steps: Vaiheet
       models:
@@ -150,11 +145,6 @@ fi:
             start_date: Alkamispäivä
             title: Otsikko
           name: Osallistumisprosessin vaihe
-        participatory_process_type:
-          fields:
-            created_at: Luontiaika
-            title: Otsikko
-          name: Prosessityyppi
         participatory_process_user_role:
           fields:
             email: Sähköposti
@@ -170,6 +160,7 @@ fi:
           fields:
             invitation_accepted_at: Kutsu hyväksytty
             invitation_sent_at: Kutsu on
+            published: Julkaistu
       participatory_process_copies:
         new:
           copy: Kopioi
@@ -201,8 +192,8 @@ fi:
           error: Osallistumisprosessin julkaisu epäonnistui.
           success: Osallistumisprosessin julkaisu onnistui.
         destroy:
-          error: Osallistumisprosessin julkaisun lopettaminen epäonnistui.
-          success: Osallistumisprosessin julkaisun lopettaminen onnistui.
+          error: Osallistumisprosessin julkaisun peruminen epäonnistui.
+          success: Osallistumisprosessin julkaisun peruminen onnistui.
       participatory_process_step_activations:
         create:
           error: Osallistumisprosessin vaiheen aktivointi epäonnistui.
@@ -236,27 +227,12 @@ fi:
         update:
           error: Osallistumisprosessin vaiheen päivitys epäonnistui.
           success: Osallistumisprosessin vaiheen päivitys onnistui.
-      participatory_process_types:
-        create:
-          error: Prosessityypin luonti epäonnistui.
-          success: Prosessityypin luonti onnistui.
-        destroy:
-          success: Prosessityypin poisto onnistui.
-        edit:
-          title: Muokkaa prosessityyppiä
-          update: Päivitä
-        new:
-          create: Luo
-          title: Uusi prosessityyppi
-        update:
-          error: Prosessityypin päivitys epäonnistui.
-          success: Prosessityypin päivittäminen onnistui.
       participatory_process_user_roles:
         create:
           error: Osallistumisprosessin käyttäjän lisääminen epäonnistui.
           success: Käyttäjän lisäys tähän osallistumisprosessiin onnistui.
         destroy:
-          success: Käyttäjä poistaminen tästä osallistumisprosessista onnistui.
+          success: Käyttäjä poisto tästä osallistumisprosessista onnistui.
         edit:
           title: Päivitä osallistumisprosessin hallintakäyttäjä
           update: Päivitä
@@ -315,10 +291,11 @@ fi:
         publish: "%{user_name} julkaisi osallistumisprosessin %{resource_name}"
         restore: "%{user_name} palautti osallistumisprosessin %{resource_name}"
         soft_delete: "%{user_name} siirsi osallistumisprosessin %{resource_name} roskakoriin"
-        unpublish: "%{user_name} muutti osallistumisprosessin %{resource_name} julkaisemattomaksi"
+        unpublish: "%{user_name} perui osallistumisprosessin %{resource_name} julkaisun"
         update: "%{user_name} päivitti osallistumisprosessin %{resource_name}"
       participatory_process_group:
         create: "%{user_name} loi osallistumisprosessien ryhmän %{resource_name}"
+        unpublish: "%{user_name} perui osallistumisprosessin %{resource_name} julkaisun"
         update: "%{user_name} päivitti osallistumisprosessien ryhmää %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} aktivoi vaiheen %{resource_name} osallistumisprosessissa %{space_name}"
@@ -381,7 +358,7 @@ fi:
           end_date: Prosessin päättymispäivä
           follows_count: Tilaa seuraavien käyttäjien määrä
           hashtag: Prosessia vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
-          id: Prosessin yksilöllinen tunniste
+          id: Prosessin yksilöivä tunniste
           local_area: Prosessin paikallisalue, eli millä alueella prosessi tapahtuu.
           meta_scope: Prosessin teeman metatiedot
           participatory_process_group: Prosessin ryhmä, mikäli sellainen on määritetty
@@ -390,7 +367,7 @@ fi:
           participatory_structure: Prosessin osallistumisrakenne. Määrittää, miten prosessin lopputulokset määrätään.
           promoted: Onko prosessi korostettu vai ei
           published_at: Tilan julkaisuaika
-          reference: Tilan yksilöllinen viite
+          reference: Tilan yksilöivä viite
           remote_hero_image_url: Prosessin hero-kuvan URL-osoite
           scope: Prosessin teema
           scopes_enabled: Ovatko teemat otettu käyttöön vai eivät
@@ -400,7 +377,7 @@ fi:
           subtitle: Prosessin alaotsikko
           target: Prosessin tavoite. Määrittää esimerkiksi, keitä prosessiin osallistuu.
           title: Prosessin otsikko
-          updated_at: Tilan viimeisen päivityksen aika
+          updated_at: Osallistumistilan viimeisimmän päivityksen ajankohta
           url: Tilan URL-osoite
     participatory_process_groups:
       content_blocks:
@@ -471,11 +448,10 @@ fi:
             images: Kuvat
             metadata: Metatiedot
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
-            other: Muut
+            private_notice: Voit hallinnoida osallistumistilan yksityisiä käyttäjiä asettamalla osallistumistilan yksityiseksi
             related_processes: Liittyvät prosessit
             scope_type_max_depth_help: Rajaa teemasuodattimen syvyyttä; suodatin näyttää yleisestä teemasta valittuun teematyyppiin saakka.
             select_an_area: Valitse alue
-            select_participatory_process_type: Valitse prosessityyppi
             select_process_group: Valitse prosessiryhmä
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
             taxonomies: Luokittelut
@@ -543,6 +519,9 @@ fi:
           type: Tyyppi
         show:
           title: Tietoa tästä prosessista
+      participatory_space_private_users:
+        index:
+          title: Jäsenet
       show:
         belongs_to_group: Tämä prosessi kuuluu ryhmään
         private_space: Tämä on yksityinen prosessi
@@ -556,6 +535,8 @@ fi:
           browse: Selaa
           browse_resource: Selaa prosessiryhmää %{resource_name}
           processes_count: 'Prosessit:'
+      participatory_process_navigation:
+        member_menu_item: Jäsenet
       participatory_processes:
         index:
           promoted_processes: Tärkeät prosessit
