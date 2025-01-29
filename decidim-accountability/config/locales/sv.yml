@@ -275,8 +275,6 @@ sv:
         home:
           empty: Det finns inget resultat ännu.
           empty_filters: Det finns inget resultat med de här kriterierna.
-          sub_taxonomies_label: Underkategorier
-          taxonomies_label: Kategorier
         home_header:
           global_status: Status för genomförande
         no_results: Det finns inga projekt
