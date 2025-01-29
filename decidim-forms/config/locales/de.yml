@@ -213,7 +213,6 @@ de:
           tos_agreement: 'Mit Ihrer Teilnahme stimmen Sie folgenden Nutzungsbedingungen zu:'
       step_navigation:
         show:
-          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Sind Sie sich sicher?
           back: Zurück
           continue: Weiter
           submit: einreichen
