@@ -245,8 +245,6 @@ es-PY:
         home:
           empty: Aún no hay ningún resultado.
           empty_filters: No hay resultados con estos criterios.
-          sub_taxonomies_label: Subcategorías
-          taxonomies_label: Categorías
         home_header:
           global_status: Estado de ejecución global
         no_results: No hay proyectos
