@@ -250,8 +250,6 @@ fr:
         home:
           empty: Il n'y a aucun résultat pour le moment.
           empty_filters: Il n'y a aucun résultat avec ces critères.
-          sub_taxonomies_label: Sous-catégories
-          taxonomies_label: Catégories
         home_header:
           global_status: État d'exécution global
         no_results: Il n'y a aucun projet.
