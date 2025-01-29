@@ -195,7 +195,6 @@ cs:
           media_links_title: Odkazy na média
         new:
           create: Vytvořit
-          title: Odkaz na média
         update:
           error: Při aktualizaci tohoto odkazu na média došlo k chybě.
           success: Odkaz na média byl úspěšně aktualizován.
