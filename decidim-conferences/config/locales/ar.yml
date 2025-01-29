@@ -175,7 +175,6 @@ ar:
           media_links_title: روابط الوسائط
         new:
           create: إنشاء
-          title: وصلة الوسائط
         update:
           error: حدثت مشكلة أثناء تحديث رابط الوسائط هذا.
           success: تم تحديث رابط الوسائط بنجاح.
