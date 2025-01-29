@@ -189,7 +189,6 @@ es-PY:
           media_links_title: Enlaces de medios
         new:
           create: Crear
-          title: Enlace de medios
         update:
           error: Hubo un error al actualizar este enlace de medios.
           success: Enlace de medios actualizado con éxito.
