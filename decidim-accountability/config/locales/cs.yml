@@ -246,8 +246,6 @@ cs:
         home:
           empty: Zatím nejsou žádné výsledky.
           empty_filters: S těmito kritérii nejsou žádné výsledky.
-          sub_taxonomies_label: Podkategorie
-          taxonomies_label: Kategorie
         home_header:
           global_status: Globální stav provedení
         no_results: Nebyly nalezeny žádné projekty
