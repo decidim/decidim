@@ -18,7 +18,7 @@ describe "Conference admin accesses admin sections" do
       expect(page).to have_content("About this conference")
       expect(page).to have_content("Components")
       expect(page).to have_content("Attachments")
-      expect(page).to have_content("Media Links")
+      expect(page).to have_content("Media links")
       expect(page).to have_content("Partners")
       expect(page).to have_content("Speakers")
       expect(page).to have_content("Registrations")

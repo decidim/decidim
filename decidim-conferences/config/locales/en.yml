@@ -183,20 +183,20 @@ en:
       media_links:
         create:
           error: There was a problem creating a new media link.
-          success: Media Link successfully created.
+          success: Media link successfully created.
         destroy:
-          success: Media Link successfully deleted.
+          success: Media link successfully deleted.
         edit:
           title: Update media link
           update: Update
         index:
-          media_links_title: Media Links
+          media_links_title: Media links
         new:
           create: Create
           title: Create media link
         update:
           error: There was a problem updating this media link.
-          success: Media Link successfully updated.
+          success: Media link successfully updated.
       menu:
         conferences: Conferences
         conferences_submenu:
@@ -209,7 +209,7 @@ en:
           conference_speakers: Speakers
           diploma: Certificate of Attendance
           info: About this conference
-          media_links: Media Links
+          media_links: Media links
           moderations: Moderations
           partners: Partners
           registration_types: Registration Types
@@ -244,7 +244,7 @@ en:
             date: Date
             link: Link
             title: Title
-          name: Media Link
+          name: Media link
         partner:
           fields:
             link: Link
