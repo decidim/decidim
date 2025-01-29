@@ -207,7 +207,7 @@ en:
           conference_admins: Conference admins
           conference_invites: Invites
           conference_speakers: Speakers
-          diploma: Certificate of Attendance
+          diploma: Certificate of attendance
           info: About this conference
           media_links: Media links
           moderations: Moderations
@@ -398,7 +398,7 @@ en:
         diplomas:
           edit:
             save: Save
-            title: Certificate of Attendance
+            title: Certificate of attendance
         invite_join_conference_mailer:
           invite:
             decline: Decline invitation '%{conference_title}'
@@ -418,7 +418,7 @@ en:
             diploma_html: You will be find the certificate of attendance for the conference <a href="%{url}">%{title}</a> in the attachments.
           diploma_user:
             attendance_verified_by: Attendance verified by
-            certificate_of_attendance: Certificate of Attendance
+            certificate_of_attendance: Certificate of attendance
             certificate_of_attendance_description: This is to certify that <strong>%{user}</strong> has attended and taken part in the <strong>%{title}</strong> held at the <strong>%{location}</strong> on <strong>%{start} - %{end}</strong>
         send_diploma:
           error: There was a problem sending the conference certificates of attendance.
