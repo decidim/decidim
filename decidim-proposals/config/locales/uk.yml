@@ -121,8 +121,6 @@ uk:
             submit: Надіслати
           title: Приватні примітки
         proposals:
-          form:
-            attachment_legend: "(Необов'язково) Додати вкладений файл"
           index:
             actions: Дії
             cancel: Скасувати
@@ -174,7 +172,6 @@ uk:
             votes: Голоси
       proposals:
         edit:
-          attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Повернутись
           send: Надіслати
           title: Редагувати пропозицію

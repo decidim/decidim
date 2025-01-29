@@ -4,11 +4,8 @@
       <tr role="row">
         <th><%= t(".internal_name") %></th>
         <th><%= t(".name") %></th>
-        <th><%= t(".taxonomy") %></th>
-        <th><%= t(".count") %></th>
-        <th><%= t(".space_filter", manifest_name: t("decidim.admin.titles.#{participatory_space_manifest}", default: participatory_space_manifest).downcase) %></th>
         <th><%= t(".components_count") %></th>
-        <th><%= t(".actions") %></th>
+        <th class="w-16"><%= t(".actions") %></th>
       </tr>
     </thead>
     <tbody role="rowgroup">
@@ -16,18 +13,15 @@
         <tr>
           <td><%= translated_attribute(taxonomy_filter.internal_name) %></td>
           <td><%= translated_attribute(taxonomy_filter.name) %></td>
-          <td><%= translated_attribute(taxonomy_filter.root_taxonomy.name) %></td>
-          <td><%= taxonomy_filter.filter_items_count %></td>
-          <td><%= t("booleans.#{taxonomy_filter.space_filter}") %></td>
           <td><%= taxonomy_filter.components_count %></td>
           <td>
             <% if allowed_to? :update, :taxonomy_filter, taxonomy_filter: %>
-              <%= icon_link_to "pencil-line", url_for(controller: params[:controller], action: :edit, id: taxonomy_filter.id), t(".edit"), class: "action-icon--edit" %>
+              <%= icon_link_to "pencil-line", edit_taxonomy_filter_path(root_taxonomy, taxonomy_filter), t(".edit"), class: "action-icon--edit" %>
             <% else %>
               <span class="action-space icon"></span>
             <% end %>
             <% if allowed_to? :destroy, :taxonomy_filter, taxonomy_filter: %>
-              <%= icon_link_to "delete-bin-line", url_for(controller: params[:controller], action: :destroy, id: taxonomy_filter.id), t(".destroy"), class: "action-icon--remove", method: :delete, data: { confirm: t(".confirm_destroy", name: strip_tags(translated_attribute(taxonomy_filter.name))) } %>
+              <%= icon_link_to "delete-bin-line", taxonomy_filter_path(root_taxonomy, taxonomy_filter), t(".destroy"), class: "action-icon--remove", method: :delete, data: { confirm: t(".confirm_destroy", name: strip_tags(translated_attribute(taxonomy_filter.name))) } %>
             <% else %>
               <span class="action-space icon"></span>
             <% end %>

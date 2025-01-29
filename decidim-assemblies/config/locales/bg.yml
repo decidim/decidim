@@ -1,8 +1,6 @@
 bg:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Заглавие
       assembly:
         announcement: Обявление
         area_id: Район
@@ -19,7 +17,6 @@ bg:
         created_by_other: Създадено от друг
         creation_date: Дата на създаване
         decidim_area_id: Област
-        decidim_assemblies_type_id: Тип събрание
         decidim_scope_id: Обхват
         description: Описание
         developer_group: Група за популяризиране
@@ -35,7 +32,6 @@ bg:
         import_components: Импортиране на компоненти
         included_at: Включено в(ъв)
         instagram: Instagram
-        internal_organisation: Вътрешна организация
         is_transparent: Е прозрачно
         local_area: Област на организацията
         meta_scope: Метаданни за обхвата
@@ -95,7 +91,6 @@ bg:
       actions:
         import_assembly: Импортиране
         new_assembly: Ново събрание
-        new_assembly_type: Нов тип събрание
         new_assembly_user_role: Нов администратор на събранието
       assemblies:
         create:
@@ -117,18 +112,6 @@ bg:
         create:
           error: Възникна проблем при дублирането на това събрание.
           success: Събранието беше дублирано успешно.
-      assemblies_types:
-        create:
-          error: Възникна проблем при създаването на нов тип събрание.
-          success: Типът събрание беше създаден успешно.
-        destroy:
-          success: Типът събрание беше изтрит успешно.
-        new:
-          create: Създаване
-          title: Нов тип събрание
-        update:
-          error: Възникна проблем при актуализирането на този тип събрание.
-          success: Типът на събранието беше актуализиран успешно.
       assembly_copies:
         new:
           copy: Копиране
@@ -172,8 +155,6 @@ bg:
           values:
             'false': Не е прекратено
             'true': Прекратено
-        decidim_assemblies_type_id_eq:
-          label: Тип събрание
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Търсене по име или псевдоним
       menu:
@@ -183,18 +164,12 @@ bg:
           attachment_collections: Папки
           attachment_files: Файлове
           attachments: Прикачени файлове
-          categories: Категории
           components: Компоненти
           info: Относно това събрание
           landing_page: Целева страница
           moderations: Модерации
           see_assembly: Вижте събранието
-        assemblies_types: Типове събрания
       models:
-        assemblies_types:
-          fields:
-            created_at: Създадено на
-            title: Заглавие
         assembly:
           fields:
             actions: Активности
@@ -264,15 +239,11 @@ bg:
             other: Друго
             select_a_created_by: Изберете „Създадено от“
             select_an_area: Изберете област
-            select_an_assembly_type: Изберете тип събрание
             select_parent_assembly: Изберете родителско събрание
             slug_help_html: 'Използват се променливи полета в URL адреса, за да се генерират URL адреси, които водят към това събрание. Допуска се използването само на букви, цифри и тирета и адресът трябва да започва с буква. Пример: %{url}'
             social_handlers: Социални мрежи
             title: Основна информация
             visibility: Видимост
-        assemblies_types:
-          form:
-            title: Редактиране на типа събрание
         assembly_copies:
           form:
             slug_help_html: 'Използват се променливи полета в URL адреса, за да се генерират URL адреси, които водят към това събрание. Допуска се използването само на букви, цифри и тирета и адресът трябва да започва с буква. Пример: %{url}'
@@ -316,14 +287,6 @@ bg:
       assembly_members:
         index:
           members: Членове
-      assembly_types:
-        commission: Комисия
-        consultative_advisory: Консултативно/Съветнически
-        executive: Изпълнителен директор
-        government: Правителство
-        others: Други
-        participatory: Съучастие
-        working_group: Работна група
       content_blocks:
         children_assemblies:
           name: Събрания
@@ -362,7 +325,6 @@ bg:
           member_of:
             member_of: Член на
       show:
-        assembly_type: Тип събрание
         duration: Продължителност
         private_space: Това е частно събрание
         social_networks_title: Посетете събранието на

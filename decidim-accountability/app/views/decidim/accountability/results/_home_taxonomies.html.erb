@@ -9,12 +9,10 @@
     ) %>
 
     <div>
-      <span class="accountability__grid-title"><%= t("results.home.taxonomies_label", scope: "decidim.accountability") %></span>
       <%= subelements.call %>
     </div>
 
     <div>
-      <span class="accountability__grid-title"><%= t("results.home.sub_taxonomies_label", scope: "decidim.accountability") %></span>
         <% if subelements.has_results? %>
           <div class="accountability__subgrid">
             <% taxonomy.children.where(id: current_component.available_taxonomy_ids).each do |sub_taxonomy| %>

@@ -99,7 +99,6 @@ tr:
           attachment_collections: Klasörler
           attachment_files: Dosyalar
           attachments: Ekler
-          categories: Kategoriler
           components: Bileşenler
           info: Süreç Hakkında
           moderations: Denetimler
@@ -340,7 +339,6 @@ tr:
             filters: Filtreler
             images: Görüntüler
             metadata: Meta veri
-            other: Diğer
             related_processes: İlgili süreçler
             scope_type_max_depth_help: Kapsam filtresi derinliğini sınırlayın; Filtre genelden seçilen kapsam türüne kadar gösterilecektir.
             select_an_area: Bir alan seçin

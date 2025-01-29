@@ -22,8 +22,6 @@ en:
         published_at: Published at
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
         short_description: Short description
         show_statistics: Show statistics
         sign_date: Sign date
@@ -205,7 +203,6 @@ en:
           attachment_collections: Folders
           attachment_files: Files
           attachments: Attachments
-          categories: Categories
           components: Components
           conference_admins: Conference admins
           conference_invites: Invites
@@ -303,6 +300,9 @@ en:
         update:
           error: There was a problem updating a registration type for this conference.
           success: Conference registration type successfully updated.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: All conferences
       titles:
         conferences: Conferences
         conferences_deleted: Deleted conferences
@@ -545,16 +545,20 @@ en:
         conference_invites:
           accepted_at: The date when the conference invitation was accepted
           conference: The conference where this invitation was sent
+          confirmed_at: The date when this invitation was confirmed
+          created_at: The date when this invitation was created
           id: The unique identifier of the conference invitation
           registration_type: The type of the registration for this conference that was sent
           rejected_at: The date when the conference invitation was rejected
           sent_at: The date when this conference invitation was sent
-          user: The unique identifier of the user that the invitation was sent
+          updated_at: The date when this invitation was updated for the last time
         conference_registrations:
           conference: The conference that this belongs to
+          confirmed_at: The date when this registration was confirmed
+          created_at: The date when this registration was created
           id: The unique identifier of the conference regisrations
           registration_type: The type of registration that this belongs to
-          user: The unique identifier of the user for this registration
+          updated_at: The date when this registration was updated for the last time
     events:
       conferences:
         conference_registration_confirmed:

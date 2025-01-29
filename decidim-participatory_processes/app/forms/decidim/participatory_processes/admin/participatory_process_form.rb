@@ -28,17 +28,12 @@ module Decidim
         attribute :hashtag, String
         attribute :slug, String
 
-        attribute :area_id, Integer
         attribute :participatory_process_group_id, Integer
-        attribute :scope_id, Integer
         attribute :related_process_ids, Array[Integer]
-        attribute :scope_type_max_depth_id, Integer
         attribute :weight, Integer, default: 0
 
         attribute :private_space, Boolean
         attribute :promoted, Boolean
-        attribute :scopes_enabled, Boolean
-        attribute :participatory_process_type_id, Integer
 
         attribute :end_date, Decidim::Attributes::LocalizedDate
         attribute :start_date, Decidim::Attributes::LocalizedDate
@@ -46,8 +41,6 @@ module Decidim
         attribute :hero_image
         attribute :remove_hero_image, Boolean, default: false
 
-        validates :area, presence: true, if: proc { |object| object.area_id.present? }
-        validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
 
         validate :slug_uniqueness
@@ -61,9 +54,7 @@ module Decidim
         alias organization current_organization
 
         def map_model(model)
-          self.scope_id = model.decidim_scope_id
           self.participatory_process_group_id = model.decidim_participatory_process_group_id
-          self.participatory_process_type_id = model.decidim_participatory_process_type_id
           self.related_process_ids = model.linked_participatory_space_resources(:participatory_process, "related_processes").pluck(:id)
           @processes = Decidim::ParticipatoryProcess.where(organization: model.organization).where.not(id: model.id)
         end
@@ -72,41 +63,15 @@ module Decidim
           :participatory_processes
         end
 
-        def scope
-          @scope ||= current_organization.scopes.find_by(id: scope_id)
-        end
-
-        def scope_type_max_depth
-          @scope_type_max_depth ||= current_organization.scope_types.find_by(id: scope_type_max_depth_id)
-        end
-
-        def area
-          @area ||= current_organization.areas.find_by(id: area_id)
-        end
-
         def participatory_process_group
           Decidim::ParticipatoryProcessGroup.find_by(id: participatory_process_group_id)
-        end
-
-        def participatory_process_type
-          Decidim::ParticipatoryProcessType.find_by(id: participatory_process_type_id)
         end
 
         def processes
           @processes ||= Decidim::ParticipatoryProcess.where(organization: current_organization)
         end
 
-        def participatory_process_types_for_select
-          @participatory_process_types_for_select ||= participatory_process_types.map do |type|
-            [translated_attribute(type.title), type.id]
-          end
-        end
-
         private
-
-        def participatory_process_types
-          Decidim::ParticipatoryProcessType.where(organization: current_organization)
-        end
 
         def organization_participatory_processes
           OrganizationParticipatoryProcesses.new(current_organization).query

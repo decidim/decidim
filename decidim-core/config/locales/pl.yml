@@ -868,7 +868,6 @@ pl:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
-          message_2: W przypadku obrazów używaj najlepiej tych o orientacji poziomej, usługa przycina obraz.
         icon:
           explanation: 'Wytyczne dla ikony:'
           message_1: Musi być obrazem kwadratowym.

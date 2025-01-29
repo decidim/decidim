@@ -9,7 +9,7 @@ module Decidim
         fetch_file_attributes :hero_image, :banner_image
 
         fetch_form_attributes :organization, :title, :slogan, :slug, :weight, :hashtag, :description,
-                              :short_description, :objectives, :location, :scopes_enabled, :taxonomizations, :scope, :start_date, :end_date,
+                              :short_description, :objectives, :location, :taxonomizations, :start_date, :end_date,
                               :promoted, :show_statistics, :registrations_enabled, :available_slots, :registration_terms
 
         private

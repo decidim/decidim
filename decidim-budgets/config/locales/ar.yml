@@ -80,6 +80,9 @@ ar:
         project:
           fields:
             title: عنوان
+      order:
+        status:
+          title: تم قبول تصويتك بنجاح
       projects:
         budget_confirm:
           cancel: إلغاء

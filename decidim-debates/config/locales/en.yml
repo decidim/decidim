@@ -43,8 +43,6 @@ en:
             comments_max_length: Comments max length (Leave 0 for default value)
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             no_taxonomy_filters_found: No taxonomy filters found.
-            scope_id: Scope
-            scopes_enabled: Scopes enabled
             taxonomy_filters: Select filters for the component
             taxonomy_filters_add: Add filter
           step:
@@ -75,12 +73,12 @@ en:
             title: Edit debate
             update: Update debate
           form:
-            add_documents: Add documents
-            attachment_legend: "(Optional) Add an attachment"
+            add_attachments: Add attachments
+            attachment_legend: Add a document or an image
             comments_visualization: Comments visualization
             comments_warning: Once the first comment is posted, the selected display option cannot be changed.
             debate_type: Debate type
-            edit_documents: Edit documents
+            edit_attachments: Edit attachments
             errors:
               comments_layout_locked: You cannot change the comment layout once comments have been posted.
             finite: Finite (With start and end times)
