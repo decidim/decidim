@@ -274,8 +274,6 @@ de:
         home:
           empty: Es liegen noch keine Ergebnisse vor.
           empty_filters: Es liegen noch keine Ergebnisse mit diesen Kriterien vor.
-          sub_taxonomies_label: Unterkategorien
-          taxonomies_label: Kategorien
         home_header:
           global_status: Globaler Umsetzungsstatus
         no_results: Es gibt keine Projekte
