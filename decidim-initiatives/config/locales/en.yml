@@ -384,7 +384,7 @@ en:
           back: Back
           continue: Continue
           fill_data_help: "<ul> <li>Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative?</li> </ul>"
-          more_information: "More information"
+          more_information: More information
           select_area: Select an area
           select_scope: Select a scope
         finish:
@@ -392,19 +392,17 @@ en:
           back_to_initiatives: Back to initiatives
           callout_text: Congratulations! Your initiative has been successfully created.
           confirm: You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?
-          edit_my_initiative: Edit my initiative
           go_to_my_initiatives: Go to my initiatives
-          more_information: "More information"
+          more_information: More information
           send_my_initiative: Send my initiative to technical validation
         finish_help:
           publish_helper_text: Remember that for your initiative to be published you must complete the required information and <strong>send it to technical validation</strong> for an administrator to review it.
         previous_form:
           back: Back
-          continue: Continue
         promotal_committee:
           individual_help_text: This kind of initiative requires a Promoting Commission consisting of at least %{committee_size} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
           invite_link_title: Link to invite people
-          more_information: "More information"
+          more_information: More information
           promoters_committee_help: You need %{committee_size} members of the promoters committee to start, you have %{committee_members_count}/%{committee_size}.
           promoters_committee_help_2: Remember that for your initiative to be published you must complete the required information and send it to technical validation for review by an administrator.
           promoters_committee_title: Promoters Committee
@@ -413,12 +411,12 @@ en:
         select_initiative_type:
           back: Back
           choose_html: I want to create a <strong>%{title}</strong>
-          continue: Continue
           consult_existing_initiatives: Consult existing initiatives
+          continue: Continue
           more_information: More information
           new: Create a new initiative
           select: I want to promote this initiative
-          select_initiative_type_help: <p>Initiatives are a means by which the participants can intervene so that the organization can undertake actions in defence of the general interest. Which initiative do you want to launch?</p>
+          select_initiative_type_help: "<p>Initiatives are a means by which the participants can intervene so that the organization can undertake actions in defence of the general interest. Which initiative do you want to launch?</p>"
           subtitle: What initiative do you want to promote?
           verification_required: Verify your account to promote this initiative
         share_committee_link:

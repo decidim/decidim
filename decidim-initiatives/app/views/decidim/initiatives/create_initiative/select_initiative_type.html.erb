@@ -14,13 +14,14 @@
   <%= decidim_form_for(@form, url: select_initiative_type_create_initiative_index_path, method: :put, html: { id: "new_initiative_form", class: "form-defaults " }) do |f| %>
     <% initiative_types_each do |type| %>
       <% if allowed_to?(:create, :initiative, { initiative_type: type }) %>
-        <%= render layout: "decidim/application/radio_accordion", locals: {
-          open_accordion: false,
-          panel_id: type.id,
-          title: translated_attribute(type.title),
-          input_radio_name: "initiative[type_id]",
-          input_radio_value: type.id
-        } do %>
+        <%= render layout: "decidim/application/radio_accordion",
+                   locals: {
+                     open_accordion: false,
+                     panel_id: type.id,
+                     title: translated_attribute(type.title),
+                     input_radio_name: "initiative[type_id]",
+                     input_radio_value: type.id
+                   } do %>
           <p>
             <%= decidim_sanitize_admin(translated_attribute(type.description)) %>
           </p>

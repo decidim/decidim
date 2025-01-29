@@ -43,6 +43,7 @@ module Decidim
         self.signature_type = model.signature_type || initiative_type.signature_type
         self.title = translated_attribute(model.title)
         self.description = translated_attribute(model.description)
+        self.hashtag = model.hashtag
       end
 
       def type
