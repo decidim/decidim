@@ -11,12 +11,12 @@
   <% end %>
 </div>
 
-<div class="flex items-center justify-between">
-  <span class="content-block__span flex-shrink-0 pr-12">
+<div class="flex items-center justify-between space-x-6">
+  <span class="content-block__span flex-shrink-0">
     <%= t("decidim.participatory_spaces.highlighted_proposals.last") %>
   </span>
   <% if single_component? %>
-    <%= link_to decidim_proposals.new_proposal_path, class: "button button__sm md:button__lg button__secondary" do %>
+    <%= link_to decidim_proposals.new_proposal_path, class: "button button__xs md:button__lg button__secondary" do %>
       <span class="text-center"><%= t("decidim.proposals.actions.new") %></span>
       <%= icon "add-line" %>
     <% end %>
