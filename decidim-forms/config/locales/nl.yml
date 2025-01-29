@@ -150,7 +150,6 @@ nl:
           tos_agreement: Door deel te nemen, gaat u akkoord met de Servicevoorwaarden
       step_navigation:
         show:
-          are_you_sure: Deze actie kan niet ongedaan gemaakt worden en u kunt uw antwoorden niet wijzigen. Weet u het zeker?
           back: Achterzijde
           continue: Doorgaan
           submit: Verzenden
