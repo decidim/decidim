@@ -178,7 +178,7 @@ ro:
           media_links_title: Link-uri media
         new:
           create: Creează
-          title: Link media
+          title: Creare legătură media
         update:
           error: A apărut o eroare la actualizarea acestui link media.
           success: Link media actualizat cu succes.
