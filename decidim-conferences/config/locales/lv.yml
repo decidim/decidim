@@ -127,7 +127,6 @@ lv:
           media_links_title: Mediju saites
         new:
           create: Izveidot
-          title: Mediju saite
         update:
           error: Šīs mediju saites atjaunināšanas laikā radās problēma.
           success: Mediju saite ir veiksmīgi atjaunināta.
