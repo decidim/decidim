@@ -172,7 +172,6 @@ zh-TW:
           media_links_title: 媒體連結
         new:
           create: 創建
-          title: 媒體連結
         update:
           error: 更新此媒體連結時出現問題
           success: 媒體連結已成功更新。
