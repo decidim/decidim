@@ -13,11 +13,6 @@ module Decidim::Conferences
     let(:conference_registration) { create(:conference_registration, conference:, registration_type:, user:) }
     let(:mail) { described_class.diploma(conference, user) }
 
-    before do
-      stub_request(:get, %r{/css/decidim_conference_diploma.css})
-        .to_return(status: 200, body: Rails.public_path.join("packs-test/css/decidim_conference_diploma.css").read, headers: {})
-    end
-
     describe "diploma" do
       let(:mail_subject) { "has been sent" }
       let(:body) { "in the attachment" }

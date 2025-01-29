@@ -156,6 +156,9 @@ lt:
           fields:
             id: ID
             title: Pavadinimas
+      order:
+        status:
+          title: Jūsų balsas įskaitytas
       order_summary_mailer:
         order_summary:
           selected_projects: 'Jūsų pasirinkti projektai:'
@@ -317,8 +320,6 @@ lt:
     orders:
       checkout:
         error: Apdorojant jūsų balsą iškilo problema.
-        success_html: <p>Jūsų balsas sėkmingai priimtas.</p><p class="text-sm font-normal">Galite peržiūrėti<a class="text-secondary underline" href="%{rest_of_budgets_link}">kitus biudžetus</a>.</p>
-        success_no_left_budgets_html: Jūsų balsas įskaitytas.
       destroy:
         error: Atšaukiant jūsų balsą iškilo problema.
         success: Jūsų balsas atšauktas.

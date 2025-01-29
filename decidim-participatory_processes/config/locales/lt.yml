@@ -22,7 +22,6 @@ lt:
         local_area: Organizacijos aplinka
         meta_scope: Srities metaduomenys
         participatory_process_group_id: Procesų grupė
-        participatory_process_type_id: Proceso tipas
         participatory_scope: Kas nuspręsta
         participatory_structure: Kaip nuspręsta
         private_space: Privatus procesas
@@ -59,8 +58,6 @@ lt:
         end_date: Pabaigos data
         short_description: Trumpas aprašymas
         start_date: Pradžios data
-        title: Pavadinimas
-      participatory_process_type:
         title: Pavadinimas
       participatory_process_user_role:
         email: El. paštas
@@ -106,7 +103,6 @@ lt:
         new_process: Naujas procesas
         new_process_group: Nauja procesų grupė
         new_process_step: Naujas etapas
-        new_process_type: Naujas proceso tipas
         new_process_user_role: Naujas proceso administratorius
         preview: Peržiūra
         publish: Publikuoti
@@ -117,13 +113,11 @@ lt:
         participatory_process_groups_submenu:
           info: Informacija
           landing_page: Pagrindinis puslapis
-        participatory_process_types: Proceso tipas
         participatory_processes: Procesai
         participatory_processes_submenu:
           attachment_collections: Aplankai
           attachment_files: Dokumentai
           attachments: Priedai
-          categories: Kategorijos
           components: Komponentai
           landing_page: Pagrindinis puslapis
           moderations: Moderavimai
@@ -147,11 +141,6 @@ lt:
             start_date: Pradžios data
             title: Pavadinimas
           name: Dalyvaujamojo proceso etapas
-        participatory_process_type:
-          fields:
-            created_at: Sukurta
-            title: Pavadinimas
-          name: Proceso tipas
         participatory_process_user_role:
           fields:
             email: El. paštas
@@ -226,21 +215,6 @@ lt:
         update:
           error: Atnaujinant šio dalyvaujamojo proceso etapą iškilo problema.
           success: Dalyvaujamasis etapas atnaujintas.
-      participatory_process_types:
-        create:
-          error: Kuriant naują proceso tipą iškilo problema.
-          success: Proceso tipas sėkmingai sukurtas.
-        destroy:
-          success: Proceso tipas sėkmingai ištrintas.
-        edit:
-          title: Redaguoti proceso tipą
-          update: Atnaujinti
-        new:
-          create: Sukurti
-          title: Naujas proceso tipas
-        update:
-          error: Atnaujinant šį proceso tipą iškilo problema.
-          success: Proceso tipas sėkmingai sukurtas.
       participatory_process_user_roles:
         create:
           error: Pridedant dalyvį prie dalyvaujamojo proceso iškilo problema.
@@ -412,11 +386,9 @@ lt:
             filters: Filtrai
             images: Paveikslėliai
             metadata: Metaduomenys
-            other: Kita
             related_processes: Susiję procesai
             scope_type_max_depth_help: Riboti srities filtro dydį; Filtras parodys nuo bendros iki pasirinktos apimties tipo.
             select_an_area: Pasirinkti aplinką
-            select_participatory_process_type: Pasirinkti proceso tipą
             select_process_group: Pasirinkti procesų grupę
             title: Bendroji informacija
       content_blocks:

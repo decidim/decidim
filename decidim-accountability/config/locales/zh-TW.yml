@@ -46,27 +46,6 @@ zh-TW:
           new:
             download_export: 匯出成 CSV
             import: 匯入
-            info: |
-              <p>建議透過下面步驟：</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>建立結果的狀態</a></li>
-              <li><a href='%{link_new_result}' target='_blank'>手動建立至少一個結果</a> 在這個管理介面，這樣一來在匯入前可以先理解需要填寫的格式</li>
-              <li>%{link_export_csv}</li>
-              <li>下載後在電腦調整，只能夠調整 CSV 檔案的下面欄位：
-                <ul>
-                <li><b>category/id:</b> 類別編號</li>
-                <li><b>scope/id:</b> 範圍編號</li>
-                <li><b>parent/id:</b> 上層編號 (相關結果)，選填</li>
-                <li><b>title/en:</b> 英文標題，這會依據語言設定不同</li>
-                <li><b>description/en:</b> 英文說明，這會依據語言設定不同</li>
-                <li><b>start_date:</b> 結果開始執行時間 (格式 YYYY-MM-DD)</li>
-                <li><b>end_date:</b> 結果結束執行時間 (格式 YYYY-MM-DD)</li>
-                <li><b>status/id:</b> 這個結果的狀態編號</li>
-                <li><b>progress:</b> 執行率百分比 (從 0 到 100) </li>
-                <li><b>proposals_ids:</b> 相關提案的內部編號 (逗點分隔)，會自動轉換為 <span class='attribute-name'>proposal_url</span></li>
-                </ul>
-              </li>
-              </ol>
         imports:
           create:
             success: 檔案開始匯入，執行完成後會寄發 email 說明匯入結果.

@@ -22,7 +22,6 @@ pl:
         local_area: Obszar organizacji
         meta_scope: Zakres metadanych
         participatory_process_group_id: Grupa procesów
-        participatory_process_type_id: Typ procesów
         participatory_scope: Zaproponowano
         participatory_structure: Jak decydowano
         private_space: Proces prywatny
@@ -59,8 +58,6 @@ pl:
         end_date: Data zakończenia
         short_description: Krótki opis
         start_date: Data rozpoczęcia
-        title: Tytuł
-      participatory_process_type:
         title: Tytuł
       participatory_process_user_role:
         email: Adres e-mail
@@ -106,7 +103,6 @@ pl:
         new_process: Nowy proces
         new_process_group: Nowa grupa procesu
         new_process_step: Nowy etap
-        new_process_type: Nowy typ procesu
         new_process_user_role: Nowy administrator procesu
         preview: Podgląd
         publish: Publikuj
@@ -121,13 +117,11 @@ pl:
         participatory_process_groups_submenu:
           info: Informacje
           landing_page: Strona startowa
-        participatory_process_types: Typy procesu
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Foldery
           attachment_files: Pliki
           attachments: Załączniki
-          categories: Kategorie
           components: Komponenty
           info: O tym procesie
           landing_page: Strona startowa
@@ -153,11 +147,6 @@ pl:
             start_date: Data rozpoczęcia
             title: Tytuł
           name: Etap procesu partycypacyjnego
-        participatory_process_type:
-          fields:
-            created_at: Utworzono
-            title: Tytuł
-          name: Typ procesu
         participatory_process_user_role:
           fields:
             email: Adres e-mail
@@ -239,21 +228,6 @@ pl:
         update:
           error: Podczas aktualizowania etapu procesu partycypacyjnego wystąpił błąd.
           success: Etap procesu partycypacyjnego został zaktualizowany.
-      participatory_process_types:
-        create:
-          error: Przy tworzeniu nowego typu procesu pojawił się problem.
-          success: Typ procesu został utworzony.
-        destroy:
-          success: Typ procesu został usunięty.
-        edit:
-          title: Edytuj typ procesu
-          update: Aktualizuj
-        new:
-          create: Utwórz
-          title: Nowy typ procesu
-        update:
-          error: Przy aktualizacji tego typu procesu pojawił się problem.
-          success: Typ procesu został zaktualizowany.
       participatory_process_user_roles:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika do tego procesu partycypacyjnego.
@@ -432,11 +406,9 @@ pl:
             filters: Filtry
             images: Obrazy
             metadata: Metadane
-            other: Inny
             related_processes: Powiązane procesy
             scope_type_max_depth_help: Ogranicz głębokość filtra zakresu; Filtr pokaże typy zakresu od ogólnego do wybranego.
             select_an_area: Wybierz kategorię
-            select_participatory_process_type: Wybierz typ procesu
             select_process_group: Wybierz grupę procesów
             slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tego procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
             title: Informacje ogólne

@@ -7,12 +7,15 @@ module Decidim
       include Decidim::Forms::Concerns::HasQuestionnaire
       include Decidim::ComponentPathHelper
       include Decidim::Surveys::SurveyHelper
+      include FilterResource
+      include Paginable
 
-      helper_method :authorizations
+      helper PublishAnswersHelper
+      helper_method :authorizations, :surveys, :show_published_questions_answers?
 
-      delegate :allow_unregistered?, to: :current_settings
+      before_action :check_permissions, except: [:index]
 
-      before_action :check_permissions
+      def index; end
 
       def check_permissions
         render :no_permission unless action_authorized_to(:answer, resource: survey).ok?
@@ -24,8 +27,16 @@ module Decidim
 
       protected
 
+      def show_published_questions_answers?
+        survey.closed? && survey.questionnaire.questions.pluck(:survey_answers_published_at).any?
+      end
+
       def allow_answers?
-        !current_component.published? || (current_settings.allow_answers? && survey.open?)
+        !current_component.published? || @survey.open?
+      end
+
+      def allow_unregistered?
+        @survey.allow_unregistered
       end
 
       def form_path
@@ -38,8 +49,22 @@ module Decidim
         "decidim.surveys.surveys"
       end
 
+      def surveys
+        paginate(search.result).published
+      end
+
       def survey
-        @survey ||= Survey.find_by(component: current_component)
+        @survey ||= search_collection.find_by(id: params[:id])
+      end
+
+      def search_collection
+        @search_collection ||= Decidim::Surveys::Survey.where(component: current_component)
+      end
+
+      def default_filter_params
+        {
+          with_any_state: %w(open)
+        }
       end
     end
   end

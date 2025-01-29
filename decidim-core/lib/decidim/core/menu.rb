@@ -56,11 +56,6 @@ module Decidim
                           position: 1.3
           end
 
-          menu.add_item :user_interests,
-                        t("my_interests", scope: "layouts.decidim.user_profile"),
-                        decidim.user_interests_path,
-                        position: 1.4
-
           menu.add_item :download_your_data,
                         t("my_data", scope: "layouts.decidim.user_profile"),
                         decidim.download_your_data_path,

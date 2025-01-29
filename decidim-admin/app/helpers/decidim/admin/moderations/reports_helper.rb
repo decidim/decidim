@@ -14,7 +14,7 @@ module Decidim
         def reportable_author_name(reportable)
           reportable_authors = reportable.try(:authors) || [reportable.try(:normalized_author)]
           content_tag :ul, class: "reportable-authors" do
-            reportable_authors.select(&:present?).map do |author|
+            reportable_authors.compact_blank.map do |author|
               case author
               when User
                 content_tag :li do

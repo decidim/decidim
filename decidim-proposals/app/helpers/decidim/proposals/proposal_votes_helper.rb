@@ -47,14 +47,14 @@ module Decidim
       #
       # Returns true if enabled, false otherwise.
       def votes_enabled?
-        current_settings.votes_enabled
+        current_settings.respond_to?(:votes_enabled) && current_settings.votes_enabled
       end
 
       # Public: Checks if voting is blocked in this step.
       #
       # Returns true if blocked, false otherwise.
       def votes_blocked?
-        current_settings.votes_blocked
+        current_settings.respond_to?(:votes_blocked) && current_settings.votes_blocked
       end
 
       # Public: Checks if the current user is allowed to vote in this step.
@@ -75,6 +75,19 @@ module Decidim
         proposals = Proposal.where(component: current_component)
         votes_count = ProposalVote.where(author: user, proposal: proposals).size
         component_settings.vote_limit - votes_count
+      end
+
+      # Return the remaining minimum votes for a user if the current component has a vote limit
+      #
+      # user - A User object
+      #
+      # Returns a number with the remaining minimum votes for that user
+      def remaining_minimum_votes_count_for(user)
+        return 0 unless vote_limit_enabled?
+
+        votes_count = Decidim::Proposals::ProposalVote.joins(:proposal).where(decidim_proposals_proposals: { decidim_component_id: current_component.id }).where(author: user).count
+
+        component_settings.minimum_votes_per_user - votes_count
       end
     end
   end

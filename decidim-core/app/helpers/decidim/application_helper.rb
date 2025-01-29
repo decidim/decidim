@@ -4,10 +4,14 @@ module Decidim
   # Main module to add application-wide helpers.
   module ApplicationHelper
     include Decidim::OmniauthHelper
-    include Decidim::ScopesHelper
+    include Decidim::DecidimFormHelper
     include Decidim::ContextualHelpHelper
     include Decidim::AmendmentsHelper
     include Decidim::CacheHelper
+
+    def layout_item_classes
+      "layout-item"
+    end
 
     # Truncates a given text respecting its HTML tags.
     #

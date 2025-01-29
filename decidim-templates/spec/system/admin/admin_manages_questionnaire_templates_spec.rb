@@ -2,6 +2,9 @@
 
 require "spec_helper"
 
+require "decidim/forms/test/shared_examples/manage_questionnaires/add_questions"
+require "decidim/forms/test/shared_examples/manage_questionnaires/update_questions"
+
 describe "Admin manages questionnaire templates" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
@@ -87,6 +90,34 @@ describe "Admin manages questionnaire templates" do
 
       click_on "Save"
       expect(page).to have_admin_callout("successfully")
+    end
+
+    context "when the questionnaire is not already answered" do
+      let!(:template) { create(:questionnaire_template, organization:) }
+      let(:questionnaire) { template.templatable }
+
+      let(:body) do
+        {
+          en: "This is the first question",
+          ca: "Aquesta es la primera pregunta",
+          es: "Esta es la primera pregunta"
+        }
+      end
+
+      let(:title_and_description_body) do
+        {
+          en: "Este es el primer separador de texto",
+          ca: "Aquest és el primer separador de text",
+          es: "Esta es la primera pregunta"
+        }
+      end
+
+      before do
+        visit decidim_admin_templates.edit_questions_questionnaire_template_path(template)
+      end
+
+      it_behaves_like "add questions"
+      it_behaves_like "update questions"
     end
   end
 
@@ -226,13 +257,6 @@ describe "Admin manages questionnaire templates" do
           ca: "Els meus termes"
         )
 
-        click_on "Add question"
-        find(".button.expand-all").click
-
-        within ".questionnaire-question" do
-          find("[id$=body_en]").fill_in(with: "My question")
-        end
-
         find("*[type=submit]").click
       end
 
@@ -240,22 +264,7 @@ describe "Admin manages questionnaire templates" do
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(template)
-        expect(page).to have_content("My question")
-      end
-    end
-
-    it "does not show preview or answers buttons" do
-      within ".layout-content" do
-        click_on("Edit")
-      end
-
-      within "[data-content]" do
-        click_on("Edit")
-      end
-
-      within ".item_show__header" do
-        expect(page).to have_no_button("Preview")
-        expect(page).to have_no_button("No answers yet")
+        expect(page).to have_content("Edit questionnaire template")
       end
     end
   end
@@ -294,5 +303,56 @@ describe "Admin manages questionnaire templates" do
         expect(page).to have_css("button[type=submit][disabled]")
       end
     end
+  end
+
+  private
+
+  def find_nested_form_field_locator(attribute, visible: :visible)
+    find_nested_form_field(attribute, visible:)["id"]
+  end
+
+  def find_nested_form_field(attribute, visible: :visible)
+    current_scope.find(nested_form_field_selector(attribute), visible:)
+  end
+
+  def have_nested_field(attribute, with:)
+    have_field find_nested_form_field_locator(attribute), with:
+  end
+
+  def have_no_nested_field(attribute, with:)
+    have_no_field(find_nested_form_field_locator(attribute), with:)
+  end
+
+  def nested_form_field_selector(attribute)
+    "[id$=#{attribute}]"
+  end
+
+  def within_add_display_condition
+    within ".questionnaire-question:last-of-type" do
+      click_on "Add display condition"
+
+      within ".questionnaire-question-display-condition:last-of-type" do
+        yield
+      end
+    end
+  end
+
+  def expand_all_questions
+    click_on "Expand all"
+  end
+
+  def visit_manage_questions_and_expand_all
+    click_on "Manage questions"
+    expand_all_questions
+  end
+
+  def update_component_settings_or_attributes; end
+
+  def questionnaire_public_path
+    decidim_admin_templates.edit_questions_questionnaire_template_path(template)
+  end
+
+  def see_questionnaire_questions
+    click_on "Expand all"
   end
 end

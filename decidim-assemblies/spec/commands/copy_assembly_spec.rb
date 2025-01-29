@@ -8,9 +8,9 @@ module Decidim::Assemblies
 
     let(:organization) { create(:organization) }
     let(:user) { create(:user, organization:) }
-    let(:scope) { create(:scope, organization:) }
     let(:errors) { double.as_null_object }
-    let!(:assembly) { create(:assembly) }
+    let!(:assembly) { create(:assembly, organization:, taxonomies: [taxonomy]) }
+    let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
     let!(:component) { create(:component, manifest_name: :dummy, participatory_space: assembly) }
     let(:form) do
       instance_double(
@@ -18,19 +18,11 @@ module Decidim::Assemblies
         invalid?: invalid,
         title: { en: "title" },
         slug: "copied-slug",
-        copy_categories?: copy_categories,
         copy_components?: copy_components
-      )
-    end
-    let!(:category) do
-      create(
-        :category,
-        participatory_space: assembly
       )
     end
 
     let(:invalid) { false }
-    let(:copy_categories) { false }
     let(:copy_components) { false }
 
     context "when the form is not valid" do
@@ -56,13 +48,13 @@ module Decidim::Assemblies
         expect(new_assembly.description).to eq(old_assembly.description)
         expect(new_assembly.short_description).to eq(old_assembly.short_description)
         expect(new_assembly.promoted).to eq(old_assembly.promoted)
-        expect(new_assembly.scope).to eq(old_assembly.scope)
         expect(new_assembly.developer_group).to eq(old_assembly.developer_group)
         expect(new_assembly.local_area).to eq(old_assembly.local_area)
         expect(new_assembly.target).to eq(old_assembly.target)
         expect(new_assembly.participatory_scope).to eq(old_assembly.participatory_scope)
         expect(new_assembly.meta_scope).to eq(old_assembly.meta_scope)
         expect(new_assembly.announcement).to eq(old_assembly.announcement)
+        expect(new_assembly.taxonomies).to eq(old_assembly.taxonomies)
       end
 
       it "broadcasts ok" do
@@ -79,22 +71,6 @@ module Decidim::Assemblies
         action_log = Decidim::ActionLog.last
         expect(action_log.action).to eq("duplicate")
         expect(action_log.version).to be_present
-      end
-    end
-
-    context "when copy_categories exists" do
-      let(:copy_categories) { true }
-
-      it "duplicates an assembly and the categories" do
-        expect { subject.call }.to change(Decidim::Category, :count).by(1)
-        expect(Decidim::Category.unscoped.distinct.pluck(:decidim_participatory_space_id).count).to eq 2
-
-        old_assembly_category = Decidim::Category.unscoped.first
-        new_assembly_category = Decidim::Category.unscoped.last
-
-        expect(new_assembly_category.name).to eq(old_assembly_category.name)
-        expect(new_assembly_category.description).to eq(old_assembly_category.description)
-        expect(new_assembly_category.parent).to eq(old_assembly_category.parent)
       end
     end
 
@@ -147,7 +123,6 @@ module Decidim::Assemblies
           expect(new_assembly.description).to eq(old_assembly.description)
           expect(new_assembly.short_description).to eq(old_assembly.short_description)
           expect(new_assembly.promoted).to eq(old_assembly.promoted)
-          expect(new_assembly.scope).to eq(old_assembly.scope)
           expect(new_assembly.parent).to eq(old_assembly.parent)
           expect(new_assembly.developer_group).to eq(old_assembly.developer_group)
           expect(new_assembly.local_area).to eq(old_assembly.local_area)

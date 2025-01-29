@@ -170,7 +170,6 @@ it:
           attachment_collections: Cartelle
           attachment_files: Files
           attachments: Allegati
-          categories: Categorie
           components: Componenti
           conference_admins: Amministratori della conferenza
           conference_invites: Inviti
