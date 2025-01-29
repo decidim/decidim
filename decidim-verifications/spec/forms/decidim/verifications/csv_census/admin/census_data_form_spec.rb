@@ -22,7 +22,7 @@ module Decidim::Verifications::CsvCensus::Admin
         end
 
         it "adds an error about missing emails" do
-          subject.csv_must_be_readable
+          subject.validate_csv
           expect(subject.errors[:base]).to include(I18n.t("decidim.verifications.errors.no_emails"))
         end
       end
@@ -36,7 +36,7 @@ module Decidim::Verifications::CsvCensus::Admin
         end
 
         it "does not add any errors" do
-          subject.csv_must_be_readable
+          subject.validate_csv
           expect(subject.errors).to be_empty
         end
       end
@@ -50,7 +50,7 @@ module Decidim::Verifications::CsvCensus::Admin
         end
 
         it "adds an error for having headers" do
-          subject.csv_must_be_readable
+          subject.validate_csv
           expect(subject.errors[:base]).to include(I18n.t("decidim.verifications.errors.has_headers"))
         end
       end
@@ -64,7 +64,7 @@ module Decidim::Verifications::CsvCensus::Admin
         end
 
         it "adds an error about wrong column count" do
-          subject.csv_must_be_readable
+          subject.validate_csv
           expect(subject.errors[:base]).to include(I18n.t("decidim.verifications.errors.wrong_number_columns", expected: 1, actual: 2))
         end
       end
@@ -78,7 +78,7 @@ module Decidim::Verifications::CsvCensus::Admin
         end
 
         it "does not crash and adds an error about malformed CSV" do
-          expect { subject.csv_must_be_readable }.not_to raise_error
+          expect { subject.validate_csv }.not_to raise_error
           expect(subject.errors[:base]).to include("The file must contain emails", "The file must not contain headers.")
         end
       end

@@ -38,6 +38,15 @@ module Decidim
             enforce_permission_to :create, :authorization
             @form = form(CensusDataForm).from_params(params)
             @status = Status.new(current_organization)
+
+            @form.validate_csv
+
+            if @form.errors.any?
+              error_messages = @form.errors.full_messages.map { |msg| "<li>#{msg}</li>" }.join
+              flash[:alert] = "<ul>#{error_messages}</ul>"
+              redirect_to(census_logs_path) && return
+            end
+
             CreateCensusData.call(@form, current_organization) do
               on(:ok) do
                 flash[:notice] = I18n.t("census.create_import.success", scope: "decidim.verifications.csv_census.admin", count: @form.data.values.count)

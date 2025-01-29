@@ -21,9 +21,7 @@ module Decidim
             return broadcast(:invalid) unless @form.file
 
             data = @form.data
-            return broadcast(:invalid) unless data
-
-            # return broadcast(:invalid) if data.blank? || data.values.empty?
+            return broadcast(:invalid) if data.blank? || data.values.empty?
 
             # rubocop:disable Rails/SkipsModelValidations
             CsvDatum.insert_all(@organization, data.values)
