@@ -181,7 +181,6 @@ fr-CA:
           tos_agreement: En participant, vous acceptez ses conditions d'utilisation
       step_navigation:
         show:
-          are_you_sure: Cette action ne peut pas être annulée et vous ne pourrez pas modifier vos réponses. Êtes-vous sûr?
           back: Revenir en arrière
           continue: Continuer
           submit: Soumettre
