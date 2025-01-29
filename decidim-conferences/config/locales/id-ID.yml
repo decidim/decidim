@@ -121,7 +121,6 @@ id:
           media_links_title: Tautan Media
         new:
           create: Membuat
-          title: Tautan Media
         update:
           error: Terjadi kesalahan saat memperbarui tautan media ini.
           success: Media Link berhasil diperbarui.
