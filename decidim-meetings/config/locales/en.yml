@@ -182,9 +182,13 @@ en:
       help:
         registrations:
           code: The registration code
+          created_at: The date and time when this registration was created
           id: The unique identifier of the registration
           meeting: The meeting that the user registered to
+          public_participation: Wehter this participation was shown publicly
+          updated_at: The date and time when this registration was last updated
           user: The user that made the registration
+          validated_at: The date and time when this registration was validated
       show:
         meeting_comments: Meeting comments export
         meetings: Meetings export
