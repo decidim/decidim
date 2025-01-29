@@ -122,13 +122,13 @@ en:
         destroy:
           success: Conference speaker successfully deleted.
         edit:
-          title: Update conference speaker.
+          title: Update conference speaker
           update: Update
         index:
           conference_speakers_title: Conference speakers
         new:
           create: Create
-          title: New conference speaker.
+          title: New conference speaker
         publish:
           invalid: There was a problem publishing this speaker.
           success: Conference speaker successfully published.
@@ -145,13 +145,13 @@ en:
         destroy:
           success: Conference admin successfully removed.
         edit:
-          title: Update conference admin.
+          title: Update conference admin
           update: Update
         index:
           conference_admins_title: Conference admins
         new:
           create: Create
-          title: New conference admin.
+          title: New conference admin
         update:
           error: There was a problem updating this conference admin.
           success: Conference admin successfully updated.
@@ -187,7 +187,7 @@ en:
         destroy:
           success: Media Link successfully deleted.
         edit:
-          title: Update media link.
+          title: Update media link
           update: Update
         index:
           media_links_title: Media Links
@@ -270,7 +270,7 @@ en:
         destroy:
           success: Conference partner successfully removed.
         edit:
-          title: Update partner.
+          title: Update partner
           update: Update
         new:
           create: Create
@@ -292,7 +292,7 @@ en:
         destroy:
           success: Conference registration type successfully removed.
         edit:
-          title: Update registration type.
+          title: Update registration type
           update: Update
         new:
           create: Create
