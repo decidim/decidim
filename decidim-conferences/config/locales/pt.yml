@@ -157,7 +157,6 @@ pt:
           media_links_title: Hiperligação de Multimédia
         new:
           create: Criar
-          title: Hiperligação de Multimédia
         update:
           error: Ocorreu um problema ao atualizar esta hiperligação de multimédia.
           success: Hiperligação de multimédia atualizada corretamente.
