@@ -90,7 +90,6 @@ hu:
           tos_agreement: A részvétellel elfogadja az Általános Szerződési Feltételeket
       step_navigation:
         show:
-          are_you_sure: Ez a művelet nem vonható vissza, és nem tudod majd szerkeszteni a válaszokat. Biztos vagy ebben?
           continue: Folytatás
           submit: Beküldés
       user_answers_serializer:
