@@ -189,7 +189,6 @@ eu:
           media_links_title: Hedabideen loturak
         new:
           create: Sortu
-          title: Hedabideen lotura
         update:
           error: Arazo bat egon da multimedia link hau eguneratzean.
           success: Hedabideen lotura zuzen eguneratua.
