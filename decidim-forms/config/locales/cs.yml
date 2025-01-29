@@ -189,7 +189,6 @@ cs:
           tos_agreement: Účastí přijímáte jeho smluvní podmínky
       step_navigation:
         show:
-          are_you_sure: Tuto akci nelze vrátit zpět a nebudete moci upravit své odpovědi. Jste si jisti?
           back: Zpět
           continue: Pokračovat
           submit: Odeslat
