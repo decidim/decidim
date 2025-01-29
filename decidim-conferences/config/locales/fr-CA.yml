@@ -192,7 +192,7 @@ fr-CA:
           media_links_title: Liens médias
         new:
           create: Créer
-          title: Lien média
+          title: Créer un lien média
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce lien multimédia.
           success: Lien média mis à jour avec succès.
