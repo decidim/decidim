@@ -157,7 +157,6 @@ nl:
           media_links_title: Mediakoppelingen
         new:
           create: Creëren
-          title: Mediakoppeling
         update:
           error: Er is een probleem opgetreden bij het bijwerken van deze mediakoppeling.
           success: Mediakoppeling succesvol bijgewerkt.
