@@ -274,8 +274,6 @@ fi-pl:
         home:
           empty: Ei yhtään tulosta.
           empty_filters: Tuloksia ei löytynyt annetuilla hakuehdoilla.
-          sub_taxonomies_label: Ala-aihepiiri
-          taxonomies_label: Aihepiirit
         home_header:
           global_status: Yleisen toteutuksen tila
         no_results: Projekteja ei ole saatavilla
