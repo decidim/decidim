@@ -189,7 +189,6 @@ ja:
           media_links_title: メディアリンク
         new:
           create: 作成
-          title: メディアリンク
         update:
           error: このメディア リンクの更新中に問題が発生しました。
           success: メディアリンクを更新しました。
