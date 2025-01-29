@@ -130,7 +130,6 @@ tr:
           media_links_title: Medya Bağlantıları
         new:
           create: Oluştur
-          title: Medya Bağlantısı
         update:
           error: Bu medya bağlantısını güncellerken bir hata oluştu.
           success: Medya Bağlantısı başarıyla güncellendi.
