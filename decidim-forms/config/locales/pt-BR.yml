@@ -165,7 +165,6 @@ pt-BR:
           tos_agreement: Ao participar você aceita seus Termos de Serviço
       step_navigation:
         show:
-          are_you_sure: Esta ação não pode ser desfeita e você não poderá editar suas respostas. Você tem certeza?
           back: Voltar
           continue: Continuar
           submit: Enviar
