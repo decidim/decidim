@@ -6,10 +6,10 @@ module Decidim
       # Serializes an invite for download your data
       def serialize
         super.merge({
-          sent_at: resource.sent_at,
-          accepted_at: resource.accepted_at,
-          rejected_at: resource.rejected_at,
-        })
+                      sent_at: resource.sent_at,
+                      accepted_at: resource.accepted_at,
+                      rejected_at: resource.rejected_at
+                    })
       end
     end
   end
