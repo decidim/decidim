@@ -140,9 +140,6 @@ pt:
           results_count:
             one: 1 resultado
             other: "%{count} resultados"
-        home:
-          sub_taxonomies_label: Subcategorias
-          taxonomies_label: Categorias
         home_header:
           global_status: Estado de execução global
         search:
