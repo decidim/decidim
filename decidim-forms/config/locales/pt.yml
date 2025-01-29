@@ -147,7 +147,6 @@ pt:
           tos_agreement: Ao participar aceita os seus Termos de Serviço
       step_navigation:
         show:
-          are_you_sure: Esta ação não pode ser desfeita e não deixará de poder editar as suas respostas. Tem a certeza?
           back: Retroceder
           continue: Continuar
           submit: Submeter
