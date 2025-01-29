@@ -222,8 +222,6 @@ he:
         home:
           empty: אין תוצאות עדיין.
           empty_filters: אין תוצאות עם קריטריון זה.
-          sub_taxonomies_label: תתי קטגוריות
-          taxonomies_label: קטגוריות
         home_header:
           global_status: סטטוס ביצוע גלובלי
         no_results: אין פרוייקטים
