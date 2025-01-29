@@ -160,7 +160,6 @@ gl:
           media_links_title: Ligazóns multimedia
         new:
           create: Crear
-          title: Ligazón multimedia
         update:
           error: Produciuse un erro ao actualizar esta ligazón multimedia.
           success: Media Link actualizouse con éxito.
