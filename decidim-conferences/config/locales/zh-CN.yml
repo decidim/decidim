@@ -121,7 +121,6 @@ zh-CN:
           media_links_title: 媒体链接
         new:
           create: 创建
-          title: 媒体链接
         update:
           error: 更新此媒体链接时出现问题。
           success: 媒体链接已成功更新。
