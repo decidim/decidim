@@ -17,9 +17,9 @@ module Decidim
                 type: :cell_table,
                 options: { headings: [t("decidim.design.helpers.share_button")] },
                 cell_snippet: {
-                  cell: "decidim/share_button",
-                  args: [],
-                  call_string: 'cell("decidim/share_button", nil)'
+                  cell: "decidim/share_widget",
+                  args: [Decidim::Blogs::Post.last],
+                  call_string: 'cell("decidim/share_widget", resource)'
                 }
               }
             ]
