@@ -9,9 +9,6 @@ module Decidim
       include Decidim::DeviseAuthenticationMethods
       include NeedsTosAccepted
 
-      helper Decidim::ShortLinkHelper
-      helper Decidim::ResourceHelper
-
       def new
         @form = form(OmniauthRegistrationForm).from_params(params[:user])
       end

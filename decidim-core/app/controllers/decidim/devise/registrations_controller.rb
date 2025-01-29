@@ -8,8 +8,6 @@ module Decidim
       include FormFactory
       include Decidim::DeviseControllers
       include NeedsTosAccepted
-      helper Decidim::ShortLinkHelper
-      helper Decidim::ResourceHelper
 
       helper Decidim::PasswordsHelper
 

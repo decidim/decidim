@@ -6,8 +6,6 @@ module Decidim
     class ConfirmationsController < ::Devise::ConfirmationsController
       include Decidim::DeviseControllers
       include Decidim::OnboardingActionMethods
-      helper Decidim::ShortLinkHelper
-      helper Decidim::ResourceHelper
 
       helper_method :new_user_group_session_path
 

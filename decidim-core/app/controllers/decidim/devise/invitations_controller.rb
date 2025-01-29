@@ -8,8 +8,6 @@ module Decidim
       include NeedsTosAccepted
 
       helper Decidim::PasswordsHelper
-      helper Decidim::ShortLinkHelper
-      helper Decidim::ResourceHelper
 
       before_action :configure_permitted_parameters
 

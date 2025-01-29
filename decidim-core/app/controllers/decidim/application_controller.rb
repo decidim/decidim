@@ -45,8 +45,6 @@ module Decidim
     helper Decidim::SocialShareButtonHelper
     helper Decidim::FiltersHelper
     helper Decidim::OnboardingActionHelper
-    helper Decidim::ShortLinkHelper
-    helper Decidim::ResourceHelper
 
     register_permissions(::Decidim::ApplicationController,
                          ::Decidim::Admin::Permissions,
