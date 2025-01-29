@@ -267,8 +267,6 @@ ja:
         home:
           empty: まだ結果はありません。
           empty_filters: この条件の結果はありません。
-          sub_taxonomies_label: サブカテゴリ
-          taxonomies_label: カテゴリ
         home_header:
           global_status: 全体の実行状況
         no_results: プロジェクトがありません
