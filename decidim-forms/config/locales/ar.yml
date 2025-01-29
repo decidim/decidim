@@ -85,7 +85,6 @@ ar:
           tos_agreement: من خلال المشاركة ، فإنك تقبل شروط الخدمة
       step_navigation:
         show:
-          are_you_sure: لا يمكن التراجع عن هذا الإجراء ولن تتمكن من تعديل إجاباتك. هل أنت واثق؟
           submit: خضع
       user_answers_serializer:
         created_at: أجاب على
