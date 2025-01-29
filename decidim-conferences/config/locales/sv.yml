@@ -172,7 +172,6 @@ sv:
           media_links_title: Medialänkar
         new:
           create: Skapa
-          title: Medialänk
         update:
           error: Det gick inte att uppdatera medialänken.
           success: Medialänken har uppdaterats.
