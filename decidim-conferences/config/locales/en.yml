@@ -215,7 +215,7 @@ en:
           registration_types: Registration types
           registrations: Registrations
           see_conference: See conference
-          user_registrations: User Registrations
+          user_registrations: User registrations
       models:
         conference:
           fields:
