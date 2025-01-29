@@ -80,5 +80,28 @@ describe "Admin manages census" do
         expect(page).to have_content("There are no census data. Use Import CSV to import a CSV file.")
       end
     end
+
+    context "when import census data" do
+      before do
+        click_on "Import CSV", match: :first
+      end
+
+      it "imports a csv file" do
+        expect(page).to have_content("Import census data")
+        expect(page).to have_content("Upload a new census")
+        expect(page).to have_content("Must be a file in CSV format with only one column with the email address")
+
+        dynamically_attach_file(:census_data_file, Decidim::Dev.asset("valid_emails.csv"))
+        click_on "Upload file"
+        expect(page).to have_content("Successfully imported")
+        expect(page).to have_css(".table-list tbody tr", count: 25)
+        within "[data-pagination]" do
+          page.find("details", text: "25")
+          expect(page).to have_content("Results per page")
+          click_on "Next"
+        end
+        expect(page).to have_css(".table-list tbody tr", count: 2)
+      end
+    end
   end
 end

@@ -11,7 +11,7 @@ module Decidim
             CsvDatum.inside(organization)
                     .where(email:)
                     .order(id: :desc)
-                    .all(1..-1)
+                    .all[1..-1]
                     .each(&:delete)
           end
         end
