@@ -12,12 +12,12 @@
 </div>
 
 <div class="flex items-center justify-between">
-  <span class="content-block__span">
+  <span class="content-block__span flex-shrink-0 pr-12">
     <%= t("decidim.participatory_spaces.highlighted_proposals.last") %>
   </span>
   <% if single_component? %>
     <%= link_to decidim_proposals.new_proposal_path, class: "button button__sm md:button__lg button__secondary" do %>
-      <span><%= t("decidim.proposals.actions.new") %></span>
+      <span class="text-center"><%= t("decidim.proposals.actions.new") %></span>
       <%= icon "add-line" %>
     <% end %>
   <% end %>
