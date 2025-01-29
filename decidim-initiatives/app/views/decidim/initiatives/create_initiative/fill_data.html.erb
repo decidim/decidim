@@ -13,11 +13,11 @@
 
     <%= f.hidden_field :type_id %>
 
-    <%= f.text_field :title, autofocus: true, value: translated_attribute(f.object.title) %>
+    <%= f.text_field :title, value: translated_attribute(f.object.title) %>
 
-    <%= text_editor_for(f, :description, lines: 8, toolbar: :content, value: translated_attribute(f.object.description)) %>
+    <%= text_editor_for(f, :description, lines: 20, toolbar: :content, value: translated_attribute(f.object.description)) %>
 
-    <%= f.text_field :hashtag %>
+    <%= f.text_field :hashtag, value: f.object.hashtag %>
 
     <% signature_type_options = signature_type_options(f.object) %>
     <% if signature_type_options.length == 1 %>
