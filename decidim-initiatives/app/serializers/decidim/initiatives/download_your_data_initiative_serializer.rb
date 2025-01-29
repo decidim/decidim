@@ -8,7 +8,7 @@ module Decidim
       # Remove the author information as it is the same of the user that
       # requested the data
       def serialize
-        super.except!(:author)
+        super.except!(:authors)
       end
     end
   end
