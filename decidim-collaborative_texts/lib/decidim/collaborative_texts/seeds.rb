@@ -12,7 +12,7 @@ module Decidim
       end
 
       def call
-        # TODO: add seeds here
+        # add seeds here
       end
     end
   end

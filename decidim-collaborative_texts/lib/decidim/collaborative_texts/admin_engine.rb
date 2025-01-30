@@ -9,7 +9,7 @@ module Decidim
       paths["db/migrate"] = nil
       paths["lib/tasks"] = nil
 
-      # TODO: routes ...
+      # routes ...
 
       def load_seed
         nil

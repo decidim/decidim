@@ -9,7 +9,6 @@ Decidim.register_component(:collaborative_texts) do |component|
 
   # component.query_type = "Decidim::CollaborativeTexts::CollaborativeTextsType"
 
-  # TODO:
   # component.register_stat ...
 
   component.actions = %w(create update destroy)
@@ -23,9 +22,9 @@ Decidim.register_component(:collaborative_texts) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  # TODO: component.register_resource...
+  # component.register_resource...
 
-  # TODO: component.exports ...
+  # component.exports ...
 
   component.seeds do |participatory_space|
     require "decidim/collaborative_texts/seeds"
