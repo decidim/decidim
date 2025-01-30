@@ -197,6 +197,98 @@ module Decidim
             expect(serialized).to include(answer: [singlechoice_answer_choice.body])
           end
         end
+
+        context "when question is sorting" do
+          let!(:sorting_question) { create(:questionnaire_question, questionnaire:, question_type: "sorting") }
+          let!(:sorting_answer_options) { create_list(:answer_option, 4, question: sorting_question) }
+          let!(:sorting_answer) do
+            create(:answer, questionnaire:, question: sorting_question, user:, body: nil)
+          end
+          let!(:sorting_answer_choices) do
+            base_position = sorting_answer_options.count - 1
+            sorting_answer_options.sort_by(&:id).map.with_index do |answer_option, i|
+              create(:answer_choice, answer: sorting_answer, answer_option:, position: base_position - i, body: answer_option.body[I18n.locale.to_s])
+            end
+          end
+
+          it "includes the answer id" do
+            expect(serialized).to include(id: sorting_answer.id)
+          end
+
+          it "includes the user" do
+            expect(serialized[:user]).to(
+              include(name: sorting_answer.user.name)
+            )
+            expect(serialized[:user]).to(
+              include(email: sorting_answer.user.email)
+            )
+          end
+
+          it "includes the question info" do
+            expect(serialized[:question]).to(
+              include(id: sorting_question.id)
+            )
+            expect(serialized[:question]).to(
+              include(body: translated_attribute(sorting_question.body))
+            )
+            expect(serialized[:question]).to(
+              include(description: translated_attribute(sorting_question.description))
+            )
+          end
+
+          it "includes the answers correctly ordered correctly" do
+            expect(serialized).to include(answer: sorting_answer_options.sort_by(&:id).reverse.map { |option| option.body[I18n.locale.to_s] })
+          end
+        end
+
+        context "when question is matrix_single" do
+          let!(:matrix_single_question) { create(:questionnaire_question, questionnaire:, question_type: "matrix_single") }
+          let!(:matrix_single_answer_options) { create_list(:answer_option, 4, question: matrix_single_question) }
+          let!(:matrix_single_answer_rows) do
+            (0..9).map do |position|
+              create(:question_matrix_row, question: matrix_single_question, position:)
+            end
+          end
+          let!(:matrix_single_answer) do
+            create(:answer, questionnaire:, question: matrix_single_question, user:, body: nil)
+          end
+          let(:sorted_choices_indexes) { [0, 2, 0, 1, 3, 3, 2, 1, 3, 1] }
+          let!(:matrix_single_answer_choices) do
+            matrix_single_answer_rows.sort_by(&:id).reverse.map.with_index do |matrix_row, i|
+              answer_option = matrix_single_answer_options[sorted_choices_indexes[i]]
+              create(:answer_choice, answer: matrix_single_answer, matrix_row:, answer_option:, body: answer_option.body[I18n.locale.to_s])
+            end
+          end
+
+          it "includes the answer id" do
+            expect(serialized).to include(id: matrix_single_answer.id)
+          end
+
+          it "includes the user" do
+            expect(serialized[:user]).to(
+              include(name: matrix_single_answer.user.name)
+            )
+            expect(serialized[:user]).to(
+              include(email: matrix_single_answer.user.email)
+            )
+          end
+
+          it "includes the question info" do
+            expect(serialized[:question]).to(
+              include(id: matrix_single_question.id)
+            )
+            expect(serialized[:question]).to(
+              include(body: translated_attribute(matrix_single_question.body))
+            )
+            expect(serialized[:question]).to(
+              include(description: translated_attribute(matrix_single_question.description))
+            )
+          end
+
+          it "includes the answers ordered correctly" do
+            expect(serialized).to include(answer: sorted_choices_indexes.reverse.map { |i| matrix_single_answer_options[i].body[I18n.locale.to_s] })
+          end
+        end
       end
     end
   end

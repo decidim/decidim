@@ -17,6 +17,8 @@ module Decidim
                  optional: true
 
       validates :matrix_row, presence: true, if: -> { answer.question.matrix? }
+
+      default_scope { left_outer_joins(:matrix_row).order(arel_table[:position].asc, Decidim::Forms::QuestionMatrixRow.arel_table[:position].asc, arel_table[:id].asc) }
     end
   end
 end

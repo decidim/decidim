@@ -8,7 +8,7 @@ RSpec.shared_examples "manage timeline" do
     click_on "Edit", match: :first
 
     within ".edit_timeline_entry" do
-      fill_in :timeline_entry_entry_date, with: Date.current.strftime("%d/%m/%Y")
+      fill_in :timeline_entry_entry_date, with: Date.current.strftime("%m/%d/%Y")
       fill_in_i18n(:timeline_entry_title, "#timeline_entry-title-tabs", **attributes[:title].except("machine_translations"))
       fill_in_i18n_editor(:timeline_entry_description, "#timeline_entry-description-tabs", **attributes[:description].except("machine_translations"))
 
@@ -29,7 +29,7 @@ RSpec.shared_examples "manage timeline" do
     click_on "New timeline entry", match: :first
 
     within ".new_timeline_entry" do
-      fill_in :timeline_entry_entry_date, with: Date.current.strftime("%d/%m/%Y")
+      fill_in :timeline_entry_entry_date, with: Date.current.strftime("%m/%d/%Y")
       fill_in_i18n(:timeline_entry_title, "#timeline_entry-title-tabs", **attributes[:title].except("machine_translations"))
       fill_in_i18n_editor(:timeline_entry_description, "#timeline_entry-description-tabs", **attributes[:description].except("machine_translations"))
 
