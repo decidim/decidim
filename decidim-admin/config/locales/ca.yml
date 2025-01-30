@@ -1060,7 +1060,6 @@ ca:
           'true': 'Sí'
         index:
           back_to_share_tokens: Tornar als enllaços d'accés
-          copied: Enllaç d'accés copiat!
           copy_message: S'ha copiat el text al porta-retalls correctament.
           create_new_token: Crea el teu primer enllaç d'accés!
           empty_html: No hi ha cap enllaç d'accés actiu. %{new_token_link}
@@ -1070,7 +1069,6 @@ ca:
             Crea i comparteix un enllaç d'accés perquè altres persones puguin veure aquest recurs inèdit.
             Els enllaços d'accés poden ser vàlids només per a les participants registrades o tenir una data de caducitat si cal.
             Per compartir un enllaç d'accés nou amb algú, crea'l i, a continuació, copia l'enllaç fent servir la icona d'acció del «%{clipboard} porta-retalls».
-          title: 'Enllaços d''accés per a: %{name}'
         new:
           create: Crear
           title: 'Nou enllaç d''accés per a: %{name}'
