@@ -1027,7 +1027,6 @@ fr-CA:
           'true': 'Oui'
         index:
           back_to_share_tokens: Retour aux liens d'accès
-          copied: Lien d'accès copié !
           copy_message: Le texte a été copié dans le presse-papiers.
           create_new_token: Créez votre premier lien d'accès !
           empty_html: Il n'y a pas de liens d'accès actifs. %{new_token_link}
@@ -1037,7 +1036,6 @@ fr-CA:
             Créer et partager un lien d'accès pour autoriser d'autres personnes à voir cette ressource non publiée.
             Les liens d'accès peuvent être valides uniquement pour les participants enregistrés ou peuvent avoir une date d'expiration si nécessaire.
             Pour partager un nouveau lien d'accès avec quelqu'un, créez-le puis copiez le lien en utilisant l'icône d'action représentant le "%{clipboard} presse-papier".
-          title: 'liens d''accès pour: %{name}'
         new:
           create: Créer
           title: 'Nouveau lien d''accès pour : %{name}'
