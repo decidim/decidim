@@ -1142,6 +1142,7 @@ cs:
           actions: Akce
           filters: Spravovat filtry
         breadcrumb:
+          edit: Upravit taxonomii
           new: Nová taxonomie
         count: Související zdroje
         create:
@@ -1161,6 +1162,7 @@ cs:
         filters:
           search_placeholder: Hledat
         index:
+          description: Taxonomie a filtry umožňují správcům třídit a organizovat obsah. Přidejte například taxonomii s městskými okresy a čtvrti a pak vytvořte filtry pouze s okresy nebo pro konkrétní čtvrť.
           new_taxonomy: Nová taxonomie
           no_items_found: Nebyly nalezeny žádné taxonomie odpovídající kritériím vyhledávání.
         name: Název
@@ -1204,6 +1206,7 @@ cs:
             other: "%{count} položek vybráno"
           name_help: Název filtru, který má být zobrazen ve frontendu.
           no_items: Pro tuto taxonomii nejsou k dispozici žádné položky. Položky můžete vytvořit v nastavení taxonomie.
+          space_filter: Dostupné jako filtr pro
         index:
           description: Filtr taxonomie umožňuje správcům seřadit a filtrovat participační prostory na základě taxonomie. Přidejte například taxonomický filtr pro řazení procesů podle geografického rozsahu.
           empty: V současné době nejsou žádné filtry taxonomie. Vytvořte seznam taxonomických filtrů pro řazení a filtrování participačních prostor na základě taxonomie.
@@ -1214,6 +1217,7 @@ cs:
           title: Nový filtr taxonomie
         table:
           actions: Akce
+          components_count: Komponenty používající toto
           confirm_destroy: 'Jste si jisti, že chcete odstranit filtr %{name}? POZNÁMKA: Zdroje, které používají tento filtr, nebudou ovlivněny, ale ztratí odkaz na tento filtr.'
           destroy: Smazat
           edit: Upravit
