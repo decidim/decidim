@@ -17,6 +17,7 @@ module Decidim
         attachments_attribute :documents
 
         validates :title, :body, translatable_presence: true
+        validates :title, :body, translated_etiquette: true
 
         validate :notify_missing_attachment_if_errored
 

@@ -5,7 +5,7 @@ module Decidim
     class TaxonomyFiltersSelectorController < Decidim::Admin::ApplicationController
       layout "decidim/admin/taxonomy_filters_selector"
 
-      helper_method :root_taxonomy, :taxonomy_filter, :component, :component_filters, :field_name
+      helper_method :root_taxonomy, :taxonomy_filter, :component, :field_name
 
       # ensure component is valid
       before_action do
@@ -63,10 +63,6 @@ module Decidim
 
       def field_name
         "component[settings][taxonomy_filters][]"
-      end
-
-      def component_filters
-        @component_filters ||= root_taxonomy.taxonomy_filters.where(id: component.settings.taxonomy_filters)
       end
 
       def component
