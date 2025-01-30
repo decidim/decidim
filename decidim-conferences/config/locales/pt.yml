@@ -97,13 +97,11 @@ pt:
         destroy:
           success: Orador da conferência eliminado corretamente.
         edit:
-          title: Atualizar orador da conferência.
           update: Atualizar
         index:
           conference_speakers_title: Oradores da conferência
         new:
           create: Criar
-          title: Novo orador da conferência.
         update:
           error: Ocorreu um problema ao atualizar o orador desta conferência.
           success: Orador da conferência atualizado corretamente.
@@ -114,11 +112,9 @@ pt:
         destroy:
           success: Administrador da conferência eliminado corretamente.
         edit:
-          title: Atualizar administrador da conferência.
           update: Atualizar
         new:
           create: Criar
-          title: Novo administrador da conferência.
         update:
           error: Ocorreu um problema ao atualizar o administrador desta conferência.
           success: Administrador da conferência atualizado corretamente.
@@ -147,19 +143,12 @@ pt:
       media_links:
         create:
           error: Ocorreu um problema ao criar uma nova hiperligação de multimédia.
-          success: Hiperligação de multimédia criado corretamente.
-        destroy:
-          success: Hiperligação de Multimédia eliminado corretamente.
         edit:
-          title: Atualizar hiperligação de multimédia.
           update: Atualizar
-        index:
-          media_links_title: Hiperligação de Multimédia
         new:
           create: Criar
         update:
           error: Ocorreu um problema ao atualizar esta hiperligação de multimédia.
-          success: Hiperligação de multimédia atualizada corretamente.
       menu:
         conferences: Conferências
         conferences_submenu:
@@ -170,13 +159,9 @@ pt:
           conference_admins: Administradores da conferência
           conference_invites: Convites
           conference_speakers: Oradores
-          diploma: Certificado de Participação
-          media_links: Hiperligações de Multimédia
           moderations: Moderações
           partners: Parceiros
-          registration_types: Tipos de Registo
           registrations: Registos
-          user_registrations: Registos de Utilizador
       models:
         conference:
           fields:
@@ -205,7 +190,6 @@ pt:
             date: Data
             link: Hiperligação
             title: Título
-          name: Hiperligação de Multimédia
         partner:
           fields:
             link: Hiperligação
@@ -231,7 +215,6 @@ pt:
         destroy:
           success: Parceiro da conferência eliminado corretamente.
         edit:
-          title: Atualizar parceiro.
           update: Atualizar
         new:
           create: Criar
@@ -253,7 +236,6 @@ pt:
         destroy:
           success: Tipo de registo da conferência eliminado corretamente.
         edit:
-          title: Atualizar tipo de registo.
           update: Atualizar
         new:
           create: Criar
@@ -339,7 +321,6 @@ pt:
         diplomas:
           edit:
             save: Guardar
-            title: Certificado de Participação
         invite_join_conference_mailer:
           invite:
             decline: Recusar convite '%{conference_title}'
@@ -358,7 +339,6 @@ pt:
             diploma_html: Encontrará o certificado de participação para a conferência <a href="%{url}">%{title}</a> nos anexos.
           diploma_user:
             attendance_verified_by: Participação verificada por
-            certificate_of_attendance: Certificado de Participação
             certificate_of_attendance_description: Certifica-se que <strong>%{user}</strong> participou e fez parte de <strong>%{title}</strong> que tomou lugar em <strong>%{location}</strong> em <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Ocorreu um problema ao enviar os certificados de participação da conferência.
