@@ -126,7 +126,7 @@ eu:
         content: Edukia
         organization: Erakundea
         show_in_footer: Erakutsi orri-oinean
-        slug: URL l
+        slug: URL laburra
         title: Izenburua
         topic_id: Gaia
         weight: Kokapenaren hurrenkera
@@ -342,7 +342,7 @@ eu:
           title: Ezabatutako osagaiak
         new:
           add: Gehitu osagaia
-          title: 'Gehitu osagaia: %{name}'
+          title: 'Gehitu %{name} osagaia'
         publish:
           success: Osagaia zuzen argitaratua.
         title: Osagaiak
@@ -354,7 +354,7 @@ eu:
         visibility_label:
           menu_hidden: Menu ezkutua
           published: Argitaratua
-          unpublished: Despublikatua
+          unpublished: Desargitaratuta
       conflicts:
         attempts: Saiakerak
         'false': 'Ez'
@@ -553,7 +553,7 @@ eu:
           actions:
             back: Atzera
           download_example: Deskargatu adibidea
-          download_example_format: Adibidez, % {name}
+          download_example_format: Adibidez, %{name}
           file_legend: Gehitu prozesatuko den inportazio-artxibo bat.
           import: Inportatu
         notice: "%{number} %{resource_name} zuzen inportatua."
@@ -577,7 +577,7 @@ eu:
             new_managed_user_promotion: Kudeatutako parte-hartzaileen beste maila-igoera bat
             promote: Sustatu
       menu:
-        admin_log: Admin jarduera-erregistroa
+        admin_log: Administratzaile jarduera-erregistroa
         admins: Administratzaileak
         appearance: Itxura
         area_types: Arlo motak
@@ -825,16 +825,16 @@ eu:
           select_verification_types: Hautatu egiaztapen-metodoak
           send_to_all_users: Bidali parte-hartzaile guztiei
           send_to_verified_users: Bidali egiaztatutako parte-hartzaileei
-          title: Hautatu hartzaileak entregatzeko
+          title: Hautatu entregaren hartzaileak
           verified_users_help: Buletin bat bidaltzen du egiaztatutako eta baieztatutako parte-hartzaile guztiei, aukeratutako edozein egiaztatze-metodo erabiliz.
           warning: "<strong>Adi:</strong> Jakinarazpen-doikuntzetan “Albiste-buletinak jaso nahi ditut” aktibatu duten parte-hartzaileei baino ez zaie bidaliko buletin hau."
         send:
           no_recipients: Ez dago hartzailerik hautaketa honetarako.
         send_to_user:
-          sent_successfully: Buletina behar bezala bidali zaio % {email} -ri
+          sent_successfully: Buletina behar bezala bidali zaio %{email} helbideari
         show:
           preview: Aurreikusi
-          select_recipients_to_deliver: Hautatu hartzaileak entregatzeko
+          select_recipients_to_deliver: Hautatu entregaren hartzaileak
           send_me_a_test_email: Bidali probako posta elektronikoa
           subject: Gaia
         update:
