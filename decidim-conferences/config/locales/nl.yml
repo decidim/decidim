@@ -97,13 +97,11 @@ nl:
         destroy:
           success: Conferentiespreker is met succes verwijderd.
         edit:
-          title: Conferentiespreker updaten.
           update: Bijwerken
         index:
           conference_speakers_title: Sprekers van de conferentie
         new:
           create: Creëren
-          title: Nieuwe spreker voor conferenties.
         update:
           error: Er is een fout opgetreden bij het bijwerken van de spreker voor deze conferentie.
           success: Luidspreker succesvol bijgewerkt voor deze conferentie.
@@ -114,11 +112,9 @@ nl:
         destroy:
           success: Conference-beheerder verwijderd.
         edit:
-          title: Update conferentiebeheerder.
           update: Bijwerken
         new:
           create: Creëren
-          title: Nieuwe conferentiebeheerder.
         update:
           error: Er is een probleem opgetreden bij het bijwerken van deze conferentiebeheerder.
           success: Conferentiebeheerder succesvol bijgewerkt.
@@ -147,19 +143,12 @@ nl:
       media_links:
         create:
           error: Er is een probleem opgetreden bij het maken van een nieuwe mediakoppeling.
-          success: Mediakoppeling met succes aangemaakt.
-        destroy:
-          success: Mediakoppeling succesvol verwijderd.
         edit:
-          title: Mediakoppeling bijwerken.
           update: Bijwerken
-        index:
-          media_links_title: Mediakoppelingen
         new:
           create: Creëren
         update:
           error: Er is een probleem opgetreden bij het bijwerken van deze mediakoppeling.
-          success: Mediakoppeling succesvol bijgewerkt.
       menu:
         conferences: Conferenties
         conferences_submenu:
@@ -170,13 +159,9 @@ nl:
           conference_admins: Conferentiebeheerders
           conference_invites: Uitnodigingen
           conference_speakers: Sprekers
-          diploma: Certificaat van Deelname
-          media_links: Mediakoppelingen
           moderations: Moderaties
           partners: Partners
-          registration_types: Registratietypes
           registrations: Inschrijvingen
-          user_registrations: Gebruikersregistraties
       models:
         conference:
           fields:
@@ -205,7 +190,6 @@ nl:
             date: Datum
             link: Link
             title: Titel
-          name: Mediakoppeling
         partner:
           fields:
             link: Link
@@ -231,7 +215,6 @@ nl:
         destroy:
           success: Partner verwijderd van deze conferentie.
         edit:
-          title: Update partner.
           update: Bijwerken
         new:
           create: Creëren
@@ -253,7 +236,6 @@ nl:
         destroy:
           success: Registratietype is met succes van deze conferentie verwijderd.
         edit:
-          title: Update registratietype.
           update: Bijwerken
         new:
           create: Creëren
@@ -339,7 +321,6 @@ nl:
         diplomas:
           edit:
             save: Opslaan
-            title: Certificaat van Deelname
         invite_join_conference_mailer:
           invite:
             decline: Uitnodiging '%{conference_title}' weigeren
@@ -358,7 +339,6 @@ nl:
             diploma_html: U vindt het certificaat van deelname voor de conferentie <a href="%{url}">%{title}</a> in de bijlagen.
           diploma_user:
             attendance_verified_by: Aanwezigheid geverifieerd door
-            certificate_of_attendance: Certificaat van Deelname
             certificate_of_attendance_description: Dit is om te verklaren dat <strong>%{user}</strong> aanwezig is geweest en heeft deelgenomen aan de <strong>%{title}</strong> gehouden op de <strong>%{location}</strong> op <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Er is een probleem opgetreden tijdens het verzenden van de certificaten van deelname.
