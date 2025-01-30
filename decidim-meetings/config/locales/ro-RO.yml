@@ -137,6 +137,21 @@ ro:
             comments_blocked: Comentarii blocate
             creation_enabled_for_participants: Crearea de şedinţe de către participanţi este activată
             creation_enabled_for_user_groups: Crearea de ședințe de către grupuri de utilizatori activată
+    download_your_data:
+      help:
+        invites:
+          accepted_at: Data și ora când această invitație a fost acceptată
+          created_at: Data și ora la care această invitație a fost creată
+          id: Identificatorul unic pentru această invitație
+          meeting: Întâlnirea în care a avut loc această invitație
+          rejected_at: Data și ora când această invitație a fost respinsă
+          sent_at: Data și ora la care această invitație a fost trimisă
+          updated_at: Data și ora la care această invitație a fost actualizată ultima dată
+        registrations:
+          created_at: Data și ora când această înregistrare a fost creată
+          public_participation: Dacă această participare a fost făcută publică
+          updated_at: Data și ora la care această înregistrare a fost actualizată ultima dată
+          validated_at: Data și ora la care această înregistrare a fost validată
     events:
       meetings:
         meeting_closed:
