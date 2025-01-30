@@ -101,12 +101,6 @@ module Decidim
         %(<strong>#{current_rule_call_for_action_text}</strong>. #{rule_text}).html_safe
       end
 
-      def has_position?(project)
-        return if project.address.blank?
-
-        project.latitude.present? && project.longitude.present?
-      end
-
       def filter_addition_type_values
         return [] if voting_finished?
 
