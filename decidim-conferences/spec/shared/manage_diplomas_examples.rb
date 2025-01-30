@@ -14,7 +14,7 @@ shared_examples "manage diplomas" do
       end
 
       within_admin_sidebar_menu do
-        click_link "Certificate of Attendance"
+        click_link "Certificate of attendance"
       end
 
       dynamically_attach_file(:conference_main_logo, main_logo_path)
@@ -44,7 +44,7 @@ shared_examples "manage diplomas" do
           end
 
           within_admin_sidebar_menu do
-            click_link "Certificate of Attendance"
+            click_link "Certificate of attendance"
           end
         end
 
@@ -74,7 +74,7 @@ shared_examples "manage diplomas" do
           end
 
           within_admin_sidebar_menu do
-            click_link "Certificate of Attendance"
+            click_link "Certificate of attendance"
           end
 
           expect(page).to have_selector("#send-diplomas.disabled")
@@ -92,11 +92,11 @@ shared_examples "manage diplomas" do
         end
 
         within_admin_sidebar_menu do
-          click_link "Certificate of Attendance"
+          click_link "Certificate of attendance"
         end
 
         expect(page).not_to have_selector("#send-diplomas")
-        expect(page).to have_content("Certificate of Attendance")
+        expect(page).to have_content("Certificate of attendance")
       end
     end
   end
