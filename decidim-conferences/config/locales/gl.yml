@@ -97,13 +97,11 @@ gl:
         destroy:
           success: Orador eliminouse con éxito para esta conferencia.
         edit:
-          title: Actualice o altofalante da conferencia.
           update: Actualización
         index:
           conference_speakers_title: Conferenciantes de conferencias
         new:
           create: Crear
-          title: Novas conferencias.
         update:
           error: Houbo un erro ao actualizar o altofalante para esta conferencia.
           success: O presidente actualizouse con éxito para esta conferencia.
@@ -114,11 +112,9 @@ gl:
         destroy:
           success: O usuario eliminouse con éxito desta conferencia.
         edit:
-          title: Actualiza o usuario da conferencia.
           update: Actualización
         new:
           create: Crear
-          title: Novo usuario da conferencia.
         update:
           error: Houbo un erro actualizado por un usuario para esta conferencia.
           success: Usuario actualizado con éxito para esta conferencia.
@@ -147,19 +143,12 @@ gl:
       media_links:
         create:
           error: Produciuse un erro ao crear unha nova ligazón multimedia.
-          success: Media Link creouse con éxito.
-        destroy:
-          success: Ligazón de medios eliminouse con éxito.
         edit:
-          title: Actualiza a ligazón de medios.
           update: Actualización
-        index:
-          media_links_title: Ligazóns multimedia
         new:
           create: Crear
         update:
           error: Produciuse un erro ao actualizar esta ligazón multimedia.
-          success: Media Link actualizouse con éxito.
       menu:
         conferences: Conferencias
         conferences_submenu:
@@ -170,13 +159,9 @@ gl:
           conference_admins: Administradores de conferencias
           conference_invites: Invitacións
           conference_speakers: Ponentes
-          diploma: Certificado de asistencia
-          media_links: Ligazóns multimedia
           moderations: Moderacións
           partners: Socios
-          registration_types: Tipos de Rexistro
           registrations: Rexistros
-          user_registrations: Rexistros de usuarios
       models:
         conference:
           fields:
@@ -205,7 +190,6 @@ gl:
             date: Data
             link: Ligazón
             title: Título
-          name: Ligazón multimedia
         partner:
           fields:
             link: Ligazón
@@ -231,7 +215,6 @@ gl:
         destroy:
           success: O socio eliminouse con éxito desta conferencia.
         edit:
-          title: Actualizar socio.
           update: Actualización
         new:
           create: Crear
@@ -253,7 +236,6 @@ gl:
         destroy:
           success: O tipo de rexistro eliminouse con éxito desta conferencia.
         edit:
-          title: Actualizar o tipo de rexistro.
           update: Actualización
         new:
           create: Crear
@@ -335,7 +317,6 @@ gl:
         diplomas:
           edit:
             save: Gardar
-            title: Certificado de asistencia
         invite_join_conference_mailer:
           invite:
             decline: Declina a invitación '%{conference_title}'
@@ -354,7 +335,6 @@ gl:
             diploma_html: Atopará o certificado de asistencia á conferencia <a href="%{url}">%{title}</a> nos anexos.
           diploma_user:
             attendance_verified_by: Asistencia verificada por
-            certificate_of_attendance: Certificado de asistencia
             certificate_of_attendance_description: Isto acredita que <strong>%{user}</strong> asistiu e participou no <strong>%{title}</strong> realizado no <strong>%{location}</strong> do <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Produciuse un problema ao enviar os certificados de asistencia da conferencia.
