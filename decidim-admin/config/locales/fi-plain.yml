@@ -1060,7 +1060,6 @@ fi-pl:
           'true': 'Kyllä'
         index:
           back_to_share_tokens: Takaisin pääsyoikeuslinkkeihin
-          copied: Pääsylinkki kopioitu!
           copy_message: Linkin kopiointi leikepöydälle onnistui.
           create_new_token: Luo ensimmäinen pääsylinkkisi!
           empty_html: Aktiivisia pääsylinkkejä ei ole. %{new_token_link}
@@ -1070,7 +1069,6 @@ fi-pl:
             Luo ja jaa pääsylinkkejä, mikäli haluat näyttää muille, miltä toistaiseksi julkaisematon asia näyttää sivustolla.
             Pääsylinkit voidaan rajata ainoastaan rekisteröityneille osallistujille ja niille voidaan asettaa myös vanhentumisaika.
             Jakaaksesi pääsylinkin jollekin muulle, luo se ja kopioi se leikepöydälle käyttämällä "%{clipboard} leikepöytä" toimintokuvaketta.
-          title: 'pääsylinkit kohteelle: %{name}'
         new:
           create: Luo
           title: 'Uusi pääsylinkki kohteelle: %{name}'
