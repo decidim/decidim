@@ -116,13 +116,11 @@ lt:
         destroy:
           success: Konferencijos pranešėjas pašalintas.
         edit:
-          title: Atnaujinti konferencijos pranešėją.
           update: Atnaujinti
         index:
           conference_speakers_title: Konferencijos pranešėjai
         new:
           create: Sukurti
-          title: Naujas konferencijos pranešėjas.
         update:
           error: Atnaujinant šį konferencijos pranešėją iškilo problema.
           success: Konferencijos pranešėjas atnaujintas.
@@ -133,13 +131,11 @@ lt:
         destroy:
           success: Konferencijos administratorius pašalintas.
         edit:
-          title: Atnaujinti konferencijos administratorių.
           update: Atnaujinti
         index:
           conference_admins_title: Konferencijos administratoriai
         new:
           create: Sukurti
-          title: Naujas konferencijos administratorius.
         update:
           error: Atnaujinant šios konferencijos administratorių iškilo problema.
           success: Konferencijos administratorius atnaujintas.
@@ -168,19 +164,12 @@ lt:
       media_links:
         create:
           error: Kuriant naują multimedijos nuorodą iškilo problema.
-          success: Multimedijos nuoroda sukurta.
-        destroy:
-          success: Multimedijos nuoroda pašalinta.
         edit:
-          title: Atnaujinti multimedijos nuorodą.
           update: Atnaujinti
-        index:
-          media_links_title: Multimedijos Nuorodos
         new:
           create: Sukurti
         update:
           error: Atnaujinant šią multimedijos nuorodą iškilo problema.
-          success: Multimedijos Nuoroda atnaujinta.
       menu:
         conferences: Konferencijos
         conferences_submenu:
@@ -191,13 +180,9 @@ lt:
           conference_admins: Konferencijos administratoriai
           conference_invites: Pakvietimai
           conference_speakers: Pranešėjai
-          diploma: Dalyvavimo konferencijoje pažymėjimas
-          media_links: Multimedijos Nuorodos
           moderations: Moderavimai
           partners: Partneriai
-          registration_types: Registracijos tipai
           registrations: Registracijos
-          user_registrations: Naudotojų registracijos
       models:
         conference:
           fields:
@@ -226,7 +211,6 @@ lt:
             date: Data
             link: Nuoroda
             title: Pavadinimas
-          name: Multimedijos Nuoroda
         partner:
           fields:
             link: Nuoroda
@@ -252,7 +236,6 @@ lt:
         destroy:
           success: Konferencijos partneris pašalintas.
         edit:
-          title: Atnaujinti partnerį.
           update: Atnaujinti
         new:
           create: Sukurti
@@ -274,7 +257,6 @@ lt:
         destroy:
           success: Konferencijos registracijos tipas pašalintas.
         edit:
-          title: Atnaujinti registracijos tipą.
           update: Atnaujinti
         new:
           create: Sukurti
@@ -364,7 +346,6 @@ lt:
         diplomas:
           edit:
             save: Išsaugoti
-            title: Dalyvavimo pažymėjimas
         invite_join_conference_mailer:
           invite:
             decline: Atmesti kvietimą į „%{conference_title}“
@@ -384,7 +365,6 @@ lt:
             diploma_html: Rasite konferencijos <a href="%{url}">%{title}</a> dalyvavimo pažymėjimą laiško prieduose.
           diploma_user:
             attendance_verified_by: Dalyvavimas patvirtintas
-            certificate_of_attendance: Dalyvavimo pažymėjimas
             certificate_of_attendance_description: Patvirtiname, kad <strong>%{user}</strong> dalyvavo <strong>%{title}</strong> konferencijoje vykusioje <strong>%{location}</strong> nuo <strong>%{start} iki %{end}</strong>
         send_diploma:
           error: Siunčiant dalyvavimo pažymėjimus iškilo problema.
