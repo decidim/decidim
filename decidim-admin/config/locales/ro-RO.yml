@@ -860,6 +860,9 @@ ro:
       share_tokens:
         actions:
           destroy: Șterge
+        index:
+          copied: Link de acces copiat!
+          title: 'Link-uri de acces pentru: %{name}'
       shared:
         gallery:
           add_images: Adaugă imagini
