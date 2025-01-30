@@ -1060,7 +1060,6 @@ sv:
           'true': 'Ja'
         index:
           back_to_share_tokens: Tillbaka till åtkomstlänkar
-          copied: Åtkomstlänken har kopierats!
           copy_message: Texten har kopierats till urklipp.
           create_new_token: Skapa din första åtkomstlänk!
           empty_html: Det finns inga aktiva åtkomstlänkar. %{new_token_link}
@@ -1070,7 +1069,6 @@ sv:
             Skapa och dela en åtkomstlänk för att låta andra att se denna opublicerade process.
             Åtkomstlänkar kan vara giltiga endast för registrerade deltagare eller vid behov ha ett förfallodatum.
             För att dela en ny åtkomstlänk med någon, skapa den och kopiera länken med åtgärdsikonen "%{clipboard} Urklipp".
-          title: 'åtkomstlänkar för: %{name}'
         new:
           create: Skapa
           title: 'Ny åtkomstlänk för: %{name}'
