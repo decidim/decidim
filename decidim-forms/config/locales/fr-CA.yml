@@ -34,6 +34,7 @@ fr-CA:
         models:
           components:
             allow_answers: Autoriser les réponses
+            allow_editing_answers: Autoriser les utilisateurs enregistrés à modifier leurs propres réponses à l'enquête
             allow_unregistered: Autoriser les utilisateurs non enregistrés à répondre à l'enquête
             announcement: Annonce
             clean_after_publish: Supprimer les réponses lors de la publication de l’enquête
@@ -191,6 +192,9 @@ fr-CA:
           questionnaire_answered:
             body: Vous avez déjà répondu à ce questionnaire.
             title: Déjà répondu
+          questionnaire_answered_edit:
+            body: Vous avez déjà répondu à ce formulaire. %{link}
+            edit: Modifier vos réponses
           questionnaire_closed:
             body: Le questionnaire est fermé et vous ne pouvez pas y répondre.
             title: Questionnaire fermé
@@ -205,8 +209,12 @@ fr-CA:
           tos_agreement: En participant, vous acceptez ses conditions d'utilisation
       step_navigation:
         show:
+          are_you_sure_edit: Vous serez en mesure de modifier vos réponses. Êtes-vous sûr(e)?
+          are_you_sure_edit_guest: Si vous voulez pouvoir modifier vos réponses par la suite, vous devez vous connecter ou créer un compte.
+          are_you_sure_no_edit: Cette action ne peut pas être annulée et vous ne pourrez pas modifier vos réponses. Êtes-vous sûr(e) ?
           back: Revenir en arrière
           continue: Continuer
+          disallowed: Vous n'êtes pas autorisé(e) à modifier vos réponses.
           submit: Soumettre
       user_answers_serializer:
         body: Répondre
