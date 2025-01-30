@@ -183,6 +183,7 @@ es-MX:
           media_links_title: Enlaces multimedia
         new:
           create: Crear
+          title: Crear enlace multimedia
         update:
           error: Hubo un error al actualizar este enlace multimedia.
           success: Enlace multimedia actualizado con éxito.
