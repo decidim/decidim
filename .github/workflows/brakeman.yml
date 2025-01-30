@@ -35,6 +35,7 @@ jobs:
           - decidim-blogs
           - decidim-budgets
           - decidim-comments
+          - decidim-collaborative_texts
           - decidim-conferences
           - decidim-core
           - decidim-debates
