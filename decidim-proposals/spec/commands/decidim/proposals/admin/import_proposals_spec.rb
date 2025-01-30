@@ -174,10 +174,25 @@ module Decidim
 
                 expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
               end
+
+              context "when using translation" do
+                let(:states) { %w(not_answered rebutjada) }
+
+                it "only imports proposals from the selected states" do
+                  Decidim::Proposals::ProposalState.where(component: proposal_component).where(token: "rejected").update(token: "rebutjada")
+                  Decidim::Proposals::ProposalState.where(component: proposal_component).where(token: "accepted").update(token: "acceptada")
+
+                  expect do
+                    I18n.with_locale(:ca) { command.call }
+                  end.to change { Proposal.where(component: current_component).count }.by(2)
+
+                  expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
+                end
+              end
             end
 
             describe "proposal scopes" do
-              let(:states) { ProposalsImportForm::VALID_STATES.dup }
+              let(:states) { %w(accepted not_answered evaluating rejected) }
               let(:scope) { create(:scope, organization:) }
               let(:other_scope) { create(:scope, organization:) }
 
