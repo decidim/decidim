@@ -12,14 +12,12 @@ module Decidim
         let(:component) { project.component }
         let(:origin_component) { create(:proposal_component, participatory_space: component.participatory_space) }
         let(:default_budget) { 1000 }
-        let(:scope_id) { nil }
         let(:import_all_accepted_proposals) { true }
         let(:params) do
           {
             origin_component_id: origin_component.try(:id),
             default_budget:,
-            import_all_accepted_proposals:,
-            scope_id:
+            import_all_accepted_proposals:
           }
         end
 
@@ -68,44 +66,6 @@ module Decidim
           it "returns available target components" do
             expect(form.origin_components).to include(origin_component)
             expect(form.origin_components.length).to eq(1)
-          end
-        end
-
-        describe "#scope" do
-          subject { form.scope }
-
-          let(:space_scope) { create(:scope, organization: component.organization) }
-          let(:component_scope) { create(:scope, organization: component.organization, parent: space_scope) }
-          let(:project_scope) { create(:scope, organization: component.organization, parent: component_scope) }
-
-          context "when the scope is not defined" do
-            it "returns nil" do
-              expect(subject).to be_nil
-            end
-
-            context "and the component has a scope" do
-              before do
-                component.participatory_space.update!(scope: space_scope)
-
-                settings = component.settings
-                settings.scope_id = component_scope.id
-                settings.scopes_enabled = true
-                component.settings = settings
-                component.save!
-              end
-
-              it "returns the component's scope" do
-                expect(subject).to eq(component_scope)
-              end
-            end
-          end
-
-          context "when the scope is defined" do
-            let(:scope_id) { project_scope.id }
-
-            it "returns the scope" do
-              expect(subject).to eq(project_scope)
-            end
           end
         end
       end

@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A Helper to render scopes, including a global scope, for forms.
+  # A Helper to render taxonomies for forms.
   module TaxonomiesHelper
     include DecidimFormHelper
     include TranslatableAttributes
 
     def filter_taxonomy_items_select_field(form, name, filter, options = {})
-      label = decidim_sanitize_translated(options.delete(:internal) ? filter.internal_name : filter.name)
+      label = decidim_sanitize_translated(filter.name)
       options = options.merge(include_blank: I18n.t("decidim.taxonomies.prompt")) unless options.has_key?(:include_blank)
       options = options.merge(label:) unless options.has_key?(:label)
       form.select(

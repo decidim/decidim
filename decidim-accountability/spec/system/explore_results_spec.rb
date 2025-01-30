@@ -58,7 +58,7 @@ describe "Explore results", :versioning do
 
     describe "home" do
       before do
-        # Add scopes and taxonomies for the results to test they work correctly
+        # Add taxonomies for the results to test they work correctly
         results[0..2].each { |r| r.update!(taxonomies: [sub_taxonomy]) }
         results[3..-1].each { |r| r.update!(taxonomies: [other_sub_taxonomy]) }
 

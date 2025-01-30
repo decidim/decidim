@@ -48,7 +48,6 @@ module Decidim
             description: original_proposal.body,
             budget_amount: budget_for(original_proposal),
             taxonomies: original_proposal.taxonomies,
-            scope: original_proposal.scope,
             address: original_proposal.address,
             latitude: original_proposal.latitude,
             longitude: original_proposal.longitude
@@ -69,12 +68,6 @@ module Decidim
         end
 
         def proposals
-          return all_proposals if form.scope_id.blank?
-
-          all_proposals.where(decidim_scope_id: form.scope_id)
-        end
-
-        def all_proposals
           Decidim::Proposals::Proposal.where(component: origin_component).published.not_hidden.not_withdrawn.accepted.order(:published_at)
         end
 

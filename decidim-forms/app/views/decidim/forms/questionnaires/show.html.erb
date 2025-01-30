@@ -32,7 +32,14 @@
     <% if allow_answers? %>
       <% if visitor_can_answer? %>
         <% if visitor_already_answered? %>
-          <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_answered.title"), body: t("decidim.forms.questionnaires.show.questionnaire_answered.body") }) %>
+          <% if visitor_can_edit_answers? && current_component.manifest_name == "surveys" %>
+            <% body = t("decidim.forms.questionnaires.show.questionnaire_answered_edit.body",
+                        link: link_to(t("decidim.forms.questionnaires.show.questionnaire_answered_edit.edit"), edit_survey_path(questionnaire_for))
+            ) %>
+          <% else %>
+            <% body = t("decidim.forms.questionnaires.show.questionnaire_answered.body") %>
+          <% end %>
+          <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_answered.title"), body: body }) %>
         <% else %>
           <% if @form.responses_by_step.flatten.empty? %>
             <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.empty")) %>

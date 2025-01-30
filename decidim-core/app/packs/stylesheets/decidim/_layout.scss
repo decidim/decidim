@@ -137,7 +137,7 @@
 }
 
 .layout-aside__ctas-buttons {
-  @apply md:relative inset-x-0 bottom-0 z-30 md:z-0 flex flex-row-reverse md:flex-col items-center md:items-stretch last:[&>button]:font-semibold first:[&>button]:text-lg justify-around bg-white md:bg-transparent gap-4 md:gap-0 p-4 md:p-0 shadow-inner md:shadow-none first:[&>*]:grow md:first:[&>*]:grow-0 last:[&>*]:w-1/2 md:last:[&>*]:w-auto h-20 md:h-fit first:[&>button]:py-3;
+  @apply fixed md:relative inset-x-0 bottom-0 z-30 md:z-0 flex flex-row-reverse md:flex-col items-center md:items-stretch last:[&>button]:font-semibold first:[&>button]:text-lg justify-around bg-white md:bg-transparent gap-4 md:gap-0 p-4 md:p-0 shadow-inner md:shadow-none first:[&>*]:grow md:first:[&>*]:grow-0 last:[&>*]:w-1/2 md:last:[&>*]:w-auto h-20 md:h-fit first:[&>button]:py-3;
 
   .meeting__aside-progress,
   .proposals__aside-progress {
