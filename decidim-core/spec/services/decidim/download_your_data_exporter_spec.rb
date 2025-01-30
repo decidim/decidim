@@ -29,6 +29,7 @@ module Decidim
         decidim-conferences-conferenceinvites-
         decidim-comments-comments-
         decidim-comments-commentvotes-
+        decidim-initiatives-initiatives-
       )
     end
 

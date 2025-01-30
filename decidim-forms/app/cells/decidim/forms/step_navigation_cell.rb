@@ -40,12 +40,25 @@ module Decidim
         "step-#{current_step_index}"
       end
 
+      def allow_editing_answers?
+        options[:allow_editing_answers]
+      end
+
       def confirm_data
-        { data: {
-          confirm: t("decidim.forms.step_navigation.show.are_you_sure"),
-          disable: true,
-          data: "survey-buttons"
-        } }
+        {
+          data: {
+            confirm:,
+            disable: true,
+            data: "survey-buttons"
+          }
+        }
+      end
+
+      def confirm
+        return t("decidim.forms.step_navigation.show.are_you_sure_no_edit") unless allow_editing_answers?
+        return t("decidim.forms.step_navigation.show.are_you_sure_edit_guest") unless current_user
+
+        t("decidim.forms.step_navigation.show.are_you_sure_edit")
       end
     end
   end

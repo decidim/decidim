@@ -94,7 +94,6 @@ Decidim::Core::Engine.routes.draw do
     end
 
     resources :notifications_subscriptions, param: :auth, only: [:create, :destroy]
-    resource :user_interests, only: [:show, :update]
 
     get "/authorization_modals/:authorization_action/f/:component_id(/:resource_name/:resource_id)", to: "authorization_modals#show", as: :authorization_modal
     get(
@@ -146,8 +145,6 @@ Decidim::Core::Engine.routes.draw do
   get "/search", to: "searches#index", as: :search
 
   get "/link", to: "links#new", as: :link
-
-  get "/scopes/picker", to: "scopes#picker", as: :scopes_picker
 
   get "/static_map", to: "static_map#show", as: :static_map
   put "/pages/terms-of-service/accept", to: "tos#accept_tos", as: :accept_tos

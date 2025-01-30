@@ -182,26 +182,4 @@ shared_examples "manage assemblies" do
       end
     end
   end
-
-  context "when the assembly has a scope" do
-    let(:scope) { create(:scope, organization:) }
-
-    before do
-      assembly.update!(scopes_enabled: true, scope:)
-    end
-
-    it "disables the scope for the assembly" do
-      click_on "Configure"
-
-      uncheck :assembly_scopes_enabled
-
-      expect(page).to have_css("select#assembly_scope_id[disabled]")
-
-      within ".edit_assembly" do
-        find("*[type=submit]").click
-      end
-
-      expect(page).to have_admin_callout("successfully")
-    end
-  end
 end

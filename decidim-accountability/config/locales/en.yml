@@ -48,7 +48,7 @@ en:
         deleted_results_info: Deleted results can be restored from the trash.
         destroy: Delete
         edit: Edit
-        import: Import projects from another component
+        import: Import results from another component
         import_csv: Import results from CSV file
         new_result: New result
         new_status: New status
@@ -61,6 +61,30 @@ en:
         exports:
           result_comments: Comments
           results: Results
+        import_components:
+          create:
+            invalid: There was a problem importing the results, please follow the instructions carefully and make sure you have selected projects for implementation.
+          filters:
+            new_items_projects:
+              one: 1 selected project will be imported
+              other: "%{count} selected projects will be imported"
+              zero: There are no selected projects in this origin component
+            new_items_proposals:
+              one: 1 proposal will be imported
+              other: "%{count} proposals will be imported"
+              zero: There are no proposals in this origin component
+            proposal_state: Proposal status
+            select_state: Select status
+          form:
+            create: Import
+            no_components: There are no components in this participatory space to import.
+            origin_component_id: Origin component
+            select_component: Select a component
+          new:
+            success:
+              one: 1 result queued to be imported. You will be notified by email, once completed.
+              other: "%{count} results queued to be imported. You will be notified by email, once completed."
+            title: Import results from another component
         import_results:
           new:
             download_export: Download the Export with CSV format
@@ -95,23 +119,6 @@ en:
             name: Result
           status:
             name: Status
-        projects_import:
-          create:
-            invalid: There was a problem importing the projects into results, please follow the instructions carefully and make sure you have selected projects for implementation.
-          new:
-            create: Import
-            import_all_selected_projects: Import all projects selected for implementation
-            new_items:
-              one: 1 selected project will be imported
-              other: "%{count} selected projects will be imported"
-              zero: There are no selected projects in this origin component
-            no_components: There are no budgets components in this participatory space to import the projects into results.
-            origin_component_id: Origin component
-            select_component: Select a component
-            success:
-              one: 1 project queued to be imported. You will be notified by email, once completed.
-              other: "%{count} projects queued to be imported. You will be notified by email, once completed."
-            title: Import projects from another component
         results:
           bulk_actions:
             dates_form:
@@ -232,6 +239,13 @@ en:
             other: "%{count} results were imported from projects."
           subject: Successful import of projects
           success: Successful imported projects to results in the %{component_name} component. You can review the results in the administration interface.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: One result was imported from proposals
+            other: "%{count} results were imported from proposals."
+          subject: Successful import of proposals
+          success: Successful imported proposals to results in the %{component_name} component. You can review the results in the administration interface.
       last_activity:
         new_result: 'New result:'
       models:
@@ -263,8 +277,6 @@ en:
         home:
           empty: There are no results yet.
           empty_filters: There are no results with this criteria.
-          sub_taxonomies_label: Subcategories
-          taxonomies_label: Categories
         home_header:
           global_status: Global execution status
         no_results: There are no projects
@@ -297,8 +309,6 @@ en:
             geocoding_enabled: Maps enabled
             intro: Intro
             no_taxonomy_filters_found: No taxonomy filters found.
-            scope_id: Scope
-            scopes_enabled: Scopes enabled
             taxonomy_filters: Select filters for the component
             taxonomy_filters_add: Add filter
           step:

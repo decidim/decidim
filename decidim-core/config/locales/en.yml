@@ -452,10 +452,8 @@ en:
         explanation: Get verified by introducing a document number ending with "X".
         fields:
           allowed_postal_codes: Allowed postal codes (separated by commas)
-          allowed_scope_id: Allowed scope
           document_number: Document number
           postal_code: Postal code
-          scope_id: Scope
         name: Example authorization
       dummy_authorization_workflow:
         explanation: Dummy authorization workflow
@@ -464,10 +462,8 @@ en:
         explanation: Get verified by introducing a document number ending with "X".
         fields:
           allowed_postal_codes: Allowed postal codes (separated by commas)
-          allowed_scope_id: Allowed scope
           document_number: Document number
           postal_code: Postal code
-          scope_id: Scope
         name: Ephemeral example authorization
       errors:
         duplicate_authorization: A participant is already authorized with the same data. An administrator will contact you to verify your details.
@@ -559,8 +555,6 @@ en:
             enable_pads_creation: Enable pads creation
             no_taxonomy_filters_found: No taxonomy filters found.
             resources_permissions_enabled: Resources permissions enabled
-            scope_id: Scope
-            scopes_enabled: Scopes enabled
             taxonomy_filters: Select filters for the component
           step:
             amendment_creation_enabled: Amendment creation enabled
@@ -1742,16 +1736,7 @@ en:
         error: There was a problem during the endorsement action.
     scopes:
       global: Global scope
-      picker:
-        cancel: Cancel
-        change: Change selected scope
-        choose: Select
-        currently_selected: Currently selected scope
-        title: Select %{field}
       prompt: Select a scope
-      scopes: Scopes
-      scopes_picker_input:
-        select_scope: 'Select a scope (currently: %{current})'
     search:
       name: Search
       results: Search results
@@ -1878,15 +1863,6 @@ en:
         send: Send
       update:
         error: Message not sent. Try again later
-    user_interests:
-      show:
-        my_interests: My interests
-        no_scopes: This organization does not have any scope yet!
-        select_your_interests: Select the topics you are interested in to receive events related to them in your profile Timeline tab.
-        update_my_interests: Update my interests
-      update:
-        error: There was a problem updating your interests.
-        success: Your interests have been successfully updated.
     user_report_mailer:
       notify:
         body_1: User %{user} has been reported by %{token}
@@ -2299,7 +2275,6 @@ en:
         authorizations: Authorizations
         delete_my_account: Delete my account
         my_data: My data
-        my_interests: My interests
         notifications_settings: Notifications settings
         profile: Profile
         title: Participant settings

@@ -34,17 +34,46 @@ module Decidim
           contributions: meeting.contributions_count.to_i,
           organizations: meeting.attending_organizations,
           address: meeting.address,
-          location: meeting.location,
+          location: include_location? ? meeting.location : nil,
           reference: meeting.reference,
-          comments: meeting.comments_count,
           attachments: meeting.attachments.size,
-          followers: meeting.follows.size,
           url:,
           related_proposals:,
           related_results:,
           published: meeting.published_at.present?,
           withdrawn: meeting.withdrawn?,
-          withdrawn_at: meeting.withdrawn_at
+          withdrawn_at: meeting.withdrawn_at,
+          location_hints: meeting.location_hints,
+          created_at: meeting.created_at,
+          updated_at: meeting.updated_at,
+          latitude: meeting.latitude,
+          longitude: meeting.longitude,
+          follows_count: meeting.follows_count,
+          private_meeting: meeting.private_meeting,
+          transparent: meeting.transparent,
+          registration_form_enabled: meeting.registration_form_enabled,
+          comments: {
+            **comment_fields
+          },
+          online_meeting_url: meeting.online_meeting_url,
+          closing_visible: meeting.closing_visible,
+          closing_report: meeting.closing_report,
+          attending_organizations: meeting.attending_organizations,
+          registration_url: meeting.registration_url,
+          decidim_user_group_id: meeting.decidim_user_group_id,
+          decidim_author_type: meeting.decidim_author_type,
+          video_url: meeting.video_url,
+          audio_url: meeting.audio_url,
+          closed_at: meeting.closed_at,
+          registration_terms: meeting.registration_terms,
+          available_slots: meeting.available_slots,
+          registrations_enabled: meeting.registrations_enabled,
+          customize_registration_email: meeting.customize_registration_email,
+          type_of_meeting: meeting.type_of_meeting,
+          iframe_access_level: meeting.iframe_access_level,
+          iframe_embed_type: meeting.iframe_embed_type,
+          reserved_slots: meeting.reserved_slots,
+          registration_type: meeting.registration_type
         }
       end
 
@@ -87,6 +116,21 @@ module Decidim
 
       def url
         Decidim::ResourceLocatorPresenter.new(meeting).url
+      end
+
+      def comment_fields
+        return {} unless meeting.comments
+
+        {
+          start_time: meeting.comments_start_time,
+          end_time: meeting.comments_end_time,
+          enabled: meeting.comments_enabled,
+          count: meeting.comments_count
+        }
+      end
+
+      def include_location?
+        meeting.iframe_access_level == "all"
       end
     end
   end

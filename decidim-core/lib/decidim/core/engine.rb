@@ -36,6 +36,7 @@ require "mime-types"
 require "diffy"
 require "ransack"
 require "wisper"
+require "chartkick"
 require "shakapacker"
 
 require "decidim/api"

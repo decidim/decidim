@@ -13,6 +13,9 @@ shared_examples "manage taxonomy filters in settings" do
   end
 
   context "when taxonomy filter exist" do
+    let!(:another_taxonomy_filter) do
+      create(:taxonomy_filter, internal_name: { en: "Another filter" }, participatory_space_manifests: [participatory_space.manifest.name], root_taxonomy:)
+    end
     before do
       click_on "Configure"
     end
@@ -36,6 +39,22 @@ shared_examples "manage taxonomy filters in settings" do
         expect(page).to have_link("Edit")
       end
       expect(component.reload.settings.taxonomy_filters).to eq([taxonomy_filter.id.to_s])
+
+      click_on "Add filter"
+      within "#taxonomy_filters-dialog-content" do
+        select "A root taxonomy", from: "taxonomy_id"
+        select "Another filter", from: "taxonomy_filter_id"
+        click_on "Save"
+      end
+
+      expect(page).to have_no_css("#taxonomy_filters-dialog-content")
+      within ".js-current-filters" do
+        expect(page).to have_css("td", text: "Internal taxonomy filter name")
+        expect(page).to have_css("td", text: "Public taxonomy filter name")
+        expect(page).to have_css("td", text: "Another filter")
+        expect(page).to have_link("Edit", count: 2)
+      end
+      expect(component.reload.settings.taxonomy_filters).to contain_exactly(taxonomy_filter.id.to_s, another_taxonomy_filter.id.to_s)
 
       click_on "Update"
       click_on "Configure"

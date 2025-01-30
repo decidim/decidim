@@ -36,14 +36,12 @@ module Decidim
             target: attributes["target"],
             participatory_scope: attributes["participatory_scope"],
             participatory_structure: attributes["participatory_structure"],
-            scopes_enabled: attributes["scopes_enabled"],
             private_space: attributes["private_space"],
             reference: attributes["reference"],
             purpose_of_action: attributes["purpose_of_action"],
             composition: attributes["composition"],
             duration: attributes["duration"],
             creation_date: attributes["creation_date"],
-            decidim_scope_id: attributes["decidim_scope_id"],
             closing_date_reason: attributes["closing_date_reason"],
             included_at: attributes["included_at"],
             closing_date: attributes["closing_date"],
@@ -65,33 +63,6 @@ module Decidim
 
           @imported_assembly.save!
           @imported_assembly
-        end
-      end
-
-      def import_categories(categories)
-        return if categories.nil?
-
-        categories.map do |category_attributes|
-          category = Decidim.traceability.create!(
-            Category,
-            @user,
-            name: category_attributes["name"],
-            description: category_attributes["description"],
-            parent_id: category_attributes["parent_id"],
-            participatory_space: @imported_assembly
-          )
-          next if category_attributes["subcategories"].nil?
-
-          category_attributes["subcategories"].map do |subcategory_attributes|
-            Decidim.traceability.create!(
-              Category,
-              @user,
-              name: subcategory_attributes["name"],
-              description: subcategory_attributes["description"],
-              parent_id: category.id,
-              participatory_space: @imported_assembly
-            )
-          end
         end
       end
 

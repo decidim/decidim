@@ -14,7 +14,6 @@ module Decidim
         mimic :conference
 
         attribute :slug, String
-        attribute :copy_categories, Boolean
         attribute :copy_components, Boolean
 
         validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }

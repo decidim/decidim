@@ -42,16 +42,13 @@ module Decidim
         attribute :twitter_handler, String
         attribute :youtube_handler, String
 
-        attribute :area_id, Integer
         attribute :parent_id, Integer
         attribute :participatory_processes_ids, Array[Integer]
-        attribute :scope_id, Integer
         attribute :weight, Integer, default: 0
 
         attribute :is_transparent, Boolean
         attribute :promoted, Boolean
         attribute :private_space, Boolean
-        attribute :scopes_enabled, Boolean
 
         attribute :closing_date, Decidim::Attributes::LocalizedDate
         attribute :creation_date, Decidim::Attributes::LocalizedDate
@@ -63,12 +60,9 @@ module Decidim
         attribute :remove_banner_image, Boolean, default: false
         attribute :remove_hero_image, Boolean, default: false
 
-        validates :area, presence: true, if: proc { |object| object.area_id.present? }
-
         validates :parent, presence: true, if: ->(form) { form.parent.present? }
         validate :ensure_parent_cannot_be_child, if: ->(form) { form.parent.present? }
 
-        validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
 
         validate :slug_uniqueness
@@ -92,18 +86,6 @@ module Decidim
 
           available_assemblies = Decidim::Assemblies::ParentAssembliesForSelect.for(current_organization, Assembly.find(id))
           errors.add(:parent, :invalid) unless available_assemblies.include? parent
-        end
-
-        def map_model(model)
-          self.scope_id = model.decidim_scope_id
-        end
-
-        def scope
-          @scope ||= current_organization.scopes.find_by(id: scope_id)
-        end
-
-        def area
-          @area ||= current_organization.areas.find_by(id: area_id)
         end
 
         def created_by_for_select

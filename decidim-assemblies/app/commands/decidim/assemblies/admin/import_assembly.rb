@@ -41,7 +41,6 @@ module Decidim
           assemblies.each do |original_assembly|
             Decidim.traceability.perform_action!("import", Assembly, @user) do
               @imported_assembly = importer.import(original_assembly, form.current_user, title: form.title, slug: form.slug)
-              importer.import_categories(original_assembly["assembly_categories"]) if form.import_categories?
               importer.import_folders_and_attachments(original_assembly["attachments"]) if form.import_attachments?
               importer.import_components(original_assembly["components"]) if form.import_components?
               @imported_assembly

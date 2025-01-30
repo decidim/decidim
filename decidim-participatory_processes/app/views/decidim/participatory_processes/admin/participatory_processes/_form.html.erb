@@ -146,46 +146,10 @@
       <% else %>
         <% @form.taxonomy_filters.each do |filter| %>
           <div class="row column">
-            <%= filter_taxonomy_items_select_field form, :taxonomies, filter, internal: true %>
+            <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
           </div>
         <% end %>
       <% end %>
-    </div>
-  </div>
-
-  <div class="card" data-component="accordion" id="accordion-filters">
-    <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-filters" type="button">
-        <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="filters">
-          <%= t("filters", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
-        </h2>
-      </button>
-    </div>
-    <div id="panel-filters" class="card-section">
-      <div class="row column">
-        <%= form.check_box :scopes_enabled %>
-      </div>
-
-      <div class="row column">
-        <%= scopes_select_field form, :scope_id, root: nil %>
-      </div>
-
-      <div class="row column" id="scope-depth ">
-        <%= form.collection_select :scope_type_max_depth_id,
-                                   organization_scope_depths,
-                                   :id,
-                                   :name,
-                                   scope_type_depth_select_options,
-                                   scope_type_depth_select_html_options %>
-      </div>
-
-      <div class="row column">
-        <%= form.areas_select :area_id,
-                              areas_for_select(current_organization),
-                              selected: current_participatory_process.try(:decidim_area_id),
-                              include_blank: t(".select_an_area") %>
-      </div>
     </div>
   </div>
 
@@ -238,4 +202,3 @@
     </div>
   </div>
 </div>
-<%= append_javascript_pack_tag "decidim_participatory_processes_admin" %>

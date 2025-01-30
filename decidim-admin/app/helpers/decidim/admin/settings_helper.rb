@@ -5,8 +5,6 @@ module Decidim
     # This class contains helpers needed in order for component settings to
     # properly render.
     module SettingsHelper
-      include Decidim::ScopesHelper
-
       TYPES = {
         boolean: :check_box,
         integer: :number_field,
@@ -14,7 +12,6 @@ module Decidim
         float: :number_field,
         text: :text_area,
         select: :select_field,
-        scope: :scope_field,
         enum: :collection_radio_buttons,
         time: :datetime_field,
         integer_with_units: :integer_with_units,
@@ -69,8 +66,6 @@ module Decidim
           render_enum_form_field(form, attribute, name, i18n_scope, options)
         when :select_field
           render_select_form_field(form, attribute, name, i18n_scope, options)
-        when :scope_field
-          scopes_select_field(form, name)
         when :integer_with_units
           integer_with_units(form, attribute, name, i18n_scope, options)
         when :taxonomy_filters
@@ -224,7 +219,7 @@ module Decidim
       def taxonomy_filters(form, name, i18n_scope)
         current_filters = content_tag(:div, class: "js-current-filters") do
           render partial: "decidim/admin/taxonomy_filters_selector/component_table",
-                 locals: { field_name: "#{form.object_name}[#{name}][]", component_filters:, component: @component }
+                 locals: { field_name: "#{form.object_name}[#{name}][]", component: @component }
         end
         add_button = content_tag(:div, class: "mt-2") do
           content_tag(:button,
@@ -243,10 +238,6 @@ module Decidim
         end
 
         label_tag(name, t(name, scope: i18n_scope)) + container + drawer
-      end
-
-      def component_filters
-        @component_filters ||= TaxonomyFilter.for(current_organization).where(id: @component.settings.taxonomy_filters)
       end
     end
   end
