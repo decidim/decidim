@@ -104,13 +104,11 @@ sv:
         destroy:
           success: Talaren har tagits bort.
         edit:
-          title: Uppdatera talare.
           update: Uppdatera
         index:
           conference_speakers_title: Talare
         new:
           create: Skapa
-          title: Ny talare.
         publish:
           success: Konferensens talare har publicerats.
         unpublish:
@@ -126,11 +124,9 @@ sv:
         destroy:
           success: Konferensadministratören har tagits bort.
         edit:
-          title: Uppdatera konferensadministratör.
           update: Uppdatera
         new:
           create: Skapa
-          title: Ny konferensadministratör.
         update:
           error: Det gick inte att uppdatera konferensadministratören.
           success: Konferensadministratören har uppdaterats.
@@ -159,19 +155,12 @@ sv:
       media_links:
         create:
           error: Det gick inte att skapa en ny medialänk.
-          success: Medialänk har skapats.
-        destroy:
-          success: Medialänken har raderats.
         edit:
-          title: Uppdatera medialänk.
           update: Uppdatera
-        index:
-          media_links_title: Medialänkar
         new:
           create: Skapa
         update:
           error: Det gick inte att uppdatera medialänken.
-          success: Medialänken har uppdaterats.
       menu:
         conferences: Konferenser
         conferences_submenu:
@@ -182,13 +171,9 @@ sv:
           conference_admins: Konferensadministratörer
           conference_invites: Inbjudningar
           conference_speakers: Talare
-          diploma: Närvarointyg
-          media_links: Medialänkar
           moderations: Moderering
           partners: Partners
-          registration_types: Registreringstyper
           registrations: Registreringar
-          user_registrations: Användarregistreringar
       models:
         conference:
           fields:
@@ -217,7 +202,6 @@ sv:
             date: Datum
             link: Länk
             title: Titel
-          name: Medialänk
         partner:
           fields:
             link: Länk
@@ -243,7 +227,6 @@ sv:
         destroy:
           success: Konferenspartnern har tagits bort.
         edit:
-          title: Uppdatera partner.
           update: Uppdatera
         new:
           create: Skapa
@@ -265,7 +248,6 @@ sv:
         destroy:
           success: Registreringstypen har tagits från konferensen.
         edit:
-          title: Uppdatera registreringstyp.
           update: Uppdatera
         new:
           create: Skapa
@@ -351,7 +333,6 @@ sv:
         diplomas:
           edit:
             save: Spara
-            title: Närvarointyg
         invite_join_conference_mailer:
           invite:
             decline: Avböj inbjudan till '%{conference_title}'
@@ -370,7 +351,6 @@ sv:
             diploma_html: Närvarointyget för konferensen <a href="%{url}">%{title}</a> finns i bilagorna.
           diploma_user:
             attendance_verified_by: Närvaro bekräftad av
-            certificate_of_attendance: Närvarointyg
             certificate_of_attendance_description: Detta intygar att <strong>%{user}</strong> har deltagit och medverkat i <strong>%{title}</strong> som hölls på <strong>%{location}</strong> <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Det gick inte att skicka närvarointyg för konferensen.
