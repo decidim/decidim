@@ -1060,7 +1060,6 @@ es:
           'true': 'Sí'
         index:
           back_to_share_tokens: Volver a los enlaces de acceso
-          copied: '¡Enlace de acceso copiado!'
           copy_message: El texto se ha copiado correctamente en el portapapeles.
           create_new_token: '¡Crea tu primer enlace de acceso!'
           empty_html: No hay enlaces de acceso activos. %{new_token_link}
@@ -1070,7 +1069,6 @@ es:
             Crea y comparte un enlace de acceso para que otras personas puedan ver este recurso inédito.
             Los enlaces de acceso pueden ser válidos sólo para las participantes registradas o tener una fecha de caducidad si es necesario.
             Para compartir un nuevo enlace de acceso con alguien, crealo y, a continuación, copia el enlace utilizando el icono de acción del «%{clipboard} portapapeles».
-          title: 'Enlaces de acceso para: %{name}'
         new:
           create: Crear
           title: 'Nuevo enlace de acceso para: %{name}'
