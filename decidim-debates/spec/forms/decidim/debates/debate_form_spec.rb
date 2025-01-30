@@ -37,6 +37,8 @@ describe Decidim::Debates::DebateForm do
     it_behaves_like "a taxonomizable resource"
   end
 
+  it_behaves_like "etiquette validator", fields: [:title, :description]
+
   it { is_expected.to be_valid }
 
   describe "when title is missing" do
