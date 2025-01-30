@@ -18,21 +18,13 @@ module Decidim
                 options: { headings: [t("decidim.design.helpers.share_button")] },
                 cell_snippet: {
                   cell: "decidim/share_widget",
-                  args: [shareable_resource],
+                  args: [{}],
                   call_string: 'cell("decidim/share_widget", resource)'
                 }
               }
             ]
           }
         ]
-      end
-
-      protected
-
-      def shareable_resource
-        return Decidim::Debates::Debate.last if Decidim.module_installed?(:debates)
-        return Decidim::Meetings::Meeting.last if Decidim.module_installed?(:meetings)
-        return Decidim::Proposals::Proposal.last if Decidim.module_installed?(:proposals)
       end
     end
   end

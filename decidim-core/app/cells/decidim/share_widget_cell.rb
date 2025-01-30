@@ -6,7 +6,7 @@ module Decidim
     include Decidim::SocialShareButtonHelper
 
     def show
-      render if model.present?
+      render
     end
 
     private
