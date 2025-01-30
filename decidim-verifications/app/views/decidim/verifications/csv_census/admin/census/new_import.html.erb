@@ -15,7 +15,7 @@
     <%= decidim_form_for @form, url: create_import_census_logs_path, multipart: true do |form| %>
       <div class="font-semibold">
         <%= label_tag :file, t("census.new_import.file", scope: "decidim.verifications.csv_census.admin") %>
-        <%= form.upload :file, button_class: "button button__sm button__transparent-secondary" %>
+        <%= form.upload :file, help_i18n_scope: "decidim.admin.forms.file_help.import", button_class: "button button__sm button__transparent-secondary" %>
       </div>
 
       <div class="item__edit-sticky">
