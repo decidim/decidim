@@ -9,6 +9,7 @@ module Decidim
         attribute :allow_answers, Boolean
         attribute :allow_unregistered, Boolean
         attribute :clean_after_publish, Boolean
+        attribute :allow_editing_answers, Boolean
         attribute :starts_at, Decidim::Attributes::TimeWithZone
         attribute :ends_at, Decidim::Attributes::TimeWithZone
       end
