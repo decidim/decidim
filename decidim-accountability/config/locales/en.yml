@@ -277,8 +277,6 @@ en:
         home:
           empty: There are no results yet.
           empty_filters: There are no results with this criteria.
-          sub_taxonomies_label: Subcategories
-          taxonomies_label: Categories
         home_header:
           global_status: Global execution status
         no_results: There are no projects
@@ -311,8 +309,6 @@ en:
             geocoding_enabled: Maps enabled
             intro: Intro
             no_taxonomy_filters_found: No taxonomy filters found.
-            scope_id: Scope
-            scopes_enabled: Scopes enabled
             taxonomy_filters: Select filters for the component
             taxonomy_filters_add: Add filter
           step:

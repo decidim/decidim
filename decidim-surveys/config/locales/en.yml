@@ -26,8 +26,6 @@ en:
           announcement: Announcement
           global:
             announcement: Announcement
-            scope_id: Scope
-            scopes_enabled: Scopes enabled
           step:
             announcement: Announcement
     events:
