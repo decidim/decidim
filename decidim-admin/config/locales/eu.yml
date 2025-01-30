@@ -1060,7 +1060,6 @@ eu:
           'true': 'Bai'
         index:
           back_to_share_tokens: Itzuli sarbide-esteketara
-          copied: Sarbide-esteka kopiatuta!
           copy_message: Testua zuzen kopiatu da arbelean.
           create_new_token: Sortu zure lehen esteka!
           empty_html: Ez dago konexio aktiborik. %{new_token_link}
@@ -1070,7 +1069,6 @@ eu:
             Sortu eta partekatu sarbide-esteka, besteek ikusi ahal izateko baliabide argitaragabe hau.
             Sarbide-estekak erregistratutako parte-hartzaileentzat soilik izan daitezke baliozkoak, edo, beharrezkoa bada, iraungitze-data eduki dezakete.
             Sarbide-lotura berri bat partekatzeko, sortu eta gero kopiatu esteka "%{clipboard}" ekintza-ikonoa erabiliz.
-          title: 'sarbide-estekak honentzat: %{name}'
         new:
           create: Sortu
           title: 'Sarbide-esteka berria honentzat: %{name}'
