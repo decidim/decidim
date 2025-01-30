@@ -115,13 +115,11 @@ ar:
         destroy:
           success: تم حذف رئيس المؤتمر بنجاح.
         edit:
-          title: تحديث المتحدث المؤتمر.
           update: تحديث
         index:
           conference_speakers_title: المتحدثون في المؤتمر
         new:
           create: إنشاء
-          title: رئيس المؤتمر الجديد.
         update:
           error: حدثت مشكلة أثناء تحديث متحدث المؤتمر هذا.
           success: تم تحديث مكبر صوت المؤتمر بنجاح.
@@ -132,11 +130,9 @@ ar:
         destroy:
           success: تمت إزالة مسؤول المؤتمر بنجاح.
         edit:
-          title: تحديث مسؤول المؤتمر.
           update: تحديث
         new:
           create: إنشاء
-          title: مشرف المؤتمر الجديد.
         update:
           error: حدثت مشكلة أثناء تحديث مشرف المؤتمر هذا.
           success: تم تحديث مشرف المؤتمر بنجاح.
@@ -165,19 +161,12 @@ ar:
       media_links:
         create:
           error: حدثت مشكلة أثناء إنشاء رابط وسائط جديد.
-          success: تم إنشاء رابط الوسائط بنجاح.
-        destroy:
-          success: تم حذف رابط الوسائط بنجاح.
         edit:
-          title: تحديث رابط الوسائط.
           update: تحديث
-        index:
-          media_links_title: روابط الوسائط
         new:
           create: إنشاء
         update:
           error: حدثت مشكلة أثناء تحديث رابط الوسائط هذا.
-          success: تم تحديث رابط الوسائط بنجاح.
       menu:
         conferences: المؤتمرات
         conferences_submenu:
@@ -188,14 +177,10 @@ ar:
           conference_admins: المشرفون على المؤتمر
           conference_invites: تدعو
           conference_speakers: مكبرات الصوت
-          diploma: شهادة حضور
           info: عن هذا المؤتمر
-          media_links: روابط الوسائط
           moderations: الإعتدال
           partners: شركاء
-          registration_types: أنواع التسجيل
           registrations: التسجيلات
-          user_registrations: تسجيلات المستخدم
       models:
         conference:
           fields:
@@ -224,7 +209,6 @@ ar:
             date: تاريخ
             link: حلقة الوصل
             title: عنوان
-          name: وصلة الوسائط
         partner:
           fields:
             link: حلقة الوصل
@@ -250,7 +234,6 @@ ar:
         destroy:
           success: تمت إزالة شريك المؤتمر بنجاح.
         edit:
-          title: تحديث شريك.
           update: تحديث
         new:
           create: إنشاء
@@ -272,7 +255,6 @@ ar:
         destroy:
           success: تمت إزالة نوع تسجيل المؤتمر بنجاح.
         edit:
-          title: تحديث نوع التسجيل.
           update: تحديث
         new:
           create: إنشاء
@@ -362,7 +344,6 @@ ar:
         diplomas:
           edit:
             save: حفظ
-            title: شهادة حضور
         invite_join_conference_mailer:
           invite:
             decline: رفض الدعوة "%{conference_title}"
@@ -381,7 +362,6 @@ ar:
             diploma_html: ستجد شهادة حضور المؤتمر <a href="%{url}">%{title}</a> في المرفقات.
           diploma_user:
             attendance_verified_by: تم التحقق من الحضور بواسطة
-            certificate_of_attendance: شهادة حضور
             certificate_of_attendance_description: هذا هو التأكيد على أن <strong>%{user}</strong> قد حضر وشارك في <strong>%{title}</strong> الذي عقد في <strong>%{location}</strong> في <strong>%{start} - %{end}</strong>
         send_diploma:
           error: حدثت مشكلة أثناء إرسال شهادات حضور المؤتمر.
