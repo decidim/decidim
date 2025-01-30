@@ -9,17 +9,9 @@ module Decidim
     FINAL_REMINDER_PERIOD_DAYS = 7
 
     def perform(organization)
-      query = InactiveUsersQuery.new(
-        organization,
-        inactivity_period,
-        INITIAL_WARNING_PERIOD_DAYS,
-        FINAL_REMINDER_PERIOD_DAYS
-      )
-
-      unmark_active_users(query.users_to_unmark_for_deletion)
-      mark_users_for_deletion(query.users_to_mark_for_deletion)
-      send_reminder_notifications(query.users_to_send_reminder)
-      remove_inactive_users(query.users_to_remove)
+  send_first_warning_notifications(organization.users.first_warning_inactive_users)
+  send_last_warning_notifications(organization.users.last_warning_inactive_users)
+  remove_inactive_users(organization.users.inactive_users)
     end
 
     private

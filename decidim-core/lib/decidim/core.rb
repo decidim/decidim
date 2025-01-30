@@ -259,12 +259,31 @@ module Decidim
     :en
   end
 
-  config_accessor :inactivity_period_days do
-    ENV.fetch("DELETE_INACTIVE_USERS_EMAIL_AFTER_DAYS", 365).to_i
+  # Users that have not logged in for this period of time will be deleted
+  config_accessor :delete_inactive_users_after_days do
+      ENV.fetch("DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
   end
 
-  config_accessor :minimum_inactivity_period do
+  # Users will be warned for the first time this amount of days before the final removal
+  config_accessor :delete_inactive_users_first_warning_days_before do
     30
+  end
+
+  # Users will be warned for the last time this amount of days before the final removal
+  config_accessor :delete_inactive_users_last_warning_days_before do
+    7
+  end
+  
+  def self.first_warning_inactive_users_after_days
+    days = Decidim.delete_inactive_users_after_days.to_i - Decidim.delete_inactive_users_first_warning_days_before.to_i
+    return 30 if days < Decidim.delete_inactive_users_after_days
+    days
+  end
+
+ def self.last_warning_inactive_users_after_days
+    days = Decidim.delete_inactive_users_after_days.to_i - Decidim.delete_inactive_users_last_warning_days_before.to_i
+    return 7 if days < Decidim.first_warning_inactive_users_after_days
+    days
   end
 
   # Disable the redirection to the external host when performing redirect back

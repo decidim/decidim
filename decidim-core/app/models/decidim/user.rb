@@ -53,8 +53,11 @@ module Decidim
 
     has_one_attached :download_your_data_file
 
-    scope :marked_for_deletion, -> { where.not(marked_for_deletion_at: nil) }
+    scope :inactive_users, -> { not_deleted.where(last_sign_in_at: ..Decidim.delete_inactive_users_after_days.ago).or(Decidim::User.not_deleted.where(last_sign_in_at: nil)) }
 
+    scope :first_warning_inactive_users, -> { not_deleted.where(last_sign_in_at: ..Decidim.first_warning_inactive_users_after_days.ago).or(Decidim::User.not_deleted.where(last_sign_in_at: nil)) }
+
+    scope :last_warning_inactive_users, -> { not_deleted.where(last_sign_in_at: ..Decidim.last_warning_inactive_users_after_days.ago).or(Decidim::User.not_deleted.where(last_sign_in_at: nil)) }
     scope :not_deleted, -> { where(deleted_at: nil) }
 
     scope :managed, -> { where(managed: true) }
@@ -119,8 +122,8 @@ module Decidim
       marked_for_deletion_at.present?
     end
 
-    def removable?(removal_period)
-      marked_for_deletion? && last_sign_in_at < Time.current - removal_period
+    def removable?
+      last_sign_in_at < Decidim.delete_inactive_users_after_days.ago
     end
 
     # Returns the presenter for this author, to be used in the views.
