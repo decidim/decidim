@@ -48,7 +48,7 @@ module Decidim
         private
 
         def valid_email?(email)
-          email.present? && email.match?(::Devise.email_regexp)
+          URI::MailTo::EMAIL_REGEXP.match?(email)
         end
 
         def process_row(row)

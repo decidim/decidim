@@ -15,6 +15,10 @@ module Decidim
           validates :file, presence: true, file_content_type: { allow: ["text/csv"] }
 
           def data
+            @data ||= process_data
+          end
+
+          def process_data
             process_file_locally(file) do |file_path|
               CsvCensus::Data.new(file_path)
             end
@@ -23,7 +27,7 @@ module Decidim
           end
 
           def validate_csv
-            data
+            return unless data
 
             errors.add(:base, I18n.t("decidim.verifications.errors.wrong_number_columns", expected: 1, actual: data.count)) if data.count != 1
 
