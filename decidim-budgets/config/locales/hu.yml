@@ -162,6 +162,9 @@ hu:
             id: Azonosító
             map: Térkép
             title: Cím
+      order:
+        status:
+          title: A szavazatod elfogadása sikeres volt
       order_summary_mailer:
         order_summary:
           selected_projects: 'Az általad kiválasztott projektek a következők:'
@@ -316,8 +319,6 @@ hu:
     orders:
       checkout:
         error: Hiba történt a szavazatod feldolgozása során.
-        success_html: <p>A szavazatod sikeresen leadtad.</p><p class="text-sm font-normal">Megnézheted <a class="text-secondary underline" href="%{rest_of_budgets_link}"> a többi költségvetést</a></p>
-        success_no_left_budgets_html: A szavazatodat sikeresen leadtad.
       destroy:
         error: Hiba történt a szavazatod visszavonása során.
         success: A szavazatod visszavonása sikerült.

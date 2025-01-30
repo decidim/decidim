@@ -54,7 +54,6 @@ is-IS:
         participatory_processes_submenu:
           attachment_files: Skrár
           attachments: Viðhengi
-          categories: Flokkar
           components: Hluti
           moderations: Moderations
       models:

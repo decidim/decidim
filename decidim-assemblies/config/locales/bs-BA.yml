@@ -1,1 +1,28 @@
 bs:
+  decidim:
+    admin:
+      models:
+        assembly_user_role:
+          roles:
+            valuator: Procenjivač
+      titles:
+        assemblies_types: Tipovi veća
+    admin_log:
+      assembly_type:
+        create: "%{user_name} je stvorio tip veća %{resource_name}"
+        publish: "%{user_name} je objavio tip veća %{resource_name}"
+        unpublish: "%{user_name} je odustao od objavljivanja tipa veća %{resource_name}"
+        update: "%{user_name} je ažurirao tip veća %{resource_name}"
+    events:
+      assemblies:
+        create_assembly_member:
+          email_subject: Pozvani ste da postanete član veća %{resource_name}!
+      assembly:
+        role_assigned:
+          email_intro: Imenovani ste na funkciju %{role} veća %{resource_title}.
+          email_outro: Dobili ste ovo obaveštenje zbog toga što ste %{role} veća %{resource_title}.
+          email_subject: Imenovani ste na funkciju %{role} %{resource_title}.
+    log:
+      value_types:
+        assembly_type_presenter:
+          not_found: 'Ovaj tip veća nije pronađen u bazi podataka (ID: %{id})'

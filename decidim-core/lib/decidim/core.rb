@@ -626,6 +626,12 @@ module Decidim
         collection: ->(organization) { Decidim::Metric.where(organization:) },
         serializer: Decidim::Exporters::OpenDataMetricSerializer,
         include_in_open_data: true
+      ),
+      CoreDataManifest.new(
+        name: :taxonomies,
+        collection: ->(organization) { Decidim::Taxonomy.where(organization:) },
+        serializer: Decidim::Exporters::OpenDataTaxonomySerializer,
+        include_in_open_data: true
       )
     ]
   end

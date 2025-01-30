@@ -26,6 +26,13 @@ es-MX:
           request_invalid: Se ha producido un problema al procesar la solicitud. Por favor, vuelve a intentarlo.
   decidim:
     download_your_data:
+      help:
+        answers:
+          answer: La respuesta a la pregunta
+          id: El identificador único de la respuesta
+          question: La pregunta que se respondió
+          questionnaire: La encuesta que fue respondida
+          user: La usuaria que respondió a la encuesta
       show:
         answers: Exportar las respuestas
         survey_user_answers: Respuestas de las usuarias a la encuesta
@@ -33,7 +40,16 @@ es-MX:
       admin:
         models:
           components:
+            allow_answers: Permitir respuestas
+            allow_unregistered: Permitir a las usuarias no registradas responder a la encuesta
+            allow_unregistered_help: Si está activo, no será necesario iniciar sesión para responder a la encuesta. Esto puede llevar a datos pobres o poco fiables y será más vulnerable a ataques automatizados. ¡Usar con precaución! Es importante que un participante pueda responder a la misma encuesta varias veces, utilizando diferentes navegadores o la función de "navegación privada" de su navegador web.
+            announcement: Aviso
+            clean_after_publish: Borrar respuestas al publicar la encuesta
             description: Descripción
+            ends_at: Respuestas aceptadas hasta
+            ends_at_help: Dejar en blanco si no hay ninguna fecha específica
+            starts_at: Respuestas aceptadas desde
+            starts_at_help: Dejar en blanco si no hay ninguna fecha específica
             tos: Términos y condiciones de uso
         questionnaires:
           actions:
@@ -82,16 +98,17 @@ es-MX:
           edit:
             save: Guardar
             title: Editar el cuestionario
-          form:
+          edit_questions:
             add_question: Añadir pregunta
             add_separator: Añadir separador
             add_title_and_description: Añadir título y descripción
-            already_answered_warning: Algunos usuarios ya han respondido al cuestionario, por lo que no puedes modificar las preguntas.
+            save: Guardar
+          form:
+            add_question: Añadir pregunta
             collapse: Contraer todas las preguntas
             expand: Expandir todos las preguntas
             preview: Previsualizar
             title: Editar formulario para %{questionnaire_for}
-            unpublished_warning: El formulario no está publicado. Puedes modificar sus preguntas, pero al hacerlo eliminará las respuestas actuales.
           matrix_row:
             matrix_row: Fila
             remove: Retirar
@@ -110,6 +127,12 @@ es-MX:
             remove: Borrar
             statement: Declaración
             up: Arriba
+          questions_form:
+            already_answered_warning: No puedes modificar las preguntas porque algunas participantes ya han respondido el formulario.
+            collapse: Contraer todas las preguntas
+            expand: Desplegar todas las preguntas
+            update:
+              success: Pregunta/s añadida/s correctamente a la encuesta.
           separator:
             down: Bajar
             remove: Eliminar

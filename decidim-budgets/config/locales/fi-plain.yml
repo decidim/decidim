@@ -29,6 +29,9 @@ fi-pl:
         other: Suunnitelmat
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Projektit
       filters:
         projects:
           selected_at_null:
@@ -212,6 +215,9 @@ fi-pl:
             map: Kartta
             taxonomies: Luokittelut
             title: Otsikko
+      order:
+        status:
+          title: Äänesi on hyväksytty onnistuneesti
       order_summary_mailer:
         order_summary:
           selected_projects: 'Hankkeet, jotka olet valinnut:'
@@ -366,6 +372,15 @@ fi-pl:
               enabled: Äänestys on käytössä
               finished: Äänestys päättynyt
     download_your_data:
+      help:
+        orders:
+          budget: Budjetti, jolle ääni on annettu
+          checked_out_at: Äänen vahvistusaika
+          component: Äänen komponentti
+          created_at: Äänen luontiaika
+          id: Äänen yksilöivä tunniste
+          projects: Ääneen valitut projektit
+          updated_at: Äänen viimeisimmän päivityksen ajankohta
       show:
         projects: Projektien vienti
     events:
@@ -379,25 +394,30 @@ fi-pl:
       help:
         projects:
           address: Projektin osoite (jos määritetty)
+          budget: Tietoja budjetista (esim. "2021 budjetti")
           budget_amount: Budjetin kokonaismäärä tälle projektille
           comments: Projektin saamien kommenttien määrä
           component: Projektin komponentti
           confirmed_votes: Vahvistettujen äänten määrä tälle projektille
           created_at: Projektin luontiaika
           description: Projektin kuvaus
-          id: Projektin yksilöllinen tunniste
+          follows_count: Projektin seuraajien lukumäärä
+          id: Projektin yksilöivä tunniste
+          latitude: Projektin sijainnin leveysaste, mikäli projekti on määritetty tiettyyn paikkaan
+          longitude: Projektin sijainnin pituusaste, mikäli projekti on määritetty tiettyyn paikkaan
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä projekti kuuluu
+          reference: Projektin yksilöivä viite
           related_proposal_titles: Projektiin liitettyjen ehdotusten otsikot
           related_proposal_urls: Projektiin liitettyjen ehdotusten URL-osoitteet
           related_proposals: Projektiin liitetyt ehdotukset
+          selected_at: Projektin toteutukseen valitsemisen ajankohta
           taxonomies: Projektin luokittelut
           title: Projektin otsikko
+          updated_at: Projektin viimeisimmän päivityksen ajankohta
           url: Projektin URL-osoite
     orders:
       checkout:
         error: Äänesi käsittely epäonnistui.
-        success_html: <p>Äänestäminen onnistui.</p> <p class="text-sm font-normal">Voit tutkia myös <a class="text-secondary underline" href="%{rest_of_budgets_link}">muita budjetteja</a>.</p>
-        success_no_left_budgets_html: Äänesi kirjaaminen onnistui.
       destroy:
         error: Äänesi peruuttaminen epäonnistui.
         success: Äänesi on peruttu.

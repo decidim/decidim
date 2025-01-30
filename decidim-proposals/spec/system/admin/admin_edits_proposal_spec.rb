@@ -103,7 +103,7 @@ describe "Admin edits proposals" do
         find("a.action-icon--edit-proposal").click
         dynamically_attach_file(:proposal_documents, image_path)
 
-        click_on("Edit documents")
+        click_on("Edit attachments")
         within "li[data-filename='#{image_filename}']" do
           click_on("Remove")
         end

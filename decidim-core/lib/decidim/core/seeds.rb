@@ -25,6 +25,10 @@ module Decidim
               create_taxonomy!(name: ::Faker::Address.city, parent: sub_taxonomy)
             end
           end
+          # filters for all participatory spaces
+          create_taxonomy_filter!(root_taxonomy: taxonomy,
+                                  taxonomies: taxonomy.all_children,
+                                  participatory_space_manifests: Decidim.participatory_space_manifests.pluck(:name))
 
           taxonomy = create_taxonomy!(name: "Areas", parent: nil)
           sub_taxonomy = create_taxonomy!(name: "Territorial", parent: taxonomy)
@@ -36,6 +40,10 @@ module Decidim
           5.times do
             create_taxonomy!(name: ::Faker::Lorem.word, parent: sub_taxonomy)
           end
+          # filters for all participatory except conferences
+          create_taxonomy_filter!(root_taxonomy: taxonomy,
+                                  taxonomies: taxonomy.all_children,
+                                  participatory_space_manifests: Decidim.participatory_space_manifests.pluck(:name) - [:conferences])
 
           taxonomy = create_taxonomy!(name: "Categories", parent: nil)
           3.times do
@@ -45,6 +53,9 @@ module Decidim
               create_taxonomy!(name: ::Faker::Lorem.sentence(word_count: 5), parent: sub_taxonomy)
             end
           end
+          # filters not available for participatory spaces
+          create_taxonomy_filter!(root_taxonomy: taxonomy,
+                                  taxonomies: taxonomy.all_children)
         end
 
         if organization.top_scopes.none?

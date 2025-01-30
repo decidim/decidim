@@ -15,7 +15,7 @@ RSpec.describe "Result search" do
   let(:taxonomy2) { create(:taxonomy, parent: root_taxonomy, organization:) }
   let(:child_taxonomy1) { create(:taxonomy, organization:, parent: taxonomy1) }
   let(:child_taxonomy2) { create(:taxonomy, organization:, parent: taxonomy2) }
-  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, space_manifest: participatory_space.manifest.name) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [participatory_space.manifest.name]) }
   let!(:taxonomy_filter_item1) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy1) }
   let!(:taxonomy_filter_item2) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy2) }
   let!(:taxonomy_filter_item3) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: child_taxonomy1) }
@@ -69,7 +69,7 @@ RSpec.describe "Result search" do
   describe "home" do
     subject { response.body }
 
-    it "displays all categories that have top-level results" do
+    it "displays all taxonomies that have top-level results" do
       expect(subject).to include(decidim_escape_translated(taxonomy1.name))
       expect(subject).to include(decidim_escape_translated(taxonomy2.name))
       expect(subject).not_to include(decidim_escape_translated(child_taxonomy1.name))

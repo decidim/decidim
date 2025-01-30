@@ -16,6 +16,17 @@ fr:
             announcement: Message d'annonce
           step:
             announcement: Message d'annonce
+    open_data:
+      help:
+        pages:
+          body: Le corps de la page
+          component: Le composant auquel appartient la page
+          created_at: La date de création de cette page
+          id: L'identifiant unique de cette page
+          participatory_space: À quel espace appartient la page (par exemple Processus participatif, ou Assemblée)
+          title: Le titre de la page
+          updated_at: La dernière date de mise à jour de cette page
+          url: L'URL de cette page
     pages:
       admin:
         models:

@@ -105,6 +105,8 @@ es-PY:
       participatory_space_private_user:
         email: Correo electrónico
         name: Nombre
+      participatory_space_private_user_csv_import:
+        file: Archivo
       scope:
         code: Código
         name: Nombre
@@ -182,8 +184,6 @@ es-PY:
         attachment_collection:
           new: Nueva colección de archivos adjuntos
         browse: Explorar
-        category:
-          new: Nueva categoría
         confirm_delete_component: |
           ¿Seguro que quieres eliminar este componente?<br>
           Este componente contiene:<br>
@@ -297,6 +297,12 @@ es-PY:
         no_results: No se han encontrado resultados
         search_prompt: Escriba al menos tres caracteres para buscar.
       block_user:
+        bulk_new:
+          action: Bloquear cuentas y enviar justificación
+          already_reported_html: Al continuar con esta acción también ocultarás todos los contenidos de las participantes.
+          description: El bloqueo de las usuarias dejará sus cuentas inutilizables. Puedes proporcionar en tu justificación los criterios bajo los cuales considerarías desbloquearlas.
+          justification: Justificación
+          title: Bloquear usuarias
         new:
           action: Bloquear cuenta y enviar justificación
           already_reported_html: Al continuar con esta acción también ocultarás todos los contenidos de la participante.
@@ -304,23 +310,8 @@ es-PY:
           justification: Justificación
           title: Bloquear a la usuaria %{name}
       categories:
-        create:
-          error: Se ha producido un error al crear esta categoría.
-          success: Categoría creada correctamente.
-        destroy:
-          error: Se ha producido un error al eliminar esta categoría. Por favor, elimine cualquier subcategoría en primer lugar, asegúrese de que ninguna otra entidad pertenece a esta categoría y vuelva a intentarlo.
-          success: Categoría eliminada correctamente.
-        edit:
-          title: Editar categoría
-          update: Actualizar
         index:
           categories_title: Categorías
-        new:
-          create: Crear categoría
-          title: Nueva categoría
-        update:
-          error: Se ha producido un error al actualizar esta categoría.
-          success: Categoría actualizada correctamente.
       component_permissions:
         update:
           error: Hubo un problema al actualizar los permisos de este componente.
@@ -706,13 +697,27 @@ es-PY:
         index:
           actions:
             block: Bloquear usuaria
+            bulk_actions:
+              actions_dropdown: Acciones
+              block:
+                title: Bloquear
+                update_moderated_user_button: Bloquear usuarias
+              unblock:
+                title: Desbloquear
+                update_moderated_user_button: Desbloquear usuarias
+              unreport:
+                title: Deshacer la denuncia
+            ignore:
+              update_moderated_user_button: Deshacer la denuncia a las usuarias
             title: Acciones
             unblock: Desbloquear usuaria
             unreport: Deshacer denuncia
+          cancel: Cancelar
           name: Nombre
           nickname: Alias
           reason: Motivo
           reports: Cantidad de veces reportado
+          selected: Seleccionadas
           title: Participantes reportadas
         report:
           reasons:
@@ -724,6 +729,19 @@ es-PY:
           unblocked: No bloqueado
       moderations:
         index:
+          actions:
+            actions_dropdown: Acciones
+            hide:
+              title: Esconder
+              update_moderation_button: Ocultar los contenidos seleccionados
+            unhide:
+              title: Volver a mostrar
+              update_moderation_button: Volver a mostrar los contenidos seleccionados
+            unreport:
+              title: Deshacer la denuncia
+              update_moderation_button: Deshacer la denuncia de los contenidos seleccionados
+          cancel: Cancelar
+          selected: seleccionadas
           title: Contenido reportado
         report:
           reasons:
@@ -746,6 +764,11 @@ es-PY:
             report_language: Idioma del informe
             report_reason: Motivo
             title: Detalles del informe
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Previsualizar
@@ -755,6 +778,10 @@ es-PY:
           preview: 'Previsualizar la plantilla: %{template_name}'
           use_template: Utilizar esta plantilla
       newsletters:
+        confirm_recipients:
+          email: Correo electrónico
+          name: Nombre
+          title: Confirmar destinatarias
         create:
           error: Se ha producido un error al crear este boletín.
           success: Boletín creado correctamente. Por favor, revísalo antes de enviarlo.
@@ -774,12 +801,14 @@ es-PY:
           confirm_delete: '¿Estás seguro de que quieres eliminar este boletín?'
           followers: 'seguidores '
           has_been_sent_to: 'Se ha enviado a: '
-          no_scopes: Sin ámbitos
           not_sent: No enviado
           participants: 'participantes '
+          private_members: 'miembros privadas'
           segmented_to: 'Segmentado para %{subject}: '
           subscribed_count: 'Suscritas:'
           title: Boletines
+          verification_types: 'Tipos de verificación: %{types}'
+          verified_users: Usuarias verificadas
         new:
           save: Guardar
           title: Nuevo boletín
@@ -787,16 +816,24 @@ es-PY:
           all_spaces: Todos
           all_users_help: Envía el boletín de noticias a todos las participantes confirmadas.
           confirm_deliver: '¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer.'
+          confirm_recipients: Confirmar destinatarias
           deliver: Enviar boletín
           followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio participativo seleccionado en la lista.
-          none: Ninguno
           participants_help: Envía el boletín de noticias a todas las participantes confirmadas que hayan participado en cualquier espacio participativo seleccionado de la lista.
+          private_members_help: Envía un boletín informativo a todas las usuarias confirmadas que han sido añadidas a los espacios de participación privados seleccionados.
           recipients_count: Este boletín se enviará a <strong id='recipients_count'>%{count}</strong> usuarias.
-          scopes_help: Envía el boletín de noticias a las participantes que tengan cualquiera de los ámbitos activados en su configuración de "Mis intereses".
-          select_scopes: Filtrar para las participantes que hayan activado cualquier ámbito en su configuración de "Mis intereses".
+          select_assemblies: Seleccionar asambleas
+          select_conferences: Seleccionar jornadas
+          select_initiatives: Seleccionar iniciativas
+          select_participatory_processes: Seleccionar procesos participativos
           select_spaces: Selecciona espacios para segmentar el boletín
-          select_users: Selecciona a qué usuarios deseas enviar el boletín
+          select_users_for_participatory_space: Enviar el boletín informativo a uno o más espacios de participación
+          select_users_general: Enviar un boletín general
+          select_verification_types: Seleccionar métodos de verificación
+          send_to_all_users: Enviar a todos los usuarios
+          send_to_verified_users: Enviar a usuarias verificadas
           title: Selecciona los destinatarios
+          verified_users_help: Envía un boletín informativo a todas las usuarias confirmadas y verificadas con cualquiera de los métodos de verificación seleccionados.
           warning: "<strong>Atención:</strong> Este boletín sólo será enviado a participantes que hayan activado <em>Quiero recibir boletines de noticias</em> en sus ajustes de notificaciones."
         send:
           no_recipients: No hay destinatarias para esta selección.
@@ -814,6 +851,13 @@ es-PY:
         block:
           error: Se ha producido un error al bloquear a la participante.
           success: Participante bloqueada correctamente.
+        bulk_action:
+          block:
+            invalid: Se ha producido un error al bloquear a las participantes.
+            success: Participantes bloqueadas correctamente.
+          unblock:
+            invalid: Se ha producido un error al desbloquear a las participantes.
+            success: Participantes desbloqueadas correctamente.
         create:
           success: Participante oficializada correctamente.
         destroy:
@@ -958,6 +1002,8 @@ es-PY:
         edit:
           submit: Enviar
           title: Editar permisos
+        options_form:
+          ephemeral_warning: Para habilitar este método de autorización, necesitas <a href="%{path}">revocar todas las autorizaciones existentes</a>. Esto minimiza el riesgo de conflictos de verificación. Todas las autorizaciones de este tipo serán revocadas automáticamente en la organización si envías los cambios añadiendo este método o modificando tu configuración una vez guardada.
         update:
           success: Permisos actualizados con éxito.
       scope_types:
@@ -1285,6 +1331,22 @@ es-PY:
         unreport: Cancelar denuncia
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Hubo un problema al ocultar algunos contenidos: %{errored}'
+              invalid: No hay ninguna moderación seleccionada.
+              success: Los contenidos se han ocultado correctamente.
+            ignore:
+              invalid: No hay ninguna moderación de usuaria seleccionada.
+              success: Se han retirado las denuncias sobre las usuarias correctamente.
+            unhide:
+              failed: 'Hubo un problema volviendo a mostrar algunos contenidos: %{errored}'
+              invalid: No hay ninguna moderación seleccionada.
+              success: Los contenidos se han vuelto a mostrar correctamente.
+            unreport:
+              failed: 'Hubo un problema al retirar la denuncia de algunos contenidos: %{errored}'
+              invalid: No hay ninguna moderación seleccionada.
+              success: La denuncia a los contenidos se ha cancelado correctamente.
           hide:
             invalid: Ha habido un error al ocultar el contenido.
             success: Contenido ocultado con éxito.

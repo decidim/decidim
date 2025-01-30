@@ -1,0 +1,47 @@
+<% add_decidim_meta_tags({
+                           title: translated_attribute(questionnaire.title),
+                           description: translated_attribute(questionnaire.description)
+                         }) %>
+
+<%= append_stylesheet_pack_tag "decidim_forms" %>
+<%= append_javascript_pack_tag "decidim_forms" %>
+
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+
+  <div class="text-center py-10">
+    <% if questionnaire.title.present? %>
+      <h1 class="title-decorator inline-block text-left mb-12">
+        <%= translated_attribute questionnaire.title %>
+      </h1>
+    <% end %>
+
+    <% if questionnaire.description.present? %>
+      <div class="text-left editor-content">
+        <%= decidim_sanitize_editor_admin translated_attribute questionnaire.description %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= render partial: "decidim/shared/component_announcement" if current_component.manifest_name == "surveys" %>
+
+  <% unless questionnaire_for.try(:component)&.try(:published?) %>
+    <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.questionnaire_not_published.body"), callout_class: "warning") %>
+  <% end %>
+
+  <section>
+    <% if allow_answers? %>
+      <% if visitor_can_answer? %>
+        <% if @form.responses_by_step.flatten.empty? %>
+          <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.empty")) %>
+        <% else %>
+          <%= render partial: "decidim/forms/questionnaires/questionnaire" %>
+        <% end %>
+      <% else %>
+        <%= render partial: "decidim/forms/questionnaires/questionnaire_readonly" %>
+      <% end %>
+    <% else %>
+      <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_closed.title"), body: t("decidim.forms.questionnaires.show.questionnaire_closed.body") }, callout_class: "warning") %>
+    <% end %>
+  </section>
+
+<% end %>

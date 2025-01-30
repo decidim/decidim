@@ -144,8 +144,6 @@ lt:
             initiative_title: Iniciatyvos pavadinimas
             name_and_surname: Vardas ir pavardė
             postal_code: Pašto kodas
-            scope: Apimtis
-            time_and_date: Laikas ir data
             timestamp: Laiko žymė
       titles:
         initiatives: Iniciatyvos
@@ -411,10 +409,7 @@ lt:
           email_subject: "%{applicant_nickname} nori prisijungti prie Jūsų iniciatyvos"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> pateikė paraišką prisijungti prie <a href="%{resource_url}">%{resource_title}</a> iniciatyvos remėjų komiteto. Norėdami priimti ar atmesti paraišką, spauskite <a href="%{resource_url}/edit">čia</a>.
       form:
-        add_documents: Pridėti dokumentus
         add_image: Pridėti paveikslėlį
-        attachment_legend: "(Neprivaloma) Pridėti priedą"
-        edit_documents: Redaguoti dokumentus
         edit_image: Redaguoti paveikslėlį
         image_legend: "(Neprivaloma) Pridėti paveikslėlį"
       index:

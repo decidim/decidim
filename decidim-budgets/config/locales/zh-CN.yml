@@ -85,6 +85,9 @@ zh-CN:
         project:
           fields:
             title: 标题
+      order:
+        status:
+          title: 您的投票已被接受
       order_summary_mailer:
         order_summary:
           selected_projects: '您选择的项目是：'

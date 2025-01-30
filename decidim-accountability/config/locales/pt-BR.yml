@@ -57,27 +57,6 @@ pt-BR:
           new:
             download_export: Baixe a Exportação com formato CSV
             import: Importar
-            info: |
-              <p>Nós recomendamos que você siga esses passos:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Crie os Status para os Resultado</a>que você queira adicionar.</li>
-              <li><a href='%{link_new_result}' target='_blank'>Crie no mínimo um Resultado maualmente</a> através desse Painel de Administração antes de usar a função Importar, para um melhor entendimento a respeito do formato e o que você precisa preencher.</li>
-              <li>%{link_export_csv}</li>
-              <li>Faça as mudanças localmente. Você só pode alterar as seguintes colunas do CSV:
-                <ul>
-                <li><b>categoria/id:</b> Identificador para a Categoria</li>
-                <li><b>escopo/id:</b> Identificador  para o Escopo</li>
-                <li><b>pai/id:</b> Identificador do pai (para Resultados relacionados). Opcional</li>
-                <li><b>titulo/pt-br:</b> Título na língua Portuguesa. Isto dependerá das configurações de linguagem da sua plataforma.</li>
-                <li><b>descricao/pt-br:</b> Descrição na língua Portuguesa. Isto dependerá das configurações de linguagem da sua plataforma.</li>
-                <li><b>data_inicio:</b> data de início de execução dos resultados (formato DD-MM-YYYY)</li>
-                <li><b>data_fim:</b> data de fim da execução dos resultados (formato DD-MM-YYYY)</li>
-                <li><b>status/id:</b> Identificador do Status para este resultado</li>
-                <li><b>progresso:</b> Porcentagem (de 0 a 100) desta execução</li>
-                <li><b>ids_propostos:</b> Identificadores interno das propostas relacionadas (serparadas por vírgula). É automaticamente convertida para <span class='attribute-name'>url_proposta</span></li>
-                </ul>
-              </li>
-              </ol>
             title: Importar resultados de arquivo CSV
         imports:
           create:

@@ -12,25 +12,22 @@ ca:
         one: Resposta
         other: Respostes
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: Enquestes
     components:
       surveys:
         actions:
           answer: Respondre
-        name: Enquesta
+        name: Enquestes
         settings:
+          announcement: Avís
           global:
             announcement: Avís
-            clean_after_publish: Esborrar les respostes en publicar l'enquesta
-            ends_at: Respostes acceptades fins a
-            ends_at_help: Deixar en blanc per cap data específica
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
-            starts_at: Respostes acceptades de
-            starts_at_help: Deixar en blanc per cap data específica
           step:
-            allow_answers: Permetre respostes
-            allow_unregistered: Permet a usuàries no registrades contestar l'enquesta
-            allow_unregistered_help: Si està activat, no serà necessari iniciar sessió per a respondre l'enquesta. Això pot implicar una recollida de dades pobra o poc fiable i serà més vulnerable a atacs automatitzats. Fes-ho servir amb precaució! És important que una participant pugui respondre a la mateixa enquesta diverses vegades, fent servir diferents navegador o la funció de "navegació privada" del seu navegadro web.
             announcement: Avís
     events:
       surveys:
@@ -52,18 +49,64 @@ ca:
     statistics:
       answers_count: Respostes
     surveys:
+      actions:
+        answers_alert: L'opció d'esborrar les respostes en publicar l'enquesta està activada. Si segueixes, s'esborraran les %{answers_count} existents actualment.
+        confirm_destroy: Segur que ho vols eliminar?
+        destroy: Eliminar
+        edit: Editar
+        manage_questions: Gestionar les preguntes
+        new_survey: Nova enquesta
+        preview: Previsualitzar
+        title: Accions
       admin:
-        component:
-          actions:
-            answers_alert: Si publiques el component, s'eliminaran tots els resultats.
+        answers:
+          index:
+            title: "%{total} respostes totals"
+          show:
+            title: 'Resposta #%{number}'
         exports:
           survey_user_answers: Respostes de les participants de l'enquesta
         surveys:
+          create:
+            invalid: S'ha produït un error creant l'enquesta.
+            success: Enquesta creada correctament.
+          destroy:
+            success: Enquesta eliminada correctament.
+          edit:
+            title: Editar l'enquesta
+          index:
+            title: Enquestes
+          publish:
+            invalid: S'ha produït un error en publicar aquesta enquesta.
+            success: Enquesta publicada correctament.
+          unpublish:
+            invalid: S'ha produït un error en despublicar aquesta enquesta.
+            success: Enquesta despublicada correctament.
           update:
             invalid: S'ha produït un error en desar l'enquesta.
             success: Enquesta desada correctament.
+      admin_log:
+        survey:
+          create: "%{user_name} ha creat l'enquesta %{resource_name} a l'espai de participació %{space_name}"
+          delete: "%{user_name} ha eliminat l'enquesta %{resource_name} a l'espai de participació %{space_name}"
+          publish: "%{user_name} ha publicat l'enquesta %{resource_name} a l'espai de participació %{space_name}"
+          update: "%{user_name} ha actualitzat l'enquesta %{resource_name} de l'espai de participació %{space_name}"
+      directory:
+        surveys:
+          index:
+            surveys: Enquestes
       last_activity:
         new_survey: 'Nova enquesta:'
+      models:
+        survey:
+          fields:
+            answers: Respostes
+            questions: Preguntes
+            status: Estat
+            title: Títol
+          status:
+            closed: Tancada
+            open: Oberta
       survey_confirmation_mailer:
         confirmation:
           body: Has respost amb èxit a l'enquesta %{questionnaire_title} dins de %{participatory_space}
@@ -74,3 +117,17 @@ ca:
           invalid: S'ha produït un error en respondre l'enquesta.
           spam_detected: Hi ha hagut un problema responent el formulari. Potser has anat massa ràpid, ho pots tornar a intentar?
           success: Enquesta resposta correctament.
+        count:
+          surveys_count:
+            one: "%{count} enquesta"
+            other: "%{count} enquestes"
+        filters:
+          all: Totes
+          state_values:
+            closed: Tancada
+            open: Obertes
+        no_surveys_warning: No hi ha enquestes que coincideixin amb el teu criteri de cerca o no hi ha cap enquesta.
+        show:
+          closed: Tancada
+          open: Oberta
+          questions: preguntes
