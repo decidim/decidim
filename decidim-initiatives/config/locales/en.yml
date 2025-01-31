@@ -553,6 +553,8 @@ en:
           random: Random
           recent: Most recent
           recently_published: Most recently published
+        pending_initiatives:
+          title: Draft & Pending initiatives
         print:
           address: Address
           author_title: Author of the initiative
