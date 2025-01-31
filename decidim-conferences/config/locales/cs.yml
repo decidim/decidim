@@ -66,6 +66,8 @@ cs:
         email: E-mail
         name: Název
         role: Role
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
@@ -125,11 +127,13 @@ cs:
         destroy:
           success: Řečník byl úspěšně smazán pro tuto konferenci.
         edit:
+          title: Aktualizovat řečníka konference
           update: Aktualizace
         index:
           conference_speakers_title: Řečníci konference
         new:
           create: Vytvořit
+          title: Nový řečník konference
         publish:
           invalid: Při publikování tohoto řečníka došlo k chybě.
           success: Řečník konference byl úspěšně zveřejněn.
@@ -184,6 +188,8 @@ cs:
           error: Při vytváření nového odkazu na média došlo k chybě.
         edit:
           update: Aktualizace
+        index:
+          media_links_title: Odkazy na média
         new:
           create: Vytvořit
         update:
@@ -284,6 +290,9 @@ cs:
         update:
           error: Při aktualizaci typu registrace pro tuto konferenci došlo k chybě.
           success: Typ registrace byl úspěšně aktualizován pro tuto konferenci.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Všechny konference
       titles:
         conferences: Konference
         conferences_deleted: Smazané konference
@@ -381,6 +390,7 @@ cs:
         diplomas:
           edit:
             save: Uložit
+            title: Potvrzení o účasti
         invite_join_conference_mailer:
           invite:
             decline: Odmítnout pozvánku '%{conference_title}'
