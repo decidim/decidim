@@ -49,7 +49,6 @@ he:
         deleted_results_info: תוצאות מחוקות ניתן לאחזר מסל המחזור.
         destroy: מחיקה
         edit: עריכה
-        import: ייבוא פרויקטים מרכיב אחר
         import_csv: ייבוא תוצאות מקובץ CSV
         new_result: תוצאה חדשה
         new_status: סטאטוס חדש
@@ -76,26 +75,6 @@ he:
             name: תוצאה
           status:
             name: סטטוס
-        projects_import:
-          create:
-            invalid: הייתה בעיה בייבוא ​​הפרויקטים לתוצאות, נא לעקוב אחר ההוראות בקפידה ולודא שבחרתם.ן פרויקטים ליישום.
-          new:
-            create: ייבוא
-            import_all_selected_projects: ייבוא כל הפרויקטים שנבחרו ליישום
-            new_items:
-              one: פרויקט אחד יהיה מיובא
-              two: "שני פרויקטים יהיו מיובאים"
-              many: "הרבה פרויקטים יהיו מיובאים"
-              other: "%{count} פרויקטים יהיו מיובאים"
-            no_components: אין מרכיבי תקציבים במרחב ההשתתפותי הזה כדי לייבא את הפרויקטים לתוצאות.
-            origin_component_id: רכיב מקורי
-            select_component: בחר רכיב
-            success:
-              one: פרויקט אחד עומד בתור לייבוא. תתקבל הודעה באימייל, לאחר השלמתו.
-              two: "שני פרויקטים עומדים בתור לייבוא. תתקבל הודעה באימייל, לאחר השלמתו."
-              many: "%{count} פרויקטים עומדים בתור לייבוא. תתקבל הודעה באימייל, לאחר השלמתו."
-              other: "%{count} פרויקטים עומדים בתור לייבוא. תתקבל הודעה באימייל, לאחר השלמתו."
-            title: ייבוא ​​פרויקטים מרכיב אחר
         results:
           bulk_actions:
             dates_form:
@@ -243,8 +222,6 @@ he:
         home:
           empty: אין תוצאות עדיין.
           empty_filters: אין תוצאות עם קריטריון זה.
-          sub_taxonomies_label: תתי קטגוריות
-          taxonomies_label: קטגוריות
         home_header:
           global_status: סטטוס ביצוע גלובלי
         no_results: אין פרוייקטים
@@ -274,8 +251,6 @@ he:
             comments_max_length: אורך מקסימלי להערות (השאירו 0 לערך ברירת המחדל)
             display_progress_enabled: הצגת התקדמות
             intro: הקדמה
-            scope_id: היקף
-            scopes_enabled: היקפים מאופשרים
           step:
             comments_blocked: תגובות חסומות
     download_your_data:

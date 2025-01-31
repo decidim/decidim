@@ -25,8 +25,6 @@ de:
           announcement: Ankündigung
           global:
             announcement: Ankündigung
-            scope_id: Bereich
-            scopes_enabled: Bereiche aktiviert
           step:
             announcement: Ankündigung
     events:
@@ -66,6 +64,19 @@ de:
             title: 'Antwort #%{number}'
         exports:
           survey_user_answers: Umfrage Benutzer Antworten
+        publish_answers:
+          index:
+            answers:
+              one: "%{count} Antwort"
+              other: "%{count} Antworten"
+            description: |-
+              Indem Sie die Antworten der Fragen veröffentlichen, machen Sie sie für die Öffentlichkeit sichtbar.
+              Sie können die zu veröffentlichenden Antworten auswählen, indem Sie auf das Kontrollkästchen neben jeweiligen Frage klicken.
+              Sie können nur folgende Fragentypen veröffentlichen: "Einzelne Option", "Mehrfachoption", "Matrix (Einzelne Option)", "Matrix (Mehrfachoption)" und "Sortierung".
+            status:
+              not_published: Nicht veröffentlicht
+              published: Veröffentlicht
+            title: Antworten veröffentlichen
         surveys:
           create:
             invalid: Beim Erstellen der Umfrage ist ein Problem aufgetreten.
@@ -90,6 +101,7 @@ de:
           create: "%{user_name} hat das Umfrage %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat das Umfrage %{resource_name} in %{space_name} gelöscht"
           publish: "%{user_name} hat die Umfrage %{resource_name} im Bereichs %{space_name} veröffentlicht"
+          unpublish: "%{user_name} hat die Umfrage %{resource_name} im Bereich %{space_name} zurückgezogen"
           update: "%{user_name} hat die Umfrage %{resource_name} im Bereich %{space_name} aktualisiert"
       directory:
         surveys:

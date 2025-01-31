@@ -21,8 +21,6 @@ it:
         published_at: Pubblicato il
         registration_terms: Termini di registrazione
         registrations_enabled: Registrazioni abilitate
-        scope_id: Obiettivo
-        scopes_enabled: Ambiti abilitati
         short_description: Breve descrizione
         show_statistics: Mostra statistiche
         sign_date: Firmato il
@@ -99,13 +97,11 @@ it:
         destroy:
           success: Relatore della conferenza cancellato con successo.
         edit:
-          title: Aggiorna relatore della conferenza.
           update: Aggiorna
         index:
           conference_speakers_title: Relatori della conferenza
         new:
           create: Crea
-          title: Nuovo relatore per la conferenza.
         update:
           error: Si è verificato un errore durante l'aggiornamento del relatore per questa conferenza.
           success: Relatore aggiornato con successo per questa conferenza.
@@ -116,11 +112,9 @@ it:
         destroy:
           success: Amministratore della conferenza rimosso con successo.
         edit:
-          title: Aggiorna l'amministratore della conferenza.
           update: Aggiornare
         new:
           create: Creare
-          title: Nuovo amministratore della conferenza.
         update:
           error: Si è verificato un problema durante l'aggiornamento di questo amministratore della conferenza.
           success: Amministratore della conferenza aggiornato con successo.
@@ -150,20 +144,12 @@ it:
       media_links:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo collegamento multimediale.
-          success: Link multimediale creato correttamente.
-        destroy:
-          success: Link multimediale cancellato con successo.
         edit:
-          title: Aggiorna collegamento multimediale.
           update: Aggiorna
-        index:
-          media_links_title: Link multimediali
         new:
           create: Crea
-          title: Link multimediale
         update:
           error: Si è verificato un errore aggiornando questo link multimediale.
-          success: Link multimediale aggiornato correttamente.
       menu:
         conferences: Conferenze
         conferences_submenu:
@@ -174,13 +160,9 @@ it:
           conference_admins: Amministratori della conferenza
           conference_invites: Inviti
           conference_speakers: Relatori
-          diploma: Certificato di partecipazione
-          media_links: Link multimediali
           moderations: Moderazioni
           partners: Partners
-          registration_types: Tipi di iscrizione
           registrations: Iscrizioni
-          user_registrations: Iscrizioni utenti
       models:
         conference:
           fields:
@@ -209,7 +191,6 @@ it:
             date: Data
             link: Collegamento
             title: Titolo
-          name: Link multimediale
         partner:
           fields:
             link: Collegamento
@@ -235,7 +216,6 @@ it:
         destroy:
           success: Partner rimosso correttamente da questa conferenza.
         edit:
-          title: Aggiorna partner.
           update: Aggiornare
         new:
           create: Crea
@@ -257,7 +237,6 @@ it:
         destroy:
           success: Tipo di iscrizione rimosso con successo da questa conferenza.
         edit:
-          title: Aggiorna il tipo di iscrizione.
           update: Aggiorna
         new:
           create: Crea
@@ -343,7 +322,6 @@ it:
         diplomas:
           edit:
             save: Salva
-            title: Certificato di partecipazione
         invite_join_conference_mailer:
           invite:
             decline: Rifiuta l'invito '%{conference_title}'
@@ -362,7 +340,6 @@ it:
             diploma_html: Troverai il certificato di frequenza per la conferenza <a href="%{url}">%{title}</a> negli allegati.
           diploma_user:
             attendance_verified_by: Presenza verificata da
-            certificate_of_attendance: Certificato di partecipazione
             certificate_of_attendance_description: La presente per certificare che <strong>%{user}</strong> ha partecipato e partecipato al <strong>%{title}</strong> tenuta al <strong>%{location}</strong> in data <strong>%{start} - %{end}</strong>
         send_diploma:
           error: C'è stato un problema durante l'invio dei certificati di frequenza alla conferenza.

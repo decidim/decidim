@@ -22,9 +22,6 @@ lv:
         promoted: Veicināts
         published_at: Publicēts plkst.
         related_process_ids: Saistītie procesi
-        scope_id: Darbības tvērums
-        scope_type_max_depth_id: Tvēruma filtra dziļums
-        scopes_enabled: Darbības tvērumi ir iespējoti
         short_description: Īss apraksts
         slug: URL sadaļas adrese (slug)
         start_date: Sākuma datums
@@ -300,12 +297,9 @@ lv:
           form:
             announcement_help: Šeit ievadītais teksts tiks parādīts lietotājam tieši zem procesa informācijas.
             duration: Ilgums
-            filters: Filtri
             images: Attēli
             metadata: Metadati
             related_processes: Saistītie procesi
-            scope_type_max_depth_help: Ierobežojiet tvēruma filtra dziļumu; filtrētais rezultāts rādīs no vispārējā uz izvēlēto tvēruma veidu.
-            select_an_area: Izvēlieties jomu
             select_process_group: Atlasiet procesa grupu
             title: Vispārēja informācija
       content_blocks:

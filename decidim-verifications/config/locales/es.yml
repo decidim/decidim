@@ -193,11 +193,9 @@ es:
           postal_codes:
             one: La participación está restringida a las personas adscritas al código postal %{postal_codes}.
             other: 'La participación está restringida a personas adscritas a cualquiera de los siguientes códigos postales: %{postal_codes}.'
-          scope: La participación está restringida a las personas verificadas en el ámbito de %{scope_name}.
           user_postal_codes:
             one: La participación está restringida a las participantes con el código postal %{postal_codes} y tu código postal es %{user_postal_code}.
             other: 'La participación está restringida a las participantes con cualquiera de los siguientes códigos postales: %{postal_codes}. Tu código postal es %{user_postal_code}.'
-          user_scope: La participación está restringida a las participantes con el ámbito %{scope_name} y tu ámbito es %{user_scope_name}.
       id_documents:
         admin:
           config:

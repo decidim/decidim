@@ -19,8 +19,6 @@ lb:
         settings:
           global:
             announcement: Ukënnegung
-            scope_id: Beräich
-            scopes_enabled: Beräicher aktivéiert
           step:
             announcement: Ukënnegung
     events:
