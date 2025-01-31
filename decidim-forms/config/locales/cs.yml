@@ -43,10 +43,15 @@ cs:
             allow_answers: Povolit odpovědi
             announcement: Oznámení
             description: Popis
+            ends_at: Odpověď přijata do
+            ends_at_help: Ponechte prázdné pro žádné konkrétní datum
+            starts_at: Odpovědi přijaté od
+            starts_at_help: Ponechte prázdné pro žádné konkrétní datum
             tos: Podmínky služby
         questionnaires:
           actions:
             back: Zpět na otázky
+            publish_answers: Zveřejnit odpovědi
             show: Zobrazit odpovědi
           answer_option:
             answer_option: Možnost odpovědi
@@ -91,6 +96,12 @@ cs:
           edit:
             save: Uložit
             title: Upravit dotazník
+          edit_questions:
+            add_question: Přidat otázku
+            add_separator: Přidat oddělovač
+            add_title_and_description: Přidat název a popis
+            save: Uložit
+            title: Otázky
           form:
             add_question: Přidat otázku
             collapse: Sbalit všechny otázky
@@ -115,6 +126,10 @@ cs:
             remove: Odstranit
             statement: Prohlášení
             up: Nahoru
+          questions_form:
+            already_answered_warning: Formulář je již zodpovězen některými uživateli, takže jeho otázky nemůžete upravovat.
+            collapse: Sbalit všechny otázky
+            expand: Rozbalit všechny otázky
           separator:
             down: Dolů
             remove: Odebrat
