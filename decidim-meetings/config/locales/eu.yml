@@ -179,11 +179,23 @@ eu:
             creation_enabled_for_user_groups: Parte-hartzaileek topaketak sor ditzakete taldearen arabera
     download_your_data:
       help:
+        invites:
+          accepted_at: Zein datatan eta zein ordutan onartu zen gonbidapen hau
+          created_at: Zein datatan eta zein ordutan sortu zen gonbidapen hau
+          id: Gonbidapen honetarako identifikatzaile bakarra
+          meeting: Gonbidapen hau zein topaketatan izan zen
+          rejected_at: Zein datatan eta zein ordutan ukatu zen gonbidapen hau
+          sent_at: Zein datatan eta zein ordutan bidali zen gonbidapen hau
+          updated_at: Zein datatan eta zein ordutan eguneratu zen gonbidapen hau azken aldiz
         registrations:
           code: Erregistro-kodea
+          created_at: Zein datatan eta zein ordutan sortu zen erregistro hau
           id: Erregistroaren identifikatzaile bakarra
           meeting: Parte-hartzailea zein topaketatan erregistratu zen
+          public_participation: Ea parte-hartze hau jendaurrean erakutsi zen
+          updated_at: Zein datatan eta zein ordutan eguneratu zen erregistro hau azken aldiz
           user: Erregistroa egin du parte-hartzailea
+          validated_at: Zein datatan eta zein ordutan balidatu zen erregistro hau
       show:
         meeting_comments: Esportatu topaketen iruzkinak
         meetings: Esportatu topaketak
