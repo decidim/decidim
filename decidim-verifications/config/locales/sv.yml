@@ -177,11 +177,9 @@ sv:
           postal_codes:
             one: Deltagande är begränsat till deltagare med postnummer %{postal_codes}.
             other: 'Deltagande är begränsat till deltagare med något av följande postnummer: %{postal_codes}.'
-          scope: Deltagandet är begränsat till deltagare inom %{scope_name}.
           user_postal_codes:
             one: Deltagandet är begränsat till deltagare med postnumret %{postal_codes} och ditt postnummer är %{user_postal_code}.
             other: 'Deltagandet är begränsat till deltagare med något av följande postnummer: %{postal_codes}. Ditt postnummer är %{user_postal_code}.'
-          user_scope: Deltagandet är begränsat till deltagare med inom %{scope_name} och du tillhör %{user_scope_name}.
       id_documents:
         admin:
           config:

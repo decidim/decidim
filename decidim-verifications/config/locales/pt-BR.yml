@@ -115,11 +115,9 @@ pt-BR:
           postal_codes:
             one: A participação é restrita aos usuários com o código postal %{postal_codes}.
             other: 'A participação é restrita aos usuários com qualquer um dos seguintes códigos postais: %{postal_codes}.'
-          scope: A participação é restrita aos participantes com o escopo %{scope_name}.
           user_postal_codes:
             one: A participação é restrita aos usuários com o código postal %{postal_codes} e seu código postal é %{user_postal_code}.
             other: 'A participação é restrita aos usuários com qualquer um dos seguintes códigos postais: %{postal_codes}. Seu código postal é %{user_postal_code}.'
-          user_scope: A participação é restrita aos participantes com o escopo %{scope_name}, e seu escopo é %{user_scope_name}.
       id_documents:
         admin:
           config:

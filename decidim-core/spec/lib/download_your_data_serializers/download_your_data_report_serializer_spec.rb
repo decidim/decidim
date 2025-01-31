@@ -74,6 +74,10 @@ module Decidim
       it "includes the updated at" do
         expect(serialized).to include(updated_at: resource.updated_at)
       end
+
+      it "includes the locale" do
+        expect(serialized).to include(locale: resource.locale)
+      end
     end
   end
 end

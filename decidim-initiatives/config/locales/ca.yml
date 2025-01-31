@@ -151,6 +151,9 @@ ca:
             postal_code: Codi postal
             signature_count: Recompte de signatures
             timestamp: Marca de temps
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: Totes les iniciatives
       titles:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives

@@ -151,6 +151,9 @@ fi:
             postal_code: Postinumero
             signature_count: Allekirjoitusten määrä
             timestamp: Aikaleima
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: Kaikki aloitteet
       titles:
         initiatives: Aloitteet
         initiatives_types: Aloitetyypit

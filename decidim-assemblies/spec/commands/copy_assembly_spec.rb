@@ -8,7 +8,6 @@ module Decidim::Assemblies
 
     let(:organization) { create(:organization) }
     let(:user) { create(:user, organization:) }
-    let(:scope) { create(:scope, organization:) }
     let(:errors) { double.as_null_object }
     let!(:assembly) { create(:assembly, organization:, taxonomies: [taxonomy]) }
     let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
@@ -49,7 +48,6 @@ module Decidim::Assemblies
         expect(new_assembly.description).to eq(old_assembly.description)
         expect(new_assembly.short_description).to eq(old_assembly.short_description)
         expect(new_assembly.promoted).to eq(old_assembly.promoted)
-        expect(new_assembly.scope).to eq(old_assembly.scope)
         expect(new_assembly.developer_group).to eq(old_assembly.developer_group)
         expect(new_assembly.local_area).to eq(old_assembly.local_area)
         expect(new_assembly.target).to eq(old_assembly.target)
@@ -125,7 +123,6 @@ module Decidim::Assemblies
           expect(new_assembly.description).to eq(old_assembly.description)
           expect(new_assembly.short_description).to eq(old_assembly.short_description)
           expect(new_assembly.promoted).to eq(old_assembly.promoted)
-          expect(new_assembly.scope).to eq(old_assembly.scope)
           expect(new_assembly.parent).to eq(old_assembly.parent)
           expect(new_assembly.developer_group).to eq(old_assembly.developer_group)
           expect(new_assembly.local_area).to eq(old_assembly.local_area)

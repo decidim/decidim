@@ -21,8 +21,6 @@ es:
         published_at: Publicada en
         registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Habilitar inscripciones
-        scope_id: Ámbito
-        scopes_enabled: Ámbitos habilitados
         short_description: Breve descripción
         show_statistics: Mostrar estadísticas
         sign_date: Fecha de firma
@@ -123,13 +121,11 @@ es:
         destroy:
           success: Ponente de la jornada eliminada correctamente.
         edit:
-          title: Actualizar la ponencia de la conferencia.
           update: Actualizar
         index:
           conference_speakers_title: Ponentes de las jornadas
         new:
           create: Crear
-          title: Nueva ponente de la conferencia.
         publish:
           invalid: Se ha producido un error al publicar esta ponente.
           success: Ponente de la conferencia actualizada correctamente.
@@ -146,13 +142,11 @@ es:
         destroy:
           success: Administradora de la jornada eliminada correctamente.
         edit:
-          title: Actualizar administradora de la jornada.
           update: Actualizar
         index:
           conference_admins_title: Administradoras de la jornada
         new:
           create: Crear
-          title: Nueva administradora de la jornada.
         update:
           error: Se ha producido un error al actualizar la administradora para esta jornada.
           success: Administradora de la jornada actualizada correctamente.
@@ -184,20 +178,13 @@ es:
       media_links:
         create:
           error: Se ha producido un error al crear un nuevo enlace multimedia.
-          success: Enlace multimedia creado correctamente.
-        destroy:
-          success: Enlace multimedia eliminado correctamente.
         edit:
-          title: Actualizar enlace multimedia.
           update: Actualizar
-        index:
-          media_links_title: Enlaces multimedia
         new:
           create: Crear
-          title: Enlace multimedia
+          title: Crear enlace multimedia
         update:
           error: Se ha producido un error al actualizar este enlace multimedia.
-          success: Enlace multimedia actualizado correctamente.
       menu:
         conferences: Jornadas
         conferences_submenu:
@@ -208,15 +195,11 @@ es:
           conference_admins: Administradores de conferencia
           conference_invites: Invita
           conference_speakers: Ponentes
-          diploma: Certificado de asistencia
           info: Acerca de esta conferencia
-          media_links: Enlaces multimedia
           moderations: Moderaciones
           partners: Colaboradoras
-          registration_types: Tipos de inscripción
           registrations: Inscripciones
           see_conference: Ver la jornada
-          user_registrations: Inscripciones de participantes
       models:
         conference:
           fields:
@@ -245,7 +228,6 @@ es:
             date: Fecha
             link: Enlace
             title: Título
-          name: Enlace multimedia
         partner:
           fields:
             link: Enlace
@@ -271,7 +253,6 @@ es:
         destroy:
           success: Colaboradora de la jornada eliminada correctamente.
         edit:
-          title: Actualizar colaboradora.
           update: Actualizar
         new:
           create: Crear
@@ -293,7 +274,6 @@ es:
         destroy:
           success: Tipo de inscripción eliminado correctamente de esta jornada.
         edit:
-          title: Actualizar el tipo de registro.
           update: Actualizar
         new:
           create: Crear
@@ -301,6 +281,9 @@ es:
         update:
           error: Se ha producido un error al actualizar un tipo de inscripción para esta jornada.
           success: Tipo de inscripción actualizado correctamente para esta jornada.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Todas las jornadas
       titles:
         conferences: Jornadas
         conferences_deleted: Jornadas eliminadas
@@ -396,7 +379,6 @@ es:
         diplomas:
           edit:
             save: Guardar
-            title: Certificado de asistencia
         invite_join_conference_mailer:
           invite:
             decline: Rechazar invitación a '%{conference_title}'
@@ -416,7 +398,6 @@ es:
             diploma_html: Encontrarás el certificado de asistencia a la jornada <a href="%{url}">%{title}</a> en los archivos adjuntos.
           diploma_user:
             attendance_verified_by: Asistencia verificada por
-            certificate_of_attendance: Certificado de asistencia
             certificate_of_attendance_description: Este documento certifica que <strong>%{user}</strong> ha asistido y participado en <strong>%{title}</strong> celebrados en el <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Se ha producido un error al enviar los certificados de asistencia a la jornada.

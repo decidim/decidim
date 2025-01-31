@@ -156,8 +156,6 @@
             comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
             display_progress_enabled: Vis fremgang
             intro: Introduksjon
-            scope_id: Tema
-            scopes_enabled: Temaer aktivert
           step:
             comments_blocked: Kommentarer blokkert
     events:

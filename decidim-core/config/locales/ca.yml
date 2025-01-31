@@ -8,6 +8,8 @@ ca:
         photos: Fotos
       common:
         created_at: Creat el
+      component:
+        taxonomy_filters: Filtres de taxonomia
       content_block_attachment:
         background_image: Imatge de fons
         main_image: Imatge principal
@@ -32,10 +34,10 @@ ca:
       taxonomy:
         name: Nom de la taxonomia
       taxonomy_filter:
-        internal_name: Nom intern del filtre
-        name: Títol públic del filtre
+        internal_name: Etiqueta interna
+        name: Etiqueta
         root_taxonomy_id: Des de la taxonomia
-        space_filter: Disponible com a filtre pels espais de participació
+        space_filter: Disponible com a filtre per a
       user:
         about: Quant a
         avatar: Imatge de perfil
@@ -305,12 +307,12 @@ ca:
         update: "%{user_name} ha acutalitzat la taxonomia \"%{resource_name}\""
         update_with_parent: "%{user_name} ha actualitzat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
       taxonomy_filter:
-        create: "En/na %{user_name} ha creat un filtre basat en la taxonomia \"%{resource_name}\""
-        create_with_filter_items_count: "En/na %{user_name} ha creat un filtre basat en la taxonomia \"%{resource_name}\" amb %{filter_items_count} filtres per \"%{space_manifest_name}\""
-        delete: "En/na %{user_name} ha eliminat un filtre basat en la taxonomia \"%{resource_name}\""
-        delete_with_filter_items_count: "En/na %{user_name} ha eliminat un filtre basat en la taxonomia \"%{resource_name}\" amb %{filter_items_count} filtres per \"%{space_manifest_name}\""
-        update: "En/na %{user_name} ha actualitzat un filtre basat en la taxonomia \"%{resource_name}\""
-        update_with_filter_items_count: "En/na %{user_name} ha actualitzat un filtre basat en la taxonomia \"%{resource_name}\" amb %{filter_items_count} filtres per \"%{space_manifest_name}\""
+        create: "%{user_name} va crear el filtre %{resource_name}"
+        create_with_filter_info: '%{user_name} va crear el filtre %{resource_name} basat en la taxonomia "%{taxonomy_name}" amb %{filter_items_count} element(s)'
+        delete: "%{user_name} ha eliminat el filtre %{resource_name}"
+        delete_with_filter_info: '%{user_name} va eliminar el filtre %{resource_name} basat en la taxonomia "%{taxonomy_name}" amb %{filter_items_count} element(s)'
+        update: "%{user_name} va actualitzar el filtre %{resource_name}"
+        update_with_filter_info: '%{user_name} va actualitzar el filtre %{resource_name} basat en la taxonomia "%{taxonomy_name}" amb %{filter_items_count} element(s)'
       user:
         block: "%{user_name} ha bloquejat a la usuària %{resource_name}"
         bulk_block: "%{user_name} ha bloquejat a %{blocked_count} usuàries"
@@ -446,10 +448,8 @@ ca:
         explanation: Verifica't introduint un número de document que finalitzi amb "X".
         fields:
           allowed_postal_codes: Codis postals permesos (separats per comes)
-          allowed_scope_id: Àmbit permès
           document_number: Número de document
           postal_code: Codi postal
-          scope_id: Àmbit
         name: Autorització d'exemple
       dummy_authorization_workflow:
         explanation: Exemple de flux de verificació
@@ -458,10 +458,8 @@ ca:
         explanation: Verifica't introduint un número de document que finalitzi amb "X".
         fields:
           allowed_postal_codes: Codis postals permesos (separats per comes)
-          allowed_scope_id: Àmbit permès
           document_number: Número de document
           postal_code: Codi postal
-          scope_id: Àmbit
         name: Una altra autorització d'exemple
       errors:
         duplicate_authorization: Ja hi ha una participant autoritzada amb les mateixes dades. Una administradora es posarà en contacte amb tu per verificar les teves dades.
@@ -553,8 +551,6 @@ ca:
             enable_pads_creation: Habilitar la creació de pads
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             resources_permissions_enabled: Permisos de recursos habilitats
-            scope_id: Àmbit
-            scopes_enabled: Àmbits habilitats
             taxonomy_filters: Seleccionar filtres pel component
           step:
             amendment_creation_enabled: Creació d'esmenes habilitada
@@ -1229,6 +1225,8 @@ ca:
         unknown_action_with_space: "%{user_name} ha realitzat una acció a %{resource_name} en %{space_name}"
         unpublish_with_space: "%{user_name} ha despublicat %{resource_name} en %{space_name}"
         update: "%{user_name} ha actualitzat %{resource_name}"
+        update_filters: "%{user_name} va actualitzar el filtre de %{resource_name}"
+        update_filters_with_space: "%{user_name} va actualitzar els filtres de %{resource_name} a %{space_name}"
         update_permissions_with_space: "%{user_name} ha actualitzat els permisos de %{resource_name} a %{space_name}"
         update_with_space: "%{user_name} ha actualitzat %{resource_name} a %{space_name}"
       value_types:
@@ -1714,16 +1712,7 @@ ca:
         error: S'ha produït un error durant l'acció d'adhesió.
     scopes:
       global: Àmbit global
-      picker:
-        cancel: Cancel·lar
-        change: Canviar l'àmbit seleccionat
-        choose: Seleccionar
-        currently_selected: Àmbit seleccionat actualment
-        title: Selecciona %{field}
       prompt: Selecciona un àmbit
-      scopes: Àmbits
-      scopes_picker_input:
-        select_scope: 'Selecciona un àmbit (actualment: %{current})'
     search:
       name: Cercar
       results: Resultat de la cerca
@@ -1850,15 +1839,6 @@ ca:
         send: Enviar
       update:
         error: Missatge no enviat. Torna-ho a provar més tard
-    user_interests:
-      show:
-        my_interests: Els meus interessos
-        no_scopes: Aquesta organització encara no té cap àmbit!
-        select_your_interests: Selecciona els temes del teu interès per rebre notificacions relacionades amb aquests a la pestanya de la Línia de temps dins del teu perfil públic.
-        update_my_interests: Actualitza els meus interessos
-      update:
-        error: S'ha produït un error en actualitzar els teus interessos.
-        success: Els teus interessos s'han actualitzat correctament.
     user_report_mailer:
       notify:
         body_1: La usuària %{user} ha estat reportada per %{token}
@@ -2270,7 +2250,6 @@ ca:
         authorizations: Autoritzacions
         delete_my_account: Eliminar el meu compte
         my_data: Les meves dades
-        my_interests: Els meus interessos
         notifications_settings: Configuració de les notificacions
         profile: Perfil
         title: Configuració de la participant

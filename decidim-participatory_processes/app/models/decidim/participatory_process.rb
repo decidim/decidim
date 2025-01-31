@@ -220,7 +220,7 @@ module Decidim
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(area scope participatory_process_type participatory_process_group)
+      %w(participatory_process_type participatory_process_group taxonomies)
     end
   end
 end
