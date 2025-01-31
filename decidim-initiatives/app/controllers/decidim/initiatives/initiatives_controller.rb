@@ -29,7 +29,7 @@ module Decidim
       include SingleInitiativeType
       include Decidim::IconHelper
 
-      helper_method :collection, :initiatives, :filter, :stats, :tabs, :panels
+      helper_method :collection, :initiatives, :pending_initiatives, :filter, :stats, :tabs, :panels
       helper_method :initiative_type, :available_initiative_types
 
       before_action :authorize_participatory_space, only: [:show]
@@ -131,6 +131,10 @@ module Decidim
         @initiatives = search.result.includes(:scoped_type)
         @initiatives = reorder(@initiatives)
         @initiatives = paginate(@initiatives)
+      end
+
+      def pending_initiatives
+        @pending_initiatives ||= Initiative.where(state: %w(created validating)).where(author: current_user)
       end
 
       alias collection initiatives

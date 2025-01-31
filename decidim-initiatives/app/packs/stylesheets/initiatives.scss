@@ -169,3 +169,16 @@
 .edit_initiative .profile__group__list {
   @apply w-full;
 }
+
+.pending-initiatives {
+  @apply bg-background rounded-lg px-4 py-8 mb-12;
+
+  .card__grid {
+    @apply bg-white;
+    --tw-ring-color: #ddd;
+
+    &:hover {
+      --tw-ring-color: var(--tertiary);
+    }
+  }
+}
