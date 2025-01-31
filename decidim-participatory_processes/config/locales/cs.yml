@@ -275,6 +275,9 @@ cs:
         create:
           error: Došlo k chybě při vytváření nové skupiny účastnických procesů.
           success: Skupina úspěšně vytvořená skupina účastníků.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Všechny participační procesy
       titles:
         participatory_process_groups: Skupiny účastnických procesů
         participatory_process_types: Typy participačních procesů
