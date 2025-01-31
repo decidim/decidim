@@ -81,6 +81,9 @@ cs:
             title: Upravit dotazník
           form:
             add_question: Přidat otázku
+            add_separator: Přidat oddělovač
+            add_title_and_description: Přidat název a popis
+            already_answered_warning: Formulář je již zodpovězen některými uživateli, takže jeho otázky nemůžete upravovat.
             collapse: Sbalit všechny otázky
             expand: Rozbalit všechny otázky
             preview: Náhled
