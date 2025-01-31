@@ -182,7 +182,6 @@ hu:
           media_links_title: Média linkek
         new:
           create: Létrehozás
-          title: Media Link
         update:
           error: Hiba történt a média link frissítésekor.
           success: A Media Link sikeresen frissült.

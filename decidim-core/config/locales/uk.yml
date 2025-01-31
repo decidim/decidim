@@ -37,6 +37,8 @@ uk:
     'false': 'Ні'
     'true': 'Так'
   date:
+    buttons:
+      select: Оберіть
     formats:
       decidim_short: "%d.%m.%Y"
       decidim_with_month_name: "%d %B %Y"
@@ -414,7 +416,6 @@ uk:
     scopes:
       global: Всеохопний обсяг
       picker:
-        cancel: Скасувати
         choose: Оберіть
         title: Оберіть %{field}
       prompt: Оберіть обсяг
@@ -552,6 +553,8 @@ uk:
     weibo: Сіна Вайбо
     xing: Xing
   time:
+    buttons:
+      select: Оберіть
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

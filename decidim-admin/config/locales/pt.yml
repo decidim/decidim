@@ -162,6 +162,9 @@ pt:
         reject: Rejeitar
         share: Partilhar
         verify: Verificar
+      admin_terms_of_service:
+        accept:
+          error: Ocorreu um erro ao aceitar os termos de utilização de administrador.
       area_types:
         create:
           error: Ocorreu um problema ao criar um novo tipo de área.

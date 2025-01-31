@@ -30,7 +30,7 @@ fr-CA:
         promoted: Mise en avant
         published_at: Publiée à
         related_process_ids: Concertations liées
-        scope_id: Périmètre d'application
+        scope_id: Secteur
         scope_type_max_depth_id: Profondeur du filtre de portée
         scopes_enabled: Périmètres d'application activés
         short_description: Résumé

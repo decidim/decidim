@@ -94,8 +94,6 @@ tr:
             create: İçe aktar
             import_all_selected_projects: Seçilen tüm projeleri içe aktarın
             no_components: Bu katılımcı alanda projeleri sonuçlara dönüştürecek bütçe bileşenleri yoktur.
-            origin_component_id: Asıl bileşen
-            select_component: Bir bileşen seç
             title: Projeleri başka bir bileşenden içe aktarın
         results:
           create:
@@ -247,7 +245,7 @@ tr:
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
             display_progress_enabled: İlerlemeyi göster
             intro: Tanıtım
-            scope_id: Kapsam
+            scope_id: kapsam
             scopes_enabled: Kapsamlar etkinleştirildi
           step:
             comments_blocked: Yorumlar engellendi

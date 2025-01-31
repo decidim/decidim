@@ -161,7 +161,6 @@ it:
           media_links_title: Link multimediali
         new:
           create: Crea
-          title: Link multimediale
         update:
           error: Si è verificato un errore aggiornando questo link multimediale.
           success: Link multimediale aggiornato correttamente.

@@ -49,6 +49,9 @@ lv:
             name: Rezultāts
           status:
             name: Statuss
+        projects_import:
+          new:
+            create: Importēt
         results:
           edit:
             title: Labot rezultātu
@@ -144,6 +147,7 @@ lv:
             comments_enabled: Komentāri ir iespējoti
             display_progress_enabled: Rādīt progresu
             intro: Ievads
+            scope_id: Darbības tvērums
           step:
             comments_blocked: Komentāri ir bloķēti
     events:

@@ -73,7 +73,6 @@ sk:
           tos_agreement: Účasťou súhlasíte s našimi Podmienkami použitia
       step_navigation:
         show:
-          are_you_sure: Táto akcia sa nedá vrátiť späť, a nebudete môcť upraviť svoje odpovede. Ste si istí?
           submit: Poslať
       user_answers_serializer:
         created_at: Odpovedané na 

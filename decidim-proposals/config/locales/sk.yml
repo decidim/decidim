@@ -117,6 +117,7 @@ sk:
             proposal_limit: Limit návrhu na užívateľa
             proposal_wizard_step_1_help_text: Pomocný text Sprievodcu "Vytvoriť" návrh
             resources_permissions_enabled: Pre každý návrh možno nastaviť povolenia akcie
+            scope_id: Rozsah
             threshold_per_proposal: Maximálny limit na návrh
           step:
             amendment_creation_enabled: Umožniť tvorbu Pozmeňovacích návrhov

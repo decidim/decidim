@@ -10,7 +10,7 @@ eu:
         redirect_uri: Berbideratu URI
       organization:
         address: SMTP host-aren izena
-        from_email: Korreo elektronikoaren helbidea
+        from_email: Helbide elektronikoa
         from_label: Etiketa
         password: Pasahitza
         port: Portua

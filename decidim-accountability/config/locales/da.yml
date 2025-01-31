@@ -50,6 +50,9 @@ da:
             name: Resultat
           status:
             name: Status
+        projects_import:
+          new:
+            create: Import
         results:
           edit:
             title: Rediger resultat
@@ -147,7 +150,7 @@ da:
             comments_max_length: Kommentarer maks. længde (Leave 0 for standardværdi)
             display_progress_enabled: Vis fremskridt
             intro: Intro
-            scope_id: Omfang
+            scope_id: Anvendelsesområde
             scopes_enabled: Omfang aktiveret
     resource_links:
       included_proposals:

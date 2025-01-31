@@ -73,6 +73,8 @@ zh-TW:
     'false': '否'
     'true': '是'
   date:
+    buttons:
+      select: 選擇
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -1746,6 +1748,8 @@ zh-TW:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: 選擇
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

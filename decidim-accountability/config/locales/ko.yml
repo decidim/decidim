@@ -90,11 +90,7 @@ ko:
           new:
             create: 가져오기
             import_all_selected_projects: 구현을 위해 선택한 모든 프로젝트 가져오기
-            new_items:
-              other: "선택한 프로젝트 %{count} 개를 가져옵니다"
             no_components: 이 참여 공간에는 프로젝트를 결과로 가져올 예산 구성 요소가 없습니다.
-            origin_component_id: 원본 구성요소
-            select_component: 구성 요소 선택
             success:
               other: "프로젝트 %{count} 개를 가져오기 위해 대기열에 있습니다. 완료되면 이메일로 알려드립니다."
             title: 다른 구성요소에서 프로젝트 불러오기

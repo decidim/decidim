@@ -66,6 +66,8 @@ nl:
     'false': 'Nee'
     'true': 'Ja'
   date:
+    buttons:
+      select: Selecteer
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -946,7 +948,7 @@ nl:
     scopes:
       global: Globale scope
       picker:
-        cancel: Annuleer
+        cancel: annuleren
         change: Wijzig geselecteerde scope
         choose: Selecteer
         currently_selected: Momenteel geselecteerde scope
@@ -1303,6 +1305,8 @@ nl:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Selecteer
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

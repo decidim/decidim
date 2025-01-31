@@ -56,6 +56,9 @@ it:
             name: Risultato
           status:
             name: Stato
+        projects_import:
+          new:
+            create: Importa
         results:
           edit:
             title: Modifica il risultato
@@ -165,7 +168,7 @@ it:
             comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             display_progress_enabled: Mostra avanzamento
             intro: Introduzione
-            scope_id: Ambito
+            scope_id: Obiettivi
             scopes_enabled: Ambiti abilitati
           step:
             comments_blocked: Commenti bloccati

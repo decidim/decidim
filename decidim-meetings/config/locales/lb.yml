@@ -98,7 +98,7 @@ lb:
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             registration_code_enabled: Registrierungscode aktiviert
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
-            scope_id: Bereich
+            scope_id: Ëmfang
             scopes_enabled: Bereiche aktiviert
             terms_and_conditions_url_for_meeting_creators: Nutzungsbedingungen URL für Meeting-Ersteller
           step:

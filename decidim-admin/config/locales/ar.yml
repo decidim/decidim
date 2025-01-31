@@ -333,6 +333,9 @@ ar:
           title: نقل
         'true': 'نعم'
         user_name: المستخدم
+      content_blocks:
+        edit:
+          title: محتويات الصفحة
       dashboard:
         show:
           view_more_logs: عرض المزيد من السجلات
@@ -468,6 +471,9 @@ ar:
           download_example_format: مثال كـ %{name}
           file_legend: إضافة ملف استيراد سيتم تحليله.
           import: استيراد
+      logs:
+        filters:
+          user: المستخدم
       managed_users:
         promotion:
           error: كانت هناك مشكلة في تعزيز المشارك المُدار.
@@ -818,10 +824,12 @@ ar:
         areas: المناطق
         authorization_workflows: طرق التحقق
         dashboard: لوحة القيادة
+        edit_landing_page: محتويات الصفحة
         edit_organization_appearance: تعديل مظهر الصفحة الرئيسية
         impersonatable_users: المشاركون في الإدارة
         impersonations: إدارة المشاركين
         menu: القائمة الرئيسية
+        page_topics: المواضيع
         pages: الصفحات
         panel: مدير
         participants: المشاركين

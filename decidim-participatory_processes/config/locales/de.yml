@@ -30,7 +30,7 @@ de:
         promoted: Hervorgehoben
         published_at: Veröffentlicht am
         related_process_ids: Ähnliche Beteiligungsprozesse
-        scope_id: Themenbereich
+        scope_id: Umfang
         scope_type_max_depth_id: Umfang-Filtertiefe
         scopes_enabled: Themenbereiche aktiviert
         short_description: Kurzbeschreibung

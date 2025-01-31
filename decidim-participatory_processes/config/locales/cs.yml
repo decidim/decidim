@@ -30,7 +30,7 @@ cs:
         promoted: Propagováno
         published_at: Publikováno v
         related_process_ids: Související procesy
-        scope_id: Rozsah
+        scope_id: Oblast působnosti
         scope_type_max_depth_id: Hloubka filtru rozsahu
         scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis

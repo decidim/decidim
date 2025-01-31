@@ -189,7 +189,6 @@ de:
           media_links_title: Medienlinks
         new:
           create: Erstellen
-          title: Medienlink
         update:
           error: Beim Aktualisieren dieser Medienverbindung ist ein Fehler aufgetreten.
           success: Media Link wurde erfolgreich aktualisiert.
@@ -254,7 +253,7 @@ de:
             main_promotor: Hauptförderer
         registration_type:
           fields:
-            conference_meetings: Konferenzsitzungen
+            conference_meetings: Veranstaltungen der Konferenz
             price: Preis
             registrations_count: Registrierungen zählen
             title: Titel
@@ -396,7 +395,7 @@ de:
             title: Partner
         registration_types:
           form:
-            select_conference_meetings: Konferenzmeetings auswählen
+            select_conference_meetings: Konferenzveranstaltungen auswählen
           index:
             title: Registrierungsarten
         send_conference_diploma_mailer:

@@ -57,6 +57,8 @@ zh-CN:
     'false': '否'
     'true': '否'
   date:
+    buttons:
+      select: 选择
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
@@ -1175,6 +1177,8 @@ zh-CN:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: 选择
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

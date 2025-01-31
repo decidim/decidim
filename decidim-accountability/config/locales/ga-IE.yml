@@ -36,6 +36,9 @@ ga:
             name: Toradh
           status:
             name: Stádas
+        projects_import:
+          new:
+            create: Iompórtáil
         results:
           index:
             title: Torthaí

@@ -259,7 +259,7 @@ de:
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             display_progress_enabled: Fortschritt anzeigen
             intro: Einführung
-            scope_id: Bereich
+            scope_id: Umfang
             scopes_enabled: Bereiche aktiviert
           step:
             comments_blocked: Kommentare blockiert

@@ -181,7 +181,7 @@ fi-pl:
           tos_agreement: Osallistumalla hyväksyt käyttöehdot
       step_navigation:
         show:
-          are_you_sure: Tätä toimintoa ei voi kumota, etkä voi muokata vastauksiasi. Oletko varma?
+          are_you_sure: Tätä toimintoa ei voi perua, etkä voi muokata vastauksiasi. Oletko varma?
           back: Takaisin
           continue: Jatka
           submit: Lähetä

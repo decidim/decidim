@@ -195,7 +195,6 @@ pl:
           media_links_title: Linki do multimediów
         new:
           create: Utwórz
-          title: Link do multimediów
         update:
           error: Wystąpił błąd podczas aktualizowania tego linku multimedialnego.
           success: Link do multimediów został pomyślnie zaktualizowany.

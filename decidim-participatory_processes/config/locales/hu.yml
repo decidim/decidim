@@ -30,7 +30,7 @@ hu:
         promoted: Támogatott
         published_at: Közzétéve
         related_process_ids: Kapcsolódó folyamatok
-        scope_id: Hatáskör
+        scope_id: Hatókör
         scope_type_max_depth_id: Scope szűrő mélysége
         scopes_enabled: Hatáskörök engedélyezve
         short_description: Rövid leírás

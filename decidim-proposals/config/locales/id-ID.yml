@@ -89,6 +89,7 @@ id:
             proposal_limit: Batas proposal per pengguna
             proposal_wizard_step_1_help_text: Panduan proposal "Buat" teks bantuan langkah
             resources_permissions_enabled: Izin tindakan dapat diatur untuk setiap proposal
+            scope_id: Cakupan
             threshold_per_proposal: Ambang batas per proposal
           step:
             announcement: Pengumuman

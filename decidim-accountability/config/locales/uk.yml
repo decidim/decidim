@@ -140,6 +140,7 @@ uk:
             comments_enabled: Коментарі увімкнено
             display_progress_enabled: Показувати перебіг
             intro: Вступ
+            scope_id: Обсяг
           step:
             comments_blocked: Коментарі вимкнено
     events:

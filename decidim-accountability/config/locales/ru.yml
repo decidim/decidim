@@ -141,6 +141,7 @@ ru:
             comments_enabled: Комментарии включены
             display_progress_enabled: Показывать ход выполнения
             intro: Вступление
+            scope_id: Охват
           step:
             comments_blocked: Комментарии отключены
     events:

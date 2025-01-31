@@ -135,6 +135,7 @@ id:
             comments_enabled: Komentar diaktifkan
             display_progress_enabled: Kemajuan tampilan
             intro: Intro
+            scope_id: Cakupan
           step:
             comments_blocked: Komentar diblokir
     events:

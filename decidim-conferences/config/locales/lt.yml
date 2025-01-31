@@ -181,7 +181,6 @@ lt:
           media_links_title: Multimedijos Nuorodos
         new:
           create: Sukurti
-          title: Multimedijos Nuoroda
         update:
           error: Atnaujinant šią multimedijos nuorodą iškilo problema.
           success: Multimedijos Nuoroda atnaujinta.

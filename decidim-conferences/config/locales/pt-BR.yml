@@ -188,7 +188,6 @@ pt-BR:
           media_links_title: Links de Mídia
         new:
           create: Criar
-          title: Links de Mídia
         update:
           error: Houve um erro ao atualizar este link de mídia.
           success: Link de mídia atualizado com êxito.

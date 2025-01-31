@@ -141,7 +141,6 @@ tr:
           tos_agreement: Katılarak Hizmet Şartlarını kabul etmiş olursunuz.
       step_navigation:
         show:
-          are_you_sure: Bu işlem geri alınamaz ve cevaplarınızı düzenleyemezsiniz. Emin misiniz?
           back: Geri
           continue: Devam et
           submit: Gönder

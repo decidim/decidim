@@ -54,7 +54,7 @@ eu:
       organization:
         update_id_documents_config: "%{user_name} parte-hartzaileak eguneratu du nortasun agiriko dokumentuen konfiguraziorako baimena"
       user:
-        grant_id_documents_offline_verification: "%{user_name} parte-hartzaileak egiaztatu zuen %{resource_name} nortasun agirien baimen bat erabiliz"
+        grant_id_documents_offline_verification: "%{user_name} parte-hartzaileak egiaztatu du %{resource_name} nortasun agirien baimen bat erabiliz"
     authorization_handlers:
       admin:
         another_dummy_authorization_handler:

@@ -51,6 +51,8 @@ ru:
     'false': 'Нет'
     'true': 'Да'
   date:
+    buttons:
+      select: Выбрать
     formats:
       decidim_short: "%d.%m.%Y"
       decidim_with_month_name: "%d %B %Y"
@@ -713,6 +715,8 @@ ru:
     weibo: Сина Вейбо
     xing: Xing
   time:
+    buttons:
+      select: Выбрать
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

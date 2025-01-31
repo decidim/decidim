@@ -85,6 +85,8 @@ lt:
     'false': 'Ne'
     'true': 'Taip'
   date:
+    buttons:
+      select: Pasirinkti
     formats:
       decidim_short: "%Y/%m/%d"
       decidim_short_dashed: "%d-%m-%Y"
@@ -1950,6 +1952,8 @@ lt:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Pasirinkti
     formats:
       day_of_month: "%b%d"
       day_of_week: "%a"

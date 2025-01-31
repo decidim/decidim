@@ -2035,7 +2035,7 @@ fr:
     buttons:
       close: Fermer
       reset: Réinitialiser
-      select:
+      select: Sélectionner
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

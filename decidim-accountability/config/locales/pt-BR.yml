@@ -94,12 +94,7 @@ pt-BR:
           new:
             create: Importar
             import_all_selected_projects: Importar todos os projetos selecionados para implementação
-            new_items:
-              one: 1 projeto selecionado será importado
-              other: "%{count} projetos selecionados serão importados"
             no_components: Não há componentes de orçamento neste espaço participativo para importar os projetos em resultados.
-            origin_component_id: Componente de origem
-            select_component: Selecionar componente
             success:
               one: Projetos na fila para ser importado. Você será notificado no seu endereço eletrônico quando estiver completo.
               other: "Projetos na fila para importar. Você sera notificado em seu endereço eletrônico quando estiver completo."
@@ -257,7 +252,7 @@ pt-BR:
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             display_progress_enabled: Mostrar progresso
             intro: Introdução
-            scope_id: Escopo
+            scope_id: Âmbito
             scopes_enabled: Escopos habilitados
           step:
             comments_blocked: Comentários bloqueados

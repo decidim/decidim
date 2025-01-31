@@ -97,7 +97,7 @@ sv:
             new_items:
               one: 1 valt projekt kommer att importeras
               other: "%{count} valda projekt kommer att importeras"
-            no_components: Det finns inga budget-komponenter att importera projekt från i den här processen.
+            no_components: Det finns ingen budget-komponenter att importera projekt från i den här processen.
             origin_component_id: Ursprungskomponent
             select_component: Välj en komponent
             success:

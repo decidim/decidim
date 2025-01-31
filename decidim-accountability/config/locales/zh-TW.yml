@@ -85,11 +85,7 @@ zh-TW:
           new:
             create: 匯入
             import_all_selected_projects: 匯入所有選擇的專案來實現
-            new_items:
-              other: "%{count} 個專案將匯入"
             no_components: 在這個參與空間沒有預算元件來匯入專案到結果
-            origin_component_id: 原始元件
-            select_component: 選擇一個元件
             success:
               other: "%{count} 個專案已經排程匯入，完成後會寄送 email 通知."
         results:

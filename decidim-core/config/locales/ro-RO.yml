@@ -84,7 +84,7 @@ ro:
   date:
     buttons:
       close: Închideți
-      select: Selectați
+      select: Selectare
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -500,7 +500,7 @@ ro:
       last_activity:
         name: Ultima activitate
         title: Ultima activitate
-        view_all: Vezi toate
+        view_all: Vedeți tot
       metrics:
         name: Valorile organizației
       static_page:
@@ -536,7 +536,7 @@ ro:
         new:
           already_have_an_account?: Ai deja un cont?
           log_in: Autentificare
-          newsletter: Primește un buletin informativ ocazional cu informații relevante
+          newsletter: Primiți un buletin informativ ocazional cu informații relevante
           newsletter_title: Drepturi privind contactele
           sign_up: Creați un cont
           subtitle: Creați un cont pentru a participa la platformă.
@@ -547,7 +547,7 @@ ro:
       sessions:
         new:
           are_you_new?: Nou pe platformă?
-          register: Creează un cont
+          register: Creați un cont
           sign_in_disabled: Puteți accesa printr-un cont extern.
       shared:
         newsletter_modal:
@@ -1042,7 +1042,9 @@ ro:
     notifications_settings:
       show:
         administrators: Administratori
+        allow_public_contact: Permit tuturor să îmi trimită un mesaj direct, chiar dacă nu îi urmăresc.
         direct_messages: Primește mesaje directe de la oricine
+        email_on_moderations: Vreau să primesc un e-mail de fiecare dată când se raportează ceva pentru moderare.
         everything_followed: Tot ce urmăresc
         newsletter_notifications: Vreau să primesc buletine informative
         newsletters: Newslettere
@@ -1051,10 +1053,11 @@ ro:
           none: Nimic
           real_time: În timp real
           weekly: Săptămânal
+        notifications_sending_frequency: Cât de des doriți să primiți e-mailul de notificări?
         own_activity: Propria mea activitate, ca atunci când cineva comentează în propunerea mea sau mă menționează
         push_notifications: Notificări Instant
         receive_notifications_about: Vreau să primesc notificări despre
-        update_notifications_settings: Salvează modificările
+        update_notifications_settings: Salvați modificările
       update:
         error: A apărut o eroare la actualizarea setărilor notificărilor.
         success: Setările de notificări au fost actualizate cu succes.
@@ -1088,6 +1091,7 @@ ro:
           headline: Starea curentă a %{organization}
         sub_hero:
           register: Inregistrare
+          register_title: Creați un cont
       index:
         standalone_pages: Pagini
         subheading: Navigați prin paginile de ajutor ale %{name}
@@ -1158,7 +1162,7 @@ ro:
     scopes:
       global: Domeniul global de interes
       picker:
-        cancel: Anulează
+        cancel: Anulați
         change: Schimbă domeniul selectat
         choose: Selectare
         currently_selected: Domeniul selectat în prezent
@@ -1221,6 +1225,8 @@ ro:
         title: Raportează un utilizator nepotrivit
       floating_help:
         help: Ajutor
+      login_modal:
+        sign_up: Creați un cont
       participatory_space_filters:
         filters:
           areas: Zone
@@ -1235,7 +1241,7 @@ ro:
         select_user_group: Selectați un grup
       results_per_page:
         label: 'Rezultate pe pagină:'
-        title: Selectaţi numărul de rezultate pe pagină
+        title: Selectați numărul de rezultate pe pagină
       share_modal:
         copy_share_link: Copiază
         copy_share_link_clarification: Copiază link-ul de partajare în clipboard
@@ -1391,6 +1397,8 @@ ro:
       updated_not_active: Parola dumneavoastră a fost schimbată cu succes.
     registrations:
       destroyed: Contul dumneavoastră a fost anulat. Sperăm să reveniți în curând.
+      new:
+        sign_up: Creați un cont
       signed_up: Bine ați venit! V-ați înregistrat cu succes.
       signed_up_but_inactive: V-ați înregistrat cu succes. Cu toate acestea, nu vă putem conecta deoarece contul dvs. nu este încă activat.
       signed_up_but_locked: V-ați înregistrat cu succes. Cu toate acestea, nu vă putem conecta deoarece contul dvs. este blocat.
@@ -1405,6 +1413,7 @@ ro:
         back: Înapoi
         forgot_your_password: V-ați uitat parola?
         log_in: Autentificare
+        sign_up: Creați un cont
       minimum_password_length:
         one: "(minimum %{count} caractere)"
         few: "(minimum %{count} caractere)"
@@ -1451,6 +1460,31 @@ ro:
         details:
           columns:
             type: Tip
+          items:
+            _session_id:
+              description: Permite site-urilor web să rețină utilizatorul din cadrul unui site web atunci când se mută între paginile web.
+            decidim-consent:
+              description: Stochează informații despre cookie-urile permise de utilizator pe acest site.
+        dialog:
+          accept_all: Acceptați toate
+          accept_only_essential: Acceptați numai esențiale
+          description: Folosim cookie-uri pe site-ul nostru pentru a îmbunătăți performanța și conținutul site-ului. Cookie-urile ne permit să oferim mai multă experiență individualizată utilizatorilor și pentru rețelele sociale.
+          settings: Setări
+          title: Informații despre cookie-urile utilizate pe site
+        modal:
+          accept_all: Acceptați toate
+          accept_only_essential: Acceptați numai esențiale
+          analytics:
+            description: Aceste cookie-uri sunt utilizate pentru a măsura și analiza publicul site-ului web pentru a ajuta la îmbunătățirea acestuia.
+            title: Analize și statistici
+          essential:
+            title: Esențiale
+          marketing:
+            description: Aceste cookie-uri colectează informații despre modul în care utilizați site-ul și pot fi utilizate pentru a vă oferi experiență de marketing personalizată pe diferitele site-uri pe care le utilizați.
+            title: Marketing
+          preferences:
+            title: Preferințe
+          save_settings: Salvați setările
       edit_link:
         edit: Editare
       footer:
@@ -1459,6 +1493,8 @@ ro:
         download_open_data: Descarcă fișierele de date deschise
         log_in: Autentificare
         made_with_open_source: Site web creat cu <a target="_blank" href="https://github.com/decidim/decidim">software gratuit</a>.
+        resources: Resurse
+        sign_up: Creați un cont
       header:
         log_in: Autentificare
         main_menu: Meniul principal
@@ -1536,6 +1572,8 @@ ro:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Selectare
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

@@ -81,6 +81,9 @@ cs:
             title: Upravit dotazník
           form:
             add_question: Přidat otázku
+            add_separator: Přidat oddělovač
+            add_title_and_description: Přidat název a popis
+            already_answered_warning: Formulář je již zodpovězen některými uživateli, takže jeho otázky nemůžete upravovat.
             collapse: Sbalit všechny otázky
             expand: Rozbalit všechny otázky
             preview: Náhled
@@ -177,7 +180,6 @@ cs:
           tos_agreement: Účastí přijímáte jeho smluvní podmínky
       step_navigation:
         show:
-          are_you_sure: Tuto akci nelze vrátit zpět a nebudete moci upravit své odpovědi. Jste si jisti?
           back: Zpět
           continue: Pokračovat
           submit: Odeslat

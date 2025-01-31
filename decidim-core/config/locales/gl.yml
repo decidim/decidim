@@ -48,6 +48,8 @@ gl:
     'false': 'Non'
     'true': 'Si'
   date:
+    buttons:
+      select: Seleccionar
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -1018,6 +1020,8 @@ gl:
     weibo: Sina Weibo
     xing: Xing
   time:
+    buttons:
+      select: Seleccionar
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

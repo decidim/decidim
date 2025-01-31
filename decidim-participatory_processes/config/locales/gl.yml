@@ -23,7 +23,7 @@ gl:
         promoted: Promocionado
         published_at: Publicado en
         related_process_ids: Procesos relacionados
-        scope_id: Alcance
+        scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
         slug: URL slug

@@ -111,6 +111,7 @@ lv:
             proposal_limit: Priekšlikumu skaita limits vienam dalībniekam
             proposal_wizard_step_1_help_text: Priekšlikumu vedņa „Izveidot” soļa palīdzības teksts
             resources_permissions_enabled: Katram priekšlikumam var iestatīt darbības atļaujas
+            scope_id: Darbības tvērums
             threshold_per_proposal: Slieksnis vienam priekšlikumam
           step:
             amendment_creation_enabled: Grozījumu izveide ir iespējota

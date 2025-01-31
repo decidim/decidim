@@ -235,6 +235,7 @@ sv:
         attachment_collections: Mappar
         attachments: Bifogade filer
         close: Stäng
+        confirm_destroy: Är du säker på att du vill radera mötet?
         destroy: Radera
         edit: Redigera
         invalid_destroy:

@@ -2,12 +2,9 @@
 lb:
   activemodel:
     attributes:
-      budget:
-        decidim_scope_id: Bereich
       project:
         budget_amount: Höhe des Budgets
         decidim_category_id: Kategorie
-        decidim_scope_id: Bereich
         description: Beschreibung
         proposal_ids: Ähnliche Vorschläge
         selected: Zur Implementierung ausgewählt
@@ -18,11 +15,6 @@ lb:
         one: Projekt
         other: Projekte
   decidim:
-    admin:
-      filters:
-        projects:
-          scope_id_eq:
-            label: Bereich
     budgets:
       actions:
         attachment_collections: Ordner
@@ -128,7 +120,6 @@ lb:
             other: "%{count} Projekte"
         filters:
           category: Kategorie
-          scope: Bereich
           search: Suche
           status: Status
           status_values:
@@ -168,7 +159,6 @@ lb:
             more_information_modal: Weitere Informationen
             projects_per_page: Projekte pro Seite
             resources_permissions_enabled: Berechtigungen können für jedes Projekt festgelegt werden
-            scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
             title: Titel
             total_budget: Gesamtbudget; Gesamtetat

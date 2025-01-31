@@ -23,7 +23,6 @@ zh-CN:
         promoted: 已升级
         published_at: 发布于
         related_process_ids: 相关进程
-        scope_id: 范围
         scope_type_max_depth_id: 范围过滤器深度：
         scopes_enabled: 范围已启用
         short_description: 简短描述

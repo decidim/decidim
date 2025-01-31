@@ -360,6 +360,9 @@ ar:
     menu:
       initiatives: المبادرات
     resources:
+      initiative:
+        actions:
+          comment: تعليق
       initiatives_type:
         actions:
           create: إنشاء
