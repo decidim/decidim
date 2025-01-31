@@ -74,9 +74,12 @@ cs:
             title: Upravit debatu
             update: Aktualizovat debatu
           form:
+            add_attachments: Přidat přílohy
+            attachment_legend: Přidat dokument nebo obrázek
             comments_visualization: Vizualizace komentářů
             comments_warning: Jakmile je vložen první komentář, zvolenou možnost zobrazení nelze změnit.
             debate_type: Typ debaty
+            edit_attachments: Upravit přílohy
             errors:
               comments_layout_locked: Po odeslání komentářů nelze změnit rozložení komentáře.
             finite: Konečný (s počátečním a koncovým obdobím)
