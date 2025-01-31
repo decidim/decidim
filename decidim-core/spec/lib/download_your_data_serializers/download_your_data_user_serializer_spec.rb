@@ -143,10 +143,6 @@ module Decidim
         expect(serialized).to include(accepted_tos_version: resource.accepted_tos_version)
       end
 
-      it "includes the type" do
-        expect(serialized).to include(type: resource.type)
-      end
-
       it "includes the followings_count" do
         expect(serialized).to include(following_count: resource.following_count)
       end

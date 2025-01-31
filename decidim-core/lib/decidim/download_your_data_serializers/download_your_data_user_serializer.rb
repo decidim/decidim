@@ -45,7 +45,6 @@ module Decidim
           officialized_as: resource.officialized_as,
           roles: resource.roles,
           accepted_tos_version: resource.accepted_tos_version,
-          type: resource.type,
           following_count: resource.following_count,
           followers_count: resource.followers_count,
           password_updated_at: resource.password_updated_at
