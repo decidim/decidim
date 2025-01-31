@@ -10,7 +10,7 @@
       total:,
       units_name: "decidim.proposals.proposals.votes_count.count",
       element_id: "proposal-#{proposal.id}-votes-count",
-      class: total.positive? ? "with_votes_limit" : "without_votes_limit"
+      class: total.positive? ? "card__proposals-votes-limited" : "card__proposals-votes-unlimited"
     ) %>
   <% end %>
 <% end %>

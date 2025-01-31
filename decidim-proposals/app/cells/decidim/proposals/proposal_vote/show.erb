@@ -10,7 +10,7 @@
           total:,
           units_name: "decidim.proposals.proposals.votes_count.count",
           element_id: "proposal-#{resource.id}-votes-count",
-          class: total.positive? ? "with_votes_limit" : "without_votes_limit"
+          class: total.positive? ? "card__proposals-votes-limited" : "card__proposals-votes-unlimited"
         ) %>
   <% end %>
 <% end %>
@@ -21,7 +21,7 @@
   <% if component_settings.participatory_texts_enabled? && from_proposals_list %>
     <%= render partial: "decidim/proposals/proposals/participatory_texts/proposal_vote_button", locals: { resource:, from_proposals_list: true } %>
   <% else %>
-    <div id="proposal-<%= resource.id %>-vote-button" class="proposal_votes_container">
+    <div id="proposal-<%= resource.id %>-vote-button" class="card__proposals-votes-container">
       <% if !current_user %>
         <% if current_settings.votes_blocked? %>
           <%= action_authorized_button_to :vote, t("decidim.proposals.proposals.vote_button.votes_blocked"), proposal_proposal_vote_path(proposal_id: resource, from_proposals_list:), resource: , class: button_classes, disabled: true %>

@@ -133,25 +133,27 @@
           }
         }
 
-        .with_votes_limit {
+        &-limited {
           @apply flex flex-col p-0 md:p-2 lg:p-0 md:flex-row md:flex-wrap lg:flex-col lg:flex-nowrap flex-1 md:flex-none lg:flex-1 justify-center;
 
           .proposals__aside-progress {
             @apply flex flex-col w-[80%] items-center md:order-1 lg:order-none md:flex-[1_1_100%] lg:flex-none;
           }
 
-          .progress-bar__units {
-            @apply md:order-none;
-          }
+          .progress-bar {
+            &__units {
+              @apply md:order-none;
+            }
 
-          .progress-bar__number {
-            span {
-              @apply text-sm;
+            &__number {
+              span {
+                @apply text-sm;
+              }
             }
           }
         }
 
-        .without_votes_limit {
+        &-unlimited {
           @apply flex flex-row flex-1 lg:flex-1 justify-center md:flex-none;
 
           .progress-bar__number {
@@ -175,20 +177,21 @@
           }
         }
 
-        .proposal_votes_container {
+        &-container {
           @apply flex-1 md:w-full md:flex-none p-2 lg:p-0 lg:m-3 lg:w-[164px];
 
           button {
             @apply text-sm leading-[18px] font-semibold py-1;
           }
         }
-      }
 
-      .votes_hidden {
-        @apply md:flex-none;
+        &-hidden {
+          @apply md:flex-none;
 
-        .proposal_votes_container {
-          @apply md:flex-none md:w-[130px] lg:w-[164px] lg:p-0;
+          .card__proposals-votes-container {
+            @apply md:flex-none md:w-[130px] lg:w-[164px] lg:p-0;
+          }
+
         }
       }
     }
@@ -237,7 +240,7 @@
           }
         }
 
-        .with_votes_limit {
+        &-limited {
           @apply flex flex-col lg:items-start flex-1 md:mr-4 lg:mr-0;
 
           .proposals__aside-progress {
@@ -259,7 +262,7 @@
           }
         }
 
-        .without_votes_limit {
+        &-unlimited {
           @apply flex flex-row flex-1 lg:flex-1 md:flex-none md:mr-4 lg:mr-0;
 
           .progress-bar__number {
@@ -283,7 +286,7 @@
           }
         }
 
-        .proposal_votes_container {
+        &-container {
           @apply flex-1 lg:w-[164px] lg:flex-none;
 
           button {
@@ -294,16 +297,16 @@
             }
           }
         }
-      }
 
-      .votes_hidden {
-        @apply md:justify-end;
+        &-hidden {
+          @apply md:justify-end;
 
-        .proposal_votes_container {
-          @apply md:flex-none md:w-[130px] lg:w-[164px];
+          .card__proposals-votes-container {
+            @apply md:flex-none md:w-[130px] lg:w-[164px];
 
-          button {
-            @apply md:px-0 lg:px-6;
+            button {
+              @apply md:px-0 lg:px-6;
+            }
           }
         }
       }
