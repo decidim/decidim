@@ -21,6 +21,8 @@ module Decidim
         decidim-users-
         decidim-usergroups-
         decidim-meetings-registrations-
+        decidim-meetings-invites-
+        decidim-meetings-meetings-
         decidim-proposals-proposals-
         decidim-budgets-orders-
         decidim-forms-answers-
