@@ -202,8 +202,6 @@ ja:
             proposal_wizard_step_1_help_text: 提案ウィザード "作成" ステップヘルプ テキスト
             proposal_wizard_step_2_help_text: 提案ウィザード "公開" ステップヘルプ テキスト
             resources_permissions_enabled: アクションの権限を提案ごとに設定する
-            scope_id: スコープ
-            scopes_enabled: スコープが有効
             taxonomy_filters: コンポーネントのフィルタを選択
             taxonomy_filters_add: フィルターを追加
             threshold_per_proposal: 提案ごとのしきい値

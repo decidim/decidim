@@ -453,10 +453,8 @@ en:
         explanation: Get verified by introducing a document number ending with "X".
         fields:
           allowed_postal_codes: Allowed postal codes (separated by commas)
-          allowed_scope_id: Allowed scope
           document_number: Document number
           postal_code: Postal code
-          scope_id: Scope
         name: Example authorization
       dummy_authorization_workflow:
         explanation: Dummy authorization workflow
@@ -465,10 +463,8 @@ en:
         explanation: Get verified by introducing a document number ending with "X".
         fields:
           allowed_postal_codes: Allowed postal codes (separated by commas)
-          allowed_scope_id: Allowed scope
           document_number: Document number
           postal_code: Postal code
-          scope_id: Scope
         name: Ephemeral example authorization
       errors:
         duplicate_authorization: A participant is already authorized with the same data. An administrator will contact you to verify your details.
@@ -560,8 +556,6 @@ en:
             enable_pads_creation: Enable pads creation
             no_taxonomy_filters_found: No taxonomy filters found.
             resources_permissions_enabled: Resources permissions enabled
-            scope_id: Scope
-            scopes_enabled: Scopes enabled
             taxonomy_filters: Select filters for the component
           step:
             amendment_creation_enabled: Amendment creation enabled
@@ -762,6 +756,21 @@ en:
           id: The unique identifier of this notification
           resource_type: The type of the resource that the notification is related to
           updated_at: The date and time when the notification was last updated
+        participatory_space_private_users:
+          created_at: The date and time when this private user was created
+          id: The unique identifier of this private user
+          privatable_to: To which space this private user belongs
+          published: Wether this private user is published or not
+          role: The role that this private user has
+          updated_at: The date and time when this private user was last updated
+        reports:
+          created_at: The date and time when this report was created
+          details: The details of this report
+          id: The unique identifier of this report
+          locale: The language of this report
+          moderation: The moderation that this report has
+          reason: The reason of this report
+          updated_at: The date and time when this report was last updated
         user_groups:
           document_number: The document number of this user group
           id: The unique identifier of this user group
@@ -770,6 +779,7 @@ en:
           verified_at: The date and time when this user group was verified
         users:
           about: The biography of this user
+          accepted_tos_version: The date when the Terms of Service of this platform was accepted by the user
           admin: Whether this user is an administrator
           confirmation_sent_at: The date and time when the confirmation was sent
           confirmed_at: The date and time when this user was confirmed
@@ -779,6 +789,8 @@ en:
           delete_reason: The reason given for deleting this user
           deleted_at: The date and time when this user was deleted
           email: The email address of this user
+          followers_count: The number of participants that are following to this user
+          following_count: The number of participants this user is following
           id: The unique identifier of this user
           invitation_accepted_at: The date and time when the invitation was accepted
           invitation_created_at: The date and time when this user was invited
@@ -797,10 +809,13 @@ en:
           officialized_as: The name of the officialization (Counsellor, Mayor, etc)
           officialized_at: The date and time when this user was officialized
           organization: The organization that this user belongs to
+          password_updated_at: The date when their password was changed for the last time
           personal_url: The personal URL of this user
           remember_created_at: The date and time when the user was selected to be remembered
           reset_password_sent_at: The date and time when the password reset was sent
+          roles: The role this user has, if they has any
           sign_in_count: The number of times this user has logged in
+          type: The type that this user has
           unconfirmed_email: The email address that this user has not yet confirmed
           updated_at: The date and time when this user was last updated
       show:
@@ -1743,16 +1758,7 @@ en:
         error: There was a problem during the endorsement action.
     scopes:
       global: Global scope
-      picker:
-        cancel: Cancel
-        change: Change selected scope
-        choose: Select
-        currently_selected: Currently selected scope
-        title: Select %{field}
       prompt: Select a scope
-      scopes: Scopes
-      scopes_picker_input:
-        select_scope: 'Select a scope (currently: %{current})'
     search:
       name: Search
       results: Search results

@@ -19,8 +19,6 @@ gl:
         settings:
           global:
             announcement: Anuncio
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
           step:
             announcement: Anuncio
     events:

@@ -47,6 +47,10 @@ ar:
         object: إجابات على الدراسات الاستقصائية
         title: إجابات للمسوحات
     surveys:
+      actions:
+        edit: تعديل
+        preview: معاينة
+        title: الإجراءات
       admin:
         exports:
           survey_user_answers: إجابات المشاركين في الاستطلاع

@@ -28,9 +28,6 @@ zh-TW:
         promoted: 推廣
         published_at: 發佈於
         related_process_ids: 相關程序
-        scope_id: 範圍
-        scope_type_max_depth_id: 範圍篩選深度
-        scopes_enabled: 啟用範圍
         short_description: 簡短說明
         slug: URL網址
         start_date: 開始日期
@@ -356,12 +353,9 @@ zh-TW:
           form:
             announcement_help: 您在此處輸入的文字將顯示至使用者的正下方程序信息
             duration: 持續時間
-            filters: 過濾器
             images: 圖片
             metadata: 元數據
             related_processes: 相關程序
-            scope_type_max_depth_help: 限制範圍過濾器深度；過濾器將會從一般範圍到所選範圍層級進行顯示。
-            select_an_area: 選擇一個地區
             select_process_group: 選擇一個程序群組
             title: 基本資訊
       content_blocks:

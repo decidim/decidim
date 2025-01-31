@@ -151,6 +151,9 @@ es:
             postal_code: Código postal
             signature_count: Recuento de firmas
             timestamp: Marca de tiempo
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: Todas las iniciativas
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de Iniciativa

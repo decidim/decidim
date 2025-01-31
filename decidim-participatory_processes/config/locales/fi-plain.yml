@@ -28,9 +28,6 @@ fi-pl:
         promoted: Korostettu
         published_at: Julkaisuaika
         related_process_ids: Liittyvät prosessit
-        scope_id: Teema
-        scope_type_max_depth_id: Teema-suodattimen syvyys
-        scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
         slug: URL-tunniste
         start_date: Alkamispäivä
@@ -271,6 +268,9 @@ fi-pl:
         create:
           error: Uuden osallisuusprosessiryhmän luonnissa tapahtui virhe.
           success: Osallisuusprosessiryhmä luotu onnistuneesti.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Kaikki osallistumisprosessit
       titles:
         participatory_process_groups: Osallisuusprosessiryhmät
         participatory_process_types: Osallistumisprosessien tyypit
@@ -444,14 +444,11 @@ fi-pl:
             announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             duration: Kesto
-            filters: Suodattimet
             images: kuvat
             metadata: metadata
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             private_notice: Voit hallinnoida osallistumistilan yksityisiä käyttäjiä asettamalla osallistumistilan yksityiseksi
             related_processes: Liittyvät prosessit
-            scope_type_max_depth_help: Rajaa teemasuodattimen syvyyttä; suodatin näyttää yleisestä teemasta valittuun teematyyppiin saakka.
-            select_an_area: Valitse alue
             select_process_group: Valitse prosessiryhmä
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
             taxonomies: Luokittelut

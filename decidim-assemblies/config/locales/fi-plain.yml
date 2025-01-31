@@ -32,6 +32,7 @@ fi-pl:
         import_components: Tuo komponentteja
         included_at: Mukana osoitteessa
         instagram: Instagram
+        internal_organisation: Sisäinen järjestäytyminen
         is_transparent: On läpinäkyvä
         local_area: Organisaatioalue
         meta_scope: Teeman metadata
@@ -43,8 +44,6 @@ fi-pl:
         promoted: Korostettu
         published_at: Julkaisuaika
         purpose_of_action: Toiminnan tarkoitus
-        scope_id: Teema
-        scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
         slug: URL-tunniste
         special_features: Lisäominaisuudet
@@ -203,6 +202,9 @@ fi-pl:
             collaborator: Osallistumiskäyttäjä
             moderator: Moderoija
             valuator: Arvioija
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: Kaikki ryhmät
       titles:
         assemblies: Ryhmät
         assemblies_deleted: Poistetut ryhmät
@@ -244,7 +246,6 @@ fi-pl:
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             duration: Kesto
             duration_help: Jos ryhmän kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
-            filters: Suodattimet
             images: kuvat
             included_at_help: Valitse päivämäärä, jolloin tämä ryhmä lisättiin alustalle. Sen ei välttämättä tarvitse olla sama kuin luontipäivä.
             metadata: metadata
@@ -252,7 +253,6 @@ fi-pl:
             other: muut
             private_notice: Voit hallinnoida osallistumistilan yksityisiä käyttäjiä asettamalla osallistumistilan yksityiseksi
             select_a_created_by: Valitse luoja
-            select_an_area: Valitse alue
             select_parent_assembly: Valitse pääryhmä
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
             social_handlers: Sosiaalinen media

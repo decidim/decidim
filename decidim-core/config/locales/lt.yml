@@ -84,6 +84,8 @@ lt:
     'false': 'Ne'
     'true': 'Taip'
   date:
+    buttons:
+      select: Pasirinkti
     formats:
       decidim_short: "%Y/%m/%d"
       decidim_short_dashed: "%d-%m-%Y"
@@ -402,10 +404,8 @@ lt:
         explanation: Patvirtinkite tapatybę įvesdami dokumento numerį pasibaigianti su "X".
         fields:
           allowed_postal_codes: Leistini pašto kodai (atskirti kableliais)
-          allowed_scope_id: Leidžiama sritis
           document_number: Dokumento numeris
           postal_code: Pašto kodas
-          scope_id: Sritis
         name: Autorizacijos pavyzdys
       dummy_authorization_workflow:
         name: Testinė autorizacijos procedūra
@@ -499,8 +499,6 @@ lt:
             dummy_global_translatable_text: Testinis verčiamas tekstas
             enable_pads_creation: Leisti bendrų dokumentų kūrimą
             resources_permissions_enabled: Išteklių leidimai įjungti
-            scope_id: Sritis
-            scopes_enabled: Sritys įjungtos
           step:
             amendment_creation_enabled: Pataisų kūrimas leidžiamas
             amendment_promotion_enabled: Pataisų paaukštinimai įjungti
@@ -1380,16 +1378,7 @@ lt:
         error: Atliekant šį pritarimo veiksmą iškilo problema.
     scopes:
       global: Globali sritis
-      picker:
-        cancel: Atšaukti
-        change: Keisti pasirinktą apimtį
-        choose: Pasirinkti
-        currently_selected: Šiuo metu pasirinkta apimtis
-        title: Žymėti %{field}
       prompt: Pasirinkti apimtį
-      scopes: Sritys
-      scopes_picker_input:
-        select_scope: 'Pasirinkite sritį (dabar: %{current})'
     search:
       name: Ieškoti
       results: Paieškos rezultatai
@@ -1502,15 +1491,6 @@ lt:
         send: Siųsti
       update:
         error: Pranešimas neišsiųstas. Bandykite dar kartą vėliau
-    user_interests:
-      show:
-        my_interests: Mano interesai
-        no_scopes: Šioje organizacijoje dar nėra aplinkų!
-        select_your_interests: Pasirinkite jus dominančias temas, kad savo profilio kortelėje „Laiko juosta“ gautumėte su jomis susijusių renginių nuorodų.
-        update_my_interests: Atnaujinti mane dominančias temas
-      update:
-        error: Atnaujinant jūs dominančias temas iškilo problema.
-        success: Jus dominančios temos atnaujintos.
     user_report_mailer:
       notify:
         body_1: '%{token} pranešė apie naudotoją %{user}'
@@ -1867,7 +1847,6 @@ lt:
         authorizations: Autorizacijos
         delete_my_account: Ištrinti mano paskyrą
         my_data: Mano duomenys
-        my_interests: Mano interesai
         notifications_settings: Pranešimų nustatymai
         profile: Profilis
         title: Dalyvio nuostatos
@@ -1918,6 +1897,8 @@ lt:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Pasirinkti
     formats:
       day_of_month: "%b%d"
       day_of_week: "%a"

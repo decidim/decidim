@@ -14,6 +14,7 @@ module Decidim
     include Decidim::HasAttachmentCollections
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::DownloadYourData
     include Decidim::Initiatives::InitiativeSlug
     include Decidim::Resourceable
     include Decidim::HasReference
@@ -157,6 +158,10 @@ module Decidim
                       # is Resourceable instead of ParticipatorySpaceResourceable so we cannot use `visible?`
                       index_on_update: ->(initiative) { initiative.published? })
 
+    def self.export_serializer
+      Decidim::Initiatives::DownloadYourDataInitiativeSerializer
+    end
+
     def self.log_presenter_class_for(_log)
       Decidim::Initiatives::AdminLog::InitiativePresenter
     end
@@ -170,7 +175,7 @@ module Decidim
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(area scope categories)
+      %w(area scope taxonomies)
     end
 
     def self.ransackable_scopes(_auth_object = nil)

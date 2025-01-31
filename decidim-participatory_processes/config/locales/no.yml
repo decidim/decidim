@@ -28,9 +28,6 @@
         promoted: Fremhevet
         published_at: Publisert på
         related_process_ids: Relaterte prosesser
-        scope_id: Tema
-        scope_type_max_depth_id: Temafilter
-        scopes_enabled: Temaer aktivert
         short_description: Kort beskrivelse
         slug: URL navn
         start_date: Startdato
@@ -379,12 +376,9 @@
           form:
             announcement_help: Teksten du skriver inn her vil vises til brukeren rett under prosessinformasjonen.
             duration: Varighet
-            filters: Filtere
             images: Bilder
             metadata: Metadata
             related_processes: Relaterte prosesser
-            scope_type_max_depth_help: Begrens temaets filternivå; Filteret viser fra generelt til valgt tematype.
-            select_an_area: Velg et Område
             select_process_group: Velg en prosessgruppe
             title: Generell informasjon
       content_blocks:

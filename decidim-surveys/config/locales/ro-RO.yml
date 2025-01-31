@@ -21,8 +21,6 @@ ro:
         settings:
           global:
             announcement: Anunţ
-            scope_id: Domeniu de interes
-            scopes_enabled: Domenii activate
           step:
             announcement: Anunţ
     events:

@@ -217,28 +217,4 @@ shared_examples "manage conferences" do
       end
     end
   end
-
-  context "when the conference has a scope" do
-    let(:scope) { create(:scope, organization:) }
-
-    before do
-      conference.update!(scopes_enabled: true, scope:)
-    end
-
-    it "disables the scope for the conference" do
-      within "tr", text: translated(conference.title) do
-        click_on "Configure"
-      end
-
-      uncheck :conference_scopes_enabled
-
-      expect(page).to have_css("select#conference_scope_id[disabled]")
-
-      within ".edit_conference" do
-        find("*[type=submit]").click
-      end
-
-      expect(page).to have_admin_callout("successfully")
-    end
-  end
 end

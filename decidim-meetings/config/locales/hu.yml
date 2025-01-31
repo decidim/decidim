@@ -101,8 +101,6 @@ hu:
             maps_enabled: Térképek engedélyezve
             registration_code_enabled: Regisztrációs kód engedélyezve
             resources_permissions_enabled: Minden találkozóra saját műveleti engedélyt állíthat be
-            scope_id: Hatókör
-            scopes_enabled: A hatókör engedélyezett
             terms_and_conditions_url_for_meeting_creators: A találkozó szervezői számára a felhasználás feltételek URL-je
           step:
             announcement: Közlemény

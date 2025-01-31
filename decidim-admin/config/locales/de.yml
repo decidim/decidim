@@ -244,6 +244,7 @@ de:
         create:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich erstellt.
+        deprecated: Beachten Sie, dass Gebiete veraltet sind und in zukünftigen Versionen entfernt werden. Bitte verwenden Sie stattdessen Taxonomien. Das einzige Modul, das derzeit Gebiete verwendet, ist das Initiativmodul.
         destroy:
           has_spaces: Dieser Bereich hat abhängige partizipative Räume. Bitte stellen Sie sicher, dass kein partizipativer Raum mehr diesen Bereich referenziert, bevor sie ihn löschen.
           success: Bereich wurde erfolgreich gelöscht.
@@ -344,14 +345,6 @@ de:
           title: 'Komponente hinzufügen: %{name}'
         publish:
           success: Die Komponente wurde erfolgreich veröffentlicht.
-        taxonomy_filters_badge:
-          remove: Entfernen
-        taxonomy_filters_drawer:
-          add_filter: Filter hinzufügen
-          clear_all: Alles löschen
-          filters: Filter
-          save: Speichern
-          title: Filter
         title: Komponenten
         unpublish:
           success: Die Veröffentlichung der Komponente wurde erfolgreich zurückgezogen.
@@ -1025,6 +1018,7 @@ de:
         create:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich erfolgreich erstellt
+        deprecated: Beachten Sie, dass Bereiche veraltet sind und in zukünftigen Versionen entfernt werden. Bitte verwenden Sie stattdessen Taxonomien. Das einzige Modul, das derzeit Bereiche verwendet, ist das Initiativmodul.
         destroy:
           success: Scope erfolgreich gelöscht.
         edit:
@@ -1066,7 +1060,6 @@ de:
           'true': 'Ja'
         index:
           back_to_share_tokens: Zurück zu den Zugangslinks
-          copied: Zugangslink kopiert!
           copy_message: Der Text wurde erfolgreich in die Zwischenablage kopiert.
           create_new_token: Einen ersten Zugangslink erstellen!
           empty_html: Keine aktiven Zugangslinks vorhanden. %{new_token_link}
@@ -1076,7 +1069,6 @@ de:
             Erstellen und teilen Sie einen Zugangslink, um anderen die Ansicht dieser unveröffentlichten Ressource zu ermöglichen.
             Zugangslinks können z.B. nur für registrierte Teilnehmer gültig sein oder falls nötig über ein Ablaufdatum verfügen.
             Um einen neuen Zugangslink mit jemandem zu teilen, erstellen Sie ihn und kopieren Sie dann den Link mit dem Aktionssymbol "%{clipboard} Zwischenablage".
-          title: 'Zugangslink für: %{name}'
         new:
           create: Erstellen
           title: 'Neuer Zugangslink für: %{name}'
@@ -1136,8 +1128,14 @@ de:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
           success: Seite wurde erfolgreich aktualisiert.
       taxonomies:
-        actions: Aktionen
-        amount: Anzahl Elemente
+        actions:
+          actions: Aktionen
+          destroy: Klassifizierung & Elemente löschen
+          edit: Klassifizierung & Elemente bearbeiten
+          filters: Filter verwalten
+        breadcrumb:
+          edit: Klassifizierung bearbeiten
+          new: Neue Klassifizierung
         count: Verknüpfte Ressourcen
         create:
           invalid: Beim Erstellen dieser Klassifizierung ist ein Fehler aufgetreten.
@@ -1156,7 +1154,7 @@ de:
         filters:
           search_placeholder: Suchen
         index:
-          description: Eine Klassifizierung erlaubt Admins Inhalte zu kategorisieren und zu organisieren. Zum Beispiel können Sie eine Taxonomie hinzufügen, um Prozesse nach geographischem Bereichen zu klassifizieren.
+          description: Klassifizierungen und Filter ermöglichen es Administratoren, Inhalte zu sortieren und zu organisieren. Fügen Sie zum Beispiel eine Klassifizierung mit den Stadtbezirken und Stadtquartieren hinzu und erstellen Sie dann Filter nur mit den Bezirken oder für ein bestimmtes Viertel.
           new_taxonomy: Neue Klassifizierung
           no_items_found: Es wurden keine Klassifizierungen gefunden, die Ihren Suchkriterien entsprechen.
         name: Name
@@ -1169,14 +1167,18 @@ de:
           to_prev_page: Für die vorherige Seite hinziehen
         taxonomy_actions:
           confirm_destroy: 'Sind Sie sicher, dass Sie %{name} löschen möchten? Dies wird auch alle untergeordneten Elemente löschen. HINWEIS: Nicht betroffen sind Ressourcen, die diese Klassifizierung verwenden, aber sie verlieren den Verweis auf diese Klassifizierung.'
+        total_filters: Filter
+        total_items: Elemente in der Klassifizierung
         update:
           invalid: Beim Aktualisieren dieser Klassifizierung ist ein Fehler aufgetreten.
           success: Klassifizierung wurde erfolgreich aktualisiert.
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Neuer Klassifizierung-Filter
-        callout:
-          modify_taxonomy_html: Wenn Sie diese Klassifizierung oder ihre Elemente ändern möchten, finden Sie die Konfigurationseinstellungen unter <a href="%{url}">Klassifizierungen</a>.
+        breadcrumb:
+          edit: Filter bearbeiten
+          filters: Filter
+          new: Neuer Filter
         create:
           error: Beim Erstellen dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
           success: Klassifizierungsfilter wurde erfolgreich erstellt.
@@ -1194,29 +1196,39 @@ de:
             other: "%{count} ausgewählte Elemente"
           name_help: Der Titel des Filters, der im Frontend angezeigt wird.
           no_items: Keine Elemente für diese Klassifizierungen verfügbar. Sie können Elemente in den Klassifizierungseinstellungen erstellen.
-          space_filter: Als Filter für alle %{manifest_name} verfügbar
+          space_filter: Als Filter verfügbar für
         index:
           description: Ein Klassifizierungsfilter erlaubt es Admins, partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern. Fügen Sie zum Beispiel einen Taxonomie-Filter hinzu, um Prozesse nach geografischen Typologien zu sortieren.
           empty: Derzeit gibt es keine Klassifizierungsfilter. Erstellen Sie hier eine Liste von Klassifizierungsfilter, um partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern.
+          new_filter: Neuer Filter
         new:
           back: Zurück
           create: Klassifizierungsfilter erstellen
-          select_taxonomy: Klassifizierung auswählen
           title: Neuer Klassifizierungsfilter
         table:
           actions: Aktionen
-          components_count: Verknüpfte Komponenten
+          components_count: Komponenten, die dies verwenden
           confirm_destroy: 'Sind Sie sicher, dass Sie den Filter %{name} löschen möchten? HINWEIS: Ressourcen, die diesen Filter verwenden, sind nicht betroffen, aber sie verlieren den Verweis auf diesen Filter.'
-          count: Anzahl der verwendeten Elemente
           destroy: Löschen
           edit: Bearbeiten
-          internal_name: Interner Filtername
-          name: Öffentlicher Filtertitel
-          space_filter: Wird verwendet, um %{manifest_name} zu filtern
-          taxonomy: Von der Klassifizierung
+          internal_name: Interne Bezeichnung
+          name: Bezeichnung
         update:
           error: Beim Aktualisieren dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
           success: Klassifizierungsfilter wurde erfolgreich aktualisiert.
+      taxonomy_filters_selector:
+        new:
+          add_new_items_html: Wenn Sie einen neuen Filter oder ein neues Element einstellen müssen, tun Sie dies durch die Konfigurationseinstellungen oder indem Sie <a href="%{url}">hier</a> klicken.
+          items_count: "%{count} Elemente"
+          save: Speichern
+        show:
+          items_count: "%{count} Elemente"
+          remove: Entfernen
+        taxonomies_select:
+          filters: Filter
+          select_filter: Filter auswählen
+          select_taxonomy: Klassifizierung auswählen
+          taxonomies: Klassifizierungen
       taxonomy_items:
         edit:
           title: Element in %{taxonomy} bearbeiten
@@ -1246,7 +1258,7 @@ de:
         scopes: Bereiche
         statistics: Aktivität
         taxonomies: Klassifizierungen
-        taxonomy_filters: Klassifizierungsfilter
+        taxonomy_filters: Klassifizierungsfilter für "%{taxonomy}"
         user_groups: Benutzergruppen
         users: Administratoren
       tooltips:
@@ -1382,3 +1394,5 @@ de:
       admin:
         global_moderations:
           title: Globale Moderationen
+        taxonomy_filters_selector:
+          title: Filter

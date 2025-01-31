@@ -235,7 +235,6 @@ de:
           selected_projects: 'Die ausgewählten Projekte sind:'
           subject: Sie haben im Beteiligungsbereich %{space_name} abgestimmt
           voted_on_space: Sie haben für das %{budget_name} Budget for the %{space_name} abgestimmt.
-          voted_on_space_with_scope: Sie haben für das %{budget_name} Budget for the %{space_name} innerhalb %{scope_name} (%{scope_type}) abgestimmt.
       projects:
         budget_confirm:
           are_you_sure: Wenn Sie Ihre Meinung ändern, können Sie Ihre Stimme nachträglich ändern.
@@ -352,8 +351,6 @@ de:
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             projects_per_page: Projekte pro Seite
             resources_permissions_enabled: Berechtigungen können für jedes Projekt festgelegt werden
-            scope_id: Bereich
-            scopes_enabled: Bereiche aktiviert
             taxonomy_filters: Filter für die Komponente auswählen
             taxonomy_filters_add: Filter hinzufügen
             title: Titel

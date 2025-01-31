@@ -44,6 +44,7 @@ module Decidim
       def map_model(model)
         self.question_id = model.decidim_question_id
         self.question = model.question
+        self.documents = model.attachments
 
         self.choices = model.choices.map do |choice|
           AnswerChoiceForm.from_model(choice)

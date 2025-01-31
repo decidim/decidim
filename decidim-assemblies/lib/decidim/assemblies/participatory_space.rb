@@ -35,7 +35,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     export.collection do
       Decidim::Assembly
         .public_spaces
-        .includes(:area, :scope, :attachment_collections)
+        .includes(:attachment_collections)
     end
 
     export.include_in_open_data = true

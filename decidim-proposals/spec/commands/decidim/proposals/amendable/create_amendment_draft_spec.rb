@@ -31,11 +31,11 @@ module Decidim
 
       include_examples "create amendment draft"
 
-      context "when proposal has a category association" do
-        let(:category) { create(:category, participatory_space: component.participatory_space) }
-        let!(:amendable) { create(:proposal, component:, category:) }
+      context "when proposal has taxonomies associated" do
+        let!(:taxonomy) { create(:taxonomy, :with_parent, organization: component.organization) }
+        let!(:amendable) { create(:proposal, component:, taxonomies: [taxonomy]) }
 
-        it "copies the Proposal category" do
+        it "copies the Proposal taxonomies" do
           expect { command.call }
             .to change(Decidim::Amendment, :count)
             .by(1)
@@ -47,8 +47,8 @@ module Decidim
           expect(Decidim::Amendment.last).to be_draft
           expect(amendable.class.last).not_to be_published
           expect(amendable.emendations.count).to eq(1)
-          expect(amendable.category.id).to eq(category.id)
-          expect(amendable.emendations.first.category.id).to eq(category.id)
+          expect(amendable.taxonomies).to include(taxonomy)
+          expect(amendable.emendations.first.taxonomies).to include(taxonomy)
         end
       end
     end
