@@ -1,6 +1,8 @@
 cs:
   activemodel:
     attributes:
+      answer:
+        add_documents: Přidat dokumenty
       close_meeting:
         attendees_count: Počet účastníků
         attending_organizations: Seznam organizací, které se zúčastnily
@@ -183,6 +185,8 @@ cs:
             creation_enabled_for_user_groups: Vytvoření schůzky od skupin uživatelů povoleno
     download_your_data:
       help:
+        invites:
+          accepted_at: Datum a čas, kdy byla pozvánka přijata
         registrations:
           code: Registrační kód
           id: Jedinečný identifikátor registrace
@@ -749,6 +753,7 @@ cs:
           start_time: Datum a čas zahájení této schůzky
           taxonomies: Taxonomie, do kterých tato schůzka patří,
           title: Název schůzky
+          type_of_meeting: Typ schůzky
           url: URL schůzky
           withdrawn_at: Kdy byla tato schůzka odvolána
     participatory_spaces:
