@@ -44,8 +44,6 @@ cs:
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
-            scope_id: Oblast působnosti
-            scopes_enabled: Oblasti působnosti povoleny
             taxonomy_filters: Vyberte filtry pro komponentu
             taxonomy_filters_add: Přidat filtr
           step:
@@ -76,9 +74,12 @@ cs:
             title: Upravit debatu
             update: Aktualizovat debatu
           form:
+            add_attachments: Přidat přílohy
+            attachment_legend: Přidat dokument nebo obrázek
             comments_visualization: Vizualizace komentářů
             comments_warning: Jakmile je vložen první komentář, zvolenou možnost zobrazení nelze změnit.
             debate_type: Typ debaty
+            edit_attachments: Upravit přílohy
             errors:
               comments_layout_locked: Po odeslání komentářů nelze změnit rozložení komentáře.
             finite: Konečný (s počátečním a koncovým obdobím)

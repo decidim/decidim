@@ -23,8 +23,6 @@ pl:
         settings:
           global:
             announcement: Ogłoszenie
-            scope_id: Zakres
-            scopes_enabled: Zakresy włączone
           step:
             announcement: Ogłoszenie
     events:

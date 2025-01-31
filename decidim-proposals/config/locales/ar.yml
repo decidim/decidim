@@ -162,8 +162,6 @@ ar:
             proposal_limit: حد الاقتراح لكل مشارك
             proposal_wizard_step_1_help_text: اقتراح الاقتراح "إنشاء" نص مساعدة الخطوة
             resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اقتراح
-            scope_id: نطاق
-            scopes_enabled: النطاقات مفعلة
             threshold_per_proposal: عتبة لكل اقتراح
           step:
             amendment_creation_enabled: إنشاء التعديلات مُفعّلة

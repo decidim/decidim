@@ -157,8 +157,6 @@ fr-CA:
             maps_enabled: Cartes activées
             registration_code_enabled: Code d'enregistrement activé
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
-            scope_id: Secteur
-            scopes_enabled: Secteurs activés
             terms_and_conditions_url_for_meeting_creators: URL des conditions générales pour les auteurs de rencontres
           step:
             announcement: Annonce

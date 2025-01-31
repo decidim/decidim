@@ -35,8 +35,6 @@ lv:
         promoted: Izcelts
         published_at: Publicēts plkst.
         purpose_of_action: Darbības mērķis
-        scope_id: Darbības tvērums
-        scopes_enabled: Darbības tvērumi ir iespējoti
         short_description: Īss apraksts
         slug: URL sadaļas adrese (slug)
         special_features: Īpašas funkcijas
@@ -185,12 +183,10 @@ lv:
           form:
             duration: Ilgums
             duration_help: Ja šīs asamblejas ilgums ir ierobežots, izvēlieties beigu datumu. Pretējā gadījumā tas parādīsies kā nenoteikts
-            filters: Filtri
             images: Attēli
             metadata: Metadati
             other: Cits
             select_a_created_by: Izvēlieties izveidotāju
-            select_an_area: Izvēlieties jomu
             select_parent_assembly: Izvēlieties saistīto asambleju
             social_handlers: Sociālie plašsaziņas līdzekļi
             title: Vispārēja informācija

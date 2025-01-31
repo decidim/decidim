@@ -28,9 +28,6 @@ cs:
         promoted: Propagováno
         published_at: Publikováno v
         related_process_ids: Související procesy
-        scope_id: Rozsah
-        scope_type_max_depth_id: Hloubka filtru rozsahu
-        scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis
         slug: URL slug
         start_date: Datum zahájení
@@ -278,6 +275,9 @@ cs:
         create:
           error: Došlo k chybě při vytváření nové skupiny účastnických procesů.
           success: Skupina úspěšně vytvořená skupina účastníků.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Všechny participační procesy
       titles:
         participatory_process_groups: Skupiny účastnických procesů
         participatory_process_types: Typy participačních procesů
@@ -452,14 +452,11 @@ cs:
             announcement_help: Text, který zde zadáte, se uživateli zobrazí přímo pod informacemi o procesu.
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
-            filters: Filtry
             images: Obrázky
             metadata: Metadata
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             private_notice: Po nastavení jako soukromé budete moci spravovat členy
             related_processes: Související procesy
-            scope_type_max_depth_help: Omezit hloubku filtru rozsahu. Filtr se zobrazí od obecného k vybranému typu rozsahu.
-            select_an_area: Vyberte oblast
             select_process_group: Vyberte skupinu procesů
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
             taxonomies: Taxonomie

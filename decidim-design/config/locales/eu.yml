@@ -47,7 +47,7 @@ eu:
         forms:
           disabled: Desgaitua
           emojis: Emotikonoak
-          emojis_description: Soilik balio du testu-arlorako
+          emojis_description: Soilik balio du testu-remurako
           errors: Erroreak
           errors_description: Ezin da hautatu
           header_alert: Orrialde hau ikuspegi zahar batetik dator. Edukia zaharkituta dago.
@@ -127,7 +127,7 @@ eu:
           description_layout_p2: Arau sinple horiek jarraitu behar dira modulu berriak sortzean edo daudenak pertsonalizatzean, Decidim gune batek bere koherentzia mantendu dezan.
           desktop: Mahaigaina
           full_width: Zabalera osoa
-          layout_list_1: 'Hasierako orria (eskaerarena, parte hartzeko gune batena): zabalera osoa'
+          layout_list_1: 'Hasierako orria (eskaerarena, parte hartzeko espazio batena): zabalera osoa'
           layout_list_2: 'Elementuen zerrenda (parte hartzeko espazioena, espazio baten barruko elementuena...): ezkerreko aldean'
           layout_list_3: 'Objektu indibiduala (proposamena, blogeko sarrera): zentratua, aukeran eskuineko aldean'
           left_aside: Ezker aldean
@@ -164,7 +164,7 @@ eu:
         assembly_g: G Batzarra
         assembly_s: S Batzarra
         avatar: Abatarra
-        avatar_description: Erabiltzen da espezio estuak daudenean, egilea nor den bigarren mailako informazioa denean.
+        avatar_description: Erabiltzen da espazio estuak daudenean, egilea nor den bigarren mailako informazioa denean.
         background: Aurrekariak eta mugak
         base: Oinarria
         block_text: Erabili extr_data blokea
@@ -213,7 +213,7 @@ eu:
         follower_description_html: Ziurtatu <code>decdim/partekatua/login_modala</code> partziala DOMen dagoela. Zati hori aplikazioaren maketazioan jartzen da parte-hartzailea bertan sartzen denean.
         form_elements: Forma elementuak
         generic_cards: Txartel generikoak
-        grid: Sarea
+        grid: Sareta
         hex_code: Hex kodea
         highlight: Nabarmendua
         highlight_description: Nabarmentzeko moduko baliabideek erabilia

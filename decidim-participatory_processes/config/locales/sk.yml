@@ -22,9 +22,6 @@ sk:
         promoted: propagované
         published_at: Publikované v
         related_process_ids: Súvisiace procesy
-        scope_id: Rozsah
-        scope_type_max_depth_id: Hĺbka filtra rozsahu
-        scopes_enabled: Schopnosti povolené
         short_description: Stručný opis
         slug: URL slug
         start_date: Dátum začatia
@@ -298,12 +295,9 @@ sk:
           form:
             announcement_help: Text, ktorý tu zadáte, sa užívateľovi zobrazí priamo pod informáciami o procese.
             duration: Čas trvania
-            filters: Filtre
             images: snímky
             metadata: Metadata
             related_processes: Súvisiace procesy
-            scope_type_max_depth_help: Obmedziť hĺbku filtra rozsahu; filter umožňuje zobraziť všeobecné alebo vybrané druhy rozsahov.
-            select_an_area: Vyberte rozsah
             select_process_group: Vyberte skupinu procesov
             title: Všeobecná informácia
       content_blocks:

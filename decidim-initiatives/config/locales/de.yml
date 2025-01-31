@@ -151,6 +151,9 @@ de:
             postal_code: Postleitzahl
             signature_count: Anzahl Unterschriften
             timestamp: Zeitstempel
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: Alle Initiativen
       titles:
         initiatives: Initiativen
         initiatives_types: Arten von Initiativen

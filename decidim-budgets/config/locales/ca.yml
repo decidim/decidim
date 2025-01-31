@@ -235,7 +235,6 @@ ca:
           selected_projects: 'Els projectes que has seleccionat són:'
           subject: Has votat a l'espai de participació %{space_name}
           voted_on_space: Has votat al pressupost %{budget_name} de l'espai de participació %{space_name}.
-          voted_on_space_with_scope: Has votat al pressupost %{budget_name} de l'espai de participació %{space_name} de %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Si canvies d'opinió, pots modificar el teu vot més tard.
@@ -352,8 +351,6 @@ ca:
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             projects_per_page: Projectes per pàgina
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada projecte
-            scope_id: Àmbit
-            scopes_enabled: Àmbits habilitats
             taxonomy_filters: Seleccionar filtres pel component
             taxonomy_filters_add: Afegir un filtre
             title: Títol

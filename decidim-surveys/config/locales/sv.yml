@@ -19,8 +19,6 @@ sv:
         settings:
           global:
             announcement: Meddelande
-            scope_id: Indelning
-            scopes_enabled: Aktivera indelningar
           step:
             announcement: Meddelande
     events:

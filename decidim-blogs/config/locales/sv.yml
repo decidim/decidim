@@ -14,12 +14,19 @@ sv:
         one: Inlägg
         other: Inlägg
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Inlägg
     blogs:
       actions:
         author_id: Skapa inlägg som
+        confirm_delete_post: Är du säker på att du vill radera inlägget?
+        deleted_posts_info: Raderade inlägg kan återställas från papperskorgen.
         edit: Redigera
         new: Nytt inlägg
         title: Åtgärder
+        view_deleted_posts: Visa raderade inlägg
       admin:
         posts:
           create:
@@ -31,6 +38,8 @@ sv:
           index:
             not_published_yet: Ej publicerat.
             title: Inlägg
+          manage_trash:
+            title: Raderade inlägg
           new:
             create: Skapa
             title: Skapa inlägg
@@ -41,6 +50,8 @@ sv:
         post:
           create: "%{user_name} skapade blogginlägget %{resource_name} i %{space_name}"
           delete: "%{user_name} raderade blogginlägget %{resource_name} från %{space_name}"
+          restore: "%{user_name} återställde %{resource_name} blogginlägg i %{space_name}"
+          soft_delete: "%{user_name} flyttade blogginlägget %{resource_name} i %{space_name} till papperskorgen"
           update: "%{user_name} uppdaterade blogginlägget %{resource_name} i %{space_name}"
       content_blocks:
         highlighted_posts:
@@ -89,5 +100,33 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta att följa det från den föregående länken.
           email_subject: Ett nytt inlägg har publicerats i %{participatory_space_title}
           notification_title: Inlägget <a href="%{resource_path}">%{resource_title}</a> har publicerats i %{participatory_space_title}
+    open_data:
+      help:
+        post_comments:
+          alignment: Positiva, negativa eller neutrala kommentarer
+          author: Namn på den som kommenterat
+          body: Kommentaren
+          commentable_id: Kommentarens unika id
+          commentable_type: Vad som kommenterades (resultat, förslag etc)
+          created_at: Datum för kommentaren
+          depth: Kommentarens plats i en hierarki av kommentarer (om den är ett svar på en annan kommentar)
+          id: Id för kommentaren
+          locale: Kommentarförfattarens språk
+          root_commentable_url: URL till innehållet som är relaterat till kommentaren
+          user_group: Namn på gruppen som kommenterat (om det var en grupp)
+        posts:
+          author: Uppgifter om författaren
+          body: Inläggets text
+          comments_count: Antalet kommentarer till inlägget
+          component: Komponenten som inlägget tillhör
+          created_at: Datum för inlägget
+          endorsements_count: Antal gilla-markeringar för inlägget
+          follows_count: Antal följare för inlägget
+          id: Unikt id för inlägget
+          participatory_space: Vilket utrymme (deltagandeprocess eller samråd) inlägget tillhör
+          published_at: Publiceringsdatum för inlägget
+          title: Titeln på inlägget
+          updated_at: Senaste datum när inlägget uppdaterades
+          url: URL för inlägget
     statistics:
       posts_count: Inlägg

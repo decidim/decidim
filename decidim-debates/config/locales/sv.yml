@@ -33,8 +33,6 @@ sv:
             announcement: Meddelande
             comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
-            scope_id: Indelning
-            scopes_enabled: Aktivera indelningar
           step:
             announcement: Meddelande
             comments_blocked: Stäng av kommentarer
