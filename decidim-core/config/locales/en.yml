@@ -565,6 +565,8 @@ en:
             dummy_step_attribute1: Dummy Step Attribute 1
             dummy_step_attribute2: Dummy Step Attribute 2
             dummy_step_translatable_text: Dummy Step Translatable Text
+      pagination:
+        page_title: "%{component_name} - Page %{current_page} of %{total_pages}"
     contact: Contact
     content_blocks:
       announcement:
