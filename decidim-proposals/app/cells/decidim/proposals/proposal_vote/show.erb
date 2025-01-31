@@ -15,7 +15,7 @@
   <% end %>
 <% end %>
 
-<% button_classes = "button button__lg button__secondary vote-btn w-full" %>
+<% button_classes = "button button__lg button__secondary w-full" %>
 
 <% unless resource.rejected? || resource.withdrawn? %>
   <% if component_settings.participatory_texts_enabled? && from_proposals_list %>
@@ -26,7 +26,7 @@
         <% if current_settings.votes_blocked? %>
           <%= action_authorized_button_to :vote, t("decidim.proposals.proposals.vote_button.votes_blocked"), proposal_proposal_vote_path(proposal_id: resource, from_proposals_list:), resource: , class: button_classes, disabled: true %>
         <% else %>
-          <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: resource, from_proposals_list:), resource: , class: button_classes, data: { disable: true, "redirect-url": proposal_path(resource) } do %>
+          <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: resource, from_proposals_list:), resource: , class: button_classes, data: { "proposal-vote-button": true, disable: true, "redirect-url": proposal_path(resource) } do %>
             <%= t("decidim.proposals.proposals.vote_button.vote") %>
             <span class="sr-only"><%= decidim_html_escape(present(resource).title) %></span>
           <% end %>

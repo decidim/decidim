@@ -17,7 +17,7 @@
 <% if vote_limit_enabled? %>
   (function() {
     var $remainingVotesCount = $('#remaining-votes-count');
-    var $notVotedButtons = $('.vote-btn').not('[id^=vote_button-]');
+    var $notVotedButtons = $('*[data-proposal-vote-button="true"]').not('[id^=vote_button-]');
 
     if($remainingVotesCount[0]) {
       morphdom($remainingVotesCount[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_count").strip.html_safe %>');
