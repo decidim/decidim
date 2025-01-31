@@ -226,6 +226,8 @@ cs:
       order:
         status:
           continue_voting: Pokračovat v hlasování
+          download_vote: Stáhněte si svůj hlas
+          share_vote: Sdílejte svůj hlas
           title: Váš hlas byl úspěšně přijat
       order_summary_mailer:
         order_summary:
