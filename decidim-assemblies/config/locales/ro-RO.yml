@@ -48,7 +48,7 @@ ro:
         promoted: Evidenţiat
         published_at: Publicat la
         purpose_of_action: Scopul acțiunii
-        scope_id: Domeniu de interes
+        scope_id: Domeniu
         scopes_enabled: Domenii activate
         short_description: Descriere scurtă
         show_statistics: Arată statistici
@@ -351,6 +351,10 @@ ro:
       last_activity:
         new_assembly: 'Adunare nouă:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Grupuri de lucru active
+            see_all_spaces: Vedeți tot
         user_profile:
           member_of:
             member_of: Membru al

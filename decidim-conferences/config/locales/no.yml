@@ -160,7 +160,6 @@
           media_links_title: Media Lenker
         new:
           create: Opprett
-          title: Media Lenke
         update:
           error: Det oppstod et problem med å oppdatere denne media lenken.
           success: Media Lenke ble oppdatert.

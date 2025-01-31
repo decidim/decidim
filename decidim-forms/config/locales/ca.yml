@@ -180,7 +180,7 @@ ca:
           tos_agreement: En participar acceptes els Termes i condicions d'ús
       step_navigation:
         show:
-          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Segur?
+          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les respostes. Segur que vols continuar?
           back: Enrere
           continue: Continuar
           submit: Enviar respostes

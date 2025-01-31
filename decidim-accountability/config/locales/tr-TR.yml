@@ -94,8 +94,6 @@ tr:
             create: İçe aktar
             import_all_selected_projects: Seçilen tüm projeleri içe aktarın
             no_components: Bu katılımcı alanda projeleri sonuçlara dönüştürecek bütçe bileşenleri yoktur.
-            origin_component_id: Asıl bileşen
-            select_component: Bir bileşen seç
             title: Projeleri başka bir bileşenden içe aktarın
         results:
           create:
@@ -258,7 +256,7 @@ tr:
             heading_leaf_level_results: '"Projeler" için isim'
             heading_parent_level_results: '"Sonuçların" Adı'
             intro: Tanıtım
-            scope_id: Kapsam
+            scope_id: kapsam
             scopes_enabled: Kapsamlar etkinleştirildi
             subcategories_label: '"Alt kategoriler" için isim'
           step:

@@ -140,7 +140,7 @@ tr:
             proposal_wizard_step_3_help_text: Teklif sihirbazı "Tamamlandı" adımı yardım metni
             proposal_wizard_step_4_help_text: Teklif "Yayınlama"  sihirbazı  yardım metni
             resources_permissions_enabled: Her teklif için işlem izinleri ayarlanabilir
-            scope_id: Kapsam
+            scope_id: kapsam
             scopes_enabled: Kapsamlar etkinleştirildi
             threshold_per_proposal: Teklif başına eşik
             vote_limit: Katılımcı başına destek sınırı

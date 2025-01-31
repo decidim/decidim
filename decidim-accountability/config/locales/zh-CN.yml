@@ -49,6 +49,9 @@ zh-CN:
             name: 结果
           status:
             name: 状态
+        projects_import:
+          new:
+            create: 导入
         results:
           edit:
             title: 编辑结果

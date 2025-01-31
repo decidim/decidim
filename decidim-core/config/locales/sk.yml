@@ -828,7 +828,7 @@ sk:
     scopes:
       global: Globální oblast působnosti
       picker:
-        cancel: zrušenie
+        cancel: Zrušiť
         choose: Vybrat
         title: Vyberte %{field}
       prompt: Vyberte oblast

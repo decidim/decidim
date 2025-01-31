@@ -130,6 +130,7 @@ sk:
             proposal_wizard_step_2_help_text: Pomocný text Sprievodcu "Porovnať" návrhu
             proposal_wizard_step_3_help_text: Pomocný text Sprievodcu "Dokončiť" návrh
             resources_permissions_enabled: Pre každý návrh možno nastaviť povolenia akcie
+            scope_id: Rozsah
             threshold_per_proposal: Maximálny limit na návrh
             vote_limit: Počet hlasov na užívateľa
           step:

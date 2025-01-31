@@ -101,7 +101,7 @@ it:
             maps_enabled: Mappe abilitate
             registration_code_enabled: Codice di registrazione abilitato
             resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
-            scope_id: Ambito
+            scope_id: Visibilità
             scopes_enabled: Ambiti abilitati
             terms_and_conditions_url_for_meeting_creators: Termini e condizioni URL per i creatori di riunione
           step:

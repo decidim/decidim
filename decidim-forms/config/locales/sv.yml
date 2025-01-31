@@ -177,7 +177,6 @@ sv:
           tos_agreement: Genom att delta godkänner du användarvillkoren
       step_navigation:
         show:
-          are_you_sure: Den här åtgärden kan inte ångras och du kommer inte att kunna redigera dina svar. Är du säker?
           back: Tillbaka
           continue: Fortsätt
           submit: Skicka in

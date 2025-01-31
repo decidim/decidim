@@ -94,12 +94,7 @@ es-MX:
           new:
             create: Importar
             import_all_selected_projects: Importar todos los proyectos seleccionados para ser implementados
-            new_items:
-              one: Se importará 1 proyecto seleccionado
-              other: "Se importarán %{count} proyectos seleccionados"
             no_components: No hay ningún componente de presupuestos en este espacio de participación para importar los proyectos como resultados.
-            origin_component_id: Componente de origen
-            select_component: Selecciona un componente
             success:
               one: Hay un proyecto para ser importado. Se notificará por correo electrónico, cuando se complete la importación.
               other: "Hay %{count} proyectos para ser importados. Se notificará por correo electrónico, cuando se complete la importación."

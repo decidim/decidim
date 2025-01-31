@@ -3,7 +3,7 @@ eu:
   activemodel:
     attributes:
       area:
-        area_type: Eremu mota
+        area_type: Arlo mota
         name: Izena
         organization: Erakundea
       area_type:
@@ -37,24 +37,24 @@ eu:
       import:
         user_group_id: Inportatu hau bezala
       newsletter:
-        body: Gorputza
+        body: Testu-gorputza
         send_to_all_users: Bidali parte-hartzaile guztiei
         send_to_followers: Bidali jarraitzaileei
         send_to_participants: Bidali parte-hartzaileei
         subject: Gaia
       organization:
         admin_terms_of_service_body: Administratzailearen zerbitzu-baldintzen testuaren gorputza
-        alert_color: Alerta
+        alert_color: Abisua
         available_authorizations: Baimen erabilgarriak
         badges_enabled: Gaitu garaikurrak
         comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
-        cta_button_path: Deitu ekintza botoiaren bideora
+        cta_button_path: Ekintza-botoiaren testua
         cta_button_text: Ekintza-botoiaren testua
-        customize_welcome_notification: Pertsonalizatu ongietorri-jakinarazpena
+        customize_welcome_notification: Pertsonalizatu ongi etorri jakinarazpena
         default_locale: Kokapen lehenetsia
         description: Deskribapena
         enable_omnipresent_banner: Erakutsi banner nonahikoa
-        enable_participatory_space_filters: Gaitu iragazkiak parte hartzeko gunean
+        enable_participatory_space_filters: Gaitu iragazkiak parte hartzeko espazioan
         facebook_handler: Facebook kudeatzailea
         favicon: Ikonoa
         force_authentication: Behartu autentikazioa
@@ -75,10 +75,10 @@ eu:
         instagram_handler: Instagramen kudeatzailea
         logo: Logotipoa
         machine_translation_display_priority: Itzulpen automatikoaren lehentasuna
-        machine_translation_display_priority_original: Lehen jatorrizko testua
-        machine_translation_display_priority_translation: Lehen itzulitako testua
+        machine_translation_display_priority_original: Jatorrizko testua lehenik
+        machine_translation_display_priority_translation: Itzulitako testua lehenik
         name: Izena
-        official_img_footer: Orri-oinaren logotipo ofiziala
+        official_img_footer: Logotipoaren logotipo ofiziala
         official_url: Erakundearen URL ofiziala
         omnipresent_banner_short_description: Deskribapen laburra
         omnipresent_banner_title: Izenburua
@@ -86,12 +86,12 @@ eu:
         organization_admin_email: Erakundearen administratzailearen mezu elektronikoa
         organization_admin_name: Erakundearen administratzailearen izena
         organization_locales: Tokiko erakundeak
-        primary_color: Lehen
+        primary_color: Primarioa
         reference_prefix: Erreferentzia-aurrizkia
         rich_text_editor_in_public_views: Gaitu testu-editore aberastua parte-hartzaileentzat
         secondary_color: Bigarren
         secondary_hosts: Bigarren mailako zerbitzariak
-        send_welcome_notification: Bidali ongietorri-jakinarazpena
+        send_welcome_notification: Bidali ongi etorri jakinarazpena
         success_color: Arrakasta
         tertiary_color: Hirugarren
         time_zone: Ordu-zona
@@ -101,7 +101,7 @@ eu:
         users_registration_mode: Parte-hartzaileak erregistratzeko modua
         warning_color: Abisua
         welcome_notification_body: Ongietorri-jakinarazpenaren gorputza
-        welcome_notification_subject: Ongietorri-jakinarazpenaren mezuaren gaia
+        welcome_notification_subject: Ongi etorri jakinarazpenaren mezuaren gaia
         youtube_handler: YouTubeko kudeatzailea
       participatory_space_private_user:
         email: Helbide elektronikoa
@@ -125,8 +125,8 @@ eu:
         content: Edukia
         organization: Erakundea
         show_in_footer: Erakutsi orri-oinean
-        slug: URL l
-        title: Titulua
+        slug: URL laburra
+        title: Izenburua
         topic_id: Gaia
         weight: Kokapenaren hurrenkera
       static_page_topic:
@@ -163,9 +163,9 @@ eu:
   activerecord:
     attributes:
       decidim/static_page:
-        content: Contenido
+        content: Edukia
         slug: URL laburra
-        title: Titulua
+        title: Izenburua
       doorkeeper/application:
         authorize_url: Baimendu URLa
         client_id: Bezeroaren IDa
@@ -192,7 +192,7 @@ eu:
         newsletter:
           new: Beste buletin bat
         participatory_space_private_user:
-          new: Eremu parte-hartzaileko beste parte-hartzaile pribatu bat
+          new: Espazio parte-hartzaile berria, erabiltzaile pribatua
         per_page: Orrialdeko
         permissions: Baimenak
         reject: Ukatu
@@ -239,7 +239,7 @@ eu:
           success: Arloa behar bezala suntsitua.
         edit:
           title: Editatu arloa
-          update: Onartu
+          update: Eguneratu
         new:
           create: Sortu arloa
           title: Beste arlo bat
@@ -339,7 +339,7 @@ eu:
             type: Osagai mota
         new:
           add: Gehitu osagaia
-          title: 'Gehitu osagaia: %{name}'
+          title: 'Gehitu %{name} osagaia'
         publish:
           success: Osagaia zuzen argitaratua.
         title: Osagaiak
@@ -530,8 +530,8 @@ eu:
             records:
               detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
               message:
-                one: Errore bat aurkitu da % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
-                other: Erroreak aurkitu dira % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
+                one: Errore bat aurkitu da %{indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
+                other: Erroreak aurkitu dira %{indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
           missing_headers:
             detail: Mesedez, egiaztatu fitxategiak eskatutako zutabeak dituela.
             message:
@@ -547,7 +547,7 @@ eu:
           actions:
             back: Atzera
           download_example: Deskargatu adibidea
-          download_example_format: Adibidez, % {name}
+          download_example_format: Adibidez, %{name}
           file_legend: Gehitu prozesatuko den inportazio-artxibo bat.
           import: Inportatu
         notice: "%{number} %{resource_name} zuzen inportatua."
@@ -569,7 +569,7 @@ eu:
             new_managed_user_promotion: Kudeatutako parte-hartzaileen beste maila-igoera bat
             promote: Sustatu
       menu:
-        admin_log: Admin jarduera-erregistroa
+        admin_log: Administratzaile jarduera-erregistroa
         admins: Administratzaileak
         appearance: Itxura
         area_types: Arlo motak
@@ -611,7 +611,7 @@ eu:
             collection: Karpeta
             content_type: Mota
             file_size: Tamaina
-            title: Titulua
+            title: Izenburua
           name: Eranskina
         attachment_collection:
           name: Karpeta
@@ -654,7 +654,7 @@ eu:
         static_page:
           fields:
             created_at: Noiz sortua
-            title: Titulua
+            title: Izenburua
         user:
           fields:
             created_at: Sortze-data
@@ -710,7 +710,7 @@ eu:
             author: Egilea(k)
             callout_html: Eduki bat moderazio-panelean agertzen da parte-hartzaile batek (erregistratutako kontu bat duen edozein pertsona izan daiteke) txostena bidaltzen duenean, edukiaren ondoan dagoen %{icon} ikonoan klik eginez.
             content_original_language: Jatorrizko edukiaren hizkuntza
-            participatory_space: Parte hartzeko esparrua
+            participatory_space: Parte hartzeko espazioa
             reported_content: Erreportatutako edukia
             see_current: Ikusi egungoa
             see_original: Ikusi jatorrizkoa
@@ -762,23 +762,23 @@ eu:
           all_users_help: Albisteen buletina baieztatu duten parte-hartzaile guztiei bidaltzen die.
           confirm_deliver: Ziur zaude buletin hau bidali nahi duzula? Ekintza hau ezin da desegin.
           deliver: Bidali buletina
-          followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu jarraitzen duten parte-hartzaile guztiei bidaltzen die.
+          followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein parte hartze espazio jarraitzen duten parte-hartzaile guztiei bidaltzen die.
           none: Bat ere ez
-          participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu parte-hartzailetan esku hartu duten parte-hartzaile guztiei bidaltzen die.
+          participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein espazio parte-hartzailetan esku hartu duten parte-hartzaile guztiei bidaltzen die.
           recipients_count: 'Buletin hau parte-hartzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
           scopes_help: Albisteen buletina "Nire interesekoak" konfigurazioan edozein esparru aktibatuta duten parte-hartzaileei bidaltzen die.
           select_scopes: Iragazi "Nire interesekoak" konfigurazioan edozein esparru aktibatu duten parte-hartzaileentzat.
           select_spaces: Hautatu espazioak buletina zatitzeko
           select_users: Hautatu zein parte-hartzaileri bidali nahi diezun buletina
-          title: Hautatu hartzaileak entregatzeko
+          title: Hautatu entregaren hartzaileak
           warning: "<strong>Adi:</strong> Jakinarazpen-doikuntzetan “Albiste-buletinak jaso nahi ditut” aktibatu duten parte-hartzaileei baino ez zaie bidaliko buletin hau."
         send:
           no_recipients: Ez dago hartzailerik hautaketa honetarako.
         send_to_user:
-          sent_successfully: Buletina behar bezala bidali zaio % {email} -ri
+          sent_successfully: Buletina behar bezala bidali zaio %{email} helbideari
         show:
           preview: Aurreikusi
-          select_recipients_to_deliver: Hautatu hartzaileak entregatzeko
+          select_recipients_to_deliver: Hautatu entregaren hartzaileak
           send_me_a_test_email: Bidali probako posta elektronikoa
           subject: Gaia
         update:
@@ -851,8 +851,8 @@ eu:
             saturation: Saturazioa
             title: Kolore-hautatzailea
             update_suggested_colors: Eguneratu iradokitako koloreak
-          cta_button_path_help_html: 'Hasierako orriko ekintzara deitzeko botoia nora estekatzen den gainidatz dezakezu. Erabili hemen ibilbide partzialak, ez URL osoak. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Ekintzara deitzeko botoia hasierako orrian agertuko da, ongietorri-testuaren eta deskribapenaren artean. Adibidez:%{url}'
-          cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundean eskuragarri dagoen hizkuntza bakoitzarentzat. Ezarrita ez badago, balio lehenetsia erabiliko da. The Call To Action botoia hasierako orrian erakusten da ongietorri testua eta azalpenaren artean.
+          cta_button_path_help_html: 'Hasierako orriko ekintzara deitzeko botoia nora estekatzen den gainidatz dezakezu. Erabili hemen ibilbide partzialak, ez URL osoak. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Ekintzara deitzeko botoia hasierako orrian agertuko da, ongi etorri testuaren eta deskribapenaren artean. Adibidez:%{url}'
+          cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundean eskuragarri dagoen hizkuntza bakoitzarentzat. Ezarrita ez badago, balio lehenetsia erabiliko da. The Call To Action botoia hasierako orrian erakusten da ongi etorri testua eta azalpenaren artean.
           header_snippets:
             header_snippets_help_html: Eremu hau erabili HTML goiburuari gauzak gehitzeko. Erabilera ohikoena da JavaScript edo CSS osagarriak behar dituzten hirugarrenen zerbitzuak integratzea. HTMLri meta-etiketa gehigarriak gehitzeko ere erabil dezakezu. Kontuan izan hori orrialde publikoetan soilik renderizatuko dela, ez administrazio-atalean. Kodeak kanpoko APIekin elkarreragiten badu edo aplikazioaren segurtasun-jarraibideak betetzen ez baditu, Edukiaren Segurtasun Politika aldatu beharko da. Irakurri gehiago honetaz<a href="https://docs.decidim.org/develop/en/customize/content_security_policy"> dokumentazioaren kokalekuan</a>.
             title: Goiburuko HTML kode-zatiak
@@ -1117,7 +1117,7 @@ eu:
             success: Edukia zuzen desezkutatua.
           unreport:
             invalid: Arazo bat egon da salaketa bertan behera uztean.
-            success: Salaketa behar bezala ezeztatua.
+            success: Salaketa zuzen ezeztatu da.
       models:
         moderation:
           fields:

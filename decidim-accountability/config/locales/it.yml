@@ -56,6 +56,9 @@ it:
             name: Risultato
           status:
             name: Stato
+        projects_import:
+          new:
+            create: Importa
         results:
           edit:
             title: Modifica il risultato
@@ -176,7 +179,7 @@ it:
             heading_leaf_level_results: Nome per "Progetti"
             heading_parent_level_results: Nome per "Risultati"
             intro: Introduzione
-            scope_id: Ambito
+            scope_id: Obiettivi
             scopes_enabled: Ambiti abilitati
             subcategories_label: Nome per "Sottocategorie"
           step:

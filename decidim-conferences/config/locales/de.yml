@@ -183,7 +183,6 @@ de:
           media_links_title: Medienlinks
         new:
           create: Erstellen
-          title: Medienlink
         update:
           error: Beim Aktualisieren dieser Medienverbindung ist ein Fehler aufgetreten.
           success: Media Link wurde erfolgreich aktualisiert.

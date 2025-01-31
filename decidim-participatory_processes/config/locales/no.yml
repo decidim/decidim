@@ -31,7 +31,7 @@
         promoted: Fremhevet
         published_at: Publisert på
         related_process_ids: Relaterte prosesser
-        scope_id: Tema
+        scope_id: Omfang
         scope_type_max_depth_id: Temafilter
         scopes_enabled: Temaer aktivert
         short_description: Kort beskrivelse

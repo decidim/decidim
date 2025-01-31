@@ -49,6 +49,9 @@ lv:
             name: Rezultāts
           status:
             name: Statuss
+        projects_import:
+          new:
+            create: Importēt
         results:
           edit:
             title: Labot rezultātu
@@ -154,6 +157,7 @@ lv:
             heading_leaf_level_results: Projektu nosaukums
             heading_parent_level_results: Rezultātu nosaukums
             intro: Ievads
+            scope_id: Darbības tvērums
             subcategories_label: Apakškategoriju nosaukums
           step:
             comments_blocked: Komentāri ir bloķēti

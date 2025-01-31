@@ -74,6 +74,7 @@ ru:
             comments_enabled: Комментарии включены
             default_registration_terms: Условия регистрации по умолчанию
             resources_permissions_enabled: Для каждой встречи можно задать те или иные разрешения на действия
+            scope_id: Охват
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены

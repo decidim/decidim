@@ -94,12 +94,7 @@ pt-BR:
           new:
             create: Importar
             import_all_selected_projects: Importar todos os projetos selecionados para implementação
-            new_items:
-              one: 1 projeto selecionado será importado
-              other: "%{count} projetos selecionados serão importados"
             no_components: Não há componentes de orçamento neste espaço participativo para importar os projetos em resultados.
-            origin_component_id: Componente de origem
-            select_component: Selecionar componente
             success:
               one: Projetos na fila para ser importado. Você será notificado no seu endereço eletrônico quando estiver completo.
               other: "Projetos na fila para importar. Você sera notificado em seu endereço eletrônico quando estiver completo."
@@ -268,7 +263,7 @@ pt-BR:
             heading_leaf_level_results: Nome para "Projetos"
             heading_parent_level_results: Nome para "Resultados"
             intro: Introdução
-            scope_id: Escopo
+            scope_id: Âmbito
             scopes_enabled: Escopos habilitados
             subcategories_label: Nome para "Subcategorias"
           step:

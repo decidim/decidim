@@ -183,7 +183,7 @@ eu:
           media_links_title: Hedabideen loturak
         new:
           create: Sortu
-          title: Hedabideen lotura
+          title: Sortu hedabideen esteka
         update:
           error: Arazo bat egon da multimedia link hau eguneratzean.
           success: Hedabideen lotura zuzen eguneratua.
@@ -534,7 +534,7 @@ eu:
           notification_title: <a href="%{resource_url}">%{resource_title}</a> jardunaldirako zure izen-ematea zain dago berresteko.
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" jardunaldiak okupatutako slotak %{percentage}% baino gehiago dira.'
-          email_outro: Jakinarazpen hau jaso duzu, jardunaldiko parte hartzaileen gunea delako.
+          email_outro: Jakinarazpen hau jaso duzu, jardunaldiko parte hartzaileen espazioa delako.
           email_subject: '"%{resource_title}" jardunaldiak okupatutako slotak %{percentage}% baino gehiago dira'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> jardunaldiak okupatutako slot-ak %{percentage}% baino gehiago dira.
         conference_updated:

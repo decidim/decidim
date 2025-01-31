@@ -150,6 +150,7 @@ uk:
             heading_leaf_level_results: Назва для "Проекти"
             heading_parent_level_results: Назва для "Підсумки"
             intro: Вступ
+            scope_id: Обсяг
             subcategories_label: Назва для "Підкатегорії"
           step:
             comments_blocked: Коментарі вимкнено

@@ -180,7 +180,7 @@ es:
           tos_agreement: Al participar aceptas los Términos y condiciones de uso
       step_navigation:
         show:
-          are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Estás segura?
+          are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Seguro que quieres continuar?
           back: Atrás
           continue: Continuar
           submit: Enviar respuestas

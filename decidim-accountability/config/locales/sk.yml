@@ -52,6 +52,9 @@ sk:
             name: Výsledok
           status:
             name: Stav
+        projects_import:
+          new:
+            create: Importovať
         results:
           edit:
             title: Upraviť výsledok
@@ -163,6 +166,7 @@ sk:
             heading_leaf_level_results: Meno pre "Projekty"
             heading_parent_level_results: Meno pre "Výsledky"
             intro: Úvod
+            scope_id: Rozsah
             subcategories_label: Názov pre "Podkategórie"
           step:
             comments_blocked: Zablokované komentáre

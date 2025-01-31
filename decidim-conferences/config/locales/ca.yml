@@ -183,7 +183,7 @@ ca:
           media_links_title: Enllaços multimèdia
         new:
           create: Crear
-          title: Enllaç multimèdia
+          title: Crear enllaç multimèdia
         update:
           error: S'ha produït un error en actualitzar aquest enllaç multimèdia.
           success: Enllaç multimèdia actualitzat correctament.

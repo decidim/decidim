@@ -3,7 +3,6 @@ gl:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Ámbito
         description: Descripción
         title: Título
         total_budget: Orzamento total
@@ -11,7 +10,6 @@ gl:
       project:
         budget_amount: Importe do orzamento
         decidim_category_id: Categoría
-        decidim_scope_id: Ámbito
         description: Descrición
         proposal_ids: Propostas relacionadas
         title: Título
@@ -26,8 +24,6 @@ gl:
         projects:
           category_id_eq:
             label: Categoría
-          scope_id_eq:
-            label: Ámbito
           selected_at_null:
             label: Seleccionado
             values:
@@ -143,7 +139,6 @@ gl:
           title: Aínda non votaches
         filters:
           category: Categoría
-          scope: Ámbito
           search: Busca
           status: Estado
           status_values:
@@ -182,7 +177,6 @@ gl:
             comments_enabled: Comentarios habilitados
             comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
             projects_per_page: Proxectos por páxina
-            scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
             title: Título
             total_budget: Orzamento total

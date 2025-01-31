@@ -183,7 +183,7 @@ fi:
           media_links_title: Medialinkit
         new:
           create: Luo
-          title: Medialinkki
+          title: Luo medialinkki
         update:
           error: Medialinkin päivitys epäonnistui.
           success: Medialinkin päivitys onnistui.

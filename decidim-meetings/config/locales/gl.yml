@@ -82,6 +82,7 @@ gl:
             enable_pads_creation: Habilita a creación de pastillas
             maps_enabled: Mapas habilitados
             resources_permissions_enabled: Os permisos de acción pódense establecer para cada reunión
+            scope_id: Alcance
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados

@@ -91,14 +91,9 @@ hu:
           create:
             invalid: Probléma merült fel a projektek importálásával az eredményekbe, kérjük, gondosan kövesse az utasításokat, és győződjön meg róla, hogy a projekteket a végrehajtáshoz kiválasztotta.
           new:
-            create: Importálás
+            create: Importál
             import_all_selected_projects: A végrehajtásra kiválasztott összes projekt importálása
-            new_items:
-              one: 1 kiválasztott projekt kerül importálásra
-              other: "%{count} kiválasztott projekt kerül importálásra"
             no_components: Ebben a részvételi térben nincsenek olyan költségvetési elemek, amelyek a projekteket eredményekbe importálnák.
-            origin_component_id: A komponens származása
-            select_component: Komponens választása
             success:
               one: 1 projekt várakozik importálásra. A befejezés után e-mailben értesítjük Önt.
               other: "%{count} importálásra váró projektek. A befejezés után e-mailben értesítjük Önt."
@@ -267,7 +262,7 @@ hu:
             heading_leaf_level_results: '"Projektek" neve'
             heading_parent_level_results: '"Eredmények" neve'
             intro: Intro
-            scope_id: Hatáskör
+            scope_id: Hatókör
             scopes_enabled: Hatáskörök engedélyezve
             subcategories_label: '"Alkategóriák" neve'
           step:

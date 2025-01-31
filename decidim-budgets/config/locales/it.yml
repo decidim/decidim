@@ -3,7 +3,6 @@ it:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Obiettivo
         description: Descrizione
         title: Titolo
         total_budget: Budget totale
@@ -11,7 +10,6 @@ it:
       project:
         budget_amount: Importo del budget
         decidim_category_id: Categoria
-        decidim_scope_id: Obiettivo
         description: Descrizione
         proposal_ids: Proposte correlate
         selected: Selezionato per l'implementazione
@@ -22,11 +20,6 @@ it:
         one: Progetto
         other: Progetti
   decidim:
-    admin:
-      filters:
-        projects:
-          scope_id_eq:
-            label: Obiettivo
     budgets:
       actions:
         attachment_collections: Cartelle
@@ -148,7 +141,6 @@ it:
           title: Non hai ancora votato
         filters:
           category: Categoria
-          scope: Obiettivo
           search: Cerca
           status: Stato
           status_values:
@@ -188,7 +180,6 @@ it:
             more_information_modal: Finestra modale "Maggiori informazioni"
             projects_per_page: Progetti per pagina
             resources_permissions_enabled: Le autorizzazioni relative alle azioni possono essere impostate per ogni progetto
-            scope_id: Obiettivo
             scopes_enabled: Obiettivi abilitati
             title: Titolo
             total_budget: Budget totale

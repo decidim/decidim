@@ -44,6 +44,7 @@ is:
             announcement: Tilkynning
             comments_enabled: Athugasemdir virkt
             default_registration_terms: Sjálfgefin skráningarskilmálar
+            scope_id: Umfang
           step:
             announcement: Tilkynning
             comments_blocked: Athugasemdir læst

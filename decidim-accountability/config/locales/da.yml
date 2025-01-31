@@ -50,6 +50,9 @@ da:
             name: Resultat
           status:
             name: Status
+        projects_import:
+          new:
+            create: Import
         results:
           edit:
             title: Rediger resultat
@@ -157,7 +160,7 @@ da:
             heading_leaf_level_results: Navn for "Projekter"
             heading_parent_level_results: Navn for "Resultater"
             intro: Intro
-            scope_id: Omfang
+            scope_id: Anvendelsesområde
             scopes_enabled: Omfang aktiveret
             subcategories_label: Navn for "Underkategorier"
     resource_links:

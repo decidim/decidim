@@ -145,6 +145,7 @@ id:
             heading_leaf_level_results: Nama untuk "Proyek"
             heading_parent_level_results: Nama untuk "Hasil"
             intro: Intro
+            scope_id: Cakupan
             subcategories_label: Nama untuk "Subkategori"
           step:
             comments_blocked: Komentar diblokir

@@ -274,7 +274,6 @@ is:
     scopes:
       global: Global umfang
       picker:
-        cancel: Hætta við
         choose: Veldu
         title: Veldu %{field}
       prompt: Veldu umfang
