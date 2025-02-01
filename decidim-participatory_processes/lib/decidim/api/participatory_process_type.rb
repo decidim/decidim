@@ -7,6 +7,7 @@ module Decidim
       implements Decidim::Core::ParticipatorySpaceInterface
       implements Decidim::Core::ParticipatorySpaceResourceableInterface
       implements Decidim::Core::TaxonomizableInterface
+      implements Decidim::Core::TimestampsInterface
       implements Decidim::Core::AttachableInterface
       implements Decidim::Core::CategoriesContainerInterface
 
@@ -15,8 +16,6 @@ module Decidim
       field :id, GraphQL::Types::ID, "The internal ID for this participatory process", null: false
       field :slug, GraphQL::Types::String, null: false
       field :hashtag, GraphQL::Types::String, "The hashtag for this participatory process", null: true
-      field :created_at, Decidim::Core::DateTimeType, "The time this page was created", null: false
-      field :updated_at, Decidim::Core::DateTimeType, "The time this page was updated", null: false
       field :published_at, Decidim::Core::DateTimeType, "The time this page was published", null: false
       field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this participatory process.", null: true
       field :description, Decidim::Core::TranslatedFieldType, "The description of this participatory process.", null: true
