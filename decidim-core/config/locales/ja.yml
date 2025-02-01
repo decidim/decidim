@@ -848,7 +848,7 @@ ja:
       no_followers: フォロワーはまだいません。
     following:
       following_count:
-        other: "{{count}} フォロワー"
+        other: "%{count} 人をフォロー中"
       no_followings: まだ何もフォローしていません
       non_public_followings: フォローしているリソースのいくつかは公開されていません。
     follows:
