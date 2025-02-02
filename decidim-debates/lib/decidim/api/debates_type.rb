@@ -9,7 +9,7 @@ module Decidim
       field :debates, Decidim::Debates::DebateType.connection_type, "A collection of Debates", null: true, connection: true
 
       field :debate, Decidim::Debates::DebateType, "A single Debate object", null: true do
-        argument :id, GraphQL::Types::ID, required: true
+        argument :id, GraphQL::Types::ID, "The id of the Debate requested", required: true
       end
 
       def debates

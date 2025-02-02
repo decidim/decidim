@@ -9,7 +9,7 @@ module Decidim
       field :meetings, Decidim::Meetings::MeetingType.connection_type, "A collection of Meetings", null: true, connection: true
 
       field :meeting, Decidim::Meetings::MeetingType, "A single Meeting object", null: true do
-        argument :id, GraphQL::Types::ID, required: true
+        argument :id, GraphQL::Types::ID, "The id of the Meeting requested", required: true
       end
 
       def meetings

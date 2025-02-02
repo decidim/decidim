@@ -9,7 +9,7 @@ module Decidim
       field :surveys, Decidim::Surveys::SurveyType.connection_type, "A collection of Surveys", null: true, connection: true
 
       field :survey, Decidim::Surveys::SurveyType, "A single Survey object", null: true do
-        argument :id, GraphQL::Types::ID, required: true
+        argument :id, GraphQL::Types::ID, "The id of the Survey requested", required: true
       end
 
       def surveys

@@ -22,7 +22,3 @@ GraphQL/ExtractType:
 
 GraphQL/PrepareMethod:
   Enabled: false
-
-GraphQL/ArgumentDescription:
-  Enabled: false
-
