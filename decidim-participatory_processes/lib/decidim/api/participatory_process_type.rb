@@ -19,7 +19,7 @@ module Decidim
       field :id, GraphQL::Types::ID, "The internal ID for this participatory process", null: false
       field :published_at, Decidim::Core::DateTimeType, "The time this page was published", null: false
       field :short_description, Decidim::Core::TranslatedFieldType, "The short description of this participatory process.", null: true
-      field :slug, GraphQL::Types::String, null: false
+      field :slug, GraphQL::Types::String, "The slug of the Participatory Process", null: false
       field :start_date, Decidim::Core::DateType, "This participatory process' start date.", null: true
       field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this participatory process.", null: true
 

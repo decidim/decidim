@@ -19,7 +19,7 @@ module Decidim
       field :address, GraphQL::Types::String, "The physical address (location) of this proposal", null: true
       field :body, Decidim::Core::TranslatedFieldType, "The description for this body", null: true
       field :coordinates, Decidim::Core::CoordinatesType, "Physical coordinates for this proposal", null: true
-      field :id, GraphQL::Types::ID, null: false
+      field :id, GraphQL::Types::ID, "The id of the Proposal", null: false
       field :title, Decidim::Core::TranslatedFieldType, "The title for this title", null: true
 
       field :answer, Decidim::Core::TranslatedFieldType, "The answer feedback for the status for this proposal", null: true

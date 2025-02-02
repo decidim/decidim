@@ -6,9 +6,9 @@ module Decidim
       graphql_name "Sortitions"
       description "A sortition component of a participatory space."
 
-      field :sortitions, Decidim::Sortitions::SortitionType.connection_type, null: true, connection: true
+      field :sortitions, Decidim::Sortitions::SortitionType.connection_type, "A collection of Sortitions", null: true, connection: true
 
-      field :sortition, Decidim::Sortitions::SortitionType, null: true do
+      field :sortition, Decidim::Sortitions::SortitionType, "A single Sortition object", null: true do
         argument :id, GraphQL::Types::ID, required: true
       end
 

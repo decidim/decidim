@@ -6,7 +6,7 @@ module Decidim
       graphql_name "Scope"
       description "A scope"
 
-      field :id, GraphQL::Types::ID, null: false
+      field :id, GraphQL::Types::ID, "The Id for this scope", null: false
       field :name, Decidim::Core::TranslatedFieldType, "The graphql_name of this scope.", null: false
 
       field :children, [Decidim::Core::ScopeApiType, { null: true }], "Descendants of this scope", null: false
