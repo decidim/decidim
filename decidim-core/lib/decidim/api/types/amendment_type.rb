@@ -5,9 +5,9 @@ module Decidim
     class AmendmentType < Decidim::Api::Types::BaseObject
       description "An amendment"
 
+      field :amender, Decidim::Core::AuthorInterface, "The author of this amendment", null: false
       field :id, GraphQL::Types::ID, "The id of this amendment", null: false
       field :state, GraphQL::Types::String, "The status of this amendment", null: false
-      field :amender, Decidim::Core::AuthorInterface, "The author of this amendment", null: false
 
       field :amendable_type, GraphQL::Types::String, method: :decidim_amendable_type, description: "Type of the amendable object", null: false
       field :emendation_type, GraphQL::Types::String, method: :decidim_emendation_type, description: "Type of the emendation object", null: false

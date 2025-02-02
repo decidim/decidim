@@ -7,8 +7,8 @@ module Decidim
 
       field :id, GraphQL::Types::ID, null: false
       field :name, Decidim::Core::TranslatedFieldType, "The name of this category.", null: false
-      field :subcategories, [Decidim::Core::CategoryType, { null: true }], "Subcategories of this category.", null: false
       field :parent, Decidim::Core::CategoryType, "This category's parent category.", null: true
+      field :subcategories, [Decidim::Core::CategoryType, { null: true }], "Subcategories of this category.", null: false
     end
   end
 end

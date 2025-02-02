@@ -11,9 +11,6 @@ GraphQL:
 GraphQL/FieldDescription:
   Enabled: false
 
-GraphQL/OrderedFields:
-  Enabled: false
-
 GraphQL/OrderedArguments:
   Enabled: false
 
