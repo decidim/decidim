@@ -13,6 +13,9 @@ module Decidim
       description "A initiative"
 
       field :description, Decidim::Core::TranslatedFieldType, "The description of this initiative.", null: true
+
+      field :committee_members, [Decidim::Initiatives::InitiativeCommitteeMemberType, { null: true }], null: true
+
       field :slug, GraphQL::Types::String, null: false
       field :hashtag, GraphQL::Types::String, "The hashtag for this initiative", null: true
       field :published_at, Decidim::Core::DateTimeType, "The time this initiative was published", null: false
@@ -38,8 +41,6 @@ module Decidim
       def author
         object.user_group || object.author
       end
-
-      field :committee_members, [Decidim::Initiatives::InitiativeCommitteeMemberType, { null: true }], null: true
     end
   end
 end

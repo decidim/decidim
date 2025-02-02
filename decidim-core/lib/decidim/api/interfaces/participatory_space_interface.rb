@@ -9,6 +9,13 @@ module Decidim
 
       field :id, GraphQL::Types::ID, "The participatory space's unique ID", null: false
 
+      field :components, [ComponentInterface, { null: true }], null: true, description: "Lists the components this space contains." do
+        argument :filter, ComponentInputFilter, "Provides several methods to filter the results", required: false
+        argument :order, ComponentInputSort, "Provides several methods to order the results", required: false
+      end
+
+      field :stats, [Decidim::Core::StatisticType, { null: true }], null: true
+
       field :title, TranslatedFieldType, "The graphql_name of this participatory space.", null: false
 
       field :type, String, description: "The participatory space class name. i.e. Decidim::ParticipatoryProcess", null: false
@@ -23,16 +30,9 @@ module Decidim
         ParticipatorySpaceManifestPresenter.new(object.manifest, object.organization)
       end
 
-      field :components, [ComponentInterface, { null: true }], null: true, description: "Lists the components this space contains." do
-        argument :filter, ComponentInputFilter, "Provides several methods to filter the results", required: false
-        argument :order, ComponentInputSort, "Provides several methods to order the results", required: false
-      end
-
       def components(filter: {}, order: {})
         ComponentList.new.call(object, { filter:, order: }, context)
       end
-
-      field :stats, [Decidim::Core::StatisticType, { null: true }], null: true
 
       def stats
         return if object.respond_to?(:show_statistics) && !object.show_statistics
