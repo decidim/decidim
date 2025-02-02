@@ -6,16 +6,21 @@ GraphQL:
     - "**/lib/decidim/api/**/*"
   Exclude:
     - "**/lib/decidim/api/test/**/*"
+    - "**/lib/decidim/api/functions/*"
     - "spec/**/*"
     - "test/**/*"
+
+GraphQL/ObjectDescription:
+  Exclude:
+    - "**/lib/decidim/api/engine.rb"
+    - "**/lib/decidim/api/schema.rb"
+    - "**/lib/decidim/api/graphiql/config.rb"
+    - "**/lib/decidim/api/functions/*"
 
 GraphQL/OrderedArguments:
   Enabled: false
 
 GraphQL/ExtractType:
-  Enabled: false
-
-GraphQL/ObjectDescription:
   Enabled: false
 
 GraphQL/PrepareMethod:

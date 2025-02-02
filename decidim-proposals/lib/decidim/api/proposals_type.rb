@@ -2,20 +2,6 @@
 
 module Decidim
   module Proposals
-    class ProposalListHelper < Decidim::Core::ComponentListBase
-      # only querying published posts
-      def query_scope
-        super.published
-      end
-    end
-
-    class ProposalFinderHelper < Decidim::Core::ComponentFinderBase
-      # only querying published posts
-      def query_scope
-        super.published
-      end
-    end
-
     class ProposalsType < Decidim::Core::ComponentType
       graphql_name "Proposals"
       description "A proposals component of a participatory space."
