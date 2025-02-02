@@ -17,9 +17,6 @@ GraphQL/FieldDefinitions:
 GraphQL/OrderedFields:
   Enabled: false
 
-GraphQL/FieldMethod:
-  Enabled: false
-
 GraphQL/OrderedArguments:
   Enabled: false
 

@@ -26,7 +26,7 @@ module Decidim
       field :initiative_votes_count, GraphQL::Types::Int,
             description: "The number of votes in this initiative",
             deprecation_reason: "initiativeVotesCount has been collapsed in onlineVotes parameter",
-            null: true
+            null: true, method: :online_votes_count
       field :initiative_supports_count, GraphQL::Types::Int,
             description: "The number of supports in this initiative",
             method: :online_votes_count,
@@ -34,10 +34,6 @@ module Decidim
             null: true
 
       field :author, Decidim::Core::AuthorInterface, "The initiative author", null: false
-
-      def initiative_votes_count
-        object.online_votes_count
-      end
 
       def author
         object.user_group || object.author
