@@ -17,9 +17,6 @@ GraphQL/ObjectDescription:
     - "**/lib/decidim/api/graphiql/config.rb"
     - "**/lib/decidim/api/functions/*"
 
-GraphQL/OrderedArguments:
-  Enabled: false
-
 GraphQL/ExtractType:
   Enabled: false
 

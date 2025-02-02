@@ -27,14 +27,16 @@ module Decidim
       ```
       "
 
-      argument :type,
-               type: String,
-               description: "Filters by type of entity (User or UserGroup)",
+      argument :exclude_ids,
+               type: [ID],
+               description: "Excludes users contained in given ids. Valid values are one or more IDs (passed as an array)",
                required: false,
                prepare: lambda { |value, _ctx|
-                          type = value.downcase.camelcase
-                          type = "UserGroup" if %w(Group Usergroup).include?(type)
-                          { type: "Decidim::#{type}" }
+                          [
+                            lambda { |model_class, _locale|
+                              model_class.arel_table[:id].not_in(value)
+                            }
+                          ]
                         }
       argument :name,
                type: String,
@@ -59,6 +61,15 @@ module Decidim
                             }
                           ]
                         }
+      argument :type,
+               type: String,
+               description: "Filters by type of entity (User or UserGroup)",
+               required: false,
+               prepare: lambda { |value, _ctx|
+                          type = value.downcase.camelcase
+                          type = "UserGroup" if %w(Group Usergroup).include?(type)
+                          { type: "Decidim::#{type}" }
+                        }
       argument :wildcard,
                type: String,
                description: "Filters by nickname or name of the user entity. Searches (case-insensitive) any fragment of the provided string",
@@ -70,17 +81,6 @@ module Decidim
                               op_name = model_class.arel_table[:name].matches("%#{value}%")
                               op_nick = model_class.arel_table[:nickname].matches("%#{value}%")
                               op_name.or(op_nick)
-                            }
-                          ]
-                        }
-      argument :exclude_ids,
-               type: [ID],
-               description: "Excludes users contained in given ids. Valid values are one or more IDs (passed as an array)",
-               required: false,
-               prepare: lambda { |value, _ctx|
-                          [
-                            lambda { |model_class, _locale|
-                              model_class.arel_table[:id].not_in(value)
                             }
                           ]
                         }

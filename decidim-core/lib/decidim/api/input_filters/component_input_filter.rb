@@ -9,13 +9,6 @@ module Decidim
       graphql_name "ComponentFilter"
       description "A type used for filtering any component parent objects"
 
-      argument :type,
-               type: GraphQL::Types::String,
-               description: "Filters by type of component",
-               required: false,
-               prepare: lambda { |value, _ctx|
-                          { manifest_name: value.downcase }
-                        }
       argument :name,
                type: GraphQL::Types::String,
                description: "Filters by name of the component, additional locale parameter can be provided to specify in which to search",
@@ -26,6 +19,13 @@ module Decidim
                             op = Arel::Nodes::InfixOperation.new("->>", model_name.arel_table[:name], Arel::Nodes.build_quoted(locale))
                             op.matches("%#{search}%")
                           }
+                        }
+      argument :type,
+               type: GraphQL::Types::String,
+               description: "Filters by type of component",
+               required: false,
+               prepare: lambda { |value, _ctx|
+                          { manifest_name: value.downcase }
                         }
 
       argument :with_geolocation_enabled,

@@ -7,8 +7,8 @@ module Decidim
       description "A proposals component of a participatory space."
 
       field :proposals, type: Decidim::Proposals::ProposalType.connection_type, description: "List all proposals", connection: true, null: true do
-        argument :order, Decidim::Proposals::ProposalInputSort, "Provides several methods to order the results", required: false
         argument :filter, Decidim::Proposals::ProposalInputFilter, "Provides several methods to filter the results", required: false
+        argument :order, Decidim::Proposals::ProposalInputSort, "Provides several methods to order the results", required: false
       end
 
       field :proposal, type: Decidim::Proposals::ProposalType, description: "Finds one proposal", null: true do
