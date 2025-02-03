@@ -1049,9 +1049,9 @@ eu:
           update: Eguneratu
         form:
           automatic: Automatikoa
-          custom: Ohitura
-          custom_expiration: Ohituren iraungipena
-          custom_token: Ohiturazko hitza
+          custom: Pertsonalizatua
+          custom_expiration: Iraungitze pertsonalizatua
+          custom_token: Hitz pertsonalizatua
           expires_at: Noiz iraungia
           'false': 'Ez'
           never_expire: Inoiz ez
