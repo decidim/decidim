@@ -69,7 +69,7 @@ module Decidim
       private
 
       def redirect_page
-        if request.referer.include?("create_initiative")
+        if request.referer&.include?("create_initiative")
           promotal_committee_create_initiative_index_path
         else
           edit_initiative_path(current_initiative)
