@@ -37,6 +37,7 @@ module Decidim
       @user.email = ""
       @user.personal_url = ""
       @user.about = ""
+      @user.notifications_sending_frequency = "none"
       @user.delete_reason = @form.delete_reason
       @user.admin = false if @user.admin?
       @user.deleted_at = Time.current
