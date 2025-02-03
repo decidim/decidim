@@ -15,17 +15,15 @@ sv:
         hero_image: Bild till startsida
         location: Plats
         main_logo: Logotyp
-        objectives: Mål
+        objectives: Syfte
         participatory_processes_ids: Relaterade deltagandeprocesser
         promoted: Utvald
         published_at: Publicerad
         registration_terms: Villkor för registrering
         registrations_enabled: Registrering aktiverad
-        scope_id: Indelning
-        scopes_enabled: Aktivera indelningar
         short_description: Kort beskrivning
         show_statistics: Visa statistik
-        sign_date: Underskriftsdatum
+        sign_date: Datum för underskrift
         signature: Underskrift
         signature_name: Signaturens namn
         slogan: Slogan
@@ -61,7 +59,7 @@ sv:
         full_name: Fullständigt namn
         personal_url: Personlig hemsida
         position: Befattning
-        short_bio: Kort biographi
+        short_bio: Kort beskrivning
         user_id: Användare
       conference_user_role:
         email: E-post
@@ -106,13 +104,11 @@ sv:
         destroy:
           success: Talaren har tagits bort.
         edit:
-          title: Uppdatera talare.
           update: Uppdatera
         index:
           conference_speakers_title: Talare
         new:
           create: Skapa
-          title: Ny talare.
         publish:
           success: Konferensens talare har publicerats.
         unpublish:
@@ -128,11 +124,9 @@ sv:
         destroy:
           success: Konferensadministratören har tagits bort.
         edit:
-          title: Uppdatera konferensadministratör.
           update: Uppdatera
         new:
           create: Skapa
-          title: Ny konferensadministratör.
         update:
           error: Det gick inte att uppdatera konferensadministratören.
           success: Konferensadministratören har uppdaterats.
@@ -161,38 +155,25 @@ sv:
       media_links:
         create:
           error: Det gick inte att skapa en ny medialänk.
-          success: Medialänk har skapats.
-        destroy:
-          success: Medialänken har raderats.
         edit:
-          title: Uppdatera medialänk.
           update: Uppdatera
-        index:
-          media_links_title: Medialänkar
         new:
           create: Skapa
-          title: Medialänk
         update:
           error: Det gick inte att uppdatera medialänken.
-          success: Medialänken har uppdaterats.
       menu:
         conferences: Konferenser
         conferences_submenu:
           attachment_collections: Mappar
           attachment_files: Filer
           attachments: Bilagor
-          categories: Kategorier
           components: Komponenter
           conference_admins: Konferensadministratörer
           conference_invites: Inbjudningar
           conference_speakers: Talare
-          diploma: Närvarointyg
-          media_links: Medialänkar
           moderations: Moderering
           partners: Partners
-          registration_types: Registreringstyper
           registrations: Registreringar
-          user_registrations: Användarregistreringar
       models:
         conference:
           fields:
@@ -221,7 +202,6 @@ sv:
             date: Datum
             link: Länk
             title: Titel
-          name: Medialänk
         partner:
           fields:
             link: Länk
@@ -238,7 +218,7 @@ sv:
             price: Pris
             registrations_count: Antal registreringar
             title: Titel
-            weight: Vikt
+            weight: Position i listan
           name: Registreringstyp
       partners:
         create:
@@ -247,7 +227,6 @@ sv:
         destroy:
           success: Konferenspartnern har tagits bort.
         edit:
-          title: Uppdatera partner.
           update: Uppdatera
         new:
           create: Skapa
@@ -269,7 +248,6 @@ sv:
         destroy:
           success: Registreringstypen har tagits från konferensen.
         edit:
-          title: Uppdatera registreringstyp.
           update: Uppdatera
         new:
           create: Skapa
@@ -355,7 +333,6 @@ sv:
         diplomas:
           edit:
             save: Spara
-            title: Närvarointyg
         invite_join_conference_mailer:
           invite:
             decline: Avböj inbjudan till '%{conference_title}'
@@ -374,7 +351,6 @@ sv:
             diploma_html: Närvarointyget för konferensen <a href="%{url}">%{title}</a> finns i bilagorna.
           diploma_user:
             attendance_verified_by: Närvaro bekräftad av
-            certificate_of_attendance: Närvarointyg
             certificate_of_attendance_description: Detta intygar att <strong>%{user}</strong> har deltagit och medverkat i <strong>%{title}</strong> som hölls på <strong>%{location}</strong> <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Det gick inte att skicka närvarointyg för konferensen.
@@ -414,7 +390,7 @@ sv:
         personal_website: Personlig hemsida
         show:
           more_info: mer information
-          speaking_at: Talar vid
+          speaking_at: Tid
       conference_speaker_cell:
         personal_url:
           personal_website: Personlig hemsida
@@ -467,7 +443,7 @@ sv:
         home:
           highlighted_conferences:
             active_spaces: Pågående konferenser
-            see_all_spaces: Se alla konferenser
+            see_all_spaces: Visa alla konferenser
       registration_types:
         index:
           choose_an_option: 'Välj registreringsalternativ:'
@@ -502,10 +478,10 @@ sv:
           email_subject: Konferensen "%{resource_title}" tar nu emot registreringar.
           notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> tar nu emot registreringar.
         role_assigned:
-          email_intro: Du har tilldelats som %{role} för konferens "%{resource_title}".
-          email_outro: Du har fått det här meddelandet eftersom du är %{role} av konferensen "%{resource_title}".
-          email_subject: Du har tilldelats som %{role} för "%{resource_title}".
-          notification_title: Du har tilldelats %{role} för konferens <a href="%{resource_url}">%{resource_title}</a>.
+          email_intro: Du har tilldelats rollen %{role} för konferensen "%{resource_title}".
+          email_outro: Du har fått det här meddelandet eftersom du är %{role} för konferensen "%{resource_title}".
+          email_subject: Du har tilldelats rollen %{role} för "%{resource_title}".
+          notification_title: Du har tilldelats rollen %{role} för konferensen <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'Konferensen "%{resource_title}" äger rum om två dagar. Läs mer på dess sida:'
           email_outro: Du har fått det här meddelandet eftersom du följer konferensen "%{resource_title}". Du kan sluta att följa den från föregående länk.

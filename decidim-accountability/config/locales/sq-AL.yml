@@ -36,7 +36,6 @@ sq:
         confirm_destroy: Je i sigurt që dëshiron ta fshish këtë %{name}?
         destroy: Fshij
         edit: Përpuno
-        import: Importo projekte nga një komponente tjetër
         import_csv: Importo rezultate nga CSV
         new_result: Rezultat i ri
         new_status: Status i ri
@@ -52,27 +51,6 @@ sq:
           new:
             download_export: Shkarko dhe eksporto në formatin CSV
             import: Importo
-            info: |
-              <p>Ju rekomandojmë t'i ndiqni këto hapa:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Krijo Statuset për Rezultatet</a> që doni t'i shtoni</li>
-              <li><a href='%{link_new_result}' target='_blank'>Krijo të paktën një Status manualisht</a>përmes panelit të Administrimit përpara se të bëni Import, që ta keni më të qartë se në çfarë formati dalin reyultatet.</li>
-              <li>%{link_export_csv}</li>
-              <li>Bëj ndryhimet lokalisht. Mund t'i ndryshosh këto kolona në CSV:
-                <ul>
-                <li><b>category/id:</b> ID për Kategorinë</li>
-                <li><b>scope/id:</b> ID për Fushëveprimin</li>
-                <li><b>parent/id:</b> "parent-ID" (për rezultatet e ngjashme). Opsionale</li>
-                <li><b>title/en:</b> Titulli në gjuhën angleze. Kjo do të varet nga gjuha e konfigurimit të platformës.</li>
-                <li><b>description/en:</b> Përshkrimi në gjuhën angleze. Kjo do të varet nga gjuha e konfigurimit të platformës.</li>
-                <li><b>start_date:</b> data e fillimit të ekzekutimit të rezultateve (format YYYY-MM-DD)</li>
-                <li><b>end_date:</b> data e mbarimit të ekzekutimit të rezultateve (format YYYY-MM-DD)</li>
-                <li><b>status/id:</b> ID e Statusit për këtë rezultat</li>
-                <li><b>progress:</b> Përqindja (nga 0 në 100) të ekzekutimit</li>
-                <li><b>proposals_ids:</b> "Internal ID" e propozimeve të ndërlidhura (të ndara me presje). Automatikisht konvertohet në <span class='attribute-name'>proposal_url</span></li>
-                </ul>
-              </li>
-              </ol>
             title: Importo rezultate nga CSV
         imports:
           create:
@@ -83,22 +61,6 @@ sq:
             name: Rezultati
           status:
             name: Statusi
-        projects_import:
-          create:
-            invalid: Ndodhi një problem gjatë importimit të projekteve në rezultate, ju lutem ndiqni udhëzimet me kujdes dhe kujdesuni që të zgjidhni projektet për implementim.
-          new:
-            create: Importo
-            import_all_selected_projects: Importo të gjitha projektet për implementim
-            new_items:
-              one: 1 projekt i seleksinuar do të importohet
-              other: "%{count} projekt i seleksionuar do të importohet"
-            no_components: Nuk ka komponente buxheti në këtë hapësirë të pjesëmarrjes për të shndërruar projekte në rezultate.
-            origin_component_id: Komponenti i origjinës
-            select_component: Zgjedh një komponent
-            success:
-              one: 1 projekt në rradhë për t'u importuar. Do të njoftohesh me email, kur të përfundojë.
-              other: "%{count} projekte në rradhë për t'u importuar. Do të njoftohesh me email, kur të përfundojnë."
-            title: Importo projekte nga një komponente tjetër
         results:
           create:
             invalid: Ndodhi një gabim gjatë krijimit të këtij rezultati.
@@ -240,8 +202,6 @@ sq:
             comments_max_length: Madhësia maks. e komenteve
             display_progress_enabled: Shfaq ecurinë
             intro: Hyrje
-            scope_id: Fushëveprimi
-            scopes_enabled: Fushveprimet e aktivizuara
           step:
             comments_blocked: Komentet të bllokuara
     events:

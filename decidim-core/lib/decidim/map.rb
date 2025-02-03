@@ -73,9 +73,6 @@ module Decidim
       @utility_modules ||= {}
       @utility_modules[category] = mod
 
-      # def self.dynamic(options)
-      #  utility(:dynamic, options)
-      # end
       define_singleton_method(category) do |options|
         utility(category, options)
       end

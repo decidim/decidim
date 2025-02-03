@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe DeliverNewsletter do
+  describe DeliverNewsletter, :with_inline_queue do
     describe "call" do
       let(:organization) { create(:organization) }
       let(:newsletter) do

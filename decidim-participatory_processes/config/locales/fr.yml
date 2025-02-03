@@ -22,16 +22,12 @@ fr:
         local_area: Espace d'organisation
         meta_scope: Échelle
         participatory_process_group_id: Groupe de processus
-        participatory_process_type_id: Type de processus
         participatory_scope: Objectifs
         participatory_structure: Modalités de décision
         private_space: Processus privé
         promoted: Mis en avant
         published_at: Publiée à
         related_process_ids: Concertations liées
-        scope_id: Périmètre d'application
-        scope_type_max_depth_id: Profondeur du filtre de portée
-        scopes_enabled: Secteurs activés
         short_description: Résumé
         slug: Identifiant
         start_date: Date de début
@@ -59,8 +55,6 @@ fr:
         end_date: Date de fin
         short_description: Résumé
         start_date: Date de début
-        title: Titre
-      participatory_process_type:
         title: Titre
       participatory_process_user_role:
         email: Email
@@ -102,7 +96,6 @@ fr:
         new_process: Nouvelle concertation
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape
-        new_process_type: Nouveau type de concertation
         new_process_user_role: Nouvel administrateur de la concertation
         preview: Aperçu
         publish: Publier
@@ -118,13 +111,11 @@ fr:
         participatory_process_groups_submenu:
           info: Information
           landing_page: Page d'accueil
-        participatory_process_types: Types de concertation
         participatory_processes: Concertations
         participatory_processes_submenu:
           attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Documents liés
-          categories: Catégories
           components: Fonctionnalités
           info: A propos de cette concertation
           landing_page: Page d'accueil
@@ -151,11 +142,6 @@ fr:
             start_date: Date de début
             title: Titre
           name: Étape de la concertation
-        participatory_process_type:
-          fields:
-            created_at: Crée le
-            title: Titre
-          name: Type de concertation
         participatory_process_user_role:
           fields:
             email: Email
@@ -238,21 +224,6 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette étape de la concertation.
           success: Étape de la concertation mise à jour avec succès.
-      participatory_process_types:
-        create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type de concertation.
-          success: Type de concertation créé avec succès.
-        destroy:
-          success: Type de concertation supprimé avec succès.
-        edit:
-          title: Modifier le type de concertation
-          update: Mettre à jour
-        new:
-          create: Créer
-          title: Nouveau type de concertation
-        update:
-          error: Une erreur s'est produite lors de la mise à jour de ce type de concertation.
-          success: Type de concertation mis à jour avec succès.
       participatory_process_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cette concertation.
@@ -297,6 +268,9 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau groupe de concertations.
           success: Groupe de concertations créé avec succès.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Tous les processus participatifs
       titles:
         participatory_process_groups: Groupes de concertations
         participatory_process_types: Types de concertation
@@ -319,6 +293,7 @@ fr:
         update: "%{user_name} a mis à jour la concertation %{resource_name}"
       participatory_process_group:
         create: "%{user_name} a créé le groupe de concertations %{resource_name}"
+        unpublish: "%{user_name} a dépublié le groupe de processus participatifs %{resource_name}"
         update: "%{user_name} a mis à jour le groupe de concertations %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} a activé l'étape %{resource_name} dans la concertation %{space_name}"
@@ -434,14 +409,9 @@ fr:
           form:
             announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
             duration: Durée
-            filters: Filtres
             images: Images
             metadata: Métadonnées
-            other: Autre
             related_processes: Concertations liées
-            scope_type_max_depth_help: Restreindre la profondeur du filtre de secteur; Le filtre s'affichera du secteur général au type de secteur sélectionné.
-            select_an_area: Sélectionnez un secteur
-            select_participatory_process_type: Sélectionnez un type de concertation
             select_process_group: Sélectionnez un groupe de concertations
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             taxonomies: Taxonomies

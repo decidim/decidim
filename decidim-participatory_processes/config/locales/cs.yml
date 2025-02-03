@@ -22,16 +22,12 @@ cs:
         local_area: Oblast působnosti organizace
         meta_scope: Metadata Oblasti působnosti
         participatory_process_group_id: Skupina procesů
-        participatory_process_type_id: Typ procesů
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
         private_space: Soukromý proces
         promoted: Propagováno
         published_at: Publikováno v
         related_process_ids: Související procesy
-        scope_id: Rozsah
-        scope_type_max_depth_id: Hloubka filtru rozsahu
-        scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis
         slug: URL slug
         start_date: Datum zahájení
@@ -60,8 +56,6 @@ cs:
         short_description: Stručný popis
         start_date: Datum zahájení
         title: Titul
-      participatory_process_type:
-        title: Název
       participatory_process_user_role:
         email: E-mailem
         name: Název
@@ -108,7 +102,6 @@ cs:
         new_process: Nový proces
         new_process_group: Nová skupina procesů
         new_process_step: Nový krok
-        new_process_type: Nový typ procesu
         new_process_user_role: Nový uživatel procesu
         preview: Náhled
         publish: Publikovat
@@ -124,13 +117,11 @@ cs:
         participatory_process_groups_submenu:
           info: Info
           landing_page: Úvodní stránka
-        participatory_process_types: Typy procesů
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Složky
           attachment_files: Soubory
           attachments: Přílohy
-          categories: Kategorie
           components: Komponenty
           info: O tomto procesu
           landing_page: Úvodní stránka
@@ -157,11 +148,6 @@ cs:
             start_date: Datum zahájení
             title: Titul
           name: Participační krok procesu
-        participatory_process_type:
-          fields:
-            created_at: Vytvořeno v
-            title: Název
-          name: Typ procesu
         participatory_process_user_role:
           fields:
             email: E-mailem
@@ -245,21 +231,6 @@ cs:
         update:
           error: Při aktualizaci tohoto kroku procesu participace došlo k chybě.
           success: Úspěšný krok procesu byl úspěšně aktualizován.
-      participatory_process_types:
-        create:
-          error: Při vytváření nového typu procesu došlo k chybě.
-          success: Typ procesu byl úspěšně vytvořen.
-        destroy:
-          success: Typ procesu byl úspěšně odstraněn.
-        edit:
-          title: Upravit typ procesu
-          update: Aktualizovat
-        new:
-          create: Vytvořit
-          title: Nový typ procesu
-        update:
-          error: Při aktualizaci tohoto typu procesu došlo k chybě.
-          success: Typ procesu byl úspěšně aktualizován.
       participatory_process_user_roles:
         create:
           error: Při přidávání uživatele pro tento participační proces došlo k chybě.
@@ -304,6 +275,9 @@ cs:
         create:
           error: Došlo k chybě při vytváření nové skupiny účastnických procesů.
           success: Skupina úspěšně vytvořená skupina účastníků.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Všechny participační procesy
       titles:
         participatory_process_groups: Skupiny účastnických procesů
         participatory_process_types: Typy participačních procesů
@@ -478,16 +452,11 @@ cs:
             announcement_help: Text, který zde zadáte, se uživateli zobrazí přímo pod informacemi o procesu.
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
-            filters: Filtry
             images: Obrázky
             metadata: Metadata
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
-            other: Ostatní
             private_notice: Po nastavení jako soukromé budete moci spravovat členy
             related_processes: Související procesy
-            scope_type_max_depth_help: Omezit hloubku filtru rozsahu. Filtr se zobrazí od obecného k vybranému typu rozsahu.
-            select_an_area: Vyberte oblast
-            select_participatory_process_type: Vyberte typ procesu
             select_process_group: Vyberte skupinu procesů
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
             taxonomies: Taxonomie

@@ -26,6 +26,13 @@ ca:
           request_invalid: Hi ha hagut un problema en gestionar la sol·licitud. Si us plau, torna-ho a provar.
   decidim:
     download_your_data:
+      help:
+        answers:
+          answer: La resposta a la pregunta
+          id: L'identificador únic de la resposta
+          question: La pregunta que es va respondre
+          questionnaire: L'enquesta que es va respondre
+          user: La usuària que va respondre l'enquesta
       show:
         answers: Exportar les respostes
         survey_user_answers: Respostes de les usuàries a l'enquesta
@@ -33,11 +40,22 @@ ca:
       admin:
         models:
           components:
+            allow_answers: Permetre respostes
+            allow_editing_answers: Permetre a les usuàries registrades editar les seves respostes a l'enquesta
+            allow_unregistered: Permet a usuàries no registrades contestar l'enquesta
+            allow_unregistered_help: Si està activat, no serà necessari iniciar sessió per a respondre l'enquesta. Això pot implicar una recollida de dades pobra o poc fiable i serà més vulnerable a atacs automatitzats. Fes-ho servir amb precaució! És important que una participant pugui respondre a la mateixa enquesta diverses vegades, fent servir diferents navegador o la funció de "navegació privada" del seu navegadro web.
+            announcement: Avís
+            clean_after_publish: Esborrar les respostes en publicar l'enquesta
             description: Descripció
+            ends_at: Respostes acceptades fins a
+            ends_at_help: Deixar en blanc si no hi ha cap data específica
+            starts_at: Respostes acceptades des de
+            starts_at_help: Deixar en blanc si no hi ha cap data específica
             tos: Termes del servei
         questionnaires:
           actions:
             back: Tornar a les preguntes
+            publish_answers: Publica respostes
             show: Mostrar les respostes
           answer_option:
             answer_option: Opció de resposta
@@ -82,16 +100,18 @@ ca:
           edit:
             save: Desa
             title: Editar el qüestionari
-          form:
-            add_question: Afegeix una pregunta
+          edit_questions:
+            add_question: Afegir pregunta
             add_separator: Afegir separador
             add_title_and_description: Afegir títol i descripció
-            already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè ja ha estat contestat per algunes participants.
+            save: Desar
+            title: Preguntes
+          form:
+            add_question: Afegeix una pregunta
             collapse: Redueix totes les preguntes
             expand: Expandeix totes les preguntes
             preview: Previsualitzar
             title: Editar formulari per %{questionnaire_for}
-            unpublished_warning: El formulari no està publicat. Pots modificar les preguntes, però al fer-ho s'esborraran les respostes actuals.
           matrix_row:
             matrix_row: Fila
             remove: Elimina
@@ -110,6 +130,12 @@ ca:
             remove: Eliminar
             statement: Declaració
             up: Amunt
+          questions_form:
+            already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè algunes participants ja han respost el formulari.
+            collapse: Replega totes les preguntes
+            expand: Desplega totes les preguntes
+            update:
+              success: Pregunta/es afegida/es correctament a l'enquesta.
           separator:
             down: Baixar
             remove: Eliminar
@@ -128,6 +154,9 @@ ca:
             invalid: S'ha produït un error en desar el formulari.
             success: Formulari desat correctament.
       admin_log:
+        question:
+          publish_answers: "%{user_name} va publicar respostes a les preguntes de l'enquesta %{resource_name} a l'espai de participació %{space_name}"
+          unpublish_answers: "%{user_name} va despublicar respostes a les preguntes de l'enquesta %{resource_name} a l'espai de participació %{space_name}"
         questionnaire:
           update: "%{user_name} ha actualitzat el qüestionari %{resource_name}"
       errors:
@@ -170,6 +199,9 @@ ca:
           questionnaire_answered:
             body: Ja has respost a aquest formulari.
             title: Ja has respost
+          questionnaire_answered_edit:
+            body: 'Ja has respost a aquest formulari: %{link}'
+            edit: Edita les respostes
           questionnaire_closed:
             body: El formulari està tancat i no es pot respondre.
             title: S'ha tancat el formulari
@@ -184,9 +216,12 @@ ca:
           tos_agreement: En participar acceptes els Termes i condicions d'ús
       step_navigation:
         show:
-          are_you_sure: Aquesta acció no es pot desfer i no podràs editar les teves respostes. Segur?
+          are_you_sure_edit: Podràs editar les teves respostes. Segur que vols continuar?
+          are_you_sure_edit_guest: Si vols poder editar les teves respostes més tard, cal que iniciïs la teva sessió o que creïs un compte.
+          are_you_sure_no_edit: Aquesta acció no es pot desfer i no podràs editar les respostes. Segur que vols continuar?
           back: Enrere
           continue: Continuar
+          disallowed: No pots editar les teves respostes.
           submit: Enviar respostes
       user_answers_serializer:
         body: Resposta

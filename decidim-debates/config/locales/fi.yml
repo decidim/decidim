@@ -22,6 +22,10 @@ fi:
         one: Keskustelu
         other: Keskustelut
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Keskustelut
     components:
       debates:
         actions:
@@ -38,8 +42,6 @@ fi:
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
-            scope_id: Teema
-            scopes_enabled: Teemat käytössä
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
           step:
@@ -70,12 +72,18 @@ fi:
             title: Muokkaa keskustelua
             update: Päivitä keskustelu
           form:
-            add_documents: Lisää asiakirjoja
-            attachment_legend: "(Valinnainen) Lisää liitetiedosto"
+            add_attachments: Lisää liitteitä
+            attachment_legend: Lisää asiakirja tai kuva
+            comments_visualization: Kommenttien visualisointi
+            comments_warning: Ensimmäisen kommentin jälkeen kommenttien esitysmuotoasetusta ei voi muuttaa.
             debate_type: Keskustelun tyyppi
-            edit_documents: Muokkaa asiakirjoja
+            edit_attachments: Muokkaa liitteitä
+            errors:
+              comments_layout_locked: Et voi muuttaa kommenttien esitysmuotoa sen jälkeen, kun kommentteja on laadittu.
             finite: Määräaikainen (keskustelulla on alku- ja loppuaika)
             open: Avoin (keskustelulla ei ole alku- ja loppuaikaa)
+            single_column: 'Yksi sarake: kommentit näytetään yhdessä sarakkeessa kronologisessa järjestyksessä ja niihin voi vastata.'
+            two_columns: 'Kaksi saraketta: kommentit näytetään kahdessa sarakkeessa "puolesta" ja "vastaan", eikä kommentteihin voi vastata.'
           index:
             title: Keskustelut
           manage_trash:
@@ -194,7 +202,7 @@ fi:
           user_followers:
             email_intro: |-
               Hei,
-              %{author_name} %{author_nickname}, jota seuraat, on luonut uuden keskustelun "%{resource_title}". Tutustu siihen ja osallistu:
+              %{author_name} %{author_nickname}, jota seuraat, on laatinut uuden keskustelun "%{resource_title}". Tutustu siihen ja osallistu:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Uusi keskustelu "%{resource_title}" käyttäjältä %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> loi keskustelun <a href="%{resource_path}">%{resource_title}</a>.
@@ -242,11 +250,11 @@ fi:
           alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
           author: Kommentin laatijan nimi
           body: Kommentin teksti
-          commentable_id: Kommentoitavan asian yksilöllinen tunniste
+          commentable_id: Kommentoitavan asian yksilöivä tunniste
           commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
           created_at: Kommentin laatimisaika
           depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
-          id: Kommentin yksilöllinen tunniste
+          id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
           user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
@@ -262,13 +270,13 @@ fi:
           end_time: Keskustelun päättymisaika, mikäli kyseessä on aikamääreeltään rajattu keskustelu
           endorsements_count: Keskustelun suositusten ("tykkäykset") lukumäärä
           follows_count: Keskustelun seuraajien lukumäärä
-          id: Keskustelun yksilöllinen tunniste
+          id: Keskustelun yksilöivä tunniste
           information_updates: Muutokset, joita keskustelun laatija on tehnyt keskusteluun
           instructions: Keskustelun osallistumisohjeet
           last_comment_at: Keskustelun viimeisimmän kommentin ajankohta
           last_comment_by: Keskustelun viimeisimmän kommentin laatimisaika
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä keskustelu kuuluu
-          reference: Keskustelun yksilöllinen tunniste tällä alustalla
+          reference: Keskustelun yksilöivä tunniste tällä alustalla
           start_time: Keskustelun alkamisaika, mikäli kyseessä on aikamääreeltään rajattu keskustelu
           taxonomies: Projektin luokittelut
           title: Keskustelun otsikko

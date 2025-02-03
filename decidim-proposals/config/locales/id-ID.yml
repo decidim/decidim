@@ -169,7 +169,7 @@ id:
         title: Proposal
     participatory_spaces:
       highlighted_proposals:
-        see_all: Lihat semua (%{count})
+        see_all: Lihat semua
     proposals:
       actions:
         edit_proposal: Edit proposal
@@ -226,7 +226,6 @@ id:
             title: Perbarui proposal
             update: Memperbarui
           form:
-            attachment_legend: "(Opsional) Tambahkan lampiran"
             created_in_meeting: Proposal ini berasal dari rapat
             select_a_meeting: Pilih rapat
           index:
@@ -303,7 +302,6 @@ id:
         create:
           success: Draf kolaboratif berhasil dibuat.
         edit:
-          attachment_legend: "(Opsional) Tambahkan lampiran"
           back: Kembali
           send: Kirim
           title: Edit draf kolaboratif
@@ -388,7 +386,6 @@ id:
           comment: Komentar
       proposals:
         edit:
-          attachment_legend: "(Opsional) Tambahkan lampiran"
           back: Kembali
           send: Kirim
           title: Edit proposal
@@ -434,6 +431,8 @@ id:
         voting_rules:
           proposal_limit:
             description: Anda dapat membuat hingga %{limit} proposal.
+          vote_limit:
+            description: Anda dapat memilih hingga %{limit} proposal.
         wizard_aside:
           back: Kembali
         wizard_steps:

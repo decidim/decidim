@@ -131,8 +131,6 @@ el:
             maps_enabled: Χάρτες ενεργοποιημένοι
             registration_code_enabled: Ενεργοποιήθηκε ο κωδικός εγγραφής
             resources_permissions_enabled: Μπορούν να οριστούν δικαιώματα ενεργειών για κάθε σύσκεψη
-            scope_id: Πεδίο εφαρμογής
-            scopes_enabled: Ενεργοποιημένα πεδία εφαρμογής
             terms_and_conditions_url_for_meeting_creators: URL Όρων και Προϋποθέσεων για τους δημιουργούς της συνάντησης
           step:
             announcement: Ανακοίνωση

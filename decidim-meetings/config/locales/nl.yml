@@ -101,8 +101,6 @@ nl:
             maps_enabled: Kaarten ingeschakeld
             registration_code_enabled: Inschrijvingsformulier ingeschakeld
             resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
-            scope_id: Scope
-            scopes_enabled: Scopes ingeschakeld
             terms_and_conditions_url_for_meeting_creators: Algemene voorwaarden URL voor de makers van de vergadering
           step:
             announcement: Aankondiging

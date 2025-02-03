@@ -12,25 +12,20 @@ eu:
         one: Erantzuna
         other: Erantzunak
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: inkestak
     components:
       surveys:
         actions:
           answer: Erantzuna
-        name: Inkesta
+        name: Inkestak
         settings:
+          announcement: Oharra
           global:
             announcement: Oharra
-            clean_after_publish: Ezabatu erantzuna galdetegia argitaratzean
-            ends_at: Erantzunak noiz arte onartuko
-            ends_at_help: Utzi zuriz data zehatzik ez badago
-            scope_id: Esparrua
-            scopes_enabled: Esparru gaituak
-            starts_at: Honen erantzunak onartuak
-            starts_at_help: Utzi zuriz data zehatzik ez badago
           step:
-            allow_answers: Baimendu erantzunak
-            allow_unregistered: Baimendu erregistratu gabe dauden erabiltzaileei galdetegia erantzutea
-            allow_unregistered_help: Aktibatuta badago ez da beharrezkoa saioa hastea inkesta erantzuteko. Honen ondorioz datu eskas edo fidagarritasun gutxikoak bildu litezke. Kontuz erabili! Izan ere, parte-hartzaile berak hainbat aldiz erantzun litzake nabigatzaile desberdinetatik edo nabigazio pribatuaren aukera erabiliz.
             announcement: Oharra
     events:
       surveys:
@@ -47,23 +42,83 @@ eu:
     metrics:
       survey_answers:
         description: Parte-hartzaileek erantzundako inkesta kopurua
-        object: inkesten erantzunak
+        object: inkestei erantzunak
         title: Inkestei erantzunak
     statistics:
       answers_count: Erantzunak
     surveys:
+      actions:
+        answers_alert: Erantzunak ezabatzea argitalpenean aktibatuta dago inkesta honetarako. Une honetan, erantzunen % {responers_count} suntsitu egingo dira, jarraitzen baduzu.
+        confirm_destroy: Ziur zaude hau ezabatu nahi duzula?
+        destroy: Suntsitu
+        edit: Editatu
+        manage_questions: Kudeatu galderak
+        new_survey: Beste inkesta bat
+        preview: Aurreikusi
+        title: Ekintzak
       admin:
-        component:
-          actions:
-            answers_alert: Osagaia argitaratuz gero, emaitza guztiak kenduko dira.
+        answers:
+          index:
+            title: "Guztira %{guztira} erantzun"
+          show:
+            title: '#%{number} erantzun'
         exports:
           survey_user_answers: Inkestako parte-hartzaileen erantzunak
+        publish_answers:
+          index:
+            answers:
+              one: "%{count} erantzun"
+              other: "%{count} erantzun"
+            description: |-
+              Galderen erantzunak argitaratzean, jendaurrean ikusgai jarriko dituzu.
+              Argitaratu nahi dituzun erantzunak hauta ditzakezu galdera bakoitzaren ondoan dagoen laukitxoan klik eginez.
+              Galdera mota hauek baino ezin dira argitaratu: "Aukera bakarra", "Aukera anitza", "Matrizea (aukera bakarra)", "Matrizea (aukera anitza)" eta "Sailkapena".
+            status:
+              not_published: Argitaratu gabe
+              published: Argitaratua
+            title: Argitaratu erantzunak
         surveys:
+          create:
+            invalid: Arazo bat egon da inkesta sortzean.
+            success: Inkesta zuzen sortua.
+          destroy:
+            success: Inkesta behar bezala ezabatua.
+          edit:
+            title: Editatu inkesta
+          index:
+            title: Inkestak
+          publish:
+            invalid: Arazo bat egon da inkesta hau argitaratzean.
+            success: Inkesta zuzen argitaratua.
+          unpublish:
+            invalid: Arazo bat egon da inkesta hau despublikatzean.
+            success: Inkesta zuzen despublikatua.
           update:
             invalid: Arazo bat egon da inkesta gordetzean.
             success: Inkesta ondo gorde da.
+      admin_log:
+        survey:
+          create: "%{user_name} parte-hartzaileak sortu du %{resource_name} inkesta %{space_name} esparruan inkesta gisa"
+          delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} inkesta %{space_name} esparruan inkesta gisa"
+          publish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} inkesta %{space_name} espazioan"
+          unpublish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} inkesta %{space_name} espazioan"
+          update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} inkesta %{space_name} espazioan"
+      directory:
+        surveys:
+          index:
+            surveys: Inkestak
       last_activity:
         new_survey: 'Beste inkesta bat:'
+      models:
+        survey:
+          fields:
+            answers: Erantzunak
+            questions: Galderak
+            status: Egoera
+            title: Izenburua
+          status:
+            closed: Itxita
+            open: Zabaldu
       survey_confirmation_mailer:
         confirmation:
           body: Zuzen erantzun duzu %{participatory_space} espazioko %{questionnaire_title} inkesta
@@ -71,6 +126,20 @@ eu:
         export_name: Inkestaren erantzunak
       surveys:
         answer:
-          invalid: Arazo bat egon da inkesta erantzutean.
+          invalid: Inkesta erantzutean errorea gertatu da.
           spam_detected: Arazo bat izan da galdetegia erantzutean. Agian azkarregi joan zara, berriro egin dezakezu?
           success: Inkesta ondo bete da.
+        count:
+          surveys_count:
+            one: "%{count} inkesta"
+            other: "%{count} inkesta"
+        filters:
+          all: Guztiak
+          state_values:
+            closed: Itxita
+            open: Zabaldu
+        no_surveys_warning: Ez dago zure bilatzeko irizpidearekin bat datorren inkestarik edo ez dago inkestarik irekita.
+        show:
+          closed: Itxita
+          open: Zabaldu
+          questions: galderak

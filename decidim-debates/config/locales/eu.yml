@@ -22,6 +22,10 @@ eu:
         one: Eztabaida
         other: Eztabaidak
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Eztabaidak
     components:
       debates:
         actions:
@@ -38,8 +42,6 @@ eu:
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
-            scope_id: Esparrua
-            scopes_enabled: Esparruak gaituta
             taxonomy_filters: Hautatu iragazkiak osagairako
             taxonomy_filters_add: Erantsi iragazkia
           step:
@@ -70,12 +72,18 @@ eu:
             title: Editatu eztabaida
             update: Eguneratu eztabaida
           form:
-            add_documents: Gehitu dokumentuak
-            attachment_legend: "(Aukerakoa) Gehitu fitxategi bat"
+            add_attachments: Gehitu eranskinak
+            attachment_legend: Gehitu dokumentu bat edo irudi bat
+            comments_visualization: Iruzkinak bistaratzea
+            comments_warning: Lehen iruzkina argitaratu ondoren, ezin da aldatu aukeratutako bistaratze-aukera.
             debate_type: Eztabaida mota
-            edit_documents: Editatu dokumentuak
+            edit_attachments: Editatu eranskinak
+            errors:
+              comments_layout_locked: Iruzkinen planoa ezin da aldatu iruzkinak argitaratu ondoren.
             finite: Amaiera (hasiera- eta amaiera-ordua)
             open: Zabalik (ez dago hasiera- edo amaiera-ordurik)
+            single_column: 'Zutabe bakarra: iruzkinak hurrenkera kronologikoan agertzen dira eta erantzunak izan ditzakete.'
+            two_columns: 'Bi zutabe: iruzkinak "Alde" eta "Kontra" zutabeetan agertzen dira eta ezin dute erantzunik izan.'
           index:
             title: eztabaidak
           manage_trash:
@@ -91,11 +99,11 @@ eu:
           debates: Eztabaidak
       admin_log:
         debate:
-          close: "%{user_name} erabiltzaileak %{resource_name} eztabaida sortu du %{space_name} esparruan"
-          create: "%{user_name} k %{resource_name} eztabaida sortu du %{space_name} espazioan"
-          restore: "%{user_name} k berreskuratu du %{resource_name} eztabaida %{space_name} espazioan"
-          soft_delete: "%{user_name} k eraman du %{space_name} espazioko %{resource_name} eztabaida zaborrontzira"
-          update: "%{user_name} k %{resource_name} eztabaida eguneratu du %{space_name} espazioan"
+          close: "%{user_name} parte-hartzaileak %{resource_name} eztabaida sortu du %{space_name} espazioan"
+          create: "%{user_name} parte-hartzaileak %{resource_name} eztabaida sortu du %{space_name} espazioan"
+          restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} eztabaida %{space_name} espazioan"
+          soft_delete: "%{user_name} parte-hartzaileak eraman du %{space_name} espazioko %{resource_name} eztabaida zaborrontzira"
+          update: "%{user_name} parte-hartzaileak %{resource_name} eztabaida eguneratu du %{space_name} espazioan"
       content_blocks:
         highlighted_debates:
           name: Eztabaidak
@@ -155,7 +163,7 @@ eu:
         show:
           close_debate: Itxi
           debate_closed: Itxita
-          debate_conclusions_are: 'Eztabaida %{date} egunean itxi zen ondorio hauekin:'
+          debate_conclusions_are: 'Eztabaida %{date} espazioan itxi da ondorio hauekin:'
           edit_conclusions: Editatu ondorioak
           edit_debate: Editatu
           groups_count: Taldeak
@@ -166,7 +174,7 @@ eu:
           success: Eztabaida zuzen eguneratu da.
       last_activity:
         debate_updated: 'Eztabaida eguneratu da:'
-        new_debate: 'Beste eztabaida bat:'
+        new_debate: 'Eztabaida berria:'
       models:
         debate:
           fields:
@@ -201,10 +209,10 @@ eu:
         creation_disabled:
           email_intro: 'Eztabaida sortzea dagoeneko ez dago aktibo %{participatory_space_title}. Oraindik irekita dauden eztabaidetan parte har dezakezu orri honetatik:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
-          email_subject: Debate sortzea desgaituta %{participatory_space_title}
+          email_subject: Eztabaida sortzea desgaituta %{participatory_space_title}
           notification_title: Eztabaiden sorrera orain desaktibatuta dago <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Oraineztabaida berriak hasi ditzakezu hemen: %{participatory_space_title}! Hasi parte-hartzea orri honetan:'
+          email_intro: 'Orain eztabaida berriak hasi ditzakezu hemen: %{participatory_space_title}! Hasi parte-hartzea orri honetan:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
           email_subject: 'Eztabaidak orain eskuragarri hemen: %{participatory_space_title}'
           notification_title: 'Orain <a href="%{resource_path}">eztabaida berriak hasi ditzakezu hemen: </a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
@@ -229,7 +237,7 @@ eu:
           description_own: '%{score} eztabaidatan hartu duzu parte.'
           name: Eztabaidak
           next_level_in: Parte hartu %{score} eztabaidagai gehiago hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek eztabaida batean parte hartu du oraindik.
+          unearned_another: Parte-hartzaile honek eztabaida batean parte hartu du oraindik.
           unearned_own: Oraindik ez duzu parte hartu eztabaida batean ere.
     metrics:
       debates:
@@ -249,7 +257,7 @@ eu:
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
-          user_group: Iruzkin hau egin duen erabiltzaile-taldearen izena (baldin badago)
+          user_group: Iruzkin hau egin duen partaide-taldearen izena (baldin badago)
         debates:
           author: Eztabaida honen egilearen data
           closed_at: Zein datatan itxi zen eztabaida hau

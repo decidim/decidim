@@ -119,7 +119,7 @@ sv:
           introduction: 'Den här sidan innehåller resultaten från tilldelningen %{reference}. Med hjälp av tilldelningen har %{target_items} resultat valts ut slumpmässigt och med lika stor sannolikhet från listan med förslag nedan. Tillsammans med resultaten, innehåller informationen på denna sida allt som krävs för att garantera och återskapa resultaten. Nyckeln till kvalitén på tilldelningen är den dubblerade slumpmässigheten från ett bevittnat tärningskast samt den exakta tiden för tilldelningen, som matas in i en algoritm som genererar det slumpmässiga urvalet. Tidsfröet för tilldelningen är så exakt (sekunder) att den är omöjlig att styras av människor, vilket ger en dubblerad "okontrollerad" indata, i syfte att att garantera ett rättvist resultat.  '
           mathematical_result: Resultat (tärning x dragning)
           proposals_selected_by_sortition: Förslag valda genom tilldelning
-          sortition_reproducibility_details: Detaljer för tilldelningens reproducerbarhet
+          sortition_reproducibility_details: Detaljer för att reproducera lottningens resultat
           time_seed: (2) Tidsfrö
           witnesses: Vittnen
         sortition:
@@ -136,4 +136,4 @@ sv:
             one: 1 tilldelning
             other: "%{count} tilldelningar"
     statistics:
-      sortitions_count: Lottdragningar
+      sortitions_count: Lottningar

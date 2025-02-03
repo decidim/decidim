@@ -21,8 +21,6 @@ ca:
         published_at: Publicat a
         registration_terms: Condicions d'inscripció
         registrations_enabled: Inscripcions habilitades
-        scope_id: Àmbit
-        scopes_enabled: Àmbits habilitats
         short_description: Breu descripció
         show_statistics: Mostrar estadístiques
         sign_date: Data de signatura
@@ -68,6 +66,8 @@ ca:
         email: Correu electrònic
         name: Nom
         role: Rol
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
@@ -121,13 +121,11 @@ ca:
         destroy:
           success: Ponent de la jornada eliminada correctament.
         edit:
-          title: Actualitzar la ponència de la jornada.
           update: Actualitzar
         index:
           conference_speakers_title: Ponents de les conferències
         new:
           create: Crear
-          title: Nova ponent de la jornada.
         publish:
           invalid: S'ha produït un error en publicar aquesta ponent.
           success: Ponent de la jornada actualitzada correctament.
@@ -144,13 +142,11 @@ ca:
         destroy:
           success: Administradora de la jornada eliminada correctament.
         edit:
-          title: Actualitzar administradora de la jornada.
           update: Actualitzar
         index:
           conference_admins_title: Administradores de la jornada
         new:
           create: Crear
-          title: Nova administradora de jornada.
         update:
           error: S'ha produït un error en actualitzar l'administradora per a aquesta jornada.
           success: Administradora de la jornada actualitzada correctament.
@@ -182,40 +178,28 @@ ca:
       media_links:
         create:
           error: S'ha produït un error en crear un nou enllaç multimèdia.
-          success: Enllaç multimèdia creat correctament.
-        destroy:
-          success: S'ha eliminat correctament l'enllaç multimèdia.
         edit:
-          title: Actualitzar l'enllaç multimèdia.
           update: Actualitzar
-        index:
-          media_links_title: Enllaços multimèdia
         new:
           create: Crear
-          title: Enllaç multimèdia
+          title: Crear enllaç multimèdia
         update:
           error: S'ha produït un error en actualitzar aquest enllaç multimèdia.
-          success: Enllaç multimèdia actualitzat correctament.
       menu:
         conferences: Jornades
         conferences_submenu:
           attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Adjunts
-          categories: Categories
           components: Components
           conference_admins: Administradors de conferències
           conference_invites: Convida
           conference_speakers: Ponents
-          diploma: Certificat d'assistència
           info: Quant a aquesta jornada
-          media_links: Enllaços multimedia
           moderations: Moderacions
           partners: Col·laboradores
-          registration_types: Tipus d'inscripcions
           registrations: Inscripcions
           see_conference: Veure la jornada
-          user_registrations: Inscripcions de participants
       models:
         conference:
           fields:
@@ -244,7 +228,6 @@ ca:
             date: Data
             link: Enllaç
             title: Títol
-          name: Enllaç multimedia
         partner:
           fields:
             link: Enllaç
@@ -270,7 +253,6 @@ ca:
         destroy:
           success: Col·laboradora de la jornada eliminada correctament.
         edit:
-          title: Actualitzar col·laboradora.
           update: Actualitzar
         new:
           create: Crear
@@ -292,7 +274,6 @@ ca:
         destroy:
           success: El tipus d'inscripció s'ha eliminat correctament d'aquesta jornada.
         edit:
-          title: Actualitzar el tipus de registre.
           update: Actualitzar
         new:
           create: Crear
@@ -300,6 +281,9 @@ ca:
         update:
           error: S'ha produït un error en actualitzar un tipus d'inscripció per a aquesta jornada.
           success: El tipus d'inscripció s'ha actualitzat correctament per a aquesta jornada.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Totes les jornades
       titles:
         conferences: Jornades
         conferences_deleted: Jornades eliminades
@@ -395,7 +379,6 @@ ca:
         diplomas:
           edit:
             save: Desa
-            title: Certificat d'assistència
         invite_join_conference_mailer:
           invite:
             decline: Rebutjar la invitació a '%{conference_title}'
@@ -415,7 +398,6 @@ ca:
             diploma_html: Trobaràs el certificat d'assistència a la jornada <a href="%{url}">%{title}</a> als adjunts.
           diploma_user:
             attendance_verified_by: Assistència verificada per
-            certificate_of_attendance: Certificat d'assistència
             certificate_of_attendance_description: Aquest document certifica que <strong>%{user}</strong> ha assistit i ha participat a <strong>%{title}</strong> celebrada a <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
         send_diploma:
           error: S'ha produït un error en enviar els certificats d'assistència a la jornada.
@@ -537,6 +519,25 @@ ca:
         objectives: Objectius
         related_assemblies: Assemblees relacionades
         related_participatory_processes: Processos participatius relacionats
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: La data en què la invitació a la jornada es va acceptar
+          conference: La jornada a la qual correspon aquesta invitació
+          confirmed_at: La data en què es va confirmar la invitació
+          created_at: La data en què va ser crear la invitació
+          id: L'identificador únic de la invitació a la jornada
+          registration_type: El tipus d'inscripció enviada per a aquesta jornada
+          rejected_at: La data en què la invitació a la jornada va ser rebutjada
+          sent_at: La data en què la invitació a la jornada es va enviar
+          updated_at: La data en què aquesta taxonomia es va actualitzar per darrera vegada
+        conference_registrations:
+          conference: La jornada a la qual pertany aquesta inscripció
+          confirmed_at: La data en què es va confirmar la inscripció
+          created_at: La data en què va ser crear la inscripció
+          id: L'identificador únic de la inscripció a la jornada
+          registration_type: El tipus d'inscripció habilitat para aquesta jornada
+          updated_at: La data en què aquesta inscripció es va actualitzar per darrera vegada
     events:
       conferences:
         conference_registration_confirmed:

@@ -80,14 +80,10 @@ ja:
             title: アンケートを編集
           form:
             add_question: 質問を追加
-            add_separator: 区切り文字を追加
-            add_title_and_description: タイトルと説明を追加
-            already_answered_warning: このフォームはすでに一部のユーザーによって回答されているため、質問を修正することはできません。
             collapse: すべての質問を閉じる
             expand: すべての質問を展開
             preview: プレビュー
             title: '%{questionnaire_for} のフォームを編集'
-            unpublished_warning: フォームは公開されていません。質問を修正することはできますが、そうすると現在の回答が削除されます。
           matrix_row:
             matrix_row: 行
             remove: 削除
@@ -180,7 +176,6 @@ ja:
           tos_agreement: 参加することにより、利用規約に同意します。
       step_navigation:
         show:
-          are_you_sure: この操作は元に戻すことができず、回答を編集することはできません。よろしいですか？
           back: 戻る
           continue: 続ける
           submit: 送信

@@ -3,10 +3,20 @@ de:
     attributes:
       account:
         delete_reason: Grund, Ihr Konto zu löschen
+      attachment:
+        documents: Dokumente
+        photos: Fotos
       common:
         created_at: Erstellt am
+      component:
+        taxonomy_filters: Klassifizierungsfilter
+      content_block_attachment:
+        background_image: Hintergrundbild
+        main_image: Hauptbild
       conversation:
         body: Haupttext
+      editor_image:
+        file: Datei
       group:
         about: Über
         avatar: Profilbild
@@ -15,14 +25,22 @@ de:
         name: Name
         nickname: Spitzname
         phone: Telefonnummer
+      import:
+        file: Datei
       message:
         body: Haupttext
       report:
         details: Zusätzliche Kommentare
       taxonomy:
         name: Name der Klassifizierung
+      taxonomy_filter:
+        internal_name: Interne Bezeichnung
+        name: Bezeichnung
+        root_taxonomy_id: Aus der Klassifizierung
+        space_filter: Als Filter verfügbar für
       user:
         about: Über
+        avatar: Profilbild
         email: Ihre E-Mail
         encrypted_password: Passwort
         locale: Spracheinstellung
@@ -34,6 +52,8 @@ de:
         personal_url: Persönliche URL
         remove_avatar: Avatar entfernen
         tos_agreement: Nutzungsvereinbarung
+      user_group:
+        avatar: Profilbild
     models:
       decidim/attachment_created_event: Anhang
       decidim/component_published_event: Aktive Komponente
@@ -195,7 +215,7 @@ de:
         cancel: Abbrechen
       password_change:
         alert: Sie müssen Ihr Passwort ändern, um fortzufahren.
-        notification: Administratoren müssen ihr Passwort alle %{days} Tage ändern.
+        notification: Admins müssen ihr Passwort alle %{days} Tage ändern.
     admin_log:
       area:
         create: "%{user_name} hat den Bereich %{resource_name} erstellt"
@@ -222,6 +242,8 @@ de:
         delete: "%{user_name} hat die Komponente %{resource_name} aus %{space_name} entfernt"
         export_component: "%{user_name} hat %{resource_name} %{component_name} in %{space_name} als %{format_name} exportiert"
         publish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} veröffentlicht"
+        restore: "%{user_name} hat die %{resource_name}-Komponente im %{space_name}-Bereich wiederhergestellt"
+        soft_delete: "%{user_name} hat die %{resource_name}-Komponente im %{space_name}-Bereich in den Papierkorb verschoben"
         unpublish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} auf \"unveröffentlicht\" gesetzt"
         update_permissions_with_space: "%{user_name} hat die Berechtigungen für %{resource_name} in %{space_name} aktualisiert"
       contextual_help_section:
@@ -234,6 +256,9 @@ de:
       impersonation_log:
         manage: "%{user_name} hat %{resource_name} verwaltet, weil %{reason}"
       moderation:
+        bulk_hide: "%{user_name} hat %{reported_count} Ressourcen verborgen"
+        bulk_unhide: "%{user_name} hat %{reported_count} Ressourcen wieder sichtbar gemacht"
+        bulk_unreport: "%{user_name} hat %{reported_count} Ressourcen nicht mehr als gemeldet markiert"
         hide: "%{user_name} hat eine Ressource vom Typ %{resource_type} in %{space_name} versteckt"
         unreport: "%{user_name} hat die Meldung einer Ressource vom Typ %{resource_type} in %{space_name} aufgehoben"
       newsletter:
@@ -282,14 +307,17 @@ de:
         update: "%{user_name} hat die Klassifizierung %{resource_name} aktualisiert"
         update_with_parent: "%{user_name} hat die Klassifizierung %{resource_name} innerhalb der Klassifizierung %{parent_taxonomy} aktualisiert"
       taxonomy_filter:
-        create: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} erstellt"
-        create_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} erstellt"
-        delete: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} gelöscht"
-        delete_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} gelöscht"
-        update: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} aktualisiert"
-        update_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} aktualisiert"
+        create: "%{user_name} hat den Filter %{resource_name} erstellt"
+        create_with_filter_info: '%{user_name} hat den Filter %{resource_name} basierend auf der Klassifizierung "%{taxonomy_name}" mit %{filter_items_count} Elementen erstellt'
+        delete: "%{user_name} hat den Filter %{resource_name} gelöscht"
+        delete_with_filter_info: '%{user_name} hat den Filter %{resource_name} basierend auf der Klassifizierung "%{taxonomy_name}" mit %{filter_items_count} Elementen gelöscht'
+        update: "%{user_name} hat den Filter %{resource_name} aktualisiert"
+        update_with_filter_info: '%{user_name} hat den Filter %{resource_name} basierend auf der Klassifizierung "%{taxonomy_name}" mit %{filter_items_count} Elementen aktualisiert'
       user:
         block: "%{user_name} hat %{resource_name} blockiert"
+        bulk_block: "%{user_name} hat %{blocked_count} Benutzer blockiert"
+        bulk_ignore: "%{user_name} hat %{unreported_users_count} Benutzer nicht mehr als gemeldet markiert"
+        bulk_unblock: "%{user_name} hat die Blockierung von %{unblocked_count} aufgehoben"
         invite: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} eingeladen"
         officialize: "%{user_name} den Benutzer %{resource_name} offiziell anerkannt"
         promote: "%{user_name} hat %{resource_name} befördert"
@@ -300,6 +328,9 @@ de:
         unofficialize: "%{user_name} hat die offizielle Anerkennung des Benutzers %{resource_name} widerrufen"
       user_group:
         block: "%{user_name} hat die Gruppe %{resource_name} blockiert"
+        bulk_block: "%{user_name} hat %{blocked_count} Benutzer blockiert"
+        bulk_ignore: "%{user_name} hat %{unreported_users_count} Benutzer nicht mehr als gemeldet markiert"
+        bulk_unblock: "%{user_name} hat die Blockierung von %{unblocked_count} aufgehoben"
         reject: "%{user_name} hat die Gruppen-Verifikation %{resource_name} abgelehnt"
         unblock: "%{user_name} hat die Blockierung der Gruppe %{resource_name} aufgehoben"
         verify: "%{user_name} hat die Gruppe %{resource_name} verifiziert"
@@ -420,13 +451,19 @@ de:
         explanation: Lassen Sie sich verifizieren, indem Sie eine Dokumentennummer eingeben, die mit "X" endet.
         fields:
           allowed_postal_codes: Erlaubte Postleitzahlen (durch Komma getrennt)
-          allowed_scope_id: Erlaubter Umfang
           document_number: Dokumentnummer
           postal_code: Postleitzahl
-          scope_id: Umfang
         name: Beispiel Berechtigung
       dummy_authorization_workflow:
+        explanation: Beispiel Autorisierung
         name: Arbeitsablauf Dummy Berechtigung
+      ephemeral_dummy_authorization_handler:
+        explanation: Lassen Sie sich durch die Einführung einer Dokumentnummer verifizieren, die mit "X" endet.
+        fields:
+          allowed_postal_codes: Erlaubte Postleitzahl (durch Kommas getrennt)
+          document_number: Dokumentnummer
+          postal_code: Postleitzahl
+        name: Ephemere Beispiel-Autorisierung
       errors:
         duplicate_authorization: Ein Teilnehmer mit den gleichen Daten ist bereits autorisiert. Ein Administrator wird Sie kontaktieren, um Ihre Daten zu überprüfen.
       expired_at: Abgelaufen am %{timestamp}
@@ -517,8 +554,6 @@ de:
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             resources_permissions_enabled: Ressourcenberechtigungen aktiviert
-            scope_id: Bereich
-            scopes_enabled: Bereiche aktiviert
             taxonomy_filters: Filter für die Komponente auswählen
           step:
             amendment_creation_enabled: Änderungserstellung aktiviert
@@ -642,6 +677,7 @@ de:
           sign_in_disabled: Sie können mit einem externen Konto darauf zugreifen.
           sign_up_disabled: Registrierungen sind deaktiviert. Verwenden Sie ein bestehendes Konto für den Zugriff.
         user:
+          ephemeral_session_closed: Ihre Gastteilnahme ist beendet
           timed_out: Sie waren zu lange inaktiv und wurden automatisch abgemeldet. Wenn Sie den Dienst weiterhin nutzen möchten, melden Sie sich bitte erneut an.
       shared:
         newsletter_modal:
@@ -668,6 +704,9 @@ de:
           show_password: Passwort anzeigen
           shown_password: Ihr Passwort wird angezeigt
         placeholder_email: hi@beispiel.org
+    documents:
+      one: "%{count} Dokument\n%{count} Dokumente"
+      other: "%{count} Dokumente"
     doorkeeper:
       authorizations:
         new:
@@ -686,15 +725,90 @@ de:
     download_your_data:
       export:
         ready: Bereit
+      help:
+        core:
+          description: Dies sind die Dateien mit den persönlichen Daten, Beiträgen und Aktivitäten des Benutzers %{user_name}
+          title: Laden Sie Ihre Daten aus %{organization} herunter
+        follows:
+          created_at: Das Datum und die Uhrzeit, zu der die Verfolgung erstellt wurde
+          followable: Die Ressource oder der Bereich, der verfolgt wird
+          id: Der eindeutige Bezeichner dieser Verfolgung
+          updated_at: Das Datum und die Uhrzeit, zu der die Verfolgung zuletzt aktualisiert wurde
+        identities:
+          created_at: Das Datum und die Uhrzeit, zu der die ID erstellt wurde
+          id: Der eindeutige Bezeichner dieser Identität
+          provider: Der Anbieter dieser Identität
+          uid: Die eindeutige Bezeichnung dieser Identität
+          updated_at: Datum und Uhrzeit, an dem die Identität zuletzt aktualisiert wurde
+          user: Der Teilnehmende, zu dem diese Identität gehört
+        messaging_conversations:
+          created_at: Das Erstellungsdatum dieser Unterhaltung
+          id: Die eindeutige Bezeichnung dieser Unterhaltung
+          messages: Die Nachrichten dieser Unterhaltung
+          updated_at: Das Datum, an dem diese Unterhaltung zuletzt aktualisiert wurde
+        notifications:
+          created_at: Datum und Uhrzeit, an dem die Benachrichtigung erstellt wurde
+          event_class: Die Klasse des Ereignisses, das die Benachrichtigung ausgelöst hat
+          event_name: Der Name des Ereignisses, das die Benachrichtigung ausgelöst hat
+          extra: Zusätzliche Informationen zu dieser Benachrichtigung
+          id: Die eindeutige Bezeichnung dieser Benachrichtigung
+          resource_type: Der Typ der Ressource, mit der die Benachrichtigung verknüpft ist
+          updated_at: Datum und Uhrzeit, an dem die Benachrichtigung zuletzt aktualisiert wurde
+        user_groups:
+          document_number: Die Dokumentennummer dieser Benutzergruppe
+          id: Die eindeutige Bezeichnung der Gruppe
+          name: Der Name dieser Benutzergruppe
+          phone: Die Telefonnummer dieser Benutzergruppe
+          verified_at: Datum und Uhrzeit, wann diese Benutzergruppe überprüft wurde
+        users:
+          about: Die Profilbeschreibung dieses Benutzers
+          admin: Ob dieser Benutzer ein Administrator ist
+          confirmation_sent_at: Datum und Uhrzeit, an dem die Bestätigung gesendet wurde
+          confirmed_at: Datum und Uhrzeit, an dem dieser Benutzer bestätigt wurde
+          created_at: Das Datum und die Uhrzeit, an der dieser Benutzer erstellt wurde
+          current_sign_in_at: Datum und Uhrzeit des aktuellen Logins
+          current_sign_in_ip: Die IP-Adresse des aktuellen Logins
+          delete_reason: Der Grund für das Löschen dieses Benutzers
+          deleted_at: Datum und Uhrzeit, an dem dieser Benutzer gelöscht wurde
+          email: Die E-Mail-Adresse dieses Benutzers
+          id: Der eindeutige Identifikator dieses Benutzers
+          invitation_accepted_at: Datum und Uhrzeit, an dem die Einladung angenommen wurde
+          invitation_created_at: Datum und die Uhrzeit, an dem dieser Benutzer eingeladen wurde
+          invitation_sent_at: Datum und Uhrzeit, an dem die Einladung versendet wurde
+          invitations_count: Die Anzahl der an diesen Benutzer gesendeten Einladungen
+          invited_by: Der Benutzer, der diesen Benutzer eingeladen hat
+          last_sign_in_at: Datum und Uhrzeit des letzten Logins
+          last_sign_in_ip: Die IP-Adresse des letzten Logins
+          locale: Die Plattformsprache, die dieser Benutzer ausgewählt hat
+          managed: Ob dieser Benutzer von einem anderen Benutzer verwaltet wird
+          name: Der Name des Benutzers
+          newsletter_notifications_at: Datum und Uhrzeit, wann dieser Benutzer zuletzt einen Newsletter erhalten hat
+          nickname: Der Kontoname des Benutzers
+          notification_settings: Die Benachrichtigungseinstellungen, die dieser Benutzer ausgewählt hat
+          notifications_sending_frequency: Die Häufigkeit der Benachrichtigungen, die dieser Benutzer erhält
+          officialized_as: Der Name der offiziellen Rollen (Amtsleiterin, Bürgermeister, usw.)
+          officialized_at: Das Datum und die Uhrzeit, an der dieser Benutzer offizialisiert wurde
+          organization: Die Organisation, zu der dieser Benutzer gehört
+          personal_url: Die persönliche URL dieses Benutzers
+          remember_created_at: Das Datum und die Uhrzeit, an der der Benutzer zum Speichern ausgewählt wurde
+          reset_password_sent_at: Datum und Uhrzeit, an dem die Zurücksetzung des Passworts ausgelöst wurde
+          sign_in_count: Die Anzahl der Anmeldungen dieses Benutzers
+          unconfirmed_email: Die E-Mail-Adresse, die dieser Benutzer noch nicht bestätigt hat
+          updated_at: Datum und Uhrzeit, an dem dieser Benutzer zuletzt aktualisiert wurde
       show:
         action: Aktion
-        download: Herunterladen
-        download_data: Downloadbereich
+        download: Datei herunterladen
+        download_data: Daten-Download
         download_data_description_1: Hier finden Sie alle für Ihr Konto verfügbaren Downloads. Diese .zip Dateien sind zwei Wochen verfügbar, bevor sie gelöscht werden.
         download_data_description_2: Sie können eine .zip-Datei mit Ihren Beiträgen und personenbezogenen Daten anfordern.
         download_your_data: Personenbezogene Daten
         expiration: Ablaufdatum
         expired: Bereits abgelaufen
+        explanation:
+          body_1: Diese Dateien sind Datensätze, die aus Ihrer Aktivität in dieser Plattform exportiert werden, wie Vorschläge oder Kommentare. Sie liefern rohe, strukturierte Daten, die für Analysen, Forschung oder Integration mit anderen Tools verwendet werden können
+          body_2: Diese Dateien sind im CSV-Format (Comma-Separated Values), ein weit verbreitetes Dateiformat, das von einer Vielzahl von Softwareanwendungen geöffnet und verarbeitet werden kann, einschließlich Tabellenkalkulationsprogramme, Texteditoren und Datenanalysewerkzeugen.
+          title: Was sind diese Dateien?
+        files_to_download: Dateien zum Herunterladen
         request_data: Anfrage
         type: Art des Downloads
     editor_images:
@@ -716,6 +830,7 @@ de:
       others: "%{count} weitere"
       title: Zustimmende
       you: du
+    ephemeral_user: Gast
     errors:
       files:
         file_cannot_be_processed: Datei konnte nicht verarbeitet werden
@@ -783,6 +898,11 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Abgelehnte Änderung für %{amendable_title} von %{emendation_author_nickname}
             notification_title: Die <a href="%{emendation_path}">Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde abgelehnt.
+        emendation_promoted:
+          follower:
+            email_intro: 'Eine Änderung wurde für %{amendable_title} abgelehnt. Sie können es auf dieser Seite sehen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title} mitverfasst haben.
+            email_subject: Eine Änderung von %{emendation_author_nickname} ist als neuer %{amendable_type} veröffentlicht worden
       attachments:
         attachment_created:
           email_intro: 'Ein neues Dokument wurde zu %{resource_title} hinzugefügt. Sie können es auf dieser Seite sehen:'
@@ -874,6 +994,9 @@ de:
         email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{endorser_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
         email_subject: "%{endorser_nickname} hat eine neue Befürwortung ausgesprochen"
         notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} wurde von <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> befürwortet.
+      resources:
+        soft_deleted:
+          notification_title: Ein Admin hat Ihre "%{resource_type}" "%{resource_title} " gelöscht.
       users:
         profile_updated:
           email_intro: Die <a href="%{resource_url}">Profilseite</a> von %{name} (%{nickname}), der Sie folgen, wurde aktualisiert.
@@ -899,7 +1022,7 @@ de:
         answer: Antwort
         collaborative_draft: Kollaborativer Entwurf
         dummy_resource: Dummy-Ressourcen
-        meeting: Meetings
+        meeting: Veranstaltungen
         project: Projekte
         proposal: Vorschläge
         result: Ergebnisse
@@ -945,7 +1068,7 @@ de:
         file:
           explanation: 'Anleitung für Datei:'
           message_1: Muss ein Bild oder ein Dokument sein.
-          message_2: Verwenden Sie für Bilder vorzugsweise das Querformat, der Dienst beschneidet das Bild.
+          message_2: Wenn es sich um ein Bild handelt, ist es vorzugsweise ein Querformat ohne Text. Es wird von der Plattform zugeschnitten.
         icon:
           explanation: 'Hinweise für das Bild:'
           message_1: Muss ein quadratisches Bild sein.
@@ -1123,6 +1246,8 @@ de:
         unknown_action_with_space: "%{user_name} hat eine Aktion an %{resource_name} in %{space_name} ausgeführt"
         unpublish_with_space: "%{user_name} hat die Veröffentlichung von %{resource_name} in %{space_name} aufgehoben"
         update: "%{user_name} hat %{resource_name} aktualisiert"
+        update_filters: "%{user_name} hat die Filter %{resource_name} aktualisiert"
+        update_filters_with_space: "%{user_name} hat die Filter %{resource_name} in %{space_name} aktualisiert"
         update_permissions_with_space: "%{user_name} hat die Berechtigungen für %{resource_name} in %{space_name} aktualisiert"
         update_with_space: "%{user_name} hat %{resource_name} in %{space_name} aktualisiert"
       value_types:
@@ -1228,6 +1353,8 @@ de:
         not_started: Noch nicht begonnen
         remaining: "%{time_distance} verbleibend"
     metrics:
+      blocked_users:
+        description: Anzahl der blockierten Teilnehmenden
       download:
         csv: Daten herunterladen (CSV)
       followers:
@@ -1238,6 +1365,10 @@ de:
         description: Anzahl der aktiven Benutzer in der Organisation
         object: Teilnehmer
         title: Teilnehmer
+      reported_users:
+        description: Anzahl der gemeldeten Teilnehmenden
+      user_reports:
+        description: Anzahl der von Teilnehmenden getätigten Meldungen
       users:
         description: Anzahl der Benutzer in der Organisation
         object: Benutzer
@@ -1303,10 +1434,12 @@ de:
     notifications_digest_mailer:
       header:
         daily: Tägliche Zusammenfassung
+        real_time: In Echtzeit
         weekly: Wöchentliche Zusammenfassung
       hello: Hallo %{name}
       intro:
         daily: 'Dies sind die Benachrichtigungen vom letzten Tag basierend auf den Aktivitäten, denen Sie folgen:'
+        real_time: 'Es gibt eine Benachrichtigung über die Aktivität, die du folgst:'
         weekly: 'Dies sind die Benachrichtigungen der letzten Woche, basierend auf den Aktivitäten, die Sie folgen:'
       outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Inhalt oder seine Verfassenden folgen. Sie können dem Inhalt direkt auf seiner Seite entfolgen.
       see_more: Weitere Benachrichtigungen ansehen
@@ -1345,6 +1478,16 @@ de:
         message_1: Es sieht so aus, als ob Sie momentan offline sind.
         message_2: Bitte später erneut versuchen.
         retry: Wiederholen
+    onboarding_action_message:
+      click_link: Hier klicken
+      cta_html: <a href="%{path}">%{link_text}</a> um %{action} auf %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: Sie wurden erfolgreich autorisiert.<br/>Sie haben eine Gastteilnahme gestartet und können jetzt teilnehmen.
+      expired_authorization_active_title: Die Autorisierung ist abgelaufen.
+      finish_authorization_process: Sie können den Autorisierungsprozess beenden
+      incomplete_authorization_active_title: Ihre Verifizierung wurde nicht mit allen notwendigen Informationen abgeschlossen.
+      pending_authorization_active_message: Bitte füllen Sie das Formular aus, um mit dieser Aktion fortzufahren.
+      pending_authorization_active_title: Wir müssen deine Identität verifizieren.
+      pending_ephemeral_authorization: Bitte überprüfen Sie Ihre Identität, um fortzufahren.
     open_data:
       help:
         core:
@@ -1353,6 +1496,11 @@ de:
           main: Kern
           spaces: Bereiche
           title: Open Data Dateien für %{organization} 
+        metrics:
+          cumulative: Die Gesamtzahl der Metrik an diesem Tag
+          day: Erstellungsdatum dieser Metrik
+          metric_type: Typ der Metrik
+          quantity: Die Anzahl der Metriken für diesen Tag
         moderated_users:
           about: Die Beschreibung des Kontos
           block_reasons: Der Grund der Blockierung eines Kontos durch einen Admin
@@ -1370,6 +1518,19 @@ de:
           reported_content: Der gemeldete Inhalt
           reported_url: Die URL der gemeldeten Ressource
           reports: Eine Liste der Gründe, weshalb das Profil gemeldet wurde
+        taxonomies:
+          children_count: Die Anzahl der Teilergebnisse, die diese Klassifizierung hat
+          created_at: Das Erstellungsdatum der Klassifizierung
+          filter_items_count: Die Anzahl der Elementfilter die diese Klassifizierung verwenden
+          filters_count: Die Anzahl der Filter, die diese Klassifizierung verwenden
+          id: Die eindeutige Bezeichnung dieser Klassifizierung
+          is_root: Wahr, wenn diese Klassifizierung keine übergeordnete Elemente hat
+          name: Der Name dieser Klassifizierung
+          parent_id: Die eindeutige Bezeichnung der übergeordneten Klassifizierung (falls vorhanden)
+          part_of: Wird verwendet, um festzustellen, ob diese Klassifizierung Teil einer anderen Klassifizierung ist
+          taxonomizations_count: Die Anzahl der Ressourcen, die diese Klassifizierung verwenden
+          updated_at: Datum, an dem diese Klassifizierung zuletzt aktualisiert wurde
+          weight: Die Reihenfolge, in der diese Klassifizierung angezeigt wird
         user_groups:
           avatar_url: Der Avatar der Gruppe
           badge: Das Abzeichen der Gruppe
@@ -1425,14 +1586,14 @@ de:
             body_html: |-
               <ul>
               <li><b>Filtern und Sortieren</b>: In Tabellenkalkulations-Anwendungen Sie können die Daten filtern und sortieren, um sich auf bestimmte Untergruppen von Informationen zu konzentrieren.</li>
-              <li><b>Analyse</b>: Verwenden Sie die Daten für verschiedene Analysen, B. die Anzahl der Vorschläge, die Analyse von Trends in Kommentaren oder die Bewertung der Teilnahme an Meetings.</li>
+              <li><b>Analyse</b>: Verwenden Sie die Daten für verschiedene Analysen, B. die Anzahl der Vorschläge, die Analyse von Trends in Kommentaren oder die Bewertung der Teilnahme an Veranstaltungen.</li>
               <li><b>Visualisierung</b>: Sie können Diagramme, Diagramme und andere Visualisierungen erstellen, um die Daten zu interpretieren.</li>
               </ul>
             title: 3. Arbeiten mit den Daten
           title: Wie man diese Dateien öffnet und mit ihnen arbeitet
         license:
           body_1_html: Diese Datenbank von %{organization_name} wird unter %{link_database} zur Verfügung gestellt. Alle Rechte an einzelnen Inhalten der Datenbank sind unter %{link_contents} lizenziert.
-          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
           license_contents_name: Lizenz für Datenbankinhalte
           license_database_link: https://opendatacommons.org/licenses/odbl/1-0/
           license_database_name: Offene Datenbanklizenz
@@ -1441,7 +1602,7 @@ de:
       not_available_yet: Die Open Data-Dateien sind noch nicht verfügbar. Bitte versuchen Sie es in einigen Minuten erneut.
     pad_iframe:
       disclaimer: Der Inhalt dieses Blocks wird von registrierten Benutzern verfasst und gibt deren Meinung wieder. %{organization} kann nicht für den Inhalt verantwortlich gemacht werden.
-      explanation: Verwenden Sie dieses Pad, um während des Meetings gemeinsam Notizen zu machen, was die Protokollerstellung erleichtert.
+      explanation: Verwenden Sie dieses Pad, um während der Veranstaltung gemeinsam Notizen zu machen, was die Protokollerstellung erleichtert.
       pad: Pad
     pages:
       home:
@@ -1449,9 +1610,9 @@ de:
           debates: Diskussionen
           debates_explanation: Teilen Sie Ihre Ansichten und bereichern Sie die aus Ihrer Sicht relevanten Themen.
           how_to_participate: Wie nehme ich an einem Prozess teil?
-          meetings: Meetings
+          meetings: Veranstaltungen
           meetings_explanation: Finden Sie heraus, wo und wann Sie an öffentlichen Veranstaltungen teilnehmen können.
-          more_info: Mehr Informationen
+          more_info: Mehr Informationen über %{resource_name}
           proposals: Vorschläge
           proposals_explanation: Machen Sie Vorschläge, unterstützen Sie bestehende und fördern Sie die Änderungen, die Sie sehen möchten.
         footer_sub_hero:
@@ -1574,16 +1735,7 @@ de:
         error: Bei der Befürwortung ist ein Fehler aufgetreten.
     scopes:
       global: Globaler Umfang
-      picker:
-        cancel: Abbrechen
-        change: Ausgewählten Bereich ändern
-        choose: Wählen
-        currently_selected: Aktuell ausgewählter Bereich
-        title: Wählen Sie %{field}
       prompt: Wählen Sie einen Bereich aus
-      scopes: Bereiche
-      scopes_picker_input:
-        select_scope: 'Wählen Sie einen Bereich (aktuell: %{current})'
     search:
       name: Suchen
       results: Suchergebnisse
@@ -1630,7 +1782,7 @@ de:
         does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
         hide: Verbergen
         hide_content: Diesen Inhalt verbergen
-        offensive: Er enthält Formen von Rassismus, Sexismus, Verunglimpfungen, persönlichen Angriffen, Morddrohungen, Selbstmord oder jeder Form von Hassreden.
+        offensive: Enthält Formen von Rassismus, Sexismus, Verleumdungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder andere Formen von seelischer Gewalt.
         reason: Begründung
         report: Meldung erfassen
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
@@ -1642,7 +1794,7 @@ de:
         description: Was ist unangebracht über den Benutzer?
         does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
         hide: Alle dessen Inhalte verbergen
-        offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder eine Form von Hassrede.
+        offensive: Enthält Formen von Rassismus, Sexismus, Verleumdungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder andere Formen von seelischer Gewalt.
         report: Melden
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
         title: Unangemessenen Nutzer melden
@@ -1676,15 +1828,18 @@ de:
         share_to: Teilen mit %{service}
     statistics:
       comments_count: Kommentare
-      endorsements_count: Befürworungen
+      endorsements_count: Befürwortungen
       followers_count: Follower
       headline: Statistik
       no_stats: Es gibt noch keine Statistiken.
       pages_count: Seiten
       participants_count: Teilnehmer
+      surveys_count: Umfragen
       users_count: Benutzer
     tags:
       filter_results_for_taxonomy: 'Ergebnisse filtern nach: %{resource}'
+    taxonomies:
+      prompt: Bitte eine Option wählen
     translation_bar:
       help_text: "<strong>Warnung:</strong> Inhalt könnte automatisch übersetzt werden und nicht 100% korrekt sein."
       show_original: Originaltext anzeigen
@@ -1707,15 +1862,6 @@ de:
         send: Senden
       update:
         error: Nachricht wurde nicht gesendet. Versuchen Sie es später noch einmal
-    user_interests:
-      show:
-        my_interests: Meine Interessen
-        no_scopes: Dieser Organisation ist noch kein Thema zugewiesen!
-        select_your_interests: Wählen Sie die Themen aus, an denen Sie interessiert sind, um dazu Benachrichtigungen auf der Registerkarte "Zeitleiste" Ihres Profils zu erhalten.
-        update_my_interests: Meine Interessen aktualisieren
-      update:
-        error: Beim Aktualisieren Ihrer Interessen ist ein Fehler aufgetreten.
-        success: Ihre Interessen wurden erfolgreich aktualisiert.
     user_report_mailer:
       notify:
         body_1: Benutzer %{user} wurde von %{token} gemeldet
@@ -2033,7 +2179,7 @@ de:
               description: Ermöglicht es Websites, sich an Benutzer zu erinnern, wenn diese verschiedene Seiten aufrufen.
               service: Diese Website
             decidim-consent:
-              description: Speichert Informationen über die vom Benutzer erlaubten Cookies auf dieser Website.
+              description: Speichert Informationen über die nutzendenseitig zugelassenen Cookies auf dieser Website.
               service: Diese Website
             pwaInstallPromptSeen:
               description: Speichert den Status, wenn die progressive Web-Anwendung (PWA) Installationsbenachrichtigung bereits vom Nutzenden gesehen wurde.
@@ -2084,6 +2230,8 @@ de:
         sign_up: Konto erstellen
         terms_of_service: Nutzungsbedingungen
       header:
+        close: Schliessen
+        confirm_close_ephemeral_session: Wenn Sie diese Seite verlassen, wird Ihre Sitzung geschlossen. Sind Sie sicher?
         log_in: Anmelden
         main_menu: Hauptmenü
         user_menu: Benutzer-Menü
@@ -2093,6 +2241,8 @@ de:
         expire_time_html: Ihre Sitzung wird in <b><span class="minutes">%{minutes}</span> Minuten</b>ablaufen.
       language_chooser:
         choose_language: Sprache wählen
+      navigation:
+        aria_label: 'Navigationsmenü: %{title}'
       notifications_dashboard:
         mark_all_as_read: Alles als gelesen markieren
         mark_as_read: Als gelesen markieren
@@ -2124,7 +2274,6 @@ de:
         authorizations: Berechtigungen
         delete_my_account: Löschen Sie mein Konto
         my_data: Meine Daten
-        my_interests: Meine Interessen
         notifications_settings: Benachrichtigungseinstellungen
         profile: Profil
         title: Benutzereinstellungen

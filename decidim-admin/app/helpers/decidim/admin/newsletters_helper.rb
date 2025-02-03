@@ -23,11 +23,14 @@ module Decidim
         return if spaces_user_can_admin[space_type.manifest_name.to_sym].blank?
 
         html = ""
-        form_object.fields_for "participatory_space_types[#{space_type.manifest_name}]", space_type do |ff|
-          html += participatory_space_title(space_type)
-          html += ff.hidden_field :manifest_name, value: space_type.manifest_name
-          html += select_tag_participatory_spaces(space_type.manifest_name, spaces_for_select(space_type.manifest_name.to_sym), ff)
+        form_object.fields_for :participatory_space_types do |parent_form|
+          parent_form.fields_for space_type.manifest_name, space_type do |ff|
+            html += participatory_space_title(space_type)
+            html += ff.hidden_field :manifest_name, value: space_type.manifest_name
+            html += select_tag_participatory_spaces(space_type.manifest_name, spaces_for_select(space_type.manifest_name.to_sym), ff)
+          end
         end
+
         html.html_safe
       end
 

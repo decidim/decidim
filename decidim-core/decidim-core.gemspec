@@ -31,6 +31,9 @@ Gem::Specification.new do |s|
     end
   end
 
+  # Lock Temporarily as it is failing in 0.29 branch. More info: https://github.com/rails/rails/pull/54264
+  s.add_dependency "concurrent-ruby", "= 1.3.4"
+
   s.add_dependency "active_link_to", "~> 1.0"
   s.add_dependency "acts_as_list", "~> 1.0"
   s.add_dependency "batch-loader", "~> 2.0"
@@ -38,6 +41,7 @@ Gem::Specification.new do |s|
   s.add_dependency "cells-erb", "~> 0.1.0"
   s.add_dependency "cells-rails", "~> 0.1.3"
   s.add_dependency "charlock_holmes", "~> 0.7"
+  s.add_dependency "chartkick", "~> 5.1.2"
   s.add_dependency "date_validator", "~> 0.12.0"
   s.add_dependency "devise", "~> 4.7"
   s.add_dependency "devise-i18n", "~> 1.2"
@@ -48,6 +52,7 @@ Gem::Specification.new do |s|
   s.add_dependency "fog-local", "~> 0.6"
   s.add_dependency "geocoder", "~> 1.8"
   s.add_dependency "hashdiff", ">= 0.4.0", "< 2.0.0"
+  s.add_dependency "hexapdf", "~> 1.1.0"
   s.add_dependency "image_processing", "~> 1.2"
   s.add_dependency "invisible_captcha", "~> 0.12"
   s.add_dependency "kaminari", "~> 1.2", ">= 1.2.1"

@@ -1,8 +1,6 @@
 fr-CA:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Titre
       assembly:
         announcement: Message d'annonce
         area_id: Zone d'application
@@ -19,7 +17,6 @@ fr-CA:
         created_by_other: Si "autres", précisez
         creation_date: Date de création
         decidim_area_id: Zone d'application
-        decidim_assemblies_type_id: Type d'assemblée
         decidim_scope_id: Périmètre d'application
         description: Description
         developer_group: Organisateur
@@ -47,8 +44,6 @@ fr-CA:
         promoted: Mise en avant
         published_at: Publiée à
         purpose_of_action: But de l'action
-        scope_id: Périmètre d'application
-        scopes_enabled: Périmètres d'application activés
         short_description: Résumé
         slug: Identifiant
         special_features: Particularités
@@ -96,7 +91,6 @@ fr-CA:
         confirm_delete_assembly: Êtes-vous sûr(e) de vouloir supprimer cette assemblée ? Si vous changez d'avis, vous pourrez la restaurer plus tard.
         import_assembly: Importation
         new_assembly: Nouvelle assemblée
-        new_assembly_type: Nouveau type d'assemblée
         new_assembly_user_role: Nouvel administrateur de l'assemblée
         view_deleted_assemblies: Voir les assemblées supprimées
       assemblies:
@@ -122,18 +116,6 @@ fr-CA:
         create:
           error: Une erreur s'est produite lors de la duplication de cette assemblée.
           success: L'assemblée a été dupliquée avec succès.
-      assemblies_types:
-        create:
-          error: Une erreur s'est produite lors de la création d'un nouveau type d'assemblée.
-          success: Type d'assemblée créé avec succès.
-        destroy:
-          success: Type d'assemblée supprimé avec succès.
-        new:
-          create: Créer
-          title: Nouveau type d'assemblée
-        update:
-          error: Une erreur s'est produite lors de la mise à jour de ce type d'assemblée.
-          success: Type d'assemblée mis à jour avec succès.
       assembly_copies:
         new:
           copy: Copier
@@ -177,8 +159,6 @@ fr-CA:
           values:
             'false': En cours
             'true': Terminé
-        decidim_assemblies_type_id_eq:
-          label: Type d'assemblée
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Rechercher par nom ou par pseudonyme
       menu:
@@ -188,19 +168,13 @@ fr-CA:
           attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Documents liés
-          categories: Catégories
           components: Composants
           info: À propos de cette assemblée
           landing_page: Page d'accueil
           moderations: Modérations
           private_users: Membres
           see_assembly: Voir l'assemblée
-        assemblies_types: Types d'assemblée
       models:
-        assemblies_types:
-          fields:
-            created_at: Créée le
-            title: Titre
         assembly:
           fields:
             actions: Actions
@@ -228,6 +202,9 @@ fr-CA:
             collaborator: Collaborateur
             moderator: Modérateur
             valuator: Évaluateur
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: Toutes les assemblées
       titles:
         assemblies: Assemblées
         assemblies_deleted: Assemblées supprimées
@@ -267,23 +244,17 @@ fr-CA:
             announcement_help: Le texte que vous saisissez ici sera affiché aux utilisateurs juste en dessous des informations de l'assemblée.
             duration: Durée
             duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon sa durée ne sera pas limitée.
-            filters: Filtres
             images: Images
             included_at_help: Sélectionnez la date à laquelle cet assemblée a été ajoutée à la plateforme. Elle ne doit pas nécessairement être identique à la date de création.
             metadata: Métadonnées
             other: Autre
             select_a_created_by: Sélectionnez un créateur
-            select_an_area: Sélectionnez une zone d'application
-            select_an_assembly_type: Sélectionnez un type d'assemblée
             select_parent_assembly: Sélectionnez l'assemblée parente
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             social_handlers: Réseaux sociaux
             taxonomies: Taxonomies
             title: Informations générales
             visibility: Visibilité
-        assemblies_types:
-          form:
-            title: Titre
         assembly_copies:
           form:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
@@ -327,14 +298,6 @@ fr-CA:
       assembly_members:
         index:
           members: Membres
-      assembly_types:
-        commission: Commission
-        consultative_advisory: Organe consultatif
-        executive: Organe exécutif
-        government: Comité de pilotage
-        others: Autres
-        participatory: Organe participatif
-        working_group: Groupe de travail
       content_blocks:
         children_assemblies:
           name: Assemblées
@@ -373,7 +336,6 @@ fr-CA:
           member_of:
             member_of: Membre de
       show:
-        assembly_type: Type d'assemblée
         duration: Durée
         private_space: Ceci est une assemblée privée
         social_networks_title: Visiter l'assemblée sur

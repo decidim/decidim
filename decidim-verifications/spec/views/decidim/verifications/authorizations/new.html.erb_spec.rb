@@ -7,14 +7,15 @@ module Decidim
     let(:handler) do
       DummyAuthorizationHandler.new({})
     end
-    let(:organization) { double(cta_button_path: "/", scopes: Decidim::Scope.none) }
+    let(:organization) { double(cta_button_path: "/") }
     let(:user) { create(:user, :confirmed) }
+    let(:onboarding_manager) { Decidim::OnboardingManager.new(user) }
 
     before do
       view.extend AuthorizationFormHelper
       view.extend DecidimFormHelper
       view.extend CtaButtonHelper
-      view.extend ScopesHelper
+
       allow(view).to receive(:current_organization).and_return(organization)
       allow(view).to receive(:handler).and_return(handler)
       allow(view).to receive(:params).and_return(handler: "dummy_authorization_handler")
@@ -23,6 +24,7 @@ module Decidim
       allow(view).to receive(:authorizations_back_path).and_return("/authorizations")
       allow(view).to receive(:stored_location).and_return("/processes")
       allow(view).to receive(:redirect_url).and_return("/")
+      allow(view).to receive(:onboarding_manager).and_return(onboarding_manager)
     end
 
     it "renders the form from the partial" do

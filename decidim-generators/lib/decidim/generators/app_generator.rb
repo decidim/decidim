@@ -174,7 +174,7 @@ module Decidim
         if branch.present?
           get target_gemfile, "Gemfile", force: true
           append_file "Gemfile", %(\ngem "net-imap", "~> 0.5.0", group: :development)
-          append_file "Gemfile", %(\ngem "net-pop", "~> 0.1.0", group: :development)
+          append_file "Gemfile", %(\ngem "net-pop", "~> 0.1.1", group: :development)
           append_file "Gemfile", %(\ngem "net-smtp", "~> 0.5.0", group: :development)
           get "#{target_gemfile}.lock", "Gemfile.lock", force: true
         else
@@ -342,13 +342,6 @@ module Decidim
                   "# config.available_locales = Decidim::Env.new(\"DECIDIM_AVAILABLE_LOCALES\", \"ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro\").to_array.to_json"
       end
 
-      def patch_test
-        gsub_file "config/environments/test.rb", /^end\n$/, <<~CONFIG
-            config.active_job.queue_adapter = :inline
-          end
-        CONFIG
-      end
-
       def patch_logging
         gsub_file "config/environments/production.rb", /# Log to STDOUT by default\n((.*)\n){3}/, <<~CONFIG
 
@@ -384,6 +377,7 @@ module Decidim
         return unless options[:demo]
 
         copy_file "dummy_authorization_handler.rb", "app/services/dummy_authorization_handler.rb"
+        copy_file "ephemeral_dummy_authorization_handler.rb", "app/services/ephemeral_dummy_authorization_handler.rb"
         copy_file "another_dummy_authorization_handler.rb", "app/services/another_dummy_authorization_handler.rb"
         copy_file "verifications_initializer.rb", "config/initializers/decidim_verifications.rb"
       end

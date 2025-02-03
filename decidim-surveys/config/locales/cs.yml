@@ -16,25 +16,20 @@ cs:
         many: Odpovědi
         other: Odpovědi
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: průzkumy
     components:
       surveys:
         actions:
           answer: Odpovědět
-        name: Průzkum
+        name: Průzkumy
         settings:
+          announcement: Oznámení
           global:
             announcement: Oznámení
-            clean_after_publish: Odstranit odpovědi při publikování ankety
-            ends_at: Odpověď přijata do
-            ends_at_help: Ponechte prázdné pro žádné konkrétní datum
-            scope_id: Oblast působnosti
-            scopes_enabled: Oblasti působnosti povoleny
-            starts_at: Odpovědi přijaté od
-            starts_at_help: Ponechte prázdné pro žádné konkrétní datum
           step:
-            allow_answers: Povolte odpovědi
-            allow_unregistered: Umožnit neregistrovaným uživatelům odpovědět na průzkum
-            allow_unregistered_help: Pokud je aktivní, nebude nutné se přihlásit k odpovědi na dotazník. To může vést ke špatným nebo nespolehlivým údajům a bude to zranitelnější vůči automatickým útokům. Používejte s opatrností! Mějte na paměti, že účastník může odpovědět na stejný průzkum několikrát, použitím různých prohlížečů nebo funkce "soukromého prohlížení" svého webového prohlížeče.
             announcement: Oznámení
     events:
       surveys:
@@ -56,12 +51,23 @@ cs:
     statistics:
       answers_count: Odpovědi
     surveys:
+      actions:
+        confirm_destroy: Opravdu to chcete smazat?
+        destroy: Zničit
+        edit: Upravit
+        manage_questions: Spravovat otázky
+        new_survey: Nový průzkum
+        preview: Náhled
+        title: Akce
       admin:
-        component:
-          actions:
-            answers_alert: Pokud publikujete komponentu, všechny výsledky budou odstraněny.
         exports:
           survey_user_answers: Odpovědi účastníka na průzkum
+        publish_answers:
+          index:
+            status:
+              not_published: Nezveřejněno
+              published: Zveřejněno
+            title: Zveřejnit odpovědi
         surveys:
           update:
             invalid: Při ukládání průzkumu došlo k chybám.

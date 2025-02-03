@@ -40,7 +40,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
     export.collection do
       Decidim::Conference
         .public_spaces
-        .includes(:taxonomies, :attachment_collections, :categories)
+        .includes(:taxonomies, :attachment_collections)
     end
 
     export.include_in_open_data = true

@@ -29,6 +29,9 @@ ca:
         other: Projectes
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Projectes
       filters:
         projects:
           selected_at_null:
@@ -212,12 +215,26 @@ ca:
             map: Mapa
             taxonomies: Taxonomies
             title: Títol
+      order:
+        status:
+          continue_voting: Seguir votant
+          download_vote: Descarrega el teu vot
+          pending_to_vote_budgets:
+            one: Pots votar en un altre pressupost
+            other: Pots votar en altres pressupostos
+          share_vote: Comparteix el teu vot
+          title: El teu vot s'ha tramitat correctament
+          view_votes:
+            one: Veure vot
+            other: Veure vots
+          votes_count:
+            one: El teu vot a %{budget_name} ja s'ha registrat.
+            other: El teus %{count} vots a %{budget_name} ja s'han registrat.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Els projectes que has seleccionat són:'
           subject: Has votat a l'espai de participació %{space_name}
           voted_on_space: Has votat al pressupost %{budget_name} de l'espai de participació %{space_name}.
-          voted_on_space_with_scope: Has votat al pressupost %{budget_name} de l'espai de participació %{space_name} de %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Si canvies d'opinió, pots modificar el teu vot més tard.
@@ -334,8 +351,6 @@ ca:
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             projects_per_page: Projectes per pàgina
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada projecte
-            scope_id: Àmbit
-            scopes_enabled: Àmbits habilitats
             taxonomy_filters: Seleccionar filtres pel component
             taxonomy_filters_add: Afegir un filtre
             title: Títol
@@ -379,25 +394,30 @@ ca:
       help:
         projects:
           address: La localització (adreça) del projecte (si en té)
+          budget: Dades sobre el pressupost (e.g. "Pressupostos participatius 2021") en el que està inclòs el projecte
           budget_amount: La quantitat total de pressupost per a aquest projecte
           comments: El número de comentaris que ha rebut aquest projecte
           component: El component al qual pertany el projecte
           confirmed_votes: El número de vots confirmats que ha rebut aquest projecte
           created_at: La data i l'hora en què es va crear el projecte
           description: La descripció del projecte
+          follows_count: El número de seguidores que té el projecte
           id: L'identificador únic del projecte
+          latitude: La latitud del projecte en cas que aquest tingui una ubicació física
+          longitude: La longitud del projecte en cas que aquest tingui una ubicació física
           participatory_space: A quin espai pertany aquest projecte (procés participatiu, assemblea, etc.)
+          reference: La referència única del projecte
           related_proposal_titles: Els títols de les propostes relacionades
           related_proposal_urls: Les URL de les propostes relacionades
           related_proposals: Les propostes relacionades amb aquest projecte
+          selected_at: L'hora en què el projecte va ser seleccionat
           taxonomies: Les taxonomies del projecte
           title: El títol del projecte
+          updated_at: La data de la darrera actualització d'aquest projecte
           url: L'URL del projecte
     orders:
       checkout:
         error: S'ha produït un error en processar el teu vot.
-        success_html: <p>El teu vot ha estat acceptat amb èxit.</p> <p class="text-sm font-normal">Pots <a class="text-secondary underline" href="%{rest_of_budgets_link}">consultar la resta de pressupostos</a>.</p>
-        success_no_left_budgets_html: El teu vot s'ha acceptat correctament.
       destroy:
         error: S'ha produït un error en cancel·lar el teu vot.
         success: El teu vot ha estat cancel·lat correctament.

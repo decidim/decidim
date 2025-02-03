@@ -95,8 +95,8 @@ ar:
             initiative_start_date: تاريخ البدء
             initiative_title: عنوان المبادرة
             name_and_surname: اسم ولقب
+            nickname: الاسم المستعار
             postal_code: الكود البريدى
-            time_and_date: الوقت و التاريخ
             timestamp: الطابع الزمني
       titles:
         initiatives: المبادرات
@@ -250,6 +250,10 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: المبادرة التي أقرتها %{author_nickname}
           notification_title: تمت الموافقة على مبادرة <a href="%{resource_path}">%{resource_title}</a> من قبل <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      form:
+        add_attachments: إضافة مرفقات
+        attachment_legend: إضافة مستند أو صورة
+        edit_attachments: تعديل المرفقات
       initiative_signatures:
         fill_personal_data:
           continue: استمر
@@ -355,6 +359,9 @@ ar:
     menu:
       initiatives: المبادرات
     resources:
+      initiative:
+        actions:
+          comment: تعليق
       initiatives_type:
         actions:
           title: أفعال
