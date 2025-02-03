@@ -1380,6 +1380,8 @@ ro:
         someone_invited_you_as_admin: Cineva v-a invitat să administrați %{application}. Puteți accepta prin linkul de mai jos.
         someone_invited_you_as_private_user: Cineva v-a invitat ca participant privat la %{application}, puteți accepta prin intermediul linkului de mai jos.
         subject: Instrucțiuni pentru invitație
+      invite_admin:
+        subject: Ați fost invitat să gestionați %{organization}
       password_change:
         greeting: Bună ziua %{recipient}!
         subject: Parola a fost schimbată
@@ -1439,6 +1441,31 @@ ro:
   doorkeeper:
     scopes:
       public: Informațiile dumneavoastră publice.
+  emojis:
+    button: Adaugați emoji
+    categories:
+      activities: Activităţi
+      animals-nature: Animale și natură
+      custom: Personalizat
+      flags: Steaguri
+      food-drink: Alimente și băuturi
+      objects: Obiecte
+      people-body: Oameni și corp
+      recents: Utilizate recent
+      smileys-emotion: Smiley & Emoții
+      symbols: Simboluri
+      travel-places: Călătorii și locuri
+    error:
+      load: Încărcarea emoji-urilor a eșuat
+    recents:
+      clear: Curățați emoji-uri recente
+      none: Nu ați selectat încă niciun emoji.
+    retry: Încercați din nou
+    search:
+      _: Căutare emoji-uri...
+      clear: Ștergeți căutarea
+      error: Căutarea emoji-urilor a eșuat
+      not_found: Nu a fost găsit niciun rezultat
   errors:
     messages:
       confirmation_period_expired: trebuie să fie confirmat în %{period}, vă rugăm să solicitați unul nou
