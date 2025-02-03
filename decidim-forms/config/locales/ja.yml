@@ -176,7 +176,6 @@ ja:
           tos_agreement: 参加することにより、利用規約に同意します。
       step_navigation:
         show:
-          are_you_sure: この操作は元に戻すことができず、回答を編集することはできません。よろしいですか？
           back: 戻る
           continue: 続ける
           submit: 送信

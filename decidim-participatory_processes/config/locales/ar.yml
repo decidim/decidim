@@ -22,8 +22,6 @@ ar:
         promoted: رقية
         published_at: نشرت في
         related_process_ids: العمليات ذات الصلة
-        scope_id: نطاق
-        scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
         slug: سبيكة العنوان الشبكي
         start_date: تاريخ البدء
@@ -104,6 +102,7 @@ ar:
       models:
         participatory_process:
           fields:
+            actions: الإجراءات
             created_at: أنشئت في
             private: نشر
             published: نشرت
@@ -295,11 +294,9 @@ ar:
           form:
             announcement_help: سيتم عرض النص الذي تدخله هنا للمستخدم مباشرة أسفل معلومات العملية.
             duration: المدة الزمنية
-            filters: مرشحات
             images: صور
             metadata: البيانات الوصفية
             related_processes: العمليات ذات الصلة
-            select_an_area: اختر منطقة
             select_process_group: حدد مجموعة عملية
             title: معلومات عامة
       content_blocks:

@@ -43,8 +43,6 @@ ro:
         promoted: Evidenţiat
         published_at: Publicat la
         purpose_of_action: Scopul acțiunii
-        scope_id: Domeniu de interes
-        scopes_enabled: Domenii activate
         short_description: Descriere scurtă
         slug: URL slug
         special_features: Funcționalități speciale
@@ -219,13 +217,11 @@ ro:
             announcement_help: Textul pe care îl introduceți aici va fi prezentat utilizatorului sub informațiile despre grupul de lucru.
             duration: Durată
             duration_help: În cazul în care durata acestui grup de lucru este limitată, selectaţi data de încheiere. În caz contrar, va apărea ca nelimitată.
-            filters: Filtre
             images: Imagini
             included_at_help: Selectați data la care acest grup de lucru a fost adăugat în platformă. Nu trebuie să fie neapărat aceeași dată cu data creării.
             metadata: Metadate
             other: Altul
             select_a_created_by: Selectați după persoana care a creat
-            select_an_area: Selectați o zonă
             select_parent_assembly: Selectați grupul de lucru părinte
             social_handlers: Rețele de socializare
             taxonomies: Taxonomii
@@ -284,6 +280,10 @@ ro:
       last_activity:
         new_assembly: 'Adunare nouă:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Grupuri de lucru active
+            see_all_spaces: Vedeți tot
         user_profile:
           member_of:
             member_of: Membru al

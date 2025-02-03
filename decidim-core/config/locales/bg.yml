@@ -387,10 +387,8 @@ bg:
         explanation: Преминете проверка, като въведете номер на документ завършващ с "X".
         fields:
           allowed_postal_codes: Позволени пощенски кодове (разделени със запетаи)
-          allowed_scope_id: Разрешен обхват
           document_number: Номер на документ
           postal_code: Пощенски код
-          scope_id: Обхват
         name: Примерна идентификация
       dummy_authorization_workflow:
         name: Макет на процедура за идентификация
@@ -482,8 +480,6 @@ bg:
             dummy_global_translatable_text: Макетен преводим текст
             enable_pads_creation: Активирай създаване на бележки
             resources_permissions_enabled: Разрешения за ресурс включени
-            scope_id: Обхват
-            scopes_enabled: Обхватите са активирани
           step:
             amendment_creation_enabled: Създаване на поправки разрешено
             amendment_promotion_enabled: Популяризиране на поправки разрешено
@@ -1400,16 +1396,7 @@ bg:
         error: Възникна проблем в процеса на одобрение.
     scopes:
       global: Обща сфера
-      picker:
-        cancel: Отказ
-        change: Промяна на избрания обхват
-        choose: Избери
-        currently_selected: Текущ избран обхват
-        title: Избери %{field}
       prompt: Изберете сфера
-      scopes: Сфери
-      scopes_picker_input:
-        select_scope: 'Изберете обхват (понастоящем: %{current})'
     search:
       name: Търсене
       results: Резултати от търсенето
@@ -1529,15 +1516,6 @@ bg:
         send: Изпрати
       update:
         error: Съобщението не е изпратено. Опитайте по-късно
-    user_interests:
-      show:
-        my_interests: Моите интереси
-        no_scopes: Тази организация все още няма обхват!
-        select_your_interests: Изберете темите, от които се интересувате, за да получавате свързани с тях събития в раздела „Хронология“ в профила си.
-        update_my_interests: Обнови моите интереси
-      update:
-        error: Възникна проблем с обновяването на интересите Ви.
-        success: Интересите Ви бяха успешно обновени.
     user_report_mailer:
       notify:
         body_1: Потребителят %{user} е докладван от %{token}
@@ -1935,7 +1913,6 @@ bg:
         authorizations: Идентификация
         delete_my_account: Изтрий моя профил
         my_data: Моите данни
-        my_interests: Моите интереси
         notifications_settings: Настройки на известията
         profile: Профил
         title: Настройки за участника

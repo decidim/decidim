@@ -37,8 +37,6 @@ ru:
         promoted: Рекомендуется
         published_at: 'Обнародовано:'
         purpose_of_action: Цель действия
-        scope_id: Охват
-        scopes_enabled: Охваты включены
         short_description: Краткое описание
         slug: Сокращенный веб-адрес
         special_features: Особенности
@@ -182,7 +180,6 @@ ru:
           form:
             duration_help: Если длительность этого собрания ограничена, выберите дату окончания. В противном случае оно будет отображаться как бессрочное.
             select_a_created_by: Укажите, кем создано
-            select_an_area: Выберите участок
             social_handlers: Социальные сети
             title: Общие сведения
       assemblies:

@@ -44,8 +44,6 @@ ca:
         promoted: Destacat
         published_at: Publicat el
         purpose_of_action: Propòsit de l'acció
-        scope_id: Àmbit
-        scopes_enabled: Àmbits habilitats
         short_description: Descripció breu
         slug: Nom curt d'URL
         special_features: Característiques especials
@@ -204,6 +202,9 @@ ca:
             collaborator: Col·laboradora
             moderator: Moderadora
             valuator: Avaluadora
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: Totes les assemblees
       titles:
         assemblies: Assemblees
         assemblies_deleted: Assemblees eliminades
@@ -245,7 +246,6 @@ ca:
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
             duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
-            filters: Filtres
             images: Imatges
             included_at_help: Selecciona la data en què es va afegir aquesta assemblea a la plataforma. No necessàriament ha de ser la mateixa que la data de creació.
             metadata: Metadades
@@ -253,7 +253,6 @@ ca:
             other: Altre
             private_notice: Podràs administrar les participants privades un cop haguis configurar l'espai com a privat
             select_a_created_by: Selecciona una creadora
-            select_an_area: Selecciona una Àrea
             select_parent_assembly: Selecciona una assemblea mare
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             social_handlers: Social

@@ -86,7 +86,6 @@ gl:
           tos_agreement: Ao participar aceptas as Condicións de servizo
       step_navigation:
         show:
-          are_you_sure: Non se pode desfacer esta acción e non poderá editar as túas respostas. Estás seguro?
           submit: Enviar
       user_answers_serializer:
         created_at: Respondeu

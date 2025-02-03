@@ -131,14 +131,27 @@ ro:
             maps_enabled: Hărți activate
             registration_code_enabled: Cod de înregistrare activat
             resources_permissions_enabled: Drepturile de acțiune pot fi setate pentru fiecare întâlnire
-            scope_id: Domeniu de interes
-            scopes_enabled: Domenii de interes activate
             terms_and_conditions_url_for_meeting_creators: URL condiții pentru întrunirea creatorilor
           step:
             announcement: Anunţ
             comments_blocked: Comentarii blocate
             creation_enabled_for_participants: Crearea de şedinţe de către participanţi este activată
             creation_enabled_for_user_groups: Crearea de ședințe de către grupuri de utilizatori activată
+    download_your_data:
+      help:
+        invites:
+          accepted_at: Data și ora când această invitație a fost acceptată
+          created_at: Data și ora la care această invitație a fost creată
+          id: Identificatorul unic pentru această invitație
+          meeting: Întâlnirea în care a avut loc această invitație
+          rejected_at: Data și ora când această invitație a fost respinsă
+          sent_at: Data și ora la care această invitație a fost trimisă
+          updated_at: Data și ora la care această invitație a fost actualizată ultima dată
+        registrations:
+          created_at: Data și ora când această înregistrare a fost creată
+          public_participation: Dacă această participare a fost făcută publică
+          updated_at: Data și ora la care această înregistrare a fost actualizată ultima dată
+          validated_at: Data și ora la care această înregistrare a fost validată
     events:
       meetings:
         meeting_closed:
@@ -421,6 +434,7 @@ ro:
             all: Toate
             official: Oficial
             participants: Participanți
+            user_group: Grupuri
           search: Caută
           type: Tip
           type_values:
@@ -557,7 +571,7 @@ ro:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Întâlniri anterioare
-        see_all: Afișează toate întâlnirile (%{count})
+        see_all: Afișează toate întâlnirile
         upcoming_meetings: Întâlniri viitoare
     resource_links:
       meetings_through_proposals:
