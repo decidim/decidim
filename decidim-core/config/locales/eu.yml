@@ -750,6 +750,21 @@ eu:
           id: Jakinarazpen honen identifikatzaile bakarra
           resource_type: Jakinarazpena zein baliabide motarekin dago lotuta
           updated_at: Zein datatan eta zein ordutan eguneratu zen jakinarazpena azken aldiz
+        participatory_space_private_users:
+          created_at: Zein datatan eta zein ordutan sortu zen parte-hartzaile pribatu hau
+          id: Parte-hartzaile honen identifikatzaile bakarra
+          privatable_to: Zein espaziotakoa den parte-hartzaile pribatu hau
+          published: Ea parte-hartzaile pribatu hau argitaratuta dagoen ala ez
+          role: Zein rol duen parte-hartzaile pribatu honek
+          updated_at: Zein datatan eta zein ordutan eguneratu zen parte-hartzaile pribatu hau
+        reports:
+          created_at: Zein datatan eta zein ordutan sortu zen salaketa hau
+          details: Erreporte honen xehetasunak
+          id: Erreporte honen identifikatzaile bakarra
+          locale: Erreporte honen hizkuntza
+          moderation: Erreporte honek duen moderazioa
+          reason: Erreporte honen arrazoia
+          updated_at: Zein datatan eta zein ordutan eguneratu zen erreporte hau azken aldiz
         user_groups:
           document_number: Partaide-talde honen dokumentu-zenbakia
           id: Partaide-talde honen identifikatzaile bakarra
@@ -758,6 +773,7 @@ eu:
           verified_at: Zein datatan eta zein ordutan egiaztatu zen partaide-talde hori
         users:
           about: Erabiltzaile honen biografia
+          accepted_tos_version: Zein datatan onartu zituen parte-hartzaileak plataforma honen zerbitzu-baldintzak
           admin: Parte-hartzaile hau administratzailea bada
           confirmation_sent_at: Zein datatan eta zein ordutan bidali zen konfirmazioa
           confirmed_at: Zein datatan eta zein ordutan konfirmatu zen parte-hartzaile hau
@@ -767,6 +783,8 @@ eu:
           delete_reason: Parte-hartzaile hau ezabatzeko arrazoia
           deleted_at: Zein datatan eta zein ordutan ezabatu zen parte-hartzaile hau
           email: Parte-hartzaile honen helbide elektronikoa
+          followers_count: Parte-hartzaile honi jarraitzen dioten parte-hartzaileen kopurua
+          following_count: Parte-hartzaile hau jarraitzen ari den parte-hartzaileen kopurua
           id: Parte-hartzaile honen identifikatzaile bakarra
           invitation_accepted_at: Zein datatan eta zein ordutan onartu zen gonbidapena
           invitation_created_at: Zein datatan eta zein ordutan gonbidatu zen parte-hartzaile hau
@@ -785,10 +803,13 @@ eu:
           officialized_as: Ofizializazioaren izena (Kontseilaritza, Alkatetza, etab.)
           officialized_at: Zein datatan eta zein ordutan ofizializatu zen parte-hartzaile hau
           organization: Zein erakundetakoa den parte-hartzaile hau
+          password_updated_at: Zein datatan eguneratu zen pasahitz hau azkenekoz
           personal_url: Parte-hartzaile honen URL pertsonala
           remember_created_at: Zein egun eta zein ordutan aukeratu zuten parte-hartzailea gogoratzeko
           reset_password_sent_at: Zein datatan eta zein ordutan bidali zen pasahitza berriro
+          roles: Parte-hartzaile honek duen rola, baldin badute
           sign_in_count: Zenbat aldiz hasi duen saioa parte-hartzaile honek
+          type: Parte-hartzaile honek zer mota duen
           unconfirmed_email: Parte-hartzaile honek oraindik baieztatu ez duen helbide elektronikoa
           updated_at: Zein datatan eta zein ordutan eguneratu zen parte-hartzaile hau azken aldiz
       show:
