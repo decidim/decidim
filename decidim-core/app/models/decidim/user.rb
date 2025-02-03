@@ -53,11 +53,6 @@ module Decidim
 
     has_one_attached :download_your_data_file
 
-    scope :inactive_users, -> { not_deleted.where(last_sign_in_at: ..Decidim.delete_inactive_users_after_days.ago).or(Decidim::User.not_deleted.where(last_sign_in_at: nil)) }
-
-    scope :first_warning_inactive_users, -> { not_deleted.where(last_sign_in_at: ..Decidim.first_warning_inactive_users_after_days.ago).or(Decidim::User.not_deleted.where(last_sign_in_at: nil)) }
-
-    scope :last_warning_inactive_users, -> { not_deleted.where(last_sign_in_at: ..Decidim.last_warning_inactive_users_after_days.ago).or(Decidim::User.not_deleted.where(last_sign_in_at: nil)) }
     scope :not_deleted, -> { where(deleted_at: nil) }
 
     scope :managed, -> { where(managed: true) }
@@ -118,12 +113,19 @@ module Decidim
       invitation_not_accepted.find_by(decidim_organization_id: organization_id, email:)
     end
 
-    def marked_for_deletion?
-      marked_for_deletion_at.present?
+    # Returns users eligible for receiving the first inactivity warning email.
+    def self.first_warning_inactive_users
+      InactiveUsersQuery.new(self).for_first_warning(Decidim.first_warning_inactive_users_after_days.days.ago)
     end
 
-    def removable?
-      last_sign_in_at < Decidim.delete_inactive_users_after_days.ago
+    # Returns users eligible for receiving the final inactivity warning email.
+    def self.last_warning_inactive_users
+      InactiveUsersQuery.new(self).for_last_warning(Decidim.last_warning_inactive_users_after_days.days.ago)
+    end
+
+    # Returns users eligible for account removal due to prolonged inactivity.
+    def self.removable_users
+      InactiveUsersQuery.new(self).for_removal(Decidim.delete_inactive_users_last_warning_days_before.days.ago)
     end
 
     # Returns the presenter for this author, to be used in the views.
