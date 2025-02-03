@@ -42,7 +42,7 @@ module Decidim
                             desc: "Use a specific branch from GitHub's version"
 
       class_option :repository, type: :string,
-                                default: "https://github.com/decidim/decidim.git",
+                                default: "https://github.com/tremend-cofe/decidim.git",
                                 desc: "Use a specific GIT repository (valid in conjunction with --edge or --branch)"
 
       class_option :recreate_db, type: :boolean,
@@ -121,6 +121,8 @@ module Decidim
       end
 
       def patch_test_file
+        gsub_file "config/environments/test.rb", /config\.action_mailer\.default_url_options = { host: "www.example.com" }$/,
+                  "# config.action_mailer.default_url_options = { host: \"www.example.com\" }"
         gsub_file "config/environments/test.rb", /config\.action_controller\.raise_on_missing_callback_actions = true$/,
                   "# config.action_controller.raise_on_missing_callback_actions = false"
         gsub_file "config/environments/development.rb", /config\.action_controller\.raise_on_missing_callback_actions = true$/,
@@ -157,7 +159,7 @@ module Decidim
       end
 
       def rubocop
-        copy_file ".rubocop.yml", ".rubocop.yml"
+        copy_file ".rubocop.yml", ".rubocop.yml", force: true
       end
 
       def ruby_version
@@ -460,7 +462,7 @@ module Decidim
       end
 
       def repository
-        @repository ||= options[:repository] || "https://github.com/decidim/decidim.git"
+        @repository ||= options[:repository] || "https://github.com/tremend-cofe/decidim.git"
       end
 
       def app_name
@@ -485,7 +487,7 @@ module Decidim
         root = if options[:path]
                  expanded_path
                elsif branch.present?
-                 "https://raw.githubusercontent.com/decidim/decidim/#{branch}/decidim-generators"
+                 "https://raw.githubusercontent.com/tremend-cofe/decidim/#{branch}/decidim-generators"
                else
                  root_path
                end

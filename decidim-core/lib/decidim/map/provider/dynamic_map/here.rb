@@ -15,7 +15,7 @@ module Decidim
             api_key = configuration[:api_key]
             if api_key.is_a?(Array)
               # Support for legacy style configurations
-              ActiveSupport::Deprecation.warn(
+              Decidim.deprecator.warn(
                 <<~DEPRECATION.strip
                   Please use a single api_key configuration for HERE maps.
 

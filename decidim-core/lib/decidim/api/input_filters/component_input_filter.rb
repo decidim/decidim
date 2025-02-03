@@ -33,7 +33,7 @@ module Decidim
                description: "Returns components with geolocation activated (may be Proposals or Meetings)",
                required: false,
                prepare: lambda { |active, _ctx|
-                          ->(_model_name, _locale) { ["(settings->'global'->>'geocoding_enabled')::boolean is ? or manifest_name='meetings'", active] }
+                          ->(_model_name, _locale) { ["(settings->'global'->>'geocoding_enabled')::boolean is ? or manifest_name='meetings'", Arel.sql(active.to_s)] }
                         }
 
       argument :with_comments_enabled,
@@ -41,7 +41,7 @@ module Decidim
                description: "Returns components with comments enabled globally (can still be deactivated in the current step if the component has steps)",
                required: false,
                prepare: lambda { |active, _ctx|
-                          ->(_model_name, _locale) { ["(settings->'global'->>'comments_enabled')::boolean is ?", active] }
+                          ->(_model_name, _locale) { ["(settings->'global'->>'comments_enabled')::boolean is ?", Arel.sql(active.to_s)] }
                         }
     end
   end

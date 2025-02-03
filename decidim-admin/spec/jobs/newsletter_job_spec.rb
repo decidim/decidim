@@ -6,6 +6,25 @@ module Decidim
   module Admin
     describe NewsletterJob, :with_inline_queue do
       let!(:newsletter) { create(:newsletter, organization:, total_deliveries: 0) }
+      let(:form_params) do
+        {
+          send_to_all_users:,
+          send_to_verified_users:,
+          send_to_followers:,
+          send_to_participants:,
+          participatory_space_types:,
+          send_to_private_members:,
+          verification_types:
+        }
+      end
+      let(:form) do
+        SelectiveNewsletterForm.from_params(
+          form_params
+        ).with_context(
+          current_organization: organization
+        )
+      end
+      let!(:recipients_ids) { [deliverable_user.id] }
       let!(:organization) { create(:organization) }
       let!(:another_organization) { create(:organization) }
       let!(:deliverable_user) { create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:) }
@@ -21,28 +40,6 @@ module Decidim
       let(:participatory_space_types) { [] }
       let(:verification_types) { [] }
 
-      let(:form_params) do
-        {
-          send_to_all_users:,
-          send_to_verified_users:,
-          send_to_followers:,
-          send_to_participants:,
-          participatory_space_types:,
-          send_to_private_members:,
-          verification_types:
-        }
-      end
-
-      let(:form) do
-        SelectiveNewsletterForm.from_params(
-          form_params
-        ).with_context(
-          current_organization: organization
-        )
-      end
-
-      let!(:recipients_ids) { [deliverable_user.id] }
-
       it "delivers a newsletter to a the eligible users" do
         expect(NewsletterDeliveryJob).to receive(:perform_later).with(deliverable_user, newsletter)
         expect(NewsletterDeliveryJob).not_to receive(:perform_later).with(undeliverable_user, newsletter)
@@ -51,13 +48,10 @@ module Decidim
       end
 
       it "updates the recipients count" do
+        expect(newsletter.reload.total_deliveries).to eq(0)
         NewsletterJob.perform_now(newsletter, form.as_json, recipients_ids)
         expect(newsletter.reload.total_recipients).to eq(1)
-      end
-
-      it "updates the deliveries count" do
-        NewsletterJob.perform_now(newsletter, form.as_json, recipients_ids)
-        expect(newsletter.reload.total_deliveries).to eq(0)
+        expect(newsletter.reload.total_deliveries).to eq(1)
       end
 
       it "updates the extended data" do

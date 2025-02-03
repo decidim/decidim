@@ -1005,4 +1005,8 @@ module Decidim
   rescue LoadError
     false
   end
+
+  def self.deprecator
+    @deprecator ||= ActiveSupport::Deprecation.new("0.31", "decidim")
+  end
 end

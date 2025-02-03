@@ -9,7 +9,7 @@ module Decidim
       QUESTION_TYPES = %w(single_option multiple_option).freeze
 
       translatable_fields :body
-      enum status: { unpublished: 0, published: 1, closed: 2 }
+      enum :status, { unpublished: 0, published: 1, closed: 2 }
 
       belongs_to :questionnaire, class_name: "Decidim::Meetings::Questionnaire", foreign_key: "decidim_questionnaire_id"
 

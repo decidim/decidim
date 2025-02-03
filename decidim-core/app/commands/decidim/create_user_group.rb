@@ -43,7 +43,7 @@ module Decidim
         nickname: form.nickname,
         organization: form.current_organization,
         about: form.about,
-        avatar: form.avatar,
+        avatar: form.avatar&.signed_id,
         extended_data: {
           phone: form.phone,
           document_number: form.document_number
