@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateDecidimCollaborativeTextsDocuments < ActiveRecord::Migration[7.0]
   def change
     create_table :decidim_collaborative_texts_documents do |t|
