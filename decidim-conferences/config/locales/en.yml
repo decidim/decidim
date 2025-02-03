@@ -127,12 +127,6 @@ en:
         new:
           create: Create
           title: New conference speaker
-        publish:
-          invalid: There was a problem publishing this speaker.
-          success: Conference speaker successfully published.
-        unpublish:
-          invalid: There was a problem unpublishing this speaker.
-          success: Conference speaker successfully unpublished.
         update:
           error: There was a problem updating this conference speaker.
           success: Conference speaker successfully updated.
