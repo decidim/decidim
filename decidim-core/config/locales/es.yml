@@ -737,6 +737,21 @@ es:
           extra: Información adicional de esta notificación
           id: El identificador único de esta notificación
           resource_type: El tipo de recurso con el que está relacionada la notificación
+        participatory_space_private_users:
+          created_at: La fecha y hora en que se creó esta participante privada
+          id: El identificador único de esta participante privada
+          privatable_to: A qué espacio de participación pertenece esta participante privada
+          published: Si esta participante privada está publicado o no
+          role: El rol tiene que esta participante privada
+          updated_at: La fecha y hora en que esta participante privada fue actualizada por última vez
+        reports:
+          created_at: La fecha y hora en que se creó este informe
+          details: Los detalles de los informes de moderación
+          id: El identificador único de este informe de moderación
+          locale: El idioma de este informe de moderación
+          moderation: La moderación que tiene este informe
+          reason: Los motivos de este informe de moderación
+          updated_at: La fecha y hora de la última actualización de este informe de moderación
         user_groups:
           document_number: El número de documento de este grupo de usuarias
           id: El identificador único de este grupo de usuarias
@@ -745,6 +760,7 @@ es:
           verified_at: La fecha y hora en que se verificó este grupo de usuarias
         users:
           about: La biografía de esta usuaria
+          accepted_tos_version: La fecha en que la usuaria aceptó los Términos y Condiciones de uso de esta plataforma
           admin: Si esta usuaria es una administradora
           confirmed_at: La fecha y la hora en que se confirmó esta usuaria
           created_at: La fecha y hora en que se creó esta usuaria
@@ -753,6 +769,8 @@ es:
           delete_reason: La razón dada para eliminar a esta usuaria
           deleted_at: La fecha y hora en que se eliminó a esta usuaria
           email: La dirección de correo electrónico de esta usuaria
+          followers_count: El número de participantes que siguen a esta participante
+          following_count: El número de participantes a los que sigue esta participante
           id: El identificador único de esta usuaria
           invitation_accepted_at: La fecha y hora en que se aceptó la invitación
           invitation_created_at: La fecha y hora en que se invitó a esta usuaria
@@ -771,9 +789,12 @@ es:
           officialized_as: La descripción de la oficialización (Alcaldía, Consejería, etc.)
           officialized_at: La fecha y hora en que esta usuaria fue oficializada
           organization: La organización a la que pertenece esta usuaria
+          password_updated_at: La fecha en la que cambiaron por última vez sus contraseñas
           personal_url: La URL personal de esta usuaria
           reset_password_sent_at: La fecha y hora en que se envió el correo para restablecer la contraseña
+          roles: El rol que tiene esta participante, si tiene alguno
           sign_in_count: El número de veces que esta usuaria ha iniciado sesión
+          type: El tipo que tiene esta participante
           unconfirmed_email: La dirección de correo electrónico que esta usuaria aún no ha confirmado
           updated_at: La fecha de la última actualización de esta usuaria
       show:
