@@ -10,7 +10,16 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources "collaborative_texts"
+        resources "collaborative_texts" do
+          member do
+            patch :soft_delete
+            patch :restore
+            put :publish
+            put :unpublish
+          end
+
+          get :manage_trash, on: :collection
+        end
 
         root to: "collaborative_texts#index"
       end

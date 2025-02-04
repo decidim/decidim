@@ -3,8 +3,11 @@ en:
   decidim:
     collaborative_texts:
       actions:
+        deleted_collaborative_text_info: Deleted collaborative text can be restored from the trash.
+        edit: Edit
         new: New text
         title: Actions
+        view_deleted_collaborative_texts: View deleted collaborative texts
       admin:
         collaborative_texts:
           index:

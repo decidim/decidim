@@ -16,11 +16,40 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td></td>
-          <td class="table-list__actions"></td>
-        </tr>
+        <%# collaborative_texts.each do |collaborative_text| %>
+          <tr>
+            <td></td>
+            <td class="table-list__actions">
+                <%= icon_link_to "settings-4-line", "#", t("actions.configure", scope: "decidim.admin") %>
+                <%= icon_link_to "pencil-line", "#", t("actions.edit", scope: "decidim.collaborative_texts"), class: "action-icon--edit" %>
+                <%= icon_link_to "eye-line", "#", t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
+                <% if allowed_to?(:update, :collaborative_text) %>
+                  <%# if collaborative_text.published? %>
+                    <%= icon_link_to "close-circle-line", "#", t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish" %>
+                  <%# else %>
+                    <%= icon_link_to "check-line", "#", t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish" %>
+                  <%# end %>
+                <% end %>
+                <% if allowed_to? :soft_delete, :collaborative_text #, trashable_deleted_resource: collaborative_text %>
+                    <%= icon_link_to "delete-bin-line", "#", t("actions.soft_delete", scope: "decidim.admin"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_debate", scope: "decidim.collaborative_texts") } %>
+                <% else %>
+                    <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.soft_delete", scope: "decidim.admin") %>
+                <% end %>
+            </td>
+          </tr>
+        <%# end %>
       </tbody>
     </table>
   </div>
+  <% if allowed_to? :manage_trash, :collaborative_text, participatory_space: current_participatory_space %>
+    <div class="card mt-4">
+      <%= link_to manage_trash_collaborative_texts_path, class: "flex items-center underline text-secondary" do %>
+        <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+        <%= t("actions.view_deleted_collaborative_texts", scope: "decidim.collaborative_texts") %>
+        <span class="ml-2">
+          <%= icon_with_tooltip("information-line", t("actions.deleted_collaborative_text_info", scope: "decidim.collaborative_texts")) %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
 </div>
