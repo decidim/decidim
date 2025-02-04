@@ -29,7 +29,7 @@ module Decidim
 
       field :badge, GraphQL::Types::String, "A badge for the user group", null: false
 
-      field :groups, [Decidim::Core::UserGroupType, { null: true }], "Groups where this user belongs", null: false
+      field :groups, [Decidim::Core::UserGroupType, { null: true }], "Groups where this user belongs", null: false, method: :accepted_user_groups
 
       def nickname
         object.presenter.nickname
@@ -57,10 +57,6 @@ module Decidim
 
       def badge
         object.presenter.badge
-      end
-
-      def groups
-        object.accepted_user_groups
       end
 
       def self.authorized?(object, context)
