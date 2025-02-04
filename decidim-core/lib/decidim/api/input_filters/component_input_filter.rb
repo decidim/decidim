@@ -34,19 +34,23 @@ module Decidim
                prepare: :prepare_comments_enabled
 
       def self.prepare_comments_enabled(active, _ctx)
-        ->(_model_name, _locale) { ["(settings->'global'->>'comments_enabled')::boolean is ?", active] }
+        lambda do |_model_name, _locale|
+           ["(settings->'global'->>'comments_enabled')::boolean is ?", active]
+         end
       end
 
       def self.prepare_geolocation_enabled(active, _ctx)
-        ->(_model_name, _locale) { ["(settings->'global'->>'geocoding_enabled')::boolean is ? or manifest_name='meetings'", active] }
+        lambda do |_model_name, _locale|
+          ["(settings->'global'->>'geocoding_enabled')::boolean is ? or manifest_name='meetings'", active]
+        end
       end
 
       def self.prepare_name(search, ctx)
-        lambda { |model_name, locale|
+        lambda do |model_name, locale|
           locale = ctx[:current_organization].default_locale if locale.blank?
           op = Arel::Nodes::InfixOperation.new("->>", model_name.arel_table[:name], Arel::Nodes.build_quoted(locale))
           op.matches("%#{search}%")
-        }
+        end
       end
 
       def self.prepare_type(value, _ctx)

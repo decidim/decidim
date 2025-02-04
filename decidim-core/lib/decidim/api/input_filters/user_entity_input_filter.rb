@@ -55,25 +55,25 @@ module Decidim
       def self.prepare_nickname(value, _ctx)
         value = value[1..-1] if value.starts_with? "@"
         [
-          lambda { |model_class, _locale|
+          lambda do |model_class, _locale|
             model_class.arel_table[:nickname].matches("%#{value}%")
-          }
+          end
         ]
       end
 
       def self.prepare_name(value, _ctx)
         [
-          lambda { |model_class, _locale|
+          lambda do |model_class, _locale|
             model_class.arel_table[:name].matches("%#{value}%")
-          }
+          end
         ]
       end
 
       def self.prepare_exclude_ids(value, _ctx)
         [
-          lambda { |model_class, _locale|
+          lambda do |model_class, _locale|
             model_class.arel_table[:id].not_in(value)
-          }
+          end
         ]
       end
 
@@ -86,11 +86,11 @@ module Decidim
       def self.prepare_wildcard(value, _ctx)
         value = value[1..-1] if value.starts_with? "@"
         [
-          lambda { |model_class, _locale|
+          lambda do |model_class, _locale|
             op_name = model_class.arel_table[:name].matches("%#{value}%")
             op_nick = model_class.arel_table[:nickname].matches("%#{value}%")
             op_name.or(op_nick)
-          }
+          end
         ]
       end
     end
