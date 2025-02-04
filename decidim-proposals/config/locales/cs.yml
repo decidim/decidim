@@ -759,6 +759,7 @@ cs:
           error: Při vytváření tohoto konceptu spolupráce došlo k chybě.
           success: Projekt spolupráce byl úspěšně vytvořen.
         edit:
+          attachment_legend: Přidat dokument nebo obrázek
           back: Zadní
           send: Poslat
           title: Úprava konceptu spolupráce
