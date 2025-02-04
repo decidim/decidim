@@ -35,8 +35,8 @@ module Decidim
 
       def self.prepare_comments_enabled(active, _ctx)
         lambda do |_model_name, _locale|
-           ["(settings->'global'->>'comments_enabled')::boolean is ?", active]
-         end
+          ["(settings->'global'->>'comments_enabled')::boolean is ?", active]
+        end
       end
 
       def self.prepare_geolocation_enabled(active, _ctx)
