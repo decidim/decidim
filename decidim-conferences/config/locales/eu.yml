@@ -120,13 +120,13 @@ eu:
         destroy:
           success: Hizlaria behar bezala ezabatua.
         edit:
-          title: Eguneratu hitzaldiko hizlaria.
+          title: Eguneratu hitzaldiaren hizlaria
           update: Eguneratu
         index:
           conference_speakers_title: Jardunaldiaren hizlariak
         new:
           create: Sortu
-          title: Beste hizlari bat.
+          title: Beste hizlari bat
         publish:
           invalid: Arazo bat izan da hizlari hau argitaratzean.
           success: Hizlaria behar bezala argitaratua.
@@ -143,13 +143,13 @@ eu:
         destroy:
           success: Jardunaldiren administratzailea behar bezala ezabatua.
         edit:
-          title: Eguneratu hitzaldiaren administratzailea.
+          title: Eguneratu hitzaldiaren hizlaria
           update: Eguneratu
         index:
           conference_admins_title: Jardunaldiaren administratzaileak
         new:
           create: Sortu
-          title: Jardunaldiaren beste administratzaile bat.
+          title: Beste hitzaldiaren administratzaile bat
         update:
           error: Arazo bat egon da hitzaldi-administratzaile hau eguneratzean.
           success: Jardunaldiaren administratzailea zuzen eguneratua.
@@ -181,9 +181,9 @@ eu:
           error: Arazo bat egon da beste komunikazio-esteka bat sortzean.
           success: Hedabideen esteka zuzen sortua.
         destroy:
-          success: Hedabideen lotura behar bezala ezabatua.
+          success: Hedabideen esteka behar bezala ezabatua.
         edit:
-          title: Eguneratu hedabideen lotura.
+          title: Eguneratu hedabideen esteka
           update: Eguneratu
         index:
           media_links_title: Hedabideen loturak
@@ -204,12 +204,12 @@ eu:
           conference_admins: Jardunaldi-administratzaileak
           conference_invites: Gonbidapenak
           conference_speakers: Hizlariak
-          diploma: Bertaratze-ziurtagiria
+          diploma: Parte-hartze ziurtagiria
           info: Jardunaldi honi buruz
           media_links: Hedabideen loturak
           moderations: Moderazioak
           partners: Kideak
-          registration_types: Izen-emate motak
+          registration_types: Erregistro motak
           registrations: Izen-emateak
           see_conference: Ikusi jardunaldia
           user_registrations: Parte-hatzaileen erregistroak
@@ -267,7 +267,7 @@ eu:
         destroy:
           success: Kidea behar bezala kenduta.
         edit:
-          title: Eguneratu kidea.
+          title: Eguneratu kidea
           update: Eguneratu
         new:
           create: Sortu
@@ -289,7 +289,7 @@ eu:
         destroy:
           success: Izen-emate mota jardunaldi honetatik atera da.
         edit:
-          title: Eguneratu erregistro mota.
+          title: Eguneratu erregistro mota
           update: eguneratzearen
         new:
           create: Sortu
@@ -384,7 +384,7 @@ eu:
         diplomas:
           edit:
             save: Gorde
-            title: Asistentzia ziurtagiria
+            title: Parte-hartze ziurtagiria
         invite_join_conference_mailer:
           invite:
             decline: Baztertu gonbidapena '%{conference_title}'
@@ -404,7 +404,7 @@ eu:
             diploma_html: < a href = " % {url}" >% {title} jardunaldira joan izanaren ziurtagiria aurkituko duzu eranskinetan.
           diploma_user:
             attendance_verified_by: Bertaratzea nork egiaztatua
-            certificate_of_attendance: Bertaratze-agiria
+            certificate_of_attendance: Parte-hartze ziurtagiria
             certificate_of_attendance_description: Honek ziurtatzen du <strong>%{user}</strong> bertaratu dela eta parte hartu duela <strong>%{title}</strong> etan ospatua <strong>%{location}</strong> an <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Arazo bat egon da jardunaldiaren bertaratze-agiriak bidaltzean.
