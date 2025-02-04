@@ -14,7 +14,7 @@ on:
       - "decidim-collaborative_texts/**"
       - "decidim-core/**"
       - "decidim-dev/**"
-      - "decidim-participatory_processes/**" 
+      - "decidim-participatory_processes/**"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
