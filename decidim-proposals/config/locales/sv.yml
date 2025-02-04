@@ -10,14 +10,19 @@ sv:
         state: Status
         title: Titel
         user_group_id: Skapa gemensamt utkast som
+      import_participatory_text:
+        document: Dokument
       proposal:
         address: Adress
         answer: Svar
         answered_at: Besvarad
         automatic_hashtags: Hashtags läggs till automatiskt
         body: Innehåll
+        decidim_proposals_proposal_state_id: Status
         decidim_scope_id: Indelning
         has_address: Har adress
+        latitude: Latitud
+        longitude: Longitud
         scope_id: Indelning
         state: Status
         suggested_hashtags: Föreslagna hashtags
@@ -44,6 +49,8 @@ sv:
       proposals_copy:
         copy_proposals: Jag förstår att det här importerar alla förslag från den valda komponenten till den aktuella komponenten och att det inte går att ångra.
         origin_component_id: Komponent att kopiera förslagen från
+      proposals_file_import:
+        file: Fil
       proposals_import:
         import_proposals: Importera förslag
         keep_answers: Behåll status och svar
@@ -79,6 +86,7 @@ sv:
               not_official: Är inte officiella
               voted: Har fått röster eller stöd
     models:
+      decidim/proposals/admin/update_proposal_taxonomies_event: Förslagskategorier har ändrats
       decidim/proposals/creation_enabled_event: Skapande av förslag aktiverat
       decidim/proposals/endorsing_enabled_event: Stöttande av förslag aktiverat
       decidim/proposals/proposal_mentioned_event: Förslag nämnt
@@ -86,6 +94,16 @@ sv:
       decidim/proposals/voting_enabled_event: Omröstningar om förslag aktiverat
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: Förslaget %{link} skapades
+            import_from_proposal_text: 'Det blev det här förslaget: %{link}'
+            import_to_proposal_text: Förslaget %{link} skapades
+            merge_from_proposal_text: 'Det blev det här förslaget: %{link}'
+            merge_to_proposal_text: 'Förslaget skapades: %{link}'
+            split_from_proposal_text: 'Det blev det här förslaget: %{link}'
+            split_to_proposal_text: 'Förslaget skapades: %{link}'
       decidim/proposals/collaborative_draft:
         one: Gemensamt utkast
         other: Gemensamma utkast
@@ -100,6 +118,9 @@ sv:
         other: Röster
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Förslag
       filters:
         proposals:
           is_emendation_true:
@@ -119,6 +140,8 @@ sv:
               rejected: Avvisade
               validating: Teknisk validering
               withdrawn: Återkallade
+          taxonomies_part_of_contains:
+            label: Kategori
           valuator_role_ids_has:
             label: Tilldelad till handläggare
           with_any_state:
@@ -128,11 +151,15 @@ sv:
               state_published: Besvarade
         search_placeholder:
           id_string_or_title_cont: Sök %{collection} efter ID eller titel.
+    application:
+      geocoding:
+        not_configured: Kartvisning är inte konfigurerad!
     components:
       proposals:
         actions:
           amend: Ändra
           comment: Kommentera
+          create: Skapa förslag
           endorse: Gilla
           vote: Rösta
           vote_comment: Rösta på en kommentar
@@ -147,6 +174,7 @@ sv:
             attachments_allowed: Tillåt bilagor
             attachments_allowed_help: Genom att aktivera alternativet kommer förslagen att vara förvalda till rutnätsläge, och den första bilden kommer att visas på kortet.
             can_accumulate_votes_beyond_threshold: Kan få röster utöver den satta gränsen
+            clear_all: Återställ
             collaborative_drafts_enabled: Aktivera gemensamma utkast
             comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
@@ -161,6 +189,7 @@ sv:
               random: Slumpvis
               recent: Senaste
               with_more_authors: Med flera författare
+            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
             edit_time: Förslag kan redigeras av författaren inom så här många minuter
             edit_time_units:
               days: Dagar
@@ -171,6 +200,7 @@ sv:
             new_proposal_body_template: Innehållsmall för nytt förslag
             new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
             new_proposal_help_text: Hjälptext om nya förslag
+            no_taxonomy_filters_found: Inga filter för kategorier hittades.
             official_proposals_enabled: Aktivera officiella förslag
             participatory_texts_enabled: Aktivera kollaborativa texter
             participatory_texts_enabled_readonly: Det går inte att ändra den här inställningen om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag under menyn `Kollaborativa texter` om du vill avaktivera den.
@@ -188,8 +218,8 @@ sv:
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
             proposal_wizard_step_2_help_text: Hjälptext för steget ”Publicera” i förslagsguiden
             resources_permissions_enabled: Behörigheter kan ställas in för varje förslag
-            scope_id: Indelning
-            scopes_enabled: Aktivera indelningar
+            taxonomy_filters: Välj filter för komponenten
+            taxonomy_filters_add: Lägg till filter
             threshold_per_proposal: Minst antal stöd per förslag
             vote_limit: Antal röster per deltagare
           step:
@@ -230,6 +260,10 @@ sv:
             votes_blocked: Röster blockerade
             votes_enabled: Röster aktiverade
             votes_hidden: Dölj antal röster (om röster är aktiverade, kommer antalet röster att döljas)
+    download_your_data:
+      show:
+        proposal_comments: Exportera förslagskommentarer
+        proposals: Exportera förslag
     events:
       proposals:
         accepted_coauthorship:
@@ -334,6 +368,11 @@ sv:
             email_outro: Du har fått det här meddelande eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
             email_subject: Ett förslag som du följer har ändrat status (%{state})
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har ändrat status till "%{state}".
+        proposal_update_taxonomies:
+          email_intro: 'En administratör har uppdaterat kategorierna för ditt förslag "%{resource_title}", ta en titt på följande sida:'
+          email_outro: Du har fått det här meddelandet eftersom du har skrivit förslaget.
+          email_subject: Förslagskategorierna %{resource_title} har uppdaterats
+          notification_title: Förslagskategorierna <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         rejected_coauthorship:
           notification_title: Du har avböjt inbjudan från <a href="%{author_path}">%{author_name}</a> att bli medförfattare till förslaget <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
@@ -393,6 +432,20 @@ sv:
         description: Antal röster på förslag
         object: röster
         title: Röster
+    open_data:
+      help:
+        proposal_comments:
+          alignment: Positiva, negativa eller neutrala kommentarer
+          author: Namn på den som kommenterat
+          body: Kommentaren
+          commentable_id: Kommentarens unika id
+          commentable_type: Vad som kommenterades (resultat, förslag etc)
+          created_at: Datum för kommentaren
+          depth: Kommentarens plats i en hierarki av kommentarer (om den är ett svar på en annan kommentar)
+          id: Id för kommentaren
+          locale: Kommentarförfattarens språk
+          root_commentable_url: URL till innehållet som är relaterat till kommentaren
+          user_group: Namn på gruppen som kommenterat (om det var en grupp)
     participatory_spaces:
       highlighted_proposals:
         last: Senaste förslagen
@@ -421,22 +474,6 @@ sv:
           proposal_comments: Kommentarer
           proposals: Förslag
         imports:
-          help:
-            answers: |
-              Importdokumentet ska innehålla följande kolumnnamn vid CSV eller Excel-filer, eller nyckelnamn vid JSON-filer:
-              <ul>
-              <li><b>id:</b> ID för förslaget att svara</li>
-              <li><b>stat:</b> En av "godkänd", "utvärdering", eller "avvisade"</li>
-              <li><b>svar/:</b> Svar på engelska. Beror på din plattforms språkkonfiguration.</li>
-              </ul>
-            proposals: |
-              Filen måste ha följande kolumnnamn för CSV eller Excel-filer, eller nyckelnamn för JSON-filer:
-              <ul>
-              <li><b>title/en:</b> Titel på engelska. Detta beror på din plattforms språkkonfiguration.</li>
-              <li><b>body/en:</b> Innehåll på engelska. Detta beror på din plattforms språkkonfiguration.</li>
-              <li><b>scope/id:</b> ID för Scope</li>
-              <li><b>category/id:</b> ID för kategori</li>
-              </ul>
           label:
             answers: Importera svar från en fil
             proposals: Importerar förslag från en fil
@@ -533,9 +570,7 @@ sv:
             title: Uppdatera förslag
             update: Uppdatera
           form:
-            attachment_legend: "(Frivilligt) Lägg till en bilaga"
             created_in_meeting: Detta förslag kommer från ett möte
-            delete_attachment: Ta bort bilaga
             select_a_meeting: Välj ett möte
           index:
             actions: Åtgärder
@@ -661,7 +696,6 @@ sv:
           error: Det gick inte att skapa det gemensamma utkastet.
           success: Det gemensamma utkastet har skapats.
         edit:
-          attachment_legend: "(Frivilligt) Lägg till en bilaga"
           back: Tillbaka
           send: Skicka
           title: Redigera gemensamt utkast
@@ -792,10 +826,7 @@ sv:
           description: Koordinaterna uppdateras när du klickar på knappen 'Förhandsgranska'. Adressen ändras dock inte.
           instructions: Du kan flytta markören på kartan.
         edit:
-          add_documents: Lägga till dokument
-          attachment_legend: "(Frivilligt) Lägg till en bilaga"
           back: Tillbaka
-          edit_documents: Ändra dokument
           send: Skicka
           title: Redigera förslag
         edit_draft:
@@ -892,17 +923,12 @@ sv:
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Varje förslag kan få mer än %{limit} röster
-          minimum_votes_per_user:
-            description: Du måste lägga minst %{votes} röster på olika förslag.
-            given_enough_votes: Du har lagt alla dina röster.
-            votes_remaining: Du behöver rösta på ytterligare %{remaining_votes} förslag för att dina röster ska räknas.
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
           threshold_per_proposal:
             description: Förslag behöver få minst %{limit} röster för accepteras.
-          title: 'Följande regler gäller för omröstningar:'
           vote_limit:
-            description: Du kan rösta upp till %{limit} förslag.
+            description: Du kan stödja upp till %{limit} förslag.
             votes: Saknar %{number} röster
         wizard_aside:
           back: Tillbaka

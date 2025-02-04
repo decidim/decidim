@@ -42,15 +42,8 @@ kaa:
       autocomplete:
         no_results: Nátiyjeler tabılmadı
       categories:
-        edit:
-          update: Jańalaw
         index:
           categories_title: Kategoriyalar
-        new:
-          create: Kategoriya jaratıw
-          title: Jańa kategoriya
-        update:
-          success: Kategoriya tabıslı jańalandı.
       components:
         edit:
           update: Jańalaw

@@ -4,7 +4,7 @@ module Decidim
   module Amendable
     # A command with all the business logic when a user starts amending a resource.
     class CreateDraft < Decidim::Command
-      delegate :current_user, to: :form
+      delegate :current_user, :current_organization, to: :form
 
       # Public: Initializes the command.
       #
@@ -53,8 +53,8 @@ module Decidim
             emendation.title = { I18n.locale => form.emendation_params.with_indifferent_access[:title] }
             emendation.body = { I18n.locale => form.emendation_params.with_indifferent_access[:body] }
             emendation.component = amendable.component
+            emendation.taxonomies = amendable.taxonomies if amendable.respond_to?(:taxonomies)
             emendation.add_author(current_user, user_group)
-            emendation.category = amendable.category if amendable.respond_to?(:category)
             emendation.save!
             emendation
           end

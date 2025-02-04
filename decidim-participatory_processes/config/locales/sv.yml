@@ -22,16 +22,12 @@ sv:
         local_area: Område
         meta_scope: Omfattning
         participatory_process_group_id: Grupp av processer
-        participatory_process_type_id: Typ av processer
         participatory_scope: Vad beslutas
         participatory_structure: Hur fattas beslut
         private_space: Privat process
         promoted: Utvald
         published_at: Publicerad
         related_process_ids: Relaterade processer
-        scope_id: Indelning
-        scope_type_max_depth_id: Djup på filter
-        scopes_enabled: Aktivera indelningar
         short_description: Kort beskrivning
         slug: URL-slug
         start_date: Startdatum
@@ -59,8 +55,6 @@ sv:
         end_date: Slutdatum
         short_description: Kort beskrivning
         start_date: Startdatum
-        title: Titel
-      participatory_process_type:
         title: Titel
       participatory_process_user_role:
         email: E-post
@@ -91,6 +85,7 @@ sv:
       actions:
         activate: Aktivera
         configure: Konfigurera
+        confirm_delete_process: Är du säker på att du vill ta bort den här processen? Om du ändrar dig kan du återställa den senare.
         confirm_destroy: Bekräfta radering
         destroy: Radera
         duplicate: Duplicera
@@ -101,13 +96,13 @@ sv:
         new_process: Ny process
         new_process_group: Ny grupp av processer
         new_process_step: Nytt steg
-        new_process_type: Ny typ av process
         new_process_user_role: Ny administratör för process
         preview: Förhandsvisa
         publish: Publicera
         resend_invitation: Skicka inbjudan igen
         see_process: Visa process
         unpublish: Avpublicera
+        view_deleted_processes: Visa raderade processer
       filters:
         decidim_participatory_process_group_id_eq:
           label: Efter processgrupp
@@ -116,17 +111,16 @@ sv:
         participatory_process_groups_submenu:
           info: Info
           landing_page: Landningssida
-        participatory_process_types: Typ av processer
         participatory_processes: Processer
         participatory_processes_submenu:
           attachment_collections: Mappar
           attachment_files: Filer
           attachments: Bilagor
-          categories: Kategorier
           components: Komponenter
           info: Om processen
           landing_page: Landningssida
           moderations: Moderering
+          private_users: Medlemmar
           process_admins: Administratörer för process
           steps: Steg
       models:
@@ -148,11 +142,6 @@ sv:
             start_date: Startdatum
             title: Titel
           name: Steg i process
-        participatory_process_type:
-          fields:
-            created_at: Skapad
-            title: Titel
-          name: Typ av process
         participatory_process_user_role:
           fields:
             email: E-post
@@ -168,6 +157,7 @@ sv:
           fields:
             invitation_accepted_at: Inbjudan godkänd
             invitation_sent_at: Inbjudan skickad
+            published: Publicerad
       participatory_process_copies:
         new:
           copy: Kopiera
@@ -234,21 +224,6 @@ sv:
         update:
           error: Det gick inte att uppdatera steget i processen.
           success: Steget i processen har uppdaterats.
-      participatory_process_types:
-        create:
-          error: Det gick inte att skapa en ny typ av process.
-          success: Typen av process har skapats.
-        destroy:
-          success: Typen av process har raderats.
-        edit:
-          title: Redigera typ av process
-          update: Uppdatera
-        new:
-          create: Skapa
-          title: Ny typ av process
-        update:
-          error: Det gick inte att uppdatera typen av process.
-          success: Typen av process har uppdaterats.
       participatory_process_user_roles:
         create:
           error: Det gick inte att lägga till en deltagare till processen.
@@ -277,6 +252,8 @@ sv:
           public: Offentlig
           published: Publicerad
           unpublished: Ej publicerad
+        manage_trash:
+          title: Raderade deltagandeprocesser
         new:
           create: Skapa
           title: Ny deltagandeprocess
@@ -291,10 +268,16 @@ sv:
         create:
           error: Det gick inte att skapa en ny grupp för processer.
           success: Gruppen har skapats.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Alla deltagandeprocesser
       titles:
         participatory_process_groups: Grupper av deltagandeprocesser
         participatory_process_types: Typer av deltagandeprocesser
         participatory_processes: Deltagandeprocesser
+        participatory_processes_deleted: Raderade deltagandeprocesser
+      tooltips:
+        deleted_processes_info: En process kan endast raderas om status är "avpublicerad".
       users:
         resend_invitation:
           error: Det gick inte att skicka inbjudan igen.
@@ -306,10 +289,13 @@ sv:
         export: "%{user_name} exporterade processen %{resource_name}"
         import: "%{user_name} importerade processen %{resource_name}"
         publish: "%{user_name} publicerade deltagandeprocessen %{resource_name}"
+        restore: "%{user_name} återställde deltagandeprocessen %{resource_name}"
+        soft_delete: "%{user_name} raderade deltagandeprocessen %{resource_name}"
         unpublish: "%{user_name} avpublicerade deltagandeprocessen %{resource_name}"
         update: "%{user_name} uppdaterade deltagandeprocessen %{resource_name}"
       participatory_process_group:
         create: "%{user_name} skapade gruppen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade gruppen av deltagandeprocesser %{resource_name}"
         update: "%{user_name} uppdaterade gruppen %{resource_name}"
       participatory_process_step:
         activate: "%{user_name} aktiverade steget %{resource_name} i processen %{space_name}"
@@ -324,6 +310,9 @@ sv:
         create: "%{user_name} bjöd in deltagaren %{resource_name} till processen %{space_name}"
         delete: "%{user_name} tog bort deltagaren %{resource_name} från processen %{space_name}"
         update: "%{user_name} ändrade rollen för deltagaren %{resource_name} i processen %{space_name}"
+    download_your_data:
+      show:
+        participatory_processes: Export av deltagandeprocesser
     events:
       participatory_process:
         role_assigned:
@@ -358,6 +347,30 @@ sv:
         description: Antal deltagandeprocesser i organisationen
         object: deltagandeprocesser
         title: Deltagandeprocesser
+    open_data:
+      help:
+        participatory_processes:
+          announcement: Meddelande
+          area: Geografiskt område för processen
+          created_at: Datum när processen skapades
+          description: Längre beskrivning av processen
+          developer_group: Ansvariga för processen. Organisation eller grupp som står bakom processen.
+          end_date: Slutdatum för processen
+          follows_count: Antal följare
+          hashtag: Processens hashtag, används för Twitter/X
+          id: Unikt id för processen
+          local_area: Geografiskt område för processen. Det område där processen genomförs.
+          participatory_process_group: Grupp av processer, om tillämpbart
+          participatory_process_type: Typ av process
+          published_at: Datum när processen publicerades
+          reference: Unikt id för processen
+          remote_hero_image_url: URL till processens huvudbild
+          scopes_enabled: Om indelningar är aktiverat eller inte
+          short_description: Kort beskrivning av processen
+          start_date: Startdatum för processen
+          subtitle: Undertitel för processen
+          title: Processens titel
+          url: Processens URL
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -421,15 +434,13 @@ sv:
         participatory_processes:
           form:
             announcement_help: Den här texten visas direkt under informationen om processen.
+            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
             duration: Varaktighet
-            filters: Filter
             images: Bilder
             metadata: Metadata
-            other: Övrigt
+            no_taxonomy_filters_found: Inga filter för kategorier hittades.
+            private_notice: Du kommer att kunna hantera medlemmar om processen gjorts privat
             related_processes: Relaterade processer
-            scope_type_max_depth_help: Begränsa djupet på filtret för indelningen.
-            select_an_area: Välj ett område
-            select_participatory_process_type: Välj typ av process
             select_process_group: Välj en grupp av processer
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
             taxonomies: Kategorisering
@@ -446,6 +457,8 @@ sv:
           name: Relaterade processer
       index:
         title: Deltagandeprocesser
+      last_activity:
+        new_participatory_process: 'Ny process:'
       pages:
         home:
           highlighted_processes:
@@ -495,6 +508,9 @@ sv:
           type: Typ
         show:
           title: Om processen
+      participatory_space_private_users:
+        index:
+          title: Medlemmar
       show:
         belongs_to_group: Den här processen tillhör
         private_space: Det här är en privat process
@@ -508,6 +524,8 @@ sv:
           browse: Bläddra
           browse_resource: Bläddra i processgruppen %{resource_name}
           processes_count: 'Processer:'
+      participatory_process_navigation:
+        member_menu_item: Medlemmar
       participatory_processes:
         index:
           promoted_processes: Viktiga processer just nu

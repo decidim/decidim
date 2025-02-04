@@ -177,8 +177,6 @@ lt:
         attachment_collection:
           new: Naujas priedų aplankas
         browse: Naršyti
-        category:
-          new: Nauja kategorija
         export: Eksportuoti viską
         export-selection: Eksportuoti pasirinktą
         import: Importuoti
@@ -286,23 +284,8 @@ lt:
           justification: Paaiškinimas
           title: Blokuoti naudotoją %{name}
       categories:
-        create:
-          error: Kuriant šią kategoriją iškilo problema.
-          success: Kategorija sėkmingai sukurta.
-        destroy:
-          error: Šalinant šią kategoriją iškilo problema. Pirmiausia pašalinkite bet kurią pakategorę, įsitikinkite, kad joks kitas subjektas nesusietas su šia kategorija, ir bandykite dar kartą.
-          success: Kategorija sėkmingai pašalinta.
-        edit:
-          title: Redaguoti kategoriją
-          update: Atnaujinti
         index:
           categories_title: Kategorijos
-        new:
-          create: Sukurti kategoriją
-          title: Nauja kategorija
-        update:
-          error: Atnaujinant šią kategoriją iškilo problema.
-          success: Kategorija sėkmingai atnaujinta.
       component_permissions:
         update:
           error: Atnaujinant šio komponento leidimus iškilo problema.
@@ -704,7 +687,6 @@ lt:
           confirm_delete: Ar tikrai norite ištrinti šį naujienlaiškį?
           followers: 'sekėjai '
           has_been_sent_to: 'Buvo išsiųsta: '
-          no_scopes: Sričių nėra
           not_sent: Neišsiųstas
           participants: 'dalyviai '
           segmented_to: 'Išskaidyta į %{subject}: '
@@ -719,13 +701,10 @@ lt:
           confirm_deliver: Ar tikrai norite išsiųsti šį naujienlaiškį? Šio veiksmo atšaukti negalima.
           deliver: Pristatyti naujienlaiškį
           followers_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams, kurie seka sąraše nurodytas pasirinktas dalyvaujamojo proceso erdves.
-          none: Nėra
           participants_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams, kurie dalyvavo bet kurioje sąraše nurodytoje pasirinktoje dalyvaujamojo proceso erdvėje.
           recipients_count: Šis naujienlaiškis bus išsiųstas <strong id='recipients_count'>%{count}</strong> naudotojams.
-          scopes_help: Naujienlaiškis siunčiamas naudotojams, kurių paskyros „Mano interesai“ nuostatose aktyvuota kuri nors pasirinkta sritis.
-          select_scopes: Filtruoti naudotojus, kurie savo paskyros „Mano interesai“ nuostatose aktyvino bet kurią pasirinktą sritį.
           select_spaces: Pasirinkite naujienlaiškio segmentacijos vietas
-          select_users: Pasirinkite, kuriems naudotojams norite siųsti naujienlaiškį
+          send_to_all_users: Siųsti visiems naudotojams
           title: Pasirinkti gavėjus, kuriems išsiųsti
           warning: "<strong>Dėmesio:</strong> Šis naujienlaiškis bus išsiųstas tik tiems dalyviams, kurie savo pranešimų nuostatose aktyvino<em> „noriu gauti naujienlaiškius“</em>."
         send:

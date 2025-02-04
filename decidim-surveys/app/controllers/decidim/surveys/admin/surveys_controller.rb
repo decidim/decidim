@@ -3,7 +3,7 @@
 module Decidim
   module Surveys
     module Admin
-      # This controller allows the user to update a Page.
+      # This controller allows the user create and edit questionnaires for Surveys.
       class SurveysController < Admin::ApplicationController
         include Decidim::Forms::Admin::Concerns::HasQuestionnaire
         include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswersUrlHelper
@@ -15,7 +15,7 @@ module Decidim
 
         def create
           enforce_permission_to(:create, :questionnaire)
-          Decidim::Surveys::CreateSurvey.call(current_component) do
+          Decidim::Surveys::Admin::CreateSurvey.call(current_component) do
             on(:ok) do |survey|
               flash[:notice] = I18n.t("create.success", scope: "decidim.surveys.admin.surveys")
               redirect_to edit_survey_path(survey)

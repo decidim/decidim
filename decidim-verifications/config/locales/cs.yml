@@ -186,13 +186,11 @@ cs:
             few: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
             many: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
             other: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
-          scope: Účast je omezena na účastníky s rozsahem %{scope_name}.
           user_postal_codes:
             one: Účast je omezena na účastníky s poštovním kódem %{postal_codes} a vaše poštovní směrovací číslo je %{user_postal_code}.
             few: 'Účast je omezena na účastníky s poštovním kódem %{postal_codes} a vaše poštovní směrovací číslo je %{user_postal_code}.'
             many: 'Účast je omezena na účastníky s poštovními kódy %{postal_codes} a vaše poštovní směrovací číslo je %{user_postal_code}.'
             other: 'Účast je omezena na účastníky s kterýmkoli z následujících poštovních kódů: %{postal_codes}. Vaše poštovní směrovací číslo je %{user_postal_code}.'
-          user_scope: Účast je omezena na účastníky s rozsahem %{scope_name} a váš rozsah je %{user_scope_name}.
       id_documents:
         admin:
           config:

@@ -3,10 +3,18 @@ fr:
     attributes:
       account:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
+      attachment:
+        documents: Documents
+        photos: Photos
       common:
         created_at: Créé le
+      content_block_attachment:
+        background_image: Image d'arrière-plan
+        main_image: Image principale
       conversation:
         body: Corps de texte
+      editor_image:
+        file: Fichier
       group:
         about: A propos
         avatar: Avatar
@@ -15,12 +23,17 @@ fr:
         name: Nom
         nickname: Pseudonyme
         phone: Téléphone
+      import:
+        file: Fichier
       message:
         body: Corps de texte
       report:
         details: Commentaires supplémentaires
+      taxonomy_filter:
+        space_filter: Disponible comme filtre pour
       user:
         about: A propos de moi
+        avatar: Avatar
         email: Votre email
         encrypted_password: Mot de passe
         locale: Langue
@@ -32,6 +45,8 @@ fr:
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         tos_agreement: Conditions d'utilisation
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -269,12 +284,9 @@ fr:
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
         update: "%{user_name} a mis à jour la page statique %{resource_name}"
       taxonomy_filter:
-        create: "%{user_name} a créé un filtre basé sur la taxonomie %{resource_name}"
-        create_with_filter_items_count: "%{user_name} a créé un filtre basé sur la taxonomie %{resource_name} avec %{filter_items_count} filtres pour %{space_manifest_name}"
-        delete: "%{user_name} a supprimé un filtre basé sur la taxonomie %{resource_name}"
-        delete_with_filter_items_count: "%{user_name} a supprimé un filtre basé sur la taxonomie %{resource_name} avec %{filter_items_count} filtres pour %{space_manifest_name}"
-        update: "%{user_name} a mis à jour un filtre basé sur la taxonomie %{resource_name}"
-        update_with_filter_items_count: "%{user_name} a mis à jour un filtre basé sur la taxonomie %{resource_name} avec %{filter_items_count} filtres pour %{space_manifest_name}"
+        create: "%{user_name} a créé le filtre %{resource_name}"
+        delete: "%{user_name} a supprimé le filtre %{resource_name}"
+        update: "%{user_name} a mis à jour le filtre %{resource_name}"
       user:
         block: "%{user_name} a bloqué l'utilisateur %{resource_name}"
         invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle : %{role}"
@@ -406,14 +418,18 @@ fr:
         explanation: Obtenir une vérification en saisissant un numéro de document terminant par "X".
         fields:
           allowed_postal_codes: Codes postaux autorisés (séparés par des virgules)
-          allowed_scope_id: Secteur autorisé
           document_number: Numéro de document
           postal_code: Code postal
-          scope_id: Secteur
         name: Exemple d'autorisation
       dummy_authorization_workflow:
         explanation: Procédure d'autorisation factice
         name: Procédure d'autorisation factice
+      ephemeral_dummy_authorization_handler:
+        fields:
+          allowed_postal_codes: Codes postaux autorisés (séparés par des virgules)
+          document_number: Numéro du document
+          postal_code: Code postal
+        name: Exemple d'autorisation éphémère
       errors:
         duplicate_authorization: Un participant est déjà autorisé avec ces mêmes données. Un administrateur vous contactera pour vérifier vos informations.
       expired_at: Expiré à %{timestamp}
@@ -502,8 +518,6 @@ fr:
             dummy_global_translatable_text: Texte traduisible factice
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
-            scope_id: Secteur
-            scopes_enabled: Secteurs activés
           step:
             amendment_creation_enabled: Création d'amendement activée
             amendment_promotion_enabled: Promotion d'amendement activée
@@ -624,6 +638,7 @@ fr:
           sign_in_disabled: Vous pouvez vous connecter avec un compte externe.
           sign_up_disabled: La création de compte est désactivée, mais vous pouvez vous identifier avec un compte existant.
         user:
+          ephemeral_session_closed: Votre session d'invité est terminée
           timed_out: Vous avez été inactif pendant trop longtemps et vous avez été automatiquement déconnecté du service. Si vous souhaitez continuer à utiliser le service, veuillez vous reconnecter.
       shared:
         newsletter_modal:
@@ -672,8 +687,6 @@ fr:
         ready: Prêt
       show:
         action: Action
-        download: Télécharger
-        download_data: Zone des téléchargements
         download_data_description_1: Vous trouverez ici tous les téléchargements disponibles pour votre compte. Ces fichiers .zip seront disponibles pendant deux semaines avant d'être supprimés.
         download_data_description_2: Vous pouvez demander un fichier .zip avec vos contributions et vos données personnelles.
         download_your_data: Données personnelles
@@ -695,6 +708,7 @@ fr:
     endorsers_list:
       others: "%{count} de plus"
       you: vous
+    ephemeral_user: Visiteur
     errors:
       files:
         file_cannot_be_processed: Le fichier ne peut pas être traité
@@ -762,6 +776,11 @@ fr:
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Un amendement rejeté pour %{amendable_title} à %{emendation_author_nickname}
             notification_title: Le <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejetée pour <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'Une correction a été publiée pour %{amendable_title}. Vous pouvez la voir sur cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous êtes un(e) auteur/trice de %{amendable_title}.
+            email_subject: Une correction réalisée par %{emendation_author_nickname} a été publiée en tant que nouvelle %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Un nouveau document a été ajouté à %{resource_title}. Vous pouvez le voir sur cette page :'
@@ -918,7 +937,7 @@ fr:
         file:
           explanation: 'Orientation pour le fichier :'
           message_1: Doit être une image ou un document.
-          message_2: Pour les images, utilisez de préférence des images en format paysage car le service rogne l'image.
+          message_2: Si c'est une image, c'est de préférence une image de paysage qui n'a pas de texte. Le service recadre l'image.
         icon:
           explanation: 'Manuel pour l''image:'
           message_1: Doit être une image carrée.
@@ -1096,6 +1115,8 @@ fr:
         unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
         unpublish_with_space: "%{user_name} a dépublié %{resource_name} de %{space_name}"
         update: "%{user_name} a mis à jour %{resource_name}"
+        update_filters: "%{user_name} a mis à jour les filtres de %{resource_name}"
+        update_filters_with_space: "%{user_name} a mis à jour les filtres de %{resource_name} dans %{space_name}"
         update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
@@ -1199,6 +1220,8 @@ fr:
         not_started: Pas encore commencé
         remaining: "%{time_distance} restant"
     metrics:
+      blocked_users:
+        description: Nombre de participants bloqués
       download:
         csv: Télécharger les données (CSV)
       followers:
@@ -1209,6 +1232,10 @@ fr:
         description: Nombre d'utilisateurs actifs dans l'organisation
         object: les participants
         title: Participants
+      reported_users:
+        description: Nombre de participants signalés
+      user_reports:
+        description: Nombre de signalements effectués par les participants
       users:
         description: Nombre d'utilisateurs dans l'organisation
         object: utilisateurs
@@ -1274,10 +1301,12 @@ fr:
     notifications_digest_mailer:
       header:
         daily: Résumé quotidien des notifications
+        real_time: Temps réel
         weekly: Résumé hebdomadaire des notifications
       hello: Bonjour %{name},
       intro:
         daily: 'Voici les notifications de la veille, basées sur les ressources que vous suivez :'
+        real_time: 'Ceci est une notification sur l''activité que vous suivez :'
         weekly: 'Voici les notifications de la semaine dernière, basées sur les ressources que vous suivez :'
       outro: Vous avez reçu ces notifications parce que vous suivez ce contenu ou ses auteurs. Pour arrêter de les suivre, rendez-vous sur la page du contenu ou de l'auteur et cliquez sur "Ne plus suivre".
       see_more: Voir plus de notifications
@@ -1319,8 +1348,10 @@ fr:
     onboarding_action_message:
       click_link: Cliquez ici
       cta_html: <a href="%{path}">%{link_text}</a> pour %{action} dans %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: Vous avez été autorisé avec succès.<br/>Vous avez commencé une session en tant qu'invité, vous pouvez maintenant participer.
       pending_authorization_active_message: Veuillez remplir le formulaire pour procéder à cette action.
       pending_authorization_active_title: Nous devons vérifier votre identité.
+      pending_ephemeral_authorization: Veuillez vérifier votre identité pour continuer.
     open_data:
       help:
         metrics:
@@ -1516,16 +1547,7 @@ fr:
         error: Il y a eu un problème lors de l'action de soutien.
     scopes:
       global: Portée générale
-      picker:
-        cancel: Annuler
-        change: Changer le secteur sélectionné
-        choose: Sélectionner
-        currently_selected: Secteur actuellement sélectionné
-        title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
-      scopes: Secteurs
-      scopes_picker_input:
-        select_scope: 'Sélectionnez un secteur (actuellement: %{current})'
     search:
       name: Rechercher
       results: Résultats de recherche
@@ -1624,6 +1646,7 @@ fr:
       no_stats: Il n'y a pas encore de statistiques.
       pages_count: Pages
       participants_count: Participants
+      surveys_count: Enquêtes
       users_count: Participants
     translation_bar:
       help_text: "<strong>Attention :</strong> Le contenu peut être automatiquement traduit et ne pas être exact à 100%."
@@ -1647,15 +1670,6 @@ fr:
         send: Envoyer
       update:
         error: Message non envoyé. Réessayez plus tard
-    user_interests:
-      show:
-        my_interests: Mes intérêts
-        no_scopes: Cette organisation n'a pas encore de secteurs !
-        select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir les événements qui y sont liés dans l'onglet Chronologie de votre profil.
-        update_my_interests: Mettre à jour mes intérêts
-      update:
-        error: Une erreur s'est produite lors de la mise à jour de vos centres d'intérêt.
-        success: Vos intérêts ont été mis à jour avec succès.
     user_report_mailer:
       notify:
         body_1: L'utilisateur %{user} a été signalé par %{token}
@@ -2023,6 +2037,8 @@ fr:
         sign_up: Créer un compte
         terms_of_service: Conditions d'utilisation
       header:
+        close: Fermer
+        confirm_close_ephemeral_session: Si vous quittez cette page, votre session sera fermée. Êtes-vous sûr(e)?
         log_in: Se connecter
         main_menu: Menu principal
         user_menu: Menu utilisateur
@@ -2032,6 +2048,8 @@ fr:
         expire_time_html: Votre session expirera dans <b><span class="minutes">%{minutes}</span> minutes</b>.
       language_chooser:
         choose_language: Choisir la langue
+      navigation:
+        aria_label: Menu de navigation - %{title}
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
         mark_as_read: Marquer comme lu
@@ -2063,7 +2081,6 @@ fr:
         authorizations: Autorisations
         delete_my_account: Supprimer mon compte
         my_data: Mes données
-        my_interests: Mes intérêts
         notifications_settings: Paramètres des notifications
         profile: Profil
         title: Paramètres utilisateur

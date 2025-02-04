@@ -39,7 +39,6 @@ pl:
         confirm_destroy: Czy na pewno chcesz usunąć %{name}?
         destroy: Usuń
         edit: Edytuj
-        import: Importuj projekty z innego komponentu
         import_csv: Importuj wyniki z pliku CSV
         new_result: Nowy wynik
         new_status: Nowy status
@@ -55,27 +54,6 @@ pl:
           new:
             download_export: Pobierz Eksport w formacie CSV
             import: Importuj
-            info: |
-              <p>Rekomendujemy podjęcie następujących kroków:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Utwórz statusy dla wyników</a>, które chcesz dodać</li>
-              <li><a href='%{link_new_result}' target='_blank'>Utwórz przynajmniej jeden wynik ręcznie</a> przez portal administratora przed użyciem importu w celu lepszego zrozumienia formatu i tego, co będzie trzeba uzupełnić.</li>
-              <li>%{link_export_csv}</li>
-              <li>Dokonaj zmian lokalnie. Możesz tylko zmienić następujące kolumny pliku CSV::
-                <ul>
-                <li><b>category/id:</b> ID kategorii</li>
-                <li><b>scope/id:</b> ID zakresu</li>
-                <li><b>parent/id:</b> ID rodzica (dla powiązanych wyników). Opcjonalne</li>
-                <li><b>title/en:</b> Tytuł po angielsku. Będzie zależał od wyboru języka platformy w konfiguracji.</li>
-                <li><b>description/en:</b> Opis po angielsku. Będzie zależał od wyboru języka platformy w konfiguracji.</li>
-                <li><b>start_date:</b> data rozpoczęcia wykonania wyniku (format YYYY-MM-DD)</li>
-                <li><b>end_date:</b> data zakończenia wykonania wyniku (format YYYY-MM-DD)</li>
-                <li><b>status/id:</b> ID statusu dla tego wyniku</li>
-                <li><b>progress:</b> Postęp wykonania w procentach (od 0 do 100)</li>
-                <li><b>proposals_ids:</b> wewnętrzne ID powiązanych propozycji (oddzielone przecinkiem). Jest automatycznie konwertowane do <span class='attribute-name'>proposal_url</span></li>
-                </ul>
-              </li>
-              </ol>
             title: Importuj wyniki z pliku CSV
         imports:
           create:
@@ -86,21 +64,6 @@ pl:
             name: Wynik
           status:
             name: Status
-        projects_import:
-          create:
-            invalid: Wystąpił problem z importem projektów do wyników, proszę postępować ostrożnie zgodnie z instrukcjami i upewnić się, że wybrałeś projekty do realizacji.
-          new:
-            create: Importuj
-            import_all_selected_projects: Importuj wszystkie projekty wybrane do wdrożenia
-            new_items:
-              one: 1 wybrany projekt zostanie zaimportowany
-              few: "%{count} wybrane projekty zostaną zaimportowane"
-              many: "%{count} wybranych projektów zostanie zaimportowanych"
-              other: "%{count} wybranych projektów zostanie zaimportowanych"
-            no_components: W tej przestrzeni partycypacyjnej nie ma komponentów budżetu, aby zaimportować projekty do wyników.
-            origin_component_id: Oryginalny komponent
-            select_component: Wybierz komponent
-            title: Importuj projekty z innego komponentu
         results:
           create:
             invalid: Podczas tworzenia tego wyniku wystąpił błąd.
@@ -246,8 +209,6 @@ pl:
             comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
             display_progress_enabled: Wyświetl postęp
             intro: Wprowadzenie
-            scope_id: Zakres
-            scopes_enabled: Zakresy włączone
           step:
             comments_blocked: Komentarze zablokowane
     events:

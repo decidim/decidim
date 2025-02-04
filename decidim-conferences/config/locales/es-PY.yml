@@ -21,8 +21,6 @@ es-PY:
         published_at: Publicado en
         registration_terms: Términos y condiciones de inscripción
         registrations_enabled: Habilitar inscripciones
-        scope_id: Alcance
-        scopes_enabled: Ámbitos habilitados
         short_description: Breve descripción
         show_statistics: Mostrar estadísticas
         sign_date: Fecha de firma
@@ -68,6 +66,8 @@ es-PY:
         email: Correo electrónico
         name: Nombre
         role: Papel
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
@@ -121,13 +121,11 @@ es-PY:
         destroy:
           success: Altavoz eliminado con éxito para esta conferencia.
         edit:
-          title: Actualizar conferenciante.
           update: Actualizar
         index:
           conference_speakers_title: Conferenciantes
         new:
           create: Crear
-          title: Nuevo conferenciante.
         publish:
           invalid: Se ha producido un error al publicar esta ponente.
           success: Ponente de la conferencia actualizada correctamente.
@@ -144,13 +142,11 @@ es-PY:
         destroy:
           success: Usuario eliminado con éxito de esta conferencia.
         edit:
-          title: Actualizar el usuario de la conferencia.
           update: Actualizar
         index:
           conference_admins_title: Administradoras de la jornada
         new:
           create: Crear
-          title: Nuevo usuario de la conferencia.
         update:
           error: Hubo un error al actualizar un usuario para esta conferencia.
           success: Usuario actualizado con éxito para esta conferencia.
@@ -182,40 +178,28 @@ es-PY:
       media_links:
         create:
           error: Se ha producido un error al crear un nuevo enlace de medios.
-          success: Enlace de medios creado con éxito.
-        destroy:
-          success: Enlace de medios eliminado con éxito.
         edit:
-          title: Actualizar enlace de medios.
           update: Actualizar
-        index:
-          media_links_title: Enlaces de medios
         new:
           create: Crear
-          title: Enlace de medios
+          title: Crear enlace multimedia
         update:
           error: Hubo un error al actualizar este enlace de medios.
-          success: Enlace de medios actualizado con éxito.
       menu:
         conferences: Conferencias
         conferences_submenu:
           attachment_collections: Carpetas
           attachment_files: Archivos
           attachments: Archivos adjuntos
-          categories: Categorías
           components: Componentes
           conference_admins: Administradores de conferencia
           conference_invites: Invita
           conference_speakers: Ponentes
-          diploma: Certificado de asistencia
           info: Acerca de esta conferencia
-          media_links: Enlaces de medios
           moderations: Moderaciones
           partners: Fogonadura
-          registration_types: Tipos de inscripción
           registrations: Inscripciones
           see_conference: Ver la jornada
-          user_registrations: Inscripciones de usuario
       models:
         conference:
           fields:
@@ -244,7 +228,6 @@ es-PY:
             date: Fecha
             link: Enlazar
             title: Título
-          name: Enlace de medios
         partner:
           fields:
             link: Enlazar
@@ -270,7 +253,6 @@ es-PY:
         destroy:
           success: Socio eliminado con éxito de esta conferencia.
         edit:
-          title: Actualizacion de socio.
           update: Actualizar
         new:
           create: Crear
@@ -292,7 +274,6 @@ es-PY:
         destroy:
           success: Tipo de registro eliminado con éxito de esta conferencia.
         edit:
-          title: Actualizar el tipo de registro.
           update: Actualizar
         new:
           create: Crear
@@ -300,6 +281,9 @@ es-PY:
         update:
           error: Hubo un error al actualizar un tipo de registro para esta conferencia.
           success: Tipo de registro actualizado con éxito para esta conferencia.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Todas las jornadas
       titles:
         conferences: Conferencias
         conferences_deleted: Jornadas eliminadas
@@ -395,7 +379,6 @@ es-PY:
         diplomas:
           edit:
             save: Salvar
-            title: Certificado de asistencia
         invite_join_conference_mailer:
           invite:
             decline: Rechazar invitación '%{conference_title}'
@@ -415,7 +398,6 @@ es-PY:
             diploma_html: Encontrará el certificado de asistencia para la conferencia <a href="%{url}">%{title}</a> en los adjuntos.
           diploma_user:
             attendance_verified_by: Asistencia verificada por
-            certificate_of_attendance: Certificado de asistencia
             certificate_of_attendance_description: Esto es para certificar que <strong>%{user}</strong> ha asistido y participado en los <strong>%{title}</strong> celebrados en el <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Ha habido un problema al enviar los certificados de asistencia a la conferencia.
@@ -537,6 +519,25 @@ es-PY:
         objectives: Objetivos
         related_assemblies: Asambleas relacionadas
         related_participatory_processes: Procesos participativos relacionados
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: La fecha en que la invitación a la jornada fue aceptada
+          conference: La jornada a la que corresponde esta invitación
+          confirmed_at: La fecha en la que se confirmó la invitación
+          created_at: La fecha en la que se creó la invitación
+          id: El identificador único de la invitación a la jornada
+          registration_type: El tipo de inscripción enviada para esta jornada
+          rejected_at: La fecha en que la invitación a la jornada fue rechazada
+          sent_at: La fecha en que esta invitación a la conferencia fue enviada
+          updated_at: La fecha en que esta invitación se actualizó por última vez
+        conference_registrations:
+          conference: La jornada a la que pertenece esta inscripción
+          confirmed_at: La fecha en la que se confirmó la inscripción
+          created_at: La fecha en la que se creó la inscripción
+          id: El identificador único de la inscripción a la jornada
+          registration_type: El tipo de inscripción habilitado para esta jornada
+          updated_at: La fecha en que esta inscripción se actualizó por última vez
     events:
       conferences:
         conference_registration_confirmed:

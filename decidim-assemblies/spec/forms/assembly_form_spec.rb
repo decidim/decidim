@@ -106,10 +106,10 @@ module Decidim
         let(:assembly_id) { nil }
         let(:root_taxonomy) { create(:taxonomy, organization:) }
         let!(:taxonomies) { create_list(:taxonomy, 3, parent: root_taxonomy, organization:) }
-        let!(:taxonomy_filter1) { create(:taxonomy_filter, space_manifest: "assemblies", root_taxonomy:, space_filter: true) }
-        let!(:taxonomy_filter2) { create(:taxonomy_filter, space_manifest: "assemblies", root_taxonomy:, space_filter: true) }
-        let!(:taxonomy_filter3) { create(:taxonomy_filter, space_manifest: "participatory_processes", root_taxonomy:, space_filter: true) }
-        let!(:taxonomy_filter4) { create(:taxonomy_filter, space_manifest: "assemblies", root_taxonomy:, space_filter: false) }
+        let!(:taxonomy_filter1) { create(:taxonomy_filter, participatory_space_manifests: ["assemblies"], root_taxonomy:) }
+        let!(:taxonomy_filter2) { create(:taxonomy_filter, participatory_space_manifests: ["assemblies"], root_taxonomy:) }
+        let!(:taxonomy_filter3) { create(:taxonomy_filter, participatory_space_manifests: ["participatory_processes"], root_taxonomy:) }
+        let!(:taxonomy_filter4) { create(:taxonomy_filter, participatory_space_manifests: ["assemblies"]) }
         let(:attributes) do
           {
             "assembly" => {
@@ -304,9 +304,6 @@ module Decidim
                 short_description_ca: assembly.short_description,
                 short_description_es: assembly.short_description,
                 current_organization: assembly.organization,
-                scopes_enabled: assembly.scopes_enabled,
-                scope: assembly.scope,
-                area: assembly.area,
                 errors: assembly.errors,
                 participatory_processes_ids: nil,
                 purpose_of_action: assembly.purpose_of_action,
@@ -362,9 +359,6 @@ module Decidim
                 short_description_ca: assembly.short_description,
                 short_description_es: assembly.short_description,
                 current_organization: assembly.organization,
-                scopes_enabled: assembly.scopes_enabled,
-                scope: assembly.scope,
-                area: assembly.area,
                 errors: assembly.errors,
                 participatory_processes_ids: nil,
                 purpose_of_action: assembly.purpose_of_action,

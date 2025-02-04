@@ -26,6 +26,13 @@ cs:
           request_invalid: Při zpracování požadavku se vyskytl problém. Zkuste to znovu.
   decidim:
     download_your_data:
+      help:
+        answers:
+          answer: Odpověď na otázku
+          id: Jedinečný identifikátor odpovědi
+          question: Otázka, která byla zodpovězena
+          questionnaire: Dotazník, který byl zodpovězen
+          user: Uživatel, který odpověděl na dotazník
       show:
         answers: Export odpovědí
         survey_user_answers: Odpovědi uživatele na dotazník
@@ -33,11 +40,18 @@ cs:
       admin:
         models:
           components:
+            allow_answers: Povolit odpovědi
+            announcement: Oznámení
             description: Popis
+            ends_at: Odpověď přijata do
+            ends_at_help: Ponechte prázdné pro žádné konkrétní datum
+            starts_at: Odpovědi přijaté od
+            starts_at_help: Ponechte prázdné pro žádné konkrétní datum
             tos: Podmínky služby
         questionnaires:
           actions:
             back: Zpět na otázky
+            publish_answers: Zveřejnit odpovědi
             show: Zobrazit odpovědi
           answer_option:
             answer_option: Možnost odpovědi
@@ -82,16 +96,18 @@ cs:
           edit:
             save: Uložit
             title: Upravit dotazník
-          form:
+          edit_questions:
             add_question: Přidat otázku
             add_separator: Přidat oddělovač
             add_title_and_description: Přidat název a popis
-            already_answered_warning: Formulář je již zodpovězen některými uživateli, takže jeho otázky nemůžete upravovat.
+            save: Uložit
+            title: Otázky
+          form:
+            add_question: Přidat otázku
             collapse: Sbalit všechny otázky
             expand: Rozbalit všechny otázky
             preview: Náhled
             title: Upravit formulář pro %{questionnaire_for}
-            unpublished_warning: Formulář není zveřejněn. Můžete změnit jeho otázky, ale tím odstraníte aktuální odpovědi.
           matrix_row:
             matrix_row: Řádek
             remove: Odstranit
@@ -110,6 +126,10 @@ cs:
             remove: Odstranit
             statement: Prohlášení
             up: Nahoru
+          questions_form:
+            already_answered_warning: Formulář je již zodpovězen některými uživateli, takže jeho otázky nemůžete upravovat.
+            collapse: Sbalit všechny otázky
+            expand: Rozbalit všechny otázky
           separator:
             down: Dolů
             remove: Odebrat
@@ -184,7 +204,6 @@ cs:
           tos_agreement: Účastí přijímáte jeho smluvní podmínky
       step_navigation:
         show:
-          are_you_sure: Tuto akci nelze vrátit zpět a nebudete moci upravit své odpovědi. Jste si jisti?
           back: Zpět
           continue: Pokračovat
           submit: Odeslat

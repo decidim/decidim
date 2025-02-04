@@ -63,7 +63,7 @@ describe "Decidim::Api::QueryType" do
       "comments" => [],
       "commentsHaveAlignment" => debate.comments_have_alignment?,
       "commentsHaveVotes" => debate.comments_have_votes?,
-      "createdAt" => debate.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "createdAt" => debate.created_at.to_time.iso8601,
       "description" => { "translation" => debate.description[locale] },
       "endTime" => debate.end_time,
       "hasComments" => debate.comment_threads.size.positive?,
@@ -76,7 +76,7 @@ describe "Decidim::Api::QueryType" do
       "title" => { "translation" => debate.title[locale] },
       "totalCommentsCount" => debate.comments_count,
       "type" => "Decidim::Debates::Debate",
-      "updatedAt" => debate.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "updatedAt" => debate.updated_at.to_time.iso8601,
       "userAllowedToComment" => debate.user_allowed_to_comment?(current_user)
     }
   end

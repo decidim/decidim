@@ -49,7 +49,7 @@ cs:
         deleted_results_info: Odstraněné výsledky mohou být obnoveny z koše.
         destroy: Odstranit
         edit: Upravit
-        import: Importovat projekty z jiné komponenty
+        import: Importovat výsledky z jiné komponenty
         import_csv: Importovat výsledky z CSV souboru
         new_result: Nový výsledek
         new_status: Nový status
@@ -62,31 +62,23 @@ cs:
         exports:
           result_comments: Komentáře
           results: Výsledky
+        import_components:
+          create:
+            invalid: Došlo k potížím při importu výsledků, postupujte prosím pečlivě podle pokynů a ujistěte se, že jste vybrali projekty pro realizaci.
+          filters:
+            proposal_state: Stav návrhu
+            select_state: Vybrat status
+          form:
+            create: Import
+            no_components: V tomto participačním prostoru nejsou žádné komponenty pro import.
+            origin_component_id: Původ komponenty
+            select_component: Vybrat komponentu
+          new:
+            title: Importovat výsledky z jiné komponenty
         import_results:
           new:
             download_export: Stáhnout export s CSV formátem
             import: Importovat
-            info: |
-              <p>Doporučujeme postupovat podle těchto kroků:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Vytvořit stavy pro výsledky</a>, které chcete přidat</li>
-              <li><a href='%{link_new_result}' target='_blank'>Vytvořte alespoň jeden výsledek manuálně</a> přes tento Admin panel před použitím Importu, za lepší pochopení formátu a toho, co budete muset vyplnit.</li>
-              <li>%{link_export_csv}</li>
-              <li>Změňte lokálně. Můžete změnit pouze následující sloupce CSV:
-                <ul>
-                <li><b>category/id:</b> ID pro kategorii</li>
-                <li><b>scope/id:</b> ID pro rozsah</li>
-                <li><b>parent/id:</b> ID rodičů (pro související výsledky). Volitelné</li>
-                <li><b>title/en:</b> Název v angličtině. To bude záviset na konfiguraci jazyka vaší platformy.</li>
-                <li><b>description/en:</b> Popis anglického jazyka. To bude záviset na konfiguraci jazyka vaší platformy.</li>
-                <li><b>start_date:</b> datum zahájení provádění výsledků (formát YYYY-MM-DD)</li>
-                <li><b>end_date:</b> datum ukončení provedení výsledků (formát YYYY-MM-DD)</li>
-                <li><b>status/id:</b> ID statusu pro tento výsledek</li>
-                <li><b>progress:</b> procento (od 0 do 100) provedení</li>
-                <li><b>proposals_ids:</b> interní ID souvisejících návrhů (oddělené čárkou). Automaticky se převede na <span class='attribute-name'>proposal_url</span></li>
-                </ul>
-              </li>
-              </ol>
             title: Importovat výsledky z CSV souboru
         imports:
           create:
@@ -97,27 +89,24 @@ cs:
             name: Výsledek
           status:
             name: Stav
-        projects_import:
-          create:
-            invalid: Došlo k potížím při importu projektů do výsledků, postupujte prosím pečlivě podle pokynů a ujistěte se, že jste vybrali projekty pro realizaci.
-          new:
-            create: Importovat
-            import_all_selected_projects: Importovat všechny projekty vybrané pro realizaci
-            new_items:
-              one: 1 vybraný projekt bude importován
-              few: "%{count} vybrané projekty budou importovány"
-              many: "%{count} vybraných projektů bude importováno"
-              other: "%{count} vybraných projektů bude importováno"
-            no_components: V tomto participačním prostoru nejsou žádné složky rozpočtů pro import projektů do výsledků.
-            origin_component_id: Původ komponenty
-            select_component: Vybrat komponentu
-            success:
-              one: 1 projekt, který má být importován. Po dokončení budete upozorněni e-mailem.
-              few: "%{count} projekty, které mají být importovány. Po dokončení budete upozorněni e-mailem."
-              many: "%{count} projektů, které mají být importovány. Po dokončení budete upozorněni e-mailem."
-              other: "%{count} projektů, které mají být importovány. Po dokončení budete upozorněni e-mailem."
-            title: Importovat projekty z jiné komponenty
         results:
+          bulk_actions:
+            dates_form:
+              change_dates: Změnit datum
+              end_date: Datum ukončení
+              start_date: Datum zahájení
+            dropdown:
+              actions: Akce
+              change_dates: Změnit data
+              change_status: Změnit stav
+              change_taxonomies: Změnit taxonomie
+            status_form:
+              change_status: Změnit stav
+              status: Stav
+            submit_buttons:
+              cancel: Zrušit
+            taxonomies_form:
+              change_taxonomies: Změnit taxonomie
           create:
             invalid: Při vytváření tohoto výsledku nastal problém.
             success: Výsledek byl úspěšně vytvořen.
@@ -125,6 +114,7 @@ cs:
             title: Upravit výsledek
             update: Aktualizovat výsledek
           index:
+            selected: Vybráno
             title: Výsledky
           manage_trash:
             title: Odstraněné výsledky
@@ -134,6 +124,16 @@ cs:
           update:
             invalid: Při aktualizaci tohoto výsledku došlo k chybě.
             success: Výsledek byl úspěšně aktualizován.
+          update_dates:
+            invalid: Při aktualizaci datumu výsledků došlo k chybě
+            success: Výsledky byly úspěšně aktualizovány
+          update_status:
+            invalid: Při aktualizaci stavu výsledků došlo k chybě
+            success: Stav výsledků byl úspěšně aktualizován
+          update_taxonomies:
+            invalid: Nelze aktualizovat taxonomie %{taxonomies} pro výsledky %{results}
+            select_a_result: Vyberte výsledek
+            select_a_taxonomy: Vyberte taxonomii
         shared:
           subnav:
             statuses: Stavy
@@ -210,6 +210,9 @@ cs:
             other: "%{count} výsledků bylo importováno z projektů."
           subject: Úspěšný import projektů
           success: Úspěšný import projektů do výsledků v komponentě %{component_name}. Výsledky si můžete prohlédnout v administračním rozhraní.
+      import_proposals_mailer:
+        import:
+          subject: Úspěšný import návrhů
       last_activity:
         new_result: 'Nový výsledek:'
       models:
@@ -243,8 +246,6 @@ cs:
         home:
           empty: Zatím nejsou žádné výsledky.
           empty_filters: S těmito kritérii nejsou žádné výsledky.
-          sub_taxonomies_label: Podkategorie
-          taxonomies_label: Kategorie
         home_header:
           global_status: Globální stav provedení
         no_results: Nebyly nalezeny žádné projekty
@@ -277,8 +278,6 @@ cs:
             geocoding_enabled: Mapy povoleny
             intro: Intro
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
-            scope_id: Oblast působnosti
-            scopes_enabled: Oblast působnosti povolena
             taxonomy_filters: Vyberte filtry pro komponentu
             taxonomy_filters_add: Přidat filtr
           step:

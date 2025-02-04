@@ -133,22 +133,30 @@ ja:
           name: イニシアチブ種別
         initiatives_votes:
           fields:
+            date_and_time: 日付と時刻
             date_of_birth: 誕生日
             document_number: ドキュメント番号
             hash: ハッシュ
             initiative_end_date: 終了日
             initiative_id: イニシアチブID
+            initiative_scope: スコープ
             initiative_signatures_count: 署名の数
             initiative_start_date: 開始日
             initiative_title: イニシアチブのタイトル
             name_and_surname: 名前と苗字
+            nickname: アカウントID
             postal_code: 郵便番号
-            scope: スコープ
-            time_and_date: 日時
+            signature_count: 署名数
             timestamp: タイムスタンプ
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: すべてのイニシアチブ
       titles:
         initiatives: イニシアチブ
         initiatives_types: イニシアチブ種別
+    download_your_data:
+      show:
+        initiatives: イニシアチブのエクスポート
     events:
       initiatives:
         admin:
@@ -434,10 +442,10 @@ ja:
           email_subject: "%{applicant_nickname} があなたのイニシアチブに参加しようとしています"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> があなたのイニシアチブの推進委員会に申請しました <a href="%{resource_url}">%{resource_title}</a>. 受け入れるか拒否するには <a href="%{resource_url}/edit">ここ</a>をクリックしてください。
       form:
-        add_documents: ドキュメントを追加
+        add_attachments: 添付ファイルを追加
         add_image: 画像を追加
-        attachment_legend: "(オプション) 添付ファイルを追加"
-        edit_documents: ドキュメントを編集
+        attachment_legend: ドキュメントまたは画像を追加
+        edit_attachments: 添付ファイルを編集
         edit_image: 画像を編集
         image_legend: "(オプション) 画像を追加"
       index:
@@ -597,9 +605,16 @@ ja:
           answered_at: 回答の日時 (もしあれば)
           area: このイニシアチブのエリア
           authors: このイニシアチブの作成者
+          comments_count: このイニシアチブが持つコメント数
+          created_at: このスペースの作成日時
           description: イニシアチブの説明
           first_progress_notification_at: 最初の進捗通知の送信日時
+          follows_count: このスペースをフォローしているユーザー数
           hashtag: Twitter/Xで使用されるイニシアチブのハッシュタグ
+          offline_votes: このプラットフォーム外でこのイニシアチブが受け取った署名の数
+          online_votes: このイニシアチブが（プラットフォームを介して直接）オンラインで受信した署名の数
+          published_at: このスペースの公開日時
+          reference: スペースのユニークな参照
           scope: イニシアチブのスコープ
           second_progress_notification_at: 2回目の進捗通知の送信日時
           signature_end_date: 署名の収集期間の終了日時
@@ -609,12 +624,15 @@ ja:
           state: このイニシアチブの現時点での状態
           title: イニシアチブのタイトル
           type: イニシアチブの種別
+          updated_at: このスペースの最終更新日時
+          url: スペースのURL
     resources:
       initiative:
         actions:
           comment: コメント
       initiatives_type:
         actions:
+          create: イニシアチブを作成
           title: アクション
           vote: サイン
   layouts:

@@ -13,6 +13,7 @@ module Decidim
       attribute :public_participation, Boolean, default: false
 
       attribute :tos_agreement, Boolean
+      attribute :allow_editing_answers, Boolean, default: false
 
       before_validation :before_validation
 
@@ -25,6 +26,12 @@ module Decidim
       def map_model(model)
         self.responses = model.questions.map do |question|
           AnswerForm.from_model(Decidim::Forms::Answer.new(question:))
+        end
+      end
+
+      def add_answers!(questionnaire:, session_token:, ip_hash:)
+        self.responses = questionnaire.questions.map do |question|
+          AnswerForm.from_model(Decidim::Forms::Answer.where(question:, user: current_user, session_token:, ip_hash:).first_or_initialize)
         end
       end
 

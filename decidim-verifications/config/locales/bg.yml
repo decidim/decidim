@@ -175,11 +175,9 @@ bg:
           postal_codes:
             one: Участието е ограничено до участници с пощенски код %{postal_codes}.
             other: 'Участието е ограничено до участници с пощенски кодове %{postal_codes}.'
-          scope: Участието е ограничено до участници в обхвата %{scope_name}.
           user_postal_codes:
             one: Участието е ограничено до участници с пощенски код %{postal_codes}, а вашият пощенски код е %{user_postal_code}.
             other: 'Участието е ограничено до участници с някой от следните пощенски кодове: %{postal_codes}. Вашият пощенски код е %{user_postal_code}.'
-          user_scope: Участието е ограничено до участници с обхват %{scope_name}, а вашият обхват е %{user_scope_name}.
       id_documents:
         admin:
           config:

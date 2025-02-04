@@ -14,8 +14,6 @@ tr:
         participatory_processes_ids: İlgili katılımcı süreçleri
         promoted: Vurgulanan
         published_at: Yayınlandı
-        scope_id: Kapsam
-        scopes_enabled: Kapsamlar etkinleştirildi
         short_description: Kısa Açıklama
         show_statistics: İstatistikleri göster
         slogan: Slogan
@@ -72,13 +70,11 @@ tr:
         destroy:
           success: Bu konferans için konuşmacı başarıyla silindi.
         edit:
-          title: Konferans konuşmacısını güncelle.
           update: Güncelleştirme
         index:
           conference_speakers_title: Konferans konuşmacıları
         new:
           create: yaratmak
-          title: Yeni konferans konuşmacı.
         update:
           error: Bu konferans için konuşmacı güncellenirken bir hata oluştu.
           success: Bu konferans için konuşmacı başarıyla güncellendi.
@@ -89,11 +85,9 @@ tr:
         destroy:
           success: Yönetici bu konferanstan başarıyla kaldırıldı.
         edit:
-          title: Konferans yöneticisi güncelle.
           update: Güncelle
         new:
           create: Oluştur
-          title: Yeni konferans yöneticisi
         update:
           error: Bu konferans yöneticisini güncellerken bir sorun oluştu.
           success: Konferans yöneticisi başarıyla güncellendi.
@@ -122,38 +116,25 @@ tr:
       media_links:
         create:
           error: Yeni bir medya bağlantısı oluştururken bir hata oluştu.
-          success: Medya Bağlantısı başarıyla oluşturuldu.
-        destroy:
-          success: Medya Bağlantısı başarıyla silindi.
         edit:
-          title: Medya bağlantısını güncelle.
           update: Güncelle
-        index:
-          media_links_title: Medya Bağlantıları
         new:
           create: Oluştur
-          title: Medya Bağlantısı
         update:
           error: Bu medya bağlantısını güncellerken bir hata oluştu.
-          success: Medya Bağlantısı başarıyla güncellendi.
       menu:
         conferences: Konferanslar
         conferences_submenu:
           attachment_collections: Klasörler
           attachment_files: Dosyalar
           attachments: Ekler
-          categories: Kategoriler
           components: Bileşenler
           conference_admins: Konferans yöneticileri
           conference_invites: Davetler
           conference_speakers: Konuşmacılar
-          diploma: Katılım sertifikası
-          media_links: Medya Bağlantıları
           moderations: Moderasyonlar
           partners: Ortaklar
-          registration_types: Kayıt Türleri
           registrations: Kayıtlar
-          user_registrations: Kullanıcı Kayıtları
       models:
         conference:
           fields:
@@ -182,7 +163,6 @@ tr:
             date: Tarih
             link: Bağlantı
             title: Başlık
-          name: Medya Bağlantısı
         partner:
           fields:
             link: Bağlantı
@@ -207,7 +187,6 @@ tr:
         destroy:
           success: İş ortağı bu konferanstan başarıyla kaldırıldı.
         edit:
-          title: İş ortağı güncelle.
           update: Güncelle
         new:
           create: Oluştur
@@ -229,7 +208,6 @@ tr:
         destroy:
           success: Kayıt türü bu konferanstan başarıyla kaldırıldı.
         edit:
-          title: Kayıt türünü güncelle.
           update: Güncelle
         new:
           create: Oluştur
@@ -311,7 +289,6 @@ tr:
         diplomas:
           edit:
             save: Kayıt etmek
-            title: Katılım sertifikası
         invite_join_conference_mailer:
           invite:
             decline: '''%{conference_title}'' davetiyesini reddet'
@@ -330,7 +307,6 @@ tr:
             diploma_html: <a href="%{url}">%{title}</a> konferansına katılım belgesini ekte bulabilirsiniz.
           diploma_user:
             attendance_verified_by: Katılım onaylandı
-            certificate_of_attendance: Katılım sertifikası
             certificate_of_attendance_description: Bu, <strong>%{user}</strong> <strong>%{start} - %{end}</strong><strong>%{location}</strong> tutulan <strong>%{title}</strong> katılıp katıldığını onaylamaktır.
         send_diploma:
           error: Konferansa katılım sertifikalarını gönderirken bir sorun oluştu.
