@@ -66,6 +66,11 @@ cs:
           create:
             invalid: Došlo k potížím při importu výsledků, postupujte prosím pečlivě podle pokynů a ujistěte se, že jste vybrali projekty pro realizaci.
           filters:
+            new_items_projects:
+              one: 1 vybraný projekt bude importován
+              few: "%{count} vybrané projekty budou importovány"
+              many: "%{count} vybraných projektů bude importováno"
+              other: "%{count} vybraných projektů bude importováno"
             proposal_state: Stav návrhu
             select_state: Vybrat status
           form:
@@ -74,6 +79,11 @@ cs:
             origin_component_id: Původ komponenty
             select_component: Vybrat komponentu
           new:
+            success:
+              one: 1 výsledek ve frontě k importu. Po dokončení budete upozorněni e-mailem.
+              few: "%{count} výsledky čekají ve frontě na import. Po dokončení budete informováni e-mailem."
+              many: "%{count} výsledků čeká ve frontě na import. Po dokončení budete informováni e-mailem."
+              other: "%{count} výsledků čeká ve frontě na import. Po dokončení budete informováni e-mailem."
             title: Importovat výsledky z jiné komponenty
         import_results:
           new:
@@ -134,6 +144,7 @@ cs:
             invalid: Nelze aktualizovat taxonomie %{taxonomies} pro výsledky %{results}
             select_a_result: Vyberte výsledek
             select_a_taxonomy: Vyberte taxonomii
+            success: Úspěšně aktualizovány taxonomie %{taxonomies} pro výsledky %{results}
         shared:
           subnav:
             statuses: Stavy
