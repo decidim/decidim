@@ -30,8 +30,8 @@ module Decidim
       end
 
       it "includes the last connection date or 'never logged in'" do
-        if user.last_sign_in_at
-          expect(mail.body.encoded).to include(user.last_sign_in_at.strftime("%Y-%m-%d"))
+        if user.current_sign_in_at
+          expect(mail.body.encoded).to include(user.current_sign_in_at.strftime("%Y-%m-%d"))
         else
           expect(mail.body.encoded).to include("never logged in")
         end
