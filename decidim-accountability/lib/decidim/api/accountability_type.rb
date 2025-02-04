@@ -8,12 +8,12 @@ module Decidim
 
       field :results, Decidim::Accountability::ResultType.connection_type, null: true, connection: true
 
-      def results
-        Result.where(component: object).includes(:component)
-      end
-
       field :result, Decidim::Accountability::ResultType, null: true do
         argument :id, ID, required: true
+      end
+
+      def results
+        Result.where(component: object).includes(:component)
       end
 
       def result(**args)
