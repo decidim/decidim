@@ -3,10 +3,20 @@ cs:
     attributes:
       account:
         delete_reason: Důvod odstranění vašeho účtu
+      attachment:
+        documents: Dokumenty
+        photos: Fotky
       common:
         created_at: Vytvořeno v
+      component:
+        taxonomy_filters: Filtry taxonomie
+      content_block_attachment:
+        background_image: Obrázek pozadí
+        main_image: Hlavní obrázek
       conversation:
         body: Tělo zprávy
+      editor_image:
+        file: Soubor
       group:
         about: O nás
         avatar: Avatar
@@ -15,6 +25,8 @@ cs:
         name: Jméno
         nickname: Přezdívka
         phone: Telefon
+      import:
+        file: Soubor
       message:
         body: Tělo zprávy
       report:
@@ -22,12 +34,13 @@ cs:
       taxonomy:
         name: Název taxonomie
       taxonomy_filter:
-        internal_name: Interní název filtru
-        name: Veřejný název filtru
+        internal_name: Interní štítek
+        name: Štítek
         root_taxonomy_id: Z taxonomie
-        space_filter: K dispozici jako filtr pro participační prostory
+        space_filter: Dostupné jako filtr pro
       user:
         about: O nás
+        avatar: Avatar
         email: Váš email
         encrypted_password: Heslo
         locale: Jazyk
@@ -39,6 +52,8 @@ cs:
         personal_url: Osobní URL
         remove_avatar: Odstranit avatara
         tos_agreement: Podmínky smlouvy o poskytování služeb
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Příloha
       decidim/component_published_event: Aktivní komponenty
@@ -316,13 +331,6 @@ cs:
         delete_with_parent: "%{user_name} odstranil taxonomii %{resource_name} v taxonomii %{parent_taxonomy}"
         update: "%{user_name} aktualizoval taxonomii %{resource_name}"
         update_with_parent: "%{user_name} aktualizoval taxonomii %{resource_name} uvnitř taxonomie %{parent_taxonomy}"
-      taxonomy_filter:
-        create: "%{user_name} vytvořil filtr založený na taxonomii %{resource_name}"
-        create_with_filter_items_count: "%{user_name} vytvořil filtr založený na taxonomii %{resource_name} s %{filter_items_count} filtry pro %{space_manifest_name}"
-        delete: "%{user_name} odstranil filtr založený na taxonomii %{resource_name}"
-        delete_with_filter_items_count: "%{user_name} odstranil filtr založený na taxonomii %{resource_name} s %{filter_items_count} filtry pro %{space_manifest_name}"
-        update: "%{user_name} aktualizoval filtr založený na taxonomii %{resource_name}"
-        update_with_filter_items_count: "%{user_name} aktualizoval filtr založený na taxonomii %{resource_name} s %{filter_items_count} filtry pro %{space_manifest_name}"
       user:
         block: "%{user_name} zablokoval uživatele %{resource_name}"
         invite: "%{user_name} pozval uživatele %{resource_name} s rolí: %{role}"
@@ -461,14 +469,17 @@ cs:
         explanation: Ověřte se zavedením čísla dokumentu končícího "X".
         fields:
           allowed_postal_codes: Povolené poštovní směrovací kódy (oddělené čárkami)
-          allowed_scope_id: Povolená oblast působnosti
           document_number: Číslo dokumentu
           postal_code: Poštovní směrovací číslo
-          scope_id: Oblast působnosti
         name: Příklad autorizace
       dummy_authorization_workflow:
         explanation: Ukázkový pracovní postup autorizace
         name: Pracovní postup autorizace
+      ephemeral_dummy_authorization_handler:
+        fields:
+          allowed_postal_codes: Povolené PSČ (oddělené čárkami)
+          document_number: Číslo dokumentu
+          postal_code: PSČ
       errors:
         duplicate_authorization: Uživatel má již oprávnění se stejnými daty. Administrátor vás bude kontaktovat k ověření vašich údajů.
       expired_at: Platnost vypršela v %{timestamp}
@@ -561,8 +572,6 @@ cs:
             enable_pads_creation: Povolit vytvoření sdíleného textu
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             resources_permissions_enabled: Oprávnění zdrojů povoleno
-            scope_id: Oblast působnosti
-            scopes_enabled: Oblasti působnosti povoleny
             taxonomy_filters: Vyberte filtry pro komponentu
           step:
             amendment_creation_enabled: Umožnit změnu a doplnění
@@ -686,6 +695,7 @@ cs:
           sign_in_disabled: Můžete přistupovat pomocí externího účtu.
           sign_up_disabled: Vytvoření účtu je zakázáno, pro přístup můžete použít existující účet.
         user:
+          ephemeral_session_closed: Vaše relace návštěvníka skončila
           timed_out: Byli jste neaktivní příliš dlouho a byli jste automaticky odhlášeni ze služby. Pokud chcete pokračovat v používání služby, přihlaste se prosím znovu.
       shared:
         newsletter_modal:
@@ -831,6 +841,7 @@ cs:
       others: "%{count} dalších"
       title: Líbí se
       you: vy
+    ephemeral_user: Návštěvník
     errors:
       files:
         file_cannot_be_processed: Soubor nelze zpracovat
@@ -1708,16 +1719,7 @@ cs:
         error: Během akce schválení došlo k chybě.
     scopes:
       global: Globální oblast působnosti
-      picker:
-        cancel: Zrušit
-        change: Změnit vybraný rozsah
-        choose: Vybrat
-        currently_selected: Aktuálně vybraný rozsah
-        title: Vyberte %{field}
       prompt: Vyberte oblast působnosti
-      scopes: Oblasti působnosti
-      scopes_picker_input:
-        select_scope: 'Vyberte oblast působnosti (v současné době: %{current})'
     search:
       name: Hledat
       results: Výsledky hledání
@@ -1844,15 +1846,6 @@ cs:
         send: Odeslat
       update:
         error: Zpráva nebyla odeslána. Zkuste to později
-    user_interests:
-      show:
-        my_interests: Mé zájmy
-        no_scopes: Tato organizace zatím nemá žádnou oblast působnosti!
-        select_your_interests: Vyberte témata, která vás zajímají, abyste v záložce Harmonogram ve svém profilu viděli události, které s nimi souvisejí.
-        update_my_interests: Aktualizujte své zájmy
-      update:
-        error: Během aktualizace vašich zájmů došlo k chybě.
-        success: Vaše zájmy byly úspěšně aktualizovány.
     user_report_mailer:
       notify:
         body_1: Uživatel %{user} byl nahlášen od %{token}
@@ -2227,6 +2220,7 @@ cs:
         sign_up: Vytvořit účet
         terms_of_service: Podmínky služby
       header:
+        close: Zavřít‏
         log_in: Přihlásit
         main_menu: Hlavní menu
         user_menu: Uživatelské Menu
@@ -2267,7 +2261,6 @@ cs:
         authorizations: Autorizace
         delete_my_account: Smazat můj účet
         my_data: Moje data
-        my_interests: Mé zájmy
         notifications_settings: Nastavení oznámení
         profile: Profil
         title: Uživatelské nastavení

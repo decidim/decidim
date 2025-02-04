@@ -105,6 +105,8 @@ cs:
       participatory_space_private_user:
         email: E-mail
         name: Název
+      participatory_space_private_user_csv_import:
+        file: Soubor
       scope:
         code: Kód
         name: Název
@@ -342,14 +344,6 @@ cs:
           title: 'Přidat komponentu: %{name}'
         publish:
           success: Komponenta byla úspěšně publikována.
-        taxonomy_filters_badge:
-          remove: Odstranit
-        taxonomy_filters_drawer:
-          add_filter: Přidat filtr
-          clear_all: Vymazat vše
-          filters: Filtry
-          save: Uložit
-          title: Filtry
         title: Komponenty
         unpublish:
           success: Komponenta byla úspěšně zrušena.
@@ -772,6 +766,11 @@ cs:
             report_language: Jazyk zprávy
             report_reason: Důvod
             title: Detaily hlášení
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Náhled
@@ -1069,7 +1068,7 @@ cs:
           'true': 'Ano'
         index:
           back_to_share_tokens: Zpět k přístupovým odkazům
-          copied: Odkaz byl zkopírován!
+          copied: Přístupový odkaz zkopírován!
           copy_message: Text byl úspěšně zkopírován do schránky.
           create_new_token: Vytvořte svůj první přístupový odkaz!
           empty_html: Nejsou žádné aktivní přístupové odkazy. %{new_token_link}
@@ -1079,7 +1078,7 @@ cs:
             Vytvořte a sdílejte přístupový odkaz, který umožní ostatním zobrazit tento nezveřejněný zdroj.
             Přístupové odkazy mohou být platné pouze pro registrované účastníky, nebo mít a v případě potřeby datum vypršení platnosti.
             Pro sdílení nového přístupového odkazu s někým jej vytvořte a poté zkopírujte odkaz pomocí ikony akce "%{clipboard} schránky.
-          title: 'přístupové odkazy pro: %{name}'
+          title: 'Přístupové odkazy pro: %{name}'
         new:
           create: Vytvořit
           title: 'Nový přístupový odkaz pro: %{name}'
@@ -1139,8 +1138,14 @@ cs:
           error: Při aktualizaci této stránky došlo k chybě.
           success: Stránka byla úspěšně aktualizována.
       taxonomies:
-        actions: Akce
-        amount: Počet položek
+        actions:
+          actions: Akce
+          destroy: Smazat taxonomii a položky
+          edit: Upravit taxonomii a položky
+          filters: Spravovat filtry
+        breadcrumb:
+          edit: Upravit taxonomii
+          new: Nová taxonomie
         count: Související zdroje
         create:
           invalid: Při vytváření této taxonomie došlo k chybě.
@@ -1159,7 +1164,7 @@ cs:
         filters:
           search_placeholder: Hledat
         index:
-          description: Taxonomie umožňuje administrátorům kategorizovat a uspořádat obsah. Například přidat taxonomii pro klasifikaci procesů podle geografického rozsahu.
+          description: Taxonomie a filtry umožňují správcům třídit a organizovat obsah. Přidejte například taxonomii s městskými okresy a čtvrti a pak vytvořte filtry pouze s okresy nebo pro konkrétní čtvrť.
           new_taxonomy: Nová taxonomie
           no_items_found: Nebyly nalezeny žádné taxonomie odpovídající kritériím vyhledávání.
         name: Název
@@ -1172,14 +1177,18 @@ cs:
           to_prev_page: Přetáhněte pro předchozí stránku
         taxonomy_actions:
           confirm_destroy: 'Jste si jisti, že chcete odstranit %{name}? Tímto odstraníte také všechny podřízené položky. POZNÁMKA: Zdroje, které používají tuto taxonomii, nebudou ovlivněny, ale ztratí odkaz na tuto taxonomii.'
+        total_filters: Filtry
+        total_items: Položky v taxonomii
         update:
           invalid: Při aktualizaci této taxonomie došlo k chybě.
           success: Taxonomie byla úspěšně aktualizována.
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Nový filtr taxonomie
-        callout:
-          modify_taxonomy_html: Pokud potřebujete upravit tuto taxonomii nebo její položky, proveďte to v nastavení konfigurace v sekci <a href="%{url}">Taxonomie</a>.
+        breadcrumb:
+          edit: Upravit filtr
+          filters: Filtry
+          new: Nový filtr
         create:
           error: Při vytváření tohoto filtru taxonomie došlo k chybě.
           success: Filtr taxonomie byl úspěšně vytvořen.
@@ -1199,29 +1208,39 @@ cs:
             other: "%{count} položek vybráno"
           name_help: Název filtru, který má být zobrazen ve frontendu.
           no_items: Pro tuto taxonomii nejsou k dispozici žádné položky. Položky můžete vytvořit v nastavení taxonomie.
-          space_filter: K dispozici jako filtr pro všechny %{manifest_name}
+          space_filter: Dostupné jako filtr pro
         index:
           description: Filtr taxonomie umožňuje správcům seřadit a filtrovat participační prostory na základě taxonomie. Přidejte například taxonomický filtr pro řazení procesů podle geografického rozsahu.
           empty: V současné době nejsou žádné filtry taxonomie. Vytvořte seznam taxonomických filtrů pro řazení a filtrování participačních prostor na základě taxonomie.
+          new_filter: Nový filtr
         new:
           back: Zpět
           create: Vytvořit filtr taxonomie
-          select_taxonomy: Vyberte taxonomii
           title: Nový filtr taxonomie
         table:
           actions: Akce
-          components_count: Související komponenty
+          components_count: Komponenty používající toto
           confirm_destroy: 'Jste si jisti, že chcete odstranit filtr %{name}? POZNÁMKA: Zdroje, které používají tento filtr, nebudou ovlivněny, ale ztratí odkaz na tento filtr.'
-          count: Počet použitých položek
           destroy: Smazat
           edit: Upravit
-          internal_name: Interní název filtru
-          name: Veřejný název filtru
-          space_filter: Používá se k filtrování %{manifest_name}
-          taxonomy: Z taxonomie
+          internal_name: Interní štítek
+          name: Štítek
         update:
           error: Při aktualizaci tohoto filtru taxonomie došlo k chybě.
           success: Filtr taxonomie byl úspěšně aktualizován.
+      taxonomy_filters_selector:
+        new:
+          add_new_items_html: Pokud potřebujete nastavit nový filtr nebo položku, proveďte to prostřednictvím nastavení konfigurace nebo kliknutím <a href="%{url}">zde</a>.
+          items_count: "%{count} položek"
+          save: Uložit
+        show:
+          items_count: "%{count} položek"
+          remove: Odebrat
+        taxonomies_select:
+          filters: Filtry
+          select_filter: Vyberte filtr
+          select_taxonomy: Vyberte taxonomii
+          taxonomies: Taxonomie
       taxonomy_items:
         edit:
           title: Upravit položku v %{taxonomy}
@@ -1251,7 +1270,7 @@ cs:
         scopes: Oblasti působnosti
         statistics: Aktivita
         taxonomies: Taxonomie
-        taxonomy_filters: Filtry taxonomie
+        taxonomy_filters: Filtry taxonomie pro "%{taxonomy}"
         user_groups: Skupiny
         users: Administrátoři
       tooltips:
@@ -1387,3 +1406,5 @@ cs:
       admin:
         global_moderations:
           title: Globální moderace
+        taxonomy_filters_selector:
+          title: Filtry

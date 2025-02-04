@@ -19,8 +19,6 @@ it:
         settings:
           global:
             announcement: Annuncio
-            scope_id: Obiettivo
-            scopes_enabled: Obiettivi abilitati
           step:
             announcement: Annuncio
     events:
@@ -50,6 +48,9 @@ it:
           update:
             invalid: Ci sono stati degli errori durante il salvataggio del sondaggio.
             success: Sondaggio salvato correttamente.
+      admin_log:
+        survey:
+          unpublish: "%{user_name} ha aggiornato il budget %{resource_name} nello spazio %{space_name}"
       surveys:
         answer:
           invalid: Ci sono stati errori nel rispondere al sondaggio.

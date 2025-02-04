@@ -244,6 +244,7 @@ ca:
         create:
           error: S'ha produït un error en crear una nova àrea.
           success: Àrea creada correctament.
+        deprecated: Tingues en compte que les àrees estan obsoletes i s'eliminaran en versions futures. Si us plau, utilitza taxonomies al seu lloc. L'únic espai de participació que actualment fa servir àrees és el d'iniciatives.
         destroy:
           has_spaces: Aquesta àrea té espais dependents. Assegura't que no fa referència a cap espai de participació abans d'eliminar-la.
           success: Àrea eliminada correctament.
@@ -344,14 +345,6 @@ ca:
           title: 'Afegir component: %{name}'
         publish:
           success: El component s'ha publicat correctament.
-        taxonomy_filters_badge:
-          remove: Eliminar
-        taxonomy_filters_drawer:
-          add_filter: Afegir un filtre
-          clear_all: Netejar-ho tot
-          filters: Filtres
-          save: Desar
-          title: Filtres
         title: Components
         unpublish:
           success: El component s'ha despublicat correctament.
@@ -1025,6 +1018,7 @@ ca:
         create:
           error: S'ha produït un error en crear un nou àmbit.
           success: Àmbit creat correctament.
+        deprecated: Tingues en compte que els àmbits estan obsoletes i s'eliminaran en versions futures. Si us plau, utilitza taxonomies al seu lloc. L'únic espai de participació que actualment fa servir àmbits és el d'iniciatives.
         destroy:
           success: Àmbit eliminat correctament.
         edit:
@@ -1066,7 +1060,6 @@ ca:
           'true': 'Sí'
         index:
           back_to_share_tokens: Tornar als enllaços d'accés
-          copied: Enllaç d'accés copiat!
           copy_message: S'ha copiat el text al porta-retalls correctament.
           create_new_token: Crea el teu primer enllaç d'accés!
           empty_html: No hi ha cap enllaç d'accés actiu. %{new_token_link}
@@ -1076,7 +1069,6 @@ ca:
             Crea i comparteix un enllaç d'accés perquè altres persones puguin veure aquest recurs inèdit.
             Els enllaços d'accés poden ser vàlids només per a les participants registrades o tenir una data de caducitat si cal.
             Per compartir un enllaç d'accés nou amb algú, crea'l i, a continuació, copia l'enllaç fent servir la icona d'acció del «%{clipboard} porta-retalls».
-          title: 'Enllaços d''accés per a: %{name}'
         new:
           create: Crear
           title: 'Nou enllaç d''accés per a: %{name}'
@@ -1136,8 +1128,14 @@ ca:
           error: S'ha produït un error en l'actualització d'aquesta pàgina.
           success: La pàgina s'ha actualitzat correctament.
       taxonomies:
-        actions: Accions
-        amount: Número d'elements
+        actions:
+          actions: Accions
+          destroy: Eliminar taxonomia i elements
+          edit: Editar taxonomia i elements
+          filters: Administrar filtres
+        breadcrumb:
+          edit: Editar taxonomia
+          new: Nova taxonomia
         count: Recursos associats
         create:
           invalid: S'ha produït un error en crear aquesta taxonomia.
@@ -1156,7 +1154,7 @@ ca:
         filters:
           search_placeholder: Cercar
         index:
-          description: Una taxonomia permet a les administradores categoritzar i organitzar-ne el contingut. Per exemple, afegir una taxonomia per classificar processos per àmbit geogràfic.
+          description: Les taxonomies i els filtres permeten a les administradores ordenar i organitzar els continguts. Per exemple, afegir una taxonomia amb els districtes de la ciutat i els barris i després crear filtres només amb els districtes o per a un barri concret.
           new_taxonomy: Nova taxonomia
           no_items_found: No s'han trobat taxonomies que coincideixin amb els criteris de cerca.
         name: Nom
@@ -1169,14 +1167,18 @@ ca:
           to_prev_page: Arrossega per passar a la pàgina anterior
         taxonomy_actions:
           confirm_destroy: 'Segur que voleu suprimir %{name}? Això també suprimirà tots els elements secundaris. NOTA: Els recursos que utilitzen aquesta taxonomia no es veuran afectats, però perdran la referència a aquesta taxonomia.'
+        total_filters: Filtres
+        total_items: Elements a la taxonomia
         update:
           invalid: S'ha produït un error en actualitzar aquesta taxonomia.
           success: Taxonomia actualitzada correctament.
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Nou filtre de taxonomia
-        callout:
-          modify_taxonomy_html: Si et cal modificar aquesta taxonomia o els seus elements, si us plau, fes-ho a través de la configuració a la secció <a href="%{url}">Taxonomies</a>.
+        breadcrumb:
+          edit: Editar filtre
+          filters: Filtres
+          new: Nou filtre
         create:
           error: S'ha produït un error en crear aquesta taxonomia.
           success: Filtre de taxonomia creat correctament.
@@ -1194,29 +1196,39 @@ ca:
             other: "%{count} elements seleccionats"
           name_help: El títol del filtre que es mostrarà a la part pública.
           no_items: Encara no hi ha elements disponibles a aquesta taxonomia. Pots afegir-hi elements a través de les opcions de configuració de la taxonomia.
-          space_filter: Disponible com a filtre per a tots els %{manifest_name}
+          space_filter: Disponible com a filtre per a
         index:
           description: Un filtre de taxonomia permet a les administradores ordenar i filtrar espais de participació basats en una taxonomia. Per exemple, afegir un filtre de taxonomies per ordenar processos per àmbit territorial.
           empty: Actualment no hi ha cap filtre de taxonomia. Creeu una llista de filtres de taxonomia aquí per ordenar i filtrar els espais de participació basats en una taxonomia.
+          new_filter: Nou filtre
         new:
           back: Enrere
           create: Crear un filtre de taxonomia
-          select_taxonomy: Seleccionar una taxonomia
           title: Nou filtre de taxonomia
         table:
           actions: Accions
-          components_count: Components associats
+          components_count: Components que el fan servir
           confirm_destroy: 'Segur que voleu suprimir el filtre %{name}? NOTA: Els recursos que utilitzen aquest filtre no es veuran afectats però perdran la referència a aquest filtre.'
-          count: Número d'elements emprats
           destroy: Esborrar
           edit: Editar
-          internal_name: Nom intern del filtre
-          name: Títol públic del filtre
-          space_filter: Emprat per filtrar %{manifest_name}
-          taxonomy: Des de la taxonomia
+          internal_name: Estat intern
+          name: Etiqueta
         update:
           error: Hi ha hagut un problema actualitzant aquest filtre de taxonomia.
           success: Filtre de taxonomia actualitzat correctament.
+      taxonomy_filters_selector:
+        new:
+          add_new_items_html: Si necessites establir un nou filtre o element, feu-ho a través de la configuració o clicant <a href="%{url}">aquí</a>.
+          items_count: "%{count} elements"
+          save: Desar
+        show:
+          items_count: "%{count} elements"
+          remove: Eliminar
+        taxonomies_select:
+          filters: Filtres
+          select_filter: Seleccionar un filtre
+          select_taxonomy: Selecciona una taxonomia
+          taxonomies: Taxonomies
       taxonomy_items:
         edit:
           title: Editar element a "%{taxonomy}"
@@ -1246,7 +1258,7 @@ ca:
         scopes: Àmbits
         statistics: Activitat
         taxonomies: Taxonomies
-        taxonomy_filters: Filtres de taxonomies
+        taxonomy_filters: Filtre de taxonomia per a "%{taxonomy}"
         user_groups: Grups
         users: Administradores
       tooltips:
@@ -1382,3 +1394,5 @@ ca:
       admin:
         global_moderations:
           title: Moderacions globals
+        taxonomy_filters_selector:
+          title: Filtres

@@ -181,8 +181,6 @@ pl:
             proposal_wizard_step_1_help_text: 'Tekst pomocy Kreatora - krok: "Utwórz"'
             proposal_wizard_step_2_help_text: Tekst pomocy kroku „Opublikuj” kreatora propozycji
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdej propozycji
-            scope_id: Zakres
-            scopes_enabled: Zakresy włączone
             threshold_per_proposal: Próg poparcia dla propozycji
             vote_limit: Limit głosów na uczestnika
           step:

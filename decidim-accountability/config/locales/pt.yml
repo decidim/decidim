@@ -29,6 +29,7 @@ pt:
       decidim:
         accountability:
           result:
+            budget_text: Este resultado %{link} foi incluído
             meetings_ids: 'Discutido nesta reunião: %{link}'
             project_ids: 'Incluído neste projeto: %{link}'
             proposal_ids: 'Incluído nesta proposição: %{link}'
@@ -44,7 +45,6 @@ pt:
         confirm_destroy: Tem certeza de que deseja eliminar este %{name}?
         destroy: Eliminar
         edit: Editar
-        import: Importar projetos de outro componente
         import_csv: Importar resultados de um CSV
         new_result: Novo resultado
         new_status: Novo estado
@@ -140,9 +140,6 @@ pt:
           results_count:
             one: 1 resultado
             other: "%{count} resultados"
-        home:
-          sub_taxonomies_label: Subcategorias
-          taxonomies_label: Categorias
         home_header:
           global_status: Estado de execução global
         search:
@@ -173,8 +170,6 @@ pt:
             display_progress_enabled: Mostrar progresso
             intro: Introdução
             no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
-            scope_id: Âmbito
-            scopes_enabled: Âmbitos activados
             taxonomy_filters: Selecione filtros para a funcionalidade
             taxonomy_filters_add: Adicionar filtro
           step:

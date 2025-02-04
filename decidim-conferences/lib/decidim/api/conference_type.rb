@@ -8,6 +8,7 @@ module Decidim
       implements Decidim::Core::ScopableInterface
       implements Decidim::Core::AttachableInterface
       implements Decidim::Core::TaxonomizableInterface
+      implements Decidim::Core::TimestampsInterface
       implements Decidim::Core::CategoriesContainerInterface
 
       description "A conference"
@@ -19,8 +20,6 @@ module Decidim
       field :hashtag, GraphQL::Types::String, "The hashtag for this conference", null: true
       field :slogan, Decidim::Core::TranslatedFieldType, "The slogan of the conference", null: true
       field :location, String, "The location of this conference", null: true
-      field :created_at, Decidim::Core::DateTimeType, "The time this conference was created", null: true
-      field :updated_at, Decidim::Core::DateTimeType, "The time this conference was updated", null: true
       field :published_at, Decidim::Core::DateTimeType, "The time this conference was published", null: true
       field :reference, GraphQL::Types::String, "Reference prefix for this conference", null: true
 

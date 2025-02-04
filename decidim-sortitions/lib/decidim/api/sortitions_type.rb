@@ -8,12 +8,12 @@ module Decidim
 
       field :sortitions, Decidim::Sortitions::SortitionType.connection_type, null: true, connection: true
 
-      def sortitions
-        Sortition.where(component: object).includes(:component)
-      end
-
       field :sortition, Decidim::Sortitions::SortitionType, null: true do
         argument :id, GraphQL::Types::ID, required: true
+      end
+
+      def sortitions
+        Sortition.where(component: object).includes(:component)
       end
 
       def sortition(**args)

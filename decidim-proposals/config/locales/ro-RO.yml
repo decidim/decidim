@@ -143,8 +143,6 @@ ro:
             proposal_wizard_step_1_help_text: Text de ajutor pentru pasul „Creează” din crearea unei propuneri
             proposal_wizard_step_2_help_text: Text de ajutor pentru pasul „Publică” din crearea unei propuneri
             resources_permissions_enabled: Pentru fiecare propunere pot fi setate drepturi pentru acțiuni
-            scope_id: Domeniu de interes
-            scopes_enabled: Domeniile de interes au fost activate
             threshold_per_proposal: Prag per propunere
           step:
             amendment_creation_enabled: Crearea de amendamente a fost activată

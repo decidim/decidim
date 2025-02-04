@@ -178,8 +178,6 @@ bg:
             proposal_wizard_step_1_help_text: Текст на помощника за стъпка "Създай"
             proposal_wizard_step_2_help_text: Помощен текст на стъпка "Публикуване" на съветника за предложения
             resources_permissions_enabled: Позволените действия могат да се задават за всяко предложение
-            scope_id: Обхват
-            scopes_enabled: Обхватите са активирани
             threshold_per_proposal: Праг за предложенията
             vote_limit: Лимит за гласуване на участник
           step:

@@ -18,7 +18,7 @@ describe "Decidim::Api::QueryType" do
       "availableSlots" => conference.available_slots,
       "categories" => [],
       "components" => [],
-      "createdAt" => conference.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "createdAt" => conference.created_at.to_time.iso8601,
       "description" => { "translation" => conference.description[locale] },
       "endDate" => conference.end_date.to_s,
       "hashtag" => conference.hashtag,
@@ -28,7 +28,7 @@ describe "Decidim::Api::QueryType" do
       "objectives" => { "translation" => conference.objectives[locale] },
       "partners" => [],
       "promoted" => conference.promoted?,
-      "publishedAt" => conference.published_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "publishedAt" => conference.published_at.to_time.iso8601,
       "reference" => conference.reference,
       "registrationTerms" => { "translation" => conference.registration_terms[locale] },
       "registrationsEnabled" => conference.registrations_enabled?,
@@ -41,7 +41,7 @@ describe "Decidim::Api::QueryType" do
       "startDate" => conference.start_date.to_date.to_s,
       "title" => { "translation" => conference.title[locale] },
       "type" => conference.class.name,
-      "updatedAt" => conference.updated_at.iso8601.to_s.gsub("Z", "+00:00")
+      "updatedAt" => conference.updated_at.to_time.iso8601
     }
   end
 

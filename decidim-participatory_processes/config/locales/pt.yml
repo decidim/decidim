@@ -22,9 +22,6 @@ pt:
         promoted: Destacado
         published_at: Publicado em
         related_process_ids: Processos relacionados
-        scope_id: Âmbito
-        scope_type_max_depth_id: Abrangência do filtro de âmbito
-        scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
         slug: Campo de dados dinâmicos de URL
         start_date: Data de início
@@ -100,7 +97,7 @@ pt:
           attachment_files: Ficheiros
           attachments: Anexos
           components: Componentes
-          info:
+          info: Sobre este processo
           moderations: Moderações
           process_admins: Administradores de processo
           steps: Fases
@@ -322,6 +319,7 @@ pt:
         participatory_process_groups:
           form:
             metadata: Meta dados
+            title: Sobre este processo
             visibility: Visibilidade
         participatory_process_imports:
           form:
@@ -333,12 +331,9 @@ pt:
           form:
             announcement_help: O texto que insere aqui será mostrado ao utilizador logo abaixo das informações do processo.
             duration: Duração
-            filters: Filtros
             images: Imagens
             metadata: Metadados
             related_processes: Processos relacionados
-            scope_type_max_depth_help: Restrinja a abrangência do filtro de âmbito; O filtro irá mostrar desde o tipo de âmbito geral até ao tipo de âmbito selecionado.
-            select_an_area: Selecione uma Área
             select_process_group: Selecione um grupo do processo
             title: Informação geral
       content_blocks:
@@ -374,6 +369,8 @@ pt:
             past: Passado
             upcoming: Próximos
           see: Ver
+        show:
+          title: Sobre este processo
       show:
         belongs_to_group: Este processo pertence a
         private_space: Este é um processo privado

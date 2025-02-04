@@ -344,14 +344,6 @@ fr-CA:
           title: 'Ajouter une fonctionnalité : %{name}'
         publish:
           success: La fonctionnalité a été publiée avec succès.
-        taxonomy_filters_badge:
-          remove: Supprimer
-        taxonomy_filters_drawer:
-          add_filter: Ajouter un filtre
-          clear_all: Tout supprimer
-          filters: Filtres
-          save: Sauver
-          title: Filtres
         title: Fonctionnalités
         unpublish:
           success: La fonctionnalité a été dépubliée avec succès.
@@ -1035,7 +1027,6 @@ fr-CA:
           'true': 'Oui'
         index:
           back_to_share_tokens: Retour aux liens d'accès
-          copied: Lien d'accès copié !
           copy_message: Le texte a été copié dans le presse-papiers.
           create_new_token: Créez votre premier lien d'accès !
           empty_html: Il n'y a pas de liens d'accès actifs. %{new_token_link}
@@ -1045,7 +1036,6 @@ fr-CA:
             Créer et partager un lien d'accès pour autoriser d'autres personnes à voir cette ressource non publiée.
             Les liens d'accès peuvent être valides uniquement pour les participants enregistrés ou peuvent avoir une date d'expiration si nécessaire.
             Pour partager un nouveau lien d'accès avec quelqu'un, créez-le puis copiez le lien en utilisant l'icône d'action représentant le "%{clipboard} presse-papier".
-          title: 'liens d''accès pour: %{name}'
         new:
           create: Créer
           title: 'Nouveau lien d''accès pour : %{name}'
@@ -1104,25 +1094,46 @@ fr-CA:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
           success: Page mise à jour avec succès.
+      taxonomies:
+        actions:
+          actions: Actions
+          filters: Gérer les filtres
+        total_filters: Filtres
       taxonomy_filters:
+        breadcrumb:
+          edit: Modifier le filtre
+          filters: Filtres
+          new: Nouveau filtre
         edit:
           back: Revenir en arrière
           title: Modifier le filtre de taxonomie
           update: Mettre à jour le filtre de taxonomie
+        form:
+          space_filter: Disponible comme filtre pour
         index:
           description: Un filtre de taxonomie permet aux administrateurs de trier et de filtrer les espaces participatifs selon une taxonomie. Par exemple, ajoutez un filtre de taxonomie pour trier les processus par étendue géographique.
           empty: Il n'y a actuellement aucun filtre de taxonomie. Créez une liste de filtres de taxonomie ici pour trier et filtrer les espaces participatifs basés sur une taxonomie.
+          new_filter: Nouveau filtre
         new:
           back: Revenir en arrière
           create: Créer un filtre de taxonomie
           title: Nouveau filtre de taxonomie
         table:
           actions: Actions
+          components_count: Composants utilisant ceci
           destroy: Supprimer
           edit: Modifier
         update:
           error: Il y a eu un problème lors de la mise à jour de ce filtre de taxonomie.
           success: Filtre de taxonomie mis à jour avec succès.
+      taxonomy_filters_selector:
+        new:
+          items_count: "%{count} éléments"
+          save: Enregistrer
+        show:
+          items_count: "%{count} éléments"
+        taxonomies_select:
+          filters: Filtres
       titles:
         admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée
@@ -1143,7 +1154,6 @@ fr-CA:
         scope_types: Types de secteur
         scopes: Périmètres d'application
         statistics: Activité
-        taxonomy_filters: Filtres de taxonomie
         user_groups: Groupes d'utilisateurs
         users: Administrateurs
       tooltips:
@@ -1263,3 +1273,5 @@ fr-CA:
       admin:
         global_moderations:
           title: Modération globale
+        taxonomy_filters_selector:
+          title:

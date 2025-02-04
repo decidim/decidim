@@ -169,8 +169,6 @@ es-PY:
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             registration_code_enabled: Código de inscripción activado
             resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada encuentro
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
             terms_and_conditions_url_for_meeting_creators: URL de términos y condiciones para las creadoras de encuentros
@@ -712,6 +710,7 @@ es-PY:
           body: El comentario en sí
           commentable_id: El identificador único de aquello que se podía comentar
           commentable_type: La tipología de aquello sobre lo que se realizó el comentario (si fue un resultado, una propuesta, etc.)
+          comments: Los datos de los comentarios del encuentro
           created_at: La fecha en la que se creó este comentario
           depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es un comentario, una respuesta a un comentario, o la respuesta de una respuesta)
           id: El identificador de este comentario
@@ -722,26 +721,53 @@ es-PY:
           address: La dirección del encuentro en caso de que este sea presencial y tenga una ubicación física
           attachments: El número de archivos adjuntos en este encuentro
           attendees: El número de personas que asistieron a este encuentro
+          attending_organizations: Las organizaciones que asistieron a este encuentro
+          audio_url: Grabación de audio del encuentro
           author: Los datos de autoría de este encuentro
-          comments: El número de comentarios en este encuentro
+          available_slots: El número de plazas disponibles para el encuentro
+          closed_at: La fecha en la que se cerró el encuentro
+          closing_report: Acta/Informe del encuentro cerrado
+          closing_visible: La visibilidad de la información de cierre del encuentro
+          comments: Los datos de los comentarios del encuentro
           component: El componente al que pertenece este encuentro
           contributions: El número de contribuciones realizadas en este encuentro por las asistentes
+          created_at: La fecha en la que se creó este encuentro
+          customize_registration_email: Posibilidad de introducir un correo electrónico personalizado al registrarse en el encuentro
+          decidim_author_type: Tipo de autoría (origen) del encuentro
+          decidim_user_group_id: ID del grupo de usuarias involucrado en el encuentro
           description: La descripción del encuentro
           end_time: La fecha y hora en que terminó este encuentro
-          followers: El número de seguidoras de este encuentro
+          follows_count: El número de seguidoras que tiene el encuentro
           id: El identificador único del encuentro
+          iframe_access_level: El nivel de acceso de la sala de videoconferencias del encuentro
+          iframe_embed_type: El tipo de visualización de la sala de videoconferencias del encuentro
+          latitude: La latitud del lugar de encuentro
           location: La localización del encuentro
+          location_hints: Detalle de ubicación dentro del lugar donde se celebró el encuentro
+          longitude: La longitud del lugar de encuentro
+          online_meeting_url: La URL de la sala de videoconferencias
           organizations: Las organizaciones que asistieron a esta reunión
           participatory_space: A qué espacio pertenece este encuentro (proceso participativo, asamblea, etc.)
+          private_meeting: Si el encuentro fue privado o no
           published: Cuando se publicó el encuentro
           reference: El identificador único del recurso en esta plataforma
+          registration_form_enabled: Si se habilitó, o no, un formulario de inscripción al encuentro
+          registration_terms: Los términos y condiciones de registro al encuentro que se aceptaron antes de participar
+          registration_type: El tipo de inscripción al encuentro
+          registration_url: La URL para inscribirse al encuentro
+          registrations_enabled: Si se habilitó la inscripción al encuentro
           related_proposals: Las propuestas relacionadas con este encuentro
           related_results: Los resultados relacionados con este encuentro
+          reserved_slots: El número de plazas reservadas que tenía el encuentro
           start_time: La fecha y hora en que se inició este encuentro
           taxonomies: Las taxonomías a las que pertenece este encuentro
           title: El título del encuentro
+          transparent: La visibilidad del encuentro para visitantes
+          type_of_meeting: El tipo de reunión
+          updated_at: La fecha de la última actualización del encuentro
           url: La URL del encuentro
-          withdrawn: Si este encuentro fue retirado/cancelado
+          video_url: La URL del vídeo del encuentro
+          withdrawn: Si se canceló el encuentro
           withdrawn_at: Cuando fue retirado/cancelado este encuentro
     participatory_spaces:
       highlighted_meetings:
