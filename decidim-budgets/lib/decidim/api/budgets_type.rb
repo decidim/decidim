@@ -8,12 +8,12 @@ module Decidim
 
       field :budgets, Decidim::Budgets::BudgetType.connection_type, null: true, connection: true
 
-      def budgets
-        Budget.where(component: object).includes(:component)
-      end
-
       field :budget, Decidim::Budgets::BudgetType, null: true do
         argument :id, GraphQL::Types::ID, required: true
+      end
+
+      def budgets
+        Budget.where(component: object).includes(:component)
       end
 
       def budget(**args)

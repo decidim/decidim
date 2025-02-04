@@ -8,12 +8,12 @@ module Decidim
 
       field :debates, Decidim::Debates::DebateType.connection_type, null: true, connection: true
 
-      def debates
-        Debate.where(component: object).includes(:component)
-      end
-
       field :debate, Decidim::Debates::DebateType, null: true do
         argument :id, GraphQL::Types::ID, required: true
+      end
+
+      def debates
+        Debate.where(component: object).includes(:component)
       end
 
       def debate(**args)
