@@ -3,6 +3,7 @@ en:
   decidim:
     collaborative_texts:
       actions:
+        confirm_delete_collaborative_text: Are you sure you want to delete this collaborative text?
         deleted_collaborative_text_info: Deleted collaborative text can be restored from the trash.
         edit: Edit
         new: New text

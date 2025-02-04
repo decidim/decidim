@@ -31,7 +31,7 @@
                   <%# end %>
                 <% end %>
                 <% if allowed_to? :soft_delete, :collaborative_text #, trashable_deleted_resource: collaborative_text %>
-                    <%= icon_link_to "delete-bin-line", "#", t("actions.soft_delete", scope: "decidim.admin"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_debate", scope: "decidim.collaborative_texts") } %>
+                    <%= icon_link_to "delete-bin-line", "#", t("actions.soft_delete", scope: "decidim.admin"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_collaborative_text", scope: "decidim.collaborative_texts") } %>
                 <% else %>
                     <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.soft_delete", scope: "decidim.admin") %>
                 <% end %>
