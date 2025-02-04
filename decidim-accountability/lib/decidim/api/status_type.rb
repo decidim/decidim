@@ -12,7 +12,6 @@ module Decidim
       field :key, GraphQL::Types::String, "The key for this status", null: true
       field :name, Decidim::Core::TranslatedFieldType, "The name for this status", null: true
       field :progress, GraphQL::Types::Int, "The progress for this status", null: true
-
       field :results, [Decidim::Accountability::ResultType, { null: true }], "The results for this status", null: true
     end
   end

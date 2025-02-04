@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     class ProposalListHelper < Decidim::Core::ComponentListBase
-      # only querying published posts
+      # only querying published proposals
       def query_scope
         super.published
       end
