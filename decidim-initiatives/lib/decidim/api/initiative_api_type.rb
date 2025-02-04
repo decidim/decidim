@@ -3,14 +3,14 @@
 module Decidim
   module Initiatives
     class InitiativeApiType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::TimestampsInterface
+
       graphql_name "InitiativeType"
       description "An initiative type"
 
       field :id, GraphQL::Types::ID, "The internal ID for this initiative type", null: false
       field :title, Decidim::Core::TranslatedFieldType, "Initiative type name", null: true
       field :description, Decidim::Core::TranslatedFieldType, "This is the initiative type description", null: true
-      field :created_at, Decidim::Core::DateTimeType, "The date this initiative type was created", null: true
-      field :updated_at, Decidim::Core::DateTimeType, "The date this initiative type was updated", null: true
       field :banner_image, GraphQL::Types::String, "Banner image", null: true
       field :collect_user_extra_fields, GraphQL::Types::Boolean, "Collect participant personal data on signature", null: true
       field :extra_fields_legal_information, GraphQL::Types::String, "Legal information about the collection of personal data", null: true

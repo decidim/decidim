@@ -4,6 +4,8 @@ module Decidim
   module Conferences
     # This type represents a conference.
     class ConferenceSpeakerType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::TimestampsInterface
+
       description "A conference speaker"
 
       field :id, GraphQL::Types::ID, "Internal ID of the speaker", null: false
@@ -15,9 +17,6 @@ module Decidim
       field :personal_url, GraphQL::Types::String, "Personal URL of the speaker", null: true
       field :avatar, GraphQL::Types::String, "Avatar of the speaker", null: true
       field :user, Decidim::Core::UserType, "Decidim user corresponding to this speaker", null: true
-
-      field :created_at, Decidim::Core::DateTimeType, "The time this member was created ", null: true
-      field :updated_at, Decidim::Core::DateTimeType, "The time this member was updated", null: true
 
       def avatar
         object.attached_uploader(:avatar).url

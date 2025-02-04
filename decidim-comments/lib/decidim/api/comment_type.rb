@@ -4,9 +4,11 @@ module Decidim
   module Comments
     # This type represents a comment on a commentable object.
     class CommentType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::TimestampsInterface
+      implements Decidim::Comments::CommentableInterface
+
       description "A comment"
 
-      implements Decidim::Comments::CommentableInterface
       field :author, Decidim::Core::AuthorInterface, "The resource author", null: false
 
       field :id, GraphQL::Types::ID, "The Comment's unique ID", null: false
@@ -16,8 +18,6 @@ module Decidim
       field :body, GraphQL::Types::String, "The comment message", null: false
 
       field :formatted_body, GraphQL::Types::String, "The comment message ready to display (it is expected to include HTML)", null: false
-
-      field :created_at, GraphQL::Types::String, "The creation date of the comment", null: false
 
       field :formatted_created_at, GraphQL::Types::String, "The creation date of the comment in relative format", null: false
 
@@ -47,10 +47,6 @@ module Decidim
 
       def body
         object.translated_body
-      end
-
-      def created_at
-        object.created_at.iso8601
       end
 
       def formatted_created_at
