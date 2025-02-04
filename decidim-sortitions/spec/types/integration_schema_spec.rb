@@ -59,7 +59,7 @@ describe "Decidim::Api::QueryType" do
       "comments" => [],
       "commentsHaveAlignment" => sortition.comments_have_alignment?,
       "commentsHaveVotes" => sortition.comments_have_votes?,
-      "createdAt" => sortition.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "createdAt" => sortition.created_at.to_time.iso8601,
       "dice" => sortition.dice,
       "hasComments" => sortition.comment_threads.size.positive?,
       "id" => sortition.id.to_s,
@@ -70,7 +70,7 @@ describe "Decidim::Api::QueryType" do
       "title" => { "translation" => sortition.title[locale] },
       "totalCommentsCount" => sortition.comments_count,
       "type" => "Decidim::Sortitions::Sortition",
-      "updatedAt" => sortition.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "updatedAt" => sortition.updated_at.to_time.iso8601,
       "userAllowedToComment" => sortition.user_allowed_to_comment?(current_user),
       "witnesses" => { "translation" => sortition.witnesses[locale] }
     }

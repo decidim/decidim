@@ -30,10 +30,10 @@ describe "Decidim::Api::QueryType" do
   let(:page_single_result) do
     {
       "body" => { "translation" => page.body[locale] },
-      "createdAt" => page.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "createdAt" => page.created_at.to_time.iso8601,
       "id" => page.id.to_s,
       "title" => { "translation" => page.title[locale] },
-      "updatedAt" => page.updated_at.iso8601.to_s.gsub("Z", "+00:00")
+      "updatedAt" => page.updated_at.to_time.iso8601
     }
   end
 
