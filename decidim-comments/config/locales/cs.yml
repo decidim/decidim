@@ -159,6 +159,7 @@ cs:
         comments:
           alignment: Pokud byl tento komentář příznivý, proti nebo neutrální
           author: Jméno účastníka, který vytvořil tento komentář
+          body: Samotný komentář
           id: ID pro tento komentář
     events:
       comments:
