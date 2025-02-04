@@ -20,10 +20,44 @@
                      panel_id: type.id,
                      title: translated_attribute(type.title),
                      input_radio_name: "initiative[type_id]",
-                     input_radio_value: type.id
+                     input_radio_value: type.id,
+                     disabled: false
                    } do %>
           <p>
             <%= decidim_sanitize_admin(translated_attribute(type.description)) %>
+          </p>
+
+          <p>
+            <%= link_to t("consult_existing_initiatives", scope: "decidim.initiatives.create_initiative.select_initiative_type"),
+                        initiatives_path(filter: { with_any_type: type.id }), target: "_blank" %>
+          </p>
+        <% end %>
+      <% else %>
+        <%= render layout: "decidim/application/radio_accordion",
+                   locals: {
+                     open_accordion: false,
+                     panel_id: type.id,
+                     title: translated_attribute(type.title),
+                     input_radio_name: "initiative[type_id]",
+                     input_radio_value: type.id,
+                     disabled: true
+                   } do %>
+          <p>
+            <%= decidim_sanitize_admin(translated_attribute(type.description)) %>
+          </p>
+
+          <p>
+            <%= action_authorized_link_to(
+                :create,
+                fill_data_create_initiative_index_path(initiative: { type_id: type.id }),
+                authorizations_modal_path: authorization_create_modal_initiative_path(type),
+                permissions_holder: type,
+                class: "button button__sm button__secondary",
+                "data-dialog-open": "not-authorized-modal",
+                onclick: "event.preventDefault();"
+              ) do %>
+              <%= t("verification_required", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
+            <% end %>
           </p>
 
           <p>

@@ -1,6 +1,8 @@
 ja:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: 検証添付ファイル
       config:
         available_methods: 利用可能なメソッド
         offline: オフライン
@@ -74,6 +76,12 @@ ja:
             - 開発者が簡単な検証の仕組みを理解するための、認証ハンドラーのサンプルです。
             - 開発者が自身の検証システムを実装する方法を理解できるようにすることを目的としています。
             - '「X」で終わるドキュメント番号を入力して検証します'
+        ephemeral_dummy_authorization_handler:
+          help:
+            - 開発者が簡単な検証の仕組みを理解できるようにするための、一時的な認可ハンドラーの例です。
+            - 
+            - 
+            - 
         id_documents:
           help:
             - ユーザーは自分の身元情報を入力し、自分の文書のコピーをアップロードします。
@@ -183,10 +191,8 @@ ja:
         extra_explanation:
           postal_codes:
             other: '参加者は次の郵便番号のいずれかを持つ参加者に制限されています: %{postal_codes}.'
-          scope: 参加者はスコープ %{scope_name} の参加者に限定されています。
           user_postal_codes:
             other: '参加者は次の郵便番号のいずれかを持つ参加者に制限されています: %{postal_codes}. あなたの郵便番号は %{user_postal_code} です。'
-          user_scope: 参加者はスコープ %{scope_name} を持つ参加者に限定されます。あなたのスコープは %{user_scope_name} です。
       id_documents:
         admin:
           config:

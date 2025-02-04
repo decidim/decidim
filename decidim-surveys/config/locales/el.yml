@@ -19,8 +19,6 @@ el:
         settings:
           global:
             announcement: Ανακοίνωση
-            scope_id: Πεδίο εφαρμογής
-            scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
           step:
             announcement: Ανακοίνωση
     events:

@@ -7,7 +7,7 @@ eu:
       dummy_resource:
         created_at: Sortua
         decidim_scope_id: Esparrua
-        field: Nire eremua
+        field: Nire datu-eremua
         start_date: Hasiera data
         title: Izenburua
         translatable_text: Itzul daitekeen testua

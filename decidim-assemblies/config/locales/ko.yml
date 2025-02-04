@@ -15,8 +15,6 @@ ko:
         instagram: 인스타그램
         local_area: 조직 영역
         private_space: 비공개 공간
-        scope_id: 범위
-        scopes_enabled: 범위 활성화됨
         twitter: X
         youtube: 유튜브
       assembly_member:
@@ -62,7 +60,6 @@ ko:
         assemblies:
           form:
             metadata: 메타데이터
-            select_an_area: 영역 선택
         new_import:
           accepted_types:
             json: JSON

@@ -28,9 +28,6 @@ de:
         promoted: Hervorgehoben
         published_at: Veröffentlicht am
         related_process_ids: Ähnliche Beteiligungsprozesse
-        scope_id: Themenbereich
-        scope_type_max_depth_id: Umfang-Filtertiefe
-        scopes_enabled: Themenbereiche aktiviert
         short_description: Kurzbeschreibung
         slug: URL-Slug
         start_date: Startdatum
@@ -272,6 +269,9 @@ de:
         create:
           error: Beim Erstellen einer neuen partizipativen Prozessgruppe ist ein Fehler aufgetreten.
           success: Partizipative Prozessgruppe erfolgreich erstellt.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Alle Beteiligungsprozesse
       titles:
         participatory_process_groups: Partizipative Prozessgruppen
         participatory_process_types: Beteiligungsprozesstypen
@@ -445,14 +445,11 @@ de:
             announcement_help: Der Text, den Sie hier eingeben, wird dem Benutzer direkt unter den Prozessinformationen angezeigt.
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             duration: Dauer
-            filters: Filter
             images: Bilder
             metadata: Metadaten
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             private_notice: Sie können private Teilnehmende verwalten, nachdem Sie das Gremium als "privat" festgelegt haben
             related_processes: Ähnliche Beteiligungsprozesse
-            scope_type_max_depth_help: Beschränken Sie die Bereichs-Filtertiefe; der Filter zeigt nur Ergebnisse von Allgemein bis zum ausgewählten Bereichstyp an.
-            select_an_area: Wählen Sie einen Bereich aus
             select_process_group: Wählen Sie eine Prozessgruppe aus
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             taxonomies: Klassifizierungen

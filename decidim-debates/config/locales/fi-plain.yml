@@ -42,8 +42,6 @@ fi-pl:
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
-            scope_id: Teema
-            scopes_enabled: Teemat käytössä
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
           step:
@@ -74,9 +72,12 @@ fi-pl:
             title: Muokkaa keskustelua
             update: Päivitä keskustelu
           form:
+            add_attachments: Lisää liitteitä
+            attachment_legend: Lisää asiakirja tai kuva
             comments_visualization: Kommenttien visualisointi
             comments_warning: Ensimmäisen kommentin jälkeen kommenttien esitysmuotoasetusta ei voi muuttaa.
             debate_type: Keskustelun tyyppi
+            edit_attachments: Muokkaa liitteitä
             errors:
               comments_layout_locked: Et voi muuttaa kommenttien esitysmuotoa sen jälkeen, kun kommentteja on laadittu.
             finite: Määräaikainen (keskustelulla on alku- ja loppuaika)

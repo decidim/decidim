@@ -19,8 +19,6 @@ nl:
         settings:
           global:
             announcement: Aankondiging
-            scope_id: Scope
-            scopes_enabled: Scopes ingeschakeld
           step:
             announcement: Aankondiging
     events:

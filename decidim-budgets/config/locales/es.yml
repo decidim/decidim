@@ -235,7 +235,6 @@ es:
           selected_projects: 'Lo proyectos que has seleccionado son:'
           subject: Has votado en el espacio de participación %{space_name}
           voted_on_space: Has votado en el presupuesto %{budget_name} para el espacio participativo %{space_name}.
-          voted_on_space_with_scope: Has votado en el presupuesto %{budget_name} del espacio de participación %{space_name} de %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Si cambias de opinión, puedes cambiar tu voto más tarde.
@@ -352,8 +351,6 @@ es:
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             projects_per_page: Proyectos por página
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada proyecto
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
             title: Título

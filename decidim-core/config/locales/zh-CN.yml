@@ -56,6 +56,8 @@ zh-CN:
     'false': '否'
     'true': '否'
   date:
+    buttons:
+      select: 选择
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_with_day_and_month_name: "%A %d %b %Y"
@@ -204,10 +206,8 @@ zh-CN:
       dummy_authorization_handler:
         fields:
           allowed_postal_codes: 允许的邮政编码 (用逗号分隔)
-          allowed_scope_id: 允许的范围
           document_number: 文档编号
           postal_code: 邮政编码
-          scope_id: 范围
         name: 示例授权
       dummy_authorization_workflow:
         name: 虚拟授权 Workflow
@@ -279,8 +279,6 @@ zh-CN:
             dummy_global_translatable_text: 虚拟可翻译文本
             enable_pads_creation: 启用页面创建
             resources_permissions_enabled: 资源权限已启用
-            scope_id: 范围
-            scopes_enabled: 范围已启用
           step:
             amendment_creation_enabled: 修改创建已启用
             amendment_promotion_enabled: 已启用修正促销功能
@@ -840,16 +838,7 @@ zh-CN:
         error: 在批准行动中出现了一个问题。
     scopes:
       global: 全球范围
-      picker:
-        cancel: 取消
-        change: 更改选中的范围
-        choose: 选择
-        currently_selected: 当前选中的范围
-        title: 选择 %{field}
       prompt: 选择范围
-      scopes: 范围
-      scopes_picker_input:
-        select_scope: '选择范围 (当前： %{current})'
     search:
       results: 搜索结果
       results_found_for_term: '搜索的%{count} 结果: "%{term}"'
@@ -924,13 +913,6 @@ zh-CN:
         send: 发送
       update:
         error: 消息发送失败，请稍后再试
-    user_interests:
-      show:
-        my_interests: 我的利益
-        update_my_interests: 更新我的兴趣
-      update:
-        error: 更新您的兴趣时出现问题。
-        success: 您的兴趣已成功更新。
     version:
       show:
         back_to_resource: 后退
@@ -1109,7 +1091,6 @@ zh-CN:
         authorizations: 授权
         delete_my_account: 删除我的帐户
         my_data: 我的数据
-        my_interests: 我的利益
         notifications_settings: 通知设置
         title: 参与者设置
         user_groups: 群組
@@ -1150,6 +1131,8 @@ zh-CN:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: 选择
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

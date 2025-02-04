@@ -43,8 +43,6 @@ pt-BR:
         promoted: Destacado
         published_at: Publicado em
         purpose_of_action: Objetivo da ação
-        scope_id: Âmbito
-        scopes_enabled: Escopos ativados
         short_description: Pequena descrição
         slug: Slug de URL
         special_features: Funcionalidades especiais
@@ -232,13 +230,11 @@ pt-BR:
             announcement_help: O texto que você inserir aqui será mostrado ao usuário logo abaixo das informações de assembleia.
             duration: Duração
             duration_help: Se a duração dessa assembleia for limitada, selecione a data final. Caso contrário, aparecerá como indefinido.
-            filters: Filtros
             images: Imagens
             included_at_help: Selecione a data em que a assambleia foi adicionada à plataforma. Não precisa necessariamente ser o mesmo que a data de criação.
             metadata: Metadados
             other: De outros
             select_a_created_by: Selecione um criado por
-            select_an_area: Selecione uma área
             select_parent_assembly: Selecione a assembleia mãe
             slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             social_handlers: Social

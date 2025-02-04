@@ -38,8 +38,6 @@ nl:
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
         purpose_of_action: Doelstelling
-        scope_id: Scope
-        scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
         slug: URL pad
         special_features: Speciale functionaliteiten
@@ -203,13 +201,11 @@ nl:
             announcement_help: De tekst die je hier invoert, wordt direct onder de groepsinformatie aan de gebruiker getoond.
             duration: Duur
             duration_help: Als de duur van deze groep beperkt is, selecteert u de einddatum. Anders zal dit verschijnen als onbepaald.
-            filters: Filters
             images: Afbeeldingen
             included_at_help: Selecteer de datum waarop deze groep aan Decidim is toegevoegd. Het hoeft niet noodzakelijk hetzelfde te zijn als de aanmaakdatum.
             metadata: Metadata
             other: Overige
             select_a_created_by: Selecteer op 'gemaakt door'
-            select_an_area: Selecteer een onderwerp
             select_parent_assembly: Selecteer de hoofdgroep
             social_handlers: sociaal
             title: Algemene informatie

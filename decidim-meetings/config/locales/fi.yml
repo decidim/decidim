@@ -169,8 +169,6 @@ fi:
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             registration_code_enabled: Ilmoittautumiskoodit käytössä
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapaamiselle
-            scope_id: Teema
-            scopes_enabled: Teemat käytössä
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
             terms_and_conditions_url_for_meeting_creators: Ehtojen osoite (URL) tapaamisten luojille
@@ -712,6 +710,7 @@ fi:
           body: Kommentin teksti
           commentable_id: Kommentoitavan asian yksilöivä tunniste
           commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
+          comments: Tapaamisen kommenttien tiedot
           created_at: Kommentin laatimisaika
           depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
           id: Kommentin yksilöivä tunniste
@@ -722,25 +721,52 @@ fi:
           address: Tapaamisen osoite, mikäli tapaaminen on määritetty tiettyyn paikkaan
           attachments: Tapaamisen liitteiden lukumäärä
           attendees: Tapaamisen osallistuvien tai osallistuneiden ihmisten määrä
+          attending_organizations: Tapaamiseen osallistuvat tai osallistuneet organisaatiot
+          audio_url: Tapaamisen äänitallenne
           author: Tapaamisen laatijan tiedot
-          comments: Tapaamisen kommenttien lukumäärä
+          available_slots: Tapaamisen osallistujien enimmäismäärä
+          closed_at: Tapaamisen päättymisaika
+          closing_report: Raportti päättyneistä tapaamisista
+          closing_visible: Tapaamisen näkyvyys
+          comments: Tapaamisen kommenttien tiedot
           component: Tapaamisen komponentti
           contributions: Tapaamisen osallistujien tekemien kontribuutioiden lukumäärä
+          created_at: Tapaamisen laatimisaika
+          customize_registration_email: Mahdollisuus muokata ilmoittautumisen yhteydessä lähetettävää sähköpostia
+          decidim_author_type: Tapaamisen laatijan tyyppi
+          decidim_user_group_id: Tapaamisen osallistujien käyttäjäryhmän yksilöivä ID-tunniste
           description: Tapaamisen kuvaus
           end_time: Tapaamisen päättymisajankohta
-          followers: Tapaamisen seuraajien lukumäärä
+          follows_count: Tapaamisen seuraajien lukumäärä
           id: Tapaamisen yksilöivä tunniste
+          iframe_access_level: Tapaamisen iframe-upotuksen käyttöoikeustaso
+          iframe_embed_type: Tapaamiseen liitetyn iframe-upotuksen tyyppi
+          latitude: Tapaamisen sijainnin leveysaste
           location: Tapaamisen sijainti
+          location_hints: Tapaamisen tapaamispaikan sijainnin ohjeistus
+          longitude: Tapaamisen sijainnin pituusaste
+          online_meeting_url: Verkkotapaamisen URL-osoite
           organizations: Tapaamiseen osallistuvat tai osallistuneet organisaatiot
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä tapaaminen kuuluu
+          private_meeting: Määrittää, onko tapaaminen yksityinen vai julkinen
           published: Tapaamisen julkaisuajankohta
           reference: Tapaamisen yksilöivä tunniste tällä alustalla
+          registration_form_enabled: Oliko tapaamisella ilmoittautumislomaketta vai ei
+          registration_terms: Hyväksytyt osallistumisehdot ennen tapaamiseen osallistumista
+          registration_type: Tapaamisen ilmoittautumistyyppi
+          registration_url: Tapaamisen ilmoittautumisten URL-osoite
+          registrations_enabled: Oliko tapaamisen ilmoittautumiset käytössä
           related_proposals: Ehdotukset, jotka liittyvät tähän tapaamiseen
           related_results: Tulokset, jotka liittyvät tähän tapaamiseen
+          reserved_slots: Tapaamisen varattujen paikkojen lukumäärä
           start_time: Tapaamisen alkamisajankohta
           taxonomies: Tälle tapaamiselle määritetyt luokittelut
           title: Tapaamisen otsikko
+          transparent: Tapaamisen näkyvyys muille kuin tapaamiseen kutsutuille
+          type_of_meeting: Tapaamisen tyyppi
+          updated_at: Tapaamisen viimeisimmän päivityksen ajankohta
           url: Tapaamisen URL-osoite
+          video_url: Tapaamisen videotallenne
           withdrawn: Onko tämä tapaaminen peruttu
           withdrawn_at: Ajankohta, jolloin tapaaminen peruttiin
     participatory_spaces:
