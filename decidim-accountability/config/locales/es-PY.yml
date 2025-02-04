@@ -47,7 +47,6 @@ es-PY:
         deleted_results_info: Los resultados eliminados se pueden restaurar desde papelera.
         destroy: Borrar
         edit: Editar
-        import: Importar proyectos desde otro componente
         import_csv: Importar resultados desde un archivo CSV
         new_result: Nuevo resultado
         new_status: Nuevo estado
@@ -95,22 +94,6 @@ es-PY:
             name: Resultado
           status:
             name: Estado
-        projects_import:
-          create:
-            invalid: Hubo un problema al importar los proyectos como resultados, por favor, sigue las instrucciones cuidadosamente y asegúrate que has marcado los proyectos seleccionados para su implementación.
-          new:
-            create: Importar
-            import_all_selected_projects: Importar todos los proyectos seleccionados para ser implementados
-            new_items:
-              one: Se importará 1 proyecto seleccionado
-              other: "Se importarán %{count} proyectos seleccionados"
-            no_components: No hay ningún componente de presupuestos en este espacio de participación para importar los proyectos como resultados.
-            origin_component_id: Componente de origen
-            select_component: Selecciona un componente
-            success:
-              one: Hay un proyecto para ser importado. Se notificará por correo electrónico, cuando se complete la importación.
-              other: "Hay %{count} proyectos para ser importados. Se notificará por correo electrónico, cuando se complete la importación."
-            title: Importar proyectos desde otro componente
         results:
           bulk_actions:
             dates_form:
@@ -262,8 +245,6 @@ es-PY:
         home:
           empty: Aún no hay ningún resultado.
           empty_filters: No hay resultados con estos criterios.
-          sub_taxonomies_label: Subcategorías
-          taxonomies_label: Categorías
         home_header:
           global_status: Estado de ejecución global
         no_results: No hay proyectos
@@ -296,8 +277,6 @@ es-PY:
             geocoding_enabled: Mapas habilitados
             intro: Introducción
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
           step:

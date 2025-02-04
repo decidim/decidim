@@ -28,9 +28,6 @@ lt:
         promoted: Paaukštintas/a
         published_at: Publikuota
         related_process_ids: Susiję procesai
-        scope_id: Apimtis
-        scope_type_max_depth_id: Srities filtro gylis
-        scopes_enabled: Sritys įjungtos
         short_description: Trumpas aprašymas
         slug: URL priedas
         start_date: Pradžios data
@@ -383,12 +380,9 @@ lt:
           form:
             announcement_help: Čia įrašytas tekstas naudotojui bus rodomas iš karto po informacijos apie procesą.
             duration: Trukmė
-            filters: Filtrai
             images: Paveikslėliai
             metadata: Metaduomenys
             related_processes: Susiję procesai
-            scope_type_max_depth_help: Riboti srities filtro dydį; Filtras parodys nuo bendros iki pasirinktos apimties tipo.
-            select_an_area: Pasirinkti aplinką
             select_process_group: Pasirinkti procesų grupę
             title: Bendroji informacija
       content_blocks:

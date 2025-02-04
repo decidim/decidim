@@ -28,9 +28,6 @@ fr-CA:
         promoted: Mise en avant
         published_at: Publiée à
         related_process_ids: Concertations liées
-        scope_id: Périmètre d'application
-        scope_type_max_depth_id: Profondeur du filtre de portée
-        scopes_enabled: Périmètres d'application activés
         short_description: Résumé
         slug: Identifiant
         start_date: Date de début
@@ -271,6 +268,9 @@ fr-CA:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau groupe de concertations.
           success: Groupe de concertations créé avec succès.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Tous les processus participatifs
       titles:
         participatory_process_groups: Groupes de concertations
         participatory_process_types: Types de concertation
@@ -409,12 +409,9 @@ fr-CA:
           form:
             announcement_help: Le texte saisi ici sera affiché juste en dessous des informations de la concertation.
             duration: Durée
-            filters: Filtres
             images: Images
             metadata: Métadonnées
             related_processes: Concertations liées
-            scope_type_max_depth_help: Restreindre la profondeur du filtre de téles; Le filtre s'affichera de général au type de télescope sélectionné.
-            select_an_area: Sélectionnez un secteur
             select_process_group: Sélectionnez un groupe de concertations
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             taxonomies: Taxonomies

@@ -196,7 +196,7 @@ es-MX:
               hours: Horas
               minutes: Minutos
             geocoding_enabled: Mapas habilitados
-            minimum_votes_per_user: Votos mínimos por usuario
+            minimum_votes_per_user: Apoyos mínimos por participante
             new_proposal_body_template: Plantilla para el texto de nueva propuesta
             new_proposal_body_template_help: Puede definir el texto predefinido que tendrán las nuevas propuestas
             new_proposal_help_text: Texto de ayuda al crear una propuesta
@@ -218,8 +218,6 @@ es-MX:
             proposal_wizard_step_1_help_text: Texto de ayuda para el paso "Crear" del asistente de propuesta
             proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Publicar" del asistente de propuestas
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada propuesta
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
             threshold_per_proposal: Umbral por propuesta
@@ -261,7 +259,7 @@ es-MX:
             suggested_hashtags: Hashtags sugeridos a los usuarios para nuevas propuestas.
             votes_blocked: Apoyos bloqueados
             votes_enabled: Apoyos habilitados
-            votes_hidden: Votos ocultos (si los votos están habilitados, marcando esta opción ocultará el número de votos)
+            votes_hidden: Apoyos ocultos (si los apoyos están habilitados, marcando esta opción ocultará el número de apoyos)
     download_your_data:
       show:
         proposal_comments: Exportar los comentarios a las propuestas
@@ -432,8 +430,8 @@ es-MX:
         title: Propuestas
       votes:
         description: Número de apoyos a propuestas
-        object: votos
-        title: Votos
+        object: Apoyos
+        title: Apoyos
     open_data:
       help:
         proposal_comments:
@@ -1003,7 +1001,7 @@ es-MX:
           already_voted: Ya has dado tu apoyo
           already_voted_hover: Retirar el apoyo
           maximum_votes_reached: Límite de apoyos alcanzado
-          no_votes_remaining: No hay votos restantes
+          no_votes_remaining: No hay apoyos restantes
           vote: Dar apoyo
           votes_blocked: Apoyos desactivados
         votes_count:

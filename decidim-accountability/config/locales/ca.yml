@@ -47,7 +47,6 @@ ca:
         deleted_results_info: Els resultats eliminats es poden restaurar des de la paperera.
         destroy: Esborrar
         edit: Editar
-        import: Importar projectes des d'un altre component
         import_csv: Importar resultats des d'un fitxer CSV
         new_result: Afegir resultat
         new_status: Afegir estat
@@ -95,22 +94,6 @@ ca:
             name: Resultat
           status:
             name: Estat
-        projects_import:
-          create:
-            invalid: Hi ha hagut un problema important els projectes com a resultats, si us plau, segueix les instruccions amb cura i assegura't de marcar els projectes seleccionats per a la seva implementació.
-          new:
-            create: Importar
-            import_all_selected_projects: Importar tots els projectes seleccionats per a ser implementats
-            new_items:
-              one: S'importarà 1 projecte seleccionat
-              other: "S'importaran %{count} projectes seleccionats"
-            no_components: No hi ha cap component de pressupostos en aquest espai de participació per a poder importar els projectes com a resultats.
-            origin_component_id: Component d'origen
-            select_component: Selecciona un component
-            success:
-              one: Hi ha 1 projecte a la cua per ser importat. Es notificarà per correu electrònic, quan es completi la importació.
-              other: "Hi ha %{count} a la cua per ser importats. Es notificarà per correu electrònic, quan es completi la importació."
-            title: Importar projectes des d'un altre component
         results:
           bulk_actions:
             dates_form:
@@ -262,8 +245,6 @@ ca:
         home:
           empty: Encara no hi ha cap resultat.
           empty_filters: No hi ha cap resultat amb aquest criteri.
-          sub_taxonomies_label: Subcategories
-          taxonomies_label: Categories
         home_header:
           global_status: Estat d'execució global
         no_results: No hi ha projectes
@@ -296,8 +277,6 @@ ca:
             geocoding_enabled: Mapes habilitats
             intro: Introducció
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
-            scope_id: Àmbit
-            scopes_enabled: Àmbits habilitats
             taxonomy_filters: Seleccionar filtres pel component
             taxonomy_filters_add: Afegir un filtre
           step:

@@ -3,6 +3,7 @@
 module Decidim
   module Budgets
     class BudgetType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::TimestampsInterface
       implements Decidim::Core::TraceableInterface
 
       description "A budget"
@@ -11,8 +12,6 @@ module Decidim
       field :title, Decidim::Core::TranslatedFieldType, "The title for this budget", null: false
       field :description, Decidim::Core::TranslatedFieldType, "The description for this budget", null: false
       field :total_budget, GraphQL::Types::Int, "The total budget", null: false, camelize: false
-      field :created_at, Decidim::Core::DateTimeType, "When this budget was created", null: true
-      field :updated_at, Decidim::Core::DateTimeType, "When this budget was updated", null: true
 
       field :projects, [Decidim::Budgets::ProjectType, { null: true }], "The projects for this budget", null: false
 

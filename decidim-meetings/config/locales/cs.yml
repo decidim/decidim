@@ -1,6 +1,8 @@
 cs:
   activemodel:
     attributes:
+      answer:
+        add_documents: Přidat dokumenty
       close_meeting:
         attendees_count: Počet účastníků
         attending_organizations: Seznam organizací, které se zúčastnily
@@ -173,8 +175,6 @@ cs:
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             registration_code_enabled: Registrační kód povolen
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
-            scope_id: Oblast působnosti
-            scopes_enabled: Oblasti působnosti povoleny
             taxonomy_filters: Vyberte filtry pro komponentu
             taxonomy_filters_add: Přidat filtr
             terms_and_conditions_url_for_meeting_creators: URL pro Zásady a podmínky ke schůzce tvůrců
@@ -185,6 +185,8 @@ cs:
             creation_enabled_for_user_groups: Vytvoření schůzky od skupin uživatelů povoleno
     download_your_data:
       help:
+        invites:
+          accepted_at: Datum a čas, kdy byla pozvánka přijata
         registrations:
           code: Registrační kód
           id: Jedinečný identifikátor registrace
@@ -736,12 +738,10 @@ cs:
           attachments: Počet příloh v této schůzce
           attendees: Počet lidí účastnících se této schůzky
           author: Data autora této schůzky
-          comments: Počet komentářů k této schůzce
           component: Komponenta, ke které schůzka patří,
           contributions: Počet příspěvků na této schůzce zúčastněných stran
           description: Popis schůzky
           end_time: Datum a čas ukončení této schůzky
-          followers: Počet sledujících tuto schůzku
           id: Jedinečný identifikátor sschůzky
           location: Místo schůzky
           organizations: Organizace, které se účastní této schůzky
@@ -753,8 +753,8 @@ cs:
           start_time: Datum a čas zahájení této schůzky
           taxonomies: Taxonomie, do kterých tato schůzka patří,
           title: Název schůzky
+          type_of_meeting: Typ schůzky
           url: URL schůzky
-          withdrawn: Kdy byla tato schůzka stažena
           withdrawn_at: Kdy byla tato schůzka odvolána
     participatory_spaces:
       highlighted_meetings:

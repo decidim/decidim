@@ -244,6 +244,7 @@ es-MX:
         create:
           error: Hubo un error al crear una nueva área.
           success: Área creada correctamente.
+        deprecated: Ten en cuenta que las áreas están obsoletas y se eliminarán en futuras versiones. Por favor, utiliza taxonomías en su lugar. El único espacio de participación que actualmente utiliza áreas es el de iniciativas.
         destroy:
           has_spaces: Esta área tiene espacios dependientes. Asegúrate de que no hace referencia a ningún espacio de participación antes de eliminarla.
           success: Área eliminada correctamente.
@@ -344,14 +345,6 @@ es-MX:
           title: 'Agregar componente: %{name}'
         publish:
           success: El componente se ha publicado con éxito.
-        taxonomy_filters_badge:
-          remove: Eliminar
-        taxonomy_filters_drawer:
-          add_filter: Añadir un filtro
-          clear_all: Limpiar todo
-          filters: Filtros
-          save: Guardar
-          title: Filtros
         title: Componentes
         unpublish:
           success: El componente se ha despublicado sin éxito.
@@ -1025,6 +1018,7 @@ es-MX:
         create:
           error: Se ha producido un error al crear un nuevo ámbito.
           success: Ámbito creado correctamente.
+        deprecated: Ten en cuenta que los ámbitos están obsoletos y se eliminarán en futuras versiones. Por favor, utiliza taxonomías en su lugar. El único espacio de participación que actualmente utiliza ámbitos es el de iniciativas.
         destroy:
           success: Ámbito eliminado correctamente.
         edit:
@@ -1066,7 +1060,6 @@ es-MX:
           'true': 'Sí'
         index:
           back_to_share_tokens: Volver a los enlaces de acceso
-          copied: '¡Enlace de acceso copiado!'
           copy_message: El texto se ha copiado correctamente en el portapapeles.
           create_new_token: '¡Crea tu primer enlace de acceso!'
           empty_html: No hay enlaces de acceso activos. %{new_token_link}
@@ -1076,7 +1069,6 @@ es-MX:
             Crea y comparte un enlace de acceso para que otras personas puedan ver este recurso inédito.
             Los enlaces de acceso pueden ser válidos sólo para las participantes registradas o tener una fecha de caducidad si es necesario.
             Para compartir un nuevo enlace de acceso con alguien, crealo y, a continuación, copia el enlace utilizando el icono de acción del «%{clipboard} portapapeles».
-          title: 'Enlaces de acceso para: %{name}'
         new:
           create: Crear
           title: 'Nuevo enlace de acceso para: %{name}'
@@ -1136,8 +1128,14 @@ es-MX:
           error: Se ha producido un error en la actualización de ésta página.
           success: La página se ha actualizado correctamente.
       taxonomies:
-        actions: Acciones
-        amount: Número de elementos
+        actions:
+          actions: Acciones
+          destroy: Eliminar taxonomía y elementos
+          edit: Editar taxonomía y elementos
+          filters: Administrar filtros
+        breadcrumb:
+          edit: Editar taxonomía
+          new: Nueva taxonomía
         count: Recursos asociados
         create:
           invalid: Se ha producido un error al crear esta taxonomía.
@@ -1156,7 +1154,7 @@ es-MX:
         filters:
           search_placeholder: Buscar
         index:
-          description: Una taxonomía permite a las administradoras categorizar y organizar el contenido. Por ejemplo, añadir una taxonomía para clasificar procesos por ámbito geográfico.
+          description: Las taxonomías y los filtros permiten a las administradoras ordenar y organizar los contenidos. Por ejemplo, añadir una taxonomía con los distritos de la ciudad y los barrios y luego crear filtros solo con los distritos o para un barrio en concreto.
           new_taxonomy: Nueva taxonomía
           no_items_found: No se encontraron taxonomías que coincidan con los criterios de búsqueda.
         name: Nombre
@@ -1169,14 +1167,18 @@ es-MX:
           to_prev_page: Arrastrar para pasar a la página anterior
         taxonomy_actions:
           confirm_destroy: '¿Seguro que desea eliminar %{name}? Esto también eliminará todos los elementos secundarios. NOTA: Los recursos que utilizan esta taxonomía no se verán afectados pero perderán la referencia a esta taxonomía.'
+        total_filters: Filtros
+        total_items: Elementos en la taxonomía
         update:
           invalid: Se ha producido un error al actualizar esta taxonomía.
           success: Taxonomía actualizada correctamente.
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Nuevo filtro de taxonomía
-        callout:
-          modify_taxonomy_html: Si necesitas modificar esta taxonomía o sus elementos, por favor, hazlo a través de la configuración en la sección <a href="%{url}">Taxonomías</a>.
+        breadcrumb:
+          edit: Editar filtro
+          filters: Filtros
+          new: Nuevo filtro
         create:
           error: Se ha producido un error al crear esta taxonomía.
           success: Filtro de taxonomía creado correctamente.
@@ -1194,29 +1196,39 @@ es-MX:
             other: "%{count} elementos seleccionados"
           name_help: El título del filtro que se mostrará en la parte pública.
           no_items: Aún no hay elementos disponibles para esta taxonomía. Puedes añadir elementos a través de los ajustes configuración de la taxonomía.
-          space_filter: Disponible como filtro para todos los %{manifest_name}
+          space_filter: Disponible como filtro para
         index:
           description: Un filtro de taxonomía permite a las administradoras ordenar y filtrar espacios de participación basados en una taxonomía. Por ejemplo, añadir un filtro de taxonomías para ordenar procesos por ámbito territorial.
           empty: Actualmente no hay ningún filtro de taxonomía. Crea una lista de filtros de taxonomía aquí para ordenar y filtrar los espacios de participación basados en una taxonomía.
+          new_filter: Nuevo filtro
         new:
           back: Atrás
           create: Crear un filtro de taxonomía
-          select_taxonomy: Seleccionar una taxonomía
           title: Nuevo filtro de taxonomía
         table:
           actions: Acciones
-          components_count: Componentes asociados
+          components_count: Componentes lo usan
           confirm_destroy: '¿Seguro que desea eliminar el filtro %{name}? NOTA: Los recursos que están usando este filtro no se verán afectados pero perderán la referencia a este filtro.'
-          count: Número de elementos usados
           destroy: Borrar
           edit: Editar
-          internal_name: Nombre interno del filtro
-          name: Título púlbico del filtro
-          space_filter: Utilizado para filtrar %{manifest_name}
-          taxonomy: Desde la taxonomía
+          internal_name: Estado interno
+          name: Etiqueta
         update:
           error: Se ha producido un problema actualizando este filtro de taxonomía.
           success: Filtro de taxonomía actualizado correctamente.
+      taxonomy_filters_selector:
+        new:
+          add_new_items_html: Si necesitas establecer un nuevo filtro o elemento, hazlo a través de la configuración o clicando <a href="%{url}">aquí</a>.
+          items_count: "%{count} elementos"
+          save: Guardar
+        show:
+          items_count: "%{count} elementos"
+          remove: Eliminar
+        taxonomies_select:
+          filters: Filtros
+          select_filter: Seleccionar un filtro
+          select_taxonomy: Selecciona una taxonomía
+          taxonomies: Taxonomías
       taxonomy_items:
         edit:
           title: Editar elemento en "%{taxonomy}"
@@ -1246,7 +1258,7 @@ es-MX:
         scopes: Ámbitos
         statistics: Actividad
         taxonomies: Taxonomías
-        taxonomy_filters: Filtros de taxonomía
+        taxonomy_filters: Filtros de taxonomía para "%{taxonomy}"
         user_groups: Grupos de usuarios
         users: Administradoras
       tooltips:
@@ -1382,3 +1394,5 @@ es-MX:
       admin:
         global_moderations:
           title: Moderaciones globales
+        taxonomy_filters_selector:
+          title: Filtros

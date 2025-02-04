@@ -860,6 +860,9 @@ ro:
       share_tokens:
         actions:
           destroy: Șterge
+        index:
+          copied: Link de acces copiat!
+          title: 'Link-uri de acces pentru: %{name}'
       shared:
         gallery:
           add_images: Adaugă imagini
@@ -946,7 +949,6 @@ ro:
         scope_types: Tipuri de domeniu
         scopes: Domenii de interes
         statistics: Activitate
-        taxonomy_filters: Filtre taxonomie
         user_groups: Grupuri
         users: Administratori
       user_group:

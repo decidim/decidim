@@ -24,9 +24,6 @@ pt-BR:
         promoted: Destacado
         published_at: Publicado em
         related_process_ids: Processos relacionados
-        scope_id: Âmbito
-        scope_type_max_depth_id: Profundidade de filtro de escopo
-        scopes_enabled: Âmbitos ativados
         short_description: Descrição curta
         slug: Slug de URL
         start_date: Data de início
@@ -362,12 +359,9 @@ pt-BR:
           form:
             announcement_help: O texto que você insere aqui será mostrado ao usuário logo abaixo das informações do processo.
             duration: Duração
-            filters: Filtros
             images: Imagens
             metadata: Metadados
             related_processes: Processos relacionados
-            scope_type_max_depth_help: Restringir a profundidade do filtro de escopo; O filtro será mostrado de modo geral ao tipo de escopo selecionado.
-            select_an_area: Selecione uma área
             select_process_group: Selecione um grupo de processos
             slug_help_html: 'Os slugs de URL são usados para gerar os URLs que apontam para este processo. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
             title: Informação geral
