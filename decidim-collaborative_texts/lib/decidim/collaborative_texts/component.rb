@@ -15,7 +15,6 @@ Decidim.register_component(:collaborative_texts) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
-    settings.attribute :comments_blocked, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
