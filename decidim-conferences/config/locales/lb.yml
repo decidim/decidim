@@ -53,11 +53,9 @@ lb:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Aktualisieren Sie den Konferenzbenutzer.
           update: Aktualisieren
         new:
           create: Erstellen
-          title: Neuer Konferenzbenutzer
         update:
           error: Bei einem Fehler ist ein Benutzer für diese Konferenz aktualisiert worden.
           success: Der Benutzer wurde für diese Konferenz erfolgreich aktualisiert.
@@ -86,19 +84,12 @@ lb:
       media_links:
         create:
           error: Beim Erstellen einer neuen Medienverknüpfung ist ein Fehler aufgetreten.
-          success: Medienlink erfolgreich erstellt
-        destroy:
-          success: Medienlink wurde erfolgreich gelöscht.
         edit:
-          title: Medienlink aktualisieren
           update: Aktualisieren
-        index:
-          media_links_title: Medienlinks
         new:
           create: Erstellen
         update:
           error: Beim Aktualisieren dieser Medienverbindung ist ein Fehler aufgetreten.
-          success: Media Link wurde erfolgreich aktualisiert.
       menu:
         conferences: Konferenzen
         conferences_submenu:
@@ -110,13 +101,9 @@ lb:
           conference_admins: Konferenzadministratoren
           conference_invites: Lädt ein
           conference_speakers: Lautsprecher
-          diploma: Teilnahmebestätigung
-          media_links: Medienlinks
           moderations: Moderationen
           partners: Partner
-          registration_types: Registrierungsarten
           registrations: Registrierungen
-          user_registrations: Benutzerregistrierungen
       models:
         conference:
           fields:
@@ -141,7 +128,6 @@ lb:
             date: Datum
             link: Verknüpfung
             title: Titel
-          name: Medienlink
         partner:
           fields:
             link: Verknüpfung
@@ -167,7 +153,6 @@ lb:
         destroy:
           success: Der Partner wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Partner aktualisieren
           update: Aktualisieren
         new:
           create: Erstellen
@@ -189,7 +174,6 @@ lb:
         destroy:
           success: Der Registrierungstyp wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Registrierungsart aktualisieren
           update: Aktualisieren
         new:
           create: Erstellen
@@ -281,7 +265,6 @@ lb:
         diplomas:
           edit:
             save: Speichern
-            title: Teilnahmebestätigung
         invite_join_conference_mailer:
           invite:
             decline: Einladung '%{conference_title}' ablehnen
@@ -300,7 +283,6 @@ lb:
             diploma_html: Die Teilnahmebescheinigung für die Konferenz <a href="%{url}">%{title}</a> finden Sie in den Anhängen.
           diploma_user:
             attendance_verified_by: Anwesenheit überprüft durch
-            certificate_of_attendance: Teilnahmebestätigung
             certificate_of_attendance_description: Hiermit wird bestätigt, dass <strong>%{user}</strong> an den <strong>%{title}</strong> teilgenommen hat, die am <strong>%{location}</strong> am <strong>%{start} - %{end}</strong>abgehalten wurden
         send_diploma:
           error: Beim Senden der Teilnahmebestätigung der Konferenz ist ein Problem aufgetreten.
