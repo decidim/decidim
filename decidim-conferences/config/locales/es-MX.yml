@@ -120,13 +120,13 @@ es-MX:
         destroy:
           success: Ponente eliminado con éxito en esta conferencia.
         edit:
-          title: Actualizar ponente en esta conferencia.
+          title: Actualizar la ponente de la conferencia
           update: Actualizar
         index:
           conference_speakers_title: Ponentes
         new:
           create: Crear
-          title: Nuevo ponente.
+          title: Nueva ponente de la jornada
         update:
           error: Hubo un error al actualizar el ponente en esta conferencia.
           success: Ponente actualizado con éxito en esta conferencia.
@@ -137,13 +137,13 @@ es-MX:
         destroy:
           success: Usuario eliminado con éxito de esta conferencia.
         edit:
-          title: Actualizar usuario de la conferencia.
+          title: Actualizar administradora de la jornada
           update: Actualizar
         index:
           conference_admins_title: Administradoras de la jornada
         new:
           create: Crear
-          title: Nuevo usuario de la conferencia.
+          title: Nueva administradora de la jornada
         update:
           error: Hubo un error al actualizar un usuario de esta conferencia.
           success: Actualizado con éxito el usuario para esta conferencia.
@@ -173,11 +173,11 @@ es-MX:
       media_links:
         create:
           error: Se ha producido un error al crear un nuevo enlace multimedia.
-          success: Enlace de multimedia creado con éxito.
+          success: Enlace multimedia creado correctamente.
         destroy:
-          success: Enlace de multimedia eliminado con éxito.
+          success: Enlace multimedia eliminado correctamente.
         edit:
-          title: Actualizar enlace multimedia.
+          title: Actualizar enlace multimedia
           update: Actualizar
         index:
           media_links_title: Enlaces multimedia
@@ -186,7 +186,7 @@ es-MX:
           title: Crear enlace multimedia
         update:
           error: Hubo un error al actualizar este enlace multimedia.
-          success: Enlace multimedia actualizado con éxito.
+          success: Enlace multimedia actualizado correctamente.
       menu:
         conferences: Conferencias
         conferences_submenu:
@@ -206,7 +206,7 @@ es-MX:
           registration_types: Tipos de inscripción
           registrations: Inscripciones
           see_conference: Ver la jornada
-          user_registrations: Inscripciones de usuario
+          user_registrations: Inscripciones de participantes
       models:
         conference:
           fields:
@@ -261,7 +261,7 @@ es-MX:
         destroy:
           success: Colaborador eliminado correctamente de esta jornada.
         edit:
-          title: Actualizar colaborador.
+          title: Actualizar colaboradora
           update: Actualizar
         new:
           create: Crear
@@ -283,7 +283,7 @@ es-MX:
         destroy:
           success: Tipo de registro eliminado con éxito de esta conferencia.
         edit:
-          title: Actualizar el tipo de registro.
+          title: Actualizar el tipo de inscripción
           update: Actualizar
         new:
           create: Crear
