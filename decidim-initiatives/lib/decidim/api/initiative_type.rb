@@ -13,6 +13,9 @@ module Decidim
       description "A initiative"
 
       field :description, Decidim::Core::TranslatedFieldType, "The description of this initiative.", null: true
+
+      field :committee_members, [Decidim::Initiatives::InitiativeCommitteeMemberType, { null: true }], null: true
+
       field :slug, GraphQL::Types::String, null: false
       field :hashtag, GraphQL::Types::String, "The hashtag for this initiative", null: true
       field :published_at, Decidim::Core::DateTimeType, "The time this initiative was published", null: false
@@ -26,7 +29,7 @@ module Decidim
       field :initiative_votes_count, GraphQL::Types::Int,
             description: "The number of votes in this initiative",
             deprecation_reason: "initiativeVotesCount has been collapsed in onlineVotes parameter",
-            null: true
+            null: true, method: :online_votes_count
       field :initiative_supports_count, GraphQL::Types::Int,
             description: "The number of supports in this initiative",
             method: :online_votes_count,
@@ -35,15 +38,9 @@ module Decidim
 
       field :author, Decidim::Core::AuthorInterface, "The initiative author", null: false
 
-      def initiative_votes_count
-        object.online_votes_count
-      end
-
       def author
         object.user_group || object.author
       end
-
-      field :committee_members, [Decidim::Initiatives::InitiativeCommitteeMemberType, { null: true }], null: true
     end
   end
 end

@@ -8,12 +8,12 @@ module Decidim
 
       field :meetings, Decidim::Meetings::MeetingType.connection_type, null: true, connection: true
 
-      def meetings
-        Meeting.published.visible.where(component: object).includes(:component)
-      end
-
       field :meeting, Decidim::Meetings::MeetingType, null: true do
         argument :id, GraphQL::Types::ID, required: true
+      end
+
+      def meetings
+        Meeting.published.visible.where(component: object).includes(:component)
       end
 
       def meeting(**args)

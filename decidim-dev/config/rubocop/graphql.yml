@@ -11,13 +11,7 @@ GraphQL:
 GraphQL/FieldDescription:
   Enabled: false
 
-GraphQL/FieldDefinitions:
-  Enabled: false
-
 GraphQL/OrderedFields:
-  Enabled: false
-
-GraphQL/FieldMethod:
   Enabled: false
 
 GraphQL/OrderedArguments:
@@ -35,5 +29,3 @@ GraphQL/PrepareMethod:
 GraphQL/ArgumentDescription:
   Enabled: false
 
-GraphQL/UnnecessaryFieldAlias:
-  Enabled: false
