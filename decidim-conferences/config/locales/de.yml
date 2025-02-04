@@ -120,13 +120,13 @@ de:
         destroy:
           success: Der Redner wurde für diese Konferenz erfolgreich gelöscht.
         edit:
-          title: Konferenzsprecher aktualisieren
+          title: Referierende Person aktualisieren
           update: Aktualisieren
         index:
           conference_speakers_title: Konferenzsprecher
         new:
           create: Erstellen
-          title: Neuer Konferenzsprecher.
+          title: Neue referierende Person
         publish:
           invalid: Beim Veröffentlichen dieser RednerIn ist ein Problem aufgetreten.
           success: KonferenzrednerIn erfolgreich veröffentlicht.
@@ -143,13 +143,13 @@ de:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Konferenzadmin aktualisieren.
+          title: Referierende Person aktualisieren
           update: Aktualisieren
         index:
           conference_admins_title: Konferenzadmins
         new:
           create: Erstellen
-          title: Neuer Konferenzbenutzer
+          title: Neuer Konferenzadmin
         update:
           error: Bei einem Fehler ist ein Benutzer für diese Konferenz aktualisiert worden.
           success: Der Benutzer wurde für diese Konferenz erfolgreich aktualisiert.
@@ -179,9 +179,9 @@ de:
       media_links:
         create:
           error: Beim Erstellen einer neuen Medienverknüpfung ist ein Fehler aufgetreten.
-          success: Medienlink erfolgreich erstellt
+          success: Medienlink erfolgreich erstellt.
         destroy:
-          success: Medienlink wurde erfolgreich gelöscht.
+          success: Medienlink erfolgreich gelöscht.
         edit:
           title: Medienlink aktualisieren
           update: Aktualisieren
@@ -189,9 +189,10 @@ de:
           media_links_title: Medienlinks
         new:
           create: Erstellen
+          title: Medienlink erstellen
         update:
           error: Beim Aktualisieren dieser Medienverbindung ist ein Fehler aufgetreten.
-          success: Media Link wurde erfolgreich aktualisiert.
+          success: Medienlink erfolgreich aktualisiert.
       menu:
         conferences: Konferenzen
         conferences_submenu:
@@ -211,7 +212,7 @@ de:
           registration_types: Registrierungsarten
           registrations: Registrierungen
           see_conference: Konferenz ansehen
-          user_registrations: Benutzerregistrierungen
+          user_registrations: Teilnehmende Benutzende
       models:
         conference:
           fields:
