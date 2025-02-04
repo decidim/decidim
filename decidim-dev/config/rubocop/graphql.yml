@@ -16,6 +16,8 @@ GraphQL/ObjectDescription:
     - "**/lib/decidim/api/schema.rb"
     - "**/lib/decidim/api/graphiql/config.rb"
     - "**/lib/decidim/api/functions/*"
+    - "spec/**/*"
+    - "test/**/*"
 
 GraphQL/OrderedArguments:
   Enabled: false

@@ -10,10 +10,9 @@ module Decidim
 
       field :description, Decidim::Core::TranslatedFieldType, "The description for this budget", null: false
       field :id, GraphQL::Types::ID, "The internal ID of this budget", null: false
+      field :projects, [Decidim::Budgets::ProjectType, { null: true }], "The projects for this budget", null: false
       field :title, Decidim::Core::TranslatedFieldType, "The title for this budget", null: false
       field :total_budget, GraphQL::Types::Int, "The total budget", null: false, camelize: false
-
-      field :projects, [Decidim::Budgets::ProjectType, { null: true }], "The projects for this budget", null: false
 
       def self.authorized?(object, context)
         super && object.visible?
