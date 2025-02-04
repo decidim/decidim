@@ -90,6 +90,8 @@ module Decidim
       end
 
       def initiative_authorship?
+        return false unless user
+
         current_component&.participatory_space&.has_authorship?(user)
       end
     end
