@@ -16,7 +16,7 @@
 
 <% if vote_limit_enabled? %>
   (function() {
-    var $remainingVotesCount = $('#remaining-votes-count');
+    var $remainingVotesCount = $('div[data-remaining-votes-count="true"]');
     var $notVotedButtons = $('*[data-proposal-vote-button="true"]').not('[id^=vote_button-]');
 
     if($remainingVotesCount[0]) {

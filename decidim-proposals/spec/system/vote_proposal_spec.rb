@@ -240,12 +240,12 @@ describe "Vote Proposal", slow: true do
               visit_component
 
               expect(page).to have_no_css("#voting-rules")
-              expect(page).to have_no_css("#remaining-votes-count")
+              expect(page).to have_no_css("div[data-remaining-votes-count=\"true\"]")
 
               find(".card__list#proposals__proposal_#{proposal.id}").click
 
               expect(page).to have_no_css("#voting-rules")
-              expect(page).to have_no_css("#remaining-votes-count")
+              expect(page).to have_no_css("div[data-remaining-votes-count=\"true\"]")
             end
           end
 
@@ -284,12 +284,12 @@ describe "Vote Proposal", slow: true do
               visit_component
 
               expect(page).to have_no_css("#voting-rules")
-              expect(page).to have_no_css("#remaining-votes-count")
+              expect(page).to have_no_css("div[data-remaining-votes-count=\"true\"]")
 
               find(".card__list#proposals__proposal_#{proposal.id}").click
 
               expect(page).to have_no_css("#voting-rules")
-              expect(page).to have_no_css("#remaining-votes-count")
+              expect(page).to have_no_css("div[data-remaining-votes-count=\"true\"]")
             end
           end
         end
