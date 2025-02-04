@@ -425,11 +425,11 @@ header {
       }
 
       &__title {
-        @apply h4 md:h3;
+        @apply h4 md:h3 pb-6;
       }
 
       &__metadata {
-        @apply flex items-center text-sm space-x-6 py-8;
+        @apply flex items-center text-sm space-x-6 pb-6;
 
         > span {
           @apply flex items-center space-x-2;
