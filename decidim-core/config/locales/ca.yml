@@ -737,6 +737,21 @@ ca:
           extra: Informació addicional sobre aquesta notificació
           id: L'identificador únic d'aquesta notificació
           resource_type: El tipus de recurs amb el qual està relacionat amb la notificació
+        participatory_space_private_users:
+          created_at: La data i l'hora en què es va crear aquesta participant privada
+          id: L'identificador únic d'aquesta participant privada
+          privatable_to: A quin espai de participació pertanys aquesta participant privada
+          published: Si aquesta participant privada està publicada o no
+          role: El rol que té aquesta participant privada
+          updated_at: La data i hora en què aquesta participant privada va ser actualitzada per darrera vegada
+        reports:
+          created_at: La data i hora en què es va crear aquest informe
+          details: Els detalls dels informes de moderació
+          id: L'identificador únic d'aquest informe de moderació
+          locale: L'idioma d'aquest informe de moderació
+          moderation: La moderació que té aquest informe
+          reason: Els motius d'aquest informe de moderació
+          updated_at: La data i hora de la darrera actualització d'aquest informe de moderació
         user_groups:
           document_number: El número de document d'aquest grup d'usuàries
           id: L'identificador únic d'aquest d'usuàries
@@ -745,6 +760,7 @@ ca:
           verified_at: La data i l'hora en què es va verificar aquest grup d'usuàries
         users:
           about: L'àlies d'aquesta usuària
+          accepted_tos_version: La data en què la usuària va acceptar els Termes i Condicions d'ús d'aquesta plataforma
           admin: Si aquesta usuària és una administradora
           confirmed_at: La data i l'hora en què es va confirmar aquesta usuària
           created_at: La data i l'hora en què es va crear aquesta usuària
@@ -753,6 +769,8 @@ ca:
           delete_reason: La raó donada per eliminar a aquesta usuària
           deleted_at: La data i l'hora en què es va eliminar aquesta usuària
           email: L'adreça de correu electrònic d'aquesta usuària
+          followers_count: El nombre de participants que segueixen aquesta participant
+          following_count: El nombre de participants a què segueix aquesta participant
           id: L'identificador únic d'aquesta usuària
           invitation_accepted_at: La data i l'hora en què es va acceptar la invitació
           invitation_created_at: La data i l'hora en què es va convidar a aquesta usuària
@@ -771,9 +789,12 @@ ca:
           officialized_as: La descripció de l'oficialització (Alcaldia, Conselleria, etc.)
           officialized_at: La data i l'hora en què aquesta usuària va ser oficialitzada
           organization: L'organització a la qual pertany aquesta usuària
+          password_updated_at: La data en què van canviar per darrera vegada les seves contrasenyes
           personal_url: L'URL personal d'aquesta usuària
           reset_password_sent_at: La data i l'hora en què es va enviar el correu per a restaurar la contrasenya
+          roles: El rol que té aquesta participant, si en té cap
           sign_in_count: El número de vegades en què aquesta usuària ha iniciat la seva sessió
+          type: El tipus que té aquesta participant
           unconfirmed_email: El correu electrònic que aquesta usuària encara no ha confirmat
           updated_at: La data de la darrera actualització d'aquesta usuària
       show:
