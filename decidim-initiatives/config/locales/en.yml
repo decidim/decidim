@@ -394,7 +394,7 @@ en:
           confirm: You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?
           go_to_my_initiatives: Go to my initiatives
           more_information: More information
-          send_my_initiative: Send my initiative to technical validation
+          send_my_initiative: Send to technical validation
         finish_help:
           publish_helper_text: Remember that for your initiative to be published you must complete the required information and <strong>send it to technical validation</strong> for an administrator to review it.
         previous_form:

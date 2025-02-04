@@ -28,7 +28,7 @@ describe "Initiative" do
   shared_examples "initiatives path redirection" do
     it "redirects to initiatives path" do
       accept_confirm do
-        click_on("Send my initiative to technical validation")
+        click_on("Send to technical validation")
       end
 
       expect(page).to have_current_path("/initiatives")
@@ -340,6 +340,7 @@ describe "Initiative" do
 
             it "they are redirected to the initiative form after verifying" do
               click_on "New initiative"
+              click_on translated(initiative_type.title, locale: :en)
               click_on "Verify your account to promote this initiative", match: :first
               click_on "View authorizations"
               click_on(text: /Example authorization/)
@@ -368,12 +369,14 @@ describe "Initiative" do
 
           it "they need to verify" do
             click_on "New initiative"
+            click_on translated(initiative_type.title, locale: :en)
             click_on "Verify your account to promote this initiative", match: :first
             expect(page).to have_content("We need to verify your identity")
           end
 
           it "they are authorized to create after verifying" do
             click_on "New initiative"
+            click_on translated(initiative_type.title, locale: :en)
             click_on "Verify your account to promote this initiative", match: :first
             fill_in "Document number", with: "123456789X"
             click_on "Send"
@@ -462,6 +465,7 @@ describe "Initiative" do
             end
 
             expect(page).to have_content("Create a new initiative")
+            click_on translated(initiative_type.title, locale: :en)
             click_on "Verify your account to promote this initiative", match: :first
             expect(page).to have_content("We need to verify your identity")
           end
@@ -474,7 +478,8 @@ describe "Initiative" do
     before do
       organization.update(rich_text_editor_in_public_views: true)
       click_on "New initiative"
-      first("button.card__highlight").click
+      first("input.radio-accordion-radio").click
+      click_on "Continue"
     end
 
     it_behaves_like "having a rich text editor", "new_initiative_form", "content"
@@ -496,6 +501,7 @@ describe "Initiative" do
         it "shows the available initiative types" do
           within "[data-content]" do
             expect(page).to have_content(translated(initiative_type.title, locale: :en))
+            click_on translated(initiative_type.title, locale: :en)
             expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative_type.description, locale: :en), tags: []))
           end
         end
@@ -510,7 +516,8 @@ describe "Initiative" do
 
       context "and fill basic data" do
         before do
-          first("button.card__highlight").click
+          first("input.radio-accordion-radio").click
+          click_on "Continue"
         end
 
         it "does not show the select input for initiative_type" do
@@ -610,7 +617,8 @@ describe "Initiative" do
 
         context "when there are several initiative types" do
           before do
-            first("button.card__highlight").click
+            first("input.radio-accordion-radio").click
+            click_on "Continue"
           end
 
           it "create view is shown" do
@@ -708,7 +716,8 @@ describe "Initiative" do
         let(:initiative) { build(:initiative, organization:, scoped_type: initiative_type_scope) }
 
         before do
-          first("button.card__highlight").click
+          first("input.radio-accordion-radio").click
+          click_on "Continue"
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
@@ -718,7 +727,7 @@ describe "Initiative" do
         end
 
         it "shows the promoter committee" do
-          expect(page).to have_content("Promoter committee")
+          expect(page).to have_content("Promoters Committee")
         end
 
         it "offers contextual help" do
@@ -732,7 +741,7 @@ describe "Initiative" do
         end
 
         it "contains a button to continue with next step" do
-          expect(page).to have_content("Continue")
+          expect(page).to have_content("Send to technical validation")
         end
 
         context "when minimum committee size is zero" do
@@ -740,8 +749,8 @@ describe "Initiative" do
 
           it "skips to next step" do
             within("#wizard-steps [data-active]") do
-              expect(page).to have_no_content("Promoter committee")
-              expect(page).to have_content("Finish")
+              expect(page).to have_no_content("Promoters Committee")
+              expect(page).to have_content("Technical validation")
             end
           end
         end
@@ -750,8 +759,8 @@ describe "Initiative" do
           let(:initiative_type) { create(:initiatives_type, organization:, promoting_committee_enabled: false, signature_type:) }
 
           it "skips the promoting committee settings" do
-            expect(page).to have_no_content("Promoter committee")
-            expect(page).to have_content("Finish")
+            expect(page).to have_no_content("Promoters Committee")
+            expect(page).to have_content("Send to technical validation")
           end
         end
       end
@@ -763,7 +772,9 @@ describe "Initiative" do
 
         before do
           authorized_user.reload
-          first("button.card__highlight").click
+
+          first("input.radio-accordion-radio").click
+          click_on "Continue"
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
@@ -783,7 +794,8 @@ describe "Initiative" do
         let(:initiative) { build(:initiative) }
 
         before do
-          first("button.card__highlight").click
+          first("input.radio-accordion-radio").click
+          click_on "Continue"
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
@@ -800,9 +812,9 @@ describe "Initiative" do
         end
 
         it "shows the page component" do
-          find_link("Continue").click
+          find_link("Send to technical validation").click
           find_link("Go to my initiatives").click
-          find_link(translated(initiative.title, locale: :en)).click
+          first(:link, translated(initiative.title, locale: :en)).click
 
           within ".participatory-space__nav-container" do
             find_link("Page").click
@@ -813,11 +825,7 @@ describe "Initiative" do
 
         context "when minimum committee size is above zero" do
           before do
-            find_link("Continue").click
-          end
-
-          it "finish view is shown" do
-            expect(page).to have_content("Finish")
+            find_link("Send to technical validation").click
           end
 
           it "Offers contextual help" do
@@ -825,17 +833,6 @@ describe "Initiative" do
               expect(page).to have_content("Congratulations! Your initiative has been successfully created.")
             end
           end
-
-          it "displays an edit link" do
-            expect(page).to have_link("Edit my initiative")
-          end
-        end
-
-        it "displays a link to take the user to their initiatives" do
-          find_link("Continue").click
-          find_link("Edit my initiative").click
-
-          expect(page).to have_field("initiative_title", with: translated(initiative.title, locale: :en))
         end
       end
 
@@ -845,7 +842,8 @@ describe "Initiative" do
         let(:expected_message) { "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?" }
 
         before do
-          first("button.card__highlight").click
+          first("input.radio-accordion-radio").click
+          click_on "Continue"
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
@@ -855,7 +853,7 @@ describe "Initiative" do
         end
 
         it "displays a send to technical validation link" do
-          expect(page).to have_link("Send my initiative to technical validation")
+          expect(page).to have_link("Send to technical validation")
           expect(page).to have_css "a[data-confirm='#{expected_message}']"
         end
 
@@ -869,7 +867,8 @@ describe "Initiative" do
         let(:expected_message) { "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?" }
 
         before do
-          first("button.card__highlight").click
+          first("input.radio-accordion-radio").click
+          click_on "Continue"
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
@@ -879,7 +878,7 @@ describe "Initiative" do
         end
 
         it "displays a send to technical validation link" do
-          expect(page).to have_link("Send my initiative to technical validation")
+          expect(page).to have_link("Send to technical validation")
           expect(page).to have_css "a[data-confirm='#{expected_message}']"
         end
 
