@@ -1990,6 +1990,8 @@ cs:
         expire_time_html: Platnost vaší relace vyprší za <b><span class="minutes">%{minutes}</span></b>.
       language_chooser:
         choose_language: Vyberte jazyk
+      navigation:
+        aria_label: Navigační menu - %{title}
       notifications_dashboard:
         mark_all_as_read: Označit vše jako přečtené
         mark_as_read: Označit jako přečtené
