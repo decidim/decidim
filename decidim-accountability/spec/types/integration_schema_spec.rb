@@ -94,7 +94,7 @@ describe "Decidim::Api::QueryType" do
       "comments" => [],
       "commentsHaveAlignment" => result.comments_have_alignment?,
       "commentsHaveVotes" => result.comments_have_votes?,
-      "createdAt" => result.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "createdAt" => result.created_at.to_time.iso8601,
       "description" => { "translation" => result.description[locale] },
       "endDate" => result.end_date.to_s,
       "externalId" => result.external_id,
@@ -128,7 +128,7 @@ describe "Decidim::Api::QueryType" do
       "title" => { "translation" => result.title[locale] },
       "totalCommentsCount" => result.comments_count,
       "type" => "Decidim::Accountability::Result",
-      "updatedAt" => result.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "updatedAt" => result.updated_at.to_time.iso8601,
       "userAllowedToComment" => result.user_allowed_to_comment?(current_user),
       "weight" => result.weight.to_i
     }

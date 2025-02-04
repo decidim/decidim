@@ -134,7 +134,7 @@ describe "Decidim::Api::QueryType" do
       "commentsHaveAlignment" => proposal.comments_have_alignment?,
       "commentsHaveVotes" => proposal.comments_have_votes?,
       "coordinates" => { "latitude" => proposal.latitude, "longitude" => proposal.longitude },
-      "createdAt" => proposal.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "createdAt" => proposal.created_at.to_time.iso8601,
       "createdInMeeting" => proposal.created_in_meeting?,
       "endorsements" => proposal.endorsements.map do |e|
         { "deleted" => e.author.deleted?,
@@ -152,19 +152,19 @@ describe "Decidim::Api::QueryType" do
       "official" => proposal.official?,
       "participatoryTextLevel" => proposal.participatory_text_level,
       "position" => proposal.position,
-      "publishedAt" => proposal.published_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "publishedAt" => proposal.published_at.to_time.iso8601,
       "reference" => proposal.reference,
       "state" => proposal.state,
       "title" => { "translation" => proposal.title[locale] },
       "totalCommentsCount" => proposal.comments_count,
       "type" => "Decidim::Proposals::Proposal",
-      "updatedAt" => proposal.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "updatedAt" => proposal.updated_at.to_time.iso8601,
       "userAllowedToComment" => proposal.user_allowed_to_comment?(current_user),
       "versions" => [],
       "versionsCount" => 0,
       "voteCount" => proposal.votes.size,
       "withdrawn" => proposal.withdrawn?,
-      "withdrawnAt" => proposal.withdrawn_at&.iso8601&.to_s&.gsub("Z", "+00:00")
+      "withdrawnAt" => proposal.withdrawn_at&.to_time&.iso8601
     }
   end
 

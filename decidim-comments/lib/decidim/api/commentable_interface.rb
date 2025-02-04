@@ -15,7 +15,6 @@ module Decidim
       field :total_comments_count, GraphQL::Types::Int, description: "The number of comments in all levels this resource holds", method: :comments_count, null: false
       field :has_comments, GraphQL::Types::Boolean, "Check if the commentable has comments", null: false
       field :user_allowed_to_comment, GraphQL::Types::Boolean, "Check if the current user can comment", null: false
-
       field :comments, [Decidim::Comments::CommentType, { null: false }], "The list of replies in this comment", null: false do
         argument :order_by, GraphQL::Types::String, "Order the comments", required: false
         argument :single_comment_id, GraphQL::Types::String, "ID of the single comment to look at", required: false
