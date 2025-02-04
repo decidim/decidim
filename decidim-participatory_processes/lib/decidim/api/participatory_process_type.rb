@@ -32,7 +32,7 @@ module Decidim
       field :reference, GraphQL::Types::String, "Reference prefix for this participatory process", null: true
       field :scopes_enabled, GraphQL::Types::Boolean, "If this participatory process has scopes enabled", null: true
       field :short_description, Decidim::Core::TranslatedFieldType, "The short description of this participatory process.", null: true
-      field :slug, GraphQL::Types::String, null: false
+      field :slug, GraphQL::Types::String, "The slug of the Participatory Process", null: false
       field :start_date, Decidim::Core::DateType, "This participatory process' start date.", null: true
       field :steps, [Decidim::ParticipatoryProcesses::ParticipatoryProcessStepType, { null: true }], "All the steps of this process.", null: false
       field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this participatory process.", null: true

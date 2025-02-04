@@ -22,7 +22,7 @@ module Decidim
       field :body, Decidim::Core::TranslatedFieldType, "The description for this body", null: true
       field :coordinates, Decidim::Core::CoordinatesType, "Physical coordinates for this proposal", null: true
       field :created_in_meeting, GraphQL::Types::Boolean, "Whether this proposal comes from a meeting or not", method: :official_meeting?, null: true
-      field :id, GraphQL::Types::ID, null: false
+      field :id, GraphQL::Types::ID, "The id of the Proposal", null: false
       field :meeting, Decidim::Meetings::MeetingType, description: "If the proposal comes from a meeting, the related meeting", null: true
       field :official, GraphQL::Types::Boolean, "Whether this proposal is official or not", method: :official?, null: true
       field :participatory_text_level, GraphQL::Types::String, description: "If it is a participatory text, the level indicates the type of paragraph", null: true

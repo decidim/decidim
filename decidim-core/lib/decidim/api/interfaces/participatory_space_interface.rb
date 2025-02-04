@@ -14,7 +14,7 @@ module Decidim
         argument :order, ComponentInputSort, "Provides several methods to order the results", required: false
       end
 
-      field :stats, [Decidim::Core::StatisticType, { null: true }], null: true
+      field :stats, [Decidim::Core::StatisticType, { null: true }], "The statistics collection of this participatory space", null: true
 
       field :title, TranslatedFieldType, "The graphql_name of this participatory space.", null: false
 
