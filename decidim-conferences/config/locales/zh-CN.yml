@@ -64,13 +64,11 @@ zh-CN:
         destroy:
           success: 会议发言者已成功删除。
         edit:
-          title: 更新会议扬声器。
           update: 更新
         index:
           conference_speakers_title: 会议发言者：
         new:
           create: 创建
-          title: 新会议发言者。
         update:
           error: 更新这个会议发言者时出现问题。
           success: 会议发言者已成功更新。
@@ -81,11 +79,9 @@ zh-CN:
         destroy:
           success: 会议管理员已成功删除。
         edit:
-          title: 更新会议管理员。
           update: 更新
         new:
           create: 创建
-          title: 新的会议管理员。
         update:
           error: 更新会议管理员时出错。
           success: 会议管理员已成功更新。
@@ -114,19 +110,12 @@ zh-CN:
       media_links:
         create:
           error: 创建新媒体链接时出现问题。
-          success: 媒体链接成功创建。
-        destroy:
-          success: 媒体链接删除成功
         edit:
-          title: 更新媒体链接。
           update: 更新
-        index:
-          media_links_title: 媒体链接
         new:
           create: 创建
         update:
           error: 更新此媒体链接时出现问题。
-          success: 媒体链接已成功更新。
       menu:
         conferences: 会议
         conferences_submenu:
@@ -138,13 +127,9 @@ zh-CN:
           conference_admins: 会议管理员
           conference_invites: 邀请
           conference_speakers: 发言者：
-          diploma: 出席证书
-          media_links: 媒体链接
           moderations: 版面
           partners: 合作伙伴
-          registration_types: 注册类型
           registrations: 注册
-          user_registrations: 用户注册
       models:
         conference:
           fields:
@@ -173,7 +158,6 @@ zh-CN:
             date: 日期
             link: 链接
             title: 标题
-          name: 媒体链接
         partner:
           fields:
             link: 链接
@@ -198,7 +182,6 @@ zh-CN:
         destroy:
           success: 会议合作伙伴已成功删除。
         edit:
-          title: 更新伙伴。
           update: 更新
         new:
           create: 创建
@@ -220,7 +203,6 @@ zh-CN:
         destroy:
           success: 会议注册类型已成功删除。
         edit:
-          title: 更新注册类型。
           update: 更新
         new:
           create: 创建
@@ -305,7 +287,6 @@ zh-CN:
         diplomas:
           edit:
             save: 保存
-            title: 出席证书
         invite_join_conference_mailer:
           invite:
             decline: 拒绝邀请 '%{conference_title}'
@@ -324,7 +305,6 @@ zh-CN:
             diploma_html: 您将在附件中找到会议 <a href="%{url}">%{title}</a> 的出席证书。
           diploma_user:
             attendance_verified_by: 验证出勤者
-            certificate_of_attendance: 出席证书
             certificate_of_attendance_description: 这是为了证明 <strong>%{user}</strong> 出席并参加了 <strong>%{title}</strong> 在 <strong>%{location}</strong> 在 <strong>%{start} - %{end}</strong>
         send_diploma:
           error: 签发与会证书时遇到问题。
