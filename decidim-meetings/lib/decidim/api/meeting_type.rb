@@ -23,7 +23,7 @@ module Decidim
       field :agenda, Decidim::Meetings::AgendaType, "Agenda for this meeting, if available", null: true
 
       field :closed, GraphQL::Types::Boolean, "Whether this meeting is closed or not.", method: :closed?, null: false
-      field :isWithdrawn, GraphQL::Types::Boolean, "Whether this meeting is withdrawn or not.", method: :withdrawn?, null: false
+      field :is_withdrawn, GraphQL::Types::Boolean, "Whether this meeting is withdrawn or not.", method: :withdrawn?, null: false
       field :closing_report, Decidim::Core::TranslatedFieldType, "The closing report of this meeting.", null: true
       field :video_url, GraphQL::Types::String, "URL for the video of the session, if any", null: true
       field :audio_url, GraphQL::Types::String, "URL for the audio of the session, if any", null: true
