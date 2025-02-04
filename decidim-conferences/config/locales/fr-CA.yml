@@ -120,7 +120,7 @@ fr-CA:
         destroy:
           success: Conférencier supprimé avec succès pour cette conférence.
         edit:
-          title: Mettre à jour le conférencier.
+          title: Mettre à jour le conférencier
           update: Mettre à jour
         index:
           conference_speakers_title: Conférenciers
@@ -137,13 +137,13 @@ fr-CA:
         destroy:
           success: Administrateur supprimé de cette conférence.
         edit:
-          title: Mettre à jour l'administrateur de la conférence.
+          title: Mettre à jour l'administrateur de la conférence
           update: Mettre à jour
         index:
           conference_admins_title: Administrateurs de conférence
         new:
           create: Créer
-          title: Nouvel administrateur de conférence.
+          title: Nouvel administrateur de conférence
         update:
           error: Il y avait une erreur mise à jour d'un administrateur pour cette conférence.
           success: Administrateur mis à jour avec succès pour cette conférence.
@@ -177,10 +177,10 @@ fr-CA:
         destroy:
           success: Lien média supprimé avec succès.
         edit:
-          title: Mettre à jour le lien média.
+          title: Mettre à jour le lien média
           update: Mettre à jour
         index:
-          media_links_title: Liens médias
+          media_links_title: Liens média
         new:
           create: Créer
           title: Créer un lien média
@@ -198,15 +198,15 @@ fr-CA:
           conference_admins: Administrateurs de conférence
           conference_invites: Invitations
           conference_speakers: Conférenciers
-          diploma: Certificat de participation
+          diploma: Attestation de présence
           info: À propos de cette conférence
-          media_links: Liens médias
+          media_links: Liens média
           moderations: Modération
           partners: Partenaires
           registration_types: Types d'inscription
           registrations: Inscriptions
           see_conference: Voir la conférence
-          user_registrations: Utilisateurs inscrits
+          user_registrations: Inscriptions d'utilisateurs
       models:
         conference:
           fields:
@@ -261,7 +261,7 @@ fr-CA:
         destroy:
           success: Le partenaire a été supprimé avec succès de cette conférence.
         edit:
-          title: Mettre à jour le partenaire.
+          title: Mettre à jour le partenaire
           update: Mettre à jour
         new:
           create: Créer
@@ -283,7 +283,7 @@ fr-CA:
         destroy:
           success: Le type d'inscription a bien été supprimé de cette conférence.
         edit:
-          title: Mettre à jour le type d'inscription.
+          title: Mettre à jour le type d'inscription
           update: Mettre à jour
         new:
           create: Créer
@@ -384,7 +384,7 @@ fr-CA:
         diplomas:
           edit:
             save: sauvegarder
-            title: Certificat de participation
+            title: Attestation de présence
         invite_join_conference_mailer:
           invite:
             decline: Refuser l'invitation '%{conference_title}'
@@ -404,7 +404,7 @@ fr-CA:
             diploma_html: Vous trouverez le certificat de participation à la conférence <a href="%{url}">%{title}</a> dans les pièces jointes.
           diploma_user:
             attendance_verified_by: Présence vérifiée par
-            certificate_of_attendance: Certificat de participation
+            certificate_of_attendance: Attestation de présence
             certificate_of_attendance_description: Ceci certifie que <strong>%{user}</strong> a assisté et participé aux <strong>%{title}</strong> tenus au <strong>%{location}</strong> sur <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Il y a eu un problème lors de l'envoi des certificats de participation à la conférence.
