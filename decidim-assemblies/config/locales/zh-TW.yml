@@ -43,8 +43,6 @@ zh-TW:
         promoted: 重點顯示
         published_at: 發佈於
         purpose_of_action: 行動目的
-        scope_id: 範圍
-        scopes_enabled: 啟用範圍
         short_description: 簡短說明
         slug: URL名稱
         special_features: 特殊功能
@@ -212,13 +210,11 @@ zh-TW:
             announcement_help: 您在此處輸入的文字將顯示至使用者的正下方大會信息
             duration: 持續時間
             duration_help: 如果此大會的持續時間有限，請選擇結束日期。 否則，它將顯示為不確定。
-            filters: 篩選條件
             images: 圖片
             included_at_help: 選擇此大會添加到平台的日期。 它不一定必須與創建日期相同。
             metadata: 元資料
             other: 其他
             select_a_created_by: 選擇一位創建者
-            select_an_area: 選擇一個地區
             select_parent_assembly: 選擇父組件
             social_handlers: 社群
             title: 基本資訊

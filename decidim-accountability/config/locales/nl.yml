@@ -156,8 +156,6 @@ nl:
             comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
             display_progress_enabled: Geef de voortgang weer
             intro: Inleiding
-            scope_id: Scope
-            scopes_enabled: Scopes ingeschakeld
           step:
             comments_blocked: Reacties geblokkeerd
     events:

@@ -170,7 +170,6 @@ hu:
           selected_projects: 'Az általad kiválasztott projektek a következők:'
           subject: 'A következő részvételi térben szavazott: %{space_name}'
           voted_on_space: A(z) %{space_name} részvételi tér %{budget_name} költségvetésére szavazott.
-          voted_on_space_with_scope: 'A(z) %{budget_name} részvételi tér %{space_name} költségvetésére szavazott itt: %{scope_name} (%{scope_type}).'
       projects:
         budget_confirm:
           are_you_sure: Ha meggondolja magát, később megváltoztathatja szavazatát.
@@ -280,8 +279,6 @@ hu:
             more_information_modal: További információ modális ablak
             projects_per_page: Projektek oldalanként
             resources_permissions_enabled: A műveletek jogosultságai minden projekthez beállíthatók
-            scope_id: Hatókör
-            scopes_enabled: A hatókör engedélyezett
             title: Cím
             total_budget: Teljes költségvetés
             vote_minimum_budget_projects_number: A szavazásban részt vevő projektek minimum száma

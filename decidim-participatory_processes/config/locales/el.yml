@@ -28,9 +28,6 @@ el:
         promoted: Προωθήθηκε
         published_at: Δημοσιεύτηκε στις
         related_process_ids: Σχετικές διαδικασίες
-        scope_id: Πεδίο εφαρμογής
-        scope_type_max_depth_id: Βάθος φίλτρου πεδίου εφαρμογής
-        scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
         short_description: Σύντομη περιγραφή
         slug: Slug διεύθυνσης URL
         start_date: Ημερομηνία έναρξης
@@ -360,12 +357,9 @@ el:
           form:
             announcement_help: Το κείμενο που εισάγετε εδώ θα εμφανίζεται στον χρήστη ακριβώς κάτω από τις πληροφορίες της διαδικασίας.
             duration: Διάρκεια
-            filters: Φίλτρα
             images: Εικόνες
             metadata: Μεταδεδομένα
             related_processes: Σχετικές διαδικασίες
-            scope_type_max_depth_help: Περιορίστε το βάθος του φίλτρου πεδίου εφαρμογής. Το φίλτρο θα εμφανίζεται από γενικό έως τον επιλεγμένο τύπο πεδίου εφαρμογής.
-            select_an_area: Επιλέξτε «Τομέα»
             select_process_group: Επιλέξτε ομάδα διαδικασίας
             title: Γενικές πληροφορίες
       content_blocks:

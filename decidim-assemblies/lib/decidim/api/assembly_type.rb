@@ -9,6 +9,7 @@ module Decidim
       implements Decidim::Core::ParticipatorySpaceResourceableInterface
       implements Decidim::Core::TaxonomizableInterface
       implements Decidim::Core::CategoriesContainerInterface
+      implements Decidim::Core::TimestampsInterface
 
       description "An assembly"
 
@@ -18,8 +19,6 @@ module Decidim
       field :description, Decidim::Core::TranslatedFieldType, "The description of this assembly", null: true
       field :slug, String, "The slug of this assembly", null: false
       field :hashtag, String, "The hashtag for this assembly", null: true
-      field :created_at, Decidim::Core::DateTimeType, "The time this assembly was created", null: false
-      field :updated_at, Decidim::Core::DateTimeType, "The time this assembly was updated", null: false
       field :published_at, Decidim::Core::DateTimeType, "The time this assembly was published", null: false
       field :reference, String, "Reference for this assembly", null: false
 

@@ -8,12 +8,12 @@ module Decidim
 
       field :surveys, Decidim::Surveys::SurveyType.connection_type, null: true, connection: true
 
-      def surveys
-        Survey.where(component: object).includes(:component)
-      end
-
       field :survey, Decidim::Surveys::SurveyType, null: true do
         argument :id, GraphQL::Types::ID, required: true
+      end
+
+      def surveys
+        Survey.where(component: object).includes(:component)
       end
 
       def survey(**args)

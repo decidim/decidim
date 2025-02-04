@@ -47,7 +47,7 @@ eu:
         deleted_results_info: Ezabatutako emaitzak berreskura daitezke zaborrontzitik.
         destroy: Ezabatu
         edit: Editatu
-        import: Inportatu proposamenak beste osagai batetik
+        import: Inportatu proiektuak beste osagai batetik
         import_csv: Inportatu emaitzak CSV fitxategitik
         new_result: Beste emaitza bat
         new_status: Beste egoera bat
@@ -60,6 +60,28 @@ eu:
         exports:
           result_comments: Iruzkinak
           results: Emaitzak
+        import_components:
+          create:
+            invalid: Arazo bat gertatu da proiektuak emaitzetara inportatzean, mesedez, jarraitu arretaz argibideak eta ziurtatu proiektuak inplementatzeko aukeratu dituzula.
+          filters:
+            new_items_projects:
+              one: Aukeratutako proiektu bat inportatuko da
+              other: "Hautatutako %{count} proiektu inportatuko dira"
+            new_items_proposals:
+              one: Proposamen bat inportatuko da
+              other: "%{count} proposamen inportatuko dira"
+            proposal_state: Proposamenaren egoera
+            select_state: Hautatu egoera
+          form:
+            create: Inportatu
+            no_components: Espazio parte-hartzaile honetan ez dago inportatu beharreko osagairik.
+            origin_component_id: Jatorrizko osagaia
+            select_component: Hautatu osagaia
+          new:
+            success:
+              one: Emaitza bat ilaran zegoen inportatu ahal izateko. Posta elektronikoz jakinaraziko dizute, amaitutakoan.
+              other: "%{count} emaitza ilaran, inportatu ahal izateko. Posta elektronikoz jakinaraziko dizute, amaitutakoan."
+            title: Inportatu beste osagai baten emaitzak
         import_results:
           new:
             download_export: Deskargatu esportatutakoa CSV formatuan
@@ -94,22 +116,6 @@ eu:
             name: Emaitza
           status:
             name: Egoera
-        projects_import:
-          create:
-            invalid: Arazo bat gertatu da proiektuak emaitzetara inportatzean, mesedez, jarraitu arretaz argibideak eta ziurtatu proiektuak inplementatzeko aukeratu dituzula.
-          new:
-            create: Inportatu
-            import_all_selected_projects: Inportatu inplementatzeko aukeratu dituzun proiektu guztiak
-            new_items:
-              one: Aukeratutako proiektu 1 inportatuko da
-              other: "Aukeratutako proiektu bat inportatuko da"
-            no_components: Ez dago aurrekontuen osagairik parte-hartze espazio honetan proiektuak emaitzetara inportatzeko.
-            origin_component_id: Jatorrizko osagaia
-            select_component: Hautatu osagaia
-            success:
-              one: Proiektu 1 ilaran dago inportazioaren zain. Eginda dagoenean posta elektronikoz jakinaraziko zaizu.
-              other: "%{count} proiektu inportazioaren zain. Eginda dagoenean posta elektronikoz jakinaraziko zaizu."
-            title: Inportatu proiektuak beste osagai batetik
         results:
           bulk_actions:
             dates_form:
@@ -164,24 +170,24 @@ eu:
             invalid: Arazo bat egon da egoera hau sortzean.
             success: Egoera zuzen sortua.
           destroy:
-            success: Egoera behar bezala ezabatua.
+            success: Egoera ondo ezabatu da.
           edit:
             title: Editatu egoera
-            update: Eguneratu egoera
+            update: Egoera eguneratu
           index:
             title: Egoerak
           new:
             create: Egoera sortu
             title: Beste egoera bat
           update:
-            invalid: Arazo bat egon da egoera hau eguneratzean.
-            success: Egoera zuzen eguneratua.
+            invalid: Arazoren bat gertatu da egoera hau sortzean.
+            success: Egoera ondo eguneratu da.
         timeline_entries:
           create:
-            invalid: Arazo bat egon da sarrera hau sortzean.
-            success: Sarrera zuzen sortua.
+            invalid: Arazoen bat gertatu da sarrera hau sortzean.
+            success: Sarrera ondo sortu da.
           destroy:
-            success: Sarrera behar bezala ezabatua.
+            success: Sarrera ondo ezabatu da.
           edit:
             title: Editatu sarrera
             update: Eguneratu sarrera
@@ -191,18 +197,18 @@ eu:
             create: Sortu sarrera
             title: Beste sarrera bat
           update:
-            invalid: Arazo bat egon da sarrera hau eguneratzean.
-            success: Sarrera zuzen eguneratua.
+            invalid: Arazoren bat gertatu da sarrera hau eguneratzean.
+            success: Sarrera ondo sortu da.
       admin_log:
         result:
           create: "%{user_name} parte-hartzaileak %{resource_name} emaitza sortu du %{space_name} espazioan"
           delete: "%{user_name} parte-hartzaileak %{resource_name} emaitza ezabatu du %{space_name} espazioan"
-          restore: "% {user_name} parte-hartzaileak % {baliabide_name}} emaitza berreskuratu du hemen:% {space_name}"
-          soft_delete: "% {user_name} parte-hartzaileak hemengo: %{space_name} {baliabide_name} emaitza zaborrontzira eraman zuen"
+          restore: "%{user_name} parte-hartzaileak %{baliabide_name}} emaitza berreskuratu du hemen:%{space_name}"
+          soft_delete: "%{user_name} parte-hartzaileak %{resource_name} espazioko %{space_name} emaitza zaborretara eraman du"
           update: "%{user_name} parte-hartzaileak %{resource_name} emaitza eguneratu du %{space_name} espazioan"
         status:
           create: "%{user_name} parte-hartzaileak %{resource_name} egoera sortu du"
-          delete: "%{user_name} erabiltzaileak %{resource_name} egoera ezabatu du"
+          delete: "%{user_name} parte-hartzaileak %{resource_name} egoera ezabatu du"
           update: "%{user_name} parte-hartzaileak %{resource_name} egoera eguneratu du"
         timeline_entry:
           create: "%{user_name} parte-hartzaileak %{resource_name} sarrera sortu du kronologian"
@@ -219,7 +225,7 @@ eu:
       import_mailer:
         import:
           errors: Erroreak
-          errors_present: Arazo bat egon da emaitzak inportatzean.
+          errors_present: Arazoren bat gertatu da emaitzak inportatzean.
           row_number: Errenkada
           subject: Emaitzak zuzen inportatu dira
           success: Emaitzak zuzen inportatu dira. Emaitzak administrazioaren panelaren bidez berrikusi ahal dituzu.
@@ -228,6 +234,13 @@ eu:
           added_projects:
             one: Emaitza bat inportatu da proiektuetatik.
             other: "%{count} emaitza inportatu dira proiektuetatik."
+          subject: Proiektuak zuzen inportatu dira
+          success: Zuzen inportatu dira proiektuak emaitzetara %{component_name} osagaian. Emaitza administrazio-interfacean ikus dezakezu.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Emaitza bat proposamenetatik atera da
+            other: "%{count} emaitza proposamenetatik atera dira."
           subject: Proiektuak zuzen inportatu dira
           success: Zuzen inportatu dira proiektuak emaitzetara %{component_name} osagaian. Emaitza administrazio-interfacean ikus dezakezu.
       last_activity:
@@ -261,8 +274,6 @@ eu:
         home:
           empty: Oraindik ez dago emaitzarik.
           empty_filters: Ez dago emaitzarik irizpide honekin.
-          sub_taxonomies_label: Azpikategoriak
-          taxonomies_label: Kategoriak
         home_header:
           global_status: Exekuzio-egoera orokorra
         no_results: Ez dago proiekturik
@@ -293,10 +304,8 @@ eu:
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu iragazki batzuk espazio parte-hartzaile honetarako.
             display_progress_enabled: Erakutsi aurrerapena
             geocoding_enabled: Mapak gaituta
-            intro: Intro
+            intro: Sarrera
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
-            scope_id: Esparrua
-            scopes_enabled: Esparruak gaituta
             taxonomy_filters: Hautatu iragazkiak osagairako
             taxonomy_filters_add: Erantsi iragazkia
           step:
@@ -313,10 +322,10 @@ eu:
           email_subject: 'Eguneraketa bat honetarako: %{proposal_title}'
           notification_title: <a href="%{proposal_path}">%{proposal_title}</a> proposamena <a href="%{resource_path}">%{resource_title}</a> emaitzan sartu da.
         result_progress_updated:
-          email_intro: '"%{proposal_title}" proposamena duen "%{resource_title}" emaitza % %{progress}% osatu da. Orrialde honetan ikusi dezakezu:'
+          email_intro: '"%{proposal_title}" proposamena duen "%{resource_title}" emaitza, % %{progress}% osatu da. Orrialde honetan ikusi dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu "%{proposal_title}" jarraitzen ari zarelako, eta proposamen hori "%{resource_title}" emaitzaren barruan dago. Aurreko estekan sartu jakinarazpenak jasotzeari utzi nahi badiozu.
-          email_subject: Eguneraketa bat %{resource_title} honetarako
-          notification_title: <a href="%{proposal_path}">%{proposal_title}</a> proposamena duen <a href="%{resource_path}">%{resource_title}</a> emaitza %{progress}% osatu da.
+          email_subject: Eguneraketa bat %{resource_title} bilakaeran
+          notification_title: <a href="%{proposal_path}">%{proposal_title}</a> proposamena duen <a href="%{resource_path}">%{resource_title}</a> emaitza, % %{progress}% osatu da.
     metrics:
       results:
         description: Sortutako emaitza kopurua
@@ -355,11 +364,11 @@ eu:
           status: Emaitza honen egungo egoera
           taxonomies: Emaitzaren taxonomiak
           title: Emaitzaren izenburua
-          updated_at: Zein egunetan eguneratu zen azken aldiz emaitza hau
+          updated_at: Zein egunetan eguneratu da azken aldiz emaitza hau
           url: Emaitza hau aurkitu daitekeen URLa
     participatory_spaces:
       highlighted_results:
-        see_all: Ikusi emaitza guztiak (%{count})
+        see_all: Ikusi emaitza guztiak
     resource_links:
       included_projects:
         result_project: Emaitza honetan sartutako proiektuak

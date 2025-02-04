@@ -38,9 +38,6 @@ ga:
           comment: Tabhair Trácht
           join: Téigh leis
         name: Cruinnithe
-        settings:
-          global:
-            scope_id: Scóip
     meetings:
       actions:
         agenda: Clár

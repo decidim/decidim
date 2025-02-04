@@ -19,8 +19,6 @@ pt-BR:
         settings:
           global:
             announcement: Anúncio
-            scope_id: Escopo
-            scopes_enabled: Escopos habilitados
           step:
             announcement: Anúncio
     events:

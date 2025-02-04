@@ -72,7 +72,6 @@ id:
           tos_agreement: Dengan berpartisipasi Anda menerima Ketentuan Layanannya
       step_navigation:
         show:
-          are_you_sure: Tindakan ini tidak dapat diurungkan dan Anda tidak akan dapat mengedit jawaban Anda. Apakah kamu yakin
           submit: Menyerahkan
       user_answers_serializer:
         created_at: Dijawab pada

@@ -43,8 +43,6 @@ pl:
         promoted: Wyróżniony
         published_at: Opublikowano
         purpose_of_action: Cel działania
-        scope_id: Zakres
-        scopes_enabled: Zakresy dozwolone
         short_description: Krótki opis
         slug: URL slug
         special_features: Cechy szczególne
@@ -238,13 +236,11 @@ pl:
             announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o zespole.
             duration: Czas trwania
             duration_help: Jeśli czas trwania tego zespołu jest ograniczony, wybierz datę końcową. W przeciwnym razie pojawi się jako nieokreślony.
-            filters: Filtry
             images: Obrazy
             included_at_help: Wybierz datę dodania tego zgromadzenia do platformy Decidim. Nie musi być ona tożsama z datą utworzenia.
             metadata: Metadane
             other: Inny
             select_a_created_by: Wybierz utworzony przez
-            select_an_area: Wybierz kategorię
             select_parent_assembly: Wybierz zespół nadrzędny
             slug_help_html: 'Slugi URL służą do generowania adresów URL kierujących bezpośrednio do tego zgromadzenia. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             social_handlers: Profile społecznościowe

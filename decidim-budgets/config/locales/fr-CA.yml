@@ -205,7 +205,6 @@ fr-CA:
           selected_projects: 'Les projets que vous avez sélectionnés sont :'
           subject: Vous avez voté sur l'espace participatif %{space_name}
           voted_on_space: Vous avez voté sur le budget %{budget_name} pour l'espace participatif %{space_name}.
-          voted_on_space_with_scope: Vous avez voté sur le budget %{budget_name} pour l'espace participatif %{space_name} sur %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Si vous changez d'avis, vous pourrez modifier votre vote plus tard.
@@ -319,8 +318,6 @@ fr-CA:
             more_information_modal: Plus d’informations
             projects_per_page: Projets par page
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque projet
-            scope_id: Secteur
-            scopes_enabled: Secteurs activés
             title: Titre
             total_budget: Budget total
             vote_minimum_budget_projects_number: Nombre minimum de projets à voter
