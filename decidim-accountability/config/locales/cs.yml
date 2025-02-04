@@ -96,6 +96,11 @@ cs:
           new:
             create: Importovat
             import_all_selected_projects: Importovat všechny projekty vybrané pro realizaci
+            new_items:
+              one: 1 vybraný projekt bude importován
+              few: "%{count} vybrané projekty budou importovány"
+              many: "%{count} vybraných projektů bude importováno"
+              other: "%{count} vybraných projektů bude importováno"
             no_components: V tomto participačním prostoru nejsou žádné složky rozpočtů pro import projektů do výsledků.
             origin_component_id: Původ komponenty
             select_component: Vybrat komponentu
