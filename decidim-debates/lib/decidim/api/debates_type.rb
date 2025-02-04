@@ -6,11 +6,10 @@ module Decidim
       graphql_name "Debates"
       description "A debates component of a participatory space."
 
-      field :debates, Decidim::Debates::DebateType.connection_type, null: true, connection: true
-
       field :debate, Decidim::Debates::DebateType, null: true do
         argument :id, GraphQL::Types::ID, required: true
       end
+      field :debates, Decidim::Debates::DebateType.connection_type, null: true, connection: true
 
       def debates
         Debate.where(component: object).includes(:component)

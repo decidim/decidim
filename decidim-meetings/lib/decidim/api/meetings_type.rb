@@ -6,11 +6,10 @@ module Decidim
       graphql_name "Meetings"
       description "A meetings component of a participatory space."
 
-      field :meetings, Decidim::Meetings::MeetingType.connection_type, null: true, connection: true
-
       field :meeting, Decidim::Meetings::MeetingType, null: true do
         argument :id, GraphQL::Types::ID, required: true
       end
+      field :meetings, Decidim::Meetings::MeetingType.connection_type, null: true, connection: true
 
       def meetings
         Meeting.published.visible.where(component: object).includes(:component)

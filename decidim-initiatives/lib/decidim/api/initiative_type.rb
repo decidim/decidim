@@ -12,10 +12,9 @@ module Decidim
 
       description "A initiative"
 
-      field :description, Decidim::Core::TranslatedFieldType, "The description of this initiative.", null: true
-
+      field :author, Decidim::Core::AuthorInterface, "The initiative author", null: false
       field :committee_members, [Decidim::Initiatives::InitiativeCommitteeMemberType, { null: true }], null: true
-
+      field :description, Decidim::Core::TranslatedFieldType, "The description of this initiative.", null: true
       field :hashtag, GraphQL::Types::String, "The hashtag for this initiative", null: true
       field :initiative_supports_count, GraphQL::Types::Int,
             description: "The number of supports in this initiative",
@@ -35,8 +34,6 @@ module Decidim
       field :signature_type, GraphQL::Types::String, "Signature type of the initiative", null: true
       field :slug, GraphQL::Types::String, null: false
       field :state, GraphQL::Types::String, "Current status of the initiative", null: true
-
-      field :author, Decidim::Core::AuthorInterface, "The initiative author", null: false
 
       def author
         object.user_group || object.author

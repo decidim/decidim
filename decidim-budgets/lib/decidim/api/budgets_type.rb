@@ -6,11 +6,10 @@ module Decidim
       graphql_name "Budgets"
       description "A budget component of a participatory space."
 
-      field :budgets, Decidim::Budgets::BudgetType.connection_type, null: true, connection: true
-
       field :budget, Decidim::Budgets::BudgetType, null: true do
         argument :id, GraphQL::Types::ID, required: true
       end
+      field :budgets, Decidim::Budgets::BudgetType.connection_type, null: true, connection: true
 
       def budgets
         Budget.where(component: object).includes(:component)

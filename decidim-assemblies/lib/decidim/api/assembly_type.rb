@@ -13,15 +13,6 @@ module Decidim
 
       description "An assembly"
 
-      field :description, Decidim::Core::TranslatedFieldType, "The description of this assembly", null: true
-      field :hashtag, String, "The hashtag for this assembly", null: true
-      field :id, ID, "The internal ID for this assembly", null: false
-      field :published_at, Decidim::Core::DateTimeType, "The time this assembly was published", null: false
-      field :reference, String, "Reference for this assembly", null: false
-      field :short_description, Decidim::Core::TranslatedFieldType, "The sort description of this assembly", null: true
-      field :slug, String, "The slug of this assembly", null: false
-      field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this assembly", null: true
-
       field :announcement, Decidim::Core::TranslatedFieldType, "Highlighted announcement for this assembly", null: true
       field :area, Decidim::Core::AreaApiType, "Area of this assembly", null: true
       field :assembly_type, Decidim::Assemblies::AssembliesTypeType, "Type of the assembly", null: true
@@ -33,11 +24,14 @@ module Decidim
       field :created_by, String, "The creator of this assembly", null: true
       field :created_by_other, Decidim::Core::TranslatedFieldType, "Custom creator", null: true
       field :creation_date, Decidim::Core::DateType, "Creation date of this assembly", null: true
+      field :description, Decidim::Core::TranslatedFieldType, "The description of this assembly", null: true
       field :developer_group, Decidim::Core::TranslatedFieldType, "The promoter group of this assembly", null: true
       field :duration, Decidim::Core::DateType, "Duration of this assembly", null: true
       field :facebook_handler, String, "Facebook handler", null: true
       field :github_handler, String, "GitHub handler", null: true
+      field :hashtag, String, "The hashtag for this assembly", null: true
       field :hero_image, String, "The hero image for this assembly", null: true
+      field :id, ID, "The internal ID for this assembly", null: false
       field :included_at, Decidim::Core::DateType, "Included at", null: true
       field :instagram_handler, String, "Instagram handler", null: true
       field :internal_organisation, Decidim::Core::TranslatedFieldType, "Internal organisation of this assembly", null: true
@@ -50,9 +44,14 @@ module Decidim
       field :participatory_structure, Decidim::Core::TranslatedFieldType, "How it is decided on this assembly", null: true
       field :private_space, Boolean, "If this assembly is a private space", null: true
       field :promoted, Boolean, "If this assembly is promoted (therefore in the homepage)", null: true
+      field :published_at, Decidim::Core::DateTimeType, "The time this assembly was published", null: false
       field :purpose_of_action, Decidim::Core::TranslatedFieldType, "Purpose of action", null: true
+      field :reference, String, "Reference for this assembly", null: false
       field :scopes_enabled, Boolean, "If this assembly has scopes enabled", null: true
+      field :short_description, Decidim::Core::TranslatedFieldType, "The sort description of this assembly", null: true
+      field :slug, String, "The slug of this assembly", null: false
       field :special_features, Decidim::Core::TranslatedFieldType, "Special features of this assembly", null: true
+      field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this assembly", null: true
       field :target, Decidim::Core::TranslatedFieldType, "Who participates in this assembly", null: true
       field :twitter_handler, String, "Twitter handler", null: true
       field :youtube_handler, String, "YouTube handler", null: true
