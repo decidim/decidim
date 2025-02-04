@@ -229,6 +229,11 @@ cs:
           download_vote: Stáhněte si svůj hlas
           share_vote: Sdílejte svůj hlas
           title: Váš hlas byl úspěšně přijat
+          view_votes:
+            one: Zobrazit hlas
+            few: Zobrazit hlasy
+            many: Zobrazit hlasů
+            other: Zobrazit hlasů
       order_summary_mailer:
         order_summary:
           selected_projects: 'Vybrané projekty jsou:'
