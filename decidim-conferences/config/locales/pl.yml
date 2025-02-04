@@ -126,13 +126,11 @@ pl:
         destroy:
           success: Prelegent został pomyślnie usunięty z tej konferencji.
         edit:
-          title: Zaktualizuj prelegenta konferencji.
           update: Aktualizuj
         index:
           conference_speakers_title: Prelegenci konferencyjni
         new:
           create: Utwórz
-          title: Nowy prelegent konferencyjny.
         update:
           error: Wystąpił błąd podczas aktualizacji prelegenta konferencji.
           success: Prelegent zaktualizowany pomyślnie.
@@ -143,13 +141,11 @@ pl:
         destroy:
           success: Administrator konferencji usunięty pomyślnie.
         edit:
-          title: Zaktualizuj administratora konferencji.
           update: Aktualizuj
         index:
           conference_admins_title: Administratorzy konferencji
         new:
           create: Utwórz
-          title: Nowy administrator konferencji.
         update:
           error: Wystąpił błąd podczas aktualizacji administratora konferencji.
           success: Administrator konferencji zaktualizowany pomyślnie.
@@ -179,19 +175,12 @@ pl:
       media_links:
         create:
           error: Podczas tworzenia nowego linku do multimediów wystąpił błąd.
-          success: Link do multimediów został utworzony.
-        destroy:
-          success: Link do multimediów został usunięty.
         edit:
-          title: Zaktualizuj link do multimediów.
           update: Aktualizuj
-        index:
-          media_links_title: Linki do multimediów
         new:
           create: Utwórz
         update:
           error: Wystąpił błąd podczas aktualizowania tego linku multimedialnego.
-          success: Link do multimediów został pomyślnie zaktualizowany.
       menu:
         conferences: Konferencje
         conferences_submenu:
@@ -203,15 +192,11 @@ pl:
           conference_admins: Administratorzy konferencji
           conference_invites: Zaprasza
           conference_speakers: Prelegenci
-          diploma: Certyfikat uczestnictwa
           info: O tej konferencji
-          media_links: Linki do multimediów
           moderations: Moderacje
           partners: Partnerzy
-          registration_types: Typ rejestracji
           registrations: Rejestracje
           see_conference: Zobacz konferencję
-          user_registrations: Rejestracje użytkowników
       models:
         conference:
           fields:
@@ -240,7 +225,6 @@ pl:
             date: Data
             link: Link
             title: Tytuł
-          name: Link do multimediów
         partner:
           fields:
             link: Link
@@ -266,7 +250,6 @@ pl:
         destroy:
           success: Partner został usunięty z tej konferencji.
         edit:
-          title: Zaktualizuj partnera.
           update: Aktualizuj
         new:
           create: Utwórz
@@ -288,7 +271,6 @@ pl:
         destroy:
           success: Typ rejestracji został usunięty.
         edit:
-          title: Zaktualizuj typ rejestracji.
           update: Aktualizuj
         new:
           create: Utwórz
@@ -391,7 +373,6 @@ pl:
         diplomas:
           edit:
             save: Zapisz
-            title: Certyfikat uczestnictwa
         invite_join_conference_mailer:
           invite:
             decline: Odrzuć zaproszenie "%{conference_title}"
@@ -411,7 +392,6 @@ pl:
             diploma_html: W załącznikach znajdziesz certyfikat uczestnictwa w konferencji <a href="%{url}">%{title}</a>.
           diploma_user:
             attendance_verified_by: Uczestnictwo zweryfikowane przez
-            certificate_of_attendance: Certyfikat uczestnictwa
             certificate_of_attendance_description: 'Zaświadcza się, że <strong>%{user}</strong> wziął/wzięła udział w konferencji <strong>%{title}</strong>, która odbyła się w <strong>%{location}</strong> w terminie: <strong>%{start} - %{end}</strong>'
         send_diploma:
           error: Wystąpił błąd podczas wysyłania certyfikatów uczestnictwa.
