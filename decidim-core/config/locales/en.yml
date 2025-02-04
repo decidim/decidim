@@ -167,6 +167,8 @@ en:
         one: 1 second
         other: "%{count} seconds"
   decidim:
+    share_widget:
+      qr_code: QR Code
     accessibility:
       external_link: External link
       front_page_link: Go to front page

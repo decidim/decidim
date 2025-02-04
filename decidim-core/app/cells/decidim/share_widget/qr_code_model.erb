@@ -1,0 +1,9 @@
+<%= decidim_modal id: "QRCodeDialog", class: "share-modal" do %>
+  <div data-dialog-container>
+    <%= icon "qr-code-line" %>
+    <h2 id="dialog-title-socialShare" tabindex="-1" data-dialog-title><%= t(".qr_code") %></h2>
+    <img alt="<%= t(".qr_code") %>" src="data:;base64,<%= Base64.encode64(qr_code.as_png(size: 175).to_s) %>">
+
+    
+  </div>
+<% end %>

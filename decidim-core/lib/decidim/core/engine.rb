@@ -55,6 +55,7 @@ module Decidim
       engine_name "decidim"
 
       initializer "decidim_core.register_icons", after: "decidim_core.add_social_share_services" do
+        Decidim.icons.register(name: "qr-code-line", icon: "qr-code-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "phone-line", icon: "phone-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "more-2-fill", icon: "more-2-fill", category: "system", description: "Resource Action button", engine: :core)
         Decidim.icons.register(name: "more-fill", icon: "more-fill", category: "system", description: "Resource Action button", engine: :core)
