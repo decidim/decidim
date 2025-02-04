@@ -8,7 +8,7 @@ shared_examples "manage media links examples" do
     login_as user, scope: :user
     visit decidim_admin_conferences.edit_conference_path(conference)
     within_admin_sidebar_menu do
-      click_link "Media Links"
+      click_link "Media links"
     end
   end
 
