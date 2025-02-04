@@ -1,6 +1,24 @@
 ---
 en:
   decidim:
+    collaborative_texts:
+      actions:
+        new: New text
+        title: Actions
+      admin:
+        collaborative_texts:
+          index:
+            title: Collaborative texts
+      models:
+        collaborative_text:
+          fields:
+            title: Title
     components:
       collaborative_texts:
         name: Collaborative Texts
+        settings:
+          global:
+            announcement: Announcement
+            comments_blocked: Comments blocked
+          step:
+            announcement: Announcement

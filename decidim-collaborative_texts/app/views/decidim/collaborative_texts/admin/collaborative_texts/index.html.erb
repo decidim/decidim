@@ -1,0 +1,26 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="card">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <%= t(".title") %>
+      <%= link_to t("actions.new", scope: "decidim.collaborative_texts"), new_collaborative_text_path, class: "button button__sm button__secondary" %>
+      <%= render partial: "decidim/admin/components/resource_action" %>
+    </h1>
+  </div>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+        <th><%= t("models.collaborative_text.fields.title", scope: "decidim.collaborative_texts") %></th>
+        <th><%= t("actions.title", scope: "decidim.collaborative_texts") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td class="table-list__actions"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

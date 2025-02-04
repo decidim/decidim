@@ -9,7 +9,11 @@ module Decidim
       paths["db/migrate"] = nil
       paths["lib/tasks"] = nil
 
-      # routes ...
+      routes do
+        resources "collaborative_texts"
+
+        root to: "collaborative_texts#index"
+      end
 
       def load_seed
         nil
