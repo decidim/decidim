@@ -29,7 +29,7 @@ module Decidim
         enforce_permission_to :create, :blogpost
         @form = form(Decidim::Blogs::PostForm).from_params(params, current_component: current_component)
 
-        CreatePost.call(@form, current_user) do
+        CreatePost.call(@form) do
           on(:ok) do |new_post|
             flash[:notice] = I18n.t("posts.create.success", scope: "decidim.blogs.admin")
             redirect_to post_path(new_post)
@@ -51,7 +51,7 @@ module Decidim
         enforce_permission_to :update, :blogpost, blogpost: post
         @form = form(PostForm).from_params(params, current_component: current_component)
 
-        UpdatePost.call(@form, post, current_user) do
+        UpdatePost.call(@form, post) do
           on(:ok) do |post|
             flash[:notice] = I18n.t("posts.update.success", scope: "decidim.blogs.admin")
             redirect_to post_path(post)
