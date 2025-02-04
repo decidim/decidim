@@ -21,15 +21,17 @@ module Decidim
       uri = service.formatted_share_uri(title, args)
       return unless uri
 
+      data = service.optional_args.reverse_merge(
+        "site" => service.name.downcase,
+        "external-link" => "text-only",
+        "external-domain-link" => false
+      )
+
       link_to(
         uri,
         rel: "nofollow noopener noreferrer",
         target: "_blank",
-        data: {
-          "site" => service.name.downcase,
-          "external-link" => "text-only",
-          "external-domain-link" => false
-        },
+        data:,
         title: t("decidim.shared.share_modal.share_to", service: service.name)
       ) do
         render_social_share_icon(service) + content_tag(:span, service.name)

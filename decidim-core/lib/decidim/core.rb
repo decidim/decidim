@@ -440,7 +440,7 @@ module Decidim
 
   # Social Networking services used for social sharing
   config_accessor :social_share_services do
-    %w(X Facebook WhatsApp Telegram)
+    %w(X Facebook WhatsApp Telegram QR)
   end
 
   # The Decidim::Exporters::CSV's default column separator
