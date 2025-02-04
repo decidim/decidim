@@ -9,28 +9,28 @@ describe Decidim::InactiveUsersQuery do
   let(:first_warning_inactive_users_after_days) { 270.days.ago }
   let(:last_warning_inactive_users_after_days) { 23.days.ago }
   let(:final_reminder_period_days) { 7.days.ago }
-  let!(:inactive_never_signed_in) { create(:user, organization:, last_sign_in_at: nil, created_at: 400.days.ago, extended_data: {}) }
-  let!(:active_never_signed_in) { create(:user, organization:, last_sign_in_at: nil, created_at: 200.days.ago, extended_data: {}) }
-  let!(:inactive_just_below_threshold) { create(:user, organization:, last_sign_in_at: 270.days.ago, created_at: 350.days.ago, extended_data: {}) }
-  let!(:inactive_recent_sign_in) { create(:user, organization:, last_sign_in_at: 400.days.ago, created_at: 400.days.ago, extended_data: {}) }
-  let!(:active_recent_sign_in) { create(:user, organization:, last_sign_in_at: 200.days.ago, created_at: 200.days.ago, extended_data: {}) }
+  let!(:inactive_never_signed_in) { create(:user, organization:, current_sign_in_at: nil, created_at: 400.days.ago, extended_data: {}) }
+  let!(:active_never_signed_in) { create(:user, organization:, current_sign_in_at: nil, created_at: 200.days.ago, extended_data: {}) }
+  let!(:inactive_just_below_threshold) { create(:user, organization:, current_sign_in_at: 270.days.ago, created_at: 350.days.ago, extended_data: {}) }
+  let!(:inactive_recent_sign_in) { create(:user, organization:, current_sign_in_at: 400.days.ago, created_at: 400.days.ago, extended_data: {}) }
+  let!(:active_recent_sign_in) { create(:user, organization:, current_sign_in_at: 200.days.ago, created_at: 200.days.ago, extended_data: {}) }
   let!(:user_reminder_due) do
     create(:user, organization: organization,
-                  last_sign_in_at: 294.days.ago,
+                  current_sign_in_at: 294.days.ago,
                   created_at: 400.days.ago,
                   extended_data: { "inactivity_notification" => { "type" => "first", "sent_at" => 23.days.ago } })
   end
 
   let!(:user_ready_for_removal) do
     create(:user, organization: organization,
-                  last_sign_in_at: 400.days.ago,
+                  current_sign_in_at: 400.days.ago,
                   created_at: 400.days.ago,
                   extended_data: { "inactivity_notification" => { "type" => "second", "sent_at" => 40.days.ago } })
   end
 
   let!(:user_logged_in_after_notification) do
     create(:user, organization: organization,
-                  last_sign_in_at: 1.day.ago,
+                  current_sign_in_at: 1.day.ago,
                   created_at: 400.days.ago,
                   extended_data: { "inactivity_notification" => { "type" => "second", "sent_at" => 7.days.ago } })
   end

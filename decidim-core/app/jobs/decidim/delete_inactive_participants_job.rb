@@ -18,7 +18,7 @@ module Decidim
       organization.users
                   .not_deleted
                   .where("extended_data ? 'inactivity_notification'")
-                  .where("last_sign_in_at > (extended_data->'inactivity_notification'->>'sent_at')::timestamp")
+                  .where("current_sign_in_at > (extended_data->'inactivity_notification'->>'sent_at')::timestamp")
                   .find_each do |user|
         user.transaction do
           user.extended_data.delete("inactivity_notification")

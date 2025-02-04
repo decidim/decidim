@@ -10,7 +10,7 @@ module Decidim
 
     def for_first_warning(cutoff_date)
       scope
-        .where("(last_sign_in_at <= :cutoff OR last_sign_in_at IS NULL) AND created_at <= :cutoff", cutoff: cutoff_date)
+        .where("(current_sign_in_at <= :cutoff OR current_sign_in_at IS NULL) AND created_at <= :cutoff", cutoff: cutoff_date)
         .where.not("extended_data ? 'inactivity_notification'")
     end
 
@@ -18,14 +18,14 @@ module Decidim
       scope
         .where("(extended_data->'inactivity_notification'->>'type') = 'first'")
         .where("(extended_data->'inactivity_notification'->>'sent_at')::timestamp <= ?", cutoff_date)
-        .where("last_sign_in_at IS NULL OR last_sign_in_at <= (extended_data->'inactivity_notification'->>'sent_at')::timestamp")
+        .where("current_sign_in_at IS NULL OR current_sign_in_at <= (extended_data->'inactivity_notification'->>'sent_at')::timestamp")
     end
 
     def for_removal(cutoff_date)
       scope
         .where("(extended_data->'inactivity_notification'->>'type') = 'second'")
         .where("(extended_data->'inactivity_notification'->>'sent_at')::timestamp <= ?", cutoff_date)
-        .where("last_sign_in_at IS NULL OR last_sign_in_at <= (extended_data->'inactivity_notification'->>'sent_at')::timestamp")
+        .where("current_sign_in_at IS NULL OR current_sign_in_at <= (extended_data->'inactivity_notification'->>'sent_at')::timestamp")
     end
   end
 end

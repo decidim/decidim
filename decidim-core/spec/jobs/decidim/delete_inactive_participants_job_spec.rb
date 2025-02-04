@@ -6,7 +6,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
   subject { described_class }
 
   let(:organization) { create(:organization) }
-  let!(:user) { create(:user, organization:, created_at:, last_sign_in_at:, extended_data:) }
+  let!(:user) { create(:user, organization:, created_at:, current_sign_in_at:, extended_data:) }
 
   before do
     Decidim.delete_inactive_users_after_days = 300
@@ -18,7 +18,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
   describe "#perform" do
     context "when the user has never signed in and was registered before inactivity period" do
       let(:created_at) { 400.days.ago }
-      let(:last_sign_in_at) { nil }
+      let(:current_sign_in_at) { nil }
       let(:extended_data) { {} }
 
       it "sets first warning in extended_data and sends first notification" do
@@ -31,7 +31,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
 
     context "when the user has never signed in and was registered after inactivity period" do
       let(:created_at) { 200.days.ago }
-      let(:last_sign_in_at) { nil }
+      let(:current_sign_in_at) { nil }
       let(:extended_data) { {} }
 
       it "does not set inactivity_notification in extended_data or send notification" do
@@ -44,7 +44,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
 
     context "when the user was inactive for 270 days" do
       let(:created_at) { 400.days.ago }
-      let(:last_sign_in_at) { 270.days.ago }
+      let(:current_sign_in_at) { 270.days.ago }
       let(:extended_data) { {} }
 
       it "sets first warning in extended_data and sends first notification" do
@@ -57,7 +57,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
 
     context "when the user has recently signed in" do
       let(:created_at) { 400.days.ago }
-      let(:last_sign_in_at) { 10.days.ago }
+      let(:current_sign_in_at) { 10.days.ago }
       let(:extended_data) { {} }
 
       it "does not set inactivity_notification in extended_data or send notification" do
@@ -70,7 +70,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
 
     context "when the user received first warning and should get second warning" do
       let(:created_at) { 400.days.ago }
-      let(:last_sign_in_at) { 370.days.ago }
+      let(:current_sign_in_at) { 370.days.ago }
       let(:extended_data) do
         {
           "inactivity_notification" => { "type" => "first", "sent_at" => 23.days.ago.to_s }
@@ -87,7 +87,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
 
     context "when the user is ready for deletion" do
       let(:created_at) { 400.days.ago }
-      let(:last_sign_in_at) { 400.days.ago }
+      let(:current_sign_in_at) { 400.days.ago }
       let(:extended_data) do
         {
           "inactivity_notification" => { "type" => "second", "sent_at" => 8.days.ago.to_s }
@@ -104,7 +104,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
 
     context "when the user has signed in after receiving notifications" do
       let(:created_at) { 400.days.ago }
-      let(:last_sign_in_at) { 1.day.ago }
+      let(:current_sign_in_at) { 1.day.ago }
 
       context "and has signed in after receiving the first warning" do
         let(:extended_data) do
