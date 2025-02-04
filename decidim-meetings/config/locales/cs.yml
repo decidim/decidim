@@ -746,15 +746,21 @@ cs:
           location: Místo schůzky
           organizations: Organizace, které se účastní této schůzky
           participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tato schůzka
+          private_meeting: Označení, zda je schůzka neveřejná, nebo ne
           published: Po zveřejnění schůzky
           reference: Jedinečný identifikátor zdroje na této platformě
+          registration_url: URL adresa registrace na schůzku
+          registrations_enabled: Zda byly povoleny registrace
           related_proposals: Návrhy související s touto schůzkou
           related_results: Výsledky týkající se této schůzky
+          reserved_slots: Počet rezervovaných míst, která má schůzka k dispozici
           start_time: Datum a čas zahájení této schůzky
           taxonomies: Taxonomie, do kterých tato schůzka patří,
           title: Název schůzky
           type_of_meeting: Typ schůzky
+          updated_at: Čas poslední aktualizace schůzky
           url: URL schůzky
+          video_url: Videozáznam ze schůzky
           withdrawn_at: Kdy byla tato schůzka odvolána
     participatory_spaces:
       highlighted_meetings:
