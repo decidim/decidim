@@ -11,11 +11,20 @@ en:
         view_deleted_collaborative_texts: View deleted collaborative texts
       admin:
         collaborative_texts:
+          create:
+            invalid: There was a problem creating the collaborative test.
+            success: Collaborative test successfully created.
+          edit:
+            title: Edit Collaborative Texts
+            update: Update
           index:
             title: Collaborative texts
           new:
             create: Create
             title: Create Collaborative Texts
+          update:
+            invalid: There was a problem updating the collaborative test.
+            success: Collaborative test successfully updated.
       models:
         collaborative_text:
           fields:
