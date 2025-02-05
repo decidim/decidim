@@ -1105,35 +1105,35 @@ ca:
         comanagers_new_conversation:
           admin_in_group: Reps aquesta notificació perquè administres el grup "%{group}".
           greeting: Hola, %{recipient}!
-          intro: "%{manager} ha iniciat una nova conversa en nom de %{group}. Fes clic aquí per veure-la:"
+          intro: "%{manager} ha iniciat una nova conversa en nom de %{group}. Per veure-la i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: "%{manager} ha iniciat una nova conversa com a %{group}"
         comanagers_new_message:
           admin_in_group: Reps aquesta notificació perquè administres el grup "%{group}".
           greeting: Hola, %{recipient}!
-          intro: "%{manager} ha publicat nous missatge a una conversa en nom de %{group}. Fes clic aquí per veure-la:"
+          intro: "%{manager} ha publicat nous missatges a una conversa en nom de %{group}. Per veure'ls i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: "%{manager} ha enviat nous missatges com a %{group}"
         new_conversation:
           greeting: Hola, %{recipient}!
-          intro: "%{sender} ha iniciat una nova conversa amb tu. Fes clic aquí per veure-la:"
+          intro: "%{sender} ha iniciat una nova conversa amb tu. Per veure-la i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: "%{sender} ha iniciat una conversa amb tu"
         new_group_conversation:
           admin_in_group: Reps aquesta notificació perquè administres el grup "%{group}".
           greeting: Hola, %{recipient}!
-          intro: "%{sender} ha iniciat una nova conversa amb el %{group}. Fes clic aquí per veure-la:"
+          intro: "%{sender} ha iniciat una nova conversa amb el %{group}. Per veure-la i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: "%{sender} ha iniciat una nova conversa amb %{group}"
         new_group_message:
           admin_in_group: Reps aquesta notificació perquè administres el grup "%{group}".
           greeting: Hola, %{recipient}!
-          intro: "%{sender} ha publicat nous missatge a una conversa amb el grup %{group}. Fes clic aquí per veure-la:"
+          intro: "%{sender} ha publicat nous missatge a una conversa amb el grup %{group}. Per veure'ls i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: "%{group} té nous missatge de %{sender}"
         new_message:
           greeting: Hola, %{recipient}!
-          intro: "%{sender} ha enviat nous missatges a la teva conversa. Fes clic aquí per veure'ls:"
+          intro: "%{sender} ha enviat nous missatges a la teva conversa. Per veure'ls i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: Tens nous missatges de %{sender}
       conversations:
