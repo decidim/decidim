@@ -219,8 +219,10 @@ cs:
         show:
           are_you_sure_edit: Budete moci upravit své odpovědi. Jste si jisti?
           are_you_sure_edit_guest: Pokud chcete být schopni následně upravit své odpovědi, pak se musíte přihlásit nebo vytvořit účet.
+          are_you_sure_no_edit: Tuto akci nelze vrátit zpět a nebudete moci upravit své odpovědi. Jste si jisti?
           back: Zpět
           continue: Pokračovat
+          disallowed: Nemáte oprávnění upravovat své odpovědi.
           submit: Odeslat
       user_answers_serializer:
         body: Odpověď
