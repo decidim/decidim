@@ -90,7 +90,7 @@ eu:
         count:
           proposals_count:
             one: proposamen 1
-            other: "%{count} proposamen"
+            other: "Proposamen bat"
         filters:
           active: Aktiboak
           all: Guztiak
