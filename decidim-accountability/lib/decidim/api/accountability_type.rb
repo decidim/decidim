@@ -6,11 +6,10 @@ module Decidim
       graphql_name "Accountability"
       description "An accountability component of a participatory space."
 
-      field :results, Decidim::Accountability::ResultType.connection_type, null: true, connection: true
-
-      field :result, Decidim::Accountability::ResultType, null: true do
+      field :result, Decidim::Accountability::ResultType, "A single Result object", null: true do
         argument :id, ID, required: true
       end
+      field :results, Decidim::Accountability::ResultType.connection_type, "A collection of Results", null: true, connection: true
 
       def results
         Result.where(component: object).includes(:component)

@@ -6,11 +6,10 @@ module Decidim
       graphql_name "Surveys"
       description "A surveys component of a participatory space."
 
-      field :surveys, Decidim::Surveys::SurveyType.connection_type, null: true, connection: true
-
-      field :survey, Decidim::Surveys::SurveyType, null: true do
+      field :survey, Decidim::Surveys::SurveyType, "A single Survey object", null: true do
         argument :id, GraphQL::Types::ID, required: true
       end
+      field :surveys, Decidim::Surveys::SurveyType.connection_type, "A collection of Surveys", null: true, connection: true
 
       def surveys
         Survey.where(component: object).includes(:component)
