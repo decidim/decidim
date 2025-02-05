@@ -407,7 +407,7 @@ eu:
           meta_scope: Esparrua
           participatory_processes:
             one: Prozesu bat
-            other: "%{count} prozesu"
+            other: "Prozesu bat"
       show:
         title: Prozesu parte-hartzaileen taldeak
     participatory_process_steps:
