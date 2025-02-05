@@ -794,7 +794,7 @@ eu:
           confirm_delete: Ziur zaude buletin hau ezabatu nahi duzula?
           followers: 'jarraitzaileak '
           has_been_sent_to: 'Honi bidalia: '
-          not_sent: Ez bidalita
+          not_sent: Ez da bidali
           participants: 'parte-hartzaileak '
           private_members: 'kide pribatuak '
           segmented_to: 'Honentzat zatitua %{subject}:'
@@ -894,7 +894,7 @@ eu:
           github: GitHub
           instagram: Instagram
           rich_text_editor_in_public_views_help: Testu-eremu batzuetan, parte-hartzaileek HTML etiketa batzuk txertatu ahal izango dituzte testu-editore aberastua erabiliz.
-          social_handlers: Soziala
+          social_handlers: Gizarte
           twitter: X
           url: URL
           youtube: YouTube
@@ -1221,10 +1221,10 @@ eu:
       taxonomy_filters_selector:
         new:
           add_new_items_html: 'Beste iragazki edo elementu bat jarri behar baduzu, egin konfigurazio-ezarpenaren bidez edo klikatuz: <a href="%{url}">here</a>.'
-          items_count: "%{count} elementu"
+          items_count: "Elementu %{count}"
           save: Gorde
         show:
-          items_count: "%{count} elementu"
+          items_count: "Elementu %{count}"
           remove: Kendu
         taxonomies_select:
           filters: Iragazkiak
