@@ -18,7 +18,7 @@
       <tbody>
         <% collaborative_texts.each do |collaborative_text| %>
           <tr>
-            <td></td>
+            <td><%= collaborative_text.title %></td>
             <td class="table-list__actions">
                 <%= icon_link_to "settings-4-line", "#", t("actions.configure", scope: "decidim.admin") %>
                 <%= icon_link_to "pencil-line", "#", t("actions.edit", scope: "decidim.collaborative_texts"), class: "action-icon--edit" %>

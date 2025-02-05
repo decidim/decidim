@@ -13,6 +13,9 @@ en:
         collaborative_texts:
           index:
             title: Collaborative texts
+          new:
+            create: Create
+            title: Create Collaborative Texts
       models:
         collaborative_text:
           fields:
