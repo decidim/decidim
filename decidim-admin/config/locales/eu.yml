@@ -749,7 +749,7 @@ eu:
           followers: 'jarraitzaileak '
           has_been_sent_to: 'Honi bidalia: '
           no_scopes: Esparrurik gabe
-          not_sent: Ez bidalita
+          not_sent: Ez da bidali
           participants: 'parte-hartzaileak '
           segmented_to: 'Honentzat zatitua %{subject}:'
           subscribed_count: 'Harpidetuak:'
@@ -831,7 +831,7 @@ eu:
           github: GitHub
           instagram: Instagram
           rich_text_editor_in_public_views_help: Testu-eremu batzuetan, parte-hartzaileek HTML etiketa batzuk txertatu ahal izango dituzte testu-editore aberastua erabiliz.
-          social_handlers: Soziala
+          social_handlers: Gizarte
           twitter: X
           url: URL
           youtube: YouTube
