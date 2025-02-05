@@ -305,7 +305,7 @@ eu:
           destroy:
             invalid:
               proposals_count:
-                one: Topaketa ezin da suntsitu, berari lotutako %{count} proposamen dituelako.
+                one: Topaketa ezin da suntsitu, berari lotutako proposamen bat duelako.
                 other: Topaketa ezin da suntsitu, berari lotutako %{count} proposamen dituelako.
             success: Topaketa zuzen ezabatu da.
           edit:
@@ -364,7 +364,7 @@ eu:
             registration_email_help: Testu hau erregistroa berresteko posta elektronikoaren erdian agertuko da. Erregistro-kodearen ondoren.
             registration_form: Izena emateko formularioa
             registrations_count:
-              one: '%{count} izen-emate izan da.'
+              one: Izen-emate bat izan da.
               other: '%{count} izen-emate izan dira.'
             reserved_slots_help: Utzi 0, ez baduzu erreserbatutako espaziorik.
             reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
@@ -548,7 +548,7 @@ eu:
             validated: BALIDATUA
             validation_pending: BALIOZKOTZEKO ZAIN
           remaining_slots:
-            one: "%{count} slot geratzen da"
+            one: "Slot %{count} geratzen da"
             other: "%{count} slot geratzen dira"
           visit_finished: Ikusi egindako topaketa
           withdraw_btn_hint: Topaketa bertan behera utz dezakezu iritzia aldatzen baduzu. Topaketa ez da ezabatu. Erretiratutakoen zerrendan agertuko da.
@@ -601,7 +601,7 @@ eu:
         attending_organizations: Erakundeak
         attending_participants: Parte-hartzaileak
         hidden_participants_count:
-          one: eta %{count} pertsona gehiago
+          one: eta pertsona bat ehiago
           other: eta %{count} pertsona gehiago
       read_more: "(gehiago irakurri)"
       registration_mailer:
