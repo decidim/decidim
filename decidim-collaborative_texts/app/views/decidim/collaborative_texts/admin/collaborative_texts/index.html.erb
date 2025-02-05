@@ -22,7 +22,7 @@
             <td class="table-list__actions">
                 <%= icon_link_to "settings-4-line", "#", t("actions.configure", scope: "decidim.admin") %>
                 <%= icon_link_to "pencil-line", edit_collaborative_text_path(collaborative_text), t("actions.edit", scope: "decidim.collaborative_texts"), class: "action-icon--edit" %>
-                <%= icon_link_to "eye-line", resource_locator(collaborative_text).path, t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
+                <%= icon_link_to "eye-line", "resource_locator(collaborative_text).path", t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
                 <% if collaborative_text.published? %>
                   <%= icon_link_to "close-circle-line", "#", t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish" %>
                 <% else %>

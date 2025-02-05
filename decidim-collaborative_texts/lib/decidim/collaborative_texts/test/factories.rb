@@ -15,4 +15,11 @@ FactoryBot.define do
     manifest_name { :collaborative_texts }
     participatory_space { create(:participatory_process, :with_steps, skip_injection:, organization:) }
   end
+
+  factory :collaborative_text, class: "Decidim::CollaborativeTexts::Document" do
+    transient do
+      skip_injection { false }
+    end
+    component { create(:collaborative_texts_component, skip_injection:) }
+  end
 end

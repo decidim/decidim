@@ -10,7 +10,7 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources "collaborative_texts" do
+        resources :collaborative_texts, except: [:destroy] do
           member do
             patch :soft_delete
             patch :restore
