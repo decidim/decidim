@@ -120,7 +120,7 @@ eu:
         new:
           copy: Kopiatu
           select: Hautatu bikoiztu nahi dituzun datuak
-          title: Bikoiztu batzarra
+          title: Kopiatu batzarra
       assembly_imports:
         create:
           error: Arazo bat egon da batzar hau inportatzean.
@@ -449,7 +449,7 @@ eu:
             other: "%{count} batzar"
         order_by_assemblies:
           assemblies:
-            one: "%{count} batzarrak"
-            other: "%{count} batzarrak"
+            one: "batzar %{count}"
+            other: "%{count} batzar"
       assembly_navigation:
         assembly_member_menu_item: Kideak
