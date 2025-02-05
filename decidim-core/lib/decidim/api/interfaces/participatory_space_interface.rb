@@ -8,18 +8,13 @@ module Decidim
       description "The interface that all participatory spaces should implement."
 
       field :id, GraphQL::Types::ID, "The participatory space's unique ID", null: false
-
       field :components, [ComponentInterface, { null: true }], null: true, description: "Lists the components this space contains." do
         argument :filter, ComponentInputFilter, "Provides several methods to filter the results", required: false
         argument :order, ComponentInputSort, "Provides several methods to order the results", required: false
       end
-
-      field :stats, [Decidim::Core::StatisticType, { null: true }], null: true
-
+      field :stats, [Decidim::Core::StatisticType, { null: true }], "The statistics collection of this participatory space", null: true
       field :title, TranslatedFieldType, "The graphql_name of this participatory space.", null: false
-
       field :type, String, description: "The participatory space class name. i.e. Decidim::ParticipatoryProcess", null: false
-
       field :manifest, Decidim::Core::ParticipatorySpaceManifestType, description: "The manifest information for the participatory space.", null: false
 
       def type

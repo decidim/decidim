@@ -5,14 +5,9 @@ GraphQL:
   Include:
     - "**/lib/decidim/api/**/*"
   Exclude:
+    - "**/lib/decidim/api/test/**/*"
     - "spec/**/*"
     - "test/**/*"
-
-GraphQL/FieldDescription:
-  Enabled: false
-
-GraphQL/OrderedFields:
-  Enabled: false
 
 GraphQL/OrderedArguments:
   Enabled: false

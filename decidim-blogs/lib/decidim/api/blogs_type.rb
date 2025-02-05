@@ -6,13 +6,12 @@ module Decidim
       graphql_name "Blogs"
       description "A blogs component of a participatory space."
 
+      field :post, type: Decidim::Blogs::PostType, description: "Finds one post", null: true do
+        argument :id, GraphQL::Types::ID, "The ID of the post", required: true
+      end
       field :posts, type: Decidim::Blogs::PostType.connection_type, description: "List all posts", connection: true, null: false do
         argument :order, Decidim::Blogs::PostInputSort, "Provides several methods to order the results", required: false
         argument :filter, Decidim::Blogs::PostInputFilter, "Provides several methods to filter the results", required: false
-      end
-
-      field :post, type: Decidim::Blogs::PostType, description: "Finds one post", null: true do
-        argument :id, GraphQL::Types::ID, "The ID of the post", required: true
       end
 
       def posts(filter: {}, order: {})

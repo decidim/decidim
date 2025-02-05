@@ -13,10 +13,10 @@ module Decidim
 
       description "A post"
 
-      field :id, GraphQL::Types::ID, "The internal ID of this post", null: false
-      field :title, Decidim::Core::TranslatedFieldType, "The title for this post", null: true
       field :body, Decidim::Core::TranslatedFieldType, "The body of this post", null: true
+      field :id, GraphQL::Types::ID, "The internal ID of this post", null: false
       field :published_at, Decidim::Core::DateTimeType, "The time this page was published", null: false
+      field :title, Decidim::Core::TranslatedFieldType, "The title for this post", null: true
 
       def self.authorized?(object, context)
         context[:post] = object
