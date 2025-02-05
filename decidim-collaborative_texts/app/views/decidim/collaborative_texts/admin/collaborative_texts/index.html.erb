@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <%# collaborative_texts.each do |collaborative_text| %>
+        <% collaborative_texts.each do |collaborative_text| %>
           <tr>
             <td></td>
             <td class="table-list__actions">
@@ -24,20 +24,20 @@
                 <%= icon_link_to "pencil-line", "#", t("actions.edit", scope: "decidim.collaborative_texts"), class: "action-icon--edit" %>
                 <%= icon_link_to "eye-line", "#", t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
                 <% if allowed_to?(:update, :collaborative_text) %>
-                  <%# if collaborative_text.published? %>
+                  <% if collaborative_text.published? %>
                     <%= icon_link_to "close-circle-line", "#", t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish" %>
-                  <%# else %>
+                  <% else %>
                     <%= icon_link_to "check-line", "#", t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish" %>
-                  <%# end %>
+                  <% end %>
                 <% end %>
-                <% if allowed_to? :soft_delete, :collaborative_text #, trashable_deleted_resource: collaborative_text %>
+                <% if allowed_to? :soft_delete, :collaborative_text , trashable_deleted_resource: collaborative_text %>
                     <%= icon_link_to "delete-bin-line", "#", t("actions.soft_delete", scope: "decidim.admin"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_collaborative_text", scope: "decidim.collaborative_texts") } %>
                 <% else %>
                     <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.soft_delete", scope: "decidim.admin") %>
                 <% end %>
             </td>
           </tr>
-        <%# end %>
+        <% end %>
       </tbody>
     </table>
   </div>

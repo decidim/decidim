@@ -6,6 +6,22 @@ module Decidim
     # title, description and any other useful information to render a custom
     # CollaborativeText.
     class CollaborativeText < CollaborativeTexts::ApplicationRecord
+      include Decidim::Resourceable
+      include Decidim::SoftDeletable
+      include Decidim::HasComponent
+      include Decidim::TranslatableResource
+      include Decidim::TranslatableAttributes
+
+      component_manifest_name "collaborative_texts"
+
+      validates :title, presence: true
+
+      # Public: Checks if the collaborative text has been published or not.
+      #
+      # Returns Boolean.
+      def published?
+        published_at.present?
+      end
     end
   end
 end

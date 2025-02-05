@@ -4,7 +4,14 @@ module Decidim
   module CollaborativeTexts
     module Admin
       class CollaborativeTextsController < Admin::ApplicationController
+        helper_method :collaborative_texts
         def index; end
+
+        private
+
+        def collaborative_texts
+          @collaborative_texts ||= CollaborativeText.where(component: current_component)
+        end
       end
     end
   end
