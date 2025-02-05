@@ -164,6 +164,19 @@ fr-CA:
             creation_enabled_for_participants: La création de réunions par les participants est activée
             creation_enabled_for_user_groups: La création de réunions par des groupes d'utilisateurs est activée
     download_your_data:
+      help:
+        invites:
+          accepted_at: La date et l'heure auxquelles cette invitation a été acceptée
+          created_at: La date et l'heure auxquelles cette invitation a été créée
+          id: L'identifiant unique pour cette invitation
+          rejected_at: La date et l'heure auxquelles cette invitation a été rejetée
+          sent_at: La date et l'heure auxquelles cette invitation a été envoyée
+          updated_at: La date et l'heure auxquelles cette invitation a été mise à jour
+        registrations:
+          created_at: La date et l'heure auxquelles cette inscription a été créée
+          public_participation: Si cette participation était affichée publiquement
+          updated_at: La date et l'heure auxquelles cette inscription a été mise à jour
+          validated_at: La date et l'heure auxquelles cette inscription a été validée
       show:
         meeting_comments: Export des commentaires de réunion
         meetings: Export des réunions
@@ -679,8 +692,36 @@ fr-CA:
         title: Rencontres
     open_data:
       help:
+        meeting_comments:
+          comments: Les données des commentaires de la réunion
         meetings:
+          attending_organizations: Les organisations participant à la réunion
+          audio_url: Enregistrement audio de la réunion
           author: Les données pour l'auteur de cette réunion
+          available_slots: Le nombre de places disponibles dans une réunion
+          closed_at: La date à laquelle la réunion s'est terminée
+          closing_report: Rapport de la réunion clôturée
+          closing_visible: La clôture de la réunion est visible
+          comments: Les données des commentaires de la réunion
+          created_at: La date de création de la réunion
+          decidim_author_type: Type d'auteur de la réunion
+          follows_count: Le nombre de personnes qui suivent cette réunion
+          iframe_embed_type: Le type d'iframe inclus dans la réunion
+          latitude: La latitude de la réunion
+          location_hints: Un indice de l'endroit où se déroule la réunion
+          longitude: La longitude de la réunion
+          online_meeting_url: L'URL de la réunion en ligne
+          private_meeting: Pour indiquer si la réunion est privée ou non
+          registration_form_enabled: Si le formulaire d'inscription a été activé ou non
+          registration_terms: Les conditions convenues avant la participation à la réunion
+          registration_type: Le type d'inscription à la réunion
+          registration_url: URL de l'inscription à la réunion
+          registrations_enabled: Si les inscriptions ont été autorisées
+          reserved_slots: Le nombre de places réservées pour la réunion
+          type_of_meeting: Le type de réunion
+          updated_at: L'heure à laquelle la réunion a été mise à jour
+          video_url: Enregistrement vidéo de la réunion
+          withdrawn: Si cette réunion a été annulée
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Rencontres passées
