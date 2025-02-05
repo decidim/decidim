@@ -1105,30 +1105,30 @@ es:
         comanagers_new_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: '¡Hola, %{recipient}!'
-          intro: "%{manager} ha iniciado una nueva conversación en nombre de %{group}. Haz clic aquí para verla:"
+          intro: "%{manager} ha iniciado una nueva conversación en nombre de %{group}. Para verla y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{manager} ha iniciado una nueva conversación como %{group}"
         comanagers_new_message:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: Hola, %{recipient}!
-          intro: "%{manager} ha publicado nuevos mensajes en una conversación en nombre de %{group}. Haz clic aquí para verla:"
+          intro: "%{manager} ha publicado nuevos mensajes en una conversación en nombre de %{group}. Para verlos y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{manager} ha enviado nuevos mensajes como %{group}"
         new_conversation:
           greeting: Hola, %{recipient}!
-          intro: "%{sender} ha iniciado una nueva conversación contigo. Haz click aquí para verla:"
+          intro: "%{sender} ha iniciado una nueva conversación contigo. Para responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{sender} ha iniciado una conversación contigo"
         new_group_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: '¡Hola, %{recipient}!'
-          intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
+          intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Para verlo y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{sender} ha iniciado una nueva conversación con %{group}"
         new_group_message:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: '¡Hola, %{recipient}!'
-          intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
+          intro: "%{sender} ha añadido nuevos mensajes en la conversación con el grupo %{group}. Para verlos y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{group} tiene nuevos mensajes de %{sender}"
         new_message:
