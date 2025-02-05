@@ -10,7 +10,7 @@ module Decidim
         private
 
         def collaborative_texts
-          @collaborative_texts ||= CollaborativeText.where(component: current_component)
+          @collaborative_texts ||= Document.where(component: current_component)
         end
       end
     end
