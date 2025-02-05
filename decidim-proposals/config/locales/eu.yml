@@ -83,7 +83,7 @@ eu:
     models:
       decidim/proposals/collaborative_draft:
         one: Zirriborro kolaboratzailea
-        other: Zirriborro kolaboratzaileak
+        other: Zirriborro kolaboratiboak
       decidim/proposals/proposal:
         one: Proposamena
         other: Proposamenak
@@ -144,7 +144,7 @@ eu:
             announcement: Jakinarazpena
             attachments_allowed: Onartu eranskinak
             can_accumulate_supports_beyond_threshold: Babesak metatu ditzake atalasetik haratago
-            collaborative_drafts_enabled: Lankidetza zirriborroak gaituta
+            collaborative_drafts_enabled: Zirriborro kolaboratiboak gaituta
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
             default_sort_order: Proposamenen hurrenkera lehenetsia
@@ -199,7 +199,7 @@ eu:
             answers_with_costs: Gaitu kostua proposamenen erantzunetan
             automatic_hashtags: Traola proposamen guztiei gehitu zaie
             comments_blocked: Iruzkinak blokeatuta
-            creation_enabled: Parte-hartzaileek eztabaidak sor ditzakete
+            creation_enabled: Parte-hartzaileek proposamenak sor ditzakete
             creation_enabled_readonly: Aukera hori desaktibatu egiten da Testuen Parte-hartzaile funtzionaltasuna aktibatzean. Testu parte-hartzaile gisa proposamenak kargatzeko, egin klik Testu parte-hartzaileak botoian eta jarraitu jarraibideak.
             default_sort_order: Proposamenen hurrenkera lehenetsia
             default_sort_order_help: Automatikoak esan nahi du, babesak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta babesak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
@@ -257,8 +257,8 @@ eu:
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a>-k kendu du <a href="%{resource_url}">%{resource_title}</a> testu kolaboraboaren zirriborroa.
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a> ko kolaboratzailea zarelako.
-          email_subject: "%{author_name} %{author_nickname} k %{resource_title} zirriborroa kendu du."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a>-k kendu du <a href="%{resource_path}">%{resource_title}</strong> testu kolaboraboaren zirriborroa.
+          email_subject: "%{author_name} %{author_nickname} egileak %{resource_title} zirriborroa kendu du."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname} egileak</a> kendu du <a href="%{resource_path}">%{resource_title}</strong> zirriborro kolaboratiboa.
         creation_enabled:
           email_intro: 'Orain %{participatory_space_title} proposamen berriak sor ditzakezu! Hasi parte hartzen orri honetan:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko estekan.
@@ -621,7 +621,7 @@ eu:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Arazo bat egon da testu kolaboratiboa gordetzen.
+            error: Arazoak izan dira zirriborro kolaboratiboa argitaratzean.
             irreversible_action_modal:
               body: Zirriborroa proposamen gisa argitaratu ondoren, jada ez da editagarria izango. Proposamenak ez du beste egile edo ekarpenik onartuko.
               cancel: Utzi
@@ -629,15 +629,15 @@ eu:
               title: Hurrengo ekintza atzeraezina da
             success: Proposamen gisa argitaratutako ziriborro kolaboratiboa.
           withdraw:
-            error: Arazoak izan dira lankidetza zirriborroa ixtean.
+            error: Arazoak izan dira zirriborro kolaboratiboa ixtean.
             irreversible_action_modal:
               body: Zirriborroa itxi ondoren, ezin izango da berriro editatu. Zirriborroak ez du onartuko beste egile edo ekarpenik.
               cancel: Utzi
-              ok: Kendu lankidetza zirriborroa
+              ok: Kendu zirriborro kolaboratiboa
               title: Hurrengo ekintza atzeraezina da
             success: Kolaborazio zirriborroa zuzen kendu da.
         create:
-          error: Arazo bat izan da lankidetza-zirriborroak sortzean.
+          error: Arazo bat izan da zirriborro kolaboratiboak sortzean.
           success: Zirriborro kolaboratiboa sortu da.
         edit:
           attachment_legend: "(Aukerakoa) Gehitu fitxategi bat"
@@ -665,7 +665,7 @@ eu:
           unfold: Zabaldu
         index:
           count:
-            one: "%{count} lankidetza zirriborroa"
+            one: "Zirriborro kolaboratibo %{count}"
             other: "%{count} zirriborro kolaboratibo"
         name: Zirriborro kolaboratzaileak
         new:
@@ -712,12 +712,12 @@ eu:
           published: Argitaratuta
           withdrawn: Kendu
         update:
-          error: Arazo bat egon da testu kolaboratiboa gordetzen.
+          error: Arazo bat egon da zirriborro kolaboratiboa gordetzen.
           success: Ziriboro kolaboratiboa ondo eguneratu da.
         wizard_aside:
           back_from_collaborative_draft: Itzuli zirriborro kolaboratzaileetara
         wizard_header:
-          title: Sortu zure lankidetza zirriborroa
+          title: Sortu zure zirriborro kolaboratiboa
       content_blocks:
         highlighted_proposals:
           name: Proposamenak
@@ -797,7 +797,7 @@ eu:
           click_here: Ikusi proposamen guztiak
           collaborative_drafts_list: Sartu elkarlanerako zirriborroetan
           count:
-            one: "%{count} proposamen"
+            one: "Proposamen %{count}"
             other: "%{count} proposamen"
           new_proposal: Beste proposamen bat
           see_all: Ikusi proposamen guztiak
@@ -841,7 +841,7 @@ eu:
             one: eta pertsona %{count} gehiago
             other: eta %{count} pertsona gehiago
           link_to_collaborative_draft_help_text: Proposamen hau ziriborro kolaboratibo baten emaitza da. Berrikusi historia
-          link_to_collaborative_draft_text: Ikusi testu kolaboratiboaren ziriborroa
+          link_to_collaborative_draft_text: Ikusi zirriborro kolaboratiboaren testua
           link_to_promoted_emendation_help_text: Proposamen hau zuzenketa batetik dator
           link_to_promoted_emendation_text: Ikusi baztertutako zuzeketa.
           link_to_proposal_from_emendation_help_text: Hau baztertutako zuzenketa bat da
