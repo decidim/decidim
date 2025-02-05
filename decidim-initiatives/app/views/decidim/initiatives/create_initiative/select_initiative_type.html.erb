@@ -13,39 +13,23 @@
 <div class="initiatives__selection" id="select-initiative-type">
   <%= decidim_form_for(@form, url: select_initiative_type_create_initiative_index_path, method: :put, html: { id: "new_initiative_form", class: "form-defaults " }) do |f| %>
     <% initiative_types_each do |type| %>
-      <% if allowed_to?(:create, :initiative, { initiative_type: type }) %>
-        <%= render layout: "decidim/application/radio_accordion",
-                   locals: {
-                     open_accordion: false,
-                     panel_id: type.id,
-                     title: translated_attribute(type.title),
-                     input_radio_name: "initiative[type_id]",
-                     input_radio_value: type.id,
-                     disabled: false
-                   } do %>
-          <p>
-            <%= decidim_sanitize_admin(translated_attribute(type.description)) %>
-          </p>
+      <% is_allowed = allowed_to?(:create, :initiative, { initiative_type: type }) %>
 
-          <p>
-            <%= link_to t("consult_existing_initiatives", scope: "decidim.initiatives.create_initiative.select_initiative_type"),
-                        initiatives_path(filter: { with_any_type: type.id }), target: "_blank" %>
-          </p>
-        <% end %>
-      <% else %>
-        <%= render layout: "decidim/application/radio_accordion",
-                   locals: {
-                     open_accordion: false,
-                     panel_id: type.id,
-                     title: translated_attribute(type.title),
-                     input_radio_name: "initiative[type_id]",
-                     input_radio_value: type.id,
-                     disabled: true
-                   } do %>
-          <p>
-            <%= decidim_sanitize_admin(translated_attribute(type.description)) %>
-          </p>
+      <%= render layout: "decidim/application/radio_accordion",
+                 locals: {
+                   panel_id: type.id,
+                   title: translated_attribute(type.title),
+                   input_radio_name: "initiative[type_id]",
+                   input_radio_value: type.id,
+                   show_more_text: t("show_more", scope: "decidim.initiatives.create_initiative.select_initiative_type"),
+                   show_less_text: t("show_less", scope: "decidim.initiatives.create_initiative.select_initiative_type"),
+                   disabled: !is_allowed
+                 } do %>
+        <p>
+          <%= decidim_sanitize_admin(translated_attribute(type.description)) %>
+        </p>
 
+        <% if !is_allowed %>
           <p>
             <%= action_authorized_link_to(
                 :create,
@@ -59,12 +43,12 @@
               <%= t("verification_required", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
             <% end %>
           </p>
-
-          <p>
-            <%= link_to t("consult_existing_initiatives", scope: "decidim.initiatives.create_initiative.select_initiative_type"),
-                        initiatives_path(filter: { with_any_type: type.id }), target: "_blank" %>
-          </p>
         <% end %>
+
+        <p>
+          <%= link_to t("consult_existing_initiatives", scope: "decidim.initiatives.create_initiative.select_initiative_type"),
+                      initiatives_path(filter: { with_any_type: type.id }), target: "_blank" %>
+        </p>
       <% end %>
     <% end %>
 

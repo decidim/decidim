@@ -400,10 +400,9 @@ en:
         previous_form:
           back: Back
         promotal_committee:
-          individual_help_text: This kind of initiative requires a Promoting Commission consisting of at least %{committee_size} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
+          individual_help_text: Your initiative has been created and is saved as a draft. Now you need to add people to the Promoter Committee.
           invite_link_title: Link to invite people
-          more_information: More information
-          promoters_committee_help: You need %{committee_size} members of the promoters committee to start, you have %{committee_members_count}/%{committee_size}.
+          promoters_committee_help: Before sending your initiative for technical validation, you need to add %{committee_members_left} more members to the promoter committee, you have <strong>%{committee_members_count}/%{committee_size}</strong>.
           promoters_committee_help_2: Remember that for your initiative to be published you must complete the required information and send it to technical validation for review by an administrator.
           promoters_committee_title: Promoters Committee
           return_initiatives: Return to initiatives
@@ -417,10 +416,14 @@ en:
           new: Create a new initiative
           select: I want to promote this initiative
           select_initiative_type_help: "<p>Initiatives are a means by which the participants can intervene so that the organization can undertake actions in defence of the general interest. Which initiative do you want to launch?</p>"
+          show_less: Show less
+          show_more: Show more
           subtitle: What initiative do you want to promote?
           verification_required: Verify your account to promote this initiative
         share_committee_link:
-          invite_to_committee_help: Link to invite people that will be part of the promoter committee
+          invite_to_committee_help: Link to invite people that will be part of the Promotion Commission.
+          invite_to_committee_help_2: This type of citizen initiative requires a promoter committee composed of at least %{committee_size} members (certifiers). You must share the following link with the other people who are part of this initiative. When your contacts receive this link, they will have to follow the indicated steps.
+          more_information: More information
       edit:
         accept: Accept the initiative
         back: Back
