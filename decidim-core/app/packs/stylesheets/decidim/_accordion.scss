@@ -43,41 +43,35 @@
 }
 
 .radio-accordion {
-  @apply border-b border-gray-3;
+  @apply border-b border-gray-3 mb-6;
 
   &-title {
     @apply font-semibold text-xl inline-block text-secondary;
   }
 
   &-divider {
-    @apply flex items-center justify-between items-end w-full;
+    @apply flex items-center items-end w-full;
   }
 
   &-radio {
     @apply mr-4;
   }
 
-  &-divider-button {
-    @apply flex items-center justify-between items-end w-full py-5;
-
-    svg {
-      @apply inline-block w-6 h-6 fill-secondary;
-    }
-
-    &[aria-expanded="true"] {
-      svg {
-        @apply rotate-180 transition-transform;
-      }
-    }
-  }
-
-  &-section {
-    @apply pb-8 text-md;
+  &-section.content-block__description[data-component="accordion"] {
+    @apply pb-4 mb-4 text-md;
 
     padding-left: 1.85rem;
 
     ul {
       @apply mb-0;
+    }
+
+    > [id*=panel][aria-hidden="true"] {
+      @apply max-h-24;
+    }
+
+    button[aria-expanded="false"] {
+      @apply mt-0;
     }
   }
 }

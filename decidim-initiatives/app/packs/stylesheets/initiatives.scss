@@ -90,7 +90,7 @@
   }
 
   &__form__committee {
-    @apply flex items-center px-4 py-2 border border-gray outline outline-1 outline-transparent rounded bg-background-2 focus:outline-2 focus:outline-secondary w-full;
+    @apply flex items-center px-4 py-2 border border-gray outline outline-1 outline-transparent rounded bg-background-2 focus:outline-2 focus:outline-secondary w-full mt-4;
 
     span {
       @apply text-black font-normal;

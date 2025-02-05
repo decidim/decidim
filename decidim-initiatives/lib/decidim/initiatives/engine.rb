@@ -22,6 +22,7 @@ module Decidim
 
         resources :create_initiative do
           collection do
+            get :load_initiative_draft
             get :select_initiative_type
             put :select_initiative_type, to: "create_initiative#store_initiative_type"
             get :fill_data

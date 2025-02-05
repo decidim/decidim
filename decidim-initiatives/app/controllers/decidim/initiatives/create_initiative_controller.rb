@@ -31,6 +31,18 @@ module Decidim
                     only: [:fill_data, :store_data, :promotal_committee, :finish]
       before_action :ensure_initiative_exists, only: [:promotal_committee, :finish]
 
+      def load_initiative_draft
+        session[:initiative_id] = params[:initiative_id]
+
+        if current_initiative.state == "validating"
+          redirect_to finish_create_initiative_index_path
+        elsif current_initiative.state == "created"
+          redirect_to promotal_committee_create_initiative_index_path
+        else
+          redirect_to initiatives_path
+        end
+      end
+
       def select_initiative_type
         @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).from_params(params)
 
@@ -125,18 +137,23 @@ module Decidim
       end
 
       def current_initiative
-        @current_initiative ||= Initiative.where(organization: current_organization).find_by(id: session[:initiative_id] || nil)
+        @current_initiative ||= Initiative.where(organization: current_organization, author: current_user).find_by(id: session[:initiative_id] || nil)
+      end
+
+      def initiative_types
+        @initiative_types ||= InitiativesType.where(organization: current_organization)
       end
 
       def initiative_type
-        @initiative_type ||= InitiativesType.where(organization: current_organization).find_by(id: initiative_type_id)
+        @initiative_type ||= initiative_types.find_by(id: initiative_type_id)
       end
 
       def promotal_committee_required?
-        return false if initiative_type.blank?
-        return false unless initiative_type.promoting_committee_enabled?
-
-        minimum_committee_members.positive?
+        if initiative_type.present?
+          initiative_type.promoting_committee_enabled? && minimum_committee_members.positive?
+        else
+          initiative_types.all?(&:promoting_committee_enabled?)
+        end
       end
 
       def minimum_committee_members

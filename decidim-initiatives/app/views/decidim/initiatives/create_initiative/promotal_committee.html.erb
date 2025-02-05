@@ -1,7 +1,6 @@
 <% add_decidim_page_title(t("new", scope: "decidim.initiatives.create_initiative.select_initiative_type")) %>
 <% announcement_body = capture do %>
-  <%= t ".individual_help_text", committee_size: current_initiative.minimum_committee_members %>
-  <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank", class: "button button__sm button__text-secondary block text-left" %>
+  <%= t ".individual_help_text" %>
 <% end %>
 
 <%= cell("decidim/announcement", { body: announcement_body }, callout_class: "secondary") %>
@@ -14,7 +13,9 @@
 
 <div class="block">
   <span class="help-text mb-4">
-    <%= t(".promoters_committee_help", committee_size: minimum_committee_members, committee_members_count: promoters_committee_members.count) %>
+    <%= t(".promoters_committee_help", committee_members_left: minimum_committee_members - promoters_committee_members.count,
+                                       committee_members_count: promoters_committee_members.count,
+                                       committee_size: minimum_committee_members).html_safe %>
   </span>
 </div>
 

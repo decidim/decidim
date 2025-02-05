@@ -1,5 +1,5 @@
-<div class="radio-accordion" data-component="accordion" id="radio-accordion-<%= panel_id %>">
-  <div class="radio-accordion-divider">
+<div class="radio-accordion" id="radio-accordion-<%= panel_id %>">
+  <label class="radio-accordion-divider">
     <input
       class="radio-accordion-radio reset-defaults"
       type="radio"
@@ -7,15 +7,25 @@
       value="<%= input_radio_value %>"
       <%= disabled ? "disabled" : "" %>
       <%= disabled ? "aria-disabled='true'" : "" %>>
-    <button class="radio-accordion-divider-button" data-open="<%= open_accordion ||= false %>" data-controls="panel-title--<%= panel_id %>" type="button">
-      <h2 class="radio-accordion-title" id="title">
-        <%= title %>
-      </h2>
-      <%= icon "arrow-down-s-line" %>
-    </button>
-  </div>
+    <h2 class="radio-accordion-title" id="title">
+      <%= title %>
+    </h2>
+  </label>
 
-  <div id="panel-title--<%= panel_id %>" class="radio-accordion-section editor-content" aria-hidden="true">
-    <%= yield %>
+  <div data-component="accordion" class="radio-accordion-section content-block__description editor-content">
+    <div id="panel-title--<%= panel_id %>" aria-hidden="true">
+      <%= yield %>
+    </div>
+
+    <button class="button button__sm button__text-secondary mt-6" data-controls="panel-title--<%= panel_id %>" aria-expanded="false">
+      <span>
+        <%= show_more_text %>
+      </span>
+      <%= icon "arrow-down-s-line" %>
+      <span>
+        <%= show_less_text %>
+      </span>
+      <%= icon "arrow-up-s-line" %>
+    </button>
   </div>
 </div>
