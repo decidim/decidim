@@ -294,7 +294,7 @@ eu:
         promote_help_text: Zuzenketa hau sustatu eta %{model_name} independiente gisa argitara dezakezu.
       amendments:
         title:
-          one: "%{count} zuzenketa"
+          one: "Zuzenketa bat"
           other: "%{count} zuzenketa"
       compare_draft:
         continue: Jarraitu
@@ -456,7 +456,7 @@ eu:
         subject: '%{organization_name} k zure kontua blokeatu du'
     collapsible_list:
       hidden_elements_count:
-        one: eta %{count} gehiago
+        one: eta bat gehiago
         other: eta %{count} gehiago
       see_less: "(ikusi gutxiago)"
     components:
@@ -863,13 +863,13 @@ eu:
       value: Balioa
     followers:
       followers_count:
-        one: "%{count} jarraitzaile"
-        other: "%{count} jarraitzaileak"
+        one: "Jarraitzaile %{count}"
+        other: "%{count} jarraitzaile"
       no_followers: Ez da jarraitzailerik oraindik.
     following:
       following_count:
-        one: "%{count} jarraitzaile"
-        other: "%{count} jarraitzaile"
+        one: "batek jarraitzaitzen du"
+        other: "%{count}k jarraitzen du"
       no_followings: Oraindik ez du inor edo ezer jarraitzen.
       non_public_followings: Jarraitutako baliabide batzuk ez dira publikoak.
     follows:
@@ -1736,7 +1736,7 @@ eu:
         log_in_with_provider: 'Hasi honekin: %{provider}'
         sign_up: Eman izena
       minimum_password_length:
-        one: "(%{count} karaktere gutxienez)"
+        one: "(karaktere bat gutxienez)"
         other: "(Gutxienez%{count} karaktere)"
     unlocks:
       new:
@@ -1859,7 +1859,7 @@ eu:
     correct_errors: Akatsak daude galdetegian, mesedez, zuzendu jarraitu ahal izateko.
     length_validator:
       minimum:
-        one: Gutxienez %{count} karaktere
+        one: Gutxienez karaktere bat
         other: Gutxienez %{count} karaktere
     required: Nahitaezkoa da
     required_explanation: "Derrigorrezko eremuak * batez daude markatuta"
