@@ -376,7 +376,7 @@ eu:
             available_slots_help: Utzi 0 mugak mugagabea badaude.
             registrations_count:
               one: Izen-emate 1 egon da.
-              other: Dena den, %{count} matrikulazioak.
+              other: Dena den, %{count} izen-emateak.
             slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: % {url}'
         content_blocks:
           highlighted_conferences:
@@ -524,7 +524,7 @@ eu:
         details: Xehetasunak
         introduction: Sarrera
         objectives: Helburuak
-        related_assemblies: Lotutako Batzarrak
+        related_assemblies: Lotutako batzarrak
         related_participatory_processes: Lotutako parte-hartze prozesuak
     events:
       conferences:
