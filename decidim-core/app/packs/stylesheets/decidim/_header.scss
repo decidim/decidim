@@ -334,10 +334,6 @@ header {
       &__dropdown-trigger {
         @apply flex items-center justify-between text-white;
 
-        span {
-          @apply flex flex-wrap md:flex-nowrap gap-x-2.5 overflow-hidden text-white;
-        }
-
         svg {
           @apply w-6 h-6 fill-current;
         }
