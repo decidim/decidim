@@ -67,7 +67,7 @@ eu:
         publish_answers:
           index:
             answers:
-              one: "%{count} erantzun"
+              one: "Erantzun bat"
               other: "%{count} erantzun"
             description: |-
               Galderen erantzunak argitaratzean, jendaurrean ikusgai jarriko dituzu.
@@ -131,7 +131,7 @@ eu:
           success: Inkesta ondo bete da.
         count:
           surveys_count:
-            one: "%{count} inkesta"
+            one: "Inkesta bat"
             other: "%{count} inkesta"
         filters:
           all: Guztiak
