@@ -8,12 +8,12 @@ module Decidim
 
       field :pages, Decidim::Pages::PageType.connection_type, null: true, connection: true
 
-      def pages
-        Page.where(component: object).includes(:component)
-      end
-
       field :page, Decidim::Pages::PageType, null: true do
         argument :id, GraphQL::Types::ID, required: true
+      end
+
+      def pages
+        Page.where(component: object).includes(:component)
       end
 
       def page(**args)

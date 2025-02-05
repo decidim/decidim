@@ -6,6 +6,7 @@ module Decidim
       implements Decidim::Core::TaxonomizableInterface
       implements Decidim::Comments::CommentableInterface
       implements Decidim::Core::AuthorableInterface
+      implements Decidim::Core::TimestampsInterface
 
       description "A debate"
 
@@ -16,8 +17,6 @@ module Decidim
       field :start_time, Decidim::Core::DateTimeType, "The start time for this debate", null: true
       field :end_time, Decidim::Core::DateTimeType, "The end time for this debate", null: true
       field :image, GraphQL::Types::String, "The image of this debate", null: true
-      field :created_at, Decidim::Core::DateTimeType, "When this debate was created", null: true
-      field :updated_at, Decidim::Core::DateTimeType, "When this debate was updated", null: true
       field :information_updates, Decidim::Core::TranslatedFieldType, "The information updates for this debate", null: true
       field :reference, GraphQL::Types::String, "The reference for this debate", null: true
 

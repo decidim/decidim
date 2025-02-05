@@ -94,7 +94,7 @@ describe "Decidim::Api::QueryType" do
       "comments" => [],
       "commentsHaveAlignment" => result.comments_have_alignment?,
       "commentsHaveVotes" => result.comments_have_votes?,
-      "createdAt" => result.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "createdAt" => result.created_at.to_time.iso8601,
       "description" => { "translation" => result.description[locale] },
       "endDate" => result.end_date.to_s,
       "externalId" => result.external_id,
@@ -105,30 +105,30 @@ describe "Decidim::Api::QueryType" do
       "reference" => result.reference,
       "startDate" => result.start_date.to_s,
       "status" => {
-        "createdAt" => result.status.created_at.to_date.to_s,
+        "createdAt" => result.status.created_at.to_time.iso8601,
         "description" => { "translation" => result.status.description[locale] },
         "id" => result.status.id.to_s,
         "key" => result.status.key,
         "name" => { "translation" => result.status.name[locale] },
         "progress" => result.status.progress,
         "results" => [{ "id" => result.id.to_s }],
-        "updatedAt" => result.status.updated_at.to_date.to_s
+        "updatedAt" => result.status.updated_at.to_time.iso8601
       },
       "timelineEntries" => [
         {
-          "createdAt" => result.timeline_entries.first.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+          "createdAt" => result.timeline_entries.first.created_at.to_time.iso8601,
           "title" => { "translation" => result.timeline_entries.first.title[locale] },
           "description" => { "translation" => result.timeline_entries.first.description[locale] },
           "entryDate" => result.timeline_entries.first.entry_date.to_s,
           "id" => result.timeline_entries.first.id.to_s,
           "result" => { "id" => result.id.to_s },
-          "updatedAt" => result.timeline_entries.first.updated_at.iso8601.to_s.gsub("Z", "+00:00")
+          "updatedAt" => result.timeline_entries.first.updated_at.to_time.iso8601
         }
       ],
       "title" => { "translation" => result.title[locale] },
       "totalCommentsCount" => result.comments_count,
       "type" => "Decidim::Accountability::Result",
-      "updatedAt" => result.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "updatedAt" => result.updated_at.to_time.iso8601,
       "userAllowedToComment" => result.user_allowed_to_comment?(current_user),
       "weight" => result.weight.to_i
     }

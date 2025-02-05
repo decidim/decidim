@@ -41,11 +41,9 @@ module Decidim
       end
 
       def can_create_post
-        Decidim.module_installed?("initiatives") &&
-          current_component&.participatory_space.is_a?(Decidim::Initiative) &&
-          initiative_authorship? &&
-          current_component&.participatory_space&.published? &&
-          current_component&.published?
+        current_component&.participatory_space&.published? &&
+          current_component&.published? &&
+          (creation_enabled_for_participants? || initiative_authorship?)
       end
 
       def can_manage_post
@@ -73,6 +71,11 @@ module Decidim
         space_admins.include?(user)
       end
 
+      def creation_enabled_for_participants?
+        component_settings&.creation_enabled_for_participants? &&
+          current_component&.participatory_space&.can_participate?(user)
+      end
+
       def space_admins
         participatory_space = current_component&.participatory_space
 
@@ -90,7 +93,11 @@ module Decidim
       end
 
       def initiative_authorship?
-        current_component&.participatory_space&.has_authorship?(user)
+        return false unless user
+
+        Decidim.module_installed?("initiatives") &&
+          current_component&.participatory_space.is_a?(Decidim::Initiative) &&
+          current_component&.participatory_space&.has_authorship?(user)
       end
     end
   end

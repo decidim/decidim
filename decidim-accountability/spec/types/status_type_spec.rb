@@ -46,7 +46,7 @@ module Decidim
         let(:query) { "{ createdAt }" }
 
         it "returns the createdAt" do
-          expect(response["createdAt"]).to eq(model.created_at.to_date.iso8601)
+          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
         end
       end
 
@@ -54,7 +54,7 @@ module Decidim
         let(:query) { "{ updatedAt }" }
 
         it "returns the updatedAt" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_date.iso8601)
+          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
         end
       end
 

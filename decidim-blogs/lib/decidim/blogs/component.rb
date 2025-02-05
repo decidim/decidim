@@ -23,6 +23,7 @@ Decidim.register_component(:blogs) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: true
+    settings.attribute :creation_enabled_for_participants, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
