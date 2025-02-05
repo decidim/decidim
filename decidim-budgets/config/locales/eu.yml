@@ -179,7 +179,7 @@ eu:
           more_than_one: ezabatu zure babesa hemen %{name} eta hasi berriro
           only_one: ezabatu zure babesa eta hasi berriro.
         count:
-          one: "%{count} aurrekontu"
+          one: "Aurrekontu %{count}"
           other: "%{count} aurrekontu"
         empty: Oraindik ez dago aurrekonturik
         finished_message: Amaitu duzu bozkatzeko prozesua. Eskerrik asko parte hartzeagatik!
