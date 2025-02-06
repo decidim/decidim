@@ -7,7 +7,7 @@ module Decidim
       description "An accountability component of a participatory space."
 
       field :result, Decidim::Accountability::ResultType, "A single Result object", null: true do
-        argument :id, ID, required: true
+        argument :id, ID, "The id of the Result requested", required: true
       end
       field :results, Decidim::Accountability::ResultType.connection_type, "A collection of Results", null: true, connection: true
 

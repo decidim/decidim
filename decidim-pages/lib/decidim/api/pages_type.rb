@@ -7,7 +7,7 @@ module Decidim
       description "A pages component of a participatory space."
 
       field :page, Decidim::Pages::PageType, "A single Page object", null: true do
-        argument :id, GraphQL::Types::ID, required: true
+        argument :id, GraphQL::Types::ID, "The id of the Page requested", required: true
       end
       field :pages, Decidim::Pages::PageType.connection_type, "A collection of Pages", null: true, connection: true
 
