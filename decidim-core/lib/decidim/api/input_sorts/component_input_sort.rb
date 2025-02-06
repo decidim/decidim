@@ -14,19 +14,21 @@ module Decidim
                description: "Sort by name of the component, alphabetically, valid values are ASC or DESC",
                required: false,
                as: :name,
-               prepare: lambda { |direction, ctx|
-                          lambda { |locale|
-                            locale = ctx[:current_organization].default_locale if locale.blank?
-                            field = Arel::Nodes::InfixOperation.new("->", Arel.sql("name"), Arel::Nodes.build_quoted(locale))
-                            Arel::Nodes::InfixOperation.new("", field, Arel.sql(direction.upcase))
-                          }
-                        }
+               prepare: :prepared_name
       argument :type,
                type: GraphQL::Types::String,
                description: "Sort by type of component, alphabetically, valid values are ASC or DESC",
                required: false,
                as: :manifest_name
       argument :weight, GraphQL::Types::String, "Sort by weight (order in the website), valid values are ASC or DESC", required: false
+
+      def self.prepared_name(direction, ctx)
+        lambda do |locale|
+          locale = ctx[:current_organization].default_locale if locale.blank?
+          field = Arel::Nodes::InfixOperation.new("->", Arel.sql("name"), Arel::Nodes.build_quoted(locale))
+          Arel::Nodes::InfixOperation.new("", field, Arel.sql(direction.upcase))
+        end
+      end
     end
   end
 end
