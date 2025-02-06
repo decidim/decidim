@@ -5,7 +5,7 @@ class CreateDecidimCollaborativeTextsDocuments < ActiveRecord::Migration[7.0]
     create_table :decidim_collaborative_texts_documents do |t|
       t.integer :decidim_component_id
       t.string :title
-      t.timestamp :published_at
+      t.timestamp :published_at, index: true
       t.boolean :accepting_suggestions
 
       t.timestamps

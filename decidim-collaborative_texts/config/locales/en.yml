@@ -22,6 +22,12 @@ en:
           new:
             create: Create
             title: Create Collaborative Texts
+          publish:
+            invalid: There was a problem publishing this collaborative test.
+            success: Collaborative test successfully published.
+          unpublish:
+            invalid: There was a problem unpublishing this collaborative test.
+            success: Collaborative test successfully unpublished.
           update:
             invalid: There was a problem updating the collaborative test.
             success: Collaborative test successfully updated.

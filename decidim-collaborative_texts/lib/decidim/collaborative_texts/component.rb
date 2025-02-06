@@ -27,7 +27,9 @@ Decidim.register_component(:collaborative_texts) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
-  # component.register_resource...
+  component.register_resource(:collaborative_text) do |resource|
+    resource.model_class_name = "Decidim::CollaborativeTexts::Document"
+  end
 
   # component.exports ...
 

@@ -10,10 +10,13 @@ module Decidim
       include Decidim::SoftDeletable
       include Decidim::HasComponent
       include Decidim::TranslatableAttributes
+      include Decidim::Publicable
 
       component_manifest_name "collaborative_texts"
 
       validates :title, presence: true
+
+      scope :published, -> { where.not(published_at: nil) }
 
       # Returns the presenter for this collaborative text, to be used in the views.
       # Required by ResourceRenderer.

@@ -4,6 +4,8 @@ module Decidim
   module CollaborativeTexts
     module Admin
       class CollaborativeTextsController < Admin::ApplicationController
+        include Decidim::CollaborativeTexts::Admin::Filterable
+
         helper_method :collaborative_texts, :collaborative_text
         def index; end
 
@@ -47,14 +49,46 @@ module Decidim
           end
         end
 
+        def publish
+          Decidim::CollaborativeTexts::Admin::PublishCollaborativeText.call(collaborative_text, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("collaborative_texts.publish.success", scope: "decidim.collaborative_texts.admin")
+              redirect_to collaborative_texts_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("collaborative_texts.publish.invalid", scope: "decidim.collaborative_texts.admin")
+              render action: "index"
+            end
+          end
+        end
+
+        def unpublish
+          Decidim::CollaborativeTexts::Admin::UnpublishCollaborativeText.call(collaborative_text, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("collaborative_texts.unpublish.success", scope: "decidim.collaborative_texts.admin")
+              redirect_to collaborative_texts_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("collaborative_texts.unpublish.invalid", scope: "decidim.collaborative_texts.admin")
+              render action: "index"
+            end
+          end
+        end
+
         private
 
         def collaborative_texts
-          @collaborative_texts ||= Document.where(component: current_component)
+          @collaborative_texts ||= filtered_collection
         end
 
         def collaborative_text
-          @collaborative_text ||= collaborative_texts.find(params[:id])
+          @collaborative_text ||= collection.find(params[:id])
+        end
+
+        def collection
+          @collection ||= Document.where(component: current_component)
         end
       end
     end
