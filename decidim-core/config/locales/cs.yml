@@ -284,6 +284,9 @@ cs:
       impersonation_log:
         manage: "%{user_name} spravoval %{resource_name}, protože %{reason}"
       moderation:
+        bulk_hide: "%{user_name} skryl %{reported_count} zdroje"
+        bulk_unhide: "%{user_name} zrušil skrytí %{reported_count} zdrojů"
+        bulk_unreport: "%{user_name} zrušil nahlášení %{reported_count} zdrojů"
         hide: "%{user_name} skryje zdroj typu %{resource_type} v prostoru %{space_name}"
         unreport: "%{user_name} unreported zdroj typu %{resource_type} ve %{space_name} prostoru"
       newsletter:
@@ -332,6 +335,7 @@ cs:
         update: "%{user_name} aktualizoval taxonomii %{resource_name}"
         update_with_parent: "%{user_name} aktualizoval taxonomii %{resource_name} uvnitř taxonomie %{parent_taxonomy}"
       taxonomy_filter:
+        create: "%{user_name} vytvořil filtr %{resource_name}"
         create_with_filter_info: '%{user_name} vytvořil filtr %{resource_name} na základě taxonomie "%{taxonomy_name}" s %{filter_items_count} položkami'
         delete: "%{user_name} odstranil filtr %{resource_name}"
         delete_with_filter_info: '%{user_name} odstranil filtr %{resource_name} na základě taxonomie "%{taxonomy_name}" s položkami %{filter_items_count}'
@@ -339,6 +343,9 @@ cs:
         update_with_filter_info: '%{user_name} aktualizoval filtr %{resource_name} na základě taxonomie "%{taxonomy_name}" s %{filter_items_count} položkami'
       user:
         block: "%{user_name} zablokoval uživatele %{resource_name}"
+        bulk_block: "%{user_name} zablokoval %{blocked_count} uživatelů"
+        bulk_ignore: "%{user_name} zrušil nahlášení %{unreported_users_count} uživatelů"
+        bulk_unblock: "%{user_name} odblokoval %{unblocked_count} uživatelů"
         invite: "%{user_name} pozval uživatele %{resource_name} s rolí: %{role}"
         officialize: "%{user_name} oficializoval uživatele %{resource_name}"
         promote: "%{user_name} vytvořil %{resource_name}"
@@ -349,6 +356,9 @@ cs:
         unofficialize: "%{user_name} neoficiální uživatel %{resource_name}"
       user_group:
         block: "%{user_name} zablokoval uživatelskou skupinu %{resource_name}"
+        bulk_block: "%{user_name} zablokoval %{blocked_count} uživatelů"
+        bulk_ignore: "%{user_name} zrušil nahlášení %{unreported_users_count} uživatelů"
+        bulk_unblock: "%{user_name} odblokoval %{unblocked_count} uživatelů"
         reject: "%{user_name} odmítl ověření skupiny %{resource_name} uživatelů"
         unblock: "%{user_name} odblokoval uživatelskou skupinu %{resource_name}"
         verify: "%{user_name} ověřilo %{resource_name} uživatelskou skupinu"
@@ -482,10 +492,12 @@ cs:
         explanation: Ukázkový pracovní postup autorizace
         name: Pracovní postup autorizace
       ephemeral_dummy_authorization_handler:
+        explanation: Ověřte tím, že uvedete číslo dokumentu končící "X".
         fields:
           allowed_postal_codes: Povolené PSČ (oddělené čárkami)
           document_number: Číslo dokumentu
           postal_code: PSČ
+        name: Přechodný příklad autorizace
       errors:
         duplicate_authorization: Uživatel má již oprávnění se stejnými daty. Administrátor vás bude kontaktovat k ověření vašich údajů.
       expired_at: Platnost vypršela v %{timestamp}
@@ -752,7 +764,17 @@ cs:
       export:
         ready: Připraven
       help:
+        core:
+          description: Toto jsou soubory s osobními údaji, příspěvky a aktivitou uživatele %{user_name}
+          title: Stáhněte si své datové soubory z %{organization}
+        follows:
+          created_at: Datum a čas, kdy bylo vytvořeno sledování
+          followable: Zdroj nebo prostor, který je sledován
+          id: Jedinečný identifikátor tohoto sledování
+          updated_at: Datum a čas, kdy bylo sledování naposledy aktualizováno
         identities:
+          created_at: Datum a čas vytvoření identity
+          id: Jedinečný identifikátor této identity
           provider: Poskytovatel této identity
           uid: Jedinečný identifikátor této identity
           updated_at: Datum a čas, kdy byla totožnost naposledy aktualizována
@@ -771,6 +793,10 @@ cs:
           resource_type: Typ zdroje, ke kterému se oznámení vztahuje
           updated_at: Datum a čas, kdy bylo oznámení naposledy aktualizováno
         participatory_space_private_users:
+          created_at: Datum a čas, kdy byl tento soukromý uživatel vytvořen
+          id: Jedinečný identifikátor tohoto soukromého uživatele
+          privatable_to: Do kterého prostoru patří tento soukromý uživatel
+          published: Zda je tento soukromý uživatel zveřejněn, nebo ne
           role: Role, kterou má tento soukromý uživatel
           updated_at: Datum a čas poslední aktualizace tohoto soukromého uživatele
         reports:
