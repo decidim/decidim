@@ -10,8 +10,8 @@ module Decidim
         argument :id, GraphQL::Types::ID, "The ID of the proposal", required: true
       end
       field :proposals, type: Decidim::Proposals::ProposalType.connection_type, description: "List all proposals", connection: true, null: true do
-        argument :order, Decidim::Proposals::ProposalInputSort, "Provides several methods to order the results", required: false
         argument :filter, Decidim::Proposals::ProposalInputFilter, "Provides several methods to filter the results", required: false
+        argument :order, Decidim::Proposals::ProposalInputSort, "Provides several methods to order the results", required: false
       end
 
       def proposals(filter: {}, order: {})

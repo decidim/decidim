@@ -19,14 +19,5 @@ GraphQL/ObjectDescription:
     - "spec/**/*"
     - "test/**/*"
 
-GraphQL/OrderedArguments:
-  Enabled: false
-
 GraphQL/ExtractType:
-  Enabled: false
-
-GraphQL/PrepareMethod:
-  Enabled: false
-
-GraphQL/ArgumentDescription:
   Enabled: false
