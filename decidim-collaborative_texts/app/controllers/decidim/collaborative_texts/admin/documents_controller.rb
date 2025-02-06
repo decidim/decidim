@@ -6,6 +6,7 @@ module Decidim
       class DocumentsController < Admin::ApplicationController
         include Decidim::CollaborativeTexts::Admin::Filterable
         include Decidim::CollaborativeTexts::Admin::Concerns::HasSettings
+        include Decidim::Admin::HasTrashableResources
 
         helper_method :documents, :document
 
@@ -80,6 +81,18 @@ module Decidim
         end
 
         private
+
+        def trashable_deleted_resource_type
+          :document
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= collection.with_deleted.find_by(id: params[:id])
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection = filtered_collection.only_deleted.deleted_at_desc
+        end
 
         def documents
           @documents ||= filtered_collection

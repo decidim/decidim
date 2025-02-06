@@ -25,6 +25,8 @@ en:
           new:
             create: Create
             title: Create Collaborative Texts
+          manage_trash:
+            title: Deleted documents
           publish:
             invalid: There was a problem publishing this document.
             success: Document successfully published.
