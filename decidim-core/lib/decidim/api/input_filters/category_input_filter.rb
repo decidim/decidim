@@ -10,9 +10,11 @@ module Decidim
                type: [ID, { null: true }],
                description: "Returns the sub-categories for the given parent category or top-level categories if set to `null`",
                required: false,
-               prepare: lambda { |parent_id, _ctx|
-                          { parent_id: }
-                        }
+               prepare: :prepare_parent_id
+
+      def self.prepare_parent_id(parent_id, _ctx)
+        { parent_id: }
+      end
     end
   end
 end
