@@ -1800,7 +1800,7 @@ en:
       flag_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close
-        description: Is this content inappropriate?
+        description: Are you sure you want to report this participant?
         does_not_belong: Engaging in illegal activity, making suicide threats, sharing personal information, or any other behavior that does not belong on %{organization_name}.
         hide: Hide
         hide_content: Hide this content
