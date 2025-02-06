@@ -106,7 +106,7 @@ eu:
             split_to_proposal_text: '%{link} proposamena sortu da'
       decidim/proposals/collaborative_draft:
         one: Zirriborro kolaboratzailea
-        other: Zirriborro kolaboratzaileak
+        other: Zirriborro kolaboratiboak
       decidim/proposals/proposal:
         one: Proposamena
         other: Proposamenak
@@ -741,7 +741,7 @@ eu:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Arazo bat egon da testu kolaboratiboa gordetzen.
+            error: Arazoak izan dira zirriborro kolaboratiboa argitaratzean.
             irreversible_action_modal:
               body: Zirriborroa proposamen gisa argitaratu ondoren, jada ez da editagarria izango. Proposamenak ez du beste egile edo ekarpenik onartuko.
               cancel: Utzi
@@ -757,7 +757,7 @@ eu:
               title: Hurrengo ekintza atzeraezina da
             success: Kolaborazio zirriborroa zuzen kendu da.
         create:
-          error: Arazo bat izan da lankidetza-zirriborroak sortzean.
+          error: Arazo bat izan da zirriborro kolaboratiboak sortzean.
           success: Zirriborro kolaboratiboa sortu da.
         edit:
           attachment_legend: Gehitu dokumentu bat edo irudi bat
@@ -829,7 +829,7 @@ eu:
           published: Argitaratuta
           withdrawn: Kendu
         update:
-          error: Arazo bat egon da testu kolaboratiboa gordetzen.
+          error: Arazo bat egon da zirriborro kolaboratiboa gordetzen.
           success: Ziriboro kolaboratiboa ondo eguneratu da.
         wizard_aside:
           back_from_collaborative_draft: Itzuli zirriborro kolaboratzaileetara
