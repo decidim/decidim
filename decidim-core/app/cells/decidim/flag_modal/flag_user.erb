@@ -6,7 +6,7 @@
     </button>
   </div>
   <% if model.reported_by? current_user %>
-  raise
+<%  raise "flag_user" %>
     <p><%= t("decidim.shared.flag_user_modal.already_reported") %></p>
   <% else %>
     <p><%= t("decidim.shared.flag_user_modal.description") %></p>
