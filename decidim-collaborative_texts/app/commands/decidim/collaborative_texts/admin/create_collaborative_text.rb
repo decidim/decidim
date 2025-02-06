@@ -6,7 +6,7 @@ module Decidim
       # This command is executed when the user creates a CollaborativeText from the admin
       # panel.
       class CreateCollaborativeText < Decidim::Commands::CreateResource
-        fetch_form_attributes :title, :component
+        fetch_form_attributes :title
 
         private
 
