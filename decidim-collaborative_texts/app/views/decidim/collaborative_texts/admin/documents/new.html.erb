@@ -6,7 +6,7 @@
 </div>
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
-  <%= decidim_form_for(@form, url: collaborative_texts_path, method: :post, html: { class: "form form-defaults new_collaborative_text" })  do |f| %>
+  <%= decidim_form_for(@form, url: documents_path, method: :post, html: { class: "form form-defaults new_document" })  do |f| %>
     <%= render partial: "form", object: f, locals: { title: t(".title") } %>
     <div class="item__edit-sticky">
       <div class="item__edit-sticky-container">

@@ -3,17 +3,17 @@ en:
   decidim:
     collaborative_texts:
       actions:
-        confirm_delete_collaborative_text: Are you sure you want to delete this collaborative text?
-        deleted_collaborative_text_info: Deleted collaborative text can be restored from the trash.
+        confirm_delete_document: Are you sure you want to delete this document?
+        deleted_document_info: Deleted document can be restored from the trash.
         edit: Edit
         new: New text
         title: Actions
-        view_deleted_collaborative_texts: View deleted collaborative texts
+        view_deleted_documents: View deleted documents
       admin:
-        collaborative_texts:
+        documents:
           create:
-            invalid: There was a problem creating the collaborative test.
-            success: Collaborative test successfully created.
+            invalid: There was a problem creating the document.
+            success: Document successfully created.
           edit:
             title: Edit Collaborative Texts
             update: Update
@@ -23,14 +23,23 @@ en:
             create: Create
             title: Create Collaborative Texts
           publish:
-            invalid: There was a problem publishing this collaborative test.
-            success: Collaborative test successfully published.
+            invalid: There was a problem publishing this document.
+            success: Document successfully published.
           unpublish:
-            invalid: There was a problem unpublishing this collaborative test.
-            success: Collaborative test successfully unpublished.
+            invalid: There was a problem unpublishing this document.
+            success: Document successfully unpublished.
           update:
-            invalid: There was a problem updating the collaborative test.
-            success: Collaborative test successfully updated.
+            invalid: There was a problem updating the document.
+            success: Document successfully updated.
+        settings:
+          form:
+            allow_suggestions: Allow participants to make suggestions
+          index:
+            title: Configure Collaborative Texts
+            update: Update
+          update:
+            invalid: There was a problem updating the document.
+            success: Document successfully updated.
       models:
         collaborative_text:
           fields:

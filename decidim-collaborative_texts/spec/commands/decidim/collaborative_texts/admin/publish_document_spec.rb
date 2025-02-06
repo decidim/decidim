@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module CollaborativeTexts
     module Admin
-      describe PublishCollaborativeText, type: :command do
+      describe PublishDocument, type: :command do
         let(:organization) { create(:organization, available_locales: [:en]) }
         let(:collaborative_text_document) { create(:collaborative_text_document, published_at: nil, title: "This is and original document test title") }
         let(:current_user) { create(:user, :admin, :confirmed, organization:) }

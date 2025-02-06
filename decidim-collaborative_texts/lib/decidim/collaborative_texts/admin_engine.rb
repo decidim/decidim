@@ -10,7 +10,8 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :collaborative_texts, except: [:destroy] do
+        resources :documents, except: [:destroy], controller: "documents" do
+          resources :settings, only: [:index, :create], controller: "settings"
           member do
             patch :soft_delete
             patch :restore
@@ -21,7 +22,7 @@ module Decidim
           get :manage_trash, on: :collection
         end
 
-        root to: "collaborative_texts#index"
+        root to: "documents#index"
       end
 
       def load_seed

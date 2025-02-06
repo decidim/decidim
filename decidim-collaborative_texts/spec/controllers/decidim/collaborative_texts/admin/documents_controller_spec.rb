@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module CollaborativeTexts
     module Admin
-      describe CollaborativeTextsController do
+      describe DocumentsController do
         routes { Decidim::CollaborativeTexts::AdminEngine.routes }
 
         let(:user) { create(:user, :admin, :confirmed, organization:) }

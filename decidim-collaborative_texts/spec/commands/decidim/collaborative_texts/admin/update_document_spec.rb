@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::CollaborativeTexts
-  describe Admin::UpdateCollaborativeText do
+  describe Admin::UpdateDocument do
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :admin, :confirmed, organization:) }
     let(:participatory_process) { create(:participatory_process, organization:) }

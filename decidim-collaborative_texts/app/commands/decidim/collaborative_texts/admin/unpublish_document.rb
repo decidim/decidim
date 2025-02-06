@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # This command is executed when the user unpublishes an
       # existing collaborative text.
-      class UnpublishCollaborativeText < Decidim::Command
+      class UnpublishDocument < Decidim::Command
         # Public: Initializes the command.
         #
         # collaborative text - Decidim::CollaborativeTexts::Document
@@ -18,7 +18,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we could not proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call

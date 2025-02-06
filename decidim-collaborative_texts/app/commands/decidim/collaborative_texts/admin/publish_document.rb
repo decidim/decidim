@@ -5,45 +5,45 @@ module Decidim
     module Admin
       # This command is executed when the user publishes an
       # existing collaborative text.
-      class PublishCollaborativeText < Decidim::Command
+      class PublishDocument < Decidim::Command
         # Public: Initializes the command.
         #
         # collaborative text - Decidim::CollaborativeTexts::Document
         # current_user - the user performing the action
-        def initialize(collaborative_text, current_user)
-          @collaborative_text = collaborative_text
+        def initialize(document, current_user)
+          @document = document
           @current_user = current_user
         end
 
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we could not proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
-          return broadcast(:invalid) if collaborative_text.published?
+          return broadcast(:invalid) if document.published?
 
           transaction do
-            publish_collaborative_text
+            publish_document
           end
 
-          broadcast(:ok, collaborative_text)
+          broadcast(:ok, document)
         end
 
         private
 
-        attr_reader :collaborative_text, :current_user
+        attr_reader :document, :current_user
 
-        def publish_collaborative_text
+        def publish_document
           @collaborative_text = Decidim.traceability.perform_action!(
             :publish,
-            collaborative_text,
+            document,
             current_user,
             visibility: "all"
           ) do
-            collaborative_text.publish!
-            collaborative_text
+            document.publish!
+            document
           end
         end
       end
