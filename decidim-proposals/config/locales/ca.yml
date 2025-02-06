@@ -1003,7 +1003,7 @@ ca:
           maximum_votes_reached: S'ha arribat al límit de suports
           no_votes_remaining: No hi ha suports restants
           vote: Donar suport
-          votes_blocked: Recollida de suports desactivada
+          votes_blocked: Donar suport
         votes_count:
           count:
             one: Suport
