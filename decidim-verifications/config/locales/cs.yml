@@ -1,6 +1,8 @@
 cs:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: Příloha ověření
       config:
         available_methods: Dostupné metody
         offline: Offline
@@ -74,6 +76,12 @@ cs:
             - Příklad autorizačního handleru, takže vývojáři mohou pochopit, jak funguje jednoduché ověření.
             - Zaměřuje se na vývojáře, aby mohli pochopit, jak zavést svůj vlastní ověřovací systém.
             - Ověřte tím, že zavedete číslo dokumentu končící "X".
+        ephemeral_dummy_authorization_handler:
+          help:
+            - Příklad přechodné obsluhy autorizace, aby vývojáři pochopili, jak funguje jednoduché ověřování.
+            - Zaměřuje se na vývojáře, aby mohli pochopit, jak zavést svůj vlastní ověřovací systém.
+            - Je to kopie Příkladu autorizace.
+            - Ověřte tím, že uvedete číslo dokumentu končící "X".
         id_documents:
           help:
             - Uživatelé vyplňují údaje o své totožnosti a nahrávají kopii svého dokladu.
@@ -135,6 +143,7 @@ cs:
         new:
           authorize: Poslat
           authorize_with: Ověřte pomocí %{authorizer}
+          tos_agreement: Ověřením Vaší identity přijímáte %{link}.
         onboarding_pending:
           completed_verifications: Byli jste úspěšně autorizováni, nyní můžete %{action} v %{resource_name}
           granted_verifications: Udělená ověření
