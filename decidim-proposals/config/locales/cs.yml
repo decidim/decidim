@@ -1027,7 +1027,6 @@ cs:
           maximum_votes_reached: Limit hlasů dosažen
           no_votes_remaining: Žádné zbývající hlasy
           vote: Hlasovat
-          votes_blocked: Hlasování zakázáno
         votes_count:
           count:
             one: Hlas
