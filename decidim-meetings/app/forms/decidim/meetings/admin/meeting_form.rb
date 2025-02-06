@@ -20,11 +20,14 @@ module Decidim
         attribute :comments_start_time, Decidim::Attributes::TimeWithZone
         attribute :comments_end_time, Decidim::Attributes::TimeWithZone
         attribute :iframe_access_level, String
+        attribute :reminder_enabled, Boolean, default: true
+        attribute :send_reminders_before_hours, Integer
 
         translatable_attribute :title, String
         translatable_attribute :description, Decidim::Attributes::RichText
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
+        translatable_attribute :reminder_message, Decidim::Attributes::RichText
 
         validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.iframe_embed_types }
         validates :title, translatable_presence: true
@@ -37,6 +40,8 @@ module Decidim
         validates :comments_start_time, date: { before: :comments_end_time, allow_blank: true, if: proc { |obj| obj.comments_end_time.present? } }
         validates :comments_end_time, date: { after: :comments_start_time, allow_blank: true, if: proc { |obj| obj.comments_start_time.present? } }
         validates :clean_type_of_meeting, presence: true
+        validates :send_reminders_before_hours, presence: true, numericality: { only_integer: true, greater_than: 0 }, if: :reminder_enabled
+        validates :reminder_message, presence: true, translatable_presence: true, if: :reminder_enabled
         validates(
           :iframe_access_level,
           inclusion: { in: Decidim::Meetings::Meeting.iframe_access_levels },
