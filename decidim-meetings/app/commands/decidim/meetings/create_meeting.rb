@@ -64,7 +64,7 @@ module Decidim
         checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(resource)
 
         Decidim::Meetings::UpcomingMeetingNotificationJob
-          .set(wait_until: resource.start_time - Decidim::Meetings.upcoming_meeting_notification)
+          .set(wait_until: resource.start_time - form.send_reminders_before_hours.hours)
           .perform_later(resource.id, checksum)
       end
 

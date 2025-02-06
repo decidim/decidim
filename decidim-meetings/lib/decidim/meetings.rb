@@ -25,11 +25,6 @@ module Decidim
       Decidim.const_defined?("Proposals")
     end
 
-    # Public Setting that defines the interval when the upcoming meeting will be sent
-    config_accessor :upcoming_meeting_notification do
-      2.days
-    end
-
     config_accessor :embeddable_services do
       %w(www.youtube.com www.twitch.tv meet.jit.si)
     end

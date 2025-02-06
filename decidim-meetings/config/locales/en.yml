@@ -230,10 +230,10 @@ en:
           email_subject: The "%{resource_title}" meeting has enabled registrations.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has enabled registrations.
         upcoming_meeting:
-          email_intro: The "%{resource_title}" meeting will start in less than 48h.
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" meeting will start in less than 48h.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
+          email_intro: The "%{resource_title}" meeting will start in less than %{reminders_before_hours}h.
+          email_outro: You have received this notification because you are following the %{resource_title} meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting will start in less than %{reminders_before_hours}h.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than %{reminders_before_hours}h.
     forms:
       meetings:
         attendees_count_help_text: Do not forget to include the total number of attendees at your meeting, whether in person, online or hybrid.

@@ -105,7 +105,7 @@ module Decidim
         checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(meeting)
 
         Decidim::Meetings::UpcomingMeetingNotificationJob
-          .set(wait_until: meeting.start_time - Decidim::Meetings.upcoming_meeting_notification)
+          .set(wait_until: meeting.start_time - meeting.send_reminders_before_hours.hours)
           .perform_later(meeting.id, checksum)
       end
     end
