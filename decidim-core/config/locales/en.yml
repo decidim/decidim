@@ -1800,14 +1800,14 @@ en:
       flag_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close
-        description: Are you sure you want to report this participant?
-        does_not_belong: Engaging in illegal activity, making suicide threats, sharing personal information, or any other behavior that does not belong on %{organization_name}.
+        description: Is this content inappropriate?
+        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.
         hide: Hide
         hide_content: Hide this content
-        offensive: Using racist, sexist, offensive language, personal attacks, death threats, suicide requests, or any form of hate speech.
+        offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         reason: Reason
         report: Report
-        spam: Engaging in clickbait, advertising, scams, or using script bots.
+        spam: Contains clickbait, advertising, scams or script bots.
         title: Report inappropriate content
       flag_user_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
