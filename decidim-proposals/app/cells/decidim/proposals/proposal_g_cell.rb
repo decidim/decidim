@@ -24,6 +24,18 @@ module Decidim
         "decidim/proposals/proposal_metadata"
       end
 
+      def proposal_vote_cell
+        "decidim/proposals/proposal_vote"
+      end
+
+      def has_actions?
+        model.component.current_settings.votes_enabled? && !model.draft? && !model.withdrawn? && !model.rejected?
+      end
+
+      def proposal_votes_count
+        model.proposal_votes_count || 0
+      end
+
       def metadata_cell_instance
         @metadata_cell_instance ||= cell("decidim/proposals/proposal_metadata", model)
       end
