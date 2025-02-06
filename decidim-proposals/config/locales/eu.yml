@@ -1003,7 +1003,7 @@ eu:
           maximum_votes_reached: Babesen muga lortua
           no_votes_remaining: Ez da gelditzen babesik
           vote: Alde egin
-          votes_blocked: Babesa ematea desaktibatu da
+          votes_blocked: Eman botoa
         votes_count:
           count:
             one: Babesa
