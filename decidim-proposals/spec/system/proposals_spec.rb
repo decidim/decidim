@@ -496,7 +496,9 @@ describe "Proposals" do
       it "lists the proposals ordered by votes by default" do
         expect(page).to have_css("a", text: "Most voted")
         expect(page).to have_css("[id^='proposals__proposal']:first-child", text: most_voted_proposal_title)
-        expect(page).to have_css("[id^='proposals__proposal']:last-child", text: less_voted_proposal_title)
+        within all("[id^='proposals__proposal']").last do
+          expect(page).to have_content(less_voted_proposal_title)
+        end
       end
     end
 
@@ -569,9 +571,23 @@ describe "Proposals" do
       let!(:votes) { create_list(:proposal_vote, 3, proposal: most_voted_proposal) }
       let!(:less_voted_proposal) { create(:proposal, component:) }
 
-      it_behaves_like "ordering proposals by selected option", "Most voted" do
-        let(:first_proposal) { most_voted_proposal }
-        let(:last_proposal) { less_voted_proposal }
+      before do
+        visit_component
+        within ".order-by" do
+          expect(page).to have_css("div.order-by a", text: "Random")
+          page.find("a", text: "Random").click
+          click_on("Most voted")
+        end
+      end
+
+      it "ordering proposals by selected option", "Most voted" do
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(most_voted_proposal.title))
+        sleep 3
+        within all("[id^='proposals__proposal']").last do
+          within ".card__list-content" do
+            expect(page).to have_css("div.card__list-title", text: translated(less_voted_proposal.title))
+          end
+        end
       end
     end
 

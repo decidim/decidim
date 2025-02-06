@@ -19,6 +19,14 @@ module Decidim
         "decidim/proposals/proposal_metadata"
       end
 
+      def has_actions?
+        model.component.current_settings.votes_enabled? && !model.draft? && !model.withdrawn? && !model.rejected?
+      end
+
+      def proposal_vote_cell
+        "decidim/proposals/proposal_vote"
+      end
+
       def cache_hash
         @cache_hash ||= begin
           hash = []
