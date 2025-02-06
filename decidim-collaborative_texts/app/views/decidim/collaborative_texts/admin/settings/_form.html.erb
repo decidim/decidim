@@ -1,6 +1,9 @@
 <div class="form__wrapper">
   <div class="card">
     <div class="card-section">
+
+      <%= form.hidden_field :title, value: @form.title, required: true %>
+
       <div class="row column">
         <%= form.check_box :accepting_suggestions, label: t(".allow_suggestions") %>
       </div>

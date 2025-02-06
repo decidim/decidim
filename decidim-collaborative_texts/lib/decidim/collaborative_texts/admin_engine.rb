@@ -11,12 +11,13 @@ module Decidim
 
       routes do
         resources :documents, except: [:destroy], controller: "documents" do
-          resources :settings, only: [:index, :create], controller: "settings"
           member do
             patch :soft_delete
             patch :restore
             put :publish
             put :unpublish
+            get :edit_settings
+            patch :update_settings
           end
 
           get :manage_trash, on: :collection

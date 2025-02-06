@@ -5,6 +5,7 @@ module Decidim
     module Admin
       class DocumentsController < Admin::ApplicationController
         include Decidim::CollaborativeTexts::Admin::Filterable
+        include Decidim::CollaborativeTexts::Admin::Concerns::HasSettings
 
         helper_method :documents, :document
 

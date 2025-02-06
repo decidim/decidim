@@ -17,6 +17,9 @@ en:
           edit:
             title: Edit Collaborative Texts
             update: Update
+          edit_settings:
+            title: Configure Collaborative Texts
+            update: Update
           index:
             title: Collaborative texts
           new:
@@ -31,15 +34,12 @@ en:
           update:
             invalid: There was a problem updating the document.
             success: Document successfully updated.
+          update_settings:
+            invalid: There was a problem updating the document.
+            success: Document successfully updated.
         settings:
           form:
             allow_suggestions: Allow participants to make suggestions
-          index:
-            title: Configure Collaborative Texts
-            update: Update
-          update:
-            invalid: There was a problem updating the document.
-            success: Document successfully updated.
       models:
         collaborative_text:
           fields:
