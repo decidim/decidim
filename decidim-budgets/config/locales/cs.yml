@@ -227,6 +227,11 @@ cs:
         status:
           continue_voting: Pokračovat v hlasování
           download_vote: Stáhněte si svůj hlas
+          pending_to_vote_budgets:
+            one: Můžete hlasovat v jiném rozpočtu
+            few: Můžete hlasovat v jiných rozpočtech
+            many: Můžete hlasovat v jiných rozpočtech
+            other: Můžete hlasovat v jiných rozpočtech
           share_vote: Sdílejte svůj hlas
           title: Váš hlas byl úspěšně přijat
           view_votes:
@@ -234,6 +239,11 @@ cs:
             few: Zobrazit hlasy
             many: Zobrazit hlasů
             other: Zobrazit hlasů
+          votes_count:
+            one: Váš hlas pro %{budget_name} již byl zaregistrován.
+            few: Vaše %{count} hlasy pro %{budget_name} již byly zaregistrovány.
+            many: Vašich %{count} hlasů pro %{budget_name} již bylo zaregistrováno.
+            other: Vašich %{count} hlasů pro %{budget_name} již bylo zaregistrováno.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Vybrané projekty jsou:'
