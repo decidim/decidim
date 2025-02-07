@@ -18,22 +18,11 @@ module Decidim
 
       scope :published, -> { where.not(published_at: nil) }
 
-      # Returns the presenter for this collaborative text, to be used in the views.
-      # Required by ResourceRenderer.
-      def presenter
-        Decidim::CollaborativeTexts::CollaborativeTextPresenter.new(self)
-      end
-
       # Public: Checks if the collaborative text has been published or not.
       #
       # Returns Boolean.
       def published?
         published_at.present?
-      end
-
-      # Public: Overrides the `reported_content_url` Reportable concern method.
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
       end
     end
   end
