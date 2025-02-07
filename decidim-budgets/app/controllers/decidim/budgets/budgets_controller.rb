@@ -8,7 +8,6 @@ module Decidim
 
       include Decidim::Budgets::Orderable
       include Decidim::TranslatableAttributes
-      include Decidim::Paginable
 
       def index
         redirect_to budget_projects_path(current_workflow.single) if current_workflow.single?
