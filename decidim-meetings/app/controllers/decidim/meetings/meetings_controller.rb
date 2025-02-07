@@ -48,6 +48,7 @@ module Decidim
         return unless search.result.blank? && params.dig("filter", "date") != %w(past)
 
         @past_meetings ||= search_with(filter_params.merge(with_any_date: %w(past)))
+
         if @past_meetings.result.present?
           params[:filter] ||= {}
           params[:filter][:with_any_date] = %w(past)
