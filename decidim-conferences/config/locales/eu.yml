@@ -77,7 +77,7 @@ eu:
   activerecord:
     models:
       decidim/conference:
-        one: Hitzaldia
+        one: Jardunaldia
         other: Jardunaldiak
       decidim/conference_speaker:
         one: Hitzaldi hizlaria
@@ -166,9 +166,9 @@ eu:
           title: Informazio orokorra
         index:
           published: Argitaratua
-          unpublished: Despublikatua
+          unpublished: Argitaragabea
         manage_trash:
-          title: Ezabatutako hitzaldiak
+          title: Ezabatutako jardunaldiak
         new:
           create: Sortu
           title: Jardunaldia
@@ -197,7 +197,7 @@ eu:
           error: Arazo bat egon da multimedia link hau eguneratzean.
           success: Hedabideen lotura zuzen eguneratua.
       menu:
-        conferences: Hitzaldiak
+        conferences: Jardunaldiak
         conferences_submenu:
           attachment_collections: Karpetak
           attachment_files: Fitxategiak
@@ -292,7 +292,7 @@ eu:
           success: Izen-emate mota jardunaldi honetatik atera da.
         edit:
           title: Eguneratu erregistro mota
-          update: eguneratzearen
+          update: Eguneratu
         new:
           create: Sortu
           title: Beste erregistro mota bat
@@ -486,7 +486,7 @@ eu:
         highlighted_conferences:
           name: Nabarmendutako jardunaldiak
       index:
-        title: Hitzaldiak
+        title: Jardunaldiak
       last_activity:
         new_conference: 'Beste jardunaldi bat:'
       mailer:
@@ -504,7 +504,7 @@ eu:
       models:
         conference_invite:
           fields:
-            email: Emaila
+            email: Helbide elektronkoa
             name: izena
             registration_type: Izen-emate mota
             sent_at: Bidalitakoan
