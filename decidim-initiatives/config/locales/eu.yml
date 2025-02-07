@@ -12,7 +12,7 @@ eu:
         hashtag: Traola
         offline_votes: Aurrez aurreko sinadurak
         offline_votes_for_scope: Aurrez aurreko sinadurak %{scope_name} rentzat
-        scope_id: Esparrua
+        scope_id: Eremua
         signature_end_date: Sinadurak biltzeko epearen amaiera
         signature_start_date: Sinadurak biltzeko epearen hasiera
         signature_type: Sinadura bilketa mota
@@ -31,7 +31,7 @@ eu:
         area_enabled: Gaitu egileak beren ekimenerako arloa aukeratzeko
         attachments_enabled: Gaitu eranskinak
         banner_image: Banner irudia
-        child_scope_threshold_enabled: Gaitu sinadurak azpiesparruaren arabera
+        child_scope_threshold_enabled: Gaitu sinadurak eremuaren arabera
         collect_user_extra_fields: Bildu parte-hartzailearen datu pertsonalak sinaduraz
         comments_enabled: Gaitu iruzkinak
         custom_signature_end_date_enabled: Gaitu egileak sinadurak biltzeko aldiaren amaiera aukeratzeko
@@ -40,14 +40,14 @@ eu:
         extra_fields_legal_information: Datu pertsonalen bilketari buruzko informazio juridikoa
         minimum_committee_members: Batzorde kideen gutxienekoa
         online_signature_enabled: Sinadura elektronikoa gaituta
-        only_global_scope_enabled: Baimendu soilik esparru globaleko ekimenak sortzea
+        only_global_scope_enabled: Eremu globaleko ekimenak soilik sortzeko aukera ematea
         promoting_committee_enabled: Gaitu batzorde sustatzailea
         signature_type: Sinadura mota
         title: Izenburua
         undo_online_signatures_enabled: Gaitu parte-hartzaileak beren sinadura digitalak desegiteko
         validate_sms_code_on_votes: Gehitu SMS kodea baliozkotzeko urratsa sinadura prozesura
       initiatives_type_scope:
-        decidim_scopes_id: Esparruak
+        decidim_scopes_id: Eremuak
         supports_required: Babesak behar dira
       initiatives_vote:
         date_of_birth: Jaioteguna
@@ -81,7 +81,7 @@ eu:
     admin:
       actions:
         new_initiative_type: Beste ekimen mota bat
-        new_initiative_type_scope: Beste ekimen mota bat esparruan
+        new_initiative_type_scope: Beste ekimen mota bat eremuan
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -107,7 +107,7 @@ eu:
         attachments: Eranskinak
         committee_members: Batzorde-kideak
         information: informazioa
-        initiative_type_scopes: Ekimen motaren esparruak
+        initiative_type_scopes: Ekimen motaren eremuak
         initiatives: Ekimenak
         initiatives_menu:
           see_initiative: Ikusi ekimena 
@@ -127,9 +127,9 @@ eu:
             title: Ekimenak
         initiatives_type_scope:
           fields:
-            scope: Esparrua
+            scope: Eremua
             supports_required: Sinadurak behar dira
-          name: Ekimen motaren esparrua
+          name: Ekimen motaren eremua
         initiatives_types:
           fields:
             created_at: Sortutako at
@@ -147,7 +147,7 @@ eu:
             initiative_title: Ekimenaren izenburua
             name_and_surname: Izena eta abizena
             postal_code: Posta kodea
-            scope: Esparrua
+            scope: Eremua
             time_and_date: Denbora eta data
             timestamp: Denbora-marka
       titles:
@@ -256,7 +256,7 @@ eu:
             reject: Ukatu ekimena
             send_to_technical_validation: Bidali baliozkotzeko teknikora
             success: Ekimena baliozkotze teknikora bidali da.
-            update: eguneratzearen
+            update: Eguneratu
           form:
             settings: Ezarpenak
             title: Informazio orokorra
@@ -291,18 +291,18 @@ eu:
         initiatives_type_scopes:
           create:
             error: Errore bat egon da.
-            success: Beste esparru bat sortu da emandako ekimen motarako.
+            success: Beste eremu bat sortu da emandako ekimen motarako.
           destroy:
-            success: Esparrua behar bezala kendu da.
+            success: Eremua behar bezala kendu da.
           edit:
-            title: Editatu ekimen motaren esparrua
+            title: Editatu ekimen motaren eremua
             update: Eguneratu
           new:
             create: Sortu
-            title: Sortu ekimen motaren esparrua
+            title: Ekimen-eremu mota sortu
           update:
             error: Errore bat egon da.
-            success: Esparrua zuzen eguneratu da.
+            success: Eremua zuzen eguneratu da.
         initiatives_types:
           create:
             error: Errore bat egon da.
@@ -310,14 +310,14 @@ eu:
           destroy:
             success: Ekimen mota zuzen kendu da.
           edit:
-            update: eguneratzearen
+            update: Eguneratu
           form:
             authorizations: Baimen-doikuntzak
-            child_scope_threshold_enabled_help_html: 'Konfigurazio-ezarpen honek ez ditu onartzen konexiorik gabeko bozketak. Azpiesparruak gaitzen ditu eta esparru bat parte-hartzailearekin lotzen duen baimen-kudeatzaile batekin lan egiten du. Ziurtatu baimen hori hautatu duzula, beherago, baimenen konfigurazioan. Funtziona dezan, esparruak hierarkikoki eratu behar dira: 1 Nagusia - N Txikiak. Konfigurazio honen funtzionamenduari buruzko informazio gehiago, ikusi <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ekimenen administrazioari buruzko dokumentazioa</a>.'
-            only_global_scope_enabled_help_html: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta esparru globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
+            child_scope_threshold_enabled_help_html: 'Konfigurazio-ezarpen honek ez ditu onartzen konexiorik gabeko bozketak. Azpiesparruak gaitzen ditu eta eremu bat parte-hartzailearekin lotzen duen baimen-kudeatzaile batekin lan egiten du. Ziurtatu baimen hori hautatu duzula, beherago, baimenen konfigurazioan. Funtziona dezan, esparruak hierarkikoki eratu behar dira: 1 Nagusia - N Txikiak. Konfigurazio honen funtzionamenduari buruzko informazio gehiago, ikusi <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ekimenen administrazioari buruzko dokumentazioa</a>.'
+            only_global_scope_enabled_help_html: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta eremu globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
             options: Aukerak
           initiative_type_scopes:
-            title: Ekimen motaren esparruak
+            title: Ekimen motaren eremuak
           new:
             create: Sortu
             title: Beste ekimen mota bat
@@ -373,7 +373,7 @@ eu:
           fill_data_help: "<ul> <li>Berrikusi zure ekimenaren edukia. Zure izenburua ulertzen erraza da? Zure ekimenaren helburua argi dago?</li> <li>Sinadura mota aukeratu behar duzu.</li> <li>aurrez aurre, linean edo biak konbinatuta. Zein da ekimenaren eremu geografikoa? </li> </ul>"
           more_information: "(Informazio gehiago)"
           select_area: Hautatu arlo bat
-          select_scope: Hautatu esparrua
+          select_scope: Hautatu eremua
         finish:
           back: Atzera
           back_to_initiatives: Itzuli ekimenetara
@@ -543,7 +543,7 @@ eu:
           confirm: Ekimena bidaliko duzu administratzaile batek berrikus eta argitara dezan. Argitaratu ondoren, ezin izango duzu editatu. Ziur zaude?
           edit: Editatu
           initiative_data: Ekimenaren datuak
-          scope: Esparrua
+          scope: Eremua
           send_to_technical_validation: Bidali baliozkotze teknikora
           send_to_technical_validation_announcement: Dena zuzena bada, egin klik "Bidali baliozkotze teknikora" botoian, administratzaile batek zure ekimena berrikus eta argitara dezan
           signature_collection: Bildutako sinadurak
@@ -595,7 +595,7 @@ eu:
       states:
         accepted: Onartua
         expired: iraungi
-      unavailable_scope: Esparrua ez dago erabilgarri
+      unavailable_scope: Eremua ez dago erabilgarri
       update:
         error: Errore bat egon da.
         success: Ekimena zuzen eguneratu da.
