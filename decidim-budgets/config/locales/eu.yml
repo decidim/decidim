@@ -8,13 +8,13 @@ eu:
         weight: Kokapenaren hurrenkera
       project:
         budget_amount: Aurrekontuaren zenbatekoa
-        description: Descripción
+        description: Deskribapena
         proposal_ids: Honekin lotutako proposamenak
         proposals: Proposamenak
         selected: Ezarpenerako hautatuak
         title: Izenburua
       proposals_import:
-        scope_id: Esparrua
+        scope_id: Eremua
   activerecord:
     models:
       decidim:
@@ -98,7 +98,7 @@ eu:
             actions: Ekintzak
             cancel: Ezeztatu
             change_budget: Aldatu aurrekontua
-            change_selected: Aldatu hautatutako esparrua
+            change_selected: Aldatu hautatutako eremua
             change_taxonomies: Aldatu taxonomiak
             deselect_implementation: Kendu gauzatzekoetatik
             finished_orders: Amaitutako babesak
@@ -190,16 +190,16 @@ eu:
           label: Ordenatu aurrekontuak honen arabera
           lowest_cost: Kosturik txikiena
           random: Ausazko ordena
-        progress: Amaitu bozketa
+        progress: Amaitu babes ematea
         remove_vote: Kendu babesa
         show: Ikusi proiektuak
         vote: Eman babesa
-        voted_budgets: Bozkatutako aurrekontuak
+        voted_budgets: Babestutako aurrekontuak
         voted_on: Babesa eman duzu hemen %{links}.
       creation:
         text: Aurrekontu honi gehitu zaizkio
       last_activity:
-        new_vote_at: 'Beste aurrekontu-bozketa bat hemen:'
+        new_vote_at: Aurrekontuen babes-emate berria
       limit_announcement:
         cant_vote: Ezin duzu babesa eman aurrekontu honetan. <a href="%{landing_path}"> Saiatu beste aurrekontu batean</a>.
         limit_reached: Badituzu babesak aktibo hemen %{links}. Aurrekontu honetan botoa emateko <a href="%{landing_path}">ezabatu behar duzu zure botoa eta berriro hasi</a>.
@@ -257,7 +257,7 @@ eu:
           checked_out:
             description: Jada babesa eman duzu aurrekonturako. Iritzia aldatu baduzu, ezabatu ahal duzu zure babesa.
             title: Aurrekontuen bozketa amaituta
-          vote: Bozkatu aurrekontua
+          vote: Aurrekontuari babesa eman
         count:
           projects_count:
             one: Proiektu bat
@@ -332,7 +332,7 @@ eu:
       budgets:
         actions:
           comment: Egin iruzkina
-          vote: Bozkatu
+          vote: Babesa eman
         name: Aurrekontuak
         settings:
           global:
