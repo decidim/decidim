@@ -21,7 +21,7 @@ eu:
         import_components: Inportatu osagaiak
         import_steps: Inportatu faseak
         local_area: Antolakuntza arloa
-        meta_scope: 'Metadatuak: esparrua'
+        meta_scope: 'Metadatuak: eremua'
         participatory_process_group_id: Prozesu-multzoa
         participatory_process_type_id: Prozesu mota
         participatory_scope: Zer erabaki da
@@ -30,9 +30,9 @@ eu:
         promoted: Nabarmendua
         published_at: Argitaratze-data
         related_process_ids: Elkarrekin lotutako prozesuak
-        scope_id: Esparrua
-        scope_type_max_depth_id: Esparruaren iragazkiaren sakonera
-        scopes_enabled: Esparru gaituak
+        scope_id: Eremua
+        scope_type_max_depth_id: Eremuaren iragazkiaren sakonera
+        scopes_enabled: Eremu gaituak
         short_description: Deskribapen laburra
         slug: URL laburra
         start_date: Hasiera-data
@@ -47,7 +47,7 @@ eu:
         hashtag: Traola
         hero_image: Irudia
         local_area: Antolakuntza arloa
-        meta_scope: Esparruaren metadatuak
+        meta_scope: Eremuaren metadatuak
         participatory_process_ids: Elkarrekin lotutako prozesuak
         participatory_scope: Zer erabakitzen da
         participatory_structure: Nola erabakitzen den
@@ -384,7 +384,7 @@ eu:
         stats:
           name: Jarduera
         title:
-          meta_scope: Esparrua
+          meta_scope: Eremua
           participatory_processes:
             one: Prozesu bat
             other: "Prozesu bat"
@@ -429,7 +429,7 @@ eu:
             metadata: Metadatuak
             other: Beste
             related_processes: Elkarrekin lotutako prozesuak
-            scope_type_max_depth_help: Murriztu esparru-iragazkiaren sakonera; iragazkia esparru orokorretik hautatutakora erakutsiko da.
+            scope_type_max_depth_help: Murriztu eremu-iragazkiaren sakonera; iragazkia eremu orokorretik hautatutakora erakutsiko da.
             select_an_area: Hautatu arlo bat
             select_participatory_process_type: Aukeratu prozesu-mota bat
             select_process_group: Hautatu prozesu-talde bat
@@ -463,7 +463,7 @@ eu:
           data: Prozesuaren datuak
           developer_group: Talde sustatzailea
           local_area: Erakundeko Arloa
-          meta_scope: Esparrua
+          meta_scope: Eremua
           participatory_scope: Zer erabakitzen da?
           participatory_structure: Nola erabakitzen da?
           target: Nork hartzen du parte?
