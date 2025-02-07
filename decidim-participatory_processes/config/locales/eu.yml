@@ -20,7 +20,7 @@ eu:
         import_components: Inportatu osagaiak
         import_steps: Inportatu faseak
         local_area: Antolakuntza arloa
-        meta_scope: 'Metadatuak: esparrua'
+        meta_scope: 'Metadatuak: eremua'
         participatory_process_group_id: Prozesu-multzoa
         participatory_scope: Zer erabaki da
         participatory_structure: Nola erabakitzen da?
@@ -42,7 +42,7 @@ eu:
         hashtag: Traola
         hero_image: Irudia
         local_area: Antolakuntza arloa
-        meta_scope: Esparruaren metadatuak
+        meta_scope: Eremuaren metadatuak
         participatory_process_ids: Elkarrekin lotutako prozesuak
         participatory_scope: Zer erabakitzen da
         participatory_structure: Nola erabakitzen den
@@ -361,17 +361,17 @@ eu:
           hashtag: Prozesuaren traola, X sarerako erabilia
           id: Prozesu honen identifikatzaile bakarra
           local_area: Prozesuaren tokiko arloa. Hau da prozesua garatzen ari den erakundearen arloa.
-          meta_scope: Prozesuaren esparru-metadatuak
+          meta_scope: Prozesuaren eremu-metadatuak
           participatory_process_group: Prozesuaren taldea, baldin badago
           participatory_process_type: Prozesu mota
-          participatory_scope: Prozesuaren parte-hartze esparrua
+          participatory_scope: Prozesuaren parte-hartze eremua
           participatory_structure: Prozesuaren egitura parte-hartzailea. Horrela erabakitzen da prozesua.
           promoted: Prozesua sustatu den ala ez
           published_at: Zein egunetan argitaratu zen espazio hau
           reference: Espazioaren erreferentzia bakarra
           remote_hero_image_url: Prozesuaren irudi nagusiaren URLa
-          scope: Prozesuaren esparrua
-          scopes_enabled: Esparruak gaituta dauden ala ez
+          scope: Prozesuaren eremua
+          scopes_enabled: Eremuak gaituta dauden ala ez
           short_description: Prozesuaren deskribapen laburra
           slug: Batzarraren lerroa (helburuen identifikaziorako erabiltzen da, URLrako)
           start_date: Prozesuaren hasiera-data
@@ -404,7 +404,7 @@ eu:
         stats:
           name: Jarduera
         title:
-          meta_scope: Esparrua
+          meta_scope: Eremua
           participatory_processes:
             one: Prozesu bat
             other: "Prozesu bat"
@@ -482,7 +482,7 @@ eu:
           data: Prozesuaren datuak
           developer_group: Talde sustatzailea
           local_area: Erakundeko Arloa
-          meta_scope: Esparrua
+          meta_scope: Eremua
           participatory_scope: Zer erabakitzen da?
           participatory_structure: Nola erabakitzen da?
           target: Nork hartzen du parte?
