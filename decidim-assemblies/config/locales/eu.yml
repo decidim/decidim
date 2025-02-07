@@ -21,7 +21,7 @@ eu:
         creation_date: Sortze-data
         decidim_area_id: Arloa
         decidim_assemblies_type_id: Batzar mota
-        decidim_scope_id: Esparrua
+        decidim_scope_id: Eremua
         description: Deskribapena
         developer_group: Talde sustatzailea
         document: Dokumentua
@@ -39,7 +39,7 @@ eu:
         internal_organisation: Barneko antolaketa
         is_transparent: Gardena da
         local_area: Antolakuntza Arloa
-        meta_scope: Esparruko metadatuak
+        meta_scope: Eremuko metadatuak
         parent_id: Batzar nagusia
         participatory_processes_ids: Erlazionatutako prozesu parte-hartzaileak
         participatory_scope: Zer erabakitzen den
@@ -48,8 +48,8 @@ eu:
         promoted: Nabarmendua
         published_at: Noiz argitaratua
         purpose_of_action: Ekintzaren xedea
-        scope_id: Esparrua
-        scopes_enabled: Esparru gaituak
+        scope_id: Eremua
+        scopes_enabled: Eremu gaituak
         short_description: Deskribapen laburra
         slug: URL laburra
         special_features: Ezaugarri bereziak
@@ -334,7 +334,7 @@ eu:
           included_at: Barne
           indefinite_duration: Zehaztu gabe
           local_area: Antolakuntza Arloa
-          meta_scope: Esparrua
+          meta_scope: Eremua
           participatory_scope: Zer erabakitzen den
           participatory_structure: Nola erabakitzen den
           target: Nork hartzen du parte?
@@ -368,7 +368,7 @@ eu:
         related_assemblies:
           name: Lotutako batzarrak
       created_by:
-        city_council: Udaletxea
+        city_council: Udala
         others: Beste batzuk
         public: Publikoa
       filter:
@@ -419,8 +419,8 @@ eu:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p><strong>Batzarra </strong> erakunde bateko kideen talde bat da, aldian-aldian biltzen dena erakundearen arlo edo esparru jakin bati buruzko erabakiak hartzeko.</p> <p>Batzarrek bilerak egiten dituzte, batzuk pribatuak eta beste batzuk irekiak. Irekiak badira, parte hartzea posible da (adibidez: bertaratzea edukiera badago, gaiak agendara gehitzea, edo organo honek hartutako proposamenei eta erabakiei buruzko iruzkinak egitea). </p> <p>Adibideak: Batzar nagusia (urtean behin biltzen dena erakundearen ekintza-ildo nagusiak eta bere organo exekutiboak bozketa bidez definitzeko), berdintasun aholku-batzordea (bi hilabetean behin biltzen dena erakundearen genero-harremanak hobetzeko proposamenak egiteko), ebaluazio-batzordea (hilabetean behin biltzen dena prozesu baten jarraipena egiteko) edo berme-organoa (intzidenteak, gehiegikeriak edo erabakiak hartzeko prozedurak hobetzeko proposamenak biltzen dituena) batzordeen adibideak dira. </p>\n"
-          page: "<p><strong>Batzarra</strong> erakunde bateko kideen talde bat da, aldian-aldian biltzen dena erakundearen arlo edo esparru jakin bati buruzko erabakiak hartzeko.</p>\n\n<p>Batzarrek bilerak egiten dituzte, batzuk pribatuak eta beste batzuk irekiak. Irekiak badira, parte hartzea posible da (adibidez: bertaratzea edukiera badago, gaiak agendara gehitzea, edo organo honek hartutako proposamenei eta erabakiei buruzko iruzkinak egitea).</p>\n\n<p>Adibideak: Batzar nagusia (urtean behin biltzen dena erakundearen ekintza-ildo nagusiak eta bere organo exekutiboak bozketa bidez definitzeko), berdintasun aholku-batzordea (bi hilabetean behin biltzen dena erakundearen genero-harremanak hobetzeko proposamenak egiteko), ebaluazio-batzordea (hilabetean behin biltzen dena prozesu baten jarraipena egiteko) edo berme-organoa (intzidenteak, gehiegikeriak edo erabakiak hartzeko prozedurak hobetzeko proposamenak biltzen dituena) batzarren adibideak dira.</p>dira\n"
+          contextual: "<p><strong>Batzarra </strong> erakunde bateko kideen talde bat da, aldian-aldian biltzen dena erakundearen arlo edo esparru jakin bati buruzko erabakiak hartzeko.</p> <p>Batzarrek bilerak egiten dituzte, batzuk pribatuak eta beste batzuk irekiak. Irekiak badira, parte hartzea posible da (adibidez: bertaratzea edukiera badago, gaiak agendara gehitzea, edo organo honek hartutako proposamenei eta erabakiei buruzko iruzkinak egitea). </p> <p>Adibideak: Batzar nagusia (urtean behin biltzen dena erakundearen ekintza-ildo nagusiak eta bere organo exekutiboak bozketa bidez definitzeko), berdintasun aholku-batzordea (bi hilabetean behin biltzen dena erakundearen genero-harremanak hobetzeko proposamenak egiteko), ebaluazio-batzordea (hilabetean behin biltzen dena prozesu baten jarraipena egiteko) edo berme-organoa (gorabeherak, gehiegikeriak edo erabakiak hartzeko prozedurak hobetzeko proposamenak biltzen dituena) batzordeen adibideak dira. </p>\n"
+          page: "<p><strong>Batzarra</strong> erakunde bateko kideen talde bat da, aldian-aldian biltzen dena erakundearen arlo edo esparru jakin bati buruzko erabakiak hartzeko.</p>\n\n<p>Batzarrek bilerak egiten dituzte, batzuk pribatuak eta beste batzuk irekiak. Irekiak badira, parte hartzea posible da (adibidez: bertaratzea edukiera badago, gaiak agendara gehitzea, edo organo honek hartutako proposamenei eta erabakiei buruzko iruzkinak egitea).</p>\n\n<p>Adibideak: Batzar nagusia (urtean behin biltzen dena erakundearen ekintza-ildo nagusiak eta bere organo exekutiboak bozketa bidez definitzeko), berdintasun aholku-batzordea (bi hilabetean behin biltzen dena erakundearen genero-harremanak hobetzeko proposamenak egiteko), ebaluazio-batzordea (hilabetean behin biltzen dena prozesu baten jarraipena egiteko) edo berme-organoa (gorabeherak, gehiegikeriak edo erabakiak hartzeko prozedurak hobetzeko proposamenak biltzen dituena) batzarren adibideak dira.</p>dira\n"
           title: Zer dira batzarrak?
     log:
       value_types:
