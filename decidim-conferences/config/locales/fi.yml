@@ -120,11 +120,13 @@ fi:
         destroy:
           success: Puhujan poisto konferenssista onnistui.
         edit:
+          title: Päivitä konferenssin puhujaa
           update: Päivitä
         index:
           conference_speakers_title: Konferenssin puhujat
         new:
           create: Luo
+          title: Uusi konferenssin puhuja
         publish:
           invalid: Puhujan julkaiseminen epäonnistui.
           success: Konferenssin puhujan julkaiseminen onnistui.
@@ -141,11 +143,13 @@ fi:
         destroy:
           success: Hallintakäyttäjä poisto konferenssista onnistui.
         edit:
+          title: Päivitä konferenssin hallintakäyttäjää
           update: Päivitä
         index:
           conference_admins_title: Konferenssin ylläpitäjät
         new:
           create: Luo
+          title: Uusi konferenssin hallintakäyttäjä
         update:
           error: Konferenssin hallintakäyttäjän päivittäminen epäonnistui.
           success: Konferenssin hallintakäyttäjän päivittäminen onnistui.
@@ -175,13 +179,20 @@ fi:
       media_links:
         create:
           error: Uuden medialinkin luonti epäonnistui.
+          success: Medialinkin luonti onnistui.
+        destroy:
+          success: Medialinkin poisto onnistui.
         edit:
+          title: Päivitä medialinkkiä
           update: Päivitä
+        index:
+          media_links_title: Medialinkit
         new:
           create: Luo
           title: Luo medialinkki
         update:
           error: Medialinkin päivitys epäonnistui.
+          success: Medialinkin päivitys onnistui.
       menu:
         conferences: Konferenssit
         conferences_submenu:
@@ -193,11 +204,15 @@ fi:
           conference_admins: Konferenssin ylläpitäjät
           conference_invites: Kutsut
           conference_speakers: Puhujat
+          diploma: Läsnäolotodistus
           info: Tietoja tästä konferenssista
+          media_links: Medialinkit
           moderations: Moderoinnit
           partners: Yhteistyökumppanit
+          registration_types: Ilmoittautumistyypit
           registrations: Ilmoittautumiset
           see_conference: Näytä konferenssi
+          user_registrations: Käyttäjien ilmoittautumiset
       models:
         conference:
           fields:
@@ -226,6 +241,7 @@ fi:
             date: Päivämäärä
             link: Linkki
             title: Otsikko
+          name: Medialinkki
         partner:
           fields:
             link: Linkki
@@ -251,6 +267,7 @@ fi:
         destroy:
           success: Yhteistyökumppanin poisto tästä konferenssista onnistui.
         edit:
+          title: Päivitä yhteistyökumppania
           update: Päivitä
         new:
           create: Luo
@@ -272,6 +289,7 @@ fi:
         destroy:
           success: Ilmoittautumistyypin poisto onnistui.
         edit:
+          title: Päivitä ilmoittautumistyyppiä
           update: Päivitä
         new:
           create: Luo
@@ -366,6 +384,7 @@ fi:
         diplomas:
           edit:
             save: Tallenna
+            title: Läsnäolotodistus
         invite_join_conference_mailer:
           invite:
             decline: Hylkää kutsu "%{conference_title}"
@@ -385,6 +404,7 @@ fi:
             diploma_html: Löydät konferenssin <a href="%{url}">%{title}</a> läsnäolotodistuksen tämän viestin liitteistä.
           diploma_user:
             attendance_verified_by: Osallistuminen vahvistettu
+            certificate_of_attendance: Läsnäolotodistus
             certificate_of_attendance_description: Tämä todistaa, että <strong>%{user}</strong> on osallistunut konferenssiin <strong>%{title}</strong>, joka pidettiin paikassa <strong>%{location}</strong> ajankohtana <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Konferenssin läsnäolotodistuksien lähetys epäonnistui.
