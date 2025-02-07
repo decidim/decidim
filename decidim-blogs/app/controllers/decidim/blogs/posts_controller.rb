@@ -10,7 +10,9 @@ module Decidim
 
       helper_method :posts, :post, :post_presenter, :paginate_posts, :posts_most_commented, :tabs, :panels
 
-      def index; end
+      def index
+        @posts = paginate_posts
+      end
 
       def show
         raise ActionController::RoutingError, "Not Found" unless post
