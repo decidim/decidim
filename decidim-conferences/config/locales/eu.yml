@@ -23,7 +23,7 @@ eu:
         registration_terms: Erregistro-baldintzak
         registrations_enabled: Izen-emateak gaituta
         scope_id: Esparrua
-        scopes_enabled: Esparruak gaituta
+        scopes_enabled: Eremuak gaituta
         short_description: Deskribapen laburra
         show_statistics: Erakutsi estatistikak
         sign_date: Sinatze-data
@@ -78,7 +78,7 @@ eu:
   activerecord:
     models:
       decidim/conference:
-        one: Hitzaldia
+        one: Jardunaldia
         other: Jardunaldiak
       decidim/conference_speaker:
         one: Hitzaldi hizlaria
@@ -159,7 +159,7 @@ eu:
           title: Informazio orokorra
         index:
           published: Argitaratua
-          unpublished: Despublikatua
+          unpublished: Argitaragabea
         new:
           create: Sortu
           title: Jardunaldia
@@ -188,7 +188,7 @@ eu:
           error: Arazo bat egon da multimedia link hau eguneratzean.
           success: Hedabideen lotura zuzen eguneratua.
       menu:
-        conferences: Hitzaldiak
+        conferences: Jardunaldiak
         conferences_submenu:
           attachment_collections: Karpetak
           attachment_files: Fitxategiak
@@ -284,7 +284,7 @@ eu:
           success: Izen-emate mota jardunaldi honetatik atera da.
         edit:
           title: Eguneratu erregistro mota
-          update: eguneratzearen
+          update: Eguneratu
         new:
           create: Sortu
           title: Beste erregistro mota bat
@@ -473,7 +473,7 @@ eu:
         highlighted_conferences:
           name: Nabarmendutako jardunaldiak
       index:
-        title: Hitzaldiak
+        title: Jardunaldiak
       last_activity:
         new_conference: 'Beste jardunaldi bat:'
       mailer:
@@ -491,7 +491,7 @@ eu:
       models:
         conference_invite:
           fields:
-            email: Emaila
+            email: Helbide elektronkoa
             name: izena
             registration_type: Izen-emate mota
             sent_at: Bidalitakoan
