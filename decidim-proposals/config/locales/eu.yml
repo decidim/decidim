@@ -6,9 +6,9 @@ eu:
         address: Helbidea
         body: Testua
         category_id: Kategoria
-        decidim_scope_id: Esparrua
+        decidim_scope_id: Eremua
         has_address: Helbidea du
-        scope_id: Esparrua
+        scope_id: Eremua
         state: Egoera
         title: Izenburua
         user_group_id: Sortu zirriborro kolaboratiboa
@@ -20,9 +20,9 @@ eu:
         body: Gorputza
         category_id: Kategoria
         decidim_proposals_proposal_state_id: Egoera
-        decidim_scope_id: Esparrua
+        decidim_scope_id: Eremua
         has_address: Helbidea du
-        scope_id: Esparrua
+        scope_id: Eremua
         state: Egoera
         suggested_hashtags: Iradokitako traolak
         title: Titulua
@@ -84,7 +84,7 @@ eu:
               voted: Babesak edo atxikimenduak jaso izana
     models:
       decidim/proposals/admin/update_proposal_category_event: Proposamen kategoria aldatu da
-      decidim/proposals/admin/update_proposal_scope_event: Proposamen-esparrua aldatuta
+      decidim/proposals/admin/update_proposal_scope_event: Proposamen-eremua aldatuta
       decidim/proposals/creation_enabled_event: Proposamenaren sorrera gaituta
       decidim/proposals/endorsing_enabled_event: Onartutako proposamena gaituta
       decidim/proposals/proposal_mentioned_event: Proposamena aipatua
@@ -118,7 +118,7 @@ eu:
           proposal_state_id_eq:
             label: Egoera
           scope_id_eq:
-            label: Esparrua
+            label: Eremua
           state_eq:
             label: Egoera
             values:
@@ -191,8 +191,8 @@ eu:
             proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
             proposal_wizard_step_2_help_text: Proposamen laguntzailea "Argitaratu" urrats-laguntza testua
             resources_permissions_enabled: Ekintza-baimenak proposamen bakoitzerako ezarri daitezke
-            scope_id: Esparrua
-            scopes_enabled: Esparruak gaituta
+            scope_id: Eremua
+            scopes_enabled: Eremuak gaituta
             threshold_per_proposal: Proposamen bakoitzeko atalasea
             vote_limit: Babesen muga partaide bakoitzeko
           step:
@@ -316,7 +316,7 @@ eu:
         proposal_update_scope:
           email_intro: 'Administratzaile batek %{resource_title} zure proposamenaren eremua eguneratu du, orri honetan egiazta dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea zarelako.
-          email_subject: '%{resource_title} proposamenaren esparrua eguneratu egin da'
+          email_subject: '%{resource_title} proposamenaren eremua eguneratu egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren eparrua administratzaile batek eguneratu du.
         voting_enabled:
           email_intro: 'Proposamenak bozkatu ditzakezu hemen: % {participatory_space_title} Hasi orri honetan parte hartzen:'
@@ -413,7 +413,7 @@ eu:
               <ul>
               <li><b>Izenburua/en:</b>Ingelesari buruzko titulua. Zure plataformaren hizkuntzaren konfigurazioaren araberakoa izango da..</li>
               <li><b>Testua/en:</b>Testua ingelesez. Zure plataformaren hizkuntzaren konfigurazioaren araberakoa izango da.</li>
-              <li><b>Esparrua/id:</b> Esparruaren ID-a</li>
+              <li><b>Esparrua/id:</b> Eremuaren ID-a</li>
               <li><b>Kategoria/id:</b> Kategoriaren ID-a</li>
               </ul>
           label:
@@ -519,7 +519,7 @@ eu:
             assign_to_valuator_button: Esleitu
             cancel: Utzi
             change_category: Aldatu kategoria
-            change_scope: Aldatu esparrua
+            change_scope: Aldatu eremua
             merge: Beste batean fusionatu
             merge_button: Batu
             publish: Argitaratu
@@ -534,7 +534,7 @@ eu:
             unassign_from_valuator: Desesleitu ebaluatzaileari
             unassign_from_valuator_button: Desesleitu
             update: Eguneratu
-            update_scope_button: Eguneratu esparrua
+            update_scope_button: Eguneratu eremua
           new:
             create: Sortu
             title: Sortu proposamena
@@ -566,10 +566,10 @@ eu:
             select_a_proposal: Mesedez, hautatu proposamen bat.
             success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} kategoriara.'
           update_scope:
-            invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} esparrua.'
+            invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} eremua.'
             select_a_proposal: Mesedez, hautatu proposamen bat.
-            select_a_scope: Mesedez, hautatu esparru bat.
-            success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} esparruan.'
+            select_a_scope: Mesedez, hautatu eremu bat.
+            success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} eremuan.'
         proposals_imports:
           create:
             invalid: Arazo bat egon da proposamenak inportatzean.
@@ -662,7 +662,7 @@ eu:
           open: Zabaldu
           published: Argitaratuta
           related_to: Lotutako gaiak
-          scope: Esparrua
+          scope: Eremua
           search: Bilatu
           state: Egoera
           withdrawn: Baztertu
@@ -748,7 +748,7 @@ eu:
             official_proposal: Proposamen ofiziala
             published_answer: Erantzuna argitaratuta
             published_at: Argitaratze-data
-            scope: Esparrua
+            scope: Eremua
             state: Egoera
             title: Titulua
             valuator: Ebaluatzailea
@@ -794,7 +794,7 @@ eu:
           my_proposals: Nire proposamenak
           origin: Jatorria
           related_to: Honekin lotuta
-          scope: Esparrua
+          scope: Eremua
           search: Bilatu
           state: Egoera
           type: Mota
