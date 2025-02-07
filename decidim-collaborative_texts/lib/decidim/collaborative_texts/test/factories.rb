@@ -20,6 +20,7 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
+    title { "Default title" }
     component { create(:collaborative_texts_component, skip_injection:) }
 
     trait :published do
