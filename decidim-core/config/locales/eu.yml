@@ -246,16 +246,16 @@ eu:
         create_via_csv: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du CSV bidez parte-hartzaile pribatua izatera"
         delete: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzaile pribatu gisa kendu du"
       scope:
-        create: "%{user_name} parte-hartzaileak %{resource_name} esparrua sortu du"
-        create_with_parent: "%{user_name} parte-hartzaileak %{resource_name} esparrua %{parent_scope} esparru barruan sortu du"
-        delete: "%{user_name} parte-hartzaileak %{resource_name} esparrua ezabatu du"
-        delete_with_parent: "%{user_name} parte-hartzaileak %{resource_name} esparrua ezabatu du %{parent_scope} esparruaren barruan"
-        update: "%{user_name} parte-hartzaileak %{resource_name} esparrua eguneratu du"
-        update_with_parent: "%{user_name} parte-hartzaileak %{resource_name} esparrua %{parent_scope} esparru barruan eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} eremua sortu du"
+        create_with_parent: "%{user_name} parte-hartzaileak %{resource_name} eremua%{parent_scope} eremua barruan sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} eremua ezabatu du"
+        delete_with_parent: "%{user_name} parte-hartzaileak %{resource_name} eremua ezabatu du %{parent_scope} eremuaren barruan"
+        update: "%{user_name} parte-hartzaileak %{resource_name} eremua eguneratu du"
+        update_with_parent: "%{user_name} parte-hartzaileak %{resource_name} eremua %{parent_scope} eremua barruan eguneratu du"
       scope_type:
-        create: "%{user_name} parte-hartzaileak %{resource_name} esparru mota sortu du"
-        delete: "%{user_name} parte-hartzaileak %{resource_name} esparru mota ezabatu du"
-        update: "%{user_name} parte-hartzaileak %{resource_name} esparru mota eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} eremua mota sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} eremu mota ezabatu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} eremu mota eguneratu du"
       static_page:
         create: "%{user_name} parte-hartzaileak %{resource_name} orri estatikoa sortu du"
         delete: "%{user_name} parte-hartzaileak %{resource_name} orri estatikoa ezabatu du"
@@ -394,10 +394,10 @@ eu:
         explanation: Egiaztatu pasaporte zenbaki bat aurkeztuz, "X" letraz amaituta.
         fields:
           allowed_postal_codes: Onartutako posta-kodeak (komaz bereizita)
-          allowed_scope_id: Onartutako esparrua
+          allowed_scope_id: Onartutako eremua
           document_number: Dokumentuaren zenbakia
           postal_code: Posta kodea
-          scope_id: Esparrua
+          scope_id: Eremua
         name: Baimen-adibidea
       dummy_authorization_workflow:
         name: Balizko baimenaren lan-fluxua
@@ -489,8 +489,8 @@ eu:
             dummy_global_translatable_text: Itzul daitekeen balizko testua
             enable_pads_creation: Gaitu ohar-blokeak sortzea
             resources_permissions_enabled: Baliabideen baimenak gaituta
-            scope_id: Esparrua
-            scopes_enabled: Esparruak gaituta
+            scope_id: Eremua
+            scopes_enabled: Eremuak gaituta
           step:
             amendment_creation_enabled: Zuzenketa sortzea aktibatuta
             amendment_promotion_enabled: Zuzenketa sustatzea aktibatuta
@@ -1076,9 +1076,9 @@ eu:
         area_type_presenter:
           not_found: 'Arlo mota ez da (ID: %{id}) datu basean aurkitu'
         scope_presenter:
-          not_found: 'Esparrua ez da aurkitu (ID: %{id}) datu-basean'
+          not_found: 'Eremua ez da aurkitu (ID: %{id}) datu-basean'
         scope_type_presenter:
-          not_found: 'Esparru mota ez da aurkitu (ID: %{id}) datu-basean'
+          not_found: 'Eremu mota ez da aurkitu (ID: %{id}) datu-basean'
     machine_translations:
       automatic: 'itzulpen automatikoa hemen: %{locale_name}'
     managed_users:
@@ -1421,17 +1421,17 @@ eu:
       create:
         error: Arazo bat egon da atxikimendu-ekintzan zehar.
     scopes:
-      global: Esparru orokorra
+      global: Eremu orokorra
       picker:
         cancel: Ezeztatu
-        change: Aldatu hautatutako esparrua
+        change: Aldatu hautatutako eremua
         choose: Hautatu
-        currently_selected: Esparrua zuzen hautatu da
+        currently_selected: Eremua zuzen hautatu da
         title: Hautatu %{field}
-      prompt: Hautatu esparrua
-      scopes: Esparruak
+      prompt: Hautatu eremua
+      scopes: Eremuak
       scopes_picker_input:
-        select_scope: 'Hautatu esparru bat (gaur egun: %{current})'
+        select_scope: 'Hautatu eremu bat (gaur egun: %{current})'
     search:
       name: Bilatu
       results: Bilatu emaitzak
@@ -1506,7 +1506,7 @@ eu:
         filters:
           area: Arloa
           areas: Arloak
-          scope: Esparrua
+          scope: Eremua
           select_an_area: Hautatu arlo bat
       progress: Aurrerapena 
       public_participation:
@@ -1538,7 +1538,7 @@ eu:
       users_count: Parte-hartzaileak
     tags:
       filter_results_for_category: 'Emaitzak kategoriaren arabera iragaztean: %{resource}'
-      filter_results_for_scope: 'Emaitzak %{resource} esparruaren arabera iragaztean'
+      filter_results_for_scope: 'Emaitzak %{resource} eremuaren arabera iragaztean'
     translation_bar:
       help_text: "<strong>Oharra:</strong> Edukia automatikoki itzul daiteke eta ez izan zuzena %100ean."
       show_original: Erakutsi jatorrizko testua
@@ -1564,7 +1564,7 @@ eu:
     user_interests:
       show:
         my_interests: Nire interesekoak
-        no_scopes: Erakunde honek oraindik ez du esparrurik!
+        no_scopes: Erakunde honek oraindik ez du eremurik!
         select_your_interests: Hautatu zure intereseko gaiak, horien gaineko jakinarazpenak jasotzeko zure profilaren barruko Denbora Lerroan.
         update_my_interests: Eguneratu nire interesak
       update:
@@ -1838,7 +1838,7 @@ eu:
       confirmation: ez dator bat honekin %{attribute}
       confirmation_period_expired: '%{period} barruan baieztatu behar da, mesedez, eskatu beste bat'
       content_type_allowlist_error: fitxategiaren mota ez da baliozkoa
-      cycle_detected: esparru nagusia ezin da izan bere ondorengoetako bat
+      cycle_detected: eremu nagusia ezin da izan bere ondorengoetako bat
       empty: ezin da hutsik egon
       expired: iraungi egin da; mesedez, eskatu beste bat
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
