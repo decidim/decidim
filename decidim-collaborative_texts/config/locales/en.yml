@@ -6,6 +6,7 @@ en:
         confirm_delete_document: Are you sure you want to delete this document?
         deleted_document_info: Deleted document can be restored from the trash.
         edit: Edit
+        manage: Manage
         new: New text
         title: Actions
         view_deleted_documents: View deleted documents
