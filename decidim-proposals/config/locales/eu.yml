@@ -4,9 +4,9 @@ eu:
       collaborative_draft:
         address: Helbidea
         body: Testua
-        decidim_scope_id: Esparrua
+        decidim_scope_id: Eremua
         has_address: Helbidea du
-        scope_id: Esparrua
+        scope_id: Eremua
         state: Egoera
         title: Izenburua
         user_group_id: Sortu zirriborro kolaboratiboa
@@ -19,11 +19,11 @@ eu:
         automatic_hashtags: Traola automatikoki gehitu da
         body: Gorputza
         decidim_proposals_proposal_state_id: Egoera
-        decidim_scope_id: Esparrua
+        decidim_scope_id: Eremua
         has_address: Helbidea du
         latitude: Latitudea
         longitude: Longitudea
-        scope_id: Esparrua
+        scope_id: Eremua
         state: Egoera
         suggested_hashtags: Iradokitako traolak
         title: Titulua
@@ -928,7 +928,7 @@ eu:
           my_proposals: Nire proposamenak
           origin: Jatorria
           related_to: Honekin lotuta
-          scope: Esparrua
+          scope: Eremua
           search: Bilatu
           state: Egoera
           taxonomy_filters: Iragazkiak
