@@ -39,7 +39,8 @@
     <%= t("back", scope: "decidim.initiatives.create_initiative.previous_form") %>
   <% end %>
   <div>
-    <%= link_to t(".return_initiatives"), initiatives_path, class: "button button__sm md:button__lg button__transparent-secondary mr-2" %>
-    <%= link_to t(".send"), finish_create_initiative_index_path, class: "button button__sm md:button__lg button__secondary", disabled: !current_initiative.enough_committee_members? %>
+    <%= render partial: "send_to_technical_validation_button" %>
   </div>
 </div>
+
+<%= render partial: "return_to_initiatives_button" %>
