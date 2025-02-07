@@ -278,16 +278,16 @@ eu:
         create_via_csv: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du CSV bidez parte-hartzaile pribatua izatera"
         delete: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzaile pribatu gisa kendu du"
       scope:
-        create: "%{user_name} parte-hartzaileak %{resource_name} esparrua sortu du"
-        create_with_parent: "%{user_name} parte-hartzaileak %{resource_name} esparrua %{parent_scope} esparru barruan sortu du"
-        delete: "%{user_name} parte-hartzaileak %{resource_name} esparrua ezabatu du"
-        delete_with_parent: "%{user_name} parte-hartzaileak %{resource_name} esparrua ezabatu du %{parent_scope} esparruaren barruan"
-        update: "%{user_name} parte-hartzaileak %{resource_name} esparrua eguneratu du"
-        update_with_parent: "%{user_name} parte-hartzaileak %{resource_name} esparrua %{parent_scope} esparru barruan eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} eremua sortu du"
+        create_with_parent: "%{user_name} parte-hartzaileak %{resource_name} eremua%{parent_scope} eremua barruan sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} eremua ezabatu du"
+        delete_with_parent: "%{user_name} parte-hartzaileak %{resource_name} eremua ezabatu du %{parent_scope} eremuaren barruan"
+        update: "%{user_name} parte-hartzaileak %{resource_name} eremua eguneratu du"
+        update_with_parent: "%{user_name} parte-hartzaileak %{resource_name} eremua %{parent_scope} eremua barruan eguneratu du"
       scope_type:
-        create: "%{user_name} parte-hartzaileak %{resource_name} esparru mota sortu du"
-        delete: "%{user_name} parte-hartzaileak %{resource_name} esparru mota ezabatu du"
-        update: "%{user_name} parte-hartzaileak %{resource_name} esparru mota eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} eremua mota sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} eremu mota ezabatu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} eremu mota eguneratu du"
       share_token:
         create: "%{user_name} parte-hartzaileak sarbide-esteka bat sortu du %{space_name} espazioan"
         create_with_space: "%{user_name} parte-hartzaileak sarbide-esteka sortu du %{resource_name} %{space_name} espazioan"
@@ -1273,9 +1273,9 @@ eu:
         area_type_presenter:
           not_found: 'Arlo mota ez da (ID: %{id}) datu basean aurkitu'
         scope_presenter:
-          not_found: 'Esparrua ez da aurkitu (ID: %{id}) datu-basean'
+          not_found: 'Eremua ez da aurkitu (ID: %{id}) datu-basean'
         scope_type_presenter:
-          not_found: 'Esparru mota ez da aurkitu (ID: %{id}) datu-basean'
+          not_found: 'Eremu mota ez da aurkitu (ID: %{id}) datu-basean'
         taxonomy_presenter:
           not_found: 'Taxonomia ez da aurkitu (ID: %{id}) datu-basean'
     machine_translations:
@@ -1751,8 +1751,8 @@ eu:
       create:
         error: Arazo bat egon da atxikimendu-ekintzan zehar.
     scopes:
-      global: Esparru orokorra
-      prompt: Hautatu esparrua
+      global: Eremu orokorra
+      prompt: Hautatu eremua
     search:
       name: Bilatu
       results: Bilatu emaitzak
@@ -2150,7 +2150,7 @@ eu:
       confirmation: ez dator bat honekin %{attribute}
       confirmation_period_expired: '%{period} barruan baieztatu behar da, mesedez, eskatu beste bat'
       content_type_allowlist_error: fitxategiaren mota ez da baliozkoa
-      cycle_detected: esparru nagusia ezin da izan bere ondorengoetako bat
+      cycle_detected: eremu nagusia ezin da izan bere ondorengoetako bat
       empty: ezin da hutsik egon
       expired: iraungi egin da; mesedez, eskatu beste bat
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
