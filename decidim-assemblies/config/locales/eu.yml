@@ -17,7 +17,7 @@ eu:
         created_by_other: Beste batek sortua
         creation_date: Sortze-data
         decidim_area_id: Arloa
-        decidim_scope_id: Esparrua
+        decidim_scope_id: Eremua
         description: Deskribapena
         developer_group: Talde sustatzailea
         document: Dokumentua
@@ -35,7 +35,7 @@ eu:
         internal_organisation: Barne-antolaketa
         is_transparent: Gardena da
         local_area: Antolakuntza Arloa
-        meta_scope: Esparruko metadatuak
+        meta_scope: Eremuko metadatuak
         parent_id: Batzar nagusia
         participatory_processes_ids: Erlazionatutako prozesu parte-hartzaileak
         participatory_scope: Zer erabakitzen den
@@ -288,7 +288,7 @@ eu:
           included_at: Barne
           indefinite_duration: Zehaztu gabe
           local_area: Antolakuntza Arloa
-          meta_scope: Esparrua
+          meta_scope: Eremua
           participatory_scope: Zer erabakitzen den
           participatory_structure: Nola erabakitzen den
           target: Nork hartzen du parte?
@@ -314,7 +314,7 @@ eu:
         related_assemblies:
           name: Lotutako batzarrak
       created_by:
-        city_council: Udaletxea
+        city_council: Udala
         others: Beste batzuk
         public: Publikoa
       filter:
@@ -365,8 +365,8 @@ eu:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p><strong>Batzarra </strong> erakunde bateko kideen talde bat da, aldian-aldian biltzen dena erakundearen arlo edo esparru jakin bati buruzko erabakiak hartzeko.</p> <p>Batzarrek bilerak egiten dituzte, batzuk pribatuak eta beste batzuk irekiak. Irekiak badira, parte hartzea posible da (adibidez: bertaratzea edukiera badago, gaiak agendara gehitzea, edo organo honek hartutako proposamenei eta erabakiei buruzko iruzkinak egitea). </p> <p>Adibideak: Batzar nagusia (urtean behin biltzen dena erakundearen ekintza-ildo nagusiak eta bere organo exekutiboak bozketa bidez definitzeko), berdintasun aholku-batzordea (bi hilabetean behin biltzen dena erakundearen genero-harremanak hobetzeko proposamenak egiteko), ebaluazio-batzordea (hilabetean behin biltzen dena prozesu baten jarraipena egiteko) edo berme-organoa (intzidenteak, gehiegikeriak edo erabakiak hartzeko prozedurak hobetzeko proposamenak biltzen dituena) batzordeen adibideak dira. </p>\n"
-          page: "<p><strong>Batzarra</strong> erakunde bateko kideen talde bat da, aldian-aldian biltzen dena erakundearen arlo edo esparru jakin bati buruzko erabakiak hartzeko.</p>\n\n<p>Batzarrek bilerak egiten dituzte, batzuk pribatuak eta beste batzuk irekiak. Irekiak badira, parte hartzea posible da (adibidez: bertaratzea edukiera badago, gaiak agendara gehitzea, edo organo honek hartutako proposamenei eta erabakiei buruzko iruzkinak egitea).</p>\n\n<p>Adibideak: Batzar nagusia (urtean behin biltzen dena erakundearen ekintza-ildo nagusiak eta bere organo exekutiboak bozketa bidez definitzeko), berdintasun aholku-batzordea (bi hilabetean behin biltzen dena erakundearen genero-harremanak hobetzeko proposamenak egiteko), ebaluazio-batzordea (hilabetean behin biltzen dena prozesu baten jarraipena egiteko) edo berme-organoa (intzidenteak, gehiegikeriak edo erabakiak hartzeko prozedurak hobetzeko proposamenak biltzen dituena) batzarren adibideak dira.</p>dira\n"
+          contextual: "<p><strong>Batzarra </strong> erakunde bateko kideen talde bat da, aldian-aldian biltzen dena erakundearen arlo edo esparru jakin bati buruzko erabakiak hartzeko.</p> <p>Batzarrek bilerak egiten dituzte, batzuk pribatuak eta beste batzuk irekiak. Irekiak badira, parte hartzea posible da (adibidez: bertaratzea edukiera badago, gaiak agendara gehitzea, edo organo honek hartutako proposamenei eta erabakiei buruzko iruzkinak egitea). </p> <p>Adibideak: Batzar nagusia (urtean behin biltzen dena erakundearen ekintza-ildo nagusiak eta bere organo exekutiboak bozketa bidez definitzeko), berdintasun aholku-batzordea (bi hilabetean behin biltzen dena erakundearen genero-harremanak hobetzeko proposamenak egiteko), ebaluazio-batzordea (hilabetean behin biltzen dena prozesu baten jarraipena egiteko) edo berme-organoa (gorabeherak, gehiegikeriak edo erabakiak hartzeko prozedurak hobetzeko proposamenak biltzen dituena) batzordeen adibideak dira. </p>\n"
+          page: "<p><strong>Batzarra</strong> erakunde bateko kideen talde bat da, aldian-aldian biltzen dena erakundearen arlo edo esparru jakin bati buruzko erabakiak hartzeko.</p>\n\n<p>Batzarrek bilerak egiten dituzte, batzuk pribatuak eta beste batzuk irekiak. Irekiak badira, parte hartzea posible da (adibidez: bertaratzea edukiera badago, gaiak agendara gehitzea, edo organo honek hartutako proposamenei eta erabakiei buruzko iruzkinak egitea).</p>\n\n<p>Adibideak: Batzar nagusia (urtean behin biltzen dena erakundearen ekintza-ildo nagusiak eta bere organo exekutiboak bozketa bidez definitzeko), berdintasun aholku-batzordea (bi hilabetean behin biltzen dena erakundearen genero-harremanak hobetzeko proposamenak egiteko), ebaluazio-batzordea (hilabetean behin biltzen dena prozesu baten jarraipena egiteko) edo berme-organoa (gorabeherak, gehiegikeriak edo erabakiak hartzeko prozedurak hobetzeko proposamenak biltzen dituena) batzarren adibideak dira.</p>dira\n"
           title: Zer dira batzarrak?
     log:
       value_types:
@@ -394,22 +394,22 @@ eu:
           created_by: Nork sortu du batzar hau
           created_by_other: Batzarraren beste sortzaile bat
           creation_date: Zein datatan sortu da batzar hau
-          decidim_scope_id: Batzarraren esparrua
+          decidim_scope_id: Batzarraren eremua
           description: Batzarraren deskribapen luzea
           developer_group: Batzarraren talde garatzailea
           duration: Batzarraren iraupena
           facebook_handler: Sare sozialetako arduraduna Facebookerako
           follows_count: Espazio hau zenbat parte-hartzailek jarraitzen duten
           github_handler: Sare sozialetako arduraduna GitHuberako
-          hashtag: Batzarraren traola, Twitter/Xentzat erabilia
+          hashtag: Batzarraren traola, Twitter/X-entzat erabilia
           id: Batzar honen identifikatzaile bakarra
           included_at: Zein datatan sartu zen batzar hau
-          instagram_handler: Sare sozialetako arduraduna Instagramerako
+          instagram_handler: Sare sozialetako arduraduna Instagram-erako
           internal_organisation: Batzar honen barne-antolaketa
           is_transparent: Batzarra non den gardena edo ez
           local_area: Batzarraren tokiko arloa
-          meta_scope: Batzarraren esparru-metadatuak
-          participatory_scope: Batzarraren parte-hartze esparrua
+          meta_scope: Batzarraren eremu-metadatuak
+          participatory_scope: Batzarraren parte-hartze eremua
           participatory_structure: Batzarraren egitura parte-hartzailea
           promoted: Batzarra sustatzen den edo ez
           published_at: Zein egunetan argitaratu zen espazio hau
@@ -417,8 +417,8 @@ eu:
           reference: Espazioaren erreferentzia bakarra
           remote_banner_image_url: Batzarraren URLak irudia du
           remote_hero_image_url: Batzarraren protagonistaren irudiaren URLa
-          scope: Batzarraren esparrua
-          scopes_enabled: Esparruak gaituta dauden ala ez
+          scope: Batzarraren eremua
+          scopes_enabled: Eremuak gaituta dauden ala ez
           short_description: Batzarraren deskribapen laburra
           slug: Batzarraren lerroa (identifikaziorako erabiltzen da, URLrako)
           special_features: Zein ezaugarri berezi ditu batzar honek?
