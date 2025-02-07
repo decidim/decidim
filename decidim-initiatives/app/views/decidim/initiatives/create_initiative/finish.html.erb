@@ -6,26 +6,31 @@
   <% end %>
 <% end %>
 
+<% is_validating = current_initiative.validating? %>
+
 <% announcement_body = capture do %>
-  <%= t("callout_text", scope: "decidim.initiatives.create_initiative.finish") %>
-  <%= link_to t(".more_information"), decidim.page_path("initiatives"), target: "_blank", class: "button button__sm button__text-secondary block text-left" %>
+  <% if is_validating %>
+    <%= t("callout_text_validating", scope: "decidim.initiatives.create_initiative.finish") %>
+  <% else %>
+    <%= t("callout_text_created", scope: "decidim.initiatives.create_initiative.finish") %>
+  <% end %>
 <% end %>
 
 <%= cell("decidim/announcement", { body: announcement_body }, callout_class: "secondary") %>
 
 <div class="form__wrapper">
-  <p><%== t "publish_helper_text", scope: "decidim.initiatives.create_initiative.finish_help" %></p>
+  <p><%== t "publish_helper_text", scope: "decidim.initiatives.create_initiative.finish" %></p>
 </div>
 
 <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-  <%= link_to initiatives_path, class: "button button__sm md:button__lg button__text-secondary" do %>
-    <%= icon "arrow-left-line" %>
-    <span><%= t(".back_to_initiatives") %></span>
-  <% end %>
+  <% if is_validating %>
+    <%= link_to t(".go_to_initiatives"), decidim_initiatives.initiatives_path, class: "button button__sm md:button__lg button__secondary" %>
+  <% else %>
+    <%= link_to fill_data_create_initiative_index_path, class: "button button__sm md:button__lg button__text-secondary" do %>
+      <%= icon "arrow-left-line", class: "fill-current" %>
+      <%= t("back", scope: "decidim.initiatives.create_initiative.previous_form") %>
+    <% end %>
 
-  <%= link_to t(".go_to_my_initiatives"), decidim_initiatives.initiatives_path(filter: { author: "myself", with_any_state: "" }), class: "button button__sm md:button__lg button__secondary" %>
-
-  <% unless promotal_committee_required? %>
-    <%= link_to t(".send_my_initiative"), decidim_initiatives.send_to_technical_validation_initiative_path(current_initiative), class: "button button__sm md:button__lg button__secondary", data: { confirm: t(".confirm") } %>
+    <%= render partial: "send_to_technical_validation_button" %>
   <% end %>
 </div>

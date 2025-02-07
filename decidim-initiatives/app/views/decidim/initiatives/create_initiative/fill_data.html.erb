@@ -66,9 +66,11 @@
     <% end %>
 
     <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-      <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
-        <%= icon "arrow-left-line", class: "fill-current" %>
-        <%= t(".back") %>
+      <% if current_initiative %>
+        <%= link_to discard_initiative_path(current_initiative), class: "button button__sm md:button__lg button__text-secondary", method: :delete, data: { confirm: t(".confirm_discard") } do %>
+          <%= icon "delete-bin-line", class: "fill-current" %>
+          <%= t(".discard") %>
+        <% end %>
       <% end %>
       <%= f.submit t(".continue"), class: "button button__sm md:button__lg button__secondary", data: { disable_with: true } %>
     </div>

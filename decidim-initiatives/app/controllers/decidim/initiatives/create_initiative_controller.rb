@@ -34,9 +34,9 @@ module Decidim
       def load_initiative_draft
         session[:initiative_id] = params[:initiative_id]
 
-        if current_initiative.state == "validating"
+        if current_initiative.validating?
           redirect_to finish_create_initiative_index_path
-        elsif current_initiative.state == "created"
+        elsif current_initiative.created?
           redirect_to promotal_committee_create_initiative_index_path
         else
           redirect_to initiatives_path
@@ -44,6 +44,7 @@ module Decidim
       end
 
       def select_initiative_type
+        session[:initiative_id] = nil
         @form = form(Decidim::Initiatives::SelectInitiativeTypeForm).from_params(params)
 
         redirect_to fill_data_create_initiative_index_path if single_initiative_type?
@@ -70,20 +71,10 @@ module Decidim
       end
 
       def store_data
-        @form = form(Decidim::Initiatives::InitiativeForm).from_params(params, { initiative_type: })
-
-        CreateInitiative.call(@form) do
-          on(:ok) do |initiative|
-            session[:initiative_id] = initiative.id
-
-            path = promotal_committee_required? ? "promotal_committee" : "finish"
-
-            redirect_to send(:"#{path}_create_initiative_index_path")
-          end
-
-          on(:invalid) do
-            render :fill_data
-          end
+        if current_initiative
+          store_data_update_initiative
+        else
+          store_data_create_initiative
         end
       end
 
@@ -93,11 +84,52 @@ module Decidim
 
       def finish
         current_initiative.presence
-        session[:type_id] = nil
-        session[:initiative_id] = nil
+
+        if current_initiative.validating?
+          session[:type_id] = nil
+          session[:initiative_id] = nil
+        end
       end
 
       private
+
+      def store_data_create_initiative
+        @form = form(Decidim::Initiatives::InitiativeForm).from_params(params, { initiative_type: })
+
+        CreateInitiative.call(@form) do
+          on(:ok) do |initiative|
+            session[:initiative_id] = initiative.id
+
+            redirect_to store_data_next_step
+          end
+
+          on(:invalid) do
+            render :fill_data
+          end
+        end
+      end
+
+      def store_data_update_initiative
+        @form = form(Decidim::Initiatives::InitiativeForm).from_params(params, initiative_type: current_initiative.type, initiative: current_initiative)
+
+        UpdateInitiative.call(current_initiative, @form) do
+          on(:ok) do
+            redirect_to store_data_next_step
+          end
+
+          on(:invalid) do
+            render :fill_data
+          end
+        end
+      end
+
+      def store_data_next_step
+        if promotal_committee_required?
+          promotal_committee_create_initiative_index_path
+        else
+          finish_create_initiative_index_path
+        end
+      end
 
       def membership_request
         @membership_request ||= current_initiative.committee_members.find(params[:committee_member_id])
