@@ -35,7 +35,8 @@ module Decidim
             data: { "external-link": "text-only" }
           }.merge(map_html_options)
           return link_to(map_url, html_options) do
-            image_tag decidim.static_map_path(sgid: resource.to_sgid.to_s), alt: "#{map_service_brand} - #{address_text}"
+            # We also add the latitude and the longitude to prevent the Workbox cache to be overly aggressive when updating a map
+            image_tag decidim.static_map_path(sgid: resource.to_sgid.to_s, latitude: resource.latitude, longitude: resource.longitude), alt: "#{map_service_brand} - #{address_text}"
           end
         end
       end
