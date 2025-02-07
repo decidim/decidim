@@ -12,7 +12,7 @@ describe "Admin edits documents" do
 
   before do
     click_on "New text"
-    fill_in "Title", with: "This is an original title test"
+    fill_in "Title", with: title
     click_on "Create"
   end
 

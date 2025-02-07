@@ -13,7 +13,7 @@ describe "Admin creates documents" do
   it "creates a new document" do
     click_on "New text"
 
-    fill_in "Title", with: "This is an original title test"
+    fill_in "Title", with: title
     click_on "Create"
 
     expect(page).to have_admin_callout "Document successfully created"
