@@ -98,8 +98,8 @@ eu:
             success: Inkesta ondo gorde da.
       admin_log:
         survey:
-          create: "%{user_name} parte-hartzaileak sortu du %{resource_name} inkesta %{space_name} esparruan inkesta gisa"
-          delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} inkesta %{space_name} esparruan inkesta gisa"
+          create: "%{user_name} parte-hartzaileak sortu du %{resource_name} inkesta %{space_name} eremuan inkesta gisa"
+          delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} inkesta %{space_name} eremuan inkesta gisa"
           publish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} inkesta %{space_name} espazioan"
           unpublish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} inkesta %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} inkesta %{space_name} espazioan"
