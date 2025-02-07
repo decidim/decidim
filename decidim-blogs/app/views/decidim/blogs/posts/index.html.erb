@@ -2,8 +2,8 @@
   description: translated_attribute(current_component.participatory_space.try(:description)),
   title: t("decidim.components.pagination.page_title",
            component_name: component_name,
-           current_page: @posts.current_page,
-           total_pages: @posts.total_pages ),
+           current_page: paginate_posts.current_page,
+           total_pages: paginate_posts.total_pages ),
   url: posts_url,
   resource: current_component) %>
 
