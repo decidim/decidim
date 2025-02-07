@@ -604,6 +604,28 @@ ro:
           user: Utilizatorul căruia îi aparține această identitate
         messaging_conversations:
           created_at: Data la care a fost creată această conversație
+        participatory_space_private_users:
+          created_at: Data și ora la care a fost creat acest utilizator privat
+          id: Identificatorul unic al acestui utilizator privat
+          privatable_to: Spațiul căruia îi aparține acest utilizator privat
+          published: Daca acest utilizator privat este vizibil sau nu
+          role: Rolul pe care îl are acest utilizator privat
+          updated_at: Data și ora la care acest utilizator privat a fost actualizat ultima dată
+        reports:
+          created_at: Data și ora la care acest raport a fost creat
+          details: Detaliile acestui raport
+          id: Identificatorul unic al acestui raport
+          locale: Limba acestui raport
+          moderation: Moderarea pe care o are acest raport
+          reason: Motivul prezentului raport
+          updated_at: Data și ora la care acest raport a fost actualizat ultima dată
+        users:
+          accepted_tos_version: Data la care termenii de utilizare ai acestei platforme au fost acceptați de către utilizator
+          followers_count: Numărul de participanți care urmăresc acest utilizator
+          following_count: Numărul de participanți pe care acest utilizator îl urmărește
+          password_updated_at: Data la care parola a fost schimbată ultima dată
+          roles: Rolul pe care îl are acest utilizator, dacă are vreun astfel de rol
+          type: Tipul pe care acest utilizator îl are
       show:
         download_data: Descărcare date
         download_data_description_2: Puteți solicita un fișier .zip cu conținutul generat, precum și datele dumneavoastră personale.
