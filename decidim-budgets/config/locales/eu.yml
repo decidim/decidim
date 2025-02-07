@@ -3,7 +3,7 @@ eu:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Esparrua
+        decidim_scope_id: Eremua
         description: Deskribapena
         title: Izenburua
         total_budget: Aurrekontua guztira
@@ -11,14 +11,14 @@ eu:
       project:
         budget_amount: Aurrekontuaren zenbatekoa
         decidim_category_id: Kategoria
-        decidim_scope_id: Esparrua
-        description: Descripción
+        decidim_scope_id: Eremua
+        description: Deskribapena
         proposal_ids: Honekin lotutako proposamenak
         proposals: Proposamenak
         selected: Ezarpenerako hautatuak
         title: Izenburua
       proposals_import:
-        scope_id: Esparrua
+        scope_id: Eremua
   activerecord:
     models:
       decidim/budgets/budget:
@@ -34,7 +34,7 @@ eu:
           category_id_eq:
             label: Kategoria
           scope_id_eq:
-            label: Esparrua
+            label: Eremua
           selected_at_null:
             label: Hautatua
             values:
@@ -98,8 +98,8 @@ eu:
             cancel: Ezeztatu
             change_budget: Aldatu aurrekontua
             change_category: Aldatu kategoria
-            change_scope: Aldatu esparrua
-            change_selected: Aldatu hautatutako esparrua
+            change_scope: Aldatu eremua
+            change_selected: Aldatu hautatutako eremua
             deselect_implementation: Kendu gauzatzekoetatik
             finished_orders: Amaitutako babesak
             pending_orders: Zain dauden botoak
@@ -111,7 +111,7 @@ eu:
             title: Proiektuak
             update: Eguneratu
             update_budget_button: Eguneratu proiektuaren aurrekontua
-            update_scope_button: Eguneratu esparrua
+            update_scope_button: Eguneratu eremua
           new:
             create: Sortu
             title: Beste proiektu bat
@@ -128,10 +128,10 @@ eu:
             select_a_project: Mesedez, hautatu proiektu bat.
             success: 'Proiektuak zuzen eguneratuta %{subject_name}: %{projects} kategoriara.'
           update_scope:
-            invalid: 'Proposamen hauek bazuten %{subject_name}: %{projects} esparrua.'
+            invalid: 'Proposamen hauek bazuten %{subject_name}: %{projects} eremua.'
             select_a_project: Mesedez, hautatu proiektu bat.
-            select_a_scope: Mesedez, hautatu esparru bat.
-            success: 'Proiektuak zuzen eguneratuta %{subject_name}: %{projects} esparruan.'
+            select_a_scope: Mesedez, hautatu eremu bat.
+            success: 'Proiektuak zuzen eguneratuta %{subject_name}: %{projects} eremuan.'
           update_selected:
             invalid:
               selected: 'Honako proiektu hauek dagoeneko gauzatzeko hautatu dira: %{projects}.'
@@ -190,14 +190,14 @@ eu:
           label: Ordenatu aurrekontuak honen arabera
           lowest_cost: Kosturik txikiena
           random: Ausazko ordena
-        progress: Amaitu bozketa
+        progress: Amaitu babes ematea
         remove_vote: Kendu babesa
         show: Ikusi proiektuak
         vote: Eman babesa
-        voted_budgets: Bozkatutako aurrekontuak
+        voted_budgets: Babestutako aurrekontuak
         voted_on: Babesa eman duzu hemen %{links}.
       last_activity:
-        new_vote_at: 'Beste aurrekontu-bozketa bat hemen:'
+        new_vote_at: Aurrekontuen babes-emate berria
       limit_announcement:
         cant_vote: Ezin duzu babesa eman aurrekontu honetan. <a href="%{landing_path}"> Saiatu beste aurrekontu batean</a>.
         limit_reached: Badituzu babesak aktibo hemen %{links}. Aurrekontu honetan botoa emateko <a href="%{landing_path}">ezabatu behar duzu zure botoa eta berriro hasi</a>.
@@ -218,7 +218,7 @@ eu:
           selected_projects: 'Hautatu dituzun proiektuak hauek dira:'
           subject: Babesa eman duzu parte hartzeko espazio honetan %{space_name}
           voted_on_space: Babesa eman duzu %{budget_name} aurrekontuan %{space_name} parte hartzeko espaziorako.
-          voted_on_space_with_scope: Botoa eman duzu %{budget_name} aurrekontuan %{space_name} de %{scope_name} (%{scope_type}) parte hartzeko esparruan.
+          voted_on_space_with_scope: Botoa eman duzu %{budget_name} aurrekontuan %{space_name} de %{scope_name} (%{scope_type}) parte hartzeko eremuan.
       projects:
         budget_confirm:
           are_you_sure: Iritzia aldatzen baduzu, zure babesa alda dezakezu geroago.
@@ -241,7 +241,7 @@ eu:
           checked_out:
             description: Jada babesa eman duzu aurrekonturako. Iritzia aldatu baduzu, ezabatu ahal duzu zure babesa.
             title: Aurrekontuen bozketa amaituta
-          vote: Bozkatu aurrekontua
+          vote: Aurrekontuari babesa eman
         count:
           projects_count:
             one: Proiektu bat
@@ -254,7 +254,7 @@ eu:
           title: Oraindik ez duzu bozkatu
         filters:
           category: Kategoria
-          scope: Esparrua
+          scope: Eremua
           search: Bilatu
           status: Egoera
           status_values:
@@ -318,7 +318,7 @@ eu:
       budgets:
         actions:
           comment: Egin iruzkina
-          vote: Bozkatu
+          vote: Babesa eman
         name: Aurrekontuak
         settings:
           global:
@@ -334,7 +334,7 @@ eu:
             more_information_modal: '"Informazio gehiago"ren modala'
             projects_per_page: Orrialde bakoitzeko proiektuak
             resources_permissions_enabled: Ekintza-baimenak ezarri ahal dira proiektu bakoitzerako
-            scope_id: Esparrua
+            scope_id: Eremua
             scopes_enabled: Eremuak gaituta
             title: Izenburua
             total_budget: Aurrekontu osoa
