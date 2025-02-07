@@ -17,6 +17,7 @@ describe "Admin edits documents" do
   end
 
   it "edits an existing document" do
+    expect(page).to have_css(".action-icon--edit")
     click_on "Edit", match: :first
     expect(page).to have_content("Edit Collaborative Texts")
 

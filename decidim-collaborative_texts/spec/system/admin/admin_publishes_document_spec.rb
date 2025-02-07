@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin edits documents" do
+describe "Admin publish and unpublish documents" do
   let(:manifest_name) { "collaborative_texts" }
   let(:title) { "This is my document new title" }
 
