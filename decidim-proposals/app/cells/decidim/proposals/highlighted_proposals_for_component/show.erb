@@ -18,7 +18,7 @@
     </span>
 
     <% proposals_to_render.each do |p| %>
-      <%= card_for p, link_whole_card: true, title_tag: :h3, **options.slice(:show_space) %>
+      <%= card_for p, link_whole_card: true, hide_voting: true, title_tag: :h3, **options.slice(:show_space) %>
     <% end %>
   </div>
 
