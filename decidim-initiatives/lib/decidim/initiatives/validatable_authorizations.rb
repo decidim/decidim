@@ -24,8 +24,9 @@ module Decidim
         def authorization
           return unless user && authorization_handler_form_class
 
-          @authorization ||= if authorization_query.exists? && authorization_query.first.unique_id == authorization_handler.unique_id
-                               authorization_query.first
+          persisted_authorization = authorization_query.first
+          @authorization ||= if persisted_authorization.present? && persisted_authorization.unique_id == authorization_handler.unique_id
+                               persisted_authorization
                              elsif save_authorizations
                                create_authorization
                              else
@@ -62,7 +63,7 @@ module Decidim
         end
 
         def authorization_query
-          @authorization_query ||= Verifications::Authorizations.new(**authorization_params)
+          Verifications::Authorizations.new(**authorization_params)
         end
 
         def new_authorization
