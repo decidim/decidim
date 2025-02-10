@@ -750,6 +750,21 @@ fi-pl:
           id: Ilmoituksen yksilöivä tunniste
           resource_type: Ilmoituksen kohteen tyyppi
           updated_at: Ilmoituksen viimeisimmän päivityksen ajankohta
+        participatory_space_private_users:
+          created_at: Yksityisen käyttäjän luontiaika
+          id: Yksityisen käyttäjän yksilöivä tunniste
+          privatable_to: Mihin osallistumistilaan tämä yksityinen käyttäjä kuuluu
+          published: Onko yksityinen käyttäjä julkaistu vai ei
+          role: Yksityisen käyttäjän rooli
+          updated_at: Yksityisen käyttäjän viimeisimmän päivityksen ajankohta
+        reports:
+          created_at: Ilmoituksen luontiaika
+          details: Ilmoituksen tiedot
+          id: Ilmoituksen yksilöivä tunniste
+          locale: Ilmoituksen kieli
+          moderation: Ilmoitukseen liitetty moderointi
+          reason: Ilmoituksen syy
+          updated_at: Ilmoituksen viimeisimmän päivityksen ajankohta
         user_groups:
           document_number: Käyttäjäryhmän organisaatiotunnus (esim. Y-tunnus)
           id: Käyttäjäryhmän yksilöivä tunniste
@@ -758,6 +773,7 @@ fi-pl:
           verified_at: Käyttäjäryhmän vahvistamisen ajankohta
         users:
           about: Käyttäjätilin profiilin kuvaus
+          accepted_tos_version: Käyttäjän palvelun käyttöehtojen hyväksymisaika
           admin: Onko tämä käyttäjä hallintakäyttäjä
           confirmation_sent_at: Käyttäjätilin vahvistusviestin lähetysaika
           confirmed_at: Käyttäjätilin vahvistamisen ajankohta
@@ -767,6 +783,8 @@ fi-pl:
           delete_reason: Käyttäjätilin poistamisen syy
           deleted_at: Käyttäjätilin poistamisen ajankohta
           email: Käyttäjätilin sähköpostiosoite
+          followers_count: Käyttäjää seuraavien osallistujien lukumäärä
+          following_count: Käyttäjän seuraamien osallistujien lukumäärä
           id: Käyttäjätilin yksilöivä tunniste
           invitation_accepted_at: Käyttäjätilin kutsun hyväksymisen ajankohta
           invitation_created_at: Käyttäjän kutsumisen ajankohta
@@ -785,10 +803,13 @@ fi-pl:
           officialized_as: Virallistamisen nimi (valtuutettu, kunnanjohtaja, pormestari, jne.)
           officialized_at: Käyttäjän virallistamisen ajankohta
           organization: Käyttäjän organisaatio
+          password_updated_at: Salasanan viimeisimmän päivityksen ajankohta
           personal_url: Käyttäjäprofiilin URL-osoite
           remember_created_at: Kirjautumisen muistamisen valinnan ajankohta
           reset_password_sent_at: Salasanan nollauslinkin lähetyksen ajankohta
+          roles: Käyttäjän rooli, mikäli rooli on määritelty
           sign_in_count: Käyttäjän kirjautumisten lukumäärä
+          type: Käyttäjän tyyppi
           unconfirmed_email: Vahvistamaton sähköpostiosoite
           updated_at: Käyttäjätilin viimeisimmän päivityksen ajankohta
       show:
