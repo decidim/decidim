@@ -9,7 +9,9 @@ module Decidim
       include Decidim::Initiatives::HasSignatureWorkflow
 
       prepend_before_action :set_wizard_steps
-      before_action :authenticate_user!
+      before_action :authenticate_user!, unless: :ephemeral_signature_workflow?
+      skip_before_action :check_ephemeral_user_session
+
       before_action :authorize_wizard_step, only: [
         :fill_personal_data,
         :store_personal_data,
