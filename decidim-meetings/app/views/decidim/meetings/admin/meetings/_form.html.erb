@@ -89,7 +89,18 @@
       </div>
 
       <%= render partial: "decidim/comments/admin/shared/availability_fields", locals: { form: } %>
-      <%= render partial: "decidim/meetings/shared/reminder_fields", locals: { form: } %>
+
+      <div class="row column">
+        <%= form.check_box :reminder_enabled, label: t("reminder_enabled", scope: "decidim.meetings.admin.meetings.form"), "data-toggle": "customize_reminder_times" %>
+      </div>
+
+      <div id="customize_reminder_times" data-toggler=".hide" class="row column <%= @form.reminder_enabled ? nil : "hide" %>">
+        <div class="my-4">
+          <%= form.number_field :send_reminders_before_hours, label: t("send_reminder", scope: "decidim.meetings.admin.meetings.form"), help_text: t("reminder_help_text", scope: "decidim.meetings.admin.meetings.form") %>
+        </div>
+
+        <%= form.translated :editor, :reminder_message_custom_content, hashtaggable: true, aria: { label: :reminder_message_custom_content }, help_text: t("reminder_message_help_text", scope: "decidim.meetings.admin.meetings.form") %>
+      </div>
     </div>
   </div>
   <%= render "decidim/meetings/admin/meetings/services", form: , id: tabs_id_for_service(blank_service) %>

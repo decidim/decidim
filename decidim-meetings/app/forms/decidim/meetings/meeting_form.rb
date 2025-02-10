@@ -17,6 +17,9 @@ module Decidim
       attribute :registration_terms, String
       attribute :iframe_embed_type, String, default: "none"
       attribute :iframe_access_level, String
+      attribute :reminder_enabled, Boolean, default: true
+      attribute :send_reminders_before_hours, Integer, default: Decidim::Meetings.upcoming_meeting_notification.in_hours
+      attribute :reminder_message_custom_content, String
 
       validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.participants_iframe_embed_types }
       validates :title, presence: true
@@ -29,6 +32,7 @@ module Decidim
       validates :registration_terms, presence: true, if: ->(form) { form.on_this_platform? }
       validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
       validates :clean_type_of_meeting, presence: true
+      validates :send_reminders_before_hours, presence: true, numericality: { only_integer: true, greater_than: 0 }, if: :reminder_enabled
       validates(
         :iframe_access_level,
         inclusion: { in: Decidim::Meetings::Meeting.iframe_access_levels },

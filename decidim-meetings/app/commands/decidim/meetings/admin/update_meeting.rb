@@ -25,13 +25,13 @@ module Decidim
         def attributes
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
           parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
-          parsed_reminder_message = Decidim::ContentProcessor.parse(form.reminder_message, current_organization: form.current_organization).rewrite
+          parsed_reminder_message = Decidim::ContentProcessor.parse(form.reminder_message_custom_content, current_organization: form.current_organization).rewrite
 
           super.merge({
                         title: parsed_title,
                         description: parsed_description,
                         type_of_meeting: form.clean_type_of_meeting,
-                        reminder_message: parsed_reminder_message,
+                        reminder_message_custom_content: parsed_reminder_message,
                       })
         end
 

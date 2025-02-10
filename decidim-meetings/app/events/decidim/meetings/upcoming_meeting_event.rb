@@ -22,7 +22,8 @@ module Decidim
       end
 
       def reminder_message
-        translated_attribute(resource.reminder_message)
+        puts "reminder_message: #{translated_attribute(resource.reminder_message_custom_content)}"
+        translated_attribute(resource.reminder_message_custom_content)
       end
 
       def default_notification_title
