@@ -24,12 +24,14 @@ module Decidim
       # The initiative to be signed
       attribute :initiative, Decidim::Initiative
 
+      attribute :tos_agreement, if: :ephemeral?
+
       validates :initiative, :user, presence: true
       validate :uniqueness
       validate :valid_metadata
       validate :valid_authorized_scopes
 
-      delegate :promote_authorization_validation_errors, :authorization_handler_form_class, to: :workflow_manifest
+      delegate :promote_authorization_validation_errors, :authorization_handler_form_class, :ephemeral?, to: :workflow_manifest
       delegate :scope, to: :initiative
 
       # A unique ID to be implemented by the signature handler that ensures
@@ -108,7 +110,9 @@ module Decidim
       # Params to be sent to the authorization handler. By default consists on
       # the metadata hash including the signer user
       def authorization_handler_params
-        metadata.merge(user:)
+        params = metadata.merge(user:)
+        params = params.merge(tos_agreement:) if ephemeral?
+        params
       end
 
       # The signature_scope_id can be defined in the signature workflow to be
@@ -144,7 +148,7 @@ module Decidim
       #
       # Returns an Array of Strings.
       def form_attributes
-        attributes.except("id", "user", "initiative").keys
+        attributes.except("id", "user", "initiative", "tos_agreement").keys
       end
 
       # The String partial path so Rails can render the handler as a form. This
