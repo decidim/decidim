@@ -67,7 +67,11 @@ module Decidim
 
         build_vote_form(params)
 
-        if @vote_form.invalid?
+        if @vote_form.already_voted?
+          flash[:alert] = I18n.t("create.already_voted", scope: "decidim.initiatives.initiative_votes")
+          clear_authorization_path
+          redirect_to initiative_path(current_initiative)
+        elsif @vote_form.invalid?
           @form = @vote_form
 
           render :fill_personal_data
@@ -153,6 +157,7 @@ module Decidim
         VoteInitiative.call(@vote_form) do
           on(:ok) do
             session[:initiative_vote_form] = {}
+            clear_authorization_path
           end
 
           on(:invalid) do |vote|
@@ -242,6 +247,15 @@ module Decidim
 
       def session_sms_code
         (session[:initiative_sms_code] || {}).symbolize_keys
+      end
+
+      def clear_authorization_path
+        return unless current_user.ephemeral? && onboarding_manager.authorization_path.present?
+
+        base_path = initiatives_path
+        return if onboarding_manager.authorization_path == base_path
+
+        current_user.update(extended_data: current_user.extended_data.deep_merge("onboarding" => { "authorization_path" => base_path }))
       end
 
       def set_ephemeral_user
