@@ -44,6 +44,15 @@ module Decidim
 
         def create_authorization
           Decidim::Verifications::AuthorizeUser.call(authorization_handler, initiative.organization) do
+            on(:transferred) do |transfer|
+              self.transfer_status = transfer
+            end
+
+            on(:transfer_user) do |authorized_user|
+              self.user = authorized_user
+              self.transfer_status = :transfer_user
+            end
+
             on(:invalid) do
               return Decidim::Authorization.new
             end

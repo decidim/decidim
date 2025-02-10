@@ -26,6 +26,8 @@ module Decidim
 
       attribute :tos_agreement, if: :ephemeral?
 
+      attribute :transfer_status
+
       validates :initiative, :user, presence: true
       validate :uniqueness
       validate :valid_metadata
@@ -148,7 +150,7 @@ module Decidim
       #
       # Returns an Array of Strings.
       def form_attributes
-        attributes.except("id", "user", "initiative", "tos_agreement").keys
+        attributes.except("id", "user", "initiative", "tos_agreement", "transfer_status").keys
       end
 
       # The String partial path so Rails can render the handler as a form. This
