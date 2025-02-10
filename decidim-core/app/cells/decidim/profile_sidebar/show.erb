@@ -9,7 +9,7 @@
       </span>
       <% if user_flaggable? %>
         <span class="user-report_link">
-          <%== cell("decidim/author", profile_user, from:profile_user).flag_user %>
+          <%== raise cell("decidim/author", profile_user, from:profile_user).flag_user %>
         </span>
         &nbsp;
       <% end %>
