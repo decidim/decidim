@@ -11,9 +11,13 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        helper_method :signature_has_steps?
+        helper_method :signature_has_steps?, :ephemeral_signature_workflow?
 
         delegate :signature_form_class, :sms_mobile_phone_form_class, :sms_mobile_phone_validator_class, :sms_code_validator_class, to: :signature_workflow_manifest
+
+        def ephemeral_signature_workflow?
+          signature_workflow_manifest.ephemeral
+        end
 
         private
 
