@@ -1,5 +1,5 @@
 <div id="js-unassign-proposals-from-evaluator-actions" class="item_show__header__action-options js-bulk-action-form hide">
-  <%= form_tag(valuation_assignment_path, method: :delete, id: "js-form-unassign-proposals-from-evaluator", class: "form form-defaults w-full") do %>
+  <%= form_tag(evaluation_assignment_path, method: :delete, id: "js-form-unassign-proposals-from-evaluator", class: "form form-defaults w-full") do %>
     <div class="hide">
       <% proposals.each do |proposal| %>
         <%= check_box_tag "proposal_ids[]", proposal.id, false, class: "js-check-all-proposal js-proposal-id-#{proposal.id}" %>
