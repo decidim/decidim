@@ -25,7 +25,7 @@ module Decidim
     private
 
     def onboarding_path
-      decidim_verifications.onboarding_pending_authorizations_path
+      onboarding_manager.authorization_path || decidim_verifications.onboarding_pending_authorizations_path
     end
 
     def onboarding_manager
