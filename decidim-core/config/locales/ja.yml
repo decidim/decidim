@@ -644,7 +644,7 @@ ja:
       drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
     endorsement_buttons_cell:
       already_endorsed: 取り消し
-      endorse: いいね
+      endorse: オススメ
     endorsements:
       identities:
         done: 完了
@@ -851,7 +851,7 @@ ja:
       no_followers: フォロワーはまだいません。
     following:
       following_count:
-        other: "{{count}} フォロワー"
+        other: "%{count} 人をフォロー中"
       no_followings: まだ何もフォローしていません
       non_public_followings: フォローしているリソースのいくつかは公開されていません。
     follows:

@@ -110,13 +110,11 @@ zh-TW:
         destroy:
           success: 會議講者已成功刪除。
         edit:
-          title: 更新會議講者。
           update: 更新
         index:
           conference_speakers_title: 會議講者
         new:
           create: 建立
-          title: 新的會議講者。
         update:
           error: 更新會議講者時發生問題。
           success: 會議講者成功更新。
@@ -127,13 +125,11 @@ zh-TW:
         destroy:
           success: 會議管理員已成功刪除。
         edit:
-          title: 更新會議管理員。
           update: 更新
         index:
           conference_admins_title: 會議管理員
         new:
           create: 創建
-          title: 新增會議管理員。
         update:
           error: 更新此會議管理員時發生問題。
           success: 已成功更新會議管理員。
@@ -162,19 +158,12 @@ zh-TW:
       media_links:
         create:
           error: 創建新的媒體連結時出現問題。
-          success: 媒體連結創建成功。
-        destroy:
-          success: 媒體連結成功刪除。
         edit:
-          title: 更新媒體連結。
           update: 更新
-        index:
-          media_links_title: 媒體連結
         new:
           create: 創建
         update:
           error: 更新此媒體連結時出現問題
-          success: 媒體連結已成功更新。
       menu:
         conferences: 研討會
         conferences_submenu:
@@ -186,13 +175,9 @@ zh-TW:
           conference_admins: 會議管理員
           conference_invites: 邀請
           conference_speakers: 講者
-          diploma: 出席證明書
-          media_links: 媒體連結
           moderations: 版主
           partners: 夥伴
-          registration_types: 註冊類型
           registrations: 註冊
-          user_registrations: 使用者註冊
       models:
         conference:
           fields:
@@ -221,7 +206,6 @@ zh-TW:
             date: 日期
             link: 連結
             title: 標題
-          name: 媒體連結
         partner:
           fields:
             link: 連結
@@ -247,7 +231,6 @@ zh-TW:
         destroy:
           success: 成功移除會議夥伴。
         edit:
-          title: 更新合作夥伴。
           update: 更新
         new:
           create: 創建
@@ -269,7 +252,6 @@ zh-TW:
         destroy:
           success: 此會議的註冊類型成功移除。
         edit:
-          title: 更新註冊類型。
           update: 更新
         new:
           create: 創建
@@ -356,7 +338,6 @@ zh-TW:
         diplomas:
           edit:
             save: 儲存
-            title: 出席證明書
         invite_join_conference_mailer:
           invite:
             decline: 拒絕邀請 '%{conference_title}'
@@ -376,7 +357,6 @@ zh-TW:
             diploma_html: 您將在附件中找到會議<a href="%{url}">%{title}</a>的出席證明書。
           diploma_user:
             attendance_verified_by: 出席驗證
-            certificate_of_attendance: 出席證明書
             certificate_of_attendance_description: 此證明憑證明 <strong>%{user}</strong> 於<strong>%{location}</strong>於<strong>%{start} - %{end}</strong>參加了<strong>%{title}</strong>活動
         send_diploma:
           error: 發送會議出席證明時發生問題。

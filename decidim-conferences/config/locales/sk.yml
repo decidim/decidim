@@ -73,13 +73,11 @@ sk:
         destroy:
           success: Rečník úspešne odstránený.
         edit:
-          title: Aktualizovať rečníka.
           update: Aktualizovať
         index:
           conference_speakers_title: Rečníci na konferencii
         new:
           create: Vytvoriť
-          title: Nový rečník.
         update:
           error: Vyskytol sa problém so zmenou rečníka na konferencii.
           success: Rečník úspešne zmenený.
@@ -90,11 +88,9 @@ sk:
         destroy:
           success: Administrátor konferencie úspešne odstránený.
         edit:
-          title: Aktualizovať administrátora konferencie.
           update: Aktualizovať
         new:
           create: Vytvoriť
-          title: Nový administrátor konferencie.
         update:
           error: Vyskytol sa problém so zmenou rečníka na konferencii.
           success: Administrátor konferencie úspešne zmenený.
@@ -123,19 +119,12 @@ sk:
       media_links:
         create:
           error: Pri tvorbe mediálneho odkazu nastala chyba.
-          success: Mediálny odkaz bol úspešne vytvorený.
-        destroy:
-          success: Mediálny odkaz bol úspešne zmazaný.
         edit:
-          title: Aktualizovať mediálny odkaz.
           update: Aktualizovať
-        index:
-          media_links_title: Mediálne odkazy
         new:
           create: Vytvoriť
         update:
           error: Pri aktualizácii mediálneho odkazu nastala chyba.
-          success: Mediálny odkaz bol úspešne aktualizovaný.
       menu:
         conferences: Konferencie
         conferences_submenu:
@@ -147,13 +136,9 @@ sk:
           conference_admins: Administrátori konferencie
           conference_invites: Pozvánky
           conference_speakers: Rečníci
-          diploma: Certifikát účasti
-          media_links: Mediálne odkazy
           moderations: Moderácia
           partners: Partneri
-          registration_types: Typy registrácie
           registrations: Registrácie
-          user_registrations: Registrácie užívateľov
       models:
         conference:
           fields:
@@ -182,7 +167,6 @@ sk:
             date: Dátum
             link: Odkaz
             title: Názov
-          name: Mediálny odkaz
         partner:
           fields:
             link: Odkaz
@@ -207,7 +191,6 @@ sk:
         destroy:
           success: Partner konferencie úspešne odstránený.
         edit:
-          title: Zmeniť partnera.
           update: Aktualizovať
         new:
           create: Vytvoriť
@@ -229,7 +212,6 @@ sk:
         destroy:
           success: Typ registrácie na konferenciu úspešne odstránený.
         edit:
-          title: Zmeniť typ registrácie.
           update: Aktualizovať
         new:
           create: Vytvoriť
@@ -313,7 +295,6 @@ sk:
         diplomas:
           edit:
             save: Uložiť
-            title: Certifikát účasti
         invite_join_conference_mailer:
           invite:
             decline: Odmietnuť pozvánku na "%{conference_title}"
@@ -332,7 +313,6 @@ sk:
             diploma_html: Certifikát účasti na konferencii <a href="%{url}">%{title}</a> nájdete v prílohách.
           diploma_user:
             attendance_verified_by: Účasť potvrdená
-            certificate_of_attendance: Certifikát účasti
             certificate_of_attendance_description: Týmto potvrdzujeme, že <strong>%{user}</strong> sa zúčastnil na konferencii <strong>%{title}</strong>, ktorá sa konala na mieste <strong>%{location}</strong> od %{start} do %{end}</strong>.
         send_diploma:
           error: Vyskytol sa účasť so zasielaním certifikátov účasti.

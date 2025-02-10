@@ -120,13 +120,13 @@ es:
         destroy:
           success: Ponente de la jornada eliminada correctamente.
         edit:
-          title: Actualizar la ponencia de la conferencia.
+          title: Actualizar la ponente de la conferencia
           update: Actualizar
         index:
           conference_speakers_title: Ponentes de las jornadas
         new:
           create: Crear
-          title: Nueva ponente de la conferencia.
+          title: Nueva ponente de la jornada
         publish:
           invalid: Se ha producido un error al publicar esta ponente.
           success: Ponente de la conferencia actualizada correctamente.
@@ -143,13 +143,13 @@ es:
         destroy:
           success: Administradora de la jornada eliminada correctamente.
         edit:
-          title: Actualizar administradora de la jornada.
+          title: Actualizar administradora de la jornada
           update: Actualizar
         index:
           conference_admins_title: Administradoras de la jornada
         new:
           create: Crear
-          title: Nueva administradora de la jornada.
+          title: Nueva administradora de la jornada
         update:
           error: Se ha producido un error al actualizar la administradora para esta jornada.
           success: Administradora de la jornada actualizada correctamente.
@@ -183,7 +183,7 @@ es:
         destroy:
           success: Enlace multimedia eliminado correctamente.
         edit:
-          title: Actualizar enlace multimedia.
+          title: Actualizar enlace multimedia
           update: Actualizar
         index:
           media_links_title: Enlaces multimedia
@@ -267,7 +267,7 @@ es:
         destroy:
           success: Colaboradora de la jornada eliminada correctamente.
         edit:
-          title: Actualizar colaboradora.
+          title: Actualizar colaboradora
           update: Actualizar
         new:
           create: Crear
@@ -289,7 +289,7 @@ es:
         destroy:
           success: Tipo de inscripción eliminado correctamente de esta jornada.
         edit:
-          title: Actualizar el tipo de registro.
+          title: Actualizar el tipo de inscripción
           update: Actualizar
         new:
           create: Crear
