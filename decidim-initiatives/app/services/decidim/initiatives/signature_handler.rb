@@ -169,6 +169,10 @@ module Decidim
         new.form_attributes.present?
       end
 
+      def already_voted?
+        Decidim::InitiativesVote.exists?(author: user)
+      end
+
       private
 
       # It is expected to validate that no other user has voted with the same
