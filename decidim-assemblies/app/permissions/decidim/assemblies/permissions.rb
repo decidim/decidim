@@ -251,7 +251,7 @@ module Decidim
 
       # Evaluators can only read the assembly components
       def evaluator_action?
-        return unless can_manage_assembly?(role: :valuator)
+        return unless can_manage_assembly?(role: :evaluator)
 
         allow! if permission_action.action == :read && permission_action.subject == :component
         allow! if permission_action.action == :export && permission_action.subject == :component_data
