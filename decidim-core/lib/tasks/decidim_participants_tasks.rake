@@ -4,7 +4,7 @@ namespace :decidim do
   namespace :participants do
     desc "Delete inactive participants after a configurable inactivity period"
     task :delete_inactive_participants, [:days] => :environment do |_task, args|
-      inactivity_period_days = args[:days]&.to_i || Decidim.inactivity_period
+      inactivity_period_days = args[:days]&.to_i || Decidim.delete_inactive_users_after_days
       minimum_inactivity_period = Decidim.minimum_inactivity_period
 
       if inactivity_period_days < minimum_inactivity_period
