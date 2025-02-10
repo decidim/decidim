@@ -800,7 +800,6 @@ pl:
           maximum_votes_reached: Osiągnięto limit głosów
           no_votes_remaining: Brak głosów
           vote: Głosować
-          votes_blocked: Głosowanie zostało wyłączone
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Każda propozycja może zgromadzić głosy poparcia ponad limit %{limit} głosów

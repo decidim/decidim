@@ -685,6 +685,28 @@ fr-CA:
     download_your_data:
       export:
         ready: Prêt
+      help:
+        participatory_space_private_users:
+          created_at: La date et l'heure de création de cet utilisateur privé
+          id: L'identifiant unique de cet utilisateur privé
+          privatable_to: À quel espace cet utilisateur privé appartient
+          published: Que cet utilisateur privé soit publié ou non
+          role: Le rôle que cet utilisateur privé a
+          updated_at: La date et l'heure de la dernière mise à jour de cet utilisateur privé
+        reports:
+          created_at: La date et l'heure de création de ce rapport
+          details: Les détails de ce rapport
+          id: L'identifiant unique de ce rapport
+          locale: La langue de ce rapport
+          reason: La raison de ce rapport
+          updated_at: La date et l'heure de la dernière mise à jour de ce rapport
+        users:
+          accepted_tos_version: La date à laquelle les conditions d'utilisation de cette plateforme ont été acceptées par l'utilisateur
+          followers_count: Le nombre de participants qui suivent à cet utilisateur
+          following_count: Le nombre de participants que cet utilisateur suit
+          password_updated_at: La date à laquelle leur mot de passe a été modifié pour la dernière fois
+          roles: Le rôle de cet utilisateur s'il en a un
+          type: Le type que cet utilisateur a
       show:
         action: Action
         download_data_description_1: Vous trouverez ici tous les téléchargements disponibles pour votre compte. Ces fichiers .zip seront disponibles pendant deux semaines avant d'être supprimés.
