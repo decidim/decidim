@@ -257,7 +257,7 @@ fi-pl:
             publish_answers_immediately: Julkaise ehdotusten vastaukset heti
             publish_answers_immediately_help_html: 'Huomioithan, että jos vastaat mihin tahansa ehdotukseen ilman tätä asetusta, sinun on julkaistava vastaukset manuaalisesti valitsemalla vastaukset sisältävät ehdotukset ja käyttämällä julkaisutoimintoa. Lisätietoja, miten tämä toimii, löytyy <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">dokumentaation osiosta ehdotuksiin vastaaminen</a>.'
             suggested_hashtags: Käyttäjille ehdotettavat hashtagit uusille ehdotuksille
-            votes_blocked: Äänet ovat tukossa
+            votes_blocked: Äänestys estetty
             votes_enabled: Äänet käytössä
             votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tämä valitseminen piilottaa äänimäärän)
     download_your_data:
@@ -1003,6 +1003,7 @@ fi-pl:
           maximum_votes_reached: Kaikki äänet käytetty
           no_votes_remaining: Ei ääniä jäljellä
           vote: Äänestä
+          votes_blocked: Äänestä
         votes_count:
           count:
             one: Ääni
