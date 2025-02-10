@@ -18,10 +18,7 @@ module Decidim
         private
 
         def signature_workflow_manifest
-          @signature_workflow_manifest ||= begin
-            handler_name = current_initiative.type.document_number_authorization_handler
-            Decidim::Initiatives::Signatures.find_workflow_manifest(handler_name) || Decidim::Initiatives::SignatureWorkflowManifest.new
-          end
+          @signature_workflow_manifest ||= current_initiative.type.signature_workflow_manifest || Decidim::Initiatives::SignatureWorkflowManifest.new
         end
 
         def signature_has_steps?
