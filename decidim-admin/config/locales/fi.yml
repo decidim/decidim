@@ -93,7 +93,7 @@ fi:
         secondary_hosts: Toissijaiset osoitteet
         send_welcome_notification: Lähetä tervetuloilmoitus
         success_color: Onnistuminen
-        tertiary_color: Kolmiasteinen värimääritys
+        tertiary_color: Kolmassijainen
         time_zone: Aikavyöhyke
         tos_version: Käyttöehtojen versio
         twitter_handler: X käsittelijä
