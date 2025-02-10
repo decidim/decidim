@@ -7,7 +7,7 @@ describe "rake decidim:participants:delete_inactive_participants", type: :task d
   let!(:organization2) { create(:organization) }
 
   before do
-    allow(Decidim).to receive(:inactivity_period).and_return(300)
+    allow(Decidim).to receive(:delete_inactive_users_after_days).and_return(300)
     allow(Decidim).to receive(:minimum_inactivity_period).and_return(30)
   end
 
