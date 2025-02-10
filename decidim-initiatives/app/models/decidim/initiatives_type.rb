@@ -52,5 +52,9 @@ module Decidim
     def self.log_presenter_class_for(_log)
       Decidim::Initiatives::AdminLog::InitiativesTypePresenter
     end
+
+    def signature_workflow_manifest
+      Decidim::Initiatives::Signatures.find_workflow_manifest(document_number_authorization_handler)
+    end
   end
 end
