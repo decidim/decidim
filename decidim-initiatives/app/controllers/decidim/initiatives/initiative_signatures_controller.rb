@@ -196,8 +196,30 @@ module Decidim
           form.user = current_user
         end
 
+        @vote_form.validate
+
+        if @vote_form.transfer_status == :transfer_user && @vote_form.user != current_user
+          new_user = @vote_form.user
+          new_user.update(last_sign_in_at: Time.current, deleted_at: nil)
+          sign_out(current_user)
+          sign_in(new_user)
+        elsif @vote_form.transfer_status.is_a?(Decidim::AuthorizationTransfer)
+          transfer = @vote_form.transfer_status
+
+          message = t("authorizations.create.success", scope: "decidim.verifications")
+          if transfer.records.any?
+            message = <<~HTML
+              <p>#{CGI.escapeHTML(message)}</p>
+              <p>#{CGI.escapeHTML(t("authorizations.create.transferred", scope: "decidim.verifications"))}</p>
+              #{transfer.presenter.records_list_html}
+            HTML
+          end
+
+          flash[:notice] = message
+        end
+
         session[:initiative_vote_form] ||= {}
-        session[:initiative_vote_form] = session[:initiative_vote_form].merge(@vote_form.attributes_with_values.except(:initiative, :user))
+        session[:initiative_vote_form] = session[:initiative_vote_form].merge(@vote_form.attributes_with_values.except(:initiative, :user, :transfer_status))
       end
 
       def initiative_type
