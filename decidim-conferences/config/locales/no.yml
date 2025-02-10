@@ -100,13 +100,11 @@
         destroy:
           success: Konferansetaler ble slettet.
         edit:
-          title: Oppdater konferansetaler.
           update: Oppdater
         index:
           conference_speakers_title: Konferansetalere
         new:
           create: Opprett
-          title: Ny konferansetaler.
         update:
           error: Det oppstod et problem med å oppdatere denne konferansetaleren.
           success: Konferansetaler ble oppdatert.
@@ -117,11 +115,9 @@
         destroy:
           success: Konferanse administrator ble fjernet.
         edit:
-          title: Oppdater konferanse administrator.
           update: Oppdater
         new:
           create: Opprett
-          title: Ny konferanse administrator.
         update:
           error: Det oppstod et problem med å oppdatere denne konferanse administratoren.
           success: Konferanse administrator ble oppdatert.
@@ -150,19 +146,12 @@
       media_links:
         create:
           error: Det oppstod et problem med å opprette en ny media lenke.
-          success: Media Lenke opprettet.
-        destroy:
-          success: Media Lenke slettet.
         edit:
-          title: Oppdater media lenke.
           update: Oppdater
-        index:
-          media_links_title: Media Lenker
         new:
           create: Opprett
         update:
           error: Det oppstod et problem med å oppdatere denne media lenken.
-          success: Media Lenke ble oppdatert.
       menu:
         conferences: Konferanser
         conferences_submenu:
@@ -174,13 +163,9 @@
           conference_admins: Konferanse administratorer
           conference_invites: Invitasjoner
           conference_speakers: Talere
-          diploma: Sertifikat for Oppmøte
-          media_links: Media Lenker
           moderations: Moderering
           partners: Partnere
-          registration_types: Registrerings Typer
           registrations: Registreringer
-          user_registrations: Bruker Registreringer
       models:
         conference:
           fields:
@@ -209,7 +194,6 @@
             date: Dato
             link: Lenke
             title: Tittel
-          name: Media Lenke
         partner:
           fields:
             link: Lenke
@@ -235,7 +219,6 @@
         destroy:
           success: Konferansepartner ble fjernet.
         edit:
-          title: Oppdater partner.
           update: Oppdater
         new:
           create: Opprett
@@ -257,7 +240,6 @@
         destroy:
           success: Konferanse registrerings-typen ble fjernet.
         edit:
-          title: Oppdater registreringstype.
           update: Oppdater
         new:
           create: Opprett
@@ -349,7 +331,6 @@
         diplomas:
           edit:
             save: Lagre
-            title: Sertifikat for Oppmøte
         invite_join_conference_mailer:
           invite:
             decline: Avvis invitasjon '%{conference_title}'
@@ -368,7 +349,6 @@
             diploma_html: Du finner sertifikatet for deltagelse for konferansen <a href="%{url}">%{title}</a> i vedleggene.
           diploma_user:
             attendance_verified_by: Oppmøte verifisert av
-            certificate_of_attendance: Sertifikat for Oppmøte
             certificate_of_attendance_description: Dette er for å bekrefte at <strong>%{user}</strong> har møtt opp og deltatt i <strong>%{title}</strong> holdt på <strong>%{location}</strong> på <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Det oppstod et problem med å sende konferanses deltakelsesbevis.

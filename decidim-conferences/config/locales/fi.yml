@@ -120,13 +120,13 @@ fi:
         destroy:
           success: Puhujan poisto konferenssista onnistui.
         edit:
-          title: Päivitä konferenssin puhuja.
+          title: Päivitä konferenssin puhujaa
           update: Päivitä
         index:
           conference_speakers_title: Konferenssin puhujat
         new:
           create: Luo
-          title: Uusi konferenssin puhuja.
+          title: Uusi konferenssin puhuja
         update:
           error: Konferenssin puhujan päivittäminen epäonnistui.
           success: Konferenssin puhujan päivitys onnistui.
@@ -137,13 +137,13 @@ fi:
         destroy:
           success: Hallintakäyttäjä poisto konferenssista onnistui.
         edit:
-          title: Päivitä konferenssin hallintakäyttäjä.
+          title: Päivitä konferenssin hallintakäyttäjää
           update: Päivitä
         index:
           conference_admins_title: Konferenssin ylläpitäjät
         new:
           create: Luo
-          title: Uusi konferenssin hallintakäyttäjä.
+          title: Uusi konferenssin hallintakäyttäjä
         update:
           error: Konferenssin hallintakäyttäjän päivittäminen epäonnistui.
           success: Konferenssin hallintakäyttäjän päivittäminen onnistui.
@@ -177,7 +177,7 @@ fi:
         destroy:
           success: Medialinkin poisto onnistui.
         edit:
-          title: Päivitä medialinkki.
+          title: Päivitä medialinkkiä
           update: Päivitä
         index:
           media_links_title: Medialinkit
@@ -261,7 +261,7 @@ fi:
         destroy:
           success: Yhteistyökumppanin poisto tästä konferenssista onnistui.
         edit:
-          title: Päivitä yhteistyökumppani.
+          title: Päivitä yhteistyökumppania
           update: Päivitä
         new:
           create: Luo
@@ -283,7 +283,7 @@ fi:
         destroy:
           success: Ilmoittautumistyypin poisto onnistui.
         edit:
-          title: Päivitä ilmoittautumistyyppi.
+          title: Päivitä ilmoittautumistyyppiä
           update: Päivitä
         new:
           create: Luo

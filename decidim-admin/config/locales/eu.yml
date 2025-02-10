@@ -111,14 +111,14 @@ eu:
         name: Izena
         organization: Erakundea
         parent_id: Nagusia
-        scope_type: Esparru mota
-        scope_type_id: Esparru mota
+        scope_type: Eremua mota
+        scope_type_id: Eremua mota
       scope_type:
         name: Izena
         organization: Erakundea
         plural: Plurala
       settings:
-        scope_id: Esparrua
+        scope_id: Eremua
       static_page:
         allow_public_access: Baimendu sarbidea balidatu gabe
         changed_notably: Aldaketa nabarmenak izan dira.
@@ -335,7 +335,7 @@ eu:
           headers:
             actions: Ekintzak
             name: Osagaiaren izena
-            scope: Osagaiaren esparrua
+            scope: Osagaiaren eremua
             type: Osagai mota
         new:
           add: Gehitu osagaia
@@ -454,11 +454,11 @@ eu:
             'false': Argitaratua
             'true': Ez da argitaratu
         scope_id_eq:
-          label: Esparrua
+          label: Eremua
         search_label: Bilatu
         search_placeholder:
           name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
-          report_count_eq: Salaketa kopurua
+          report_count_eq: Erreporte kopurua
           reported_id_string_or_reported_content_cont: Bilatu %{collection} eduki edo Id erreportablearen arabera.
           title_cont: Bilatu %{collection} izenburuaren arabera.
           user_name_or_user_email_cont: Bilatu %{collection} helbide elektroniko edo izenaren arabera.
@@ -535,7 +535,7 @@ eu:
           missing_headers:
             detail: Mesedez, egiaztatu fitxategiak eskatutako zutabeak dituela.
             message:
-              one: Falta da %{columns} zutabe.
+              one: Falta da zutabe %{columns}.
               other: Falta dira %{columns} zutabe.
         error: Arazo bat egon da inportatzean.
         example_error: Arazo bat egon da aukeratutako tiporako adibide bat sortzean.
@@ -586,8 +586,8 @@ eu:
         newsletters: Buletinak
         participants: Parte-hartzaileak
         reported_users: Parte-hartzaile erreportatuak
-        scope_types: Esparru motak
-        scopes: Esparruak
+        scope_types: Eremu motak
+        scopes: Eremuak
         see_site: Ikusi web-orria
         settings: Ezarpenak
         static_page_topics: Gaiak
@@ -638,7 +638,7 @@ eu:
         scope:
           fields:
             name: Izena
-            scope_type: Esparru mota
+            scope_type: Eremu mota
         scope_type:
           fields:
             name: Izena
@@ -748,8 +748,8 @@ eu:
           confirm_delete: Ziur zaude buletin hau ezabatu nahi duzula?
           followers: 'jarraitzaileak '
           has_been_sent_to: 'Honi bidalia: '
-          no_scopes: Esparrurik gabe
-          not_sent: Ez bidalita
+          no_scopes: Eremurik gabe
+          not_sent: Ez da bidali
           participants: 'parte-hartzaileak '
           segmented_to: 'Honentzat zatitua %{subject}:'
           subscribed_count: 'Harpidetuak:'
@@ -766,8 +766,8 @@ eu:
           none: Bat ere ez
           participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein espazio parte-hartzailetan esku hartu duten parte-hartzaile guztiei bidaltzen die.
           recipients_count: 'Buletin hau parte-hartzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
-          scopes_help: Albisteen buletina "Nire interesekoak" konfigurazioan edozein esparru aktibatuta duten parte-hartzaileei bidaltzen die.
-          select_scopes: Iragazi "Nire interesekoak" konfigurazioan edozein esparru aktibatu duten parte-hartzaileentzat.
+          scopes_help: Albisteen buletina "Nire interesekoak" konfigurazioan edozein eremua aktibatuta duten parte-hartzaileei bidaltzen die.
+          select_scopes: Iragazi "Nire interesekoak" konfigurazioan edozein eremu aktibatu duten parte-hartzaileentzat.
           select_spaces: Hautatu espazioak buletina zatitzeko
           select_users: Hautatu zein parte-hartzaileri bidali nahi diezun buletina
           title: Hautatu entregaren hartzaileak
@@ -831,7 +831,7 @@ eu:
           github: GitHub
           instagram: Instagram
           rich_text_editor_in_public_views_help: Testu-eremu batzuetan, parte-hartzaileek HTML etiketa batzuk txertatu ahal izango dituzte testu-editore aberastua erabiliz.
-          social_handlers: Soziala
+          social_handlers: Gizarte
           twitter: X
           url: URL
           youtube: YouTube
@@ -845,7 +845,7 @@ eu:
           colors:
             choose_color: Aukeratu kolore nagusia
             colors_title: Erakundearen koloreak
-            colors_warning_html: "\nKontuz! Kolore horiek aldatzeak irisgarritasun-kontrasteak hautsi ditzake. Zure aukeraren kontrastea egiazta dezakezu <a href=\"%{link}\">WebAIM Contrast Checker</a> edo antzeko tresnekin."
+            colors_warning_html: Kontuz! Kolore horiek aldatzeak irisgarritasun-kontrasteak hautsi ditzake. Zure aukeraren kontrastea egiazta dezakezu <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> edo antzeko tresnekin.
             explanation: Tresna honek kolore-eskema bat aukeratzen laguntzen dizu, kolore bolantearen inguruan barreiatutako huez osatua, erakundearen webgunean erabiliko dena.
             legend_html: <a href="https://www.color-meanings.com/triadic-colors/">Triadic algoritmoa.</a> <i>bigarren mailako </i> kolorea zuk aukeratutako kolore primariotik eta asetasunetik abiatuta kalkulatzen da.
             saturation: Saturazioa
@@ -923,38 +923,38 @@ eu:
       resources:
         index:
           headers:
-            scope: Esparrua
+            scope: Eremua
       scope_types:
         create:
-          error: Arazo bat egon da beste esparru mota bat sortzean.
-          success: Esparru mota arrakastaz sortu da.
+          error: Arazo bat egon da beste eremu mota bat sortzean.
+          success: Eremu mota arrakastaz sortu da.
         destroy:
-          success: Esparru mota behar bezala suntsitua
+          success: Eremu mota behar bezala suntsitua
         edit:
-          title: Editatu esparru mota
+          title: Editatu eremu mota
           update: Eguneratu
         new:
-          create: Sortu esparru mota
-          title: Beste esparru mota bat
+          create: Sortu eremu mota
+          title: Beste eremu mota bat
         update:
-          error: Arazo bat egon da esparru mota hau eguneratzean.
-          success: Esparru mota zuzen eguneratua
+          error: Arazo bat egon da eremu mota hau eguneratzean.
+          success: Eremu mota zuzen eguneratua
       scopes:
         create:
-          error: Arazo bat egon da beste esparru bat sortzean.
-          success: Esparrua zuzen sortua.
+          error: Arazo bat egon da beste eremu bat sortzean.
+          success: Eremua zuzen sortua.
         destroy:
-          success: Esparrua behar bezala suntsitua.
+          success: Eremua behar bezala suntsitua.
         edit:
-          title: Editatu esparrua
+          title: Editatu eremua
           update: Eguneratu
         new:
-          create: Sortu esparrua
-          title: Beste esparru bat
-        no_scopes: Maila honetan ez dago esparrurik.
+          create: Sortu eremua
+          title: Beste eremu bat
+        no_scopes: Maila honetan ez dago eremurik.
         update:
-          error: Arazo bat egon da esparru hau eguneratzean.
-          success: Esparrua zuzen eguneratua
+          error: Arazo bat egon da eremu hau eguneratzean.
+          success: Eremua zuzen eguneratua
       share_tokens:
         actions:
           confirm_destroy: Ziur zaude identifikatzaile-ikur hau ezabatu nahi duzula?
@@ -1031,8 +1031,8 @@ eu:
         pages: Orriak
         panel: Administratzailea
         participants: Parte-hartzaileak
-        scope_types: Esparru motak
-        scopes: Esparruak
+        scope_types: Eremu motak
+        scopes: Eremuak
         statistics: Jarduera
         user_groups: Partaide-taldeak
         users: Administratzaileak

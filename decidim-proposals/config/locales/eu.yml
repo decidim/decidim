@@ -6,9 +6,9 @@ eu:
         address: Helbidea
         body: Testua
         category_id: Kategoria
-        decidim_scope_id: Esparrua
+        decidim_scope_id: Eremua
         has_address: Helbidea du
-        scope_id: Esparrua
+        scope_id: Eremua
         state: Egoera
         title: Izenburua
         user_group_id: Sortu zirriborro kolaboratiboa
@@ -19,9 +19,9 @@ eu:
         automatic_hashtags: Traola automatikoki gehitu da
         body: Gorputza
         category_id: Kategoria
-        decidim_scope_id: Esparrua
+        decidim_scope_id: Eremua
         has_address: Helbidea du
-        scope_id: Esparrua
+        scope_id: Eremua
         state: Egoera
         suggested_hashtags: Iradokitako traolak
         title: Titulua
@@ -71,7 +71,7 @@ eu:
     models:
       decidim/proposals/accepted_proposal_event: Poposamena onartura
       decidim/proposals/admin/update_proposal_category_event: Proposamen kategoria aldatu da
-      decidim/proposals/admin/update_proposal_scope_event: Proposamen-esparrua aldatuta
+      decidim/proposals/admin/update_proposal_scope_event: Proposamen-eremua aldatuta
       decidim/proposals/creation_enabled_event: Proposamenaren sorrera gaituta
       decidim/proposals/endorsing_enabled_event: Onartutako proposamena gaituta
       decidim/proposals/evaluating_proposal_event: Proposamena ebaluatzen ari da
@@ -83,7 +83,7 @@ eu:
     models:
       decidim/proposals/collaborative_draft:
         one: Zirriborro kolaboratzailea
-        other: Zirriborro kolaboratzaileak
+        other: Zirriborro kolaboratiboak
       decidim/proposals/proposal:
         one: Proposamena
         other: Proposamenak
@@ -105,7 +105,7 @@ eu:
               'false': Proposamenak
               'true': Zuzenketak
           scope_id_eq:
-            label: Esparrua
+            label: Eremua
           state_eq:
             label: Egoera
             values:
@@ -144,7 +144,7 @@ eu:
             announcement: Jakinarazpena
             attachments_allowed: Onartu eranskinak
             can_accumulate_supports_beyond_threshold: Babesak metatu ditzake atalasetik haratago
-            collaborative_drafts_enabled: Lankidetza zirriborroak gaituta
+            collaborative_drafts_enabled: Zirriborro kolaboratiboak gaituta
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
             default_sort_order: Proposamenen hurrenkera lehenetsia
@@ -179,10 +179,10 @@ eu:
             proposal_wizard_step_3_help_text: Proposamen laguntzailea "Bete" urrats laguntza testua
             proposal_wizard_step_4_help_text: Proposamen laguntzailea "Argitaratu" urrats-laguntza testua
             resources_permissions_enabled: Ekintza-baimenak proposamen bakoitzerako ezarri daitezke
-            scope_id: Esparrua
-            scopes_enabled: Esparruak gaituta
+            scope_id: Eremua
+            scopes_enabled: Eremuak gaituta
             threshold_per_proposal: Proposamen bakoitzeko atalasea
-            vote_limit: Parte-hartzaile bakoitzeko aldeko botoen muga
+            vote_limit: Parte-hartzaile bakoitzeko aldeko babesen muga
           step:
             amendment_creation_enabled: Zuzenketa sortzea aktibatuta
             amendment_creation_enabled_help: Parte-hartzaileak proposamenak alda ditzake.
@@ -199,7 +199,7 @@ eu:
             answers_with_costs: Gaitu kostua proposamenen erantzunetan
             automatic_hashtags: Traola proposamen guztiei gehitu zaie
             comments_blocked: Iruzkinak blokeatuta
-            creation_enabled: Parte-hartzaileek eztabaidak sor ditzakete
+            creation_enabled: Parte-hartzaileek proposamenak sor ditzakete
             creation_enabled_readonly: Aukera hori desaktibatu egiten da Testuen Parte-hartzaile funtzionaltasuna aktibatzean. Testu parte-hartzaile gisa proposamenak kargatzeko, egin klik Testu parte-hartzaileak botoian eta jarraitu jarraibideak.
             default_sort_order: Proposamenen hurrenkera lehenetsia
             default_sort_order_help: Automatikoak esan nahi du, babesak gaituta badaude, proposamenak ausaz ordenatuta agertuko direla, eta babesak blokeatuta badaude, bozkatuenaren arabera ordenatuko direla.
@@ -257,8 +257,8 @@ eu:
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a>-k kendu du <a href="%{resource_url}">%{resource_title}</a> testu kolaboraboaren zirriborroa.
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a> ko kolaboratzailea zarelako.
-          email_subject: "%{author_name} %{author_nickname} k %{resource_title} zirriborroa kendu du."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a>-k kendu du <a href="%{resource_path}">%{resource_title}</strong> testu kolaboraboaren zirriborroa.
+          email_subject: "%{author_name} %{author_nickname} egileak %{resource_title} zirriborroa kendu du."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname} egileak</a> kendu du <a href="%{resource_path}">%{resource_title}</strong> zirriborro kolaboratiboa.
         creation_enabled:
           email_intro: 'Orain %{participatory_space_title} proposamen berriak sor ditzakezu! Hasi parte hartzen orri honetan:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko estekan.
@@ -326,7 +326,7 @@ eu:
         proposal_update_scope:
           email_intro: 'Administratzaile batek %{resource_title} zure proposamenaren eremua eguneratu du, orri honetan egiazta dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea zarelako.
-          email_subject: '%{resource_title} proposamenaren esparrua eguneratu egin da'
+          email_subject: '%{resource_title} proposamenaren eremua eguneratu egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren eparrua administratzaile batek eguneratu du.
         voting_enabled:
           email_intro: 'Proposamenak bozkatu ditzakezu %{participatory_space_title} espazioan! Hasi parte hartzen ondorengo orrian:'
@@ -419,7 +419,7 @@ eu:
               <ul>
               <li><b>Izenburua/en:</b>Ingelesari buruzko titulua. Zure plataformaren hizkuntzaren konfigurazioaren araberakoa izango da..</li>
               <li><b>Testua/en:</b>Testua ingelesez. Zure plataformaren hizkuntzaren konfigurazioaren araberakoa izango da.</li>
-              <li><b>Esparrua/id:</b> Esparruaren ID-a</li>
+              <li><b>Esparrua/id:</b> Eremuaren ID-a</li>
               <li><b>Kategoria/id:</b> Kategoriaren ID-a</li>
               </ul>
           label:
@@ -510,7 +510,7 @@ eu:
             assign_to_valuator_button: Esleitu
             cancel: Utzi
             change_category: Aldatu kategoria
-            change_scope: Aldatu esparrua
+            change_scope: Aldatu eremua
             merge: Beste batean fusionatu
             merge_button: Batu
             publish: Argitaratu
@@ -523,7 +523,7 @@ eu:
             unassign_from_valuator: Desesleitu ebaluatzaileari
             unassign_from_valuator_button: Desesleitu
             update: Eguneratu
-            update_scope_button: Eguneratu esparrua
+            update_scope_button: Eguneratu eremua
           new:
             create: Sortu
             title: Sortu proposamena
@@ -555,10 +555,10 @@ eu:
             select_a_proposal: Mesedez, hautatu proposamen bat.
             success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} kategoriara.'
           update_scope:
-            invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} esparrua.'
+            invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} eremua.'
             select_a_proposal: Mesedez, hautatu proposamen bat.
-            select_a_scope: Mesedez, hautatu esparru bat.
-            success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} esparruan.'
+            select_a_scope: Mesedez, hautatu eremu bat.
+            success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} eremuan.'
         proposals_imports:
           create:
             invalid: Arazo bat egon da proposamenak inportatzean.
@@ -621,7 +621,7 @@ eu:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: Arazo bat egon da testu kolaboratiboa gordetzen.
+            error: Arazoak izan dira zirriborro kolaboratiboa argitaratzean.
             irreversible_action_modal:
               body: Zirriborroa proposamen gisa argitaratu ondoren, jada ez da editagarria izango. Proposamenak ez du beste egile edo ekarpenik onartuko.
               cancel: Utzi
@@ -629,15 +629,15 @@ eu:
               title: Hurrengo ekintza atzeraezina da
             success: Proposamen gisa argitaratutako ziriborro kolaboratiboa.
           withdraw:
-            error: Arazoak izan dira lankidetza zirriborroa ixtean.
+            error: Arazoak izan dira zirriborro kolaboratiboa ixtean.
             irreversible_action_modal:
               body: Zirriborroa itxi ondoren, ezin izango da berriro editatu. Zirriborroak ez du onartuko beste egile edo ekarpenik.
               cancel: Utzi
-              ok: Kendu lankidetza zirriborroa
+              ok: Kendu zirriborro kolaboratiboa
               title: Hurrengo ekintza atzeraezina da
             success: Kolaborazio zirriborroa zuzen kendu da.
         create:
-          error: Arazo bat izan da lankidetza-zirriborroak sortzean.
+          error: Arazo bat izan da zirriborro kolaboratiboak sortzean.
           success: Zirriborro kolaboratiboa sortu da.
         edit:
           attachment_legend: "(Aukerakoa) Gehitu fitxategi bat"
@@ -654,7 +654,7 @@ eu:
           open: Zabaldu
           published: Argitaratuta
           related_to: Lotutako gaiak
-          scope: Esparrua
+          scope: Eremua
           search: Bilatu
           state: Egoera
           withdrawn: Baztertu
@@ -665,7 +665,7 @@ eu:
           unfold: Zabaldu
         index:
           count:
-            one: "%{count} lankidetza zirriborroa"
+            one: "Zirriborro kolaboratibo %{count}"
             other: "%{count} zirriborro kolaboratibo"
         name: Zirriborro kolaboratzaileak
         new:
@@ -712,12 +712,12 @@ eu:
           published: Argitaratuta
           withdrawn: Kendu
         update:
-          error: Arazo bat egon da testu kolaboratiboa gordetzen.
+          error: Arazo bat egon da zirriborro kolaboratiboa gordetzen.
           success: Ziriboro kolaboratiboa ondo eguneratu da.
         wizard_aside:
           back_from_collaborative_draft: Itzuli zirriborro kolaboratzaileetara
         wizard_header:
-          title: Sortu zure lankidetza zirriborroa
+          title: Sortu zure zirriborro kolaboratiboa
       content_blocks:
         highlighted_proposals:
           name: Proposamenak
@@ -740,7 +740,7 @@ eu:
             official_proposal: Proposamen ofiziala
             published_answer: Erantzuna argitaratuta
             published_at: Argitaratze-data
-            scope: Esparrua
+            scope: Eremua
             state: Egoera
             title: Titulua
             valuator: Ebaluatzailea
@@ -788,7 +788,7 @@ eu:
           my_proposals: Nire proposamenak
           origin: Jatorria
           related_to: Honekin lotuta
-          scope: Esparrua
+          scope: Eremua
           search: Bilatu
           state: Egoera
           type: Mota
@@ -797,7 +797,7 @@ eu:
           click_here: Ikusi proposamen guztiak
           collaborative_drafts_list: Sartu elkarlanerako zirriborroetan
           count:
-            one: "%{count} proposamen"
+            one: "Proposamen %{count}"
             other: "%{count} proposamen"
           new_proposal: Beste proposamen bat
           see_all: Ikusi proposamen guztiak
@@ -841,7 +841,7 @@ eu:
             one: eta pertsona %{count} gehiago
             other: eta %{count} pertsona gehiago
           link_to_collaborative_draft_help_text: Proposamen hau ziriborro kolaboratibo baten emaitza da. Berrikusi historia
-          link_to_collaborative_draft_text: Ikusi testu kolaboratiboaren ziriborroa
+          link_to_collaborative_draft_text: Ikusi zirriborro kolaboratiboaren testua
           link_to_promoted_emendation_help_text: Proposamen hau zuzenketa batetik dator
           link_to_promoted_emendation_text: Ikusi baztertutako zuzeketa.
           link_to_proposal_from_emendation_help_text: Hau baztertutako zuzenketa bat da

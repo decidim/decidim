@@ -174,7 +174,7 @@ eu:
           user_postal_codes:
             one: Parte-hartzea mugatuta dago %{postal_codes} posta-kodea duten parte-hartzaileentzat eta zure posta-kodea hau da %{user_postal_code}.
             other: 'Parte-hartzea mugatuta dago %{postal_codes} posta-kodea duten parte-hartzaileentzat eta zure posta-kodea hau da %{user_postal_code}.'
-          user_scope: Parte hartzea mugatuta dago %{scope_name} esparrua duten parte-hartzaileentzat eta zure esparrua hau da %{user_scope_name}.
+          user_scope: Parte hartzea mugatuta dago %{scope_name} eremua duten parte-hartzaileentzat eta zure eremua hau da %{user_scope_name}.
       id_documents:
         admin:
           config:

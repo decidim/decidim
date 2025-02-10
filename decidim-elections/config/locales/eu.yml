@@ -417,7 +417,7 @@ eu:
         end_date: Amaitu
         footer:
           remaining_time:
-            one: "Gainontzeko <strong>%{count} ordu %{minutes} minutu</strong> bozkatzeko."
+            one: "Gainontzeko <strong> ordu bat %{minutes} minutu</strong> bozkatzeko."
             other: "Gainontzeko <strong>%{count} ordu %{minutes} minutu</strong> bozkatzeko."
           view: Ikusi
           vote: Eman botoa
@@ -429,8 +429,8 @@ eu:
       elections:
         count:
           elections_count:
-            one: "%{count} bozketa"
-            other: "%{count} bozketa"
+            one: "Bozketa bat"
+            other: "Bozketa %{count}"
         election_log:
           chained_hash: Mezu honen Hash kateatua
           complete: Osatu

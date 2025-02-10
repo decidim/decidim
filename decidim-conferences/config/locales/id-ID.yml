@@ -64,13 +64,11 @@ id:
         destroy:
           success: Pembicara berhasil dihapus untuk konferensi ini.
         edit:
-          title: Perbarui pembicara konferensi.
           update: Memperbarui
         index:
           conference_speakers_title: Pembicara konferensi
         new:
           create: Membuat
-          title: Pembicara konferensi baru.
         update:
           error: Terjadi kesalahan saat memperbarui pembicara untuk konferensi ini.
           success: Pembicara berhasil diperbarui untuk konferensi ini.
@@ -81,11 +79,9 @@ id:
         destroy:
           success: Pengguna berhasil dihapus dari konferensi ini.
         edit:
-          title: Perbarui pengguna konferensi.
           update: Memperbarui
         new:
           create: Membuat
-          title: Pengguna konferensi baru.
         update:
           error: Terjadi kesalahan saat memperbarui pengguna untuk konferensi ini.
           success: Pengguna berhasil diperbarui untuk konferensi ini.
@@ -114,19 +110,12 @@ id:
       media_links:
         create:
           error: Terjadi kesalahan saat membuat tautan media baru.
-          success: Media Link berhasil dibuat.
-        destroy:
-          success: Tautan Media berhasil dihapus.
         edit:
-          title: Perbarui tautan media.
           update: Memperbarui
-        index:
-          media_links_title: Tautan Media
         new:
           create: Membuat
         update:
           error: Terjadi kesalahan saat memperbarui tautan media ini.
-          success: Media Link berhasil diperbarui.
       menu:
         conferences: Konferensi
         conferences_submenu:
@@ -138,13 +127,9 @@ id:
           conference_admins: Admin konferensi
           conference_invites: Undangan
           conference_speakers: Pembicara
-          diploma: Sertifikat kehadiran
-          media_links: Tautan Media
           moderations: Moderasi
           partners: Mitra
-          registration_types: Jenis Pendaftaran
           registrations: Pendaftaran
-          user_registrations: Registrasi Pengguna
       models:
         conference:
           fields:
@@ -172,7 +157,6 @@ id:
             date: Tanggal
             link: Link
             title: Judul
-          name: Tautan Media
         partner:
           fields:
             link: Link
@@ -197,7 +181,6 @@ id:
         destroy:
           success: Mitra berhasil dihapus dari konferensi ini.
         edit:
-          title: Perbarui mitra.
           update: Memperbarui
         new:
           create: Membuat
@@ -219,7 +202,6 @@ id:
         destroy:
           success: Jenis pendaftaran berhasil dihapus dari konferensi ini.
         edit:
-          title: Perbarui jenis pendaftaran.
           update: Memperbarui
         new:
           create: Membuat
@@ -304,7 +286,6 @@ id:
         diplomas:
           edit:
             save: Menyimpan
-            title: Sertifikat kehadiran
         invite_join_conference_mailer:
           invite:
             decline: Tolak undangan '%{conference_title}'
@@ -323,7 +304,6 @@ id:
             diploma_html: Anda akan menemukan sertifikat kehadiran untuk konferensi <a href="%{url}">%{title}</a> di lampiran.
           diploma_user:
             attendance_verified_by: Kehadiran diverifikasi oleh
-            certificate_of_attendance: Sertifikat kehadiran
             certificate_of_attendance_description: Ini untuk menyatakan bahwa <strong>%{user}</strong> telah hadir dan mengambil bagian dalam <strong>%{title}</strong> diadakan pada <strong>%{location}</strong> pada <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Ada masalah saat mengirim sertifikat kehadiran konferensi.
