@@ -22,6 +22,8 @@ module Decidim
         :finish
       ]
 
+      before_action :set_ephemeral_user, if: :ephemeral_signature_workflow?, only: :index
+
       helper InitiativeHelper
 
       helper_method :initiative_type, :extra_data_legal_information, :sms_step?, :fill_personal_data_step?
@@ -240,6 +242,44 @@ module Decidim
 
       def session_sms_code
         (session[:initiative_sms_code] || {}).symbolize_keys
+      end
+
+      def set_ephemeral_user
+        if user_signed_in?
+          update_onboarding_data
+        else
+          create_ephemeral_user
+        end
+      end
+
+      def update_onboarding_data
+        return unless current_user.ephemeral?
+        return if onboarding_manager.model == current_initiative
+
+        current_user.update(extended_data: current_user.extended_data.deep_merge("onboarding" => current_initiative_onboarding_data))
+      end
+
+      def create_ephemeral_user
+        form = Decidim::EphemeralUserForm.new(
+          organization: current_organization,
+          locale: current_locale,
+          onboarding_data: current_initiative_onboarding_data
+        )
+        CreateEphemeralUser.call(form) do
+          on(:ok) do |ephemeral_user|
+            sign_in(ephemeral_user)
+          end
+        end
+      end
+
+      def current_initiative_onboarding_data
+        {
+          "model" => current_initiative.to_gid,
+          "permissions_holder" => initiative_type.to_gid,
+          "action" => "vote",
+          "redirect_path" => initiative_path(current_initiative),
+          "authorization_path" => initiative_signatures_path(current_initiative)
+        }
       end
     end
   end
