@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RenameProposalValuationAssignmentsToEvaluationAssignments < ActiveRecord::Migration[7.0]
   def change
     rename_table :decidim_proposals_valuation_assignments, :decidim_proposals_evaluation_assignments
