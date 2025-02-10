@@ -506,6 +506,7 @@ en:
           your_confirmation_code: Your confirmation code
       initiative_votes:
         create:
+          already_voted: Your signature had already been registered with your data.
           error: There was a problem signing the initiative.
           invalid: The data provided to sign the initiative is not valid.
           success_html: Congratulations! The <strong> %{title}</strong> initiative has been successfully signed.
