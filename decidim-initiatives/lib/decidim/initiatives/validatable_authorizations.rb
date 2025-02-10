@@ -24,8 +24,9 @@ module Decidim
         def authorization
           return unless user && authorization_handler_form_class
 
-          @authorization ||= if authorization_query.exists? && authorization_query.first.unique_id == authorization_handler.unique_id
-                               authorization_query.first
+          persisted_authorization = authorization_query.first
+          @authorization ||= if persisted_authorization.present? && persisted_authorization.unique_id == authorization_handler.unique_id
+                               persisted_authorization
                              elsif save_authorizations
                                create_authorization
                              else
@@ -44,6 +45,15 @@ module Decidim
 
         def create_authorization
           Decidim::Verifications::AuthorizeUser.call(authorization_handler, initiative.organization) do
+            on(:transferred) do |transfer|
+              self.transfer_status = transfer
+            end
+
+            on(:transfer_user) do |authorized_user|
+              self.user = authorized_user
+              self.transfer_status = :transfer_user
+            end
+
             on(:invalid) do
               return Decidim::Authorization.new
             end
@@ -53,7 +63,7 @@ module Decidim
         end
 
         def authorization_query
-          @authorization_query ||= Verifications::Authorizations.new(**authorization_params)
+          Verifications::Authorizations.new(**authorization_params)
         end
 
         def new_authorization

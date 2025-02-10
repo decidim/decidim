@@ -128,6 +128,15 @@ module Decidim
         authorization_handler_form&.safe_constantize
       end
 
+      # If no authorization handler is set the workflow will not be able to
+      # save the user verification attributes necessary to recover the user
+      # session or transfer their activities
+      def ephemeral?
+        return if authorization_handler_form_class.blank?
+
+        ephemeral
+      end
+
       def sms_mobile_phone_form_class
         return unless sms_verification
 

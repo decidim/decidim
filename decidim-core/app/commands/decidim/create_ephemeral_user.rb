@@ -41,12 +41,18 @@ module Decidim
         locale: form.locale,
         tos_agreement: true,
         managed: true,
-        extended_data: { ephemeral: true, verified: form.verified }
+        extended_data: { ephemeral: true, verified: form.verified }.merge(onboarding_data)
       )
     end
 
     def confirm_user
       @user.confirm
+    end
+
+    def onboarding_data
+      return {} if form.onboarding_data.blank?
+
+      { OnboardingManager::DATA_KEY => form.onboarding_data.stringify_keys.transform_keys(&:underscore) }
     end
   end
 end

@@ -11,17 +11,18 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        helper_method :signature_has_steps?
+        helper_method :signature_has_steps?, :ephemeral_signature_workflow?
 
         delegate :signature_form_class, :sms_mobile_phone_form_class, :sms_mobile_phone_validator_class, :sms_code_validator_class, to: :signature_workflow_manifest
+
+        def ephemeral_signature_workflow?
+          signature_workflow_manifest.ephemeral
+        end
 
         private
 
         def signature_workflow_manifest
-          @signature_workflow_manifest ||= begin
-            handler_name = current_initiative.type.document_number_authorization_handler
-            Decidim::Initiatives::Signatures.find_workflow_manifest(handler_name) || Decidim::Initiatives::SignatureWorkflowManifest.new
-          end
+          @signature_workflow_manifest ||= current_initiative.type.signature_workflow_manifest || Decidim::Initiatives::SignatureWorkflowManifest.new
         end
 
         def signature_has_steps?

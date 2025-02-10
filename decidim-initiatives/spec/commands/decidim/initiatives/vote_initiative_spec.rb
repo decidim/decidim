@@ -272,8 +272,20 @@ module Decidim
               context "when authorization is not fully granted" do
                 let(:granted_at) { nil }
 
-                it "broadcasts invalid" do
-                  expect { command_with_personal_data.call }.to broadcast :invalid
+                context "and the workflow saves authorizations" do
+                  it "renews the authorization" do
+                    expect { command_with_personal_data.call }.to broadcast :ok
+                  end
+                end
+
+                context "and the workflow does not save the authorization" do
+                  before do
+                    allow(workflow_manifest).to receive(:save_authorizations).and_return(false)
+                  end
+
+                  it "does not renew the authorization and broadcasts invalid" do
+                    expect { command_with_personal_data.call }.to broadcast :invalid
+                  end
                 end
               end
             end
