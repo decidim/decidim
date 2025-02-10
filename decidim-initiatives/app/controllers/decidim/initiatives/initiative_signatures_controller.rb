@@ -154,6 +154,8 @@ module Decidim
           check_session_personal_data
         end
 
+        return if @vote_form.blank?
+
         VoteInitiative.call(@vote_form) do
           on(:ok) do
             session[:initiative_vote_form] = {}
