@@ -33,6 +33,9 @@ module Decidim::Meetings
     let(:available_slots) { 0 }
     let(:registration_url) { "http://decidim.org" }
     let(:online_meeting_url) { "http://decidim.org" }
+    let(:reminder_enabled) { true }
+    let(:send_reminders_before_hours) { 48 }
+    let(:reminder_message_custom_content) { {} }
     let(:iframe_embed_type) { "none" }
     let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
     let(:taxonomies) { [] }
@@ -53,6 +56,9 @@ module Decidim::Meetings
         online_meeting_url:,
         registration_type:,
         available_slots:,
+        reminder_enabled:,
+        send_reminders_before_hours:,
+        reminder_message_custom_content:,
         registration_terms:,
         registrations_enabled: true,
         registration_url:,
@@ -126,6 +132,38 @@ module Decidim::Meetings
       let(:start_time) { end_time }
 
       it { is_expected.not_to be_valid }
+    end
+
+    describe "when reminder_enabled is false" do
+      let(:reminder_enabled) { false }
+
+      it { is_expected.to be_valid }
+    end
+
+    describe "when reminder_enabled is true" do
+      context "and send_reminders_before_hours is missing" do
+        let(:send_reminders_before_hours) { nil }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "and send_reminders_before_hours is present" do
+        let(:send_reminders_before_hours) { 50 }
+
+        it { is_expected.to be_valid }
+      end
+
+      context "and send_reminders_before_hours is not valid" do
+        let(:send_reminders_before_hours) { -1 }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "and reminder_message_custom_content is missing" do
+        let(:reminder_message_custom_content) { nil }
+
+        it { is_expected.to be_valid }
+      end
     end
 
     it "validates address and store its coordinates" do

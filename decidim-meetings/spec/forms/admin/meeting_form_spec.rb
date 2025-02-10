@@ -52,7 +52,7 @@ module Decidim::Meetings
     let(:available_slots) { 0 }
     let(:reminder_enabled) { true }
     let(:send_reminders_before_hours) { 48 }
-    let(:reminder_message_custom_content) { {} }
+    let(:reminder_message_custom_content) { { en: "Custom reminder message" } }
     let(:iframe_embed_type) { "none" }
     let(:taxonomies) { [] }
     let(:component_ids) { [] }
