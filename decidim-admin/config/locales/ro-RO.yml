@@ -229,6 +229,7 @@ ro:
         create:
           error: A apărut o problemă la crearea unei zone noi.
           success: Zona a fost creată cu succes.
+        deprecated: Rețineți că zonele sunt învechite și vor fi eliminate în versiunile viitoare. Vă rugăm să folosiți taxonomiile în schimb. Singurul modul care folosește in prezent conceptul de zone este modul de inițiative.
         destroy:
           has_spaces: Această zonă are spații participative dependente. Te rugăm să te asiguri că nu există referințe la spațiul participativ din această zonă înainte de a o șterge.
           success: Zona a fost eliminată cu succes.
@@ -845,6 +846,7 @@ ro:
         create:
           error: A apărut o problemă la crearea unui nou domeniu.
           success: Domeniul a fost creat cu succes.
+        deprecated: Rețineți că domeniile de interes sunt învechite și vor fi eliminate în versiunile viitoare. Vă rugăm să folosiți taxonomiile în schimb. Singurul modul care folosește in prezent conceptul de domenii de interes este modul de inițiative.
         destroy:
           success: Domeniul a fost eliminat cu succes.
         edit:

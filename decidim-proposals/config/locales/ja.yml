@@ -932,7 +932,7 @@ ja:
           maximum_votes_reached: 投票上限に達しました
           no_votes_remaining: 残りの投票はありません
           vote: 投票
-          votes_blocked: 投票は無効です
+          votes_blocked: 投票
         votes_count:
           count:
             other: 投票

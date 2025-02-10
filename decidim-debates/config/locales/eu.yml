@@ -85,7 +85,7 @@ eu:
             single_column: 'Zutabe bakarra: iruzkinak hurrenkera kronologikoan agertzen dira eta erantzunak izan ditzakete.'
             two_columns: 'Bi zutabe: iruzkinak "Alde" eta "Kontra" zutabeetan agertzen dira eta ezin dute erantzunik izan.'
           index:
-            title: eztabaidak
+            title: Eztabaidak
           manage_trash:
             title: Ezabatutako eztabaidak
           new:
@@ -121,7 +121,7 @@ eu:
         count:
           debates_count:
             one: "%{count} eztabaida"
-            other: "%{count} eztabaidak"
+            other: "%{count} eztabaida"
         create:
           invalid: Arazo bat egon da eztabaida sortzean.
           success: Debate sortu da behar bezala.
@@ -243,7 +243,7 @@ eu:
       debates:
         description: Sortutako eztabaida kopurua
         object: eztabaidak
-        title: eztabaidak
+        title: Eztabaidak
     open_data:
       help:
         debate_comments:

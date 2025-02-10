@@ -278,16 +278,16 @@ eu:
         create_via_csv: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du CSV bidez parte-hartzaile pribatua izatera"
         delete: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzaile pribatu gisa kendu du"
       scope:
-        create: "%{user_name} parte-hartzaileak %{resource_name} esparrua sortu du"
-        create_with_parent: "%{user_name} parte-hartzaileak %{resource_name} esparrua %{parent_scope} esparru barruan sortu du"
-        delete: "%{user_name} parte-hartzaileak %{resource_name} esparrua ezabatu du"
-        delete_with_parent: "%{user_name} parte-hartzaileak %{resource_name} esparrua ezabatu du %{parent_scope} esparruaren barruan"
-        update: "%{user_name} parte-hartzaileak %{resource_name} esparrua eguneratu du"
-        update_with_parent: "%{user_name} parte-hartzaileak %{resource_name} esparrua %{parent_scope} esparru barruan eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} eremua sortu du"
+        create_with_parent: "%{user_name} parte-hartzaileak %{resource_name} eremua%{parent_scope} eremua barruan sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} eremua ezabatu du"
+        delete_with_parent: "%{user_name} parte-hartzaileak %{resource_name} eremua ezabatu du %{parent_scope} eremuaren barruan"
+        update: "%{user_name} parte-hartzaileak %{resource_name} eremua eguneratu du"
+        update_with_parent: "%{user_name} parte-hartzaileak %{resource_name} eremua %{parent_scope} eremua barruan eguneratu du"
       scope_type:
-        create: "%{user_name} parte-hartzaileak %{resource_name} esparru mota sortu du"
-        delete: "%{user_name} parte-hartzaileak %{resource_name} esparru mota ezabatu du"
-        update: "%{user_name} parte-hartzaileak %{resource_name} esparru mota eguneratu du"
+        create: "%{user_name} parte-hartzaileak %{resource_name} eremua mota sortu du"
+        delete: "%{user_name} parte-hartzaileak %{resource_name} eremu mota ezabatu du"
+        update: "%{user_name} parte-hartzaileak %{resource_name} eremu mota eguneratu du"
       share_token:
         create: "%{user_name} parte-hartzaileak sarbide-esteka bat sortu du %{space_name} espazioan"
         create_with_space: "%{user_name} parte-hartzaileak sarbide-esteka sortu du %{resource_name} %{space_name} espazioan"
@@ -353,7 +353,7 @@ eu:
         promote_help_text: Zuzenketa hau sustatu eta %{model_name} independiente gisa argitara dezakezu.
       amendments:
         title:
-          one: "%{count} zuzenketa"
+          one: "Zuzenketa bat"
           other: "%{count} zuzenketa"
       created:
         error: Arazo bat izan da zuzenketaren zirriborroa sortzean.
@@ -519,7 +519,7 @@ eu:
         subject: '%{organization_name} k zure kontua blokeatu du'
     collapsible_list:
       hidden_elements_count:
-        one: eta %{count} gehiago
+        one: eta bat gehiago
         other: eta %{count} gehiago
       see_less: "(ikusi gutxiago)"
     components:
@@ -701,7 +701,7 @@ eu:
           shown_password: Zure pasahitza ikusgarri dago
         placeholder_email: kaixo@adibide.org
     documents:
-      one: "%{count} dokumentu"
+      one: "Dokumentu bat"
       other: "%{count} dokumentu"
     doorkeeper:
       authorizations:
@@ -750,6 +750,21 @@ eu:
           id: Jakinarazpen honen identifikatzaile bakarra
           resource_type: Jakinarazpena zein baliabide motarekin dago lotuta
           updated_at: Zein datatan eta zein ordutan eguneratu zen jakinarazpena azken aldiz
+        participatory_space_private_users:
+          created_at: Zein datatan eta zein ordutan sortu zen parte-hartzaile pribatu hau
+          id: Parte-hartzaile honen identifikatzaile bakarra
+          privatable_to: Zein espaziotakoa den parte-hartzaile pribatu hau
+          published: Ea parte-hartzaile pribatu hau argitaratuta dagoen ala ez
+          role: Zein rol duen parte-hartzaile pribatu honek
+          updated_at: Zein datatan eta zein ordutan eguneratu zen parte-hartzaile pribatu hau
+        reports:
+          created_at: Zein datatan eta zein ordutan sortu zen salaketa hau
+          details: Erreporte honen xehetasunak
+          id: Erreporte honen identifikatzaile bakarra
+          locale: Erreporte honen hizkuntza
+          moderation: Erreporte honek duen moderazioa
+          reason: Erreporte honen arrazoia
+          updated_at: Zein datatan eta zein ordutan eguneratu zen erreporte hau azken aldiz
         user_groups:
           document_number: Partaide-talde honen dokumentu-zenbakia
           id: Partaide-talde honen identifikatzaile bakarra
@@ -758,6 +773,7 @@ eu:
           verified_at: Zein datatan eta zein ordutan egiaztatu zen partaide-talde hori
         users:
           about: Erabiltzaile honen biografia
+          accepted_tos_version: Zein datatan onartu zituen parte-hartzaileak plataforma honen zerbitzu-baldintzak
           admin: Parte-hartzaile hau administratzailea bada
           confirmation_sent_at: Zein datatan eta zein ordutan bidali zen konfirmazioa
           confirmed_at: Zein datatan eta zein ordutan konfirmatu zen parte-hartzaile hau
@@ -767,6 +783,8 @@ eu:
           delete_reason: Parte-hartzaile hau ezabatzeko arrazoia
           deleted_at: Zein datatan eta zein ordutan ezabatu zen parte-hartzaile hau
           email: Parte-hartzaile honen helbide elektronikoa
+          followers_count: Parte-hartzaile honi jarraitzen dioten parte-hartzaileen kopurua
+          following_count: Parte-hartzaile hau jarraitzen ari den parte-hartzaileen kopurua
           id: Parte-hartzaile honen identifikatzaile bakarra
           invitation_accepted_at: Zein datatan eta zein ordutan onartu zen gonbidapena
           invitation_created_at: Zein datatan eta zein ordutan gonbidatu zen parte-hartzaile hau
@@ -785,10 +803,13 @@ eu:
           officialized_as: Ofizializazioaren izena (Kontseilaritza, Alkatetza, etab.)
           officialized_at: Zein datatan eta zein ordutan ofizializatu zen parte-hartzaile hau
           organization: Zein erakundetakoa den parte-hartzaile hau
+          password_updated_at: Zein datatan eguneratu zen pasahitz hau azkenekoz
           personal_url: Parte-hartzaile honen URL pertsonala
           remember_created_at: Zein egun eta zein ordutan aukeratu zuten parte-hartzailea gogoratzeko
           reset_password_sent_at: Zein datatan eta zein ordutan bidali zen pasahitza berriro
+          roles: Parte-hartzaile honek duen rola, baldin badute
           sign_in_count: Zenbat aldiz hasi duen saioa parte-hartzaile honek
+          type: Parte-hartzaile honek zer mota duen
           unconfirmed_email: Parte-hartzaile honek oraindik baieztatu ez duen helbide elektronikoa
           updated_at: Zein datatan eta zein ordutan eguneratu zen parte-hartzaile hau azken aldiz
       show:
@@ -1032,13 +1053,13 @@ eu:
       value: Balioa
     followers:
       followers_count:
-        one: "%{count} jarraitzaile"
-        other: "%{count} jarraitzaileak"
+        one: "Jarraitzaile %{count}"
+        other: "%{count} jarraitzaile"
       no_followers: Ez da jarraitzailerik oraindik.
     following:
       following_count:
-        one: "%{count} jarraitzaile"
-        other: "%{count} jarraitzaile"
+        one: "batek jarraitzaitzen du"
+        other: "%{count}k jarraitzen du"
       no_followings: Oraindik ez du inor edo ezer jarraitzen.
       non_public_followings: Jarraitutako baliabide batzuk ez dira publikoak.
     follows:
@@ -1252,9 +1273,9 @@ eu:
         area_type_presenter:
           not_found: 'Arlo mota ez da (ID: %{id}) datu basean aurkitu'
         scope_presenter:
-          not_found: 'Esparrua ez da aurkitu (ID: %{id}) datu-basean'
+          not_found: 'Eremua ez da aurkitu (ID: %{id}) datu-basean'
         scope_type_presenter:
-          not_found: 'Esparru mota ez da aurkitu (ID: %{id}) datu-basean'
+          not_found: 'Eremu mota ez da aurkitu (ID: %{id}) datu-basean'
         taxonomy_presenter:
           not_found: 'Taxonomia ez da aurkitu (ID: %{id}) datu-basean'
     machine_translations:
@@ -1730,8 +1751,8 @@ eu:
       create:
         error: Arazo bat egon da atxikimendu-ekintzan zehar.
     scopes:
-      global: Esparru orokorra
-      prompt: Hautatu esparrua
+      global: Eremu orokorra
+      prompt: Hautatu eremua
     search:
       name: Bilatu
       results: Bilatu emaitzak
@@ -2025,7 +2046,7 @@ eu:
         log_in_with_provider: 'Hasi honekin: %{provider}'
         sign_up: Sortu kontu bat
       minimum_password_length:
-        one: "(%{count} karaktere gutxienez)"
+        one: "(karaktere bat gutxienez)"
         other: "(Gutxienez%{count} karaktere)"
     unlocks:
       new:
@@ -2098,7 +2119,7 @@ eu:
     button: Gehitu emojia
     categories:
       activity: Jarduera
-      custom: Pertsonalizatu
+      custom: Pertsonalizatua
       flags: Banderak
       foods: Janaria & Edaria
       frequent: Maiz erabiliak
@@ -2129,7 +2150,7 @@ eu:
       confirmation: ez dator bat honekin %{attribute}
       confirmation_period_expired: '%{period} barruan baieztatu behar da, mesedez, eskatu beste bat'
       content_type_allowlist_error: fitxategiaren mota ez da baliozkoa
-      cycle_detected: esparru nagusia ezin da izan bere ondorengoetako bat
+      cycle_detected: eremu nagusia ezin da izan bere ondorengoetako bat
       empty: ezin da hutsik egon
       expired: iraungi egin da; mesedez, eskatu beste bat
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
@@ -2150,7 +2171,7 @@ eu:
     correct_errors: Akatsak daude galdetegian, mesedez, zuzendu jarraitu ahal izateko.
     length_validator:
       minimum:
-        one: Gutxienez %{count} karaktere
+        one: Gutxienez karaktere bat
         other: Gutxienez %{count} karaktere
     required: Nahitaezkoa da
     required_explanation: "Derrigorrezko eremuak * batez daude markatuta"

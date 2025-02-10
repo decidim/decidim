@@ -521,6 +521,21 @@ cs:
           proposal_comments: Komentáře
           proposals: Návrhy
         imports:
+          help:
+            answers: |
+              Importovaný dokument by měl obsahovat tyto názvy sloupců v případě souborů CSV nebo Excel, nebo názvy klíčů v případě JSON souborů (ostatní sloupce budou ignorovány):
+              <ul>
+              <li><b>id:</b> ID návrhu na odpověď</li>
+              <li><b>state:</b> Jeden z "přijatých", "vyhodnocení" nebo "odmítnuto"</li>
+              <li><b>answer/en:</b> Odpověď v angličtině. Bude to záviset na konfiguraci jazyka vaší platformy.</li>
+              </ul>
+            proposals: |
+              Soubor musí mít následující názvy sloupců v případě souborů CSV nebo Excel, nebo názvy klíčů pro JSON soubory:
+              <ul>
+              <li><b>title/en:</b> Nadpis v angličtině. To bude záviset na konfiguraci jazyka vaší platformy.</li>
+              <li><b>body/en:</b> Tělo v angličtině. To bude záviset na konfiguraci jazyka vaší platformy.</li>
+              <li><b>taxonomie/ids:</b> ID pro taxonomie (je-li více než jedno, oddělit čárkou)</li>
+              </ul>
           label:
             answers: Importovat odpovědi ze souboru
             proposals: Importovat návrhy ze souboru
@@ -759,6 +774,7 @@ cs:
           error: Při vytváření tohoto konceptu spolupráce došlo k chybě.
           success: Projekt spolupráce byl úspěšně vytvořen.
         edit:
+          attachment_legend: Přidat dokument nebo obrázek
           back: Zadní
           send: Poslat
           title: Úprava konceptu spolupráce
@@ -1011,7 +1027,7 @@ cs:
           maximum_votes_reached: Limit hlasů dosažen
           no_votes_remaining: Žádné zbývající hlasy
           vote: Hlasovat
-          votes_blocked: Hlasování zakázáno
+          votes_blocked: Hlasovat
         votes_count:
           count:
             one: Hlas

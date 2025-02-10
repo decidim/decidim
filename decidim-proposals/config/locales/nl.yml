@@ -592,7 +592,6 @@ nl:
           maximum_votes_reached: Stemlimiet bereikt
           no_votes_remaining: Geen stemmen over
           vote: Stem
-          votes_blocked: Stemmen uitgeschakeld
         voting_rules:
           proposal_limit:
             description: Je kan maximaal %{limit} voorstellen doen.
