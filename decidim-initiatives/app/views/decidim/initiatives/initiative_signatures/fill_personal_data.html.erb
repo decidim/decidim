@@ -20,6 +20,10 @@
     </small>
   </div>
 
+  <% if current_user.ephemeral? && !current_user.tos_accepted? %>
+    <%= render partial: "/decidim/verifications/authorizations/tos_acceptance_field", locals: { form: f } %>
+  <% end %>
+
   <div class="form__wrapper">
     <button type="submit" class="button button__lg button__secondary">
       <span><%= t(".continue") %></span>
