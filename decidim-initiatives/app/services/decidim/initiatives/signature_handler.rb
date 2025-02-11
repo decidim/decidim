@@ -172,7 +172,7 @@ module Decidim
       end
 
       def already_voted?
-        Decidim::InitiativesVote.exists?(author: user)
+        Decidim::InitiativesVote.exists?(author: user, initiative:)
       end
 
       private
