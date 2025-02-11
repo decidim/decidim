@@ -1,9 +1,16 @@
 <% if Decidim::Initiatives.creation_enabled %>
   <% if available_initiative_types.size > 1 %>
     <% if current_user %>
-      <%= link_to create_initiative_path(:select_initiative_type), class: "!px-4 title-action__action button button__xl button__secondary w-full" do %>
-        <%= t("new_initiative", scope: "decidim.initiatives.initiatives.index_header") %>
-        <%= icon "add-fill" %>
+      <% if current_user.ephemeral? %>
+        <button class="!px-4 button button__xl button__secondary w-full" disabled>
+          <%= t("new_initiative", scope: "decidim.initiatives.initiatives.index_header") %>
+          <%= icon "add-fill" %>
+        </button>
+      <% else %>
+        <%= link_to create_initiative_path(:select_initiative_type), class: "!px-4 title-action__action button button__xl button__secondary w-full" do %>
+          <%= t("new_initiative", scope: "decidim.initiatives.initiatives.index_header") %>
+          <%= icon "add-fill" %>
+        <% end %>
       <% end %>
     <% else %>
       <% content_for(:redirect_after_login) { create_initiative_url(:select_initiative_type) } %>
