@@ -42,6 +42,8 @@ describe Decidim::Debates::Admin::DebateForm do
     }
   end
 
+  it_behaves_like "etiquette validator", fields: [:title, :description]
+
   describe "taxonomies" do
     let(:component) { current_component }
     let(:participatory_space) { participatory_process }

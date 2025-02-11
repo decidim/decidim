@@ -136,19 +136,24 @@ es-PY:
           name: Tipo de iniciativa
         initiatives_votes:
           fields:
+            date_and_time: Fecha y hora
             date_of_birth: Fecha de nacimiento
             document_number: Número del Documento
             hash: Picadillo
             initiative_end_date: Fecha final
             initiative_id: ID de la iniciativa
+            initiative_scope: Ámbito
             initiative_signatures_count: Número de firmas
             initiative_start_date: Fecha de inicio
             initiative_title: Título de la iniciativa
             name_and_surname: Nombre y apellido
+            nickname: Alias
             postal_code: código postal
-            scope: Ámbito
-            time_and_date: Hora y fecha
+            signature_count: Recuento de firmas
             timestamp: Marca de tiempo
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: Todas las iniciativas
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de Iniciativa
@@ -440,10 +445,10 @@ es-PY:
           email_subject: "%{applicant_nickname} quiere unirse a tu iniciativa"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha solicitado unirse al comité promotor de tu iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceptar o rechazar la solicitud haz clic <a href="%{resource_url}/edit">aquí</a>.
       form:
-        add_documents: Añadir documentos
+        add_attachments: Agregar archivo(s) adjunto(s)
         add_image: Añadir imagen
-        attachment_legend: "(Opcional) Añadir un archivo adjunto"
-        edit_documents: Editar documentos
+        attachment_legend: Añadir un documento o una imagen
+        edit_attachments: Editar los archivos adjuntos
         edit_image: Editar imagen
         image_legend: "(Opcional) Añadir una imágen"
       index:

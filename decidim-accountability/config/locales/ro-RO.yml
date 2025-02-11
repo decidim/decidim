@@ -38,7 +38,6 @@ ro:
         confirm_destroy: Sunteți sigur că doriți să ștergeți %{name}?
         destroy: Ștergere
         edit: Actualizare
-        import: Importați proiecte din altă componentă
         import_csv: Importați rezultate dintr-un fișier CSV
         new_result: Rezultat nou
         new_status: Stare nouă
@@ -63,23 +62,6 @@ ro:
             name: Rezultat
           status:
             name: Stare
-        projects_import:
-          create:
-            invalid: A apărut o problemă la importul proiectelor în rezultate, vă rugăm să urmați instrucțiunile cu atenție și să vă asigurați că ați selectat proiecte pentru implementare.
-          new:
-            create: Importați
-            import_all_selected_projects: Importați toate proiectele selectate pentru implementare
-            new_items:
-              one: 1 proiect selectat va fi importat
-              few: "Proiectele selectate vor fi importate"
-              other: "Cele %{count} proiecte selectate vor fi importate"
-            origin_component_id: Componenta de origine
-            select_component: Selectați componenta
-            success:
-              one: 1 proiect în așteptare pentru a fi importat. Veți fi notificat prin e-mail, odată ce importul a fost finalizat.
-              few: "%{count} proiecte în așteptare pentru a fi importate. Veți fi notificat prin e-mail, odată ce importul a fost finalizat."
-              other: "%{count} proiecte în așteptare pentru a fi importate. Veți fi notificat prin e-mail, odată ce importul a fost finalizat."
-            title: Importați proiecte din altă componentă
         results:
           create:
             invalid: A apărut o problemă la crearea acestui rezultat.
@@ -222,8 +204,6 @@ ro:
             comments_max_length: Lungimea maximă a comentariilor (Lăsați 0 pentru valoarea implicită)
             display_progress_enabled: Afișare progres
             intro: Introducere
-            scope_id: Domeniu de interes
-            scopes_enabled: Domenii de interes activate
           step:
             comments_blocked: Comentarii blocate
     events:

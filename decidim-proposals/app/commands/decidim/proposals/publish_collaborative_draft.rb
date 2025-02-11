@@ -62,7 +62,6 @@ module Decidim
         fields[:title] = { I18n.locale => parsed_title }
         fields[:body] = { I18n.locale => parsed_body }
         fields[:component] = @collaborative_draft.component
-        fields[:scope] = @collaborative_draft.scope
         fields[:address] = @collaborative_draft.address
         fields[:published_at] = Time.current
 

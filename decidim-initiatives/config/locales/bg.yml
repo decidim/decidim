@@ -144,8 +144,6 @@ bg:
             initiative_title: Заглавие на инициативата
             name_and_surname: Име и фамилия
             postal_code: Пощенски код
-            scope: Обхват
-            time_and_date: Време и дата
             timestamp: Времево клеймо
       titles:
         initiatives: Инициативи
@@ -413,10 +411,7 @@ bg:
           email_subject: "%{applicant_nickname} иска да се присъедини към вашата инициатива"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> кандидатства за промоторския комитет на вашата инициатива <a href="%{resource_url}">%{resource_title}</a>. За да приемете или отхвърлите, щракнете <a href="%{resource_url}/edit">тук</a>.
       form:
-        add_documents: Добавяне на документи
         add_image: Добавяне на изображение
-        attachment_legend: "(Незадължително) Добавяне на прикачен файл"
-        edit_documents: Редактиране на документ
         edit_image: Редактиране на изображение
         image_legend: "(По избор) Добавяне на изображение"
       index:

@@ -57,10 +57,6 @@ FactoryBot.define do
     weight { 1 }
     announcement { generate_localized_title(:assembly_announcement, skip_injection:) }
 
-    trait :with_type do
-      assembly_type { create(:assemblies_type, organization:, skip_injection:) }
-    end
-
     trait :promoted do
       promoted { true }
     end

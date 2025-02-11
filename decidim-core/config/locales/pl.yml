@@ -378,10 +378,8 @@ pl:
         explanation: Uzyskaj weryfikację, wprowadzając numer dokumentu kończący się na "X".
         fields:
           allowed_postal_codes: Dozwolone kody pocztowe (oddzielone przecinkami)
-          allowed_scope_id: Dozwolony zakres
           document_number: Numer dokumentu
           postal_code: Kod pocztowy
-          scope_id: Niniejsze rozporządzenie stosuje się od dnia 1 stycznia 2018 r.
         name: Przykładowa autoryzacja
       dummy_authorization_workflow:
         name: Przykładowy proces autoryzacji
@@ -475,8 +473,6 @@ pl:
             dummy_global_translatable_text: Przykładowy tekst do tłumaczenia
             enable_pads_creation: Włącz tworzenie padów
             resources_permissions_enabled: Włączono uprawnienia do zasobów
-            scope_id: Zakres
-            scopes_enabled: Zakresy włączone
           step:
             amendment_creation_enabled: Tworzenie poprawek włączone
             amendment_promotion_enabled: Promowanie poprawek włączone
@@ -868,7 +864,6 @@ pl:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
-          message_2: W przypadku obrazów używaj najlepiej tych o orientacji poziomej, usługa przycina obraz.
         icon:
           explanation: 'Wytyczne dla ikony:'
           message_1: Musi być obrazem kwadratowym.
@@ -1395,16 +1390,7 @@ pl:
         error: Wystąpił błąd podczas udzielania rekomendacji.
     scopes:
       global: Zakres globalny
-      picker:
-        cancel: Anuluj
-        change: Zmień wybrany zakres
-        choose: Wybierz
-        currently_selected: Aktualnie wybrany zakres
-        title: Wybierz %{field}
       prompt: Wybierz zakres
-      scopes: Zakresy
-      scopes_picker_input:
-        select_scope: 'Wybierz zakres (obecny: %{current})'
     search:
       name: Szukaj
       results: Wyniki wyszukiwania
@@ -1525,15 +1511,6 @@ pl:
         send: Wyślij
       update:
         error: Wiadomość nie została wysłana. Spróbuj ponownie później
-    user_interests:
-      show:
-        my_interests: Moje zainteresowania
-        no_scopes: Ta organizacja nie ma jeszcze żadnego zakresu!
-        select_your_interests: Wybierz tematy, które Cię interesują, aby widzieć wydarzenia z nimi związane w zakładce Oś czasu na Twoim profilu.
-        update_my_interests: Zaktualizuj moje zainteresowania
-      update:
-        error: Wystąpił błąd podczas aktualizowania Twoich zainteresowań.
-        success: Twoje zainteresowania zostały zaktualizowane.
     user_report_mailer:
       notify:
         body_1: Użytkownik %{user} został zgłoszony przez %{token}
@@ -1941,7 +1918,6 @@ pl:
         authorizations: Autoryzacje
         delete_my_account: Usuń moje konto
         my_data: Moje dane
-        my_interests: Moje zainteresowania
         notifications_settings: Ustawienia powiadomień
         profile: Profil
         title: Ustawienia użytkownika

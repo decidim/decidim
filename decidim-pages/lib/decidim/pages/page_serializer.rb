@@ -35,10 +35,6 @@ module Decidim
       attr_reader :page
       alias resource page
 
-      def component
-        page.component
-      end
-
       def url
         Decidim::ResourceLocatorPresenter.new(page).url
       end
@@ -61,20 +57,6 @@ module Decidim
         else
           root_url # is a Decidim::Organization
         end
-      end
-
-      def profile_url(author)
-        return "" if author.respond_to?(:deleted?) && author.deleted?
-
-        Decidim::Core::Engine.routes.url_helpers.profile_url(author.nickname, host:)
-      end
-
-      def root_url
-        Decidim::Core::Engine.routes.url_helpers.root_url(host:)
-      end
-
-      def host
-        resource.organization.host
       end
     end
   end

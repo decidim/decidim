@@ -21,15 +21,6 @@ module Decidim
         [duration, questions_count_item]
       end
 
-      def survey_items_for_map
-        [duration, questions_count_item].compact_blank.map do |item|
-          {
-            text: item[:text].to_s.html_safe,
-            icon: item[:icon].present? ? icon(item[:icon]).html_safe : nil
-          }
-        end
-      end
-
       def duration
         text = survey.open? ? t("open", scope: "decidim.surveys.surveys.show") : t("closed", scope: "decidim.surveys.surveys.show")
 

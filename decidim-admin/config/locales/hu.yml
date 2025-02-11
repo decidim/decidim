@@ -182,8 +182,6 @@ hu:
         attachment_collection:
           new: Új csatolmány mappa
         browse: Böngészés
-        category:
-          new: Új kategória
         export: Összes exportálása
         export-selection: Kiválasztottak exportálása
         import: Import
@@ -292,23 +290,8 @@ hu:
           justification: Indoklás
           title: '%{name} felhasználó blokkolása'
       categories:
-        create:
-          error: Hiba történt a kategória létrehozása során.
-          success: Kategória létrehozása sikeres.
-        destroy:
-          error: Hiba történt a kategória törlésekor. Először töröld az alkategóriákat, majd győződj meg róla, hogy más entitás nem tartozik ehhez a kategóriához, majd próbáld újra.
-          success: Kategória eltávolítása sikeres.
-        edit:
-          title: Kategória szerkesztése
-          update: Frissítés
         index:
           categories_title: Kategóriák
-        new:
-          create: Kategória létrehozása
-          title: Új kategória
-        update:
-          error: Hiba történt a kategória frissítése során.
-          success: Kategória frissítése sikeres.
       component_permissions:
         update:
           error: Probléma merült fel ezen összetevő engedélyeinek frissítésekor.
@@ -725,7 +708,6 @@ hu:
           confirm_delete: Biztosan törölni szeretnéd ezt a hírlevelet?
           followers: 'követők '
           has_been_sent_to: 'Elküldve ide: '
-          no_scopes: Nincsenek hatókörök
           not_sent: Nem került elküldésre
           participants: 'résztvevők '
           segmented_to: 'Szegmentált %{subject}: '
@@ -740,13 +722,10 @@ hu:
           confirm_deliver: Biztos, hogy szeretnéd elküldeni ezt a hírlevelet? A művelet nem visszavonható.
           deliver: Hírlevél küldése
           followers_help: Hírlevelet küld minden megerősített felhasználónak, aki a listában kiválasztott részvételi tereket követi.
-          none: Egyik sem
           participants_help: Hírlevelet küld minden megerősített felhasználónak, aki a listában kiválasztott részvételi terek bármelyikében részt vett valamilyen folyamatban.
           recipients_count: Ezt a hírlevelet <strong id='recipients_count'>%{count}</strong> felhasználónak küldjük ki.
-          scopes_help: Hírlevelet küld azoknak a felhasználóknak, akiknek a fiók "Érdeklődési kör" beállításainál a kiválasztott hatóköre aktiválva van.
-          select_scopes: Kiszűri azokat a felhasználókat, akik a fiók "Saját érdeklődési kör" beállításainál aktiválták a kiválasztott hatókört.
           select_spaces: A hírlevél szegmentálására szolgáló terek kiválasztása
-          select_users: Válassza ki, hogy mely felhasználók számára szeretné elküldeni a hírlevelet
+          send_to_all_users: Küldés mindenkinek
           title: Címzettek kiválasztása
           warning: "<strong>Figyelem:</strong> Ez a hírlevél csak azoknak a felhasználóknak kerül elküldésre, akik bejelölték a <em>Hírleveleket szeretnék kapni</em> opciót az értesítési beállításokban."
         send:

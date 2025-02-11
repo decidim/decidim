@@ -125,8 +125,6 @@ gl:
             proposal_limit: Límite de proposta por usuario
             proposal_wizard_step_1_help_text: Asistente de propostas "Crear" texto de axuda paso a paso
             resources_permissions_enabled: Os permisos de acción pódense establecer para cada proposta
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
             threshold_per_proposal: Umbral por proposta
           step:
             announcement: Anuncio
@@ -232,7 +230,7 @@ gl:
         title: Propostas
     participatory_spaces:
       highlighted_proposals:
-        see_all: Ver todos (%{count})
+        see_all: Ver todos
     proposals:
       actions:
         answer_proposal: Responder á proposta
@@ -303,7 +301,6 @@ gl:
             title: Actualizar a proposta
             update: Actualización
           form:
-            attachment_legend: "(Opcional) Engada un anexo"
             created_in_meeting: Esta proposta provén dunha reunión
             select_a_meeting: Seleccione unha reunión
           index:
@@ -390,7 +387,6 @@ gl:
         create:
           success: Creouse un borrador colaborativo.
         edit:
-          attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
           send: Enviar
           title: Editar borrador colaborativo
@@ -484,10 +480,7 @@ gl:
         dynamic_map_instructions:
           instructions: Podes mover o punto no mapa.
         edit:
-          add_documents: Engadir documentos
-          attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
-          edit_documents: Editar documentos
           send: Enviar
           title: Editar proposta
         edit_draft:
@@ -549,6 +542,8 @@ gl:
         voting_rules:
           proposal_limit:
             description: Podes crear ata %{limit} propostas.
+          vote_limit:
+            description: Podes votar ata %{limit} propostas.
         wizard_aside:
           back: De volta
         wizard_steps:

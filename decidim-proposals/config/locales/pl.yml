@@ -181,8 +181,6 @@ pl:
             proposal_wizard_step_1_help_text: 'Tekst pomocy Kreatora - krok: "Utwórz"'
             proposal_wizard_step_2_help_text: Tekst pomocy kroku „Opublikuj” kreatora propozycji
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdej propozycji
-            scope_id: Zakres
-            scopes_enabled: Zakresy włączone
             threshold_per_proposal: Próg poparcia dla propozycji
             vote_limit: Limit głosów na uczestnika
           step:
@@ -356,7 +354,7 @@ pl:
     participatory_spaces:
       highlighted_proposals:
         last: Ostatnie propozycje
-        see_all: Zobacz wszystkie propozycje (%{count})
+        see_all: Zobacz wszystkie propozycje
     proposals:
       actions:
         answer_proposal: Odpowiedz na propozycję
@@ -377,22 +375,6 @@ pl:
           proposal_comments: Komentarze
           proposals: Propozycje
         imports:
-          help:
-            answers: |
-              Dokument importu powinien zawierać następujące nazwy kolumn w przypadku plików CSV lub Excel, lub nazwy kluczy w przypadku plików JSON:
-              <ul>
-              <li><b>id:</b> ID wniosku o odpowiedź</li>
-              <li><b>state:</b> Jeden z "accepted", "evaluating" lub "rejected"</li>
-              <li><b>answer/en:</b> Odpowiedź w języku angielskim. Będzie to zależało od konfiguracji języka Twojej platformy.</li>
-              </ul>
-            proposals: |
-              Plik musi mieć następujące nazwy kolumn w przypadku plików CSV lub Excel, lub nazwy kluczy w przypadku plików JSON:
-              <ul>
-              <li><b>title/en:</b> Tytuł w języku angielskim. Będzie to zależało od konfiguracji języka Twojej platformy.</li>
-              <li><li><b>body/en:</b> Treść w języku angielskim. Będzie to zależało od konfiguracji języka Twojej platformy.</li>
-              <li><b>scope/id:</b> ID dla zakresu</li>
-              <li><b>category/id:</b> ID dla kategorii</li>
-              </ul>
           label:
             answers: Importuj odpowiedzi z pliku
             proposals: Importuj propozycje z pliku
@@ -481,9 +463,7 @@ pl:
             title: Zaktualizuj propozycję
             update: Aktualizuj
           form:
-            attachment_legend: "(Opcjonalnie) Dodaj załącznik"
             created_in_meeting: Ta propozycja pochodzi ze spotkania
-            delete_attachment: Usuń załącznik
             select_a_meeting: Wybierz spotkanie
           index:
             actions: Działania
@@ -605,7 +585,6 @@ pl:
           error: Przy tworzeniu wspólnego szkicu pojawił się problem.
           success: Utworzono wspólny szkic.
         edit:
-          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
           send: Wyślij
           title: Edytuj wspólny szkic
@@ -727,10 +706,7 @@ pl:
           description: Współrzędne zostaną zaktualizowane po kliknięciu przycisku 'podgląd'. Jednakże adres nie ulegnie zmianie.
           instructions: Możesz przenieść punkt na mapie.
         edit:
-          add_documents: Dodaj dokumenty
-          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
-          edit_documents: Edytuj dokumenty
           send: Wyślij
           title: Edytuj propozycję
         edit_draft:
@@ -824,19 +800,13 @@ pl:
           maximum_votes_reached: Osiągnięto limit głosów
           no_votes_remaining: Brak głosów
           vote: Głosować
-          votes_blocked: Głosowanie zostało wyłączone
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Każda propozycja może zgromadzić głosy poparcia ponad limit %{limit} głosów
-          minimum_votes_per_user:
-            description: Musisz rozdzielić minimum %{votes} głosów pomiędzy różne propozycje.
-            given_enough_votes: Udzieliłeś(aś) wystarczającej liczby głosów.
-            votes_remaining: Musisz wesprzeć %{remaining_votes} dodatkowych propozycji, aby Twoje głosy zostały policzone.
           proposal_limit:
             description: Możesz utworzyć maksymalnie %{limit} propozycji.
           threshold_per_proposal:
             description: Aby propozycje zostały zatwierdzone, muszą osiągnąć limit %{limit} głosów.
-          title: 'Głosy podlegają następującym zasadom:'
           vote_limit:
             description: Możesz wesprzeć maksymalnie %{limit} propozycji.
             votes: Pozostało %{number} głosów

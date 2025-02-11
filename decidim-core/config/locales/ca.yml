@@ -3,10 +3,20 @@ ca:
     attributes:
       account:
         delete_reason: Raó per eliminar el teu compte
+      attachment:
+        documents: Documents
+        photos: Fotos
       common:
         created_at: Creat el
+      component:
+        taxonomy_filters: Filtres de taxonomia
+      content_block_attachment:
+        background_image: Imatge de fons
+        main_image: Imatge principal
       conversation:
         body: Cos
+      editor_image:
+        file: Arxiu
       group:
         about: Quant a
         avatar: Avatar
@@ -15,6 +25,8 @@ ca:
         name: Nom
         nickname: Àlies
         phone: Telèfon
+      import:
+        file: Arxiu
       message:
         body: Cos
       report:
@@ -22,12 +34,13 @@ ca:
       taxonomy:
         name: Nom de la taxonomia
       taxonomy_filter:
-        internal_name: Nom intern del filtre
-        name: Títol públic del filtre
+        internal_name: Etiqueta interna
+        name: Etiqueta
         root_taxonomy_id: Des de la taxonomia
-        space_filter: Disponible com a filtre pels espais de participació
+        space_filter: Disponible com a filtre per a
       user:
         about: Quant a
+        avatar: Imatge de perfil
         email: El teu correu electrònic
         encrypted_password: Contrasenya
         locale: Configuració regional
@@ -39,6 +52,8 @@ ca:
         personal_url: URL personal
         remove_avatar: Elimina la imatge de perfil
         tos_agreement: Termes i condicions d'ús
+      user_group:
+        avatar: Imatge de perfil
     models:
       decidim/attachment_created_event: Arxiu adjunt
       decidim/component_published_event: Component actiu
@@ -241,6 +256,9 @@ ca:
       impersonation_log:
         manage: "%{user_name} ha gestionat a %{resource_name} perquè %{reason}"
       moderation:
+        bulk_hide: "%{user_name} ha amagat %{reported_count} continguts"
+        bulk_unhide: "%{user_name} ha tornat a mostrar %{reported_count} continguts"
+        bulk_unreport: "%{user_name} ha desfet la denúncia de %{reported_count} continguts"
         hide: "%{user_name} ha ocultat un recurs del tipus %{resource_type} a l'espai %{space_name}"
         unreport: "%{user_name} ha desfet la denuncia d'un recurs del tipus %{resource_type} a l'espai %{space_name}"
       newsletter:
@@ -289,14 +307,17 @@ ca:
         update: "%{user_name} ha acutalitzat la taxonomia \"%{resource_name}\""
         update_with_parent: "%{user_name} ha actualitzat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
       taxonomy_filter:
-        create: "En/na %{user_name} ha creat un filtre basat en la taxonomia \"%{resource_name}\""
-        create_with_filter_items_count: "En/na %{user_name} ha creat un filtre basat en la taxonomia \"%{resource_name}\" amb %{filter_items_count} filtres per \"%{space_manifest_name}\""
-        delete: "En/na %{user_name} ha eliminat un filtre basat en la taxonomia \"%{resource_name}\""
-        delete_with_filter_items_count: "En/na %{user_name} ha eliminat un filtre basat en la taxonomia \"%{resource_name}\" amb %{filter_items_count} filtres per \"%{space_manifest_name}\""
-        update: "En/na %{user_name} ha actualitzat un filtre basat en la taxonomia \"%{resource_name}\""
-        update_with_filter_items_count: "En/na %{user_name} ha actualitzat un filtre basat en la taxonomia \"%{resource_name}\" amb %{filter_items_count} filtres per \"%{space_manifest_name}\""
+        create: "%{user_name} va crear el filtre %{resource_name}"
+        create_with_filter_info: '%{user_name} va crear el filtre %{resource_name} basat en la taxonomia "%{taxonomy_name}" amb %{filter_items_count} element(s)'
+        delete: "%{user_name} ha eliminat el filtre %{resource_name}"
+        delete_with_filter_info: '%{user_name} va eliminar el filtre %{resource_name} basat en la taxonomia "%{taxonomy_name}" amb %{filter_items_count} element(s)'
+        update: "%{user_name} va actualitzar el filtre %{resource_name}"
+        update_with_filter_info: '%{user_name} va actualitzar el filtre %{resource_name} basat en la taxonomia "%{taxonomy_name}" amb %{filter_items_count} element(s)'
       user:
         block: "%{user_name} ha bloquejat a la usuària %{resource_name}"
+        bulk_block: "%{user_name} ha bloquejat a %{blocked_count} usuàries"
+        bulk_ignore: "%{user_name} ha desfet la denúncia de %{unreported_users_count} usuàries"
+        bulk_unblock: "%{user_name} ha desbloquejat a %{unblocked_count} usuàries"
         invite: "%{user_name} ha convidat la participant %{resource_name} amb el rol: %{role}"
         officialize: "%{user_name} ha oficialitzat la participant %{resource_name}"
         promote: "%{user_name} ha promocionat a %{resource_name}"
@@ -307,6 +328,9 @@ ca:
         unofficialize: "%{user_name} ha desoficialitzat la participant %{resource_name}"
       user_group:
         block: "%{user_name} ha bloquejat al grup d'usuàries %{resource_name}"
+        bulk_block: "%{user_name} ha bloquejat a %{blocked_count} usuàries"
+        bulk_ignore: "%{user_name} ha desfet la denúncia de %{unreported_users_count} usuàries"
+        bulk_unblock: "%{user_name} ha desbloquejat a %{unblocked_count} usuàries"
         reject: "%{user_name} ha rebutjat la verificació del grup %{resource_name}"
         unblock: "%{user_name} ha desbloquejat al grup d'usuàries %{resource_name}"
         verify: "%{user_name} ha verificat el grup %{resource_name}"
@@ -424,14 +448,19 @@ ca:
         explanation: Verifica't introduint un número de document que finalitzi amb "X".
         fields:
           allowed_postal_codes: Codis postals permesos (separats per comes)
-          allowed_scope_id: Àmbit permès
           document_number: Número de document
           postal_code: Codi postal
-          scope_id: Àmbit
         name: Autorització d'exemple
       dummy_authorization_workflow:
         explanation: Exemple de flux de verificació
         name: Flux de treball d'autorització d'exemple
+      ephemeral_dummy_authorization_handler:
+        explanation: Verifica't introduint un número de document que finalitzi amb "X".
+        fields:
+          allowed_postal_codes: Codis postals permesos (separats per comes)
+          document_number: Número de document
+          postal_code: Codi postal
+        name: Una altra autorització d'exemple
       errors:
         duplicate_authorization: Ja hi ha una participant autoritzada amb les mateixes dades. Una administradora es posarà en contacte amb tu per verificar les teves dades.
       expired_at: Vençut el %{timestamp}
@@ -522,8 +551,6 @@ ca:
             enable_pads_creation: Habilitar la creació de pads
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             resources_permissions_enabled: Permisos de recursos habilitats
-            scope_id: Àmbit
-            scopes_enabled: Àmbits habilitats
             taxonomy_filters: Seleccionar filtres pel component
           step:
             amendment_creation_enabled: Creació d'esmenes habilitada
@@ -647,6 +674,7 @@ ca:
           sign_in_disabled: Pots accedir amb un compte extern.
           sign_up_disabled: La creació de comptes està deshabilitada, pots fer servir un compte existent per accedir-hi.
         user:
+          ephemeral_session_closed: La teva sessió de convidada ha finalitzat
           timed_out: Has estat sense activitat durant massa temps i la teva sessió s'ha tancat automàticament. Si vols continuar participant, torna a iniciar sessió.
       shared:
         newsletter_modal:
@@ -690,15 +718,99 @@ ca:
     download_your_data:
       export:
         ready: Llest
+      help:
+        core:
+          description: Aquests són els fitxers amb les dades personals, les contribucions i l'activitat de la usuària %{user_name}
+          title: Descarrega els teus fitxers de dades des de %{organization}
+        follows:
+          created_at: La data i l'hora en què vas demanar "Seguir"
+          followable: El recurs o l'espai de participació que s'està seguint
+          id: L'identificador únic d'aquest seguiment
+          updated_at: La data de la darrera actualització del seguiment
+        messaging_conversations:
+          created_at: La data en què es va iniciar aquesta conversa
+          id: L'identificador únic d'aquesta conversa
+          messages: Els missatges d'aquesta conversa
+          updated_at: La data en què aquesta conversa es va actualitzar per darrera vegada
+        notifications:
+          created_at: La data i l'hora en què es va crear aquesta notificació
+          extra: Informació addicional sobre aquesta notificació
+          id: L'identificador únic d'aquesta notificació
+          resource_type: El tipus de recurs amb el qual està relacionat amb la notificació
+        participatory_space_private_users:
+          created_at: La data i l'hora en què es va crear aquesta participant privada
+          id: L'identificador únic d'aquesta participant privada
+          privatable_to: A quin espai de participació pertanys aquesta participant privada
+          published: Si aquesta participant privada està publicada o no
+          role: El rol que té aquesta participant privada
+          updated_at: La data i hora en què aquesta participant privada va ser actualitzada per darrera vegada
+        reports:
+          created_at: La data i hora en què es va crear aquest informe
+          details: Els detalls dels informes de moderació
+          id: L'identificador únic d'aquest informe de moderació
+          locale: L'idioma d'aquest informe de moderació
+          moderation: La moderació que té aquest informe
+          reason: Els motius d'aquest informe de moderació
+          updated_at: La data i hora de la darrera actualització d'aquest informe de moderació
+        user_groups:
+          document_number: El número de document d'aquest grup d'usuàries
+          id: L'identificador únic d'aquest d'usuàries
+          name: El nom d'aquest grup d'usuàries
+          phone: El número de telèfon d'aquest grup d'usuàries
+          verified_at: La data i l'hora en què es va verificar aquest grup d'usuàries
+        users:
+          about: L'àlies d'aquesta usuària
+          accepted_tos_version: La data en què la usuària va acceptar els Termes i Condicions d'ús d'aquesta plataforma
+          admin: Si aquesta usuària és una administradora
+          confirmed_at: La data i l'hora en què es va confirmar aquesta usuària
+          created_at: La data i l'hora en què es va crear aquesta usuària
+          current_sign_in_at: La data i l'hora de l'inici de sessió actual
+          current_sign_in_ip: L'adreça IP de l'inici de sessió actual
+          delete_reason: La raó donada per eliminar a aquesta usuària
+          deleted_at: La data i l'hora en què es va eliminar aquesta usuària
+          email: L'adreça de correu electrònic d'aquesta usuària
+          followers_count: El nombre de participants que segueixen aquesta participant
+          following_count: El nombre de participants a què segueix aquesta participant
+          id: L'identificador únic d'aquesta usuària
+          invitation_accepted_at: La data i l'hora en què es va acceptar la invitació
+          invitation_created_at: La data i l'hora en què es va convidar a aquesta usuària
+          invitation_sent_at: La data i l'hora en què es va enviar la invitació
+          invitations_count: El número d'invitacions enviades a aquesta usuària
+          invited_by: La usuària que va convidar a aquesta usuària
+          last_sign_in_at: La data i l'hora del darrer inici de sessió
+          last_sign_in_ip: L'adreça IP del darrer inici de sessió
+          locale: La configuració regional (idioma) que ha seleccionat aquesta usuària
+          managed: Si es tracta d'una usuària gestionada (impersonada) o no
+          name: El nom d'usuària de la usuària
+          newsletter_notifications_at: La data i l'hora en què aquesta usuària va rebre un butlletí informatiu per darrera vegada
+          nickname: L'àlies d'aquesta usuària
+          notification_settings: La configuració de les notificacions que ha seleccionat aquesta usuària
+          notifications_sending_frequency: La freqüència amb què aquesta usuària rep les notificacions
+          officialized_as: La descripció de l'oficialització (Alcaldia, Conselleria, etc.)
+          officialized_at: La data i l'hora en què aquesta usuària va ser oficialitzada
+          organization: L'organització a la qual pertany aquesta usuària
+          password_updated_at: La data en què van canviar per darrera vegada les seves contrasenyes
+          personal_url: L'URL personal d'aquesta usuària
+          reset_password_sent_at: La data i l'hora en què es va enviar el correu per a restaurar la contrasenya
+          roles: El rol que té aquesta participant, si en té cap
+          sign_in_count: El número de vegades en què aquesta usuària ha iniciat la seva sessió
+          type: El tipus que té aquesta participant
+          unconfirmed_email: El correu electrònic que aquesta usuària encara no ha confirmat
+          updated_at: La data de la darrera actualització d'aquesta usuària
       show:
         action: Acció
-        download: Descarregar
-        download_data: Àrees de descàrregues
+        download: Descarregar fitxer
+        download_data: Descarregar dades
         download_data_description_1: Aquí pots trobar totes les descàrregues disponibles pel teu compte. Aquests fitxers .zip estaran disponibles durant dues setmanes abans de ser eliminats.
         download_data_description_2: Pots sol·licitar un fitxer .zip amb les teves aportacions i informació personal.
         download_your_data: Dades personals
         expiration: Data de caducitat
         expired: Ha caducat
+        explanation:
+          body_1: Aquests fitxers són conjunts de dades exportades de la teva activitat en aquesta plataforma, com ara propostes, o comentaris. Proporcionen dades en brut (sense processar) i estructurades que poden ser utilitzades per a anàlisi, investigació o integració amb altres eines
+          body_2: Aquests fitxers estan en format CSV (valors separats per comes), un format de fitxer àmpliament utilitzat que pot ser obert i processat per una varietat d'aplicacions de programari, incloent-hi programes de fulls de càlcul, editors de text i eines d'anàlisi de dades.
+          title: Què són aquests fitxers?
+        files_to_download: Fitxer a descarregar
         request_data: Sol·licitar
         type: Tipus de descàrrega
     editor_images:
@@ -720,6 +832,7 @@ ca:
       others: "%{count} més"
       title: Li ha agradat a
       you: tu
+    ephemeral_user: Visitant
     errors:
       files:
         file_cannot_be_processed: No s'ha pogut processar el fitxer
@@ -787,6 +900,9 @@ ca:
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{amendable_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Esmena rebutjada per %{amendable_title} a %{emendation_author_nickname}
             notification_title: L'<a href="%{emendation_path}">esmena</a> creada per <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha estat rebutjada per <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'S''ha publicat una esmena per a %{amendable_title}. La pots veure en aquesta pàgina:'
       attachments:
         attachment_created:
           email_intro: 'S''ha afegit un nou document a %{resource_title}. Pots veure''l des d''aquesta pàgina:'
@@ -952,7 +1068,7 @@ ca:
         file:
           explanation: 'Instruccions per a l''arxiu:'
           message_1: Ha de ser una imatge o un document.
-          message_2: Per a les imatges, fes servir, preferiblement, imatges apaïsades, el servei retalla la imatge.
+          message_2: En el cas d'una imatge, preferiblement apaïsada que no incorpori cap text. L'aplicació ajustarà la imatge.
         icon:
           explanation: 'Instruccions per a la icona:'
           message_1: Ha de ser una imatge quadrada.
@@ -1130,6 +1246,8 @@ ca:
         unknown_action_with_space: "%{user_name} ha realitzat una acció a %{resource_name} en %{space_name}"
         unpublish_with_space: "%{user_name} ha despublicat %{resource_name} en %{space_name}"
         update: "%{user_name} ha actualitzat %{resource_name}"
+        update_filters: "%{user_name} va actualitzar el filtre de %{resource_name}"
+        update_filters_with_space: "%{user_name} va actualitzar els filtres de %{resource_name} a %{space_name}"
         update_permissions_with_space: "%{user_name} ha actualitzat els permisos de %{resource_name} a %{space_name}"
         update_with_space: "%{user_name} ha actualitzat %{resource_name} a %{space_name}"
       value_types:
@@ -1164,35 +1282,35 @@ ca:
         comanagers_new_conversation:
           admin_in_group: Reps aquesta notificació perquè administres el grup "%{group}".
           greeting: Hola, %{recipient}!
-          intro: "%{manager} ha iniciat una nova conversa en nom de %{group}. Fes clic aquí per veure-la:"
+          intro: "%{manager} ha iniciat una nova conversa en nom de %{group}. Per veure-la i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: "%{manager} ha iniciat una nova conversa com a %{group}"
         comanagers_new_message:
           admin_in_group: Reps aquesta notificació perquè administres el grup "%{group}".
           greeting: Hola, %{recipient}!
-          intro: "%{manager} ha publicat nous missatge a una conversa en nom de %{group}. Fes clic aquí per veure-la:"
+          intro: "%{manager} ha publicat nous missatges a una conversa en nom de %{group}. Per veure'ls i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: "%{manager} ha enviat nous missatges com a %{group}"
         new_conversation:
           greeting: Hola, %{recipient}!
-          intro: "%{sender} ha iniciat una nova conversa amb tu. Fes clic aquí per veure-la:"
+          intro: "%{sender} ha iniciat una nova conversa amb tu. Per veure-la i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: "%{sender} ha iniciat una conversa amb tu"
         new_group_conversation:
           admin_in_group: Reps aquesta notificació perquè administres el grup "%{group}".
           greeting: Hola, %{recipient}!
-          intro: "%{sender} ha iniciat una nova conversa amb el %{group}. Fes clic aquí per veure-la:"
+          intro: "%{sender} ha iniciat una nova conversa amb el %{group}. Per veure-la i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: "%{sender} ha iniciat una nova conversa amb %{group}"
         new_group_message:
           admin_in_group: Reps aquesta notificació perquè administres el grup "%{group}".
           greeting: Hola, %{recipient}!
-          intro: "%{sender} ha publicat nous missatge a una conversa amb el grup %{group}. Fes clic aquí per veure-la:"
+          intro: "%{sender} ha publicat nous missatge a una conversa amb el grup %{group}. Per veure'ls i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: "%{group} té nous missatge de %{sender}"
         new_message:
           greeting: Hola, %{recipient}!
-          intro: "%{sender} ha enviat nous missatges a la teva conversa. Fes clic aquí per veure'ls:"
+          intro: "%{sender} ha enviat nous missatges a la teva conversa. Per veure'ls i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: Tens nous missatges de %{sender}
       conversations:
@@ -1235,6 +1353,8 @@ ca:
         not_started: No s'ha iniciat encara
         remaining: "Resta(en) %{time_distance}"
     metrics:
+      blocked_users:
+        description: Número de participants bloquejades
       download:
         csv: Descarregar les dades (csv)
       followers:
@@ -1245,6 +1365,10 @@ ca:
         description: Nombre de participants actives a l'organització
         object: participants
         title: Participants
+      reported_users:
+        description: Número de participants reportades
+      user_reports:
+        description: Número de denúncies realitzades per participants
       users:
         description: Nombre de participants a l'organització
         object: participants
@@ -1310,10 +1434,12 @@ ca:
     notifications_digest_mailer:
       header:
         daily: Resum diari de notificacions
+        real_time: En temps real
         weekly: Resum setmanal de notificacions
       hello: Hola %{name},
       intro:
         daily: 'Aquestes són les notificacions del darrer dia basades en l''activitat que segueixes:'
+        real_time: 'Aquesta és una notificació sobre l''activitat que segueixes:'
         weekly: 'Aquestes són les notificacions de la darrera setmana basades en l''activitat que segueixes:'
       outro: Has rebut aquestes notificacions perquè segueixes aquest contingut o les seves autores. Pots deixar de seguir-les des de les seves respectives pàgines.
       see_more: Veure més notificacions
@@ -1355,11 +1481,13 @@ ca:
     onboarding_action_message:
       click_link: Fes clic aquí
       cta_html: <a href="%{path}">%{link_text}</a> per %{action} a %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: Ha estat autoritzada amb èxit.<br/>Has iniciat una sessió de convidada, ara hi pots participar.
       expired_authorization_active_title: La teva autorització ha caducat.
       finish_authorization_process: Pots finalitzar el procés de verificació
       incomplete_authorization_active_title: La teva verificació no s'ha completat amb tota la informació necessària.
       pending_authorization_active_message: Si us plau, completa el formulari per a continuar amb aquesta acció.
       pending_authorization_active_title: Necessitem verificar la teva identitat.
+      pending_ephemeral_authorization: Si us plau, verifica la teva identitat per continuar.
     open_data:
       help:
         core:
@@ -1390,6 +1518,17 @@ ca:
           reported_content: El contingut que va ser reportat
           reported_url: L'URL del recurs que va ser reportat
           reports: Un llistat dels motius pels quals es va reportar el recurs
+        taxonomies:
+          children_count: El recompte de "filles" (subtaxonomies) que té aquesta taxonomia
+          created_at: La data en què es va crear aquesta taxonomia
+          id: L'identificador únic d'aquesta taxonomia
+          is_root: 'Cert ("true"): si aquesta taxonomia no té cap "mare" (no penja d''una altra taxonomia)'
+          name: El nom d'aquesta taxonomia
+          parent_id: L'identificador únic de la taxonomia "mare" (si n'hi ha)
+          part_of: Utilitzat per detectar si aquesta taxonomia és "filla" (subcategoria) d'una altra taxonomia
+          taxonomizations_count: El recompte dels recursos (debats, projectes, propostes, trobades, resultats, etc.) que utilitzen aquesta taxonomia
+          updated_at: La data en què aquesta taxonomia va ser actualitzada per darrera vegada
+          weight: L'ordre en què es mostra aquesta taxonomia
         user_groups:
           avatar_url: L'avatar del grup d'usuàries
           badge: L'ensenya del grup d'usuàries
@@ -1594,16 +1733,7 @@ ca:
         error: S'ha produït un error durant l'acció d'adhesió.
     scopes:
       global: Àmbit global
-      picker:
-        cancel: Cancel·lar
-        change: Canviar l'àmbit seleccionat
-        choose: Seleccionar
-        currently_selected: Àmbit seleccionat actualment
-        title: Selecciona %{field}
       prompt: Selecciona un àmbit
-      scopes: Àmbits
-      scopes_picker_input:
-        select_scope: 'Selecciona un àmbit (actualment: %{current})'
     search:
       name: Cercar
       results: Resultat de la cerca
@@ -1702,6 +1832,7 @@ ca:
       no_stats: Encara no hi ha estadístiques.
       pages_count: Pàgines
       participants_count: Participants
+      surveys_count: Enquestes
       users_count: Participants
     tags:
       filter_results_for_taxonomy: 'Resultats en filtrar per: %{resource}'
@@ -1729,15 +1860,6 @@ ca:
         send: Enviar
       update:
         error: Missatge no enviat. Torna-ho a provar més tard
-    user_interests:
-      show:
-        my_interests: Els meus interessos
-        no_scopes: Aquesta organització encara no té cap àmbit!
-        select_your_interests: Selecciona els temes del teu interès per rebre notificacions relacionades amb aquests a la pestanya de la Línia de temps dins del teu perfil públic.
-        update_my_interests: Actualitza els meus interessos
-      update:
-        error: S'ha produït un error en actualitzar els teus interessos.
-        success: Els teus interessos s'han actualitzat correctament.
     user_report_mailer:
       notify:
         body_1: La usuària %{user} ha estat reportada per %{token}
@@ -2105,6 +2227,8 @@ ca:
         sign_up: Crea un compte
         terms_of_service: Termes i condicions d'ús
       header:
+        close: Tancar
+        confirm_close_ephemeral_session: Si navegues fora d'aquesta pàgina, la teva sessió es tancarà. Segur que vols sortir d'aquesta pàgina?
         log_in: Entra
         main_menu: Menú principal
         user_menu: Menú d'usuari
@@ -2114,6 +2238,8 @@ ca:
         expire_time_html: La vostra sessió caducarà en <b><span class="minutes">%{minutes}</span> minutes</b>.
       language_chooser:
         choose_language: Triar la llengua
+      navigation:
+        aria_label: 'Menú de navegació: %{title}'
       notifications_dashboard:
         mark_all_as_read: Marcar tot com a llegit
         mark_as_read: Marcar com a llegit
@@ -2145,7 +2271,6 @@ ca:
         authorizations: Autoritzacions
         delete_my_account: Eliminar el meu compte
         my_data: Les meves dades
-        my_interests: Els meus interessos
         notifications_settings: Configuració de les notificacions
         profile: Perfil
         title: Configuració de la participant

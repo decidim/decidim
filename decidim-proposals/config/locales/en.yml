@@ -219,8 +219,6 @@ en:
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
             proposal_wizard_step_2_help_text: Proposal wizard "Publish" step help text
             resources_permissions_enabled: Actions permissions can be set for each proposal
-            scope_id: Scope
-            scopes_enabled: Scopes enabled
             taxonomy_filters: Select filters for the component
             taxonomy_filters_add: Add filter
             threshold_per_proposal: Threshold per proposal
@@ -518,7 +516,7 @@ en:
         imports:
           help:
             answers: |
-              The import document should contain the following column names in case of CSV or Excel files, or key names in case of JSON files:
+              The import document should contain the following column names in case of CSV or Excel files, or key names in case of JSON files (other columns will be ignored):
               <ul>
               <li><b>id:</b> ID of the proposal to answer</li>
               <li><b>state:</b> One of "accepted", "evaluating", or "rejected"</li>
@@ -529,8 +527,7 @@ en:
               <ul>
               <li><b>title/en:</b> Title on English language. This will depend on your platform language configuration.</li>
               <li><b>body/en:</b> Body on English language. This will depend on your platform language configuration.</li>
-              <li><b>scope/id:</b> ID for the Scope</li>
-              <li><b>category/id:</b> ID for the Category</li>
+              <li><b>taxonomies/ids:</b> ID for the Taxonomies (if more than one, separate with a comma)</li>
               </ul>
           label:
             answers: Import answers from a file
@@ -764,7 +761,7 @@ en:
           error: There was a problem creating this collaborative draft.
           success: Collaborative draft successfully created.
         edit:
-          attachment_legend: "(Optional) Add an attachment"
+          attachment_legend: Add a document or an image
           back: Back
           send: Send
           title: Edit collaborative draft
@@ -912,10 +909,10 @@ en:
           description: The coordinates will be updated when clicking on 'preview' button. However, the address does not change.
           instructions: You can move the point on the map.
         edit:
-          add_documents: Add documents
-          attachment_legend: "(Optional) Add an attachment"
+          add_attachments: Add attachments
+          attachment_legend: Add a document or an image
           back: Back
-          edit_documents: Edit documents
+          edit_attachments: Edit attachments
           send: Send
           title: Edit proposal
         edit_draft:
@@ -1007,7 +1004,7 @@ en:
           maximum_votes_reached: Vote limit reached
           no_votes_remaining: No votes remaining
           vote: Vote
-          votes_blocked: Voting disabled
+          votes_blocked: Vote
         votes_count:
           count:
             one: Vote

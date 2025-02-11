@@ -180,8 +180,6 @@ ro:
         attachment_collection:
           new: Foldere pentru atașamente
         browse: Caută
-        category:
-          new: Categorie nouă
         export: Exportă tot
         export-selection: Exportă selecția
         import: Importă
@@ -231,6 +229,7 @@ ro:
         create:
           error: A apărut o problemă la crearea unei zone noi.
           success: Zona a fost creată cu succes.
+        deprecated: Rețineți că zonele sunt învechite și vor fi eliminate în versiunile viitoare. Vă rugăm să folosiți taxonomiile în schimb. Singurul modul care folosește in prezent conceptul de zone este modul de inițiative.
         destroy:
           has_spaces: Această zonă are spații participative dependente. Te rugăm să te asiguri că nu există referințe la spațiul participativ din această zonă înainte de a o șterge.
           success: Zona a fost eliminată cu succes.
@@ -291,23 +290,8 @@ ro:
           justification: Justificare
           title: Blochează utilizatorul %{name}
       categories:
-        create:
-          error: A apărut o eroare la crearea acestei categorii.
-          success: Categoria a fost creată cu succes.
-        destroy:
-          error: A apărut o eroare la ștergerea acestei categorii. Vă rugăm să ștergeți mai întâi orice subcategorie, asigurați-vă că nicio altă entitate nu aparține acestei categorii și încercați din nou.
-          success: Categoria a fost ștearsă cu succes.
-        edit:
-          title: Editează categoria
-          update: Actualizează
         index:
           categories_title: Categorii
-        new:
-          create: Creează o categorie
-          title: Categorie nouă
-        update:
-          error: A apărut o eroare la actualizarea acestei categorii.
-          success: Categoria a fost actualizată cu succes.
       component_permissions:
         update:
           error: A apărut o eroare la actualizarea drepturilor de acces pentru acestă componentă.
@@ -704,7 +688,6 @@ ro:
           confirm_delete: Sigur dorești să ştergi acest buletin informativ?
           followers: 'urmăritori '
           has_been_sent_to: 'A fost trimis la: '
-          no_scopes: Nici un domeniu
           not_sent: Nu a fost trimis
           participants: 'participanți '
           segmented_to: 'Segmentat la %{subject}: '
@@ -719,13 +702,10 @@ ro:
           confirm_deliver: Sigur dorești să livrezi acest buletin informativ? Această acţiune nu poate fi anulată.
           deliver: Trimite buletinul informativ
           followers_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care urmăresc orice spații participative selectate din listă.
-          none: Niciunul
           participants_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care au participat la oricare dintre spațiile participative selectate din listă.
           recipients_count: Acest buletin informativ va fi trimis la <strong id='recipients_count'>%{count}</strong> utilizatori.
-          scopes_help: Trimite buletinul informativ utilizatorilor care au unul dintre domeniile selectate activat în setările privind „Interesele mele” din contul lor.
-          select_scopes: Filtrați utilizatorii care au activat oricare dintre domeniile selectate în setările privind „Interesele mele” din contul lor.
           select_spaces: Selectează spațiile pentru segmentarea buletinului informativ
-          select_users: Selectează utilizatorii cărora vrei să trimiți buletinul informativ
+          send_to_all_users: Trimiteți către toți utilizatorii
           title: Selectează destinatarii pentru trimitere
           warning: "<strong>Atenție:</strong> Acest buletin informativ va fi trimis doar utilizatorilor care au activat <em>Vreau să primesc știri</em> în setările lor."
         send:
@@ -866,6 +846,7 @@ ro:
         create:
           error: A apărut o problemă la crearea unui nou domeniu.
           success: Domeniul a fost creat cu succes.
+        deprecated: Rețineți că domeniile de interes sunt învechite și vor fi eliminate în versiunile viitoare. Vă rugăm să folosiți taxonomiile în schimb. Singurul modul care folosește in prezent conceptul de domenii de interes este modul de inițiative.
         destroy:
           success: Domeniul a fost eliminat cu succes.
         edit:
@@ -881,6 +862,9 @@ ro:
       share_tokens:
         actions:
           destroy: Șterge
+        index:
+          copied: Link de acces copiat!
+          title: 'Link-uri de acces pentru: %{name}'
       shared:
         gallery:
           add_images: Adaugă imagini
@@ -967,7 +951,6 @@ ro:
         scope_types: Tipuri de domeniu
         scopes: Domenii de interes
         statistics: Activitate
-        taxonomy_filters: Filtre taxonomie
         user_groups: Grupuri
         users: Administratori
       user_group:

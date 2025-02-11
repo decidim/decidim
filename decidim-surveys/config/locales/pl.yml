@@ -20,21 +20,10 @@ pl:
       surveys:
         actions:
           answer: Odpowiedź
-        name: Ankieta
         settings:
           global:
             announcement: Ogłoszenie
-            clean_after_publish: Usuń odpowiedzi podczas publikowania ankiety
-            ends_at: Odpowiedzi akceptowane do
-            ends_at_help: Pozostaw puste jeśli nie określono daty
-            scope_id: Zakres
-            scopes_enabled: Zakresy włączone
-            starts_at: Odpowiedzi akceptowane od
-            starts_at_help: Pozostaw puste jeśli nie określono daty
           step:
-            allow_answers: Pozwól na wypełnianie
-            allow_unregistered: Pozwól niezarejestrowanym użytkownikom wypełnić ankietę
-            allow_unregistered_help: Jeśli to ustawienie jest w użyciu, logowanie nie jest wymagane aby odpowiedzieć na ankietę. Może to prowadzić do słabych lub nierzetelnych danych i będzie bardziej podatne na zautomatyzowane ataki. Należy zachować ostrożność! Pamiętaj, że uczestnik może odpowiedzieć na to samo badanie wielokrotnie, korzystając z różnych przeglądarek lub funkcji "prywatne przeglądanie" swojej przeglądarki internetowej.
             announcement: Ogłoszenie
     events:
       surveys:
@@ -57,9 +46,6 @@ pl:
       answers_count: Odpowiedzi
     surveys:
       admin:
-        component:
-          actions:
-            answers_alert: Po opublikowaniu komponentu wszystkie wyniki zostaną usunięte.
         exports:
           survey_user_answers: Odpowiedzi użytkowników na pytania z ankiety
         surveys:

@@ -10,6 +10,8 @@ de:
         state: Status
         title: Titel
         user_group_id: Kollaborativen Entwurf erstellen als
+      import_participatory_text:
+        document: Dokument
       proposal:
         address: Adresse
         answer: Antworten
@@ -19,6 +21,8 @@ de:
         decidim_proposals_proposal_state_id: Status
         decidim_scope_id: Umfang
         has_address: Hat eine Adresse
+        latitude: Breitengrad
+        longitude: Längengrad
         scope_id: Bereich
         state: Status
         suggested_hashtags: Vorgeschlagene Hashtags
@@ -45,6 +49,8 @@ de:
       proposals_copy:
         copy_proposals: Ich verstehe, dass dies alle Vorschläge von der ausgewählten Komponente in die aktuelle Komponente importiert und dass diese Aktion nicht rückgängig gemacht werden kann.
         origin_component_id: Komponente zum Kopieren der Vorschläge aus
+      proposals_file_import:
+        file: Datei
       proposals_import:
         import_proposals: Vorschläge importieren
         keep_answers: Status und Antworten behalten
@@ -80,6 +86,7 @@ de:
               not_official: Sind nicht offiziell
               voted: Haben Stimmen oder Unterstützung erhalten
     models:
+      decidim/proposals/admin/update_proposal_taxonomies_event: Klassifizierung des Vorschlags geändert
       decidim/proposals/creation_enabled_event: Vorschlagserstellung aktiviert
       decidim/proposals/endorsing_enabled_event: Vorschlagsunterstützung aktiviert
       decidim/proposals/proposal_mentioned_event: Vorschlag erwähnt
@@ -91,8 +98,11 @@ de:
         proposals:
           proposal:
             budget_text: Der Vorschlag %{link} wurde erstellt
+            import_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
             import_to_proposal_text: Dieser Vorschlag %{link} wurde erstellt
+            merge_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
             merge_to_proposal_text: 'Dieser Vorschlag wurde erstellt: %{link}'
+            split_from_proposal_text: 'Es wurde zu diesem Vorschlag: %{link}'
             split_to_proposal_text: 'Dieser Vorschlag wurde erstellt: %{link}'
       decidim/proposals/collaborative_draft:
         one: Gemeinsamer Entwurf
@@ -108,6 +118,9 @@ de:
         other: Abstimmungen
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Vorschläge
       filters:
         proposals:
           is_emendation_true:
@@ -127,6 +140,8 @@ de:
               rejected: Abgelehnt
               validating: Technische Validierung
               withdrawn: Zurückgezogen
+          taxonomies_part_of_contains:
+            label: Klassifizierung
           valuator_role_ids_has:
             label: Zur Bewertung zugewiesen
           with_any_state:
@@ -136,11 +151,15 @@ de:
               state_published: Beantwortet
         search_placeholder:
           id_string_or_title_cont: In %{collection} nach ID oder Titel suchen.
+    application:
+      geocoding:
+        not_configured: Geolokalisierung wurde nicht eingestellt!
     components:
       proposals:
         actions:
           amend: Änderungsvorschlag
           comment: Kommentieren
+          create: Einen Vorschlag erstellen
           endorse: Unterstützung
           vote: Abstimmen
           vote_comment: Kommentar bewerten
@@ -155,6 +174,7 @@ de:
             attachments_allowed: Anhänge zulassen
             attachments_allowed_help: Durch Aktivieren dieser Option werden Vorschläge standardmäßig im Rastermodus angezeigt und das erste Bild wird auf der Karte angezeigt.
             can_accumulate_votes_beyond_threshold: Stimmen können nach Erreichen des Schwellwerts weiter gesammelt werden
+            clear_all: Alles löschen
             collaborative_drafts_enabled: Kollaborative Entwürfe aktiviert
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
@@ -169,6 +189,7 @@ de:
               random: Zufällig
               recent: Neueste
               with_more_authors: Mit mehr Autoren
+            define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             edit_time: Vorschläge können vor Ablauf dieser Zeit von den Autoren bearbeitet werden
             edit_time_units:
               days: Tage
@@ -179,6 +200,7 @@ de:
             new_proposal_body_template: Textvorlage für neuen Vorschlag
             new_proposal_body_template_help: Sie können den vorgefüllten Text der neuen Vorschläge bestimmen
             new_proposal_help_text: Hilfetext für neue Vorschläge
+            no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             official_proposals_enabled: Offizielle Vorschläge aktiviert
             participatory_texts_enabled: Partizipative Texte aktiviert
             participatory_texts_enabled_readonly: Die Interaktion mit dieser Einstellung ist nicht möglich, wenn Vorschläge bestehen. Bitte erstellen Sie eine neue „Vorschlagskomponente“, wenn Sie diese Funktion aktivieren möchten, oder verwerfen Sie alle importierten Vorschläge im Menü „Beteiligungstexte“, wenn Sie diese Funktion deaktivieren möchten.
@@ -196,8 +218,8 @@ de:
             proposal_wizard_step_1_help_text: Hilfetext "Erstellen"-Schritt im Vorschlagsassistenten
             proposal_wizard_step_2_help_text: Hilfetext "Veröffentlichen"-Schritt im Vorschlagsassistenten
             resources_permissions_enabled: Berechtigungen können für jeden Vorschlag festgelegt werden
-            scope_id: Bereich
-            scopes_enabled: Bereiche aktiviert
+            taxonomy_filters: Filter für die Komponente auswählen
+            taxonomy_filters_add: Filter hinzufügen
             threshold_per_proposal: Schwellenwert pro Vorschlag
             vote_limit: Maximal mögliche Anzahl Stimmen eines Abstimmenden
           step:
@@ -238,6 +260,10 @@ de:
             votes_blocked: Stimmensammlung deaktiviert
             votes_enabled: Stimmensammlung aktiviert
             votes_hidden: Stimmenanzahl ausgeblendet (falls die Stimmensammlung aktiviert ist, wird die Anzahl Stimmen nicht angezeigt)
+    download_your_data:
+      show:
+        proposal_comments: Kommentare bei Vorschlägen exportieren
+        proposals: Vorschläge exportieren
     events:
       proposals:
         accepted_coauthorship:
@@ -342,6 +368,11 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Der Status eines Vorschlags, dem Sie folgen, hat sich geändert (%{state})
             notification_title: Der Status des Vorschlags <a href="%{resource_path}">%{resource_title}</a> hat sich zu "%{state}" geändert.
+        proposal_update_taxonomies:
+          email_intro: 'Ein Admin hat die Klassifizierung Ihres Vorschlags „%{resource_title}“ aktualisiert. Auf der folgenden Seite ansehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag verfasst haben.
+          email_subject: Die Klassifizierungen des Vorschlags %{resource_title} wurden aktualisiert
+          notification_title: Die Klassifizierung des Vorschlags <a href="%{resource_path}">%{resource_title}</a> wurde von einem Admin aktualisiert.
         rejected_coauthorship:
           notification_title: Sie haben die Einladung von <a href="%{author_path}">%{author_name}</a> abgelehnt, mitverfassende Person des Vorschlags <a href="%{resource_path}">%{resource_title}</a> zu werden.
         voting_enabled:
@@ -401,10 +432,60 @@ de:
         description: Anzahl Stimmen über Vorschläge
         object: Stimmen
         title: Abstimmungen
+    open_data:
+      help:
+        proposal_comments:
+          alignment: Ob dieser Kommentar zustimmend, ablehnend oder neutral war
+          author: Der Name des Teilnehmenden, der diesen Kommentar erstellt hat
+          body: Der Kommentarinhalt
+          commentable_id: Die eindeutige ID des kommentierten Objekts
+          commentable_type: Die Art des kommentierten Objekts (ob es ein Ergebnis, Vorschlag o.ä. war)
+          created_at: Das Erstellungsdatum des Kommentars
+          depth: Die Position dieses Kommentars im Thread (ob es sich um eine Antwort oder eine Antwort auf eine Antwort handelt)
+          id: Die ID dieses Kommentars
+          locale: Die eingestellte Plattformsprache der kommentierenden Person
+          root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
+          user_group: Der Name der Gruppe, die diesen Kommentar erstellt hat (falls vorhanden)
+        proposals:
+          address: Die Adresse des Vorschlags, falls es an einem Standort stattfindet
+          answer: Die Antwort auf den Vorschlag im Falle einer Beantwortung
+          answered_at: Das Datum, an dem dieser Vorschlag beantwortet wurde
+          attachments: Die Anzahl der Anhänge dieses Vorschlags
+          author: Die Angaben über die verfassende Person dieses Vorschlags
+          body: Der Inhalt des Vorschlags
+          coauthorships_count: Die Anzahl mitverfassende Personen des Vorschlags
+          comments: Die Anzahl Kommentare dieses Vorschlags
+          component: Komponente, zu der dieser Vorschlag gehört
+          cost: Die Gesamtkosten des Vorschlags
+          cost_report: Ein Kostenbericht für den Vorschlag
+          created_at: Erstellungsdatum dieses Vorschlags
+          created_in_meeting: Ob der Vorschlag in einer Sitzung erstellt wurde
+          endorsements: Die Anzahl Unterstützungen dieses Vorschlags
+          execution_period: Der Zeitraum, in dem der Vorschlag von Anfang bis Ende lief
+          follows_count: Die Anzahl Folgende dieses Vorschlags
+          id: Die eindeutige Bezeichnung des Vorschlags
+          is_amend: Ob dieser Vorschlag einen anderen Vorschlag ändert
+          latitude: Der Breitengrad des Vorschlags, falls es einen verortet wurde
+          longitude: Der Längengrad des Vorschlags, falls er verortet wurde
+          meeting_urls: Die URLs der Sitzungen, an denen dieser Vorschlag vorgestellt oder diskutiert wurde
+          original_proposal: Referenz des ursprünglichen Vorschlags, falls es sich um einen Änderungsantrag handelt
+          participatory_space: Zu welchem Bereich dieser Vorschlag gehört (z.B. Partizipationsprozesse oder Gremien)
+          published_at: Das Datum, an dem dieser Vorschlag veröffentlicht wurde
+          reference: Die eindeutige Bezeichnung der Ressource auf dieser Plattform
+          related_proposals: Mit diesem Vorschlag verknüpfte Vorschläge
+          state: Der Status dieses Vorschlags (z.B. "Akzeptiert")
+          state_published_at: Ein Zeitstempel des Status des Vorschlags bei Veröffentlichung
+          taxonomies: Die Klassifizierungen, zu denen dieser Vorschlag gehört
+          title: Titel des Vorschlags
+          updated_at: Datum der letzten Aktualisierung des Vorschlags
+          url: Die URL, unter der dieser Vorschlag gefunden werden kann
+          votes: Die Anzahl Stimmen zu diesem Vorschlag
+          withdrawn: Ob dieser Vorschlag zurückgezogen wurde
+          withdrawn_at: Wann dieser Vorschlag zurückgezogen wurde
     participatory_spaces:
       highlighted_proposals:
         last: Letzte Vorschläge
-        see_all: Alle anzeigen (%{count})
+        see_all: Alle anzeigen
     proposals:
       actions:
         answer_proposal: Vorschlag beantworten
@@ -424,7 +505,10 @@ de:
         title: Aktionen
       admin:
         actions:
+          confirm_delete_proposal: Möchten Sie diesen Vorschlag wirklich löschen?
+          deleted_proposals_info: Gelöschte Vorschläge können aus dem Papierkorb wiederhergestellt werden.
           preview: Vorschau
+          view_deleted_proposals: Gelöschte Vorschläge anzeigen
         exports:
           proposal_comments: Kommentare
           proposals: Vorschläge
@@ -434,7 +518,7 @@ de:
               Das Importdokument sollte die folgenden Spaltennamen bei CSV- oder Excel-Dateien enthalten bzw. Schlüsselnamen im Falle von JSON-Dateien:
               <ul>
               <li><b>id:</b> ID des Vorschlages zur Beantwortung</li>
-              <li><b>state:</b> Einer von "accepted", "evaluating" oder "rejected"</li>
+              <li><b>state:</b> Einer von "akzeptiert", "in Bearbeitung" oder "abgelehnt"</li>
               <li><b>answer/de:</b> Antwort in Deutscher Sprache. Dies hängt von der Sprachkonfiguration Ihrer Plattform ab.</li>
               </ul>
             proposals: |
@@ -442,8 +526,7 @@ de:
               <ul>
               <li><b>title/de:</b> Titel in Deutscher Sprache. Dies hängt von der Sprachkonfiguration Ihrer Plattform ab.</li>
               <li><b>body/de:</b> Beschreibung in Deutscher Sprache. Dies hängt von der Sprachkonfiguration Ihrer Plattform ab.</li>
-              <li><b>scope/id:</b> ID für das Thema</li>
-              <li><b>category/id:</b> ID für die Kategorie</li>
+              <li><b>taxonomies/ids</b> ID der Klassifizierungen (falls mehr als eine vorhanden, bitte durch Kommas trennen)</li>
               </ul>
           label:
             answers: Antworten aus einer Datei importieren
@@ -541,9 +624,7 @@ de:
             title: Vorschlag aktualisieren
             update: Aktualisieren
           form:
-            attachment_legend: "(Optional) Anhang hinzufügen"
             created_in_meeting: Dieser Vorschlag stammt von einer Besprechung
-            delete_attachment: Anhang löschen
             select_a_meeting: Besprechung auswählen
           index:
             actions: Aktionen
@@ -551,6 +632,7 @@ de:
             assign_to_valuator: Zuweisen zur Bewertung
             assign_to_valuator_button: Zuweisen
             cancel: Abbrechen
+            change_taxonomies: Klassifizierungen ändern
             merge: Zu einem neuen zusammenführen
             merge_button: Zusammenführen
             no_templates_available: Keine Vorlagen verfügbar
@@ -566,6 +648,8 @@ de:
             unassign_from_valuator: Zuweisung zur Bewertung zurückziehen
             unassign_from_valuator_button: Zuweisung aufheben
             update: Aktualisieren
+          manage_trash:
+            title: Gelöschte Vorschläge
           new:
             create: Erstellen
             title: Vorschlag erstellen
@@ -591,6 +675,11 @@ de:
             remove_assignment_confirmation: Sind Sie sicher, dass Sie den BewerterIn dieses Vorschlags entfernen möchten?
             valuators: Bewertende
             votes_count: Anzahl Stimmen
+          update_taxonomies:
+            invalid: 'Diese Vorschläge gehörten bereits zur Klassifizierung %{taxonomies}: %{proposals}.'
+            select_a_proposal: Bitte wählen Sie einen Vorschlag.
+            select_a_taxonomy: Bitte wählen Sie eine Klassifizierung.
+            success: 'Die Vorschläge wurden erfolgreich mit der Klassifizierung %{taxonomies} aktualisiert: %{proposals}.'
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge ist ein Problem aufgetreten.
@@ -621,6 +710,8 @@ de:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
           create: "%{user_name} hat den %{resource_name} Vorschlag auf den %{space_name} Feldern als offizieller Vorschlag erstellt"
           publish_answer: "%{user_name} veröffentlichte die Antwort auf den Vorschlag %{resource_name} im Bereich %{space_name}"
+          restore: "%{user_name} hat den Vorschlag %{resource_name} für den Bereich %{space_name} wiederhergestellt"
+          soft_delete: "%{user_name} hat den Vorschlag %{resource_name} im Bereich %{space_name} in den Papierkorb verschoben"
           update: "%{user_name} aktualisiert den %{resource_name} offiziellen Vorschlag für die %{space_name} Flächen"
         proposal_note:
           create: "%{user_name} eine private Notiz zu dem %{resource_name} Vorschlag auf dem %{space_name} Feld hinterlassen"
@@ -669,7 +760,7 @@ de:
           error: Beim Erstellen dieses kollaborativen Entwurfs ist ein Problem aufgetreten.
           success: Collaborative Draft wurde erfolgreich erstellt.
         edit:
-          attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
+          attachment_legend: Dokument oder Bild hinzufügen
           back: Zurück
           send: Abschicken
           title: Gemeinsamen Entwurf bearbeiten
@@ -720,6 +811,7 @@ de:
             error: Konnte nicht als Mitarbeiter abgelehnt werden, versuche es später erneut.
             success: "@%{user} wurde als Mitwirkende erfolgreich abgelehnt."
         show:
+          edit: Bearbeiten
           final_proposal: Endgültiger Vorschlag
           final_proposal_help_text: Dieser Entwurf ist fertig. Sie können den endgültigen fertigen Vorschlag sehen
           hidden_authors_count:
@@ -750,10 +842,23 @@ de:
         error: Beim Speichern des Vorschlags ist ein Fehler aufgetreten.
         success: Der Vorschlag wurde erfolgreich erstellt. Gespeichert als Entwurf.
       creation:
+        imported_text: Es wurde zu diesem Vorschlag
+        merged_text: Sie wurden zu diesem Vorschlag
+        splitted_text: Es wurde zu diesem Vorschlag
         text: Dieser Vorschlag wurde erstellt
       destroy_draft:
         error: Es gab Fehler beim Löschen des Vorschlagsentwurfs.
         success: Der Vorschlagsentwurf wurde erfolgreich gelöscht.
+      exit_modal:
+        cancel: Abbrechen
+        exit: Fortsetzen
+        message: Wählen Sie %{number} weitere Vorschläge aus, damit Ihre Stimmen gewertet werden können.
+        title: Denken Sie daran, dass Sie %{number} Stimmen übrig haben
+      forms:
+        errors:
+          device_not_supported: Ihr Gerät unterstützt keine Ortungsdienste. Bitte geben Sie die Adresse manuell ein.
+          no_device_location: Leider konnten wir Ihren Standort nicht erkennen. Bitte geben Sie die Adresse manuell ein.
+        use_my_location: Meinen aktuellen Standort verwenden
       invite_coauthors:
         cancel:
           error: Beim Zurückziehen der Einladung zur Mitverfassung ist ein Fehler aufgetreten.
@@ -780,8 +885,9 @@ de:
             published_answer: Veröffentlichte Antwort
             published_at: Veröffentlicht am
             state: Status
+            taxonomies: Klassifizierungen
             title: Titel
-            valuator: BewerterIn
+            valuator: Bewertende
             valuators: Bewertende
             votes: Stimmen
         proposal_state:
@@ -802,10 +908,10 @@ de:
           description: Die Koordinaten werden aktualisiert, wenn Sie auf "Vorschau" klicken. Die angegebene Adresse wird sich jedoch nicht ändern.
           instructions: Sie können den Punkt auf der Karte verschieben.
         edit:
-          add_documents: Dokumente hinzufügen
-          attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
+          add_attachments: Anhänge hinzufügen
+          attachment_legend: Dokument oder Bild hinzufügen
           back: Zurück
-          edit_documents: Dokumente bearbeiten
+          edit_attachments: Anhänge bearbeiten
           send: Abschicken
           title: Vorschlag bearbeiten
         edit_draft:
@@ -825,6 +931,7 @@ de:
           scope: Umfang
           search: Suche
           state: Status
+          taxonomy_filters: Filter
           type: Art
           voted: Gewählt
         index:
@@ -871,6 +978,7 @@ de:
         show:
           answer: Antworten
           changes_at_title: Ergänzung zu „%{title}“
+          edit_proposal: Bearbeiten
           estimated_cost: Geschätzte Kosten
           hidden_endorsers_count:
             one: und %{count} weitere Person
@@ -886,6 +994,7 @@ de:
           proposal_rejected_reason: 'Dieser Vorschlag wurde abgelehnt, weil:'
           withdraw_btn_hint: Sie können Ihren Vorschlag zurückziehen, wenn Sie es sich anders überlegen, solange Sie keine Stimme erhalten haben. Der Vorschlag wird nicht gelöscht, er erscheint in der Liste der zurückgezogenen Vorschläge.
           withdraw_confirmation_html: Sind Sie sicher, dass Sie diesen Vorschlag zurückziehen möchten?<br><br><strong>Diese Aktion kann nicht abgebrochen werden!</strong>
+          withdraw_proposal: Zurückziehen
         update:
           title: Vorschlag aktualisieren
         vote_button:
@@ -894,25 +1003,27 @@ de:
           maximum_votes_reached: Maximal mögliche Anzahl Stimmen erteilt
           no_votes_remaining: Keine verbleibenden Stimmen
           vote: Abstimmen
-          votes_blocked: Abstimmung deaktiviert
         votes_count:
           count:
             one: Stimme
             other: Stimmen
         voting_rules:
+          already_vote:
+            description: Denken Sie daran, dass Sie noch %{number} verschiedene Vorschläge unterstützen müssen, damit Ihre Unterstützung gewertet werden kann.
+            see_other_proposals: Andere Vorschläge anzeigen
+            title: Sie haben noch %{number} Unterstützungen übrig
           can_accumulate_votes_beyond_threshold:
             description: Jeder Vorschlag kann mehr als %{limit} Stimmen sammeln
           minimum_votes_per_user:
-            description: Sie müssen mindestens %{votes} Stimmen auf unterschiedliche Vorschläge erteilen.
-            given_enough_votes: Sie haben ausreichend Stimmen erteilt.
-            votes_remaining: Wählen Sie %{remaining_votes} weitere Vorschläge, damit Ihre Auswahl Stimmen gewertet werden kann.
+            description: Sie müssen ein Minimum an %{votes} Unterstützung auf verschiedene Vorschläge verteilen, damit Ihre Unterstützung gewertet werden kann.
           proposal_limit:
             description: Sie können bis zu %{limit} Vorschläge erstellen.
+          success: Ihre Stimmen wurden erfolgreich akzeptiert
           threshold_per_proposal:
             description: Vorschläge müssen %{limit} Stimmen erreichen, um berücksichtigt zu werden.
-          title: 'Die Abstimmung unterliegt folgenden Regeln:'
+          title: Regeln zur Teilnahme
           vote_limit:
-            description: Sie können bis zu %{limit} Vorschläge auswählen.
+            description: Sie können bis zu %{limit} Vorschläge abstimmen.
             votes: '%{number} Stimmen verbleibend'
         wizard_aside:
           back: Zurück

@@ -8,9 +8,6 @@ module Decidim::Assemblies
 
     let(:organization) { create(:organization) }
     let(:current_user) { create(:user, :admin, :confirmed, organization:) }
-    let(:assembly_type) { create(:assemblies_type, organization:) }
-    let(:scope) { create(:scope, organization:) }
-    let(:area) { create(:area, organization:) }
     let(:errors) { double.as_null_object }
     let(:participatory_processes) do
       create_list(
@@ -48,9 +45,6 @@ module Decidim::Assemblies
         description: { en: "description" },
         short_description: { en: "short_description" },
         organization:,
-        scopes_enabled: true,
-        scope:,
-        area:,
         taxonomizations:,
         parent: nil,
         private_space: false,
@@ -58,7 +52,6 @@ module Decidim::Assemblies
         participatory_processes_ids: related_process_ids,
         purpose_of_action: { en: "purpose of action" },
         composition: { en: "composition of internal working groups" },
-        assembly_type:,
         creation_date: 1.day.from_now,
         created_by: "others",
         created_by_other: { en: "other created by" },
@@ -130,8 +123,7 @@ module Decidim::Assemblies
           banner_image:,
           description: { en: "description" },
           short_description: { en: "short_description" },
-          organization:,
-          scopes_enabled: false
+          organization:
         ).with_context(
           current_organization: organization,
           current_user:
@@ -169,22 +161,6 @@ module Decidim::Assemblies
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
-      end
-
-      it "links to assembly type" do
-        subject.call
-
-        expect(assembly.assembly_type).to eq(assembly_type)
-      end
-
-      context "when no assembly type is set" do
-        let(:assembly_type) { nil }
-
-        it "assembly type is null" do
-          subject.call
-
-          expect(assembly.assembly_type).to be_nil
-        end
       end
 
       it "links to taxonomizations" do

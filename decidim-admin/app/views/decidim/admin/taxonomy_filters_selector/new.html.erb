@@ -1,0 +1,27 @@
+<% content_for(:action_buttons) do %>
+  <% if taxonomy_filter %>
+    <%= button_tag class: "button button__secondary button__sm", id: "save-taxonomy-filter" do %>
+      <%= t(".save") %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= render "decidim/admin/taxonomy_filters_selector/taxonomies_select" %>
+
+<%= form_with url: taxonomy_filters_selector_index_path, method: :post, local: false, id: "save-taxonomy-filter-form" do |form| %>
+  <%= hidden_field_tag :component_id, component.id %>
+  <%= hidden_field_tag :taxonomy_id, root_taxonomy&.id %>
+  <%= hidden_field_tag :taxonomy_filter_id, taxonomy_filter&.id %>
+
+  <% if taxonomy_filter %>
+    <div class="card">
+      <h3 class="mb-4">
+        <strong><%= taxonomy_filter.translated_name %></strong>
+        <span class="float-right"><%= t(".items_count", count: taxonomy_filter.filter_items_count) %></span>
+      </h3>
+      <%= render "decidim/admin/taxonomy_filters_selector/check_boxes", collection: taxonomy_filter.taxonomies %>
+    </div>
+
+    <%= cell("decidim/announcement", t(".add_new_items_html", url: decidim_admin.taxonomy_filters_path(taxonomy_id: root_taxonomy, taxonomy_filter_id: taxonomy_filter))) %>
+  <% end %>
+<% end %>

@@ -20,8 +20,6 @@ uk:
         promoted: Висвітлено
         published_at: 'Оприлюднено:'
         related_process_ids: Супутні рухи
-        scope_id: Обсяг
-        scopes_enabled: Обсяги увімкнено
         short_description: Стислий опис
         slug: Скорочена веб-адреса
         start_date: Дата початку
@@ -86,7 +84,6 @@ uk:
           attachment_collections: Теки
           attachment_files: Вкладені файли
           attachments: Вкладені файли
-          categories: Категорії
           components: Складові
           moderations: Дії з модерації
           process_admins: Учасники руху

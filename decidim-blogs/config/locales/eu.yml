@@ -14,15 +14,19 @@ eu:
         one: Argitalpena
         other: Argitalpenak
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Argitalpenak
     blogs:
       actions:
         author_id: Sortu argitalpena hau bezala
-        confirm_delete_post: Ziur zaude korreo hau ezabatu nahi duzula?
+        confirm_delete_post: Ziur zaude korreo elektronikoa hau ezabatu nahi duzula?
         deleted_posts_info: Ezabatutako korreoak berreskura daitezke zaborrontzitik.
         edit: Editatu
         new: Beste argitalpen bat
         title: Ekintzak
-        view_deleted_posts: Ikusdi ezabatutako korreoak
+        view_deleted_posts: Ikusdi ezabatutako helbide elektronikoak
       admin:
         posts:
           create:
@@ -35,7 +39,7 @@ eu:
             not_published_yet: Oraindik argitaratu gabe.
             title: Argitalpenak
           manage_trash:
-            title: Ezabatutako korreoak
+            title: Ezabatutako helbide elektronikoak
           new:
             create: Sortu
             title: Sortu argitalpena
@@ -44,11 +48,11 @@ eu:
             success: Argitalpena zuzen gordea.
       admin_log:
         post:
-          create: "%{user_name} k %{resource_name} blogeko argitalpena sortu du %{space_name} espazioan"
-          delete: "%{user_name} k %{resource_name} blogeko argitalpena ezabatu du %{space_name} espazioan"
-          restore: "%{user_name} k berreskuratu du %{resource_name} korreoa hemen: %{space_name}"
-          soft_delete: "% {user_name} k hemengo: %{space_name} %{resource_name} korreoa zaborrontzira eraman du"
-          update: "%{user_name} k %{resource_name} blogeko argitalpena eguneratu egin da %{space_name} espazioan"
+          create: "%{user_name} parte-hartzailekak %{resource_name} blogeko argitalpena sortu du %{space_name} espazioan"
+          delete: "%{user_name} parte-hartzailekak %{resource_name} blogeko argitalpena ezabatu du %{space_name} espazioan"
+          restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} helbide elektronikoa hemen: %{space_name}"
+          soft_delete: "% {user_name} parte-hartzaileak hemengo: %{space_name} %{resource_name} helbide elektronikoa zaborrontzira eraman du"
+          update: "%{user_name} parte-hartzailekak %{resource_name} blogeko argitalpena eguneratu egin da %{space_name} espazioan"
       content_blocks:
         highlighted_posts:
           last_published: Azken argitarapena
@@ -67,7 +71,7 @@ eu:
       posts:
         index:
           count:
-            one: "%{count} argitalpen"
+            one: "Argitalpen %{count}"
             other: "%{count} argitalpen"
           empty: Oraindik ez dago argitalpenik.
     components:
@@ -95,6 +99,34 @@ eu:
           email_intro: '"%{resource_title}" argitalpena jarraitzen ari zaren "%{participatory_space_title}" espazioan argitaratu da.'
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Aurreko estekan utzi ahal diozu jarraitzeari.
           email_subject: Argitalpen berria %{participatory_space_title} espazioan
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> posta %{participatory_space_title} argitaratu da
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> sarrera %{participatory_space_title} argitaratu da
+    open_data:
+      help:
+        post_comments:
+          alignment: Iruzkin hau aldekoa, kontrakoa edo neutrala bazen
+          author: Iruzkin hau egin duen parte-hartzailearen izena
+          body: Iruzkin bera
+          commentable_id: Iruzkin daitekeenaren id bakarra
+          commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
+          created_at: Zein datatan sortu zen iruzkin hau
+          depth: Iruzkin hau hiru iruzkinetan dago (erantzuna edo erantzunaren erantzuna bada)
+          id: Identifikazioa iruzkin honetarako
+          locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
+          root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
+          user_group: Iruzkin hau egin duen partaide-taldearen izena (baldin badago)
+        posts:
+          author: Egilearen informazioa
+          body: Argitaratuaren gorputza
+          comments_count: Argitalpen honek duen iruzkin kopurua
+          component: Zein osagairi dagokion argitalpena
+          created_at: Zein datatan sortu zen argitalpen hau
+          endorsements_count: Argitalpen honek duen abal kopurua
+          follows_count: Argitalpen honek duen jarraitzaile kopurua
+          id: Argitalpen honen identifikatzaile bakarra
+          participatory_space: Argitalpen hau zein espaziotakoa da (adibidez, Prozesu Parte-hartzailea, Batzarra)
+          published_at: Zein datatan argitaratu zen atgitalpen hau
+          title: Argitalpenaren izenburua
+          updated_at: Zein egunetan eguneratu da azken aldiz argitalpen hau
+          url: Argitalpen honetarakko URLa
     statistics:
       posts_count: Argitalpenak

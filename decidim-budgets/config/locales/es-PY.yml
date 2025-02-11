@@ -29,6 +29,9 @@ es-PY:
         other: Proyectos
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Proyectos
       filters:
         projects:
           selected_at_null:
@@ -212,12 +215,26 @@ es-PY:
             map: Mapa
             taxonomies: Taxonomías
             title: Título
+      order:
+        status:
+          continue_voting: Seguir votando
+          download_vote: Descarga tu voto
+          pending_to_vote_budgets:
+            one: Puedes votar en otro presupuesto
+            other: Puedes votar en otros presupuestos
+          share_vote: Comparte tu voto
+          title: Tu voto se ha tramitado con éxito
+          view_votes:
+            one: Ver voto
+            other: Ver votos
+          votes_count:
+            one: Tu voto en %{budget_name} ya se ha registrado.
+            other: Tus %{count} votos en %{budget_name} ya se han registrado.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Lo proyectos que has seleccionado son:'
           subject: Has votado en el espacio de participación %{space_name}
           voted_on_space: Has votado en el presupuesto %{budget_name} para el espacio participativo %{space_name}.
-          voted_on_space_with_scope: Has votado en el presupuesto %{budget_name} del espacio de participación %{space_name} de %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Si cambias de opinión, puedes cambiar tu voto más tarde.
@@ -334,8 +351,6 @@ es-PY:
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             projects_per_page: Proyectos por página
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada proyecto
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
             title: Título
@@ -379,25 +394,30 @@ es-PY:
       help:
         projects:
           address: La localización (dirección) del proyecto (si tiene)
+          budget: Datos sobre el presupuesto (e.g. "Presupuestos participativos 2021") en el que está incluido el proyecto
           budget_amount: La cantidad total de presupuesto para este proyecto
           comments: El número de comentarios que ha recibido este proyecto
           component: El componente al que pertenece el proyecto
           confirmed_votes: El número de votos confirmados que ha recibido este proyecto
           created_at: La fecha y hora en que se creó el proyecto
           description: La descripción del proyecto
+          follows_count: El número de seguidoras que tiene el proyecto
           id: El identificador único del proyecto
+          latitude: La latitud del proyecto en caso de que este tenga una ubicación física
+          longitude: La longitud del proyecto en caso de que este tenga una ubicación física
           participatory_space: A qué espacio pertenece este proyecto (proceso participativo, asamblea, etc.)
+          reference: La referencia única del proyecto
           related_proposal_titles: Los títulos de las propuestas relacionadas
           related_proposal_urls: Las URL de las propuestas relacionadas
           related_proposals: Las propuestas relacionadas con este proyecto
+          selected_at: La hora en la que el proyecto fue seleccionado
           taxonomies: Las taxonomías del proyecto
           title: El título del proyecto
+          updated_at: La fecha de la última actualización de este proyecto
           url: La URL del proyecto
     orders:
       checkout:
         error: Se ha producido un error al procesar tu voto.
-        success_html: <p>Tu voto ha sido aceptado con éxito.</p> <p class="text-sm font-normal">Puedes <a class="text-secondary underline" href="%{rest_of_budgets_link}">explorar el resto de presupuestos</a>.</p>
-        success_no_left_budgets_html: Tu voto se ha aceptado correctamente.
       destroy:
         error: Se ha producido un error al cancelar tu voto.
         success: Tu voto se ha cancelado correctamente.

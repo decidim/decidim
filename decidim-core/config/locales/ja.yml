@@ -3,10 +3,20 @@ ja:
     attributes:
       account:
         delete_reason: アカウントを削除する理由
+      attachment:
+        documents: ドキュメント
+        photos: 写真
       common:
         created_at: 作成日時
+      component:
+        taxonomy_filters: タクソノミーフィルター
+      content_block_attachment:
+        background_image: 背景画像
+        main_image: メイン画像
       conversation:
         body: 本文
+      editor_image:
+        file: ファイル
       group:
         about: グループについて
         avatar: アバター
@@ -15,6 +25,8 @@ ja:
         name: 名前
         nickname: アカウントID
         phone: 電話番号
+      import:
+        file: ファイル
       message:
         body: 本文
       report:
@@ -22,12 +34,13 @@ ja:
       taxonomy:
         name: タクソノミー名
       taxonomy_filter:
-        internal_name: 内部フィルター名
-        name: 公開フィルタータイトル
+        internal_name: 内部ラベル
+        name: ラベル
         root_taxonomy_id: タクソノミーから
-        space_filter: 参加型スペースのフィルターとして利用できます
+        space_filter: フィルタとして利用可能
       user:
         about: 私について
+        avatar: アバター
         email: あなたのメールアドレス
         encrypted_password: パスワード
         locale: 地域
@@ -39,6 +52,8 @@ ja:
         personal_url: 個人用URL
         remove_avatar: アバターを削除
         tos_agreement: 利用規約
+      user_group:
+        avatar: アバター
     models:
       decidim/attachment_created_event: 添付ファイル
       decidim/component_published_event: アクティブなコンポーネント
@@ -227,6 +242,7 @@ ja:
       impersonation_log:
         manage: "%{user_name} は %{reason} により %{resource_name} を管理しています。"
       moderation:
+        bulk_hide: "%{user_name} が %{reported_count} リソースを非表示にしました"
         hide: "%{user_name} が %{resource_type} タイプのリソースを %{space_name} スペースに隠しました"
         unreport: "%{user_name} は %{resource_type} タイプの %{space_name} スペースのリソースを報告していません"
       newsletter:
@@ -274,13 +290,6 @@ ja:
         delete_with_parent: "%{user_name} が タクソノミー %{parent_taxonomy} 内のタクソノミー %{resource_name} を削除しました"
         update: "%{user_name} がタクソノミー %{resource_name} を更新しました"
         update_with_parent: "%{user_name} が タクソノミー %{parent_taxonomy} 内のタクソノミー %{resource_name} を更新しました"
-      taxonomy_filter:
-        create: "%{user_name} がタクソノミー %{resource_name} に基づいたフィルターを作成しました"
-        create_with_filter_items_count: "%{user_name} はタクソノミー %{resource_name} に基づき、%{space_manifest_name} のために %{filter_items_count} 個のフィルターを使ってフィルターを作成しました"
-        delete: "%{user_name} がタクソノミー %{resource_name} に基づいたフィルターを削除しました"
-        delete_with_filter_items_count: "%{user_name} はタクソノミー %{resource_name} に基づき、%{space_manifest_name} のために %{filter_items_count} 個のフィルターを使ってフィルターを削除しました"
-        update: "%{user_name} はタクソノミー %{resource_name} に基づいてフィルターを更新しました"
-        update_with_filter_items_count: "%{user_name} はタクソノミー %{resource_name} に基づき、%{space_manifest_name} のために %{filter_items_count} 個のフィルターを使ってフィルターを更新しました"
       user:
         block: "%{user_name} がユーザー %{resource_name} をブロックしました"
         invite: "%{user_name} が参加者 %{resource_name} をロール %{role} で招待しました"
@@ -410,10 +419,8 @@ ja:
         explanation: '「X」で終わるドキュメント番号を入力して確認します'
         fields:
           allowed_postal_codes: 許可する郵便番号 (コンマで区切る)
-          allowed_scope_id: 許可されたスコープ
           document_number: ドキュメント番号
           postal_code: 郵便番号
-          scope_id: スコープ
         name: 許可の例：
       dummy_authorization_workflow:
         explanation: ダミー認証ワークフロー
@@ -507,8 +514,6 @@ ja:
             enable_pads_creation: パッドの作成を有効にする
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             resources_permissions_enabled: リソースの権限を有効にする
-            scope_id: スコープ
-            scopes_enabled: スコープが有効
             taxonomy_filters: コンポーネントのフィルタを選択
           step:
             amendment_creation_enabled: 修正の作成は有効です
@@ -555,8 +560,8 @@ ja:
         html_content: HTML コンテンツ
         name: HTMLブロック
       last_activity:
-        name: 最後のアクティビティ
-        title: 最後のアクティビティ
+        name: 最近のアクティビティ
+        title: 最近のアクティビティ
         view_all: すべて表示
       last_activity_settings_form:
         max_last_activity_users: 最近のアクティビティを表示するユーザーアバターの最大数
@@ -674,15 +679,28 @@ ja:
     download_your_data:
       export:
         ready: 準備完了
+      help:
+        follows:
+          id: フォローの固有ID
+        users:
+          invitations_count: このユーザーに送信された招待の数
+          invited_by: このユーザーを招待したユーザー
+          last_sign_in_at: 最終ログイン日時
+          last_sign_in_ip: 最後のログインのIPアドレス
+          locale: このユーザーが選択したロケール（言語）
+          managed: このユーザーが別のユーザーによって管理されているかどうか
+          name: ユーザー名
+          notification_settings: このユーザーが選択した通知設定
       show:
         action: アクション
-        download: ダウンロード
-        download_data: ダウンロードエリア
         download_data_description_1: あなたのアカウントで利用可能なすべてのダウンロードを見つけることができます。これらの.zipファイルは削除される2週間前に利用可能になります。
         download_data_description_2: 提出物と個人データを含む .zip ファイルをリクエストできます。
         download_your_data: 個人データ
         expiration: 有効期限
         expired: 有効期限が切れています
+        explanation:
+          title: これらのファイルは何ですか?
+        files_to_download: ダウンロードするファイル
         request_data: リクエスト
         type: ダウンロードの種類
     editor_images:
@@ -692,7 +710,7 @@ ja:
       drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
     endorsement_buttons_cell:
       already_endorsed: オススメの取り消し
-      endorse: いいね
+      endorse: オススメ
     endorsements:
       identities:
         done: 完了
@@ -796,7 +814,7 @@ ja:
         level_up:
           email_intro: おめでとうございます！ <a href="%{resource_url}">%{badge_name} バッジ</a>のレベル %{current_level} に到達しました！
           email_outro: サイトでの活動によって、この通知を受け取りました。
-          email_subject: '%{current_level} バッジのレベル %{badge_name} に達しました！'
+          email_subject: '%{badge_name} バッジがレベル %{current_level} に達しました！'
           notification_title: おめでとうございます！ <a href="%{resource_path}">%{badge_name} バッジ</a>のレベル %{current_level} に到達しました！
       groups:
         demoted_membership:
@@ -861,6 +879,9 @@ ja:
         email_outro: '%{endorser_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
         email_subject: "%{endorser_nickname} が新しいオススメを行いました"
         notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} は <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>によってオススメされました。
+      resources:
+        soft_deleted:
+          notification_title: 管理者があなたの "%{resource_type}" " "%{resource_title}" を削除しました。
       users:
         profile_updated:
           email_intro: あなたがフォロー中の %{name} (%{nickname}) さんの <a href="%{resource_url}">プロフィールページ</a> が更新されました。
@@ -874,6 +895,10 @@ ja:
           notification_title: 参加者 %{name} (%{nickname}) が公式化されました。
     export_mailer:
       download_your_data_export:
+        click_button_html: 次のリンクをクリックしてデータをダウンロードしてください。<br/>ファイルは %{date} までダウンロードできます。
+        download: ダウンロード
+      export:
+        click_button_html: ダウンロードの準備ができました。 <br/>ファイルは %{date} までダウンロードできます。
         download: ダウンロード
       subject: '"%{name}" のエクスポートの準備ができました'
     filters:
@@ -900,7 +925,7 @@ ja:
       no_followers: フォロワーはまだいません。
     following:
       following_count:
-        other: "{{count}} フォロワー"
+        other: "%{count} 人をフォロー中"
       no_followings: まだ何もフォローしていません
       non_public_followings: フォローしているリソースのいくつかは公開されていません。
     follows:
@@ -926,7 +951,6 @@ ja:
         file:
           explanation: 'ファイルのガイダンス:'
           message_1: 画像またはドキュメントである必要があります。
-          message_2: 画像の場合、横長の画像が適しています。システムが画像を切り抜きます。
         icon:
           explanation: 'アイコンのガイド:'
           message_1: 正方形の画像でなければなりません。
@@ -1080,8 +1104,8 @@ ja:
     last_activities:
       all: すべてのアクティビティ種別
       index:
-        last_activity: 最後のアクティビティ
-      name: 最後のアクティビティ
+        last_activity: 最近のアクティビティ
+      name: 最近のアクティビティ
       no_activities_warning: このアクティビティ種別に表示するエントリがありません。
     linked_resource_from:
       included_in: 含まれるリスト
@@ -1117,6 +1141,8 @@ ja:
           not_found: 'スコープ種別がデータベース上に見つかりませんでした (ID: %{id})'
         taxonomy_presenter:
           not_found: 'データベース内にタクソノミーが見つかりませんでした (ID: %{id})'
+    machine_translations:
+      automatic: '%{locale_name} の自動翻訳'
     managed_users:
       expired_session: 参加者の現在の管理セッションの有効期限が切れています。
     map:
@@ -1293,11 +1319,11 @@ ja:
     notifications_settings:
       show:
         administrators: 管理者
-        allow_public_contact: 私をフォローしていないユーザーからでもダイレクトメッセージを送信できます
-        allow_push_notifications: プラットフォーム上にいないときに何が起きているかを知るためにプッシュ通知を受け取ります。いつでもオフにできます。
+        allow_public_contact: フォローしていない人からのダイレクトメッセージを受信する
+        allow_push_notifications: プラットフォーム上にいないときに何が起きているかを知るためにプッシュ通知を受け取る。いつでもオフにできます。
         assigned_to_proposal: 誰かが私に提案の評価を割り当てた際に、メールを受信したいです
         direct_messages: ダイレクトメッセージを受信する
-        email_on_moderations: 私はモデレーションの報告がなされたたびに毎回メールを受け取りたいです。
+        email_on_moderations: モデレーションの報告がなされたたびに毎回メールを受け取りたい
         everything_followed: 自分がフォローしているすべて
         newsletter_notifications: ニュースレターを受け取る
         newsletters: ニュースレター
@@ -1309,10 +1335,10 @@ ja:
           real_time: リアルタイム
           weekly: 週1回
         notifications_sending_frequency: 通知メールを受信する頻度は？
-        own_activity: 誰かが提案にコメントしたり、私に言及したりした時など、自分自身の活動
+        own_activity: 誰かが私の提案にコメントしたり、私に言及したりした時など、自分自身の活動
         push_notifications: プッシュ通知
         push_notifications_reminder: プラットフォームから通知を受け取るには、まずブラウザの設定で通知を許可する必要があります。
-        receive_notifications_about: 通知を受け取りたい
+        receive_notifications_about: 受け取りたい通知
         update_notifications_settings: 変更を保存
         valuators: 評価者
       update:
@@ -1324,6 +1350,14 @@ ja:
         message_1: 現在オフラインのようです。
         message_2: しばらくたってから改めてやり直してください。
         retry: 再試行
+    onboarding_action_message:
+      click_link: ここをクリックして下さい
+      cta_html: <a href="%{path}">%{link_text}</a> をクリックして、%{resource_name}「<strong>%{resource_title}</strong>」で%{action}を行ってください。
+      expired_authorization_active_title: 認証の有効期限が切れました。
+      finish_authorization_process: 認証プロセスを完了できます
+      incomplete_authorization_active_title: 必要な情報がすべて記載されていないため、検証が完了していません。
+      pending_authorization_active_message: このアクションを続行するには、フォームに記入してください。
+      pending_authorization_active_title: 本人確認が必要です。
     open_data:
       help:
         core:
@@ -1332,6 +1366,28 @@ ja:
           main: コア
           spaces: スペース
           title: '%{organization} のデータファイルを開く'
+        metrics:
+          cumulative: この日のメトリックの合計数
+          day: このメトリックの作成日時
+          metric_type: メトリックの種類
+          quantity: この日のメトリック数
+        moderated_users:
+          about: 利用者の紹介フィールド
+          block_reasons: 管理者ユーザーがユーザーをブロックした理由
+          blocked_at: ユーザーがブロックされた日時
+          blocking_user: ブロックを実行したユーザーの名前
+          details: レポートの詳細
+          reasons: プロファイルが報告された理由のリスト
+          user_id: 報告されたユーザーの固有ID
+        moderations:
+          hidden_at: コンテンツが非表示になった日時
+          id: モデレーションの固有ID
+          report_count: 通報された回数
+          reportable_id: 報告対象の固有ID
+          reportable_type: 報告可能なタイプ
+          reported_content: 通報されたコンテンツ
+          reported_url: 通報されたリソースの url
+          reports: リソースが通報された理由のリスト
         user_groups:
           avatar_url: ユーザーグループのアバター
           badge: ユーザーグループのバッジ
@@ -1536,16 +1592,7 @@ ja:
         error: オススメする際に問題がありました。
     scopes:
       global: グローバルスコープ
-      picker:
-        cancel: キャンセル
-        change: 選択したスコープを変更
-        choose: 選択
-        currently_selected: 現在選択中のスコープ
-        title: '%{field} を選択'
       prompt: スコープを選択
-      scopes: スコープ
-      scopes_picker_input:
-        select_scope: 'スコープを選択 (現在: %{current})'
     search:
       name: 検索
       results: 検索結果
@@ -1647,6 +1694,8 @@ ja:
       users_count: 参加者
     tags:
       filter_results_for_taxonomy: '%{resource} の検索結果'
+    taxonomies:
+      prompt: オプションを選択してください
     translation_bar:
       help_text: "<strong>警告:</strong>内容は自動的に翻訳されている場合があり、100%正確ではありません。"
       show_original: 元テキストを表示する
@@ -1669,15 +1718,6 @@ ja:
         send: 送信
       update:
         error: メッセージが送信されませんでした。後でもう一度お試しください。
-    user_interests:
-      show:
-        my_interests: 興味のあるもの
-        no_scopes: この組織にはスコープが設定されていません
-        select_your_interests: プロフィールのタイムラインタブに関連するイベントを受け取るために、興味のあるトピックを選択してください。
-        update_my_interests: 興味を更新する
-      update:
-        error: 更新中に問題が発生しました。
-        success: 興味のある情報は正常に更新されました。
     user_report_mailer:
       notify:
         body_1: ユーザー %{user} が %{token} によって報告されました
@@ -1710,7 +1750,7 @@ ja:
       show:
         version_index: バージョン %{index}
     welcome_notification:
-      default_body: <p>{{name}} さん、{{organization}} への参加ありがとうございます！</p><ul><li>このサイトで何ができるかを概観したい場合は、<a href="{{help_url}}">ヘルプ</a>セクションをご覧ください。</li><li>目を通していただけると、最初のバッジを手に入れることができます。こちらは{{organization}} で参加することで手に入るすべてのバッジの<a href="{{badges_url}}">リスト</a>です。</li><li>そして、他の人々と一緒に{{organization}} に参加した経験を共有しましょう。提案を行い、コメントをし、議論を行い、共通の利益に貢献する方法を考え、説得するための根拠を提供し、読んで説得され、具体的かつ直接的に自分の意見を表現し、忍耐強く決定的に応答し、自分の考えを守り、協力して他の人々のアイデアに参加するために心を開いてください。</li></ul>
+      default_body: <p>こんにちは {{name}} さん, {{organization}} へご参加いただきありがとうございます。</p><ul><li>このサイトの使い方は、 <a href="{{help_url}}">ヘルプ</a> セクションをご参照ください。</li><li>目を通していただけると、最初のバッジを獲得できます。<a href="{{badges_url}}">全てのバッジの一覧</a> から、この {{organization}} への参加で獲得できるバッジを見ることができます。</li><li>他の人と一緒に参加し、この {{organization}} へ参加した経験をシェアしましょう。提案を作り、コメントし、議論を行い、共通の利益に貢献する方法を考え、議論に説得力をもたせ、主張を聞いたり読んだりしながら納得し、具体的かつ直接的な方法であなたの考えを表明し、忍耐と決断を持って対応し、自らの考えを守り、他人の考えを取り入れて協力し合いましょう。</li></ul>
       default_subject: '{{organization}} に参加していただきありがとうございます！'
     wizard_step_form:
       wizard_aside:
@@ -2082,7 +2122,6 @@ ja:
         authorizations: 権限
         delete_my_account: アカウントを削除する
         my_data: 自分のデータ
-        my_interests: 興味のあるもの
         notifications_settings: 通知の設定
         profile: プロフィール
         title: 参加者の設定
