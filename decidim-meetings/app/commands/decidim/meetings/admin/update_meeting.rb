@@ -11,7 +11,7 @@ module Decidim
                               :location_hints, :taxonomizations,
                               :private_meeting, :transparent, :iframe_embed_type, :comments_enabled,
                               :comments_start_time, :comments_end_time, :iframe_access_level,
-                              :reminder_enabled, :send_reminders_before_hours
+                              :reminder_enabled
 
         protected
 
@@ -25,12 +25,17 @@ module Decidim
         def attributes
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
           parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
-          parsed_reminder_message = Decidim::ContentProcessor.parse(form.reminder_message_custom_content, current_organization: form.current_organization).rewrite
+          parsed_reminder_message = if form.reminder_enabled
+                                      Decidim::ContentProcessor.parse(form.reminder_message_custom_content, current_organization: form.current_organization).rewrite
+                                    else
+                                      {}
+                                    end
 
           super.merge({
                         title: parsed_title,
                         description: parsed_description,
                         type_of_meeting: form.clean_type_of_meeting,
+                        send_reminders_before_hours: form.reminder_enabled ? form.send_reminders_before_hours : nil,
                         reminder_message_custom_content: parsed_reminder_message
                       })
         end

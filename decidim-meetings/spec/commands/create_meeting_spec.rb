@@ -25,6 +25,8 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:available_slots) { 0 }
     let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
+    let(:reminder_enabled) { true }
+    let(:send_reminders_before_hours) { 50 }
     let(:taxonomizations) do
       2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
@@ -54,7 +56,10 @@ module Decidim::Meetings
         online_meeting_url:,
         iframe_embed_type:,
         iframe_access_level:,
-        taxonomizations:
+        taxonomizations:,
+        reminder_enabled:,
+        send_reminders_before_hours:,
+        reminder_message_custom_content: "Custom reminder message!",
       )
     end
 
@@ -101,6 +106,23 @@ module Decidim::Meetings
           subject.call
 
           expect(meeting.taxonomizations).to be_empty
+        end
+      end
+
+      it "sets the reminder settings" do
+        subject.call
+        expect(meeting.reminder_enabled).to eq reminder_enabled
+        expect(meeting.send_reminders_before_hours).to eq send_reminders_before_hours
+        expect(meeting.reminder_message_custom_content).to include("en" => "Custom reminder message!")
+      end
+
+      context "when reminder is not enabled" do
+        let(:reminder_enabled) { false }
+
+        it "sends reminders before hours is nil" do
+          subject.call
+          expect(meeting.send_reminders_before_hours).to be_nil
+          expect(meeting.reminder_message_custom_content).to be_empty
         end
       end
 

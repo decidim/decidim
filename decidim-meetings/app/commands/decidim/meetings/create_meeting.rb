@@ -43,11 +43,7 @@ module Decidim
       def attributes
         parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
         parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
-        parsed_reminder_message = if form.reminder_enabled
-                                    Decidim::ContentProcessor.parse(form.reminder_message_custom_content, current_organization: form.current_organization).rewrite
-                                  else
-                                    {}
-                                  end
+        parsed_reminder_message = Decidim::ContentProcessor.parse(form.reminder_message_custom_content, current_organization: form.current_organization).rewrite
 
         super.merge({
                       title: { I18n.locale => parsed_title },
@@ -60,7 +56,7 @@ module Decidim
                       type_of_meeting: form.clean_type_of_meeting,
                       published_at: Time.current,
                       send_reminders_before_hours: form.reminder_enabled ? form.send_reminders_before_hours : nil,
-                      reminder_message_custom_content: { I18n.locale => parsed_reminder_message }
+                      reminder_message_custom_content: form.reminder_enabled ? { I18n.locale => parsed_reminder_message } : {}
                     })
       end
 

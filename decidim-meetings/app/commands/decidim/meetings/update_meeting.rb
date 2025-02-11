@@ -74,7 +74,9 @@ module Decidim
             iframe_embed_type: form.iframe_embed_type,
             iframe_access_level: form.iframe_access_level,
             taxonomizations: form.taxonomizations,
-            reminder_message_custom_content: { I18n.locale => parsed_reminder_message }
+            reminder_enabled: form.reminder_enabled,
+            send_reminders_before_hours: form.reminder_enabled ? form.send_reminders_before_hours : nil,
+            reminder_message_custom_content: form.reminder_enabled ? { I18n.locale => parsed_reminder_message } : {}
           },
           visibility: "public-only"
         )

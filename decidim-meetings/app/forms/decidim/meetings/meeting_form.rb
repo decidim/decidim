@@ -32,7 +32,9 @@ module Decidim
       validates :registration_terms, presence: true, if: ->(form) { form.on_this_platform? }
       validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
       validates :clean_type_of_meeting, presence: true
-      validates :send_reminders_before_hours, presence: true, numericality: { only_integer: true, greater_than: 0 }, if: :reminder_enabled
+      validates :send_reminders_before_hours,
+                presence: true, if: :reminder_enabled,
+                numericality: { only_integer: true, greater_than: 0, if: :reminder_enabled }
       validates(
         :iframe_access_level,
         inclusion: { in: Decidim::Meetings::Meeting.iframe_access_levels },
@@ -81,6 +83,18 @@ module Decidim
             type
           ]
         end
+      end
+
+      def send_reminders_before_hours
+        return nil unless reminder_enabled
+
+        super
+      end
+
+      def reminder_message_custom_content
+        return {} unless reminder_enabled
+
+        super
       end
 
       def on_this_platform?
