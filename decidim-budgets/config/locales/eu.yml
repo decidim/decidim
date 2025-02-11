@@ -48,7 +48,7 @@ eu:
         destroy: Ezabatu
         edit: Editatu
         edit_projects: Kudeatu proiektuak
-        import: Inportatu proposamenak proiektuetarako
+        import: Inportatu proiektuetarako proposamenak
         new_budget: Beste aurrekontu bat
         new_project: Beste proiektu bat
         preview: Aurreikusi
@@ -146,13 +146,13 @@ eu:
             invalid: Arazo bat egon da proposamenak proiektuetara inportatzean.
             success: "%{number} proposamenak zuzen inportatuta proiektuetara."
           new:
-            create: Inportatu proposamenak proiektuetarako
+            create: Inportatu proiektuetarako proposamenak
             default_budget: Aurrekontu lehenetsia
             import_all_accepted_proposals: Inportatu onartutako proposamen guztiak 
             no_components: Ez dago proposamen osagairik parte hartzeko espazio honetan proposamenak proiektuetara inportatzeko.
             origin_component_id: Jatorrizko osagaia
             select_component: Meesedez, hautatu osagaia
-            title: Inportatu proposamenak proiektuetarako
+            title: Inportatu proiektuetarako proposamenak
         reminders:
           orders:
             description: Parte-hatzaileek mezu elektroniko bat jasoko dute, eskaera bat egiteke duten aurrekontuetarako estekekin.
@@ -169,7 +169,7 @@ eu:
           delete: "%{user_name} parte-hartzaileak %{resource_name} proiektua %{space_name} espazioan ezabatu da"
           update: "%{user_name} parte-hartzaileak %{resource_name} proiektua %{space_name} espazioan sortu da"
       budget_information_modal:
-        back_to: Itzuli hona %{component_name}
+        back_to: Itzuli %{component_name} osagaira
         close_modal: Itxi modala
         continue: Jarraitu
         more_information: Informazio gehiago aurrekontuari buruz
@@ -182,7 +182,7 @@ eu:
           one: "Aurrekontu %{count}"
           other: "%{count} aurrekontu"
         empty: Oraindik ez dago aurrekonturik
-        finished_message: Amaitu duzu bozkatzeko prozesua. Eskerrik asko parte hartzeagatik!
+        finished_message: Amaitu duzu babesa emateko prozesua. Eskerrik asko parte hartzeagatik!
         highlighted_cta: Babesa eman hemen %{name}
         if_change_opinion: Iritzia aldatu baduzu, ahal duzu
         orders:
@@ -266,17 +266,17 @@ eu:
           budget: Aurrekontua
           dynamic_help:
             keep_adding_projects: Jarraitu proiektuak gehitzen
-            minimum_reached: Bozkatzeko gutxienekoa lortu duzu
+            minimum_reached: Gutxieneko babesak lortu dituzu
             start_adding_projects: Hasi proiektuak gehitzen
           minimum: Gutxienekoa
           minimum_projects_rule:
-            description: Hautatu gutxienez nahi dituzun %{minimum_number} proiektu eta bozkatu zure lehentasunen arabera aurrekontua zehazteko
+            description: Hautatu gutxienez nahi dituzun %{minimum_number} proiektu eta babesa eman zure lehentasunen arabera aurrekontua zehazteko.
           projects_rule:
             description: Hautatu gutxienez %{minimum_number} eta gehienez %{maximum_number} nahi dituzun proiektu, eta bozkatu zure lehentasunen arabera aurrekontua zehazteko
           projects_rule_maximum_only:
             description: Hautatu gehienez %{maximum_number} proiektu eta bozkatu zure lehentasunen arabera aurrekontua zehazteko
           vote_threshold_percent_rule:
-            description: Esleitu gutxienez %{minimum_budget} nahi dituzun proiektuei eta bozkatu zure lehentasunen arabera aurrekontua zehazteko.
+            description: Esleitu gutxienez %{minimum_budget} nahi dituzun proiektuei eta babesa eman zure lehentasunen arabera aurrekontua zehazteko.
         orders:
           highest_cost: Kostu handiena
           label: Antolatu proiektuak honen arabera
@@ -377,7 +377,7 @@ eu:
         success_no_left_budgets_html: Zure botua zuzen onartu da.
       destroy:
         error: Arazo bat egon da zure babesa ezeztatzean.
-        success: Zure botua behar bezala ezeztatu da.
+        success: Zure babesa behar bezala ezeztatu da.
     resource_links:
       included_proposals:
         project_proposal: Proiektu honetan sartuta dauden proposamenak
