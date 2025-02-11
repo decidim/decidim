@@ -30,7 +30,7 @@ describe Decidim::Proposals::Engine do
       it "removes the record" do
         expect do
           ActiveSupport::Notifications.publish("decidim.admin.participatory_space.destroy_admin:after", class_name: evaluator_role.class.name, role: evaluator_role.id)
-        end.to change(Decidim::Proposals::EvaluationnAssignment, :count).by(-1)
+        end.to change(Decidim::Proposals::EvaluationAssignment, :count).by(-1)
       end
     end
 
