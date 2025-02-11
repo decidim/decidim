@@ -38,7 +38,7 @@ describe Decidim::Proposals::HighlightedProposalsForComponentCell, type: :cell d
     end
   end
 
-  context "when proposals proposals are hidden" do
+  context "when proposals are hidden" do
     let!(:proposal) { create(:proposal, :hidden, title: { en: "A nice title" }, component: model) }
 
     it "renders the proposals" do
