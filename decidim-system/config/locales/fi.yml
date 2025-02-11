@@ -109,7 +109,7 @@ fi:
             organization_name: Organisaatio
         organization:
           actions:
-            save_and_invite: Luo organisaatioita ja kutsu hallintakäyttäjiä
+            save_and_invite: Luo organisaatio ja kutsu hallintakäyttäjä
           fields:
             content_security_policy: Sisällön turvallisuuskäytäntö (CSP)
             created_at: Luotu
