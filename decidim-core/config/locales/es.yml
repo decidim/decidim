@@ -727,6 +727,13 @@ es:
           followable: El recurso o espacio de participación que se está siguiendo
           id: El identificador único de este seguimiento
           updated_at: La fecha de la última actualización del seguimiento
+        identities:
+          created_at: La fecha y la hora en la que se creó la identidad
+          id: El identificador único de esta identidad
+          provider: El proveedor de esta identidad
+          uid: El identificador único de esta identidad
+          updated_at: La fecha y hora de la última actualización de esta identidad
+          user: La usuaria a quien pertenece esta identidad
         messaging_conversations:
           created_at: La fecha en la que se inició esta conversación
           id: El identificador único de esta conversación
@@ -734,9 +741,12 @@ es:
           updated_at: La fecha en la que esta conversación fue actualizado por última vez
         notifications:
           created_at: La fecha y hora en que se creó esta notificación
+          event_class: El tipo de acción que activó la notificación
+          event_name: El nombre de la acción que activó la notificación
           extra: Información adicional de esta notificación
           id: El identificador único de esta notificación
           resource_type: El tipo de recurso con el que está relacionada la notificación
+          updated_at: La fecha y hora en que esta notificación fue actualizada por última vez
         participatory_space_private_users:
           created_at: La fecha y hora en que se creó esta participante privada
           id: El identificador único de esta participante privada
@@ -762,6 +772,7 @@ es:
           about: La biografía de esta usuaria
           accepted_tos_version: La fecha en que la usuaria aceptó los Términos y Condiciones de uso de esta plataforma
           admin: Si esta usuaria es una administradora
+          confirmation_sent_at: La fecha y hora en que se envió la confirmación
           confirmed_at: La fecha y la hora en que se confirmó esta usuaria
           created_at: La fecha y hora en que se creó esta usuaria
           current_sign_in_at: La fecha y hora del inicio de sesión actual
@@ -791,6 +802,7 @@ es:
           organization: La organización a la que pertenece esta usuaria
           password_updated_at: La fecha en la que cambiaron por última vez sus contraseñas
           personal_url: La URL personal de esta usuaria
+          remember_created_at: La fecha y hora en que se seleccionó a la usuaria para ser recordada
           reset_password_sent_at: La fecha y hora en que se envió el correo para restablecer la contraseña
           roles: El rol que tiene esta participante, si tiene alguno
           sign_in_count: El número de veces que esta usuaria ha iniciado sesión
@@ -903,6 +915,8 @@ es:
         emendation_promoted:
           follower:
             email_intro: 'Se ha publicado una enmienda para %{amendable_title}. Puedes verla en esta página:'
+            email_outro: Has recibido esta notificación porque es autora de %{amendable_title}.
+            email_subject: Una enmienda de %{emendation_author_nickname} se ha publicado como un nuevo %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Se ha añadido un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
@@ -1521,6 +1535,8 @@ es:
         taxonomies:
           children_count: El recuento de "hijas" (sub-taxonomías) que tiene esta taxonomía
           created_at: La fecha en la que se creó esta taxonomía
+          filter_items_count: La cantidad de filtros de elementos que utilizan esta taxonomía
+          filters_count: La cantidad de filtros que utilizan esta taxonomía
           id: El identificador único de esta taxonomía
           is_root: 'Cierto ("true"): si esta taxonomía no tiene ninguna "madre" (no cuelga de otra taxonomía)'
           name: El nombre de esta taxonomía
