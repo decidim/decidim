@@ -70,10 +70,14 @@ module Decidim
         @user.newsletter_notifications_at = nil
         @user.password = SecureRandom.hex
         if form.avatar_url.present?
-          url = URI.parse(form.avatar_url)
-          filename = File.basename(url.path)
-          file = url.open
-          @user.avatar.attach(io: file, filename:)
+          begin
+            url = URI.parse(form.avatar_url)
+            filename = File.basename(url.path)
+            file = url.open
+            @user.avatar.attach(io: file, filename:)
+          rescue OpenURI::HTTPError, Errno::ECONNREFUSED => e
+            # Do not attach the avatar, as it fails to fetch it.
+          end
         end
         @user.tos_agreement = form.tos_agreement
         @user.accepted_tos_version = Time.current
