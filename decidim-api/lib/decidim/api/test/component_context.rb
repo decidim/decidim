@@ -108,7 +108,7 @@ shared_examples "with resource visibility" do
 
       context "when the user is space evaluator" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-        let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "valuator") }
+        let!(:role) { create(:participatory_process_user_role, participatory_process:, user: current_user, role: "evaluator") }
         it_behaves_like "graphQL visible resource"
       end
 
