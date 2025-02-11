@@ -647,6 +647,9 @@ en:
           dummy_signature_with_sms_handler:
             description: Signature which only validates phone number looking for an existing authorization associated and checks SMS code
             name: Dummy Signature Handler With Only SMS
+          ephemeral_dummy_signature_handler:
+            description: Ephemeral signature which takes personal information from user, validates authorization and checks SMS code
+            name: Ephemeral Dummy Signature Handler
           legacy_signature_handler:
             description: Signature handler based on the old signature feature including the collection of personal data, the SMS step and validating the authorization with dummy_authorization_handler. Modify any parameter to adapt to the configuration used
             name: Legacy Signature Handler
