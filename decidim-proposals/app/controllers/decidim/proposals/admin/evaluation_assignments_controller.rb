@@ -13,12 +13,12 @@ module Decidim
 
           Admin::AssignProposalsToEvaluator.call(@form) do
             on(:ok) do |_proposal|
-              flash[:notice] = I18n.t("valuation_assignments.create.success", scope: "decidim.proposals.admin")
+              flash[:notice] = I18n.t("evaluation_assignments.create.success", scope: "decidim.proposals.admin")
               redirect_to EngineRouter.admin_proxy(current_component).root_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("valuation_assignments.create.invalid", scope: "decidim.proposals.admin")
+              flash.now[:alert] = I18n.t("evaluation_assignments.create.invalid", scope: "decidim.proposals.admin")
               redirect_to EngineRouter.admin_proxy(current_component).root_path
             end
           end
@@ -33,12 +33,12 @@ module Decidim
 
           Admin::UnassignProposalsFromEvaluator.call(@form) do
             on(:ok) do |_proposal|
-              flash.keep[:notice] = I18n.t("valuation_assignments.delete.success", scope: "decidim.proposals.admin")
+              flash.keep[:notice] = I18n.t("evaluation_assignments.delete.success", scope: "decidim.proposals.admin")
               redirect_back fallback_location: EngineRouter.admin_proxy(current_component).root_path
             end
 
             on(:invalid) do
-              flash.keep[:alert] = I18n.t("valuation_assignments.delete.invalid", scope: "decidim.proposals.admin")
+              flash.keep[:alert] = I18n.t("evaluation_assignments.delete.invalid", scope: "decidim.proposals.admin")
               redirect_back fallback_location: EngineRouter.admin_proxy(current_component).root_path
             end
           end
