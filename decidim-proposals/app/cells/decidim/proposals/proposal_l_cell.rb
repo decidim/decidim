@@ -34,6 +34,7 @@ module Decidim
           hash << self.class.name.demodulize.underscore
           hash << model.cache_key_with_version
           hash << model.proposal_votes_count
+          hash << options[:hide_voting] ? 1 : 0
           hash << model.endorsements_count
           hash << model.comments_count
           hash << Digest::MD5.hexdigest(model.component.cache_key_with_version)
