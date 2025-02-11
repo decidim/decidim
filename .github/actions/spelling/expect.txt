@@ -994,7 +994,6 @@ Uusimaa
 Valero
 validable
 valids
-valuatable
 valueline
 Valuetypes
 VCALENDAR

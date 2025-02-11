@@ -90,7 +90,7 @@ Most commonly used concerns are:
 - `Decidim::Proposals::CommentableCollaborativeDraft`
 - `Decidim::Proposals::CommentableProposal`
 - `Decidim::Proposals::ParticipatoryTextSection`
-- `Decidim::Proposals::Valuatable`
+- `Decidim::Proposals::Evaluable`
 - `Decidim::Templates::Templatable`
 
 == More information
