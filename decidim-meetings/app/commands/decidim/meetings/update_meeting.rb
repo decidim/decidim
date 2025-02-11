@@ -47,6 +47,7 @@ module Decidim
       def update_meeting!
         parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
         parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
+        parsed_reminder_message = Decidim::ContentProcessor.parse(form.reminder_message_custom_content, current_organization: form.current_organization).rewrite
 
         Decidim.traceability.update!(
           meeting,
@@ -72,7 +73,8 @@ module Decidim
             online_meeting_url: form.online_meeting_url,
             iframe_embed_type: form.iframe_embed_type,
             iframe_access_level: form.iframe_access_level,
-            taxonomizations: form.taxonomizations
+            taxonomizations: form.taxonomizations,
+            reminder_message_custom_content: { I18n.locale => parsed_reminder_message }
           },
           visibility: "public-only"
         )

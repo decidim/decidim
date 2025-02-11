@@ -87,6 +87,15 @@ module Decidim
         end
       end
 
+      def reminder_message_custom_content(links: false, all_locales: false)
+        return unless meeting
+
+        handle_locales(meeting.reminder_message_custom_content, all_locales) do |content|
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(sanitized(content))
+          renderer.render(links:).html_safe
+        end
+      end
+
       # start time and end time in rfc3339 format removing '-' and ':' symbols
       # joined with '/'. This format is used to generate the dates query param
       # in google calendars event link

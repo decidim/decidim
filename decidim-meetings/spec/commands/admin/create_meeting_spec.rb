@@ -25,6 +25,9 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:iframe_embed_type) { "embed_in_meeting_page" }
     let(:iframe_access_level) { "all" }
+    let(:reminder_enabled) { true }
+    let(:send_reminders_before_hours) { 50 }
+    let(:reminder_message_custom_content) { { en: "Custom reminder message" } }
     let(:components) { [] }
     let(:services) do
       [
@@ -75,6 +78,9 @@ module Decidim::Meetings
         comments_start_time: nil,
         comments_end_time: nil,
         iframe_access_level:,
+        reminder_enabled:,
+        send_reminders_before_hours:,
+        reminder_message_custom_content:,
         components:
       )
     end

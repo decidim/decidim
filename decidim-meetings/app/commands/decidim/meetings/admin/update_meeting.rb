@@ -31,7 +31,7 @@ module Decidim
                         title: parsed_title,
                         description: parsed_description,
                         type_of_meeting: form.clean_type_of_meeting,
-                        reminder_message_custom_content: parsed_reminder_message,
+                        reminder_message_custom_content: parsed_reminder_message
                       })
         end
 
