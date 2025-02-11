@@ -87,6 +87,16 @@ module Decidim
             expect(user.valid_password?("decidim123456789")).to be(true)
           end
 
+          it "ignores avatar url if URL is not readable" do 
+            stub_request(:get, "http://www.example.com/foo.jpg")
+            .to_return(status: 404)
+        
+            expect { command.call }.to broadcast(:ok)
+        
+            user = User.find_by(email: form.email)
+            expect(user.avatar.attached?).to be_falsey
+          end
+          
           # NOTE: This is important so that the users who are only
           # authenticating using omniauth will not need to update their
           # passwords.
