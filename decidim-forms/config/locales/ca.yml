@@ -88,6 +88,7 @@ ca:
             expand: Expandeix totes les preguntes
             preview: Previsualitzar
             title: Editar formulari per %{questionnaire_for}
+            unpublished_warning: El formulari no està publicat. Pots modificar les preguntes, però en fer-ho s'esborraran les respostes actuals.
           matrix_row:
             matrix_row: Fila
             remove: Elimina

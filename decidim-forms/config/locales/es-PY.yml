@@ -88,6 +88,7 @@ es-PY:
             expand: Expandir todos las preguntas
             preview: Previsualizar
             title: Editar formulario para %{questionnaire_for}
+            unpublished_warning: El formulario no está publicado. Puedes modificar sus preguntas, pero al hacerlo se borrarán las respuestas actuales.
           matrix_row:
             matrix_row: Fila
             remove: Retirar
