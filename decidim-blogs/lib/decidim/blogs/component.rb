@@ -20,6 +20,7 @@ Decidim.register_component(:blogs) do |component|
   component.actions = %w(create update destroy)
 
   component.settings(:global) do |settings|
+    settings.attribute :taxonomy_filters, type: :taxonomy_filters
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: true

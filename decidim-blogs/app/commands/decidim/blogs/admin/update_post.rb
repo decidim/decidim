@@ -6,7 +6,7 @@ module Decidim
       # This command is executed when the user changes a Post from the admin
       # panel.
       class UpdatePost < Decidim::Commands::UpdateResource
-        fetch_form_attributes :title, :body, :author
+        fetch_form_attributes :title, :body, :author, :taxonomizations
 
         private
 

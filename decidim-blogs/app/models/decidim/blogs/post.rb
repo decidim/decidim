@@ -9,6 +9,7 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
       include Decidim::HasComponent
+      include Decidim::Taxonomizable
       include Decidim::Authorable
       include Decidim::Comments::CommentableWithComponent
       include Decidim::Searchable

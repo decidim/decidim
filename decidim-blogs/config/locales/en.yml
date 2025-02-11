@@ -89,6 +89,10 @@ en:
             announcement: Announcement
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
+            no_taxonomy_filters_found: No taxonomy filters found.
+            taxonomy_filters_add: Add filter
+            taxonomy_filters: Select filters for the component
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
