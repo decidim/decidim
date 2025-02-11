@@ -184,7 +184,7 @@ eu:
           email_subject: Zure iruzkina hemen "%{resource_title}" positiboki bozkatu da.
           notification_title: Zure <a href="%{resource_path}">iruzkina </a> "%{resource_title}"-an positiboki bozkatu da. Orain guztira %{upvotes} botos positibo eta %{downvotes} boto negatibo dituzu.
         reply_created:
-          email_intro: "%{author_name} k zure iruzkina erantzun du hemen: %{resource_title}. Orri honetan irakur dezakezu:"
+          email_intro: "%{author_name} egileak zure iruzkina erantzun du hemen: %{resource_title}. Orri honetan irakur dezakezu:"
           email_outro: Jakinarazpen hau jaso duzu zure iruzkina erantzun delako.
           email_subject: "%{author_name} k zure iruzkina erantzun du hemen: %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> -k zure iruzkinari erantzun dio <a href="%{resource_path}">%{resource_title}</a>

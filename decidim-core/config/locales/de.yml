@@ -1058,7 +1058,7 @@ de:
         error: Beim Folgen dieser Ressource ist ein Fehler aufgetreten.
         participatory_space: Folgen Sie <span>%{resource_name}</span>
       destroy:
-        button: Entfolgen
+        button: Nicht mehr folgen
         error: Beim Entfolgen dieser Ressource ist ein Fehler aufgetreten.
     forms:
       attachment_link:

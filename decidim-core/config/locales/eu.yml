@@ -167,7 +167,7 @@ eu:
         other: "%{count} segundo"
   decidim:
     accessibility:
-      external_link: Kanpoko lotura
+      external_link: Kanpoko esteka
       front_page_link: Zoaz orri nagusira
       logo: "%{organization} aren logo ofiziala"
       opens_in_new_tab: Ireki beste fitxa batean
@@ -1248,7 +1248,7 @@ eu:
       invalid_url: URL baliogabea
       warning:
         body_1: Kanpoko lesteka bat bisitatuko duzu eta eskatzen dizugu zuhurra izatea kanpoko orrialdeen edukiarekin.
-        body_2: Mesedez, jarraitu aurretik, egiaztatu bisitatuko duzun lotura leku seguru batena dela.
+        body_2: Mesedez, jarraitu aurretik, egiaztatu bisitatuko duzun esteka leku seguru batena dela.
         cancel: Ezeztatu
         proceed: Jarraitu
         title: Ireki kanpoko lotura
@@ -1420,7 +1420,7 @@ eu:
         check_subscription: 'Zure lehentasunak aldatu nahi badituzu, hemen egin dezakezu: <a href="%{link}" target="_blank">ezarpenen orrialdea</a>.'
         error: Arazo bat egon da harpidetza ezeztatzean.
         success: Harpidetza zuzen ezeztatua.
-        token_error: Lotura iraungi da.
+        token_error: Esteka iraungi da.
         unsubscribe: Baja eman
     newsletters_opt_in:
       unauthorized: Sentitzen dut, esteka hau ez dago eskuragarri.
@@ -1837,7 +1837,7 @@ eu:
         title: Hautatu emaitza kopurua orrialde bakoitzeko
       share_modal:
         copy_share_link: Kopia
-        copy_share_link_clarification: Kopiatu arbelera partekatzeko lotura
+        copy_share_link_clarification: Kopiatu arbelera partekatzeko esteka
         copy_share_link_copied: Kopiatuta!
         copy_share_link_message: Esteka arrakastaz kopiatu da arbelean.
         share: Partekatu
@@ -2076,7 +2076,7 @@ eu:
           edit: Editatu
           remove: Kendu
           url: URL
-        hrefLabel: URL lotura
+        hrefLabel: URL esteka
         targetLabel: Helburua
         targets:
           blank: Beste etiketa bat
@@ -2284,7 +2284,7 @@ eu:
         notifications: Jakinarazpenak
         profile: Nire kontua
         public_profile: Nire profil publikoa
-        title: Profilaren loturak
+        title: Profilaren estekak
       user_profile:
         account: Kontua
         authorizations: Baimenak
@@ -2382,9 +2382,9 @@ eu:
   views:
     pagination:
       next: Hurrengoa
-      next_title: Lotura hurrengo orrialdearekin
+      next_title: Esteka hurrengo orrialdearekin
       pagination: Orri-zenbaketa
       previous: Aurrekoa
-      previous_title: Lotura aurreko orrialdearekin
+      previous_title: Esteka aurreko orrialdearekin
       title: 'Orrialde zenbakia: '
       truncate: "&hellip;"
