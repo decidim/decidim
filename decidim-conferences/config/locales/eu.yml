@@ -81,10 +81,10 @@ eu:
         one: Jardunaldia
         other: Jardunaldiak
       decidim/conference_speaker:
-        one: Hitzaldi hizlaria
-        other: Jardunaldiko hizlariak
+        one: Jardunaldiaren hizlaria
+        other: Jardunaldiaren hizlariak
       decidim/conference_user_role:
-        one: Hitzaldiko erabiltzaile rola
+        one: Jardunaldiko parte-hartzailearen rola
         other: Jardunaldiko parte-hartzaile rolak
   decidim:
     admin:
@@ -111,16 +111,16 @@ eu:
           success: Jardunaldia zuzen despublikatua.
       conference_registration:
         confirm:
-          error: Arazo bat egon da hitzaldi hau erregistratzean.
+          error: Arazo bat egon da jardunaldi erregistratzean.
           success: Jardunaldiaren erregistroa zuzen onartua.
       conference_speakers:
         create:
-          error: Arazo bat egon da hizlari bat gehitzean hitzaldi honetarako.
-          success: Hizlaria zuzen sortua hitzaldi honetarako.
+          error: Arazo bat egon da hizlari bat gehitzean jardunaldi honetarako.
+          success: Hizlaria zuzen sortua jardunaldi honetarako.
         destroy:
           success: Hizlaria behar bezala ezabatua.
         edit:
-          title: Eguneratu hitzaldiaren hizlaria
+          title: Eguneratu jardunaldiaren hizlaria
           update: Eguneratu
         index:
           conference_speakers_title: Jardunaldiaren hizlariak
@@ -129,27 +129,27 @@ eu:
           title: Beste hizlari bat
         update:
           error: Arazo bat egon da hizlari hau eguneratzean.
-          success: Hizlaria zuzen eguneratua hitzaldi honetarako.
+          success: Hizlaria zuzen eguneratua jardunaldi honetarako.
       conference_user_roles:
         create:
-          error: Arazo bat egon da administratzaile bat gehitzean hitzaldi honetarako.
+          error: Arazo bat egon da administratzaile bat gehitzean jardunaldi honetarako.
           success: Jardunaldiaren administratzailea zuzen gehitua.
         destroy:
           success: Jardunaldiren administratzailea behar bezala ezabatua.
         edit:
-          title: Eguneratu hitzaldiaren hizlaria
+          title: Eguneratu jardunaldiaren hizlaria
           update: Eguneratu
         index:
           conference_admins_title: Jardunaldiaren administratzaileak
         new:
           create: Sortu
-          title: Beste hitzaldiaren administratzaile bat
+          title: Beste jardunaldiaren administratzaile bat
         update:
           error: Arazo bat egon da hitzaldi-administratzaile hau eguneratzean.
           success: Jardunaldiaren administratzailea zuzen eguneratua.
       conferences:
         create:
-          error: Arazo bat egon da hitzaldi hau sortzean.
+          error: Arazo bat egon da jardunaldi hau sortzean.
           success: Jardunaldia zuzen sortua.
         edit:
           update: Eguneratu
@@ -164,29 +164,29 @@ eu:
           create: Sortu
           title: Jardunaldia
         update:
-          error: Arazo bat egon da hitzaldi hau eguneratzean.
+          error: Arazo bat egon da jardunaldi hau eguneratzean.
           success: Jardunaldia zuzen eguneratua.
       conferences_copies:
         create:
-          error: Arazo bat egon da hitzaldi hau bikoiztean.
+          error: Arazo bat egon da jardunaldi hau bikoiztean.
           success: Jardunaldia zuzen eguneratua.
       media_links:
         create:
           error: Arazo bat egon da beste komunikazio-esteka bat sortzean.
           success: Hedabideen esteka zuzen sortua.
         destroy:
-          success: Hedabideen esteka behar bezala ezabatua.
+          success: Multimediaren esteka behar bezala ezabatua.
         edit:
-          title: Eguneratu hedabideen esteka
+          title: Multimedia esteka eguneratu
           update: Eguneratu
         index:
           media_links_title: Hedabideen loturak
         new:
           create: Sortu
-          title: Sortu hedabideen esteka
+          title: Sortu multimediarako esteka
         update:
-          error: Arazo bat egon da multimedia link hau eguneratzean.
-          success: Hedabideen lotura zuzen eguneratua.
+          error: Arazo bat egon da multimedia esteka hau eguneratzean.
+          success: Multimediaren esteka zuzen eguneratua.
       menu:
         conferences: Jardunaldiak
         conferences_submenu:
@@ -570,7 +570,7 @@ eu:
     media:
       index:
         description: Estekak jardunaldi honi buruz
-        title: Media eta estekak
+        title: Multimedia eta estekak
     menu:
       conferences: Jardunaldiak
     statistics:
@@ -597,5 +597,5 @@ eu:
       conferences_nav:
         conference_partners_menu_item: Kideak
         conference_speaker_menu_item: Hizlariak
-        media: Media
+        media: Multimedia
         venues: Egoitzak
