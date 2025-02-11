@@ -1,7 +1,7 @@
 {
   "name": "@decidim/eslint-config",
   "description": "The eslint configuration for Decidim",
-  "version": "0.28.4",
+  "version": "0.28.5",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git",
