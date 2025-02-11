@@ -754,6 +754,13 @@ de:
           id: Die eindeutige Bezeichnung dieser Benachrichtigung
           resource_type: Der Typ der Ressource, mit der die Benachrichtigung verknüpft ist
           updated_at: Datum und Uhrzeit, an dem die Benachrichtigung zuletzt aktualisiert wurde
+        participatory_space_private_users:
+          created_at: Das Datum und die Uhrzeit, als diese private Teilnahme erstellt wurde
+          id: Die eindeutige Bezeichnung der privaten Teilnahme
+          privatable_to: Zu welchem Raum diese private Teilnahme gehört
+          published: Ob diese private Teilnahme veröffentlicht ist oder nicht
+          role: Die Rolle, die diese private Teilnahme hat
+          updated_at: Das Datum und die Uhrzeit, als diese private Teilnahme zuletzt aktualisiert wurde
         user_groups:
           document_number: Die Dokumentennummer dieser Benutzergruppe
           id: Die eindeutige Bezeichnung der Gruppe

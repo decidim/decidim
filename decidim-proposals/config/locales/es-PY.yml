@@ -1003,7 +1003,7 @@ es-PY:
           maximum_votes_reached: Límite de votos alcanzado
           no_votes_remaining: No hay votos restantes
           vote: Dar apoyo
-          votes_blocked: Votación desactivada
+          votes_blocked: Dar apoyo
         votes_count:
           count:
             one: Apoyo

@@ -7,9 +7,10 @@ $urlCalendarUrl.val("<%= short_url(route_name: "calendar", params: { filter: par
 var $map = $("#map");
 var controller = $map.data("map-controller");
 if (controller) {
-  var markerData = JSON.parse('<%= escape_javascript meetings_data_for_map(search.result).to_json.html_safe %>');
+  var markerData = JSON.parse('<%= escape_javascript cell("decidim/map", search.result, metadata_card: "decidim/meetings/meeting_card_metadata").geocoded_data.to_json.html_safe %>');
   controller.clearMarkers();
-  if (markerData.length > 0){
+
+  if (markerData.length > 0) {
     controller.addMarkers(markerData);
   }
 }

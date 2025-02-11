@@ -1003,7 +1003,6 @@ fi-pl:
           maximum_votes_reached: Kaikki äänet käytetty
           no_votes_remaining: Ei ääniä jäljellä
           vote: Äänestä
-          votes_blocked: Äänestys estetty
         votes_count:
           count:
             one: Ääni
