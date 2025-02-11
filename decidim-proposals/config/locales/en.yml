@@ -11,6 +11,9 @@ en:
         state: State
         title: Title
         user_group_id: Create collaborative draft as
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: Evaluator name
       import_participatory_text:
         document: Document
       proposal:
@@ -56,9 +59,6 @@ en:
         import_proposals: Import proposals
         keep_answers: Keep state and answers
         keep_authors: Keep original authors
-      evaluation_assignment:
-        admin_log:
-          evaluator_role_id: Evaluator name
     errors:
       models:
         participatory_text:
@@ -510,6 +510,13 @@ en:
           deleted_proposals_info: Deleted proposals can be restored from the trash.
           preview: Preview
           view_deleted_proposals: View deleted proposals
+        evaluation_assignments:
+          create:
+            invalid: There was a problem assigning proposals to a evaluator.
+            success: Proposals assigned to a evaluator successfully.
+          delete:
+            invalid: There was a problem unassigning proposals from a evaluator.
+            success: evaluator unassigned from proposals successfully.
         exports:
           proposal_comments: Comments
           proposals: Proposals
@@ -699,14 +706,10 @@ en:
           create:
             invalid: 'There was a problem splitting the selected proposals because some of them:'
             success: Successfully splitted the proposals into new ones.
-        evaluation_assignments:
-          create:
-            invalid: There was a problem assigning proposals to a evaluator.
-            success: Proposals assigned to a evaluator successfully.
-          delete:
-            invalid: There was a problem unassigning proposals from a evaluator.
-            success: evaluator unassigned from proposals successfully.
       admin_log:
+        evaluation_assignment:
+          create: "%{user_name} assigned the %{resource_name} proposal to a evaluator"
+          delete: "%{user_name} unassigned a evaluator from the %{proposal_title} proposal"
         proposal:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
           create: "%{user_name} created the %{resource_name} proposal on the %{space_name} space as an official proposal"
@@ -716,9 +719,6 @@ en:
           update: "%{user_name} updated the %{resource_name} official proposal on the %{space_name} space"
         proposal_note:
           create: "%{user_name} left a private note on the %{resource_name} proposal on the %{space_name} space"
-        evaluation_assignment:
-          create: "%{user_name} assigned the %{resource_name} proposal to a evaluator"
-          delete: "%{user_name} unassigned a evaluator from the %{proposal_title} proposal"
       answers:
         accepted: Accepted
         evaluating: Evaluating
