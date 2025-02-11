@@ -53,6 +53,9 @@ module Decidim::Meetings
         comments_enabled: meeting.comments_enabled,
         comments_start_time: meeting.comments_start_time,
         comments_end_time: meeting.comments_end_time,
+        reminder_enabled: meeting.reminder_enabled,
+        send_reminders_before_hours: meeting.send_reminders_before_hours,
+        reminder_message_custom_content: meeting.reminder_message_custom_content,
         registration_type: :on_this_platform,
         registration_url: meeting.registration_url,
         type_of_meeting: meeting.type_of_meeting
@@ -77,6 +80,7 @@ module Decidim::Meetings
         expect(new_meeting.title["en"]).to eq("title")
         expect(new_meeting.description["en"]).to eq("description")
         expect(new_meeting.taxonomies).to eq(old_meeting.taxonomies)
+        expect(new_meeting.reminder_message_custom_content).to eq(old_meeting.reminder_message_custom_content)
         expect(new_meeting.component).to eq(old_meeting.component)
         expect(new_meeting.component).not_to eq(be_published)
 

@@ -27,7 +27,7 @@ module Decidim::Meetings
     let(:iframe_access_level) { "all" }
     let(:reminder_enabled) { true }
     let(:send_reminders_before_hours) { 50 }
-    let(:reminder_message_custom_content) { { en: "Custom reminder message" } }
+    let(:reminder_message_custom_content) { { "en" => "Custom reminder message" } }
     let(:components) { [] }
     let(:services) do
       [
@@ -112,6 +112,27 @@ module Decidim::Meetings
           subject.call
 
           expect(meeting.taxonomizations).to be_empty
+        end
+      end
+
+      it "sets the reminder message" do
+        subject.call
+        expect(meeting.reminder_message_custom_content).to eq(reminder_message_custom_content)
+      end
+
+      it "sets the send_reminders_before_hours" do
+        subject.call
+        expect(meeting.send_reminders_before_hours).to eq(send_reminders_before_hours)
+        expect(meeting.reminder_message_custom_content).to eq(reminder_message_custom_content)
+      end
+
+      context "when reminder is not enabled" do
+        let(:reminder_enabled) { false }
+
+        it "sends reminders before hours is nil" do
+          subject.call
+          expect(meeting.send_reminders_before_hours).to be_nil
+          expect(meeting.reminder_message_custom_content).to be_empty
         end
       end
 

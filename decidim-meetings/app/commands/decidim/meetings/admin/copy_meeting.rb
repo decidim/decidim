@@ -68,6 +68,9 @@ module Decidim
             comments_end_time: form.comments_end_time,
             registration_type: form.registration_type,
             registration_url: form.registration_url,
+            reminder_enabled: form.reminder_enabled,
+            send_reminders_before_hours: form.send_reminders_before_hours,
+            reminder_message_custom_content: form.reminder_message_custom_content,
             **fields_from_meeting
           )
         end
@@ -80,10 +83,7 @@ module Decidim
             reserved_slots: meeting.reserved_slots,
             customize_registration_email: meeting.customize_registration_email,
             registration_form_enabled: meeting.registration_form_enabled,
-            registration_email_custom_content: meeting.registration_email_custom_content,
-            reminder_enabled: meeting.reminder_enabled,
-            send_reminders_before_hours: meeting.send_reminders_before_hours,
-            reminder_message_custom_content: meeting.reminder_message_custom_content
+            registration_email_custom_content: meeting.registration_email_custom_content
           }
         end
 

@@ -40,7 +40,9 @@ module Decidim
         validates :comments_start_time, date: { before: :comments_end_time, allow_blank: true, if: proc { |obj| obj.comments_end_time.present? } }
         validates :comments_end_time, date: { after: :comments_start_time, allow_blank: true, if: proc { |obj| obj.comments_start_time.present? } }
         validates :clean_type_of_meeting, presence: true
-        validates :send_reminders_before_hours, presence: true, numericality: { only_integer: true, greater_than: 0 }, if: :reminder_enabled
+        validates :send_reminders_before_hours,
+                  presence: true, if: :reminder_enabled,
+                  numericality: { only_integer: true, greater_than: 0, if: :reminder_enabled }
         validates(
           :iframe_access_level,
           inclusion: { in: Decidim::Meetings::Meeting.iframe_access_levels },
@@ -85,6 +87,18 @@ module Decidim
 
         def clean_type_of_meeting
           type_of_meeting.presence
+        end
+
+        def send_reminders_before_hours
+          return nil unless reminder_enabled
+
+          super
+        end
+
+        def reminder_message_custom_content
+          return {} unless reminder_enabled
+
+          super
         end
 
         def iframe_access_level_select

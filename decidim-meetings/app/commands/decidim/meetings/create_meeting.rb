@@ -8,7 +8,7 @@ module Decidim
       fetch_form_attributes :end_time, :start_time, :address, :latitude, :longitude,
                             :online_meeting_url, :registration_type, :registration_url, :available_slots,
                             :registrations_enabled, :taxonomizations, :component, :iframe_embed_type, :iframe_access_level,
-                            :reminder_enabled, :send_reminders_before_hours
+                            :reminder_enabled
 
       protected
 
@@ -43,7 +43,11 @@ module Decidim
       def attributes
         parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
         parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
-        parsed_reminder_message = Decidim::ContentProcessor.parse(form.reminder_message_custom_content, current_organization: form.current_organization).rewrite
+        parsed_reminder_message = if form.reminder_enabled
+                                    Decidim::ContentProcessor.parse(form.reminder_message_custom_content, current_organization: form.current_organization).rewrite
+                                  else
+                                    {}
+                                  end
 
         super.merge({
                       title: { I18n.locale => parsed_title },
@@ -55,6 +59,7 @@ module Decidim
                       registration_terms: { I18n.locale => form.registration_terms },
                       type_of_meeting: form.clean_type_of_meeting,
                       published_at: Time.current,
+                      send_reminders_before_hours: form.reminder_enabled ? form.send_reminders_before_hours : nil,
                       reminder_message_custom_content: { I18n.locale => parsed_reminder_message }
                     })
       end
