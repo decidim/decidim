@@ -5,7 +5,7 @@ eu:
       result:
         decidim_accountability_status_id: Egoera
         decidim_category_id: Kategoria
-        decidim_scope_id: Esparrua
+        decidim_scope_id: Eremua
         description: Deskribapena
         end_date: Bukaera-data
         meetings_ids: Honekin lotutako topaketak
@@ -201,7 +201,7 @@ eu:
             end_date: Amaiera-data
             id: ID
             progress: Aurrerapena
-            scope: Esparrua
+            scope: Eremua
             start_date: Hasiera-data
             status: Egoera
             title: Izenburua
@@ -253,7 +253,7 @@ eu:
           category_id_eq:
             label: Kategoria
           scope_id_eq:
-            label: Esparrua
+            label: Eremua
           status_id_eq:
             label: Egoera
     components:
@@ -270,8 +270,8 @@ eu:
             heading_leaf_level_results: '"Proiektuak" izena'
             heading_parent_level_results: '"Emaitzak" izena'
             intro: Sarrera
-            scope_id: Esparrua
-            scopes_enabled: Esparruak gaituta
+            scope_id: Eremua
+            scopes_enabled: Eremuak gaituta
             subcategories_label: '"Azpikategoriak" izena'
           step:
             comments_blocked: Iruzkin blokeatuak

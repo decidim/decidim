@@ -531,7 +531,7 @@ es:
           section: 'Si lo solicita la organización, por favor imprime y rellena este formulario para enviar donde se indique:'
           signature: Firma
         result:
-          answer_title: Se ha respondido a esta iniciativa.
+          answer_title: Se ha respondido a esta iniciativa
           initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de firmas.
         show:
           area: Área

@@ -4,7 +4,7 @@ eu:
     attributes:
       dummy_resource:
         created_at: Sortua
-        decidim_scope_id: Esparrua
+        decidim_scope_id: Eremua
         field: Nire datu-eremua
         start_date: Hasiera data
         title: Izenburua

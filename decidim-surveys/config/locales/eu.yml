@@ -24,8 +24,8 @@ eu:
             clean_after_publish: Ezabatu erantzuna galdetegia argitaratzean
             ends_at: Erantzunak noiz arte onartuko
             ends_at_help: Utzi zuriz data zehatzik ez badago
-            scope_id: Esparrua
-            scopes_enabled: Esparru gaituak
+            scope_id: Eremua
+            scopes_enabled: Eremu gaituak
             starts_at: Honen erantzunak onartuak
             starts_at_help: Utzi zuriz data zehatzik ez badago
           step:

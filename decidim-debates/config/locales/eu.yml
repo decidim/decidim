@@ -11,7 +11,7 @@ eu:
         end_time: Bukaera-data
         information_updates: Informazioaren eguneratzeak
         instructions: Parte hartzeko argibideak
-        scope_id: Esparrua
+        scope_id: Eremua
         start_time: Hasi da
         title: Izenburua
         user_group_id: Sortu eztabaida honela
@@ -38,8 +38,8 @@ eu:
             announcement: Iragarpena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
-            scope_id: Esparrua
-            scopes_enabled: Esparruak gaituta
+            scope_id: Eremua
+            scopes_enabled: Eremuak gaituta
           step:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
