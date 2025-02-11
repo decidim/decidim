@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RenameValuationAssignmentsCountToEvaluationAssignmentsCount < ActiveRecord::Migration[7.0]
   def change
     rename_column :decidim_proposals_proposals, :valuation_assignments_count, :evaluation_assignments_count
