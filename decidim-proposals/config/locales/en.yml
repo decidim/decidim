@@ -56,7 +56,7 @@ en:
         import_proposals: Import proposals
         keep_answers: Keep state and answers
         keep_authors: Keep original authors
-      valuation_assignment:
+      evaluation_assignment:
         admin_log:
           evaluator_role_id: Evaluator name
     errors:
@@ -699,7 +699,7 @@ en:
           create:
             invalid: 'There was a problem splitting the selected proposals because some of them:'
             success: Successfully splitted the proposals into new ones.
-        valuation_assignments:
+        evaluation_assignments:
           create:
             invalid: There was a problem assigning proposals to a evaluator.
             success: Proposals assigned to a evaluator successfully.
@@ -716,7 +716,7 @@ en:
           update: "%{user_name} updated the %{resource_name} official proposal on the %{space_name} space"
         proposal_note:
           create: "%{user_name} left a private note on the %{resource_name} proposal on the %{space_name} space"
-        valuation_assignment:
+        evaluation_assignment:
           create: "%{user_name} assigned the %{resource_name} proposal to a evaluator"
           delete: "%{user_name} unassigned a evaluator from the %{proposal_title} proposal"
       answers:

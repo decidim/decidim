@@ -25,7 +25,7 @@ module Decidim
       include Decidim::NewsletterParticipant
       include Decidim::Randomable
       include Decidim::Endorsable
-      include Decidim::Proposals::Evaluatable
+      include Decidim::Proposals::Evaluable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
       include Decidim::FilterableResource
@@ -122,11 +122,11 @@ module Decidim
       }
 
       scope :sort_by_evaluation_assignments_count_asc, lambda {
-        order(valuation_assignments_count: :asc)
+        order(evaluation_assignments_count: :asc)
       }
 
       scope :sort_by_evaluation_assignments_count_desc, lambda {
-        order(valuation_assignments_count: :desc)
+        order(evaluation_assignments_count: :desc)
       }
 
       scope :state_eq, lambda { |state|

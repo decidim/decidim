@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     # A set of methods and features related to proposal valuations.
-    module Evaluatable
+    module Evaluable
       extend ActiveSupport::Concern
       include Decidim::Comments::Commentable
 
