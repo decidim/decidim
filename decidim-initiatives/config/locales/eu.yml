@@ -224,7 +224,7 @@ eu:
           index:
             approve: Onartu
             confirm_revoke: Ziur zaude?
-            invite_to_committee_help: Partekatu lotura hau beste parte-hartzaile batzuk batzorde bultzatzailera gonbidatzeko.
+            invite_to_committee_help: Partekatu esteka hau beste parte-hartzaile batzuk batzorde bultzatzailera gonbidatzeko.
             no_members_yet: Ez dago kiderik batzorde bultzatzailean.
             revoke: Baliogabetu
             title: Batzarkideak
@@ -474,8 +474,8 @@ eu:
           approve: Onartu
           confirm_approve: Ziur zaude kide hau onartu nahi duzula?
           confirm_revoke: Ziur zaude kide hau baliogabetu nahi duzula?
-          invite_to_committee_help: Partekatu lotura hau beste parte-hartzaile batzuk batzorde bultzatzailera gonbidatzeko.
-          link: Lotura
+          invite_to_committee_help: Partekatu esteka hau beste parte-hartzaile batzuk batzorde bultzatzailera gonbidatzeko.
+          link: Esteka
           no_members_yet: Ez dago kiderik batzorde bultzatzailean.
           revoke: Baliogabetu
           title: Batzarkideak
