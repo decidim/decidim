@@ -788,7 +788,7 @@ eu:
             title: Editatu boto-paper mota
             update: Eguneratu
           form:
-            code_help: 'Laguntza: kodea erroldaren eta boto-paper motaren arteko lotura da. Erroldako datuak eguneratzean, sarrera bakoitzari kodearekin bat datorren boto-paper mota esleitzen zaio.'
+            code_help: 'Laguntza: kodea erroldaren eta boto-paper motaren arteko esteka da. Erroldako datuak eguneratzean, sarrera bakoitzari kodearekin bat datorren boto-paper mota esleitzen zaio.'
             election: Aukera
             questions: Galderak boto-paper mota honetarako
             questions_help: 'Laguntza: hautatu bozketako osagaien galderak, boto-paper mota honetarako boto-emaileei aurkezteko.'
@@ -1123,7 +1123,7 @@ eu:
           passport: Pasaportea
         export_mailer:
           access_codes_export:
-            click_button: 'Egin klik hurrengo loturan zure datuak deskargatzeko. <br/>Artxiboa eskuragai egongo da data honetara arte %{date}.<br/>Irekitzeko beharko duzu <a href="https://www.7-zip.org/">7-Zip</a> (Windowserako), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (Linuxerako). Pasahitza: %{password}'
+            click_button: 'Egin klik hurrengo estekan zure datuak deskargatzeko. <br/>Artxiboa eskuragai egongo da data honetara arte %{date}.<br/>Irekitzeko beharko duzu <a href="https://www.7-zip.org/">7-Zip</a> (Windowserako), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (Linuxerako). Pasahitza: %{password}'
             download: Deskargatu
             subject: Bozketan sartzeko kodeen esportazioa %{voting_title} rako prest dago
         vote_flow:
