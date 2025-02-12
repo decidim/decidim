@@ -196,7 +196,7 @@ module Decidim
           authorization_handler.errors.each do |error|
             next unless keys.include?(error.attribute.to_sym)
 
-            errors.add(error.attribute, error.type) unless document_number.to_s.end_with?("X")
+            errors.add(error.attribute, error.type)
           end
         end
 
