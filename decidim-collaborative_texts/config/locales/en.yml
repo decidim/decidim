@@ -56,3 +56,5 @@ en:
             comments_blocked: Comments blocked
           step:
             announcement: Announcement
+    statistics:
+      collaborative_texts_count: Collaborative texts

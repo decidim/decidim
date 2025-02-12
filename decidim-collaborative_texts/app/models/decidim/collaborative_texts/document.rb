@@ -15,15 +15,6 @@ module Decidim
       component_manifest_name "collaborative_texts"
 
       validates :title, presence: true
-
-      scope :published, -> { where.not(published_at: nil) }
-
-      # Public: Checks if the collaborative text has been published or not.
-      #
-      # Returns Boolean.
-      def published?
-        published_at.present?
-      end
     end
   end
 end
