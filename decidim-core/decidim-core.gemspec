@@ -24,6 +24,9 @@ Gem::Specification.new do |s|
     end
   end
 
+  # Lock Temporarily as it is failing in 0.27 branch. More info: https://github.com/rails/rails/pull/54264
+  s.add_dependency "concurrent-ruby", "= 1.3.4"
+
   s.add_dependency "active_link_to", "~> 1.0"
   s.add_dependency "acts_as_list", "~> 0.9"
   s.add_dependency "batch-loader", "~> 1.2"
