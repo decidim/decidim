@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     attributes:
@@ -252,7 +253,7 @@ ro:
           title: Despre această adunare
         filters:
           names:
-            all: Toate
+            all: Toți
         show:
           title: Despre această adunare
       assembly_members:
