@@ -179,11 +179,23 @@ fi-pl:
             creation_enabled_for_user_groups: Tapahtuman luonti sallittu ryhmille
     download_your_data:
       help:
+        invites:
+          accepted_at: Kutsun hyväksymisajankohta
+          created_at: Kutsun luontiaika
+          id: Kutsun yksilöivä tunniste
+          meeting: Kutsun lähdetapaaminen
+          rejected_at: Kutsun hylkäämisajankohta
+          sent_at: Kutsun lähetysaika
+          updated_at: Kutsun viimeisimmän päivityksen ajankohta
         registrations:
           code: Ilmoittautumiskoodi
+          created_at: Ilmoittautumisen luontiaika
           id: Ilmoittautumisen yksilöivä tunniste
           meeting: Tapaaminen, johon käyttäjä ilmoittautui
+          public_participation: Näytetäänkö osallistuminen julkisesti
+          updated_at: Ilmoittautumisen viimeisimmän päivityksen ajankohta
           user: Ilmoittautunut käyttäjä
+          validated_at: Ilmoittautumisen vahvistamisen ajankohta
       show:
         meeting_comments: Tapaamisten kommenttien vienti
         meetings: Tapaamisten vienti

@@ -915,7 +915,6 @@ sv:
           maximum_votes_reached: Röstningsgränsen uppnådd
           no_votes_remaining: Inga röster kvar
           vote: Rösta
-          votes_blocked: Röstning inaktiverad
         votes_count:
           count:
             one: Röst

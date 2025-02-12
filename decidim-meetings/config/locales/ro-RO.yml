@@ -568,6 +568,20 @@ ro:
         description: Numărul de întâlniri create
         object: ședințe
         title: Întâlniri
+    open_data:
+      help:
+        meeting_comments:
+          comments: Observațiile privind întâlnirea
+        meetings:
+          attending_organizations: Organizațiile participante la întâlnire
+          audio_url: Înregistrarea audio a întâlnirii
+          location_hints: O indicație a locului în care se desfășoară întâlnirea
+          registration_type: Tipul de înregistrare pentru participare la întâlnire
+          registration_url: URL-ul pentru înregistrare ca participant la întâlnire
+          registrations_enabled: Dacă înregistrările participanților au fost permise
+          reserved_slots: Numărul de locuri rezervate pe care le are întâlnirea
+          type_of_meeting: Tipul întâlnirii
+          updated_at: Data și ora la care întâlnirea a fost actualizată ultima dată
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Întâlniri anterioare

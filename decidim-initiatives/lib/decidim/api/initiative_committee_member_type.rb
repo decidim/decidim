@@ -10,9 +10,8 @@ module Decidim
       description "An initiative committee member"
 
       field :id, GraphQL::Types::ID, "Internal ID for this member of the committee", null: false
-      field :user, Decidim::Core::UserType, "The decidim user for this initiative committee member", null: true
-
       field :state, GraphQL::Types::String, "Type of the committee member", null: true
+      field :user, Decidim::Core::UserType, "The decidim user for this initiative committee member", null: true
     end
   end
 end
