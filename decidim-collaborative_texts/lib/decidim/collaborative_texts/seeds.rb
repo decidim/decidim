@@ -45,7 +45,7 @@ module Decidim
       def create_document!(component:, published_at: Time.current)
         params = {
           component:,
-          title: Decidim::Faker::Localized.paragraph,
+          title: ::Faker::Lorem.paragraph,
           published_at:,
           accepting_suggestions: [true, false].sample
         }

@@ -26,9 +26,5 @@ FactoryBot.define do
     trait :published do
       published_at { Time.current }
     end
-
-    factory :published_collaborative_text do
-      published_at { Time.current }
-    end
   end
 end

@@ -5,7 +5,6 @@ module Decidim
     module Admin
       class DocumentsController < Admin::ApplicationController
         include Decidim::CollaborativeTexts::Admin::Filterable
-        include Decidim::CollaborativeTexts::Admin::Concerns::HasSettings
         include Decidim::Admin::HasTrashableResources
 
         helper_method :documents, :document
@@ -48,6 +47,26 @@ module Decidim
             on(:invalid) do
               flash.now[:alert] = I18n.t("documents.update.invalid", scope: "decidim.collaborative_texts.admin")
               render action: "edit"
+            end
+          end
+        end
+
+        def edit_settings
+          @form = form(Admin::DocumentForm).from_model(document)
+        end
+
+        def update_settings
+          @form = form(Admin::DocumentForm).from_params(params)
+
+          UpdateDocumentSettings.call(@form, document) do
+            on(:ok) do
+              flash[:notice] = I18n.t("documents.update_settings.success", scope: "decidim.collaborative_texts.admin")
+              redirect_to documents_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("documents.update_settings.invalid", scope: "decidim.collaborative_texts.admin")
+              render template: edit_settings_template
             end
           end
         end

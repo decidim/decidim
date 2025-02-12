@@ -46,6 +46,7 @@ en:
       models:
         collaborative_text:
           fields:
+            suggestions: Accept suggestions
             title: Title
     components:
       collaborative_texts:

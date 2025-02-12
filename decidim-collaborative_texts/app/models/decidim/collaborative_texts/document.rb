@@ -9,8 +9,8 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::SoftDeletable
       include Decidim::HasComponent
-      include Decidim::TranslatableAttributes
       include Decidim::Publicable
+      include Decidim::Loggable
 
       component_manifest_name "collaborative_texts"
 
