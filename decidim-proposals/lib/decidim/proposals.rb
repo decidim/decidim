@@ -11,6 +11,9 @@ module Decidim
   # This namespace holds the logic of the `Proposals` component. This component
   # allows users to create proposals in a participatory process.
   module Proposals
+    autoload :ProposalListHelper, "decidim/api/functions/proposal_list_helper"
+    autoload :ProposalFinderHelper, "decidim/api/functions/proposal_finder_helper"
+
     autoload :ProposalSerializer, "decidim/proposals/proposal_serializer"
     autoload :DownloadYourDataProposalSerializer, "decidim/proposals/download_your_data_proposal_serializer"
     autoload :CommentableProposal, "decidim/proposals/commentable_proposal"

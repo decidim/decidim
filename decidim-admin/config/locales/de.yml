@@ -1060,6 +1060,7 @@ de:
           'true': 'Ja'
         index:
           back_to_share_tokens: Zurück zu den Zugangslinks
+          copied: Zugangslink kopiert!
           copy_message: Der Text wurde erfolgreich in die Zwischenablage kopiert.
           create_new_token: Einen ersten Zugangslink erstellen!
           empty_html: Keine aktiven Zugangslinks vorhanden. %{new_token_link}
@@ -1069,6 +1070,7 @@ de:
             Erstellen und teilen Sie einen Zugangslink, um anderen die Ansicht dieser unveröffentlichten Ressource zu ermöglichen.
             Zugangslinks können z.B. nur für registrierte Teilnehmer gültig sein oder falls nötig über ein Ablaufdatum verfügen.
             Um einen neuen Zugangslink mit jemandem zu teilen, erstellen Sie ihn und kopieren Sie dann den Link mit dem Aktionssymbol "%{clipboard} Zwischenablage".
+          title: 'Zugangslinks für: %{name}'
         new:
           create: Erstellen
           title: 'Neuer Zugangslink für: %{name}'

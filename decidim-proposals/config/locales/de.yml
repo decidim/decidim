@@ -1003,7 +1003,6 @@ de:
           maximum_votes_reached: Maximal mögliche Anzahl Stimmen erteilt
           no_votes_remaining: Keine verbleibenden Stimmen
           vote: Abstimmen
-          votes_blocked: Abstimmung deaktiviert
         votes_count:
           count:
             one: Stimme

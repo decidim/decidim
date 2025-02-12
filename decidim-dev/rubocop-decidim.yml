@@ -16,4 +16,5 @@ inherit_from:
   - config/rubocop/rails.yml
   - config/rubocop/rspec.yml
   - config/rubocop/faker.yml
+  - config/rubocop/graphql.yml
   - config/rubocop/disabled.yml

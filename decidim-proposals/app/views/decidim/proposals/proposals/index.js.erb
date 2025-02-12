@@ -8,7 +8,7 @@ $orderFilterInput.val('<%= order %>');
   var $map = $("#map");
   var controller = $map.data("map-controller");
   if (controller) {
-    var markerData = JSON.parse('<%= escape_javascript proposals_data_for_map(@proposals).to_json.html_safe %>');
+    var markerData = JSON.parse('<%= escape_javascript cell("decidim/map", @proposals, metadata_card: "decidim/proposals/proposal_metadata").geocoded_data.to_json.html_safe %>');
     controller.clearMarkers();
     if (markerData.length > 0 ) {
       controller.addMarkers(markerData);

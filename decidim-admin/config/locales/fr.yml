@@ -929,7 +929,14 @@ fr:
         new:
           create: Créer
           title: Nouvel utilisateur privé de l'espace participatif.
+        publish_all:
+          error: Une erreur s'est produite lors de la publication de tous les participants privés pour cet espace participatif.
+          success: Tous les participants privés ont été publiés avec succès pour cet espace participatif
+        unpublish_all:
+          error: Une erreur s'est produite lors de la dépublication de tous les participants privés pour cet espace participatif.
+          success: Tous les participants privés ont été dépubliés avec succès pour cet espace participatif
         update:
+          error: Une erreur s'est produite lors de la mise à jour du participant privé pour cet espace participatif.
           success: Participant privé de l'espace participatif mis à jour avec succès
       participatory_space_private_users_csv_imports:
         create:
@@ -1027,6 +1034,7 @@ fr:
           'true': 'Oui'
         index:
           back_to_share_tokens: Retour aux liens d'accès
+          copied: Lien d'accès copié !
           copy_message: Le texte a été copié dans le presse-papiers.
           create_new_token: Créez votre premier lien d'accès !
           empty_html: Il n'y a pas de liens d'accès actifs. %{new_token_link}
@@ -1036,6 +1044,7 @@ fr:
             Créer et partager un lien d'accès pour autoriser d'autres personnes à voir cette ressource non publiée.
             Les liens d'accès peuvent être valides uniquement pour les participants enregistrés ou peuvent avoir une date d'expiration si nécessaire.
             Pour partager un nouveau lien d'accès avec quelqu'un, créez-le puis copiez le lien en utilisant l'icône d'action représentant le "%{clipboard} presse-papier".
+          title: 'Liens d''accès pour: %{name}'
         new:
           create: Créer
           title: 'Nouveau lien d''accès pour : %{name}'

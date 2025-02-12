@@ -786,7 +786,6 @@ bg:
           maximum_votes_reached: Лимитът за гласуване е достигнат
           no_votes_remaining: Няма останали гласове
           vote: Глас
-          votes_blocked: Гласуването е деактивирано
         votes_count:
           count:
             one: Глас
