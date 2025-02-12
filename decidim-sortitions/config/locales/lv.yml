@@ -1,9 +1,9 @@
+---
 lv:
   activemodel:
     attributes:
       sortition:
         additional_info: Izlozes informācija
-        decidim_category_id: To priekšlikumu kopu kategorijas, kurās vēlaties izmantot izlozi
         decidim_proposals_component_id: Priekšlikumu kopas
         dice: Kauliņa metiena rezultāts. Metiet kauliņu kuba formā ar sešām skaldnēm vai meklējiet citu veidu, kā iegūt nejauši izvēlētu skaitli no 1 līdz 6, un ievadiet iegūto skaitli dažu liecinieku klātbūtnē. Šādi tiek uzlabota procesa kvalitāte un garantēta rezultāta nejaušība.
         target_items: Atlasāmo priekšlikumu skaits (norāda priekšlikumu skaitu, kuru vēlaties atlasīt, izlozējot no iepriekš izvēlēto priekšlikumu kopas)
@@ -40,7 +40,6 @@ lv:
         models:
           sortition:
             fields:
-              category: Kategorija
               created_at: Izveides datums
               decidim_proposals_component: Priekšlikumu komponents
               dice: Metamais kauliņš
@@ -60,7 +59,6 @@ lv:
             title: Atjaunināt informāciju par izlozi
             update: Atjaunināt
           form:
-            all_categories: Visas kategorijas
             select_proposal_component: Atlasiet piedāvājumu kopu
           index:
             title: Izlozes
@@ -101,11 +99,8 @@ lv:
             other: atlasītie priekšlikumi
         show:
           algorithm: Izlozes algoritma kods
-          any_category: no visām kategorijām
           cancelled: Atcelta izloze
           candidate_proposal_ids: Izlozes priekšlikumu secība un ID
-          candidate_proposals_info: 'Izloze veikta no šādiem priekšlikumiem (%{category_label}) ar šādiem ID (atlasītie priekšlikumi ir treknrakstā)'
-          category: no kategorijas %{category}
           dice_result: (1.) Rezultāts, metot kauliņu
           introduction: 'Šajā lapā ir izlozes %{reference} rezultāti. Izmantojot šo izlozi %{target_items}, rezultātu skaits ir izvēlēts nejauši un ar vienādu varbūtības sadalījumu starp turpmāk esošajām priekšlikumu kopām. Kopā ar rezultātiem šajā lapā esošā informācija sniedz visus datus, lai nodrošinātu maksimālas garantijas un iespējamību atkārtot rezultātus. Izlozes kvalitātes atslēga ir dubultā nejaušība, ko rada metamā kauliņa izmantošana (liecinieku klātbūtnē) un precīzā izlozes laika ievade algoritmā, kas veic nejaušo izvēli. Laika vērtība izlozē ir tik precīza (sekundes), ka to nevar kontrolēt cilvēki, tādējādi divreiz sniedzot „nekontrolējamu” ievades informāciju, kas garantē taisnīgu rezultātu.'
           mathematical_result: Rezultāts (1) x (2)
