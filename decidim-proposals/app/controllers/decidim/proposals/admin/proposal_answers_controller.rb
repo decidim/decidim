@@ -7,6 +7,7 @@ module Decidim
       class ProposalAnswersController < Admin::ApplicationController
         include ActionView::Helpers::SanitizeHelper
         include Decidim::Proposals::Admin::NeedsInterpolations
+        include Decidim::Proposals::Admin::Filterable
 
         helper_method :proposal
 
@@ -77,6 +78,10 @@ module Decidim
 
         def proposals
           @proposals ||= Proposal.where(component: current_component).where(id: params[:proposal_ids])
+        end
+
+        def collection
+          @collection ||= Proposal.where(component: current_component).not_hidden.published
         end
 
         def template
