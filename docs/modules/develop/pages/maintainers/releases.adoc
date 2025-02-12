@@ -14,12 +14,12 @@ Remember to follow the Gitflow branching workflow.
 Mark `develop` as the reference to the next release:
 
 . Go back to develop with `git checkout develop`
+. Create a new branch `git checkout -b chore/x.y.z/bump-develop`
 . Turn develop into the `dev` branch for the next release:
  .. Update `.decidim-version` to the new `dev` development version: `x.y.z.dev`, where `x.y.z` is the new semver number for the next version
  .. Run `bin/rake update_versions`, this will update all references to the new version.
  .. Run `bin/rake patch_generators`, this will update the Gemfile for the generators to the new version.
  .. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
- .. Run `bin/rake webpack`, this will update the JavaScript bundle.
 . Update `SECURITY.md` and change the supported version to the new version.
 . Update the `CHANGELOG.md`.
 At the top you should have an `Unreleased` header and under that the content `Nothing.`. The CHANGELOG is automatically generated for the release branches so do not worry about its actual contents at the `develop` branch.
@@ -114,7 +114,9 @@ result = 1 + 1 if after
 ```
 ----
 
-. Push the changes `git add . && git commit -m "Bump develop to next release version" && git push origin develop`
+. Commit the changes `git commit -a -m "Bump develop to next release version`
+. Push the branch `git push origin chore/x.y.z/bump-develop`
+. Present the PR https://github.com/decidim/decidim/pull/new/chore/x.y.z/bump-develop
 
 == Create the stable branch in Crowdin
 
@@ -133,56 +135,7 @@ result = 1 + 1 if after
  .. Change the "Service Branch Name" to be consistent with the other branches. So, for instance, "release/0.20-stable" would become "chore/l10n/release/0.20-stable".
  .. Click on "Save"
  .. After a couple of hours, if there are any changes in Crowdin that would involve this branch, you will see the correspondent "Decidim bot" Pull Request in GitHub.
-
-== Producing the CHANGELOG.md
-
-Look for the "Bump develop to next release version" commit sha1.
-You can do it either visually with `gitk .decidim-version` or by blaming `git blame .decidim-version`.
-
-Here you have different options to see what happened from one revision to another:
-
-[source,bash]
-----
-git log v0.20.0..v0.20.1 --grep " (#[0-9]\+)" --oneline
-git log <SHA>..HEAD --grep " (#[0-9]\+)" --oneline
-----
-
-Once you have checked the list of changes, it is time to actually generating the changelog.
-
-[source,bash]
-----
-bin/changelog_generator
-----
-
-In order to generate the changelog, you need to know the SHA hash of the first commit that was not part of the previous release. You can check the commit hash by inspecting the commit log of the `.decidim-version` file as follows when in the correct release branch:
-
-[source,bash]
-----
-git log -1 --format=oneline .decidim-version
-----
-
-Alternatively, you can find the first commit after the point of time that the two release branches have separated from each other as follows:
-
-[source,bash]
-----
-git log --reverse --pretty=format:"%H" $(git merge-base release/0.XX-stable release/0.YY-stable)..release/0.YY-stable | head -1
-----
-
-In the above command, replace `0.XX` with the previous release and `0.YY` with the current release you are generating the change log for. This command works only for major releases, not for patch or bugfix releases.
-
-Running it as is, or passing it the `--help` flag, will render the help section for the script. In order to actually run the script, follow the instructions:
-
-[source,bash]
-----
-bin/changelog_generator <GITHUB_TOKEN> <SHA>
-----
-
-This command will create a `temporary_changelog.md` in the root of the project, so you can inspect this file and generated changelog.
-
-If you have some elements in the `Unsorted` section of the output, you can review the PRs individually, fix the title and the tags and rerun the script. Those PRs with the tags fixed will be automatically sorted. Labelling the PRs as they are opened or merged is encouraged to save some time when producing the changelog.
-
-You can copy-paste the contents of the temporary changelog file to the relevant sections of the Changelog file.
-
+ 
 == Release Candidates
 
 Release Candidates are the same as beta versions.
@@ -192,16 +145,16 @@ If this is a *Release Candidate version* release, the steps to follow are:
 
 . Merge all the https://github.com/decidim/decidim/pulls?q=is%3Apr+is%3Aopen+author%3Adecidim-bot+sort%3Aupdated-desc[Crowdin pull requests created by the user `decidim-bot`], specially the one that is going to be marged against the release branch `release/x.y-stable` that should be returned by the provided example search (pick the correct pull request for the release from the results).
 . Checkout the release stable branch `git checkout release/x.y-stable`.
-. Update `.decidim-version` to the new version `x.y.z.rc1`
-. Run `bin/rake update_versions`, this will update all references to the new version.
-. Run `bin/rake patch_generators`, this will update the Gemfile for the generators to the new version.
-. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
-. Run `bin/rake webpack`, this will update the JavaScript bundle.
-. Run `bin/rspec`, this will check things like if all the officially supported languages translations are OK.
-. Commit all the changes: `git add . && git commit -m "Bump to rcXX version" && git push origin release/x.y-stable`.
-. Wait for the tests to finish and check that everything is passing before releasing the version.
-NOTE: When you bump the version, the generator tests will fail because the gems and NPM packages have not been actually published yet (as in sent to rubygems/npm). You may see errors such as `No matching version found for @decidim/browserslist-config@~0.xx.y` in the CI logs. This should be fine as long as you have ensured that the generators tests passed in the previous commit.
-. Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
+. Install the last version of the `decidim-maintainers_toolbox` gem, and run the releaser command. Mind that for this to work you need locally the gh CLI from GitHub. 
+[source,bash]
+----
+gem install decidim-maintainers_toolbox
+decidim-releaser --github-token=(gh auth token) --version-type=rc
+----
+. This will create a Pull Request for the new release with title `Bump to vx.y.z version`. Wait for the tests to finish and check that everything is passing before releasing the version.
+NOTE: When you bump the version, the generator tests will fail because the gems and NPM packages have not been actually published yet (as in sent to rubygems/npm). You may see errors such as `No matching version found for @decidim/browserslist-config@~0.xx.y` in the CI logs. This should be fine as long as you have ensured that the generators tests passed in the previous commit. 
+. Review, accept and merge the Pull Request.
+. Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems. Be ready for the One Time Password fill for each of the gems.
 
 Usually, at this point, the release branch is deployed to Metadecidim during, at least, one week to validate the stability of the version.
 
