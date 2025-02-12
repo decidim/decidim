@@ -1,9 +1,9 @@
+---
 gl:
   activemodel:
     attributes:
       sortition:
         additional_info: Información de sorteo
-        decidim_category_id: Categorías do conxunto de propostas nas que desexa aplicar o sorteo
         decidim_proposals_component_id: Propostas establecidas
         dice: Resultado da rolda. Move unha morea de 6 caras ou busque outra forma aleatoria de xerar un número do 1 ao 6 e insira aquí o número resultante diante dalgunhas testemuñas. Isto contribúe á calidade e garantías da aleatoriedade do resultado
         target_items: Número de propostas que se seleccionarán (indica a cantidade de propostas que desexa seleccionar trazando o grupo de propostas que escolleu previamente)
@@ -42,7 +42,6 @@ gl:
         models:
           sortition:
             fields:
-              category: Categoría
               created_at: Data de creación
               decidim_proposals_component: Componente de propostas
               dice: Dado
@@ -62,7 +61,6 @@ gl:
             title: Actualiza a información sobre a clasificación
             update: Actualización
           form:
-            all_categories: Todas as categorías
             select_proposal_component: Selecciona as propostas definidas
           index:
             title: Edicións
@@ -101,11 +99,8 @@ gl:
             other: propostas seleccionadas
         show:
           algorithm: Codigo de algoritmo de Sortition
-          any_category: de todas as categorías
           cancelled: Cancelada sortition
           candidate_proposal_ids: Orde de propostas de clasificación e ID
-          candidate_proposals_info: 'O sortition levouse a cabo entre as seguintes propostas (%{category_label}), coas seguintes ID (en negra as propostas seleccionadas)  '
-          category: da categoría %{category}
           dice_result: (1) resultado de dados
           introduction: 'Esta páxina contén os resultados da clasificación %{reference}. Mediante esta clasificación, %{target_items} número de resultados foron seleccionados aleatoriamente e cunha distribución de probabilidade igual ao conxunto de propostas que se amosan debaixo. Xunto cos resultados, a información que se mostra nesta páxina proporciona toda a información necesaria para maximizar as garantías e reproducir os resultados. A clave para a calidade desta xeración é a aleatoriedade dobre proporcionada por un rolo dun dado (verificado por testemuñas) eo tempo preciso da xeración que proporciona entrada para un algoritmo que xera unha selección aleatoria. A semente de tempo para a xeración é tan precisa (segundos) que é imposible de controlar por parte dos seres humanos proporcionando así unha entrada dobre "incontrolable" para garantir un resultado xusto.  '
           mathematical_result: Resultado (1) x (2)
