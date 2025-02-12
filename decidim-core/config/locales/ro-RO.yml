@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     attributes:
@@ -90,7 +91,7 @@ ro:
   date:
     buttons:
       close: Închideți
-      select: Selectați
+      select: Selectare
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"

@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -295,7 +296,7 @@ sv:
           title: Om samrådet
         filters:
           names:
-            all: Alla
+            all: Allt
           type: Typ
         show:
           title: Om det här samrådet

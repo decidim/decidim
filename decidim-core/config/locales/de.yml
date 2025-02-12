@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -106,7 +107,7 @@ de:
   date:
     buttons:
       close: Schliessen
-      select: Auswählen
+      select: Wählen
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -1666,7 +1667,7 @@ de:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.
         success: Passwort erfolgreich aktualisiert.
     profile:
-      deleted: Gelöschter Teilnehmer
+      deleted: Gelöschter Benutzer
       inaccessible_message: Dieses Profil ist wegen Verletzung der Nutzungsbedingungen nicht zugänglich!
     profiles:
       default_officialization_text_for_user_groups: Diese Benutzergruppe wurde öffentlich überprüft. Der Gruppenname entspricht ihrem tatsächlichen Namen.
@@ -2335,7 +2336,7 @@ de:
     buttons:
       close: Schliessen
       reset: Zurücksetzen
-      select: Auswählen
+      select: Wählen
     formats:
       day_of_month: "%d. %b"
       day_of_week: "%a"
