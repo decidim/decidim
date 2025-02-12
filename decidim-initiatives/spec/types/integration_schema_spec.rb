@@ -17,21 +17,21 @@ describe "Decidim::Api::QueryType" do
       "author" => { "id" => initiative.author.id.to_s },
       "committeeMembers" => initiative.committee_members.map do |cm|
         {
-          "createdAt" => cm.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+          "createdAt" => cm.created_at.to_time.iso8601,
           "id" => cm.id.to_s,
           "state" => cm.state,
-          "updatedAt" => cm.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+          "updatedAt" => cm.updated_at.to_time.iso8601,
           "user" => { "id" => cm.decidim_users_id.to_s }
         }
       end,
       "components" => [],
-      "createdAt" => initiative.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "createdAt" => initiative.created_at.to_time.iso8601,
       "description" => { "translation" => initiative.description[locale] },
       "hashtag" => initiative.hashtag,
       "id" => initiative.id.to_s,
       "offlineVotes" => initiative.offline_votes_count,
       "onlineVotes" => initiative.online_votes_count,
-      "publishedAt" => initiative.published_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "publishedAt" => initiative.published_at.to_time.iso8601,
       "reference" => initiative.reference,
       "scope" => { "id" => initiative.scope.id.to_s },
       "signatureEndDate" => initiative.signature_end_date.to_date.to_s,
@@ -41,14 +41,14 @@ describe "Decidim::Api::QueryType" do
       "state" => initiative.state,
       "title" => { "translation" => initiative.title[locale] },
       "type" => initiative.class.name,
-      "updatedAt" => initiative.updated_at.iso8601.to_s.gsub("Z", "+00:00")
+      "updatedAt" => initiative.updated_at.to_time.iso8601
 
     }
   end
   let(:initiative_type_data) do
     {
       "collectUserExtraFields" => initiative.type.collect_user_extra_fields?,
-      "createdAt" => initiative.type.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "createdAt" => initiative.type.created_at.to_time.iso8601,
       "description" => { "translation" => initiative.type.description[locale] },
       "extraFieldsLegalInformation" => initiative.type.extra_fields_legal_information,
       "id" => initiative.type.id.to_s,
@@ -58,7 +58,7 @@ describe "Decidim::Api::QueryType" do
       "signatureType" => initiative.type.signature_type,
       "title" => { "translation" => initiative.type.title[locale] },
       "undoOnlineSignaturesEnabled" => initiative.type.undo_online_signatures_enabled,
-      "updatedAt" => initiative.type.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "updatedAt" => initiative.type.updated_at.to_time.iso8601,
       "validateSmsCodeOnVotes" => initiative.type.validate_sms_code_on_votes
     }
   end

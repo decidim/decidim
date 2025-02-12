@@ -604,6 +604,28 @@ ro:
           user: Utilizatorul căruia îi aparține această identitate
         messaging_conversations:
           created_at: Data la care a fost creată această conversație
+        participatory_space_private_users:
+          created_at: Data și ora la care a fost creat acest utilizator privat
+          id: Identificatorul unic al acestui utilizator privat
+          privatable_to: Spațiul căruia îi aparține acest utilizator privat
+          published: Daca acest utilizator privat este vizibil sau nu
+          role: Rolul pe care îl are acest utilizator privat
+          updated_at: Data și ora la care acest utilizator privat a fost actualizat ultima dată
+        reports:
+          created_at: Data și ora la care acest raport a fost creat
+          details: Detaliile acestui raport
+          id: Identificatorul unic al acestui raport
+          locale: Limba acestui raport
+          moderation: Moderarea pe care o are acest raport
+          reason: Motivul prezentului raport
+          updated_at: Data și ora la care acest raport a fost actualizat ultima dată
+        users:
+          accepted_tos_version: Data la care termenii de utilizare ai acestei platforme au fost acceptați de către utilizator
+          followers_count: Numărul de participanți care urmăresc acest utilizator
+          following_count: Numărul de participanți pe care acest utilizator îl urmărește
+          password_updated_at: Data la care parola a fost schimbată ultima dată
+          roles: Rolul pe care îl are acest utilizator, dacă are vreun astfel de rol
+          type: Tipul pe care acest utilizator îl are
       show:
         download_data: Descărcare date
         download_data_description_2: Puteți solicita un fișier .zip cu conținutul generat, precum și datele dumneavoastră personale.
@@ -1371,6 +1393,8 @@ ro:
         someone_invited_you_as_admin: Cineva v-a invitat să administrați %{application}. Puteți accepta prin linkul de mai jos.
         someone_invited_you_as_private_user: Cineva v-a invitat ca participant privat la %{application}, puteți accepta prin intermediul linkului de mai jos.
         subject: Instrucțiuni pentru invitație
+      invite_admin:
+        subject: Ați fost invitat să gestionați %{organization}
       password_change:
         greeting: Bună ziua %{recipient}!
         subject: Parola a fost schimbată
@@ -1430,6 +1454,33 @@ ro:
   doorkeeper:
     scopes:
       public: Informațiile dumneavoastră publice.
+  emojis:
+    add_custom: Adaugați emoji personalizat
+    button: Adaugați emoji
+    categories:
+      activity: Activități
+      custom: Personalizat
+      flags: Steaguri
+      foods: Alimente și băuturi
+      frequent: Utilizate frecvent
+      nature: Animale și natură
+      objects: Obiecte
+      people: Emoticoane și oameni
+      places: Călătorii și locuri
+      search: Rezultatele căutării
+      symbols: Simboluri
+    pick: Alegeți un emoji…
+    search: Căutare
+    search_no_results_1: O, nu!
+    search_no_results_2: Acel emoji nu a putut fi găsit
+    skins:
+      '1': Implicit
+      '2': Luminos
+      '3': Mediu-Luminos
+      '4': Mediu
+      '5': Mediu-Întunecat
+      '6': Întunecat
+      choose: Alegeți ton implicit pentru piele
   errors:
     messages:
       confirmation_period_expired: trebuie să fie confirmat în %{period}, vă rugăm să solicitați unul nou

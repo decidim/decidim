@@ -181,7 +181,7 @@ eu:
           img_src_hint: |
             img-src direktibak <img>, <image>, <picture> amd <svg> elementuetan kargatu daitezkeen URLak murrizten ditu.
             Plataformak "'self' 'erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
-          media_src: Media src
+          media_src: Multimedia src
           media_src_hint: |
             media-src ereduko helbideek <video>, <audio> eta <source> elementuetan kargatu daitezkeen URLak murrizten dituzte.
             Plataformak "'self' 'erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.

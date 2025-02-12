@@ -32,22 +32,7 @@
 
     <% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? %>
       <div class="budget-list__map">
-        <%= dynamic_map_for projects_data_for_map(all_geocoded_projects) do %>
-          <template id="marker-popup">
-            <div class="space-y-6">
-              <a href="${link}" class="card__list">
-                <div class="card__list-content">
-                  <h3 class="h4 card__list-title">${title}</h3>
-                  <div class="card__list-metadata">
-                    {{each JSON.parse(items)}}
-                      <span>{{html icon}}{{html text}}</span>
-                    {{/each}}
-                  </div>
-                </div>
-              </a>
-            </div>
-          </template>
-        <% end %>
+        <%= cell "decidim/map", all_geocoded_projects, metadata_card: "decidim/budgets/project_metadata" %>
       </div>
     <% end %>
 
