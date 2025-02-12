@@ -1,3 +1,4 @@
+---
 tr:
   activemodel:
     attributes:
@@ -1140,13 +1141,13 @@ tr:
     sessions:
       already_signed_out: Başarıyla Çıkış Yapıldı
       new:
-        log_in: Giriş Yapın
+        log_in: "Giriş \nGiriş Yapın "
       signed_out:
     shared:
       links:
         back: Geri
         forgot_your_password: Parolanızı mı unuttunuz?
-        log_in: Giriş Yapın
+        log_in: "Giriş \nGiriş Yapın "
         log_in_with_provider: '%{provider} ile giriş yapın'
       minimum_password_length:
         one: "(En az%{count} karakter)"
@@ -1193,7 +1194,7 @@ tr:
       footer:
         cc_by_license: Kar Amaçsız Lisanslama (Creative Commons License)
         decidim_logo: Decidim Logo
-        log_in: Giriş Yapın
+        log_in: "Giriş \nGiriş Yapın "
         made_with_open_source: Web sitesi <a target="_blank" href="https://github.com/decidim/decidim">ücretsiz yazılımla yapılmıştır</a>.
         terms_of_service: Hizmet Kullanım Koşulları
       header:
