@@ -5,8 +5,12 @@
 Until we have the version 1.0 we support only the last three minor versions with
 security updates.
 
+Exceptionally we are supporting v0.27 for a longer time as it is the last version
+with the old design and we are giving time to legacy installations for updating.
+
 | Version  | Supported          |
 | -------- | ------------------ |
+| 0.30.x   | :white_check_mark: |
 | 0.29.x   | :white_check_mark: |
 | 0.28.x   | :white_check_mark: |
 | 0.27.x   | :white_check_mark: |
