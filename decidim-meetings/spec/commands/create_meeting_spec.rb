@@ -59,7 +59,7 @@ module Decidim::Meetings
         taxonomizations:,
         reminder_enabled:,
         send_reminders_before_hours:,
-        reminder_message_custom_content: "Custom reminder message!",
+        reminder_message_custom_content: "Custom reminder message!"
       )
     end
 
