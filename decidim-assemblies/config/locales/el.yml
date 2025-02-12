@@ -1,8 +1,6 @@
 el:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Τίτλος
       assembly:
         announcement: Ανακοίνωση
         area_id: Τομέας
@@ -19,7 +17,6 @@ el:
         created_by_other: Δημιουργήθηκε από άλλο
         creation_date: Ημερομηνία δημιουργίας
         decidim_area_id: Περιοχή
-        decidim_assemblies_type_id: Τύπος συνέλευσης
         decidim_scope_id: Πεδίο εφαρμογής
         description: Περιγραφή
         developer_group: Ομάδα προώθησης
@@ -35,7 +32,6 @@ el:
         import_components: Εισαγωγή Στοιχείων
         included_at: Συμπεριλήφθηκε στις
         instagram: Instagram
-        internal_organisation: Εσωτερικός οργανισμός
         is_transparent: Είναι διαφανής
         local_area: Τομέας οργανισμού
         meta_scope: Μεταδεδομένα πεδίου εφαρμογής
@@ -47,8 +43,6 @@ el:
         promoted: Επισημάνθηκε
         published_at: Δημοσιεύτηκε στις
         purpose_of_action: Σκοπός της δράσης
-        scope_id: Πεδίο εφαρμογής
-        scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
         short_description: Σύντομη περιγραφή
         slug: Slug διεύθυνσης URL
         special_features: Ειδικά χαρακτηριστικά
@@ -94,7 +88,6 @@ el:
       actions:
         import_assembly: Εισαγωγή
         new_assembly: Νέα συνέλευση
-        new_assembly_type: Νέος τύπος συνέλευσης
       assemblies:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία μιας νέας συνέλευσης.
@@ -114,18 +107,6 @@ el:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την αντιγραφή αυτής της συνέλευσης.
           success: Η συνέλευση αντιγράφτηκε με επιτυχία.
-      assemblies_types:
-        create:
-          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου τύπου συνέλευσης.
-          success: Ο τύπος συνέλευσης δημιουργήθηκε με επιτυχία.
-        destroy:
-          success: Ο τύπος συνέλευσης διαγράφηκε με επιτυχία.
-        new:
-          create: Δημιουργία
-          title: Νέος τύπος συνέλευσης
-        update:
-          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του τύπου συνέλευσης.
-          success: Ο τύπος συνέλευσης ενημερώθηκε με επιτυχία.
       assembly_copies:
         new:
           copy: Αντιγραφή
@@ -161,9 +142,6 @@ el:
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση ενός διαχειριστή για αυτήν τη συνέλευση.
           success: Ο διαχειριστής ενημερώθηκε με επιτυχία για αυτήν τη συνέλευση.
-      filters:
-        decidim_assemblies_type_id_eq:
-          label: Τύπος συνέλευσης
       menu:
         assemblies: Συνελεύσεις
         assemblies_submenu:
@@ -171,15 +149,9 @@ el:
           attachment_collections: Φάκελοι
           attachment_files: Αρχεία
           attachments: Συνημμένα
-          categories: Κατηγορίες
           components: Στοιχεία
           moderations: Εποπτεύσεις
-        assemblies_types: Τύποι συνέλευσης
       models:
-        assemblies_types:
-          fields:
-            created_at: Δημιουργήθηκε στις
-            title: Τίτλος
         assembly:
           fields:
             created_at: Δημιουργήθηκε στις
@@ -241,20 +213,14 @@ el:
             announcement_help: Το κείμενο που εισάγετε εδώ θα εμφανίζεται στο χρήστη ακριβώς κάτω από τις πληροφορίες συνέλευσης.
             duration: Διάρκεια
             duration_help: Εάν η διάρκεια αυτής της συνέλευσης είναι περιορισμένη, επιλέξτε την ημερομηνία λήξης. Διαφορετικά, θα εμφανίζεται ως απεριόριστη.
-            filters: Φίλτρα
             images: Εικόνες
             included_at_help: Επιλέξτε την ημερομηνία προσθήκης αυτής της συνέλευσης στην πλατφόρμα. Δεν χρειάζεται απαραίτητα να είναι ίδια με την ημερομηνία δημιουργίας.
             metadata: Μεταδεδομένα
             other: Άλλο
             select_a_created_by: Επιλέξτε «Δημιουργήθηκε από»
-            select_an_area: Επιλέξτε «Τομέα»
-            select_an_assembly_type: Επιλέξτε «Τύπο συνέλευσης»
             select_parent_assembly: Επιλέξτε «Γονική συνέλευση»
             social_handlers: Μέσα κοινωνικής δικτύωσης
             title: Γενικές πληροφορίες
-        assemblies_types:
-          form:
-            title: Τίτλος
         assembly_members:
           form:
             explanation: 'Οδηγίες για την εικόνα:'
@@ -274,14 +240,6 @@ el:
       assembly_members:
         index:
           members: Μέλη
-      assembly_types:
-        commission: Επιτροπή
-        consultative_advisory: Γνωμοδοτικό/Συμβουλευτικό σώμα
-        executive: Εκτελεστικό σώμα
-        government: Κυβέρνηση
-        others: Άλλα
-        participatory: Συμμετοχικό
-        working_group: Ομάδα εργασίας
       content_blocks:
         highlighted_assemblies:
           name: Επισημασμένες συνελεύσεις
@@ -308,7 +266,6 @@ el:
           member_of:
             member_of: Μέλος
       show:
-        assembly_type: Τύπος συνέλευσης
         duration: Διάρκεια
         private_space: Αυτή είναι μια ιδιωτική συνέλευση
         social_networks_title: Επίσκεψη στη συνέλευση στις

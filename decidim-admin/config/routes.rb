@@ -15,10 +15,6 @@ Decidim::Admin::Engine.routes.draw do
       end
     end
 
-    Decidim.participatory_space_manifests.each do |manifest|
-      mount manifest.context(:admin).engine, at: "/", as: "decidim_admin_#{manifest.name}"
-    end
-
     resources :static_pages do
       put :update_content_blocks, on: :member
       resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "static_page_content_blocks"
@@ -34,12 +30,6 @@ Decidim::Admin::Engine.routes.draw do
     resources :areas, except: [:show]
 
     resources :authorization_workflows, only: :index
-
-    Decidim.authorization_admin_engines.each do |manifest|
-      mount manifest.admin_engine, at: "/#{manifest.name}", as: "decidim_admin_#{manifest.name}"
-    end
-
-    mount Decidim::Templates::AdminEngine, at: "/templates", as: "decidim_admin_templates" if Decidim.module_installed?(:templates)
 
     resources :users, except: [:edit, :update], controller: "users" do
       member do
@@ -129,7 +119,9 @@ Decidim::Admin::Engine.routes.draw do
     resources :taxonomies, except: [:show] do
       patch :reorder, on: :collection
       resources :items, only: [:new, :create, :edit, :update], controller: "taxonomy_items"
+      resources :filters, except: [:show], controller: "taxonomy_filters"
     end
+    resources :taxonomy_filters_selector, param: :taxonomy_filter_id, except: [:edit, :update]
 
     root to: "dashboard#show"
   end

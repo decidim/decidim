@@ -3,6 +3,8 @@
 module Decidim
   module Core
     class MetricHistoryType < Decidim::Api::Types::BaseObject
+      description "A metric history"
+
       field :key, GraphQL::Types::String, "The key value", null: false
       field :value, GraphQL::Types::Int, "The value for each key", null: false
 

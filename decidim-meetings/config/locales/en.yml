@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      answer:
+        add_documents: Add documents
       close_meeting:
         attendees_count: Number of attendees
         attending_organizations: List of organizations that attended
@@ -168,8 +170,6 @@ en:
             no_taxonomy_filters_found: No taxonomy filters found.
             registration_code_enabled: Registration code enabled
             resources_permissions_enabled: Actions permissions can be set for each meeting
-            scope_id: Scope
-            scopes_enabled: Scopes enabled
             taxonomy_filters: Select filters for the component
             taxonomy_filters_add: Add filter
             terms_and_conditions_url_for_meeting_creators: Terms and conditions URL for meeting creators
@@ -180,11 +180,23 @@ en:
             creation_enabled_for_user_groups: Meeting creation by user groups enabled
     download_your_data:
       help:
+        invites:
+          accepted_at: The date and time when this invitation was accepted
+          created_at: The date and time when this invitation was created
+          id: The unique identifier for this invitation
+          meeting: The meeting where this invitation has happened
+          rejected_at: The date and time when this invitation was rejected
+          sent_at: The date and time when this invitation was sent
+          updated_at: The date and time when this invitation was last updated
         registrations:
           code: The registration code
+          created_at: The date and time when this registration was created
           id: The unique identifier of the registration
           meeting: The meeting that the user registered to
+          public_participation: Wehter this participation was shown publicly
+          updated_at: The date and time when this registration was last updated
           user: The user that made the registration
+          validated_at: The date and time when this registration was validated
       show:
         meeting_comments: Meeting comments export
         meetings: Meetings export
@@ -716,6 +728,7 @@ en:
           body: The comment itself
           commentable_id: The unique id of the commentable
           commentable_type: The type of the commentable (if it was a result, a proposal, etc.)
+          comments: The comments data of the meeting
           created_at: The date when this comment was created
           depth: The place where this comment is in the three of comments (if it is an answer or an answer of an answer)
           id: The id for this comment
@@ -726,26 +739,53 @@ en:
           address: The address of the meeting in case it is in person and has a physical location
           attachments: The number of attachments in this meeting
           attendees: The number of people attending this meeting
+          attending_organizations: The organizations attending the meeting
+          audio_url: Audio recording of the meeting
           author: The data for the author of this meeting
-          comments: The number of comments made in this meeting
+          available_slots: The number of slots available in a meeting
+          closed_at: The date at which the meeting closed
+          closing_report: Report of the closed meeting
+          closing_visible: The visibilty of the meeting
+          comments: The comments data of the meeting
           component: The component that the meeting belongs to
           contributions: The number of contributions in this meeting made by the atteendes
+          created_at: The date at which the meeting was created
+          customize_registration_email: The ability to allow a custom email at registration
+          decidim_author_type: Author type of the meeting's author
+          decidim_user_group_id: User group ID of people involved in the meeting
           description: The description of the meeting
           end_time: The date and time that this meeting ends
-          followers: The number of followers of this meeting
+          follows_count: The number of follows the meeting has
           id: The unique identifier of the meeting
+          iframe_access_level: The iframe access level of the meeting
+          iframe_embed_type: The type of iframe embeded in the meeting
+          latitude: The latitude of the meeting
           location: The location of the meeting
+          location_hints: A hint of the location in which the meeting is taking place
+          longitude: The longitude of the meeting
+          online_meeting_url: The URL of the online meeting
           organizations: The organizations attending this meeting
           participatory_space: To which space (e.g. Participatory Process, or Assembly) this meeting belongs to
+          private_meeting: To indicate whether the meeting is private or not
           published: When the meeting has been published
           reference: The unique identifier of the resource in this platform
+          registration_form_enabled: Whether the registration form was enabled or not
+          registration_terms: The terms agreed prior to meeting participation
+          registration_type: The type of registration of the meeting
+          registration_url: URL of the meeting registration
+          registrations_enabled: Whether registrations were permitted
           related_proposals: The proposals related to this meeting
           related_results: The results related to this meeting
+          reserved_slots: The number of reserved slots the meeting has
           start_time: The date and time that this meeting starts
           taxonomies: The taxonomies that this meeting belongs to
           title: The title of the meeting
+          transparent: The visabilty of the meetng for non-members
+          type_of_meeting: The meeting type
+          updated_at: The time at which the meeting was last updated
           url: The URL of the meeting
-          withdrawn: Wheter this meeting has been withdrawn
+          video_url: Video recording of the meeting
+          withdrawn: Whether this meeting has been withdrawn
           withdrawn_at: When this meeting was withdrawn
     participatory_spaces:
       highlighted_meetings:

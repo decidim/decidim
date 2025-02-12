@@ -10,6 +10,8 @@ ca:
         state: Estat
         title: Títol
         user_group_id: Crea un esborrany col·laboratiu com a
+      import_participatory_text:
+        document: Document
       proposal:
         address: Adreça
         answer: Resposta
@@ -19,6 +21,8 @@ ca:
         decidim_proposals_proposal_state_id: Estat
         decidim_scope_id: Àmbit
         has_address: Té adreça
+        latitude: Latitud
+        longitude: Longitud
         scope_id: Àmbit
         state: Estat
         suggested_hashtags: Hashtags suggerits
@@ -45,6 +49,8 @@ ca:
       proposals_copy:
         copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot desfer.
         origin_component_id: Component des d'on importar les propostes
+      proposals_file_import:
+        file: Arxiu
       proposals_import:
         import_proposals: Importar propostes
         keep_answers: Manté l'estat i les respostes
@@ -112,6 +118,9 @@ ca:
         other: Suports
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Propostes
       filters:
         proposals:
           is_emendation_true:
@@ -209,8 +218,6 @@ ca:
             proposal_wizard_step_1_help_text: Text d'ajuda pel pas "Crear" de l'assistent de propostes
             proposal_wizard_step_2_help_text: Text d'ajuda pel pas "Publicar" de l'assistent de propostes
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada proposta
-            scope_id: Àmbit
-            scopes_enabled: Àmbits habilitats
             taxonomy_filters: Seleccionar filtres pel component
             taxonomy_filters_add: Afegir un filtre
             threshold_per_proposal: Llindar per proposta
@@ -446,10 +453,16 @@ ca:
           attachments: El número de fitxers adjunt que té aquesta proposta
           author: Les dades d'autoria d'aquesta proposta
           body: La descripció de la proposta
+          coauthorships_count: El número d'autories que la proposta representa
           comments: El número de comentaris que té aquesta proposta
           component: El component al qual pertany aquesta proposta
+          cost: El cost total que representa la proposta en qüestió
+          cost_report: Un informe dels costos que representa la proposta
+          created_at: La data en què es va crear la proposta
+          created_in_meeting: Si la proposta s'ha formulat en una trobada
           endorsements: El número d'adhesions ("m'agrada") que té aquesta proposta
-          followers: El número de seguidores que té aquesta proposta
+          execution_period: El període d'execució de la proposta, de principi a fi
+          follows_count: El número de seguidores que té aquesta proposta
           id: L'identificador únic de la proposta
           is_amend: Si aquesta proposta és una esmena a una altra proposta o no
           latitude: La latitud de la proposta en cas que aquesta tingui una ubicació física
@@ -461,8 +474,10 @@ ca:
           reference: L'identificador únic del recurs a aquesta plataforma
           related_proposals: Les propostes relacionades amb aquesta proposta
           state: 'L''estat d''aquesta proposta (per exemple: "Acceptada")'
+          state_published_at: Un segell de temps del moment en què es va publicar la proposta
           taxonomies: Les taxonomies a les quals pertany aquesta proposta
           title: El títol de la proposta
+          updated_at: La data de la darrera actualització de la proposta
           url: L'URL on es pot trobar aquesta proposta
           votes: El número de suports que té aquesta proposta
           withdrawn: Si aquesta proposta va ser retirada o no
@@ -500,7 +515,7 @@ ca:
         imports:
           help:
             answers: |
-              El document d'importació ha d'incloure els següents noms de columna en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON:
+              El document d'importació ha d'incloure els següents noms de columna en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON (s'ignoraran altres columnes):
               <ul>
               <li><b>id:</b> ID de la proposta a responder</li>
               <li>state<b>:</b> Un d'aquests "acceptada", "en avaluació" o "rebutjada"</li>
@@ -511,8 +526,7 @@ ca:
               <ul>
               <li><b>title/ca:</b> Títol en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
               <li><b>body/ca:</b> Descripció en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
-              <li><b>scope/id:</b> ID de l'Àmbit</li>
-              <li><b>category/id:</b> ID de la Categoria</li>
+              <li><b>taxonomies/ids:</b> IDs for the Taxonomies (if more than one, separate with a comma)</li>
               </ul>
           label:
             answers: Importar respostes des d'un fitxer
@@ -610,9 +624,7 @@ ca:
             title: Actualitza la proposta
             update: Actualizar
           form:
-            attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
             created_in_meeting: Aquesta proposta prové d'una trobada
-            delete_attachment: Suprimeix l'adjunt
             select_a_meeting: Selecciona una trobada
           index:
             actions: Accions
@@ -748,7 +760,7 @@ ca:
           error: S'ha produït un error en crear aquest esborrany col·laboratiu.
           success: Esborrany col·laboratiu creat correctament.
         edit:
-          attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
+          attachment_legend: Afegir un document o una imatge
           back: Torna
           send: Envia
           title: Edita l'esborrany col·laboratiu
@@ -837,6 +849,11 @@ ca:
       destroy_draft:
         error: S'ha produït un error en suprimir l'esborrany de la proposta.
         success: L'esborrany de proposta s'ha eliminat correctament.
+      exit_modal:
+        cancel: Cancel·lar
+        exit: Continuar
+        message: Has de donar %{number} suport/s més entre les diferents propostes perquè els teus suports siguin tinguts en compte.
+        title: Recorda que encara et queda/en %{number} suport/s
       forms:
         errors:
           device_not_supported: El teu dispositiu no admet serveis d'ubicació. Si us plau, introdueix l'adreça postal completa manualment (tipus de via, nom de la via, número, codi postal i ciutat).
@@ -891,10 +908,10 @@ ca:
           description: Les coordenades s'actualitzaran quan facis clic en el botó 'previsualitzar'. No obstant això, la direcció no canvia.
           instructions: Pots moure la ubicació en el mapa.
         edit:
-          add_documents: Afegir documents
-          attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
+          add_attachments: Afegir fitxer(s) adjunt(s)
+          attachment_legend: Afegir un document o una imatge
           back: Torna
-          edit_documents: Editar documents
+          edit_attachments: Edita els fitxers adjunts
           send: Envia
           title: Edita proposta
         edit_draft:
@@ -986,23 +1003,26 @@ ca:
           maximum_votes_reached: S'ha arribat al límit de suports
           no_votes_remaining: No hi ha suports restants
           vote: Donar suport
-          votes_blocked: Recollida de suports desactivada
+          votes_blocked: Donar suport
         votes_count:
           count:
             one: Suport
             other: Suports
         voting_rules:
+          already_vote:
+            description: Recorda que encara has de donar %{number} suport/s més entre les diferents propostes perquè els teus suports siguin tinguts en compte.
+            see_other_proposals: Veure altres propostes
+            title: Tens %{number} suport/s restant/s
           can_accumulate_votes_beyond_threshold:
             description: Cada proposta pot acumular més de %{limit} suports
           minimum_votes_per_user:
-            description: Has de distribuir un mínim de %{votes} suports entre diferents propostes.
-            given_enough_votes: Has donat suports suficients.
-            votes_remaining: Has de donar %{remaining_votes} suport/s més a propostes perquè els teus suports siguin tinguts en compte.
+            description: Has de repartir un mínim de %{votes} suports entre diferents propostes perquè els teus suports siguin tinguts en compte.
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
+          success: Els teus suports s'ha registrat correctament
           threshold_per_proposal:
             description: Per ser validades, les propostes han d'arribar a %{limit} suports.
-          title: 'La selecció de propostes es regeix per les següents normes:'
+          title: Normes de participació
           vote_limit:
             description: Pots donar suport a %{limit} propostes.
             votes: Queda/en %{number} suport/s

@@ -1,6 +1,8 @@
 ar:
   activemodel:
     attributes:
+      answer:
+        add_documents: أضف مستندات
       close_meeting:
         attendees_count: عدد الحضور
         attending_organizations: قائمة المنظمات التي حضرت
@@ -130,8 +132,6 @@ ar:
             maps_enabled: تم تمكين الخرائط
             registration_code_enabled: تم تمكين رمز التسجيل
             resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اجتماع
-            scope_id: نطاق
-            scopes_enabled: النطاقات مفعلة
             terms_and_conditions_url_for_meeting_creators: أحكام وشروط عناوين URL لمنشئي الاجتماع
           step:
             announcement: إعلان

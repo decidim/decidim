@@ -40,8 +40,7 @@ namespace :decidim do
           taxonomy["filters"].each do |filter|
             log.info "      - Filter name: #{filter["name"]}"
             log.info "        Internal name: #{filter["internal_name"] || "-"}"
-            log.info "        Manifest: #{filter["space_manifest"]}"
-            log.info "        Space filter: #{filter["space_filter"]}"
+            log.info "        Space manifests: #{filter["participatory_space_manifests"]&.join(", ") || "-"}"
             log.info "        Items: #{filter["items"].count}"
             log.info "        Components: #{filter["components"].count}"
           end

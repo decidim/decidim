@@ -105,6 +105,8 @@ ca:
       participatory_space_private_user:
         email: Correu electrònic
         name: Nom
+      participatory_space_private_user_csv_import:
+        file: Arxiu
       scope:
         code: Codi
         name: Nom
@@ -182,8 +184,6 @@ ca:
         attachment_collection:
           new: Nova col·lecció d'arxius adjunts
         browse: Explorar
-        category:
-          new: Nova categoria
         confirm_delete_component: |
           ¿Segur que vols eliminar aquest component?<br>
           Aquest component conté:<br>
@@ -244,6 +244,7 @@ ca:
         create:
           error: S'ha produït un error en crear una nova àrea.
           success: Àrea creada correctament.
+        deprecated: Tingues en compte que les àrees estan obsoletes i s'eliminaran en versions futures. Si us plau, utilitza taxonomies al seu lloc. L'únic espai de participació que actualment fa servir àrees és el d'iniciatives.
         destroy:
           has_spaces: Aquesta àrea té espais dependents. Assegura't que no fa referència a cap espai de participació abans d'eliminar-la.
           success: Àrea eliminada correctament.
@@ -297,6 +298,12 @@ ca:
         no_results: No s'han trobat resultats
         search_prompt: Escriu com a mínim tres caràcters per cercar.
       block_user:
+        bulk_new:
+          action: Bloquejar comptes i enviar justificació
+          already_reported_html: Si segueixes amb aquesta acció, amagaràs tots els continguts de les participants.
+          description: El bloqueig de les usuàries deixarà els seus comptes inutilitzables. Pots proporcionar en la teva justificació els criteris sota els quals consideraries desbloquejar-les.
+          justification: Justificació
+          title: Bloquejar usuàries
         new:
           action: Bloquejar compte i enviar justificació
           already_reported_html: Si segueixes amb aquesta acció, amagaràs tots els continguts de la participant.
@@ -304,23 +311,8 @@ ca:
           justification: Justificació
           title: Bloquejar a la usuària %{name}
       categories:
-        create:
-          error: S'ha produït un error en crear aquesta categoria.
-          success: Categoria creada correctament.
-        destroy:
-          error: S'ha produït un error en eliminar aquesta categoria. Si us plau, elimina qualsevol subcategoria en primer lloc, assegura't que cap altra entitat pertany a aquesta categoria i torna a intentar-ho.
-          success: Categoria eliminada correctament.
-        edit:
-          title: Edita categoria
-          update: Actualitzar
         index:
           categories_title: Categories
-        new:
-          create: Crear categoria
-          title: Nova categoria
-        update:
-          error: S'ha produït un error en actualitzar aquesta categoria.
-          success: Categoria actualitzada correctament.
       component_permissions:
         update:
           error: S'ha produït un error actualitzant els permisos d'aquest component.
@@ -353,14 +345,6 @@ ca:
           title: 'Afegir component: %{name}'
         publish:
           success: El component s'ha publicat correctament.
-        taxonomy_filters_badge:
-          remove: Eliminar
-        taxonomy_filters_drawer:
-          add_filter: Afegir un filtre
-          clear_all: Netejar-ho tot
-          filters: Filtres
-          save: Desar
-          title: Filtres
         title: Components
         unpublish:
           success: El component s'ha despublicat correctament.
@@ -706,13 +690,27 @@ ca:
         index:
           actions:
             block: Bloquejar usuària
+            bulk_actions:
+              actions_dropdown: Accions
+              block:
+                title: Bloquejar
+                update_moderated_user_button: Bloquejar usuàries
+              unblock:
+                title: Desbloquejar
+                update_moderated_user_button: Desbloquejar usuàries
+              unreport:
+                title: Desfer la denúncia
+            ignore:
+              update_moderated_user_button: Desfer la denúncia a les usuàries
             title: Accions
             unblock: Desbloquejar usuària
             unreport: Desfer denúncia
+          cancel: Cancel·lar
           name: Nom
           nickname: Àlies
           reason: Raó
           reports: Número de denúncies
+          selected: Seleccionades
           title: Participants reportades
         report:
           reasons:
@@ -724,6 +722,19 @@ ca:
           unblocked: No bloquejat
       moderations:
         index:
+          actions:
+            actions_dropdown: Accions
+            hide:
+              title: Amagar
+              update_moderation_button: Amagar els continguts seleccionats
+            unhide:
+              title: Tornar a mostrar
+              update_moderation_button: Tornar a mostrar els continguts seleccionats
+            unreport:
+              title: Desfer la denúncia
+              update_moderation_button: Desfer la denúncia dels continguts seleccionats
+          cancel: Cancel·lar
+          selected: seleccionades
           title: Contingut reportat
         report:
           reasons:
@@ -746,6 +757,11 @@ ca:
             report_language: Idioma de l'informe
             report_reason: Motiu
             title: Detalls de l'informe
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Previsualitzar
@@ -755,6 +771,10 @@ ca:
           preview: 'Previsualitzar la plantilla: %{template_name}'
           use_template: Utilitzar aquesta plantilla
       newsletters:
+        confirm_recipients:
+          email: Correu electrònic
+          name: Nom
+          title: Confirmar destinatàries
         create:
           error: S'ha produït un error en crear aquest butlletí.
           success: Butlletí creat correctament. Si us plau, revisa'l abans d'enviar-lo.
@@ -774,12 +794,14 @@ ca:
           confirm_delete: Segur que vols suprimir aquest butlletí?
           followers: 'seguidores '
           has_been_sent_to: 'Ha estat enviat a: '
-          no_scopes: Sense àmbits
           not_sent: No enviat
           participants: 'participants '
+          private_members: 'membres privades'
           segmented_to: 'Segmentat a %{subject}: '
           subscribed_count: 'Subscrites:'
           title: Butlletins
+          verification_types: 'Tipus de verificació: %{types}'
+          verified_users: Usuàries verificades
         new:
           save: Desar
           title: Nou butlletí
@@ -787,16 +809,24 @@ ca:
           all_spaces: Totes
           all_users_help: Envia el butlletí a tots els usuaris confimats.
           confirm_deliver: Segur que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
+          confirm_recipients: Confirmar destinatàries
           deliver: Enviar butlletí
           followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
-          none: Cap
           participants_help: Envia el butlletí a tots els usuaris confirmats que hagin participat a qualsevol dels espais participatius de la llista.
+          private_members_help: Envia un butlletí informatiu a totes les usuàries confirmades que han estat afegides als espais de participació privats seleccionats.
           recipients_count: Aquest bulleti s'enviarà a <strong id='recipients_count'>%{count}</strong> participants.
-          scopes_help: Envia el butlletí als usuaris que tinguin qualsevol dels àmbits seleccionats activat als paràmetres "Els meus interessos" del seu compte.
-          select_scopes: Filtra per als usuaris que hagin activat qualsevol àmbit seleccionat a la configuració "Els meus interessos" del seu compte.
+          select_assemblies: Seleccionar assemblees
+          select_conferences: Seleccionar jornades
+          select_initiatives: Seleccionar iniciatives
+          select_participatory_processes: Seleccionar processos participatius
           select_spaces: Selecciona espais per segmentar el butlletí
-          select_users: Selecciona a quines participants vols enviar el butlletí de notícies
+          select_users_for_participatory_space: Enviar el butlletí informatiu a un o més espais de participació
+          select_users_general: Enviar un butlletí general
+          select_verification_types: Seleccionar mètodes de verificació
+          send_to_all_users: Envia a totes les participants
+          send_to_verified_users: Enviar a usuàries verificades
           title: Selecciona les destinatàries a lliurar
+          verified_users_help: Envia un butlletí informatiu a tots els usuaris confirmats i verificats amb qualsevol dels mètodes de verificació seleccionats.
           warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà a les participants que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
         send:
           no_recipients: No hi ha destinatàries per a aquesta selecció.
@@ -814,6 +844,13 @@ ca:
         block:
           error: Hi ha hagut un problema en bloquejar a la participant.
           success: Participant bloquejada correctament.
+        bulk_action:
+          block:
+            invalid: Hi ha hagut un problema en bloquejar a les participants.
+            success: Participants bloquejades correctament.
+          unblock:
+            invalid: Hi ha hagut un problema en desbloquejar a les participants.
+            success: Participants desbloquejades correctament.
         create:
           success: Participant oficialitzada correctament.
         destroy:
@@ -958,6 +995,8 @@ ca:
         edit:
           submit: Enviar
           title: Edita els permisos
+        options_form:
+          ephemeral_warning: Per habilitar aquest mètode d'autorització, necessites <a href="%{path}">revocar totes les autoritzacions existents</a>. Això minimitza el risc de conflictes de verificació. Totes les autoritzacions d'aquest tipus seran revocades automàticament a l'organització si envies els canvis afegint aquest mètode o modificant la teva configuració una vegada desada.
         update:
           success: Els permisos s'han actualitzat correctament.
       scope_types:
@@ -979,6 +1018,7 @@ ca:
         create:
           error: S'ha produït un error en crear un nou àmbit.
           success: Àmbit creat correctament.
+        deprecated: Tingues en compte que els àmbits estan obsoletes i s'eliminaran en versions futures. Si us plau, utilitza taxonomies al seu lloc. L'únic espai de participació que actualment fa servir àmbits és el d'iniciatives.
         destroy:
           success: Àmbit eliminat correctament.
         edit:
@@ -1090,8 +1130,14 @@ ca:
           error: S'ha produït un error en l'actualització d'aquesta pàgina.
           success: La pàgina s'ha actualitzat correctament.
       taxonomies:
-        actions: Accions
-        amount: Número d'elements
+        actions:
+          actions: Accions
+          destroy: Eliminar taxonomia i elements
+          edit: Editar taxonomia i elements
+          filters: Administrar filtres
+        breadcrumb:
+          edit: Editar taxonomia
+          new: Nova taxonomia
         count: Recursos associats
         create:
           invalid: S'ha produït un error en crear aquesta taxonomia.
@@ -1110,7 +1156,7 @@ ca:
         filters:
           search_placeholder: Cercar
         index:
-          description: Una taxonomia permet a les administradores categoritzar i organitzar-ne el contingut. Per exemple, afegir una taxonomia per classificar processos per àmbit geogràfic.
+          description: Les taxonomies i els filtres permeten a les administradores ordenar i organitzar els continguts. Per exemple, afegir una taxonomia amb els districtes de la ciutat i els barris i després crear filtres només amb els districtes o per a un barri concret.
           new_taxonomy: Nova taxonomia
           no_items_found: No s'han trobat taxonomies que coincideixin amb els criteris de cerca.
         name: Nom
@@ -1123,14 +1169,18 @@ ca:
           to_prev_page: Arrossega per passar a la pàgina anterior
         taxonomy_actions:
           confirm_destroy: 'Segur que voleu suprimir %{name}? Això també suprimirà tots els elements secundaris. NOTA: Els recursos que utilitzen aquesta taxonomia no es veuran afectats, però perdran la referència a aquesta taxonomia.'
+        total_filters: Filtres
+        total_items: Elements a la taxonomia
         update:
           invalid: S'ha produït un error en actualitzar aquesta taxonomia.
           success: Taxonomia actualitzada correctament.
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Nou filtre de taxonomia
-        callout:
-          modify_taxonomy_html: Si et cal modificar aquesta taxonomia o els seus elements, si us plau, fes-ho a través de la configuració a la secció <a href="%{url}">Taxonomies</a>.
+        breadcrumb:
+          edit: Editar filtre
+          filters: Filtres
+          new: Nou filtre
         create:
           error: S'ha produït un error en crear aquesta taxonomia.
           success: Filtre de taxonomia creat correctament.
@@ -1148,29 +1198,39 @@ ca:
             other: "%{count} elements seleccionats"
           name_help: El títol del filtre que es mostrarà a la part pública.
           no_items: Encara no hi ha elements disponibles a aquesta taxonomia. Pots afegir-hi elements a través de les opcions de configuració de la taxonomia.
-          space_filter: Disponible com a filtre per a tots els %{manifest_name}
+          space_filter: Disponible com a filtre per a
         index:
           description: Un filtre de taxonomia permet a les administradores ordenar i filtrar espais de participació basats en una taxonomia. Per exemple, afegir un filtre de taxonomies per ordenar processos per àmbit territorial.
           empty: Actualment no hi ha cap filtre de taxonomia. Creeu una llista de filtres de taxonomia aquí per ordenar i filtrar els espais de participació basats en una taxonomia.
+          new_filter: Nou filtre
         new:
           back: Enrere
           create: Crear un filtre de taxonomia
-          select_taxonomy: Seleccionar una taxonomia
           title: Nou filtre de taxonomia
         table:
           actions: Accions
-          components_count: Components associats
+          components_count: Components que el fan servir
           confirm_destroy: 'Segur que voleu suprimir el filtre %{name}? NOTA: Els recursos que utilitzen aquest filtre no es veuran afectats però perdran la referència a aquest filtre.'
-          count: Número d'elements emprats
           destroy: Esborrar
           edit: Editar
-          internal_name: Nom intern del filtre
-          name: Títol públic del filtre
-          space_filter: Emprat per filtrar %{manifest_name}
-          taxonomy: Des de la taxonomia
+          internal_name: Estat intern
+          name: Etiqueta
         update:
           error: Hi ha hagut un problema actualitzant aquest filtre de taxonomia.
           success: Filtre de taxonomia actualitzat correctament.
+      taxonomy_filters_selector:
+        new:
+          add_new_items_html: Si necessites establir un nou filtre o element, feu-ho a través de la configuració o clicant <a href="%{url}">aquí</a>.
+          items_count: "%{count} elements"
+          save: Desar
+        show:
+          items_count: "%{count} elements"
+          remove: Eliminar
+        taxonomies_select:
+          filters: Filtres
+          select_filter: Seleccionar un filtre
+          select_taxonomy: Selecciona una taxonomia
+          taxonomies: Taxonomies
       taxonomy_items:
         edit:
           title: Editar element a "%{taxonomy}"
@@ -1200,7 +1260,7 @@ ca:
         scopes: Àmbits
         statistics: Activitat
         taxonomies: Taxonomies
-        taxonomy_filters: Filtres de taxonomies
+        taxonomy_filters: Filtre de taxonomia per a "%{taxonomy}"
         user_groups: Grups
         users: Administradores
       tooltips:
@@ -1285,6 +1345,22 @@ ca:
         unreport: Desfer denúncia
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Hi ha hagut un problema en amagar alguns continguts: %{errored}'
+              invalid: No hi ha cap moderació seleccionada.
+              success: Els continguts s'han amagat correctament.
+            ignore:
+              invalid: No hi ha cap moderació d'usuària seleccionada.
+              success: Les denuncies sobre les usuàries han estat retirades correctament.
+            unhide:
+              failed: 'Hi ha hagut un problema tornant a mostrar alguns continguts: %{errored}'
+              invalid: No hi ha cap moderació seleccionada.
+              success: Els continguts s'han tornat a mostrar correctament.
+            unreport:
+              failed: 'Hi ha hagut un problema en retirar la denúncia d''alguns continguts: %{errored}'
+              invalid: No hi ha cap moderació seleccionada.
+              success: S'ha desfet la denúncia als continguts correctament.
           hide:
             invalid: S'ha produït un error en ocultar el contingut.
             success: Contingut amagat correctament.
@@ -1320,3 +1396,5 @@ ca:
       admin:
         global_moderations:
           title: Moderacions globals
+        taxonomy_filters_selector:
+          title: Filtres

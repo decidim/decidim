@@ -262,7 +262,7 @@ hu:
     participatory_spaces:
       highlighted_proposals:
         last: Legutóbbi javaslatok
-        see_all: Összes (%{count})
+        see_all: Összes
     proposals:
       actions:
         answer_proposal: Javaslat megválaszolása
@@ -278,13 +278,6 @@ hu:
         exports:
           proposals: Javaslatok
         imports:
-          help:
-            answers: |
-              Az importálási dokumentumnak CSV- vagy Excel-fájlok esetén a következő oszlopneveket, JSON-fájlok esetén pedig a kulcsneveket kell tartalmaznia:
-              <ul> 
-              <li><b>id:</b> A javaslat azonosítója a</li> 
-              <li><b>state:</b> Az "elfogadott", "értékelés alatt" vagy "elutasított" egyike</li> 
-              <li><b>answer/en:</b> Válasz angol nyelven. Ez a platform nyelvi konfigurációjától függ.</li> </ul>
           label:
             proposals: Javaslatok importálása fájlból
           resources:
@@ -354,7 +347,6 @@ hu:
             title: Frissítse a javaslatot
             update: frissítés
           form:
-            attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
             created_in_meeting: Ez a javaslat egy találkozóból származik
             select_a_meeting: Válasszon egy találkozót
           index:
@@ -458,7 +450,6 @@ hu:
         create:
           success: Közös vázlat létrehozása sikeres.
         edit:
-          attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
           back: Vissza
           send: Küldés
           title: Közös vázlat szerkesztése
@@ -553,10 +544,7 @@ hu:
           comment: Megjegyzés
       proposals:
         edit:
-          add_documents: Dokumentum hozzáadása
-          attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
           back: Vissza
-          edit_documents: Dokumentum szerkesztése
           send: Küldés
           title: Javaslat szerkesztése
         edit_draft:
@@ -623,7 +611,6 @@ hu:
           maximum_votes_reached: Szavazási határon túl
           no_votes_remaining: Nincs több szavazat
           vote: Szavazás
-          votes_blocked: Szavazás letiltva
         voting_rules:
           proposal_limit:
             description: Legfeljebb %{limit} javaslatot készíthetsz.

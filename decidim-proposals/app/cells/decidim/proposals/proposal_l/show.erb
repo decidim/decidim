@@ -1,0 +1,37 @@
+<% if has_link_to_resource? && link_whole_card? %>
+  <div class="card__proposals-item">
+  <%= link_to resource_path, class: item_list_class, id: resource_id, **html_options do %>
+    <%= render :content %>
+    <%= render :extra_data if render_extra_data? %>
+  <% end %>
+    <% if has_actions? && options.fetch(:hide_voting, false) == false %>
+      <% if current_settings.votes_hidden? %>
+        <div class="card__proposals-votes-hidden">
+          <%= cell proposal_vote_cell, resource, **options %>
+        </div>
+      <% else %>
+        <div class="card__proposals-votes">
+          <%= cell proposal_vote_cell, resource, **options %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <%= content_tag :div, class: wrapper_class, id: resource_id do %>
+    <%= content_tag :div, class: item_list_class do %>
+      <%= render :content %>
+    <% end %>
+    <%= render :extra_data if render_extra_data? %>
+    <% if has_actions? %>
+      <% if current_settings.votes_hidden? %>
+        <div class="card__proposals-votes-hidden">
+          <%= cell proposal_vote_cell, resource, **options %>
+        </div>
+      <% else %>
+        <div class="card__proposals-votes">
+          <%= cell proposal_vote_cell, resource, **options %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

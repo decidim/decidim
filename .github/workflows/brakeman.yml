@@ -62,7 +62,7 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
-      - run: bundle exec brakeman --rails6 --force-scan .
+      - run: bundle exec brakeman --rails7 --force-scan .
         name: Scanning Security issues on module
         working-directory: ${{ matrix.working-directory }}
         shell: "bash"

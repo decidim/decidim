@@ -1,8 +1,6 @@
 hu:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Cím
       assembly:
         announcement: Közlemény
         area_id: Terület
@@ -19,7 +17,6 @@ hu:
         created_by_other: Más által létrehozott
         creation_date: Létrehozás dátuma
         decidim_area_id: Terület
-        decidim_assemblies_type_id: Gyűlés típusa
         decidim_scope_id: Hatáskör
         description: Leírás
         developer_group: Kezdeményező csoport
@@ -35,7 +32,6 @@ hu:
         import_components: Komponensek importálása
         included_at: 'Tartalmazza:'
         instagram: Instagram
-        internal_organisation: Belső szervezet
         is_transparent: Átlátható
         local_area: Szervezet területe
         meta_scope: Hatókör-metaadatok
@@ -47,8 +43,6 @@ hu:
         promoted: Kiemelt
         published_at: Közzétéve
         purpose_of_action: A fellépés célja
-        scope_id: Hatáskör
-        scopes_enabled: Hatáskörök engedélyezve
         short_description: Rövid leírás
         slug: URL slug
         special_features: Speciális funkciók
@@ -95,7 +89,6 @@ hu:
       actions:
         import_assembly: Importálás
         new_assembly: Új gyűlés
-        new_assembly_type: Új Gyűlés típus
         new_assembly_user_role: Új gyűlés admin
       assemblies:
         create:
@@ -117,18 +110,6 @@ hu:
         create:
           error: Hiba történt a gyűlés duplikációja során.
           success: Gyűlés duplikációja sikeres.
-      assemblies_types:
-        create:
-          error: Hiba történt az új gyűlés létrehozása során.
-          success: Gyűlés típus létrehozása sikeres.
-        destroy:
-          success: Gyűlés típus törlése sikeres.
-        new:
-          create: Létrehozás
-          title: Új Gyűlés típus
-        update:
-          error: Hiba történt a gyűlés frissítése során.
-          success: Gyűlés típus frissítése sikeres.
       assembly_copies:
         new:
           copy: Másolás
@@ -169,8 +150,6 @@ hu:
       filters:
         ceased_date_not_null:
           label: Megszűnt
-        decidim_assemblies_type_id_eq:
-          label: Gyűlés típusa
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Keresés név vagy felhasználónév alapján
       menu:
@@ -180,18 +159,12 @@ hu:
           attachment_collections: Mappák
           attachment_files: Fájlok
           attachments: Mellékletek
-          categories: Kategóriák
           components: Elemek
           info: Erről a gyűlésről
           landing_page: Landing oldal
           moderations: Moderálás
           see_assembly: A gyűlés megtekintése
-        assemblies_types: Gyűlés típusa
       models:
-        assemblies_types:
-          fields:
-            created_at: 'Létrehozva:'
-            title: Cím
         assembly:
           fields:
             actions: Műveletek
@@ -254,21 +227,15 @@ hu:
             announcement_help: Az itt megadott szöveg a gyűlés információs oldalán fog megjelenni a felhasználók számára. 
             duration: Időtartam
             duration_help: Ha a gyűlés időtartama korlátozott, válassz befejező dátumot. Ellenkező esetben határozatlan idejű lesz.
-            filters: Szűrők
             images: képek
             included_at_help: Válassza ki a dátumot, amikor ezt a gyűlést hozzáadták a platformhoz. Nem feltétlenül kell megegyeznie a létrehozás dátumával.
             metadata: Metaadatok
             other: Egyéb
             select_a_created_by: Válassz alapítót
-            select_an_area: Válassz területet
-            select_an_assembly_type: Válassz gyűlés típust
             select_parent_assembly: Szülői összeállítás kiválasztása
             social_handlers: Social
             title: Általános információ
             visibility: Láthatóság
-        assemblies_types:
-          form:
-            title: Cím
         assembly_members:
           form:
             explanation: 'Útmutató a képhez:'
@@ -305,14 +272,6 @@ hu:
       assembly_members:
         index:
           members: Tagok
-      assembly_types:
-        commission: Bizottság
-        consultative_advisory: Konzulens/tanácsadó
-        executive: Végrehajtó
-        government: Kormány
-        others: Egyéb
-        participatory: Részvételi
-        working_group: Munkacsoport
       content_blocks:
         children_assemblies:
           name: Gyűlések
@@ -351,7 +310,6 @@ hu:
           member_of:
             member_of: 'Tagja következőnek:'
       show:
-        assembly_type: Gyűlés típusa
         duration: Időtartam
         private_space: Ez egy privát gyűlés
         social_networks_title: Látogasd meg a gyűlést itt

@@ -22,9 +22,6 @@ tr:
         promoted: Tanıtılan
         published_at: Yayınlandı
         related_process_ids: İlgili süreçler
-        scope_id: kapsam
-        scope_type_max_depth_id: Kapsam filtre derinliği
-        scopes_enabled: Kapsamlar etkin
         short_description: Kısa Açıklama
         slug: URL özel bilgisi
         start_date: Başlangıç tarihi
@@ -99,7 +96,6 @@ tr:
           attachment_collections: Klasörler
           attachment_files: Dosyalar
           attachments: Ekler
-          categories: Kategoriler
           components: Bileşenler
           info: Süreç Hakkında
           moderations: Denetimler
@@ -337,13 +333,9 @@ tr:
           form:
             announcement_help: Buraya girdiğiniz metin, işlem bilgilerinin hemen altındaki kullanıcıya gösterilecektir.
             duration: süre
-            filters: Filtreler
             images: Görüntüler
             metadata: Meta veri
-            other: Diğer
             related_processes: İlgili süreçler
-            scope_type_max_depth_help: Kapsam filtresi derinliğini sınırlayın; Filtre genelden seçilen kapsam türüne kadar gösterilecektir.
-            select_an_area: Bir alan seçin
             select_process_group: Bir işlem grubu seçin
             title: Genel bilgi
       content_blocks:

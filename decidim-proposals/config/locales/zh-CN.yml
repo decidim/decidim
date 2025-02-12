@@ -110,8 +110,6 @@ zh-CN:
             proposal_limit: 每个参与者的建议限制
             proposal_wizard_step_1_help_text: 建议向导“创建”步骤帮助文本
             resources_permissions_enabled: 每个提案都可以设置动作权限
-            scope_id: 范围
-            scopes_enabled: 范围已启用
             threshold_per_proposal: 每个建议的阈值
           step:
             amendment_creation_enabled: 修改创建已启用
@@ -220,7 +218,7 @@ zh-CN:
         title: 建议
     participatory_spaces:
       highlighted_proposals:
-        see_all: 查看所有建议 (%{count})
+        see_all: 查看所有建议
     proposals:
       actions:
         answer_proposal: 答复建议
@@ -279,7 +277,6 @@ zh-CN:
             title: 更新提议
             update: 更新
           form:
-            attachment_legend: "(可选) 添加附件"
             created_in_meeting: 这项建议来自一次会议
             select_a_meeting: 选择会议
           index:
@@ -379,7 +376,6 @@ zh-CN:
         create:
           success: 协作草稿成功创建。
         edit:
-          attachment_legend: "(可选) 添加附件"
           back: 后退
           send: 发送
           title: 编辑协作草稿
@@ -469,7 +465,6 @@ zh-CN:
           comment: 评论
       proposals:
         edit:
-          attachment_legend: "(可选) 添加附件"
           back: 后退
           send: 发送
           title: 编辑提案
@@ -531,6 +526,8 @@ zh-CN:
         voting_rules:
           proposal_limit:
             description: 您最多可以创建 %{limit} 个建议。
+          vote_limit:
+            description: 您可以最多支持 %{limit} 个建议。
         wizard_aside:
           back: 后退
           back_from_step_1: 回到提议

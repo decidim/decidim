@@ -47,7 +47,7 @@ module Decidim
         [coauthors_item] + taxonomy_items + [comments_count_item, endorsements_count_item, state_item, emendation_item]
       end
 
-      def proposal_items_for_map
+      def items_for_map
         [coauthors_item_for_map, comments_count_item, endorsements_count_item, state_item, emendation_item].compact_blank.map do |item|
           {
             text: item[:text].to_s.html_safe,

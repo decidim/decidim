@@ -4,10 +4,20 @@ en:
     attributes:
       account:
         delete_reason: Reason to delete your account
+      attachment:
+        documents: Documents
+        photos: Photos
       common:
         created_at: Created at
+      component:
+        taxonomy_filters: Taxonomy filters
+      content_block_attachment:
+        background_image: Background image
+        main_image: Main image
       conversation:
         body: Body
+      editor_image:
+        file: File
       group:
         about: About
         avatar: Avatar
@@ -16,6 +26,8 @@ en:
         name: Name
         nickname: Nickname
         phone: Phone
+      import:
+        file: File
       message:
         body: Body
       report:
@@ -23,12 +35,13 @@ en:
       taxonomy:
         name: Taxonomy name
       taxonomy_filter:
-        internal_name: Internal filter name
-        name: Public filter title
+        internal_name: Internal label
+        name: Label
         root_taxonomy_id: From taxonomy
-        space_filter: Available as filter for participatory spaces
+        space_filter: Available as filter for
       user:
         about: About
+        avatar: Avatar
         email: Your email
         encrypted_password: Password
         locale: Locale
@@ -40,6 +53,8 @@ en:
         personal_url: Personal URL
         remove_avatar: Remove avatar
         tos_agreement: Terms of service agreement
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -293,12 +308,12 @@ en:
         update: "%{user_name} updated the %{resource_name} taxonomy"
         update_with_parent: "%{user_name} updated the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
       taxonomy_filter:
-        create: "%{user_name} created a filter based on the taxonomy %{resource_name}"
-        create_with_filter_items_count: "%{user_name} created a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
-        delete: "%{user_name} deleted a filter based on the taxonomy %{resource_name}"
-        delete_with_filter_items_count: "%{user_name} deleted a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
-        update: "%{user_name} updated a filter based on the taxonomy %{resource_name}"
-        update_with_filter_items_count: "%{user_name} updated a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
+        create: "%{user_name} created the filter %{resource_name}"
+        create_with_filter_info: '%{user_name} created the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
+        delete: "%{user_name} deleted the filter %{resource_name}"
+        delete_with_filter_info: '%{user_name} deleted the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
+        update: "%{user_name} updated the filter %{resource_name}"
+        update_with_filter_info: '%{user_name} updated the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
       user:
         block: "%{user_name} blocked user %{resource_name}"
         bulk_block: "%{user_name} blocked %{blocked_count} users"
@@ -437,14 +452,19 @@ en:
         explanation: Get verified by introducing a document number ending with "X".
         fields:
           allowed_postal_codes: Allowed postal codes (separated by commas)
-          allowed_scope_id: Allowed scope
           document_number: Document number
           postal_code: Postal code
-          scope_id: Scope
         name: Example authorization
       dummy_authorization_workflow:
         explanation: Dummy authorization workflow
         name: Dummy authorization workflow
+      ephemeral_dummy_authorization_handler:
+        explanation: Get verified by introducing a document number ending with "X".
+        fields:
+          allowed_postal_codes: Allowed postal codes (separated by commas)
+          document_number: Document number
+          postal_code: Postal code
+        name: Ephemeral example authorization
       errors:
         duplicate_authorization: A participant is already authorized with the same data. An administrator will contact you to verify your details.
       expired_at: Expired at %{timestamp}
@@ -535,8 +555,6 @@ en:
             enable_pads_creation: Enable pads creation
             no_taxonomy_filters_found: No taxonomy filters found.
             resources_permissions_enabled: Resources permissions enabled
-            scope_id: Scope
-            scopes_enabled: Scopes enabled
             taxonomy_filters: Select filters for the component
           step:
             amendment_creation_enabled: Amendment creation enabled
@@ -660,6 +678,7 @@ en:
           sign_in_disabled: You can access with an external account.
           sign_up_disabled: Account creation is disabled, you can use an existing account to access.
         user:
+          ephemeral_session_closed: Your guest session has finished
           timed_out: You were inactive for too long and you have been automatically logged out from the service. If you would like to continue using the service, please log in again.
       shared:
         newsletter_modal:
@@ -736,6 +755,21 @@ en:
           id: The unique identifier of this notification
           resource_type: The type of the resource that the notification is related to
           updated_at: The date and time when the notification was last updated
+        participatory_space_private_users:
+          created_at: The date and time when this private user was created
+          id: The unique identifier of this private user
+          privatable_to: To which space this private user belongs
+          published: Wether this private user is published or not
+          role: The role that this private user has
+          updated_at: The date and time when this private user was last updated
+        reports:
+          created_at: The date and time when this report was created
+          details: The details of this report
+          id: The unique identifier of this report
+          locale: The language of this report
+          moderation: The moderation that this report has
+          reason: The reason of this report
+          updated_at: The date and time when this report was last updated
         user_groups:
           document_number: The document number of this user group
           id: The unique identifier of this user group
@@ -744,6 +778,7 @@ en:
           verified_at: The date and time when this user group was verified
         users:
           about: The biography of this user
+          accepted_tos_version: The date when the Terms of Service of this platform was accepted by the user
           admin: Whether this user is an administrator
           confirmation_sent_at: The date and time when the confirmation was sent
           confirmed_at: The date and time when this user was confirmed
@@ -753,6 +788,8 @@ en:
           delete_reason: The reason given for deleting this user
           deleted_at: The date and time when this user was deleted
           email: The email address of this user
+          followers_count: The number of participants that are following to this user
+          following_count: The number of participants this user is following
           id: The unique identifier of this user
           invitation_accepted_at: The date and time when the invitation was accepted
           invitation_created_at: The date and time when this user was invited
@@ -771,10 +808,13 @@ en:
           officialized_as: The name of the officialization (Counsellor, Mayor, etc)
           officialized_at: The date and time when this user was officialized
           organization: The organization that this user belongs to
+          password_updated_at: The date when their password was changed for the last time
           personal_url: The personal URL of this user
           remember_created_at: The date and time when the user was selected to be remembered
           reset_password_sent_at: The date and time when the password reset was sent
+          roles: The role this user has, if they has any
           sign_in_count: The number of times this user has logged in
+          type: The type that this user has
           unconfirmed_email: The email address that this user has not yet confirmed
           updated_at: The date and time when this user was last updated
       show:
@@ -812,6 +852,7 @@ en:
       others: "%{count} more"
       title: Liked by
       you: you
+    ephemeral_user: Visitor
     errors:
       files:
         file_cannot_be_processed: File cannot be processed
@@ -879,6 +920,11 @@ en:
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
             email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'An emendation has been published for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An emendation from %{emendation_author_nickname} has been published as a new %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
@@ -1044,7 +1090,7 @@ en:
         file:
           explanation: 'Guidance for file:'
           message_1: Has to be an image or a document.
-          message_2: For images, use preferably landscape images, the service crops the image.
+          message_2: If it is an image, it preferably be a landscape image that does not have any text. The service crops the image.
         icon:
           explanation: 'Guidance for icon:'
           message_1: Has to be a square image.
@@ -1222,6 +1268,8 @@ en:
         unknown_action_with_space: "%{user_name} performed some action on %{resource_name} in %{space_name}"
         unpublish_with_space: "%{user_name} unpublished %{resource_name} from %{space_name}"
         update: "%{user_name} updated %{resource_name}"
+        update_filters: "%{user_name} updated the filters of %{resource_name}"
+        update_filters_with_space: "%{user_name} updated the filters of %{resource_name} in %{space_name}"
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
         update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
       value_types:
@@ -1327,6 +1375,8 @@ en:
         not_started: Not started yet
         remaining: "%{time_distance} remaining"
     metrics:
+      blocked_users:
+        description: Number of blocked participants
       download:
         csv: Download data (CSV)
       followers:
@@ -1337,6 +1387,10 @@ en:
         description: Number of active participants in organization
         object: participants
         title: Participants
+      reported_users:
+        description: Number of reported participants
+      user_reports:
+        description: Number of reports done by participants
       users:
         description: Number of participants in organization
         object: participants
@@ -1402,10 +1456,12 @@ en:
     notifications_digest_mailer:
       header:
         daily: Daily Notification Digest
+        real_time: Real time
         weekly: Weekly Notification Digest
       hello: Hello %{name},
       intro:
         daily: 'These are the notifications from the last day based on the activity you are following:'
+        real_time: 'These is a notification on the activity you are following:'
         weekly: 'These are the notifications from the last week based on the activity you are following:'
       outro: You have received these notifications because you are following this content or its authors. You can unfollow them from their respective pages.
       see_more: See more notifications
@@ -1447,11 +1503,13 @@ en:
     onboarding_action_message:
       click_link: Click here
       cta_html: <a href="%{path}">%{link_text}</a> in order to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: You have been successfully authorized.<br/>You have started a guest session, you can now participate.
       expired_authorization_active_title: Your authorization has expired.
       finish_authorization_process: You can finish the authorization process
       incomplete_authorization_active_title: Your verification has not been completed with all the necessary information.
       pending_authorization_active_message: Please complete the form to proceed with this action.
       pending_authorization_active_title: We need to verify your identity.
+      pending_ephemeral_authorization: Please verify your identity to proceed.
     open_data:
       help:
         core:
@@ -1482,6 +1540,19 @@ en:
           reported_content: The content that has been reported
           reported_url: The url of the reported resource
           reports: A list of reasons for which the resource has been reported
+        taxonomies:
+          children_count: The count of the children that this taxonomy has
+          created_at: The date when this taxonomy was created
+          filter_items_count: The number of items filters that are using this taxonomy
+          filters_count: The number of filters that is using this taxonomy
+          id: The unique identifier of this taxonomy
+          is_root: True if this taxonomy do not have any parent
+          name: The name of this taxonomy
+          parent_id: The unique identifiers of this taxonomy parent (if any)
+          part_of: Used to detect if this taxonomy is part of another taxonomy
+          taxonomizations_count: The count of the resources that use this taxonomy
+          updated_at: The date when this taxonomy was updated for the last time
+          weight: The order in which this taxonomy is shown
         user_groups:
           avatar_url: The avatar of the user group
           badge: The badge of the user group
@@ -1686,16 +1757,7 @@ en:
         error: There was a problem during the endorsement action.
     scopes:
       global: Global scope
-      picker:
-        cancel: Cancel
-        change: Change selected scope
-        choose: Select
-        currently_selected: Currently selected scope
-        title: Select %{field}
       prompt: Select a scope
-      scopes: Scopes
-      scopes_picker_input:
-        select_scope: 'Select a scope (currently: %{current})'
     search:
       name: Search
       results: Search results
@@ -1822,15 +1884,6 @@ en:
         send: Send
       update:
         error: Message not sent. Try again later
-    user_interests:
-      show:
-        my_interests: My interests
-        no_scopes: This organization does not have any scope yet!
-        select_your_interests: Select the topics you are interested in to receive events related to them in your profile Timeline tab.
-        update_my_interests: Update my interests
-      update:
-        error: There was a problem updating your interests.
-        success: Your interests have been successfully updated.
     user_report_mailer:
       notify:
         body_1: User %{user} has been reported by %{token}
@@ -2199,6 +2252,8 @@ en:
         sign_up: Create an account
         terms_of_service: Terms of Service
       header:
+        close: Close
+        confirm_close_ephemeral_session: If you navigate out of this page, your session will be closed. Are you sure?
         log_in: Log in
         main_menu: Main menu
         user_menu: User menu
@@ -2208,6 +2263,8 @@ en:
         expire_time_html: Your session will expire in <b><span class="minutes">%{minutes}</span> minutes</b>.
       language_chooser:
         choose_language: Choose language
+      navigation:
+        aria_label: Navigation menu- %{title}
       notifications_dashboard:
         mark_all_as_read: Mark all as read
         mark_as_read: Mark as read
@@ -2239,7 +2296,6 @@ en:
         authorizations: Authorizations
         delete_my_account: Delete my account
         my_data: My data
-        my_interests: My interests
         notifications_settings: Notifications settings
         profile: Profile
         title: Participant settings

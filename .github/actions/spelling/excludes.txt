@@ -86,6 +86,7 @@
 /db/migrate/
 /locales/
 ^\Q.erb-lint.yml\E$
+^\Q.erb_lint.yml\E$
 ^\Q.spelling.yml\E$
 ^\Qdecidim-accountability/spec/fixtures/valid_result.csv\E$
 ^\Qdecidim-assemblies/app/packs/src/decidim/assemblies/orgchart.js\E$

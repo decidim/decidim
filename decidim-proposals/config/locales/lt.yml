@@ -156,8 +156,6 @@ lt:
             proposal_limit: Pasiūlymų skaičiaus limitas vienam dalyviui
             proposal_wizard_step_1_help_text: Pasiūlymo vedlio etapo „Sukurti“ pagalbos tekstas
             resources_permissions_enabled: Kiekvienam pasiūlymui galima nustatyti leistinus veiksmus
-            scope_id: Apimtis
-            scopes_enabled: Sritys įjungtos
             threshold_per_proposal: Vienam pasiūlymui nustatyta riba
           step:
             amendment_creation_enabled: Pataisų kūrimas leidžiamas
@@ -299,7 +297,7 @@ lt:
     participatory_spaces:
       highlighted_proposals:
         last: Paskutiniai pasiūlymai
-        see_all: Žiūrėti visus pasiūlymus (%{count})
+        see_all: Žiūrėti visus pasiūlymus
     proposals:
       actions:
         answer_proposal: Atsakyti į pasiūlymą
@@ -316,23 +314,6 @@ lt:
           proposal_comments: Komentarai
           proposals: Pasiūlymai
         imports:
-          help:
-            answers: |
-              Importuojamas dokumentas turėtų turėti šiuos stulpelių pavadinimus atveju, jei tai CSV ar Excel failai, arba raktų pavadinimus, jei tai JSON failai:
-
-              <ul>
-              <li><b>id:</b> Pasirinkimo atsakymo ID</li>
-              <li><b>state:</b> Vienas iš "accepted", "evaluating" arba "rejected"</li>
-              <li><b>answer/en:</b> Atsakymas anglų kalba. Tai priklauso nuo jūsų platformos kalbos konfigūracijos.</li>
-              </ul>
-            proposals: |
-              Failas privalo turėti šiuos stulpelių pavadinimus atveju, jei tai CSV ar Excel failai, arba raktų pavadinimus, jei tai JSON failai:
-              <ul>
-              <li><b>title/en:</b> Pavadinimas anglų kalba. Tai priklauso nuo jūsų platformos kalbos konfigūracijos.</li>
-              <li><b>body/en:</b> Tekstas anglų kalba. Tai priklauso nuo jūsų platformos kalbos konfigūracijos.</li>
-              <li><b>scope/id:</b> Masto ID</li>
-              <li><b>category/id:</b> Kategorijos ID</li>
-              </ul>
           label:
             answers: Importuoti atsakymus iš failo
             proposals: Importuoti pasiūlymus iš failo
@@ -403,9 +384,7 @@ lt:
             title: Atnaujinti pasiūlymą
             update: Atnaujinti
           form:
-            attachment_legend: "(Neprivaloma) Pridėti priedą"
             created_in_meeting: Šis pasiūlymas iškeltas susirinkime
-            delete_attachment: Ištrinti prikabintą failą
             select_a_meeting: Pasirinkite susitikimą
           index:
             actions: Veiksmai
@@ -521,7 +500,6 @@ lt:
           error: Kuriant šį bendrąjį juodraštį iškilo problema.
           success: Bendrasis juodraštis sukurtas.
         edit:
-          attachment_legend: "(Neprivaloma) Pridėti priedą"
           back: Atgal
           send: Siųsti
           title: Redaguoti bendrąjį juodraštį
@@ -637,10 +615,7 @@ lt:
           description: Koordinatės bus atnaujintos paspaudus mygtuką „Peržiūrėti“. Tačiau adresas nesikeičia.
           instructions: Galite perkelti tašką žemėlapyje.
         edit:
-          add_documents: Pridėti dokumentus
-          attachment_legend: "(Neprivaloma) Pridėti priedą"
           back: Atgal
-          edit_documents: Redaguoti dokumentus
           send: Siųsti
           title: Redaguoti pasiūlymą
         edit_draft:
@@ -724,6 +699,8 @@ lt:
         voting_rules:
           proposal_limit:
             description: Galite parengti iki %{limit} pasiūlymų.
+          vote_limit:
+            description: Galite paremti iki %{limit} pasiūlymų.
         wizard_aside:
           back: Grįžti
           back_from_step_1: Grįžti į pasiūlymus

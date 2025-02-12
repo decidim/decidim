@@ -3,8 +3,20 @@
 require "spec_helper"
 
 describe "Social share button" do
+  let!(:organization) { create(:organization) }
   let!(:resource) { create(:dummy_resource) }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
+
+  let(:short_link) do
+    create(
+      :short_link,
+      target: resource,
+      mounted_engine_name: engine_name,
+      route_name:
+    )
+  end
+  let(:engine_name) { "decidim_participatory_process_dummy" }
+  let(:route_name) { "dummy_resource" }
 
   before { switch_to_host(resource.organization.host) }
 
@@ -80,6 +92,30 @@ describe "Social share button" do
 
         it_behaves_like "showing the social share buttons"
       end
+    end
+  end
+
+  context "when sharing resource by link" do
+    before do
+      visit resource_path
+      click_on "Share"
+    end
+
+    it "short link is displayed on the share modal" do
+      within ".share-modal__input" do
+        expect(page).to have_css("button[data-clipboard-copy='#urlShareLink']")
+        link = find("input#urlShareLink")
+        within "#urlShareLink" do
+          expect(page).to have_no_content(resource_path)
+          expect(link[:value]).to include("#{resource.organization.host}:#{Capybara.current_session.server.port}/s/")
+        end
+      end
+    end
+
+    it "short link redirects to the correct resource path" do
+      visit "http://#{resource.organization.host}:#{Capybara.server_port}/s/#{short_link.identifier}"
+
+      expect(page).to have_current_path(resource_path)
     end
   end
 end

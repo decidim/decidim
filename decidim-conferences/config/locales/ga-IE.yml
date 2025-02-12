@@ -8,7 +8,6 @@ ga:
         hashtag: Haischlib
         location: Suíomh
         participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
-        scope_id: Scóip
         slogan: Mana
         slug: Píosa URL
         title: Teideal
@@ -66,7 +65,6 @@ ga:
           attachment_collections: Fillteáin
           attachment_files: Comhaid
           attachments: Ceangaltáin
-          categories: Catagóirí
           conference_invites: Cuirí
           conference_speakers: Cainteoirí
           partners: Comhpháirtithe

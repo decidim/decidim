@@ -21,8 +21,6 @@ ja:
         published_at: 公開日時
         registration_terms: 参加規約
         registrations_enabled: 登録可能
-        scope_id: スコープ
-        scopes_enabled: スコープは有効です
         short_description: 短い説明
         show_statistics: 統計情報を表示
         sign_date: 署名日
@@ -68,6 +66,8 @@ ja:
         email: Eメールアドレス
         name: 名前
         role: ロール
+      partner:
+        logo: ロゴ
     errors:
       models:
         conference_registration_invite:
@@ -118,13 +118,13 @@ ja:
         destroy:
           success: カンファレンススピーカーを削除しました。
         edit:
-          title: カンファレンススピーカーを更新します。
+          title: カンファレンススピーカーを更新
           update: 更新
         index:
           conference_speakers_title: カンファレンススピーカー
         new:
           create: 作成
-          title: 新しいカンファレンススピーカー。
+          title: 新しいカンファレンススピーカー
         publish:
           invalid: このスピーカーを公開中に問題が発生しました。
           success: カンファレンスのスピーカーを公開しました。
@@ -183,13 +183,13 @@ ja:
         destroy:
           success: メディアリンクを削除しました。
         edit:
-          title: メディアリンクを更新
+          title: メディア リンクを更新
           update: 更新
         index:
           media_links_title: メディアリンク
         new:
           create: 作成
-          title: メディアリンク
+          title: メディアリンクを作成
         update:
           error: このメディア リンクの更新中に問題が発生しました。
           success: メディアリンクを更新しました。
@@ -199,12 +199,11 @@ ja:
           attachment_collections: フォルダ
           attachment_files: ファイル
           attachments: 添付ファイル
-          categories: カテゴリ
           components: コンポーネント
           conference_admins: カンファレンス管理者
           conference_invites: 招待
           conference_speakers: スピーカー
-          diploma: 出席証明書
+          diploma: 参加証明書
           info: このカンファレンスについて
           media_links: メディアリンク
           moderations: モデレーション
@@ -241,7 +240,7 @@ ja:
             date: 日付
             link: リンク
             title: タイトル
-          name: メディアリンク
+          name: メディア リンク
         partner:
           fields:
             link: リンク
@@ -267,7 +266,7 @@ ja:
         destroy:
           success: カンファレンスパートナーを削除しました。
         edit:
-          title: パートナーを更新します。
+          title: パートナーを更新
           update: 更新
         new:
           create: 作成
@@ -289,7 +288,7 @@ ja:
         destroy:
           success: カンファレンスの登録種別を削除しました。
         edit:
-          title: 登録種別の更新。
+          title: 登録種別を更新
           update: 更新
         new:
           create: 作成
@@ -297,6 +296,9 @@ ja:
         update:
           error: このカンファレンスの登録種別の更新に問題がありました。
           success: カンファレンスの登録種別を更新しました。
+      taxonomy_filters:
+        space_filter_for:
+          conferences: すべてのカンファレンス
       titles:
         conferences: カンファレンス
         conferences_deleted: 削除されたカンファレンス
@@ -391,7 +393,6 @@ ja:
         diplomas:
           edit:
             save: 保存
-            title: 出席証明書
         invite_join_conference_mailer:
           invite:
             decline: 招待を拒否する '%{conference_title}'
@@ -411,7 +412,6 @@ ja:
             diploma_html: 添付ファイルに、カンファレンス <a href="%{url}">%{title}</a> の出席証明書があります。
           diploma_user:
             attendance_verified_by: 出席者が確認しました
-            certificate_of_attendance: 出席証明書
             certificate_of_attendance_description: これは、<strong>%{user}</strong>が、<strong>%{start} から %{end}</strong>に<strong>%{location}</strong>で開催された<strong>%{title}</strong>に出席し、参加したことを証明するものです。
         send_diploma:
           error: カンファレンス出席証明書の送信に問題がありました。
@@ -532,6 +532,25 @@ ja:
         objectives: 目的
         related_assemblies: 関連する参加スペース
         related_participatory_processes: 関連する参加型プロセス
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: カンファレンスへの招待が承認された日時
+          conference: この招待状が送信されたカンファレンス
+          confirmed_at: この招待の確認日時
+          created_at: この招待の作成日時
+          id: カンファレンス招待の固有ID
+          registration_type: 送信されたカンファレンス参加登録の種別
+          rejected_at: カンファレンスへの招待が却下された日時
+          sent_at: カンファレンスへの招待が送信された日時
+          updated_at: この招待の最終更新日時
+        conference_registrations:
+          conference: 所属するカンファレンス
+          confirmed_at: この登録の確認日時
+          created_at: この登録の作成日時
+          id: カンファレンス参加登録の固有ID
+          registration_type: これが属する参加登録の種別
+          updated_at: この登録の最終更新日時
     events:
       conferences:
         conference_registration_confirmed:

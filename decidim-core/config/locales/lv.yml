@@ -62,6 +62,8 @@ lv:
     'false': 'Nē'
     'true': 'Jā'
   date:
+    buttons:
+      select: Izvēlēties
     formats:
       decidim_short: "%d/%m/%G"
       decidim_short_with_month_name_short: "%d %b %G"
@@ -810,12 +812,7 @@ lv:
         error: Atbalstīšanas laikā radās problēma.
     scopes:
       global: Globālais darbības tvērums
-      picker:
-        cancel: Atcelt
-        choose: Izvēlēties
-        title: Izvēlēties %{field}
       prompt: Izvēlēties darbības tvērumu
-      scopes: Darbības tvērums
     search:
       results_found_for_term: '%{count} Meklēšanas rezultāti: "%{term}"'
       term_input_placeholder: Meklēt
@@ -872,13 +869,6 @@ lv:
         send: Sūtīt
       update:
         error: Ziņojums nav nosūtīts. Pamēģini vēlreiz vēlāk
-    user_interests:
-      show:
-        my_interests: Manas intereses
-        update_my_interests: Atjaunināt manas intereses
-      update:
-        error: Jūsu interešu atjaunināšanas laikā radās problēma.
-        success: Jūsu intereses ir veiksmīgi atjauninātas.
     version:
       show:
         back_to_resource: Atgriezties
@@ -1049,7 +1039,6 @@ lv:
         authorizations: Autorizācijas
         delete_my_account: Izdzēst manu kontu.
         my_data: Mani dati
-        my_interests: Manas intereses
         notifications_settings: Paziņojumu iestatījumi
         title: Dalībnieka iestatījumi
         user_groups: Grupas
@@ -1073,6 +1062,8 @@ lv:
     wechat_footer: Atveriet WeChat, noklikšķiniet uz pogas Discover, pēc tam noklikšķiniet uz izvēlnes Scan QR Code.
     weibo: Sina Veibo
   time:
+    buttons:
+      select: Izvēlēties
     formats:
       day_of_year: "%d.%m.%g"
       decidim_day_of_year: "%d %B %G"
