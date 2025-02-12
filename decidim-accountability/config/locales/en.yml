@@ -274,12 +274,11 @@ en:
           results_count:
             one: 1 result
             other: "%{count} results"
-        home:
-          empty: There are no results yet.
-          empty_filters: There are no results with this criteria.
         home_header:
           global_status: Global execution status
         no_results: There are no projects
+        root_taxonomies:
+          title: 'View by:'
         search:
           search: Search for actions
         show:
@@ -304,6 +303,8 @@ en:
             clear_all: Clear all
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
+            default_taxonomy: Default taxonomy
+            default_taxonomy_help: Select which taxonomy you want to show by default. If no taxonomy is selected, the results will be shown in a list format.
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             display_progress_enabled: Display progress
             geocoding_enabled: Maps enabled
@@ -313,6 +314,7 @@ en:
             taxonomy_filters_add: Add filter
           step:
             comments_blocked: Comments blocked
+          visualization: Visualization
     download_your_data:
       show:
         result_comments: Result comments export

@@ -13,6 +13,10 @@ module Decidim
       routes do
         resources :results, only: [:index, :show] do
           resources :versions, only: [:show]
+
+          collection do
+            get :home
+          end
         end
         root to: "results#home"
       end

@@ -1,0 +1,12 @@
+<h1 class="title-decorator"><%= component_name %></h1>
+
+<% if component_settings.display_progress_enabled? %>
+  <%= cell(
+        "decidim/accountability/status",
+        nil,
+        title: t("decidim.accountability.results.home_header.global_status"),
+        progress: progress_calculator(nil).presence,
+        extra_classes: "accountability__status__home"
+      ) %>
+<% end %>
+<%= render partial: "filters" %>

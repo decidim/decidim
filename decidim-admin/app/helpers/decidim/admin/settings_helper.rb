@@ -91,15 +91,23 @@ module Decidim
       # @param name (see #settings_attribute_input)
       # @param i18n_scope (see #settings_attribute_input)
       # @param options (see #settings_attribute_input)
-      # @option :tabs_prefix (see #settings_attribute_input)
-      # @option :readonly (see #settings_attribute_input)
+      # @option options [String] :tabs_prefix (see #settings_attribute_input)
+      # @option options [Boolean] :readonly (see #settings_attribute_input)
       # @option options [String] :label The label that this field has
       # @option options [String] :help_text The help text shown after the input field
       # @return (see #settings_attribute_input)
       def render_select_form_field(form, attribute, name, i18n_scope, options)
+        choices = attribute.build_choices(component: @component).map do |o|
+          if attribute.raw_choices
+            o
+          else
+            [t("#{name}_options.#{o}", scope: i18n_scope), o]
+          end
+        end
+
         html = form.select(
           name,
-          attribute.build_choices.map { |o| [t("#{name}_options.#{o}", scope: i18n_scope), o] },
+          choices,
           { include_blank: attribute.include_blank, label: options[:label] }
         )
         html << content_tag(:p, options[:help_text], class: "help-text") if options[:help_text]

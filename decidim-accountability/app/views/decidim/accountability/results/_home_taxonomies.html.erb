@@ -1,32 +1,9 @@
-<div class="accountability__grid">
-  <% first_class_taxonomies.each do |taxonomy| %>
-    <% subelements = cell(
-      "decidim/accountability/status",
-      taxonomy,
-      extra_classes: "accountability__status__background",
-      url: results_path(filter: { taxonomies_part_of_contains: taxonomy }),
-      render_blank: true
-    ) %>
+<h3 class="mb-8 font-semibold text-xl">
+  <%= translated_attribute(selected_root_taxonomy.name) %>
+</h3>
 
-    <div>
-      <%= subelements.call %>
-    </div>
-
-    <div>
-        <% if subelements.has_results? %>
-          <div class="accountability__subgrid">
-            <% taxonomy.children.where(id: current_component.available_taxonomy_ids).each do |sub_taxonomy| %>
-              <%= cell(
-                    "decidim/accountability/status",
-                    sub_taxonomy,
-                    extra_classes: "accountability__status__border",
-                    url: results_path(filter: { taxonomies_part_of_contains: sub_taxonomy })
-                  ) %>
-            <% end %>
-          </div>
-        <% else %>
-          <%= cell("decidim/announcement", t("no_results", scope: "decidim.accountability.results")) %>
-        <% end %>
-      </div>
-  <% end %>
-</div>
+<% if selected_taxonomy_grandchildren? %>
+  <%= render "two_levels_taxonomies" %>
+<% else %>
+  <%= render "one_level_taxonomies" %>
+<% end %>

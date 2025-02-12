@@ -97,11 +97,18 @@
   }
 
   &__grid {
-    @apply grid md:grid-cols-3 items-start gap-x-10 gap-y-8 md:gap-y-16;
+    @apply grid md:grid-cols-3 items-start gap-x-6 gap-y-6;
 
-    & > :nth-child(even) {
-      @apply grid md:col-span-2;
+    &--one-level {
+      @apply grid;
     }
+
+    &--two-levels {
+      & > :nth-child(even) {
+        @apply grid md:col-span-2;
+      }
+    }
+
 
     /* display the titles only for the first two rows in desktop */
     & > :nth-child(1) &-title,
@@ -170,5 +177,29 @@
 
   &__filters {
     @apply w-full space-y-10;
+  }
+
+  &__taxonomies {
+    @apply w-full;
+
+    ul {
+      @apply flex flex-wrap gap-4 mt-4;
+
+      li {
+        @apply bg-white py-1 px-4 rounded;
+
+        a {
+          @apply text-secondary font-semibold text-sm;
+        }
+
+        &.active {
+          @apply bg-secondary text-white;
+
+          a {
+            @apply text-white;
+          }
+        }
+      }
+    }
   }
 }
