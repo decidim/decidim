@@ -51,7 +51,7 @@ module Decidim
               expect { command.call }.to broadcast(:ok)
             end
 
-            it "destroys the valuation assignment between the user and the proposal" do
+            it "destroys the evaluation assignment between the user and the proposal" do
               expect do
                 command.call
               end.to change { EvaluationAssignment.where(evaluator_role:).count }.from(1).to(0)

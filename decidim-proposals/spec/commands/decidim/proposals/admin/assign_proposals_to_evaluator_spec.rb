@@ -48,7 +48,7 @@ module Decidim
               expect { command.call }.to broadcast(:ok)
             end
 
-            it "creates the valuation assignment between the user and the proposal" do
+            it "creates the evaluation assignment between the user and the proposal" do
               expect do
                 command.call
               end.to change { EvaluationAssignment.where(proposal:, evaluator_role:).count }.by(1)

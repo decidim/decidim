@@ -190,7 +190,7 @@ module Decidim
         end
 
         # This is an internal field for admins which should not be published
-        context "when valuation assignments are hidden" do
+        context "when evaluation assignments are hidden" do
           it "does not publish them" do
             expect(serialized).not_to include(evaluation_assignments_count: proposal.evaluation_assignments_count)
           end
