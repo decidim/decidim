@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -1495,7 +1496,7 @@ fr:
         error: Il y a eu un problème lors de la mise à jour de votre mot de passe.
         success: Mot de passe mis à jour avec succès.
     profile:
-      deleted: Utilisateur supprimé
+      deleted: Utilisateur ayant supprimé son compte
       inaccessible_message: Ce profil est inaccessible en raison d'une violation des conditions d'utilisation !
     profiles:
       default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
@@ -2157,7 +2158,7 @@ fr:
     buttons:
       close: Fermer
       reset: Réinitialiser
-      select:
+      select: Sélectionner
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
