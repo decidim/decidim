@@ -10,19 +10,19 @@ module Decidim
 
       description "A sortition"
 
-      field :id, GraphQL::Types::ID, "The internal ID for this sortition", null: false
+      field :additional_info, Decidim::Core::TranslatedFieldType, "The additional info for this sortition", null: true
+      field :cancel_reason, Decidim::Core::TranslatedFieldType, "The cancel reason for this sortition", null: true
+      field :cancelled_by_user, Decidim::Core::UserType, "Who cancelled this sortition", null: true
+      field :cancelled_on, Decidim::Core::DateType, "When this sortition was cancelled", null: true
+      field :candidate_proposals, [GraphQL::Types::Int, { null: true }], "The candidate proposal for this sortition", null: true
       field :dice, GraphQL::Types::Int, "The dice for this sortition", null: true
-      field :target_items, GraphQL::Types::Int, "The target items for this sortition", null: true
+      field :id, GraphQL::Types::ID, "The internal ID for this sortition", null: false
+      field :reference, GraphQL::Types::String, "The reference for this sortition", null: true
       field :request_timestamp, Decidim::Core::DateType, "The request time stamp for this request", null: true
       field :selected_proposals, [GraphQL::Types::Int, { null: true }], "The selected proposals for this sortition", null: true
-      field :witnesses, Decidim::Core::TranslatedFieldType, "The witnesses for this sortition", null: true
-      field :additional_info, Decidim::Core::TranslatedFieldType, "The additional info for this sortition", null: true
-      field :reference, GraphQL::Types::String, "The reference for this sortition", null: true
+      field :target_items, GraphQL::Types::Int, "The target items for this sortition", null: true
       field :title, Decidim::Core::TranslatedFieldType, "The title for this sortition", null: true
-      field :cancel_reason, Decidim::Core::TranslatedFieldType, "The cancel reason for this sortition", null: true
-      field :cancelled_on, Decidim::Core::DateType, "When this sortition was cancelled", null: true
-      field :cancelled_by_user, Decidim::Core::UserType, "Who cancelled this sortition", null: true
-      field :candidate_proposals, [GraphQL::Types::Int, { null: true }], "The candidate proposal for this sortition", null: true
+      field :witnesses, Decidim::Core::TranslatedFieldType, "The witnesses for this sortition", null: true
 
       def self.authorized?(object, context)
         context[:sortition] = object

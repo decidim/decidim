@@ -138,6 +138,12 @@ ca:
         text: Estic d'acord amb aquest comentari
     download_your_data:
       help:
+        comment_votes:
+          comment: La id del comentari que es va valorar
+          created_at: La data i l'hora en què es va valorar aquest comentari
+          id: La id de la valoració del comentari
+          updated_at: La data i l'hora de la darrera actualització de la valoració d'aquest comentari
+          weight: El pes de la valoració (1 a favor, -1 en contra)
         comments:
           alignment: Si aquest comentari va ser a favor, en contra o neutral
           author: El nom d'usuària de la participant que va fer aquest comentari

@@ -381,6 +381,15 @@ ca:
               enabled: S'ha habilitat la votació
               finished: Votació finalitzada
     download_your_data:
+      help:
+        orders:
+          budget: El pressupost al qual s'ha emès el vot
+          checked_out_at: La data i l'hora en què es va entregar la petició
+          component: El component amb què està relacionada la petició
+          created_at: La data i l'hora en què es va crear la petició
+          id: L'identificador únic de la petició
+          projects: Els projectes votats recollits en aquesta petició
+          updated_at: La data i l'hora en què es va actualitzar la petició
       show:
         projects: Exportar els projectes
     events:

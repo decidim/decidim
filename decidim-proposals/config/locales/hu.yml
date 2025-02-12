@@ -611,7 +611,6 @@ hu:
           maximum_votes_reached: Szavazási határon túl
           no_votes_remaining: Nincs több szavazat
           vote: Szavazás
-          votes_blocked: Szavazás letiltva
         voting_rules:
           proposal_limit:
             description: Legfeljebb %{limit} javaslatot készíthetsz.

@@ -47,6 +47,7 @@ ca:
         deleted_results_info: Els resultats eliminats es poden restaurar des de la paperera.
         destroy: Esborrar
         edit: Editar
+        import: Importar resultats des d'un altre component
         import_csv: Importar resultats des d'un fitxer CSV
         new_result: Afegir resultat
         new_status: Afegir estat
@@ -59,6 +60,28 @@ ca:
         exports:
           result_comments: Comentaris
           results: Resultats
+        import_components:
+          create:
+            invalid: Hi ha hagut un problema important els resultats, si us plau, segueix les instruccions amb cura i assegura't de marcar els projectes seleccionats per a la seva implementació.
+          filters:
+            new_items_projects:
+              one: S'importarà 1 projecte seleccionat
+              other: "S'importaran %{count} projectes seleccionats"
+            new_items_proposals:
+              one: S'importarà 1 proposta
+              other: "S'importaran %{count} propostes"
+            proposal_state: Estat de la proposta
+            select_state: Seleccionar estat
+          form:
+            create: Importar
+            no_components: No hi ha component per a importar en aquest espai de participació.
+            origin_component_id: Component d'origen
+            select_component: Selecciona un component
+          new:
+            success:
+              one: Hi ha 1 resultat a la cua per ser importat. Es notificarà per correu electrònic, quan es completi la importació.
+              other: "Hi ha %{count} resultats a la cua per ser importats. Es notificarà per correu electrònic, quan es completi la importació."
+            title: Importar resultats des d'un altre component
         import_results:
           new:
             download_export: Descarregar l'exportació en format CSV
@@ -214,6 +237,13 @@ ca:
             other: "S'han importat %{count} resultats des de projectes."
           subject: Els projectes s'han importat correctament
           success: Projectes importats com a resultats amb èxit al component %{component_name}. Pots revisar els resultats al taulell d'administració.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: S'ha importat 1 resultat des de propostes.
+            other: "S'han importat %{count} resultats des de propostes."
+          subject: Les propostes s'han importat correctament
+          success: S'han importat amb èxit les propostes com a resultats al component %{component_name}. Podeu revisar els resultats al tauler d'administració.
       last_activity:
         new_result: 'Nou resultat:'
       models:
