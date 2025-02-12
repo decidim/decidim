@@ -1161,7 +1161,7 @@ shared_examples "comments blocked" do
       end
 
       context "when the user has an evaluator role in the same participatory space" do
-        let!(:evaluator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: participatory_space) }
+        let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process: participatory_space) }
 
         it_behaves_like "can answer comments"
       end
