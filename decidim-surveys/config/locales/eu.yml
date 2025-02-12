@@ -25,8 +25,6 @@ eu:
           announcement: Oharra
           global:
             announcement: Oharra
-            scope_id: Esparrua
-            scopes_enabled: Esparru gaituak
           step:
             announcement: Oharra
     events:
@@ -66,6 +64,19 @@ eu:
             title: '#%{number} erantzun'
         exports:
           survey_user_answers: Inkestako parte-hartzaileen erantzunak
+        publish_answers:
+          index:
+            answers:
+              one: "Erantzun bat"
+              other: "%{count} erantzun"
+            description: |-
+              Galderen erantzunak argitaratzean, jendaurrean ikusgai jarriko dituzu.
+              Argitaratu nahi dituzun erantzunak hauta ditzakezu galdera bakoitzaren ondoan dagoen laukitxoan klik eginez.
+              Galdera mota hauek baino ezin dira argitaratu: "Aukera bakarra", "Aukera anitza", "Matrizea (aukera bakarra)", "Matrizea (aukera anitza)" eta "Sailkapena".
+            status:
+              not_published: Argitaratu gabe
+              published: Argitaratua
+            title: Argitaratu erantzunak
         surveys:
           create:
             invalid: Arazo bat egon da inkesta sortzean.
@@ -87,9 +98,10 @@ eu:
             success: Inkesta ondo gorde da.
       admin_log:
         survey:
-          create: "%{user_name} parte-hartzaileak sortu du %{resource_name} inkesta %{space_name} esparruan inkesta gisa"
-          delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} inkesta %{space_name} esparruan inkesta gisa"
+          create: "%{user_name} parte-hartzaileak sortu du %{resource_name} inkesta %{space_name} eremuan inkesta gisa"
+          delete: "%{user_name} parte-hartzaileak ezabatu du %{resource_name} inkesta %{space_name} eremuan inkesta gisa"
           publish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} inkesta %{space_name} espazioan"
+          unpublish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} inkesta %{space_name} espazioan"
           update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} inkesta %{space_name} espazioan"
       directory:
         surveys:
@@ -119,7 +131,7 @@ eu:
           success: Inkesta ondo bete da.
         count:
           surveys_count:
-            one: "%{count} inkesta"
+            one: "Inkesta bat"
             other: "%{count} inkesta"
         filters:
           all: Guztiak

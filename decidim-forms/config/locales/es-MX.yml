@@ -41,6 +41,7 @@ es-MX:
         models:
           components:
             allow_answers: Permitir respuestas
+            allow_editing_answers: Permitir a las usuarias registradas editar sus respuestas en la encuesta
             allow_unregistered: Permitir a las usuarias no registradas responder a la encuesta
             allow_unregistered_help: Si está activo, no será necesario iniciar sesión para responder a la encuesta. Esto puede llevar a datos pobres o poco fiables y será más vulnerable a ataques automatizados. ¡Usar con precaución! Es importante que un participante pueda responder a la misma encuesta varias veces, utilizando diferentes navegadores o la función de "navegación privada" de su navegador web.
             announcement: Aviso
@@ -54,6 +55,7 @@ es-MX:
         questionnaires:
           actions:
             back: Volver a las preguntas
+            publish_answers: Publicar respuestas
             show: Mostrar las respuestas
           answer_option:
             answer_option: Opción de respuesta
@@ -103,6 +105,7 @@ es-MX:
             add_separator: Añadir separador
             add_title_and_description: Añadir título y descripción
             save: Guardar
+            title: Preguntas
           form:
             add_question: Añadir pregunta
             collapse: Contraer todas las preguntas
@@ -131,6 +134,7 @@ es-MX:
             already_answered_warning: No puedes modificar las preguntas porque algunas participantes ya han respondido el formulario.
             collapse: Contraer todas las preguntas
             expand: Desplegar todas las preguntas
+            unpublished_warning: El formulario no está publicado. Puedes modificar sus preguntas, pero al hacerlo se borrarán las respuestas actuales.
             update:
               success: Pregunta/s añadida/s correctamente a la encuesta.
           separator:
@@ -151,6 +155,9 @@ es-MX:
             invalid: Ha habido errores al guardar el cuestionario.
             success: Formulario guardado correctamente.
       admin_log:
+        question:
+          publish_answers: "%{user_name} publicó respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
+          unpublish_answers: "%{user_name} despublicó respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
         questionnaire:
           update: "%{user_name} actualizó el cuestionario %{resource_name}"
       errors:
@@ -193,6 +200,9 @@ es-MX:
           questionnaire_answered:
             body: Ya has respondido este cuestionario.
             title: Ya has respondido
+          questionnaire_answered_edit:
+            body: 'Ya has respondido a este formulario: %{link}'
+            edit: Editar las respuestas
           questionnaire_closed:
             body: El cuestionario está cerrado y ya no puedes responder.
             title: Cuestionario cerrado
@@ -207,9 +217,12 @@ es-MX:
           tos_agreement: Al responder aceptas los Términos y condiciones de uso
       step_navigation:
         show:
-          are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Estás seguro?
+          are_you_sure_edit: Podrás editar tus respuestas. ¿Seguro que quieres continuar?
+          are_you_sure_edit_guest: Si quieres poder editar tus respuestas más tarde, necesitas inicies tu sesión o crees una cuenta.
+          are_you_sure_no_edit: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Seguro que quieres continuar?
           back: Atrás
           continue: Continuar
+          disallowed: No puedes editar tus respuestas.
           submit: Enviar
       user_answers_serializer:
         body: Respuesta

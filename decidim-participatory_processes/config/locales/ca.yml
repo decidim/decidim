@@ -28,9 +28,6 @@ ca:
         promoted: Destacat
         published_at: Publicat el
         related_process_ids: Processos relacionats
-        scope_id: Àmbit
-        scope_type_max_depth_id: Profunditat del filtre d'àmbit
-        scopes_enabled: Àmbits habilitats
         short_description: Breu descripció
         slug: Nom curt d'URL
         start_date: Data d'inici
@@ -271,6 +268,9 @@ ca:
         create:
           error: S'ha produït un error en crear aquest grup de processos participatius.
           success: Grup de processos participatius creat correctament.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Tots els processos participatius
       titles:
         participatory_process_groups: Grups de processos participatius
         participatory_process_types: Tipus de processos participatius
@@ -444,14 +444,11 @@ ca:
             announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació del procés.
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
-            filters: Filtres
             images: Imatges
             metadata: Metadades
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             private_notice: Podràs administrar les membres un cop haguis configurar l'espai com a privat
             related_processes: Processos relacionats
-            scope_type_max_depth_help: Restringeix la profunditat del filtre d'àmbit. Es mostrarà des del filtre general fins al filtre seleccionat.
-            select_an_area: Selecciona una àrea
             select_process_group: Selecciona un grup de processos
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             taxonomies: Taxonomies

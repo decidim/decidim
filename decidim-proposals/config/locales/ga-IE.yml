@@ -48,8 +48,6 @@ ga:
           endorse: Formhuinigh
         name: Moltaí
         settings:
-          global:
-            scope_id: Scóip
           step:
             endorsements_blocked: Formhuinithe blocáilte
             endorsements_enabled: Formhuinithe cumasaithe

@@ -10,6 +10,8 @@ cs:
         state: Stav
         title: Titul
         user_group_id: Vytvořit návrh spolupráce jako
+      import_participatory_text:
+        document: Dokument
       proposal:
         address: Adresa
         answer: Odpovědět
@@ -19,6 +21,8 @@ cs:
         decidim_proposals_proposal_state_id: Stav
         decidim_scope_id: Rozsah
         has_address: Má adresu
+        latitude: Zeměpisná šířka
+        longitude: Zeměpisná délka
         scope_id: Oblast působnosti
         state: Stav
         suggested_hashtags: Navrhované hashtagy
@@ -45,6 +49,8 @@ cs:
       proposals_copy:
         copy_proposals: Rozumím, že tento krok naimportuje všechny návrhy z vybraného prvku do toho současného a že tuto akci nelze vrátit zpět.
         origin_component_id: Komponenta pro kopírování návrhů z
+      proposals_file_import:
+        file: Soubor
       proposals_import:
         import_proposals: Návrhy na dovoz
         keep_answers: Zachovat stav a odpovědi
@@ -220,8 +226,6 @@ cs:
             proposal_wizard_step_1_help_text: Text průvodce kroku nápovědy "Vytvořit" Návrh
             proposal_wizard_step_2_help_text: Text nápovědy ke kroku "Zveřejnit" průvodce návrhem
             resources_permissions_enabled: Pro každý návrh lze nastavit oprávnění akce
-            scope_id: Oblast působnosti
-            scopes_enabled: Oblasti působnosti povoleny
             taxonomy_filters: Vyberte filtry pro komponentu
             taxonomy_filters_add: Přidat filtr
             threshold_per_proposal: Prah na návrh
@@ -517,6 +521,21 @@ cs:
           proposal_comments: Komentáře
           proposals: Návrhy
         imports:
+          help:
+            answers: |
+              Importovaný dokument by měl obsahovat tyto názvy sloupců v případě souborů CSV nebo Excel, nebo názvy klíčů v případě JSON souborů (ostatní sloupce budou ignorovány):
+              <ul>
+              <li><b>id:</b> ID návrhu na odpověď</li>
+              <li><b>state:</b> Jeden z "přijatých", "vyhodnocení" nebo "odmítnuto"</li>
+              <li><b>answer/en:</b> Odpověď v angličtině. Bude to záviset na konfiguraci jazyka vaší platformy.</li>
+              </ul>
+            proposals: |
+              Soubor musí mít následující názvy sloupců v případě souborů CSV nebo Excel, nebo názvy klíčů pro JSON soubory:
+              <ul>
+              <li><b>title/en:</b> Nadpis v angličtině. To bude záviset na konfiguraci jazyka vaší platformy.</li>
+              <li><b>body/en:</b> Tělo v angličtině. To bude záviset na konfiguraci jazyka vaší platformy.</li>
+              <li><b>taxonomie/ids:</b> ID pro taxonomie (je-li více než jedno, oddělit čárkou)</li>
+              </ul>
           label:
             answers: Importovat odpovědi ze souboru
             proposals: Importovat návrhy ze souboru
@@ -755,6 +774,7 @@ cs:
           error: Při vytváření tohoto konceptu spolupráce došlo k chybě.
           success: Projekt spolupráce byl úspěšně vytvořen.
         edit:
+          attachment_legend: Přidat dokument nebo obrázek
           back: Zadní
           send: Poslat
           title: Úprava konceptu spolupráce
@@ -906,7 +926,10 @@ cs:
           description: Souřadnice budou aktualizovány po kliknutí na tlačítko 'náhled'. Adresa se však nemění.
           instructions: Můžete přesunout bod na mapě.
         edit:
+          add_attachments: Přidat přílohy
+          attachment_legend: Přidat dokument nebo obrázek
           back: Zadní
+          edit_attachments: Upravit přílohy
           send: Poslat
           title: Upravit návrh
         edit_draft:
@@ -1004,7 +1027,7 @@ cs:
           maximum_votes_reached: Limit hlasů dosažen
           no_votes_remaining: Žádné zbývající hlasy
           vote: Hlasovat
-          votes_blocked: Hlasování zakázáno
+          votes_blocked: Hlasovat
         votes_count:
           count:
             one: Hlas

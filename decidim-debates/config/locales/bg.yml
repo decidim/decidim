@@ -33,8 +33,6 @@ bg:
             announcement: Обявление
             comments_enabled: Коментарите са активирани
             comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
-            scope_id: Обхват
-            scopes_enabled: Обхватите са активирани
           step:
             announcement: Обявление
             comments_blocked: Коментарите са блокирани

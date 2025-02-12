@@ -138,8 +138,6 @@ pt-BR:
             proposal_limit: Limite da proposta por usuário
             proposal_wizard_step_1_help_text: Assistente de propostas "Criar" passo ajuda texto
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada proposta
-            scope_id: Escopo
-            scopes_enabled: Escopos habilitados
             threshold_per_proposal: Limiar por proposta
           step:
             amendment_creation_enabled: Criação de alteração ativada
@@ -626,7 +624,6 @@ pt-BR:
           maximum_votes_reached: Limite de votação atingido
           no_votes_remaining: Não há votos restantes
           vote: Voto
-          votes_blocked: Votação desativada
         voting_rules:
           proposal_limit:
             description: Você pode criar até %{limit} propostas.

@@ -13,8 +13,8 @@ eu:
         one: Iruzkina
         other: Iruzkinak
       decidim/comments/comment_vote:
-        one: Botoa
-        other: Botoak
+        one: Babesa
+        other: Babesak
   decidim:
     admin:
       admin_log:
@@ -25,7 +25,7 @@ eu:
         shared:
           availability_fields:
             enabled: Iruzkinak gaituta
-            end_time: Iruzkinak gaituta daude
+            end_time: Iruzkinak noiz arte gaituta
             start_time: Iruzkinak noiztik aktibatuta
       comments:
         create:
@@ -62,7 +62,7 @@ eu:
           neutral_selected: Zure iritzia gai honi buruz neutroa da
           positive: Positiboa
           positive_selected: Zure iritzia gai honi buruz positiboa da
-        remaining_characters: "%{count} karaktere geratzen dira"
+        remaining_characters: "%{count} kakaktere geratzen dira"
         remaining_characters_1: "karaktere %{count} geratzen da"
         title: Gehitu zure iruzkina
       comment:
@@ -70,7 +70,7 @@ eu:
           against: Aurka
           in_favor: Alde
         answers:
-          one: "%{count} erantzun"
+          one: "Erantzun %{count}"
           other: "%{count} erantzun"
         cancel_reply: Erantzuna ezabatu
         comment_label: Iruzkindu %{comment_id}
@@ -100,7 +100,7 @@ eu:
           title: Jakinarazi eduki desegokia
         show_replies:
           one: Erakutsi erantzuna
-          other: Erakutsi %{count} erantzun
+          other: Erakutsi %{count} erantzunak
         single_comment_link_title: Lortu esteka
         sort_by: 'Nork sortua:'
       comment_order_selector:
@@ -121,7 +121,7 @@ eu:
         single_comment_warning: <a href="%{url}">k erakusten ditu iruzkin guztiak</a>
         single_comment_warning_title: Iruzkin bakar bat ikusten ari zara
         title:
-          one: "%{count} iruzkin"
+          one: "Iruzkin bat"
           other: "%{count} iruzkin"
         top_comment_label: Bozkatuenak
       down_vote_button:
@@ -141,9 +141,9 @@ eu:
         comment_votes:
           comment: Bozkatutako iruzkinaren identifikazioa
           created_at: Zein datatan sortu zen bozketa hau
-          id: Botoaren identifikazioa
+          id: Babesaren identifikazioa
           updated_at: Zein datatan eguneratu zen azken aldiz bozketa hau
-          weight: Botoaren balioa (1 boto gehiago, -1 boto gutxiago)
+          weight: Babesaren balioa (1 boto gehiago, -1 boto gutxiago)
         comments:
           alignment: Iruzkin hau aldekoa bazen, kontrakoa edo neutrala
           author: Iruzkin hau egin duen parte-hartzailearen izena
@@ -153,9 +153,9 @@ eu:
           created_at: Zein datatan sortu zen iruzkin hau
           depth: Zein lekutan dago iruzkin hau hiru iruzkinetan (iruzkinaren erantzuna bada edo erantzunaren erantzuna bada)
           id: Identifikazioa iruzkin honetarako
-          locale: Parte-hartzaileak iruzkin hau uztean erabili zuen tokiko hizkuntza
+          locale: Parte-hartzaileak iruzkin hau uztean erabili du tokiko hizkuntza
           root_commentable_url: Iruzkin honekin lotzen den baliabidearen URLa (web helbidea)
-          user_group: Iruzkin hau egin duen erabiltzaile-taldearen izena (baldin badago)
+          user_group: Iruzkin hau egin duen partaide-taldearen izena (baldin badago)
     events:
       comments:
         comment_by_followed_user:
@@ -174,7 +174,7 @@ eu:
           email_subject: '%{author_name} k beste iruzkin berri bat egin du hemen: %{resource_title}'
           notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> k iruzkin berri bat egin du hemen: <a href="%{resource_path}">%{resource_title}</a></a>'
         comment_downvoted:
-          email_intro: Zure iruzkina hemen "%{resource_title}" negatiboki bozkatu da. Orain %{upvotes} boto positibo eta %{downvotes} boto negatibo dituzu guztira.
+          email_intro: Zure iruzkina hemen "%{resource_title}" negatiboki bozkatu da. Orain %{upvotes} babes positibo eta %{downvotes} boto negatibo dituzu guztira.
           email_outro: Jakinarazpen hau jaso duzu iruzkin honen egilea zarelako.
           email_subject: Zure iruzkina hemen "%{resource_title}" negatiboki bozkatu da.
           notification_title: Zure <a href="%{resource_path}">iruzkina</a> hemen "%{resource_title}" negatiboki bozkatu da. Orain guztira %{upvotes} boto positibo eta %{downvotes} boto negatibo dituzu.
@@ -184,7 +184,7 @@ eu:
           email_subject: Zure iruzkina hemen "%{resource_title}" positiboki bozkatu da.
           notification_title: Zure <a href="%{resource_path}">iruzkina </a> "%{resource_title}"-an positiboki bozkatu da. Orain guztira %{upvotes} botos positibo eta %{downvotes} boto negatibo dituzu.
         reply_created:
-          email_intro: "%{author_name} k zure iruzkina erantzun du hemen: %{resource_title}. Orri honetan irakur dezakezu:"
+          email_intro: "%{author_name} egileak zure iruzkina erantzun du hemen: %{resource_title}. Orri honetan irakur dezakezu:"
           email_outro: Jakinarazpen hau jaso duzu zure iruzkina erantzun delako.
           email_subject: "%{author_name} k zure iruzkina erantzun du hemen: %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> -k zure iruzkinari erantzun dio <a href="%{resource_path}">%{resource_title}</a>

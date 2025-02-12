@@ -151,6 +151,9 @@ es:
             postal_code: Código postal
             signature_count: Recuento de firmas
             timestamp: Marca de tiempo
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: Todas las iniciativas
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de Iniciativa
@@ -537,7 +540,7 @@ es:
           province: Provincia
           signature: Firma
         result:
-          answer_title: Se ha respondido a esta iniciativa.
+          answer_title: Se ha respondido a esta iniciativa
           initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de firmas.
         show:
           area: Área

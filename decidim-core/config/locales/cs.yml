@@ -3,10 +3,20 @@ cs:
     attributes:
       account:
         delete_reason: Důvod odstranění vašeho účtu
+      attachment:
+        documents: Dokumenty
+        photos: Fotky
       common:
         created_at: Vytvořeno v
+      component:
+        taxonomy_filters: Filtry taxonomie
+      content_block_attachment:
+        background_image: Obrázek pozadí
+        main_image: Hlavní obrázek
       conversation:
         body: Tělo zprávy
+      editor_image:
+        file: Soubor
       group:
         about: O nás
         avatar: Avatar
@@ -15,6 +25,8 @@ cs:
         name: Jméno
         nickname: Přezdívka
         phone: Telefon
+      import:
+        file: Soubor
       message:
         body: Tělo zprávy
       report:
@@ -22,12 +34,13 @@ cs:
       taxonomy:
         name: Název taxonomie
       taxonomy_filter:
-        internal_name: Interní název filtru
-        name: Veřejný název filtru
+        internal_name: Interní štítek
+        name: Štítek
         root_taxonomy_id: Z taxonomie
-        space_filter: K dispozici jako filtr pro participační prostory
+        space_filter: Dostupné jako filtr pro
       user:
         about: O nás
+        avatar: Avatar
         email: Váš email
         encrypted_password: Heslo
         locale: Jazyk
@@ -39,6 +52,8 @@ cs:
         personal_url: Osobní URL
         remove_avatar: Odstranit avatara
         tos_agreement: Podmínky smlouvy o poskytování služeb
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Příloha
       decidim/component_published_event: Aktivní komponenty
@@ -269,6 +284,9 @@ cs:
       impersonation_log:
         manage: "%{user_name} spravoval %{resource_name}, protože %{reason}"
       moderation:
+        bulk_hide: "%{user_name} skryl %{reported_count} zdroje"
+        bulk_unhide: "%{user_name} zrušil skrytí %{reported_count} zdrojů"
+        bulk_unreport: "%{user_name} zrušil nahlášení %{reported_count} zdrojů"
         hide: "%{user_name} skryje zdroj typu %{resource_type} v prostoru %{space_name}"
         unreport: "%{user_name} unreported zdroj typu %{resource_type} ve %{space_name} prostoru"
       newsletter:
@@ -317,14 +335,17 @@ cs:
         update: "%{user_name} aktualizoval taxonomii %{resource_name}"
         update_with_parent: "%{user_name} aktualizoval taxonomii %{resource_name} uvnitř taxonomie %{parent_taxonomy}"
       taxonomy_filter:
-        create: "%{user_name} vytvořil filtr založený na taxonomii %{resource_name}"
-        create_with_filter_items_count: "%{user_name} vytvořil filtr založený na taxonomii %{resource_name} s %{filter_items_count} filtry pro %{space_manifest_name}"
-        delete: "%{user_name} odstranil filtr založený na taxonomii %{resource_name}"
-        delete_with_filter_items_count: "%{user_name} odstranil filtr založený na taxonomii %{resource_name} s %{filter_items_count} filtry pro %{space_manifest_name}"
-        update: "%{user_name} aktualizoval filtr založený na taxonomii %{resource_name}"
-        update_with_filter_items_count: "%{user_name} aktualizoval filtr založený na taxonomii %{resource_name} s %{filter_items_count} filtry pro %{space_manifest_name}"
+        create: "%{user_name} vytvořil filtr %{resource_name}"
+        create_with_filter_info: '%{user_name} vytvořil filtr %{resource_name} na základě taxonomie "%{taxonomy_name}" s %{filter_items_count} položkami'
+        delete: "%{user_name} odstranil filtr %{resource_name}"
+        delete_with_filter_info: '%{user_name} odstranil filtr %{resource_name} na základě taxonomie "%{taxonomy_name}" s položkami %{filter_items_count}'
+        update: "%{user_name} aktualizoval filtr %{resource_name}"
+        update_with_filter_info: '%{user_name} aktualizoval filtr %{resource_name} na základě taxonomie "%{taxonomy_name}" s %{filter_items_count} položkami'
       user:
         block: "%{user_name} zablokoval uživatele %{resource_name}"
+        bulk_block: "%{user_name} zablokoval %{blocked_count} uživatelů"
+        bulk_ignore: "%{user_name} zrušil nahlášení %{unreported_users_count} uživatelů"
+        bulk_unblock: "%{user_name} odblokoval %{unblocked_count} uživatelů"
         invite: "%{user_name} pozval uživatele %{resource_name} s rolí: %{role}"
         officialize: "%{user_name} oficializoval uživatele %{resource_name}"
         promote: "%{user_name} vytvořil %{resource_name}"
@@ -335,6 +356,9 @@ cs:
         unofficialize: "%{user_name} neoficiální uživatel %{resource_name}"
       user_group:
         block: "%{user_name} zablokoval uživatelskou skupinu %{resource_name}"
+        bulk_block: "%{user_name} zablokoval %{blocked_count} uživatelů"
+        bulk_ignore: "%{user_name} zrušil nahlášení %{unreported_users_count} uživatelů"
+        bulk_unblock: "%{user_name} odblokoval %{unblocked_count} uživatelů"
         reject: "%{user_name} odmítl ověření skupiny %{resource_name} uživatelů"
         unblock: "%{user_name} odblokoval uživatelskou skupinu %{resource_name}"
         verify: "%{user_name} ověřilo %{resource_name} uživatelskou skupinu"
@@ -461,14 +485,19 @@ cs:
         explanation: Ověřte se zavedením čísla dokumentu končícího "X".
         fields:
           allowed_postal_codes: Povolené poštovní směrovací kódy (oddělené čárkami)
-          allowed_scope_id: Povolená oblast působnosti
           document_number: Číslo dokumentu
           postal_code: Poštovní směrovací číslo
-          scope_id: Oblast působnosti
         name: Příklad autorizace
       dummy_authorization_workflow:
         explanation: Ukázkový pracovní postup autorizace
         name: Pracovní postup autorizace
+      ephemeral_dummy_authorization_handler:
+        explanation: Ověřte tím, že uvedete číslo dokumentu končící "X".
+        fields:
+          allowed_postal_codes: Povolené PSČ (oddělené čárkami)
+          document_number: Číslo dokumentu
+          postal_code: PSČ
+        name: Přechodný příklad autorizace
       errors:
         duplicate_authorization: Uživatel má již oprávnění se stejnými daty. Administrátor vás bude kontaktovat k ověření vašich údajů.
       expired_at: Platnost vypršela v %{timestamp}
@@ -561,8 +590,6 @@ cs:
             enable_pads_creation: Povolit vytvoření sdíleného textu
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             resources_permissions_enabled: Oprávnění zdrojů povoleno
-            scope_id: Oblast působnosti
-            scopes_enabled: Oblasti působnosti povoleny
             taxonomy_filters: Vyberte filtry pro komponentu
           step:
             amendment_creation_enabled: Umožnit změnu a doplnění
@@ -686,6 +713,7 @@ cs:
           sign_in_disabled: Můžete přistupovat pomocí externího účtu.
           sign_up_disabled: Vytvoření účtu je zakázáno, pro přístup můžete použít existující účet.
         user:
+          ephemeral_session_closed: Vaše relace návštěvníka skončila
           timed_out: Byli jste neaktivní příliš dlouho a byli jste automaticky odhlášeni ze služby. Pokud chcete pokračovat v používání služby, přihlaste se prosím znovu.
       shared:
         newsletter_modal:
@@ -736,7 +764,17 @@ cs:
       export:
         ready: Připraven
       help:
+        core:
+          description: Toto jsou soubory s osobními údaji, příspěvky a aktivitou uživatele %{user_name}
+          title: Stáhněte si své datové soubory z %{organization}
+        follows:
+          created_at: Datum a čas, kdy bylo vytvořeno sledování
+          followable: Zdroj nebo prostor, který je sledován
+          id: Jedinečný identifikátor tohoto sledování
+          updated_at: Datum a čas, kdy bylo sledování naposledy aktualizováno
         identities:
+          created_at: Datum a čas vytvoření identity
+          id: Jedinečný identifikátor této identity
           provider: Poskytovatel této identity
           uid: Jedinečný identifikátor této identity
           updated_at: Datum a čas, kdy byla totožnost naposledy aktualizována
@@ -754,6 +792,21 @@ cs:
           id: Jedinečný identifikátor tohoto oznámení
           resource_type: Typ zdroje, ke kterému se oznámení vztahuje
           updated_at: Datum a čas, kdy bylo oznámení naposledy aktualizováno
+        participatory_space_private_users:
+          created_at: Datum a čas, kdy byl tento soukromý uživatel vytvořen
+          id: Jedinečný identifikátor tohoto soukromého uživatele
+          privatable_to: Do kterého prostoru patří tento soukromý uživatel
+          published: Zda je tento soukromý uživatel zveřejněn, nebo ne
+          role: Role, kterou má tento soukromý uživatel
+          updated_at: Datum a čas poslední aktualizace tohoto soukromého uživatele
+        reports:
+          created_at: Datum a čas vytvoření této zprávy
+          details: Podrobnosti této zprávy
+          id: Jedinečný identifikátor této zprávy
+          locale: Jazyk této zprávy
+          moderation: Moderování, které tato zpráva má
+          reason: Důvod této zprávy
+          updated_at: Datum a čas poslední aktualizace této zprávy
         user_groups:
           document_number: Číslo dokumentu této uživatelské skupiny
           id: Jedinečný identifikátor této skupiny uživatelů
@@ -762,14 +815,18 @@ cs:
           verified_at: Datum a čas, kdy byla tato skupina uživatelů ověřena
         users:
           about: Životopis tohoto uživatele
+          accepted_tos_version: Datum, kdy uživatel přijal podmínky poskytování služeb této platformy
           admin: Zda je tento uživatel administrátorem
           confirmation_sent_at: Datum a čas, kdy bylo potvrzení odesláno
+          confirmed_at: Datum a čas potvrzení tohoto uživatele
           created_at: Datum a čas, kdy byl uživatel vytvořen
           current_sign_in_at: Datum a čas současného přihlášení
           current_sign_in_ip: IP adresa aktuálního přihlášení
           delete_reason: Důvod pro odstranění tohoto uživatele
           deleted_at: Datum a čas, kdy byl tento uživatel odstraněn
           email: E-mailová adresa tohoto uživatele
+          followers_count: Počet účastníků, kteří sledují tohoto uživatele
+          following_count: Počet účastníků, které tento uživatel sleduje
           id: Jedinečný identifikátor tohoto uživatele
           invitation_accepted_at: Datum a čas, kdy byla pozvánka přijata
           invitation_created_at: Datum a čas, kdy byl uživatel pozván
@@ -788,10 +845,13 @@ cs:
           officialized_as: Název oficializace (poradce, starosta atd.)
           officialized_at: Datum a čas, kdy byl tento uživatel oficializován
           organization: Organizace, do které tento uživatel patří,
+          password_updated_at: Datum poslední změny hesla
           personal_url: Osobní URL tohoto uživatele
           remember_created_at: Datum a čas, kdy byl uživatel vybrán k zapamatování
           reset_password_sent_at: Datum a čas, kdy bylo odesláno obnovení hesla
+          roles: Role, kterou má tento uživatel, pokud nějakou má
           sign_in_count: Počet přihlášení tohoto uživatele
+          type: Typ, který má tento uživatel
           unconfirmed_email: E-mailová adresa, kterou tento uživatel ještě nepotvrdil
           updated_at: Datum a čas, kdy byl tento uživatel naposledy aktualizován
       show:
@@ -831,6 +891,7 @@ cs:
       others: "%{count} dalších"
       title: Líbí se
       you: vy
+    ephemeral_user: Návštěvník
     errors:
       files:
         file_cannot_be_processed: Soubor nelze zpracovat
@@ -898,6 +959,11 @@ cs:
             email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{amendable_title}. Po předchozím propojení můžete přestat přijímat oznámení.
             email_subject: Pozměňovací návrh k %{amendable_title} byl zamítnut od %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">Pozměňovací návrh</a> vytvořen od <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k <a href="%{amendable_path}">%{amendable_title}</a> byl odmítnut.
+        emendation_promoted:
+          follower:
+            email_intro: 'Byla zveřejněna oprava pro %{amendable_title}. Můžete si ji prohlédnout na této stránce:'
+            email_outro: Toto oznámení jste obdrželi, protože jste autorem %{amendable_title}.
+            email_subject: Doplněk z %{emendation_author_nickname} byl zveřejněn jako nový %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Do dokumentu %{resource_title} byl přidán nový dokument. Můžete jej vidět z této stránky:'
@@ -1067,6 +1133,7 @@ cs:
         file:
           explanation: 'Pokyny pro soubor:'
           message_1: Jedná se o obrázek nebo dokument.
+          message_2: Pokud se jedná o obrázek, měl by to být obrázek na šířku, který neobsahuje žádný text. Služba obrázek ořízne.
         icon:
           explanation: 'Pokyny pro ikonu:'
           message_1: Musí to být čtvercový obrázek.
@@ -1244,6 +1311,8 @@ cs:
         unknown_action_with_space: "%{user_name} provedlo nějakou akci na %{resource_name} v %{space_name}"
         unpublish_with_space: "%{user_name} zrušil publikaci %{resource_name} v %{space_name}"
         update: "%{user_name} aktualizováno %{resource_name}"
+        update_filters: "%{user_name} aktualizoval filtry %{resource_name}"
+        update_filters_with_space: "%{user_name} aktualizoval filtry %{resource_name} v %{space_name}"
         update_permissions_with_space: "%{user_name} aktualizoval oprávnění k %{resource_name} v %{space_name}"
         update_with_space: "%{user_name} aktualizováno %{resource_name} v %{space_name}"
       value_types:
@@ -1349,6 +1418,8 @@ cs:
         not_started: Ještě nezačalo
         remaining: "Zbývá %{time_distance}"
     metrics:
+      blocked_users:
+        description: Počet blokovaných účastníků
       download:
         csv: Stáhnout data (CSV)
       followers:
@@ -1359,6 +1430,10 @@ cs:
         description: Počet aktivních uživatelů v organizaci
         object: účastníků
         title: Účastníci
+      reported_users:
+        description: Počet nahlášených účastníků
+      user_reports:
+        description: Počet zpráv vypracovaných účastníky
       users:
         description: Počet uživatelů v organizaci
         object: uživatelů
@@ -1424,10 +1499,12 @@ cs:
     notifications_digest_mailer:
       header:
         daily: Denní výběr oznámení
+        real_time: V reálném čase
         weekly: Týdenní výběr oznámení
       hello: Dobrý den %{name},
       intro:
         daily: 'Toto jsou oznámení z posledního dne založená na aktivitě, kterou máte:'
+        real_time: 'Toto je oznámení o aktivitě, kterou sledujete:'
         weekly: 'Toto jsou oznámení z minulého týdne založená na aktivitě, kterou máte:'
       outro: Obdrželi jste tato oznámení, protože sledujete tento obsah nebo jeho autory. Můžete je zrušit z jejich příslušných stránek.
       see_more: Zobrazit další oznámení
@@ -1469,11 +1546,13 @@ cs:
     onboarding_action_message:
       click_link: Klikněte zde
       cta_html: <a href="%{path}">%{link_text}</a> pro %{action} v %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: Byli jste úspěšně autorizováni.<br/>Začali jste relaci pro hosty, nyní se můžete účastnit.
       expired_authorization_active_title: Vaše autorizace vypršela.
       finish_authorization_process: Můžete dokončit proces autorizace
       incomplete_authorization_active_title: Vaše ověření nebylo dokončeno všemi nezbytnými informacemi.
       pending_authorization_active_message: Pro pokračování této akce vyplňte formulář.
       pending_authorization_active_title: Potřebujeme ověřit Vaši totožnost.
+      pending_ephemeral_authorization: Pro pokračování ověřte svou totožnost.
     open_data:
       help:
         core:
@@ -1504,6 +1583,19 @@ cs:
           reported_content: Nahlášený obsah
           reported_url: Adresa url nahlášeného zdroje
           reports: Seznam důvodů, pro které byl zdroj nahlášen
+        taxonomies:
+          children_count: Počet podřazených položek, které má tato taxonomie
+          created_at: Datum, kdy byla tato taxonomie vytvořena
+          filter_items_count: Počet filtrů položek, které používají tuto taxonomii
+          filters_count: Počet filtrů používajících tuto taxonomii
+          id: Jedinečný identifikátor této taxonomie
+          is_root: True, pokud tato taxonomie nemá žádnou nadřazenou položku
+          name: Název této taxonomie
+          parent_id: Jedinečné identifikátory této nadřazené položky taxonomie (pokud existují)
+          part_of: Slouží ke zjištění, zda je tato taxonomie součástí jiné taxonomie
+          taxonomizations_count: Počet zdrojů, které používají tuto taxonomii
+          updated_at: Datum poslední aktualizace této taxonomie
+          weight: Pořadí, v jakém je tato taxonomie uvedena, je následující
         user_groups:
           avatar_url: Avatar uživatelské skupiny
           badge: Odznak uživatelské skupiny
@@ -1708,16 +1800,7 @@ cs:
         error: Během akce schválení došlo k chybě.
     scopes:
       global: Globální oblast působnosti
-      picker:
-        cancel: Zrušit
-        change: Změnit vybraný rozsah
-        choose: Vybrat
-        currently_selected: Aktuálně vybraný rozsah
-        title: Vyberte %{field}
       prompt: Vyberte oblast působnosti
-      scopes: Oblasti působnosti
-      scopes_picker_input:
-        select_scope: 'Vyberte oblast působnosti (v současné době: %{current})'
     search:
       name: Hledat
       results: Výsledky hledání
@@ -1844,15 +1927,6 @@ cs:
         send: Odeslat
       update:
         error: Zpráva nebyla odeslána. Zkuste to později
-    user_interests:
-      show:
-        my_interests: Mé zájmy
-        no_scopes: Tato organizace zatím nemá žádnou oblast působnosti!
-        select_your_interests: Vyberte témata, která vás zajímají, abyste v záložce Harmonogram ve svém profilu viděli události, které s nimi souvisejí.
-        update_my_interests: Aktualizujte své zájmy
-      update:
-        error: Během aktualizace vašich zájmů došlo k chybě.
-        success: Vaše zájmy byly úspěšně aktualizovány.
     user_report_mailer:
       notify:
         body_1: Uživatel %{user} byl nahlášen od %{token}
@@ -2227,6 +2301,8 @@ cs:
         sign_up: Vytvořit účet
         terms_of_service: Podmínky služby
       header:
+        close: Zavřít‏
+        confirm_close_ephemeral_session: Pokud z této stránky odejdete, vaše relace bude ukončena. Jste si jisti?
         log_in: Přihlásit
         main_menu: Hlavní menu
         user_menu: Uživatelské Menu
@@ -2236,6 +2312,8 @@ cs:
         expire_time_html: Platnost vaší relace vyprší za <b><span class="minutes">%{minutes}</span></b>.
       language_chooser:
         choose_language: Vyberte jazyk
+      navigation:
+        aria_label: Navigační menu - %{title}
       notifications_dashboard:
         mark_all_as_read: Označit vše jako přečtené
         mark_as_read: Označit jako přečtené
@@ -2267,7 +2345,6 @@ cs:
         authorizations: Autorizace
         delete_my_account: Smazat můj účet
         my_data: Moje data
-        my_interests: Mé zájmy
         notifications_settings: Nastavení oznámení
         profile: Profil
         title: Uživatelské nastavení

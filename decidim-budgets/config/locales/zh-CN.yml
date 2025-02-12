@@ -149,8 +149,6 @@ zh-CN:
             landing_page_content: 预算登陆页
             more_information_modal: 更多信息模式
             projects_per_page: 每页项目数
-            scope_id: 范围
-            scopes_enabled: 范围已启用
             title: 标题
             total_budget: 预算总额
             vote_minimum_budget_projects_number: 要投票的项目最小数量

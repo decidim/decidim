@@ -29,6 +29,8 @@ fr:
         body: Corps de texte
       report:
         details: Commentaires supplémentaires
+      taxonomy_filter:
+        space_filter: Disponible comme filtre pour
       user:
         about: A propos de moi
         avatar: Avatar
@@ -282,12 +284,9 @@ fr:
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
         update: "%{user_name} a mis à jour la page statique %{resource_name}"
       taxonomy_filter:
-        create: "%{user_name} a créé un filtre basé sur la taxonomie %{resource_name}"
-        create_with_filter_items_count: "%{user_name} a créé un filtre basé sur la taxonomie %{resource_name} avec %{filter_items_count} filtres pour %{space_manifest_name}"
-        delete: "%{user_name} a supprimé un filtre basé sur la taxonomie %{resource_name}"
-        delete_with_filter_items_count: "%{user_name} a supprimé un filtre basé sur la taxonomie %{resource_name} avec %{filter_items_count} filtres pour %{space_manifest_name}"
-        update: "%{user_name} a mis à jour un filtre basé sur la taxonomie %{resource_name}"
-        update_with_filter_items_count: "%{user_name} a mis à jour un filtre basé sur la taxonomie %{resource_name} avec %{filter_items_count} filtres pour %{space_manifest_name}"
+        create: "%{user_name} a créé le filtre %{resource_name}"
+        delete: "%{user_name} a supprimé le filtre %{resource_name}"
+        update: "%{user_name} a mis à jour le filtre %{resource_name}"
       user:
         block: "%{user_name} a bloqué l'utilisateur %{resource_name}"
         invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle : %{role}"
@@ -419,10 +418,8 @@ fr:
         explanation: Obtenir une vérification en saisissant un numéro de document terminant par "X".
         fields:
           allowed_postal_codes: Codes postaux autorisés (séparés par des virgules)
-          allowed_scope_id: Secteur autorisé
           document_number: Numéro de document
           postal_code: Code postal
-          scope_id: Secteur
         name: Exemple d'autorisation
       dummy_authorization_workflow:
         explanation: Procédure d'autorisation factice
@@ -521,8 +518,6 @@ fr:
             dummy_global_translatable_text: Texte traduisible factice
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
-            scope_id: Secteur
-            scopes_enabled: Secteurs activés
           step:
             amendment_creation_enabled: Création d'amendement activée
             amendment_promotion_enabled: Promotion d'amendement activée
@@ -690,6 +685,28 @@ fr:
     download_your_data:
       export:
         ready: Prêt
+      help:
+        participatory_space_private_users:
+          created_at: La date et l'heure de création de cet utilisateur privé
+          id: L'identifiant unique de cet utilisateur privé
+          privatable_to: À quel espace cet utilisateur privé appartient
+          published: Que cet utilisateur privé soit publié ou non
+          role: Le rôle que cet utilisateur privé a
+          updated_at: La date et l'heure de la dernière mise à jour de cet utilisateur privé
+        reports:
+          created_at: La date et l'heure de création de ce rapport
+          details: Les détails de ce rapport
+          id: L'identifiant unique de ce rapport
+          locale: La langue de ce rapport
+          reason: La raison de ce rapport
+          updated_at: La date et l'heure de la dernière mise à jour de ce rapport
+        users:
+          accepted_tos_version: La date à laquelle les conditions d'utilisation de cette plateforme ont été acceptées par l'utilisateur
+          followers_count: Le nombre de participants qui suivent à cet utilisateur
+          following_count: Le nombre de participants que cet utilisateur suit
+          password_updated_at: La date à laquelle leur mot de passe a été modifié pour la dernière fois
+          roles: Le rôle de cet utilisateur s'il en a un
+          type: Le type que cet utilisateur a
       show:
         action: Action
         download_data_description_1: Vous trouverez ici tous les téléchargements disponibles pour votre compte. Ces fichiers .zip seront disponibles pendant deux semaines avant d'être supprimés.
@@ -1120,6 +1137,8 @@ fr:
         unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
         unpublish_with_space: "%{user_name} a dépublié %{resource_name} de %{space_name}"
         update: "%{user_name} a mis à jour %{resource_name}"
+        update_filters: "%{user_name} a mis à jour les filtres de %{resource_name}"
+        update_filters_with_space: "%{user_name} a mis à jour les filtres de %{resource_name} dans %{space_name}"
         update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
@@ -1550,16 +1569,7 @@ fr:
         error: Il y a eu un problème lors de l'action de soutien.
     scopes:
       global: Portée générale
-      picker:
-        cancel: Annuler
-        change: Changer le secteur sélectionné
-        choose: Sélectionner
-        currently_selected: Secteur actuellement sélectionné
-        title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
-      scopes: Secteurs
-      scopes_picker_input:
-        select_scope: 'Sélectionnez un secteur (actuellement: %{current})'
     search:
       name: Rechercher
       results: Résultats de recherche
@@ -1682,15 +1692,6 @@ fr:
         send: Envoyer
       update:
         error: Message non envoyé. Réessayez plus tard
-    user_interests:
-      show:
-        my_interests: Mes intérêts
-        no_scopes: Cette organisation n'a pas encore de secteurs !
-        select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir les événements qui y sont liés dans l'onglet Chronologie de votre profil.
-        update_my_interests: Mettre à jour mes intérêts
-      update:
-        error: Une erreur s'est produite lors de la mise à jour de vos centres d'intérêt.
-        success: Vos intérêts ont été mis à jour avec succès.
     user_report_mailer:
       notify:
         body_1: L'utilisateur %{user} a été signalé par %{token}
@@ -2102,7 +2103,6 @@ fr:
         authorizations: Autorisations
         delete_my_account: Supprimer mon compte
         my_data: Mes données
-        my_interests: Mes intérêts
         notifications_settings: Paramètres des notifications
         profile: Profil
         title: Paramètres utilisateur

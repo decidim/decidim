@@ -24,11 +24,11 @@ cs:
       surveys:
         actions:
           answer: Odpovědět
+        name: Průzkumy
         settings:
+          announcement: Oznámení
           global:
             announcement: Oznámení
-            scope_id: Oblast působnosti
-            scopes_enabled: Oblasti působnosti povoleny
           step:
             announcement: Oznámení
     events:
@@ -51,15 +51,80 @@ cs:
     statistics:
       answers_count: Odpovědi
     surveys:
+      actions:
+        answers_alert: Odstranění odpovědí při zveřejnění je pro tento průzkum aktivní. V současné době existuje %{answers_count} odpovědí, které budou zničeny, pokud budete pokračovat.
+        confirm_destroy: Opravdu to chcete smazat?
+        destroy: Zničit
+        edit: Upravit
+        manage_questions: Spravovat otázky
+        new_survey: Nový průzkum
+        preview: Náhled
+        title: Akce
       admin:
+        answers:
+          index:
+            title: "%{total} odpovědí celkem"
+          show:
+            title: 'Odpověď č.%{number}'
         exports:
           survey_user_answers: Odpovědi účastníka na průzkum
+        publish_answers:
+          index:
+            answers:
+              one: "%{count} odpověď"
+              few: "%{count} odpovědi"
+              many: "%{count} odpovědí"
+              other: "%{count} odpovědí"
+            description: |-
+              Zveřejněním odpovědí na otázky je veřejnosti zviditelníte.
+              Můžete vybrat odpovědi, které chcete publikovat, kliknutím na zaškrtávací políčko vedle každé otázky.
+              Můžete publikovat pouze následující typy úloh: "Jedna možnost", "Vícenásobná možnost", "Matice (jedna možnost)", "Matice (více možností)" a "Řazení".
+            status:
+              not_published: Nezveřejněno
+              published: Zveřejněno
+            title: Zveřejnit odpovědi
         surveys:
+          create:
+            invalid: Při vytváření ankety došlo k chybě.
+            success: Anketa byla úspěšně vytvořena.
+          destroy:
+            success: Anketa byla úspěšně odstraněna.
+          edit:
+            title: Upravit anketu
+          index:
+            title: Ankety
+          publish:
+            invalid: Při publikování této ankety došlo k chybě.
+            success: Anketa byla úspěšně publikována.
+          unpublish:
+            invalid: Při rušení publikování této ankety došlo k chybě.
+            success: Anketa byla úspěšně zneveřejněna.
           update:
             invalid: Při ukládání průzkumu došlo k chybám.
             success: Průzkum byl úspěšně uložen.
+      admin_log:
+        survey:
+          create: "%{user_name} vytvořil anketu %{resource_name} na místě %{space_name} jako anketu"
+          delete: "%{user_name} odstranil anketu %{resource_name} v místnosti %{space_name} jako anketu"
+          publish: "%{user_name} publikoval anketu %{resource_name} v prostoru %{space_name}"
+          unpublish: "%{user_name} zrušil publikaci ankety %{resource_name} v prostoru %{space_name}"
+          update: "%{user_name} aktualizoval anketu %{resource_name} v prostoru %{space_name}"
+      directory:
+        surveys:
+          index:
+            surveys: Ankety
       last_activity:
         new_survey: 'Nový průzkum:'
+      models:
+        survey:
+          fields:
+            answers: Odpovědi
+            questions: Otázky
+            status: Status
+            title: Název
+          status:
+            closed: Uzavřeno
+            open: Otevřeno
       survey_confirmation_mailer:
         confirmation:
           body: Úspěšně jste odpověděli na anketu %{questionnaire_title} v rámci %{participatory_space}
@@ -70,3 +135,19 @@ cs:
           invalid: Při odpovědi na průzkum došlo k chybám.
           spam_detected: Vyskytl se problém s odpovědí na formulář. Možná jste byl příliš rychlý, můžete to zkusit znovu?
           success: Průzkum úspěšně odpověděl.
+        count:
+          surveys_count:
+            one: "%{count} anketa"
+            few: "%{count} ankety"
+            many: "%{count} anket"
+            other: "%{count} anket"
+        filters:
+          all: Vše
+          state_values:
+            closed: Uzavřeno
+            open: Otevřeno
+        no_surveys_warning: Žádné ankety neodpovídají zadaným kritériím nebo není žádná anketa otevřena.
+        show:
+          closed: Uzavřeno
+          open: Otevřeno
+          questions: otázky

@@ -17,7 +17,7 @@ eu:
         available_slots: Topaketa honetarako toki erabilgarriak
         customize_registration_email: Pertsonalizatu izena emateko helbide elektronikoa
         decidim_category_id: Kategoria
-        decidim_scope_id: Esparrua
+        decidim_scope_id: Eremua
         decidim_user_group_id: Partaide-taldea
         description: Deskribapena
         end_time: Bukaera ordua
@@ -169,8 +169,6 @@ eu:
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             registration_code_enabled: Izena emateko kodea aktibatuta
             resources_permissions_enabled: Topaketa bakoitzerako ekintza-baimenak ezar daitezke
-            scope_id: Esparrua
-            scopes_enabled: Esparruak gaituta
             taxonomy_filters: Hautatu iragazkiak osagairako
             taxonomy_filters_add: Erantsi iragazkia
             terms_and_conditions_url_for_meeting_creators: Irizpide eta baldintzen URLa topaketen egileentzat
@@ -181,11 +179,23 @@ eu:
             creation_enabled_for_user_groups: Parte-hartzaileek topaketak sor ditzakete taldearen arabera
     download_your_data:
       help:
+        invites:
+          accepted_at: Zein datatan eta zein ordutan onartu zen gonbidapen hau
+          created_at: Zein datatan eta zein ordutan sortu zen gonbidapen hau
+          id: Gonbidapen honetarako identifikatzaile bakarra
+          meeting: Gonbidapen hau zein topaketatan izan zen
+          rejected_at: Zein datatan eta zein ordutan ukatu zen gonbidapen hau
+          sent_at: Zein datatan eta zein ordutan bidali zen gonbidapen hau
+          updated_at: Zein datatan eta zein ordutan eguneratu zen gonbidapen hau azken aldiz
         registrations:
           code: Erregistro-kodea
+          created_at: Zein datatan eta zein ordutan sortu zen erregistro hau
           id: Erregistroaren identifikatzaile bakarra
           meeting: Parte-hartzailea zein topaketatan erregistratu zen
-          user: Erregistroa egin zuen parte-hartzailea
+          public_participation: Ea parte-hartze hau jendaurrean erakutsi zen
+          updated_at: Zein datatan eta zein ordutan eguneratu zen erregistro hau azken aldiz
+          user: Erregistroa egin du parte-hartzailea
+          validated_at: Zein datatan eta zein ordutan balidatu zen erregistro hau
       show:
         meeting_comments: Esportatu topaketen iruzkinak
         meetings: Esportatu topaketak
@@ -411,11 +421,11 @@ eu:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
             invites: Gonbidapenak
             manage_questions: Kudeatu galderak
-            recommendation_message: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta esparru globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
+            recommendation_message: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta eremu globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs. decidim. org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
             registration_email_help: Testu hau erregistroa berresteko posta elektronikoaren erdian agertuko da. Erregistro-kodearen ondoren.
             registration_form: Izena emateko formularioa
             registrations_count:
-              one: '%{count} izen-emate izan da.'
+              one: Izen-emate bat izan da.
               other: '%{count} izen-emate izan dira.'
             reserved_slots_help: Utzi 0, ez baduzu erreserbatutako espaziorik.
             reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
@@ -432,7 +442,7 @@ eu:
           deleted: "%{user_name}-k %{attendee_name}-ri gonbidapena egiteari utzi dio %{space_name} espazioan parte hartzeko"
           update: "%{user_name} parte-hartzaileak %{attendee_name} gonbidatu du %{space_name} espazioan parte hartzeko"
         meeting:
-          close: "%{user_name} parte-hartzaileak %{space_name} ko %{resource_name} topaketa itxi du"
+          close: "%{user_name} parte-hartzaileak %{space_name} espazioko %{resource_name} topaketa itxi du"
           create: "%{user_name} parte-hartzaileak %{resource_name} topaketa sortu du %{space_name} espazioan"
           delete: "%{user_name} parte-hartzaileak %{resource_name} topaketa ezabatu du %{space_name} espazioan"
           export_registrations: "%{user_name} parte-hartzailea %{resource_name} topaketarako erregistroak esportatu ditu %{space_name} espazioan"
@@ -550,7 +560,7 @@ eu:
           create_as: Sortu topaketa honela
           disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko parte-hartzaileek emandako datuen erantzule.'
           iframe_embed_type_html: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
-          location_help: 'Kokapena: mezua part-hartzaileei zuzendua biltzeko lekua adieraziz'
+          location_help: 'Kokapena: mezua parte-hartzaileei zuzendua biltzeko lekua adieraziz'
           location_hints_help: 'Kokapen-aholkuak: informazio gehigarria. Adibidea: eraikinaren solairua, aurrez aurreko topaketa bada, edo aretoaren pasahitza, sarrera mugatua duen online topaketa bada.'
           online_meeting_url_help: 'Lotura: Utzi parte-hartzaileei zuzenean konektatzen zure topaketara'
           registration_url_help: 'Esteka: parte-hartzaileei aukera ematea izena emateko erabiltzen ari zaren kanpoko zerbitzura joateko'
@@ -599,7 +609,7 @@ eu:
             validated: BALIDATUA
             validation_pending: BALIOZKOTZEKO ZAIN
           remaining_slots:
-            one: "%{count} slot geratzen da"
+            one: "Slot %{count} geratzen da"
             other: "%{count} slot geratzen dira"
           visit_finished: Ikusi egindako topaketa
           withdraw_btn_hint: Topaketa bertan behera utz dezakezu iritzia aldatzen baduzu. Topaketa ez da ezabatu. Erretiratutakoen zerrendan agertuko da.
@@ -666,7 +676,7 @@ eu:
         attending_organizations: Erakundeak
         attending_participants: Parte-hartzaileak
         hidden_participants_count:
-          one: eta %{count} pertsona gehiago
+          one: eta pertsona bat ehiago
           other: eta %{count} pertsona gehiago
       read_more: "(gehiago irakurri)"
       registration_mailer:
@@ -712,36 +722,64 @@ eu:
           body: Iruzkin bera
           commentable_id: Iruzkingarriaren identifikazio bakarra
           commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
+          comments: Topaketaren iruzkinen datua
           created_at: Zein datatan sortu zen iruzkin hau
           depth: Iruzkin hau hiru iruzkinetan dago (erantzuna bada edo erantzun batren erantzuna)
           id: Identifikazioa iruzkin honetarako
-          locale: Parte-hartzaileak iruzkin hau uztean zuen lokala (hizkuntza)
+          locale: Parte-hartzaileak iruzkin hau uztean du lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
           user_group: Iruzkin hau egin duen parte-hartzaile taldearen izena (hala badagokio)
         meetings:
           address: Topaketaren helbidea, baldin eta aurrez aurre badago eta kokapen fisikoa badu
           attachments: Bilera honetako atxikipen kopurua
           attendees: Zenbat jende bildu da topaketa honetan?
+          attending_organizations: Topaketan izan diren erakundeak
+          audio_url: Topaketaren audiograbazioa
           author: Topaketa honen egilearen data
-          comments: Zenbat iruzkin egin dira topaketa honetan?
+          available_slots: Topaketa batean leku libre kopurua
+          closed_at: Zein datatan itxi zen topaketa
+          closing_report: Itxitako topaketaren txostena
+          closing_visible: Topaketaren ikusgarritasuna
+          comments: Topaketaren iruzkinen datua
           component: Topaketari dagokion osagaia
           contributions: Zenbat ekarpen egin dituzte nerabeek topaketa honetan?
+          created_at: Zein datatan sortu zen topaketa
+          customize_registration_email: Posta elektroniko pertsonalizatua erregistratzeko aukera
+          decidim_author_type: Topaketaren egile mota
+          decidim_user_group_id: Topaketan parte hartu duten parte-hartzaileen taldearen identifikazioa
           description: Topaketaren deskribapena
           end_time: Zein datatan eta ordutan amaituko da topaketa hau?
-          followers: Zenbat jarraitzaile ditu topaketa honek?
+          follows_count: Topaketa honek duen jarraitzaile kopurua
           id: Topaketaren identifikatzaile bakarra
+          iframe_access_level: Topaketaren sarrera maila
+          iframe_embed_type: Topaketan agertu zen "Iframe" mota
+          latitude: Topaketaren latitudea
           location: Topaketaren kokapena
+          location_hints: Kokapenaren xehetasuna, topaketa egin zen lekuaren barruan
+          longitude: Topaketaren luzera
+          online_meeting_url: Online topaketaren URLa
           organizations: Zein erakundek hartu du parte topaketa honetan?
           participatory_space: Zein espaziotakoa datopaketa hau (adibidez, Prozesu Parte-hartzailea edo Batzarra)?
+          private_meeting: Topaketa pribatua izan zen ala ez adierazteko
           published: Noiz argitaratu da topaketa?
           reference: Plataforma honetako baliabidearen identifikatzaile bakarra
+          registration_form_enabled: Izena emateko inprimakia prest zegoen ala ez
+          registration_terms: Parte hartu aurretik adostutako baldintzak
+          registration_type: Topaketaren erregistro mota
+          registration_url: Topaketaren erregistroaren URLa
+          registrations_enabled: Erregistroak baimenduta zeuden ala ez
           related_proposals: Topaketa honi buruzko proposamenak
           related_results: Topaketa honen emaitzak
+          reserved_slots: Topaketak duen erreserbatutako ordu-tarte kopurua
           start_time: Zein data eta ordutan hasi da topaketa hau
           taxonomies: Topaketa honi dagozkion taxonomiak
           title: Topaketaren izenburua
+          transparent: Topaketaren ikusgarritasuna bisitarientzat
+          type_of_meeting: Topaketa mota
+          updated_at: Zein datatan eguneratu zen topaketa azken aldiz
           url: Topaketaren URLa
-          withdrawn: Topaketa bertan behera geratu den ala ez
+          video_url: Topaketaren bideograbazioa
+          withdrawn: Topaketa bertan behera geratu zen ala ez
           withdrawn_at: Noiz utzi zen bertan behera topaketa hau?
     participatory_spaces:
       highlighted_meetings:

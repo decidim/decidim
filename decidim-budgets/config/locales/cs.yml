@@ -225,13 +225,30 @@ cs:
             title: Titul
       order:
         status:
+          continue_voting: Pokračovat v hlasování
+          download_vote: Stáhněte si svůj hlas
+          pending_to_vote_budgets:
+            one: Můžete hlasovat v jiném rozpočtu
+            few: Můžete hlasovat v jiných rozpočtech
+            many: Můžete hlasovat v jiných rozpočtech
+            other: Můžete hlasovat v jiných rozpočtech
+          share_vote: Sdílejte svůj hlas
           title: Váš hlas byl úspěšně přijat
+          view_votes:
+            one: Zobrazit hlas
+            few: Zobrazit hlasy
+            many: Zobrazit hlasů
+            other: Zobrazit hlasů
+          votes_count:
+            one: Váš hlas pro %{budget_name} již byl zaregistrován.
+            few: Vaše %{count} hlasy pro %{budget_name} již byly zaregistrovány.
+            many: Vašich %{count} hlasů pro %{budget_name} již bylo zaregistrováno.
+            other: Vašich %{count} hlasů pro %{budget_name} již bylo zaregistrováno.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Vybrané projekty jsou:'
           subject: Hlasovali jste o účastnickém prostoru %{space_name}
           voted_on_space: Hlasovali jste o rozpočtu %{budget_name} pro skupinu %{space_name}.
-          voted_on_space_with_scope: Hlasovali jste o rozpočtu %{budget_name} pro participační prostor %{space_name} na %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Pokud změníte názor, můžete svůj hlas později změnit.
@@ -354,8 +371,6 @@ cs:
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             projects_per_page: Počet projektů na stránku
             resources_permissions_enabled: Oprávnění k akcím lze nastavit pro každý projekt
-            scope_id: Oblast působnosti
-            scopes_enabled: Oblasti působnosti povoleny
             taxonomy_filters: Vyberte filtry pro komponentu
             taxonomy_filters_add: Přidat filtr
             title: Název

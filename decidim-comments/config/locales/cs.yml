@@ -159,6 +159,15 @@ cs:
         comments:
           alignment: Pokud byl tento komentář příznivý, proti nebo neutrální
           author: Jméno účastníka, který vytvořil tento komentář
+          body: Samotný komentář
+          commentable_id: Jedinečné id komentáře
+          commentable_type: Typ komentáře (pokud byl výsledek, návrh atd.)
+          created_at: Datum, kdy byl komentář vytvořen
+          depth: Místo, kde se tento komentář nachází v komentářovém větvení (pokud se jedná o odpověď nebo odpověď na odpověď)
+          id: ID pro tento komentář
+          locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
+          root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
+          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
     events:
       comments:
         comment_by_followed_user:

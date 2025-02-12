@@ -115,12 +115,10 @@ ro:
             one: Participarea este limitată la cei cu codul poștal %{postal_codes}.
             few: 'Participarea este limitată la cei cu oricare dintre următoarele coduri poștale: %{postal_codes}.'
             other: 'Participarea este limitată la cei cu oricare dintre următoarele coduri poștale: %{postal_codes}.'
-          scope: Participarea este limitată la participanții cu domeniul de interes %{scope_name}.
           user_postal_codes:
             one: Participarea este limitată la cei cu codul poștal %{postal_codes}, iar codul poștal tău este %{user_postal_code}.
             few: 'Participarea este limitată la cei cu oricare dintre codurile poștale %{postal_codes}, iar codul tău poștal este %{user_postal_code}.'
             other: 'Participarea este limitată la cei cu oricare dintre următoarele coduri poștale: %{postal_codes}. Codul tău poștal este %{user_postal_code}.'
-          user_scope: Participarea este limitată la participanții cu domeniul de interes %{scope_name}, și domeniul tău de interes este %{user_scope_name}.
       id_documents:
         admin:
           config:

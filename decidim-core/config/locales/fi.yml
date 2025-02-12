@@ -8,6 +8,8 @@ fi:
         photos: Kuvat
       common:
         created_at: Luontiaika
+      component:
+        taxonomy_filters: Luokittelun suodattimet
       content_block_attachment:
         background_image: Taustakuva
         main_image: Pääkuva
@@ -32,10 +34,10 @@ fi:
       taxonomy:
         name: Luokittelun nimi
       taxonomy_filter:
-        internal_name: Sisäinen suodattimen nimi
-        name: Julkinen suodattimen otsikko
+        internal_name: Sisäinen nimike
+        name: Nimike
         root_taxonomy_id: Luokittelusta
-        space_filter: Määritettävissä osallistumistilojen suodattimeksi
+        space_filter: Määritettävissä suodattimeksi kohteelle
       user:
         about: Profiilikuvaus
         avatar: Profiilikuva
@@ -305,12 +307,12 @@ fi:
         update: "%{user_name} päivitti luokittelua %{resource_name}"
         update_with_parent: "%{user_name} päivitti kohdetta %{resource_name} luokittelun %{parent_taxonomy} alla"
       taxonomy_filter:
-        create: "%{user_name} loi suodattimen luokittelulle %{resource_name}"
-        create_with_filter_items_count: "%{user_name} loi suodattimen luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
-        delete: "%{user_name} poisti suodattimen luokittelulle %{resource_name}"
-        delete_with_filter_items_count: "%{user_name} poisti suodattimen luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
-        update: "%{user_name} päivitti suodatinta luokittelulle %{resource_name}"
-        update_with_filter_items_count: "%{user_name} päivitti suodatinta luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
+        create: "%{user_name} loi suodattimen %{resource_name}"
+        create_with_filter_info: '%{user_name} loi suodattimen %{resource_name} luokittelulle "%{taxonomy_name}", jolle on määritetty %{filter_items_count} kohdetta'
+        delete: "%{user_name} poisti suodattimen %{resource_name}"
+        delete_with_filter_info: '%{user_name} poisti suodattimen %{resource_name} luokittelulle "%{taxonomy_name}", jolle on määritetty %{filter_items_count} kohdetta'
+        update: "%{user_name} päivitti suodatinta %{resource_name}"
+        update_with_filter_info: '%{user_name} päivitti suodatinta %{resource_name} luokittelulle "%{taxonomy_name}", jolle on määritetty %{filter_items_count} kohdetta'
       user:
         block: "%{user_name} esti käyttäjän %{resource_name}"
         bulk_block: "%{user_name} esti %{blocked_count} käyttäjätiliä"
@@ -449,10 +451,8 @@ fi:
         explanation: Vahvista itsesi syöttämällä X-kirjaimella alkava asiakirjan numero.
         fields:
           allowed_postal_codes: Sallitut postinumerot (erottele pilkuilla)
-          allowed_scope_id: Sallittu teema
           document_number: Organisaatiotunnus (esim. Y-tunnus)
           postal_code: Postinumero
-          scope_id: Teema
         name: Esimerkkivahvistus
       dummy_authorization_workflow:
         explanation: Esimerkkivahvistuksen työnkulku
@@ -461,10 +461,8 @@ fi:
         explanation: Vahvista tilisi syöttämällä asiakirjan numero, joka päättyy kirjaimeen "X".
         fields:
           allowed_postal_codes: Sallitut postinumerot (pilkuilla erotettuna)
-          allowed_scope_id: Sallittu teema
           document_number: Asiakirjan numero
           postal_code: Postinumero
-          scope_id: Teema
         name: Väliaikainen esimerkkivahvistustapa
       errors:
         duplicate_authorization: Osallistuja on jo tunnistettu vastaavilla tiedoilla. Hallintakäyttäjä ottaa sinuun yhteyttä tarkastakseen tietosi.
@@ -556,8 +554,6 @@ fi:
             enable_pads_creation: Ota käyttöön muistioiden luominen
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             resources_permissions_enabled: Resurssien käyttöoikeudet ovat käytössä
-            scope_id: Teema
-            scopes_enabled: Teemat käytössä
             taxonomy_filters: Valitse suodattimet komponentille
           step:
             amendment_creation_enabled: Muutosten luonti käytössä
@@ -754,6 +750,21 @@ fi:
           id: Ilmoituksen yksilöivä tunniste
           resource_type: Ilmoituksen kohteen tyyppi
           updated_at: Ilmoituksen viimeisimmän päivityksen ajankohta
+        participatory_space_private_users:
+          created_at: Yksityisen käyttäjän luontiaika
+          id: Yksityisen käyttäjän yksilöivä tunniste
+          privatable_to: Mihin osallistumistilaan tämä yksityinen käyttäjä kuuluu
+          published: Onko yksityinen käyttäjä julkaistu vai ei
+          role: Yksityisen käyttäjän rooli
+          updated_at: Yksityisen käyttäjän viimeisimmän päivityksen ajankohta
+        reports:
+          created_at: Ilmoituksen luontiaika
+          details: Ilmoituksen tiedot
+          id: Ilmoituksen yksilöivä tunniste
+          locale: Ilmoituksen kieli
+          moderation: Ilmoitukseen liitetty moderointi
+          reason: Ilmoituksen syy
+          updated_at: Ilmoituksen viimeisimmän päivityksen ajankohta
         user_groups:
           document_number: Käyttäjäryhmän organisaatiotunnus (esim. Y-tunnus)
           id: Käyttäjäryhmän yksilöivä tunniste
@@ -762,6 +773,7 @@ fi:
           verified_at: Käyttäjäryhmän vahvistamisen ajankohta
         users:
           about: Käyttäjätilin profiilin kuvaus
+          accepted_tos_version: Käyttäjän palvelun käyttöehtojen hyväksymisaika
           admin: Onko tämä käyttäjä hallintakäyttäjä
           confirmation_sent_at: Käyttäjätilin vahvistusviestin lähetysaika
           confirmed_at: Käyttäjätilin vahvistamisen ajankohta
@@ -771,6 +783,8 @@ fi:
           delete_reason: Käyttäjätilin poistamisen syy
           deleted_at: Käyttäjätilin poistamisen ajankohta
           email: Käyttäjätilin sähköpostiosoite
+          followers_count: Käyttäjää seuraavien osallistujien lukumäärä
+          following_count: Käyttäjän seuraamien osallistujien lukumäärä
           id: Käyttäjätilin yksilöivä tunniste
           invitation_accepted_at: Käyttäjätilin kutsun hyväksymisen ajankohta
           invitation_created_at: Käyttäjän kutsumisen ajankohta
@@ -789,10 +803,13 @@ fi:
           officialized_as: Virallistamisen nimi (valtuutettu, kunnanjohtaja, pormestari, jne.)
           officialized_at: Käyttäjän virallistamisen ajankohta
           organization: Käyttäjän organisaatio
+          password_updated_at: Salasanan viimeisimmän päivityksen ajankohta
           personal_url: Käyttäjäprofiilin URL-osoite
           remember_created_at: Kirjautumisen muistamisen valinnan ajankohta
           reset_password_sent_at: Salasanan nollauslinkin lähetyksen ajankohta
+          roles: Käyttäjän rooli, mikäli rooli on määritelty
           sign_in_count: Käyttäjän kirjautumisten lukumäärä
+          type: Käyttäjän tyyppi
           unconfirmed_email: Vahvistamaton sähköpostiosoite
           updated_at: Käyttäjätilin viimeisimmän päivityksen ajankohta
       show:
@@ -1245,6 +1262,8 @@ fi:
         unknown_action_with_space: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name} osallistumistilassa %{space_name}"
         unpublish_with_space: "%{user_name} perui %{resource_name} julkaisun osallistumistilassa %{space_name}"
         update: "%{user_name} päivitti %{resource_name}"
+        update_filters: "%{user_name} päivitti suodattimia kohteelle %{resource_name}"
+        update_filters_with_space: "%{user_name} päivitti suodattimia kohteelle %{resource_name} osallistumistilassa %{space_name}"
         update_permissions_with_space: "%{user_name} päivitti kohteen %{resource_name} oikeuksia tilassa %{space_name}"
         update_with_space: "%{user_name} päivitti %{resource_name} osallistumistilassa %{space_name}"
       value_types:
@@ -1732,16 +1751,7 @@ fi:
         error: Suosituksen antaminen epäonnistui.
     scopes:
       global: Yleinen teema
-      picker:
-        cancel: Peruuta
-        change: Muuta valittua teemaa
-        choose: Valitse
-        currently_selected: Tällä hetkellä valittu teema
-        title: Valitse %{field}
       prompt: Valitse teema
-      scopes: Teemat
-      scopes_picker_input:
-        select_scope: 'Valitse teema (tämänhetkinen valinta: %{current})'
     search:
       name: Hae
       results: Hakutulokset
@@ -1868,15 +1878,6 @@ fi:
         send: Lähetä
       update:
         error: Viestiä ei lähetetty. Yritä myöhemmin uudestaan
-    user_interests:
-      show:
-        my_interests: Omat kiinnostuksen kohteet
-        no_scopes: Tällä organisaatiolla ei ole vielä teemaa!
-        select_your_interests: Valitse ne aiheet, joista olet kiinnostunut vastaanottamaan tietoa profiilisi aikajana-välilehdellä.
-        update_my_interests: Päivitä omat kiinnostuksen kohteet
-      update:
-        error: Kiinnostuksen kohteiden päivitys epäonnistui.
-        success: Kiinnostuksen kohteiden päivitys onnistui.
     user_report_mailer:
       notify:
         body_1: Käyttäjä %{user} on ilmoitettu käyttäjän %{token} toimesta
@@ -2016,7 +2017,7 @@ fi:
         send_me_reset_password_instructions: Lähetä minulle ohjeet salasanan vaihtamiseen
       no_token: Et pääse sivulle, ellet käytä sähköpostiisi lähtettyä salasanan vaihtamiseen liittyvää linkkiä. Mikäli käytit sähköpostissa olevaa linkkiä, varmista, että käytät täysin samaa URL-osoitetta, joka näkyy lähetetyssä viestissä.
       send_instructions: Saat sähköpostitse ohjeet salasanan palauttamiseen muutaman minuutin kuluessa.
-      send_paranoid_instructions: Jos sähköpostiosoitteesi löytyy tietokannastamme, saat ohjeet salasanan vaihtamiseesi sähköpostiisi muutaman minuutin kuluessa.
+      send_paranoid_instructions: Jos sähköpostiosoitteesi löytyy tietokannastamme, saat ohjeet salasanan vaihtamiseen sähköpostiisi muutaman minuutin kuluessa.
       updated: Salasanasi vaihtaminen onnistui. Olet nyt kirjautunut sisään.
       updated_not_active: Salasanasi vaihtaminen onnistui.
     registrations:
@@ -2289,7 +2290,6 @@ fi:
         authorizations: Vahvistukset
         delete_my_account: Poista tilini
         my_data: Omat tiedot
-        my_interests: Kiinnostuksen kohteeni
         notifications_settings: Ilmoitusten asetukset
         profile: Profiili
         title: Käyttäjätilin asetukset

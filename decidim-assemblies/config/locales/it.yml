@@ -38,8 +38,6 @@ it:
         promoted: In evidenza
         published_at: Pubblicato a
         purpose_of_action: Scopo dell'azione
-        scope_id: Obiettivi
-        scopes_enabled: Ambiti abilitati
         short_description: Breve descrizione
         slug: URL slug
         special_features: Caratteristiche speciali
@@ -201,12 +199,10 @@ it:
             announcement_help: Il testo che inserisci qui verrà mostrato all'utente proprio sotto le informazioni dell'assemblea.
             duration: Durata
             duration_help: Se la durata di questa assemblea è limitata, selezionare la data di fine. Altrimenti, apparirà come indefinita.
-            filters: Filtri
             images: Immagini
             metadata: Metadati
             other: Altro
             select_a_created_by: Seleziona un creatore
-            select_an_area: Seleziona un'Area
             select_parent_assembly: Seleziona l'assemblea madre
             social_handlers: Social networks
             title: Informazioni generali

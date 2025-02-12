@@ -6,8 +6,8 @@ eu:
       dummy_attribute: Balizko atributua
       dummy_resource:
         created_at: Sortua
-        decidim_scope_id: Esparrua
-        field: Nire eremua
+        decidim_scope_id: Eremua
+        field: Nire datu-eremua
         start_date: Hasiera data
         title: Izenburua
         translatable_text: Itzul daitekeen testua
