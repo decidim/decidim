@@ -2,7 +2,7 @@
   <% if available_initiative_types.size > 1 %>
     <% if current_user %>
       <% if current_user.ephemeral? %>
-        <button class="!px-4 title-action__action button button__xl button__secondary w-full" disabled>
+        <button class="!px-4 button button__xl button__secondary w-full" disabled>
           <%= t("new_initiative", scope: "decidim.initiatives.initiatives.index_header") %>
           <%= icon "add-fill" %>
         </button>
