@@ -11,16 +11,19 @@ module Decidim
         (custom_message.presence || default_email_intro).to_s.html_safe
       end
 
-      private
-
       def i18n_options
         {
-          resource_title: translated_attribute(resource.title),
+          resource_title:,
           resource_path:,
+          resource_url:,
+          participatory_space_url:,
+          participatory_space_title:,
           reminders_before_hours: resource.send_reminders_before_hours,
           scope: event_name
         }
       end
+
+      private
 
       def reminder_message
         translated_attribute(resource.reminder_message_custom_content)

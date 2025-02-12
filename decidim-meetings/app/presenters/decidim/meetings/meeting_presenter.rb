@@ -91,7 +91,7 @@ module Decidim
         return unless meeting
 
         handle_locales(meeting.reminder_message_custom_content, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(sanitized(content))
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
           renderer.render(links:).html_safe
         end
       end

@@ -99,7 +99,7 @@
           <%= form.number_field :send_reminders_before_hours, label: t("send_reminder", scope: "decidim.meetings.admin.meetings.form"), help_text: t("reminder_help_text", scope: "decidim.meetings.admin.meetings.form") %>
         </div>
 
-        <%= form.translated :editor, :reminder_message_custom_content, hashtaggable: true, aria: { label: :reminder_message_custom_content }, help_text: t("reminder_message_help_text", scope: "decidim.meetings.admin.meetings.form") %>
+        <%= form.translated :editor, :reminder_message_custom_content, label: t("reminder_message", scope: "decidim.meetings.admin.meetings.form"), hashtaggable: true, help_text: t("reminder_message_help_text", scope: "decidim.meetings.admin.meetings.form") %>
       </div>
     </div>
   </div>
