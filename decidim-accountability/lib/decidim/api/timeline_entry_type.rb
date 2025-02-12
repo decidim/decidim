@@ -7,12 +7,11 @@ module Decidim
 
       description "A Timeline Entry"
 
-      field :id, GraphQL::Types::ID, "The internal ID for this timeline entry", null: false
-      field :entry_date, Decidim::Core::DateType, "The entry date for this timeline entry", null: true
-      field :title, Decidim::Core::TranslatedFieldType, "The title for this timeline entry", null: true
       field :description, Decidim::Core::TranslatedFieldType, "The description for this timeline entry", null: true
-
+      field :entry_date, Decidim::Core::DateType, "The entry date for this timeline entry", null: true
+      field :id, GraphQL::Types::ID, "The internal ID for this timeline entry", null: false
       field :result, Decidim::Accountability::ResultType, "The result for this timeline entry", null: true
+      field :title, Decidim::Core::TranslatedFieldType, "The title for this timeline entry", null: true
     end
   end
 end

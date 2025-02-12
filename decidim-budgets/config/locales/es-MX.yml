@@ -378,6 +378,15 @@ es-MX:
               enabled: Votación habilitada
               finished: Votación finalizada
     download_your_data:
+      help:
+        orders:
+          budget: El presupuesto sobre el que se ha emitido el voto
+          checked_out_at: La fecha y la hora en que se entregó la petición
+          component: El componente con el que está relacionada la petición
+          created_at: La fecha y la hora en que se creó la petición
+          id: El identificador único de la petición
+          projects: Los proyectos votados recogidos en esta petición
+          updated_at: La fecha y la hora en que se actualizó la petición
       show:
         projects: Exportar los proyectos
     events:

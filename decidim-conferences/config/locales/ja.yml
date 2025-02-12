@@ -118,11 +118,13 @@ ja:
         destroy:
           success: カンファレンススピーカーを削除しました。
         edit:
+          title: カンファレンススピーカーを更新
           update: 更新
         index:
           conference_speakers_title: カンファレンススピーカー
         new:
           create: 作成
+          title: 新しいカンファレンススピーカー
         publish:
           invalid: このスピーカーを公開中に問題が発生しました。
           success: カンファレンスのスピーカーを公開しました。
@@ -139,11 +141,13 @@ ja:
         destroy:
           success: カンファレンス管理者を削除しました。
         edit:
+          title: カンファレンス管理者を更新
           update: 更新
         index:
           conference_admins_title: カンファレンス管理者
         new:
           create: 作成
+          title: 新しいカンファレンス管理者
         update:
           error: カンファレンス管理者の更新中に問題が発生しました。
           success: カンファレンス管理者が正常に更新されました。
@@ -175,12 +179,20 @@ ja:
       media_links:
         create:
           error: 新しいメディアリンクの作成中に問題が発生しました。
+          success: メディアリンクを作成しました。
+        destroy:
+          success: メディアリンクを削除しました。
         edit:
+          title: メディア リンクを更新
           update: 更新
+        index:
+          media_links_title: メディアリンク
         new:
           create: 作成
+          title: メディアリンクを作成
         update:
           error: このメディア リンクの更新中に問題が発生しました。
+          success: メディアリンクを更新しました。
       menu:
         conferences: カンファレンス
         conferences_submenu:
@@ -191,11 +203,15 @@ ja:
           conference_admins: カンファレンス管理者
           conference_invites: 招待
           conference_speakers: スピーカー
+          diploma: 参加証明書
           info: このカンファレンスについて
+          media_links: メディアリンク
           moderations: モデレーション
           partners: パートナー
+          registration_types: 登録種別
           registrations: 登録
           see_conference: カンファレンスを見る
+          user_registrations: ユーザー登録
       models:
         conference:
           fields:
@@ -224,6 +240,7 @@ ja:
             date: 日付
             link: リンク
             title: タイトル
+          name: メディア リンク
         partner:
           fields:
             link: リンク
@@ -249,6 +266,7 @@ ja:
         destroy:
           success: カンファレンスパートナーを削除しました。
         edit:
+          title: パートナーを更新
           update: 更新
         new:
           create: 作成
@@ -270,6 +288,7 @@ ja:
         destroy:
           success: カンファレンスの登録種別を削除しました。
         edit:
+          title: 登録種別を更新
           update: 更新
         new:
           create: 作成
