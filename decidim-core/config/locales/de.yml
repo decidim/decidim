@@ -880,7 +880,7 @@ de:
         error: Beim Folgen dieser Ressource ist ein Fehler aufgetreten.
         participatory_space: Sie folgen <span class="show-for-sr">%{resource_name}</span>
       destroy:
-        button: Entfolgen
+        button: Nicht mehr folgen
         error: Beim Entfolgen dieser Ressource ist ein Fehler aufgetreten.
     forms:
       errors:
