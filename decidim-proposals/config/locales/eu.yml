@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -782,7 +783,7 @@ eu:
           unfold: Zabaldu
         index:
           count:
-            one: "%{count} zirriborro kolaboratibo"
+            one: "Zirriborro kolaboratibo %{count}"
             other: "%{count} zirriborro kolaboratibo"
         name: Zirriborro kolaboratzaileak
         new:
