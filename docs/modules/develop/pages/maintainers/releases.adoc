@@ -287,7 +287,7 @@ decidim-releaser --github-token=(gh auth token) --version-type=patch
 . This will create a Pull Request for the new release with title `Bump to vx.y.z version`. Wait for the tests to finish and check that everything is passing before releasing the version.
 NOTE: When you bump the version, the generator tests will fail because the gems and NPM packages have not been actually published yet (as in sent to rubygems/npm). You may see errors such as `No matching version found for @decidim/browserslist-config@~0.xx.y` in the CI logs. This should be fine as long as you have ensured that the generators tests passed in the previous commit. 
 . Review, accept and merge the Pull Request.
-. Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems. Be ready for the OTP (One Time Password) fill for each of the gems.
+. Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems. Be ready for the One Time Password fill for each of the gems.
 . Once all the gems are published:
  .. Re-run the failed generators tests at the release branch.
  .. Create a new release at this repository, just go to the https://github.com/decidim/decidim/releases[releases page] and create a new one.
