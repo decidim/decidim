@@ -208,6 +208,7 @@ Now it needs to say for the correct path name and updated SVGs.
       icon_path: "media/images/facebook.svg"
       icon_path: "media/images/twitter-x.svg"
 ```
+The CSS of each omniauth button can found within `decidim-core/app/packs/stylesheets/decidim/_login.scss`, variables are used for specific omniauth button background color according to their pack guidelines.
 
 You can read more about this change on PR [#13481](https://github.com/decidim/decidim/pull/13481).
 
