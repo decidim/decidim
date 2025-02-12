@@ -1,9 +1,9 @@
+---
 fi-pl:
   activemodel:
     attributes:
       sortition:
         additional_info: Satunnaistamistiedot
-        decidim_category_id: Ehdotettujen ehdotusten luokat, joissa haluat tehdä satunnaisvalinnan
         decidim_proposals_component_id: Ehdotukset asetettu
         dice: Noppaheiton tulos. Heitä kuusisivuista noppaa tai etsi toinen tapa luoda satunnaisesti numero 1-6, ja kirjoita tähän tuloksena saatu luku muutamien todistajien edessä. Tämä auttaa takamaan tuloksen satunnaisuuden
         target_items: Valittavien ehdotusten määrä (ilmoittaa niiden ehdotusten lukumäärän, jotka haluat valita arpomalla kustakin aiemmin valitsemastasi ehdotusryhmästä)
@@ -43,7 +43,6 @@ fi-pl:
         models:
           sortition:
             fields:
-              category: Luokka
               created_at: Luomispäivä
               decidim_proposals_component: Ehdotusten osa
               dice: Noppa
@@ -67,7 +66,6 @@ fi-pl:
             title: Päivitä satunnaisvalinnan tiedot
             update: Päivitä
           form:
-            all_categories: Kaikki luokat
             select_proposal_component: Valitse asetetut ehdotukset
           index:
             title: Satunnaisvalinnat
@@ -110,11 +108,8 @@ fi-pl:
             other: valitut ehdotukset
         show:
           algorithm: Satunnaisvalinnan algoritmikoodi
-          any_category: kaikista aihepiireistä
           cancelled: Peruttu satunnaisvalinta
           candidate_proposal_ids: Satunnaisvalintaehdotusten järjestys ja tunnukset
-          candidate_proposals_info: 'Satunnaisvalinta tehtiin seuraavien ehdotusten (%{category_label}) välillä, seuraavilla tunnuksilla (lihavoituna valitut ehdotukset)  '
-          category: aihepiiristä %{category}
           dice_result: (1) Noppatulos
           introduction: 'Tämä sivu sisältää satunnaisvalinnan tulokset %{reference}. Tämän satunnaisvalinnan avulla %{target_items} tulosten määrä on valittu satunnaisesti ja yhtäläisellä todennäköisyysjakaumalla alla esitetyistä ehdotuksista. Yhdessä tulosten kanssa tällä sivulla näkyvät tiedot tarjoavat kaikki tarvittavat tiedot takuiden maksimoimiseksi ja tulosten toisintamiseksi. Tämän järjestelyn laadun avain on kaksinkertainen satunnaisuus, jonka antaa noppan heitto (todistajien todistama) ja täsmällinen ajankohta, joka antaa syötteen algoritmille, joka tuottaa satunnaisen valinnan. Kokoonpanon aika-jako on niin tarkka (sekuntia), että ihmisten on mahdotonta hallita sitä, jolloin saadaan kaksinkertainen "hallitsematon" syöte oikeudenmukaisen tuloksen takaamiseksi.  '
           mathematical_result: Tulos (1) x (2)
