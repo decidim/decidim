@@ -37,7 +37,7 @@ module Decidim
 
         queries = []
         taxonomy_groups.each do |root_id, taxonomy_ids|
-          taxonomy_ids = taxonomy_ids.flatten.filter(&:present?)
+          taxonomy_ids = taxonomy_ids.flatten.compact_blank
           next if taxonomy_ids.empty?
 
           taxonomy_ids = [root_id] if taxonomy_ids.include?("all")

@@ -16,8 +16,8 @@
 
 <% if vote_limit_enabled? %>
   (function() {
-    var $remainingVotesCount = $('#remaining-votes-count');
-    var $notVotedButtons = $('.card__button.button').not('.success');
+    var $remainingVotesCount = $('div[data-remaining-votes-count="true"]');
+    var $notVotedButtons = $('*[data-proposal-vote-button="true"]').not('[id^=vote_button-]');
 
     if($remainingVotesCount[0]) {
       morphdom($remainingVotesCount[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_count").strip.html_safe %>');
@@ -25,10 +25,10 @@
 
     <% if remaining_votes_count_for(current_user) == 0 %>
       $notVotedButtons.attr('disabled', true);
-      $notVotedButtons.val('<%= t("decidim.proposals.proposals.vote_button.no_votes_remaining") %>');
+      $notVotedButtons.text('<%= t("decidim.proposals.proposals.vote_button.no_votes_remaining") %>');
     <% else %>
       $notVotedButtons.attr('disabled', false);
-      $notVotedButtons.val('<%= t("decidim.proposals.proposals.vote_button.vote") %>');
+      $notVotedButtons.text('<%= t("decidim.proposals.proposals.vote_button.vote") %>');
     <% end %>
   }());
 <% end %>

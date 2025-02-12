@@ -143,7 +143,7 @@ shared_examples "manage resource share tokens" do
     it "allows copying the share link from the share token" do
       within ".share_tokens tbody tr", text: last_token.token do
         click_on "Copy link"
-        expect(page).to have_content("Copied!")
+        expect(page).to have_content("copied!")
         expect(page).to have_css("[data-clipboard-copy-label]")
         expect(page).to have_css("[data-clipboard-copy-message]")
         expect(page).to have_css("[data-clipboard-content]")

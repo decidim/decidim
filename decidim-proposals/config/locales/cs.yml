@@ -10,6 +10,8 @@ cs:
         state: Stav
         title: Titul
         user_group_id: Vytvořit návrh spolupráce jako
+      import_participatory_text:
+        document: Dokument
       proposal:
         address: Adresa
         answer: Odpovědět
@@ -19,6 +21,8 @@ cs:
         decidim_proposals_proposal_state_id: Stav
         decidim_scope_id: Rozsah
         has_address: Má adresu
+        latitude: Zeměpisná šířka
+        longitude: Zeměpisná délka
         scope_id: Oblast působnosti
         state: Stav
         suggested_hashtags: Navrhované hashtagy
@@ -45,6 +49,8 @@ cs:
       proposals_copy:
         copy_proposals: Rozumím, že tento krok naimportuje všechny návrhy z vybraného prvku do toho současného a že tuto akci nelze vrátit zpět.
         origin_component_id: Komponenta pro kopírování návrhů z
+      proposals_file_import:
+        file: Soubor
       proposals_import:
         import_proposals: Návrhy na dovoz
         keep_answers: Zachovat stav a odpovědi
@@ -120,6 +126,9 @@ cs:
         other: Hlasů
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Návrhy
       filters:
         proposals:
           is_emendation_true:
@@ -217,8 +226,6 @@ cs:
             proposal_wizard_step_1_help_text: Text průvodce kroku nápovědy "Vytvořit" Návrh
             proposal_wizard_step_2_help_text: Text nápovědy ke kroku "Zveřejnit" průvodce návrhem
             resources_permissions_enabled: Pro každý návrh lze nastavit oprávnění akce
-            scope_id: Oblast působnosti
-            scopes_enabled: Oblasti působnosti povoleny
             taxonomy_filters: Vyberte filtry pro komponentu
             taxonomy_filters_add: Přidat filtr
             threshold_per_proposal: Prah na návrh
@@ -454,10 +461,16 @@ cs:
           attachments: Počet příloh, které má tento návrh
           author: Údaje pro autora tohoto návrhu
           body: Obsah návrhu
+          coauthorships_count: Počet spoluautorit, které návrh představuje,
           comments: Počet komentářů, které má tento návrh
           component: Komponenta, do které návrh patří
+          cost: Celkové náklady daného návrhu
+          cost_report: Zpráva o nákladech na návrh
+          created_at: Datum, kdy byl návrh vytvořen
+          created_in_meeting: Zda byl návrh vytvořen na schůzce
           endorsements: Počet souhlasů ("lajků"), které tento návrh získal
-          followers: Počet příznivců tohoto návrhu
+          execution_period: Období, kdy návrh běžel od začátku do konce
+          follows_count: Počet příznivců tohoto návrhu
           id: Jedinečný identifikátor návrhu
           is_amend: Zda je tento návrh změnou jiného návrhu
           latitude: Zeměpisná šířka návrhu v případě, že má fyzické umístění
@@ -469,8 +482,10 @@ cs:
           reference: Jedinečný identifikátor zdroje na této platformě
           related_proposals: Návrhy související s tímto návrhem
           state: Stav tohoto návrhu (např. "přijato")
+          state_published_at: Časové razítko stavu návrhu při zveřejnění
           taxonomies: Taxonomie, do kterých tento návrh patří
           title: Název návrhu
+          updated_at: Datum poslední aktualizace návrhu
           url: URL, kde lze tento návrh nalézt
           votes: Počet hlasů tohoto návrhu
           withdrawn: Kdy byl tento návrh stažen
@@ -478,7 +493,7 @@ cs:
     participatory_spaces:
       highlighted_proposals:
         last: Poslední návrhy
-        see_all: Zobrazit všechny (%{count})
+        see_all: Zobrazit všechny
     proposals:
       actions:
         answer_proposal: Odpověď na návrh
@@ -508,19 +523,18 @@ cs:
         imports:
           help:
             answers: |
-              Importovaný dokument by měl obsahovat tyto názvy sloupců v případě souborů CSV nebo Excel, nebo jména klíčů v případě JSON souborů:
+              Importovaný dokument by měl obsahovat tyto názvy sloupců v případě souborů CSV nebo Excel, nebo názvy klíčů v případě JSON souborů (ostatní sloupce budou ignorovány):
               <ul>
               <li><b>id:</b> ID návrhu na odpověď</li>
               <li><b>state:</b> Jeden z "přijatých", "vyhodnocení" nebo "odmítnuto"</li>
               <li><b>answer/en:</b> Odpověď v angličtině. Bude to záviset na konfiguraci jazyka vaší platformy.</li>
               </ul>
             proposals: |
-              Soubor musí mít následující názvy sloupců v případě souborů CSV nebo Excel, nebo názvy klíčů v případě JSON souborů:
+              Soubor musí mít následující názvy sloupců v případě souborů CSV nebo Excel, nebo názvy klíčů pro JSON soubory:
               <ul>
-              <li><b>title/en:</b> Nadpis v angličtině. Toto bude záviset na jazykové konfiguraci platformy.</li>
+              <li><b>title/en:</b> Nadpis v angličtině. To bude záviset na konfiguraci jazyka vaší platformy.</li>
               <li><b>body/en:</b> Tělo v angličtině. To bude záviset na konfiguraci jazyka vaší platformy.</li>
-              <li><b>scope/id:</b> ID oblasti působnosti</li>
-              <li><b>category/id:</b> ID pro kategorii</li>
+              <li><b>taxonomie/ids:</b> ID pro taxonomie (je-li více než jedno, oddělit čárkou)</li>
               </ul>
           label:
             answers: Importovat odpovědi ze souboru
@@ -622,9 +636,7 @@ cs:
             title: Návrh aktualizace
             update: Aktualizace
           form:
-            attachment_legend: "(Volitelné) Přidání přílohy"
             created_in_meeting: Tento návrh pochází z jednání
-            delete_attachment: Smazat přílohu
             select_a_meeting: Vyberte schůzku
           index:
             actions: Akce
@@ -762,7 +774,7 @@ cs:
           error: Při vytváření tohoto konceptu spolupráce došlo k chybě.
           success: Projekt spolupráce byl úspěšně vytvořen.
         edit:
-          attachment_legend: "(Volitelné) Přidání přílohy"
+          attachment_legend: Přidat dokument nebo obrázek
           back: Zadní
           send: Poslat
           title: Úprava konceptu spolupráce
@@ -855,6 +867,11 @@ cs:
       destroy_draft:
         error: Došlo k chybám s vymazáním návrhového návrhu.
         success: Koncept návrhu byl úspěšně smazán.
+      exit_modal:
+        cancel: Zrušit
+        exit: Pokračovat
+        message: Musíte dát ještě %{number} hlasů mezi různými návrhy, aby bylo možné vzít v úvahu vaše hlasy.
+        title: Pamatujte, že vám zbývá ještě %{number} hlasů
       forms:
         errors:
           device_not_supported: Vaše zařízení nepodporuje služby určování polohy. Zadejte adresu ručně.
@@ -909,10 +926,10 @@ cs:
           description: Souřadnice budou aktualizovány po kliknutí na tlačítko 'náhled'. Adresa se však nemění.
           instructions: Můžete přesunout bod na mapě.
         edit:
-          add_documents: Přidat dokumenty
-          attachment_legend: "(Volitelné) Přidání přílohy"
+          add_attachments: Přidat přílohy
+          attachment_legend: Přidat dokument nebo obrázek
           back: Zadní
-          edit_documents: Upravit dokumenty
+          edit_attachments: Upravit přílohy
           send: Poslat
           title: Upravit návrh
         edit_draft:
@@ -1010,7 +1027,7 @@ cs:
           maximum_votes_reached: Limit hlasů dosažen
           no_votes_remaining: Žádné zbývající hlasy
           vote: Hlasovat
-          votes_blocked: Hlasování zakázáno
+          votes_blocked: Hlasovat
         votes_count:
           count:
             one: Hlas
@@ -1018,17 +1035,20 @@ cs:
             many: Hlasů
             other: Hlasů
         voting_rules:
+          already_vote:
+            description: Nezapomeňte, že ještě musíte dát %{number} podpor mezi různými návrhy, aby byla zohledněna vaše podpora.
+            see_other_proposals: Zobrazit ostatní návrhy
+            title: Zbývá vám ještě %{number} podpor
           can_accumulate_votes_beyond_threshold:
             description: Každý návrh může sshromáždit více než %{limit} hlasů
           minimum_votes_per_user:
-            description: Musíte rozdělit minimálně %{votes} hlasů mezi různé návrhy.
-            given_enough_votes: Dali jste dostatek hlasů.
-            votes_remaining: Musíte hlasovat o dalších %{remaining_votes} návrzích k vašim hlasům, které budou brány v úvahu.
+            description: Musíte rozdělit minimálně %{votes} podpor mezi různé návrhy, aby byla zohledněna vaše podpora.
           proposal_limit:
             description: Můžete vytvořit až %{limit} návrhů.
+          success: Vaše hlasy byly úspěšně přijaty
           threshold_per_proposal:
             description: Aby byly návrhy schváleny, musí dosáhnout %{limit} hlasů.
-          title: 'Hlasy podléhají těmto pravidlům:'
+          title: Pravidla účasti
           vote_limit:
             description: Můžete hlasovat až pro %{limit} návrhů.
             votes: Zbývá %{number} hlasů

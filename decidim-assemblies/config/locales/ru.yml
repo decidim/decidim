@@ -16,7 +16,6 @@ ru:
         created_by_other: Создано кем-то еще
         creation_date: Дата создания
         decidim_area_id: Участок
-        decidim_assemblies_type_id: Вид собрания
         decidim_scope_id: Охват
         description: Описание
         developer_group: Рабочая группа по продвижению
@@ -28,7 +27,6 @@ ru:
         hero_image: Изображение главной страницы
         included_at: Включено в
         instagram: Инстаграм
-        internal_organisation: Внутренняя организация
         is_transparent: Прозрачное
         local_area: Участок организации
         meta_scope: Метаданные охвата
@@ -39,8 +37,6 @@ ru:
         promoted: Рекомендуется
         published_at: 'Обнародовано:'
         purpose_of_action: Цель действия
-        scope_id: Охват
-        scopes_enabled: Охваты включены
         short_description: Краткое описание
         slug: Сокращенный веб-адрес
         special_features: Особенности
@@ -100,9 +96,6 @@ ru:
         create:
           error: При попытке создать копию этого собрания произошла ошибка.
           success: Успешно создана копия собрания.
-      assemblies_types:
-        new:
-          create: Добавить
       assembly_copies:
         new:
           copy: Копировать
@@ -137,14 +130,9 @@ ru:
           attachment_collections: Папки
           attachment_files: Прикрепленные файлы
           attachments: Прикрепленные файлы
-          categories: Категории
           components: Составляющие
           moderations: Действия по модерации
       models:
-        assemblies_types:
-          fields:
-            created_at: 'Добавлено:'
-            title: Название
         assembly:
           fields:
             created_at: 'Добавлено:'
@@ -192,13 +180,8 @@ ru:
           form:
             duration_help: Если длительность этого собрания ограничена, выберите дату окончания. В противном случае оно будет отображаться как бессрочное.
             select_a_created_by: Укажите, кем создано
-            select_an_area: Выберите участок
-            select_an_assembly_type: Выберите вид собрания
             social_handlers: Социальные сети
             title: Общие сведения
-        assemblies_types:
-          form:
-            title: Название
       assemblies:
         filters:
           names:
@@ -206,14 +189,6 @@ ru:
       assembly_members:
         index:
           members: Члены президиума
-      assembly_types:
-        commission: Комиссия
-        consultative_advisory: Совещательное / Консультативное
-        executive: Исполнительное
-        government: Правительственное
-        others: Другое
-        participatory: Соучастное
-        working_group: Рабочая группа
       content_blocks:
         highlighted_assemblies:
           name: Рекомендуемые собрания
@@ -228,7 +203,6 @@ ru:
           member_of:
             member_of: 'Входит в состав:'
       show:
-        assembly_type: Вид собрания
         duration: Длительность
         private_space: Это частное собрание
     assembly_members:

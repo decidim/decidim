@@ -141,8 +141,6 @@ lt:
             maps_enabled: Žemėlapiai įjungti
             registration_code_enabled: Registracijos kodas įjungtas
             resources_permissions_enabled: Kiekvienam posėdžiui galima nustatyti leistinus veiksmus
-            scope_id: Apimtis
-            scopes_enabled: Sritys įjungtos
             terms_and_conditions_url_for_meeting_creators: Naudojimo taisyklių ir sąlygų URL susirinkimų kūrėjams
           step:
             announcement: Pranešimas

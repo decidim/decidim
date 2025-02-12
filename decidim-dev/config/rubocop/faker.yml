@@ -172,7 +172,7 @@ Faker/DeprecatedArguments:
       paragraph_by_chars:
         - characters
         - supplemental
-    Faker::IDNumber:
+    Faker::IdNumber:
       brazilian_citizen_number:
         - formatted
       brazilian_id:

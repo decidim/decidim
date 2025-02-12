@@ -16,20 +16,10 @@ nl:
       surveys:
         actions:
           answer: Antwoorden
-        name: Enquête
         settings:
           global:
             announcement: Aankondiging
-            clean_after_publish: Verwijder antwoorden bij publicatie van de enquête
-            ends_at: Antwoorden geaccepteerd tot
-            ends_at_help: Laat leeg voor geen specifieke datum
-            scope_id: Scope
-            scopes_enabled: Scopes ingeschakeld
-            starts_at: Antwoorden geaccepteerd vanaf
-            starts_at_help: Laat leeg voor geen specifieke datum
           step:
-            allow_answers: Antwoorden toestaan
-            allow_unregistered: Sta niet-geregistreerde gebruikers toe om de enquête te beantwoorden
             announcement: Aankondiging
     events:
       surveys:

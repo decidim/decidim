@@ -22,25 +22,29 @@ describe "Proposals" do
       visit_component
     end
 
-    it "clicks the 'New proposal' button, logs in and redirects to the 'New proposal' form" do
-      expect(page).to have_css("a[data-redirect-url='#{main_component_path(component)}/new']")
-      expect(page).to have_css("a[data-dialog-open='loginModal']")
+    shared_examples "clicking the 'New proposal' button" do |selector|
+      it "clicks the 'New proposal' button, logs in and redirects to the 'New proposal' form - using #{selector}" do
+        expect(page).to have_css("a[data-redirect-url='#{main_component_path(component)}/new']")
+        expect(page).to have_css("a[data-dialog-open='loginModal']")
 
-      # We cannot use the click_on method because it clicks the span and we need to click in the button
-      # click_on "New proposal"
-      element = find("a", text: "New proposal")
-      execute_script("arguments[0].click();", element)
+        # We cannot use the click_on method because it clicks the span and we need to click various elements in button
+        find(:xpath, selector).click
 
-      within "#loginModal" do
-        fill_in "Email", with: user.email
-        fill_in "Password", with: user.password
-        click_on "Log in"
+        within "#loginModal" do
+          fill_in "Email", with: user.email
+          fill_in "Password", with: user.password
+          click_on "Log in"
+        end
+
+        expect(page).to have_content "Create your proposal"
+        expect(page).to have_content "Title"
+        expect(page).to have_content "Body"
       end
-
-      expect(page).to have_content "Create your proposal"
-      expect(page).to have_content "Title"
-      expect(page).to have_content "Body"
     end
+
+    include_examples "clicking the 'New proposal' button", "//a[span[contains(text(), 'New proposal')]]"
+    include_examples "clicking the 'New proposal' button", "//a[span[contains(text(), 'New proposal')]]/span"
+    include_examples "clicking the 'New proposal' button", "//a[span[contains(text(), 'New proposal')]]/*[local-name()='svg']"
   end
 
   context "when creating a new proposal" do

@@ -141,8 +141,6 @@ zh-TW:
             proposal_limit: 參與者可提出提案的上限
             proposal_wizard_step_1_help_text: 提案向導「創建」步驟說明文字
             resources_permissions_enabled: 每個提案都可以設定行動權限
-            scope_id: 範圍
-            scopes_enabled: 啟用範圍
             threshold_per_proposal: 每個提案的門檻
           step:
             amendment_creation_enabled: 創建修正案已啟用
@@ -283,7 +281,7 @@ zh-TW:
         title: 提案
     participatory_spaces:
       highlighted_proposals:
-        see_all: 檢視所有提案 (%{count})
+        see_all: 檢視所有提案
     proposals:
       actions:
         answer_proposal: 回覆提案
@@ -300,24 +298,6 @@ zh-TW:
           proposal_comments: 評論
           proposals: 提案
         imports:
-          help:
-            answers: |
-              匯入文件如果是 CSV 或 Excel 檔案，應包含以下列名，如果是 JSON 檔案，則應包含以下名稱：
-
-              <ul>
-              <li><b>id：</b>要回答的提案的 ID</li>
-              <li><b>state：</b>狀態之一，可以是 "接受"、"評估中" 或 "拒絕"</li>
-              <li><b>answer/en：</b>英文語言的答案。這將取決於您平台的語言設置。</li>
-              </ul>
-            proposals: |
-              在 CSV 或 Excel 文件的情況下，或在 JSON 文件的情況下，文件必須具有以下列名稱：
-
-              <ul>
-              <li><b>title/en：</b>英文標題，這取決於您平台的語言配置。</li>
-              <li><b>body/en：</b>英文正文，這取決於您平台的語言配置。</li>
-              <li><b>scope/id：</b>範圍的 ID。</li>
-              <li><b>category/id：</b>類別的 ID。</li>
-              </ul>
           label:
             answers: 從檔案匯入回覆
             proposals: 從檔案匯入提案
@@ -382,9 +362,7 @@ zh-TW:
             title: 更新提案
             update: 更新
           form:
-            attachment_legend: "(可選) 新增附件"
             created_in_meeting: 這個提案來自會議
-            delete_attachment: 刪除附件
             select_a_meeting: 選擇一個會議
           index:
             actions: 操作
@@ -497,7 +475,6 @@ zh-TW:
           error: 建立協作草稿時發生問題。
           success: 協作草稿建立成功。
         edit:
-          attachment_legend: "(可選) 新增附件"
           back: 返回
           send: 發送
           title: 編輯協作草稿
@@ -601,10 +578,7 @@ zh-TW:
           description: 當點擊“預覽”按鈕時，座標將會更新，但地址不會更改。
           instructions: 您可以在地圖上移動點。
         edit:
-          add_documents: 新增文件
-          attachment_legend: "(可選) 新增附件"
           back: 返回
-          edit_documents: 編輯文件
           send: 發送
           title: 編輯提案
         edit_draft:
@@ -676,6 +650,8 @@ zh-TW:
         voting_rules:
           proposal_limit:
             description: 您最多可以創建 %{limit} 個提案。
+          vote_limit:
+            description: 您最多可以支持 %{limit} 個提案。
         wizard_aside:
           back: 返回
           back_from_step_1: 返回提案

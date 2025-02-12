@@ -134,8 +134,6 @@ it:
             proposal_limit: Numero di proposte che possono essere create da ciascun utente
             proposal_wizard_step_1_help_text: Procedura guidata proposta "Crea" testo guida passo
             resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni proposta
-            scope_id: Ambito
-            scopes_enabled: Ambiti abilitati
             threshold_per_proposal: Voti necessari per l'approvazione della proposta
           step:
             amendment_creation_enabled: Creazione di emendamenti abilitata
@@ -251,7 +249,7 @@ it:
         title: proposte
     participatory_spaces:
       highlighted_proposals:
-        see_all: Vedi tutto (%{count})
+        see_all: Vedi tutto
     proposals:
       actions:
         answer_proposal: Proposta di Risposta
@@ -313,9 +311,7 @@ it:
             title: Aggiorna proposta
             update: Aggiornare
           form:
-            attachment_legend: "(Opzionale) Aggiungere un allegato"
             created_in_meeting: Questa proposta proviene da una riunione
-            delete_attachment: Elimina allegato
             select_a_meeting: Seleziona una riunione
           index:
             actions: Azioni
@@ -416,7 +412,6 @@ it:
         create:
           success: Bozza collaborativa creata con successo.
         edit:
-          attachment_legend: "(Opzionale) Aggiungi un allegato"
           back: Indietro
           send: Inviare
           title: Modifica bozza collaborativa
@@ -511,7 +506,6 @@ it:
           description: Le coordinate verranno aggiornate quando si fa clic sul pulsante 'Anteprima'. Tuttavia, l'indirizzo non cambia.
           instructions: Puoi spostare il punto sulla mappa.
         edit:
-          attachment_legend: "(Opzionale) Aggiungi un allegato"
           back: Indietro
           send: Inviare
           title: Modifica la proposta
@@ -537,6 +531,7 @@ it:
             one: "%{count} proposta"
             other: "%{count} proposte"
           new_proposal: Nuova proposta
+          see_all: Vedi tutto
           see_all_withdrawn: Vedi tutte le proposte ritirate
         new:
           send: Continua
@@ -584,10 +579,11 @@ it:
           maximum_votes_reached: Hai raggiunto il limite di voti
           no_votes_remaining: Sono finite le votazioni possibili
           vote: Votazione
-          votes_blocked: Votazioni disabilitate
         voting_rules:
           proposal_limit:
             description: Puoi creare fino a %{limit} proposte.
+          vote_limit:
+            description: Puoi votare fino a %{limit} proposte.
         wizard_aside:
           back: Indietro
           back_from_step_1: Torna alle proposte

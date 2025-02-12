@@ -143,8 +143,6 @@ ro:
             proposal_wizard_step_1_help_text: Text de ajutor pentru pasul „Creează” din crearea unei propuneri
             proposal_wizard_step_2_help_text: Text de ajutor pentru pasul „Publică” din crearea unei propuneri
             resources_permissions_enabled: Pentru fiecare propunere pot fi setate drepturi pentru acțiuni
-            scope_id: Domeniu de interes
-            scopes_enabled: Domeniile de interes au fost activate
             threshold_per_proposal: Prag per propunere
           step:
             amendment_creation_enabled: Crearea de amendamente a fost activată
@@ -266,7 +264,7 @@ ro:
         title: Propuneri
     participatory_spaces:
       highlighted_proposals:
-        see_all: Afișează toate propunerile (%{count})
+        see_all: Afișează toate propunerile
     proposals:
       actions:
         answer_proposal: Răspundeți la propunere
@@ -278,14 +276,14 @@ ro:
         title: Acțiuni
       admin:
         actions:
-          preview: Previzualizează
+          preview: Previzualizați
         exports:
           proposal_comments: Comentarii
           proposals: Propuneri
         imports:
           label:
-            answers: Importă răspunsuri dintr-un fişier
-            proposals: Importă propuneri dintr-un fişier
+            answers: Importați răspunsuri dintr-un fișier
+            proposals: Importați propuneri dintr-un fișier
           resources:
             answers:
               one: răspuns la propunere
@@ -313,7 +311,7 @@ ro:
             info_1: Următoarele secțiuni au fost convertite în propuneri. Acum le poți revizui și ajusta înainte de a le publica.
             publish_document: Publică documentul
             save_draft: Salvează ciorna
-            title: Pevizualizează textul participativ
+            title: Previzualizați textul participativ
           new_import:
             accepted_mime_types:
               md: Markdown
@@ -341,9 +339,7 @@ ro:
             title: Actualizează propunerea
             update: Actualizează
           form:
-            attachment_legend: "(Opțional) Adaugă un atașament"
             created_in_meeting: Această propunere provine dintr-o întâlnire
-            delete_attachment: Șterge atașamentul
             select_a_meeting: Selectează o întâlnire
           index:
             actions: Acțiuni
@@ -373,7 +369,7 @@ ro:
             comments_count: Număr de comentarii
             documents: Documente
             endorsements_count: Număr de susțineri
-            endorsers: Susţinători
+            endorsers: Susținători
             n_more_endorsers:
               one: și încă 1
               few: și încă %{count}
@@ -446,7 +442,6 @@ ro:
         create:
           success: Ciorna colaborativă a fost creată cu succes.
         edit:
-          attachment_legend: "(Opțional) Adaugă un atașament"
           back: Înapoi
           send: Trimite
           title: Editează ciorna colaborativă
@@ -543,14 +538,13 @@ ro:
           description: Coordonatele vor fi actualizate când apeși pe butonul 'previzualizează'. Cu toate acestea, adresa nu se schimbă.
           instructions: Poți muta punctul de pe hartă.
         edit:
-          attachment_legend: "(Opțional) Adaugă un atașament"
           back: Înapoi
           send: Trimite
           title: Editează propunerea
         edit_draft:
           discard: Renunță la această ciornă
           discard_confirmation: Sigur dorești să renunți la această ciornă de propunere?
-          send: Previzualizează
+          send: Previzualizați
         edit_form_fields:
           marker_added: Marker adăugat pe hartă.
         filters:
@@ -617,9 +611,13 @@ ro:
           withdraw_confirmation_html: Sigur dorești să retragi această propunere?<br><br><strong>Această acțiune nu poate fi anulată!</strong>
         update:
           title: Actualizează propunerea
+        vote_button:
+          votes_blocked: Votați
         voting_rules:
           proposal_limit:
             description: Poți crea până la %{limit} propuneri.
+          vote_limit:
+            description: Poți vota până la %{limit} propuneri.
         wizard_aside:
           back: Înapoi
           back_from_step_1: Înapoi la propuneri

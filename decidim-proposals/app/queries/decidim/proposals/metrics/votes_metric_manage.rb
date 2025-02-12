@@ -13,9 +13,9 @@ module Decidim
             next if cumulative_value.zero?
 
             quantity_value = quantity[key] || 0
-            category_id, space_type, space_id, proposal_id = key
+            taxonomy_id, space_type, space_id, proposal_id = key
             record = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name,
-                                                           organization: @organization, decidim_category_id: category_id,
+                                                           organization: @organization, decidim_taxonomy_id: taxonomy_id,
                                                            participatory_space_type: space_type, participatory_space_id: space_id,
                                                            related_object_type: "Decidim::Proposals::Proposal", related_object_id: proposal_id)
             record.assign_attributes(cumulative: cumulative_value, quantity: quantity_value)
@@ -33,10 +33,10 @@ module Decidim
           end
           proposal_ids = Decidim::Proposals::Proposal.where(component: visible_components_from_spaces(spaces)).not_withdrawn.not_hidden.pluck(:id)
           @query = Decidim::Proposals::ProposalVote.joins(proposal: :component)
-                                                   .left_outer_joins(proposal: :category)
+                                                   .left_outer_joins(proposal: :taxonomizations)
                                                    .where(proposal: proposal_ids)
           @query = @query.where(decidim_proposals_proposal_votes: { created_at: ..end_time })
-          @query = @query.group("decidim_categorizations.id",
+          @query = @query.group("decidim_taxonomizations.taxonomy_id",
                                 :participatory_space_type,
                                 :participatory_space_id,
                                 :decidim_proposal_id)

@@ -95,8 +95,6 @@
             maps_enabled: Kart aktivert
             registration_code_enabled: Registreringskode aktivert
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
-            scope_id: Tema
-            scopes_enabled: Temaer aktivert
             terms_and_conditions_url_for_meeting_creators: Link til vilkår og betingelser for arrangører
           step:
             announcement: Kunngjøring

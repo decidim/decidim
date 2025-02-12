@@ -12,25 +12,20 @@ fi-pl:
         one: Vastaus
         other: Vastaukset
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: kyselyt
     components:
       surveys:
         actions:
           answer: Vastaus
-        name: Kysely
+        name: Kyselyt
         settings:
+          announcement: Ilmoitus
           global:
             announcement: Ilmoitus
-            clean_after_publish: Poista vastaukset julkaistaessa kysely
-            ends_at: Vastausajan loppumisajankohta
-            ends_at_help: Jätä tyhjäksi, jos vastausaikaa ei ole rajattu
-            scope_id: Teema
-            scopes_enabled: Teemat käytössä
-            starts_at: Vastausajan alkamisajankohta
-            starts_at_help: Jätä tyhjäksi, jos vastausaikaa ei ole rajattu
           step:
-            allow_answers: Salli vastaukset
-            allow_unregistered: Salli rekisteröitymättömien käyttäjien vastata tähän kyselyyn
-            allow_unregistered_help: Jos asetus on käytössä, käyttäjän ei tarvitse kirjautua sisään vastatakseen kyselyyn. Tämä voi johtaa heikkotasoiseen tai epäluotettavaan tietoon ja se on alttiimpi automatisoiduille hyökkäyksille. Käytä varoen! Muista, että osallistuja voisi vastata samaan kyselyyn useita kertoja, käyttämällä eri selaimia tai selaimen "yksityisen selauksen" ominaisuutta.
             announcement: Ilmoitus
     events:
       surveys:
@@ -52,18 +47,78 @@ fi-pl:
     statistics:
       answers_count: Vastausta
     surveys:
+      actions:
+        answers_alert: Kyselyn vastausten poistaminen julkaisun yhteydessä on otettu käyttöön tälle kyselylle. Kyselyllä on tällä hetkellä %{answers_count} vastausta, jotka poistetaan, mikäli jatkat eteenpäin.
+        confirm_destroy: Haluatko varmasti poistaa tämän?
+        destroy: Poista
+        edit: Muokkaa
+        manage_questions: Hallinnoi kysymyksiä
+        new_survey: Uusi kysely
+        preview: Esikatsele
+        title: Toiminnot
       admin:
-        component:
-          actions:
-            answers_alert: Julkaistessasi komponentin, kaikki aikaisemmat vastaukset poistetaan.
+        answers:
+          index:
+            title: "yhteensä %{total} vastausta"
+          show:
+            title: 'Vastaus #%{number}'
         exports:
           survey_user_answers: Kyselyn vastaukset
+        publish_answers:
+          index:
+            answers:
+              one: "%{count} vastaus"
+              other: "%{count} vastausta"
+            description: |-
+              Voit julkaista kyselyn vastaukset näkyville kaikille alustan käyttäjille.
+              Voit valita julkaistavat vastaukset valitsemalla kunkin kysymyksen vieressä näkyvän valintaruudun.
+              Voit julkaista ainoastaan seuraavantyyppisten kysymysten vastaukset: "Yksi vaihtoehto", "Useita vaihtoehtoja", "Kysymysmatriisi (yksi valinta)", "Kysymysmatriisi (useita valintoja)" ja "Järjestäminen".
+            status:
+              not_published: Ei julkaistu
+              published: Julkaistu
+            title: Julkaise vastaukset
         surveys:
+          create:
+            invalid: Kyselyn luonti epäonnistui.
+            success: Kyselyn luonti onnistui.
+          destroy:
+            success: Kyselyn poisto onnistui.
+          edit:
+            title: Muokkaa kyselyä
+          index:
+            title: Kyselyt
+          publish:
+            invalid: Kyselyn julkaisu epäonnistui.
+            success: Kyselyn julkaisu onnistui.
+          unpublish:
+            invalid: Kyselyn julkaisun peruminen epäonnistui.
+            success: Kyselyn julkaisun peruminen onnistui.
           update:
             invalid: Kyselyn tallennus epäonnistui.
             success: Kysely tallennettu onnistuneesti.
+      admin_log:
+        survey:
+          create: "%{user_name} loi kyselyn nimeltä %{resource_name} osallistumistilassa %{space_name}"
+          delete: "%{user_name} poisti kyselyn nimeltä %{resource_name} osallistumistilassa %{space_name}"
+          publish: "%{user_name} julkaisi kyselyn nimeltä %{resource_name} osallistumistilassa %{space_name}"
+          unpublish: "%{user_name} perui kyselyn %{resource_name} julkaisun osallistumistilassa %{space_name}"
+          update: "%{user_name} päivitti kyselyä nimeltä %{resource_name} osallistumistilassa %{space_name}"
+      directory:
+        surveys:
+          index:
+            surveys: Kyselyt
       last_activity:
         new_survey: 'Uusi kysely:'
+      models:
+        survey:
+          fields:
+            answers: Vastaukset
+            questions: Kysymykset
+            status: Tila
+            title: Otsikko
+          status:
+            closed: Suljettu
+            open: Avoin
       survey_confirmation_mailer:
         confirmation:
           body: Vastauksesi kyselyyn "%{questionnaire_title}" onnistui osallistumistilassa "%{participatory_space}"
@@ -74,3 +129,17 @@ fi-pl:
           invalid: Kyselyyn vastaaminen epäonnistui.
           spam_detected: Lomakkeeseen vastaaminen epäonnistui. Saatoit toimia liian nopeasti. Yrittäisitkö uudestaan?
           success: Kyselyyn vastattu onnistuneesti.
+        count:
+          surveys_count:
+            one: "%{count} kysely"
+            other: "%{count} kyselyä"
+        filters:
+          all: Kaikki
+          state_values:
+            closed: Suljetut
+            open: Avoimet
+        no_surveys_warning: Hakuehtosi eivät vastaa yhtään kyselyä tai yhtään kyselyä ei vielä ole julkaistu.
+        show:
+          closed: Suljettu
+          open: Avoin
+          questions: kysymykset

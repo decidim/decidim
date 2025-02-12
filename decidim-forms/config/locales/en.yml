@@ -41,11 +41,22 @@ en:
       admin:
         models:
           components:
+            allow_answers: Allow answers
+            allow_editing_answers: Allow registered users to edit own survey answers
+            allow_unregistered: Allow unregistered users to answer the survey
+            allow_unregistered_help: If active, no login will be required in order to answer the survey. This may lead to poor or unreliable data and it will be more vulnerable to automated attacks. Use with caution! Mind that a participant could answer the same survey multiple times, by using different browsers or the "private browsing" feature of her web browser.
+            announcement: Announcement
+            clean_after_publish: Delete answers when publishing the survey
             description: Description
+            ends_at: Answers accepted until
+            ends_at_help: Leave blank for no specific date
+            starts_at: Answers accepted from
+            starts_at_help: Leave blank for no specific date
             tos: Terms of service
         questionnaires:
           actions:
             back: Back to questions
+            publish_answers: Publish answers
             show: Show responses
           answer_option:
             answer_option: Answer option
@@ -90,16 +101,18 @@ en:
           edit:
             save: Save
             title: Edit questionnaire
-          form:
+          edit_questions:
             add_question: Add question
             add_separator: Add separator
             add_title_and_description: Add title and description
-            already_answered_warning: The form is already answered by some users so you cannot modify its questions.
+            save: Save
+            title: Questions
+          form:
+            add_question: Add question
             collapse: Collapse all questions
             expand: Expand all questions
             preview: Preview
             title: Edit form for %{questionnaire_for}
-            unpublished_warning: The form is not published. You may modify its questions, but doing so will delete current answers.
           matrix_row:
             matrix_row: Row
             remove: Remove
@@ -118,6 +131,13 @@ en:
             remove: Remove
             statement: Statement
             up: Up
+          questions_form:
+            already_answered_warning: The form is already answered by some users so you cannot modify its questions.
+            collapse: Collapse all questions
+            expand: Expand all questions
+            unpublished_warning: The form is not published. You may modify its questions, but doing so will delete current answers.
+            update:
+              success: Survey questions successfully saved.
           separator:
             down: Down
             remove: Remove
@@ -136,6 +156,9 @@ en:
             invalid: There was a problem saving the form.
             success: Form successfully saved.
       admin_log:
+        question:
+          publish_answers: "%{user_name} published the %{resource_name} question's answers on the %{space_name} space"
+          unpublish_answers: "%{user_name} unpublished the %{resource_name} question's answers on the %{space_name} space"
         questionnaire:
           update: "%{user_name} updated the %{resource_name} questionnaire"
       errors:
@@ -178,6 +201,9 @@ en:
           questionnaire_answered:
             body: You have already answered this form.
             title: Already answered
+          questionnaire_answered_edit:
+            body: You have already answered this form. %{link}
+            edit: Edit your answers
           questionnaire_closed:
             body: The form is closed and cannot be answered.
             title: Form closed
@@ -192,9 +218,12 @@ en:
           tos_agreement: By participating you accept its Terms of Service
       step_navigation:
         show:
-          are_you_sure: This action cannot be undone and you will not be able to edit your answers. Are you sure?
+          are_you_sure_edit: You will be able to edit your answers. Are you sure?
+          are_you_sure_edit_guest: If you want to be able to edit your answers afterwards, then you need to log in or create an account.
+          are_you_sure_no_edit: This action cannot be undone and you will not be able to edit your answers. Are you sure?
           back: Back
           continue: Continue
+          disallowed: You are not allowed to edit your answers.
           submit: Submit
       user_answers_serializer:
         body: Answer

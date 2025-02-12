@@ -136,19 +136,24 @@ ca:
           name: Tipus d'iniciativa
         initiatives_votes:
           fields:
+            date_and_time: Data i hora
             date_of_birth: Data de naixement
             document_number: Número de document
             hash: Hash
             initiative_end_date: Data de finalització
             initiative_id: ID de la iniciativa
+            initiative_scope: Àmbit
             initiative_signatures_count: Nombre de signatures digitals
             initiative_start_date: Data d'inici
             initiative_title: Títol de la iniciativa
             name_and_surname: Nom i cognoms
+            nickname: Àlies
             postal_code: Codi postal
-            scope: Àmbit
-            time_and_date: Data i hora
+            signature_count: Recompte de signatures
             timestamp: Marca de temps
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: Totes les iniciatives
       titles:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
@@ -440,10 +445,10 @@ ca:
           email_subject: "%{applicant_nickname} vol unir-se a la teva iniciativa"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha sol·licitat formar part de la comissió promotora de la teva iniciativa <a href="%{resource_url}">%{resource_title}</a>. Per acceptar-ho o rebutjar-ho fes clic <a href="%{resource_url}/edit">aquí</a>.
       form:
-        add_documents: Afegir documents
+        add_attachments: Afegir fitxer(s) adjunt(s)
         add_image: Afegir imatge
-        attachment_legend: "(Opcional) Afegir un fitxer adjunt"
-        edit_documents: Editar documents
+        attachment_legend:
+        edit_attachments: Edita els fitxers adjunts
         edit_image: Editar imatge
         image_legend: "(Opcional) Afegeix una imatge"
       index:
@@ -535,7 +540,7 @@ ca:
           province: Província
           signature: Signatura
         result:
-          answer_title: S'ha respost aquesta iniciativa.
+          answer_title: S'ha respost aquesta iniciativa
           initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per falta de signatures.
         show:
           area: Àrea

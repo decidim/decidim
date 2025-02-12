@@ -36,7 +36,6 @@ hu:
         confirm_destroy: 'Biztosan törölni szeretnéd ezt: %{name}?'
         destroy: Törlés
         edit: Szerkesztés
-        import: Elemek importálása egy másik komponensből
         import_csv: Eredmények importálása CSV-fájlból
         new_result: Új eredmény
         new_status: Új állapot
@@ -52,27 +51,6 @@ hu:
           new:
             download_export: A CSV formátumú exportálás letöltése
             import: Importál
-            info: |
-              <p>Javasoljuk, hogy kövesse az alábbi lépéseket:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Hozzáadni kívánt eredmények státuszainak létrehozása</a> </li>
-              <li>Az Importálás használata előtt<a href='%{link_new_result}' target='_blank'>hozzon létre legalább egy Eredményt manuálisan</a> ezen az adminisztrációs panelen keresztül, hogy jobban megértse a formátumot és azt, hogy mit kell kitöltenie.</li>
-              <li>%{link_export_csv}</li>
-              <li>Végezze el a módosításokat helyben. Csak a CSV következő oszlopait tudja módosítani:
-                <ul>
-                <li><b>kategória/id:</b> A kategória azonosítója</li>
-                <li><b>scope/id:</b> A hatókör azonosítója</li>
-                <li><b>parent/id:</b> A szülő azonosítója (a kapcsolódó eredményekhez). Választható</li>
-                <li><b>title/en:</b> Angol nyelvű cím. Ez a platform nyelvi konfigurációjától függ.</li>
-                <li><b>description/en:</b> Leírás angol nyelven. Ez a platform nyelvi konfigurációjától függ.</li>
-                <li><b>start_date:</b> az eredmény végrehajtásának kezdeti időpontja (formátum ÉÉÉÉÉ-HH-HH-NN)</li>
-                <li><b>end_date:</b> az eredmény végrehajtásának befejezésének dátuma (formátum ÉÉÉÉÉ-HH-HH-NN)</li>
-                <li><b>status/id:</b> Az eredmény státuszának azonosítója</li>
-                <li><b>progress:</b> A végrehajtás százalékos aránya (0-tól 100-ig)</li>
-                <li><b>proposals_ids:</b> a kapcsolódó javaslatok belső azonosítója (vesszővel elválasztva). Automatikusan átkonvertálódik <span class='attribute-name'>proposal_url</span> címre</li>
-                </ul>
-              </li>
-              </ol>
             title: Eredmények importálása CSV-fájlból
         imports:
           create:
@@ -83,22 +61,6 @@ hu:
             name: Eredmény
           status:
             name: Állapot
-        projects_import:
-          create:
-            invalid: Probléma merült fel a projektek importálásával az eredményekbe, kérjük, gondosan kövesse az utasításokat, és győződjön meg róla, hogy a projekteket a végrehajtáshoz kiválasztotta.
-          new:
-            create: Importálás
-            import_all_selected_projects: A végrehajtásra kiválasztott összes projekt importálása
-            new_items:
-              one: 1 kiválasztott projekt kerül importálásra
-              other: "%{count} kiválasztott projekt kerül importálásra"
-            no_components: Ebben a részvételi térben nincsenek olyan költségvetési elemek, amelyek a projekteket eredményekbe importálnák.
-            origin_component_id: A komponens származása
-            select_component: Komponens választása
-            success:
-              one: 1 projekt várakozik importálásra. A befejezés után e-mailben értesítjük Önt.
-              other: "%{count} importálásra váró projektek. A befejezés után e-mailben értesítjük Önt."
-            title: Projektek importálása egy másik komponensből
         results:
           create:
             invalid: Volt egy probléma az eredmény létrehozásával.
@@ -240,8 +202,6 @@ hu:
             comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
             display_progress_enabled: Állapot megjelenítése
             intro: Intro
-            scope_id: Hatáskör
-            scopes_enabled: Hatáskörök engedélyezve
           step:
             comments_blocked: Megjegyzések letiltva
     events:

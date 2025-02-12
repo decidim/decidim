@@ -121,8 +121,6 @@ ru:
             submit: Отправить
           title: Частные примечания
         proposals:
-          form:
-            attachment_legend: "(Необязательно) Прикрепить файл"
           index:
             actions: Действия
             cancel: Отменить
@@ -174,7 +172,6 @@ ru:
             votes: Голоса
       proposals:
         edit:
-          attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
           send: Отправить
           title: Редактировать предложение
@@ -218,7 +215,6 @@ ru:
           maximum_votes_reached: Достигнуто предельное количество голосов
           no_votes_remaining: Больше не осталось голосов
           vote: Голосовать
-          votes_blocked: Голосование отключено
         voting_rules:
           proposal_limit:
             description: Вы можете создать до %{limit} предложений.

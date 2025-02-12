@@ -22,9 +22,6 @@ nl:
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
         related_process_ids: Verwante thema's
-        scope_id: Scope
-        scope_type_max_depth_id: Scope filterdiepte
-        scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
         slug: URL pad
         start_date: Startdatum
@@ -99,7 +96,6 @@ nl:
           attachment_collections: Mappen
           attachment_files: Bestanden
           attachments: Bijlagen
-          categories: Categorieën
           components: Onderdelen
           moderations: Moderaties
           process_admins: Admins van het proces
@@ -331,13 +327,9 @@ nl:
           form:
             announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.
             duration: Duur
-            filters: Filters
             images: Afbeeldingen
             metadata: Metadata
-            other: Overige
             related_processes: Verwante thema's
-            scope_type_max_depth_help: Beperk de scope filter diepte; de filter zal uit het algemeen worden weergegeven tot het geselecteerde scope type.
-            select_an_area: Selecteer een onderwerp
             select_process_group: Selecteer een procesgroep
             title: Algemene informatie
       content_blocks:

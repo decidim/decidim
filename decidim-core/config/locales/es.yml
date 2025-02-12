@@ -3,10 +3,20 @@ es:
     attributes:
       account:
         delete_reason: Motivo de eliminar tu cuenta
+      attachment:
+        documents: Documentos
+        photos: Fotos
       common:
         created_at: Creado el
+      component:
+        taxonomy_filters: Filtros de taxonomía
+      content_block_attachment:
+        background_image: Imagen de fondo
+        main_image: Imagen principal
       conversation:
         body: Cuerpo
+      editor_image:
+        file: Archivo
       group:
         about: Acerca de
         avatar: Avatar
@@ -15,6 +25,8 @@ es:
         name: Nombre
         nickname: Alias
         phone: Teléfono
+      import:
+        file: Archivo
       message:
         body: Cuerpo
       report:
@@ -22,12 +34,13 @@ es:
       taxonomy:
         name: Nombre de la taxonomía
       taxonomy_filter:
-        internal_name: Nombre interno del filtro
-        name: Título púlbico del filtro
+        internal_name: Etiqueta interna
+        name: Etiqueta
         root_taxonomy_id: Desde la taxonomía
-        space_filter: Disponible como filtro para espacios de participación
+        space_filter: Disponible como filtro para
       user:
         about: Acerca de
+        avatar: Imagen de perfil
         email: Tu correo electrónico
         encrypted_password: Contraseña
         locale: Configuración regional
@@ -39,6 +52,8 @@ es:
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
         tos_agreement: Términos y condiciones uso
+      user_group:
+        avatar: Imagen de perfil
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
@@ -241,6 +256,9 @@ es:
       impersonation_log:
         manage: "%{user_name} ha gestionado a %{resource_name} porque %{reason}"
       moderation:
+        bulk_hide: "%{user_name} ha ocultado %{reported_count} contenidos"
+        bulk_unhide: "%{user_name} ha vuelto a mostrar %{reported_count} contenidos"
+        bulk_unreport: "%{user_name} ha cancelado la denuncia de %{reported_count} contenidos"
         hide: "%{user_name} ocultó un recurso de tipo %{resource_type} en el espacio %{space_name}"
         unreport: "%{user_name} deshizo la denuncia de un recurso de tipo %{resource_type} en el espacio %{space_name}"
       newsletter:
@@ -289,14 +307,17 @@ es:
         update: "%{user_name} ha actualizado la taxonomía \"%{resource_name}\""
         update_with_parent: "%{user_name} ha actulizado \"%{resource_name}\" dentro de la taxonomía \"%{parent_taxonomy}\""
       taxonomy_filter:
-        create: "%{user_name} ha creado un filtro basado en la taxonomía \"%{resource_name}\""
-        create_with_filter_items_count: "%{user_name} ha creado un filtro de taxonomía basado en la taxonomía \"%{resource_name}\" con %{filter_items_count} filtros para \"%{space_manifest_name}\""
-        delete: "%{user_name} ha eliminado un filtro basado en la taxonomía \"%{resource_name}\""
-        delete_with_filter_items_count: "%{user_name} ha eliminado un filtro de taxonomía basado en la taxonomía \"%{resource_name}\" con %{filter_items_count} filtros para \"%{space_manifest_name}\""
-        update: "%{user_name} ha eliminado un filtro basado en la taxonomía \"%{resource_name}\""
-        update_with_filter_items_count: "%{user_name} ha eliminado un filtro de taxonomía basado en la taxonomía \"%{resource_name}\" con %{filter_items_count} filtros para \"%{space_manifest_name}\""
+        create: "%{user_name} creó el filtro %{resource_name}"
+        create_with_filter_info: '%{user_name} creó el filtro %{resource_name} basado en la taxonomía "%{taxonomy_name}" con %{filter_items_count} elemento(s)'
+        delete: "%{user_name} eliminó el filtro %{resource_name}"
+        delete_with_filter_info: '%{user_name} eliminó el filtro %{resource_name} basado en la taxonomía "%{taxonomy_name}" con %{filter_items_count} elemento(s)'
+        update: "%{user_name} actualizó el filtro %{resource_name}"
+        update_with_filter_info: '%{user_name} actualizó el filtro %{resource_name} basado en la taxonomía "%{taxonomy_name}" con %{filter_items_count} elemento(s)'
       user:
         block: "%{user_name} ha bloqueado a la usuaria %{resource_name}"
+        bulk_block: "%{user_name} ha bloqueado a %{blocked_count} usuarias"
+        bulk_ignore: "%{user_name} ha cancelado la denuncia de %{unreported_users_count} usuarias"
+        bulk_unblock: "%{user_name} ha desbloqueado a %{unblocked_count} usuarias"
         invite: "%{user_name} invitó a la participante %{resource_name} con el rol: %{role}"
         officialize: "%{user_name} oficializó a la participante %{resource_name}"
         promote: "%{user_name} ha promocionado a %{resource_name}"
@@ -307,6 +328,9 @@ es:
         unofficialize: "%{user_name} ha desoficializado a la participante %{resource_name}"
       user_group:
         block: "%{user_name} ha bloqueado al grup de usuarias %{resource_name}"
+        bulk_block: "%{user_name} ha bloqueado a %{blocked_count} usuarias"
+        bulk_ignore: "%{user_name} ha cancelado la denuncia de %{unreported_users_count} usuarias"
+        bulk_unblock: "%{user_name} ha desbloqueado a %{unblocked_count} usuarias"
         reject: "%{user_name} rechazó la verificación del grupo %{resource_name}"
         unblock: "%{user_name} ha desbloqueado el grupo de usuarias %{resource_name}"
         verify: "%{user_name} verificó el grupo %{resource_name}"
@@ -424,14 +448,19 @@ es:
         explanation: Verifícate introduciendo un número de documento que termine con "X".
         fields:
           allowed_postal_codes: Códigos postales permitidos (separados por comas)
-          allowed_scope_id: Ámbito permitido
           document_number: Número de documento
           postal_code: Código postal
-          scope_id: Ámbito
         name: Autorización de ejemplo
       dummy_authorization_workflow:
         explanation: Ejemplo de flujo de verificación
         name: Flujo de trabajo de autorización de ejemplo
+      ephemeral_dummy_authorization_handler:
+        explanation: Verifícate introduciendo un número de documento que termine con "X".
+        fields:
+          allowed_postal_codes: Códigos postales permitidos (separados por comas)
+          document_number: Número de documento
+          postal_code: Código postal
+        name: Otro ejemplo de autorización
       errors:
         duplicate_authorization: Ya hay una participante autorizada con los mismos datos. Una administradora se pondrá en contacto contigo para verificar tus datos.
       expired_at: Caducado el %{timestamp}
@@ -522,8 +551,6 @@ es:
             enable_pads_creation: Habilitar la creación de pads
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             resources_permissions_enabled: Permisos de recursos habilitados
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
             taxonomy_filters: Seleccionar filtros para el componente
           step:
             amendment_creation_enabled: Creación de enmienda activada
@@ -647,6 +674,7 @@ es:
           sign_in_disabled: Puedes acceder con una cuenta externa.
           sign_up_disabled: La creación de cuentas está deshabilitada, puedes utilizar una cuenta existente para acceder.
         user:
+          ephemeral_session_closed: Su sesión de invitada ha finalizado
           timed_out: Has estado sin actividad durante demasiado tiempo y tu sesión se ha cerrado automáticamente. Si quieres seguir participando, inicia sesión de nuevo.
       shared:
         newsletter_modal:
@@ -690,15 +718,111 @@ es:
     download_your_data:
       export:
         ready: Listo
+      help:
+        core:
+          description: Estos son los archivos con los datos personales, las contribuciones y la actividad de la usuaria %{user_name}
+          title: Descarga tus archivos de datos desde %{organization}
+        follows:
+          created_at: La fecha y hora en que solicitaste "Seguir"
+          followable: El recurso o espacio de participación que se está siguiendo
+          id: El identificador único de este seguimiento
+          updated_at: La fecha de la última actualización del seguimiento
+        identities:
+          created_at: La fecha y la hora en la que se creó la identidad
+          id: El identificador único de esta identidad
+          provider: El proveedor de esta identidad
+          uid: El identificador único de esta identidad
+          updated_at: La fecha y hora de la última actualización de esta identidad
+          user: La usuaria a quien pertenece esta identidad
+        messaging_conversations:
+          created_at: La fecha en la que se inició esta conversación
+          id: El identificador único de esta conversación
+          messages: Los mensajes de esta conversación
+          updated_at: La fecha en la que esta conversación fue actualizado por última vez
+        notifications:
+          created_at: La fecha y hora en que se creó esta notificación
+          event_class: El tipo de acción que activó la notificación
+          event_name: El nombre de la acción que activó la notificación
+          extra: Información adicional de esta notificación
+          id: El identificador único de esta notificación
+          resource_type: El tipo de recurso con el que está relacionada la notificación
+          updated_at: La fecha y hora en que esta notificación fue actualizada por última vez
+        participatory_space_private_users:
+          created_at: La fecha y hora en que se creó esta participante privada
+          id: El identificador único de esta participante privada
+          privatable_to: A qué espacio de participación pertenece esta participante privada
+          published: Si esta participante privada está publicado o no
+          role: El rol tiene que esta participante privada
+          updated_at: La fecha y hora en que esta participante privada fue actualizada por última vez
+        reports:
+          created_at: La fecha y hora en que se creó este informe
+          details: Los detalles de los informes de moderación
+          id: El identificador único de este informe de moderación
+          locale: El idioma de este informe de moderación
+          moderation: La moderación que tiene este informe
+          reason: Los motivos de este informe de moderación
+          updated_at: La fecha y hora de la última actualización de este informe de moderación
+        user_groups:
+          document_number: El número de documento de este grupo de usuarias
+          id: El identificador único de este grupo de usuarias
+          name: El nombre de este grupo de usuarias
+          phone: El número de teléfono de este grupo de usuarias
+          verified_at: La fecha y hora en que se verificó este grupo de usuarias
+        users:
+          about: La biografía de esta usuaria
+          accepted_tos_version: La fecha en que la usuaria aceptó los Términos y Condiciones de uso de esta plataforma
+          admin: Si esta usuaria es una administradora
+          confirmation_sent_at: La fecha y hora en que se envió la confirmación
+          confirmed_at: La fecha y la hora en que se confirmó esta usuaria
+          created_at: La fecha y hora en que se creó esta usuaria
+          current_sign_in_at: La fecha y hora del inicio de sesión actual
+          current_sign_in_ip: La dirección IP del inicio de sesión actual
+          delete_reason: La razón dada para eliminar a esta usuaria
+          deleted_at: La fecha y hora en que se eliminó a esta usuaria
+          email: La dirección de correo electrónico de esta usuaria
+          followers_count: El número de participantes que siguen a esta participante
+          following_count: El número de participantes a los que sigue esta participante
+          id: El identificador único de esta usuaria
+          invitation_accepted_at: La fecha y hora en que se aceptó la invitación
+          invitation_created_at: La fecha y hora en que se invitó a esta usuaria
+          invitation_sent_at: La fecha y hora en que se envió la invitación
+          invitations_count: El número de invitaciones enviadas a esta usuaria
+          invited_by: La usuaria que invito a esta usuaria
+          last_sign_in_at: La fecha y hora del último inicio de sesión
+          last_sign_in_ip: La dirección IP del último inicio de sesión
+          locale: La configuración regional (idioma) que ha seleccionado esta usuaria
+          managed: Si se trata de una cuenta de usuaria gestionada (impersonada) o no
+          name: El nombre de usuaria de la usuaria
+          newsletter_notifications_at: La fecha y hora cuando esta usuaria recibió un boletín informativo por última vez
+          nickname: El alias de la usuaria
+          notification_settings: Los ajustes de notificación que ha seleccionado esta usuaria
+          notifications_sending_frequency: La frecuencia con la que esta usuaria recibe las notificaciones
+          officialized_as: La descripción de la oficialización (Alcaldía, Consejería, etc.)
+          officialized_at: La fecha y hora en que esta usuaria fue oficializada
+          organization: La organización a la que pertenece esta usuaria
+          password_updated_at: La fecha en la que cambiaron por última vez sus contraseñas
+          personal_url: La URL personal de esta usuaria
+          remember_created_at: La fecha y hora en que se seleccionó a la usuaria para ser recordada
+          reset_password_sent_at: La fecha y hora en que se envió el correo para restablecer la contraseña
+          roles: El rol que tiene esta participante, si tiene alguno
+          sign_in_count: El número de veces que esta usuaria ha iniciado sesión
+          type: El tipo que tiene esta participante
+          unconfirmed_email: La dirección de correo electrónico que esta usuaria aún no ha confirmado
+          updated_at: La fecha de la última actualización de esta usuaria
       show:
         action: Acción
-        download: Descargar
-        download_data: Área de descargas
+        download: Descargar archivo
+        download_data: Descargar de datos
         download_data_description_1: Aquí puedes encontrar todas las descargas disponibles para tu cuenta. Estos archivos .zip estarán disponibles durante dos semanas antes de ser eliminados.
         download_data_description_2: Puedes solicitar un archivo .zip con tus contribuciones e información personal.
         download_your_data: Datos personales
         expiration: Fecha de caducidad
         expired: Ha caducado
+        explanation:
+          body_1: Estos archivos son conjuntos de datos exportados de tu actividad en esta plataforma, tales como propuestas, o comentarios. Proporcionan datos en bruto (sin procesar) y estructurados que pueden ser utilizados para análisis, investigación o integración con otras herramientas
+          body_2: Estos archivos están en formato CSV (valores separados por comas), un formato de archivo ampliamente utilizado que puede ser abierto y procesado por una variedad de aplicaciones de software, incluyendo programas de hojas de cálculo, editores de texto y herramientas de análisis de datos.
+          title: '¿Cuáles son estos archivos?'
+        files_to_download: Archivos a descargar
         request_data: Solicitar
         type: Tipo de descarga
     editor_images:
@@ -720,6 +844,7 @@ es:
       others: "%{count} más"
       title: Le ha gustado a
       you: tú
+    ephemeral_user: Visitante
     errors:
       files:
         file_cannot_be_processed: No se ha podido procesar el archivo
@@ -787,6 +912,11 @@ es:
             email_outro: Has recibido esta notificación porque estás siguiendo la enmienda "%{amendable_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Una enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
             notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'Se ha publicado una enmienda para %{amendable_title}. Puedes verla en esta página:'
+            email_outro: Has recibido esta notificación porque es autora de %{amendable_title}.
+            email_subject: Una enmienda de %{emendation_author_nickname} se ha publicado como un nuevo %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Se ha añadido un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
@@ -952,7 +1082,7 @@ es:
         file:
           explanation: 'Instrucciones para el archivo:'
           message_1: Tiene que ser una imagen o un documento.
-          message_2: Para las imágenes, utiliza, preferiblemente, imágenes apaisadas, el servicio recorta la imagen.
+          message_2: En el caso de una imagen, preferiblemente apaisada que no incorpore ningún texto. La aplicación ajustará la imagen.
         icon:
           explanation: 'Instrucciones para el icono:'
           message_1: Tiene que ser una imagen cuadrada.
@@ -1130,6 +1260,8 @@ es:
         unknown_action_with_space: "%{user_name} realizó una acción en %{resource_name} en %{space_name}"
         unpublish_with_space: "%{user_name} ha despublicado %{resource_name} en %{space_name}"
         update: "%{user_name} actualizó %{resource_name}"
+        update_filters: "%{user_name} actualizó el filtro de %{resource_name}"
+        update_filters_with_space: "%{user_name} actualizó los filtros de %{resource_name} en %{space_name}"
         update_permissions_with_space: "%{user_name} ha actualizado los permisos de %{resource_name} en %{space_name}"
         update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
       value_types:
@@ -1164,30 +1296,30 @@ es:
         comanagers_new_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: '¡Hola, %{recipient}!'
-          intro: "%{manager} ha iniciado una nueva conversación en nombre de %{group}. Haz clic aquí para verla:"
+          intro: "%{manager} ha iniciado una nueva conversación en nombre de %{group}. Para verla y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{manager} ha iniciado una nueva conversación como %{group}"
         comanagers_new_message:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: Hola, %{recipient}!
-          intro: "%{manager} ha publicado nuevos mensajes en una conversación en nombre de %{group}. Haz clic aquí para verla:"
+          intro: "%{manager} ha publicado nuevos mensajes en una conversación en nombre de %{group}. Para verlos y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{manager} ha enviado nuevos mensajes como %{group}"
         new_conversation:
           greeting: Hola, %{recipient}!
-          intro: "%{sender} ha iniciado una nueva conversación contigo. Haz click aquí para verla:"
+          intro: "%{sender} ha iniciado una nueva conversación contigo. Para responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{sender} ha iniciado una conversación contigo"
         new_group_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: '¡Hola, %{recipient}!'
-          intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
+          intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Para verlo y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{sender} ha iniciado una nueva conversación con %{group}"
         new_group_message:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
           greeting: '¡Hola, %{recipient}!'
-          intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
+          intro: "%{sender} ha añadido nuevos mensajes en la conversación con el grupo %{group}. Para verlos y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{group} tiene nuevos mensajes de %{sender}"
         new_message:
@@ -1235,6 +1367,8 @@ es:
         not_started: Aún no ha comenzado
         remaining: "Queda(n) %{time_distance}"
     metrics:
+      blocked_users:
+        description: Número de participantes bloqueadas
       download:
         csv: Descargar datos (CSV)
       followers:
@@ -1245,6 +1379,10 @@ es:
         description: Número de participantes activas en la organización
         object: participantes
         title: Participantes
+      reported_users:
+        description: Número de participantes reportadas
+      user_reports:
+        description: Número de denuncias realizadas por participantes
       users:
         description: Número de participantes en la organización
         object: participantes
@@ -1310,10 +1448,12 @@ es:
     notifications_digest_mailer:
       header:
         daily: Resumen diario de notificaciones
+        real_time: En tiempo real
         weekly: Resumen semanal de notificaciones
       hello: Hola %{name},
       intro:
         daily: 'Estas son las notificaciones del último día basadas en la actividad que estás siguiendo:'
+        real_time: 'Esta es una notificación sobre la actividad que sigues:'
         weekly: 'Estas son las notificaciones de la última semana basadas en la actividad que estás siguiendo:'
       outro: Has recibido estas notificaciones porque sigues este contenido o a sus autoras. Puedes dejar de seguirlas desde sus respectivas páginas.
       see_more: Ver más notificaciones
@@ -1355,11 +1495,13 @@ es:
     onboarding_action_message:
       click_link: Haz clic aquí
       cta_html: <a href="%{path}">%{link_text}</a> para %{action} en %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: Ha sido autorizada con éxito.<br/>Has iniciado una sesión de invitada, ahora puedes participar.
       expired_authorization_active_title: Tu autorización ha expirado.
       finish_authorization_process: Puedes terminar el proceso de verificación
       incomplete_authorization_active_title: Tu verificación no se ha completado con toda la información necesaria.
       pending_authorization_active_message: Por favor, complete el formulario para continuar con esta acción.
       pending_authorization_active_title: Necesitamos verificar tu identidad.
+      pending_ephemeral_authorization: Por favor, verifica tu identidad para continuar.
     open_data:
       help:
         core:
@@ -1390,6 +1532,19 @@ es:
           reported_content: El contenido que fue reportado
           reported_url: La URL del recurso que fue reportado
           reports: Una lista de las razones por las que fue reportado el recurso
+        taxonomies:
+          children_count: El recuento de "hijas" (sub-taxonomías) que tiene esta taxonomía
+          created_at: La fecha en la que se creó esta taxonomía
+          filter_items_count: La cantidad de filtros de elementos que utilizan esta taxonomía
+          filters_count: La cantidad de filtros que utilizan esta taxonomía
+          id: El identificador único de esta taxonomía
+          is_root: 'Cierto ("true"): si esta taxonomía no tiene ninguna "madre" (no cuelga de otra taxonomía)'
+          name: El nombre de esta taxonomía
+          parent_id: Los identificadores únicos de la taxonomía "madre" (si existe)
+          part_of: Utilizado para detectar si esta taxonomía es "hija" (sub-categoría) de otra taxonomía
+          taxonomizations_count: El recuento de los recursos (debates, proyectos, propuestas, encuentros, resultados, etc.) que utilizan esta taxonomía
+          updated_at: La fecha en que esta taxonomía fue actualizada por última vez
+          weight: El orden en el que se muestra esta taxonomía
         user_groups:
           avatar_url: El avatar del grupo de usuarias
           badge: La insignia del grupo de usuarias
@@ -1594,16 +1749,7 @@ es:
         error: Se ha producido un error durante la acción de adhesión.
     scopes:
       global: Alcance global
-      picker:
-        cancel: Cancelar
-        change: Cambiar el ámbito seleccionado
-        choose: Seleccionar
-        currently_selected: Ámbito seleccionado actualmente
-        title: Selecciona %{field}
       prompt: Selecciona un ámbito
-      scopes: Ámbitos
-      scopes_picker_input:
-        select_scope: 'Seleccionar un ámbito (actualmente: %{current})'
     search:
       name: Buscar
       results: Resultados de la búsqueda
@@ -1702,6 +1848,7 @@ es:
       no_stats: No hay estadísticas aún.
       pages_count: Páginas
       participants_count: Participantes
+      surveys_count: Encuestas
       users_count: Participantes
     tags:
       filter_results_for_taxonomy: 'Resultados al filtrar por: %{resource}'
@@ -1729,15 +1876,6 @@ es:
         send: Enviar
       update:
         error: Mensaje no enviado. Inténtalo de nuevo más tarde
-    user_interests:
-      show:
-        my_interests: Mis intereses
-        no_scopes: '¡Esta organización aún no tiene ningún ámbito!'
-        select_your_interests: Selecciona los temas de tu interés para recibir notificaciones relacionadas con estos en la pestaña de Línea de tiempo dentro de tu perfil público.
-        update_my_interests: Actualiza mis intereses
-      update:
-        error: Se ha producido un error al actualizar tus intereses.
-        success: Tus intereses se han actualizado correctamente.
     user_report_mailer:
       notify:
         body_1: La usuaria %{user} ha sido reportada por %{token}
@@ -2105,6 +2243,8 @@ es:
         sign_up: Crea una cuenta
         terms_of_service: Términos y condiciones de uso
       header:
+        close: Cerrar
+        confirm_close_ephemeral_session: Si navegas fuera de esta página, tu sesión se cerrara. ¿Seguro que quieres salir de esta página?
         log_in: Entra
         main_menu: Menú principal
         user_menu: Menú de usuario
@@ -2114,6 +2254,8 @@ es:
         expire_time_html: Su sesión expirará en <b><span class="minutes">%{minutes}</span> minutos</b>.
       language_chooser:
         choose_language: Elegir el idioma
+      navigation:
+        aria_label: 'Menú de navegación: %{title}'
       notifications_dashboard:
         mark_all_as_read: Marcar todo como leído
         mark_as_read: Marcar como leído
@@ -2145,7 +2287,6 @@ es:
         authorizations: Autorizaciones
         delete_my_account: Eliminar mi cuenta
         my_data: Mis datos
-        my_interests: Mis intereses
         notifications_settings: Configuración de las notificaciones
         profile: Perfil
         title: Configuración de la participante

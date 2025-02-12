@@ -21,6 +21,10 @@ ja:
       decidim/debates/debate:
         other: ディベート数
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: ディベート
     components:
       debates:
         actions:
@@ -37,8 +41,6 @@ ja:
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
-            scope_id: スコープ
-            scopes_enabled: スコープが有効
             taxonomy_filters: コンポーネントのフィルタを選択
             taxonomy_filters_add: フィルターを追加
           step:

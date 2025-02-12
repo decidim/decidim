@@ -1,6 +1,8 @@
 fi-pl:
   activemodel:
     attributes:
+      answer:
+        add_documents: Lisää asiakirjoja
       close_meeting:
         attendees_count: Osallistujien määrä
         attending_organizations: Osallistuvien organisaatioiden lista
@@ -93,6 +95,9 @@ fi-pl:
         other: Ilmoittautumiset
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Tapaamiset
       filters:
         accepted_at_not_null:
           label: Hyväksytyt
@@ -164,8 +169,6 @@ fi-pl:
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             registration_code_enabled: Ilmoittautumiskoodit käytössä
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapahtumalle
-            scope_id: Teema
-            scopes_enabled: Teemat käytössä
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
             terms_and_conditions_url_for_meeting_creators: Ehtojen osoite (URL) tapaamisten luojille
@@ -175,6 +178,24 @@ fi-pl:
             creation_enabled_for_participants: Tapahtuman luonti sallittu osallistujille
             creation_enabled_for_user_groups: Tapahtuman luonti sallittu ryhmille
     download_your_data:
+      help:
+        invites:
+          accepted_at: Kutsun hyväksymisajankohta
+          created_at: Kutsun luontiaika
+          id: Kutsun yksilöivä tunniste
+          meeting: Kutsun lähdetapaaminen
+          rejected_at: Kutsun hylkäämisajankohta
+          sent_at: Kutsun lähetysaika
+          updated_at: Kutsun viimeisimmän päivityksen ajankohta
+        registrations:
+          code: Ilmoittautumiskoodi
+          created_at: Ilmoittautumisen luontiaika
+          id: Ilmoittautumisen yksilöivä tunniste
+          meeting: Tapaaminen, johon käyttäjä ilmoittautui
+          public_participation: Näytetäänkö osallistuminen julkisesti
+          updated_at: Ilmoittautumisen viimeisimmän päivityksen ajankohta
+          user: Ilmoittautunut käyttäjä
+          validated_at: Ilmoittautumisen vahvistamisen ajankohta
       show:
         meeting_comments: Tapaamisten kommenttien vienti
         meetings: Tapaamisten vienti
@@ -399,6 +420,7 @@ fi-pl:
           form:
             available_slots_help: Jätä arvoksi 0, mikäli tapahtumaan on rajoittamaton määrä paikkoja.
             invites: Kutsut
+            manage_questions: Hallinnoi kysymyksiä
             recommendation_message: Yksityisyytesi takia suosittelemme, että poistat tämän kirjoituksen, kun et enää tarvitse sitä. Oletuksena se säilytetään 3 kuukautta tapahtuman päättymisen jälkeen.
             registration_email_help: Tämä teksti näytetään tapahtumailmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
             registration_form: Ilmoittautumislomake
@@ -685,7 +707,7 @@ fi-pl:
         transparent: Läpinäkyvä
         withdraw: Peruutettu
       withdraw:
-        error: Tapaamisen peruuttaminen epäonnistui.
+        error: Tapaamisen peruminen epäonnistui.
         success: Tapaaminen on peruttu.
     metrics:
       meetings:
@@ -698,11 +720,12 @@ fi-pl:
           alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
           author: Kommentin laatijan nimi
           body: Kommentin teksti
-          commentable_id: Kommentoitavan asian yksilöllinen tunniste
+          commentable_id: Kommentoitavan asian yksilöivä tunniste
           commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
+          comments: Tapaamisen kommenttien tiedot
           created_at: Kommentin laatimisaika
           depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
-          id: Kommentin yksilöllinen tunniste
+          id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
           user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
@@ -710,27 +733,54 @@ fi-pl:
           address: Tapaamisen osoite, mikäli tapaaminen on määritetty tiettyyn paikkaan
           attachments: Tapaamisen liitteiden lukumäärä
           attendees: Tapaamisen osallistuvien tai osallistuneiden ihmisten määrä
+          attending_organizations: Tapaamiseen osallistuvat tai osallistuneet organisaatiot
+          audio_url: Tapaamisen äänitallenne
           author: Tapaamisen laatijan tiedot
-          comments: Tapaamisen kommenttien lukumäärä
+          available_slots: Tapaamisen osallistujien enimmäismäärä
+          closed_at: Tapaamisen päättymisaika
+          closing_report: Raportti päättyneistä tapaamisista
+          closing_visible: Tapaamisen näkyvyys
+          comments: Tapaamisen kommenttien tiedot
           component: Tapaamisen komponentti
           contributions: Tapaamisen osallistujien tekemien kontribuutioiden lukumäärä
+          created_at: Tapaamisen laatimisaika
+          customize_registration_email: Mahdollisuus muokata ilmoittautumisen yhteydessä lähetettävää sähköpostia
+          decidim_author_type: Tapaamisen laatijan tyyppi
+          decidim_user_group_id: Tapaamisen osallistujien käyttäjäryhmän yksilöivä ID-tunniste
           description: Tapaamisen kuvaus
           end_time: Tapaamisen päättymisajankohta
-          followers: Tapaamisen seuraajien lukumäärä
-          id: Tapaamisen yksilöllinen tunniste
+          follows_count: Tapaamisen seuraajien lukumäärä
+          id: Tapaamisen yksilöivä tunniste
+          iframe_access_level: Tapaamisen iframe-upotuksen käyttöoikeustaso
+          iframe_embed_type: Tapaamiseen liitetyn iframe-upotuksen tyyppi
+          latitude: Tapaamisen sijainnin leveysaste
           location: Tapaamisen sijainti
+          location_hints: Tapaamisen tapaamispaikan sijainnin ohjeistus
+          longitude: Tapaamisen sijainnin pituusaste
+          online_meeting_url: Verkkotapaamisen URL-osoite
           organizations: Tapaamiseen osallistuvat tai osallistuneet organisaatiot
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä tapaaminen kuuluu
+          private_meeting: Määrittää, onko tapaaminen yksityinen vai julkinen
           published: Tapaamisen julkaisuajankohta
-          reference: Tapaamisen yksilöllinen tunniste tällä alustalla
+          reference: Tapaamisen yksilöivä tunniste tällä alustalla
+          registration_form_enabled: Oliko tapaamisella ilmoittautumislomaketta vai ei
+          registration_terms: Hyväksytyt osallistumisehdot ennen tapaamiseen osallistumista
+          registration_type: Tapaamisen ilmoittautumistyyppi
+          registration_url: Tapaamisen ilmoittautumisten URL-osoite
+          registrations_enabled: Oliko tapaamisen ilmoittautumiset käytössä
           related_proposals: Ehdotukset, jotka liittyvät tähän tapaamiseen
           related_results: Tulokset, jotka liittyvät tähän tapaamiseen
+          reserved_slots: Tapaamisen varattujen paikkojen lukumäärä
           start_time: Tapaamisen alkamisajankohta
           taxonomies: Tälle tapaamiselle määritetyt luokittelut
           title: Tapaamisen otsikko
+          transparent: Tapaamisen näkyvyys muille kuin tapaamiseen kutsutuille
+          type_of_meeting: Tapaamisen tyyppi
+          updated_at: Tapaamisen viimeisimmän päivityksen ajankohta
           url: Tapaamisen URL-osoite
+          video_url: Tapaamisen videotallenne
           withdrawn: Onko tämä tapaaminen peruttu
-          withdrawn_at: Ajankohta, jolloin tapaaminen peruutettiin
+          withdrawn_at: Ajankohta, jolloin tapaaminen peruttiin
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Aiemmat tapahtumat
