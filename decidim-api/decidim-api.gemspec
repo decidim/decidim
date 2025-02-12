@@ -26,8 +26,8 @@ Gem::Specification.new do |s|
   end
 
   s.add_dependency "decidim-core", Decidim::Api.version
-  s.add_dependency "graphql", "~> 1.12", "< 1.13"
-  s.add_dependency "graphql-docs", "~> 2.1.0"
+  s.add_dependency "graphql", "~> 2.0"
+  s.add_dependency "graphql-docs", "~> 4.0"
   s.add_dependency "rack-cors", "~> 1.0"
 
   s.add_development_dependency "decidim-comments", Decidim::Api.version
