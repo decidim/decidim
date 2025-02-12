@@ -1,9 +1,9 @@
-is-IS:
+---
+is:
   activemodel:
     attributes:
       sortition:
         additional_info: Flokkunarupplýsingar
-        decidim_category_id: Flokkar af settum tillögum sem þú vilt sækja um teikninguna
         decidim_proposals_component_id: Tillögur settar
         target_items: Fjöldi tillagna til að velja (gefur til kynna fjölda tillagna sem þú vilt velja með því að teikna mikið af þeim hópi tillagna sem þú hefur áður valið)
         title: Titill
@@ -31,7 +31,6 @@ is-IS:
         models:
           sortition:
             fields:
-              category: Flokkur
               created_at: Sköpunardegi
               decidim_proposals_component: Tillögur hluti
               dice: Dice
@@ -49,7 +48,6 @@ is-IS:
             title: Uppfærðu upplýsingar um flokkunina
             update: Uppfæra
           form:
-            all_categories: Allir flokkar
             select_proposal_component: Veldu tillögur settar
           index:
             title: Flokkanir
@@ -84,11 +82,8 @@ is-IS:
             one: valið tillaga
             other: valin tillögur
         show:
-          any_category: frá öllum flokkum
           cancelled: Hætt við flokkun
           candidate_proposal_ids: Flokkun tillögur röð og auðkenni
-          candidate_proposals_info: 'Flokkunin var gerð meðal eftirfarandi tillagna (%{category_label}), með eftirfarandi auðkenni (með feitletruðu völdum tillögum)  '
-          category: frá %{category} flokki
           dice_result: (1) Dice niðurstaða
           introduction: 'Þessi síða inniheldur niðurstöður flokkunarinnar %{reference}. Með þessari flokkun hafa %{target_items} fjöldi niðurstaðna verið valin af handahófi og með jöfn líkindadreifingu frá settum tillögum sem birtast á skjánum. Í sambandi við niðurstöðurnar eru upplýsingar sem birtar eru á þessari síðu allar nauðsynlegar upplýsingar til að hámarka ábyrgðir og endurskapa niðurstöðurnar. Lykillinn að gæðum þessa flokks er tvöfalt handahófi sem er gefin út af túlkun (staðfest af vitni) og nákvæman tíma flokkunarinnar sem gefur inntak fyrir reiknirit sem býr til handahófi val. Tímasæðið fyrir flokkunina er svo nákvæm (sekúndur) að það er ómögulegt að stjórna af mönnum og gefur þannig tvöfalt "óráðanlegt" inntak til að tryggja sanngjarna afleiðingu.  '
           mathematical_result: Niðurstaða (1) x (2)
