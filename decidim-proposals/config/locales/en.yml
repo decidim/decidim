@@ -1004,7 +1004,7 @@ en:
           maximum_votes_reached: Vote limit reached
           no_votes_remaining: No votes remaining
           vote: Vote
-          votes_blocked: Voting disabled
+          votes_blocked: Vote
         votes_count:
           count:
             one: Vote

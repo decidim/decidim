@@ -624,7 +624,6 @@ pt-BR:
           maximum_votes_reached: Limite de votação atingido
           no_votes_remaining: Não há votos restantes
           vote: Voto
-          votes_blocked: Votação desativada
         voting_rules:
           proposal_limit:
             description: Você pode criar até %{limit} propostas.

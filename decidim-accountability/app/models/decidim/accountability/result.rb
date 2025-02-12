@@ -53,6 +53,10 @@ module Decidim
         Decidim::Accountability::AdminLog::ResultPresenter
       end
 
+      def presenter
+        Decidim::Accountability::ResultPresenter.new(self)
+      end
+
       def update_parent_progress
         return if parent.blank?
 

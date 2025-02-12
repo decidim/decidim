@@ -1,0 +1,23 @@
+require: rubocop-graphql
+
+GraphQL:
+  Enabled: true
+  Include:
+    - "**/lib/decidim/api/**/*"
+  Exclude:
+    - "**/lib/decidim/api/test/**/*"
+    - "**/lib/decidim/api/functions/*"
+    - "spec/**/*"
+    - "test/**/*"
+
+GraphQL/ObjectDescription:
+  Exclude:
+    - "**/lib/decidim/api/engine.rb"
+    - "**/lib/decidim/api/schema.rb"
+    - "**/lib/decidim/api/graphiql/config.rb"
+    - "**/lib/decidim/api/functions/*"
+    - "spec/**/*"
+    - "test/**/*"
+
+GraphQL/ExtractType:
+  Enabled: false

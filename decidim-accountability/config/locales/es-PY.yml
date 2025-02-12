@@ -47,6 +47,7 @@ es-PY:
         deleted_results_info: Los resultados eliminados se pueden restaurar desde papelera.
         destroy: Borrar
         edit: Editar
+        import: Importar resultados desde otro componente
         import_csv: Importar resultados desde un archivo CSV
         new_result: Nuevo resultado
         new_status: Nuevo estado
@@ -59,6 +60,28 @@ es-PY:
         exports:
           result_comments: Comentarios
           results: Resultados
+        import_components:
+          create:
+            invalid: Hubo un problema al importar los resultados, por favor, sigue las instrucciones cuidadosamente y asegúrate que has marcado los proyectos seleccionados para su implementación.
+          filters:
+            new_items_projects:
+              one: Se importará 1 proyecto seleccionado
+              other: "Se importarán %{count} proyectos seleccionados"
+            new_items_proposals:
+              one: Se importará 1 propuesta
+              other: "Se importarán %{count} propuestas"
+            proposal_state: Estado de la propuesta
+            select_state: Seleccionar estado
+          form:
+            create: Importar
+            no_components: No hay componentes para importar en este espacio de participación.
+            origin_component_id: Componente de origen
+            select_component: Selecciona un componente
+          new:
+            success:
+              one: Hay 1 resultado en la cola para ser importado. Se notificará por correo electrónico, cuando se complete la importación.
+              other: "Hay %{count} resultados en la cola para ser importados. Se notificará por correo electrónico, cuando se complete la importación."
+            title: Importar resultados desde otro componente
         import_results:
           new:
             download_export: Descargar la exportación con formato CSV
@@ -214,6 +237,13 @@ es-PY:
             other: "Se han importado %{count} resultados desde proyectos."
           subject: Los proyectos se han importado correctamente
           success: Los proyectos importados como resultados con éxito al componente %{component_name}. Puedes revisar los resultados en el tablero de administración.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Se ha importado 1 resultado desde propuestas.
+            other: "Se ha importado %{count} resultados desde propuestas."
+          subject: Las propuestas se han importado correctamente
+          success: Se han importado con éxito las propuestas como resultados al componente %{component_name}. Puedes revisar los resultados en el tablero de administración.
       last_activity:
         new_result: 'Nuevo resultado:'
       models:
