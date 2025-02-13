@@ -79,7 +79,7 @@ en:
         with_participatory_space: Participatory space
       decidim/user:
         current_password: Current password
-        email: Email
+        email: Email address
         name: Nickname
         password: Password
         password_confirmation: Password confirmation
@@ -675,7 +675,7 @@ en:
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       sessions:
         new:
-          are_you_new?: New to the platform?
+          are_you_new?: Not registered yet?
           register: Create an account
           sign_in_disabled: You can access with an external account.
           sign_up_disabled: Account creation is disabled, you can use an existing account to access.
@@ -700,7 +700,7 @@ en:
             <p>Thanks for reading this!</p>
           title: Newsletter notifications
         omniauth_buttons:
-          or: Or
+          or: or
         password_fields:
           hidden_password: Your password is hidden
           hide_password: Hide password
