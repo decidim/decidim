@@ -291,8 +291,6 @@ describe "Initiative signing with ephemeral workflows" do
       end
 
       context "and regular users sessions" do
-        skip "Enable this test after merging https://github.com/decidim/decidim/pull/13981"
-
         let!(:ephemeral_user_authorization) do
           create(
             :authorization,
@@ -305,6 +303,8 @@ describe "Initiative signing with ephemeral workflows" do
         end
 
         before do
+          skip "Enable this test after merging https://github.com/decidim/decidim/pull/13981"
+
           login_as regular_user, scope: :user
           visit decidim_initiatives.initiative_path(initiative)
           within ".initiative__aside" do
