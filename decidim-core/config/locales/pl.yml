@@ -57,7 +57,7 @@ pl:
         with_participatory_space: Przestrzeń partycypacji
       decidim/user:
         current_password: Obecne hasło
-        email: Adres e-mail
+        email: E-mail
         name: Pseudonim
         password: Hasło
         password_confirmation: Potwierdzenie hasła
