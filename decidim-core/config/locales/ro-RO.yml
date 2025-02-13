@@ -469,6 +469,8 @@ ro:
             dummy_step_attribute1: Atribut fictiv 1
             dummy_step_attribute2: Mostră de atribut 2 al etapei
             dummy_step_translatable_text: Mostră de text traductibil pentru etapă
+      pagination:
+        page_title: "%{component_name} - Pagina %{current_page} din %{total_pages}"
     contact: Contact
     content_blocks:
       cta:
