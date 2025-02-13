@@ -29,7 +29,6 @@ gl:
     attributes:
       decidim/user:
         current_password: Contrasinal actual
-        email: Correo electrónico
         name: Nome da usuaria
         password: Contrasinal
         password_confirmation: Confirmación por contrasinal
