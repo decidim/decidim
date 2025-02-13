@@ -231,7 +231,7 @@ describe "Organizations" do
               enabled: true,
               client_id: "",
               client_secret: "",
-              icon_path: "media/images/google.svg",
+              icon_path: "media/images/google.svg"
             },
             developer: {
               enabled: false,
