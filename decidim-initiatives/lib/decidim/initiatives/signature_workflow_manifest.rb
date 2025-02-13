@@ -47,6 +47,14 @@ module Decidim
     #     class Decidim::Initiatives::DefaultSignatureAuthorizer is used,
     #     which inherits from Decidim::Verifications::DefaultActionAuthorizer
     #     and checks the authorization status. (default: true)
+    # - :ephemeral (Boolean) (optional) This option enables the possibility for
+    #     users to sign without prior registration through an ephemeral session.
+    #     To allow ephemeral sessions to be recovered o transferred to regular
+    #     users authorizations must be stored in the process so an
+    #     authorization_handler_form must be defined and the save_authorizations
+    #     option must not be set to false. If those settings are not properly
+    #     configured this option will be ignored and the workflow will not
+    #     allow ephemeral sessions. (default: false)
     # - :promote_authorization_validation_errors (Boolean) (optional) If set
     #     to true, errors in the personal data passed to the authorization
     #     handler form will be displayed next to the corresponding fields
