@@ -234,7 +234,33 @@ For more information about this process, please refer to the documentation at ht
 
 You can see more details about this change on PR [\#13669](https://github.com/decidim/decidim/pull/13669)
 
-### 3.5. Migrate signature configuration of initiatives types
+### 3.5. Social login changes
+
+We have changed the icons for the social logins so they align better with the social networks guidelines (Twitter/X, Facebook, and Google). If you do not use any of these social logins you can skip this step.
+
+If on the other hand you have set up this social logins, you can change it by replacing them in: `config/secrets.yml`.
+
+For example, where it says:
+
+```secrets.yaml
+      icon: google-fill
+      icon: facebook-fill
+      icon: twitter-x-fill
+```
+
+It now needs to say for the correct path name and updated SVG. Keep in mind the name of the path has changed from ```icon``` to ```icon_path```:
+
+```secrets.yaml
+      icon_path: "media/images/google.svg"
+      icon_path: "media/images/facebook.svg"
+      icon_path: "media/images/twitter-x.svg"
+```
+
+The CSS of each omniauth button can be found within `decidim-core/app/packs/stylesheets/decidim/_login.scss`, variables are used for specific omniauth button background color according to their pack guidelines.
+
+You can read more about this change on PR [#13481](https://github.com/decidim/decidim/pull/13481).
+
+### 3.6. Migrate signature configuration of initiatives types
 
 If there is any type of initiative with online signature enabled, you will have to reproduce the configuration by defining signature workflows. For direct signing is not necessary to define one or define an empty workflow.
 
@@ -265,7 +291,7 @@ Register a workflow for each different signature configuration and select them i
 
 You can read more about this change on PR [#13729](https://github.com/decidim/decidim/pull/13729).
 
-### 3.6. [[TITLE OF THE ACTION]]
+### 3.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
