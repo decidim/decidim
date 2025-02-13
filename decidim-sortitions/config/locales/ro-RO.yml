@@ -25,8 +25,13 @@ ro:
         name: Trageri la sorți
         settings:
           global:
+            clear_all: Ștergeți toate
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor (Lasă 0 pentru valoarea implicită)
+            define_taxonomy_filters: Vă rugăm să definiți niște filtre pentru acest spațiu participativ înainte de a utiliza această setare.
+            no_taxonomy_filters_found: Nici un filtru de taxonomie găsit.
+            taxonomy_filters: Selectați filtrele pentru componentă
+            taxonomy_filters_add: Adaugați filtru
     events:
       sortitions:
         sortition_created:
@@ -50,6 +55,7 @@ ro:
               request_timestamp: Ora tragerii la sorți
               seed: Valoare aleatorie
               target_items: Articole de selectat
+              taxonomies: Taxonomii
               title: Titlu
         sortitions:
           confirm_destroy:
@@ -66,7 +72,9 @@ ro:
             title: Actualizează informațiile despre tragerea la sorți
             update: Actualizează
           form:
+            all_taxonomies: Toate taxonomiile
             select_proposal_component: Selectează setul de propuneri
+            select_taxonomies: Taxonomii ale setului de propuneri în care doriți să aplicați extragerea. Lăsați gol pentru a aplica tragerea la toate propunerile privind taxonomia respectivă.
           index:
             title: Trageri la sorți
           new:
@@ -107,6 +115,7 @@ ro:
             other: propuneri selectate
         show:
           algorithm: Codul algoritmului tragerii la sorți
+          any_taxonomy: din toate taxonomiile
           cancelled: Tragere la sorți anulată
           candidate_proposal_ids: Ordinea și ID-ul propunerilor din tragerea la sorți
           dice_result: (1) Rezultatul aruncării zarului
@@ -114,6 +123,7 @@ ro:
           mathematical_result: Rezultatul (1) x (2)
           proposals_selected_by_sortition: Propuneri selectate prin tragere la sorți
           sortition_reproducibility_details: Detalii privind replicarea tragerii la sorți
+          taxonomies: din %{taxonomies} taxonomii
           time_seed: (2) Data și ora
           witnesses: Martori
         sortition:
