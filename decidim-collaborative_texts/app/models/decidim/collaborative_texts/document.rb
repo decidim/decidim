@@ -10,6 +10,7 @@ module Decidim
       include Decidim::SoftDeletable
       include Decidim::HasComponent
       include Decidim::Publicable
+      include Decidim::Traceable
       include Decidim::Loggable
 
       component_manifest_name "collaborative_texts"
@@ -24,6 +25,10 @@ module Decidim
 
       delegate :body, :body=, to: :current_version
 
+      def self.log_presenter_class_for(_log)
+        Decidim::CollaborativeTexts::AdminLog::DocumentPresenter
+      end
+
       # Returns the current version of the document. Currently, the last one.
       def current_version
         document_versions.last || document_versions.build
@@ -31,6 +36,7 @@ module Decidim
 
       # Creates a new version of the document
       def rollout!
+        # TODO: ActionLog for this
         document_versions.build(body: body)
       end
 

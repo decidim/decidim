@@ -25,7 +25,7 @@ FactoryBot.define do
     component { create(:collaborative_texts_component, skip_injection:) }
 
     trait :with_versions do
-      after(:build) do |document, evaluator|
+      after(:build) do |document, _evaluator|
         document.document_versions = build_list(:collaborative_text_version, 3, document: document)
       end
     end

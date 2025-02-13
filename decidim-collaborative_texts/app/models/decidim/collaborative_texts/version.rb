@@ -6,10 +6,18 @@ module Decidim
     # title, description and any other useful information to render a custom
     # document.
     class Version < CollaborativeTexts::ApplicationRecord
+      include Decidim::Resourceable
+      include Decidim::Traceable
+      include Decidim::Loggable
+
       belongs_to :document, class_name: "Decidim::CollaborativeTexts::Document"
       validates :body, presence: true
 
       default_scope { order(created_at: :asc) }
+
+      def self.log_presenter_class_for(_log)
+        Decidim::CollaborativeTexts::AdminLog::VersionPresenter
+      end
     end
   end
 end
