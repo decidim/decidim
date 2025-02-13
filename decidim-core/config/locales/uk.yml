@@ -22,7 +22,6 @@ uk:
     attributes:
       decidim/user:
         current_password: Поточний пароль
-        email: Адреса електронної пошти
         name: Ім'я учасника
         password: Пароль
         password_confirmation: Підтвердження паролю
