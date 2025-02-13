@@ -14,13 +14,17 @@ class ConfirmDialog {
       this.$source = $(sourceElement);
     }
     this.$content = $("[data-confirm-modal-content]", this.$modal);
+    this.$title = $("[data-dialog-title]", this.$modal);
     this.$buttonConfirm = $("[data-confirm-ok]", this.$modal);
     this.$buttonCancel = $("[data-confirm-cancel]", this.$modal);
 
     window.Decidim.currentDialogs["confirm-modal"].open()
   }
 
-  confirm(message) {
+  confirm(message, title) {
+    if (title) {
+      this.$title.html(title);
+    }
     this.$content.html(message);
 
     this.$buttonConfirm.off("click");
@@ -51,9 +55,9 @@ class ConfirmDialog {
   }
 }
 
-const runConfirm = (message, sourceElement = null) => new Promise((resolve) => {
+const runConfirm = (message, sourceElement = null, title = null) => new Promise((resolve) => {
   const dialog = new ConfirmDialog(sourceElement);
-  dialog.confirm(message).then((answer) => {
+  dialog.confirm(message, title).then((answer) => {
     let completed = true;
     if (sourceElement) {
       completed = Rails.fire(sourceElement, "confirm:complete", [answer]);
@@ -73,6 +77,7 @@ const runConfirm = (message, sourceElement = null) => new Promise((resolve) => {
 // so for the moment this needs to be executed **before** Rails.start()
 const allowAction = (ev, element) => {
   const message = $(element).data("confirm");
+  const title = $(element).data("confirm-title");
   if (!message) {
     return true;
   }
@@ -81,7 +86,7 @@ const allowAction = (ev, element) => {
     return false;
   }
 
-  runConfirm(message, element).then((answer) => {
+  runConfirm(message, element, title).then((answer) => {
     if (!answer) {
       return;
     }
@@ -91,6 +96,8 @@ const allowAction = (ev, element) => {
     // checking.
     $(element).data("confirm", null);
     $(element).removeAttr("data-confirm");
+    $(element).data("confirm-title", null);
+    $(element).removeAttr("data-confirm-title");
 
     // The submit button click events will not do anything if they are
     // dispatched as is. In these cases, just submit the underlying form.
