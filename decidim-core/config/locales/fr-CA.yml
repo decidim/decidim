@@ -72,7 +72,7 @@ fr-CA:
         with_participatory_space: Espace participatif
       decidim/user:
         current_password: Mot de passe actuel
-        email: Email
+        email: Courriel
         name: Surnom
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
