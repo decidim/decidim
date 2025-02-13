@@ -114,6 +114,7 @@ module Decidim
 
         UpdateInitiative.call(current_initiative, @form) do
           on(:ok) do
+            flash[:notice] = I18n.t("success", scope: "decidim.initiatives.update")
             redirect_to store_data_next_step
           end
 
