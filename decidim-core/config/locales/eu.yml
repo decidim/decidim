@@ -78,7 +78,6 @@ eu:
         with_participatory_space: Parte hartzeko espazioa
       decidim/user:
         current_password: Egungo pasahitza
-        email: Helbide elektronikoa
         name: Ezizena
         password: Pasahitza
         password_confirmation: Baieztatu pasahitza
@@ -672,7 +671,6 @@ eu:
           username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
       sessions:
         new:
-          are_you_new?: Berria zara plataforman?
           register: Sortu zure kontua
           sign_in_disabled: Kanpoko kontu batez sartu ahal zara.
           sign_up_disabled: Kontuak sortzea desgaituta dago, sartzeko lehendik dagoen kontu bat erabil dezakezu.
@@ -692,8 +690,6 @@ eu:
             Oraindik ere buletinak jasotzea saihestu nahi baduzu, ondo baino hobeto ulertzen dugu zure erabakia.</p>
             </p>Eskerrik asko hau irakurtzeagatik.</p>
           title: Buletinetako jakinarazpenak
-        omniauth_buttons:
-          or: Edo
         password_fields:
           hidden_password: Zure pasahitza ezkutatuta dago
           hide_password: Ezkutatu pasahitza
@@ -1460,7 +1456,7 @@ eu:
         weekly: 'Hauek dira azken asteko jakinarazpenak, jarraitzen ari zaren jardueran oinarrituta:'
       outro: Jakinarazpen hau jaso duzu eduki hau edo bere egileak jarraitzen dituzulako. Jarraitzeari utzi ahal diozu euren orrialdeetan.
       see_more: Ikusi jakinarazpen gehiago
-      subject: Hau da zure laburpen-posta
+      subject: Hau da zure laburpen-mezua
     notifications_settings:
       show:
         administrators: Administratzaileak
