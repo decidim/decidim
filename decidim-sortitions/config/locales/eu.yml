@@ -24,8 +24,13 @@ eu:
         name: Zozketak
         settings:
           global:
+            clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
+            define_taxonomy_filters: Mesedez, zehaztu iragazki batzuk espazio parte-hartzaile honetarako eszenatoki hau erabili aurretik.
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
+            taxonomy_filters: Aukeratu iragazkiak osagairako
+            taxonomy_filters_add: Erantsi iragazkia
     events:
       sortitions:
         sortition_created:
@@ -50,6 +55,7 @@ eu:
               request_timestamp: Zozketa-denbora
               seed: Hazia
               target_items: Aukeratzeko itemak
+              taxonomies: Taxonomiak
               title: Izenburua
         sortitions:
           confirm_destroy:
@@ -66,7 +72,9 @@ eu:
             title: Eguneratu zozketari buruzko informazioa
             update: Eguneratu
           form:
+            all_taxonomies: Taxonomia guztiak
             select_proposal_component: Aukeratu proposamenen multzoa
+            select_taxonomies: Zozketa aplikatu nahi den proposamen multzoaren taxonomiak. Utzi hutsik zozketa taxonomia horri buruzko proposamen guztiei aplikatzeko.
           index:
             title: Zozketak
           new:
@@ -108,13 +116,16 @@ eu:
             other: Hautatutako proposamenak
         show:
           algorithm: Zozketaren algoritmoaren kodea
+          any_taxonomy: taxonomia guztietatik
           cancelled: Bertan behera utzitako zozketak
           candidate_proposal_ids: Zozketako proposamenen hurrenkera eta IDak
+          candidate_proposals_info: 'Zozketa honako proposamenen artean egin zen (%{taxonomy_labels}), honako identifikazio-agiri hauekin (letra lodiz hautatutako proposamenak)  '
           dice_result: Dadoen emaitza
           introduction: 'Orrialde honek %{reference} zozketaren emaitzak ditu. Zozketa honen bidez, %{target_items} emaitza kopurua ausaz eta banaketa probabilistiko berdinarekin aukeratu dira proposamen multzotik. Orri honek, emaitzak ezezik, berme guztiak izateko behar den informazioa ere jaso du. Zozketa honen kalitateak bi gako ditu. Alde batetik, dadoa hainbat lekukoren aurrean bota dela. Bestetik, zozketaren une zehatzean sortu den algoritmoak eman duen ausazko hautaketa. Sailkapenerako hazi-denbora hain da zehatza (segunduak) gizakiak ezin baitu hori kontrolatu. Honi esker, bidezko emaitza bermatzen duen sarrera bikoitz "kontrolaezina" sortzen da.  '
           mathematical_result: Emaitza (Dadoa x Hazia)
           proposals_selected_by_sortition: Zozketa bidez aukeratutako proposamenak
           sortition_reproducibility_details: Zozketaren errepikagarritasuna
+          taxonomies: '%{taxonomies} taxonomietatik'
           time_seed: Denbora hazia
           witnesses: Lekukoak
         sortition:
