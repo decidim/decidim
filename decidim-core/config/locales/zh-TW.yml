@@ -54,7 +54,6 @@ zh-TW:
         with_participatory_space: 參與空間
       decidim/user:
         current_password: 目前密碼
-        email: 電子郵件
         name: 暱稱
         password: 密碼
         password_confirmation: 確認密碼
@@ -504,7 +503,6 @@ zh-TW:
           username_help: 在您的帖子中顯示的公開名稱。為確保匿名性，可以是任何名稱。
       sessions:
         new:
-          are_you_new?: 是第一次使用這個平台嗎？
           register: 建立一個帳號
           sign_in_disabled: 你可以使用外部帳戶登入。
       shared:
@@ -521,8 +519,6 @@ zh-TW:
             如果您仍然想避免收到電子報，我們完全理解您的決定。</p>
             <p>感謝您閱讀此內容！</p>
           title: 電子報通知
-        omniauth_buttons:
-          or: 或
     doorkeeper:
       authorizations:
         new:
