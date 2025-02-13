@@ -1,4 +1,12 @@
-<% add_decidim_page_title t("decidim.budgets.projects.projects_for", name: translated_attribute(budget.title)) %>
+<% add_decidim_meta_tags(
+  description: translated_attribute(budget.description),
+  title: t("decidim.components.pagination.page_title",
+           component_name: t("decidim.budgets.projects.projects_for", name: translated_attribute(budget.title)),
+           current_page: projects.current_page,
+           total_pages: projects.total_pages ),
+  url: budget_url(budget),
+  resource: budget) %>
+
 <%= append_javascript_pack_tag "decidim_budgets" %>
 <%= append_stylesheet_pack_tag "decidim_budgets" %>
 
