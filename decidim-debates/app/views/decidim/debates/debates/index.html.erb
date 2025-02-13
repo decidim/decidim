@@ -1,3 +1,12 @@
+<% add_decidim_meta_tags(
+  description: translated_attribute(current_participatory_space.short_description),
+  title: t("decidim.components.pagination.page_title",
+           component_name: component_name,
+           current_page: paginated_debates.current_page,
+           total_pages: paginated_debates.total_pages ),
+  url: debates_url,
+  resource: current_component) %>
+
 <% content_for :aside do %>
   <h1 class="title-decorator"><%= component_name %></h1>
 
