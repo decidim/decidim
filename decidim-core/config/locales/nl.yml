@@ -44,7 +44,7 @@ nl:
     attributes:
       decidim/user:
         current_password: Huidige wachtwoord
-        email: E-mailadres
+        email: E-mail
         name: Bijnaam
         password: Wachtwoord
         password_confirmation: Wachtwoordbevestiging
