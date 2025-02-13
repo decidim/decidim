@@ -4,6 +4,10 @@ sl:
     attributes:
       group:
         email: Email
+  activerecord:
+    attributes:
+      decidim/user:
+        email: Email
   decidim:
     content_blocks:
       hero_settings_form:
