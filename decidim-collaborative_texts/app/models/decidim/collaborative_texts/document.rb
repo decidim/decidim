@@ -14,9 +14,17 @@ module Decidim
 
       component_manifest_name "collaborative_texts"
 
+      has_many :versions, class_name: "Decidim::CollaborativeTexts::Version", dependent: :destroy
+
       validates :title, presence: true
 
       scope :enabled_desc, -> { order(arel_table[:accepting_suggestions].desc, arel_table[:created_at].desc) }
+
+      delegate :body, to: :current_version
+
+      def current_version
+        versions.first || versions.build
+      end
     end
   end
 end
