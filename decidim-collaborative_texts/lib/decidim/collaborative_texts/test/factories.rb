@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "decidim/components/namer"
-require "decidim/faker/localized"
 require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
 
@@ -20,11 +19,20 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    title { "Default title" }
+    title { Faker::Lorem.paragraph }
+
     component { create(:collaborative_texts_component, skip_injection:) }
+    after(:build) do |document, evaluator|
+      document.versions = build_list(:collaborative_text_version, 3, document: document)
+    end
 
     trait :published do
       published_at { Time.current }
     end
+  end
+
+  factory :collaborative_text_version, class: "Decidim::CollaborativeTexts::Version" do
+    body { Faker::HTML.paragraph }
+    document { create(:collaborative_text_document) }
   end
 end

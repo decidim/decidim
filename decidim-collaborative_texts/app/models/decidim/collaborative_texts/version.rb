@@ -6,6 +6,7 @@ module Decidim
     # title, description and any other useful information to render a custom
     # document.
     class Version < CollaborativeTexts::ApplicationRecord
+      belongs_to :document, class_name: "Decidim::CollaborativeTexts::Document"
       validates :body, presence: true
 
       default_scope { order(created_at: :desc) }
