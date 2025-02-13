@@ -698,7 +698,6 @@ en:
         actions:
           create: Create an initiative
           title: Actions
-          vote: Sign
   layouts:
     decidim:
       initiative_creation_header:
