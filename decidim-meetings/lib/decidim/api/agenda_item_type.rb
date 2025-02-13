@@ -8,14 +8,14 @@ module Decidim
       graphql_name "MeetingAgendaItem"
       description "A meeting agenda item"
 
-      field :id, GraphQL::Types::ID, "The ID for this agenda item", null: false
-      field :title, Decidim::Core::TranslatedFieldType, "The title for this agenda item", null: true
+      field :agenda, Decidim::Meetings::AgendaType, "Belonging agenda", null: true
       field :description, Decidim::Core::TranslatedFieldType, "The description for this agenda item", null: true
+      field :duration, GraphQL::Types::Int, "Duration in number of minutes for this item in this agenda", null: false
+      field :id, GraphQL::Types::ID, "The ID for this agenda item", null: false
       field :items, [Decidim::Meetings::AgendaItemType, { null: true }], "Sub-items (children) of this agenda item", method: :agenda_item_children, null: false
       field :parent, Decidim::Meetings::AgendaItemType, "Parent agenda item, if available", null: true
-      field :agenda, Decidim::Meetings::AgendaType, "Belonging agenda", null: true
-      field :duration, GraphQL::Types::Int, "Duration in number of minutes for this item in this agenda", null: false
       field :position, GraphQL::Types::Int, "Order position for this agenda item", null: false
+      field :title, Decidim::Core::TranslatedFieldType, "The title for this agenda item", null: true
     end
   end
 end

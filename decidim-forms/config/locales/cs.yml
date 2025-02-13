@@ -41,7 +41,11 @@ cs:
         models:
           components:
             allow_answers: Povolit odpovědi
+            allow_editing_answers: Umožnit registrovaným uživatelům upravovat vlastní odpovědi v průzkumu
+            allow_unregistered: Umožnit neregistrovaným uživatelům odpovídat na anketu
+            allow_unregistered_help: Pokud je aktivní, nebude nutné se přihlásit k odpovědi na dotazník. To může vést ke špatným nebo nespolehlivým údajům a bude to zranitelnější vůči automatickým útokům. Používejte s opatrností! Mějte na paměti, že účastník může odpovědět na stejný průzkum několikrát, použitím různých prohlížečů nebo funkce "soukromého prohlížení" svého webového prohlížeče.
             announcement: Oznámení
+            clean_after_publish: Odstranit odpovědi při publikování ankety
             description: Popis
             ends_at: Odpověď přijata do
             ends_at_help: Ponechte prázdné pro žádné konkrétní datum
@@ -130,6 +134,9 @@ cs:
             already_answered_warning: Formulář je již zodpovězen některými uživateli, takže jeho otázky nemůžete upravovat.
             collapse: Sbalit všechny otázky
             expand: Rozbalit všechny otázky
+            unpublished_warning: Formulář není zveřejněn. Můžete změnit jeho otázky, ale tím odstraníte aktuální odpovědi.
+            update:
+              success: Otázky ankety byly úspěšně uloženy.
           separator:
             down: Dolů
             remove: Odebrat
@@ -148,6 +155,9 @@ cs:
             invalid: Při ukládání dotazníku došlo k chybám.
             success: Formulář byl úspěšně uložen.
       admin_log:
+        question:
+          publish_answers: "%{user_name} zveřejnilo odpovědi na otázku %{resource_name} v prostoru %{space_name}"
+          unpublish_answers: "%{user_name} zrušil zveřejnění odpovědí na otázku %{resource_name} na prostoru %{space_name}"
         questionnaire:
           update: "%{user_name} aktualizoval dotazník %{resource_name}"
       errors:
@@ -190,6 +200,9 @@ cs:
           questionnaire_answered:
             body: Již jste odpověděli na tento dotazník.
             title: Již jste odpověděli
+          questionnaire_answered_edit:
+            body: Na tento formulář jste již odpověděli. %{link}
+            edit: Upravte své odpovědi
           questionnaire_closed:
             body: Dotazník je uzavřen a nelze jej zodpovědět.
             title: Dotazník byl uzavřen
@@ -204,8 +217,12 @@ cs:
           tos_agreement: Účastí přijímáte jeho smluvní podmínky
       step_navigation:
         show:
+          are_you_sure_edit: Budete moci upravit své odpovědi. Jste si jisti?
+          are_you_sure_edit_guest: Pokud chcete být schopni následně upravit své odpovědi, pak se musíte přihlásit nebo vytvořit účet.
+          are_you_sure_no_edit: Tuto akci nelze vrátit zpět a nebudete moci upravit své odpovědi. Jste si jisti?
           back: Zpět
           continue: Pokračovat
+          disallowed: Nemáte oprávnění upravovat své odpovědi.
           submit: Odeslat
       user_answers_serializer:
         body: Odpověď

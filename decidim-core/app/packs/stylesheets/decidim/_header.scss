@@ -115,7 +115,7 @@ header {
       @apply fixed bottom-0 left-0 z-40 bg-white w-full px-4 py-3 flex justify-between text-secondary shadow-[0_-4px_6px_rgba(198,198,198,0.25)];
 
       &__trigger {
-        @apply flex flex-col items-center text-secondary cursor-pointer pl-4 border-l border-gray-3;
+        @apply flex flex-col items-center text-secondary cursor-pointer md:pl-4 md:border-l border-gray-3;
 
         svg {
           @apply w-6 h-6 fill-current;
@@ -175,14 +175,16 @@ header {
       }
 
       &__login {
-        @apply w-20 h-full flex flex-row items-center relative text-secondary gap-1;
+        @apply w-auto h-full flex flex-row items-center relative text-secondary gap-1 pl-2 pr-2;
 
         svg {
           @apply w-8 h-6 fill-current;
         }
 
         svg + span {
-          @apply text-sm first-letter:uppercase pr-4 w-16;
+          @apply text-sm first-letter:uppercase w-auto;
+
+          flex-shrink: 0;
         }
       }
     }

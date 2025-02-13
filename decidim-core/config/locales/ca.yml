@@ -727,6 +727,13 @@ ca:
           followable: El recurs o l'espai de participació que s'està seguint
           id: L'identificador únic d'aquest seguiment
           updated_at: La data de la darrera actualització del seguiment
+        identities:
+          created_at: La data i l'hora en què es va crear la identitat
+          id: L'identificador únic d'aquesta identitat
+          provider: El proveïdor d'aquesta identitat
+          uid: L'identificador únic d'aquesta identitat
+          updated_at: La data i hora de la darrera actualització d'aquesta identitat
+          user: La usuària a qui pertany aquesta identitat
         messaging_conversations:
           created_at: La data en què es va iniciar aquesta conversa
           id: L'identificador únic d'aquesta conversa
@@ -734,9 +741,27 @@ ca:
           updated_at: La data en què aquesta conversa es va actualitzar per darrera vegada
         notifications:
           created_at: La data i l'hora en què es va crear aquesta notificació
+          event_class: El tipus d'acció que va activar la notificació
+          event_name: El nom de l'acció que va activar la notificació
           extra: Informació addicional sobre aquesta notificació
           id: L'identificador únic d'aquesta notificació
           resource_type: El tipus de recurs amb el qual està relacionat amb la notificació
+          updated_at: La data i hora en què aquesta notificació va ser actualitzada per darrera vegada
+        participatory_space_private_users:
+          created_at: La data i l'hora en què es va crear aquesta participant privada
+          id: L'identificador únic d'aquesta participant privada
+          privatable_to: A quin espai de participació pertanys aquesta participant privada
+          published: Si aquesta participant privada està publicada o no
+          role: El rol que té aquesta participant privada
+          updated_at: La data i hora en què aquesta participant privada va ser actualitzada per darrera vegada
+        reports:
+          created_at: La data i hora en què es va crear aquest informe
+          details: Els detalls dels informes de moderació
+          id: L'identificador únic d'aquest informe de moderació
+          locale: L'idioma d'aquest informe de moderació
+          moderation: La moderació que té aquest informe
+          reason: Els motius d'aquest informe de moderació
+          updated_at: La data i hora de la darrera actualització d'aquest informe de moderació
         user_groups:
           document_number: El número de document d'aquest grup d'usuàries
           id: L'identificador únic d'aquest d'usuàries
@@ -745,7 +770,9 @@ ca:
           verified_at: La data i l'hora en què es va verificar aquest grup d'usuàries
         users:
           about: L'àlies d'aquesta usuària
+          accepted_tos_version: La data en què la usuària va acceptar els Termes i Condicions d'ús d'aquesta plataforma
           admin: Si aquesta usuària és una administradora
+          confirmation_sent_at: La data i l'hora en què es va enviar la confirmació
           confirmed_at: La data i l'hora en què es va confirmar aquesta usuària
           created_at: La data i l'hora en què es va crear aquesta usuària
           current_sign_in_at: La data i l'hora de l'inici de sessió actual
@@ -753,6 +780,8 @@ ca:
           delete_reason: La raó donada per eliminar a aquesta usuària
           deleted_at: La data i l'hora en què es va eliminar aquesta usuària
           email: L'adreça de correu electrònic d'aquesta usuària
+          followers_count: El nombre de participants que segueixen aquesta participant
+          following_count: El nombre de participants a què segueix aquesta participant
           id: L'identificador únic d'aquesta usuària
           invitation_accepted_at: La data i l'hora en què es va acceptar la invitació
           invitation_created_at: La data i l'hora en què es va convidar a aquesta usuària
@@ -771,9 +800,13 @@ ca:
           officialized_as: La descripció de l'oficialització (Alcaldia, Conselleria, etc.)
           officialized_at: La data i l'hora en què aquesta usuària va ser oficialitzada
           organization: L'organització a la qual pertany aquesta usuària
+          password_updated_at: La data en què van canviar per darrera vegada les seves contrasenyes
           personal_url: L'URL personal d'aquesta usuària
+          remember_created_at: La data i hora en què es va seleccionar la usuària per ser recordada
           reset_password_sent_at: La data i l'hora en què es va enviar el correu per a restaurar la contrasenya
+          roles: El rol que té aquesta participant, si en té cap
           sign_in_count: El número de vegades en què aquesta usuària ha iniciat la seva sessió
+          type: El tipus que té aquesta participant
           unconfirmed_email: El correu electrònic que aquesta usuària encara no ha confirmat
           updated_at: La data de la darrera actualització d'aquesta usuària
       show:
@@ -882,6 +915,8 @@ ca:
         emendation_promoted:
           follower:
             email_intro: 'S''ha publicat una esmena per a %{amendable_title}. La pots veure en aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè és autora de %{amendable_title}.
+            email_subject: Una esmena de %{emendation_author_nickname} s'ha publicat com un nou %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'S''ha afegit un nou document a %{resource_title}. Pots veure''l des d''aquesta pàgina:'
@@ -1261,35 +1296,35 @@ ca:
         comanagers_new_conversation:
           admin_in_group: Reps aquesta notificació perquè administres el grup "%{group}".
           greeting: Hola, %{recipient}!
-          intro: "%{manager} ha iniciat una nova conversa en nom de %{group}. Fes clic aquí per veure-la:"
+          intro: "%{manager} ha iniciat una nova conversa en nom de %{group}. Per veure-la i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: "%{manager} ha iniciat una nova conversa com a %{group}"
         comanagers_new_message:
           admin_in_group: Reps aquesta notificació perquè administres el grup "%{group}".
           greeting: Hola, %{recipient}!
-          intro: "%{manager} ha publicat nous missatge a una conversa en nom de %{group}. Fes clic aquí per veure-la:"
+          intro: "%{manager} ha publicat nous missatges a una conversa en nom de %{group}. Per veure'ls i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: "%{manager} ha enviat nous missatges com a %{group}"
         new_conversation:
           greeting: Hola, %{recipient}!
-          intro: "%{sender} ha iniciat una nova conversa amb tu. Fes clic aquí per veure-la:"
+          intro: "%{sender} ha iniciat una nova conversa amb tu. Per veure-la i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: "%{sender} ha iniciat una conversa amb tu"
         new_group_conversation:
           admin_in_group: Reps aquesta notificació perquè administres el grup "%{group}".
           greeting: Hola, %{recipient}!
-          intro: "%{sender} ha iniciat una nova conversa amb el %{group}. Fes clic aquí per veure-la:"
+          intro: "%{sender} ha iniciat una nova conversa amb el %{group}. Per veure-la i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: "%{sender} ha iniciat una nova conversa amb %{group}"
         new_group_message:
           admin_in_group: Reps aquesta notificació perquè administres el grup "%{group}".
           greeting: Hola, %{recipient}!
-          intro: "%{sender} ha publicat nous missatge a una conversa amb el grup %{group}. Fes clic aquí per veure-la:"
+          intro: "%{sender} ha publicat nous missatge a una conversa amb el grup %{group}. Per veure'ls i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: "%{group} té nous missatge de %{sender}"
         new_message:
           greeting: Hola, %{recipient}!
-          intro: "%{sender} ha enviat nous missatges a la teva conversa. Fes clic aquí per veure'ls:"
+          intro: "%{sender} ha enviat nous missatges a la teva conversa. Per veure'ls i respondre, inicia la teva sessió i fes clic a l'enllaç que trobaràs més avall:"
           outro: Gaudeix de la plataforma!
           subject: Tens nous missatges de %{sender}
       conversations:
@@ -1500,6 +1535,8 @@ ca:
         taxonomies:
           children_count: El recompte de "filles" (subtaxonomies) que té aquesta taxonomia
           created_at: La data en què es va crear aquesta taxonomia
+          filter_items_count: La quantitat de filtres d'elements que fan servir aquesta taxonomia
+          filters_count: La quantitat de filtres que fan servir aquesta taxonomia
           id: L'identificador únic d'aquesta taxonomia
           is_root: 'Cert ("true"): si aquesta taxonomia no té cap "mare" (no penja d''una altra taxonomia)'
           name: El nom d'aquesta taxonomia

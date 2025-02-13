@@ -5,27 +5,19 @@ GraphQL:
   Include:
     - "**/lib/decidim/api/**/*"
   Exclude:
+    - "**/lib/decidim/api/test/**/*"
+    - "**/lib/decidim/api/functions/*"
     - "spec/**/*"
     - "test/**/*"
 
-GraphQL/FieldDescription:
-  Enabled: false
-
-GraphQL/OrderedFields:
-  Enabled: false
-
-GraphQL/OrderedArguments:
-  Enabled: false
+GraphQL/ObjectDescription:
+  Exclude:
+    - "**/lib/decidim/api/engine.rb"
+    - "**/lib/decidim/api/schema.rb"
+    - "**/lib/decidim/api/graphiql/config.rb"
+    - "**/lib/decidim/api/functions/*"
+    - "spec/**/*"
+    - "test/**/*"
 
 GraphQL/ExtractType:
   Enabled: false
-
-GraphQL/ObjectDescription:
-  Enabled: false
-
-GraphQL/PrepareMethod:
-  Enabled: false
-
-GraphQL/ArgumentDescription:
-  Enabled: false
-

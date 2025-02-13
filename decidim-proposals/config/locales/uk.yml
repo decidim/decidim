@@ -215,7 +215,6 @@ uk:
           maximum_votes_reached: Використано всі голоси
           no_votes_remaining: Не залишилось голосів
           vote: Голосувати
-          votes_blocked: Голосування вимкнене
         voting_rules:
           proposal_limit:
             description: Ви можете висунути до %{limit} пропозицій.

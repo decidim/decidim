@@ -242,6 +242,7 @@ ja:
       impersonation_log:
         manage: "%{user_name} は %{reason} により %{resource_name} を管理しています。"
       moderation:
+        bulk_hide: "%{user_name} が %{reported_count} リソースを非表示にしました"
         hide: "%{user_name} が %{resource_type} タイプのリソースを %{space_name} スペースに隠しました"
         unreport: "%{user_name} は %{resource_type} タイプの %{space_name} スペースのリソースを報告していません"
       newsletter:
@@ -709,7 +710,7 @@ ja:
       drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
     endorsement_buttons_cell:
       already_endorsed: オススメの取り消し
-      endorse: いいね
+      endorse: オススメ
     endorsements:
       identities:
         done: 完了
@@ -924,7 +925,7 @@ ja:
       no_followers: フォロワーはまだいません。
     following:
       following_count:
-        other: "{{count}} フォロワー"
+        other: "%{count} 人をフォロー中"
       no_followings: まだ何もフォローしていません
       non_public_followings: フォローしているリソースのいくつかは公開されていません。
     follows:

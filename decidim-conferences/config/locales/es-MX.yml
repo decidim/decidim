@@ -121,11 +121,13 @@ es-MX:
         destroy:
           success: Ponente eliminado con éxito en esta conferencia.
         edit:
+          title: Actualizar la ponente de la conferencia
           update: Actualizar
         index:
           conference_speakers_title: Ponentes
         new:
           create: Crear
+          title: Nueva ponente de la jornada
         publish:
           invalid: Se ha producido un error al publicar esta ponente.
           success: Ponente de la conferencia actualizada correctamente.
@@ -142,11 +144,13 @@ es-MX:
         destroy:
           success: Usuario eliminado con éxito de esta conferencia.
         edit:
+          title: Actualizar administradora de la jornada
           update: Actualizar
         index:
           conference_admins_title: Administradoras de la jornada
         new:
           create: Crear
+          title: Nueva administradora de la jornada
         update:
           error: Hubo un error al actualizar un usuario de esta conferencia.
           success: Actualizado con éxito el usuario para esta conferencia.
@@ -178,13 +182,20 @@ es-MX:
       media_links:
         create:
           error: Se ha producido un error al crear un nuevo enlace multimedia.
+          success: Enlace multimedia creado correctamente.
+        destroy:
+          success: Enlace multimedia eliminado correctamente.
         edit:
+          title: Actualizar enlace multimedia
           update: Actualizar
+        index:
+          media_links_title: Enlaces multimedia
         new:
           create: Crear
           title: Crear enlace multimedia
         update:
           error: Hubo un error al actualizar este enlace multimedia.
+          success: Enlace multimedia actualizado correctamente.
       menu:
         conferences: Conferencias
         conferences_submenu:
@@ -195,11 +206,15 @@ es-MX:
           conference_admins: Administradores de conferencia
           conference_invites: Invita
           conference_speakers: Ponentes
+          diploma: Certificado de asistencia
           info: Acerca de esta conferencia
+          media_links: Enlaces multimedia
           moderations: Moderaciones
           partners: Colaboradores
+          registration_types: Tipos de inscripción
           registrations: Inscripciones
           see_conference: Ver la jornada
+          user_registrations: Inscripciones de participantes
       models:
         conference:
           fields:
@@ -228,6 +243,7 @@ es-MX:
             date: Fecha
             link: Enlace
             title: Título
+          name: Enlace multimedia
         partner:
           fields:
             link: Enlace
@@ -253,6 +269,7 @@ es-MX:
         destroy:
           success: Colaborador eliminado correctamente de esta jornada.
         edit:
+          title: Actualizar colaboradora
           update: Actualizar
         new:
           create: Crear
@@ -274,6 +291,7 @@ es-MX:
         destroy:
           success: Tipo de registro eliminado con éxito de esta conferencia.
         edit:
+          title: Actualizar el tipo de inscripción
           update: Actualizar
         new:
           create: Crear
@@ -379,6 +397,7 @@ es-MX:
         diplomas:
           edit:
             save: Guardar
+            title: Certificado de asistencia
         invite_join_conference_mailer:
           invite:
             decline: Rechazar invitación a '%{conference_title}'
@@ -398,6 +417,7 @@ es-MX:
             diploma_html: Encontrará el certificado de asistencia para la conferencia <a href="%{url}">%{title}</a> en los adjuntos.
           diploma_user:
             attendance_verified_by: Asistencia verificada por
+            certificate_of_attendance: Certificado de asistencia
             certificate_of_attendance_description: Este documento certifica que <strong>%{user}</strong> ha asistido y participado en los encuentros <strong>%{title}</strong> celebrados en el <strong>%{location}</strong> del <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Ha habido un problema al enviar los certificados de asistencia a la conferencia.

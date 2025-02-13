@@ -8,14 +8,14 @@ module Decidim
 
       description "A conference speaker"
 
-      field :id, GraphQL::Types::ID, "Internal ID of the speaker", null: false
-      field :full_name, GraphQL::Types::String, "Full name of the speaker", null: true
-      field :position, Decidim::Core::TranslatedFieldType, "Position of the speaker in the conference", null: true
       field :affiliation, Decidim::Core::TranslatedFieldType, "Affiliation of the speaker", null: true
-      field :twitter_handle, GraphQL::Types::String, "X handle", null: true
-      field :short_bio, Decidim::Core::TranslatedFieldType, "Short biography of the speaker", null: true
-      field :personal_url, GraphQL::Types::String, "Personal URL of the speaker", null: true
       field :avatar, GraphQL::Types::String, "Avatar of the speaker", null: true
+      field :full_name, GraphQL::Types::String, "Full name of the speaker", null: true
+      field :id, GraphQL::Types::ID, "Internal ID of the speaker", null: false
+      field :personal_url, GraphQL::Types::String, "Personal URL of the speaker", null: true
+      field :position, Decidim::Core::TranslatedFieldType, "Position of the speaker in the conference", null: true
+      field :short_bio, Decidim::Core::TranslatedFieldType, "Short biography of the speaker", null: true
+      field :twitter_handle, GraphQL::Types::String, "X handle", null: true
       field :user, Decidim::Core::UserType, "Decidim user corresponding to this speaker", null: true
 
       def avatar
