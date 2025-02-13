@@ -61,7 +61,7 @@ describe "Initiative signing with ephemeral workflows" do
     it_behaves_like "preventing ephemeral session creation"
   end
 
-  context "when the worflow only contains SMS step without personal data collection" do
+  context "when the workflow only contains SMS step without personal data collection" do
     let(:extra_workflow_attributes) do
       {
         sms_verification: true,
@@ -81,7 +81,7 @@ describe "Initiative signing with ephemeral workflows" do
       }
     end
 
-    context "and no authorization hanldler form is defined" do
+    context "and no authorization handler form is defined" do
       it_behaves_like "preventing ephemeral session creation"
     end
 
@@ -172,7 +172,7 @@ describe "Initiative signing with ephemeral workflows" do
           end.to change(Decidim::InitiativesVote.where(author: user), :count).by(1)
         end
 
-        context "when the worflow includes SMS step" do
+        context "when the workflow includes SMS step" do
           class DummySmsMobilePhoneForm < Decidim::Verifications::Sms::MobilePhoneForm
             def generated_code
               "010203"
