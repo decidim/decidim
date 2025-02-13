@@ -627,17 +627,17 @@ module Decidim
         enabled: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID").present?,
         app_id: ENV.fetch("OMNIAUTH_FACEBOOK_APP_ID", nil),
         app_secret: ENV.fetch("OMNIAUTH_FACEBOOK_APP_SECRET", nil),
-        icon: "facebook-fill"
+        icon_path: "media/images/facebook.svg"
       },
       twitter: {
         enabled: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY").present?,
         api_key: ENV.fetch("OMNIAUTH_TWITTER_API_KEY", nil),
         api_secret: ENV.fetch("OMNIAUTH_TWITTER_API_SECRET", nil),
-        icon: "twitter-x-fill"
+        icon_path: "media/images/twitter-x.svg"
       },
       google_oauth2: {
         enabled: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID").present?,
-        icon: "google-fill",
+        icon_path: "media/images/google.svg",
         client_id: ENV.fetch("OMNIAUTH_GOOGLE_CLIENT_ID", nil),
         client_secret: ENV.fetch("OMNIAUTH_GOOGLE_CLIENT_SECRET", nil)
       }
