@@ -1461,7 +1461,7 @@ eu:
         weekly: 'Hauek dira azken asteko jakinarazpenak, jarraitzen ari zaren jardueran oinarrituta:'
       outro: Jakinarazpen hau jaso duzu eduki hau edo bere egileak jarraitzen dituzulako. Jarraitzeari utzi ahal diozu euren orrialdeetan.
       see_more: Ikusi jakinarazpen gehiago
-      subject: Hau da zure laburpen-posta
+      subject: Hau da zure laburpen-mezua
     notifications_settings:
       show:
         administrators: Administratzaileak
