@@ -168,7 +168,7 @@ describe "Initiative signing with ephemeral workflows" do
           expect do
             click_on "Validate your data"
 
-            expect(page).to have_content "Initiative signature accepted"
+            expect(page).to have_content "You have signed the initiative"
           end.to change(Decidim::InitiativesVote.where(author: user), :count).by(1)
         end
 
@@ -210,7 +210,7 @@ describe "Initiative signing with ephemeral workflows" do
             expect do
               click_on "Sign initiative"
 
-              expect(page).to have_content "Initiative signature accepted"
+              expect(page).to have_content "You have signed the initiative"
             end.to change(Decidim::InitiativesVote.where(author: user), :count).by(1)
           end
         end
@@ -284,7 +284,7 @@ describe "Initiative signing with ephemeral workflows" do
             expect do
               click_on "Validate your data"
 
-              expect(page).to have_content "Initiative signature accepted"
+              expect(page).to have_content "You have signed the initiative"
             end.not_to change(Decidim::Authorization, :count)
           end.to change(Decidim::InitiativesVote.where(author: ephemeral_user), :count).by(1)
         end
@@ -319,7 +319,7 @@ describe "Initiative signing with ephemeral workflows" do
             expect do
               click_on "Validate your data"
 
-              expect(page).to have_content "Initiative signature accepted"
+              expect(page).to have_content "You have signed the initiative"
               expect(page).to have_content "We have recovered the following participation data based on your authorization"
               expect(page).to have_content "Initiatives vote: 1"
             end.not_to change(Decidim::Authorization, :count)
