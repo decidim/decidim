@@ -29,6 +29,8 @@ Decidim.register_component(:collaborative_texts) do |component|
 
   component.register_resource(:collaborative_text) do |resource|
     resource.model_class_name = "Decidim::CollaborativeTexts::Document"
+    resource.card = "decidim/collaborative_texts/document"
+    resource.searchable = true
   end
 
   # component.exports ...

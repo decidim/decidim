@@ -43,6 +43,12 @@ en:
         settings:
           form:
             allow_suggestions: Allow participants to make suggestions
+      documents:
+        index:
+          count:
+            one: "%{count} collaborative text"
+            other: "%{count} collaborative texts"
+          empty: There are no collaborative texts yet.
       models:
         collaborative_text:
           fields:

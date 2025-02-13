@@ -15,6 +15,8 @@ module Decidim
       component_manifest_name "collaborative_texts"
 
       validates :title, presence: true
+
+      scope :enabled_desc, -> { order(arel_table[:accepting_suggestions].desc, arel_table[:created_at].desc) }
     end
   end
 end
