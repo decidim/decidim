@@ -107,6 +107,7 @@ module Decidim
       attribute :sms_code_validator, String, default: nil
 
       validates :name, presence: true
+      validate :ephemeral_configuration
 
       alias key name
 
@@ -154,6 +155,13 @@ module Decidim
         return unless sms_verification
 
         sms_code_validator&.safe_constantize || Decidim::Initiatives::ValidateSmsCode
+      end
+
+      def ephemeral_configuration
+        return unless Rails.env.development?
+        return unless ephemeral
+
+        raise StandardError, "Wrong configuration of ephemeral signature workflow #{fullname}" if !save_authorizations || authorization_handler_form.blank?
       end
     end
   end
