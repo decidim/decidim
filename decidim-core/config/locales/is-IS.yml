@@ -16,7 +16,6 @@ is:
     attributes:
       decidim/user:
         current_password: Núverandi lykilorð
-        email: Tölvupóstur
         password: Lykilorð
         password_confirmation: Staðfesta lykilorð
         remember_me: Muna eftir mér
