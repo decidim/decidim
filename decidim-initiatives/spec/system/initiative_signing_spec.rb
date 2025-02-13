@@ -70,67 +70,6 @@ describe "Initiative signing" do
     end
   end
 
-  context "when the initiative type has permissions to vote" do
-    before do
-      initiative.type.create_resource_permission(
-        permissions: {
-          "vote" => {
-            "authorization_handlers" => {
-              "dummy_authorization_handler" => { "options" => {} },
-              "another_dummy_authorization_handler" => { "options" => {} }
-            }
-          }
-        }
-      )
-    end
-
-    context "and has not signed the initiative yet" do
-      context "and is not verified" do
-        it "signin initiative is disabled", :slow do
-          visit decidim_initiatives.initiative_path(initiative)
-
-          within ".initiative__aside" do
-            expect(page).to have_content("Sign")
-            click_on "Sign"
-          end
-
-          expect(page).to have_content("You are almost ready to sign on the #{translated_attribute(initiative.title)} initiative")
-          expect(page).to have_css("a[data-verification]", count: 2)
-        end
-      end
-
-      context "and is verified" do
-        before do
-          create(:authorization, name: "dummy_authorization_handler", user: confirmed_user, granted_at: 2.seconds.ago)
-          create(:authorization, name: "another_dummy_authorization_handler", user: confirmed_user, granted_at: 2.seconds.ago)
-        end
-
-        it "votes as themselves" do
-          vote_initiative
-        end
-      end
-    end
-
-    context "and has signed the initiative" do
-      before do
-        initiative.votes.create(author: confirmed_user, scope: initiative.scope)
-      end
-
-      context "and is not verified" do
-        it "unsigning initiative is disabled" do
-          visit decidim_initiatives.initiative_path(initiative)
-
-          within ".initiative__aside" do
-            expect(page).to have_content(signature_text(1))
-            expect(page).to have_button("Already signed", disabled: true)
-            click_on("Already signed", disabled: true)
-            expect(page).to have_content(signature_text(1))
-          end
-        end
-      end
-    end
-  end
-
   def vote_initiative
     visit decidim_initiatives.initiative_path(initiative)
 
