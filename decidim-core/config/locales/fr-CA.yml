@@ -71,7 +71,6 @@ fr-CA:
         with_participatory_space: Espace participatif
       decidim/user:
         current_password: Mot de passe actuel
-        email: Email
         name: Surnom
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
@@ -633,7 +632,6 @@ fr-CA:
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
-          are_you_new?: Nouveau sur la plateforme ?
           register: Créer un compte
           sign_in_disabled: Vous pouvez vous connecter avec un compte externe.
           sign_up_disabled: La création de compte est désactivée, mais vous pouvez vous identifier avec un compte existant.
@@ -656,8 +654,6 @@ fr-CA:
             votre décision.</p>
             <p>Merci de votre lecture !</p>
           title: Inscription à la newsletter
-        omniauth_buttons:
-          or: Ou
         password_fields:
           hidden_password: Votre mot de passe est masqué
           hide_password: Masquer le mot de passe
