@@ -82,9 +82,9 @@ eu:
           accessibility_labels: Irisgarritasun-etiketak
           accessibility_labels_paragraph: Elementuak definitzerakoan, ziurtatu beti zentzua dutela pantaila-irakurgailuen parte-hartzailetzat.
           accessibility_title: Irisgarritasuna
-          adjacent_links: Ondoko loturak
+          adjacent_links: Ondoko estekak
           adjacent_links_header: Ondoko estekak baliabide bererako
-          adjacent_links_paragraph: Baliabide berak ondoko lotura bat baino gehiago baditu, horrek zaildu egiten du parte-hartzaile horiek orrialdera begiratzea, hurrengo baliabidera iristeko esteka bat baino gehiago erabili behar dituztelako.
+          adjacent_links_paragraph: Baliabide berak ondoko esteka bat baino gehiago baditu, horrek zaildu egiten du parte-hartzaile horiek orrialdera begiratzea, hurrengo baliabidera iristeko esteka bat baino gehiago erabili behar dituztelako.
           color_contrast: Kolore-kontrastea
           color_contrast_paragraph: Parte-hartzailearen interfazeak sortzean edo koloreak aldatzean, ziurtatu beti zure aldaketen ondorioz ez zarela irisgarritasuna hausten ari. Kolore-kontrastearen zuzentzailea erabil dezakezu zure koloreek kontraste nahikoa izan dezaten erakusten diren atzealdeko kolorearen aldean, non ageri baitira.
           decidim_follows_html: 'Decidimek jarraitzen du: <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>'
@@ -99,7 +99,7 @@ eu:
           illogical_heading_paragraph: Orrialde bakoitzak goiburuko ordena logiko bat izan behar du <h1>, <h2>, <h3>, <h4>, <h5> eta <h6> elementuak erabiltzean.
           important_sections_heading: Sail garrantzitsuen goiburuan doa
           important_sections_paragraph: Oso garrantzitsua da orrialdeko atal garrantzitsu bakoitzak sarrera bat izatea, errazago ulertzeko zer atal garrantzitsu dauden orrian bere sarreretan nabigatuz.
-          links_and_buttons: Loturak eta Botoiak
+          links_and_buttons: Estekak eta Botoiak
           links_and_buttons_paragraph: Ainguraketa-elementuak (hau da, estekak) orrialde desberdinei lotzeko edo orrialdearen barruan posizioak ainguratzeko erabiltzen dira. Elementuak orri horretan ezkutatutako elementuren bat ireki behar duela uste bada, <button> elementua erabili behar du haren ordez.
           see_further_info_html: Ikusi informazio gehiago %{link}
           unique_h1: H1 bakarra
@@ -293,7 +293,7 @@ eu:
         usage_typography_1: Idazpuruak eta atalaren izenburuak
         usage_typography_2: Lineako proba
         usage_typography_3: Hondo ilunaren gaineko testua
-        usage_typography_4: Loturak eta botoiak
+        usage_typography_4: Estekak eta botoiak
         value: Balioa
         variations: Aldakuntzak
         variations_cards_description: Txartel bakoitza desberdina izango da erakutsitako baliabidearen propietateei dagokienez. Zelula espezifikoan horrelako portaera deuseztatu dezakezu.
