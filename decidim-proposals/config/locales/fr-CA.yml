@@ -897,7 +897,6 @@ fr-CA:
           maximum_votes_reached: Nombre maximum de votes atteint
           no_votes_remaining: Aucun vote restant
           vote: Soutenir
-          votes_blocked: Votes désactivés
         votes_count:
           count:
             one: Vote

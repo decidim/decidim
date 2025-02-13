@@ -579,7 +579,6 @@ it:
           maximum_votes_reached: Hai raggiunto il limite di voti
           no_votes_remaining: Sono finite le votazioni possibili
           vote: Votazione
-          votes_blocked: Votazioni disabilitate
         voting_rules:
           proposal_limit:
             description: Puoi creare fino a %{limit} proposte.

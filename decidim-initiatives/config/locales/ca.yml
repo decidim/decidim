@@ -540,7 +540,7 @@ ca:
           province: Província
           signature: Signatura
         result:
-          answer_title: S'ha respost aquesta iniciativa.
+          answer_title: S'ha respost aquesta iniciativa
           initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per falta de signatures.
         show:
           area: Àrea

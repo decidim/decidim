@@ -12,6 +12,11 @@ module Decidim
             description: "The total amount of co-authors that contributed to the entity. Note that this field may include also non-user authors like meetings or the organization",
             null: true
 
+      field :authors, [Decidim::Core::AuthorInterface, { null: true }],
+            method: :user_identities,
+            description: "The resource co-authors. Include only users or groups of users",
+            null: false
+
       field :author, Decidim::Core::AuthorInterface,
             description: "The resource author. Note that this can be null on official proposals or meeting-proposals",
             null: true
@@ -20,11 +25,6 @@ module Decidim
         author = object.creator_identity
         author if author.is_a?(Decidim::User) || author.is_a?(Decidim::UserGroup)
       end
-
-      field :authors, [Decidim::Core::AuthorInterface, { null: true }],
-            method: :user_identities,
-            description: "The resource co-authors. Include only users or groups of users",
-            null: false
     end
   end
 end

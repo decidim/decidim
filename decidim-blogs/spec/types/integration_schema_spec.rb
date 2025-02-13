@@ -73,7 +73,7 @@ describe "Decidim::Api::QueryType" do
       "comments" => [],
       "commentsHaveAlignment" => true,
       "commentsHaveVotes" => true,
-      "createdAt" => post.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "createdAt" => post.created_at.to_time.iso8601,
       "endorsements" => post.endorsements.map do |endo|
         {
           "__typename" => "User",
@@ -93,7 +93,7 @@ describe "Decidim::Api::QueryType" do
       "title" => { "translation" => post.title[locale] },
       "totalCommentsCount" => 0,
       "type" => "Decidim::Blogs::Post",
-      "updatedAt" => post.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "updatedAt" => post.updated_at.to_time.iso8601,
       "userAllowedToComment" => post.user_allowed_to_comment?(current_user),
       "versions" => [],
       "versionsCount" => 0
