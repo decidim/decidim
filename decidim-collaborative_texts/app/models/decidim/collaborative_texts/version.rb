@@ -9,7 +9,7 @@ module Decidim
       belongs_to :document, class_name: "Decidim::CollaborativeTexts::Document"
       validates :body, presence: true
 
-      default_scope { order(created_at: :desc) }
+      default_scope { order(created_at: :asc) }
     end
   end
 end

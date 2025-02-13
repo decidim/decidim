@@ -14,16 +14,30 @@ module Decidim
 
       component_manifest_name "collaborative_texts"
 
-      has_many :versions, class_name: "Decidim::CollaborativeTexts::Version", dependent: :destroy
+      after_save :save_version
 
-      validates :title, presence: true
+      has_many :document_versions, class_name: "Decidim::CollaborativeTexts::Version", dependent: :destroy
+
+      validates :title, :body, presence: true
 
       scope :enabled_desc, -> { order(arel_table[:accepting_suggestions].desc, arel_table[:created_at].desc) }
 
-      delegate :body, to: :current_version
+      delegate :body, :body=, to: :current_version
 
+      # Returns the current version of the document. Currently, the last one.
       def current_version
-        versions.first || versions.build
+        document_versions.last || document_versions.build
+      end
+
+      # Creates a new version of the document
+      def rollout!
+        document_versions.build(body: body)
+      end
+
+      private
+
+      def save_version
+        current_version.save
       end
     end
   end
