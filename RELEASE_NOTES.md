@@ -191,25 +191,25 @@ You can see more details about this change on PR [\#13669](https://github.com/de
 
 We have changed the icons for the social logins so they align better with the social networks guidelines (Twitter/X, Facebook, and Google). If you do not use any of these social logins you can skip this step.
 
-If on the other hand you have set up this social logins, you can change it by replacing your `config/secrets.yml`:
+If on the other hand you have set up this social logins, you can change it by replacing them in: `config/secrets.yml`.
 
-As an example, where it says:
+For example, where it says:
 
-```yaml
+```secrets.yaml
       icon: google-fill
       icon: facebook-fill
       icon: twitter-x-fill
 ```
 
-Now it needs to say for the correct path name and updated SVGs.
+It now needs to say for the correct path name and updated SVG. Keep in mind the name of the path has changed from ```icon``` to ```icon_path```:
 
-```yaml
+```secrets.yaml
       icon_path: "media/images/google.svg"
       icon_path: "media/images/facebook.svg"
       icon_path: "media/images/twitter-x.svg"
 ```
 
-The CSS of each omniauth button can found within `decidim-core/app/packs/stylesheets/decidim/_login.scss`, variables are used for specific omniauth button background color according to their pack guidelines.
+The CSS of each omniauth button can be found within `decidim-core/app/packs/stylesheets/decidim/_login.scss`, variables are used for specific omniauth button background color according to their pack guidelines.
 
 You can read more about this change on PR [#13481](https://github.com/decidim/decidim/pull/13481).
 
