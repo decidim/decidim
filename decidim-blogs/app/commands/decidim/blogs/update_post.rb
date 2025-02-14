@@ -4,7 +4,7 @@ module Decidim
   module Blogs
     # This command is executed when the user updates a Post from the frontend
     class UpdatePost < Decidim::Commands::UpdateResource
-      fetch_form_attributes :title, :body
+      fetch_form_attributes :title, :body, :taxonomizations
 
       private
 

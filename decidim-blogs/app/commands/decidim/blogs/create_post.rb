@@ -4,7 +4,7 @@ module Decidim
   module Blogs
     # This command is executed when the user creates a Post from the frontend
     class CreatePost < Decidim::Commands::CreateResource
-      fetch_form_attributes :author
+      fetch_form_attributes :author, :taxonomizations
 
       private
 

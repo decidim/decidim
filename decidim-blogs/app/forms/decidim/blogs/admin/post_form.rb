@@ -6,6 +6,7 @@ module Decidim
       # This class holds a Form to update pages from Decidim's admin panel.
       class PostForm < Decidim::Form
         include TranslatableAttributes
+        include Decidim::HasTaxonomyFormAttributes
 
         translatable_attribute :title, String
         translatable_attribute :body, Decidim::Attributes::RichText
@@ -16,6 +17,8 @@ module Decidim
         validates :title, translatable_presence: true
         validates :body, translatable_presence: true
         validate :can_set_author
+
+        alias component current_component
 
         def map_model(model)
           self.decidim_author_id = nil if model.author.is_a? Decidim::Organization
@@ -49,6 +52,10 @@ module Decidim
 
         def user_groups
           @user_groups ||= Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
+        end
+
+        def participatory_space_manifest
+          @participatory_space_manifest ||= current_component.participatory_space.manifest.name
         end
       end
     end
