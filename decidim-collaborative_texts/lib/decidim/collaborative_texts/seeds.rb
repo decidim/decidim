@@ -46,6 +46,7 @@ module Decidim
         params = {
           component:,
           title: ::Faker::Lorem.paragraph,
+          body: create_body,
           published_at:,
           accepting_suggestions: [true, false].sample
         }
@@ -56,6 +57,21 @@ module Decidim
           params,
           visibility: "all"
         )
+      end
+
+      def create_body
+        text_block = []
+        rand(3..5).times do
+          text_block << "<h2>#{::Faker::Lorem.word.capitalize}</h2>"
+          level = 3
+          rand(1..4).times do
+            text_block << "<h#{level}>#{::Faker::Lorem.word.capitalize}</h#{level}>"
+            text_block << ::Faker::HTML.paragraph(sentence_count: rand(3..5))
+            text_block << ::Faker::HTML.random(exclude: [:heading, :script])
+            level += 1
+          end
+        end
+        text_block.join("\n")
       end
     end
   end
