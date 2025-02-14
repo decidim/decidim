@@ -15,7 +15,7 @@ es:
         document: Documento
       proposal:
         address: Dirección
-        answer: Respuesta
+        answer: Responder
         answered_at: Respondido en
         automatic_hashtags: Hashtags añadidos automáticamente
         body: Cuerpo
@@ -30,7 +30,7 @@ es:
         title: Título
         user_group_id: Crear propuesta como
       proposal_answer:
-        answer: Responder
+        answer: Respuesta
         cost: Coste
         cost_report: Informe de coste
         execution_period: Período de ejecución
