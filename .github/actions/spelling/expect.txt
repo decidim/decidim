@@ -785,6 +785,8 @@ routable
 rowchart
 rowdata
 rowi
+RQR
+rqrcode
 rroe
 rsefa
 rsimplecov
