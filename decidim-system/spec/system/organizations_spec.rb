@@ -219,19 +219,19 @@ describe "Organizations" do
               enabled: true,
               app_id: "fake-facebook-app-id",
               app_secret: "fake-facebook-app-secret",
-              icon: "phone"
+              icon_path: "media/images/facebook.svg"
             },
             twitter: {
               enabled: true,
               api_key: "fake-twitter-api-key",
               api_secret: "fake-twitter-api-secret",
-              icon: "phone"
+              icon_path: "media/images/twitter-x.svg"
             },
             google_oauth2: {
               enabled: true,
               client_id: "",
               client_secret: "",
-              icon: "phone"
+              icon_path: "media/images/google.svg"
             },
             developer: {
               enabled: false,

@@ -38,7 +38,7 @@ module Decidim
 
     # Components enabled for a new initiative
     config_accessor :default_components do
-      Decidim::Env.new("INITIATIVES_DEFAULT_COMPONENTS", "pages, meetings").to_array
+      Decidim::Env.new("INITIATIVES_DEFAULT_COMPONENTS", "pages, meetings, blogs").to_array
     end
 
     # Notifies when the given percentage of supports is reached for an
