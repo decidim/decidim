@@ -6,11 +6,15 @@ module Decidim
     class PostForm < Decidim::Form
       include TranslatableAttributes
       include Decidim::HasTaxonomyFormAttributes
+      include Decidim::AttachmentAttributes
+      include Decidim::HasUploadValidations
 
       translatable_attribute :title, String
       translatable_attribute :body, Decidim::Attributes::RichText
 
       attribute :decidim_author_id, Integer
+
+      attachments_attribute :documents
 
       validates :body, translatable_presence: true
       validates :title, translatable_presence: true
@@ -24,6 +28,7 @@ module Decidim
 
         self.title = presenter.title
         self.body = presenter.body
+        self.documents = model.attachments
       end
 
       def author

@@ -74,8 +74,11 @@ en:
             title: Title
       posts:
         edit:
+          add_attachments: Add attachments
+          attachment_legend: Add a document or an image
           back: Back to post
           button: Update
+          edit_attachments: Edit attachments
           title: Edit post
         form:
           author_id: Author
@@ -112,8 +115,8 @@ en:
             creation_enabled_for_participants: Participants can create posts
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             no_taxonomy_filters_found: No taxonomy filters found.
-            taxonomy_filters_add: Add filter
             taxonomy_filters: Select filters for the component
+            taxonomy_filters_add: Add filter
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
