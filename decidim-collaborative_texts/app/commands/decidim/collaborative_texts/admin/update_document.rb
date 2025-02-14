@@ -16,7 +16,8 @@ module Decidim
             Decidim.traceability.update!(
               resource,
               current_user,
-              { title: form.title }
+              { title: form.title },
+              **extra_document_params
             )
           end
           return unless form.body != resource.body
@@ -24,8 +25,28 @@ module Decidim
           Decidim.traceability.update!(
             resource.current_version,
             current_user,
-            { body: form.body }
+            { body: form.body },
+            **extra_version_params
           )
+        end
+
+        def extra_document_params
+          {
+            extra: {
+              version_id: resource.current_version&.id,
+              version_number: resource.current_version&.version_number
+            }
+          }
+        end
+
+        def extra_version_params
+          {
+            extra: {
+              document_id: resource.id,
+              title: resource.title,
+              version_number: resource.current_version&.version_number
+            }
+          }
         end
       end
     end

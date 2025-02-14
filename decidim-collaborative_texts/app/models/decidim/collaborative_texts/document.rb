@@ -35,15 +35,15 @@ module Decidim
       end
 
       # Creates a new version of the document
-      def rollout!
+      def rollout!(new_body = nil)
         # TODO: ActionLog for this
-        document_versions.build(body: body)
+        document_versions.create!(body: new_body.presence || body)
       end
 
       private
 
       def save_version
-        current_version.save
+        current_version.save if current_version.changed?
       end
     end
   end

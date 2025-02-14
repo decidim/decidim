@@ -23,12 +23,8 @@ module Decidim
           Decidim::Log::ResourcePresenter.new(action_log.resource.document, h, "title" => action_log.resource.document.title).present
         end
 
-        def space_presenter
-          @space_presenter ||= Decidim::Log::SpacePresenter.new(
-            action_log.resource.document.participatory_space,
-            h,
-            "title" => action_log.resource.document.participatory_space.title
-          )
+        def i18n_labels_scope
+          "activemodel.attributes.collaborative_texts.version"
         end
 
         def i18n_params
@@ -41,8 +37,26 @@ module Decidim
 
         def diff_fields_mapping
           {
-            body: :string
+            body: :string,
+            version_number: :integer
           }
+        end
+
+        def changeset
+          Decidim::Log::DiffChangesetCalculator.new(
+            full_changeset,
+            diff_fields_mapping,
+            i18n_labels_scope
+          ).changeset
+        end
+
+        def full_changeset
+          action_log.version.changeset.tap do |changeset|
+            changeset[:version_number] = [
+              nil,
+              action_log.extra.dig("extra", "version_number")
+            ]
+          end
         end
       end
     end

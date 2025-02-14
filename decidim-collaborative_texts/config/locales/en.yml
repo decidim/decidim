@@ -1,5 +1,15 @@
 ---
 en:
+  activemodel:
+    attributes:
+      collaborative_texts:
+        document:
+          body: Body
+          title: Title
+          version_number: Version number
+        version:
+          body: Body
+          version_number: Version number
   decidim:
     collaborative_texts:
       actions:

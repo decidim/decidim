@@ -20,8 +20,13 @@ module Decidim
         def diff_fields_mapping
           {
             title: :string,
-            body: :string
+            body: :string,
+            version_number: :integer
           }
+        end
+
+        def i18n_labels_scope
+          "activemodel.attributes.collaborative_texts.document"
         end
 
         # adds the body from the version to the changeset
@@ -39,6 +44,12 @@ module Decidim
               changeset[:body] = [
                 nil,
                 action_log.resource.document_versions&.first&.body
+              ]
+              changeset[:version_number] = [nil, "1"]
+            else
+              changeset[:version_number] = [
+                nil,
+                action_log.extra.dig("extra", "version_number")
               ]
             end
           end
