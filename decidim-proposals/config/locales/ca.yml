@@ -14,7 +14,7 @@ ca:
         user_group_id: Crea un esborrany col·laboratiu com a
       proposal:
         address: Adreça
-        answer: Resposta
+        answer: Respondre
         answered_at: Respost el
         automatic_hashtags: Hashtags afegits automàticament
         body: Cos
@@ -27,7 +27,7 @@ ca:
         title: Títol
         user_group_id: Crea una proposta com a
       proposal_answer:
-        answer: Respondre
+        answer: Resposta
         cost: Cost
         cost_report: Informe de cost
         execution_period: Període d'execució
