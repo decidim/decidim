@@ -642,7 +642,6 @@ module Decidim
 
         Decidim.register_social_share_service("Douban") do |service|
           service.icon = "douban-line"
-          service.icon_color = "#2496cd"
           service.share_uri = "http://shuo.douban.com/!service/share?href=%{url}&name=%{title}&image=%{image}&sel=%{desc}"
         end
 
@@ -653,13 +652,11 @@ module Decidim
 
         Decidim.register_social_share_service("Facebook") do |service|
           service.icon = "facebook-circle-line"
-          service.icon_color = "#1877f2"
           service.share_uri = "http://www.facebook.com/sharer/sharer.php?u=%{url}"
         end
 
         Decidim.register_social_share_service("Google Bookmark") do |service|
           service.icon = "google-line"
-          service.icon_color = "#4285f4"
           service.share_uri = "https://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=%{url}&title=%{title}"
         end
 
@@ -670,7 +667,6 @@ module Decidim
 
         Decidim.register_social_share_service("LinkedIn") do |service|
           service.icon = "linkedin-box-fill"
-          service.icon_color = "#0a66c2"
           service.share_uri = "https://www.linkedin.com/shareArticle?mini=true&url=%{url}&title=%{title}&summary=%{desc}"
         end
 
@@ -681,32 +677,27 @@ module Decidim
 
         Decidim.register_social_share_service("Pinterest") do |service|
           service.icon = "pinterest-line"
-          service.icon_color = "#bd081c"
           service.share_uri = "http://www.pinterest.com/pin/create/button/?url=%{url}&media=%{image}&description=%{title}"
         end
 
         Decidim.register_social_share_service("Reddit") do |service|
           service.icon = "reddit-line"
-          service.icon_color = "#ff4500"
           service.share_uri = "http://www.reddit.com/submit?url=%{url}&newwindow=1"
         end
 
         Decidim.register_social_share_service("Telegram") do |service|
           service.icon = "telegram-line"
-          service.icon_color = "#0088cc"
           service.share_uri = "https://telegram.me/share/url?text=%{title}&url=%{url}"
         end
 
         Decidim.register_social_share_service("Twitter") do |service|
           service.icon = "twitter-line"
-          service.icon_color = "#1da1f2"
           service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
           service.optional_params = %w(hashtags via)
         end
 
         Decidim.register_social_share_service("X") do |service|
           service.icon = "twitter-x-line"
-          service.icon_color = "#000000"
           service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
           service.optional_params = %w(hashtags via)
         end
@@ -718,13 +709,11 @@ module Decidim
 
         Decidim.register_social_share_service("WhatsApp") do |service|
           service.icon = "whatsapp-line"
-          service.icon_color = "#25d366"
           service.share_uri = "https://api.whatsapp.com/send?text=%{title}%%0A%{url}"
         end
 
         Decidim.register_social_share_service("Xing") do |service|
           service.icon = "xing-line"
-          service.icon_color = "#cfdc00"
           service.share_uri = "https://www.xing.com/spi/shares/new?url=%{url}"
         end
       end

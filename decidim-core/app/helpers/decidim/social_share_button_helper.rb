@@ -34,7 +34,8 @@ module Decidim
         data:,
         title: t("decidim.shared.share_modal.share_to", service: service.name)
       ) do
-        render_social_share_icon(service) + content_tag(:span, service.name)
+        content_tag(:span, render_social_share_icon(service), class: "icon") +
+          content_tag(:span, service.name, class: "text")
       end
     end
 
@@ -42,7 +43,7 @@ module Decidim
       if service.icon.include? ".svg"
         image_tag service.icon_path, options.merge(alt: t("decidim.shared.share_modal.share_to", service: service.name))
       else
-        icon(service.icon, options.merge(ignore_missing: true, style: "color: #{service.icon_color};"))
+        icon(service.icon, options.merge(ignore_missing: true))
       end
     end
 
