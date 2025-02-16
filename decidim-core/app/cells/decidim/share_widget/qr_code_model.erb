@@ -2,7 +2,7 @@
   <div data-dialog-container>
     <div data-dialog-title>
       <%= icon "qr-code-line" %>
-      <h2 id="dialog-title-socialShare" tabindex="-1"><%= t(".qr_code") %></h2>
+      <h2 id="dialog-title-socialShare" tabindex="-1"><%= t("decidim.share_widget.qr_code") %></h2>
     </div>
     <div class="content">
       <div>
@@ -12,13 +12,13 @@
         <h2><%= title %></h2>
       </div>
       <div>
-        <img alt="<%= t(".qr_code") %>" src="data:;base64,<%= Base64.encode64(qr_code.as_png(size: 175).to_s) %>">
+        <img alt="<%= t("decidim.share_widget.qr_code") %>" src="data:;base64,<%= Base64.encode64(qr_code.as_png(size: 175).to_s) %>">
       </div>
     </div>
 
   </div>
   <div data-dialog-actions>
-    <a class="button button__sm lg:button__lg button__transparent-secondary">Print Poster</a>
-    <a class="button button__sm lg:button__lg button__secondary">Download</a>
+    <a class="button button__sm lg:button__lg button__transparent-secondary"><%= t("decidim.share_widget.print") %></a>
+    <a class="button button__sm lg:button__lg button__secondary"><%= t("decidim.share_widget.download") %></a>
   </div>
 <% end %>

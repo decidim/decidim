@@ -167,8 +167,6 @@ en:
         one: 1 second
         other: "%{count} seconds"
   decidim:
-    share_widget:
-      qr_code: QR Code
     accessibility:
       external_link: External link
       front_page_link: Go to front page
@@ -1786,6 +1784,10 @@ en:
       selfxss_warning:
         description: This browser feature is meant for developers and you should not paste anything here if you were asked to do so. Pasting content in this window can compromise your privacy and give hackers access to your account.
         title: Stop!
+    share_widget:
+      download: Download
+      print: Print Poster
+      qr_code: QR Code
     shared:
       confirm_modal:
         cancel: Cancel
@@ -1846,9 +1848,9 @@ en:
         title: Select number of results per page
       share_modal:
         copy_share_link: Copy
-        copy_share_link_cta: Or copy link
         copy_share_link_clarification: Copy share link to clipboard
         copy_share_link_copied: Copied!
+        copy_share_link_cta: Or copy link
         copy_share_link_message: The link was successfully copied to clipboard.
         share: Share with
         share_link: Share link
