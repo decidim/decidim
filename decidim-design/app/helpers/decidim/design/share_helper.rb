@@ -19,7 +19,7 @@ module Decidim
                 cell_snippet: {
                   cell: "decidim/share_widget",
                   args: [{}],
-                  call_string: 'cell("decidim/share_widget", resource)'
+                  call_string: 'cell("decidim/share_widget", resource, title: "Some text to be rendered")'
                 }
               }
             ]

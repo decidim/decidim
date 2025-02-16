@@ -3,7 +3,7 @@
   <%= cell "decidim/comments_button", nil %>
 
   <div class="ml-auto lg:ml-0">
-    <%= cell "decidim/share_widget", @proposal %>
+    <%= cell "decidim/share_widget", @proposal, title: present(@proposal).title %>
   </div>
 </section>
 

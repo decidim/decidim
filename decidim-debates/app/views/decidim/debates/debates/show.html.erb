@@ -74,7 +74,7 @@ edit_link(
 
     <%= cell "decidim/comments_button", nil %>
     <div class="ml-auto lg:ml-0">
-      <%= cell "decidim/share_widget", debate %>
+      <%= cell "decidim/share_widget", debate, title: present(debate).title  %>
     </div>
   </section>
   <%= cell "decidim/endorsers_list", debate %>

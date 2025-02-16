@@ -1,3 +1,49 @@
+.qr-modal {
+  @apply md:pb-8;
+
+  [data-dialog-title] {
+    @apply grid grid-cols-[auto_1fr] text-2xl text-black font-semibold focus:outline-none;
+
+    > svg {
+      @apply w-10 h-10 text-gray fill-current flex-none;
+    }
+
+    > :last-child {
+      @apply ml-1;
+    }
+  }
+
+  [data-dialog-container] {
+    @apply inline grid-cols-none;
+
+    .content {
+      @apply md:grid md:grid-cols-2 gap-5;
+
+      > * {
+        @apply mx-auto w-full mb-8;
+
+        &:first-child {
+          img {
+            @apply h-32;
+          }
+
+          h2 {
+            @apply mb-4 md:text-2xl text-center text-gray-2;
+          }
+        }
+
+        > * {
+          @apply mx-auto;
+        }
+      }
+    }
+  }
+
+  [data-dialog-actions] {
+    @apply mt-0;
+  }
+}
+
 .share-modal {
   @apply md:pb-16;
 
@@ -10,11 +56,11 @@
   }
 
   [data-dialog-title] {
-    @apply col-span-2 md:col-span-1 md:col-start-2 grid grid-cols-[auto_1fr] items-start md:items-center gap-2 pb-4 text-left text-xl text-gray-2 border-b border-gray;
+    @apply col-span-2 md:col-span-1 md:col-start-2 grid grid-cols-[auto_1fr] items-start md:items-center gap-2 pb-4 text-left text-xl text-gray-2 lg:border-b lg:border-gray-3;
   }
 
   &__list {
-    @apply my-6 grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-6 max-w-96 mx-auto text-secondary;
+    @apply my-6 grid grid-cols-4 md:grid-cols-5 gap-3 md:gap-6 max-w-96 mx-auto text-secondary;
 
     > a {
       @apply text-center;

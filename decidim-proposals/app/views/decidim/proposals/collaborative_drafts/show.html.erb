@@ -58,7 +58,7 @@
   <section class="layout-main__section layout-main__buttons" data-buttons>
     <%= cell "decidim/comments_button", nil %>
     <div class="ml-auto lg:ml-0">
-      <%= cell "decidim/share_widget", @collaborative_draft %>
+      <%= cell "decidim/share_widget", @collaborative_draft, title: present(@collaborative_draft).title(links: true, html_escape: true) %>
     </div>
   </section>
 

@@ -11,6 +11,10 @@ module Decidim
       render
     end
 
+    def title
+      options[:title]
+    end
+
     private
 
     def resource_url

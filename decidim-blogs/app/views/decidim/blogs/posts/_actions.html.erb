@@ -4,7 +4,7 @@
   <%= cell "decidim/comments_button", nil %>
 
   <div class="ml-auto lg:ml-0">
-    <%= cell "decidim/share_widget", post %>
+    <%= cell "decidim/share_widget", post, title: decidim_escape_translated(post.title) %>
   </div>
 </section>
 

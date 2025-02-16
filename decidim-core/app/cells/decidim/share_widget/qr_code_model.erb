@@ -1,7 +1,24 @@
-<%= decidim_modal id: "QRCodeDialog", class: "share-modal" do %>
+<%= decidim_modal id: "QRCodeDialog", class: "qr-modal" do %>
   <div data-dialog-container>
-    <%= icon "qr-code-line" %>
-    <h2 id="dialog-title-socialShare" tabindex="-1" data-dialog-title><%= t(".qr_code") %></h2>
-    <img alt="<%= t(".qr_code") %>" src="data:;base64,<%= Base64.encode64(qr_code.as_png(size: 175).to_s) %>">
+    <div data-dialog-title>
+      <%= icon "qr-code-line" %>
+      <h2 id="dialog-title-socialShare" tabindex="-1"><%= t(".qr_code") %></h2>
+    </div>
+    <div class="content">
+      <div>
+        <% if current_organization.logo.attached? %>
+          <%= image_tag current_organization.attached_uploader(:logo).variant_url(:medium), alt: t("logo", scope: "decidim.accessibility", organization: current_organization_name) %>
+        <% end %>
+        <h2><%= title %></h2>
+      </div>
+      <div>
+        <img alt="<%= t(".qr_code") %>" src="data:;base64,<%= Base64.encode64(qr_code.as_png(size: 175).to_s) %>">
+      </div>
+    </div>
+
+  </div>
+  <div data-dialog-actions>
+    <a class="button button__sm lg:button__lg button__transparent-secondary">Print Poster</a>
+    <a class="button button__sm lg:button__lg button__secondary">Download</a>
   </div>
 <% end %>

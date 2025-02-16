@@ -210,7 +210,7 @@ edit_link(
     <%= cell "decidim/comments_button", nil, display: current_initiative.commentable? && current_initiative.published? %>
   <% end %>
   <div class="ml-auto lg:ml-0">
-    <%= cell "decidim/share_widget", current_initiative %>
+    <%= cell "decidim/share_widget", current_initiative, title: decidim_escape_translated(current_initiative.title) %>
   </div>
 </section>
 
