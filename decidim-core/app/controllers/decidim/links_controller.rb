@@ -6,16 +6,28 @@ module Decidim
   class LinksController < Decidim::ApplicationController
     skip_before_action :store_current_location
 
+    include Decidim::OrganizationHelper
+    include Decidim::QrCodeHelper
     helper Decidim::ExternalDomainHelper
     helper_method :external_url
 
-    before_action :parse_url
+    before_action :parse_url, only: :new
+
     rescue_from Decidim::InvalidUrlError, with: :modal
     rescue_from URI::InvalidURIError, with: :modal
+
+    layout false, only: :qr
 
     def new
       headers["X-Robots-Tag"] = "none"
       headers["Link"] = %(<#{url_for}>; rel="canonical")
+    end
+
+    def qr
+      respond_to do |format|
+        format.html
+        format.png { send_data(qr_code.as_png(size: 480), filename: "qr-#{organization_name}.png") }
+      end
     end
 
     private
@@ -34,6 +46,10 @@ module Decidim
       raise Decidim::InvalidUrlError if params[:external_url].blank?
       raise Decidim::InvalidUrlError unless external_url
       raise Decidim::InvalidUrlError unless %w(http https).include?(external_url.scheme)
+    end
+
+    def resource
+      @resource ||= GlobalID::Locator.locate_signed(params[:resource])
     end
 
     def external_url

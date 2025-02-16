@@ -145,6 +145,7 @@ Decidim::Core::Engine.routes.draw do
   get "/search", to: "searches#index", as: :search
 
   get "/link", to: "links#new", as: :link
+  get "/qr-code", to: "links#qr", as: :qr
 
   get "/static_map", to: "static_map#show", as: :static_map
   put "/pages/terms-of-service/accept", to: "tos#accept_tos", as: :accept_tos

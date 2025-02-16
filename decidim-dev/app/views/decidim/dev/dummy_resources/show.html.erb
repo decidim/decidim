@@ -17,7 +17,7 @@
     <section class="layout-main__section layout-main__buttons" data-buttons>
       <%= cell "decidim/comments_button", nil %>
       <div class="ml-auto">
-        <%= cell "decidim/share_widget", @commentable, title: decidim_escape_translated(@commentable.title) %>
+        <%= cell "decidim/share_widget", @commentable %>
       </div>
     </section>
   <% end %>

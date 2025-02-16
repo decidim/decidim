@@ -12,5 +12,16 @@ module Decidim
                     Decidim::UserPresenter.new(super)
                   end
     end
+
+
+    def initiative
+      __getobj__
+    end
+
+    def title(links: false, html_escape: false, all_locales: false)
+      return unless initiative
+
+      super(initiative.title, links, html_escape, all_locales)
+    end
   end
 end

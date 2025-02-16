@@ -18,7 +18,9 @@
 
   </div>
   <div data-dialog-actions>
-    <a class="button button__sm lg:button__lg button__transparent-secondary"><%= t("decidim.share_widget.print") %></a>
-    <a class="button button__sm lg:button__lg button__secondary"><%= t("decidim.share_widget.download") %></a>
+    <%= link_to t("decidim.share_widget.print"), decidim.qr_path(resource: model.to_sgid.to_s),
+                class: "button button__sm lg:button__lg button__transparent-secondary" %>
+    <%= link_to t("decidim.share_widget.download"), decidim.qr_path(resource: model.to_sgid.to_s, format: :png),
+                class: "button button__sm lg:button__lg button__secondary" %>
   </div>
 <% end %>
