@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+<head>
+  <meta charset="utf-8">
+  <title><%= t("decidim.share_widget.qr_code") %></title>
+  <%= stylesheet_pack_tag "decidim_qr", media: "all" %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+</head>
+<body>
+  <h2><%= resource.presenter.title(html_escape: true) %></h2>
+
+  <div class="card__grid-img">
+    <% if resource.respond_to?(:attachments) && resource.attachments.first&.url %>
+      <%= image_tag resource.attachments.first&.url, alt: resource.presenter.title(html_escape: true) %>
+    <% else %>
+      <%= external_icon "media/images/proposal-placeholder-card-g.svg", class: "card__proposal-placeholder-g" %>
+    <% end %>
+  </div>
+
+  <h3>Scan the QR code</h3>
+  <div>
+    <img alt="<%= t("decidim.share_widget.qr_code") %>" src="data:;base64,<%= Base64.encode64(qr_code.as_png(size: 175).to_s) %>">
+  </div>
+
+    <div class="logo">
+      <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+    </div>
+</body>
+</html>

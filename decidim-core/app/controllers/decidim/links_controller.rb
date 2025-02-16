@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "rqrcode"
+
 module Decidim
   class InvalidUrlError < StandardError; end
 
@@ -9,7 +11,7 @@ module Decidim
     include Decidim::OrganizationHelper
     include Decidim::QrCodeHelper
     helper Decidim::ExternalDomainHelper
-    helper_method :external_url
+    helper_method :external_url, :resource, :qr_code
 
     before_action :parse_url, only: :new
 
