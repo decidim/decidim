@@ -55,7 +55,6 @@ lt:
         with_participatory_space: Dalyvaujamoji erdvė
       decidim/user:
         current_password: Dabartinis slaptažodis
-        email: El. paštas
         name: Slapyvardis
         password: Slaptažodis
         password_confirmation: Slaptažodžio patvirtinimas
@@ -604,7 +603,6 @@ lt:
           username_help: Viešas vardas, kuris bus rodomas jūsų įrašuose. Tai gali būti bet koks vardas, nes siekame užtikrinti anonimiškumą.
       sessions:
         new:
-          are_you_new?: Naujas platformos naudotojas?
           register: Sukurti paskyrą
           sign_in_disabled: Galite prisijungti su išorine paskyra.
       shared:
@@ -624,8 +622,6 @@ lt:
             suprantame jūsų sprendimą.</p>
             <p>Ačiū, kad tai perskaitėte!</p>
           title: Pranešimai apie naujienlaiškį (-ius)
-        omniauth_buttons:
-          or: Arba
     doorkeeper:
       authorizations:
         new:
