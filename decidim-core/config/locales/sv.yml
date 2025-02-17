@@ -59,7 +59,6 @@ sv:
         with_participatory_space: Deltagarutrymme
       decidim/user:
         current_password: Nuvarande lösenord
-        email: E-post
         name: Användarnamn
         password: Lösenord
         password_confirmation: Lösenordsbekräftelse
@@ -609,7 +608,6 @@ sv:
           username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymiteten kan det vara vilket namn som helst.
       sessions:
         new:
-          are_you_new?: Ny här?
           register: Skapa ett konto
           sign_in_disabled: Du kan få åtkomst via ett externt konto.
           sign_up_disabled: Registrering har inaktiverats, du kan endast logga in med ett befintligt konto.
@@ -628,8 +626,6 @@ sv:
             Om du fortfarande inte vill få några nyhetsbrev, förstår vi ditt beslut helt.</p>
             <p>Tack så mycket!</p>
           title: Notiser till nyhetsbrev
-        omniauth_buttons:
-          or: Eller
         password_fields:
           hidden_password: Ditt lösenord är dolt
           hide_password: Dölj lösenord
