@@ -8,7 +8,11 @@ Decidim.register_component(:meetings) do |component|
   component.permissions_class_name = "Decidim::Meetings::Permissions"
 
   component.query_type = "Decidim::Meetings::MeetingsType"
-  component.data_portable_entities = ["Decidim::Meetings::Registration"]
+  component.data_portable_entities = [
+    "Decidim::Meetings::Registration",
+    "Decidim::Meetings::Invite",
+    "Decidim::Meetings::Meeting"
+  ]
 
   component.on(:before_destroy) do |instance|
     raise StandardError, "Cannot remove this component" if Decidim::Meetings::Meeting.where(component: instance).any?

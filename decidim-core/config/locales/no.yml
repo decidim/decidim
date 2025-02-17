@@ -65,6 +65,8 @@
     'false': 'Nei'
     'true': 'Ja'
   date:
+    buttons:
+      select: Velg
     formats:
       decidim_short: "%d.%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -243,10 +245,8 @@
       dummy_authorization_handler:
         fields:
           allowed_postal_codes: Godkjente postnr (adskilt med komma)
-          allowed_scope_id: Tillatt tema
           document_number: Dokumentnummer
           postal_code: Postnummer
-          scope_id: Tema
         name: Eksempel autorisering
       dummy_authorization_workflow:
         name: Dummy autoriserings arbeidskraft
@@ -328,8 +328,6 @@
             dummy_global_translatable_text: Dummy Oversettbar tekst
             enable_pads_creation: Aktiver oppretting av pads
             resources_permissions_enabled: Ressurs tillatelser aktivert
-            scope_id: Tema
-            scopes_enabled: Aktiverte temaer
           step:
             amendment_creation_enabled: Oppretting av endringer aktivert
             amendment_promotion_enabled: Forfremmelse av endringer aktivert
@@ -943,16 +941,7 @@
         error: Det oppstod et problem under påtegning.
     scopes:
       global: Alle tema
-      picker:
-        cancel: Avbryt
-        change: Endre valgt tema
-        choose: Velg
-        currently_selected: Nåværende valgt tema
-        title: Velg %{field}
       prompt: Velg et tema
-      scopes: Tema
-      scopes_picker_input:
-        select_scope: 'Velg et tema (for øyeblikket: %{current})'
     search:
       results: Søkeresultater
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
@@ -1049,13 +1038,6 @@
         send: Send
       update:
         error: Melding ikke sendt. Prøv igjen senere
-    user_interests:
-      show:
-        my_interests: Mine interesser
-        update_my_interests: Oppdater interessene mine
-      update:
-        error: Det oppstod et problem med å oppdatere interessene dine.
-        success: Interessene dine er oppdatert.
     user_report_mailer:
       notify:
         body_1: Brukeren %{user} er rapportert av %{token}
@@ -1260,7 +1242,6 @@
         authorizations: Fullmakter
         delete_my_account: Slett kontoen min
         my_data: Min data
-        my_interests: Mine interesser
         notifications_settings: Varslingsinnstillinger
         title: Deltaker innstillinger
         user_groups: Grupper
@@ -1302,6 +1283,8 @@
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Velg
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

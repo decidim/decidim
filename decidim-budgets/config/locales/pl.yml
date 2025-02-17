@@ -179,7 +179,6 @@ pl:
           selected_projects: 'Wybrane przez Ciebie projekty to:'
           subject: Zagłosowałeś(-aś) w przestrzeni partycypacyjnej %{space_name}
           voted_on_space: Zagłosowałeś na budżet %{budget_name} w przestrzeni partycypacyjnej %{space_name}.
-          voted_on_space_with_scope: Zagłosowałeś na budżet %{budget_name} w przestrzeni partycypacyjnej %{space_name} w %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Jeśli zmienisz zdanie, możesz zmienić swój głos później.
@@ -293,8 +292,6 @@ pl:
             more_information_modal: Więcej informacji
             projects_per_page: Projektów na stronie
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego projektu
-            scope_id: Zakres
-            scopes_enabled: Zakresy włączone
             title: Tytuł
             total_budget: Całkowity budżet
             vote_minimum_budget_projects_number: Minimalna liczba projektów, na które można głosować

@@ -83,7 +83,7 @@ bs:
     messages:
       invalid_time_zone: nije validna vremenska zona
   locale:
-    name: Srpski
+    name: Bosanski
   time:
     formats:
       long_dashed: "%d-%m-%Y %H:%M:%S"

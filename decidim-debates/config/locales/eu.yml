@@ -42,8 +42,6 @@ eu:
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
-            scope_id: Esparrua
-            scopes_enabled: Esparruak gaituta
             taxonomy_filters: Hautatu iragazkiak osagairako
             taxonomy_filters_add: Erantsi iragazkia
           step:
@@ -87,7 +85,7 @@ eu:
             single_column: 'Zutabe bakarra: iruzkinak hurrenkera kronologikoan agertzen dira eta erantzunak izan ditzakete.'
             two_columns: 'Bi zutabe: iruzkinak "Alde" eta "Kontra" zutabeetan agertzen dira eta ezin dute erantzunik izan.'
           index:
-            title: eztabaidak
+            title: Eztabaidak
           manage_trash:
             title: Ezabatutako eztabaidak
           new:
@@ -101,7 +99,7 @@ eu:
           debates: Eztabaidak
       admin_log:
         debate:
-          close: "%{user_name} parte-hartzaileak %{resource_name} eztabaida sortu du %{space_name} esparruan"
+          close: "%{user_name} parte-hartzaileak %{resource_name} eztabaida sortu du %{space_name} espazioan"
           create: "%{user_name} parte-hartzaileak %{resource_name} eztabaida sortu du %{space_name} espazioan"
           restore: "%{user_name} parte-hartzaileak berreskuratu du %{resource_name} eztabaida %{space_name} espazioan"
           soft_delete: "%{user_name} parte-hartzaileak eraman du %{space_name} espazioko %{resource_name} eztabaida zaborrontzira"
@@ -123,7 +121,7 @@ eu:
         count:
           debates_count:
             one: "%{count} eztabaida"
-            other: "%{count} eztabaidak"
+            other: "%{count} eztabaida"
         create:
           invalid: Arazo bat egon da eztabaida sortzean.
           success: Debate sortu da behar bezala.
@@ -165,7 +163,7 @@ eu:
         show:
           close_debate: Itxi
           debate_closed: Itxita
-          debate_conclusions_are: 'Eztabaida %{date} egunean itxi zen ondorio hauekin:'
+          debate_conclusions_are: 'Eztabaida %{date} espazioan itxi da ondorio hauekin:'
           edit_conclusions: Editatu ondorioak
           edit_debate: Editatu
           groups_count: Taldeak
@@ -211,22 +209,22 @@ eu:
         creation_disabled:
           email_intro: 'Eztabaida sortzea dagoeneko ez dago aktibo %{participatory_space_title}. Oraindik irekita dauden eztabaidetan parte har dezakezu orri honetatik:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
-          email_subject: Debate sortzea desgaituta %{participatory_space_title}
+          email_subject: Eztabaida sortzea desgaituta %{participatory_space_title}
           notification_title: Eztabaiden sorrera orain desaktibatuta dago <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Oraineztabaida berriak hasi ditzakezu hemen: %{participatory_space_title}! Hasi parte-hartzea orri honetan:'
+          email_intro: 'Orain eztabaida berriak hasi ditzakezu hemen: %{participatory_space_title}! Hasi parte-hartzea orri honetan:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
           email_subject: 'Eztabaidak orain eskuragarri hemen: %{participatory_space_title}'
           notification_title: 'Orain <a href="%{resource_path}">eztabaida berriak hasi ditzakezu hemen: </a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
         debate_closed:
           affected_user:
             email_intro: '"%{resource_title}" eztabaida itxi egin da. Ondorioak bere orrialdean irakur ditzakezu:'
-            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" eztabaida jarraitzen ari zarelako. Aurreko loturan utzi ahal diozu jarraitzeari.
+            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" eztabaida jarraitzen ari zarelako. Aurreko estekan utzi ahal diozu jarraitzeari.
             email_subject: '"%{resource_title}" eztabaida itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida itxi egin da.
           follower:
             email_intro: '"%{resource_title}" eztabaida itxi egin da. Ondorioak bere orrialdean irakur ditzakezu:'
-            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" eztabaida jarraitzen ari zarelako. Aurreko loturan utzi ahal diozu jarraitzeari .
+            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" eztabaida jarraitzen ari zarelako. Aurreko estekan utzi ahal diozu jarraitzeari.
             email_subject: '"%{resource_title}" eztabaida itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida itxi egin da.
     gamification:
@@ -245,7 +243,7 @@ eu:
       debates:
         description: Sortutako eztabaida kopurua
         object: eztabaidak
-        title: eztabaidak
+        title: Eztabaidak
     open_data:
       help:
         debate_comments:

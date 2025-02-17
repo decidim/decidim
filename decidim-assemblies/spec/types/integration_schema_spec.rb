@@ -18,10 +18,10 @@ describe "Decidim::Api::QueryType" do
       "area" => nil,
       "assemblyType" => {
         "assemblies" => assembly.assembly_type.assemblies.map { |a| { "id" => a.id.to_s } },
-        "createdAt" => assembly.assembly_type.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+        "createdAt" => assembly.assembly_type.created_at.to_time.iso8601,
         "id" => assembly.assembly_type.id.to_s,
         "title" => { "translation" => assembly.assembly_type.title[locale] },
-        "updatedAt" => assembly.assembly_type.updated_at.iso8601.to_s.gsub("Z", "+00:00")
+        "updatedAt" => assembly.assembly_type.updated_at.to_time.iso8601
       },
       "attachments" => [],
       "categories" => [],
@@ -31,7 +31,7 @@ describe "Decidim::Api::QueryType" do
       "closingDateReason" => { "translation" => assembly.closing_date_reason[locale] },
       "components" => [],
       "composition" => { "translation" => assembly.composition[locale] },
-      "createdAt" => assembly.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "createdAt" => assembly.created_at.to_time.iso8601,
       "createdBy" => assembly.created_by,
       "createdByOther" => { "translation" => assembly.created_by_other[locale] },
       "creationDate" => assembly.creation_date.to_date.to_s,
@@ -55,7 +55,7 @@ describe "Decidim::Api::QueryType" do
       "participatoryStructure" => { "translation" => assembly.participatory_structure[locale] },
       "privateSpace" => assembly.private_space?,
       "promoted" => assembly.promoted?,
-      "publishedAt" => assembly.published_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "publishedAt" => assembly.published_at.to_time.iso8601,
       "purposeOfAction" => { "translation" => assembly.purpose_of_action[locale] },
       "reference" => assembly.reference,
       "taxonomies" => [{ "id" => taxonomy.id.to_s, "name" => { "translation" => taxonomy.name[locale] }, "parent" => { "id" => taxonomy.parent_id.to_s }, "children" => taxonomy.children.map { |child| { "id" => child.id.to_s } } }],
@@ -67,7 +67,7 @@ describe "Decidim::Api::QueryType" do
       "title" => { "translation" => assembly.title[locale] },
       "twitterHandler" => assembly.twitter_handler,
       "type" => assembly.class.name,
-      "updatedAt" => assembly.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "updatedAt" => assembly.updated_at.to_time.iso8601,
       "youtubeHandler" => assembly.youtube_handler
 
     }

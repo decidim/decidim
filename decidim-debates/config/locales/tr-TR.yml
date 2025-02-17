@@ -31,8 +31,6 @@ tr:
             announcement: duyuru
             comments_enabled: Yorumlar etkin
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
-            scope_id: Kapsam
-            scopes_enabled: Kapsamlar etkinleştirildi
           step:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi

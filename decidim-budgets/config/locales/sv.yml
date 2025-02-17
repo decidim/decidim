@@ -17,6 +17,10 @@ sv:
         scope_id: Indelning
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: 'Lades till den här budgeten: %{link}'
       decidim/budgets/budget:
         one: Budget
         other: Budgetar
@@ -25,6 +29,9 @@ sv:
         other: Projekt
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Projekt
       filters:
         projects:
           selected_at_null:
@@ -32,10 +39,15 @@ sv:
             values:
               'false': Valda för genomförande
               'true': Inte valda för genomförande
+          taxonomies_part_of_contains:
+            label: Kategorisering
     budgets:
       actions:
         attachment_collections: Mappar
         attachments: Bilagor
+        confirm_delete_budget: Är du säker på att du vill ta bort budgeten?
+        confirm_delete_project: Är du säker på att du vill radera projektet?
+        deleted_budgets_info: Raderade budgetar kan återställas från papperskorgen.
         edit: Redigera
         edit_projects: Hantera projekt
         import: Importera förslag till projekt
@@ -44,6 +56,8 @@ sv:
         preview: Förhandsvisa
         send_voting_reminders: Skicka påminnelser om att rösta
         title: Åtgärder
+        view_deleted_budgets: Visa raderade budgetar
+        view_deleted_projects: Visa raderade projekt
       admin:
         budgets:
           create:
@@ -58,6 +72,8 @@ sv:
             title: Budgetar
             users_with_finished_orders: Användare med färdiga omröstningar
             users_with_pending_orders: Användare med väntande omröstningar
+          manage_trash:
+            title: Raderade budgetar
           new:
             create: Skapa budget
             title: Ny budget
@@ -83,6 +99,7 @@ sv:
             cancel: Avbryt
             change_budget: Ändra budget
             change_selected: Ändra status
+            change_taxonomies: Ändra kategorier
             deselect_implementation: Välj bort från genomförande
             finished_orders: Avslutade omröstningar
             pending_orders: Pågående omröstningar
@@ -94,6 +111,8 @@ sv:
             title: Projekt
             update: Uppdatera
             update_budget_button: Uppdatera projektets budget
+          manage_trash:
+            title: Raderade projekt
           new:
             create: Skapa
             title: Nytt projekt
@@ -101,10 +120,23 @@ sv:
             invalid: Det gick inte att uppdatera projektet.
             success: Projektet har uppdaterats.
           update_budget:
+            invalid: 'Projekten ingår redan i samma budget eller överstiger det maximala beloppet: %{errored}.'
             select_a_project: Välj ett projekt.
+            success: 'Projekten till budgeten %{subject_name} har uppdaterats: %{successful}.'
           update_selected:
+            invalid:
+              selected: 'De här projekten har redan valts för genomförande: %{errored}.'
+              unselected: 'Projekten har redan valts bort för genomförande: %{errored}.'
             select_a_project: Välj ett projekt.
             select_a_selection: Välj status för genomförandet.
+            success:
+              selected: 'Projekten har valts för genomförande: %{successful}.'
+              unselected: 'Projekten har valts bort från genomförande: %{successful}.'
+          update_taxonomies:
+            invalid: 'Kategorierna %{taxonomies} har redan lagts till de här projekten: %{errored}.'
+            select_a_project: Välj ett projekt.
+            select_a_taxonomy: Välj en kategori.
+            success: 'Projekt som tilldelats kategorin %{taxonomies}: %{successful}.'
         proposals_imports:
           create:
             invalid: Det gick inte att importera förslagen till projekten.
@@ -127,10 +159,14 @@ sv:
         budget:
           create: "%{user_name} skapade budgeten %{resource_name} i utrymmet %{space_name}"
           delete: "%{user_name} raderade budgeten %{resource_name} i utrymmet %{space_name}"
+          restore: "%{user_name} återställde budgeten %{resource_name} för %{space_name}"
+          soft_delete: "%{user_name} flyttade budgeten %{resource_name} för %{space_name} till papperskorgen"
           update: "%{user_name} uppdaterade budgeten %{resource_name} i utrymmet %{space_name}"
         project:
           create: "%{user_name} skapade projektet %{resource_name} i utrymmet %{space_name}"
           delete: "%{user_name} raderade projektet %{resource_name} i utrymmet %{space_name}"
+          restore: "%{user_name} återställde projektet %{resource_name} för %{space_name}"
+          soft_delete: "%{user_name} flyttade projektet %{resource_name} för %{space_name} till papperskorgen"
           update: "%{user_name} uppdaterade projektet %{resource_name} i utrymmet %{space_name}"
       budget_information_modal:
         back_to: Tillbaka till %{component_name}
@@ -160,6 +196,8 @@ sv:
         vote: Rösta
         voted_budgets: Budgetar som röstats i
         voted_on: Du har röstat på %{links}.
+      creation:
+        text: Lades till den här budgeten
       last_activity:
         new_vote_at: Ny röst i budget
       limit_announcement:
@@ -175,16 +213,28 @@ sv:
           fields:
             id: ID
             map: Karta
+            taxonomies: Kategorisering
             title: Titel
       order:
         status:
+          continue_voting: Fortsätt rösta
+          download_vote: Ladda ner din röst
+          pending_to_vote_budgets:
+            one: Du kan rösta i en till budget
+            other: Du kan rösta i fler budgetar
+          share_vote: Dela din röst
           title: Din röst har tagits emot
+          view_votes:
+            one: Visa röst
+            other: Visa röster
+          votes_count:
+            one: Din röst på %{budget_name} har redan registrerats.
+            other: Dina %{count} röster för %{budget_name} har redan registrerats.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Du har valt följande projekt:'
           subject: Du har röstat i %{space_name}
           voted_on_space: Du har röstat på budgeten %{budget_name} i %{space_name}.
-          voted_on_space_with_scope: Du har röstat på budgeten %{budget_name} i %{space_name} för %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Om du ändrar dig kan du ändra rösten senare.
@@ -287,8 +337,10 @@ sv:
         settings:
           global:
             announcement: Meddelande
+            clear_all: Återställ
             comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
+            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
             form:
               errors:
                 budget_voting_rule_only_one: Endast en röstningsregel kan vara aktiverad.
@@ -296,10 +348,11 @@ sv:
             geocoding_enabled: Aktivera visning på karta
             landing_page_content: Landningssida för budgetar
             more_information_modal: Fönster "Mer information"
+            no_taxonomy_filters_found: Inga filter för kategorier hittades.
             projects_per_page: Projekt per sida
             resources_permissions_enabled: Behörigheter kan ställas in för varje projekt
-            scope_id: Indelning
-            scopes_enabled: Aktivera indelningar
+            taxonomy_filters: Välj filter för komponenten
+            taxonomy_filters_add: Lägg till filter
             title: Titel
             total_budget: Total budget
             vote_minimum_budget_projects_number: Minsta antal projekt att rösta på

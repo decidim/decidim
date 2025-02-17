@@ -188,11 +188,9 @@ fr-CA:
           postal_codes:
             one: La participation est réservée aux utilisateurs avec le code postal %{postal_codes}.
             other: 'La participation est réservée aux utilisateurs avec l''un des codes postaux suivants: %{postal_codes}.'
-          scope: La participation est réservée aux participants ayant la portée %{scope_name}.
           user_postal_codes:
             one: La participation est réservée aux participants avec le code postal %{postal_codes}, et votre code postal est %{user_postal_code}.
             other: 'La participation est réservée aux participants avec l''un des codes postaux suivants : %{postal_codes}. Votre code postal est %{user_postal_code}.'
-          user_scope: La participation est réservée aux participants ayant le secteur %{scope_name}, et votre secteur est %{user_scope_name}.
       id_documents:
         admin:
           config:

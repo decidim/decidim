@@ -155,7 +155,6 @@ zh-TW:
           selected_projects: '你選擇的專案如下：'
           subject: 您已經在 %{space_name} 參與空間投票
           voted_on_space: 您已對「%{space_name}」參與空間的「%{budget_name}」預算進行投票。
-          voted_on_space_with_scope: 您已在%{scope_type} 的%{scope_name} 中，對%{space_name} 參與空間的%{budget_name} 預算進行了投票。
       projects:
         budget_confirm:
           are_you_sure: 如果您改變了主意，稍後可以更改您的選票。
@@ -242,8 +241,6 @@ zh-TW:
             more_information_modal: 更多資訊彈出式視窗
             projects_per_page: 每頁顯示專案
             resources_permissions_enabled: 可為每個專案設定動作權限
-            scope_id: 範圍
-            scopes_enabled: 啟用範圍
             title: 標題
             total_budget: 總預算
             vote_minimum_budget_projects_number: 最少需要投票的專案數量

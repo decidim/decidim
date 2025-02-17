@@ -28,9 +28,6 @@ sv:
         promoted: Utvald
         published_at: Publicerad
         related_process_ids: Relaterade processer
-        scope_id: Indelning
-        scope_type_max_depth_id: Djup på filter
-        scopes_enabled: Aktivera indelningar
         short_description: Kort beskrivning
         slug: URL-slug
         start_date: Startdatum
@@ -271,6 +268,9 @@ sv:
         create:
           error: Det gick inte att skapa en ny grupp för processer.
           success: Gruppen har skapats.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Alla deltagandeprocesser
       titles:
         participatory_process_groups: Grupper av deltagandeprocesser
         participatory_process_types: Typer av deltagandeprocesser
@@ -436,14 +436,11 @@ sv:
             announcement_help: Den här texten visas direkt under informationen om processen.
             define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
             duration: Varaktighet
-            filters: Filter
             images: Bilder
             metadata: Metadata
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
             private_notice: Du kommer att kunna hantera medlemmar om processen gjorts privat
             related_processes: Relaterade processer
-            scope_type_max_depth_help: Begränsa djupet på filtret för indelningen.
-            select_an_area: Välj ett område
             select_process_group: Välj en grupp av processer
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
             taxonomies: Kategorisering

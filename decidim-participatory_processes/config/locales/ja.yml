@@ -28,9 +28,6 @@ ja:
         promoted: プロモート
         published_at: 公開日時
         related_process_ids: 関連する参加型プロセス
-        scope_id: スコープ
-        scope_type_max_depth_id: スコープフィルタの深さ
-        scopes_enabled: スコープは有効です
         short_description: 短い説明
         slug: URL スラグ
         start_date: 開始日
@@ -268,6 +265,9 @@ ja:
         create:
           error: 新しい参加型プロセスグループの作成中に問題が発生しました。
           success: 参加型プロセスグループを作成しました。
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: すべての参加型プロセス
       titles:
         participatory_process_groups: 参加型プロセスグループ
         participatory_process_types: 参加型プロセス種別
@@ -440,14 +440,11 @@ ja:
             announcement_help: ここに入力したテキストは、参加型プロセス情報のすぐ下にユーザーに表示されます。
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 期間
-            filters: フィルタ
             images: 画像
             metadata: メタデータ
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             private_notice: プライベートとして設定した後、メンバーを管理することができます
             related_processes: 関連する参加型プロセス
-            scope_type_max_depth_help: スコープフィルターの深さを制限します。フィルターは、一般から選択したスコープタイプに表示されます。
-            select_an_area: エリアを選択
             select_process_group: 参加型プロセス グループを選択
             slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             taxonomies: タクソノミー

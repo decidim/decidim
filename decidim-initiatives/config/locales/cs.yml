@@ -142,17 +142,24 @@ cs:
           name: Typ iniciativy
         initiatives_votes:
           fields:
+            date_and_time: Datum a čas
             date_of_birth: Datum narození
             document_number: Číslo dokumentu
             hash: Hash
             initiative_end_date: Datum ukončení
             initiative_id: ID iniciativy
+            initiative_scope: Rozsah
             initiative_signatures_count: Počet podpisů
             initiative_start_date: Počáteční datum
             initiative_title: Název iniciativy
             name_and_surname: Jméno a příjmení
+            nickname: Přezdívka
             postal_code: Poštovní směrovací číslo
+            signature_count: Počet podpisů
             timestamp: Časové razítko
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: Všechny iniciativy
       titles:
         initiatives: Iniciativy
         initiatives_types: Typy iniciativ
@@ -444,7 +451,10 @@ cs:
           email_subject: "%{applicant_nickname} se chce připojit k vaší iniciativě"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> požádal o funkci ve výboru vaší iniciativy <a href="%{resource_url}">%{resource_title}</a>. Chcete-li přijmout nebo odmítnout <a href="%{resource_url}/edit">, klepněte zde</a>.
       form:
+        add_attachments: Přidat přílohy
         add_image: Přidat obrázek
+        attachment_legend: Přidat dokument nebo obrázek
+        edit_attachments: Upravit přílohy
         edit_image: Upravit obrázek
         image_legend: "(Volitelné) Přidat obrázek"
       index:

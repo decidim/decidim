@@ -20,8 +20,6 @@ ru:
         promoted: Рекомендуется
         published_at: 'Обнародовано:'
         related_process_ids: Подобные движения
-        scope_id: Охват
-        scopes_enabled: Охваты включены
         short_description: Краткое описание
         slug: Сокращенный веб-адрес
         start_date: Дата начала

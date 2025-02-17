@@ -156,8 +156,6 @@ lt:
             proposal_limit: Pasiūlymų skaičiaus limitas vienam dalyviui
             proposal_wizard_step_1_help_text: Pasiūlymo vedlio etapo „Sukurti“ pagalbos tekstas
             resources_permissions_enabled: Kiekvienam pasiūlymui galima nustatyti leistinus veiksmus
-            scope_id: Apimtis
-            scopes_enabled: Sritys įjungtos
             threshold_per_proposal: Vienam pasiūlymui nustatyta riba
           step:
             amendment_creation_enabled: Pataisų kūrimas leidžiamas

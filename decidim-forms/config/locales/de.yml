@@ -41,6 +41,7 @@ de:
         models:
           components:
             allow_answers: Antworten zulassen
+            allow_editing_answers: Registrierten Benutzern die Bearbeitung eigener Umfrageantworten ermöglichen
             allow_unregistered: Nicht registrierten Benutzern erlauben, die Umfrage zu beantworten
             allow_unregistered_help: Wenn aktiviert, ist keine Anmeldung erforderlich, um die Umfrage zu beantworten. Dies kann zu schlechten oder unzuverlässigen Daten führen und ist anfälliger für automatisierte Angriffe. Verwenden Sie diese Funktion mit Vorsicht! Beachten Sie, dass ein Teilnehmer die gleiche Umfrage mehrfach beantworten kann, indem er verschiedene Browser oder die "Private Browsing"-Funktion ihres Web-Browsers nutzt.
             announcement: Ankündigung
@@ -54,6 +55,7 @@ de:
         questionnaires:
           actions:
             back: Zurück zu Fragen
+            publish_answers: Antworten veröffentlichen
             show: Antworten anzeigen
           answer_option:
             answer_option: Antwortoption
@@ -103,7 +105,7 @@ de:
             add_separator: Trennzeichen hinzufügen
             add_title_and_description: Titel und Beschreibung hinzufügen
             save: Speichern
-            title: Est Fehler.> Fragen
+            title: Fragen
           form:
             add_question: Frage hinzufügen
             collapse: Alle Fragen einklappen
@@ -153,6 +155,9 @@ de:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.
       admin_log:
+        question:
+          publish_answers: "%{user_name} hat die Antworten zu den Fragen %{resource_name} im Bereich %{space_name} veröffentlicht"
+          unpublish_answers: "%{user_name} hat die Antworten zu den Fragen %{resource_name} im Bereich %{space_name} verborgen"
         questionnaire:
           update: "%{user_name} hat die Umfrage %{resource_name} aktualisiert"
       errors:
@@ -195,6 +200,9 @@ de:
           questionnaire_answered:
             body: Sie haben diesen Fragebogen bereits beantwortet.
             title: Schon beantwortet
+          questionnaire_answered_edit:
+            body: Sie haben dieses Formular bereits beantwortet. %{link}
+            edit: Antworten bearbeiten
           questionnaire_closed:
             body: Der Fragebogen ist geschlossen und kann nicht beantwortet werden.
             title: Fragebogen geschlossen
@@ -209,9 +217,12 @@ de:
           tos_agreement: 'Mit Ihrer Teilnahme stimmen Sie folgenden Nutzungsbedingungen zu:'
       step_navigation:
         show:
-          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Sind Sie sich sicher?
+          are_you_sure_edit: Sie werden Ihre Antworten bearbeiten können. Sind Sie sicher?
+          are_you_sure_edit_guest: Wenn Sie Ihre Antworten nachträglich bearbeiten möchten, müssen Sie sich anmelden oder ein Konto erstellen.
+          are_you_sure_no_edit: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht mehr bearbeiten. Sind Sie sicher?
           back: Zurück
           continue: Weiter
+          disallowed: Sie dürfen Ihre Antworten nicht bearbeiten.
           submit: einreichen
       user_answers_serializer:
         body: Antwort

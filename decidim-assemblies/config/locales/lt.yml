@@ -43,8 +43,6 @@ lt:
         promoted: Paryškinta
         published_at: Publikuota
         purpose_of_action: Veiksmo tikslas
-        scope_id: Apimtis
-        scopes_enabled: Įgalintos apimtys
         short_description: Trumpas aprašymas
         slug: URL priedas
         special_features: Specialiosios ypatybės
@@ -222,13 +220,11 @@ lt:
             announcement_help: Čia įrašytas tekstas naudotojui bus rodomas informacijos apie asamblėją apačioje.
             duration: Trukmė
             duration_help: Jei šios asamblėjos veiklos trukmė ribota, pasirinkite pabaigos datą. Priešingu atveju bus rodoma, kad ji neterminuota.
-            filters: Filtrai
             images: Vaizdai
             included_at_help: Pasirinkite datą, kada ši asamblėja buvo įtraukta į „Decidim“ platformą. Ši data nebūtinai turi sutapti su sukūrimo data.
             metadata: Metaduomenys
             other: Kita
             select_a_created_by: Pasirinkti pagal kūrėją
-            select_an_area: Pasirinkti aplinką
             select_parent_assembly: Pasirinkti pagrindinę asamblėją
             social_handlers: Socialiniai
             title: Bendroji informacija

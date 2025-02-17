@@ -65,6 +65,8 @@ nl:
     'false': 'Nee'
     'true': 'Ja'
   date:
+    buttons:
+      select: Selecteer
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -240,10 +242,8 @@ nl:
       dummy_authorization_handler:
         fields:
           allowed_postal_codes: Toegestane postcodes (gescheiden door komma's)
-          allowed_scope_id: Toegestane scope
           document_number: Document Nummer
           postal_code: Postcode
-          scope_id: Bereik
         name: Voorbeeld autorisatie
       dummy_authorization_workflow:
         name: Dummy autorisatie workflow
@@ -322,8 +322,6 @@ nl:
             dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: Schakel het maken van notitieblokken in
             resources_permissions_enabled: Resources permissies ingeschakeld
-            scope_id: Scope
-            scopes_enabled: Scopes ingeschakeld
           step:
             amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
             amendment_promotion_enabled: Promoten van amendementen ingeschakeld
@@ -929,16 +927,7 @@ nl:
         error: Er was een probleem bij de goedkeuringsactie.
     scopes:
       global: Globale scope
-      picker:
-        cancel: Annuleer
-        change: Wijzig geselecteerde scope
-        choose: Selecteer
-        currently_selected: Momenteel geselecteerde scope
-        title: Selecteer %{field}
       prompt: Selecteer een scope
-      scopes: scopes
-      scopes_picker_input:
-        select_scope: 'Selecteer een bereik (momenteel: %{current})'
     search:
       results: Zoek resultaten
       results_found_for_term: '%{count} Resultaten voor de zoekopdracht: "%{term}"'
@@ -1023,13 +1012,6 @@ nl:
         send: Verzenden
       update:
         error: Bericht niet verzonden. Probeer het later opnieuw
-    user_interests:
-      show:
-        my_interests: Mijn interesses
-        update_my_interests: Update mijn interesses
-      update:
-        error: Er is een fout opgetreden bij het bijwerken van uw interesses.
-        success: Uw interesses zijn succesvol bijgewerkt.
     version:
       show:
         back_to_resource: Ga terug
@@ -1233,7 +1215,6 @@ nl:
         authorizations: Bevoegdheden
         delete_my_account: Verwijder mijn account
         my_data: Mijn data
-        my_interests: Mijn interesses
         notifications_settings: Notificaties instellen
         title: Gebruikersinstellingen
         user_groups: Gebruikersgroepen
@@ -1275,6 +1256,8 @@ nl:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Selecteer
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

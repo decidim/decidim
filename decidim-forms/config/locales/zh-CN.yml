@@ -138,7 +138,6 @@ zh-CN:
           tos_agreement: 通过参与您接受其服务条款
       step_navigation:
         show:
-          are_you_sure: 此操作不能撤消，您将无法编辑您的答案。您确定吗？
           back: 后退
           continue: 继续
           submit: 提交

@@ -164,7 +164,6 @@ lt:
           selected_projects: 'Jūsų pasirinkti projektai:'
           subject: Jūs balsavote dalyvaujamojo proceso erdvėje %{space_name}
           voted_on_space: Jūs balsavote dėl dalyvaujamojo proceso erdvės %{space_name} biudžeto %{budget_name}.
-          voted_on_space_with_scope: Jūs balsavote %{budget_name} biudžete %{space_name} dalyvaujamojoje erdvėje dėl %{scope_name}(%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Jeigu persigalvosite, galėsite balsuoti iš naujo.
@@ -281,8 +280,6 @@ lt:
             more_information_modal: Išsamesnės informacijos modalinis langas
             projects_per_page: Projektų skaičius puslapyje
             resources_permissions_enabled: Kiekvienam projektui galima nustatyti leistinus veiksmus
-            scope_id: Apimtis
-            scopes_enabled: Apimtys įjungtos
             title: Pavadinimas
             total_budget: Visas biudžetas
             vote_minimum_budget_projects_number: Mažiausias projektų, už kuriuos galima balsuoti, skaičius

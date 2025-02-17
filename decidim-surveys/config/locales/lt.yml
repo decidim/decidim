@@ -23,8 +23,6 @@ lt:
         settings:
           global:
             announcement: Pranešimas
-            scope_id: Sritis
-            scopes_enabled: Sritys įjungtos
           step:
             announcement: Pranešimas
     events:

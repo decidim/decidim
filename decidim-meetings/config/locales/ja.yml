@@ -1,6 +1,8 @@
 ja:
   activemodel:
     attributes:
+      answer:
+        add_documents: ドキュメントを追加
       close_meeting:
         attendees_count: 出席者数
         attending_organizations: 参加した組織一覧
@@ -164,8 +166,6 @@ ja:
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             registration_code_enabled: 登録コードが有効
             resources_permissions_enabled: アクションの権限はミーティングごとに設定できます
-            scope_id: スコープ
-            scopes_enabled: スコープが有効
             taxonomy_filters: コンポーネントのフィルタを選択
             taxonomy_filters_add: フィルターを追加
             terms_and_conditions_url_for_meeting_creators: ミーティング作成者の利用規約URL
@@ -404,6 +404,7 @@ ja:
           form:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             invites: 招待
+            manage_questions: 質問の管理
             recommendation_message: プライバシー上の理由から、不要になったときにこの碑文フォームを削除することをお勧めします。 デフォルトでは、ミーティングが終了してから3ヶ月です。
             registration_email_help: このテキストは登録確認メールの途中に表示されます。場所は登録コードの直後になります。
             registration_form: 登録フォーム
@@ -712,12 +713,10 @@ ja:
           attachments: このミーティングの添付ファイル数
           attendees: このミーティングに出席する人数
           author: このミーティングの作者のデータ
-          comments: このミーティングでのコメント数
           component: ミーティングが属しているコンポーネント
           contributions: このミーティングの参加者による貢献数
           description: ミーティングの説明
           end_time: このミーティングの終了日時
-          followers: このミーティングのフォロワー数
           id: ミーティングの固有ID
           location: ミーティングの場所
           organizations: このミーティングに参加している組織
@@ -730,7 +729,6 @@ ja:
           taxonomies: このミーティングが属しているタクソノミー
           title: ミーティングのタイトル
           url: ミーティングのURL
-          withdrawn: このミーティングは撤回されたかどうか
           withdrawn_at: このミーティングが撤回された日時
     participatory_spaces:
       highlighted_meetings:

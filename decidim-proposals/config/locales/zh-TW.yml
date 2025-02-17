@@ -141,8 +141,6 @@ zh-TW:
             proposal_limit: 參與者可提出提案的上限
             proposal_wizard_step_1_help_text: 提案向導「創建」步驟說明文字
             resources_permissions_enabled: 每個提案都可以設定行動權限
-            scope_id: 範圍
-            scopes_enabled: 啟用範圍
             threshold_per_proposal: 每個提案的門檻
           step:
             amendment_creation_enabled: 創建修正案已啟用

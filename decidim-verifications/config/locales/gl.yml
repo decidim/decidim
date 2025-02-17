@@ -110,11 +110,9 @@ gl:
           postal_codes:
             one: A participación está restrinxida aos usuarios co código postal %{postal_codes}.
             other: 'A participación está restrinxida aos usuarios que conteñan algún dos seguintes códigos postais: %{postal_codes}.'
-          scope: A participación está restrinxida aos participantes no ámbito de %{scope_name}.
           user_postal_codes:
             one: A participación está restrinxida a participantes co código postal %{postal_codes}, e o teu é %{user_postal_code}.
             other: 'A participación está restrinxida a calquera dos seguintes códigos postais: %{postal_codes}. O teu é %{user_postal_code}.'
-          user_scope: A participación está restrinxida aos participantes do ámbito %{scope_name}, e o teu é %{user_scope_name}.
       id_documents:
         admin:
           config:

@@ -140,8 +140,6 @@ is-IS:
             comments_enabled: Athugasemdir virkt
             display_progress_enabled: Sýna framfarir
             intro: Intro
-            scope_id: Gildissvið
-            scopes_enabled: Umfang virkt
           step:
             comments_blocked: Athugasemdir læst
     events:

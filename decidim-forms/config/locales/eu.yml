@@ -32,7 +32,7 @@ eu:
           id: Erantzunaren identifikatzaile bakarra
           question: Erantzun zen galdera
           questionnaire: Erantzun zen galdetegia
-          user: Inkesta erantzun zuen parte-hartzailea
+          user: Inkesta erantzun du parte-hartzailea
       show:
         answers: Esportatu erantzunak
         survey_user_answers: Inkesta parte-hartzaile erantzunak
@@ -41,6 +41,7 @@ eu:
         models:
           components:
             allow_answers: Baimendu erantzunak
+            allow_editing_answers: Eman aukera erregistratutako parte-hartzaileei inkestako erantzunak editatzeko
             allow_unregistered: Baimentzea erregistratu gabeko parte-hartzaileek inkesta erantzutea
             allow_unregistered_help: Aktibatuta badago ez da beharrezkoa saioa hastea inkesta erantzuteko. Honen ondorioz datu eskas edo fidagarritasun gutxikoak bildu litezke. Kontuz erabili! Izan ere, parte-hartzaile berak hainbat aldiz erantzun litzake nabigatzaile desberdinetatik edo "nabigazio pribatuaren" aukera erabiliz.
             announcement: Oharra
@@ -54,6 +55,7 @@ eu:
         questionnaires:
           actions:
             back: Itzuli galderetara
+            publish_answers: Argitaratu erantzunak
             show: Erakutsi erantzunak
           answer_option:
             answer_option: Erantzun aukera
@@ -103,7 +105,7 @@ eu:
             add_separator: Gehitu banatzailea
             add_title_and_description: Gehitu izenburua eta deskribapena
             save: Gorde
-            title: Errorea.>Galderak
+            title: Galderak
           form:
             add_question: Gehitu galdera
             collapse: Bildu galdera guztiak
@@ -153,6 +155,9 @@ eu:
             invalid: Arazo bat egon da inprimakia gordetzean.
             success: Galdetegia zuzen gorde da.
       admin_log:
+        question:
+          publish_answers: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} inkesta %{space_name} espazioan"
+          unpublish_answers: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} inkesta %{space_name} espazioan"
         questionnaire:
           update: "%{user_name} parte-hartzaileak %{resource_name} galdetegia eguneratu du"
       errors:
@@ -195,6 +200,9 @@ eu:
           questionnaire_answered:
             body: Dagoeneko inkesta hau erantzun duzu.
             title: Dagoeneko erantzunda
+          questionnaire_answered_edit:
+            body: Dagoeneko inkesta hau erantzun duzu.%{link}
+            edit: Editatu zure erantzunak
           questionnaire_closed:
             body: Galdetegia itxita dago eta ezin da erantzun.
             title: Galdeketa itxia
@@ -209,9 +217,12 @@ eu:
           tos_agreement: Parte hartzean, haren zerbitzu-baldintzak onartzen dituzu
       step_navigation:
         show:
-          are_you_sure: Ekintza hau ezin da desegin eta ezin izango dituzu zure erantzunak editatu. Ziur zaude?
+          are_you_sure_edit: Zure erantzunak editatu ahal izango dituzu. Ziur zaude?
+          are_you_sure_edit_guest: Erantzunak editatu nahi badituzu, orduan sartu behar zara edo kontu bat sortu behar duzu.
+          are_you_sure_no_edit: Ekintza hau ezin da desegin eta ezin izango dituzu zure erantzunak editatu. Ziur zaude?
           back: Atzera
           continue: Jarraitu
+          disallowed: Ezin dituzu zure erantzunak editatu.
           submit: Bidali
       user_answers_serializer:
         body: Erantzuna

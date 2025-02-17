@@ -320,6 +320,9 @@ ar:
           title: نقل
         'true': 'نعم'
         user_name: المستخدم
+      content_blocks:
+        edit:
+          title: محتويات الصفحة
       dashboard:
         show:
           view_more_logs: عرض المزيد من السجلات
@@ -451,6 +454,9 @@ ar:
           download_example_format: مثال كـ %{name}
           file_legend: إضافة ملف استيراد سيتم تحليله.
           import: استيراد
+      logs:
+        filters:
+          user: المستخدم
       managed_users:
         promotion:
           error: كانت هناك مشكلة في تعزيز المشارك المُدار.
@@ -528,6 +534,7 @@ ar:
             plural: جمع
         share_token:
           fields:
+            actions: الإجراءات
             expires_at: تنتهي صلاحيته في
         static_page:
           fields:
@@ -557,6 +564,8 @@ ar:
         index:
           actions:
             block: حظر مستخدم
+            bulk_actions:
+              actions_dropdown: الإجراءات
             title: الإجراءات
             unblock: إلغاء حظر المستخدم
             unreport: إلغاء التبليغ
@@ -571,6 +580,11 @@ ar:
         tabs:
           blocked: محظور
       moderations:
+        index:
+          actions:
+            actions_dropdown: الإجراءات
+            hide:
+              title: إخفاء
         report:
           reasons:
             does_not_belong: لا ينتمي
@@ -593,6 +607,9 @@ ar:
           preview_template: معاينة
           title: نماذج النشرة الإخبارية
       newsletters:
+        confirm_recipients:
+          email: البريد الإلكتروني
+          name: الإسم
         create:
           error: كانت هناك مشكلة في إنشاء هذه الرسالة الإخبارية.
         deliver:
@@ -749,7 +766,14 @@ ar:
           success: تم تحديث المجال بنجاح
       share_tokens:
         actions:
+          copy_link: نسخ الرابط
           destroy: حذف
+          edit: تعديل
+          preview: معاينة
+        form:
+          'true': 'نعم'
+        new:
+          create: إنشاء
       shared:
         gallery:
           add_images: إضافة صور
@@ -789,16 +813,30 @@ ar:
           without_topic: صفحات بدون موضوع
         update:
           error: حدثت مشكلة أثناء تحديث هذه الصفحة.
+      taxonomies:
+        actions:
+          actions: الإجراءات
+        name: الإسم
+      taxonomy_filters:
+        table:
+          actions: الإجراءات
+          destroy: حذف
+          edit: تعديل
+      taxonomy_filters_selector:
+        new:
+          save: حفظ
       titles:
         admin_log: سجل المسؤول
         area_types: أنواع المناطق
         areas: المناطق
         authorization_workflows: طرق التحقق
         dashboard: لوحة القيادة
+        edit_landing_page: محتويات الصفحة
         edit_organization_appearance: تعديل مظهر الصفحة الرئيسية
         impersonatable_users: المشاركون في الإدارة
         impersonations: إدارة المشاركين
         menu: القائمة الرئيسية
+        page_topics: المواضيع
         pages: الصفحات
         panel: مدير
         participants: المشاركين

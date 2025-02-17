@@ -96,9 +96,6 @@ zh-CN:
           new:
             error: 我们无法验证您的帐户或您不在组织的普查中。
             success: 您的帐户已成功验证。
-      dummy_authorization:
-        extra_explanation:
-          scope: 仅限范围为 %{scope_name} 的参与者。
       id_documents:
         admin:
           config:

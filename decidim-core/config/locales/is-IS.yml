@@ -23,6 +23,8 @@ is-IS:
     'false': 'Nei'
     'true': 'Já'
   date:
+    buttons:
+      select: Veldu
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_with_month_name: "%d %B %Y"
@@ -255,12 +257,7 @@ is-IS:
         success: Skýrslan hefur verið búin til með góðum árangri og það verður endurskoðað af stjórnanda.
     scopes:
       global: Global umfang
-      picker:
-        cancel: Hætta við
-        choose: Veldu
-        title: Veldu %{field}
       prompt: Veldu umfang
-      scopes: Scopes
     shared:
       flag_modal:
         already_reported: Þetta efni er þegar tilkynnt og það verður endurskoðað af stjórnanda.
@@ -350,6 +347,8 @@ is-IS:
     weibo: Sina Weibo
     xing: Xing
   time:
+    buttons:
+      select: Veldu
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

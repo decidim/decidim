@@ -38,8 +38,6 @@
         promoted: Fremhevet
         published_at: Publisert på
         purpose_of_action: Formål
-        scope_id: Tema
-        scopes_enabled: Temaer aktivert
         short_description: Kort beskrivelse
         slug: URL slug
         special_features: Spesialfunksjoner
@@ -200,12 +198,10 @@
             announcement_help: Teksten du skriver her vil bli vist til brukeren rett under forsamlingsinformasjonen.
             duration: Varighet
             duration_help: Hvis varigheten av denne forsamlingen er limitert, velg en sluttdato. Hvis ikke, vil den vises som ubestemt.
-            filters: Filter
             images: Bilder
             metadata: Metadata
             other: Annet
             select_a_created_by: Velg en opprettet av
-            select_an_area: Velg et Område
             select_parent_assembly: Velg foreldre-forsamling
             social_handlers: Sosial
             title: Generell Informasjon

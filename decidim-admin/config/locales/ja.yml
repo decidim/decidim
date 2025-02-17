@@ -244,6 +244,7 @@ ja:
         create:
           error: 新しいエリアの作成中に問題が発生しました。
           success: エリアの作成に成功しました。
+        deprecated: エリアは非推奨となっており、将来のバージョンで削除される予定です。代わりにタクソノミーを使用してください。現在、エリアを使用している唯一のモジュールはイニシアチブモジュールです。
         destroy:
           has_spaces: このエリアには依存スペースがあります。削除する前に参加型スペースがこのエリアを参照していないことを確認してください。
           success: エリアを削除しました。
@@ -344,14 +345,6 @@ ja:
           title: 'コンポーネントを追加: %{name}'
         publish:
           success: コンポーネントは正常に公開されました。
-        taxonomy_filters_badge:
-          remove: 削除
-        taxonomy_filters_drawer:
-          add_filter: フィルターを追加
-          clear_all: すべてクリア
-          filters: フィルター
-          save: 保存
-          title: フィルター
         title: コンポーネント
         unpublish:
           success: コンポーネントの非公開に成功しました。
@@ -568,7 +561,7 @@ ja:
           no_logs_yet: ログはまだありません。
           no_matching_logs: 指定された検索フィルターにはログがありません。変更して再試行してください。
       manage_trash:
-        deleted_items_warning: 削除されたアイテムを表示しています。編集や変更を行うには、最初にそれらを復元する必要があります。
+        deleted_items_warning: 削除された項目を表示しています。編集や変更を行うには、最初にそれらを復元する必要があります。
       managed_users:
         promotion:
           error: 管理対象参加者の昇格に問題が発生しました。
@@ -747,7 +740,7 @@ ja:
         reports:
           index:
             author: 投稿者
-            callout_html: コンテンツは、そのアイテムの横にある %{icon} フラグをクリックすることによって、ユーザー（登録済みアカウントを持っている人であれば誰でも）によって通知されたときに、モデレーションパネルに表示されます。
+            callout_html: コンテンツは、その項目の横にある %{icon} フラグをクリックすることによって、ユーザー（登録済みアカウントを持っている人であれば誰でも）によって通知されたときに、モデレーションパネルに表示されます。
             content_original_language: コンテンツのオリジナル言語
             participatory_space: 参加型スペース
             reported_content: 報告されたコンテンツ
@@ -815,12 +808,16 @@ ja:
           deliver: ニュースレターを配信する
           followers_help: リスト内の選択した参加型スペースに従っているすべての確認済みユーザーにニュースレターを送信します。
           participants_help: 選択した参加型スペースに参加しているすべての確認済みユーザーにニュースレターを送信します。
+          private_members_help: 選択した非公開の参加型スペースに追加された、確認済みのすべてのユーザーにニュースレターを送信します。
           recipients_count: このニュースレターは、 <strong id='recipients_count'>%{count}</strong> のユーザーに送信されます。
           select_assemblies: 参加スペースを選択
           select_conferences: カンファレンスを選択
           select_initiatives: イニシアチブを選択
           select_participatory_processes: 参加型プロセスを選択
           select_spaces: ニュースレターをセグメント化するスペースを選択
+          select_users_for_participatory_space: 1つまたは複数の参加スペースにニュースレターを送信する
+          select_users_general: 一般向けのニュースレターを送信
+          select_verification_types: 検証方法を選択
           send_to_all_users: すべてのユーザーに送信
           send_to_verified_users: 検証済みユーザーに送る
           title: 配信する宛先を選択
@@ -842,6 +839,13 @@ ja:
         block:
           error: 参加者のブロック中に問題が発生しました。
           success: 参加者をブロックしました。
+        bulk_action:
+          block:
+            invalid: 参加者のブロック中に問題が発生しました。
+            success: 参加者をブロックしました。
+          unblock:
+            invalid: 参加者のブロック解除中に問題が発生しました。
+            success: 参加者のブロックを解除しました。
         create:
           success: 参加者が公式化されました。
         destroy:
@@ -985,6 +989,8 @@ ja:
         edit:
           submit: 送信
           title: 権限の編集
+        options_form:
+          ephemeral_warning: この認証方法を有効にするには、既存のすべての認証を<a href="%{path}">取り消す</a>必要があります。これにより、検証の衝突リスクを最小限に抑えられます。この方法を追加したり、その設定を変更して送信した場合、組織内のこの種類のすべての認証が自動的に取り消されます。
         update:
           success: 権限は正常に更新されました。
       scope_types:
@@ -1006,6 +1012,7 @@ ja:
         create:
           error: 新しいスコープの作成中に問題が発生しました。
           success: スコープが正常に作成されました。
+        deprecated: スコープは非推奨となっており、将来のバージョンで削除される予定です。代わりにタクソノミーを使用してください。現在、スコープを使用している唯一のモジュールはイニシアチブモジュールです。
         destroy:
           success: スコープを削除しました。
         edit:
@@ -1047,7 +1054,7 @@ ja:
           'true': 'はい'
         index:
           back_to_share_tokens: アクセスリンクへ戻る
-          copied: アクセスリンクをコピーしました
+          copied: アクセスリンクをコピーしました！
           copy_message: テキストをクリップボードにコピーしました。
           create_new_token: 最初のアクセスリンクを作成します
           empty_html: 有効なアクセスリンクはありません。 %{new_token_link}
@@ -1066,9 +1073,9 @@ ja:
       shared:
         adjacent_navigation:
           next: 次へ
-          next_title: 次のアイテム
+          next_title: 次の項目
           previous: 前へ
-          previous_title: 前のアイテム
+          previous_title: 前の項目
         gallery:
           add_images: 画像を追加
           edit_images: 画像を編集
@@ -1116,8 +1123,14 @@ ja:
           error: このページの更新中に問題が発生しました。
           success: ページが更新されました。
       taxonomies:
-        actions: アクション
-        amount: アイテムの数
+        actions:
+          actions: アクション
+          destroy: タクソノミーと項目を削除
+          edit: タクソノミーと項目を編集
+          filters: フィルタの管理
+        breadcrumb:
+          edit: タクソノミーを編集
+          new: 新しいタクソノミー
         count: 関連するリソース
         create:
           invalid: タクソノミーの作成中に問題が発生しました。
@@ -1127,36 +1140,40 @@ ja:
           success: タクソノミーを削除しました。
         edit:
           back: 戻る
-          description: このタクソノミーのアイテムは、参加型スペースやコンポーネントなどのリソースを分類したりフィルターするために使用されます。 リストの順番を変更するにはドラッグアンドドロップを使用してください。
+          description: このタクソノミーの項目は、参加型スペースやコンポーネントなどのリソースを分類したりフィルターするために使用されます。 リストの順番を変更するにはドラッグアンドドロップを使用してください。
           new_item: 新しい項目
-          no_items: このタクソノミーには現状アイテムがありません。アイテムのリストを作成して、参加型スペースやコンポーネントなどのリソースを分類またはフィルタリングできます。アイテムは最大3レベルまで入れ子にできます。
+          no_items: このタクソノミーには現状項目がありません。項目のリストを作成して、参加型スペースやコンポーネントなどのリソースを分類またはフィルタリングできます。項目は最大3レベルまで入れ子にできます。
           subtitle: '"%{taxonomy_name}" の項目'
           title: タクソノミー「%{taxonomy_name} 」を編集
           update: 更新
         filters:
           search_placeholder: 検索
         index:
-          description: タクソノミーを使用すると、管理者がコンテンツを分類および整理できます。例えば、プロセスを地理的範囲で分類するためにタクソノミーを追加できます。
+          description: タクソノミーとフィルターを使用することで、管理者はコンテンツを整理して分類することができます。たとえば、都市の地区や近隣エリアをタクソノミーとして追加し、特定の地区や近隣エリアだけを対象としたフィルターを作成することが可能です。
           new_taxonomy: 新しいタクソノミー
           no_items_found: 検索条件に一致するタクソノミーが見つかりませんでした。
         name: 名前
         new:
           create: タクソノミーを作成
           title: 新しいタクソノミー
-        no_taxonomies: 現在、タクソノミーはありません。ここでタクソノミーのリストを作成し、それぞれにアイテムを定義してリソースを分類またはフィルタリングします。
+        no_taxonomies: 現在、タクソノミーはありません。ここでタクソノミーのリストを作成し、それぞれに項目を定義してリソースを分類またはフィルタリングします。
         table:
           to_next_page: 次のページにドラッグ
           to_prev_page: 前のページにドラッグ
         taxonomy_actions:
-          confirm_destroy: '%{name} を削除してもよろしいですか？その場合全ての子アイテムも削除されます。 注意: このタクソノミーを使用しているリソース自体は影響を受けませんが、このタクソノミーへの参照は失われます。'
+          confirm_destroy: '%{name} を削除してもよろしいですか？その場合全ての子の項目も削除されます。 注意: このタクソノミーを使用しているリソース自体は影響を受けませんが、このタクソノミーへの参照は失われます。'
+        total_filters: フィルター
+        total_items: タクソノミー内の項目
         update:
           invalid: タクソノミーの更新中に問題が発生しました。
           success: タクソノミーを更新しました。
       taxonomy_filters:
         actions:
           new_taxonomy_filter: 新規タクソノミフィルター
-        callout:
-          modify_taxonomy_html: このタクソノミーまたはそのアイテムを変更する必要がある場合は、 <a href="%{url}">タクソノミー</a> セクションの設定から行ってください。
+        breadcrumb:
+          edit: フィルターの編集
+          filters: フィルター
+          new: 新しいフィルター
         create:
           error: タクソノミーフィルタの作成中に問題が発生しました。
           success: タクソノミーフィルターを作成しました。
@@ -1170,32 +1187,42 @@ ja:
         form:
           all: すべて
           items:
-            other: "%{count} 個のアイテムを選択しました"
+            other: "%{count} 個の項目を選択しました"
           name_help: フロントエンドに表示するフィルタのタイトル。
-          no_items: このタクソノミーで使えるアイテムはありません。タクソノミー設定でアイテムを作成できます。
-          space_filter: すべての %{manifest_name} のフィルターとして利用できます
+          no_items: このタクソノミーで使える項目はありません。タクソノミー設定で項目を作成できます。
+          space_filter: フィルターとして利用可能
         index:
           description: タクソノミーフィルターは、管理者がタクソノミーに基づいて参加型スペースを分類したりフィルタリングしたりできるようにするものです。例えば、地理的範囲でプロセスをソートするためにタクソノミーフィルターを追加することができます。
           empty: 現在、タクソノミーフィルターはありません。タクソノミーフィルターのリストを作成し、タクソノミーに基づいて参加型スペースをソートおよびフィルタリングしてください。
+          new_filter: 新しいフィルター
         new:
           back: 戻る
           create: タクソノミーフィルタを作成
-          select_taxonomy: タクソノミーを選択
           title: 新規タクソノミーフィルター
         table:
           actions: アクション
-          components_count: 関連するコンポーネント
+          components_count: これを使用するコンポーネント
           confirm_destroy: 'フィルター %{name} を削除してもよろしいですか？ 注意: このフィルタを使用しているリソース自体は影響を受けませんが、このフィルタへの参照は失われます。'
-          count: 使用しているアイテムの数
           destroy: 削除
           edit: 編集
-          internal_name: 内部フィルター名
-          name: 公開フィルタータイトル
-          space_filter: '%{manifest_name} へのフィルターに使用'
-          taxonomy: タクソノミーから
+          internal_name: 内部ラベル
+          name: ラベル
         update:
           error: タクソノミーフィルタの更新に問題がありました。
           success: タクソノミーフィルターを更新しました。
+      taxonomy_filters_selector:
+        new:
+          add_new_items_html: 新しいフィルターや項目を設定する必要がある場合は、設定画面を通じて行うか、<a href="%{url}">こちら</a>をクリックしてください。
+          items_count: "{count}個の項目"
+          save: 保存
+        show:
+          items_count: "{count}個の項目"
+          remove: 削除
+        taxonomies_select:
+          filters: フィルター
+          select_filter: フィルターを選択
+          select_taxonomy: タクソノミーを選択
+          taxonomies: タクソノミー
       taxonomy_items:
         edit:
           title: '%{taxonomy} の項目を編集'
@@ -1203,7 +1230,7 @@ ja:
         new:
           create: 項目の作成
           none: なし
-          title: '%{taxonomy} の新しいアイテム'
+          title: '%{taxonomy} の新しい項目'
       titles:
         admin_log: 管理者ログ
         area_types: エリア種別
@@ -1225,7 +1252,7 @@ ja:
         scopes: スコープ
         statistics: アクティビティ
         taxonomies: タクソノミー
-        taxonomy_filters: タクソノミーフィルター
+        taxonomy_filters: '"%{taxonomy}" のタクソノミーフィルター'
         user_groups: グループ
         users: 管理者
       tooltips:
@@ -1310,6 +1337,22 @@ ja:
         unreport: 報告解除
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'リソースを非表示にする際に問題が発生しました: %{errored}'
+              invalid: モデレーションが選択されていません。
+              success: リソースを非表示にしました。
+            ignore:
+              invalid: ユーザのモデレーションが選択されていません。
+              success: 参加者の報告を解除しました。
+            unhide:
+              failed: 'リソースの非表示を解除する際に問題が発生しました: %{errored}'
+              invalid:
+              success: リソースの非表示を解除しました。
+            unreport:
+              failed: 'リソースの報告を解除中に問題が発生しました: %{errored}'
+              invalid: モデレーションが選択されていません。
+              success: リソースの報告を解除しました。
           hide:
             invalid: リソースを隠す際に問題が発生しました。
             success: リソースを非表示にしました。
@@ -1345,3 +1388,5 @@ ja:
       admin:
         global_moderations:
           title: グローバルモデレーション
+        taxonomy_filters_selector:
+          title: フィルター

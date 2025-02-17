@@ -66,6 +66,8 @@ sk:
     'false': 'Nie'
     'true': 'Áno'
   date:
+    buttons:
+      select: Vybrat
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -799,12 +801,7 @@ sk:
         error: Počas udeľovania podpory nastal problém.
     scopes:
       global: Globální oblast působnosti
-      picker:
-        cancel: zrušenie
-        choose: Vybrat
-        title: Vyberte %{field}
       prompt: Vyberte oblast
-      scopes: Rozsahy
     search:
       results_found_for_term: '%{count} Výsledky pre vyhľadávanie: "%{term}"'
       term_input_placeholder: Vyhľadávanie
@@ -852,13 +849,6 @@ sk:
     user_conversations:
       update:
         error: Zpráva nebyla odeslána. Zkuste to později znovu
-    user_interests:
-      show:
-        my_interests: Moje záujmy
-        update_my_interests: Aktualizujte svoje záujmy
-      update:
-        error: Počas aktualizácie vašich záujmov došlo k chybe.
-        success: Vaše záujmy boli úspešne aktualizované.
     welcome_notification:
       default_subject: Ďakujeme, že ste sa pripojili k {{organization}}!
     wizard_step_form:
@@ -1020,7 +1010,6 @@ sk:
         authorizations: Autorizácia
         delete_my_account: Zmazať môj účet
         my_data: Moje dáta
-        my_interests: Moje záujmy
         notifications_settings: Nastavenie oznámenia
         title: Užívateľské nastavenia
         user_groups: Skupiny
@@ -1061,6 +1050,8 @@ sk:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Vybrat
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

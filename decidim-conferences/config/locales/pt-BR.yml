@@ -21,8 +21,6 @@ pt-BR:
         published_at: Publicado em
         registration_terms: Termos de registro
         registrations_enabled: Inscrições habilitadas
-        scope_id: Escopo
-        scopes_enabled: Escopos habilitados
         short_description: Pequena descrição
         show_statistics: Mostre estatisticas
         sign_date: Data de assinatura
@@ -118,13 +116,11 @@ pt-BR:
         destroy:
           success: Alto-falante excluído com sucesso para esta conferência.
         edit:
-          title: Atualize o orador da conferência.
           update: Atualizar
         index:
           conference_speakers_title: Alto-falantes da conferência
         new:
           create: Crio
-          title: Novo orador da conferência.
         publish:
           invalid: Ocorreu um problema ao publicar esta reunião.
           success: Alto-falante excluído com sucesso para esta conferência.
@@ -141,13 +137,11 @@ pt-BR:
         destroy:
           success: Usuário removido com sucesso desta conferência.
         edit:
-          title: Atualize o usuário da conferência.
           update: Atualizar
         index:
           conference_admins_title: Administradores da conferência
         new:
           create: Crio
-          title: Novo usuário da conferência.
         update:
           error: Houve um erro ao atualizar um usuário para esta conferência.
           success: Usuário atualizado com sucesso para esta conferência.
@@ -177,20 +171,12 @@ pt-BR:
       media_links:
         create:
           error: Ocorreu um erro ao criar um novo link de mídia.
-          success: Link de mídia criado com êxito.
-        destroy:
-          success: Recurso excluído com sucesso.
         edit:
-          title: Atualize o link de mídia.
           update: Atualizar
-        index:
-          media_links_title: Links de Mídia
         new:
           create: Criar
-          title: Links de Mídia
         update:
           error: Houve um erro ao atualizar este link de mídia.
-          success: Link de mídia atualizado com êxito.
       menu:
         conferences: Conferências
         conferences_submenu:
@@ -201,14 +187,10 @@ pt-BR:
           conference_admins: Administradores da conferência
           conference_invites: Convites
           conference_speakers: caixas de som
-          diploma: Certificado de participação
           info: Links sobre esta conferência
-          media_links: Links de Mídia
           moderations: Moderações
           partners: Parceiros
-          registration_types: Tipos de registro
           registrations: Inscrições
-          user_registrations: Registros de usuários
       models:
         conference:
           fields:
@@ -237,7 +219,6 @@ pt-BR:
             date: Encontro
             link: Link
             title: Título
-          name: Links de Mídia
         partner:
           fields:
             link: Link
@@ -263,7 +244,6 @@ pt-BR:
         destroy:
           success: Alto-falante excluído com sucesso para esta conferência.
         edit:
-          title: Atualizar parceiro.
           update: Atualizar
         new:
           create: Criar
@@ -285,7 +265,6 @@ pt-BR:
         destroy:
           success: Tipo de registro removido com sucesso desta conferência.
         edit:
-          title: Atualize o tipo de registro.
           update: Atualizar
         new:
           create: Crio
@@ -380,7 +359,6 @@ pt-BR:
         diplomas:
           edit:
             save: Salve 
-            title: Certificado de participação
         invite_join_conference_mailer:
           invite:
             decline: Recusar convite '%{conference_title}'
@@ -400,7 +378,6 @@ pt-BR:
             diploma_html: Você encontrará o certificado de participação para a conferência <a href="%{url}">%{title}</a> nos anexos.
           diploma_user:
             attendance_verified_by: Atendimento verificado por
-            certificate_of_attendance: Certificado de participação
             certificate_of_attendance_description: Certifica-se que <strong>%{user}</strong> participou e participou nos <strong>%{title}</strong> realizados em <strong>%{location}</strong> em <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Houve um problema ao enviar os certificados de participação da conferência.

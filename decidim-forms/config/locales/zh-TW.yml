@@ -171,7 +171,6 @@ zh-TW:
           tos_agreement: 透過參與，您同意其服務條款
       step_navigation:
         show:
-          are_you_sure: 此操作無法撤消，您將無法編輯您的答案。您確定嗎？
           back: 返回
           continue: 繼續
           submit: 提交

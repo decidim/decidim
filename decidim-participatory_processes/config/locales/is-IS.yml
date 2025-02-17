@@ -16,8 +16,6 @@ is-IS:
         promoted: Kynnt
         published_at: Birt á
         related_process_ids: Tengd ferli
-        scope_id: Umfang
-        scopes_enabled: Scopes virkt
         short_description: Stutt lýsing
         slug: URL slug
         start_date: Upphafsdagur

@@ -171,7 +171,6 @@ lt:
           tos_agreement: Dalyvaudami sutinkate su paslaugos teikimo sąlygomis
       step_navigation:
         show:
-          are_you_sure: Šio veiksmo atšaukti negalima ir savo atsakymų keisti negalėsite. Ar esate įsitikinę?
           back: Atgal
           continue: Tęsti
           submit: Pateikti

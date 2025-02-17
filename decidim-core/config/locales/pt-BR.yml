@@ -262,8 +262,6 @@ pt-BR:
         create: "%{user_name} criou o %{resource_name} página estática"
         delete: "%{user_name} apagou o %{resource_name} página estática"
         update: "%{user_name} atualizou o %{resource_name} página estática"
-      taxonomy_filter:
-        create: "%{user_name} criou um filtro baseado na taxonomia %{resource_name}"
       user:
         block: "%{user_name} bloqueou o usuário %{resource_name}"
         invite: "%{user_name} convidou o usuário %{resource_name} com papel: %{role}"
@@ -393,10 +391,8 @@ pt-BR:
         explanation: Para verificar sua conta, introduza um número de documento que termine com "X".
         fields:
           allowed_postal_codes: Códigos postais permitidos (separados por vírgulas)
-          allowed_scope_id: Escopos Permitidos
           document_number: Número do documento
           postal_code: Código postal
-          scope_id: Escopo
         name: Exemplo de autorização
       dummy_authorization_workflow:
         name: Fluxo de trabalho de autorização falsa
@@ -485,8 +481,6 @@ pt-BR:
             dummy_global_translatable_text: Texto Tradutor Falso
             enable_pads_creation: Ativar criação de blocos
             resources_permissions_enabled: Permissões de recursos ativadas
-            scope_id: Escopo
-            scopes_enabled: Escopos habilitados
           step:
             amendment_creation_enabled: Criação de alteração ativada
             amendment_promotion_enabled: Promoção de alteração ativada
@@ -1343,16 +1337,7 @@ pt-BR:
         error: Houve um problema durante a ação de endosso.
     scopes:
       global: Âmbito global
-      picker:
-        cancel: Cancelar
-        change: Alterar o escopo selecionado
-        choose: Selecionar
-        currently_selected: Escopo atualmente selecionado
-        title: Selecione %{field}
       prompt: Selecione um âmbito
-      scopes: Âmbitos
-      scopes_picker_input:
-        select_scope: 'Selecione um escopo (atualmente: %{current})'
     search:
       name: Pesquisar
       results: Procurar resultados
@@ -1466,13 +1451,6 @@ pt-BR:
         send: Enviar
       update:
         error: Mensagem não enviada. Tente mais tarde
-    user_interests:
-      show:
-        my_interests: Meus interesses
-        update_my_interests: Atualize meus interesses
-      update:
-        error: Ocorreu um erro ao atualizar seus interesses.
-        success: Seus interesses foram atualizados com sucesso.
     user_report_mailer:
       notify:
         body_1: O usuário %{user} foi denunciado por %{token}
@@ -1825,7 +1803,6 @@ pt-BR:
         authorizations: Autorizações
         delete_my_account: Excluir minha conta
         my_data: Meus dados
-        my_interests: Meus interesses
         notifications_settings: Configurações de notificações
         profile: Perfil
         title: Configurações do usuário
@@ -1880,6 +1857,7 @@ pt-BR:
     buttons:
       close: Fechar
       reset: Resetar
+      select: Selecionar
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

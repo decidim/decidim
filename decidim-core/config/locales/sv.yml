@@ -269,13 +269,6 @@ sv:
         delete_with_parent: "%{user_name} raderade kategorierna %{resource_name} under kategorierna %{parent_taxonomy}"
         update: "%{user_name} uppdaterade kategorin %{resource_name}"
         update_with_parent: "%{user_name} uppdaterade kategorierna %{resource_name} under kategorierna %{parent_taxonomy}"
-      taxonomy_filter:
-        create: "%{user_name} skapade ett filter baserat på kategorin %{resource_name}"
-        create_with_filter_items_count: "%{user_name} skapade ett filter baserat på kategorin %{resource_name} med %{filter_items_count} filter för %{space_manifest_name}"
-        delete: "%{user_name} tog bort ett filter baserat på kategorin %{resource_name}"
-        delete_with_filter_items_count: "%{user_name} raderade ett filter baserat på kategorin %{resource_name} med %{filter_items_count} filter för %{space_manifest_name}"
-        update: "%{user_name} uppdaterade ett filter baserat på kategorin %{resource_name}"
-        update_with_filter_items_count: "%{user_name} uppdaterade ett filter baserat på kategorin %{resource_name} med %{filter_items_count} filter för %{space_manifest_name}"
       user:
         block: "%{user_name} blockerade användaren %{resource_name}"
         invite: "%{user_name} bjöd in användaren %{resource_name} med rollen: %{role}"
@@ -407,10 +400,8 @@ sv:
         explanation: Bli verifierad genom att ange ett dokumentnummer som slutar på ”X”.
         fields:
           allowed_postal_codes: Tillåtna postnummer (separerade med kommatecken)
-          allowed_scope_id: Tillåten indelning
           document_number: Dokumentnummer
           postal_code: Postnummer
-          scope_id: Indelning
         name: Exempelbekräftelse
       dummy_authorization_workflow:
         name: Dummy-arbetsflöde för bekräftelse
@@ -502,8 +493,6 @@ sv:
             dummy_global_translatable_text: Översättningsbar exempeltext
             enable_pads_creation: Aktivera gemensamma anteckningar
             resources_permissions_enabled: Resursbehörigheter på
-            scope_id: Indelning
-            scopes_enabled: Aktivera indelningar
           step:
             amendment_creation_enabled: Tillåt att skapa ändringsförslag
             amendment_promotion_enabled: Tillåt att annonsera ändringsförslag
@@ -1432,16 +1421,7 @@ sv:
         error: Det gick inte att gilla.
     scopes:
       global: Global indelning
-      picker:
-        cancel: Avbryt
-        change: Ändra indelning
-        choose: Välj
-        currently_selected: Vald indelning
-        title: Välj %{field}
       prompt: Välj en indelning
-      scopes: Indelningar
-      scopes_picker_input:
-        select_scope: 'Välj indelning (nuvarande: %{current})'
     search:
       name: Sök
       results: Sökresultat
@@ -1560,15 +1540,6 @@ sv:
         send: Skicka
       update:
         error: Meddelandet skickades inte. Försök igen senare
-    user_interests:
-      show:
-        my_interests: Mina intressen
-        no_scopes: Organisationen har inga indelningar än!
-        select_your_interests: Välj ämnen du är intresserad av för att få information om relevanta händelser under fliken Tidslinje på din profilsida.
-        update_my_interests: Uppdatera mina intressen
-      update:
-        error: Det gick inte att uppdatera dina intressen.
-        success: Dina intressen har uppdaterats.
     user_report_mailer:
       notify:
         body_1: Användaren %{user} har rapporterats av %{token}
@@ -1976,7 +1947,6 @@ sv:
         authorizations: Auktoriseringar
         delete_my_account: Radera mitt konto
         my_data: Min data
-        my_interests: Mina intressen
         notifications_settings: Meddelandeinställningar
         profile: Profil
         title: Deltagarinställningar

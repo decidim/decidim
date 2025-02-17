@@ -95,6 +95,7 @@ ar:
             initiative_start_date: تاريخ البدء
             initiative_title: عنوان المبادرة
             name_and_surname: اسم ولقب
+            nickname: الاسم المستعار
             postal_code: الكود البريدى
             timestamp: الطابع الزمني
       titles:
@@ -358,6 +359,9 @@ ar:
     menu:
       initiatives: المبادرات
     resources:
+      initiative:
+        actions:
+          comment: تعليق
       initiatives_type:
         actions:
           title: أفعال

@@ -124,7 +124,6 @@ ro:
           selected_projects: 'Proiectele pe care le-ai selectat sunt:'
           subject: Ai votat pentru spațiul participativ %{space_name}
           voted_on_space: Ai votat pentrul bugetul %{budget_name} aferent spațiului participativ %{space_name}.
-          voted_on_space_with_scope: Ai votat pentrul bugetul %{budget_name} aferent spațiului participativ %{space_name} pentru %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Dacă te răzgândești, poți modifica votul mai târziu.
@@ -194,8 +193,6 @@ ro:
             more_information_modal: Mai multe informații
             projects_per_page: Proiecte pe pagină
             resources_permissions_enabled: Pentru fiecare proiect pot fi setate drepturi pentru acțiuni
-            scope_id: Domeniu de interes
-            scopes_enabled: Domenii activate
             title: Titlu
             total_budget: Buget total
             vote_minimum_budget_projects_number: Numărul minim de proiecte de votat

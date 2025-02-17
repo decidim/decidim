@@ -202,8 +202,6 @@ ja:
             proposal_wizard_step_1_help_text: 提案ウィザード "作成" ステップヘルプ テキスト
             proposal_wizard_step_2_help_text: 提案ウィザード "公開" ステップヘルプ テキスト
             resources_permissions_enabled: アクションの権限を提案ごとに設定する
-            scope_id: スコープ
-            scopes_enabled: スコープが有効
             taxonomy_filters: コンポーネントのフィルタを選択
             taxonomy_filters_add: フィルターを追加
             threshold_per_proposal: 提案ごとのしきい値
@@ -934,7 +932,7 @@ ja:
           maximum_votes_reached: 投票上限に達しました
           no_votes_remaining: 残りの投票はありません
           vote: 投票
-          votes_blocked: 投票は無効です
+          votes_blocked: 投票
         votes_count:
           count:
             other: 投票

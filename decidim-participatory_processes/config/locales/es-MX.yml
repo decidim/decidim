@@ -28,9 +28,6 @@ es-MX:
         promoted: Destacado
         published_at: Publicado en
         related_process_ids: Procesos relacionados
-        scope_id: Ámbito
-        scope_type_max_depth_id: Profundidad del filtro de ámbito
-        scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
         slug: Texto corto de URL
         start_date: Fecha de inicio
@@ -272,6 +269,9 @@ es-MX:
         create:
           error: Se ha producido un error al crear este grupo.
           success: Grupo creado correctamente.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Todos los procesos participativos
       titles:
         participatory_process_groups: Grupos de procesos participativos
         participatory_process_types: Tipos de procesos participativos
@@ -445,14 +445,11 @@ es-MX:
             announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
-            filters: Filtros
             images: Imágenes
             metadata: Metadatos
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             private_notice: Podrás administrar las miembros después de configurar el espacio como privado
             related_processes: Procesos relacionados
-            scope_type_max_depth_help: Restringe la profundidad del filtro de ámbito; se mostrará el filtro desde el ámbito general hasta el seleccionado.
-            select_an_area: Seleccione una área
             select_process_group: Seleccione un grupo de proceso
             slug_help_html: 'Los nombres cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             taxonomies: Taxonomías

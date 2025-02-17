@@ -110,11 +110,9 @@ nl:
           postal_codes:
             one: Deelname is beperkt tot gebruikers met postcode %{postal_codes}.
             other: 'Deelname is beperkt tot gebruikers met een van de volgende postcodes: %{postal_codes}.'
-          scope: Deelname is beperkt tot deelnemers met bereik %{scope_name}.
           user_postal_codes:
             one: Deelname is beperkt tot deelnemers met postcode %{postal_codes}, en jouw postcode is %{user_postal_code}.
             other: 'Deelname is beperkt tot gebruikers met geen van volgende postcodes: %{postal_codes}. Jouw postcode is %{user_postal_code}.'
-          user_scope: Deelname is beperkt tot deelnemers met scope %{scope_name}, en jij hebt %{user_scope_name} als scope.
       id_documents:
         admin:
           config:

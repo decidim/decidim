@@ -43,8 +43,6 @@ he:
         promoted: הודגש
         published_at: פורסם בתאריך
         purpose_of_action: מטרת הפעולה
-        scope_id: היקף
-        scopes_enabled: היקפים מאופשרים
         short_description: תיאור קצר
         slug: כינוי לקישור
         special_features: מאפיינים מיוחדים
@@ -205,12 +203,10 @@ he:
         assemblies:
           form:
             duration: משך
-            filters: מסננים
             images: תמונות
             metadata: מטא-דאטה
             other: אחר
             select_a_created_by: בחירת מי יצר
-            select_an_area: בחירת אזור
             select_parent_assembly: בחירת אסיפת אם
             social_handlers: חברתי
             taxonomies: טקסונומיות

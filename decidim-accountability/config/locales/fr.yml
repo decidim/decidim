@@ -47,7 +47,7 @@ fr:
         deleted_results_info: Les résultats supprimés peuvent être restaurés à partir de la corbeille.
         destroy: Supprimer
         edit: Modifier
-        import: Importer des projets depuis une autre fonctionnalité
+        import: Importer les résultats d'un autre composant
         import_csv: Importer les résultats depuis un fichier CSV
         new_result: Nouvelle réalisation
         new_status: Nouveau statut
@@ -60,6 +60,25 @@ fr:
         exports:
           result_comments: Commentaires
           results: Réalisations
+        import_components:
+          create:
+            invalid: Il y a eu un problème lors de l'importation des résultats, veuillez suivre attentivement les instructions et assurez-vous que vous avez sélectionné les projets à mettre en œuvre.
+          filters:
+            new_items_proposals:
+              one: 1 proposition sera importée
+              other: "%{count} propositions seront importées"
+            proposal_state: Statut de la proposition
+            select_state: Sélectionnez le statut
+          form:
+            create: Importer
+            no_components: Il n'y a aucun composant dans cet espace participatif à importer.
+            origin_component_id: Composant d'origine
+            select_component: Sélectionnez un composant
+          new:
+            success:
+              one: 1 résultat mis en file d'attente pour être importé. Vous serez notifié par e-mail une fois l'importation terminée.
+              other: "%{count} résultats ont été mis en file d'attente pour être importés. Vous serez notifié par e-mail une fois l'importation terminée."
+            title: Importer les résultats d'un autre composant
         import_results:
           new:
             download_export: Télécharger l'export au format CSV
@@ -74,22 +93,6 @@ fr:
             name: Réalisation
           status:
             name: Progression
-        projects_import:
-          create:
-            invalid: Il y a eu un problème lors de l'importation des projets, veuillez suivre attentivement les instructions et assurez-vous que vous avez bien sélectionné les projets à mettre en œuvre.
-          new:
-            create: Importer
-            import_all_selected_projects: Importer tous les projets sélectionnés
-            new_items:
-              one: 1 projet sélectionné va être importé
-              other: "%{count} projets sélectionnés vont être importés"
-            no_components: Il n'y a aucune fonctionnalité Budget dans cet espace participatif depuis laquelle importer des projets.
-            origin_component_id: Fonctionnalité d'origine
-            select_component: Sélectionner une fonctionnalité
-            success:
-              one: Projet en attente d'importation. Vous serez notifié par courriel, une fois l'import terminé.
-              other: "%{count} projets en attente d'importation. Vous serez notifié par email une fois l'import terminé."
-            title: Importer des projets depuis une autre fonctionnalité
         results:
           bulk_actions:
             dates_form:
@@ -209,6 +212,13 @@ fr:
             other: "%{count} réalisations ont été importées depuis des projets."
           subject: Importation des projets réalisée avec succès
           success: Projets importés avec succès dans la fonctionnalité %{component_name}. Vous pouvez consulter les réalisations dans l'interface d'administration.
+      import_proposals_mailer:
+        import:
+          added_proposals:
+            one: Un résultat a été importé depuis les propositions
+            other: "%{count} résultats ont été importés depuis les propositions."
+          subject: Importation des propositions réussie
+          success: Propositions importées avec succès dans les résultats du composant %{component_name} . Vous pouvez consulter les résultats dans l'interface d'administration.
       last_activity:
         new_result: 'Nouvelle réalisation :'
       models:
@@ -240,8 +250,6 @@ fr:
         home:
           empty: Il n'y a aucun résultat pour le moment.
           empty_filters: Il n'y a aucun résultat avec ces critères.
-          sub_taxonomies_label: Sous-catégories
-          taxonomies_label: Catégories
         home_header:
           global_status: État d'exécution global
         no_results: Il n'y a aucun projet.
@@ -274,8 +282,6 @@ fr:
             geocoding_enabled: Cartes activées
             intro: Introduction
             no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
-            scope_id: Secteur
-            scopes_enabled: Secteurs activés
             taxonomy_filters: Sélectionner les filtres pour la fonctionnalité
             taxonomy_filters_add: Ajouter un filtre
           step:

@@ -105,6 +105,8 @@ sv:
       participatory_space_private_user:
         email: E-post
         name: Namn
+      participatory_space_private_user_csv_import:
+        file: Fil
       scope:
         code: Kod
         name: Namn
@@ -182,6 +184,13 @@ sv:
         attachment_collection:
           new: Ny mapp för bilagor
         browse: Bläddra
+        confirm_delete_component: |
+          Är du säker på att du vill ta bort komponenten?<br>
+          Komponenten innehåller:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} resurser</li>
+          </ul>
+          Om du ändrar dig, du kan återställa det senare.
         export: Exportera allt
         export-selection: Exportera markerade
         import: Importera
@@ -193,11 +202,15 @@ sv:
         per_page: Per sida
         permissions: Behörigheter
         reject: Avvisa
+        restore: Återställ
         send_me_a_test_email: Skicka ett testmeddelande till mig
         share: Dela
+        share_tokens: Åtkomstlänkar
+        soft_delete: Mjuk radering
         user:
           new: Ny administratör
         verify: Kontrollera
+        view_deleted_components: Visa borttagna komponenter
       admin_terms_of_service:
         accept:
           error: Ett fel inträffade när användarvillkoren för administratörer skulle godkännas.
@@ -231,6 +244,7 @@ sv:
         create:
           error: Det gick inte att skapa ett nytt område.
           success: Området har har skapats.
+        deprecated: Tänk på att områden är föråldrade och kommer att tas bort i framtida versioner. Använd kategorier istället. Den enda modulen som för närvarande använder områden är initiativmodulen.
         destroy:
           has_spaces: Det finns redan deltagarutrymmen för det här området. Se till att inget utrymme refererar till området innan du tar bort det.
           success: Området har tagits bort.
@@ -284,6 +298,12 @@ sv:
         no_results: Hittade inga resultat
         search_prompt: Sök genom att skriva minst tre tecken.
       block_user:
+        bulk_new:
+          action: Blockera konton och skicka motivering
+          already_reported_html: Fortsätter du kommer även deltagarens innehåll att döljas.
+          description: Om du blockerar en användare blir kontot oanvändbart. Du kan skriva en motivering och riktlinjer för vad som krävs för att häva blockeringen.
+          justification: Motivering
+          title: Blockera användare
         new:
           action: Blockera konto och skicka motivering
           already_reported_html: Fortsätter du kommer även alla deltagares innehåll att döljas.
@@ -318,6 +338,8 @@ sv:
             name: Komponentnamn
             type: Komponenttyp
             visibility: Synlighet
+        manage_trash:
+          title: Borttagna komponenter
         new:
           add: Lägg till komponent
           title: 'Lägg till komponent: %{name}'
@@ -543,6 +565,8 @@ sv:
         logs_list:
           no_logs_yet: Det finns inga loggar än.
           no_matching_logs: Det finns inga loggar med de angivna sökkriterierna. Försök att ändra dem.
+      manage_trash:
+        deleted_items_warning: Du visar för närvarande raderade objekt. För att göra ändringar måste du först återställa dem.
       managed_users:
         promotion:
           error: Det gick inte att befordra den hanterade användaren.
@@ -574,6 +598,7 @@ sv:
         scopes: Indelningar
         see_site: Till webbplatsen
         settings: Inställningar
+        share_tokens: Åtkomstlänkar
         static_page_topics: Ämnesområden
         static_pages: Sidor
         taxonomies: Kategorisering
@@ -631,8 +656,11 @@ sv:
             plural: Flertal
         share_token:
           fields:
+            actions: Åtgärder
             expires_at: Förfaller den
+            registered_only: Endast registrerade?
             times_used: Använd antal gånger
+            token: Åtkomstlänk
         static_page:
           fields:
             created_at: Skapad
@@ -662,13 +690,27 @@ sv:
         index:
           actions:
             block: Blockera användare
+            bulk_actions:
+              actions_dropdown: Åtgärder
+              block:
+                title: Blockera
+                update_moderated_user_button: Blockera användare
+              unblock:
+                title: Häv blockering
+                update_moderated_user_button: Avblockera användare
+              unreport:
+                title: Dra tillbaka rapport
+            ignore:
+              update_moderated_user_button: Avrapportera användare
             title: Åtgärder
             unblock: Avblockera användare
             unreport: Ta bort rapport
+          cancel: Avbryt
           name: Namn
           nickname: Användarnamn
           reason: Anledning
           reports: Antal anmälningar
+          selected: Valda
           title: Rapporterade deltagare
         report:
           reasons:
@@ -680,6 +722,19 @@ sv:
           unblocked: Ej blockerade
       moderations:
         index:
+          actions:
+            actions_dropdown: Åtgärder
+            hide:
+              title: Dölj
+              update_moderation_button: Dölj valda resurser
+            unhide:
+              title: Sluta dölja
+              update_moderation_button: Sluta dölja valda resurser
+            unreport:
+              title: Avrapportera
+              update_moderation_button: Avrapportera valda resurser
+          cancel: Avbryt
+          selected: valda
           title: Rapporterat innehåll
         report:
           reasons:
@@ -702,6 +757,11 @@ sv:
             report_language: Språk för anmälan
             report_reason: Anledning
             title: Motivering
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Förhandsvisa
@@ -712,6 +772,8 @@ sv:
           use_template: Använd den här mallen
       newsletters:
         confirm_recipients:
+          email: E-post
+          name: Namn
           title: Bekräfta mottagare
         create:
           error: Det gick inte att skapa nyhetsbrevet.
@@ -747,13 +809,24 @@ sv:
           all_spaces: Alla
           all_users_help: Skickar nyhetsbrevet till alla bekräftade användare.
           confirm_deliver: Vill du skicka nyhetsbrevet? Den här åtgärden kan inte ångras.
+          confirm_recipients: Bekräfta mottagare
           deliver: Leverera nyhetsbrev
           followers_help: Skickar nyhetsbrevet till alla verifierade användare som följer något av de markerade deltagarutrymmena i listan.
           participants_help: Skickar nyhetsbrevet till alla verifierade användare som har deltagit i något av de markerade deltagarutrymmena i listan.
+          private_members_help: Skickar ett nyhetsbrev till alla bekräftade användare som har lagts till de valda privata deltagarutrymmena.
           recipients_count: Nyhetsbrevet kommer att skickas till <strong id='recipients_count'>%{count}</strong> användare.
+          select_assemblies: Välj samråd
+          select_conferences: Välj konferenser
+          select_initiatives: Välj initiativ
+          select_participatory_processes: Välj deltagandeprocesser
           select_spaces: Segmentera nyhetsbrevet genom att markera utrymmen
+          select_users_for_participatory_space: Skicka nyhetsbrev till ett eller flera deltagarutrymmen
+          select_users_general: Skicka ett allmänt nyhetsbrev
+          select_verification_types: Välj verifieringsmetoder
           send_to_all_users: Skicka till alla användare
+          send_to_verified_users: Skicka till verifierade användare
           title: Välj mottagare att skicka till
+          verified_users_help: Skicka nyhetsbrev till alla verifierade användare.
           warning: "<strong>Obs:</strong> Detta nyhetsbrev kommer endast att skickas till de användare som har markerat <em>Jag vill få nyhetsbrev</em> i sina meddelandeinställningar."
         send:
           no_recipients: Inga mottagare för det här urvalet.
@@ -771,6 +844,13 @@ sv:
         block:
           error: Det gick inte att blockera deltagaren.
           success: Deltagaren har blockerats.
+        bulk_action:
+          block:
+            invalid: Det gick inte att blockera deltagarna.
+            success: Deltagarna har blockerats.
+          unblock:
+            invalid: Det gick inte att avblockera deltagarna.
+            success: Deltagarna har avblockerats.
         create:
           success: Deltagaren har fått officiell status.
         destroy:
@@ -863,12 +943,26 @@ sv:
         destroy:
           error: Det gick inte att ta bort en privat deltagare från deltagarutrymmet.
           success: Åtkomsten för privat deltagare till deltagarutrymmet har tagits bort.
+        edit:
+          title: Redigera privat deltagare i deltagarutrymme.
+          update: Uppdatera
         index:
           import_via_csv: Importera via CSV
+          publish_all: Publicera alla
           title: Privat deltagare i deltagarutrymme
+          unpublish_all: Avpublicera alla
         new:
           create: Skapa
           title: Ny privat deltagare i deltagarutrymme.
+        publish_all:
+          error: Det gick inte att publicera alla privata deltagare i deltagarutrymmet.
+          success: Publicerade alla privata deltagare för deltagarutrymmet
+        unpublish_all:
+          error: Det gick inte att avpublicera alla privata deltagare i deltagarutrymmet.
+          success: Avpublicerade alla privata deltagare för deltagarutrymmet
+        update:
+          error: Det gick inte att uppdatera den privata deltagaren i deltagarutrymmet.
+          success: Privat deltagare i deltagarutrymmet har uppdaterats
       participatory_space_private_users_csv_imports:
         create:
           invalid: Det gick inte att läsa CSV-filen. Kontrollera att du har följt instruktionerna.
@@ -901,6 +995,8 @@ sv:
         edit:
           submit: Skicka in
           title: Redigera behörigheter
+        options_form:
+          ephemeral_warning: För att aktivera denna auktoriseringsmetod måste du <a href="%{path}">återkalla</a> alla befintliga auktorisationer. Detta minimerar risken för verifieringskonflikter. Alla auktoriseringar av denna typ kommer att återkallas automatiskt i organisationen om du lägger till denna metod eller modifierar dess konfiguration efter att den lagts till.
         update:
           success: Behörigheterna har uppdaterats.
       scope_types:
@@ -922,6 +1018,7 @@ sv:
         create:
           error: Det gick inte att skapa en ny indelning.
           success: Indelningen har skapats.
+        deprecated: Tänk på att indelningar är föråldrade och kommer att tas bort i framtida versioner. Använd kategorier istället. Den enda modulen som för närvarande använder indelningar är initiativmodulen.
         destroy:
           success: Indelningen har raderats.
         edit:
@@ -936,7 +1033,48 @@ sv:
           success: Indelningen har uppdaterats
       share_tokens:
         actions:
+          confirm_destroy: Är du säker på att du vill ta bort åtkomsten?
+          copy_link: Kopiera länk
           destroy: Radera
+          edit: Redigera
+          preview: Förhandsgranska
+        create:
+          invalid: Det gick inte att generera åtkomstlänken.
+          success: Åtkomstlänken har skapats.
+        destroy:
+          error: Det gick inte att ta bort åtkomstlänken.
+          success: Åtkomstlänken har raderats.
+        edit:
+          title: 'Redigera åtkomstlänkar för: %{name}'
+          update: Uppdatera
+        form:
+          automatic: Automatisk
+          custom: Anpassad
+          custom_expiration: Anpassat utgångsdatum
+          custom_token: Anpassat ord
+          expires_at: Förfaller
+          'false': 'Nej'
+          never_expire: Aldrig
+          registered_only: Endast registrerade?
+          token: Åtkomstkod
+          'true': 'Ja'
+        index:
+          back_to_share_tokens: Tillbaka till åtkomstlänkar
+          copy_message: Texten har kopierats till urklipp.
+          create_new_token: Skapa din första åtkomstlänk!
+          empty_html: Det finns inga aktiva åtkomstlänkar. %{new_token_link}
+          never: Aldrig
+          new_share_token_button: Ny åtkomstlänk
+          share_tokens_help_html: |
+            Skapa och dela en åtkomstlänk för att låta andra att se denna opublicerade process.
+            Åtkomstlänkar kan vara giltiga endast för registrerade deltagare eller vid behov ha ett förfallodatum.
+            För att dela en ny åtkomstlänk med någon, skapa den och kopiera länken med åtgärdsikonen "%{clipboard} Urklipp".
+        new:
+          create: Skapa
+          title: 'Ny åtkomstlänk för: %{name}'
+        update:
+          error: Det gick inte att uppdatera åtkomsten.
+          success: Åtkomstlänken har uppdaterats.
       shared:
         adjacent_navigation:
           next: Nästa
@@ -990,7 +1128,15 @@ sv:
           error: Det gick inte att uppdatera sidan.
           success: Sidan har uppdaterats.
       taxonomies:
-        actions: Åtgärder
+        actions:
+          actions: Åtgärder
+          destroy: Ta bort kategorisering & kategorier
+          edit: Redigera kategorisering & kategorier
+          filters: Hantera filter
+        breadcrumb:
+          edit: Redigera kategorisering
+          new: Ny kategorisering
+        count: Relaterade resurser
         create:
           invalid: Det gick inte att skapa kategorin.
           success: Kategorin har skapats.
@@ -1008,22 +1154,31 @@ sv:
         filters:
           search_placeholder: Sök
         index:
-          description: Kategorier används för att ordna innehåll. Använd kategorier för processer eller geografiska indelningar.
+          description: Kategorier och filter gör det möjligt för administratörer att sortera och organisera innehåll. Till exempel, lägg till en kategorisering med stadens distrikt och stadsdelar och skapa filter endast med distrikt eller för en specifik stadsdel.
           new_taxonomy: Ny kategorisering
           no_items_found: Inga kategorier stämmer in på kriterierna.
         name: Namn
         new:
           create: Skapa kategorisering
           title: Ny kategorisering
+        no_taxonomies: Det finns inga kategorier. Skapa en lista på kategorier här för att kunna använda för filtrering av innehåll.
         table:
           to_next_page: Dra till nästa sida
           to_prev_page: Dra till föregående sida
+        taxonomy_actions:
+          confirm_destroy: 'Är du säker på att du vill ta bort %{name}? Det kommer också att ta bort alla underkategorier. OBS: Innehåll som använder kategoriseringen kommer inte att påverkas, men de kommer att förlora kopplingen till kategoriseringen.'
+        total_filters: Filter
+        total_items: Kategorier för kategoriseringen
         update:
           invalid: Det gick inte att uppdatera kategorin.
           success: Kategorin har uppdaterats.
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Nytt filter från kategori
+        breadcrumb:
+          edit: Redigera filter
+          filters: Filter
+          new: Nytt filter
         create:
           error: Det gick inte att skapa filtret för kategorin.
           success: Filtret för kategorin har skapats.
@@ -1034,20 +1189,46 @@ sv:
           back: Tillbaka
           title: Redigera filter för kategori
           update: Uppdatera filter för kategori
+        form:
+          all: Allt
+          items:
+            one: "%{count} valda objekt"
+            other: "%{count} valda objekt"
+          name_help: Titel på filtret som visas för användare.
+          no_items: Inga underkategorier är tillgängliga för kategorin. Du kan skapa underkategorier i inställningarna för kategorin.
+          space_filter: Finns som filter för
         index:
           description: Ett kategorifilter gör det möjligt för administratörer att sortera och filtrera deltagarutrymmen baserat på en kategorisering. Använd till exempel filter för att sortera processer efter geografisk omfattning.
           empty: Det finns för närvarande inga kategorifilter. Skapa en lista över filter här för att sortera och filtrera deltagarutrymmen baserat på kategorier.
+          new_filter: Nytt filter
         new:
           back: Tillbaka
           create: Skapa filter för kategori
           title: Nytt filter för kategori
         table:
           actions: Åtgärder
+          components_count: Komponenter som använder det här
+          confirm_destroy: 'Är du säker på att du vill ta bort filter %{name}? OBS: Innehåll som använder filtret kommer inte att påverkas men de kommer att förlora kopplingen till filtret.'
           destroy: Radera
           edit: Redigera
+          internal_name: Intern titel
+          name: Titel
         update:
           error: Det gick inte att uppdatera filtret för kategorin.
           success: Filtret för kategorin har uppdaterats.
+      taxonomy_filters_selector:
+        new:
+          add_new_items_html: Om du behöver ställa in ett nytt filter eller objekt, gör det genom konfigurationsinställningarna eller genom att klicka på <a href="%{url}">här</a>.
+          items_count: "%{count} objekt"
+          save: Spara
+        show:
+          items_count: "%{count} objekt"
+          remove: Ta bort
+        taxonomies_select:
+          filters: Filter
+          select_filter: Välj ett filter
+          select_taxonomy: Välj en kategori
+          taxonomies: Kategorier
       taxonomy_items:
         edit:
           title: Redigera underkategori i %{taxonomy}
@@ -1077,9 +1258,18 @@ sv:
         scopes: Indelningar
         statistics: Aktivitet
         taxonomies: Kategorier
-        taxonomy_filters: Kategorifilter
+        taxonomy_filters: Kategorifilter för "%{taxonomy}"
         user_groups: Grupper
         users: Administratörer
+      tooltips:
+        deleted_component_info: Komponenten kan endast tas bort om statusen är 'avpublicerad'.
+      trash_management:
+        restore:
+          invalid: Det gick inte att återställa %{resource_name}.
+          success: "%{resource_name} har återställts."
+        soft_delete:
+          invalid: Det gick inte att ta bort %{resource_name}.
+          success: "%{resource_name} raderades."
       user_group:
         csv_verify:
           invalid: Det gick inte att läsa CSV-filen.
@@ -1153,6 +1343,22 @@ sv:
         unreport: Ta bort rapport
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Det gick inte att dölja innehåll: %{errored}'
+              invalid: Ingen moderering vald.
+              success: Innehållet har dolts.
+            ignore:
+              invalid: Ingen moderering vald.
+              success: Deltagarna har avrapporterats.
+            unhide:
+              failed: 'Det gick inte att sluta dölja innehållet: %{errored}'
+              invalid: Ingen moderering vald.
+              success: Innehållet är inte längre dolt.
+            unreport:
+              failed: 'Det gick inte att ta bort rapporten om innehållet: %{errored}'
+              invalid: Ingen moderering vald.
+              success: Innehållet är inte längre rapporterat.
           hide:
             invalid: Det gick inte att dölja innehållet.
             success: Innehållet har dolts.
@@ -1188,3 +1394,5 @@ sv:
       admin:
         global_moderations:
           title: Global moderering
+        taxonomy_filters_selector:
+          title: Filter

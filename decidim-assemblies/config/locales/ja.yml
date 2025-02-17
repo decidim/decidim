@@ -32,6 +32,7 @@ ja:
         import_components: コンポーネントをインポート
         included_at: 含まれた日
         instagram: Instagram
+        internal_organisation: 内部組織
         is_transparent: 透明性
         local_area: 組織エリア
         meta_scope: スコープメタデータ
@@ -43,8 +44,6 @@ ja:
         promoted: 強調表示
         published_at: 公開日時
         purpose_of_action: アクションの目的
-        scope_id: スコープ
-        scopes_enabled: スコープは有効です
         short_description: 短い説明
         slug: URL スラグ
         special_features: 特別な機能
@@ -200,6 +199,9 @@ ja:
             collaborator: コラボレーター
             moderator: モデレーター
             valuator: 評価者
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: すべての参加スペース
       titles:
         assemblies: 参加スペース
         assemblies_deleted: 削除されたアセンブリ
@@ -241,7 +243,6 @@ ja:
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 持続期間
             duration_help: この参加スペースの持続時間が限られている場合は、終了日を選択します。それ以外の場合は、不定義として表示されます。
-            filters: フィルタ
             images: 画像
             included_at_help: この参加スペースがプラットフォームに追加された日付を選択します。必ずしも作成日と同じである必要はありません。
             metadata: メタデータ
@@ -249,7 +250,6 @@ ja:
             other: その他
             private_notice: プライベートとして設定した後、プライベート参加者を管理することができます
             select_a_created_by: 作成者を選択してください
-            select_an_area: エリアを選択
             select_parent_assembly: 親参加スペースを選択
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             social_handlers: ソーシャル

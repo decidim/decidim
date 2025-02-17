@@ -193,11 +193,9 @@ de:
           postal_codes:
             one: Die Teilnahme ist auf Benutzer mit der Postleitzahl %{postal_codes}.
             other: 'Die Teilnahme ist auf Benutzer mit einer der folgenden Postleitzahlen beschränkt: %{postal_codes}.'
-          scope: Die Teilnahme ist auf Benutzer mit dem Umgang %{scope_name} begrenzt.
           user_postal_codes:
             one: Die Teilnahme ist auf Teilnehmer mit der Postleitzahl %{postal_codes} beschränkt, und Ihre Postleitzahl ist %{user_postal_code}.
             other: 'Die Teilnahme ist auf Teilnehmer mit einer der folgenden Postleitzahlen beschränkt: %{postal_codes}. Ihre Postleitzahl ist %{user_postal_code}.'
-          user_scope: Die Teilnahme ist auf Teilnehmer aus dem Bereich %{scope_name} beschränkt, und Ihr Bereich ist %{user_scope_name}.
       id_documents:
         admin:
           config:

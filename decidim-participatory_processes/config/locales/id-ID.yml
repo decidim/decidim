@@ -22,8 +22,6 @@ id:
         promoted: Dipromosikan
         published_at: Diterbitkan di
         related_process_ids: Proses terkait
-        scope_id: Cakupan
-        scopes_enabled: Lingkup diaktifkan
         short_description: Deskripsi Singkat
         slug: Siput URL
         start_date: Mulai tanggal
@@ -270,11 +268,9 @@ id:
           form:
             announcement_help: Teks yang Anda masukkan di sini akan ditampilkan kepada pengguna tepat di bawah informasi proses.
             duration: Lamanya
-            filters: Filter
             images: Gambar
             metadata: Metadata
             related_processes: Proses terkait
-            select_an_area: Pilih suatu Area
             select_process_group: Pilih grup proses
             title: Informasi Umum
       content_blocks:

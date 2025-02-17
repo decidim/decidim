@@ -125,8 +125,6 @@ gl:
             proposal_limit: Límite de proposta por usuario
             proposal_wizard_step_1_help_text: Asistente de propostas "Crear" texto de axuda paso a paso
             resources_permissions_enabled: Os permisos de acción pódense establecer para cada proposta
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
             threshold_per_proposal: Umbral por proposta
           step:
             announcement: Anuncio

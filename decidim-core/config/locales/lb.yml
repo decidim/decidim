@@ -65,6 +65,8 @@ lb:
     'false': 'Nee'
     'true': 'Jo'
   date:
+    buttons:
+      select: Wiel
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -236,10 +238,8 @@ lb:
       dummy_authorization_handler:
         fields:
           allowed_postal_codes: Erlaabten Postleitzuelen (duerch Komma getrennt)
-          allowed_scope_id: Erlaabten Ëmfang
           document_number: Dokument-Nummer
           postal_code: Postleitzuel
-          scope_id: Ëmfang
         name: Beispill Berechtegung
       dummy_authorization_workflow:
         name: Aarbechtsoflaf Dummy-Berechtegung
@@ -321,8 +321,6 @@ lb:
             dummy_global_translatable_text: Dummy Text ze iwwersetzen
             enable_pads_creation: Erstellen vun Pads erméiglechen
             resources_permissions_enabled: Ressourcen-Berechtegung aktivéiert
-            scope_id: Ëmfank
-            scopes_enabled: Beräicher aktivéiert
           step:
             amendment_creation_enabled: Erstellen vun Ännerungen/Kommentarer aktivéiert
             amendment_promotion_enabled: Fërderung vun Ännerungen aktivéiert
@@ -919,16 +917,7 @@ lb:
         error: Bei der Fërderung ass e Problem opgetaucht.
     scopes:
       global: Global Themeberäicher
-      picker:
-        cancel: Ofbriechen
-        change: Ausgewielten Themeberäich änneren
-        choose: Wiel
-        currently_selected: Aktuell ausgewielten Themeberäich
-        title: Wiel %{field}
       prompt: Wiel en Themeberäich
-      scopes: Themeberäicher
-      scopes_picker_input:
-        select_scope: 'Wiel en Themeberäich (aktuell: %{current})'
     search:
       results: Resultater vun der Sich
       results_found_for_term: '%{count} Resultater vun der Sich: "%{term}"'
@@ -1025,13 +1014,6 @@ lb:
         send: Senden
       update:
         error: Noriicht gouf net geschéckt. Probéier méi spéit nach eng Kéier
-    user_interests:
-      show:
-        my_interests: Meng Interessen
-        update_my_interests: Interessen aktualiséieren
-      update:
-        error: Et gouf e Problem beim Aktualiséieren vun den Interessen.
-        success: D'Interessen goufen aktualiséiert.
     user_report_mailer:
       notify:
         body_1: Den Benotzer %{user} gouf gemellt vun %{token}
@@ -1236,7 +1218,6 @@ lb:
         authorizations: Berechtegungen
         delete_my_account: Mäin Kont läschen
         my_data: Meng Donnéeën
-        my_interests: Meng Interessen
         notifications_settings: Astellung fir Noriichten
         title: Astellung fir Benotzer
         user_groups: Gruppen
@@ -1277,6 +1258,8 @@ lb:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Wiel
     formats:
       day_of_month: "%b%b"
       day_of_week: "%a"
