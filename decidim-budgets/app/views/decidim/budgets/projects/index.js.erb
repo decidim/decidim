@@ -11,7 +11,7 @@ $orderFilterInput.val('<%= order %>');
 var $map = $("#map");
 var controller = $map.data("map-controller");
 if (controller) {
-  var markerData = JSON.parse('<%= escape_javascript projects_data_for_map(all_geocoded_projects).to_json.html_safe %>');
+  var markerData = JSON.parse('<%= escape_javascript cell("decidim/map", all_geocoded_projects, metadata_card: "decidim/budgets/project_metadata").geocoded_data.to_json.html_safe %>');
   controller.clearMarkers();
   if (markerData.length > 0){
     controller.addMarkers(markerData);

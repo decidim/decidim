@@ -14,7 +14,7 @@ ca:
         document: Document
       proposal:
         address: Adreça
-        answer: Resposta
+        answer: Respondre
         answered_at: Respost el
         automatic_hashtags: Hashtags afegits automàticament
         body: Cos
@@ -29,7 +29,7 @@ ca:
         title: Títol
         user_group_id: Crea una proposta com a
       proposal_answer:
-        answer: Respondre
+        answer: Resposta
         cost: Cost
         cost_report: Informe de cost
         execution_period: Període d'execució
@@ -1003,7 +1003,7 @@ ca:
           maximum_votes_reached: S'ha arribat al límit de suports
           no_votes_remaining: No hi ha suports restants
           vote: Donar suport
-          votes_blocked: Recollida de suports desactivada
+          votes_blocked: Donar suport
         votes_count:
           count:
             one: Suport

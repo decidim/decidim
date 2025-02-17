@@ -78,7 +78,6 @@ de:
         with_participatory_space: Partizipativer Raum
       decidim/user:
         current_password: Aktuelles Passwort
-        email: E-Mail
         name: Spitzname
         password: Passwort
         password_confirmation: Bestätigung des Passworts
@@ -672,7 +671,6 @@ de:
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
       sessions:
         new:
-          are_you_new?: Neu auf der Plattform?
           register: Konto erstellen
           sign_in_disabled: Sie können mit einem externen Konto darauf zugreifen.
           sign_up_disabled: Registrierungen sind deaktiviert. Verwenden Sie ein bestehendes Konto für den Zugriff.
@@ -696,8 +694,6 @@ de:
             haben wir vollstes Verständnis für Ihre Entscheidung.</p>
             <p>Vielen Dank, dass Sie sich die Zeit zum Lesen genommen haben!</p>
           title: Newsletter Benachrichtigungen
-        omniauth_buttons:
-          or: Oder
         password_fields:
           hidden_password: Ihr Passwort ist versteckt
           hide_password: Passwort verstecken
@@ -754,6 +750,13 @@ de:
           id: Die eindeutige Bezeichnung dieser Benachrichtigung
           resource_type: Der Typ der Ressource, mit der die Benachrichtigung verknüpft ist
           updated_at: Datum und Uhrzeit, an dem die Benachrichtigung zuletzt aktualisiert wurde
+        participatory_space_private_users:
+          created_at: Das Datum und die Uhrzeit, als diese private Teilnahme erstellt wurde
+          id: Die eindeutige Bezeichnung der privaten Teilnahme
+          privatable_to: Zu welchem Raum diese private Teilnahme gehört
+          published: Ob diese private Teilnahme veröffentlicht ist oder nicht
+          role: Die Rolle, die diese private Teilnahme hat
+          updated_at: Das Datum und die Uhrzeit, als diese private Teilnahme zuletzt aktualisiert wurde
         user_groups:
           document_number: Die Dokumentennummer dieser Benutzergruppe
           id: Die eindeutige Bezeichnung der Gruppe
@@ -1051,7 +1054,7 @@ de:
         error: Beim Folgen dieser Ressource ist ein Fehler aufgetreten.
         participatory_space: Folgen Sie <span>%{resource_name}</span>
       destroy:
-        button: Entfolgen
+        button: Nicht mehr folgen
         error: Beim Entfolgen dieser Ressource ist ein Fehler aufgetreten.
     forms:
       attachment_link:

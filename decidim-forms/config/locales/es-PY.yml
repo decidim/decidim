@@ -134,6 +134,7 @@ es-PY:
             already_answered_warning: No puedes modificar las preguntas porque algunas participantes ya han respondido el formulario.
             collapse: Contraer todas las preguntas
             expand: Desplegar todas las preguntas
+            unpublished_warning: El formulario no está publicado. Puedes modificar sus preguntas, pero al hacerlo se borrarán las respuestas actuales.
             update:
               success: Pregunta/s añadida/s correctamente a la encuesta.
           separator:

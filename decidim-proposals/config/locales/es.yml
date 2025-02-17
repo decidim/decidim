@@ -14,7 +14,7 @@ es:
         document: Documento
       proposal:
         address: Dirección
-        answer: Respuesta
+        answer: Responder
         answered_at: Respondido en
         automatic_hashtags: Hashtags añadidos automáticamente
         body: Cuerpo
@@ -29,7 +29,7 @@ es:
         title: Título
         user_group_id: Crear propuesta como
       proposal_answer:
-        answer: Responder
+        answer: Respuesta
         cost: Coste
         cost_report: Informe de coste
         execution_period: Período de ejecución
@@ -1003,7 +1003,7 @@ es:
           maximum_votes_reached: Límite de apoyos alcanzado
           no_votes_remaining: No hay apoyos restantes
           vote: Dar apoyo
-          votes_blocked: Apoyos desactivados
+          votes_blocked: Dar apoyo
         votes_count:
           count:
             one: Apoyo

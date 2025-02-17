@@ -179,11 +179,23 @@ es-MX:
             creation_enabled_for_user_groups: Habilitar la creación de encuentros por parte de los grupos de usuarias
     download_your_data:
       help:
+        invites:
+          accepted_at: La fecha y hora en que se aceptó esta invitación
+          created_at: La fecha y hora en que se creó esta invitación
+          id: El identificador único de la invitación
+          meeting: El encuentro al que corresponde esta invitación
+          rejected_at: La fecha y hora en que se rechazó esta invitación
+          sent_at: La fecha y hora en que se envió esta invitación
+          updated_at: La fecha y hora en que esta invitación fue actualizada por última vez
         registrations:
           code: El código de inscripción
+          created_at: La fecha y hora en que se realizó esta inscripción
           id: El identificador único de la inscripción
           meeting: El encuentro al que se inscribió la usuaria
+          public_participation: Si la inscripción se mostraba públicamente, o no
+          updated_at: La fecha y hora en que esta inscripción fue actualizada por última vez
           user: La usuaria que realizó la inscripción
+          validated_at: La fecha y hora en que se confirmó/validó esta inscripción
       show:
         meeting_comments: Exportar los comentarios en los encuentros
         meetings: Exportar los encuentros

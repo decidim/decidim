@@ -8,7 +8,6 @@ module Decidim
       include PaginateHelper
       include Decidim::Comments::CommentsHelper
       include Decidim::MapHelper
-      include Decidim::Accountability::MapHelper
 
       def display_percentage(number)
         return if number.blank?
