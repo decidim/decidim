@@ -54,7 +54,6 @@ el:
         with_participatory_space: Συμμετοχικός χώρος
       decidim/user:
         current_password: Τρέχων κωδικός πρόσβασης
-        email: Email
         name: Ψευδώνυμο
         password: Κωδικός πρόσβασης
         password_confirmation: Επιβεβαίωση κωδικού πρόσβασης
@@ -469,7 +468,6 @@ el:
           username_help: Το δημόσιο όνομα που εμφανίζεται στις δημοσιεύσεις σας. Με σκοπό τη διασφάλιση της ανωνυμίας, μπορεί να είναι οποιοδήποτε όνομα.
       sessions:
         new:
-          are_you_new?: Είστε νέοι στην πλατφόρμα;
           register: Δημιουργία λογαριασμού
           sign_in_disabled: Μπορείτε να έχετε πρόσβαση με εξωτερικό λογαριασμό.
       shared:
@@ -478,8 +476,6 @@ el:
             check: Επιλογή και συνέχεια
             uncheck: Διατήρηση χωρίς επιλογή
           title: Ειδοποιήσεις ενημερωτικών δελτίων
-        omniauth_buttons:
-          or: Ή
     doorkeeper:
       authorizations:
         new:
