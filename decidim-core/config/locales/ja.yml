@@ -57,7 +57,7 @@ ja:
         with_participatory_space: 参加型スペース
       decidim/user:
         current_password: 現在のパスワード
-        email: メールアドレス
+        email: Eメールアドレス
         name: アカウントID
         password: パスワード
         password_confirmation: パスワードの確認

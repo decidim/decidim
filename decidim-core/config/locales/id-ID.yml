@@ -29,7 +29,6 @@ id:
     attributes:
       decidim/user:
         current_password: Kata sandi saat ini
-        email: E-mail
         name: Nama pengguna
         password: Kata sandi
         password_confirmation: konfirmasi kata kunci
