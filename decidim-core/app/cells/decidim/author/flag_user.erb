@@ -1,3 +1,4 @@
+<% raise "author/flag_user" %>
 <% if user_flaggable? && model.try(:id) != current_user.try(:id) %>
   <%= cell(
         "decidim/button",
@@ -9,6 +10,5 @@
           "aria-haspopup" => "dialog"
         }
       ) %>
-
   <%= raise cell("decidim/flag_modal", model).flag_user %>
 <% end %>

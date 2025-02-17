@@ -1,3 +1,4 @@
+<% raise "got flag_modal/show cell" %>
 <%= decidim_modal id: modal_id do %>
   <%= decidim_form_for report_form, url: decidim.report_path(sgid: model.to_sgid.to_s), method: :post, html: { id: nil, class: "modal__report form-defaults" } do |f| %>
     <div data-dialog-container>

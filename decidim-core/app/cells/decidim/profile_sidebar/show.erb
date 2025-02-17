@@ -8,6 +8,7 @@
         <%= profile_user.nickname %> <br>
       </span>
       <% if user_flaggable? %>
+        <% raise "profile_sidebar/show" %>
         <span class="user-report_link">
           <%== raise cell("decidim/author", profile_user, from:profile_user).flag_user %>
         </span>
