@@ -29,6 +29,8 @@ fr:
           create:
             invalid: Un problème est survenu lors de la création de cet article.
             success: Article créé avec succès.
+          destroy:
+            success: Article supprimé avec succès.
           edit:
             save: Mettre à jour
             title: Éditer le post
@@ -64,11 +66,28 @@ fr:
             published_at: Date de publication
             title: Titre
       posts:
+        edit:
+          back: Retour à l'article
+          button: Mettre à jour
+          title: Modifier l'article
+        form:
+          author_id: Auteur
+          body: Corps de texte
+          title: Titre
         index:
           count:
             one: "%{count} article"
             other: "%{count} articles"
           empty: Il n'y a pas encore d'articles.
+          new_post: Nouvel article
+        menu_actions:
+          button_destroy: Supprimer l'article
+          button_destroy_confirm: Êtes-vous sûr(e) de vouloir supprimer cet article ?
+          button_edit: Modifier l'article
+        new:
+          back: Retour aux articles
+          button: Créer
+          title: Créer un nouvel article
     components:
       blogs:
         actions:
@@ -83,6 +102,7 @@ fr:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            creation_enabled_for_participants: Les participants peuvent créer des articles
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
