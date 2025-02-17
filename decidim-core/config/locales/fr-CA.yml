@@ -72,7 +72,7 @@ fr-CA:
         with_participatory_space: Espace participatif
       decidim/user:
         current_password: Mot de passe actuel
-        email: Courriel
+        email: Adresse e-mail
         name: Surnom
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
@@ -528,6 +528,8 @@ fr-CA:
             dummy_step_attribute1: Attribut d'étape factice 1
             dummy_step_attribute2: Attribut d'étape factice 2
             dummy_step_translatable_text: Texte traduisible de l'étape factice
+      pagination:
+        page_title: "%{component_name} - Page %{current_page} sur %{total_pages}"
     contact: Contact
     content_blocks:
       announcement:
@@ -634,7 +636,7 @@ fr-CA:
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
-          are_you_new?: Nouveau sur la plateforme ?
+          are_you_new?: Pas encore inscrit(e) ?
           register: Créer un compte
           sign_in_disabled: Vous pouvez vous connecter avec un compte externe.
           sign_up_disabled: La création de compte est désactivée, mais vous pouvez vous identifier avec un compte existant.
@@ -658,7 +660,7 @@ fr-CA:
             <p>Merci de votre lecture !</p>
           title: Inscription à la newsletter
         omniauth_buttons:
-          or: Ou
+          or: ou
         password_fields:
           hidden_password: Votre mot de passe est masqué
           hide_password: Masquer le mot de passe
