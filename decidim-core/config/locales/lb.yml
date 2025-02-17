@@ -44,7 +44,6 @@ lb:
     attributes:
       decidim/user:
         current_password: Aktuellt Passwuert
-        email: Email
         name: Spëtznumm
         password: Passwuert
         password_confirmation: Passwuert Bestätegung
@@ -385,7 +384,6 @@ lb:
           username_help: Den ëffentlechen Numm gëtt an dengen Beiträg ugewisen. Fir d'Anonymat ze garantéieren, kann s'de der och en belibegen Numm eraussichen.
       sessions:
         new:
-          are_you_new?: Nei op dëser Plattform?
           register: Kont uleeën
       shared:
         newsletter_modal:
@@ -393,8 +391,6 @@ lb:
             check: Iwwerpréiwen an weider maachen
             uncheck: Ouni Kontakt-Erlabnis weidermaachen
           title: Newsletter Matdeelungen
-        omniauth_buttons:
-          or: Oder
     doorkeeper:
       authorizations:
         new:
