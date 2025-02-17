@@ -57,7 +57,6 @@ pl:
         with_participatory_space: Przestrzeń partycypacji
       decidim/user:
         current_password: Obecne hasło
-        email: E-mail
         name: Pseudonim
         password: Hasło
         password_confirmation: Potwierdzenie hasła
@@ -586,7 +585,6 @@ pl:
           username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
       sessions:
         new:
-          are_you_new?: Nowy na platformie?
           register: Utwórz konto
           sign_in_disabled: Możesz uzyskać dostęp za pomocą konta zewnętrznego.
           sign_up_disabled: Tworzenie konta jest wyłączone, możesz użyć istniejącego konta, aby uzyskać dostęp.
@@ -604,8 +602,6 @@ pl:
             uczestnictwa w procesach na platformie.<br>Jeśli mimo wszystko nie chcesz otrzymywać newsletterów, doskonale rozumiemy twoją decyzję.</p>
             <p>Dziękujemy za uwagę!</p>
           title: Powiadomienia newslettera
-        omniauth_buttons:
-          or: Lub
         password_fields:
           hidden_password: Twoje hasło jest ukryte
           hide_password: Ukryj hasło
