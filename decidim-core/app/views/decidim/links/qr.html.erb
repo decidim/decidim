@@ -18,9 +18,9 @@
     <% end %>
   </div>
 
-  <h3>Scan the QR code</h3>
+  <h3><%= t(".scan") %></h3>
   <div>
-    <img alt="<%= t("decidim.share_widget.qr_code") %>" src="data:;base64,<%= Base64.encode64(qr_code.as_png(size: 175).to_s) %>">
+    <img src="data:;base64,<%= Base64.encode64(qr_code.as_png(size: 175).to_s).gsub("\n", '') %>" alt="<%= t("decidim.share_widget.qr_code") %>">
   </div>
 
     <div class="logo">
