@@ -1,9 +1,9 @@
+---
 ja:
   activemodel:
     attributes:
       sortition:
         additional_info: 並べ替え情報
-        decidim_category_id: 図面を適用したい提案のセット
         decidim_proposals_component_id: 提案セット
         dice: ダイロールの結果。 6面ダイをロールするか、1から6まで数字を生成する別のランダムな方法を探します そして目撃者の前にナンバーを入力します。 これにより、品質と結果のランダム性を保証します
         target_items: 選択される提案の数 (選択した提案のグループをたくさん描画して選択したい提案の数を示します)
@@ -42,7 +42,6 @@ ja:
         models:
           sortition:
             fields:
-              category: カテゴリ
               created_at: 作成日
               decidim_proposals_component: 提案コンポーネント
               dice: ダイス
@@ -66,7 +65,6 @@ ja:
             title: 並べ替えに関する情報を更新する
             update: 更新
           form:
-            all_categories: すべてのカテゴリ
             select_proposal_component: 提案セットを選択
           index:
             title: 並べ替え
@@ -107,11 +105,8 @@ ja:
             other: 選択された提案
         show:
           algorithm: 並べ替えのアルゴリズム コード
-          any_category: すべてのカテゴリから
           cancelled: キャンセルされた並べ替え
           candidate_proposal_ids: 並べ替え提案の順序とID
-          candidate_proposals_info: '次の提案の中でソートが行われました (%{category_label}), 以下のIDを持つ(選択した提案を太字で)  '
-          category: '%{category} カテゴリから'
           dice_result: (1)サイコロ結果
           introduction: 'このページには、ソート %{reference} の結果が含まれています。このソートにより、%{target_items} の数の結果が、以下に表示されている提案の集合から同確率でランダムに選択されています。結果とともにこのページに表示される情報は、保証を最大化し、結果を再現するために必要なすべての情報を提供します。このソートの品質の鍵となるのは、転がるサイコロ(目撃者による検証) による二重のランダム性と、ランダムな選択を生成するアルゴリズムの入力となるソートの正確な時間です。ソートのタイムシードは、人間がコントロールすることが不可能な正確さ(秒単位) を持っているため、公平な結果を保証するための二重の「コントロール不可能な」入力を提供しています。  '
           mathematical_result: 結果 (1) x (2)
