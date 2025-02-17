@@ -57,7 +57,7 @@ fr:
         with_participatory_space: Espace participatif
       decidim/user:
         current_password: Mot de passe actuel
-        email: Email
+        email: Courriel
         name: Pseudonyme
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
