@@ -90,7 +90,7 @@ eu:
         reply: Erantzuna
         report:
           action: Salatu
-          already_reported: Eduki hau jada salatuta dago, eta administratzaile batek.
+          already_reported: Eduki horren berri eman da eta administratzaile batek berrikusiko du.
           close: Itxi
           description: Eduki hau desegokia da?
           details: Iruzkin gehigarriak
