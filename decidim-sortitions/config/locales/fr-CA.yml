@@ -24,8 +24,11 @@ fr-CA:
         name: Tirages au sort
         settings:
           global:
+            clear_all: Effacer tout
             comments_enabled: Commentaires activés
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            taxonomy_filters: Sélectionner les filtres pour le composant
+            taxonomy_filters_add: Ajouter un filtre
     events:
       sortitions:
         sortition_created:
