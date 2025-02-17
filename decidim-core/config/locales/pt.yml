@@ -44,7 +44,6 @@ pt:
     attributes:
       decidim/user:
         current_password: Senha atual
-        email: E-mail
         name: Alcunha
         password: Senha
         password_confirmation: Confirmação da senha
@@ -385,7 +384,6 @@ pt:
           username_help: Nome público que aparece nas suas publicações. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       sessions:
         new:
-          are_you_new?: Novo na plataforma?
           register: Criar uma conta
       shared:
         newsletter_modal:
@@ -393,8 +391,6 @@ pt:
             check: Verificar e continuar
             uncheck: Manter não verificado
           title: Notificações do boletim informativo
-        omniauth_buttons:
-          or: Ou
     doorkeeper:
       authorizations:
         new:
