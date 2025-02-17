@@ -79,7 +79,6 @@ fi-pl:
         with_participatory_space: Osallistumistila
       decidim/user:
         current_password: Nykyinen salasana
-        email: Sähköposti
         name: Käyttäjänimi
         password: Salasana
         password_confirmation: Salasanan vahvistus
@@ -673,7 +672,6 @@ fi-pl:
           username_help: Julkinen nimi, joka näytetään viestiesi yhteydessä. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
       sessions:
         new:
-          are_you_new?: Uusi käyttäjä?
           register: Rekisteröidy
           sign_in_disabled: Voit käyttää ulkoista tiliä.
           sign_up_disabled: Tilien luonti on poistettu käytöstä, mutta voit kirjautua olemassaolevalla käyttäjätilillä.
@@ -693,8 +691,6 @@ fi-pl:
             Mikäli silti haluat estää uutiskirjeiden vastaanottamisen, ymmärrämme täysin päätöksesi.</p>
             <p>Kiitos, että jaksoit lukea tämän ilmoituksen!</p>
           title: Uutiskirjeitä koskeva ilmoitus
-        omniauth_buttons:
-          or: Tai
         password_fields:
           hidden_password: Salasanasi on piilotettu
           hide_password: Piilota salasana
