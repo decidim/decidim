@@ -36,6 +36,7 @@ module Decidim
           __getobj__.title
         end
       end
+
       class ShareableResource
         def initialize
           @title = "Shareable Resource"

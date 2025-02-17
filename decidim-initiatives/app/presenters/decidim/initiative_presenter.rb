@@ -4,7 +4,7 @@ module Decidim
   #
   # Decorator for initiatives
   #
-  class InitiativePresenter < SimpleDelegator
+  class InitiativePresenter < Decidim::ResourcePresenter
     def author
       @author ||= if user_group
                     Decidim::UserGroupPresenter.new(user_group)
@@ -12,7 +12,6 @@ module Decidim
                     Decidim::UserPresenter.new(super)
                   end
     end
-
 
     def initiative
       __getobj__
