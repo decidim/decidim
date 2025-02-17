@@ -3,10 +3,20 @@ ro:
     attributes:
       account:
         delete_reason: Motivul pentru care vă ștergeți contul
+      attachment:
+        documents: Documente
+        photos: Fotografii
       common:
         created_at: Creat la
+      component:
+        taxonomy_filters: Filtre taxonomie
+      content_block_attachment:
+        background_image: Imagine de fundal
+        main_image: Imaginea principală
       conversation:
         body: Conținut
+      editor_image:
+        file: Fișier
       group:
         about: Despre
         avatar: Avatar
@@ -15,16 +25,25 @@ ro:
         name: Nume
         nickname: Pseudonim
         phone: Telefon
+      import:
+        file: Fișier
       message:
         body: Conținut
       report:
         details: Detalii
       taxonomy:
         name: Denumire taxonomie
+      taxonomy_filter:
+        internal_name: Etichetă internă
+        name: Etichetă
+        root_taxonomy_id: Din taxonomie
+        space_filter: Disponibil ca filtru pentru
       user:
         about: Despre
+        avatar: Fotografie de profil
         email: E-mailul dumneavoastră
         encrypted_password: Parolă
+        locale: Setări regionale
         name: Numele
         nickname: Pseudonim
         old_password: Parola curentă
@@ -33,6 +52,8 @@ ro:
         personal_url: URL personal
         remove_avatar: Eliminați avatar
         tos_agreement: Acordul privind termenii și condițiile
+      user_group:
+        avatar: Fotografie de profil
     models:
       decidim/attachment_created_event: Atașament
       decidim/component_published_event: Componentă activă
@@ -57,7 +78,7 @@ ro:
         with_participatory_space: Spaţiu participativ
       decidim/user:
         current_password: Parola curentă
-        email: E-mail
+        email: Adresa de e-mail
         name: Pseudonim
         password: Parolă
         password_confirmation: Confirmare parolă
@@ -158,6 +179,7 @@ ro:
         error: A apărut o problemă la ștergerea contului dumneavoastră.
         success: Contul dumneavoastră a fost șters cu succes.
       download_your_data_export:
+        export_expired: Exportul a expirat. Încercați să generați un nou export.
         file_no_exists: Fișierul nu există
         notice: Generarea fișierului de export a datelor dumneavoastră este în desfășurare. Veți primi un e-mail atunci când este completă.
       email_change:
@@ -399,6 +421,9 @@ ro:
         name: Exemplu de autorizare
       dummy_authorization_workflow:
         name: Flux de lucru test pentru autorizare
+      ephemeral_dummy_authorization_handler:
+        fields:
+          postal_code: Cod poștal
       errors:
         duplicate_authorization: Un participant este deja autorizat cu aceleași date. Un administrator vă va contacta pentru a verifica detaliile.
       expired_at: A expirat la %{timestamp}
@@ -422,10 +447,10 @@ ro:
         incomplete:
           cancel: Anulați
           invalid_field: "%{field}"
-          reauthorize: Reautorizează
+          reauthorize: Reautorizați
           title: Vă rugăm să reautorizați
         missing:
-          authorize: Autorizează cu "%{authorization}"
+          authorize: Autorizați cu "%{authorization}"
           explanation: Pentru a efectua această acțiune, trebuie să fii autorizat cu "%{authorization}".
           title: Autorizare necesară
         pending:
@@ -449,7 +474,7 @@ ro:
         one: și încă %{count}
         few: și încă %{count}
         other: și încă %{count}
-      see_less: "(vezi mai puţin)"
+      see_less: "(mai puține detalii)"
     components:
       component_order_selector:
         order:
@@ -477,7 +502,9 @@ ro:
             dummy_global_attribute2: Mostră de atribut 2
             dummy_global_translatable_text: Text-test traductibil
             enable_pads_creation: Activează crearea de pad-uri
+            no_taxonomy_filters_found: Nici un filtru de taxonomie găsit.
             resources_permissions_enabled: Drepturi pentru resurse activate
+            taxonomy_filters: Selectați filtrele pentru componentă
           step:
             amendment_creation_enabled: Crearea de amendamente activată
             amendment_promotion_enabled: Promovarea amendamentelor activată
@@ -487,31 +514,38 @@ ro:
             dummy_step_attribute1: Atribut fictiv 1
             dummy_step_attribute2: Mostră de atribut 2 al etapei
             dummy_step_translatable_text: Mostră de text traductibil pentru etapă
+      pagination:
+        page_title: "%{component_name} - Pagina %{current_page} din %{total_pages}"
     contact: Contact
     content_blocks:
+      announcement:
+        name: Anunț
       cta:
-        name: Imagine, text și butonul Apel la acțiune
+        name: Imagine, text și butonul acțiune
       cta_settings_form:
         background_image: Imagine de fundal
-        button_text: Textul butonului Apel la acțiune
-        button_url: URL-ul butonului Apel la acțiune
+        button_text: Textul butonului de acțiune
+        button_url: Adresă URL acțiune
         description: Descriere
       footer_sub_hero:
         name: Banner suberou suberou
+      global_menu:
+        name: Meniul global
       hero_settings_form:
         background_image: Imagine de fundal
-        welcome_text: Text de bun-venit
+        welcome_text: Text de întâmpinare
       highlighted_content_banner:
         name: Banner conținut evidențiat
       highlighted_elements_settings_form:
         components:
           all: Toate
+          label: 'Selectați componenta:'
         orders:
-          label: 'Sortează elementele după:'
-          random: Aleatoriu
+          label: 'Sortați elementele după:'
+          random: Aleatorii
           recent: Cele mai recente
       how_to_participate:
-        name: Cum să participi
+        name: Cum să participați
       html:
         html_content: Conținut HTML
         name: Bloc HTML
@@ -519,8 +553,16 @@ ro:
         name: Ultima activitate
         title: Ultima activitate
         view_all: Vedeți tot
+      metadata:
+        name: Metadate
       metrics:
-        name: Valorile organizației
+        name: Indicatori ai organizației
+      participatory_space_metrics:
+        name: Indicatori
+      participatory_space_stats:
+        name: Statistici
+      social_networks_metadata:
+        name: Rețele sociale
       static_page:
         section:
           name: Secțiune
@@ -530,12 +572,15 @@ ro:
           summary_content: Conţinut
         two_pane_section:
           left_column: Coloana stângă
+          name: Secțiune cu două coloane
           right_column: Coloana dreaptă
       stats:
         name: Statisticile organizației
       sub_hero:
         name: Banner suberoi
     core:
+      actions:
+        login_before_access: Vă rugăm să vă autentificați înainte de a accesa.
       application_helper:
         filter_area_values:
           all: Toate
@@ -548,25 +593,25 @@ ro:
         new:
           complete_profile: Completați-vă profilul
           nickname_help: Pseudonimul dumneavoastră în %{organization}. Poate conține doar litere, numere, '-' și '_'.
-          sign_up: Completează-ţi profilul
+          sign_up: Vă rugăm să completați profilul
           username_help: Numele public care apare pe posturi. Pentru a garanta anonimitatea, poate fi orice nume.
         new_tos_fields:
           sign_up: Creați un cont
       registrations:
         new:
-          already_have_an_account?: Ai deja un cont?
+          already_have_an_account?: Aveți deja un cont?
           log_in: Autentificare
           newsletter: Primiți un buletin informativ ocazional cu informații relevante
-          newsletter_title: Drepturi privind contactele
+          newsletter_title: Permisiune de contact
           sign_up: Creați un cont
           subtitle: Creați un cont pentru a participa la platformă.
           terms: condițiile de utilizare
-          tos_agreement: Prin înregistrare ești de acord cu %{link}.
+          tos_agreement: Prin înregistrare sunteți de acord cu %{link}.
           tos_title: Condiții de utilizare
           username_help: Numele public care apare pe postări. Pentru a garanta anonimitatea, poate fi orice nume.
       sessions:
         new:
-          are_you_new?: Nou pe platformă?
+          are_you_new?: Nu v-ați înregistrat încă?
           register: Creați un cont
           sign_in_disabled: Puteți accesa printr-un cont extern.
       shared:
@@ -576,13 +621,13 @@ ro:
             uncheck: Mențineți nebifat
           title: Notificări newsletter
         omniauth_buttons:
-          or: Sau
+          or: sau
     doorkeeper:
       authorizations:
         new:
-          authorize: Autorizați cererea
+          authorize: Autorizați aplicație
           by_organization_link_html: <small class="heading-small">de %{link}</small>
-          cancel: Anulează
+          cancel: Anulați
           publish_content: Publică conținut pentru tine
           see_email: Vezi e-mailul tău
           see_name: Vezi numele tău
@@ -651,25 +696,25 @@ ro:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'A fost acceptat un amendament pentru %{amendable_title}. Îl poţi vedea de pe această pagină:'
+            email_intro: 'A fost acceptat un amendament pentru %{amendable_title}. Îl puteți vedea de pe această pagină:'
             email_outro: Ați primit această notificare deoarece sunteți un autor al %{amendable_title}.
             email_subject: Amendamentul acceptat pentru %{amendable_title} de la %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">Amendamentul</a> creat de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a fost acceptat pentru <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Un amendament a fost acceptat pentru %{amendable_title}. Îl poți vedea de pe această pagină:'
-            email_outro: Ai primit această notificare deoarece urmărești %{amendable_title}. Poți înceta să primești notificări urmând linkul anterior.
-            email_subject: Amendamentul acceptat pentru %{amendable_title} de la %{emendation_author_nickname}
+            email_outro: Ați primit această notificare deoarece urmăriți %{amendable_title}. Puteți înceta să primiți notificări urmând linkul anterior.
+            email_subject: Amendament acceptat pentru %{amendable_title} de la %{emendation_author_nickname}
             notification_title: Amendamentul <a href="%{emendation_path}"></a> creat de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a fost acceptat pentru <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'A fost creat un nou amendament pentru %{amendable_title}. Îl poți vedea de pe această pagină:'
             email_outro: Ai primit această notificare deoarece ești autorul amendamentului %{amendable_title}.
-            email_subject: Nou amendament pentru %{amendable_title}
+            email_subject: Amendament nou pentru %{amendable_title}
             notification_title: A fost creat un nou amendament pentru <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Un nou amendament a fost creat pentru %{amendable_title}. Îl poți vedea de pe această pagină:'
             email_outro: Ai primit această notificare deoarece urmărești %{amendable_title}. Poți înceta să primești notificări urmând linkul anterior.
-            email_subject: Nou amendament pentru %{amendable_title}
+            email_subject: Amendament nou pentru %{amendable_title}
             notification_title: A fost creat un nou amendament pentru <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
@@ -1021,6 +1066,8 @@ ro:
           placeholder: Mesajul tău...
           send: Trimite
     metrics:
+      blocked_users:
+        description: Număr de participanți blocați
       download:
         csv: Descărcare date (CSV)
       followers:
@@ -1031,6 +1078,10 @@ ro:
         description: Numărul de participanți activi în organizație
         object: participanți
         title: Participanți
+      reported_users:
+        description: Numărul de participanți raportați
+      user_reports:
+        description: Numărul de raportări întocmite de participanți
       users:
         description: Numărul de participanți în organizație
         object: participanți
@@ -1114,6 +1165,12 @@ ro:
       show:
         retry: Încearcă din nou
     open_data:
+      help:
+        metrics:
+          cumulative: Numărul total al indicatorului din această zi
+          day: Ziua în care acest indicator a fost creat
+          metric_type: Tipul indicatorului
+          quantity: Numărul total al indicatorului din această zi
       not_available_yet: Fişierele de date deschise nu sunt încă disponibile, vă rugăm să încercaţi din nou în câteva minute.
     pad_iframe:
       disclaimer: Conținutul acestui panou este scris de utilizatori înregistrați și își exprimă opiniile. %{organization} nu poate fi considerat responsabil pentru conținutul său.
@@ -1149,7 +1206,7 @@ ro:
       participatory_space:
         metrics:
           headline: Indicatori
-          link: Arată toate măsurătorile
+          link: Afișați tot
     profile:
       deleted: Participant șters
     profiles:
@@ -1371,8 +1428,8 @@ ro:
         submit_button: Trimiteți o invitație
       no_invitations_remaining: Nicio invitație rămasă
       send_instructions: Un e-mail de invitație a fost trimis la %{email}.
-      updated: Parola ta a fost setată cu succes. Acum ești conectat.
-      updated_not_active: Parola ta a fost setată cu succes.
+      updated: Parola dvs. a fost setată cu succes. Acum ești conectat.
+      updated_not_active: Parola dvs. a fost setată cu succes.
     mailer:
       confirmation_instructions:
         action: Confirmaţi contul
@@ -1645,7 +1702,7 @@ ro:
       right: Adăugări
     dropdown:
       choose_diff_view_html: 'Mod vizualizare HTML:'
-      choose_diff_view_mode: 'Mod comparare vizualizare:'
+      choose_diff_view_mode: 'Modul de vizualizare pentru comparare:'
       option_escaped: Escapat
       option_split: Alăturat
       option_unescaped: Necodat (unescaped)
