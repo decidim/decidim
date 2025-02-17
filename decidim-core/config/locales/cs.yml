@@ -79,7 +79,6 @@ cs:
         with_participatory_space: Účastnický prostor
       decidim/user:
         current_password: Aktuální heslo
-        email: E-mail
         name: Uživatelské jméno
         password: Heslo
         password_confirmation: Potvrzení hesla
@@ -709,7 +708,6 @@ cs:
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
       sessions:
         new:
-          are_you_new?: Jste na platformě poprvé?
           register: Vytvořit účet
           sign_in_disabled: Můžete přistupovat pomocí externího účtu.
           sign_up_disabled: Vytvoření účtu je zakázáno, pro přístup můžete použít existující účet.
@@ -733,8 +731,6 @@ cs:
             rozumíme vašemu rozhodnutí.</p>
             <p>Děkujeme, že jste si to přečetli!</p>
           title: Oznámení zpravodaje
-        omniauth_buttons:
-          or: Nebo
         password_fields:
           hidden_password: Vaše heslo je skryté
           hide_password: Skrýt heslo
