@@ -1697,6 +1697,7 @@ en:
         group_admins: Manage admins
         group_members: Manage members
         groups: Groups
+        members: Members
         officialized: Official participant
         send_private_message: Send private message
       user:
