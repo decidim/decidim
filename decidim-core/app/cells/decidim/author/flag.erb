@@ -1,3 +1,4 @@
+<% raise "author/flag" %>>
 <button type="button" data-open="<%= current_user.present? ? "flagModal" : "loginModal" %>" title="<%= t("report", scope: "decidim.shared.flag_modal" ) %>" aria-controls="<%= current_user.present? ? "flagModal" : "loginModal" %>" aria-haspopup="true" tabindex="0">
   <%= icon "flag", aria_hidden: true, class: "icon--small", role: "img", "aria-hidden": true %>
   <span>
