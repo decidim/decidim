@@ -44,7 +44,6 @@
     attributes:
       decidim/user:
         current_password: Nåværende passord
-        email: Epost
         name: Kallenavn
         password: Passord
         password_confirmation: Bekreft passord
@@ -392,7 +391,6 @@
           username_help: Navnet du skriver her vil vises i alle innleggene dine. Du kan enten skrive både fornavn og etternavn, eller bare fore fornavnet ditt, hvis du ikke har lyst til å oppgi fullt navn.
       sessions:
         new:
-          are_you_new?: Er du ny på plattformen?
           register: Opprett en konto
       shared:
         newsletter_modal:
@@ -400,8 +398,6 @@
             check: Sjekk og fortsett
             uncheck: Hold usjekket
           title: Varsler om nyhetsbrev
-        omniauth_buttons:
-          or: Eller
     doorkeeper:
       authorizations:
         new:
