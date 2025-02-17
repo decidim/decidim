@@ -33,7 +33,7 @@ eu:
             invalid: Arazo bat egon da argitalpen hau sortzean.
             success: Argitalpena zuzen sortua.
           destroy:
-            success: Posta zuzen ezabatu da.
+            success: Sarrera zuzen ezabatu da.
           edit:
             save: Eguneratu
             title: Editatu argitalpena
@@ -72,9 +72,9 @@ eu:
             title: Izenburua
       posts:
         edit:
-          back: Itzuli postara
+          back: Itzuli sarrerara
           button: Eguneratu
-          title: Editatu posta
+          title: Editatu sarrera
         form:
           author_id: Egilea
           body: Gorputza
@@ -84,15 +84,15 @@ eu:
             one: "Argitalpen %{count}"
             other: "%{count} argitalpen"
           empty: Oraindik ez dago argitalpenik.
-          new_post: Beste posta bat
+          new_post: Beste sarrera bat
         menu_actions:
-          button_destroy: Ezabatu posta
-          button_destroy_confirm: Ziur zaude post hau ezabatu nahi duzula?
-          button_edit: Editatu posta
+          button_destroy: Ezabatu sarrera
+          button_destroy_confirm: Ziur zaude sarrera hau ezabatu nahi duzula?
+          button_edit: Editatu sarrera
         new:
-          back: Itzuli postara
+          back: Itzuli sarrerara
           button: Sortu
-          title: Sortu beste post bat
+          title: Sortu beste sarrera bat
     components:
       blogs:
         actions:
@@ -107,7 +107,7 @@ eu:
             announcement: Iragarpena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
-            creation_enabled_for_participants: Parte-hartzaileek postak sor ditzakete
+            creation_enabled_for_participants: Parte-hartzaileek sarrerak sor ditzakete
           step:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
