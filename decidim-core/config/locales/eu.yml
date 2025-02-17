@@ -565,6 +565,8 @@ eu:
             dummy_step_attribute1: Balizko Faseko atributua 1
             dummy_step_attribute2: Balizko Faseko atributua 2
             dummy_step_translatable_text: Itzul daitekeen testuaren balizko fasea
+      pagination:
+        page_title: "%{component_name} - %{total_pages} tik %{current_page} orrialde"
     contact: Harremanetarako
     content_blocks:
       announcement:
@@ -673,7 +675,7 @@ eu:
           username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
       sessions:
         new:
-          are_you_new?: Berria zara plataforman?
+          are_you_new?: Oraindik erregistratu gabe?
           register: Sortu zure kontua
           sign_in_disabled: Kanpoko kontu batez sartu ahal zara.
           sign_up_disabled: Kontuak sortzea desgaituta dago, sartzeko lehendik dagoen kontu bat erabil dezakezu.
@@ -694,7 +696,7 @@ eu:
             </p>Eskerrik asko hau irakurtzeagatik.</p>
           title: Buletinetako jakinarazpenak
         omniauth_buttons:
-          or: Edo
+          or: edo
         password_fields:
           hidden_password: Zure pasahitza ezkutatuta dago
           hide_password: Ezkutatu pasahitza
