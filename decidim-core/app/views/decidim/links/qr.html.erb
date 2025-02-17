@@ -20,7 +20,7 @@
 
   <h3><%= t(".scan") %></h3>
   <div>
-    <img src="data:;base64,<%= Base64.encode64(qr_code.as_png(size: 175).to_s).gsub("\n", '') %>" alt="<%= t("decidim.share_widget.qr_code") %>">
+    <img src="data:;base64,<%= qr_core_image %>" alt="<%= t("decidim.share_widget.qr_code") %>">
   </div>
 
     <div class="logo">
