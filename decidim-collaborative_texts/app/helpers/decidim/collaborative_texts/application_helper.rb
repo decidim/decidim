@@ -2,7 +2,7 @@
 
 module Decidim
   module CollaborativeTexts
-    # Custom helpers, scoped to the vollaborative texts engine.
+    # Custom helpers, scoped to the collaborative texts engine.
     module ApplicationHelper
       include PaginateHelper
       include SanitizeHelper
