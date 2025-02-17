@@ -1697,13 +1697,8 @@ en:
         group_admins: Manage admins
         group_members: Manage members
         groups: Groups
-        members: Members
         officialized: Official participant
         send_private_message: Send private message
-      sidebar:
-        badges:
-          info: Badges are earned by performing specific activity in the platform.
-          title: Badges
       user:
         actions:
           create_user_group: Create group
@@ -1719,16 +1714,7 @@ en:
           message: Message
           resend_email_confirmation_instructions: Resend email confirmation instructions
         confirmation_instructions_sent: Email confirmation instructions sent.
-        create_user_group: Create group
-        edit_profile: Edit profile
-        edit_user_group: Edit group profile
         fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it.
-        invite_user: Invite participant
-        join_user_group: Request to join group
-        leave_user_group: Leave group
-        manage_user_group_admins: Manage admins
-        manage_user_group_users: Manage members
-        resend_email_confirmation_instructions: Resend email confirmation instructions
     reported_mailer:
       hide:
         hello: Hello %{name},
