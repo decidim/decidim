@@ -33,6 +33,8 @@ eu:
           create:
             invalid: Arazo bat egon da argitalpen hau sortzean.
             success: Argitalpena zuzen sortua.
+          destroy:
+            success: Sarrera zuzen ezabatu da.
           edit:
             save: Eguneratu
             title: Editatu argitalpena
@@ -70,11 +72,28 @@ eu:
             published_at: Argitaratze-data
             title: Izenburua
       posts:
+        edit:
+          back: Itzuli sarrerara
+          button: Eguneratu
+          title: Editatu sarrera
+        form:
+          author_id: Egilea
+          body: Gorputza
+          title: Izenburua
         index:
           count:
             one: "Argitalpen %{count}"
             other: "%{count} argitalpen"
           empty: Oraindik ez dago argitalpenik.
+          new_post: Beste sarrera bat
+        menu_actions:
+          button_destroy: Ezabatu sarrera
+          button_destroy_confirm: Ziur zaude sarrera hau ezabatu nahi duzula?
+          button_edit: Editatu sarrera
+        new:
+          back: Itzuli sarrerara
+          button: Sortu
+          title: Sortu beste sarrera bat
     components:
       blogs:
         actions:
@@ -89,6 +108,7 @@ eu:
             announcement: Iragarpena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
+            creation_enabled_for_participants: Parte-hartzaileek sarrerak sor ditzakete
           step:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
