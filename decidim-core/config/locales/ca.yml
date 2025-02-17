@@ -79,7 +79,7 @@ ca:
         with_participatory_space: Espai de participació
       decidim/user:
         current_password: Contrasenya actual
-        email: Correu electrònic
+        email: Adreça de correu electrònic
         name: Àlies
         password: Contrasenya
         password_confirmation: Confirmació de la contrasenya
@@ -562,6 +562,8 @@ ca:
             dummy_step_attribute1: Atribut de fase de prova 1
             dummy_step_attribute2: Atribut de fase de prova 2
             dummy_step_translatable_text: Text de fase traduïble de proves
+      pagination:
+        page_title: "%{component_name} - Pàgina %{current_page} de %{total_pages}"
     contact: Contacte
     content_blocks:
       announcement:
@@ -670,7 +672,7 @@ ca:
           username_help: Nom públic que apareixerà en les teves publicacions. Amb l'objectiu de garantir l'anonimat pot ser qualsevol nom.
       sessions:
         new:
-          are_you_new?: Ets nova a la plataforma?
+          are_you_new?: Encara no t'has registrat?
           register: Crea't un compte
           sign_in_disabled: Pots accedir amb un compte extern.
           sign_up_disabled: La creació de comptes està deshabilitada, pots fer servir un compte existent per accedir-hi.
@@ -691,7 +693,7 @@ ca:
             <p>Gràcies per llegir això.</p>
           title: Notificacions de butlletins
         omniauth_buttons:
-          or: O
+          or: o
         password_fields:
           hidden_password: La contrasenya està amagada
           hide_password: Amagar contrasenya
