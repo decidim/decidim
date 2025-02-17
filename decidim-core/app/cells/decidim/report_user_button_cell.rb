@@ -40,7 +40,6 @@ module Decidim
       options[:modal_id] || "flagUserModal"
     end
 
-
     def button_classes
       options[:button_classes] || "button button__sm button__text button__text-secondary"
     end
