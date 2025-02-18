@@ -187,8 +187,8 @@ lt:
       badges:
         initiatives:
           conditions:
-            - Eiti į iniciatyvų dalyvaujamąją erdvę
-            - Sekti žingsnius naujos iniciatyvos sukūrimui
+          - Eiti į iniciatyvų dalyvaujamąją erdvę
+          - Sekti žingsnius naujos iniciatyvos sukūrimui
           description: Šis ženklelis suteikiamas, kai pradedate naujas iniciatyvas ir bendradarbiaujate su kitais, kad jas įgyvendintumėte.
           description_another: Šis dalyvis paskelbė %{score} iniciatyvas (-ų).
           description_own: Jūs paskelbėte %{score} iniciatyvas (-ų).
