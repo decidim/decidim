@@ -199,8 +199,8 @@ es:
       badges:
         initiatives:
           conditions:
-            - Ir al espacio de Iniciativas
-            - Sigue los pasos para crear una nueva iniciativa
+          - Ir al espacio de Iniciativas
+          - Sigue los pasos para crear una nueva iniciativa
           description: Este distintivo se otorga cuando lanzas nuevas iniciativas, asociándote con otras para llevarlas a cabo.
           description_another: Esta participante ha publicado %{score} iniciativas.
           description_own: Tienes %{score} iniciativas publicadas.
