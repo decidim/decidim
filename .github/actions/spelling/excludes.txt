@@ -88,6 +88,7 @@
 ^\Q.erb-lint.yml\E$
 ^\Q.erb_lint.yml\E$
 ^\Q.spelling.yml\E$
+^\QCHANGELOG.md\E$
 ^\Qdecidim-accountability/spec/fixtures/valid_result.csv\E$
 ^\Qdecidim-assemblies/app/packs/src/decidim/assemblies/orgchart.js\E$
 ^\Qdecidim-core/app/cells/decidim/amendable/amenders_list/show.erb\E$
