@@ -832,9 +832,7 @@ describe "Initiative" do
           end
 
           it "Offers contextual help" do
-            within "[data-content]" do
-              expect(page).to have_content("The initiative has been sent to technical validation.")
-            end
+            expect(page).to have_content("The initiative has been sent to technical validation.")
           end
         end
       end
