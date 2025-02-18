@@ -44,16 +44,16 @@ pt:
       admin:
         id_documents:
           help:
-            - Os participantes preenchem as suas informações de identidade e enviam uma cópia do seu documento.
-            - Preencha as informações presentes na imagem enviada.
-            - A informação deve corresponder ao que o utilizador preencheu.
-            - 
+          - Os participantes preenchem as suas informações de identidade e enviam uma cópia do seu documento.
+          - Preencha as informações presentes na imagem enviada.
+          - A informação deve corresponder ao que o utilizador preencheu.
+          - 
         postal_letter:
           help:
-            - Os participantes solicitam que um código de verificação seja enviado para o seu endereço.
-            - Envia a carta para o seu endereço com o código de verificação.
-            - Marca a carta como enviada.
-            - Depois de marcar a carta como enviada, o participante poderá introduzir o código e ser verificado.
+          - Os participantes solicitam que um código de verificação seja enviado para o seu endereço.
+          - Envia a carta para o seu endereço com o código de verificação.
+          - Marca a carta como enviada.
+          - Depois de marcar a carta como enviada, o participante poderá introduzir o código e ser verificado.
       csv_census:
         name: Recenseamento da organização
       direct: Direto
