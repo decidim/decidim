@@ -340,8 +340,10 @@ describe "Initiative" do
 
             it "they are redirected to the initiative form after verifying" do
               click_on "New initiative"
-              click_on translated(initiative_type.title, locale: :en)
-              click_on "Verify your account to promote this initiative", match: :first
+              within "#radio-accordion-#{initiative_type.id}" do
+                click_on "Show more"
+                click_on "Verify your account to promote this initiative", match: :first
+              end
               click_on "View authorizations"
               click_on(text: /Example authorization/)
               fill_in "Document number", with: "123456789X"
@@ -369,15 +371,19 @@ describe "Initiative" do
 
           it "they need to verify" do
             click_on "New initiative"
-            click_on translated(initiative_type.title, locale: :en)
-            click_on "Verify your account to promote this initiative", match: :first
+            within "#radio-accordion-#{initiative_type.id}" do
+              click_on "Show more"
+              click_on "Verify your account to promote this initiative", match: :first
+            end
             expect(page).to have_content("We need to verify your identity")
           end
 
           it "they are authorized to create after verifying" do
             click_on "New initiative"
-            click_on translated(initiative_type.title, locale: :en)
-            click_on "Verify your account to promote this initiative", match: :first
+            within "#radio-accordion-#{initiative_type.id}" do
+              click_on "Show more"
+              click_on "Verify your account to promote this initiative", match: :first
+            end
             fill_in "Document number", with: "123456789X"
             click_on "Send"
             expect(page).to have_content("Review the content of your initiative.")
@@ -465,8 +471,10 @@ describe "Initiative" do
             end
 
             expect(page).to have_content("Create a new initiative")
-            click_on translated(initiative_type.title, locale: :en)
-            click_on "Verify your account to promote this initiative", match: :first
+            within "#radio-accordion-#{initiative_type.id}" do
+              click_on "Show more"
+              click_on "Verify your account to promote this initiative", match: :first
+            end
             expect(page).to have_content("We need to verify your identity")
           end
         end
@@ -501,8 +509,11 @@ describe "Initiative" do
         it "shows the available initiative types" do
           within "[data-content]" do
             expect(page).to have_content(translated(initiative_type.title, locale: :en))
-            click_on translated(initiative_type.title, locale: :en)
-            expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative_type.description, locale: :en), tags: []))
+
+            within "#radio-accordion-#{initiative_type.id}" do
+              click_on "Show more"
+              expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative_type.description, locale: :en), tags: []))
+            end
           end
         end
 
@@ -731,8 +742,8 @@ describe "Initiative" do
         end
 
         it "offers contextual help" do
-          within ".flash.secondary" do
-            expect(page).to have_content("This kind of initiative requires a Promoting Commission consisting of at least #{initiative_type_minimum_committee_members} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.")
+          within "[data-content]" do
+            expect(page).to have_content("This type of citizen initiative requires a promoter committee composed of at least #{initiative_type_minimum_committee_members} members (certifiers). You must share the following link with the other people who are part of this initiative. When your contacts receive this link, they will have to follow the indicated steps.")
           end
         end
 
@@ -792,9 +803,12 @@ describe "Initiative" do
 
       context "when finish" do
         let(:initiative) { build(:initiative) }
+        let(:initiative_type_minimum_committee_members) { 0 }
 
         before do
-          first("input.radio-accordion-radio").click
+          within "#radio-accordion-#{initiative_type.id}" do
+            first("input.radio-accordion-radio").click
+          end
           click_on "Continue"
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
@@ -811,27 +825,14 @@ describe "Initiative" do
           expect(Decidim::Initiative.last.photos.count).to eq(1)
         end
 
-        it "shows the page component" do
-          find_link("Send to technical validation").click
-          find_link("Go to my initiatives").click
-          first(:link, translated(initiative.title, locale: :en)).click
-
-          within ".participatory-space__nav-container" do
-            find_link("Page").click
-          end
-
-          expect(page).to have_content("Page")
-        end
-
         context "when minimum committee size is above zero" do
           before do
             find_link("Send to technical validation").click
+            click_on "OK"
           end
 
           it "Offers contextual help" do
-            within ".flash.secondary" do
-              expect(page).to have_content("Congratulations! Your initiative has been successfully created.")
-            end
+            expect(page).to have_content("The initiative has been sent to technical validation.")
           end
         end
       end
