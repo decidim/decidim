@@ -214,8 +214,8 @@ nl:
       badges:
         accepted_proposals:
           conditions:
-            - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
-            - Probeer voorstellen te doen die kunnen worden uitgevoerd. Op deze manier worden ze eerder geaccepteerd.
+          - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
+          - Probeer voorstellen te doen die kunnen worden uitgevoerd. Op deze manier worden ze eerder geaccepteerd.
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen en deze aanvaard worden.
           description_another: Deze gebruiker heeft %{score} aanvaarde voorstellen.
           description_own: Je hebt %{score} aanvaarde voorstellen.
@@ -225,12 +225,12 @@ nl:
           unearned_own: U heeft nog geen aanvaarde voorstellen.
         proposal_votes:
           conditions:
-            - Blader en besteed wat tijd aan het lezen van de voorstellen van anderen
-            - 
+          - Blader en besteed wat tijd aan het lezen van de voorstellen van anderen
+          - 
         proposals:
           conditions:
-            - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
-            - Maak een nieuw voorstel
+          - Kies de deelnemingsruimte van uw interesse met ingediende inzending voor voorstellen
+          - Maak een nieuw voorstel
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan nieuwe voorstellen.
           description_another: Deze gebruiker heeft %{score} voorstellen gemaakt.
           description_own: U hebt %{score} voorstellen gemaakt.
