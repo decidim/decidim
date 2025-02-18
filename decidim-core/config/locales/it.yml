@@ -610,7 +610,7 @@ it:
       badges:
         followers:
           conditions:
-            - Essere attivi e seguire altre persone sicuramente farà sì che altre persone ti seguano.
+          - Essere attivi e seguire altre persone sicuramente farà sì che altre persone ti seguano.
           description: Questo badge è concesso quando raggiungi un certo numero di follower. %{organization_name} è una rete sociale e politica, intreccia la tua rete per comunicare con altre persone nella piattaforma.
           description_another: Questo utente ha %{score} follower.
           description_own: "%{score} utenti ti stanno seguendo."
