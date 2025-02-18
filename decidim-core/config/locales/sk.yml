@@ -540,7 +540,7 @@ sk:
       badges:
         followers:
           conditions:
-            - Ak budete aktívni a budete sledovať ďalších ľudí, budú sledovať aj ľudia Vás.
+          - Ak budete aktívni a budete sledovať ďalších ľudí, budú sledovať aj ľudia Vás.
           description: Tento odznak obdržíte za dosiahnutie určitého počtu sledovateľov. %{organization_name} je sociálna a politická sieť, komunikujte teda aj s ďalšími ľuďmi na platforme.
           description_another: Tento účastník má %{score} nasledovateľov.
           description_own: "%{score} ľudí Vás sleduje."
