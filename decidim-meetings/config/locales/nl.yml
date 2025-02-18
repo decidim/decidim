@@ -158,7 +158,7 @@ nl:
       badges:
         attended_meetings:
           conditions:
-            - Registreer je voor de vergaderingen die je wil bijwonen
+          - Registreer je voor de vergaderingen die je wil bijwonen
           description: Deze badge wordt toegekend wanneer je verschillende vergaderingen persoonlijk bijwoont.
           description_another: Deze gebruiker heeft %{score} vergaderingen bijgewoond.
           description_own: U hebt %{score} vergaderingen bijgewoond.
