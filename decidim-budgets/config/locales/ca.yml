@@ -130,7 +130,7 @@ ca:
             select_a_project: Si us plau, selecciona un projecte.
             select_a_selection: Si us plau, selecciona un estat d'implementació.
             success:
-              selected: 'Aquests projectes han estat de seleccionats de ser implementats: %{errored}.'
+              selected: 'Aquests projectes han estat seleccionats per ser implementats: %{successful}.'
               unselected: 'Aquests projectes que apareixien per ser implementats s''han desseleccionat amb èxit: %{successful}.'
           update_taxonomies:
             invalid: 'Les taxonomies %{taxonomies} ja estaven assignades a aquests projectes: %{errored}.'
