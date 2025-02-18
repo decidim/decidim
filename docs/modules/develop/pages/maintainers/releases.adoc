@@ -11,7 +11,7 @@ If this is a *Release Candidate version* release, the steps to follow are:
 
 . Merge all the https://github.com/decidim/decidim/pulls?q=is%3Apr+is%3Aopen+author%3Adecidim-bot+sort%3Aupdated-desc[Crowdin pull requests created by the user `decidim-bot`], specially the one that is going to be marged against the release branch `release/x.y-stable` that should be returned by the provided example search (pick the correct pull request for the release from the results).
 . Go to develop with `git checkout develop`
-. Install the last version of the `decidim-maintainers_toolbox` gem, and run the releaser command. Mind that for this to work you need locally the gh CLI from GitHub. 
+. Install the last version of the `decidim-maintainers_toolbox` gem, and run the releaser command. Mind that for this to work you need locally the gh CLI from GitHub.
 [source,bash]
 ----
 gem install decidim-maintainers_toolbox
