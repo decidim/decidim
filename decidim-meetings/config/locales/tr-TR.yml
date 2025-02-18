@@ -128,7 +128,7 @@ tr:
       badges:
         attended_meetings:
           conditions:
-            - Katılmak istediğiniz toplantılara kayıt olun
+          - Katılmak istediğiniz toplantılara kayıt olun
           description: Yüz yüze yapılan toplantılara katıldığınızda bu rozet verilir.
           description_another: Bu katılımcı %{score} toplantıya katılmıştır.
           description_own: '%{score} toplantıya katıldınız.'

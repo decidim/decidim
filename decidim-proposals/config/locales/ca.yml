@@ -385,8 +385,8 @@ ca:
       badges:
         accepted_proposals:
           conditions:
-            - Tria l'espai de participació del teu interès amb la creació de propostes activada
-            - Intenta fer propostes que es puguin dur a terme. D'aquesta manera és més probable que s'acceptin.
+          - Tria l'espai de participació del teu interès amb la creació de propostes activada
+          - Intenta fer propostes que es puguin dur a terme. D'aquesta manera és més probable que s'acceptin.
           description: Aquest distintiu es concedeix quan participes activament amb noves propostes i aquestes són acceptades.
           description_another: Aquesta participant ha aconseguit %{score} propostes acceptades.
           description_own: '%{score} de les teves propostes han estat acceptades.'
@@ -396,8 +396,8 @@ ca:
           unearned_own: Cap de les teves propostes encara no ha estat acceptada.
         proposal_votes:
           conditions:
-            - Navega i passa un temps llegint les propostes d'altres persones
-            - Dona suport a les propostes amb què estiguis d'acord o trobis interessants
+          - Navega i passa un temps llegint les propostes d'altres persones
+          - Dona suport a les propostes amb què estiguis d'acord o trobis interessants
           description: Aquesta ensenya es concedeix quan dones suport a propostes d'altres persones.
           description_another: Aquesta participant ha donat suport a %{score} propostes.
           description_own: Has donat suport a %{score} propostes.
@@ -407,8 +407,8 @@ ca:
           unearned_own: Encara no has donat suport a cap proposta.
         proposals:
           conditions:
-            - Tria un espai de participació amb la creació de propostes habilitada que sigui del teu interès
-            - Crea una proposta nova
+          - Tria un espai de participació amb la creació de propostes habilitada que sigui del teu interès
+          - Crea una proposta nova
           description: Aquest distintiu es concedeix quan participes activament amb noves propostes.
           description_another: Aquesta participant ha creat %{score} propostes.
           description_own: Has creat %{score} propostes.

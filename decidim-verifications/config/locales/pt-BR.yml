@@ -44,16 +44,16 @@ pt-BR:
       admin:
         id_documents:
           help:
-            - Os usuários preenchem suas informações de identidade e carregam uma cópia do documento.
-            - Você preencher as informações presentes na imagem carregada.
-            - A informação deve corresponder ao que o usuário preenchido.
-            - 
+          - Os usuários preenchem suas informações de identidade e carregam uma cópia do documento.
+          - Você preencher as informações presentes na imagem carregada.
+          - A informação deve corresponder ao que o usuário preenchido.
+          - 
         postal_letter:
           help:
-            - Os usuários solicitaram que um código de verificação seja enviado para o endereço.
-            - Você envia a carta para seu endereço com o código de verificação.
-            - Você marca a carta como enviada.
-            - Depois de marcar a carta como enviada, o usuário poderá introduzir o código e ser verificado.
+          - Os usuários solicitaram que um código de verificação seja enviado para o endereço.
+          - Você envia a carta para seu endereço com o código de verificação.
+          - Você marca a carta como enviada.
+          - Depois de marcar a carta como enviada, o usuário poderá introduzir o código e ser verificado.
       csv_census:
         name: Recenseamento da organização
       direct: Direto

@@ -241,7 +241,7 @@ de:
       badges:
         attended_meetings:
           conditions:
-            - Registrieren Sie sich für die Veranstaltungen, an denen Sie teilnehmen möchten
+          - Registrieren Sie sich für die Veranstaltungen, an denen Sie teilnehmen möchten
           description: Dieses Abzeichen wird gewährt, wenn Sie mehrere persönliche Sitzungen besuchen.
           description_another: Dieser Benutzer hat an %{score} Veranstaltungen teilgenommen.
           description_own: Sie haben an %{score} Sitzungen teilgenommen.
@@ -397,10 +397,10 @@ de:
         poll:
           form:
             announcement_html:
-              - Wenn eine Frage Antworten erhalten hat oder veröffentlicht/geschlossen wird, kann sie nicht mehr bearbeitet werden.
-              - Sie können jederzeit eine neue Frage hinzufügen.
-              - Die Umfrage wird geschlossen, wenn die Ergebnisse aller erstellten Fragen veröffentlicht wurden.
-              - Besuchen Sie die <a href='%{admin_link}'>Umfrageverwaltungsseite</a> um Fragen zu versenden oder Ergebnisse zu veröffentlichen.
+            - Wenn eine Frage Antworten erhalten hat oder veröffentlicht/geschlossen wird, kann sie nicht mehr bearbeitet werden.
+            - Sie können jederzeit eine neue Frage hinzufügen.
+            - Die Umfrage wird geschlossen, wenn die Ergebnisse aller erstellten Fragen veröffentlicht wurden.
+            - Besuchen Sie die <a href='%{admin_link}'>Umfrageverwaltungsseite</a> um Fragen zu versenden oder Ergebnisse zu veröffentlichen.
         registrations:
           edit:
             save: Speichern

@@ -199,8 +199,8 @@ eu:
       badges:
         initiatives:
           conditions:
-            - Joan zaitez Intiatives-ko partaidetza espaziora
-            - Jarraitu urrats berriak beste ekimen bat sortzeko
+          - Joan zaitez Intiatives-ko partaidetza espaziora
+          - Jarraitu urrats berriak beste ekimen bat sortzeko
           description: Garaikur hau ekimen berriak martxan jartzean ematen da, beste batzuekin partekatuz horiek lortzeko.
           description_another: Parte-hartzaile honek %{score} ekimen argitaratzea lortu du.
           description_own: '%{score} ekimen dituzu argitaratuta.'

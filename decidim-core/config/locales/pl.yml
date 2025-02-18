@@ -850,8 +850,8 @@ pl:
       attachment_link:
         explanation: Wytyczne dotyczące linków do załącznika
         help_messages:
-          - Akceptowane są tylko poprawne formaty URL.
-          - Pamiętaj, że linki muszą być publiczne, aby wszyscy uczestnicy mieli do nich dostęp.
+        - Akceptowane są tylko poprawne formaty URL.
+        - Pamiętaj, że linki muszą być publiczne, aby wszyscy uczestnicy mieli do nich dostęp.
       errors:
         decidim/user:
           password: Hasło jest za krótkie.
@@ -900,7 +900,7 @@ pl:
       badges:
         followers:
           conditions:
-            - Bycie aktywnym i obserwowanie innych użytkowników z pewnością sprawi, że inne osoby będą obserwować Ciebie.
+          - Bycie aktywnym i obserwowanie innych użytkowników z pewnością sprawi, że inne osoby będą obserwować Ciebie.
           description: Ta odznaka jest przyznawana, gdy będziesz miał określoną liczbę obserwujących. %{organization_name} jest siecią społeczną i polityczną, rozwijaj swoje kontakty by komunikować się z innymi osobami na platformie.
           description_another: Ten użytkownik ma %{score} obserwujących.
           description_own: "%{score} użytkowników obserwuje Ciebie."

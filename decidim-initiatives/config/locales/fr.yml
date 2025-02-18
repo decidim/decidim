@@ -189,8 +189,8 @@ fr:
       badges:
         initiatives:
           conditions:
-            - Accéder à l'espace de Pétitions
-            - Suivez les étapes pour créer une nouvelle pétition
+          - Accéder à l'espace de Pétitions
+          - Suivez les étapes pour créer une nouvelle pétition
           description: Ce badge vous est attribué lorsque vous lancez de nouvelles pétitions, en partenariat avec d’autres pour les mener à bien.
           description_another: Ce participant a publié %{score} pétitions.
           description_own: Vous avez publié %{score} pétitions.

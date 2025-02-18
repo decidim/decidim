@@ -385,8 +385,8 @@ fi:
       badges:
         accepted_proposals:
           conditions:
-            - Valitse kiinnostuksesi mukaan osallistumistila, jossa ehdotusten jättäminen on mahdollista
-            - Yritä luoda ehdotuksia, jotka voidaan toteuttaa. Tällä tavoin ne todennäköisesti hyväksytään.
+          - Valitse kiinnostuksesi mukaan osallistumistila, jossa ehdotusten jättäminen on mahdollista
+          - Yritä luoda ehdotuksia, jotka voidaan toteuttaa. Tällä tavoin ne todennäköisesti hyväksytään.
           description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia ja ne hyväksytään.
           description_another: Tällä käyttäjällä on %{score} hyväksyttyä ehdotusta.
           description_own: Olet saanut %{score} ehdotusta hyväksyksi.
@@ -396,8 +396,8 @@ fi:
           unearned_own: Sinulla ei ole vielä hyväksyttyjä ehdotuksia.
         proposal_votes:
           conditions:
-            - Selaa muiden ihmisten ehdotuksia ja käytä aikaa tutustumalla niihin
-            - Äänestä ehdotuksia, joista pidät tai jotka kiinnostavat sinua
+          - Selaa muiden ihmisten ehdotuksia ja käytä aikaa tutustumalla niihin
+          - Äänestä ehdotuksia, joista pidät tai jotka kiinnostavat sinua
           description: Tämä kunniamerkki myönnetään niille, jotka ovat äänestäneet muiden ehdotuksia.
           description_another: Tämä käyttäjä on äänestänyt %{score} ehdotusta.
           description_own: Olet äänestänyt %{score} ehdotusta.
@@ -407,8 +407,8 @@ fi:
           unearned_own: Et ole vielä äänestänyt ehdotuksia.
         proposals:
           conditions:
-            - Valitse kiinnostuksesi mukaan osallistumistila, jossa ehdotusten jättäminen on mahdollista
-            - Luo uusi ehdotus
+          - Valitse kiinnostuksesi mukaan osallistumistila, jossa ehdotusten jättäminen on mahdollista
+          - Luo uusi ehdotus
           description: Tämä kunniamerkki myönnetään, kun luot aktiivisesti uusia ehdotuksia.
           description_another: Tämä käyttäjä on luonut %{score} ehdotusta.
           description_own: Olet luonut %{score} ehdotusta.

@@ -36,16 +36,16 @@ tr:
       admin:
         id_documents:
           help:
-            - Kullanıcılar kimlik bilgilerini doldurur ve dokümanlarının bir kopyasını yüklerler.
-            - Yüklenen görüntüdeki mevcut bilgileri doldurursunuz.
-            - Bilgiler, kullanıcının doldurduğu bilgilerle eşleşmelidir.
-            - 
+          - Kullanıcılar kimlik bilgilerini doldurur ve dokümanlarının bir kopyasını yüklerler.
+          - Yüklenen görüntüdeki mevcut bilgileri doldurursunuz.
+          - Bilgiler, kullanıcının doldurduğu bilgilerle eşleşmelidir.
+          - 
         postal_letter:
           help:
-            - Kullanıcılar adreslerine gönderilecek bir doğrulama kodu ister.
-            - Mektubu adreslerine doğrulama koduyla gönderirsiniz.
-            - Mektubu gönderildiği gibi işaretlersiniz.
-            - Mektubu gönderildiği şekilde işaretledikten sonra, kullanıcı kodu tanıtabilir ve doğrulanabilir.
+          - Kullanıcılar adreslerine gönderilecek bir doğrulama kodu ister.
+          - Mektubu adreslerine doğrulama koduyla gönderirsiniz.
+          - Mektubu gönderildiği gibi işaretlersiniz.
+          - Mektubu gönderildiği şekilde işaretledikten sonra, kullanıcı kodu tanıtabilir ve doğrulanabilir.
       csv_census:
         name: Kuruluşun nüfus sayımı
       direct: direkt

@@ -174,8 +174,8 @@ lv:
       badges:
         accepted_proposals:
           conditions:
-            - Izvēlieties savu līdzdalības telpu ar iespējotu priekšlikumu iesniegšanu
-            - Centieties izteikt priekšlikumus, kurus var īstenot. Tādā veidā rodas lielāka iespēja, ka tie tiks pieņemti.
+          - Izvēlieties savu līdzdalības telpu ar iespējotu priekšlikumu iesniegšanu
+          - Centieties izteikt priekšlikumus, kurus var īstenot. Tādā veidā rodas lielāka iespēja, ka tie tiks pieņemti.
           description: Šis žetons tiek piešķirts, kad jūs aktīvi līdzdarbojaties ar jauniem priekšlikumiem un tie tiek pieņemti.
           description_another: Šim dalībniekam bija %{score} pieņemti priekšlikumi.
           description_own: Jums ir %{score} priekšlikumi.
@@ -185,12 +185,12 @@ lv:
           unearned_own: Jums vēl nav neviena pieņemta priekšlikuma.
         proposal_votes:
           conditions:
-            - Pārlūkojiet un pavadiet kādu laiku, lasot citu cilvēku priekšlikumus
-            - 
+          - Pārlūkojiet un pavadiet kādu laiku, lasot citu cilvēku priekšlikumus
+          - 
         proposals:
           conditions:
-            - Izvēlieties savu līdzdalības telpu ar iespējotu priekšlikumu iesniegšanu
-            - Izveidot jaunu priekšlikumu
+          - Izvēlieties savu līdzdalības telpu ar iespējotu priekšlikumu iesniegšanu
+          - Izveidot jaunu priekšlikumu
           description: Šis žetons tiek piešķirts, kad jūs aktīvi līdzdarbojaties ar jauniem priekšlikumiem.
           description_another: Šis dalībnieks ir izveidojis %{score} priekšlikumus.
           description_own: Jūs esat izveidojis %{score} priekšlikumus.

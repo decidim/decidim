@@ -615,7 +615,7 @@ tr:
       badges:
         followers:
           conditions:
-            - Aktif olmak ve diğer insanları takip etmek kesinlikle başka insanların sizi takip etmesini sağlayacaktır.
+          - Aktif olmak ve diğer insanları takip etmek kesinlikle başka insanların sizi takip etmesini sağlayacaktır.
           description: Bu rozet belirli sayıda takipçiye ulaştığınızda verilir. %{organization_name} sosyal ve politik bir ağdır, web platformunuzdaki diğer insanlarla iletişim kurmak için kullanın.
           description_another: Bu kullanıcının %{score} takipçisi var.
           description_own: "%{score} kullanıcı sizi takip ediyor."

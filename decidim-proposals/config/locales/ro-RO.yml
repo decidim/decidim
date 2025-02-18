@@ -227,8 +227,8 @@ ro:
       badges:
         accepted_proposals:
           conditions:
-            - Alege spațiul de participare unde e activă opțiunea de a trimite propuneri conform domeniului tău de interes
-            - Încercă să faci propuneri care pot fi implementate. Astfel crește probabilitatea ca acestea să fie acceptate.
+          - Alege spațiul de participare unde e activă opțiunea de a trimite propuneri conform domeniului tău de interes
+          - Încercă să faci propuneri care pot fi implementate. Astfel crește probabilitatea ca acestea să fie acceptate.
           description: Această insignă este acordată atunci când participi activ cu noi propuneri, iar acestea sunt acceptate.
           description_another: Acest participant are %{score} propuneri acceptate.
           description_own: Ai %{score} propuneri acceptate.
@@ -238,12 +238,12 @@ ro:
           unearned_own: Încă nu ai nicio propunere acceptată.
         proposal_votes:
           conditions:
-            - Răsfoiește paginile și petrece puțin timp citind propunerile altora
-            - 
+          - Răsfoiește paginile și petrece puțin timp citind propunerile altora
+          - 
         proposals:
           conditions:
-            - Alege spațiul de participare unde e activă opțiunea de a trimite propuneri conform domeniului tău de interes
-            - Creează o nouă propunere
+          - Alege spațiul de participare unde e activă opțiunea de a trimite propuneri conform domeniului tău de interes
+          - Creează o nouă propunere
           description: Această insignă este acordată atunci când participi activ cu noi propuneri.
           description_another: Acest participant a creat %{score} propuneri.
           description_own: Ai creat %{score} propuneri.

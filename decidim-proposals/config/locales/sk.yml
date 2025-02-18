@@ -173,8 +173,8 @@ sk:
       badges:
         accepted_proposals:
           conditions:
-            - Vyberte si participatívny priestor, ktorý Vás zaujíma, ktorý umožňuje pridávanie návrhov.
-            - Skúste vytvoriť návrhy, ktoré sú realizovateľné. Tak budú mať väčšiu šancu na prijatie.
+          - Vyberte si participatívny priestor, ktorý Vás zaujíma, ktorý umožňuje pridávanie návrhov.
+          - Skúste vytvoriť návrhy, ktoré sú realizovateľné. Tak budú mať väčšiu šancu na prijatie.
           description: Tento odznak ste dostali za aktívnu participáciu novými, akceptovanými návrhmi.
           description_another: Tento účastník má %{score} prijatých návrhov.
           description_own: Máte %{score} prijatých návrhov.
@@ -184,12 +184,12 @@ sk:
           unearned_own: Zatiaľ nemáte žiadne prijaté návrhy.
         proposal_votes:
           conditions:
-            - Pozrite si a prečítajte návrhy ďalších účastníkov.
-            - 
+          - Pozrite si a prečítajte návrhy ďalších účastníkov.
+          - 
         proposals:
           conditions:
-            - Vyberte si participatívny priestor, ktorý Vás zaujíma, ktorý umožňuje pridávanie návrhov.
-            - Vytvorte nový návrh
+          - Vyberte si participatívny priestor, ktorý Vás zaujíma, ktorý umožňuje pridávanie návrhov.
+          - Vytvorte nový návrh
           description: Tento odznak ste dostali za aktívnu participáciu novými návrhmi.
           description_another: Tento účastník vytvoril %{score} návrhov.
           description_own: Vytvorili ste %{score} návrhov.

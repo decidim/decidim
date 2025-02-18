@@ -1070,8 +1070,8 @@ fi-pl:
       attachment_link:
         explanation: Ohjeet liitetiedostojen linkeille
         help_messages:
-          - Ainoastaan oikeanmuotoiset URL-osoitteet hyväksytään.
-          - Huomioi, että linkkien tulee olla julkisia, jotta kaikki osallistujat voivat käyttää niitä.
+        - Ainoastaan oikeanmuotoiset URL-osoitteet hyväksytään.
+        - Huomioi, että linkkien tulee olla julkisia, jotta kaikki osallistujat voivat käyttää niitä.
       errors:
         decidim/user:
           password: Salasana on liian lyhyt.
@@ -1122,7 +1122,7 @@ fi-pl:
       badges:
         followers:
           conditions:
-            - Saat varmasti muut seuraamaan sinua ollessasi aktiivinen ja seuraamalla itse muita ihmisiä.
+          - Saat varmasti muut seuraamaan sinua ollessasi aktiivinen ja seuraamalla itse muita ihmisiä.
           description: Tämä kunniamerkki myönnetään, kun tavoitat tietyn määrän seuraajia. %{organization_name} on sosiaalinen ja poliittinen verkosto, muodosta oma verkostosi keskustellaksesi muiden ihmisten kanssa tässä palvelussa.
           description_another: Tällä käyttäjällä on %{score} seuraajaa.
           description_own: "%{score} käyttäjää seuraa sinua."

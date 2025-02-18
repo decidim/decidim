@@ -488,7 +488,7 @@ gl:
       badges:
         followers:
           conditions:
-            - Ser activo e seguir a outras persoas seguramente fará que outras persoas sigan contigo.
+          - Ser activo e seguir a outras persoas seguramente fará que outras persoas sigan contigo.
           description: Este distintivo é concedido cando chega a un certo número de seguidores. %{organization_name} é unha rede social e política, tece a súa web para comunicarse con outras persoas na plataforma.
           description_another: Este usuario ten %{score} seguidores.
           description_own: "%{score} seguidores están seguindo."

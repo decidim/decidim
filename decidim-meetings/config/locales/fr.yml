@@ -234,7 +234,7 @@ fr:
       badges:
         attended_meetings:
           conditions:
-            - Inscrivez-vous aux rencontres auxquelles vous souhaitez participer
+          - Inscrivez-vous aux rencontres auxquelles vous souhaitez participer
           description: Ce badge est attribué lorsque vous participez à plusieurs rencontres en face à face.
           description_another: Cet utilisateur a participé à %{score} rencontres.
           description_own: Vous avez assisté à %{score} rencontres.
@@ -388,10 +388,10 @@ fr:
         poll:
           form:
             announcement_html:
-              - Lorsqu'une question reçoit des réponses ou est publiée/fermée, elle ne peut plus être modifiée.
-              - Vous pouvez ajouter une question à tout moment.
-              - Le sondage sera fermé lorsque les résultats de toutes les questions créées auront été publiés.
-              - Visitez la <a href='%{admin_link}'>page d'administration du sondage</a> pour envoyer des questions et publier des résultats.
+            - Lorsqu'une question reçoit des réponses ou est publiée/fermée, elle ne peut plus être modifiée.
+            - Vous pouvez ajouter une question à tout moment.
+            - Le sondage sera fermé lorsque les résultats de toutes les questions créées auront été publiés.
+            - Visitez la <a href='%{admin_link}'>page d'administration du sondage</a> pour envoyer des questions et publier des résultats.
         registrations:
           edit:
             save: Sauvegarder

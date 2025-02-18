@@ -91,7 +91,7 @@ lv:
       badges:
         commented_debates:
           conditions:
-            - Izvēlieties kādas no atvērtajām debatēm, lai piedalītos
+          - Izvēlieties kādas no atvērtajām debatēm, lai piedalītos
           description: Šis žetons tiek piešķirts, kad jūs aktīvi piedalāties dažādās debatēs, ievietojot tajās komentārus.
           description_another: Šis dalībnieks ir piedalījies %{score} debatēs.
           description_own: Jūs esat piedalījies %{score} debatēs.

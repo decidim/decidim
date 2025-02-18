@@ -127,7 +127,7 @@ ar:
       badges:
         commented_debates:
           conditions:
-            - اختر نقاشًا مفتوحًا للمشاركة فيه
+          - اختر نقاشًا مفتوحًا للمشاركة فيه
           description: تُمنح هذه الشارة عندما تشارك بنشاط في المناقشات المختلفة من خلال ترك تعليقاتك.
           description_another: شارك هذا المشارك في %{score} مناقشات.
           description_own: لقد شاركت في %{score} مناقشات.

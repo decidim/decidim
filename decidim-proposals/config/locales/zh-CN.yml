@@ -181,8 +181,8 @@ zh-CN:
       badges:
         accepted_proposals:
           conditions:
-            - 选择您感兴趣的提交建议的参与空间
-            - 尝试提出可以执行的建议。这种方式更有可能被接受。
+          - 选择您感兴趣的提交建议的参与空间
+          - 尝试提出可以执行的建议。这种方式更有可能被接受。
           description: 当您积极参加新的建议并接受这些建议时，将颁发这个徽章。
           description_another: 此参与者有 %{score} 个已被接受的建议。
           description_own: 您获得 %{score} 条建议被接受。
@@ -192,12 +192,12 @@ zh-CN:
           unearned_own: 您尚未接受任何建议。
         proposal_votes:
           conditions:
-            - 浏览并花一些时间阅读其他人的建议
-            - 
+          - 浏览并花一些时间阅读其他人的建议
+          - 
         proposals:
           conditions:
-            - 选择您感兴趣的提交建议的参与空间
-            - 创建一个新提案
+          - 选择您感兴趣的提交建议的参与空间
+          - 创建一个新提案
           description: 当您积极参与新的建议时，将颁发这个徽章。
           description_another: 此参与者已创建了 %{score} 个建议。
           description_own: 您已创建了 %{score} 个建议。

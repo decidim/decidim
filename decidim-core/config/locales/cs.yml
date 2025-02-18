@@ -1119,8 +1119,8 @@ cs:
       attachment_link:
         explanation: Pokyny pro odkazy na přílohy
         help_messages:
-          - Akceptovány jsou pouze správné formáty URL.
-          - Vezměte prosím na vědomí, že odkazy musí být veřejné, aby k nim měli přístup všichni účastníci.
+        - Akceptovány jsou pouze správné formáty URL.
+        - Vezměte prosím na vědomí, že odkazy musí být veřejné, aby k nim měli přístup všichni účastníci.
       errors:
         decidim/user:
           password: Heslo je příliš krátké.
@@ -1171,7 +1171,7 @@ cs:
       badges:
         followers:
           conditions:
-            - Buďte aktivní a sledujte jiné lidi, to určitě namotivuje ostatní lidi, aby vás sledovali.
+          - Buďte aktivní a sledujte jiné lidi, to určitě namotivuje ostatní lidi, aby vás sledovali.
           description: Tento odznak je udělen, když dosáhnete určitého počtu sledujících. %{organization_name} je společenská a politická síť, vytváří vaši síť komunikace s ostatními lidmi na platformě.
           description_another: Tento uživatel má %{score} následovníků.
           description_own: "Uživatelé vás sledují %{score} uživatelů."

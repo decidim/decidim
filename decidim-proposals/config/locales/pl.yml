@@ -304,8 +304,8 @@ pl:
       badges:
         accepted_proposals:
           conditions:
-            - Wybierz przestrzeń partycypacyjną, która Cię interesuje, z możliwością dodawania propozycji
-            - Spróbuj przedstawić propozycje, które można zrealizować. W ten sposób szansa na ich akceptację jest większa.
+          - Wybierz przestrzeń partycypacyjną, która Cię interesuje, z możliwością dodawania propozycji
+          - Spróbuj przedstawić propozycje, które można zrealizować. W ten sposób szansa na ich akceptację jest większa.
           description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz dodając nowe propozycje i są one akceptowane.
           description_another: Ten użytkownik ma %{score} zaakceptowanych propozycji.
           description_own: Masz %{score} zaakceptowanych propozycji.
@@ -315,8 +315,8 @@ pl:
           unearned_own: Nie masz jeszcze żadnych zaakceptowanych propozycji.
         proposal_votes:
           conditions:
-            - Przeglądaj i poświęć trochę czasu na czytanie propozycji innych osób
-            - Zagłosuj na propozycje, które lubisz lub uznasz za interesujące
+          - Przeglądaj i poświęć trochę czasu na czytanie propozycji innych osób
+          - Zagłosuj na propozycje, które lubisz lub uznasz za interesujące
           description: Ta odznaka jest przyznawana, gdy głosujesz na propozycje innych osób.
           description_another: Ten użytkownik głosował na %{score} propozycji.
           description_own: Zagłosowałeś(aś) na %{score} propozycje.
@@ -326,8 +326,8 @@ pl:
           unearned_own: Nie głosowałeś(aś) jeszcze na żadne propozycje.
         proposals:
           conditions:
-            - Wybierz przestrzeń partycypacyjną, która Cię interesuje, z możliwością dodawania propozycji
-            - Utwórz nową propozycję
+          - Wybierz przestrzeń partycypacyjną, która Cię interesuje, z możliwością dodawania propozycji
+          - Utwórz nową propozycję
           description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz dodając nowe propozycje.
           description_another: Ten użytkownik stworzył %{score} propozycji.
           description_own: Stworzyłeś %{score} propozycji.

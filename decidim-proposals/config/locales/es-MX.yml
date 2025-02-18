@@ -385,8 +385,8 @@ es-MX:
       badges:
         accepted_proposals:
           conditions:
-            - Elige el espacio de participación con la creación de propuestas habilitada de tu interés
-            - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptadas.
+          - Elige el espacio de participación con la creación de propuestas habilitada de tu interés
+          - Intenta hacer propuestas que se puedan realizar. De esta manera es más probable que sean aceptadas.
           description: Este distintivo se otorga cuando participes activamente con nuevas propuestas y estas sean aceptadas.
           description_another: '%{score} propuestas de este usuario han sido aceptadas.'
           description_own: '%{score} de tus propuestas han sido aceptadas.'
@@ -396,8 +396,8 @@ es-MX:
           unearned_own: Aún no tienes ninguna propuesta aceptada.
         proposal_votes:
           conditions:
-            - Navega y dedica un tiempo leyendo las propuestas de otras personas
-            - Apoya a las propuestas con las que estés de acuerdo o encuentres interesantes
+          - Navega y dedica un tiempo leyendo las propuestas de otras personas
+          - Apoya a las propuestas con las que estés de acuerdo o encuentres interesantes
           description: Esta insignia se concede cuando se apoyan propuestas de otras personas.
           description_another: Esta participante ha apoyado %{score} propuestas.
           description_own: Has dado apoyo a %{score} propuestas.
@@ -407,8 +407,8 @@ es-MX:
           unearned_own: Todavía no has dado apoyo a ninguna propuesta.
         proposals:
           conditions:
-            - Elige el espacio de participación con la creación de propuestas habilitada que sea de tu interés
-            - Crear una nueva propuesta
+          - Elige el espacio de participación con la creación de propuestas habilitada que sea de tu interés
+          - Crear una nueva propuesta
           description: Este distintivo se otorga cuando participas activamente con nuevas propuestas.
           description_another: Este usuario ha creado %{score} propuestas.
           description_own: Has creado %{score} propuestas.

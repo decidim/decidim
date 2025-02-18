@@ -160,8 +160,8 @@ it:
       badges:
         initiatives:
           conditions:
-            - Vai allo spazio di partecipazione delle iniziative
-            - Segui i passaggi per creare una nuova iniziativa
+          - Vai allo spazio di partecipazione delle iniziative
+          - Segui i passaggi per creare una nuova iniziativa
           description: Questo badge viene concesso quando si lanciano nuove iniziative, collaborando con gli altri per realizzarle.
           description_another: Questo utente ha ottenuto %{score} iniziative pubblicate.
           name: Iniziative pubblicate

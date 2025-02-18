@@ -191,7 +191,7 @@ pt-BR:
       badges:
         commented_debates:
           conditions:
-            - Escolha um debate aberto para participar
+          - Escolha um debate aberto para participar
           description: Este emblema é concedido quando você participa ativamente nos debates diferentes deixando seus comentários.
           description_another: Este usuário participou em %{score} debates.
           description_own: Você participou de %{score} debates.

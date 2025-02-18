@@ -153,7 +153,7 @@ nl:
       badges:
         commented_debates:
           conditions:
-            - Kies een open debat om deel te nemen
+          - Kies een open debat om deel te nemen
           description: Deze badge wordt toegekend wanneer u actief deelneemt aan de verschillende debatten door uw reacties achter te laten.
           description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
           description_own: Je hebt deelgenomen aan %{score} debatten.

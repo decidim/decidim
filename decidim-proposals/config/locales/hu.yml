@@ -220,8 +220,8 @@ hu:
       badges:
         accepted_proposals:
           conditions:
-            - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
-            - Próbáljon javaslatokat tenni, amelyeket végre lehet hajtani. Így nagyobb valószínűséggel fogadják el őket.
+          - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
+          - Próbáljon javaslatokat tenni, amelyeket végre lehet hajtani. Így nagyobb valószínűséggel fogadják el őket.
           description: Ezt a jelvényt akkor kapja meg, ha aktívan részt vesz új javaslatokkal, és ezeket elfogadják.
           description_another: A felhasználó %{score} javaslata elfogadásra került.
           description_own: '%{score} ajánlatodat fogadták el.'
@@ -231,12 +231,12 @@ hu:
           unearned_own: Még nincs elfogadott javaslatod.
         proposal_votes:
           conditions:
-            - Böngésszen és töltsön el egy ideig mások javaslatainak olvasását
-            - 
+          - Böngésszen és töltsön el egy ideig mások javaslatainak olvasását
+          - 
         proposals:
           conditions:
-            - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
-            - Hozzon létre egy új javaslatot
+          - Válassza ki az Ön érdeklődési körének részvételi területét a beküldött pályázati ajánlatokkal
+          - Hozzon létre egy új javaslatot
           description: Ezt a jelvényt akkor kapja meg, ha aktívan részt vesz új javaslatokkal.
           description_another: A felhasználó %{score} javaslatot hozott létre.
           description_own: Eddig %{score} javaslatot hoztál létre.

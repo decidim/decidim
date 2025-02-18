@@ -44,16 +44,16 @@ it:
       admin:
         id_documents:
           help:
-            - Gli utenti inseriscono le loro informazioni di identità e caricano una copia del loro documento.
-            - Inserisci le informazioni presenti nell'immagine caricata.
-            - Le informazioni dovrebbero corrispondere a quello que l'utente ha inserito.
-            - 
+          - Gli utenti inseriscono le loro informazioni di identità e caricano una copia del loro documento.
+          - Inserisci le informazioni presenti nell'immagine caricata.
+          - Le informazioni dovrebbero corrispondere a quello que l'utente ha inserito.
+          - 
         postal_letter:
           help:
-            - Gli utenti richiedono un codice di verifica da inviare al loro indirizzo.
-            - Inviate la lettera al loro indirizzo con il codice di verifica.
-            - Hai contrassegnato la lettera come inviata.
-            - Dopo aver contrassegnato la lettera come inviata, l'utente potrà introdurre il codice e essere verificato.
+          - Gli utenti richiedono un codice di verifica da inviare al loro indirizzo.
+          - Inviate la lettera al loro indirizzo con il codice di verifica.
+          - Hai contrassegnato la lettera come inviata.
+          - Dopo aver contrassegnato la lettera come inviata, l'utente potrà introdurre il codice e essere verificato.
       csv_census:
         name: Verifica delle autorizzazioni
       direct: Diretto

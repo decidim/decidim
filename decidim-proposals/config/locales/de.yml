@@ -385,8 +385,8 @@ de:
       badges:
         accepted_proposals:
           conditions:
-            - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
-            - Versuchen Sie Vorschläge zu machen, die ausgeführt werden können. Auf diese Weise werden sie eher akzeptiert.
+          - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
+          - Versuchen Sie Vorschläge zu machen, die ausgeführt werden können. Auf diese Weise werden sie eher akzeptiert.
           description: Dieses Abzeichen wird gewährt, wenn Sie neue Vorschläge einbringen und diese angenommen werden.
           description_another: Dieser Benutzer hat %{score} Vorschläge akzeptiert.
           description_own: Sie haben %{score} Vorschläge angenommen.
@@ -396,8 +396,8 @@ de:
           unearned_own: Sie haben noch keine Vorschläge erhalten.
         proposal_votes:
           conditions:
-            - Stöbern Sie und verbringen Sie etwas Zeit, die Vorschläge anderer Leute zu lesen
-            - Geben Sie Ihre Stimme den Vorschlägen, die Sie mögen oder interessant finden
+          - Stöbern Sie und verbringen Sie etwas Zeit, die Vorschläge anderer Leute zu lesen
+          - Geben Sie Ihre Stimme den Vorschlägen, die Sie mögen oder interessant finden
           description: Dieses Abzeichen wird gewährt, wenn Sie über Vorschläge anderer Personen abgestimmt haben.
           description_another: Dieser Teilnehmende hat über %{score} Vorschläge abgestimmt.
           description_own: Sie haben über %{score} Vorschläge abgestimmt.
@@ -407,8 +407,8 @@ de:
           unearned_own: Sie haben noch über keine Vorschläge abgestimmt.
         proposals:
           conditions:
-            - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
-            - Neuen Vorschlag erstellen
+          - Wählen Sie den Bereich für die Teilnahme Ihrer Interessen mit der Einreichung von Vorschlägen aktiviert
+          - Neuen Vorschlag erstellen
           description: Dieses Abzeichen wird gewährt, wenn Sie aktiv an neuen Vorschlägen teilnehmen.
           description_another: Dieser Benutzer hat %{score} Vorschläge erstellt.
           description_own: Sie haben %{score} Vorschläge erstellt.

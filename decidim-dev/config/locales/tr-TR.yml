@@ -39,7 +39,7 @@ tr:
       badges:
         test:
           conditions:
-            - Decidim için bir test ortamı kullanın.
+          - Decidim için bir test ortamı kullanın.
           description: Katılımcılar testler oluşturarak bu rozeti alırlar.
           description_another: Bu katılımcı %{score} test oluşturdu.
           description_own: '%{score} test oluşturdunuz.'

@@ -393,8 +393,8 @@ cs:
       badges:
         accepted_proposals:
           conditions:
-            - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
-            - Snažte se učinit návrhy, které lze provést. Tímto způsobem je pravděpodobnější, že budou přijaty.
+          - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
+          - Snažte se učinit návrhy, které lze provést. Tímto způsobem je pravděpodobnější, že budou přijaty.
           description: Tento odznak se uděluje, když se aktivně účastníte nových návrhů a ty jsou přijaty.
           description_another: Uživatel obdržel %{score} přijatých návrhů.
           description_own: Bylo přijato %{score} návrhů.
@@ -404,8 +404,8 @@ cs:
           unearned_own: Dosud jste žádné návrhy nepřijali.
         proposal_votes:
           conditions:
-            - Procházejte a strávte nějaký čas čtením nápadů jiných lidí
-            - Hlasujte podle návrhů, které se vám líbí nebo najdete zajímavé
+          - Procházejte a strávte nějaký čas čtením nápadů jiných lidí
+          - Hlasujte podle návrhů, které se vám líbí nebo najdete zajímavé
           description: Tento odznak se uděluje, když hlasujete pro návrhy ostatních.
           description_another: Tento účastník hlasoval pro %{score} návrhů.
           description_own: Hlasovali jste pro %{score} návrhy.
@@ -415,8 +415,8 @@ cs:
           unearned_own: Zatím jste nehlasovali pro žádné návrhy.
         proposals:
           conditions:
-            - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
-            - Vytvořte nový návrh
+          - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
+          - Vytvořte nový návrh
           description: Tento odznak je udělen, když se aktivně podílíte na nových návrzích.
           description_another: Tento uživatel vytvořil %{score} návrhů.
           description_own: Vytvořili jste %{score} návrhů.

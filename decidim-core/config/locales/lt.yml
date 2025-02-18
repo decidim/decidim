@@ -904,7 +904,7 @@ lt:
       badges:
         followers:
           conditions:
-            - Jei būsite aktyvūs ir seksite kitus žmones, be abejo, kiti seks ir jus.
+          - Jei būsite aktyvūs ir seksite kitus žmones, be abejo, kiti seks ir jus.
           description: Šis ženklelis suteikiamas, kai pasiekiate tam tikrą skaičių sekėjų. %{organization_name} – tai socialinis ir politinis tinklas, kuriame galite megzti savo tinklą ir bendrauti su kitais platformos žmonėmis.
           description_another: Šis dalyvis turi %{score} sekėjus (-ų).
           description_own: "Jus seka %{score} žmonės (-ių)."

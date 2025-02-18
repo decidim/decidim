@@ -174,7 +174,7 @@ zh-TW:
       badges:
         commented_debates:
           conditions:
-            - 選擇一個開放辯論加入
+          - 選擇一個開放辯論加入
           description: 當你在不同辯論中發表評論時，會被授予此徽章。
           description_another: 此參與者已參與了 %{score} 個辯論。
           description_own: 您已經參與了 %{score} 場辯論

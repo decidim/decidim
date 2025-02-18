@@ -532,7 +532,7 @@ lv:
       badges:
         followers:
           conditions:
-            - Aktivitāte un sekošana citiem cilvēkiem noteikti liks citiem sekot jums.
+          - Aktivitāte un sekošana citiem cilvēkiem noteikti liks citiem sekot jums.
           description: Šis žetons tiek piešķirts, kad jūs sasniedzat noteiktu skaitu sekotāju. %{Organization_name} ir sociālais un politiskais tīkls, audiet savu tīklu, lai sazinātos ar citiem platformas lietotājiem.
           description_another: Šim dalībniekam ir %{score} sekotāji.
           description_own: "%{score} cilvēki seko jums."

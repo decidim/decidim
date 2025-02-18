@@ -179,7 +179,7 @@ tr:
       badges:
         commented_debates:
           conditions:
-            - Katılmak için açık bir tartışma seçin
+          - Katılmak için açık bir tartışma seçin
           description: Bu rozet, yorumlarınızı bırakarak farklı tartışmalara aktif olarak katıldığınızda verilir.
           description_another: Bu katılımcı %{score} kez tartışmada yer aldı.
           description_own: '%{score} kez tartışmaya katıldınız.'

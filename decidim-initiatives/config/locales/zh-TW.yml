@@ -178,8 +178,8 @@ zh-TW:
       badges:
         initiatives:
           conditions:
-            - 前往倡議參與空間
-            - '"按照以下步驟創建新的倡議'
+          - 前往倡議參與空間
+          - '"按照以下步驟創建新的倡議'
           description: 此徽章是當你發起新的倡議，與他人合作進行時所授予的。
           description_another: 該參與者已成功發佈 %{score} 項倡議。
           description_own: 你已經發佈了 %{score} 項倡議。

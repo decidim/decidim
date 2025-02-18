@@ -118,7 +118,7 @@ lv:
       badges:
         attended_meetings:
           conditions:
-            - Reģistrējieties sanāksmēm, kuras vēlaties apmeklēt
+          - Reģistrējieties sanāksmēm, kuras vēlaties apmeklēt
           description: Šis žetons tiek piešķirts, apmeklējot vairākas klātienes sanāksmes.
           description_another: Šis dalībnieks ir apmeklējis %{score} sanāksmes.
           description_own: Jūs esat apmeklējis %{score} sanāksmes.

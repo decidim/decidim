@@ -161,7 +161,7 @@ zh-CN:
       badges:
         commented_debates:
           conditions:
-            - 选择要参与的公开辩论
+          - 选择要参与的公开辩论
           description: 当你通过留下评论积极参与不同的辩论时，这个徽章将被授予。
           description_another: 此参与者已经参加了 %{score} 场辩论。
           description_own: 您已经参加了 %{score} 次辩论。

@@ -258,8 +258,8 @@ lt:
       badges:
         accepted_proposals:
           conditions:
-            - Pasirinkite jus dominančią dalyvavimo erdvę, kurioje įjungta pasiūlymų teikimo funkcija
-            - Pabandykite teikti pasiūlymus, kuriuos būtų galima įgyvendinti. Taip labiau tikėtina, kad jie bus priimti.
+          - Pasirinkite jus dominančią dalyvavimo erdvę, kurioje įjungta pasiūlymų teikimo funkcija
+          - Pabandykite teikti pasiūlymus, kuriuos būtų galima įgyvendinti. Taip labiau tikėtina, kad jie bus priimti.
           description: Šis ženklelis suteikiamas, kai aktyviai teikiate naujus pasiūlymus ir jie yra priimami.
           description_another: Priimti (-a) %{score} šio dalyvio pasiūlymai (-ų).
           description_own: Priimti (-a) %{score} jūsų pasiūlymai (-ų).
@@ -269,12 +269,12 @@ lt:
           unearned_own: Dar nepriimtas nė vienas jūsų pasiūlymas.
         proposal_votes:
           conditions:
-            - Naršykite ir praleiskite šiek tiek laiko skaitydami kitų žmonių pasiūlymus
-            - 
+          - Naršykite ir praleiskite šiek tiek laiko skaitydami kitų žmonių pasiūlymus
+          - 
         proposals:
           conditions:
-            - Pasirinkite jus dominančią dalyvavimo erdvę, kurioje įjungta pasiūlymų teikimo funkcija
-            - Sukurti naują pasiūlymą
+          - Pasirinkite jus dominančią dalyvavimo erdvę, kurioje įjungta pasiūlymų teikimo funkcija
+          - Sukurti naują pasiūlymą
           description: Šis ženklelis suteikiamas, kai aktyviai teikiate naujus pasiūlymus.
           description_another: Šis dalyvis sukūrė %{score} pasiūlymus (-ų).
           description_own: Jūs parengėte %{score} pasiūlymus (-ų).
