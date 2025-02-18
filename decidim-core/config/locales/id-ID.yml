@@ -445,7 +445,7 @@ id:
       badges:
         followers:
           conditions:
-            - Menjadi aktif dan mengikuti orang lain pasti akan membuat orang lain mengikuti Anda.
+          - Menjadi aktif dan mengikuti orang lain pasti akan membuat orang lain mengikuti Anda.
           description: Lencana ini diberikan ketika Anda mencapai sejumlah pengikut tertentu. %{organization_name} adalah jaringan sosial dan politik, menjalin web Anda untuk berkomunikasi dengan orang lain di platform.
           description_another: Pengguna ini memiliki %{score} pengikut.
           description_own: "%{score} pengguna mengikuti Anda."
