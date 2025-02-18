@@ -102,7 +102,7 @@ id:
       badges:
         commented_debates:
           conditions:
-            - Pilih debat terbuka untuk ikut serta
+          - Pilih debat terbuka untuk ikut serta
           description: Lencana ini diberikan ketika Anda berpartisipasi aktif dalam berbagai debat dengan meninggalkan komentar Anda.
           description_another: Peserta ini telah mengambil bagian dalam %{score} debat.
           description_own: Anda telah berpartisipasi dalam %{score} debat.
