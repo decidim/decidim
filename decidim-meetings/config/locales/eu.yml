@@ -253,7 +253,7 @@ eu:
       badges:
         attended_meetings:
           conditions:
-            - Eman izena parte hartu nahi duzun topaketan
+          - Eman izena parte hartu nahi duzun topaketan
           description: Garaikur hau aurrez aurre egiten diren bileretara joaten zarenean ematen da.
           description_another: Parte-hartzaile honek %{score} topeketatan hartu du parte.
           description_own: '%{score} topaketatan hartu duzu parte.'
@@ -409,10 +409,10 @@ eu:
         poll:
           form:
             announcement_html:
-              - Galdera batek erantzunak jasotzen dituenean edo argitaratuta/itxita dagoenean, jada ezin da editatu.
-              - Edozein unetan gehitu ahal duzu galdera bat.
-              - Inkesta itxi egingo da sortutako galdera guztien emaitzak argitaratzen direnean.
-              - Bisitatu <a href='% {admin_link}'>inkestak administratzeko orria </a>, galderak bidali eta emaitzak argitaratzeko.
+            - Galdera batek erantzunak jasotzen dituenean edo argitaratuta/itxita dagoenean, jada ezin da editatu.
+            - Edozein unetan gehitu ahal duzu galdera bat.
+            - Inkesta itxi egingo da sortutako galdera guztien emaitzak argitaratzen direnean.
+            - Bisitatu <a href='% {admin_link}'>inkestak administratzeko orria </a>, galderak bidali eta emaitzak argitaratzeko.
         registrations:
           edit:
             save: Gorde
