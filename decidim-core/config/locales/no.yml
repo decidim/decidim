@@ -614,7 +614,7 @@
       badges:
         followers:
           conditions:
-            - Å være aktiv og følge andre vil sikkert få andre til å følge deg.
+          - Å være aktiv og følge andre vil sikkert få andre til å følge deg.
           description: Dette merke er oppnådd på du når en spesifikk mengde følgere. %{organization_name} er et sosialt of politisk nettverk, veve nettet ditt for å kommunisere med andre folk på plattformen.
           description_another: Denne deltakeren har %{score} følgere.
           description_own: "%{score} folk følger deg."
