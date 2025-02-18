@@ -102,7 +102,7 @@ eu:
           recent: Berrienak
         title: 'Ordenatu honen arabera:'
       comments:
-        blocked_comments_for_unauthorized_user_warning: Egiaztatuta egon behar zara momentu honetan iruzkina egiteko, baina aurreko iruzkinak irakur ditzakezu.
+        blocked_comments_for_unauthorized_user_warning: Egiaztatuta egon behar zara momentu honetan iruzkin bat egiteko, baina aurreko iruzkinak irakur ditzakezu.
         blocked_comments_for_user_warning: Oraindik ez duzu iruzkinik egin, baina aurrekoak irakurri ditzakezu.
         blocked_comments_warning: Iruzkinak desgaituta daude une honetan, baina aurrekoak irakur ditzakezu.
         comment_details_title: Iruzkinaren xehetasunak
