@@ -99,6 +99,7 @@
 - **decidim-ai**: Remove real-time training in AI engine for spam [\#13550](https://github.com/decidim/decidim/pull/13550)
 - **decidim-assemblies**, **decidim-blogs**, **decidim-budgets**, **decidim-conferences**, **decidim-core**, **decidim-debates**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**, **decidim-sortitions**: Change UI for endorsements [\#13373](https://github.com/decidim/decidim/pull/13373)
 - **decidim-comments**, **decidim-core**: Design update to comments  [\#13205](https://github.com/decidim/decidim/pull/13205)
+- **decidim-admin**, **decidim-assemblies**, **decidim-core**, **decidim-participatory processes**: Combine Functionality for Members and Private Participants in Assemblies (#13502) [\#13502](https://github.com/decidim/decidim/pull/13502)
 - Improve settings options for Related Spaces content block. [\#13501](https://github.com/decidim/decidim/pull/13501)
 - **decidim-blogs**, **decidim-comments**, **decidim-core**, **decidim-debates**, **decidim-meetings**, **decidim-proposals**: Update UI design of detail page [\#13356](https://github.com/decidim/decidim/pull/13356)
 - **decidim-forms**: Migrate Survey export to use HexaPDF [\#13617](https://github.com/decidim/decidim/pull/13617)
@@ -378,9 +379,6 @@
 - **decidim-accountability**, **decidim-assemblies**, **decidim-blogs**, **decidim-budgets**, **decidim-comments**, **decidim-conferences**, **decidim-core**, **decidim-debates**, **decidim-dev**, **decidim-forms**, **decidim-initiatives**, **decidim-meetings**, **decidim-pages**, **decidim-participatory processes**, **decidim-proposals**, **decidim-sortitions**, **decidim-surveys**: Fix more GraphQL rubocop offenses (part 2) [\#13995](https://github.com/decidim/decidim/pull/13995)
 - **decidim-blogs**: New Crowdin updates [\#14090](https://github.com/decidim/decidim/pull/14090)
 
-### Unsorted
-
-- 21cd7270cb Combine Functionality for Members and Private Participants in Assemblies (#13502) [\#13502](https://github.com/decidim/decidim/pull/13502) || {:id=>13502, :state=>"closed", :is_pull_request=>true, :is_merged=>"2024-12-12T10:45:30Z", :title=>"Combine Functionality for Members and Private Participants in Assemblies", :labels=>["contract: 2024-developments", "module: admin", "module: assemblies", "module: core", "module: participatory processes"], :type=>[], :modules=>["module: admin", "module: assemblies", "module: core", "module: participatory processes"]}
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
 Nothing.
