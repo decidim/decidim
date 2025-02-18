@@ -603,7 +603,7 @@ pt:
       badges:
         followers:
           conditions:
-            - Ser ativo(a) e seguir outras pessoas certamente fará com que outras pessoas o(a) sigam.
+          - Ser ativo(a) e seguir outras pessoas certamente fará com que outras pessoas o(a) sigam.
           description: Esse distintivo é-lhe concedido quando alcança um certo número de seguidores. %{organization_name} é uma rede social e política, teça a sua rede para comunicar com outras pessoas na plataforma.
           description_another: Esse usuário possui %{score} seguidores.
           description_own: "%{score} pessoas seguem-no(a)."
