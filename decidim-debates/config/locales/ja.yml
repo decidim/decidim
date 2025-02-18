@@ -214,7 +214,7 @@ ja:
       badges:
         commented_debates:
           conditions:
-            - 参加する公開ディベートを選択する
+          - 参加する公開ディベートを選択する
           description: このバッジは、コメントを残してさまざまなディベートに積極的に参加するときに付与されます。
           description_another: この参加者は %{score} ディベートに参加しました。
           description_own: '%{score} 件のディベートに参加しました。'
