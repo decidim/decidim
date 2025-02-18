@@ -205,8 +205,8 @@ cs:
       badges:
         initiatives:
           conditions:
-            - Jít do prostoru účasti iniciativ
-            - Postupujte podle kroků k vytvoření nové iniciativy
+          - Jít do prostoru účasti iniciativ
+          - Postupujte podle kroků k vytvoření nové iniciativy
           description: Tento odznak se uděluje, když zahájíte nové iniciativy, spolupracujete s ostatními a provádíte je.
           description_another: Tento uživatel zveřejnil %{score} iniciativ.
           description_own: Máte zveřejněno %{score} iniciativ.
