@@ -139,8 +139,8 @@ nl:
       badges:
         initiatives:
           conditions:
-            - Ga naar de participatieruimte van Intiatieven
-            - Volg de stappen om een ​​nieuw initiatief te maken
+          - Ga naar de participatieruimte van Intiatieven
+          - Volg de stappen om een ​​nieuw initiatief te maken
           description: Deze badge wordt toegekend wanneer u nieuwe initiatieven start en samenwerkt met anderen om ze uit te voeren.
           description_another: Deze gebruiker heeft %{score} initiatieven gepubliceerd.
           name: Gepubliceerde initiatieven
