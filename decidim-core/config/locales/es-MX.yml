@@ -1077,8 +1077,8 @@ es-MX:
       attachment_link:
         explanation: Guía para enlaces adjuntos
         help_messages:
-          - Solo se aceptan formatos de URL correctos.
-          - Por favor, ten en cuenta que los enlaces deben ser públicos para que todas las participantes puedan acceder a ellos.
+        - Solo se aceptan formatos de URL correctos.
+        - Por favor, ten en cuenta que los enlaces deben ser públicos para que todas las participantes puedan acceder a ellos.
       errors:
         decidim/user:
           password: La contraseña es demasiado corta.
@@ -1129,7 +1129,7 @@ es-MX:
       badges:
         followers:
           conditions:
-            - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
+          - Estar activo y seguir a otras personas seguramente hará que otras personas te sigan.
           description: Este distintivo se otorga cuando alcanzas un cierto número de seguidores. %{organization_name} es una red social y política, teje tu web para comunicarte con otras personas en la plataforma.
           description_another: Este usuario tiene %{score} seguidores.
           description_own: "%{score} usuarios te están siguiendo."
