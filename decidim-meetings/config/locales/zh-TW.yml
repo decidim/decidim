@@ -190,7 +190,7 @@ zh-TW:
       badges:
         attended_meetings:
           conditions:
-            - 註冊您想參加的會議
+          - 註冊您想參加的會議
           description: 這個徽章是當您參加多個面對面會議時獲得的。
           description_another: 此參與者已經參加了 %{score} 場會議。
           description_own: 您已經參加了 %{score} 場會議。
