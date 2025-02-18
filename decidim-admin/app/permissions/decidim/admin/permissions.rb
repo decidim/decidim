@@ -32,6 +32,8 @@ module Decidim
 
         apply_global_moderations_permission_for_admin!
 
+        allow! if admin_terms_accepted? && user_has_any_role?(user, nil, broad_check: true) && (permission_action.subject == :editor_image)
+
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
           allow! if read_user_statistics_action?
