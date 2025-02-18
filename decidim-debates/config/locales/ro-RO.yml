@@ -178,7 +178,7 @@ ro:
       badges:
         commented_debates:
           conditions:
-            - Alege o dezbatere deschisă la care să participi
+          - Alege o dezbatere deschisă la care să participi
           description: Această insignă este acordată atunci când participi activ la diferitele dezbateri, lăsând comentariile tale.
           description_another: Acest participant a luat parte la %{score} dezbateri.
           description_own: Ai participat la %{score} dezbateri.
