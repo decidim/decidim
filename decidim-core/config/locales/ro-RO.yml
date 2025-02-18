@@ -402,8 +402,8 @@ ro:
     authorization_modals:
       content:
         expired:
-          authorize: Reautorizează cu "%{authorization}"
-          explanation: Autorizarea ta expirat. Pentru a efectua această acțiune, trebuie să fii reautorizat cu "%{authorization}".
+          authorize: Reautorizați cu "%{authorization}"
+          explanation: Autorizarea dumneavoastră a expirat. Pentru a efectua această acțiune, trebuie să fiți reautorizat cu "%{authorization}".
           title: Autorizarea a expirat
         incomplete:
           cancel: Anulați
@@ -412,16 +412,16 @@ ro:
           title: Vă rugăm să reautorizați
         missing:
           authorize: Autorizați cu "%{authorization}"
-          explanation: Pentru a efectua această acțiune, trebuie să fii autorizat cu "%{authorization}".
+          explanation: Pentru a efectua această acțiune, trebuie să fiți autorizat cu "%{authorization}".
           title: Autorizare necesară
         pending:
           title: În proces de autorizare
         unauthorized:
           ok: Ok
-          title: Neautorizat
+          title: Nu este autorizat
         unconfirmed:
-          explanation_html: Pentru a efectua această acțiune, trebuie să fii autorizat, înainte de a face acest lucru, trebuie să confirmi adresa ta de e-mail <strong>%{email}</strong>.
-          request_confirmation_instructions: Cere instrucțiunile de confirmare
+          explanation_html: Pentru a efectua această acțiune, trebuie să fiți autorizat, înainte de a face acest lucru, trebuie să confirmați adresa dumneavoastră de e-mail <strong>%{email}</strong>.
+          request_confirmation_instructions: Cereți instrucțiunile de confirmare
           title: Confirmați e-mailul dumnevoastră
     block_user_mailer:
       notify:
@@ -554,7 +554,7 @@ ro:
           nickname_help: Pseudonimul dumneavoastră în %{organization}. Poate conține doar litere, numere, '-' și '_'.
           sign_up: Vă rugăm să completați profilul
           subtitle: Te rugăm să completezi următorul formular pentru a finaliza înregistrarea
-          username_help: Numele public care apare pe posturi. Pentru a garanta anonimitatea, poate fi orice nume.
+          username_help: Numele public care apare pe postări. Pentru a garanta anonimitatea, poate fi orice nume.
       registrations:
         new:
           already_have_an_account?: Aveți deja un cont?
@@ -575,7 +575,7 @@ ro:
       shared:
         newsletter_modal:
           buttons:
-            check: Verifică și continuă
+            check: Verificați și continuați
             uncheck: Mențineți nebifat
           title: Notificări newsletter
         omniauth_buttons:
@@ -586,22 +586,22 @@ ro:
           authorize: Autorizați aplicație
           by_organization_link_html: <small class="heading-small">de %{link}</small>
           cancel: Anulați
-          publish_content: Publică conținut pentru tine
-          see_email: Vezi e-mailul tău
-          see_name: Vezi numele tău
-          see_username: Vezi pseudonimul tău
+          publish_content: Permite publicarea conținutului in numele dumneavoastră
+          see_email: Vedeți e-mailul dumneavoastră
+          see_name: Vedeți numele dumneavoastră
+          see_username: Vedeți pseudonimul dumneavoastră
           this_application_will_be_able_to: 'Această aplicație va putea să:'
           this_application_will_not_be_able_to: 'Această aplicație nu va putea să:'
           update_profile: Actualizați-vă profilul
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vrea să folosească contul tău"
+          wants_to_use_your_account_html: "%{application_name} vrea să folosească contul dumneavoastră"
     download_your_data:
       export:
-        ready: Gata
+        ready: Pregătit
       show:
         download_data: Descarcă datele
         request_data: Cere date
     editor_images:
-      drag_and_drop_help: Adaugă imagini prin tragere & plasare sau lipirea lor.
+      drag_and_drop_help: Adaugați imagini prin tragere & plasare sau lipirea lor.
     endorsement_buttons_cell:
       already_endorsed: Nu-mi place
       endorse: Îmi place
@@ -727,10 +727,10 @@ ro:
           email_intro: Un nou grup de utilizatori a fost creat cu numele %{user_group_name}. Acum îl poți verifica în panoul <a href="%{groups_admin_url}">de administratori</a>.
           email_outro: Ai primit această notificare deoarece ești un administrator al platformei.
           email_subject: A fost creat un nou grup de utilizatori
-          notification_title: Grupul de utilizatori %{user_group_name} a fost creat. Acum îl poți verifica în panoul <a href="%{groups_admin_path}">de administratori</a>.
+          notification_title: Grupul de utilizatori %{user_group_name} a fost creat. Acum îl puteți verifica în panoul <a href="%{groups_admin_path}">de administratori</a>.
         user_group_updated:
           email_intro: Un grup de utilizatori cu numele %{user_group_name} și-a actualizat profilul, lăsându-l neverificat. Acum îl poți verifica în panoul <a href="%{groups_admin_url}">de administrare</a>.
-          email_outro: Ai primit această notificare deoarece ești un administrator al platformei.
+          email_outro: Ați primit această notificare deoarece sunteți un administrator al platformei.
           email_subject: Un grup de utilizatori și-a actualizat profilul
           notification_title: Grupul de utilizatori %{user_group_name} și-a actualizat profilul, lăsând neverificat. Acum îl poți verifica în panoul <a href="%{groups_admin_path}">de administratori</a>.
       notification_event:
@@ -738,20 +738,20 @@ ro:
       reports:
         resource_hidden:
           email_intro: Un administrator a eliminat %{resource_type} deoarece a fost raportat ca %{report_reasons}.
-          email_outro: Ai primit această notificare deoarece ești un autor al conținutului șters.
+          email_outro: Ați primit această notificare deoarece sunteți un autor al conținutului șters.
           email_subject: '%{resource_type} tău a fost eliminat'
           notification_title: |-
             Un administrator a eliminat %{resource_type} deoarece a fost raportat ca %{report_reasons}.</br>
             <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, pe care îl urmărești, tocmai a aprobat „%{resource_title}” și noi credem că ar putea fi interesant pentru tine. Verificați și contribuția:'
-        email_outro: Ai primit această notificare deoarece urmărești %{endorser_nickname}. Poți înceta să primești notificări urmând linkul anterior.
+        email_outro: Ați primit această notificare deoarece urmăriți activitatea lui %{endorser_nickname}. Puteți înceta să primiți notificări urmând linkul anterior.
         email_subject: "%{endorser_nickname} a susținut un conținut nou"
         notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a fost susținută de <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
-          email_intro: Pagina de profil <a href="%{resource_url}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
-          email_outro: Ai primit această notificare deoarece urmărești %{nickname}. Poți înceta să primești notificări urmând linkul anterior.
+          email_intro: <a href="%{resource_url}">Pagina de profil</a> din %{name} (%{nickname}), pe care o urmăriți, a fost actualizată.
+          email_outro: Ați primit această notificare deoarece urmăriți activitatea lui %{endorser_nickname}. Puteți înceta să primiți notificări urmând linkul anterior.
           email_subject: "%{nickname} și-a actualizat profilul"
           notification_title: Pagina de profil <a href="%{resource_path}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
     export_mailer:
@@ -771,7 +771,7 @@ ro:
         proposal: Propuneri
         result: Rezultate
     fingerprint:
-      check: Verifică amprenta
+      check: Verificați amprenta
       online_calculator_name: Calculator MD5 online
       replicate_help: Această amprentă este calculată folosind un algoritm de fixare SHA256. Pentru a-l copia singur/ă, poți folosi un %{online_calculator_link} şi copia datele sursă.
       source: Sursa
@@ -787,7 +787,7 @@ ro:
       non_public_followings: Unele dintre resursele urmărite nu sunt publice.
     follows:
       create:
-        button: Urmărește
+        button: Urmăriţi
         error: A apărut o problemă la urmărirea acestei resurse.
         participatory_space: Urmăriți<span class="show-for-sr">%{resource_name}</span>
       destroy:
@@ -840,7 +840,7 @@ ro:
           name: Urmăritori
           next_level_in: Obțineți încă %{score} urmăritori pentru a atinge următorul nivel!
         index:
-          badge_title: "%{name} insignă"
+          badge_title: "Insignă %{name}"
           how: Cum poți să o câștigi
           page_description: Insignele sunt recunoașterea acțiunilor participanților și progresele înregistrate în cadrul platformei. Pe măsură ce începi să descoperi, să participi și să interacționezi în platformă, vei câștiga diferite insigne. Aici este lista de insigne și câteva modalități prin care le poți câștiga.
           title: Insigne
@@ -849,34 +849,34 @@ ro:
       title: Ce sunt insignele?
     group_admins:
       actions:
-        demote_admin: Elimină administratorul
+        demote_admin: Eliminați administratorul
       index:
         current_admins: 'Administratori curenți:'
         manage_admins: Gestionare administratori
     group_invites:
-      accept_invitation: Acceptă
-      accept_or_reject_group_invitations: 'Următoarele grupuri te-au invitat să te alături. Acceptă sau respinge cererile lor:'
+      accept_invitation: Acceptaţi
+      accept_or_reject_group_invitations: 'Următoarele grupuri v-au invitat să vă alăturați. Acceptați sau respingeți cererile lor:'
       index:
-        invite: Invită
+        invite: Invitați
         invite_user: Invită un participant
-      reject_invitation: Respinge
+      reject_invitation: Respingeți
     group_members:
       actions:
-        are_you_sure: Sigur dorești asta?
+        are_you_sure: Sunteți sigur?
         promote_to_admin: Setare ca administrator
-        remove_from_group: Eliminare participant
+        remove_from_group: Eliminați participantul
       index:
         current_members_without_admins: 'Membrii actuali (fără administratori):'
-        manage_members: Gestionare participanți
+        manage_members: Gestionare membri
     groups:
       actions:
-        are_you_sure: Sigur dorești asta?
+        are_you_sure: Sunteți sigur?
       edit:
-        edit_user_group: Editează grup
+        edit_user_group: Modificați grupul
         update_user_group: Actualizați grupul
       form:
-        email_help: E-mailul organizației, asocierii, colective, grupului, etc.
-        fill_in_for_verification: 'Completați aceste câmpuri dacă dorești ca grupul tau să fie verificat:'
+        email_help: E-mailul organizației, grupului, etc.
+        fill_in_for_verification: 'Completați aceste câmpuri dacă doriți ca grupul dumneavoastră să fie verificat:'
         name_help: Numele organizației, asocierii, colectivelor, grupului, etc.
         nickname_help: Pseudonimul organizaţiei, asocierii, colectivelor, grupului etc. Nu folosi spaţii sau accente.
       join:
@@ -885,10 +885,10 @@ ro:
         success: Grupul a fost abandonat.
       members:
         accept_or_reject_join_requests: 'Următorii utilizatori au solicitat să se alăture acestui grup. Acceptă sau respinge cererile lor:'
-        accept_request: Acceptă
-        reject_request: Respinge
+        accept_request: Acceptaţi
+        reject_request: Respingeți
       new:
-        create_user_group: Creează grup
+        create_user_group: Creați grup
         new_user_group: Grup nou
         subtitle: Creează un grup și invită alți participanți să participe.
       roles:
@@ -904,7 +904,7 @@ ro:
     last_activities:
       all: Toate tipurile de activitate
       index:
-        last_activity: Ultima activitate
+        last_activity: Activitate recentă
     links:
       invalid_url: URL invalid
       warning:
@@ -982,7 +982,7 @@ ro:
           no_results: Niciun rezultat
         error_modal:
           close: Închidere
-          correct_errors: Te rugăm să remediezi erorile și să încerci din nou.
+          correct_errors: Vă rugăm să remediați erorile și să încercați din nou.
           intro: 'Au existat următoarele erori cu mesajul tău:'
           ok: Ok
         index:
