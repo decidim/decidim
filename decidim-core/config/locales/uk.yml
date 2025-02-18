@@ -21,7 +21,6 @@ uk:
     attributes:
       decidim/user:
         current_password: Поточний пароль
-        email: Адреса електронної пошти
         name: Ім'я учасника
         password: Пароль
         password_confirmation: Підтвердження паролю
@@ -209,15 +208,12 @@ uk:
           username_help: Загальнодоступне ім'я, яке відображається у ваших дописах. З метою гарантування анонімності, може бути будь-яким.
       sessions:
         new:
-          are_you_new?: Ви вперше на цьому майданчику?
           register: Створити обліковий запис
       shared:
         newsletter_modal:
           buttons:
             check: Поставити галочку та продовжити
           title: Сповіщення про новини
-        omniauth_buttons:
-          or: Або
     doorkeeper:
       authorizations:
         new:

@@ -65,7 +65,6 @@ ar:
         with_participatory_space: المساحة التشاركية
       decidim/user:
         current_password: كلمة المرور الحالي
-        email: البريد الإلكتروني
         name: كنية
         password: الكلمة السرية
         password_confirmation: تأكيد كلمة المرور
@@ -525,7 +524,6 @@ ar:
           username_help: الاسم العام الذي يظهر في مشاركاتك. بهدف ضمان عدم الكشف عن هويته ، يمكن أن يكون أي اسم.
       sessions:
         new:
-          are_you_new?: جديد على المنصة؟
           register: انشئ حساب
       shared:
         newsletter_modal:
@@ -533,8 +531,6 @@ ar:
             check: تحقق واستمر
             uncheck: إبقاءه غير مختار
           title: الإخطارات الإخبارية
-        omniauth_buttons:
-          or: أو
         password_fields:
           hidden_password: كلمة المرور الخاصة بك مخفية
           hide_password: إخفاء كلمة المرور

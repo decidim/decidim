@@ -207,4 +207,61 @@ describe "ephemeral action authorization" do
       end
     end
   end
+
+  context "when an ephemeral authorized user exists" do
+    let!(:authorization) { create(:authorization, :granted, user: ephemeral_user, name: "ephemeral_dummy_authorization_handler", unique_id: metadata[:document_number], metadata:) }
+    let(:permissions) do
+      {
+        create: {
+          authorization_handlers: {
+            ephemeral_dummy_authorization_handler: {
+              options: {
+                allowed_postal_codes: "1234, 4567"
+              }
+            }
+          }
+        }
+      }
+    end
+    let(:ephemeral_user) { create(:user, :ephemeral, organization:) }
+    let(:metadata) { { postal_code:, document_number: } }
+    let(:postal_code) { "1234" }
+    let(:document_number) { "012345678X" }
+    let(:birthdate) { 33.years.ago.strftime("%d/%m/%Y") }
+    let(:proposal) { create(:proposal, component:, users: [ephemeral_user]) }
+    let(:user) { create(:user, :confirmed, organization:) }
+
+    context "and a regular user tries to create a new proposal" do
+      before do
+        login_as user, scope: :user
+        visit main_component_path(component)
+        click_on "New proposal"
+      end
+
+      it "redirects to ephemeral verification form" do
+        expect(page).to have_content("We need to verify your identity")
+        expect(page).to have_css("h1", text: "Verify with Ephemeral example authorization")
+      end
+
+      context "and verifies with the same data than an ephemeral user" do
+        before do
+          fill_in :authorization_handler_document_number, with: document_number
+          fill_in :authorization_handler_postal_code, with: postal_code
+          fill_in_datepicker :authorization_handler_birthday_date, with: birthdate
+        end
+
+        it "transfers the authorization" do
+          expect { click_on "Send" }.not_to change(Decidim::Authorization, :count)
+          expect(Decidim::Authorization.where(user: ephemeral_user)).to be_blank
+          expect(authorization.reload.user).to eq(user)
+        end
+
+        it "transfers the authorship of the proposal" do
+          expect(proposal.authors).to contain_exactly(ephemeral_user)
+          click_on "Send"
+          expect(proposal.reload.authors).to contain_exactly(user)
+        end
+      end
+    end
+  end
 end
