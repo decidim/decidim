@@ -43,7 +43,6 @@ it:
     attributes:
       decidim/user:
         current_password: Password attuale
-        email: Email
         name: Nickname
         password: Password
         password_confirmation: Conferma della password
@@ -389,7 +388,6 @@ it:
           username_help: Nome "pubblico" che comparirà a firma di tutti i tuoi contributi e che sarà accessibile a tutti i navigatori, anche non iscritti alla piattaforma. Ti invitiamo a utilizzare un nome di fantasia per una maggiore tutela della riservatezza.
       sessions:
         new:
-          are_you_new?: Sei nuovo nella piattaforma?
           register: Crea un account
       shared:
         newsletter_modal:
@@ -397,8 +395,6 @@ it:
             check: Controlla e continua
             uncheck: Mantieni deselezionato
           title: Iscrizioni alla newsletter
-        omniauth_buttons:
-          or: O
     doorkeeper:
       authorizations:
         new:
