@@ -465,7 +465,7 @@ module Decidim
       end
 
       def self.export_serializer
-        Decidim::Proposals::ProposalSerializer
+        Decidim::Proposals::DownloadYourDataProposalSerializer
       end
 
       def self.download_your_data_images(user)

@@ -17,31 +17,14 @@
       <%= t("description", scope: "decidim.open_data.index", organization_name: current_organization_name) %>
       </p>
 
-      <%# i18n-tasks-use t("decidim.open_data.index.explanation.title") %>
-      <%= render layout: "decidim/open_data/section", locals: { i18n_scope: "explanation" } do %>
+      <%= render layout: "decidim/application/accordion_section", locals: { panel_id: "explanation", title: t("title", scope: "decidim.open_data.index.explanation") } do %>
         <p> <%= t("body_1", scope: "decidim.open_data.index.explanation", organization_name: current_organization_name) %> </p>
         <p> <%= t("body_2", scope: "decidim.open_data.index.explanation") %> </p>
       <% end %>
 
-      <%# i18n-tasks-use t("decidim.open_data.index.how_to.title") %>
-      <%# i18n-tasks-use t("decidim.open_data.index.how_to.step_1.title") %>
-      <%# i18n-tasks-use t("decidim.open_data.index.how_to.step_1.body_html") %>
-      <%# i18n-tasks-use t("decidim.open_data.index.how_to.step_2.title") %>
-      <%# i18n-tasks-use t("decidim.open_data.index.how_to.step_2.body_html") %>
-      <%# i18n-tasks-use t("decidim.open_data.index.how_to.step_3.title") %>
-      <%# i18n-tasks-use t("decidim.open_data.index.how_to.step_3.body_html") %>
-      <%= render layout: "decidim/open_data/section", locals: { i18n_scope: "how_to" } do %>
-        <% (1..3).each do |step_number| %>
-          <% scope = "decidim.open_data.index.how_to.step_#{step_number}" %>
-          <div class="row column">
-            <h3 class="text-lg pt-8"><%= t("title", scope:) %></h3>
-            <%= t("body_html", scope:) %>
-          </div>
-        <% end %>
-      <% end %>
+      <%= render partial: "decidim/open_data/how_to_open_accordion_section" %>
 
-      <%# i18n-tasks-use t("decidim.open_data.index.detailed.title") %>
-      <%= render layout: "decidim/open_data/section", locals: { i18n_scope: "detailed" } do %>
+      <%= render layout: "decidim/application/accordion_section", locals: { panel_id: "detailed", title: t("title", scope: "decidim.open_data.index.detailed") } do %>
         <p> <%= t("body_1", scope: "decidim.open_data.index.detailed") %> </p>
 
         <h3><%= t("components", scope: "decidim.open_data.index.detailed") %> </h3>
@@ -87,8 +70,7 @@
       <% end %>
     </div>
 
-    <%# i18n-tasks-use t("decidim.open_data.index.explanation.title") %>
-    <%= render layout: "decidim/open_data/section", locals: { i18n_scope: "license" } do %>
+    <%= render layout: "decidim/application/accordion_section", locals: { panel_id: "license", title: t("title", scope: "decidim.open_data.index.license") } do %>
       <% link_database = link_to(t("license_database_name", scope: "decidim.open_data.index.license"), t("license_database_link", scope: "decidim.open_data.index.license")) %>
       <% link_contents = link_to(t("license_contents_name", scope: "decidim.open_data.index.license"), t("license_contents_link", scope: "decidim.open_data.index.license")) %>
       <p> <%= t("body_1_html", scope: "decidim.open_data.index.license", organization_name: current_organization_name, link_database:, link_contents:) %> </p>

@@ -392,6 +392,45 @@ describe "Proposals" do
       end
     end
 
+    context "when maps are enabled" do
+      let(:component) { create(:proposal_component, :with_geocoding_enabled, participatory_space: participatory_process) }
+
+      let!(:author_proposals) { create_list(:proposal, 2, :participant_author, :published, component:) }
+      let!(:group_proposals) { create_list(:proposal, 2, :user_group_author, :published, component:) }
+      let!(:official_proposals) { create_list(:proposal, 2, :official, :published, component:) }
+
+      # We are providing a list of coordinates to make sure the points are scattered all over the map
+      # otherwise, there is a chance that markers can be clustered, which may result in a flaky spec.
+      before do
+        coordinates = [
+          [-95.501705376541395, 95.10059236654689],
+          [-95.501705376541395, -95.10059236654689],
+          [95.10059236654689, -95.501705376541395],
+          [95.10059236654689, 95.10059236654689],
+          [142.15275006889419, -33.33377235135252],
+          [33.33377235135252, -142.15275006889419],
+          [-33.33377235135252, 142.15275006889419],
+          [-142.15275006889419, 33.33377235135252],
+          [-55.28745034772282, -35.587843900166945]
+        ]
+        Decidim::Proposals::Proposal.where(component:).geocoded.each_with_index do |proposal, index|
+          proposal.update!(latitude: coordinates[index][0], longitude: coordinates[index][1]) if coordinates[index]
+        end
+
+        visit_component
+      end
+
+      it "shows markers for selected proposals" do
+        expect(page).to have_css(".leaflet-marker-icon", count: 5)
+        within "#panel-dropdown-menu-origin" do
+          click_filter_item "Official"
+        end
+        expect(page).to have_css(".leaflet-marker-icon", count: 2)
+
+        expect_no_js_errors
+      end
+    end
+
     it_behaves_like "accessible page" do
       before { visit_component }
     end
@@ -457,7 +496,9 @@ describe "Proposals" do
       it "lists the proposals ordered by votes by default" do
         expect(page).to have_css("a", text: "Most voted")
         expect(page).to have_css("[id^='proposals__proposal']:first-child", text: most_voted_proposal_title)
-        expect(page).to have_css("[id^='proposals__proposal']:last-child", text: less_voted_proposal_title)
+        within all("[id^='proposals__proposal']").last do
+          expect(page).to have_content(less_voted_proposal_title)
+        end
       end
     end
 
@@ -530,9 +571,23 @@ describe "Proposals" do
       let!(:votes) { create_list(:proposal_vote, 3, proposal: most_voted_proposal) }
       let!(:less_voted_proposal) { create(:proposal, component:) }
 
-      it_behaves_like "ordering proposals by selected option", "Most voted" do
-        let(:first_proposal) { most_voted_proposal }
-        let(:last_proposal) { less_voted_proposal }
+      before do
+        visit_component
+        within ".order-by" do
+          expect(page).to have_css("div.order-by a", text: "Random")
+          page.find("a", text: "Random").click
+          click_on("Most voted")
+        end
+      end
+
+      it "ordering proposals by selected option", "Most voted" do
+        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(most_voted_proposal.title))
+        sleep 3
+        within all("[id^='proposals__proposal']").last do
+          within ".card__list-content" do
+            expect(page).to have_css("div.card__list-title", text: translated(less_voted_proposal.title))
+          end
+        end
       end
     end
 

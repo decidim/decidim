@@ -1,0 +1,51 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="card">
+  <div class="item_show__header item_show__header--with-action-options">
+    <h1 class="item_show__header-title">
+      <%= t(".title") %>
+      <%= link_to t("actions.new_survey", scope: "decidim.surveys"), surveys_path, method: :post, class: "button button__sm button__secondary" %>
+      <%= render partial: "decidim/admin/components/resource_action" %>
+    </h1>
+  </div>
+  <div class="table-scroll mt-8">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= t("models.survey.fields.title", scope: "decidim.surveys") %></th>
+          <th><%= t("models.survey.fields.questions", scope: "decidim.surveys") %></th>
+          <th><%= t("models.survey.fields.answers", scope: "decidim.surveys") %></th>
+          <th><%= t("models.survey.fields.status", scope: "decidim.surveys") %></th>
+          <th><%= t("actions.title", scope: "decidim.surveys") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% surveys.each do |survey| %>
+          <tr>
+            <td><%= decidim_sanitize_translated(survey.title) %></td>
+            <td><%= survey.questionnaire.questions.size %></td>
+            <td><%= survey.questionnaire.answers.size %></td>
+            <td><%= survey.open? ? t("models.survey.status.open", scope: "decidim.surveys") : t("models.survey.status.closed", scope: "decidim.surveys") %></td>
+            <td class="table-list__actions">
+                <%= icon_link_to "pencil-line", edit_survey_path(survey), t("actions.edit", scope: "decidim.surveys"), class: "action-icon--edit" %>
+                <%= icon_link_to "survey-line", edit_questions_survey_path(survey), t("actions.manage_questions", scope: "decidim.surveys"), class: "action-icon--copy" %>
+                <% if allowed_to? :preview, :questionnaire %>
+                <%= icon_link_to "eye-line", resource_locator(survey).path, t("actions.preview", scope: "decidim.surveys"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
+                <% end %>
+                <% if allowed_to?(:update, :questionnaire) %>
+                  <% if survey.published? %>
+                    <%= icon_link_to "close-circle-line", unpublish_survey_path(survey), t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish" %>
+                  <% elsif survey.clean_after_publish? %>
+                    <%= icon_link_to "check-line", publish_survey_path(survey), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish", data: { confirm: t("actions.answers_alert", scope: "decidim.surveys", answers_count: survey.questionnaire.answers.size) } %>
+                  <% else %>
+                    <%= icon_link_to "check-line", publish_survey_path(survey), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish" %>
+                  <% end %>
+                <% end %>
+                <%= resource_permissions_link(survey) %>
+                <%= icon_link_to "delete-bin-line", survey_path(survey), t("actions.destroy", scope: "decidim.surveys"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.surveys") } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,10 +1,15 @@
 <tr>
-  <td class="text-left py-4 font-bold"><%= t(export.export_type, scope:"decidim.download_your_data.show") %></td>
+  <td class="text-left p-4"><%= t(export.export_type, scope:"decidim.download_your_data.show") %></td>
   <td class="text-center"><%= export.expired? ? t("expired", scope:"decidim.download_your_data.show") : l(export.expires_at, format: :decidim_short) %></td>
-  <td class="text-left py-4">
-    <%= button_to t("download", scope:"decidim.download_your_data.show"), download_download_your_data_path(export),
-                  class: "button button__sm button__secondary ml-auto",
+  <td class="py-4">
+    <%= button_to download_download_your_data_path(export),
+                  class: "button button__sm button__transparent-secondary m-auto block",
                   disabled: export.expired?,
-                  method: :get %>
+                  aria: { label: t("download", scope:"decidim.download_your_data.show") },
+                  method: :get do %>
+                    <span class="hidden lg:block"><%= t("download", scope:"decidim.download_your_data.show") %></span>
+                    <span class="lg:hidden"><%= icon "download-line", class: "text-secondary fill-current" %></span>
+    <% end %>
+
   </td>
 </tr>

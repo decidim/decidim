@@ -4,7 +4,6 @@ gl:
       collaborative_draft:
         address: Enderezo
         body: Corpo
-        category_id: Categoría
         decidim_scope_id: Alcance
         has_address: Ten enderezo
         scope_id: Ámbito
@@ -17,7 +16,6 @@ gl:
         answered_at: Respondeu en
         automatic_hashtags: Engadíronse automaticamente os hexágonos
         body: Corpo
-        category_id: Categoría
         decidim_scope_id: Ámbito
         has_address: Ten enderezo
         scope_id: Ámbito
@@ -61,8 +59,6 @@ gl:
             base:
               not_official: Non é oficial
     models:
-      decidim/proposals/admin/update_proposal_category_event: Modificouse a categoría de proposta
-      decidim/proposals/admin/update_proposal_scope_event: Mudouse o ámbito da proposta
       decidim/proposals/creation_enabled_event: Creación de proposta habilitada
       decidim/proposals/endorsing_enabled_event: Aprobación da proposta habilitada
       decidim/proposals/proposal_mentioned_event: Proposta mencionada
@@ -83,14 +79,10 @@ gl:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Categoría
           is_emendation_true:
             label: Tipo
             values:
               'false': Propostas
-          scope_id_eq:
-            label: Ámbito
           state_eq:
             label: Estado
             values:
@@ -106,7 +98,6 @@ gl:
       proposals:
         actions:
           comment: Comentario
-          create: Crear
           endorse: Endosar
           vote_comment: Votar comentario
           withdraw: Retirar
@@ -134,8 +125,6 @@ gl:
             proposal_limit: Límite de proposta por usuario
             proposal_wizard_step_1_help_text: Asistente de propostas "Crear" texto de axuda paso a paso
             resources_permissions_enabled: Os permisos de acción pódense establecer para cada proposta
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
             threshold_per_proposal: Umbral por proposta
           step:
             announcement: Anuncio
@@ -197,13 +186,6 @@ gl:
           email_intro: A proposta "%{resource_title}" engadiuse a "%{participatory_space_title}" que estás seguindo.
           email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Nova proposta "%{resource_title}" engadida a %{participatory_space_title}
-        proposal_update_category:
-          email_intro: 'Un administrador actualizou a categoría da túa proposta "%{resource_title}", comproba isto:'
-          email_outro: Recibiches esta notificación porque es o autor da proposta.
-          email_subject: A categoría de proposta %{resource_title} foi actualizada
-          notification_title: A categoría de proposta <a href="%{resource_path}">%{resource_title}</a> foi actualizada por un administrador.
-        proposal_update_scope:
-          email_outro: Recibiches esta notificación porque es o autor da proposta.
         voting_enabled:
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
     gamification:
@@ -248,7 +230,7 @@ gl:
         title: Propostas
     participatory_spaces:
       highlighted_proposals:
-        see_all: Ver todos (%{count})
+        see_all: Ver todos
     proposals:
       actions:
         answer_proposal: Responder á proposta
@@ -319,14 +301,11 @@ gl:
             title: Actualizar a proposta
             update: Actualización
           form:
-            attachment_legend: "(Opcional) Engada un anexo"
             created_in_meeting: Esta proposta provén dunha reunión
-            select_a_category: Selecciona unha categoría
             select_a_meeting: Seleccione unha reunión
           index:
             actions: Accións
             cancel: Cancelar
-            change_category: Cambiar categoría
             merge: Unirse a un novo
             merge_button: Fusionar
             publish: Publicar
@@ -408,19 +387,15 @@ gl:
         create:
           success: Creouse un borrador colaborativo.
         edit:
-          attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
-          select_a_category: Selecciona unha categoría
           send: Enviar
           title: Editar borrador colaborativo
         filters:
           all: Todo
           amendment: Enmendas
-          category: Categoría
           open: Aberto
           published: Publicado
           related_to: Relacionado con
-          scope: Alcance
           search: Busca
           state: Estado
           withdrawn: Retirada
@@ -456,7 +431,6 @@ gl:
           rejected_request:
             error: Non se puido rexeitar como colaborador, téntao de novo máis tarde.
         show:
-          edit: Editar borrador colaborativo
           final_proposal: proposta final
           final_proposal_help_text: Este borrador está rematado. Podes ver a proposta final rematada
           hidden_authors_count:
@@ -486,14 +460,12 @@ gl:
       models:
         proposal:
           fields:
-            category: Categoría
             comments: Comentarios
             id: ID
             notes: Notas
             official_proposal: Proposta oficial
             published_answer: Resposta publicada
             published_at: Publicado en
-            scope: Alcance
             state: Estado
             title: Título
             valuator: Avaliador/a
@@ -508,11 +480,7 @@ gl:
         dynamic_map_instructions:
           instructions: Podes mover o punto no mapa.
         edit:
-          add_documents: Engadir documentos
-          attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
-          edit_documents: Editar documentos
-          select_a_category: Selecciona unha categoría
           send: Enviar
           title: Editar proposta
         edit_draft:
@@ -523,7 +491,6 @@ gl:
           activity: A miña actividade
           all: Todas
           amendment_type: Tipo
-          category: Categoría
           my_proposals: As miñas propostas
           origin: Orixe
           related_to: Relacionado con
@@ -564,7 +531,6 @@ gl:
           title: Publica a túa proposta
         show:
           answer: Resposta
-          edit_proposal: Editar proposta
           hidden_endorsers_count:
             one: e %{count} persoas máis
             other: e %{count} persoas máis
@@ -573,10 +539,11 @@ gl:
           proposal_accepted_reason: 'Esta proposta foi aceptada porque:'
           proposal_in_evaluation_reason: Esta proposta está a ser avaliada
           proposal_rejected_reason: 'Esta proposta foi rexeitada porque:'
-          withdraw_proposal: Retire a proposta
         voting_rules:
           proposal_limit:
             description: Podes crear ata %{limit} propostas.
+          vote_limit:
+            description: Podes votar ata %{limit} propostas.
         wizard_aside:
           back: De volta
         wizard_steps:

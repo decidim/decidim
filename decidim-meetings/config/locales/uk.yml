@@ -113,8 +113,6 @@ uk:
         attachment_collections: Теки
         attachments: Вкладені файли
         close: Закрити
-        confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
-        destroy: Видалити
         edit: Редагувати
         preview: Попередній перегляд
         registrations: Реєстрації
@@ -170,8 +168,6 @@ uk:
             close: Закрити
             title: Закрити зустріч
         meetings:
-          destroy:
-            success: Зустріч успішно видалено
           edit:
             update: Оновити
           index:

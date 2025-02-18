@@ -21,8 +21,6 @@ bg:
         published_at: Публикувано на
         registration_terms: Условия за регистрация
         registrations_enabled: Регистрациите са активирани
-        scope_id: Обхват
-        scopes_enabled: Обхватите са активирани
         short_description: Кратко описание
         show_statistics: Покажи статистиките
         sign_date: Дата на подпис
@@ -119,13 +117,11 @@ bg:
         destroy:
           success: Говорителят на конференцията беше изтрит успешно.
         edit:
-          title: Актуализиране на говорителя на конференцията.
           update: Актуализация
         index:
           conference_speakers_title: Говорители на конференция
         new:
           create: Създаване
-          title: Нов говорител на конференция.
         publish:
           invalid: Възникна проблем при публикуването на този говорител.
           success: Лекторът на конференцията е публикуван успешно.
@@ -142,13 +138,11 @@ bg:
         destroy:
           success: Администраторът на конференцията беше премахнат успешно.
         edit:
-          title: Актуализиране на администратора на конференцията.
           update: Актуализация
         index:
           conference_admins_title: Администратори на конференция
         new:
           create: Създаване
-          title: Нов администратор на конференция.
         update:
           error: Възникна проблем при актуализирането на този администратор на конференцията.
           success: Администраторът на конференцията беше актуализиран успешно.
@@ -178,40 +172,27 @@ bg:
       media_links:
         create:
           error: Възникна проблем при създаването на нов медия линк.
-          success: Медийният линк беше създаден успешно.
-        destroy:
-          success: Медийният линк беше изтрит успешно.
         edit:
-          title: Актуализиране на медийния линк.
           update: Актуализация
-        index:
-          media_links_title: Медийни линкове
         new:
           create: Създаване
-          title: Медия линк
         update:
           error: Възникна проблем при актуализирането на този медия линк.
-          success: Медийният линк беше актуализиран успешно.
       menu:
         conferences: Конференции
         conferences_submenu:
           attachment_collections: Папки
           attachment_files: Файлове
           attachments: Прикачени файлове
-          categories: Категории
           components: Компоненти
           conference_admins: Администратори на конференция
           conference_invites: Покани
           conference_speakers: Говорители
-          diploma: Сертификати за присъствие
           info: Относно тази конференция
-          media_links: Медия линкове
           moderations: Модерации
           partners: Партньори
-          registration_types: Типове регистрация
           registrations: Регистрации
           see_conference: Виз конференцията
-          user_registrations: Потребителска регистрация
       models:
         conference:
           fields:
@@ -240,7 +221,6 @@ bg:
             date: Дата
             link: Линк
             title: Заглавие
-          name: Медия линк
         partner:
           fields:
             link: Линк
@@ -266,7 +246,6 @@ bg:
         destroy:
           success: Партньорът за конференцията беше премахнат успешно.
         edit:
-          title: Актуализиране на партньора.
           update: Актуализация
         new:
           create: Създаване
@@ -288,7 +267,6 @@ bg:
         destroy:
           success: Типът регистрация за конференцията беше премахнат успешно.
         edit:
-          title: Актуализиране на типа на регистрацията.
           update: Актуализация
         new:
           create: Създаване
@@ -383,7 +361,6 @@ bg:
         diplomas:
           edit:
             save: Запази
-            title: Сертификати за присъствие
         invite_join_conference_mailer:
           invite:
             decline: Отказ на поканата за „%{conference_title}“
@@ -403,7 +380,6 @@ bg:
             diploma_html: Ще намерите сертификата за присъствие на конференцията <a href="%{url}">%{title}</a> в прикачените файлове.
           diploma_user:
             attendance_verified_by: Присъствието е потвърдено от
-            certificate_of_attendance: Сертификати за присъствие
             certificate_of_attendance_description: С настоящото се удостоверява, че <strong>%{user}</strong> посети и взе участие в(ъв) <strong>%{title}</strong>, <strong>%{location}</strong> на <strong>%{start} — %{end}</strong>
         send_diploma:
           error: Възникна проблем при изпращането на сертификатите за присъствие на конференцията.

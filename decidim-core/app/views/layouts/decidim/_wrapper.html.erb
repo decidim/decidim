@@ -20,24 +20,27 @@ end
       <%= render partial: "layouts/decidim/header/main" %>
     </div>
     <div id="menu-bar-container">
-      <%= render partial: "layouts/decidim/header/menu" unless controller_name == "homepage" %>
+      <% unless current_user&.ephemeral? %>
+        <%= render partial: "layouts/decidim/header/menu" unless controller_name == "homepage" %>
+      <% end %>
     </div>
   </header>
 
+  <% if display_flash_messages.present? %>
+    <div id="flash-messages-container" class="container">
+      <%= display_flash_messages %>
+    </div>
+  <% end %>
+  <%= display_onboarding_action_message(current_user) %>
+
   <div id="content" data-content>
-    <% if display_flash_messages.present? %>
-      <div id="flash-messages-container" class="container">
-        <%= display_flash_messages %>
-      </div>
-    <% end %>
-
-    <%= display_onboarding_action_message(current_user) %>
-
     <%= yield %>
   </div>
 
-  <footer>
-    <%= render partial: "layouts/decidim/footer/main" %>
-    <%= render partial: "layouts/decidim/footer/mini" %>
-  </footer>
+  <% unless current_user&.ephemeral? %>
+    <footer>
+      <%= render partial: "layouts/decidim/footer/main" %>
+      <%= render partial: "layouts/decidim/footer/mini" %>
+    </footer>
+  <% end %>
 </div>

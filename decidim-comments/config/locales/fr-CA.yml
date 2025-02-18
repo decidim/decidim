@@ -38,7 +38,8 @@ fr-CA:
           error: Une erreur s'est produite lors du vote sur le commentaire.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Connectez-vous</a> ou <a href="%{sign_up_url}">créez un compte</a> pour ajouter votre commentaire.
+        account_message: Connectez-vous ou créez un compte pour ajouter votre commentaire.
+        add_comment: Ajouter un commentaire
         form:
           body:
             label: Commentaire
@@ -48,6 +49,7 @@ fr-CA:
           submit_root_comment: Publier le commentaire
           user_group_id:
             label: Commenter en tant que
+            your_profile: Votre profil
         opinion:
           label: Votre avis sur ce sujet
           negative: Négatif
@@ -63,6 +65,9 @@ fr-CA:
         alignment:
           against: Contre
           in_favor: Pour
+        answers:
+          one: "%{count} réponse"
+          other: "%{count} réponses"
         cancel_reply: Annuler la réponse
         comment_label: Commentaire %{comment_id}
         comment_label_reply: Commentaire %{comment_id} (réponse au commentaire %{parent_comment_id})
@@ -93,6 +98,7 @@ fr-CA:
           one: Afficher la réponse
           other: Afficher %{count} réponses
         single_comment_link_title: Obtenir le lien
+        sort_by: 'Trier par : '
       comment_order_selector:
         order:
           best_rated: Les mieux notés

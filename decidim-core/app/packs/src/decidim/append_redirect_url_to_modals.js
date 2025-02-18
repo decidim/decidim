@@ -53,10 +53,18 @@ $(() => {
   }
 
   $(document).on("click.zf.trigger", (event) => {
-    const target = `#${$(event.target).data("dialogOpen")}`;
-    const redirectUrl = $(event.target).data("redirectUrl");
+    // Try to get the <a> directly or find the closest parent <a>
+    const $target = $(event.target).closest("a");
 
-    if (!target || !redirectUrl) {
+    // Check if an <a> was found
+    if (!$target) {
+      return;
+    }
+
+    const dialogTarget = `#${$target.data("dialog-open")}`;
+    const redirectUrl = $target.data("redirectUrl");
+
+    if (!dialogTarget || !redirectUrl) {
       return;
     }
 
@@ -64,10 +72,10 @@ $(() => {
       attr("id", "redirect_url").
       attr("name", "redirect_url").
       attr("value", redirectUrl).
-      appendTo(`${target} form`);
+      appendTo(`${dialogTarget} form`);
 
-    $(`${target} a`).attr("href", (index, href) => {
-      const querystring = jQuery.param({ "redirect_url": redirectUrl });
+    $(`${dialogTarget} a`).attr("href", (index, href) => {
+      const querystring = jQuery.param({"redirect_url": redirectUrl});
       return href + (href.match(/\?/) ? "&" : "?") + querystring;
     });
   });

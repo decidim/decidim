@@ -36,7 +36,6 @@ lv:
     attributes:
       decidim/user:
         current_password: Pašreizējā parole
-        email: E-pasts
         name: Segvārds
         password: Parole
         password_confirmation: Paroles apstiprināšana
@@ -62,6 +61,8 @@ lv:
     'false': 'Nē'
     'true': 'Jā'
   date:
+    buttons:
+      select: Izvēlēties
     formats:
       decidim_short: "%d/%m/%G"
       decidim_short_with_month_name_short: "%d %b %G"
@@ -334,15 +335,12 @@ lv:
           username_help: Publiski redzamais vārds, kas parādās pie jūsu ierakstiem. Lai garantētu anonimitāti, tas var būt jebkurš vārds.
       sessions:
         new:
-          are_you_new?: Vai esat jauns platformas lietotājs?
           register: Izveidot kontu
       shared:
         newsletter_modal:
           buttons:
             check: Pārbaudīt un turpināt
           title: Paziņojumi par informatīvajiem biļeteniem
-        omniauth_buttons:
-          or: vai
     doorkeeper:
       authorizations:
         new:
@@ -360,9 +358,6 @@ lv:
     download_your_data:
       export:
         ready: Gatavs
-      show:
-        download_data: Lejupielādēt datus
-        request_data: Pieprasīt datus
     endorsements:
       identities:
         done: Pabeigts
@@ -501,8 +496,6 @@ lv:
     export_mailer:
       download_your_data_export:
         download: Lejupielādēt
-      export:
-        ready: Lūdzu, jūsu eksportēto datu saspiestā versija.
       subject: Jūsu eksportētais "%{name}" ir gatavs.
     filters:
       linked_classes:
@@ -815,12 +808,7 @@ lv:
         error: Atbalstīšanas laikā radās problēma.
     scopes:
       global: Globālais darbības tvērums
-      picker:
-        cancel: Atcelt
-        choose: Izvēlēties
-        title: Izvēlēties %{field}
       prompt: Izvēlēties darbības tvērumu
-      scopes: Darbības tvērums
     search:
       results_found_for_term: '%{count} Meklēšanas rezultāti: "%{term}"'
       term_input_placeholder: Meklēt
@@ -850,10 +838,6 @@ lv:
         spam: Satur klikšķu ēsmu (clickbait), reklāmu, krāpšanu vai skriptu robotprogrammatūru.
       floating_help:
         help: Palīdzība
-      participatory_space_filters:
-        filters:
-          areas: Jomas
-          select_an_area: Izvēlieties jomu
       reference:
         reference: 'Atsauce: %{reference}'
       represent_user_group:
@@ -881,13 +865,6 @@ lv:
         send: Sūtīt
       update:
         error: Ziņojums nav nosūtīts. Pamēģini vēlreiz vēlāk
-    user_interests:
-      show:
-        my_interests: Manas intereses
-        update_my_interests: Atjaunināt manas intereses
-      update:
-        error: Jūsu interešu atjaunināšanas laikā radās problēma.
-        success: Jūsu intereses ir veiksmīgi atjauninātas.
     version:
       show:
         back_to_resource: Atgriezties
@@ -1037,7 +1014,6 @@ lv:
       edit_link:
         edit: Labot
       footer:
-        download_open_data: Lejupielādējiet atvērto datu failus
         log_in: Pieteikties
         made_with_open_source: Vietne, kas izveidota ar <a target="_blank" href="https://github.com/decidim/decidim"> bezmaksas programmatūru </a>.
       header:
@@ -1059,7 +1035,6 @@ lv:
         authorizations: Autorizācijas
         delete_my_account: Izdzēst manu kontu.
         my_data: Mani dati
-        my_interests: Manas intereses
         notifications_settings: Paziņojumu iestatījumi
         title: Dalībnieka iestatījumi
         user_groups: Grupas
@@ -1083,6 +1058,8 @@ lv:
     wechat_footer: Atveriet WeChat, noklikšķiniet uz pogas Discover, pēc tam noklikšķiniet uz izvēlnes Scan QR Code.
     weibo: Sina Veibo
   time:
+    buttons:
+      select: Izvēlēties
     formats:
       day_of_year: "%d.%m.%g"
       decidim_day_of_year: "%d %B %G"

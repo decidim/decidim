@@ -88,8 +88,13 @@ ca:
           edit:
             edit: Editar
             empty: Encara no hi ha preguntes.
+            manage_questions: Gestionar les preguntes
             questionnaire: Qüestionari
             title: Editar la plantilla del qüestionari
+          edit_questions:
+            add_question: Afegeix una pregunta
+            add_separator: Afegir un separador
+            add_title_and_description: Afegir títol i descripció
           form:
             title: Plantilla del qüestionari %{questionnaire_for}
           index:

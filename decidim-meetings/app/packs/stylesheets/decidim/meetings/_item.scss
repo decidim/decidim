@@ -6,29 +6,17 @@
   }
 
   &__calendar {
-    @apply w-14 flex flex-col justify-start rounded bg-background text-center;
+    @apply order-first flex flex-col min-w-48 rounded bg-background text-center md:w-14;
 
     &:only-child &-month {
       @apply rounded-t;
     }
 
     &-container {
-      @apply grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_1fr] items-center gap-0 md:gap-x-5 border-4 border-background rounded overflow-hidden;
+      @apply flex flex-wrap flex-col md:flex-row gap-2 border-4 border-background rounded;
 
-      > *:nth-child(2) {
-        @apply p-4 md:p-0;
-
-        &:not(:last-child) {
-          @apply col-span-2 md:col-auto order-2 md:order-1;
-        }
-
-        &:last-child {
-          @apply md:col-span-2 pr-4;
-        }
-      }
-
-      > *:nth-child(3) {
-        @apply order-1 md:order-2 h-[135px];
+      ul {
+        @apply flex-1 p-2;
       }
     }
 
@@ -55,7 +43,7 @@
     }
 
     &__lg {
-      @apply w-fit justify-center [&>*]:px-2 min-w-24 h-[8.5rem];
+      @apply flex min-w-48;
     }
 
     &__lg &-month {

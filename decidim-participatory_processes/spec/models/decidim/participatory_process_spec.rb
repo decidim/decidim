@@ -36,7 +36,8 @@ module Decidim
     end
 
     context "when a process is attached to a scope type" do
-      let!(:participatory_process) { create(:participatory_process, :with_scope, slug: "my-slug", scope_type_max_depth: scope_type, organization:) }
+      let!(:participatory_process) { create(:participatory_process, scope:, slug: "my-slug", scope_type_max_depth: scope_type, organization:) }
+      let(:scope) { create(:scope, organization:) }
       let(:organization) { create(:organization) }
       let(:scope_type) { create(:scope_type, organization:) }
 

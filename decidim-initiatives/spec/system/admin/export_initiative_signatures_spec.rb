@@ -20,9 +20,6 @@ describe "Admin export initiatives' signature" do
     end
 
     click_on "Export PDF of signatures"
-    within "#confirm-modal-content" do
-      click_on "OK"
-    end
 
     expect(File.basename(download_path)).to include("votes_#{initiative.id}.pdf")
   end

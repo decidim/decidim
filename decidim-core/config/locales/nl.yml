@@ -43,7 +43,6 @@ nl:
     attributes:
       decidim/user:
         current_password: Huidige wachtwoord
-        email: E-mailadres
         name: Bijnaam
         password: Wachtwoord
         password_confirmation: Wachtwoordbevestiging
@@ -65,6 +64,8 @@ nl:
     'false': 'Nee'
     'true': 'Ja'
   date:
+    buttons:
+      select: Selecteer
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -240,10 +241,8 @@ nl:
       dummy_authorization_handler:
         fields:
           allowed_postal_codes: Toegestane postcodes (gescheiden door komma's)
-          allowed_scope_id: Toegestane scope
           document_number: Document Nummer
           postal_code: Postcode
-          scope_id: Bereik
         name: Voorbeeld autorisatie
       dummy_authorization_workflow:
         name: Dummy autorisatie workflow
@@ -322,8 +321,6 @@ nl:
             dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: Schakel het maken van notitieblokken in
             resources_permissions_enabled: Resources permissies ingeschakeld
-            scope_id: Scope
-            scopes_enabled: Scopes ingeschakeld
           step:
             amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
             amendment_promotion_enabled: Promoten van amendementen ingeschakeld
@@ -387,7 +384,6 @@ nl:
           username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
       sessions:
         new:
-          are_you_new?: Nieuw op het platform?
           register: Een account aanmaken
       shared:
         newsletter_modal:
@@ -395,8 +391,6 @@ nl:
             check: Controleer en ga door
             uncheck: Uitgeschakeld houden
           title: Nieuwsbriefmeldingen
-        omniauth_buttons:
-          or: Of
     doorkeeper:
       authorizations:
         new:
@@ -414,17 +408,12 @@ nl:
     download_your_data:
       export:
         ready: Klaar
-      show:
-        download_data: Download de gegevens
-        request_data: Gegevens aanvragen
     editor_images:
       drag_and_drop_help: Voeg afbeeldingen toe door ze te slepen of te plakken.
     endorsements:
       identities:
         done: Voltooid
         select_identity: Selecteer identiteit
-    endorsers_list:
-      endorsed_by: Geliket door...
     errors:
       internal_server_error:
         title: Er was een probleem met de server
@@ -558,10 +547,7 @@ nl:
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
       download_your_data_export:
-        click_button: 'Klik op de volgende link om je gegevens te downloaden. <br/> Het bestand is beschikbaar tot %{date}. <br/> Je hebt <a href="https://www.7-zip.org/">7-Zip</a>(for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) nodig om het te openen. Wachtwoord: %{password}'
         download: Download
-      export:
-        ready: In de bijlage vindt u een versie van uw export.
       subject: Uw export "%{name}" is klaar
     filters:
       linked_classes:
@@ -937,16 +923,7 @@ nl:
         error: Er was een probleem bij de goedkeuringsactie.
     scopes:
       global: Globale scope
-      picker:
-        cancel: Annuleer
-        change: Wijzig geselecteerde scope
-        choose: Selecteer
-        currently_selected: Momenteel geselecteerde scope
-        title: Selecteer %{field}
       prompt: Selecteer een scope
-      scopes: scopes
-      scopes_picker_input:
-        select_scope: 'Selecteer een bereik (momenteel: %{current})'
     search:
       results: Zoek resultaten
       results_found_for_term: '%{count} Resultaten voor de zoekopdracht: "%{term}"'
@@ -991,10 +968,6 @@ nl:
         title: Meld een probleem
       floating_help:
         help: Help
-      participatory_space_filters:
-        filters:
-          areas: Onderwerpen
-          select_an_area: Selecteer een onderwerp
       public_participation:
         public_participation: Maak mijn aanwezigheid openbaar
       reference:
@@ -1021,9 +994,6 @@ nl:
       pages_count: Pagina's
       participants_count: Deelnemers
       users_count: Deelnemers
-    tags:
-      filter_results_for_category: 'Resultaten filteren voor categorie: %{resource}'
-      filter_results_for_scope: 'Filter resultaten voor bereik: %{resource}'
     user_contact_disabled: Deze gebruiker accepteert geen directe berichten.
     user_conversations:
       create:
@@ -1038,13 +1008,6 @@ nl:
         send: Verzenden
       update:
         error: Bericht niet verzonden. Probeer het later opnieuw
-    user_interests:
-      show:
-        my_interests: Mijn interesses
-        update_my_interests: Update mijn interesses
-      update:
-        error: Er is een fout opgetreden bij het bijwerken van uw interesses.
-        success: Uw interesses zijn succesvol bijgewerkt.
     version:
       show:
         back_to_resource: Ga terug
@@ -1215,7 +1178,6 @@ nl:
       footer:
         cc_by_license: Creative Commons-licentie
         decidim_logo: Logo Decidimmen
-        download_open_data: Download Open Data-bestanden
         log_in: Aanmelden
         made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
       header:
@@ -1249,7 +1211,6 @@ nl:
         authorizations: Bevoegdheden
         delete_my_account: Verwijder mijn account
         my_data: Mijn data
-        my_interests: Mijn interesses
         notifications_settings: Notificaties instellen
         title: Gebruikersinstellingen
         user_groups: Gebruikersgroepen
@@ -1291,6 +1252,8 @@ nl:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Selecteer
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

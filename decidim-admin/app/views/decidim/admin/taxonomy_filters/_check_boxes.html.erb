@@ -3,7 +3,7 @@
     <%= item.label { item.check_box(autocomplete: false) + item.text } %>
   </div>
   <% if item.object.children.any? %>
-    <div class="ml-4">
+    <div class="ml-4 js-taxonomy-children" data-parent="<%= item.object.value %>">
       <%= render "decidim/admin/taxonomy_filters/check_boxes", form:, collection: item.object.children %>
     </div>
   <% end %>

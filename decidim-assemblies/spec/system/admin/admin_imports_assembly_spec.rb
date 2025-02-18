@@ -59,14 +59,6 @@ describe "Admin imports assembly" do
       end
 
       within_admin_sidebar_menu do
-        click_on "Categories"
-      end
-      within ".table-list" do
-        expect(page).to have_content(translated("Veritatis provident nobis reprehenderit tenetur."))
-        expect(page).to have_content(translated("Quidem aliquid reiciendis incidunt iste."))
-      end
-
-      within_admin_sidebar_menu do
         click_on "Components"
       end
       expect(Decidim::Assembly.last.components.size).to eq(9)

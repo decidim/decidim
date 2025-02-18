@@ -18,6 +18,7 @@ FactoryBot.define do
     instructions { generate_localized_description(:debate_instructions, skip_injection:) }
     component { build(:debates_component, skip_injection:) }
     author { component.try(:organization) }
+    comments_layout { "single_column" }
     deleted_at { nil }
 
     trait :open_ama do

@@ -54,7 +54,7 @@ jobs:
     name: ${{ matrix.test.name }}
     runs-on: ubuntu-22.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
-    timeout-minutes: 60
+    timeout-minutes: 90
     services:
       postgres:
         image: postgres:14

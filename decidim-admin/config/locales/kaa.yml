@@ -42,15 +42,8 @@ kaa:
       autocomplete:
         no_results: Nátiyjeler tabılmadı
       categories:
-        edit:
-          update: Jańalaw
         index:
           categories_title: Kategoriyalar
-        new:
-          create: Kategoriya jaratıw
-          title: Jańa kategoriya
-        update:
-          success: Kategoriya tabıslı jańalandı.
       components:
         edit:
           update: Jańalaw
@@ -71,8 +64,6 @@ kaa:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Kategoriya
         filter_label: Filtr
         invitation_accepted_at_present:
           values:
@@ -184,7 +175,6 @@ kaa:
       share_tokens:
         actions:
           destroy: Óshiriw
-          share: Bólisiw
       shared:
         gallery:
           add_images: Súwretlerdi qosıw

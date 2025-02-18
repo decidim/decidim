@@ -11,6 +11,7 @@ shared_examples "export survey user answers" do
 
   it "exports a CSV" do
     visit_component_admin
+    click_on "Manage questions"
 
     find(".exports").click
     expect(Decidim::PrivateExport.count).to eq(0)
@@ -26,6 +27,7 @@ shared_examples "export survey user answers" do
 
   it "exports a JSON" do
     visit_component_admin
+    click_on "Manage questions"
 
     find(".exports").click
     expect(Decidim::PrivateExport.count).to eq(0)
@@ -40,6 +42,7 @@ shared_examples "export survey user answers" do
 
   it "exports a PDF" do
     visit_component_admin
+    click_on "Manage questions"
 
     find(".exports").click
     expect(Decidim::PrivateExport.count).to eq(0)

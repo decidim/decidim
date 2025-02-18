@@ -19,6 +19,14 @@ module Decidim
         end
       end
     end
+
+    def process(action, method: "GET", params: nil, session: nil, body: nil, flash: {}, format: nil, xhr: false, as: nil) # rubocop:disable Metrics/ParameterLists
+      params = (params || {}).symbolize_keys
+
+      params.merge!(use_route: request.env["decidim.current_component"]&.mounted_engine) if request.env["decidim.current_component"].present?
+
+      super
+    end
   end
 end
 

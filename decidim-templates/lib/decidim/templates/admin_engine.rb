@@ -12,41 +12,51 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :proposal_answer_templates do
-          member do
-            post :copy
+        constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
+          resources :proposal_answer_templates do
+            member do
+              post :copy
+            end
+            collection do
+              get :fetch
+            end
           end
-          collection do
-            get :fetch
+
+          ## Routes for Questionnaire Templates
+          resources :questionnaire_templates do
+            member do
+              post :copy
+              get :edit_questions
+              patch :update_questions
+              resource :questionnaire, module: :questionnaire_templates # To manage the templatable resource
+            end
+
+            collection do
+              post :apply # To use when creating an object from a template
+              post :skip # To use when creating an object without a template
+              get :preview # To provide a preview for the template in the object creation view
+            end
           end
+
+          resources :block_user_templates do
+            member do
+              post :copy
+            end
+            collection do
+              get :fetch
+            end
+          end
+
+          get "/questionnaire_template/questionnaire/answer_options", to: "questionnaire_templates/questionnaires#answer_options", as: "answer_options_template"
+
+          root to: "questionnaire_templates#index"
         end
+      end
 
-        ## Routes for Questionnaire Templates
-        resources :questionnaire_templates do
-          member do
-            post :copy
-
-            resource :questionnaire, module: :questionnaire_templates # To manage the templatable resource
-          end
-
-          collection do
-            post :apply # To use when creating an object from a template
-            post :skip # To use when creating an object without a template
-            get :preview # To provide a preview for the template in the object creation view
-          end
+      initializer "decidim_templates_admin.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Templates::AdminEngine, at: "/admin/templates", as: "decidim_admin_templates"
         end
-        resources :block_user_templates do
-          member do
-            post :copy
-          end
-          collection do
-            get :fetch
-          end
-        end
-
-        get "/questionnaire_template/questionnaire/answer_options", to: "questionnaire_templates/questionnaires#answer_options", as: "answer_options_template"
-
-        root to: "questionnaire_templates#index"
       end
 
       initializer "decidim_templates_admin.menu" do

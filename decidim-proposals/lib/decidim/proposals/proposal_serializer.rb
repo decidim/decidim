@@ -22,10 +22,7 @@ module Decidim
           author: {
             **author_fields
           },
-          taxonomies: {
-            id: proposal.taxonomies.map(&:id),
-            name: proposal.taxonomies.map(&:name)
-          },
+          taxonomies:,
           participatory_space: {
             id: proposal.participatory_space.id,
             url: Decidim::ResourceLocatorPresenter.new(proposal.participatory_space).url
@@ -37,6 +34,7 @@ module Decidim
           latitude: proposal.latitude,
           longitude: proposal.longitude,
           state: proposal.state.to_s,
+          state_published_at: proposal.state_published_at,
           reference: proposal.reference,
           answer: ensure_translatable(proposal.answer),
           answered_at: proposal.answered_at,
@@ -48,7 +46,7 @@ module Decidim
           },
           comments: proposal.comments_count,
           attachments: proposal.attachments.size,
-          followers: proposal.follows.size,
+          follows_count: proposal.follows_count,
           published_at: proposal.published_at,
           url:,
           meeting_urls: meetings,
@@ -59,7 +57,14 @@ module Decidim
             url: original_proposal_url
           },
           withdrawn: proposal.withdrawn?,
-          withdrawn_at: proposal.withdrawn_at
+          withdrawn_at: proposal.withdrawn_at,
+          created_at: proposal.created_at,
+          updated_at: proposal.updated_at,
+          created_in_meeting: proposal.created_in_meeting,
+          coauthorships_count: proposal.coauthorships_count,
+          cost: proposal.cost,
+          cost_report: proposal.cost_report,
+          execution_period: proposal.execution_period
         }
       end
 
@@ -67,10 +72,6 @@ module Decidim
 
       attr_reader :proposal
       alias resource proposal
-
-      def component
-        proposal.component
-      end
 
       def meetings
         proposal.linked_resources(:meetings, "proposals_from_meeting").map do |meeting|
@@ -137,22 +138,8 @@ module Decidim
         end
       end
 
-      def profile_url(author)
-        return "" if author.respond_to?(:deleted?) && author.deleted?
-
-        Decidim::Core::Engine.routes.url_helpers.profile_url(author.nickname, host:)
-      end
-
       def meeting_url(meeting)
         Decidim::EngineRouter.main_proxy(meeting.component).meeting_url(id: meeting.id, host:)
-      end
-
-      def root_url
-        Decidim::Core::Engine.routes.url_helpers.root_url(host:)
-      end
-
-      def host
-        resource.organization.host
       end
     end
   end

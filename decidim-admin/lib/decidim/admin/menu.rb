@@ -272,6 +272,8 @@ module Decidim
                             decidim/admin/organization_appearance
                             decidim/admin/organization_homepage
                             decidim/admin/organization_homepage_content_blocks
+                            decidim/admin/taxonomies
+                            decidim/admin/taxonomy_filters
                             decidim/admin/scopes
                             decidim/admin/scope_types
                             decidim/admin/areas decidim/admin/area_types

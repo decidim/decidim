@@ -57,7 +57,6 @@ shared_examples "hideable resource during block" do
 
       visit decidim_admin.root_path
       expect(page).to have_content("blocked user")
-      expect(page).to have_content("hid a resource of type")
     end
   end
 end

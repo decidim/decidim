@@ -19,7 +19,6 @@ module Decidim
                                     :participatory_space_id,
                                     :related_object_type,
                                     :related_object_id,
-                                    :decidim_category_id,
                                     :decidim_taxonomy_id
                                   ] }
   end

@@ -17,6 +17,10 @@ en:
         one: Vote
         other: Votes
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Comments
     comments:
       admin:
         shared:
@@ -108,16 +112,19 @@ en:
           recent: Recent
         title: 'Order by:'
       comments:
+        against: Against
         blocked_comments_for_unauthorized_user_warning: You need to be verified to comment at this moment, but you can read the previous ones.
         blocked_comments_for_user_warning: You are not able to comment at this moment, but you can read the previous ones.
         blocked_comments_warning: Comments are currently disabled, only administrators can reply or post new ones.
         comment_details_title: Comment details
+        in_favor: In Favor
         loading: Loading comments ...
         single_comment_warning: <a href="%{url}">View all comments</a>
         single_comment_warning_title: You are seeing a single comment
         title:
           one: "%{count} comment"
           other: "%{count} comments"
+        top_comment_label: Most upvoted
       down_vote_button:
         text: I disagree with this comment
       edit_comment_modal_form:
@@ -130,6 +137,26 @@ en:
         title: Edit your comment
       up_vote_button:
         text: I agree with this comment
+    download_your_data:
+      help:
+        comment_votes:
+          comment: The id of the comment that was voted
+          created_at: The date when this vote was created
+          id: The id of the vote
+          updated_at: The date when this vote was last updated
+          weight: The weight of the vote (1 for upvote, -1 for downvote)
+        comments:
+          alignment: If this comment was a favour, against or neutral
+          author: The name of the participant that made this comment
+          body: The comment itself
+          commentable_id: The unique id of the commentable
+          commentable_type: The type of the commentable (if it was a result, a proposal, etc.)
+          created_at: The date when this comment was created
+          depth: The place where this comment is in the three of comments (if it is an answer or an answer of an answer)
+          id: The id for this comment
+          locale: The locale (language) that the participant had when leaving this comment
+          root_commentable_url: The URL of the resource that ties to this comment
+          user_group: The name of the user group that made this comment (if any)
     events:
       comments:
         comment_by_followed_user:

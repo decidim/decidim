@@ -36,7 +36,6 @@ sk:
     attributes:
       decidim/user:
         current_password: Súčasné heslo
-        email: E-mail
         name: Prezývka
         password: Heslo
         password_confirmation: Potvrdenie hesla
@@ -66,6 +65,8 @@ sk:
     'false': 'Nie'
     'true': 'Áno'
   date:
+    buttons:
+      select: Vybrat
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -349,15 +350,12 @@ sk:
           username_help: Verejné meno, ktoré sa zobrazí vo vašich príspevkoch. S cieľom zaručiť anonymitu to môže byť akékoľvek meno.
       sessions:
         new:
-          are_you_new?: Ste na tejto platforme noví?
           register: Vytvoriť účet
       shared:
         newsletter_modal:
           buttons:
             check: Skontrolujte a pokračujte
           title: Upozornenie na bulletin
-        omniauth_buttons:
-          or: Alebo
     doorkeeper:
       authorizations:
         new:
@@ -375,9 +373,6 @@ sk:
     download_your_data:
       export:
         ready: Pripravený
-      show:
-        download_data: Stiahnuť dáta
-        request_data: Vyžiadať dáta
     endorsements:
       identities:
         done: Hotovo
@@ -508,8 +503,6 @@ sk:
     export_mailer:
       download_your_data_export:
         download: Stiahnutie
-      export:
-        ready: V prílohe nájdete exportovanú exportovanú verziu.
       subject: Váš export "%{name}" je pripravený
     filters:
       linked_classes:
@@ -804,12 +797,7 @@ sk:
         error: Počas udeľovania podpory nastal problém.
     scopes:
       global: Globální oblast působnosti
-      picker:
-        cancel: zrušenie
-        choose: Vybrat
-        title: Vyberte %{field}
       prompt: Vyberte oblast
-      scopes: Rozsahy
     search:
       results_found_for_term: '%{count} Výsledky pre vyhľadávanie: "%{term}"'
       term_input_placeholder: Vyhľadávanie
@@ -840,10 +828,6 @@ sk:
         title: Nahlásiť problém
       floating_help:
         help: Pomoc
-      participatory_space_filters:
-        filters:
-          areas: Oblasti
-          select_an_area: Vyberte rozsah
       reference:
         reference: 'Odkaz: %{reference}'
       represent_user_group:
@@ -861,13 +845,6 @@ sk:
     user_conversations:
       update:
         error: Zpráva nebyla odeslána. Zkuste to později znovu
-    user_interests:
-      show:
-        my_interests: Moje záujmy
-        update_my_interests: Aktualizujte svoje záujmy
-      update:
-        error: Počas aktualizácie vašich záujmov došlo k chybe.
-        success: Vaše záujmy boli úspešne aktualizované.
     welcome_notification:
       default_subject: Ďakujeme, že ste sa pripojili k {{organization}}!
     wizard_step_form:
@@ -1008,7 +985,6 @@ sk:
       edit_link:
         edit: Upraviť
       footer:
-        download_open_data: Stiahnite si súbory s otvorenými dátami
         log_in: Prihlásiť sa
         made_with_open_source: Webová stránka vytvorená s <a target="_blank" href="https://github.com/decidim/decidim"> slobodným softvérom </a>.
       header:
@@ -1030,7 +1006,6 @@ sk:
         authorizations: Autorizácia
         delete_my_account: Zmazať môj účet
         my_data: Moje dáta
-        my_interests: Moje záujmy
         notifications_settings: Nastavenie oznámenia
         title: Užívateľské nastavenia
         user_groups: Skupiny
@@ -1071,6 +1046,8 @@ sk:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Vybrat
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

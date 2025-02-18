@@ -11,20 +11,20 @@ module Decidim
     #    action_log = Decidim::ActionLog.last
     #    view_helpers # => this comes from the views
     #    UserGroupPresenter.new(action_log, view_helpers).present
-    class UserGroupPresenter < Decidim::Log::BasePresenter
+    class UserGroupPresenter < BaseUserPresenter
       private
-
-      def has_diff?
-        false
-      end
 
       def action_string
         case action
-        when "verify", "verify_via_csv", "reject", "block", "unblock"
+        when "verify", "verify_via_csv", "reject", "block", "unblock", "bulk_block", "bulk_unblock", "bulk_ignore"
           "decidim.admin_log.user_group.#{action}"
         else
           super
         end
+      end
+
+      def diff_actions
+        %w(bulk_block bulk_unblock bulk_ignore)
       end
     end
   end

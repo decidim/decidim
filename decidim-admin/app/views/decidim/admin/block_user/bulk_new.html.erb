@@ -1,0 +1,45 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t(".title") %>
+  </h1>
+</div>
+
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: bulk_create_moderated_users_path, method: :post, html: { class: "form-defaults form import_participatory_process" }) do |f| %>
+      <div class="form__wrapper">
+        <div class="card pt-4">
+          <div class="card-section">
+            <div class="row column">
+              <%= t(".description") %>
+            </div>
+
+            <% if @form.hide %>
+              <%= cell("decidim/announcement", t(".already_reported_html"), callout_class: "alert" ) %>
+            <% end %>
+
+            <% if Decidim.module_installed?(:templates) %>
+              <%= render "decidim/templates/admin/block_user_templates/template_chooser", form: f %>
+            <% end %>
+
+            <div class="row column">
+
+              <% @form.user_ids.each do |id| %>
+                <%= hidden_field_tag "user_ids[]", id %>
+              <% end %>
+              <%= f.hidden_field :hide %>
+              <%= f.text_area :justification, required: true, label: t(".justification") %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t(".action"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

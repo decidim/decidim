@@ -58,7 +58,6 @@ pt-BR:
         with_participatory_space: Espaço participativo
       decidim/user:
         current_password: Senha atual
-        email: E-mail
         name: Nome de usuário
         password: Senha
         password_confirmation: Confirmação de senha
@@ -262,8 +261,6 @@ pt-BR:
         create: "%{user_name} criou o %{resource_name} página estática"
         delete: "%{user_name} apagou o %{resource_name} página estática"
         update: "%{user_name} atualizou o %{resource_name} página estática"
-      taxonomy_filter:
-        create: "%{user_name} criou um filtro baseado na taxonomia %{resource_name}"
       user:
         block: "%{user_name} bloqueou o usuário %{resource_name}"
         invite: "%{user_name} convidou o usuário %{resource_name} com papel: %{role}"
@@ -393,10 +390,8 @@ pt-BR:
         explanation: Para verificar sua conta, introduza um número de documento que termine com "X".
         fields:
           allowed_postal_codes: Códigos postais permitidos (separados por vírgulas)
-          allowed_scope_id: Escopos Permitidos
           document_number: Número do documento
           postal_code: Código postal
-          scope_id: Escopo
         name: Exemplo de autorização
       dummy_authorization_workflow:
         name: Fluxo de trabalho de autorização falsa
@@ -485,8 +480,6 @@ pt-BR:
             dummy_global_translatable_text: Texto Tradutor Falso
             enable_pads_creation: Ativar criação de blocos
             resources_permissions_enabled: Permissões de recursos ativadas
-            scope_id: Escopo
-            scopes_enabled: Escopos habilitados
           step:
             amendment_creation_enabled: Criação de alteração ativada
             amendment_promotion_enabled: Promoção de alteração ativada
@@ -569,8 +562,6 @@ pt-BR:
       application_helper:
         filter_area_values:
           all: Tudo
-        filter_category_values:
-          all: Todos
         filter_scope_values:
           all: Tudo
     devise:
@@ -602,7 +593,6 @@ pt-BR:
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       sessions:
         new:
-          are_you_new?: Novo na plataforma?
           register: Criar uma conta
           sign_in_disabled: Você pode acessar com uma conta externa.
           sign_up_disabled: A Criação de Conta está desabilitada, você pode usar um usuário que já existe para acessar.
@@ -614,8 +604,6 @@ pt-BR:
             check: Verificar e continuar
             uncheck: Manter desmarcado
           title: Notificações de newsletter
-        omniauth_buttons:
-          or: Ou
         password_fields:
           hidden_password: Sua senha está oculta
           hide_password: Ocultar Senha
@@ -639,25 +627,17 @@ pt-BR:
     download_your_data:
       export:
         ready: pronto
-      show:
-        download_data: Baixe os dados
-        download_data_description_html: |-
-          Um arquivo contendo todas as informações associadas à sua conta será enviado para <strong>%{user_email}</strong>. Este e-mail conterá um arquivo .zip e uma senha para abri-lo.<br/><br/>Para descompactar o arquivo, você precisará de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) ou <a href="https://www.keka.io/">Keka</a> (para MacOS). Se você usar Linux, a maior parte do tempo você o terá instalado por padrão. Se não, você pode usar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>. ).
-        request_data: Solicitar dados
     editor_images:
       create:
         error: Erro ao carregar a imagem.
         success: Imagem carregada com sucesso.
       drag_and_drop_help: Adicione imagens arrastando e soltando ou colando-as.
     endorsement_buttons_cell:
-      already_endorsed: Dislike
       endorse: Like
     endorsements:
       identities:
         done: Concluído
         select_identity: Selecione a identidade
-    endorsers_list:
-      endorsed_by: Curtido por…
     errors:
       files:
         file_cannot_be_processed: O arquivo não pode ser processado
@@ -825,10 +805,7 @@ pt-BR:
           notification_title: O participante %{name} (%{nickname}) foi oficializado.
     export_mailer:
       download_your_data_export:
-        click_button: 'Clique no próximo link para baixar seus dados.<br/>O arquivo estará disponível até %{date}.<br/>Você vai precisar de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) ou <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abri-lo. Senha: %{password}'
         download: Download
-      export:
-        ready: Encontre em anexo uma versão com zíper da sua exportação.
       subject: Sua exportação "%{name}" está pronta
     filters:
       linked_classes:
@@ -1356,16 +1333,7 @@ pt-BR:
         error: Houve um problema durante a ação de endosso.
     scopes:
       global: Âmbito global
-      picker:
-        cancel: Cancelar
-        change: Alterar o escopo selecionado
-        choose: Selecionar
-        currently_selected: Escopo atualmente selecionado
-        title: Selecione %{field}
       prompt: Selecione um âmbito
-      scopes: Âmbitos
-      scopes_picker_input:
-        select_scope: 'Selecione um escopo (atualmente: %{current})'
     search:
       name: Pesquisar
       results: Procurar resultados
@@ -1430,12 +1398,6 @@ pt-BR:
         sign_up: Criar uma conta
       mentions_modal:
         remove_recipient: Remover destinatário %{name}
-      participatory_space_filters:
-        filters:
-          area: Área
-          areas: Áreas
-          scope:
-          select_an_area: Selecione uma área
       progress: Progresso
       public_participation:
         public_participation: Mostre minha presença publicamente
@@ -1464,11 +1426,6 @@ pt-BR:
       pages_count: Páginas
       participants_count: Participantes
       users_count: Participantes
-    tags:
-      filter_results_for_category: 'Filtrar resultados para a categoria: %{resource}'
-      filter_results_for_scope: 'Resultados do filtro para escopo: %{resource}'
-    taxonomies:
-      prompt: Selecionar do "%{name}"
     translation_bar:
       help_text: "<strong>Aviso:</strong> O conteúdo pode ser traduzido automaticamente e não está 100% correto."
       show_original: Exibir texto original
@@ -1490,13 +1447,6 @@ pt-BR:
         send: Enviar
       update:
         error: Mensagem não enviada. Tente mais tarde
-    user_interests:
-      show:
-        my_interests: Meus interesses
-        update_my_interests: Atualize meus interesses
-      update:
-        error: Ocorreu um erro ao atualizar seus interesses.
-        success: Seus interesses foram atualizados com sucesso.
     user_report_mailer:
       notify:
         body_1: O usuário %{user} foi denunciado por %{token}
@@ -1803,7 +1753,6 @@ pt-BR:
         data_consent_settings: Configurações de cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
-        download_open_data: Baixar arquivos Open Data
         log_in: Iniciar sessão
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
         resources: Recursos
@@ -1850,7 +1799,6 @@ pt-BR:
         authorizations: Autorizações
         delete_my_account: Excluir minha conta
         my_data: Meus dados
-        my_interests: Meus interesses
         notifications_settings: Configurações de notificações
         profile: Perfil
         title: Configurações do usuário
@@ -1905,6 +1853,7 @@ pt-BR:
     buttons:
       close: Fechar
       reset: Resetar
+      select: Selecionar
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

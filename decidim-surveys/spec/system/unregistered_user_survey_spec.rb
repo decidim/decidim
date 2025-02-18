@@ -23,7 +23,7 @@ describe "Answer a survey" do
     }
   end
   let!(:questionnaire) { create(:questionnaire, title:, description:) }
-  let!(:survey) { create(:survey, component:, questionnaire:) }
+  let!(:survey) { create(:survey, :published, component:, questionnaire:) }
   let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
 
   include_context "with a component"
@@ -31,6 +31,8 @@ describe "Answer a survey" do
   context "when the survey does not allow answers" do
     it "does not allow answering the survey" do
       visit_component
+      choose "All"
+      click_on translated_attribute(questionnaire.title)
 
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
@@ -45,18 +47,55 @@ describe "Answer a survey" do
     let(:last_answer) { questionnaire.answers.last }
 
     before do
-      component.update!(
-        step_settings: {
-          component.participatory_space.active_step.id => {
-            allow_answers: true,
-            allow_unregistered: true
-          }
-        }
-      )
+      survey.update!(allow_answers: true, allow_unregistered: true)
     end
+
+    # rubocop:disable Naming/VariableNumber
+    context "when survey allows editing" do
+      let(:question_description) do
+        {
+          "en" => "<p>Survey's content</p>",
+          "ca" => "<p>Contingut de l'enquesta</p>",
+          "es" => "<p>Contenido de la encuesta</p>"
+        }
+      end
+      let(:options) do
+        [
+          { "body" => Decidim::Faker::Localized.sentence },
+          { "body" => Decidim::Faker::Localized.sentence },
+          { "body" => Decidim::Faker::Localized.sentence }
+        ]
+      end
+      let(:max_characters) { 0 }
+      let(:max_choices) { nil }
+
+      let!(:survey) { create(:survey, :published, :allow_edit, :announcement, :allow_answers, :allow_unregistered, component:, questionnaire:) }
+      let!(:second_question) { create(:questionnaire_question, position: 1, questionnaire:, question_type: :multiple_option, max_choices:, max_characters:, options:) }
+      let!(:question) { create(:questionnaire_question, questionnaire:, mandatory: true, position: 0, description: question_description) }
+
+      before do
+        visit_component
+        click_on translated_attribute(questionnaire.title)
+
+        fill_in :questionnaire_responses_0, with: "My first answer"
+        check "questionnaire_tos_agreement"
+        accept_confirm { click_on "Submit" }
+      end
+
+      it "restricts the change of an answer when editing is disabled" do
+        expect(page).to have_content("Already answered")
+      end
+
+      it "hides the form when on edit page" do
+        visit Decidim::EngineRouter.main_proxy(survey.component).edit_survey_path(survey)
+        expect(page).to have_content("Already answered")
+      end
+    end
+    # rubocop:enable Naming/VariableNumber
 
     it "allows answering the questionnaire" do
       visit_component
+      click_on translated_attribute(questionnaire.title)
 
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
@@ -82,6 +121,7 @@ describe "Answer a survey" do
     context "and honeypot is filled" do
       it "fails with spam complain" do
         visit_component
+        click_on translated_attribute(questionnaire.title)
         fill_in question.body["en"], with: "My first answer"
         fill_in "honeypot_id", with: "I am a robot"
 

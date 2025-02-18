@@ -58,6 +58,7 @@
   @import "stylesheets/decidim/_hero.scss";
   @import "stylesheets/decidim/_actions.scss";
   @import "stylesheets/decidim/_emoji.scss";
+  @import "stylesheets/decidim/_success_image.scss";
 }
 
 @import "stylesheets/decidim/vendor/datepicker_light.scss";
@@ -75,7 +76,6 @@
 @import "stylesheets/decidim/_home.scss";
 @import "stylesheets/decidim/_search.scss";
 @import "stylesheets/decidim/_cookies.scss";
-@import "stylesheets/decidim/_open_data.scss";
 // participatory spaces are quite similar between processes and assemblies (different modules), so their stylesheets are placed in the core
 @import "stylesheets/decidim/_participatory_spaces.scss";
 @import "stylesheets/decidim/_omnipresent_banner.scss";

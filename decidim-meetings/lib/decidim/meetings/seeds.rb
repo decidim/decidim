@@ -63,8 +63,6 @@ module Decidim
 
         params = {
           component:,
-          scope: random_scope(participatory_space:),
-          category: participatory_space.categories.sample,
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)

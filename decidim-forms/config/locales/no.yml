@@ -75,14 +75,10 @@
             title: Rediger spørreskjema
           form:
             add_question: Legg til spørsmål
-            add_separator: Legg til skilletegn
-            add_title_and_description: Legg til tittel og beskrivelse
-            already_answered_warning: Skjemaet er allerede besvart av noen brukere derfor kan du ikke endre spørsmålene.
             collapse: Skjul alle spørsmål
             expand: Utvid alle spørsmål
             preview: Forhåndsvis
             title: Rediger skjema for %{questionnaire_for}
-            unpublished_warning: Skjemaet er ikke publisert. Du kan endre spørsmålet, men da slettes nåværende svar.
           matrix_row:
             matrix_row: Rad
             remove: Fjern
@@ -159,7 +155,6 @@
           tos_agreement: Ved å delta godtar du vilkårene for bruk
       step_navigation:
         show:
-          are_you_sure: Denne handlingen kan ikke angres, og du kan ikke redigere svarene dine. Er du sikker?
           back: Tilbake
           continue: Fortsett
           submit: Send inn

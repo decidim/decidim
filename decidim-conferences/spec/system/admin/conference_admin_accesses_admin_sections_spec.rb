@@ -17,15 +17,14 @@ describe "Conference admin accesses admin sections" do
     within_admin_sidebar_menu do
       expect(page).to have_content("About this conference")
       expect(page).to have_content("Components")
-      expect(page).to have_content("Categories")
       expect(page).to have_content("Attachments")
-      expect(page).to have_content("Media Links")
+      expect(page).to have_content("Media links")
       expect(page).to have_content("Partners")
       expect(page).to have_content("Speakers")
       expect(page).to have_content("Registrations")
-      expect(page).to have_content("Registration Types")
+      expect(page).to have_content("Registration types")
       expect(page).to have_content("Invites")
-      expect(page).to have_content("Certificate of Attendance")
+      expect(page).to have_content("Certificate of attendance")
       expect(page).to have_content("Conference admins")
       expect(page).to have_content("Moderations")
     end

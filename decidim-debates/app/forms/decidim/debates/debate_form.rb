@@ -16,8 +16,8 @@ module Decidim
 
       attachments_attribute :documents
 
-      validates :title, presence: true
-      validates :description, presence: true
+      validates :title, :description, presence: true
+      validates :title, :description, etiquette: true
       validate :editable_by_user
 
       def map_model(debate)

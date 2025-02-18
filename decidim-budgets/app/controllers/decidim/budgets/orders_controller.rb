@@ -6,14 +6,14 @@ module Decidim
     class OrdersController < Decidim::Budgets::ApplicationController
       include NeedsCurrentOrder
 
+      helper_method :pending_to_vote_budgets
+
       def checkout
         enforce_permission_to :vote, :project, order: current_order, budget:, workflow: current_workflow
 
         Checkout.call(current_order) do
           on(:ok) do
-            i18n_key = pending_to_vote_budgets.any? ? "success_html" : "success_no_left_budgets_html"
-            flash[:notice] = I18n.t(i18n_key, scope: "decidim.orders.checkout", rest_of_budgets_link: "#budgets")
-            redirect_to budgets_path
+            redirect_to status_budget_order_path(budget)
           end
 
           on(:invalid) do
@@ -35,6 +35,10 @@ module Decidim
             redirect_to redirect_path
           end
         end
+      end
+
+      def status
+        redirect_to redirect_path unless current_order.persisted?
       end
 
       private

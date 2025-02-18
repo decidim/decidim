@@ -43,7 +43,6 @@ lb:
     attributes:
       decidim/user:
         current_password: Aktuellt Passwuert
-        email: Email
         name: Spëtznumm
         password: Passwuert
         password_confirmation: Passwuert Bestätegung
@@ -65,6 +64,8 @@ lb:
     'false': 'Nee'
     'true': 'Jo'
   date:
+    buttons:
+      select: Wiel
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -236,10 +237,8 @@ lb:
       dummy_authorization_handler:
         fields:
           allowed_postal_codes: Erlaabten Postleitzuelen (duerch Komma getrennt)
-          allowed_scope_id: Erlaabten Ëmfang
           document_number: Dokument-Nummer
           postal_code: Postleitzuel
-          scope_id: Ëmfang
         name: Beispill Berechtegung
       dummy_authorization_workflow:
         name: Aarbechtsoflaf Dummy-Berechtegung
@@ -321,8 +320,6 @@ lb:
             dummy_global_translatable_text: Dummy Text ze iwwersetzen
             enable_pads_creation: Erstellen vun Pads erméiglechen
             resources_permissions_enabled: Ressourcen-Berechtegung aktivéiert
-            scope_id: Ëmfank
-            scopes_enabled: Beräicher aktivéiert
           step:
             amendment_creation_enabled: Erstellen vun Ännerungen/Kommentarer aktivéiert
             amendment_promotion_enabled: Fërderung vun Ännerungen aktivéiert
@@ -386,7 +383,6 @@ lb:
           username_help: Den ëffentlechen Numm gëtt an dengen Beiträg ugewisen. Fir d'Anonymat ze garantéieren, kann s'de der och en belibegen Numm eraussichen.
       sessions:
         new:
-          are_you_new?: Nei op dëser Plattform?
           register: Kont uleeën
       shared:
         newsletter_modal:
@@ -394,8 +390,6 @@ lb:
             check: Iwwerpréiwen an weider maachen
             uncheck: Ouni Kontakt-Erlabnis weidermaachen
           title: Newsletter Matdeelungen
-        omniauth_buttons:
-          or: Oder
     doorkeeper:
       authorizations:
         new:
@@ -413,9 +407,6 @@ lb:
     download_your_data:
       export:
         ready: Fäerdeg
-      show:
-        download_data: Daten eroflueden
-        request_data: Daten ufroen
     endorsements:
       identities:
         done: Erleedegt
@@ -560,10 +551,7 @@ lb:
           notification_title: D' <a href="%{resource_path}">Profil-Säit</a> vum </a>%{name} (%{nickname}), där s'du nogees, gouf aktualiséiert.
     export_mailer:
       download_your_data_export:
-        click_button: 'Klick op den Link, fir den Daten erofzelueden.<br/>D''Datei steet bis den %{date} zur Verfügung.<br/>du brauchs <a href="https://www.7-zip.org/">7-Zip</a> (fir Windows), <a href="https://www.keka.io/en/">Keka</a> (fir MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (fir Linux) fir d''Datei opzemaachen. Passwuert: %{password}'
         download: Eroflueden
-      export:
-        ready: Am Anhang fënns de eng kompriméiert Versioun vun dengem exportéierten Element.
       subject: Däin Export- %{name} ass prett
     filters:
       linked_classes:
@@ -925,16 +913,7 @@ lb:
         error: Bei der Fërderung ass e Problem opgetaucht.
     scopes:
       global: Global Themeberäicher
-      picker:
-        cancel: Ofbriechen
-        change: Ausgewielten Themeberäich änneren
-        choose: Wiel
-        currently_selected: Aktuell ausgewielten Themeberäich
-        title: Wiel %{field}
       prompt: Wiel en Themeberäich
-      scopes: Themeberäicher
-      scopes_picker_input:
-        select_scope: 'Wiel en Themeberäich (aktuell: %{current})'
     search:
       results: Resultater vun der Sich
       results_found_for_term: '%{count} Resultater vun der Sich: "%{term}"'
@@ -987,10 +966,6 @@ lb:
         title: Notzer mellen den net zoulässeg ass
       floating_help:
         help: Hëllef
-      participatory_space_filters:
-        filters:
-          areas: Beräicher
-          select_an_area: Wiel e Beräich
       public_participation:
         public_participation: Uweisen, dass ech ageloggt sinn
       reference:
@@ -1017,9 +992,6 @@ lb:
       pages_count: Säiten
       participants_count: Benotzer
       users_count: Benotzer
-    tags:
-      filter_results_for_category: 'Resultater no Kategorie filteren: %{resource}'
-      filter_results_for_scope: 'Resultater no Uwendungsberäich filteren: %{resource}'
     translation_bar:
       help_text: "<strong>Warnung:</strong> Inhalt kéint automatesch iwwersetzt sinn an net 100% korrekt sinn."
       show_original: Originaltext weisen
@@ -1038,13 +1010,6 @@ lb:
         send: Senden
       update:
         error: Noriicht gouf net geschéckt. Probéier méi spéit nach eng Kéier
-    user_interests:
-      show:
-        my_interests: Meng Interessen
-        update_my_interests: Interessen aktualiséieren
-      update:
-        error: Et gouf e Problem beim Aktualiséieren vun den Interessen.
-        success: D'Interessen goufen aktualiséiert.
     user_report_mailer:
       notify:
         body_1: Den Benotzer %{user} gouf gemellt vun %{token}
@@ -1212,7 +1177,6 @@ lb:
       footer:
         cc_by_license: Creative Commons Lizenz
         decidim_logo: Decidim-Logo
-        download_open_data: Open Data Dateien eroflueden
         log_in: Umelden
         made_with_open_source: Website mat <a target="_blank" href="https://github.com/decidim/decidim">fräi Software erstallt</a>.
       header:
@@ -1250,7 +1214,6 @@ lb:
         authorizations: Berechtegungen
         delete_my_account: Mäin Kont läschen
         my_data: Meng Donnéeën
-        my_interests: Meng Interessen
         notifications_settings: Astellung fir Noriichten
         title: Astellung fir Benotzer
         user_groups: Gruppen
@@ -1291,6 +1254,8 @@ lb:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Wiel
     formats:
       day_of_month: "%b%b"
       day_of_week: "%a"

@@ -14,27 +14,32 @@ fi-pl:
         one: Artikkeli
         other: Artikkelia
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Artikkelit
     blogs:
       actions:
         author_id: Luo artikkeli käyttäjänä
-        confirm_destroy: Haluatko varmasti poistaa tämän artikkelin?
-        destroy: Poista
+        confirm_delete_post: Haluatko varmasti poistaa tämän artikkelin?
+        deleted_posts_info: Poistetut artikkelit voidaan palauttaa roskakorista.
         edit: Muokkaa
         new: Uusi artikkeli
         title: Toiminnot
+        view_deleted_posts: Näytä poistetut artikkelit
       admin:
         posts:
           create:
             invalid: Artikkelin luonti epäonnistui.
             success: Artikkelin luonti onnistui.
-          destroy:
-            success: Artikkelin poisto onnistui.
           edit:
             save: Päivitä
             title: Muokkaa artikkelia
           index:
             not_published_yet: Ei vielä julkaistu.
             title: Artikkelit
+          manage_trash:
+            title: Poistetut artikkelit
           new:
             create: Luo
             title: Luo artikkeli
@@ -45,6 +50,8 @@ fi-pl:
         post:
           create: "%{user_name} loi blogikirjoituksen %{resource_name} tilassa %{space_name}"
           delete: "%{user_name} poisti blogikirjoituksen %{resource_name} tilasta %{space_name}"
+          restore: "%{user_name} palautti artikkelin %{resource_name} tilassa %{space_name}"
+          soft_delete: "%{user_name} siirsi artikkelin %{resource_name} roskakoriin tilassa %{space_name}"
           update: "%{user_name} päivitti blogikirjoitusta %{resource_name} tilassa %{space_name}"
       content_blocks:
         highlighted_posts:
@@ -93,5 +100,33 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Uusi artikkeli julkaistiin tilassa %{participatory_space_title}
           notification_title: Kohteessa %{participatory_space_title} on julkaistu artikkeli <a href="%{resource_path}">%{resource_title}</a>
+    open_data:
+      help:
+        post_comments:
+          alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
+          author: Kommentin laatijan nimi
+          body: Kommentin teksti
+          commentable_id: Kommentoitavan asian yksilöivä tunniste
+          commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
+          created_at: Kommentin laatimisaika
+          depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
+          id: Kommentin yksilöivä tunniste
+          locale: Kommentoijan valitsema kieliasetus sivustolla
+          root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
+          user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
+        posts:
+          author: Tietoja laatijasta
+          body: Artikkelin tekstisisältö
+          comments_count: Artikkelin saamien kommenttien määrä
+          component: Artikkelin komponentti
+          created_at: Artikkelin laatimisaika
+          endorsements_count: Artikkelin suositusten ("tykkäykset") lukumäärä
+          follows_count: Artikkelin seuraajien lukumäärä
+          id: Artikkelin yksilöivä tunniste
+          participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä artikkeli kuuluu
+          published_at: Artikkelin julkaisuaika
+          title: Artikkelin otsikko
+          updated_at: Artikkelin viimeisimmän päivityksen ajankohta
+          url: Artikkelin URL-osoite
     statistics:
       posts_count: Artikkelia

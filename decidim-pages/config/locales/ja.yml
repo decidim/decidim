@@ -15,6 +15,17 @@ ja:
             announcement: お知らせ
           step:
             announcement: お知らせ
+    open_data:
+      help:
+        pages:
+          body: ページの本文
+          component: ページが属するコンポーネント
+          created_at: このページの作成日時
+          id: ページの固有ID
+          participatory_space: このページが所属するスペース（参加型プロセス、参加スペースなど）
+          title: ページタイトル
+          updated_at: このページの最終更新日時
+          url: このページの URL
     pages:
       admin:
         models:

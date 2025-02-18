@@ -53,6 +53,15 @@ describe "show" do
 
       it { expect(page).to have_no_selector("iframe") }
     end
+
+    context "when participant is deleted" do
+      let(:author) { create(:user, :deleted, organization: component.organization) }
+      let!(:debate) { create(:debate, component:, author:) }
+
+      it "successfully shows the page" do
+        expect(page).to have_content("Deleted participant")
+      end
+    end
   end
 
   context "when shows the debate component" do

@@ -47,7 +47,7 @@ module Decidim
     end
 
     def button_cell_mobile
-      @button_cell_mobile ||= cell("decidim/follow_button", resource, **button_options.merge(mobile: true))
+      @button_cell_mobile ||= cell("decidim/follow_button", resource, **button_options, mobile: true)
     end
 
     def button_cell

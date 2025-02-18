@@ -29,7 +29,8 @@ describe "Admin applies questionnaire templates" do
     end
 
     click_on "Add component"
-    click_on "Survey"
+    click_on "Surveys"
+    click_on "New survey"
 
     select(translated_attribute(questionnaire_template.name), from: "select-template")
     expect(page).to have_content("If you are human, ignore this field")

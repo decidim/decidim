@@ -173,10 +173,11 @@ describe "Admin manages newsletters" do
   end
 
   describe "select newsletter recipients" do
-    let!(:participatory_process) { create(:participatory_process, organization:) }
-    let!(:assembly) { create(:assembly, organization:) }
-    let!(:conference) { create(:conference, organization:) }
-    let!(:initiative) { create(:initiative, organization:) }
+    let!(:participatory_process) { create(:participatory_process, organization:, skip_injection: true) }
+    let!(:assembly) { create(:assembly, organization:, skip_injection: true) }
+    let!(:conference) { create(:conference, organization:, skip_injection: true) }
+    let!(:initiative) { create(:initiative, organization:, skip_injection: true) }
+
     let!(:newsletter) { create(:newsletter, organization:) }
     let(:spaces) { [participatory_process, assembly, conference, initiative] }
     let!(:component) { create(:dummy_component, participatory_space: participatory_process) }
@@ -184,10 +185,21 @@ describe "Admin manages newsletters" do
     def select_all
       spaces.each do |space|
         plural_name = space.model_name.route_key
-        within ".#{plural_name}-block" do
-          select translated(space.title), from: "newsletter_participatory_space_types_#{plural_name}__ids"
-        end
+        select_id = "##{plural_name}-spaces-select"
+
+        next unless has_css?(select_id)
+
+        tom_select(select_id, option_id: "all")
       end
+    end
+
+    def select_verification_type(types)
+      select_id = "#verification-types-select"
+
+      return unless has_css?(select_id)
+
+      option_ids = Array(types)
+      tom_select(select_id, option_id: option_ids)
     end
 
     context "when all users are selected" do
@@ -197,7 +209,7 @@ describe "Admin manages newsletters" do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do
-            find_by_id("newsletter_send_to_all_users").set(true)
+            choose("Send to all users")
           end
 
           within "#recipients_count" do
@@ -219,6 +231,89 @@ describe "Admin manages newsletters" do
       end
     end
 
+    context "when verified users selected" do
+      let!(:verification_type_first) { create(:authorization, :granted, user: deliverable_users.first, organization:, name: "id_documents") }
+      let!(:verification_type_last) { create(:authorization, :granted, user: deliverable_users.last, organization:, name: "postal_letter") }
+
+      before do
+        organization.update!(
+          available_authorizations: [verification_type_first.name, verification_type_last.name]
+        )
+      end
+
+      context "with one verification type" do
+        let(:recipients_count) { 1 }
+
+        it "sends newsletter to users verified with one type", :slow do
+          visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
+
+          within(".newsletter_deliver") do
+            choose("Send to verified users")
+            select_verification_type(verification_type_first.name) # Одна авторизация передается как строка
+          end
+
+          within "#recipients_count" do
+            expect(page).to have_content(recipients_count)
+          end
+
+          click_on("Confirm recipients")
+
+          expect(page).to have_content(deliverable_users.first.name)
+          expect(page).to have_no_content(deliverable_users.last.name)
+          expect(page).to have_content(deliverable_users.first.email)
+          expect(page).to have_no_content(deliverable_users.last.email)
+
+          perform_enqueued_jobs do
+            accept_confirm { click_on("Deliver newsletter") }
+
+            expect(page).to have_content("Newsletters")
+            expect(page).to have_admin_callout("successfully")
+          end
+
+          within "tbody" do
+            expect(page).to have_content("Has been sent to: Verified users")
+            expect(page).to have_content("1 / 1")
+          end
+        end
+      end
+
+      context "with two verification types" do
+        let(:recipients_count) { 2 }
+
+        it "sends newsletter to users verified with both types", :slow do
+          visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
+
+          within(".newsletter_deliver") do
+            choose("Send to verified users")
+            select_verification_type([verification_type_first.name, verification_type_last.name]) # Несколько авторизаций передаются как массив
+          end
+
+          within "#recipients_count" do
+            expect(page).to have_content(recipients_count)
+          end
+
+          click_on("Confirm recipients")
+
+          expect(page).to have_content(deliverable_users.first.name)
+          expect(page).to have_content(deliverable_users.last.name)
+          expect(page).to have_content(deliverable_users.first.email)
+          expect(page).to have_content(deliverable_users.last.email)
+
+          perform_enqueued_jobs do
+            accept_confirm { click_on("Deliver newsletter") }
+
+            expect(page).to have_content("Newsletters")
+            expect(page).to have_admin_callout("successfully")
+          end
+
+          within "tbody" do
+            expect(page).to have_content("Has been sent to: Verified users")
+            expect(page).to have_content("2 / 2")
+          end
+        end
+      end
+    end
+
     context "when followers are selected" do
       let!(:followers) do
         deliverable_users.each do |follower|
@@ -231,9 +326,7 @@ describe "Admin manages newsletters" do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do
-            uncheck("Send to all users")
             check("Send to followers")
-            uncheck("Send to participants")
             select_all
           end
 
@@ -241,9 +334,14 @@ describe "Admin manages newsletters" do
             expect(page).to have_content(recipients_count)
           end
 
-          within "form.newsletter_deliver .item__edit-sticky" do
-            accept_confirm { click_on("Deliver newsletter") }
+          click_on("Confirm recipients")
+
+          deliverable_users.each do |user|
+            expect(page).to have_content(user.name)
+            expect(page).to have_content(user.email)
           end
+
+          accept_confirm { click_on("Deliver newsletter") }
 
           expect(page).to have_content("Newsletters")
           expect(page).to have_admin_callout("successfully")
@@ -264,8 +362,6 @@ describe "Admin manages newsletters" do
         it "has a working user counter" do
           visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
           expect(page).to have_content("This newsletter will be send to 5 users.")
-          uncheck("Send to all users")
-          uncheck("Send to participants")
           check("Send to followers")
           select_all
           expect(page).to have_content("This newsletter will be send to 3 users.")
@@ -285,35 +381,35 @@ describe "Admin manages newsletters" do
       it "has a working user counter" do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         expect(page).to have_content("This newsletter will be send to 5 users.")
-        uncheck("Send to all users")
-        uncheck("Send to followers")
         check("Send to participants")
 
-        plural_name = assembly.model_name.route_key
-        within ".#{plural_name}-block" do
-          select translated(assembly.title), from: "newsletter_participatory_space_types_#{plural_name}__ids"
-        end
+        expect(find("input[name='newsletter[send_to_participants]']")).to be_checked
 
+        plural_name = assembly.model_name.route_key
+        select_id = "##{plural_name}-spaces-select"
+        tom_select(select_id, option_id: translated(assembly.title))
         expect(page).to have_content("This newsletter will be send to 0 users.")
       end
 
       it "sends to participants", :slow do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
+        check("Send to participants")
+
+        expect(find("input[name='newsletter[send_to_participants]']")).to be_checked
+
+        select_all
+
+        expect(page).to have_content("This newsletter will be send to 5 users.")
+
+        click_on("Confirm recipients")
+
+        deliverable_users.each do |user|
+          expect(page).to have_content(user.name)
+          expect(page).to have_content(user.email)
+        end
+
         perform_enqueued_jobs do
-          within(".newsletter_deliver") do
-            uncheck("Send to all users")
-            uncheck("Send to followers")
-            check("Send to participants")
-            select_all
-          end
-
-          within "#recipients_count" do
-            expect(page).to have_content(recipients_count)
-          end
-
-          within "form.newsletter_deliver .item__edit-sticky" do
-            accept_confirm { click_on("Deliver newsletter") }
-          end
+          accept_confirm { click_on("Deliver newsletter") }
 
           expect(page).to have_content("Newsletters")
           expect(page).to have_admin_callout("successfully")
@@ -343,28 +439,92 @@ describe "Admin manages newsletters" do
 
       it "sends to followers and participants", :slow do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
+        check("Send to participants")
+        check("Send to followers")
+        select_all
+
+        within "#recipients_count" do
+          expect(page).to have_content(recipients_count)
+        end
+
+        click_on("Confirm recipients")
+
         perform_enqueued_jobs do
-          within(".newsletter_deliver") do
-            uncheck("Send to all users")
-            check("Send to followers")
-            check("Send to participants")
-            select_all
-          end
-
-          within "#recipients_count" do
-            expect(page).to have_content(recipients_count)
-          end
-
-          within "form.newsletter_deliver .item__edit-sticky" do
-            accept_confirm { click_on("Deliver newsletter") }
-          end
-
+          accept_confirm { click_on("Deliver newsletter") }
           expect(page).to have_content("Newsletters")
           expect(page).to have_admin_callout("successfully")
         end
 
         within "tbody" do
           expect(page).to have_content("10 / 10")
+        end
+      end
+    end
+
+    context "when private members are selected" do
+      context "with private members" do
+        let!(:participatory_process) { create(:participatory_process, organization:, skip_injection: true, private_space: true) }
+        let!(:private_users) do
+          create_list(:participatory_space_private_user, 30) do |private_user|
+            private_user.user = create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:)
+            private_user.privatable_to = participatory_process
+            private_user.save!
+          end
+        end
+
+        let(:recipients_count) { private_users.size }
+
+        it "sends to private members", :slow do
+          visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
+          check("Send to private members")
+
+          expect(find("input[name='newsletter[send_to_private_members]']")).to be_checked
+
+          select_all
+
+          within "#recipients_count" do
+            expect(page).to have_content(recipients_count)
+          end
+
+          click_on("Confirm recipients")
+
+          # The users are paginated
+          expect(page).to have_content("Results per page")
+          expect(page).to have_content("Next")
+
+          perform_enqueued_jobs do
+            accept_confirm { click_on("Deliver newsletter") }
+            expect(page).to have_content("Newsletters")
+            expect(page).to have_admin_callout("successfully")
+          end
+
+          within "tbody" do
+            expect(page).to have_content("30 / 30")
+          end
+        end
+      end
+
+      context "when the private members count is 0" do
+        it "does not display any recipients", :slow do
+          visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
+          check("Send to private members")
+
+          expect(find("input[name='newsletter[send_to_private_members]']")).to be_checked
+
+          select_all
+
+          within "#recipients_count" do
+            expect(page).to have_content("0")
+          end
+
+          click_on("Confirm recipients")
+
+          # Check that no users are displayed
+          expect(page).to have_no_content("Results per page")
+          expect(page).to have_no_content("Next")
+          within "tbody" do
+            expect(page).to have_no_css("tr")
+          end
         end
       end
     end

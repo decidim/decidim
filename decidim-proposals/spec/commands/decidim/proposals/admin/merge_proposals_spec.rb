@@ -7,9 +7,10 @@ module Decidim
     module Admin
       describe MergeProposals do
         describe "call" do
-          let!(:proposals) { create_list(:proposal, 3, component: current_component) }
+          let!(:proposals) { create_list(:proposal, 3, component: current_component, taxonomies:) }
           let!(:current_component) { create(:proposal_component) }
           let!(:target_component) { create(:proposal_component, participatory_space: current_component.participatory_space) }
+          let(:taxonomies) { create_list(:taxonomy, 3, :with_parent, organization: current_component.organization) }
           let(:form) do
             instance_double(
               ProposalsMergeForm,
@@ -69,7 +70,7 @@ module Decidim
               expect(new_proposal.title).to eq(proposal.title)
               expect(new_proposal.body).to eq(proposal.body)
               expect(new_proposal.creator_author).to eq(current_component.organization)
-              expect(new_proposal.category).to eq(proposal.category)
+              expect(new_proposal.taxonomies).to eq(proposal.taxonomies)
 
               expect(new_proposal.state).to be_nil
               expect(new_proposal.answer).to be_nil

@@ -53,7 +53,8 @@ namespace :decidim do
         "--profiling",
         "--locales",
         "en,ca,es",
-        "--dev_ssl"
+        "--dev_ssl",
+        "--queue=sidekiq"
       )
     end
   end

@@ -75,8 +75,6 @@ Decidim.register_component(:budgets) do |component|
   end
 
   component.settings(:global) do |settings|
-    settings.attribute :scopes_enabled, type: :boolean, default: false
-    settings.attribute :scope_id, type: :scope
     settings.attribute :taxonomy_filters, type: :taxonomy_filters
     settings.attribute :workflow, type: :enum, default: "one", choices: -> { Decidim::Budgets.workflows.keys.map(&:to_s) }
     settings.attribute :projects_per_page, type: :integer, default: 12

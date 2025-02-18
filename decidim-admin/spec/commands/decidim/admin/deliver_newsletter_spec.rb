@@ -12,23 +12,24 @@ module Decidim::Admin
                body: Decidim::Faker::Localized.sentence(word_count: 3))
       end
       let(:current_user) { create(:user, :admin, :confirmed, organization:) }
-      let(:scopes) do
-        create_list(:scope, rand(2..9), organization:)
-      end
       let(:participatory_processes) { create_list(:participatory_process, rand(2..9), organization:) }
       let(:selected_participatory_processes) { [participatory_processes.first.id.to_s] }
       let(:send_to_all_users) { false }
+      let(:send_to_verified_users) { false }
+      let(:verification_types) { [] }
       let(:send_to_followers) { false }
       let(:send_to_participants) { false }
+      let(:send_to_private_members) { false }
       let(:participatory_space_types) { [] }
-      let(:scope_ids) { [] }
       let(:form_params) do
         {
           send_to_all_users:,
+          send_to_verified_users:,
+          verification_types:,
           send_to_followers:,
           send_to_participants:,
-          participatory_space_types:,
-          scope_ids:
+          send_to_private_members:,
+          participatory_space_types:
         }
       end
       let(:form) do
@@ -100,32 +101,64 @@ module Decidim::Admin
 
           it_behaves_like "selective newsletter"
         end
+      end
 
-        context "with scopes segment" do
-          let(:scope_ids) { [scopes.first.id] }
+      context "when sending to verified users" do
+        let(:send_to_verified_users) { true }
 
-          context "when interests match the selected scopes" do
-            let!(:deliverable_users) do
-              create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current, extended_data: { interested_scopes: scopes.first.id })
-            end
+        context "when no verification types selected" do
+          it "is not valid" do
+            expect { command.call }.to broadcast(:no_recipients)
+          end
+        end
 
-            let!(:undeliverable_users) do
-              create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current, extended_data: { interested_scopes: scopes.last.id })
-            end
+        context "with a single verification type is selected" do
+          let(:verification_types) { ["id_documents"] }
 
-            it_behaves_like "selective newsletter"
+          let!(:deliverable_users) do
+            create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current)
           end
 
-          context "when interest do not match the selected scopes" do
-            let(:user_interest) { create(:scope, organization:) }
-            let!(:deliverable_users) do
-              create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current, extended_data: { interested_scopes: user_interest.id })
-            end
+          let!(:undeliverable_users) do
+            create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current)
+          end
 
-            it "is not valid" do
-              expect { command.call }.to broadcast(:no_recipients)
+          let!(:unconfirmed_users) do
+            create_list(:user, rand(2..9), organization:, newsletter_notifications_at: Time.current)
+          end
+
+          before do
+            deliverable_users.each do |user|
+              create(:authorization, user:, name: "id_documents", granted_at: Time.current)
             end
           end
+
+          it_behaves_like "selective newsletter"
+        end
+
+        context "with multiple verification types selected" do
+          let(:verification_types) { %w(id_documents postal_letter) }
+          let!(:deliverable_users) { users_with_id_documents + users_with_postal_letter }
+
+          let!(:users_with_id_documents) do
+            create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current)
+          end
+
+          let!(:users_with_postal_letter) do
+            create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current)
+          end
+
+          before do
+            users_with_id_documents.each do |user|
+              create(:authorization, user:, name: "id_documents", granted_at: Time.current)
+            end
+
+            users_with_postal_letter.each do |user|
+              create(:authorization, user:, name: "postal_letter", granted_at: Time.current)
+            end
+          end
+
+          it_behaves_like "selective newsletter"
         end
       end
 
@@ -268,6 +301,52 @@ module Decidim::Admin
         end
 
         it_behaves_like "selective newsletter"
+      end
+
+      context "when sending to private members" do
+        let(:send_to_private_members) { true }
+
+        context "when no spaces selected" do
+          it "is not valid" do
+            expect { command.call }.to broadcast(:invalid)
+          end
+        end
+
+        context "when spaces selected" do
+          let!(:participatory_process) { create(:participatory_process, organization:, private_space: true) }
+          let!(:component) { create(:dummy_component, organization:, participatory_space: participatory_process) }
+          let!(:private_users) do
+            create_list(:participatory_space_private_user, 30) do |private_user|
+              private_user.user = create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:)
+              private_user.privatable_to = participatory_process
+              private_user.save!
+            end
+          end
+          let(:participatory_space_types) do
+            [
+              { "id" => nil,
+                "manifest_name" => "participatory_processes",
+                "ids" => [participatory_process.id.to_s] },
+              { "id" => nil,
+                "manifest_name" => "assemblies",
+                "ids" => [] },
+              { "id" => nil,
+                "manifest_name" => "conferences",
+                "ids" => [] },
+              { "id" => nil,
+                "manifest_name" => "initiatives",
+                "ids" => [] }
+            ]
+          end
+
+          let!(:deliverable_users) { Decidim::User.where(id: private_users.map(&:decidim_user_id)) }
+
+          let!(:undeliverable_users) do
+            create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current)
+          end
+
+          it_behaves_like "selective newsletter"
+        end
       end
 
       context "when the user is a space admin" do

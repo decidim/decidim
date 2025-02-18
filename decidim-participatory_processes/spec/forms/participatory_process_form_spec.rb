@@ -11,10 +11,10 @@ module Decidim
         let(:organization) { create(:organization) }
         let(:root_taxonomy) { create(:taxonomy, organization:) }
         let!(:taxonomies) { create_list(:taxonomy, 3, parent: root_taxonomy, organization:) }
-        let!(:taxonomy_filter1) { create(:taxonomy_filter, space_manifest: "participatory_processes", root_taxonomy:, space_filter: true) }
-        let!(:taxonomy_filter2) { create(:taxonomy_filter, space_manifest: "participatory_processes", root_taxonomy:, space_filter: true) }
-        let!(:taxonomy_filter3) { create(:taxonomy_filter, space_manifest: "assemblies", root_taxonomy:, space_filter: true) }
-        let!(:taxonomy_filter4) { create(:taxonomy_filter, space_manifest: "participatory_processes", root_taxonomy:, space_filter: false) }
+        let!(:taxonomy_filter1) { create(:taxonomy_filter, participatory_space_manifests: ["participatory_processes"], root_taxonomy:) }
+        let!(:taxonomy_filter2) { create(:taxonomy_filter, participatory_space_manifests: ["participatory_processes"], root_taxonomy:) }
+        let!(:taxonomy_filter3) { create(:taxonomy_filter, participatory_space_manifests: ["assemblies"], root_taxonomy:) }
+        let!(:taxonomy_filter4) { create(:taxonomy_filter, participatory_space_manifests: ["participatory_processes"]) }
         let(:title) do
           {
             en: "Title",

@@ -1,36 +1,53 @@
-<%= form.hidden_field :root_taxonomy_id %>
-
-<%= render "decidim/admin/taxonomy_filters/callout" %>
-
 <div class="form__wrapper">
-  <div class="item__edit-form">
-    <div class="card-section p-4">
-      <div class="card-divider">
-        <% if @form.root_taxonomy.children.any? %>
-          <h2><%= t(".items", count: "<strong class=\"js-filter-children-count\">#{@form.root_taxonomy.all_children.flatten.count}</strong>").html_safe %></h2>
-        <% else %>
-          <h2><%= t(".no_items") %></h2>
-        <% end %>
+  <div class="card pt-4">
+    <div class="card-section">
+      <div class="row column">
+        <%= form.text_field :root_taxonomy_id, value: translated_attribute(root_taxonomy.name), disabled: true, class: "w-full" %>
+        <%= form.hidden_field :root_taxonomy_id %>
       </div>
+    </div>
+    <div class="card-section">
+      <div class="row column">
+        <%= form.translated :text_field, :name, aria: { label: :name }, placeholder: translated_attribute(root_taxonomy.name), help_text: t(".name_help") %>
+      </div>
+      <div class="row column">
+        <%= form.translated :text_field, :internal_name, aria: { label: :internal_name }, placeholder: translated_attribute(root_taxonomy.name) %>
+      </div>
+    </div>
+  </div>
 
-      <div class="row column pb-4">
-        <div class="table-scroll">
-          <label><%= check_box_tag "selectAll" %> <%= t(".all") %></label>
-          <%= render "decidim/admin/taxonomy_filters/check_boxes", form:, collection: @form.items_collection %>
+  <div class="card">
+    <div class="card-section">
+      <% if root_taxonomy.children.any? %>
+        <div class="card-divider">
+          <h2><%= t(".items", count: "<strong class=\"js-filter-children-count\">#{root_taxonomy.all_children.count}</strong>").html_safe %></h2>
         </div>
-      </div>
+
+        <div class="row column">
+          <div class="table-scroll half-vh">
+            <label><%= check_box_tag "selectAll" %> <%= t(".all") %></label>
+            <%= render "decidim/admin/taxonomy_filters/check_boxes", form:, collection: @form.items_collection %>
+          </div>
+        </div>
+      <% else %>
+        <div class="card-divider">
+          <h2><%= t(".no_items") %></h2>
+        </div>
+      <% end %>
     </div>
-    <div class="card-section pt-4">
-      <div class="row column pb-4">
-        <%= form.translated :text_field, :internal_name, aria: { label: :internal_name }, placeholder: translated_attribute(@form.root_taxonomy.name) %>
+  </div>
+
+  <div class="card">
+    <div class="card-section">
+      <div class="card-divider">
+        <h2><%= t(".space_filter") %></h2>
       </div>
-      <div class="row column pb-4">
-        <%= form.translated :text_field, :name, aria: { label: :name }, placeholder: translated_attribute(@form.root_taxonomy.name), help_text: t(".name_help") %>
-      </div>
-    </div>
-    <div class="card-section pt-4">
-      <div class="row column pb-8">
-        <%= form.check_box :space_filter, aria: { label: :space_filter }, label: t(".space_filter", manifest_name: t("decidim.admin.titles.#{participatory_space_manifest}", default: participatory_space_manifest).downcase, default: t("activemodel.attributes.taxonomy_filter.space_filter") ) %>
+      <div class="row column">
+        <%= form.collection_check_boxes :participatory_space_manifests, @form.available_participatory_space_manifests, :id, :name do |b| %>
+          <div>
+            <%= b.label { b.check_box + b.text } %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -50,6 +67,15 @@
       count.innerHTML = checked.length;
     };
 
+    var toggleChildrenSelect = function(checkbox) {
+      var children = document.querySelectorAll(".js-taxonomy-children[data-parent='" + checkbox.value + "'] [type='checkbox'][name='taxonomy_filter[taxonomy_items][]']");
+      children.forEach(function(child) {
+        child.checked = checkbox.checked;
+        toggleChildrenSelect(child);
+      });
+      updateCounter();
+    }
+
     selectAll.checked = notChecked.length === 0;
     selectAll.addEventListener("change", function() {
       checkBoxes.forEach(function(checkbox) {
@@ -61,6 +87,7 @@
     checkBoxes.forEach(function(checkbox) {
       checkbox.addEventListener("change", function() {
         updateCounter();
+        toggleChildrenSelect(checkbox);
       });
     });
 

@@ -8,7 +8,7 @@ module Decidim
 
         def self.root_taxonomy_name = "~ #{I18n.t("decidim.admin.titles.assemblies_types")}"
 
-        def self.space_manifest = "assemblies"
+        def self.participatory_space_manifests = ["assemblies"]
 
         def name
           title
@@ -37,8 +37,7 @@ module Decidim
           [
             {
               name: root_taxonomy_name,
-              space_filter: true,
-              space_manifest:,
+              participatory_space_manifests:,
               items: all_in_org.map { |type| [type.name[I18n.locale.to_s]] },
               components: []
             }

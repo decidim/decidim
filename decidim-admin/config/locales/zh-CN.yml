@@ -192,23 +192,8 @@ zh-CN:
       autocomplete:
         no_results: 未找到结果
       categories:
-        create:
-          error: 创建此类别时出现问题。
-          success: 分类创建成功。
-        destroy:
-          error: 删除此类别时出错。请先删除任何子类别，请确保没有其他实体属于此类别，然后重试。
-          success: 类别删除成功。
-        edit:
-          title: 编辑类别
-          update: 更新
         index:
           categories_title: 类别管理
-        new:
-          create: 创建类别
-          title: 新类别
-        update:
-          error: 更新此类别时出现问题。
-          success: 类别更新成功。
       component_permissions:
         update:
           error: 更新此组件的权限时出现问题。
@@ -217,9 +202,6 @@ zh-CN:
         create:
           error: 创建此组件时出现问题。
           success: 组件创建成功。
-        destroy:
-          error: 销毁此组件时出现问题。
-          success: 组件删除成功。
         edit:
           title: 编辑组件
           update: 更新
@@ -255,8 +237,6 @@ zh-CN:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: 类别
         filter_label: 筛选器
         officialized_at_null:
           label: 状态
@@ -273,8 +253,6 @@ zh-CN:
           values:
             'false': 已发布
             'true': 未发布
-        scope_id_eq:
-          label: 范围
         search_label: 搜索
         search_placeholder:
           name_or_nickname_or_email_cont: 通过电子邮件、名称或昵称搜索 %{collection}。
@@ -395,12 +373,8 @@ zh-CN:
             plural: 复数
         share_token:
           fields:
-            created_at: 创建于
             expires_at: 过期时间
-            last_used_at: 上次使用时间
             times_used: 使用的时间
-            token: 令牌
-            user: 创建者
         static_page:
           fields:
             created_at: 创建于
@@ -457,7 +431,6 @@ zh-CN:
           confirm_delete: 您确定要删除这个通讯吗？
           followers: '关注者 '
           has_been_sent_to: '已发送到： '
-          no_scopes: 无范围
           not_sent: 未发送
           participants: '参与者 '
           segmented_to: '分段到 %{subject}： '
@@ -472,13 +445,9 @@ zh-CN:
           confirm_deliver: 您确定要发送这个通讯吗？此操作不能撤消。
           deliver: 发送通讯
           followers_help: 发送通讯给所有已确认的用户，它们跟随列表中任何选定的参与空间。
-          none: 无
           participants_help: 向参与名单中任何选定参与空间的所有经确认的用户发送通讯。
           recipients_count: 这份通讯将发送给 <strong id='recipients_count'>%{count}</strong> 用户。
-          scopes_help: 发送通讯给在其帐户的“我的兴趣”设置中激活任何选定范围的用户。
-          select_scopes: 筛选已激活其账户中任何选定范围的用户。
           select_spaces: 选择要断开通讯的空格
-          select_users: 选择您想要发送消息的用户
           title: 选择要交付的收件人
           warning: "<strong>注意:</strong> 这份通讯将只发送给已激活 <em>我想在其通知设置中接收新闻简讯</em>。"
         show:
@@ -559,10 +528,6 @@ zh-CN:
           title: 编辑权限
         update:
           success: 权限更新成功。
-      resources:
-        index:
-          headers:
-            scope: 范围
       scope_types:
         create:
           error: 创建新的范围类型时出现问题。
@@ -594,15 +559,7 @@ zh-CN:
           success: 范围已成功更新
       share_tokens:
         actions:
-          confirm_destroy: 您确定要删除此令牌吗？
           destroy: 删除
-          share: 分享
-        destroy:
-          error: 摧毁令牌时出现问题。
-          success: 令牌已成功销毁。
-        share_tokens:
-          help: 这些代币用于公开分享此未发布的资源给任何用户。 当资源发布时，它们将被隐藏。点击令牌的共享图标访问可共享的 URL。
-          title: 分享令牌
       shared:
         gallery:
           add_images: 添加图像
@@ -642,8 +599,6 @@ zh-CN:
           without_topic: 无主题页面
         update:
           error: 更新此页面时出现问题。
-      taxonomies:
-        count: 计数
       titles:
         admin_log: 管理员日志
         area_types: 区域类型

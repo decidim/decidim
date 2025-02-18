@@ -84,13 +84,10 @@ module Decidim
           participatory_space_classes.each_with_object([]) do |klass, list|
             klass.where(organization:).each do |participatory_space|
               name = "#{klass.model_name.human}: #{participatory_space.title[I18n.locale.to_s]}"
-              space_manifest = klass.to_s.split("::").last.underscore.pluralize
               components = children_components(participatory_space)
               next unless components.any?
 
               list << {
-                space_filter: false,
-                space_manifest:,
                 name: root_taxonomy_name,
                 internal_name: name,
                 items: Category.where(participatory_space:).map do |category|

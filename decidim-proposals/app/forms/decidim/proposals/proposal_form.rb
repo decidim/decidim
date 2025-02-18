@@ -23,7 +23,8 @@ module Decidim
 
       attachments_attribute :documents
 
-      validates :title, :body, presence: true, etiquette: true
+      validates :title, :body, presence: true
+      validates :title, :body, etiquette: true
       validates :title, length: { in: 15..150 }
       validates :body, proposal_length: {
         minimum: 15,

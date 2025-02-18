@@ -24,8 +24,6 @@ module Decidim
         attribute :weight, Integer, default: 0
         attribute :hashtag, String
         attribute :promoted, Boolean
-        attribute :scopes_enabled, Boolean
-        attribute :scope_id, Integer
         attribute :hero_image
         attribute :remove_hero_image, Boolean, default: false
         attribute :banner_image
@@ -58,16 +56,8 @@ module Decidim
 
         alias organization current_organization
 
-        def map_model(model)
-          self.scope_id = model.decidim_scope_id
-        end
-
         def participatory_space_manifest
           :conferences
-        end
-
-        def scope
-          @scope ||= current_organization.scopes.find_by(id: scope_id)
         end
 
         def processes_for_select

@@ -180,8 +180,6 @@ ro:
         attachment_collection:
           new: Foldere pentru atașamente
         browse: Caută
-        category:
-          new: Categorie nouă
         export: Exportă tot
         export-selection: Exportă selecția
         import: Importă
@@ -231,6 +229,7 @@ ro:
         create:
           error: A apărut o problemă la crearea unei zone noi.
           success: Zona a fost creată cu succes.
+        deprecated: Rețineți că zonele sunt învechite și vor fi eliminate în versiunile viitoare. Vă rugăm să folosiți taxonomiile în schimb. Singurul modul care folosește in prezent conceptul de zone este modul de inițiative.
         destroy:
           has_spaces: Această zonă are spații participative dependente. Te rugăm să te asiguri că nu există referințe la spațiul participativ din această zonă înainte de a o șterge.
           success: Zona a fost eliminată cu succes.
@@ -291,23 +290,8 @@ ro:
           justification: Justificare
           title: Blochează utilizatorul %{name}
       categories:
-        create:
-          error: A apărut o eroare la crearea acestei categorii.
-          success: Categoria a fost creată cu succes.
-        destroy:
-          error: A apărut o eroare la ștergerea acestei categorii. Vă rugăm să ștergeți mai întâi orice subcategorie, asigurați-vă că nicio altă entitate nu aparține acestei categorii și încercați din nou.
-          success: Categoria a fost ștearsă cu succes.
-        edit:
-          title: Editează categoria
-          update: Actualizează
         index:
           categories_title: Categorii
-        new:
-          create: Creează o categorie
-          title: Categorie nouă
-        update:
-          error: A apărut o eroare la actualizarea acestei categorii.
-          success: Categoria a fost actualizată cu succes.
       component_permissions:
         update:
           error: A apărut o eroare la actualizarea drepturilor de acces pentru acestă componentă.
@@ -316,9 +300,6 @@ ro:
         create:
           error: A apărut o eroare la crearea acestei componente.
           success: Componenta a fost creată cu succes.
-        destroy:
-          error: A apărut o problemă la eliminarea acestei componente.
-          success: Componenta a fost ștearsă cu succes.
         edit:
           title: Editează componenta
           update: Actualizează
@@ -372,8 +353,6 @@ ro:
           JSON: JSON
         notice: Exportul dvs. este în desfășurare. Veți primi un e-mail atunci când acesta este complet.
       filters:
-        category_id_eq:
-          label: Categorie
         filter_label: Filtru
         invitation_accepted_at_present:
           label: Invitația a fost acceptată
@@ -421,8 +400,6 @@ ro:
           values:
             'false': Publicat
             'true': Nepublicat
-        scope_id_eq:
-          label: Domeniu
         search_label: Caută
         search_placeholder:
           name_or_nickname_or_email_cont: Caută %{collection} după e-mail, nume sau pseudonim.
@@ -613,12 +590,8 @@ ro:
             plural: Plural
         share_token:
           fields:
-            created_at: Creat la
             expires_at: Expiră la
-            last_used_at: Ultima utilizare
             times_used: Număr utilizări
-            token: Token
-            user: Creat de
         static_page:
           fields:
             created_at: Creat la
@@ -715,7 +688,6 @@ ro:
           confirm_delete: Sigur dorești să ştergi acest buletin informativ?
           followers: 'urmăritori '
           has_been_sent_to: 'A fost trimis la: '
-          no_scopes: Nici un domeniu
           not_sent: Nu a fost trimis
           participants: 'participanți '
           segmented_to: 'Segmentat la %{subject}: '
@@ -730,13 +702,10 @@ ro:
           confirm_deliver: Sigur dorești să livrezi acest buletin informativ? Această acţiune nu poate fi anulată.
           deliver: Trimite buletinul informativ
           followers_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care urmăresc orice spații participative selectate din listă.
-          none: Niciunul
           participants_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care au participat la oricare dintre spațiile participative selectate din listă.
           recipients_count: Acest buletin informativ va fi trimis la <strong id='recipients_count'>%{count}</strong> utilizatori.
-          scopes_help: Trimite buletinul informativ utilizatorilor care au unul dintre domeniile selectate activat în setările privind „Interesele mele” din contul lor.
-          select_scopes: Filtrați utilizatorii care au activat oricare dintre domeniile selectate în setările privind „Interesele mele” din contul lor.
           select_spaces: Selectează spațiile pentru segmentarea buletinului informativ
-          select_users: Selectează utilizatorii cărora vrei să trimiți buletinul informativ
+          send_to_all_users: Trimiteți către toți utilizatorii
           title: Selectează destinatarii pentru trimitere
           warning: "<strong>Atenție:</strong> Acest buletin informativ va fi trimis doar utilizatorilor care au activat <em>Vreau să primesc știri</em> în setările lor."
         send:
@@ -858,10 +827,6 @@ ro:
           title: Editează drepturile
         update:
           success: Drepturile au fost actualizate cu succes.
-      resources:
-        index:
-          headers:
-            scope: Domeniu
       scope_types:
         create:
           error: A apărut o problemă la crearea unui nou tip de domeniu.
@@ -881,6 +846,7 @@ ro:
         create:
           error: A apărut o problemă la crearea unui nou domeniu.
           success: Domeniul a fost creat cu succes.
+        deprecated: Rețineți că domeniile de interes sunt învechite și vor fi eliminate în versiunile viitoare. Vă rugăm să folosiți taxonomiile în schimb. Singurul modul care folosește in prezent conceptul de domenii de interes este modul de inițiative.
         destroy:
           success: Domeniul a fost eliminat cu succes.
         edit:
@@ -895,16 +861,10 @@ ro:
           success: Domeniul a fost actualizat cu succes
       share_tokens:
         actions:
-          confirm_destroy: Sigur vrei să ștergi acest token?
           destroy: Șterge
-          share: Distribuie
-        destroy:
-          error: A apărut o problemă la distrugerea acestui token.
-          success: Token-ul a fost distrus cu succes.
-        share_tokens:
-          empty: Nu există token-uri active.
-          help: Aceste tipuri de token sunt utilizate pentru a distribui public această resursă nepublicată cu orice utilizator. Acestea vor fi ascunse la momentul publicării resursei. Faceți clic pe pictograma de distribuire aferentă acestui token pentru a vizita URL-ul distribuit.
-          title: Distribuiți token
+        index:
+          copied: Link de acces copiat!
+          title: 'Link-uri de acces pentru: %{name}'
       shared:
         gallery:
           add_images: Adaugă imagini
@@ -950,13 +910,9 @@ ro:
         update:
           error: A apărut o eroare la actualizarea acestei pagini.
           success: Pagina a fost actualizată cu succes.
-      taxonomies:
-        count: Număr
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Filtru nou de taxonomie
-        callout:
-          modify_taxonomy_html: Dacă aveți nevoie să modificați această taxonomie sau elementele sale, faceți acest lucru prin setările de configurare din secțiunea <a href="%{url}">Taxonomii</a>.
         create:
           error: A apărut o problemă la crearea acestui filtru de taxonomie.
           success: Filtru de taxonomie creat cu succes.
@@ -965,27 +921,19 @@ ro:
           success: Filtru taxonomie șters cu succes.
         edit:
           back: Înapoi
-          items: "%{count} elemente selectate"
-          no_items: Nu există elemente disponibile pentru această taxonomie. Puteți crea elemente în setările de configurare a taxonomiei.
           title: Actualizare filtru taxonomie
           update: Actualizare filtru taxonomie
-        form:
-          select_taxonomy: Selectați o taxonomie
         index:
           description: Un filtru de taxonomie permite administratorilor să sorteze si să filtreze spațiile participative pe baza unei taxonomii. De exemplu, adăugați un filtru de taxonomie pentru a sorta procesele în funcție de aria geografică.
           empty: Momentan nu există filtre de taxonomie. Creați o listă de filtre de taxonomie aici pentru a sorta și filtra spațiile participative bazate pe taxonomie.
         new:
           back: Înapoi
           create: Creați filtru taxonomie
-          items: "%{count} elemente disponibile"
           title: Filtru nou de taxonomie
         table:
           actions: Acțiuni
-          confirm_destroy: Sunteți sigur că doriți să ștergeți filtrul %{name}?
-          count: Numărul de elemente
           destroy: Ștergere
           edit: Actualizare
-          name: Nume
         update:
           error: A apărut o problema la actualizarea acestui filtru de taxonomie.
           success: Filtrul de taxonomie actualizat cu succes.
@@ -1003,7 +951,6 @@ ro:
         scope_types: Tipuri de domeniu
         scopes: Domenii de interes
         statistics: Activitate
-        taxonomy_filters: Filtre taxonomie
         user_groups: Grupuri
         users: Administratori
       user_group:

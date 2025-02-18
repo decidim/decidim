@@ -71,7 +71,7 @@ describe "Edit proposals" do
           find("#dropdown-trigger-resource-#{proposal.id}").click
           click_on "Edit"
 
-          click_on "Edit documents"
+          click_on("Edit attachments")
           within ".upload-modal" do
             within "[data-filename='city.jpeg']" do
               click_on("Remove")
@@ -95,10 +95,10 @@ describe "Edit proposals" do
           it "can change attachment titles" do
             find("#dropdown-trigger-resource-#{proposal.id}").click
             click_on "Edit"
-            click_on "Edit documents"
+            click_on("Edit attachments")
             within ".upload-modal" do
               expect(page).to have_content("Has to be an image or a document")
-              expect(page).to have_content("For images, use preferably landscape images, the service crops the image")
+              expect(page).to have_content("If it is an image, it preferably be a landscape image that does not have any text. The service crops the image.")
               within "[data-filename='city.jpeg']" do
                 find("input[type='text']").set(attachment_image_title)
               end
@@ -129,7 +129,7 @@ describe "Edit proposals" do
             # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
             click_on "Edit"
             expect(page).to have_content("Required fields are marked with an asterisk")
-            click_on("Edit documents")
+            click_on("Edit attachments")
             within "[data-dialog]" do
               click_on("Save")
             end
@@ -152,7 +152,7 @@ describe "Edit proposals" do
             # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
             click_on "Edit"
             expect(page).to have_content("Required fields are marked with an asterisk")
-            click_on("Edit documents")
+            click_on("Edit attachments")
             within "[data-dialog]" do
               click_on("Save")
             end

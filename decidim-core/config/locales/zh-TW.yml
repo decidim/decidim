@@ -54,7 +54,6 @@ zh-TW:
         with_participatory_space: 參與空間
       decidim/user:
         current_password: 目前密碼
-        email: 電子郵件
         name: 暱稱
         password: 密碼
         password_confirmation: 確認密碼
@@ -72,6 +71,8 @@ zh-TW:
     'false': '否'
     'true': '是'
   date:
+    buttons:
+      select: 選擇
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -330,10 +331,8 @@ zh-TW:
         explanation: 通過輸入以"X"結尾的證件號碼進行驗證
         fields:
           allowed_postal_codes: 允許的郵遞區號（以逗號分隔）
-          allowed_scope_id: 允許的範圍
           document_number: 文件編號
           postal_code: 郵政編碼
-          scope_id: 範圍
         name: 範例授權
       dummy_authorization_workflow:
         name: 虛擬授權工作流程
@@ -424,8 +423,6 @@ zh-TW:
             dummy_global_translatable_text: 虛擬可翻譯文字
             enable_pads_creation: 啟用平板創建
             resources_permissions_enabled: 啟用資源權限
-            scope_id: 範圍
-            scopes_enabled: 啟用範圍
           step:
             amendment_creation_enabled: 創建修正案已啟用
             amendment_promotion_enabled: 修正提案提升功能啟用
@@ -506,7 +503,6 @@ zh-TW:
           username_help: 在您的帖子中顯示的公開名稱。為確保匿名性，可以是任何名稱。
       sessions:
         new:
-          are_you_new?: 是第一次使用這個平台嗎？
           register: 建立一個帳號
           sign_in_disabled: 你可以使用外部帳戶登入。
       shared:
@@ -523,8 +519,6 @@ zh-TW:
             如果您仍然想避免收到電子報，我們完全理解您的決定。</p>
             <p>感謝您閱讀此內容！</p>
           title: 電子報通知
-        omniauth_buttons:
-          or: 或
     doorkeeper:
       authorizations:
         new:
@@ -542,23 +536,17 @@ zh-TW:
     download_your_data:
       export:
         ready: 準備就緒
-      show:
-        download_data: 下載資料
-        request_data: 請求數據
     editor_images:
       create:
         error: 上傳圖片時發生錯誤.
         success: 圖片上傳成功.
       drag_and_drop_help: 通過拖放或粘貼方式添加圖片。
     endorsement_buttons_cell:
-      already_endorsed: 不喜歡
       endorse: 喜歡！
     endorsements:
       identities:
         done: 已完成
         select_identity: 選擇身份
-    endorsers_list:
-      endorsed_by: 被喜歡...
     errors:
       internal_server_error:
         copied: 文字已複製!
@@ -721,10 +709,7 @@ zh-TW:
           notification_title: 參與者 %{name} (%{nickname}) 已被官方認證。
     export_mailer:
       download_your_data_export:
-        click_button: '點擊下方鏈接下載您的資料。<br/>檔案將可取得直到 %{date}.<br/>您需要 <a href="https://www.7-zip.org/">7-Zip</a> (Windows)，<a href="https://www.keka.io/en/">Keka</a> (MacOS)，或<a href="https://peazip.github.io">PeaZip</a> (Linux) 來打開它。密碼: %{password}'
         download: 下載
-      export:
-        ready: 請查收附上的壓縮檔，這是您的匯出資料。
       subject: 您的匯出檔案 "%{name}" 已準備就緒。
     filters:
       linked_classes:
@@ -1262,16 +1247,7 @@ zh-TW:
         error: 在連署操作過程中出現問題。
     scopes:
       global: 全域範圍
-      picker:
-        cancel: 取消
-        change: 更改所選範圍
-        choose: 選擇
-        currently_selected: 目前選取的範圍
-        title: 選擇 %{field}
       prompt: 選擇一個範圍
-      scopes: 範圍
-      scopes_picker_input:
-        select_scope: '選擇範圍 (目前: %{current})'
     search:
       results: 搜尋結果
       results_found_for_term: '搜尋結果：%{term}（共找到 %{count} 個結果）'
@@ -1332,10 +1308,6 @@ zh-TW:
         help: 幫助
       mentions_modal:
         remove_recipient: 移除收件人 %{name}。
-      participatory_space_filters:
-        filters:
-          areas: 區域
-          select_an_area: 選擇一個地區
       public_participation:
         public_participation: 公開展示我的出席情況。
       reference:
@@ -1363,9 +1335,6 @@ zh-TW:
       pages_count: 頁
       participants_count: 參與者
       users_count: 參與者
-    tags:
-      filter_results_for_category: '篩選類別為 %{resource} 的結果。'
-      filter_results_for_scope: '篩選範圍為 %{resource} 的結果。'
     translation_bar:
       help_text: "<strong>警告：</strong>內容可能會被自動翻譯，並且可能不是100％準確。"
       show_original: 顯示原始文本
@@ -1388,15 +1357,6 @@ zh-TW:
         send: 發送
       update:
         error: 訊息未送出，請稍後再試。
-    user_interests:
-      show:
-        my_interests: 我的興趣
-        no_scopes: 這個組織目前還沒有設定範圍！
-        select_your_interests: 選擇您感興趣的主題，以接收與其相關的活動，並在您的個人檔案時間軸選項卡中查看。
-        update_my_interests: 更新我的興趣
-      update:
-        error: 更新您的興趣時發生問題。
-        success: 您的興趣已成功更新。
     user_report_mailer:
       notify:
         body_1: 使用者 %{user} 已被 %{token} 舉報。
@@ -1646,7 +1606,6 @@ zh-TW:
         cc_by_license: 知識共用授權合約。
         data_consent_settings: Cookie 設定
         decidim_logo: Decidim 商標
-        download_open_data: 下載開放數據檔案
         log_in: 登入
         made_with_open_source: 使用<a target="_blank" href="https://github.com/decidim/decidim">自由軟體</a>建立的網站。
       header:
@@ -1686,7 +1645,6 @@ zh-TW:
         authorizations: 授權
         delete_my_account: 刪除我的帳號
         my_data: 我的資料
-        my_interests: 我的興趣
         notifications_settings: 通知設定
         title: 參與者設定
         user_groups: 群組
@@ -1736,6 +1694,8 @@ zh-TW:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: 選擇
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

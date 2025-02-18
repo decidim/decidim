@@ -19,7 +19,7 @@ describe "Admin manages posts" do
   end
 
   context "when author is a user" do
-    let(:author) { create(:user, organization:) }
+    let(:author) { user }
 
     it_behaves_like "manage posts"
   end

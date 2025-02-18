@@ -18,8 +18,6 @@ ro:
     blogs:
       actions:
         author_id: Creează postare ca
-        confirm_destroy: Sigur dorești să ştergi această postare?
-        destroy: Șterge
         edit: Editează
         new: Postare nouă
         title: Acțiuni
@@ -57,6 +55,25 @@ ro:
             official_blog_post: Postare oficială
             published_at: Publicat la
             title: Titlu
+      posts:
+        edit:
+          back: Înapoi la postare
+          button: Actualizați
+          title: Modificați postarea
+        form:
+          author_id: Autor
+          body: Conținut
+          title: Titlu
+        index:
+          new_post: Postare nouă
+        menu_actions:
+          button_destroy: Ștergeți postarea
+          button_destroy_confirm: Sunteți sigur că doriți să ștergeți această postare?
+          button_edit: Modificați postarea
+        new:
+          back: Înapoi la postări
+          button: Creați
+          title: Creați o postare nouă
     components:
       blogs:
         actions:
@@ -71,6 +88,7 @@ ro:
             announcement: Anunţ
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor (lăsați 0 pentru valoarea implicită)
+            creation_enabled_for_participants: Participanții pot crea postări
           step:
             announcement: Anunţ
             comments_blocked: Comentarii blocate

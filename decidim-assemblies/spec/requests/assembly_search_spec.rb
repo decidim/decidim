@@ -9,15 +9,13 @@ RSpec.describe "Assembly search" do
   let!(:assembly1) do
     create(
       :assembly,
-      organization:,
-      assembly_type: create(:assemblies_type, organization:)
+      organization:
     )
   end
   let!(:assembly2) do
     create(
       :assembly,
-      organization:,
-      assembly_type: create(:assemblies_type, organization:)
+      organization:
     )
   end
 
@@ -35,15 +33,6 @@ RSpec.describe "Assembly search" do
   it "displays all assemblies by default" do
     expect(subject).to include(decidim_escape_translated(assembly1.title))
     expect(subject).to include(decidim_escape_translated(assembly2.title))
-  end
-
-  context "when filtering by assembly type" do
-    let(:filter_params) { { with_any_type: [assembly1.assembly_type.id] } }
-
-    it "displays matching assemblies" do
-      expect(subject).to include(decidim_escape_translated(assembly1.title))
-      expect(subject).not_to include(decidim_escape_translated(assembly2.title))
-    end
   end
 
   it_behaves_like "a participatory space search with taxonomies", :assembly

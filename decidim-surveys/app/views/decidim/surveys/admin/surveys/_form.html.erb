@@ -1,0 +1,28 @@
+<%= render "decidim/forms/admin/questionnaires/form", form: %>
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section">
+      <div class="row column">
+        <%= form.check_box :allow_answers, label: t("models.components.allow_answers", scope: "decidim.forms.admin"), aria: { label: :allow_answers } %>
+      </div>
+      <div class="row column">
+        <%= form.check_box :allow_editing_answers, label: t("models.components.allow_editing_answers", scope: "decidim.forms.admin"), aria: { label: :allow_editing_answers } %>
+      </div>
+      <div class="row column">
+        <%= form.check_box :allow_unregistered, label: t("models.components.allow_unregistered", scope: "decidim.forms.admin"), aria: { label: :allow_unregistered }, help_text: t("models.components.allow_unregistered_help", scope: "decidim.forms.admin") %>
+      </div>
+      <div class="row column">
+        <%= form.datetime_field :starts_at, label: t("models.components.starts_at", scope: "decidim.forms.admin"), aria: { label: :starts_at }, help_text: t("models.components.starts_at_help", scope: "decidim.forms.admin") %>
+      </div>
+      <div class="row column">
+        <%= form.datetime_field :ends_at, label: t("models.components.ends_at", scope: "decidim.forms.admin"), aria: { label: :ends_at }, help_text: t("models.components.ends_at_help", scope: "decidim.forms.admin") %>
+      </div>
+      <div class="row column">
+        <%= form.check_box :clean_after_publish, label: t("models.components.clean_after_publish", scope: "decidim.forms.admin"), aria: { label: :clean_after_publish } %>
+      </div>
+      <div class="row column">
+        <%= form.translated :editor, :announcement, toolbar: :content, lines: 10, label: t("models.components.announcement", scope: "decidim.forms.admin"), aria: { label: :announcement } %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -101,18 +101,18 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
       expected_labels = {
         title_en: "Title (English)",
         description_ca: "Description (Català)",
-        description_machine_translations_es: "Description (automatic translation in Castellano)",
+        description_machine_translations_es: "Description (traducción automática a Castellano)",
         address: "Address",
         location_ca: "Location (Català)",
         location_en: "Location (English)",
         location_hints_ca: "Location hints (Català)",
         location_hints_en: "Location hints (English)",
-        location_hints_machine_translations_es: "Location hints (automatic translation in Castellano)",
-        location_machine_translations_es: "Location (automatic translation in Castellano)",
+        location_hints_machine_translations_es: "Location hints (traducción automática a Castellano)",
+        location_machine_translations_es: "Location (traducción automática a Castellano)",
         start_time: "Start time",
         end_time: "End time",
         decidim_scope_id: "Scope",
-        title_machine_translations_es: "Title (automatic translation in Castellano)"
+        title_machine_translations_es: "Title (traducción automática a Castellano)"
       }
       labels = subject.to_h { |attribute, data| [attribute.to_sym, data[:label]] }
       expect(labels).to eq expected_labels

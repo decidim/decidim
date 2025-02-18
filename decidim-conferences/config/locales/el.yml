@@ -21,8 +21,6 @@ el:
         published_at: Δημοσιεύτηκε στις
         registration_terms: Όροι εγγραφής
         registrations_enabled: Ενεργοποιημένες εγγραφές
-        scope_id: Πεδίο εφαρμογής
-        scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
         short_description: Σύντομη περιγραφή
         show_statistics: Εμφάνιση στατιστικών
         sign_date: Ημερομηνία υπογραφής
@@ -112,13 +110,11 @@ el:
         destroy:
           success: Ο ομιλητής διάσκεψης διαγράφηκε με επιτυχία.
         edit:
-          title: Ενημέρωση ομιλητή διάσκεψης.
           update: Ενημέρωση
         index:
           conference_speakers_title: Ομιλητές διάσκεψης
         new:
           create: Δημιουργία
-          title: Νέος ομιλητής διάσκεψης.
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του ομιλητή διάσκεψης.
           success: Ο ομιλητής διάσκεψης ενημερώθηκε με επιτυχία.
@@ -129,13 +125,11 @@ el:
         destroy:
           success: Ο διαχειριστής διάσκεψης καταργήθηκε με επιτυχία.
         edit:
-          title: Ενημέρωση διαχειριστή διάσκεψης.
           update: Ενημέρωση
         index:
           conference_admins_title: Διαχειριστές διάσκεψης
         new:
           create: Δημιουργία
-          title: Νέος διαχειριστής διάσκεψης.
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του διαχειριστή διάσκεψης.
           success: Ο διαχειριστής διάσκεψης ενημερώθηκε με επιτυχία.
@@ -164,38 +158,25 @@ el:
       media_links:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου συνδέσμου πολυμέσων.
-          success: Ο σύνδεσμος πολυμέσων δημιουργήθηκε με επιτυχία.
-        destroy:
-          success: Ο σύνδεσμος πολυμέσων διαγράφηκε με επιτυχία.
         edit:
-          title: Ενημέρωση συνδέσμου πολυμέσων.
           update: Ενημέρωση
-        index:
-          media_links_title: Σύνδεσμοι πολυμέσων
         new:
           create: Δημιουργία
-          title: Σύνδεσμος πολυμέσων
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του συνδέσμου πολυμέσων.
-          success: Ο σύνδεσμος πολυμέσων ενημερώθηκε με επιτυχία.
       menu:
         conferences: Διασκέψεις
         conferences_submenu:
           attachment_collections: Φάκελοι
           attachment_files: Αρχεία
           attachments: Συνημμένα
-          categories: Κατηγορίες
           components: Στοιχεία
           conference_admins: Διαχειριστές διάσκεψης
           conference_invites: Προσκλήσεις
           conference_speakers: Ομιλητές
-          diploma: Πιστοποιητικό παρακολούθησης
-          media_links: Σύνδεσμοι πολυμέσων
           moderations: Εποπτεύσεις
           partners: Συνεργάτες
-          registration_types: Τύποι εγγραφής
           registrations: Εγγραφές
-          user_registrations: Εγγραφές χρήστη
       models:
         conference:
           fields:
@@ -224,7 +205,6 @@ el:
             date: Ημερομηνία
             link: Σύνδεσμος
             title: Τίτλος
-          name: Σύνδεσμος πολυμέσων
         partner:
           fields:
             link: Σύνδεσμος
@@ -250,7 +230,6 @@ el:
         destroy:
           success: Ο συνεργάτης διάσκεψης καταργήθηκε με επιτυχία.
         edit:
-          title: Ενημέρωση συνεργάτη.
           update: Ενημέρωση
         new:
           create: Δημιουργία
@@ -272,7 +251,6 @@ el:
         destroy:
           success: Ο τύπος εγγραφής διάσκεψης καταργήθηκε με επιτυχία.
         edit:
-          title: Ενημέρωση τύπου εγγραφής.
           update: Ενημέρωση
         new:
           create: Δημιουργία
@@ -360,7 +338,6 @@ el:
         diplomas:
           edit:
             save: Αποθήκευση
-            title: Πιστοποιητικό παρακολούθησης
         invite_join_conference_mailer:
           invite:
             decline: Απόρριψη πρόσκλησης «%{conference_title}»
@@ -380,7 +357,6 @@ el:
             diploma_html: Θα βρείτε το πιστοποιητικό παρακολούθησης για τη διάσκεψη <a href="%{url}">%{title}</a> στα συνημμένα.
           diploma_user:
             attendance_verified_by: Η παρακολούθηση επαληθεύτηκε από
-            certificate_of_attendance: Πιστοποιητικό παρακολούθησης
             certificate_of_attendance_description: Με το παρόν βεβαιώνεται ότι ο χρήστης <strong>%{user}</strong> παρακολούθησε και έλαβε μέρος στη διάσκεψη <strong>%{title}</strong> που πραγματοποιήθηκε στην τοποθεσία <strong>%{location}</strong> στις <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Υπήρξε ένα πρόβλημα κατά την αποστολή των πιστοποιητικών παρακολούθησης της διάσκεψης.

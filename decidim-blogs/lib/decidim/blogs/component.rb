@@ -23,6 +23,7 @@ Decidim.register_component(:blogs) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: true
+    settings.attribute :creation_enabled_for_participants, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
@@ -37,6 +38,32 @@ Decidim.register_component(:blogs) do |component|
     resource.card = "decidim/blogs/post"
     resource.actions = %w(endorse comment)
     resource.searchable = true
+  end
+
+  component.exports :posts do |exports|
+    exports.collection do |component_instance|
+      Decidim::Blogs::Post
+        .not_hidden
+        .published
+        .where(component: component_instance)
+        .includes(component: { participatory_space: :organization })
+    end
+
+    exports.include_in_open_data = true
+
+    exports.serializer Decidim::Blogs::PostSerializer
+  end
+
+  component.exports :post_comments do |exports|
+    exports.collection do |component_instance|
+      Decidim::Comments::Export.comments_for_resource(
+        Decidim::Blogs::Post, component_instance
+      ).includes(:author, :user_group, root_commentable: { component: { participatory_space: :organization } })
+    end
+
+    exports.include_in_open_data = true
+
+    exports.serializer Decidim::Comments::CommentSerializer
   end
 
   component.seeds do |participatory_space|

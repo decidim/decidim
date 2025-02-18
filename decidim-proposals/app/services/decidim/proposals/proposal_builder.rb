@@ -74,7 +74,7 @@ module Decidim
           "proposal_notes_count",
           "proposal_votes_count"
         ).merge(
-          "category" => original_proposal.category
+          "taxonomies" => original_proposal.taxonomies
         ).merge(
           extra_attributes
         )

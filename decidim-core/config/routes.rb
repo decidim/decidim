@@ -57,13 +57,6 @@ Decidim::Core::Engine.routes.draw do
 
   post :locate, to: "geolocation#locate"
 
-  Decidim.participatory_space_manifests.each do |manifest|
-    mount manifest.context(:public).engine, at: "/", as: "decidim_#{manifest.name}"
-  end
-
-  mount Decidim::Verifications::Engine, at: "/", as: "decidim_verifications"
-  mount Decidim::Comments::Engine, at: "/", as: "decidim_comments"
-
   Decidim.global_engines.each do |name, engine_data|
     mount engine_data[:engine], at: engine_data[:at], as: name
   end
@@ -101,7 +94,6 @@ Decidim::Core::Engine.routes.draw do
     end
 
     resources :notifications_subscriptions, param: :auth, only: [:create, :destroy]
-    resource :user_interests, only: [:show, :update]
 
     get "/authorization_modals/:authorization_action/f/:component_id(/:resource_name/:resource_id)", to: "authorization_modals#show", as: :authorization_modal
     get(
@@ -153,8 +145,6 @@ Decidim::Core::Engine.routes.draw do
   get "/search", to: "searches#index", as: :search
 
   get "/link", to: "links#new", as: :link
-
-  get "/scopes/picker", to: "scopes#picker", as: :scopes_picker
 
   get "/static_map", to: "static_map#show", as: :static_map
   put "/pages/terms-of-service/accept", to: "tos#accept_tos", as: :accept_tos

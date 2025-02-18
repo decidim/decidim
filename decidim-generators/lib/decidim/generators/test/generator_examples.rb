@@ -65,10 +65,10 @@ shared_examples_for "a new development application" do
     Decidim::GemManager.plugins.each do |plugin|
       Dir.glob("#{plugin}db/migrate/*.rb").each do |migration|
         lines = File.readlines(migration)
-        tables.concat(lines.filter { |line| line.match? "create_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
-        dropped.concat(lines.filter { |line| line.match? "drop_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
-        tables.concat(lines.filter { |line| line.match? "rename_table" }.map { |line| line.match(/(, :)([a-z_0-9]+)/)[2] })
-        dropped.concat(lines.filter { |line| line.match? "rename_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
+        tables.concat(lines.grep(/create_table/).map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
+        dropped.concat(lines.grep(/drop_table/).map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
+        tables.concat(lines.grep(/rename_table/).map { |line| line.match(/(, :)([a-z_0-9]+)/)[2] })
+        dropped.concat(lines.grep(/rename_table/).map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
       end
     end
     tables.each do |table|
@@ -347,7 +347,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim initiatives creation_enabled) => "auto",
       %w(decidim initiatives minimum_committee_members) => 2,
       %w(decidim initiatives default_signature_time_period_length) => 120,
-      %w(decidim initiatives default_components) => %w(pages meetings),
+      %w(decidim initiatives default_components) => %w(pages meetings blogs),
       %w(decidim initiatives first_notification_percentage) => 33,
       %w(decidim initiatives second_notification_percentage) => 66,
       %w(decidim initiatives stats_cache_expiration_time) => 5,
@@ -836,7 +836,7 @@ shared_examples_for "an application with extra configurable env vars" do
       "creation_enabled" => true,
       "minimum_committee_members" => 2,
       "default_signature_time_period_length" => 120,
-      "default_components" => %w(pages meetings),
+      "default_components" => %w(pages meetings blogs),
       "first_notification_percentage" => 33,
       "second_notification_percentage" => 66,
       "stats_cache_expiration_time" => 300, # 5.minutes

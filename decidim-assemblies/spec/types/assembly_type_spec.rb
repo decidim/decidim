@@ -248,18 +248,6 @@ module Decidim
         end
       end
 
-      context "when there is type" do
-        let(:model) { create(:assembly, :with_type) }
-
-        describe "assemblyType" do
-          let(:query) { "{ assemblyType { id } }" }
-
-          it "returns the assemblyType field" do
-            expect(response["assemblyType"]["id"]).to eq(model.assembly_type.id.to_s)
-          end
-        end
-      end
-
       describe "creationDate" do
         let(:query) { "{ creationDate }" }
 

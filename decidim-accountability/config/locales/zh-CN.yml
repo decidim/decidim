@@ -111,15 +111,8 @@ zh-CN:
         count:
           results_count:
             other: "%{count} 个结果"
-        filters:
-          all: 所有的
-        home:
-          categories_label: 类别管理
-          subcategories_label: 子类别
         home_header:
           global_status: 全局执行状态
-        nav_breadcrumb:
-          global: 全局执行
         search:
           search: 搜索操作
         show:
@@ -136,8 +129,6 @@ zh-CN:
             comments_max_length: 评论最大长度 (默认值留0)
             display_progress_enabled: 显示进度
             intro: 简介
-            scope_id: 范围
-            scopes_enabled: 范围已启用
           step:
             comments_blocked: 评论已阻止
     events:

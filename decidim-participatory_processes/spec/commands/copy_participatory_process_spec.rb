@@ -8,8 +8,8 @@ module Decidim::ParticipatoryProcesses
 
     let(:organization) { create(:organization) }
     let(:current_user) { create(:user, organization:) }
-    let(:participatory_process_group) { create(:participatory_process_group, organization:) }
-    let(:scope) { create(:scope, organization:) }
+    let(:participatory_process_group) { create(:participatory_process_group, organization:, taxonomies: [taxonomy]) }
+    let(:taxonomy) { create(:taxonomy, with_parent, organization:) }
     let(:errors) { double.as_null_object }
     let!(:participatory_process) { create(:participatory_process, :with_steps) }
     let!(:component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
@@ -20,21 +20,13 @@ module Decidim::ParticipatoryProcesses
         title: { en: "title" },
         slug: "copied-slug",
         copy_steps?: copy_steps,
-        copy_categories?: copy_categories,
         copy_components?: copy_components,
         current_user:
-      )
-    end
-    let!(:category) do
-      create(
-        :category,
-        participatory_space: participatory_process
       )
     end
 
     let(:invalid) { false }
     let(:copy_steps) { false }
-    let(:copy_categories) { false }
     let(:copy_components) { false }
 
     context "when the form is not valid" do
@@ -60,7 +52,6 @@ module Decidim::ParticipatoryProcesses
         expect(new_participatory_process.description).to eq(old_participatory_process.description)
         expect(new_participatory_process.short_description).to eq(old_participatory_process.short_description)
         expect(new_participatory_process.promoted).to eq(old_participatory_process.promoted)
-        expect(new_participatory_process.scope).to eq(old_participatory_process.scope)
         expect(new_participatory_process.developer_group).to eq(old_participatory_process.developer_group)
         expect(new_participatory_process.local_area).to eq(old_participatory_process.local_area)
         expect(new_participatory_process.target).to eq(old_participatory_process.target)
@@ -69,6 +60,7 @@ module Decidim::ParticipatoryProcesses
         expect(new_participatory_process.end_date).to eq(old_participatory_process.end_date)
         expect(new_participatory_process.participatory_process_group).to eq(old_participatory_process.participatory_process_group)
         expect(new_participatory_process.private_space).to eq(old_participatory_process.private_space)
+        expect(new_participatory_process.taxonomies).to eq(old_participatory_process.taxonomies)
       end
 
       it "broadcasts ok" do
@@ -101,34 +93,6 @@ module Decidim::ParticipatoryProcesses
         expect(new_participatory_process_step.description).to eq(old_participatory_process_step.description)
         expect(new_participatory_process_step.end_date).to eq(old_participatory_process_step.end_date)
         expect(new_participatory_process_step.start_date).to eq(old_participatory_process_step.start_date)
-      end
-    end
-
-    context "when copy_categories exists" do
-      let(:copy_categories) { true }
-
-      it "duplicates a participatory process and the categories" do
-        expect { subject.call }.to change(Decidim::Category, :count).by(1)
-        expect(Decidim::Category.unscoped.distinct.pluck(:decidim_participatory_space_id).count).to eq 2
-
-        old_participatory_process_category = Decidim::Category.unscoped.first
-        new_participatory_process_category = Decidim::Category.unscoped.last
-
-        expect(new_participatory_process_category.name).to eq(old_participatory_process_category.name)
-        expect(new_participatory_process_category.description).to eq(old_participatory_process_category.description)
-        expect(new_participatory_process_category.participatory_space).not_to eq(participatory_process)
-      end
-
-      context "with subcategories" do
-        let!(:subcategory) { create(:category, parent: category, participatory_space: participatory_process) }
-
-        it "duplicates the parent and its children" do
-          expect { subject.call }.to change(Decidim::Category, :count).by(2)
-          new_participatory_process = Decidim::ParticipatoryProcess.last
-
-          expect(participatory_process.categories.count).to eq(2)
-          expect(new_participatory_process.categories.count).to eq(2)
-        end
       end
     end
 

@@ -13,6 +13,9 @@ module Decidim::Budgets
     let(:project) { create(:project, budget:, taxonomies:) }
     let(:router) { Decidim::EngineRouter.main_proxy(budget.component) }
     let(:component) { create(:budgets_component) }
+    let(:serialized_taxonomies) do
+      { ids: taxonomies.pluck(:id) }.merge(taxonomies.to_h { |t| [t.id, t.name] })
+    end
 
     subject { described_class.new(project) }
 
@@ -23,10 +26,8 @@ module Decidim::Budgets
         expect(serialized).to include(id: project.id)
       end
 
-      it "includes the taxonomies" do
-        expect(serialized[:taxonomies].length).to eq(2)
-        expect(serialized[:taxonomies][:id]).to match_array(taxonomies.map(&:id))
-        expect(serialized[:taxonomies][:name]).to match_array(taxonomies.map(&:name))
+      it "serializes the taxonomies" do
+        expect(serialized[:taxonomies]).to eq(serialized_taxonomies)
       end
 
       it "includes the participatory space" do

@@ -86,6 +86,39 @@ module Decidim::Comments
             expect(subject).to have_no_css("#add-comment-DummyResource-#{commentable.id}-user-group-id")
           end
         end
+
+        describe "#two_columns_layout?" do
+          before do
+            allow(commentable).to receive(:respond_to?).with(:two_columns_layout?).and_return(responds_to_two_columns_layout)
+            allow(commentable).to receive(:two_columns_layout?).and_return(two_columns_layout) if responds_to_two_columns_layout
+          end
+
+          context "when two_columns_layout? is true" do
+            let(:responds_to_two_columns_layout) { true }
+            let(:two_columns_layout) { true }
+
+            it "returns true" do
+              expect(my_cell.send(:two_columns_layout?)).to be_truthy
+            end
+          end
+
+          context "when two_columns_layout? is false" do
+            let(:responds_to_two_columns_layout) { true }
+            let(:two_columns_layout) { false }
+
+            it "returns false" do
+              expect(my_cell.send(:two_columns_layout?)).to be_falsey
+            end
+          end
+
+          context "when model does not respond to two_columns_layout?" do
+            let(:responds_to_two_columns_layout) { false }
+
+            it "returns false" do
+              expect(my_cell.send(:two_columns_layout?)).to be_falsey
+            end
+          end
+        end
       end
     end
   end

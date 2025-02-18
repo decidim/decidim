@@ -20,9 +20,25 @@ describe "Admin manages meetings registration forms" do
     Decidim::EngineRouter.admin_proxy(component).edit_meeting_registrations_form_path(meeting_id: meeting.id)
   end
 
+  def manage_questions_path
+    Decidim::EngineRouter.admin_proxy(component).edit_questions_meeting_registrations_form_path(meeting_id: meeting.id)
+  end
+
   def questionnaire_public_path
     Decidim::EngineRouter.main_proxy(component).join_meeting_registration_path(meeting_id: meeting.id)
   end
+
+  def update_component_settings_or_attributes
+    component.update!(
+      step_settings: {
+        component.participatory_space.active_step.id => {
+          allow_answers: true
+        }
+      }
+    )
+  end
+
+  def see_questionnaire_questions; end
 
   describe "manages registration form" do
     it "allows to change the custom content in registration email" do

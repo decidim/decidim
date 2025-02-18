@@ -130,8 +130,6 @@ ro:
             initiative_title: Titlul inițiativei
             name_and_surname: Nume și prenume
             postal_code: Cod poștal
-            scope: Domeniu de interes
-            time_and_date: Ora și data
             timestamp: Ora
       titles:
         initiatives: Inițiative
@@ -388,8 +386,6 @@ ro:
           email_outro: 'Ai primit această notificare deoarece ești autorul acestei inițiative: %{resource_title}'
           email_subject: "%{applicant_nickname} vrea să se alăture inițiativei tale"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a depus cerere pentru comitetul de promovare al inițiativa tale <a href="%{resource_url}">%{resource_title}</a>. Pentru a accepta sau respinge apasă <a href="%{resource_url}/edit">aici</a>.
-      form:
-        attachment_legend: "(Opțional) Adaugă un atașament"
       initiative_signatures:
         fill_personal_data:
           continue: Continuă
@@ -465,9 +461,7 @@ ro:
           phone_number: Număr de telefon
           place_date: Locul, data
           postal_code: Cod poștal
-          print: Tipărește
           province: Județ/stat
-          section: 'Dacă organizația solicită acest lucru, te rugăm tipărește și completează acest formular pentru a-l depune conform indicațiilor:'
           signature: Semnătură
         result:
           initiative_rejected_reason: Această inițiativă a fost respinsă din cauza lipsei de semnături.
@@ -481,7 +475,6 @@ ro:
           other: " semnături"
         vote_cabin:
           already_voted: Deja semnat
-          verification_required: Verifică-ți contul pentru a semna inițiativa
           vote: Semnare
           votes_blocked: Semnarea este dezactivată
         votes_count:

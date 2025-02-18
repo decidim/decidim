@@ -33,10 +33,36 @@
 
   &__header {
     @apply flex justify-between md:flex-row md:items-center mb-4;
+
+    option {
+      &.selected {
+        @apply font-bold;
+      }
+    }
   }
 
   .author__avatar-container {
     @apply w-8 h-8;
+  }
+
+  .comments-section {
+    &__header {
+      @apply flex items-center justify-center space-x-2 p-4 bg-secondary/5 rounded-b-md mb-4;
+
+      svg {
+        @apply w-6 h-6 mr-2 fill-secondary;
+      }
+    }
+
+    &__title {
+      @apply text-md font-semibold text-secondary;
+    }
+  }
+}
+
+.comments-two-columns {
+  .most-upvoted-label {
+    @apply px-2 mb-2;
   }
 
   input[type="radio"] {
@@ -48,6 +74,10 @@
 
 .comment {
   @apply rounded-lg border-2 border-background-5 p-3 pl-6;
+
+  &.top-comment {
+    @apply border-gray-2;
+  }
 
   &__header {
     @apply flex items-center gap-x-2 mb-2 relative;
@@ -351,7 +381,7 @@
     }
 
     &-submit {
-      @apply flex flex-col md:flex-row md:justify-end items-stretch md:items-end gap-4 mt-4;
+      @apply flex flex-col md:flex-row md:justify-between items-stretch md:items-end gap-4 mt-4;
     }
 
     &-mobile-banner {
@@ -360,6 +390,29 @@
       .close-button {
         @apply absolute top-7 right-6 [&_svg]:w-4 [&_svg]:h-4;
       }
+    }
+  }
+
+  &__opinion {
+    &-container {
+      @apply flex mt-2 w-full md:w-fit;
+
+      button {
+        @apply grow border border-gray first-of-type:rounded-l last-of-type:rounded-r inline-flex justify-center items-center gap-1 px-4 py-1.5 text-sm text-gray-2 -ml-px first:ml-0 transition-all;
+
+        svg {
+          @apply fill-current;
+        }
+
+        &:hover,
+        &.is-active {
+          @apply border-secondary text-secondary bg-background-4;
+        }
+      }
+    }
+
+    &-label {
+      @apply text-sm text-gray-2;
     }
   }
 

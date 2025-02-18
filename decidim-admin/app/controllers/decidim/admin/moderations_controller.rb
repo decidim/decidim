@@ -67,6 +67,20 @@ module Decidim
         end
       end
 
+      def bulk_action
+        Admin::BulkAction.call(current_user, params[:bulk_action], selected_moderations) do
+          on(:ok) do |ok, ko|
+            flash[:notice] = I18n.t("reportable.bulk_action.#{params[:bulk_action]}.success", scope: "decidim.moderations.admin", count_ok: ok.count) if ok.count.positive?
+            flash[:alert] = I18n.t("reportable.bulk_action.#{params[:bulk_action]}.failed", scope: "decidim.moderations.admin", errored: ko.join(", ")) if ko.present? && ko.any?
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("reportable.bulk_action.#{params[:bulk_action]}.invalid", scope: "decidim.moderations.admin")
+          end
+        end
+        redirect_to moderations_path
+      end
+
       private
 
       def ransack_params
@@ -92,6 +106,10 @@ module Decidim
 
       def reportable
         @reportable ||= participatory_space_moderations.find(params[:id]).reportable
+      end
+
+      def selected_moderations
+        @selected_moderations ||= participatory_space_moderations.where(id: params[:moderation_ids])
       end
 
       def participatory_space_moderations
