@@ -121,7 +121,7 @@ sk:
       badges:
         attended_meetings:
           conditions:
-            - Registrujte sa pre stretnutia, ktorých sa chcete zúčastniť
+          - Registrujte sa pre stretnutia, ktorých sa chcete zúčastniť
           description: Tento odznak ste dostali za aktívnu účasť na stretnutiach naživo.
           description_another: Tento účastník sa zúčastnil %{score} stretnutí.
           description_own: Zúčastnili ste sa %{score} stretnutí.
