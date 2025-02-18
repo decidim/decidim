@@ -201,7 +201,7 @@ lt:
       badges:
         attended_meetings:
           conditions:
-            - Registruokitės į susirinkimus, kuriuose norite dalyvauti
+          - Registruokitės į susirinkimus, kuriuose norite dalyvauti
           description: Šis ženklelis suteikiamas dalyvavus keliuose tiesioginiuose susirinkimuose.
           description_another: Šis dalyvis dalyvavo %{score} susirinkimuose (-ų).
           description_own: Jūs dalyvavote %{score} susirinkimuose (-ų).
