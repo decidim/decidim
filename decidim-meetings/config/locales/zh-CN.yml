@@ -118,7 +118,7 @@ zh-CN:
       badges:
         attended_meetings:
           conditions:
-            - 注册您想要参加的会议
+          - 注册您想要参加的会议
           description: 当你参加几次面对面的会议时颁发这个徽章。
           description_another: 此参与者已经参加了 %{score} 次会议。
           description_own: 您已经参加了 %{score} 次会议。
