@@ -110,7 +110,7 @@ describe "Homepage" do
 
             expect(page).to have_current_path decidim.new_user_session_path
             expect(page).to have_content("Log in")
-            expect(page).to have_content("New to the platform?")
+            expect(page).to have_content("Not registered yet?")
           end
         end
 
