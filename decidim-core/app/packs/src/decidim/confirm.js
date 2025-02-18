@@ -1,4 +1,5 @@
 import icon from "src/decidim/icon"
+
 /**
  * A custom confirm dialog for Decidim based on Foundation reveals.
  *
@@ -61,9 +62,9 @@ class ConfirmDialog {
   }
 }
 
-const runConfirm = (message, sourceElement = null, title = null, iconName = null) => new Promise((resolve) => {
+const runConfirm = (message, sourceElement = null, opts = {}) => new Promise((resolve) => {
   const dialog = new ConfirmDialog(sourceElement);
-  dialog.confirm(message, title, iconName).then((answer) => {
+  dialog.confirm(message, opts.title, opts.iconName).then((answer) => {
     let completed = true;
     if (sourceElement) {
       completed = Rails.fire(sourceElement, "confirm:complete", [answer]);
@@ -83,8 +84,10 @@ const runConfirm = (message, sourceElement = null, title = null, iconName = null
 // so for the moment this needs to be executed **before** Rails.start()
 const allowAction = (ev, element) => {
   const message = $(element).data("confirm");
-  const title = $(element).data("confirm-title");
-  const iconName = $(element).data("confirm-icon");
+  const opts = {
+    title: $(element).data("confirm-title"),
+    iconName: $(element).data("confirm-icon")
+  };
   if (!message) {
     return true;
   }
@@ -93,7 +96,7 @@ const allowAction = (ev, element) => {
     return false;
   }
 
-  runConfirm(message, element, title, iconName).then((answer) => {
+  runConfirm(message, element, opts).then((answer) => {
     if (!answer) {
       return;
     }
