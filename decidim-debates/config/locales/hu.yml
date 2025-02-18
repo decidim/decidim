@@ -176,7 +176,7 @@ hu:
       badges:
         commented_debates:
           conditions:
-            - Válasszon vitát!
+          - Válasszon vitát!
           description: Ezt a jelvényt akkor kapja meg, ha a különböző vitákban aktívan részt vesz az észrevételeinek hozzáfűzésével.
           description_another: Ez a felhasználó %{score} vitában vett részt.
           description_own: Részt vett %{score} vitában.
