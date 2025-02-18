@@ -224,8 +224,8 @@ pt:
       badges:
         accepted_proposals:
           conditions:
-            - Escolha o espaço de participação do seu interesse com o envio de propostas ativado
-            - Tente fazer propostas que possam ser realizadas. Desta forma, estas são mais propensas a serem aceites.
+          - Escolha o espaço de participação do seu interesse com o envio de propostas ativado
+          - Tente fazer propostas que possam ser realizadas. Desta forma, estas são mais propensas a serem aceites.
           description: Este distintivo é concedido quando participa ativamente em novas propostas e essas são aceites.
           description_another: Este participante obteve %{score} propostas aceites.
           description_own: Tem %{score} propostas aceites.
@@ -235,12 +235,12 @@ pt:
           unearned_own: Ainda não recebeu alguma proposta.
         proposal_votes:
           conditions:
-            - Navegue e passe algum tempo a ler as propostas de outras pessoas
-            - 
+          - Navegue e passe algum tempo a ler as propostas de outras pessoas
+          - 
         proposals:
           conditions:
-            - Escolha o espaço de participação do seu interesse com o envio de propostas ativado
-            - Criar uma nova proposta
+          - Escolha o espaço de participação do seu interesse com o envio de propostas ativado
+          - Criar uma nova proposta
           description: Este distintivo é concedido quando participa ativamente em novas propostas.
           description_another: Este participante criou %{score} propostas.
           description_own: Criou %{score} propostas.
