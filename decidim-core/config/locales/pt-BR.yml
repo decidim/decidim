@@ -892,7 +892,7 @@ pt-BR:
       badges:
         followers:
           conditions:
-            - Ser ativo e seguir outras pessoas certamente fará com que outras pessoas o sigam.
+          - Ser ativo e seguir outras pessoas certamente fará com que outras pessoas o sigam.
           description: Esse selo é concedido quando você alcança um certo número de seguidores. %{organization_name} é uma rede social e política, teça sua web para se comunicar com outras pessoas na plataforma.
           description_another: Esse usuário possui %{score} seguidores.
           description_own: "%{score} usuários estão seguindo você."
