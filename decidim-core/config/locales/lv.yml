@@ -36,7 +36,6 @@ lv:
     attributes:
       decidim/user:
         current_password: Pašreizējā parole
-        email: E-pasts
         name: Segvārds
         password: Parole
         password_confirmation: Paroles apstiprināšana
@@ -336,15 +335,12 @@ lv:
           username_help: Publiski redzamais vārds, kas parādās pie jūsu ierakstiem. Lai garantētu anonimitāti, tas var būt jebkurš vārds.
       sessions:
         new:
-          are_you_new?: Vai esat jauns platformas lietotājs?
           register: Izveidot kontu
       shared:
         newsletter_modal:
           buttons:
             check: Pārbaudīt un turpināt
           title: Paziņojumi par informatīvajiem biļeteniem
-        omniauth_buttons:
-          or: vai
     doorkeeper:
       authorizations:
         new:
