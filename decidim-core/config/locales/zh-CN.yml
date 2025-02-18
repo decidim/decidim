@@ -536,7 +536,7 @@ zh-CN:
       badges:
         followers:
           conditions:
-            - 积极关注其他人必将使其他人跟随你。
+          - 积极关注其他人必将使其他人跟随你。
           description: 当您到达一定数量的追随者时，将颁发这个徽章。 %{organization_name} 是一个社交和政治网络，编织您的网络来与平台上的其他人进行交流。
           description_another: 此参与者有 %{score} 个关注者。
           description_own: "%{score} 个人正在关注你。"
