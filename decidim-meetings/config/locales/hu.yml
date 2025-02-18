@@ -158,7 +158,7 @@ hu:
       badges:
         attended_meetings:
           conditions:
-            - Regisztráljon a találkozóra, amelyen részt szeretne venni
+          - Regisztráljon a találkozóra, amelyen részt szeretne venni
           description: Ezt a jelvényt akkor kapja meg, ha több személyes találkozót szervez.
           description_another: Ez a felhasználó %{score} találkozón vett részt.
           description_own: '%{score} találkozóra vett részt.'
