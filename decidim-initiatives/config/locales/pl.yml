@@ -193,8 +193,8 @@ pl:
       badges:
         initiatives:
           conditions:
-            - Idź do przestrzeni partycypacyjnej Inicjatyw
-            - Postępuj zgodnie z instrukcjami, aby utworzyć nową inicjatywę
+          - Idź do przestrzeni partycypacyjnej Inicjatyw
+          - Postępuj zgodnie z instrukcjami, aby utworzyć nową inicjatywę
           description: Ta odznaka jest przyznawana, gdy tworzysz nowe inicjatywy, współpracując z innymi, aby je zrealizować.
           description_another: Ten użytkownik posiada %{score} opublikowanych inicjatyw.
           description_own: Masz %{score} opublikowanych inicjatyw.
