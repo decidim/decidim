@@ -218,8 +218,8 @@ tr:
       badges:
         accepted_proposals:
           conditions:
-            - Tekliflerin sunulması etkinleştirilmiş ilgilendiğiniz katılım alanını seçin
-            - Gerçekleştirilebilecek teklifler vermeye çalışın. Bu şekilde kabul edilmeleri daha olasıdır.
+          - Tekliflerin sunulması etkinleştirilmiş ilgilendiğiniz katılım alanını seçin
+          - Gerçekleştirilebilecek teklifler vermeye çalışın. Bu şekilde kabul edilmeleri daha olasıdır.
           description: Bu rozet, yeni tekliflere aktif olarak katıldığınızda verilir ve bunlar kabul edilir.
           description_another: Bu katılımcı kabul edilen %{score} teklif aldı.
           description_own: '%{score} teklif kabul ettiniz.'
@@ -229,12 +229,12 @@ tr:
           unearned_own: Henüz kabul edilen teklifin yok.
         proposal_votes:
           conditions:
-            - Göz atın ve diğer insanların önerilerini okumak için biraz zaman harcayın
-            - 
+          - Göz atın ve diğer insanların önerilerini okumak için biraz zaman harcayın
+          - 
         proposals:
           conditions:
-            - Tekliflerin sunulması için gönderim ile ilgilendiğiniz katılım alanını seçin
-            - Yeni bir teklif oluştur
+          - Tekliflerin sunulması için gönderim ile ilgilendiğiniz katılım alanını seçin
+          - Yeni bir teklif oluştur
           description: Bu rozet, yeni tekliflere aktif olarak katıldığınızda verilir.
           description_another: Bu katılımcı %{score} teklif hazırladı.
           description_own: '%{score} teklif oluşturdunuz.'
