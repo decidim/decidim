@@ -196,8 +196,8 @@ ja:
       badges:
         initiatives:
           conditions:
-            - Intiatives の参加スペースに移動
-            - 新しいイニシアチブを作成するには、手順に従ってください
+          - Intiatives の参加スペースに移動
+          - 新しいイニシアチブを作成するには、手順に従ってください
           description: このバッジは、新しいイニシアチブを開始し、他の人と提携して実行するときに付与されます。
           description_another: この参加者は %{score} のイニシアチブを公開しました。
           description_own: '%{score} 件のイニシアチブが公開されました。'
