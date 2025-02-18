@@ -1,7 +1,5 @@
-.suggested-hashtags {
-  @apply m-4;
-
-  > * label {
+.hashtags {
+  > label {
     @apply ml-4;
   }
 }
