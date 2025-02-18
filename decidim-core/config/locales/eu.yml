@@ -1077,8 +1077,8 @@ eu:
       attachment_link:
         explanation: Gida erantsitako fitxategien esteketarako
         help_messages:
-          - URL formatu zuzenak onartzen dira soilik.
-          - Mesedez, kontuan izan estekak publikoak izan behar direla parte-hartzaile guztiak sartu ahal izateko.
+        - URL formatu zuzenak onartzen dira soilik.
+        - Mesedez, kontuan izan estekak publikoak izan behar direla parte-hartzaile guztiak sartu ahal izateko.
       errors:
         decidim/user:
           password: Pasahitza laburregia da.
@@ -1129,7 +1129,7 @@ eu:
       badges:
         followers:
           conditions:
-            - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
+          - Beste pertsona batzuei aktibo eta jarraitzen zaien ziurgabetasuna beste pertsona batzuek segituko dute.
           description: Bereizgarria jarraitzaile kopuru jakin batera iristen zarenean ematen da. %{organization_name} sare soziala eta politikoa da, zure web-orria plataforman beste pertsona batzuekin komunikatzeko ehuna egiten du.
           description_another: Parte-hartzaile honek %{score} jarraitzaile ditu.
           description_own: "%{score} parte-hartzailek jarraitzen zaituzte."
