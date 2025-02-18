@@ -173,8 +173,8 @@ ro:
       badges:
         initiatives:
           conditions:
-            - Mergeți la spațiul de participare al inițiativelor
-            - Urmează pașii necesari pentru a crea o nouă inițiativă
+          - Mergeți la spațiul de participare al inițiativelor
+          - Urmează pașii necesari pentru a crea o nouă inițiativă
           description: Această insignă este acordată atunci când lansezi noi inițiative, colaborând cu alții pentru a o realiza.
           description_another: Acest participant a publicat %{score} inițiative.
           name: Inițiative publicate
