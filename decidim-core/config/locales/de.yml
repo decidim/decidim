@@ -79,6 +79,7 @@ de:
         with_participatory_space: Partizipativer Raum
       decidim/user:
         current_password: Aktuelles Passwort
+        email: E-Mail-Adresse
         name: Spitzname
         password: Passwort
         password_confirmation: Bestätigung des Passworts
@@ -564,6 +565,8 @@ de:
             dummy_step_attribute1: Dummy-Schritt-Attribut 1
             dummy_step_attribute2: Dummy-Schritt-Attribut 2
             dummy_step_translatable_text: Übersetzbarer Blindtext des Schritts
+      pagination:
+        page_title: "%{component_name} - Seite %{current_page} von %{total_pages}"
     contact: Kontakt
     content_blocks:
       announcement:
@@ -672,6 +675,7 @@ de:
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
       sessions:
         new:
+          are_you_new?: Noch nicht registriert?
           register: Konto erstellen
           sign_in_disabled: Sie können mit einem externen Konto darauf zugreifen.
           sign_up_disabled: Registrierungen sind deaktiviert. Verwenden Sie ein bestehendes Konto für den Zugriff.
@@ -695,6 +699,8 @@ de:
             haben wir vollstes Verständnis für Ihre Entscheidung.</p>
             <p>Vielen Dank, dass Sie sich die Zeit zum Lesen genommen haben!</p>
           title: Newsletter Benachrichtigungen
+        omniauth_buttons:
+          or: oder
         password_fields:
           hidden_password: Ihr Passwort ist versteckt
           hide_password: Passwort verstecken
@@ -758,6 +764,11 @@ de:
           published: Ob diese private Teilnahme veröffentlicht ist oder nicht
           role: Die Rolle, die diese private Teilnahme hat
           updated_at: Das Datum und die Uhrzeit, als diese private Teilnahme zuletzt aktualisiert wurde
+        reports:
+          created_at: Das Datum und die Uhrzeit, an der dieser Bericht erstellt wurde
+          details: Die Details dieses Berichts
+          id: Die eindeutige Bezeichnung dieses Berichts
+          locale: Die Sprache dieses Berichts
         user_groups:
           document_number: Die Dokumentennummer dieser Benutzergruppe
           id: Die eindeutige Bezeichnung der Gruppe
@@ -1061,8 +1072,8 @@ de:
       attachment_link:
         explanation: Anleitung für Anhang-Links
         help_messages:
-          - Nur korrekte URL-Formate werden akzeptiert.
-          - Bitte beachten Sie, dass die Links öffentlich sein müssen, damit alle Teilnehmer auf sie zugreifen können.
+        - Nur korrekte URL-Formate werden akzeptiert.
+        - Bitte beachten Sie, dass die Links öffentlich sein müssen, damit alle Teilnehmer auf sie zugreifen können.
       errors:
         decidim/user:
           password: Das Passwort ist zu kurz.
@@ -1113,7 +1124,7 @@ de:
       badges:
         followers:
           conditions:
-            - Aktiv zu sein und anderen Menschen zu folgen, wird sicherlich andere Menschen dazu bringen, dir zu folgen.
+          - Aktiv zu sein und anderen Menschen zu folgen, wird sicherlich andere Menschen dazu bringen, dir zu folgen.
           description: Dieses Abzeichen wird gewährt, wenn Sie eine bestimmte Anzahl von Followern erreichen. %{organization_name} ist ein soziales und politisches Netzwerk, weben Sie Ihr Web, um mit anderen Menschen auf der Plattform zu kommunizieren.
           description_another: Diese*r Benutzer*in hat %{score} Follower.
           description_own: "%{score} Benutzer*innen folgen dir."
