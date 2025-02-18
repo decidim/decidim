@@ -243,8 +243,8 @@ zh-TW:
       badges:
         accepted_proposals:
           conditions:
-            - 選擇您有興趣的參與空間並啟用提交提案功能
-            - 嘗試提出可以實現的提案，這樣它們更有可能被接受。
+          - 選擇您有興趣的參與空間並啟用提交提案功能
+          - 嘗試提出可以實現的提案，這樣它們更有可能被接受。
           description: 這個徽章是當你積極參與提出新的提案並且這些提案被接受時授予的。
           description_another: 這個參與者有 %{score} 個被接受的提案。
           description_own: 您有 %{score} 個提案被接受。
@@ -254,12 +254,12 @@ zh-TW:
           unearned_own: 你尚未有任何提案被接受。
         proposal_votes:
           conditions:
-            - 瀏覽並花些時間閱讀其他人的提案
-            - 
+          - 瀏覽並花些時間閱讀其他人的提案
+          - 
         proposals:
           conditions:
-            - 選擇您有興趣的參與空間並啟用提交提案功能
-            - 提出新的提案
+          - 選擇您有興趣的參與空間並啟用提交提案功能
+          - 提出新的提案
           description: 當您積極參與新提案時，將獲得此徽章。
           description_another: 這個參與者已經創建了 %{score} 個提案。
           description_own: 您已經建立了 %{score} 個提案。
