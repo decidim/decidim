@@ -500,6 +500,8 @@ de:
             dummy_step_attribute1: Dummy-Schritt-Attribut 1
             dummy_step_attribute2: Dummy-Schritt-Attribut 2
             dummy_step_translatable_text: Übersetzbarer Blindtext des Schritts
+      pagination:
+        page_title: "%{component_name} - Seite %{current_page} von %{total_pages}"
     contact: Kontakt
     content_blocks:
       announcement:
