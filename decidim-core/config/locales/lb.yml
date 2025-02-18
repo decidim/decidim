@@ -599,7 +599,7 @@ lb:
       badges:
         followers:
           conditions:
-            - Aktiv sinn an aneren Persounen nogoen dréit dozou bäi, dass aner Persounen dir och noginn.
+          - Aktiv sinn an aneren Persounen nogoen dréit dozou bäi, dass aner Persounen dir och noginn.
           description: Dëst Ofzeechen kritt een, wann eng bestëmmten Zuel vun Leit engem noginn. %{organization_name} ass en sozialt politescht Netzwierk. Spann däin Netz, fir dech mat aneren Mënschen op der der Plattform ze kommunizéieren.
           description_another: Dësen Benotzer huet %{score} Unhänger.
           description_own: "%{score} Benotzer ginn dir no."
