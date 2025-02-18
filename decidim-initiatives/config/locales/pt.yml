@@ -160,8 +160,8 @@ pt:
       badges:
         initiatives:
           conditions:
-            - Ir para o espaço de participação de Iniciativas
-            - Siga os passos para criar uma nova iniciativa
+          - Ir para o espaço de participação de Iniciativas
+          - Siga os passos para criar uma nova iniciativa
           description: Este distintivo é concedido quando lança novas iniciativas, estabelecendo parcerias com outras pessoas para realizá-las.
           description_another: Este participante teve %{score} iniciativas publicadas.
           name: Iniciativas publicadas
