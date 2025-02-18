@@ -1074,8 +1074,8 @@ ca:
       attachment_link:
         explanation: Guia per enllaços adjunts
         help_messages:
-          - Només s'accepten format d'URL correctes.
-          - Tingues en compte que els enllaços han de ser públics perquè tots els participants hi puguin accedir.
+        - Només s'accepten format d'URL correctes.
+        - Tingues en compte que els enllaços han de ser públics perquè tots els participants hi puguin accedir.
       errors:
         decidim/user:
           password: La contrasenya és massa curta.
@@ -1126,7 +1126,7 @@ ca:
       badges:
         followers:
           conditions:
-            - Ser activa i seguir a altres persones segurament farà que altres persones et segueixin.
+          - Ser activa i seguir a altres persones segurament farà que altres persones et segueixin.
           description: Aquesta distinció es concedeix quan arribis a un cert nombre de seguidors. %{organization_name} és una xarxa social i política, teixeix la teva web per comunicar-te amb altres persones a la plataforma.
           description_another: Aquesta participant té %{score} seguidores.
           description_own: "%{score} participants et segueixen."
