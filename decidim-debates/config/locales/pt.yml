@@ -169,7 +169,7 @@ pt:
       badges:
         commented_debates:
           conditions:
-            - Escolha um debate em aberto para participar
+          - Escolha um debate em aberto para participar
           description: Este distintivo é concedido quando participa ativamente em diferentes debates deixando os seus comentários.
           description_another: Este participante fez parte de %{score} debates.
           description_own: Participou em %{score} debates.
