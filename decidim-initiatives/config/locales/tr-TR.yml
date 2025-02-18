@@ -155,8 +155,8 @@ tr:
       badges:
         initiatives:
           conditions:
-            - Intiatives'in katılım alanına git
-            - Yeni bir girişim oluşturmak için adımları izleyin
+          - Intiatives'in katılım alanına git
+          - Yeni bir girişim oluşturmak için adımları izleyin
           description: Bu rozet, yeni girişimler başlattığınızda, bunları gerçekleştirmek için başkalarıyla ortaklık kurduğunuzda verilir.
           description_another: Bu katılımcı, yayınlanan %{score} girişimi aldı.
           name: Yayınlanmış girişimler
