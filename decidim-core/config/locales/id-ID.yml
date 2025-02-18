@@ -28,7 +28,6 @@ id:
     attributes:
       decidim/user:
         current_password: Kata sandi saat ini
-        email: E-mail
         name: Nama pengguna
         password: Kata sandi
         password_confirmation: konfirmasi kata kunci
@@ -272,15 +271,12 @@ id:
           username_help: Nama publik yang muncul di pos Anda. Dengan tujuan menjamin anonimitas, dapat berupa nama apa pun.
       sessions:
         new:
-          are_you_new?: Baru ke platform?
           register: Buat sebuah akun
       shared:
         newsletter_modal:
           buttons:
             check: Periksa dan lanjutkan
           title: Notifikasi buletin
-        omniauth_buttons:
-          or: Atau
     doorkeeper:
       authorizations:
         new:

@@ -78,7 +78,7 @@ es-PY:
         with_participatory_space: Espacio de participación
       decidim/user:
         current_password: Contraseña actual
-        email: Correo electrónico
+        email: Dirección de correo electrónico
         name: Nombre de usuario
         password: Contraseña
         password_confirmation: Confirmación de contraseña
@@ -564,6 +564,8 @@ es-PY:
             dummy_step_attribute1: Atributo de paso ficticio 1
             dummy_step_attribute2: Atributo de paso ficticio 2
             dummy_step_translatable_text: Fase de ejemplo traducible
+      pagination:
+        page_title: "%{component_name} - Página %{current_page} de %{total_pages}"
     contact: Contacto
     content_blocks:
       announcement:
@@ -672,7 +674,7 @@ es-PY:
           username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
       sessions:
         new:
-          are_you_new?: '¿Eres nuevo en la plataforma?'
+          are_you_new?: '¿No te has registrado todavía?'
           register: Créate una cuenta
           sign_in_disabled: Puedes acceder con una cuenta externa.
           sign_up_disabled: La creación de cuentas está deshabilitada, puedes utilizar una cuenta existente para acceder.
@@ -693,7 +695,7 @@ es-PY:
             <p>¡Gracias por leer esto!</p>
           title: Notificaciones de boletines
         omniauth_buttons:
-          or: O
+          or: o
         password_fields:
           hidden_password: Tu contraseña está oculta
           hide_password: Ocultar contraseña
