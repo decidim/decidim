@@ -184,7 +184,7 @@ lt:
       badges:
         commented_debates:
           conditions:
-            - Pasirinkite atvirą diskusiją ir dalyvaukite
+          - Pasirinkite atvirą diskusiją ir dalyvaukite
           description: Šis ženklelis suteikiamas, kai aktyviai dalyvaujate įvairiose diskusijose pateikdami komentarus.
           description_another: Šis dalyvis dalyvavo %{score} diskusijose.
           description_own: Jūs dalyvavote %{score} diskusijose.
