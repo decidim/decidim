@@ -253,7 +253,7 @@ ca:
       badges:
         attended_meetings:
           conditions:
-            - Inscriu-te a les trobades a les que vols assistir
+          - Inscriu-te a les trobades a les que vols assistir
           description: Aquest distintiu s'aconsegueix assistint a diverses reunions presencials.
           description_another: Aquesta participant ha assistit a %{score} trobades.
           description_own: Has assistit a %{score} trobades.
@@ -409,10 +409,10 @@ ca:
         poll:
           form:
             announcement_html:
-              - Quan una pregunta rep respostes o està publicada/tancada, ja no es pot seguir editant.
-              - Pots afegir una pregunta en qualsevol moment.
-              - El sondeig/la consulta en directe es tancarà quan es publiquin els resultats de totes les preguntes creades.
-              - Visita la <a href='%{admin_link}'>pàgina d'administració d'enquestes</a> per enviar preguntes i publicar resultats.
+            - Quan una pregunta rep respostes o està publicada/tancada, ja no es pot seguir editant.
+            - Pots afegir una pregunta en qualsevol moment.
+            - El sondeig/la consulta en directe es tancarà quan es publiquin els resultats de totes les preguntes creades.
+            - Visita la <a href='%{admin_link}'>pàgina d'administració d'enquestes</a> per enviar preguntes i publicar resultats.
         registrations:
           edit:
             save: Desa
