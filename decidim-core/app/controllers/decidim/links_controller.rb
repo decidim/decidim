@@ -11,7 +11,7 @@ module Decidim
     include Decidim::OrganizationHelper
     include Decidim::QrCodeHelper
     helper Decidim::ExternalDomainHelper
-    helper_method :external_url, :resource, :qr_code
+    helper_method :external_url, :resource, :qr_code, :qr_code_image
 
     before_action :parse_url, only: :new
 
