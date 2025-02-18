@@ -153,7 +153,7 @@ pt:
       badges:
         attended_meetings:
           conditions:
-            - Registe-se nas reuniões em que deseja participar
+          - Registe-se nas reuniões em que deseja participar
           description: Este distintivo é concedido quando participa em várias reuniões presenciais.
           description_another: Este participante assistiu a %{score} reuniões.
           description_own: Participou em %{score} reuniões.
