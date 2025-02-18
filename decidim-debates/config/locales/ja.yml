@@ -52,9 +52,12 @@ ja:
     debates:
       actions:
         close: 閉じる
+        confirm_delete_debate: このディベートを削除してもよろしいですか？
+        deleted_debate_info: 削除された議論はゴミ箱から復元できます。
         edit: 編集
         new: 新しいディベート
         title: アクション
+        view_deleted_debates: 削除されたディベートを表示
       admin:
         debate_closes:
           edit:
@@ -68,6 +71,7 @@ ja:
             title: ディベートを編集
             update: ディベートを更新
           form:
+            add_attachments: 添付ファイルを追加
             debate_type: ディベートタイプ
             finite: 期間限定 (開始時刻と終了時刻あり)
             open: 無期限 (開始時刻または終了時刻なし)
