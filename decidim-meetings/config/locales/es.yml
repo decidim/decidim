@@ -253,7 +253,7 @@ es:
       badges:
         attended_meetings:
           conditions:
-            - Inscríbete en los encuentros a los que quieres asistir
+          - Inscríbete en los encuentros a los que quieres asistir
           description: Este distintivo se consigue asistiendo a varios encuentros presenciales.
           description_another: Esta participante asistió a %{score} encuentros.
           description_own: Has asistido a %{score} encuentros.
@@ -409,10 +409,10 @@ es:
         poll:
           form:
             announcement_html:
-              - Cuando una pregunta recibe respuestas o está publicada/cerrada, ya no se puede editar.
-              - Puedes añadir una pregunta en cualquier momento.
-              - La consulta se cerrará cuando se hayan publicado los resultados de todas las preguntas creadas.
-              - Visita la <a href='%{admin_link}'>página de administración de encuestas</a> para enviar preguntas y publicar resultados.
+            - Cuando una pregunta recibe respuestas o está publicada/cerrada, ya no se puede editar.
+            - Puedes añadir una pregunta en cualquier momento.
+            - La consulta se cerrará cuando se hayan publicado los resultados de todas las preguntas creadas.
+            - Visita la <a href='%{admin_link}'>página de administración de encuestas</a> para enviar preguntas y publicar resultados.
         registrations:
           edit:
             save: Guardar
