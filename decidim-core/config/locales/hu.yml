@@ -819,7 +819,7 @@ hu:
       badges:
         followers:
           conditions:
-            - Az aktív és más emberek követése biztosan másokat követni fog.
+          - Az aktív és más emberek követése biztosan másokat követni fog.
           description: Ez a jelvény akkor érhető el, ha bizonyos számú követőt ér el. A %{organization_name} egy társadalmi és politikai hálózat, ahol rengeteg tér van arra, hogy értelmesen kommunikáljon más emberekkel.
           description_another: Ennek a felhasználónak %{score} követője van.
           description_own: "%{score} felhasználó követi Önt."
