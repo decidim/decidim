@@ -21,7 +21,11 @@ export default function icon(iconKey, attributes = {}) {
     if (typeof htmlAttributes[key] === "undefined") {
       htmlAttributes[newKey] = iconAttributes[key];
     } else {
-      htmlAttributes[newKey] = `${htmlAttributes[newKey]} ${iconAttributes[key]}`;
+      if (iconAttributes[key] === null) {
+        delete htmlAttributes[newKey];
+      } else {
+        htmlAttributes[newKey] = `${htmlAttributes[newKey]} ${iconAttributes[key]}`;
+      }
     }
   });
 
