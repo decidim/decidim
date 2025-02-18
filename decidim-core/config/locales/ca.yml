@@ -1933,7 +1933,7 @@ ca:
       invited: Tens una invitació pendent, accepta-la per acabar de crear el teu compte.
       last_attempt: Tens un intent més abans que el teu compte es bloquegi.
       locked: El teu compte està bloquejat.
-      not_found_in_database: El %{authentication_keys} o la contrasenya no són vàlids.
+      not_found_in_database: L'%{authentication_keys} o la contrasenya no són vàlids.
       timeout: La teva sessió ha expirat. Si us plau, torna a iniciar-la per continuar.
       unauthenticated: Cal iniciar sessió o crear un compte abans de continuar.
     invitations:
