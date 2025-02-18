@@ -931,7 +931,7 @@ ca:
           scope: Àmbit
           search: Cerca
           state: Estat
-          taxonomy_filters:
+          taxonomy_filters: Filtres
           type: Tipus
           voted: Has donat suport
         index:
