@@ -1,3 +1,5 @@
+import icon from "src/decidim/icon"
+
 /**
  * A custom confirm dialog for Decidim based on Foundation reveals.
  *
@@ -15,16 +17,21 @@ class ConfirmDialog {
     }
     this.$content = $("[data-confirm-modal-content]", this.$modal);
     this.$title = $("[data-dialog-title]", this.$modal);
+    this.$iconContainer = $(".confirm-modal-icon", this.$modal);
     this.$buttonConfirm = $("[data-confirm-ok]", this.$modal);
     this.$buttonCancel = $("[data-confirm-cancel]", this.$modal);
 
     window.Decidim.currentDialogs["confirm-modal"].open()
   }
 
-  confirm(message, title) {
+  confirm(message, title, iconName) {
     if (title) {
       this.$title.html(title);
     }
+    if (iconName) {
+      this.$iconContainer.html(icon(iconName, { width: null, height: null }));
+    }
+
     this.$content.html(message);
 
     this.$buttonConfirm.off("click");
@@ -55,9 +62,9 @@ class ConfirmDialog {
   }
 }
 
-const runConfirm = (message, sourceElement = null, title = null) => new Promise((resolve) => {
+const runConfirm = (message, sourceElement = null, opts = {}) => new Promise((resolve) => {
   const dialog = new ConfirmDialog(sourceElement);
-  dialog.confirm(message, title).then((answer) => {
+  dialog.confirm(message, opts.title, opts.iconName).then((answer) => {
     let completed = true;
     if (sourceElement) {
       completed = Rails.fire(sourceElement, "confirm:complete", [answer]);
@@ -77,7 +84,10 @@ const runConfirm = (message, sourceElement = null, title = null) => new Promise(
 // so for the moment this needs to be executed **before** Rails.start()
 const allowAction = (ev, element) => {
   const message = $(element).data("confirm");
-  const title = $(element).data("confirm-title");
+  const opts = {
+    title: $(element).data("confirm-title"),
+    iconName: $(element).data("confirm-icon")
+  };
   if (!message) {
     return true;
   }
@@ -86,7 +96,7 @@ const allowAction = (ev, element) => {
     return false;
   }
 
-  runConfirm(message, element, title).then((answer) => {
+  runConfirm(message, element, opts).then((answer) => {
     if (!answer) {
       return;
     }
@@ -98,6 +108,8 @@ const allowAction = (ev, element) => {
     $(element).removeAttr("data-confirm");
     $(element).data("confirm-title", null);
     $(element).removeAttr("data-confirm-title");
+    $(element).data("confirm-icon", null);
+    $(element).removeAttr("data-confirm-icon");
 
     // The submit button click events will not do anything if they are
     // dispatched as is. In these cases, just submit the underlying form.
