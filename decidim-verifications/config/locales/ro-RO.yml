@@ -44,16 +44,16 @@ ro:
       admin:
         id_documents:
           help:
-            - Utilizatorii completează informațiile lor de identitate și încarcă o copie a documentului lor.
-            - Ai completat informațiile prezente în imaginea încărcată.
-            - Informaţiile trebuie să corespundă cu ce a completat utilizatorul.
-            - 
+          - Utilizatorii completează informațiile lor de identitate și încarcă o copie a documentului lor.
+          - Ai completat informațiile prezente în imaginea încărcată.
+          - Informaţiile trebuie să corespundă cu ce a completat utilizatorul.
+          - 
         postal_letter:
           help:
-            - Participanții solicită un cod de verificare pentru a fi trimis la adresa lor.
-            - Trimiți scrisoarea la adresa lor cu codul de verificare.
-            - Marchează scrisoarea drept trimisă.
-            - Odată ce marchezi scrisoarea drept trimisă, participantul va putea introduce codul și va putea fi verificat.
+          - Participanții solicită un cod de verificare pentru a fi trimis la adresa lor.
+          - Trimiți scrisoarea la adresa lor cu codul de verificare.
+          - Marchează scrisoarea drept trimisă.
+          - Odată ce marchezi scrisoarea drept trimisă, participantul va putea introduce codul și va putea fi verificat.
       csv_census:
         name: Recensământul organizației
       direct: Direct
