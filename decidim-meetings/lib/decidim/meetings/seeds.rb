@@ -130,15 +130,11 @@ module Decidim
         case author_type
         when :user
           params.merge(
-            author: Decidim::User.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
+            author: Decidim::User.not_user_group.where(decidim_organization_id: participatory_space.decidim_organization_id).all.sample
           )
         when :user_group
-          user_group = Decidim::UserGroup.where(decidim_organization_id: participatory_space.decidim_organization_id).verified.sample
-          author = user_group.users.sample
-
           params.merge(
-            author:,
-            user_group:
+            author: Decidim::User.user_group.where(decidim_organization_id: participatory_space.decidim_organization_id).verified.sample
           )
         else
           params # official
