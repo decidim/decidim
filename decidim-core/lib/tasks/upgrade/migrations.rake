@@ -61,6 +61,7 @@ namespace :decidim do
 
       # This has been extracted from activerecord file lib/active_record/migration.rb
       inserted_comment = "# This migration comes from #{scope} (originally #{version})\n"
+      inserted_comment += "# This file has been modified by `decidim upgrade:migrations` task on #{Time.now.utc}\n"
       magic_comments = +""
       loop do
         source.sub!(/\A(?:#.*\b(?:en)?coding:\s*\S+|#\s*frozen_string_literal:\s*(?:true|false)).*\n/) do |magic_comment|
