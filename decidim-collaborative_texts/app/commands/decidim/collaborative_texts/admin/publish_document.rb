@@ -4,11 +4,11 @@ module Decidim
   module CollaborativeTexts
     module Admin
       # This command is executed when the user publishes an
-      # existing collaborative text.
+      # existing collaborative text document.
       class PublishDocument < Decidim::Command
         # Public: Initializes the command.
         #
-        # collaborative text - Decidim::CollaborativeTexts::Document
+        # document - Decidim::CollaborativeTexts::Document
         # current_user - the user performing the action
         def initialize(document, current_user)
           @document = document
@@ -36,7 +36,7 @@ module Decidim
         attr_reader :document, :current_user
 
         def publish_document
-          @collaborative_text = Decidim.traceability.perform_action!(
+          @document = Decidim.traceability.perform_action!(
             :publish,
             document,
             current_user,
