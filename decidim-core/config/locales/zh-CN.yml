@@ -38,7 +38,6 @@ zh-CN:
     attributes:
       decidim/user:
         current_password: 当前密码
-        email: 电子邮件地址
         name: 昵称
         password: 密码
         password_confirmation: 密码确认
@@ -328,7 +327,6 @@ zh-CN:
           username_help: 在您的帖子上出现的公共名称。为了保证匿名，可以使用任何名称。
       sessions:
         new:
-          are_you_new?: 新建平台？
           register: 创建帐户
       shared:
         newsletter_modal:
@@ -336,8 +334,6 @@ zh-CN:
             check: 检查并继续
             uncheck: 保持未选中的
           title: 通讯通知
-        omniauth_buttons:
-          or: 或
     doorkeeper:
       authorizations:
         new:
