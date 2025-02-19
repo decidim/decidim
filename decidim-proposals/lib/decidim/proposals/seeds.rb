@@ -159,9 +159,9 @@ module Decidim
 
         case n
         when 0
-          Decidim::User.where(organization:).sample
+          Decidim::User.not_user_group.where(organization:).sample
         when 1
-          Decidim::UserGroup.where(organization:).sample
+          Decidim::User.user_group.where(organization:).sample
         when 2
           meeting_component = participatory_space.components.find_by(manifest_name: "meetings")
 
@@ -184,25 +184,6 @@ module Decidim
       def create_emendation!(proposal:)
         author = find_or_initialize_user_by(email: random_email(suffix: "amendment"))
 
-        group = Decidim::UserGroup.create!(
-          name: ::Faker::Name.name,
-          nickname: random_nickname,
-          email: ::Faker::Internet.email,
-          extended_data: {
-            document_number: ::Faker::Code.isbn,
-            phone: ::Faker::PhoneNumber.phone_number,
-            verified_at: Time.current
-          },
-          organization:,
-          confirmed_at: Time.current
-        )
-
-        Decidim::UserGroupMembership.create!(
-          user: author,
-          role: "creator",
-          user_group: group
-        )
-
         params = {
           component: proposal.component,
           title: Decidim::Faker::Localized.literal(proposal.title[I18n.locale]),
@@ -220,7 +201,7 @@ module Decidim
           visibility: "public-only"
         ) do
           emendation = Decidim::Proposals::Proposal.new(params)
-          emendation.add_coauthor(author, user_group: author.user_groups.first)
+          emendation.add_coauthor(author)
           emendation.save!
           emendation
         end

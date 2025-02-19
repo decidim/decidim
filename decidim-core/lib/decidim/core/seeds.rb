@@ -105,8 +105,9 @@ module Decidim
         )
 
         Decidim::User.find_each do |user|
+          username, domain = user.email.split("@")
           [nil, Time.current].each do |verified_at|
-            create_user_group!(user:, verified_at:)
+            create_user_group!(email: "#{username}+user_group@#{domain}", verified_at:)
           end
         end
 
@@ -239,25 +240,19 @@ module Decidim
         )
       end
 
-      def create_user_group!(user:, verified_at:)
-        user_group = Decidim::UserGroup.create!(
-          name: ::Faker::Company.unique.name,
-          nickname: ::Faker::Twitter.unique.screen_name,
-          email: ::Faker::Internet.email,
+      def create_user_group!(email:, verified_at:)
+        user_group = find_or_initialize_user_by(email:)
+        user_group.update!(
           confirmed_at: Time.current,
           extended_data: {
+            group: true,
             document_number: ::Faker::Number.number(digits: 10).to_s,
             phone: ::Faker::PhoneNumber.phone_number,
             verified_at:
-          },
-          decidim_organization_id: user.organization.id
+          }
         )
 
-        Decidim::UserGroupMembership.create!(
-          user:,
-          role: "creator",
-          user_group:
-        )
+        user_group
       end
     end
   end

@@ -45,9 +45,9 @@ module Decidim
 
         6.times do |n|
           author = if n >= 3
-                     Decidim::User.where(organization: component.organization).sample
+                     Decidim::User.not_user_group.where(organization: component.organization).sample
                    elsif n <= 1
-                     Decidim::UserGroup.where(organization: component.organization).sample
+                     Decidim::User.user_group.where(organization: component.organization).sample
                    else
                      component.organization
                    end
