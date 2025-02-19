@@ -33,7 +33,7 @@ module Decidim
           }
         end
 
-        it "does not show help sections" do
+        it "does not display any help section" do
           expect(subject).to be_blank
         end
       end
@@ -45,7 +45,7 @@ module Decidim
           }
         end
 
-        it "display a help sections" do
+        it "displays a help sections" do
           expect(subject).to include("participatory processes are")
         end
       end
