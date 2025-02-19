@@ -299,7 +299,7 @@ FactoryBot.define do
     privatable_to { create(:assembly, organization: user.organization, skip_injection:) }
   end
 
-  factory :user_group, class: "Decidim::UserGroup" do
+  factory :user_group, class: "Decidim::User" do
     transient do
       skip_injection { false }
       document_number { "#{Faker::Number.number(digits: 8)}X" }
@@ -307,17 +307,18 @@ FactoryBot.define do
       rejected_at { nil }
       verified_at { nil }
     end
-
+    password_updated_at { Time.current }
+    previous_passwords { [] }
+    extended_data { { group: true } }
     sequence(:name) { |n| "#{Faker::Company.name} #{n}" }
     email { generate(:user_group_email) }
     nickname { generate(:nickname) }
     about { generate_localized_title(:user_group_about, skip_injection:) }
     organization
+    tos_agreement { "1" }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") } # Keep after organization
-
-    transient do
-      users { [] }
-    end
+    confirmation_sent_at { Time.current }
+    accepted_tos_version { organization.tos_version }
 
     trait :verified do
       verified_at { Time.current }
@@ -339,6 +340,7 @@ FactoryBot.define do
     end
 
     after(:build) do |user_group, evaluator|
+      user_group.password ||= evaluator.password || "decidim123456789"
       user_group.extended_data = user_group.extended_data.merge({
                                                                   document_number: evaluator.document_number,
                                                                   phone: evaluator.phone,
@@ -346,27 +348,6 @@ FactoryBot.define do
                                                                   verified_at: evaluator.verified_at
                                                                 })
     end
-
-    after(:create) do |user_group, evaluator|
-      users = evaluator.users.dup
-      next if users.empty?
-
-      creator = users.shift
-      create(:user_group_membership, user: creator, user_group:, role: :creator, skip_injection: evaluator.skip_injection)
-
-      users.each do |user|
-        create(:user_group_membership, user:, user_group:, role: :admin, skip_injection: evaluator.skip_injection)
-      end
-    end
-  end
-
-  factory :user_group_membership, class: "Decidim::UserGroupMembership" do
-    transient do
-      skip_injection { false }
-    end
-    user { create(:user, :confirmed, organization: user_group.organization, skip_injection:) }
-    role { :creator }
-    user_group
   end
 
   factory :identity, class: "Decidim::Identity" do
