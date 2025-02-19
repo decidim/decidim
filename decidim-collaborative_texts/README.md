@@ -2,8 +2,8 @@
 
 The Decidim::CollaborativeTexts is a component that allows users to collaboratively create and amend texts through the use of suggestions and comments.
 
-> **WARNING** 
-> This module is under development and isn't ready for usage yet.
+> **WARNING**
+> This module is under development and is not ready for usage yet.
 
 ## Installation
 
