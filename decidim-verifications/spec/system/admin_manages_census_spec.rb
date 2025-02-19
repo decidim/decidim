@@ -100,6 +100,7 @@ describe "Admin manages census" do
           expect(page).to have_content("Results per page")
           click_on "Next"
         end
+        expect(page).to have_content("Current census data")
         expect(page).to have_css(".table-list tbody tr", count: 2)
       end
     end
