@@ -533,6 +533,8 @@ cs:
             dummy_step_attribute1: Atribut 1 zástupného kroku
             dummy_step_attribute2: Atribut 2 zástupného kroku
             dummy_step_translatable_text: Zástupný krok textu k přeložení
+      pagination:
+        page_title: "%{component_name} - Strana %{current_page} z %{total_pages}"
     contact: Kontakt
     content_blocks:
       announcement:
