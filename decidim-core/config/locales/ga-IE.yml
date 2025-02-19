@@ -21,7 +21,6 @@ ga:
   activerecord:
     attributes:
       decidim/user:
-        email: Seoladh ríomhphoist
         name: Leasainm
         password: Pasfhocal
   booleans:
@@ -99,9 +98,6 @@ ga:
       registrations:
         new:
           log_in: Logáil isteach
-      shared:
-        omniauth_buttons:
-          or: Nó
     doorkeeper:
       authorizations:
         new:

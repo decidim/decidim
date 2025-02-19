@@ -58,7 +58,6 @@ pt-BR:
         with_participatory_space: Espaço participativo
       decidim/user:
         current_password: Senha atual
-        email: E-mail
         name: Nome de usuário
         password: Senha
         password_confirmation: Confirmação de senha
@@ -594,7 +593,6 @@ pt-BR:
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       sessions:
         new:
-          are_you_new?: Novo na plataforma?
           register: Criar uma conta
           sign_in_disabled: Você pode acessar com uma conta externa.
           sign_up_disabled: A Criação de Conta está desabilitada, você pode usar um usuário que já existe para acessar.
@@ -606,8 +604,6 @@ pt-BR:
             check: Verificar e continuar
             uncheck: Manter desmarcado
           title: Notificações de newsletter
-        omniauth_buttons:
-          or: Ou
         password_fields:
           hidden_password: Sua senha está oculta
           hide_password: Ocultar Senha
