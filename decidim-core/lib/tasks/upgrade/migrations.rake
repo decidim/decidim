@@ -61,7 +61,6 @@ namespace :decidim do
 
       # This has been extracted from activerecord file lib/active_record/migration.rb
       inserted_comment = "# This migration comes from #{scope} (originally #{version})\n"
-      inserted_comment += "# This file has been modified by `decidim upgrade:migrations` task on #{Time.now.utc}\n"
       magic_comments = +""
       loop do
         source.sub!(/\A(?:#.*\b(?:en)?coding:\s*\S+|#\s*frozen_string_literal:\s*(?:true|false)).*\n/) do |magic_comment|
@@ -82,7 +81,10 @@ namespace :decidim do
 
       logger.warn("[Patch migration] Replacing content of #{File.basename(target_file)}")
 
-      File.binwrite(target_file, new_source)
+      additional_comment = "# This file has been modified by `decidim upgrade:migrations` task on #{Time.now.utc}\n"
+      source = new_source.gsub(inserted_comment, "#{inserted_comment}#{additional_comment}")
+
+      File.binwrite(target_file, source)
     end
 
     def logger
