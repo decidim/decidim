@@ -26,10 +26,32 @@ module Decidim
         allow(helper).to receive(:help_id).and_return("participatory_processes")
       end
 
+      context "when help_section is empty" do
+        let(:help_section) do
+          {}
+        end
+
+        it "does not display any help section" do
+          expect(subject).to be_blank
+        end
+      end
+
+      context "when help_section is blank" do
+        let(:help_section) do
+          {
+            en: ""
+          }
+        end
+
+        it "does not display any help section" do
+          expect(subject).to be_blank
+        end
+      end
+
       context "when help_section is an empty paragraph" do
         let(:help_section) do
           {
-            en: "<p></p>"
+            en: "<p><strong> </strong></p>"
           }
         end
 
