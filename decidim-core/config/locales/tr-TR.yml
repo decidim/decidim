@@ -38,7 +38,6 @@ tr:
     attributes:
       decidim/user:
         current_password: Şimdiki Şifre
-        email: E-posta
         name: Rumuz
         password: Şifre
         password_confirmation: Şifre onayı
@@ -386,7 +385,6 @@ tr:
           username_help: Yayınlarınızda görünen genel ad. Anonimlik garantilemek amacıyla herhangi bir isim olabilir.
       sessions:
         new:
-          are_you_new?: Platformda yeni misiniz?
           register: Hesap oluştur
         user:
           timed_out: Çok uzun süre işlem yapmadınız /hareketsiz kaldınız ve oturumunuz otomatik olarak kapatıldı. Hizmeti kullanmaya devam etmek istiyorsanız lütfen tekrar giriş yapın.
@@ -396,8 +394,6 @@ tr:
             check: Kontrol et ve devam et
             uncheck: İşaretlemeyin
           title: Bülten bildirimleri
-        omniauth_buttons:
-          or: Veya
         password_fields:
           hidden_password: Şifreniz Gizlidir
           hide_password: Şifrenizi Gizleyin

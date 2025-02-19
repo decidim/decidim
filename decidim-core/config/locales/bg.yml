@@ -56,7 +56,6 @@ bg:
         with_participatory_space: Пространство за участници
       decidim/user:
         current_password: Текуща парола
-        email: Ел. поща
         name: Псевдоним
         password: Парола
         password_confirmation: Потвърждаване на паролата
@@ -588,7 +587,6 @@ bg:
           username_help: Публичното име ще се показва във Вашите публикации. Ако желаете анонимност, изберете го произволно.
       sessions:
         new:
-          are_you_new?: Нов сте в тази платформа?
           register: Създай профил
           sign_in_disabled: Може да влезете с външен профил.
         user:
@@ -610,8 +608,6 @@ bg:
             разберете решението си.</p>
             <p>Благодарим, че прочетохте това!</p>
           title: Известия за новости
-        omniauth_buttons:
-          or: Или
         password_fields:
           hidden_password: Вашата парола е скрита
           hide_password: Скриване на паролата
