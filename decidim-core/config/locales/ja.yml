@@ -78,7 +78,6 @@ ja:
         with_participatory_space: 参加型スペース
       decidim/user:
         current_password: 現在のパスワード
-        email: メールアドレス
         name: アカウントID
         password: パスワード
         password_confirmation: パスワードの確認
@@ -632,7 +631,6 @@ ja:
           username_help: 投稿に表示される公表名。匿名性を保証する目的で、任意の名前にすることができます。
       sessions:
         new:
-          are_you_new?: プラットフォームは初めてですか？
           register: アカウントを作成
           sign_in_disabled: 外部アカウントでアクセスできます。
           sign_up_disabled: アカウントの作成が無効になっています。既存のアカウントを使用してアクセスできます。
@@ -651,8 +649,6 @@ ja:
             それでもニュースレターの受信を避けたい場合は、私たちはその決定を尊重します。 </p>
             <p>お読みいただきありがとうございます。</p>
           title: ニュースレター通知
-        omniauth_buttons:
-          or: または
         password_fields:
           hidden_password: あなたのパスワードは非表示です
           hide_password: パスワードを隠す

@@ -157,7 +157,7 @@ contingut
 continuar
 contrasenya
 coopdevs
-Correu
+correu
 Cov
 Cprojects
 crdownload
