@@ -179,6 +179,14 @@ de:
             creation_enabled_for_user_groups: Besprechung-Erstellung durch Benutzergruppen aktiviert
     download_your_data:
       help:
+        invites:
+          accepted_at: Datum und Uhrzeit, an dem diese Einladung angenommen wurde
+          created_at: Datum und Uhrzeit, an dem diese Einladung erstellt wurde
+          id: Die eindeutige Bezeichnung dieser Einladung
+          meeting: Die Veranstaltung, zu der eingeladen wurde
+          rejected_at: Datum und Uhrzeit, an dem diese Einladung abgelehnt wurde
+          sent_at: Datum und Uhrzeit, an dem diese Einladung versendet wurde
+          updated_at: Datum und Uhrzeit, an dem diese Einladung zuletzt aktualisiert wurde
         registrations:
           code: Der Registrierungscode
           id: Die eindeutige Bezeichnung der Registrierung

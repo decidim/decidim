@@ -9,13 +9,17 @@ module Decidim
 
         helper_method :documents, :document
 
-        def index; end
+        def index
+          enforce_permission_to :read, :document
+        end
 
         def new
+          enforce_permission_to :create, :document
           @form = form(DocumentForm).instance
         end
 
         def create
+          enforce_permission_to :create, :document
           @form = form(DocumentForm).from_params(params)
 
           CreateDocument.call(@form) do
@@ -32,10 +36,12 @@ module Decidim
         end
 
         def edit
+          enforce_permission_to(:update, :document, document:)
           @form = form(DocumentForm).from_model(document)
         end
 
         def update
+          enforce_permission_to(:update, :document, document:)
           @form = form(DocumentForm).from_params(params)
 
           UpdateDocument.call(@form, document) do
@@ -72,6 +78,7 @@ module Decidim
         end
 
         def publish
+          enforce_permission_to(:update, :document, document:)
           Decidim::CollaborativeTexts::Admin::PublishDocument.call(document, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("documents.publish.success", scope: "decidim.collaborative_texts.admin")
@@ -86,6 +93,7 @@ module Decidim
         end
 
         def unpublish
+          enforce_permission_to(:update, :document, document:)
           Decidim::CollaborativeTexts::Admin::UnpublishDocument.call(document, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("documents.unpublish.success", scope: "decidim.collaborative_texts.admin")

@@ -43,7 +43,6 @@ nl:
     attributes:
       decidim/user:
         current_password: Huidige wachtwoord
-        email: E-mailadres
         name: Bijnaam
         password: Wachtwoord
         password_confirmation: Wachtwoordbevestiging
@@ -385,7 +384,6 @@ nl:
           username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
       sessions:
         new:
-          are_you_new?: Nieuw op het platform?
           register: Een account aanmaken
       shared:
         newsletter_modal:
@@ -393,8 +391,6 @@ nl:
             check: Controleer en ga door
             uncheck: Uitgeschakeld houden
           title: Nieuwsbriefmeldingen
-        omniauth_buttons:
-          or: Of
     doorkeeper:
       authorizations:
         new:

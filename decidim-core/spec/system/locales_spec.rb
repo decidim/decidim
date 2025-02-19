@@ -62,7 +62,7 @@ describe "Locales" do
         click_on "Entra"
       end
 
-      expect(page).to have_content("El Correu electrònic o la contrasenya no són vàlids.")
+      expect(page).to have_content("Adreça de correu electrònic o la contrasenya no són vàlids.")
     end
 
     context "with a signed in user" do

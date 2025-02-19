@@ -5,7 +5,7 @@ Decidim.register_component(:collaborative_texts) do |component|
   component.admin_engine = Decidim::CollaborativeTexts::AdminEngine
   component.icon = "media/images/decidim_collaborative_texts.svg"
   component.icon_key = "draft-line"
-  # component.permissions_class_name = "Decidim::CollaborativeTexts::Permissions"
+  component.permissions_class_name = "Decidim::CollaborativeTexts::Permissions"
 
   # component.query_type = "Decidim::CollaborativeTexts::CollaborativeTextsType"
 
