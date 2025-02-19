@@ -6,7 +6,7 @@ module Decidim
       module Admin
         # A form to temporarily upload csv census data
         class CensusForm < Form
-          attribute :email, String
+          attribute :email
 
           validates :email, presence: true, "valid_email_2/email": { disposable: true }
         end
