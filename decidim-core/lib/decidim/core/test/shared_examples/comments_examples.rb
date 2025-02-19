@@ -703,15 +703,11 @@ shared_examples "comments" do
       end
     end
 
-    context "when the user has verified organizations" do
-      let(:user_group) { create(:user_group, :verified, organization:) }
+    context "when the user is a confirmed and verified organization" do
+      let!(:user) { create(:user_group, :confirmed, :verified, organization:) }
       let(:content) { "This is a new comment" }
 
-      before do
-        create(:user_group_membership, user:, user_group:)
-      end
-
-      it "adds new comment as a user group" do
+      it "adds new comment like a regular user" do
         visit resource_path
 
         within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
@@ -721,7 +717,7 @@ shared_examples "comments" do
           click_on "Publish comment"
         end
 
-        expect(page).to have_comment_from(user_group, content, wait: 20)
+        expect(page).to have_comment_from(user, content, wait: 20)
       end
     end
 
