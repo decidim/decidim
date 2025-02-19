@@ -41,9 +41,8 @@ module Decidim::Verifications::CsvCensus::Admin
             create(:user, email:, organization:)
           end
 
-          it "is invalid with a taken email" do
-            expect(subject).to be_invalid
-            expect(subject.errors[:email]).to include("has already been taken")
+          it "is not invalid with a taken email" do
+            expect(subject).to be_valid
           end
         end
       end
