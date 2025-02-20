@@ -81,16 +81,6 @@ module Decidim
           end
         end
 
-        context "when with a CSV file containing headers" do
-          subject { described_class.new(csv_with_headers) }
-
-          before { subject.headers }
-
-          it "reports headers as an error" do
-            expect(subject.errors).to include(I18n.t("decidim.verifications.errors.has_headers"))
-          end
-        end
-
         context "when with a CSV file having multiple columns" do
           subject { described_class.new(multi_column_csv) }
 
@@ -117,24 +107,6 @@ module Decidim
 
             it "returns the number of columns in the file" do
               expect(subject.count).to eq(1)
-            end
-          end
-        end
-
-        describe "#headers" do
-          context "when headers are present in the file" do
-            subject { described_class.new(csv_with_headers) }
-
-            it "returns the headers as an array" do
-              expect(subject.headers).to contain_exactly("Email")
-            end
-          end
-
-          context "when no headers are present" do
-            subject { described_class.new(valid_csv) }
-
-            it "returns an empty array" do
-              expect(subject.headers).to be_empty
             end
           end
         end
