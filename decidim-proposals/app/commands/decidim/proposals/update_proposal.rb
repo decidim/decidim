@@ -75,7 +75,7 @@ module Decidim
         PaperTrail.request(enabled: false) do
           @proposal.update(attributes)
           @proposal.coauthorships.clear
-          @proposal.add_coauthor(current_user, user_group:)
+          @proposal.add_coauthor(current_user)
         end
       end
 
@@ -87,7 +87,7 @@ module Decidim
           visibility: "public-only"
         )
         @proposal.coauthorships.clear
-        @proposal.add_coauthor(current_user, user_group:)
+        @proposal.add_coauthor(current_user)
       end
 
       def attributes
@@ -135,8 +135,11 @@ module Decidim
         Proposal.from_author(current_user).where(component: form.current_component).published.where.not(id: proposal.id).not_withdrawn
       end
 
+      # TODO: deprecate user_group
       def user_group_proposals
-        Proposal.from_user_group(user_group).where(component: form.current_component).published.where.not(id: proposal.id).not_withdrawn
+        return []
+
+        # Proposal.from_user_group(user_group).where(component: form.current_component).published.where.not(id: proposal.id).not_withdrawn
       end
     end
   end

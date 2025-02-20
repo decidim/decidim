@@ -85,7 +85,7 @@ module Decidim
             proposal.taxonomizations = form.taxonomizations if form.taxonomizations.present?
             proposal.documents = form.documents if form.documents.present?
             proposal.address = form.address if form.has_address? && !form.geocoded?
-            proposal.add_coauthor(@current_user, user_group:)
+            proposal.add_coauthor(@current_user)
             proposal.save!
             @attached_to = proposal
             proposal
@@ -119,8 +119,11 @@ module Decidim
         Proposal.not_withdrawn.from_author(@current_user).where(component: form.current_component)
       end
 
+      # TODO: deprecate user_group
       def user_group_proposals
-        Proposal.not_withdrawn.from_user_group(@user_group).where(component: form.current_component)
+        return []
+
+        # Proposal.not_withdrawn.from_user_group(@user_group).where(component: form.current_component)
       end
 
       def first_attachment_weight
