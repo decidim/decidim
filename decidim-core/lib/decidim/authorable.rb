@@ -11,20 +11,47 @@ module Decidim
 
     included do
       belongs_to :author, polymorphic: true, foreign_key: "decidim_author_id", foreign_type: "decidim_author_type"
-      belongs_to :user_group, foreign_key: "decidim_user_group_id", class_name: "Decidim::UserGroup", optional: true
 
       scope :with_official_origin, lambda {
         where(decidim_author_type: "Decidim::Organization")
       }
 
       scope :with_user_group_origin, lambda {
-        where(decidim_author_type: "Decidim::UserBaseEntity")
-          .where.not(decidim_user_group_id: nil)
+        users_table = Decidim::User.arel_table
+        joins(
+          arel_table.join(users_table).on(
+            arel_table[:decidim_author_id].eq(users_table[:id]),
+            arel_table[:decidim_author_type].eq("Decidim::UserBaseEntity")
+          ).join_sources
+        ).where(
+          Arel.sql(
+            ActiveRecord::Base.sanitize_sql_array(
+              [
+                "#{users_table.name}.extended_data @> :group_condition",
+                { group_condition: Arel.sql({ group: true }.to_json) }
+              ]
+            )
+          )
+        )
       }
 
       scope :with_participants_origin, lambda {
-        where(decidim_author_type: "Decidim::UserBaseEntity")
-          .where(decidim_user_group_id: nil)
+        users_table = Decidim::User.arel_table
+        joins(
+          arel_table.join(users_table).on(
+            arel_table[:decidim_author_id].eq(users_table[:id]),
+            arel_table[:decidim_author_type].eq("Decidim::UserBaseEntity")
+          ).join_sources
+        ).where.not(
+          Arel.sql(
+            ActiveRecord::Base.sanitize_sql_array(
+              [
+                "#{users_table.name}.extended_data @> :group_condition",
+                { group_condition: Arel.sql({ group: true }.to_json) }
+              ]
+            )
+          )
+        )
       }
 
       scope :with_any_origin, lambda { |*origin_keys|
@@ -43,23 +70,23 @@ module Decidim
         scoped_query
       }
 
-      validate :verified_user_group, :user_group_membership
+      validate :verified_user_group
       validate :author_belongs_to_organization
 
-      # Checks whether the user is author of the given resource, either directly
-      # authoring it or via a user group.
+      # Checks whether the user is author of the given resource
       #
       # user - the user to check for authorship
-      def authored_by?(other_author)
-        other_author == author || (other_author.respond_to?(:user_groups) && other_author.user_groups.include?(user_group))
+      def authored_by?(user)
+        user == author
       end
 
       # Returns the normalized author, whether it is a user group or a user. Ideally this should be
       # the *author* method, but it is pending a refactor.
       #
       # Returns an Author, a UserGroup or nil.
+      # TODO - Deprecate this method, normalized author must be the author
       def normalized_author
-        user_group || author
+        author
       end
 
       # Public: Checks whether the resource is official or not.
@@ -70,21 +97,20 @@ module Decidim
       end
 
       def author_name
-        translated_attribute(normalized_author.name)
+        translated_attribute(author.name)
+      end
+
+      def user_group
+        return author if author.group?
       end
 
       private
 
+      # TODO: This condition should remain?
       def verified_user_group
         return unless user_group
 
         errors.add :user_group, :invalid unless user_group.verified?
-      end
-
-      def user_group_membership
-        return unless user_group
-
-        errors.add :user_group, :invalid unless user_group.users.include? author
       end
 
       def author_belongs_to_organization
