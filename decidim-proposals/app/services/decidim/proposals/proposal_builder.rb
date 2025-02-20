@@ -14,10 +14,11 @@ module Decidim
       # action_user       - The User to be used as the user who is creating the proposal in the traceability logs.
       #
       # Returns a Proposal.
+      # TODO - deprecate user_group_author argument
       def create(attributes:, author:, action_user:, user_group_author: nil)
         Decidim.traceability.perform_action!(:create, Proposal, action_user, visibility: "all") do
           proposal = Proposal.new(attributes)
-          proposal.add_coauthor(author, user_group: user_group_author)
+          proposal.add_coauthor(author)
           proposal.save!
           proposal
         end
@@ -36,7 +37,7 @@ module Decidim
         Decidim.traceability.perform_action!(:create, Proposal, action_user, visibility: "all") do
           proposal = Proposal.new(attributes)
           original_proposal.coauthorships.each do |coauthorship|
-            proposal.add_coauthor(coauthorship.author, user_group: coauthorship.user_group)
+            proposal.add_coauthor(coauthorship.author)
           end
           proposal.save!
           proposal
@@ -57,6 +58,7 @@ module Decidim
       # Returns a Proposal
       #
       # rubocop:disable Metrics/ParameterLists
+      # TODO - deprecate user_group_author argument
       def copy(original_proposal, author:, action_user:, user_group_author: nil, extra_attributes: {}, skip_link: false)
         origin_attributes = original_proposal.attributes.except(
           "id",
