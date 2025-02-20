@@ -15,8 +15,7 @@ module Decidim
         attribute :accepting_suggestions, Boolean, default: false
         translatable_attribute :announcement, Decidim::Attributes::RichText
 
-        validates :title, presence: true, etiquette: true, if: ->(form) { form.title.present? }
-        validates :body, presence: true, if: ->(form) { form.body.present? }
+        validates :title, etiquette: true, if: ->(form) { form.title.present? }
       end
     end
   end
