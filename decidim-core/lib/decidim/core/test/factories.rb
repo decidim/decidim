@@ -1026,8 +1026,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     resource { build(:dummy_resource, skip_injection:) }
-    author { build(:user, organization: resource.organization, skip_injection:) }
-    user_group { create(:user_group, verified_at: Time.current, organization: resource.organization, users: [author], skip_injection:) }
+    author { create(:user_group, verified_at: Time.current, organization: resource.organization, skip_injection:) }
   end
 
   factory :share_token, class: "Decidim::ShareToken" do
