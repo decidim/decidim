@@ -72,7 +72,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("documents.update_settings.invalid", scope: "decidim.collaborative_texts.admin")
-              render template: edit_settings_template
+              render action: "edit_settings"
             end
           end
         end
