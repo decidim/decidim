@@ -516,7 +516,7 @@ en:
             success: Proposals assigned to a evaluator successfully.
           delete:
             invalid: There was a problem unassigning proposals from a evaluator.
-            success: evaluator unassigned from proposals successfully.
+            success: Evaluator unassigned from proposals successfully.
         exports:
           proposal_comments: Comments
           proposals: Proposals

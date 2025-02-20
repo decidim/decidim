@@ -28,14 +28,14 @@ module Decidim
         def action_string
           case action
           when "create", "delete"
-            "decidim.proposals.admin_log.valuation_assignment.#{action}"
+            "decidim.proposals.admin_log.evaluation_assignment.#{action}"
           else
             super
           end
         end
 
         def i18n_labels_scope
-          "activemodel.attributes.valuation_assignment.admin_log"
+          "activemodel.attributes.evaluation_assignment.admin_log"
         end
 
         def diff_actions
