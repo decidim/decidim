@@ -229,7 +229,6 @@ en:
             one: Participation is restricted to participants with the postal code %{postal_codes}, and your postal code is %{user_postal_code}.
             other: 'Participation is restricted to participants with any of the following postal codes: %{postal_codes}. Your postal code is %{user_postal_code}.'
       errors:
-        has_headers: The file must not contain headers.
         invalid_emails: 'The following email addresses are invalid: %{invalid_emails}.'
         no_emails: The file must contain emails
         wrong_number_columns: "%{expected} column were expected, but %{actual} were found."

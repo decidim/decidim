@@ -14,7 +14,7 @@ module Decidim
       #
       # Returns nothing
       class Data
-        attr_reader :errors, :values
+        attr_reader :errors, :values, :file
 
         def initialize(file)
           @file = file
@@ -32,17 +32,6 @@ module Decidim
 
         def count
           @column_count || 0
-        end
-
-        def headers
-          first_row = CSV.open(@file, encoding: "BOM|UTF-8", &:first)
-
-          return [] unless first_row
-
-          return [] if valid_email?(first_row.first)
-
-          errors << I18n.t("decidim.verifications.errors.has_headers")
-          return first_row.map(&:strip)
         end
 
         private

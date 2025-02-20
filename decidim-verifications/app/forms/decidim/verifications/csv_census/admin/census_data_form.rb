@@ -36,7 +36,6 @@ module Decidim
             data.values.each do |value|
               errors.add(:base, I18n.t("decidim.verifications.errors.invalid_emails", invalid_emails: value)) unless valid_email?(value)
             end
-            errors.add(:base, I18n.t("decidim.verifications.errors.has_headers")) if data.headers.any?
           end
 
           private
