@@ -16,6 +16,7 @@ module Decidim
         translatable_attribute :announcement, Decidim::Attributes::RichText
 
         validates :title, presence: true, etiquette: true, if: ->(form) { form.title.present? }
+        validates :body, presence: true, if: ->(form) { form.body.present? }
       end
     end
   end
