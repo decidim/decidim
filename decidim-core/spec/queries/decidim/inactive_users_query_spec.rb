@@ -18,21 +18,21 @@ describe Decidim::InactiveUsersQuery do
     create(:user, organization: organization,
                   current_sign_in_at: 294.days.ago,
                   created_at: 400.days.ago,
-                  extended_data: { "inactivity_notification" => { "type" => "first", "sent_at" => 23.days.ago } })
+                  extended_data: { "inactivity_notification" => { "notification_type" => "first", "sent_at" => 23.days.ago } })
   end
 
   let!(:user_ready_for_removal) do
     create(:user, organization: organization,
                   current_sign_in_at: 400.days.ago,
                   created_at: 400.days.ago,
-                  extended_data: { "inactivity_notification" => { "type" => "second", "sent_at" => 40.days.ago } })
+                  extended_data: { "inactivity_notification" => { "notification_type" => "second", "sent_at" => 40.days.ago } })
   end
 
   let!(:user_logged_in_after_notification) do
     create(:user, organization: organization,
                   current_sign_in_at: 1.day.ago,
                   created_at: 400.days.ago,
-                  extended_data: { "inactivity_notification" => { "type" => "second", "sent_at" => 7.days.ago } })
+                  extended_data: { "inactivity_notification" => { "notification_type" => "second", "sent_at" => 7.days.ago } })
   end
 
   describe "#for_first_warning" do

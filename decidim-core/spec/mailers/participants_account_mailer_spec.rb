@@ -48,7 +48,7 @@ module Decidim
       it "renders the headers" do
         expect(mail.subject).to eq("Inactive account deleted")
         expect(mail.to).to eq([user.email])
-        expect(mail.from).to eq([default_sender_email]) # Учитывает текущий sender
+        expect(mail.from).to eq([default_sender_email])
       end
 
       it "includes the organization name in the body" do

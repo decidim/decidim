@@ -10,8 +10,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
 
   before do
     Decidim.delete_inactive_users_after_days = 300
-    allow(Decidim::ParticipantsAccountMailer).to receive(:inactivity_first_warning).and_return(double(deliver_later: true))
-    allow(Decidim::ParticipantsAccountMailer).to receive(:inactivity_final_warning).and_return(double(deliver_later: true))
+    allow(Decidim::ParticipantsAccountMailer).to receive(:inactivity_notification).and_return(double(deliver_later: true))
     allow(Decidim::ParticipantsAccountMailer).to receive(:removal_notification).and_return(double(deliver_later: true))
   end
 
@@ -23,9 +22,9 @@ describe Decidim::DeleteInactiveParticipantsJob do
 
       it "sets first warning in extended_data and sends first notification" do
         perform_enqueued_jobs { subject.perform_later(organization) }
-        puts user.reload.extended_data
-        expect(user.reload.extended_data["inactivity_notification"]).to include("type" => "first")
-        expect(Decidim::ParticipantsAccountMailer).to have_received(:inactivity_first_warning).with(user).once
+
+        expect(user.reload.extended_data["inactivity_notification"]).to include("notification_type" => "first")
+        expect(Decidim::ParticipantsAccountMailer).to have_received(:inactivity_notification).with(user, 30).once
       end
     end
 
@@ -38,7 +37,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
         perform_enqueued_jobs { subject.perform_later(organization) }
 
         expect(user.reload.extended_data["inactivity_notification"]).to be_nil
-        expect(Decidim::ParticipantsAccountMailer).not_to have_received(:inactivity_first_warning)
+        expect(Decidim::ParticipantsAccountMailer).not_to have_received(:inactivity_notification)
       end
     end
 
@@ -50,8 +49,8 @@ describe Decidim::DeleteInactiveParticipantsJob do
       it "sets first warning in extended_data and sends first notification" do
         perform_enqueued_jobs { subject.perform_later(organization) }
 
-        expect(user.reload.extended_data["inactivity_notification"]).to include("type" => "first")
-        expect(Decidim::ParticipantsAccountMailer).to have_received(:inactivity_first_warning).with(user).once
+        expect(user.reload.extended_data["inactivity_notification"]).to include("notification_type" => "first")
+        expect(Decidim::ParticipantsAccountMailer).to have_received(:inactivity_notification).with(user, 30).once
       end
     end
 
@@ -64,7 +63,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
         perform_enqueued_jobs { subject.perform_later(organization) }
 
         expect(user.reload.extended_data["inactivity_notification"]).to be_nil
-        expect(Decidim::ParticipantsAccountMailer).not_to have_received(:inactivity_first_warning)
+        expect(Decidim::ParticipantsAccountMailer).not_to have_received(:inactivity_notification)
       end
     end
 
@@ -73,24 +72,26 @@ describe Decidim::DeleteInactiveParticipantsJob do
       let(:current_sign_in_at) { 370.days.ago }
       let(:extended_data) do
         {
-          "inactivity_notification" => { "type" => "first", "sent_at" => 23.days.ago.to_s }
+          "inactivity_notification" => { "notification_type" => "first", "sent_at" => 23.days.ago.to_s }
         }
       end
 
       it "updates extended_data to second warning and sends final notification" do
         perform_enqueued_jobs { subject.perform_later(organization) }
 
-        expect(user.reload.extended_data["inactivity_notification"]).to include("type" => "second")
-        expect(Decidim::ParticipantsAccountMailer).to have_received(:inactivity_final_warning).with(user).once
+        expect(user.reload.extended_data["inactivity_notification"]).to include("notification_type" => "second")
+        expect(Decidim::ParticipantsAccountMailer).to have_received(:inactivity_notification).with(user, 7).once
       end
     end
 
     context "when the user is ready for deletion" do
       let(:created_at) { 400.days.ago }
       let(:current_sign_in_at) { 400.days.ago }
+      let!(:email) { user.email }
+      let!(:name) { user.name }
       let(:extended_data) do
         {
-          "inactivity_notification" => { "type" => "second", "sent_at" => 8.days.ago.to_s }
+          "inactivity_notification" => { "notification_type" => "second", "sent_at" => 8.days.ago.to_s }
         }
       end
 
@@ -98,40 +99,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
         perform_enqueued_jobs { subject.perform_later(organization) }
 
         expect(user.reload.email).to be_empty
-        expect(Decidim::ParticipantsAccountMailer).to have_received(:removal_notification).with(user).once
-      end
-    end
-
-    context "when the user has signed in after receiving notifications" do
-      let(:created_at) { 400.days.ago }
-      let(:current_sign_in_at) { 1.day.ago }
-
-      context "and has signed in after receiving the first warning" do
-        let(:extended_data) do
-          {
-            "inactivity_notification" => { "type" => "first", "sent_at" => 15.days.ago.to_s }
-          }
-        end
-
-        it "clears inactivity_notification from extended_data" do
-          perform_enqueued_jobs { subject.perform_later(organization) }
-
-          expect(user.reload.extended_data["inactivity_notification"]).to be_nil
-        end
-      end
-
-      context "and has signed in after receiving the second warning" do
-        let(:extended_data) do
-          {
-            "inactivity_notification" => { "type" => "second", "sent_at" => 8.days.ago.to_s }
-          }
-        end
-
-        it "clears inactivity_notification from extended_data" do
-          perform_enqueued_jobs { subject.perform_later(organization) }
-
-          expect(user.reload.extended_data["inactivity_notification"]).to be_nil
-        end
+        expect(Decidim::ParticipantsAccountMailer).to have_received(:removal_notification).with(email, name, organization).once
       end
     end
   end

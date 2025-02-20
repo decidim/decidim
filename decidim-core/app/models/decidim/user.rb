@@ -78,6 +78,14 @@ module Decidim
 
     scope :ephemeral, -> { where("extended_data @> ?", Arel.sql({ ephemeral: true }.to_json)) }
 
+    scope :with_inactivity_notification, -> {
+      where("extended_data ? 'inactivity_notification'")
+    }
+
+    scope :active_after_notification, -> {
+      where("current_sign_in_at > (extended_data->'inactivity_notification'->>'sent_at')::timestamp")
+    }
+
     attr_accessor :newsletter_notifications
 
     searchable_fields({

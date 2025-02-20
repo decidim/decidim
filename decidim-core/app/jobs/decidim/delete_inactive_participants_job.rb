@@ -15,43 +15,39 @@ module Decidim
     private
 
     def clear_notifications_for_active_users(organization)
-      organization.users
-                  .not_deleted
-                  .where("extended_data ? 'inactivity_notification'")
-                  .where("current_sign_in_at > (extended_data->'inactivity_notification'->>'sent_at')::timestamp")
-                  .find_each do |user|
-        user.transaction do
-          user.extended_data.delete("inactivity_notification")
-          user.save!
-        end
+      process_users(organization.users.not_deleted
+                                .with_inactivity_notification
+                                .active_after_notification) do |user|
+        user.extended_data.delete("inactivity_notification")
+        user.save!
       end
     end
 
     def send_first_warning_notifications(users)
-      process_users(users) do |user|
-        user.update!(
-          extended_data: user.extended_data.merge(
-            "inactivity_notification" => { "type" => "first", "sent_at" => Time.current }
-          )
-        )
-        send_notification(user, :inactivity_first_warning)
-      end
+      send_warning_notification(users, "first", Decidim.delete_inactive_users_first_warning_days_before)
     end
 
     def send_last_warning_notifications(users)
+      send_warning_notification(users, "second", Decidim.delete_inactive_users_last_warning_days_before)
+    end
+
+    def send_warning_notification(users, type, days)
       process_users(users) do |user|
         user.update!(
           extended_data: user.extended_data.merge(
-            "inactivity_notification" => { "type" => "second", "sent_at" => Time.current }
+            "inactivity_notification" => {
+              "notification_type" => type,
+              "sent_at" => Time.current
+            }
           )
         )
-        send_notification(user, :inactivity_final_warning)
+        send_notification(user, :inactivity_notification, days)
       end
     end
 
     def remove_inactive_users(users)
       process_users(users) do |user|
-        send_notification(user, :removal_notification)
+        send_notification(user, :removal_notification, user.email, user.name, user.organization)
         delete_user_account(user)
       end
     end
@@ -64,8 +60,13 @@ module Decidim
       end
     end
 
-    def send_notification(user, mailer_method)
-      ParticipantsAccountMailer.public_send(mailer_method, user).deliver_later
+    def send_notification(user, mailer_method, *)
+      case mailer_method
+      when :removal_notification
+        ParticipantsAccountMailer.public_send(mailer_method, *).deliver_later
+      else
+        ParticipantsAccountMailer.public_send(mailer_method, user, *).deliver_later
+      end
     end
 
     def delete_user_account(user)
