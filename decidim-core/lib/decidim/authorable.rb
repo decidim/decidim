@@ -101,7 +101,7 @@ module Decidim
       end
 
       def user_group
-        return author if author.group?
+        return author if author.is_a?(Decidim::UserBaseEntity) && author.group?
       end
 
       private
