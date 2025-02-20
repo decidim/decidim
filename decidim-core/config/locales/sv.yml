@@ -716,7 +716,42 @@ sv:
           created_at: Datum och tid då identiteten skapades
           id: Unikt id för identiteten
           provider: Leverantören av identiteten
+        participatory_space_private_users:
+          created_at: Datum och tid när den privata användaren skapades
+          id: Unikt id för den privata användaren
+          privatable_to: Till vilken plats den privata användaren tillhör
+          published: Om den privata användaren är publicerad eller inte
+          role: Den privata användarens roll
+          updated_at: Datum och tid när den privata användaren senast uppdaterades
+        reports:
+          created_at: Datum och tid för när rapporteringen skapades
+          details: Mer information om rapporteringen
+          id: Unikt id för rapporteringen
+          locale: Rapporteringens språk
+          moderation: Moderering av rapporteringen
+          reason: Anledning till rapporteringen
+          updated_at: Datum och tid för när rapporteringen senast uppdaterades
+        user_groups:
+          document_number: Dokumentnumret för denna användargrupp
+          id: Unikt id för användargruppen
+          name: Namn på användargruppen
+          phone: Telefonnummer till användargruppen
+          verified_at: Datum och tid för när användargruppen verifierades
         users:
+          about: Presentation av användaren
+          accepted_tos_version: Det datum då användarvillkoren godkändes av användaren
+          admin: Om användaren är administratör
+          confirmation_sent_at: Datum och tid då bekräftelsen skickades
+          confirmed_at: Datum och tid när användaren bekräftades
+          created_at: Datum och tid när användaren skapades
+          current_sign_in_at: Datum och tid för den aktuella inloggningen
+          current_sign_in_ip: IP-adressen för den aktuella inloggningen
+          delete_reason: Anledningen till att ta bort denna användare
+          deleted_at: Datum och tid när användaren togs bort
+          email: E-postadressen till användaren
+          followers_count: Antal deltagare som följer användaren
+          following_count: Antal deltagare som användaren följer
+          id: Unikt id för användaren
           invited_by: Användaren som bjöd in den här användaren
           last_sign_in_at: Datum och tid för senaste inloggningen
           last_sign_in_ip: IP-adressen för den senaste inloggningen
