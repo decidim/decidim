@@ -143,6 +143,10 @@ module Decidim
       !officialized_at.nil?
     end
 
+    def group?
+      extended_data["group"]
+    end
+
     def follows?(followable)
       Decidim::Follow.where(user: self, followable:).any?
     end
