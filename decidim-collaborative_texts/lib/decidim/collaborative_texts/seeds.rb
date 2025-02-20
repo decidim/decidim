@@ -67,7 +67,7 @@ module Decidim
           rand(1..4).times do
             text_block << "<h#{level}>#{::Faker::Lorem.word.capitalize}</h#{level}>"
             text_block << ::Faker::HTML.paragraph(sentence_count: rand(3..5))
-            text_block << ::Faker::HTML.random(exclude: [:heading, :script])
+            text_block << ::Faker::HTML.random(exclude: [:heading, :script, :table])
             level += 1
           end
         end
