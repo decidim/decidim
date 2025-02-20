@@ -7,30 +7,30 @@ module Decidim
     module Admin
       describe UnpublishDocument, type: :command do
         let(:organization) { create(:organization, available_locales: [:en]) }
-        let(:collaborative_text_document) { create(:collaborative_text_document, published_at: Time.current, title: "This is and original document test title") }
+        let(:document) { create(:collaborative_text_document, published_at: Time.current, title: "This is and original document test title") }
         let(:current_user) { create(:user, :admin, :confirmed, organization:) }
-        let(:command) { described_class.new(collaborative_text_document, current_user) }
+        let(:command) { described_class.new(document, current_user) }
 
         describe "call" do
           context "when the collaborative text document is published" do
             it "unpublishes the collaborative text document" do
               expect(Decidim.traceability).to receive(:perform_action!).with(
                 :unpublish,
-                collaborative_text_document,
+                document,
                 current_user
               ).and_call_original
 
-              expect(command).to broadcast(:ok, collaborative_text_document)
+              expect(command).to broadcast(:ok, document)
             end
           end
 
           context "when the collaborative text document is not published" do
             before do
-              collaborative_text_document.update!(published_at: nil)
+              document.update!(published_at: nil)
             end
 
             it "does not unpublish the collaborative text document" do
-              expect { command.call }.not_to(change { collaborative_text_document.reload.published_at })
+              expect { command.call }.not_to(change { document.reload.published_at })
 
               expect(command).to broadcast(:invalid)
             end

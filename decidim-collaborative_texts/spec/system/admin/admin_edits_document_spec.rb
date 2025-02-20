@@ -34,4 +34,18 @@ describe "Admin edits documents" do
     expect(page).to have_admin_callout "Document successfully updated"
     expect(page).to have_css(".table-list tbody tr", count: 1)
   end
+
+  context "when title is invalid" do
+    before do
+      click_on "Edit", match: :first
+
+      fill_in "Title", with: "this title is invalid"
+      click_on "Update"
+    end
+
+    it "displays an error message" do
+      expect(page).to have_admin_callout "There was a problem updating the document"
+      expect(page).to have_admin_callout "must start with a capital letter"
+    end
+  end
 end
