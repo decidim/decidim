@@ -100,15 +100,7 @@ module Decidim
 
         return false if proposal_limit.zero?
 
-        if user_group
-          user_group_proposals.count >= proposal_limit
-        else
-          current_user_proposals.count >= proposal_limit
-        end
-      end
-
-      def user_group
-        @user_group ||= Decidim::UserGroup.find_by(organization:, id: form.user_group_id)
+        current_user_proposals.count >= proposal_limit
       end
 
       def organization
@@ -117,13 +109,6 @@ module Decidim
 
       def current_user_proposals
         Proposal.not_withdrawn.from_author(@current_user).where(component: form.current_component)
-      end
-
-      # TODO: deprecate user_group
-      def user_group_proposals
-        return []
-
-        # Proposal.not_withdrawn.from_user_group(@user_group).where(component: form.current_component)
       end
 
       def first_attachment_weight
