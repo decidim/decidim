@@ -87,16 +87,36 @@ module Decidim
             expect(user.valid_password?("decidim123456789")).to be(true)
           end
 
-          it "ignores avatar url if URL is not readable" do 
-            stub_request(:get, "http://www.example.com/foo.jpg")
-            .to_return(status: 404)
-        
-            expect { command.call }.to broadcast(:ok)
-        
-            user = User.find_by(email: form.email)
-            expect(user.avatar.attached?).to be_falsey
+          context "when avatar URL fetching fails" do
+            it "with a 404 HTTP code, it saves the user without avatar" do
+              stub_request(:get, "http://www.example.com/foo.jpg").to_return(status: 404)
+              expect { command.call }.to broadcast(:ok)
+              user = User.find_by(email: form.email)
+              expect(user.avatar).not_to be_attached
+            end
+
+            it "with a 502 HTTP code, it saves the user without avatar" do
+              stub_request(:get, "http://www.example.com/foo.jpg").to_return(status: 502)
+              expect { command.call }.to broadcast(:ok)
+              user = User.find_by(email: form.email)
+              expect(user.avatar).not_to be_attached
+            end
+
+            it "with a 500 HTTP code, it saves the user without avatar" do
+              stub_request(:get, "http://www.example.com/foo.jpg").to_return(status: 500)
+              expect { command.call }.to broadcast(:ok)
+              user = User.find_by(email: form.email)
+              expect(user.avatar).not_to be_attached
+            end
+
+            it "with a 401 HTTP code, it saves the user without avatar" do
+              stub_request(:get, "http://www.example.com/foo.jpg").to_return(status: 401)
+              expect { command.call }.to broadcast(:ok)
+              user = User.find_by(email: form.email)
+              expect(user.avatar).not_to be_attached
+            end
           end
-          
+
           # NOTE: This is important so that the users who are only
           # authenticating using omniauth will not need to update their
           # passwords.
