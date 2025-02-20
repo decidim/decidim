@@ -156,7 +156,7 @@ module Decidim
         end
       else # Assume is_a?(Decidim::Coauthorable)
         coauthorships.clear
-        add_coauthor(author, user_group:)
+        add_coauthor(author)
       end
     end
 
