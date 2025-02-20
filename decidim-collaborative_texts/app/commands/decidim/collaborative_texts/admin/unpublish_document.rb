@@ -4,14 +4,14 @@ module Decidim
   module CollaborativeTexts
     module Admin
       # This command is executed when the user unpublishes an
-      # existing collaborative text.
+      # existing collaborative text document.
       class UnpublishDocument < Decidim::Command
         # Public: Initializes the command.
         #
-        # collaborative text - Decidim::CollaborativeTexts::Document
+        # document - Decidim::CollaborativeTexts::Document
         # current_user - the user performing the action
-        def initialize(collaborative_text, current_user)
-          @collaborative_text = collaborative_text
+        def initialize(document, current_user)
+          @document = document
           @current_user = current_user
         end
 
@@ -22,22 +22,22 @@ module Decidim
         #
         # Returns nothing.
         def call
-          return broadcast(:invalid) unless collaborative_text.published?
+          return broadcast(:invalid) unless document.published?
 
-          @collaborative_text = Decidim.traceability.perform_action!(
+          @document = Decidim.traceability.perform_action!(
             :unpublish,
-            collaborative_text,
+            document,
             current_user
           ) do
-            collaborative_text.unpublish!
-            collaborative_text
+            document.unpublish!
+            document
           end
-          broadcast(:ok, collaborative_text)
+          broadcast(:ok, document)
         end
 
         private
 
-        attr_reader :collaborative_text, :current_user
+        attr_reader :document, :current_user
       end
     end
   end

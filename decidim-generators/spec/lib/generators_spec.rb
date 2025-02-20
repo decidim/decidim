@@ -18,7 +18,7 @@ module Decidim
 
         it "returns the develop branch" do
           # back to "develop" once https://github.com/decidim/decidim/pull/13978 is accepted
-          expect(subject.edge_git_branch).to eq("feature/new-collaborative_texts-module")
+          expect(subject.edge_git_branch).to eq("develop")
         end
       end
 
