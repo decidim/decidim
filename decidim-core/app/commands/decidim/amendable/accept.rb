@@ -14,7 +14,6 @@ module Decidim
         @amendable = form.amendable
         @emendation = form.emendation
         @amender = form.emendation.creator_author
-        @user_group = form.emendation.creator.user_group
       end
 
       # Executes the command. Broadcasts these events:
@@ -62,7 +61,7 @@ module Decidim
           @amendable.save!
           @amendable
         end
-        @amendable.add_coauthor(@amender, user_group: @user_group)
+        @amendable.add_coauthor(@amender)
       end
 
       def notify_emendation_state_change!
