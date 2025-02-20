@@ -70,17 +70,16 @@ module Decidim
 
         it "creates a new version" do
           expect(document.document_versions.count).to eq(1)
-          document.rollout!
+          expect { document.rollout! }.to change { document.document_versions.count }.by(1)
           expect(document.body).to eq("My first version")
-          expect { document.save! }.to change { document.document_versions.count }.by(1)
-          expect(document.body).to eq("My first version")
+          expect(document.document_versions.count).to eq(2)
+
+          expect { document.rollout!("My second version") }.to change { document.document_versions.count }.by(1)
+          expect(document.body).to eq("My second version")
+
           expect(document.document_versions.first.body).to eq("My first version")
-          expect(document.document_versions.last.body).to eq("My first version")
-          document.body = "My second version"
-          document.save!
-          expect { document.rollout! }.not_to(change { document.document_versions.count })
-          expect(document.document_versions.first.body).to eq("My first version")
-          expect(document.document_versions.last.body).to eq("My second version")
+          expect(document.document_versions.second.body).to eq("My first version")
+          expect(document.document_versions.third.body).to eq("My second version")
         end
       end
     end

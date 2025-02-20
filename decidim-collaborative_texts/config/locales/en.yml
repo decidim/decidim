@@ -63,6 +63,10 @@ en:
         version:
           delete: "%{user_name} deleted the %{resource_name} collaborative text version from %{space_name}"
           update: "%{user_name} updated the %{resource_name} collaborative text version in %{space_name}"
+      document:
+        cancel: Cancel
+        save: Send suggestion
+        suggest: Suggest changes
       documents:
         index:
           count:
