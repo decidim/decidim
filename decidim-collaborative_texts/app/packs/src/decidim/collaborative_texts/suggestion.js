@@ -37,6 +37,7 @@ class Suggestion {
           suggestion.restore();
         }
       });
+      this.wrapper.classList.remove("collaborative-texts-highlight");
       this.nodes.forEach(node => {
         node.classList.add("collaborative-texts-hidden");
       });
@@ -95,11 +96,11 @@ class Suggestion {
     _highlight() {
       // wrap affected nodes
       if (this.changesWrapper) {
-        this.changesWrapper.classList.add("collaborative-texts-selection");
+        this.changesWrapper.classList.add("collaborative-texts-highlight");
         return;
       }
       this.wrapper = document.createElement("div");
-      this.wrapper.classList.add("collaborative-texts-selection");
+      this.wrapper.classList.add("collaborative-texts-highlight");
       this.firstNode.before(this.wrapper);
       this.nodes.forEach(node => {
         this.wrapper.appendChild(node);
@@ -108,7 +109,7 @@ class Suggestion {
 
     _blur() {
       if (this.changesWrapper) {
-        this.changesWrapper.classList.remove("collaborative-texts-selection");
+        this.changesWrapper.classList.remove("collaborative-texts-highlight");
       }
       if (this.wrapper) {
         while (this.wrapper.firstChild) {

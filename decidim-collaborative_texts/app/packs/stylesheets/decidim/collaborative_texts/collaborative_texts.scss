@@ -5,7 +5,7 @@
   &-hidden {
     display: none;
   }
-  &-selection {
+  &-selection, &-highlight {
     position: relative;
     outline: var(--primary) 2px dashed;
     outline-offset: 0.5rem;
