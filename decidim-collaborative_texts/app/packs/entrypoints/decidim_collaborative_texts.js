@@ -1,4 +1,4 @@
-import "src/decidim/collaborative_texts/documents"
+import "src/decidim/collaborative_texts/init_documents"
 
 // Images
 require.context("../images", true)

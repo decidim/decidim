@@ -23,8 +23,13 @@
   </section>
 
   <section class="layout-main__section">
-    <div class="editor-content">
-      <%= decidim_sanitize_editor_admin document.body %>
+    <div class="collaborative-texts-container editor-content"
+         data-collaborative-texts-document="<%= document.accepting_suggestions.to_s %>" 
+         data-collaborative-texts-i18n="<%= document_i18n.to_json %>">
+      <%= decidim_sanitize decidim_rich_text(document.body), { scrubber: Decidim::AdminInputScrubber.new } %>
     </div>
   </section>
 <% end %>
+
+<% append_javascript_pack_tag("decidim_collaborative_texts") %>
+<% append_stylesheet_pack_tag("decidim_collaborative_texts") %>
