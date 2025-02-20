@@ -11,6 +11,7 @@ describe "Collaborative drafts" do
   let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [participatory_process.manifest.name]) }
   let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
   let!(:user) { create(:user, :confirmed, organization:) }
+  let!(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
   let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
 
   let(:address) { "Some address" }
@@ -208,12 +209,8 @@ describe "Collaborative drafts" do
           end
         end
 
-        context "when the user has verified organizations" do
-          let(:user_group) { create(:user_group, :verified, organization:) }
-
-          before do
-            create(:user_group_membership, user:, user_group:)
-          end
+        context "when the user is a verified organization" do
+          let!(:user) { user_group }
 
           it "creates a new collaborative draft as a user group", :slow do
             visit new_collaborative_draft_path
@@ -221,7 +218,6 @@ describe "Collaborative drafts" do
             within ".new_collaborative_draft" do
               fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
               fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
-              select user_group.name, from: :collaborative_draft_user_group_id
 
               find("*[type=submit]").click
             end
@@ -251,7 +247,6 @@ describe "Collaborative drafts" do
                 fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
                 fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
                 fill_in :collaborative_draft_address, with: address
-                select user_group.name, from: :collaborative_draft_user_group_id
 
                 find("*[type=submit]").click
               end
