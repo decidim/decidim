@@ -14,6 +14,9 @@ class Editor {
   }
 
   destroy() {
+    if (!this.editor) {
+      return;
+    }
     this.editor.remove();
     this.editor = null;
   }
@@ -60,7 +63,6 @@ class Editor {
       }
     });
     this.selection.doc.dispatchEvent(event);
-    this.destroy();
     this.selection.clear();
   }
 

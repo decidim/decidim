@@ -13,6 +13,9 @@ class Menu {
   }
 
   destroy() {
+    if (!this.menu) {
+      return;
+    }
     this.menu.remove();
     this.menu = null;
   }

@@ -10,7 +10,7 @@
     outline: var(--primary) 2px dashed;
     outline-offset: 0.5rem;
     margin: 1rem 0;
-    .collaborative-texts-hidden {
+    &:not(.applied) .collaborative-texts-hidden {
       display: inherit;
     }  
   }

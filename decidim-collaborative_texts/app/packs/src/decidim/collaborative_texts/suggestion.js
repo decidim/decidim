@@ -37,7 +37,7 @@ class Suggestion {
           suggestion.restore();
         }
       });
-      this.wrapper.classList.remove("collaborative-texts-highlight");
+      this.wrapper.classList.add("applied");
       this.nodes.forEach(node => {
         node.classList.add("collaborative-texts-hidden");
       });
@@ -81,7 +81,6 @@ class Suggestion {
       this.menu = document.createElement("div");
       this.menu.classList.add("collaborative-texts-suggestions-menu-item");
       let truncatedText = this.replace.map(text => text.replace(/<[^>]*>?/gm, "")).join(" ").substring(0, 30) + "...";
-      console.log("Truncated text", truncatedText, "suggestion", this);
       this.menu.innerHTML = `<p>${truncatedText}</p><button class="collaborative-texts-button-apply">${this.i18n.apply}</button><button class="collaborative-texts-button-restore hidden">${this.i18n.restore}</button>`;
       this.menuWrapper.appendChild(this.menu);
     }
