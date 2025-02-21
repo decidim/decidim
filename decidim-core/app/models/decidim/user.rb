@@ -147,6 +147,10 @@ module Decidim
       extended_data["group"]
     end
 
+    def group!
+      update!(extended_data: (extended_data || {}).merge(group: true))
+    end
+
     def follows?(followable)
       Decidim::Follow.where(user: self, followable:).any?
     end
