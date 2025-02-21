@@ -41,8 +41,6 @@ ja:
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
-            scope_id: スコープ
-            scopes_enabled: スコープが有効
             taxonomy_filters: コンポーネントのフィルタを選択
             taxonomy_filters_add: フィルターを追加
           step:
@@ -54,9 +52,12 @@ ja:
     debates:
       actions:
         close: 閉じる
+        confirm_delete_debate: このディベートを削除してもよろしいですか？
+        deleted_debate_info: 削除された議論はゴミ箱から復元できます。
         edit: 編集
         new: 新しいディベート
         title: アクション
+        view_deleted_debates: 削除されたディベートを表示
       admin:
         debate_closes:
           edit:
@@ -70,6 +71,7 @@ ja:
             title: ディベートを編集
             update: ディベートを更新
           form:
+            add_attachments: 添付ファイルを追加
             debate_type: ディベートタイプ
             finite: 期間限定 (開始時刻と終了時刻あり)
             open: 無期限 (開始時刻または終了時刻なし)

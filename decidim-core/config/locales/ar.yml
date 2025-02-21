@@ -65,7 +65,6 @@ ar:
         with_participatory_space: المساحة التشاركية
       decidim/user:
         current_password: كلمة المرور الحالي
-        email: البريد الإلكتروني
         name: كنية
         password: الكلمة السرية
         password_confirmation: تأكيد كلمة المرور
@@ -103,6 +102,8 @@ ar:
     'false': 'لا'
     'true': 'نعم'
   date:
+    buttons:
+      select: تحديد
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -291,6 +292,7 @@ ar:
           withdrawn: |-
             تم سحب هذا التعديل على %{amendable_type} %{amendable_link}
             من قبل المؤلف.
+      name: تعديل
       new:
         amendment_author: مؤلف التعديل
         send: إنشاء
@@ -351,10 +353,8 @@ ar:
       dummy_authorization_handler:
         fields:
           allowed_postal_codes: الرموز البريدية المسموح بها (مفصولة بفواصل)
-          allowed_scope_id: النطاق المسموح به
           document_number: رقم المستند
           postal_code: الكود البريدى
-          scope_id: نطاق
         name: مثال إذن
       dummy_authorization_workflow:
         name: سير العمل التخويل وهمية
@@ -441,8 +441,6 @@ ar:
             dummy_global_translatable_text: نص افتراضي قابل للترجمة
             enable_pads_creation: تمكين إنشاء منصات
             resources_permissions_enabled: تم تمكين أذونات الموارد
-            scope_id: نطاق
-            scopes_enabled: النطاقات مفعلة
           step:
             amendment_creation_enabled: إنشاء التعديلات مُفعّلة
             amendment_promotion_enabled: ترقية التعديلات مُفعّلة
@@ -463,6 +461,8 @@ ar:
         description: الوصف
       footer_sub_hero:
         name: تذييل البطل الفرعي راية
+      global_menu:
+        name: القائمة العامة
       hero_settings_form:
         background_image: الصورة الخلفية
         welcome_text: نص الترحيب
@@ -482,8 +482,12 @@ ar:
         name: النشاط الاخير
         title: النشاط الاخير
         view_all: عرض الكل
+      metadata:
+        name: البيانات الوصفية
       metrics:
         name: مقاييس المنظمة
+      participatory_space_metrics:
+        name: المقاييس
       participatory_space_stats:
         name: الإحصائيات
       social_networks_metadata:
@@ -520,7 +524,6 @@ ar:
           username_help: الاسم العام الذي يظهر في مشاركاتك. بهدف ضمان عدم الكشف عن هويته ، يمكن أن يكون أي اسم.
       sessions:
         new:
-          are_you_new?: جديد على المنصة؟
           register: انشئ حساب
       shared:
         newsletter_modal:
@@ -528,8 +531,6 @@ ar:
             check: تحقق واستمر
             uncheck: إبقاءه غير مختار
           title: الإخطارات الإخبارية
-        omniauth_buttons:
-          or: أو
         password_fields:
           hidden_password: كلمة المرور الخاصة بك مخفية
           hide_password: إخفاء كلمة المرور
@@ -1191,16 +1192,7 @@ ar:
         error: كانت هناك مشكلة أثناء اجراء الدعم.
     scopes:
       global: النطاق العالمي
-      picker:
-        cancel: إلغاء
-        change: تغيير النطاق المحدد
-        choose: تحديد
-        currently_selected: النطاق المحدد حالياً
-        title: اختر %{field}
       prompt: حدد النطاق
-      scopes: نطاقات
-      scopes_picker_input:
-        select_scope: 'يرجى تحديد نطاق (حالياً: %{current})'
     search:
       name: البحث
       results: نتائج البحث
@@ -1306,13 +1298,6 @@ ar:
         send: إرسال
       update:
         error: لم يتم إرسال الرسالة. حاول مرة أخرى في وقت لاحق
-    user_interests:
-      show:
-        my_interests: اهتماماتي
-        update_my_interests: تحديث اهتماماتي
-      update:
-        error: حدثت مشكلة أثناء تحديث اهتماماتك.
-        success: اهتماماتك تم تحديثها بنجاح
     user_report_mailer:
       notify:
         body_1: تم الإبلاغ عن المستخدم %{user} من قبل %{token}
@@ -1613,7 +1598,6 @@ ar:
         authorizations: التراخيص
         delete_my_account: احذف حسابي
         my_data: بياناتي
-        my_interests: اهتماماتي
         notifications_settings: إعدادات الإخطارات
         profile: الملف الشخصي
         title: إعدادات المشارك
@@ -1663,6 +1647,8 @@ ar:
     whatsapp_web: واتساب
     xing: شينغ
   time:
+    buttons:
+      select: تحديد
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

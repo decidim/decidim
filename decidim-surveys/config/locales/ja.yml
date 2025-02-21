@@ -23,8 +23,6 @@ ja:
           announcement: お知らせ
           global:
             announcement: お知らせ
-            scope_id: スコープ
-            scopes_enabled: スコープが有効
           step:
             announcement: お知らせ
     events:
@@ -64,6 +62,18 @@ ja:
             title: '回答 #%{number}'
         exports:
           survey_user_answers: アンケート参加者の回答
+        publish_answers:
+          index:
+            answers:
+              other: "%{count} 件の回答"
+            description: |-
+              質問の回答を公開すると、それらが一般に表示されるようになります。
+              各質問の横にあるチェックボックスをクリックして、公開したい回答を選択できます。
+              公開可能な質問のタイプは次の通りです：「単一選択」、「複数選択」、「マトリックス（単一選択）」、「マトリックス（複数選択）」、「並べ替え」です。
+            status:
+              not_published: 未公開
+              published: 公開済み
+            title: 回答を公開
         surveys:
           create:
             invalid: アンケートの作成中に問題が発生しました。
@@ -88,6 +98,7 @@ ja:
           create: "%{user_name} がアンケート %{resource_name} を %{space_name} スペースに作成しました。"
           delete: "%{user_name} が %{space_name} スペースのアンケート %{resource_name} を削除しました。"
           publish: "%{user_name} が %{resource_name} スペースでアンケート %{space_name} を公開しました"
+          unpublish: "%{user_name}が%{space_name}スペースで%{resource_name}アンケートを非公開にしました。"
           update: "%{user_name} が %{resource_name} スペースのアンケート %{space_name} を更新しました"
       directory:
         surveys:

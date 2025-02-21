@@ -26,6 +26,10 @@ FactoryBot.define do
       published_at { Time.current }
     end
 
+    trait :allow_edit do
+      allow_editing_answers { true }
+    end
+
     trait :allow_answers do
       allow_answers { true }
     end

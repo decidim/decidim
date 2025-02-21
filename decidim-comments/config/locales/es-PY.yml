@@ -138,6 +138,12 @@ es-PY:
         text: Estoy de acuerdo con este comentario
     download_your_data:
       help:
+        comment_votes:
+          comment: La id del comentario que se va valoró
+          created_at: La fecha y la hora en que se valoró este comentario
+          id: La id de la valoración del comentario
+          updated_at: La fecha y hora de la última actualización de la valoración de este comentario
+          weight: El peso de la valoración (1 a favor, -1 en contra)
         comments:
           alignment: Si este comentario fue a favor, en contra o neutral
           author: El nombre usuaria de la participante que hizo este comentario

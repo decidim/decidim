@@ -79,7 +79,7 @@ en:
         with_participatory_space: Participatory space
       decidim/user:
         current_password: Current password
-        email: Email
+        email: Email address
         name: Nickname
         password: Password
         password_confirmation: Password confirmation
@@ -565,6 +565,8 @@ en:
             dummy_step_attribute1: Dummy Step Attribute 1
             dummy_step_attribute2: Dummy Step Attribute 2
             dummy_step_translatable_text: Dummy Step Translatable Text
+      pagination:
+        page_title: "%{component_name} - Page %{current_page} of %{total_pages}"
     contact: Contact
     content_blocks:
       announcement:
@@ -673,7 +675,7 @@ en:
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       sessions:
         new:
-          are_you_new?: New to the platform?
+          are_you_new?: Not registered yet?
           register: Create an account
           sign_in_disabled: You can access with an external account.
           sign_up_disabled: Account creation is disabled, you can use an existing account to access.
@@ -698,7 +700,7 @@ en:
             <p>Thanks for reading this!</p>
           title: Newsletter notifications
         omniauth_buttons:
-          or: Or
+          or: or
         password_fields:
           hidden_password: Your password is hidden
           hide_password: Hide password
@@ -755,6 +757,21 @@ en:
           id: The unique identifier of this notification
           resource_type: The type of the resource that the notification is related to
           updated_at: The date and time when the notification was last updated
+        participatory_space_private_users:
+          created_at: The date and time when this private user was created
+          id: The unique identifier of this private user
+          privatable_to: To which space this private user belongs
+          published: Wether this private user is published or not
+          role: The role that this private user has
+          updated_at: The date and time when this private user was last updated
+        reports:
+          created_at: The date and time when this report was created
+          details: The details of this report
+          id: The unique identifier of this report
+          locale: The language of this report
+          moderation: The moderation that this report has
+          reason: The reason of this report
+          updated_at: The date and time when this report was last updated
         user_groups:
           document_number: The document number of this user group
           id: The unique identifier of this user group
@@ -763,6 +780,7 @@ en:
           verified_at: The date and time when this user group was verified
         users:
           about: The biography of this user
+          accepted_tos_version: The date when the Terms of Service of this platform was accepted by the user
           admin: Whether this user is an administrator
           confirmation_sent_at: The date and time when the confirmation was sent
           confirmed_at: The date and time when this user was confirmed
@@ -772,6 +790,8 @@ en:
           delete_reason: The reason given for deleting this user
           deleted_at: The date and time when this user was deleted
           email: The email address of this user
+          followers_count: The number of participants that are following to this user
+          following_count: The number of participants this user is following
           id: The unique identifier of this user
           invitation_accepted_at: The date and time when the invitation was accepted
           invitation_created_at: The date and time when this user was invited
@@ -790,10 +810,13 @@ en:
           officialized_as: The name of the officialization (Counsellor, Mayor, etc)
           officialized_at: The date and time when this user was officialized
           organization: The organization that this user belongs to
+          password_updated_at: The date when their password was changed for the last time
           personal_url: The personal URL of this user
           remember_created_at: The date and time when the user was selected to be remembered
           reset_password_sent_at: The date and time when the password reset was sent
+          roles: The role this user has, if they has any
           sign_in_count: The number of times this user has logged in
+          type: The type that this user has
           unconfirmed_email: The email address that this user has not yet confirmed
           updated_at: The date and time when this user was last updated
       show:

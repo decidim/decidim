@@ -35,8 +35,6 @@ fr-CA:
             attachments_allowed: Autoriser les pièces jointes
             comments_enabled: Commentaires activés
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
-            scope_id: Secteur
-            scopes_enabled: Secteurs activés
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés

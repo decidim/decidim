@@ -43,8 +43,6 @@ tr:
         promoted: Tanıtılan
         published_at: Yayınlandı
         purpose_of_action: Eylem amacı
-        scope_id: kapsam
-        scopes_enabled: Kapsamlar etkin
         short_description: Kısa Açıklama
         slug: URL sümüklü böcek
         special_features: Özel özellikler
@@ -207,12 +205,10 @@ tr:
           form:
             duration: Süre
             duration_help: Bu kurulun süresi sınırlıysa, bitiş tarihini seçin. Aksi takdirde belirsiz görünecektir.
-            filters: Filtreler
             images: Resimler
             metadata: Meta veri
             other: Diğer
             select_a_created_by: tarafından oluşturulanı seçin
-            select_an_area: Bir alan seçin
             select_parent_assembly: Bağlı olduğu kurulu seçin
             social_handlers: Sosyal
             title: Genel bilgi

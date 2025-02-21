@@ -35,8 +35,6 @@ sl:
         promoted: Poudarjeno
         published_at: Objavljeno
         purpose_of_action: Namen ukrepanja
-        scope_id: Obseg
-        scopes_enabled: Omogočeni obsegi
         short_description: Kratek opis
         special_features: Posebne funkcije
         subtitle: Podnapis
@@ -128,7 +126,6 @@ sl:
         assemblies:
           form:
             duration: Trajanje
-            filters: Filtri
             images: Slike
             metadata: Meta podatki
             other: Drugo

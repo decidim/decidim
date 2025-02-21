@@ -32,8 +32,6 @@ lb:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
-            scope_id: Bereich
-            scopes_enabled: Bereiche aktiviert
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert

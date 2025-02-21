@@ -38,8 +38,6 @@ zh-CN:
         promoted: 高亮
         published_at: 发布于
         purpose_of_action: 行动的目的
-        scope_id: 范围
-        scopes_enabled: 范围已启用
         short_description: 简短描述
         slug: URL 名称
         special_features: 特殊功能
@@ -192,12 +190,10 @@ zh-CN:
           form:
             duration: 期限
             duration_help: 如果这个程序集的持续时间有限，请选择结束日期。否则，它将显示为无限期。
-            filters: 筛选器
             images: 图像
             metadata: 元数据
             other: 其他
             select_a_created_by: 选择创建者：
-            select_an_area: 选择区域
             select_parent_assembly: 选择父程序集
             social_handlers: 社交活动
             title: 一般信息

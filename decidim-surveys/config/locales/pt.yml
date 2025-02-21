@@ -19,8 +19,6 @@ pt:
         settings:
           global:
             announcement: Anúncio
-            scope_id: Âmbito
-            scopes_enabled: Âmbitos activados
           step:
             announcement: Anúncio
     events:

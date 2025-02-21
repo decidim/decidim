@@ -218,8 +218,6 @@ sv:
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
             proposal_wizard_step_2_help_text: Hjälptext för steget ”Publicera” i förslagsguiden
             resources_permissions_enabled: Behörigheter kan ställas in för varje förslag
-            scope_id: Indelning
-            scopes_enabled: Aktivera indelningar
             taxonomy_filters: Välj filter för komponenten
             taxonomy_filters_add: Lägg till filter
             threshold_per_proposal: Minst antal stöd per förslag
@@ -917,7 +915,6 @@ sv:
           maximum_votes_reached: Röstningsgränsen uppnådd
           no_votes_remaining: Inga röster kvar
           vote: Rösta
-          votes_blocked: Röstning inaktiverad
         votes_count:
           count:
             one: Röst

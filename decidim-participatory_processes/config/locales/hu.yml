@@ -28,9 +28,6 @@ hu:
         promoted: Támogatott
         published_at: Közzétéve
         related_process_ids: Kapcsolódó folyamatok
-        scope_id: Hatáskör
-        scope_type_max_depth_id: Scope szűrő mélysége
-        scopes_enabled: Hatáskörök engedélyezve
         short_description: Rövid leírás
         slug: URL slug
         start_date: Kezdő dátum
@@ -360,12 +357,9 @@ hu:
           form:
             announcement_help: A megadott szöveg a folyamat információk alatt található felhasználónál jelenik meg.
             duration: Időtartam
-            filters: Szűrők
             images: Képek
             metadata: Metaadatok
             related_processes: Kapcsolódó folyamatok
-            scope_type_max_depth_help: Hatáskör szűrő mélység korlátozása; A szűrő az általánostól a kiválasztott hatáskörtípus típusáig jelenik meg.
-            select_an_area: Válasszon egy területet
             select_process_group: Válassza ki a folyamatcsoportot
             title: Általános információk
       content_blocks:

@@ -180,11 +180,23 @@ en:
             creation_enabled_for_user_groups: Meeting creation by user groups enabled
     download_your_data:
       help:
+        invites:
+          accepted_at: The date and time when this invitation was accepted
+          created_at: The date and time when this invitation was created
+          id: The unique identifier for this invitation
+          meeting: The meeting where this invitation has happened
+          rejected_at: The date and time when this invitation was rejected
+          sent_at: The date and time when this invitation was sent
+          updated_at: The date and time when this invitation was last updated
         registrations:
           code: The registration code
+          created_at: The date and time when this registration was created
           id: The unique identifier of the registration
           meeting: The meeting that the user registered to
+          public_participation: Wehter this participation was shown publicly
+          updated_at: The date and time when this registration was last updated
           user: The user that made the registration
+          validated_at: The date and time when this registration was validated
       show:
         meeting_comments: Meeting comments export
         meetings: Meetings export

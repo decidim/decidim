@@ -161,8 +161,6 @@ pl:
             maps_enabled: Mapy włączone
             registration_code_enabled: Włączono kod rejestracyjny
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
-            scope_id: Zakres
-            scopes_enabled: Zakresy włączone
             terms_and_conditions_url_for_meeting_creators: Adres URL Regulaminu dla twórców spotkania
           step:
             announcement: Ogłoszenie

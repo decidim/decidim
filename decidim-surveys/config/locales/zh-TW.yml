@@ -17,8 +17,6 @@ zh-TW:
         settings:
           global:
             announcement: 公告
-            scope_id: 範圍
-            scopes_enabled: 啟用的範圍
           step:
             announcement: 公告
     events:

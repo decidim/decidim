@@ -55,7 +55,7 @@ eu:
       organization:
         update_id_documents_config: "%{user_name} parte-hartzaileak eguneratu du nortasun agiriko dokumentuen konfiguraziorako baimena"
       user:
-        grant_id_documents_offline_verification: "%{user_name} parte-hartzaileak egiaztatu zuen %{resource_name} nortasun agirien baimen bat erabiliz"
+        grant_id_documents_offline_verification: "%{user_name} parte-hartzaileak egiaztatu du %{resource_name} nortasun agirien baimen bat erabiliz"
     authorization_handlers:
       admin:
         another_dummy_authorization_handler:
@@ -193,11 +193,9 @@ eu:
           postal_codes:
             one: Partehartzea mugatua da %{postal_codes} kode postalarekin duten erabiltzaileentzat.
             other: 'Parte-hartzea honako posta-kode hauetakoren bat duten eparte-hartzaileentzat mugatuta dago: %{postal_codes}.'
-          scope: Partehartzea mugatua da %{scope_name} eremuan egiaztatutako parte-hartzaileentzat.
           user_postal_codes:
             one: Parte-hartzea mugatuta dago %{postal_codes} posta-kodea duten parte-hartzaileentzat eta zure posta-kodea hau da %{user_postal_code}.
             other: 'Parte-hartzea mugatuta dago %{postal_codes} posta-kodea duten parte-hartzaileentzat eta zure posta-kodea hau da %{user_postal_code}.'
-          user_scope: Parte hartzea mugatuta dago %{scope_name} esparrua duten parte-hartzaileentzat eta zure esparrua hau da %{user_scope_name}.
       id_documents:
         admin:
           config:

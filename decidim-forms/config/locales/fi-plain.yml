@@ -41,6 +41,7 @@ fi-pl:
         models:
           components:
             allow_answers: Salli vastaukset
+            allow_editing_answers: Salli rekisteröityneiden käyttäjien muokata omia kyselyvastauksiaan
             allow_unregistered: Salli rekisteröitymättömien käyttäjien vastata tähän kyselyyn
             allow_unregistered_help: Jos asetus on käytössä, käyttäjän ei tarvitse kirjautua sisään vastatakseen kyselyyn. Tämä voi johtaa heikkotasoiseen tai epäluotettavaan tietoon ja se on alttiimpi automatisoiduille hyökkäyksille. Käytä varoen! Muista, että osallistuja voisi vastata samaan kyselyyn useita kertoja, käyttämällä eri selaimia tai selaimen "yksityisen selauksen" ominaisuutta.
             announcement: Ilmoitus
@@ -54,6 +55,7 @@ fi-pl:
         questionnaires:
           actions:
             back: Takaisin kysymyksiin
+            publish_answers: Julkaise vastaukset
             show: Näytä vastaukset
           answer_option:
             answer_option: Vastausvaihtoehto
@@ -153,6 +155,9 @@ fi-pl:
             invalid: Kyselylomakkeiden tallentamisessa on tapahtunut virheitä.
             success: Lomake tallennettu onnistuneesti.
       admin_log:
+        question:
+          publish_answers: "%{user_name} julkaisi kyselyn %{resource_name} vastaukset osallistumistilassa %{space_name}"
+          unpublish_answers: "%{user_name} perui kyselyn %{resource_name} vastausten julkaisun osallistumistilassa %{space_name}"
         questionnaire:
           update: "%{user_name} päivitti kyselyä %{resource_name}"
       errors:
@@ -195,6 +200,9 @@ fi-pl:
           questionnaire_answered:
             body: Olet jo vastannut tähän kyselyyn.
             title: Olet jo vastannut
+          questionnaire_answered_edit:
+            body: Olet jo vastannut tähän kyselylomakkeeseen. %{link}
+            edit: Muokkaa vastauksiasi
           questionnaire_closed:
             body: Kyselylomake on suljettu, eikä siihen voi vastata.
             title: Kysely on suljettu
@@ -209,9 +217,12 @@ fi-pl:
           tos_agreement: Osallistumalla hyväksyt käyttöehdot
       step_navigation:
         show:
-          are_you_sure: Tätä toimintoa ei voi kumota, etkä voi muokata vastauksiasi. Oletko varma?
+          are_you_sure_edit: Voit muokata vastauksiasi. Oletko varma?
+          are_you_sure_edit_guest: Mikäli haluat muokata vastauksiasi jälkikäteen, sinun tulee luoda alustalle oma tili ja kirjautua sisään.
+          are_you_sure_no_edit: Tätä toimintoa ei voi perua, etkä voi muokata vastauksiasi. Oletko varma?
           back: Takaisin
           continue: Jatka
+          disallowed: Et voi muokata vastauksiasi.
           submit: Lähetä
       user_answers_serializer:
         body: Vastaa

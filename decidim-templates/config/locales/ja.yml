@@ -88,8 +88,13 @@ ja:
           edit:
             edit: 編集
             empty: 質問はまだありません。
+            manage_questions: 質問の管理
             questionnaire: アンケート
             title: アンケートテンプレートの編集
+          edit_questions:
+            add_question: 質問の追加
+            add_separator: 区切り文字を追加
+            add_title_and_description: タイトルと説明を追加
           form:
             title: アンケートテンプレート %{questionnaire_for}
           index:

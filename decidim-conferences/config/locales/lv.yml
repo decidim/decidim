@@ -14,8 +14,6 @@ lv:
         participatory_processes_ids: Saistītie līdzdalības procesi
         promoted: Izcelts
         published_at: Publicēts plkst.
-        scope_id: Darbības tvērums
-        scopes_enabled: Darbības tvērumi ir iespējoti
         short_description: Īss apraksts
         show_statistics: Rādīt statistiku
         slogan: Sauklis
@@ -69,13 +67,11 @@ lv:
         destroy:
           success: Konferences runātājs ir veiksmīgi izdzēsts.
         edit:
-          title: Atjaunināt konferences runātāju.
           update: Atjaunināt
         index:
           conference_speakers_title: Konferences runātāji
         new:
           create: Izveidot
-          title: Jauns konferences runātājs.
         update:
           error: Šī konferences runātāja atjaunināšanas laikā radās problēma.
           success: Konferences runātājs ir veiksmīgi atjaunināts.
@@ -86,11 +82,9 @@ lv:
         destroy:
           success: Konferences administrators ir veiksmīgi noņemts.
         edit:
-          title: Atjaunināt konferences administratoru.
           update: Atjaunināt
         new:
           create: Izveidot
-          title: Jauns konferences administrators.
         update:
           error: Šī konferences administratora atjaunināšanas laikā radās problēma.
           success: Konferences administrators ir veiksmīgi atjaunināts.
@@ -119,20 +113,12 @@ lv:
       media_links:
         create:
           error: Jaunas mediju saites izveides laikā radās problēma.
-          success: Mediju saite ir veiksmīgi izveidota.
-        destroy:
-          success: Mediju saite ir veiksmīgi dzēsta
         edit:
-          title: Atjaunināt mediju saiti
           update: Atjaunināt
-        index:
-          media_links_title: Mediju saites
         new:
           create: Izveidot
-          title: Mediju saite
         update:
           error: Šīs mediju saites atjaunināšanas laikā radās problēma.
-          success: Mediju saite ir veiksmīgi atjaunināta.
       menu:
         conferences: Konferences
         conferences_submenu:
@@ -143,13 +129,9 @@ lv:
           conference_admins: Konferences administratori
           conference_invites: Ielūgumi
           conference_speakers: Runātāji
-          diploma: Apmeklējuma sertifikāts
-          media_links: Mediju saites
           moderations: Moderācijas
           partners: Partneri
-          registration_types: Reģistrācijas veidi
           registrations: Reģistrācija
-          user_registrations: Lietotāju reģistrācija
       models:
         conference:
           fields:
@@ -178,7 +160,6 @@ lv:
             date: Datums
             link: Saite
             title: Nosaukums
-          name: Mediju saite
         partner:
           fields:
             link: Saite
@@ -203,7 +184,6 @@ lv:
         destroy:
           success: Konferences partneris ir veiksmīgi noņemts.
         edit:
-          title: Atjaunināt partneri.
           update: Atjaunināt
         new:
           create: Izveidot
@@ -225,7 +205,6 @@ lv:
         destroy:
           success: Konferences reģistrācijas veids ir veiksmīgi noņemts.
         edit:
-          title: Atjaunināt reģistrācijas veidu.
           update: Atjaunināt
         new:
           create: Izveidot
@@ -308,7 +287,6 @@ lv:
         diplomas:
           edit:
             save: Saglabāt
-            title: Apmeklējuma sertifikāts
         invite_join_conference_mailer:
           invite:
             decline: Noraidīt ielūgumu '%{conference_title}'
@@ -327,7 +305,6 @@ lv:
             diploma_html: Jūs atradīsiet konferences <a href="%{url}">%{title}</a> apmeklējuma sertifikātu pielikumos.
           diploma_user:
             attendance_verified_by: Apmeklējumu pārbaudīja
-            certificate_of_attendance: Apmeklējuma sertifikāts
             certificate_of_attendance_description: Ar šo apliecinām, ka <strong>%{user}</strong> ir apmeklējis un piedalījies <strong>%{title}</strong>, kas notika <strong>%{location}</strong> laikā <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Nosūtot konferences apmeklējuma sertifikātus, radās problēma.

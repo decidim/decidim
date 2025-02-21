@@ -57,25 +57,6 @@ lt:
             name: Rezultatas
           status:
             name: Statusas
-        projects_import:
-          create:
-            invalid: Importuojant projektus į rezultatus iškilo problema. Atidžiai vykdykite instrukcijas ir įsitikinkite, kad pasirinkote įgyvendinimui skirtus projektus.
-          new:
-            create: Importuoti
-            import_all_selected_projects: Importuoti visus projektus, kurie buvo pasirinkti įgyvendinimui
-            new_items:
-              one: 1 pasirinktas projektas bus importuotas
-              few: "%{count} pasirinkti projektai bus importuoti"
-              many: "%{count} pasirinktų projektų bus importuoti"
-              other: "%{count} pasirinkti projektai bus importuoti"
-            no_components: Šioje dalyvaujamojoje erdvėje nėra biudžeto komponentų, skirtų importuoti į rezultatus.
-            origin_component_id: Pirminis komponentas
-            select_component: Pasirinkite komponentą
-            success:
-              one: 1 projektas įtrauktas į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu.
-              few: "%{count} projektai įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu."
-              many: "%{count} projektų buvo įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu."
-              other: "%{count} projektai buvo įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu."
         results:
           create:
             invalid: Kuriant šį rezultatą iškilo problema.
@@ -218,8 +199,6 @@ lt:
             comments_max_length: Maksimalus komentaro ilgis (įrašyti 0 įprastam ilgiui)
             display_progress_enabled: Rodyti progresą
             intro: Įžanga
-            scope_id: Apimtis
-            scopes_enabled: Apimtys įjungtos
           step:
             comments_blocked: Komentarai užblokuoti
     events:

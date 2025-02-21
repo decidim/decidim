@@ -169,8 +169,6 @@ ca:
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             registration_code_enabled: Codi d'inscripció habilitat
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
-            scope_id: Àmbit
-            scopes_enabled: Àmbits habilitats
             taxonomy_filters: Seleccionar filtres pel component
             taxonomy_filters_add: Afegir un filtre
             terms_and_conditions_url_for_meeting_creators: URL de termes i condicions per creadores de trobades
@@ -181,11 +179,23 @@ ca:
             creation_enabled_for_user_groups: Habilitar la creació de trobades per part dels grups d'usuàries
     download_your_data:
       help:
+        invites:
+          accepted_at: La data i l'hora en què es va acceptar aquesta invitació
+          created_at: La data i l'hora en què es va crear aquesta invitació
+          id: L'identificador únic de la invitació
+          meeting: La trobada a la qual correspon aquesta invitació
+          rejected_at: La data i l'hora en què es va rebutjar aquesta invitació
+          sent_at: La data i l'hora en què es va enviar aquesta invitació
+          updated_at: La data i hora en què aquesta invitació va ser actualitzada per darrera vegada
         registrations:
           code: El codi d'inscripció
+          created_at: La data en què es va realitzar aquesta inscripció
           id: L'identificador únic de la inscripció
           meeting: La trobada a la qual es va inscriure la usuària
+          public_participation: Si la inscripció es mostrava públicament, o no
+          updated_at: La data i hora en què aquesta inscripció va ser actualitzada per darrera vegada
           user: La usuària que va realitzar la inscripció
+          validated_at: La data en què es va validar/confirmar aquesta inscripció
       show:
         meeting_comments: Exportar els comentaris a les trobades
         meetings: Exportar les trobades
@@ -712,6 +722,7 @@ ca:
           body: El comentari pròpiament
           commentable_id: L'identificador únic d'allò que es podia comentar
           commentable_type: La tipologia d'allò sobre el que es va fer el comentari (si va ser un resultat, una proposta, etc.)
+          comments: Les dades dels comentaris de la trobada
           created_at: La data en què es va crear aquest comentari
           depth: El lloc on es troba aquest comentari a la terna de comentaris (si és un comentari, una resposta a un comentari, o la resposta d'una resposta)
           id: L'identificador id d'aquest comentari
@@ -722,26 +733,53 @@ ca:
           address: L'adreça de la trobada en cas que aquesta sigui presencial i tingui una ubicació física
           attachments: El nombre de fitxers adjunts en aquesta reunió
           attendees: El número de persones que van assistir a la trobada
+          attending_organizations: Les organitzacions que van assistir a aquesta trobada
+          audio_url: Gravació de l'àudio de la trobada
           author: Les dades d'autoria d'aquesta trobada
-          comments: El número de comentaris en aquesta trobada
+          available_slots: El nombre de places disponibles per la trobada
+          closed_at: La data en què es va tancar la trobada
+          closing_report: Acta/informe de la trobada tancada
+          closing_visible: La visibilitat de la informació de tancament de la trobada
+          comments: Les dades dels comentaris de la trobada
           component: El component al qual pertany aquesta trobada
           contributions: El número de contribucions realitzades en aquesta trobada per les assistents
+          created_at: La data en què es va crear aquesta trobada
+          customize_registration_email: Possibilitat d'introduir un correu electrònic personalitzat en registrar-se a la trobada
+          decidim_author_type: Tipus d'autoria (origen) de la trobada
+          decidim_user_group_id: ID del grup d'usuàries involucrat a la trobada
           description: La descripció de la trobada
           end_time: La data i l'hora en què va finalitzar aquesta trobada
-          followers: El número de seguidores d'aquesta trobada
+          follows_count: El número de seguidores que té la trobada
           id: L'identificador únic de la trobada
+          iframe_access_level: El nivell d'accés de la sala de videoconferències de la trobada
+          iframe_embed_type: El tipus de visualització de la sala de videoconferències de la trobada
+          latitude: La latitud del lloc de trobada
           location: La localització de la trobada
+          location_hints: Detall d'ubicació dins del lloc on es va celebrar la trobada
+          longitude: La longitud del lloc de trobada
+          online_meeting_url: L'URL de la sala de videoconferències
           organizations: Les organitzacions que van assistir a aquesta trobada
           participatory_space: A quin espai pertany aquesta trobada (procés participatiu, assemblea, etc.)
+          private_meeting: Si la trobada va ser privada o no
           published: Quan es va publicar la trobada
           reference: L'identificador únic del recurs a aquesta plataforma
+          registration_form_enabled: Si es va habilitar, o no, un formulari d'inscripció a la trobada
+          registration_terms: Els termes i condicions de registre a la trobada que es van acceptar abans de participar
+          registration_type: El tipus d'inscripció a la trobada
+          registration_url: L'URL per inscriure's a la trobada
+          registrations_enabled: Si es va habilitar la inscripció a la trobada
           related_proposals: Les propostes relacionades amb aquesta trobada
           related_results: Els resultats relacionats amb aquesta trobada
+          reserved_slots: El número de places reservades que tenia la trobada
           start_time: La data i l'hora en què es va iniciar aquesta trobada
           taxonomies: Les taxonomies a les quals pertany aquesta trobada
           title: El títol de la trobada
+          transparent: La visibilitat de la trobada per a visitants
+          type_of_meeting: El tipus de reunió
+          updated_at: La data de la darrera actualització de la trobada
           url: L'URL de la trobada
-          withdrawn: Si aquesta trobada va ser retirada/cancel·lada
+          video_url: L'URL del vídeo de la trobada
+          withdrawn: Si es va cancel·lar la trobada
           withdrawn_at: Quan va ser retirada/cancel·lada aquesta trobada
     participatory_spaces:
       highlighted_meetings:

@@ -147,11 +147,9 @@ hu:
           postal_codes:
             one: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
             other: 'A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.'
-          scope: A részvétel kizárólag a(z) %{scope_name} hatókörrel rendelkező résztvevőkre korlátozódik.
           user_postal_codes:
             one: Csak a %{postal_codes} irányítószámmal rendelkező résztvevők vehetnek részt, az Ön irányítószáma pedig %{user_postal_code}.
             other: 'A részvétel a következő irányítószámok bármelyikével rendelkező résztvevőkre korlátozódik: %{postal_codes}. Az Ön postai irányítószáma %{user_postal_code}.'
-          user_scope: A részvétel a %{scope_name} hatókörrel rendelkező résztvevőkre korlátozódik, és a te hatóköröd %{user_scope_name}.
       id_documents:
         admin:
           config:

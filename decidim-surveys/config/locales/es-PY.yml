@@ -25,8 +25,6 @@ es-PY:
           announcement: Aviso
           global:
             announcement: Anuncio
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
           step:
             announcement: Anuncio
     events:
@@ -66,6 +64,19 @@ es-PY:
             title: 'Respuesta #%{number}'
         exports:
           survey_user_answers: Respuestas de los usuarios de la encuesta
+        publish_answers:
+          index:
+            answers:
+              one: "%{count} respuesta"
+              other: "%{count} respuestas"
+            description: |-
+              Publicando las respuestas a las preguntas de la encuesta, estas serán visibles para las visitantes.
+              Puedes seleccionar las preguntas de las que quieres publicar las respuestas marcancndo el "checkbox" de cada una de ellas.
+              Solo puedes publicar las respuestas de las preguntas que son del tipo de respuesta: "Opción única", "Opción múltiple", "Matriz (opción única)", "Matriz (opción múltiple), y "Ordenación".
+            status:
+              not_published: No publicadas
+              published: Publicadas
+            title: Publicar respuestas
         surveys:
           create:
             invalid: Se ha producido un error creando la encuesta.
@@ -90,6 +101,7 @@ es-PY:
           create: "%{user_name} creó la encuesta %{resource_name} en el espacio de participación %{space_name}"
           delete: "%{user_name} ha eliminado la encuesta %{resource_name} en el espacio de participación %{space_name}"
           publish: "%{user_name} publicó la encuesta %{resource_name} en el espacio de participación %{space_name}"
+          unpublish: "%{user_name} ha despublicado la encuesta %{resource_name} en el espacio de participación %{space_name}"
           update: "%{user_name} ha actualizado la encuesta %{resource_name} en el espacio de participación %{space_name}"
       directory:
         surveys:

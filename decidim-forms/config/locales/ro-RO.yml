@@ -26,6 +26,7 @@ ro:
       admin:
         models:
           components:
+            allow_editing_answers: Permiteți utilizatorilor înregistrați să modifice propriile răspunsuri la sondaj
             description: Descriere
             tos: Condiţii de utilizare
         questionnaires:
@@ -158,6 +159,9 @@ ro:
           questionnaire_answered:
             body: Ai completat deja la acest chestionar.
             title: Un răspuns a fost deja trimis
+          questionnaire_answered_edit:
+            body: Ați răspuns deja la acest sondaj. %{link}
+            edit: Modificați răspunsurile
           questionnaire_closed:
             body: Chestionarul este închis și nu mai poate fi completat.
             title: Formular închis
@@ -172,9 +176,12 @@ ro:
           tos_agreement: Prin participare accepți Termenii și condițiile sale de utilizare
       step_navigation:
         show:
-          are_you_sure: Această acțiune nu poate fi anulată și nu vei putea să îți editezi răspunsurile. Sigur dorești asta?
+          are_you_sure_edit: Veți putea să modificați răspunsurile. Sunteți sigur?
+          are_you_sure_edit_guest: Dacă doriți să modificați răspunsurile după ce veți răspunde, atunci trebuie să vă autentificați sau să creați un cont.
+          are_you_sure_no_edit: Această acțiune nu poate fi anulată și nu veți putea să vă modificați răspunsurile. Sunteți sigur?
           back: Înapoi
           continue: Continuă
+          disallowed: Nu aveți permisiunea să vă modificați răspunsurile.
           submit: Trimite
       user_answers_serializer:
         body: Răspuns

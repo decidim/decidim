@@ -19,8 +19,6 @@
         settings:
           global:
             announcement: Kunngjøring
-            scope_id: Tema
-            scopes_enabled: Aktiverte temaer
           step:
             announcement: Kunngjøring
     events:

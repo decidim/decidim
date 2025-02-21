@@ -134,8 +134,6 @@
             proposal_limit: Forslagsgrense per deltaker
             proposal_wizard_step_1_help_text: Forslags veiviseren "Opprett" trinn-hjelpeteksten
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert forslag
-            scope_id: Tema
-            scopes_enabled: Aktiverte temaer
             threshold_per_proposal: Terskel per forslag
           step:
             amendment_creation_enabled: Oppretting av endringer aktivert

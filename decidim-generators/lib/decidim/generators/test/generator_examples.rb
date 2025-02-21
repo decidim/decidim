@@ -46,6 +46,7 @@ shared_examples_for "a new production application" do
       .to match(/^# gem "decidim-initiatives"/)
       .and match(/^# gem "decidim-conferences"/)
       .and match(/^# gem "decidim-templates"/)
+      .and match(/^# gem "decidim-collaborative_texts"/)
   end
 end
 
@@ -57,6 +58,7 @@ shared_examples_for "a new development application" do
       .to match(/^gem "decidim-initiatives"/)
       .and match(/^gem "decidim-conferences"/)
       .and match(/^gem "decidim-templates"/)
+      .and match(/^gem "decidim-collaborative_texts"/)
 
     # Checks that every table from a migration is included in the generated schema
     schema = File.read("#{test_app}/db/schema.rb")
@@ -347,7 +349,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim initiatives creation_enabled) => "auto",
       %w(decidim initiatives minimum_committee_members) => 2,
       %w(decidim initiatives default_signature_time_period_length) => 120,
-      %w(decidim initiatives default_components) => %w(pages meetings),
+      %w(decidim initiatives default_components) => %w(pages meetings blogs),
       %w(decidim initiatives first_notification_percentage) => 33,
       %w(decidim initiatives second_notification_percentage) => 66,
       %w(decidim initiatives stats_cache_expiration_time) => 5,
@@ -836,7 +838,7 @@ shared_examples_for "an application with extra configurable env vars" do
       "creation_enabled" => true,
       "minimum_committee_members" => 2,
       "default_signature_time_period_length" => 120,
-      "default_components" => %w(pages meetings),
+      "default_components" => %w(pages meetings blogs),
       "first_notification_percentage" => 33,
       "second_notification_percentage" => 66,
       "stats_cache_expiration_time" => 300, # 5.minutes

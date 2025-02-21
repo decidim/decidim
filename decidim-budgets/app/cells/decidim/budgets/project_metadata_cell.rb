@@ -22,7 +22,7 @@ module Decidim
         [voted_item] + taxonomy_items + [status_item]
       end
 
-      def project_items_for_map
+      def items_for_map
         ([voted_item_for_map] + taxonomy_items).compact_blank.map do |item|
           {
             text: item[:text].to_s.html_safe,

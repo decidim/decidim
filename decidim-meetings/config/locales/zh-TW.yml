@@ -130,8 +130,6 @@ zh-TW:
             maps_enabled: 啟用地圖
             registration_code_enabled: 啟用註冊碼
             resources_permissions_enabled: 可以針對每個會議設定操作權限
-            scope_id: 範圍
-            scopes_enabled: 啟用範圍
             terms_and_conditions_url_for_meeting_creators: 會議創建者的使用條款和條件 URL
           step:
             announcement: 公告

@@ -13,6 +13,8 @@
 <%= decidim_form_for(@form, url: update_url, method: :post, html: { multipart: true, class: "form answer-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
   <%= form_required_explanation %>
 
+  <%= form.hidden_field :allow_editing_answers %>
+
   <%= invisible_captcha %>
   <% answer_idx = 0 %>
   <% cleaned_answer_idx = 1 %>
@@ -74,7 +76,8 @@
           step_index,
           total_steps: @form.total_steps,
           button_disabled: !current_participatory_space.can_participate?(current_user),
-          form:
+          form:,
+          allow_editing_answers: questionnaire_for.try(:allow_editing_answers?)
         ) %>
       </div>
     </div>

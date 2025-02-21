@@ -28,9 +28,6 @@ ro:
         promoted: Promovat
         published_at: Publicat la
         related_process_ids: Procese asociate
-        scope_id: Domeniu de interes
-        scope_type_max_depth_id: Gradul de adâncime al filtrului privind domeniul
-        scopes_enabled: Domenii de interes activate
         short_description: Descriere scurtă
         slug: URL slug
         start_date: Data de început
@@ -364,12 +361,9 @@ ro:
           form:
             announcement_help: Textul pe care îl introduci aici va fi afișat utilizatorului chiar sub informațiile procesului.
             duration: Durată
-            filters: Filtre
             images: Imagini
             metadata: Metadate
             related_processes: Procese asociate
-            scope_type_max_depth_help: Limitează gradul de adâncime al filtrului privind domeniul; Filtrul afișează de la general la tipul de domeniu selectat.
-            select_an_area: Selectează o zonă
             select_process_group: Selectează un grup de proces
             taxonomies: Taxonomii
             title: Informaţii generale
@@ -380,6 +374,11 @@ ro:
         title: Procese participative
       last_activity:
         new_participatory_process: 'Proces participativ nou:'
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Procese participative active
+            see_all_spaces: Vedeți tot
       participatory_process_steps:
         index:
           back_to_process: Înapoi la pagina de proces

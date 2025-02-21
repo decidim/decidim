@@ -37,8 +37,6 @@ uk:
         promoted: Висвітлено
         published_at: 'Оприлюднено:'
         purpose_of_action: Мета дії
-        scope_id: Обсяг
-        scopes_enabled: Обсяги увімкнено
         short_description: Стислий опис
         slug: Скорочена веб-адреса
         special_features: Особливості
@@ -182,7 +180,6 @@ uk:
           form:
             duration_help: Якщо тривалість цих зборів обмежена, оберіть дату завершення. В іншому випадку вони будуть показуватися як безстрокові.
             select_a_created_by: Вкажіть, ким створені
-            select_an_area: Оберіть дільницю
             social_handlers: Соціальні мережі
             title: Загальні відомості
       assemblies:

@@ -33,8 +33,6 @@ is-IS:
         private_space: Einkasvæði
         published_at: Birt á
         purpose_of_action: Tilgangur aðgerða
-        scope_id: Umfang
-        scopes_enabled: Scopes virkt
         short_description: Stutt lýsing
         slug: URL slug
         special_features: Sérstakir eiginleikar
@@ -144,7 +142,6 @@ is-IS:
         assemblies:
           form:
             select_a_created_by: Veldu búið til af
-            select_an_area: Veldu svæði
             social_handlers: Félagsleg
             title: Almennar upplýsingar
       assemblies:

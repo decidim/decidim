@@ -218,8 +218,6 @@ fi-pl:
             proposal_wizard_step_1_help_text: Ehdotuksen luonnin "Luo" -vaiheen ohjeteksti
             proposal_wizard_step_2_help_text: Ehdotuksen luonnin "Julkaise" -vaiheen ohjeteksti
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle ehdotukselle
-            scope_id: Teema
-            scopes_enabled: Teemat käytössä
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
             threshold_per_proposal: Ehdotusten äänten määrän kynnysarvo
@@ -259,7 +257,7 @@ fi-pl:
             publish_answers_immediately: Julkaise ehdotusten vastaukset heti
             publish_answers_immediately_help_html: 'Huomioithan, että jos vastaat mihin tahansa ehdotukseen ilman tätä asetusta, sinun on julkaistava vastaukset manuaalisesti valitsemalla vastaukset sisältävät ehdotukset ja käyttämällä julkaisutoimintoa. Lisätietoja, miten tämä toimii, löytyy <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">dokumentaation osiosta ehdotuksiin vastaaminen</a>.'
             suggested_hashtags: Käyttäjille ehdotettavat hashtagit uusille ehdotuksille
-            votes_blocked: Äänet ovat tukossa
+            votes_blocked: Äänestys estetty
             votes_enabled: Äänet käytössä
             votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tämä valitseminen piilottaa äänimäärän)
     download_your_data:
@@ -515,6 +513,21 @@ fi-pl:
           proposal_comments: Kommentit
           proposals: Ehdotukset
         imports:
+          help:
+            answers: |
+              CSV- tai Excel-tuontitiedostossa on oltava seuraavat sarakenimet ja JSON-tuontitiedostossa vastaavat avainten nimet (muut sarakkeet tai nimikkeet jätetään huomiotta):
+              <ul>
+              <li><b>id:</b> Vastattavan ehdotuksen yksilöivä ID-tunniste</li>
+              <li><b>state:</b> Jokin vaihtoehdoista "accepted", "evaluating" tai "rejected"</li>
+              <li><b>answer/fi:</b> Vastaus suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
+              </ul>
+            proposals: |
+              CSV- tai Excel-tiedostossa on oltava seuraavat sarakenimet ja JSON-tiedostossa vastaavat avainten nimet:
+              <ul>
+              <li><b>title/fi:</b> Otsikko suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
+              <li><b>body/fi:</b> Kuvaus suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
+              <li><b>taxonomies/ids:</b> Luokittelujen yksilöivät ID-tunnisteet (liitettäessä useampia arvoja, erota arvot toisistaan pilkulla)</li>
+              </ul>
           label:
             answers: Tuo vastaukset tiedostosta
             proposals: Tuo ehdotuksia tiedostosta
@@ -747,6 +760,7 @@ fi-pl:
           error: Yhteistyöluonnoksen luominen epäonnistui.
           success: Yhteistyöluonnos luotu onnistuneesti.
         edit:
+          attachment_legend: Lisää asiakirja tai kuva
           back: Takaisin
           send: Lähetä
           title: Muokkaa yhteistyöluonnosta
@@ -894,7 +908,10 @@ fi-pl:
           description: Koordinaatit päivitetään, kun painat Esikatsele-painiketta. Osoitetekstiä ei muuteta.
           instructions: Voit siirtää pistettä kartalla.
         edit:
+          add_attachments: Lisää liitteitä
+          attachment_legend: Lisää asiakirja tai kuva
           back: Takaisin
+          edit_attachments: Muokkaa liitteitä
           send: Lähetä
           title: Muokkaa ehdotusta
         edit_draft:
@@ -986,7 +1003,7 @@ fi-pl:
           maximum_votes_reached: Kaikki äänet käytetty
           no_votes_remaining: Ei ääniä jäljellä
           vote: Äänestä
-          votes_blocked: Äänestys estetty
+          votes_blocked: Äänestä
         votes_count:
           count:
             one: Ääni

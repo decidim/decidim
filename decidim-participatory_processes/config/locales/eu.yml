@@ -19,8 +19,8 @@ eu:
         import_categories: Inportatu kategoriak
         import_components: Inportatu osagaiak
         import_steps: Inportatu faseak
-        local_area: Antolakuntza Arloa
-        meta_scope: 'Metadatuak: esparrua'
+        local_area: Antolakuntza arloa
+        meta_scope: 'Metadatuak: eremua'
         participatory_process_group_id: Prozesu-multzoa
         participatory_scope: Zer erabaki da
         participatory_structure: Nola erabakitzen da?
@@ -28,9 +28,6 @@ eu:
         promoted: Nabarmendua
         published_at: Argitaratze-data
         related_process_ids: Elkarrekin lotutako prozesuak
-        scope_id: Esparrua
-        scope_type_max_depth_id: Esparruaren iragazkiaren sakonera
-        scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
         slug: URL laburra
         start_date: Hasiera-data
@@ -44,8 +41,8 @@ eu:
         group_url: Web gunea
         hashtag: Traola
         hero_image: Irudia
-        local_area: Antolakuntza Arloa
-        meta_scope: Esparruaren metadatuak
+        local_area: Antolakuntza arloa
+        meta_scope: Eremuaren metadatuak
         participatory_process_ids: Elkarrekin lotutako prozesuak
         participatory_scope: Zer erabakitzen da
         participatory_structure: Nola erabakitzen den
@@ -272,6 +269,9 @@ eu:
         create:
           error: Arazo bat egon da beste prozesu parte-hartzaileen multzo bat sortzean.
           success: Prozesu parte-hartzaileen taldea zuzen eguneratua.
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: Prozesu parte-hartzaile guztiak
       titles:
         participatory_process_groups: Prozesu parte-hartzaileen taldeak
         participatory_process_types: Prozesu parte-hartzaile motak
@@ -352,7 +352,7 @@ eu:
       help:
         participatory_processes:
           announcement: Informazioa iragarpenaz (deia)
-          area: Prozesua zein eremutan gertatzen ari da?
+          area: Prozesua zein arlotan gertatzen ari da
           created_at: Zein datatan sortu zen espazio hau
           description: Prozesuaren deskribapen luzea
           developer_group: Prozesuaren talde garatzailea. Hau da prozesua sustatzen duen erakundea.
@@ -360,18 +360,18 @@ eu:
           follows_count: Espazio hau zenbat parte-hartzailek jarraitzen duten
           hashtag: Prozesuaren traola, X sarerako erabilia
           id: Prozesu honen identifikatzaile bakarra
-          local_area: Prozesuaren tokiko eremua. Hau da prozesua garatzen ari den erakundearen arloa.
-          meta_scope: Prozesuaren esparru-metadatuak
+          local_area: Prozesuaren tokiko arloa. Hau da prozesua garatzen ari den erakundearen arloa.
+          meta_scope: Prozesuaren eremu-metadatuak
           participatory_process_group: Prozesuaren taldea, baldin badago
           participatory_process_type: Prozesu mota
-          participatory_scope: Prozesuaren parte-hartze esparrua
+          participatory_scope: Prozesuaren parte-hartze eremua
           participatory_structure: Prozesuaren egitura parte-hartzailea. Horrela erabakitzen da prozesua.
           promoted: Prozesua sustatu den ala ez
           published_at: Zein egunetan argitaratu zen espazio hau
           reference: Espazioaren erreferentzia bakarra
           remote_hero_image_url: Prozesuaren irudi nagusiaren URLa
-          scope: Prozesuaren esparrua
-          scopes_enabled: Esparruak gaituta dauden ala ez
+          scope: Prozesuaren eremua
+          scopes_enabled: Eremuak gaituta dauden ala ez
           short_description: Prozesuaren deskribapen laburra
           slug: Batzarraren lerroa (helburuen identifikaziorako erabiltzen da, URLrako)
           start_date: Prozesuaren hasiera-data
@@ -404,10 +404,10 @@ eu:
         stats:
           name: Jarduera
         title:
-          meta_scope: Esparrua
+          meta_scope: Eremua
           participatory_processes:
             one: Prozesu bat
-            other: "%{count} prozesu"
+            other: "Prozesu bat"
       show:
         title: Prozesu parte-hartzaileen taldeak
     participatory_process_steps:
@@ -445,14 +445,11 @@ eu:
             announcement_help: Hemen sartzen duzun testua parte-hartzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
-            filters: iragazkiak
             images: Irudiak
             metadata: Metadatuak
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             private_notice: Kiak kudeatu ahal izango dituzu pribatu gisa ezarri ondoren
             related_processes: Elkarrekin lotutako prozesuak
-            scope_type_max_depth_help: Murriztu esparru-iragazkiaren sakonera; iragazkia esparru orokorretik hautatutakora erakutsiko da.
-            select_an_area: Hautatu eremu bat
             select_process_group: Hautatu prozesu-talde bat
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
             taxonomies: Taxonomiak
@@ -485,7 +482,7 @@ eu:
           data: Prozesuaren datuak
           developer_group: Talde sustatzailea
           local_area: Erakundeko Arloa
-          meta_scope: Esparrua
+          meta_scope: Eremua
           participatory_scope: Zer erabakitzen da?
           participatory_structure: Nola erabakitzen da?
           target: Nork hartzen du parte?
@@ -494,8 +491,8 @@ eu:
           all_types: Mota guztiak
           counters:
             active:
-              one: 1 prozesu aktibo
-              other: "%{count} prozesu aktiboak"
+              one: Prozesu bat aktibo
+              other: "%{count} prozesu aktibo"
             all:
               one: 1 prozesu
               other: "%{count} prozesu"
@@ -508,8 +505,8 @@ eu:
           date: Data
           explanations:
             no_active: Ez dago prozesu aktiborik.
-            no_active_nor_upcoming: Ez dago prozesu aktiborik ez etorkizunekorik.
-            no_active_nor_upcoming_callout: Prozesu aktibo eta ez datoz bat. Hona hemen iraganekoen zerrenda.
+            no_active_nor_upcoming: Ez dago prozesurik martxan, ezta aurreikuspenik ere.
+            no_active_nor_upcoming_callout: Ez dago prozesurik martxan edo aurreikusita. Jarraian, iraganeko prozesuen zerrenda.
           filter_by: Erakutsi
           names:
             active: Aktiboa

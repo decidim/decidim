@@ -218,8 +218,6 @@ es-PY:
             proposal_wizard_step_1_help_text: Asistente de propuesta "Crear" paso texto de ayuda
             proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Publicar" del asistente de propuestas
             resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada propuesta
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
             threshold_per_proposal: Umbral por propuesta
@@ -1005,7 +1003,7 @@ es-PY:
           maximum_votes_reached: Límite de votos alcanzado
           no_votes_remaining: No hay votos restantes
           vote: Dar apoyo
-          votes_blocked: Votación desactivada
+          votes_blocked: Dar apoyo
         votes_count:
           count:
             one: Apoyo

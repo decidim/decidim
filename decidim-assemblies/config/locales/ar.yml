@@ -43,8 +43,6 @@ ar:
         promoted: سلط الضوء
         published_at: نشرت في
         purpose_of_action: الغرض من العمل
-        scope_id: نطاق
-        scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
         slug: سبيكة العنوان الشبكي
         special_features: مميزات خاصة
@@ -163,6 +161,7 @@ ar:
       models:
         assembly:
           fields:
+            actions: الإجراءات
             created_at: تاريخ الإنشاء
             private: خاص
             promoted: سلط الضوء
@@ -222,13 +221,11 @@ ar:
             announcement_help: سيظهر النص الذي أدخلته هنا للمستخدم مباشرة تحت معلومات الجمعية.
             duration: المدة الزمنية
             duration_help: إذا كانت مدة هذه الجمعية محدودة ، فحدد تاريخ الانتهاء. خلاف ذلك ، سوف يظهر على أنه غير مسمى.
-            filters: مرشحات
             images: الصور
             included_at_help: حدد التاريخ الذي تمت فيه إضافة هذه الجمعية إلى المنصة. ليس بالضرورة أن يكون هو نفسه تاريخ الإنشاء.
             metadata: البيانات الوصفية
             other: آخر
             select_a_created_by: حدد تم إنشاؤها بواسطة
-            select_an_area: اختر منطقة
             select_parent_assembly: حدد الجمعية الأصلية
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة

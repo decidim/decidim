@@ -17,8 +17,6 @@ zh-CN:
         settings:
           global:
             announcement: 通 知
-            scope_id: 范围
-            scopes_enabled: 范围已启用
           step:
             announcement: 通 知
     events:

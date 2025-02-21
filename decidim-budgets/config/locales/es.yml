@@ -235,7 +235,6 @@ es:
           selected_projects: 'Lo proyectos que has seleccionado son:'
           subject: Has votado en el espacio de participación %{space_name}
           voted_on_space: Has votado en el presupuesto %{budget_name} para el espacio participativo %{space_name}.
-          voted_on_space_with_scope: Has votado en el presupuesto %{budget_name} del espacio de participación %{space_name} de %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Si cambias de opinión, puedes cambiar tu voto más tarde.
@@ -352,8 +351,6 @@ es:
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             projects_per_page: Proyectos por página
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada proyecto
-            scope_id: Ámbito
-            scopes_enabled: Ámbitos habilitados
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
             title: Título
@@ -384,6 +381,15 @@ es:
               enabled: Votación habilitada
               finished: Votación finalizada
     download_your_data:
+      help:
+        orders:
+          budget: El presupuesto sobre el que se ha emitido el voto
+          checked_out_at: La fecha y la hora en que se entregó la petición
+          component: El componente con el que está relacionada la petición
+          created_at: La fecha y la hora en que se creó la petición
+          id: El identificador único de la petición
+          projects: Los proyectos votados recogidos en esta petición
+          updated_at: La fecha y la hora en que se actualizó la petición
       show:
         projects: Exportar los proyectos
     events:

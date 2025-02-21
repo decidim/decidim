@@ -21,6 +21,8 @@ module Decidim
         decidim-users-
         decidim-usergroups-
         decidim-meetings-registrations-
+        decidim-meetings-invites-
+        decidim-meetings-meetings-
         decidim-proposals-proposals-
         decidim-budgets-orders-
         decidim-forms-answers-
@@ -29,6 +31,7 @@ module Decidim
         decidim-conferences-conferenceinvites-
         decidim-comments-comments-
         decidim-comments-commentvotes-
+        decidim-initiatives-initiatives-
       )
     end
 
@@ -86,7 +89,26 @@ module Decidim
 
       context "when the user has an identity" do
         let!(:identity) { create(:identity, user:) }
-        let(:help_definition_string) { "The user that this identity belongs to" }
+        let(:help_definition_string) { "The provider of this identity" }
+
+        it_behaves_like "a download your data entity"
+      end
+
+      context "when the user has a report" do
+        let(:moderation) { create(:moderation, reportable:, participatory_space:) }
+        let(:participatory_space) { create(:participatory_process, organization:) }
+        let(:reportable) { create(:proposal, component:) }
+        let(:component) { create(:proposal_component, organization:) }
+        let!(:report) { create(:report, moderation:, user:) }
+
+        let(:help_definition_string) { "The reason of this report" }
+
+        it_behaves_like "a download your data entity"
+      end
+
+      context "when the user has participatory_space_private_user" do
+        let!(:participatory_space_private_user) { create(:participatory_space_private_user, user:) }
+        let(:help_definition_string) { "The role that this private user has" }
 
         it_behaves_like "a download your data entity"
       end

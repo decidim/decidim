@@ -213,13 +213,21 @@ ja:
             title: タイトル
       order:
         status:
+          continue_voting: 投票を続ける
+          download_vote: 投票のダウンロード
+          pending_to_vote_budgets:
+            other: 他の予算に投票できます
+          share_vote: 投票を共有する
           title: 投票は正常に承認されました
+          view_votes:
+            other: 投票を表示
+          votes_count:
+            other: あなたの%{count}票は、%{budget_name}に対してすでに登録されています。
       order_summary_mailer:
         order_summary:
           selected_projects: '選択したプロジェクトは次のとおりです。'
           subject: 参加型スペース%{space_name} に投票しました
           voted_on_space: '%{budget_name} 参加型スペースの %{space_name} 予算に投票しました。'
-          voted_on_space_with_scope: '%{budget_name} (%{space_name}) の %{scope_name} 参加型スペースの %{scope_type} 予算に投票しました。'
       projects:
         budget_confirm:
           are_you_sure: 気が変わった場合は、後で投票を変更できます。
@@ -333,8 +341,6 @@ ja:
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             projects_per_page: ページあたりのプロジェクト数
             resources_permissions_enabled: プロジェクトごとにアクションの権限を設定できます
-            scope_id: スコープ
-            scopes_enabled: スコープは有効です
             taxonomy_filters: コンポーネントのフィルタを選択
             taxonomy_filters_add: フィルターを追加
             title: タイトル

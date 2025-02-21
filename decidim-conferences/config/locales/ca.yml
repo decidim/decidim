@@ -21,8 +21,6 @@ ca:
         published_at: Publicat a
         registration_terms: Condicions d'inscripció
         registrations_enabled: Inscripcions habilitades
-        scope_id: Àmbit
-        scopes_enabled: Àmbits habilitats
         short_description: Breu descripció
         show_statistics: Mostrar estadístiques
         sign_date: Data de signatura
@@ -123,13 +121,13 @@ ca:
         destroy:
           success: Ponent de la jornada eliminada correctament.
         edit:
-          title: Actualitzar la ponència de la jornada.
+          title: Actualitzar la ponent de la jornada
           update: Actualitzar
         index:
           conference_speakers_title: Ponents de les conferències
         new:
           create: Crear
-          title: Nova ponent de la jornada.
+          title: Nova ponent de la jornada
         publish:
           invalid: S'ha produït un error en publicar aquesta ponent.
           success: Ponent de la jornada actualitzada correctament.
@@ -146,13 +144,13 @@ ca:
         destroy:
           success: Administradora de la jornada eliminada correctament.
         edit:
-          title: Actualitzar administradora de la jornada.
+          title: Actualitzar administradora de la jornada
           update: Actualitzar
         index:
           conference_admins_title: Administradores de la jornada
         new:
           create: Crear
-          title: Nova administradora de jornada.
+          title: Nova administradora de jornada
         update:
           error: S'ha produït un error en actualitzar l'administradora per a aquesta jornada.
           success: Administradora de la jornada actualitzada correctament.
@@ -188,13 +186,13 @@ ca:
         destroy:
           success: S'ha eliminat correctament l'enllaç multimèdia.
         edit:
-          title: Actualitzar l'enllaç multimèdia.
+          title: Actualitzar l'enllaç multimèdia
           update: Actualitzar
         index:
           media_links_title: Enllaços multimèdia
         new:
           create: Crear
-          title: Enllaç multimèdia
+          title: Crear enllaç multimèdia
         update:
           error: S'ha produït un error en actualitzar aquest enllaç multimèdia.
           success: Enllaç multimèdia actualitzat correctament.
@@ -210,10 +208,10 @@ ca:
           conference_speakers: Ponents
           diploma: Certificat d'assistència
           info: Quant a aquesta jornada
-          media_links: Enllaços multimedia
+          media_links: Enllaços multimèdia
           moderations: Moderacions
           partners: Col·laboradores
-          registration_types: Tipus d'inscripcions
+          registration_types: Tipus d'inscripció
           registrations: Inscripcions
           see_conference: Veure la jornada
           user_registrations: Inscripcions de participants
@@ -245,7 +243,7 @@ ca:
             date: Data
             link: Enllaç
             title: Títol
-          name: Enllaç multimedia
+          name: Enllaç multimèdia
         partner:
           fields:
             link: Enllaç
@@ -271,7 +269,7 @@ ca:
         destroy:
           success: Col·laboradora de la jornada eliminada correctament.
         edit:
-          title: Actualitzar col·laboradora.
+          title: Actualitzar col·laboradora
           update: Actualitzar
         new:
           create: Crear
@@ -293,7 +291,7 @@ ca:
         destroy:
           success: El tipus d'inscripció s'ha eliminat correctament d'aquesta jornada.
         edit:
-          title: Actualitzar el tipus de registre.
+          title: Actualitzar el tipus d'inscripció
           update: Actualitzar
         new:
           create: Crear
@@ -301,6 +299,9 @@ ca:
         update:
           error: S'ha produït un error en actualitzar un tipus d'inscripció per a aquesta jornada.
           success: El tipus d'inscripció s'ha actualitzat correctament per a aquesta jornada.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Totes les jornades
       titles:
         conferences: Jornades
         conferences_deleted: Jornades eliminades

@@ -218,8 +218,6 @@ de:
             proposal_wizard_step_1_help_text: Hilfetext "Erstellen"-Schritt im Vorschlagsassistenten
             proposal_wizard_step_2_help_text: Hilfetext "Veröffentlichen"-Schritt im Vorschlagsassistenten
             resources_permissions_enabled: Berechtigungen können für jeden Vorschlag festgelegt werden
-            scope_id: Bereich
-            scopes_enabled: Bereiche aktiviert
             taxonomy_filters: Filter für die Komponente auswählen
             taxonomy_filters_add: Filter hinzufügen
             threshold_per_proposal: Schwellenwert pro Vorschlag
@@ -1005,7 +1003,6 @@ de:
           maximum_votes_reached: Maximal mögliche Anzahl Stimmen erteilt
           no_votes_remaining: Keine verbleibenden Stimmen
           vote: Abstimmen
-          votes_blocked: Abstimmung deaktiviert
         votes_count:
           count:
             one: Stimme

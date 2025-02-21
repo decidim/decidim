@@ -38,8 +38,6 @@ id:
         promoted: Dipromosikan
         published_at: Diterbitkan di
         purpose_of_action: Tujuan tindakan
-        scope_id: Cakupan
-        scopes_enabled: Lingkup diaktifkan
         short_description: Deskripsi Singkat
         slug: Siput URL
         special_features: Fitur spesial
@@ -174,12 +172,10 @@ id:
           form:
             duration: Lamanya
             duration_help: Jika durasi rakitan ini terbatas, pilih tanggal akhir. Jika tidak, itu akan muncul sebagai tidak terbatas.
-            filters: Filter
             images: Gambar
             metadata: Metadata
             other: Lain
             select_a_created_by: Pilih yang dibuat oleh
-            select_an_area: Pilih Area
             select_parent_assembly: Pilih perakitan induk
             social_handlers: Sosial
             title: Informasi Umum

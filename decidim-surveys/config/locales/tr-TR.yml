@@ -19,8 +19,6 @@ tr:
         settings:
           global:
             announcement: Duyuru
-            scope_id: Kapsam
-            scopes_enabled: Kapsamlar etkinleştirildi
           step:
             announcement: Duyuru
     events:

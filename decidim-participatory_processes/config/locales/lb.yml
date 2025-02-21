@@ -22,9 +22,6 @@ lb:
         promoted: Hervorgehoben
         published_at: Veröffentlicht unter
         related_process_ids: Ähnliche Beteiligungsprozesse
-        scope_id: Themenbereich
-        scope_type_max_depth_id: Umfang-Filtertiefe
-        scopes_enabled: Themenbereiche aktiviert
         short_description: Kurzbeschreibung
         slug: URL-Slug
         start_date: Ufanksdatum
@@ -281,8 +278,6 @@ lb:
         participatory_processes:
           form:
             related_processes: Ähnliche Beteiligungsprozesse
-            scope_type_max_depth_help: Beschränken Sie die Bereichs-Filtertiefe; der Filter zeigt nur Ergebnisse von Allgemein bis zum ausgewählten Bereichstyp an.
-            select_an_area: Wählen Sie einen Bereich aus
             select_process_group: Wählen Sie eine Prozessgruppe aus
             title: Allgemeine Information
       content_blocks:

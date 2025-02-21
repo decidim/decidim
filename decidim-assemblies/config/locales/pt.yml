@@ -38,8 +38,6 @@ pt:
         promoted: Realçado
         published_at: Publicado em
         purpose_of_action: Objetivo da ação
-        scope_id: Âmbito
-        scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
         slug: Campo de dados dinâmicos de URL
         special_features: Características especiais
@@ -200,12 +198,10 @@ pt:
             announcement_help: O texto que introduzir aqui será mostrado ao utilizador imediatamente abaixo da informação sobre a reunião.
             duration: Duração
             duration_help: Se a duração desta reunião for limitada, selecione a data final. Caso contrário, aparecerá como indefinida.
-            filters: Filtros
             images: Imagens
             metadata: Metadados
             other: Outros
             select_a_created_by: Selecione um criado por
-            select_an_area: Selecione uma Área
             select_parent_assembly: Selecione a reunião pai
             social_handlers: Social
             title: Informação geral

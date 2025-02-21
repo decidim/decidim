@@ -15,7 +15,7 @@ module Decidim
 
         def create
           enforce_permission_to(:create, :questionnaire)
-          Decidim::Surveys::CreateSurvey.call(current_component) do
+          Decidim::Surveys::Admin::CreateSurvey.call(current_component) do
             on(:ok) do |survey|
               flash[:notice] = I18n.t("create.success", scope: "decidim.surveys.admin.surveys")
               redirect_to edit_survey_path(survey)

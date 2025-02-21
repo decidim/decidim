@@ -139,8 +139,6 @@ pt:
             proposal_limit: Limite de propostas por utilizador
             proposal_wizard_step_1_help_text: Texto de ajuda do passo "Criar" do Assistente de Propostas
             resources_permissions_enabled: As permissões de ações podem ser definidas para cada proposta
-            scope_id: Âmbito
-            scopes_enabled: Âmbitos activados
             threshold_per_proposal: Limiar por proposta
           step:
             amendment_creation_enabled: Criação de modificação ativada

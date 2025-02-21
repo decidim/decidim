@@ -184,7 +184,6 @@ pt-BR:
           selected_projects: 'Os projetos que você selecionou são:'
           subject: Você votou no espaço participativo %{space_name}
           voted_on_space: Você votou no orçamento %{budget_name} para o espaço participativo %{space_name}.
-          voted_on_space_with_scope: Você votou no orçamento %{budget_name} para o espaço participativo %{space_name} em %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Se mudar de ideia, você pode mudar de voto mais tarde.
@@ -298,8 +297,6 @@ pt-BR:
             more_information_modal: Modal de mais informação
             projects_per_page: Projetos por página
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada projeto
-            scope_id: Escopo
-            scopes_enabled: Escopos habilitados
             title: Título
             total_budget: Orçamento total
             vote_minimum_budget_projects_number: Número mínimo de projetos para votar

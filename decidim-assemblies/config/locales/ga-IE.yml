@@ -12,7 +12,6 @@ ga:
         github: GitHub
         hashtag: Haischlib
         participatory_processes_ids: Próisis Rannpháirteacha Ceangailte
-        scope_id: Scóip
         slug: Píosa URL
         subtitle: Fotheideal
         title: Teideal
@@ -84,7 +83,6 @@ ga:
         assemblies:
           form:
             duration: Fad
-            filters: Scagairí
             images: Íomhánna
             metadata: Meiteashonraí
             other: Eile

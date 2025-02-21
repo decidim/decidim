@@ -1,0 +1,22 @@
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+
+  <div class="text-center py-10">
+    <% if questionnaire.title.present? %>
+      <h1 class="title-decorator inline-block text-left mb-12">
+        <%= translated_attribute questionnaire.title %>
+      </h1>
+    <% end %>
+
+    <% if questionnaire.description.present? %>
+      <div class="text-left editor-content">
+        <%= decidim_sanitize_editor_admin translated_attribute questionnaire.description %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= render partial: "decidim/shared/component_announcement" if current_component.manifest_name == "surveys" %>
+  <section>
+    <% body = t("decidim.forms.questionnaires.show.questionnaire_answered.body") %>
+    <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_answered.title"), body: body }) %>
+  </section>
+<% end %>

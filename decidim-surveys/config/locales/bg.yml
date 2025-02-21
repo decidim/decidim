@@ -19,8 +19,6 @@ bg:
         settings:
           global:
             announcement: Съобщение
-            scope_id: Обхват
-            scopes_enabled: Обхватите са активирани
           step:
             announcement: Съобщение
     events:
