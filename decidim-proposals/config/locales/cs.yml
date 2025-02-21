@@ -646,7 +646,6 @@ cs:
             cancel: Zrušit
             change_taxonomies: Změnit taxonomie
             merge: Sloučit do nového
-            merge_button: Spojit
             no_templates_available: Žádné šablony nejsou k dispozici
             publish: Publikovat
             publish_answers: Publikovat odpovědi
@@ -722,7 +721,6 @@ cs:
       admin_log:
         proposal:
           answer: "%{user_name} odpovídalo %{resource_name} návrh na %{space_name} prostoru"
-          create: "%{user_name} vytvořil %{resource_name} návrh na %{space_name} prostoru jako oficiální návrh"
           publish_answer: "%{user_name} zveřejnil odpověď na návrh %{resource_name} ve skupině %{space_name}"
           restore: "%{user_name} obnovil návrh %{resource_name} na prostoru %{space_name}"
           soft_delete: "%{user_name} přesunul do koše návrh %{resource_name} v prostoru %{space_name}"
