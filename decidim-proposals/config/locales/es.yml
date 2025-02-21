@@ -634,7 +634,6 @@ es:
             cancel: Cancelar
             change_taxonomies: Cambiar taxonomías
             merge: Fusionar en una nueva
-            merge_button: Fusionar
             no_templates_available: No hay pantillas disponibles
             publish: Publicar
             publish_answers: Publicar respuestas
@@ -708,7 +707,6 @@ es:
       admin_log:
         proposal:
           answer: "%{user_name} respondió a la propuesta %{resource_name} en el espacio %{space_name}"
-          create: "%{user_name} creó la propuesta %{resource_name} en el espacio %{space_name} como una propuesta oficial"
           publish_answer: "%{user_name} publicó la respuesta a la propuesta %{resource_name} en el espacio %{space_name}"
           restore: "%{user_name} restauró la propuesta %{resource_name} en el espacio %{space_name}"
           soft_delete: "%{user_name} ha movido a la papelera la propuesta %{resource_name} en el espacio %{space_name}"
