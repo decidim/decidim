@@ -35,6 +35,8 @@ module Decidim
 
       def resource_class = Decidim::Blogs::Post
 
+      def extra_params = { visibility: "all" }
+
       def attributes
         super.merge(
           title: { I18n.locale => form.title },
