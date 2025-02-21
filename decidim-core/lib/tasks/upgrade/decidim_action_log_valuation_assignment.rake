@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-namespace :action_log do
+namespace :decidim do
   namespace :upgrade do
     desc "Update resource_type from ValuationAssignment to EvaluationAssignment"
     task update_resource_type: :environment do
