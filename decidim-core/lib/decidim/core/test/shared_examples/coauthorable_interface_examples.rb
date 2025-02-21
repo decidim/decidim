@@ -14,16 +14,16 @@ shared_examples_for "coauthorable interface" do
       end
     end
 
-    describe "with a user group" do
-      let(:user_group) { create(:user_group, :verified, organization: model.participatory_space.organization, users: [author]) }
+    describe "when coauthor is a confirmed user group" do
+      let(:user_group) { create(:user_group, :confirmed, :verified, organization: model.participatory_space.organization) }
       let(:query) { "{ author { name } }" }
 
       before do
         coauthorship = model.coauthorships.first
-        coauthorship.update!(user_group:)
+        coauthorship.update!(author: user_group)
       end
 
-      it "includes returns the user group's name as the author name" do
+      it "returns the user group's name as the author name" do
         expect(response["author"]["name"]).to eq(user_group.name)
       end
     end
