@@ -5,6 +5,10 @@ module Decidim
     module Admin
       # This controller allows admins to answer proposals in a participatory process.
       class ProposalAnswersController < Admin::ApplicationController
+        include ActionView::Helpers::SanitizeHelper
+        include Decidim::Proposals::Admin::NeedsInterpolations
+        include Decidim::Proposals::Admin::Filterable
+
         helper_method :proposal
 
         helper Proposals::ApplicationHelper
@@ -43,6 +47,28 @@ module Decidim
 
         def proposal
           @proposal ||= Proposal.where(component: current_component).find(params[:id])
+        end
+
+        def proposals
+          @proposals ||= Proposal.where(component: current_component).where(id: params[:proposal_ids])
+        end
+
+        def collection
+          @collection ||= Proposal.where(component: current_component).not_hidden.published
+        end
+
+        def template
+          return unless Decidim.module_installed?(:templates)
+
+          @template ||= Decidim::Templates::Template.find_by(id: params[:template][:template_id])
+        end
+
+        def answer_form(proposal)
+          form(ProposalAnswerForm).from_params(answer: populate_interpolations(template&.description, proposal), internal_state: proposal_state&.token)
+        end
+
+        def proposal_state
+          @proposal_state ||= Decidim::Proposals::ProposalState.find_by(id: template&.field_values&.dig("proposal_state_id"))
         end
       end
     end
