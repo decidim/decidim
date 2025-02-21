@@ -42,22 +42,5 @@ module Decidim
       endorsement_path(resource.to_gid.to_param,
                        authenticity_token: form_authenticity_token)
     end
-
-    # Renders an identity for endorsement.
-    #
-    # Parameters:
-    #   resources  - The endorsable resource.
-    #   user       - The user that is endorsing at the end (mandatory).
-    def render_endorsement_identity(resource, user)
-      presenter = user.group? ? Decidim::UserGroupPresenter.new(user) : Decidim::UserPresenter.new(user)
-      selected = resource.endorsed_by?(user)
-
-      http_method = selected ? :delete : :post
-      render partial: "decidim/endorsements/identity", locals:
-      { identity: presenter, selected:,
-        http_method:,
-        create_url: path_to_create_endorsement(resource),
-        destroy_url: path_to_destroy_endorsement(resource) }
-    end
   end
 end
