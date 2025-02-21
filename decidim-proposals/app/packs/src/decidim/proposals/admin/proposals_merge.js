@@ -17,8 +17,6 @@ document.addEventListener("decidim:loaded", () => {
       // Handles editor initialization
       saveForm.querySelectorAll(".editor-container").forEach((element) => createEditor(element));
       const form = document.querySelector(".proposals_merge_form_admin");
-      const editorInput = form.querySelector(".editor-input");
-      editorInput.style.height = `${parseFloat(window.getComputedStyle(editorInput).height) / 2}px`;
 
       // Handles meeting checkbox
       if (form) {

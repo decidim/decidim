@@ -15,7 +15,7 @@ module Decidim
       class ProposalPresenter < Decidim::Log::BasePresenter
         def initialize(action_log, view_helpers)
           super
-          @proposal = action_log.resource if action_log.resource.is_a?(Decidim::Proposals::Proposal)
+          @proposal = action_log.resource if action_log.resource
         end
 
         private
