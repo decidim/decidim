@@ -48,7 +48,7 @@ module Decidim
     end
 
     def base_relation
-      @base_relation ||= model.endorsements.for_listing.includes(:author, :user_group)
+      @base_relation ||= model.endorsements.for_listing.includes(:author)
     end
 
     def voted_by_me?
