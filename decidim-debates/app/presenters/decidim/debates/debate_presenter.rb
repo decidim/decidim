@@ -62,7 +62,7 @@ module Decidim
       private
 
       def comments_authors
-        @comments_authors ||= debate.comments.includes(:author, :user_group).map(&:normalized_author).uniq
+        @comments_authors ||= debate.comments.includes(:author).map(&:normalized_author).uniq
       end
     end
   end
