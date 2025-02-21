@@ -76,7 +76,7 @@ shared_examples "higher user role hides resource with comments" do
       Capybara.raise_server_errors = previous
     end
 
-    it "reports the resource" do
+    it "hides the resource" do
       visit decidim.search_path
       expect(page).to have_content(translated(comment.body))
 
