@@ -77,7 +77,7 @@ module Decidim
       end
 
       def user_group?
-        author.is_a?(Decidim::UserGroup)
+        author.group?
       end
 
       def users_to_notify_on_comment_created
