@@ -48,19 +48,22 @@ We have updated the terminology of Valuator at a code base level throughout the 
 
 Implementors must run the following 3 tasks:
 
-```
+```bash
 ./bin/rails decidim:upgrade:decidim_update_valuators.rake
 ```
+
 Updates ther role from Valuator to Evaluator within Decidim
 
-```
+```bash
 ./bin/rails decidim:upgrade:decidim_action_log_valuation_assignment.rake
 ```
+
 Updates the resource_type of valuation_assignment within the action log.
 
-```
+```bash
 ./bin/rails decidim:upgrade:decidim_paper_trail_valuation_assignment.rake
 ```
+
 This updates the item_type of valuation assignment.
 
 More information about this change can be found on PR [#13684](https://github.com/decidim/decidim/pull/13684).
