@@ -8,11 +8,9 @@ module Decidim
     #
     # resource     - An instance of Decidim::Endorsable.
     # current_user - The current user.
-    # current_group_id- (optional) The current_group that is endorsing the Resource.
-    def initialize(resource, current_user, current_group_id = nil)
+    def initialize(resource, current_user)
       @resource = resource
       @current_user = current_user
-      @current_group_id = current_group_id
     end
 
     # Executes the command. Broadcasts these events:
@@ -22,8 +20,6 @@ module Decidim
     #
     # Returns nothing.
     def call
-      return broadcast(:invalid) if existing_group_endorsement?
-
       endorsement = build_resource_endorsement
       if endorsement.save
         notify_endorser_followers
@@ -37,18 +33,8 @@ module Decidim
 
     private
 
-    def existing_group_endorsement?
-      @current_group_id.present? && @resource.endorsements.exists?(decidim_user_group_id: @current_group_id)
-    end
-
     def build_resource_endorsement
-      endorsement = @resource.endorsements.build(author: @current_user)
-      endorsement.user_group = user_groups.find(@current_group_id) if @current_group_id.present?
-      endorsement
-    end
-
-    def user_groups
-      Decidim::UserGroups::ManageableUserGroups.for(@current_user).verified
+      @resource.endorsements.build(author: @current_user)
     end
 
     def notify_endorser_followers
