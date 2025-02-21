@@ -23,7 +23,7 @@ ro:
       category:
         description: Descriere
         name: Nume
-        parent_id: Categoria mamă
+        parent_id: Categoria părinte
         weight: Poziție
       component:
         name: Nume
@@ -486,7 +486,7 @@ ro:
         and: și
         data_errors:
           duplicate_headers:
-            detail: Te rugăm verifică dacă fişierul conţine coloanele sau antetele obligatorii o singură dată.
+            detail: Vă rugăm verificați că fișierul conține coloanele sau antetele o singură dată.
             message:
               one: Duplică coloana %{columns}.
               few: Duplică coloanele %{columns}.
