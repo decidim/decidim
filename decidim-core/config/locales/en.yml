@@ -843,10 +843,6 @@ en:
     endorsement_buttons_cell:
       already_endorsed: Undo the like
       endorse: Like
-    endorsements:
-      identities:
-        done: Done
-        select_identity: Select identity
     endorsers_list:
       endorsed_by:
         one: Liked by %{visible}
