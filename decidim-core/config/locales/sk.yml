@@ -36,7 +36,6 @@ sk:
     attributes:
       decidim/user:
         current_password: Súčasné heslo
-        email: E-mail
         name: Prezývka
         password: Heslo
         password_confirmation: Potvrdenie hesla
@@ -351,15 +350,12 @@ sk:
           username_help: Verejné meno, ktoré sa zobrazí vo vašich príspevkoch. S cieľom zaručiť anonymitu to môže byť akékoľvek meno.
       sessions:
         new:
-          are_you_new?: Ste na tejto platforme noví?
           register: Vytvoriť účet
       shared:
         newsletter_modal:
           buttons:
             check: Skontrolujte a pokračujte
           title: Upozornenie na bulletin
-        omniauth_buttons:
-          or: Alebo
     doorkeeper:
       authorizations:
         new:

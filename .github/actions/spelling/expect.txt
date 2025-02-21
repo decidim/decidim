@@ -157,7 +157,7 @@ contingut
 continuar
 contrasenya
 coopdevs
-Correu
+correu
 Cov
 Cprojects
 crdownload
@@ -437,6 +437,7 @@ inviteduser
 isbn
 iseq
 isready
+ivan
 Jaskolski
 Jaume
 javascripts
