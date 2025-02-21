@@ -634,7 +634,6 @@ eu:
             cancel: Utzi
             change_taxonomies: Aldatu taxonomiak
             merge: Beste batean fusionatu
-            merge_button: Batu
             no_templates_available: Ez dago txantiloirik eskuragarri
             publish: Argitaratu
             publish_answers: Argitaratu erantzunak
@@ -708,7 +707,6 @@ eu:
       admin_log:
         proposal:
           answer: "%{user_name} parte-hartzaileak %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
-          create: "%{user_name} parte-hartzaileak %{resource_name} proposamena sortu du %{space_name} espazioan proposamen ofizial gisa"
           publish_answer: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} proposamenaren erantzuna %{space_name} espazioan"
           restore: "%{user_name} parte-hartzailea berreskuratu du %{resource_name} proposamena %{space_name} espazioan"
           soft_delete: "%{user_name} parte-hartzailea eraman du %{resource_name} proposamena %{space_name} espaziora"
