@@ -634,7 +634,6 @@ es-PY:
             cancel: Cancelar
             change_taxonomies: Cambiar taxonomías
             merge: Sumérgete en uno nuevo
-            merge_button: Unir
             no_templates_available: No hay pantillas disponibles
             publish: Publicar
             publish_answers: Publicar respuestas
@@ -708,7 +707,6 @@ es-PY:
       admin_log:
         proposal:
           answer: "%{user_name} respondió la propuesta %{resource_name} en el espacio %{space_name}"
-          create: "%{user_name} creó la propuesta %{resource_name} en el espacio %{space_name} como una propuesta oficial"
           publish_answer: "%{user_name} publicó la respuesta a la propuesta %{resource_name} en el espacio %{space_name}"
           restore: "%{user_name} restauró la propuesta %{resource_name} en el espacio %{space_name}"
           soft_delete: "%{user_name} ha movido a la papelera la propuesta %{resource_name} en el espacio %{space_name}"
