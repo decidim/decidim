@@ -347,6 +347,11 @@ en:
           email_outro: You have received this notification because you are an author of "%{resource_title}".
           email_subject: Your proposal "%{mentioned_proposal_title}" has been mentioned
           notification_title: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_path}">in this space</a> in the comments.
+        proposal_merged:
+          email_intro: 'An admin has merged your proposal "%{resource_title}", check it out in this page:'
+          email_outro: You have received this notification because you are the author of the proposal.
+          email_subject: The %{resource_title} proposal has been merged
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been merged by an admin.
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, who you are following, has published a new proposal called "%{resource_title}". Check it out and contribute:'
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
@@ -635,7 +640,7 @@ en:
             cancel: Cancel
             change_taxonomies: Change taxonomies
             merge: Merge into a new one
-            merge_button: Merge
+            merge_button: Create
             no_templates_available: No templates available
             publish: Publish
             publish_answers: Publish answers
@@ -695,6 +700,11 @@ en:
           create:
             invalid: 'There was a problem merging the selected proposals because some of them:'
             success: Successfully merged the proposals into a new one.
+          form:
+            created_in_meeting: This proposal comes from a meeting
+            select_a_meeting: Select a meeting
+          new:
+            title: Merge into a new one
         proposals_splits:
           create:
             invalid: 'There was a problem splitting the selected proposals because some of them:'
@@ -709,7 +719,7 @@ en:
       admin_log:
         proposal:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
-          create: "%{user_name} created the %{resource_name} proposal on the %{space_name} space as an official proposal"
+          create: "%{user_name} created the proposal %{resource_name} from the merging of %{merged_count} proposals in %{space_name}"
           publish_answer: "%{user_name} published the answer to %{resource_name} proposal on the %{space_name} space"
           restore: "%{user_name} restored the %{resource_name} proposal on the %{space_name} space"
           soft_delete: "%{user_name} moved to trash the %{resource_name} proposal on the %{space_name} space"
