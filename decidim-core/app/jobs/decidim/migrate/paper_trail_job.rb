@@ -3,7 +3,7 @@
 module Decidim
   module Migrate
     # this job is created to help migrating the Paperclip from YAML to JSON
-    class PapertrailJob < Decidim::ApplicationJob
+    class PaperTrailJob < Decidim::ApplicationJob
       def perform(id)
         version = PaperTrail::Version.where.not(old_object_changes: nil).find(id)
         # This is an adaptation of PaperTrail internal load_changeset method,having in mind that we
