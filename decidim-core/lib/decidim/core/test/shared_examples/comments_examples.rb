@@ -1076,7 +1076,6 @@ shared_examples "comments" do
         it { is_expected.to have_key(:author) }
         it { is_expected.to have_key(:alignment) }
         it { is_expected.to have_key(:depth) }
-        it { is_expected.to have_key(:user_group) }
         it { is_expected.to have_key(:commentable_id) }
         it { is_expected.to have_key(:commentable_type) }
         it { is_expected.to have_key(:root_commentable_url) }
