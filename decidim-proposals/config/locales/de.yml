@@ -634,7 +634,6 @@ de:
             cancel: Abbrechen
             change_taxonomies: Klassifizierungen ändern
             merge: Zu einem neuen zusammenführen
-            merge_button: Zusammenführen
             no_templates_available: Keine Vorlagen verfügbar
             publish: Veröffentlichen
             publish_answers: Antworten veröffentlichen
@@ -708,7 +707,6 @@ de:
       admin_log:
         proposal:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
-          create: "%{user_name} hat den %{resource_name} Vorschlag auf den %{space_name} Feldern als offizieller Vorschlag erstellt"
           publish_answer: "%{user_name} veröffentlichte die Antwort auf den Vorschlag %{resource_name} im Bereich %{space_name}"
           restore: "%{user_name} hat den Vorschlag %{resource_name} für den Bereich %{space_name} wiederhergestellt"
           soft_delete: "%{user_name} hat den Vorschlag %{resource_name} im Bereich %{space_name} in den Papierkorb verschoben"
