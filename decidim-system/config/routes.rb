@@ -18,6 +18,7 @@ Decidim::System::Engine.routes.draw do
     end
     resources :admins, except: [:show]
     resources :oauth_applications
+    resources :api_users, except: [:show]
 
     root to: "dashboard#show"
   end

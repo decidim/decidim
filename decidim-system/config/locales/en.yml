@@ -92,6 +92,7 @@ en:
             sign_up: Create an account
       menu:
         admins: Admins
+        api_credentials: API credentials
         dashboard: Dashboard
         oauth_applications: OAuth applications
         organizations: Organizations
