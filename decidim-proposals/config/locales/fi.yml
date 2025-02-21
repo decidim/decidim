@@ -634,7 +634,6 @@ fi:
             cancel: Peruuta
             change_taxonomies: Muuta luokitteluja
             merge: Yhdistä uuteen
-            merge_button: Yhdistä
             no_templates_available: Mallipohjia ei ole käytettävissä
             publish: Julkaise
             publish_answers: Julkaise vastaukset
@@ -708,7 +707,6 @@ fi:
       admin_log:
         proposal:
           answer: "%{user_name} vastasi ehdotukseen %{resource_name} osallistumistilassa %{space_name}"
-          create: "%{user_name} loi ehdotuksen %{resource_name} osallistumistilaan %{space_name} virallisena ehdotuksena"
           publish_answer: "%{user_name} julkaisi vastauksen ehdotukselle %{resource_name} osallistumistilassa %{space_name}"
           restore: "%{user_name} palautti ehdotuksen %{resource_name} tilassa %{space_name}"
           soft_delete: "%{user_name} siirsi ehdotuksen %{resource_name} roskakoriin tilassa %{space_name}"
