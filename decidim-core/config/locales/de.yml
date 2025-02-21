@@ -769,6 +769,9 @@ de:
           details: Die Details dieses Berichts
           id: Die eindeutige Bezeichnung dieses Berichts
           locale: Die Sprache dieses Berichts
+          moderation: Die Moderationsmeldung dieses Berichts
+          reason: Die Begründung dieser Meldung
+          updated_at: Datum und Uhrzeit, an dem diese Meldung zuletzt aktualisiert wurde
         user_groups:
           document_number: Die Dokumentennummer dieser Benutzergruppe
           id: Die eindeutige Bezeichnung der Gruppe
@@ -777,6 +780,7 @@ de:
           verified_at: Datum und Uhrzeit, wann diese Benutzergruppe überprüft wurde
         users:
           about: Die Profilbeschreibung dieses Benutzers
+          accepted_tos_version: Das Datum, an dem die Nutzungsbedingungen dieser Plattform vom Nutzenden akzeptiert wurden
           admin: Ob dieser Benutzer ein Administrator ist
           confirmation_sent_at: Datum und Uhrzeit, an dem die Bestätigung gesendet wurde
           confirmed_at: Datum und Uhrzeit, an dem dieser Benutzer bestätigt wurde
@@ -786,6 +790,8 @@ de:
           delete_reason: Der Grund für das Löschen dieses Benutzers
           deleted_at: Datum und Uhrzeit, an dem dieser Benutzer gelöscht wurde
           email: Die E-Mail-Adresse dieses Benutzers
+          followers_count: Die Anzahl Teilnehmende, die diesem Nutzenden folgen
+          following_count: Die Anzahl der Teilnehmende, denen dieser Nutzende folgt
           id: Der eindeutige Identifikator dieses Benutzers
           invitation_accepted_at: Datum und Uhrzeit, an dem die Einladung angenommen wurde
           invitation_created_at: Datum und die Uhrzeit, an dem dieser Benutzer eingeladen wurde
@@ -804,10 +810,13 @@ de:
           officialized_as: Der Name der offiziellen Rollen (Amtsleiterin, Bürgermeister, usw.)
           officialized_at: Das Datum und die Uhrzeit, an der dieser Benutzer offizialisiert wurde
           organization: Die Organisation, zu der dieser Benutzer gehört
+          password_updated_at: Das Datum, an dem ihr Passwort zum letzten Mal geändert wurde
           personal_url: Die persönliche URL dieses Benutzers
           remember_created_at: Das Datum und die Uhrzeit, an der der Benutzer zum Speichern ausgewählt wurde
           reset_password_sent_at: Datum und Uhrzeit, an dem die Zurücksetzung des Passworts ausgelöst wurde
+          roles: Die Rolle, falls vorhanden, die dieser Nutzende hat
           sign_in_count: Die Anzahl der Anmeldungen dieses Benutzers
+          type: Der Typ, den dieser Benutzer hat
           unconfirmed_email: Die E-Mail-Adresse, die dieser Benutzer noch nicht bestätigt hat
           updated_at: Datum und Uhrzeit, an dem dieser Benutzer zuletzt aktualisiert wurde
       show:

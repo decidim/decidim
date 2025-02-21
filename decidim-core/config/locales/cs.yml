@@ -79,6 +79,7 @@ cs:
         with_participatory_space: Účastnický prostor
       decidim/user:
         current_password: Aktuální heslo
+        email: E-mailová adresa
         name: Uživatelské jméno
         password: Heslo
         password_confirmation: Potvrzení hesla
@@ -600,6 +601,8 @@ cs:
             dummy_step_attribute1: Atribut 1 zástupného kroku
             dummy_step_attribute2: Atribut 2 zástupného kroku
             dummy_step_translatable_text: Zástupný krok textu k přeložení
+      pagination:
+        page_title: "%{component_name} - Strana %{current_page} z %{total_pages}"
     contact: Kontakt
     content_blocks:
       announcement:
@@ -708,6 +711,7 @@ cs:
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
       sessions:
         new:
+          are_you_new?: Ještě nejste zaregistrován?
           register: Vytvořit účet
           sign_in_disabled: Můžete přistupovat pomocí externího účtu.
           sign_up_disabled: Vytvoření účtu je zakázáno, pro přístup můžete použít existující účet.
@@ -731,6 +735,8 @@ cs:
             rozumíme vašemu rozhodnutí.</p>
             <p>Děkujeme, že jste si to přečetli!</p>
           title: Oznámení zpravodaje
+        omniauth_buttons:
+          or: nebo
         password_fields:
           hidden_password: Vaše heslo je skryté
           hide_password: Skrýt heslo
