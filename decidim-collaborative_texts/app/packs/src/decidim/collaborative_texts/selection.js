@@ -1,5 +1,5 @@
-import Menu from 'src/decidim/collaborative_texts/menu';
-import Editor from 'src/decidim/collaborative_texts/editor';
+import Menu from "src/decidim/collaborative_texts/menu";
+import Editor from "src/decidim/collaborative_texts/editor";
 
 class Selection {
   constructor(doc, i18n) {
@@ -23,15 +23,13 @@ class Selection {
   
   detectNodes() {
     this.range = this.selection.getRangeAt(0);
-    let node;
-    for(let i=0; i<this.doc.childNodes.length; i++) {
-      node = this.doc.childNodes[i];
+    this.doc.childNodes.forEach((node, idx) => {
       if (this.range.intersectsNode(node)) {
-        this.nodes[i] = node;
+        this.nodes[idx] = node;
         this.firstNode = this.firstNode || node;
         this.lastNode = node;
       }
-    }
+    });
     return this;
   }
 
@@ -41,7 +39,7 @@ class Selection {
     this.wrapper = document.createElement("div");
     this.wrapper.classList.add("collaborative-texts-selection");
     this.firstNode.before(this.wrapper);
-    this.nodes.forEach(node => {
+    this.nodes.forEach((node) => {
       this.wrapper.appendChild(node);
     });
     return this;

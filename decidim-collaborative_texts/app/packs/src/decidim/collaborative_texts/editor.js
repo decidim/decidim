@@ -35,7 +35,7 @@ class Editor {
   _createContainer() {   
     this.container = document.createElement("div");
     this.container.classList.add("collaborative-texts-editor-container");
-    this.container.innerHTML = this.nodes.map(node => node.outerHTML).join("");
+    this.container.innerHTML = this.nodes.map((node) => node.outerHTML).join("");
     this.container.contentEditable = true;
     this.editor.appendChild(this.container);
   }

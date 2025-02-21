@@ -2,18 +2,23 @@
   &-container {
     position: relative;
   }
+
   &-hidden {
     display: none;
   }
-  &-selection, &-highlight {
+
+  &-selection,
+  &-highlight {
     position: relative;
     outline: var(--primary) 2px dashed;
     outline-offset: 0.5rem;
     margin: 1rem 0;
+
     &:not(.applied) .collaborative-texts-hidden {
       display: inherit;
-    }  
+    }
   }
+
   &-editor {
     outline: var(--primary) 2px solid;
     outline-offset: 0.3rem;
@@ -28,11 +33,13 @@
       background-color: #fafafa;
       padding: 0.3rem;
       margin-bottom: 1rem;
+
       &:focus-visible {
         outline: none;
       }
     }
   }
+
   &-menu {
     position: absolute;
     top: 0;
@@ -41,6 +48,7 @@
     display: flex;
     gap: 0.5rem;
   }
+
   &-suggestions-menu {
     position: absolute;
     top: 0;
@@ -48,31 +56,44 @@
     z-index: 100;
     font-size: 0.8rem;
     width: 160px;
+
     &:hover {
       z-index: 1000;
     }
-    
+
     &-item {
       padding: 0.5rem;
-      margin: 0.5rem 0;
+      margin: 0 0 1rem;
       border-radius: 5px;
       background: #f0f0f0;
+
       &:hover {
         background: aliceblue;
         z-index: 1000;
       }
     }
   }
-  &-button-save, &-button-apply, &-button-suggest,&-button-cancel, &-button-restore {
+
+  &-button-save,
+  &-button-apply,
+  &-button-suggest,
+  &-button-cancel,
+  &-button-restore {
     @apply button button__xs;
+
     &.hidden {
       display: none;
     }
   }
-  &-button-save, &-button-apply, &-button-suggest {
+
+  &-button-save,
+  &-button-apply,
+  &-button-suggest {
     @apply button__primary;
   }
-  &-button-cancel, &-button-restore {
+
+  &-button-cancel,
+  &-button-restore {
     @apply button__transparent-primary;
   }
 }

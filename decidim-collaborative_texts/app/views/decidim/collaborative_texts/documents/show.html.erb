@@ -16,15 +16,12 @@
 %>
 
 <%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
-  <section class="layout-main__section layout-main__heading">
+  <section class="layout-main__section">
     <div class="flex justify-center">
       <h1 class="title-decorator my-12"><%= document.title %></h1>
     </div>
-  </section>
-
-  <section class="layout-main__section">
     <div class="collaborative-texts-container editor-content"
-         data-collaborative-texts-document="<%= document.accepting_suggestions.to_s %>" 
+         data-collaborative-texts-document="<%= document.accepting_suggestions.to_s %>"
          data-collaborative-texts-i18n="<%= document_i18n.to_json %>">
       <%= decidim_sanitize decidim_rich_text(document.body), { scrubber: Decidim::AdminInputScrubber.new } %>
     </div>

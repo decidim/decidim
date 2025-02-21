@@ -9,11 +9,14 @@ class Document {
     try  {
       this.active = JSON.parse(this.doc.dataset.collaborativeTextsDocument);
     } catch (_e) {
+      console.error("Error parsing collaborativeTextsDocument", this.doc.dataset.collaborativeTextsDocument);
     }
     this.i18n = {};
     try {
       this.i18n = JSON.parse(this.doc.dataset.collaborativeTextsI18n);
-    } catch (_e) {}
+    } catch (_e) {
+      console.error("Error parsing collaborativeTextsI18n", this.doc.dataset.collaborativeTextsI18n);
+    }
   }
 
   // listen to new selections and allows the user to participate in the collaborative text
@@ -31,11 +34,11 @@ class Document {
     return this;
   }
 
-  _onSelectionStart(event) {
+  _onSelectionStart() {
     this.selecting = true;
   }
 
-  _onSelectionEnd(event) {
+  _onSelectionEnd() {
     if (!this.selecting) {
       return;
     }
@@ -56,8 +59,8 @@ class Document {
 
   _onSuggest(event) {
     console.log("Suggest: ", event.detail);
-    let nodes = event.detail.nodes.map(node => node.outerHTML);
-    let replace = [...event.detail.replace].map(node => node.outerHTML);
+    let nodes = event.detail.nodes.map((node) => node.outerHTML);
+    let replace = [...event.detail.replace].map((node) => node.outerHTML);
     console.log("Nodes: ", nodes);
     console.log("Replace: ", replace);
   }
