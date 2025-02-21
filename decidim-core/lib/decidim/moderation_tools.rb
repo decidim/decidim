@@ -87,7 +87,7 @@ module Decidim
     end
 
     # Public: hides the resources
-    def hide!(send_notification: true)
+    def hide!
       Decidim.traceability.perform_action_without_log!(current_user) do
         @reportable.moderation.update!(hidden_at: Time.current)
         @reportable.try(:touch)
@@ -99,7 +99,7 @@ module Decidim
         end
       end
 
-      send_notification_to_author if send_notification
+      send_notification_to_author
     end
 
     private
