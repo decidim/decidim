@@ -13,7 +13,7 @@ module Decidim::Maintenance::ImportModels
     # avoid using factories for this test in case old models are removed
     let!(:category) { described_class.create!(name: { "en" => "Category 1", "ca" => "Categoria 1" }, participatory_space: assembly) }
     let!(:subcategory) { described_class.create!(name: { "en" => "Sub Category 1", "ca" => "Subcategoria 1" }, parent: category, participatory_space: assembly) }
-    let!(:sub_subcategory) { described_class.create!(name: { "en" => "Sub Sub Category 1", "ca" => "Sub Subcategoria 1" }, parent: subcategory, participatory_space: assembly) }
+    let!(:sub_subcategory) { described_class.create!(name: { "en" => "Category too deep", "ca" => "Sub Subcategoria 1" }, parent: subcategory, participatory_space: assembly) }
     let!(:another_category) { described_class.create!(name: { "en" => "Another Category 2", "ca" => "Una Altra Categoria 2" }, participatory_space: participatory_process) }
 
     let!(:categorizable) { Categorization.create!(categorizable: dummy_resource, category:) }
@@ -36,9 +36,9 @@ module Decidim::Maintenance::ImportModels
           children: {},
           resources: subcategory.resources
         },
-        "Sub Category 1 > Sub Sub Category 1" => {
+        "Sub Category 1 > Category too deep" => {
           name: {
-            "en" => "Sub Category 1 > Sub Sub Category 1",
+            "en" => "Sub Category 1 > Category too deep",
             "ca" => "Sub Subcategoria 1"
           },
           origin: sub_subcategory.to_global_id.to_s,
@@ -131,7 +131,7 @@ module Decidim::Maintenance::ImportModels
           items: [
             ["Assembly: Assembly", "Category 1"],
             ["Assembly: Assembly", "Category 1", "Sub Category 1"],
-            ["Assembly: Assembly", "Category 1", "Sub Category 1 > Sub Sub Category 1"]
+            ["Assembly: Assembly", "Category 1", "Sub Category 1 > Category too deep"]
           ],
           components: [
             dummy_component.to_global_id.to_s
