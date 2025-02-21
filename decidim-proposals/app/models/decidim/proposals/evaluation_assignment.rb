@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    # A evaluation assignment links a proposal and a Evaluator user role.
+    # An evaluation assignment links a proposal and an Evaluator user role.
     # Evaluators will be users in charge of defining the monetary cost of a
     # proposal.
     class EvaluationAssignment < ApplicationRecord
