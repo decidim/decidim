@@ -82,6 +82,7 @@ namespace :decidim do
     task :import_all_plans, [] => :environment do |_task, _args|
       Rails.root.glob("tmp/taxonomies/*_plan.json").each do |file|
         log.info "Importing plan from #{file}"
+        Rake::Task["decidim:taxonomies:import_plan"].reenable
         Rake::Task["decidim:taxonomies:import_plan"].invoke(file)
       end
     end
@@ -112,6 +113,7 @@ namespace :decidim do
     task :update_all_metrics, [] => :environment do |_task, _args|
       Rails.root.glob("tmp/taxonomies/*_result.json").each do |file|
         log.info "Processing metrics from #{file}"
+        Rake::Task["decidim:taxonomies:update_metrics"].reenable
         Rake::Task["decidim:taxonomies:update_metrics"].invoke(file)
       end
     end
