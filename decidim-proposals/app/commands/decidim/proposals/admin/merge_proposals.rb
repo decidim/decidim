@@ -51,9 +51,7 @@ module Decidim
         end
 
         def proposals_mark_as_withdrawn
-          form.proposals.each do |proposal|
-            proposal.update!(withdrawn_at: Time.current)
-          end
+          form.proposals.each(&:withdraw!)
         end
 
         def proposals_to_link
