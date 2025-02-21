@@ -42,9 +42,28 @@ bin/rails db:migrate
 
 These are one time actions that need to be done after the code is updated in the production database.
 
-### 3.1. [[TITLE OF THE ACTION]]
+### 3.1. Change of Valuator for Evaluator
 
-You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+We have updated the terminology of Valuator at a code base level throughout the platform. The role of Valuator is now Evaluator. With this change also affects strings, i18n translations and so on.
+
+Implementors must run the following 3 tasks:
+
+```
+./bin/rails decidim:upgrade:decidim_update_valuators.rake
+```
+Updates ther role from Valuator to Evaluator within Decidim
+
+```
+./bin/rails decidim:upgrade:decidim_action_log_valuation_assignment.rake
+```
+Updates the resource_type of valuation_assignment within the action log.
+
+```
+./bin/rails decidim:upgrade:decidim_paper_trail_valuation_assignment.rake
+```
+This updates the item_type of valuation assignment.
+
+More information about this change can be found on PR [#13684](https://github.com/decidim/decidim/pull/13684).
 
 ## 4. Scheduled tasks
 
