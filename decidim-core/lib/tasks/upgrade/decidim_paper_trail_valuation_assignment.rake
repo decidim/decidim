@@ -3,7 +3,7 @@
 namespace :decidim do
   namespace :upgrade do
     desc "Update item_type from ValuationAssignment to EvaluationAssignment"
-    task update_item_type: :environment do
+    task decidim_paper_trail_valuation_assignment: :environment do
       old_type = "Decidim::Proposals::ValuationAssignment"
       new_type = "Decidim::Proposals::EvaluationAssignment"
 
