@@ -542,7 +542,6 @@ fr-CA:
             assign_to_valuator_button: Assigner
             cancel: Annuler
             merge: Fusionner dans un nouveau
-            merge_button: Fusionner
             publish: Publier
             publish_answers: Publier les réponses
             select_component: Sélectionnez un composant
@@ -610,7 +609,6 @@ fr-CA:
       admin_log:
         proposal:
           answer: "%{user_name} a répondu à la proposition %{resource_name} sur l'espace %{space_name}"
-          create: "%{user_name} a créé la proposition %{resource_name} sur l'espace %{space_name} en tant que proposition officielle"
           publish_answer: "%{user_name} a publié la réponse à la proposition %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} mis à jour le %{resource_name} proposition officielle sur le %{space_name} espace"
         proposal_note:
