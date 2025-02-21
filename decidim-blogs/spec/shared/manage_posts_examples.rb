@@ -91,14 +91,11 @@ shared_examples "manage posts" do |audit_check: true|
     end
   end
 
-  context "when user is in user group" do
-    let(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
-    let!(:membership) { create(:user_group_membership, user:, user_group:) }
+  context "when user is a user group" do
+    before { user.group! }
 
     it "can set user group as posts author" do
       click_on "New post"
-
-      select user_group.name, from: "post_decidim_author_id"
 
       fill_in_i18n(
         :post_title,
@@ -123,27 +120,10 @@ shared_examples "manage posts" do |audit_check: true|
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_content(user_group.name)
+        expect(page).to have_content(user.name)
         expect(page).to have_content("My post")
         expect(page).to have_content("Post title 1")
         expect(page).to have_content("Post title 2")
-      end
-    end
-
-    it "can update the user group as the post author" do
-      within "tr", text: translated(post1.title) do
-        click_on "Edit"
-      end
-
-      within ".edit_post" do
-        select user_group.name, from: "post_decidim_author_id"
-        find("*[type=submit]").click
-      end
-
-      expect(page).to have_admin_callout("successfully")
-
-      within "tr", text: translated(post1.title) do
-        expect(page).to have_content(user_group.name)
       end
     end
   end
