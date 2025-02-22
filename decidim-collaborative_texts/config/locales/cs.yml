@@ -1,1 +1,6 @@
+---
 cs:
+  decidim:
+    components:
+      collaborative_texts:
+        name: Kolaborativní texty
