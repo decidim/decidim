@@ -26,10 +26,22 @@ ja:
         questionnaire:
           request_invalid: リクエストの処理中に問題が発生しました。もう一度やり直してください。
   decidim:
+    download_your_data:
+      help:
+        answers:
+          answer: 質問への回答
+          id: 回答の固有ID
+          question: 回答された質問
+          questionnaire: 回答されたアンケート
+          user: アンケートに回答したユーザー
+      show:
+        answers: 回答のエクスポート
+        survey_user_answers: アンケートユーザーの回答
     forms:
       admin:
         models:
           components:
+            allow_answers: 回答を許可
             description: 説明
             tos: 利用規約
         questionnaires:
