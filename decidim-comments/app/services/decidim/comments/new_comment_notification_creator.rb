@@ -52,12 +52,10 @@ module Decidim
       def notify_mentioned_groups
         return unless mentioned_groups
 
-        mentioned_groups.each do |group|
-          affected_users = group.accepted_users - already_notified_users
-          @already_notified_users += affected_users
+        affected_users = mentioned_groups - already_notified_users
+        @already_notified_users += affected_users
 
-          notify(:user_group_mentioned, affected_users:, extra: { group_id: group.id })
-        end
+        notify(:user_group_mentioned, affected_users:)
       end
 
       # Notifies the author of a comment that their comment has been replied.
