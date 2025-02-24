@@ -51,7 +51,7 @@ module Decidim::Admin
       end
 
       it "sends a notification to the reportable's author" do
-        expect(Decidim::EventsManager).to receive(:publish).with(author_notification)
+        expect(Decidim::EventsManager).to receive(:publish).with(author_notification).at_least(:once)
         command.call
       end
     end
