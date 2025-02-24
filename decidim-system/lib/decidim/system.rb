@@ -9,5 +9,6 @@ module Decidim
   # eye view of the whole system.
   #
   module System
+    autoload :TokenGenerator, "decidim/system/token_generator"
   end
 end

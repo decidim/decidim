@@ -44,6 +44,32 @@ module Decidim
       initializer "decidim_api.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
+
+      config.after_initialize do
+        # Skip the warden configuration if JWT secret key is not defined (yet).
+        next if Rails.application.secrets.secret_key_jwt.blank?
+
+        # There is some problem setting these configurations to Devise::JWT,
+        # so send them directly to the Warden module.
+        #
+        # See:
+        # https://github.com/waiting-for-dev/devise-jwt/issues/159
+        Warden::JWTAuth.configure do |jwt|
+          defaults = ::Devise::JWT::DefaultsGenerator.call
+
+          jwt.mappings = defaults[:mappings]
+          jwt.secret = Rails.application.secrets.secret_key_jwt
+          jwt.dispatch_requests = [
+            ["POST", %r{^/sign_in$}]
+          ]
+          jwt.revocation_requests = [
+            ["DELETE", %r{^/sign_out$}]
+          ]
+          jwt.revocation_strategies = defaults[:revocation_strategies]
+          jwt.expiration_time = 1.day.to_i
+          jwt.aud_header = "JWT_AUD"
+        end
+      end
     end
   end
 end

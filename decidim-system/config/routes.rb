@@ -9,6 +9,13 @@ Decidim::System::Engine.routes.draw do
                sessions: "decidim/system/devise/sessions",
                passwords: "decidim/system/devise/passwords"
              }
+  devise_for :api_users,
+             class_name: "Decidim::Api::ApiUser",
+             module: "decidim/Api",
+             path: "/",
+             router_name: :decidim_api,
+             controllers: { sessions: "decidim/api/sessions" },
+             only: :sessions
 
   authenticate(:admin) do
     resources :organizations, except: [:show, :destroy] do

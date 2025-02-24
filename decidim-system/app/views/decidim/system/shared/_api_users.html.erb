@@ -1,0 +1,38 @@
+<table class="stack">
+  <thead>
+    <tr><th><%= t("models.api_user.fields.organization", scope: "decidim.system") %></th>
+      <th><%= t("models.api_user.fields.name", scope: "decidim.system") %></th>
+      <th><%= t("models.api_user.fields.key", scope: "decidim.system") %></th>
+      <th><%= t("models.api_user.fields.created_at", scope: "decidim.system") %></th>
+      <th><%= t("actions.title", scope: "decidim.system") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% api_users&.each do |api_user| %>
+      <tr>
+        <td>
+          <%= api_user.organization.host %>
+        </td>
+        <td>
+          <%= api_user.name %>
+        </td>
+        <td>
+          <%= translated_attribute(api_user.api_key) %>
+        </td>
+        <td>
+          <%= l api_user.created_at, format: :short %>
+        </td>
+        <td>
+        <% if fresh_token?(api_user) %>
+          <%= link_to t("copy_token", scope: "decidim.system.actions"), "#", id: "api-user-token" %>
+            <%= hidden_field_tag :token, params[:token] %>
+          <br/>
+        <% end %>
+          <%= link_to t("actions.api_users.revoke", scope: "decidim.system"), api_user_path(id: api_user.id), class: "link", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.system") } %>
+          <br/>
+        <%= link_to t("actions.refresh_token", scope: "decidim.system"), api_user_path(id: api_user.id), class: "link", method: :patch %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
