@@ -18,8 +18,8 @@ shared_context "when it is a comment event" do
   let(:extra) { { comment_id: comment.id } }
   let(:resource_title) { decidim_sanitize_translated(resource.title) }
   let(:user_group) do
-    user_group = create(:user_group, :verified, organization:, users: [comment_author])
-    comment.update!(user_group:)
+    user_group = create(:user_group, :verified, organization:)
+    comment.update!(author: user_group)
     user_group
   end
 end
