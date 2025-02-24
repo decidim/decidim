@@ -25,8 +25,8 @@ module Decidim
 
       private
 
-      def mentionable_class
-        Decidim::UserGroup
+      def mentionable_base_relation
+        Decidim::User.user_group
       end
     end
   end
