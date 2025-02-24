@@ -52,12 +52,47 @@ describe "Admin answers proposals" do
         )
       end
 
-      it "when accepting, a cost value and cost report are required" do
-        find("input#proposal_answer_internal_state_accepted").click
-        find("*[type=submit][name=commit]", match: :first).click
-        expect(find("label[for=proposal_answer_cost_report]")).to have_content("Required field")
-        expect(find("label[for=proposal_answer_cost]")).to have_content("Required field")
-        expect(page).to have_css(".flash", text: "There was a problem answering this proposal.")
+      shared_examples "successful handling of proposal answers" do
+        it "when accepting, a cost value and cost report are required" do
+          find("input#proposal_answer_internal_state_accepted").click
+          find("*[type=submit][name=commit]", match: :first).click
+          expect(find("label[for=proposal_answer_cost_report]")).to have_content("Required field")
+          expect(find("label[for=proposal_answer_cost]")).to have_content("Required field")
+          expect(page).to have_css(".flash", text: "There was a problem answering this proposal.")
+        end
+      end
+
+      it_behaves_like "successful handling of proposal answers"
+
+      context "when proposal has endorsers" do
+        let!(:proposals) { create_list(:proposal, 3, :with_endorsements, component:, cost_report: {}) }
+
+        it_behaves_like "successful handling of proposal answers"
+      end
+
+      context "when proposal has documents" do
+        let!(:proposals) { create_list(:proposal, 3, :with_document, component:, cost_report: {}) }
+
+        it_behaves_like "successful handling of proposal answers"
+      end
+
+      context "when proposal has meetings" do
+        let!(:proposals) { create_list(:proposal, 3, component:, cost_report: {}) }
+        let(:meeting_component) { create(:meeting_component, participatory_space: component.participatory_space) }
+
+        before do
+          proposals.each do |proposal|
+            proposal.link_resources(create(:meeting, component: meeting_component), "proposals_from_meeting")
+          end
+        end
+
+        it_behaves_like "successful handling of proposal answers"
+      end
+
+      context "when proposal has photos" do
+        let!(:proposals) { create_list(:proposal, 3, :with_photo, component:, cost_report: {}) }
+
+        it_behaves_like "successful handling of proposal answers"
       end
 
       it "when rejecting, do not require a cost value or cost report" do
