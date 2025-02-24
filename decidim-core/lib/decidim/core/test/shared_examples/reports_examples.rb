@@ -64,7 +64,6 @@ shared_examples "higher user role hides resource with comments" do
 
     before do
       login_as user, scope: :user
-      Decidim::Ai::SpamDetection.create_reporting_user!
     end
     around do |example|
       previous = Capybara.raise_server_errors
@@ -85,7 +84,6 @@ shared_examples "higher user role hides resource with comments" do
       expect(page).to have_content(translated(comments.first.body))
       expect(page).to have_content(translated(comments.second.body))
 
-      find("#dropdown-trigger-resource-#{reportable.id}").click
       expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
       find(%(button[data-dialog-open="flagModal"])).click
       expect(page).to have_css(".flag-modal", visible: :visible)
