@@ -5,7 +5,13 @@ require "decidim/maintenance"
 
 describe "Executing Decidim Taxonomy importer tasks" do
   let(:plan_file) { Rails.root.join("tmp/taxonomies/#{organization.host}_plan.json") }
-  let(:organization) { create(:organization) }
+  let(:another_plan_file) { Rails.root.join("tmp/taxonomies/#{another_organization.host}_plan.json") }
+
+  let(:organization) { create(:organization, host: "billie.example.org") }
+  let(:another_organization) { create(:organization, host: "ella.example.org") }
+
+  let!(:external_scope) { Decidim::Maintenance::ImportModels::Scope.create!(name: { "en" => "External Scope 1" }, code: "3", decidim_organization_id: another_organization.id) }
+
   let(:decidim_organization_id) { organization.id }
 
   # avoid using factories for this test in case old models are removed
@@ -31,7 +37,8 @@ describe "Executing Decidim Taxonomy importer tasks" do
   let!(:dummy_component) { create(:dummy_component, name: { "en" => "Dummy component" }, participatory_space: assembly) }
   let!(:dummy_resource) { create(:dummy_resource, title: { "en" => "Dummy resource" }, component: dummy_component, scope: nil, decidim_scope_id: sub_scope.id) }
   let!(:categorization) { Decidim::Maintenance::ImportModels::Categorization.create!(category:, categorizable: dummy_resource) }
-  let!(:metric) { create(:metric, organization:, decidim_category_id: subcategory.id, participatory_space: assembly, related_object: dummy_resource) }
+  # category_nil is here to avoid triggering the category creation in the factory
+  let!(:metric) { create(:metric, organization:, category: nil, decidim_category_id: subcategory.id, participatory_space: assembly, related_object: dummy_resource) }
   let(:settings) { { scopes_enabled: true, scope_id: sub_scope.id } }
 
   before do
@@ -210,9 +217,12 @@ describe "Executing Decidim Taxonomy importer tasks" do
     end
 
     it "imports the plan for all organizations" do # rubocop:disable RSpec/ExampleLength
-      expect { task.invoke }.to change(Decidim::Taxonomy, :count).by(18)
+      expect { task.invoke }.to change(Decidim::Taxonomy, :count).by(20)
 
+      check_message_printed("Importing plan from #{plan_file}")
+      check_message_printed("Importing plan from #{another_plan_file}")
       check_message_printed("Importing taxonomies and filters for organization #{decidim_organization_id}")
+      check_message_printed("Importing taxonomies and filters for organization #{another_organization.id}")
 
       check_message_printed(<<~MSG)
         ...Importing 1 root taxonomies from decidim_participatory_process_types
