@@ -110,13 +110,13 @@ describe "User edits a debate" do
     end
 
     context "when editing as a user group" do
-      let(:author) { user }
-      let!(:user_group) { create(:user_group, :verified, organization:, users: [user]) }
+      let!(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
+      let(:user) { user_group }
+      let(:author) { user_group }
       let!(:debate) do
         create(
           :debate,
           author:,
-          user_group:,
           component:
         )
       end
