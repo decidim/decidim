@@ -200,7 +200,7 @@ module Decidim
     #
     # Returns a Boolean
     def created_by_individual?
-      decidim_user_group_id.nil?
+      !author.group?
     end
 
     # Public: Returns the author name. If it has been created by an organization it will
