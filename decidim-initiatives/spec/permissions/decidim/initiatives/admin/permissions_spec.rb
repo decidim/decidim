@@ -184,10 +184,10 @@ describe Decidim::Initiatives::Admin::Permissions do
           let(:initiative) { create(:initiative, :created, organization:) }
 
           context "when initiative is authored by a user group" do
-            let(:user_group) { create(:user_group, organization: user.organization, users: [user]) }
+            let(:user_group) { create(:user_group, organization: user.organization) }
 
             before do
-              initiative.update(decidim_user_group_id: user_group.id)
+              initiative.update(author: user_group)
             end
 
             it { is_expected.to be true }
