@@ -129,7 +129,8 @@ describe "User creates debate" do
         end
 
         context "when creating as a user group" do
-          let!(:user_group) { create(:user_group, :verified, organization:, users: [user]) }
+          let!(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
+          let(:user) { user_group }
 
           it "creates a new debate", :slow do
             visit_component
@@ -140,7 +141,6 @@ describe "User creates debate" do
               fill_in :debate_title, with: "Should every organization use Decidim?"
               fill_in :debate_description, with: "Add your comment on whether Decidim is useful for every organization."
               select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
-              select user_group.name, from: :debate_user_group_id
 
               find("*[type=submit]").click
             end
