@@ -7,6 +7,8 @@ module Decidim
   module Proposals
     module Admin
       describe ProposalAnswersController do
+        routes { Decidim::Proposals::AdminEngine.routes }
+
         include Decidim::ApplicationHelper
 
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
@@ -17,7 +19,7 @@ module Decidim
         let(:proposal2) { create(:proposal, cost: nil, component:, proposal_state: nil) }
         let(:proposal_state) { create(:proposal_state, component:) }
         let(:template) { create(:template, skip_injection: true, target: :proposal_answer, templatable: component, field_values: { "proposal_state_id" => proposal_state.id }) }
-        let(:proposal_ids) { [proposal1.id, proposal2.id] }
+        let!(:proposal_ids) { [proposal1.id, proposal2.id] }
         let(:params) do
           {
             proposal_ids:, template: { template_id: template.id }
@@ -45,6 +47,7 @@ module Decidim
               id: proposal1.id,
               internal_state: "accepted",
               component_id: component.id,
+              proposal_id: proposal1.id,
               participatory_process_slug: component.participatory_space.slug
             }
           end
@@ -62,7 +65,7 @@ module Decidim
 
             context "when update fails" do
               it "renders ProposalsController#show view" do
-                post(:update, params:)
+                put(:update, params:)
                 expect(response).to have_http_status(:ok)
                 expect(subject).to render_template("decidim/proposals/admin/proposals/show")
               end
