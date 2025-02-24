@@ -399,8 +399,8 @@ en:
         promotal_committee:
           individual_help_text: Your initiative has been created and is saved as a draft. Now you need to add people to the Promoter Committee.
           invite_link_title: Link to invite people
-          promoters_committee_help_html: Before sending your initiative for technical validation, you need to add %{committee_members_left} more members to the promoter committee, you have <strong>%{committee_members_count}/%{committee_size}</strong>.
           promoters_committee_help_2: Remember that for your initiative to be published you must complete the required information and send it to technical validation for review by an administrator.
+          promoters_committee_help_html: Before sending your initiative for technical validation, you need to add %{committee_members_left} more members to the promoter committee, you have <strong>%{committee_members_count}/%{committee_size}</strong>.
           promoters_committee_title: Promoters Committee
         return_to_initiatives_button:
           return_initiatives_html: Skip for now and <a href="%{initiatives_path}">return to initiatives</a>
