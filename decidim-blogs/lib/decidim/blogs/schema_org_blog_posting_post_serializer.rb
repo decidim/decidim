@@ -38,10 +38,12 @@ module Decidim
         case post.author.class.name
         when "Decidim::Organization"
           author_organization
-        when "Decidim::UserGroup"
-          author_user_group
         when "Decidim::User"
-          author_user
+          if post.author.group?
+            author_user_group
+          else
+            author_user
+          end
         end
       end
 
