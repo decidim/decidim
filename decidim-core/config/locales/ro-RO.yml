@@ -1261,6 +1261,8 @@ ro:
     reports:
       create:
         success: Raportul a fost creat cu succes şi va fi revizuit de un administrator.
+      parent_hidden:
+        report_details: Resursa părinte a fost ascunsă
     resource:
       controls_label: Control resursă
     resource_endorsements:
