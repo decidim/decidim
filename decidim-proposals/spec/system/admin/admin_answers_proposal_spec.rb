@@ -57,7 +57,7 @@ describe "Admin answers proposals" do
         find("*[type=submit][name=commit]", match: :first).click
         expect(find("label[for=proposal_answer_cost_report]")).to have_content("Required field")
         expect(find("label[for=proposal_answer_cost]")).to have_content("Required field")
-        expect(page).to have_css(".flash", text: "There was a problem answering this proposal.")
+        expect(page).to have_css(".flash", text: "There has been a problem answering this proposal.")
       end
 
       it "when rejecting, do not require a cost value or cost report" do
