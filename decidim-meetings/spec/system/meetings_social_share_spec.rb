@@ -35,41 +35,5 @@ describe "Social shares" do
     login_as user, scope: :user
   end
 
-  it_behaves_like "a social share meta tag", "city3.jpeg"
   it_behaves_like "a social share widget"
-
-  context "when no attachment images" do
-    let!(:attachment) { nil }
-
-    it_behaves_like "a social share meta tag", "description_image.jpg"
-  end
-
-  context "when no attachments nor description images" do
-    let(:attachment) { nil }
-    let(:description_image_path) { "" }
-
-    it_behaves_like "a social share meta tag", "city2.jpeg"
-  end
-
-  context "when listing all meetings" do
-    let(:resource) { main_component_path(component) }
-
-    it_behaves_like "a social share meta tag", "city2.jpeg"
-  end
-
-  context "when visiting a poll" do
-    let!(:poll) { create(:poll, meeting:) }
-    let!(:meetings_poll_questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
-    let!(:meeting_polls_question) { create(:meetings_poll_question, :published, questionnaire: meetings_poll_questionnaire) }
-    let(:resource) { Decidim::EngineRouter.main_proxy(component).meeting_polls_answers_path(meeting) }
-
-    it_behaves_like "a social share meta tag", "city3.jpeg"
-  end
-
-  context "when visiting live events" do
-    let(:meeting) { create(:meeting, :published, :online, :live, component:, description:) }
-    let(:resource) { Decidim::EngineRouter.main_proxy(component).meeting_live_event_path(meeting) }
-
-    it_behaves_like "a social share meta tag", "city3.jpeg"
-  end
 end

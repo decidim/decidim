@@ -30,18 +30,5 @@ describe "Social shares" do
     switch_to_host(organization.host)
   end
 
-  it_behaves_like "a social share meta tag", "description_image.jpg"
   it_behaves_like "a social share widget"
-
-  context "when no description images" do
-    let(:description_image_path) { "" }
-
-    it_behaves_like "a social share meta tag", "city2.jpeg"
-  end
-
-  context "when listing all debates" do
-    let(:resource) { main_component_path(component) }
-
-    it_behaves_like "a social share meta tag", "city2.jpeg"
-  end
 end

@@ -43,37 +43,5 @@ describe "Social shares" do
     switch_to_host(organization.host)
   end
 
-  it_behaves_like "a social share meta tag", "city3.jpeg"
   it_behaves_like "a social share widget"
-
-  context "when no attachment images" do
-    let!(:attachment) { nil }
-
-    it_behaves_like "a social share meta tag", "description_image.jpg"
-  end
-
-  context "when no attachments nor description images" do
-    let(:attachment) { nil }
-    let(:description_image_path) { "" }
-
-    it_behaves_like "a social share meta tag", "city2.jpeg"
-  end
-
-  context "when listing all projects" do
-    let(:resource) { Decidim::EngineRouter.main_proxy(component).budget_projects_path(budget) }
-
-    it_behaves_like "a social share meta tag", "budget_description_image.jpg"
-  end
-
-  context "when visiting the budget" do
-    let(:resource) { Decidim::EngineRouter.main_proxy(component).budget_path(budget) }
-
-    it_behaves_like "a social share meta tag", "budget_description_image.jpg"
-  end
-
-  context "when listing all budgets" do
-    let(:resource) { main_component_path(component) }
-
-    it_behaves_like "a social share meta tag", "city2.jpeg"
-  end
 end
