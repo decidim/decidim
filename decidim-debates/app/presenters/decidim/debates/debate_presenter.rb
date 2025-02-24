@@ -49,13 +49,13 @@ module Decidim
 
       def participants_count
         comments_authors.count do |author|
-          author.is_a?(Decidim::User)
+          author.is_a?(Decidim::User) && !author.group?
         end
       end
 
       def groups_count
         comments_authors.count do |author|
-          author.is_a?(Decidim::UserGroup)
+          author.is_a?(Decidim::User) && author.group?
         end
       end
 
