@@ -393,17 +393,17 @@ en:
           callout_text_created: Congratulations! Your initiative has been successfully created.
           callout_text_validating: Your initiative has been successfully sent to technical validation.
           go_to_initiatives: Go to initiatives
-          publish_helper_text: Remember that for your initiative to be published it must be technically validated for review by an administrator.
+          publish_helper_text_html: Remember that for your initiative to be published it must be technically validated for review by an administrator.
         previous_form:
           back: Back
         promotal_committee:
           individual_help_text: Your initiative has been created and is saved as a draft. Now you need to add people to the Promoter Committee.
           invite_link_title: Link to invite people
-          promoters_committee_help: Before sending your initiative for technical validation, you need to add %{committee_members_left} more members to the promoter committee, you have <strong>%{committee_members_count}/%{committee_size}</strong>.
+          promoters_committee_help_html: Before sending your initiative for technical validation, you need to add %{committee_members_left} more members to the promoter committee, you have <strong>%{committee_members_count}/%{committee_size}</strong>.
           promoters_committee_help_2: Remember that for your initiative to be published you must complete the required information and send it to technical validation for review by an administrator.
           promoters_committee_title: Promoters Committee
         return_to_initiatives_button:
-          return_initiatives: Skip for now and <a href="%{initiatives_path}">return to initiatives</a>
+          return_initiatives_html: Skip for now and <a href="%{initiatives_path}">return to initiatives</a>
         select_initiative_type:
           back: Back
           choose_html: I want to create a <strong>%{title}</strong>
@@ -412,7 +412,7 @@ en:
           more_information: More information
           new: Create a new initiative
           select: I want to promote this initiative
-          select_initiative_type_help: "<p>Initiatives are a means by which the participants can intervene so that the organization can undertake actions in defence of the general interest. Which initiative do you want to launch?</p>"
+          select_initiative_type_help_html: "<p>Initiatives are a means by which the participants can intervene so that the organization can undertake actions in defence of the general interest. Which initiative do you want to launch?</p>"
           show_less: Show less
           show_more: Show more
           subtitle: What initiative do you want to promote?

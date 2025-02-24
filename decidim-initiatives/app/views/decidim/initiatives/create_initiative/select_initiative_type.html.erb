@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t("new", scope: "decidim.initiatives.create_initiative.select_initiative_type")) %>
 <% default_type = available_initiative_types.first %>
 <% announcement_body = capture do %>
-  <%= t("select_initiative_type_help", scope: "decidim.initiatives.create_initiative.select_initiative_type").html_safe %>
+  <%= t("select_initiative_type_help_html", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
   <br>
   <%= link_to t("more_information", scope: "decidim.initiatives.create_initiative.select_initiative_type"), decidim.page_path("initiatives"), target: "_blank", class: "button button__sm button__text-secondary block text-left" %>
 <% end %>
