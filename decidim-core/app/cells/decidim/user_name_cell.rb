@@ -10,12 +10,12 @@ module Decidim
     end
 
     def avatar
-      present(user).avatar_url(:thumb)
+      presented_resource.avatar_url(:thumb)
     end
 
     def resource_path
       # Exposes the same method, both Decidim::User and Decidim::UserGroup
-      user.try(:profile_url) || decidim.profile_path(user.nickname)
+      presented_resource.profile_url
     end
 
     def presented_resource
