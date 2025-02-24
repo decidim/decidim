@@ -7,8 +7,8 @@ describe "Executing Decidim Taxonomy importer tasks" do
   let(:plan_file) { Rails.root.join("tmp/taxonomies/#{organization.host}_plan.json") }
   let(:another_plan_file) { Rails.root.join("tmp/taxonomies/#{another_organization.host}_plan.json") }
 
-  let(:organization) { create(:organization, host: "billie.example.org") }
-  let(:another_organization) { create(:organization, host: "ella.example.org") }
+  let(:organization) { create(:organization, host: "foo.example.org") }
+  let(:another_organization) { create(:organization, host: "bar.example.org") }
 
   let!(:external_scope) { Decidim::Maintenance::ImportModels::Scope.create!(name: { "en" => "External Scope 1" }, code: "3", decidim_organization_id: another_organization.id) }
 
