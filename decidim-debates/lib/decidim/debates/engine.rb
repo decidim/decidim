@@ -46,7 +46,7 @@ module Decidim
         Decidim::Gamification.register_badge(:commented_debates) do |badge|
           badge.levels = [1, 5, 10, 30, 50]
 
-          badge.valid_for = [:user, :user_group]
+          badge.valid_for = [:user]
 
           badge.reset = lambda do |user|
             debates = Decidim::Comments::Comment.where(
