@@ -80,6 +80,14 @@ module Decidim
         @reportable.moderation.update!(hidden_at: Time.current)
         @reportable.try(:touch)
       end
+
+      if @reportable.is_a?(Decidim::Comments::Commentable)
+        @reportable.comment_threads.each do |comment|
+          Decidim::HideChildResourcesJob.perform_later(comment, @current_user.id)
+        end
+      end
+
+      send_notification_to_author
     end
 
     private
