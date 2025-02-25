@@ -1175,6 +1175,8 @@ ro:
       create:
         error: A apărut o eroare la crearea raportului. Te rugăm să încerci din nou.
         success: Raportul a fost creat cu succes şi va fi revizuit de un administrator.
+      parent_hidden:
+        report_details: Resursa părinte a fost ascunsă
     resource_endorsements:
       create:
         error: A apărut o problemă în timpul înregistrării susținerii.
