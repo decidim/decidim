@@ -1,7 +1,9 @@
 <% add_decidim_meta_tags(
   title: translated_attribute(project.title),
   description: translated_attribute(project.description),
-  resource: project) %>
+  resource: project,
+  url: resource_locator([project.budget, project]).url
+) %>
 
 <%
 edit_link(
