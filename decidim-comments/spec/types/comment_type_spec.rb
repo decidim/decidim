@@ -107,24 +107,22 @@ module Decidim
         let(:query) { "{ author { name } }" }
         let(:commentable) { build(:dummy_resource, :published) }
         let(:model) do
-          create(:comment, author:, user_group:, commentable:)
+          create(:comment, author:, commentable:)
         end
 
         context "when the author is a user" do
           let(:author) { create(:user, :confirmed, organization: commentable.organization) }
-          let(:user_group) { nil }
 
           it "returns the user" do
             expect(response).to include("author" => { "name" => author.name })
           end
         end
 
-        context "when the author is a user group" do
-          let(:user_group) { create(:user_group, :verified, organization: commentable.organization, users: [create(:user, organization: commentable.organization)]) }
-          let(:author) { user_group.managers.first }
+        context "when the author is a confirmed and verified user group" do
+          let(:author) { create(:user_group, :confirmed, :verified, organization: commentable.organization) }
 
           it "returns the user" do
-            expect(response).to include("author" => { "name" => user_group.name })
+            expect(response).to include("author" => { "name" => author.name })
           end
         end
       end
