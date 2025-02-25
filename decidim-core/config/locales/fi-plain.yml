@@ -91,7 +91,7 @@ fi-pl:
       decidim_with_month_name_short: "%d. %b"
       help:
         date_format: 'Muoto: pp.kk.vvvv'
-      order: d.m.y
+      order: d-m-y
       separator: "."
   datetime:
     distance_in_words:
@@ -1423,6 +1423,8 @@ fi-pl:
       create:
         error: Ilmoituksen luonnissa tapahtui virhe. Yritä uudestaan.
         success: Ilmoitus on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
+      parent_hidden:
+        report_details: Isäntäkohde piilotettiin
     resource_endorsements:
       create:
         error: Suosituksen antaminen ei onnistunut.
