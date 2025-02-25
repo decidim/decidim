@@ -58,7 +58,7 @@ describe "Admin answers proposals" do
         expect(page).to have_css(".flash", text: "Proposal successfully answered.")
       end
 
-      it "when accepting, can submit answer with a cost, cost report and executiomn period" do
+      it "when accepting, can submit answer with a cost, cost report and execution period" do
         find("input#proposal_answer_internal_state_accepted").click
         fill_in_i18n_editor(
           :proposal_answer_cost_report,
