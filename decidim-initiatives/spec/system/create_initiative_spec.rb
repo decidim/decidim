@@ -779,13 +779,14 @@ describe "Initiative" do
       context "when the initiative is created by an user group" do
         let(:organization) { create(:organization, available_authorizations: authorizations, user_groups_enabled: true) }
         let(:initiative) { build(:initiative) }
-        let!(:user_group) { create(:user_group, :verified, organization:, users: [authorized_user]) }
+        let(:group_attributes) { { group: true } }
 
         before do
           authorized_user.reload
 
           first("input.radio-accordion-radio").click
           click_on "Continue"
+          authorized_user.update(extended_data: group_attributes)
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
@@ -793,11 +794,23 @@ describe "Initiative" do
           select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
         end
 
-        it "shows the user group as author" do
-          expect(Decidim::Initiative.where(decidim_user_group_id: user_group.id).count).to eq(0)
-          select(user_group.name, from: "Author")
-          find_button("Continue").click
-          expect(Decidim::Initiative.where(decidim_user_group_id: user_group.id).count).to eq(1)
+        context "and the group is not verified" do
+          # TODO - Use permissions for this
+          it "does not allow the creation of the initiative" do
+            expect do
+              find_button("Continue").click
+            end.not_to change(Decidim::Initiative.with_user_group_origin.where(author: authorized_user), :count)
+          end
+        end
+
+        context "and the group is verified" do
+          let(:group_attributes) { { group: true, verified_at: Time.current, rejected_at: nil } }
+
+          it "shows the user group as author" do
+            expect do
+              find_button("Continue").click
+            end.to change(Decidim::Initiative.with_user_group_origin.where(author: authorized_user), :count).by(1)
+          end
         end
       end
 
