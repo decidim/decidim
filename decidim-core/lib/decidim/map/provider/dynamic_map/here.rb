@@ -49,7 +49,7 @@ module Decidim
           private
 
           def language_code
-            primary = I18n.locale.to_s
+            I18n.locale.to_s
           end
         end
       end
