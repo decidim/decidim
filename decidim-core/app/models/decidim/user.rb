@@ -66,8 +66,8 @@ module Decidim
 
     scope :ephemeral, -> { where("extended_data @> ?", Arel.sql({ ephemeral: true }.to_json)) }
 
-    scope :user_group, -> { where("extended_data @> ?", Arel.sql({ group: true }.to_json)) }
-    scope :not_user_group, -> { where.not("extended_data @> ?", Arel.sql({ group: true }.to_json)) }
+    scope :user_group, -> { where("#{arel_table.name}.extended_data @> ?", Arel.sql({ group: true }.to_json)) }
+    scope :not_user_group, -> { where.not("#{arel_table.name}.extended_data @> ?", Arel.sql({ group: true }.to_json)) }
 
     attr_accessor :newsletter_notifications
 

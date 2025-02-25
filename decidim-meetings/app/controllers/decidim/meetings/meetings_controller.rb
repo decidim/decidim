@@ -153,7 +153,7 @@ module Decidim
             args: ["decidim/meetings/public_participants_list", meeting]
           },
           {
-            enabled: !meeting.closed? && meeting.user_group_registrations.any?,
+            enabled: !meeting.closed? && meeting.public_user_groups.any?,
             id: "organizations",
             text: t("attending_organizations", scope: "decidim.meetings.public_participants_list"),
             icon: "community-line",
