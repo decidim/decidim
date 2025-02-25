@@ -5,13 +5,14 @@ require "decidim/maintenance"
 
 describe "Executing Decidim Taxonomy importer tasks" do
   let(:plan_file) { Rails.root.join("tmp/taxonomies/#{organization.host}_plan.json") }
-  let(:another_plan_file) { Rails.root.join("tmp/taxonomies/#{another_organization.host}_plan.json") }
+  let(:another_plan_file) { Rails.root.join("tmp/taxonomies/#{external_organization.host}_plan.json") }
 
-  let(:organization) { create(:organization, host: "foo.example.org") }
-  let(:another_organization) { create(:organization, host: "bar.example.org") }
+  let!(:organization) { create(:organization, host: "foo.example.org") }
+  let!(:external_organization) { create(:organization, host: "bar.example.org") }
 
-  let!(:external_scope) { Decidim::Maintenance::ImportModels::Scope.create!(name: { "en" => "External Scope 1" }, code: "3", decidim_organization_id: another_organization.id) }
-
+  let!(:external_scope) { Decidim::Maintenance::ImportModels::Scope.create!(name: { "en" => "External Scope 1" }, code: "3", decidim_organization_id: external_organization.id) }
+  let!(:external_sub_scope) { Decidim::Maintenance::ImportModels::Scope.create!(name: { "en" => "External Scope 1 second level" }, code: "31", decidim_organization_id: external_organization.id, parent: external_scope) }
+  let!(:external_participatory_process) { create(:participatory_process, title: { "en" => "External Process" }, organization: external_organization, decidim_scope_id: external_scope.id) }
   let(:decidim_organization_id) { organization.id }
 
   # avoid using factories for this test in case old models are removed
@@ -208,21 +209,26 @@ describe "Executing Decidim Taxonomy importer tasks" do
   end
 
   describe "rake decidim:taxonomies:import_all_plans", type: :task do
+    let!(:organization) { create(:organization, host: "baz.example.org") }
+    let!(:external_organization) { create(:organization, host: "qux.example.org") }
+
     let(:task) { Rake::Task["decidim:taxonomies:import_all_plans"] }
 
     before do
-      FileUtils.rm_rf(Rails.root.join("tmp/taxonomies/"))
+      FileUtils.rm_f(Rails.root.join("tmp/taxonomies/bar.example.org_plan.json"))
+      FileUtils.rm_f(Rails.root.join("tmp/taxonomies/foo.example.org_plan.json"))
+      sleep(0.1) # Filesystem may need some time to update
       Rake::Task["decidim:taxonomies:make_plan"].reenable
       Rake::Task["decidim:taxonomies:make_plan"].invoke
     end
 
     it "imports the plan for all organizations" do # rubocop:disable RSpec/ExampleLength
-      expect { task.invoke }.to change(Decidim::Taxonomy, :count).by(20)
+      expect { task.invoke }.to change(Decidim::Taxonomy, :count).by(21)
 
       check_message_printed("Importing plan from #{plan_file}")
       check_message_printed("Importing plan from #{another_plan_file}")
       check_message_printed("Importing taxonomies and filters for organization #{decidim_organization_id}")
-      check_message_printed("Importing taxonomies and filters for organization #{another_organization.id}")
+      check_message_printed("Importing taxonomies and filters for organization #{external_organization.id}")
 
       check_message_printed(<<~MSG)
         ...Importing 1 root taxonomies from decidim_participatory_process_types
@@ -374,6 +380,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
 
       Rake::Task["decidim:taxonomies:update_all_metrics"].invoke
       check_message_printed("Updating 1 metrics for category #{subcategory.id} to taxonomy")
+      check_message_printed("No metric (categories) taxonomies found in the file")
       expect(Decidim::Taxonomy.where(organization:).non_roots.pluck(:id)).to include(metric.reload.decidim_taxonomy_id)
     end
   end

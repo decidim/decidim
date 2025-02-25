@@ -94,7 +94,10 @@ namespace :decidim do
 
       data = JSON.parse(File.read(file))
       taxonomies = data["taxonomy_map"]
-      abort "No taxonomies found in the file" unless taxonomies && taxonomies&.any?
+      unless taxonomies && taxonomies&.any?
+        log.warn "No metric (categories) taxonomies found in the file"
+        next
+      end
 
       total = taxonomies.count
       taxonomies.each_with_index do |(id, object_id), index|
