@@ -51,11 +51,6 @@ Implementors must run the following 3 tasks:
 ```bash
 ./bin/rails decidim:upgrade:decidim_update_valuators.rake
 ./bin/rails decidim:upgrade:decidim_action_log_valuation_assignment.rake
-```
-
-Updates the resource_type of valuation_assignment within the action log.
-
-```bash
 ./bin/rails decidim:upgrade:decidim_paper_trail_valuation_assignment.rake
 ```
 
