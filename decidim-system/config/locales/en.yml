@@ -81,6 +81,15 @@ en:
         new:
           title: Create new API user
           select_organization: Select your organization
+      api_user:
+        refresh:
+          success: Token refreshed successfully.
+          error: Something went wrong! Please try again later.
+        create:
+          success: API user created successfully.
+          error: API user creation failed.
+        destroy:
+          success: API user successfully deleted.
       dashboard:
         show:
           admins: Admins
@@ -126,7 +135,7 @@ en:
             created_at: Created at
             name: Name
             organization: Organization
-            validations:
+          validations:
               name_uniqueness: An API user with this name already exists.
         oauth_application:
           fields:

@@ -19,7 +19,7 @@ module Decidim
           api_user.destroy!
         end
 
-        flash[:notice] = I18n.t("api_user.destroy.success", scope: "decidim.api")
+        flash[:notice] = I18n.t("api_user.destroy.success", scope: "decidim.system")
 
         redirect_to action: :index
       end
@@ -27,12 +27,12 @@ module Decidim
       def update
         RefreshApiUserToken.call(api_user, current_admin) do
           on(:ok) do |token|
-            flash[:notice] = I18n.t("api_user.refresh.success", scope: "decidim.api", user: api_user.api_key)
+            flash[:notice] = I18n.t("api_user.refresh.success", scope: "decidim.system", user: api_user.api_key)
             redirect_to action: :index, token: token, api_user: api_user
           end
 
           on(:invalid) do
-            flash[:notice] = I18n.t("api_user.refresh.error", scope: "decidim.api")
+            flash[:notice] = I18n.t("api_user.refresh.error", scope: "decidim.system")
             redirect_to action: :index
           end
         end
@@ -42,12 +42,12 @@ module Decidim
         @form = ::Decidim::System::ApiUserForm.from_params(params.merge!(name: params[:admin][:name], organization: organization))
         CreateApiUser.call(@form, current_admin) do
           on(:ok) do |api_user, token|
-            flash[:notice] = I18n.t("api_user.create.success", scope: "decidim.api", user: api_user.api_key)
+            flash[:notice] = I18n.t("api_user.create.success", scope: "decidim.system", user: api_user.api_key)
             redirect_to action: :index, token: token, api_user: api_user
           end
 
           on(:invalid) do
-            flash[:error] = I18n.t("api_user.create.error", scope: "decidim.api")
+            flash[:error] = I18n.t("api_user.create.error", scope: "decidim.system")
             render :new
           end
         end
