@@ -16,14 +16,19 @@ module Decidim
         where(decidim_author_type: "Decidim::Organization")
       }
 
-      scope :with_user_group_origin, lambda {
+      scope :with_any_user_origin, lambda {
         users_table = Decidim::User.arel_table
         joins(
           arel_table.join(users_table).on(
             arel_table[:decidim_author_id].eq(users_table[:id]),
             arel_table[:decidim_author_type].eq("Decidim::UserBaseEntity")
           ).join_sources
-        ).where(
+        )
+      }
+
+      scope :with_user_group_origin, lambda {
+        users_table = Decidim::User.arel_table
+        with_any_user_origin.where(
           Arel.sql(
             ActiveRecord::Base.sanitize_sql_array(
               [
@@ -37,12 +42,7 @@ module Decidim
 
       scope :with_participants_origin, lambda {
         users_table = Decidim::User.arel_table
-        joins(
-          arel_table.join(users_table).on(
-            arel_table[:decidim_author_id].eq(users_table[:id]),
-            arel_table[:decidim_author_type].eq("Decidim::UserBaseEntity")
-          ).join_sources
-        ).where.not(
+        with_any_user_origin.where.not(
           Arel.sql(
             ActiveRecord::Base.sanitize_sql_array(
               [
