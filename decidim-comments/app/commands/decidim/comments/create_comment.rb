@@ -51,7 +51,6 @@ module Decidim
           root_commentable: root_commentable(form.commentable),
           body: { I18n.locale => parsed.rewrite },
           alignment: form.alignment,
-          decidim_user_group_id: form.user_group_id,
           participatory_space: form.current_component.try(:participatory_space)
         }
 
