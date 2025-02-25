@@ -1566,6 +1566,8 @@ fr-CA:
       create:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
+      parent_hidden:
+        report_details: La ressource parente a été masquée
     resource_endorsements:
       create:
         error: Il y a eu un problème lors de l'action d'approbation.
