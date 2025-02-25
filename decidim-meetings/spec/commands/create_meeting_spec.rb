@@ -15,7 +15,6 @@ module Decidim::Meetings
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
-    let(:user_group_id) { nil }
     let(:type_of_meeting) { "online" }
     let(:registration_url) { "http://decidim.org" }
     let(:online_meeting_url) { "http://decidim.org" }
@@ -40,7 +39,6 @@ module Decidim::Meetings
         address:,
         latitude:,
         longitude:,
-        user_group_id:,
         current_user:,
         current_component:,
         component: current_component,
@@ -139,8 +137,8 @@ module Decidim::Meetings
       end
 
       context "when the author is a user_group" do
-        let(:user_group) { create(:user_group, :verified, users: [current_user], organization:) }
-        let(:user_group_id) { user_group.id }
+        let(:user_group) { create(:user_group, :verified, organization:) }
+        let(:current_user) { user_group }
 
         it "sets the user_group as the author" do
           subject.call

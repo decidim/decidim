@@ -245,20 +245,17 @@ describe "Meeting registrations" do
           end
         end
 
-        context "and they ARE part of a verified user group" do
-          let!(:user_group) { create(:user_group, :verified, users: [user], organization:) }
+        context "and they are a confirmed and verified user group" do
+          let!(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
+          let(:user) { user_group }
 
-          it "they can join the meeting representing a group and appear in the attending organizations list" do
+          it "they can join the meeting as the group and appear in the attending organizations list" do
             visit_meeting
 
             click_on "Register"
             within "#meeting-registration-confirm-#{meeting.id}" do
-              expect(page).to have_content "I represent a group"
               expect(page).to have_content "Show my attendance publicly"
               expect(page).to have_field("public_participation", checked: false)
-              page.find("input#public_participation").click
-              page.find("input#user_group").click
-              select user_group.name, from: :join_meeting_user_group_id
               page.find("input#public_participation").click
               click_on "Confirm"
             end
