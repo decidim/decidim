@@ -1854,7 +1854,7 @@ en:
         copy_share_link_copied: Copied!
         copy_share_link_cta: Or copy link
         copy_share_link_message: The link was successfully copied to clipboard.
-        share: Share with
+        share: Share
         share_link: Share link
         share_to: Share to %{service}
     statistics:
