@@ -1,1 +1,6 @@
-no:
+---
+"no":
+  decidim:
+    components:
+      collaborative_texts:
+        name: Samarbeidende tekster
