@@ -3,7 +3,7 @@
 module Decidim
   module System
     class RefreshApiUserToken < Decidim::Command
-      include ::Decidim::Apiext::TokenGenerator
+      include Decidim::System::TokenGenerator
 
       def initialize(api_user, current_admin)
         @api_user = api_user

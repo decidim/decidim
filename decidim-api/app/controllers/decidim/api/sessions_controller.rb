@@ -9,7 +9,7 @@ module Decidim
 
       def failure
         render json: anonymous_user.serializable_hash.merge(
-          jwt_token => nil,
+          "jwt_token" => nil,
           "avatar" => nil
         ), status: :unauthorized
       end
@@ -34,7 +34,7 @@ module Decidim
           # to get the bearer token. This allows them to get it from the request
           # body instead.
           return render json: resource.serializable_hash.merge(
-            jwt_token => jwt_token,
+            "jwt_token" => jwt_token,
             "avatar" => nil
           ), status: status
         end
