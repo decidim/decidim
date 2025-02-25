@@ -64,7 +64,7 @@ Updates the resource_type of valuation_assignment within the action log.
 ./bin/rails decidim:upgrade:decidim_paper_trail_valuation_assignment.rake
 ```
 
-This updates the item_type of valuation assignment.
+These tasks migrate the old data to the new names.
 
 More information about this change can be found on PR [#13684](https://github.com/decidim/decidim/pull/13684).
 
