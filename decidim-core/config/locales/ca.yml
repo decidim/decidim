@@ -1669,7 +1669,7 @@ ca:
       invite_collaborator:
         subject: T'han convidat a col·laborar a %{organization}
       invite_private_user:
-        subject: T'han convidat a participar en un procés participatiu privat a%{organization}
+        subject: T'han convidat a participar en un espai de participació privat a%{organization}
       organization_admin_invitation_instructions:
         subject: T'han convidat a administrar %{organization}
       password_change:
