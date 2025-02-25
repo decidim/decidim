@@ -117,7 +117,7 @@ fi:
       decidim_with_month_name_short: "%d. %b"
       help:
         date_format: 'Muoto: pp.kk.vvvv'
-      order: d.m.y
+      order: d-m-y
       separator: "."
   datetime:
     distance_in_words:
@@ -1747,6 +1747,8 @@ fi:
       create:
         error: Ilmoituksen luonti epäonnistui. Yritä uudestaan.
         success: Ilmoituksen luonti onnistui. Hallintakäyttäjä tarkastaa sen.
+      parent_hidden:
+        report_details: Isäntäkohde piilotettiin
     resource:
       controls_label: Kohteen hallintatoiminnot
     resource_endorsements:
@@ -2361,7 +2363,7 @@ fi:
       devise:
         mailer:
           invitation_instructions:
-            accept_until_format: "%B %d., %Y klo %k:%M"
+            accept_until_format: "%B %d., %Y klo %H:%M"
       help:
         time_format: 'Muoto: tt:mm'
       long: "%B %d., %Y %H:%M"
