@@ -69,7 +69,7 @@ describe "Admin answers proposals" do
         fill_in_i18n_editor(
           :proposal_answer_execution_period,
           "#proposal_answer-cost_report-tabs",
-          en: "Cost execuion period on the proposal"
+          en: "Cost execution period on the proposal"
         )
 
         find("*[type=submit][name=commit]", match: :first).click
