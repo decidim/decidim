@@ -728,6 +728,7 @@ fr-CA:
             does_not_belong: N'appartient pas
             hidden_during_block: Masqué pour blocage de l'utilisateur
             offensive: Agressif
+            parent_hidden: Le contenu parent a été masqué
             spam: Spam
         reports:
           index:
