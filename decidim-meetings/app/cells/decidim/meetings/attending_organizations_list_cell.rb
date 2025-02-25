@@ -14,11 +14,11 @@ module Decidim
       private
 
       def user_group_ids
-        model.user_group_registrations.user_group_ids
+        model.user_group_registrations.pluck(:decidim_user_id)
       end
 
       def user_groups
-        Decidim::UserGroup.where(id: user_group_ids)
+        Decidim::User.where(id: user_group_ids)
       end
 
       # Finds the public organizations (as user groups) of meeting

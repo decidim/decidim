@@ -167,7 +167,7 @@ module Decidim
 
       # Return registrations of a particular meeting made by users representing a group
       def user_group_registrations
-        registrations.where.not(decidim_user_group_id: nil)
+        registrations.joins(:user).where(user: Decidim::User.not_user_group)
       end
 
       # Returns the presenter for this author, to be used in the views.
