@@ -166,7 +166,8 @@ describe "User creates meeting" do
         end
 
         context "when creating as a user group" do
-          let!(:user_group) { create(:user_group, :verified, organization:, users: [user]) }
+          let!(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
+          let(:user) { user_group }
 
           it "creates a new meeting", :slow do
             stub_geocoding(meeting_address, [latitude, longitude])
@@ -189,7 +190,6 @@ describe "User creates meeting" do
               fill_in_timepicker :meeting_end_time_time, with: meeting_end_time
               select "Registration disabled", from: :meeting_registration_type
               select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
-              select user_group.name, from: :meeting_user_group_id
 
               find("*[type=submit]").click
             end
@@ -228,7 +228,6 @@ describe "User creates meeting" do
               fill_in :meeting_available_slots, with: meeting_available_slots
               fill_in :meeting_registration_terms, with: meeting_registration_terms
               select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
-              select user_group.name, from: :meeting_user_group_id
 
               find("*[type=submit]").click
             end
