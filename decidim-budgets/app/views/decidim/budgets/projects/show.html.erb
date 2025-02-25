@@ -1,15 +1,17 @@
 <% add_decidim_meta_tags(
-  title: translated_attribute(project.title),
-  description: translated_attribute(project.description)
-) %>
+     title: translated_attribute(project.title),
+     description: translated_attribute(project.description),
+     resource: project,
+     url: resource_locator([project.budget, project]).url
+   ) %>
 
 <%
-edit_link(
-  resource_locator([project.budget, project]).edit,
-  :update,
-  :project,
-  project:
-)
+  edit_link(
+    resource_locator([project.budget, project]).edit,
+    :update,
+    :project,
+    project:
+  )
 %>
 
 <%= append_javascript_pack_tag "decidim_budgets" %>
@@ -37,6 +39,7 @@ edit_link(
         </div>
       <% end %>
       <%= cell("decidim/budgets/project_selected_status", project, as_label: true) %>
+
       <h1 class="h1 decorator budget__definition-project__title editor-content">
         <%= decidim_sanitize translated_attribute project.title %>
       </h1>
@@ -67,8 +70,10 @@ edit_link(
         </div>
       <% end %>
     </section>
+
     <section class="layout-main__section layout-main__buttons" data-buttons>
       <%= cell "decidim/comments_button", nil %>
+
       <div class="ml-auto">
         <%= cell "decidim/budgets/project_tags", project %>
       </div>
