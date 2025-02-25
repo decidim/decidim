@@ -68,6 +68,10 @@ This updates the item_type of valuation assignment.
 
 More information about this change can be found on PR [#13684](https://github.com/decidim/decidim/pull/13684).
 
+### 3.2. [[TITLE OF THE ACTION]]
+
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
