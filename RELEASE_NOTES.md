@@ -50,11 +50,6 @@ Implementors must run the following 3 tasks:
 
 ```bash
 ./bin/rails decidim:upgrade:decidim_update_valuators.rake
-```
-
-Updates the role from Valuator to Evaluator within Decidim
-
-```bash
 ./bin/rails decidim:upgrade:decidim_action_log_valuation_assignment.rake
 ```
 
