@@ -33,8 +33,8 @@ module Decidim
         notify_mentioned_users
         notify_mentioned_groups
         notify_parent_comment_author
-        notify_author_followers
         notify_user_group_followers
+        notify_author_followers
         notify_commentable_recipients
       end
 
