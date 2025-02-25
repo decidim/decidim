@@ -2,7 +2,7 @@
 
 namespace :decidim do
   namespace :upgrade do
-    desc "Update resource_type from ValuationAssignment to EvaluationAssignment"
+    desc "Upgrade the ActionLog model's attribute resource_type from ValuationAssignment to EvaluationAssignment"
     task decidim_action_log_valuation_assignment: :environment do
       old_type = "Decidim::Proposals::ValuationAssignment"
       new_type = "Decidim::Proposals::EvaluationAssignment"
