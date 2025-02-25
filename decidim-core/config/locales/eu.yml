@@ -738,9 +738,9 @@ eu:
             notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k sortutako <a href="%{emendation_path}">zuzenketa </a> <a href="%{amendable_path}">%{amendable_title}</a> k ukatu du.
       attachments:
         attachment_created:
-          email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}-ri. Orrialde hau ikusi dezakezu:'
+          email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}-ri. Orrialde honetan ikusi dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu %{resource_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari utzi ahal diozu.
-          email_subject: '%{resource_title} eguneratzea'
+          email_subject: '%{resource_title} eguneratu da'
           notification_title: '<a href="%{resource_path}"> dokumentu berri bat</a> gehitu zaio honi: <a href="%{attached_to_url}">%{resource_title}</a>'
       components:
         component_published:
@@ -752,15 +752,15 @@ eu:
         email_greeting: Kaixo, %{user_name},
         email_intro: '"%{resource_title}"eguneratu da. Orri honetan ikus dezakezu:'
         email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
-        email_subject: '%{resource_title} eguneratzea'
+        email_subject: '%{resource_title} eguneratu da'
       gamification:
         badge_earned:
           email_intro: Zorionak! Irabazi duzu <a href="%{resource_path}">%{badge_name} garaikurra </a> ( %{current_level} maila).
           email_outro: Jakinarazpena jaso duzu gure webgunean egin duzun jarduera delako.
           email_subject: 'Beste garaikur bat irabazi duzu: %{badge_name}!'
-          notification_title: Zorionak! Irabazi duzu <a href="%{resource_path}">%{badge_name} garaikurra </a> ( %{current_level} maila).
+          notification_title: Zorionak! <a href="%{resource_path}">%{badge_name} garaikurra irabazi duzu </a> ( %{current_level} maila).
         level_up:
-          email_intro: Zorionak! Irabazi duzu <a href="%{resource_path}">%{badge_name} garaikurra </a> ( %{current_level} maila)!
+          email_intro: Zorionak! %{current_level} mailara heldu zara <a href="%{resource_url}">%{badge_name} garaikurrean </a>!
           email_outro: Jakinarazpena jaso duzu gure webgunean egin duzun jarduera delako.
           email_subject: '%{current_level} maila lortu duzu %{badge_name} garaikurrean!'
           notification_title: Zorionak! <a href="%{resource_path}">%{badge_name}</a> garaikurraren %{current_level} maila lortu duzu!
