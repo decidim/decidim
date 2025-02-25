@@ -41,7 +41,7 @@ shared_examples "import proposals" do
     end
 
     it "imports from a csv file" do
-      dynamically_attach_file(:proposals_file_import_file, Decidim::Dev.asset("import_proposals.csv"))
+      dynamically_attach_file(:import_file, Decidim::Dev.asset("import_proposals.csv"))
       click_on "Import"
 
       confirm_flash_message
@@ -49,7 +49,7 @@ shared_examples "import proposals" do
     end
 
     it "imports from a json file" do
-      dynamically_attach_file(:proposals_file_import_file, Decidim::Dev.asset("import_proposals.json"))
+      dynamically_attach_file(:import_file, Decidim::Dev.asset("import_proposals.json"))
 
       click_on "Import"
 
@@ -58,7 +58,7 @@ shared_examples "import proposals" do
     end
 
     it "imports from a excel file" do
-      dynamically_attach_file(:proposals_file_import_file, Decidim::Dev.asset("import_proposals.xlsx"))
+      dynamically_attach_file(:import_file, Decidim::Dev.asset("import_proposals.xlsx"))
 
       click_on "Import"
 
