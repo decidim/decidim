@@ -1745,6 +1745,8 @@ es:
       create:
         error: Se ha producido un problema al crear el informe de error. Por favor, vuelve a intentarlo.
         success: El contenido se ha denunciado con éxito y será revisado por una administradora.
+      parent_hidden:
+        report_details: El recurso principal estaba oculto
     resource:
       controls_label: Controles de recursos
     resource_endorsements:
@@ -1979,7 +1981,7 @@ es:
       invite_collaborator:
         subject: Te han invitado a colaborar en %{organization}
       invite_private_user:
-        subject: Te han invitado a participar en un proceso participativo privado en %{organization}
+        subject: Te han invitado a participar en un espacio de participación privado en %{organization}
       organization_admin_invitation_instructions:
         subject: Te han invitado a administrar %{organization}
       password_change:
