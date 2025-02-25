@@ -25,7 +25,7 @@ module Decidim
              .joins(:coauthorships)
              .where(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
       }
-      scope :with_participants_origin, lambda {
+      scope :with_any_user_origin, lambda {
         users_table = Decidim::User.arel_table
         coauthorships_table = Decidim::Coauthorship.arel_table
         joins(:coauthorships)
@@ -34,36 +34,33 @@ module Decidim
               coauthorships_table[:decidim_author_id].eq(users_table[:id]),
               coauthorships_table[:decidim_author_type].eq("Decidim::UserBaseEntity")
             ).join_sources
-          ).where.not(
-            Arel.sql(
-              ActiveRecord::Base.sanitize_sql_array(
-                [
-                  "#{users_table.name}.extended_data @> :group_condition",
-                  { group_condition: Arel.sql({ group: true }.to_json) }
-                ]
-              )
+          )
+      }
+      scope :with_participants_origin, lambda {
+        users_table = Decidim::User.arel_table
+        with_any_user_origin.where.not(
+          Arel.sql(
+            ActiveRecord::Base.sanitize_sql_array(
+              [
+                "#{users_table.name}.extended_data @> :group_condition",
+                { group_condition: Arel.sql({ group: true }.to_json) }
+              ]
             )
           )
+        )
       }
       scope :with_user_group_origin, lambda {
         users_table = Decidim::User.arel_table
-        coauthorships_table = Decidim::Coauthorship.arel_table
-        joins(:coauthorships)
-          .joins(
-            arel_table.join(users_table).on(
-              coauthorships_table[:decidim_author_id].eq(users_table[:id]),
-              coauthorships_table[:decidim_author_type].eq("Decidim::UserBaseEntity")
-            ).join_sources
-          ).where(
-            Arel.sql(
-              ActiveRecord::Base.sanitize_sql_array(
-                [
-                  "#{users_table.name}.extended_data @> :group_condition",
-                  { group_condition: Arel.sql({ group: true }.to_json) }
-                ]
-              )
+        with_any_user_origin.where(
+          Arel.sql(
+            ActiveRecord::Base.sanitize_sql_array(
+              [
+                "#{users_table.name}.extended_data @> :group_condition",
+                { group_condition: Arel.sql({ group: true }.to_json) }
+              ]
             )
           )
+        )
       }
       scope :with_meeting_origin, lambda {
         where.not(coauthorships_count: 0)
