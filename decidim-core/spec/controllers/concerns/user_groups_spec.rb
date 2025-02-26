@@ -10,7 +10,6 @@ module Decidim
     controller do
       include Decidim::NeedsOrganization
       include Decidim::NeedsPermission
-      include Decidim::UserGroups
 
       before_action :enforce_user_groups_enabled
 

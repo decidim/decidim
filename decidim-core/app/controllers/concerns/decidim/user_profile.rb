@@ -10,7 +10,6 @@ module Decidim
   module UserProfile
     extend ActiveSupport::Concern
     include FormFactory
-    include UserGroups
     include HasAccountBreadcrumb
 
     included do

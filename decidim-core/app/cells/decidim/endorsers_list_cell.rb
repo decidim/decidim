@@ -32,7 +32,7 @@ module Decidim
 
     # Finds the correct author for each endorsement.
     #
-    # Returns an Array of presented Users/UserGroups
+    # Returns an Array of presented Users
     def visible_endorsers
       @visible_endorsers ||= if voted_by_me?
                                base_relation.where.not(author: current_user).limit(MAX_ITEMS_STACKED - 1).map do |identity|

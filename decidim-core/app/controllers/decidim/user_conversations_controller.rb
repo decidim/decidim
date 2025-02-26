@@ -7,7 +7,6 @@ module Decidim
   # obsolete in the future
   class UserConversationsController < Decidim::ApplicationController
     include Paginable
-    include UserGroups
     include FormFactory
     include Messaging::ConversationHelper
     include HasProfileBreadcrumb
