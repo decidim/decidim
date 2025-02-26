@@ -5,7 +5,6 @@ module Decidim
   #
   # i18n-tasks-use t('decidim.profiles.show.badges')
   class ProfilesController < Decidim::ApplicationController
-    include UserGroups
     include Flaggable
     include HasProfileBreadcrumb
 
