@@ -1,9 +1,9 @@
 <% extra_data_items.each do |item| %>
   <div class="participatory-space__metadata-item">
-    <div class="participatory-space__metadata-item-title">
+    <h3 class="participatory-space__metadata-item-title">
       <%= icon item[:icon] %>
-      <span><%= item[:title] %></span>
-    </div>
+      <%= item[:title] %>
+    </h3>
     <% if item[:text].present? %>
       <%= content_tag :span, item[:text] %>
     <% elsif item[:partial].present? %>
