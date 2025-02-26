@@ -232,7 +232,6 @@ module Decidim
                         position: 5,
                         active: [%w(
                           decidim/admin/users
-                          decidim/admin/user_groups_csv_verifications
                           decidim/admin/officializations
                           decidim/admin/impersonatable_users
                           decidim/admin/conflicts
