@@ -33,7 +33,6 @@ module Decidim
             name: "Daisy Organization",
             nickname: "daisy_org",
             email: "d.mail.org@example.org",
-            users: [user],
             organization:
           )
         end
@@ -141,7 +140,6 @@ module Decidim
             :verified,
             name: "Daisy Organization",
             nickname: "daysy_org",
-            users: [user],
             organization:
           )
         end
