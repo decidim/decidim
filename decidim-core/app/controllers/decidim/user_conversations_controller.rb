@@ -116,8 +116,6 @@ module Decidim
     end
 
     def ensure_profile_manager
-      return if user.is_a?(UserGroup) && current_user.manageable_user_groups.include?(user)
-
       # For the moment, this controller is only for UserGroup profiles,
       # next line may be removed if in the future user conversations are handled in the
       # profile page as well
