@@ -12,8 +12,6 @@ module Decidim
       field :badge, GraphQL::Types::String, "A badge for the user group", null: false
       field :deleted, GraphQL::Types::Boolean, "Whether the user group's has been deleted or not", null: false
       field :id, GraphQL::Types::ID, "The user group's id", null: false
-      field :members, [Decidim::Core::UserType, { null: true }], "Members of this group", null: false, method: :accepted_users
-      field :members_count, GraphQL::Types::Int, "Number of members in this group", null: false
       field :name, GraphQL::Types::String, "The user group's name", null: false
       field :nickname, GraphQL::Types::String, "The user group nickname", null: false
       field :organization_name, Decidim::Core::TranslatedFieldType, "The user group's organization name", null: false
@@ -41,10 +39,6 @@ module Decidim
 
       def badge
         object.presenter.badge
-      end
-
-      def members_count
-        object.accepted_memberships.count
       end
 
       def self.authorized?(object, context)

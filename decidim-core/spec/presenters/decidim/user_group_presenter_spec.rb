@@ -18,16 +18,5 @@ module Decidim
 
       it { is_expected.to eq("This group is publicly verified, its name has been verified to correspond with its real name.") }
     end
-
-    describe "#members_count" do
-      subject { presenter.members_count }
-
-      let!(:creator_membership) { create(:user_group_membership, user_group: group, role: :creator) }
-      let!(:admin_memberships) { create_list(:user_group_membership, 2, user_group: group, role: :admin) }
-      let!(:normal_memberships) { create_list(:user_group_membership, 3, user_group: group, role: :member) }
-      let!(:pending_memberships) { create_list(:user_group_membership, 2, user_group: group, role: :invited) }
-
-      it { is_expected.to be(6) }
-    end
   end
 end

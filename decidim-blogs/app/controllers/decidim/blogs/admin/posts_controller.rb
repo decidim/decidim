@@ -7,7 +7,6 @@ module Decidim
       class PostsController < Admin::ApplicationController
         include Decidim::Admin::HasTrashableResources
 
-        helper UserGroupHelper
         helper PostsHelper
 
         def new
