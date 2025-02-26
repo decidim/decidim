@@ -699,6 +699,7 @@ ja:
             does_not_belong: 属していません
             hidden_during_block: ユーザーのブロック中は非表示
             offensive: 攻撃的
+            parent_hidden: 親コンテンツが非表示になりました
             spam: スパム
         reports:
           index:
