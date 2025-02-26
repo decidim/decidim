@@ -131,8 +131,6 @@ module Decidim
       presenter = case user
                   when Decidim::User
                     UserPresenter.new(user)
-                  when Decidim::UserGroup
-                    UserGroupPresenter.new(user)
                   end
 
       return unless presenter

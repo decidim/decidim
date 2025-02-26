@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A resource can have an endorsement for each user or group the author/endorser belongs to.
+  # A resource can have an endorsement for each user.
   class Endorsement < ApplicationRecord
     include Decidim::Authorable
 
