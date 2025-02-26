@@ -33,7 +33,7 @@ module Decidim
       end
 
       def users
-        search(current_organization.users.available)
+        search(current_organization.users.not_user_group.available)
       end
 
       def user_entities
