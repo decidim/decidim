@@ -15,7 +15,6 @@ module Decidim
             null: false,
             description: ["If the user making the request is logged in, it will return whether this recipient accepts a conversation or not.",
                           " It will return false for non-logged requests."].join
-      field :groups, [Decidim::Core::UserGroupType, { null: true }], "Groups where this user belongs", null: false, method: :accepted_user_groups
       field :id, GraphQL::Types::ID, "The user's id", null: false
       field :name, GraphQL::Types::String, "The user's name", null: false
       field :nickname, GraphQL::Types::String, "The user's nickname", null: false

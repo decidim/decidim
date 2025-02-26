@@ -223,16 +223,6 @@ module Decidim
       extended_data["user_name"] || name
     end
 
-    # return the groups where this user has been accepted
-    def accepted_user_groups
-      UserGroups::AcceptedUserGroups.for(self)
-    end
-
-    # return the groups where this user has admin permissions
-    def manageable_user_groups
-      UserGroups::ManageableUserGroups.for(self)
-    end
-
     def authenticatable_salt
       "#{super}#{session_token}"
     end
