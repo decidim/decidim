@@ -1318,7 +1318,7 @@ eu:
           register: Erregistroa
           register_title: Sortu zure kontua saioa hasteko
       index:
-        standalone_pages: orrialdeak
+        standalone_pages: Orrialdeak
         subheading: Laguntza orrietan nabigatzeko %{name}
         title: Laguntza
         topics: Gaiak
