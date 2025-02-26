@@ -100,8 +100,7 @@ module Decidim
       def creation_enabled?
         Decidim::Initiatives.creation_enabled && (
         Decidim::Initiatives.do_not_require_authorization ||
-          UserAuthorizations.for(user).any? ||
-          Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?) &&
+          UserAuthorizations.for(user).any?) &&
           authorized?(:create, permissions_holder: initiative_type)
       end
 
@@ -128,8 +127,7 @@ module Decidim
           !initiative.has_authorship?(user) &&
           (
           Decidim::Initiatives.do_not_require_authorization ||
-              UserAuthorizations.for(user).any? ||
-              Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
+              UserAuthorizations.for(user).any?
         )
       end
 
@@ -184,10 +182,6 @@ module Decidim
                    context.fetch(:signature_has_steps, false)
 
         toggle_allow(can_sign)
-      end
-
-      def decidim_user_group_id
-        context.fetch(:group_id, nil)
       end
 
       def can_vote?

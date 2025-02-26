@@ -18,11 +18,6 @@ module Decidim
           profile_url: presented.profile_url,
           deleted: presented.deleted?,
           badge: presented.badge,
-          members_count: resource.accepted_memberships.count,
-          members: {
-            id: resource.accepted_users.collect(&:id),
-            name: resource.accepted_users.collect(&:name)
-          }
         }
       end
 
