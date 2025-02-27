@@ -322,8 +322,7 @@ eu:
           promoted: Sustatu hau %{amendable_type}.
           rejected: "%{amendable_type} %{amendable_link} en zuzenketa\nukatu da <strong>%{announcement_date}</strong>."
           withdrawn: |-
-            %{amendable_type} %{amendable_link}
-            ren aldaketa hori egilearen arabera kendu da.
+            %{amendable_type} %{proposal_link} ren aldaketa hori egilearen arabera kendu da.
       name: Zuzenketa
       new:
         amendment_author: Zuzenketaren egilea
