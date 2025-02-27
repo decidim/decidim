@@ -11,11 +11,10 @@ module Decidim
         mimic :document
 
         attribute :title, String
-        attribute :body, Decidim::Attributes::RichText
         attribute :accepting_suggestions, Boolean, default: false
         translatable_attribute :announcement, Decidim::Attributes::RichText
 
-        validates :title, etiquette: true, if: ->(form) { form.title.present? }
+        validates :title, presence: true, etiquette: true, unless: ->(form) { form.title.nil? }
       end
     end
   end

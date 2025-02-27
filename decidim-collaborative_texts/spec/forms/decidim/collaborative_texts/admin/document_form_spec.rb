@@ -34,6 +34,12 @@ module Decidim
         describe "when title is missing" do
           let(:title) { nil }
 
+          it { is_expected.to be_valid }
+        end
+
+        describe "when title is empty" do
+          let(:title) { "" }
+
           it { is_expected.not_to be_valid }
         end
       end

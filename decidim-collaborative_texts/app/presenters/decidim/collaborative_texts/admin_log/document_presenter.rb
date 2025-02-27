@@ -4,7 +4,7 @@ module Decidim
   module CollaborativeTexts
     module AdminLog
       # This class holds the logic to present a `Decidim::CollaborativeTexts::Document`
-      # for the `AdminLog` log.      #
+      # for the `AdminLog` log.
       class DocumentPresenter < Decidim::Log::BasePresenter
         private
 

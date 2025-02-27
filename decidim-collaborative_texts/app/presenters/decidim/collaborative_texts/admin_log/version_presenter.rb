@@ -4,7 +4,7 @@ module Decidim
   module CollaborativeTexts
     module AdminLog
       # This class holds the logic to present a `Decidim::CollaborativeTexts::Version`
-      # for the `AdminLog` log.      #
+      # for the `AdminLog` log.
       # Note that this is only used in updates, creation is handled by the document creation.
       #
       class VersionPresenter < Decidim::Log::BasePresenter
