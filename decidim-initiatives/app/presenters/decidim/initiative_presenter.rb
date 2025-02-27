@@ -6,11 +6,7 @@ module Decidim
   #
   class InitiativePresenter < Decidim::ResourcePresenter
     def author
-      @author ||= if user_group
-                    Decidim::UserGroupPresenter.new(user_group)
-                  else
-                    Decidim::UserPresenter.new(super)
-                  end
+      @author ||= Decidim::UserPresenter.new(super)
     end
 
     def initiative
