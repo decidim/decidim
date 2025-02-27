@@ -10,12 +10,8 @@ module Decidim
     # As Organization
     #
     describe "As Organization" do
-      let(:user_group) { create(:user_group, verified_at: Time.current) }
-
-      before do
-        create(:user_group_membership, user:, user_group:)
-        params[:user_group_id] = user_group.id
-      end
+      let(:user_group) { create(:user_group, :confirmed, :verified, organization: component.organization) }
+      let(:user) { user_group }
 
       describe "endorsing a resource" do
         context "when endorsements are enabled" do
@@ -67,7 +63,7 @@ module Decidim
 
       describe "As User unendorsing a resource" do
         before do
-          create(:endorsement, resource:, author: user, user_group:)
+          create(:endorsement, resource:, author: user_group)
         end
 
         context "when endorsements are enabled" do
