@@ -32,9 +32,7 @@ describe "Social shares" do
 
   it_behaves_like "a social share meta tag", "description_image.jpg"
   it_behaves_like "a social share widget"
-  it_behaves_like "a social share via QR code" do
-    let(:card_image) { "description_imagedescription_image.jpg" }
-  end
+  it_behaves_like "a social share via QR code"
 
   context "when no description images" do
     let(:description_image_path) { "" }
