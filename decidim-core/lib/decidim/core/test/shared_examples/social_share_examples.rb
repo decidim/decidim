@@ -40,7 +40,52 @@ shared_examples "a social share widget" do
       expect(page).to have_css('a[title="Share to Facebook"]')
       expect(page).to have_css('a[title="Share to WhatsApp"]')
       expect(page).to have_css('a[title="Share to Telegram"]')
+      expect(page).to have_css('a[title="Share to QR"]')
       expect(page).to have_css(".share-modal__input")
     end
+  end
+end
+
+shared_examples "a social share via QR code" do
+  let(:title) { resource.presenter.title }
+  let!(:card_image) { nil }
+  it "has the QR code" do
+    visit_resource
+    click_on "Share"
+    click_on "Share to QR"
+
+    expect(page).to have_content("QR Code")
+    within "#QRCodeDialog" do
+      expect(page).to have_css('img[alt="QR Code"]')
+      expect(page).to have_link("Print Poster")
+      expect(page).to have_content(title)
+      expect(page).to have_link("Download")
+    end
+  end
+
+  it "downloads the QR code", download: true do
+    visit_resource
+    click_on "Share"
+    click_on "Share to QR"
+    click_on "Download"
+
+    wait_for_download
+
+    expect(downloads.length).to eq(1)
+    expect(download_path).to match(/.*\.png/)
+  end
+
+  it "displays the QR code page" do
+    visit_resource
+    click_on "Share"
+    click_on "Share to QR"
+    click_on "Print Poster"
+    expect(page).to have_content("Scan the QR code")
+    expect(page).to have_css('img[alt="QR Code"]')
+
+    expect(page).to have_css(%(img[src*="#{card_image}"])) unless card_image.nil?
+    expect(page).to have_content(title)
+
+    expect(page).to have_content(translated(organization.name))
   end
 end
