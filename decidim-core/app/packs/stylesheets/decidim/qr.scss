@@ -31,6 +31,10 @@ body {
   .card__grid-img {
     @apply aspect-[21/9] rounded-t overflow-hidden mx-auto w-full lg:w-96;
 
+    &.placeholder {
+      @apply aspect-auto;
+    }
+
     img {
       @apply w-full h-full object-cover;
     }

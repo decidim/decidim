@@ -10,13 +10,15 @@
 <body>
   <h2><%= resource.presenter.title(html_escape: true) %></h2>
 
-  <div class="card__grid-img">
-    <% if resource.respond_to?(:attachments) && resource.attachments.first&.url %>
+  <% if resource.respond_to?(:attachments) && resource.attachments.first&.url %>
+    <div class="card__grid-img">
       <%= image_tag resource.attachments.first&.url, alt: resource.presenter.title(html_escape: true) %>
-    <% else %>
-      <%= external_icon "media/images/proposal-placeholder-card-g.svg", class: "card__proposal-placeholder-g" %>
-    <% end %>
-  </div>
+    </div>
+  <% else %>
+    <div class="card__grid-img placeholder">
+      <%= external_icon "media/images/placeholder-card-g.svg", class: "card__placeholder-g" %>
+    </div>
+  <% end %>
 
   <h3><%= t(".scan") %></h3>
   <div>
