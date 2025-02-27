@@ -27,7 +27,6 @@ module Decidim
 
         if message.save
           notify_interlocutors
-          notify_comanagers if sender.is_a?(UserGroup)
 
           broadcast(:ok, message)
         else
