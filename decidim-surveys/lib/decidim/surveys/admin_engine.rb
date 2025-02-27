@@ -39,7 +39,7 @@ module Decidim
         root to: "surveys#index"
       end
 
-      initializer "decidim_surveys.menu" do
+      initializer "decidim_surveys_admin.menu" do
         Decidim.menu :admin_surveys_menu do |menu|
           answers_count = @survey.nil? ? 0 : Decidim::Forms::QuestionnaireParticipants.new(@survey.questionnaire).count_participants
           answers_caption = I18n.t("answers", scope: "decidim.admin.menu.surveys_menu")
