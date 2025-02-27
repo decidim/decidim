@@ -5,6 +5,7 @@ class CreateCollaborativeTextsVersions < ActiveRecord::Migration[7.0]
     create_table :decidim_collaborative_texts_versions do |t|
       t.references :document, null: false, index: true
       t.string :body
+      t.boolean :draft, null: false, default: false
       t.timestamps
     end
   end

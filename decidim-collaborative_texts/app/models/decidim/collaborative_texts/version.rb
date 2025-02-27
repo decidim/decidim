@@ -12,8 +12,11 @@ module Decidim
 
       belongs_to :document, class_name: "Decidim::CollaborativeTexts::Document"
       validates :body, presence: true
+      validates :draft, presence: true, uniqueness: { scope: :document_id }, if: :draft
 
       default_scope { order(created_at: :asc) }
+      scope :consolidated, -> { where(draft: false) }
+      scope :draft, -> { where(draft: true) }
 
       def self.log_presenter_class_for(_log)
         Decidim::CollaborativeTexts::AdminLog::VersionPresenter
