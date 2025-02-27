@@ -207,31 +207,6 @@ describe "Profile" do
         end
       end
     end
-
-    context "when belonging to user groups" do
-      let!(:accepted_user_group) { create(:user_group, users: [user], organization: user.organization) }
-      let!(:pending_user_group) { create(:user_group, users: [], organization: user.organization) }
-      let!(:pending_membership) { create(:user_group_membership, user_group: pending_user_group, user:, role: "requested") }
-
-      before do
-        visit decidim.profile_path(user.nickname)
-      end
-
-      it "lists the user groups" do
-        click_on "Groups"
-
-        expect(page).to have_content(accepted_user_group.name)
-        expect(page).to have_no_content(pending_user_group.name)
-        expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
-      end
-
-      context "when user groups are disabled" do
-        let(:organization) { create(:organization, user_groups_enabled: false) }
-        let(:user) { create(:user, :confirmed, organization:) }
-
-        it { is_expected.to have_no_content("Groups") }
-      end
-    end
   end
 
   describe "view hooks" do
