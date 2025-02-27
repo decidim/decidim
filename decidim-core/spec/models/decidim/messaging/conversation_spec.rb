@@ -72,27 +72,11 @@ describe Decidim::Messaging::Conversation do
     end
 
     context "when the originator is a group" do
-      let(:originator) { create(:user_group, users: [manager1, manager2]) }
-      let(:manager1) { create(:user) }
-      let(:manager2) { create(:user) }
-      let(:from) { manager1 }
+      let(:originator) { create(:user_group, :confirmed, :verified, organization: interlocutor.organization) }
+      let(:from) { create(:user) }
 
       it "creates receipts for all participants" do
-        expect(receipts.count).to eq(3)
-      end
-
-      it "creates a read receipt for the sender group manager" do
-        manager_receipts = receipts.recipient(manager1)
-
-        expect(manager_receipts.size).to eq(1)
-        expect(manager_receipts.first).not_to have_attributes(read_at: nil)
-      end
-
-      it "creates an unread receipt for the group managers" do
-        manager_receipts = receipts.recipient(manager2)
-
-        expect(manager_receipts.size).to eq(1)
-        expect(manager_receipts.first).to have_attributes(read_at: nil)
+        expect(receipts.count).to eq(2)
       end
 
       it "creates an unread receipt for the interlocutor" do
@@ -100,31 +84,6 @@ describe Decidim::Messaging::Conversation do
 
         expect(interlocutor_receipts.size).to eq(1)
         expect(interlocutor_receipts.first).to have_attributes(read_at: nil)
-      end
-    end
-
-    context "when the interlocutor is a group" do
-      let(:interlocutor) { create(:user_group, users: [manager1, manager2]) }
-      let(:manager1) { create(:user) }
-      let(:manager2) { create(:user) }
-      let(:from) { manager1 }
-
-      it "creates receipts for all participants" do
-        expect(receipts.count).to eq(3)
-      end
-
-      it "creates an unread receipt for the first manager" do
-        manager_receipts = receipts.recipient(manager1)
-
-        expect(manager_receipts.size).to eq(1)
-        expect(manager_receipts.first).to have_attributes(read_at: nil)
-      end
-
-      it "creates an unread receipt for the second manager" do
-        manager_receipts = receipts.recipient(manager2)
-
-        expect(manager_receipts.size).to eq(1)
-        expect(manager_receipts.first).to have_attributes(read_at: nil)
       end
 
       it "creates a read receipt for originator" do
