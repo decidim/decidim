@@ -46,20 +46,16 @@ describe "Admin manages surveys" do
       let!(:answer) { create(:answer, question:, questionnaire:) }
 
       it "shows warning message" do
-        click_on "Manage questions"
         expect(page).to have_content("The form is not published")
       end
 
       it "allows editing questions" do
-        click_on "Manage questions"
         click_on "Expand all"
         expect(page).to have_css("#questions_questions_#{question.id}_body_en")
         expect(page).to have_no_selector("#questions_questions_#{question.id}_body_en[disabled]")
       end
 
       it "deletes answers after published" do
-        click_on "Manage questions"
-
         click_on "Expand all"
 
         within "#accordion-questionnaire_question_#{question.id}-field" do
@@ -291,7 +287,7 @@ describe "Admin manages surveys" do
   end
 
   def manage_questions_path
-    Decidim::EngineRouter.admin_proxy(component).edit_questions_survey_path(survey)
+    Decidim::EngineRouter.admin_proxy(component).edit_questions_questions_survey_path(survey)
   end
 
   def update_component_settings_or_attributes

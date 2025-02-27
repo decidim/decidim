@@ -17,13 +17,6 @@ shared_examples_for "manage questionnaire answers" do
     [first, second, third]
   end
 
-  context "when there are no answers" do
-    it "do not answer admin link" do
-      click_on "Manage questions"
-      expect(page).to have_content("No answers yet")
-    end
-  end
-
   context "when there are answers" do
     let!(:answer1) { create(:answer, questionnaire:, question: first) }
     let!(:answer2) { create(:answer, body: "second answer", questionnaire:, question: first) }

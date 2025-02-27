@@ -80,6 +80,14 @@
           @apply fill-secondary;
         }
       }
+
+      & .component-counter {
+        @apply text-sm font-semibold text-white rounded-full bg-gray px-2;
+      }
+    }
+
+    .sidebar-menu__item-disabled {
+      @apply text-gray-3;
     }
 
     .is-active a {
@@ -87,6 +95,10 @@
 
       svg {
         @apply fill-secondary;
+      }
+
+      & .component-counter {
+        @apply no-underline bg-secondary;
       }
     }
   }
