@@ -82,6 +82,7 @@ namespace :decidim do
     task :import_all_plans, [] => :environment do |_task, _args|
       Rails.root.glob("tmp/taxonomies/*_plan.json").each do |file|
         log.info "Importing plan from #{file}"
+        Rake::Task["decidim:taxonomies:import_plan"].reenable
         Rake::Task["decidim:taxonomies:import_plan"].invoke(file)
       end
     end
@@ -93,7 +94,10 @@ namespace :decidim do
 
       data = JSON.parse(File.read(file))
       taxonomies = data["taxonomy_map"]
-      abort "No taxonomies found in the file" unless taxonomies && taxonomies&.any?
+      unless taxonomies && taxonomies&.any?
+        log.warn "No metric (categories) taxonomies found in the file"
+        next
+      end
 
       total = taxonomies.count
       taxonomies.each_with_index do |(id, object_id), index|
@@ -112,6 +116,7 @@ namespace :decidim do
     task :update_all_metrics, [] => :environment do |_task, _args|
       Rails.root.glob("tmp/taxonomies/*_result.json").each do |file|
         log.info "Processing metrics from #{file}"
+        Rake::Task["decidim:taxonomies:update_metrics"].reenable
         Rake::Task["decidim:taxonomies:update_metrics"].invoke(file)
       end
     end
