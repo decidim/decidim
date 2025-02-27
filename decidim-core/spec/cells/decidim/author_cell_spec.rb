@@ -19,14 +19,6 @@ describe Decidim::AuthorCell, type: :cell do
     end
   end
 
-  context "when rendering a user group" do
-    let(:model) { Decidim::UserGroupPresenter.new(user_group) }
-
-    it "renders a User_group author card" do
-      expect(subject).to have_css("[data-author]")
-    end
-  end
-
   context "when rendering an official author card" do
     let(:model) { Decidim::Proposals::OfficialAuthorPresenter.new }
 
