@@ -16,7 +16,6 @@ module Decidim
       badges: { icon: "award-line", path: :profile_badges_path },
       following: { icon: "eye-2-line", path: :profile_following_path },
       followers: { icon: "group-line", path: :profile_followers_path },
-      members: { icon: "contacts-line", path: :profile_members_path },
       conversations: { icon: "question-answer-line", path: :profile_conversations_path }
     }.freeze
 
