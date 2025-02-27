@@ -44,4 +44,16 @@ FactoryBot.define do
       draft { true }
     end
   end
+
+  factory :collaborative_text_suggestion, class: "Decidim::CollaborativeTexts::Suggestion" do
+    document_version { create(:collaborative_text_version) }
+    author { create(:user, organization: document_version.organization) }
+    changeset do
+      {
+        firstNode: "1",
+        lastNode: "2",
+        replace: Faker::HTML.paragraph(sentence_count: rand(1..3))
+      }
+    end
+  end
 end

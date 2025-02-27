@@ -2,7 +2,6 @@
 
 module Decidim
   module CollaborativeTexts
-    # Exposes the blog resource so users can view them
     class DocumentsController < Decidim::CollaborativeTexts::ApplicationController
       include Decidim::Paginable
 

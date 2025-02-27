@@ -22,6 +22,8 @@ module Decidim
       validates :title, :body, presence: true
 
       scope :enabled_desc, -> { order(arel_table[:accepting_suggestions].desc, arel_table[:created_at].desc) }
+
+      delegate :organization, to: :component
       delegate :body, :body=, to: :current_version
 
       def self.log_presenter_class_for(_log)

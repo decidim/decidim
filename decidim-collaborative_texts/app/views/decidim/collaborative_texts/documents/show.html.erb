@@ -20,9 +20,10 @@
     <div class="flex justify-center">
       <h1 class="title-decorator my-12"><%= document.title %></h1>
     </div>
-    <div class="collaborative-texts-container editor-content"
-         data-collaborative-texts-document="<%= document.accepting_suggestions.to_s %>"
-         data-collaborative-texts-i18n="<%= document_i18n.to_json %>">
+    <div data-collaborative-texts-document="<%= document.accepting_suggestions.to_s %>"
+         data-collaborative-texts-i18n="<%= document_i18n.to_json %>"
+         data-collaborative-texts-suggestions-url="<%= document_suggestions_path(document) %>"
+         class="collaborative-texts-container editor-content">
       <%= decidim_sanitize decidim_rich_text(document.body), { scrubber: Decidim::AdminInputScrubber.new } %>
     </div>
   </section>

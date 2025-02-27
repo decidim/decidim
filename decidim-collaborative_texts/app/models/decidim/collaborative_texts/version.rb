@@ -6,17 +6,20 @@ module Decidim
     # title, description and any other useful information to render a custom
     # document.
     class Version < CollaborativeTexts::ApplicationRecord
-      include Decidim::Resourceable
       include Decidim::Traceable
       include Decidim::Loggable
 
       belongs_to :document, class_name: "Decidim::CollaborativeTexts::Document"
+      has_many :suggestions, class_name: "Decidim::CollaborativeTexts::Suggestion", foreign_key: "document_version_id", dependent: :destroy
+
       validates :body, presence: true
       validates :draft, presence: true, uniqueness: { scope: :document_id }, if: :draft
 
       default_scope { order(created_at: :asc) }
       scope :consolidated, -> { where(draft: false) }
       scope :draft, -> { where(draft: true) }
+
+      delegate :organization, to: :document
 
       def self.log_presenter_class_for(_log)
         Decidim::CollaborativeTexts::AdminLog::VersionPresenter
