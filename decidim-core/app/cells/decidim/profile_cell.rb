@@ -15,8 +15,7 @@ module Decidim
       activity: { icon: "bubble-chart-line", path: :profile_activity_path },
       badges: { icon: "award-line", path: :profile_badges_path },
       following: { icon: "eye-2-line", path: :profile_following_path },
-      followers: { icon: "group-line", path: :profile_followers_path },
-      conversations: { icon: "question-answer-line", path: :profile_conversations_path }
+      followers: { icon: "group-line", path: :profile_followers_path }
     }.freeze
 
     def show
