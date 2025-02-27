@@ -75,13 +75,13 @@ module Decidim
               end
 
               it "returns the correct builder options" do
-                expect(ActiveSupport::Deprecation).to receive(:warn)
+                allow(ActiveSupport::Deprecation).to receive(:warn)
                 expect(subject.builder_options).to eq(
                   marker_color: "#e02d2d",
                   tile_layer: {
-                    app_id: "appid123",
-                    app_code: "secret456",
-                    foo: "bar"
+                    api_key: %w(appid123 secret456),
+                    foo: "bar",
+                    language: "en"
                   }
                 )
               end
