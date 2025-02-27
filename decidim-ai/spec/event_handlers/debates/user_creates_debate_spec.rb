@@ -9,7 +9,6 @@ describe "User creates debate", type: :system do
       invalid?: false,
       title:,
       description:,
-      user_group_id: nil,
       taxonomizations:,
       add_documents: attachments,
       documents: [],
