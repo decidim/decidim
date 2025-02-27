@@ -3,6 +3,8 @@ class Editor {
     this.selection = selection;
     this.wrapper = selection.wrapper;
     this.nodes = selection.nodes;
+    this.firstNode = selection.firstNode;
+    this.lastNode = selection.lastNode;
     this.editor = null;
     this.container = null;
     this.menu = null;
@@ -22,7 +24,7 @@ class Editor {
   }
 
   _createEditor() {
-    this.editor = document.createElement("div");
+    this.editor = window.document.createElement("div");
     this.editor.classList.add("collaborative-texts-editor");
     this._createContainer();
     this._createMenu();
@@ -33,7 +35,7 @@ class Editor {
   }
 
   _createContainer() {   
-    this.container = document.createElement("div");
+    this.container = window.document.createElement("div");
     this.container.classList.add("collaborative-texts-editor-container");
     this.container.innerHTML = this.nodes.map((node) => node.outerHTML).join("");
     this.container.contentEditable = true;
@@ -41,7 +43,7 @@ class Editor {
   }
 
   _createMenu() {
-    this.menu = document.createElement("div");
+    this.menu = window.document.createElement("div");
     this.menu.classList.add("collaborative-texts-editor-menu");
     this.menu.innerHTML = `<button class="collaborative-texts-button-save">${this.i18n.save}</button><button class="collaborative-texts-button-cancel">${this.i18n.cancel}</button>`;
     this.editor.appendChild(this.menu);
@@ -55,10 +57,11 @@ class Editor {
   }
 
   _save() {
-    console.log("Save");
     const event = new CustomEvent("collaborative-texts:suggest", {
       detail: {
         nodes: this.nodes,
+        firstNode: this.firstNode,
+        lastNode: this.lastNode,
         replace: this.container.childNodes
       }
     });
@@ -67,7 +70,6 @@ class Editor {
   }
 
   _cancel() {
-    console.log("Cancel");
     this.selection.clear();
   }
 }

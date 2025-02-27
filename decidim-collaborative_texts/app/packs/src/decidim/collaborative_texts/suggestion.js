@@ -1,6 +1,7 @@
 class Suggestion {
   constructor(suggestions, config) {
     this.suggestions = suggestions;
+    this.document = suggestions.document;
     this.doc = suggestions.doc;
     this.nodes = [];
     for (const node of suggestions.nodes) {
@@ -28,7 +29,7 @@ class Suggestion {
       restore: suggestions.i18n.restore || "Restore"
     }
     this.valid = this.nodes.length > 0 && this.firstNode && this.lastNode && Array.isArray(this.replace);
-    console.log("Suggestion", suggestions, config, this);
+    // console.log("Suggestion", suggestions, config, this);
     if (this.valid) {
       this._createMenuWrapper();
       this._createMenu();
@@ -38,7 +39,7 @@ class Suggestion {
 
   // Apply the suggestion by replacing the nodes with the replace content
   apply() {
-    if (!this.applied) {
+    if (!this.applied && !this.document.selection || !this.document.selection.blocked) {
       console.log("Apply a change", this);
       this.applied = true;
       this.menu.querySelector(".collaborative-texts-button-apply").classList.add("hidden");
@@ -46,12 +47,8 @@ class Suggestion {
       // restore any other changes affecting the same nodes
       this.suggestions.restore(this.nodes, [this]);
       this._createChangesWrapper();
-      this.nodes.forEach((node) => {
-        node.classList.add("collaborative-texts-hidden");
-      });
-      this.replace.forEach((text) => {
-        this.changesWrapper.insertAdjacentHTML("beforeend", text);
-      });
+      this.nodes.forEach((node) => node.classList.add("collaborative-texts-hidden"));
+      this.replace.forEach((text) => this.changesWrapper.insertAdjacentHTML("beforeend", text));
       this.wrapper.classList.add("applied");
       let event = new CustomEvent("collaborative-texts:applied", { detail: { suggestion: this } });
       this.doc.dispatchEvent(event);
@@ -68,9 +65,7 @@ class Suggestion {
       this.menu.querySelector(".collaborative-texts-button-restore").classList.add("hidden");
       this.changesWrapper.remove();
       this.changesWrapper = null;
-      this.nodes.forEach((node) => {
-        node.classList.remove("collaborative-texts-hidden");
-      });
+      this.nodes.forEach((node) => node.classList.remove("collaborative-texts-hidden"));
       let event = new CustomEvent("collaborative-texts:restored", { detail: { suggestion: this } });
       this.doc.dispatchEvent(event);
     }
@@ -78,7 +73,6 @@ class Suggestion {
   }
 
   resetPosition() {
-    console.log("Reset position", this);
     if (!this.menuWrapper || !this.firstNode || this.firstNode.nodeType !== Node.ELEMENT_NODE) {
       return this;
     }
@@ -95,7 +89,7 @@ class Suggestion {
   }
 
   _createChangesWrapper() {
-    this.changesWrapper = document.createElement("div");
+    this.changesWrapper = window.document.createElement("div");
     this.changesWrapper.classList.add("collaborative-texts-changes");
     this.firstNode.before(this.changesWrapper);
   }
@@ -107,13 +101,13 @@ class Suggestion {
       this.menuWrapper = this.firstNode.previousSibling;
       return;
     }
-    this.menuWrapper = document.createElement("div");
+    this.menuWrapper = window.document.createElement("div");
     this.menuWrapper.classList.add("collaborative-texts-suggestions-menu");
     this.resetPosition().firstNode.before(this.menuWrapper);
   }
 
   _createMenu() {
-    this.menu = document.createElement("div");
+    this.menu = window.document.createElement("div");
     this.menu.classList.add("collaborative-texts-suggestions-menu-item");
     let truncatedText = `${this.replace.map((text) => text.replace(/<[^>]*>?/gm, "")).join(" ").substring(0, 30)}...`;
     this.menu.innerHTML = `<p>${truncatedText}</p><button class="collaborative-texts-button-apply">${this.i18n.apply}</button><button class="collaborative-texts-button-restore hidden">${this.i18n.restore}</button>`;
@@ -133,12 +127,10 @@ class Suggestion {
       this.changesWrapper.classList.add("collaborative-texts-highlight");
       return;
     }
-    this.wrapper = document.createElement("div");
+    this.wrapper = window.document.createElement("div");
     this.wrapper.classList.add("collaborative-texts-highlight");
     this.firstNode.before(this.wrapper);
-    this.nodes.forEach((node) => {
-      this.wrapper.appendChild(node);
-    });
+    this.nodes.forEach((node) => this.wrapper.appendChild(node));
   }
 
   _blur() {

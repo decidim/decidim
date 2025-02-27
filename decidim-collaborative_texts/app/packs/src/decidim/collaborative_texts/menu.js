@@ -21,7 +21,7 @@ class Menu {
   }
 
   _createMenu() {
-    this.menu = document.createElement("div");
+    this.menu = window.document.createElement("div");
     this.menu.classList.add("collaborative-texts-menu");
     this.menu.innerHTML = `<button class="collaborative-texts-button-suggest">${this.i18n.suggest}</button><button class="collaborative-texts-button-cancel">${this.i18n.cancel}</button>`;
     this.wrapper.after(this.menu);
@@ -40,7 +40,7 @@ class Menu {
   }
   
   _cancel() {
-    console.log("Cancel");
+    console.log("Cancel suggestion");
     this.destroy();
     this.selection.clear();
   }

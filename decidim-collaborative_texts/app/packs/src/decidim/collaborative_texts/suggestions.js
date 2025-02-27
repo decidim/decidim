@@ -1,24 +1,21 @@
 import Suggestion from "src/decidim/collaborative_texts/suggestion";
 
 class Suggestions {
-  constructor(document, i18n) {
+  constructor(document) {
     this.document = document;
     this.nodes = document.nodes;
     this.doc = document.doc;
-    this.i18n = i18n || {};
+    this.i18n = document.i18n || {};
     this.suggestions = [];
-    console.log("Fetch suggestions", this);
     this._fetchSuggestions();
     this._bindEvents();
   }
   
   resetPositions() {
-    this.suggestions.forEach((suggestion) => {
-      suggestion.resetPosition();
-    });
+    this.suggestions.forEach((suggestion) => suggestion.resetPosition());
     return this;
   }
-
+  
   // restore changes for any suggestion affecting the specified nodes
   restore(nodes, except = []) {
     this.suggestions.forEach((suggestion) => {
@@ -27,8 +24,9 @@ class Suggestions {
       }
     });
   }
-
+  
   _fetchSuggestions() {
+    console.log("Fetch suggestions", this);
     // fetch(this.doc.dataset.collaborativeTextsSuggestionsUrl)
     //   .then(response => response.json())
     //   .then(data => {
@@ -66,7 +64,11 @@ class Suggestions {
         firstNode: "30",
         lastNode: "30",
         replace: [
-          "<p>Replacement C - line 1</p>"
+          "<p>Replacement C - line 1</p>",
+          "<h4>Replacement C - line 2</h4>",
+          "<p>Replacement C - line 3</p>",
+          "<p>Replacement C - line 4</p>",
+          "<p>Replacement C - line 5</p>"
         ]
       }
     ]

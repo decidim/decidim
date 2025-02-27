@@ -5,7 +5,9 @@ class Document {
   constructor(doc) {
     this.doc = doc;
     this.selecting = false;
+    this.applying = false;
     this.active = false;
+    this.suggestions = [];
     try  {
       this.active = JSON.parse(this.doc.dataset.collaborativeTextsDocument);
     } catch (_e) {
@@ -23,16 +25,18 @@ class Document {
 
   // listen to new selections and allows the user to participate in the collaborative text
   enableSuggestions() {
-    console.log("Enable suggestions");
-    document.addEventListener("selectstart", this._onSelectionStart.bind(this));
-    document.addEventListener("mouseup", this._onSelectionEnd.bind(this));
+    console.log("Enabling suggestions");
+    window.document.addEventListener("selectstart", this._onSelectionStart.bind(this));
+    window.document.addEventListener("mouseup", this._onSelectionEnd.bind(this));
+    this.doc.addEventListener("collaborative-texts:applied", this._onApply.bind(this));
+    this.doc.addEventListener("collaborative-texts:restored", this._onRestore.bind(this));
     this.doc.addEventListener("collaborative-texts:suggest", this._onSuggest.bind(this));
     return this;
   }
 
   // fetches suggestions from the server and updates the UI with the wraps
   fetchSuggestions() {
-    this.suggestions = new Suggestions(this, this.i18n);
+    this.suggestions = new Suggestions(this);
     return this;
   }
 
@@ -59,12 +63,12 @@ class Document {
       return;
     }
     this.selecting = false;
-    this._createEditor();
+    this._showOptions();
   }
 
-  _createEditor() {
-    this.selection = this.selection || new Selection(this.doc, this.i18n);
-    if (this.selection.blocked) {
+  _showOptions() {
+    this.selection = this.selection || new Selection(this);
+    if (this.selection.blocked || this.applying) {
       return;
     }
     this.selection.clear().detectNodes();
@@ -73,11 +77,20 @@ class Document {
     }
   }
 
+  _onApply() {
+    this.applying = true;
+  }
+
+  _onRestore() {
+    if (!this.suggestions.suggestions.find((suggestion) => suggestion.applied)) {
+      this.applying = false;
+    }
+  }
+
   _onSuggest(event) {
-    console.log("Suggest: ", event.detail);
-    let nodes = event.detail.nodes.map((node) => node.outerHTML);
     let replace = [...event.detail.replace].map((node) => node.outerHTML);
-    console.log("Nodes: ", nodes);
+    console.log("firstNode: ", event.detail.firstNode.id);
+    console.log("lastNode: ", event.detail.lastNode.id);
     console.log("Replace: ", replace);
   }
 }
