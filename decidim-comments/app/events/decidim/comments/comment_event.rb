@@ -25,12 +25,7 @@ module Decidim
         def author_presenter
           return unless author
 
-          @author_presenter ||= case author
-                                when Decidim::User
-                                  Decidim::UserPresenter.new(author)
-                                when Decidim::UserGroup
-                                  Decidim::UserGroupPresenter.new(author)
-                                end
+          @author_presenter ||= Decidim::UserPresenter.new(author)
         end
 
         def translatable_resource
