@@ -18,8 +18,6 @@ module Decidim
       def author
         @author ||= if official?
                       Decidim::Debates::OfficialAuthorPresenter.new
-                    elsif user_group
-                      Decidim::UserGroupPresenter.new(user_group)
                     else
                       Decidim::UserPresenter.new(super)
                     end
