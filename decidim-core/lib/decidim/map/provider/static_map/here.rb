@@ -16,7 +16,7 @@ module Decidim
               f: 1
             }
 
-             params[:apiKey] = configuration[:api_key]
+            params[:apiKey] = configuration[:api_key]
 
             params
           end
