@@ -84,6 +84,20 @@ Signature workflows can be defined as ephemeral, in which case users can sign in
 To migrate old signature configurations review the One time actions section
 
 For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`
+=======
+### 2.1. Hiding comments of moderated resources
+
+We have noticed that when a resource (ex: Proposal, Meeting) is being moderated, the associated comments are left visible in the search. We have added a task that would allow you to automatically remove from search any comment belonging to moderated content:
+
+```bash
+bin/rails decidim:upgrade:clean:hidden_resources
+```
+
+You can read more about this change on PR [#13554](https://github.com/decidim/decidim/pull/13554).
+
+### 2.2. [[TITLE OF THE ACTION]]
+
+You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
 
 ## 3. One time actions
 

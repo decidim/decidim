@@ -1,0 +1,64 @@
+import Mention from "@tiptap/extension-mention";
+import { PluginKey } from "prosemirror-state";
+
+import { createSuggestionRenderer, createNodeView } from "src/decidim/editor/common/suggestion";
+
+export const MentionResourcePluginKey = new PluginKey("mentionResource");
+
+const searchResources = async (queryText) => {
+  return new Promise((resolve, reject) => {
+    Rails.ajax({
+      url: `/resource_autocomplete?term=${queryText}`,
+      type: "GET",
+      dataType: "json",
+      success: (response) => resolve(response),
+      error: () => reject(new Error("Could not retrieve data"))
+    });
+  });
+};
+
+export default Mention.extend({
+  name: "mentionResource",
+
+  addOptions() {
+    const options = this.parent?.();
+    const suggestion = options?.suggestion;
+
+    return {
+      ...options,
+      renderLabel({ node }) {
+        // The labels are formed based on the titles returned by the API
+        // which already contain the suggestion character, so there is no need
+        // to display it twice.
+        return `${node.attrs.label ?? node.attrs.id}`
+      },
+      suggestion: {
+        ...suggestion,
+        char: "$",
+        pluginKey: MentionResourcePluginKey,
+        allowSpaces: true,
+        items: async ({ query }) => {
+          if (query.length < 2) {
+            return [];
+          }
+
+          const data = await searchResources(query);
+
+          return data;
+        },
+        render: createSuggestionRenderer(this, {
+          itemConverter: (resource) => {
+            return {
+              id: resource.gid,
+              label: resource.title
+            }
+          }
+        })
+      }
+    };
+  },
+
+  addNodeView() {
+    return createNodeView(this);
+  }
+});

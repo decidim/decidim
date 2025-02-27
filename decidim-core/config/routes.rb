@@ -143,6 +143,7 @@ Decidim::Core::Engine.routes.draw do
   resources :pages, only: [:index, :show], format: false
 
   get "/search", to: "searches#index", as: :search
+  get "/resource_autocomplete", to: "resource_autocomplete#index", as: :resource_autocomplete
 
   get "/link", to: "links#new", as: :link
 

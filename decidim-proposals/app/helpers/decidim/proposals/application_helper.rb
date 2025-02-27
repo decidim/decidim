@@ -30,6 +30,7 @@ module Decidim
 
       def proposal_state_css_style(proposal)
         return "" if proposal.emendation?
+        return "" if proposal.withdrawn?
 
         proposal.proposal_state&.css_style
       end
