@@ -96,7 +96,7 @@ eu:
           details: Iruzkin gehigarriak
           reasons:
             does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
-            offensive: Ertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
+            offensive: Arrazakeria, sexismoa, laidoak, eraso pertsonalak, heriotza-mehatxuak, suizidio eskaerak edo gorrotozko edozein diskurtso.
             spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
           title: Jakinarazi eduki desegokia
         show_replies:
@@ -162,7 +162,7 @@ eu:
         comment_by_followed_user:
           email_intro: "%{author_name} egileak iruzkin bat utzi du %{resource_title} helbidean. Orri honetan irakur dezakezu:"
           email_outro: Jakinarazpen hau jaso duzu %{author_name} parte-hartzailea jarraitzen duzulako. Nahi izatekotan erabiltzaile hori bere profil-orritik jarraitzeari utz diezaiokezu.
-          email_subject: '%{author_name} k beste iruzkin bat egin du hemen: %{resource_title}'
+          email_subject: '%{author_name} egileak beste iruzkin bat egin du hemen: %{resource_title}'
           notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> k iruzkin berri bat egin du hemen: <a href="%{resource_path}">%{resource_title}</a>-an.'
         comment_by_followed_user_group:
           email_intro: '%{author_name} k iruzkin bat utzi du hemen %{resource_title}. Orrialde honetan irakur dezakezu:'
@@ -172,13 +172,13 @@ eu:
         comment_created:
           email_intro: "%{resource_title} iruzkindu da. Orri honetan irakur dezakezu iruzkina:"
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" edo bere egilea jarraitzen duzulako. Aurreko estekan jarrai dezakezu.
-          email_subject: '%{author_name} k beste iruzkin berri bat egin du hemen: %{resource_title}'
+          email_subject: '%{author_name} egileak beste iruzkin berri bat egin du hemen: %{resource_title}'
           notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> k iruzkin berri bat egin du hemen: <a href="%{resource_path}">%{resource_title}</a></a>'
         comment_downvoted:
           email_intro: Zure iruzkina hemen "%{resource_title}" negatiboki bozkatu da. Orain %{upvotes} babes positibo eta %{downvotes} boto negatibo dituzu guztira.
           email_outro: Jakinarazpen hau jaso duzu iruzkin honen egilea zarelako.
           email_subject: Zure iruzkina hemen "%{resource_title}" ez da norbaiten gustukoa izan.
-          notification_title: Zure <a href="%{resource_path}">iruzkina</a> hemen "%{resource_title}" ez da norbaiten gustukoa izan. Orain guztira %{upvotes} atsegin eta %{downvotes} ezatsegin dituzu.
+          notification_title: Zure <a href="%{resource_path}">iruzkinak</a> hemen "%{resource_title}" kontrako botoa izan du. Orain guztira %{upvotes} aldeko eta %{downvotes} kontrako boto dituzu.
         comment_upvoted:
           email_intro: Zure iruzkina hemen "%{resource_title}" norbaiten gustukoa izan da. Orain guztira %{upvotes} atsegin eta %{downvotes} ezatsegin dituzu.
           email_outro: Jakinarazpen hau jaso duzu iruzkin honen egilea zarelako.
