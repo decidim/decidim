@@ -61,8 +61,9 @@ module Decidim
     end
 
     describe "Organization endorses resource" do
-      let(:user_group) { create(:user_group, verified_at: Time.current, users: [current_user]) }
-      let(:command) { described_class.new(resource, current_user, user_group.id) }
+      let(:user_group) { create(:user_group, :confirmed, :verified, organization: resource.component.organization) }
+      let(:current_user) { user_group }
+      let(:command) { described_class.new(resource, current_user) }
 
       context "when in normal conditions" do
         it "broadcasts ok" do
