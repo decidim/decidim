@@ -25,10 +25,12 @@ FactoryBot.define do
     component { create(:collaborative_texts_component, skip_injection:) }
 
     trait :with_versions do
+      body { nil }
       after(:build) do |document, _evaluator|
         document.document_versions = build_list(:collaborative_text_version, 3, document: document)
       end
     end
+
     trait :published do
       published_at { Time.current }
     end
@@ -37,5 +39,9 @@ FactoryBot.define do
   factory :collaborative_text_version, class: "Decidim::CollaborativeTexts::Version" do
     body { Faker::HTML.paragraph }
     document { create(:collaborative_text_document) }
+
+    trait :draft do
+      draft { true }
+    end
   end
 end

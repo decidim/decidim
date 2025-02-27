@@ -63,6 +63,21 @@ module Decidim
           expect(document.current_version.body).to eq("New body")
           expect(document.document_versions.reload.count).to eq(1)
         end
+
+        context "when versions exists" do
+          let(:document) { create(:collaborative_text_document, body: nil, document_versions:) }
+          let(:version1) { build(:collaborative_text_version, body: "Version 1", created_at: 3.minutes.ago) }
+          let(:version2) { build(:collaborative_text_version, body: "Version 2", created_at: 2.minutes.ago) }
+          let(:version3) { build(:collaborative_text_version, :draft, body: "Version 3", created_at: 1.minute.ago) }
+          let(:document_versions) { [version1, version2, version3] }
+
+          it "returns the body of the current version" do
+            expect(document.body).to eq(version3.body)
+            expect(document.document_versions.count).to eq(3)
+            expect(document.document_versions.consolidated.count).to eq(2)
+            expect(document.consolidated_version).to eq(version2)
+          end
+        end
       end
 
       context "when creating a new version" do
@@ -70,16 +85,26 @@ module Decidim
 
         it "creates a new version" do
           expect(document.document_versions.count).to eq(1)
-          expect { document.rollout! }.to change { document.document_versions.count }.by(1)
           expect(document.body).to eq("My first version")
+          expect(document.draft_body).to be_nil
+
+          expect { document.draft!("My first amended version") }.to change { document.document_versions.count }.by(1)
+          expect(document.body).to eq("My first amended version")
+          expect(document.draft_body).to eq("My first amended version")
+          expect(document.consolidated_body).to eq("My first version")
           expect(document.document_versions.count).to eq(2)
 
-          expect { document.rollout!("My second version") }.to change { document.document_versions.count }.by(1)
+          expect { document.draft!("My second version") }.not_to(change { document.document_versions.count })
           expect(document.body).to eq("My second version")
+          expect(document.draft_body).to eq("My second version")
+          expect(document.consolidated_body).to eq("My first version")
+          expect(document.document_versions.count).to eq(2)
 
-          expect(document.document_versions.first.body).to eq("My first version")
-          expect(document.document_versions.second.body).to eq("My first version")
-          expect(document.document_versions.third.body).to eq("My second version")
+          expect { document.rollout! }.not_to(change { document.document_versions.count })
+          expect(document.body).to eq("My second version")
+          expect(document.draft_body).to be_nil
+          expect(document.consolidated_body).to eq("My second version")
+          expect(document.document_versions.count).to eq(2)
         end
       end
     end
