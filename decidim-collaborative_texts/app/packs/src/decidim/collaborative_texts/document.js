@@ -17,6 +17,8 @@ class Document {
     } catch (_e) {
       console.error("Error parsing collaborativeTextsI18n", this.doc.dataset.collaborativeTextsI18n);
     }
+    this._prepareNodes();
+    console.log("Document prepared", this);
   }
 
   // listen to new selections and allows the user to participate in the collaborative text
@@ -30,8 +32,22 @@ class Document {
 
   // fetches suggestions from the server and updates the UI with the wraps
   fetchSuggestions() {
-    this.suggestions = new Suggestions(this.doc, this.i18n);
+    this.suggestions = new Suggestions(this, this.i18n);
     return this;
+  }
+
+  // For all first level nodes of type ELEMENT_NODE, ensure they have a unique id if they don't have one starting with "ct-node-"
+  _prepareNodes() {
+    this.nodes = [];
+    [...this.doc.childNodes].forEach((node) => {
+      if (node.nodeType !== Node.ELEMENT_NODE) {
+        return;
+      }
+      if (!node.id || !node.id.startsWith("ct-node-")) {
+        node.id = `ct-node-${this.nodes.length + 1}`;
+      }
+      this.nodes.push(node);
+    });
   }
 
   _onSelectionStart() {

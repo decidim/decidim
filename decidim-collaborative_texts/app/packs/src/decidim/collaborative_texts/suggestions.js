@@ -1,8 +1,10 @@
 import Suggestion from "src/decidim/collaborative_texts/suggestion";
 
 class Suggestions {
-  constructor(doc, i18n) {
-    this.doc = doc;
+  constructor(document, i18n) {
+    this.document = document;
+    this.nodes = document.nodes;
+    this.doc = document.doc;
     this.i18n = i18n || {};
     this.suggestions = [];
     console.log("Fetch suggestions", this);
@@ -17,6 +19,15 @@ class Suggestions {
     return this;
   }
 
+  // restore changes for any suggestion affecting the specified nodes
+  restore(nodes, except = []) {
+    this.suggestions.forEach((suggestion) => {
+      if (!except.includes(suggestion) && suggestion.nodes.some((node) => nodes.includes(node))) {
+        suggestion.restore();
+      }
+    });
+  }
+
   _fetchSuggestions() {
     // fetch(this.doc.dataset.collaborativeTextsSuggestionsUrl)
     //   .then(response => response.json())
@@ -26,7 +37,8 @@ class Suggestions {
     //   });
     let fromServer = [
       {
-        indexes: [10, 11, 12],
+        firstNode: "10",
+        lastNode: "12",
         replace: [
           "<p>Replacement A - line 1</p>",
           "<h4>Replacement A - line 2</h4>",
@@ -35,13 +47,15 @@ class Suggestions {
         ]
       },
       {
-        indexes: [10, 11],
+        firstNode: "10",
+        lastNode: "11",
         replace: [
           "<p>Replacement A' - line 1</p>"
         ]
       },
       {
-        indexes: [20, 21, 22],
+        firstNode: "20",
+        lastNode: "22",
         replace: [
           "<p>Replacement B - line 1</p>",
           "<h4>Replacement B - line 2</h4>",
@@ -49,7 +63,8 @@ class Suggestions {
         ]
       },
       {
-        indexes: [30, 31],
+        firstNode: "30",
+        lastNode: "30",
         replace: [
           "<p>Replacement C - line 1</p>"
         ]
@@ -58,7 +73,7 @@ class Suggestions {
     // assign existing nodes to the suggestions
     fromServer.forEach((item) => {
       let suggestion = new Suggestion(this, item)
-      if (suggestion.nodes.length > 0) {
+      if (suggestion.valid) {
         this.suggestions.push(suggestion);
       }
     });

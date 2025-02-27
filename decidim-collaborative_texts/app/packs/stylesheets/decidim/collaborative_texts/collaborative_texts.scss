@@ -1,75 +1,54 @@
 .collaborative-texts {
   &-container {
-    position: relative;
+    @apply relative;
   }
 
   &-hidden {
-    display: none;
+    @apply hidden;
   }
 
   &-selection,
   &-highlight {
-    position: relative;
-    outline: var(--primary) 2px dashed;
-    outline-offset: 0.5rem;
-    margin: 1rem 0;
+    @apply relative outline-dashed outline-2 outline-offset-2 outline-primary my-4;
 
     &:not(.applied) .collaborative-texts-hidden {
-      display: inherit;
+      @apply block;
     }
   }
 
   &-editor {
+    @apply bg-gray-5 outline outline-2 outline-offset-2 m-8 -mx-1 -my-2;
     outline: var(--primary) 2px solid;
-    outline-offset: 0.3rem;
-    margin: 2rem -0.3rem 1rem -0.2rem;
 
     &-menu {
-      display: flex;
-      gap: 0.5rem;
+      @apply flex gap-2;
     }
 
     &-container {
-      background-color: #fafafa;
-      padding: 0.3rem;
-      margin-bottom: 1rem;
+      @apply p-1.5 mb-4;
 
       &:focus-visible {
-        outline: none;
+        @apply outline-none;
       }
     }
   }
 
-  &-menu {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 100;
-    display: flex;
-    gap: 0.5rem;
-  }
+    &-menu {
+      @apply absolute top-0 right-0 z-[100] flex gap-2;
+    }
 
   &-suggestions-menu {
-    position: absolute;
-    top: 0;
-    right: -180px;
-    z-index: 100;
-    font-size: 0.8rem;
-    width: 160px;
+    @apply absolute top-0 right-[-180px] z-[100] text-xs w-40;
 
     &:hover {
-      z-index: 1000;
+      @apply z-[1000];
     }
 
     &-item {
-      padding: 0.5rem;
-      margin: 0 0 1rem;
-      border-radius: 5px;
-      background: #f0f0f0;
+      @apply p-2 mb-4 rounded bg-gray-3;
 
       &:hover {
-        background: aliceblue;
-        z-index: 1000;
+        @apply bg-background z-[1000];
       }
     }
   }

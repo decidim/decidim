@@ -1,9 +1,23 @@
 class Suggestion {
-  constructor(suggestions, suggestion) {
+  constructor(suggestions, config) {
     this.suggestions = suggestions;
     this.doc = suggestions.doc;
-    this.indexes = suggestion.indexes;
-    this.replace = suggestion.replace;
+    this.nodes = [];
+    for (const node of suggestions.nodes) {
+      if (node.id === `ct-node-${config.firstNode}`) { 
+        this.firstNode = node;
+      }
+      if (node.id === `ct-node-${config.lastNode}`) {
+        this.lastNode = node;
+      }
+      if (this.firstNode) {
+        this.nodes.push(node);
+      }
+      if (this.lastNode) {
+        break;
+      }
+    }
+    this.replace = config.replace;
     this.menu = null;
     this.menuWrapper = null;
     this.wrapper = null;
@@ -13,47 +27,42 @@ class Suggestion {
       apply: suggestions.i18n.apply || "Apply",
       restore: suggestions.i18n.restore || "Restore"
     }
-    this.childNodes = [...this.doc.childNodes].filter((node) => !(node.classList && node.classList.toString().startsWith("collaborative-texts-")))
-    this.nodes = this.indexes.map((index) => this.childNodes[index]).filter((node) => node);
-    this.valid = this.nodes.length > 0;
+    this.valid = this.nodes.length > 0 && this.firstNode && this.lastNode && Array.isArray(this.replace);
+    console.log("Suggestion", suggestions, config, this);
     if (this.valid) {
-      this.firstNode = this.nodes[0];
-      this.lastNode = this.nodes[this.nodes.length - 1];
       this._createMenuWrapper();
       this._createMenu();
       this._bindEvents();
     }
   }
-     
+
+  // Apply the suggestion by replacing the nodes with the replace content
   apply() {
-    console.log("Apply a change", this);
-    if (this.changesWrapper) {
-      return this;
+    if (!this.applied) {
+      console.log("Apply a change", this);
+      this.applied = true;
+      this.menu.querySelector(".collaborative-texts-button-apply").classList.add("hidden");
+      this.menu.querySelector(".collaborative-texts-button-restore").classList.remove("hidden");
+      // restore any other changes affecting the same nodes
+      this.suggestions.restore(this.nodes, [this]);
+      this._createChangesWrapper();
+      this.nodes.forEach((node) => {
+        node.classList.add("collaborative-texts-hidden");
+      });
+      this.replace.forEach((text) => {
+        this.changesWrapper.insertAdjacentHTML("beforeend", text);
+      });
+      this.wrapper.classList.add("applied");
+      let event = new CustomEvent("collaborative-texts:applied", { detail: { suggestion: this } });
+      this.doc.dispatchEvent(event);
     }
-    this.applied = true;
-    this.menu.querySelector(".collaborative-texts-button-apply").classList.add("hidden");
-    this.menu.querySelector(".collaborative-texts-button-restore").classList.remove("hidden");
-    this._createChangesWrapper();
-    // restore any other changes affecting the same nodes
-    this.suggestions.suggestions.forEach((suggestion) => {
-      if (suggestion !== this && suggestion.nodes.some((node) => this.nodes.includes(node))) {
-        suggestion.restore();
-      }
-    });
-    this.nodes.forEach((node) => {
-      node.classList.add("collaborative-texts-hidden");
-    });
-    this.replace.forEach((text) => {
-      this.changesWrapper.insertAdjacentHTML("beforeend", text);
-    });
-    this.wrapper.classList.add("applied");
-    let event = new CustomEvent("collaborative-texts:applied", { detail: { suggestion: this } });
-    this.doc.dispatchEvent(event);
     return this;
   }
 
+  // Restore the suggestion by removing the replace content and showing the original nodes
   restore() {
-    if (this.changesWrapper) {
+    if (this.applied) {
+      console.log("Restore a change", this);
       this.applied = false;
       this.menu.querySelector(".collaborative-texts-button-apply").classList.remove("hidden");
       this.menu.querySelector(".collaborative-texts-button-restore").classList.add("hidden");
@@ -69,7 +78,8 @@ class Suggestion {
   }
 
   resetPosition() {
-    if (!this.menuWrapper || !this.firstNode) {
+    console.log("Reset position", this);
+    if (!this.menuWrapper || !this.firstNode || this.firstNode.nodeType !== Node.ELEMENT_NODE) {
       return this;
     }
     let docTop = this.doc.getBoundingClientRect().top;
@@ -91,7 +101,9 @@ class Suggestion {
   }
 
   _createMenuWrapper() {
-    if (this.firstNode.previousSibling && this.firstNode.previousSibling.classList.contains("collaborative-texts-suggestions-menu")) {
+    if (this.firstNode.previousSibling &&
+        this.firstNode.previousSibling.nodeType === Node.ELEMENT_NODE &&
+        this.firstNode.previousSibling.classList.contains("collaborative-texts-suggestions-menu")) {
       this.menuWrapper = this.firstNode.previousSibling;
       return;
     }
@@ -107,14 +119,14 @@ class Suggestion {
     this.menu.innerHTML = `<p>${truncatedText}</p><button class="collaborative-texts-button-apply">${this.i18n.apply}</button><button class="collaborative-texts-button-restore hidden">${this.i18n.restore}</button>`;
     this.menuWrapper.appendChild(this.menu);
   }
-  
+
   _bindEvents() {
     this.menu.addEventListener("mouseenter", this._highlight.bind(this));
     this.menu.addEventListener("mouseleave", this._blur.bind(this));
     this.menu.querySelector(".collaborative-texts-button-apply").addEventListener("click", this.apply.bind(this));
     this.menu.querySelector(".collaborative-texts-button-restore").addEventListener("click", this.restore.bind(this));
   }
-  
+
   _highlight() {
     // wrap affected nodes
     if (this.changesWrapper) {
@@ -142,5 +154,5 @@ class Suggestion {
     }
   }
 }
-  
+
 export default Suggestion;
