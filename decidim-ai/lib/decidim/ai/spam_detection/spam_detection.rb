@@ -135,12 +135,10 @@ module Decidim
 
       # This config_accessor allows the implementers to change the class being used by the classifier,
       # in order to change the finder method or what a hidden user really is.
-      # The same applies for UserGroups.
       config_accessor :user_models do
         @user_models ||= begin
           user_models = {}
 
-          user_models["Decidim::UserGroup"] = "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
           user_models["Decidim::User"] = "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
           user_models
         end
