@@ -5,7 +5,7 @@ namespace :decidim_proposals do
     desc "Fix proposal states created by import from other component bug"
     task state: :environment do
       states_ids_for_reset = []
-      Decidim::Proposals::Proposal.unscoped.includes(:proposal_state).where.not(decidim_proposals_proposal_state_id: nil).find_each do |proposal|
+      Decidim::Proposals::Proposal.unscoped.includes(:proposal_state).where.not(decidim_proposals_proposal_state_id: nil).find_each(batch_size: 100) do |proposal|
         next if proposal.decidim_component_id == proposal.proposal_state.decidim_component_id
 
         states_ids_for_reset.push(proposal.proposal_state.id)
