@@ -19,11 +19,19 @@ module Decidim
         let(:participatory_process) { create(:participatory_process, organization:) }
         let(:current_component) { create(:component, participatory_space: participatory_process) }
         let(:title) do
-          Decidim::Faker::Localized.sentence(word_count: 3)
+          ::Faker::Lorem.paragraph
         end
+        let(:body) do
+          ::Faker::HTML.paragraph
+        end
+        let(:accepting_suggestions) { nil }
+        let(:announcement) { nil }
         let(:attributes) do
           {
-            title:
+            title:,
+            body:,
+            accepting_suggestions:,
+            announcement:
           }
         end
 
@@ -39,6 +47,18 @@ module Decidim
 
         describe "when title is empty" do
           let(:title) { "" }
+
+          it { is_expected.not_to be_valid }
+        end
+
+        describe "when body is missing" do
+          let(:body) { nil }
+
+          it { is_expected.to be_valid }
+        end
+
+        describe "when body is empty" do
+          let(:body) { "" }
 
           it { is_expected.not_to be_valid }
         end
