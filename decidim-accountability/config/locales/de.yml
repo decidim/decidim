@@ -271,9 +271,6 @@ de:
           results_count:
             one: 1 Ergebnis
             other: "%{count} Ergebnisse"
-        home:
-          empty: Es liegen noch keine Ergebnisse vor.
-          empty_filters: Es liegen noch keine Ergebnisse mit diesen Kriterien vor.
         home_header:
           global_status: Globaler Umsetzungsstatus
         no_results: Es gibt keine Projekte
