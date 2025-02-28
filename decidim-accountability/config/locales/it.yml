@@ -137,6 +137,8 @@ it:
             other: "%{count} risultati"
         filters:
           all: Tutti
+        home:
+          subcategories_label: Sottocategorie
         home_header:
           global_status: Stato di esecuzione globale
         nav_breadcrumb:
