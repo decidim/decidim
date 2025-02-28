@@ -24,7 +24,7 @@ module Decidim
           select_options = [
             [current_organization_name, ""]
           ]
-          select_options << [current_user.name, current_user.id] unless current_user.group? && !current_user.verified?
+          select_options << [current_user.name, current_user.id]
 
           unless form.object.author.is_a?(Organization) || select_options.pluck(1).include?(form.object.author.id)
             select_options << [form.object.author.name, form.object.author.id]
