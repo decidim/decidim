@@ -38,47 +38,11 @@ describe Decidim::PushNotificationMessageSender do
     it_behaves_like "a push notification"
   end
 
-  describe ".new_group_conversation" do
-    subject { described_class.new.new_group_conversation(originator, manager, conversation, group) }
-
-    let(:push_notification_title) { "#{manager.name} has started a conversation with #{group.name}" }
-    let(:action) { "new_group_conversation" }
-
-    it_behaves_like "a push notification"
-  end
-
-  describe ".comanagers_new_conversation" do
-    subject { described_class.new.comanagers_new_conversation(group, user, conversation, manager) }
-
-    let(:push_notification_title) { "#{manager.name} has started a new conversation as a #{manager.name}" }
-    let(:action) { "comanagers_new_conversation" }
-
-    it_behaves_like "a push notification"
-  end
-
   describe ".new_message" do
     subject { described_class.new.new_message(sender, user, conversation, message) }
 
     let(:push_notification_title) { "You have new messages from #{user.name}" }
     let(:action) { "new_message" }
-
-    it_behaves_like "a push notification"
-  end
-
-  describe ".new_group_message" do
-    subject { described_class.new.new_group_message(sender, user, conversation, message, group) }
-
-    let(:push_notification_title) { "#{group.name} have new messages from #{user.name}" }
-    let(:action) { "new_group_message" }
-
-    it_behaves_like "a push notification"
-  end
-
-  describe ".comanagers_new_message" do
-    subject { described_class.new.comanagers_new_message(sender, user, conversation, message, manager) }
-
-    let(:push_notification_title) { "#{manager.name} has send new messages as a #{manager.name}" }
-    let(:action) { "comanagers_new_message" }
 
     it_behaves_like "a push notification"
   end
