@@ -104,13 +104,6 @@ module Decidim
           body: "Hey! I am glad you like Decidim"
         )
 
-        Decidim::User.find_each do |user|
-          username, domain = user.email.split("@")
-          [nil, Time.current].each do |verified_at|
-            create_user_group!(email: "#{username}+user_group@#{domain}", verified_at:)
-          end
-        end
-
         oauth_application = Decidim::OAuthApplication.create!(
           organization:,
           name: "Test OAuth application",
@@ -238,21 +231,6 @@ module Decidim
           area_type:,
           organization:
         )
-      end
-
-      def create_user_group!(email:, verified_at:)
-        user_group = find_or_initialize_user_by(email:)
-        user_group.update!(
-          confirmed_at: Time.current,
-          extended_data: {
-            group: true,
-            document_number: ::Faker::Number.number(digits: 10).to_s,
-            phone: ::Faker::PhoneNumber.phone_number,
-            verified_at:
-          }
-        )
-
-        user_group
       end
     end
   end
