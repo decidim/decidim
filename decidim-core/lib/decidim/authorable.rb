@@ -16,48 +16,14 @@ module Decidim
         where(decidim_author_type: "Decidim::Organization")
       }
 
-      scope :with_any_user_origin, lambda {
-        users_table = Decidim::User.arel_table
-        joins(
-          arel_table.join(users_table).on(
-            arel_table[:decidim_author_id].eq(users_table[:id]),
-            arel_table[:decidim_author_type].eq("Decidim::UserBaseEntity")
-          ).join_sources
-        )
-      }
-
-      scope :with_user_group_origin, lambda {
-        users_table = Decidim::User.arel_table
-        with_any_user_origin.where(
-          Arel.sql(
-            ActiveRecord::Base.sanitize_sql_array(
-              [
-                "#{users_table.name}.extended_data @> :group_condition",
-                { group_condition: Arel.sql({ group: true }.to_json) }
-              ]
-            )
-          )
-        )
-      }
-
       scope :with_participants_origin, lambda {
-        users_table = Decidim::User.arel_table
-        with_any_user_origin.where.not(
-          Arel.sql(
-            ActiveRecord::Base.sanitize_sql_array(
-              [
-                "#{users_table.name}.extended_data @> :group_condition",
-                { group_condition: Arel.sql({ group: true }.to_json) }
-              ]
-            )
-          )
-        )
+        where(decidim_author_type: "Decidim::UserBaseEntity")
       }
 
       scope :with_any_origin, lambda { |*origin_keys|
         search_values = origin_keys.compact.compact_blank
 
-        conditions = [:official, :participants, :user_group].map do |key|
+        conditions = [:official, :participants].map do |key|
           search_values.member?(key.to_s) ? try("with_#{key}_origin") : nil
         end.compact
         return self unless conditions.any?
@@ -70,7 +36,6 @@ module Decidim
         scoped_query
       }
 
-      validate :verified_user_group
       validate :author_belongs_to_organization
 
       # Checks whether the user is author of the given resource
@@ -100,18 +65,7 @@ module Decidim
         translated_attribute(author.name)
       end
 
-      def user_group
-        return author if author.is_a?(Decidim::UserBaseEntity) && author.group?
-      end
-
       private
-
-      # TODO: This condition should remain?
-      def verified_user_group
-        return unless user_group
-
-        errors.add :user_group, :invalid unless user_group.verified?
-      end
 
       def author_belongs_to_organization
         return if !author || !organization

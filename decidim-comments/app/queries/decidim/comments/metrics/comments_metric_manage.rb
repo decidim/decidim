@@ -61,7 +61,7 @@ module Decidim
           user_ids = Decidim::User.select(:id).where(organization: @organization).collect(&:id)
           Decidim::Comments::Comment.includes(:root_commentable).not_hidden.not_deleted
                                     .where(decidim_comments_comments: { created_at: ..end_time })
-                                    .with_any_user_origin
+                                    .with_participants_origin
                                     .where(decidim_comments_comments: { decidim_author_id: user_ids })
         end
 
