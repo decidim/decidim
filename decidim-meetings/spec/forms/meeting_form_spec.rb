@@ -146,13 +146,27 @@ module Decidim::Meetings
       context "and send_reminders_before_hours is missing" do
         let(:send_reminders_before_hours) { nil }
 
-        it { is_expected.not_to be_valid }
+        it { is_expected.to be_valid }
+
+        it "returns the default value" do
+          expect(form.send_reminders_before_hours).to eq(Decidim::Meetings.upcoming_meeting_notification.in_hours.to_i)
+        end
       end
 
       context "and send_reminders_before_hours is present" do
         let(:send_reminders_before_hours) { 50 }
 
         it { is_expected.to be_valid }
+      end
+
+      context "and send_reminders_before_hours is zero" do
+        let(:send_reminders_before_hours) { 0 }
+
+        it { is_expected.to be_valid }
+
+        it "returns the default value" do
+          expect(form.send_reminders_before_hours).to eq Decidim::Meetings.upcoming_meeting_notification.in_hours.to_i
+        end
       end
 
       context "and send_reminders_before_hours is not valid" do
