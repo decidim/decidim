@@ -15,8 +15,7 @@ module Decidim
 
       before_validation :generate_code, on: :create
 
-      scope :public_participant, -> { joins(:user).merge(Decidim::User.not_user_group).where(public_participation: true) }
-      scope :public_user_group, -> { joins(:user).merge(Decidim::User.user_group).where(public_participation: true) }
+      scope :public_participant, -> { where(public_participation: true) }
 
       def self.user_collection(user)
         where(decidim_user_id: user.id)

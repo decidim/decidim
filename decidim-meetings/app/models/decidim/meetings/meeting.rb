@@ -48,14 +48,6 @@ module Decidim
         foreign_key: :decidim_user_id,
         source: :user
       )
-      has_many(
-        :public_user_groups,
-        -> { merge(Registration.public_user_group) },
-        through: :registrations,
-        class_name: "Decidim::User",
-        foreign_key: :decidim_user_id,
-        source: :user
-      )
       has_many :meeting_links, dependent: :destroy, class_name: "Decidim::Meetings::MeetingLink", foreign_key: "decidim_meeting_id"
       has_many :components, through: :meeting_links, class_name: "Decidim::Component", foreign_key: "decidim_component_id"
 
