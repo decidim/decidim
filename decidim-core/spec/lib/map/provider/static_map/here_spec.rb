@@ -59,7 +59,7 @@ module Decidim
             end
 
             context "with legacy style API key configuration" do
-              let(:api_key) { %w(appid123 secret456) }
+              let(:api_key) { "appid123secret456" }
 
               it "returns the default params" do
                 expect(
