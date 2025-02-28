@@ -7,7 +7,6 @@ module Decidim
     describe ConversationMailer do
       let(:organization) { create(:organization) }
       let(:conversation) { create(:conversation) }
-      let(:group) { create(:user_group, organization:, users: [manager]) }
       let(:manager) { create(:user, organization:) }
       let(:message) { create(:message) }
       let(:originator) { create(:user, organization:) }
