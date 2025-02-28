@@ -91,62 +91,6 @@ shared_examples "manage posts" do |audit_check: true|
     end
   end
 
-  context "when user is a user group" do
-    let(:group_attributes) { { group: true } }
-
-    before do
-      user.update(extended_data: group_attributes)
-
-      click_on "New post"
-    end
-
-    context "and the group is not verified" do
-      it "the group cannot be selected as author of the post" do
-        options = page.find_by_id("post_decidim_author_id").find_all("option").map(&:text)
-
-        expect(options).to include(translated(organization.name))
-        expect(options).not_to include(user.name)
-      end
-    end
-
-    context "and the group is verified" do
-      let(:group_attributes) { { group: true, verified_at: Time.current, rejected_at: nil } }
-
-      it "can set user group as posts author" do
-        select user.name, from: "post_decidim_author_id"
-
-        fill_in_i18n(
-          :post_title,
-          "#post-title-tabs",
-          en: "My post",
-          es: "Mi post",
-          ca: "El meu post"
-        )
-
-        fill_in_i18n_editor(
-          :post_body,
-          "#post-body-tabs",
-          en: "A description",
-          es: "Descripción",
-          ca: "Descripció"
-        )
-
-        within ".new_post" do
-          find("*[type=submit]").click
-        end
-
-        expect(page).to have_admin_callout("successfully")
-
-        within "table" do
-          expect(page).to have_content(user.name)
-          expect(page).to have_content("My post")
-          expect(page).to have_content("Post title 1")
-          expect(page).to have_content("Post title 2")
-        end
-      end
-    end
-  end
-
   context "when user is the organization" do
     let(:author) { organization }
 
