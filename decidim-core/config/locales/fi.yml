@@ -2045,7 +2045,7 @@ fi:
       devise:
         mailer:
           invitation_instructions:
-            accept_until_format: "%B %d., %Y klo %k:%M"
+            accept_until_format: "%B %d., %Y klo %H:%M"
       long: "%B %d., %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       long_with_particles: "%B %d., %Y %H:%M"
