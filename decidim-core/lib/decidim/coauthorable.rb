@@ -25,42 +25,10 @@ module Decidim
              .joins(:coauthorships)
              .where(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
       }
-      scope :with_any_user_origin, lambda {
-        users_table = Decidim::User.arel_table
-        coauthorships_table = Decidim::Coauthorship.arel_table
-        joins(:coauthorships)
-          .joins(
-            arel_table.join(users_table).on(
-              coauthorships_table[:decidim_author_id].eq(users_table[:id]),
-              coauthorships_table[:decidim_author_type].eq("Decidim::UserBaseEntity")
-            ).join_sources
-          )
-      }
       scope :with_participants_origin, lambda {
-        users_table = Decidim::User.arel_table
-        with_any_user_origin.where.not(
-          Arel.sql(
-            ActiveRecord::Base.sanitize_sql_array(
-              [
-                "#{users_table.name}.extended_data @> :group_condition",
-                { group_condition: Arel.sql({ group: true }.to_json) }
-              ]
-            )
-          )
-        )
-      }
-      scope :with_user_group_origin, lambda {
-        users_table = Decidim::User.arel_table
-        with_any_user_origin.where(
-          Arel.sql(
-            ActiveRecord::Base.sanitize_sql_array(
-              [
-                "#{users_table.name}.extended_data @> :group_condition",
-                { group_condition: Arel.sql({ group: true }.to_json) }
-              ]
-            )
-          )
-        )
+        where.not(coauthorships_count: 0)
+             .joins(:coauthorships)
+             .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
       }
       scope :with_meeting_origin, lambda {
         where.not(coauthorships_count: 0)
@@ -71,7 +39,7 @@ module Decidim
       scope :with_any_origin, lambda { |*origin_keys|
         search_values = origin_keys.compact.compact_blank
 
-        conditions = [:official, :participants, :user_group, :meeting].map do |key|
+        conditions = [:official, :participants, :meeting].map do |key|
           search_values.member?(key.to_s) ? try("with_#{key}_origin") : nil
         end.compact
         return self unless conditions.any?
@@ -131,14 +99,14 @@ module Decidim
         coauthorships.exists?(author:)
       end
 
-      # Returns the identities for the authors, whether they are user groups, regular users or others.
+      # Returns the identities for the authors, whether they are users or others.
       #
       # Returns an Array of Users or any other entity capable object (such as Organization).
       def identities
         coauthorships.includes(:author).order(:created_at).collect(&:identity)
       end
 
-      # Returns the identities for the authors, only if they are user groups or regular users.
+      # Returns the identities for the authors, only if they are users.
       #
       # Returns an Array of Users.
       def user_identities
