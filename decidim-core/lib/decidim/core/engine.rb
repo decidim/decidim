@@ -533,12 +533,6 @@ module Decidim
           resource.card = "decidim/user_profile"
           resource.searchable = true
         end
-
-        Decidim.register_resource(:user_group) do |resource|
-          resource.model_class_name = "Decidim::UserGroup"
-          resource.card = "decidim/user_profile"
-          resource.searchable = true
-        end
       end
 
       initializer "decidim_core.register_metrics" do
