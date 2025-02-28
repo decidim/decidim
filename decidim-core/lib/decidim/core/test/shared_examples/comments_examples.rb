@@ -703,24 +703,6 @@ shared_examples "comments" do
       end
     end
 
-    context "when the user is a confirmed and verified organization" do
-      let!(:user) { create(:user_group, :confirmed, :verified, organization:) }
-      let(:content) { "This is a new comment" }
-
-      it "adds new comment like a regular user" do
-        visit resource_path
-
-        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
-          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
-          field.set " "
-          field.native.send_keys content
-          click_on "Publish comment"
-        end
-
-        expect(page).to have_comment_from(user, content, wait: 20)
-      end
-    end
-
     context "when a user deletes a comment" do
       let(:comment_body) { "This comment is a mistake" }
       let!(:comment) { create(:comment, body: comment_body, commentable:, author: comment_author) }

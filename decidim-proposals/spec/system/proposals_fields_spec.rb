@@ -11,7 +11,6 @@ describe "Proposals" do
   let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
   let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
   let!(:user) { create(:user, :confirmed, organization:) }
-  let!(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
   let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
 
   let(:address) { "Some address" }
@@ -188,70 +187,6 @@ describe "Proposals" do
             expect(page).to have_content("#AutoHashtag2")
             expect(page).to have_content("#SuggestedHashtag1")
             expect(page).to have_no_content("#SuggestedHashtag2")
-          end
-        end
-
-        context "when the user is a verified organization" do
-          let!(:user) { user_group }
-          let(:user_group_proposal_draft) do
-            create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "Cities need more people, not more cars")
-          end
-
-          it "creates a new proposal as a user group", :slow do
-            visit edit_draft_proposal_path(component, user_group_proposal_draft)
-
-            within ".edit_proposal" do
-              fill_in :proposal_title, with: "More sidewalks and less roads"
-              fill_in :proposal_body, with: "Cities need more people, not more cars"
-              select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
-
-              find("*[type=submit]").click
-            end
-
-            click_on "Publish"
-
-            expect(page).to have_content("successfully")
-            expect(page).to have_content("More sidewalks and less roads")
-            expect(page).to have_content("Cities need more people, not more cars")
-            expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
-            expect(page).to have_author(user_group.name)
-          end
-
-          context "when geocoding is enabled", :serves_geocoding_autocomplete do
-            let!(:component) do
-              create(:proposal_component,
-                     :with_creation_enabled,
-                     manifest:,
-                     participatory_space: participatory_process,
-                     settings: {
-                       geocoding_enabled: true,
-                       taxonomy_filters: taxonomy_filter_ids
-                     })
-            end
-
-            let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "It will not solve everything") }
-
-            it "creates a new proposal as a user group", :slow do
-              visit edit_draft_proposal_path(component, proposal_draft)
-
-              within ".edit_proposal" do
-                fill_in :proposal_title, with: "More sidewalks and less roads"
-                fill_in :proposal_body, with: "Cities need more people, not more cars"
-                fill_in :proposal_address, with: address
-                select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
-
-                find("*[type=submit]").click
-              end
-
-              click_on "Publish"
-
-              expect(page).to have_content("successfully")
-              expect(page).to have_content("More sidewalks and less roads")
-              expect(page).to have_content("Cities need more people, not more cars")
-              expect(page).to have_content(address)
-              expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
-              expect(page).to have_author(user_group.name)
-            end
           end
         end
 

@@ -136,17 +136,6 @@ module Decidim::Meetings
         expect(meeting.iframe_embed_type).to eq(iframe_embed_type)
       end
 
-      context "when the author is a user_group" do
-        let(:user_group) { create(:user_group, :verified, organization:) }
-        let(:current_user) { user_group }
-
-        it "sets the user_group as the author" do
-          subject.call
-          expect(meeting.author).to eq current_user
-          expect(meeting.normalized_author).to eq user_group
-        end
-      end
-
       context "when the author is a user" do
         it "sets the user as the author" do
           subject.call

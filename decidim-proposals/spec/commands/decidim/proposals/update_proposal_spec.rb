@@ -22,10 +22,6 @@ module Decidim
       let!(:proposal) { create(:proposal, component:, users: [author]) }
       let(:author) { create(:user, organization:) }
 
-      let(:user_group) do
-        create(:user_group, :confirmed, :verified, organization:)
-      end
-
       let(:has_address) { false }
       let(:address) { nil }
       let(:latitude) { 40.1234 }
@@ -121,19 +117,6 @@ module Decidim
               proposal = Decidim::Proposals::Proposal.last
 
               expect(proposal).to be_authored_by(author)
-              expect(proposal.identities.include?(user_group)).to be false
-            end
-          end
-
-          context "when author is a user group" do
-            let(:author) { user_group }
-
-            it "sets the user group" do
-              command.call
-              proposal = Decidim::Proposals::Proposal.last
-
-              expect(proposal).to be_authored_by(author)
-              expect(proposal.identities).to include(user_group)
             end
           end
 

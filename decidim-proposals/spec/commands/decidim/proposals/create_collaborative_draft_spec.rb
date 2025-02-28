@@ -22,10 +22,6 @@ module Decidim
 
       let(:author) { create(:user, organization:) }
 
-      let(:user_group) do
-        create(:user_group, :confirmed, :verified, organization:)
-      end
-
       let(:has_address) { false }
       let(:address) { nil }
       let(:latitude) { 40.1234 }
@@ -100,18 +96,6 @@ module Decidim
               collaborative_draft = Decidim::Proposals::CollaborativeDraft.last
               expect(collaborative_draft.body).to include("_Hashtag1")
               expect(collaborative_draft.body).to include("_Hashtag2")
-            end
-          end
-
-          context "when author is a user group" do
-            let(:author) { user_group }
-
-            it "sets the user group as author" do
-              command.call
-              collaborative_draft = Decidim::Proposals::CollaborativeDraft.last
-
-              expect(collaborative_draft.coauthorships.count).to eq(1)
-              expect(collaborative_draft.authors.first).to eq(user_group)
             end
           end
 
