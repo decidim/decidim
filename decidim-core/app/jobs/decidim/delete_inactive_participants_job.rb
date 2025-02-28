@@ -34,13 +34,14 @@ module Decidim
     def send_warning_notification(users, type, days)
       process_users(users) do |user|
         user.update!(
-          extended_data: user.extended_data.merge(
+          extended_data: user.extended_data.deep_merge!(
             "inactivity_notification" => {
               "notification_type" => type,
               "sent_at" => Time.current
             }
           )
         )
+        user.save!
         send_notification(user, :inactivity_notification, days)
       end
     end

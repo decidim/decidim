@@ -1663,11 +1663,12 @@ en:
         body: |
           Our records indicate you created a %{organization_name} account on %{date_account_creation} and have not been active since %{date_last_connection}.
           To protect your privacy, this account has been scheduled for automatic deletion in %{days} days.
-          If you wish to keep your %{organization_name} account, simply log in before this time, and your account will be preserved.
+          If you wish to keep your %{organization_name} account, simply %{login_url} before this time, and your account will be preserved.
         greetings: |
           Kind regards,
           %{organization_name}
         hello: Dear %{username},
+        log_in: log in
         never_logged_in: never logged in
         subject: Inactive account warning
       removal_notification:
