@@ -5,8 +5,7 @@ require "spec_helper"
 describe Decidim::PushNotificationMessageSender do
   let(:organization) { build(:organization) }
   let(:conversation) { create(:conversation) }
-  let(:group) { build(:user_group, organization:, users: [manager]) }
-  let(:manager) { build(:user, organization:) }
+  let(:third_party) { build(:user, organization:) }
   let(:message) { build(:message) }
   let(:originator) { build(:user, organization:) }
   let(:sender) { build(:user, organization:) }
@@ -14,7 +13,7 @@ describe Decidim::PushNotificationMessageSender do
   let(:notification) { build(:push_notification_message) }
   let(:notification_sender) { double :notification_sender }
   let(:title) { nil }
-  let(:push_notification_message) { build(:push_notification_message, sender:, third_party: group, conversation:, action:) }
+  let(:push_notification_message) { build(:push_notification_message, sender:, third_party:, conversation:, action:) }
 
   shared_examples "a push notification" do
     it "gets the correct title" do
