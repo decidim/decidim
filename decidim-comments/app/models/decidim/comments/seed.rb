@@ -49,7 +49,7 @@ module Decidim
         #
         # @return [Decidim::Comments::Comment]
         def create_comment(resource, root_commentable = nil)
-          author = rand(2).positive? ? random_user : random_user_group
+          author = random_user
 
           params = {
             commentable: resource,
@@ -67,7 +67,6 @@ module Decidim
         end
 
         # Creates a random amount of votes for a given comment.
-        # The votes can be from a user or a user group.
         #
         # @private
         #
@@ -76,7 +75,7 @@ module Decidim
         # @return nil
         def create_votes(comment)
           rand(0..12).times do
-            author = rand(2).positive? ? random_user : random_user_group
+            author = random_user
             next if CommentVote.where(comment:, author:).any?
 
             CommentVote.create!(comment:, author:, weight: [1, -1].sample)
@@ -88,16 +87,9 @@ module Decidim
         end
 
         def random_user
-          user = Decidim::User.not_user_group.where(organization:).not_deleted.not_blocked.confirmed.sample
+          user = Decidim::User.where(organization:).not_deleted.not_blocked.confirmed.sample
 
           user.valid? ? user : random_user
-        end
-
-        def random_user_group
-          user_group = Decidim::User.user_group.where(organization:).not_deleted.not_blocked.confirmed.verified.sample
-          return user_group if user_group&.valid?
-
-          random_user
         end
       end
     end
