@@ -111,44 +111,6 @@ describe Decidim::Comments::NewCommentNotificationCreator do
       end
     end
 
-    context "when the author mentions a group" do
-      subject { described_class.new(comment, mentioned_users, mentioned_groups) }
-
-      let(:group) { create(:user_group, organization:) }
-      let(:mentioned_users) { [] }
-      let(:mentioned_groups) do
-        Decidim::User.where(
-          id: [
-            group.id
-          ]
-        )
-      end
-      let(:affected_group_users) { mentioned_groups }
-      let(:role) { :member }
-
-      it "notifies the group user" do
-        expect(Decidim::EventsManager)
-          .to receive(:publish)
-          .once
-          .ordered
-          .with(
-            event: "decidim.events.comments.user_group_mentioned",
-            event_class: Decidim::Comments::UserGroupMentionedEvent,
-            resource: dummy_resource,
-            affected_users: a_collection_containing_exactly(*affected_group_users),
-            extra: {
-              comment_id: comment.id
-            }
-          )
-        expect(Decidim::EventsManager)
-          .to receive(:publish)
-          .twice
-          .ordered
-
-        subject.create
-      end
-    end
-
     it "notifies the followers of the author" do
       expect(Decidim::EventsManager)
         .to receive(:publish)
@@ -289,36 +251,6 @@ describe Decidim::Comments::NewCommentNotificationCreator do
           subject.create
         end
       end
-    end
-  end
-
-  describe "when the author is a user_group with followers" do
-    let(:user_following_user_group) { create(:user, organization:) }
-    let(:user_group_author) { create(:user_group, :verified, organization:) }
-    let(:user_group_comment) { create(:comment, author: user_group_author, commentable:, root_commentable: dummy_resource) }
-
-    before do
-      create(:follow, user: user_following_user_group, followable: user_group_author)
-    end
-
-    it "notifies the followers of the user_group" do
-      expect(Decidim::EventsManager)
-        .to receive(:publish)
-        .once
-        .ordered
-        .with(
-          event: "decidim.events.comments.comment_by_followed_user_group",
-          event_class: Decidim::Comments::CommentByFollowedUserGroupEvent,
-          resource: dummy_resource,
-          followers: a_collection_containing_exactly(user_following_user_group),
-          extra: { comment_id: user_group_comment.id }
-        )
-      expect(Decidim::EventsManager)
-        .to receive(:publish)
-        .once
-        .ordered
-
-      described_class.new(user_group_comment, []).create
     end
   end
 
