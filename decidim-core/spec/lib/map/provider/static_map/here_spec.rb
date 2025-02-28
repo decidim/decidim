@@ -68,7 +68,7 @@ module Decidim
                     longitude:
                   )
                 ).to eq(
-                  apiKey: %w(appid123 secret456),
+                  apiKey: "appid123secret456",
                   c: "#{latitude}, #{longitude}",
                   z: Decidim::Map::StaticMap::DEFAULT_ZOOM,
                   w: Decidim::Map::StaticMap::DEFAULT_SIZE,
