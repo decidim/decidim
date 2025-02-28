@@ -8,24 +8,10 @@
 <%= append_stylesheet_pack_tag "decidim_accountability" %>
 
 <% content_for :aside do %>
-  <h1 class="title-decorator"><%= component_name %></h1>
-
-  <% if component_settings.display_progress_enabled? %>
-    <%= cell(
-          "decidim/accountability/status",
-          nil,
-          title: t("decidim.accountability.results.home_header.global_status"),
-          progress: progress_calculator(nil).presence,
-          extra_classes: "accountability__status__home"
-        ) %>
-  <% end %>
-  <div class="accountability__filters">
-    <%= render partial: "search" %>
-  </div>
+  <%= render partial: "home_aside" %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-
   <% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? %>
     <div class="accountability__map">
       <%= cell "decidim/map", @all_geocoded_results, metadata_card: "decidim/accountability/result_metadata" %>
@@ -36,14 +22,14 @@
     <div class="editor-content"><%= decidim_sanitize_admin translated_attribute(component_settings.intro) %></div>
   </section>
 
-  <section class="layout-main__section">
-    <% if first_class_taxonomies.empty? %>
-      <%= cell("decidim/announcement",
-               params[:filter].present? ?
-               t("empty_filters", scope: "decidim.accountability.results.home") :
-               t("empty", scope: "decidim.accountability.results.home")) %>
-    <% end %>
-    <%= render partial: "home_taxonomies" %>
-  </section>
-
+  <% if selected_root_taxonomy.present? %>
+    <section class="layout-main__section">
+      <%= render partial: "home_taxonomies" %>
+    </section>
+  <% else %>
+    <section id="results" class="layout-main__section">
+      <%= cell "decidim/accountability/results", results %>
+      <%= decidim_paginate results, order_start_time: params[:order_start_time] %>
+    </section>
+  <% end %>
 <% end %>
