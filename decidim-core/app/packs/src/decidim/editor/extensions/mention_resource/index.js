@@ -6,9 +6,11 @@ import { createSuggestionRenderer, createNodeView } from "src/decidim/editor/com
 export const MentionResourcePluginKey = new PluginKey("mentionResource");
 
 const searchResources = async (queryText) => {
+  const currentComponent = document.querySelector("meta[name='context-current-component']").content;
+
   return new Promise((resolve, reject) => {
     Rails.ajax({
-      url: `/resource_autocomplete?term=${queryText}`,
+      url: `/resource_autocomplete?term=${queryText}&component_gid=${currentComponent}`,
       type: "GET",
       dataType: "json",
       success: (response) => resolve(response),

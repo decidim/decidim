@@ -22,15 +22,26 @@ module Decidim
     end
 
     def search_results
-      # TODO: Scope by current participatory space?
       Decidim::SearchableResource
-        .where(resource_type: allowed_resource_types, organization: current_organization)
+        .where(
+          resource_type: allowed_resource_types,
+          organization: current_organization,
+          decidim_participatory_space: current_component&.participatory_space
+        )
         .autocomplete_search(term)
         .limit(10)
     end
 
     def term
       params[:term]
+    end
+
+    def component_gid
+      params[:component_gid]
+    end
+
+    def current_component
+      @current_component ||= GlobalID::Locator.locate(component_gid)
     end
   end
 end
