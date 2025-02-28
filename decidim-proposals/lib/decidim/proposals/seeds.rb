@@ -154,15 +154,13 @@ module Decidim
       end
 
       def random_coauthor
-        n = rand(5)
-        n = 3 if n == 2 && !Decidim.module_installed?(:meetings)
+        n = rand(4)
+        n = 2 if n == 1 && !Decidim.module_installed?(:meetings)
 
         case n
         when 0
-          Decidim::User.not_user_group.where(organization:).sample
+          Decidim::User.where(organization:).sample
         when 1
-          Decidim::User.user_group.where(organization:).sample
-        when 2
           meeting_component = participatory_space.components.find_by(manifest_name: "meetings")
 
           Decidim::Meetings::Meeting.where(component: meeting_component).sample
