@@ -1527,16 +1527,6 @@ en:
           taxonomizations_count: The count of the resources that use this taxonomy
           updated_at: The date when this taxonomy was updated for the last time
           weight: The order in which this taxonomy is shown
-        user_groups:
-          avatar_url: The avatar of the user group
-          badge: The badge of the user group
-          deleted: Whether the user is deleted or not
-          id: The unique identifier of the user group
-          members: The id and name of the users belonging to the group
-          members_count: The number of the users belonging to the user group
-          name: The display name of user group
-          nickname: The username of the user group
-          profile_url: The profile url
         users:
           about: The about text of the user
           avatar_url: The avatar of the user
