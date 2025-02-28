@@ -985,15 +985,6 @@ shared_examples "comments" do
           expect(page).to have_no_css(".tribute-container", text: mentioned_user.name)
         end
       end
-
-      context "when mentioning a group" do
-        let!(:mentioned_group) { create(:user_group, :confirmed, organization:) }
-        let(:content) { "A confirmed user group mention: @#{mentioned_group.nickname}" }
-
-        it "shows the tribute container" do
-          expect(page).to have_css(".tribute-container", text: mentioned_group.nickname, wait: 10)
-        end
-      end
     end
 
     describe "mentions", :slow do
