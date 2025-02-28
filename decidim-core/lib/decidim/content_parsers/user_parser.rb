@@ -40,7 +40,7 @@ module Decidim
       end
 
       def mentionable_base_relation
-        Decidim::User.not_user_group
+        Decidim::User
       end
 
       def mentionables
