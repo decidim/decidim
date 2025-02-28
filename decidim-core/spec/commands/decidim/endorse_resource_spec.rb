@@ -59,35 +59,5 @@ module Decidim
         end
       end
     end
-
-    describe "Organization endorses resource" do
-      let(:user_group) { create(:user_group, :confirmed, :verified, organization: resource.component.organization) }
-      let(:current_user) { user_group }
-      let(:command) { described_class.new(resource, current_user) }
-
-      context "when in normal conditions" do
-        it "broadcasts ok" do
-          expect { command.call }.to broadcast :ok
-        end
-
-        it "Creates an endorsement" do
-          expect do
-            command.call
-          end.to change(Endorsement, :count).by(1)
-        end
-      end
-
-      context "when the endorsement is not valid" do
-        before do
-          resource.decidim_component_id = nil
-        end
-
-        it "Do not increase the endorsements counter by one" do
-          command.call
-          resource.reload
-          expect(resource.endorsements_count).to be_zero
-        end
-      end
-    end
   end
 end

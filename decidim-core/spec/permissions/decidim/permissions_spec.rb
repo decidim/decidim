@@ -388,54 +388,5 @@ describe Decidim::Permissions do
         it_behaves_like "general conversation permissions"
       end
     end
-
-    context "when action is on user group" do
-      let(:action_subject) { :user_group }
-
-      context "when creating user groups" do
-        let(:action_name) { :create }
-
-        it { is_expected.to be true }
-      end
-
-      context "when joining user groups" do
-        let(:action_name) { :join }
-
-        it { is_expected.to be true }
-      end
-
-      context "when leaving a user group" do
-        let(:action_name) { :leave }
-        let(:user) { create(:user, :confirmed) }
-        let!(:user_group) { create(:user_group, users: [user], organization: user.organization) }
-        let(:context) { { user_group: } }
-
-        context "when the user does not belong to the user group" do
-          let!(:user_group) { create(:user_group, organization: user.organization) }
-
-          it { is_expected.to be false }
-        end
-
-        context "when the user is the creator" do
-          it { is_expected.to be true }
-        end
-      end
-    end
-
-    context "when action is on user group invitations" do
-      let(:action_subject) { :user_group_invitations }
-
-      context "when action is create" do
-        let(:action_name) { :create }
-
-        it { is_expected.to be true }
-      end
-
-      context "when action is reject" do
-        let(:action_name) { :reject }
-
-        it { is_expected.to be true }
-      end
-    end
   end
 end

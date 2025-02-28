@@ -164,7 +164,6 @@ describe Decidim::OpenDataExporter do
     end
 
     describe "with all the components and spaces" do
-      let!(:user_group) { create(:user_group, :confirmed, organization:) }
       let(:proposal_component) do
         create(:proposal_component, organization:, published_at: Time.current)
       end

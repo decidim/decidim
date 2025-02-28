@@ -7,7 +7,6 @@ module Decidim::Messaging
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :confirmed, organization:) }
     let(:another_user) { create(:user, :confirmed, organization:) }
-    let(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
     let(:sender) { user }
     let(:originator) { another_user }
     let(:current_user) { user }
@@ -96,20 +95,6 @@ module Decidim::Messaging
 
       it_behaves_like "valid message with receipts", 2
       it_behaves_like "send emails", 1
-
-      context "and the originator is a group" do
-        let(:originator) { user_group }
-
-        it_behaves_like "valid message with receipts", 2
-        it_behaves_like "send emails", 1
-      end
-
-      context "and the sender is a group" do
-        let(:sender) { user_group }
-
-        it_behaves_like "valid message with receipts", 2
-        it_behaves_like "send emails", 1
-      end
 
       context "and the body has just the right length without carriage returns" do
         let(:body) { "This text is just the correct length\r\nwith the carriage return characters removed" }
