@@ -40,7 +40,11 @@ module Decidim
           end
 
           def resource_hidden?(resource)
-            resource.class.included_modules.include?(Decidim::Reportable) && resource.hidden?
+            resource.class.included_modules.include?(Decidim::Reportable) && resource.hidden? && report_reasons.exclude?(resource.reports&.last&.reason)
+          end
+
+          def report_reasons
+            Decidim::Report::REASONS.excluding("parent_hidden")
           end
 
           def classifier

@@ -1,0 +1,49 @@
+<div class="form__wrapper py-0 form-proposals-merge-styles">
+  <div class="card">
+    <div class="card-section">
+      <% @form.proposal_ids.each do |id| %>
+        <%= hidden_field_tag "proposal_ids[]", id %>
+      <% end %>
+      <div class="row column">
+        <%= bulk_components_select((current_component.siblings + [current_component])) %>
+      </div>
+      <div class="row column pt-4">
+        <%= form.translated :text_field, :title, class: "js-hashtags", aria: { label: :title } %>
+      </div>
+      <div class="row column pt-4">
+        <%= form.translated :editor, :body, lines: 12, html: { style: "height: 10rem;" }, aria: { label: :body } %>
+      </div>
+      <% if @form.meetings %>
+        <div class="meeting-fields">
+          <div class="row column proposal-field-custom-style">
+            <%= form.check_box :created_in_meeting, label: t(".created_in_meeting"), class: "text-sm" %>
+          </div>
+          <div class="row column custom-inputs" id="proposals_merge_meeting">
+            <%= form.select :meeting_id,
+                            options_for_select(@form.meetings&.map { |meeting| [present(meeting).title(html_escape: true), meeting.id] }, selected: meetings_as_authors_selected ),
+                            { include_blank: true, label: t(".select_a_meeting") },
+                            { multiple: false, class: "chosen-select" } %>
+          </div>
+        </div>
+      <% end %>
+      <% if @form.geocoding_enabled? %>
+        <div class="row column pt-4 custom-inputs">
+          <%= form.geocoding_field :address %>
+        </div>
+      <% end %>
+      <% if component_settings.attachments_allowed? %>
+        <div class="row column pt-4">
+          <%= form.attachment :documents,
+                              multiple: true,
+                              label: t("decidim.proposals.proposals.edit.add_attachments"),
+                              button_label: t("decidim.proposals.proposals.edit.add_attachments"),
+                              button_edit_label: t("decidim.proposals.proposals.edit.edit_attachments"),
+                              button_class: "button button__lg button__transparent-secondary w-full",
+                              help_i18n_scope: "decidim.forms.file_help.file",
+                              help_text: t("attachment_legend", scope: "decidim.proposals.proposals.edit") %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= append_javascript_pack_tag "decidim_proposals_admin" %>
