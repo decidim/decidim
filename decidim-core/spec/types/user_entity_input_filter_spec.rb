@@ -17,70 +17,19 @@ module Decidim
       context "when no filters are applied" do
         let(:query) { %[{ users(filter: {}) { id, __typename } }] }
 
-        it "returns all the types" do
+        it "returns all the items" do
           users = response["users"]
           expect(users).to include({ "id" => user.id.to_s, "__typename" => "User" },
-                                   "id" => user_group.id.to_s, "__typename" => "UserGroup")
+                                   "id" => user_group.id.to_s, "__typename" => "User")
         end
 
         context "when user is blocked" do
           let(:user) { create(:user, :blocked, :confirmed, organization: current_organization) }
 
-          it "does not returns all the types" do
+          it "does not returns the blocked user" do
             users = response["users"]
-            expect(users).to include("id" => user_group.id.to_s, "__typename" => "UserGroup")
+            expect(users).to include("id" => user_group.id.to_s, "__typename" => "User")
           end
-        end
-      end
-
-      context "when user or groups are not confirmed" do
-        let(:user) { create(:user, organization: current_organization) }
-        let(:current_user) { create(:user, organization: current_organization) }
-        let(:user_group) { create(:user_group, users: [], organization: current_organization) }
-        let!(:models) { [user, user_group] }
-
-        let(:query) { %({ users { id } }) }
-
-        it "returns all the types" do
-          expect(response["users"]).to eq([])
-        end
-      end
-
-      context "when filtering by type User" do
-        let(:query) { %[{ users(filter: { type: "user" }) { id } }] }
-
-        it "returns the types requested" do
-          users = response["users"]
-          expect(users).to include("id" => user.id.to_s)
-          expect(users).not_to include("id" => user_group.id.to_s)
-        end
-
-        context "when user is blocked" do
-          let(:user) { create(:user, :blocked, :confirmed, organization: current_organization) }
-          let(:current_user) { create(:user, organization: current_organization) }
-
-          it "does not returns all the types" do
-            users = response["users"]
-            expect(users).to eq([])
-          end
-        end
-      end
-
-      context "when filtering by type UserGroup" do
-        let(:query) { %[{ users(filter: { type: "group" }) { id } }] }
-
-        it "returns the types requested" do
-          users = response["users"]
-          expect(users).to include("id" => user_group.id.to_s)
-          expect(users).not_to include("id" => user.id.to_s)
-        end
-      end
-
-      context "when type does not exist" do
-        let(:query) { %[{ users(filter: { type: "other_type" }) { id } }] }
-
-        it "returns an empty array" do
-          expect(response["users"]).to eq([])
         end
       end
 
