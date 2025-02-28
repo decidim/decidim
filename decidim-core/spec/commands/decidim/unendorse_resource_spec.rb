@@ -29,31 +29,5 @@ module Decidim
         end.to change { resource.endorsements_count }.by(-1)
       end
     end
-
-    describe "user group unendorses resource" do
-      let(:endorsement) { create(:user_group_endorsement) }
-      let(:command) { described_class.new(endorsement.resource, endorsement.author) }
-
-      it "broadcasts ok" do
-        expect(endorsement).to be_valid
-        expect { command.call }.to broadcast :ok
-      end
-
-      it "removes the endorsement" do
-        expect(endorsement).to be_valid
-        expect do
-          command.call
-        end.to change(Endorsement, :count).by(-1)
-      end
-
-      it "do not decreases the endorsement counter by one" do
-        expect(endorsement).to be_valid
-        command.call
-
-        resource = endorsement.resource
-        resource.reload
-        expect(resource.endorsements_count).to be_zero
-      end
-    end
   end
 end
