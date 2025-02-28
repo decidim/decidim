@@ -45,15 +45,6 @@ module Decidim
         user == author
       end
 
-      # Returns the normalized author, whether it is a user group or a user. Ideally this should be
-      # the *author* method, but it is pending a refactor.
-      #
-      # Returns an Author, a UserGroup or nil.
-      # TODO - Deprecate this method, normalized author must be the author
-      def normalized_author
-        author
-      end
-
       # Public: Checks whether the resource is official or not.
       #
       # Returns a boolean.

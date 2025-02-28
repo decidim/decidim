@@ -10,16 +10,14 @@ module Decidim
       include Decidim::Events::MachineTranslatedEvent
 
       included do
+        delegate :author, to: :comment
+
         def resource_text(override_translation = nil)
           comment.formatted_body(override_translation)
         end
 
         def hidden_resource?
           super || (comment.respond_to?(:hidden?) && comment.hidden?)
-        end
-
-        def author
-          comment.normalized_author
         end
 
         def author_presenter

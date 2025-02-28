@@ -36,15 +36,15 @@ module Decidim
     def visible_endorsers
       @visible_endorsers ||= if voted_by_me?
                                base_relation.where.not(author: current_user).limit(MAX_ITEMS_STACKED - 1).map do |identity|
-                                 present(identity.normalized_author)
+                                 present(identity.author)
                                end + [present(current_user)]
                              else
-                               base_relation.limit(MAX_ITEMS_STACKED).map { |identity| present(identity.normalized_author) }
+                               base_relation.limit(MAX_ITEMS_STACKED).map { |identity| present(identity.author) }
                              end
     end
 
     def full_endorsers
-      @full_endorsers ||= base_relation.map { |identity| present(identity.normalized_author) }
+      @full_endorsers ||= base_relation.map { |identity| present(identity.author) }
     end
 
     def base_relation
