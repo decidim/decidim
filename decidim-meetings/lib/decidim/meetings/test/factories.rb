@@ -105,12 +105,6 @@ FactoryBot.define do
 
     trait(:participant_author) { not_official }
 
-    trait :user_group_author do
-      author do
-        create(:user_group, :confirmed, :verified, organization: component.organization, skip_injection:) if component
-      end
-    end
-
     trait :closed do
       closing_report { generate_localized_title(:meeting_closing_report, skip_injection:) }
       attendees_count { rand(50) }

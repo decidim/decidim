@@ -73,23 +73,6 @@ module Decidim
               end
             end
           end
-
-          context "when it is a user group" do
-            let!(:debate) { create(:debate, :user_group_author) }
-
-            before do
-              debate.author.update!(name: "ACME", nickname: "acme")
-              debate.reload
-            end
-
-            it "serializes the user name of the user group" do
-              expect(serialized[:author]).to include(name: "ACME")
-            end
-
-            it "serializes the link to the profile of the user group" do
-              expect(serialized[:author]).to include(url: profile_url("acme"))
-            end
-          end
         end
 
         it "serializes the title" do
