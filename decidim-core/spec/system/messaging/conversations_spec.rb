@@ -349,7 +349,7 @@ describe "Conversations" do
 
     context "and it is with four participants" do
       let(:user1) { create(:user, organization:) }
-      let(:user2) { create(:user_group, organization:) }
+      let(:user2) { create(:user, organization:) }
       let(:user3) { create(:user, organization:) }
       let!(:conversation4) do
         Decidim::Messaging::Conversation.start!(
@@ -409,7 +409,7 @@ describe "Conversations" do
 
     context "and it is with ten participants" do
       let(:user1) { create(:user, organization:) }
-      let(:user2) { create(:user_group, organization:) }
+      let(:user2) { create(:user, organization:) }
       let(:user3) { create(:user, organization:) }
       let(:user4) { create(:user, organization:) }
       let(:user5) { create(:user, organization:) }

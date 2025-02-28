@@ -10,8 +10,8 @@ module Decidim
       let(:type_class) { Decidim::Api::QueryType }
 
       let(:user) { create(:user, :confirmed, organization: current_organization) }
-      let(:user_group) { create(:user_group, :confirmed, organization: current_organization) }
-      let!(:models) { [user, user_group] }
+      let(:another_user) { create(:user, :confirmed, organization: current_organization) }
+      let!(:models) { [user, another_user] }
 
       context "when no filters are applied" do
         let(:query) { %[{ users(filter: {}) { id, __typename } }] }
@@ -19,7 +19,7 @@ module Decidim
         it "returns all the items" do
           users = response["users"]
           expect(users).to include({ "id" => user.id.to_s, "__typename" => "User" },
-                                   "id" => user_group.id.to_s, "__typename" => "User")
+                                   "id" => another_user.id.to_s, "__typename" => "User")
         end
 
         context "when user is blocked" do
@@ -27,7 +27,7 @@ module Decidim
 
           it "does not returns the blocked user" do
             users = response["users"]
-            expect(users).to include("id" => user_group.id.to_s, "__typename" => "User")
+            expect(users).to include("id" => another_user.id.to_s, "__typename" => "User")
           end
         end
       end
@@ -35,7 +35,7 @@ module Decidim
       context "when searching fragments" do
         let!(:user1) { create(:user, :confirmed, nickname: "_foo_user_1", name: "FooBar User 1", organization: current_organization) }
         let!(:user2) { create(:user, nickname: "_foo_user_2", name: "FooBar User 2", organization: current_organization) }
-        let!(:user3) { create(:user_group, :confirmed, nickname: "_bar_user_3", name: "FooBar User 3", organization: current_organization) }
+        let!(:user3) { create(:user, :confirmed, nickname: "_bar_user_3", name: "FooBar User 3", organization: current_organization) }
         let!(:user4) { create(:user, :confirmed, nickname: "_foo_user_4", name: "FooBar User 4") }
         let!(:user5) { create(:user, :confirmed, nickname: "_foo_user_5", name: "FooBar User 5", organization: current_organization) }
         let!(:user6) { create(:user, :confirmed, nickname: "_foo_user_6", name: "FooBar User 6", organization: current_organization) }
