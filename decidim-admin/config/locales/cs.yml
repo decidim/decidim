@@ -752,6 +752,7 @@ cs:
             does_not_belong: Nepatří
             hidden_during_block: Skrytý při blokování uživatele
             offensive: Urážlivý
+            parent_hidden: Nadřazený obsah byl skryt
             spam: Spam
         reports:
           index:
