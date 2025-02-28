@@ -90,7 +90,7 @@ module Decidim
       end
 
       def user_endorsements
-        proposal.endorsements.for_listing.map { |identity| identity.normalized_author&.name }
+        proposal.endorsements.for_listing.map { |identity| identity.author&.name }
       end
 
       def original_proposal_url

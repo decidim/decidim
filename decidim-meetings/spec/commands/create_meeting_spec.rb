@@ -140,7 +140,6 @@ module Decidim::Meetings
         it "sets the user as the author" do
           subject.call
           expect(meeting.author).to eq current_user
-          expect(meeting.normalized_author).to eq current_user
         end
       end
 

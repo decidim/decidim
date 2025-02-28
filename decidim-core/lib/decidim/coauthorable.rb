@@ -5,7 +5,6 @@ module Decidim
   #
   # Coauthorable shares nearly the same object interface as Authorable but with some differences.
   # - `authored_by?(user)` is exactly the same
-  # - `normalized_author` is now `identities`.
   #
   # All coauthors, including the initial author, will share the same permissions.
   module Coauthorable

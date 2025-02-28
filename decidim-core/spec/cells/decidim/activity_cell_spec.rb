@@ -81,7 +81,7 @@ describe Decidim::ActivityCell, type: :cell do
 
         before do
           # rubocop:disable Rails/SkipsModelValidations
-          resource.normalized_author.touch
+          resource.author.touch
           # rubocop:enable Rails/SkipsModelValidations
 
           subject.user.reload

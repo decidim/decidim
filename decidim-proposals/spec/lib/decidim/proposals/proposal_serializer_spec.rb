@@ -222,7 +222,7 @@ module Decidim
 
         it "serializes the endorsements" do
           expect(serialized[:endorsements]).to include(total_count: proposal.endorsements.count)
-          expect(serialized[:endorsements]).to include(user_endorsements: proposal.endorsements.for_listing.map { |identity| identity.normalized_author&.name })
+          expect(serialized[:endorsements]).to include(user_endorsements: proposal.endorsements.for_listing.map { |identity| identity.author&.name })
         end
 
         it "serializes related proposals" do
