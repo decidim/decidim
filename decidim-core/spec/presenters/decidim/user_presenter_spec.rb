@@ -95,42 +95,6 @@ module Decidim
       end
     end
 
-    context "when user is a group" do
-      let(:user) { build(:user_group) }
-
-      describe "#profile_path" do
-        subject { presenter.profile_path }
-
-        it { is_expected.to eq("/profiles/#{user.nickname}") }
-      end
-
-      describe "#profile_url" do
-        subject { presenter.profile_url }
-
-        let(:host) { user.organization.host }
-
-        it { is_expected.to eq("http://#{host}:#{Capybara.server_port}/profiles/#{user.nickname}") }
-      end
-
-      describe "#can_be_contacted?" do
-        subject { described_class.new(user).can_be_contacted? }
-
-        context "when group is not blocked" do
-          it "can be contacted" do
-            expect(subject).to be(true)
-          end
-        end
-
-        context "when group is blocked" do
-          it "cannot be contacted" do
-            user.blocked = true
-
-            expect(subject).to be_nil
-          end
-        end
-      end
-    end
-
     describe "#officialization_text" do
       subject { presenter.officialization_text }
 
