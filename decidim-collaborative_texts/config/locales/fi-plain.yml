@@ -3,4 +3,4 @@ fi-pl:
   decidim:
     components:
       collaborative_texts:
-        name: Yhteistyöluonnokset
+        name: Yhteistyötekstit
