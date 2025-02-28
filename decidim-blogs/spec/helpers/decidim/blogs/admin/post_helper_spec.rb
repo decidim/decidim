@@ -8,8 +8,6 @@ module Decidim::Blogs::Admin
       let(:organization) { create(:organization) }
       let(:user) { create(:user, :admin, :confirmed, organization:) }
       let!(:another_user) { create(:user, :admin, :confirmed, organization:) }
-      let!(:user_group) { create(:user_group, :confirmed, :verified, decidim_organization_id: organization.id) }
-      let!(:another_user_group) { create(:user_group, :confirmed, :verified, decidim_organization_id: organization.id) }
       let(:name) { "a-select-form-name" }
       let(:author) { user }
       let(:form) do
@@ -21,8 +19,7 @@ module Decidim::Blogs::Admin
       let(:all_fields) do
         [
           [translated(organization.name), ""],
-          [user.name, user.id],
-          [user_group.name, user_group.id]
+          [user.name, user.id]
         ]
       end
 
@@ -34,14 +31,6 @@ module Decidim::Blogs::Admin
         ]
       end
 
-      let(:extra_group_fields) do
-        [
-          [translated(organization.name), ""],
-          [user.name, user.id],
-          [another_user_group.name, another_user_group.id]
-        ]
-      end
-
       let(:basic_fields) do
         [
           [translated(organization.name), ""],
@@ -49,26 +38,15 @@ module Decidim::Blogs::Admin
         ]
       end
 
-      let(:groups_enabled) { true }
-
       before do
         allow(helper).to receive(:current_organization).and_return(organization)
         allow(helper).to receive(:current_user).and_return(user)
-        allow(organization).to receive(:user_groups_enabled?).and_return(groups_enabled)
         allow(form).to receive(:select) { |_, array| array }
       end
 
       context "when author is a user" do
         it "Returns organization and user" do
           expect(helper.post_author_select_field(form, name)).to eq(basic_fields)
-        end
-      end
-
-      context "when author is a user group" do
-        let(:author) { user_group }
-
-        it "Returns all types of authors" do
-          expect(helper.post_author_select_field(form, name)).to eq(all_fields)
         end
       end
 
@@ -85,14 +63,6 @@ module Decidim::Blogs::Admin
 
         it "Returns organization and user" do
           expect(helper.post_author_select_field(form, name)).to eq(basic_fields)
-        end
-      end
-
-      context "when author is another user_group" do
-        let(:author) { another_user_group }
-
-        it "Returns all types of authors" do
-          expect(helper.post_author_select_field(form, name)).to eq(extra_group_fields)
         end
       end
     end

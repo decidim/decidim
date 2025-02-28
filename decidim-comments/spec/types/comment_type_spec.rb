@@ -117,14 +117,6 @@ module Decidim
             expect(response).to include("author" => { "name" => author.name })
           end
         end
-
-        context "when the author is a confirmed and verified user group" do
-          let(:author) { create(:user_group, :confirmed, :verified, organization: commentable.organization) }
-
-          it "returns the user" do
-            expect(response).to include("author" => { "name" => author.name })
-          end
-        end
       end
 
       describe "sgid" do
