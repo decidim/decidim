@@ -20,22 +20,12 @@ module Decidim
         sign_in current_user, scope: :user
       end
 
-      describe "GET users and user groups in json format" do
+      describe "GET user entities in json format" do
         let!(:user) { create(:user, name: "Daisy Miller", nickname: "daisy_m", organization:, email: "d.mail@example.org") }
         let!(:blocked_user) { create(:user, :blocked, name: "Daisy Blocked", nickname: "daisy_b", organization:, email: "d.mail.b@example.org") }
         let!(:managed_user) { create(:user, :managed, name: "Daisy Managed", nickname: "daisy_g", organization:, email: "d.mail.g@example.org") }
         let!(:deleted_user) { create(:user, :deleted, name: "Daisy Deleted", nickname: "daisy_d", organization:, email: "d.mail.d@example.org") }
         let!(:other_user) { create(:user, name: "Daisy O'connor", nickname: "daisy_o", email: "d.mail.o@example.org") }
-        let!(:user_group) do
-          create(
-            :user_group,
-            :verified,
-            name: "Daisy Organization",
-            nickname: "daisy_org",
-            email: "d.mail.org@example.org",
-            organization:
-          )
-        end
 
         context "when searching by name" do
           context "when finding by full name" do
@@ -43,15 +33,14 @@ module Decidim
 
             it "returns the results ordered by similarity" do
               get :user_entities, format: :json, params: { term: "Daisy" }
-              expect(parsed_response.count).to eq(3)
+              expect(parsed_response.count).to eq(2)
               expect(parsed_response.first[:value]).to eq(daisy.id)
             end
           end
 
-          it "returns the id, name and nickname for filtered users and user groups" do
+          it "returns the id, name and nickname for filtered users" do
             get :user_entities, format: :json, params: { term: "daisy" }
             expect(parsed_response).to include({ value: user.id, label: "#{user.name} (@#{user.nickname})" })
-            expect(parsed_response).to include({ value: user_group.id, label: "#{user_group.name} (@#{user_group.nickname})" })
             expect(parsed_response).not_to include({ value: other_user.id, label: "#{other_user.name} (@#{other_user.nickname})" })
             expect(parsed_response).not_to include({ value: blocked_user.id, label: "#{blocked_user.name} (@#{blocked_user.nickname})" })
             expect(parsed_response).not_to include({ value: deleted_user.id, label: "#{deleted_user.name} (@#{deleted_user.nickname})" })
@@ -60,10 +49,9 @@ module Decidim
         end
 
         context "when searching by nickname" do
-          it "returns the id, name and nickname for filtered users and user groups" do
+          it "returns the id, name and nickname for filtered users" do
             get :user_entities, format: :json, params: { term: "@daisy" }
             expect(parsed_response).to include({ value: user.id, label: "#{user.name} (@#{user.nickname})" })
-            expect(parsed_response).to include({ value: user_group.id, label: "#{user_group.name} (@#{user_group.nickname})" })
             expect(parsed_response).not_to include({ value: other_user.id, label: "#{other_user.name} (@#{other_user.nickname})" })
             expect(parsed_response).not_to include({ value: blocked_user.id, label: "#{blocked_user.name} (@#{blocked_user.nickname})" })
             expect(parsed_response).not_to include({ value: deleted_user.id, label: "#{deleted_user.name} (@#{deleted_user.nickname})" })
@@ -75,17 +63,16 @@ module Decidim
 
             it "returns the results ordered by similarity" do
               get :user_entities, format: :json, params: { term: "@daisy" }
-              expect(parsed_response.count).to eq(3)
+              expect(parsed_response.count).to eq(2)
               expect(parsed_response.first[:value]).to eq(daisy.id)
             end
           end
         end
 
         context "when searching by email" do
-          it "returns the id, name and nickname for filtered users and user groups" do
+          it "returns the id, name and nickname for filtered users" do
             get :user_entities, format: :json, params: { term: "d.mail" }
             expect(parsed_response).to include({ value: user.id, label: "#{user.name} (@#{user.nickname})" })
-            expect(parsed_response).to include({ value: user_group.id, label: "#{user_group.name} (@#{user_group.nickname})" })
             expect(parsed_response).not_to include({ value: other_user.id, label: "#{other_user.name} (@#{other_user.nickname})" })
             expect(parsed_response).not_to include({ value: blocked_user.id, label: "#{blocked_user.name} (@#{blocked_user.nickname})" })
             expect(parsed_response).not_to include({ value: deleted_user.id, label: "#{deleted_user.name} (@#{deleted_user.nickname})" })
@@ -134,15 +121,6 @@ module Decidim
       describe "GET users in json format" do
         let!(:user) { create(:user, name: "Daisy Miller", nickname: "daisy_m", organization:) }
         let!(:other_user) { create(:user, name: "Daisy O'connor", nickname: "daisy_o") }
-        let!(:user_group) do
-          create(
-            :user_group,
-            :verified,
-            name: "Daisy Organization",
-            nickname: "daysy_org",
-            organization:
-          )
-        end
 
         context "when no search term is provided" do
           it "returns an empty result set" do
