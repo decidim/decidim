@@ -47,8 +47,7 @@ $(() => {
           {
             users(filter:{wildcard:"${query}",excludeIds:[]})
               {
-                id,nickname,name,avatarUrl,__typename,...on User{
-                  directMessagesEnabled
+                id,nickname,name,avatarUrl,__typename,directMessagesEnabled
                 }
               }
           }`
