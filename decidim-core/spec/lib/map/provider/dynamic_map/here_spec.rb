@@ -79,7 +79,7 @@ module Decidim
                 expect(subject.builder_options).to eq(
                   marker_color: "#e02d2d",
                   tile_layer: {
-                    api_key: %w(appid123 secret456),
+                    api_key: "appid123secret456",
                     foo: "bar",
                     language: "en"
                   }
