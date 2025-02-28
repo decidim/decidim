@@ -13,11 +13,13 @@ export default function generateTimePicker(input, row, formats) {
   const time = document.createElement("input");
   time.setAttribute("id", `${input.id}_time`);
   time.setAttribute("type", "text");
+  time.setAttribute("aria-label", `Enter ${input.id.split("_").join(" ")}`);
 
   const clock = document.createElement("button");
   clock.innerHTML = icon("time-line")
   clock.setAttribute("class", "datepicker__clock-button");
   clock.setAttribute("type", "button");
+  clock.setAttribute("aria-label", "Open time picker");
 
   timeColumn.appendChild(time);
   timeColumn.appendChild(clock);
