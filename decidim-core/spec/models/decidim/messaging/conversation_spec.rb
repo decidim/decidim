@@ -70,28 +70,5 @@ describe Decidim::Messaging::Conversation do
         end
       end
     end
-
-    context "when the originator is a group" do
-      let(:originator) { create(:user_group, :confirmed, :verified, organization: interlocutor.organization) }
-      let(:from) { create(:user) }
-
-      it "creates receipts for all participants" do
-        expect(receipts.count).to eq(2)
-      end
-
-      it "creates an unread receipt for the interlocutor" do
-        interlocutor_receipts = receipts.recipient(interlocutor)
-
-        expect(interlocutor_receipts.size).to eq(1)
-        expect(interlocutor_receipts.first).to have_attributes(read_at: nil)
-      end
-
-      it "creates a read receipt for originator" do
-        originator_receipts = receipts.recipient(originator)
-
-        expect(originator_receipts.size).to eq(1)
-        expect(originator_receipts.first).not_to have_attributes(read_at: nil)
-      end
-    end
   end
 end
