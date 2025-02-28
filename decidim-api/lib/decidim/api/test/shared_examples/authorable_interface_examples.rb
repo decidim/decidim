@@ -30,19 +30,6 @@ shared_examples_for "authorable interface" do
       end
     end
 
-    describe "with a confirmed user group" do
-      let(:user_group) { create(:user_group, :confirmed, organization: model.participatory_space.organization) }
-      let(:query) { "{ author { name } }" }
-
-      before do
-        model.update(author: user_group)
-      end
-
-      it "includes the user group's name" do
-        expect(response["author"]["name"]).to eq(user_group.name)
-      end
-    end
-
     describe "with an organization" do
       let(:organization) { model.participatory_space.organization }
       let(:query) { "{ author { name } }" }

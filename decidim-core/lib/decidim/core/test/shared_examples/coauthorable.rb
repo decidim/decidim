@@ -6,7 +6,7 @@ shared_examples_for "coauthorable" do
   describe "authorable interface" do
     let!(:creator_author) { coauthorable.authors.first }
     let(:other_authors) { create_list(:user, 5, organization: coauthorable.component.participatory_space.organization) }
-    let(:other_user_groups) { create_list(:user_group, 5, :verified, organization: creator_author.organization) }
+    let(:official_author) { creator_author.organization }
 
     describe "authors" do
       context "when there is one author" do
@@ -72,17 +72,15 @@ shared_examples_for "coauthorable" do
             coauthorable.add_coauthor(author)
           end
 
-          other_user_groups.each do |user_group|
-            coauthorable.add_coauthor(
-              user_group
-            )
-          end
+          coauthorable.add_coauthor(
+            official_author
+          )
         end
 
         it "returns an array of identities" do
           identities = [creator_author]
           identities += other_authors
-          identities += other_user_groups
+          identities += [official_author]
           expect(coauthorable.identities.to_a).to match_array(identities)
         end
       end
