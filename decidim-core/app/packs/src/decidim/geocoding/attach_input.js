@@ -60,6 +60,9 @@ import getCoordinateInputName from "src/decidim/geocoding/coordinate_input"
 
 export default function attachGeocoding($input, options, callback) {
   const attachOptions = $.extend({}, options);
+  if (!$input.attr("id")) {
+    return;
+  };
   const inputIdParts = $input.attr("id").split("_");
   inputIdParts.pop();
 
