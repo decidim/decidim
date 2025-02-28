@@ -359,14 +359,6 @@ FactoryBot.define do
       end
     end
 
-    trait :user_group_author do
-      after :build do |proposal, evaluator|
-        proposal.coauthorships.clear
-        user_group = create(:user_group, :verified, organization: proposal.component.participatory_space.organization, skip_injection: evaluator.skip_injection)
-        proposal.coauthorships.build(author: user_group)
-      end
-    end
-
     trait :official do
       after :build do |proposal|
         proposal.coauthorships.clear

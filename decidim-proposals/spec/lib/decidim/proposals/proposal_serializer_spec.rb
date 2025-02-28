@@ -128,23 +128,6 @@ module Decidim
               expect(serialized[:author]).to include(url: urls)
             end
           end
-
-          context "when it is a user group" do
-            let!(:proposal) { create(:proposal, :user_group_author) }
-
-            before do
-              proposal.coauthorships.first.user_group.update!(name: "ACME", nickname: "acme")
-              proposal.reload
-            end
-
-            it "serializes the user name of the user group" do
-              expect(serialized[:author]).to include(name: ["ACME"])
-            end
-
-            it "serializes the link to the profile of the user group" do
-              expect(serialized[:author]).to include(url: [profile_url("acme")])
-            end
-          end
         end
 
         it "serializes the title" do
