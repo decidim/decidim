@@ -51,12 +51,6 @@ module Decidim
         end
       end
 
-      def groups_count
-        comments_authors.count do |author|
-          author.is_a?(Decidim::User) && author.group?
-        end
-      end
-
       private
 
       def comments_authors
