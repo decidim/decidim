@@ -8,8 +8,5 @@ module Decidim
     autoload :HashtagRenderer, "decidim/content_renderers/hashtag_renderer"
     autoload :LinkRenderer, "decidim/content_renderers/link_renderer"
     autoload :ResourceRenderer, "decidim/content_renderers/resource_renderer"
-
-    # Render groups and regular users the same way
-    class UserGroupRenderer < UserRenderer; end
   end
 end
