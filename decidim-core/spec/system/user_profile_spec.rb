@@ -85,14 +85,12 @@ describe "Profile" do
     context "when displaying followers and following" do
       let(:other_user) { create(:user, organization: user.organization) }
       let(:user_to_follow) { create(:user, organization: user.organization) }
-      let(:user_group) { create(:user_group, organization: user.organization) }
       let(:public_resource) { create(:dummy_resource, :published) }
 
       before do
         create(:follow, user:, followable: other_user)
         create(:follow, user:, followable: user_to_follow)
         create(:follow, user: other_user, followable: user)
-        create(:follow, user:, followable: user_group)
         create(:follow, user:, followable: public_resource)
       end
 
@@ -100,7 +98,7 @@ describe "Profile" do
         visit decidim.profile_path(user.nickname)
         within(".profile__details") do
           expect(page).to have_content("1 follower")
-          expect(page).to have_content("3 follows")
+          expect(page).to have_content("2 follows")
         end
       end
 
@@ -119,7 +117,6 @@ describe "Profile" do
         expect(page).to have_no_content("Some of the resources followed are not public.")
         expect(page).to have_content(translated(other_user.name))
         expect(page).to have_content(translated(user_to_follow.name))
-        expect(page).to have_content(translated(user_group.name))
         expect(page).to have_no_content(translated(public_resource.title))
         expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
       end
@@ -134,14 +131,13 @@ describe "Profile" do
         it "lists only the public followings" do
           visit decidim.profile_path(user.nickname)
           within(".profile__details") do
-            expect(page).to have_content("4 follows")
+            expect(page).to have_content("3 follows")
           end
 
           click_on "Follows"
           expect(page).to have_content("Some of the resources followed are not public.")
           expect(page).to have_content(translated(other_user.name))
           expect(page).to have_content(translated(user_to_follow.name))
-          expect(page).to have_content(translated(user_group.name))
           expect(page).to have_no_content(translated(public_resource.title))
           expect(page).to have_no_content(translated(non_public_resource.name))
         end
@@ -161,7 +157,6 @@ describe "Profile" do
           expect(page).to have_content("Some of the resources followed are not public.")
           expect(page).to have_content(translated(other_user.name))
           expect(page).to have_content(translated(user_to_follow.name))
-          expect(page).to have_content(translated(user_group.name))
           expect(page).to have_no_content(translated(public_resource.title))
         end
       end

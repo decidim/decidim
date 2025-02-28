@@ -13,8 +13,8 @@ module Decidim
 
       let(:current_user) { create(:user, organization: current_organization) }
       let(:user) { create(:user, :confirmed, organization: current_organization) }
-      let(:user_group) { create(:user_group, :confirmed, organization: current_organization) }
-      let!(:models) { [user, user_group] }
+      let(:other_user) { create(:user, :confirmed, organization: current_organization) }
+      let!(:models) { [user, other_user] }
 
       context "when sorting by user id" do
         include_examples "collection has input sort", "users", "id"
