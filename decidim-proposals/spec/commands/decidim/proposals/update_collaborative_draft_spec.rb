@@ -22,10 +22,6 @@ module Decidim
       let!(:collaborative_draft) { create(:collaborative_draft, component:, users: [author]) }
       let(:author) { create(:user, organization:) }
 
-      let(:user_group) do
-        create(:user_group, :confirmed, :verified, organization:)
-      end
-
       let(:has_address) { false }
       let(:address) { nil }
       let(:latitude) { 40.1234 }

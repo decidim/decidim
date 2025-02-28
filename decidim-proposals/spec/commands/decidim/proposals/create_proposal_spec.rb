@@ -123,34 +123,6 @@ module Decidim
             end
           end
 
-          context "with a user group" do
-            let(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
-            let(:author) { user_group }
-
-            it "sets the user group" do
-              command.call
-              proposal = Decidim::Proposals::Proposal.last
-              creator = proposal.creator
-
-              expect(creator.author).to eq(user_group)
-              expect(creator.user_group).to eq(user_group)
-            end
-
-            context "with a proposal limit" do
-              let(:component) do
-                create(:proposal_component, settings: { "proposal_limit" => 2 })
-              end
-
-              before do
-                create_list(:proposal, 2, component:, users: [author])
-              end
-
-              it "checks the user group does not exceed the amount of proposals" do
-                expect { command.call }.to broadcast(:invalid)
-              end
-            end
-          end
-
           describe "the proposal limit excludes withdrawn proposals" do
             let(:component) do
               create(:proposal_component, settings: { "proposal_limit" => 1 })
@@ -167,23 +139,6 @@ module Decidim
 
                 user_proposal_count = Decidim::Coauthorship.where(author:, coauthorable_type: "Decidim::Proposals::Proposal").count
                 expect(user_proposal_count).to eq(2)
-              end
-            end
-
-            describe "when the author is a user_group" do
-              let(:user_group) { create(:user_group, :confirmed, :verified, organization:) }
-              let(:author) { user_group }
-
-              before do
-                create(:proposal, :withdrawn, users: [author], component:)
-              end
-
-              it "checks the user_group does not exceed the amount of proposals" do
-                expect { command.call }.to broadcast(:ok)
-                expect { command.call }.to broadcast(:invalid)
-
-                user_group_proposal_count = Decidim::Coauthorship.where(author:, coauthorable_type: "Decidim::Proposals::Proposal").count
-                expect(user_group_proposal_count).to eq(2)
               end
             end
           end
