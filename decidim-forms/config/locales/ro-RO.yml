@@ -84,7 +84,7 @@ ro:
             title: Actualizați chestionarul pentru %{questionnaire_for}
           matrix_row:
             matrix_row: Rând
-            remove: Elimină
+            remove: Eliminați
             statement: Declarație
           question:
             add_answer_option: Adaugă opțiune de răspuns
