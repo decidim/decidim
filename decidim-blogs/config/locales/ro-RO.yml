@@ -18,10 +18,10 @@ ro:
   decidim:
     blogs:
       actions:
-        author_id: Creează postare ca
+        author_id: Creeați postare ca
         confirm_destroy: Sunteți sigur că doriți să ștergeți această postare?
         destroy: Ștergeți
-        edit: Editați
+        edit: Modificați
         new: Postare nouă
         title: Acțiuni
       admin:
@@ -73,7 +73,7 @@ ro:
     components:
       blogs:
         actions:
-          comment: Comentariu
+          comment: Comentați
           create: Creați
           destroy: Ștergeți
           endorse: Susțineți
