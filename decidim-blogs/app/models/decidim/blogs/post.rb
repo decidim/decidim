@@ -48,7 +48,7 @@ module Decidim
         end
       end
 
-      # Returns the presenter for this author, to be used in the views.
+      # Returns the presenter for this BlogPost, to be used in the views.
       # Required by ResourceRenderer.
       def presenter
         Decidim::Blogs::PostPresenter.new(self)
