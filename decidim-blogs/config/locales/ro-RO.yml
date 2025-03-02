@@ -21,10 +21,10 @@ ro:
           posts: Postări
     blogs:
       actions:
-        author_id: Creează postare ca
+        author_id: Creeați postare ca
         confirm_delete_post: Sunteți sigur că doriți să ștergeți această postare?
         deleted_posts_info: Postările șterse pot fi restaurate din gunoi.
-        edit: Editați
+        edit: Modificați
         new: Postare nouă
         title: Acțiuni
         view_deleted_posts: Vizualizați postările șterse
@@ -98,7 +98,7 @@ ro:
     components:
       blogs:
         actions:
-          comment: Comentariu
+          comment: Comentați
           create: Creați
           destroy: Ștergeți
           endorse: Susțineți
