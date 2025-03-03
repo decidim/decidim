@@ -25,6 +25,8 @@ module Decidim
         end
 
         version.update_columns(old_object_changes: nil, object_changes:) # rubocop:disable Rails/SkipsModelValidations
+      rescue NameError
+        Rails.logger.info "Skipping History of #{version.item_type} with id #{version.item_id}"
       end
     end
   end
