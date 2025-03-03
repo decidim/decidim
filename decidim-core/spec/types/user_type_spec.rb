@@ -98,7 +98,7 @@ module Decidim
       end
 
       describe "directMessagesEnabled" do
-        let(:query) { "{ directMessagesEnabled }" }
+        let(:query) { "{ ...on User { directMessagesEnabled } }" }
 
         it "returns the direct messages status" do
           expect(response).to include("directMessagesEnabled" => "true")
