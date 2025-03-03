@@ -332,7 +332,6 @@ nl:
             assign_to_valuator_button: Toewijzen
             cancel: Annuleer
             merge: Samenvoegen met een nieuwe
-            merge_button: Samensmelten
             publish: Publiceren
             publish_answers: Antwoorden publiceren
             select_component: Selecteer een component
@@ -378,7 +377,6 @@ nl:
       admin_log:
         proposal:
           answer: "%{user_name} beantwoordde het voorstel %{resource_name} op de %{space_name} ruimte"
-          create: "%{user_name} heeft het voorstel %{resource_name} op de %{space_name} ruimte als officieel voorstel gemaakt"
           publish_answer: "%{user_name} publiceerde het antwoord op het %{resource_name} voorstel in de %{space_name} ruimte"
           update: "%{user_name} heeft het %{resource_name} officiële voorstel op de %{space_name} ruimte bijgewerkt"
         proposal_note:

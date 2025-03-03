@@ -349,7 +349,6 @@ tr:
             assign_to_valuator_button: Ata
             cancel: İptal Et
             merge: Yeni biriyle birleştir
-            merge_button: Birleştir
             publish: Yayınla
             publish_answers: Cevapları yayınla
             select_component: Bir bileşen seç
@@ -396,7 +395,6 @@ tr:
       admin_log:
         proposal:
           answer: "%{user_name}, %{space_name} alanında %{resource_name} teklifini yanıtladı"
-          create: "%{user_name}, %{resource_name} teklifini %{space_name} alanında resmi bir teklif olarak oluşturdu"
           publish_answer: "%{user_name}, %{resource_name} teklifinin cevabını %{space_name} alanında yayınladı"
           update: "%{user_name}, %{space_name} alanda %{resource_name} resmi öneriyi güncelledi"
         proposal_note:

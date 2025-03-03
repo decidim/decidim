@@ -370,7 +370,6 @@ zh-TW:
             assign_to_valuator_button: 指派
             cancel: 取消
             merge: 合併為新提案
-            merge_button: 合併
             publish: 發布
             publish_answers: 發佈回應
             select_component: 選擇一個元件
@@ -425,7 +424,6 @@ zh-TW:
       admin_log:
         proposal:
           answer: "%{user_name} 回覆了在 %{space_name} 空間的 %{resource_name} 提案。"
-          create: "%{user_name} 在%{space_name} 空間中創建了官方提案%{resource_name}"
           publish_answer: "%{user_name} 在%{space_name} 空間中發表了對%{resource_name} 提案的回答"
           update: "%{user_name} 在%{space_name} 空間中更新了%{resource_name} 官方提案"
         proposal_note:

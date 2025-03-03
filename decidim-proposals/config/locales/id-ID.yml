@@ -232,7 +232,6 @@ id:
             actions: Tindakan
             cancel: Membatalkan
             merge: Bergabunglah dengan yang baru
-            merge_button: Menggabungkan
             publish: Menerbitkan
             select_component: Pilih komponen
             selected: terpilih
@@ -260,7 +259,6 @@ id:
       admin_log:
         proposal:
           answer: "%{user_name} menjawab %{resource_name} proposal pada %{space_name} ruang"
-          create: "%{user_name} membuat %{resource_name} proposal pada %{space_name} ruang sebagai proposal resmi"
           update: "%{user_name} memperbarui %{resource_name} proposal resmi pada %{space_name} ruang"
         proposal_note:
           create: "%{user_name} meninggalkan catatan pribadi pada %{resource_name} proposal pada %{space_name} ruang"

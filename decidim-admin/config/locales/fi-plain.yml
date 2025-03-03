@@ -741,6 +741,7 @@ fi-pl:
             does_not_belong: Ei kuulu
             hidden_during_block: Piilotettu käyttäjän piilotuksen yhteydessä
             offensive: Loukkaava
+            parent_hidden: Isäntäsisältö on piilotettu
             spam: Roskaposti
         reports:
           index:
