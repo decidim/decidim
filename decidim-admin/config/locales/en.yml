@@ -97,7 +97,6 @@ en:
         time_zone: Time Zone
         tos_version: Terms of service version
         twitter_handler: X handler
-        user_groups_enabled: Enable groups
         users_registration_mode: Users registration mode
         warning_color: Warning
         welcome_notification_body: Welcome notification body
