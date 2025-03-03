@@ -79,6 +79,7 @@ ja:
         with_participatory_space: 参加型スペース
       decidim/user:
         current_password: 現在のパスワード
+        email: メールアドレス
         name: アカウントID
         password: パスワード
         password_confirmation: パスワードの確認
@@ -243,6 +244,8 @@ ja:
         manage: "%{user_name} は %{reason} により %{resource_name} を管理しています。"
       moderation:
         bulk_hide: "%{user_name} が %{reported_count} リソースを非表示にしました"
+        bulk_unhide: "%{user_name} が %{reported_count} 件のリソースの非表示を解除しました"
+        bulk_unreport: "%{user_name} が %{reported_count} 件のリソースの報告を解除しました"
         hide: "%{user_name} が %{resource_type} タイプのリソースを %{space_name} スペースに隠しました"
         unreport: "%{user_name} は %{resource_type} タイプの %{space_name} スペースのリソースを報告していません"
       newsletter:
@@ -290,8 +293,18 @@ ja:
         delete_with_parent: "%{user_name} が タクソノミー %{parent_taxonomy} 内のタクソノミー %{resource_name} を削除しました"
         update: "%{user_name} がタクソノミー %{resource_name} を更新しました"
         update_with_parent: "%{user_name} が タクソノミー %{parent_taxonomy} 内のタクソノミー %{resource_name} を更新しました"
+      taxonomy_filter:
+        create: "%{user_name} がフィルター %{resource_name} を作成しました"
+        create_with_filter_info: '%{user_name} がタクソノミー "%{taxonomy_name}" に基づくフィルター %{resource_name}（%{filter_items_count} 項目）を作成しました'
+        delete: "%{user_name} がフィルター %{resource_name} を削除しました"
+        delete_with_filter_info: '%{user_name} がタクソノミー "%{taxonomy_name}" に基づくフィルター %{resource_name}（%{filter_items_count} 項目）を削除しました'
+        update: "%{user_name} がフィルター %{resource_name} を更新しました"
+        update_with_filter_info: '%{user_name} がタクソノミー "%{taxonomy_name}" に基づくフィルター %{resource_name}（%{filter_items_count} 項目）を更新しました'
       user:
         block: "%{user_name} がユーザー %{resource_name} をブロックしました"
+        bulk_block: "%{user_name} が %{blocked_count} ユーザーをブロックしました"
+        bulk_ignore: "%{user_name} が %{unreported_users_count} 件のユーザーの通報を解除しました"
+        bulk_unblock: "%{user_name} が %{unblocked_count} ユーザーのブロックを解除しました"
         invite: "%{user_name} が参加者 %{resource_name} をロール %{role} で招待しました"
         officialize: "%{user_name} が参加者 %{resource_name} を公式化しました"
         promote: "%{user_name} が %{resource_name} を昇格しました"
@@ -302,6 +315,9 @@ ja:
         unofficialize: "%{user_name} が参加者 %{resource_name} を非公式にしました"
       user_group:
         block: "%{user_name} がユーザーグループ %{resource_name} をブロックしました"
+        bulk_block: "%{user_name} が %{blocked_count} ユーザーをブロックしました"
+        bulk_ignore: "%{user_name} が %{unreported_users_count} 件のユーザーの通報を解除しました"
+        bulk_unblock: "%{user_name} が %{unblocked_count} ユーザーのブロックを解除しました"
         reject: "%{user_name} が %{resource_name} グループの確認を拒否しました"
         unblock: "%{user_name} がユーザーグループ %{resource_name} のブロックを解除しました"
         verify: "%{user_name} がグループ %{resource_name} を確認しました"
@@ -425,6 +441,13 @@ ja:
       dummy_authorization_workflow:
         explanation: ダミー認証ワークフロー
         name: ダミー認証ワークフロー
+      ephemeral_dummy_authorization_handler:
+        explanation: '「X」で終わる本人確認書類の番号を導入して認証を受けましょう。'
+        fields:
+          allowed_postal_codes: 許可する郵便番号 (コンマ区切り)
+          document_number: 本人確認書類の番号
+          postal_code: 郵便番号
+        name: 一時的な認可サンプル
       errors:
         duplicate_authorization: 同じデータを持つ参加者はすでに承認されています。管理者があなたの詳細を確認するために連絡します。
       expired_at: '%{timestamp} で期限切れ'
@@ -524,6 +547,8 @@ ja:
             dummy_step_attribute1: ダミーステップ属性１
             dummy_step_attribute2: ダミーステップ属性2
             dummy_step_translatable_text: ダミーフェーズ翻訳可能なテキスト
+      pagination:
+        page_title: "%{component_name} - %{current_page} / %{total_pages} ページ"
     contact: お問い合わせ
     content_blocks:
       announcement:
@@ -632,10 +657,12 @@ ja:
           username_help: 投稿に表示される公表名。匿名性を保証する目的で、任意の名前にすることができます。
       sessions:
         new:
+          are_you_new?: 未登録の方はこちら
           register: アカウントを作成
           sign_in_disabled: 外部アカウントでアクセスできます。
           sign_up_disabled: アカウントの作成が無効になっています。既存のアカウントを使用してアクセスできます。
         user:
+          ephemeral_session_closed: ゲストセッションが終了しました
           timed_out: 長時間非アクティブであり、自動的にサービスからログアウトされました。 引き続きサービスをご利用いただく場合は、再度ログインしてください。
       shared:
         newsletter_modal:
@@ -650,6 +677,8 @@ ja:
             それでもニュースレターの受信を避けたい場合は、私たちはその決定を尊重します。 </p>
             <p>お読みいただきありがとうございます。</p>
           title: ニュースレター通知
+        omniauth_buttons:
+          or: または
         password_fields:
           hidden_password: あなたのパスワードは非表示です
           hide_password: パスワードを隠す
@@ -677,9 +706,55 @@ ja:
       export:
         ready: 準備完了
       help:
+        core:
+          description: これらはユーザー %{user_name} の個人データ、投稿、および活動を含むファイルです
+          title: '%{organization} からデータファイルをダウンロード'
         follows:
+          created_at: フォローの作成日時
+          followable: フォローされているリソースまたはスペース
           id: フォローの固有ID
+          updated_at: フォローの最終更新日時
+        identities:
+          created_at: アイデンティティの作成日時
+          id: このアイデンティティの固有ID
+          provider: このアイデンティティのプロバイダー
+          uid: このアイデンティティの固有ID
+          updated_at: アイデンティティの最後更新日時
+          user: このアイデンティティが所属するユーザー
+        messaging_conversations:
+          created_at: この会話の作成日時
+          id: この会話の固有ID
+          messages: この会話のメッセージ
+          updated_at: この会話の最終更新日時
+        notifications:
+          created_at: 通知の作成日時
+          event_class: 通知をトリガーしたイベントのクラス
+          event_name: 通知をトリガーしたイベントの名前
+          extra: この通知の追加情報
+          id: この通知の固有ID
+          resource_type: 通知に関連するリソースの種類
+          updated_at: 通知の最終更新日時
+        reports:
+          reason: レポートの理由
+          updated_at: レポートの最終更新日時
+        user_groups:
+          document_number: ユーザーグループのドキュメント番号
+          id: ユーザーグループの固有ID
+          name: ユーザーグループの名前
+          phone: ユーザーグループの電話番号
+          verified_at: ユーザーグループが認証された日時
         users:
+          about: ユーザーの説明
+          accepted_tos_version: プラットフォームの利用規約がユーザーに承諾された日時
+          admin: このユーザーが管理者であるかどうか
+          confirmation_sent_at: 確認の送信日時
+          confirmed_at: このユーザーが確認された日時
+          created_at: ユーザーの作成日時
+          current_sign_in_at: 現在のログイン日時
+          current_sign_in_ip: 現在のログインのIPアドレス
+          delete_reason: このユーザーの削除理由
+          deleted_at: このユーザーの削除日時
+          email: このユーザーのメールアドレス
           invitations_count: このユーザーに送信された招待の数
           invited_by: このユーザーを招待したユーザー
           last_sign_in_at: 最終ログイン日時
@@ -688,8 +763,16 @@ ja:
           managed: このユーザーが別のユーザーによって管理されているかどうか
           name: ユーザー名
           notification_settings: このユーザーが選択した通知設定
+          personal_url: このユーザーの個人URL
+          remember_created_at: ユーザーが記憶するように選択した日時
+          reset_password_sent_at: パスワードリセットの送信日時
+          roles: このユーザーが持っている役割
+          sign_in_count: このユーザーがログインした回数
+          type: このユーザーが持っているタイプ
       show:
         action: アクション
+        download: ダウンロードファイル
+        download_data: データダウンロード
         download_data_description_1: あなたのアカウントで利用可能なすべてのダウンロードを見つけることができます。これらの.zipファイルは削除される2週間前に利用可能になります。
         download_data_description_2: 提出物と個人データを含む .zip ファイルをリクエストできます。
         download_your_data: 個人データ
@@ -718,6 +801,7 @@ ja:
       others: "%{count} 以上"
       title: オススメ
       you: あなた
+    ephemeral_user: 訪問者
     errors:
       files:
         file_cannot_be_processed: ファイルを処理できません
@@ -1125,6 +1209,8 @@ ja:
         unknown_action_with_space: "%{user_name} が %{resource_name} で %{space_name} にアクションを実行しました"
         unpublish_with_space: "%{user_name} が %{space_name} の %{resource_name} を非公開にしました"
         update: "%{user_name} が %{resource_name} を更新しました"
+        update_filters: "%{user_name} が %{resource_name} のフィルターを更新しました"
+        update_filters_with_space: "%{user_name} が %{space_name} の %{resource_name} のフィルターを更新しました"
         update_permissions_with_space: "%{user_name} が %{space_name} の %{resource_name} の権限を更新しました"
         update_with_space: "%{user_name} さんが %{resource_name} で %{space_name} を更新しました"
       value_types:
@@ -1230,6 +1316,8 @@ ja:
         not_started: まだ開始していません
         remaining: "残り %{time_distance}"
     metrics:
+      blocked_users:
+        description: ブロックされた参加者数
       download:
         csv: ダウンロードデータ(CSV)
       followers:
@@ -1240,6 +1328,10 @@ ja:
         description: 組織内のアクティブな参加者数
         object: 参加者
         title: 参加者
+      reported_users:
+        description: 報告された参加者数
+      user_reports:
+        description: 参加者によって行われた報告数
       users:
         description: 組織の参加者数
         object: 参加者
@@ -1305,10 +1397,12 @@ ja:
     notifications_digest_mailer:
       header:
         daily: 日次の通知のダイジェスト
+        real_time: リアルタイム
         weekly: 週次の通知のダイジェスト
       hello: こんにちは %{name} さん、
       intro:
         daily: 'あなたがフォローしているアクティビティに基づいた最終日以降の通知です:'
+        real_time: 'これらはあなたが以下のアクティビティについての通知です：'
         weekly: 'これらは、あなたがフォローしているアクティビティに基づいた先週以降の通知です:'
       outro: このコンテンツまたは著者をフォローしているため、これらの通知を受け取りました。それぞれのページからフォローを解除できます。
       see_more: 他の通知を見る
@@ -1350,11 +1444,13 @@ ja:
     onboarding_action_message:
       click_link: ここをクリックして下さい
       cta_html: <a href="%{path}">%{link_text}</a> をクリックして、%{resource_name}「<strong>%{resource_title}</strong>」で%{action}を行ってください。
+      ephemeral_authorized_message: 正常に許可されました。<br/>ゲストセッションを開始しました。これで参加できます。
       expired_authorization_active_title: 認証の有効期限が切れました。
       finish_authorization_process: 認証プロセスを完了できます
       incomplete_authorization_active_title: 必要な情報がすべて記載されていないため、検証が完了していません。
       pending_authorization_active_message: このアクションを続行するには、フォームに記入してください。
       pending_authorization_active_title: 本人確認が必要です。
+      pending_ephemeral_authorization: 続行するには本人確認を行ってください。
     open_data:
       help:
         core:
@@ -1385,6 +1481,19 @@ ja:
           reported_content: 通報されたコンテンツ
           reported_url: 通報されたリソースの url
           reports: リソースが通報された理由のリスト
+        taxonomies:
+          children_count: このタクソノミーに含まれる子要素の数
+          created_at: タクソノミーの作成日時
+          filter_items_count: このタクソノミーを使用しているフィルターのアイテム数
+          filters_count: このタクソノミーを使用しているフィルター数
+          id: このタクソノミーの固有ID
+          is_root: このタクソノミーが親を持たない場合は True
+          name: このタクソノミーの名前
+          parent_id: このタクソノミーの親の固有ID(もしあれば)
+          part_of: このタクソノミが他のタクソノミの一部であるかどうかを検出するために使用されます
+          taxonomizations_count: このタクソノミーを使用するリソースの数
+          updated_at: このタクソノミーの最終更新日時
+          weight: このタクソノミーが表示される順序
         user_groups:
           avatar_url: ユーザーグループのアバター
           badge: ユーザーグループのバッジ
@@ -1582,6 +1691,8 @@ ja:
       create:
         error: レポートの作成中に問題が発生しました。もう一度やり直してください。
         success: レポートは正常に作成され、管理者によってレビューされます。
+      parent_hidden:
+        report_details: 親リソースは非表示
     resource:
       controls_label: リソースコントロール
     resource_endorsements:
@@ -1688,6 +1799,7 @@ ja:
       no_stats: 統計情報はまだありません。
       pages_count: ページ
       participants_count: 参加者
+      surveys_count: 調査
       users_count: 参加者
     tags:
       filter_results_for_taxonomy: '%{resource} の検索結果'
@@ -2079,6 +2191,8 @@ ja:
         sign_up: アカウントを作成
         terms_of_service: 利用規約
       header:
+        close: 閉じる
+        confirm_close_ephemeral_session: このページから移動すると、セッションは閉じられます。よろしいですか？
         log_in: ログイン
         main_menu: メインメニュー
         user_menu: ユーザーメニュー
@@ -2088,6 +2202,8 @@ ja:
         expire_time_html: このログインセッションは <b><span class="minutes">%{minutes}</span> 分後に無効になります。</b>.
       language_chooser:
         choose_language: 言語を選択
+      navigation:
+        aria_label: 'ナビゲーションメニュー: %{title}'
       notifications_dashboard:
         mark_all_as_read: すべての通知を削除する
         mark_as_read: 既読にする
