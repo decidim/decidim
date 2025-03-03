@@ -513,6 +513,16 @@ en:
         exports:
           proposal_comments: Comments
           proposals: Proposals
+        import_proposals_mailer:
+          notify_failure:
+            body: There was a problem while importing proposals from the %{origin_component_name} component to the %{target_component_name} component.
+            subject: There was an error importing proposals
+          notify_success:
+            added_proposals:
+              one: One proposal was imported.
+              other: "%{count} proposals were imported."
+            body: Successful imported proposals from the %{origin_component_name} component to the %{target_component_name} component. You can review the results in the administration interface.
+            subject: The proposals have been imported successfully
         imports:
           help:
             answers: |
@@ -684,7 +694,7 @@ en:
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals.
-            success: "%{number} proposals successfully imported."
+            success: The import process has started. We will let you know once it has finished.
           new:
             create: Import proposals
             no_components: There are no other proposal components in this participatory space to import the proposals from.
