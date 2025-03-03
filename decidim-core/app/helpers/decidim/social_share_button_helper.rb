@@ -6,9 +6,7 @@ module Decidim
     def social_share_button_tag(title, args)
       return unless enabled_services.length.positive?
 
-      content_tag :div, class: "share-modal__list", data: { social_share: "" } do
-        render_social_share_buttons(enabled_services, title, args)
-      end
+      render_social_share_buttons(enabled_services, title, args)
     end
 
     def render_social_share_buttons(services, title, args)

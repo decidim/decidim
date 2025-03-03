@@ -3,11 +3,20 @@
     <h2 tabindex="-1" data-dialog-title><%= t("share", scope: "decidim.shared.share_modal") %></h2>
 
     <div>
-      <%= social_share_button_tag(decidim_page_title,
-                                  url: resource_url,
-                                  image: decidim_meta_image_url,
-                                  desc: decidim_html_escape(decidim_meta_description || ""),
-                                  via: decidim_meta_twitter_handler) %>
+
+      <div class="share-modal__list" data-social_share>
+        <%= social_share_button_tag(decidim_page_title,
+                                    url: resource_url,
+                                    image: decidim_meta_image_url,
+                                    desc: decidim_html_escape(decidim_meta_description || ""),
+                                    via: decidim_meta_twitter_handler) %>
+
+        <%= render_social_share_button(Decidim.social_share_services_registry.find("QR"), decidim_page_title,
+                                       url: resource_url,
+                                       image: decidim_meta_image_url,
+                                       desc: decidim_html_escape(decidim_meta_description || ""),
+                                       via: decidim_meta_twitter_handler) %>
+      </div>
 
       <p><%= t("copy_share_link_cta", scope: "decidim.shared.share_modal") %></p>
       <div class="share-modal__input">

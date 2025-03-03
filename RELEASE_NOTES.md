@@ -48,29 +48,7 @@ bin/rails decidim:upgrade:clean:hidden_resources
 
 You can read more about this change on PR [#13554](https://github.com/decidim/decidim/pull/13554).
 
-### 2.2. Add Share via QR
-
-As of this release we have added a new Social Share functionality, that enables you to share any Decidim resource via QR code, enabling you to generate and display any QR code.
-
-To enable this functionality, change your `DECIDIM_SOCIAL_SHARE_SERVICES` environment variable to include `QR`. If you don't have that variable set up, check your `config/secrets.yml` file, and change the key: `social_share_services` so that it includes QR.
-
-```yaml
-decidim_default: &decidim_default
-  # ...
-  social_share_services: <%= Decidim::Env.new("DECIDIM_SOCIAL_SHARE_SERVICES", "X, Facebook, WhatsApp, Telegram").to_array.to_json %>
-```
-
-Should become:
-
-```yaml
-decidim_default: &decidim_default
-  # ...
-  social_share_services: <%= Decidim::Env.new("DECIDIM_SOCIAL_SHARE_SERVICES", "X, Facebook, WhatsApp, Telegram, QR").to_array.to_json %>
-```
-
-You can read more about this change on PR [#14086](https://github.com/decidim/decidim/pull/14086).
-
-### 2.3. [[TITLE OF THE ACTION]]
+### 2.2. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
 
