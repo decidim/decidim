@@ -19,7 +19,7 @@ describe "rake decidim_proposals:fix:fix_state", type: :task do
     end
   end
 
-  context "when state_published_at is present" do
+  context "when state equivalent exists on proposal component" do
     let(:proposal) { create(:proposal, :unpublished, component: component1) }
 
     before do
