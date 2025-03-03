@@ -6,7 +6,7 @@ describe Decidim::ProfileCell, type: :cell do
   controller Decidim::ProfilesController
   subject { my_cell.call }
 
-  let(:organization) { create(:organization, user_groups_enabled: true) }
+  let(:organization) { create(:organization) }
   let(:user) { create(:user, :managed, organization:, blocked: false) }
   let(:context) { { content_cell: "decidim/badges" } }
   let(:my_cell) { cell("decidim/profile", user, context:) }
