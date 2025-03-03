@@ -21,6 +21,7 @@ module Decidim
         create_initiative?
         edit_public_initiative?
         update_public_initiative?
+        discard_initiative?
         print_initiative?
 
         vote_initiative?
@@ -85,6 +86,13 @@ module Decidim
       def update_public_initiative?
         return unless permission_action.subject == :initiative &&
                       permission_action.action == :update
+
+        toggle_allow(initiative&.created? && authorship_or_admin?)
+      end
+
+      def discard_initiative?
+        return unless permission_action.subject == :initiative &&
+                      permission_action.action == :discard
 
         toggle_allow(initiative&.created? && authorship_or_admin?)
       end
