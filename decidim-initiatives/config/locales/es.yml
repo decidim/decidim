@@ -89,7 +89,6 @@ es:
             label: Estado
             values:
               accepted: Con las firmas necesarias
-              created: Creada
               discarded: Descartada
               open: Abierta
               rejected: Sin las firmas necesarias
@@ -345,7 +344,6 @@ es:
           update: "%{user_name} ha actualizado el tipo de iniciativa %{resource_name}"
       admin_states:
         accepted: Ha conseguido las firmas necesarias
-        created: Creada
         discarded: Descartada
         open: Abierta
         rejected: No ha conseguido las firmas necesarias
@@ -375,39 +373,21 @@ es:
           name: Iniciativas destacadas
       create_initiative:
         fill_data:
-          back: Volver
           continue: Continuar
           fill_data_help: "<ul> <li>Revisa el contenido de tu iniciativa. ¿Tu título es fácil de entender? ¿Está claro el objetivo de tu iniciativa?</li> <li>Tienes que elegir el tipo de firma. En persona, en línea o una combinación de ambos</li> <li>¿Cuál es el alcance geográfico de la iniciativa?</li> </ul>"
-          more_information: "(Más información)"
           select_area: Selecciona un área
           select_scope: Selecciona un ámbito
         finish:
           back: Volver
-          back_to_initiatives: Volver a iniciativas
-          callout_text: '¡Enhorabuena! Tu iniciativa se ha creado correctamente.'
-          confirm: Vas a enviar la iniciativa para que una administradora la revise y publique. Una vez publicada no podrás editarla. ¿Estás segura?
-          edit_my_initiative: Editar mi iniciativa
-          go_to_my_initiatives: Ir a mis iniciativas
-          more_information: "(Más información)"
-          send_my_initiative: Enviar mi iniciativa a validación técnica
-        finish_help:
-          publish_helper_text: Recuerda que para que tu iniciativa sea publicada debes completar la información requerida y <strong>enviarla a validación técnica</strong> para que una administradora la revise.
         previous_form:
           back: Volver
-          continue: Continuar
-        promotal_committee:
-          individual_help_text: Este tipo de iniciativa ciudadana requiere un comité promotor compuesto por al menos %{committee_size} miembros (certificadores). Debes compartir el siguiente enlace con las demás personas que forman parte de esta iniciativa. Cuando tus contactos reciban este enlace, tendrán que seguir los pasos que se les indiquen.
-          more_information: "(Más información)"
         select_initiative_type:
           back: Volver
           choose_html: Quiero <strong>%{title}</strong>
           more_information: Más información
           new: Crea una nueva iniciativa
           select: Quiero promover esta iniciativa
-          select_initiative_type_help: Las iniciativas son un medio por el que las participantes pueden intervenir para que la organización emprenda acciones en defensa del interés general. ¿Qué iniciativa quieres lanzar?
           verification_required: Verifica tu cuenta para impulsar la iniciativa
-        share_committee_link:
-          invite_to_committee_help: Enlace para invitar a personas que formarán parte del Comisión Promotora.
       edit:
         accept: Aceptar la iniciativa
         back: Volver
@@ -591,7 +571,6 @@ es:
       show:
         badge_name:
           accepted: Con las firmas necesarias
-          created: Creada
           discarded: Descartada
           open: Abiertas
           rejected: No ha conseguido las firmas
@@ -647,8 +626,6 @@ es:
     decidim:
       initiative_creation_header:
         fill_data: Crear
-        finish: Terminar
-        promotal_committee: Comisión Promotora
         select_initiative_type: Escoger
       initiative_signature_creation_header:
         fill_personal_data: Completa tus datos
