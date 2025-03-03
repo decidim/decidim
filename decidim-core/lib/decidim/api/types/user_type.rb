@@ -9,7 +9,7 @@ module Decidim
       implements Decidim::Core::AuthorInterface
 
       field :avatar_url, GraphQL::Types::String, "The user's avatar url", null: false
-      field :badge, GraphQL::Types::String, "A badge for the user group", null: false
+      field :badge, GraphQL::Types::String, "A badge for the user", null: false
       field :deleted, GraphQL::Types::Boolean, "Whether the user's account has been deleted or not", null: false
       field :direct_messages_enabled, GraphQL::Types::String,
             null: false,
