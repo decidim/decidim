@@ -89,7 +89,6 @@ fi:
             label: Tila
             values:
               accepted: Tarpeeksi allekirjoituksia
-              created: Luotu
               discarded: Perutut
               open: Avoimet
               rejected: Liian vähän allekirjoituksia
@@ -345,7 +344,6 @@ fi:
           update: "%{user_name} päivitti aloitetyyppiä %{resource_name}"
       admin_states:
         accepted: Tarpeeksi allekirjoituksia
-        created: Luotu
         discarded: Peruttu
         open: Avoimet
         rejected: Liian vähän allekirjoituksia
@@ -375,39 +373,21 @@ fi:
           name: Tärkeimmät aloitteet
       create_initiative:
         fill_data:
-          back: Takaisin
           continue: Jatka
           fill_data_help: "<ul> <li>Tarkasta aloitteesi sisältö. Onko aloitteen otsikko helppo ymmärtää? Onko aloitteen tavoitteet tarpeeksi selkeästi kuvattu?</li> <li>Sinun on valittava allekirjoitustapa. Palvelun ulkopuolella, verkossa tai molemmat.</li> <li>Mikä on aloitteen maantieteellinen laajuus?</li> </ul>"
-          more_information: "(Lisää tietoa)"
           select_area: Valitse alue
           select_scope: Valitse teema
         finish:
           back: Takaisin
-          back_to_initiatives: Takaisin aloitteisiin
-          callout_text: Onnittelut! Aloitteen luominen onnistui.
-          confirm: Aloite lähetetään hallintakäyttäjän tarkastettavaksi ja julkaistavaksi. Julkaisun jälkeen et voi enää muokata aloitetta. Haluatko varmasti jatkaa?
-          edit_my_initiative: Muokkaa aloitettani
-          go_to_my_initiatives: Siirry omiin aloitteisiini
-          more_information: "(Lisää tietoa)"
-          send_my_initiative: Lähetä aloitteeni tekniseen tarkastukseen
-        finish_help:
-          publish_helper_text: Saadaksesi aloitteesi julkaistuksi, sinun tulee viimeistellä vaaditut tiedot ja <strong>lähettää aloite hallintakäyttäjän tekniseen tarkastukseen</strong>.
         previous_form:
           back: Takaisin
-          continue: Jatka
-        promotal_committee:
-          individual_help_text: Tämäntyyppinen aloite edellyttää, että kannatuskomitea koostuu vähintään %{committee_size} henkilöstä (todistajat). Sinun on jaettava seuraava linkki muiden tähän aloitteeseen osallistuvien ihmisten kanssa. Kun yhteyshenkilösi saavat tämän linkin, heidän on noudatettava esitettyjä ohjeita.
-          more_information: "(Lisää tietoa)"
         select_initiative_type:
           back: Takaisin
           choose_html: Haluan luoda uuden <strong>%{title}</strong> aloitteen
           more_information: Lisätietoa
           new: Luo uusi aloite
           select: Haluan tukea tätä aloitetta
-          select_initiative_type_help: Aloitteita käytetään vaikuttamiseen organisaation tarkoitusperien edistämiseksi. Millaisen aloitteen haluat aloittaa?
           verification_required: Vahvista tilisi allekirjoittaaksesi tämän aloitteen
-        share_committee_link:
-          invite_to_committee_help: Kutsulinkki lähetettäväksi kannatuskomitean jäsenille
       edit:
         accept: Hyväksy aloite
         back: Takaisin
@@ -591,7 +571,6 @@ fi:
       show:
         badge_name:
           accepted: Tarpeeksi allekirjoituksia
-          created: Luotu
           discarded: Peruttu
           open: Avoimet
           rejected: Liian vähän allekirjoituksia
@@ -647,8 +626,6 @@ fi:
     decidim:
       initiative_creation_header:
         fill_data: Luo
-        finish: Viimeistele
-        promotal_committee: Kannatuskomitea
         select_initiative_type: Valitse
       initiative_signature_creation_header:
         fill_personal_data: Täydennä tietosi
