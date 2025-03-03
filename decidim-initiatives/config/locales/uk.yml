@@ -252,7 +252,6 @@ uk:
     decidim:
       initiative_creation_header:
         fill_data: Внести
-        finish: Завершити
         promotal_committee: Робочий гурт з просування
         select_initiative_type: Обрати
       initiatives:
