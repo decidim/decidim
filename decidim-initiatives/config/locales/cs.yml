@@ -95,7 +95,6 @@ cs:
             label: Stav
             values:
               accepted: Dostatek podpisů
-              created: Vytvořeno
               discarded: Vyřazeno
               open: Otevřeno
               rejected: Nedostatek podpisů
@@ -351,7 +350,6 @@ cs:
           update: "%{user_name} aktualizoval typ iniciativ %{resource_name}"
       admin_states:
         accepted: Dostatek podpisů
-        created: Vytvořeno
         discarded: Vyřazeno
         open: Otevřeno
         rejected: Nedostatek podpisů
@@ -381,39 +379,21 @@ cs:
           name: Zvýrazněné iniciativy
       create_initiative:
         fill_data:
-          back: Zpět
           continue: Pokračovat
           fill_data_help: "<ul> <li>Přečtěte si obsah vaší iniciativy. Je váš název snadno srozumitelný? Je cíl vaší iniciativy jasný?</li> <li>Musíte zvolit typ podpisu. Osobní, on-line nebo kombinace obou</li> <li>Jaká je geografická oblast působnosti?</li> </ul>"
-          more_information: "(Více informací)"
           select_area: Vybrat oblast
           select_scope: Zvolte rozsah
         finish:
           back: Zpět
-          back_to_initiatives: Zpět na iniciativy
-          callout_text: Blahopřejeme! Vaše iniciativa byla úspěšně vytvořena.
-          confirm: Chystáte se poslat iniciativu správci, aby ji zkontroloval a publikoval ji. Po zveřejnění jej nebudete moci upravovat. Jste si jisti?
-          edit_my_initiative: Upravit moji iniciativu
-          go_to_my_initiatives: Jít na mé iniciativy
-          more_information: "(Více informací)"
-          send_my_initiative: Poslat moji iniciativu na technické ověření
-        finish_help:
-          publish_helper_text: Nezapomeňte, že pro publikování vaší iniciativy musíte vyplnit požadované informace a <strong>je zašlete na technické potvrzení</strong>, aby ji správce mohl zkontrolovat.
         previous_form:
           back: Zpět
-          continue: Pokračovat
-        promotal_committee:
-          individual_help_text: Tento druh iniciativy vyžaduje promotérský výbor skládající se z nejméně %{committee_size} lidí (atestoři). Musíte sdílet následující odkaz s ostatními lidmi, kteří jsou součástí této iniciativy. Když vaše kontakty obdrží tento odkaz, budou muset postupovat podle uvedených kroků.
-          more_information: "(Více informací)"
         select_initiative_type:
           back: Zpět
           choose_html: Chci vytvořit <strong>%{title}</strong>
           more_information: (Více informací)
           new: Vytvořit novou iniciativu
           select: Chci tuto iniciativu podpořit
-          select_initiative_type_help: Iniciativy jsou prostředkem, kterým účastníci mohou zasáhnout, aby organizace mohla podniknout kroky na obranu obecného zájmu. Jakou iniciativu chcete spustit?
           verification_required: Ověřte svůj účet pro podporu této iniciativy
-        share_committee_link:
-          invite_to_committee_help: Odkaz na pozvání lidí, kteří budou součástí podporovaného výboru
       edit:
         accept: Přijmout iniciativu
         back: Zpět
@@ -607,7 +587,6 @@ cs:
       show:
         badge_name:
           accepted: Dostatek podpisů
-          created: Vytvořeno
           discarded: Zahozeno
           open: Otevřeno
           rejected: Nedostatek podpisů
@@ -663,8 +642,6 @@ cs:
     decidim:
       initiative_creation_header:
         fill_data: Vytvořit
-        finish: Dokončit
-        promotal_committee: Výbor předkladatelů
         select_initiative_type: Vybrat
       initiative_signature_creation_header:
         fill_personal_data: Dokončit své údaje
