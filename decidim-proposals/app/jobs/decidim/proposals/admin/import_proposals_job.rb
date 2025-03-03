@@ -22,7 +22,7 @@ module Decidim
               )
             end
           end
-          ImportProposalsMailer.notify_success(current_user, origin_component, target_component, proposals.count).deliver_now
+          ImportProposalsMailer.notify_success(current_user, origin_component, target_component, proposals.count).deliver_later
         rescue ActiveRecord::RecordNotFound, NoMethodError
           ImportProposalsMailer.notify_failure(current_user, origin_component, target_component).deliver_now
         end
