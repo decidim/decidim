@@ -376,7 +376,7 @@ eu:
           name: Ekimen nabarmenak
       create_initiative:
         fill_data:
-          back: Back
+          back: Atzera
           continue: Jarraitu
           fill_data_help: "<ul> <li>Berrikusi zure ekimenaren edukia. Zure izenburua ulertzen erraza da? Zure ekimenaren helburua argi dago?</li> <li>Sinadura mota aukeratu behar duzu.</li> <li>aurrez aurre, linean edo biak konbinatuta. Zein da ekimenaren eremu geografikoa? </li> </ul>"
           more_information: "(Informazio gehiago)"
@@ -385,7 +385,7 @@ eu:
         finish:
           back: Atzera
           back_to_initiatives: Itzuli ekimenetara
-          callout_text: Zorionak! Zure ekimena zuzen sortu da.
+          callout_text: Zorionak! Zure ekimena arrakastaz sortu da.
           confirm: Ekimena bidaliko duzu administratzaile batek berrikus eta argitara dezan. Argitaratu ondoren, ezin izango duzu editatu. Ziur zaude?
           edit_my_initiative: Editatu nire ekimena
           go_to_my_initiatives: Joan nire ekimenetara
