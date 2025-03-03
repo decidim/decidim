@@ -684,7 +684,6 @@ ca:
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes.
-            success: "%{number} propostes importades correctament."
           new:
             create: Importa propostes
             no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
