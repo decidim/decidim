@@ -748,7 +748,6 @@ en:
           meetings: Meetings
           official: Official
           participants: Participants
-          user_groups: Groups
         filter_state_values:
           all: All
           not_answered: Not answered
