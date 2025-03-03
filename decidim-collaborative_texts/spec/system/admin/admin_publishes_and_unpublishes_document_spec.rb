@@ -29,4 +29,19 @@ describe "Admin publish and unpublish documents" do
     click_on "Unpublish", match: :first
     expect(page).to have_admin_callout "Document successfully unpublished"
   end
+
+  context "when unpublish document" do
+    before do
+      switch_to_host(organization.host)
+      visit_component
+    end
+
+    it "does not display unpublish documents in public view" do
+      expect(page).to have_no_content(title)
+    end
+  end
+
+  def visit_component
+    page.visit main_component_path(component)
+  end
 end

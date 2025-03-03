@@ -19,7 +19,7 @@ describe "Admin edits documents" do
   it "edits an existing document" do
     expect(page).to have_css(".action-icon--edit")
     click_on "Edit", match: :first
-    expect(page).to have_content("Edit Collaborative Texts")
+    expect(page).to have_content("Edit collaborative texts")
 
     fill_in "Title", with: "This is an edited title test"
     click_on "Update"
@@ -27,7 +27,7 @@ describe "Admin edits documents" do
     expect(page).to have_admin_callout "Document successfully updated"
 
     click_on "Manage"
-    expect(page).to have_content("Configure Collaborative Texts")
+    expect(page).to have_content("Configure collaborative texts")
     check "Allow participants to make suggestions"
 
     click_on "Update"

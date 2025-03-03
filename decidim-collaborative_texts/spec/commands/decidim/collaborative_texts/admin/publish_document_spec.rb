@@ -22,6 +22,7 @@ module Decidim
               ).and_call_original
 
               expect(command).to broadcast(:ok, document)
+              expect(document.reload).to be_published
             end
           end
 

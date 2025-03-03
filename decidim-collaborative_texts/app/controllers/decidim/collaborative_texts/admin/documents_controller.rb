@@ -58,10 +58,12 @@ module Decidim
         end
 
         def edit_settings
+          enforce_permission_to(:update, :document, document:)
           @form = form(Admin::DocumentForm).from_model(document)
         end
 
         def update_settings
+          enforce_permission_to(:update, :document, document:)
           @form = form(Admin::DocumentForm).from_params(params)
 
           UpdateDocumentSettings.call(@form, document) do
