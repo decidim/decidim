@@ -1,5 +1,45 @@
 # Changelog
 
+## [0.30.0.rc2](https://github.com/decidim/decidim/tree/0.30.0.rc2)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-budgets**, **decidim-core**: Backport 'Fix UX mobile budget page adjustements' to v0.30 [\#14119](https://github.com/decidim/decidim/pull/14119)
+- **decidim-core**, **decidim-proposals**: Backport 'Suggested hashtags in Proposals' to v0.30 [\#14118](https://github.com/decidim/decidim/pull/14118)
+- **decidim-core**: Backport 'Add extra details to decidim:upgrade:migrations task' to v0.30 [\#14128](https://github.com/decidim/decidim/pull/14128)
+- **decidim-sortitions**: Backport 'Fix display proposals in sortitions when votes enabled' to v0.30 [\#14127](https://github.com/decidim/decidim/pull/14127)
+- **decidim-core**: Backport 'Hide help buttons if no help content is given in admin-side' to v0.30 [\#14142](https://github.com/decidim/decidim/pull/14142)
+- **decidim-blogs**, **decidim-budgets**, **decidim-core**, **decidim-debates**, **decidim-meetings**, **decidim-proposals**, **decidim-sortitions**: Backport 'Fix share modal on budget projects page' to v0.30 [\#14144](https://github.com/decidim/decidim/pull/14144)
+- **decidim-core**, **decidim-proposals**: Backport 'Avoid server error when accepting a proposal without giving it a cost' to v0.30 [\#14145](https://github.com/decidim/decidim/pull/14145)
+- **decidim-admin**, **decidim-ai**, **decidim-comments**, **decidim-core**, **decidim-meetings**, **decidim-proposals**: Backport 'Hide comments when parent resource is hidden' to v0.30 [\#14152](https://github.com/decidim/decidim/pull/14152)
+- **decidim-proposals**: Backport 'Fix proposal state label in admin' to v0.30 [\#14160](https://github.com/decidim/decidim/pull/14160)
+- **decidim-budgets**: Backport 'Fix an UI error in budgeting in the progress bar' to v0.30 [\#14193](https://github.com/decidim/decidim/pull/14193)
+- **decidim-proposals**: Backport 'Fix error handling when proposal answer form has errors' to v0.30 [\#14188](https://github.com/decidim/decidim/pull/14188)
+- **decidim-budgets**: Backport 'Fix budget index card width' to v0.30 [\#14198](https://github.com/decidim/decidim/pull/14198)
+- **decidim-core**: Backport 'Fix excessive categories nesting when converting to taxonomies' to v0.30 [\#14185](https://github.com/decidim/decidim/pull/14185)
+- **decidim-core**: Backport 'Use leaflet-tilelayer-here v2.0.3' to v0.30 [\#14179](https://github.com/decidim/decidim/pull/14179)
+- Backport 'Fix Aitools documentation' to v0.30 [\#14200](https://github.com/decidim/decidim/pull/14200)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+- **decidim-core**: Backport 'Add extra details to decidim:upgrade:migrations task' to v0.30 [\#14128](https://github.com/decidim/decidim/pull/14128)
+
 ## [0.30.0.rc1](https://github.com/decidim/decidim/tree/0.30.0.rc1)
 
 ### Added
