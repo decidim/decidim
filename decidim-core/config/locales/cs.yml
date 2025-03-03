@@ -1796,6 +1796,8 @@ cs:
       create:
         error: Při vytváření zprávy došlo k chybě. Zkuste to prosím znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
+      parent_hidden:
+        report_details: Nadřazený dokument byl skryt
     resource:
       controls_label: Ovládání zdrojů
     resource_endorsements:

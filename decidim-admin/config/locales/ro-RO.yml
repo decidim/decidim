@@ -645,6 +645,7 @@ ro:
             does_not_belong: Nu aparține
             hidden_during_block: Ascuns în timpul blocării utilizatorului
             offensive: Ofensiv
+            parent_hidden: Conținutul părinte a fost ascuns
             spam: Spam
         reports:
           index:
