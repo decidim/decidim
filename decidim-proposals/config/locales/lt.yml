@@ -431,7 +431,6 @@ lt:
         proposals_imports:
           create:
             invalid: Importuojant pasiūlymus iškilo problema.
-            success: "%{number} pasiūlymai importuoti."
           new:
             create: Importuoti pasiūlymus
             no_components: Šioje dalyvaujamojo proceso erdvėje nėra kitų pasiūlymų komponentų, iš kurių būtų galima importuoti pasiūlymus.
