@@ -4,6 +4,7 @@ module Decidim
   module CollaborativeTexts
     class DocumentsController < Decidim::CollaborativeTexts::ApplicationController
       include Decidim::Paginable
+      include Decidim::FormFactory
 
       helper_method :documents, :document, :paginate_documents
 
@@ -11,6 +12,20 @@ module Decidim
 
       def show
         raise ActionController::RoutingError, "Not Found" unless document
+      end
+
+      # roll out a new version of the document (only admins)
+      def update
+        @form = form(RolloutForm).from_params(params, document:)
+        Rollout.call(@form) do
+          on(:ok) do
+            render json: { redirect: Decidim::ResourceLocatorPresenter.new(document).path }
+          end
+
+          on(:invalid) do
+            render json: { message: I18n.t("document.rollout.invalid", scope: "decidim.collaborative_texts", errors: @form.errors.full_messages) }, status: :unprocessable_entity
+          end
+        end
       end
 
       private

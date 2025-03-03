@@ -23,10 +23,17 @@
     <div data-collaborative-texts-document="<%= document.accepting_suggestions.to_s %>"
          data-collaborative-texts-i18n="<%= document_i18n.to_json %>"
          data-collaborative-texts-suggestions-url="<%= document_suggestions_path(document) %>"
+         data-collaborative-texts-rollout-url="<%= document_path(document) %>"
          class="collaborative-texts-container editor-content">
       <%= decidim_sanitize decidim_rich_text(document.body), { scrubber: Decidim::AdminInputScrubber.new } %>
     </div>
   </section>
+
+  <div class="collaborative-texts-manager layout-1col hidden">
+    <button data-collaborative-texts-manager-save>
+      <%= t("decidim.collaborative_texts.document.rollout.new") %>
+    </button>
+  </div>
 <% end %>
 
 <% append_javascript_pack_tag("decidim_collaborative_texts") %>

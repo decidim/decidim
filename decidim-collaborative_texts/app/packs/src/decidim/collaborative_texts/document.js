@@ -1,5 +1,6 @@
 import Selection from "src/decidim/collaborative_texts/selection";
 import Suggestions from "src/decidim/collaborative_texts/suggestions";
+import Manager from "src/decidim/collaborative_texts/manager";
 
 class Document {
   constructor(doc) {
@@ -19,6 +20,7 @@ class Document {
     } catch (_e) {
       console.error("Error parsing collaborativeTextsI18n", this.doc.dataset.collaborativeTextsI18n);
     }
+    this.csrfToken = document.querySelector("meta[name=csrf-token]") && document.querySelector('meta[name="csrf-token"]').getAttribute("content");
     this._prepareNodes();
     console.log("Document prepared", this);
   }
@@ -79,19 +81,44 @@ class Document {
 
   _onApply() {
     this.applying = true;
+    // TODO: only for admins
+    this.manager = this.manager || new Manager(this);
+    this.manager.show();
   }
-
+  
   _onRestore() {
     if (!this.suggestions.suggestions.find((suggestion) => suggestion.applied)) {
       this.applying = false;
+      this.manager.hide();
     }
   }
 
   _onSuggest(event) {
-    let replace = [...event.detail.replace].map((node) => node.outerHTML);
+    let replace = [...event.detail.replaceNodes].map((node) => node.nodeType == Node.TEXT_NODE ? node.textContent : node.outerHTML);
     console.log("firstNode: ", event.detail.firstNode.id);
     console.log("lastNode: ", event.detail.lastNode.id);
     console.log("Replace: ", replace);
+    fetch(this.doc.dataset.collaborativeTextsSuggestionsUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": this.csrfToken
+      },
+      body: JSON.stringify({
+        firstNode: event.detail.firstNode.id.replace(/^ct-node-/, ""),
+        lastNode: event.detail.lastNode.id.replace(/^ct-node-/, ""),
+        replace: replace
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Suggestion sent:", data);
+        this.suggestions.destroy();
+        this.fetchSuggestions();
+      })
+      .catch(error => {
+        console.error("Error sending suggestion:", error);
+      });
   }
 }
 

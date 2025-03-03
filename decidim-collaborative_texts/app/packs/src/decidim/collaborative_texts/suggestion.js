@@ -1,14 +1,15 @@
 class Suggestion {
-  constructor(suggestions, config) {
+  constructor(suggestions, id, changeset) {
+    this.id = id;
     this.suggestions = suggestions;
     this.document = suggestions.document;
     this.doc = suggestions.doc;
     this.nodes = [];
     for (const node of suggestions.nodes) {
-      if (node.id === `ct-node-${config.firstNode}`) { 
+      if (node.id === `ct-node-${changeset.firstNode}`) { 
         this.firstNode = node;
       }
-      if (node.id === `ct-node-${config.lastNode}`) {
+      if (node.id === `ct-node-${changeset.lastNode}`) {
         this.lastNode = node;
       }
       if (this.firstNode) {
@@ -18,7 +19,7 @@ class Suggestion {
         break;
       }
     }
-    this.replace = config.replace;
+    this.replace = changeset.replace;
     this.menu = null;
     this.menuWrapper = null;
     this.wrapper = null;
@@ -29,7 +30,6 @@ class Suggestion {
       restore: suggestions.i18n.restore || "Restore"
     }
     this.valid = this.nodes.length > 0 && this.firstNode && this.lastNode && Array.isArray(this.replace);
-    // console.log("Suggestion", suggestions, config, this);
     if (this.valid) {
       this._createMenuWrapper();
       this._createMenu();
@@ -49,6 +49,14 @@ class Suggestion {
       this._createChangesWrapper();
       this.nodes.forEach((node) => node.classList.add("collaborative-texts-hidden"));
       this.replace.forEach((text) => this.changesWrapper.insertAdjacentHTML("beforeend", text));
+      // wrap in <p> any text nodes
+      this.changesWrapper.childNodes.forEach((node) => {
+        if (node.nodeType === Node.TEXT_NODE) {
+          let p = window.document.createElement("p");
+          p.textContent = node.textContent;
+          node.replaceWith(p);
+        }
+      });
       this.wrapper.classList.add("applied");
       let event = new CustomEvent("collaborative-texts:applied", { detail: { suggestion: this } });
       this.doc.dispatchEvent(event);
@@ -86,6 +94,25 @@ class Suggestion {
 
     this.menuWrapper.style.top = `${offsetTop - docTop - 10}px`;
     return this;
+  }
+
+  destroy() {
+    if (this.menu) {
+      this.menu.remove();
+      this.menu = null;
+    }
+    if (this.menuWrapper) {
+      this.menuWrapper.remove();
+      this.menuWrapper = null;
+    }
+    if (this.wrapper) {
+      this.wrapper.remove();
+      this.wrapper = null;
+    }
+    if (this.changesWrapper) {
+      this.changesWrapper.remove();
+      this.changesWrapper = null;
+    }
   }
 
   _createChangesWrapper() {

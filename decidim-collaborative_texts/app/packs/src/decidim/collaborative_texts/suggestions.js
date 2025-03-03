@@ -24,6 +24,17 @@ class Suggestions {
       }
     });
   }
+
+  getApplied() {
+    return this.suggestions.filter((suggestion) => suggestion.applied);
+  }
+
+  // destroy all suggestions
+  destroy() {
+    this.suggestions.forEach((suggestion) => suggestion.destroy());
+    this.suggestions = [];
+    return this;
+  }
   
   _fetchSuggestions() {
     console.log("Fetch suggestions", this);
@@ -31,7 +42,7 @@ class Suggestions {
       then((response) => response.json()).
       then((data) => {
         data.forEach((item) => {
-          let suggestion = new Suggestion(this, item.changeset)
+          let suggestion = new Suggestion(this, item.id, item.changeset)
           console.log("Suggestion fetched", suggestion, item);
           if (suggestion.valid) {
             this.suggestions.push(suggestion);

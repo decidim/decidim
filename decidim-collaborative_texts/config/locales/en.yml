@@ -20,6 +20,10 @@ en:
         new: New text
         title: Actions
         view_deleted_documents: View deleted documents
+      suggestions:
+        create:
+          invalid: There was a problem creating the suggestion.
+          success: Suggestion successfully created.
       admin:
         documents:
           create:
@@ -67,6 +71,9 @@ en:
         cancel: Cancel
         save: Send suggestion
         suggest: Suggest changes
+        rollout:
+          new: Create a new version
+          invalid: There was a problem creating a new version of the document (%{errors}).
       documents:
         index:
           count:

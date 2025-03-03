@@ -57,12 +57,13 @@ class Editor {
   }
 
   _save() {
+    console.log("save editor", this)
     const event = new CustomEvent("collaborative-texts:suggest", {
       detail: {
         nodes: this.nodes,
         firstNode: this.firstNode,
         lastNode: this.lastNode,
-        replace: this.container.childNodes
+        replaceNodes: this.container.childNodes
       }
     });
     this.selection.doc.dispatchEvent(event);

@@ -7,6 +7,18 @@
     @apply hidden;
   }
 
+  &-manager {
+    @apply fixed flex bottom-0 left-0 right-0 z-[1000] p-4 bg-background rounded;
+
+    &.hidden {
+      display: none;
+    }
+
+    button {
+      @apply button button__primary button__lg
+    }
+  }
+
   &-selection,
   &-highlight {
     @apply relative outline-dashed outline-2 outline-offset-2 outline-primary my-4;
@@ -17,7 +29,7 @@
   }
 
   &-editor {
-    @apply bg-gray-5 outline outline-2 outline-offset-2 m-8 -mx-1 -my-2;
+    @apply bg-gray-5 outline outline-2 outline-offset-2 mb-4;
     outline: var(--primary) 2px solid;
 
     &-menu {
