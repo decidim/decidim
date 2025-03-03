@@ -285,7 +285,6 @@ zh-CN:
             assign_to_valuator_button: 分配
             cancel: 取消
             merge: 合并为一个新的
-            merge_button: 合并
             publish: 发布
             publish_answers: 发布答案
             select_component: 选择一个组件
@@ -330,7 +329,6 @@ zh-CN:
       admin_log:
         proposal:
           answer: "%{user_name} 回答了 %{resource_name} 在 %{space_name} 空间的建议"
-          create: "%{user_name} 在 %{space_name} 空间上创建了 %{resource_name} 提案作为官方提案"
           publish_answer: "%{user_name} 在 %{space_name} 空间上发布了 %{resource_name} 建议的答案"
           update: "%{user_name} 更新了 %{resource_name} 在 %{space_name} 空间的官方提议"
         proposal_note:
