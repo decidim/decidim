@@ -89,7 +89,6 @@ fr:
             label: État
             values:
               accepted: Assez de signatures
-              created: Créée
               discarded: Rejetée
               open: Ouverte
               rejected: Pas assez de signatures
@@ -314,7 +313,6 @@ fr:
           update: "%{user_name} a mis à jour le type de pétition %{resource_name}"
       admin_states:
         accepted: Assez de signatures
-        created: Créée
         discarded: Retirée
         open: Ouverte
         rejected: Pas assez de signatures
@@ -344,39 +342,21 @@ fr:
           name: Pétitions mises en avant
       create_initiative:
         fill_data:
-          back: Retour
           continue: Continuer
           fill_data_help: "<ul> <li>Vérifier le contenu de votre pétition : le titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de signature : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est le secteur géographique de l'initiative ?</li> </ul>"
-          more_information: "(Plus d'informations)"
           select_area: Sélectionnez une zone
           select_scope: Sélectionnez une portée
         finish:
           back: Retour
-          back_to_initiatives: Retour à l'index des pétitions
-          callout_text: Bravo ! Votre pétition a été créée avec succès.
-          confirm: Vous allez envoyer la pétition à un administrateur pour qu'il la consulte et la publie. Une fois publiée, vous ne serez plus en mesure de l'éditer. Êtes-vous sûr que votre pétition est prête ?
-          edit_my_initiative: Modifier ma pétition
-          go_to_my_initiatives: Consulter mes pétitions
-          more_information: "(Plus d'informations)"
-          send_my_initiative: Envoyer ma pétition pour validation technique
-        finish_help:
-          publish_helper_text: N'oubliez pas que pour que votre pétition soit publiée, vous devez compléter les informations requises et <strong>l'envoyer à la validation technique</strong> pour qu'un administrateur puisse l'examiner.
         previous_form:
           back: Retour
-          continue: Continuer
-        promotal_committee:
-          individual_help_text: Ce type de pétition nécessite un Comité de promotion composé d’au moins %{committee_size} personnes (garants). Pour réunir un comité de promotion, partagez le lien suivant aux personnes que vous souhaitez. Lorsque ces personnes recevront ce lien, elles devront suivre les étapes indiquées.
-          more_information: "(Plus d'informations)"
         select_initiative_type:
           back: Retour
           choose_html: Je veux créer un <strong>%{title}</strong>
           more_information: Plus d'informations
           new: Créer une nouvelle pétition
           select: Créer une pétition
-          select_initiative_type_help: Les pétitions sont un moyen par lequel les participants peuvent intervenir afin que l'organisation puisse entreprendre des actions en faveur de l'intérêt général. Quelle pétition voulez-vous lancer?
           verification_required: Vérifiez votre compte pour créer une pétition
-        share_committee_link:
-          invite_to_committee_help: Lien pour inviter des personnes à faire partie du Comité de promotion
       edit:
         accept: Accepter la pétition
         back: Retour
@@ -560,7 +540,6 @@ fr:
       show:
         badge_name:
           accepted: Assez de signatures
-          created: Créé le
           discarded: Retirée
           open: Ouverte
           rejected: Pas assez de signatures
@@ -585,8 +564,6 @@ fr:
     decidim:
       initiative_creation_header:
         fill_data: Complétez votre pétition
-        finish: Publiez votre pétition
-        promotal_committee: Comité de promotion
         select_initiative_type: Sélectionnez le type de pétition
       initiative_signature_creation_header:
         fill_personal_data: Complétez vos données
