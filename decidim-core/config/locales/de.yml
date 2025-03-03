@@ -1428,6 +1428,8 @@ de:
       create:
         error: Beim Erstellen des Berichts ist ein Fehler aufgetreten. Bitte, versuche es noch einmal.
         success: Der Bericht wurde erfolgreich erstellt und wird von einem Administrator überprüft.
+      parent_hidden:
+        report_details: Die übergeordnete Ressource wurde ausgeblendet
     resource_endorsements:
       create:
         error: Bei der Befürwortung ist ein Fehler aufgetreten.

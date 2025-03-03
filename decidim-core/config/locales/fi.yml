@@ -91,7 +91,7 @@ fi:
       decidim_with_month_name_short: "%d. %b"
       help:
         date_format: 'Muoto: pp.kk.vvvv'
-      order: d.m.y
+      order: d-m-y
       separator: "."
   datetime:
     distance_in_words:
@@ -499,6 +499,8 @@ fi:
             dummy_step_attribute1: Esimerkkivaiheen tietue 1
             dummy_step_attribute2: Esimerkkivaiheen tietue 2
             dummy_step_translatable_text: Vaiheen käännettävän tekstin esimerkki
+      pagination:
+        page_title: "%{component_name} - Sivu %{current_page} / %{total_pages}"
     contact: Ota yhteyttä
     content_blocks:
       announcement:
@@ -1421,6 +1423,8 @@ fi:
       create:
         error: Raportin luonti epäonnistui. Yritä uudestaan.
         success: Ilmoituksen luonti onnistui. Hallintakäyttäjä tarkastaa sen.
+      parent_hidden:
+        report_details: Isäntäkohde piilotettiin
     resource_endorsements:
       create:
         error: Suosituksen antaminen epäonnistui.
@@ -2052,7 +2056,7 @@ fi:
       devise:
         mailer:
           invitation_instructions:
-            accept_until_format: "%B %d., %Y klo %k:%M"
+            accept_until_format: "%B %d., %Y klo %H:%M"
       help:
         time_format: 'Muoto: tt:mm'
       long: "%B %d., %Y %H:%M"

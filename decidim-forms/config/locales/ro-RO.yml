@@ -11,7 +11,7 @@ ro:
         question_type: Tip
       questionnaire_question:
         mandatory: Obligatoriu
-        max_characters: Limita de caractere (lăsați la 0 dacă nu este nicio limită)
+        max_characters: Limita de caractere (lăsați 0 dacă nu este nicio limită)
     errors:
       models:
         answer:
@@ -21,7 +21,7 @@ ro:
             body:
               too_long: este prea lung
             choices:
-              missing: nu sunt completate
+              missing: nu sunt complete
         questionnaire:
           request_invalid: A apărut o eroare la procesarea cererii. Te rugăm să încerci din nou.
   decidim:
@@ -30,11 +30,11 @@ ro:
         models:
           components:
             description: Descriere
-            tos: Condiţii de utilizare
+            tos: Termenii serviciului
         questionnaires:
           actions:
             back: Înapoi la întrebări
-            show: Afișează răspunsurile
+            show: Afișați răspunsurile
           answer_option:
             answer_option: Opțiune de răspuns
             free_text: Text liber
@@ -43,10 +43,10 @@ ro:
           answers:
             actions:
               back: Înapoi la răspunsuri
-              export: Exportă
+              export: Exportați
               next: Următoarea &rsaquo;
               previous: "&lsaquo; Anterioara"
-              show: Afişează răspunsurile
+              show: Afișați răspunsurile
             empty: Niciun răspuns încă
             export:
               answer:
@@ -63,7 +63,7 @@ ro:
             condition_type: Condiție
             condition_types:
               answered: Răspunse
-              equal: Egal cu
+              equal: Egal
               match: Include textul
               not_answered: Fără răspuns
               not_equal: Nu este egal cu
@@ -77,16 +77,16 @@ ro:
             select_condition_type: Selectați un tip de condiție
           edit:
             save: Salvează
-            title: Editare chestionar
+            title: Modificați chestionar
           form:
             add_question: Adaugă întrebare
-            collapse: Restrânge toate întrebările
+            collapse: Restrângeți toate întrebările
             expand: Extinde toate întrebările
             preview: Previzualizează
-            title: Actualizați chestionarul pentru %{questionnaire_for}
+            title: Modificați chestionarul pentru %{questionnaire_for}
           matrix_row:
             matrix_row: Rând
-            remove: Elimină
+            remove: Eliminați
             statement: Declarație
           question:
             add_answer_option: Adaugă opțiune de răspuns
@@ -108,10 +108,10 @@ ro:
             separator: Separator
             up: Mergi în sus
           title_and_description:
-            collapse: Restrânge
+            collapse: Restrângeți
             description: Descriere
             down: Mergi în jos
-            expand: Extinde
+            expand: Extindeți
             remove: Șterge
             title: Titlu
             title_and_description: Titlu și descriere
@@ -154,7 +154,7 @@ ro:
             already_have_an_account?: Ai deja un cont?
             are_you_new?: Utilizator nou?
             sign_up_description: Creați un cont de participant pentru a participa la sondaj
-            title: Completează chestionarul
+            title: Completați formularul
           current_step: Pasul %{step}
           empty: Nicio întrebare configurată pentru acest formular încă.
           of_total_steps: din %{total_steps}

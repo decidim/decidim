@@ -1466,6 +1466,8 @@ cs:
       create:
         error: Při vytváření shromáždění došlo k chybě. Zkuste to znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
+      parent_hidden:
+        report_details: Nadřazený dokument byl skryt
     resource_endorsements:
       create:
         error: Během akce schválení došlo k chybě.

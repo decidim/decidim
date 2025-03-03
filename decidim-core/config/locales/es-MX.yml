@@ -1426,6 +1426,8 @@ es-MX:
       create:
         error: Se ha producido un error al denunciar el contenido. Por favor, inténtalo otra vez.
         success: La denuncia se ha creado correctament y será revisada por un administrador.
+      parent_hidden:
+        report_details: El recurso principal estaba oculto
     resource_endorsements:
       create:
         error: Se ha producido un error durante la acción de adhesión.
