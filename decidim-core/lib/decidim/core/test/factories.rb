@@ -73,10 +73,6 @@ FactoryBot.define do
     "user#{n}@example.org"
   end
 
-  sequence(:user_group_email) do |n|
-    "usergroup#{n}@example.org"
-  end
-
   sequence(:slug) do |n|
     "#{Decidim::Faker::Internet.slug(words: nil, glue: "-")}-#{n}".gsub("'", "_")
   end
@@ -304,57 +300,6 @@ FactoryBot.define do
     end
     user
     privatable_to { create(:assembly, organization: user.organization, skip_injection:) }
-  end
-
-  factory :user_group, class: "Decidim::User" do
-    transient do
-      skip_injection { false }
-      document_number { "#{Faker::Number.number(digits: 8)}X" }
-      phone { Faker::PhoneNumber.phone_number }
-      rejected_at { nil }
-      verified_at { nil }
-    end
-    password_updated_at { Time.current }
-    previous_passwords { [] }
-    extended_data { { group: true } }
-    sequence(:name) { |n| "#{Faker::Company.name} #{n}" }
-    email { generate(:user_group_email) }
-    nickname { generate(:nickname) }
-    about { generate_localized_title(:user_group_about, skip_injection:) }
-    organization
-    tos_agreement { "1" }
-    avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") } # Keep after organization
-    confirmation_sent_at { Time.current }
-    accepted_tos_version { organization.tos_version }
-
-    trait :verified do
-      verified_at { Time.current }
-    end
-
-    trait :rejected do
-      rejected_at { Time.current }
-    end
-
-    trait :confirmed do
-      confirmed_at { Time.current }
-    end
-
-    trait :blocked do
-      blocked { true }
-      blocked_at { Time.current }
-      extended_data { { user_name: generate(:name) } }
-      name { "Blocked user group" }
-    end
-
-    after(:build) do |user_group, evaluator|
-      user_group.password ||= evaluator.password || "decidim123456789"
-      user_group.extended_data = user_group.extended_data.merge({
-                                                                  document_number: evaluator.document_number,
-                                                                  phone: evaluator.phone,
-                                                                  rejected_at: evaluator.rejected_at,
-                                                                  verified_at: evaluator.verified_at
-                                                                })
-    end
   end
 
   factory :identity, class: "Decidim::Identity" do
@@ -1026,14 +971,6 @@ FactoryBot.define do
     end
     resource { build(:dummy_resource, skip_injection:) }
     author { resource.try(:creator_author) || resource.try(:author) || build(:user, organization: resource.organization, skip_injection:) }
-  end
-
-  factory :user_group_endorsement, class: "Decidim::Endorsement" do
-    transient do
-      skip_injection { false }
-    end
-    resource { build(:dummy_resource, skip_injection:) }
-    author { create(:user_group, verified_at: Time.current, organization: resource.organization, skip_injection:) }
   end
 
   factory :share_token, class: "Decidim::ShareToken" do
