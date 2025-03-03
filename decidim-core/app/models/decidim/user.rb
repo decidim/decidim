@@ -10,7 +10,6 @@ module Decidim
     include Decidim::DownloadYourData
     include Decidim::Searchable
     include Decidim::ActsAsAuthor
-    include Decidim::ActsAsVerifiable
     include Decidim::UserReportable
     include Decidim::Traceable
 

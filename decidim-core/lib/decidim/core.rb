@@ -10,7 +10,6 @@ module Decidim
   autoload :Deprecations, "decidim/deprecations"
   autoload :ActsAsAuthor, "decidim/acts_as_author"
   autoload :ActsAsTree, "decidim/acts_as_tree"
-  autoload :ActsAsVerifiable, "decidim/acts_as_verifiable"
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
   autoload :TranslatableResource, "decidim/translatable_resource"
   autoload :JsonbAttributes, "decidim/jsonb_attributes"
