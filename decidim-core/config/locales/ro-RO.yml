@@ -420,6 +420,7 @@ ro:
           ok: Ok
           title: Nu este autorizat
         unconfirmed:
+          confirmation_instructions: 'Dacă nu aţi primit instrucţiunile de confirmare le puteţi solicita din nou:'
           explanation_html: Pentru a efectua această acțiune, trebuie să fiți autorizat, înainte de a face acest lucru, trebuie să confirmați adresa dumneavoastră de e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Cereți instrucțiunile de confirmare
           title: Confirmați e-mailul dumnevoastră
@@ -438,6 +439,7 @@ ro:
       see_less: "(mai puține detalii)"
     components:
       component_order_selector:
+        no_content: Nu am găsit niciun conținut cu aceste criterii.
         order:
           all_types: Toate tipurile
           collaborative_draft: Ciornă colaborativă
@@ -445,6 +447,7 @@ ro:
           debate: Dezbatere
           initiative: Inițiativă
           meeting: Întâlnire
+          order: Votul pentru buget
           post: Postează
           proposal: Propunere
           question: Întrebare
@@ -540,6 +543,8 @@ ro:
       sub_hero:
         name: Banner suberoi
     core:
+      actions:
+        unauthorized: Nu sunteți autorizat să efectuați această acțiune.
       application_helper:
         filter_area_values:
           all: Toate
@@ -556,6 +561,8 @@ ro:
           subtitle: Te rugăm să completezi următorul formular pentru a finaliza înregistrarea
           username_help: Numele public care apare pe postări. Pentru a garanta anonimitatea, poate fi orice nume.
       registrations:
+        create:
+          error: A apărut o problemă la crearea contului dumneavoastră.
         new:
           already_have_an_account?: Aveți deja un cont?
           log_in: Autentificare
