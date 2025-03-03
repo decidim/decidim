@@ -33,8 +33,20 @@ describe "Download Open Data files", download: true do
       let!(:meeting) { create(:meeting, component:) }
       let(:resource_title) { translated_attribute(meeting.title).gsub('"', '""') }
       let(:component) { create(:meeting_component, participatory_space:, organization:) }
-      let(:participatory_space) { create(:assembly, :private) }
+      let(:participatory_space) { create(:assembly, :private, :opaque) }
 
+      it_behaves_like "does not include it in the open data ZIP file"
+    end
+
+    context "when the meeting's space is private and transparent" do
+      let!(:meeting) { create(:meeting, component:) }
+      let(:resource_title) { translated_attribute(meeting.title).gsub('"', '""') }
+      let(:component) { create(:meeting_component, participatory_space:, organization:) }
+      let(:participatory_space) { create(:assembly, :private, :transparent) }
+
+      # It should be available, as the space is transparent
+      # It is a known bug: https://github.com/decidim/decidim/issues/14210
+      # it_behaves_like "includes it in the open data ZIP file"
       it_behaves_like "does not include it in the open data ZIP file"
     end
 
