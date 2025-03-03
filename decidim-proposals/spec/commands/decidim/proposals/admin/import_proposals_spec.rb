@@ -214,7 +214,7 @@ module Decidim
 
               it "only imports proposals from the selected scope" do
                 expect do
-                  command.call
+                  call_command_and_perform_enqueued_jobs
                 end.to change { Proposal.where(component: current_component).count }.by(1)
 
                 expect(Proposal.where(component: current_component).pluck(:decidim_scope_id)).to eq([scope.id])
@@ -226,7 +226,7 @@ module Decidim
 
                 it "only imports proposals from the global scope" do
                   expect do
-                    command.call
+                    call_command_and_perform_enqueued_jobs
                   end.to change { Proposal.where(component: current_component).count }.by(2)
 
                   expect(Proposal.where(component: current_component).pluck(:decidim_scope_id)).to eq([nil, nil])
