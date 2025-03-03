@@ -381,7 +381,6 @@ el:
             assign_to_valuator_button: Εκχώρηση
             cancel: Ακύρωση
             merge: Συγχώνευση σε νέο
-            merge_button: Συγχώνευση
             publish: Δημοσίευση
             publish_answers: Δημοσίευση απαντήσεων
             select_component: Επιλέξτε στοιχείο
@@ -437,7 +436,6 @@ el:
       admin_log:
         proposal:
           answer: "Ο χρήστης %{user_name} ενημέρωσε την πρόταση %{resource_name} στον χώρο %{space_name}"
-          create: "Ο χρήστης %{user_name} δημιούργησε την πρόταση %{resource_name} στον χώρο %{space_name} ως επίσημη πρόταση"
           publish_answer: "Ο χρήστης %{user_name} δημοσίευσε την απάντηση στην πρόταση %{resource_name} στον χώρο %{space_name}"
           update: "Ο χρήστης %{user_name} ενημέρωσε την επίσημη πρόταση %{resource_name} στον χώρο %{space_name}"
         proposal_note:
