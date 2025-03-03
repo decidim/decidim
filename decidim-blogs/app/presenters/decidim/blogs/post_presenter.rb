@@ -10,8 +10,6 @@ module Decidim
       include ActionView::Helpers::UrlHelper
       include Decidim::SanitizeHelper
 
-      alias super_title title
-
       def author
         @author ||= if official?
                       Decidim::Blogs::OfficialAuthorPresenter.new
@@ -44,7 +42,7 @@ module Decidim
 
       def taxonomy_names(html_escape: false, all_locales: false)
         post.taxonomies.map do |taxonomy|
-          super_title(taxonomy.name, false, html_escape, all_locales)
+          taxonomy.presenter.title(links: false, html_escape:, all_locales:)
         end
       end
     end
