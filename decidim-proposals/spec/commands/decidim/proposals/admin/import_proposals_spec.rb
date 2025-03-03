@@ -35,7 +35,13 @@ module Decidim
               scopes:,
               scope_ids:,
               current_user: create(:user, organization:),
-              valid?: valid
+              valid?: valid,
+              as_json: {
+                "origin_component_id" => proposal_component.id,
+                "states" => states,
+                "keep_authors" => keep_authors,
+                "keep_answers" => keep_answers
+              }
             )
           end
           let(:keep_authors) { false }
@@ -54,7 +60,7 @@ module Decidim
 
             it "does not create the proposal" do
               expect do
-                command.call
+                call_command_and_perform_enqueued_jobs
               end.not_to change(Proposal, :count)
             end
           end
@@ -68,7 +74,7 @@ module Decidim
 
             it "creates the proposals" do
               expect do
-                command.call
+                call_command_and_perform_enqueued_jobs
               end.to change { Proposal.where(component: current_component).count }.by(1)
             end
 
@@ -76,13 +82,13 @@ module Decidim
               let(:second_proposal) { create(:proposal, :accepted, component: proposal_component) }
 
               before do
-                command.call
+                call_command_and_perform_enqueued_jobs
                 second_proposal
               end
 
               it "does not import it again" do
                 expect do
-                  command.call
+                  call_command_and_perform_enqueued_jobs
                 end.to change { Proposal.where(component: current_component).count }.by(1)
 
                 titles = Proposal.where(component: current_component).map(&:title)
@@ -94,7 +100,7 @@ module Decidim
 
                 it "does not import it again" do
                   expect do
-                    command.call
+                    call_command_and_perform_enqueued_jobs
                   end.to change { Proposal.where(component: current_component).count }.by(1)
 
                   titles = Proposal.where(component: current_component).map(&:title)
@@ -104,7 +110,7 @@ module Decidim
             end
 
             it "links the proposals" do
-              command.call
+              call_command_and_perform_enqueued_jobs
 
               linked = proposal.linked_resources(:proposals, "copied_from_component")
               new_proposal = Proposal.where(component: current_component).last
@@ -113,7 +119,7 @@ module Decidim
             end
 
             it "only imports wanted attributes" do
-              command.call
+              call_command_and_perform_enqueued_jobs
 
               new_proposal = Proposal.where(component: current_component).last
               expect(new_proposal.title).to eq(proposal.title)
@@ -136,7 +142,7 @@ module Decidim
               let(:keep_authors) { true }
 
               it "only keeps the proposal authors" do
-                command.call
+                call_command_and_perform_enqueued_jobs
 
                 new_proposal = Proposal.where(component: current_component).last
                 expect(new_proposal.title).to eq(proposal.title)
@@ -149,7 +155,7 @@ module Decidim
               let(:keep_answers) { true }
 
               it "keeps the proposal state and answers" do
-                command.call
+                call_command_and_perform_enqueued_jobs
 
                 new_proposal = Proposal.where(component: current_component).last
                 expect(new_proposal.answer).to eq(proposal.answer)
@@ -169,7 +175,7 @@ module Decidim
 
               it "only imports proposals from the selected states" do
                 expect do
-                  command.call
+                  call_command_and_perform_enqueued_jobs
                 end.to change { Proposal.where(component: current_component).count }.by(2)
 
                 expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
@@ -183,7 +189,7 @@ module Decidim
                   Decidim::Proposals::ProposalState.where(component: proposal_component).where(token: "accepted").update(token: "acceptada")
 
                   expect do
-                    I18n.with_locale(:ca) { command.call }
+                    I18n.with_locale(:ca) { call_command_and_perform_enqueued_jobs }
                   end.to change { Proposal.where(component: current_component).count }.by(2)
 
                   expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
@@ -235,13 +241,18 @@ module Decidim
 
               it "duplicates the attachments" do
                 expect do
-                  command.call
+                  call_command_and_perform_enqueued_jobs
                 end.to change(Attachment, :count).by(1)
 
                 new_proposal = Proposal.where(component: current_component).last
                 expect(new_proposal.attachments.count).to eq(1)
               end
             end
+          end
+
+          def call_command_and_perform_enqueued_jobs
+            command.call
+            perform_enqueued_jobs
           end
         end
       end
