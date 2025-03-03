@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency "origami", "~> 2.1"
   s.add_dependency "rexml", "~> 3.2.5" # Required for Origami gem to work with Ruby 3.0.0+
   s.add_dependency "wicked", "~> 1.3"
-  s.add_dependency "wicked_pdf", "~> 2.1"
+  s.add_dependency "wicked_pdf", "= 2.7.0"
   s.add_dependency "wkhtmltopdf-binary", "~> 0.12"
 
   s.add_development_dependency "decidim-dev", Decidim::Initiatives.version
