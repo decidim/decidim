@@ -688,7 +688,6 @@ es-MX:
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas.
-            success: "%{number} propuestas importadas correctamente."
           new:
             create: Importar propuestas
             no_components: No hay otros componentes propuesta en este espacio participativo desde el que importar.
