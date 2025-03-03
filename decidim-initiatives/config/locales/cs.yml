@@ -391,7 +391,6 @@ cs:
         finish:
           back: Zpět
           back_to_initiatives: Zpět na iniciativy
-          callout_text: Blahopřejeme! Vaše iniciativa byla úspěšně vytvořena.
           confirm: Chystáte se poslat iniciativu správci, aby ji zkontroloval a publikoval ji. Po zveřejnění jej nebudete moci upravovat. Jste si jisti?
           edit_my_initiative: Upravit moji iniciativu
           go_to_my_initiatives: Jít na mé iniciativy
