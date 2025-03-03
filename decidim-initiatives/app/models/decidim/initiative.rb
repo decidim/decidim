@@ -199,14 +199,6 @@ module Decidim
       type.comments_enabled?
     end
 
-    # Public: Check if an initiative has been created by an individual person.
-    # If it is false, then it has been created by an authorized organization.
-    #
-    # Returns a Boolean
-    def created_by_individual?
-      !author.group?
-    end
-
     # Public: Returns the author name. If it has been created by an organization it will
     # return the organization's name. Otherwise it will return author's name.
     #
