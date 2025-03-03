@@ -110,6 +110,7 @@ en:
         settings:
           global:
             announcement: Announcement
+            attachments_allowed: Allow attachments
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             creation_enabled_for_participants: Participants can create posts
