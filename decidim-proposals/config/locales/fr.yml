@@ -444,6 +444,13 @@ fr:
         exports:
           proposal_comments: Commentaires
           proposals: Propositions
+        import_proposals_mailer:
+          notify_failure:
+            body: Il y a eu un problème lors de l'importation des propositions du composant %{origin_component_name} vers le composant %{target_component_name}.
+            subject: Une erreur s'est produite lors de l'importation des propositions
+          notify_success:
+            body: Propositions importées avec succès depuis le composant %{origin_component_name} vers le composant %{target_component_name} . Vous pouvez consulter les résultats dans l'interface d'administration.
+            subject: Les propositions ont été importées avec succès
         imports:
           label:
             answers: Importer des réponses depuis un fichier
@@ -590,7 +597,7 @@ fr:
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'import des propositions.
-            success: "%{number} propositions importées avec succès."
+            success: Le processus d'importation a commencé. Nous vous informerons dès qu'il sera terminé.
           new:
             create: Importer des propositions
             no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
