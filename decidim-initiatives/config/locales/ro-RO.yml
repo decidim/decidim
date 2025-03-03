@@ -84,7 +84,6 @@ ro:
             label: Județ
             values:
               accepted: Semnături suficiente
-              created: Creat
               discarded: Respins
               rejected: Semnături insuficiente
               validating: Validarea tehnică
@@ -291,7 +290,6 @@ ro:
           update: "%{user_name} a actualizat inițiativa %{resource_name}"
       admin_states:
         accepted: Semnături suficiente
-        created: Creat
         discarded: Respins
         rejected: Semnături insuficiente
         validating: Validarea tehnică
@@ -319,37 +317,19 @@ ro:
           name: Inițiative evidențiate
       create_initiative:
         fill_data:
-          back: Înapoi
           continue: Continuă
           fill_data_help: "<ul> <li>Examinează conținutul inițiativei tale. Este ușor de înțeles titlul pus de tine? E clar obiectivul inițiativei?</li> <li>Trebuie să alegi tipul de semnătură. În persoană, online sau o combinație a ambelor</li> <li>Care este aria geografică a inițiativei?</li> </ul>"
-          more_information: "(Informaţii principale)"
           select_area: Selectează o zonă
           select_scope: Selectează un domeniu de interes
         finish:
           back: Înapoi
-          back_to_initiatives: Înapoi la inițiative
-          callout_text: Felicitări! Inițiativa ta a fost creată cu succes.
-          confirm: Vei trimite inițiativa unui administrator pentru a o revizui și a o publica. Odată publicată, nu o vei putea edita. Sigur dorești asta?
-          edit_my_initiative: Editează inițiativa mea
-          go_to_my_initiatives: Accesează inițiativele mele
-          more_information: "(Mai multe informații)"
-          send_my_initiative: Trimite inițiativa mea spre validarea tehnică
-        finish_help:
-          publish_helper_text: Reţine faptul că pentru ca iniţiativa ta să fie publicată, trebuie să completezi informaţiile necesare şi <strong>să le trimiți spre validarea tehnică</strong> pentru ca un administrator să le revizuiască.
         previous_form:
           back: Înapoi
-          continue: Continuă
-        promotal_committee:
-          individual_help_text: Acest tip de inițiativă necesită o Comisie de promovare formată din cel puțin %{committee_size} de persoane (atestatori). Trebuie să diseminezi următorul link cu celelalte persoane care fac parte din această inițiativă. Când persoanele de contact primesc acest link vor trebui să urmeze pașii indicați.
-          more_information: "(Mai multe informații)"
         select_initiative_type:
           back: Înapoi
           choose_html: Vreau să creez un <strong>%{title}</strong>
           more_information: (Mai multe informații)
           select: Doresc să promovez această iniţiativă
-          select_initiative_type_help: Inițiativele reprezintă un mijloc prin care participanții pot interveni astfel încât organizația să poată întreprinde acțiuni de apărare a interesului general. Ce inițiativă dorești să lansezi?
-        share_committee_link:
-          invite_to_committee_help: Link pentru a invita persoane care vor face parte din comitetul promotor
       edit:
         accept: Acceptă inițiativa
         back: Înapoi
@@ -501,7 +481,6 @@ ro:
       show:
         badge_name:
           accepted: Semnături suficiente
-          created: Creat
           discarded: Respins
           rejected: Semnături insuficiente
           validating: Validarea tehnică
@@ -523,8 +502,6 @@ ro:
     decidim:
       initiative_creation_header:
         fill_data: Creează
-        finish: Finalizare
-        promotal_committee: Comitet de promovare
         select_initiative_type: Alege
       initiative_signature_creation_header:
         fill_personal_data: Completează datele tale
