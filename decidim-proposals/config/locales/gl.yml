@@ -307,7 +307,6 @@ gl:
             actions: Accións
             cancel: Cancelar
             merge: Unirse a un novo
-            merge_button: Fusionar
             publish: Publicar
             select_component: Seleccione un compoñente
             selected: seleccionado
@@ -344,7 +343,6 @@ gl:
       admin_log:
         proposal:
           answer: "%{user_name} respondeu á proposta %{resource_name} no espazo %{space_name}"
-          create: "%{user_name} creou a proposta %{resource_name} no espazo %{space_name} como proposta oficial"
           update: "%{user_name} actualizou a %{resource_name} proposta oficial sobre o espazo %{space_name}"
         proposal_note:
           create: "%{user_name} deixou unha nota privada na proposta %{resource_name} no espazo %{space_name}"

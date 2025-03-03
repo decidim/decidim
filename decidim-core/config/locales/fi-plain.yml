@@ -78,6 +78,7 @@ fi-pl:
         with_participatory_space: Osallistumistila
       decidim/user:
         current_password: Nykyinen salasana
+        email: Sähköpostiosoite
         name: Käyttäjänimi
         password: Salasana
         password_confirmation: Salasanan vahvistus
@@ -115,7 +116,7 @@ fi-pl:
       decidim_with_month_name_short: "%d. %b"
       help:
         date_format: 'Muoto: pp.kk.vvvv'
-      order: d.m.y
+      order: d-m-y
       separator: "."
   datetime:
     distance_in_words:
@@ -563,6 +564,8 @@ fi-pl:
             dummy_step_attribute1: Esimerkkivaiheen tietue 1
             dummy_step_attribute2: Esimerkkivaiheen tietue 2
             dummy_step_translatable_text: Vaiheen käännettävän tekstin esimerkki
+      pagination:
+        page_title: "%{component_name} - Sivu %{current_page} / %{total_pages}"
     contact: Ota yhteyttä
     content_blocks:
       announcement:
@@ -671,6 +674,7 @@ fi-pl:
           username_help: Julkinen nimi, joka näytetään viestiesi yhteydessä. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
       sessions:
         new:
+          are_you_new?: Etkö ole vielä rekisteröitynyt?
           register: Rekisteröidy
           sign_in_disabled: Voit käyttää ulkoista tiliä.
           sign_up_disabled: Tilien luonti on poistettu käytöstä, mutta voit kirjautua olemassaolevalla käyttäjätilillä.
@@ -690,6 +694,8 @@ fi-pl:
             Mikäli silti haluat estää uutiskirjeiden vastaanottamisen, ymmärrämme täysin päätöksesi.</p>
             <p>Kiitos, että jaksoit lukea tämän ilmoituksen!</p>
           title: Uutiskirjeitä koskeva ilmoitus
+        omniauth_buttons:
+          or: tai
         password_fields:
           hidden_password: Salasanasi on piilotettu
           hide_password: Piilota salasana
@@ -1740,6 +1746,8 @@ fi-pl:
       create:
         error: Ilmoituksen luonti epäonnistui. Yritä uudestaan.
         success: Ilmoitus on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
+      parent_hidden:
+        report_details: Isäntäkohde piilotettiin
     resource:
       controls_label: Kohteen hallintatoiminnot
     resource_endorsements:
