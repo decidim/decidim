@@ -252,7 +252,6 @@ ru:
     decidim:
       initiative_creation_header:
         fill_data: Создать
-        finish: Закончить
         promotal_committee: Рабочая группа по продвижению
         select_initiative_type: Выбрать
       initiatives:
