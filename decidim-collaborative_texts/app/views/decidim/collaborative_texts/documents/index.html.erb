@@ -13,7 +13,7 @@
   <%= render partial: "decidim/shared/component_announcement" %>
 
   <section id="collaborative_texts" class="layout-main__section layout-main__heading">
-    <% if documents.empty? %>
+    <% if paginate_documents.empty? %>
       <%= cell("decidim/announcement", t("empty", scope: "decidim.collaborative_texts.documents.index")) %>
     <% else %>
       <h2 class="h5 md:h3 decorator"><%= t("count", scope: "decidim.collaborative_texts.documents.index", count: documents.length) %></h2>
