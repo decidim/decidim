@@ -340,7 +340,6 @@ zh-TW:
         finish:
           back: 返回
           back_to_initiatives: 回到倡議
-          callout_text: 恭喜您！您的倡議已成功建立。
           confirm: 您即將發送倡議給管理員進行審核和發佈。一旦發佈，您將無法編輯它。您確定要繼續嗎？"
           edit_my_initiative: 編輯我的倡議
           go_to_my_initiatives: 前往我的倡議
