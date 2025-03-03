@@ -158,6 +158,7 @@ it:
         reject: Rifiuta
         share: Condividi
         share_tokens: Link di accesso
+        soft_delete:
         verify: Verifica
       area_types:
         create:
