@@ -51,9 +51,6 @@ en:
           form_error: The text is required and it cannot be longer than %{length} characters.
           submit_reply: Publish reply
           submit_root_comment: Publish comment
-          user_group_id:
-            label: Comment as
-            your_profile: Your profile
         opinion:
           label: Your opinion about this topic
           negative: Negative
@@ -155,7 +152,6 @@ en:
           id: The id for this comment
           locale: The locale (language) that the participant had when leaving this comment
           root_commentable_url: The URL of the resource that ties to this comment
-          user_group: The name of the user group that made this comment (if any)
     events:
       comments:
         comment_by_followed_user:
