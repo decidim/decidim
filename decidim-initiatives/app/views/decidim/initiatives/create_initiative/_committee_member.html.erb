@@ -1,5 +1,5 @@
 <div class="flex items-center justify-between my-1">
-  <%= cell("decidim/user_name", request.user) %>
+  <%= cell "decidim/author", ::Decidim::UserPresenter.new(request.user), layout: :compact %>
 
   <div>
     <% if allowed_to? :approve, :initiative_committee_member, initiative: current_initiative, request: request %>
