@@ -39,20 +39,8 @@ module Decidim
         when "Decidim::Organization"
           author_organization
         when "Decidim::User"
-          if post.author.group?
-            author_user_group
-          else
-            author_user
-          end
+          author_user
         end
-      end
-
-      def author_user_group
-        {
-          "@type": "Organization",
-          name: post.author.name,
-          url: profile_url(post.author)
-        }
       end
 
       def author_organization
