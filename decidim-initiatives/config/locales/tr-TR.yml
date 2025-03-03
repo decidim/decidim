@@ -279,7 +279,6 @@ tr:
         finish:
           back: Geri
           back_to_initiatives: Girişimlere geri dön
-          callout_text: Tebrikler! Girişiminiz başarıyla oluşturuldu.
           confirm: Bir yöneticinin gözden geçirmesi ve yayınlaması için inisiyatif göndereceksiniz. Yayınlandıktan sonra onu düzenleyemezsiniz. Emin misiniz?
           edit_my_initiative: Girişimimi düzenle
           go_to_my_initiatives: Benim girişimlerime git
@@ -458,7 +457,7 @@ tr:
     decidim:
       initiative_creation_header:
         fill_data: Oluştur
-        finish: Bitir
+        finish: Bitiş
         promotal_committee: Tanıtım komitesi
         select_initiative_type: Seç
       initiative_signature_creation_header:
