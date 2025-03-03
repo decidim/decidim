@@ -419,7 +419,7 @@ eu:
           registration: Izen-ematea
       conference_program:
         show:
-          program: Programa
+          program: Egitaraua
       conference_registration_mailer:
         confirmation:
           confirmed_html: Zure jardunaldirako izena emateko <a href="%{url}">%{title}</a> baieztatu da.
@@ -499,10 +499,10 @@ eu:
           status:
             accepted: Onartuta (%{at})
             rejected: Ukatua (%{at})
-            sent: bidalia
+            sent: Bidalia
         conference_registration:
           fields:
-            email: Emaila
+            email: Helbide elektronikoa
             name: izena
             registration_type: Izen-emate mota
             state: Estatu
