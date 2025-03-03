@@ -688,7 +688,6 @@ fi-pl:
         proposals_imports:
           create:
             invalid: Ehdotusten tuonti epäonnistui.
-            success: "%{number} ehdotuksen tuonti onnistui."
           new:
             create: Tuo ehdotuksia
             no_components: Tässä osallisuustilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
