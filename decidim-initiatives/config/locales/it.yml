@@ -292,8 +292,7 @@ it:
         finish:
           back: Indietro
           back_to_initiatives: Torna alle iniziative
-          callout_text: Complimenti! La tua iniziativa è stata creata con successo.
-          confirm: Stai per inviare l'iniziativa per un amministratore per la revisione e pubblicarla. Una volta pubblicato non sarai in grado di modificarlo. Sei sicuro?
+          confirm: Stai per inviare l'iniziativa per un amministratore per rivederla e pubblicarla. Una volta pubblicato non sarai in grado di modificarlo. Sei sicuro?
           edit_my_initiative: Modifica la mia iniziativa
           go_to_my_initiatives: Vai alle mie iniziative
           more_information: "(Maggiori informazioni)"
