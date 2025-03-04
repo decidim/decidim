@@ -1373,15 +1373,15 @@ fi-pl:
           create_user_group: Luo ryhmä
           disabled_message: Viesti
           edit_profile: Muokkaa profiilia
-          edit_user_group: Muokkaa ryhmäprofiilia
-          invite_user: Kutsu osallistuja
+          edit_user_group: Muokkaa ryhmän profiilia
+          invite_user: Kutsu käyttäjä
           join_user_group: Lähetä liittymispyyntö ryhmään
           leave_user_group: Poistu ryhmästä
           manage_user_group: Hallinnoi ryhmää
           manage_user_group_admins: Hallinnoi ylläpitäjiä
           manage_user_group_users: Hallinnoi jäseniä
           message: Viesti
-          resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudestaan
+          resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudelleen
         confirmation_instructions_sent: Sähköpostivahvistuksen ohjeet lähetetty.
         create_user_group: Luo ryhmä
         edit_profile: Muokkaa profiilia
