@@ -385,7 +385,8 @@ uk:
         followers: Ті, хто стежить
         following: 'Стежить за:'
       user:
-        edit_profile: Редагувати профіль
+        actions:
+          edit_profile: Редагувати профіль
     reported_mailer:
       hide:
         hello: Доброго дня, %{name}%!
