@@ -21,6 +21,7 @@ module Decidim
     end
 
     private
+
     def resource
       @resource ||= GlobalID::Locator.locate_signed(params[:resource])
     end

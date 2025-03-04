@@ -1251,10 +1251,6 @@ en:
       no_activities_warning: There are no entries to show for this activity type.
     linked_resource_from:
       included_in: Included in
-    qr:
-      show:
-        scan: Scan the QR code
-        title: "QR Code for %{resource_title}"
     links:
       invalid_url: Invalid URL
       warning:
@@ -1720,6 +1716,10 @@ en:
           resend_email_confirmation_instructions: Resend email confirmation instructions
         confirmation_instructions_sent: Email confirmation instructions sent.
         fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it.
+    qr:
+      show:
+        scan: Scan the QR code
+        title: QR Code for %{resource_title}
     reported_mailer:
       hide:
         hello: Hello %{name},

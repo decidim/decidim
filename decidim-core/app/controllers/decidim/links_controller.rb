@@ -14,7 +14,6 @@ module Decidim
     rescue_from Decidim::InvalidUrlError, with: :modal
     rescue_from URI::InvalidURIError, with: :modal
 
-
     def new
       headers["X-Robots-Tag"] = "none"
       headers["Link"] = %(<#{url_for}>; rel="canonical")
@@ -37,7 +36,6 @@ module Decidim
       raise Decidim::InvalidUrlError unless external_url
       raise Decidim::InvalidUrlError unless %w(http https).include?(external_url.scheme)
     end
-
 
     def external_url
       @external_url ||= URI.parse(escape_url(params[:external_url]))
