@@ -923,6 +923,13 @@ tr:
           info: Rozetler, platformda belirli etkinlikler gerçekleştirilerek kazanılır.
           title: Rozetler
       user:
+        actions:
+          edit_profile: Profili Düzenle
+          edit_user_group: Grup profilini düzenle
+          invite_user: Katılımcı davet et
+          join_user_group: Gruba katılma isteği
+          leave_user_group: Gruptan ayrıl
+          resend_email_confirmation_instructions: E-posta doğrulama talimatlarını tekrar gönder
         create_user_group: Grup oluştur
         edit_profile: Profili Düzenle
         edit_user_group: Grup profilini düzenle
