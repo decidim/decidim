@@ -40,7 +40,8 @@ module Decidim
                 "origin_component_id" => proposal_component.id,
                 "states" => states,
                 "keep_authors" => keep_authors,
-                "keep_answers" => keep_answers
+                "keep_answers" => keep_answers,
+                "scopes" => scopes
               }
             )
           end
