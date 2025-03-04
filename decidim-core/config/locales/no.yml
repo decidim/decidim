@@ -938,6 +938,13 @@
           info: Merker tjenes med å utføre spesifikke aktivitet i plattformen.
           title: Merker
       user:
+        actions:
+          edit_profile: Rediger profil
+          edit_user_group: Rediger gruppeprofil
+          invite_user: Inviter deltaker
+          join_user_group: Forespør om å bli med i gruppen
+          leave_user_group: Forlat gruppe
+          resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
         create_user_group: Opprett gruppe
         edit_profile: Rediger profil
         edit_user_group: Rediger gruppeprofil
