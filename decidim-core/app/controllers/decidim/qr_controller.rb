@@ -27,7 +27,7 @@ module Decidim
 
     def parametrized_title
       [
-        resource.title.parameterize,
+        resource.presenter.title(html_escape: true).parameterize,
         resource.id
       ].join("-")
     end

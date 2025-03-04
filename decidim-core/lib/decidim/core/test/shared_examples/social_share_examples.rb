@@ -48,6 +48,7 @@ end
 
 shared_examples "a social share via QR code" do
   let(:title) { resource.presenter.title }
+  let(:parameterized_title) { CGI.escapeHTML(title) }
   let!(:card_image) { nil }
   it "has the QR code" do
     visit_resource
@@ -56,8 +57,8 @@ shared_examples "a social share via QR code" do
 
     expect(page).to have_content("QR Code")
     within "#QRCodeDialog" do
-      expect(page).to have_css('img[alt="QR Code"]')
-      expect(page).to have_link("Print Poster")
+      expect(page).to have_css(%(img[alt="QR Code"]))
+      expect(page).to have_link("Print poster")
       expect(page).to have_content(title)
       expect(page).to have_link("Download")
     end
@@ -79,9 +80,9 @@ shared_examples "a social share via QR code" do
     visit_resource
     click_on "Share"
     click_on "Share to QR"
-    click_on "Print Poster"
+    click_on "Print poster"
     expect(page).to have_content("Scan the QR code")
-    expect(page).to have_css('img[alt="QR Code"]')
+    expect(page).to have_css(%(img[alt="QR Code for #{parameterized_title}"]))
 
     expect(page).to have_css(%(img[src*="#{card_image}"])) unless card_image.nil?
     expect(page).to have_content(title)
