@@ -1,0 +1,6 @@
+---
+es:
+  decidim:
+    components:
+      collaborative_texts:
+        name: Textos colaborativos

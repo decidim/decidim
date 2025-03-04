@@ -29,7 +29,7 @@ module Decidim::CollaborativeTexts
       it_behaves_like "m-cell", :document
 
       it "renders the card" do
-        expect(subject).to have_css("[id^='collaborative_texts__document']")
+        expect(subject).to have_css("[id^='collaborative_texts__document_#{document.id}']")
       end
 
       it "renders the title" do

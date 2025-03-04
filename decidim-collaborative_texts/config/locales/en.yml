@@ -26,10 +26,10 @@ en:
             invalid: There was a problem creating the document.
             success: Document successfully created.
           edit:
-            title: Edit Collaborative Texts
+            title: Edit collaborative texts
             update: Update
           edit_settings:
-            title: Configure Collaborative Texts
+            title: Configure collaborative texts
             update: Update
           index:
             title: Collaborative texts
@@ -37,7 +37,7 @@ en:
             title: Deleted documents
           new:
             create: Create
-            title: Create Collaborative Texts
+            title: Create collaborative texts
           publish:
             invalid: There was a problem publishing this document.
             success: Document successfully published.

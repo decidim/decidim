@@ -272,9 +272,6 @@ es-PY:
           results_count:
             one: 1 resultado
             other: "%{count} resultados"
-        home:
-          empty: Aún no hay ningún resultado.
-          empty_filters: No hay resultados con estos criterios.
         home_header:
           global_status: Estado de ejecución global
         no_results: No hay proyectos

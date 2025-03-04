@@ -29,6 +29,24 @@ describe "Download Open Data files", download: true do
       end
     end
 
+    context "when the project's space is private" do
+      let!(:project) { create(:project, component:) }
+      let(:resource_title) { translated_attribute(project.title).gsub('"', '""') }
+      let(:component) { create(:budgets_component, participatory_space:) }
+      let(:participatory_space) { create(:assembly, :private, :opaque, organization:) }
+
+      it_behaves_like "does not include it in the open data ZIP file"
+    end
+
+    context "when the project's space is private and transparent" do
+      let!(:project) { create(:project, component:) }
+      let(:resource_title) { translated_attribute(project.title).gsub('"', '""') }
+      let(:component) { create(:budgets_component, participatory_space:) }
+      let(:participatory_space) { create(:assembly, :private, :transparent, organization:) }
+
+      it_behaves_like "includes it in the open data ZIP file"
+    end
+
     context "when the project's component is unpublished" do
       let!(:project) { create(:project, component:) }
       let(:resource_title) { translated_attribute(project.title).gsub('"', '""') }

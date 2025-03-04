@@ -274,7 +274,6 @@ lv:
             assign_to_valuator_button: Piešķirt
             cancel: Atcelt
             merge: Apvienot jaunā
-            merge_button: Apvienot
             publish: Publicēt
             publish_answers: Publicēt atbildes
             select_component: Izvēlēties komponentu
@@ -321,7 +320,6 @@ lv:
       admin_log:
         proposal:
           answer: "%{user_name} atbildēja projektam %{resource_name} telpā %{space_name}"
-          create: "%{user_name} izveidoja %{resource_name} priekšlikumu telpā %{space_name} kā oficiālu priekšlikumu"
           publish_answer: "%{user_name} publicēja atbildi uz %{resource_name} priekšlikumu telpā%{space_name}"
           update: "%{user_name} atjaunināja %{resource_name} oficiālo priekšlikumu %{space_name} telpā"
         proposal_note:
