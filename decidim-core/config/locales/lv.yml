@@ -777,20 +777,14 @@ lv:
         following: Seko
         groups: Grupas
         members: Dalībnieki
-      sidebar:
-        badges:
-          info: Žetoni tiek nopelnīti, veicot noteiktas darbības platformā.
-          title: Žetoni
       user:
-        create_user_group: Izveidot grupu
-        edit_profile: Rediģēt profilu
-        edit_user_group: Rediģēt grupas profilu
-        invite_user: Uzaicināt dalībnieku
-        join_user_group: Pieteikums pievienoties grupai
-        leave_user_group: Pamest grupu
-        manage_user_group_admins: Pārvaldīt administratorus
-        manage_user_group_users: Pārvaldīt biedrus
-        resend_email_confirmation_instructions: Atkārtoti e-pastā nosūtīt apstiprināšanas norādījumus
+        actions:
+          edit_profile: Rediģēt profilu
+          edit_user_group: Rediģēt grupas profilu
+          invite_user: Uzaicināt dalībnieku
+          join_user_group: Pieteikums pievienoties grupai
+          leave_user_group: Pamest grupu
+          resend_email_confirmation_instructions: Atkārtoti e-pastā nosūtīt apstiprināšanas norādījumus
     reported_mailer:
       hide:
         hello: Sveiki, %{name}!
