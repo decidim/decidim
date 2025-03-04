@@ -7,6 +7,6 @@
   <%= cell("decidim/follow_button", profile_holder) %>
 
   <% if user_flaggable? && model.try(:id) != current_user.try(:id) %>
-    <%= cell("decidim/report_button", profile_holder) %>
+    <%= cell("decidim/report_user_button", profile_holder) %>
   <% end %>
 </div>
