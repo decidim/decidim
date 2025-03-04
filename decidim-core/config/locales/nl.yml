@@ -905,20 +905,14 @@ nl:
         groups: Groepen
         members: Leden
         officialized: Officiële gebruiker
-      sidebar:
-        badges:
-          info: Badges worden verdiend door specifieke activiteiten uit te voeren op het platform.
-          title: Badges
       user:
-        create_user_group: Maak een groep
-        edit_profile: Bewerk profiel
-        edit_user_group: Bewerk groepsprofiel
-        invite_user: Nodig deelnemer uit
-        join_user_group: Verzoek om lid te worden van de groep
-        leave_user_group: Verlaat groep
-        manage_user_group_admins: Beheer beheerders
-        manage_user_group_users: Leden beheren
-        resend_email_confirmation_instructions: Verzend instructies voor e-mailbevestiging opnieuw
+        actions:
+          edit_profile: Bewerk profiel
+          edit_user_group: Bewerk groepsprofiel
+          invite_user: Nodig deelnemer uit
+          join_user_group: Verzoek om lid te worden van de groep
+          leave_user_group: Verlaat groep
+          resend_email_confirmation_instructions: Verzend instructies voor e-mailbevestiging opnieuw
     reported_mailer:
       hide:
         hello: Hallo %{name},
