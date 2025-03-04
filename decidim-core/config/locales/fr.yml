@@ -1371,12 +1371,12 @@ fr:
       sidebar:
         badges:
           info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
-          title: Badges
+          title: Insignes
       user:
         actions:
           create_user_group: Créer un groupe
           disabled_message: Message
-          edit_profile: Modifier le profil
+          edit_profile: Mettre à jour le profil
           edit_user_group: Modifier le profil du groupe
           invite_user: Inviter un utilisateur
           join_user_group: Demander à rejoindre ce groupe
