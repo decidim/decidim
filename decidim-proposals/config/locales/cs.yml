@@ -586,7 +586,6 @@ cs:
         proposals_imports:
           create:
             invalid: Při importu návrhů došlo k chybě.
-            success: "%{number} návrhů bylo úspěšně importováno."
           new:
             create: Návrhy na dovoz
             no_components: V tomto účastnickém prostoru neexistují žádné jiné komponenty návrhu, které by mohly importovat návrhy.
