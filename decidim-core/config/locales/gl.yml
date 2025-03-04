@@ -731,6 +731,13 @@ gl:
           info: As insignias obtéñense realizando actividades específicas na plataforma.
           title: Insignias
       user:
+        actions:
+          edit_profile: Editar perfil
+          edit_user_group: Editar o perfil do grupo
+          invite_user: Invitar ao usuario
+          join_user_group: Solicitude para unirse ao grupo
+          leave_user_group: Deixar de grupo
+          resend_email_confirmation_instructions: Reenvía as instrucións de confirmación de correo electrónico
         create_user_group: Crear grupo
         edit_profile: Editar perfil
         edit_user_group: Editar o perfil do grupo
@@ -791,6 +798,8 @@ gl:
         report: Informe
         spam: Contén clic, publicidade, fraudes ou bots de script.
         title: Informar dun problema
+      flag_user_modal:
+        close: Pechar
       floating_help:
         help: Axuda
       login_modal:
