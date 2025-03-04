@@ -4,7 +4,6 @@ module Decidim
   # The controller to show all the last activities in a Decidim Organization.
   class UserActivitiesController < Decidim::ApplicationController
     include Paginable
-    include UserGroups
     include FilterResource
     include Flaggable
     include HasProfileBreadcrumb

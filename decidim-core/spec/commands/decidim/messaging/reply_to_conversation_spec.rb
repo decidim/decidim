@@ -7,8 +7,6 @@ module Decidim::Messaging
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :confirmed, organization:) }
     let(:another_user) { create(:user, :confirmed, organization:) }
-    let(:extra_user) { create(:user, :confirmed, organization:) }
-    let(:user_group) { create(:user_group, :confirmed, organization:, users: [user, another_user, extra_user]) }
     let(:sender) { user }
     let(:originator) { another_user }
     let(:current_user) { user }
@@ -97,48 +95,6 @@ module Decidim::Messaging
 
       it_behaves_like "valid message with receipts", 2
       it_behaves_like "send emails", 1
-
-      context "and the originator is a group" do
-        let(:originator) { user_group }
-
-        before do
-          # mark as read receipts for other managers created in conversation.start!
-          originator.managers.each do |user|
-            Receipt.mark_as_read(user)
-          end
-        end
-
-        it_behaves_like "valid message with receipts", 3
-        it_behaves_like "send emails", 2
-
-        context "and the group has users with direct messages disabled" do
-          let(:extra_user) { create(:user, :confirmed, organization:, direct_message_types: "followed-only") }
-
-          it_behaves_like "valid message with receipts", 3
-          it_behaves_like "send emails", 1
-        end
-      end
-
-      context "and the sender is a group" do
-        let(:sender) { user_group }
-
-        before do
-          # mark as read receipts for other managers created in conversation.start!
-          sender.managers.each do |user|
-            Receipt.mark_as_read(user)
-          end
-        end
-
-        it_behaves_like "valid message with receipts", 3
-        it_behaves_like "send emails", 2
-
-        context "and the group has users with direct messages disabled" do
-          let(:extra_user) { create(:user, :confirmed, organization:, direct_message_types: "followed-only") }
-
-          it_behaves_like "valid message with receipts", 3
-          it_behaves_like "send emails", 1
-        end
-      end
 
       context "and the body has just the right length without carriage returns" do
         let(:body) { "This text is just the correct length\r\nwith the carriage return characters removed" }

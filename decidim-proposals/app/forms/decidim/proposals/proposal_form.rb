@@ -14,7 +14,6 @@ module Decidim
       attribute :title, String
       attribute :body, Decidim::Attributes::CleanString
       attribute :body_template, String
-      attribute :user_group_id, Integer
       attribute :address, String
       attribute :latitude, Float
       attribute :longitude, Float
@@ -45,7 +44,6 @@ module Decidim
         presenter = ProposalPresenter.new(model)
         self.body = presenter.editor_body(all_locales: body.is_a?(Hash))
 
-        self.user_group_id = model.user_groups.first&.id
         self.documents = model.attachments
       end
 

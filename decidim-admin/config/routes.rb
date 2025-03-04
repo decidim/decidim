@@ -87,16 +87,6 @@ Decidim::Admin::Engine.routes.draw do
       end
     end
 
-    resources :user_groups, only: [:index] do
-      member do
-        put :verify
-        put :reject
-      end
-      collection do
-        resource :user_groups_csv_verification, only: [:new, :create], path: "csv_verification"
-      end
-    end
-
     resource :help_sections, only: [:show, :update]
 
     namespace :admin_terms do

@@ -12,10 +12,6 @@ function updateEndorsementBlock() {
 
   $endorsementListGrid.outerHTML = '<%= j(cell("decidim/endorsers_list", resource)).strip.html_safe %>';
 
-  <%# If the endorsement button displays a modal to select the identity to endorse only the content of the button %>
-  <%# has to be updated to maintain the function of the button to open the modal. Otherwise the button has to be fully %>
-  <%# updated because the form request also changes %>
-
   $endorsementButton.outerHTML = '<%= j(cell("decidim/endorsement_buttons", resource).show).strip.html_safe %>';
 
   $endorsementListGrid = document.getElementById('endorser-list-<%= resource.id %>');

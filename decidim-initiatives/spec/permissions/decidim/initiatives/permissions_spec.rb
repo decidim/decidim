@@ -44,12 +44,40 @@ describe Decidim::Initiatives::Permissions do
       it { is_expected.to be false }
     end
 
-    context "when user has verified user groups" do
+    context "when the initiative type has permissions to vote" do
       before do
-        create(:user_group, :verified, users: [user], organization: user.organization)
+        initiative.type.create_resource_permission(
+          permissions: {
+            "vote" => {
+              "authorization_handlers" => {
+                "dummy_authorization_handler" => { "options" => {} },
+                "another_dummy_authorization_handler" => { "options" => {} }
+              }
+            }
+          }
+        )
       end
 
-      it { is_expected.to be true }
+      context "when user is not verified" do
+        it { is_expected.to be false }
+      end
+
+      context "when user is not fully verified" do
+        before do
+          create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
+        end
+
+        it { is_expected.to be false }
+      end
+
+      context "when user is fully verified" do
+        before do
+          create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
+          create(:authorization, name: "another_dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
+        end
+
+        it { is_expected.to be true }
+      end
     end
   end
 
@@ -191,14 +219,6 @@ describe Decidim::Initiatives::Permissions do
       context "when user is authorized" do
         before do
           create(:authorization, :granted, user:)
-        end
-
-        it { is_expected.to be true }
-      end
-
-      context "when user belongs to a verified user group" do
-        before do
-          create(:user_group, :verified, users: [user], organization: user.organization)
         end
 
         it { is_expected.to be true }
@@ -408,14 +428,6 @@ describe Decidim::Initiatives::Permissions do
           it { is_expected.to be true }
         end
 
-        context "when user belongs to a verified user group" do
-          before do
-            create(:user_group, :verified, users: [user], organization: user.organization)
-          end
-
-          it { is_expected.to be true }
-        end
-
         context "when user is not connected" do
           let(:user) { nil }
 
@@ -459,14 +471,6 @@ describe Decidim::Initiatives::Permissions do
 
       before do
         allow(initiative).to receive(:votes_enabled?).and_return(votes_enabled?)
-      end
-
-      context "when user has verified user groups" do
-        before do
-          create(:user_group, :verified, users: [user], organization: user.organization)
-        end
-
-        it { is_expected.to be false }
       end
 
       context "when the initiative type has permissions to vote" do
@@ -531,15 +535,6 @@ describe Decidim::Initiatives::Permissions do
 
     context "when user has not voted the initiative" do
       it { is_expected.to be false }
-    end
-
-    context "when user has verified user groups" do
-      before do
-        create(:user_group, :verified, users: [user], organization: user.organization)
-        create(:initiative_user_vote, initiative:, author: user)
-      end
-
-      it { is_expected.to be true }
     end
   end
 end

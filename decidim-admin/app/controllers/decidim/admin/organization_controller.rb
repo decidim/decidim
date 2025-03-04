@@ -36,9 +36,7 @@ module Decidim
         search(current_organization.users.available)
       end
 
-      def user_entities
-        search(current_organization.user_entities.available)
-      end
+      alias user_entities users
 
       private
 

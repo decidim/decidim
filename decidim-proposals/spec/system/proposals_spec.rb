@@ -396,7 +396,6 @@ describe "Proposals" do
       let(:component) { create(:proposal_component, :with_geocoding_enabled, participatory_space: participatory_process) }
 
       let!(:author_proposals) { create_list(:proposal, 2, :participant_author, :published, component:) }
-      let!(:group_proposals) { create_list(:proposal, 2, :user_group_author, :published, component:) }
       let!(:official_proposals) { create_list(:proposal, 2, :official, :published, component:) }
 
       # We are providing a list of coordinates to make sure the points are scattered all over the map
@@ -421,7 +420,7 @@ describe "Proposals" do
       end
 
       it "shows markers for selected proposals" do
-        expect(page).to have_css(".leaflet-marker-icon", count: 5)
+        expect(page).to have_css(".leaflet-marker-icon", count: 4)
         within "#panel-dropdown-menu-origin" do
           click_filter_item "Official"
         end
