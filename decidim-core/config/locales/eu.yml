@@ -1373,10 +1373,6 @@ eu:
         members: Bazkideek
         officialized: Parte-hartzaile ofiziala
         send_private_message: Bidali mezu pribatua
-      sidebar:
-        badges:
-          info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
-          title: Garaikurrak
       user:
         actions:
           create_user_group: Sortu taldea
@@ -1384,24 +1380,15 @@ eu:
           edit_profile: Editatu profila
           edit_user_group: Editatu taldearen profila
           invite_user: Gonbidatu parte-hartzailea
-          join_user_group: Eskatu taldera lotzeko
+          join_user_group: Eskatu taldera lotzea
           leave_user_group: Utzi taldea
           manage_user_group: Kudeatu taldea
           manage_user_group_admins: Kudeatu administratzaileak
           manage_user_group_users: Kudeatu kideak
           message: Mezua
-          resend_email_confirmation_instructions: Birbidali helbide elektroniko bat berresteko instrukzioekin
+          resend_email_confirmation_instructions: Birbidali posta elektronikoa berresteko instrukzioekin
         confirmation_instructions_sent: Berresteko instrukzioak helbide elektronikoz bidalita.
-        create_user_group: Sortu taldea
-        edit_profile: Editatu profila
-        edit_user_group: Editatu taldearen profila
         fill_in_email_to_confirm_it: Mesedez, sartu zure taldearen helbide elektronikoa, berresteko.
-        invite_user: Gonbidatu parte-hartzailea
-        join_user_group: Eskatu taldera lotzea
-        leave_user_group: Utzi taldea
-        manage_user_group_admins: Kudeatu administratzaileak
-        manage_user_group_users: Kudeatu kideak
-        resend_email_confirmation_instructions: Birbidali posta elektronikoa berresteko instrukzioekin
     reported_mailer:
       hide:
         hello: Kaixo, %{name},
@@ -1495,14 +1482,11 @@ eu:
       flag_user_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         block: Blokeatu parte-hartzaile hau
-        close: Itxi
-        description: Parte-hartzailearen zer da desegokia?
         does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
         hide: Ezkutatu bere eduki guztiak
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
         report: Jakinarazi
         spam: Bertan badago clickbait-ik, publizitaterik edo gidoi-robotik.
-        title: Salatu parte-hartzaile desegokia
       floating_help:
         help: Laguntza
       follow_button:
