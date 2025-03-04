@@ -193,9 +193,6 @@ ga:
         following: Leantach
         groups: Grúpaí
         members: Baill
-      sidebar:
-        badges:
-          title: Suaitheantais
     reported_mailer:
       report:
         authors: Údair
@@ -229,7 +226,6 @@ ga:
         reason: Cúis
         report: Tuairiscigh
       flag_user_modal:
-        close: Dún
         report: Tuairiscigh
       floating_help:
         help: Cabhair
