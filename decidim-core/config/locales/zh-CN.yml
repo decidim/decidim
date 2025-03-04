@@ -835,6 +835,13 @@ zh-CN:
           info: 徽章是通过在平台上执行特定活动赚取的。
           title: 徽章
       user:
+        actions:
+          edit_profile: 编辑配置文件
+          edit_user_group: 编辑群组资料
+          invite_user: Invite participant
+          join_user_group: 加入组的请求
+          leave_user_group: 离开组
+          resend_email_confirmation_instructions: 重新发送电子邮件确认说明
         create_user_group: 创建组
         edit_profile: 编辑配置文件
         edit_user_group: 编辑群组资料
@@ -920,6 +927,8 @@ zh-CN:
         report: 报告
         spam: 包含点击、广告、骗子或脚本机器人。
         title: 报告不恰当的内容
+      flag_user_modal:
+        close: 关闭
       floating_help:
         help: 帮助
       login_modal:
