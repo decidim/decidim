@@ -886,20 +886,14 @@ tr:
         groups: Gruplar
         members: Üyeler
         officialized: Resmi katılımcı
-      sidebar:
-        badges:
-          info: Rozetler, platformda belirli etkinlikler gerçekleştirilerek kazanılır.
-          title: Rozetler
       user:
-        create_user_group: Grup oluştur
-        edit_profile: Profili Düzenle
-        edit_user_group: Grup profilini düzenle
-        invite_user: Katılımcı davet et
-        join_user_group: Gruba katılma isteği
-        leave_user_group: Gruptan ayrıl
-        manage_user_group_admins: Yöneticileri yönet
-        manage_user_group_users: Üyeleri yönet
-        resend_email_confirmation_instructions: E-posta doğrulama talimatlarını tekrar gönder
+        actions:
+          edit_profile: Profili Düzenle
+          edit_user_group: Grup profilini düzenle
+          invite_user: Katılımcı davet et
+          join_user_group: Gruba katılma isteği
+          leave_user_group: Gruptan ayrıl
+          resend_email_confirmation_instructions: E-posta doğrulama talimatlarını tekrar gönder
     reported_mailer:
       hide:
         hello: Merhaba %{name}
@@ -973,12 +967,9 @@ tr:
         title: Sorun bildir
       flag_user_modal:
         already_reported: Bu içerik zaten bildirildi ve bir yönetici tarafından incelenecek.
-        close: Kapat
-        description: Kullanıcı hakkında uygunsuz olan nedir?
         offensive: Irkçılık, cinsiyetçilik, hakaretler, kişisel saldırılar, ölüm tehditleri, intihar talepleri veya her türlü nefret söylemi içerir.
         report: Bildir
         spam: Tıklama tuzağı, reklam, dolandırıcılık veya komut dosyası botları içerir.
-        title: Uygunsuz Kullanıcıyı bildirin
       floating_help:
         help: yardım et
       follow_button:
