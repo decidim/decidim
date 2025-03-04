@@ -89,7 +89,7 @@ fi:
             does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan %{organization_name} -palveluun.
             offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
-          title: Ilmoita asiatonta sisältöä
+          title: Ilmoita epäasiallista sisältöä
         show_replies:
           one: Näytä vastaus
           other: Näytä %{count} vastausta
