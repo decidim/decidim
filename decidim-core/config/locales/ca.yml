@@ -1372,11 +1372,11 @@ ca:
         actions:
           create_user_group: Crear un grup
           disabled_message: Missatge
-          edit_profile: Editar el perfil
-          edit_user_group: Editar el perfil del grup
-          invite_user: Convidar participant
-          join_user_group: Sol·licitar unir-se al grup
-          leave_user_group: Surt del grup
+          edit_profile: Edita el perfil
+          edit_user_group: Edita el perfil del grup
+          invite_user: Convida la participant
+          join_user_group: Sol·licita unir-se al grup
+          leave_user_group: Marxa del grup
           manage_user_group: Gestiona el grup
           manage_user_group_admins: Gestionar administradores
           manage_user_group_users: Gestionar membres
@@ -1390,7 +1390,7 @@ ca:
         invite_user: Convida la participant
         join_user_group: Sol·licita unir-se al grup
         leave_user_group: Marxa del grup
-        manage_user_group_admins: Gestiona les administradores
+        manage_user_group_admins: Gestionar administradores
         manage_user_group_users: Gestiona els membres
         resend_email_confirmation_instructions: Reenvia un correu electrònic amb les instruccions de confirmació
     reported_mailer:
