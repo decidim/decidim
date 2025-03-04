@@ -4,7 +4,7 @@ module Decidim
   # This holds decidim-proposals version.
   module Proposals
     def self.version
-      "0.30.0.dev"
+      "0.31.0.dev"
     end
   end
 end

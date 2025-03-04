@@ -173,9 +173,6 @@ bg:
           results_count:
             one: 1 резултат
             other: "%{count} резултата"
-        home:
-          empty: Все още няма резултати.
-          empty_filters: Няма резултати по този критерий.
         home_header:
           global_status: Общо състояние на изпълнение
         no_results: Няма проекти
