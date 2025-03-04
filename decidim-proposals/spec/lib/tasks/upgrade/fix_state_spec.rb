@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "rake decidim_proposals:fix:fix_state", type: :task do
+describe "rake decidim_proposals:upgrade:fix_state", type: :task do
   let!(:component1) { create(:proposal_component, :with_amendments_enabled) }
   let!(:component2) { create(:proposal_component, :with_amendments_enabled) }
 
@@ -28,8 +28,8 @@ describe "rake decidim_proposals:fix:fix_state", type: :task do
     end
 
     it "sets the state of the correct component" do
-      Rake::Task[:"decidim_proposals:fix:fix_state"].reenable
-      Rake::Task["decidim_proposals:fix:fix_state"].invoke
+      Rake::Task[:"decidim_proposals:upgrade:fix_state"].reenable
+      Rake::Task["decidim_proposals:upgrade:fix_state"].invoke
       proposal.reload
       expect(proposal.component.id).to eq(proposal.proposal_state.component.id)
     end
@@ -44,8 +44,8 @@ describe "rake decidim_proposals:fix:fix_state", type: :task do
     end
 
     it "removes the state" do
-      Rake::Task[:"decidim_proposals:fix:fix_state"].reenable
-      Rake::Task["decidim_proposals:fix:fix_state"].invoke
+      Rake::Task[:"decidim_proposals:upgrade:fix_state"].reenable
+      Rake::Task["decidim_proposals:upgrade:fix_state"].invoke
       proposal.reload
       expect(proposal.proposal_state).to be_nil
     end
