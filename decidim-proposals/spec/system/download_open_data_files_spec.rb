@@ -32,8 +32,8 @@ describe "Download Open Data files", download: true do
     context "when the proposal's space is private" do
       let!(:proposal) { create(:proposal, component:) }
       let(:resource_title) { translated_attribute(proposal.title).gsub('"', '""') }
-      let(:component) { create(:proposal_component, participatory_space:, organization:) }
-      let(:participatory_space) { create(:assembly, :private, :opaque) }
+      let(:component) { create(:proposal_component, participatory_space:) }
+      let(:participatory_space) { create(:assembly, :private, :opaque, organization:) }
 
       it_behaves_like "does not include it in the open data ZIP file"
     end
@@ -41,13 +41,10 @@ describe "Download Open Data files", download: true do
     context "when the proposal's space is private and transparent" do
       let!(:proposal) { create(:proposal, component:) }
       let(:resource_title) { translated_attribute(proposal.title).gsub('"', '""') }
-      let(:component) { create(:proposal_component, participatory_space:, organization:) }
-      let(:participatory_space) { create(:assembly, :private, :transparent) }
+      let(:component) { create(:proposal_component, participatory_space:) }
+      let(:participatory_space) { create(:assembly, :private, :transparent, organization:) }
 
-      # It should be available, as the space is transparent
-      # It is a known bug: https://github.com/decidim/decidim/issues/14210
-      # it_behaves_like "includes it in the open data ZIP file"
-      it_behaves_like "does not include it in the open data ZIP file"
+      it_behaves_like "includes it in the open data ZIP file"
     end
 
     context "when the proposal's component is unpublished" do
