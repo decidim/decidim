@@ -52,9 +52,9 @@ class Suggestion {
       // wrap in <p> any text nodes
       this.changesWrapper.childNodes.forEach((node) => {
         if (node.nodeType === Node.TEXT_NODE) {
-          let p = window.document.createElement("p");
-          p.textContent = node.textContent;
-          node.replaceWith(p);
+          let paragraph = window.document.createElement("p");
+          paragraph.textContent = node.textContent;
+          node.replaceWith(paragraph);
         }
       });
       this.wrapper.classList.add("applied");

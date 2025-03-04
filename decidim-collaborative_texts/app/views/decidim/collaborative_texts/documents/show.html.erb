@@ -24,7 +24,7 @@
          data-collaborative-texts-suggestions-url="<%= document_suggestions_path(document) %>"
          data-collaborative-texts-rollout-url="<%= document_path(document) %>"
          class="collaborative-texts-container editor-content">
-      <%= decidim_sanitize decidim_rich_text(document.body), { scrubber: Decidim::AdminInputScrubber.new } %>
+      <%= decidim_sanitize decidim_rich_text(document.consolidated_body), { scrubber: Decidim::AdminInputScrubber.new } %>
     </div>
   </section>
 

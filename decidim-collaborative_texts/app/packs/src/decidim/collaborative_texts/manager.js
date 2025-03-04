@@ -35,8 +35,11 @@ class Manager {
       if (node.classList.contains("collaborative-texts-editor")) {
         return;
       }
+      if (node.classList.contains("collaborative-texts-hidden")) {
+        return;
+      }
       if (node.classList.contains("collaborative-texts-changes")) {
-        node.childNodes.forEach(child => this.container.appendChild(child.cloneNode(true)));
+        node.childNodes.forEach((child) => this.container.appendChild(child.cloneNode(true)));
         return;
       }
       this.container.appendChild(node.cloneNode(true));
@@ -54,12 +57,13 @@ class Manager {
       },
       body: JSON.stringify({
         body: this.cleanBody(),
-        accepted: this.document.suggestions.getApplied().map(suggestion => suggestion.id)
+        accepted: this.document.suggestions.getApplied().map((suggestion) => suggestion.id)
       })
-    })
-      .then(response => response.json())
-      .then(data => {
+    }).
+      then((response) => response.json()).
+      then((data) => {
         console.log("Saved", data);
+        location = data.redirect;
       });
   }
 

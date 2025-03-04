@@ -13,6 +13,7 @@ module Decidim
         attribute :title, String
         attribute :body, Decidim::Attributes::RichText
         attribute :accepting_suggestions, Boolean, default: false
+        attribute :draft, Boolean, default: false
         translatable_attribute :announcement, Decidim::Attributes::RichText
 
         validates :title, presence: true, etiquette: true, unless: ->(form) { form.title.nil? }

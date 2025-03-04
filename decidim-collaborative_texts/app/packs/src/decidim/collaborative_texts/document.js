@@ -94,7 +94,9 @@ class Document {
   }
 
   _onSuggest(event) {
-    let replace = [...event.detail.replaceNodes].map((node) => node.nodeType == Node.TEXT_NODE ? node.textContent : node.outerHTML);
+    let replace = [...event.detail.replaceNodes].map((node) => (node.nodeType === Node.TEXT_NODE
+      ? node.textContent
+      : node.outerHTML));
     console.log("firstNode: ", event.detail.firstNode.id);
     console.log("lastNode: ", event.detail.lastNode.id);
     console.log("Replace: ", replace);
@@ -109,14 +111,14 @@ class Document {
         lastNode: event.detail.lastNode.id.replace(/^ct-node-/, ""),
         replace: replace
       })
-    })
-      .then(response => response.json())
-      .then(data => {
+    }).
+      then((response) => response.json()).
+      then((data) => {
         console.log("Suggestion sent:", data);
         this.suggestions.destroy();
         this.fetchSuggestions();
-      })
-      .catch(error => {
+      }).
+      catch((error) => {
         console.error("Error sending suggestion:", error);
       });
   }

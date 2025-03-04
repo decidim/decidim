@@ -24,7 +24,7 @@ module Decidim
       scope :enabled_desc, -> { order(arel_table[:accepting_suggestions].desc, arel_table[:created_at].desc) }
 
       delegate :organization, to: :component
-      delegate :body, :body=, to: :current_version
+      delegate :draft?, :draft, :draft=, :body, :body=, to: :current_version
 
       def self.log_presenter_class_for(_log)
         Decidim::CollaborativeTexts::AdminLog::DocumentPresenter
@@ -59,9 +59,8 @@ module Decidim
         current_version.reload
       end
 
-      # Consolidates the current draft version
-      def rollout!
-        current_version.update!(draft: false) if draft_version
+      def has_suggestions?
+        current_version.suggestions.any?
       end
 
       private

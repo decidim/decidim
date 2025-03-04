@@ -19,7 +19,7 @@ module Decidim
         @form = form(RolloutForm).from_params(params, document:)
         Rollout.call(@form) do
           on(:ok) do
-            render json: { redirect: Decidim::ResourceLocatorPresenter.new(document).path }
+            render json: { redirect: Decidim::ResourceLocatorPresenter.new(document).edit }
           end
 
           on(:invalid) do

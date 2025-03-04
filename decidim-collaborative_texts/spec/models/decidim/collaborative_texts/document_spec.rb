@@ -100,7 +100,7 @@ module Decidim
           expect(document.consolidated_body).to eq("My first version")
           expect(document.document_versions.count).to eq(2)
 
-          expect { document.rollout! }.not_to(change { document.document_versions.count })
+          expect { document.update(draft: true) }.not_to(change { document.document_versions.count })
           expect(document.body).to eq("My second version")
           expect(document.draft_body).to be_nil
           expect(document.consolidated_body).to eq("My second version")

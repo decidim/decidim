@@ -5,10 +5,12 @@ en:
       collaborative_texts:
         document:
           body: Body
+          draft: Draft
           title: Title
           version_number: Version number
         version:
           body: Body
+          draft: Draft
           version_number: Version number
   decidim:
     collaborative_texts:
@@ -20,18 +22,20 @@ en:
         new: New text
         title: Actions
         view_deleted_documents: View deleted documents
-      suggestions:
-        create:
-          invalid: There was a problem creating the suggestion.
-          success: Suggestion successfully created.
       admin:
         documents:
           create:
             invalid: There was a problem creating the document.
             success: Document successfully created.
           edit:
+            document_has_suggestions_html: <a href="%{url}">This document has suggestions</a> and cannot be edited directly. Please accept or reject the suggestions in order to generate a new draft version that can be edited.
+            draft: Draft version
+            draft_help: A draft version is not public and can edited. Remove the draft status to make the public version this content.
+            previous_versions: Previous versions
+            public_version: Public version
             title: Edit collaborative texts
             update: Update
+            version: Version %{version_number}, created on %{created_at} got %{suggestions_count} suggestions.
           edit_settings:
             title: Configure collaborative texts
             update: Update
@@ -69,11 +73,11 @@ en:
           update: "%{user_name} updated the %{resource_name} collaborative text version in %{space_name}"
       document:
         cancel: Cancel
+        rollout:
+          invalid: There was a problem creating a new version of the document (%{errors}).
+          new: Create a new version
         save: Send suggestion
         suggest: Suggest changes
-        rollout:
-          new: Create a new version
-          invalid: There was a problem creating a new version of the document (%{errors}).
       documents:
         index:
           count:
@@ -85,6 +89,10 @@ en:
           fields:
             suggestions: Accept suggestions
             title: Title
+      suggestions:
+        create:
+          invalid: There was a problem creating the suggestion.
+          success: Suggestion successfully created.
     components:
       collaborative_texts:
         name: Collaborative Texts

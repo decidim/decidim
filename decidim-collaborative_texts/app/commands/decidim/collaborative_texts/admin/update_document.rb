@@ -6,8 +6,6 @@ module Decidim
       # This command is executed when the user changes a Document from the admin
       # panel.
       class UpdateDocument < Decidim::Commands::UpdateResource
-        fetch_form_attributes :title, :body
-
         protected
 
         def update_resource
@@ -20,7 +18,17 @@ module Decidim
               **extra_document_params
             )
           end
-          return unless form.body != resource.body
+
+          if form.draft != resource.draft
+            Decidim.traceability.update!(
+              resource.current_version,
+              current_user,
+              { draft: form.draft },
+              **extra_document_params
+            )
+          end
+          # Body can only be updated if the document has no suggestions
+          return if form.body == resource.body || resource.has_suggestions?
 
           Decidim.traceability.update!(
             resource.current_version,
