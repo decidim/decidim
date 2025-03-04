@@ -1251,10 +1251,11 @@ en:
       no_activities_warning: There are no entries to show for this activity type.
     linked_resource_from:
       included_in: Included in
+    qr:
+      show:
+        scan: Scan the QR code
     links:
       invalid_url: Invalid URL
-      qr:
-        scan: Scan the QR code
       warning:
         body_1: You are about to visit an external link and we would like you to be cautious regarding the content on the external site.
         body_2: Please check the link you are about to visit and make sure you recognize it as a safe site before proceeding.
