@@ -331,6 +331,25 @@ describe "Explore results", versioning: true, type: :system do
       end
     end
 
+    context "with timeline entries" do
+      let!(:timeline_entry) { create(:timeline_entry, description: description, result: result) }
+      let(:description) do
+        generate_localized_title(:timeline_entry_description).transform_values { |v| "<p>#{v}</p>" }
+      end
+
+      before do
+        # Revisit the path to load updated results
+        visit path
+
+        expect(page).to have_text("PROJECT EVOLUTION")
+        page.scroll_to(find(".section-heading", text: "PROJECT EVOLUTION"))
+      end
+
+      it "displays the timeline entry description correctly" do
+        expect(page).not_to have_content("&lt;p&gt")
+      end
+    end
+
     context "when filtering" do
       before do
         create(:result, component: component, scope: scope)
