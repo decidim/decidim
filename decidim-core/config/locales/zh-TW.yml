@@ -1220,10 +1220,6 @@ zh-TW:
         members: 成員
         officialized: 正式認證參與者
         send_private_message: 發送私人訊息
-      sidebar:
-        badges:
-          info: 徽章是通過在平台上執行特定活動而獲得的。
-          title: 徽章
       user:
         actions:
           create_user_group: 建立群組
@@ -1231,20 +1227,13 @@ zh-TW:
           edit_user_group: 編輯群組資料
           invite_user: 邀請參與者
           join_user_group: 申請加入群組
+          leave_user_group: 退出群組
           manage_user_group_admins: 管理管理員
           manage_user_group_users: 管理成員
           message: 訊息
+          resend_email_confirmation_instructions: 重新發送電子郵件確認指示
         confirmation_instructions_sent: 電子郵件確認指示已發送.
-        create_user_group: 建立群組
-        edit_profile: 編輯個人資料
-        edit_user_group: 編輯群組資料
         fill_in_email_to_confirm_it: 請填寫您的群組電子郵件以進行確認.
-        invite_user: 邀請參與者
-        join_user_group: 申請加入群組
-        leave_user_group: 退出群組
-        manage_user_group_admins: 管理管理員
-        manage_user_group_users: 管理成員
-        resend_email_confirmation_instructions: 重新發送電子郵件確認指示
     reported_mailer:
       hide:
         hello: 哈囉，%{name},
@@ -1331,14 +1320,11 @@ zh-TW:
       flag_user_modal:
         already_reported: 此內容已被舉報，將由管理員進行審查。
         block: 封鎖此參與者
-        close: 關閉
-        description: 關於該使用者有什麼不適當的行為？
         does_not_belong: 包含非法活動、自殺威脅、個人資訊或其他您認為不適合在%{organization_name} 上的內容。
         hide: 隱藏所有內容
         offensive: 包含種族主義、性別歧視、辱罵、人身攻擊、死亡威脅、自殺要求或任何形式的仇恨言論
         report: 報告
         spam: 包含點閱率誘導、廣告、詐騙或自動腳本。
-        title: 舉報不適當的使用者
       floating_help:
         help: 幫助
       mentions_modal:
