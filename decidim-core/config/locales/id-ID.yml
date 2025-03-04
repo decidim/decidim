@@ -643,20 +643,14 @@ id:
         following: Mengikuti
         groups: Grup
         members: Anggota
-      sidebar:
-        badges:
-          info: Lencana diperoleh dengan melakukan aktivitas tertentu di platform.
-          title: Lencana
       user:
-        create_user_group: Membuat grup
-        edit_profile: Edit profil
-        edit_user_group: Edit profil grup
-        invite_user: Undang pengguna
-        join_user_group: Permintaan untuk bergabung dengan grup
-        leave_user_group: Meninggalkan grup
-        manage_user_group_admins: Kelola admin
-        manage_user_group_users: Kelola anggota
-        resend_email_confirmation_instructions: Kirim ulang instruksi konfirmasi email
+        actions:
+          edit_profile: Edit profil
+          edit_user_group: Edit profil grup
+          invite_user: Undang pengguna
+          join_user_group: Permintaan untuk bergabung dengan grup
+          leave_user_group: Meninggalkan grup
+          resend_email_confirmation_instructions: Kirim ulang instruksi konfirmasi email
     reported_mailer:
       hide:
         hello: Halo %{name},
