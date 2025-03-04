@@ -878,8 +878,10 @@ FactoryBot.define do
       extra_data { {} }
     end
 
+    user { create(:user) }
     organization { user.organization }
-    user
+    user_id { user.id }
+    user_type { user.class.name }
     participatory_space { build(:participatory_process, organization:, skip_injection:) }
     component { build(:component, participatory_space:, skip_injection:) }
     resource { build(:dummy_resource, component:, skip_injection:) }
