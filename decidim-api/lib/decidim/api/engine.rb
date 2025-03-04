@@ -53,7 +53,7 @@ module Decidim
 
       config.after_initialize do
         # Skip the warden configuration if JWT secret key is not defined (yet).
-        next if Rails.application.secrets.secret_key_jwt.blank?
+        next unless Rails.application.secrets.dig(:api, :secret_key_jwt)
 
         # There is some problem setting these configurations to Devise::JWT,
         # so send them directly to the Warden module.
@@ -64,7 +64,7 @@ module Decidim
           defaults = ::Devise::JWT::DefaultsGenerator.call
 
           jwt.mappings = defaults[:mappings]
-          jwt.secret = Rails.application.secrets.secret_key_jwt
+          jwt.secret = Rails.application.secrets.dig(:api, :secret_key_jwt)
           jwt.dispatch_requests = [
             ["POST", %r{^/sign_in$}]
           ]
