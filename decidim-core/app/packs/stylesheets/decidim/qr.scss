@@ -16,7 +16,7 @@ body {
     @apply mx-auto w-full;
   }
 
-  h2 {
+  h1 {
     @apply text-2xl text-black mb-6;
   }
 
@@ -29,7 +29,7 @@ body {
   }
 
   .card__grid-img {
-    @apply aspect-[21/9] rounded-t overflow-hidden mx-auto w-full lg:w-96;
+    @apply aspect-[21/9] rounded-t overflow-hidden mx-auto w-full lg:w-96 mb-12;
 
     img {
       @apply w-full h-full object-cover;
@@ -45,6 +45,23 @@ body {
       img {
         @apply h-20 w-full;
       }
+    }
+  }
+}
+
+@media print {
+  body {
+    zoom: 0.75;
+
+    h1 {
+      @apply text-2xl text-black mb-12;
+    }
+    h3 {
+
+    }
+
+    .card__grid-img {
+      @apply w-[80%];
     }
   }
 }
