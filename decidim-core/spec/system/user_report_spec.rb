@@ -61,9 +61,9 @@ describe "Report User" do
           click_on "Report"
         end
 
-        expect(page).to have_css(".flag-modal", visible: :visible)
+        expect(page).to have_css(".flag-user-modal", visible: :visible)
 
-        within ".flag-modal" do
+        within ".flag-user-modal" do
           expect(page).to have_field(name: "report[block]", visible: :visible)
           expect(page).to have_no_field(name: "report[hide]", visible: :visible)
 
@@ -82,9 +82,9 @@ describe "Report User" do
           click_on "Report"
         end
 
-        expect(page).to have_css(".flag-modal", visible: :visible)
+        expect(page).to have_css(".flag-user-modal", visible: :visible)
 
-        within ".flag-modal" do
+        within ".flag-user-modal" do
           find(:css, "input[name='report[block]']").set(true)
           expect(page).to have_field(name: "report[block]", visible: :visible)
           expect(page).to have_field(name: "report[hide]", visible: :visible)
@@ -109,11 +109,11 @@ describe "Report User" do
           click_on "Report"
         end
 
-        expect(page).to have_css("#flagModal-content", visible: :visible)
+        expect(page).to have_css(".flag-user-modal", visible: :visible)
         expect(page).to have_no_field(name: "report[block]", visible: :visible)
         expect(page).to have_no_field(name: "report[hide]", visible: :visible)
 
-        within "#flagModal-content" do
+        within ".flag-user-modal" do
           click_on "Report"
         end
 
@@ -134,7 +134,7 @@ describe "Report User" do
           click_on "Report"
         end
 
-        expect(page).to have_css("#flagModal-content", visible: :visible)
+        expect(page).to have_css(".flag-user-modal", visible: :visible)
 
         expect(page).to have_content "already reported"
       end

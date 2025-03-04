@@ -21,6 +21,7 @@ module Decidim
               ).and_call_original
 
               expect(command).to broadcast(:ok, document)
+              expect(document.reload).not_to be_published
             end
           end
 

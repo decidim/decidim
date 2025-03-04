@@ -43,7 +43,7 @@ module Decidim
       end
 
       def paginate_documents
-        @paginate_documents ||= paginate(documents.enabled_desc)
+        @paginate_documents ||= paginate(documents.enabled_desc).published
       end
     end
   end
