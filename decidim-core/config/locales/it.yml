@@ -557,6 +557,8 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: "%{nickname} ha aggiornato il proprio profilo"
           notification_title: La pagina <a href="%{resource_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
+        user_officialized:
+          email_subject: ""
     export_mailer:
       download_your_data_export:
         download: Scaricare
@@ -889,20 +891,14 @@ it:
         members: Utenti
         officialized: Partecipante ufficiale
         send_private_message: Invia messaggio privato
-      sidebar:
-        badges:
-          info: I badge vengono guadagnati eseguendo attività specifiche sulla piattaforma.
-          title: badge
       user:
-        create_user_group: Crea un gruppo
-        edit_profile: Modifica Profilo
-        edit_user_group: Modifica il profilo del gruppo
-        invite_user: Invita utente
-        join_user_group: Richiesta di iscrizione al gruppo
-        leave_user_group: Lascia il gruppo
-        manage_user_group_admins: Gestisci amministratori
-        manage_user_group_users: Gestisci i membri
-        resend_email_confirmation_instructions: Rispedire le istruzioni per la conferma dell'email
+        actions:
+          edit_profile: Modifica Profilo
+          edit_user_group: Modifica il profilo del gruppo
+          invite_user: Invita utente
+          join_user_group: Richiesta di iscrizione al gruppo
+          leave_user_group: Lascia il gruppo
+          resend_email_confirmation_instructions: Rispedire le istruzioni per la conferma dell'email
     reported_mailer:
       hide:
         hello: Ciao %{name},
@@ -975,12 +971,9 @@ it:
         title: Segnala un problema
       flag_user_modal:
         already_reported: Questo contenuto è già stato segnalato e sarà esaminato da un amministratore.
-        close: Chiudi
-        description: Che cosa è inappropriato riguardo all'utente?
         offensive: Vi sono contenuti razzisti, sessisti, offensivi, attacchi di carattere personale, minacce di morte o altro tipo di minacci, istigazioni al suicidio o altre forme d'odio verbale.
         report: Segnala
         spam: Contiene pubblicità, truffe, clickbait ("esca da click") o altro contenuto mirato ad attrarre traffico internet.
-        title: Segnala utente inappropriato
       floating_help:
         help: Aiuto
       public_participation:
