@@ -1777,7 +1777,7 @@ en:
         title: Stop!
     share_widget:
       download: Download
-      print: Print Poster
+      print: Print poster
       qr_code: QR Code
     shared:
       confirm_modal:
