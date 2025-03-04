@@ -129,6 +129,8 @@ module Decidim
               expect(new_proposal.category).to eq(proposal.category)
 
               expect(new_proposal.state).to be_nil
+              expect(new_proposal.state_published_at).to be_nil
+              expect(new_proposal.decidim_proposals_proposal_state_id).to be_nil
               expect(new_proposal.answer).to be_nil
               expect(new_proposal.answered_at).to be_nil
               expect(new_proposal.reference).not_to eq(proposal.reference)
