@@ -1377,13 +1377,13 @@ eu:
           edit_profile: Editatu profila
           edit_user_group: Editatu taldearen profila
           invite_user: Gonbidatu parte-hartzailea
-          join_user_group: Eskatu taldera lotzeko
+          join_user_group: Eskatu taldera lotzea
           leave_user_group: Utzi taldea
           manage_user_group: Kudeatu taldea
           manage_user_group_admins: Kudeatu administratzaileak
           manage_user_group_users: Kudeatu kideak
           message: Mezua
-          resend_email_confirmation_instructions: Birbidali helbide elektroniko bat berresteko instrukzioekin
+          resend_email_confirmation_instructions: Birbidali posta elektronikoa berresteko instrukzioekin
         confirmation_instructions_sent: Berresteko instrukzioak helbide elektronikoz bidalita.
         create_user_group: Sortu taldea
         edit_profile: Editatu profila
@@ -1392,7 +1392,7 @@ eu:
         invite_user: Gonbidatu parte-hartzailea
         join_user_group: Eskatu taldera lotzea
         leave_user_group: Utzi taldea
-        manage_user_group_admins: Kudeatu administratzaileak
+        manage_user_group_admins: Kudeatu kudeatzaileak
         manage_user_group_users: Kudeatu kideak
         resend_email_confirmation_instructions: Birbidali posta elektronikoa berresteko instrukzioekin
     reported_mailer:
