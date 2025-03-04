@@ -70,7 +70,7 @@ module Decidim
         end
 
         def proposal_scopes
-          @form["scopes"]
+          @form["scopes"] || []
         end
 
         def proposal_answer_attributes(original_proposal)
