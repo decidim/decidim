@@ -51,6 +51,8 @@ module Decidim
       end
 
       def selected_taxonomy_children
+        return [] if selected_root_taxonomy.blank?
+
         @selected_taxonomy_children ||= current_organization.taxonomies.where(parent_id: selected_root_taxonomy.id, id: current_component.available_taxonomy_ids)
       end
 
