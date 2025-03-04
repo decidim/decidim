@@ -1415,10 +1415,10 @@ cs:
         actions:
           create_user_group: Vytvořit skupinu
           disabled_message: Zpráva
-          edit_profile: Upravit profil
+          edit_profile: Editovat profil
           edit_user_group: Upravit profil skupiny
-          invite_user: Pozvat účastníka
-          join_user_group: Požádat o připojení ke skupině
+          invite_user: Pozvat uživatele
+          join_user_group: Žádost o připojení ke skupině
           leave_user_group: Opustit skupinu
           manage_user_group: Spravovat skupinu
           manage_user_group_admins: Spravovat správce
