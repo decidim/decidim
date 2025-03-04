@@ -8,7 +8,7 @@
   <%= csp_meta_tag %>
 </head>
 <body>
-  <h2><%= resource.presenter.title(html_escape: true) %></h2>
+  <h1><%= resource.presenter.title(html_escape: true) %></h1>
 
   <% if resource.respond_to?(:attachments) && resource.attachments.first&.url %>
     <div class="card__grid-img">
