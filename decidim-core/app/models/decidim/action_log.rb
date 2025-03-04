@@ -13,8 +13,7 @@ module Decidim
                class_name: "Decidim::Organization"
 
     belongs_to :user,
-               foreign_key: :decidim_user_id,
-               class_name: "Decidim::User"
+               polymorphic: true
 
     belongs_to :component,
                foreign_key: :decidim_component_id,
