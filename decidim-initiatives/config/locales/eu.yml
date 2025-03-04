@@ -389,17 +389,20 @@ eu:
           select_scope: Hautatu eremua
         finish:
           back: Atzera
-          callout_text_created: Zorionak! Zure ekimena arrakastaz sortu da.
-          callout_text_validating: Zure ekimena balidazio teknikora bidali dute.
-          go_to_initiatives: Itzuli ekimenetara
+          callout_text_created: Zorionak! Zure ekimena zuzen sortu da.
+          callout_text_validating: Zure ekimena zuzen bidali da balidazio teknikora.
+          go_to_initiatives: Joan ekimenetara
           publish_helper_text_html: "Gogoan izan zure ekimena argitaratzeko teknikoki baliozkotu behar dela, administratzaile batek berrikus dezan.\n"
         previous_form:
           back: Back
         promotal_committee:
-          individual_help_text: Zure ekimena sortu da, eta zirriborro gisa gordetzen da. Orain jendea gehitu behar zaio batzorde sustatzaileari.
+          individual_help_text: Zure ekimena sortu da, eta zirriborro gisa gorde da. Orain jendea gehitu behar zaio batzorde sustatzaileari.
           invite_link_title: Jendea gonbidatzeko esteka
           promoters_committee_help_2: Gogoan izan zure ekimena argitaratzeko beharrezkoa dela eskatutako informazioa betetzea eta baliozkotze teknikora bidaltzea, administratzaile batek berrikus dezan.
+          promoters_committee_help_html: Zure ekimena balidazio teknikorako bidali aurretik, %{committee_members_left} batzorde sustatzaileari beste kide batzuk gehitu behar dizkiozu, zuk duzu <strong>%{committee_members_count}/%{committee_size}</strong>.
           promoters_committee_title: Sustatzaileen batzordea
+        return_to_initiatives_button:
+          return_initiatives_html: Oraingoz, joan eta <a href="%{initiatives_path}">itzuli ekimenetara</a>
         select_initiative_type:
           back: Back
           choose_html: <strong>%{title}</strong>bat sortu nahi dut
@@ -408,13 +411,14 @@ eu:
           more_information: (Informazio gehiago)
           new: Sortu beste ekimen bat
           select: Ekimen hau sustatu nahi dut
+          select_initiative_type_help_html: "<p>Ekimenak bide dira parte-hartzaileek parte har dezaten, erakundeak interes orokorraren aldeko ekintzak egin ditzan. Zein ekimen jarri nahi duzu abian?</p>"
           show_less: Erakutsi gutxiago
           show_more: Erakutsi gehiago
           subtitle: Zein ekimen sustatu nahi duzu?
           verification_required: Egiaztatu zure kontua ekimen hau sustatzeko.
         send_to_technical_validation_button:
           button: Bidali balidazio teknikora
-          confirm: You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?
+          confirm: Ekimena bidaliko duzu administrari batek berrikusi eta argitara dezan. Argitaratu ondoren, ezin izango duzu editatu. Ziur zaude?
         share_committee_link:
           invite_to_committee_help: Sustapen Batzordeko kideak gonbidatzeko esteka.
           invite_to_committee_help_2: Herritarren ekimen mota honek gutxienez %{committee_size} kidez (ziurtatzagiriak) osatutako batzorde sustatzailea behar du. Esteka hau partekatu behar duzu ekimen honetan parte hartzen duten gainerako pertsonekin. Zure kontaktuek esteka hau jasotzen dutenean, adierazitako urratsei jarraitu beharko diete.
