@@ -1254,6 +1254,7 @@ en:
     qr:
       show:
         scan: Scan the QR code
+        title: "QR Code for %{resource_title}"
     links:
       invalid_url: Invalid URL
       warning:
