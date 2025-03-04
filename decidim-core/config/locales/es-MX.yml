@@ -1696,35 +1696,22 @@ es-MX:
         members: Miembros
         officialized: Participante oficial
         send_private_message: Envia mensaje privado
-      sidebar:
-        badges:
-          info: Los distintivos se obtienen realizando una actividad específica en la plataforma.
-          title: Distintivos
       user:
         actions:
           create_user_group: Crear un grupo
           disabled_message: Mensaje
-          edit_profile: Editar el perfil
+          edit_profile: Editar perfil
           edit_user_group: Editar el perfil del grupo
-          invite_user: Invitar a una participante
+          invite_user: Invitar al usuario
           join_user_group: Solicitar unirse al grupo
-          leave_user_group: Salir del grupo
+          leave_user_group: Dejar el grupo
           manage_user_group: Gestionar el grupo
           manage_user_group_admins: Gestionar administradoras
           manage_user_group_users: Gestionar miembros
           message: Mensaje
-          resend_email_confirmation_instructions: Reenvía un correo electrónico con las instrucciones de confirmación
+          resend_email_confirmation_instructions: Vuelva a enviar las instrucciones de confirmación por correo electrónico
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
-        create_user_group: Crear un grupo
-        edit_profile: Editar perfil
-        edit_user_group: Editar el perfil del grupo
         fill_in_email_to_confirm_it: Por favor, introduce el correo electrónico de tu grupo para confirmarlo.
-        invite_user: Invitar al usuario
-        join_user_group: Solicitar unirse al grupo
-        leave_user_group: Dejar el grupo
-        manage_user_group_admins: Gestionar los administradores
-        manage_user_group_users: Gestionar los miembros
-        resend_email_confirmation_instructions: Vuelva a enviar las instrucciones de confirmación por correo electrónico
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -1812,14 +1799,13 @@ es-MX:
       flag_user_modal:
         already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
         block: Eliminar a esta participante
-        close: Cerrar
-        description: '¿Qué es inapropiado de la usuaria?'
+        description: '¿Qué tiene de inapropiado esta participante?'
         does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que creas que no pertenece a %{organization_name}.
         hide: Esconder todos sus contenidos
         offensive: Contiene el racismo, el sexismo, los golpes personales, las amenazas de muerte, las peticiones de suicidio o cualquier forma de discurso de odio.
         report: Reporte
         spam: Contiene clickbait, publicidad, estafas o robots de guión.
-        title: Reportar usuaria inapropiada
+        title: Reportar participante inapropiada
       floating_help:
         help: Ayuda
       follow_button:
