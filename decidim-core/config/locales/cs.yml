@@ -1414,18 +1414,14 @@ cs:
         members: Členové
         officialized: Oficiální účastník
         send_private_message: Odeslat soukromou zprávu
-      sidebar:
-        badges:
-          info: Odznaky jsou získávány prováděním konkrétní činnosti v platformě.
-          title: Odznaky
       user:
         actions:
           create_user_group: Vytvořit skupinu
           disabled_message: Zpráva
-          edit_profile: Upravit profil
+          edit_profile: Editovat profil
           edit_user_group: Upravit profil skupiny
-          invite_user: Pozvat účastníka
-          join_user_group: Požádat o připojení ke skupině
+          invite_user: Pozvat uživatele
+          join_user_group: Žádost o připojení ke skupině
           leave_user_group: Opustit skupinu
           manage_user_group: Spravovat skupinu
           manage_user_group_admins: Spravovat správce
@@ -1433,16 +1429,7 @@ cs:
           message: Zpráva
           resend_email_confirmation_instructions: Znovu odeslat pokyny pro potvrzení e-mailu
         confirmation_instructions_sent: Pokyny pro potvrzení e-mailu byly odeslány.
-        create_user_group: Vytvořit skupinu
-        edit_profile: Editovat profil
-        edit_user_group: Upravit profil skupiny
         fill_in_email_to_confirm_it: Pro potvrzení vyplňte e-mailovou adresu skupiny.
-        invite_user: Pozvat uživatele
-        join_user_group: Žádost o připojení ke skupině
-        leave_user_group: Opustit skupinu
-        manage_user_group_admins: Správa administrátorů
-        manage_user_group_users: Správa členů
-        resend_email_confirmation_instructions: Znovu odeslat pokyny pro potvrzení e-mailu
     reported_mailer:
       hide:
         hello: Zdravím %{name},
@@ -1536,14 +1523,11 @@ cs:
       flag_user_modal:
         already_reported: Tento obsah je již nahlášen a bude přezkoumán administrátorem.
         block: Blokovat tohoto uživatele
-        close: Zavřít
-        description: Co je s uživatelem nevhodné?
         does_not_belong: Obsahuje nezákonnou činnost, hrozby sebevraždou, osobní informaci nebo cokoliv jiného, o čem si myslíte, že nepatří do %{organization_name}.
         hide: Skrýt veškerý jejich obsah
         offensive: Obsahuje rasismus, sexismus, urážky, osobní útoky, hrozby smrti, sebevražedné žádosti nebo jakoukoliv formu nenávistného projevu.
         report: Nahlásit
         spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
-        title: Nahlásit nevhodného uživatele
       floating_help:
         help: Pomoc
       follow_button:
