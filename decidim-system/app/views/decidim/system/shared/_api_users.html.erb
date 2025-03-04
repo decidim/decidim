@@ -26,10 +26,10 @@
         <% if fresh_token?(api_user) %>
           <%= link_to t("copy_token", scope: "decidim.system.actions"), "#", id: "api-user-token" %>
             <%= hidden_field_tag :token, params[:token] %>
-          <br/>
+          <br>
         <% end %>
-          <%= link_to t("actions.api_users.revoke", scope: "decidim.system"), api_user_path(id: api_user.id), class: "link", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.system") } %>
-          <br/>
+          <%= link_to t("actions.api_users.revoke", scope: "decidim.system"), api_user_path(id: api_user.id), class: "link", method: :delete, data: { confirm: t("actions.confirm_revoke_api_user", scope: "decidim.system") } %>
+          <br>
         <%= link_to t("actions.refresh_token", scope: "decidim.system"), api_user_path(id: api_user.id), class: "link", method: :patch %>
         </td>
       </tr>
