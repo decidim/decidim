@@ -1140,10 +1140,6 @@ ar:
         members: أفراد
         officialized: مشارك رسمي
         send_private_message: ارسال رسالة خاصة
-      sidebar:
-        badges:
-          info: يتم الحصول على الشارات من خلال أداء نشاط معين في النظام الأساسي.
-          title: شارات
       user:
         actions:
           create_user_group: إنشاء مجموعة
@@ -1156,15 +1152,7 @@ ar:
           manage_user_group_admins: إدارة المدراء
           manage_user_group_users: إدارة الاعضاء
           message: الرسالة
-        create_user_group: إنشاء مجموعة
-        edit_profile: تعديل الملف الشخصي
-        edit_user_group: تحرير ملف تعريف المجموعة
-        invite_user: دعوة مشارك
-        join_user_group: طلب الانضمام إلى المجموعة
-        leave_user_group: غادر المجموعة
-        manage_user_group_admins: إدارة المشرفين
-        manage_user_group_users: إدارة الأعضاء
-        resend_email_confirmation_instructions: إعادة إرسال تعليمات تأكيد البريد الإلكتروني
+          resend_email_confirmation_instructions: إعادة إرسال تعليمات تأكيد البريد الإلكتروني
     reported_mailer:
       hide:
         hello: مرحبا %{name}،
@@ -1241,12 +1229,9 @@ ar:
         title: الإبلاغ عن مشكلة
       flag_user_modal:
         already_reported: تم الإبلاغ عن هذا المحتوى وسيتم مراجعته من قبل مدير.
-        close: إغلاق
-        description: ما هو الأمر الغير مناسب بخصوص هذا المستخدم؟
         offensive: يتضمن العنصرية أو التحيز الجنسي أو الشتائم أو الهجمات الشخصية أو التهديد بالقتل أو طلبات الانتحار أو أي شكل من أشكال خطاب الكراهية.
         report: إبلاغ
         spam: يحتوي على طعم النقر(clickbaiting) أو إعلان، أو احتيال، أو روبوتات سكريبتة.
-        title: الإبلاغ عن مستخدم مخل
       floating_help:
         help: المساعدة
       login_modal:
