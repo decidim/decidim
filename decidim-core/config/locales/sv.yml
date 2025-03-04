@@ -1369,35 +1369,22 @@ sv:
         members: Medlemmar
         officialized: Officiell deltagare
         send_private_message: Skicka privat meddelande
-      sidebar:
-        badges:
-          info: Man får märken genom att utföra olika aktiviteter på plattformen.
-          title: Märken
       user:
         actions:
           create_user_group: Skapa grupp
           disabled_message: Meddelande
           edit_profile: Redigera profil
-          edit_user_group: Redigera gruppens profil
+          edit_user_group: Redigera grupprofil
           invite_user: Bjud in deltagare
-          join_user_group: Ansök om att gå med i grupp
+          join_user_group: Begäran att gå med i grupp
           leave_user_group: Lämna grupp
           manage_user_group: Hantera grupp
           manage_user_group_admins: Hantera administratörer
           manage_user_group_users: Hantera medlemmar
           message: Meddelande
-          resend_email_confirmation_instructions: Skicka e-postmeddelande med bekräftelseinstruktioner igen
+          resend_email_confirmation_instructions: Skicka anvisningarna om bekräftelse om e-post igen
         confirmation_instructions_sent: Instruktioner för e-postbekräftelse har skickats.
-        create_user_group: Skapa grupp
-        edit_profile: Redigera profil
-        edit_user_group: Redigera grupprofil
         fill_in_email_to_confirm_it: Fyll i gruppens e-postadress för att bekräfta den.
-        invite_user: Bjud in deltagare
-        join_user_group: Begäran att gå med i grupp
-        leave_user_group: Lämna grupp
-        manage_user_group_admins: Hantera administratörer
-        manage_user_group_users: Hantera medlemmar
-        resend_email_confirmation_instructions: Skicka anvisningarna om bekräftelse om e-post igen
     reported_mailer:
       hide:
         hello: Hej %{name},
@@ -1489,14 +1476,11 @@ sv:
       flag_user_modal:
         already_reported: Det här innehållet har redan rapporterats och kommer att granskas av en administratör.
         block: Blockera användaren
-        close: Stäng
-        description: Vad är olämpligt med användaren?
         does_not_belong: Innehåller olaglig information, hot om självmord, personuppgifter eller något annat som inte hör hemma på %{organization_name}.
         hide: Dölj allt innehåll
         offensive: Innehåller rasism, sexism, personangrepp, mordhot, uppmaning att begå självmord eller hets mot folkgrupp.
         report: Rapportera
         spam: Innehåller clickbait, reklam, bedrägerier eller botar.
-        title: Rapportera olämplig användare
       floating_help:
         help: Hjälp
       follow_button:
