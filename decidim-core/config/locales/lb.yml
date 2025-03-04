@@ -894,20 +894,14 @@ lb:
         members: Memberen
         officialized: Offiziellen Teilnehmer
         send_private_message: Privat Noriicht schécken
-      sidebar:
-        badges:
-          info: Ofzeechen kann een sech verdéngen, andeems een bestëmmten Aktivitéiten op der Plattform duerchféiert.
-          title: Ofzeechen
       user:
-        create_user_group: Grupp erstellen
-        edit_profile: Profil beaarbechten
-        edit_user_group: Profil vum Grupp beaarbechten
-        invite_user: En Teilnehmer alueden
-        join_user_group: Ufro engem Grupp bäitrieden ze dierfen
-        leave_user_group: Grupp verloossen
-        manage_user_group_admins: Administrateuren verwalten
-        manage_user_group_users: Memberen verwalten
-        resend_email_confirmation_instructions: Den Email mat der Confirmatioun vun den Instruktiounen op en Neits schécken
+        actions:
+          edit_profile: Profil beaarbechten
+          edit_user_group: Profil vum Grupp beaarbechten
+          invite_user: En Teilnehmer alueden
+          join_user_group: Ufro engem Grupp bäitrieden ze dierfen
+          leave_user_group: Grupp verloossen
+          resend_email_confirmation_instructions: Den Email mat der Confirmatioun vun den Instruktiounen op en Neits schécken
     reported_mailer:
       hide:
         hello: Moien %{name}
@@ -990,12 +984,9 @@ lb:
         title: Inhalt mellen den net zoulässeg ass
       flag_user_modal:
         already_reported: Dësen Inhalt gouf scho gemellt an gëtt duerch en Admin nogekuckt.
-        close: Zoumaachen
-        description: Wat huet dësen Benotzer gemaach, wat net zoulässeg ass?
         offensive: Enthält Rassismus, Sexismus, Verleumdung, perséinlechen Ugrëff, Doudesdreeung, Opfuerderung zu Selbstmord oder aner Formen vun Haassrieden.
         report: Bericht
         spam: Enthält Klickbait, Reklamm, Bedruch oder Script-Bots.
-        title: Notzer mellen den net zoulässeg ass
       floating_help:
         help: Hëllef
       participatory_space_filters:
