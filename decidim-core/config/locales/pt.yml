@@ -897,20 +897,14 @@ pt:
         members: Membros
         officialized: Participante oficial
         send_private_message: Enviar mensagem privada
-      sidebar:
-        badges:
-          info: Os distintivos são obtidos através da realização de atividades específicas na plataforma.
-          title: Distintivos
       user:
-        create_user_group: Criar grupo
-        edit_profile: Editar perfil
-        edit_user_group: Editar perfil do grupo
-        invite_user: Convidar participante
-        join_user_group: Solicitar adesão ao grupo
-        leave_user_group: Deixar o grupo
-        manage_user_group_admins: Gerir administradores
-        manage_user_group_users: Gerir membros
-        resend_email_confirmation_instructions: Reenviar instruções de confirmação de e-mail
+        actions:
+          edit_profile: Editar perfil
+          edit_user_group: Editar perfil do grupo
+          invite_user: Convidar participante
+          join_user_group: Solicitar adesão ao grupo
+          leave_user_group: Deixar o grupo
+          resend_email_confirmation_instructions: Reenviar instruções de confirmação de e-mail
     reported_mailer:
       hide:
         hello: Olá %{name},
@@ -993,12 +987,9 @@ pt:
         title: Denunciar um problema
       flag_user_modal:
         already_reported: Este conteúdo já foi denunciado e será revisto por um administrador.
-        close: Fechar
-        description: O que é inapropriado acerca do utilizador?
         offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer forma de discurso de ódio.
         report: Denuncie
         spam: Contém clickbait, publicidade, golpes ou bots de script.
-        title: Denunciar utilizador inapropriado
       floating_help:
         help: Ajuda
       participatory_space_filters:
