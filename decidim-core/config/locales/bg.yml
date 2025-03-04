@@ -1373,7 +1373,7 @@ bg:
           create_user_group: Създаване на група
           disabled_message: Съобщение
           edit_profile: Редактиране на профил
-          edit_user_group: Редактиране на профила на групата
+          edit_user_group: Редактиране профил на група
           invite_user: Покани участник
           join_user_group: Заявка за присъединяване към група
           leave_user_group: Напусни на групата
@@ -1391,7 +1391,7 @@ bg:
         join_user_group: Заявка за присъединяване към група
         leave_user_group: Напусни на групата
         manage_user_group_admins: Управлявай администраторите
-        manage_user_group_users: Управлявай членовете
+        manage_user_group_users: Управллявай членовете
         resend_email_confirmation_instructions: Изпрати отново инструкции за потвърждение
     reported_mailer:
       hide:
