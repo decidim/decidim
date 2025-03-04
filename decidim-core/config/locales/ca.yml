@@ -1692,10 +1692,6 @@ ca:
         members: Membres
         officialized: Participant oficial
         send_private_message: Enviar missatge privat
-      sidebar:
-        badges:
-          info: Els distintius s'aconsegueixen mitjançant la realització d'activitats específiques a la plataforma.
-          title: Insígnies
       user:
         actions:
           create_user_group: Crear un grup
@@ -1711,16 +1707,7 @@ ca:
           message: Missatge
           resend_email_confirmation_instructions: Reenvia un correu electrònic amb les instruccions de confirmació
         confirmation_instructions_sent: Instruccions de confirmació enviades per correu electrònic.
-        create_user_group: Crea un grup
-        edit_profile: Edita el perfil
-        edit_user_group: Edita el perfil del grup
         fill_in_email_to_confirm_it: Si us plau, omple el correu electrònic del teu grup per confirmar-lo.
-        invite_user: Convida la participant
-        join_user_group: Sol·licita unir-se al grup
-        leave_user_group: Marxa del grup
-        manage_user_group_admins: Gestiona les administradores
-        manage_user_group_users: Gestiona els membres
-        resend_email_confirmation_instructions: Reenvia un correu electrònic amb les instruccions de confirmació
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -1808,14 +1795,13 @@ ca:
       flag_user_modal:
         already_reported: Aquest contingut ja ha estat reportat i serà revisat per una administradora.
         block: Eliminar aquesta participant
-        close: Tancar
-        description: Què és inapropiat d'aquesta usuària?
+        description: Què té inapropiat aquesta participant?
         does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
         hide: Amagar tots els seus continguts
         offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
         report: Reportar
         spam: Conté "clickbait", publicitat o estafes.
-        title: Reportar contingut inapropiat
+        title: Reportar participant inapropiada
       floating_help:
         help: Ajuda
       follow_button:
