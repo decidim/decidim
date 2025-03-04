@@ -54,7 +54,7 @@ jobs:
           name: ${{ env.DECIDIM_MODULE }}
           ruby_version: ${{ env.RUBY_VERSION }}
           node_version: ${{ env.NODE_VERSION }}
-      - run: bundle exec rake parallel:spec['spec/tasks\/(?!decidim_webpacker_tasks.rake)']
+      - run: bundle exec rspec spec/tasks/
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
