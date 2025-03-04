@@ -286,6 +286,8 @@ is:
         report: Skýrsla
         spam: Inniheldur clickbait, auglýsingar, óþekktarangi eða handritabots.
         title: Tilkynna um vandamál
+      flag_user_modal:
+        close: Loka
       login_modal:
         sign_up: Skráðu þig
       reference:
