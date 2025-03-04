@@ -7,6 +7,18 @@
   .editor-content-videoEmbed {
     @apply my-10 mx-auto;
   }
+
+  .editor-mention {
+    @apply flex items-center;
+
+    img {
+      @apply w-5 h-5 rounded-full;
+    }
+
+    span {
+      @apply ml-1;
+    }
+  }
 }
 
 .rich-text-display,
