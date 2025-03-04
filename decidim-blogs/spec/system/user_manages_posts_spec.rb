@@ -9,7 +9,7 @@ describe "User manages posts" do
   let(:post) { create(:post, component:) }
   let!(:user) { create(:user, :confirmed, organization:) }
 
-  let!(:component) { create(:post_component, :with_creation_enabled, manifest:, participatory_space: participatory_process) }
+  let!(:component) { create(:post_component, :with_attachments_allowed_and_creation_enabled, manifest:, participatory_space: participatory_process) }
 
   before do
     switch_to_host(organization.host)
