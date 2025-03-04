@@ -1694,10 +1694,6 @@ fi-pl:
         members: Jäsenet
         officialized: Virallinen osallistuja
         send_private_message: Lähetä yksityisviesti
-      sidebar:
-        badges:
-          info: Kunniamerkit ansaitaan suorittamalla tiettyjä toimintoja alustalla.
-          title: Kunniamerkit
       user:
         actions:
           create_user_group: Luo ryhmä
@@ -1711,18 +1707,9 @@ fi-pl:
           manage_user_group_admins: Hallinnoi ylläpitäjiä
           manage_user_group_users: Hallinnoi jäseniä
           message: Viesti
-          resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudestaan
+          resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudelleen
         confirmation_instructions_sent: Sähköpostivahvistuksen ohjeet lähetetty.
-        create_user_group: Luo ryhmä
-        edit_profile: Muokkaa profiilia
-        edit_user_group: Muokkaa ryhmän profiilia
         fill_in_email_to_confirm_it: Syötä ryhmäsi sähköpostiosoite ja vahvista se.
-        invite_user: Kutsu käyttäjä
-        join_user_group: Lähetä liittymispyyntö ryhmään
-        leave_user_group: Poistu ryhmästä
-        manage_user_group_admins: Hallinnoi ylläpitäjiä
-        manage_user_group_users: Hallinnoi jäseniä
-        resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudelleen
     reported_mailer:
       hide:
         hello: Hei %{name},
@@ -1810,14 +1797,13 @@ fi-pl:
       flag_user_modal:
         already_reported: Tämä sisältö on jo ilmoitettu ja se odottaa hallintakäyttäjän tarkastusta.
         block: Estä tämä osallistuja
-        close: Sulje
-        description: Mikä tässä käyttäjässä on asiatonta?
+        description: Mikä tässä osallistujassa on epäasiallista?
         does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan %{organization_name} -palveluun.
         hide: Piilota kaikki osallistujan luoma sisältö
         offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
         report: Tee ilmoitus
         spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
-        title: Ilmoita asiaton käyttäjä
+        title: Ilmoita epäasiallinen käyttäjä
       floating_help:
         help: Ohjeet
       follow_button:
