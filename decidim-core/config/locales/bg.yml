@@ -1337,16 +1337,12 @@ bg:
         members: Членове
         officialized: Официален участник
         send_private_message: Изпрати лично съобщение
-      sidebar:
-        badges:
-          info: Значките се заслужват чрез извършване на конкретна дейност в платформата.
-          title: Значки
       user:
         actions:
           create_user_group: Създаване на група
           disabled_message: Съобщение
           edit_profile: Редактиране на профил
-          edit_user_group: Редактиране на профила на групата
+          edit_user_group: Редактиране профил на група
           invite_user: Покани участник
           join_user_group: Заявка за присъединяване към група
           leave_user_group: Напусни на групата
@@ -1356,16 +1352,7 @@ bg:
           message: Съобщение
           resend_email_confirmation_instructions: Изпрати отново инструкции за потвърждение
         confirmation_instructions_sent: Изпратени са инструкции за потвърждение по имейл.
-        create_user_group: Създай група
-        edit_profile: Редактиране на профил
-        edit_user_group: Редактиране профил на група
         fill_in_email_to_confirm_it: Моля, попълнете електронната поща на групата си, за да я потвърдите.
-        invite_user: Покани участник
-        join_user_group: Заявка за присъединяване към група
-        leave_user_group: Напусни на групата
-        manage_user_group_admins: Управлявай администраторите
-        manage_user_group_users: Управлявай членовете
-        resend_email_confirmation_instructions: Изпрати отново инструкции за потвърждение
     reported_mailer:
       hide:
         hello: Здравейте %{name},
@@ -1447,14 +1434,11 @@ bg:
       flag_user_modal:
         already_reported: Това съдържание вече е докладвано и ще бъде прегледано от администратор.
         block: Блокирай този участник
-        close: Затвори
-        description: Какво е неприемливо при този потребител?
         does_not_belong: Съдържа незаконна дейност, заплахи за самоубийство, лична информация или нещо друго, което смятате, че не принадлежи на %{organization_name}.
         hide: Скрийте цялото им съдържание
         offensive: Съдържа расизъм, сексизъм, злословия, лични атаки, заплахи за смърт, заявки за самоубийство или всякаква форма на омраза.
         report: Доклад
         spam: Съдържа примамка за кликване, реклама, измами или скриптове.
-        title: Докладвайте за неподходящ потребител
       floating_help:
         help: Помощ
       follow_button:
