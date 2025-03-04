@@ -346,6 +346,11 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
           email_subject: Ihr Vorschlag "%{mentioned_proposal_title}" wurde erwähnt
           notification_title: Ihr Vorschlag "%{mentioned_proposal_title}" wurde <a href="%{resource_path}">hier</a> in den Kommentaren erwähnt.
+        proposal_merged:
+          email_intro: 'Ein Admin hat Ihren Vorschlag "%{resource_title}" zusammengeführt. Jetzt ansehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag verfasst haben.
+          email_subject: Der Vorschlag %{resource_title} wurde zusammengeführt
+          notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde von einem Admin zusammengeführt.
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, dem Sie folgen, hat einen neuen Vorschlag mit dem Namen "%{resource_title}" veröffentlicht. Sehen Sie es sich an und reden Sie mit:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
@@ -634,7 +639,7 @@ de:
             cancel: Abbrechen
             change_taxonomies: Klassifizierungen ändern
             merge: Zu einem neuen zusammenführen
-            merge_button: Zusammenführen
+            merge_button: Erstellen
             no_templates_available: Keine Vorlagen verfügbar
             publish: Veröffentlichen
             publish_answers: Antworten veröffentlichen
@@ -694,6 +699,11 @@ de:
           create:
             invalid: 'Beim Zusammenführen der ausgewählten Vorschläge ist ein Problem aufgetreten, weil ein paar von ihnen:'
             success: Erfolgreich die Vorschläge in eine neue zusammengeführt.
+          form:
+            created_in_meeting: Dieser Vorschlag stammt von einer Veranstaltung
+            select_a_meeting: Veranstaltung auswählen
+          new:
+            title: Zu einem neuen zusammenführen
         proposals_splits:
           create:
             invalid: 'Beim Aufteilen der ausgewählten Vorschläge ist ein Problem aufgetreten, weil ein paar von ihnen:'
@@ -708,7 +718,7 @@ de:
       admin_log:
         proposal:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
-          create: "%{user_name} hat den %{resource_name} Vorschlag auf den %{space_name} Feldern als offizieller Vorschlag erstellt"
+          create: "%{user_name} hat den Vorschlag %{resource_name} aus dem Zusammenführen von %{merged_count} Vorschlägen in %{space_name} erstellt"
           publish_answer: "%{user_name} veröffentlichte die Antwort auf den Vorschlag %{resource_name} im Bereich %{space_name}"
           restore: "%{user_name} hat den Vorschlag %{resource_name} für den Bereich %{space_name} wiederhergestellt"
           soft_delete: "%{user_name} hat den Vorschlag %{resource_name} im Bereich %{space_name} in den Papierkorb verschoben"
@@ -1003,6 +1013,7 @@ de:
           maximum_votes_reached: Maximal mögliche Anzahl Stimmen erteilt
           no_votes_remaining: Keine verbleibenden Stimmen
           vote: Abstimmen
+          votes_blocked: Abstimmen
         votes_count:
           count:
             one: Stimme

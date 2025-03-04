@@ -741,6 +741,7 @@ de:
             does_not_belong: Gehört nicht
             hidden_during_block: Versteckt beim Blockieren des Benutzers
             offensive: Beleidigend
+            parent_hidden: Übergeordneter Inhalt wurde ausgeblendet
             spam: Spam
         reports:
           index:

@@ -471,7 +471,6 @@ pl:
             assign_to_valuator_button: Przypisz
             cancel: Anuluj
             merge: Przyłącz do nowego
-            merge_button: Przyłącz
             publish: Publikuj
             publish_answers: Publikuj odpowiedzi
             select_component: Wybierz komponent
@@ -535,7 +534,6 @@ pl:
       admin_log:
         proposal:
           answer: "%{user_name} odpowiedział(a) na propozycję %{resource_name} w przestrzeni %{space_name}"
-          create: "%{user_name} stworzył(a) propozycję %{resource_name} w przestrzeni %{space_name} jako oficjalną propozycję"
           publish_answer: "%{user_name} opublikował(a) odpowiedź na propozycję %{resource_name} w przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował(a) oficjalną propozycję %{resource_name} w przestrzeni %{space_name}"
         proposal_note:
