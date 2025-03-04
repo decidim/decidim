@@ -7,7 +7,7 @@ module Decidim
     describe ApiUserForm do
       subject { described_class.from_params(attributes) }
 
-      let(:organization) { create :organization }
+      let(:organization) { create(:organization) }
       let(:name) { "Dummy name" }
       let(:organization_id) { organization.id }
 
