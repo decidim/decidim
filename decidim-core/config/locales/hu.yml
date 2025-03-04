@@ -1222,10 +1222,6 @@ hu:
         members: Belépés
         officialized: Hivatalos résztvevő
         send_private_message: Privát üzenet küldése
-      sidebar:
-        badges:
-          info: A jelvények a platformon végzett konkrét tevékenység végrehajtásával érhetők el.
-          title: Kitűzők
       user:
         actions:
           create_user_group: Csoport létrehozása
@@ -1241,16 +1237,7 @@ hu:
           message: Üzenet
           resend_email_confirmation_instructions: E-mail visszaigazolási utasítások újraküldése
         confirmation_instructions_sent: A megerősítő email az utasításokkal elküldve.
-        create_user_group: Csoport létrehozása
-        edit_profile: Profil szerkesztése
-        edit_user_group: Csoportprofil szerkesztése
         fill_in_email_to_confirm_it: Kérjük, töltse ki a csoport e-mailjét a megerősítéshez.
-        invite_user: Résztvevő meghívása
-        join_user_group: Csatlakozás kérése a csoporthoz
-        leave_user_group: Kilépés a csoportból
-        manage_user_group_admins: Adminisztrátorok kezelése
-        manage_user_group_users: Tagok kezelése
-        resend_email_confirmation_instructions: E-mail visszaigazolási utasítások újraküldése
     reported_mailer:
       hide:
         hello: Helló %{name}!
@@ -1329,14 +1316,11 @@ hu:
       flag_user_modal:
         already_reported: Ezt a tartalmat már jelentették, az adminisztrátor éppen felülvizsgálja.
         block: Résztvevő blokkolása
-        close: Bezár
-        description: Mi nem megfelelő a felhasználóval kapcsolatban?
         does_not_belong: 'Illegális tevékenységet, öngyilkosságra való felhívást, személyes adatokat vagy más olyan dolgot tartalmaz, amiről úgy gondolja, nem tartozik ide: %{organization_name}.'
         hide: Minden tartalom elrejtése
         offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
         report: Jelentés
         spam: Klikkvadászat, reklám, átverés vagy script bot.
-        title: Nem megfelelően viselkedő felhasználó jelentése
       floating_help:
         help: Segítség
       follow_button:
