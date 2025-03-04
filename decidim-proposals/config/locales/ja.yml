@@ -394,6 +394,15 @@ ja:
         exports:
           proposal_comments: コメント
           proposals: 提案
+        import_proposals_mailer:
+          notify_failure:
+            body: '%{origin_component_name} コンポーネントから %{target_component_name} コンポーネントに提案をインポート中に問題が発生しました。'
+            subject: 提案のインポート中にエラーが発生しました
+          notify_success:
+            added_proposals:
+              other: "%{count} 件の提案がインポートされました。"
+            body: '%{origin_component_name} コンポーネントから %{target_component_name} コンポーネントにインポートされた提案が成功しました。管理インターフェイスで結果を確認できます。'
+            subject: 提案は正常にインポートされました
         imports:
           help:
             answers: |
@@ -565,7 +574,7 @@ ja:
         proposals_imports:
           create:
             invalid: 提案のインポート中に問題が発生しました。
-            success: "%{number} 件の提案は正常にインポートされました。"
+            success: インポート処理が開始されました。完了次第、お知らせします。
           new:
             create: 提案をインポート
             no_components: この参加スペースには他の提案コンポーネントはありません。
