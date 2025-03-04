@@ -398,6 +398,16 @@ eu:
         exports:
           proposal_comments: Iruzkinak
           proposals: Proposamenak
+        import_proposals_mailer:
+          notify_failure:
+            body: Arazo bat egon da proposamenak inportatzen ziren bitartean %{origin_sizent_nombre} osagaitik % {target et_espezi_nombre} osagaira.
+            subject: Errore bat egon da proposamenak inportatzean
+          notify_success:
+            added_proposals:
+              one: Proposamen bat inportatu da.
+              other: "%{count} proposamen inportatu dira."
+            body: Proposamenak zuzen inportatu dira %{origin_component_name} osagaitik %{target_component_name} osagaira. Administrazioaren interfazean berrikusi ditzakezu emaitzak.
+            subject: Proposamenak zuzen inportatu dira
         imports:
           help:
             answers: |
@@ -573,7 +583,7 @@ eu:
         proposals_imports:
           create:
             invalid: Arazo bat egon da proposamenak inportatzean.
-            success: "%{number} proposamen ondo inportatuta."
+            success: Inportazio-prozesua hasi da. Bukatutakoan jakinaraziko dizugu.
           new:
             create: Inportatu proposamenak
             no_components: Espazio honetan ez dago beste proposamenik proposamenak inportatzeko.
