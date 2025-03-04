@@ -285,6 +285,17 @@ ro:
         exports:
           proposal_comments: Comentarii
           proposals: Propuneri
+        import_proposals_mailer:
+          notify_failure:
+            body: A apărut o problemă la importul propunerilor din componenta %{origin_component_name} în componenta %{target_component_name}.
+            subject: A apărut o problemă la importul propunerilor
+          notify_success:
+            added_proposals:
+              one: A fost importată o propunere.
+              few: "Au fost importate %{count} propuneri."
+              other: "Au fost importate %{count} propuneri."
+            body: Propuneri importate cu succes din componenta %{origin_component_name} în componenta %{target_component_name}. Puteți analiza rezultatele în interfața de administrare.
+            subject: Propunerile au fost importate cu succes
         imports:
           label:
             answers: Importați răspunsuri dintr-un fișier
@@ -385,6 +396,8 @@ ro:
             remove_assignment_confirmation: Sigur dorești să elimini evaluatorul din această propunere?
             valuators: Evaluatori
         proposals_imports:
+          create:
+            success: Procesul de import a început. Vă vom anunța de îndată ce s-a terminat.
           new:
             create: Importă propuneri
             no_components: Nu există alte componente de propunere în acest spațiu participativ din care să se importe propunerile.
@@ -547,7 +560,9 @@ ro:
           description: Coordonatele vor fi actualizate când apeși pe butonul 'previzualizează'. Cu toate acestea, adresa nu se schimbă.
           instructions: Poți muta punctul de pe hartă.
         edit:
+          add_attachments: Adaugați atașamente
           back: Înapoi
+          edit_attachments: Actualizați atașamente
           send: Trimite
           title: Editează propunerea
         edit_draft:
