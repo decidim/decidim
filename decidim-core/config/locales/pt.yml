@@ -918,6 +918,13 @@ pt:
           info: Os distintivos são obtidos através da realização de atividades específicas na plataforma.
           title: Distintivos
       user:
+        actions:
+          edit_profile: Editar perfil
+          edit_user_group: Editar perfil do grupo
+          invite_user: Convidar participante
+          join_user_group: Solicitar adesão ao grupo
+          leave_user_group: Deixar o grupo
+          resend_email_confirmation_instructions: Reenviar instruções de confirmação de e-mail
         create_user_group: Criar grupo
         edit_profile: Editar perfil
         edit_user_group: Editar perfil do grupo
