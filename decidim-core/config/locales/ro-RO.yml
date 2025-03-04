@@ -1158,17 +1158,22 @@ ro:
       user:
         actions:
           create_user_group: Creează grup
-          invite_user: Invită un participant
+          edit_profile: Editare profil
+          edit_user_group: Editează profilul grupului
+          invite_user: Invite participant
+          join_user_group: Cerere de aderare la grup
+          leave_user_group: Părăsește grupul
           manage_user_group_users: Gestionare participanți
           message: Mesaj
-        create_user_group: Creează grup
+          resend_email_confirmation_instructions: Retrimite e-mail instrucțiuni de confirmare
+        create_user_group: Creați grup
         edit_profile: Editare profil
         edit_user_group: Editează profilul grupului
         invite_user: Invite participant
         join_user_group: Cerere de aderare la grup
         leave_user_group: Părăsește grupul
-        manage_user_group_admins: Gestionează administratorii
-        manage_user_group_users: Gestionează membrii
+        manage_user_group_admins: Gestionare administratori
+        manage_user_group_users: Gestionare membri
         resend_email_confirmation_instructions: Retrimite e-mail instrucțiuni de confirmare
     reported_mailer:
       hide:
