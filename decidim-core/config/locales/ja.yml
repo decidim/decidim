@@ -1355,15 +1355,15 @@ ja:
           create_user_group: グループを作成
           disabled_message: メッセージ
           edit_profile: プロフィールを編集
-          edit_user_group: グループプロフィールを編集
-          invite_user: 参加者を招待
-          join_user_group: グループへの参加リクエスト
+          edit_user_group: グループプロファイルを編集
+          invite_user: 参加者の招待
+          join_user_group: グループに参加するリクエスト
           leave_user_group: グループから退出する
           manage_user_group: グループを管理
           manage_user_group_admins: 管理者の管理
           manage_user_group_users: メンバーの管理
           message: メッセージ
-          resend_email_confirmation_instructions: 確認メールを再送する
+          resend_email_confirmation_instructions: 確認メールを再送信する
         confirmation_instructions_sent: メール確認の手順を送信しました。
         create_user_group: グループを作成
         edit_profile: プロフィールを編集
