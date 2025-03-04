@@ -143,7 +143,7 @@ module Decidim
 
         context "when choices is a lambda function" do
           let(:choices) do
-            -> { full_choices.map(&:last) }
+            ->(_context) { full_choices.map(&:last) }
           end
 
           it "is supported" do
