@@ -1375,16 +1375,16 @@ es-MX:
         actions:
           create_user_group: Crear un grupo
           disabled_message: Mensaje
-          edit_profile: Editar el perfil
+          edit_profile: Editar perfil
           edit_user_group: Editar el perfil del grupo
-          invite_user: Invitar a una participante
+          invite_user: Invitar al usuario
           join_user_group: Solicitar unirse al grupo
-          leave_user_group: Salir del grupo
+          leave_user_group: Dejar el grupo
           manage_user_group: Gestionar el grupo
           manage_user_group_admins: Gestionar administradoras
           manage_user_group_users: Gestionar miembros
           message: Mensaje
-          resend_email_confirmation_instructions: Reenvía un correo electrónico con las instrucciones de confirmación
+          resend_email_confirmation_instructions: Vuelva a enviar las instrucciones de confirmación por correo electrónico
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
         create_user_group: Crear un grupo
         edit_profile: Editar perfil
@@ -1393,8 +1393,8 @@ es-MX:
         invite_user: Invitar al usuario
         join_user_group: Solicitar unirse al grupo
         leave_user_group: Dejar el grupo
-        manage_user_group_admins: Gestionar los administradores
-        manage_user_group_users: Gestionar los miembros
+        manage_user_group_admins: Gestionar administradores
+        manage_user_group_users: Gestionar miembros
         resend_email_confirmation_instructions: Vuelva a enviar las instrucciones de confirmación por correo electrónico
     reported_mailer:
       hide:
