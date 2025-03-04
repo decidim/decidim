@@ -402,6 +402,8 @@ uk:
         followers: Ті, хто стежить
         following: 'Стежить за:'
       user:
+        actions:
+          edit_profile: Редагувати профіль
         edit_profile: Редагувати профіль
     reported_mailer:
       hide:
@@ -442,6 +444,8 @@ uk:
         report: Поскаржитись
         spam: Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або лохотрони.
         title: Поскаржитись на ускладнення
+      flag_user_modal:
+        close: Закрити
       login_modal:
         sign_up: Зареєструватися
       reference:
