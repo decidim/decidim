@@ -1370,15 +1370,15 @@ sv:
           create_user_group: Skapa grupp
           disabled_message: Meddelande
           edit_profile: Redigera profil
-          edit_user_group: Redigera gruppens profil
+          edit_user_group: Redigera grupprofil
           invite_user: Bjud in deltagare
-          join_user_group: Ansök om att gå med i grupp
+          join_user_group: Begäran att gå med i grupp
           leave_user_group: Lämna grupp
           manage_user_group: Hantera grupp
           manage_user_group_admins: Hantera administratörer
           manage_user_group_users: Hantera medlemmar
           message: Meddelande
-          resend_email_confirmation_instructions: Skicka e-postmeddelande med bekräftelseinstruktioner igen
+          resend_email_confirmation_instructions: Skicka anvisningarna om bekräftelse om e-post igen
         confirmation_instructions_sent: Instruktioner för e-postbekräftelse har skickats.
         create_user_group: Skapa grupp
         edit_profile: Redigera profil
