@@ -1318,10 +1318,6 @@ lt:
         members: Nariai
         officialized: Patikrintas dalyvis
         send_private_message: Siųsti asmeninę žinutę
-      sidebar:
-        badges:
-          info: Ženkleliai pelnomi vykdant konkrečias veiklas platformoje.
-          title: Ženkleliai
       user:
         actions:
           create_user_group: Sukurti grupę
@@ -1337,16 +1333,7 @@ lt:
           message: Pranešimas
           resend_email_confirmation_instructions: Išsiųsti patvirtinimo instrukcijas dar kartą
         confirmation_instructions_sent: Patvirtinimo el. laiškas išsiųstas.
-        create_user_group: Sukurti grupę
-        edit_profile: Redaguoti profilį
-        edit_user_group: Redaguoti grupės profilį
         fill_in_email_to_confirm_it: Prašau įveskite grupės el. paštą tam, kad jį patvirtinti.
-        invite_user: Kviesti dalyvį
-        join_user_group: Prašyti prisijungti prie grupės
-        leave_user_group: Palikti grupę
-        manage_user_group_admins: Tvarkyti administratorius
-        manage_user_group_users: Valdyti narius
-        resend_email_confirmation_instructions: Persiųsti patvirtinimo nurodymus el. paštu
     reported_mailer:
       hide:
         hello: Sveiki %{name},
@@ -1425,14 +1412,11 @@ lt:
       flag_user_modal:
         already_reported: Apie šį turinį jau pranešta ir jį peržiūrės administratorius.
         block: Blokuoti šį naudotoją
-        close: Uždaryti
-        description: Kas netinka apie naudotoją?
         does_not_belong: Pateikiama informacija yra neteisėta veikla, grasinimai nusižudyti, asmeninė informacija arba tai, kas, jūsų nuomone, nepriklauso %{organization_name}.
         hide: Slėpti visą jų turinį
         offensive: Pateikiamoje informacijoje yra rasizmo, seksizmo, keiksmažodžių, asmeninių atakų, grasinimų ar kitokios neapykantos kalbos.
         report: Pranešti
         spam: Pateikiamoje informacijoje yra reklamos, antraščių mąsalo ar apgavysčių.
-        title: Pranešti apie netinkamą turinį
       floating_help:
         help: Pagalba
       mentions_modal:
