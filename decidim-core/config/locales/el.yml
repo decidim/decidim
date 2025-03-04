@@ -1092,9 +1092,11 @@ el:
           edit_user_group: Επεξεργασία προφίλ ομάδας
           invite_user: Πρόσκληση συμμετέχοντα
           join_user_group: Αίτημα συμμετοχής σε ομάδα
+          leave_user_group: Αποχώρηση από την ομάδα
           manage_user_group_admins: Διαχείριση διαχειριστών
           manage_user_group_users: Διαχείριση μελών
           message: Μήνυμα
+          resend_email_confirmation_instructions: Επανάληψη αποστολής των οδηγιών επιβεβαίωσης μέσω email
         confirmation_instructions_sent: Στάλθηκαν οι οδηγίες επιβεβαίωσης email.
         create_user_group: Δημιουργία ομάδας
         edit_profile: Επεξεργασία προφίλ
@@ -1187,6 +1189,8 @@ el:
         report: Αναφορά
         spam: Περιέχει clickbait, διαφημίσεις, απάτες ή script bot.
         title: Αναφορά ακατάλληλου περιεχομένου
+      flag_user_modal:
+        close: Κλείσιμο
       floating_help:
         help: Βοήθεια
       login_modal:
