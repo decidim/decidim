@@ -810,6 +810,13 @@ lv:
           info: Žetoni tiek nopelnīti, veicot noteiktas darbības platformā.
           title: Žetoni
       user:
+        actions:
+          edit_profile: Rediģēt profilu
+          edit_user_group: Rediģēt grupas profilu
+          invite_user: Uzaicināt dalībnieku
+          join_user_group: Pieteikums pievienoties grupai
+          leave_user_group: Pamest grupu
+          resend_email_confirmation_instructions: Atkārtoti e-pastā nosūtīt apstiprināšanas norādījumus
         create_user_group: Izveidot grupu
         edit_profile: Rediģēt profilu
         edit_user_group: Rediģēt grupas profilu
@@ -871,6 +878,8 @@ lv:
         offensive: Satur rasismu, seksismu, lamuvārdus, personiskus uzbrukumus, nāves draudus, ierosinājumus veikt pašnāvību vai jebkāda veida naida runu.
         report: Ziņot
         spam: Satur klikšķu ēsmu (clickbait), reklāmu, krāpšanu vai skriptu robotprogrammatūru.
+      flag_user_modal:
+        close: Aizvērt
       floating_help:
         help: Palīdzība
       login_modal:
