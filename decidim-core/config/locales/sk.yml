@@ -799,7 +799,14 @@ sk:
           info: Odznaky získate za určité aktivity a účasť na platforme.
           title: Odznaky
       user:
-        create_user_group: Vytvoriť skupinu
+        actions:
+          edit_profile: Editovať profil
+          edit_user_group: Upraviť profil skupiny
+          invite_user: Pozvať užívateľa
+          join_user_group: Žiadosť o pripojenie k skupine
+          leave_user_group: Opustiť skupinu
+          resend_email_confirmation_instructions: Opakujte e-mailové pokyny na potvrdenie
+        create_user_group: Vytvořit skupinu
         edit_profile: Editovať profil
         edit_user_group: Upraviť profil skupiny
         invite_user: Pozvať užívateľa
@@ -861,6 +868,8 @@ sk:
         report: Správa
         spam: Obsahuje clickbait, reklama, podvody alebo skripty.
         title: Nahlásiť problém
+      flag_user_modal:
+        close: Zavrieť
       floating_help:
         help: Pomoc
       login_modal:
