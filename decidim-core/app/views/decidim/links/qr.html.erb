@@ -14,10 +14,6 @@
     <div class="card__grid-img">
       <%= image_tag resource.attachments.first&.url, alt: resource.presenter.title(html_escape: true) %>
     </div>
-  <% else %>
-    <div class="card__grid-img card__grid-placeholder">
-      <%= external_icon "media/images/placeholder-card-g.svg", class: "card__placeholder-g" %>
-    </div>
   <% end %>
 
   <h3><%= t(".scan") %></h3>
