@@ -1373,8 +1373,8 @@ fi:
           create_user_group: Luo ryhmä
           disabled_message: Viesti
           edit_profile: Muokkaa profiilia
-          edit_user_group: Muokkaa ryhmäprofiilia
-          invite_user: Kutsu osallistuja
+          edit_user_group: Muokkaa ryhmän profiilia
+          invite_user: Kutsu käyttäjä
           join_user_group: Lähetä liittymispyyntö ryhmään
           leave_user_group: Poistu ryhmästä
           manage_user_group: Hallinnoi ryhmää
@@ -1480,7 +1480,7 @@ fi:
         reason: Syy
         report: Tee ilmoitus
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
-        title: Ilmoita asiatonta sisältöä
+        title: Ilmoita epäasiallista sisältöä
       flag_user_modal:
         already_reported: Tämä sisältö on jo ilmoitettu ja se odottaa hallintakäyttäjän tarkastusta.
         block: Estä tämä osallistuja
