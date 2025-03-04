@@ -766,20 +766,14 @@ sk:
         following: Nasleduje
         groups: Skupiny
         members: Členovia
-      sidebar:
-        badges:
-          info: Odznaky získate za určité aktivity a účasť na platforme.
-          title: Odznaky
       user:
-        create_user_group: Vytvoriť skupinu
-        edit_profile: Editovať profil
-        edit_user_group: Upraviť profil skupiny
-        invite_user: Pozvať užívateľa
-        join_user_group: Žiadosť o pripojenie k skupine
-        leave_user_group: Opustiť skupinu
-        manage_user_group_admins: Správa administrátorov
-        manage_user_group_users: Správa členov
-        resend_email_confirmation_instructions: Opakujte e-mailové pokyny na potvrdenie
+        actions:
+          edit_profile: Editovať profil
+          edit_user_group: Upraviť profil skupiny
+          invite_user: Pozvať užívateľa
+          join_user_group: Žiadosť o pripojenie k skupine
+          leave_user_group: Opustiť skupinu
+          resend_email_confirmation_instructions: Opakujte e-mailové pokyny na potvrdenie
     reported_mailer:
       hide:
         hello: Zdravím %{name},
