@@ -925,6 +925,13 @@ nl:
           info: Badges worden verdiend door specifieke activiteiten uit te voeren op het platform.
           title: Badges
       user:
+        actions:
+          edit_profile: Bewerk profiel
+          edit_user_group: Bewerk groepsprofiel
+          invite_user: Nodig deelnemer uit
+          join_user_group: Verzoek om lid te worden van de groep
+          leave_user_group: Verlaat groep
+          resend_email_confirmation_instructions: Verzend instructies voor e-mailbevestiging opnieuw
         create_user_group: Maak een groep
         edit_profile: Bewerk profiel
         edit_user_group: Bewerk groepsprofiel
@@ -1014,6 +1021,8 @@ nl:
         report: Rapporteren
         spam: Bevat clickbait, reclame, oplichting of script bots.
         title: Meld een probleem
+      flag_user_modal:
+        close: Sluit
       floating_help:
         help: Help
       login_modal:
