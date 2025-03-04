@@ -1370,21 +1370,21 @@ es-PY:
       sidebar:
         badges:
           info: Las insignias se obtienen realizando una actividad específica en la plataforma.
-          title: Insignias
+          title: Distintivos
       user:
         actions:
           create_user_group: Crear un grupo
           disabled_message: Mensaje
-          edit_profile: Editar el perfil
-          edit_user_group: Editar el perfil del grupo
-          invite_user: Invitar a una participante
-          join_user_group: Solicitar unirse al grupo
-          leave_user_group: Salir del grupo
+          edit_profile: Editar perfil
+          edit_user_group: Editar perfil de grupo
+          invite_user: Invitar al usuario
+          join_user_group: Solicitud para unirse al grupo
+          leave_user_group: Dejar grupo
           manage_user_group: Gestionar el grupo
           manage_user_group_admins: Gestionar administradoras
           manage_user_group_users: Gestionar miembros
           message: Mensaje
-          resend_email_confirmation_instructions: Reenvía un correo electrónico con las instrucciones de confirmación
+          resend_email_confirmation_instructions: Vuelva a enviar las instrucciones de confirmación por correo electrónico
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
         create_user_group: Crea un grupo
         edit_profile: Editar perfil
