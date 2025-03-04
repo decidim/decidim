@@ -667,6 +667,13 @@ id:
           info: Lencana diperoleh dengan melakukan aktivitas tertentu di platform.
           title: Lencana
       user:
+        actions:
+          edit_profile: Edit profil
+          edit_user_group: Edit profil grup
+          invite_user: Undang pengguna
+          join_user_group: Permintaan untuk bergabung dengan grup
+          leave_user_group: Meninggalkan grup
+          resend_email_confirmation_instructions: Kirim ulang instruksi konfirmasi email
         create_user_group: Membuat grup
         edit_profile: Edit profil
         edit_user_group: Edit profil grup
@@ -726,6 +733,8 @@ id:
         report: Melaporkan
         spam: Berisi clickbait, iklan, penipuan, atau bot skrip.
         title: Laporkan masalah
+      flag_user_modal:
+        close: Dekat
       floating_help:
         help: Membantu
       login_modal:
