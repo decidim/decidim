@@ -25,7 +25,7 @@ describe "Admin reports user" do
       expect(page).to have_css(".flag-user-modal", visible: :visible)
 
       within ".flag-user-modal" do
-        expect(page).to have_content("Report inappropriate User")
+        expect(page).to have_content("Report inappropriate participant")
         find(:css, "input[name='report[block]']").set(true)
         expect(page).to have_field(name: "report[block]", visible: :visible)
         expect(page).to have_field(name: "report[hide]", visible: :visible)
@@ -49,7 +49,7 @@ describe "Admin reports user" do
       expect(page).to have_css(".flag-user-modal", visible: :visible)
 
       within ".flag-user-modal" do
-        expect(page).to have_content("Report inappropriate User")
+        expect(page).to have_content("Report inappropriate participant")
         find(:css, "input[name='report[block]']").set(true)
         find(:css, "input[name='report[hide]']").set(true)
         expect(page).to have_field(name: "report[block]", visible: :visible)

@@ -44,7 +44,7 @@ shared_examples "hideable resource during block" do
 
     it "chooses to hide content" do
       within ".flag-user-modal" do
-        expect(page).to have_content("Report inappropriate User")
+        expect(page).to have_content("Report inappropriate participant")
         find(:css, "input[name='report[hide]']").set(true)
       end
       click_on I18n.t("decidim.shared.flag_user_modal.block")
