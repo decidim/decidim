@@ -302,6 +302,17 @@ ro:
         exports:
           proposal_comments: Comentarii
           proposals: Propuneri
+        import_proposals_mailer:
+          notify_failure:
+            body: A apărut o problemă la importul propunerilor din componenta %{origin_component_name} în componenta %{target_component_name}.
+            subject: A apărut o problemă la importul propunerilor
+          notify_success:
+            added_proposals:
+              one: A fost importată o propunere.
+              few: "Au fost importate %{count} propuneri."
+              other: "Au fost importate %{count} propuneri."
+            body: Propuneri importate cu succes din componenta %{origin_component_name} în componenta %{target_component_name}. Puteți analiza rezultatele în interfața de administrare.
+            subject: Propunerile au fost importate cu succes
         imports:
           label:
             answers: Importați răspunsuri dintr-un fișier
@@ -416,6 +427,8 @@ ro:
             invalid: 'Aceste propuneri aveau deja domeniul %{subject_name} : %{proposals}.'
             success: 'Propuneri actualizate cu succes în domeniul %{subject_name} : %{proposals}.'
         proposals_imports:
+          create:
+            success: Procesul de import a început. Vă vom anunța de îndată ce s-a terminat.
           new:
             create: Importă propuneri
             no_components: Nu există alte componente de propunere în acest spațiu participativ din care să se importe propunerile.
