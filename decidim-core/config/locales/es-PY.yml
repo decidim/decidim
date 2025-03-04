@@ -1374,35 +1374,22 @@ es-PY:
         members: Miembros
         officialized: Participante oficial
         send_private_message: Envia mensaje privado
-      sidebar:
-        badges:
-          info: Las insignias se obtienen realizando una actividad específica en la plataforma.
-          title: Insignias
       user:
         actions:
           create_user_group: Crear un grupo
           disabled_message: Mensaje
-          edit_profile: Editar el perfil
-          edit_user_group: Editar el perfil del grupo
-          invite_user: Invitar a una participante
-          join_user_group: Solicitar unirse al grupo
-          leave_user_group: Salir del grupo
+          edit_profile: Editar perfil
+          edit_user_group: Editar perfil de grupo
+          invite_user: Invitar al usuario
+          join_user_group: Solicitud para unirse al grupo
+          leave_user_group: Dejar grupo
           manage_user_group: Gestionar el grupo
           manage_user_group_admins: Gestionar administradoras
           manage_user_group_users: Gestionar miembros
           message: Mensaje
-          resend_email_confirmation_instructions: Reenvía un correo electrónico con las instrucciones de confirmación
+          resend_email_confirmation_instructions: Vuelva a enviar las instrucciones de confirmación por correo electrónico
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
-        create_user_group: Crea un grupo
-        edit_profile: Editar perfil
-        edit_user_group: Editar perfil de grupo
         fill_in_email_to_confirm_it: Por favor, introduce el correo electrónico de tu grupo para confirmarlo.
-        invite_user: Invitar al usuario
-        join_user_group: Solicitud para unirse al grupo
-        leave_user_group: Dejar grupo
-        manage_user_group_admins: Administrar administradores
-        manage_user_group_users: Administrar miembros
-        resend_email_confirmation_instructions: Vuelva a enviar las instrucciones de confirmación por correo electrónico
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -1496,14 +1483,13 @@ es-PY:
       flag_user_modal:
         already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
         block: Eliminar a esta participante
-        close: Cerrar
-        description: '¿Qué es inapropiado de la usuaria?'
+        description: '¿Qué tiene de inapropiado esta participante?'
         does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que creas que no pertenece a %{organization_name}.
         hide: Esconder todos sus contenidos
         offensive: Contiene el racismo, el sexismo, los golpes personales, las amenazas de muerte, las peticiones de suicidio o cualquier forma de discurso de odio.
         report: Reporte
         spam: Contiene clickbait, publicidad, estafas o robots de guión.
-        title: Reportar usuaria inapropiada
+        title: Reportar participante inapropiada
       floating_help:
         help: Ayuda
       follow_button:
