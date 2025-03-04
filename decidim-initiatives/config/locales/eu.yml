@@ -377,7 +377,7 @@ eu:
         finish:
           back: Atzera
           back_to_initiatives: Itzuli ekimenetara
-          callout_text: Zorionak! Zure ekimena arrakastaz sortu da.
+          callout_text: Zorionak! Zure ekimena zuzen sortu da.
           confirm: Ekimena bidaliko duzu administratzaile batek berrikus eta argitara dezan. Argitaratu ondoren, ezin izango duzu editatu. Ziur zaude?
           edit_my_initiative: Editatu nire ekimena
           go_to_my_initiatives: Joan nire ekimenetara
