@@ -1376,35 +1376,22 @@ de:
         members: Mitglieder
         officialized: Offizieller Teilnehmer
         send_private_message: Private Nachricht senden
-      sidebar:
-        badges:
-          info: Abzeichen werden verdient, indem bestimmte Aktivitäten in der Plattform ausgeführt werden.
-          title: Abzeichen
       user:
         actions:
           create_user_group: Gruppe erstellen
           disabled_message: Nachricht
           edit_profile: Profil bearbeiten
           edit_user_group: Gruppenprofil bearbeiten
-          invite_user: Teilnehmer einladen
-          join_user_group: Gruppenbeitritt anfragen
+          invite_user: Nutzer einladen
+          join_user_group: Anfrage zur Teilnahme an der Gruppe
           leave_user_group: Gruppe verlassen
           manage_user_group: Gruppe verwalten
           manage_user_group_admins: Admins verwalten
           manage_user_group_users: Mitglieder verwalten
           message: Nachricht
-          resend_email_confirmation_instructions: E-Mail-Bestätigungsanweisungen erneut versenden
+          resend_email_confirmation_instructions: Senden Sie die E-Mail-Bestätigungsanweisungen erneut
         confirmation_instructions_sent: E-Mail-Bestätigungsanweisungen gesendet.
-        create_user_group: Gruppe erstellen
-        edit_profile: Profil bearbeiten
-        edit_user_group: Gruppenprofil bearbeiten
         fill_in_email_to_confirm_it: Bitte geben Sie die E-Mail-Adresse Ihrer Gruppe zur Bestätigung ein.
-        invite_user: Nutzer einladen
-        join_user_group: Anfrage zur Teilnahme an der Gruppe
-        leave_user_group: Gruppe verlassen
-        manage_user_group_admins: Admins verwalten
-        manage_user_group_users: Mitglieder verwalten
-        resend_email_confirmation_instructions: Senden Sie die E-Mail-Bestätigungsanweisungen erneut
     reported_mailer:
       hide:
         hello: Hallo %{name},
@@ -1498,14 +1485,11 @@ de:
       flag_user_modal:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
         block: Diesen Teilnehmer blockieren
-        close: Schließen
-        description: Was ist unangebracht über den Benutzer?
         does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
         hide: Alle dessen Inhalte verbergen
         offensive: Enthält Formen von Rassismus, Sexismus, Verleumdungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder andere Formen von seelischer Gewalt.
         report: Melden
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
-        title: Unangemessenen Nutzer melden
       floating_help:
         help: Hilfe
       follow_button:
