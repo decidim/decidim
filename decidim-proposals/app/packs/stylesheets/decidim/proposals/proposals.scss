@@ -159,7 +159,7 @@
                 @apply text-sm;
               }
 
-              > :last-child::before  {
+              > :last-child::before {
                 @apply content-['/'] mx-1;
               }
             }
@@ -276,7 +276,7 @@
                 @apply text-sm;
               }
 
-              > :last-child::before  {
+              > :last-child::before {
                 @apply content-['/'] mx-1;
               }
             }
