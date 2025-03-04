@@ -66,8 +66,11 @@ fr:
             title: Titre
       posts:
         edit:
+          add_attachments: Ajouter des pièces jointes
+          attachment_legend: Ajouter un document ou une image
           back: Retour à l'article
           button: Mettre à jour
+          edit_attachments: Modifier les pièces jointes
           title: Modifier l'article
         form:
           author_id: Auteur
@@ -99,9 +102,13 @@ fr:
         settings:
           global:
             announcement: Annonce
+            attachments_allowed: Autoriser les pièces jointes
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
             creation_enabled_for_participants: Les participants peuvent créer des articles
+            define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
+            taxonomy_filters: Sélectionner les filtres pour le composant
+            taxonomy_filters_add: Ajouter un filtre
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
