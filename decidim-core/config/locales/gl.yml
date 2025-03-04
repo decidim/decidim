@@ -702,20 +702,14 @@ gl:
         following: Segue
         groups: Grupos
         members: Membros
-      sidebar:
-        badges:
-          info: As insignias obtéñense realizando actividades específicas na plataforma.
-          title: Insignias
       user:
-        create_user_group: Crear grupo
-        edit_profile: Editar perfil
-        edit_user_group: Editar o perfil do grupo
-        invite_user: Invitar ao usuario
-        join_user_group: Solicitude para unirse ao grupo
-        leave_user_group: Deixar de grupo
-        manage_user_group_admins: Xestionar os administradores
-        manage_user_group_users: Xestionar membros
-        resend_email_confirmation_instructions: Reenvía as instrucións de confirmación de correo electrónico
+        actions:
+          edit_profile: Editar perfil
+          edit_user_group: Editar o perfil do grupo
+          invite_user: Invitar ao usuario
+          join_user_group: Solicitude para unirse ao grupo
+          leave_user_group: Deixar de grupo
+          resend_email_confirmation_instructions: Reenvía as instrucións de confirmación de correo electrónico
     reported_mailer:
       hide:
         hello: Ola %{name},
