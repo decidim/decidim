@@ -329,6 +329,7 @@ ro:
         finish:
           back: Înapoi
           back_to_initiatives: Înapoi la inițiative
+          callout_text: Felicitări! Inițiativa dvs. a fost creată cu succes.
           confirm: Vei trimite inițiativa unui administrator pentru a o revizui și a o publica. Odată publicată, nu o vei putea edita. Sigur dorești asta?
           edit_my_initiative: Editează inițiativa mea
           go_to_my_initiatives: Accesează inițiativele mele
