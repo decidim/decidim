@@ -8,7 +8,8 @@ describe Decidim::UserActivityCell, type: :cell do
 
   subject { my_cell.call }
 
-  let(:view_context) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
+  controller Decidim::PagesController
+  let(:view_context) { controller.view_context }
 
   let(:my_cell) do
     cell(
@@ -63,7 +64,6 @@ describe Decidim::UserActivityCell, type: :cell do
       )
     end
   end
-  let(:controller) { double(url_options: {}) }
 
   before do
     allow(controller).to receive(:current_organization).and_return(component.organization)
