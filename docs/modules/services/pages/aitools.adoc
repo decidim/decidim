@@ -146,7 +146,7 @@ bin/rails decidim:ai:spam:load_application_dataset[/path/to/file.csv]
 In some cases, like an upgrade, you may want to train your model using your existing data, so you can use:
 
 ```bash
-bin/rails decidim:ai:spam:train_using_database
+bin/rails decidim:ai:spam:train_application_database
 ```
 
 === Reset the model
@@ -154,7 +154,7 @@ bin/rails decidim:ai:spam:train_using_database
 If the trained model becomes corrupt, you could use the below command to reinitialize the model. Once you do this, you would need to train the model again. using any of the above commands.
 
 ```bash
-bin/rails decidim:ai:spam:reset_model
+bin/rails decidim:ai:spam:reset
 ```
 
 == Sidekiq

@@ -741,6 +741,7 @@ es-PY:
             does_not_belong: No pertenece
             hidden_during_block: Oculto mientras se bloquea a la participante
             offensive: Ofensiva
+            parent_hidden: Se ha ocultado el contenido principal
             spam: Contenido no deseado
         reports:
           index:

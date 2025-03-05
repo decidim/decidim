@@ -355,7 +355,6 @@ hu:
             assign_to_valuator_button: Hozzárendel
             cancel: Mégse
             merge: Összeolvasztás egy újba
-            merge_button: Összeolvasztás
             publish: Közzétesz
             publish_answers: Válaszok közzététele
             select_component: Összetevő választása
@@ -403,7 +402,6 @@ hu:
       admin_log:
         proposal:
           answer: "%{user_name} válaszolt a(z) %{resource_name} javaslatra itt: %{space_name}"
-          create: "%{user_name} létrehozta a(z) %{resource_name} javaslatot (hivatalos) itt: %{space_name}"
           publish_answer: "%{user_name} közzétette a(z) %{resource_name} javaslat válaszát a(z) %{space_name} mezőben"
           update: "%{user_name} frissítette az %{resource_name} hivatalos javaslatot a %{space_name} helyre"
         proposal_note:
