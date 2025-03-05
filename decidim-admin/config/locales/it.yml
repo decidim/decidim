@@ -300,6 +300,10 @@ it:
           values:
             'false': 'No'
             'true': 'Sì'
+        moderated_users:
+          reports_reason_eq:
+            values:
+              does_not_belong:
         moderations:
           reportable_type_string_eq:
             label: Tipo
