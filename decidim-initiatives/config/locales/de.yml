@@ -89,6 +89,7 @@ de:
             label: Status
             values:
               accepted: Ausreichend Unterschriften
+              created: Entworfen
               discarded: Verworfen
               open: Offen
               rejected: Zu wenige Unterschriften
@@ -344,6 +345,7 @@ de:
           update: "%{user_name} hat den Initiativentyp %{resource_name} aktualisiert"
       admin_states:
         accepted: Ausreichend Unterschriften
+        created: Entworfen
         discarded: Verworfen
         open: Offen
         rejected: Ungenügend Unterschriften
@@ -372,6 +374,8 @@ de:
         highlighted_initiatives:
           name: Hervorgehobene Initiativen
       create_initiative:
+        committee_member:
+          approve: Genehmigen
         fill_data:
           continue: Fortsetzen
           fill_data_help: "<ul> <li>Inhalt Ihrer Initiative überprüfen. Ist Ihr Titel leicht verständlich? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Was ist die geografische Reichweite der Initiative? Stadt, Bezirk?</li> </ul>"
