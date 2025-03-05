@@ -10,11 +10,14 @@ module Decidim
 
         def update_resource
           # As traceability might not understand the body attribute, we save it separately
-          if form.title != resource.title
+          if form.title != resource.title || form.accepting_suggestions != resource.accepting_suggestions
             Decidim.traceability.update!(
               resource,
               current_user,
-              { title: form.title },
+              {
+                title: form.title,
+                accepting_suggestions: form.accepting_suggestions
+              },
               **extra_document_params
             )
           end

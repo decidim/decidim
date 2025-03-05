@@ -29,6 +29,10 @@ class Suggestions {
     return this.suggestions.filter((suggestion) => suggestion.applied);
   }
 
+  getPending() {
+    return this.suggestions.filter((suggestion) => !suggestion.applied);
+  }
+
   // destroy all suggestions
   destroy() {
     this.suggestions.forEach((suggestion) => suggestion.destroy());

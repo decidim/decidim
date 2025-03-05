@@ -1,10 +1,12 @@
+import confirmDialog from "src/decidim/confirm";
 class Manager {
   constructor(document) {
     this.document = document;
     this.doc = document.doc;
     this.i18n = document.i18n || {};
     this.div = window.document.getElementsByClassName("collaborative-texts-manager")[0];
-    this.saveButton = this.div.querySelector("[data-collaborative-texts-manager-save]");
+    this.rolloutButton = this.div.querySelector("[data-collaborative-texts-manager-rollout]");
+    this.consolidateButton = this.div.querySelector("[data-collaborative-texts-manager-consolidate]");
     this._bindEvents();
   }
 
@@ -47,28 +49,40 @@ class Manager {
     return this.container.innerHTML;
   }
 
-  _save() {
-    console.log("Save manager", this);
-    fetch(this.doc.dataset.collaborativeTextsRolloutUrl, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        "X-CSRF-Token": this.document.csrfToken
-      },
-      body: JSON.stringify({
-        body: this.cleanBody(),
-        accepted: this.document.suggestions.getApplied().map((suggestion) => suggestion.id)
-      })
-    }).
-      then((response) => response.json()).
-      then((data) => {
-        console.log("Saved", data);
-        location = data.redirect;
-      });
+  _save(event) {
+    console.log("Save manager", this, event);
+    const draft = !event.target.dataset.collaborativeTextsManagerConsolidate;
+
+    confirmDialog(draft
+      ? this.i18n.rolloutConfirm
+      : this.i18n.consolidateConfirm).then((accepted) => {
+      if (accepted) {
+        fetch(this.doc.dataset.collaborativeTextsRolloutUrl, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-Token": this.document.csrfToken
+          },
+          body: JSON.stringify({
+            body: this.cleanBody(),
+            accepted: this.document.suggestions.getApplied().map((suggestion) => suggestion.id),
+            pending: this.document.suggestions.getPending().map((suggestion) => suggestion.id),
+            draft: draft
+          })
+        }).
+          then((response) => response.json()).
+          then((data) => {
+            console.log("Saved", data);
+            location = data.redirect;
+          });
+      }
+    });
+    
   }
 
   _bindEvents() {
-    this.saveButton.addEventListener("click", this._save.bind(this));
+    this.rolloutButton.addEventListener("click", this._save.bind(this));
+    this.consolidateButton.addEventListener("click", this._save.bind(this));
   }
 }
 

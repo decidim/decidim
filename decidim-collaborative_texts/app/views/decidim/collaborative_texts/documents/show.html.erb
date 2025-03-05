@@ -19,7 +19,11 @@
     <div class="flex justify-center">
       <h1 class="title-decorator my-12"><%= document.title %></h1>
     </div>
-    <div data-collaborative-texts-document="<%= document.accepting_suggestions.to_s %>"
+
+    <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.draft"), callout_class: "warning") if document.draft? %>
+    <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.accepting_suggestions")) if document.suggestions_enabled? %>
+
+    <div data-collaborative-texts-document="<%= document.suggestions_enabled? %>"
          data-collaborative-texts-i18n="<%= document_i18n.to_json %>"
          data-collaborative-texts-suggestions-url="<%= document_suggestions_path(document) %>"
          data-collaborative-texts-rollout-url="<%= document_path(document) %>"
@@ -29,9 +33,8 @@
   </section>
 
   <div class="collaborative-texts-manager layout-1col hidden">
-    <button data-collaborative-texts-manager-save>
-      <%= t("decidim.collaborative_texts.document.rollout.new") %>
-    </button>
+    <%= button_tag(t("decidim.collaborative_texts.document.rollout.new"), class:"button button__lg button__primary", data: { collaborative_texts_manager_rollout: true }) %>
+    <%= button_tag(t("decidim.collaborative_texts.document.consolidate.new"), class:"button button__lg button__transparent-primary", data: { collaborative_texts_manager_consolidate: true }) %>
   </div>
 <% end %>
 

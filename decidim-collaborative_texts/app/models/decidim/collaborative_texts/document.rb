@@ -19,6 +19,7 @@ module Decidim
       after_save :save_version
 
       has_many :document_versions, class_name: "Decidim::CollaborativeTexts::Version", dependent: :destroy
+      has_many :suggestions, through: :document_versions
 
       validates :title, :body, presence: true
 
@@ -43,12 +44,6 @@ module Decidim
         document_versions.last || document_versions.build
       end
 
-      # Draft mode is used to allow admins edit the text prior final publication
-      # Editing the body should only be allowed in draft mode unless the document is new
-      def draft_version
-        document_versions.draft.last
-      end
-
       def consolidated_version
         document_versions.consolidated.last
       end
@@ -57,18 +52,12 @@ module Decidim
         consolidated_version&.body
       end
 
-      def draft_body
-        draft_version&.body
-      end
-
-      def draft!(value)
-        draft = draft_version || document_versions.build(draft: true)
-        draft.update!(body: value)
-        current_version.reload
-      end
-
       def has_suggestions?
         current_version.suggestions.any?
+      end
+
+      def suggestions_enabled?
+        published? && accepting_suggestions? && !draft?
       end
 
       private

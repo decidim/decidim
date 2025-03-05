@@ -28,9 +28,11 @@ en:
             invalid: There was a problem creating the document.
             success: Document successfully created.
           edit:
+            accepting_suggestions: Enable suggestions in the next version
+            accepting_suggestions_help: Enabling suggestions will start a new round of suggestions for this document. The current suggestions will not be visible in the new version.
             document_has_suggestions_html: <a href="%{url}">This document has suggestions</a> and cannot be edited directly. Please accept or reject the suggestions in order to generate a new draft version that can be edited.
             draft: Draft version
-            draft_help: A draft version is not public and can edited. Remove the draft status to make the public version this content.
+            draft_help_html: A draft version is not public and can edited by the admins. Remove the draft status to make the public version this content. <strong>Note that meanwhile the draft version is active, the participants will not be able to make suggestions.</strong>
             previous_versions: Previous versions
             public_version: Public version
             title: Edit collaborative texts
@@ -75,10 +77,19 @@ en:
           update: "%{user_name} updated the %{resource_name} collaborative text version in %{space_name}"
       document:
         cancel: Cancel
+        consolidate:
+          confirm: This action will consolidate all accepted suggestions into a new version of the document. Non-accepted suggestions will be transferred to the new version for further review. This action will maintain the suggestions enabled status.
+          invalid: There was a problem consolidating the suggestions.
+          new: Consolidate accepted suggestions
         rollout:
+          confirm: This action will create a new draft version of the document and you will be redirected to the edit page for final refinements. The current version will remain public and suggestions will be disabled.
           invalid: There was a problem creating a new version of the document (%{errors}).
-          new: Create a new version
+          new: Draft a new version
         save: Send suggestion
+        status:
+          accepting_suggestions: You can make suggestions on this document by selecting (or double click) the text you want to change and clicking on the "Suggest changes" button.
+          draft: This document is currently under review by the administrators. Suggestions are not allowed at this time, but you can view suggestions made by other participants.
+          selection_active: A selection is active. Please cancel the current selection to make a new one.
         suggest: Suggest changes
       documents:
         index:

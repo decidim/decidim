@@ -8,14 +8,10 @@
   }
 
   &-manager {
-    @apply fixed flex bottom-0 left-0 right-0 z-[1000] p-4 bg-background rounded;
+    @apply fixed flex bottom-0 left-0 right-0 z-[49] p-4 bg-background rounded gap-2;
 
     &.hidden {
       display: none;
-    }
-
-    button {
-      @apply button button__primary button__lg
     }
   }
 
@@ -30,6 +26,7 @@
 
   &-editor {
     @apply bg-gray-5 outline outline-2 outline-offset-2 mb-4;
+
     outline: var(--primary) 2px solid;
 
     &-menu {
@@ -45,22 +42,22 @@
     }
   }
 
-    &-menu {
-      @apply absolute top-0 right-0 z-[100] flex gap-2;
-    }
+  &-menu {
+    @apply absolute top-0 right-0 z-[40] flex gap-2;
+  }
 
   &-suggestions-menu {
-    @apply absolute top-0 right-[-180px] z-[100] text-xs w-40;
+    @apply absolute top-0 right-[-180px] z-[40] text-xs w-40;
 
     &:hover {
-      @apply z-[1000];
+      @apply z-[49];
     }
 
     &-item {
       @apply p-2 mb-4 rounded bg-gray-3;
 
       &:hover {
-        @apply bg-background z-[1000];
+        @apply bg-background z-[49];
       }
     }
   }

@@ -15,7 +15,10 @@ module Decidim
         {
           suggest: t("decidim.collaborative_texts.document.suggest"),
           cancel: t("decidim.collaborative_texts.document.cancel"),
-          save: t("decidim.collaborative_texts.document.save")
+          save: t("decidim.collaborative_texts.document.save"),
+          selectionActive: t("decidim.collaborative_texts.document.status.selection_active"),
+          rolloutConfirm: t("decidim.collaborative_texts.document.rollout.confirm"),
+          consolidateConfirm: t("decidim.collaborative_texts.document.consolidate.confirm")
         }
       end
     end

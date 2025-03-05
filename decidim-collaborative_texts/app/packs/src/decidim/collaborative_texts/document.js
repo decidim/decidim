@@ -42,6 +42,10 @@ class Document {
     return this;
   }
 
+  alert(message) {
+    window.alert(message);
+  }
+
   // For all first level nodes of type ELEMENT_NODE, ensure they have a unique id if they don't have one starting with "ct-node-"
   _prepareNodes() {
     this.nodes = [];
@@ -70,7 +74,11 @@ class Document {
 
   _showOptions() {
     this.selection = this.selection || new Selection(this);
-    if (this.selection.blocked || this.applying) {
+    if (this.selection.blocked) {
+      this.alert(this.i18n.selectionActive)
+      return;
+    }
+    if (this.applying) {
       return;
     }
     this.selection.clear().detectNodes();

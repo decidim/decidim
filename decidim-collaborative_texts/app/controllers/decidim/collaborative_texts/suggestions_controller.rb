@@ -7,8 +7,7 @@ module Decidim
       helper_method :documents, :document
 
       def index
-        # TODO: sanitize this
-        render json: document.current_version.suggestions
+        render json: suggestions_for(document.consolidated_version)
       end
 
       def create
@@ -26,6 +25,11 @@ module Decidim
       end
 
       private
+
+      # TODO: sanitize the output for the ajax receiver
+      def suggestions_for(version)
+        version.suggestions
+      end
 
       def document
         @document ||= documents.find(params[:document_id])
