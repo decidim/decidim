@@ -131,7 +131,7 @@ For production environments, you can configure these tasks with `crontab -e`. Fo
 
 === Scheduled tasks from modules
 
-Additional cron jobs may be available depending on the modules you've installed.
+Additional cron jobs may be available depending on the modules you have installed.
 
 ==== Initiatives module
 
