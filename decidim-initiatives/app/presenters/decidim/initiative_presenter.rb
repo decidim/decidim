@@ -4,9 +4,19 @@ module Decidim
   #
   # Decorator for initiatives
   #
-  class InitiativePresenter < SimpleDelegator
+  class InitiativePresenter < Decidim::ResourcePresenter
     def author
       @author ||= Decidim::UserPresenter.new(super)
+    end
+
+    def initiative
+      __getobj__
+    end
+
+    def title(links: false, html_escape: false, all_locales: false)
+      return unless initiative
+
+      super(initiative.title, links, html_escape, all_locales)
     end
   end
 end
