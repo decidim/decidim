@@ -18,7 +18,6 @@ module Decidim
         validates :internal_state, presence: true, inclusion: { in: :proposal_states }
         validates :answer, translatable_presence: true, if: ->(form) { form.state == "rejected" }
 
-
         alias state internal_state
 
         def costs_required?
