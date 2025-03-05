@@ -13,25 +13,6 @@ module Decidim
             base_config = configuration.fetch(:tile_layer, {})
 
             api_key = configuration[:api_key]
-            if api_key.is_a?(Array)
-              # Support for legacy style configurations
-              ActiveSupport::Deprecation.warn(
-                <<~DEPRECATION.strip
-                  Please use a single api_key configuration for HERE maps.
-
-                  For further information, see:
-                  https://developer.here.com/documentation/maps/3.1.16.1/dev_guide/topics/migration.html
-
-                  Also make sure your Decidim.maps configurations are using the
-                  up to date format.
-                DEPRECATION
-              )
-
-              return base_config.merge(
-                app_id: api_key[0],
-                app_code: api_key[1]
-              )
-            end
 
             base_config.merge(api_key:, language: language_code)
           end

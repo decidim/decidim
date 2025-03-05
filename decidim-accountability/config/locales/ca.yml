@@ -272,9 +272,6 @@ ca:
           results_count:
             one: Un resultat
             other: "%{count} resultats"
-        home:
-          empty: Encara no hi ha cap resultat.
-          empty_filters: No hi ha cap resultat amb aquest criteri.
         home_header:
           global_status: Estat d'execució global
         no_results: No hi ha projectes

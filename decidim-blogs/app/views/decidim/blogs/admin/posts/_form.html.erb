@@ -16,6 +16,13 @@
           <%= form.datetime_field :published_at %>
         </div>
       </div>
+      <% if @form.taxonomy_filters&.any? %>
+        <% @form.taxonomy_filters.each do |filter| %>
+          <div class="row column">
+            <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 
