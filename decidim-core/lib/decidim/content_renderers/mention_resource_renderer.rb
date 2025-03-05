@@ -9,6 +9,10 @@ module Decidim
     #
     # @see BaseRenderer Examples of how to use a content renderer
     class MentionResourceRenderer < BaseRenderer
+      include Rails.application.routes.mounted_helpers
+      include ActionView::Helpers::UrlHelper
+      include Decidim::SanitizeHelper
+
       # Matches a global id representing a Decidim::Proposals::Proposal
       GLOBAL_ID_REGEX = %r{gid://[\w-]+/Decidim::Proposals::Proposal/\d+}
 
@@ -48,7 +52,7 @@ module Decidim
 
         if author
           link_to "<span class='editor-mention'>
-            <img src='#{author.avatar_url(:thumb)}' class='not-prose' />
+            <img src='#{author.presenter.avatar_url(:thumb)}' class='not-prose' />
             <span>#{title}</span>
           </span>".html_safe, resource_path(resource)
         else
