@@ -48,6 +48,48 @@ describe "Profile" do
       expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
     end
 
+    context "when the user filters the public activity" do
+      let(:organization) { user.organization }
+      let(:participatory_space) { create(:participatory_process, :published, :with_steps, organization:) }
+      let(:component) { create(:proposal_component, participatory_space:) }
+      let(:proposal) { create(:proposal, component:, users: [user]) }
+      let(:comment) { create(:comment, commentable: proposal, author: user) }
+      let!(:publish_log) { create(:action_log, action: "publish", visibility: "public-only", resource: proposal, component:, organization:, user:) }
+      let!(:create_log) { create(:action_log, action: "create", visibility: "public-only", resource: proposal, component:, organization:, user:) }
+      let!(:comment_log) { create(:action_log, action: "create", visibility: "public-only", resource: comment, organization:, user:) }
+
+      it "displays the correct links for profile activity" do
+        visit current_path
+        within "#filters" do
+          expect(page).to have_link("All activity types", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "all" }))
+          expect(page).to have_link("Collaborative draft", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Proposals::CollaborativeDraft" }))
+          expect(page).to have_link("Proposal", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Proposals::Proposal" }))
+          expect(page).to have_link("Comment", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Comments::Comment" }))
+          expect(page).to have_link("Debate", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Debates::Debate" }))
+          expect(page).to have_link("Initiative", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Initiative" }))
+          expect(page).to have_link("Meeting", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Meetings::Meeting" }))
+          expect(page).to have_link("Post", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Blogs::Post" }))
+        end
+
+        expect(page).to have_content("New comment")
+        expect(page).to have_content("New proposal")
+
+        within "#filters" do
+          click_on "Comment"
+        end
+        expect(page).to have_content("New comment")
+        expect(page).not_to have_content("New proposal")
+
+        within "#filters" do
+          click_on "Meeting"
+        end
+
+        expect(page).not_to have_content("New comment")
+        expect(page).not_to have_content("New proposal")
+        expect(page).to have_content("This participant does not have any activity yet.")
+      end
+    end
+
     it "shows user name in the header, its nickname and a contact link" do
       expect(page).to have_selector("h1", text: user.name)
       expect(page).to have_content(user.nickname)
