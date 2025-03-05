@@ -7,25 +7,12 @@
   </div>
   <div class="table-scroll">
     <table class="table-list">
-      <thead>
-        <tr>
-        <th><%= t("models.collaborative_text.fields.title", scope: "decidim.collaborative_texts") %></th>
-        <th><%= t("actions.title", scope: "decidim.collaborative_texts") %></th>
-        </tr>
-      </thead>
+      <%= render partial: "documents-thead" %>
       <tbody>
-        <% trashable_deleted_collection.each do |document| %>
-          <tr>
-            <td><%= document.title %></td>
-            <td class="table-list__actions">
-              <% if allowed_to? :soft_delete, :document , trashable_deleted_resource: document %>
-                <%= icon_link_to "delete-bin-line", soft_delete_document_path(document), t("actions.soft_delete", scope: "decidim.admin"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_document", scope: "decidim.collaborative_texts") } %>
-              <% else %>
-                <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.soft_delete", scope: "decidim.admin") %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
+        <%= render partial: "decidim/collaborative_texts/admin/documents/document-tr",
+                   collection: trashable_deleted_collection,
+                   as: :document,
+                   locals: { view: :deleted } %>
       </tbody>
     </table>
   </div>

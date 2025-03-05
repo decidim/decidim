@@ -12,6 +12,7 @@ module Decidim
       include Decidim::Publicable
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::Searchable
 
       component_manifest_name "collaborative_texts"
 
@@ -22,51 +23,13 @@ module Decidim
       validates :title, :body, presence: true
 
       scope :enabled_desc, -> { order(arel_table[:accepting_suggestions].desc, arel_table[:created_at].desc) }
-      delegate :body, :body=, to: :current_version
 
-      def self.log_presenter_class_for(_log)
-        Decidim::CollaborativeTexts::AdminLog::DocumentPresenter
-      end
-
-      # Returns the current version of the document. Currently, the last one
-      def current_version
-        document_versions.last || document_versions.build
-      end
-
-      # Draft mode is used to allow admins edit the text prior final publication
-      # Editing the body should only be allowed in draft mode unless the document is new
-      def draft_version
-        document_versions.draft.last
-      end
-
-      def consolidated_version
-        document_versions.consolidated.last
-      end
-
-      def consolidated_body
-        consolidated_version&.body
-      end
-
-      def draft_body
-        draft_version&.body
-      end
-
-      def draft!(value)
-        draft = draft_version || document_versions.build(draft: true)
-        draft.update!(body: value)
-        current_version.reload
-      end
-
-      # Consolidates the current draft version
-      def rollout!
-        current_version.update!(draft: false) if draft_version
-      end
-
-      private
-
-      def save_version
-        current_version.save if current_version.changed?
-      end
+      searchable_fields(
+        participatory_space: { component: :participatory_space },
+        A: :title,
+        D: :consolidated_body,
+        datetime: :published_at
+      )
     end
   end
 end
