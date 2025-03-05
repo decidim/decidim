@@ -13,7 +13,7 @@ module Decidim
     end
 
     def resource_name
-      return "budget_project" if resource.is_a?(Decidim::Budgets::Project)
+      return "budget_project" if Decidim.module_installed?(:budgets) && resource.is_a?(Decidim::Budgets::Project)
 
       resource.class.name.demodulize.underscore
     end
