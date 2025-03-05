@@ -11,12 +11,20 @@ module Decidim
       include Decidim::HasComponent
       include Decidim::Publicable
       include Decidim::Loggable
+      include Decidim::Searchable
 
       component_manifest_name "collaborative_texts"
 
       validates :title, presence: true
 
       scope :enabled_desc, -> { order(arel_table[:accepting_suggestions].desc, arel_table[:created_at].desc) }
+
+      searchable_fields(
+        participatory_space: { component: :participatory_space },
+        A: :title,
+        D: :consolidated_body,
+        datetime: :published_at
+      )
     end
   end
 end
