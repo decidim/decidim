@@ -6,11 +6,12 @@ import { createSuggestionRenderer, createNodeView } from "src/decidim/editor/com
 export const MentionResourcePluginKey = new PluginKey("mentionResource");
 
 const searchResources = async (queryText) => {
-  const currentComponent = document.querySelector("meta[name='context-current-component']")?.content;
+  const currentParticipatorySpace = document.querySelector("meta[name='context-current-participatory-space']")?.content;
+
   let url = `/resource_autocomplete?term=${queryText}`;
 
-  if (currentComponent) {
-    url += `&component_gid=${currentComponent}`;
+  if (currentParticipatorySpace) {
+    url += `&participatory_space_gid=${currentParticipatorySpace}`;
   }
 
   return new Promise((resolve, reject) => {

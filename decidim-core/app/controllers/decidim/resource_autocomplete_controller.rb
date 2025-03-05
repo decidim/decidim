@@ -26,7 +26,7 @@ module Decidim
         .where(
           resource_type: allowed_resource_types,
           organization: current_organization,
-          decidim_participatory_space: current_component&.participatory_space
+          decidim_participatory_space: current_participatory_space
         )
         .autocomplete_search(term)
         .limit(10)
@@ -36,12 +36,12 @@ module Decidim
       params[:term]
     end
 
-    def component_gid
-      params[:component_gid]
+    def participatory_space_gid
+      params[:participatory_space_gid]
     end
 
-    def current_component
-      @current_component ||= GlobalID::Locator.locate(component_gid)
+    def current_participatory_space
+      @current_participatory_space ||= GlobalID::Locator.locate(participatory_space_gid)
     end
   end
 end
