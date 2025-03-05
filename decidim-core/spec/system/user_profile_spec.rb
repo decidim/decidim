@@ -78,14 +78,14 @@ describe "Profile" do
           click_on "Comment"
         end
         expect(page).to have_content("New comment")
-        expect(page).to have_no_content("New proposal")
+        expect(page).not_to have_content("New proposal")
 
         within "#filters" do
           click_on "Meeting"
         end
 
-        expect(page).to have_no_content("New comment")
-        expect(page).to have_no_content("New proposal")
+        expect(page).not_to have_content("New comment")
+        expect(page).not_to have_content("New proposal")
         expect(page).to have_content("This participant does not have any activity yet.")
       end
     end
