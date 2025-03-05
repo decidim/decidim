@@ -1,3 +1,7 @@
 <% if defined?(current_component) && current_component.present? %>
   <meta name="context-current-component" content="<%= current_component.to_global_id %>">
 <% end %>
+
+<% if defined?(current_participatory_space) && current_participatory_space.present? %>
+  <meta name="context-current-participatory-space" content="<%= current_participatory_space.to_global_id %>">
+<% end %>
