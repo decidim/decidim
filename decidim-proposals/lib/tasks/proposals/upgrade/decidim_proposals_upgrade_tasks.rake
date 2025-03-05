@@ -39,7 +39,6 @@ namespace :decidim_proposals do
 
     desc "Removes all proposal evaluator records of which the role assignment does not exists"
     task remove_evaluator_orphan_records: :environment do
-      
       if Decidim.module_installed?("participatory_processes")
         Decidim::Proposals::EvaluationAssignment
           .where(evaluator_role_type: "Decidim::ParticipatoryProcessUserRole")
