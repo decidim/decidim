@@ -1253,6 +1253,10 @@ ro:
           manage_user_group_users: Gestionare participanți
           message: Mesaj
           resend_email_confirmation_instructions: Retrimite e-mail instrucțiuni de confirmare
+    qr:
+      show:
+        scan: Scanaţi codul QR
+        title: Cod QR pentru %{resource_title}
     reported_mailer:
       hide:
         hello: Bună ziua %{name},
@@ -1306,6 +1310,10 @@ ro:
       selfxss_warning:
         description: Această caracteristică de browser este destinată dezvoltatorilor și nu ar trebui să inserați nimic aici dacă vi s-a cerut să faceți acest lucru. Lipirea conținutului în această fereastră poate compromite intimitatea ta și permite hackerilor să îți acceseze contul.
         title: Opriți!
+    share_widget:
+      download: Download
+      print: Tipăriți afișul
+      qr_code: Cod QR
     shared:
       confirm_modal:
         cancel: Anulează
@@ -1354,6 +1362,7 @@ ro:
         copy_share_link: Copiază
         copy_share_link_clarification: Copiază link-ul de partajare în clipboard
         copy_share_link_copied: Copiat!
+        copy_share_link_cta: Sau copiați link-ul
         copy_share_link_message: Link-ul a fost copiat cu succes în clipboard.
         share: Distribuie
         share_link: Distribuie link-ul
