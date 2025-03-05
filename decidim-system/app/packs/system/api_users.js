@@ -1,11 +1,11 @@
 $(() => {
   const copyToClipboard = document.getElementById("api-user-token")
-  if(!copyToClipboard) {
+  if (!copyToClipboard) {
     return
   }
 
   const tokenInput = document.getElementById("token");
-  if(!tokenInput) {
+  if (!tokenInput) {
     return
   }
   const copyToken = () => {
@@ -21,7 +21,7 @@ $(() => {
     parentElement.removeChild(copyToClipboard);
     parentElement.removeChild(tokenInput);
   }
-  copyToClipboard.addEventListener("click",(ev) => {
+  copyToClipboard.addEventListener("click", (ev) => {
     ev.preventDefault();
     copyToken();
     replaceText();

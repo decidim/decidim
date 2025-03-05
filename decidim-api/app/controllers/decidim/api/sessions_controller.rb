@@ -29,7 +29,7 @@ module Decidim
           jwt_token = request.env[::Warden::JWTAuth::Hooks::PREPARED_TOKEN_ENV_KEY]
           status = jwt_token ? 200 : 403
 
-          # Some systems (that's you Microsoft Power Automate (Flow)) may be
+          # Some systems (that is you Microsoft Power Automate (Flow)) may be
           # parsing off the headers which makes it difficult for the API users
           # to get the bearer token. This allows them to get it from the request
           # body instead.
