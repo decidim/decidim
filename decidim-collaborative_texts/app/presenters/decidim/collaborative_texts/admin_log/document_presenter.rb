@@ -10,7 +10,7 @@ module Decidim
 
         def action_string
           case action
-          when "create", "delete", "update", "soft_delete", "restore"
+          when "create", "delete", "update", "soft_delete", "restore", "publish", "unpublish"
             "decidim.collaborative_texts.admin_log.document.#{action}"
           else
             super
@@ -40,17 +40,16 @@ module Decidim
 
         def full_changeset
           action_log.version.changeset.tap do |changeset|
-            if action == "create"
-              changeset[:body] = [
-                nil,
-                action_log.resource.document_versions&.first&.body
-              ]
+            case action
+            when "create"
+              # rubocop:disable Style/SafeNavigationChainLength
+              changeset[:body] = [nil, action_log&.resource&.document_versions&.first&.body]
+              # rubocop:enable Style/SafeNavigationChainLength
               changeset[:version_number] = [nil, "1"]
+            when "publish", "unpublish"
+              changeset[:version_number] = [nil, action_log.extra.dig("extra", "version_number")]
             else
-              changeset[:version_number] = [
-                nil,
-                action_log.extra.dig("extra", "version_number")
-              ]
+              changeset[:version_number] ||= [nil, action_log.extra.dig("extra", "version_number")]
             end
           end
         end
