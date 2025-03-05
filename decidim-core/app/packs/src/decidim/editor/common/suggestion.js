@@ -82,7 +82,7 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
     suggestion.classList.remove("hidden", "hide");
     suggestion.innerHTML = "";
     items.forEach((rawItem, idx) => {
-      const { label, id } = convertItem(rawItem);
+      const { label, id, help } = convertItem(rawItem);
       const suggestionItem = document.createElement("button");
       suggestionItem.type = "button";
       suggestionItem.classList.add("editor-suggestions-item");
@@ -94,6 +94,9 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
       if (idx === 0) {
         selectedIndex = idx;
         suggestionItem.dataset.selected = "true";
+      }
+      if (help) {
+        suggestionItem.disabled = true;
       }
       suggestionItem.textContent = label;
       suggestion.append(suggestionItem);

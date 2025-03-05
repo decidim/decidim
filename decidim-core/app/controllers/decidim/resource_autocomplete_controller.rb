@@ -5,12 +5,11 @@ module Decidim
     def index
       respond_to do |format|
         format.json do
-          render json: search_results.map { |result|
-            {
-              gid: result.resource_global_id,
-              title: result.content_a
-            }
-          }
+          if term.blank?
+            render json: [{ title: "Type to search proposals", help: true }]
+          else
+            render json: serialized_results
+          end
         end
       end
     end
@@ -19,6 +18,15 @@ module Decidim
 
     def allowed_resource_types
       %w(Decidim::Proposals::Proposal)
+    end
+
+    def serialized_results
+      search_results.map do |result|
+        {
+          gid: result.resource_global_id,
+          title: result.content_a
+        }
+      end
     end
 
     def search_results

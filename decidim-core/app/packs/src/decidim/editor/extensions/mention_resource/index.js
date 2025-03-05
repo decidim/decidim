@@ -46,10 +46,6 @@ export default Mention.extend({
         pluginKey: MentionResourcePluginKey,
         allowSpaces: true,
         items: async ({ query }) => {
-          if (query.length < 1) {
-            return [];
-          }
-
           const data = await searchResources(query);
 
           return data;
@@ -58,7 +54,8 @@ export default Mention.extend({
           itemConverter: (resource) => {
             return {
               id: resource.gid,
-              label: resource.title
+              label: resource.title,
+              help: resource.help
             }
           }
         })
