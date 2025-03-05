@@ -42,5 +42,11 @@ module Decidim
       @orphan_types ||= []
       @orphan_types += [type]
     end
+
+    # Public Setting that can make the API authentication necessary in order to
+    # access it.
+    config_accessor :force_api_authentication do
+      false
+    end
   end
 end

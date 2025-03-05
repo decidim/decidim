@@ -34,6 +34,17 @@ module Decidim
         parsed_response = JSON.parse(response.body)["data"]
         expect(parsed_response["__schema"]["queryType"]["name"]).to eq("Query")
       end
+
+      context "with force sign in enabled" do
+        before do
+          allow(::Decidim::Api).to receive(:force_api_authentication).and_return(true)
+        end
+
+        it "returns 403 when credentials are invalid" do
+          post :create, params: { query: "{ __schema { queryType { name } } }" }
+          expect(response).to have_http_status(:forbidden)
+        end
+      end
     end
   end
 end
