@@ -67,7 +67,7 @@ As of [#14180](https://github.com/decidim/decidim/pull/14180) we are migrating t
 to
 
 ```ruby
-  static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here"
+  static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here" && static_url.blank?
 ```
 
 You can read more about this change on PR [#14180](https://github.com/decidim/decidim/pull/14180).
