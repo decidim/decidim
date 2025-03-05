@@ -87,7 +87,15 @@
     }
 
     .sidebar-menu__item-disabled {
-      @apply text-gray-3;
+      @apply text-neutral-400 border-none;
+
+      & .component-counter {
+        @apply hidden;
+      }
+
+      svg {
+        @apply fill-neutral-400;
+      }
     }
 
     .is-active a {
