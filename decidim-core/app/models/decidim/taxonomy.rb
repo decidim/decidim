@@ -99,6 +99,10 @@ module Decidim
       Taxonomy.reset_counters(id, :children_count, :taxonomizations_count, :taxonomy_filters_count, :taxonomy_filter_items_count)
     end
 
+    def presenter
+      Decidim::TaxonomyPresenter.new(self)
+    end
+
     private
 
     def set_default_weight

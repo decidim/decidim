@@ -1,0 +1,6 @@
+---
+fi:
+  decidim:
+    components:
+      collaborative_texts:
+        name: Yhteistyötekstit

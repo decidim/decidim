@@ -380,8 +380,7 @@ eu:
           promoted: Sustatu hau %{amendable_type}.
           rejected: "%{amendable_type} %{amendable_link} en zuzenketa\nukatu da <strong>%{announcement_date}</strong>."
           withdrawn: |-
-            %{amendable_type} %{amendable_link}
-            ren aldaketa hori egilearen arabera kendu da.
+            %{amendable_type} %{proposal_link} ren aldaketa hori egilearen arabera kendu da.
       name: Zuzenketa
       new:
         amendment_author: Zuzenketaren egilea
@@ -924,9 +923,9 @@ eu:
             email_subject: 'Hemendik: %{emendation_author_nickname} zuzenketa bat argitaratu da %{amendable_type} berri gisa'
       attachments:
         attachment_created:
-          email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}-ri. Orrialde hau ikusi dezakezu:'
+          email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}-ri. Orrialde honetan ikusi dezakezu:'
           email_outro: Jakinarazpen hau jaso duzu %{resource_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari utzi ahal diozu.
-          email_subject: '%{resource_title} eguneratzea'
+          email_subject: '%{resource_title} eguneratu da'
           notification_title: '<a href="%{resource_path}"> dokumentu berri bat</a> gehitu zaio honi: <a href="%{attached_to_url}">%{resource_title}</a>'
       components:
         component_published:
@@ -938,15 +937,15 @@ eu:
         email_greeting: Kaixo, %{user_name},
         email_intro: '"%{resource_title}"eguneratu da. Orri honetan ikus dezakezu:'
         email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
-        email_subject: '%{resource_title} eguneratzea'
+        email_subject: '%{resource_title} eguneratu da'
       gamification:
         badge_earned:
           email_intro: Zorionak! Irabazi duzu <a href="%{resource_path}">%{badge_name} garaikurra </a> ( %{current_level} maila).
           email_outro: Jakinarazpena jaso duzu gure webgunean egin duzun jarduera delako.
           email_subject: 'Beste garaikur bat irabazi duzu: %{badge_name}!'
-          notification_title: Zorionak! Irabazi duzu <a href="%{resource_path}">%{badge_name} garaikurra </a> ( %{current_level} maila).
+          notification_title: Zorionak! <a href="%{resource_path}">%{badge_name} garaikurra irabazi duzu </a> ( %{current_level} maila).
         level_up:
-          email_intro: Zorionak! Irabazi duzu <a href="%{resource_path}">%{badge_name} garaikurra </a> ( %{current_level} maila)!
+          email_intro: Zorionak! %{current_level} mailara heldu zara <a href="%{resource_url}">%{badge_name} garaikurrean </a>!
           email_outro: Jakinarazpena jaso duzu gure webgunean egin duzun jarduera delako.
           email_subject: '%{current_level} maila lortu duzu %{badge_name} garaikurrean!'
           notification_title: Zorionak! <a href="%{resource_path}">%{badge_name}</a> garaikurraren %{current_level} maila lortu duzu!
@@ -1648,7 +1647,7 @@ eu:
           register: Erregistroa
           register_title: Sortu kontu bat
       index:
-        standalone_pages: orrialdeak
+        standalone_pages: Orrialdeak
         subheading: Laguntza orrietan nabigatzeko %{name}
         title: Laguntza
         topics: Gaiak
@@ -1747,6 +1746,8 @@ eu:
       create:
         error: Arazo bat izan da txostena sortzean. Mesedez, saiatu berriro.
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
+      parent_hidden:
+        report_details: Baliabide nagusia ezkutatu egin zen
     resource:
       controls_label: Baliabideen kontrolak
     resource_endorsements:
