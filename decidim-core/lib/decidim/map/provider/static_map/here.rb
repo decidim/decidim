@@ -29,12 +29,12 @@ module Decidim
           def url_params(latitude:, longitude:, options: {})
             ActiveSupport::Deprecation.warn(
               <<~DEPRECATION.strip
-                Please use a V3 version  HERE maps.
+                Please use a V3 version HERE maps.
                 For further information, see:
                 https://www.here.com/docs/bundle/map-image-migration-guide-v3/page/README.html
                 Also make sure your Decidim.maps configurations are using the
                 up to date format.
-                You may want to change:
+                You need to change:
                   static_url = "https://image.maps.ls.hereapi.com/mia/1.6/mapview" if static_provider == "here" && static_url.blank?
                 to:
                   static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here"
