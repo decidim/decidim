@@ -133,16 +133,6 @@ For production environments, you can configure these tasks with `crontab -e`. Fo
 
 Additional cron jobs may be available depending on the modules you've installed.
 
-==== AI module
-
-If you have installed the `decidim-ai` module, you may want to add to your crontab the following
-
-[source,console]
-----
-# Train model using application database
-0 2 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:ai:spam:train_application_database
-----
-
 ==== Initiatives module
 
 If you have installed the `decidim-initiatives` module, you may want to add to your crontab the following
@@ -155,7 +145,7 @@ If you have installed the `decidim-initiatives` module, you may want to add to y
 # Checks validating initiatives and moves all without changes for a configured time to discarded state
 0 7 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_initiatives:check_validating
 
-#Notifies progress on published initiatives
+# Notifies progress on published initiatives
 0 8 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_initiatives:notify_progress
 ----
 
