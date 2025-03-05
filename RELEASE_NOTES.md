@@ -95,7 +95,41 @@ To migrate old signature configurations review the One time actions section
 
 For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`
 
-### 2.3. [[TITLE OF THE ACTION]]
+### 2.3. User Groups removal
+
+As part of our efforts to simplify the experience for organizations, the "User Groups" feature has been deprecated. All previously existing User Groups has been converted into regular participants able to sign in providing the email and a password. The users with access to the email associated with the User Group will be able to set a password.
+
+There are two tasks to generate notifications to the users affected by this changes:
+
+* An email will be sent to the email address associated with the User Group, informing them of the deprecation of User Groups and instructing them to define a password for the newly converted profile. For this run:
+
+```bash
+bin/rails decidim:upgrade:user_groups:send_reset_password_instructions
+```
+
+* To notify group members and admins associated with the User Group with an email explaining the changes and how to access the shared profile run:
+
+```bash
+bin/rails decidim:upgrade:user_groups:send_user_group_changes_notification_to_members
+```
+
+There are also two additional tasks:
+
+* To migrate the authorships and coauthorships of the old groups and assign to the new regular users:
+
+```bash
+bin/rails decidim:upgrade:user_groups:transfer_user_groups_authorships
+```
+
+* To avoid exceptions accessing to the activities log in the admin panel displaying activities associated with user groups:
+
+```bash
+bin/rails decidim:upgrade:user_groups:fix_user_groups_action_logs
+```
+
+You can read more about this change on PR [#14130](https://github.com/decidim/decidim/pull/14130).
+
+### 2.4. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
 
