@@ -34,7 +34,8 @@ module Decidim
         .where(
           resource_type: allowed_resource_types,
           organization: current_organization,
-          decidim_participatory_space: current_participatory_space
+          decidim_participatory_space: current_participatory_space,
+          locale: I18n.locale
         )
         .autocomplete_search(term)
         .limit(10)
