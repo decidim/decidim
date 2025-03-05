@@ -69,11 +69,15 @@ eu:
             body: Gorputza
             official_blog_post: Argitalpen ofiziala
             published_at: Argitaratze-data
+            taxonomies: Taxonomiak
             title: Izenburua
       posts:
         edit:
+          add_attachments: Gehitu eranskinak
+          attachment_legend: Gehitu dokumentu bat edo irudi bat
           back: Itzuli sarrerara
           button: Eguneratu
+          edit_attachments: Editatu eranskinak
           title: Editatu sarrera
         form:
           author_id: Egilea
@@ -105,9 +109,14 @@ eu:
         settings:
           global:
             announcement: Iragarpena
+            attachments_allowed: Baimendu eranskinak
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
             creation_enabled_for_participants: Parte-hartzaileek sarrerak sor ditzakete
+            define_taxonomy_filters: Mesedez, zehaztu iragazki batzuk espazio parte-hartzaile honetarako eszenatoki hau erabili aurretik.
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
+            taxonomy_filters: Aukeratu iragazkiak osagairako
+            taxonomy_filters_add: Erantsi iragazkia
           step:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
