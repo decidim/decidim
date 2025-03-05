@@ -22,7 +22,6 @@ module Decidim
       searchable_fields(
         participatory_space: { component: :participatory_space },
         A: :title,
-        D: :consolidated_body,
         datetime: :published_at
       )
     end
