@@ -1,0 +1,26 @@
+<%= decidim_modal id: "QRCodeDialog", class: "qr-modal" do %>
+  <div data-dialog-container>
+    <div data-dialog-title>
+      <%= icon "qr-code-line" %>
+      <h2 tabindex="-1"><%= t("decidim.share_widget.qr_code") %></h2>
+    </div>
+    <div class="content">
+      <div>
+        <% if current_organization.logo.attached? %>
+          <%= image_tag current_organization.attached_uploader(:logo).variant_url(:medium), alt: t("logo", scope: "decidim.accessibility", organization: current_organization_name) %>
+        <% end %>
+        <h2><%= title %></h2>
+      </div>
+      <div>
+        <img alt="<%= t("decidim.share_widget.qr_code") %>" src="data:;base64,<%= qr_code_image %>">
+      </div>
+    </div>
+
+  </div>
+  <div data-dialog-actions>
+    <%= link_to t("decidim.share_widget.print"), decidim.qr_path(resource: model.to_sgid.to_s),
+                class: "button button__sm lg:button__lg button__transparent-secondary" %>
+    <%= link_to t("decidim.share_widget.download"), decidim.qr_path(resource: model.to_sgid.to_s, format: :png),
+                class: "button button__sm lg:button__lg button__secondary" %>
+  </div>
+<% end %>
