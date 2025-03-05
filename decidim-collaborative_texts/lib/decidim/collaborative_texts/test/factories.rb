@@ -19,7 +19,7 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    title { Faker::Lorem.paragraph }
+    title { generate_title(:collaborative_text_document_title, skip_injection:) }
     body { Faker::HTML.paragraph }
 
     component { create(:collaborative_texts_component, skip_injection:) }
