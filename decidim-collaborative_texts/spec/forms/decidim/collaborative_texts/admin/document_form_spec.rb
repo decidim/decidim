@@ -18,9 +18,7 @@ module Decidim
         end
         let(:participatory_process) { create(:participatory_process, organization:) }
         let(:current_component) { create(:component, participatory_space: participatory_process) }
-        let(:title) do
-          Decidim::Faker::Localized.sentence(word_count: 3)
-        end
+        let(:title) { Faker::Lorem.sentence(word_count: 3) }
         let(:attributes) do
           {
             title:
