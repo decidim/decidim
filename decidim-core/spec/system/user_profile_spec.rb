@@ -48,6 +48,19 @@ describe "Profile" do
       expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
     end
 
+    it "displays the correct links for profile activity" do
+      within "#filters" do
+        expect(page).to have_link("All activity types", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "all" }))
+        expect(page).to have_link("Collaborative draft", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Proposals::CollaborativeDraft" }))
+        expect(page).to have_link("Proposal", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Proposals::Proposal" }))
+        expect(page).to have_link("Comment", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Comments::Comment" }))
+        expect(page).to have_link("Debate", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Debates::Debate" }))
+        expect(page).to have_link("Initiative", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Initiative" }))
+        expect(page).to have_link("Meeting", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Meetings::Meeting" }))
+        expect(page).to have_link("Post", href: decidim.profile_activity_path(nickname: user.nickname, filter: { resource_type: "Decidim::Blogs::Post" }))
+      end
+    end
+
     it "shows user name in the header, its nickname and a contact link" do
       expect(page).to have_css("h1", text: user.name)
       expect(page).to have_content(user.nickname)
