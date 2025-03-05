@@ -1482,11 +1482,13 @@ eu:
       flag_user_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         block: Blokeatu parte-hartzaile hau
+        description: Parte-hartzailearen zer da desegokia?
         does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
         hide: Ezkutatu bere eduki guztiak
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
         report: Jakinarazi
         spam: Bertan badago clickbait-ik, publizitaterik edo gidoi-robotik.
+        title: Salatu erabiltzaile desegokia
       floating_help:
         help: Laguntza
       follow_button:
