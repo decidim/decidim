@@ -38,53 +38,6 @@ bin/rails db:migrate
 
 ## 2. General notes
 
-### 2.1. Initiatives digital signature process change
-
-The application changes the configuration of initiatives signature in initiatives types to allow developers to define the process in a flexible way. This is achieved by introducing signature workflows [#13729](https://github.com/decidim/decidim/pull/13729).
-
-To define a signature workflow create an initializer in your application and register it:
-
-For example, in `config/initializers/decidim_initiatives.rb`:
-
-```ruby
-Decidim::Initiatives::Signatures.register_workflow(:dummy_signature_handler) do |workflow|
-  workflow.form = "DummySignatureHandler"
-  workflow.authorization_handler_form = "DummyAuthorizationHandler"
-  workflow.action_authorizer = "DummySignatureHandler::DummySignatureActionAuthorizer"
-  workflow.promote_authorization_validation_errors = true
-  workflow.sms_verification = true
-  workflow.sms_mobile_phone_validator = "DummySmsMobilePhoneValidator"
-end
-
-Decidim::Initiatives::Signatures.register_workflow(:dummy_signature_with_sms_handler) do |workflow|
-  workflow.form = "Decidim::Initiatives::SignatureHandler"
-  workflow.sms_verification = true
-end
-
-Decidim::Initiatives::Signatures.register_workflow(:dummy_signature_with_personal_data_handler) do |workflow|
-  workflow.form = "DummySignatureHandler"
-  workflow.authorization_handler_form = "DummyAuthorizationHandler"
-  workflow.action_authorizer = "DummySignatureHandler::DummySignatureActionAuthorizer"
-  workflow.promote_authorization_validation_errors = true
-  workflow.save_authorizations = false
-end
-
-Decidim::Initiatives::Signatures.register_workflow(:legacy_signature_handler) do |workflow|
-  workflow.form = "Decidim::Initiatives::LegacySignatureHandler"
-  workflow.authorization_handler_form = "DummyAuthorizationHandler"
-  workflow.save_authorizations = false
-  workflow.sms_verification = true
-end
-```
-
-All the attributes of a workflow are optional except the registered name with which the workflow is registered. A flow without attributes uses default values that generate a direct signature process without steps.
-
-Signature workflows can be defined as ephemeral, in which case users can sign initiatives without prior registration. For a workflow of this type to work correctly, an authorization handler form must be defined in `authorization_handler_form` and authorizations saving must not be disabled using the `save_authorizations` setting, in order to ensure that user verifications are saved based on the personal data they provide.
-
-To migrate old signature configurations review the One time actions section
-
-For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`
-=======
 ### 2.1. Hiding comments of moderated resources
 
 We have noticed that when a resource (ex: Proposal, Meeting) is being moderated, the associated comments are left visible in the search. We have added a task that would allow you to automatically remove from search any comment belonging to moderated content:
