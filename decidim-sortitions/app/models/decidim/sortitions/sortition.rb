@@ -37,6 +37,10 @@ module Decidim
         Decidim::Sortitions::AdminLog::SortitionPresenter
       end
 
+      def presenter
+        Decidim::Sortitions::SortitionPresenter.new(self)
+      end
+
       def proposals
         Decidim::Proposals::Proposal.where(id: selected_proposals)
       end

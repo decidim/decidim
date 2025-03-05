@@ -49,6 +49,12 @@ module Decidim
         end
       end
 
+      # Returns the presenter for this BlogPost, to be used in the views.
+      # Required by ResourceRenderer.
+      def presenter
+        Decidim::Blogs::PostPresenter.new(self)
+      end
+
       def visible?
         participatory_space.try(:visible?) && component.try(:published?) && published?
       end
