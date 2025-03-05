@@ -18,8 +18,10 @@ module Decidim
         end
         let(:participatory_process) { create(:participatory_process, organization:) }
         let(:current_component) { create(:component, participatory_space: participatory_process) }
-        let(:title) { Faker::Lorem.sentence(word_count: 3) }
+        let(:title) { ::Faker::Lorem.sentence(word_count: 3) }
         let(:body) { ::Faker::HTML.paragraph }
+        let(:accepting_suggestions) { false }
+        let(:announcement) { ::Faker::HTML.paragraph }
         let(:attributes) do
           {
             title:,
