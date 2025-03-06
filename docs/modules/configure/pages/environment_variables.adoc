@@ -285,7 +285,7 @@ Also some more refined configurations:
 |If you are using a `osm` as a provider, you need to define this variable. Keep in mind that OpenStreetMap cannot be used directly due its non-commercial license in many cases. See xref:services:maps.adoc[Maps].
 
 *You need to define this variable if using `osm` as a provider, usually the URL goes in the form of `http://staticmap.openstreetmap.de/`*
-|https://image.maps.ls.hereapi.com/mia/1.6/mapview (only if using Here Maps)
+|https://image.maps.hereapi.com/mia/v3/base/mc/overlay (only if using Here Maps)
 |No
 
 |MAPS_ATTRIBUTION
