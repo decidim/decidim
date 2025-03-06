@@ -1,0 +1,9 @@
+<div class="comment__as">
+  <div class="comment__as-author-info">
+    <div class="author__avatar-container border border-white">
+      <%= image_tag author_presenter.avatar_url(:thumb), alt: t("decidim.author.avatar", name: author_presenter.name), class: "author__avatar" %>
+    </div>
+
+    <p class="comment__as-author-name"><%= author_presenter.name %></p>
+  </div>
+</div>

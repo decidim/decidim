@@ -14,8 +14,13 @@ module Decidim::Comments
     let(:component) { create(:component, participatory_space: participatory_process) }
     let(:commentable) { create(:dummy_resource, component:) }
     let(:comment) { create(:comment, commentable:) }
+    let(:current_user) { create(:user, :confirmed, organization: component.organization) }
 
     context "when rendering" do
+      before do
+        allow(controller).to receive(:current_user).and_return(current_user)
+      end
+
       context "when component comments_max_length is malformed" do
         let(:component) { create(:component, participatory_space: participatory_process, settings: { comments_max_length: "" }) }
 
@@ -35,6 +40,11 @@ module Decidim::Comments
         expect(subject).to have_css("input.alignment-input[name='comment[alignment]'][value='0']", visible: :hidden)
         expect(subject).to have_field(name: "comment[commentable_gid]", type: :hidden)
         expect(subject).to have_button(text: "Publish comment", disabled: true)
+      end
+
+      it "renders the current_user avatar" do
+        expect(subject).to have_css(".comment__as-author-info", text: current_user.name)
+        expect(subject).to have_css(".comment__as-author-info .author__avatar")
       end
 
       context "when the organization has a comments_max_length setting" do
