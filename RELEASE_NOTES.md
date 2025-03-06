@@ -137,7 +137,23 @@ You can read more about this change on PR [#xxxx](https://github.com/decidim/dec
 
 These are one time actions that need to be done after the code is updated in the production database.
 
-### 3.1. Migrate signature configuration of initiatives types
+### 3.1. Changes in Static maps configuration when using HERE.com
+
+As of [#14180](https://github.com/decidim/decidim/pull/14180) we are migrating to here.com api V3, as V1 does not work anymore. In case your application uses Here.com as static map tile provider, you will need to change your `config/initializers/decidim.rb` to use the new url `https://image.maps.hereapi.com/mia/v3/base/mc/overlay`:
+
+```ruby
+  static_url = "https://image.maps.ls.hereapi.com/mia/1.6/mapview" if static_provider == "here" && static_url.blank?
+```
+
+to
+
+```ruby
+  static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here" && static_url.blank?
+```
+
+You can read more about this change on PR [#14180](https://github.com/decidim/decidim/pull/14180).
+
+### 3.2. Migrate signature configuration of initiatives types
 
 If there is any type of initiative with online signature enabled, you will have to reproduce the configuration by defining signature workflows. For direct signing is not necessary to define one or define an empty workflow.
 
@@ -168,7 +184,7 @@ Register a workflow for each different signature configuration and select them i
 
 You can read more about this change on PR [#13729](https://github.com/decidim/decidim/pull/13729).
 
-### 3.2. [[TITLE OF THE ACTION]]
+### 3.3. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
