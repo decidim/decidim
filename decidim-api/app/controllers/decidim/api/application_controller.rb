@@ -24,7 +24,8 @@ module Decidim
       def permission_scope
         :public
       end
-    private
+
+      private
 
       def ensure_api_authenticated!
         return unless Decidim::Api.force_api_authentication
