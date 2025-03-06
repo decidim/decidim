@@ -4,6 +4,12 @@ module Decidim
   module Comments
     # A cell to display a form for adding a new comment.
     class CommentFormCell < Decidim::ViewModel
+      def comment_as
+        return if current_user.blank?
+
+        render
+      end
+
       def two_columns_layout?
         model.respond_to?(:two_columns_layout?) && model.two_columns_layout?
       end
@@ -57,6 +63,10 @@ module Decidim
           commentable_gid: model.to_signed_global_id.to_s,
           alignment: 0
         )
+      end
+
+      def author_presenter
+        UserPresenter.new(current_user)
       end
 
       def comments_max_length
