@@ -47,21 +47,26 @@ module Decidim
       end
 
       def render_resource_link(resource)
-        title = presenter_for(resource).title
-        author = user_author(resource)
-
-        if author
-          link_to "<span class='editor-mention'>
-            <img src='#{author.presenter.avatar_url(:thumb)}' class='not-prose' />
-            <span>#{title}</span>
-          </span>".html_safe, resource_path(resource)
-        else
-          title
-        end
+        link_to mention_title(resource), resource_path(resource)
       end
 
-      def user_author(resource)
-        resource.authors.find { |a| a.is_a?(Decidim::User) }
+      def mention_title(resource)
+        title = presenter_for(resource).title
+
+        "<span class='editor-mention'>
+          #{mention_avatar(resource)}
+          <span>#{title}</span>
+        </span>".html_safe
+      end
+
+      def mention_avatar(resource)
+        author = resource.authors.first
+
+        if author.is_a?(Decidim::User)
+          "<img src='#{author.presenter.avatar_url(:thumb)}' class='not-prose' />"
+        elsif author.is_a?(Decidim::Organization)
+          author.presenter.official_icon
+        end
       end
 
       def resource_path(resource)
