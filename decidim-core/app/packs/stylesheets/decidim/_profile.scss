@@ -45,7 +45,7 @@
 
   &__actions {
     &-main {
-      @apply w-fit mx-auto gap-x-4 gap-y-6 md:gap-4;
+      @apply grid w-fit mx-auto gap-x-4 gap-y-6 md:gap-4;
 
       &__dropdown {
         @apply divide-y divide-gray-3 z-20 w-64;
