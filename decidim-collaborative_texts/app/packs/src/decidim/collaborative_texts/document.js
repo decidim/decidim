@@ -42,6 +42,7 @@ class Document {
     return this;
   }
 
+  // TODO: add a html (modal) integrated alert
   alert(message) {
     window.alert(message);
   }
@@ -75,7 +76,9 @@ class Document {
   _showOptions() {
     this.selection = this.selection || new Selection(this);
     if (this.selection.blocked) {
-      this.alert(this.i18n.selectionActive)
+      if(this.selection.outsideBlock()) {
+        this.alert(this.i18n.selectionActive)
+      }
       return;
     }
     if (this.applying) {

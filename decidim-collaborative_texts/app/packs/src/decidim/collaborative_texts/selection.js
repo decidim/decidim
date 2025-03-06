@@ -30,6 +30,17 @@ class Selection {
     return this;
   }
 
+  outsideBlock() {
+    const node = this.selection.focusNode;
+    if(node) {
+      console.log("Node: ", node);
+      if(node.parentNode.closest(".collaborative-texts-selection") || node.parentNode.closest(".collaborative-texts-editor-container")) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   wrap() {
     this.blocked = true;
     this.wrapper = window.document.createElement("div");
