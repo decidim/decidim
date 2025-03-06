@@ -110,7 +110,7 @@ module Decidim
             end
           end
 
-          context "when cost is required" do
+          context "when cost is not required" do
             before do
               component.update!(
                 step_settings: {
@@ -121,14 +121,12 @@ module Decidim
               )
             end
 
-            let(:proposal_state) { Decidim::Proposals::ProposalState.find_by(token: :accepted) }
-
-            it "redirects with an alert" do
-              expect { post :update_multiple_answers, params: }.not_to have_enqueued_job(ProposalAnswerJob)
+            it "redirects without an alert" do
+              expect { post :update_multiple_answers, params: }.to have_enqueued_job(ProposalAnswerJob).exactly(2).times
 
               expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
-              expect(flash[:alert]).to include("could not be answered due errors applying the template \"#{template.name["en"]}\".")
-              expect(flash[:notice]).to be_nil
+              expect(flash[:notice]).to be_present
+              expect(flash[:alert]).to be_nil
             end
           end
 
