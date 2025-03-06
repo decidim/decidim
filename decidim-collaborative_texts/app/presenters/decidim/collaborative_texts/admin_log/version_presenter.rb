@@ -20,7 +20,9 @@ module Decidim
         end
 
         def resource_name
-          Decidim::Log::ResourcePresenter.new(action_log.resource.document, h, "title" => action_log.resource.document.title).present
+          # rubocop:disable Style/SafeNavigationChainLength
+          Decidim::Log::ResourcePresenter.new(action_log&.resource&.document, h, "title" => action_log&.resource&.document&.title).present
+          # rubocop:enable Style/SafeNavigationChainLength
         end
 
         def i18n_labels_scope
