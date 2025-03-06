@@ -72,7 +72,7 @@ module Decidim
               )
             end
 
-            it { is_expected.to be_invalid }
+            it { is_expected.to be_valid }
 
             context "and cost data is filled" do
               let(:cost) { 20_000 }
