@@ -223,6 +223,22 @@ The CSS of each omniauth button can be found within `decidim-core/app/packs/styl
 
 You can read more about this change on PR [#13481](https://github.com/decidim/decidim/pull/13481).
 
+### 3.6. Changes in Static maps configuration when using HERE.com
+
+As of [#14180](https://github.com/decidim/decidim/pull/14180) we are migrating to here.com api V3, as V1 does not work anymore. In case your application uses Here.com as static map tile provider, you will need to change your `config/initializers/decidim.rb` to use the new url `https://image.maps.hereapi.com/mia/v3/base/mc/overlay`:
+
+```ruby
+  static_url = "https://image.maps.ls.hereapi.com/mia/1.6/mapview" if static_provider == "here" && static_url.blank?
+```
+
+to
+
+```ruby
+  static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here" && static_url.blank?
+```
+
+You can read more about this change on PR [#14180](https://github.com/decidim/decidim/pull/14180).
+
 ### 3.6. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
