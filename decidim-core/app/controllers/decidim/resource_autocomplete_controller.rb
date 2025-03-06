@@ -6,7 +6,7 @@ module Decidim
       respond_to do |format|
         format.json do
           if term.blank?
-            render json: [{ title: "Type to search proposals", help: true }]
+            render json: [{ title: t("decidim.resource_autocomplete.help"), help: true }]
           else
             render json: serialized_results
           end

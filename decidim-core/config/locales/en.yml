@@ -1552,6 +1552,8 @@ en:
         report_details: The parent resource was hidden
     resource:
       controls_label: Resource controls
+    resource_autocomplete:
+      help: Type to search proposals
     resource_endorsements:
       create:
         error: There was a problem during the endorsement action.
