@@ -11,7 +11,8 @@
   .editor-mention {
     @apply flex items-center;
 
-    img {
+    img,
+    svg {
       @apply w-5 h-5 rounded-full;
     }
 
