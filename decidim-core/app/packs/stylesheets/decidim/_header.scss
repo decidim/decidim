@@ -408,20 +408,20 @@ header {
 
           > * {
             @apply py-3 md:py-3.5 border-b last:border-0 border-gray-3;
-  
+
             /* since the grid has 2 columns, remove the border for these last 2 columns */
             &:nth-last-child(-n + 2) {
               @apply md:border-0;
             }
           }
-  
+
           a {
             @apply flex items-center justify-start gap-1 font-semibold text-lg text-secondary;
-  
+
             span {
               @apply min-w-0 truncate;
             }
-  
+
             svg {
               @apply flex-none fill-current;
             }
