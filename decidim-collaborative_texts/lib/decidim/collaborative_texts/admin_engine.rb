@@ -9,7 +9,22 @@ module Decidim
       paths["db/migrate"] = nil
       paths["lib/tasks"] = nil
 
-      # routes ...
+      routes do
+        resources :documents, except: [:destroy], controller: "documents" do
+          member do
+            patch :soft_delete
+            patch :restore
+            put :publish
+            put :unpublish
+            get :edit_settings
+            patch :update_settings
+          end
+
+          get :manage_trash, on: :collection
+        end
+
+        root to: "documents#index"
+      end
 
       def load_seed
         nil
