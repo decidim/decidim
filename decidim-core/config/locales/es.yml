@@ -1708,6 +1708,10 @@ es:
           resend_email_confirmation_instructions: Reenvía un correo electrónico con las instrucciones de confirmación
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
         fill_in_email_to_confirm_it: Por favor, introduce el correo electrónico de tu grupo para confirmarlo.
+    qr:
+      show:
+        scan: Escanea el código QR
+        title: Código QR para %{resource_title}
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -1765,6 +1769,10 @@ es:
       selfxss_warning:
         description: Esta función de navegador está pensada para desarrolladores y no deberías pegar nada aquí si se te ha pedido que lo hagas. Pegar contenido en esta ventana puede comprometer tu privacidad y dar acceso a hackers a tu cuenta.
         title: Detener!
+    share_widget:
+      download: Descargar
+      print: Imprimir el cartel
+      qr_code: Código QR
     shared:
       confirm_modal:
         cancel: Cancelar
@@ -1826,6 +1834,7 @@ es:
         copy_share_link: Copia
         copy_share_link_clarification: Copiar al portapapeles el enlace para compartir
         copy_share_link_copied: '¡Copiado!'
+        copy_share_link_cta: O copiar el enlace
         copy_share_link_message: Se ha copiado el enlace al portapapeles correctamente.
         share: Compartir
         share_link: Compartir enlace
