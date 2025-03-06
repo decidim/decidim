@@ -1708,6 +1708,10 @@ ca:
           resend_email_confirmation_instructions: Reenvia un correu electrònic amb les instruccions de confirmació
         confirmation_instructions_sent: Instruccions de confirmació enviades per correu electrònic.
         fill_in_email_to_confirm_it: Si us plau, omple el correu electrònic del teu grup per confirmar-lo.
+    qr:
+      show:
+        scan: Escaneja el codi QR
+        title: Codi QR per %{resource_title}
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -1765,6 +1769,10 @@ ca:
       selfxss_warning:
         description: Aquesta funció de navegador està pensada per a desenvolupadors i no hauries d'enganxar res aquí si se t'ha demanat que ho facis. Enganxar contingut en aquesta finestra pot comprometre la teva privacitat i donar accés a hackers al teu compte.
         title: Aturar!
+    share_widget:
+      download: Descarregar
+      print: Imprimir el cartell
+      qr_code: Codi QR
     shared:
       confirm_modal:
         cancel: Cancel·lar
@@ -1826,6 +1834,7 @@ ca:
         copy_share_link: Còpia
         copy_share_link_clarification: Copia l'enllaç al porta-retalls
         copy_share_link_copied: Copiat!
+        copy_share_link_cta: O copiar l'enllaç
         copy_share_link_message: S'ha copiat l'enllaç al porta-retalls.
         share: Compartir
         share_link: Compartir l'enllaç
