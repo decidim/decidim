@@ -533,7 +533,7 @@ shared_examples_for "an application with configurable env vars" do
         "provider" => "here",
         "api_key" => "a-maps-api-key",
         "static" => {
-          "url" => "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
+          "url" => "https://image.maps.hereapi.com/mia/v3/base/mc/overlay"
         },
         "dynamic" => {
           "provider" => "here",
@@ -574,7 +574,7 @@ shared_examples_for "an application with configurable env vars" do
         "provider" => "here",
         "api_key" => "a-maps-api-key",
         "static" => {
-          "url" => "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
+          "url" => "https://image.maps.hereapi.com/mia/v3/base/mc/overlay"
         },
         "dynamic" => {
           "provider" => "osm",
