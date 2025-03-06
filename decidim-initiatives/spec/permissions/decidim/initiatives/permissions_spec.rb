@@ -101,7 +101,9 @@ describe Decidim::Initiatives::Permissions do
       let(:action) do
         { scope: :admin, action: :enter, subject: :space_area }
       end
-      let(:context) { { space_name: :initiatives, current_participatory_space: create(:participatory_process, organization:) } }
+      let(:context) do
+        { space_name: :initiatives, current_participatory_space: create(:participatory_process, organization:) }
+      end
 
       it { is_expected.to be true }
     end
