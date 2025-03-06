@@ -22,14 +22,14 @@ module Decidim
 
       def documents
         @documents ||= if current_user&.admin?
-                         Document.where(component: current_component)
+                         Document.where(component: current_component).published
                        else
-                         Document.published.where(component: current_component)
+                         Document.published.where(component: current_component).published
                        end
       end
 
       def paginate_documents
-        @paginate_documents ||= paginate(documents.published.enabled_desc)
+        @paginate_documents ||= paginate(documents.enabled_desc)
       end
     end
   end
