@@ -97,7 +97,7 @@ describe Decidim::Initiatives::Permissions do
 
     it_behaves_like "delegates permissions to", Decidim::Initiatives::Admin::Permissions
 
-    context "when accessing the space area" do
+    context "when accessing another participatory space" do
       let(:action) do
         { scope: :admin, action: :enter, subject: :space_area }
       end
