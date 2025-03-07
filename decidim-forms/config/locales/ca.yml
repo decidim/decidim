@@ -56,7 +56,7 @@ ca:
           actions:
             back: Tornar a les preguntes
             publish_answers: Publica respostes
-            show: Mostrar les respostes
+            show: Respostes
           answer_option:
             answer_option: Opció de resposta
             free_text: Text lliure
