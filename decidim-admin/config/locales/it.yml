@@ -157,6 +157,7 @@ it:
         permissions: Permessi
         reject: Rifiuta
         share: Condividi
+        share_tokens: Link di accesso
         verify: Verifica
       area_types:
         create:

@@ -387,7 +387,6 @@ ar:
             assign_to_valuator_button: تعيين
             cancel: إلغاء
             merge: دمج في واحدة جديدة
-            merge_button: دمج
             publish: نشر
             publish_answers: نشر الإجابات
             select_component: حدد المكون
@@ -437,7 +436,6 @@ ar:
       admin_log:
         proposal:
           answer: "%{user_name} أجاب على الاقتراح %{resource_name} على %{space_name} الفضاء"
-          create: "%{user_name} بإنشاء الاقتراح %{resource_name} على الحيز %{space_name} كمقترح رسمي"
           publish_answer: "نشر %{user_name} الإجابة على اقتراح %{resource_name} على مساحة %{space_name}"
           update: "%{user_name} تحديث الاقتراح الرسمي %{resource_name} على %{space_name} الفضاء"
         proposal_note:

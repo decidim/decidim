@@ -308,7 +308,7 @@ RSpec.describe "Initiative search" do
     context "and author is any" do
       let(:author) { "any" }
 
-      it "displays all initiatives except the created ones" do
+      it "displays all initiatives except the created ones from other user" do
         expect(subject).to include(decidim_escape_translated(initiative1.title))
         expect(subject).to include(decidim_escape_translated(initiative2.title))
         expect(subject).to include(decidim_escape_translated(initiative3.title))
@@ -323,7 +323,7 @@ RSpec.describe "Initiative search" do
         expect(subject).to include(decidim_escape_translated(rejected_initiative.title))
         expect(subject).to include(decidim_escape_translated(answered_rejected_initiative.title))
         expect(subject).not_to include(decidim_escape_translated(created_initiative.title))
-        expect(subject).not_to include(decidim_escape_translated(user1_created_initiative.title))
+        expect(subject).to include(decidim_escape_translated(user1_created_initiative.title))
       end
     end
 

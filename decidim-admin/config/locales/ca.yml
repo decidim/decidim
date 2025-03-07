@@ -741,6 +741,7 @@ ca:
             does_not_belong: No pertany
             hidden_during_block: Ocult mentre es bloqueja a la participant
             offensive: Ofensiu
+            parent_hidden: S'ha amagat el contingut principal
             spam: Contingut no desitjat
         reports:
           index:

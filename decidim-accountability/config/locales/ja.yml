@@ -264,9 +264,6 @@ ja:
         count:
           results_count:
             other: "%{count} 件の結果"
-        home:
-          empty: まだ結果はありません。
-          empty_filters: この条件の結果はありません。
         home_header:
           global_status: 全体の実行状況
         no_results: プロジェクトがありません
