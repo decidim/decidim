@@ -56,7 +56,24 @@ You can read more about this change on PR [#xxxx](https://github.com/decidim/dec
 
 These are one time actions that need to be done after the code is updated in the production database.
 
-### 3.1. Change of Valuator for Evaluator
+### 3.1. Changes in Static maps configuration when using HERE.com
+
+As of [#14180](https://github.com/decidim/decidim/pull/14180) we are migrating to here.com api V3, as V1 does not work anymore. In case your application uses Here.com as static map tile provider, you will need to change your `config/initializers/decidim.rb` to use the new url `https://image.maps.hereapi.com/mia/v3/base/mc/overlay`:
+
+```ruby
+  static_url = "https://image.maps.ls.hereapi.com/mia/1.6/mapview" if static_provider == "here" && static_url.blank?
+```
+
+to
+
+```ruby
+  static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here" && static_url.blank?
+```
+
+You can read more about this change on PR [#14180](https://github.com/decidim/decidim/pull/14180).
+
+
+### 3.2. Change of Valuator for Evaluator
 
 We have updated the terminology of Valuator at a code base level throughout the platform. The role of Valuator is now Evaluator. With this change also affects strings, i18n translations and so on.
 
@@ -71,10 +88,6 @@ Implementors must run the following 3 tasks:
 These tasks migrate the old data to the new names.
 
 More information about this change can be found on PR [#13684](https://github.com/decidim/decidim/pull/13684).
-
-### 3.2. [[TITLE OF THE ACTION]]
-
-You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
 ## 4. Scheduled tasks
 

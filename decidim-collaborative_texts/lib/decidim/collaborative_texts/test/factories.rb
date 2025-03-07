@@ -15,4 +15,16 @@ FactoryBot.define do
     manifest_name { :collaborative_texts }
     participatory_space { create(:participatory_process, :with_steps, skip_injection:, organization:) }
   end
+
+  factory :collaborative_text_document, class: "Decidim::CollaborativeTexts::Document" do
+    transient do
+      skip_injection { false }
+    end
+    title { generate_title(:collaborative_text_document_title, skip_injection:) }
+    component { create(:collaborative_texts_component, skip_injection:) }
+
+    trait :published do
+      published_at { Time.current }
+    end
+  end
 end
