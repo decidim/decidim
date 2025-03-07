@@ -56,7 +56,6 @@ cs:
           actions:
             back: Zpět na otázky
             publish_answers: Zveřejnit odpovědi
-            show: Zobrazit odpovědi
           answer_option:
             answer_option: Možnost odpovědi
             free_text: Volný text
