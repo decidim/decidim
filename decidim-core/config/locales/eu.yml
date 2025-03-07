@@ -1710,6 +1710,10 @@ eu:
           resend_email_confirmation_instructions: Birbidali helbide elektroniko bat berresteko instrukzioekin
         confirmation_instructions_sent: Berresteko instrukzioak helbide elektronikoz bidalita.
         fill_in_email_to_confirm_it: Mesedez, sartu zure taldearen helbide elektronikoa, berresteko.
+    qr:
+      show:
+        scan: Eskaneatu QR kodea
+        title: 'QR kodea honetarako: %{resource_title}'
     reported_mailer:
       hide:
         hello: Kaixo, %{name},
@@ -1767,6 +1771,10 @@ eu:
       selfxss_warning:
         description: Nabigatzaile-funtzio hau garatzaileentzat pentsatuta dago, eta ez zenuke ezer itsatsi behar hemen egiteko eskatu badizute. Leiho honetan edukia itsasteak zure pribatutasuna arriskuan jar dezake, eta hackerrak zure kontura sar daitezke.
         title: Gelditu!
+    share_widget:
+      download: Deskargatu
+      print: Inprimatu kartela
+      qr_code: QR kodea
     shared:
       confirm_modal:
         cancel: Ezeztatu
@@ -1828,6 +1836,7 @@ eu:
         copy_share_link: Kopia
         copy_share_link_clarification: Kopiatu arbelera partekatzeko esteka
         copy_share_link_copied: Kopiatuta!
+        copy_share_link_cta: Edo kopiatu linka
         copy_share_link_message: Esteka arrakastaz kopiatu da arbelean.
         share: Partekatu
         share_link: Partekatu esteka
