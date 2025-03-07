@@ -10,13 +10,24 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        get "/answer_options", to: "surveys#answer_options", as: :answer_options_survey
-        resources :surveys, except: [:new] do
+        get "/answer_options", to: "questions/surveys#answer_options", as: :answer_options_survey
+
+        resources :surveys do
           member do
-            get :edit_questions
-            patch :update_questions
             put :publish
             put :unpublish
+
+            namespace :questions do
+              get :edit_questions
+              patch :update_questions
+              get :edit
+              patch :update
+            end
+
+            namespace :settings do
+              get :edit
+              patch :update
+            end
           end
           resources :answers, only: [:index, :show] do
             member do
@@ -26,6 +37,34 @@ module Decidim
           resources :publish_answers, only: [:index, :update, :destroy]
         end
         root to: "surveys#index"
+      end
+
+      initializer "decidim_surveys_admin.menu" do
+        Decidim.menu :admin_surveys_menu do |menu|
+          answers_count = @survey.nil? ? 0 : Decidim::Forms::QuestionnaireParticipants.new(@survey.questionnaire).count_participants
+          answers_caption = I18n.t("answers", scope: "decidim.admin.menu.surveys_menu")
+          answers_caption += content_tag(:span, answers_count, class: "component-counter")
+
+          menu.add_item :main_survey,
+                        I18n.t("main", scope: "decidim.admin.menu.surveys_menu"),
+                        @survey.nil? ? new_survey_path : Decidim::EngineRouter.admin_proxy(@survey.component).edit_survey_path(@survey),
+                        icon_name: "bill-line"
+
+          menu.add_item :survey_questions_edit,
+                        I18n.t("questions", scope: "decidim.admin.menu.surveys_menu"),
+                        @survey.nil? ? "#" : Decidim::EngineRouter.admin_proxy(@survey.component).edit_questions_questions_survey_path(@survey),
+                        icon_name: "question-answer-line"
+
+          menu.add_item :survey_answers_view,
+                        answers_caption.html_safe,
+                        @survey.nil? ? "#" : Decidim::EngineRouter.admin_proxy(@survey.component).survey_answers_path(@survey),
+                        icon_name: "draft-line"
+
+          menu.add_item :survey_settings_edit,
+                        I18n.t("settings", scope: "decidim.admin.menu.surveys_menu"),
+                        @survey.nil? ? "#" : Decidim::EngineRouter.admin_proxy(@survey.component).edit_settings_survey_path(@survey),
+                        icon_name: "settings-4-line"
+        end
       end
 
       initializer "decidim_surveys_admin.notifications.components" do
