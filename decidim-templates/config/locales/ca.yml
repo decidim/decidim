@@ -88,7 +88,7 @@ ca:
           edit:
             edit: Editar
             empty: Encara no hi ha preguntes.
-            manage_questions: Gestionar les preguntes
+            manage_questions: Preguntes
             questionnaire: Qüestionari
             title: Editar la plantilla del qüestionari
           edit_questions:
