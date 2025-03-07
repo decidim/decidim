@@ -56,7 +56,7 @@ eu:
           actions:
             back: Itzuli galderetara
             publish_answers: Argitaratu erantzunak
-            show: Erakutsi erantzunak
+            show: Erantzunak
           answer_option:
             answer_option: Erantzun aukera
             free_text: Testu librea
