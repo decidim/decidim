@@ -29,7 +29,7 @@ module Decidim
       def context
         {
           current_organization:,
-          current_user:
+          current_user: current_api_user || current_user
         }
       end
 

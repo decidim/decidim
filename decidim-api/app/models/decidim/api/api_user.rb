@@ -49,6 +49,10 @@ module Decidim
         !officialized_at.nil?
       end
 
+      def confirmed?
+        true
+      end
+
       def follows?(followable)
         Decidim::Follow.where(user: self, followable: followable).any?
       end
