@@ -2,7 +2,6 @@
 
 require "spec_helper"
 require "decidim/api/test"
-require "decidim/core/test"
 
 module Decidim
   module Core

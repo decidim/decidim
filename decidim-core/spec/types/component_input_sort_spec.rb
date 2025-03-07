@@ -2,8 +2,6 @@
 
 require "spec_helper"
 require "decidim/api/test"
-require "decidim/core/test"
-require "decidim/core/test/shared_examples/input_sort_examples"
 
 module Decidim
   module Core
