@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# require "devise/models/decidim_validatable"
-
 module Decidim
   module Api
     class ApiUser < UserBaseEntity
