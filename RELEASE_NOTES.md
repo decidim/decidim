@@ -72,7 +72,6 @@ to
 
 You can read more about this change on PR [#14180](https://github.com/decidim/decidim/pull/14180).
 
-
 ### 3.2. Change of Valuator for Evaluator
 
 We have updated the terminology of Valuator at a code base level throughout the platform. The role of Valuator is now Evaluator. With this change also affects strings, i18n translations and so on.
