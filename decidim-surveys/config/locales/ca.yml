@@ -16,6 +16,12 @@ ca:
       admin_log:
         changeset:
           surveys: Enquestes
+      menu:
+        surveys_menu:
+          answers: Respostes
+          main: Principal
+          questions: Preguntes
+          settings: Configuració
     components:
       surveys:
         actions:
@@ -52,13 +58,14 @@ ca:
         confirm_destroy: Segur que ho vols eliminar?
         destroy: Eliminar
         edit: Editar
-        manage_questions: Gestionar les preguntes
+        manage_questions: Preguntes
         new_survey: Nova enquesta
         preview: Previsualitzar
         title: Accions
       admin:
         answers:
           index:
+            no_answers: Encara no hi ha respostes
             title: "%{total} respostes totals"
           show:
             title: 'Resposta #%{number}'
@@ -77,6 +84,14 @@ ca:
               not_published: No publicades
               published: Publicades
             title: Publicar respostes
+        questions:
+          surveys:
+            edit:
+              title: Preguntes
+        settings:
+          surveys:
+            edit:
+              title: Configuració
         surveys:
           create:
             invalid: S'ha produït un error creant l'enquesta.
@@ -84,9 +99,11 @@ ca:
           destroy:
             success: Enquesta eliminada correctament.
           edit:
-            title: Editar l'enquesta
+            title: Principal
           index:
             title: Enquestes
+          new:
+            title: Principal
           publish:
             invalid: S'ha produït un error en publicar aquesta enquesta.
             success: Enquesta publicada correctament.
