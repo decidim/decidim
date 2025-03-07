@@ -88,7 +88,7 @@ eu:
           edit:
             edit: Editatu
             empty: Oraindik ez dago galderarik.
-            manage_questions: Kudeatu galderak
+            manage_questions: Galderak
             questionnaire: Galdetegia
             title: Editatu galdetegiaren txantiloia
           edit_questions:
