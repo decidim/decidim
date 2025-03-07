@@ -88,7 +88,6 @@ fi-pl:
           edit:
             edit: Muokkaa
             empty: Kysymyksiä ei ole vielä.
-            manage_questions: Hallinnoi kysymyksiä
             questionnaire: Kysely
             title: Muokkaa kyselylomakkeen mallipohjaa
           edit_questions:
