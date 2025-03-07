@@ -48,7 +48,7 @@ fr:
           actions:
             back: Retour aux questions
             publish_answers: Publier les réponses
-            show: Afficher les réponses
+            show: Réponses
           answer_option:
             answer_option: Option de réponse
             free_text: Texte libre
