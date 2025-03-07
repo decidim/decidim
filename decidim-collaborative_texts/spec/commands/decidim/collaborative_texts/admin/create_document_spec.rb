@@ -13,7 +13,7 @@ module Decidim
         let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "collaborative_texts") }
         let(:user) { create(:user, :admin, :confirmed, organization:) }
         let!(:title) { "This is my document new title" }
-        let(:body) { "This is my ducument body" }
+        let(:body) { "This is my document body" }
         let(:form) do
           double(
             invalid?: invalid,
