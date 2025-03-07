@@ -71,7 +71,7 @@ fr-CA:
         with_participatory_space: Espace participatif
       decidim/user:
         current_password: Mot de passe actuel
-        email: Email
+        email: Adresse e-mail
         name: Surnom
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
@@ -527,6 +527,8 @@ fr-CA:
             dummy_step_attribute1: Attribut d'étape factice 1
             dummy_step_attribute2: Attribut d'étape factice 2
             dummy_step_translatable_text: Texte traduisible de l'étape factice
+      pagination:
+        page_title: "%{component_name} - Page %{current_page} sur %{total_pages}"
     contact: Contact
     content_blocks:
       announcement:
@@ -633,7 +635,7 @@ fr-CA:
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
-          are_you_new?: Nouveau sur la plateforme ?
+          are_you_new?: Pas encore inscrit(e) ?
           register: Créer un compte
           sign_in_disabled: Vous pouvez vous connecter avec un compte externe.
           sign_up_disabled: La création de compte est désactivée, mais vous pouvez vous identifier avec un compte existant.
@@ -657,7 +659,7 @@ fr-CA:
             <p>Merci de votre lecture !</p>
           title: Inscription à la newsletter
         omniauth_buttons:
-          or: Ou
+          or: ou
         password_fields:
           hidden_password: Votre mot de passe est masqué
           hide_password: Masquer le mot de passe
@@ -685,6 +687,28 @@ fr-CA:
     download_your_data:
       export:
         ready: Prêt
+      help:
+        participatory_space_private_users:
+          created_at: La date et l'heure de création de cet utilisateur privé
+          id: L'identifiant unique de cet utilisateur privé
+          privatable_to: À quel espace cet utilisateur privé appartient
+          published: Que cet utilisateur privé soit publié ou non
+          role: Le rôle que cet utilisateur privé a
+          updated_at: La date et l'heure de la dernière mise à jour de cet utilisateur privé
+        reports:
+          created_at: La date et l'heure de création de ce rapport
+          details: Les détails de ce rapport
+          id: L'identifiant unique de ce rapport
+          locale: La langue de ce rapport
+          reason: La raison de ce rapport
+          updated_at: La date et l'heure de la dernière mise à jour de ce rapport
+        users:
+          accepted_tos_version: La date à laquelle les conditions d'utilisation de cette plateforme ont été acceptées par l'utilisateur
+          followers_count: Le nombre de participants qui suivent à cet utilisateur
+          following_count: Le nombre de participants que cet utilisateur suit
+          password_updated_at: La date à laquelle leur mot de passe a été modifié pour la dernière fois
+          roles: Le rôle de cet utilisateur s'il en a un
+          type: Le type que cet utilisateur a
       show:
         action: Action
         download_data_description_1: Vous trouverez ici tous les téléchargements disponibles pour votre compte. Ces fichiers .zip seront disponibles pendant deux semaines avant d'être supprimés.
@@ -1542,6 +1566,8 @@ fr-CA:
       create:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
+      parent_hidden:
+        report_details: La ressource parente a été masquée
     resource_endorsements:
       create:
         error: Il y a eu un problème lors de l'action d'approbation.

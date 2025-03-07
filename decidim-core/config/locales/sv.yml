@@ -58,12 +58,16 @@ sv:
         with_participatory_space: Deltagarutrymme
       decidim/user:
         current_password: Nuvarande lösenord
-        email: E-post
+        email: E-postadress
         name: Användarnamn
         password: Lösenord
         password_confirmation: Lösenordsbekräftelse
         remember_me: Kom ihåg mig
     models:
+      decidim:
+        history:
+          one: Historik
+          other: Historik
       decidim/amendment:
         one: Ändring
         other: Ändringar
@@ -163,6 +167,7 @@ sv:
         error: Det gick inte att radera ditt konto.
         success: Ditt konto har raderats.
       download_your_data_export:
+        export_expired: Exporten har gått ut. Försök att skapa en ny export.
         file_no_exists: Filen finns inte
         notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
       email_change:
@@ -217,6 +222,8 @@ sv:
         delete: "%{user_name} tog bort komponenten %{resource_name} från utrymmet %{space_name}"
         export_component: "%{user_name} exporterade %{resource_name} %{component_name} i %{space_name} som %{format_name}"
         publish: "%{user_name} publicerade komponenten %{resource_name} i utrymmet %{space_name}"
+        restore: "%{user_name} återställde komponenten %{resource_name} i utrymmet %{space_name}"
+        soft_delete: "%{user_name} tog bort komponenten %{resource_name} från utrymmet %{space_name}"
         unpublish: "%{user_name} avpublicerade komponenten %{resource_name} från utrymmet %{space_name}"
         update_permissions_with_space: "%{user_name} uppdaterade behörigheterna för %{resource_name} i %{space_name}"
       contextual_help_section:
@@ -229,6 +236,9 @@ sv:
       impersonation_log:
         manage: "%{user_name} har hanterat %{resource_name} eftersom %{reason}"
       moderation:
+        bulk_hide: "%{user_name} dolde %{reported_count} inlägg"
+        bulk_unhide: "%{user_name} visade %{reported_count} inlägg"
+        bulk_unreport: "%{user_name} avrapporterade %{reported_count} inlägg"
         hide: "%{user_name} gömde en resurs av typen %{resource_type} i utrymmet %{space_name}"
         unreport: "%{user_name} drog tillbaka en resurs av typen %{resource_type} i utrymmet %{space_name}"
       newsletter:
@@ -258,6 +268,13 @@ sv:
         create: "%{user_name} skapade indelningen %{resource_name}"
         delete: "%{user_name} raderade indelningen %{resource_name}"
         update: "%{user_name} uppdaterade indelningen %{resource_name}"
+      share_token:
+        create: "%{user_name} skapade en åtkomstlänk i %{space_name}"
+        create_with_space: "%{user_name} skapade en åtkomstlänk för %{resource_name} i %{space_name}"
+        delete: "%{user_name} tog bort en åtkomstlänk i %{space_name}"
+        delete_with_space: "%{user_name} tog bort en åtkomstlänk för %{resource_name} i %{space_name}"
+        update: "%{user_name} uppdaterade en åtkomstlänk i %{space_name}"
+        update_with_space: "%{user_name} uppdaterade en åtkomstlänk för %{resource_name} i %{space_name}"
       static_page:
         create: "%{user_name} skapade den statiska sidan %{resource_name}"
         delete: "%{user_name} raderade den statiska sidan %{resource_name}"
@@ -269,8 +286,18 @@ sv:
         delete_with_parent: "%{user_name} raderade kategorierna %{resource_name} under kategorierna %{parent_taxonomy}"
         update: "%{user_name} uppdaterade kategorin %{resource_name}"
         update_with_parent: "%{user_name} uppdaterade kategorierna %{resource_name} under kategorierna %{parent_taxonomy}"
+      taxonomy_filter:
+        create: "%{user_name} skapade filtret %{resource_name}"
+        create_with_filter_info: '%{user_name} skapade filtret %{resource_name} baserat på kategoriseringen "%{taxonomy_name}" med %{filter_items_count} val'
+        delete: "%{user_name} tog bort filtret %{resource_name}"
+        delete_with_filter_info: '%{user_name} tog bort filtret %{resource_name} baserat på kategoriseringen "%{taxonomy_name}" med %{filter_items_count} val'
+        update: "%{user_name} uppdaterade filtret %{resource_name}"
+        update_with_filter_info: '%{user_name} uppdaterade filtret %{resource_name} baserat på kategoriseringen "%{taxonomy_name}" med %{filter_items_count} val'
       user:
         block: "%{user_name} blockerade användaren %{resource_name}"
+        bulk_block: "%{user_name} blockerade %{blocked_count} användare"
+        bulk_ignore: "%{user_name} avrapporterade %{unreported_users_count} användare"
+        bulk_unblock: "%{user_name} avblockerade %{unblocked_count} användare"
         invite: "%{user_name} bjöd in användaren %{resource_name} med rollen: %{role}"
         officialize: "%{user_name} gjorde deltagaren %{resource_name} officiell"
         promote: "%{user_name} befordrade %{resource_name}"
@@ -281,6 +308,9 @@ sv:
         unofficialize: "%{user_name} gjorde deltagaren %{resource_name} inofficiell"
       user_group:
         block: "%{user_name} blockerade användargruppen %{resource_name}"
+        bulk_block: "%{user_name} blockerade %{blocked_count} användare"
+        bulk_ignore: "%{user_name} avrapporterade %{unreported_users_count} användare"
+        bulk_unblock: "%{user_name} avblockerade %{unblocked_count} användare"
         reject: "%{user_name} avvisade gruppverifieringen för %{resource_name}"
         unblock: "%{user_name} avblockerad användargruppen %{resource_name}"
         verify: "%{user_name} verifierade gruppen %{resource_name}"
@@ -404,7 +434,15 @@ sv:
           postal_code: Postnummer
         name: Exempelbekräftelse
       dummy_authorization_workflow:
+        explanation: Test-arbetsflöde för auktorisering
         name: Dummy-arbetsflöde för bekräftelse
+      ephemeral_dummy_authorization_handler:
+        explanation: Bli verifierad genom att ange ett dokumentnummer som slutar på ”X”.
+        fields:
+          allowed_postal_codes: Tillåtna postnummer (separerade med kommatecken)
+          document_number: Dokumentnummer
+          postal_code: Postnummer
+        name: Tillfällig exempel-verifiering
       errors:
         duplicate_authorization: En deltagare är redan auktoriserad med samma data. En administratör kommer att kontakta dig för att verifiera dina uppgifter.
       expired_at: Förföll vid %{timestamp}
@@ -488,11 +526,14 @@ sv:
             amendments_enabled: Aktivera ändringsförslag
             comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal längd på kommentarer
+            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
             dummy_global_attribute1: Dummy Attribut 1
             dummy_global_attribute2: Dummy Attribut 2
             dummy_global_translatable_text: Översättningsbar exempeltext
             enable_pads_creation: Aktivera gemensamma anteckningar
+            no_taxonomy_filters_found: Inga filter för kategorier hittades.
             resources_permissions_enabled: Resursbehörigheter på
+            taxonomy_filters: Välj filter för komponenten
           step:
             amendment_creation_enabled: Tillåt att skapa ändringsförslag
             amendment_promotion_enabled: Tillåt att annonsera ändringsförslag
@@ -502,6 +543,8 @@ sv:
             dummy_step_attribute1: Dummy Step Attribut 1
             dummy_step_attribute2: Dummy Step Attribut 2
             dummy_step_translatable_text: Översättningsbar text för exempelsteg
+      pagination:
+        page_title: "%{component_name} - Sida %{current_page} av %{total_pages}"
     contact: Kontakt
     content_blocks:
       announcement:
@@ -579,6 +622,8 @@ sv:
           all: Alla
         filter_scope_values:
           all: Alla
+        filter_taxonomy_values:
+          all: Alla
     devise:
       omniauth_registrations:
         create:
@@ -608,11 +653,12 @@ sv:
           username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymiteten kan det vara vilket namn som helst.
       sessions:
         new:
-          are_you_new?: Ny här?
+          are_you_new?: Inte registrerad än?
           register: Skapa ett konto
           sign_in_disabled: Du kan få åtkomst via ett externt konto.
           sign_up_disabled: Registrering har inaktiverats, du kan endast logga in med ett befintligt konto.
         user:
+          ephemeral_session_closed: Din gästsession har avslutats
           timed_out: Du var inaktiv för länge och du har blivit automatiskt utloggad från tjänsten. Om du vill fortsätta använda tjänsten, vänligen logga in igen.
       shared:
         newsletter_modal:
@@ -628,13 +674,16 @@ sv:
             <p>Tack så mycket!</p>
           title: Notiser till nyhetsbrev
         omniauth_buttons:
-          or: Eller
+          or: eller
         password_fields:
           hidden_password: Ditt lösenord är dolt
           hide_password: Dölj lösenord
           show_password: Visa lösenord
           shown_password: Ditt lösenord visas
         placeholder_email: hi@exempel.org
+    documents:
+      one: "%{count} dokument"
+      other: "%{count} dokument"
     doorkeeper:
       authorizations:
         new:
@@ -653,6 +702,63 @@ sv:
     download_your_data:
       export:
         ready: Klar
+      help:
+        core:
+          description: Här är filerna med kontouppgifter, inlägg och aktiviteter från användaren %{user_name}
+          title: Ladda ner dina datafiler från %{organization}
+        follows:
+          created_at: Datum och tid för följande
+          followable: Innehållet eller utrymmet som följs
+          id: Unikt id för följande
+          updated_at: Datum och tid då följande senast uppdaterades
+        identities:
+          created_at: Datum och tid då identiteten skapades
+          id: Unikt id för identiteten
+          provider: Leverantören av identiteten
+        participatory_space_private_users:
+          created_at: Datum och tid när den privata användaren skapades
+          id: Unikt id för den privata användaren
+          privatable_to: Till vilken plats den privata användaren tillhör
+          published: Om den privata användaren är publicerad eller inte
+          role: Den privata användarens roll
+          updated_at: Datum och tid när den privata användaren senast uppdaterades
+        reports:
+          created_at: Datum och tid för när rapporteringen skapades
+          details: Mer information om rapporteringen
+          id: Unikt id för rapporteringen
+          locale: Rapporteringens språk
+          moderation: Moderering av rapporteringen
+          reason: Anledning till rapporteringen
+          updated_at: Datum och tid för när rapporteringen senast uppdaterades
+        user_groups:
+          document_number: Dokumentnumret för denna användargrupp
+          id: Unikt id för användargruppen
+          name: Namn på användargruppen
+          phone: Telefonnummer till användargruppen
+          verified_at: Datum och tid för när användargruppen verifierades
+        users:
+          about: Presentation av användaren
+          accepted_tos_version: Det datum då användarvillkoren godkändes av användaren
+          admin: Om användaren är administratör
+          confirmation_sent_at: Datum och tid då bekräftelsen skickades
+          confirmed_at: Datum och tid när användaren bekräftades
+          created_at: Datum och tid när användaren skapades
+          current_sign_in_at: Datum och tid för den aktuella inloggningen
+          current_sign_in_ip: IP-adressen för den aktuella inloggningen
+          delete_reason: Anledningen till att ta bort denna användare
+          deleted_at: Datum och tid när användaren togs bort
+          email: E-postadressen till användaren
+          followers_count: Antal deltagare som följer användaren
+          following_count: Antal deltagare som användaren följer
+          id: Unikt id för användaren
+          invited_by: Användaren som bjöd in den här användaren
+          last_sign_in_at: Datum och tid för senaste inloggningen
+          last_sign_in_ip: IP-adressen för den senaste inloggningen
+          locale: Användarens valda språk
+          managed: Om användare hanteras av en annan användare
+          name: Namnet på användaren
+          newsletter_notifications_at: Datum och tid när användaren senast fick ett nyhetsbrev
+          nickname: Användarens användarnamn
     editor_images:
       create:
         error: Fel vid uppladdning av bild.
@@ -837,6 +943,8 @@ sv:
     export_mailer:
       download_your_data_export:
         download: Hämta
+      export:
+        download: Ladda ner
       subject: Din export "%{name}" är klar
     filters:
       linked_classes:

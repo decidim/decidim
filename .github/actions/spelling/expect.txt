@@ -157,7 +157,7 @@ contingut
 continuar
 contrasenya
 coopdevs
-Correu
+correu
 Cov
 Cprojects
 crdownload
@@ -437,6 +437,7 @@ inviteduser
 isbn
 iseq
 isready
+ivan
 Jaskolski
 Jaume
 javascripts
@@ -743,6 +744,7 @@ Pujol
 pwa
 QLiterals
 queda
+qux
 railtie
 railties
 randomable
@@ -785,6 +787,8 @@ routable
 rowchart
 rowdata
 rowi
+RQR
+rqrcode
 rroe
 rsefa
 rsimplecov

@@ -121,11 +121,13 @@ de:
         destroy:
           success: Der Redner wurde für diese Konferenz erfolgreich gelöscht.
         edit:
+          title: Referierende Person aktualisieren
           update: Aktualisieren
         index:
           conference_speakers_title: Konferenzsprecher
         new:
           create: Erstellen
+          title: Neue referierende Person
         publish:
           invalid: Beim Veröffentlichen dieser RednerIn ist ein Problem aufgetreten.
           success: KonferenzrednerIn erfolgreich veröffentlicht.
@@ -142,11 +144,13 @@ de:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Konferenz entfernt.
         edit:
+          title: Referierende Person aktualisieren
           update: Aktualisieren
         index:
           conference_admins_title: Konferenzadmins
         new:
           create: Erstellen
+          title: Neuer Konferenzadmin
         update:
           error: Bei einem Fehler ist ein Benutzer für diese Konferenz aktualisiert worden.
           success: Der Benutzer wurde für diese Konferenz erfolgreich aktualisiert.
@@ -178,12 +182,20 @@ de:
       media_links:
         create:
           error: Beim Erstellen einer neuen Medienverknüpfung ist ein Fehler aufgetreten.
+          success: Medienlink erfolgreich erstellt.
+        destroy:
+          success: Medienlink erfolgreich gelöscht.
         edit:
+          title: Medienlink aktualisieren
           update: Aktualisieren
+        index:
+          media_links_title: Medienlinks
         new:
           create: Erstellen
+          title: Medienlink erstellen
         update:
           error: Beim Aktualisieren dieser Medienverbindung ist ein Fehler aufgetreten.
+          success: Medienlink erfolgreich aktualisiert.
       menu:
         conferences: Konferenzen
         conferences_submenu:
@@ -194,11 +206,15 @@ de:
           conference_admins: Konferenzadministratoren
           conference_invites: Lädt ein
           conference_speakers: Lautsprecher
+          diploma: Teilnahmebestätigung
           info: Über diese Konferenz
+          media_links: Medienlinks
           moderations: Moderationen
           partners: Partner
+          registration_types: Registrierungsarten
           registrations: Registrierungen
           see_conference: Konferenz ansehen
+          user_registrations: Teilnehmende Benutzende
       models:
         conference:
           fields:
@@ -227,6 +243,7 @@ de:
             date: Datum
             link: Verknüpfung
             title: Titel
+          name: Medienlink
         partner:
           fields:
             link: Verknüpfung
@@ -252,6 +269,7 @@ de:
         destroy:
           success: Der Partner wurde erfolgreich von dieser Konferenz entfernt.
         edit:
+          title: Partner aktualisieren
           update: Aktualisieren
         new:
           create: Erstellen
@@ -273,6 +291,7 @@ de:
         destroy:
           success: Der Registrierungstyp wurde erfolgreich von dieser Konferenz entfernt.
         edit:
+          title: Registrierungsart aktualisieren
           update: Aktualisieren
         new:
           create: Erstellen
@@ -378,6 +397,7 @@ de:
         diplomas:
           edit:
             save: Speichern
+            title: Teilnahmebestätigung
         invite_join_conference_mailer:
           invite:
             decline: Einladung '%{conference_title}' ablehnen
@@ -397,6 +417,7 @@ de:
             diploma_html: Die Teilnahmebescheinigung für die Konferenz <a href="%{url}">%{title}</a> finden Sie in den Anhängen.
           diploma_user:
             attendance_verified_by: Anwesenheit überprüft durch
+            certificate_of_attendance: Teilnahmebestätigung
             certificate_of_attendance_description: Hiermit wird bestätigt, dass <strong>%{user}</strong> an den <strong>%{title}</strong> teilgenommen hat, die am <strong>%{location}</strong> am <strong>%{start} - %{end}</strong>abgehalten wurden
         send_diploma:
           error: Beim Senden der Teilnahmebestätigung der Konferenz ist ein Problem aufgetreten.

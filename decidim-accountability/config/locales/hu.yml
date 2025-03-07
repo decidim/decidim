@@ -173,9 +173,6 @@ hu:
           results_count:
             one: 1 találat
             other: "%{count} találat"
-        home:
-          empty: Nincs még eredmény.
-          empty_filters: Nincsenek eredmények erre a feltételre.
         home_header:
           global_status: Globális alkalmazás állapota
         no_results: Nincsenek projektek

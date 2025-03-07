@@ -78,7 +78,7 @@ fi:
         with_participatory_space: Osallistumistila
       decidim/user:
         current_password: Nykyinen salasana
-        email: Sähköposti
+        email: Sähköpostiosoite
         name: Nimimerkki
         password: Salasana
         password_confirmation: Salasanan vahvistus
@@ -116,7 +116,7 @@ fi:
       decidim_with_month_name_short: "%d. %b"
       help:
         date_format: 'Muoto: pp.kk.vvvv'
-      order: d.m.y
+      order: d-m-y
       separator: "."
   datetime:
     distance_in_words:
@@ -564,6 +564,8 @@ fi:
             dummy_step_attribute1: Esimerkkivaiheen tietue 1
             dummy_step_attribute2: Esimerkkivaiheen tietue 2
             dummy_step_translatable_text: Vaiheen käännettävän tekstin esimerkki
+      pagination:
+        page_title: "%{component_name} - Sivu %{current_page} / %{total_pages}"
     contact: Ota yhteyttä
     content_blocks:
       announcement:
@@ -672,7 +674,7 @@ fi:
           username_help: Julkinen nimi, joka näytetään viestiesi yhteydessä. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
       sessions:
         new:
-          are_you_new?: Uusi käyttäjä?
+          are_you_new?: Etkö ole vielä rekisteröitynyt?
           register: Luo tili
           sign_in_disabled: Voit käyttää ulkoista tiliä.
           sign_up_disabled: Tilien luonti on poistettu käytöstä, mutta voit kirjautua olemassaolevalla käyttäjätilillä.
@@ -693,7 +695,7 @@ fi:
             <p>Kiitos, että jaksoit lukea tämän ilmoituksen!</p>
           title: Uutiskirjeitä koskeva ilmoitus
         omniauth_buttons:
-          or: Tai
+          or: tai
         password_fields:
           hidden_password: Salasanasi on piilotettu
           hide_password: Piilota salasana
@@ -750,6 +752,21 @@ fi:
           id: Ilmoituksen yksilöivä tunniste
           resource_type: Ilmoituksen kohteen tyyppi
           updated_at: Ilmoituksen viimeisimmän päivityksen ajankohta
+        participatory_space_private_users:
+          created_at: Yksityisen käyttäjän luontiaika
+          id: Yksityisen käyttäjän yksilöivä tunniste
+          privatable_to: Mihin osallistumistilaan tämä yksityinen käyttäjä kuuluu
+          published: Onko yksityinen käyttäjä julkaistu vai ei
+          role: Yksityisen käyttäjän rooli
+          updated_at: Yksityisen käyttäjän viimeisimmän päivityksen ajankohta
+        reports:
+          created_at: Ilmoituksen luontiaika
+          details: Ilmoituksen tiedot
+          id: Ilmoituksen yksilöivä tunniste
+          locale: Ilmoituksen kieli
+          moderation: Ilmoitukseen liitetty moderointi
+          reason: Ilmoituksen syy
+          updated_at: Ilmoituksen viimeisimmän päivityksen ajankohta
         user_groups:
           document_number: Käyttäjäryhmän organisaatiotunnus (esim. Y-tunnus)
           id: Käyttäjäryhmän yksilöivä tunniste
@@ -758,6 +775,7 @@ fi:
           verified_at: Käyttäjäryhmän vahvistamisen ajankohta
         users:
           about: Käyttäjätilin profiilin kuvaus
+          accepted_tos_version: Käyttäjän palvelun käyttöehtojen hyväksymisaika
           admin: Onko tämä käyttäjä hallintakäyttäjä
           confirmation_sent_at: Käyttäjätilin vahvistusviestin lähetysaika
           confirmed_at: Käyttäjätilin vahvistamisen ajankohta
@@ -767,6 +785,8 @@ fi:
           delete_reason: Käyttäjätilin poistamisen syy
           deleted_at: Käyttäjätilin poistamisen ajankohta
           email: Käyttäjätilin sähköpostiosoite
+          followers_count: Käyttäjää seuraavien osallistujien lukumäärä
+          following_count: Käyttäjän seuraamien osallistujien lukumäärä
           id: Käyttäjätilin yksilöivä tunniste
           invitation_accepted_at: Käyttäjätilin kutsun hyväksymisen ajankohta
           invitation_created_at: Käyttäjän kutsumisen ajankohta
@@ -785,10 +805,13 @@ fi:
           officialized_as: Virallistamisen nimi (valtuutettu, kunnanjohtaja, pormestari, jne.)
           officialized_at: Käyttäjän virallistamisen ajankohta
           organization: Käyttäjän organisaatio
+          password_updated_at: Salasanan viimeisimmän päivityksen ajankohta
           personal_url: Käyttäjäprofiilin URL-osoite
           remember_created_at: Kirjautumisen muistamisen valinnan ajankohta
           reset_password_sent_at: Salasanan nollauslinkin lähetyksen ajankohta
+          roles: Käyttäjän rooli, mikäli rooli on määritelty
           sign_in_count: Käyttäjän kirjautumisten lukumäärä
+          type: Käyttäjän tyyppi
           unconfirmed_email: Vahvistamaton sähköpostiosoite
           updated_at: Käyttäjätilin viimeisimmän päivityksen ajankohta
       show:
@@ -1723,6 +1746,8 @@ fi:
       create:
         error: Ilmoituksen luonti epäonnistui. Yritä uudestaan.
         success: Ilmoituksen luonti onnistui. Hallintakäyttäjä tarkastaa sen.
+      parent_hidden:
+        report_details: Isäntäkohde piilotettiin
     resource:
       controls_label: Kohteen hallintatoiminnot
     resource_endorsements:
@@ -1996,7 +2021,7 @@ fi:
         send_me_reset_password_instructions: Lähetä minulle ohjeet salasanan vaihtamiseen
       no_token: Et pääse sivulle, ellet käytä sähköpostiisi lähtettyä salasanan vaihtamiseen liittyvää linkkiä. Mikäli käytit sähköpostissa olevaa linkkiä, varmista, että käytät täysin samaa URL-osoitetta, joka näkyy lähetetyssä viestissä.
       send_instructions: Saat sähköpostitse ohjeet salasanan palauttamiseen muutaman minuutin kuluessa.
-      send_paranoid_instructions: Jos sähköpostiosoitteesi löytyy tietokannastamme, saat ohjeet salasanan vaihtamiseesi sähköpostiisi muutaman minuutin kuluessa.
+      send_paranoid_instructions: Jos sähköpostiosoitteesi löytyy tietokannastamme, saat ohjeet salasanan vaihtamiseen sähköpostiisi muutaman minuutin kuluessa.
       updated: Salasanasi vaihtaminen onnistui. Olet nyt kirjautunut sisään.
       updated_not_active: Salasanasi vaihtaminen onnistui.
     registrations:
@@ -2337,7 +2362,7 @@ fi:
       devise:
         mailer:
           invitation_instructions:
-            accept_until_format: "%B %d., %Y klo %k:%M"
+            accept_until_format: "%B %d., %Y klo %H:%M"
       help:
         time_format: 'Muoto: tt:mm'
       long: "%B %d., %Y %H:%M"

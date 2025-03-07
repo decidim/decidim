@@ -211,6 +211,11 @@ ro:
           email_outro: Ai primit această notificare deoarece ești autor al propunerii "%{resource_title}".
           email_subject: Propunerea ta „%{mentioned_proposal_title}” a fost menționată
           notification_title: Propunerea ta "%{mentioned_proposal_title}" a fost menționată <a href="%{resource_path}">în acest spațiu</a> în comentarii.
+        proposal_merged:
+          email_intro: 'Un administrator a fuzionat propunerea dvs. "%{resource_title}", verificați-o în această pagină:'
+          email_outro: Ați primit această notificare deoarece sunteți autorul propunerii.
+          email_subject: Propunerea %{resource_title} a fost fuzionată
+          notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost fuzionată de un administrator.
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, pe care îl urmărești, a publicat o nouă propunere denumită "%{resource_title}". Verifică propunerea și colaborează:'
           email_outro: Ai primit această notificare deoarece urmărești %{author_nickname}. Poți înceta să primești notificări urmând linkul anterior.
@@ -347,7 +352,6 @@ ro:
             assign_to_valuator_button: Atribuie
             cancel: Anulează
             merge: Combină într-o propunere nouă
-            merge_button: Combină
             publish: Publică
             publish_answers: Publică răspunsuri
             select_component: Selectează o componentă
@@ -389,13 +393,18 @@ ro:
         proposals_merges:
           create:
             success: Propunerile au fost combinate cu succes într-o propunere nouă.
+          form:
+            created_in_meeting: Această propunere provine dintr-o întâlnire
+            select_a_meeting: Selectați o întâlnire
+          new:
+            title: Fuzionați într-o propunere nouă
         proposals_splits:
           create:
             success: Propunerile au fost împărțite cu succes în altele noi.
       admin_log:
         proposal:
           answer: "%{user_name} a răspuns la propunerea %{resource_name} pentru spațiul %{space_name}"
-          create: "%{user_name} a creat propunerea %{resource_name} pentru spațiul %{space_name} drept propunere oficială"
+          create: "%{user_name} a creat propunerea %{resource_name} prin fuzionarea a %{merged_count} propuneri în %{space_name}"
           publish_answer: "%{user_name} a publicat răspunsul la propunerea de %{resource_name} privind spațiul %{space_name}"
           update: "%{user_name} a actualizat propunerea oficială %{resource_name} pentru spațiul %{space_name}"
         proposal_note:
@@ -611,6 +620,8 @@ ro:
           withdraw_confirmation_html: Sigur dorești să retragi această propunere?<br><br><strong>Această acțiune nu poate fi anulată!</strong>
         update:
           title: Actualizează propunerea
+        vote_button:
+          votes_blocked: Votați
         voting_rules:
           proposal_limit:
             description: Poți crea până la %{limit} propuneri.

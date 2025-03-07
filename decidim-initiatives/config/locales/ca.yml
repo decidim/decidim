@@ -447,7 +447,7 @@ ca:
       form:
         add_attachments: Afegir fitxer(s) adjunt(s)
         add_image: Afegir imatge
-        attachment_legend:
+        attachment_legend: Afegir un document o una imatge
         edit_attachments: Edita els fitxers adjunts
         edit_image: Editar imatge
         image_legend: "(Opcional) Afegeix una imatge"
@@ -540,7 +540,7 @@ ca:
           province: Província
           signature: Signatura
         result:
-          answer_title: S'ha respost aquesta iniciativa.
+          answer_title: S'ha respost aquesta iniciativa
           initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per falta de signatures.
         show:
           area: Àrea

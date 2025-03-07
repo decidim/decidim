@@ -56,7 +56,6 @@ hu:
         with_participatory_space: Részvételi tér
       decidim/user:
         current_password: Jelenlegi jelszó
-        email: Email
         name: Felhasználónév
         password: Jelszó
         password_confirmation: Jelszó megerősítése
@@ -543,7 +542,6 @@ hu:
           username_help: Bejegyzésekben megjelenő nyilvános megnevezés. Az anonimitás megőrzése érdekében bármilyen név lehet.
       sessions:
         new:
-          are_you_new?: Új vagy az oldalon?
           register: Hozz létre egy fiókot
           sign_in_disabled: Külső fiókkal férhet hozzá.
       shared:
@@ -552,8 +550,6 @@ hu:
             check: Ellenőrzés és folytatás
             uncheck: Kijelöletlenül hagy
           title: Hírlevél értesítések
-        omniauth_buttons:
-          or: Vagy
         password_fields:
           hidden_password: A jelszavad rejtett
           hide_password: Jelszó elrejtése

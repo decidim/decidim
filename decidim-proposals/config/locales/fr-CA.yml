@@ -316,6 +316,11 @@ fr-CA:
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
           email_subject: Votre proposition "%{mentioned_proposal_title}" a été mentionnée
           notification_title: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a>, dans les commentaires.
+        proposal_merged:
+          email_intro: 'Un administrateur a fusionné votre proposition "%{resource_title}", vérifiez-la dans cette page :'
+          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur(e) de la proposition.
+          email_subject: La proposition %{resource_title} a été fusionnée
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été fusionnée par un administrateur.
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, que vous suivez, a publié une nouvelle proposition appelée "%{resource_title}". Découvrez-le et contribuez:'
           email_outro: Vous avez reçu cette notification car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
@@ -542,7 +547,7 @@ fr-CA:
             assign_to_valuator_button: Assigner
             cancel: Annuler
             merge: Fusionner dans un nouveau
-            merge_button: Fusionner
+            merge_button: Créer
             publish: Publier
             publish_answers: Publier les réponses
             select_component: Sélectionnez un composant
@@ -596,6 +601,11 @@ fr-CA:
           create:
             invalid: 'Une erreur s''est produite lors de la fusion des propositions à cause de certaines d''entre elles:'
             success: A fusionné avec succès les propositions dans un nouveau.
+          form:
+            created_in_meeting: Cette proposition provient d'une réunion
+            select_a_meeting: Sélectionnez une réunion
+          new:
+            title: Fusionner dans une nouvelle
         proposals_splits:
           create:
             invalid: 'Une erreur s''est produite lors du fractionnement des propositions sélectionnées à cause de certaines d''entre elles:'
@@ -610,7 +620,7 @@ fr-CA:
       admin_log:
         proposal:
           answer: "%{user_name} a répondu à la proposition %{resource_name} sur l'espace %{space_name}"
-          create: "%{user_name} a créé la proposition %{resource_name} sur l'espace %{space_name} en tant que proposition officielle"
+          create: "%{user_name} a créé la proposition %{resource_name} à partir de la fusion de %{merged_count} propositions dans %{space_name}"
           publish_answer: "%{user_name} a publié la réponse à la proposition %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} mis à jour le %{resource_name} proposition officielle sur le %{space_name} espace"
         proposal_note:
@@ -897,7 +907,6 @@ fr-CA:
           maximum_votes_reached: Nombre maximum de votes atteint
           no_votes_remaining: Aucun vote restant
           vote: Soutenir
-          votes_blocked: Votes désactivés
         votes_count:
           count:
             one: Vote

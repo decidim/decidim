@@ -469,7 +469,6 @@ bg:
             assign_to_valuator_button: Възлагане
             cancel: Отказ
             merge: Сливане в едно ново
-            merge_button: Сливане
             publish: Публикувай
             publish_answers: Публикуване на отговори
             select_component: Избери компонент
@@ -531,7 +530,6 @@ bg:
       admin_log:
         proposal:
           answer: "%{user_name} отговори на предложението %{resource_name} в пространството %{space_name}"
-          create: "%{user_name} създаде предложението %{resource_name} в пространството %{space_name} като официално предложение"
           publish_answer: "%{user_name} публикува отговора на предложението %{resource_name} в пространството %{space_name}"
           update: "%{user_name} актуализира официалното предложение %{resource_name} в пространството %{space_name}"
         proposal_note:
@@ -786,7 +784,6 @@ bg:
           maximum_votes_reached: Лимитът за гласуване е достигнат
           no_votes_remaining: Няма останали гласове
           vote: Глас
-          votes_blocked: Гласуването е деактивирано
         votes_count:
           count:
             one: Глас

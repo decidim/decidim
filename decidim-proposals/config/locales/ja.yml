@@ -585,7 +585,6 @@ ja:
             cancel: キャンセル
             change_taxonomies: タクソノミーを変更
             merge: 新しいものにマージ
-            merge_button: 結合
             no_templates_available: 利用可能なテンプレートはありません
             publish: 公開
             publish_answers: 回答を公開
@@ -656,7 +655,6 @@ ja:
       admin_log:
         proposal:
           answer: "%{user_name} が %{resource_name} スペースで %{space_name} の提案に回答しました"
-          create: "%{user_name} が公式提案として %{resource_name} スペースに %{space_name} 提案を作成しました"
           publish_answer: "%{user_name} が %{resource_name} の提案に対する回答を %{space_name} スペースに公開しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} 公式提案を更新しました"
         proposal_note:
@@ -932,7 +930,7 @@ ja:
           maximum_votes_reached: 投票上限に達しました
           no_votes_remaining: 残りの投票はありません
           vote: 投票
-          votes_blocked: 投票は無効です
+          votes_blocked: 投票
         votes_count:
           count:
             other: 投票

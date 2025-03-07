@@ -26,7 +26,7 @@
         <div class="budget-summary__progressbar--meter bg-success" style="width: <%= current_order_budget_percent %>%"> </div>
       </div>
       <div class="budget-summary__progressbar-marks">
-        <span class="budget-summary__progressbar-legend" style="width: <%= current_order_budget_percent_minimum %>%;">
+        <span class="budget-summary__progressbar-legend">
           <strong id="order-total-budget<%= "-responsive" if responsive %>" class="budget-summary__progressbar-legend-strong">
             <%= render partial: "decidim/budgets/projects/order_total_budget" %>
           </strong>

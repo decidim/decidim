@@ -179,11 +179,23 @@ ca:
             creation_enabled_for_user_groups: Habilitar la creació de trobades per part dels grups d'usuàries
     download_your_data:
       help:
+        invites:
+          accepted_at: La data i l'hora en què es va acceptar aquesta invitació
+          created_at: La data i l'hora en què es va crear aquesta invitació
+          id: L'identificador únic de la invitació
+          meeting: La trobada a la qual correspon aquesta invitació
+          rejected_at: La data i l'hora en què es va rebutjar aquesta invitació
+          sent_at: La data i l'hora en què es va enviar aquesta invitació
+          updated_at: La data i hora en què aquesta invitació va ser actualitzada per darrera vegada
         registrations:
           code: El codi d'inscripció
+          created_at: La data en què es va realitzar aquesta inscripció
           id: L'identificador únic de la inscripció
           meeting: La trobada a la qual es va inscriure la usuària
+          public_participation: Si la inscripció es mostrava públicament, o no
+          updated_at: La data i hora en què aquesta inscripció va ser actualitzada per darrera vegada
           user: La usuària que va realitzar la inscripció
+          validated_at: La data en què es va validar/confirmar aquesta inscripció
       show:
         meeting_comments: Exportar els comentaris a les trobades
         meetings: Exportar les trobades
