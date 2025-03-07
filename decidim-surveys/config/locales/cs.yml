@@ -56,7 +56,6 @@ cs:
         confirm_destroy: Opravdu to chcete smazat?
         destroy: Zničit
         edit: Upravit
-        manage_questions: Spravovat otázky
         new_survey: Nový průzkum
         preview: Náhled
         title: Akce
@@ -89,8 +88,6 @@ cs:
             success: Anketa byla úspěšně vytvořena.
           destroy:
             success: Anketa byla úspěšně odstraněna.
-          edit:
-            title: Upravit anketu
           index:
             title: Ankety
           publish:
