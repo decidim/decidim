@@ -88,7 +88,7 @@ es-PY:
           edit:
             edit: Editar
             empty: Aún no hay preguntas.
-            manage_questions: Gestionar las preguntas
+            manage_questions: Preguntas
             questionnaire: Cuestionario
             title: Editar plantilla del cuestionario
           edit_questions:
