@@ -56,7 +56,7 @@ es-MX:
           actions:
             back: Volver a las preguntas
             publish_answers: Publicar respuestas
-            show: Mostrar las respuestas
+            show: Respuestas
           answer_option:
             answer_option: Opción de respuesta
             free_text: Texto libre
