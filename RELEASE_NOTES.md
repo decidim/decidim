@@ -239,7 +239,7 @@ to
 
 You can read more about this change on PR [#14180](https://github.com/decidim/decidim/pull/14180).
 
-### 3.6. [[TITLE OF THE ACTION]]
+### 3.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
