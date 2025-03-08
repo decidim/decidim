@@ -58,7 +58,7 @@ Use the following configuration for HERE Maps:
 config.maps = {
   provider: :here,
   api_key: ENV["MAPS_API_KEY"],
-  static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+  static: { url: "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" }
 }
 ----
 

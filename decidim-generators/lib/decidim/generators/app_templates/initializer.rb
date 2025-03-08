@@ -57,7 +57,7 @@ Decidim.configure do |config|
   # config.maps = {
   #   provider: :here,
   #   api_key: ENV["MAPS_API_KEY"],
-  #   static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+  #   static: { url: "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" }
   # }
   #
   # == OpenStreetMap (OSM) services ==
@@ -122,7 +122,7 @@ Decidim.configure do |config|
     dynamic_provider = Decidim::Env.new("MAPS_DYNAMIC_PROVIDER", ENV.fetch("MAPS_PROVIDER", nil)).to_s
     dynamic_url = ENV.fetch("MAPS_DYNAMIC_URL", nil)
     static_url = ENV.fetch("MAPS_STATIC_URL", nil)
-    static_url = "https://image.maps.ls.hereapi.com/mia/1.6/mapview" if static_provider == "here" && static_url.blank?
+    static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here"
     config.maps = {
       provider: static_provider,
       api_key: Decidim::Env.new("MAPS_STATIC_API_KEY", ENV.fetch("MAPS_API_KEY", nil)).to_s,

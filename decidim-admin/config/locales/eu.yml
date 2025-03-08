@@ -741,6 +741,7 @@ eu:
             does_not_belong: Ez dagokio
             hidden_during_block: Ezkutatuta, parte-hartzailea blokeatzen den bitartean
             offensive: Iraingarria
+            parent_hidden: Eduki nagusia ezkutatu egin da
             spam: Spam
         reports:
           index:

@@ -331,7 +331,6 @@ pt:
             assign_to_valuator_button: Atribuir
             cancel: Cancelar
             merge: Junte-se a um novo
-            merge_button: Fundir
             publish: Publicar
             publish_answers: Publicar respostas
             select_component: Selecione um componente
@@ -377,7 +376,6 @@ pt:
       admin_log:
         proposal:
           answer: "%{user_name} respondeu à proposta %{resource_name} no espaço %{space_name}"
-          create: "%{user_name} criou a proposta %{resource_name} no espaço %{space_name} como uma proposta oficial"
           publish_answer: "%{user_name} publicou a resposta à proposta %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou a proposta oficial %{resource_name} no espaço %{space_name}"
         proposal_note:
