@@ -145,6 +145,7 @@ sv:
             initiative_start_date: Startdatum
             initiative_title: Initiativets titel
             name_and_surname: Namn och efternamn
+            nickname: Användarnamn
             postal_code: Postnummer
             timestamp: Tidsstämpel
       titles:

@@ -1700,10 +1700,6 @@ en:
         members: Members
         officialized: Official participant
         send_private_message: Send private message
-      sidebar:
-        badges:
-          info: Badges are earned by performing specific activity in the platform.
-          title: Badges
       user:
         actions:
           create_user_group: Create group
@@ -1719,16 +1715,11 @@ en:
           message: Message
           resend_email_confirmation_instructions: Resend email confirmation instructions
         confirmation_instructions_sent: Email confirmation instructions sent.
-        create_user_group: Create group
-        edit_profile: Edit profile
-        edit_user_group: Edit group profile
         fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it.
-        invite_user: Invite participant
-        join_user_group: Request to join group
-        leave_user_group: Leave group
-        manage_user_group_admins: Manage admins
-        manage_user_group_users: Manage members
-        resend_email_confirmation_instructions: Resend email confirmation instructions
+    qr:
+      show:
+        scan: Scan the QR code
+        title: QR Code for %{resource_title}
     reported_mailer:
       hide:
         hello: Hello %{name},
@@ -1786,6 +1777,10 @@ en:
       selfxss_warning:
         description: This browser feature is meant for developers and you should not paste anything here if you were asked to do so. Pasting content in this window can compromise your privacy and give hackers access to your account.
         title: Stop!
+    share_widget:
+      download: Download
+      print: Print poster
+      qr_code: QR Code
     shared:
       confirm_modal:
         cancel: Cancel
@@ -1816,14 +1811,13 @@ en:
       flag_user_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         block: Block this participant
-        close: Close
-        description: What is inappropriate about the user?
+        description: What is inappropriate about this participant?
         does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.
         hide: Hide all their contents
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
-        title: Report inappropriate User
+        title: Report inappropriate participant
       floating_help:
         help: Help
       follow_button:
@@ -1848,6 +1842,7 @@ en:
         copy_share_link: Copy
         copy_share_link_clarification: Copy share link to clipboard
         copy_share_link_copied: Copied!
+        copy_share_link_cta: Or copy link
         copy_share_link_message: The link was successfully copied to clipboard.
         share: Share
         share_link: Share link

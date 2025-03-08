@@ -271,12 +271,11 @@ eu:
           results_count:
             one: Emaitza 1
             other: "%{count} emaitza"
-        home:
-          empty: Oraindik ez dago emaitzarik.
-          empty_filters: Ez dago emaitzarik irizpide honekin.
         home_header:
           global_status: Exekuzio-egoera orokorra
         no_results: Ez dago proiekturik
+        root_taxonomies:
+          title: 'Ikus:'
         search:
           search: Bilatu ekintzak
         show:
@@ -301,6 +300,8 @@ eu:
             clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 hasierako konfigurazioari eusteko)
+            default_taxonomy: Taxonomia akatsa
+            default_taxonomy_help: Aukeratu zein taxonomia erakutsi nahi duzun akatsez. Taxonomiarik aukeratzen ez bada, emaitzak zerrenda formatuan agertuko dira.
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu iragazki batzuk espazio parte-hartzaile honetarako.
             display_progress_enabled: Erakutsi aurrerapena
             geocoding_enabled: Mapak gaituta
@@ -310,6 +311,7 @@ eu:
             taxonomy_filters_add: Erantsi iragazkia
           step:
             comments_blocked: Iruzkin blokeatuak
+          visualization: Bistaratzea
     download_your_data:
       show:
         result_comments: Esportatu emaitzen iruzkinak

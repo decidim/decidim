@@ -278,7 +278,6 @@ sk:
             assign_to_valuator_button: Priradiť
             cancel: zrušenie
             merge: Zlúčiť do nového
-            merge_button: Spoj
             publish: Publikovať
             publish_answers: Zverejniť odpovede
             select_component: Vyberte súčasť
@@ -326,7 +325,6 @@ sk:
       admin_log:
         proposal:
           answer: "%{user_name} odpovedalo na %{resource_name} návrh na priestore %{space_name}"
-          create: "%{user_name} vytvoril návrh %{resource_name} na priestore %{space_name} ako oficiálny návrh"
           publish_answer: "%{user_name} publikoval odpoveď na návrh %{resource_name} v priestore %{space_name}"
           update: "%{user_name} aktualizoval oficiálny návrh %{resource_name} na priestore %{space_name}"
         proposal_note:
