@@ -42,6 +42,10 @@ module Decidim
 
       component_manifest_name "dummy"
 
+      def presenter
+        Decidim::Dev::DummyResourcePresenter.new(self)
+      end
+
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
       end

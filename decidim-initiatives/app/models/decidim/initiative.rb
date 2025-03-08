@@ -166,6 +166,10 @@ module Decidim
       Decidim::Initiatives::AdminLog::InitiativePresenter
     end
 
+    def presenter
+      Decidim::InitiativePresenter.new(self)
+    end
+
     def self.ransackable_attributes(auth_object = nil)
       base = %w(search_text title description id id_string supports_count author_name author_nickname)
 

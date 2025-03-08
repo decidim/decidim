@@ -39,6 +39,12 @@ module Decidim
 
         content_handle_locale(post.body, all_locales, extras, links, strip_tags)
       end
+
+      def taxonomy_names(html_escape: false, all_locales: false)
+        post.taxonomies.map do |taxonomy|
+          taxonomy.presenter.title(links: false, html_escape:, all_locales:)
+        end
+      end
     end
   end
 end

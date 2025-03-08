@@ -57,7 +57,7 @@ en:
           actions:
             back: Back to questions
             publish_answers: Publish answers
-            show: Show responses
+            show: Responses
           answer_option:
             answer_option: Answer option
             free_text: Free text
