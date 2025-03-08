@@ -1,0 +1,16 @@
+<%= form_with url: new_taxonomy_filters_selector_path, method: :get, local: false, id: "select-taxonomy-filter-form" do |form| %>
+  <div class="form__wrapper">
+    <%= hidden_field_tag :component_id, component.id %>
+    <div class="item__edit-form js-drawer-taxonomy-select">
+      <%= label_tag("available-taxonomies-filter", t(".taxonomies")) %>
+      <%= select_tag "taxonomy_id", options_from_collection_for_select(current_organization.taxonomies.roots, "id", "translated_name", root_taxonomy&.id), include_blank: t(".select_taxonomy") %>
+    </div>
+
+    <% if root_taxonomy %>
+      <div class="item__edit-form js-drawer-filter-select">
+        <%= label_tag("available-filters-filter", t(".filters")) %>
+        <%= select_tag "taxonomy_filter_id", options_from_collection_for_select(root_taxonomy.taxonomy_filters, "id", "translated_internal_name", taxonomy_filter&.id), include_blank: t(".select_filter") %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

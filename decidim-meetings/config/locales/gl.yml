@@ -142,8 +142,6 @@ gl:
         attachment_collections: Carpetas
         attachments: Anexos
         close: Pechar
-        confirm_destroy: Estás seguro de que queres eliminar esta reunión?
-        destroy: Eliminar
         edit: Editar
         preview: Vista previa
         registrations: Rexistros
@@ -201,8 +199,6 @@ gl:
             close: Pechar
             title: Pechar reunión
         meetings:
-          destroy:
-            success: Reunión eliminada correctamente
           edit:
             update: Actualización
           index:
@@ -255,8 +251,6 @@ gl:
             organizer_presenter:
               not_found: 'O organizador non se atopou na base de datos (ID: %{id})'
       application_helper:
-        filter_category_values:
-          all: Todas
         filter_meeting_space_values:
           all: Todas
       calendar_modal:
@@ -328,7 +322,6 @@ gl:
             other: "%{count} slots restantes"
           withdraw_btn_hint: Podes anular a túa xuntanza se mudas de parecer. A xuntanza non está anulada, aparecerá na listaxe de xuntanzas anuladas.
           withdraw_confirmation_html: Estás certo/a de querer anular esta xuntanza?<br><br><strong>Esta acción non pode ser cancelada!</strong>
-          withdraw_meeting: Anular xuntanza
       models:
         invite:
           fields:

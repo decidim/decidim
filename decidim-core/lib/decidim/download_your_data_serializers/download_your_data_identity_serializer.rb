@@ -12,10 +12,6 @@ module Decidim
           id: resource.id,
           provider: resource.provider,
           uid: resource.uid,
-          user: {
-            id: resource.user.id,
-            name: resource.user.name
-          },
           created_at: resource.created_at,
           updated_at: resource.updated_at
         }

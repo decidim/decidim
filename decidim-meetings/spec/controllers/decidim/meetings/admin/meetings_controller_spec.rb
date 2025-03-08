@@ -4,8 +4,6 @@ require "spec_helper"
 require "decidim/core/test/shared_examples/softdeleteable_components_examples"
 
 describe Decidim::Meetings::Admin::MeetingsController do
-  routes { Decidim::Meetings::AdminEngine.routes }
-
   let(:meeting) { create(:meeting, component:) }
   let(:current_user) { create(:user, :admin, :confirmed, organization:) }
 

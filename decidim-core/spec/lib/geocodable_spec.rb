@@ -30,6 +30,8 @@ module Decidim
     let(:longitude) { 2.1234 }
 
     before do
+      Decidim::Map.reset_utility_configuration!
+      GeocoderHelpers.configure_maps
       stub_geocoding(address, [latitude, longitude])
     end
 

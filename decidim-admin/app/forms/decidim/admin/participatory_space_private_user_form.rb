@@ -6,10 +6,15 @@ module Decidim
     # admin dashboard.
     #
     class ParticipatorySpacePrivateUserForm < Form
+      include TranslatableAttributes
+
       mimic :participatory_space_private_user
 
       attribute :name, String
       attribute :email, String
+      attribute :published, Boolean
+
+      translatable_attribute :role, String
 
       validates :name, :email, presence: true
 

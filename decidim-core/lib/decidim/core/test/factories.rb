@@ -44,6 +44,14 @@ def generate_localized_title(field = nil, skip_injection: false)
   end
 end
 
+def generate_title(field = nil, skip_injection:)
+  skip_injection = true if field.nil?
+
+  prepend = skip_injection ? "" : "<script>alert(\"#{field}\");</script>"
+
+  "#{prepend}#{generate(:title)}"
+end
+
 FactoryBot.define do
   sequence(:title) do |n|
     "#{Faker::Lorem.sentence(word_count: 3)} #{n}".delete("'")
@@ -251,6 +259,15 @@ FactoryBot.define do
       managed { true }
     end
 
+    trait :tos_not_accepted do
+      accepted_tos_version { nil }
+    end
+
+    trait :ephemeral do
+      managed
+      extended_data { { ephemeral: true } }
+    end
+
     trait :officialized do
       officialized_at { Time.current }
       officialized_as { generate_localized_title(:officialized_as, skip_injection:) }
@@ -270,6 +287,16 @@ FactoryBot.define do
     end
     user
     privatable_to { create(:participatory_process, organization: user.organization, skip_injection:) }
+
+    role { generate_localized_title(:role, skip_injection:) }
+
+    trait :unpublished do
+      published { false }
+    end
+
+    trait :published do
+      published { true }
+    end
   end
 
   factory :assembly_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
@@ -676,7 +703,7 @@ FactoryBot.define do
 
   factory :taxonomy_filter, class: "Decidim::TaxonomyFilter" do
     root_taxonomy { association(:taxonomy) }
-    space_manifest { "participatory_processes" }
+    participatory_space_manifests { ["participatory_processes"] }
 
     trait :with_items do
       transient do
@@ -923,7 +950,6 @@ FactoryBot.define do
     organization { resource.component.organization }
     decidim_participatory_space { resource.component.participatory_space }
     locale { I18n.locale }
-    scope { resource.scope }
     content_a { Faker::Lorem.sentence }
     datetime { Time.current }
   end

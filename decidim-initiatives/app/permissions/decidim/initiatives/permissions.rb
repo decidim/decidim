@@ -4,10 +4,10 @@ module Decidim
   module Initiatives
     class Permissions < Decidim::DefaultPermissions
       def permissions
-        return permission_action if initiative && !initiative.is_a?(Decidim::Initiative)
-
         # Delegate the admin permission checks to the admin permissions class
         return Decidim::Initiatives::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
+
+        return permission_action if initiative && !initiative.is_a?(Decidim::Initiative)
         return permission_action if permission_action.scope != :public
 
         # Non-logged users permissions
@@ -21,6 +21,7 @@ module Decidim
         create_initiative?
         edit_public_initiative?
         update_public_initiative?
+        discard_initiative?
         print_initiative?
 
         vote_initiative?
@@ -85,6 +86,13 @@ module Decidim
       def update_public_initiative?
         return unless permission_action.subject == :initiative &&
                       permission_action.action == :update
+
+        toggle_allow(initiative&.created? && authorship_or_admin?)
+      end
+
+      def discard_initiative?
+        return unless permission_action.subject == :initiative &&
+                      permission_action.action == :discard
 
         toggle_allow(initiative&.created? && authorship_or_admin?)
       end

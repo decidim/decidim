@@ -52,8 +52,9 @@ describe "Admin manages projects" do
       expect(page).to have_admin_callout "Projects successfully updated"
       expect(page).to have_admin_callout translated(taxonomy.name)
       expect(page).to have_admin_callout translated(another_taxonomy.name)
-      expect(Decidim::Budgets::Project.find(project.id).taxonomies.first).to eq(taxonomy)
-      expect(Decidim::Budgets::Project.find(project2.id).taxonomies.first).to be_nil
+      expect(project.reload.taxonomies).to include(taxonomy)
+      expect(project.taxonomies).to include(another_taxonomy)
+      expect(project2.reload.taxonomies).to be_empty
     end
 
     it "selects projects to implementation" do
@@ -79,15 +80,6 @@ describe "Admin manages projects" do
       end
       expect(Decidim::Budgets::Project.find(project.id).selected_at).to eq(Time.zone.today)
       expect(Decidim::Budgets::Project.find(project2.id).selected_at).to eq(Time.zone.today)
-    end
-
-    describe "when managing a project with scopes" do
-      let!(:project) { create(:project, component: current_component) }
-      let!(:scope) { create(:scope, organization: current_component.organization) }
-
-      it "does not display subscopes" do
-        expect(page).to have_no_content(scope.name)
-      end
     end
 
     describe "update projects budget" do

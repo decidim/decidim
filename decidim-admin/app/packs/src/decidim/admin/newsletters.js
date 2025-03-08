@@ -1,91 +1,173 @@
-$(() => {
-  const $form = $(".form.newsletter_deliver");
+import TomSelect from "tom-select/dist/cjs/tom-select.popular";
 
-  if ($form.length > 0) {
-    const $sendNewsletterToAllUsers = $form.find("#send_newsletter_to_all_users");
-    const $sendNewsletterToFollowers = $form.find("#send_newsletter_to_followers");
-    const $sendNewsletterToParticipants = $form.find("#send_newsletter_to_participants");
-    const $participatorySpacesForSelect = $form.find("#participatory_spaces_for_select");
+document.addEventListener("DOMContentLoaded", () => {
+  const isOnSelectRecipientsPage = window.location.pathname.includes("/select_recipients_to_deliver");
 
-    const checkSelectiveNewsletterFollowers = $sendNewsletterToFollowers.find("input[type='checkbox']").prop("checked");
-    const checkSelectiveNewsletterParticipants = $sendNewsletterToParticipants.find("input[type='checkbox']").prop("checked");
+  const selectors = {
+    form: document.querySelector(".form.newsletter_deliver"),
+    sendToAllUsers: document.querySelector("#newsletter_send_to_all_users"),
+    sendToVerifiedUsers: document.querySelector("#newsletter_send_to_verified_users"),
+    sendToParticipants: document.querySelector("#newsletter_send_to_participants"),
+    sendToFollowers: document.querySelector("#newsletter_send_to_followers"),
+    sendToPrivateMembers: document.querySelector("#newsletter_send_to_private_members"),
+    verificationTypesSelect: document.querySelector("#verification_types_for_select"),
+    participatorySpacesForSelect: document.querySelector("#participatory_spaces_for_select"),
+    deliverButton: document.querySelector("#deliver-button"),
+    confirmRecipientsLink: document.querySelector("#confirm-recipients-link"),
+    recipientsCount: document.querySelector("#recipients_count"),
+    recipientsCountSpinner: document.querySelector("#recipients_count_spinner"),
+    csrfToken: document.querySelector('meta[name="csrf-token"]')
+  };
 
-    $sendNewsletterToAllUsers.on("change", (event) => {
-      const checked = event.target.checked;
-      if (checked) {
-        $sendNewsletterToFollowers.find("input[type='checkbox']").prop("checked", !checked);
-        $sendNewsletterToParticipants.find("input[type='checkbox']").prop("checked", !checked);
-        $participatorySpacesForSelect.hide();
-      } else {
-        $sendNewsletterToFollowers.find("input[type='checkbox']").prop("checked", !checked);
-        $sendNewsletterToParticipants.find("input[type='checkbox']").prop("checked", !checked);
-        $participatorySpacesForSelect.show();
-      }
-    })
+  const inputs = {
+    radioButtons: [selectors.sendToAllUsers, selectors.sendToVerifiedUsers].filter(Boolean),
+    checkboxes: [
+      selectors.sendToParticipants,
+      selectors.sendToFollowers,
+      selectors.sendToPrivateMembers
+    ].filter(Boolean)
+  };
 
-    $sendNewsletterToFollowers.on("change", (event) => {
-      const checked = event.target.checked;
-      const selectiveNewsletterParticipants = $sendNewsletterToParticipants.find("input[type='checkbox']").prop("checked");
+  const toggleVisibility = (element, condition) => element?.classList.toggle("hidden", !condition);
 
-      if (checked) {
-        $sendNewsletterToAllUsers.find("input[type='checkbox']").prop("checked", !checked);
-        $participatorySpacesForSelect.show();
-      } else if (!selectiveNewsletterParticipants) {
-        $sendNewsletterToAllUsers.find("input[type='checkbox']").prop("checked", true);
-        $participatorySpacesForSelect.hide();
-      }
-    })
+  const updateDeliverButtonVisibility = () => {
+    const sendToAllUsersChecked = selectors.form?.elements["newsletter[send_to_all_users]"]?.value === "1";
 
-    $sendNewsletterToParticipants.on("change", (event) => {
-      const checked = event.target.checked;
-      const selectiveNewsletterFollowers = $sendNewsletterToFollowers.find("input[type='checkbox']").prop("checked");
-      if (checked) {
-        $sendNewsletterToAllUsers.find("input[type='checkbox']").prop("checked", !checked);
-        $participatorySpacesForSelect.show();
-      } else if (!selectiveNewsletterFollowers) {
-        $sendNewsletterToAllUsers.find("input[type='checkbox']").prop("checked", true);
-        $participatorySpacesForSelect.hide();
-      }
-    })
+    toggleVisibility(selectors.deliverButton, sendToAllUsersChecked);
+    toggleVisibility(selectors.confirmRecipientsLink, !sendToAllUsersChecked);
+  };
 
-    if (checkSelectiveNewsletterFollowers || checkSelectiveNewsletterParticipants) {
-      $participatorySpacesForSelect.show();
-    } else {
-      $participatorySpacesForSelect.hide();
+  const updateHiddenField = (input) => {
+    const hiddenInput = selectors.form?.elements[input.name];
+    if (hiddenInput) {
+      hiddenInput.value = input.checked
+        ? "1"
+        : "0";}
+  };
+
+  const ensureAtLeastOneOptionSelected = () => {
+    if (![...inputs.radioButtons, ...inputs.checkboxes].some((input) => input?.checked)) {
+      selectors.sendToAllUsers.checked = true;
+      updateHiddenField(selectors.sendToAllUsers);
+    }
+  };
+
+  const updateConfirmRecipientsLink = () => {
+    if (!selectors.confirmRecipientsLink) {
+      return;
+    }
+    const params = new URLSearchParams(new FormData(selectors.form));
+    selectors.confirmRecipientsLink.setAttribute(
+      "href",
+      `${selectors.confirmRecipientsLink.dataset.baseUrl}?${params.toString()}`
+    );
+  };
+
+  const updateRecipientsCount = async () => {
+    const url = selectors.form?.dataset?.recipientsCountNewsletterPath;
+    if (!url) {
+      return;
     }
 
-    $(".form .spaces-block-tag").each(function (_i, blockTag) {
-      const selectTag = $(blockTag).find(".chosen-select")
-      selectTag.change(function () {
-        let optionSelected = selectTag.find("option:selected").val()
-        if (optionSelected === "all") {
-          selectTag.find("option").not(":first").prop("selected", true);
-          selectTag.find("option[value='all']").prop("selected", false);
-        } else if (optionSelected === "") {
-          selectTag.find("option").not(":first").prop("selected", false);
+    selectors.recipientsCountSpinner?.classList.remove("hide");
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "X-CSRF-Token": selectors.csrfToken?.content },
+        body: new FormData(selectors.form)
+      });
+      selectors.recipientsCount.textContent = await response.text();
+    } catch (error) {
+      console.error("Error fetching recipients count:", error);
+    } finally {
+      selectors.recipientsCountSpinner?.classList.add("hide");
+    }
+  };
+
+  const resetIdsForParticipatorySpaces = () => {
+    document.querySelectorAll('.form.newsletter_deliver select[name$="[ids][]"]').forEach((select) => {
+      if (select.tomselect) {
+        select.tomselect.clear();
+      } else {
+        select.value = [];
+      }
+    });
+  };
+
+  const resetVerificationTypes = () => {
+    const select = document.querySelector("#verification-types-select");
+    select?.tomselect?.clear();
+    const hiddenInput = selectors.form?.elements["newsletter[verification_types]"];
+    if (hiddenInput) {
+      hiddenInput.value = "";
+    }
+  };
+
+  const updateFormState = () => {
+    [...inputs.radioButtons, ...inputs.checkboxes].forEach(updateHiddenField);
+    const isAllUsersChecked = selectors.sendToAllUsers?.checked;
+    const isAnyChecked = [...inputs.radioButtons, ...inputs.checkboxes].some((input) => input?.checked);
+
+    toggleVisibility(selectors.deliverButton, isAllUsersChecked);
+    toggleVisibility(selectors.confirmRecipientsLink, !isAllUsersChecked && isAnyChecked);
+    toggleVisibility(
+      selectors.participatorySpacesForSelect,
+      inputs.checkboxes.some((input) => input.checked) && !selectors.sendToVerifiedUsers?.checked
+    );
+    toggleVisibility(selectors.verificationTypesSelect, selectors.sendToVerifiedUsers?.checked);
+    ensureAtLeastOneOptionSelected();
+    updateConfirmRecipientsLink();
+    updateRecipientsCount();
+  };
+
+  const handleRadioChange = (radio) => {
+    inputs.radioButtons.forEach((rb) => (rb.checked = rb === radio));
+    inputs.checkboxes.forEach((checkbox) => (checkbox.checked = false));
+    resetVerificationTypes();
+    resetIdsForParticipatorySpaces();
+    updateFormState();
+  };
+
+  const handleCheckboxChange = () => {
+    inputs.radioButtons.forEach((radio) => (radio.checked = false));
+    resetVerificationTypes();
+    resetIdsForParticipatorySpaces();
+    updateFormState();
+  };
+
+  const attachEventListeners = () => {
+    inputs.radioButtons.forEach((radio) =>
+      radio.addEventListener("change", () => handleRadioChange(radio))
+    );
+
+    inputs.checkboxes.forEach((checkbox) =>
+      checkbox.addEventListener("change", handleCheckboxChange)
+    );
+
+    selectors.form?.addEventListener("change", updateFormState);
+  };
+
+  const initializeTomSelect = () => {
+    document.querySelectorAll("[data-multiselect='true']").forEach((select) => {
+      const tomSelect = new TomSelect(select, {
+        plugins: ["remove_button", "dropdown_input"],
+        allowEmptyOption: true
+      });
+
+      tomSelect.on("change", () => {
+        const selectedOptions = tomSelect.getValue();
+
+        if (selectedOptions.includes("all") && selectedOptions.length > 1) {
+          tomSelect.setValue(["all"]);
         }
       });
-    })
+    });
+  };
 
-    $form.on("change", function(event) {
-      let formData = new FormData(event.target.closest("form"));
-      let url = $form.data("recipients-count-newsletter-path");
-      const $modal = $("#recipients_count_spinner");
-      $modal.removeClass("hide");
-
-      const xhr = new XMLHttpRequest();
-      xhr.open("POST", url, true);
-      xhr.onload = function() {
-        if (xhr.status === 200) {
-          $("#recipients_count").text(xhr.responseText);
-        }
-        $modal.addClass("hide");
-      };
-      xhr.onerror = function() {
-        $modal.addClass("hide");
-      };
-      // Send the form data
-      xhr.send(formData);
-    })
+  if (isOnSelectRecipientsPage) {
+    attachEventListeners();
+    initializeTomSelect();
+    updateFormState();
+    updateDeliverButtonVisibility();
   }
 });

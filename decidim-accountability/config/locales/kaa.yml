@@ -32,14 +32,9 @@ kaa:
             name: Nátiyje
           status:
             name: Jaǵday
-        projects_import:
-          new:
-            create: Importlaw
         results:
           create:
             success: Nátiyje tabıslı jaratıldı.
-          destroy:
-            success: Nátiyje tabıslı óshirildi.
           edit:
             title: Nátiyjeni ózgertiw
             update: Nátiyjeni jańalaw
@@ -79,7 +74,6 @@ kaa:
       models:
         result:
           fields:
-            category: Kategoriya
             created_at: Jaratıldı
             status: Jaǵday
         timeline_entry:
@@ -90,8 +84,6 @@ kaa:
           results_count:
             one: 1 nátiyje
             other: "%{count} nátiyje"
-        home:
-          categories_label: Kategoriyalar
     admin:
       filters:
         results:

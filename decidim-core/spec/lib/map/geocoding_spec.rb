@@ -18,10 +18,6 @@ module Decidim
         let(:utility_class) { Provider::Geocoding::Test }
       end
 
-      after do
-        Geocoder::Lookup::Test.reset
-      end
-
       describe "#initialize" do
         let(:config) { { foo: "bar" } }
 

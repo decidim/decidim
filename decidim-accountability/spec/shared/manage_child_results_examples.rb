@@ -73,7 +73,7 @@ RSpec.shared_examples "manage child results" do
   describe "soft delete a result" do
     before do
       visit current_path
-      within ".table-list__actions" do
+      within "tr[data-id='#{result.id}'] .table-list__actions" do
         click_on "New result"
       end
     end

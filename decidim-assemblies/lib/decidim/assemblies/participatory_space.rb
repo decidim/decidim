@@ -35,7 +35,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     export.collection do
       Decidim::Assembly
         .public_spaces
-        .includes(:area, :scope, :attachment_collections, :categories)
+        .includes(:attachment_collections)
     end
 
     export.include_in_open_data = true
@@ -46,7 +46,6 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
 
   participatory_space.register_on_destroy_account do |user|
     Decidim::AssemblyUserRole.where(user:).destroy_all
-    Decidim::AssemblyMember.where(user:).destroy_all
   end
 
   participatory_space.seeds do

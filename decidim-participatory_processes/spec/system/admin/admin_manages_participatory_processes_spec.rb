@@ -6,8 +6,8 @@ describe "Admin manages participatory processes", versioning: true do
   include_context "when admin administrating a participatory process"
   include_context "with taxonomy filters context"
 
-  let(:space_manifest) { "participatory_processes" }
-  let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, space_manifest:, space_filter: true) }
+  let(:participatory_space_manifests) { ["participatory_processes"] }
+  let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, participatory_space_manifests:) }
   let!(:participatory_process_groups) do
     create_list(:participatory_process_group, 3, organization:)
   end
@@ -33,7 +33,7 @@ describe "Admin manages participatory processes", versioning: true do
 
       it "hides the private user menu entry" do
         within_admin_sidebar_menu do
-          expect(page).to have_content("Private participants")
+          expect(page).to have_content("Members")
         end
       end
     end
@@ -43,7 +43,7 @@ describe "Admin manages participatory processes", versioning: true do
 
       it "shows the private user menu entry" do
         within_admin_sidebar_menu do
-          expect(page).to have_no_content("Private participants")
+          expect(page).to have_no_content("Members")
         end
       end
     end

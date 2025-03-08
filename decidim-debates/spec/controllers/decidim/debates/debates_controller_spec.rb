@@ -5,8 +5,6 @@ require "spec_helper"
 module Decidim
   module Debates
     describe DebatesController do
-      routes { Decidim::Debates::Engine.routes }
-
       let(:user) { create(:user, :confirmed, organization: component.organization) }
 
       let(:debate_params) do

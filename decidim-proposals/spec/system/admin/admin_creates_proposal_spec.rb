@@ -7,6 +7,10 @@ describe "Admin creates proposals" do
   let(:creation_enabled?) { true }
   let(:new_title) { "This is my proposal new title" }
   let(:new_body) { "This is my proposal new body" }
+  let(:image_filename) { "city2.jpeg" }
+  let(:image_path) { Decidim::Dev.asset(image_filename) }
+  let(:document_filename) { "Exampledocument.pdf" }
+  let(:document_path) { Decidim::Dev.asset(document_filename) }
 
   include_context "when managing a component as an admin" do
     let!(:component) { create(:proposal_component, participatory_space:) }
@@ -29,13 +33,14 @@ describe "Admin creates proposals" do
 
     fill_in_i18n :proposal_title, "#proposal-title-tabs", en: new_title
     fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: new_body
-    fill_in :proposal_attachment_title, with: "FOO BAR"
-    dynamically_attach_file(:proposal_attachment_file, Decidim::Dev.asset("city.jpeg"))
+    dynamically_attach_file(:proposal_documents, image_path)
+    dynamically_attach_file(:proposal_documents, document_path)
+
     click_on("Create")
     find("a.action-icon--edit-proposal").click
 
-    expect(page).to have_content("city.jpeg")
-    expect(page).to have_content("FOO BAR")
+    expect(page).to have_content(image_filename)
+    expect(page).to have_content(document_filename)
   end
 
   it "displays the correct version link", versioning: true do

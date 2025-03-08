@@ -14,10 +14,9 @@ shared_examples "inviting participatory space admins" do |check_private_space: t
         expect(page).to have_content("Landing page") if check_landing_page
         expect(page).to have_content("Phases") if participatory_space.is_a?(Decidim::ParticipatoryProcess)
         expect(page).to have_content("Components")
-        expect(page).to have_content("Categories")
         expect(page).to have_content("Attachments")
         expect(page).to have_content(space_admins_label)
-        expect(page).to have_no_content("Private participants") if participatory_space.respond_to?(:private_space)
+        expect(page).to have_no_content("Members") if participatory_space.respond_to?(:private_space)
         expect(page).to have_content("Moderations")
       end
     end
@@ -30,10 +29,9 @@ shared_examples "inviting participatory space admins" do |check_private_space: t
         expect(page).to have_content("Landing page") if check_landing_page
         expect(page).to have_content("Phases") if participatory_space.is_a?(Decidim::ParticipatoryProcess)
         expect(page).to have_content("Components")
-        expect(page).to have_content("Categories")
         expect(page).to have_content("Attachments")
         expect(page).to have_content(space_admins_label)
-        expect(page).to have_content("Private participants") if participatory_space.respond_to?(:private_space)
+        expect(page).to have_content("Members") if participatory_space.respond_to?(:private_space)
         expect(page).to have_content("Moderations")
       end
     end

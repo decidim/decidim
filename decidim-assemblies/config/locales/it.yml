@@ -16,7 +16,6 @@ it:
         created_by_other: Creato da altri
         creation_date: Data di creazione
         decidim_area_id: La zona
-        decidim_assemblies_type_id: Tipo di assemblea
         decidim_scope_id: Ambito
         description: Descrizione
         developer_group: Promotore
@@ -28,7 +27,6 @@ it:
         hero_image: Immagine della home page
         included_at: Fino a
         instagram: Instagram
-        internal_organisation: Organizzazione interna
         is_transparent: È trasparente
         local_area: Area organizzativa
         meta_scope: Metadati di ambito
@@ -40,8 +38,6 @@ it:
         promoted: In evidenza
         published_at: Pubblicato a
         purpose_of_action: Scopo dell'azione
-        scope_id: Obiettivi
-        scopes_enabled: Ambiti abilitati
         short_description: Breve descrizione
         slug: URL slug
         special_features: Caratteristiche speciali
@@ -80,11 +76,9 @@ it:
       actions:
         import_assembly: Importa
         new_assembly: Nuova assemblea
-        new_assembly_type: Nuovo tipo di assemblea
       assemblies:
         create:
           error: Si è verificato un errore durante la creazione di una nuova assemblea.
-          success: L'assemblea è stata creata con successo.
         edit:
           update: Aggiorna
         index:
@@ -102,18 +96,6 @@ it:
         create:
           error: Si è verificato un errore durante la duplicazione di questa assemblea.
           success: L'assemblea è stata duplicata con successo.
-      assemblies_types:
-        create:
-          error: Si è verificato un errore durante la creazione di un nuovo tipo di assemblea.
-          success: Tipo di Assemblea creato con successo.
-        destroy:
-          success: Tipo di Assemblea eliminato correttamente.
-        new:
-          create: Crea
-          title: Nuovo tipo di assemblea
-        update:
-          error: Si è verificato un errore durante l'aggiornamento di questo tipo di assemblea.
-          success: Tipo di Assemblea aggiornato correttamente.
       assembly_copies:
         new:
           copy: Copia
@@ -127,21 +109,6 @@ it:
           import: Importa
           select: Seleziona quali dati vuoi importare
           title: Importa assemblea
-      assembly_members:
-        create:
-          error: Si è verificato un errore durante l'aggiunta di un membro per questa assemblea.
-          success: Membro creato con successo per questa assemblea.
-        destroy:
-          success: Membro cancellato con successo per questa assemblea.
-        edit:
-          update: Aggiorna
-        index:
-          assembly_members_title: Membri dell'Assemblea
-        new:
-          create: Crea
-        update:
-          error: Si è verificato un errore durante l'aggiornamento del membro per questa assemblea.
-          success: Membro aggiornato correttamente per questa assemblea.
       assembly_publications:
         create:
           error: Si è verificato un errore durante la pubblicazione di questa assemblea.
@@ -164,27 +131,16 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di un amministratore per questa assemblea.
           success: Admin aggiornato correttamente per questa assemblea.
-      filters:
-        decidim_assemblies_type_id_eq:
-          label: Tipo di assemblea
       menu:
         assemblies: Assemblee
         assemblies_submenu:
           assembly_admins: Amministratori dell'assemblea
-          assembly_members: Membri
           attachment_collections: Cartelle
           attachment_files: File
           attachments: Allegati
-          categories: Categorie
           components: Componenti
           moderations: Moderazione
-          private_users: Partecipanti privati
-        assemblies_types: Tipi di assemblea
       models:
-        assemblies_types:
-          fields:
-            created_at: Data/ora di creazione
-            title: Titolo
         assembly:
           fields:
             created_at: Data/ora di creazione
@@ -194,11 +150,6 @@ it:
             title: Nome
           name: Assemblea
         assembly_member:
-          fields:
-            ceased_date: Data di termine
-            designation_date: Data di designazione
-            full_name: Nome
-            position: Posizione
           name: Membro
           positions:
             other: Altro
@@ -248,28 +199,17 @@ it:
             announcement_help: Il testo che inserisci qui verrà mostrato all'utente proprio sotto le informazioni dell'assemblea.
             duration: Durata
             duration_help: Se la durata di questa assemblea è limitata, selezionare la data di fine. Altrimenti, apparirà come indefinita.
-            filters: Filtri
             images: Immagini
             metadata: Metadati
             other: Altro
             select_a_created_by: Seleziona un creatore
-            select_an_area: Seleziona un'Area
-            select_an_assembly_type: Seleziona un tipo di assemblea
             select_parent_assembly: Seleziona l'assemblea madre
             social_handlers: Social networks
             title: Informazioni generali
-        assemblies_types:
-          form:
-            title: Titolo
         assembly_members:
           form:
-            existing_user: Utente esistente
             explanation: 'Guida per l''immagine:'
-            non_user: Non utente
             non_user_avatar_help: Si dovrebbe ottenere il consenso delle persone prima di renderle pubbliche come membri dell'assemblea.
-            select_a_position: Seleziona una posizione
-            select_user: Seleziona un utente
-            user_type: Tipologia di utente
         content_blocks:
           highlighted_assemblies:
             max_results: Quantità massima di elementi da mostrare
@@ -285,14 +225,6 @@ it:
       assembly_members:
         index:
           members: Utenti
-      assembly_types:
-        commission: Commissione
-        consultative_advisory: Consultivo / Advisory
-        executive: Esecutivo
-        government: Governo
-        others: Altri
-        participatory: Participatory
-        working_group: Gruppo di lavoro
       content_blocks:
         highlighted_assemblies:
           name: Assiemi evidenziati
@@ -317,12 +249,9 @@ it:
           member_of:
             member_of: Membro di
       show:
-        assembly_type: Tipo di assemblea
         duration: Durata
         private_space: Questa è un'assemblea privata
     assembly_members:
-      assembly_member:
-        designated_on: Designato su
       index:
         title: Utenti
     events:

@@ -14,11 +14,9 @@ describe "Assembly admin accesses admin sections" do
     it "can access all sections" do
       expect(page).to have_content("Info")
       expect(page).to have_content("Components")
-      expect(page).to have_content("Categories")
       expect(page).to have_content("Attachments")
-      expect(page).to have_content("Members")
       expect(page).to have_content("Assembly admins")
-      expect(page).to have_no_content("Private participants")
+      expect(page).to have_no_content("Members")
       expect(page).to have_content("Moderations")
     end
   end
@@ -27,11 +25,9 @@ describe "Assembly admin accesses admin sections" do
     it "can access all sections" do
       expect(page).to have_content("Info")
       expect(page).to have_content("Components")
-      expect(page).to have_content("Categories")
       expect(page).to have_content("Attachments")
-      expect(page).to have_content("Members")
       expect(page).to have_content("Assembly admins")
-      expect(page).to have_content("Private participants")
+      expect(page).to have_content("Members")
       expect(page).to have_content("Moderations")
     end
   end

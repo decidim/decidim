@@ -26,7 +26,7 @@ module Decidim
         }, constraints: { assembly_id: /[0-9]+/ }
 
         resources :assemblies, only: [:index, :show], param: :slug, path: "assemblies" do
-          resources :assembly_members, only: :index, path: "members"
+          resources :participatory_space_private_users, only: :index, path: "members"
         end
 
         scope "/assemblies/:assembly_slug/f/:component_id" do
@@ -37,6 +37,12 @@ module Decidim
               mount manifest.engine, at: "/", as: "decidim_assembly_#{manifest.name}"
             end
           end
+        end
+      end
+
+      initializer "decidim_assemblies.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Assemblies::Engine, at: "/", as: "decidim_assemblies"
         end
       end
 
@@ -68,8 +74,8 @@ module Decidim
         Decidim.view_hooks.register(:user_profile_bottom, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
           assemblies = OrganizationPublishedAssemblies.new(view_context.current_organization, view_context.current_user)
                                                       .query.distinct
-                                                      .joins(:members)
-                                                      .merge(Decidim::AssemblyMember.where(user: view_context.profile_holder))
+                                                      .joins(:participatory_space_private_users)
+                                                      .merge(Decidim::ParticipatorySpacePrivateUser.where(user: view_context.profile_holder))
                                                       .reorder(title: :asc)
 
           next unless assemblies.any?

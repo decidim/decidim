@@ -43,7 +43,6 @@ it:
     attributes:
       decidim/user:
         current_password: Password attuale
-        email: Email
         name: Nickname
         password: Password
         password_confirmation: Conferma della password
@@ -65,6 +64,9 @@ it:
     'false': 'No'
     'true': 'Si'
   date:
+    buttons:
+      close: Chiudere
+      select: Seleziona
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -237,10 +239,8 @@ it:
       dummy_authorization_handler:
         fields:
           allowed_postal_codes: Codici postali consentiti (separati da virgole)
-          allowed_scope_id: Ambito consentito
           document_number: Numero del documento
           postal_code: Codice postale
-          scope_id: Ambito
         name: Esempio di autorizzazione
       dummy_authorization_workflow:
         name: Flusso di lavoro fittizio di autorizzazione
@@ -322,8 +322,6 @@ it:
             dummy_global_translatable_text: Testo traducibile Dummy
             enable_pads_creation: Abilita la creazione di pad
             resources_permissions_enabled: Permessi di risorse abilitati
-            scope_id: Ambito
-            scopes_enabled: Ambiti abilitati
           step:
             amendment_creation_enabled: Creazione di emendamenti abilitata
             amendment_promotion_enabled: Promozione dell'emendamento abilitata
@@ -390,7 +388,6 @@ it:
           username_help: Nome "pubblico" che comparirà a firma di tutti i tuoi contributi e che sarà accessibile a tutti i navigatori, anche non iscritti alla piattaforma. Ti invitiamo a utilizzare un nome di fantasia per una maggiore tutela della riservatezza.
       sessions:
         new:
-          are_you_new?: Sei nuovo nella piattaforma?
           register: Crea un account
       shared:
         newsletter_modal:
@@ -398,8 +395,6 @@ it:
             check: Controlla e continua
             uncheck: Mantieni deselezionato
           title: Iscrizioni alla newsletter
-        omniauth_buttons:
-          or: O
     doorkeeper:
       authorizations:
         new:
@@ -417,9 +412,6 @@ it:
     download_your_data:
       export:
         ready: Pronto
-      show:
-        download_data: Scarica i dati
-        request_data: Richiedi dati
     editor_images:
       drag_and_drop_help: Aggiungi immagini trascinandole o incollandole.
     endorsements:
@@ -567,10 +559,7 @@ it:
           notification_title: La pagina <a href="%{resource_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
     export_mailer:
       download_your_data_export:
-        click_button: 'Clicca sul link per scaricare i tuoi dati.<br/>Il file sarà disponibile fino a %{date}.<br/>Avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows), <a href="https://www.keka.io/en/">Keka</a> (per MacOS) o <a href="https://peazip.github.io">PeaZip</a> (per Linux) per aprirlo. Password: %{password}'
         download: Scaricare
-      export:
-        ready: In allegato una versione zippata (Zip) dei dati esportati.
       subject: Ecco i dati che hai chiesto di esportare per "%{name}"
     filters:
       linked_classes:
@@ -941,16 +930,7 @@ it:
         error: C'è stato un problema durante l'azione di appoggio.
     scopes:
       global: Ambito globale
-      picker:
-        cancel: Annulla
-        change: Cambia l'ambito selezionato
-        choose: Selezionare
-        currently_selected: Ambito attualmente selezionato
-        title: Seleziona %{field}
       prompt: Seleziona un ambito
-      scopes: Ambiti
-      scopes_picker_input:
-        select_scope: 'Seleziona un ambito (attualmente: %{current})'
     search:
       results: Risultato della ricerca
       results_found_for_term: '%{count} Risultati per la ricerca: "%{term}"'
@@ -1003,10 +983,6 @@ it:
         title: Segnala utente inappropriato
       floating_help:
         help: Aiuto
-      participatory_space_filters:
-        filters:
-          areas: Ambiti territoriali
-          select_an_area: Seleziona un'area
       public_participation:
         public_participation: Mostra pubblicamente la mia presenza
       reference:
@@ -1033,9 +1009,6 @@ it:
       pages_count: Pagine
       participants_count: Partecipanti
       users_count: Partecipanti
-    tags:
-      filter_results_for_category: 'Filtra i risultati per categoria: %{resource}'
-      filter_results_for_scope: 'Filtra i risultati per l''ambito: %{resource}'
     translation_bar:
       help_text: "<strong>Attenzione:</strong> Il contenuto potrebbe essere tradotto automaticamente e non essere accurato al 100%."
       show_original: Mostra testo originale
@@ -1054,13 +1027,6 @@ it:
         send: Invia
       update:
         error: Messaggio non inviato. Riprova più tardi
-    user_interests:
-      show:
-        my_interests: I miei interessi
-        update_my_interests: Aggiorna i miei interessi
-      update:
-        error: Si è verificato un errore durante l'aggiornamento dei tuoi interessi.
-        success: I tuoi interessi sono stati aggiornati con successo.
     user_report_mailer:
       notify:
         body_1: L'utente %{user} è stato segnalato da %{token}
@@ -1229,7 +1195,6 @@ it:
       footer:
         cc_by_license: Licenza Creative Commons
         decidim_logo: Logo Decidim
-        download_open_data: Scarica i file Open Data
         log_in: Accedi
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
       header:
@@ -1267,7 +1232,6 @@ it:
         authorizations: Autorizzazioni
         delete_my_account: Cancella il mio account
         my_data: I miei dati
-        my_interests: I miei interessi
         notifications_settings: Impostazioni delle notifiche
         title: Impostazioni utente
         user_groups: gruppi
@@ -1309,6 +1273,8 @@ it:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Selezionare
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

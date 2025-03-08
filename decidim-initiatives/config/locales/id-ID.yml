@@ -81,7 +81,6 @@ id:
             initiative_title: Judul inisiatif
             name_and_surname: Nama dan nama keluarga
             postal_code: Kode Pos
-            time_and_date: Waktu dan tanggal
             timestamp: Stempel waktu
       titles:
         initiatives: Inisiatif
@@ -281,7 +280,6 @@ id:
           other: " tanda tangan"
         vote_cabin:
           already_voted: Sudah ditandatangani
-          verification_required: Verifikasi akun Anda untuk menandatangani inisiatif
           vote: Tanda
           votes_blocked: Penandatanganan dinonaktifkan
         votes_count:

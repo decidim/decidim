@@ -1,0 +1,20 @@
+<div id="js-unreport-moderated_users-actions" class="hide js-bulk-action-form">
+  <%= form_tag(bulk_unreport_moderated_users_path, method: :patch, id: "js-form-unreport-moderated_users", class: "form form-defaults flex items-center gap-x-2") do %>
+
+    <div class="hide">
+      <% moderated_users.each do |moderation| %>
+        <%= check_box_tag "user_ids[]", moderation.user.id, false, class: "js-check-all-moderated_users js-moderated_user-id-#{moderation.user.id}" %>
+      <% end %>
+    </div>
+
+    <%= submit_tag(
+          t("decidim.admin.moderated_users.index.actions.ignore.update_moderated_user_button"),
+          id: "js-submit-unreport-moderated_users",
+          class: "button button__sm button__secondary small button--simple float-left"
+        ) %>
+
+    <button id="js-cancel-unreport-moderated_users" class="button button__sm button__secondary js-cancel-bulk-action" type="button">
+      <%= t("decidim.admin.moderated_users.index.cancel") %>
+    </button>
+  <% end %>
+</div>

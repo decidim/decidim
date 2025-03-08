@@ -120,15 +120,8 @@ sk:
             few: "%{count} výsledkov"
             many: "%{count} výsledkov"
             other: "%{count} výsledkov"
-        filters:
-          all: Všetko
-        home:
-          categories_label: Kategórie
-          subcategories_label: Podkategórie
         home_header:
           global_status: Globálny stav vykonávania
-        nav_breadcrumb:
-          global: Globálne vykonanie
         search:
           search: Hľadať akcie
         show:

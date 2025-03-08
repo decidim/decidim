@@ -8,7 +8,6 @@ module Decidim::Conferences
 
     let(:organization) { create(:organization) }
     let(:current_user) { create(:user, :admin, :confirmed, organization:) }
-    let(:scope) { create(:scope, organization:) }
     let(:errors) { double.as_null_object }
     let(:hero_image) { nil }
     let(:taxonomizations) do
@@ -50,8 +49,6 @@ module Decidim::Conferences
         short_description: { en: "short_description" },
         current_organization: organization,
         organization:,
-        scopes_enabled: true,
-        scope:,
         taxonomizations:,
         errors:,
         show_statistics: false,

@@ -8,7 +8,8 @@ module Decidim
       helper_method :handler, :unauthorized_methods, :authorization_method, :authorization,
                     :granted_authorizations, :pending_authorizations, :active_authorization_methods
 
-      before_action :valid_handler, only: [:new, :create]
+      before_action :valid_handler, :authorize_handler, only: [:new, :create]
+      before_action :set_ephemeral_user, only: :renew_onboarding_data
 
       include Decidim::UserProfile
       include Decidim::HtmlSafeFlash
@@ -38,6 +39,8 @@ module Decidim
 
         if authorization_status == :unauthorized
           flash[:alert] = t("authorizations.onboarding_pending.unauthorized", scope: "decidim.verifications", action: onboarding_manager.action_text.downcase)
+        elsif current_user.ephemeral?
+          flash[:notice] = t("ephemeral_authorized_message", scope: "decidim.onboarding_action_message")
         else
           flash[:notice] = t(
             "authorizations.onboarding_pending.completed_verifications",
@@ -72,6 +75,14 @@ module Decidim
 
             flash[:notice] = message
             redirect_to redirect_url || authorizations_path
+          end
+
+          on(:transfer_user) do |authorized_user|
+            authorized_user.update(last_sign_in_at: Time.current, deleted_at: nil)
+            sign_out(current_user)
+            sign_in(authorized_user)
+
+            redirect_to decidim_verifications.onboarding_pending_authorizations_path
           end
 
           on(:invalid) do
@@ -128,6 +139,25 @@ module Decidim
 
         logger.warn msg
         redirect_to(authorizations_path) && (return false)
+      end
+
+      def authorize_handler
+        raise Decidim::ActionForbidden if current_user.ephemeral? && !Decidim::Verifications::Adapter.from_element(handler_name).ephemeral?
+      end
+
+      def set_ephemeral_user
+        return if user_signed_in?
+
+        onboarding_manager = Decidim::OnboardingManager.new(Decidim::User.new(extended_data: onboarding_cookie_data))
+        authorizations = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources)
+        return unless authorizations.ephemeral?
+
+        form = Decidim::EphemeralUserForm.new(organization: current_organization, locale: current_locale)
+        CreateEphemeralUser.call(form) do
+          on(:ok) do |ephemeral_user|
+            sign_in(ephemeral_user)
+          end
+        end
       end
 
       def unauthorized_methods

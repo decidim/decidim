@@ -1,33 +1,43 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card">
-  <div class="item_show__header">
+  <div class="item_show__header item_show__header--with-action-options">
     <h1 class="item_show__header-title">
-      <% if parent_result %>
-        <%= "#{translated_attribute(parent_result.title)} > " %>
-      <% end %>
-      <%= t(".title") %>
+      <div>
+        <% if parent_result %>
+          <%= "#{translated_attribute(parent_result.title)} > " %>
+        <% end %>
+        <%= t(".title") %>
+        <span data-selected-count class="component-counter" title="<%= t(".selected") %>"></span>
+      </div>
 
-      <%= export_dropdowns(query) %>
-      <%= import_dropdown do %>
-        <% if allowed_to?(:create, :result) && parent_result.nil? %>
-          <%= link_to new_projects_import_path do %>
-            <li class="imports--component imports--results">
-              <%= t("actions.import", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")) %>
-            </li>
+      <div class="flex items-center gap-x-4">
+        <%= render partial: "decidim/accountability/admin/results/bulk_actions/dropdown" %>
+        <%= export_dropdowns(query) %>
+        <%= import_dropdown do %>
+          <% if allowed_to?(:create, :result) && parent_result.nil? %>
+            <%= link_to new_import_component_path do %>
+              <li class="imports--component imports--results">
+                <%= t("actions.import", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")) %>
+              </li>
+            <% end %>
+          <% end %>
+          <% if allowed_to? :create, :result %>
+            <%= link_to import_results_path do %>
+              <li class="imports--component imports--results">
+                <%= t("actions.import_csv", scope: "decidim.accountability") %>
+              </li>
+            <% end %>
           <% end %>
         <% end %>
-        <% if allowed_to? :create, :result %>
-          <%= link_to import_results_path do %>
-            <li class="imports--component imports--results">
-              <%= t("actions.import_csv", scope: "decidim.accountability") %>
-            </li>
-          <% end %>
-        <% end %>
-      <% end %>
-      <%= render partial: "decidim/accountability/admin/shared/subnav" unless parent_result %>
-      <%= link_to t("actions.new_result", scope: "decidim.accountability"), new_result_path(parent_id: parent_result), class: "button button__sm button__secondary" if allowed_to? :create, :result %>
-      <%= render partial: "decidim/admin/components/resource_action" %>
+        <%= render partial: "decidim/accountability/admin/shared/subnav" unless parent_result %>
+        <%= link_to t("actions.new_result", scope: "decidim.accountability"), new_result_path(parent_id: parent_result), class: "button button__sm button__secondary" if allowed_to? :create, :result %>
+        <%= render partial: "decidim/admin/components/resource_action" %>
+      </div>
     </h1>
+
+    <%= render partial: "decidim/accountability/admin/results/bulk_actions/taxonomies_form" %>
+    <%= render partial: "decidim/accountability/admin/results/bulk_actions/status_form" %>
+    <%= render partial: "decidim/accountability/admin/results/bulk_actions/dates_form" %>
   </div>
 
   <%= admin_filter_selector(:results) %>
@@ -55,3 +65,5 @@
   <% end %>
 </div>
 <%= decidim_paginate results %>
+
+<%= append_javascript_pack_tag "decidim_accountability_admin_index" %>

@@ -11,6 +11,8 @@ shared_examples "export survey user answers" do
 
   it "exports a CSV" do
     visit_component_admin
+    click_on "Questions"
+    click_on "Responses"
 
     find(".exports").click
     expect(Decidim::PrivateExport.count).to eq(0)
@@ -19,6 +21,7 @@ shared_examples "export survey user answers" do
 
     expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
 
+    sleep 0.5
     expect(last_email.subject).to eq(%(Your export "survey_user_answers" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
     expect(Decidim::PrivateExport.last.export_type).to eq("survey_user_answers")
@@ -26,6 +29,8 @@ shared_examples "export survey user answers" do
 
   it "exports a JSON" do
     visit_component_admin
+    click_on "Questions"
+    click_on "Responses"
 
     find(".exports").click
     expect(Decidim::PrivateExport.count).to eq(0)
@@ -33,6 +38,8 @@ shared_examples "export survey user answers" do
     perform_enqueued_jobs { click_on "JSON" }
 
     expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
+
+    sleep 0.5
     expect(last_email.subject).to eq(%(Your export "survey_user_answers" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
     expect(Decidim::PrivateExport.last.export_type).to eq("survey_user_answers")
@@ -40,6 +47,8 @@ shared_examples "export survey user answers" do
 
   it "exports a PDF" do
     visit_component_admin
+    click_on "Questions"
+    click_on "Responses"
 
     find(".exports").click
     expect(Decidim::PrivateExport.count).to eq(0)
@@ -48,6 +57,7 @@ shared_examples "export survey user answers" do
 
     expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
 
+    sleep 0.5
     expect(last_email.subject).to eq(%(Your export "survey_user_answers" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
     expect(Decidim::PrivateExport.last.export_type).to eq("survey_user_answers")

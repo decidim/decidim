@@ -27,7 +27,6 @@ module Decidim
 
         attribute :slug, String
         attribute :import_steps, Boolean, default: false
-        attribute :import_categories, Boolean, default: true
         attribute :import_attachments, Boolean, default: true
         attribute :import_components, Boolean, default: true
         attribute :document, Decidim::Attributes::Blob

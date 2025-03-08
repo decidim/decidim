@@ -5,6 +5,7 @@ module Decidim
   # for transparency reasons, to log all actions so all other users can
   # see the actions being performed.
   class ActionLog < ApplicationRecord
+    include Decidim::Taxonomizable
     include Decidim::ScopableParticipatorySpace
 
     belongs_to :organization,

@@ -123,8 +123,6 @@ id:
         attachment_collections: Folder
         attachments: Lampiran
         close: Dekat
-        confirm_destroy: Anda yakin ingin menghapus rapat ini?
-        destroy: Menghapus
         edit: Edit
         preview: Preview
         registrations: Pendaftaran
@@ -181,8 +179,6 @@ id:
             close: Dekat
             title: Tutup rapat
         meetings:
-          destroy:
-            success: Rapat berhasil dihapus
           edit:
             update: Memperbarui
           index:

@@ -22,21 +22,28 @@ module Decidim
       end
 
       def store_onboarding_cookie_data!(user)
-        data_key = OnboardingManager::DATA_KEY
+        data = onboarding_cookie_data
+        return if data.nil?
 
-        if cookies[data_key]
-          onboarding_data = JSON.parse(cookies[data_key]).transform_keys(&:underscore)
-
-          user.extended_data = user.extended_data.merge(data_key => onboarding_data)
+        if data.present?
+          user.extended_data = user.extended_data.merge(data)
           user.save!
-
-          cookies.delete(data_key)
         end
+        cookies.delete(OnboardingManager::DATA_KEY)
+      end
+
+      def onboarding_cookie_data
+        data_key = OnboardingManager::DATA_KEY
+        return unless cookies[data_key]
+
+        { data_key => JSON.parse(cookies[data_key]).transform_keys(&:underscore) }
       rescue JSON::ParserError
-        cookies.delete(data_key)
+        {}
       end
 
       def clear_onboarding_data!(user)
+        return if user.ephemeral?
+
         user.extended_data = user.extended_data.except(OnboardingManager::DATA_KEY)
         user.save!
       end

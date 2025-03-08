@@ -35,18 +35,16 @@ module Decidim
 
       @template.render(
         "decidim/shared/filters/#{type}",
-        **options.merge(
-          method:,
-          collection:,
-          label:,
-          id:,
-          form: self
-        )
+        **options, method:,
+                   collection:,
+                   label:,
+                   id:,
+                   form: self
       )
     end
 
     def dropdown_label(item, method, options = {})
-      @template.render("decidim/shared/filters/dropdown_label", **options.merge(item:, method:, form: self))
+      @template.render("decidim/shared/filters/dropdown_label", **options, item:, method:, form: self)
     end
 
     private

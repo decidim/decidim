@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # The main admin application controller for initiatives
       class ApplicationController < Decidim::Admin::ApplicationController
+        helper Decidim::Initiatives::ScopesHelper
+
         layout "decidim/admin/initiatives"
 
         register_permissions(::Decidim::Initiatives::Admin::ApplicationController,

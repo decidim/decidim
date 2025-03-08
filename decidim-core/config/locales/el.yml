@@ -54,7 +54,6 @@ el:
         with_participatory_space: Συμμετοχικός χώρος
       decidim/user:
         current_password: Τρέχων κωδικός πρόσβασης
-        email: Email
         name: Ψευδώνυμο
         password: Κωδικός πρόσβασης
         password_confirmation: Επιβεβαίωση κωδικού πρόσβασης
@@ -76,6 +75,8 @@ el:
     'false': 'Όχι'
     'true': 'Ναι'
   date:
+    buttons:
+      select: Επιλέξτε
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -387,8 +388,6 @@ el:
             dummy_global_translatable_text: Εικονικό μετατρέψιμο κείμενο
             enable_pads_creation: Ενεργοποίηση δημιουργίας πινάκων σημειώσεων
             resources_permissions_enabled: Τα δικαιώματα πόρων ενεργοποιήθηκαν
-            scope_id: Πεδίο εφαρμογής
-            scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
           step:
             amendment_creation_enabled: Η δημιουργία τροποποίησης ενεργοποιήθηκε
             amendment_promotion_enabled: Η προώθηση τροποποίησης ενεργοποιήθηκε
@@ -469,7 +468,6 @@ el:
           username_help: Το δημόσιο όνομα που εμφανίζεται στις δημοσιεύσεις σας. Με σκοπό τη διασφάλιση της ανωνυμίας, μπορεί να είναι οποιοδήποτε όνομα.
       sessions:
         new:
-          are_you_new?: Είστε νέοι στην πλατφόρμα;
           register: Δημιουργία λογαριασμού
           sign_in_disabled: Μπορείτε να έχετε πρόσβαση με εξωτερικό λογαριασμό.
       shared:
@@ -478,8 +476,6 @@ el:
             check: Επιλογή και συνέχεια
             uncheck: Διατήρηση χωρίς επιλογή
           title: Ειδοποιήσεις ενημερωτικών δελτίων
-        omniauth_buttons:
-          or: Ή
     doorkeeper:
       authorizations:
         new:
@@ -497,16 +493,12 @@ el:
     download_your_data:
       export:
         ready: Έτοιμο
-      show:
-        download_data: Πραγματοποιήστε λήψη των δεδομένων
-        request_data: Αίτηση για δεδομένα
     editor_images:
       create:
         error: Σφάλμα φόρτωσης εικόνας.
         success: Η εικόνα ανέβηκε επιτυχώς.
       drag_and_drop_help: Προσθήκη εικόνων σύροντας τις & ρίχνοντας ή επικολλώντας αυτές.
     endorsement_buttons_cell:
-      already_endorsed: Δεν μου αρέσει
       endorse: Μου αρέσει
     endorsements:
       identities:
@@ -646,8 +638,6 @@ el:
     export_mailer:
       download_your_data_export:
         download: Λήψη
-      export:
-        ready: Επισυνάπτεται μια συμπιεσμένη έκδοση της εξαγωγής σας.
       subject: Η εξαγωγή «%{name}» είναι έτοιμη
     filters:
       linked_classes:
@@ -1104,16 +1094,7 @@ el:
         error: Υπήρξε ένα πρόβλημα κατά την ενέργεια επιδοκιμασίας.
     scopes:
       global: Καθολικό πεδίο εφαρμογής
-      picker:
-        cancel: Ακύρωση
-        change: Αλλαγή επιλεγμένου πεδίου εφαρμογής
-        choose: Επιλέξτε
-        currently_selected: Τρέχων επιλεγμένο πεδίο εφαρμογής
-        title: Επιλέξτε πεδίο %{field}
       prompt: Επιλέξτε πεδίο εφαρμογής
-      scopes: Πεδία εφαρμογής
-      scopes_picker_input:
-        select_scope: 'Επιλέξτε ένα πεδίο εφαρμογής (Τρέχων: %{current})'
     search:
       results: Αποτελέσματα αναζήτησης
       results_found_for_term: '%{count} αποτελέσματα για την αναζήτηση του όρου: «%{term}»'
@@ -1159,10 +1140,6 @@ el:
         title: Αναφορά ακατάλληλου περιεχομένου
       floating_help:
         help: Βοήθεια
-      participatory_space_filters:
-        filters:
-          areas: Τομείς
-          select_an_area: Επιλέξτε τομέα
       reference:
         reference: 'Αναφορά: %{reference}'
       represent_user_group:
@@ -1176,9 +1153,6 @@ el:
         share_link: Κοινοποίηση συνδέσμου
     statistics:
       comments_count: Σχόλια
-    tags:
-      filter_results_for_category: 'Φιλτράρισμα αποτελεσμάτων για την κατηγορία: %{resource}'
-      filter_results_for_scope: 'Φιλτράρισμα αποτελεσμάτων για το πεδίο εφαρμογής: %{resource}'
     user_contact_disabled: Αυτός ο συμμετέχων δεν δέχεται άμεσα μηνύματα.
     user_conversations:
       create:
@@ -1193,13 +1167,6 @@ el:
         send: Αποστολή
       update:
         error: Το μήνυμα δεν στάλθηκε. Δοκιμάστε ξανά αργότερα.
-    user_interests:
-      show:
-        my_interests: Τα ενδιαφέροντά μου
-        update_my_interests: Ενημέρωση των ενδιαφερόντων μου
-      update:
-        error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση των ενδιαφερόντων σας.
-        success: Τα ενδιαφέροντά σας ενημερώθηκαν με επιτυχία.
     version:
       show:
         back_to_resource: Επιστροφή
@@ -1355,7 +1322,6 @@ el:
       footer:
         cc_by_license: Άδεια Creative Commons
         decidim_logo: Λογότυπο decidim
-        download_open_data: Λήψη αρχείων Open Data
         log_in: Σύνδεση
         made_with_open_source: Ο ιστότοπος δημιουργήθηκε με <a target="_blank" href="https://github.com/decidim/decidim">δωρεάν λογισμικό</a>.
       header:
@@ -1386,7 +1352,6 @@ el:
         authorizations: Εξουσιοδοτήσεις
         delete_my_account: Διαγραφή του λογαριασμού μου
         my_data: Τα δεδομένα μου
-        my_interests: Τα ενδιαφέροντά μου
         notifications_settings: Ρυθμίσεις ειδοποιήσεων
         title: Ρυθμίσεις συμμετέχοντα
         user_groups: Ομάδες
@@ -1427,6 +1392,8 @@ el:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Επιλέξτε
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

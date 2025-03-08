@@ -9,8 +9,6 @@ zh-CN:
   decidim:
     blogs:
       actions:
-        confirm_destroy: 您确定要删除此帖子？
-        destroy: 删除
         edit: 编辑
         new: 新建帖子
         title: 行动

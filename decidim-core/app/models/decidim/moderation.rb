@@ -38,5 +38,13 @@ module Decidim
     def self.ransackable_associations(_auth_object = nil)
       []
     end
+
+    def title
+      return reportable.reported_title if reportable.respond_to?(:reported_title)
+      return reportable.title if reportable.respond_to?(:title)
+      return reportable.name if reportable.respond_to?(:name)
+
+      reportable.id.to_s
+    end
   end
 end

@@ -35,7 +35,6 @@ module Decidim
             slug: conference.slug,
             start_date: conference.start_date,
             end_date: conference.end_date,
-            scopes_enabled: conference.scopes_enabled,
             registrations_enabled: conference.registrations_enabled,
             registration_terms: conference.registration_terms,
             available_slots: conference.available_slots

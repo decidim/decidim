@@ -98,7 +98,6 @@ el:
             initiative_title: Τίτλος πρωτοβουλίας
             name_and_surname: Όνομα και επώνυμο
             postal_code: Ταχυδρομικός κώδικας
-            time_and_date: Ώρα και ημερομηνία
             timestamp: Χρονική σήμανση
       titles:
         initiatives: Πρωτοβουλίες
@@ -329,7 +328,6 @@ el:
           other: "υπογραφές"
         vote_cabin:
           already_voted: Έχει ήδη υπογραφεί
-          verification_required: Επαληθεύστε τον λογαριασμό σας για να υπογράψετε την πρωτοβουλία
           vote: Υπογραφή
           votes_blocked: Η υπογραφή απενεργοποιήθηκε
         votes_count:

@@ -119,8 +119,6 @@ is-IS:
         attachment:
           new: Nýtt viðhengi
         browse: Skoða
-        category:
-          new: Nýr flokkur
         import: Flytja inn
         manage: Stjórna
         newsletter:
@@ -178,28 +176,14 @@ is-IS:
       autocomplete:
         no_results: Engar niðurstöður fundust
       categories:
-        create:
-          success: Flokkur búin til með góðum árangri.
-        destroy:
-          success: Flokkur eytt með góðum árangri.
-        edit:
-          title: Breyta flokki
-          update: Uppfæra
         index:
           categories_title: Flokkar
-        new:
-          create: Búa til flokk
-          title: Ný flokkur
-        update:
-          success: Flokkur uppfærð með góðum árangri.
       component_permissions:
         update:
           success: Heimildir uppfærðar með góðum árangri.
       components:
         create:
           success: Hluti búin til með góðum árangri.
-        destroy:
-          success: Hluti eytt með góðum árangri.
         edit:
           title: Breyta hlutanum
           update: Uppfæra
@@ -229,8 +213,6 @@ is-IS:
       exports:
         export_as: "%{name} sem %{export_format}"
       filters:
-        category_id_eq:
-          label: Flokkur
         officialized_at_null:
           label: Ríki
           values:
@@ -450,8 +432,6 @@ is-IS:
           update: Uppfæra
         new:
           title: Ný síða
-      taxonomies:
-        count: Telja
       titles:
         admin_log: Admin log
         area_types: Svæði tegundir

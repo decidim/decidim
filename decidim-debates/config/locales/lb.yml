@@ -2,10 +2,8 @@ lb:
   activemodel:
     attributes:
       debate:
-        category_id: Kategorie
         closed_at: Geschlossen am
         conclusions: Zusammenfassung
-        decidim_category_id: Kategorie
         description: Beschreibung
         end_time: Endet am
         information_updates: Informationsaktualisierungen
@@ -27,7 +25,6 @@ lb:
       debates:
         actions:
           comment: Kommentar
-          create: Erstellen
           endorse: Bestätigen
         name: Debatten
         settings:
@@ -35,8 +32,6 @@ lb:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
-            scope_id: Bereich
-            scopes_enabled: Bereiche aktiviert
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
@@ -54,8 +49,6 @@ lb:
           state_values:
             closed: Geschlossen
             open: Offen
-        form:
-          select_a_category: Bitte wählen sie eine Kategorie
         index:
           new_debate: Neue Debatte
         new:
@@ -69,11 +62,9 @@ lb:
           recent: Neueste zuerst
           updated: Kürzlich aktualisiert
         show:
-          close_debate: Debatte schließen
           debate_closed: Geschlossen
           debate_conclusions_are: 'Die Debatte wurde am %{date} mit diesen Ergebnissen geschlossen:'
           edit_conclusions: Schlussfolgerungen bearbeiten
-          edit_debate: Debatte bearbeiten
           groups_count: Gruppen
           open: Offene Debatte
           participants_count: Teilnehmer

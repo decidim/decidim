@@ -17,11 +17,12 @@ fr-CA:
     blogs:
       actions:
         author_id: Créer un article comme
-        confirm_destroy: Êtes-vous certain de vouloir supprimer cet article ?
-        destroy: Supprimer
+        confirm_delete_post: Êtes-vous sûr(e) de vouloir supprimer cet article ?
+        deleted_posts_info: Les articles supprimés peuvent être restaurés depuis la corbeille.
         edit: Modifier
         new: Nouvel article
         title: Actions
+        view_deleted_posts: Voir les articles supprimés
       admin:
         posts:
           create:
@@ -35,6 +36,8 @@ fr-CA:
           index:
             not_published_yet: Pas encore publié.
             title: Articles
+          manage_trash:
+            title: Articles supprimés
           new:
             create: Créer
             title: Créer un article
@@ -62,11 +65,28 @@ fr-CA:
             published_at: Date de publication
             title: Titre
       posts:
+        edit:
+          back: Retour à l'article
+          button: Mettre à jour
+          title: Modifier l'article
+        form:
+          author_id: Auteur
+          body: Corps de texte
+          title: Titre
         index:
           count:
             one: "%{count} article"
             other: "%{count} articles"
           empty: Il n'y a pas encore d'articles.
+          new_post: Nouvel article
+        menu_actions:
+          button_destroy: Supprimer l'article
+          button_destroy_confirm: Êtes-vous sûr(e) de vouloir supprimer cet article ?
+          button_edit: Modifier l'article
+        new:
+          back: Retour aux articles
+          button: Créer
+          title: Créer un nouvel article
     components:
       blogs:
         actions:
@@ -81,6 +101,7 @@ fr-CA:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            creation_enabled_for_participants: Les participants peuvent créer des articles
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
@@ -93,5 +114,14 @@ fr-CA:
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez le retirer du lien précédent.
           email_subject: Nouvel article publié dans %{participatory_space_title}
           notification_title: L'article <a href="%{resource_path}">%{resource_title}</a> a été publié dans %{participatory_space_title}
+    open_data:
+      help:
+        post_comments:
+          alignment: Si ce commentaire était pour, contre ou neutre
+          author: Le nom du participant qui a fait ce commentaire
+          body: Le commentaire lui-même
+          commentable_id: L'identifiant unique du commentaire
+          created_at: La date de création de ce commentaire
+          id: L'id de ce commentaire
     statistics:
       posts_count: Publications

@@ -6,10 +6,14 @@ cs:
         accordions:
           content_panel: Obsah panelu
           demo: Demo
+          demo_description: Po celou dobu uplatňování jsou výrazně používány k zobrazování/skrytí obsahu v tabulkách nebo skládání/rozkládání viditelných textů.
+          description_accordions_html: Accordions jsou javascriptovou funkcí, která je k dispozici díky externí knihovně s názvem %{link_code} a11y-accordion-component.
           github_source_html: Zdrojový kód na GitHub %{github_link}
           panel: Panel
+          title: Accordions
           trigger: Spouštěč
           usage: Použití
+          usage_p: Akce vyžaduje nejméně tři prvky
           usage_p_1_html: 1. wrapper <code>div</code>, s atributem dat <code>data-component="accordion"</code>, přes všechny dostupné spouštěče a panely.
           usage_p_2_html: 2. spouštěcí prvek, uživatelsky proveditelný (jako tlačítko), ukazující na sbalitelný prvek prostřednictvím <code>data-controls="panel"</code>, kde <i>panel</i> je <code>id</code> panelu.
           usage_p_3_html: 3. Modální prvek, jehož <code>id</code> odpovídá hodnotě data-target, ke které se spouštěč vztahuje.
@@ -33,6 +37,7 @@ cs:
           dialog_demo_description_html: Dialogy nebo modální komponenty jsou implementovány přes rails helper <code>decidim_modal</code>.
           dialogs_description_html: Dialogy jsou javascript funkce dostupné díky externí knihovně s názvem <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
           tips_description: 'Chcete-li zobrazit komplexní modál, který odpovídá stylům, proveďte následující markup:'
+          tips_description_html: Věnujte pozornost <i>atributům dat</i> a <i>id</i>. Například id <code>[data-dialog-title]</code> začíná <i>dialog-title</i> plus <i>modal id</i>.
           title: Dialogy
           usage_description: Dialog vyžaduje dva prvky
           usage_description_2_html: 2. Modální prvek, jehož <code>id</code> odpovídá hodnotě data-target, ke které se spouštěč vztahuje.
@@ -149,6 +154,7 @@ cs:
           typefaces_description_2: Tato písma jsou licencována pod Open Font License
       helpers:
         accountability: Odpovědnost
+        accountability_cards_html: Používá kartu <i>Projekty odpovědnosti</i>. Tato karta vyžaduje správné zobrazení assetů modulu, tj. <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
         activity: Aktivita
         address_description: Adresa buňky obdrží zdroj a vyhledá geolokalizovatelné atributy, aby se vytvořilo specifické označení.
         address_description_2: V závislosti na typu obsahu může být adresa online url. V takových případech jsou zobrazené informace zcela stejné, ale ve tvaru tak, aby se přizpůsobily.
@@ -181,9 +187,9 @@ cs:
         context: Kontext
         context_description: Tato buňka zobrazuje některé informace o uživateli. Je to vizuální nápověda k identifikaci zdroje/tvůrce obsahu. Po najetí myší se zobrazí nápověda s dalšími informacemi a odkazy na její profil.
         context_description_2: Pro zdroje se tato buňka objevuje pod hlavní položkou. U jiného obsahu se objeví vedle samotného obsahu.
-        debate_l: Rozprava L
-        debate_s: Rozprava S
-        debates: Rozpravy
+        debate_l: Debata L
+        debate_s: Debata S
+        debates: Debaty
         debates_cards_html: Použito na kartě <i>Debaty</i>
         debates_cards_text: Použít jinou šablonu pro blok obrázků
         default: Výchozí
@@ -201,12 +207,16 @@ cs:
         dropdowns_usage_1_description: 2. Modální prvek, jehož <code>id</code> odpovídá hodnotě data-target, ke které se spouštěč vztahuje.
         dropdowns_usage_description: 'Rozevírací nabídka vyžaduje dva prvky:'
         dropdowns_usage_description_html: 1. Uživatelsky proveditelný prvek, s atributy <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
+        dummy_description: Zástupný popis zdoje
+        dummy_title: Zástupný titulek zdroje
         follow_button: Tlačítko Sledovat
+        follower_description_html: Ujistěte se, že v DOM je přítomna část <code>Rozhodnout/shared/login_modal</code>. Tato část je umístěna v rozvržení aplikace, když je uživatel přihlášen.
         form_elements: Prvky formuláře
         generic_cards: Obecné karty
         grid: Mřížka
         hex_code: Hex kód
         highlight: Zvýraznění
+        highlight_description: Používá se u zdrojů, které umožňují zvýraznit
         html_tips: HTML tipy
         icons: Ikony
         image_and_description: Obrázek a popis
@@ -251,9 +261,12 @@ cs:
         source_code: Zdrojový kód
         state: Stav
         tab_panels_context_description: Tato komponenta panelů shromažďuje veškerý související obsah nebo jiné zdroje hlavního zobrazeného prvku, aby se ušetřil svislý prostor. Kliknutím na kartu se aktivuje vytvořený panel pro zobrazení obsahu.
+        tab_panels_context_description_html: Především se používá v <i>layout_item</i> nebo <i>layout_center</i>, po hlavním obsahu dokumentu.
+        tab_panels_usage_description: 'Tato komponenta přijímá řadu hashů a přepne výstup každé položky do struktury panelů. Dostupné vlastnosti pro každý panel:'
         tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Argumenty pro předchozí metodu"
         tab_panels_usage_description_html: "<strong>povoleno</strong>: <i>Boolean</i>. Podmíněné vykreslení záložky"
         tab_panels_usage_description_id_html: "<strong>id</strong>: <i>řetězec</i>. Jedinečné Id"
+        tab_panels_usage_description_rails_html: "<strong>metoda</strong>: <i>Symbol</i>. Jakákoli funkce rails rozumí"
         tab_panels_usage_description_remixicon_html: "<strong>ikona</strong>: <i>řetězec</i>. Klávesa Remixicon"
         tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>řetězec</i>. Název karty"
         tailwind: Tailwind název
@@ -273,6 +286,8 @@ cs:
         usage_base_2: Hlavní barva odkazů a tlačítek
         usage_base_3: Grafické ozdobné prvky a barva zvýraznění\nKarty a seznam položek při najetí na okraj stavu
         usage_formelements_1: Výchozí pozadí vstupních prvků
+        usage_formelements_2: Vstupní prvky s vypnutým stavem na pozadí
+        usage_state_1: Hranice s oznámením o úspěšnosti\nVýplň ikony upozornění\nPozadí tlačítka při úspěšné zprávě
         usage_state_2: Okraj výstražného upozornění
         usage_state_3: Ohraničení výstrahy\nvyplnění ikony výstrahy
         usage_typography_1: Nadpisy a názvy sekcí

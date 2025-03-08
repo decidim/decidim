@@ -107,6 +107,14 @@ describe "Explore posts" do
             expect(page).to have_content(user.name)
           end
         end
+
+        context "when participant is deleted" do
+          let(:author) { create(:user, :deleted, organization: component.organization) }
+
+          it "successfully shows the page" do
+            expect(page).to have_content("Deleted participant")
+          end
+        end
       end
 
       it "show post info" do

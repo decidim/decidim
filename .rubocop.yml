@@ -33,3 +33,14 @@ RSpec/NoExpectationExample:
     - decidim-proposals/spec/system/admin/admin_manages_participatory_texts_spec.rb
     - decidim-proposals/spec/system/participatory_texts_spec.rb
     - decidim-participatory_processes/spec/system/participatory_processes_spec.rb
+
+Style/SafeNavigationChainLength:
+  Exclude:
+    - decidim-verifications/db/migrate/20171030133426_move_authorizations_to_new_api.rb
+    - decidim-accountability/app/forms/decidim/accountability/admin/result_form.rb
+    - decidim-core/app/helpers/decidim/newsletters_helper.rb
+    - decidim-core/app/models/decidim/attachment.rb
+    - decidim-proposals/app/cells/decidim/proposals/proposals_picker_cell.rb
+    - decidim-proposals/spec/types/integration_schema_spec.rb
+    - decidim-admin/app/views/decidim/admin/taxonomy_filters/new.html.erb
+

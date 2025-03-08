@@ -63,6 +63,7 @@ module Decidim
           "created_at",
           "updated_at",
           "state",
+          "decidim_proposals_proposal_state_id",
           "state_published_at",
           "answer",
           "answered_at",
@@ -74,7 +75,7 @@ module Decidim
           "proposal_notes_count",
           "proposal_votes_count"
         ).merge(
-          "category" => original_proposal.category
+          "taxonomies" => original_proposal.taxonomies
         ).merge(
           extra_attributes
         )

@@ -77,14 +77,10 @@ lt:
             title: Redaguoti klausimyną
           form:
             add_question: Pridėti klausimą
-            add_separator: Pridėti skyriklį
-            add_title_and_description: Pridėti pavadinimą ir aprašymą
-            already_answered_warning: Kai kurie naudotojai jau atsakė į formos klausimus, todėl jos klausimų keisti nebegalite.
             collapse: Suskleisti visus klausimus
             expand: Išskleisti visus klausimus
             preview: Peržiūra
             title: Taisyti %{questionnaire_for} formą
-            unpublished_warning: Forma nepaskelbta. Galite keisti klausimus, tačiau tai darydami pašalinsite esamus atsakymus.
           matrix_row:
             matrix_row: Eilutė
             remove: Pašalinti
@@ -175,7 +171,6 @@ lt:
           tos_agreement: Dalyvaudami sutinkate su paslaugos teikimo sąlygomis
       step_navigation:
         show:
-          are_you_sure: Šio veiksmo atšaukti negalima ir savo atsakymų keisti negalėsite. Ar esate įsitikinę?
           back: Atgal
           continue: Tęsti
           submit: Pateikti

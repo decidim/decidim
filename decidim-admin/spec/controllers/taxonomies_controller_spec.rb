@@ -30,6 +30,11 @@ module Decidim
           get :index, params: { q: { name_or_children_name_cont: "Category1" } }
           expect(response).to render_template("index")
         end
+
+        it "breadcrumbs are set" do
+          get :index
+          expect(controller.helpers.breadcrumb_items).to eq([label: "Taxonomies", url: "/admin#{taxonomies_path}"])
+        end
       end
 
       describe "GET new" do
@@ -43,6 +48,14 @@ module Decidim
         it "renders the new template" do
           get :new
           expect(response).to render_template("new")
+        end
+
+        it "breadcrumbs are set" do
+          get :new
+          expect(controller.helpers.breadcrumb_items).to eq([
+                                                              { label: "Taxonomies", url: "/admin#{taxonomies_path}" },
+                                                              { label: "New taxonomy", url: "/admin#{new_taxonomy_path}" }
+                                                            ])
         end
       end
 
@@ -90,6 +103,14 @@ module Decidim
             get :edit, params: { id: child_taxonomy.id }
             expect(response).to redirect_to(edit_taxonomy_path(taxonomy))
           end
+        end
+
+        it "breadcrumbs are set" do
+          get :edit, params: { id: taxonomy.id }
+          expect(controller.helpers.breadcrumb_items).to eq([
+                                                              { label: "Taxonomies", url: "/admin#{taxonomies_path}" },
+                                                              { label: "Edit taxonomy", url: "/admin#{edit_taxonomy_path(taxonomy)}" }
+                                                            ])
         end
       end
 

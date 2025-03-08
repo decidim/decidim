@@ -50,10 +50,11 @@ module Decidim::Comments
           end
 
           it "renders the comment as input" do
-            expect(subject).to have_css("#add-comment-DummyResource-#{commentable.id}-user-group-id")
+            expect(subject).to have_css(".comment__as-author-container")
 
             groups.each do |group|
-              expect(subject).to have_css("#add-comment-DummyResource-#{commentable.id}-user-group-id option[value='#{group.id}']", text: group.name)
+              expect(subject).to have_css("input[type='radio'][name='comment[user_group_id]'][value='#{group.id}']")
+              expect(subject).to have_css(".comment__as-author-name", text: group.name)
             end
           end
         end
@@ -83,6 +84,39 @@ module Decidim::Comments
 
           it "does not render the comment as input" do
             expect(subject).to have_no_css("#add-comment-DummyResource-#{commentable.id}-user-group-id")
+          end
+        end
+
+        describe "#two_columns_layout?" do
+          before do
+            allow(commentable).to receive(:respond_to?).with(:two_columns_layout?).and_return(responds_to_two_columns_layout)
+            allow(commentable).to receive(:two_columns_layout?).and_return(two_columns_layout) if responds_to_two_columns_layout
+          end
+
+          context "when two_columns_layout? is true" do
+            let(:responds_to_two_columns_layout) { true }
+            let(:two_columns_layout) { true }
+
+            it "returns true" do
+              expect(my_cell.send(:two_columns_layout?)).to be_truthy
+            end
+          end
+
+          context "when two_columns_layout? is false" do
+            let(:responds_to_two_columns_layout) { true }
+            let(:two_columns_layout) { false }
+
+            it "returns false" do
+              expect(my_cell.send(:two_columns_layout?)).to be_falsey
+            end
+          end
+
+          context "when model does not respond to two_columns_layout?" do
+            let(:responds_to_two_columns_layout) { false }
+
+            it "returns false" do
+              expect(my_cell.send(:two_columns_layout?)).to be_falsey
+            end
           end
         end
       end

@@ -7,12 +7,11 @@ module Decidim
       description "The current session"
 
       field :user, UserType, "The current user", null: true
+      field :verified_user_groups, [UserGroupType], "The current user verified user groups", null: false
 
       def user
         object
       end
-
-      field :verified_user_groups, [UserGroupType], "The current user verified user groups", null: false
 
       def verified_user_groups
         Decidim::UserGroups::ManageableUserGroups.for(object).verified

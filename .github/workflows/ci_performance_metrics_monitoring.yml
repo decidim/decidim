@@ -19,7 +19,7 @@ env:
   CI: "true"
   SIMPLECOV: "true"
   RUBY_VERSION: 3.3.4
-  NODE_VERSION: 18.17.1
+  NODE_VERSION: 22.14.0
   NODE_ENV: "test"
   RAILS_ENV: development
   RAILS_BOOST_PERFORMANCE: "true"
@@ -38,6 +38,14 @@ jobs:
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     services:
+      redis:
+        image: redis
+        ports: ["6379:6379"]
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
       postgres:
         image: postgres:14
         ports: ["5432:5432"]

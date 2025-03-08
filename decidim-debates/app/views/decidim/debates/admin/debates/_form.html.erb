@@ -46,13 +46,23 @@
         <%= form.check_box :comments_enabled, label: t("enabled", scope: "decidim.comments.admin.shared.availability_fields") %>
       </div>
 
+      <div class="row column">
+        <%= label_tag :comments_layout, t(".comments_visualization") %>
+        <span class="help-text"><%= t(".comments_warning") %></span>
+        <div>
+          <%= form.collection_radio_buttons(:comments_layout, [[t(".single_column"), "single_column"], [t(".two_columns"), "two_columns"]], :last, :first) do |builder|
+            builder.label(class: "form__wrapper-checkbox-label") { builder.radio_button + builder.text }
+          end %>
+        </div>
+      </div>
+
       <% if component_settings.attachments_allowed? %>
         <div class="row column">
           <%= form.attachment :documents,
                               multiple: true,
-                              label: t("decidim.debates.admin.debates.form.add_documents"),
-                              button_label: t("decidim.debates.admin.debates.form.add_documents"),
-                              button_edit_label: t("decidim.debates.admin.debates.form.edit_documents"),
+                              label: t("decidim.debates.admin.debates.form.add_attachments"),
+                              button_label: t("decidim.debates.admin.debates.form.add_attachments"),
+                              button_edit_label: t("decidim.debates.admin.debates.form.edit_attachments"),
                               button_class: "button button__sm button__transparent-secondary",
                               help_i18n_scope: "decidim.forms.file_help.file",
                               help_text: t("decidim.debates.admin.debates.form.attachment_legend") %>

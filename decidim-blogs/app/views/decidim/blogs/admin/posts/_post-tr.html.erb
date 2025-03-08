@@ -1,6 +1,6 @@
 <tr data-id="<%= post.id %>">
   <td>
-    <% if allowed_to? :update, :blogpost, blog_post: post %>
+    <% if allowed_to? :update, :blogpost, blogpost: post %>
       <%= link_to translated_attribute(post.title), edit_post_path(post) %><br>
     <% else %>
       <%= translated_attribute(post.title) %><br>
@@ -11,6 +11,9 @@
   </td>
   <td>
     <%= translated_attribute(post.try(:author).try(:name)) %>
+  </td>
+  <td>
+    <%= present(post).taxonomy_names.join(", ") %>
   </td>
   <% publish_data = publish_data(post.published_at) %>
   <td>

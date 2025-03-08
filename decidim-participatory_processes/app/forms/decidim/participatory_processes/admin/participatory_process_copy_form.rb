@@ -15,7 +15,6 @@ module Decidim
 
         attribute :slug, String
         attribute :copy_steps, Boolean
-        attribute :copy_categories, Boolean
         attribute :copy_components, Boolean
 
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }

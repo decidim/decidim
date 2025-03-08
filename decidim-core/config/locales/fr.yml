@@ -3,10 +3,18 @@ fr:
     attributes:
       account:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
+      attachment:
+        documents: Documents
+        photos: Photos
       common:
         created_at: Créé le
+      content_block_attachment:
+        background_image: Image d'arrière-plan
+        main_image: Image principale
       conversation:
         body: Corps de texte
+      editor_image:
+        file: Fichier
       group:
         about: A propos
         avatar: Avatar
@@ -15,12 +23,17 @@ fr:
         name: Nom
         nickname: Pseudonyme
         phone: Téléphone
+      import:
+        file: Fichier
       message:
         body: Corps de texte
       report:
         details: Commentaires supplémentaires
+      taxonomy_filter:
+        space_filter: Disponible comme filtre pour
       user:
         about: A propos de moi
+        avatar: Avatar
         email: Votre email
         encrypted_password: Mot de passe
         locale: Langue
@@ -32,6 +45,8 @@ fr:
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         tos_agreement: Conditions d'utilisation
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -56,7 +71,7 @@ fr:
         with_participatory_space: Espace participatif
       decidim/user:
         current_password: Mot de passe actuel
-        email: Email
+        email: Adresse e-mail
         name: Pseudonyme
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
@@ -161,6 +176,7 @@ fr:
         error: Une erreur s'est produite lors de la suppression de votre compte.
         success: Votre compte a été supprimé avec succès.
       download_your_data_export:
+        export_expired: L'export a expiré. Essayez de générer un nouvel export.
         file_no_exists: Le fichier n'existe pas
         notice: Le téléchargement de vos données est en cours. Vous recevrez un email lorsque celui-ci sera terminé.
       email_change:
@@ -256,17 +272,21 @@ fr:
         create: "%{user_name} a créé le type de secteur %{resource_name}"
         delete: "%{user_name} a supprimé le type de secteur %{resource_name}"
         update: "%{user_name} a mis à jour le type de secteur %{resource_name}"
+      share_token:
+        create: "%{user_name} a créé un lien d'accès dans %{space_name}"
+        create_with_space: "%{user_name} a créé un lien d'accès pour %{resource_name} dans %{space_name}"
+        delete: "%{user_name} a supprimé un lien d'accès dans %{space_name}"
+        delete_with_space: "%{user_name} a supprimé un lien d'accès pour %{resource_name} dans %{space_name}"
+        update: "%{user_name} a mis à jour un lien d'accès dans %{space_name}"
+        update_with_space: "%{user_name} a mis à jour un lien d'accès pour %{resource_name} dans %{space_name}"
       static_page:
         create: "%{user_name} a créé la page statique %{resource_name}"
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
         update: "%{user_name} a mis à jour la page statique %{resource_name}"
       taxonomy_filter:
-        create: "%{user_name} a créé un filtre basé sur la taxonomie %{resource_name}"
-        create_with_filter_items_count: "%{user_name} a créé un filtre basé sur la taxonomie %{resource_name} avec %{filter_items_count} filtres pour %{space_manifest_name}"
-        delete: "%{user_name} a supprimé un filtre basé sur la taxonomie %{resource_name}"
-        delete_with_filter_items_count: "%{user_name} a supprimé un filtre basé sur la taxonomie %{resource_name} avec %{filter_items_count} filtres pour %{space_manifest_name}"
-        update: "%{user_name} a mis à jour un filtre basé sur la taxonomie %{resource_name}"
-        update_with_filter_items_count: "%{user_name} a mis à jour un filtre basé sur la taxonomie %{resource_name} avec %{filter_items_count} filtres pour %{space_manifest_name}"
+        create: "%{user_name} a créé le filtre %{resource_name}"
+        delete: "%{user_name} a supprimé le filtre %{resource_name}"
+        update: "%{user_name} a mis à jour le filtre %{resource_name}"
       user:
         block: "%{user_name} a bloqué l'utilisateur %{resource_name}"
         invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle : %{role}"
@@ -398,13 +418,18 @@ fr:
         explanation: Obtenir une vérification en saisissant un numéro de document terminant par "X".
         fields:
           allowed_postal_codes: Codes postaux autorisés (séparés par des virgules)
-          allowed_scope_id: Secteur autorisé
           document_number: Numéro de document
           postal_code: Code postal
-          scope_id: Secteur
         name: Exemple d'autorisation
       dummy_authorization_workflow:
+        explanation: Procédure d'autorisation factice
         name: Procédure d'autorisation factice
+      ephemeral_dummy_authorization_handler:
+        fields:
+          allowed_postal_codes: Codes postaux autorisés (séparés par des virgules)
+          document_number: Numéro du document
+          postal_code: Code postal
+        name: Exemple d'autorisation éphémère
       errors:
         duplicate_authorization: Un participant est déjà autorisé avec ces mêmes données. Un administrateur vous contactera pour vérifier vos informations.
       expired_at: Expiré à %{timestamp}
@@ -493,8 +518,6 @@ fr:
             dummy_global_translatable_text: Texte traduisible factice
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
-            scope_id: Secteur
-            scopes_enabled: Secteurs activés
           step:
             amendment_creation_enabled: Création d'amendement activée
             amendment_promotion_enabled: Promotion d'amendement activée
@@ -504,6 +527,8 @@ fr:
             dummy_step_attribute1: Attribut d'étape factice 1
             dummy_step_attribute2: Attribut d'étape factice 2
             dummy_step_translatable_text: Texte traduisible de l'étape factice
+      pagination:
+        page_title: "%{component_name} - Page %{current_page} sur %{total_pages}"
     contact: Contact
     content_blocks:
       announcement:
@@ -579,8 +604,6 @@ fr:
       application_helper:
         filter_area_values:
           all: Tout
-        filter_category_values:
-          all: Tout
         filter_scope_values:
           all: Tout
     devise:
@@ -612,11 +635,12 @@ fr:
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
-          are_you_new?: Nouveau sur la plateforme ?
+          are_you_new?: Pas encore inscrit(e) ?
           register: S'inscrire
           sign_in_disabled: Vous pouvez vous connecter avec un compte externe.
           sign_up_disabled: La création de compte est désactivée, mais vous pouvez vous identifier avec un compte existant.
         user:
+          ephemeral_session_closed: Votre session d'invité est terminée
           timed_out: Vous avez été inactif pendant trop longtemps et vous avez été automatiquement déconnecté du service. Si vous souhaitez continuer à utiliser le service, veuillez vous reconnecter.
       shared:
         newsletter_modal:
@@ -635,13 +659,16 @@ fr:
             <p>Merci de votre lecture !</p>
           title: Inscription à la newsletter
         omniauth_buttons:
-          or: Ou
+          or: ou
         password_fields:
           hidden_password: Votre mot de passe est masqué
           hide_password: Masquer le mot de passe
           show_password: Montrer le mot de passe
           shown_password: Votre mot de passe est affiché
         placeholder_email: salut@exemple.org
+    documents:
+      one: "%{count} document"
+      other: "%{count} documents"
     doorkeeper:
       authorizations:
         new:
@@ -660,25 +687,52 @@ fr:
     download_your_data:
       export:
         ready: Prêt
+      help:
+        participatory_space_private_users:
+          created_at: La date et l'heure de création de cet utilisateur privé
+          id: L'identifiant unique de cet utilisateur privé
+          privatable_to: À quel espace cet utilisateur privé appartient
+          published: Que cet utilisateur privé soit publié ou non
+          role: Le rôle que cet utilisateur privé a
+          updated_at: La date et l'heure de la dernière mise à jour de cet utilisateur privé
+        reports:
+          created_at: La date et l'heure de création de ce rapport
+          details: Les détails de ce rapport
+          id: L'identifiant unique de ce rapport
+          locale: La langue de ce rapport
+          reason: La raison de ce rapport
+          updated_at: La date et l'heure de la dernière mise à jour de ce rapport
+        users:
+          accepted_tos_version: La date à laquelle les conditions d'utilisation de cette plateforme ont été acceptées par l'utilisateur
+          followers_count: Le nombre de participants qui suivent à cet utilisateur
+          following_count: Le nombre de participants que cet utilisateur suit
+          password_updated_at: La date à laquelle leur mot de passe a été modifié pour la dernière fois
+          roles: Le rôle de cet utilisateur s'il en a un
+          type: Le type que cet utilisateur a
       show:
-        download_data: Télécharger les données
-        download_data_description_html: |-
-          Un fichier contenant toutes les informations associées à votre compte sera envoyé à <strong>%{user_email}</strong>. Cet e-mail contiendra un fichier .zip et un mot de passe pour l'ouvrir.<br/><br/>Pour décompresser le fichier, vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (pour Windows) ou <a href="https://www.keka.io/">Keka</a> (pour MacOS). Si vous utilisez Linux, la plupart du temps, vous l'aurez installé par défaut. Sinon, vous pouvez utiliser <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>.
-        request_data: Demander les données
+        action: Action
+        download_data_description_1: Vous trouverez ici tous les téléchargements disponibles pour votre compte. Ces fichiers .zip seront disponibles pendant deux semaines avant d'être supprimés.
+        download_data_description_2: Vous pouvez demander un fichier .zip avec vos contributions et vos données personnelles.
+        download_your_data: Données personnelles
+        expiration: Expiration
+        expired: Déjà expiré
+        request_data: Requête 
+        type: Type de télechargement
     editor_images:
       create:
         error: Une erreur est survenue lors du téléchargement de l'image.
         success: L'image a été téléchargée avec succès.
       drag_and_drop_help: Ajoutez des images en les glissant - déposant ou en les collant depuis votre presse-papier.
     endorsement_buttons_cell:
-      already_endorsed: Je n'aime pas
       endorse: J’aime
     endorsements:
       identities:
         done: Terminé
         select_identity: Sélectionner une identité
     endorsers_list:
-      endorsed_by: Soutenu par …
+      others: "%{count} de plus"
+      you: vous
+    ephemeral_user: Visiteur
     errors:
       files:
         file_cannot_be_processed: Le fichier ne peut pas être traité
@@ -746,6 +800,11 @@ fr:
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Un amendement rejeté pour %{amendable_title} à %{emendation_author_nickname}
             notification_title: Le <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejetée pour <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'Une correction a été publiée pour %{amendable_title}. Vous pouvez la voir sur cette page :'
+            email_outro: Vous avez reçu cette notification parce que vous êtes un(e) auteur/trice de %{amendable_title}.
+            email_subject: Une correction réalisée par %{emendation_author_nickname} a été publiée en tant que nouvelle %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Un nouveau document a été ajouté à %{resource_title}. Vous pouvez le voir sur cette page :'
@@ -850,10 +909,10 @@ fr:
           notification_title: Le participant %{name} (%{nickname}) a été officialisé.
     export_mailer:
       download_your_data_export:
-        click_button: 'Cliquez sur le bouton suivant pour télécharger vos données.<br/>Le fichier sera disponible jusqu''au %{date}.<br/>Vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) ou <a href="https://peazip.github.io">PeaZip</a> (Linux) pour l''ouvrir. Mot de passe : %{password}'
+        click_button_html: Cliquez sur le lien suivant pour télécharger vos données.<br/>Le fichier sera disponible au téléchargement jusqu'à %{date}.
         download: Télécharger
       export:
-        ready: Vous trouverez ci-joint une version zippée de votre exportation.
+        click_button_html: Votre téléchargement est prêt. <br/>Le fichier sera disponible en téléchargement jusqu'à %{date}.
       subject: Votre export "%{name}" est prêt
     filters:
       linked_classes:
@@ -902,7 +961,7 @@ fr:
         file:
           explanation: 'Orientation pour le fichier :'
           message_1: Doit être une image ou un document.
-          message_2: Pour les images, utilisez de préférence des images en format paysage car le service rogne l'image.
+          message_2: Si c'est une image, c'est de préférence une image de paysage qui n'a pas de texte. Le service recadre l'image.
         icon:
           explanation: 'Manuel pour l''image:'
           message_1: Doit être une image carrée.
@@ -1080,6 +1139,8 @@ fr:
         unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
         unpublish_with_space: "%{user_name} a dépublié %{resource_name} de %{space_name}"
         update: "%{user_name} a mis à jour %{resource_name}"
+        update_filters: "%{user_name} a mis à jour les filtres de %{resource_name}"
+        update_filters_with_space: "%{user_name} a mis à jour les filtres de %{resource_name} dans %{space_name}"
         update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
@@ -1091,6 +1152,8 @@ fr:
           not_found: 'Le secteur n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_type_presenter:
           not_found: 'Le type de secteur n''a pas été trouvé dans la base de données (ID: %{id})'
+    machine_translations:
+      automatic: traduction automatique en %{locale_name}
     managed_users:
       expired_session: La session de représentation d'identité a expiré.
     map:
@@ -1181,6 +1244,8 @@ fr:
         not_started: Pas encore commencé
         remaining: "%{time_distance} restant"
     metrics:
+      blocked_users:
+        description: Nombre de participants bloqués
       download:
         csv: Télécharger les données (CSV)
       followers:
@@ -1191,6 +1256,10 @@ fr:
         description: Nombre d'utilisateurs actifs dans l'organisation
         object: les participants
         title: Participants
+      reported_users:
+        description: Nombre de participants signalés
+      user_reports:
+        description: Nombre de signalements effectués par les participants
       users:
         description: Nombre d'utilisateurs dans l'organisation
         object: utilisateurs
@@ -1256,10 +1325,12 @@ fr:
     notifications_digest_mailer:
       header:
         daily: Résumé quotidien des notifications
+        real_time: Temps réel
         weekly: Résumé hebdomadaire des notifications
       hello: Bonjour %{name},
       intro:
         daily: 'Voici les notifications de la veille, basées sur les ressources que vous suivez :'
+        real_time: 'Ceci est une notification sur l''activité que vous suivez :'
         weekly: 'Voici les notifications de la semaine dernière, basées sur les ressources que vous suivez :'
       outro: Vous avez reçu ces notifications parce que vous suivez ce contenu ou ses auteurs. Pour arrêter de les suivre, rendez-vous sur la page du contenu ou de l'auteur et cliquez sur "Ne plus suivre".
       see_more: Voir plus de notifications
@@ -1298,7 +1369,74 @@ fr:
         message_1: On dirait que vous êtes actuellement hors ligne.
         message_2: Veuillez réessayer plus tard.
         retry: Réessayer
+    onboarding_action_message:
+      click_link: Cliquez ici
+      cta_html: <a href="%{path}">%{link_text}</a> pour %{action} dans %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: Vous avez été autorisé avec succès.<br/>Vous avez commencé une session en tant qu'invité, vous pouvez maintenant participer.
+      pending_authorization_active_message: Veuillez remplir le formulaire pour procéder à cette action.
+      pending_authorization_active_title: Nous devons vérifier votre identité.
+      pending_ephemeral_authorization: Veuillez vérifier votre identité pour continuer.
     open_data:
+      help:
+        metrics:
+          day: Le jour de la création de cette métrique
+          metric_type: Le type de métrique
+          quantity: Le nombre de métriques pour ce jour
+        moderated_users:
+          about: Le champ "A propos" de l'utilisateur
+          block_reasons: La raison pour laquelle l'administrateur a bloqué l'utilisateur
+          blocked_at: Date et heure auxquelles l'utilisateur a été bloqué
+          blocking_user: Le nom de l'utilisateur qui a effectué le blocage
+          details: Les détails des signalements
+          reasons: Une liste des raisons pour lesquelles le profil a été signalé
+          user_id: L'identifiant unique de l'utilisateur signalé
+        moderations:
+          hidden_at: Date et heure auxquelles le contenu a été masqué
+          id: L'identifiant unique de la modération
+          report_count: Le nombre de fois où il a été signalé
+          reportable_id: L'identifiant unique du signalement
+          reportable_type: Type du signalement
+          reported_content: Le contenu qui a été signalé
+          reported_url: L'url de la ressource signalée
+          reports: Une liste des raisons pour lesquelles la ressource a été signalée
+      index:
+        description: Bienvenue sur la page sur les données ouvertes de %{organization_name}. Ici, vous trouverez des fichiers de données qui sont régulièrement générés à partir de divers processus de délibération et de gouvernance au sein de %{organization_name}. Ces dossiers sont mis à disposition pour promouvoir la transparence, l'accessibilité et la collaboration. Ci-dessous, vous trouverez des informations détaillées sur ce que sont ces fichiers, comment les ouvrir et travailler avec, et une description du contenu et de la structure de chaque fichier.
+        detailed:
+          spaces: Espaces participatifs
+          title: Explication détaillée de chaque fichier
+        download:
+          spaces: Espaces participatifs
+          title: Télécharger les ressources
+        download_open_data: Télécharger tous les fichiers de données ouvertes
+        download_resource: Télécharger %{resource_name} au format CSV
+        explanation:
+          body_1: Ces fichiers sont des jeux de données exportés à partir des processus participatifs de %{organization_name}, tels que les propositions, les commentaires et les réunions. Ils fournissent des données brutes et structurées qui peuvent être utilisées pour l'analyse, la recherche ou l'intégration avec d'autres outils. Les données sont mises à jour automatiquement toutes les 24 heures, vous assurant ainsi un accès aux informations les plus récentes.
+          body_2: Ces fichiers sont au format CSV (valeurs séparées par des virgules), un format de fichier largement utilisé qui peut être ouvert et traité par une variété d'applications logicielles, y compris les programmes de feuilles de calcul, les éditeurs de texte et les outils d'analyse de données.
+          title: Quels sont ces fichiers?
+        how_to:
+          step_1:
+            body_html: Cliquez sur les liens ci-dessous pour télécharger les fichiers CSV sur votre ordinateur.
+            title: 1. Télécharger les fichiers
+          step_2:
+            body_html: |-
+              <ul>
+              <li><b>Applications de feuille de calcul</b>: Vous pouvez ouvrir des fichiers CSV en utilisant des applications comme Microsoft Excel, Google Sheets, ou LibreOffice Calc. Ouvrez simplement l'application, puis sélectionnez "Ouvrir" dans le menu Fichier, et choisissez le fichier CSV téléchargé.</li>
+              <li><b>Éditeurs de texte</b>: les fichiers CSV peuvent également être ouverts dans n'importe quel éditeur de texte, comme Notepad ou Sublime Text. Cela affichera les données brutes, chaque ligne représentant un enregistrement donc les différentes valeurs sont séparées par une virgule.</li>
+              <li><b>Outils d'analyse de données</b>: Si vous êtes familier avec les outils d'analyse de données comme Python (avec pandas), R, ou des bases de données SQL, vous pouvez importer ces fichiers CSV directement pour le traitement et l'analyse.</li>
+              </ul>
+            title: 2. Ouvrir les fichiers
+          step_3:
+            body_html: |-
+              <ul>
+              <li><b>Filtrage et Tri</b>: Dans les applications de feuille de calcul, vous pouvez filtrer et trier les données pour vous concentrer sur des sous-ensembles spécifiques d'informations.</li>
+              <li><b>Analyse</b>: Utilisez les données pour effectuer diverses analyses, comme comptabiliser le nombre de propositions, analyser les tendances des commentaires ou évaluer la participation aux réunions.</li>
+              <li><b>Visualisation</b>: Vous pouvez créer des graphiques, des courbes et d'autres visualisations pour aider à interpréter les données.</li>
+              </ul>
+            title: 3. Travailler avec les données
+          title: Comment ouvrir et travailler avec ces fichiers
+        license:
+          title: Licence
+        title: Données ouvertes
       not_available_yet: Les fichiers Open Data ne sont pas encore disponibles. Veuillez réessayer dans quelques minutes.
     pad_iframe:
       disclaimer: Le contenu de ce bloc-notes est écrit par les utilisateurs enregistrés et exprime leurs opinions. %{organization} ne peut être tenu responsable de son contenu.
@@ -1428,21 +1566,14 @@ fr:
       create:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
+      parent_hidden:
+        report_details: La ressource parente a été masquée
     resource_endorsements:
       create:
         error: Il y a eu un problème lors de l'action de soutien.
     scopes:
       global: Portée générale
-      picker:
-        cancel: Annuler
-        change: Changer le secteur sélectionné
-        choose: Sélectionner
-        currently_selected: Secteur actuellement sélectionné
-        title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
-      scopes: Secteurs
-      scopes_picker_input:
-        select_scope: 'Sélectionnez un secteur (actuellement: %{current})'
     search:
       name: Rechercher
       results: Résultats de recherche
@@ -1514,12 +1645,6 @@ fr:
         sign_up: Créer un compte
       mentions_modal:
         remove_recipient: Supprimer le destinataire %{name}
-      participatory_space_filters:
-        filters:
-          area: Périmètre d'assemblée
-          areas: Périmètres d'assemblée
-          scope: Secteur
-          select_an_area: Sélectionnez un périmètre d'assemblée
       progress: Avancement
       public_participation:
         public_participation: Afficher ma présence publiquement
@@ -1547,10 +1672,8 @@ fr:
       no_stats: Il n'y a pas encore de statistiques.
       pages_count: Pages
       participants_count: Participants
+      surveys_count: Enquêtes
       users_count: Participants
-    tags:
-      filter_results_for_category: 'Filtrer les résultats de la catégorie : %{resource}'
-      filter_results_for_scope: 'Filtrer les résultats pour le secteur : %{resource}'
     translation_bar:
       help_text: "<strong>Attention :</strong> Le contenu peut être automatiquement traduit et ne pas être exact à 100%."
       show_original: Afficher le texte original
@@ -1573,15 +1696,6 @@ fr:
         send: Envoyer
       update:
         error: Message non envoyé. Réessayez plus tard
-    user_interests:
-      show:
-        my_interests: Mes intérêts
-        no_scopes: Cette organisation n'a pas encore de secteurs !
-        select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir les événements qui y sont liés dans l'onglet Chronologie de votre profil.
-        update_my_interests: Mettre à jour mes intérêts
-      update:
-        error: Une erreur s'est produite lors de la mise à jour de vos centres d'intérêt.
-        success: Vos intérêts ont été mis à jour avec succès.
     user_report_mailer:
       notify:
         body_1: L'utilisateur %{user} a été signalé par %{token}
@@ -1942,13 +2056,15 @@ fr:
         data_consent_settings: Paramètres des cookies
         decidim_logo: Decidim.org (ouverture dans une nouvelle fenêtre)
         decidim_title: Decidim
-        download_open_data: Télécharger les fichiers Open Data
         log_in: Se connecter
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
+        open_data: Données ouvertes
         resources: Ressources
         sign_up: Créer un compte
         terms_of_service: Conditions d'utilisation
       header:
+        close: Fermer
+        confirm_close_ephemeral_session: Si vous quittez cette page, votre session sera fermée. Êtes-vous sûr(e)?
         log_in: Se connecter
         main_menu: Menu principal
         user_menu: Menu utilisateur
@@ -1958,6 +2074,8 @@ fr:
         expire_time_html: Votre session expirera dans <b><span class="minutes">%{minutes}</span> minutes</b>.
       language_chooser:
         choose_language: Choisir la langue
+      navigation:
+        aria_label: Menu de navigation - %{title}
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
         mark_as_read: Marquer comme lu
@@ -1989,7 +2107,6 @@ fr:
         authorizations: Autorisations
         delete_my_account: Supprimer mon compte
         my_data: Mes données
-        my_interests: Mes intérêts
         notifications_settings: Paramètres des notifications
         profile: Profil
         title: Paramètres utilisateur

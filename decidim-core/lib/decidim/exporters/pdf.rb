@@ -43,7 +43,7 @@ module Decidim
       end
 
       def composer
-        @composer ||= ::HexaPDF::Composer.new
+        @composer ||= ::HexaPDF::Composer.new(page_size:, page_orientation:)
       end
 
       def page_size = :A4

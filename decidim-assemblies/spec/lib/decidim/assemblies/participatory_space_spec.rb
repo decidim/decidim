@@ -32,14 +32,6 @@ module Decidim
           command.call
         end.to change(AssemblyUserRole, :count).by(-1)
       end
-
-      it "deletes assembly member" do
-        create(:assembly_member, user:)
-
-        expect do
-          command.call
-        end.to change(AssemblyMember, :count).by(-1)
-      end
     end
   end
 end

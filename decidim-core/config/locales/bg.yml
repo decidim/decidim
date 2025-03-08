@@ -56,7 +56,6 @@ bg:
         with_participatory_space: Пространство за участници
       decidim/user:
         current_password: Текуща парола
-        email: Ел. поща
         name: Псевдоним
         password: Парола
         password_confirmation: Потвърждаване на паролата
@@ -387,10 +386,8 @@ bg:
         explanation: Преминете проверка, като въведете номер на документ завършващ с "X".
         fields:
           allowed_postal_codes: Позволени пощенски кодове (разделени със запетаи)
-          allowed_scope_id: Разрешен обхват
           document_number: Номер на документ
           postal_code: Пощенски код
-          scope_id: Обхват
         name: Примерна идентификация
       dummy_authorization_workflow:
         name: Макет на процедура за идентификация
@@ -482,8 +479,6 @@ bg:
             dummy_global_translatable_text: Макетен преводим текст
             enable_pads_creation: Активирай създаване на бележки
             resources_permissions_enabled: Разрешения за ресурс включени
-            scope_id: Обхват
-            scopes_enabled: Обхватите са активирани
           step:
             amendment_creation_enabled: Създаване на поправки разрешено
             amendment_promotion_enabled: Популяризиране на поправки разрешено
@@ -567,8 +562,6 @@ bg:
       application_helper:
         filter_area_values:
           all: Всички
-        filter_category_values:
-          all: Всички
         filter_scope_values:
           all: Всички
     devise:
@@ -594,7 +587,6 @@ bg:
           username_help: Публичното име ще се показва във Вашите публикации. Ако желаете анонимност, изберете го произволно.
       sessions:
         new:
-          are_you_new?: Нов сте в тази платформа?
           register: Създай профил
           sign_in_disabled: Може да влезете с външен профил.
         user:
@@ -616,8 +608,6 @@ bg:
             разберете решението си.</p>
             <p>Благодарим, че прочетохте това!</p>
           title: Известия за новости
-        omniauth_buttons:
-          or: Или
         password_fields:
           hidden_password: Вашата парола е скрита
           hide_password: Скриване на паролата
@@ -642,27 +632,17 @@ bg:
     download_your_data:
       export:
         ready: Готов
-      show:
-        download_data: Изтегляне на данни
-        download_data_description_html: |-
-          Файл, съдържащ цялата информация, свързана с вашия акаунт, ще бъде изпратен до <strong>%{user_email}</strong>.
-          Този имейл ще съдържа .zip файл и парола за отварянето му.<br/><br/>За да разархивирате файла, ще ви трябва <a href="https://www.7-zip.org/"> 7-Zip</a> (за Windows) или <a href="https://www.keka.io/">Keka</a> (за MacOS).
-          Ако използвате Linux, през повечето време ще го имате инсталиран по подразбиране. Ако не, можете да използвате <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> или <a href="https://peazip.github.io" >PeaZip</a>).
-        request_data: Заяви данни
     editor_images:
       create:
         error: Грешка при качването на изображението.
         success: Изображението е качено успешно.
       drag_and_drop_help: Добавете изображения чрез плъзгане и пускане или поставяне (paste).
     endorsement_buttons_cell:
-      already_endorsed: Не харесвам
       endorse: Харесвам
     endorsements:
       identities:
         done: Готово
         select_identity: Изберете самоличност
-    endorsers_list:
-      endorsed_by: Харесано от…
     errors:
       files:
         file_cannot_be_processed: Файлът не може да бъде обработен
@@ -834,10 +814,7 @@ bg:
           notification_title: Участник %{name} (%{nickname}) е официализиран.
     export_mailer:
       download_your_data_export:
-        click_button: 'Щракнете върху следващата връзка, за да изтеглите вашите данни.<br/>Файлът ще бъде достъпен до %{date}.<br/>Ще ви трябва <a href="https://www.7-zip.org/"> 7-Zip</a> (за Windows), <a href="https://www.keka.io/en/">Keka</a> (за MacOS) или <a href="https:// peazip.github.io">PeaZip</a> (за Linux), за да го отворите. Парола: %{password}'
         download: Сваляне
-      export:
-        ready: Ще намерите като прикачен файл, компресирана версия на Вашия експорт.
       subject: Вашият експорт "%{name}" е готов
     filters:
       linked_classes:
@@ -891,7 +868,6 @@ bg:
         file:
           explanation: 'Указания за файла:'
           message_1: Трябва да е изображение или документ.
-          message_2: За изображения използвайте за предпочитане хоризонтални изображения, услугата изрязва изображението.
         icon:
           explanation: 'Указания за иконата:'
           message_1: Трябва да бъде квадратно изображение.
@@ -1416,16 +1392,7 @@ bg:
         error: Възникна проблем в процеса на одобрение.
     scopes:
       global: Обща сфера
-      picker:
-        cancel: Отказ
-        change: Промяна на избрания обхват
-        choose: Избери
-        currently_selected: Текущ избран обхват
-        title: Избери %{field}
       prompt: Изберете сфера
-      scopes: Сфери
-      scopes_picker_input:
-        select_scope: 'Изберете обхват (понастоящем: %{current})'
     search:
       name: Търсене
       results: Резултати от търсенето
@@ -1495,12 +1462,6 @@ bg:
         please_log_in: Моля влез в профила си
       mentions_modal:
         remove_recipient: Премахване на получател %{name}
-      participatory_space_filters:
-        filters:
-          area: Област
-          areas: Райони
-          scope: Обхват
-          select_an_area: Избери район
       progress: Прогрес
       public_participation:
         public_participation: Показване на присъствието ми публично
@@ -1529,9 +1490,6 @@ bg:
       pages_count: Страници
       participants_count: Участници
       users_count: Участници
-    tags:
-      filter_results_for_category: 'Филтриране на резултатите за категорията: %{resource}'
-      filter_results_for_scope: 'Филтриране на резултатите за обхвата: %{resource}'
     translation_bar:
       help_text: "<strong>Предупреждение:</strong> Възможно е съдържанието да е преведено автоматично и да не е 100 % точно."
       show_original: Показване на оригиналния текст
@@ -1554,15 +1512,6 @@ bg:
         send: Изпрати
       update:
         error: Съобщението не е изпратено. Опитайте по-късно
-    user_interests:
-      show:
-        my_interests: Моите интереси
-        no_scopes: Тази организация все още няма обхват!
-        select_your_interests: Изберете темите, от които се интересувате, за да получавате свързани с тях събития в раздела „Хронология“ в профила си.
-        update_my_interests: Обнови моите интереси
-      update:
-        error: Възникна проблем с обновяването на интересите Ви.
-        success: Интересите Ви бяха успешно обновени.
     user_report_mailer:
       notify:
         body_1: Потребителят %{user} е докладван от %{token}
@@ -1915,7 +1864,6 @@ bg:
         data_consent_settings: Настройки на бисквитките
         decidim_logo: Лого на Civil Power
         decidim_title: Civil Power
-        download_open_data: Изтеглете файлове с отворени данни
         log_in: Вход
         made_with_open_source: Уебсайта работи със <a target="_blank" href="https://github.com/decidim/decidim">свободен софтуер</a>.
         resources: Ресурси
@@ -1961,7 +1909,6 @@ bg:
         authorizations: Идентификация
         delete_my_account: Изтрий моя профил
         my_data: Моите данни
-        my_interests: Моите интереси
         notifications_settings: Настройки на известията
         profile: Профил
         title: Настройки за участника

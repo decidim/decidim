@@ -6,11 +6,12 @@ module Decidim
     class TaxonomyFilterForm < Form
       include TranslatableAttributes
       Item = Struct.new(:name, :value, :children)
+      Manifest = Struct.new(:id, :name)
 
       attribute :root_taxonomy_id, Integer
       translatable_attribute :name, String
       translatable_attribute :internal_name, String
-      attribute :space_filter, Boolean, default: false
+      attribute :participatory_space_manifests, Array, default: []
       attribute :taxonomy_items, Array
 
       mimic :taxonomy_filter
@@ -29,18 +30,12 @@ module Decidim
         super.compact_blank
       end
 
-      def space_manifest
-        context[:participatory_space_manifest]
-      end
-
-      def all_taxonomy_items
-        @all_taxonomy_items ||= taxonomy_items.map do |item|
-          find_item_in_tree(item)
-        end.flatten.uniq
+      def participatory_space_manifests
+        super.compact_blank
       end
 
       def filter_items
-        all_taxonomy_items.map do |item|
+        taxonomy_items.map do |item|
           Decidim::TaxonomyFilterItem.new(taxonomy_item_id: item)
         end
       end
@@ -55,20 +50,16 @@ module Decidim
         @root_taxonomy ||= current_organization.taxonomies.find_by(id: root_taxonomy_id)
       end
 
-      private
-
-      def find_item_in_tree(item, collection = items_collection)
-        el = collection.find { |i| i.value == item.to_i }
-        return [el.value] if el
-
-        collection.each do |i|
-          values = find_item_in_tree(item, i.children)
-
-          return [i.value] + values if values.present?
+      def available_participatory_space_manifests
+        @participatory_space_manifests ||= Decidim.participatory_space_manifests.map do |manifest|
+          Manifest.new(
+            id: manifest.name.to_s,
+            name: I18n.t("decidim.admin.taxonomy_filters.space_filter_for.#{manifest.name}")
+          )
         end
-
-        []
       end
+
+      private
 
       def map_items_collection(taxonomy)
         taxonomy.children.map do |item|

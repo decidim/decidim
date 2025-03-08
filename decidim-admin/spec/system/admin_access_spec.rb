@@ -15,6 +15,7 @@ describe "AdminAccess" do
 
   context "when the user is a visitor" do
     it "shows the unauthenticated message" do
+      # Prevent flaky spec, where sometimes the language is not changed before the visit
       sleep 2
       visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
 

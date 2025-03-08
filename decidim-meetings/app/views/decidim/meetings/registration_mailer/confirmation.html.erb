@@ -6,5 +6,5 @@
 <% if @meeting.customize_registration_email? %>
   <p><%= present(@meeting).registration_email_custom_content %></p>
 <% end %>
-
+<br>
 <p class="email-instructions"><%= t(".details") %></p>

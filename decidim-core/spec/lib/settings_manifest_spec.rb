@@ -91,7 +91,7 @@ module Decidim
         subject.attribute :something, choices: %w(a b c)
         expect(subject.attributes[:something].build_choices).to eq(%w(a b c))
 
-        subject.attribute :something, choices: -> { %w(a b c) }
+        subject.attribute :something, choices: ->(_context) { %w(a b c) }
         expect(subject.attributes[:something].build_choices).to eq(%w(a b c))
       end
 

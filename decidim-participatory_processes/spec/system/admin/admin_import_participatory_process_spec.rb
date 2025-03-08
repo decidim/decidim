@@ -53,15 +53,6 @@ describe "Admin imports participatory process" do
       end
 
       within_admin_sidebar_menu do
-        click_on "Categories"
-      end
-
-      within ".table-list" do
-        expect(page).to have_content(translated("Illum nesciunt praesentium explicabo qui."))
-        expect(page).to have_content(translated("Expedita sint earum rerum consequatur."))
-      end
-
-      within_admin_sidebar_menu do
         click_on "Components"
       end
 

@@ -7,6 +7,11 @@ module Decidim
                class_name: "Decidim::InitiativesType",
                inverse_of: :scopes
 
+    belongs_to :taxonomy,
+               foreign_key: "decidim_taxonomy_id",
+               class_name: "Decidim::Taxonomy",
+               optional: true
+
     belongs_to :scope,
                foreign_key: "decidim_scopes_id",
                class_name: "Decidim::Scope",
@@ -33,6 +38,10 @@ module Decidim
       return { I18n.locale.to_s => I18n.t("decidim.scopes.global") } if global_scope?
 
       scope&.name.presence || { I18n.locale.to_s => I18n.t("decidim.initiatives.unavailable_scope") }
+    end
+
+    def taxonomy_name
+      taxonomy&.name.presence || { I18n.locale.to_s => I18n.t("decidim.initiatives.unavailable_scope") }
     end
   end
 end

@@ -88,8 +88,13 @@ es:
           edit:
             edit: Editar
             empty: Aún no hay preguntas.
+            manage_questions: Gestionar las preguntas
             questionnaire: Cuestionario
             title: Editar plantilla del cuestionario
+          edit_questions:
+            add_question: Añadir una pregunta
+            add_separator: Añadir un separador
+            add_title_and_description: Añadir título y descripción
           form:
             title: Plantilla de cuestionario %{questionnaire_for}
           index:

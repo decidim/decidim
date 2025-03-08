@@ -182,8 +182,6 @@ hu:
         attachment_collection:
           new: Új csatolmány mappa
         browse: Böngészés
-        category:
-          new: Új kategória
         export: Összes exportálása
         export-selection: Kiválasztottak exportálása
         import: Import
@@ -292,23 +290,8 @@ hu:
           justification: Indoklás
           title: '%{name} felhasználó blokkolása'
       categories:
-        create:
-          error: Hiba történt a kategória létrehozása során.
-          success: Kategória létrehozása sikeres.
-        destroy:
-          error: Hiba történt a kategória törlésekor. Először töröld az alkategóriákat, majd győződj meg róla, hogy más entitás nem tartozik ehhez a kategóriához, majd próbáld újra.
-          success: Kategória eltávolítása sikeres.
-        edit:
-          title: Kategória szerkesztése
-          update: Frissítés
         index:
           categories_title: Kategóriák
-        new:
-          create: Kategória létrehozása
-          title: Új kategória
-        update:
-          error: Hiba történt a kategória frissítése során.
-          success: Kategória frissítése sikeres.
       component_permissions:
         update:
           error: Probléma merült fel ezen összetevő engedélyeinek frissítésekor.
@@ -317,9 +300,6 @@ hu:
         create:
           error: Hiba történt a komponens létrehozása során.
           success: Elem létrehozása sikeres.
-        destroy:
-          error: Hiba történt az elem eltávolítása során.
-          success: Elem eltávolítása sikeres.
         edit:
           title: Elem szerkesztése
           update: Frissítés
@@ -394,8 +374,6 @@ hu:
           JSON: JSON
         notice: Az Ön exportja jelenleg folyamatban van. Kapni fog egy e-mailt, ha befejeződött.
       filters:
-        category_id_eq:
-          label: Kategória
         filter_label: Szűrés
         invitation_accepted_at_present:
           label: Meghívás elfogadva
@@ -443,8 +421,6 @@ hu:
           values:
             'false': Közzétéve
             'true': Visszavont
-        scope_id_eq:
-          label: Hatáskör
         search_label: Keresés
         search_placeholder:
           name_or_nickname_or_email_cont: Keresés %{collection} email, név vagy becenév alapján.
@@ -633,12 +609,8 @@ hu:
             plural: Plurális
         share_token:
           fields:
-            created_at: Létrehozva
             expires_at: Lejárat ekkor
-            last_used_at: Utoljára használva
             times_used: Ennyiszer volt használva
-            token: Token
-            user: Létrehozta
         static_page:
           fields:
             created_at: Létrehozva
@@ -736,7 +708,6 @@ hu:
           confirm_delete: Biztosan törölni szeretnéd ezt a hírlevelet?
           followers: 'követők '
           has_been_sent_to: 'Elküldve ide: '
-          no_scopes: Nincsenek hatókörök
           not_sent: Nem került elküldésre
           participants: 'résztvevők '
           segmented_to: 'Szegmentált %{subject}: '
@@ -751,13 +722,10 @@ hu:
           confirm_deliver: Biztos, hogy szeretnéd elküldeni ezt a hírlevelet? A művelet nem visszavonható.
           deliver: Hírlevél küldése
           followers_help: Hírlevelet küld minden megerősített felhasználónak, aki a listában kiválasztott részvételi tereket követi.
-          none: Egyik sem
           participants_help: Hírlevelet küld minden megerősített felhasználónak, aki a listában kiválasztott részvételi terek bármelyikében részt vett valamilyen folyamatban.
           recipients_count: Ezt a hírlevelet <strong id='recipients_count'>%{count}</strong> felhasználónak küldjük ki.
-          scopes_help: Hírlevelet küld azoknak a felhasználóknak, akiknek a fiók "Érdeklődési kör" beállításainál a kiválasztott hatóköre aktiválva van.
-          select_scopes: Kiszűri azokat a felhasználókat, akik a fiók "Saját érdeklődési kör" beállításainál aktiválták a kiválasztott hatókört.
           select_spaces: A hírlevél szegmentálására szolgáló terek kiválasztása
-          select_users: Válassza ki, hogy mely felhasználók számára szeretné elküldeni a hírlevelet
+          send_to_all_users: Küldés mindenkinek
           title: Címzettek kiválasztása
           warning: "<strong>Figyelem:</strong> Ez a hírlevél csak azoknak a felhasználóknak kerül elküldésre, akik bejelölték a <em>Hírleveleket szeretnék kapni</em> opciót az értesítési beállításokban."
         send:
@@ -902,10 +870,6 @@ hu:
           title: Engedélyek szerkesztése
         update:
           success: Engedélyek frissítése sikeres.
-      resources:
-        index:
-          headers:
-            scope: Hatókör
       scope_types:
         create:
           error: Hiba történt az új hatáskör-típus létrehozásakor.
@@ -939,16 +903,7 @@ hu:
           success: Hatáskör frissítése sikeres
       share_tokens:
         actions:
-          confirm_destroy: Biztosan törlöd ezt a tokent?
           destroy: Törlés
-          share: Megosztás
-        destroy:
-          error: Hiba történt a token törlése során.
-          success: A token törlése sikeres.
-        share_tokens:
-          empty: Nincsenek aktív tőkének.
-          help: Ezeket a tokeneket arra használják, hogy ezt a nem közzétett erőforrást nyilvánosan megosszák valamely felhasználóval. Az erőforrás közzétételekor elrejtésre kerülnek. Kattintson a token megosztási ikonjára a megosztható URL-cím megtekintéséhez.
-          title: Tokenek megosztása
       shared:
         gallery:
           add_images: Képek hozzáadása
@@ -994,8 +949,6 @@ hu:
         update:
           error: Hiba történt az oldal frissítése során.
           success: Az oldal módosítása sikeres.
-      taxonomies:
-        count: Számol
       titles:
         admin_log: Admin napló
         area_types: Terület típusok

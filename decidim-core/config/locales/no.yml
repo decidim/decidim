@@ -43,7 +43,6 @@
     attributes:
       decidim/user:
         current_password: Nåværende passord
-        email: Epost
         name: Kallenavn
         password: Passord
         password_confirmation: Bekreft passord
@@ -65,6 +64,8 @@
     'false': 'Nei'
     'true': 'Ja'
   date:
+    buttons:
+      select: Velg
     formats:
       decidim_short: "%d.%m-%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -243,10 +244,8 @@
       dummy_authorization_handler:
         fields:
           allowed_postal_codes: Godkjente postnr (adskilt med komma)
-          allowed_scope_id: Tillatt tema
           document_number: Dokumentnummer
           postal_code: Postnummer
-          scope_id: Tema
         name: Eksempel autorisering
       dummy_authorization_workflow:
         name: Dummy autoriserings arbeidskraft
@@ -328,8 +327,6 @@
             dummy_global_translatable_text: Dummy Oversettbar tekst
             enable_pads_creation: Aktiver oppretting av pads
             resources_permissions_enabled: Ressurs tillatelser aktivert
-            scope_id: Tema
-            scopes_enabled: Aktiverte temaer
           step:
             amendment_creation_enabled: Oppretting av endringer aktivert
             amendment_promotion_enabled: Forfremmelse av endringer aktivert
@@ -393,7 +390,6 @@
           username_help: Navnet du skriver her vil vises i alle innleggene dine. Du kan enten skrive både fornavn og etternavn, eller bare fore fornavnet ditt, hvis du ikke har lyst til å oppgi fullt navn.
       sessions:
         new:
-          are_you_new?: Er du ny på plattformen?
           register: Opprett en konto
       shared:
         newsletter_modal:
@@ -401,8 +397,6 @@
             check: Sjekk og fortsett
             uncheck: Hold usjekket
           title: Varsler om nyhetsbrev
-        omniauth_buttons:
-          or: Eller
     doorkeeper:
       authorizations:
         new:
@@ -420,9 +414,6 @@
     download_your_data:
       export:
         ready: Klar
-      show:
-        download_data: Last ned informasjonen
-        request_data: Etterspør informasjonen
     editor_images:
       drag_and_drop_help: Legg til bilder ved å dra og slippe eller lime dem inn.
     endorsements:
@@ -570,10 +561,7 @@
           notification_title: <a href="%{resource_path}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
     export_mailer:
       download_your_data_export:
-        click_button: 'Klikk på neste link for å laste ned dataen.<br/>Filen vil være tilgjengelig til %{date}.<br/>Du vil trenge <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) eller <a href="https://peazip.github.io">PeaZip</a> (for Linux) for å åpne den. Passord: %{password}'
         download: Last ned
-      export:
-        ready: Vennligst finn vedlagte en zip-versjon av eksporten din.
       subject: Eksporten din "%{name}" er klar
     filters:
       linked_classes:
@@ -949,16 +937,7 @@
         error: Det oppstod et problem under påtegning.
     scopes:
       global: Alle tema
-      picker:
-        cancel: Avbryt
-        change: Endre valgt tema
-        choose: Velg
-        currently_selected: Nåværende valgt tema
-        title: Velg %{field}
       prompt: Velg et tema
-      scopes: Tema
-      scopes_picker_input:
-        select_scope: 'Velg et tema (for øyeblikket: %{current})'
     search:
       results: Søkeresultater
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
@@ -1011,10 +990,6 @@
         title: Rapporter upassende bruker
       floating_help:
         help: Hjelp
-      participatory_space_filters:
-        filters:
-          areas: Områder
-          select_an_area: Velg et område
       public_participation:
         public_participation: Vis min deltagelse offentlig
       reference:
@@ -1041,9 +1016,6 @@
       pages_count: Sider
       participants_count: Deltakere
       users_count: Deltakere
-    tags:
-      filter_results_for_category: 'Filtrer resultater for kategori: %{resource}'
-      filter_results_for_scope: 'Filtrere resultater for tema: %{resource}'
     translation_bar:
       help_text: "<strong>Advarsel:</strong> Innhold kan automatisk bli oversatt og ikke alltid være 100 % nøyaktig."
       show_original: Vis originaltekst
@@ -1062,13 +1034,6 @@
         send: Send
       update:
         error: Melding ikke sendt. Prøv igjen senere
-    user_interests:
-      show:
-        my_interests: Mine interesser
-        update_my_interests: Oppdater interessene mine
-      update:
-        error: Det oppstod et problem med å oppdatere interessene dine.
-        success: Interessene dine er oppdatert.
     user_report_mailer:
       notify:
         body_1: Brukeren %{user} er rapportert av %{token}
@@ -1236,7 +1201,6 @@
       footer:
         cc_by_license: Creative Commons lisens
         decidim_logo: Decidim logo
-        download_open_data: Last ned Åpen Data filer
         log_in: Logg inn
         made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">fri programvare</a>.
       header:
@@ -1274,7 +1238,6 @@
         authorizations: Fullmakter
         delete_my_account: Slett kontoen min
         my_data: Min data
-        my_interests: Mine interesser
         notifications_settings: Varslingsinnstillinger
         title: Deltaker innstillinger
         user_groups: Grupper
@@ -1316,6 +1279,8 @@
     whatsapp_web: WhatsApp
     xing: Xing
   time:
+    buttons:
+      select: Velg
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

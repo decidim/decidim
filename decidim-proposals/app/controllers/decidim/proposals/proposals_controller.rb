@@ -45,8 +45,6 @@ module Decidim
         else
           @proposals = search.result
 
-          @all_geocoded_proposals = @proposals.geocoded if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled?
-
           @proposals = reorder(@proposals)
           @proposals = paginate(@proposals)
           @proposals = @proposals.includes(:component, :coauthorships, :attachments)

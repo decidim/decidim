@@ -105,6 +105,8 @@ cs:
       participatory_space_private_user:
         email: E-mail
         name: Název
+      participatory_space_private_user_csv_import:
+        file: Soubor
       scope:
         code: Kód
         name: Název
@@ -182,8 +184,13 @@ cs:
         attachment_collection:
           new: Nová složka příloh
         browse: Procházet
-        category:
-          new: Nová kategorie
+        confirm_delete_component: |
+          Opravdu chcete odstranit tuto komponentu?<br>
+          Tato komponenta obsahuje:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} zdroje</li>
+          </ul>
+          Pokud změníte názor, můžete ji obnovit později.
         export: Exportovat vše
         export-selection: Exportovat výběr
         import: Importovat
@@ -195,11 +202,15 @@ cs:
         per_page: Na stránku
         permissions: Oprávnění
         reject: Odmítnout
+        restore: Obnovit
         send_me_a_test_email: Pošlete mi testovací e-mail
         share: Sdílet
+        share_tokens: Přístupové odkazy
+        soft_delete: Skrýt
         user:
           new: Nový administrátor
         verify: Ověřit
+        view_deleted_components: Zobrazit odstraněné komponenty
       admin_terms_of_service:
         accept:
           error: Při přijímání podmínek služby administrátora došlo k chybě.
@@ -233,6 +244,7 @@ cs:
         create:
           error: Při vytváření nové oblasti došlo k chybě.
           success: Oblast byla úspěšně vytvořena.
+        deprecated: Mějte na paměti, že oblasti jsou zastaralé a budou odstraněny v budoucích verzích. Namísto toho použijte taxonomie. Jediný modul, který v současné době používá oblasti, je modul iniciativ.
         destroy:
           has_spaces: Tato oblast má závislé prostory. Před smazáním se prosím ujistěte, že žádný účastnický prostor neodkazuje na tuto oblast.
           success: Oblast byla úspěšně zničena.
@@ -286,6 +298,12 @@ cs:
         no_results: Nenalezeny žádné výsledky
         search_prompt: Zadejte alespoň tři znaky pro vyhledávání.
       block_user:
+        bulk_new:
+          action: Zablokovat účty a odeslat zdůvodnění
+          already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků.
+          description: Blokováním uživatele bude jejich účet nepoužitelný. Ve svém zdůvodnění můžete uvést veškerá pravidla pro způsob, jakým byste uvažovali o odblokování uživatele.
+          justification: Odůvodnění
+          title: Zablokovat uživatele
         new:
           action: Blokovat účet a odeslat odůvodnění
           already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků.
@@ -293,23 +311,8 @@ cs:
           justification: Odůvodnění
           title: Blokovat uživatele %{name}
       categories:
-        create:
-          error: Při vytváření této kategorie došlo k chybě.
-          success: Kategorie byla úspěšně vytvořena.
-        destroy:
-          error: Při odstraňování této kategorie došlo k chybě. Vymažte nejprve podkategorie, ujistěte se, že do této kategorie nepatří žádná další entita a zkuste to znovu.
-          success: Kategorie úspěšně smazána.
-        edit:
-          title: Upravit kategorii
-          update: Aktualizace
         index:
           categories_title: Kategorie
-        new:
-          create: Vytvořit kategorii
-          title: Nová kategorie
-        update:
-          error: Při aktualizaci této kategorie došlo k chybě.
-          success: Kategorie byla úspěšně aktualizována.
       component_permissions:
         update:
           error: Při aktualizaci oprávnění této komponenty došlo k chybě.
@@ -319,9 +322,6 @@ cs:
           error: Při vytváření této komponenty došlo k chybě.
           success: Komponenta byla úspěšně vytvořena.
           success_landing_page: Komponenta byla úspěšně vytvořena. Můžete přidat blok obsahu pro tuto komponentu domů tohoto prostoru. Chcete-li jej nastavit, přejděte na <a href="%{landing_page_path}">vstupní stránku</a>.
-        destroy:
-          error: Došlo k chybě při mazání této komponenty.
-          success: Komponenta byla úspěšně smazána.
         edit:
           title: Upravit komponentu
           update: Aktualizace
@@ -338,6 +338,8 @@ cs:
             name: Název komponenty
             type: Typ komponenty
             visibility: Viditelnost
+        manage_trash:
+          title: Smazané komponenty
         new:
           add: Přidat komponentu
           title: 'Přidat komponentu: %{name}'
@@ -411,8 +413,6 @@ cs:
           JSON: JSON
         notice: Váš export právě probíhá. Po dokončení obdržíte e-mail.
       filters:
-        category_id_eq:
-          label: Kategorie
         filter_label: Filtr
         invitation_accepted_at_present:
           label: Pozvánka přijata
@@ -461,8 +461,6 @@ cs:
             'false': Zveřejněno
             'true': Nezveřejněno
         remove_all: Odebrat vše
-        scope_id_eq:
-          label: Oblast působnosti
         search_label: Hledat
         search_placeholder:
           name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
@@ -577,6 +575,8 @@ cs:
         logs_list:
           no_logs_yet: Zatím nejsou žádné logy.
           no_matching_logs: Nebyly nalezeny žádné záznamy s poskytnutými vyhledávacími filtry. Zkuste je změnit a zkuste to znovu.
+      manage_trash:
+        deleted_items_warning: Momentálně zobrazujete odstraněné položky. Chcete-li provést úpravy nebo změny, musíte je nejprve obnovit.
       managed_users:
         promotion:
           error: Při propagaci spravovaného účastníka se vyskytl problém.
@@ -608,6 +608,7 @@ cs:
         scopes: Oblasti působnosti
         see_site: Zobrazit web
         settings: Nastavení
+        share_tokens: Přístupové odkazy
         static_page_topics: Témata
         static_pages: Stránky
         taxonomies: Taxonomie
@@ -665,12 +666,11 @@ cs:
             plural: Množné číslo
         share_token:
           fields:
-            created_at: Vytvořeno v
+            actions: Akce
             expires_at: Vyprší v
-            last_used_at: Naposledy použito
+            registered_only: Pouze registrovaní?
             times_used: Kolikrát použito
-            token: Token
-            user: Vytvořil
+            token: Přístupový odkaz
         static_page:
           fields:
             created_at: Vytvořeno v
@@ -700,13 +700,27 @@ cs:
         index:
           actions:
             block: Blokovat uživatele
+            bulk_actions:
+              actions_dropdown: Akce
+              block:
+                title: Blokovat
+                update_moderated_user_button: Zablokovat uživatele
+              unblock:
+                title: Odblokovat
+                update_moderated_user_button: Odblokovat uživatele
+              unreport:
+                title: Zrušit nahlášení
+            ignore:
+              update_moderated_user_button: Zrušit nahlášení uživatelů
             title: Akce
             unblock: Odblokovat uživatele
             unreport: Zrušit nahlášení
+          cancel: Zrušit
           name: Jméno
           nickname: Přezdívka
           reason: Důvod
           reports: Počet zpráv
+          selected: Vybráno
           title: Nahlášení účastníci
         report:
           reasons:
@@ -718,12 +732,26 @@ cs:
           unblocked: Neblokováno
       moderations:
         index:
+          actions:
+            actions_dropdown: Akce
+            hide:
+              title: Skrýt
+              update_moderation_button: Skrýt vybrané zdroje
+            unhide:
+              title: Zrušit skrytí
+              update_moderation_button: Odkrýt vybrané zdroje
+            unreport:
+              title: Zrušit nahlášení
+              update_moderation_button: Zrušit nahlášení vybraných zdrojů
+          cancel: Zrušit
+          selected: vybráno
           title: Nahlášený obsah
         report:
           reasons:
             does_not_belong: Nepatří
             hidden_during_block: Skrytý při blokování uživatele
             offensive: Urážlivý
+            parent_hidden: Nadřazený obsah byl skryt
             spam: Spam
         reports:
           index:
@@ -740,6 +768,11 @@ cs:
             report_language: Jazyk zprávy
             report_reason: Důvod
             title: Detaily hlášení
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Náhled
@@ -749,6 +782,10 @@ cs:
           preview: 'Náhled šablony: %{template_name}'
           use_template: Použít tuto šablonu
       newsletters:
+        confirm_recipients:
+          email: E-mail
+          name: Název
+          title: Potvrdit příjemce
         create:
           error: Při vytváření tohoto zpravodaje došlo k chybě.
           success: Zpravodaj byl úspěšně vytvořen. Před odesláním si jej zkontrolujte.
@@ -768,12 +805,14 @@ cs:
           confirm_delete: Opravdu chcete tento zpravodaj smazat?
           followers: 'sledující '
           has_been_sent_to: 'Byl poslán: '
-          no_scopes: Žádné oblasti působnosti
           not_sent: Neodesláno
           participants: 'účastníci '
+          private_members: 'soukromí členové '
           segmented_to: 'Rozděleno na %{subject}: '
           subscribed_count: 'Přihlášeno:'
           title: Zpravodaje
+          verification_types: 'Typy ověření: %{types}'
+          verified_users: Ověření uživatelé
         new:
           save: Uložit
           title: Nový zpravodaj
@@ -781,16 +820,24 @@ cs:
           all_spaces: Vše
           all_users_help: Poslat Zpravodaj všem potvrzeným uživatelům.
           confirm_deliver: Opravdu chcete tento zpravodaj doručit? Tuto akci nelze vrátit zpět.
+          confirm_recipients: Potvrdit příjemce
           deliver: Doručit zpravodaj
           followers_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
-          none: Žádný
           participants_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
+          private_members_help: Odešle newsletter všem potvrzeným uživatelům, kteří byli přidáni do vybraných soukromých participačních prostor.
           recipients_count: Tento zpravodaj bude odeslán <strong id='recipients_count'>%{count}</strong> uživatelům.
-          scopes_help: Odešle zpravodaj uživatelům, kteří mají některý z vybraných oblastí působnosti aktivovaný v nastavení svého účtu "Moje zájmy".
-          select_scopes: Filtrovat uživatele, kteří aktivovali jakoukoli vybranou oblast působnosti v nastavení jejich účtu Moje Zájmy.
+          select_assemblies: Vybrat shromáždění
+          select_conferences: Vybrat konference
+          select_initiatives: Vybrat iniciativy
+          select_participatory_processes: Vybrat participační procesy
           select_spaces: Vybrat mezery pro rozdělení zpravodaje
-          select_users: Vybrat, kterým uživatelům chcete poslat zpravodaj
+          select_users_for_participatory_space: Poslat newsletter na jeden nebo více participačních prostor
+          select_users_general: Odeslat obecný newsletter
+          select_verification_types: Zvolte ověřovací metody
+          send_to_all_users: Odeslat všem uživatelům
+          send_to_verified_users: Poslat ověřeným uživatelům
           title: Vybrat příjemce k doručení
+          verified_users_help: Odešle newsletter všem potvrzeným a ověřeným uživatelům prostřednictvím zvolené metody ověřování.
           warning: "<strong> Pozor: </strong> Tento zpravodaj bude zasílán pouze uživatelům, kteří si aktivovali <em> chci dostávat zpravodaj </em> v nastavení oznámení."
         send:
           no_recipients: Žádní příjemci pro tento výběr.
@@ -808,6 +855,13 @@ cs:
         block:
           error: Při blokování účastníka došlo k chybě.
           success: Účastník byl úspěšně zablokován.
+        bulk_action:
+          block:
+            invalid: Při blokování účastníků došlo k chybě.
+            success: Účastníci byli úspěšně zablokováni.
+          unblock:
+            invalid: Při odblokování účastníků došlo k chybě.
+            success: Účastníci byli úspěšně odblokováni.
         create:
           success: Účastník úspěšně oficiálně zaregistrován.
         destroy:
@@ -900,12 +954,26 @@ cs:
         destroy:
           error: Při odstraňování soukromého uživatele tohoto participačního prostoru došlo k chybě.
           success: Přístup soukromého účastníka do participativního prostoru byl úspěšně zrušen.
+        edit:
+          title: Upravit participační prostor soukromého účastníka.
+          update: Aktualizovat
         index:
           import_via_csv: Importovat přes CSV
+          publish_all: Publikovat vše
           title: Participační prostor soukromého účastníka
+          unpublish_all: Zrušit publikování všech
         new:
           create: Vytvořit
           title: Nový participační prostor soukromého účastníka.
+        publish_all:
+          error: U tohoto participativního prostoru byl problém se zveřejněním všech soukromých účastníků.
+          success: Úspěšné zveřejnění všech soukromých účastníků tohoto participativního prostoru
+        unpublish_all:
+          error: U tohoto participativního prostoru byl problém se zrušením zveřejnění všech soukromých účastníků.
+          success: Úspěšně zneveřejněni všichni soukromí účastníci tohoto participativního prostoru
+        update:
+          error: U tohoto participativního prostoru se vyskytl problém s aktualizací soukromého účastníka.
+          success: Soukromý účastník participativního prostoru úspěšně aktualizován
       participatory_space_private_users_csv_imports:
         create:
           invalid: Při čtení souboru CSV se vyskytl problém. Ujistěte se, že jste dodrželi pokyny.
@@ -940,12 +1008,10 @@ cs:
         edit:
           submit: Předložit
           title: Upravit oprávnění
+        options_form:
+          ephemeral_warning: Chcete-li povolit tuto metodu autorizace, musíte <a href="%{path}">odvolat</a> všechny existující autorizace. To minimalizuje riziko kontrolních konfliktů. Všechny autorizace tohoto typu budou v organizaci automaticky zrušeny, pokud odešlete změny přidáním této metody nebo upravíte její konfiguraci po jejím přidání.
         update:
           success: Oprávnění byla úspěšně aktualizována.
-      resources:
-        index:
-          headers:
-            scope: Oblast působnosti
       scope_types:
         create:
           error: Při vytváření nového typu oblasti působnosti došlo k chybě.
@@ -965,6 +1031,7 @@ cs:
         create:
           error: Při vytváření nové oblasti působnosti došlo k chybě.
           success: Oblast působnosti byla úspěšně vytvořena.
+        deprecated: Mějte na paměti, že rozsahy jsou zastaralé a budou odstraněny v budoucích verzích. Namísto toho použijte taxonomie. Jediný modul, který v současné době používá rozsah, je modul iniciativ.
         destroy:
           success: Oblast působnosti úspěšně zničena.
         edit:
@@ -979,16 +1046,50 @@ cs:
           success: Oblast působnosti byla úspěšně aktualizována
       share_tokens:
         actions:
-          confirm_destroy: Jste si jisti, že chcete odstranit tento token?
+          confirm_destroy: Opravdu chcete odstranit tento přístup?
+          copy_link: Kopírovat odkaz
           destroy: Smazat
-          share: Sdílet
+          edit: Upravit
+          preview: Náhled
+        create:
+          invalid: Při generování přístupového odkazu došlo k chybě.
+          success: Odkaz byl úspěšně vytvořen.
         destroy:
-          error: Při zničení tokenu došlo k chybě.
-          success: Token byl úspěšně smazán.
-        share_tokens:
-          empty: Nejsou žádné aktivní tokeny.
-          help: Tyto tokeny se používají k veřejnému sdílení tohoto nezveřejněného zdroje každému uživateli. Budou skryty, když bude dokument publikován. Klikněte na ikonu sdílení tokenu a navštivte sdílenou URL.
-          title: Sdílet tokeny
+          error: Při ničení přístupového odkazu došlo k chybě.
+          success: Přístupový odkaz byl úspěšně zničen.
+        edit:
+          title: 'Upravit přístupové odkazy pro: %{name}'
+          update: Aktualizovat
+        form:
+          automatic: Automaticky
+          custom: Vlastní
+          custom_expiration: Vlastní vypršení platnosti
+          custom_token: Vlastní slovo
+          expires_at: Vyprší v
+          'false': 'Ne'
+          never_expire: Nikdy
+          registered_only: Pouze registrovaní?
+          token: Přístupový klíč
+          'true': 'Ano'
+        index:
+          back_to_share_tokens: Zpět k přístupovým odkazům
+          copied: Přístupový odkaz zkopírován!
+          copy_message: Text byl úspěšně zkopírován do schránky.
+          create_new_token: Vytvořte svůj první přístupový odkaz!
+          empty_html: Nejsou žádné aktivní přístupové odkazy. %{new_token_link}
+          never: Nikdy
+          new_share_token_button: Nový přístupový odkaz
+          share_tokens_help_html: |
+            Vytvořte a sdílejte přístupový odkaz, který umožní ostatním zobrazit tento nezveřejněný zdroj.
+            Přístupové odkazy mohou být platné pouze pro registrované účastníky, nebo mít a v případě potřeby datum vypršení platnosti.
+            Pro sdílení nového přístupového odkazu s někým jej vytvořte a poté zkopírujte odkaz pomocí ikony akce "%{clipboard} schránky.
+          title: 'Přístupové odkazy pro: %{name}'
+        new:
+          create: Vytvořit
+          title: 'Nový přístupový odkaz pro: %{name}'
+        update:
+          error: Při aktualizaci tohoto přístupu došlo k chybě.
+          success: Odkaz byl úspěšně aktualizován.
       shared:
         adjacent_navigation:
           next: Další
@@ -1042,9 +1143,15 @@ cs:
           error: Při aktualizaci této stránky došlo k chybě.
           success: Stránka byla úspěšně aktualizována.
       taxonomies:
-        actions: Akce
-        amount: Množství
-        count: Spočítat
+        actions:
+          actions: Akce
+          destroy: Smazat taxonomii a položky
+          edit: Upravit taxonomii a položky
+          filters: Spravovat filtry
+        breadcrumb:
+          edit: Upravit taxonomii
+          new: Nová taxonomie
+        count: Související zdroje
         create:
           invalid: Při vytváření této taxonomie došlo k chybě.
           success: Taxonomie byla úspěšně vytvořena.
@@ -1062,27 +1169,31 @@ cs:
         filters:
           search_placeholder: Hledat
         index:
-          description: Taxonomie umožňuje administrátorům kategorizovat a uspořádat obsah. Například přidat taxonomii pro klasifikaci procesů podle geografického rozsahu.
+          description: Taxonomie a filtry umožňují správcům třídit a organizovat obsah. Přidejte například taxonomii s městskými okresy a čtvrti a pak vytvořte filtry pouze s okresy nebo pro konkrétní čtvrť.
           new_taxonomy: Nová taxonomie
           no_items_found: Nebyly nalezeny žádné taxonomie odpovídající kritériím vyhledávání.
         name: Název
         new:
           create: Vytvořit taxonomii
           title: Nová taxonomie
-        no_taxonomies: Momentálně nejsou žádné taxonomie. Vytvořte zde seznam taxonomií a definovaných položek v každém z nich pro klasifikaci nebo filtrování zdrojů.
+        no_taxonomies: Momentálně nejsou žádné taxonomie. Vytvořte zde seznam taxonomií a definujte položky v každé z nich pro klasifikaci nebo filtrování zdrojů.
         table:
           to_next_page: Přetáhněte na další stránku
           to_prev_page: Přetáhněte pro předchozí stránku
         taxonomy_actions:
-          confirm_destroy: Opravdu chcete odstranit %{name}? Tímto odstraníte také všechny podřízené položky.
+          confirm_destroy: 'Jste si jisti, že chcete odstranit %{name}? Tímto odstraníte také všechny podřízené položky. POZNÁMKA: Zdroje, které používají tuto taxonomii, nebudou ovlivněny, ale ztratí odkaz na tuto taxonomii.'
+        total_filters: Filtry
+        total_items: Položky v taxonomii
         update:
           invalid: Při aktualizaci této taxonomie došlo k chybě.
           success: Taxonomie byla úspěšně aktualizována.
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Nový filtr taxonomie
-        callout:
-          modify_taxonomy_html: Pokud potřebujete změnit tuto taxonomii nebo její položky, proveďte to prostřednictvím nastavení konfigurace v sekci <a href="%{url}">Taxonomie</a>.
+        breadcrumb:
+          edit: Upravit filtr
+          filters: Filtry
+          new: Nový filtr
         create:
           error: Při vytváření tohoto filtru taxonomie došlo k chybě.
           success: Filtr taxonomie byl úspěšně vytvořen.
@@ -1091,30 +1202,50 @@ cs:
           success: Filtr taxonomie úspěšně zničen.
         edit:
           back: Zpět
-          items: "%{count} položek vybráno"
-          no_items: Pro tuto taxonomii nejsou k dispozici žádné položky. Položky můžete vytvořit v nastavení taxonomie.
           title: Upravit filtr taxonomie
           update: Aktualizovat filtr taxonomie
         form:
-          select_taxonomy: Vyberte taxonomii
+          all: Vše
+          items:
+            one: "%{count} položka vybrána"
+            few: "%{count} položky vybrány"
+            many: "%{count} položek vybráno"
+            other: "%{count} položek vybráno"
+          name_help: Název filtru, který má být zobrazen ve frontendu.
+          no_items: Pro tuto taxonomii nejsou k dispozici žádné položky. Položky můžete vytvořit v nastavení taxonomie.
+          space_filter: Dostupné jako filtr pro
         index:
           description: Filtr taxonomie umožňuje správcům seřadit a filtrovat participační prostory na základě taxonomie. Přidejte například taxonomický filtr pro řazení procesů podle geografického rozsahu.
           empty: V současné době nejsou žádné filtry taxonomie. Vytvořte seznam taxonomických filtrů pro řazení a filtrování participačních prostor na základě taxonomie.
+          new_filter: Nový filtr
         new:
           back: Zpět
           create: Vytvořit filtr taxonomie
-          items: "%{count} položek je k dispozici"
           title: Nový filtr taxonomie
         table:
           actions: Akce
-          confirm_destroy: Opravdu chcete odstranit filtr %{name}?
-          count: Počet položek
+          components_count: Komponenty používající toto
+          confirm_destroy: 'Jste si jisti, že chcete odstranit filtr %{name}? POZNÁMKA: Zdroje, které používají tento filtr, nebudou ovlivněny, ale ztratí odkaz na tento filtr.'
           destroy: Smazat
           edit: Upravit
-          name: Název
+          internal_name: Interní štítek
+          name: Štítek
         update:
           error: Při aktualizaci tohoto filtru taxonomie došlo k chybě.
           success: Filtr taxonomie byl úspěšně aktualizován.
+      taxonomy_filters_selector:
+        new:
+          add_new_items_html: Pokud potřebujete nastavit nový filtr nebo položku, proveďte to prostřednictvím nastavení konfigurace nebo kliknutím <a href="%{url}">zde</a>.
+          items_count: "%{count} položek"
+          save: Uložit
+        show:
+          items_count: "%{count} položek"
+          remove: Odebrat
+        taxonomies_select:
+          filters: Filtry
+          select_filter: Vyberte filtr
+          select_taxonomy: Vyberte taxonomii
+          taxonomies: Taxonomie
       taxonomy_items:
         edit:
           title: Upravit položku v %{taxonomy}
@@ -1144,9 +1275,18 @@ cs:
         scopes: Oblasti působnosti
         statistics: Aktivita
         taxonomies: Taxonomie
-        taxonomy_filters: Filtry taxonomie
+        taxonomy_filters: Filtry taxonomie pro "%{taxonomy}"
         user_groups: Skupiny
         users: Administrátoři
+      tooltips:
+        deleted_component_info: Tato komponenta může být odstraněna pouze v případě, že je stav 'Nezveřejněno'.
+      trash_management:
+        restore:
+          invalid: Při obnovování %{resource_name} došlo k chybě.
+          success: "%{resource_name} byl úspěšně obnoven."
+        soft_delete:
+          invalid: Při odstraňování %{resource_name} došlo k chybě.
+          success: "%{resource_name} byl úspěšně smazán."
       user_group:
         csv_verify:
           invalid: Při čtení souboru CSV došlo k chybě.
@@ -1220,6 +1360,22 @@ cs:
         unreport: Zrušit nahlášení
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Vyskytl se problém při skrývání některých zdrojů: %{errored}'
+              invalid: Nebyla vybrána žádná moderace.
+              success: Zdroje byly úspěšně skryty.
+            ignore:
+              invalid: Nebyla vybrána žádná moderace uživatelů.
+              success: Účastníci úspěšně neohlášeni.
+            unhide:
+              failed: 'Vyskytl se problém při odkrytí některých zdrojů: %{errored}'
+              invalid: Nebyla vybrána žádná moderace.
+              success: Zdroje byly úspěšně odkryty.
+            unreport:
+              failed: 'Došlo k chybě při odebrání z hlášení některých zdrojů: %{errored}'
+              invalid: Nebyla vybrána žádná moderace.
+              success: Zdroje byly úspěšně odebrány z hlášení.
           hide:
             invalid: Došlo k potížím při skrývání zdroje.
             success: Zdroj byl úspěšně skryt.
@@ -1255,3 +1411,5 @@ cs:
       admin:
         global_moderations:
           title: Globální moderace
+        taxonomy_filters_selector:
+          title: Filtry

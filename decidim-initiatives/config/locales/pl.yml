@@ -150,8 +150,6 @@ pl:
             initiative_title: Tytuł inicjatywy
             name_and_surname: Imię i nazwisko
             postal_code: Kod pocztowy
-            scope: Zakres
-            time_and_date: Czas i data
             timestamp: Znacznik czasu
       titles:
         initiatives: Inicjatywy
@@ -425,10 +423,7 @@ pl:
           email_subject: "%{applicant_nickname} chce dołączyć do Twojej inicjatywy"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy <a href="%{resource_url}">%{resource_title}</a>. Aby zaakceptować lub odrzucić kliknij <a href="%{resource_url}/edit">tutaj</a>.
       form:
-        add_documents: Dodaj dokumenty
         add_image: Dodaj obraz
-        attachment_legend: "(Opcjonalnie) Dodaj załącznik"
-        edit_documents: Edytuj dokumenty
         edit_image: Edytuj obraz
         image_legend: "(Opcjonalnie) Dodaj obraz"
       index:
@@ -523,9 +518,7 @@ pl:
           phone_number: Numer telefonu
           place_date: Miejsce, data
           postal_code: Kod pocztowy
-          print: Drukuj
           province: Województwo
-          section: 'Na wniosek organizacji proszę wydrukować i wypełnić niniejszy formularz w celu przesłania, jeśli jest to wskazane:'
           signature: Podpis
         result:
           answer_title: Odpowiedziano na tę inicjatywę.
@@ -549,7 +542,6 @@ pl:
           other: " podpisy"
         vote_cabin:
           already_voted: Już podpisano
-          verification_required: Zweryfikuj swoje konto, aby podpisać inicjatywę
           vote: Podpisz
           votes_blocked: Podpisywanie wyłączone
         votes_count:
@@ -602,7 +594,6 @@ pl:
           comment: Skomentuj
       initiatives_type:
         actions:
-          create: Utwórz
           title: Działania
           vote: Wspieranie
   layouts:

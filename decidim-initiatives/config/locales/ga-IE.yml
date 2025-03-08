@@ -50,7 +50,6 @@ ga:
             hash: Hais
             initiative_end_date: Dáta deiridh
             postal_code: Cód poist
-            scope: Scóip
     initiatives:
       actions:
         answer: Freagair
@@ -138,7 +137,6 @@ ga:
           initiative:
             title: 'Teideal:'
           postal_code: Cód poist
-          print: Clóbhuail
         show:
           edit: Eagar
         vote_cabin:

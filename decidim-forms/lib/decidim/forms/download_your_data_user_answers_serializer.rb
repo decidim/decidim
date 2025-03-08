@@ -8,10 +8,6 @@ module Decidim
       def serialize
         {
           id: resource.id,
-          user: {
-            name: resource.user.name,
-            email: resource.user.email
-          },
           questionnaire: {
             id: resource.question.questionnaire.id,
             title: translated_attribute(resource.question.questionnaire.title),

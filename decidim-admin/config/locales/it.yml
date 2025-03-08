@@ -145,8 +145,6 @@ it:
         attachment:
           new: Nuovo allegato
         browse: Naviga
-        category:
-          new: Nuova categoria
         export: Esporta tutto
         export-selection: Esporta selezione
         import: Importazione
@@ -159,6 +157,7 @@ it:
         permissions: Permessi
         reject: Rifiuta
         share: Condividi
+        share_tokens: Link di accesso
         verify: Verifica
       area_types:
         create:
@@ -230,23 +229,8 @@ it:
           justification: Motivazione
           title: Blocca utente %{name}
       categories:
-        create:
-          error: Si è verificato un errore durante la creazione di questa categoria.
-          success: OK, la categoria è stata creata.
-        destroy:
-          error: Si è verificato un errore durante la cancellazione di questa categoria. Assicurarsi di aver cancellato prima di tutto le eventuali sotto-categorie, assicurarsi che nessuna altra entità appartenga questa categoria e provare di nuovo.
-          success: OK, categoria cancellata.
-        edit:
-          title: Modifica categoria
-          update: Aggiorna
         index:
           categories_title: Categorie
-        new:
-          create: Crea nuova categoria
-          title: Nuova categoria
-        update:
-          error: Si è verificato un errore aggiornando questa categoria.
-          success: OK, la categoria è stata aggiornata.
       component_permissions:
         update:
           error: Si è verificato un problema durante l'aggiornamento dei permessi di questo componente.
@@ -255,9 +239,6 @@ it:
         create:
           error: Si è verificato un errore durante la creazione di questo componente.
           success: Componente creato con successo.
-        destroy:
-          error: C'è stato un errore nell'eliminare questo componente.
-          success: Componente cancellato con successo.
         edit:
           title: Modifica componente
           update: Aggiorna
@@ -307,8 +288,6 @@ it:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Categorie
         filter_label: Filtro
         invitation_accepted_at_present:
           label: Invito accettato
@@ -349,8 +328,6 @@ it:
           values:
             'false': Pubblicato
             'true': Non pubblicato (nascosto)
-        scope_id_eq:
-          label: Ambito tematico
         search_label: Ricerca
         search_placeholder:
           name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
@@ -496,12 +473,8 @@ it:
             plural: Plurale
         share_token:
           fields:
-            created_at: Creato il
             expires_at: Scade il
-            last_used_at: Ultimo utilizzo
             times_used: Volte usate
-            token: Token
-            user: Creata da
         static_page:
           fields:
             created_at: Creato il
@@ -593,7 +566,6 @@ it:
           confirm_delete: Sei sicuro di voler cancellare questa newsletter?
           followers: 'followers '
           has_been_sent_to: 'E'' stata inviata a: '
-          no_scopes: Nessun ambito
           not_sent: Non inviato
           participants: 'partecipanti '
           segmented_to: 'Segmentato a %{subject}: '
@@ -608,13 +580,10 @@ it:
           confirm_deliver: Sei certo di voler inviare questa Newsletter?  Questa azione sarà irrevocabile.
           deliver: Invia la newsletter
           followers_help: Invia newsletter a tutti gli utenti confermati che seguono tutti gli spazi partecipativi selezionati nella lista.
-          none: Nessuno
           participants_help: Invia newsletter a tutti gli utenti confermati che hanno partecipato a uno degli spazi partecipativi selezionati nella lista.
           recipients_count: Questa newsletter verrà inviata agli utenti <strong id='recipients_count'>%{count}</strong>.
-          scopes_help: Invia newsletter agli utenti che hanno uno dei campi selezionati attivati nelle impostazioni "I miei interessi".
-          select_scopes: Filtra per gli utenti che hanno attivato qualsiasi ambito selezionato nelle impostazioni interessi personali del proprio account.
           select_spaces: Selezionare gli spazi per segmentare la newsletter
-          select_users: Seleziona gli utenti a cui desideri inviare la newsletter
+          send_to_all_users: Invia a tutti gli utenti
           title: Seleziona destinatari a cui inviare
           warning: "<strong>Attenzione:</strong> Questa newsletter sarà inviata solo agli utenti che hanno attivato <em>Voglio ricevere newsletter</em> nelle impostazioni delle notifiche."
         show:
@@ -707,10 +676,6 @@ it:
           title: Modifica permessi
         update:
           success: Autorizzazioni aggiornate correttamente.
-      resources:
-        index:
-          headers:
-            scope: Ambito
       scope_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di ambito.
@@ -742,15 +707,7 @@ it:
           success: OK, l'àmbito è stato aggiornato.
       share_tokens:
         actions:
-          confirm_destroy: Sei sicuro di voler eliminare questo token?
           destroy: Elimina
-          share: Condividi
-        destroy:
-          error: Si è verificato un problema durante la distruzione del token.
-          success: Token eliminato correttamente.
-        share_tokens:
-          help: Questi token sono utilizzati per condividere pubblicamente questa risorsa non pubblicata con qualsiasi utente. Saranno nascosti al momento della pubblicazione della risorsa. Clicca sull'icona di condivisione del token per visitare l'URL condivisibile.
-          title: Condividi token
       shared:
         gallery:
           add_images: Aggiungi immagini
@@ -790,8 +747,6 @@ it:
           without_topic: Pagine senza argomento
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa pagina.
-      taxonomies:
-        count: Conteggio
       titles:
         admin_log: Registro di amministrazione
         area_types: Tipi di ambito territoriale

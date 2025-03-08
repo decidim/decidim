@@ -42,7 +42,6 @@ pl:
           error: Podczas dodawania komentarza wystąpił błąd.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Zaloguj się</a> lub <a href="%{sign_up_url}">utwórz konto</a>, aby dodać swój komentarz.
         form:
           body:
             label: Komentarz

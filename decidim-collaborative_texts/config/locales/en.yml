@@ -1,0 +1,67 @@
+---
+en:
+  decidim:
+    collaborative_texts:
+      actions:
+        confirm_delete_document: Are you sure you want to delete this document?
+        deleted_document_info: Deleted document can be restored from the trash.
+        edit: Edit
+        manage: Manage
+        new: New text
+        title: Actions
+        view_deleted_documents: View deleted documents
+      admin:
+        documents:
+          create:
+            invalid: There was a problem creating the document.
+            success: Document successfully created.
+          edit:
+            title: Edit collaborative texts
+            update: Update
+          edit_settings:
+            title: Configure collaborative texts
+            update: Update
+          index:
+            title: Collaborative texts
+          manage_trash:
+            title: Deleted documents
+          new:
+            create: Create
+            title: Create collaborative texts
+          publish:
+            invalid: There was a problem publishing this document.
+            success: Document successfully published.
+          unpublish:
+            invalid: There was a problem unpublishing this document.
+            success: Document successfully unpublished.
+          update:
+            invalid: There was a problem updating the document.
+            success: Document successfully updated.
+          update_settings:
+            invalid: There was a problem updating the document.
+            success: Document successfully updated.
+        settings:
+          form:
+            allow_suggestions: Allow participants to make suggestions
+      documents:
+        index:
+          count:
+            one: "%{count} collaborative text"
+            other: "%{count} collaborative texts"
+          empty: There are no collaborative texts yet.
+      models:
+        collaborative_text:
+          fields:
+            suggestions: Accept suggestions
+            title: Title
+    components:
+      collaborative_texts:
+        name: Collaborative Texts
+        settings:
+          global:
+            announcement: Announcement
+            comments_blocked: Comments blocked
+          step:
+            announcement: Announcement
+    statistics:
+      collaborative_texts_count: Collaborative texts

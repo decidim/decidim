@@ -16,8 +16,6 @@ module Decidim
       include_examples "endorsable"
       include_examples "has component"
       include_examples "has taxonomies"
-      include_examples "has scope"
-      include_examples "has category"
       include_examples "has reference"
       include_examples "reportable"
       include_examples "resourceable"

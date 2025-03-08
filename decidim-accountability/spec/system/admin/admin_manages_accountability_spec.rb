@@ -15,17 +15,18 @@ describe "Admin manages accountability" do
   it_behaves_like "manage taxonomy filters in settings"
 
   describe "results" do
-    let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, space_manifest: participatory_space.manifest.name) }
+    let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [participatory_space.manifest.name]) }
     let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
     let!(:component) { create(:component, manifest:, participatory_space:, settings: { taxonomy_filters: [taxonomy_filter.id] }) }
 
     it_behaves_like "manage results"
+    it_behaves_like "when managing results bulk actions as an admin"
     it_behaves_like "export results"
   end
 
   describe "child results" do
     before do
-      within ".table-list__actions" do
+      within "tr[data-id='#{result.id}'] .table-list__actions" do
         click_on "New result"
       end
     end

@@ -17,6 +17,7 @@ module Decidim
       return unless onboarding_manager.pending_action?
       return if authorization_status == :unauthorized
       return if pending_authorization_link_active?
+      return if ephemeral_authorized?
 
       render :show
     end
@@ -63,6 +64,10 @@ module Decidim
       else
         t("finish_authorization_process", scope: "decidim.onboarding_action_message")
       end
+    end
+
+    def ephemeral_authorized?
+      user.ephemeral? && authorization_status == :ok
     end
 
     def info_icon

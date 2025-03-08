@@ -14,8 +14,6 @@ describe Decidim::Budgets::Admin::BudgetForm do
   end
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:current_component) { create(:budgets_component, participatory_space: participatory_process) }
-  let(:scope) { create(:scope, organization:) }
-  let(:scope_id) { scope.id }
   let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:weight) { 1 }
@@ -26,8 +24,7 @@ describe Decidim::Budgets::Admin::BudgetForm do
       title:,
       description:,
       weight:,
-      total_budget:,
-      decidim_scope_id: scope_id
+      total_budget:
     }
   end
 
@@ -53,12 +50,6 @@ describe Decidim::Budgets::Admin::BudgetForm do
 
   describe "when total_budget is equal to 0" do
     let(:total_budget) { 0 }
-
-    it { is_expected.not_to be_valid }
-  end
-
-  describe "when the scope does not exist" do
-    let(:scope_id) { scope.id + 10 }
 
     it { is_expected.not_to be_valid }
   end

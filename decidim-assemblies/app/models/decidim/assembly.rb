@@ -63,11 +63,6 @@ module Decidim
              dependent: :destroy,
              as: :participatory_space
 
-    has_many :members,
-             foreign_key: "decidim_assembly_id",
-             class_name: "Decidim::AssemblyMember",
-             dependent: :destroy
-
     has_many :components, as: :participatory_space, dependent: :destroy
 
     has_many :children, foreign_key: "parent_id", class_name: "Decidim::Assembly", inverse_of: :parent, dependent: :destroy
@@ -84,8 +79,6 @@ module Decidim
 
     after_create :set_parents_path
     after_update :set_parents_path, :update_children_paths, if: :saved_change_to_parent_id?
-
-    scope :with_any_type, ->(*type_ids) { where(decidim_assemblies_type_id: type_ids) }
 
     searchable_fields({
                         scope_id: :decidim_scope_id,
@@ -168,7 +161,7 @@ module Decidim
     end
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:with_any_taxonomies, :with_any_type]
+      [:with_any_taxonomies]
     end
 
     def shareable_url(share_token)
@@ -180,11 +173,11 @@ module Decidim
 
       return base unless auth_object&.admin?
 
-      base + %w(published_at private_space parent_id decidim_assemblies_type_id)
+      base + %w(published_at private_space parent_id)
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(area assembly_type scope parent children categories)
+      %w(parent children taxonomies)
     end
 
     private
@@ -205,7 +198,7 @@ module Decidim
     #
     # rubocop:disable Rails/SkipsModelValidations
     def set_parents_path
-      update_column(:parents_path, [parent&.parents_path, id].select(&:present?).join("."))
+      update_column(:parents_path, [parent&.parents_path, id].compact_blank.join("."))
     end
     # rubocop:enable Rails/SkipsModelValidations
 
@@ -240,7 +233,5 @@ module Decidim
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker_i18n :title
-
-    ransack_alias :type_id, :decidim_assemblies_type_id
   end
 end

@@ -85,11 +85,6 @@ FactoryBot.define do
       end_date { 2.weeks.from_now }
     end
 
-    trait :with_scope do
-      scopes_enabled { true }
-      scope { create(:scope, organization:, skip_injection:) }
-    end
-
     trait :with_content_blocks do
       transient { blocks_manifests { [:hero] } }
 

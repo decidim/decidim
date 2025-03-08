@@ -3,7 +3,7 @@
     <td class="text-center dragging-handle">
       <%= icon("draggable", class: "dragger") %>
     </td>
-    <td>
+    <td class="!text-left">
       <% if component.manifest.admin_engine %>
         <%= link_to translated_attribute(component.name), manage_component_path(component) %><br>
       <% else %>

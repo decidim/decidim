@@ -117,8 +117,6 @@ lb:
             initiative_title: Initiativentitel
             name_and_surname: Name und Nachname
             postal_code: Postleitzuel
-            scope: Ëmfang
-            time_and_date: Zeit und Datum
             timestamp: Zeitstempel
       titles:
         initiatives: Initiativen

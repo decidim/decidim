@@ -29,14 +29,13 @@ describe "Explore results", :versioning do
       let(:taxonomy_filter_ids) { [] }
 
       it "shows an empty page with a message" do
-        expect(page).to have_content "There are no results yet"
+        expect(page).to have_content "There are no projects"
       end
     end
 
     context "with a taxonomy" do
       it "shows an empty page with a message" do
         within "main" do
-          expect(page).to have_i18n_content(taxonomy.name)
           expect(page).to have_content "There are no projects"
         end
       end
@@ -58,7 +57,7 @@ describe "Explore results", :versioning do
 
     describe "home" do
       before do
-        # Add scopes and categories for the results to test they work correctly
+        # Add taxonomies for the results to test they work correctly
         results[0..2].each { |r| r.update!(taxonomies: [sub_taxonomy]) }
         results[3..-1].each { |r| r.update!(taxonomies: [other_sub_taxonomy]) }
 
@@ -85,14 +84,10 @@ describe "Explore results", :versioning do
         expect(page).to have_css(".accountability__map")
       end
 
-      it "shows taxonomies and sub_taxonomies with results for enabled filters" do
-        [taxonomy, sub_taxonomy].each do |item|
-          taxonomy_count = Decidim::Accountability::ResultsCalculator.new(component, item.id).count
-          expect(page).to have_content(translated(item.name)) if taxonomy_count.positive?
+      it "shows root taxonomies filters" do
+        within("aside") do
+          expect(page).to have_content(translated(taxonomy.parent.name))
         end
-
-        expect(page).to have_no_content(translated(other_taxonomy.name))
-        expect(page).to have_no_content(translated(other_sub_taxonomy.name))
       end
 
       it "shows progress" do

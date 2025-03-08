@@ -23,7 +23,15 @@ module Decidim
       subject { handler.form_attributes }
 
       it { is_expected.to contain_exactly("handler_name") }
-      it { is_expected.not_to contain_exactly(:id, :user) }
+      it { is_expected.not_to contain_exactly(:id, :user, :tos_agreement) }
+
+      context "when the user is ephemeral and has not accepted tos" do
+        let(:ephemeral_user) { create(:user, :ephemeral, :tos_not_accepted) }
+        let(:params) { { user: ephemeral_user } }
+
+        it { is_expected.to contain_exactly("handler_name", "tos_agreement") }
+        it { is_expected.not_to contain_exactly(:id, :user) }
+      end
     end
 
     describe "to_partial_path" do
@@ -73,10 +81,16 @@ module Decidim
       context "when a duplicate record exists" do
         include_context "with a duplicate authorization record"
 
-        it { is_expected.to be(false) }
+        it { is_expected.to be_falsey }
 
         context "and the other user is deleted" do
           let(:other_user) { create(:user, :deleted, organization: current_user.organization) }
+
+          it { is_expected.to be(true) }
+        end
+
+        context "and the other user is ephemeral" do
+          let(:other_user) { create(:user, :ephemeral, organization: current_user.organization) }
 
           it { is_expected.to be(true) }
         end

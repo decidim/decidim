@@ -17,6 +17,10 @@ module Decidim
           helper PaginateHelper
           helper_method :privatable_to, :participatory_space_private_users
 
+          # rubocop:disable Rails/LexicallyScopedActionFilter
+          before_action :set_private_user, only: [:edit, :update, :destroy, :resend_invitation]
+          # rubocop:enable Rails/LexicallyScopedActionFilter
+
           def index
             enforce_permission_to :read, :space_private_user
 
@@ -27,6 +31,29 @@ module Decidim
             enforce_permission_to :create, :space_private_user
             @form = form(ParticipatorySpacePrivateUserForm).from_params({}, privatable_to:)
             render template: "decidim/admin/participatory_space_private_users/new"
+          end
+
+          def edit
+            enforce_permission_to :update, :space_private_user, private_user: @private_user
+            @form = form(ParticipatorySpacePrivateUserForm).from_model(@private_user)
+            render template: "decidim/admin/participatory_space_private_users/edit"
+          end
+
+          def update
+            enforce_permission_to :update, :space_private_user, private_user: @private_user
+            @form = form(ParticipatorySpacePrivateUserForm).from_params(params, privatable_to:)
+
+            UpdateParticipatorySpacePrivateUser.call(@form, @private_user) do
+              on(:ok) do
+                flash[:notice] = I18n.t("participatory_space_private_users.update.success", scope: "decidim.admin")
+                redirect_to action: :index
+              end
+
+              on(:invalid) do
+                flash.now[:alert] = I18n.t("participatory_space_private_users.update.error", scope: "decidim.admin")
+                render template: "decidim/admin/participatory_space_private_users/edit"
+              end
+            end
           end
 
           def create
@@ -47,7 +74,6 @@ module Decidim
           end
 
           def destroy
-            @private_user = collection.find(params[:id])
             enforce_permission_to :destroy, :space_private_user, private_user: @private_user
 
             DestroyParticipatorySpacePrivateUser.call(@private_user, current_user) do
@@ -64,7 +90,6 @@ module Decidim
           end
 
           def resend_invitation
-            @private_user = collection.find(params[:id])
             enforce_permission_to :invite, :space_private_user, private_user: @private_user
             InviteUserAgain.call(@private_user.user, "invite_private_user") do
               on(:ok) do
@@ -77,6 +102,34 @@ module Decidim
             end
 
             redirect_to after_destroy_path
+          end
+
+          def publish_all
+            PublishAllParticipatorySpacePrivateUsers.call(current_participatory_space, current_user) do
+              on(:ok) do
+                flash[:notice] = I18n.t("participatory_space_private_users.publish_all.success", scope: "decidim.admin")
+                redirect_to action: :index
+              end
+
+              on(:invalid) do
+                flash[:alert] = I18n.t("participatory_space_private_users.publish_all.error", scope: "decidim.admin")
+                redirect_to action: :index
+              end
+            end
+          end
+
+          def unpublish_all
+            UnpublishAllParticipatorySpacePrivateUsers.call(current_participatory_space, current_user) do
+              on(:ok) do
+                flash[:notice] = I18n.t("participatory_space_private_users.unpublish_all.success", scope: "decidim.admin")
+                redirect_to action: :index
+              end
+
+              on(:invalid) do
+                flash[:alert] = I18n.t("participatory_space_private_users.unpublish_all.error", scope: "decidim.admin")
+                redirect_to action: :index
+              end
+            end
           end
 
           # Public: Returns a String or Object that will be passed to `redirect_to` after
@@ -104,6 +157,10 @@ module Decidim
 
           def participatory_space_private_users
             filtered_collection
+          end
+
+          def set_private_user
+            @private_user = collection.find(params[:id])
           end
         end
       end
