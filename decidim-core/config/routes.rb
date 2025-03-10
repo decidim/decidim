@@ -146,6 +146,7 @@ Decidim::Core::Engine.routes.draw do
   get "/resource_autocomplete", to: "resource_autocomplete#index", as: :resource_autocomplete
 
   get "/link", to: "links#new", as: :link
+  get "/qr-code", to: "qr#show", as: :qr
 
   get "/static_map", to: "static_map#show", as: :static_map
   put "/pages/terms-of-service/accept", to: "tos#accept_tos", as: :accept_tos

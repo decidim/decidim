@@ -6,7 +6,7 @@ module Decidim
       # This command is executed when the user creates a Post from the admin
       # panel.
       class CreatePost < Decidim::Commands::CreateResource
-        fetch_form_attributes :title, :body, :published_at, :author, :component
+        fetch_form_attributes :title, :body, :published_at, :author, :component, :taxonomizations
 
         private
 

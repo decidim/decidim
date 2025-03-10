@@ -12,6 +12,9 @@
   <td>
     <%= translated_attribute(post.try(:author).try(:name)) %>
   </td>
+  <td>
+    <%= present(post).taxonomy_names.join(", ") %>
+  </td>
   <% publish_data = publish_data(post.published_at) %>
   <td>
     <%= content_tag :span, class: "padding-3", data: { tooltip: true, disable_hover: false, click_open: false }, title: publish_data[:popup] do
