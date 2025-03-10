@@ -40,7 +40,9 @@ it:
         destroy: Cancella
         edit: Modifica
         import: Importa progetti da un'altro componenete
+        import_csv: Importa risultati da file CSV
         new_result: Nuovo risultato
+        new_status: Nuovo stato
         preview: Anteprima
         timeline_entries: Evoluzione del progetto
         title: Azioni
@@ -50,7 +52,12 @@ it:
           results: Risultati
         import_results:
           new:
+            download_export: Scarica l'esportazione in formato CSV
             import: Importa
+            title: Importa risultati da un file CSV
+        imports:
+          create:
+            invalid: Si è verificato un problema durante l'importazione dei risultati.
         models:
           result:
             name: Risultato
@@ -59,6 +66,11 @@ it:
         projects_import:
           new:
             create: Importa
+            new_items:
+              one: 1 progetto selezionato verrà importato
+              other: "%{count} progetti selezionati verranno importati"
+            origin_component_id: Componente d'origine
+            select_component: Seleziona un componente
         results:
           edit:
             title: Modifica il risultato
@@ -74,6 +86,11 @@ it:
           subnav:
             statuses: Stati
         statuses:
+          create:
+            invalid: C'è stato un problema nella creazione di questo stato.
+            success: Stato creato con successo.
+          destroy:
+            success: Stato eliminato con successo.
           edit:
             title: Modifica lo stato
             update: Aggiorna lo stato
@@ -82,7 +99,13 @@ it:
           new:
             create: Crea stato
             title: Nuovo stato
+          update:
+            success: Stato aggiornato con successo.
         timeline_entries:
+          create:
+            success: Voce creata con successo.
+          destroy:
+            success: La voce è stata eliminata con successo.
           edit:
             title: Modifica la voce
             update: Aggiorna la voce
@@ -91,11 +114,18 @@ it:
           new:
             create: Crea una voce
             title: Nuova voce
+          update:
+            invalid: C'è stato un problema nel aggiornamento di questa voce.
+            success: Voce aggiornata con successo.
       admin_log:
         result:
           create: "%{user_name} ha creato il risultato %{resource_name} in %{space_name}"
           delete: "%{user_name} ha eliminato il risultato %{resource_name} in %{space_name}"
           update: "%{user_name} ha aggiornato il risultato %{resource_name} in %{space_name}"
+        status:
+          create: "%{user_name} ha creato lo stato %{resource_name}"
+          delete: "%{user_name} ha eliminato lo stato %{resource_name}"
+          update: "%{user_name} ha aggiornato lo stato %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Il genitore non è stato trovato sul database (ID: %{id})'
@@ -105,9 +135,12 @@ it:
       import_mailer:
         import:
           errors: Errori
+          errors_present: Si è verificato un problema durante l'importazione dei risultati.
           row_number: Riga
           subject: Importazione dei risultati riuscita
           success: Importazione riuscita dei risultati. È possibile rivedere i risultati nell'interfaccia di amministrazione.
+      last_activity:
+        new_result: 'Nuovo risultato:'
       models:
         result:
           fields:
@@ -143,6 +176,7 @@ it:
           global_status: Stato di esecuzione globale
         nav_breadcrumb:
           global: Esecuzione globale
+        no_results: Non ci sono i progetti
         search:
           search: Cerca azioni
         show:
