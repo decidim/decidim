@@ -13,8 +13,6 @@ module Decidim
     include Decidim::UserReportable
     include Decidim::Traceable
 
-    REGEXP_NICKNAME = /\A[\w-]+\z/
-
     class Roles
       def self.all
         Decidim.config.user_roles
@@ -52,8 +50,6 @@ module Decidim
     validate :all_roles_are_valid
 
     has_one_attached :download_your_data_file
-
-    scope :not_deleted, -> { where(deleted_at: nil) }
 
     scope :managed, -> { where(managed: true) }
     scope :not_managed, -> { where(managed: false) }
