@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-require "decidim/core/test/shared_examples/taxonomizable_interface_examples"
-require "decidim/core/test/shared_examples/attachable_interface_examples"
-require "decidim/core/test/shared_examples/authorable_interface_examples"
-require "decidim/core/test/shared_examples/timestamps_interface_examples"
+require "decidim/api/test"
 require_relative "../shared/services_interface_examples"
 require_relative "../shared/linked_resources_interface_examples"
 
