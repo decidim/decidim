@@ -17,7 +17,7 @@ module Decidim
 
         Decidim::Proposals.create_default_states!(component, admin_user)
 
-        5.times do |n|
+        (5..30).to_a.sample.times do |n|
           proposal = create_proposal!(component:)
 
           if proposal.state.nil? && component.settings.amendments_enabled?
