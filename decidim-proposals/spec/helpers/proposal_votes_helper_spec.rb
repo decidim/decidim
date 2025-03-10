@@ -34,6 +34,32 @@ module Decidim
         end
       end
 
+      describe "#minimum_votes_per_user_enabled?" do
+        before do
+          component_settings_double = double(
+            minimum_votes_per_user: minimum_votes
+          )
+
+          allow(helper).to receive(:component_settings).and_return(component_settings_double)
+        end
+
+        context "when the minimum votes per user is not set" do
+          let(:minimum_votes) { 0 }
+
+          it "returns false" do
+            expect(helper).not_to be_minimum_votes_per_user_enabled
+          end
+        end
+
+        context "when the minimum votes per user is set" do
+          let(:minimum_votes) { 2 }
+
+          it "returns true" do
+            expect(helper).to be_minimum_votes_per_user_enabled
+          end
+        end
+      end
+
       describe "#remaining_votes_count_for" do
         it "returns the remaining votes for a user based on the component votes limit" do
           proposal = create(:proposal, component: proposal_component)
@@ -49,12 +75,12 @@ module Decidim
         let(:minimum_votes) { 5 }
 
         before do
-          allow(helper).to receive(:vote_limit_enabled?).and_return(vote_limit_enabled)
+          allow(helper).to receive(:minimum_votes_per_user_enabled?).and_return(minimum_votes_per_user_enabled)
           allow(helper).to receive(:component_settings).and_return(double(minimum_votes_per_user: minimum_votes))
         end
 
         context "when the vote limit is not enabled" do
-          let(:vote_limit_enabled) { false }
+          let(:minimum_votes_per_user_enabled) { false }
 
           it "returns 0" do
             expect(subject).to eq(0)
@@ -62,7 +88,7 @@ module Decidim
         end
 
         context "when the vote limit is enabled" do
-          let(:vote_limit_enabled) { true }
+          let(:minimum_votes_per_user_enabled) { true }
 
           context "when the user has not cast any votes" do
             it "returns the minimum votes per user" do
