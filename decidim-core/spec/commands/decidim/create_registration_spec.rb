@@ -9,7 +9,7 @@ module Decidim
         let(:organization) { create(:organization) }
 
         let(:name) { "Username" }
-        let(:nickname) { "nickname" }
+        let(:nickname) { "nickName" }
         let(:email) { "user@example.org" }
         let(:password) { "Y1fERVzL2F" }
         let(:tos_agreement) { "1" }

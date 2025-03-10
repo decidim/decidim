@@ -3,18 +3,20 @@
 require "spec_helper"
 
 describe "rake decidim:upgrade:fix_nickname_casing", type: :task do
+  let!(:organization) { create(:organization) }
+
   it "does not throw exceptions" do
     expect { task.execute }.not_to raise_exception
   end
 
   context "when there are users with same nicknames" do
     let!(:user) do
-      user = build(:user, nickname: "SomeCapitalGuy")
+      user = build(:user, nickname: "SomeCapitalGuy", organization:)
       user.save(validate: false)
       user
     end
     let!(:user2) do
-      user = build(:user, nickname: "somecapitalguy", organization: user.organization)
+      user = build(:user, nickname: "somecapitalguy", organization:)
       user.save(validate: false)
       user
     end
@@ -37,7 +39,7 @@ describe "rake decidim:upgrade:fix_nickname_casing", type: :task do
       user
     end
     let!(:user2) do
-      user = build(:user, nickname: "SomeCapitalGuy")
+      user = build(:user, nickname: "SomeCapitalGuy", organization:)
       user.save(validate: false)
       user
     end
