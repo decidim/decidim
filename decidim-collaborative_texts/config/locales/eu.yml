@@ -60,3 +60,8 @@ eu:
         settings:
           global:
             announcement: Oharra
+            comments_blocked: Iruzkinak blokeatuta
+          step:
+            announcement: Oharra
+    statistics:
+      collaborative_texts_count: Testu kolaboratzaileak
