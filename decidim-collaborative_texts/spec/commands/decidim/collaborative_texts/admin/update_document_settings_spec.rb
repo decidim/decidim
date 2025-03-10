@@ -8,7 +8,7 @@ module Decidim
       describe UpdateDocumentSettings do
         subject { described_class.new(form, document) }
 
-        let(:document) { create(:collaborative_text_document) }
+        let(:document) { create(:collaborative_text_document, :with_body) }
         let(:organization) { document.component.organization }
         let(:user) { create(:user, :admin, :confirmed, organization:) }
         let(:accepting_suggestions) { false }

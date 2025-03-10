@@ -20,12 +20,13 @@ FactoryBot.define do
       skip_injection { false }
     end
     title { generate_title(:collaborative_text_document_title, skip_injection:) }
-    body { Faker::HTML.paragraph }
-
     component { create(:collaborative_texts_component, skip_injection:) }
 
+    trait :with_body do
+      body { Faker::HTML.paragraph }
+    end
+
     trait :with_versions do
-      body { nil }
       after(:build) do |document, _evaluator|
         document.document_versions = build_list(:collaborative_text_version, 3, document: document)
       end

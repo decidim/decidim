@@ -14,7 +14,7 @@ module Decidim
       it { is_expected.not_to be_draft }
 
       it "returns the version number" do
-        expect(collaborative_text_version.version_number).to eq(1)
+        expect(collaborative_text_version.version_number).to eq(0)
       end
 
       it "has a document" do
@@ -46,7 +46,7 @@ module Decidim
         it { is_expected.not_to be_draft }
 
         it "returns the version number" do
-          expect(collaborative_text_version.version_number).to eq(2)
+          expect(collaborative_text_version.version_number).to eq(1)
         end
 
         context "when previous version is a draft" do
