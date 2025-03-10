@@ -10,14 +10,13 @@ describe "Profile" do
   end
 
   context "when has casing in the nickname" do
-
     before do
       switch_to_host(user.organization.host)
       visit decidim.profile_path(user.nickname.upcase)
     end
 
     it "is not indexable by crawlers" do
-      expect(current_path).to include(decidim.profile_path(user.nickname.downcase))
+      expect(page).to have_current_path(decidim.profile_activity_path(user.nickname.downcase))
     end
   end
 

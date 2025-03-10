@@ -2,7 +2,6 @@
 
 namespace :decidim do
   namespace :upgrade do
-
     desc "Modifies nickname of the user to lower case"
     task :fix_nickname_casing => :environment do
       logger.info("Fixing user nicknames case...")
@@ -16,10 +15,10 @@ namespace :decidim do
             user.save!
             has_changed << user.id
           end
-        rescue ActiveRecord::RecordInvalid => e
+        rescue ActiveRecord::RecordInvalid
           update_user_nickname(user, Decidim::UserBaseEntity.nicknamize(user.nickname, organization: user.organization))
           has_changed << user.id
-        rescue ActiveRecord::RecordInvalid => e
+        rescue ActiveRecord::RecordInvalid # rubocop:disable Lint/DuplicateRescueException
           logger.warn("User ID (#{similar_user.id}) : #{e}")
         end
       end
