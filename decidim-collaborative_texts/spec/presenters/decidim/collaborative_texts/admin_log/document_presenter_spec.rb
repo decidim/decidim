@@ -7,7 +7,7 @@ module Decidim
     module AdminLog
       describe DocumentPresenter do
         let(:action_log) { double("ActionLog", action: action, resource: resource, extra: extra, version: version) }
-        let(:resource) { double("Document", document:) }
+        let(:resource) { double("Document", document_versions: [document]) }
         let(:document) { create(:collaborative_text_document, body: "This is and example body") }
         let(:extra) { { "extra" => { "version_number" => "2" } } }
         let(:version) { double("Version", changeset: {}) }
