@@ -14,7 +14,7 @@
   })();
 <% end %>
 
-<% if vote_limit_enabled? || minimum_votes_per_user_enabled? %>
+<% if minimum_votes_per_user_enabled? %>
   (function() {
     var $remainingVotesCount = $('[data-remaining-votes-count]');
     var $notVotedButtons = $('*[data-proposal-vote-button="true"]').not('[id^=vote_button-]');
