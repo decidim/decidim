@@ -30,8 +30,6 @@ describe "Download Open Data files", download: true do
 
     expect(page).to have_content("Here, you will find data files that are regularly generated from various deliberative and governance processes within")
     expect(page).to have_content("Download results in CSV format")
-
-    click_on("What are these files?")
     expect(page).to have_content("These files are in CSV (Comma-Separated Values) format, which is a widely-used file format")
 
     click_on("How to open and work with these files")

@@ -62,11 +62,7 @@ module Decidim
       def mention_avatar(resource)
         author = resource.authors.first
 
-        if author.is_a?(Decidim::User)
-          "<img src='#{author.presenter.avatar_url(:thumb)}' class='not-prose' />"
-        elsif author.is_a?(Decidim::Organization)
-          author.presenter.official_icon
-        end
+        "<img src='#{author.presenter.avatar_url(:thumb)}' class='not-prose' />"
       end
 
       def resource_path(resource)

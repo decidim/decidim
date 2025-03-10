@@ -9,7 +9,7 @@
   }
 
   .editor-mention {
-    @apply flex items-center;
+    @apply inline-flex items-center align-bottom;
 
     img,
     svg {
