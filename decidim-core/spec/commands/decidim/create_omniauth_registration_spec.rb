@@ -190,7 +190,7 @@ module Decidim
           end
         end
 
-        context "when the nickname has capital leters" do
+        context "when the nickname has capital letters" do
           let(:nickname) { "Facebook_user" }
 
           it "downcases the nickname" do
