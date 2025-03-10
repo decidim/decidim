@@ -42,9 +42,7 @@ module Decidim
           action_log.version.changeset.tap do |changeset|
             case action
             when "create"
-              # rubocop:disable Style/SafeNavigationChainLength
-              changeset[:body] = [nil, action_log&.resource&.document_versions&.first&.body]
-              # rubocop:enable Style/SafeNavigationChainLength
+              changeset[:body] = [nil, action_log&.extra&.dig("extra", "body")]
               changeset[:version_number] = [nil, "1"]
             when "publish", "unpublish"
               changeset[:version_number] = [nil, action_log.extra.dig("extra", "version_number")]

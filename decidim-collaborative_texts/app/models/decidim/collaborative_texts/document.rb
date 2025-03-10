@@ -20,7 +20,7 @@ module Decidim
 
       has_many :document_versions, class_name: "Decidim::CollaborativeTexts::Version", dependent: :destroy
 
-      validates :title, :body, presence: true
+      validates :title, presence: true
 
       scope :enabled_desc, -> { order(arel_table[:accepting_suggestions].desc, arel_table[:created_at].desc) }
       delegate :body, :body=, to: :current_version
@@ -68,6 +68,11 @@ module Decidim
       # Consolidates the current draft version
       def rollout!
         current_version.update!(draft: false) if draft_version
+      end
+
+      # paranoia removes the versions but does not recursively restore by default
+      def restore
+        super(recursive: true)
       end
 
       private

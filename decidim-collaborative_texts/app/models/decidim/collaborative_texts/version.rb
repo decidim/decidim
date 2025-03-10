@@ -7,6 +7,7 @@ module Decidim
     # document.
     class Version < CollaborativeTexts::ApplicationRecord
       include Decidim::Resourceable
+      include Decidim::SoftDeletable
       include Decidim::Traceable
       include Decidim::Loggable
 

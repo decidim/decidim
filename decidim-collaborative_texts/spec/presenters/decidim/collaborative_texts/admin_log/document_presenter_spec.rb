@@ -54,6 +54,24 @@ module Decidim
 
             expect(presenter.send(:changeset)).to eq(expected_changeset)
           end
+
+          context "when action is publish" do
+            let(:action) { "publish" }
+
+            it "returns the expected structured changeset for publish action" do
+              expected_changeset = [
+                {
+                  attribute_name: :version_number,
+                  label: "Version number",
+                  new_value: "2",
+                  previous_value: nil,
+                  type: :integer
+                }
+              ]
+
+              expect(presenter.send(:changeset)).to eq(expected_changeset)
+            end
+          end
         end
       end
     end
