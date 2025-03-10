@@ -86,23 +86,19 @@ module Decidim
         it "creates a new version" do
           expect(document.document_versions.count).to eq(1)
           expect(document.body).to eq("My first version")
-          expect(document.draft_body).to be_nil
 
-          expect { document.draft!("My first amended version") }.to change { document.document_versions.count }.by(1)
+          expect { document.document_versions.create(body: "My first amended version", draft: true) }.to change { document.document_versions.count }.by(1)
           expect(document.body).to eq("My first amended version")
-          expect(document.draft_body).to eq("My first amended version")
           expect(document.consolidated_body).to eq("My first version")
           expect(document.document_versions.count).to eq(2)
 
-          expect { document.draft!("My second version") }.not_to(change { document.document_versions.count })
+          expect { document.document_versions.last.update(body: "My second version") }.not_to(change { document.document_versions.count })
           expect(document.body).to eq("My second version")
-          expect(document.draft_body).to eq("My second version")
           expect(document.consolidated_body).to eq("My first version")
           expect(document.document_versions.count).to eq(2)
 
-          expect { document.rollout! }.not_to(change { document.document_versions.count })
+          expect { document.document_versions.last.update(draft: false) }.not_to(change { document.document_versions.count })
           expect(document.body).to eq("My second version")
-          expect(document.draft_body).to be_nil
           expect(document.consolidated_body).to eq("My second version")
           expect(document.document_versions.count).to eq(2)
         end

@@ -40,14 +40,11 @@ module Decidim
 
         def full_changeset
           action_log.version.changeset.tap do |changeset|
-            case action
-            when "create"
+            if action == "create"
               changeset[:body] = [nil, action_log&.extra&.dig("extra", "body")]
               changeset[:version_number] = [nil, "1"]
-            when "publish", "unpublish"
-              changeset[:version_number] = [nil, action_log.extra.dig("extra", "version_number")]
-            else
-              changeset[:version_number] ||= [nil, action_log.extra.dig("extra", "version_number")]
+            elsif (version_number = action_log&.extra&.dig("extra", "version_number"))
+              changeset[:version_number] = [nil, version_number]
             end
           end
         end

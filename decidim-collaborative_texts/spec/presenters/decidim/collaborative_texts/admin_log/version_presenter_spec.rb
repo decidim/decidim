@@ -10,13 +10,28 @@ module Decidim
         let(:resource) { double("Version", document:) }
         let(:organization) { create(:organization, available_locales: [:en]) }
         let(:document) { create(:collaborative_text_document, title: "This is an example title document") }
-        let(:extra) { { "extra" => { "version_number" => "2" } } }
+        let(:extra) do
+          {
+            "extra" => {
+              "version_number" => "2"
+            },
+            "resource" => {
+              "title" => "This is an example title document"
+            },
+            "participatory_space" => {
+              "title" => {
+                "en" => "Participatory Process"
+              }
+            }
+          }
+        end
         let(:version) { double("Version", changeset: {}) }
         let(:user) { create(:user, :admin, :confirmed, organization:) }
         let(:participatory_process) { create(:participatory_process, organization:) }
         let(:presenter) { described_class.new(action_log, nil) }
 
         before do
+          allow(action_log).to receive(:user).and_return(user)
           allow(presenter).to receive(:user).and_return(user)
           allow(presenter).to receive(:participatory_process).and_return(participatory_process)
         end
@@ -28,16 +43,6 @@ module Decidim
             it "returns the correct translation key" do
               expect(presenter.send(:action_string)).to eq("decidim.collaborative_texts.admin_log.version.delete")
             end
-          end
-        end
-
-        describe "#resource_name" do
-          let(:action) { "update" }
-
-          it "returns the document title" do
-            resource_presenter = double("ResourcePresenter", present: "This is an example title document")
-            allow(Decidim::Log::ResourcePresenter).to receive(:new).and_return(resource_presenter)
-            expect(presenter.send(:resource_name)).to eq("This is an example title document")
           end
         end
 

@@ -6,8 +6,6 @@ module Decidim
       # This command is executed when the user changes a Document from the admin
       # panel.
       class UpdateDocument < Decidim::Commands::UpdateResource
-        fetch_form_attributes :title, :body
-
         protected
 
         def update_resource
@@ -34,7 +32,7 @@ module Decidim
           {
             extra: {
               version_id: resource.current_version&.id,
-              version_number: resource.current_version&.version_number
+              version_number: current_version_number
             }
           }
         end
@@ -44,9 +42,19 @@ module Decidim
             extra: {
               document_id: resource.id,
               title: resource.title,
-              version_number: resource.current_version&.version_number
+              version_number: current_version_number
+            },
+            resource: {
+              title: resource.title
+            },
+            participatory_space: {
+              title: resource.participatory_space.title
             }
           }
+        end
+
+        def current_version_number
+          resource.current_version&.version_number || 1
         end
       end
     end

@@ -41,33 +41,12 @@ module Decidim
         document_versions.last || document_versions.build
       end
 
-      # Draft mode is used to allow admins edit the text prior final publication
-      # Editing the body should only be allowed in draft mode unless the document is new
-      def draft_version
-        document_versions.draft.last
-      end
-
       def consolidated_version
         document_versions.consolidated.last
       end
 
       def consolidated_body
         consolidated_version&.body
-      end
-
-      def draft_body
-        draft_version&.body
-      end
-
-      def draft!(value)
-        draft = draft_version || document_versions.build(draft: true)
-        draft.update!(body: value)
-        current_version.reload
-      end
-
-      # Consolidates the current draft version
-      def rollout!
-        current_version.update!(draft: false) if draft_version
       end
 
       # paranoia removes the versions but does not recursively restore by default
