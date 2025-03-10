@@ -1715,6 +1715,10 @@ de:
           resend_email_confirmation_instructions: E-Mail-Bestätigungsanweisungen erneut versenden
         confirmation_instructions_sent: E-Mail-Bestätigungsanweisungen gesendet.
         fill_in_email_to_confirm_it: Bitte geben Sie die E-Mail-Adresse Ihrer Gruppe zur Bestätigung ein.
+    qr:
+      show:
+        scan: QR-Code scannen
+        title: QR-Code für %{resource_title}
     reported_mailer:
       hide:
         hello: Hallo %{name},
@@ -1772,6 +1776,10 @@ de:
       selfxss_warning:
         description: Diese Browser-Funktion ist nur für Entwickler gedacht und Sie sollten hier keine Daten einfügen, wenn Sie darum gebeten wurden. Das Einfügen von Inhalten in dieses Fenster kann Ihre Privatsphäre beeinträchtigen und Hackern Zugriff auf Ihr Konto ermöglichen.
         title: Stop!
+    share_widget:
+      download: Herunterladen
+      print: Poster drucken
+      qr_code: QR Code
     shared:
       confirm_modal:
         cancel: Abbrechen
@@ -1833,6 +1841,7 @@ de:
         copy_share_link: Kopieren
         copy_share_link_clarification: Öffentlichen Link in die Zwischenablage kopieren
         copy_share_link_copied: Kopiert!
+        copy_share_link_cta: Oder Link kopieren
         copy_share_link_message: Der Link wurde erfolgreich in die Zwischenablage kopiert.
         share: Teilen
         share_link: Link teilen
