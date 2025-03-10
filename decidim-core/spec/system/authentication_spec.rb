@@ -339,7 +339,7 @@ describe "Authentication" do
     end
 
     context "when nickname is not unique case-insensitively" do
-      let!(:user) { create(:user, nickname: "Responsible_Citizen", organization:) }
+      let!(:user) { create(:user, nickname: "responsible_citizen", organization:) }
 
       it "creates a new User" do
         click_on "Create an account"

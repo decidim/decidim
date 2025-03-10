@@ -8,8 +8,16 @@ describe "rake decidim:upgrade:fix_nickname_casing", type: :task do
   end
 
   context "when there are users with same nicknames" do
-    let!(:user) { create(:user, nickname: "SomeCapitalGuy") }
-    let!(:user2) { create(:user, nickname: "somecapitalguy", organization: user.organization) }
+    let!(:user) do
+      user = build(:user, nickname: "SomeCapitalGuy")
+      user.save(validate: false)
+      user
+    end
+    let!(:user2) do
+      user = build(:user, nickname: "somecapitalguy", organization: user.organization)
+      user.save(validate: false)
+      user
+    end
 
     it "changes the user" do
       expect { task.execute }.to(change { user.reload.nickname })
@@ -23,8 +31,16 @@ describe "rake decidim:upgrade:fix_nickname_casing", type: :task do
   end
 
   context "when there are 2 users with same nicknames accross multiple organizations" do
-    let!(:user) { create(:user, nickname: "SomeCapitalGuy") }
-    let!(:user2) { create(:user, nickname: "SomeCapitalGuy") }
+    let!(:user) do
+      user = build(:user, nickname: "SomeCapitalGuy")
+      user.save(validate: false)
+      user
+    end
+    let!(:user2) do
+      user = build(:user, nickname: "SomeCapitalGuy")
+      user.save(validate: false)
+      user
+    end
 
     it "changes the user" do
       task.execute

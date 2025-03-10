@@ -5,11 +5,31 @@ require "spec_helper"
 describe "rake decidim:upgrade:fix_nickname_uniqueness", type: :task do
   context "when all users come from the same organization" do
     let(:organization) { create(:organization) }
-    let!(:user1) { create(:user, :confirmed, nickname: "toto", organization:) }
-    let!(:user2) { create(:user, :confirmed, nickname: "Toto", organization:) }
-    let!(:user3) { create(:user, :confirmed, nickname: "TOTO", organization:) }
-    let!(:user4) { create(:user, :confirmed, nickname: "foO", organization:) }
-    let!(:user5) { create(:user, :confirmed, nickname: "Foo", organization:) }
+    let!(:user1) do
+      user = build(:user, :confirmed, nickname: "toto", organization:)
+      user.save(validate: false)
+      user
+    end
+    let!(:user2) do
+      user = build(:user, :confirmed, nickname: "Toto", organization:)
+      user.save(validate: false)
+      user
+    end
+    let!(:user3) do
+      user = build(:user, :confirmed, nickname: "TOTO", organization:)
+      user.save(validate: false)
+      user
+    end
+    let!(:user4) do
+      user = build(:user, :confirmed, nickname: "foO", organization:)
+      user.save(validate: false)
+      user
+    end
+    let!(:user5) do
+      user = build(:user, :confirmed, nickname: "Foo", organization:)
+      user.save(validate: false)
+      user
+    end
 
     context "when executing task" do
       it "have to be executed without failures" do
@@ -38,11 +58,31 @@ describe "rake decidim:upgrade:fix_nickname_uniqueness", type: :task do
   context "when users come from different organizations" do
     let(:organization1) { create(:organization) }
     let(:organization2) { create(:organization) }
-    let!(:user1) { create(:user, :confirmed, nickname: "toto", organization: organization1) }
-    let!(:user2) { create(:user, :confirmed, nickname: "Toto", organization: organization1) }
-    let!(:user3) { create(:user, :confirmed, nickname: "TOTO", organization: organization2) }
-    let!(:user4) { create(:user, :confirmed, nickname: "foO", organization: organization1) }
-    let!(:user5) { create(:user, :confirmed, nickname: "Foo", organization: organization2) }
+    let!(:user1) do
+      user = build(:user, :confirmed, nickname: "toto", organization: organization1)
+      user.save(validate: false)
+      user
+    end
+    let!(:user2) do
+      user = build(:user, :confirmed, nickname: "Toto", organization: organization1)
+      user.save(validate: false)
+      user
+    end
+    let!(:user3) do
+      user = build(:user, :confirmed, nickname: "TOTO", organization: organization2)
+      user.save(validate: false)
+      user
+    end
+    let!(:user4) do
+      user = build(:user, :confirmed, nickname: "foO", organization: organization1)
+      user.save(validate: false)
+      user
+    end
+    let!(:user5) do
+      user = build(:user, :confirmed, nickname: "Foo", organization: organization2)
+      user.save(validate: false)
+      user
+    end
 
     context "when executing task" do
       it "have to be executed without failures" do
