@@ -27,7 +27,7 @@ module Decidim
     validates_avatar :avatar, uploader: Decidim::AvatarUploader
 
     validates :name, format: { with: REGEXP_NAME }
-    validates :nickname, format: { with: REGEXP_NICKNAME }
+    validates :nickname, format: { with: REGEXP_NICKNAME }, unless: -> { deleted? || managed? }
 
     scope :confirmed, -> { where.not(confirmed_at: nil) }
     scope :not_confirmed, -> { where(confirmed_at: nil) }
@@ -37,7 +37,6 @@ module Decidim
     scope :available, -> { where(deleted_at: nil, blocked: false, managed: false) }
 
     scope :not_deleted, -> { where(deleted_at: nil) }
-
 
     # Public: Returns a collection with all the public entities this user is following.
     #
