@@ -30,7 +30,7 @@ describe "rake decidim:upgrade:fix_nickname_casing", type: :task do
     end
   end
 
-  context "when there are 2 users with same nicknames accross multiple organizations" do
+  context "when there are 2 users with same nicknames across multiple organizations" do
     let!(:user) do
       user = build(:user, nickname: "SomeCapitalGuy")
       user.save(validate: false)
