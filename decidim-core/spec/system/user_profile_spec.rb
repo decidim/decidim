@@ -9,6 +9,18 @@ describe "Profile" do
     switch_to_host(user.organization.host)
   end
 
+  context "when has casing in the nickname" do
+
+    before do
+      switch_to_host(user.organization.host)
+      visit decidim.profile_path(user.nickname.upcase)
+    end
+
+    it "is not indexable by crawlers" do
+      expect(current_path).to include(decidim.profile_path(user.nickname.downcase))
+    end
+  end
+
   context "when navigating privately" do
     before do
       login_as user, scope: :user

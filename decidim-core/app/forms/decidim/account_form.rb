@@ -66,7 +66,7 @@ module Decidim
 
     def unique_nickname
       return true if Decidim::UserBaseEntity.where(
-        "decidim_organization_id = ? AND LOWER(nickname) = ? ",
+        "decidim_organization_id = ? AND nickname = ? ",
         context.current_organization.id,
         nickname.downcase
       ).where.not(id: context.current_user.id).empty?
