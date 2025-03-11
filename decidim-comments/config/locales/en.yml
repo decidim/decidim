@@ -17,12 +17,13 @@ en:
         one: Vote
         other: Votes
   decidim:
-    accessibility_label: "Comment %{id} by %{full_name}"
     admin:
       admin_log:
         changeset:
           comments: Comments
     comments:
+      comment_thread:
+        accessibility_label: "Comment %{id} by %{full_name}"
       admin:
         shared:
           availability_fields:
