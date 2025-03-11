@@ -13,8 +13,8 @@
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form questionnaire-template__form">
     <%= decidim_form_for([questionnaire], url: decidim_admin_templates.apply_questionnaire_templates_url(questionnaire_id: questionnaire, url: request.url),
-         method: :post,
-         html: { id: "choose-template-form", class: "form form-defaults choose_questionnaire_templates", "data-choose-questionnaire-templates": true }) do |form| %>
+                                          method: :post,
+                                          html: { id: "choose-template-form", class: "form form-defaults choose_questionnaire_templates", "data-choose-questionnaire-templates": true }) do |form| %>
       <div class="form__wrapper">
         <div class="p-4 ">
           <%= t(".description") %>
