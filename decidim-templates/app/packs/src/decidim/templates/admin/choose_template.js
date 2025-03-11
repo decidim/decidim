@@ -38,7 +38,7 @@ $(() => {
           break;
 
         default:
-          console.error("Unknwon template type for choosing a questionnaire template");
+          console.error("Unknown template type for choosing a questionnaire template");
         }
       });
     });
