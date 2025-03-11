@@ -27,12 +27,12 @@ describe "explore api credentials" do
     end
     expect(page).to have_current_path("/system/api_users")
     within "table.stack" do
-      ths = find_all("th")
-      expect(ths[0]).to have_content("Organization")
-      expect(ths[1]).to have_content("Name")
-      expect(ths[2]).to have_content("Key")
-      expect(ths[3]).to have_content("Created at")
-      expect(ths[4]).to have_content("Actions")
+      header_cells = find_all("th")
+      expect(header_cells[0]).to have_content("Organization")
+      expect(header_cells[1]).to have_content("Name")
+      expect(header_cells[2]).to have_content("Key")
+      expect(header_cells[3]).to have_content("Created at")
+      expect(header_cells[4]).to have_content("Actions")
     end
   end
 
@@ -50,12 +50,12 @@ describe "explore api credentials" do
       within "table.stack" do
         api_users.each do |user|
           tr = find("td", text: user.api_key).find(:xpath, "..")
-          tds = tr.find_all("td")
-          expect(tds.first).to have_content(user.organization.host)
-          expect(tds[1]).to have_content(user.name)
-          expect(tds[2]).to have_content(user.api_key)
-          expect(tds.last).to have_link("Revoke token")
-          expect(tds.last).to have_link("Refresh token")
+          row_cells = tr.find_all("td")
+          expect(row_cells.first).to have_content(user.organization.host)
+          expect(row_cells[1]).to have_content(user.name)
+          expect(row_cells[2]).to have_content(user.api_key)
+          expect(row_cells.last).to have_link("Revoke token")
+          expect(row_cells.last).to have_link("Refresh token")
         end
       end
       expect(page).to have_link("New API user")

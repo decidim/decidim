@@ -7,7 +7,7 @@ describe Decidim::Api::SessionsController do
   routes { Decidim::Api::Engine.routes }
 
   let(:organization) { create(:organization) }
-  let(:api_key) { "userkey" }
+  let(:api_key) { "user_key" }
   let(:api_secret) { "decidim123456789" }
   let!(:user) { create(:api_user, organization: organization, api_key: api_key, api_secret: api_secret) }
   let(:params) do
@@ -22,7 +22,7 @@ describe Decidim::Api::SessionsController do
     {
       api_user: {
         key: api_key,
-        secret: "maga2020"
+        secret: "incorrect_secret"
       }
     }
   end
