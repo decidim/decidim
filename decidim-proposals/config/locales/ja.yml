@@ -585,7 +585,6 @@ ja:
             cancel: キャンセル
             change_taxonomies: タクソノミーを変更
             merge: 新しいものにマージ
-            merge_button: 結合
             no_templates_available: 利用可能なテンプレートはありません
             publish: 公開
             publish_answers: 回答を公開
@@ -656,7 +655,6 @@ ja:
       admin_log:
         proposal:
           answer: "%{user_name} が %{resource_name} スペースで %{space_name} の提案に回答しました"
-          create: "%{user_name} が公式提案として %{resource_name} スペースに %{space_name} 提案を作成しました"
           publish_answer: "%{user_name} が %{resource_name} の提案に対する回答を %{space_name} スペースに公開しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} 公式提案を更新しました"
         proposal_note:

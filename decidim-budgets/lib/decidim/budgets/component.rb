@@ -76,7 +76,7 @@ Decidim.register_component(:budgets) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :taxonomy_filters, type: :taxonomy_filters
-    settings.attribute :workflow, type: :enum, default: "one", choices: -> { Decidim::Budgets.workflows.keys.map(&:to_s) }
+    settings.attribute :workflow, type: :enum, default: "one", choices: ->(_context) { Decidim::Budgets.workflows.keys.map(&:to_s) }
     settings.attribute :projects_per_page, type: :integer, default: 12
     settings.attribute :vote_rule_threshold_percent_enabled, type: :boolean, default: true
     settings.attribute :vote_threshold_percent, type: :integer, default: 70

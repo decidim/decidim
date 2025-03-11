@@ -44,6 +44,14 @@ def generate_localized_title(field = nil, skip_injection: false)
   end
 end
 
+def generate_title(field = nil, skip_injection:)
+  skip_injection = true if field.nil?
+
+  prepend = skip_injection ? "" : "<script>alert(\"#{field}\");</script>"
+
+  "#{prepend}#{generate(:title)}"
+end
+
 FactoryBot.define do
   sequence(:title) do |n|
     "#{Faker::Lorem.sentence(word_count: 3)} #{n}".delete("'")

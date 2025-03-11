@@ -46,6 +46,7 @@ shared_examples_for "a new production application" do
       .to match(/^# gem "decidim-initiatives"/)
       .and match(/^# gem "decidim-conferences"/)
       .and match(/^# gem "decidim-templates"/)
+      .and match(/^# gem "decidim-collaborative_texts"/)
   end
 end
 
@@ -57,6 +58,7 @@ shared_examples_for "a new development application" do
       .to match(/^gem "decidim-initiatives"/)
       .and match(/^gem "decidim-conferences"/)
       .and match(/^gem "decidim-templates"/)
+      .and match(/^gem "decidim-collaborative_texts"/)
 
     # Checks that every table from a migration is included in the generated schema
     schema = File.read("#{test_app}/db/schema.rb")
@@ -535,7 +537,7 @@ shared_examples_for "an application with configurable env vars" do
         "provider" => "here",
         "api_key" => "a-maps-api-key",
         "static" => {
-          "url" => "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
+          "url" => "https://image.maps.hereapi.com/mia/v3/base/mc/overlay"
         },
         "dynamic" => {
           "provider" => "here",
@@ -576,7 +578,7 @@ shared_examples_for "an application with configurable env vars" do
         "provider" => "here",
         "api_key" => "a-maps-api-key",
         "static" => {
-          "url" => "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
+          "url" => "https://image.maps.hereapi.com/mia/v3/base/mc/overlay"
         },
         "dynamic" => {
           "provider" => "osm",
