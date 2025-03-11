@@ -10,7 +10,7 @@ module Decidim
     describe "#can_be_contacted?" do
       subject { described_class.new(user).can_be_contacted? }
 
-      it "can't be contacted" do
+      it "cannot be contacted" do
         expect(subject).to be(false)
       end
     end
@@ -18,7 +18,7 @@ module Decidim
     describe "#can_follow?" do
       subject { described_class.new(user).can_follow? }
 
-      it "can't follow" do
+      it "cannot follow" do
         expect(subject).to be(false)
       end
     end
