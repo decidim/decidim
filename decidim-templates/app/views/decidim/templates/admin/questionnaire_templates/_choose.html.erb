@@ -2,6 +2,12 @@
   <h1 class="item_show__header-title">
     <%= form_title %>
   </h1>
+
+  <% if show_buttons %>
+    <%= button_tag t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), class: "button button__xs button__secondary h-8 disabled", data: { disabled_button: true } %>
+    <%= link_to t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), decidim_admin_templates.skip_questionnaire_templates_path(questionnaire_id: questionnaire, url: request.url), class: "button button__sm button__secondary h-8 hidden", data: { create_new_form_button: true }, method: :post %>
+    <%= button_tag t("continue", scope: "decidim.templates.admin.questionnaire_templates.choose"), class: "button button__xs button__secondary h-8 hidden", data: { with_template_button: true }, form: "choose-template-form" %>
+  <% end %>
 </div>
 
 <div class="item__edit item__edit-1col">
