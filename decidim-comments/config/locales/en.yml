@@ -17,6 +17,7 @@ en:
         one: Vote
         other: Votes
   decidim:
+    accessibility_label: "Comment %{id} by %{full_name}"
     admin:
       admin_log:
         changeset:
