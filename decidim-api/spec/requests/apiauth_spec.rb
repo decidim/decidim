@@ -30,7 +30,7 @@ RSpec.describe "Api authentication", type: :request do
       {
         api_user: {
           key: hacker_key,
-          secret: "incorrectsecret"
+          secret: "incorrect_secret"
         }
       }
     end
