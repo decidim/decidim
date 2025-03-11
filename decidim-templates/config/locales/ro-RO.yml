@@ -62,6 +62,7 @@ ro:
           edit:
             edit: Editează
             empty: Nu există încă întrebări.
+            manage_questions: Întrebări
             questionnaire: Chestionar
           form:
             title: Model de chestionar %{questionnaire_for}
