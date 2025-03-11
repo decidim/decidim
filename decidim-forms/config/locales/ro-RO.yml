@@ -32,6 +32,7 @@ ro:
         questionnaires:
           actions:
             back: Înapoi la întrebări
+            show: Răspunsuri
           answer_option:
             answer_option: Opțiune de răspuns
             free_text: Text liber
