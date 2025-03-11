@@ -38,6 +38,15 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_attachments_allowed_and_creation_enabled do
+      settings do
+        {
+          attachments_allowed: true,
+          creation_enabled_for_participants: true
+        }
+      end
+    end
   end
 
   factory :post, class: "Decidim::Blogs::Post" do

@@ -180,9 +180,6 @@ pl:
             few: "%{count} wyników"
             many: "%{count} wyników"
             other: "%{count} wyników"
-        home:
-          empty: Nie ma jeszcze żadnych wyników.
-          empty_filters: Brak wyników z tymi kryteriami.
         home_header:
           global_status: Globalny status realizacji
         no_results: Nie ma żadnych projektów

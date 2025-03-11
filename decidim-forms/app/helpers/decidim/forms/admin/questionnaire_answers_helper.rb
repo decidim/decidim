@@ -7,6 +7,8 @@ module Decidim
       #
       module QuestionnaireAnswersHelper
         def first_table_th(answer)
+          return nil if answer.nil?
+
           if answer.first_short_answer
             @first_short_answer = answer.first_short_answer
             return translated_attribute @first_short_answer.question.body

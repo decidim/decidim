@@ -16,5 +16,6 @@ Decidim::Webpacker.register_entrypoints(
   decidim_map_provider_default: "#{base_path}/app/packs/entrypoints/decidim_map_provider_default.js",
   decidim_map_provider_here: "#{base_path}/app/packs/entrypoints/decidim_map_provider_here.js",
   decidim_widget: "#{base_path}/app/packs/entrypoints/decidim_widget.js",
+  decidim_qr: "#{base_path}/app/packs/entrypoints/decidim_qr.js",
   decidim_geocoding: "#{base_path}/app/packs/entrypoints/decidim_geocoding.js"
 )
