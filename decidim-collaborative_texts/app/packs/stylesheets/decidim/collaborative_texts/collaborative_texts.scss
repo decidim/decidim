@@ -67,7 +67,10 @@
   &-button-suggest,
   &-button-cancel,
   &-button-restore {
-    @apply button button__xs;
+    // .button
+    @apply inline-flex items-center justify-center font-semibold text-center border border-transparent rounded transition cursor-pointer [&>svg]:flex-none [&>svg]:fill-current [&>span]:text-center [&>span]:break-words focus:outline focus:outline-2 focus:outline-offset-2;
+    // .button__xs
+    @apply text-sm [&:not([class*="button\\_\\_text"])]:px-3 [&:not([class*="button\\_\\_text"])]:py-1 gap-1;
 
     &.hidden {
       display: none;
@@ -77,11 +80,13 @@
   &-button-save,
   &-button-apply,
   &-button-suggest {
-    @apply button__primary;
+    // .button__primary
+    @apply bg-primary text-white focus:outline-primary;
   }
 
   &-button-cancel,
   &-button-restore {
-    @apply button__transparent-primary;
+    // .button__transparent && .button__transparent-primary
+    @apply border bg-white border-primary text-primary focus:outline-primary;
   }
 }

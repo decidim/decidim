@@ -22,23 +22,22 @@ module Decidim
             )
           end
 
-          if form.draft != resource.draft
+          # Admin forcing a draft to discard existing suggestions
+          if resource.has_suggestions? && form.draft
+            Decidim.traceability.create!(
+              Decidim::CollaborativeTexts::Version,
+              current_user,
+              { document: resource, body: resource.body, draft: true },
+              **extra_version_params
+            )
+          else
             Decidim.traceability.update!(
               resource.current_version,
               current_user,
-              { draft: form.draft },
-              **extra_document_params
+              { draft: form.draft, body: form.body },
+              **extra_version_params
             )
           end
-          # Body can only be updated if the document has no suggestions
-          return if form.body == resource.body || resource.has_suggestions?
-
-          Decidim.traceability.update!(
-            resource.current_version,
-            current_user,
-            { body: form.body },
-            **extra_version_params
-          )
         end
 
         def extra_document_params

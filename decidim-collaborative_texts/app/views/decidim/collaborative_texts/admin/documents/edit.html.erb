@@ -7,7 +7,7 @@
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: document_path(document), html: { class: "form-defaults form edit_document" }) do |f| %>
-      <%= render partial: "form", object: f %>
+      <%= render partial: "form", object: f, locals: { has_suggestions:  document.has_suggestions? } %>
 
       <% if document.draft? %>
         <div class="form__wrapper">
@@ -21,28 +21,24 @@
             </div>
           </div>
         </div>
-
-      <% elsif document.has_suggestions? %>
-        <%= cell("decidim/announcement", t(".document_has_suggestions_html", url: resource_locator(document).path), callout_class: "warning") %>
+      <% else %>
+        <div class="form__wrapper">
+          <div class="card">
+            <div class="card-section">
+              <% if document.has_suggestions?%>
+                <div class="row column">
+                  <%= f.check_box :draft, help_text: t(".draft_help_html"), label: t(".create_draft") %>
+                </div>
+              <% end %>
+              <div class="row column">
+                <%= f.check_box :accepting_suggestions, help_text: t(".enable_suggestions_help"), label: t(".enable_suggestions") %>
+            </div>
+          </div>
+        </div>
       <% end %>
 
-      <h4 class="h4 mb-4"><%= t(".previous_versions") %></h4>
-      <ul class="previous-versions">
-        <% document.document_versions.each do |version| %>
-          <li class="<%= "underline" if version == document.current_version %>">
-            <%= t(".version", version_number: version.version_number,
-                              created_at: l(version.created_at,
-                                            format: :decidim_short),
-                              suggestions_count: version.suggestions.count) %>
-            <% if version == document.consolidated_version %>
-              (<%= t(".public_version") %>)
-            <% end %>
-            <% if version.draft? %>
-              (<%= t(".draft") %>)
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
+      <%= render partial: "versions" %>
+
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">
           <%= f.submit t(".update"), class: "button button__sm button__secondary" %>

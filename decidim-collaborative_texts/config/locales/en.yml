@@ -30,9 +30,12 @@ en:
           edit:
             accepting_suggestions: Enable suggestions in the next version
             accepting_suggestions_help: Enabling suggestions will start a new round of suggestions for this document. The current suggestions will not be visible in the new version.
+            create_draft: Discard suggestions and create a new draft version
             document_has_suggestions_html: <a href="%{url}">This document has suggestions</a> and cannot be edited directly. Please accept or reject the suggestions in order to generate a new draft version that can be edited.
             draft: Draft version
-            draft_help_html: A draft version is not public and can edited by the admins. Remove the draft status to make the public version this content. <strong>Note that meanwhile the draft version is active, the participants will not be able to make suggestions.</strong>
+            draft_help_html: A draft version is not public and can edited by the admins. Remove the draft status to make the public version this content. <strong>Note that meanwhile the draft version is active, the participants will see the previous version and they will not be able to make suggestions.</strong>
+            enable_suggestions: Enable suggestions
+            enable_suggestions_help: Enabling suggestions will allow participants to make suggestions on this version.
             previous_versions: Previous versions
             public_version: Public version
             title: Edit collaborative texts
@@ -89,6 +92,7 @@ en:
         status:
           accepting_suggestions: You can make suggestions on this document by selecting (or double click) the text you want to change and clicking on the "Suggest changes" button.
           draft: This document is currently under review by the administrators. Suggestions are not allowed at this time, but you can view suggestions made by other participants.
+          not_accepting_suggestions: Suggestions are not allowed at this time.
           selection_active: A selection is active. Please cancel the current selection to make a new one.
         suggest: Suggest changes
       documents:

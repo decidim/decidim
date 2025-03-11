@@ -15,13 +15,17 @@
 %>
 
 <%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
+  <%= render partial: "decidim/shared/component_announcement" %>
+
   <section class="layout-main__section">
     <div class="flex justify-center">
       <h1 class="title-decorator my-12"><%= document.title %></h1>
     </div>
 
+    <%= cell("decidim/announcement", translated_attribute(document.announcement)) unless strip_tags(document.announcement.values.join).strip.blank? %>
     <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.draft"), callout_class: "warning") if document.draft? %>
     <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.accepting_suggestions")) if document.suggestions_enabled? %>
+    <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.not_accepting_suggestions")) unless document.suggestions_enabled? %>
 
     <div data-collaborative-texts-document="<%= document.suggestions_enabled? %>"
          data-collaborative-texts-i18n="<%= document_i18n.to_json %>"
