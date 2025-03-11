@@ -233,6 +233,11 @@ en:
           email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
           email_subject: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated
           notification_title: Your registration code "%{registration_code}" for the <a href="%{resource_path}">%{resource_title}</a> meeting has been validated.
+        registration_marked_as_attendee:
+          email_intro: Your registration for the "%{resource_title}" meeting has been marked as attendee.
+          email_outro: You have received this notification because your registration for the "%{resource_title}" meeting has been marked as attendee.
+          email_subject: Your registration for the "%{resource_title}" meeting has been marked as attendee
+          notification_title: Your registration for the <a href="%{resource_path}">%{resource_title}</a> meeting has been marked as attendee.
         registrations_enabled:
           email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
@@ -272,6 +277,7 @@ en:
             one: 'The meeting cannot be destroyed because it has %{count} proposal associated to it:'
             other: 'The meeting cannot be destroyed because it has %{count} proposals associated to it:'
         manage_poll: Manage poll
+        mark_as_attendee: Mark as attendee
         new_meeting: New meeting
         preview: Preview
         registrations: Registrations
@@ -413,8 +419,6 @@ en:
         registrations:
           edit:
             save: Save
-            validate: Validate
-            validate_registration_code: Validate registration code
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invitations
@@ -422,6 +426,7 @@ en:
             recommendation_message: For privacy reasons we recommend that you delete this inscription form when you no longer need it. By default this is 3 months after the meeting has ended.
             registration_email_help: This text will appear in the middle of the registration confirmation email. Just after the registration code.
             registration_form: Registration form
+            registrations: View registrations
             registrations_count:
               one: There has been %{count} registration.
               other: There has been %{count} registrations.
@@ -431,6 +436,14 @@ en:
           update:
             invalid: There was a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
+        registrations_attendees:
+          index:
+            title: Registrations
+            validate: Validate
+            validate_registration_code: Validate registration code
+          mark_attendee:
+            invalid: Registration could not be marked as attended.
+            success: Registration marked as attended successfully.
           validate_registration_code:
             invalid: This registration code is invalid.
             success: Registration code successfully validated.
@@ -635,6 +648,15 @@ en:
             start_time: Start date
             taxonomies: Taxonomies
             title: Title
+        registration:
+          actions: Actions
+          fields:
+            email: Email
+            name: Name
+            status: Status
+          status:
+            attended: Attended
+            not_attended: Not attended
       polls:
         answers:
           index:

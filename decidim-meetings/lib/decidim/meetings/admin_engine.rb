@@ -34,7 +34,14 @@ module Decidim
             end
             collection do
               get :export
+            end
+          end
+          resources :registrations_attendees, only: [:index] do
+            collection do
               post :validate_registration_code
+            end
+            member do
+              put :mark_as_attendee
             end
           end
           resources :agenda, except: [:index, :destroy]

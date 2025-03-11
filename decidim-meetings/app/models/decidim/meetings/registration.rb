@@ -32,6 +32,10 @@ module Decidim
         validated_at?
       end
 
+      def presenter
+        Decidim::Meetings::RegistrationPresenter.new(self)
+      end
+
       private
 
       def generate_code
