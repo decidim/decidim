@@ -88,6 +88,7 @@ cs:
           edit:
             edit: Upravit
             empty: Zatím nejsou žádné otázky.
+            manage_questions: Otázky
             questionnaire: Dotazník
             title: Upravit šablonu dotazníku
           edit_questions:
