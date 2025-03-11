@@ -6,7 +6,7 @@
 <%= form_for(@form, url: api_users_path, method: :post, class: "api-user", html: { id: "new_api_user" }) do |f| %>
 
   <div class="form__wrapper">
-    <%= f.select :organization, organizations.map{|organization| [organization.host, organization.id] }, prompt: t(".select_organization") %>
+    <%= f.select :organization, organizations.map { |organization| [organization.host, organization.id] }, prompt: t(".select_organization") %>
     <%= f.text_field :name, autofocus: true %>
 
     <div class="form__wrapper-block">

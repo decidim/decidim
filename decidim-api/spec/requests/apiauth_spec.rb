@@ -3,7 +3,7 @@
 require "spec_helper"
 require_relative "../shared/api_authenticatable_examples"
 
-RSpec.describe "Api authentication", type: :request do
+RSpec.describe "Api authentication" do
   let(:sign_in_path) { "/api/sign_in" }
   let(:sign_out_path) { "/api/sign_out" }
   let(:organization) { create(:organization) }

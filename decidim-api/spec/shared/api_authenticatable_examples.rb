@@ -34,7 +34,7 @@ shared_examples "api authenticatable user" do
 
     it "can use token to post to api" do
       authorization = response.headers["Authorization"]
-      post "/api", params: { query: "{session { user { id nickname } } }"  }, headers: { HTTP_AUTHORIZATION: authorization }
+      post "/api", params: { query: "{session { user { id nickname } } }" }, headers: { HTTP_AUTHORIZATION: authorization }
       parsed_response = JSON.parse(response.body)["data"]
       expect(parsed_response["session"]["user"]["id"].to_i).to eq(user.id)
       expect(parsed_response["session"]["user"]["nickname"]).to eq(user.nickname.prepend("@"))
