@@ -5,6 +5,7 @@ module Decidim
     class DocumentsController < Decidim::CollaborativeTexts::ApplicationController
       include Decidim::Paginable
       include Decidim::FormFactory
+      include Decidim::AjaxPermissionHandler
 
       helper_method :documents, :document, :paginate_documents
 
@@ -16,6 +17,8 @@ module Decidim
 
       # roll out a new version of the document (only admins)
       def update
+        enforce_permission_to(:rollout, :collaborative_text, document:)
+
         @form = form(RolloutForm).from_params(params, document:)
         Rollout.call(@form) do
           on(:ok) do

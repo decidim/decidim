@@ -21,6 +21,8 @@ class Document {
       console.error("Error parsing collaborativeTextsI18n", this.doc.dataset.collaborativeTextsI18n);
     }
     this.csrfToken = document.querySelector("meta[name=csrf-token]") && document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+    this.alertWrapper = window.document.querySelector(".collaborative-texts-alert");
+    this.alertDiv = this.alertWrapper.querySelector("div");
     this._prepareNodes();
     console.log("Document prepared", this);
   }
@@ -42,9 +44,13 @@ class Document {
     return this;
   }
 
-  // TODO: add a html (modal) integrated alert
+  // show an alert message for 5 seconds
   alert(message) {
-    window.alert(message);
+    this.alertDiv.textContent = message;
+    this.alertWrapper.classList.remove("hidden");
+    setTimeout(() => {
+      this.alertWrapper.classList.add("hidden");
+    }, 5000);
   }
 
   // For all first level nodes of type ELEMENT_NODE, ensure they have a unique id if they don't have one starting with "ct-node-"
@@ -76,7 +82,7 @@ class Document {
   _showOptions() {
     this.selection = this.selection || new Selection(this);
     if (this.selection.blocked) {
-      if(this.selection.outsideBlock()) {
+      if (this.selection.outsideBlock()) {
         this.alert(this.i18n.selectionActive)
       }
       return;
@@ -92,7 +98,6 @@ class Document {
 
   _onApply() {
     this.applying = true;
-    // TODO: only for admins
     this.manager = this.manager || new Manager(this);
     this.manager.show();
   }
@@ -115,6 +120,7 @@ class Document {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest2",
         "X-CSRF-Token": this.csrfToken
       },
       body: JSON.stringify({
@@ -123,14 +129,21 @@ class Document {
         replace: replace
       })
     }).
-      then((response) => response.json()).
-      then((data) => {
+      then(async (response) => {
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(data.message
+            ? data.message
+            : data);
+        }
+
         console.log("Suggestion sent:", data);
         this.suggestions.destroy();
         this.fetchSuggestions();
       }).
       catch((error) => {
         console.error("Error sending suggestion:", error);
+        this.alert(error);
       });
   }
 }

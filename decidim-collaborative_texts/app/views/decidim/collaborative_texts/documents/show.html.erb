@@ -9,7 +9,7 @@
   edit_link(
     resource_locator(document).edit,
     :update,
-    :document,
+    :collaborative_text,
     document:
   )
 %>
@@ -22,24 +22,29 @@
       <h1 class="title-decorator my-12"><%= document.title %></h1>
     </div>
 
-    <%= cell("decidim/announcement", translated_attribute(document.announcement)) unless strip_tags(document.announcement.values.join).strip.blank? %>
+    <%= cell("decidim/announcement", translated_attribute(document.announcement)) if strip_tags(document.announcement&.values&.join)&.strip.present? %>
     <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.draft"), callout_class: "warning") if document.draft? %>
-    <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.accepting_suggestions")) if document.suggestions_enabled? %>
-    <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.not_accepting_suggestions")) unless document.suggestions_enabled? %>
+    <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.accepting_suggestions")) if allowed_to?(:suggest, :collaborative_text, document:) %>
+    <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.not_accepting_suggestions")) unless allowed_to?(:suggest, :collaborative_text, document:) %>
 
-    <div data-collaborative-texts-document="<%= document.suggestions_enabled? %>"
+    <div class="collaborative-texts-manager hidden">
+      <%= button_tag(t("decidim.collaborative_texts.document.rollout.new"), class:"button button__lg button__primary", data: { collaborative_texts_manager_rollout: true }) %>
+      <%= button_tag(t("decidim.collaborative_texts.document.consolidate.new"), class:"button button__lg button__transparent-primary", data: { collaborative_texts_manager_consolidate: true }) %>
+    </div>
+
+    <div class="collaborative-texts-alert hidden">
+      <div></div>
+    </div>
+
+    <div data-collaborative-texts-document="<%= allowed_to?(:suggest, :collaborative_text, document:) %>"
          data-collaborative-texts-i18n="<%= document_i18n.to_json %>"
          data-collaborative-texts-suggestions-url="<%= document_suggestions_path(document) %>"
-         data-collaborative-texts-rollout-url="<%= document_path(document) %>"
+         data-collaborative-texts-rollout-url="<%= document_path(document) if allowed_to?(:rollout, :collaborative_text, document:) %>"
          class="collaborative-texts-container editor-content">
       <%= decidim_sanitize decidim_rich_text(document.consolidated_body), { scrubber: Decidim::AdminInputScrubber.new } %>
     </div>
-  </section>
 
-  <div class="collaborative-texts-manager layout-1col hidden">
-    <%= button_tag(t("decidim.collaborative_texts.document.rollout.new"), class:"button button__lg button__primary", data: { collaborative_texts_manager_rollout: true }) %>
-    <%= button_tag(t("decidim.collaborative_texts.document.consolidate.new"), class:"button button__lg button__transparent-primary", data: { collaborative_texts_manager_consolidate: true }) %>
-  </div>
+  </section>
 <% end %>
 
 <% append_javascript_pack_tag("decidim_collaborative_texts") %>

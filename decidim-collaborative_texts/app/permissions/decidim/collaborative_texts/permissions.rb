@@ -8,7 +8,14 @@ module Decidim
         return Decidim::CollaborativeTexts::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
         return permission_action if permission_action.scope != :public
 
-        return permission_action if permission_action.subject != :document
+        return permission_action if permission_action.subject != :collaborative_text
+
+        case permission_action.action
+        when :suggest
+          allow! if user
+        when :rollout
+          allow! if user && user.admin? # TODO: allow participatory space admins!
+        end
 
         permission_action
       end

@@ -4,6 +4,8 @@ module Decidim
   module CollaborativeTexts
     class SuggestionsController < Decidim::CollaborativeTexts::ApplicationController
       include Decidim::FormFactory
+      include Decidim::AjaxPermissionHandler
+
       helper_method :documents, :document
 
       def index
@@ -11,6 +13,7 @@ module Decidim
       end
 
       def create
+        enforce_permission_to :suggest, :collaborative_text
         @form = form(SuggestionForm).from_params(params)
 
         CreateSuggestion.call(@form) do

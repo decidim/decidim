@@ -32,9 +32,9 @@ class Selection {
 
   outsideBlock() {
     const node = this.selection.focusNode;
-    if(node) {
+    if (node) {
       console.log("Node: ", node);
-      if(node.parentNode.closest(".collaborative-texts-selection") || node.parentNode.closest(".collaborative-texts-editor-container")) {
+      if (node.parentNode.closest(".collaborative-texts-selection") || node.parentNode.closest(".collaborative-texts-editor-container")) {
         return false;
       }
     }

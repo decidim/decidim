@@ -61,6 +61,7 @@ class Manager {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
             "X-CSRF-Token": this.document.csrfToken
           },
           body: JSON.stringify({
@@ -70,10 +71,19 @@ class Manager {
             draft: draft
           })
         }).
-          then((response) => response.json()).
-          then((data) => {
-            console.log("Saved", data);
+          then(async (response) => {
+            const data = await response.json();
+            console.log("Response", response, data);
+            if (!response.ok) {
+              throw new Error(data.message
+                ? data.message
+                : data);
+            }
             location = data.redirect;
+          }).
+          catch((error) => {
+            console.error("Error saving:", error);
+            this.document.alert(error);
           });
       }
     });
