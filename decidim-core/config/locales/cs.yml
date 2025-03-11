@@ -1759,6 +1759,10 @@ cs:
           resend_email_confirmation_instructions: Znovu odeslat pokyny pro potvrzení e-mailu
         confirmation_instructions_sent: Pokyny pro potvrzení e-mailu byly odeslány.
         fill_in_email_to_confirm_it: Pro potvrzení vyplňte e-mailovou adresu skupiny.
+    qr:
+      show:
+        scan: Naskenujte QR kód
+        title: QR kód pro %{resource_title}
     reported_mailer:
       hide:
         hello: Zdravím %{name},
@@ -1816,6 +1820,10 @@ cs:
       selfxss_warning:
         description: Tato funkce prohlížeče je určena pro vývojáře a pokud jste o to byli požádáni, neměli byste sem nic vkládat. Vkládání obsahu do tohoto okna může ohrozit vaše soukromí a umožnit hackerům přístup k vašemu účtu.
         title: Zastavit!
+    share_widget:
+      download: Stáhnout
+      print: Tisk plakátu
+      qr_code: QR kód
     shared:
       confirm_modal:
         cancel: Zrušit
@@ -1846,11 +1854,13 @@ cs:
       flag_user_modal:
         already_reported: Tento obsah je již nahlášen a bude přezkoumán administrátorem.
         block: Blokovat tohoto uživatele
+        description: Co je s tímto účastníkem nevhodné?
         does_not_belong: Obsahuje nezákonnou činnost, hrozby sebevraždou, osobní informaci nebo cokoliv jiného, o čem si myslíte, že nepatří do %{organization_name}.
         hide: Skrýt veškerý jejich obsah
         offensive: Obsahuje rasismus, sexismus, urážky, osobní útoky, hrozby smrti, sebevražedné žádosti nebo jakoukoliv formu nenávistného projevu.
         report: Nahlásit
         spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
+        title: Nahlásit nevhodného účastníka
       floating_help:
         help: Pomoc
       follow_button:
@@ -1875,6 +1885,7 @@ cs:
         copy_share_link: Kopírovat
         copy_share_link_clarification: Zkopírovat odkaz pro sdílení do schránky
         copy_share_link_copied: Zkopírováno!
+        copy_share_link_cta: Nebo zkopírovat odkaz
         copy_share_link_message: Odkaz byl úspěšně zkopírován do schránky.
         share: Sdílet
         share_link: Sdílet odkaz
