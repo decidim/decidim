@@ -11,6 +11,14 @@ module Decidim
         private
 
         def resource_class = Decidim::CollaborativeTexts::Document
+
+        def extra_params
+          {
+            extra: {
+              body: form.body
+            }
+          }
+        end
       end
     end
   end

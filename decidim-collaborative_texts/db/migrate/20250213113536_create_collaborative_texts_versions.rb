@@ -6,6 +6,7 @@ class CreateCollaborativeTextsVersions < ActiveRecord::Migration[7.0]
       t.references :document, null: false, index: true
       t.string :body
       t.boolean :draft, null: false, default: false
+      t.datetime :deleted_at, index: true
       t.timestamps
     end
   end

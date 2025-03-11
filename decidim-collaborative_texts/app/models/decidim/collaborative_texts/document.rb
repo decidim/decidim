@@ -21,7 +21,7 @@ module Decidim
       has_many :document_versions, class_name: "Decidim::CollaborativeTexts::Version", dependent: :destroy
       has_many :suggestions, through: :document_versions
 
-      validates :title, :body, presence: true
+      validates :title, presence: true
 
       scope :enabled_desc, -> { order(arel_table[:accepting_suggestions].desc, arel_table[:created_at].desc) }
 
@@ -50,6 +50,11 @@ module Decidim
 
       def consolidated_body
         consolidated_version&.body
+      end
+
+      # paranoia removes the versions but does not recursively restore by default
+      def restore
+        super(recursive: true)
       end
 
       def has_suggestions?

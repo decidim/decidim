@@ -49,7 +49,7 @@ module Decidim
       end
 
       context "when document exists" do
-        let(:document) { create(:collaborative_text_document) }
+        let(:document) { create(:collaborative_text_document, :with_body) }
 
         it "returns the body of the current version" do
           expect(document.body).to eq(document.current_version.body)
@@ -65,10 +65,10 @@ module Decidim
         end
 
         context "when versions exists" do
-          let(:document) { create(:collaborative_text_document, body: nil, document_versions:) }
-          let(:version1) { build(:collaborative_text_version, body: "Version 1", created_at: 3.minutes.ago) }
-          let(:version2) { build(:collaborative_text_version, body: "Version 2", created_at: 2.minutes.ago) }
-          let(:version3) { build(:collaborative_text_version, :draft, body: "Version 3", created_at: 1.minute.ago) }
+          let(:document) { create(:collaborative_text_document, document_versions:) }
+          let(:version1) { build(:collaborative_text_version, body: "Version 1", document: nil, created_at: 3.minutes.ago) }
+          let(:version2) { build(:collaborative_text_version, body: "Version 2", document: nil, created_at: 2.minutes.ago) }
+          let(:version3) { build(:collaborative_text_version, :draft, body: "Version 3", document: nil, created_at: 1.minute.ago) }
           let(:document_versions) { [version1, version2, version3] }
 
           it "returns the body of the current version" do
@@ -76,6 +76,21 @@ module Decidim
             expect(document.document_versions.count).to eq(3)
             expect(document.document_versions.consolidated.count).to eq(2)
             expect(document.consolidated_version).to eq(version2)
+          end
+
+          context "when destroying" do
+            it "is soft-deleted and restored with the versions" do
+              document.destroy
+              expect(Decidim::CollaborativeTexts::Document.all).to be_empty
+              expect(Decidim::CollaborativeTexts::Document.only_deleted.first).to eq(document)
+              expect(Decidim::CollaborativeTexts::Version.all).to be_empty
+              expect(Decidim::CollaborativeTexts::Version.only_deleted.count).to eq(3)
+              document.restore
+              expect(Decidim::CollaborativeTexts::Document.all).to eq([document])
+              expect(Decidim::CollaborativeTexts::Document.only_deleted).to be_empty
+              expect(Decidim::CollaborativeTexts::Version.all).to eq(document_versions)
+              expect(Decidim::CollaborativeTexts::Version.only_deleted).to be_empty
+            end
           end
         end
       end
@@ -86,23 +101,19 @@ module Decidim
         it "creates a new version" do
           expect(document.document_versions.count).to eq(1)
           expect(document.body).to eq("My first version")
-          expect(document.draft_body).to be_nil
 
-          expect { document.draft!("My first amended version") }.to change { document.document_versions.count }.by(1)
+          expect { document.document_versions.create(body: "My first amended version", draft: true) }.to change { document.document_versions.count }.by(1)
           expect(document.body).to eq("My first amended version")
-          expect(document.draft_body).to eq("My first amended version")
           expect(document.consolidated_body).to eq("My first version")
           expect(document.document_versions.count).to eq(2)
 
-          expect { document.draft!("My second version") }.not_to(change { document.document_versions.count })
+          expect { document.document_versions.last.update(body: "My second version") }.not_to(change { document.document_versions.count })
           expect(document.body).to eq("My second version")
-          expect(document.draft_body).to eq("My second version")
           expect(document.consolidated_body).to eq("My first version")
           expect(document.document_versions.count).to eq(2)
 
-          expect { document.update(draft: true) }.not_to(change { document.document_versions.count })
+          expect { document.document_versions.last.update(draft: false) }.not_to(change { document.document_versions.count })
           expect(document.body).to eq("My second version")
-          expect(document.draft_body).to be_nil
           expect(document.consolidated_body).to eq("My second version")
           expect(document.document_versions.count).to eq(2)
         end

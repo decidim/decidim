@@ -19,22 +19,8 @@ module Decidim
           end
         end
 
-        def resource_name
-          # rubocop:disable Style/SafeNavigationChainLength
-          Decidim::Log::ResourcePresenter.new(action_log&.resource&.document, h, "title" => action_log&.resource&.document&.title).present
-          # rubocop:enable Style/SafeNavigationChainLength
-        end
-
         def i18n_labels_scope
           "activemodel.attributes.collaborative_texts.version"
-        end
-
-        def i18n_params
-          {
-            user_name: user_presenter.present,
-            resource_name: resource_name,
-            space_name: space_presenter.present
-          }
         end
 
         def diff_fields_mapping

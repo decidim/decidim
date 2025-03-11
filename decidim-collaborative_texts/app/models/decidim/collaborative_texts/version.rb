@@ -6,6 +6,8 @@ module Decidim
     # title, description and any other useful information to render a custom
     # document.
     class Version < CollaborativeTexts::ApplicationRecord
+      include Decidim::Resourceable
+      include Decidim::SoftDeletable
       include Decidim::Traceable
       include Decidim::Loggable
 
