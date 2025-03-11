@@ -19,9 +19,9 @@ $(() => {
   const toggleElementsOnChange = () => {
     const radios = document.querySelectorAll("input[name='template']");
 
-    radios.forEach(radio => {
+    radios.forEach((radio) => {
       radio.addEventListener("change", function () {
-        switch (this.value) {
+        switch (radio.value) {
         case "create_new_form":
           chooseTemplateWrapper.classList.add("hidden");
           disabledContinueButton.classList.add("hidden");
@@ -36,6 +36,9 @@ $(() => {
           questionnaireTemplatePreview.classList.remove("hidden");
           createNewFormButton.classList.add("hidden");
           break;
+
+        default:
+          console.error("Unknwon template type for choosing a questionnaire template");
         }
       });
     });
