@@ -741,7 +741,6 @@ pt:
           title: Editar tópico
           update: Atualizar tópico
         new:
-          create: Criar tópico
           title: Novo tópico
         update:
           error: Ocorreu um problema ao atualizar este tópico.
@@ -762,7 +761,6 @@ pt:
         index:
           last_notable_change: Última alteração notável
         new:
-          create: Criar página
           title: Nova página
         topic:
           without_topic: Páginas sem tópico
