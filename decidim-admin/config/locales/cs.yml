@@ -1110,7 +1110,6 @@ cs:
           title: Upravit téma
           update: Aktualizovat téma
         new:
-          create: Vytvořit téma
           title: Nové téma
         update:
           error: Při aktualizaci tohoto tématu došlo k chybě.
@@ -1134,7 +1133,6 @@ cs:
         index:
           last_notable_change: Poslední významná změna
         new:
-          create: Vytvořit stránku
           title: Nová stránka
         topic:
           empty: V tomto tématu nejsou žádné stránky.
