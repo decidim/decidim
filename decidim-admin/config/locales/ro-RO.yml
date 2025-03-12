@@ -881,7 +881,7 @@ ro:
           title: Editează subiectul
           update: Actualizează subiectul
         new:
-          create: Creează un subiect
+          create: Subiect nou
           title: Subiect nou
         update:
           error: A apărut o eroare la actualizarea acestui subiect.
@@ -903,7 +903,7 @@ ro:
         index:
           last_notable_change: Ultima modificare importantă
         new:
-          create: Creează o pagină
+          create: Pagină nouă
           title: Pagină nouă
         topic:
           empty: Nu sunt pagini sub acest subiect.
