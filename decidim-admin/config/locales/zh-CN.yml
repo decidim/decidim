@@ -572,7 +572,6 @@ zh-CN:
           title: 编辑主题
           update: 更新主题
         new:
-          create: 创建主题
           title: 新主题
         update:
           error: 更新这个主题时出现问题。
@@ -593,7 +592,6 @@ zh-CN:
         index:
           last_notable_change: 上一次值得注意的变化
         new:
-          create: 创建页面
           title: 新页面
         topic:
           without_topic: 无主题页面
