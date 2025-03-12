@@ -885,7 +885,7 @@ es-PY:
           success: Invitación de coautoría cancelada con éxito.
         create:
           error: Se ha producido un error al invitar a la coautora.
-          success: "%{author_name} ha sido invitada como coautora con éxito."
+          success: "Se ha invitado con éxito a %{author_name} para ser coautor/a de la propuesta."
         destroy:
           error: Se ha producido un error al rechazar la invitación.
           success: Se ha rechazado su invitación.
