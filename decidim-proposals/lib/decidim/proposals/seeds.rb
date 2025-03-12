@@ -17,7 +17,7 @@ module Decidim
 
         Decidim::Proposals.create_default_states!(component, admin_user)
 
-        5.times do |n|
+        (5..30).to_a.sample.times do |n|
           proposal = create_proposal!(component:)
 
           if proposal.state.nil? && component.settings.amendments_enabled?
@@ -50,7 +50,12 @@ module Decidim
 
       def create_component!
         step_settings = if participatory_space.allows_steps?
-                          { participatory_space.active_step.id => { votes_enabled: true, votes_blocked: false, creation_enabled: true } }
+                          { participatory_space.active_step.id => {
+                            votes_enabled: true,
+                            votes_blocked: [false, true].sample,
+                            votes_hidden: [false, true].sample,
+                            creation_enabled: true
+                          } }
                         else
                           {}
                         end
@@ -61,7 +66,10 @@ module Decidim
           published_at: Time.current,
           participatory_space:,
           settings: {
-            vote_limit: 0,
+            minimum_votes_per_user: (0..2).to_a.sample,
+            vote_limit: (0..5).to_a.sample,
+            threshold_per_proposal: [0, (10..100).to_a.sample].sample,
+            can_accumulate_votes_beyond_threshold: [true, false].sample,
             attachments_allowed: [true, false].sample,
             amendments_enabled: participatory_space.id.odd?,
             collaborative_drafts_enabled: true,
