@@ -32,6 +32,7 @@ gem "decidim-dev", github: "decidim/decidim"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
+bin/rails decidim:upgrade:fix_nickname_casing
 ```
 
 ### 1.4. Follow the steps and commands detailed in these notes
@@ -71,6 +72,18 @@ to
 ```
 
 You can read more about this change on PR [#14180](https://github.com/decidim/decidim/pull/14180).
+
+### 3.2. Convert nicknames to lowercase
+
+As of [#14272](https://github.com/decidim/decidim/pull/14272) we are migrating all the nickanames to lowercase to ensure uniqueness within the same organization, and also fix performance issues which affects large databases having many users.
+
+To apply the fix on your application, you need to run the below command.
+
+```bash
+bin/rails decidim:upgrade:fix_nickname_casing
+```
+
+You can read more about this change on PR [#14272](https://github.com/decidim/decidim/pull/14272).
 
 ### 3.2. [[TITLE OF THE ACTION]]
 
