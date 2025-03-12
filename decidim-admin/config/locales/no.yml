@@ -777,7 +777,6 @@
           title: Rediger emne
           update: Oppdater emne
         new:
-          create: Opprett emne
           title: Nytt emne
         update:
           error: Det oppstod et problem med å oppdatere dette emnet.
@@ -798,7 +797,6 @@
         index:
           last_notable_change: Siste merkbare endring
         new:
-          create: Opprett side
           title: Ny side
         topic:
           without_topic: Sider uten emne
