@@ -1098,7 +1098,7 @@ ca:
           title: Edita el tema
           update: Actualitza el tema
         new:
-          create: Crea un tema
+          create: Nou tema
           title: Nou tema
         update:
           error: S'ha produït un error en actualitzar aquest tema.
@@ -1122,7 +1122,7 @@ ca:
         index:
           last_notable_change: Últims canvis notables
         new:
-          create: Crea una pàgina
+          create: Nova pàgina
           title: Nova pàgina
         topic:
           empty: No hi ha cap pàgina sobre aquest tema.
