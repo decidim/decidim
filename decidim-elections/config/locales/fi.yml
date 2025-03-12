@@ -669,7 +669,7 @@ fi:
           text: 'Voit tarkastaa, että äänesi jättäminen äänestyslaatikkoon onnistui seuraavalla tunnisteella: '
           verify_link: Tarkastaaksesi tämän, kopioi äänen tunniste <a href="%{link}">äänten vahvistussivulle</a>
         create:
-          error: Äänen jättämisessä tapahtui virhe. Ole hyvä ja yritä uudestaan.
+          error: Äänen jättäminen epäonnistui. Ole hyvä ja yritä uudestaan.
         encrypting:
           header: Salataan ääntä...
           text: Äänesi salataan, jotta vaalisalaisuus voidaan taata.
@@ -1239,7 +1239,7 @@ fi:
             back: Takaisin äänestyspaikkoihin
             title: Odottaa fyysisessä tilaisuudessa annetun äänen tallennusta
           update:
-            error: Äänen tallennuksessa tapahtui virhe. Ole hyvä ja yritä uudestaan.
+            error: Äänen tallennus epäonnistui. Ole hyvä ja yritä uudestaan.
             success:
               accepted: Äänen tallennus onnistui.
               rejected: Ääntä ei hyväksytty sähköisessä ääniuurnassa. Ota yhteyttä järjestelmänvalvojaan.
