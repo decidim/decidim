@@ -25,7 +25,8 @@ module Decidim
             published_at: publish_time,
             component: current_component,
             current_user:,
-            author: current_user
+            author: current_user,
+            taxonomizations: []
           )
         end
 
@@ -80,7 +81,8 @@ module Decidim
                       title: { en: title },
                       body: { en: body },
                       published_at: publish_time,
-                      author: current_user
+                      author: current_user,
+                      taxonomizations: []
                     })
               .and_call_original
 
@@ -101,7 +103,8 @@ module Decidim
                 published_at: publish_time,
                 component: current_component,
                 current_user:,
-                author: group
+                author: group,
+                taxonomizations: []
               )
             end
 

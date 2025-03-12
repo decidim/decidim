@@ -234,6 +234,8 @@ ro:
         delete: "%{user_name} a eliminat componenta %{resource_name} din spațiul participativ %{space_name}"
         export_component: "%{user_name} a exportat ca %{format_name} %{resource_name} %{component_name} din %{space_name}"
         publish: "%{user_name} a publicat componenta %{resource_name} în spațiul participativ %{space_name}"
+        restore: "%{user_name} a recuperat componenta %{resource_name} în spațiul %{space_name}"
+        soft_delete: "%{user_name} a mutat la gunoi componenta %{resource_name} în spațiul %{space_name}"
         unpublish: "%{user_name} a anulat publicarea componentei %{resource_name} din spațiul participativ %{space_name}"
         update_permissions_with_space: "%{user_name} a actualizat permisiunile %{resource_name} din spațiul participativ %{space_name}"
       contextual_help_section:
@@ -246,6 +248,7 @@ ro:
       impersonation_log:
         manage: "%{user_name} a gestionat %{resource_name} deoarece %{reason}"
       moderation:
+        bulk_hide: "%{user_name} a ascuns %{reported_count} resurse"
         hide: "%{user_name} a ascuns o resursă de tip %{resource_type} din spațiul participativ %{space_name}"
         unreport: "%{user_name} nu a raportat o resursă de tip %{resource_type} în spațiul %{space_name}"
       newsletter:
@@ -293,8 +296,15 @@ ro:
         delete_with_parent: "%{user_name} a șters taxonomia %{resource_name} din cadrul taxonomiei %{parent_taxonomy}"
         update: "%{user_name} a actualizat taxonomia %{resource_name}"
         update_with_parent: "%{user_name} a actualizat taxonomia %{resource_name} din cadrul taxonomiei %{parent_taxonomy}"
+      taxonomy_filter:
+        create: "%{user_name} a creat filtrul %{resource_name}"
+        create_with_filter_info: '%{user_name} a creat filtrul %{resource_name} bazat pe taxonomie"%{taxonomy_name}" care are %{filter_items_count} elemente'
+        delete: "%{user_name} a șters filtrul %{resource_name}"
+        update: "%{user_name} a actualizat filtrul %{resource_name}"
       user:
         block: "%{user_name} a blocat accesul participantului %{resource_name}"
+        bulk_block: "%{user_name} a blocat %{blocked_count} utilizatori"
+        bulk_unblock: "%{user_name} a deblocat %{unblocked_count} utilizatori"
         invite: "%{user_name} a invitat participantul %{resource_name} cu rolul: %{role}"
         officialize: "%{user_name} a validat participantul %{resource_name}"
         promote: "%{user_name} a promovat %{resource_name}"
@@ -305,6 +315,8 @@ ro:
         unofficialize: "%{user_name} a revocat validarea pentru participantul %{resource_name}"
       user_group:
         block: "%{user_name} a blocat grupul de utilizatori %{resource_name}"
+        bulk_block: "%{user_name} a blocat %{blocked_count} utilizatori"
+        bulk_unblock: "%{user_name} a deblocat %{unblocked_count} utilizatori"
         reject: "%{user_name} a respins verificarea grupului %{resource_name}"
         unblock: "%{user_name} a deblocat grupul de utilizatori %{resource_name}"
         verify: "%{user_name} a verificat grupul de utilizatori %{resource_name}"
@@ -388,6 +400,8 @@ ro:
         download: Descarcați fișier
         visit_link: Accesați link-ul
       documents:
+        component_documents:
+          meetings: Documente ale ședințelor
         documents: Documente
         related_documents: Documente asociate
       photo:
@@ -423,6 +437,7 @@ ro:
         name: Flux de lucru test pentru autorizare
       ephemeral_dummy_authorization_handler:
         fields:
+          document_number: Număr document
           postal_code: Cod poștal
       errors:
         duplicate_authorization: Un participant este deja autorizat cu aceleași date. Un administrator vă va contacta pentru a verifica detaliile.
@@ -459,6 +474,7 @@ ro:
           ok: Ok
           title: Nu este autorizat
         unconfirmed:
+          confirmation_instructions: 'Dacă nu aţi primit instrucţiunile de confirmare le puteţi solicita din nou:'
           explanation_html: Pentru a efectua această acțiune, trebuie să fiți autorizat, înainte de a face acest lucru, trebuie să confirmați adresa dumneavoastră de e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Cereți instrucțiunile de confirmare
           title: Confirmați e-mailul dumnevoastră
@@ -477,6 +493,7 @@ ro:
       see_less: "(mai puține detalii)"
     components:
       component_order_selector:
+        no_content: Nu am găsit niciun conținut cu aceste criterii.
         order:
           all_types: Toate tipurile
           collaborative_draft: Ciornă colaborativă
@@ -484,6 +501,7 @@ ro:
           debate: Dezbatere
           initiative: Inițiativă
           meeting: Întâlnire
+          order: Votul pentru buget
           post: Postează
           proposal: Propunere
           question: Întrebare
@@ -498,6 +516,7 @@ ro:
             amendments_enabled: Amendamente activate
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor
+            define_taxonomy_filters: Vă rugăm să definiți niște filtre pentru acest spațiu participativ înainte de a utiliza această setare.
             dummy_global_attribute1: Mostră de atribut 1
             dummy_global_attribute2: Mostră de atribut 2
             dummy_global_translatable_text: Text-test traductibil
@@ -581,6 +600,7 @@ ro:
     core:
       actions:
         login_before_access: Vă rugăm să vă autentificați înainte de a accesa.
+        unauthorized: Nu sunteți autorizat să efectuați această acțiune.
       application_helper:
         filter_area_values:
           all: Toate
@@ -598,6 +618,8 @@ ro:
         new_tos_fields:
           sign_up: Creați un cont
       registrations:
+        create:
+          error: A apărut o problemă la crearea contului dumneavoastră.
         new:
           already_have_an_account?: Aveți deja un cont?
           log_in: Autentificare
@@ -1261,6 +1283,8 @@ ro:
     reports:
       create:
         success: Raportul a fost creat cu succes şi va fi revizuit de un administrator.
+      parent_hidden:
+        report_details: Resursa părinte a fost ascunsă
     resource:
       controls_label: Control resursă
     resource_endorsements:

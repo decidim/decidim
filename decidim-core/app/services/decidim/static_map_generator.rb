@@ -15,7 +15,7 @@ module Decidim
     def data
       return if @resource.blank? || map_utility.nil?
 
-      Rails.cache.fetch(@resource.cache_key) do
+      Rails.cache.fetch(@resource.cache_key_with_version) do
         map_utility.image_data(
           latitude: @resource.latitude,
           longitude: @resource.longitude,
