@@ -10,7 +10,7 @@
       <thead>
         <tr>
           <th>#</th>
-          <th><%= first_table_th(@participants.first) %></th>
+          <th class="!text-left"><%= first_table_th(@participants.first) %></th>
           <th><%= t("user_status", scope: "decidim.forms.user_answers_serializer") %></th>
           <th><%= t("ip_hash", scope: "decidim.forms.user_answers_serializer") %></th>
           <th><%= t("completion", scope: "decidim.forms.user_answers_serializer") %></th>
@@ -22,7 +22,7 @@
         <% @participants.each_with_index do |participant, idx| %>
           <tr>
             <td><%= idx + 1 + page_offset %></td>
-            <td>
+            <td class="!text-left">
               <% if allowed_to? :show, :questionnaire_answers %>
                 <%= link_to first_table_td(participant), questionnaire_participant_answers_url(participant.session_token) %>
               <% else %>
