@@ -41,7 +41,7 @@ describe "Interact with commenters" do
           end
         end
 
-        expect(page).to have_content("successfully invited as a co-author")
+        expect(page).to have_content("has been successfully invited as a co-author")
 
         within "#comment_#{comment.id}" do
           find("#dropdown-trigger-toggle-context-menu-#{comment.id}").click
