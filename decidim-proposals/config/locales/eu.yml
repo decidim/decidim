@@ -885,7 +885,7 @@ eu:
           success: Egilekide-gonbidapena behar bezala ezeztatua.
         create:
           error: Arazo bat izan da egilekidea gonbidatzean.
-          success: "%{author_name} zuzen gonbdatu da egilekide gisa."
+          success: "%{author_name} zuzen gonbidatu da koegile gisa."
         destroy:
           error: Arazo bat izan da gonbidapena baztertzean.
           success: Gonbidapena baztertua.
