@@ -1072,7 +1072,7 @@ fr-CA:
           title: Modifier le sujet
           update: Mettre à jour le sujet
         new:
-          create: Créer un sujet
+          create: Nouveau sujet
           title: Nouveau sujet
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce sujet.
@@ -1096,7 +1096,7 @@ fr-CA:
         index:
           last_notable_change: Dernier changement notable
         new:
-          create: Créer une page
+          create: Nouvelle page
           title: Nouvelle page
         topic:
           empty: Il n'y a aucune page dans ce sujet.
