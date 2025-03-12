@@ -23,7 +23,7 @@
           <tr>
             <td><%= decidim_sanitize_translated(survey.title) %></td>
             <td><%= survey.questionnaire.questions.size %></td>
-            <td><%= survey.questionnaire.answers.size %></td>
+            <td><%= survey.questionnaire.count_participants %></td>
             <td><%= survey.open? ? t("models.survey.status.open", scope: "decidim.surveys") : t("models.survey.status.closed", scope: "decidim.surveys") %></td>
             <td class="table-list__actions">
                 <%= icon_link_to "pencil-line", edit_survey_path(survey), t("actions.edit", scope: "decidim.surveys"), class: "action-icon--edit" %>
