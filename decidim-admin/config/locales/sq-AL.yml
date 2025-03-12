@@ -484,7 +484,6 @@ sq:
           title: Përpuno temën
           update: Përditëso temën
         new:
-          create: Krijo temën
           title: Temë e re
       static_pages:
         edit:
