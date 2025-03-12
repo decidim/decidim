@@ -858,7 +858,6 @@ zh-TW:
           title: 編輯主題
           update: 更新主題
         new:
-          create: 建立主題
           title: 新增主題
         update:
           error: 更新主題時發生問題。
@@ -880,7 +879,6 @@ zh-TW:
         index:
           last_notable_change: 最後重要更改
         new:
-          create: 建立頁面
           title: 新頁面
         topic:
           empty: 這個主題下沒有頁面.
