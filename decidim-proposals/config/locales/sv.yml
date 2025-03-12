@@ -781,7 +781,6 @@ sv:
           success: Inbjudan till medförfattare har avbrutits.
         create:
           error: Det gick inte att bjuda in medförfattaren.
-          success: "%{author_name} har bjudits in som medförfattare."
         destroy:
           error: Det gick inte att avböja inbjudan.
           success: Inbjudan har avvisats.
