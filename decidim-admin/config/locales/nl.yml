@@ -773,7 +773,6 @@ nl:
           title: Onderwerp bewerken
           update: Onderwerp bijwerken
         new:
-          create: Maak een onderwerp aan
           title: Nieuw onderwerp
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit onderwerp.
@@ -794,7 +793,6 @@ nl:
         index:
           last_notable_change: Laatste opvallende verandering
         new:
-          create: Creëer pagina
           title: Nieuwe pagina
         topic:
           without_topic: Pagina's zonder onderwerp
