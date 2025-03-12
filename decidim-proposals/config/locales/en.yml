@@ -886,7 +886,7 @@ en:
           success: Co-author invitation successfully canceled.
         create:
           error: There was a problem inviting the co-author.
-          success: "%{author_name} successfully invited as a co-author."
+          success: "%{author_name} has been successfully invited as a co-author."
         destroy:
           error: There was a problem declining the invitation.
           success: The invitation has been declined.

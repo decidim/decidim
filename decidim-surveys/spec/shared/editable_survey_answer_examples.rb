@@ -70,7 +70,7 @@ shared_examples "editable survey answers" do
     end
 
     check "questionnaire_tos_agreement"
-    accept_confirm { click_on "Submit" }
+    click_on "Submit"
   end
 
   it "restricts the change of an answer when editing is disabled" do
@@ -129,7 +129,7 @@ shared_examples "editable survey answers" do
     drag_and_drop(first: answer_options.second, second: answer_options.last, last: answer_options.first)
 
     check "questionnaire_tos_agreement"
-    accept_confirm { click_on "Submit" }
+    click_on "Submit"
 
     expect(page).to have_content("Edit your answers")
     click_on "Edit your answers"
