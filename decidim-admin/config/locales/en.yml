@@ -1099,7 +1099,7 @@ en:
           title: Edit topic
           update: Update topic
         new:
-          create: Create topic
+          create: New topic
           title: New topic
         update:
           error: There was a problem updating this topic.
@@ -1123,7 +1123,7 @@ en:
         index:
           last_notable_change: Last notable change
         new:
-          create: Create page
+          create: New page
           title: New page
         topic:
           empty: There are no pages under this topic.
