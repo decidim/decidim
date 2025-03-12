@@ -875,7 +875,6 @@ ja:
           success: 共同執筆者の招待を取り消しました。
         create:
           error: 共同執筆者を招待する際に問題が発生しました。
-          success: "%{author_name} を共同執筆者として招待しました。"
         destroy:
           error: 招待を却下するのに問題が発生しました。
           success: 招待は拒否されました。
