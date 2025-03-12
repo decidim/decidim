@@ -91,6 +91,6 @@ result = 1 + 1 if before
 result = 1 + 1 if after
 ```
 
-### 5.2. Add force_api_authentication configuration options.
+### 5.2. Add force_api_authentication configuration options
 
 There are times that we need to let only authenticated users to use the API. This configuration option filters out unauthenticated users from accessing the api endpoint. You need to add `DECIDIM_API_FORCE_API_AUTHENTICATION` to your environment variables if you want to enable this feature.
