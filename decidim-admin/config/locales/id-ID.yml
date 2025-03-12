@@ -486,7 +486,6 @@ id:
           title: Edit topik
           update: Perbarui topik
         new:
-          create: Buat topik
           title: Topik baru
         update:
           error: Ada kesalahan saat memperbarui topik ini.
@@ -507,7 +506,6 @@ id:
         index:
           last_notable_change: Perubahan penting terakhir
         new:
-          create: Membuat halaman
           title: Halaman baru
         topic:
           without_topic: Halaman tanpa topik
