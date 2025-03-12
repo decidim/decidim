@@ -40,7 +40,7 @@ RSpec.describe "Api authentication" do
 
   context "with normal user" do
     let(:password) { "decidim123456789" }
-    let!(:user) { create(:user, :confirmed, organization: organization, password: ) }
+    let!(:user) { create(:user, :confirmed, organization: organization, password:) }
     let(:params) do
       {
         user: {
