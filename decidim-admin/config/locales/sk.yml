@@ -550,7 +550,6 @@ sk:
           title: Upraviť tému
           update: Aktualizovať tému
         new:
-          create: Vytvoriť tému
           title: Nová téma
         update:
           error: Pri aktualizácii témy nastala chyba.
@@ -571,7 +570,6 @@ sk:
         index:
           last_notable_change: Posledná výrazná úprava
         new:
-          create: Vytvoriť stránku
           title: Nová stránka
         topic:
           without_topic: Stránky bez témy
