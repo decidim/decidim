@@ -1098,7 +1098,6 @@ de:
           title: Thema bearbeiten
           update: Thema aktualisieren
         new:
-          create: Thema erstellen
           title: Neues Thema
         update:
           error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
@@ -1122,7 +1121,6 @@ de:
         index:
           last_notable_change: Letzte signifikante Änderung
         new:
-          create: Seite erstellen
           title: Neue Seite
         topic:
           empty: Es gibt keine Seite zu diesem Thema.
