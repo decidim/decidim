@@ -25,7 +25,8 @@ class EtiquetteValidator < ActiveModel::EachValidator
   end
 
   def validate_empty(record, attribute, value)
-    return unless value.blank?
+    return if value.present?
+
     record.errors.add(attribute, options[:message] || :blank)
   end
 
