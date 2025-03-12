@@ -1097,7 +1097,6 @@ sv:
           title: Redigera ämne
           update: Uppdatera ämne
         new:
-          create: Skapa ämne
           title: Nytt ämne
         update:
           error: Det gick inte att uppdatera ämnet.
@@ -1121,7 +1120,6 @@ sv:
         index:
           last_notable_change: Senaste större ändring
         new:
-          create: Skapa sida
           title: Ny sida
         topic:
           empty: Det här ämnesområdet har inga sidor.
