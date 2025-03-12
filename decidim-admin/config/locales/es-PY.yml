@@ -1098,7 +1098,7 @@ es-PY:
           title: Editar tema
           update: Actualizar tema
         new:
-          create: Crear tema
+          create: Nuevo tema
           title: Nuevo tema
         update:
           error: Se ha producido un error al actualizar este tema.
@@ -1122,7 +1122,7 @@ es-PY:
         index:
           last_notable_change: Último cambio notable
         new:
-          create: Crear página
+          create: Nueva página
           title: Nueva página
         topic:
           empty: No hay ninguna página sobre este tema.
