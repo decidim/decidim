@@ -44,7 +44,7 @@ describe "rake decidim:upgrade:fix_nickname_casing", type: :task do
       user
     end
 
-    it "changes the user" do
+    it "changes both users correctly" do
       task.execute
 
       expect(user.reload.nickname).to eq("somecapitalguy")
