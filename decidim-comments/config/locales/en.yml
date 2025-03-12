@@ -22,14 +22,14 @@ en:
         changeset:
           comments: Comments
     comments:
-      comment_thread:
-        accessibility_label: "Comment %{id} by %{full_name}"
       admin:
         shared:
           availability_fields:
             enabled: Comments enabled
             end_time: Comments enabled until
             start_time: Comments enabled from
+      comment_thread:
+        accessibility_label: Comment %{id} by %{full_name}
       comments:
         create:
           error: There was a problem creating the comment.
