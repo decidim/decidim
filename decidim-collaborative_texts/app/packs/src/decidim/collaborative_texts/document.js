@@ -97,6 +97,9 @@ class Document {
   }
 
   _onApply() {
+    if (!this.doc.dataset.collaborativeTextsRolloutUrl) {
+      return;
+    }
     this.applying = true;
     this.manager = this.manager || new Manager(this);
     this.manager.show();

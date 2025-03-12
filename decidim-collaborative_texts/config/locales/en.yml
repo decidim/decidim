@@ -101,6 +101,8 @@ en:
             one: "%{count} collaborative text"
             other: "%{count} collaborative texts"
           empty: There are no collaborative texts yet.
+        show:
+          contributors: Contributors
       models:
         collaborative_text:
           fields:

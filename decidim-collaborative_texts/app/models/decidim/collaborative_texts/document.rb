@@ -13,6 +13,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Searchable
+      include Decidim::Coauthorable
 
       component_manifest_name "collaborative_texts"
 

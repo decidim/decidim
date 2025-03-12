@@ -24,8 +24,8 @@
 
     <%= cell("decidim/announcement", translated_attribute(document.announcement)) if strip_tags(document.announcement&.values&.join)&.strip.present? %>
     <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.draft"), callout_class: "warning") if document.draft? %>
-    <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.accepting_suggestions")) if allowed_to?(:suggest, :collaborative_text, document:) %>
-    <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.not_accepting_suggestions")) unless allowed_to?(:suggest, :collaborative_text, document:) %>
+    <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.accepting_suggestions")) if document.suggestions_enabled? %>
+    <%= cell("decidim/announcement", t("decidim.collaborative_texts.document.status.not_accepting_suggestions")) unless document.suggestions_enabled? || document.draft? %>
 
     <div class="collaborative-texts-manager hidden">
       <%= button_tag(t("decidim.collaborative_texts.document.rollout.new"), class:"button button__lg button__primary", data: { collaborative_texts_manager_rollout: true }) %>
@@ -36,7 +36,7 @@
       <div></div>
     </div>
 
-    <div data-collaborative-texts-document="<%= allowed_to?(:suggest, :collaborative_text, document:) %>"
+    <div data-collaborative-texts-document="<%= document.suggestions_enabled? %>"
          data-collaborative-texts-i18n="<%= document_i18n.to_json %>"
          data-collaborative-texts-suggestions-url="<%= document_suggestions_path(document) %>"
          data-collaborative-texts-rollout-url="<%= document_path(document) if allowed_to?(:rollout, :collaborative_text, document:) %>"
@@ -44,6 +44,10 @@
       <%= decidim_sanitize decidim_rich_text(document.consolidated_body), { scrubber: Decidim::AdminInputScrubber.new } %>
     </div>
 
+    <div>
+      <h5 class="h5 my-4"><%= t("decidim.collaborative_texts.documents.show.contributors") %></h5>
+      <%= cell "decidim/coauthorships", document, context_actions: [:date] %>
+    </div>
   </section>
 <% end %>
 
