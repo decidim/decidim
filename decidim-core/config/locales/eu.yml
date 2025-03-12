@@ -699,7 +699,7 @@ eu:
             notification_title: '<a href="%{emendation_author_path}">%{emendation_author_nickname} egileak sortutako </a><a href="% emendation_path}">zuzenketa onartu da honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
           follower:
             email_intro: 'Zuzenketa bat bertan bera onartu %{amendable_title}. Orrialde hau ikusi dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko estekan sartu jakinarazpenak jasotzeari utzi nahi badiozu.
             email_subject: '%{emendation_author_nickname} ren aldaketa onartuta honetarako: %{amendable_title}'
             notification_title: '<a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k sortutako <a href="%{emendation_path}"></a> zuzenketa onartu da honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
         amendment_created:
@@ -765,12 +765,12 @@ eu:
           notification_title: Zorionak! <a href="%{resource_path}">%{badge_name}</a> garaikurraren %{current_level} maila lortu duzu!
       groups:
         demoted_membership:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak zure administratzaile-eskubideak kendu ditu talde horretarako.
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak zure administratzaile-baimenak kendu ditu talde horretan.
           email_outro: Jakinarazpen hau jaso duzu taldeko kide zarelako.
           email_subject: Ez zara jada %{user_group_name} taldearen administratzailea!
           notification_title: Ez zara jada <a href="%{resource_path}">%{user_group_name}</a> taldearen administratzailea.
         invited_to_group:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak gonbidatu zaitu taldera sartzea.
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldearen administratzaileak taldean sartzera gonbidatu zaitu.
           email_outro: Jakinarazpen hau jaso duzu talde honetara gonbidatuta zaudelako. Egiaztatu Taldeak fitxan zure profilean onartzeko.
           email_subject: '%{user_group_name} taldean sartzera gonbidatu zaituzte!'
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldean sartzera gonbidatu zaituzte. Begiratu <a href="%{groups_profile_tab_path}">Taldeak orrialdeko</a> zure profilean onartzeko!
@@ -780,25 +780,25 @@ eu:
           email_subject: '%{user_group_name} taldean onartu zaituzte!'
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldean onartu zaituzte.
         join_request_created:
-          email_intro: Norbaitek %{user_group_name} taldera lotzeko eskatu du. Eskaera onartu edo ukatu dezakezu hemen <a href="%{resource_path}">taldeko kideen orrialdea</a>.
+          email_intro: Norbaitek %{user_group_name} taldean sartzeko eskatu du. Eskaera onartu edo ukatu dezakezu hemen <a href="%{resource_path}">taldeko kideen orrialdea</a>.
           email_outro: Jakinarazpen hau jaso duzu %{user_group_name} taldea kudeatu ahal duzulako.
           email_subject: Norbaitek %{user_group_name} taldera lotzea eskatu du!
-          notification_title: Norbaitek %{user_group_name} taldera lotzeko eskatu du. Eskaera onartu edo ukatu dezakezu hemen <a href="%{resource_path}">taldeko kideen orrialdea</a>.
+          notification_title: Norbaitek %{user_group_name} taldean sartzeko eskatu du. Eskaera onartu edo ukatu dezakezu hemen <a href="%{resource_path}">taldeko kideen orrialdea</a>.
         join_request_rejected:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak bertara lotzeko zure eskaera ukatu du.
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldearen administratzaileak bertara sartzeko egin duzun eskaera errefusatu du.
           email_outro: Jakinarazpen hau jaso duzu zure lotzeko eskaera eguneratu delako.
           email_subject: '%{user_group_name} taldera lotzeko zure eskaera ukatu egin da!'
-          notification_title: '%{user_group_name} taldera lotzeko zure eskaera ukatu egin da!'
+          notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldean sartzeko egin duzun eskaera errefusatu egin da.
         promoted_to_admin:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak talde horren administrazio-eskubideak eman dizkizu.
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldearen administratzaile batek talde horretarako administrazio-baimenak eman dizkizu.
           email_outro: Jakinarazpen hau jaso duzu taldeko kide zarelako.
           email_subject: Orain %{user_group_name} taldearen administraria zara!
           notification_title: Orain <a href="%{resource_path}">%{user_group_name}</a> taldearen administratzailea zara.
         removed_from_group:
-          email_intro: Taldeak <a href="%{resource_url}">%{user_group_name}</a> taldearen administratzaileak kendu egin zaitu.
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldearen administratzaile batek talde honetatik atera zaitu.
           email_outro: Jakinarazpen hori jaso duzu talde horretako kide zarelako.
           email_subject: '%{user_group_name} taldetik kendu duzu!'
-          notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldetik kendu zaituzte.
+          notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldetik atera zaituzte.
         user_group_created:
           email_intro: Talde berri bat sortu da izen honekin %{user_group_name}. Orain egiaztatu ahal duzu, hala badagokio, hemen <a href="%{groups_admin_url}">panel de administración</a>.
           email_outro: Jakinarazpen hau jaso duzu plataformaren administratzaileetako bat zarelako.
@@ -815,12 +815,11 @@ eu:
         notification_title: 'Gertaera bat jazo da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       reports:
         resource_hidden:
-          email_intro: Administratzaile batek bere %{resource_type} ezabatu du erreportatua izan delako arrazoi honengatik %{report_reasons}.
+          email_intro: Administratzaile batek zure %{resource_type} ezabatu du salatua izan delako arrazoi honengatik %{report_reasons}.
           email_outro: Jakinarazpen hau jaso duzu ezabatutako edukiaren egileetako bat zarelako.
           email_subject: Zure %{resource_type} ezabatu egin da
           notification_title: |-
-            Administratzaile batek zure %{resource_type} erreportatua izan delako arrazoi honengatik honela %{report_reasons}.</br>
-            <i>%{resource_content}</i>
+            Administratzaile batek zure %{resource_type} ezabatu du salatua izan delako arrazoi honengatik %{report_reasons}.</br><i>%{resource_content}</i>
       resource_endorsed:
         email_intro: 'Jarraitzen duzun hau %{endorser_name} %{endorser_nickname} honi atxiki zaio "%{resource_title}" zure interesekoa izan daiteke, egiaztatu eta lagundu:'
         email_outro: Jakinarazpen hau jaso duzu % “ endorser_nickname”ri jarraitzen diozulako. Jakinarazpenak jasotzeari utzi ahal diozu, esteka hau jarraituz %{endorser_nickname}.
@@ -1300,7 +1299,7 @@ eu:
           how_to_participate: Nola har dezaket parte prozesu batean?
           meetings: Bilerak
           meetings_explanation: Ezagutu non eta noiz bilera publikoetan parte har dezakezu.
-          more_info: Argibide gehiago
+          more_info: Argibide gehiago honi buruz %{resource_name}
           proposals: proposamenak
           proposals_explanation: Egin proposamenak, lehendik daudenak babestu eta ikusi nahi dituzun aldaketak sustatu.
         footer_sub_hero:
