@@ -1098,7 +1098,6 @@ eu:
           title: Editatu gaia
           update: Eguneratu gaia
         new:
-          create: Sortu gaia
           title: Beste gai bat
         update:
           error: Arazo bat egon da gai hau eguneratzean.
@@ -1122,7 +1121,6 @@ eu:
         index:
           last_notable_change: Azken aldaketa nabaria
         new:
-          create: Sortu orrialdea
           title: Beste orri bat
         topic:
           empty: Ez dago orrialderik gai honi buruz.
