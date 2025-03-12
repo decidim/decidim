@@ -547,7 +547,6 @@ lv:
           title: Rediģēt tēmu
           update: Atjaunināt tēmu
         new:
-          create: Izveidot tēmu
           title: Jauna tēma
         update:
           error: Šīs tēmas atjaunināšanas laikā radās problēma.
@@ -568,7 +567,6 @@ lv:
         index:
           last_notable_change: Pēdējās nozīmīgās izmaiņas
         new:
-          create: Izveidot lapu
           title: Jauna lapa
         topic:
           without_topic: Lapas bez tēmas
