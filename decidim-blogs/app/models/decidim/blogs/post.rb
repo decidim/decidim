@@ -9,6 +9,7 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
       include Decidim::HasComponent
+      include Decidim::Taxonomizable
       include Decidim::Authorable
       include Decidim::Comments::CommentableWithComponent
       include Decidim::Searchable
@@ -46,6 +47,12 @@ module Decidim
         def log_presenter_class_for(_log)
           Decidim::Blogs::AdminLog::PostPresenter
         end
+      end
+
+      # Returns the presenter for this BlogPost, to be used in the views.
+      # Required by ResourceRenderer.
+      def presenter
+        Decidim::Blogs::PostPresenter.new(self)
       end
 
       def visible?

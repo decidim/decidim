@@ -34,7 +34,6 @@ module Decidim
                           id: "type")
         end
         sections.append(method: :with_any_area, collection: filter_areas_values, label: t("decidim.initiatives.initiatives.filters.area"), id: "area")
-        sections.append(method: :author, collection: filter_author_values, label: t("decidim.initiatives.initiatives.filters.author"), id: "author") if current_user
         sections.reject { |item| item[:collection].blank? }
       end
 

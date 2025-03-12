@@ -392,7 +392,6 @@ lt:
             assign_to_valuator_button: Priskirti
             cancel: Atšaukti
             merge: Sulieti į vieną
-            merge_button: Sulieti
             publish: Publikuoti
             publish_answers: Skelbti atsakymus
             select_component: Pasirinkite komponentą
@@ -450,7 +449,6 @@ lt:
       admin_log:
         proposal:
           answer: "%{user_name} atsakė į pasiūlymą %{resource_name} %{space_name} erdvėje"
-          create: "%{user_name} sukūrė %{resource_name} pasiūlymą kaip oficialų pasiūlymą %{space_name} erdvėje"
           publish_answer: "%{user_name} paskelbė atsakymą į pasiūlymą %{resource_name} %{space_name} erdvėje"
           update: "%{user_name} atnaujino %{resource_name} oficialų pasiūlymą %{space_name} erdvėje"
         proposal_note:

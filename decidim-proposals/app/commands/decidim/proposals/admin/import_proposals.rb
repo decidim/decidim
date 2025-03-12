@@ -22,7 +22,8 @@ module Decidim
         def call
           return broadcast(:invalid) unless form.valid?
 
-          broadcast(:ok, import_proposals)
+          import_proposals
+          broadcast(:ok)
         end
 
         private
@@ -30,65 +31,11 @@ module Decidim
         attr_reader :form
 
         def import_proposals
-          proposals.map do |original_proposal|
-            next if proposal_already_copied?(original_proposal, target_component)
-
-            Decidim::Proposals::ProposalBuilder.copy(
-              original_proposal,
-              author: proposal_author,
-              action_user: form.current_user,
-              extra_attributes: {
-                "component" => target_component
-              }.merge(proposal_answer_attributes(original_proposal))
-            )
-          end.compact
-        end
-
-        def proposals
-          @proposals = Decidim::Proposals::Proposal
-                       .where(component: origin_component)
-
-          @proposals = if @form.states.include?("not_answered")
-                         @proposals.not_answered.or(@proposals.where(id: @proposals.only_status(@form.states).pluck(:id)))
-                       else
-                         @proposals.only_status(@form.states)
-                       end
-
-          @proposals
-        end
-
-        def origin_component
-          @form.origin_component
-        end
-
-        def target_component
-          @form.current_component
-        end
-
-        def proposal_already_copied?(original_proposal, target_component)
-          # Note: we are including also proposals from unpublished components
-          # because otherwise duplicates could be created until the component is
-          # published.
-          original_proposal.linked_resources(:proposals, "copied_from_component", component_published: false).any? do |proposal|
-            proposal.component == target_component
-          end
-        end
-
-        def proposal_author
-          form.keep_authors ? nil : @form.current_organization
-        end
-
-        def proposal_answer_attributes(original_proposal)
-          return {} unless form.keep_answers
-
-          state = Decidim::Proposals::ProposalState.where(component: target_component, token: original_proposal.state).first
-
-          {
-            answer: original_proposal.answer,
-            answered_at: original_proposal.answered_at,
-            proposal_state: state,
-            state_published_at: original_proposal.state_published_at
-          }
+          ImportProposalsJob.perform_later(form.as_json.merge({
+                                                                "current_user_id" => form.current_user.id,
+                                                                "current_organization_id" => form.current_organization.id,
+                                                                "current_component_id" => form.current_component.id
+                                                              }))
         end
       end
     end
