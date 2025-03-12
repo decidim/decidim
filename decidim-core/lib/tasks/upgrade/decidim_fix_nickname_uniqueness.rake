@@ -26,27 +26,8 @@ namespace :decidim do
     end
 
     desc "Modifies nicknames with random numbers when exists similar ones case-insensitively"
-    task fix_nickname_uniqueness: :environment do
-      logger.info("Updating conflicting user nicknames...")
-
-      # list of users already changed in the process
-      has_changed = []
-
-      Decidim::User.not_deleted.find_each do |user|
-        next if has_changed.include? user.id
-
-        user.nickname.downcase!
-        if user.nickname_changed?
-          begin
-            user.save!
-          rescue ActiveRecord::RecordInvalid
-            update_user_nickname(user, Decidim::UserBaseEntity.nicknamize(user.nickname, organization: user.organization))
-          end
-          has_changed.append(user.id)
-          user.reload
-        end
-      end
-      logger.info("Process terminated, #{has_changed.count} users nickname have been updated.")
+    task :fix_nickname_uniqueness => :environment do
+      Rake::Task["decidim:upgrade:fix_nickname_casing"].execute
     end
 
     private
