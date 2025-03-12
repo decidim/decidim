@@ -75,7 +75,7 @@ You can read more about this change on PR [#14180](https://github.com/decidim/de
 
 ### 3.2. Convert nicknames to lowercase
 
-As of [#14272](https://github.com/decidim/decidim/pull/14272) we are migrating all the nickanames to lowercase to ensure uniqueness within the same organization, and also fix performance issues which affects large databases having many users.
+As of [#14272](https://github.com/decidim/decidim/pull/14272) we are migrating all the nicknames to lowercase fix performance issues which affects large databases having many participants.
 
 To apply the fix on your application, you need to run the below command.
 
