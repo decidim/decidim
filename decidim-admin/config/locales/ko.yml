@@ -635,7 +635,6 @@ ko:
           none: 없음
           slug_help_html: '전체 URL이 아닌 일부 경로를 사용하십시오. 문자, 숫자, 대시 및 슬래시를 사용할 수 있으며 문자로 시작해야 합니다. 예: %{url}'
         new:
-          create: 페이지 생성
           title: 새 페이지
         topic:
           empty: 이 주제 아래에 페이지가 없습니다.
