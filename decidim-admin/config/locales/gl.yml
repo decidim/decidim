@@ -752,7 +752,6 @@ gl:
           title: Editar tema
           update: Actualizar tema
         new:
-          create: Crear tema
           title: Novo tema
         update:
           error: Produciuse un erro ao actualizar este tema.
@@ -773,7 +772,6 @@ gl:
         index:
           last_notable_change: Último cambio notable
         new:
-          create: Crear páxina
           title: Nova páxina
         topic:
           without_topic: Páxinas sen tema
