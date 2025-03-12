@@ -33,7 +33,7 @@ module Decidim
     # This declares all the types an interface or union can resolve to. This needs
     # to be done in order to be able to have them found. This is a shortcoming of
     # graphql-ruby and the way it deals with loading types, in combination with
-    # rail's infamous autoloading.
+    # rail's infamous auto-loading.
     def self.orphan_types
       Decidim.component_manifests.map(&:query_type).map(&:constantize).uniq +
         Decidim.participatory_space_manifests.map(&:query_type).map(&:constantize).uniq +
