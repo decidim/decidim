@@ -899,7 +899,6 @@ cs:
           success: Pozvánka spoluautora byla úspěšně zrušena.
         create:
           error: Při pozvání spoluautora došlo k chybě.
-          success: "%{author_name} byl úspěšně pozván jako spoluautor."
         destroy:
           error: Při odmítání pozvánky došlo k chybě.
           success: Pozvánka byla zamítnuta.
