@@ -919,7 +919,6 @@ hu:
           title: Téma szerkesztése
           update: Téma frissítése
         new:
-          create: Téma létrehozása
           title: Új téma
         update:
           error: Hiba történt a téma frissítésekor.
@@ -941,7 +940,6 @@ hu:
         index:
           last_notable_change: Utolsó jelentős változás
         new:
-          create: Oldal létrehozása
           title: Új oldal
         topic:
           empty: Ebben a témakörben nincsenek oldalak.
