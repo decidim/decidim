@@ -35,19 +35,15 @@ namespace :decidim do
       Decidim::User.not_deleted.find_each do |user|
         next if has_changed.include? user.id
 
-        Decidim::User.where(organization: user.organization)
-                     .where("nickname ILIKE ?", user.nickname.downcase)
-                     .where.not(id: has_changed + [user.id])
-                     .not_deleted
-                     .order(:created_at)
-                     .each do |similar_user|
-          # change her nickname to the lowercased one with numbers if needed
+        user.nickname.downcase!
+        if user.nickname_changed?
           begin
-            update_user_nickname(similar_user, Decidim::UserBaseEntity.nicknamize(similar_user.nickname, organization: similar_user.organization))
-          rescue ActiveRecord::RecordInvalid => e
-            logger.warn("User ID (#{similar_user.id}) : #{e}")
+            user.save!
+          rescue ActiveRecord::RecordInvalid
+            update_user_nickname(user, Decidim::UserBaseEntity.nicknamize(user.nickname, organization: user.organization))
           end
-          has_changed.append(similar_user.id)
+          has_changed.append(user.id)
+          user.reload
         end
       end
       logger.info("Process terminated, #{has_changed.count} users nickname have been updated.")
