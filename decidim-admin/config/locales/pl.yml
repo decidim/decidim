@@ -943,7 +943,6 @@ pl:
           title: Edytuj temat
           update: Zaktualizuj temat
         new:
-          create: Utwórz temat
           title: Nowy temat
         update:
           error: Wystąpił błąd podczas aktualizowania tego tematu.
@@ -967,7 +966,6 @@ pl:
         index:
           last_notable_change: Ostatnia istotna zmiana
         new:
-          create: Utwórz stronę
           title: Nowa strona
         topic:
           empty: Nie ma żadnych stron w tym wątku.
