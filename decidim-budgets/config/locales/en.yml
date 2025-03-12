@@ -234,7 +234,7 @@ en:
             other: Your %{count} votes for %{budget_name} have already been registered.
       order_pdf:
         text: I just voted for my favorite projects in %{space_name}
-        vote_now: "Vote now: %{component_url}"
+        vote_now: 'Vote now: %{component_url}'
       order_summary_mailer:
         order_summary:
           selected_projects: 'The projects that you have selected are:'
