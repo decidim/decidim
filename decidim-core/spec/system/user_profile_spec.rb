@@ -15,7 +15,7 @@ describe "Profile" do
       visit decidim.profile_path(user.nickname.upcase)
     end
 
-    it "is not indexable by crawlers" do
+    it "downcases the path" do
       expect(page).to have_current_path(decidim.profile_activity_path(user.nickname.downcase))
     end
   end
