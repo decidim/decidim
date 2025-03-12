@@ -876,7 +876,7 @@ ca:
           success: Invitació de coautoria cancel·lada amb èxit.
         create:
           error: S'ha produït un error en convidar a la coautora.
-          success: "S'ha convidat amb èxit a %{author_name} com a coautora."
+          success: "S'ha convidat amb èxit %{author_name} per ser coautor/a de la proposta."
         destroy:
           error: S'ha produït un error en rebutjar la invitació.
           success: S'ha rebutjat la invitació.
