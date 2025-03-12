@@ -35,8 +35,7 @@ en:
         organization:
           attributes:
             password:
-              secret_key: You need to define the SECRET_KEY_BASE environment variable
-                to be able to save this field
+              secret_key: You need to define the SECRET_KEY_BASE environment variable to be able to save this field
   decidim:
     system:
       actions:
@@ -94,10 +93,8 @@ en:
           system_checks: System checks
       default_pages:
         placeholders:
-          content: Please add meaningful content to the %{page} static page on the
-            admin dashboard.
-          summary: Please add meaningful summary to the %{page} static page on the
-            admin dashboard.
+          content: Please add meaningful content to the %{page} static page on the admin dashboard.
+          summary: Please add meaningful summary to the %{page} static page on the admin dashboard.
           title: Default title for %{page}
         terms-of-service: Terms of service
       devise:
@@ -110,8 +107,7 @@ en:
             send_me_reset_password_instructions: Send me reset password instructions
         shared:
           links:
-            did_not_receive_confirmation_instructions?: Did not receive confirmation
-              instructions?
+            did_not_receive_confirmation_instructions?: Did not receive confirmation instructions?
             did_not_receive_unlock_instructions?: Did not receive unlock instructions?
             forgot_your_password?: Forgot your password?
             log_in: Log in
@@ -179,8 +175,7 @@ en:
           show: Show advanced settings
         create:
           error: There was a problem creating a new organization.
-          error_invitation: There was a problem creating a new organization. Review
-            your organization admin name.
+          error_invitation: There was a problem creating a new organization. Review your organization admin name.
           success_html: |
             <p>
               Organization successfully created.
@@ -237,25 +232,18 @@ en:
           title: Edit organization
         file_upload_settings:
           content_types:
-            admin_hint: These MIME types are allowed for the admin section uploads.
-              Admin users should be aware of the risks with uploading some document
-              formats, so you can expect them to be more cautious with the file uploads.
+            admin_hint: These MIME types are allowed for the admin section uploads. Admin users should be aware of the risks with uploading some document formats, so you can expect them to be more cautious with the file uploads.
             default_hint: These MIME types are allowed for all users by default.
-            intro_html: You add wildcards with the asterisk character for the MIME
-              types, e.g. <code>image/*</code>.
+            intro_html: You add wildcards with the asterisk character for the MIME types, e.g. <code>image/*</code>.
             title: Allowed MIME types
           file_extensions:
-            admin_hint: These file extensions are allowed for the admin section uploads.
-              Admin users should be aware of the risks with uploading some document
-              formats, so you can expect them to be more cautious with the file uploads.
+            admin_hint: These file extensions are allowed for the admin section uploads. Admin users should be aware of the risks with uploading some document formats, so you can expect them to be more cautious with the file uploads.
             default_hint: These file extensions are allowed for all users by default.
             image_hint: These file extensions are allowed for any kind of image uploads.
             title: Allowed file extensions
           file_sizes:
-            avatar_hint: Megabytes (MB). This file size limit is used for the avatar
-              image uploads.
-            default_hint: Megabytes (MB). This file size limit is the default which
-              is used for all file uploads unless otherwise specified.
+            avatar_hint: Megabytes (MB). This file size limit is used for the avatar image uploads.
+            default_hint: Megabytes (MB). This file size limit is the default which is used for all file uploads unless otherwise specified.
             title: Maximum file sizes
           intro: |
             Please be extra cautious when considering to change these settings. The less you allow, the better.
@@ -266,10 +254,8 @@ en:
           default: Default?
           enabled: Enabled
           locale: Locale
-          organization_admin_email_hint: We will send an email to this address so
-            you can confirm it and set up your password.
-          reference_prefix_hint: The reference prefix is used to uniquely identify
-            resources across all organization.
+          organization_admin_email_hint: We will send an email to this address so you can confirm it and set up your password.
+          reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organization.
           secondary_hosts_hint: Enter each one of them in a new line.
           title: New organization
         omniauth_settings:
@@ -278,8 +264,7 @@ en:
             client_secret: Client secret
             site_url: Site URL
           enabled: Enabled
-          enabled_by_default: This provider is enabled by default. It can be edited
-            but not disabled.
+          enabled_by_default: This provider is enabled by default. It can be edited but not disabled.
           facebook:
             app_id: App ID
             app_secret: App secret
@@ -298,8 +283,7 @@ en:
           fieldsets:
             sender: Sender
           instructions:
-            from_label: 'Email sender will be: "your-organization-name <your-organization@example.org>".
-              Leave blank to use the same name as the defined for the organization.'
+            from_label: 'Email sender will be: "your-organization-name <your-organization@example.org>". Leave blank to use the same name as the defined for the organization.'
           placeholder:
             from_email: your-organization@example.org
             from_label: your-organization-name
@@ -309,12 +293,10 @@ en:
         users_registration_mode:
           disabled: Access only can be done with external accounts
           enabled: Allow participants to create an account and log in
-          existing: Do not allow participants to create an account, but allow existing
-            participants to log in
+          existing: Do not allow participants to create an account, but allow existing participants to log in
       shared:
         notices:
-          no_organization_warning_html: You must create an organization to get started.
-            Make sure you read %{guide} before proceeding.
+          no_organization_warning_html: You must create an organization to get started. Make sure you read %{guide} before proceeding.
           our_getting_started_guide: our getting started guide
         organizations_list:
           confirm_resend_invitation: Are you sure you want to resend the invitation?
@@ -322,12 +304,10 @@ en:
       system_checks:
         active_job_queue:
           decidim_documentation: Decidim Documentation
-          error: The ActiveJob queue is not configured. This is not a recommended
-            setup for production. Read more at %{error_extra}.
+          error: The ActiveJob queue is not configured. This is not a recommended setup for production. Read more at %{error_extra}.
           success: The ActiveJob queue is configured correctly.
         secret_key:
-          error: 'The secret key is not defined correctly. Please save to the SECRET_KEY_BASE
-            environment variable and restart the server: %{error_extra}'
+          error: 'The secret key is not defined correctly. Please save to the SECRET_KEY_BASE environment variable and restart the server: %{error_extra}'
           success: The secret key is configured correctly.
       titles:
         dashboard: Dashboard
