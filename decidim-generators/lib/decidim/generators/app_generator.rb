@@ -417,7 +417,7 @@ module Decidim
 
         gsub_file "config/initializers/decidim.rb",
                   /# config.pdf_signature_service = "MyPDFSignatureService"/,
-                  "config.pdf_signature_service = \"Decidim::Initiatives::PdfSignatureExample\""
+                  "config.pdf_signature_service = \"Decidim::PdfSignatureExample\""
       end
 
       def machine_translation_service

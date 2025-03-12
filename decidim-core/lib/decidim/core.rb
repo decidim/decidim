@@ -130,6 +130,7 @@ module Decidim
   autoload :SoftDeletable, "decidim/soft_deletable"
   autoload :PrivateDownloadHelper, "decidim/private_download_helper"
   autoload :HasWorkflows, "decidim/has_workflows"
+  autoload :PdfSignatureExample, "decidim/pdf_signature_example"
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"
