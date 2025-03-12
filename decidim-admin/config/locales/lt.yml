@@ -885,7 +885,6 @@ lt:
           title: Redaguoti temą
           update: Atnaujinti temą
         new:
-          create: Sukurti temą
           title: Nauja tema
         update:
           error: Atnaujinant šią temą iškilo problema.
@@ -907,7 +906,6 @@ lt:
         index:
           last_notable_change: Paskutinis pastebimas pakeitimas
         new:
-          create: Sukurti puslapį
           title: Naujas puslapis
         topic:
           empty: Šioje temoje puslapių nėra.
