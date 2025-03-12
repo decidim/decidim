@@ -272,6 +272,22 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     )
   end
 
+  context "when uploading editor images" do
+    let(:action) do
+      { scope: :admin, action: :create, subject: :editor_image }
+    end
+    let(:context) { { current_participatory_space: process } }
+
+    it_behaves_like(
+      "access for roles",
+      org_admin: true,
+      admin: true,
+      collaborator: true,
+      moderator: true,
+      valuator: true
+    )
+  end
+
   context "when reading a process" do
     let(:action) do
       { scope: :admin, action: :read, subject: :process }

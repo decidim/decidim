@@ -3,6 +3,8 @@
 module Decidim
   module Assemblies
     class Permissions < Decidim::DefaultPermissions
+      include Decidim::UserRoleChecker
+
       def permissions
         user_can_enter_space_area?
 
@@ -27,6 +29,8 @@ module Decidim
           return permission_action
         end
         return permission_action unless permission_action.scope == :admin
+
+        allow! if user&.admin_terms_accepted? && user_has_any_role?(user, assembly, broad_check: true) && (permission_action.subject == :editor_image)
 
         user_can_read_assembly_list?
         user_can_list_assembly_list?

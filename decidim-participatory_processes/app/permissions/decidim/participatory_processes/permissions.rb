@@ -3,6 +3,8 @@
 module Decidim
   module ParticipatoryProcesses
     class Permissions < Decidim::DefaultPermissions
+      include Decidim::UserRoleChecker
+
       def permissions
         user_can_enter_processes_space_area?
         user_can_enter_process_groups_space_area?
@@ -30,6 +32,8 @@ module Decidim
           return permission_action
         end
         return permission_action unless permission_action.scope == :admin
+
+        allow! if user&.admin_terms_accepted? && user_has_any_role?(user, process, broad_check: true) && (permission_action.subject == :editor_image)
 
         valid_process_group_action?
 
