@@ -930,7 +930,6 @@ pt-BR:
           title: Editar tópico
           update: Atualizar tópico
         new:
-          create: Criar tópico
           title: Novo tópico
         update:
           error: Houve um erro ao atualizar este tópico.
@@ -954,7 +953,6 @@ pt-BR:
         index:
           last_notable_change: Última alteração notável
         new:
-          create: Criar página
           title: Nova página
         topic:
           empty: Não há página sob este tópico.
