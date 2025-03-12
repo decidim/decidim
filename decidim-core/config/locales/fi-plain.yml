@@ -1710,6 +1710,10 @@ fi-pl:
           resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudelleen
         confirmation_instructions_sent: Sähköpostivahvistuksen ohjeet lähetetty.
         fill_in_email_to_confirm_it: Syötä ryhmäsi sähköpostiosoite ja vahvista se.
+    qr:
+      show:
+        scan: Skannaa QR-koodi
+        title: QR-koodi kohteelle %{resource_title}
     reported_mailer:
       hide:
         hello: Hei %{name},
@@ -1767,6 +1771,10 @@ fi-pl:
       selfxss_warning:
         description: Tämä selainominaisuus on tarkoitettu kehittäjille ja sinun ei tule liittää tähän mitään tekstiä, jos sinulta on pyydetty sellaista. Tekstin liittäminen tähän ikkunaan voi vaarantaa yksityisyytesi ja antaa hakkereille pääsyn tilillesi.
         title: Seis!
+    share_widget:
+      download: Lataa
+      print: Tulosta juliste
+      qr_code: QR-koodi
     shared:
       confirm_modal:
         cancel: Peruuta
@@ -1828,6 +1836,7 @@ fi-pl:
         copy_share_link: Kopio
         copy_share_link_clarification: Kopioi jakolinkki leikepöydälle
         copy_share_link_copied: Kopioitu!
+        copy_share_link_cta: Tai kopioi linkki
         copy_share_link_message: Linkin kopiointi leikepöydälle onnistui.
         share: Jaa
         share_link: Jaa linkki
