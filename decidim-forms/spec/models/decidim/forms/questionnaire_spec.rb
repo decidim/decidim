@@ -34,6 +34,17 @@ module Decidim
         expect(questionnaire.questionnaire_for).to eq(questionable)
       end
 
+      describe "#count_participants" do
+        it "returns the unique participants number" do
+          user1 = create(:user, organization: questionable.organization)
+          create(:answer, questionnaire: subject, user: user1)
+          create(:answer, questionnaire: subject, user: user1)
+          create(:answer, questionnaire: subject, user: create(:user, organization: questionable.organization))
+
+          expect(subject.reload.count_participants).to eq(2)
+        end
+      end
+
       describe "#questions_editable?" do
         it "returns false when questionnaire has already answers" do
           create(:answer, questionnaire:)

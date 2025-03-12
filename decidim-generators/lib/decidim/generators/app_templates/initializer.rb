@@ -417,6 +417,8 @@ end
 #     config.schema_max_per_page = Decidim::Env.new("API_SCHEMA_MAX_PER_PAGE", 50).to_i
 #     config.schema_max_complexity = Decidim::Env.new("API_SCHEMA_MAX_COMPLEXITY", 5000).to_i
 #     config.schema_max_depth = Decidim::Env.new("API_SCHEMA_MAX_DEPTH", 15).to_i
+#     config.disclose_system_version = Decidim::Env.new("DECIDIM_API_DISCLOSE_SYSTEM_VERSION").present?
+#     config.force_api_authentication = Decidim::Env.new("DECIDIM_API_FORCE_API_AUTHENTICATION").present?
 #   end
 # end
 
