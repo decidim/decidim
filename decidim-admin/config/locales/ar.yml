@@ -786,7 +786,6 @@ ar:
           title: تحرير الموضوع
           update: تحديث الموضوع
         new:
-          create: إنشاء موضوع
           title: موضوع جديد
         update:
           error: حدثت مشكلة أثناء تحديث هذا الموضوع.
@@ -807,7 +806,6 @@ ar:
         index:
           last_notable_change: آخر تغيير ملحوظ
         new:
-          create: إنشاء صفحة
           title: صفحة جديدة
         topic:
           without_topic: صفحات بدون موضوع
