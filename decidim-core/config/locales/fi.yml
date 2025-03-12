@@ -348,7 +348,7 @@ fi:
         success: Muutoksen hyväksyntä onnistui.
       amendable:
         button: Muuta %{model_name}
-        error: Kohteen muuttamisessa tapahtui virhe.
+        error: Kohteen muuttaminen epäonnistui.
         promote_button: Korosta kohteeksi %{model_name}
         promote_confirm_text: Haluatko varmasti korostaa tätä muutosta?
         promote_help_text: Voit korostaa tämän muutoksen ja julkaista sen itsenäisenä kohteena %{model_name}.
