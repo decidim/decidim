@@ -20,7 +20,21 @@ module Decidim
       end
     end
 
+    # needs to be public so that short link works
+    def current_component = resource.try(:component)
+
+    # needs to be public so that short link works
+    def current_participatory_space = resource.try(:participatory_space)
+
     private
+
+    def processed_params
+      {
+        participatory_process_slug: current_participatory_space.slug,
+        component_id: current_component.id.to_s,
+        id: resource.id.to_s
+      }.with_indifferent_access
+    end
 
     def resource
       @resource ||= GlobalID::Locator.locate_signed(params[:resource])
