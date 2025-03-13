@@ -131,7 +131,7 @@ eu:
             private: Pribatua
             published: Argitaratua
             title: Izenburua
-          name: Prozesu parte-hartzailea
+          name: Partaidetza-prozesua
         participatory_process_group:
           fields:
             title: Izenburua
@@ -147,7 +147,7 @@ eu:
             email: Helbide elektronikoa
             name: Izena
             role: Rola
-          name: Prozesu parte-hartzailearen administratzailea
+          name: Partaidetza-prozesuaren administratzailea
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
@@ -162,7 +162,7 @@ eu:
         new:
           copy: Kopiatu
           select: Aukeratu itzazu kopiatu nahi dituzun datuak
-          title: Bikoiztu prozesu parte-hartzailea
+          title: Bikoiztup artaidetza-prozesua
       participatory_process_groups:
         destroy:
           error: Arazo bat izan da prozesu parte-hartzaile multzoa ezabatzean.
@@ -183,7 +183,7 @@ eu:
         new:
           import: Inportatu
           select: Hautatu zein datu inportatu nahi dituzun
-          title: Inportatu prozesu parte-hartzailea
+          title: Inportatu partaidetza-prozesua
       participatory_process_publications:
         create:
           error: Arazo bat egon da prozesu parte-hartzaile hau argitaratzean.
@@ -542,5 +542,5 @@ eu:
           active_step: Oraingo fasea
           more_info: Informazio gehiago
           more_info_about: Informazio gehiago %{resource_name} prozesuari buruz
-          take_part: Parte hartu
-          take_part_in: Parte hartu %{resource_name} prozesuan
+          take_part: Hartu parte
+          take_part_in: Hartu parte %{resource_name} prozesuan
