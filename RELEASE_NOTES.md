@@ -107,4 +107,16 @@ You need to change it to:
 ```ruby
 # Explain the usage of the API as it is in the new version
 result = 1 + 1 if after
-        ```
+```
+### 5.2. JWT token based API authentication
+
+This change provides a new endpoint for API authentication and a method to check for an active authentication token header for each request, based on [Devise::JWT](https://github.com/waiting-for-dev/devise-jwt).
+
+For this to work,  you need to add a secret key that will be used by devise-jwt to sign the tokens.
+Add `SECRET_KEY_JWT` environment variable for your application to work in production.
+
+You can generate the key from the console by running:
+
+```ruby
+bundle exec rails secret
+```
