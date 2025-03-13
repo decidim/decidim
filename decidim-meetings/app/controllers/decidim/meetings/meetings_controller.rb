@@ -153,14 +153,6 @@ module Decidim
             args: ["decidim/meetings/public_participants_list", meeting]
           },
           {
-            enabled: !meeting.closed? && meeting.user_group_registrations.any?,
-            id: "organizations",
-            text: t("attending_organizations", scope: "decidim.meetings.public_participants_list"),
-            icon: "community-line",
-            method: :cell,
-            args: ["decidim/meetings/attending_organizations_list", meeting]
-          },
-          {
             enabled: meeting.linked_resources(:proposals, "proposals_from_meeting").present?,
             id: "included_proposals",
             text: t("decidim/proposals/proposal", scope: "activerecord.models", count: 2),
