@@ -819,7 +819,7 @@ eu:
           select_assemblies: Hautatu batzarrak
           select_conferences: Hautatu jardunaldiak
           select_initiatives: Hautatu ekimenak
-          select_participatory_processes: Hautatu prozesu parte-hartzaileak
+          select_participatory_processes: Hautatu partaidetza-prozesuak
           select_spaces: Hautatu espazioak buletina zatitzeko
           select_users_for_participatory_space: Bidali buletina espazio parte-hartzaile bati baino gehiagori
           select_users_general: Bidali buletin orokorra
@@ -918,7 +918,7 @@ eu:
           cta_button_path_help_html: 'Hasierako orriko ekintzara deitzeko botoia nora estekatzen den gainidatz dezakezu. Erabili hemen ibilbide partzialak, ez URL osoak. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Ekintzara deitzeko botoia hasierako orrian agertuko da, ongi etorri testuaren eta deskribapenaren artean. Adibidez:%{url}'
           cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundean eskuragarri dagoen hizkuntza bakoitzarentzat. Ezarrita ez badago, balio lehenetsia erabiliko da. The Call To Action botoia hasierako orrian erakusten da ongi etorri testua eta azalpenaren artean.
           header_snippets:
-            header_snippets_help_html: Eremu hau erabili HTML goiburuari gauzak gehitzeko. Erabilera ohikoena da JavaScript edo CSS osagarriak behar dituzten hirugarrenen zerbitzuak integratzea. HTMLri meta-etiketa gehigarriak gehitzeko ere erabil dezakezu. Kontuan izan hori orrialde publikoetan soilik renderizatuko dela, ez administrazio-atalean. Kodeak kanpoko APIekin elkarreragiten badu edo aplikazioaren segurtasun-jarraibideak betetzen ez baditu, Edukiaren Segurtasun Politika aldatu beharko da. Irakurri gehiago honetaz<a href="https://docs.decidim.org/develop/en/customize/content_security_policy"> dokumentazioaren kokalekuan</a>.
+            header_snippets_help_html: Eremu hau erabili HTML goiburuari gauzak gehitzeko. Erabilera ohikoena da JavaScript edo CSS osagarriak behar dituzten hirugarrenen zerbitzuak integratzea. HTMLri meta-etiketa gehigarriak gehitzeko ere erabil dezakezu. Kontuan izan hori orrialde publikoetan soilik renderizatuko dela, ez administrazio-atalean. Kodeak kanpoko APIekin elkarreragiten badu edo aplikazioaren segurtasun-jarraibideak betetzen ez baditu, Edukiaren Segurtasun Politika aldatu beharko da. Irakurri gehiago honi buruz<a href="https://docs.decidim.org/develop/en/customize/content_security_policy"> dokumentazioaren kokalekuan</a>.
             title: Goiburuko HTML kode-zatiak
           homepage_appearance_title: Editatu hasierako orriaren itxura
           homepage_highlighted_content_banner_title: Edukien bannerra nabarmendua
@@ -978,7 +978,7 @@ eu:
             explanation: '%{count} parte-hartzaile pribatu dituzu.'
             title: Ezabatu parte-hartzaile pribatuak
           example_file: 'Fitxategi eredua:'
-          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean parte-hartze prozesura gehitu nahi dituzun parte-hartzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
+          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean partaidetza-prozesura gehitu nahi dituzun parte-hartzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
