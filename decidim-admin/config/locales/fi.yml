@@ -1098,6 +1098,7 @@ fi:
           title: Muokkaa aihetta
           update: Päivitä aihe
         new:
+          create: Uusi aihe
           title: Uusi aihe
         update:
           error: Aiheen päivitys epäonnistui.
@@ -1121,6 +1122,7 @@ fi:
         index:
           last_notable_change: Viimeinen huomattava muutos
         new:
+          create: Uusi sivu
           title: Uusi sivu
         topic:
           empty: Tämän aiheen alla ei ole sivuja.
