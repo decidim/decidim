@@ -1682,7 +1682,7 @@ en:
         instructions_1: If you have access to that email account, please check your inbox for the instructions.
         instructions_2: If not, one of your colleagues who has access will need to set the password and share the login credentials with you.
         instructions_intro: Group members will now share access to this profile using shared login credentials (email and password). We have sent instructions to <strong>%{group_email}</strong> to set a new password for the profile.
-        instructions_title: "<strong>What This Means for You</strong>"
+        instructions_title: "<strong>What this means to you?</strong>"
         subject: User group you are member of important update
     user_report_mailer:
       notify:
