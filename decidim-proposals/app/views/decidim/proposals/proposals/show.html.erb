@@ -88,7 +88,7 @@ extra_admin_link(
     <% end %>
   </section>
 
-  <% if current_settings.answers_with_costs? %>
+  <% if proposal_has_costs? && current_settings.answers_with_costs? %>
     <section class="layout-main__section">
       <%= cell("decidim/proposals/cost_report", @proposal) %>
     </section>
