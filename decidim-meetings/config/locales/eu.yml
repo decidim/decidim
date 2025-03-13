@@ -152,7 +152,7 @@ eu:
       meetings:
         actions:
           comment: Iruzkina
-          join: Parte hartu
+          join: Hartu parte
           reply_poll: Erantzun inkesta
         name: Topaketak
         settings:
@@ -459,7 +459,7 @@ eu:
           all: Guztiak
       calendar:
         meeting_to_event:
-          read_more: Irakurri gehiago topaketa honetaz
+          read_more: Irakurri gehiago topaketa honi buruz
       calendar_modal:
         calendar_url: Egutegiaren URLa
         copy_calendar_url: Kopiatu
