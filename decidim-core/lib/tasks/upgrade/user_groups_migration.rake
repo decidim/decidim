@@ -141,7 +141,7 @@ namespace :decidim do
         )
 
         if (count = items.count).positive?
-          items.destroy_all
+          items.find_each(&:destroy)
 
           puts "===== Removed #{count} action log entries."
         else
