@@ -9,13 +9,12 @@ module Decidim
       implements Decidim::Core::AuthorInterface
 
       field :avatar_url, GraphQL::Types::String, "The user's avatar url", null: false
-      field :badge, GraphQL::Types::String, "A badge for the user group", null: false
+      field :badge, GraphQL::Types::String, "A badge for the user", null: false
       field :deleted, GraphQL::Types::Boolean, "Whether the user's account has been deleted or not", null: false
       field :direct_messages_enabled, GraphQL::Types::String,
             null: false,
             description: ["If the user making the request is logged in, it will return whether this recipient accepts a conversation or not.",
                           " It will return false for non-logged requests."].join
-      field :groups, [Decidim::Core::UserGroupType, { null: true }], "Groups where this user belongs", null: false, method: :accepted_user_groups
       field :id, GraphQL::Types::ID, "The user's id", null: false
       field :name, GraphQL::Types::String, "The user's name", null: false
       field :nickname, GraphQL::Types::String, "The user's nickname", null: false

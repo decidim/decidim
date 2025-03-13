@@ -37,7 +37,6 @@ module Decidim
     autoload :StatisticType, "decidim/api/types/statistic_type"
     autoload :TraceVersionType, "decidim/api/types/trace_version_type"
     autoload :TranslatedFieldType, "decidim/api/types/translated_field_type"
-    autoload :UserGroupType, "decidim/api/types/user_group_type"
     autoload :UserType, "decidim/api/types/user_type"
 
     autoload :BaseInputFilter, "decidim/api/input_filters/base_input_filter"

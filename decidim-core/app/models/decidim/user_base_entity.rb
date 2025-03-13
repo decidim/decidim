@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This class serves as a base class for `Decidim::User` and `Decidim::UserGroup`
+  # This class serves as a base class for `Decidim::User`
   # so that we can set some shared logic.
   # This class is not supposed to be used directly.
   class UserBaseEntity < ApplicationRecord
@@ -56,7 +56,7 @@ module Decidim
     end
 
     def public_users_followings
-      # To include users and groups self.class is not valid because for a user
+      # To include any base entity self.class is not valid because for a user
       # self.class.joins(:follows)... only return users
       @public_users_followings ||= users_followings.not_blocked
     end
