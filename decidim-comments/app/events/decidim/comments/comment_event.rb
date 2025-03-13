@@ -23,7 +23,7 @@ module Decidim
         def author_presenter
           return unless author
 
-          @author_presenter ||= Decidim::UserPresenter.new(author)
+          @author_presenter ||= author.presenter
         end
 
         def translatable_resource
