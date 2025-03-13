@@ -41,6 +41,7 @@ module Decidim
               post :validate_registration_code
             end
             member do
+              get :qr_mark_as_attendee
               put :mark_as_attendee
             end
           end

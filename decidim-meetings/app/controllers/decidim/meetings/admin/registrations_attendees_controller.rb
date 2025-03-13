@@ -14,6 +14,24 @@ module Decidim
           @validation_form = ValidateRegistrationCodeForm.new
         end
 
+        def qr_mark_as_attendee
+          enforce_permission_to(:validate_registration_code, :meeting, meeting:)
+
+          registration = registrations.find_by!(code: params[:id])
+
+          MarkAsAttendee.call(registration) do
+            on(:ok) do
+              flash[:notice] = I18n.t("registrations_attendees.mark_attendee.success", scope: "decidim.meetings.admin")
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("registrations_attendees.mark_attendee.invalid", scope: "decidim.meetings.admin")
+            end
+
+            redirect_to action: "index"
+          end
+        end
+
         def validate_registration_code
           enforce_permission_to(:validate_registration_code, :meeting, meeting:)
 
