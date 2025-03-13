@@ -20,7 +20,7 @@ module Decidim
         sign_in current_user, scope: :user
       end
 
-      describe "GET user entities in json format" do
+      describe "GET users in json format" do
         let!(:user) { create(:user, name: "Daisy Miller", nickname: "daisy_m", organization:, email: "d.mail@example.org") }
         let!(:blocked_user) { create(:user, :blocked, name: "Daisy Blocked", nickname: "daisy_b", organization:, email: "d.mail.b@example.org") }
         let!(:managed_user) { create(:user, :managed, name: "Daisy Managed", nickname: "daisy_g", organization:, email: "d.mail.g@example.org") }
@@ -32,14 +32,14 @@ module Decidim
             include_context "with daisy"
 
             it "returns the results ordered by similarity" do
-              get :user_entities, format: :json, params: { term: "Daisy" }
+              get :users, format: :json, params: { term: "Daisy" }
               expect(parsed_response.count).to eq(2)
               expect(parsed_response.first[:value]).to eq(daisy.id)
             end
           end
 
           it "returns the id, name and nickname for filtered users" do
-            get :user_entities, format: :json, params: { term: "daisy" }
+            get :users, format: :json, params: { term: "daisy" }
             expect(parsed_response).to include({ value: user.id, label: "#{user.name} (@#{user.nickname})" })
             expect(parsed_response).not_to include({ value: other_user.id, label: "#{other_user.name} (@#{other_user.nickname})" })
             expect(parsed_response).not_to include({ value: blocked_user.id, label: "#{blocked_user.name} (@#{blocked_user.nickname})" })
@@ -50,7 +50,7 @@ module Decidim
 
         context "when searching by nickname" do
           it "returns the id, name and nickname for filtered users" do
-            get :user_entities, format: :json, params: { term: "@daisy" }
+            get :users, format: :json, params: { term: "@daisy" }
             expect(parsed_response).to include({ value: user.id, label: "#{user.name} (@#{user.nickname})" })
             expect(parsed_response).not_to include({ value: other_user.id, label: "#{other_user.name} (@#{other_user.nickname})" })
             expect(parsed_response).not_to include({ value: blocked_user.id, label: "#{blocked_user.name} (@#{blocked_user.nickname})" })
@@ -62,7 +62,7 @@ module Decidim
             include_context "with daisy"
 
             it "returns the results ordered by similarity" do
-              get :user_entities, format: :json, params: { term: "@daisy" }
+              get :users, format: :json, params: { term: "@daisy" }
               expect(parsed_response.count).to eq(2)
               expect(parsed_response.first[:value]).to eq(daisy.id)
             end
@@ -71,7 +71,7 @@ module Decidim
 
         context "when searching by email" do
           it "returns the id, name and nickname for filtered users" do
-            get :user_entities, format: :json, params: { term: "d.mail" }
+            get :users, format: :json, params: { term: "d.mail" }
             expect(parsed_response).to include({ value: user.id, label: "#{user.name} (@#{user.nickname})" })
             expect(parsed_response).not_to include({ value: other_user.id, label: "#{other_user.name} (@#{other_user.nickname})" })
             expect(parsed_response).not_to include({ value: blocked_user.id, label: "#{blocked_user.name} (@#{blocked_user.nickname})" })
@@ -83,103 +83,9 @@ module Decidim
             include_context "with daisy"
 
             it "returns the results ordered by similarity" do
-              get :user_entities, format: :json, params: { term: "daisy@example.org" }
+              get :users, format: :json, params: { term: "daisy@example.org" }
               expect(parsed_response.count).to eq(1)
               expect(parsed_response.first[:value]).to eq(daisy.id)
-            end
-          end
-        end
-
-        context "when user is blocked" do
-          let!(:user) { create(:user, :blocked, name: "Daisy Miller", nickname: "daisy_m", organization:) }
-
-          it "returns an empty json array" do
-            get :users, format: :json, params: { term: "daisy" }
-            expect(parsed_response).to eq([])
-          end
-        end
-
-        context "when user is managed" do
-          let!(:user) { create(:user, :managed, name: "Daisy Miller", nickname: "daisy_m", organization:) }
-
-          it "returns an empty json array" do
-            get :users, format: :json, params: { term: "daisy" }
-            expect(parsed_response).to eq([])
-          end
-        end
-
-        context "when user is deleted" do
-          let!(:user) { create(:user, :deleted, name: "Daisy Miller", nickname: "daisy_m", organization:) }
-
-          it "returns an empty json array" do
-            get :users, format: :json, params: { term: "daisy" }
-            expect(parsed_response).to eq([])
-          end
-        end
-      end
-
-      describe "GET users in json format" do
-        let!(:user) { create(:user, name: "Daisy Miller", nickname: "daisy_m", organization:) }
-        let!(:other_user) { create(:user, name: "Daisy O'connor", nickname: "daisy_o") }
-
-        context "when no search term is provided" do
-          it "returns an empty result set" do
-            get :users, format: :json, params: {}
-            expect(parsed_response).to eq([])
-          end
-        end
-
-        context "when there are no results" do
-          it "returns an empty json array" do
-            get :users, format: :json, params: { term: "#0" }
-            expect(parsed_response).to eq([])
-          end
-        end
-
-        context "when searching by name" do
-          it "returns the id, name and nickname for filtered users" do
-            get :users, format: :json, params: { term: "daisy" }
-            expect(parsed_response).to eq([{ value: user.id, label: "#{user.name} (@#{user.nickname})" }])
-          end
-
-          context "when there is more than one result" do
-            include_context "with daisy"
-
-            it "returns the results ordered by similarity" do
-              get :users, format: :json, params: { term: "daisy" }
-              expect(parsed_response).to eq([{ value: daisy.id, label: "#{daisy.name} (@#{daisy.nickname})" }, { value: user.id, label: "#{user.name} (@#{user.nickname})" }])
-            end
-          end
-        end
-
-        context "when searching by nickname" do
-          it "returns the id, name and nickname for filtered users" do
-            get :users, format: :json, params: { term: "@daisy" }
-            expect(parsed_response).to eq([{ value: user.id, label: "#{user.name} (@#{user.nickname})" }])
-          end
-
-          context "when there is more than one result" do
-            include_context "with daisy"
-
-            it "returns the results ordered by similarity" do
-              get :users, format: :json, params: { term: "@daisy" }
-              expect(parsed_response).to eq([{ value: daisy.id, label: "#{daisy.name} (@#{daisy.nickname})" }, { value: user.id, label: "#{user.name} (@#{user.nickname})" }])
-            end
-          end
-        end
-
-        context "when searching by email" do
-          it "returns the id, name and nickname for filtered users" do
-            get :users, format: :json, params: { term: user.email }
-            expect(parsed_response).to eq([{ value: user.id, label: "#{user.name} (@#{user.nickname})" }])
-          end
-
-          context "when there is more than one result" do
-            include_context "with daisy"
-
-            it "returns the results ordered by similarity" do
-              get :users, format: :json, params: { term: "daisy@example.org" }
-              expect(parsed_response).to eq([{ value: daisy.id, label: "#{daisy.name} (@#{daisy.nickname})" }])
             end
           end
         end
