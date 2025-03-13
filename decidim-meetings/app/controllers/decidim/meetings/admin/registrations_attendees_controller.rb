@@ -15,7 +15,7 @@ module Decidim
         end
 
         def validate_registration_code
-          enforce_permission_to(:update, :meeting, meeting:)
+          enforce_permission_to(:validate_registration_code, :meeting, meeting:)
 
           @validation_form = ValidateRegistrationCodeForm.from_params(params).with_context(current_organization: meeting.organization, meeting:)
 
@@ -33,7 +33,7 @@ module Decidim
         end
 
         def mark_as_attendee
-          enforce_permission_to(:update, :meeting, meeting:)
+          enforce_permission_to(:invite_attendee, :meeting, meeting:)
 
           registration = registrations.find(params[:id])
 
