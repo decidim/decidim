@@ -19,10 +19,6 @@ module Decidim
       return "admin" if user.admin?
     end
 
-    def show_badge?
-      officialized?
-    end
-
     def resource_path
       user.try(:profile_url) || decidim.profile_path(user.nickname)
     end
