@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/component_context"
+require "decidim/api/test"
 require "decidim/surveys/test/factories"
 
 describe "Decidim::Api::QueryType" do

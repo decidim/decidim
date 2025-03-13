@@ -39,7 +39,7 @@ module Decidim
         text.scan(MENTION_REGEX)
       end
 
-      def mentionable_class
+      def mentionable_base_relation
         Decidim::User
       end
 
@@ -48,7 +48,7 @@ module Decidim
       end
 
       def existing_mentionables
-        @existing_mentionables ||= mentionable_class.where(
+        @existing_mentionables ||= mentionable_base_relation.where(
           "decidim_organization_id = ? AND LOWER(nickname) IN (?)",
           current_organization.id,
           content_nicknames

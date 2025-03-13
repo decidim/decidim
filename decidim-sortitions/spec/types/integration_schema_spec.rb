@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/component_context"
+require "decidim/api/test"
 require "decidim/sortitions/test/factories"
 
 describe "Decidim::Api::QueryType" do
@@ -50,7 +50,7 @@ describe "Decidim::Api::QueryType" do
     {
       "acceptsNewComments" => sortition.accepts_new_comments?,
       "additionalInfo" => { "translation" => sortition.additional_info[locale] },
-      "author" => { "id" => sortition.normalized_author.id.to_s },
+      "author" => { "id" => sortition.author.id.to_s },
       "cancelReason" => sortition.cancel_reason,
       "cancelledByUser" => sortition.cancelled_by_user,
       "cancelledOn" => sortition.cancelled_on,

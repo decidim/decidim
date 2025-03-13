@@ -4,10 +4,10 @@ module Decidim
   module Initiatives
     class Permissions < Decidim::DefaultPermissions
       def permissions
-        return permission_action if initiative && !initiative.is_a?(Decidim::Initiative)
-
         # Delegate the admin permission checks to the admin permissions class
         return Decidim::Initiatives::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
+
+        return permission_action if initiative && !initiative.is_a?(Decidim::Initiative)
         return permission_action if permission_action.scope != :public
 
         # Non-logged users permissions
@@ -100,8 +100,7 @@ module Decidim
       def creation_enabled?
         Decidim::Initiatives.creation_enabled && (
         Decidim::Initiatives.do_not_require_authorization ||
-          UserAuthorizations.for(user).any? ||
-          Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?) &&
+          UserAuthorizations.for(user).any?) &&
           authorized?(:create, permissions_holder: initiative_type)
       end
 
@@ -128,8 +127,7 @@ module Decidim
           !initiative.has_authorship?(user) &&
           (
           Decidim::Initiatives.do_not_require_authorization ||
-              UserAuthorizations.for(user).any? ||
-              Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
+              UserAuthorizations.for(user).any?
         )
       end
 
@@ -186,10 +184,6 @@ module Decidim
         toggle_allow(can_sign)
       end
 
-      def decidim_user_group_id
-        context.fetch(:group_id, nil)
-      end
-
       def can_vote?
         initiative.votes_enabled? &&
           initiative.organization&.id == user.organization&.id &&
@@ -234,10 +228,7 @@ module Decidim
       end
 
       def allowed_to_send_to_technical_validation?
-        initiative.created? && (
-        !initiative.created_by_individual? ||
-            initiative.enough_committee_members?
-      )
+        initiative.created? && initiative.enough_committee_members?
       end
 
       def authorship_or_admin?
