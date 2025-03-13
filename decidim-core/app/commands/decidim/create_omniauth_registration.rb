@@ -47,6 +47,8 @@ module Decidim
 
     attr_reader :form, :verified_email
 
+    REGEXP_SANITIZER = /[<>?%&\^*#@()\[\]=+:;"{}\\|]/
+
     def create_or_find_user
       @user = User.find_or_initialize_by(
         email: verified_email,
@@ -65,7 +67,7 @@ module Decidim
         @user.save!
       else
         @user.email = (verified_email || form.email)
-        @user.name = form.name
+        @user.name = form.name.gsub(REGEXP_SANITIZER, "")
         @user.nickname = form.normalized_nickname
         @user.newsletter_notifications_at = nil
         @user.password = SecureRandom.hex
@@ -130,7 +132,7 @@ module Decidim
         provider: form.provider,
         uid: form.uid,
         email: form.email,
-        name: form.name,
+        name: form.name.gsub(REGEXP_SANITIZER, ""),
         nickname: form.normalized_nickname,
         avatar_url: form.avatar_url,
         raw_data: form.raw_data,
