@@ -8,7 +8,7 @@ on:
         required: false
       node_version:
         description: 'Node version'
-        default: '18.17.1'
+        default: '22.14.0'
         required: false
         type: string
 jobs:

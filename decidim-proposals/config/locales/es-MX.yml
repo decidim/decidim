@@ -346,6 +346,11 @@ es-MX:
           email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
           email_subject: Tu propuesta "%{mentioned_proposal_title}" ha sido mencionada
           notification_title: Tu propuesta "%{mentioned_proposal_title}" se ha mencionado <a href="%{resource_path}">en este espacio</a> en los comentarios.
+        proposal_merged:
+          email_intro: 'Una administradora ha fusionado tu propuesta "%{resource_title}" con otra, puedes comprobarlo en esta página:'
+          email_outro: Recibiste esta notificación porque eres la autora de la propuesta.
+          email_subject: La propuesta "%{resource_title}" se ha fusionado con otra
+          notification_title: Una administradora ha fusionado la propouesta "<a href="%{resource_path}">%{resource_title}</a>" con otra.
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, a quien sigues, ha publicado una nueva propuesta llamada "%{resource_title}". Échale un vistazo y contribuye:'
           email_outro: Recibiste esta notificación porque estás siguiendo a %{author_nickname}. Puedes dejar de recibir notificaciones desde el enlace anterior.
@@ -634,7 +639,7 @@ es-MX:
             cancel: Cancelar
             change_taxonomies: Cambiar taxonomías
             merge: Fusionar en una nueva
-            merge_button: Fusionar
+            merge_button: Crear
             no_templates_available: No hay pantillas disponibles
             publish: Publicar
             publish_answers: Publicar respuestas
@@ -694,6 +699,11 @@ es-MX:
           create:
             invalid: 'Se ha producido un error al fusionar las propuestas seleccionadas porque algunas de ellas:'
             success: Las propuestas se fusionaron en una nueva con éxito.
+          form:
+            created_in_meeting: Esta propuesta proviene de una reunión
+            select_a_meeting: Selecciona un encuentro
+          new:
+            title: Fusionar en una nueva propuesta
         proposals_splits:
           create:
             invalid: 'Se ha producido un error al fusionar las propuestas seleccionadas porque algunas de ellas:'
@@ -708,7 +718,7 @@ es-MX:
       admin_log:
         proposal:
           answer: "%{user_name} respondió a la propuesta %{resource_name} en el espacio %{space_name}"
-          create: "%{user_name} creó la propuesta %{resource_name} en el espacio %{space_name} como una propuesta oficial"
+          create: "%{user_name} creó la propuesta %{resource_name} a partir de la fusión de %{merged_count} propuestas en %{space_name}"
           publish_answer: "%{user_name} publicó la respuesta a la propuesta %{resource_name} en el espacio %{space_name}"
           restore: "%{user_name} restauró la propuesta %{resource_name} en el espacio %{space_name}"
           soft_delete: "%{user_name} ha movido a la papelera la propuesta %{resource_name} en el espacio %{space_name}"

@@ -24,6 +24,14 @@ module Decidim
           false
         end
 
+        def full_name
+          return @full_name if defined?(@full_name)
+
+          @full_name = name.dup
+          @full_name[I18n.locale.to_s] = "#{parent.name[I18n.locale.to_s]} > #{@full_name[I18n.locale.to_s]}" if parent && parent.parent_id
+          @full_name
+        end
+
         def resources
           categorizations.filter_map do |categorization|
             next if invalid_categorization?(categorization)
@@ -36,14 +44,32 @@ module Decidim
           {
             name:,
             origin: to_global_id.to_s,
-            children: subcategories.to_h do |subcategory|
-              [
-                subcategory.name[I18n.locale.to_s],
-                subcategory.taxonomies
-              ]
-            end,
+            children: sub_taxonomy_children,
             resources:
           }
+        end
+
+        # original categories are allowed one level more than the current taxonomies
+        def sub_taxonomy_children
+          subcategories.each_with_object({}) do |subcategory, hash|
+            hash[subcategory.name[I18n.locale.to_s]] = {
+              name: subcategory.name,
+              origin: subcategory.to_global_id.to_s,
+              resources: subcategory.resources,
+              children: {}
+            }
+
+            next unless subcategory.subcategories.any?
+
+            subcategory.subcategories.each do |last_category|
+              hash[last_category.full_name[I18n.locale.to_s]] = {
+                name: last_category.full_name,
+                origin: last_category.to_global_id.to_s,
+                resources: last_category.resources,
+                children: {}
+              }
+            end
+          end
         end
 
         def self.children_taxonomies(participatory_space)
@@ -92,8 +118,14 @@ module Decidim
                 internal_name: name,
                 items: Category.where(participatory_space:).map do |category|
                   names = [name]
-                  names << category.parent.name[I18n.locale.to_s] if category.parent
-                  names << category.name[I18n.locale.to_s]
+                  if category.parent
+                    names << if category.parent.parent
+                               category.parent.parent.name[I18n.locale.to_s]
+                             else
+                               category.parent.name[I18n.locale.to_s]
+                             end
+                  end
+                  names << category.full_name[I18n.locale.to_s]
                   names
                 end,
                 components:

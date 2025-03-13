@@ -1744,6 +1744,8 @@ ca:
       create:
         error: Hi ha hagut un problema en crear l'informe d'error. Si us plau, torna-ho a provar.
         success: El contingut s'ha denunciat amb èxit i serà revisat per una administradora.
+      parent_hidden:
+        report_details: El recurs principal estava amagat
     resource:
       controls_label: Controls de recursos
     resource_endorsements:
@@ -1978,7 +1980,7 @@ ca:
       invite_collaborator:
         subject: T'han convidat a col·laborar a %{organization}
       invite_private_user:
-        subject: T'han convidat a participar en un procés participatiu privat a%{organization}
+        subject: T'han convidat a participar en un espai de participació privat a%{organization}
       organization_admin_invitation_instructions:
         subject: T'han convidat a administrar %{organization}
       password_change:

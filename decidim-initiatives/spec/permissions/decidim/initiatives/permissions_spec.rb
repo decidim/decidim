@@ -93,8 +93,20 @@ describe Decidim::Initiatives::Permissions do
     let(:action) do
       { scope: :admin, action: :foo, subject: :initiative }
     end
+    let(:user) { create(:user, :admin, organization:) }
 
     it_behaves_like "delegates permissions to", Decidim::Initiatives::Admin::Permissions
+
+    context "when accessing another participatory space" do
+      let(:action) do
+        { scope: :admin, action: :enter, subject: :space_area }
+      end
+      let(:context) do
+        { space_name: :initiatives, current_participatory_space: create(:participatory_process, organization:) }
+      end
+
+      it { is_expected.to be true }
+    end
   end
 
   context "when reading an initiative" do
