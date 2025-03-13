@@ -3,6 +3,15 @@
 namespace :decidim do
   namespace :upgrade do
     namespace :user_groups do
+      desc "Main task to notify users and change references to groups"
+      task remove: [
+        :"decidim:upgrade:user_groups:send_reset_password_instructions",
+        :"decidim:upgrade:user_groups:send_user_group_changes_notification_to_members",
+        :"decidim:upgrade:user_groups:transfer_user_groups_authorships",
+        :"decidim:upgrade:user_groups:fix_user_groups_action_logs",
+        :"decidim:upgrade:user_groups:remove_groups_notifications"
+      ]
+
       desc "Send reset password instructions to groups"
       task send_reset_password_instructions: :environment do
         Decidim::User.user_group.where(encrypted_password: "").find_each(&:send_reset_password_instructions)
@@ -109,6 +118,34 @@ namespace :decidim do
           puts "===== Transformed #{count} action log entries."
         else
           puts "===== Skipped, no entries found to transform."
+        end
+      end
+
+      desc "Remove notification entries related with user groups"
+      task remove_groups_notifications: :environment do
+        items = Decidim::Notification.where(
+          event_class: %w(
+            Decidim::Comments::CommentByFollowedUserGroupEvent
+            Decidim::Comments::UserGroupMentionedEvent
+            Decidim::DemotedMembershipEvent
+            Decidim::InvitedToGroupEvent
+            Decidim::JoinRequestAcceptedEvent
+            Decidim::JoinRequestCreatedEvent
+            Decidim::JoinRequestRejectedEvent
+            Decidim::PromotedToAdminEvent
+            Decidim::RemovedFromGroupEvent
+            Decidim::UserGroupAdminEvent
+            Decidim::UserGroupCreatedEvent
+            Decidim::UserGroupUpdatedEvent
+          )
+        )
+
+        if (count = items.count).positive?
+          items.destroy_all
+
+          puts "===== Removed #{count} action log entries."
+        else
+          puts "===== Skipped, no entries found to remove."
         end
       end
     end
