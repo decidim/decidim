@@ -87,6 +87,48 @@ module Decidim
             expect(user.valid_password?("decidim123456789")).to be(true)
           end
 
+          it "download and attach the avatar" do
+            stub_request(:get, "http://www.example.com/foo.jpg").to_return(
+              status: 200,
+              body: File.read("spec/assets/avatar.jpg"), headers: { "Content-Type" => "image/jpeg" }
+            )
+            expect { command.call }.to broadcast(:ok)
+            user = User.find_by(email: form.email)
+            expect(user.avatar).to be_attached
+            expect(user.avatar.attachment.filename.to_s).to eq("foo.jpg")
+            expect(user.avatar.attachment.blob.byte_size).to eq(File.open("spec/assets/avatar.jpg").size)
+          end
+
+          context "when avatar URL fetching fails" do
+            it "with a 404 HTTP code, it saves the user without avatar" do
+              stub_request(:get, "http://www.example.com/foo.jpg").to_return(status: 404)
+              expect { command.call }.to broadcast(:ok)
+              user = User.find_by(email: form.email)
+              expect(user.avatar).not_to be_attached
+            end
+
+            it "with a 502 HTTP code, it saves the user without avatar" do
+              stub_request(:get, "http://www.example.com/foo.jpg").to_return(status: 502)
+              expect { command.call }.to broadcast(:ok)
+              user = User.find_by(email: form.email)
+              expect(user.avatar).not_to be_attached
+            end
+
+            it "with a 500 HTTP code, it saves the user without avatar" do
+              stub_request(:get, "http://www.example.com/foo.jpg").to_return(status: 500)
+              expect { command.call }.to broadcast(:ok)
+              user = User.find_by(email: form.email)
+              expect(user.avatar).not_to be_attached
+            end
+
+            it "with a 401 HTTP code, it saves the user without avatar" do
+              stub_request(:get, "http://www.example.com/foo.jpg").to_return(status: 401)
+              expect { command.call }.to broadcast(:ok)
+              user = User.find_by(email: form.email)
+              expect(user.avatar).not_to be_attached
+            end
+          end
+
           # NOTE: This is important so that the users who are only
           # authenticating using omniauth will not need to update their
           # passwords.
