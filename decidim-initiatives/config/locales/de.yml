@@ -385,6 +385,7 @@ de:
         finish:
           back: Zurück
           back_to_initiatives: Zurück zu den Initiativen
+          callout_text: Herzlichen Glückwunsch! Ihre Initiative wurde erfolgreich erstellt.
           confirm: Sie werden die Initiative an einen Administrator senden, welcher sie zu überprüft und veröffentlicht. Sobald die Initiative veröffentlicht ist, können Sie sie nicht bearbeiten. Sind Sie sicher?
           edit_my_initiative: Meine Initiativen bearbeiten
           go_to_my_initiatives: Geh zu meinen Initiativen
