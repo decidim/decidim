@@ -447,7 +447,7 @@ en:
             validate: Validate
             validate_registration_code: Validate registration code
           mark_attendee:
-            invalid: Registration could not be marked as attended.
+            invalid: Registration already marked as attended.
             success: Registration marked as attended successfully.
           validate_registration_code:
             invalid: This registration code is invalid.
