@@ -43,7 +43,6 @@ describe Decidim::Initiatives::Permissions do
 
       it { is_expected.to be false }
     end
-
   end
 
   context "when the action is for the admin part" do
