@@ -66,7 +66,7 @@ module Decidim
       end
 
       def author_presenter
-        UserPresenter.new(current_user)
+        current_user&.presenter
       end
 
       def comments_max_length

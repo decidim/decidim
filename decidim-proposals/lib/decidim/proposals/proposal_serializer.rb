@@ -120,7 +120,7 @@ module Decidim
 
       def author_name(author)
         if author.respond_to?(:name)
-          translated_attribute(author.name) # is a Decidim::User
+          translated_attribute(author.name) # is a Decidim::User or Decidim::Organization
         elsif author.respond_to?(:title)
           translated_attribute(author.title) # is a Decidim::Meetings::Meeting
         end
