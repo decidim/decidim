@@ -6,7 +6,7 @@ module Decidim
   #
   class InitiativePresenter < Decidim::ResourcePresenter
     def author
-      @author ||= Decidim::UserPresenter.new(super)
+      @author ||= super.presenter
     end
 
     def initiative
