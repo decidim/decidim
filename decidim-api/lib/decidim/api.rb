@@ -28,6 +28,12 @@ module Decidim
       %w(1 true yes).include?(ENV.fetch("DECIDIM_API_DISCLOSE_SYSTEM_VERSION", nil))
     end
 
+    # Public Setting that can make the API authentication necessary in order to
+    # access it.
+    config_accessor :force_api_authentication do
+      %w(1 true yes).include?(ENV.fetch("DECIDIM_API_FORCE_API_AUTHENTICATION", nil))
+    end
+
     # This declares all the types an interface or union can resolve to. This needs
     # to be done in order to be able to have them found. This is a shortcoming of
     # graphql-ruby and the way it deals with loading types, in combination with
