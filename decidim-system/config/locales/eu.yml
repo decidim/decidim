@@ -73,7 +73,7 @@ eu:
         placeholders:
           content: Mesedez, gehitu eduki adierazgarria %{page} (a) ren orri estatikoaren administrazio-panelean.
           summary: Mesedez, gehitu laburpen esanguratsua %{page} orri estatikoari administrazio-panelean.
-          title: 'Izenburu lehenetsia orri honetarako: %{page}'
+          title: 'Orri honetarako izenburu lehenetsia: %{page}'
         terms-of-service: Zerbitzu-baldintzak
       devise:
         passwords:
