@@ -310,6 +310,16 @@ module Decidim::Comments
         allow(commentable).to receive(:accepts_new_comments?).and_return(true)
       end
 
+      context "when depth is equal to MAX_DEPTH" do
+        before do
+          allow(comment).to receive(:depth).and_return(Comment::MAX_DEPTH)
+        end
+
+        it "returns false" do
+          expect(my_cell.send(:can_reply?)).to be false
+        end
+      end
+
       context "when two columns layout is enabled" do
         before do
           allow(commentable).to receive(:two_columns_layout?).and_return(true)
