@@ -933,7 +933,7 @@ de:
           down: Runter
           external_domain: Externe Domain
           remove: Entfernen
-          up: Hoch
+          up: Nach oben
         form:
           add: Zur erlaubten Liste hinzufügen
           title: Liste erlaubter externer Domains
@@ -1098,6 +1098,7 @@ de:
           title: Thema bearbeiten
           update: Thema aktualisieren
         new:
+          create: Neues Thema
           title: Neues Thema
         update:
           error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
@@ -1121,6 +1122,7 @@ de:
         index:
           last_notable_change: Letzte signifikante Änderung
         new:
+          create: Neue Seite
           title: Neue Seite
         topic:
           empty: Es gibt keine Seite zu diesem Thema.
