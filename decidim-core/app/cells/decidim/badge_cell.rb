@@ -17,9 +17,7 @@ module Decidim
     end
 
     def own_profile?
-      return @own_profile if defined?(@own_profile)
-
-      @own_profile = model == current_user
+      model == current_user
     end
 
     def description
