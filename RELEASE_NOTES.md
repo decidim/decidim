@@ -46,9 +46,51 @@ We have noticed that when a resource (ex: Proposal, Meeting) is being moderated,
 bin/rails decidim:upgrade:clean:hidden_resources
 ```
 
-You can read more about this change on PR [#13554](https://github.com/decidim/decidim/pull/13554).
+### 2.2. User Groups removal
 
-### 2.2. Initiatives digital signature process change
+As part of our efforts to simplify the experience for organizations, the "User Groups" feature has been deprecated. All previously existing User Groups has been converted into regular participants able to sign in providing the email and a password. The users with access to the email associated with the User Group will be able to set a password.
+
+There are some tasks to notify users affected by the changes, transfer authorships and remove deprecated references to groups. All of them can be executed in a main task:
+
+```bash
+bin/rails decidim:upgrade:user_groups:remove
+```
+
+The tasks can also be executed one by one:
+
+* An email will be sent to the email address associated with the User Group, informing them of the deprecation of User Groups and instructing them to define a password for the newly converted profile. For this run:
+
+```bash
+bin/rails decidim:upgrade:user_groups:send_reset_password_instructions
+```
+
+* To notify group members and admins associated with the User Group with an email explaining the changes and how to access the shared profile run:
+
+```bash
+bin/rails decidim:upgrade:user_groups:send_user_group_changes_notification_to_members
+```
+
+* To migrate the authorships and coauthorships of the old groups and assign to the new regular users:
+
+```bash
+bin/rails decidim:upgrade:user_groups:transfer_user_groups_authorships
+```
+
+* To avoid exceptions accessing to the activities log in the admin panel displaying activities associated with user groups:
+
+```bash
+bin/rails decidim:upgrade:user_groups:fix_user_groups_action_logs
+```
+
+* To avoid exceptions trying to display notifications associated with deprecated groups events:
+
+```bash
+bin/rails decidim:upgrade:user_groups:remove_groups_notifications
+```
+
+You can read more about this change on PR [#14130](https://github.com/decidim/decidim/pull/14130).
+
+### 2.3. Initiatives digital signature process change
 
 The application changes the configuration of initiatives signature in initiatives types to allow developers to define the process in a flexible way. This is achieved by introducing signature workflows [#13729](https://github.com/decidim/decidim/pull/13729).
 
@@ -94,50 +136,6 @@ Signature workflows can be defined as ephemeral, in which case users can sign in
 To migrate old signature configurations review the One time actions section
 
 For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`
-
-### 2.3. User Groups removal
-
-As part of our efforts to simplify the experience for organizations, the "User Groups" feature has been deprecated. All previously existing User Groups has been converted into regular participants able to sign in providing the email and a password. The users with access to the email associated with the User Group will be able to set a password.
-
-There are some tasks to notify users affected by the changes, transfer authorships and remove deprecated references to groups. All of them can be executed in a main task:
-
-```bash
-bin/rails decidim:upgrade:user_groups:remove
-```
-
-The tasks can also be executed one by one:
-
-* An email will be sent to the email address associated with the User Group, informing them of the deprecation of User Groups and instructing them to define a password for the newly converted profile. For this run:
-
-```bash
-bin/rails decidim:upgrade:user_groups:send_reset_password_instructions
-```
-
-* To notify group members and admins associated with the User Group with an email explaining the changes and how to access the shared profile run:
-
-```bash
-bin/rails decidim:upgrade:user_groups:send_user_group_changes_notification_to_members
-```
-
-* To migrate the authorships and coauthorships of the old groups and assign to the new regular users:
-
-```bash
-bin/rails decidim:upgrade:user_groups:transfer_user_groups_authorships
-```
-
-* To avoid exceptions accessing to the activities log in the admin panel displaying activities associated with user groups:
-
-```bash
-bin/rails decidim:upgrade:user_groups:fix_user_groups_action_logs
-```
-
-* To avoid exceptions trying to display notifications associated with deprecated groups events:
-
-```bash
-bin/rails decidim:upgrade:user_groups:remove_groups_notifications
-```
-
-You can read more about this change on PR [#14130](https://github.com/decidim/decidim/pull/14130).
 
 ### 2.4. [[TITLE OF THE ACTION]]
 
@@ -224,9 +222,11 @@ If you have used code as such:
 result = 1 + 1 if before
 ```
 
-You need to change it to:
-
 ```ruby
 # Explain the usage of the API as it is in the new version
 result = 1 + 1 if after
-        ```
+```
+
+### 5.2. Add force_api_authentication configuration options
+
+There are times that we need to let only authenticated users to use the API. This configuration option filters out unauthenticated users from accessing the api endpoint. You need to add `DECIDIM_API_FORCE_API_AUTHENTICATION` to your environment variables if you want to enable this feature.
