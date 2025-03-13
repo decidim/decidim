@@ -1686,6 +1686,17 @@ en:
         instructions_intro: Group members will now share access to this profile using shared login credentials (email and password). We have sent instructions to <strong>%{group_email}</strong> to set a new password for the profile.
         instructions_title: "<strong>What this means to you?</strong>"
         subject: User group you are member of important update
+      notify_deprecation_to_owner:
+        body_1: We are reaching out to inform you about an important update regarding your Group profile on %{organization_name}.
+        body_2: As part of our efforts to simplify and improve the experience for organizations like yours, we are deprecating the "User Groups" feature. Your Group, <strong>%{name}</strong>, has been converted into a regular account.
+        body_3: To continue accessing your account and share access, we need you to set a password. Once set, you can share the login credentials (email and password) with anyone.
+        greeting: Dear %{name},
+        instructions_1: 'Click the link below, fill in the form with the email address you received this meesage and submit to set your password:'
+        instructions_2: You will receive the instructions at this address to define a new password.
+        instructions_3: 'Share the login credentials (email: %{email} and the new password) with your colleagues.'
+        instructions_title: "<strong>What you need to do</strong>"
+        set_password: Start password setting process
+        subject: User group important update
     user_report_mailer:
       notify:
         body_1: User %{user} has been reported by %{token}
@@ -1807,16 +1818,6 @@ en:
         instruction: 'Click the link below to unlock your account:'
         message: Your account has been locked due to an excessive amount of unsuccessful log in attempts.
         subject: Unlock instructions
-      user_group_reset_password_instructions:
-        body_1: We are reaching out to inform you about an important update regarding your Group profile on %{organization_name}.
-        body_2: As part of our efforts to simplify and improve the experience for organizations like yours, we are deprecating the "User Groups" feature. Your Group, <strong>%{name}</strong>, has been converted into a regular account.
-        body_3: To continue accessing your account and share access, we need you to set a password. Once set, you can share the login credentials (email and password) with anyone.
-        greeting: Dear %{name},
-        instructions_1: 'Click the link below to set your password:'
-        instructions_2: 'Share the login credentials (email: %{email} and the new password) with your colleagues.'
-        instructions_title: "<strong>What you need to do</strong>"
-        set_password: Set your password
-        subject: User group important update
     omniauth_callbacks:
       add_tos_errors: Terms of service must be accepted in order to create an account.
       failure: Could not authenticate you from %{kind} because "%{reason}".
