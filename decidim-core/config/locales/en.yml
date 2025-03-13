@@ -1812,7 +1812,7 @@ en:
         greeting: Dear %{name},
         instructions_1: 'Click the link below to set your password:'
         instructions_2: 'Share the login credentials (email: %{email} and the new password) with your colleagues.'
-        instructions_title: "<strong>What You Need to Do</strong>"
+        instructions_title: "<strong>What you need to do</strong>"
         set_password: Set your password
         subject: User group important update
     omniauth_callbacks:
