@@ -532,7 +532,7 @@ eu:
           random: Ausazkoa
           recent: Azkenak
       how_to_participate:
-        name: Nola parte hartu
+        name: Nola hartu parte
       html:
         html_content: HTML edukia
         name: HTML blokea
@@ -1039,7 +1039,7 @@ eu:
         default_page:
           content: "<p> %{organization} gai desberdinetan parte hartu eta erabaki dezakezu, menu nagusian ikusten dituzun espazioen bidez: Prozesuak, Jardunaldiak, Ekimenak, Kontsultak.</p> <p>Parte bakoitzean parte hartzeko aukera desberdinak aurkituko dituzu: proposamenak egitea, banaka edo beste pertsona batzuekin, eztabaidetan parte hartzea, proiektuak gauzatzeko aurreikusitako aurrekontuak, aurrez aurreko topaketak eta bestelako ekintzak biltzea.</p>\n"
           title: Zer egin dezaket %{organization}?
-        description: 'Irakurri gehiago honetaz: %{organization}.'
+        description: 'Irakurri gehiago honi buruz: %{organization}.'
         title: Laguntza orokorra
     last_activities:
       all: Jarduera mota guztiak
@@ -1295,19 +1295,19 @@ eu:
       home:
         extended:
           debates: Eztabaidak
-          debates_explanation: Debate eta eztabaidatu, partekatu zure iritziak eta gai garrantzitsuak aberasteko.
+          debates_explanation: Eztabaidatu, eta partekatu gai garrantzitsuei buruz duzun iritzia; aberasgarria da.
           how_to_participate: Nola har dezaket parte prozesu batean?
           meetings: Bilerak
-          meetings_explanation: Ezagutu non eta noiz bilera publikoetan parte har dezakezu.
+          meetings_explanation: Jakin non eta noiz har dezakezun parte bilera publikoetan.
           more_info: Argibide gehiago honi buruz %{resource_name}
           proposals: proposamenak
           proposals_explanation: Egin proposamenak, lehendik daudenak babestu eta ikusi nahi dituzun aldaketak sustatu.
         footer_sub_hero:
-          footer_sub_hero_body_html: Eraiki dezagun gizarte irekiago, gardenago eta kolaboratiboagoa <br /> Lotu, parte hartu eta erabaki.
-          footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
+          footer_sub_hero_body_html: Eraiki dezagun gizarte irekiago, gardenago eta kolaboratiboagoa <br /> Lotu, hartu parte eta erabaki.
+          footer_sub_hero_headline: Ongi etorri %{organization} erakundearen partaidetzarako plataformara.
           register: Erregistroa
         hero:
-          participate: Parte hartu
+          participate: Harte partu
           participate_title: Hartu parte plataformako prozesuetan
           welcome: Ongi etorri %{organization} erakundera!
         statistics:
@@ -1317,7 +1317,7 @@ eu:
           register_title: Sortu zure kontua saioa hasteko
       index:
         standalone_pages: Orrialdeak
-        subheading: Laguntza orrietan nabigatzeko %{name}
+        subheading: Nabigatu %{name} gunearen laguntza-orrietan
         title: Laguntza
         topics: Gaiak
       participatory_space:
@@ -1929,7 +1929,7 @@ eu:
         decidim_title: Decidim
         download_open_data: Deskargatu Open Data fitxategiak
         log_in: Hasi saioa
-        made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
+        made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software librea</a> erabili da.
         resources: Baliabideak
         sign_up: Erregistratu
         terms_and_conditions: Terminoak eta baldintzak
