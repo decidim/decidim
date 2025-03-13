@@ -869,7 +869,7 @@ de:
           down: Runter
           external_domain: Externe Domain
           remove: Entfernen
-          up: Hoch
+          up: Nach oben
         form:
           add: Zur Whitelist hinzufügen
           title: Externe Domain-Whitelist
