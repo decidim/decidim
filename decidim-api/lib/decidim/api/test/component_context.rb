@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/api/test/type_context"
-
 shared_context "with a graphql decidim component" do
   include_context "with a graphql class type"
 

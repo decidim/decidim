@@ -81,5 +81,33 @@ describe "Show a Proposal" do
         end
       end
     end
+
+    context "when proposal author is a meeting" do
+      let(:address) { "Somewhere over the rainbow" }
+      let(:latitude) { 40.1234 }
+      let(:longitude) { 2.1234 }
+      let!(:author) { create(:user, :deleted, organization: component.organization) }
+      let!(:proposal) { create(:proposal, component:, users: [author]) }
+      let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
+      let!(:meeting) { create(:meeting, :published, component: meeting_component, address:, latitude:, longitude:) }
+
+      it "shows the meeting link" do
+        stub_geocoding_coordinates([latitude, longitude])
+        proposal.link_resources(meeting, "proposals_from_meeting")
+        visit resource_locator(meeting).path
+        expect(page).to have_content(translated(proposal.title))
+      end
+
+      context "when the proposal component has votes enabled" do
+        let(:component) { create(:proposal_component, :with_votes_enabled, participatory_space: participatory_process) }
+
+        it "shows the meeting link" do
+          stub_geocoding_coordinates([latitude, longitude])
+          proposal.link_resources(meeting, "proposals_from_meeting")
+          visit resource_locator(meeting).path
+          expect(page).to have_content(translated(proposal.title))
+        end
+      end
+    end
   end
 end
