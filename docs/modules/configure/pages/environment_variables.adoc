@@ -675,6 +675,11 @@ Additional context: This has been revealed as an issue during a security audit o
 |15
 |No
 
+|API_SECRET_KEY_JWT
+|This secret is being used by the devise-jwt to sign the tokens being generated for the api users.
+|
+|Yes
+
 |PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT
 |Number of proposals to be shown in blocks with highlighted content across different participatory spaces.
 |4
