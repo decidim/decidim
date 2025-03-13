@@ -102,13 +102,16 @@ If you have used code as such:
 result = 1 + 1 if before
 ```
 
-You need to change it to:
-
 ```ruby
 # Explain the usage of the API as it is in the new version
 result = 1 + 1 if after
 ```
-### 5.2. JWT token based API authentication
+
+### 5.2. Add force_api_authentication configuration options
+
+There are times that we need to let only authenticated users to use the API. This configuration option filters out unauthenticated users from accessing the api endpoint. You need to add `DECIDIM_API_FORCE_API_AUTHENTICATION` to your environment variables if you want to enable this feature.
+
+### 5.3. JWT token based API authentication
 
 This change provides a new endpoint for API authentication and a method to check for an active authentication token header for each request, based on [Devise::JWT](https://github.com/waiting-for-dev/devise-jwt).
 
