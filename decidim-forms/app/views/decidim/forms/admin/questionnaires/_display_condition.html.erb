@@ -27,7 +27,7 @@
           options_for_select(display_condition.questions_for_select(questionnaire, question.id), selected: display_condition.decidim_condition_question_id),
           { prompt: t(".select_condition_question"), label: t(".condition_question") },
           disabled: !editable,
-          data: { url: answer_options_url(id: question.id) }
+          data: { url: response_options_url(id: question.id) }
         )
       %>
     </div>
@@ -41,14 +41,14 @@
         )
       %>
     </div>
-    <div class="row column questionnaire-question-display-condition-answer-option">
+    <div class="row column questionnaire-question-display-condition-response-option">
       <%=
         form.select(
-          :decidim_answer_option_id,
-          options_from_collection_for_select(display_condition.answer_options, :id, :translated_body, selected: display_condition.decidim_answer_option_id),
-          { prompt: t(".select_answer_option"), label: t(".answer_option") },
+          :decidim_response_option_id,
+          options_from_collection_for_select(display_condition.response_options, :id, :translated_body, selected: display_condition.decidim_response_option_id),
+          { prompt: t(".select_response_option"), label: t(".response_option") },
           disabled: !editable,
-          data: { selected: display_condition.decidim_answer_option_id }
+          data: { selected: display_condition.decidim_response_option_id }
         )
       %>
     </div>

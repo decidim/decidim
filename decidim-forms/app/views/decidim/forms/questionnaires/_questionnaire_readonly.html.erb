@@ -1,7 +1,7 @@
-<%= render partial: "decidim/devise/shared/login_boxes", locals: { scope: "decidim.forms.questionnaires.show.answer_questionnaire" } %>
+<%= render partial: "decidim/devise/shared/login_boxes", locals: { scope: "decidim.forms.questionnaires.show.response_questionnaire" } %>
 
-<div class="answer-questionnaire mt-12">
-  <ol class="answer-questionnaire__step">
+<div class="response-questionnaire mt-12">
+  <ol class="response-questionnaire__step">
     <%= cell(
       "decidim/forms/question_readonly",
       collection: @questionnaire.questions.not_conditioned.not_separator,

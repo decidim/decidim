@@ -25,7 +25,7 @@ module Decidim
               },
               position: 0,
               question_type: "single_option",
-              answer_options: [
+              response_options: [
                 { "body" => { "en" => "A" } },
                 { "body" => { "en" => "B" } },
                 { "body" => { "en" => "C" } }
@@ -39,7 +39,7 @@ module Decidim
               },
               position: 1,
               question_type: "multiple_option",
-              answer_options: [
+              response_options: [
                 { "body" => { "en" => "A" } },
                 { "body" => { "en" => "B" } },
                 { "body" => { "en" => "C" } }

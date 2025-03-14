@@ -1,0 +1,26 @@
+<div class="response-questionnaire__sorting-container js-sortable-check-box-collection">
+  <%
+    # This is a block that aims to identify the order to the response questions, and if there is an user response, use that
+    # to order the date that needs to be displayed. It is done like this to help with edit user response form
+  %>
+  <% ordering = response.question.response_options.pluck(:id) %>
+  <% if response.selected_choices.present? %>
+    <% ordering = response.selected_choices.map(&:response_option_id) %>
+  <% end %>
+
+  <% ids_for_order = ordering.map.with_index { |id, index| "#{id}=#{index + 1}" }.join(", ") %>
+
+  <% response.question.reload.response_options.reorder(Arel.sql("POSITION(id::text in '#{ids_for_order}')")).each_with_index do |response_option, idx| %>
+    <% choice = response.selected_choices.find { |choice| choice.response_option_id == response_option.id } %>
+
+    <div class="response-questionnaire__sorting js-collection-input" role="button">
+      <%= translated_attribute(response_option.body) %>
+
+      <%= icon "drag-move-2-line" %>
+
+      <%= hidden_field_tag "questionnaire[responses][#{response_idx}][choices][#{idx}][position]", choice.try(:position) %>
+      <%= hidden_field_tag "questionnaire[responses][#{response_idx}][choices][#{idx}][body]", translated_attribute(response_option.body) %>
+      <%= hidden_field_tag "questionnaire[responses][#{response_idx}][choices][#{idx}][response_option_id]", response_option.id %>
+    </div>
+  <% end %>
+</div>

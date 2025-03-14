@@ -4,18 +4,18 @@ require "spec_helper"
 
 shared_examples_for "update display conditions" do
   context "when loading a saved display condition" do
-    let!(:condition_question_type) { "short_answer" }
+    let!(:condition_question_type) { "short_response" }
     let!(:condition_question) { create(:questionnaire_question, questionnaire:, question_type: condition_question_type, position: 1) }
-    let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "short_answer", position: 2) }
-    let!(:condition_type) { :answered }
-    let!(:answer_option) { nil }
+    let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "short_response", position: 2) }
+    let!(:condition_type) { :responded }
+    let!(:response_option) { nil }
 
     let!(:display_condition) do
       create(:display_condition,
              question:,
              condition_question:,
              condition_type:,
-             answer_option:)
+             response_option:)
     end
 
     before do
@@ -35,20 +35,20 @@ shared_examples_for "update display conditions" do
 
     it "loads condition_type in select" do
       within ".questionnaire-question-display-condition" do
-        expect(page).to have_select("Condition", selected: "Answered")
+        expect(page).to have_select("Condition", selected: "Responded")
       end
     end
 
     context "when condition_type is :equal" do
       let!(:condition_question_type) { "single_option" }
-      let!(:answer_options) { create_list(:answer_option, 3, question: condition_question) }
-      let!(:answer_option) { answer_options.third }
+      let!(:response_options) { create_list(:response_option, 3, question: condition_question) }
+      let!(:response_option) { response_options.third }
       let!(:condition_type) { :equal }
 
-      it "loads answer_option in select" do
+      it "loads response_option in select" do
         within ".questionnaire-question-display-condition" do
           expect(page).to have_select("Condition", selected: "Equal")
-          expect(page).to have_select("Answer option", selected: answer_option.body["en"])
+          expect(page).to have_select("Response option", selected: response_option.body["en"])
         end
       end
     end

@@ -16,7 +16,7 @@ shared_examples_for "update questions" do
         fill_in "questions_questions_#{question.id}_body_en", with: "Modified question"
         fill_in "questions_questions_#{question.id}_max_characters", with: 30
         check "Mandatory"
-        select "Long answer", from: "Type"
+        select "Long response", from: "Type"
       end
 
       click_on "Save"
@@ -29,7 +29,7 @@ shared_examples_for "update questions" do
       expect(page).to have_no_css("input[value='This is the first question']")
       expect(page).to have_css("input#questions_questions_#{question.id}_mandatory[checked]")
       expect(page).to have_css("input#questions_questions_#{question.id}_max_characters[value='30']")
-      expect(page).to have_css("select#questions_questions_#{question.id}_question_type option[value='long_answer'][selected]")
+      expect(page).to have_css("select#questions_questions_#{question.id}_question_type option[value='long_response'][selected]")
     end
 
     it "re-renders the form when the information is invalid and displays errors" do
@@ -187,7 +187,7 @@ shared_examples_for "update questions" do
     end
   end
 
-  context "when a questionnaire has an existing question with answer options" do
+  context "when a questionnaire has an existing question with response options" do
     let!(:question) do
       create(
         :questionnaire_question,
@@ -208,10 +208,10 @@ shared_examples_for "update questions" do
       click_on "Questions"
     end
 
-    it "allows deleting answer options" do
+    it "allows deleting response options" do
       expand_all_questions
 
-      within ".questionnaire-question-answer-option:last-of-type" do
+      within ".questionnaire-question-response-option:last-of-type" do
         click_on "Remove"
       end
 
@@ -219,7 +219,7 @@ shared_examples_for "update questions" do
 
       visit_manage_questions_and_expand_all
 
-      expect(page).to have_css(".questionnaire-question-answer-option", count: 2)
+      expect(page).to have_css(".questionnaire-question-response-option", count: 2)
     end
 
     it "still removes the question even if previous editions rendered the options invalid" do
@@ -227,7 +227,7 @@ shared_examples_for "update questions" do
 
       expand_all_questions
 
-      within ".questionnaire-question-answer-option:first-of-type" do
+      within ".questionnaire-question-response-option:first-of-type" do
         fill_in find_nested_form_field_locator("body_en"), with: ""
       end
 
@@ -283,7 +283,7 @@ shared_examples_for "update questions" do
 
       within ".questionnaire-question:last-of-type" do
         expect(page).to have_css(".questionnaire-question-matrix-row", count: 2)
-        expect(page).to have_css(".questionnaire-question-answer-option", count: 3)
+        expect(page).to have_css(".questionnaire-question-response-option", count: 3)
       end
     end
 
@@ -478,26 +478,26 @@ shared_examples_for "update questions" do
       end.to change { page.all(".editor-toolbar").size }.by(1)
     end
 
-    it "properly decides which button to show after adding/removing answer options" do
+    it "properly decides which button to show after adding/removing response options" do
       click_on "Add question"
       expand_all_questions
 
       within ".questionnaire-question:last-of-type" do
         select "Single option", from: "Type"
 
-        within ".questionnaire-question-answer-options-list" do
+        within ".questionnaire-question-response-options-list" do
           expect(page).to have_no_button("Remove")
         end
 
-        click_on "Add answer option"
+        click_on "Add response option"
 
-        expect(page.all(".questionnaire-question-answer-option")).to all(have_button("Remove"))
+        expect(page.all(".questionnaire-question-response-option")).to all(have_button("Remove"))
 
-        within ".questionnaire-question-answer-option:first-of-type" do
+        within ".questionnaire-question-response-option:first-of-type" do
           click_on "Remove"
         end
 
-        within ".questionnaire-question-answer-options-list" do
+        within ".questionnaire-question-response-options-list" do
           expect(page).to have_no_button("Remove")
         end
       end
@@ -506,7 +506,7 @@ shared_examples_for "update questions" do
       expand_all_questions
 
       within ".questionnaire-question:last-of-type" do
-        within ".questionnaire-question-answer-options-list" do
+        within ".questionnaire-question-response-options-list" do
           expect(page).to have_no_button("Remove")
         end
       end

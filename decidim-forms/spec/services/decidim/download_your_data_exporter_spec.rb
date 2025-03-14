@@ -11,12 +11,12 @@ module Decidim
     let(:organization) { create(:organization) }
 
     describe "#readme" do
-      context "when the user has an answer" do
+      context "when the user has an response" do
         let(:participatory_process) { create(:participatory_process, organization:) }
         let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
         let(:question) { create(:questionnaire_question, questionnaire:) }
-        let!(:answer) { create(:answer, questionnaire:, question:, user:) }
-        let(:help_definition_string) { "The answer to the question" }
+        let!(:response) { create(:response, questionnaire:, question:, user:) }
+        let(:help_definition_string) { "The response to the question" }
 
         it_behaves_like "a download your data entity"
       end

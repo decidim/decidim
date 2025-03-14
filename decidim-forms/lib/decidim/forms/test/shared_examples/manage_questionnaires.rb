@@ -24,7 +24,7 @@ shared_examples_for "manage questionnaires" do
     }
   end
 
-  context "when the questionnaire is not already answered" do
+  context "when the questionnaire is not already responded" do
     before do
       visit manage_questions_path
     end
@@ -35,9 +35,9 @@ shared_examples_for "manage questionnaires" do
     it_behaves_like "update display conditions"
   end
 
-  context "when the questionnaire is already answered" do
+  context "when the questionnaire is already responded" do
     let!(:question) { create(:questionnaire_question, questionnaire:, body:, question_type: "multiple_option") }
-    let!(:answer) { create(:answer, questionnaire:, question:) }
+    let!(:response) { create(:response, questionnaire:, question:) }
 
     it "cannot modify questionnaire questions" do
       visit manage_questions_path
