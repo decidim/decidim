@@ -54,7 +54,7 @@ eu:
         remove_avatar: Kendu abatarra
         tos_agreement: Erabilera-terminoak eta -baldintzak
       user_group:
-        avatar: Abatar
+        avatar: Abatarra
     models:
       decidim/attachment_created_event: eranskina
       decidim/component_published_event: Osagai erabilgarria
@@ -1042,7 +1042,7 @@ eu:
         dummy_resource: Balizko baliabideak
         meeting: Topaketa-zerrenda
         project: Proiektuak
-        proposal: Proposamen
+        proposal: Proposamenak
         result: Emaitzak
     fingerprint:
       check: Egiaztatu hatz-marka
@@ -1209,7 +1209,7 @@ eu:
         phone_help: Ez erabili gidoirik ez espaziorik.
       join:
         error: Arazo bat egon da taldera lotzean.
-        success: Erregistratu eskaera behar bezala sortu da. Administratzaileak zure eskaera berrikusiko du taldera onartu aurretik.
+        success: Lotzeko eskaera behar bezala sortu da. Administratzaile batek zure eskaera berrikusiko du taldera onartu aurretik.
       leave:
         error: Arazo bat egon da taldea uztean.
         last_admin: Ezin zara talde honetatik atera azken administratzailea zarelako. Izendatu beste kide bat administratzaile, taldea utzi ahal izateko.
@@ -1301,13 +1301,13 @@ eu:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{manager} kudeatzaileak elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
-          outro: Gozatu plataforma!
+          outro: Ongi etorri plataformara!
           subject: "%{manager} k elkarrizketa berri bat hasi du %{group} taldearekin"
         comanagers_new_message:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{manager} k mezu berriak argitaratu ditu %{group} taldearen elkarrizketa batean. Egin klik hemen ikusteko:"
-          outro: Gozatu plataforma!
+          outro: Ongi etorri plataformara!
           subject: "%{manager} k mezu berriak bidali ditu %{group} gisa"
         new_conversation:
           greeting: Kaixo, %{recipient}!
@@ -1631,15 +1631,15 @@ eu:
           meetings: Bilerak
           meetings_explanation: Jakin non eta noiz har dezakezun parte bilera publikoetan.
           more_info: Argibide gehiago honi buruz %{resource_name}
-          proposals: proposamenak
+          proposals: Proposamenak
           proposals_explanation: Egin proposamenak, babestu lehendik daudenak, eta sustatu ikusi nahi dituzun aldaketak.
         footer_sub_hero:
           footer_sub_hero_body_html: Eraiki dezagun gizarte irekiago, gardenago eta kolaboratiboagoa <br /> Lotu, hartu parte eta erabaki.
           footer_sub_hero_headline: Ongi etorri %{organization} erakundearen partaidetzarako plataformara.
           register: Erregistroa
         hero:
-          participate: Harte partu
-          participate_title: Hartu parte plataformako prozesuetan
+          participate: Hartu parte
+          participate_title: Parte hartu plataformako prozesuetan
           welcome: Ongi etorri %{organization} erakundera!
         statistics:
           headline: '%{organization} erakundearen egungo egoera'
@@ -1688,7 +1688,7 @@ eu:
         conversations: Elkarrizketak
         followers: Jarraitzaileak
         following: Jarraitzen
-        group_admins: Kudeatu administratzaileak
+        group_admins: Kudeatu kudeatzaileak
         group_members: Kudeatu kideak
         groups: Taldeak
         members: Bazkideek
@@ -1704,7 +1704,7 @@ eu:
           join_user_group: Eskatu taldera lotzea
           leave_user_group: Utzi taldea
           manage_user_group: Kudeatu taldea
-          manage_user_group_admins: Kudeatu administratzaileak
+          manage_user_group_admins: Kudeatu kudeatzaileak
           manage_user_group_users: Kudeatu kideak
           message: Mezua
           resend_email_confirmation_instructions: Birbidali posta elektronikoa berresteko instrukzioekin
