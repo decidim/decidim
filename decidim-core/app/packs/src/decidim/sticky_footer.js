@@ -19,11 +19,11 @@ import { screens } from "tailwindcss/defaultTheme"
 const isScreenSize = (key) => {
   return window.matchMedia(`(min-width: ${screens[key]})`).matches;
 }
-
 const adjustCtasButtons = () => {
   if (isScreenSize("md")) {
     return;
   }
+
   if (!stickyButtons) {
     return;
   }
@@ -38,6 +38,10 @@ if (stickyButtons) {
   });
 
   document.addEventListener("on:toggle", () => {
+    adjustCtasButtons();
+  });
+
+  window.addEventListener("resize", () => {
     adjustCtasButtons();
   });
 }
