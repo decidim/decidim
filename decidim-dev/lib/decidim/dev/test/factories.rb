@@ -15,8 +15,6 @@ FactoryBot.define do
     transient do
       skip_injection { false }
       users { nil }
-      # user_groups correspondence to users is by sorting order
-      user_groups { [] }
     end
     title { generate_localized_title(:dummy_resource_title, skip_injection:) }
     component { create(:dummy_component, skip_injection:) }
@@ -61,13 +59,8 @@ FactoryBot.define do
 
     after :build do |resource, evaluator|
       evaluator.authors_list.each do |coauthor|
-        resource.coauthorships << if coauthor.is_a?(Decidim::UserGroup)
-                                    build(:coauthorship, author: coauthor.users.first, user_group: coauthor, coauthorable: resource,
-                                                         organization: evaluator.component.organization, skip_injection: evaluator.skip_injection)
-                                  else
-                                    build(:coauthorship, author: coauthor, coauthorable: resource, organization: evaluator.component.organization,
-                                                         skip_injection: evaluator.skip_injection)
-                                  end
+        resource.coauthorships << build(:coauthorship, author: coauthor, coauthorable: resource, organization: evaluator.component.organization,
+                                                       skip_injection: evaluator.skip_injection)
       end
     end
   end

@@ -208,63 +208,6 @@ describe "Collaborative drafts" do
           end
         end
 
-        context "when the user has verified organizations" do
-          let(:user_group) { create(:user_group, :verified, organization:) }
-
-          before do
-            create(:user_group_membership, user:, user_group:)
-          end
-
-          it "creates a new collaborative draft as a user group", :slow do
-            visit new_collaborative_draft_path
-
-            within ".new_collaborative_draft" do
-              fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
-              fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
-              select user_group.name, from: :collaborative_draft_user_group_id
-
-              find("*[type=submit]").click
-            end
-
-            expect(page).to have_content("successfully")
-            expect(page).to have_content("More sidewalks and less roads")
-            expect(page).to have_content("Cities need more people, not more cars")
-            expect(page).to have_author(user_group.name)
-          end
-
-          context "when geocoding is enabled", :serves_geocoding_autocomplete do
-            let!(:component) do
-              create(:proposal_component,
-                     :with_creation_enabled,
-                     manifest:,
-                     participatory_space: participatory_process,
-                     settings: {
-                       geocoding_enabled: true,
-                       collaborative_drafts_enabled: true
-                     })
-            end
-
-            it "creates a new collaborative draft as a user group", :slow do
-              visit new_collaborative_draft_path
-
-              within ".new_collaborative_draft" do
-                fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
-                fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
-                fill_in :collaborative_draft_address, with: address
-                select user_group.name, from: :collaborative_draft_user_group_id
-
-                find("*[type=submit]").click
-              end
-
-              expect(page).to have_content("successfully")
-              expect(page).to have_content("More sidewalks and less roads")
-              expect(page).to have_content("Cities need more people, not more cars")
-              expect(page).to have_content(address)
-              expect(page).to have_author(user_group.name)
-            end
-          end
-        end
-
         context "when the user is not authorized" do
           context "and there is only an authorization required" do
             before do

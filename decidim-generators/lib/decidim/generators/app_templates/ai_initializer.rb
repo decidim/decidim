@@ -100,7 +100,6 @@ if Decidim.module_installed?(:ai)
   # override what we register by default, or to register your own resources.
   # Follow the documentation on how to trail more resources
   Decidim::Ai::SpamDetection.user_models = {
-    "Decidim::UserGroup" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity",
     "Decidim::User" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity"
   }
 
