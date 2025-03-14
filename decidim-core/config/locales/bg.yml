@@ -33,6 +33,8 @@ bg:
         personal_url: Персонален URL
         remove_avatar: Премахни аватара
         tos_agreement: Споразумение за условия на услугата
+      user_group:
+        avatar: Аватар
     models:
       decidim/attachment_created_event: Прикачени файлове
       decidim/component_published_event: Активен компонент
@@ -1331,15 +1333,15 @@ bg:
         conversations: Разговори
         followers: Последователи
         following: Следванния
-        group_admins: Управление на администраторите
-        group_members: Управление на членовете
+        group_admins: Управлявай администраторите
+        group_members: Управллявай членовете
         groups: Групи
         members: Членове
         officialized: Официален участник
         send_private_message: Изпрати лично съобщение
       user:
         actions:
-          create_user_group: Създаване на група
+          create_user_group: Създай група
           disabled_message: Съобщение
           edit_profile: Редактиране на профил
           edit_user_group: Редактиране профил на група
@@ -1347,8 +1349,8 @@ bg:
           join_user_group: Заявка за присъединяване към група
           leave_user_group: Напусни на групата
           manage_user_group: Управление на групата
-          manage_user_group_admins: Управление на администраторите
-          manage_user_group_users: Управление на членовете
+          manage_user_group_admins: Управлявай администраторите
+          manage_user_group_users: Управллявай членовете
           message: Съобщение
           resend_email_confirmation_instructions: Изпрати отново инструкции за потвърждение
         confirmation_instructions_sent: Изпратени са инструкции за потвърждение по имейл.
