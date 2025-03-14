@@ -97,3 +97,7 @@ th:
           success: ทำลายพื้นที่สำเร็จ
         edit:
           title: แก้ไขพื้นที่
+      models:
+        user_group:
+          fields:
+            name: ชื่อ
