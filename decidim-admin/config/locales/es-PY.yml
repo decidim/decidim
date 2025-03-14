@@ -668,11 +668,11 @@ es-PY:
           name: Usuario
         user_group:
           fields:
-            actions: Acciones
+            actions: Comportamiento
             created_at: Fecha de creación
             document_number: Número del documento
             name: Nombre
-            nickname: Alias
+            nickname: Apodo
             phone: Teléfono
             state: Estado
             users_count: Número de usuarios
