@@ -325,7 +325,8 @@ uk:
             actions: Дії
             created_at: 'Створено:'
             document_number: Номер документа
-            name: Ім'я
+            name: Назва
+            nickname: Псевдонім
             phone: Телефон
             state: Стан
             users_count: Кількість учасників
@@ -479,12 +480,6 @@ uk:
           invalid: При відхиленні цього гурту учасників сталася помилка.
         verify:
           invalid: При підтвердженні цього гурту учасників сталася помилка.
-      user_groups:
-        index:
-          state:
-            pending: Очікує на розгляд
-            rejected: Відхилено
-            verified: Перевірено
       users:
         create:
           error: Під час запрошення цього учасника сталася помилка.
