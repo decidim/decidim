@@ -39,6 +39,7 @@ module Decidim
         Decidim.icons.register(name: "arrow-right-s-line", icon: "arrow-right-s-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "arrow-up-line", icon: "arrow-up-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "arrow-down-line", icon: "arrow-down-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "line-chart", icon: "line-chart-line", category: "system", description: "Line chart", engine: :admin)
 
         Decidim.icons.register(name: "attachment-2", icon: "attachment-2", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "spy-line", icon: "spy-line", category: "system", description: "", engine: :admin)
