@@ -31,6 +31,8 @@ lt:
         personal_url: Asmeninis URL
         remove_avatar: Pašalinti avatarą
         tos_agreement: Paslaugos sutarties sąlygos
+      user_group:
+        avatar: Avataras
     models:
       decidim/attachment_created_event: Priedas
       decidim/component_published_event: Aktyvusis komponentas
@@ -1315,6 +1317,8 @@ lt:
         conversations: Pokalbiai
         followers: Sekėjai
         following: Seka
+        group_admins: Valdyti administratorių duomenis
+        group_members: Valdyti narius
         groups: Grupės
         members: Nariai
         officialized: Patikrintas dalyvis
