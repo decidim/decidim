@@ -1361,6 +1361,8 @@ lt:
         conversations: Pokalbiai
         followers: Sekėjai
         following: Seka
+        group_admins: Valdyti administratorių duomenis
+        group_members: Valdyti narius
         groups: Grupės
         members: Nariai
         officialized: Patikrintas dalyvis
