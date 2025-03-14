@@ -776,6 +776,8 @@ pt:
           new_conversation: Nova conversa
           next: Seguinte
           title: Conversas
+        reply_form:
+          placeholder: A sua resposta...
         show:
           back: Retroceder a todas as conversas
           chat_with: Conversa com
@@ -893,17 +895,22 @@ pt:
         conversations: Conversas
         followers: Seguidores
         following: Segue
+        group_admins: Gerir administradores
+        group_members: Gerir membros
         groups: Grupos
         members: Membros
         officialized: Participante oficial
         send_private_message: Enviar mensagem privada
       user:
         actions:
+          create_user_group: Criar grupo
           edit_profile: Editar perfil
           edit_user_group: Editar perfil do grupo
           invite_user: Convidar participante
           join_user_group: Solicitar adesão ao grupo
           leave_user_group: Deixar o grupo
+          manage_user_group_admins: Gerir administradores
+          manage_user_group_users: Gerir membros
           resend_email_confirmation_instructions: Reenviar instruções de confirmação de e-mail
     reported_mailer:
       hide:
