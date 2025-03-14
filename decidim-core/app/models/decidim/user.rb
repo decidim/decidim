@@ -30,8 +30,6 @@ module Decidim
     devise :rememberable if Decidim.enable_remember_me
 
     has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity", dependent: :destroy
-    has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_id, dependent: :destroy
-    has_many :user_groups, through: :memberships, class_name: "Decidim::UserGroup", foreign_key: :decidim_user_group_id
     has_many :access_grants, class_name: "Doorkeeper::AccessGrant", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :reminders, foreign_key: "decidim_user_id", class_name: "Decidim::Reminder", dependent: :destroy
@@ -64,6 +62,9 @@ module Decidim
     scope :org_admins_except_me, ->(user) { where(organization: user.organization, admin: true).where.not(id: user.id) }
 
     scope :ephemeral, -> { where("extended_data @> ?", Arel.sql({ ephemeral: true }.to_json)) }
+
+    scope :user_group, -> { where("#{arel_table.name}.extended_data @> ?", Arel.sql({ group: true }.to_json)) }
+    scope :not_user_group, -> { where.not("#{arel_table.name}.extended_data @> ?", Arel.sql({ group: true }.to_json)) }
 
     attr_accessor :newsletter_notifications
 
@@ -139,6 +140,10 @@ module Decidim
       !officialized_at.nil?
     end
 
+    def group?
+      extended_data["group"]
+    end
+
     def follows?(followable)
       Decidim::Follow.where(user: self, followable:).any?
     end
@@ -209,16 +214,6 @@ module Decidim
 
     def user_name
       extended_data["user_name"] || name
-    end
-
-    # return the groups where this user has been accepted
-    def accepted_user_groups
-      UserGroups::AcceptedUserGroups.for(self)
-    end
-
-    # return the groups where this user has admin permissions
-    def manageable_user_groups
-      UserGroups::ManageableUserGroups.for(self)
     end
 
     def authenticatable_salt

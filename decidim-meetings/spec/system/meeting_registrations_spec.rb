@@ -171,111 +171,76 @@ describe "Meeting registrations" do
           end
         end
 
-        context "and they ARE NOT part of a verified user group" do
-          it "they can join the meeting and automatically follow it" do
-            visit_meeting
+        it "they can join the meeting and automatically follow it" do
+          visit_meeting
 
-            click_on "Register"
+          click_on "Register"
 
-            within "#meeting-registration-confirm-#{meeting.id}" do
-              expect(page).to have_content "A legal text"
-              expect(page).to have_content "Show my attendance publicly"
-              expect(page).to have_field("public_participation", checked: false)
-              click_on "Confirm"
-            end
-
-            within_flash_messages do
-              expect(page).to have_content("successfully")
-            end
-
-            expect(page).to have_css(".button", text: "Cancel your registration")
-            expect(page).to have_text("19 slots remaining")
-            find("#dropdown-trigger-resource-#{meeting.id}").click
-
-            expect(page).to have_text("Stop following")
-            expect(page).to have_no_text("Participants")
-            expect(page).to have_no_css("#panel-participants")
+          within "#meeting-registration-confirm-#{meeting.id}" do
+            expect(page).to have_content "A legal text"
+            expect(page).to have_content "Show my attendance publicly"
+            expect(page).to have_field("public_participation", checked: false)
+            click_on "Confirm"
           end
 
-          it "they can join the meeting and configure their participation to be shown publicly" do
-            visit_meeting
-
-            click_on "Register"
-
-            within "#meeting-registration-confirm-#{meeting.id}" do
-              expect(page).to have_content "Show my attendance publicly"
-              expect(page).to have_field("public_participation", checked: false)
-              page.find("input#public_participation").click
-              click_on "Confirm"
-            end
-
+          within_flash_messages do
             expect(page).to have_content("successfully")
-
-            expect(page).to have_text("19 slots remaining")
-            find("#dropdown-trigger-resource-#{meeting.id}").click
-            expect(page).to have_text("Stop following")
-            expect(page).to have_text("Participants")
-            within "#panel-participants" do
-              expect(page).to have_text(user.name)
-            end
           end
 
-          it "they can join the meeting if they are already following it" do
-            create(:follow, followable: meeting, user:)
+          expect(page).to have_css(".button", text: "Cancel your registration")
+          expect(page).to have_text("19 slots remaining")
+          find("#dropdown-trigger-resource-#{meeting.id}").click
 
-            visit_meeting
+          expect(page).to have_text("Stop following")
+          expect(page).to have_no_text("Participants")
+          expect(page).to have_no_css("#panel-participants")
+        end
 
-            click_on "Register"
+        it "they can join the meeting and configure their participation to be shown publicly" do
+          visit_meeting
 
-            within "#meeting-registration-confirm-#{meeting.id}" do
-              expect(page).to have_content "A legal text"
-              expect(page).to have_content "Show my attendance publicly"
-              expect(page).to have_field("public_participation", checked: false)
-              click_on "Confirm"
-            end
+          click_on "Register"
 
-            within_flash_messages do
-              expect(page).to have_content("successfully")
-            end
+          within "#meeting-registration-confirm-#{meeting.id}" do
+            expect(page).to have_content "Show my attendance publicly"
+            expect(page).to have_field("public_participation", checked: false)
+            page.find("input#public_participation").click
+            click_on "Confirm"
+          end
 
-            expect(page).to have_css(".button", text: "Cancel your registration")
-            expect(page).to have_text("19 slots remaining")
-            find("#dropdown-trigger-resource-#{meeting.id}").click
-            expect(page).to have_text("Stop following")
+          expect(page).to have_content("successfully")
+
+          expect(page).to have_text("19 slots remaining")
+          find("#dropdown-trigger-resource-#{meeting.id}").click
+          expect(page).to have_text("Stop following")
+          expect(page).to have_text("Participants")
+          within "#panel-participants" do
+            expect(page).to have_text(user.name)
           end
         end
 
-        context "and they ARE part of a verified user group" do
-          let!(:user_group) { create(:user_group, :verified, users: [user], organization:) }
+        it "they can join the meeting if they are already following it" do
+          create(:follow, followable: meeting, user:)
 
-          it "they can join the meeting representing a group and appear in the attending organizations list" do
-            visit_meeting
+          visit_meeting
 
-            click_on "Register"
-            within "#meeting-registration-confirm-#{meeting.id}" do
-              expect(page).to have_content "I represent a group"
-              expect(page).to have_content "Show my attendance publicly"
-              expect(page).to have_field("public_participation", checked: false)
-              page.find("input#public_participation").click
-              page.find("input#user_group").click
-              select user_group.name, from: :join_meeting_user_group_id
-              page.find("input#public_participation").click
-              click_on "Confirm"
-            end
+          click_on "Register"
 
-            within_flash_messages do
-              expect(page).to have_content("successfully")
-            end
-
-            expect(page).to have_css(".button", text: "Cancel your registration")
-            expect(page).to have_text("19 slots remaining")
-
-            expect(page).to have_text("Organization")
-            expect(page).to have_text(user_group.name)
-            expect(page).to have_no_text("Participants")
-            expect(page).to have_css("#panel-organizations")
-            expect(page).to have_no_css("#panel-participants")
+          within "#meeting-registration-confirm-#{meeting.id}" do
+            expect(page).to have_content "A legal text"
+            expect(page).to have_content "Show my attendance publicly"
+            expect(page).to have_field("public_participation", checked: false)
+            click_on "Confirm"
           end
+
+          within_flash_messages do
+            expect(page).to have_content("successfully")
+          end
+
+          expect(page).to have_css(".button", text: "Cancel your registration")
+          expect(page).to have_text("19 slots remaining")
+          find("#dropdown-trigger-resource-#{meeting.id}").click
+          expect(page).to have_text("Stop following")
         end
       end
     end

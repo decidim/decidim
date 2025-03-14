@@ -103,14 +103,6 @@ module Decidim
           end
         end
 
-        context "when the author is a user group" do
-          let(:reportable) { create(:proposal, user_groups: create(:user_group)) }
-
-          it "includes the name of the group and a link to their profile" do
-            expect(mail).to have_link(author.name, href: decidim.profile_url(author.nickname, host: organization.host))
-          end
-        end
-
         context "when the author is an organization" do
           let(:reportable) { create(:proposal, :official) }
 
