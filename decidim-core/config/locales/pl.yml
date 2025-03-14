@@ -1008,7 +1008,7 @@ pl:
         success: Opuszczono grupę.
       members:
         accept_or_reject_join_requests: 'Następujący użytkownicy zgłosili się, aby dołączyć do tej grupy. Zaakceptuj lub odrzuć ich prośby:'
-        accept_request: Zaakceptować
+        accept_request: Akceptuj
         reject_request: Odrzuć
       new:
         create_user_group: Utwórz grupę
