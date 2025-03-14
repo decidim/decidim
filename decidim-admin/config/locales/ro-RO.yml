@@ -642,7 +642,7 @@ ro:
             name: Nume
             nickname: Pseudonim
             phone: Telefon
-            state: Stadiu
+            state: Stare
             users_count: Numărul de participanți
       moderated_users:
         index:
@@ -835,6 +835,8 @@ ro:
           invalid: A apărut o eroare la citirea fișierului CSV. Vă rugăm să vă asigurați că ați urmat instrucțiunile.
           success: Fișier-ul CSV a fost încărcat cu succes, trimitem câte un e-mail participanților cu invitația. Acest lucru ar putea dura puțin timp.
         new:
+          csv_upload:
+            title: Încarcă fișierul tău CSV
           destroy:
             button: Șterge toți participanții privați
             confirm: Sunteți sigur că doriți să ștergeți toți participanții privați? Această acțiune nu poate fi anulată, și nu îi veți putea recupera.
