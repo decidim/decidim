@@ -54,7 +54,7 @@ es:
         remove_avatar: Eliminar imagen de perfil
         tos_agreement: Términos y condiciones uso
       user_group:
-        avatar: Imagen de perfil
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
@@ -1215,8 +1215,8 @@ es:
         success: Has dejado el grupo correctamente.
       members:
         accept_or_reject_join_requests: 'Las siguientes participantes han solicitado unirse a este grupo. Acepta o rechaza sus solicitudes:'
-        accept_request: Acepta
-        reject_request: Rechaza
+        accept_request: Aceptar
+        reject_request: Rechazar
       new:
         create_user_group: Crear un grupo
         new_user_group: Nuevo grupo
@@ -1298,7 +1298,7 @@ es:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
+          greeting: Hola, %{recipient}!
           intro: "%{manager} ha iniciado una nueva conversación en nombre de %{group}. Para verla y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{manager} ha iniciado una nueva conversación como %{group}"
@@ -1315,13 +1315,13 @@ es:
           subject: "%{sender} ha iniciado una conversación contigo"
         new_group_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
+          greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Para verlo y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{sender} ha iniciado una nueva conversación con %{group}"
         new_group_message:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
+          greeting: Hola, %{recipient}!
           intro: "%{sender} ha añadido nuevos mensajes en la conversación con el grupo %{group}. Para verlos y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{group} tiene nuevos mensajes de %{sender}"
@@ -1551,13 +1551,13 @@ es:
         user_groups:
           avatar_url: El avatar del grupo de usuarias
           badge: La insignia del grupo de usuarias
-          deleted: Si el grupo de usuarias fue eliminado o no
+          deleted: Si la usuaria fue eliminada o no
           id: El identificador único del grupo de usuarias
           members: El ID y el nombre de las usuarias que pertenecen al grupo
           members_count: El número de miembros que forman parte del grupo de usuarias
           name: El nombre que se muestra del grupo de usuarias
           nickname: El nombre de usuaria del grupo de usuarias
-          profile_url: La URL del perfil del grupo de usuarias
+          profile_url: La URL del perfil de la usuaria
         users:
           about: El texto "Acerca de" incluido en el perfil de usuaria
           avatar_url: El avatar de la usuaria
@@ -1688,7 +1688,7 @@ es:
         followers: Seguidoras
         following: Siguiendo
         group_admins: Gestionar administradoras
-        group_members: Gestionar miembros
+        group_members: Gestionar los miembros
         groups: Grupos
         members: Miembros
         officialized: Participante oficial
@@ -1704,7 +1704,7 @@ es:
           leave_user_group: Deja el grupo
           manage_user_group: Gestionar el grupo
           manage_user_group_admins: Gestionar administradoras
-          manage_user_group_users: Gestionar miembros
+          manage_user_group_users: Gestionar los miembros
           message: Mensaje
           resend_email_confirmation_instructions: Reenvia un correo electrónico con las instrucciones de confirmación
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
