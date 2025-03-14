@@ -6,7 +6,7 @@ lt:
       decidim/comments/comment_created_event: Komentarai
       decidim/comments/comment_upvoted_event: Komentaras palaikytas
       decidim/comments/reply_created_event: Atsakymas į komentarą
-      decidim/comments/user_group_mentioned_event: Paminėjimas
+      decidim/comments/user_group_mentioned_event: Paminėti
       decidim/comments/user_mentioned_event: Paminėti
   activerecord:
     models:
