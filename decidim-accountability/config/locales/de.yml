@@ -346,7 +346,6 @@ de:
           id: Die ID dieses Kommentars
           locale: Die eingestellte Plattformsprache der kommentierenden Person
           root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
-          user_group: Der Name der Gruppe, die diesen Kommentar erstellt hat (falls vorhanden)
         results:
           address: Projektadresse (falls vorhanden)
           children_count: Die Anzahl der Teilergebnisse
