@@ -574,8 +574,8 @@ ar:
             actions: أفعال
             created_at: أنشئت في
             document_number: رقم المستند
-            name: اسم
-            nickname: الاسم المستعار
+            name: الاسم
+            nickname: كنية
             phone: هاتف
             state: حالة
             users_count: عدد المشاركين
@@ -727,6 +727,8 @@ ar:
           title: مشارك جديد الفضاء الخاص المشارك.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: قم بتحميل ملف CSV الخاص بك
           destroy:
             button: حذف جميع المشاركين الخاصين
             empty: ليس لديك أي مشاركين خاصين.
@@ -849,14 +851,14 @@ ar:
         index:
           state:
             pending: قيد الانتظار
-            rejected: مرفوض
-            verified: التحقق
+            rejected: تم رفضه
+            verified: تم التحقق
           verify_via_csv: تحقق عبر CSV
       user_groups_csv_verifications:
         new:
           explanation: قم بتحميل ملف CSV الخاص بك. يجب أن يحتوي على رسائل البريد الإلكتروني الرسمية للمجموعات في مؤسستك في العمود الأول من الملف ، بدون رؤوس. سيتم التحقق من صحة المجموعات التي أكدت بريدها الإلكتروني والتي تحتوي على بريد إلكتروني ظاهر في ملف CSV.
           title: قم بتحميل ملف CSV الخاص بك
-          upload: رفع
+          upload: حمّل
       users:
         create:
           error: كانت هناك مشكلة في دعوة هذا المشرف.
