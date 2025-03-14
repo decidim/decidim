@@ -20,10 +20,6 @@ module Decidim
 
         alias state internal_state
 
-        def costs_required?
-          costs_enabled? && state == "accepted"
-        end
-
         def publish_answer?
           current_component.current_settings.publish_answers_immediately?
         end
