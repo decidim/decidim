@@ -787,6 +787,8 @@
           new_conversation: Ny samtale
           next: Neste
           title: Samtaler
+        reply_form:
+          placeholder: Ditt svar...
         show:
           back: Tilbake til alle samtaler
           chat_with: Samtale med
@@ -913,17 +915,22 @@
         conversations: Samtaler
         followers: Følgere
         following: Følger
+        group_admins: Administrer administrator
+        group_members: Administrere medlemmer
         groups: Grupper
         members: Medlemmer
         officialized: Offisiell deltaker
         send_private_message: Send privat melding
       user:
         actions:
+          create_user_group: Opprett gruppe
           edit_profile: Rediger profil
           edit_user_group: Rediger gruppeprofil
           invite_user: Inviter deltaker
           join_user_group: Forespør om å bli med i gruppen
           leave_user_group: Forlat gruppe
+          manage_user_group_admins: Administrer administrator
+          manage_user_group_users: Administrere medlemmer
           resend_email_confirmation_instructions: Send email bekreftelse instruksjoner på nytt
     reported_mailer:
       hide:
