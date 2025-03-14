@@ -57,7 +57,7 @@ module Decidim
         Admin::UnhideResource.call(reportable, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("reportable.unhide.success", scope: "decidim.moderations.admin")
-            redirect_to moderations_path
+            redirect_to moderations_path(hidden: true)
           end
 
           on(:parent_invalid) do
