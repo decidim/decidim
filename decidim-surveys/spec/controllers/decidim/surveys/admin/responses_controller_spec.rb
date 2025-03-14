@@ -5,16 +5,16 @@ require "spec_helper"
 module Decidim
   module Surveys
     module Admin
-      describe AnswersController do
+      describe ResponsesController do
         routes { Decidim::Surveys::AdminEngine.routes }
 
         let(:component) { survey.component }
         let(:survey) { create(:survey, published_at: Time.current) }
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
 
-        let(:answers) do
+        let(:responses) do
           survey.questionnaire.questions.map do |question|
-            create(:answer, questionnaire: survey.questionnaire, question:, user:)
+            create(:response, questionnaire: survey.questionnaire, question:, user:)
           end
         end
 
@@ -40,13 +40,13 @@ module Decidim
         end
 
         describe "show" do
-          let(:answer) { create(:answer, questionnaire: survey.questionnaire, question: survey.questionnaire.questions.first, user:) }
+          let(:response) { create(:response, questionnaire: survey.questionnaire, question: survey.questionnaire.questions.first, user:) }
           let(:params) do
             {
               component_id: survey.component.id,
               participatory_process_slug: survey.component.participatory_space.slug,
               survey_id: survey.id,
-              id: answer.id
+              id: response.id
             }
           end
 
@@ -57,13 +57,13 @@ module Decidim
         end
 
         describe "export_response" do
-          let(:answer) { create(:answer, questionnaire: survey.questionnaire, question: survey.questionnaire.questions.first, user:) }
+          let(:response) { create(:response, questionnaire: survey.questionnaire, question: survey.questionnaire.questions.first, user:) }
           let(:params) do
             {
               component_id: survey.component.id,
               participatory_process_slug: survey.component.participatory_space.slug,
               survey_id: survey.id,
-              id: answer.id
+              id: response.id
             }
           end
 

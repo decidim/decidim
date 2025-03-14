@@ -4,26 +4,26 @@ module Decidim
   module Surveys
     module Admin
       # This controller allows the user to update a Page.
-      class AnswersController < Admin::ApplicationController
-        include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswers
+      class ResponsesController < Admin::ApplicationController
+        include Decidim::Forms::Admin::Concerns::HasQuestionnaireResponses
 
         def index
-          enforce_permission_to :index, :questionnaire_answers
+          enforce_permission_to :index, :questionnaire_responses
 
           @query = paginate(collection)
           @participants = participants(@query)
           @total = questionnaire.count_participants
           @survey = questionnaire_for
 
-          render template: "decidim/surveys/admin/answers/index"
+          render template: "decidim/surveys/admin/responses/index"
         end
 
         def show
-          enforce_permission_to :show, :questionnaire_answers
+          enforce_permission_to :show, :questionnaire_responses
 
           @participant = participant(participants_query.participant(params[:id]))
 
-          render template: "decidim/surveys/admin/answers/show"
+          render template: "decidim/surveys/admin/responses/show"
         end
 
         def questionnaire_for
@@ -31,7 +31,7 @@ module Decidim
         end
 
         def questionnaire_export_response_url(id)
-          Decidim::EngineRouter.admin_proxy(questionnaire_for.component).export_response_survey_answer_path(questionnaire_for, id:)
+          Decidim::EngineRouter.admin_proxy(questionnaire_for.component).export_response_survey_response_path(questionnaire_for, id:)
         end
 
         def questionnaire_url
@@ -39,12 +39,12 @@ module Decidim
         end
 
         # Specify where to redirect after exporting a user response
-        def questionnaire_participant_answers_url(id)
-          Decidim::EngineRouter.admin_proxy(questionnaire_for.component).survey_answer_path(questionnaire_for, id:)
+        def questionnaire_participant_responses_url(id)
+          Decidim::EngineRouter.admin_proxy(questionnaire_for.component).survey_response_path(questionnaire_for, id:)
         end
 
         def questionnaire_participants_url
-          Decidim::EngineRouter.admin_proxy(questionnaire_for.component).survey_answers_path(questionnaire_for)
+          Decidim::EngineRouter.admin_proxy(questionnaire_for.component).survey_responses_path(questionnaire_for)
         end
 
         private
@@ -61,12 +61,12 @@ module Decidim
           @collection ||= participants_query.participants
         end
 
-        def participant(answer)
-          Decidim::Forms::Admin::QuestionnaireParticipantPresenter.new(participant: answer)
+        def participant(response)
+          Decidim::Forms::Admin::QuestionnaireParticipantPresenter.new(participant: response)
         end
 
         def participants(query)
-          query.map { |answer| participant(answer) }
+          query.map { |response| participant(response) }
         end
       end
     end

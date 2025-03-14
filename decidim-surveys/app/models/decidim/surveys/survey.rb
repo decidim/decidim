@@ -19,7 +19,7 @@ module Decidim
       validates :questionnaire, presence: true
 
       scope :open, lambda {
-        where(allow_answers: true)
+        where(allow_responses: true)
           .where(starts_at: nil, ends_at: nil).or(
             where("starts_at <= ? AND (ends_at IS NULL OR ends_at > ?)", Time.current, Time.current)
           ).or(
@@ -27,7 +27,7 @@ module Decidim
           )
       }
       scope :closed, lambda {
-        where(allow_answers: false).or(
+        where(allow_responses: false).or(
           where("starts_at > ?", Time.current).or(
             where(ends_at: ...Time.current)
           )
@@ -38,7 +38,7 @@ module Decidim
       scope_search_multi :with_any_state, [:open, :closed]
 
       def open?
-        return false if allow_answers.blank?
+        return false if allow_responses.blank?
         return true if time_indefinite?
         return true if started_but_no_end?
         return true if no_start_but_ends_later?
@@ -57,7 +57,7 @@ module Decidim
       end
 
       def self.ransackable_attributes(_auth_object = nil)
-        %w(ends_at starts_at allow_answers)
+        %w(ends_at starts_at allow_responses)
       end
 
       def self.log_presenter_class_for(_log)

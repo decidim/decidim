@@ -13,7 +13,7 @@
         <tr>
           <th><%= t("models.survey.fields.title", scope: "decidim.surveys") %></th>
           <th><%= t("models.survey.fields.questions", scope: "decidim.surveys") %></th>
-          <th><%= t("models.survey.fields.answers", scope: "decidim.surveys") %></th>
+          <th><%= t("models.survey.fields.responses", scope: "decidim.surveys") %></th>
           <th><%= t("models.survey.fields.status", scope: "decidim.surveys") %></th>
           <th><%= t("actions.title", scope: "decidim.surveys") %></th>
         </tr>
@@ -35,7 +35,7 @@
                   <% if survey.published? %>
                     <%= icon_link_to "close-circle-line", unpublish_survey_path(survey), t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish" %>
                   <% elsif survey.clean_after_publish? %>
-                    <%= icon_link_to "check-line", publish_survey_path(survey), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish", data: { confirm: t("actions.answers_alert", scope: "decidim.surveys", answers_count: survey.questionnaire.answers.size) } %>
+                    <%= icon_link_to "check-line", publish_survey_path(survey), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish", data: { confirm: t("actions.responses_alert", scope: "decidim.surveys", responses_count: survey.questionnaire.responses.size) } %>
                   <% else %>
                     <%= icon_link_to "check-line", publish_survey_path(survey), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish" %>
                   <% end %>

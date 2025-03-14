@@ -2,24 +2,24 @@
 
 module Decidim
   module Surveys
-    # This command is executed when the admin unpublishes the Answers from the admin
+    # This command is executed when the admin publishes the Responses from the admin
     # panel.
-    class UnpublishAnswers < Decidim::Command
+    class PublishResponses < Decidim::Command
       include Decidim::TranslatableAttributes
 
-      # Initializes a UnpublishAnswers Command.
+      # Initializes a PublishResponses Command.
       #
       def initialize(question_id, current_user)
         @question_id = question_id
         @current_user = current_user
       end
 
-      # Unpublishes the questions' answers
+      # Publishes the questions' responses
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
         transaction do
-          unpublish_survey_answer
+          publish_survey_response
           create_action_log
         end
 
@@ -32,8 +32,8 @@ module Decidim
 
       attr_reader :question_id, :current_user
 
-      def unpublish_survey_answer
-        question.update(survey_answers_published_at: nil)
+      def publish_survey_response
+        question.update(survey_responses_published_at: Time.current)
       end
 
       def question
@@ -42,7 +42,7 @@ module Decidim
 
       def create_action_log
         Decidim::ActionLogger.log(
-          "unpublish_answers",
+          "publish_responses",
           current_user,
           question,
           nil,

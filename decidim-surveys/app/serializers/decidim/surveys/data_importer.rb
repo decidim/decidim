@@ -10,7 +10,7 @@ module Decidim
 
       # Public: Creates a new Decidim::Surveys::Survey and Decidim::Forms::Questionnaire associated to the given +component+
       #         for each serialized survey object.
-      # It imports the whole tree of Survey->Questionnaire->questions->answer_options.
+      # It imports the whole tree of Survey->Questionnaire->questions->response_options.
       #
       # serialized        - The Hash of attributes for the Questionnaire and its relations.
       # user              - The +user+ that is performing this action
@@ -47,17 +47,17 @@ module Decidim
         Survey.new(component: @component)
       end
 
-      # Builds a Decidim::Forms::Questionnaire with all its questions and answer_options.
+      # Builds a Decidim::Forms::Questionnaire with all its questions and response_options.
       def build_questionnaire(survey, serialized_questionnaire)
         survey.build_questionnaire(serialized_questionnaire.except(:id, :published_at))
       end
 
       def import_questions(questionnaire, serialized_questions)
         serialized_questions.each do |serialized_question|
-          serialized_answer_options = serialized_question.delete(:answer_options)
+          serialized_response_options = serialized_question.delete(:response_options)
           question = questionnaire.questions.create!(serialized_question.except(:id, :created_at, :updated_at))
-          serialized_answer_options.each do |serialized_answer_option|
-            question.answer_options.create!(serialized_answer_option.except(:id, :created_at, :updated_at))
+          serialized_response_options.each do |serialized_response_option|
+            question.response_options.create!(serialized_response_option.except(:id, :created_at, :updated_at))
           end
         end
       end

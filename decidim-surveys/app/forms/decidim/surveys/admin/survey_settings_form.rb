@@ -6,10 +6,10 @@ module Decidim
       class SurveySettingsForm < Decidim::Forms::Admin::QuestionnaireForm
         translatable_attribute :announcement, String
 
-        attribute :allow_answers, Boolean
+        attribute :allow_responses, Boolean
         attribute :allow_unregistered, Boolean
         attribute :clean_after_publish, Boolean
-        attribute :allow_editing_answers, Boolean
+        attribute :allow_editing_responses, Boolean
         attribute :starts_at, Decidim::Attributes::TimeWithZone
         attribute :ends_at, Decidim::Attributes::TimeWithZone
       end

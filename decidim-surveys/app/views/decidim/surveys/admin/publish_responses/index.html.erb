@@ -22,16 +22,16 @@
         <% next if question.question_type == "separator" %>
         <% next if question.question_type == "title_and_description" %>
 
-        <li class="<%= "text-gray" unless question_answer_is_publicable(question.question_type) %> mb-6">
+        <li class="<%= "text-gray" unless question_response_is_publicable(question.question_type) %> mb-6">
           <div class="inline">
-            <span><%= translated_attribute question.body %> (<%= I18n.t("decidim.surveys.admin.publish_answers.index.answers", count: question.answers.count) %>)</span>
+            <span><%= translated_attribute question.body %> (<%= I18n.t("decidim.surveys.admin.publish_responses.index.responses", count: question.responses.count) %>)</span>
 
-            <% if question_answer_is_publicable(question.question_type) %>
+            <% if question_response_is_publicable(question.question_type) %>
               <%= render partial: "toggle_button", locals: { question: } %>
             <% end %>
           </div>
 
-          <% if question_answer_is_publicable(question.question_type) %>
+          <% if question_response_is_publicable(question.question_type) %>
             <div class="m-4">
               <%= chart_for_question(question.id) %>
             </div>

@@ -2,7 +2,7 @@
 
 module Decidim
   module Surveys
-    class CleanSurveyAnswersJob < ApplicationJob
+    class CleanSurveyResponsesJob < ApplicationJob
       def perform(_event_name, data)
         @component = data[:resource]
         return unless component&.manifest_name == "surveys"
@@ -12,7 +12,7 @@ module Decidim
 
         case data[:event_class]
         when "Decidim::ComponentPublishedEvent"
-          clean_answers
+          clean_responses
         end
       end
 
@@ -20,10 +20,10 @@ module Decidim
 
       attr_reader :survey, :component
 
-      def clean_answers
+      def clean_responses
         return unless survey.clean_after_publish?
 
-        survey.questionnaire.answers.destroy_all
+        survey.questionnaire.responses.destroy_all
         component.settings[:clean_after_publish] = false
         component.save
       end

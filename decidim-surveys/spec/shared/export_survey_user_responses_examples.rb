@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-shared_examples "export survey user answers" do
+shared_examples "export survey user responses" do
   let!(:questionnaire) { create(:questionnaire) }
   let!(:questions) { create_list(:questionnaire_question, 3, questionnaire:) }
-  let!(:answers) do
+  let!(:responses) do
     questions.map do |question|
-      create_list(:answer, 3, questionnaire:, question:)
+      create_list(:response, 3, questionnaire:, question:)
     end.flatten
   end
 
@@ -22,9 +22,9 @@ shared_examples "export survey user answers" do
     expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
 
     sleep 0.5
-    expect(last_email.subject).to eq(%(Your export "survey_user_answers" is ready))
+    expect(last_email.subject).to eq(%(Your export "survey_user_responses" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
-    expect(Decidim::PrivateExport.last.export_type).to eq("survey_user_answers")
+    expect(Decidim::PrivateExport.last.export_type).to eq("survey_user_responses")
   end
 
   it "exports a JSON" do
@@ -40,9 +40,9 @@ shared_examples "export survey user answers" do
     expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
 
     sleep 0.5
-    expect(last_email.subject).to eq(%(Your export "survey_user_answers" is ready))
+    expect(last_email.subject).to eq(%(Your export "survey_user_responses" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
-    expect(Decidim::PrivateExport.last.export_type).to eq("survey_user_answers")
+    expect(Decidim::PrivateExport.last.export_type).to eq("survey_user_responses")
   end
 
   it "exports a PDF" do
@@ -58,8 +58,8 @@ shared_examples "export survey user answers" do
     expect(page).to have_admin_callout("Your export is currently in progress. You will receive an email when it is complete.")
 
     sleep 0.5
-    expect(last_email.subject).to eq(%(Your export "survey_user_answers" is ready))
+    expect(last_email.subject).to eq(%(Your export "survey_user_responses" is ready))
     expect(Decidim::PrivateExport.count).to eq(1)
-    expect(Decidim::PrivateExport.last.export_type).to eq("survey_user_answers")
+    expect(Decidim::PrivateExport.last.export_type).to eq("survey_user_responses")
   end
 end

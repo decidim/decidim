@@ -2,9 +2,9 @@
 
 module Decidim
   module Surveys
-    module PublishAnswersHelper
-      def question_answer_is_publicable(question_type)
-        ignored_question_types = %w(short_answer long_answer separator files).freeze
+    module PublishResponsesHelper
+      def question_response_is_publicable(question_type)
+        ignored_question_types = %w(short_response long_response separator files).freeze
 
         ignored_question_types.exclude?(question_type)
       end
@@ -14,7 +14,7 @@ module Decidim
       #
       # @param question_id [Integer] the question id for Decidim:
       def chart_for_question(question_id)
-        question = Decidim::Forms::Question.includes(answers: { choices: [:answer_option, :matrix_row] }).find(question_id)
+        question = Decidim::Forms::Question.includes(responses: { choices: [:response_option, :matrix_row] }).find(question_id)
 
         Chartkick.options = {
           library: { animation: { easing: "easeOutQuart" } },
@@ -38,9 +38,9 @@ module Decidim
       def sorting_stack_chart_wrapper(question)
         counts = Hash.new { |hash, key| hash[key] = Hash.new(0) }
 
-        question.answers.each do |answer|
-          answer.choices.each do |choice|
-            name = translated_attribute(choice.answer_option.body)
+        question.responses.each do |response|
+          response.choices.each do |choice|
+            name = translated_attribute(choice.response_option.body)
             row = choice.position + 1
 
             counts[row][name] += 1
@@ -60,9 +60,9 @@ module Decidim
       def matrix_stack_chart_wrapper(question)
         counts = Hash.new { |hash, key| hash[key] = Hash.new(0) }
 
-        question.answers.each do |answer|
-          answer.choices.each do |choice|
-            name = translated_attribute(choice.answer_option.body)
+        question.responses.each do |response|
+          response.choices.each do |choice|
+            name = translated_attribute(choice.response_option.body)
             row = translated_attribute(choice.matrix_row.body)
 
             counts[name][row] += 1
@@ -80,7 +80,7 @@ module Decidim
       end
 
       def options_column_chart_wrapper(question)
-        tally = question.answers.map { |answer| answer.choices.map { |choice| translated_attribute(choice.answer_option.body) } }.tally
+        tally = question.responses.map { |response| response.choices.map { |choice| translated_attribute(choice.response_option.body) } }.tally
 
         column_chart(tally, download: true)
       end

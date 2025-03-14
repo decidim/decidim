@@ -8,11 +8,11 @@ module Decidim
       subject { survey }
 
       let(:survey) { create(:survey) }
-      let!(:open_survey) { create(:survey, allow_answers: true, starts_at: 2.days.ago, ends_at: 1.day.from_now) }
-      let!(:closed_survey) { create(:survey, allow_answers: false, starts_at: nil, ends_at: nil) }
-      let!(:future_survey) { create(:survey, allow_answers: true, starts_at: 1.day.from_now, ends_at: nil) }
-      let!(:past_survey) { create(:survey, allow_answers: true, starts_at: 5.days.ago, ends_at: 2.days.ago) }
-      let!(:indefinite_survey) { create(:survey, allow_answers: true, starts_at: nil, ends_at: nil) }
+      let!(:open_survey) { create(:survey, allow_responses: true, starts_at: 2.days.ago, ends_at: 1.day.from_now) }
+      let!(:closed_survey) { create(:survey, allow_responses: false, starts_at: nil, ends_at: nil) }
+      let!(:future_survey) { create(:survey, allow_responses: true, starts_at: 1.day.from_now, ends_at: nil) }
+      let!(:past_survey) { create(:survey, allow_responses: true, starts_at: 5.days.ago, ends_at: 2.days.ago) }
+      let!(:indefinite_survey) { create(:survey, allow_responses: true, starts_at: nil, ends_at: nil) }
 
       include_examples "has component"
 
@@ -50,7 +50,7 @@ module Decidim
         let(:component) { survey.component }
 
         before do
-          survey.update!(starts_at:, ends_at:, allow_answers: true)
+          survey.update!(starts_at:, ends_at:, allow_responses: true)
         end
 
         context "when neither starts_at or ends_at are defined" do
@@ -115,7 +115,7 @@ module Decidim
         let(:component) { survey.component }
 
         before do
-          survey.update!(starts_at:, ends_at:, allow_answers: false)
+          survey.update!(starts_at:, ends_at:, allow_responses: false)
         end
 
         context "when neither starts_at or ends_at are defined" do
@@ -194,7 +194,7 @@ module Decidim
 
       describe ".ransackable_attributes" do
         it "returns the correct ransackable attributes" do
-          expected_attributes = %w(ends_at starts_at allow_answers)
+          expected_attributes = %w(ends_at starts_at allow_responses)
           expect(described_class.ransackable_attributes).to eq(expected_attributes)
         end
       end

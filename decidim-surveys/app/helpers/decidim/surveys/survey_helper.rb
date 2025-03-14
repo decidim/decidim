@@ -24,7 +24,7 @@ module Decidim
       end
 
       def authorizations
-        @authorizations ||= action_authorized_to(:answer, resource: questionnaire_for)
+        @authorizations ||= action_authorized_to(:response, resource: questionnaire_for)
       end
 
       def filter_date_values

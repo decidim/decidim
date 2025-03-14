@@ -4,14 +4,14 @@ require "spec_helper"
 
 module Decidim
   module Surveys
-    describe PublishAnswersHelper do
-      describe "#question_answer_is_publicable" do
+    describe PublishResponsesHelper do
+      describe "#question_response_is_publicable" do
         context "when the question type is unsupported" do
-          let(:question_types) { %w(short_answer long_answer separator files) }
+          let(:question_types) { %w(short_response long_response separator files) }
 
           it "returns false" do
             question_types.each do |question_type|
-              expect(helper.question_answer_is_publicable(question_type)).to be_falsey
+              expect(helper.question_response_is_publicable(question_type)).to be_falsey
             end
           end
         end
@@ -21,7 +21,7 @@ module Decidim
 
           it "returns true" do
             question_types.each do |question_type|
-              expect(helper.question_answer_is_publicable(question_type)).to be_truthy
+              expect(helper.question_response_is_publicable(question_type)).to be_truthy
             end
           end
         end
@@ -29,7 +29,7 @@ module Decidim
 
       describe "#chart_for_question" do
         context "when the question type is unsupported" do
-          let(:question) { create(:questionnaire_question, question_type: "short_answer") }
+          let(:question) { create(:questionnaire_question, question_type: "short_response") }
 
           it "returns a string with an error" do
             expect(helper.chart_for_question(question.id)).to eq("Unknown question type")

@@ -3,22 +3,22 @@
 module Decidim
   module Surveys
     module Admin
-      # This controller allows the user to see which questions' answers can be published, and publish or unpublish them
-      class PublishAnswersController < Admin::ApplicationController
-        include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswersUrlHelper
+      # This controller allows the user to see which questions' responses can be published, and publish or unpublish them
+      class PublishResponsesController < Admin::ApplicationController
+        include Decidim::Forms::Admin::Concerns::HasQuestionnaireResponsesUrlHelper
 
-        helper PublishAnswersHelper
+        helper PublishResponsesHelper
 
         def index
-          enforce_permission_to(:index, :questionnaire_publish_answers, survey:)
+          enforce_permission_to(:index, :questionnaire_publish_responses, survey:)
 
           @survey ||= survey
         end
 
         def update
-          enforce_permission_to(:update, :questionnaire_publish_answers, survey:)
+          enforce_permission_to(:update, :questionnaire_publish_responses, survey:)
 
-          Decidim::Surveys::PublishAnswers.call(params[:id], current_user) do
+          Decidim::Surveys::PublishResponses.call(params[:id], current_user) do
             on(:ok) do
               render json: {}
             end
@@ -30,9 +30,9 @@ module Decidim
         end
 
         def destroy
-          enforce_permission_to(:destroy, :questionnaire_publish_answers, survey:)
+          enforce_permission_to(:destroy, :questionnaire_publish_responses, survey:)
 
-          Decidim::Surveys::UnpublishAnswers.call(params[:id], current_user) do
+          Decidim::Surveys::UnpublishResponses.call(params[:id], current_user) do
             on(:ok) do
               render json: {}
             end

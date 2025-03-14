@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Private Space Answer a survey" do
+describe "Private Space Respond a survey" do
   let(:manifest_name) { "surveys" }
   let(:manifest) { Decidim.find_component_manifest(manifest_name) }
 
@@ -28,7 +28,7 @@ describe "Private Space Answer a survey" do
   let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: another_user, privatable_to: participatory_space_private) }
 
   let!(:questionnaire) { create(:questionnaire, title:, description:) }
-  let!(:survey) { create(:survey, :published, :allow_answers, component:, questionnaire:) }
+  let!(:survey) { create(:survey, :published, :allow_responses, component:, questionnaire:) }
   let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
   let!(:question_conditioned) { create(:questionnaire_question, :conditioned, questionnaire:, position: 1) }
 
@@ -48,14 +48,14 @@ describe "Private Space Answer a survey" do
     let!(:participatory_space_private) { create(:assembly, :published, organization:, private_space: true, is_transparent: true) }
 
     context "when the user is not logged in" do
-      it "does not allow answering the survey" do
+      it "does not allow responding the survey" do
         visit_component
         click_on translated_attribute(questionnaire.title)
 
         expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
 
-        expect(page).to have_no_css(".form.answer-questionnaire")
+        expect(page).to have_no_css(".form.response-questionnaire")
 
         within "[data-question-readonly]" do
           expect(page).to have_i18n_content(question.body)
@@ -70,14 +70,14 @@ describe "Private Space Answer a survey" do
           login_as another_user, scope: :user
         end
 
-        it "allows answering the survey" do
+        it "allows responding the survey" do
           visit_component
           click_on translated_attribute(questionnaire.title)
 
           expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
 
-          fill_in question.body["en"], with: "My first answer"
+          fill_in question.body["en"], with: "My first response"
 
           check "questionnaire_tos_agreement"
 
@@ -87,7 +87,7 @@ describe "Private Space Answer a survey" do
             expect(page).to have_content("successfully")
           end
 
-          expect(page).to have_content("You have already answered this form.")
+          expect(page).to have_content("You have already responded this form.")
           expect(page).to have_no_i18n_content(question.body)
         end
       end
@@ -97,7 +97,7 @@ describe "Private Space Answer a survey" do
           login_as user, scope: :user
         end
 
-        it "not allows answering the survey" do
+        it "not allows responding the survey" do
           visit_component
           click_on translated_attribute(questionnaire.title)
 
@@ -133,7 +133,7 @@ describe "Private Space Answer a survey" do
           login_as another_user, scope: :user
         end
 
-        it "allows answering the survey" do
+        it "allows responding the survey" do
           visit_component
           choose "All"
 
@@ -142,7 +142,7 @@ describe "Private Space Answer a survey" do
 
           click_on translated_attribute(questionnaire.title)
 
-          fill_in question.body["en"], with: "My first answer"
+          fill_in question.body["en"], with: "My first response"
 
           check "questionnaire_tos_agreement"
 
@@ -152,7 +152,7 @@ describe "Private Space Answer a survey" do
             expect(page).to have_content("successfully")
           end
 
-          expect(page).to have_content("You have already answered this form.")
+          expect(page).to have_content("You have already responded this form.")
           expect(page).to have_no_i18n_content(question.body)
         end
       end

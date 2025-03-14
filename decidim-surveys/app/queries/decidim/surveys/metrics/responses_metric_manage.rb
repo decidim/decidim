@@ -3,9 +3,9 @@
 module Decidim
   module Surveys
     module Metrics
-      class AnswersMetricManage < Decidim::MetricManage
+      class ResponsesMetricManage < Decidim::MetricManage
         def metric_name
-          "survey_answers"
+          "survey_responses"
         end
 
         def save
@@ -29,16 +29,16 @@ module Decidim
         def query
           return @query if @query
 
-          @query = retrieve_surveys.each_with_object({}) do |survey, grouped_answers|
-            answers = Decidim::Forms::Answer.joins(:questionnaire)
+          @query = retrieve_surveys.each_with_object({}) do |survey, grouped_responses|
+            responses = Decidim::Forms::Response.joins(:questionnaire)
                                             .where(questionnaire: retrieve_questionnaires(survey))
-                                            .where(decidim_forms_answers: { created_at: ..end_time })
-            next grouped_answers unless answers
+                                            .where(decidim_forms_responses: { created_at: ..end_time })
+            next grouped_responses unless responses
 
             group_key = generate_group_key(survey)
-            grouped_answers[group_key] ||= { cumulative: 0, quantity: 0 }
-            grouped_answers[group_key][:cumulative] += answers.count
-            grouped_answers[group_key][:quantity] += answers.where(decidim_forms_answers: { created_at: start_time.. }).count
+            grouped_responses[group_key] ||= { cumulative: 0, quantity: 0 }
+            grouped_responses[group_key][:cumulative] += responses.count
+            grouped_responses[group_key][:quantity] += responses.where(decidim_forms_responses: { created_at: start_time.. }).count
           end
           @query
         end
