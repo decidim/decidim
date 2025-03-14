@@ -9,19 +9,15 @@ module Decidim
       delegate :name, :email, to: :user
 
       def status
-        return I18n.t("attended", scope: "decidim.meetings.models.registration.status") if attendee?
+        return I18n.t("attended", scope: "decidim.meetings.models.registration.status") if validated?
 
         I18n.t("not_attended", scope: "decidim.meetings.models.registration.status")
       end
 
       def status_html_class
-        return "success" if attendee?
+        return "success" if validated?
 
         "alert"
-      end
-
-      def attendee?
-        @attendee ||= validated?
       end
     end
   end
