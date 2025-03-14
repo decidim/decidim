@@ -969,7 +969,7 @@ sv:
       accept:
         error: Det gick inte att godkänna den här inbjudan.
         success: Inbjudan har godkänts.
-      accept_invitation: Godkänn
+      accept_invitation: Acceptera
       accept_or_reject_group_invitations: 'Du har blivit inbjuden till följande grupper. Godkänn eller avvisa deras förfrågningar:'
       index:
         invite: Inbjudan
@@ -1027,7 +1027,7 @@ sv:
         success: Du har lämnat gruppen.
       members:
         accept_or_reject_join_requests: 'Följande användare har ansökt om att få gå med i den här gruppen. Godkänn eller avvisa deras förfrågningar:'
-        accept_request: Godkänn
+        accept_request: Acceptera
         reject_request: Avvisa
       new:
         create_user_group: Skapa grupp
@@ -1104,13 +1104,13 @@ sv:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Hej %{recipient}!
           intro: "%{manager} har startat en ny konversation som %{group}. Klicka här för att se den:"
           outro: Ha det så kul!
           subject: "%{manager} har startat en ny konversation som %{group}"
         comanagers_new_message:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Hej %{recipient}!
           intro: "%{manager} har postat nya meddelanden i en konversation som %{group}. Klicka här för att se dem:"
           outro: Ha det så kul!
           subject: "%{manager} har skickat nya meddelanden som %{group}"
@@ -1121,13 +1121,13 @@ sv:
           subject: "%{sender} har startat en konversation med dig"
         new_group_conversation:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Hej %{recipient}!
           intro: "%{sender} har startat en ny konversation med gruppen %{group}. Klicka här för att se den:"
           outro: Ha det så kul!
           subject: "%{sender} har startat en konversation med %{group}"
         new_group_message:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Hej %{recipient}!
           intro: "%{sender} har postat nya meddelanden i en konversation med gruppen %{group}. Klicka här för att se den:"
           outro: Ha det så kul!
           subject: "%{group} har fått nya meddelanden från %{sender}"
