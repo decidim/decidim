@@ -73,10 +73,6 @@ module Decidim
       attr_reader :proposal
       alias resource proposal
 
-      def component
-        proposal.component
-      end
-
       def meetings
         proposal.linked_resources(:meetings, "proposals_from_meeting").map do |meeting|
           Decidim::ResourceLocatorPresenter.new(meeting).url
@@ -94,7 +90,7 @@ module Decidim
       end
 
       def user_endorsements
-        proposal.endorsements.for_listing.map { |identity| identity.normalized_author&.name }
+        proposal.endorsements.for_listing.map { |identity| identity.author&.name }
       end
 
       def original_proposal_url
@@ -111,22 +107,20 @@ module Decidim
       end
 
       def author_fields
-        is_author_user_group = resource.coauthorships.map(&:decidim_user_group_id).any?
-
         {
           id: resource.authors.map(&:id),
           name: resource.authors.map do |author|
-            author_name(is_author_user_group ? resource.coauthorships.first.user_group : author)
+            author_name(author)
           end,
           url: resource.authors.map do |author|
-            author_url(is_author_user_group ? resource.coauthorships.first.user_group : author)
+            author_url(author)
           end
         }
       end
 
       def author_name(author)
         if author.respond_to?(:name)
-          translated_attribute(author.name) # is a Decidim::User or Decidim::Organization or Decidim::UserGroup
+          translated_attribute(author.name) # is a Decidim::User or Decidim::Organization
         elsif author.respond_to?(:title)
           translated_attribute(author.title) # is a Decidim::Meetings::Meeting
         end
@@ -134,7 +128,7 @@ module Decidim
 
       def author_url(author)
         if author.respond_to?(:nickname)
-          profile_url(author) # is a Decidim::User or Decidim::UserGroup
+          profile_url(author) # is a Decidim::User
         elsif author.respond_to?(:title)
           meeting_url(author) # is a Decidim::Meetings::Meeting
         else
@@ -142,22 +136,8 @@ module Decidim
         end
       end
 
-      def profile_url(author)
-        return "" if author.respond_to?(:deleted?) && author.deleted?
-
-        Decidim::Core::Engine.routes.url_helpers.profile_url(author.nickname, host:)
-      end
-
       def meeting_url(meeting)
         Decidim::EngineRouter.main_proxy(meeting.component).meeting_url(id: meeting.id, host:)
-      end
-
-      def root_url
-        Decidim::Core::Engine.routes.url_helpers.root_url(host:)
-      end
-
-      def host
-        resource.organization.host
       end
     end
   end

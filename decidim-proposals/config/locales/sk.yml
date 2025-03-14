@@ -210,7 +210,7 @@ sk:
         title: Návrhy
     participatory_spaces:
       highlighted_proposals:
-        see_all: Zobraziť všetky (%{count})
+        see_all: Zobraziť všetky
     proposals:
       actions:
         answer_proposal: Odpoveď na návrh
@@ -270,7 +270,6 @@ sk:
             title: Návrh aktualizácie
             update: Aktualizácia
           form:
-            attachment_legend: "(Voliteľné) Pridanie prílohy"
             created_in_meeting: Tento návrh pochádza z rokovania
             select_a_meeting: Vyberte schôdzku
           index:
@@ -279,7 +278,6 @@ sk:
             assign_to_valuator_button: Priradiť
             cancel: zrušenie
             merge: Zlúčiť do nového
-            merge_button: Spoj
             publish: Publikovať
             publish_answers: Zverejniť odpovede
             select_component: Vyberte súčasť
@@ -327,7 +325,6 @@ sk:
       admin_log:
         proposal:
           answer: "%{user_name} odpovedalo na %{resource_name} návrh na priestore %{space_name}"
-          create: "%{user_name} vytvoril návrh %{resource_name} na priestore %{space_name} ako oficiálny návrh"
           publish_answer: "%{user_name} publikoval odpoveď na návrh %{resource_name} v priestore %{space_name}"
           update: "%{user_name} aktualizoval oficiálny návrh %{resource_name} na priestore %{space_name}"
         proposal_note:
@@ -373,7 +370,6 @@ sk:
         create:
           success: Projekt spolupráce bol úspešne vytvorený.
         edit:
-          attachment_legend: "(Voliteľné) Pridanie prílohy"
           back: Zadná
           send: Poslať
           title: Úprava konceptu spolupráce
@@ -467,7 +463,6 @@ sk:
           comment: Komentár
       proposals:
         edit:
-          attachment_legend: "(Voliteľné) Pridanie prílohy"
           back: Zadná
           send: Poslať
           title: Upraviť návrh
@@ -535,6 +530,8 @@ sk:
         voting_rules:
           proposal_limit:
             description: Môžete vytvoriť až %{limit} návrhov.
+          vote_limit:
+            description: Môžete hlasovať až pre %{limit} návrhov.
         wizard_aside:
           back: Zadná
         wizard_steps:

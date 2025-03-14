@@ -4,6 +4,7 @@ abans
 abcd
 abcert
 abcloktpes
+acceptada
 accesslist
 Aceasta
 acentos
@@ -124,6 +125,7 @@ cdp
 cellphone
 centerblock
 changeme
+chartkick
 cherrypicking
 childs
 chromedriver
@@ -155,7 +157,7 @@ contingut
 continuar
 contrasenya
 coopdevs
-Correu
+correu
 Cov
 Cprojects
 crdownload
@@ -435,6 +437,7 @@ inviteduser
 isbn
 iseq
 isready
+ivan
 Jaskolski
 Jaume
 javascripts
@@ -741,6 +744,7 @@ Pujol
 pwa
 QLiterals
 queda
+qux
 railtie
 railties
 randomable
@@ -750,6 +754,7 @@ Raymundo
 rbngzlv
 reallowed
 rebornix
+rebutjada
 recapitated
 reconfirmable
 redcarpet
@@ -782,6 +787,8 @@ routable
 rowchart
 rowdata
 rowi
+RQR
+rqrcode
 rroe
 rsefa
 rsimplecov
@@ -834,6 +841,7 @@ Smileys
 Snowlvhme
 Snoworg
 softdeleteable
+somecapitalguy
 somedatabase
 Sorbier
 sortings
@@ -1059,3 +1067,4 @@ Zbd
 zeitwerk
 Zupper
 zzz
+zzzupper

@@ -182,23 +182,8 @@ lv:
       autocomplete:
         no_results: Netika atrasts neviens rezultāt
       categories:
-        create:
-          error: Šīs kategorijas izveides laikā radās problēma.
-          success: Kategorija ir veiksmīgi izveidota.
-        destroy:
-          error: Šīs kategorijas dzēšanas laikā radās problēma. Lūdzu, vispirms izdzēsiet jebkuru apakškategoriju, pārliecinieties, vai neviena cita vienība nepieder šai kategorijai, un mēģiniet vēlreiz.
-          success: Kategorija ir veiksmīgi izdzēsta.
-        edit:
-          title: Labot kategoriju
-          update: Atjaunināt
         index:
           categories_title: Kategorijas
-        new:
-          create: Izveidot kategoriju
-          title: Jauna kategorija
-        update:
-          error: Šīs kategorijas atjaunināšanas laikā radās problēma.
-          success: Kategorija ir veiksmīgi atjaunināta.
       component_permissions:
         update:
           error: Ar šī komponenta atļauju atjaunināšanas laikā radās problēma.
@@ -427,7 +412,6 @@ lv:
           confirm_delete: Vai tiešām vēlaties dzēst šo informatīvo biļetenu?
           followers: 'sekotāji '
           has_been_sent_to: 'Nosūtīts:'
-          no_scopes: Nav tvēruma
           not_sent: Nav nosūtīts
           participants: 'dalībnieki'
           segmented_to: 'Segmentēts līdz %{subject}: '
@@ -442,13 +426,10 @@ lv:
           confirm_deliver: Vai tiešām vēlaties nosūtīt šo informatīvo biļetenu? Šo darbību nevar atsaukt.
           deliver: Nosūtīt informatīvo biļetenu
           followers_help: Nosūta informatīvo biļetenu visiem apstiprinātajiem lietotājiem, kuri seko jebkurai no sarakstā atzīmētajām līdzdalības telpām.
-          none: Nav
           participants_help: Nosūta informatīvo biļetenu visiem apstiprinātajiem lietotājiem, kuri ir piedalījušies jebkurā no sarakstā atzīmētajām līdzdalības telpām.
           recipients_count: Šis informatīvais biļetens tiks nosūtīts <strong id='recipients_count'>%{count}</strong> lietotājiem.
-          scopes_help: Nosūta informatīvo biļetenu lietotājiem, kuru konta iestatījumos "Manas intereses" ir aktivizēts kāds no atlasītajiem darbības tvērumiem.
-          select_scopes: Filtrēt lietotājus, kuri sava konta iestatījumos "Manas intereses" ir aktivizējuši jebkuru izvēlēto darbības tvērumu.
           select_spaces: Izvēlieties telpas, lai segmentētu informatīvo biļetenu
-          select_users: Izvēlieties lietotājus, kuriem vēlaties nosūtīt informatīvo biļetenu
+          send_to_all_users: Nosūtīt visiem lietotājiem
           title: Izvēlieties adresātus, kuriem nosūtīt
           warning: "<strong>Uzmanību:</strong> šis informatīvais biļetens tiks nosūtīts tikai tiem lietotājiem, kuri savos paziņojumu iestatījumos ir aktivizējuši <em>Vēlos saņemt informatīvos biļetenus</em>."
         show:

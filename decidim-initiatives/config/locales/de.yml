@@ -136,22 +136,30 @@ de:
           name: Art der Initiative
         initiatives_votes:
           fields:
+            date_and_time: Datum und Uhrzeit
             date_of_birth: Geburtsdatum
             document_number: Dokumentnummer
             hash: Hash
             initiative_end_date: Enddatum
             initiative_id: Initiativ-ID
+            initiative_scope: Bereich
             initiative_signatures_count: Anzahl der Unterschriften
             initiative_start_date: Startdatum
             initiative_title: Initiativentitel
             name_and_surname: Name und Nachname
+            nickname: Spitzname
             postal_code: Postleitzahl
-            scope: Umfang
-            time_and_date: Zeit und Datum
+            signature_count: Anzahl Unterschriften
             timestamp: Zeitstempel
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: Alle Initiativen
       titles:
         initiatives: Initiativen
         initiatives_types: Arten von Initiativen
+    download_your_data:
+      show:
+        initiatives: Initiativen exportieren
     events:
       initiatives:
         admin:
@@ -437,10 +445,10 @@ de:
           email_subject: "%{applicant_nickname} möchte Ihrer Initiative beitreten"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
       form:
-        add_documents: Dokumente hinzufügen
+        add_attachments: Anhänge hinzufügen
         add_image: Bild hinzufügen
-        attachment_legend: "(Optional) Anhang hinzufügen"
-        edit_documents: Dokumente bearbeiten
+        attachment_legend: Dokument oder Bild hinzufügen
+        edit_attachments: Anhänge bearbeiten
         edit_image: Bild bearbeiten
         image_legend: "(Optional) Bild hinzufügen"
       index:
@@ -597,12 +605,42 @@ de:
         success: Die Initiative wurde erfolgreich aktualisiert.
     menu:
       initiatives: Initiativen
+    open_data:
+      help:
+        initiatives:
+          answer: Die Antwort, die diese Initiative erhalten hat (falls vorhanden)
+          answer_url: Die URL der Antwort (falls vorhanden)
+          answered_at: Das Datum der Antwort (falls vorhanden)
+          area: Der Bereich dieser Initiative
+          authors: Personen, die diese Initiative verfasst haben
+          comments_count: Die Anzahl der Kommentare zu dieser Initiative
+          created_at: Erstellungsdatum dieses Bereichs
+          description: Die Beschreibung der Initiative
+          first_progress_notification_at: Das Datum, an dem die erste Fortschrittsbenachrichtigung gesendet wurde
+          follows_count: Die Anzahl Nutzende, die diesem Raum folgen
+          hashtag: Der Hashtag der Initiative, verwendet für Twitter/X
+          offline_votes: Die Anzahl der Unterschriften, die diese Initiative von ausserhalb dieser Plattform erhalten hat
+          online_votes: Die Anzahl der Unterschriften, die diese Initiative online erhalten hat (direkt über die Plattform)
+          published_at: Veröffentlichungsdatum des Bereichs
+          reference: Die eindeutige Referenz des Bereichs
+          scope: Der Bereich der Initiative
+          second_progress_notification_at: Das Datum, an dem die zweite Fortschrittsbenachrichtigung gesendet wurde
+          signature_end_date: Das Datum, an dem die Unterschriftensammlung endet
+          signature_start_date: Das Datum, an dem die Unterschriftensammlung begonnen hat
+          signature_type: Die Art der Unterschriftensammlung (online oder vor Ort)
+          signatures: Die Anzahl der Unterschriften dieser Initiative
+          state: Der Status, den diese Initiative in diesem Moment hat
+          title: Der Titel der Initiative
+          type: Die Art der Initiative
+          updated_at: Letztes Aktualisierungsdatum dieses Bereichs
+          url: Die URL des Bereichs
     resources:
       initiative:
         actions:
           comment: Kommentar
       initiatives_type:
         actions:
+          create: Initiative erstellen
           title: Aktionen
           vote: Abstimmung
   layouts:

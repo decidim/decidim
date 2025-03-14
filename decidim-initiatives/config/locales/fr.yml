@@ -135,6 +135,7 @@ fr:
           name: Type de pétition
         initiatives_votes:
           fields:
+            date_and_time: Date et heure
             date_of_birth: Date de naissance
             document_number: Numéro de document
             hash: Hash
@@ -145,8 +146,6 @@ fr:
             initiative_title: Titre de la pétition
             name_and_surname: Nom et surnom
             postal_code: Code postal
-            scope: Secteur
-            time_and_date: Heure et date
             timestamp: Horodatage
       titles:
         initiatives: Pétitions
@@ -415,10 +414,10 @@ fr:
           email_subject: "%{applicant_nickname} veut rejoindre le comité de promotion de votre pétition"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a postulé pour faire partie du comité de promotion de votre pétition <a href="%{resource_url}">%{resource_title}</a>. Pour accepter ou rejeter la demande, cliquez <a href="%{resource_url}/edit">ici</a>.
       form:
-        add_documents: Ajouter des documents
+        add_attachments: Ajouter des pièces jointes
         add_image: Ajouter une image
-        attachment_legend: "(Facultatif) Ajouter une pièce jointe"
-        edit_documents: Modifier les documents
+        attachment_legend: Ajouter un document ou une image
+        edit_attachments: Modifier les pièces jointes
         edit_image: Modifier l'Image
         image_legend: "(Facultatif) Ajouter une image"
       index:

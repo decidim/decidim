@@ -29,6 +29,9 @@ fi-pl:
         other: Suunnitelmat
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Projektit
       filters:
         projects:
           selected_at_null:
@@ -212,12 +215,26 @@ fi-pl:
             map: Kartta
             taxonomies: Luokittelut
             title: Otsikko
+      order:
+        status:
+          continue_voting: Jatka äänestystä
+          download_vote: Lataa äänesi
+          pending_to_vote_budgets:
+            one: Voit äänestää toisesta budjetista
+            other: Voit äänestää myös muista budjeteista
+          share_vote: Jaa äänesi
+          title: Äänesi on hyväksytty onnistuneesti
+          view_votes:
+            one: Näytä ääni
+            other: Näytä äänet
+          votes_count:
+            one: Olet jo äänestänyt budjetin %{budget_name} äänestyksessä.
+            other: Olet jo antanut %{count} ääntä budjetin %{budget_name} äänestyksessä.
       order_summary_mailer:
         order_summary:
           selected_projects: 'Hankkeet, jotka olet valinnut:'
           subject: Olet äänestänyt osallistumistilassa %{space_name}
           voted_on_space: Olet äänestänyt budjetista %{budget_name} osallistumistilassa %{space_name}.
-          voted_on_space_with_scope: Olet äänestänyt budjetista %{budget_name} osallistumistilassa %{space_name} koskien teemaa %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Jos muutat mieltäsi, voit muuttaa ääntäsi myöhemmin.
@@ -334,8 +351,6 @@ fi-pl:
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             projects_per_page: Suunnitelmat sivua kohden
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle suunnitelmalle
-            scope_id: Teema
-            scopes_enabled: Teemat käytössä
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
             title: Otsikko
@@ -366,6 +381,15 @@ fi-pl:
               enabled: Äänestys on käytössä
               finished: Äänestys päättynyt
     download_your_data:
+      help:
+        orders:
+          budget: Budjetti, jolle ääni on annettu
+          checked_out_at: Äänen vahvistusaika
+          component: Äänen komponentti
+          created_at: Äänen luontiaika
+          id: Äänen yksilöivä tunniste
+          projects: Ääneen valitut projektit
+          updated_at: Äänen viimeisimmän päivityksen ajankohta
       show:
         projects: Projektien vienti
     events:
@@ -379,25 +403,30 @@ fi-pl:
       help:
         projects:
           address: Projektin osoite (jos määritetty)
+          budget: Tietoja budjetista (esim. "2021 budjetti")
           budget_amount: Budjetin kokonaismäärä tälle projektille
           comments: Projektin saamien kommenttien määrä
           component: Projektin komponentti
           confirmed_votes: Vahvistettujen äänten määrä tälle projektille
           created_at: Projektin luontiaika
           description: Projektin kuvaus
-          id: Projektin yksilöllinen tunniste
+          follows_count: Projektin seuraajien lukumäärä
+          id: Projektin yksilöivä tunniste
+          latitude: Projektin sijainnin leveysaste, mikäli projekti on määritetty tiettyyn paikkaan
+          longitude: Projektin sijainnin pituusaste, mikäli projekti on määritetty tiettyyn paikkaan
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä projekti kuuluu
+          reference: Projektin yksilöivä viite
           related_proposal_titles: Projektiin liitettyjen ehdotusten otsikot
           related_proposal_urls: Projektiin liitettyjen ehdotusten URL-osoitteet
           related_proposals: Projektiin liitetyt ehdotukset
+          selected_at: Projektin toteutukseen valitsemisen ajankohta
           taxonomies: Projektin luokittelut
           title: Projektin otsikko
+          updated_at: Projektin viimeisimmän päivityksen ajankohta
           url: Projektin URL-osoite
     orders:
       checkout:
         error: Äänesi käsittely epäonnistui.
-        success_html: <p>Äänestäminen onnistui.</p> <p class="text-sm font-normal">Voit tutkia myös <a class="text-secondary underline" href="%{rest_of_budgets_link}">muita budjetteja</a>.</p>
-        success_no_left_budgets_html: Äänesi kirjaaminen onnistui.
       destroy:
         error: Äänesi peruuttaminen epäonnistui.
         success: Äänesi on peruttu.

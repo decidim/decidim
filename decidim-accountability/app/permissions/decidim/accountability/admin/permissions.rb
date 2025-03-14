@@ -10,8 +10,8 @@ module Decidim
           permission_action.allow! if can_perform_actions_on?(:result, result)
           permission_action.allow! if can_perform_actions_on?(:status, status)
           permission_action.allow! if can_perform_actions_on?(:timeline_entry, timeline_entry)
-          permission_action.allow! if can_perform_actions_on?(:import_projects, nil)
           permission_action.allow! if can_perform_actions_on?(:bulk_update, nil)
+          permission_action.allow! if can_perform_actions_on?(:import_component, nil)
 
           permission_action
         end
@@ -35,7 +35,7 @@ module Decidim
           return false if can_create_grandchildren_results?
 
           case permission_action.subject
-          when :import_projects
+          when :import_component
             case permission_action.action
             when :create, :new
               true if defined?(Decidim::Budgets::Project)

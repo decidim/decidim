@@ -145,8 +145,6 @@
         attachment:
           new: Nytt vedlegg
         browse: Bla gjennom
-        category:
-          new: Ny kategori
         export: Eksporter alt
         export-selection: Eksporter valg
         import: Importer
@@ -234,23 +232,8 @@
           justification: Begrunnelse
           title: Blokker bruker %{name}
       categories:
-        create:
-          error: Det oppstod et problem med å oppdatere denne kategorien.
-          success: Kategorien opprettet.
-        destroy:
-          error: Det oppstod et problem med å slette denne kategorien. Vennligst slett alle underkategorier først, sørg for at ingen andre enheter hører til denne kategorien, og prøv igjen.
-          success: Kategorien slettet.
-        edit:
-          title: Rediger kategori
-          update: Oppdater
         index:
           categories_title: Kategorier
-        new:
-          create: Opprett kategori
-          title: Ny kategori
-        update:
-          error: Det oppstod et problem med å oppdatere denne kategorien.
-          success: Kategorien oppdatert.
       component_permissions:
         update:
           error: Det oppstod et problem med å oppdatere tillatelsene til denne komponenten.
@@ -630,7 +613,6 @@
           confirm_delete: Er du sikker på at du vil slette dette nyhetsbrevet?
           followers: 'følgere '
           has_been_sent_to: 'Har blitt sendt til: '
-          no_scopes: Ingen tema
           not_sent: Ikke sendt
           participants: 'deltakere '
           segmented_to: 'Segmentert til %{subject}: '
@@ -645,13 +627,10 @@
           confirm_deliver: Er du sikker på at du vil levere dette nyhetsbrevet? Denne handlingen kan ikke angres.
           deliver: Lever nyhetsbrev
           followers_help: Sender nyhetsbrev til alle bekreftede brukere som følger noen av de valgte deltakerområdene på listen.
-          none: Ingen
           participants_help: Sender nyhetsbrev til alle bekreftede brukere som har deltatt i noen av de valgte deltakerområdene på listen.
           recipients_count: Dette nyhetsbrevet vil bli sendt til <strong id='recipients_count'>%{count}</strong> brukere.
-          scopes_help: Sender nyhetsbrev til brukere som har noen av de valgte temaene aktivert i kontoens "Mine interesser" innstillinger.
-          select_scopes: Filtrer for brukere som har aktivert et valgt tema i innstillingene for Mine interesser.
           select_spaces: Velg rom for å segmentere nyhetsbrevet
-          select_users: Velg hvilke brukere du vil sende nyhetsbrevet
+          send_to_all_users: Send til alle brukere
           title: Velg mottakere som skal leveres
           warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
         show:

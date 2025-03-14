@@ -8,7 +8,11 @@ Decidim.register_component(:meetings) do |component|
   component.permissions_class_name = "Decidim::Meetings::Permissions"
 
   component.query_type = "Decidim::Meetings::MeetingsType"
-  component.data_portable_entities = ["Decidim::Meetings::Registration"]
+  component.data_portable_entities = [
+    "Decidim::Meetings::Registration",
+    "Decidim::Meetings::Invite",
+    "Decidim::Meetings::Meeting"
+  ]
 
   component.on(:before_destroy) do |instance|
     raise StandardError, "Cannot remove this component" if Decidim::Meetings::Meeting.where(component: instance).any?
@@ -63,7 +67,7 @@ Decidim.register_component(:meetings) do |component|
     exports.collection do |component_instance|
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Meetings::Meeting, component_instance
-      ).includes(:author, :user_group, root_commentable: { component: { participatory_space: :organization } })
+      ).includes(:author, root_commentable: { component: { participatory_space: :organization } })
     end
 
     exports.include_in_open_data = true
@@ -84,8 +88,6 @@ Decidim.register_component(:meetings) do |component|
   component.actions = %w(join comment)
 
   component.settings(:global) do |settings|
-    settings.attribute :scopes_enabled, type: :boolean, default: false
-    settings.attribute :scope_id, type: :scope
     settings.attribute :taxonomy_filters, type: :taxonomy_filters
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :default_registration_terms, type: :text, translated: true, editor: true

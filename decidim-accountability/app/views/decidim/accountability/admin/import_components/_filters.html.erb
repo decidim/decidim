@@ -1,0 +1,26 @@
+<% if component.manifest_name == "proposals" %>
+  <div class="row column">
+    <%= f.select :proposal_state_id,
+                 form.proposal_states_collection,
+                 include_blank: t(".select_state"),
+                 label: t(".proposal_state") %>
+  </div>
+<% end %>
+
+<% if component.has_taxonomy_settings? %>
+  <% component.available_taxonomy_filters.each do |filter| %>
+    <div class="row column">
+      <%= filter_taxonomy_items_select_field f, :taxonomies, filter %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="row column">
+  <small class="help-text">
+    <% if component.manifest_name == "proposals" %>
+      <%= t(".new_items_proposals", count: form.filtered_items_count) %>
+    <% elsif component.manifest_name == "budgets" %>
+      <%= t(".new_items_projects", count: form.filtered_items_count) %>
+    <% end %>
+  </small>
+</div>

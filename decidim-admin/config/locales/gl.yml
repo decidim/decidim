@@ -144,8 +144,6 @@ gl:
         attachment:
           new: Novo anexo
         browse: Buscar
-        category:
-          new: Nova categoría
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
@@ -230,23 +228,8 @@ gl:
           justification: Xustificante
           title: Bloquear ao usuario %{name}
       categories:
-        create:
-          error: Houbo un erro ao crear esta categoría.
-          success: Categoría creada con éxito.
-        destroy:
-          error: Produciuse un erro ao eliminar esta categoría. Elimina primeiro calquera subcategoría, asegúrate de que outra entidade non pertence a esta categoría e téntao de novo.
-          success: Categoría eliminada con éxito.
-        edit:
-          title: Editar categoría
-          update: Actualización
         index:
           categories_title: Categorías
-        new:
-          create: Crear categoría
-          title: Nova categoría
-        update:
-          error: Produciuse un erro ao actualizar esta categoría.
-          success: A categoría actualizouse con éxito.
       component_permissions:
         update:
           error: Produciuse un problema ao actualizar os permisos deste compoñente.
@@ -612,7 +595,6 @@ gl:
           confirm_delete: '¿Estás seguro de que queres eliminar este boletín informativo?'
           followers: 'seguidores '
           has_been_sent_to: 'Foi enviado a: '
-          no_scopes: Sen ámbitos
           not_sent: Sen enviar
           participants: 'participantes '
           segmented_to: 'Segmentado para %{subject}: '
@@ -627,13 +609,10 @@ gl:
           confirm_deliver: '¿Estás seguro de que desexas enviar este boletín informativo? Non se pode desfacer esta acción.'
           deliver: Enviar boletín informativo
           followers_help: Enviar boletíns a todos os usuarios confirmados que sigan calquera dos espazos de participación seleccionados na listaxe.
-          none: Ningún
           participants_help: Enviar boletíns a todos os usuarios confirmados que teñan participado en calquera dos espazos de participación seleccionados na listaxe.
           recipients_count: Este boletín enviarase a <strong id='recipients_count'>%{count}</strong> usuarios.
-          scopes_help: Envía o boletín ao usuarios que teñan activado calquera dos ámbitos seleccionados nos axustes "Os meus intereses" das súas contas.
-          select_scopes: Filtrar polos usuarios que teñan activado calquera ámbito seleccionado nos axustes "Os meus intereses" das súas contas.
           select_spaces: Seleccionar espazos para segmentar o boletín
-          select_users: Selecciona a que usuarios queres enviar o boletín
+          send_to_all_users: Enviar a todos os usuarios
           title: Seleccionar os destinatarios
           warning: "<strong>Atención:</strong> Este boletín enviarase só aos usuarios que teñen activado <em>Desexo recibir boletíns</em> nos seus axustes de notificacións."
         show:

@@ -1,8 +1,6 @@
 sq:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Titulli
       assembly:
         announcement: Njoftim
         area_id: Zona
@@ -19,7 +17,6 @@ sq:
         created_by_other: Krijuar nga tjetër
         creation_date: Data e krijimit
         decidim_area_id: Zona
-        decidim_assemblies_type_id: Lloji i asamblesë
         decidim_scope_id: Qëllimi
         description: Përshkrimi
         developer_group: Grupi promovues
@@ -35,7 +32,6 @@ sq:
         import_components: Importoni përbërësit
         included_at: Përfshirë në
         instagram: Instagram
-        internal_organisation: Organizatë e brëndshme
         is_transparent: Është transparente
         local_area: Zona e organizatës
         parent_id: Asambleja e përgjithshme
@@ -46,8 +42,6 @@ sq:
         promoted: Në pah
         published_at: Publikuar në
         purpose_of_action: Qëllimi i aksionit
-        scope_id: Qëllimi
-        scopes_enabled: Fushveprimet e aktivizuara
         short_description: Përshkrim i shkurtër
         slug: Identifikues URL-je
         special_features: Karaktersitika të veçanta
@@ -83,7 +77,6 @@ sq:
       actions:
         import_assembly: Importo
         new_assembly: Asamble e re
-        new_assembly_type: Tip i ri asambleje
         new_assembly_user_role: Administrator i ri asambleje
       assemblies:
         create:
@@ -105,18 +98,6 @@ sq:
         create:
           error: Ndodhi një gabim gjatë duplikimit të asamblesë.
           success: Asambleja e duplikua me sukses.
-      assemblies_types:
-        create:
-          error: Ndodhi një gabim gjatë krijimit të tipit të ri të asamblesë.
-          success: Tipi i asamblesë u krijua me sukses.
-        destroy:
-          success: Tipi i asamblesë u fshi me sukses.
-        new:
-          create: Krijo
-          title: Tip i ri asambleje
-        update:
-          error: Ndodhi një gabim gjatë përditësimit të tipit të asamblesë.
-          success: Tipi i asamblesë u përditësua me sukses.
       assembly_copies:
         new:
           copy: Kopjo
@@ -160,8 +141,6 @@ sq:
           values:
             'false': E papërfunduar
             'true': Përfunduar
-        decidim_assemblies_type_id_eq:
-          label: Tipi i asamblesë
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Kërko me emër ose nofkë
       menu:
@@ -171,18 +150,12 @@ sq:
           attachment_collections: Skedarët
           attachment_files: Skedat
           attachments: Skedat e bashkëlidhura
-          categories: Kategoritë
           components: Komponentet
           info: Rreth asamblesë
           landing_page: Faqja hyrëse
           moderations: Moderimet
           see_assembly: Shiko asamblenë
-        assemblies_types: Tipet e asambleve
       models:
-        assemblies_types:
-          fields:
-            created_at: Krijuar më
-            title: Titulli
         assembly:
           fields:
             actions: Veprimet
@@ -245,22 +218,16 @@ sq:
             announcement_help: Teksti që vendosni këtu do i shfaqet përdoruesit nën informacionin e asamblesë.
             duration: Kohëzgjatja
             duration_help: Nëse kohëzgjatja e asamblesë është e kufizuar, zgjidh datën e përfundimit. Përndryshe, do shfaqet si e papërcaktuar.
-            filters: Filtrat
             images: Imazhet
             included_at_help: Zgjidh datën e shtimit të asamblesë në platformë. Nuk ka pse të jetë e njejtë me datën e krijimit.
             metadata: Metadata
             other: Të tjera
             select_a_created_by: Zgjidh krijuesin
-            select_an_area: Zgjidh një sektor
-            select_an_assembly_type: Zgjidh një tip asambleje
             select_parent_assembly: Zgjidh asamblenë prind
             slug_help_html: 'Për gjenerimin e URL së kësaj asambleje përdoren URL slugs. Pranohen vetëm gërma, numra dhe viza horizontale, dhe duhet të fillojë me gërmë. Shembull: %{url}'
             social_handlers: Rrjete sociale
             title: Informacion i përgjithshëm
             visibility: Vizibiliteti
-        assemblies_types:
-          form:
-            title: Modifiko tipin e asamblesë
         assembly_copies:
           form:
             slug_help_html: 'Për gjenerimin e URL së kësaj asambleje përdoren URL slugs. Pranohen vetëm gërma, numra dhe viza horizontale, dhe duhet të fillojë me gërmë. Shembull: %{url}'
@@ -302,14 +269,6 @@ sq:
       assembly_members:
         index:
           members: Anëtarët
-      assembly_types:
-        commission: Komisioni
-        consultative_advisory: Këshilluese
-        executive: Ekzekutive
-        government: Qeverisja
-        others: Tjetër
-        participatory: Pjesëmarrëse
-        working_group: Grup pune
       content_blocks:
         children_assemblies:
           name: Asambletë
@@ -348,7 +307,6 @@ sq:
           member_of:
             member_of: Anëtar i
       show:
-        assembly_type: Tipi i asamblesë
         duration: Kohëzgjatja
         private_space: Kjo është asamble private
         social_networks_title: Vizito asamblenë në

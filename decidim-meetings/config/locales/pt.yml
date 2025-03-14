@@ -96,8 +96,6 @@ pt:
             maps_enabled: Mapas activados
             registration_code_enabled: Código de registo activado
             resources_permissions_enabled: As permissões de ações podem ser definidas para cada reunião
-            scope_id: Âmbito
-            scopes_enabled: Âmbitos activados
             terms_and_conditions_url_for_meeting_creators: URL dos termos e condições para criadores de reuniões
           step:
             announcement: Anúncio

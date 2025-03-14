@@ -110,8 +110,8 @@ describe "Admin filters proposals" do
     let(:root_taxonomy2) { create(:taxonomy, organization: component.organization, name: { "en" => "Root2" }) }
     let!(:taxonomy1) { create(:taxonomy, parent: root_taxonomy1, organization:, name: { "en" => "Taxonomy1" }) }
     let!(:taxonomy2) { create(:taxonomy, parent: root_taxonomy2, organization:, name: { "en" => "Taxonomy2" }) }
-    let(:taxonomy1_filter) { create(:taxonomy_filter, root_taxonomy: root_taxonomy1, space_manifest: component.participatory_space.manifest.name) }
-    let(:taxonomy2_filter) { create(:taxonomy_filter, root_taxonomy: root_taxonomy2, space_manifest: component.participatory_space.manifest.name) }
+    let(:taxonomy1_filter) { create(:taxonomy_filter, root_taxonomy: root_taxonomy1, participatory_space_manifests: [component.participatory_space.manifest.name]) }
+    let(:taxonomy2_filter) { create(:taxonomy_filter, root_taxonomy: root_taxonomy2, participatory_space_manifests: [component.participatory_space.manifest.name]) }
     let!(:taxonomy1_filter_item) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy1_filter, taxonomy_item: taxonomy1) }
     let!(:taxonomy2_filter_item) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy2_filter, taxonomy_item: taxonomy2) }
     let!(:answered_proposal_with_taxonomy1) { create(:proposal, :with_answer, component:, taxonomies: [taxonomy1]) }

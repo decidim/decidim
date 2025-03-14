@@ -45,6 +45,10 @@ ar:
           edit:
             title: تحرير النقاش
             update: تحديث النقاش
+          form:
+            add_attachments: إضافة مرفقات
+            attachment_legend: إضافة مستند أو صورة
+            edit_attachments: تعديل المرفقات
           index:
             title: المناقشات
           new:

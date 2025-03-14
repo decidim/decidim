@@ -126,8 +126,6 @@ nl:
             proposal_limit: Beperking van het aantal voorstellen per gebruiker
             proposal_wizard_step_1_help_text: Helptekst "Maak" bij het maken van een nieuw voorstel
             resources_permissions_enabled: Actiemachtigingen kunnen voor elk voorstel worden ingesteld
-            scope_id: Scope
-            scopes_enabled: Scopes ingeschakeld
             threshold_per_proposal: Limiet per voorstel
           step:
             amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
@@ -253,7 +251,7 @@ nl:
         title: voorstellen
     participatory_spaces:
       highlighted_proposals:
-        see_all: Alles zien (%{count})
+        see_all: Alles zien
     proposals:
       actions:
         answer_proposal: Antwoord voorstel
@@ -326,9 +324,7 @@ nl:
             title: Voorstel bijwerken
             update: Bijwerken
           form:
-            attachment_legend: "(Optioneel) Een bijlage toevoegen"
             created_in_meeting: Dit voorstel komt uit een vergadering
-            delete_attachment: Bijlage verwijderen
             select_a_meeting: Selecteer een vergadering
           index:
             actions: acties
@@ -336,7 +332,6 @@ nl:
             assign_to_valuator_button: Toewijzen
             cancel: Annuleer
             merge: Samenvoegen met een nieuwe
-            merge_button: Samensmelten
             publish: Publiceren
             publish_answers: Antwoorden publiceren
             select_component: Selecteer een component
@@ -382,7 +377,6 @@ nl:
       admin_log:
         proposal:
           answer: "%{user_name} beantwoordde het voorstel %{resource_name} op de %{space_name} ruimte"
-          create: "%{user_name} heeft het voorstel %{resource_name} op de %{space_name} ruimte als officieel voorstel gemaakt"
           publish_answer: "%{user_name} publiceerde het antwoord op het %{resource_name} voorstel in de %{space_name} ruimte"
           update: "%{user_name} heeft het %{resource_name} officiële voorstel op de %{space_name} ruimte bijgewerkt"
         proposal_note:
@@ -429,7 +423,6 @@ nl:
         create:
           success: Gezamenlijk ontwerp met succes gemaakt.
         edit:
-          attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
           send: Verzenden
           title: Bewerk gezamenlijk ontwerp
@@ -524,7 +517,6 @@ nl:
           description: De coördinaten worden bijgewerkt bij het klikken op de 'preview' knop. Het adres verandert echter niet.
           instructions: Je kunt het punt op de kaart verplaatsen.
         edit:
-          attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
           send: Verzenden
           title: Bewerk voorstel
@@ -598,7 +590,6 @@ nl:
           maximum_votes_reached: Stemlimiet bereikt
           no_votes_remaining: Geen stemmen over
           vote: Stem
-          votes_blocked: Stemmen uitgeschakeld
         voting_rules:
           proposal_limit:
             description: Je kan maximaal %{limit} voorstellen doen.

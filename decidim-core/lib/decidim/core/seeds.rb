@@ -25,6 +25,10 @@ module Decidim
               create_taxonomy!(name: ::Faker::Address.city, parent: sub_taxonomy)
             end
           end
+          # filters for all participatory spaces
+          create_taxonomy_filter!(root_taxonomy: taxonomy,
+                                  taxonomies: taxonomy.all_children,
+                                  participatory_space_manifests: Decidim.participatory_space_manifests.pluck(:name))
 
           taxonomy = create_taxonomy!(name: "Areas", parent: nil)
           sub_taxonomy = create_taxonomy!(name: "Territorial", parent: taxonomy)
@@ -36,6 +40,10 @@ module Decidim
           5.times do
             create_taxonomy!(name: ::Faker::Lorem.word, parent: sub_taxonomy)
           end
+          # filters for all participatory except conferences
+          create_taxonomy_filter!(root_taxonomy: taxonomy,
+                                  taxonomies: taxonomy.all_children,
+                                  participatory_space_manifests: Decidim.participatory_space_manifests.pluck(:name) - [:conferences])
 
           taxonomy = create_taxonomy!(name: "Categories", parent: nil)
           3.times do
@@ -45,6 +53,9 @@ module Decidim
               create_taxonomy!(name: ::Faker::Lorem.sentence(word_count: 5), parent: sub_taxonomy)
             end
           end
+          # filters not available for participatory spaces
+          create_taxonomy_filter!(root_taxonomy: taxonomy,
+                                  taxonomies: taxonomy.all_children)
         end
 
         if organization.top_scopes.none?
@@ -92,12 +103,6 @@ module Decidim
           interlocutors: [regular_user],
           body: "Hey! I am glad you like Decidim"
         )
-
-        Decidim::User.find_each do |user|
-          [nil, Time.current].each do |verified_at|
-            create_user_group!(user:, verified_at:)
-          end
-        end
 
         oauth_application = Decidim::OAuthApplication.create!(
           organization:,
@@ -181,7 +186,6 @@ module Decidim
           users_registration_mode: :enabled,
           tos_version: Time.current,
           badges_enabled: true,
-          user_groups_enabled: true,
           send_welcome_notification: true,
           file_upload_settings: Decidim::OrganizationSettings.default(:upload),
           colors:
@@ -225,27 +229,6 @@ module Decidim
           name: Decidim::Faker::Localized.word,
           area_type:,
           organization:
-        )
-      end
-
-      def create_user_group!(user:, verified_at:)
-        user_group = Decidim::UserGroup.create!(
-          name: ::Faker::Company.unique.name,
-          nickname: ::Faker::Twitter.unique.screen_name,
-          email: ::Faker::Internet.email,
-          confirmed_at: Time.current,
-          extended_data: {
-            document_number: ::Faker::Number.number(digits: 10).to_s,
-            phone: ::Faker::PhoneNumber.phone_number,
-            verified_at:
-          },
-          decidim_organization_id: user.organization.id
-        )
-
-        Decidim::UserGroupMembership.create!(
-          user:,
-          role: "creator",
-          user_group:
         )
       end
     end

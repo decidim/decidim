@@ -48,6 +48,10 @@ module Decidim
         false
       end
 
+      def closed?
+        !open?
+      end
+
       def self.ransackable_scopes(_auth_object = nil)
         [:with_any_state]
       end

@@ -22,8 +22,6 @@ en:
         published_at: Published at
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
         short_description: Short description
         show_statistics: Show statistics
         sign_date: Sign date
@@ -124,13 +122,13 @@ en:
         destroy:
           success: Conference speaker successfully deleted.
         edit:
-          title: Update conference speaker.
+          title: Update conference speaker
           update: Update
         index:
           conference_speakers_title: Conference speakers
         new:
           create: Create
-          title: New conference speaker.
+          title: New conference speaker
         publish:
           invalid: There was a problem publishing this speaker.
           success: Conference speaker successfully published.
@@ -147,13 +145,13 @@ en:
         destroy:
           success: Conference admin successfully removed.
         edit:
-          title: Update conference admin.
+          title: Update conference admin
           update: Update
         index:
           conference_admins_title: Conference admins
         new:
           create: Create
-          title: New conference admin.
+          title: New conference admin
         update:
           error: There was a problem updating this conference admin.
           success: Conference admin successfully updated.
@@ -185,20 +183,20 @@ en:
       media_links:
         create:
           error: There was a problem creating a new media link.
-          success: Media Link successfully created.
+          success: Media link successfully created.
         destroy:
-          success: Media Link successfully deleted.
+          success: Media link successfully deleted.
         edit:
-          title: Update media link.
+          title: Update media link
           update: Update
         index:
-          media_links_title: Media Links
+          media_links_title: Media links
         new:
           create: Create
-          title: Media Link
+          title: Create media link
         update:
           error: There was a problem updating this media link.
-          success: Media Link successfully updated.
+          success: Media link successfully updated.
       menu:
         conferences: Conferences
         conferences_submenu:
@@ -209,15 +207,15 @@ en:
           conference_admins: Conference admins
           conference_invites: Invites
           conference_speakers: Speakers
-          diploma: Certificate of Attendance
+          diploma: Certificate of attendance
           info: About this conference
-          media_links: Media Links
+          media_links: Media links
           moderations: Moderations
           partners: Partners
-          registration_types: Registration Types
+          registration_types: Registration types
           registrations: Registrations
           see_conference: See conference
-          user_registrations: User Registrations
+          user_registrations: User registrations
       models:
         conference:
           fields:
@@ -246,7 +244,7 @@ en:
             date: Date
             link: Link
             title: Title
-          name: Media Link
+          name: Media link
         partner:
           fields:
             link: Link
@@ -272,7 +270,7 @@ en:
         destroy:
           success: Conference partner successfully removed.
         edit:
-          title: Update partner.
+          title: Update partner
           update: Update
         new:
           create: Create
@@ -294,7 +292,7 @@ en:
         destroy:
           success: Conference registration type successfully removed.
         edit:
-          title: Update registration type.
+          title: Update registration type
           update: Update
         new:
           create: Create
@@ -302,6 +300,9 @@ en:
         update:
           error: There was a problem updating a registration type for this conference.
           success: Conference registration type successfully updated.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: All conferences
       titles:
         conferences: Conferences
         conferences_deleted: Deleted conferences
@@ -397,7 +398,7 @@ en:
         diplomas:
           edit:
             save: Save
-            title: Certificate of Attendance
+            title: Certificate of attendance
         invite_join_conference_mailer:
           invite:
             decline: Decline invitation '%{conference_title}'
@@ -417,7 +418,7 @@ en:
             diploma_html: You will be find the certificate of attendance for the conference <a href="%{url}">%{title}</a> in the attachments.
           diploma_user:
             attendance_verified_by: Attendance verified by
-            certificate_of_attendance: Certificate of Attendance
+            certificate_of_attendance: Certificate of attendance
             certificate_of_attendance_description: This is to certify that <strong>%{user}</strong> has attended and taken part in the <strong>%{title}</strong> held at the <strong>%{location}</strong> on <strong>%{start} - %{end}</strong>
         send_diploma:
           error: There was a problem sending the conference certificates of attendance.

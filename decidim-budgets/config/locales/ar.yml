@@ -80,6 +80,9 @@ ar:
         project:
           fields:
             title: عنوان
+      order:
+        status:
+          title: تم قبول تصويتك بنجاح
       projects:
         budget_confirm:
           cancel: إلغاء
@@ -113,6 +116,7 @@ ar:
     components:
       budgets:
         actions:
+          comment: تعليق
           vote: تصويت
         name: الميزانيات
         settings:

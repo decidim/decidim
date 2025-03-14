@@ -21,8 +21,6 @@ de:
         published_at: Veröffentlicht am
         registration_terms: Registrierungsbedingungen
         registrations_enabled: Registrierungen aktiviert
-        scope_id: Umfang
-        scopes_enabled: Bereiche aktiviert
         short_description: Kurze Beschreibung
         show_statistics: Zeige Statistiken
         sign_date: Unterzeichnungsdatum
@@ -68,6 +66,8 @@ de:
         email: Email
         name: Name
         role: Rolle
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
@@ -89,6 +89,7 @@ de:
     admin:
       actions:
         confirm: Bestätigen
+        confirm_delete_conference: Sind Sie sicher, dass Sie diese Konferenz löschen möchten? Wenn Sie Ihre Meinung ändern, können Sie sie später wiederherstellen.
         new_conference: Neue Konferenz
         new_conference_user_role: Neuer Konferenz-Admin
         new_media_link: Neuer Medienlink
@@ -96,6 +97,7 @@ de:
         new_registration_type: Neuer Registrierungstyp
         new_speaker: Neuer Redner
         send_diplomas: Senden Sie eine Teilnahmebestätigung
+        view_deleted_conferences: Gelöschte Konferenzen anzeigen
       conference_copies:
         new:
           copy: Kopieren
@@ -119,13 +121,13 @@ de:
         destroy:
           success: Der Redner wurde für diese Konferenz erfolgreich gelöscht.
         edit:
-          title: Konferenzsprecher aktualisieren
+          title: Referierende Person aktualisieren
           update: Aktualisieren
         index:
           conference_speakers_title: Konferenzsprecher
         new:
           create: Erstellen
-          title: Neuer Konferenzsprecher.
+          title: Neue referierende Person
         publish:
           invalid: Beim Veröffentlichen dieser RednerIn ist ein Problem aufgetreten.
           success: KonferenzrednerIn erfolgreich veröffentlicht.
@@ -142,13 +144,13 @@ de:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Konferenzadmin aktualisieren.
+          title: Referierende Person aktualisieren
           update: Aktualisieren
         index:
           conference_admins_title: Konferenzadmins
         new:
           create: Erstellen
-          title: Neuer Konferenzbenutzer
+          title: Neuer Konferenzadmin
         update:
           error: Bei einem Fehler ist ein Benutzer für diese Konferenz aktualisiert worden.
           success: Der Benutzer wurde für diese Konferenz erfolgreich aktualisiert.
@@ -165,6 +167,8 @@ de:
         index:
           published: Veröffentlicht
           unpublished: Nicht veröffentlicht
+        manage_trash:
+          title: Gelöschte Konferenzen
         new:
           create: Erstellen
           title: Konferenz
@@ -178,9 +182,9 @@ de:
       media_links:
         create:
           error: Beim Erstellen einer neuen Medienverknüpfung ist ein Fehler aufgetreten.
-          success: Medienlink erfolgreich erstellt
+          success: Medienlink erfolgreich erstellt.
         destroy:
-          success: Medienlink wurde erfolgreich gelöscht.
+          success: Medienlink erfolgreich gelöscht.
         edit:
           title: Medienlink aktualisieren
           update: Aktualisieren
@@ -188,17 +192,16 @@ de:
           media_links_title: Medienlinks
         new:
           create: Erstellen
-          title: Medienlink
+          title: Medienlink erstellen
         update:
           error: Beim Aktualisieren dieser Medienverbindung ist ein Fehler aufgetreten.
-          success: Media Link wurde erfolgreich aktualisiert.
+          success: Medienlink erfolgreich aktualisiert.
       menu:
         conferences: Konferenzen
         conferences_submenu:
           attachment_collections: Ordner
           attachment_files: Dateien
           attachments: Anhänge
-          categories: Kategorien
           components: Komponenten
           conference_admins: Konferenzadministratoren
           conference_invites: Lädt ein
@@ -211,7 +214,7 @@ de:
           registration_types: Registrierungsarten
           registrations: Registrierungen
           see_conference: Konferenz ansehen
-          user_registrations: Benutzerregistrierungen
+          user_registrations: Teilnehmende Benutzende
       models:
         conference:
           fields:
@@ -253,7 +256,7 @@ de:
             main_promotor: Hauptförderer
         registration_type:
           fields:
-            conference_meetings: Konferenzsitzungen
+            conference_meetings: Veranstaltungen der Konferenz
             price: Preis
             registrations_count: Registrierungen zählen
             title: Titel
@@ -296,13 +299,21 @@ de:
         update:
           error: Bei einem Fehler ist ein Registrierungstyp für diese Konferenz aktualisiert worden.
           success: Die Registrierung wurde für diese Konferenz erfolgreich aktualisiert.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Alle Konferenzen
       titles:
         conferences: Konferenzen
+        conferences_deleted: Gelöschte Konferenzen
+      tooltips:
+        deleted_conferences_info: Konferenzen können nur gelöscht werden, wenn der Status "Nicht veröffentlicht" ist.
     admin_log:
       conference:
         create: "%{user_name} hat die Konferenz %{resource_name} erstellt"
         publish: "%{user_name} hat die Konferenz %{resource_name} veröffentlicht"
+        restore: "%{user_name} hat die Konferenz %{resource_name} wiederhergestellt"
         send_conference_diplomas: "%{user_name} hat Teilnahmebescheinigungen an die Teilnehmenden der Konferenz %{resource_name} gesendet"
+        soft_delete: "%{user_name} hat die Konferenz %{resource_name} in den Papierkorb verschoben"
         unpublish: "%{user_name} hat die Konferenz %{resource_name} auf \"unveröffentlicht\" gesetzt"
         update: "%{user_name} hat die Konferenz %{resource_name} aktualisiert"
         update_diploma: "%{user_name} hat die Konfiguration der Teilnahmebescheinigungen für die Konferenz %{resource_name} aktualisiert"
@@ -398,7 +409,7 @@ de:
             title: Partner
         registration_types:
           form:
-            select_conference_meetings: Konferenzmeetings auswählen
+            select_conference_meetings: Konferenzveranstaltungen auswählen
           index:
             title: Registrierungsarten
         send_conference_diploma_mailer:
@@ -528,6 +539,25 @@ de:
         objectives: Ziele
         related_assemblies: Ähnliche Gremien
         related_participatory_processes: Ähnliche Beteiligungsprozesse
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: Das Datum, an dem die Konferenzeinladung angenommen wurde
+          conference: Die Konferenz, zu der diese Einladung versendet wurde
+          confirmed_at: Das Datum, an dem diese Einladung bestätigt wurde
+          created_at: Das Datum, an dem diese Einladung erstellt wurde
+          id: Der eindeutige Bezeichnung der Konferenzeinladung
+          registration_type: Die Art der Registrierung für diese Konferenz, zu der eingeladen wurde
+          rejected_at: Das Datum, an dem die Konferenzeinladung abgelehnt wurde
+          sent_at: Das Datum, an dem diese Konferenzeinladung versendet wurde
+          updated_at: Das Datum, an dem diese Einladung zuletzt Mal aktualisiert wurde
+        conference_registrations:
+          conference: Die Konferenz, zu der dies gehört
+          confirmed_at: Das Datum, an dem diese Registrierung bestätigt wurde
+          created_at: Das Datum, an dem diese Registrierung erstellt wurde
+          id: Die eindeutige Kennung der Konferenzanmeldungen
+          registration_type: Die Art der Registrierung, zu der diese gehört
+          updated_at: Das Datum, an dem diese Registrierung zuletzt Mal aktualisiert wurde
     events:
       conferences:
         conference_registration_confirmed:

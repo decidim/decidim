@@ -47,14 +47,14 @@ module Decidim
       #
       # Returns true if enabled, false otherwise.
       def votes_enabled?
-        current_settings.votes_enabled
+        current_settings.respond_to?(:votes_enabled) && current_settings.votes_enabled
       end
 
       # Public: Checks if voting is blocked in this step.
       #
       # Returns true if blocked, false otherwise.
       def votes_blocked?
-        current_settings.votes_blocked
+        current_settings.respond_to?(:votes_blocked) && current_settings.votes_blocked
       end
 
       # Public: Checks if the current user is allowed to vote in this step.

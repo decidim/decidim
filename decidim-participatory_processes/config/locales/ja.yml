@@ -22,16 +22,12 @@ ja:
         local_area: 組織エリア
         meta_scope: スコープメタデータ
         participatory_process_group_id: 参加型プロセスグループ
-        participatory_process_type_id: プロセス種別
         participatory_scope: 決定されるもの
         participatory_structure: どのように決められますか？
         private_space: プライベートプロセス
         promoted: プロモート
         published_at: 公開日時
         related_process_ids: 関連する参加型プロセス
-        scope_id: スコープ
-        scope_type_max_depth_id: スコープフィルタの深さ
-        scopes_enabled: スコープは有効です
         short_description: 短い説明
         slug: URL スラグ
         start_date: 開始日
@@ -59,8 +55,6 @@ ja:
         end_date: 終了日
         short_description: 短い説明
         start_date: 開始日
-        title: タイトル
-      participatory_process_type:
         title: タイトル
       participatory_process_user_role:
         email: Eメールアドレス
@@ -99,7 +93,6 @@ ja:
         new_process: 新規参加型プロセス
         new_process_group: 新規参加型プロセスグループ
         new_process_step: 新しいフェーズ
-        new_process_type: 新しいプロセス種別
         new_process_user_role: 新しい参加型プロセス管理者
         preview: プレビュー
         publish: 公開
@@ -115,13 +108,11 @@ ja:
         participatory_process_groups_submenu:
           info: 情報
           landing_page: ランディングページ
-        participatory_process_types: プロセスの種別
         participatory_processes: 参加型プロセス
         participatory_processes_submenu:
           attachment_collections: フォルダ
           attachment_files: ファイル
           attachments: 添付ファイル
-          categories: カテゴリ
           components: コンポーネント
           info: このプロセスについて
           landing_page: ランディングページ
@@ -148,11 +139,6 @@ ja:
             start_date: 開始日
             title: タイトル
           name: プロセスのフェーズ
-        participatory_process_type:
-          fields:
-            created_at: 作成日時
-            title: タイトル
-          name: プロセスの種別
         participatory_process_user_role:
           fields:
             email: Eメールアドレス
@@ -235,21 +221,6 @@ ja:
         update:
           error: 参加型プロセスのこの段階の更新に問題がありました。
           success: 参加段階が正常に更新されました。
-      participatory_process_types:
-        create:
-          error: 新しいプロセス種別の作成中に問題が発生しました。
-          success: プロセス種別が正常に作成されました。
-        destroy:
-          success: プロセス種別が正常に削除されました。
-        edit:
-          title: プロセス種別の編集
-          update: 更新
-        new:
-          create: 作成
-          title: 新しいプロセス種別
-        update:
-          error: プロセス種別の更新中に問題が発生しました。
-          success: プロセス種別が正常に更新されました。
       participatory_process_user_roles:
         create:
           error: この参加型プロセスに参加者を追加する際に問題が発生しました。
@@ -294,6 +265,9 @@ ja:
         create:
           error: 新しい参加型プロセスグループの作成中に問題が発生しました。
           success: 参加型プロセスグループを作成しました。
+      taxonomy_filters:
+        space_filter_for:
+          participatory_processes: すべての参加型プロセス
       titles:
         participatory_process_groups: 参加型プロセスグループ
         participatory_process_types: 参加型プロセス種別
@@ -318,6 +292,7 @@ ja:
         update: "%{user_name} が %{resource_name} の参加型プロセスを更新しました"
       participatory_process_group:
         create: "%{user_name} が %{resource_name} 参加型プロセスグループを作成しました"
+        unpublish: "%{user_name} が %{resource_name} 参加プロセスグループを非公開にしました"
         update: "%{user_name} が %{resource_name} 参加型プロセスグループを更新しました"
       participatory_process_step:
         activate: "%{user_name} が %{resource_name} の参加型プロセスで %{space_name} フェーズを有効化しました"
@@ -465,16 +440,11 @@ ja:
             announcement_help: ここに入力したテキストは、参加型プロセス情報のすぐ下にユーザーに表示されます。
             define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 期間
-            filters: フィルタ
             images: 画像
             metadata: メタデータ
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
-            other: その他
             private_notice: プライベートとして設定した後、メンバーを管理することができます
             related_processes: 関連する参加型プロセス
-            scope_type_max_depth_help: スコープフィルターの深さを制限します。フィルターは、一般から選択したスコープタイプに表示されます。
-            select_an_area: エリアを選択
-            select_participatory_process_type: プロセスの種別を選択
             select_process_group: 参加型プロセス グループを選択
             slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             taxonomies: タクソノミー

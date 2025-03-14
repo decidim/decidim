@@ -2,7 +2,7 @@
 
 RSpec.shared_examples "manage debates" do
   include_context "with taxonomy filters context"
-  let(:space_manifest) { participatory_process.manifest.name }
+  let(:participatory_space_manifests) { [participatory_process.manifest.name] }
   let(:taxonomies) { [taxonomy] }
   let!(:debate) { create(:debate, taxonomies:, component: current_component) }
   let(:attributes) { attributes_for(:debate, :closed, component: current_component) }

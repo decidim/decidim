@@ -38,16 +38,6 @@ FactoryBot.define do
       author { component.try(:organization) }
     end
 
-    trait :user_group_author do
-      author do
-        create(:user, organization: component.organization, skip_injection:) if component
-      end
-
-      user_group do
-        create(:user_group, :verified, organization: component.organization, users: [author], skip_injection:) if component
-      end
-    end
-
     trait :hidden do
       after :create do |debate, evaluator|
         create(:moderation, hidden_at: Time.current, reportable: debate, skip_injection: evaluator.skip_injection)

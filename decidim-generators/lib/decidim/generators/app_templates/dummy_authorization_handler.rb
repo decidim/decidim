@@ -27,7 +27,6 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
   attribute :document_number, String
   attribute :postal_code, String
   attribute :birthday, Decidim::Attributes::LocalizedDate
-  attribute :scope_id, Integer
 
   # You can (and should) also define validations on each attribute:
   #
@@ -36,7 +35,6 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
   # You can also define custom validations:
   #
   validate :valid_document_number
-  validate :valid_scope_id
 
   # The only method that needs to be implemented for an authorization handler.
   # Here you can add your business logic to check if the authorization should
@@ -56,12 +54,6 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
     document_number
   end
 
-  # The user scope
-  #
-  def scope
-    user.organization.scopes.find_by(id: scope_id) if scope_id
-  end
-
   # If you need to store any of the defined attributes in the authorization you
   # can do it here.
   #
@@ -69,7 +61,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
   # it is created, and available though authorization.metadata
   #
   def metadata
-    super.merge(document_number:, postal_code:, scope_id:)
+    super.merge(document_number:, postal_code:)
   end
 
   private
@@ -78,21 +70,16 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
     errors.add(:document_number, :invalid) unless document_number.to_s.end_with?("X")
   end
 
-  def valid_scope_id
-    errors.add(:scope_id, :invalid) if scope_id && !scope
-  end
-
   # If you need custom authorization logic, you can implement your own action
   # authorizer. In this case, it allows to set a list of valid postal codes for
   # an authorization.
   class DummyActionAuthorizer < Decidim::Verifications::DefaultActionAuthorizer
-    attr_reader :allowed_postal_codes, :allowed_scope_id
+    attr_reader :allowed_postal_codes
 
     # Overrides the parent class method, but it still uses it to keep the base behavior
     def authorize
       # Remove the additional setting from the options hash to avoid to be considered missing.
       @allowed_postal_codes ||= options.delete("allowed_postal_codes")&.split(/[\W,;]+/)
-      @allowed_scope_id ||= options.delete("allowed_scope_id")&.to_i
 
       status_code, data = *super
 
@@ -118,61 +105,17 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
         end
       end
 
-      if allowed_scope.present?
-        # Does not authorize users with different scope
-        status_code = :unauthorized if status_code == :ok && disallowed_user_user_scope
-
-        # Adds an extra message to inform the user about additional restrictions for this authorization
-        if disallowed_user_user_scope
-          if user_scope_id
-            i18n_scope_key = "extra_explanation.user_scope"
-            user_scope_params = { user_scope_name: }
-          else
-            i18n_scope_key = "extra_explanation.scope"
-            user_scope_params = {}
-          end
-
-          extra_explanations << { key: i18n_scope_key,
-                                  params: { scope: "decidim.verifications.dummy_authorization",
-                                            scope_name: allowed_scope.name[I18n.locale.to_s] }.merge(user_scope_params) }
-        end
-      end
-
       data[:extra_explanation] = extra_explanations if extra_explanations.any?
 
       [status_code, data]
     end
 
-    # Adds the list of allowed postal codes and scope to the redirect URL, to allow forms to inform about it
+    # Adds the list of allowed postal codes to the redirect URL, to allow forms to inform about it
     def redirect_params
-      { postal_codes: allowed_postal_codes&.join(","), scope: allowed_scope_id }.merge(user_metadata_params)
+      { postal_codes: allowed_postal_codes&.join(",") }.merge(user_metadata_params)
     end
 
     private
-
-    def allowed_scope
-      @allowed_scope ||= Decidim::Scope.find(allowed_scope_id) if allowed_scope_id&.positive?
-    end
-
-    def user_scope
-      @user_scope ||= Decidim::Scope.find(user_scope_id) if user_scope_id
-    end
-
-    def user_scope_id
-      return unless authorization
-
-      @user_scope_id ||= authorization.metadata["scope_id"]&.to_i
-    end
-
-    def user_scope_name
-      @user_scope_name ||= user_scope.name[I18n.locale.to_s] if authorization && user_scope
-    end
-
-    def disallowed_user_user_scope
-      return unless user_scope || allowed_scope.present?
-
-      allowed_scope_id != user_scope_id
-    end
 
     def user_postal_code
       @user_postal_code ||= authorization.metadata["postal_code"] if authorization && authorization.metadata
@@ -189,8 +132,6 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
 
       @user_metadata_params ||= begin
         user_metadata_params = {}
-        user_metadata_params[:user_scope_name] = user_scope.name[I18n.locale.to_s] if user_scope
-
         user_metadata_params[:user_postal_code] = authorization.metadata["postal_code"] if authorization.metadata["postal_code"].present?
 
         user_metadata_params

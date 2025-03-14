@@ -177,23 +177,8 @@ id:
       autocomplete:
         no_results: Tidak ada hasil yang ditemukan
       categories:
-        create:
-          error: Terjadi kesalahan saat membuat kategori ini.
-          success: Kategori berhasil dibuat.
-        destroy:
-          error: Terjadi kesalahan saat menghapus kategori ini. Hapus subkategori terlebih dahulu, pastikan tidak ada entitas lain yang termasuk dalam kategori ini dan coba lagi.
-          success: Kategori berhasil dihapus.
-        edit:
-          title: Edit kategori
-          update: Memperbarui
         index:
           categories_title: Kategori
-        new:
-          create: Buat kategori
-          title: Kategori baru
-        update:
-          error: Terjadi kesalahan saat memperbarui kategori ini.
-          success: Kategori berhasil diperbarui.
       component_permissions:
         update:
           success: Izin berhasil diperbarui.

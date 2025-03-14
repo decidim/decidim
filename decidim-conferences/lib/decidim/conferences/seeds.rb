@@ -15,10 +15,6 @@ module Decidim
 
           create_attachments!(attached_to: conference)
 
-          2.times do
-            create_category!(participatory_space: conference)
-          end
-
           5.times do
             create_conference_speaker!(conference:)
           end

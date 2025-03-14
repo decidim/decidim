@@ -22,10 +22,6 @@ module Decidim
       let!(:proposal) { create(:proposal, component:, users: [author]) }
       let(:author) { create(:user, organization:) }
 
-      let(:user_group) do
-        create(:user_group, :verified, organization:, users: [author])
-      end
-
       let(:has_address) { false }
       let(:address) { nil }
       let(:latitude) { 40.1234 }
@@ -45,7 +41,6 @@ module Decidim
             body:,
             address:,
             has_address:,
-            user_group_id: user_group.try(:id),
             suggested_hashtags:,
             attachment: attachment_params,
             documents: current_files,
@@ -91,7 +86,7 @@ module Decidim
         end
 
         context "when the author changing the author to one that has reached the proposal limit" do
-          let!(:other_proposal) { create(:proposal, component:, users: [author], user_groups: [user_group]) }
+          let!(:other_proposal) { create(:proposal, component:, users: [author]) }
           let(:component) { create(:proposal_component, :with_proposal_limit) }
 
           it "broadcasts invalid" do
@@ -117,24 +112,11 @@ module Decidim
           end
 
           context "with an author" do
-            let(:user_group) { nil }
-
             it "sets the author" do
               command.call
               proposal = Decidim::Proposals::Proposal.last
 
               expect(proposal).to be_authored_by(author)
-              expect(proposal.identities.include?(user_group)).to be false
-            end
-          end
-
-          context "with a user group" do
-            it "sets the user group" do
-              command.call
-              proposal = Decidim::Proposals::Proposal.last
-
-              expect(proposal).to be_authored_by(author)
-              expect(proposal.identities).to include(user_group)
             end
           end
 

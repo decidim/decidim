@@ -155,8 +155,6 @@ bg:
             maps_enabled: Картите са активирани
             registration_code_enabled: Регистрационният код е активиран
             resources_permissions_enabled: Разрешенията за действия могат да се задават за всяка среща
-            scope_id: Обхват
-            scopes_enabled: Обхватите са активирани
             terms_and_conditions_url_for_meeting_creators: URL адрес за правила и условия за създатели на срещи
           step:
             announcement: Обявление

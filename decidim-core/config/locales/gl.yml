@@ -28,7 +28,6 @@ gl:
     attributes:
       decidim/user:
         current_password: Contrasinal actual
-        email: Correo electrónico
         name: Nome da usuaria
         password: Contrasinal
         password_confirmation: Confirmación por contrasinal
@@ -47,6 +46,8 @@ gl:
     'false': 'Non'
     'true': 'Si'
   date:
+    buttons:
+      select: Seleccionar
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -287,15 +288,12 @@ gl:
           username_help: Nome público que aparece nas túas publicacións. Co obxectivo de garantir o anonimato, pode ser calquera nome.
       sessions:
         new:
-          are_you_new?: Novo para a plataforma?
           register: Crear unha conta
       shared:
         newsletter_modal:
           buttons:
             check: Comprobar e continuar
           title: Notificacións de boletín informativo
-        omniauth_buttons:
-          or: Ou
     doorkeeper:
       authorizations:
         new:
@@ -733,12 +731,7 @@ gl:
         success: O informe foi creado con éxito e será revisado por un administrador.
     scopes:
       global: Alcance global
-      picker:
-        cancel: Cancelar
-        choose: Seleccionar
-        title: Selecciona %{field}
       prompt: Seleccione un alcance
-      scopes: Ámbitos
     search:
       results_found_for_term: '%{count} Resultados para a busca: "%{term}"'
       term_input_placeholder: Busca
@@ -800,13 +793,6 @@ gl:
     user_conversations:
       update:
         error: Mensaxe non enviada. Téntao de novo máis tarde
-    user_interests:
-      show:
-        my_interests: Os meus intereses
-        update_my_interests: Actualiza os meus intereses
-      update:
-        error: Produciuse un erro ao actualizar os teus intereses.
-        success: Os teus intereses foron actualizados correctamente.
     user_report_mailer:
       notify:
         details: Detalles fornecidos polo usuario
@@ -963,7 +949,6 @@ gl:
         authorizations: Autorizacións
         delete_my_account: Eliminar a miña conta
         my_data: Os meus datos
-        my_interests: Os meus intereses
         notifications_settings: Configuración de notificacións
         title: Configuración do usuario
         user_groups: Grupos
@@ -1001,6 +986,8 @@ gl:
     weibo: Sina Weibo
     xing: Xing
   time:
+    buttons:
+      select: Seleccionar
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

@@ -80,7 +80,6 @@ ga:
         settings:
           global:
             intro: Réamhrá
-            scope_id: Scóip
     metrics:
       results:
         object: torthaí

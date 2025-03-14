@@ -23,7 +23,7 @@ module Decidim
         [start_date_item, type, comments_count_item] + taxonomy_items + [withdrawn_item]
       end
 
-      def meeting_items_for_map
+      def items_for_map
         [dates_item, type].compact_blank.map do |item|
           {
             text: item[:text],

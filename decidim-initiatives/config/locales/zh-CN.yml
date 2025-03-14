@@ -112,8 +112,6 @@ zh-CN:
             initiative_title: 倡议标题
             name_and_surname: 姓名：
             postal_code: 邮政编码
-            scope: 范围
-            time_and_date: 时间和日期
             timestamp: 时间戳
       titles:
         initiatives: 倡议

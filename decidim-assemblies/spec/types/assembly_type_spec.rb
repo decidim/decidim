@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
-
-require "decidim/core/test/shared_examples/attachable_interface_examples"
-require "decidim/core/test/shared_examples/taxonomizable_interface_examples"
-require "decidim/core/test/shared_examples/participatory_space_resourcable_interface_examples"
+require "decidim/api/test"
 
 module Decidim
   module Assemblies
@@ -245,18 +241,6 @@ module Decidim
 
         it "returns the assemblyType field" do
           expect(response["assemblyType"]).to be_nil
-        end
-      end
-
-      context "when there is type" do
-        let(:model) { create(:assembly, :with_type) }
-
-        describe "assemblyType" do
-          let(:query) { "{ assemblyType { id } }" }
-
-          it "returns the assemblyType field" do
-            expect(response["assemblyType"]["id"]).to eq(model.assembly_type.id.to_s)
-          end
         end
       end
 

@@ -182,8 +182,6 @@ pl:
         attachment_collection:
           new: Nowy folder załącznika
         browse: Przeglądaj
-        category:
-          new: Nowa kategoria
         export: Eksportuj wszystko
         export-selection: Eksportuj wybrane
         import: Importuj
@@ -292,23 +290,8 @@ pl:
           justification: Uzasadnienie
           title: Zablokuj użytkownika %{name}
       categories:
-        create:
-          error: Podczas tworzenia tej kategorii wystąpił błąd.
-          success: Utworzono kategorię.
-        destroy:
-          error: Podczas usuwania tej kategorii wystąpił błąd. Usuń najpierw podkategorię, upewnij się, że żaden element nie należy do tej kategorii i spróbuj ponownie.
-          success: Kategoria została usunięta.
-        edit:
-          title: Edytuj kategorię
-          update: Aktualizuj
         index:
           categories_title: Kategorie
-        new:
-          create: Utwórz kategorię
-          title: Nowa kategoria
-        update:
-          error: Podczas aktualizowania tej kategorii wystąpił błąd.
-          success: Kategoria została zaktualizowana.
       component_permissions:
         update:
           error: Wystąpił błąd podczas aktualizowania uprawnień dla tego komponentu.
@@ -736,7 +719,6 @@ pl:
           confirm_delete: Czy na pewno chcesz usunąć ten newsletter?
           followers: 'obserwujący '
           has_been_sent_to: 'Wysłano do: '
-          no_scopes: Brak zakresów
           not_sent: Nie wysłano
           participants: 'użytkownicy '
           segmented_to: 'Podzielone na %{subject}: '
@@ -751,13 +733,10 @@ pl:
           confirm_deliver: Czy na pewno chcesz dostarczyć ten newsletter? Nie można cofnąć tej czynności.
           deliver: Dostarcz newsletter
           followers_help: Wysyła newsletter do wszystkich potwierdzonych użytkowników, którzy obserwują dowolne przestrzenie partycypacyjne z tej listy.
-          none: Żaden
           participants_help: Wysyła newsletter do wszystkich potwierdzonych użytkowników, którzy uczestniczyli w którejkolwiek z przestrzeni partycypacyjnych z tej listy.
           recipients_count: Ten newsletter zostanie wysłany do <strong id='recipients_count'>%{count}</strong> użytkowników.
-          scopes_help: Wysyła newsletter do użytkowników, którzy mają dowolny z wybranych zakresów ustawiony jako aktywny w zakładce konta „Moje zainteresowania”.
-          select_scopes: Filtruj według użytkowników, którzy mają dowolny z wybranych zakresów ustawiony jako aktywny w zakładce konta „Moje zainteresowania”.
           select_spaces: Wybierz przestrzenie, aby podzielić newsletter
-          select_users: Wybierz użytkowników, do których chcesz wysyłać newsletter
+          send_to_all_users: Wyślij do wszystkich użytkowników
           title: Wybierz odbiorców
           warning: "<strong>Uwaga:</strong> Ten newsletter zostanie wysyłany tylko do użytkowników, którzy w ustawieniach powiadomień aktywowali opcję <em>Chcę otrzymywać newsletter</em>."
         send:
@@ -906,6 +885,8 @@ pl:
         edit:
           submit: Zatwierdź
           title: Edytuj uprawnienia
+        options_form:
+          ephemeral_warning: Aby włączyć tę metodę autoryzacji, należy <a href="%{path}">odwołać</a> wszystkie istniejące uprawnienia. Minimalizuje to ryzyko konfliktów weryfikacji. Wszystkie autoryzacje tego typu zostaną automatycznie cofnięte w organizacji w przypadku wprowadzenia zmian dodających tę metodę lub modyfikujących jej konfigurację po dodaniu.
         update:
           success: Uprawnienia zostały pomyślnie zaktualizowane.
       scope_types:

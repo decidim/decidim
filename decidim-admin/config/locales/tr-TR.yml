@@ -204,23 +204,8 @@ tr:
           justification: Gerekçe
           title: '%{name} Kullanıcısını Engelle'
       categories:
-        create:
-          error: Bu kategori oluşturulurken bir hata oluştu.
-          success: Kategori başarıyla oluşturuldu.
-        destroy:
-          error: Bu kategoriyi silerken bir hata oluştu. Lütfen önce herhangi bir alt kategoriyi silin, başka bir varlığın bu kategoriye ait olmadığından emin olun ve tekrar deneyin.
-          success: Kategori başarıyla silindi.
-        edit:
-          title: Kategoriyi düzenle
-          update: Güncelleştirme
         index:
           categories_title: Kategoriler
-        new:
-          create: Kategori oluştur
-          title: Yeni kategori
-        update:
-          error: Bu kategori güncellenirken bir hata oluştu.
-          success: Kategori başarıyla güncellendi.
       component_permissions:
         update:
           error: Bu bileşenin izinleri güncellenirken bir sorun oluştu.
@@ -504,7 +489,6 @@ tr:
           confirm_delete: Bu bülteni silmek istediğinizden emin misiniz?
           followers: 'takipçiler '
           has_been_sent_to: 'Şuraya gönderildi: '
-          no_scopes: Kapsam yok
           not_sent: Gönderilmedi
           participants: 'katılımcılar '
           segmented_to: '%{subject} bölüme ayrılmış: '
@@ -519,13 +503,10 @@ tr:
           confirm_deliver: Bu bülteni sunmak istediğinizden emin misiniz? Bu işlem geri alınamaz.
           deliver: Bülten sunun
           followers_help: Listede seçili herhangi bir katılımcı süreci takip eden bütün onaylanmış kullanıcılara haber bülteni gönderir.
-          none: Hiçbiri
           participants_help: Listede seçili herhangi bir katılımcı sürece katılmış olan bütün onaylanmış kullanıcılara haber bülteni gönderir.
           recipients_count: Bu haber bülteni <strong id='recipients_count'>%{count}</strong> kullanıcıya gönderilecektir.
-          scopes_help: Hesaplarındaki 'İlgi Alanlarım' ayarlarında etkinleştirilmiş herhangi bir seçili kapsam bulunan kullanıcılara haber bülteni gönderir.
-          select_scopes: Hesaplarındaki 'İlgi Alanlarım' ayarlarında herhangi bir seçilmiş kapsam etkinleştirilmiş bulunan kullanıcılar için filtre.
           select_spaces: Haber bültenini bölmek için alanları seçin
-          select_users: Haber bültenini göndermek istediğiniz kullanıcıları seçiniz
+          send_to_all_users: Tüm kullanıcılara gönder
           title: Teslim etmek için alıcıları seçiniz
           warning: "<strong>Dikkat:</strong> Haber bülteni yalnızca bildirim seçeneklerinden <em>Haber bülteni almak istiyorum</em> ayarını etkinleştirmiş kullanıcılara gönderilecektir."
         show:

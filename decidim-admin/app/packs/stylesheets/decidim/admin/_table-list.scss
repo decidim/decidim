@@ -1,6 +1,10 @@
 .table-scroll {
   @apply overflow-x-auto;
 
+  &.half-vh {
+    @apply max-h-[50vh];
+  }
+
   table {
     border-collapse: unset;
 

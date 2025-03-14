@@ -60,7 +60,7 @@ module Decidim
     end
 
     def decidim_url_escape(text)
-      decidim_html_escape(text).sub(/^javascript:/, "")
+      decidim_html_escape(text).sub(/^\s*javascript:/, "")
     end
 
     def decidim_sanitize_translated(text)

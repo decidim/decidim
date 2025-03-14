@@ -117,8 +117,6 @@ it:
             initiative_title: Titolo dell'iniziativa
             name_and_surname: Nome e cognome
             postal_code: Codice postale
-            scope: Ambito
-            time_and_date: Ora e data
             timestamp: timestamp
       titles:
         initiatives: Iniziative

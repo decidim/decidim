@@ -49,6 +49,9 @@ lv:
         project:
           fields:
             title: Nosaukums
+      order:
+        status:
+          title: Jūsu balsojums ir veiksmīgi pieņemts
       order_summary_mailer:
         order_summary:
           selected_projects: 'Jūsu izvēlētie projekti ir:'

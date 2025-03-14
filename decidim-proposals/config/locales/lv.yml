@@ -266,7 +266,6 @@ lv:
             title: Atjaunināt priekšlikumu
             update: Atjaunināt
           form:
-            attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
             created_in_meeting: Šis priekšlikums tika izteikts sanāksmē
             select_a_meeting: Atlasiet sanāksmi
           index:
@@ -275,7 +274,6 @@ lv:
             assign_to_valuator_button: Piešķirt
             cancel: Atcelt
             merge: Apvienot jaunā
-            merge_button: Apvienot
             publish: Publicēt
             publish_answers: Publicēt atbildes
             select_component: Izvēlēties komponentu
@@ -322,7 +320,6 @@ lv:
       admin_log:
         proposal:
           answer: "%{user_name} atbildēja projektam %{resource_name} telpā %{space_name}"
-          create: "%{user_name} izveidoja %{resource_name} priekšlikumu telpā %{space_name} kā oficiālu priekšlikumu"
           publish_answer: "%{user_name} publicēja atbildi uz %{resource_name} priekšlikumu telpā%{space_name}"
           update: "%{user_name} atjaunināja %{resource_name} oficiālo priekšlikumu %{space_name} telpā"
         proposal_note:
@@ -368,7 +365,6 @@ lv:
         create:
           success: Sadarbības projekts ir veiksmīgi izveidots.
         edit:
-          attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
           back: Atpakaļ
           send: Sūtīt
           title: Rediģēt sadarbības projektu
@@ -459,7 +455,6 @@ lv:
           comment: Komentēt
       proposals:
         edit:
-          attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
           back: Atpakaļ
           send: Sūtīt
           title: Rediģēt priekšlikumu
@@ -524,6 +519,8 @@ lv:
         voting_rules:
           proposal_limit:
             description: Jūs varat izveidot līdz %{limit} priekšlikumiem.
+          vote_limit:
+            description: Jūs varat atbalstīt līdz %{limit} priekšlikumiem.
         wizard_aside:
           back: Atpakaļ
         wizard_steps:

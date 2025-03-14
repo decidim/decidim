@@ -32,9 +32,6 @@ kaa:
             name: Nátiyje
           status:
             name: Jaǵday
-        projects_import:
-          new:
-            create: Importlaw
         results:
           create:
             success: Nátiyje tabıslı jaratıldı.

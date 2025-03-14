@@ -1,8 +1,6 @@
 cs:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Název
       assembly:
         announcement: Oznámení
         area_id: Oblast
@@ -19,7 +17,6 @@ cs:
         created_by_other: Vytvořeno jinými
         creation_date: Datum vytvoření
         decidim_area_id: Oblast
-        decidim_assemblies_type_id: Typ shromáždění
         decidim_scope_id: Oblast působnosti
         description: Popis
         developer_group: Skupina promotérů
@@ -47,8 +44,6 @@ cs:
         promoted: Propagováno
         published_at: Publikováno v
         purpose_of_action: Účel akce
-        scope_id: Oblast působnosti
-        scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis
         slug: URL slug
         special_features: Speciální funkce
@@ -102,7 +97,6 @@ cs:
         confirm_delete_assembly: Opravdu chcete odstranit toto shromáždění? Pokud změníte názor, můžete ho obnovit později.
         import_assembly: Importovat
         new_assembly: Nové shromáždění
-        new_assembly_type: Nový typ shromáždění
         new_assembly_user_role: Nový administrátor shromáždění
         view_deleted_assemblies: Zobrazit odstraněné shromáždění
       assemblies:
@@ -128,18 +122,6 @@ cs:
         create:
           error: Při kopírování tohoto shromáždění došlo k chybě.
           success: Shromáždění úspěšně duplikováno.
-      assemblies_types:
-        create:
-          error: Při vytváření nového typu shromáždění došlo k chybě.
-          success: Typ shromáždění byl úspěšně vytvořen.
-        destroy:
-          success: Typ shromáždění byl úspěšně smazán.
-        new:
-          create: Vytvořit
-          title: Nový typ shromáždění
-        update:
-          error: Při aktualizaci tohoto typu shromáždění došlo k chybě.
-          success: Typ shromáždění byl úspěšně aktualizován.
       assembly_copies:
         new:
           copy: Kopírovat
@@ -183,8 +165,6 @@ cs:
           values:
             'false': Neukončeno
             'true': Ukončeno
-        decidim_assemblies_type_id_eq:
-          label: Typ shromáždění
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Hledat podle jména nebo přezdívky
       menu:
@@ -194,19 +174,13 @@ cs:
           attachment_collections: Složky
           attachment_files: Soubory
           attachments: Přílohy
-          categories: Kategorie
           components: Komponenty
           info: O tomto shromáždění
           landing_page: Úvodní stránka
           moderations: Moderování
           private_users: Členové
           see_assembly: Zobrazit shromáždění
-        assemblies_types: Typy shromáždění
       models:
-        assemblies_types:
-          fields:
-            created_at: Vytvořeno v
-            title: Titul
         assembly:
           fields:
             actions: Akce
@@ -234,6 +208,9 @@ cs:
             collaborator: Spolupracovník
             moderator: Moderátor
             valuator: Hodnotitel
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: Všechna shromáždění
       titles:
         assemblies: Shromáždění
         assemblies_deleted: Smazané shromáždění
@@ -275,7 +252,6 @@ cs:
             define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
             duration_help: Pokud je doba trvání tohoto shromáždění omezená, zvolte konečné datum, jinak se objeví jako neurčitá.
-            filters: Filtry
             images: Obrázky
             included_at_help: Vyberte datum, kdy byla tato sestava přidána na platformu. Nemusí být nutně stejné jako datum vytvoření.
             metadata: Metadata
@@ -283,17 +259,12 @@ cs:
             other: Ostatní
             private_notice: Budete moci spravovat soukromé účastníky po nastavení jako soukromé
             select_a_created_by: Vybrat vytvořeno od
-            select_an_area: Vyberte oblast
-            select_an_assembly_type: Vyberte typ shromáždění
             select_parent_assembly: Vybrat nadřazené shromáždění
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
             social_handlers: Sociální
             taxonomies: Taxonomie
             title: Obecná informace
             visibility: Viditelnost
-        assemblies_types:
-          form:
-            title: Titul
         assembly_copies:
           form:
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
@@ -337,14 +308,6 @@ cs:
       assembly_members:
         index:
           members: Členové
-      assembly_types:
-        commission: Komise
-        consultative_advisory: Konzultační / poradní
-        executive: Výkonný
-        government: Vládní
-        others: Ostatní
-        participatory: Účastnický
-        working_group: Pracovní skupina
       content_blocks:
         children_assemblies:
           name: Shromáždění
@@ -383,7 +346,6 @@ cs:
           member_of:
             member_of: Člen
       show:
-        assembly_type: Typ shromáždění
         duration: Doba trvání
         private_space: Toto je soukromé shromáždění
         social_networks_title: Navštivte shromáždění na

@@ -51,10 +51,6 @@ module Decidim
       attr_reader :project
       alias resource project
 
-      def component
-        project.component
-      end
-
       def related_proposals
         project.linked_resources(:proposals, "included_proposals").map(&:id)
       end

@@ -2,8 +2,6 @@
 en:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Title
       assembly:
         announcement: Announcement
         area_id: Area
@@ -20,7 +18,6 @@ en:
         created_by_other: Created by other
         creation_date: Date created
         decidim_area_id: Area
-        decidim_assemblies_type_id: Assembly type
         decidim_scope_id: Scope
         description: Description
         developer_group: Promoter group
@@ -36,7 +33,7 @@ en:
         import_components: Import components
         included_at: Included at
         instagram: Instagram
-        internal_organisation: Internal organisation
+        internal_organisation: Internal organization
         is_transparent: Is transparent
         local_area: Organization area
         meta_scope: Scope metadata
@@ -48,8 +45,6 @@ en:
         promoted: Highlighted
         published_at: Published at
         purpose_of_action: Purpose of action
-        scope_id: Scope
-        scopes_enabled: Scopes enabled
         short_description: Short description
         slug: URL slug
         special_features: Special features
@@ -97,7 +92,6 @@ en:
         confirm_delete_assembly: Are you sure you want to delete this assembly?  If you change your mind, you can restore it later.
         import_assembly: Import
         new_assembly: New assembly
-        new_assembly_type: New assembly type
         new_assembly_user_role: New assembly admin
         view_deleted_assemblies: View deleted assemblies
       assemblies:
@@ -123,18 +117,6 @@ en:
         create:
           error: There was a problem duplicating this assembly.
           success: Assembly successfully duplicated.
-      assemblies_types:
-        create:
-          error: There was a problem creating a new assembly type.
-          success: Assembly type created successfully.
-        destroy:
-          success: Assembly type successfully deleted.
-        new:
-          create: Create
-          title: New assembly type
-        update:
-          error: There was a problem updating this assembly type.
-          success: Assembly type successfully updated.
       assembly_copies:
         new:
           copy: Copy
@@ -178,8 +160,6 @@ en:
           values:
             'false': Not ceased
             'true': Ceased
-        decidim_assemblies_type_id_eq:
-          label: Assembly type
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Search by name or nickname
       menu:
@@ -195,12 +175,7 @@ en:
           moderations: Moderations
           private_users: Members
           see_assembly: See assembly
-        assemblies_types: Assemblies types
       models:
-        assemblies_types:
-          fields:
-            created_at: Created at
-            title: Title
         assembly:
           fields:
             actions: Actions
@@ -228,6 +203,9 @@ en:
             collaborator: Collaborator
             moderator: Moderator
             valuator: Valuator
+      taxonomy_filters:
+        space_filter_for:
+          assemblies: All assemblies
       titles:
         assemblies: Assemblies
         assemblies_deleted: Deleted assemblies
@@ -269,7 +247,6 @@ en:
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
-            filters: Filters
             images: Images
             included_at_help: Select the date when this assembly was added to the platform. It does not necessarily have to be the same as the creation date.
             metadata: Metadata
@@ -277,17 +254,12 @@ en:
             other: Other
             private_notice: You will be able to manage private participants after setting it as private
             select_a_created_by: Select a created by
-            select_an_area: Select an Area
-            select_an_assembly_type: Select an assembly type
             select_parent_assembly: Select parent assembly
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             social_handlers: Social
             taxonomies: Taxonomies
             title: General Information
             visibility: Visibility
-        assemblies_types:
-          form:
-            title: Edit assembly type
         assembly_copies:
           form:
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
@@ -331,14 +303,6 @@ en:
       assembly_members:
         index:
           members: Members
-      assembly_types:
-        commission: Comission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
-        others: Others
-        participatory: Participatory
-        working_group: Working group
       content_blocks:
         children_assemblies:
           name: Assemblies
@@ -377,7 +341,6 @@ en:
           member_of:
             member_of: Member of
       show:
-        assembly_type: Assembly type
         duration: Duration
         private_space: This is a private assembly
         social_networks_title: Visit assembly on

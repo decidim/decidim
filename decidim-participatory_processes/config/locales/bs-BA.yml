@@ -1,1 +1,22 @@
 bs:
+  decidim:
+    admin:
+      models:
+        participatory_process_user_role:
+          roles:
+            valuator: Procenjivač
+      participatory_process_user_roles:
+        edit:
+          title: Ažuriraj administratora participatornog procesa
+        new:
+          title: Novi administrator participatornog prostora
+    events:
+      participatory_process:
+        role_assigned:
+          email_intro: Imenovani ste na funkciju %{role} za participatorni proces "%{resource_title}".
+          email_outro: Dobili ste ovo obaveštenje zbog toga što ste %{role} participatornog procesa "%{resource_title}".
+          email_subject: Imenovani ste na funkciju %{role} %{resource_title}.
+    participatory_process_groups:
+      content_blocks:
+        stats:
+          name: Statistika

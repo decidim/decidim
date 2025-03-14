@@ -43,9 +43,7 @@ module Decidim
                         decidim_admin_assemblies.assemblies_path,
                         icon_name: "government-line",
                         position: 2.2,
-                        active: is_active_link?(decidim_admin_assemblies.assemblies_path) ||
-                                is_active_link?(decidim_admin_assemblies.assemblies_types_path) ||
-                                is_active_link?(decidim_admin_assemblies.assembly_filters_path),
+                        active: is_active_link?(decidim_admin_assemblies.assemblies_path),
                         if: allowed_to?(:enter, :space_area, space_name: :assemblies)
         end
       end
@@ -162,22 +160,6 @@ module Decidim
                         active: is_active_link?(decidim_admin_assemblies.new_import_path),
                         icon_name: "price-tag-3-line",
                         if: allowed_to?(:import, :assembly)
-
-          menu.add_item :taxonomy_filters,
-                        I18n.t("menu.taxonomy_filters", scope: "decidim.admin"),
-                        decidim_admin_assemblies.assembly_filters_path,
-                        position: 3,
-                        icon_name: "price-tag-3-line",
-                        if: allowed_to?(:manage, :taxonomy_filter),
-                        active: is_active_link?(decidim_admin_assemblies.assembly_filters_path)
-
-          menu.add_item :assemblies_types,
-                        I18n.t("menu.assemblies_types", scope: "decidim.admin"),
-                        decidim_admin_assemblies.assemblies_types_path,
-                        position: 3,
-                        active: is_active_link?(decidim_admin_assemblies.assemblies_types_path),
-                        icon_name: "government-line",
-                        if: allowed_to?(:manage, :assemblies_type)
         end
       end
     end

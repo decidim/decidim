@@ -181,8 +181,8 @@ shared_examples "a collection filtered by taxonomies" do
   let!(:taxonomy12) { create(:taxonomy, parent: root_taxonomy1, organization:, name: { "en" => "Taxonomy12" }) }
   let!(:taxonomy21) { create(:taxonomy, parent: root_taxonomy2, organization:, name: { "en" => "Taxonomy21" }) }
   let!(:taxonomy22) { create(:taxonomy, parent: root_taxonomy2, organization:, name: { "en" => "Taxonomy22" }) }
-  let(:taxonomy1_filter1) { create(:taxonomy_filter, root_taxonomy: root_taxonomy1, space_manifest: participatory_space.manifest.name) }
-  let(:taxonomy2_filter1) { create(:taxonomy_filter, root_taxonomy: root_taxonomy2, space_manifest: participatory_space.manifest.name) }
+  let(:taxonomy1_filter1) { create(:taxonomy_filter, root_taxonomy: root_taxonomy1, participatory_space_manifests: [participatory_space.manifest.name]) }
+  let(:taxonomy2_filter1) { create(:taxonomy_filter, root_taxonomy: root_taxonomy2, participatory_space_manifests: [participatory_space.manifest.name]) }
   let!(:taxonomy_filter_item11) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy1_filter1, taxonomy_item: taxonomy11) }
   let!(:taxonomy_filter_item12) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy1_filter1, taxonomy_item: taxonomy12) }
   let!(:taxonomy_filter_item21) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy2_filter1, taxonomy_item: taxonomy21) }

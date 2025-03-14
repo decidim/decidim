@@ -176,12 +176,14 @@ bg:
             id: ID
             map: Карта
             title: Заглавие
+      order:
+        status:
+          title: Вашият глас е приет успешно
       order_summary_mailer:
         order_summary:
           selected_projects: 'Избраните от Вас проекти са:'
           subject: Гласувахте в пространството за участие %{space_name}
           voted_on_space: Гласувахте за бюджета %{budget_name} за пространството за участие %{space_name}.
-          voted_on_space_with_scope: Гласувахте за бюджета %{budget_name} за пространството за участие %{space_name} в(ъв) %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Ако размислите, може да промените гласа си по-късно.
@@ -294,8 +296,6 @@ bg:
             more_information_modal: Диалогов прозорец за повече информация
             projects_per_page: Проекти на страница
             resources_permissions_enabled: Права за действия могат да се задават за всеки проект
-            scope_id: Обхват
-            scopes_enabled: Обхватите са активирани
             title: Заглавие
             total_budget: Общ бюджет
             vote_minimum_budget_projects_number: Минимален брой проекти за гласуване
@@ -333,8 +333,6 @@ bg:
     orders:
       checkout:
         error: Възникна проблем при обработването на Вашия глас.
-        success_html: <p>Вашият глас беше приет успешно.</p> <p class="text-sm font-normal">Можете да разгледате <a class="text-secondary underline" href="%{rest_of_budgets_link}"> останали бюджети</a>.</p>
-        success_no_left_budgets_html: Вашият глас е приет успешно.
       destroy:
         error: Възникна проблем при отмяната на вашето гласуване.
         success: Вашият глас беше отменен успешно.

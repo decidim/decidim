@@ -9,7 +9,9 @@ shared_examples "import proposals" do
   it "imports proposals from one component to another" do
     fill_form
 
-    confirm_flash_message
+    confirm_flash_message_enqueued_jobs
+    perform_enqueued_jobs
+    visit current_path
 
     proposals.each do |proposal|
       expect(page).to have_content(proposal.title["en"])
@@ -21,7 +23,9 @@ shared_examples "import proposals" do
   it "imports proposals from one component to another by keeping the authors" do
     fill_form(keep_authors: true)
 
-    confirm_flash_message
+    confirm_flash_message_enqueued_jobs
+    perform_enqueued_jobs
+    visit current_path
 
     proposals.each do |proposal|
       expect(page).to have_content(proposal.title["en"])
@@ -37,7 +41,7 @@ shared_examples "import proposals" do
     end
 
     it "imports from a csv file" do
-      dynamically_attach_file(:proposals_file_import_file, Decidim::Dev.asset("import_proposals.csv"))
+      dynamically_attach_file(:import_file, Decidim::Dev.asset("import_proposals.csv"))
       click_on "Import"
 
       confirm_flash_message
@@ -45,7 +49,7 @@ shared_examples "import proposals" do
     end
 
     it "imports from a json file" do
-      dynamically_attach_file(:proposals_file_import_file, Decidim::Dev.asset("import_proposals.json"))
+      dynamically_attach_file(:import_file, Decidim::Dev.asset("import_proposals.json"))
 
       click_on "Import"
 
@@ -54,7 +58,7 @@ shared_examples "import proposals" do
     end
 
     it "imports from a excel file" do
-      dynamically_attach_file(:proposals_file_import_file, Decidim::Dev.asset("import_proposals.xlsx"))
+      dynamically_attach_file(:import_file, Decidim::Dev.asset("import_proposals.xlsx"))
 
       click_on "Import"
 
@@ -75,6 +79,10 @@ shared_examples "import proposals" do
     end
 
     click_on "Import proposals"
+  end
+
+  def confirm_flash_message_enqueued_jobs
+    expect(page).to have_content("The import process has started. We will let you know once it has finished.")
   end
 
   def confirm_flash_message

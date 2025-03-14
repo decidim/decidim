@@ -2,8 +2,15 @@
   <td role="cell" class="w-12 js-drag-handle"><%== icon("draggable", class: "dragger") %></td>
   <td role="cell">
     <ul class="taxonomy">
-      <li><%= link_to translated_attribute(taxonomy.name), taxonomy.root? ? edit_taxonomy_path(taxonomy) : edit_taxonomy_item_path(taxonomy_id: taxonomy.root_taxonomy.id, id: taxonomy.id), class: "js-drawer-editor" %></li>
-      <li><%= taxonomy.root? ? taxonomy.children_count : taxonomy.taxonomizations_count %></li>
+      <% if taxonomy.root? %>
+        <li><%= link_to translated_attribute(taxonomy.name), edit_taxonomy_path(taxonomy), class: "js-drawer-editor" %></li>
+        <li><%= taxonomy.all_children.count %></li>
+        <li><%= taxonomy.filters_count %></li>
+      <% else %>
+        <li><%= link_to translated_attribute(taxonomy.name), edit_taxonomy_item_path(taxonomy_id: taxonomy.root_taxonomy.id, id: taxonomy.id), class: "js-drawer-editor" %></li>
+        <li><%= taxonomy.taxonomizations_count %></li>
+      <% end %>
+
       <li class="taxonomy-list__actions"><%= render "taxonomy_actions", taxonomy: %></li>
     </ul>
     <% if with_children && taxonomy.children.any? %>

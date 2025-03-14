@@ -20,7 +20,6 @@ module Decidim
       helper Decidim::IconHelper
       helper Decidim::ResourceHelper
       helper Decidim::TaxonomiesHelper
-      helper Decidim::ScopesHelper
       helper Decidim::ActionAuthorizationHelper
       helper Decidim::AttachmentsHelper
       helper Decidim::SanitizeHelper

@@ -22,8 +22,6 @@ gl:
         promoted: Promocionado
         published_at: Publicado en
         related_process_ids: Procesos relacionados
-        scope_id: Alcance
-        scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
         slug: URL slug
         start_date: Data de inicio
@@ -95,7 +93,6 @@ gl:
           attachment_collections: Carpetas
           attachment_files: Arquivos
           attachments: Anexos
-          categories: Categorías
           components: Compoñentes
           moderations: Moderacións
           process_admins: Usuarios do proceso
@@ -316,12 +313,9 @@ gl:
           form:
             announcement_help: O texto que introduce aquí será mostrado ao usuario debaixo da información do proceso.
             duration: Duración
-            filters: Filtros
             images: Imaxes
             metadata: Metadatos
-            other: Outra
             related_processes: Procesos relacionados
-            select_an_area: Seleccione unha área
             select_process_group: Seleccione un grupo de procesos
             title: Información xeral
       content_blocks:

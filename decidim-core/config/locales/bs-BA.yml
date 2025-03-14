@@ -1,1 +1,97 @@
 bs:
+  activerecord:
+    models:
+      decidim/endorsement:
+        one: Podržavanje
+        few: Podržavanja
+        other: Podržavanja
+  decidim:
+    accessibility:
+      logo: "Zvanični logo %{organization}"
+      skip_button: Preskoči na glavni sadržaj
+    admin_log:
+      user:
+        show_email: "%{user_name} je pribavio e-mail adresu učesnika %{resource_name}"
+    application:
+      document:
+        download: Preuzmi datoteku
+    author:
+      endorsements:
+        one: podržavanje
+        few: podržavanja
+        other: podržavanja
+    content_blocks:
+      hero_settings_form:
+        background_image: Pozadinska slika
+        welcome_text: Tekst dobrodošlice
+      stats:
+        name: Statistika organizacije
+    endorsements:
+      identities:
+        done: Gotovo
+        select_identity: Izaberite identitet
+    events:
+      resource_endorsed:
+        email_intro: '%{endorser_name}%{endorser_nickname}, koga pratite, je podržao %{resource_title} i mislimo da bi vas to možda interesovalo. Pogledajte i doprinesite:'
+        email_outro: Dobili ste ovo obaveštenje jer pratite %{endorser_nickname}. Možete da prestanete da dobijate obaveštenja, ukoliko pratite prethodni link.
+        email_subject: "%{endorser_nickname} je podržao nešto"
+    messaging:
+      conversations:
+        add_conversation_users:
+          add_max_users: 'Dodajte korisnike u razgovor: najviše 9 korisnika'
+          add_users_placeholder: Pretraži...
+          modal_title: Novi razgovor
+          no_results: Nema rezultata
+        index:
+          new_conversation: Novi razgovor
+          next: Sledeće
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Probni tekst za pasus: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Osnovno (samo tekst)
+      basic_only_text_settings_form:
+        body: Glavni deo teksta
+        interpolations_hint: 'Mala pomoć: Možeš da napišeš "%{name}" bilo gde u tekstu ili naslovu i automatski će se zameniti sa imenom primaoca.'
+      image_text_cta:
+        body_preview: 'Probni tekst za pasus: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Tekst Poziva na akciju
+        introduction_preview: 'Probni tekst za uvod: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Dugme za sliku, tekst i Poziv na akciju
+      image_text_cta_settings_form:
+        body: Glavni deo teksta
+        cta_text: Tekst dugmeta poziva na akciju
+        cta_url: Link dugmeta poziva na akciju
+        interpolations_hint: 'Mala pomoć: Možeš da napišeš "%{name}" bilo gde u uvodu, glavnom delu teksta, pozivu na akciju ili naslovu i automatski će se zameniti sa imenom primaoca.'
+        introduction: Uvod
+        main_image: Glavna slika
+    notifications_settings:
+      show:
+        direct_messages: Primaj direktne poruke od svih bez ograničenja
+    pages:
+      participatory_space:
+        metrics:
+          headline: Metrika
+          link: Prikaži svu metriku
+    resource_endorsements:
+      create:
+        error: Nastao je problem pri podržavanju.
+    shared:
+      results_per_page:
+        title: Izaberite broj rezultata po stranici
+    user_contact_disabled: Ovaj učesnik ne prihvata direktne poruke.
+  errors:
+    messages:
+      invalid_time_zone: nije validna vremenska zona
+  locale:
+    name: Bosanski
+  time:
+    formats:
+      long_dashed: "%d-%m-%Y %H:%M:%S"
+  versions:
+    dropdown:
+      choose_diff_view_html: 'HTML režim gledanja:'
+  views:
+    pagination:
+      next_title: Veza ka sledećoj stranici
+      previous_title: Veza ka prethodnoj stranici
+      title: 'Redni broj stranice:'

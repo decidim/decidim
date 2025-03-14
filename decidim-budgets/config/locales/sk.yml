@@ -50,6 +50,9 @@ sk:
         project:
           fields:
             title: Názov
+      order:
+        status:
+          title: Váš hlas bol úspešne schválený
       order_summary_mailer:
         order_summary:
           selected_projects: 'Vybrali ste tieto projekty:'

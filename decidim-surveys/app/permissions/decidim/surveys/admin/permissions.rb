@@ -20,6 +20,15 @@ module Decidim
             when :index, :show, :export_response
               permission_action.allow!
             end
+          when :questionnaire_publish_answers
+            case permission_action.action
+            when :index, :update, :destroy
+              if context.fetch(:survey).allow_answers
+                permission_action.disallow!
+              else
+                permission_action.allow!
+              end
+            end
           end
 
           permission_action

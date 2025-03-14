@@ -132,8 +132,6 @@ tr:
             proposal_wizard_step_1_help_text: Teklif sihirbazı "Oluştur" adımı yardım metni
             proposal_wizard_step_2_help_text: Teklif "Yayınlama"  sihirbazı  yardım metni
             resources_permissions_enabled: Her teklif için işlem izinleri ayarlanabilir
-            scope_id: Kapsam
-            scopes_enabled: Kapsamlar etkinleştirildi
             threshold_per_proposal: Teklif başına eşik
           step:
             amendment_creation_enabled: Değişiklik oluşturma etkinleştirildi
@@ -257,7 +255,7 @@ tr:
         title: Teklifler
     participatory_spaces:
       highlighted_proposals:
-        see_all: Tüm teklifleri görün (%{count})
+        see_all: Tüm teklifleri görün
     proposals:
       actions:
         answer_proposal: Cevap önerisi
@@ -343,7 +341,6 @@ tr:
             title: Teklifi güncelle
             update: Güncelle
           form:
-            attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
             created_in_meeting: Bu teklif bir toplantıdan geliyor
             select_a_meeting: Bir toplantı seç
           index:
@@ -352,7 +349,6 @@ tr:
             assign_to_valuator_button: Ata
             cancel: İptal Et
             merge: Yeni biriyle birleştir
-            merge_button: Birleştir
             publish: Yayınla
             publish_answers: Cevapları yayınla
             select_component: Bir bileşen seç
@@ -399,7 +395,6 @@ tr:
       admin_log:
         proposal:
           answer: "%{user_name}, %{space_name} alanında %{resource_name} teklifini yanıtladı"
-          create: "%{user_name}, %{resource_name} teklifini %{space_name} alanında resmi bir teklif olarak oluşturdu"
           publish_answer: "%{user_name}, %{resource_name} teklifinin cevabını %{space_name} alanında yayınladı"
           update: "%{user_name}, %{space_name} alanda %{resource_name} resmi öneriyi güncelledi"
         proposal_note:
@@ -445,7 +440,6 @@ tr:
         create:
           success: Ortak taslak başarıyla oluşturuldu.
         edit:
-          attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
           back: Geri
           send: Gönder
           title: Ortak taslak düzenle
@@ -540,7 +534,6 @@ tr:
           comment: Yorum Yap
       proposals:
         edit:
-          attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
           back: Geri
           send: Gönder
           title: Teklifi düzenle
@@ -609,6 +602,8 @@ tr:
         voting_rules:
           proposal_limit:
             description: En fazla %{limit} teklif oluşturabilirsin.
+          vote_limit:
+            description: En fazla %{limit} teklife oy verebilirsiniz.
         wizard_aside:
           back: Geri
           back_from_step_1: Teklifte geri dön

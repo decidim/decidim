@@ -9,6 +9,7 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
       include Decidim::HasComponent
+      include Decidim::Taxonomizable
       include Decidim::Authorable
       include Decidim::Comments::CommentableWithComponent
       include Decidim::Searchable
@@ -48,6 +49,12 @@ module Decidim
         end
       end
 
+      # Returns the presenter for this BlogPost, to be used in the views.
+      # Required by ResourceRenderer.
+      def presenter
+        Decidim::Blogs::PostPresenter.new(self)
+      end
+
       def visible?
         participatory_space.try(:visible?) && component.try(:published?) && published?
       end
@@ -75,10 +82,6 @@ module Decidim
         author.is_a?(Decidim::Organization)
       end
 
-      def user_group?
-        author.is_a?(Decidim::UserGroup)
-      end
-
       def users_to_notify_on_comment_created
         followers
       end
@@ -99,7 +102,7 @@ module Decidim
 
       # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
       def reported_searchable_content_extras
-        [normalized_author.name]
+        [author.name]
       end
     end
   end

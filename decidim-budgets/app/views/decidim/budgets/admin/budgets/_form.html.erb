@@ -16,12 +16,6 @@
       <div class="row column">
         <%= form.number_field :total_budget %>
       </div>
-
-      <% if current_component.has_subscopes? %>
-        <div class="row column">
-          <%= scopes_select_field form, :decidim_scope_id, root: current_component.scope %>
-        </div>
-      <% end %>
       </div>
     </div>
   </div>

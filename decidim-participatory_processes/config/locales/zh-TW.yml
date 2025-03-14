@@ -22,16 +22,12 @@ zh-TW:
         local_area: 組織區域
         meta_scope: 元數據範圍
         participatory_process_group_id: 程序群組
-        participatory_process_type_id: 處理類型
         participatory_scope: 決定了什麼
         participatory_structure: 如何決定
         private_space: 私有程序
         promoted: 推廣
         published_at: 發佈於
         related_process_ids: 相關程序
-        scope_id: 範圍
-        scope_type_max_depth_id: 範圍篩選深度
-        scopes_enabled: 啟用範圍
         short_description: 簡短說明
         slug: URL網址
         start_date: 開始日期
@@ -59,8 +55,6 @@ zh-TW:
         end_date: 結束日期
         short_description: 簡短說明
         start_date: 開始日期
-        title: 標題
-      participatory_process_type:
         title: 標題
       participatory_process_user_role:
         email: 電子郵件
@@ -97,7 +91,6 @@ zh-TW:
         new_process: 新的程序
         new_process_group: 新的程序群組
         new_process_step: 新階段
-        new_process_type: 新的處理類型
         new_process_user_role: 新程序管理員
         preview: 預覽
         publish: 發布
@@ -108,13 +101,11 @@ zh-TW:
         participatory_process_groups_submenu:
           info: 資訊
           landing_page: 登陸頁面
-        participatory_process_types: 處理類型
         participatory_processes: 程序
         participatory_processes_submenu:
           attachment_collections: 資料夾
           attachment_files: 檔案
           attachments: 附件
-          categories: 類別
           components: 组件
           moderations: 版主
           process_admins: 程序管理員
@@ -137,11 +128,6 @@ zh-TW:
             start_date: 開始日期
             title: 標題
           name: 參與式過程階段
-        participatory_process_type:
-          fields:
-            created_at: 建立於
-            title: 標題
-          name: 處理類型
         participatory_process_user_role:
           fields:
             email: 電子郵件
@@ -216,21 +202,6 @@ zh-TW:
         update:
           error: 更新參與程序階段時出現問題。
           success: 參與式階段成功更新。
-      participatory_process_types:
-        create:
-          error: 新增程序類型時發生錯誤
-          success: 程序類型已成功創建
-        destroy:
-          success: 程序類型已成功刪除。
-        edit:
-          title: 編輯程序類型
-          update: 更新
-        new:
-          create: 建立
-          title: 新的處理類型
-        update:
-          error: 更新這個程序類型時發生錯誤
-          success: 程序類型成功更新。
       participatory_process_user_roles:
         create:
           error: 新增參與者至此參與式過程時發生問題。
@@ -382,14 +353,9 @@ zh-TW:
           form:
             announcement_help: 您在此處輸入的文字將顯示至使用者的正下方程序信息
             duration: 持續時間
-            filters: 過濾器
             images: 圖片
             metadata: 元數據
-            other: 其他
             related_processes: 相關程序
-            scope_type_max_depth_help: 限制範圍過濾器深度；過濾器將會從一般範圍到所選範圍層級進行顯示。
-            select_an_area: 選擇一個地區
-            select_participatory_process_type: 選擇一個程序類型
             select_process_group: 選擇一個程序群組
             title: 基本資訊
       content_blocks:

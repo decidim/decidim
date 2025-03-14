@@ -16,8 +16,6 @@ module Decidim
       include_examples "endorsable"
       include_examples "has component"
       include_examples "has taxonomies"
-      include_examples "has scope"
-      include_examples "has category"
       include_examples "has reference"
       include_examples "reportable"
       include_examples "resourceable"
@@ -141,13 +139,6 @@ module Decidim
 
             it { is_expected.not_to be_editable_by(author) }
           end
-        end
-
-        context "when proposal is from user group and user is admin" do
-          let(:user_group) { create(:user_group, :verified, users: [author], organization: author.organization) }
-          let(:proposal) { create(:proposal, component:, updated_at: Time.current, users: [author], user_groups: [user_group]) }
-
-          it { is_expected.to be_editable_by(author) }
         end
 
         context "when user is not the author" do

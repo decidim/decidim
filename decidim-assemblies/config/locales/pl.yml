@@ -1,8 +1,6 @@
 pl:
   activemodel:
     attributes:
-      assemblies_type:
-        title: Tytuł
       assembly:
         announcement: Powiadomienie
         area_id: Kategoria
@@ -19,7 +17,6 @@ pl:
         created_by_other: Utworzony przez inne
         creation_date: Data utworzenia
         decidim_area_id: Powierzchnia
-        decidim_assemblies_type_id: Typ zespołu
         decidim_scope_id: Zakres
         description: Opis
         developer_group: Grupa inicjatorów
@@ -35,7 +32,6 @@ pl:
         import_components: Importuj komponenty
         included_at: Dołączono
         instagram: Instagram
-        internal_organisation: Organizacja wewnętrzna
         is_transparent: Jest transparentny
         local_area: Obszar organizacji
         meta_scope: Zakres metadanych
@@ -47,8 +43,6 @@ pl:
         promoted: Wyróżniony
         published_at: Opublikowano
         purpose_of_action: Cel działania
-        scope_id: Zakres
-        scopes_enabled: Zakresy dozwolone
         short_description: Krótki opis
         slug: URL slug
         special_features: Cechy szczególne
@@ -101,7 +95,6 @@ pl:
       actions:
         import_assembly: Importuj
         new_assembly: Nowy zespół
-        new_assembly_type: Nowy typ zespołu
         new_assembly_user_role: Nowy administrator zgromadzenia
       assemblies:
         create:
@@ -123,18 +116,6 @@ pl:
         create:
           error: Podczas duplikowania tego zespołu wystąpił błąd.
           success: Zespół został zduplikowany.
-      assemblies_types:
-        create:
-          error: Podczas tworzenia nowego typu zespołu wystąpił błąd.
-          success: Pomyślnie utworzono typ zespołu.
-        destroy:
-          success: Pomyślnie usunięto typ zespołu.
-        new:
-          create: Utwórz
-          title: Nowy typ zespołu
-        update:
-          error: Podczas aktualizowania tego typu zespołu wystąpił błąd.
-          success: Pomyślnie zaktualizowano typ zespołu.
       assembly_copies:
         new:
           copy: Kopiuj
@@ -178,8 +159,6 @@ pl:
           values:
             'false': Niezaprzestane
             'true': Zaprzestane
-        decidim_assemblies_type_id_eq:
-          label: Typ zespołu
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Szukaj według nazwy lub pseudonimu
       menu:
@@ -189,18 +168,12 @@ pl:
           attachment_collections: Foldery
           attachment_files: Pliki
           attachments: Załączniki
-          categories: Kategorie
           components: Komponenty
           info: O tym zgromadzeniu
           landing_page: Strona startowa
           moderations: Moderacje
           see_assembly: Zobacz zgromadzenie
-        assemblies_types: Typy zespołów
       models:
-        assemblies_types:
-          fields:
-            created_at: Utworzono
-            title: Tytuł
         assembly:
           fields:
             actions: Działania
@@ -263,22 +236,16 @@ pl:
             announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o zespole.
             duration: Czas trwania
             duration_help: Jeśli czas trwania tego zespołu jest ograniczony, wybierz datę końcową. W przeciwnym razie pojawi się jako nieokreślony.
-            filters: Filtry
             images: Obrazy
             included_at_help: Wybierz datę dodania tego zgromadzenia do platformy Decidim. Nie musi być ona tożsama z datą utworzenia.
             metadata: Metadane
             other: Inny
             select_a_created_by: Wybierz utworzony przez
-            select_an_area: Wybierz kategorię
-            select_an_assembly_type: Wybierz typ zespołu
             select_parent_assembly: Wybierz zespół nadrzędny
             slug_help_html: 'Slugi URL służą do generowania adresów URL kierujących bezpośrednio do tego zgromadzenia. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             social_handlers: Profile społecznościowe
             title: Informacje ogólne
             visibility: Widoczność
-        assemblies_types:
-          form:
-            title: Tytuł
         assembly_copies:
           form:
             slug_help_html: 'Slugi URL służą do generowania adresów URL kierujących bezpośrednio do tego zgromadzenia. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
@@ -322,14 +289,6 @@ pl:
       assembly_members:
         index:
           members: Członkowie
-      assembly_types:
-        commission: Komisja
-        consultative_advisory: Konsultacyjne / doradcze
-        executive: Wykonawcze
-        government: Rząd
-        others: Inne
-        participatory: Uczestniczące
-        working_group: Grupa robocza
       content_blocks:
         children_assemblies:
           name: Zgromadzenia
@@ -368,7 +327,6 @@ pl:
           member_of:
             member_of: Członek
       show:
-        assembly_type: Typ zespołu
         duration: Czas trwania
         private_space: To jest prywatny zespół
         social_networks_title: Odwiedź zespół na

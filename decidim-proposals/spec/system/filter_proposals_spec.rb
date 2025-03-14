@@ -8,7 +8,7 @@ describe "Filter Proposals", :slow do
 
   let(:root_taxonomy) { create(:taxonomy, organization:) }
   let!(:taxonomy) { create(:taxonomy, skip_injection: true, parent: root_taxonomy, organization:) }
-  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, space_manifest: component.participatory_space.manifest.name) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [component.participatory_space.manifest.name]) }
   let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_item: taxonomy, taxonomy_filter:) }
   let!(:user) { create(:user, :confirmed, organization:) }
 

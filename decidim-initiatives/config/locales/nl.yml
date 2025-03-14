@@ -101,7 +101,6 @@ nl:
             initiative_title: Titel van het initiatief
             name_and_surname: Naam en achternaam
             postal_code: Postcode
-            time_and_date: Tijd en datum
             timestamp: tijdstempel
       titles:
         initiatives: Initiatieven
@@ -303,8 +302,6 @@ nl:
           email_outro: 'Je hebt deze melding ontvangen omdat je de auteur bent van het initiatief %{resource_title}'
           email_subject: "%{applicant_nickname} wil deelnemen aan je initiatief"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> wil graag deel uitmaken van de promotiecommissie voor jouw initiatief <a href="%{resource_url}">%{resource_title}</a>. Om te accepteren of te weigeren, klik <a href="%{resource_url}/edit">hier</a>.
-      form:
-        attachment_legend: "(Optioneel) Voeg een bijlage toe"
       initiative_signatures:
         fill_personal_data:
           continue: Doorgaan met

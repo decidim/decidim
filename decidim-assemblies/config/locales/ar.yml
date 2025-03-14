@@ -1,8 +1,6 @@
 ar:
   activemodel:
     attributes:
-      assemblies_type:
-        title: العنوان
       assembly:
         announcement: إعلان
         area_id: المنطقة
@@ -19,7 +17,6 @@ ar:
         created_by_other: التي أنشأتها الآخرون
         creation_date: تاريخ الإنشاء
         decidim_area_id: المنطقة
-        decidim_assemblies_type_id: نوع التجمع
         decidim_scope_id: النطاق
         description: الوصف
         developer_group: مجموعة المروجين
@@ -35,7 +32,6 @@ ar:
         import_components: استيراد المكونات
         included_at: المدرجة في
         instagram: انستجرام
-        internal_organisation: التنظيم الداخلي
         is_transparent: شفافة
         local_area: منطقة التنظيم
         meta_scope: نطاق البيانات الوصفية
@@ -47,8 +43,6 @@ ar:
         promoted: سلط الضوء
         published_at: نشرت في
         purpose_of_action: الغرض من العمل
-        scope_id: نطاق
-        scopes_enabled: النطاقات المُفعّلَة
         short_description: وصف قصير
         slug: سبيكة العنوان الشبكي
         special_features: مميزات خاصة
@@ -101,7 +95,6 @@ ar:
       actions:
         import_assembly: استيراد
         new_assembly: جمعية جديدة
-        new_assembly_type: نوع جديد للجمعية
       assemblies:
         create:
           error: حدثت مشكلة أثناء إنشاء جمعية جديدة.
@@ -121,18 +114,6 @@ ar:
         create:
           error: حدثت مشكلة في تكرار هذا التجميع.
           success: الجمعية مكررة بنجاح.
-      assemblies_types:
-        create:
-          error: حدثت مشكلة أثناء إنشاء جمعية جديدة.
-          success: تم إنشاء نوع الجمعية بنجاح.
-        destroy:
-          success: تم حذف نوع الجمعية بنجاح.
-        new:
-          create: إنشاء
-          title: نوع جديد للجمعية
-        update:
-          error: حدثت مشكلة أثناء تحديث نوع هذه الجمعية.
-          success: تم تحديث نوع الجمعية بنجاح.
       assembly_copies:
         new:
           copy: نسخ
@@ -168,9 +149,6 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث مشرفٍ على هذه الجمعية.
           success: تم تحديث المشرف على هذه الجمعية بنجاح.
-      filters:
-        decidim_assemblies_type_id_eq:
-          label: نوع الجمعية
       menu:
         assemblies: الجمعيات
         assemblies_submenu:
@@ -178,17 +156,12 @@ ar:
           attachment_collections: المجلدات
           attachment_files: الملفات
           attachments: المرفقات
-          categories: الفئات
           components: المكونات
           moderations: الإعتدال
-        assemblies_types: نوع التجمّعات
       models:
-        assemblies_types:
-          fields:
-            created_at: تاريخ الإنشاء
-            title: العنوان
         assembly:
           fields:
+            actions: الإجراءات
             created_at: تاريخ الإنشاء
             private: خاص
             promoted: سلط الضوء
@@ -248,20 +221,14 @@ ar:
             announcement_help: سيظهر النص الذي أدخلته هنا للمستخدم مباشرة تحت معلومات الجمعية.
             duration: المدة الزمنية
             duration_help: إذا كانت مدة هذه الجمعية محدودة ، فحدد تاريخ الانتهاء. خلاف ذلك ، سوف يظهر على أنه غير مسمى.
-            filters: مرشحات
             images: الصور
             included_at_help: حدد التاريخ الذي تمت فيه إضافة هذه الجمعية إلى المنصة. ليس بالضرورة أن يكون هو نفسه تاريخ الإنشاء.
             metadata: البيانات الوصفية
             other: آخر
             select_a_created_by: حدد تم إنشاؤها بواسطة
-            select_an_area: اختر منطقة
-            select_an_assembly_type: حدد نوع الجمعية
             select_parent_assembly: حدد الجمعية الأصلية
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة
-        assemblies_types:
-          form:
-            title: العنوان
         assembly_members:
           form:
             explanation: 'إرشادات للصورة:'
@@ -281,14 +248,6 @@ ar:
       assembly_members:
         index:
           members: الأعضاء
-      assembly_types:
-        commission: اللجنة
-        consultative_advisory: استشاري / الاستشارية
-        executive: تنفيذية
-        government: حكومية
-        others: أخرى
-        participatory: تشاركية
-        working_group: فريق العمل
       content_blocks:
         children_assemblies:
           name: جمعيات
@@ -317,7 +276,6 @@ ar:
           member_of:
             member_of: عضو في
       show:
-        assembly_type: نوع الجمعية
         duration: المدة الزمنية
         private_space: هذه جمعية خاصة
         social_networks_title: زيارة التجمع على

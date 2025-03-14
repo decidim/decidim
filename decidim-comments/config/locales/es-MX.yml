@@ -16,6 +16,10 @@ es-MX:
         one: Voto
         other: Votos
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Comentarios
     comments:
       admin:
         shared:
@@ -107,16 +111,19 @@ es-MX:
           recent: Reciente
         title: 'Ordenar por:'
       comments:
+        against: En contra
         blocked_comments_for_unauthorized_user_warning: Necesitas estar verificada para comentar en este momento, pero puedes leer los comentarios anteriores.
         blocked_comments_for_user_warning: No puede hacer comentarios en este momento, pero puede leer los anteriores.
         blocked_comments_warning: Los comentarios están desactivados en estos momentos, solo las administradoras pueden responder o publicar nuevos.
         comment_details_title: Detalles del comentario
+        in_favor: A favor
         loading: Cargando los comentarios ...
         single_comment_warning: <a href="%{url}">Ver todos los comentarios</a>
         single_comment_warning_title: Estás viendo un solo comentario
         title:
           one: "%{count} comentario"
           other: "%{count} comentarios"
+        top_comment_label: Mejor valorado
       down_vote_button:
         text: No estoy de acuerdo con este comentario
       edit_comment_modal_form:
@@ -129,6 +136,26 @@ es-MX:
         title: Edita tu comentario
       up_vote_button:
         text: Estoy de acuerdo con este comentario
+    download_your_data:
+      help:
+        comment_votes:
+          comment: La id del comentario que se va valoró
+          created_at: La fecha y la hora en que se valoró este comentario
+          id: La id de la valoración del comentario
+          updated_at: La fecha y hora de la última actualización de la valoración de este comentario
+          weight: El peso de la valoración (1 a favor, -1 en contra)
+        comments:
+          alignment: Si este comentario fue a favor, en contra o neutral
+          author: El nombre usuaria de la participante que hizo este comentario
+          body: El comentario en sí
+          commentable_id: El identificador único de aquello que se podía comentar
+          commentable_type: La tipología de aquello sobre lo que se realizó el comentario (si fue un resultado, una propuesta, etc.)
+          created_at: La fecha en la que se creó este comentario
+          depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es una respuesta a un comentario, o la respuesta de una respuesta)
+          id: El identificador de este comentario
+          locale: La configuración regional (idioma) que la participante tenía al dejar este comentario
+          root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
+          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
     events:
       comments:
         comment_by_followed_user:

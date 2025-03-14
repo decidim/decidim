@@ -1,6 +1,8 @@
 fi:
   activemodel:
     attributes:
+      authorization:
+        verification_attachment: Vahvistuksen liitetiedosto
       config:
         available_methods: Käytettävissä olevat menetelmät
         offline: Offline
@@ -41,13 +43,13 @@ fi:
           button: Kumoa kaikki
           button_before: Kumoa ennen tiettyä päivämäärää luodut
           destroy:
-            confirm: Ennen valittua päivämäärää tehtyjen vahvistustietojen tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
-            confirm_all: Vahvistusten tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
+            confirm: Ennen valittua päivämäärää tehtyjen vahvistustietojen kumoamista ei voi perua. Haluatko varmasti jatkaa?
+            confirm_all: Vahvistusten kumoamista ei voi perua. Haluatko varmasti jatkaa?
           destroy_nok: Vahvistusten kumoaminen epäonnistui.
-          destroy_ok: Kaikkien hakua vastanneiden tunnistautumisten peruuttaminen onnistui.
+          destroy_ok: Kaikkien hakua vastanneiden tunnistautumisten kumoaminen onnistui.
           info: Yhteensä %{count} vahvistettua osallistujaa.
           no_data: Ei vahvistettuja osallistujia.
-          title: Tunnistautumisten peruuttaminen
+          title: Tunnistautumisten kumoaminen
         authorization_workflows: Tunnistautumistavat
     admin_log:
       organization:
@@ -74,6 +76,12 @@ fi:
             - Esimerkkikäsittelijä vahvistuksille, jonka avulla kehittäjät ymmärtävät paremmin, kuinka käyttäjätilien vahvistaminen toimii.
             - Se on tarkoitettu kehittäjille, jotta he voivat ymmärtää, miten omia käyttäjätilien vahvistamistoimintoja voi toteuttaa järjestelmään.
             - Vahvista itsesi syöttämällä X-kirjaimella alkava asiakirjan numero.
+        ephemeral_dummy_authorization_handler:
+          help:
+            - Esimerkkikäsittelijä väliaikaiselle vahvistukselle, jonka avulla kehittäjät ymmärtävät paremmin, kuinka käyttäjätilien vahvistaminen toimii.
+            - Se on tarkoitettu kehittäjille, jotta he voivat ymmärtää, miten omia käyttäjätilien vahvistamistoimintoja voi toteuttaa järjestelmään.
+            - Se on kopio esimerkkivahvistuksesta.
+            - Vahvista tilisi syöttämällä asiakirjan numero, joka päättyy kirjaimeen "X".
         id_documents:
           help:
             - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
@@ -92,7 +100,7 @@ fi:
             - Heidän on syötettävä koodi vahvistaakseen tilinsä.
             - Jos he eivät saa koodia, he voivat pyytää sitä uudestaan.
       csv_census:
-        explanation: Varmenna käyttäjätilisi organisaation henkilötietorekisterin avulla.
+        explanation: Vahvista käyttäjätilisi organisaation henkilötietorekisterin avulla.
         name: Organisaation rekisteritiedot
       direct: Suoraan
       help: Ohjeet
@@ -135,6 +143,7 @@ fi:
         new:
           authorize: Lähetä
           authorize_with: Vahvista palvelulla %{authorizer}
+          tos_agreement: Vahvistamalla henkilöllisyytesi hyväksyt %{link}.
         onboarding_pending:
           completed_verifications: Käyttäjätilisi vahvistaminen onnistui, voit nyt suorittaa toiminnon %{action} kohteessa %{resource_name}
           granted_verifications: Myönnetyt vahvistukset
@@ -158,7 +167,7 @@ fi:
             destroy_all:
               success: Kaikki henkilötietorekisterin tiedot on poistettu.
           destroy:
-            confirm: Henkilötietorekisterin tietojen tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
+            confirm: Henkilötietorekisterin tietojen poistoa ei voi perua. Haluatko varmasti jatkaa?
             title: Poista kaikki rekisteritiedot
           index:
             data: Ladattuja tietueita on yhteensä %{count}. Viimeisin latauspäivä oli %{due_date}.
@@ -184,11 +193,9 @@ fi:
           postal_codes:
             one: Osallistuminen on rajoitettu niille käyttäjille, joilla on postinumero %{postal_codes}.
             other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}.'
-          scope: Osallistuminen on rajoitettu niille käyttäjille, joilla on teema %{scope_name}.
           user_postal_codes:
             one: Osallistuminen on rajoitettu osallistujille, joilla on postinumero %{postal_codes}. Oma postinumerosi on %{user_postal_code}.
             other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}. Oma postinumerosi on %{user_postal_code}.'
-          user_scope: Osallistuminen on rajoitettu osallistujille, joilla on teema %{scope_name}. Oma teemasi on %{user_scope_name}.
       id_documents:
         admin:
           config:

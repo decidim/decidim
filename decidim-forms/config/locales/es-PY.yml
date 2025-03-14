@@ -26,6 +26,13 @@ es-PY:
           request_invalid: Se ha producido un problema al procesar la solicitud. Por favor, vuelve a intentarlo.
   decidim:
     download_your_data:
+      help:
+        answers:
+          answer: La respuesta a la pregunta
+          id: El identificador único de la respuesta
+          question: La pregunta que se respondió
+          questionnaire: La encuesta que fue respondida
+          user: La usuaria que respondió a la encuesta
       show:
         answers: Exportar las respuestas
         survey_user_answers: Respuestas de las usuarias a la encuesta
@@ -33,11 +40,22 @@ es-PY:
       admin:
         models:
           components:
+            allow_answers: Permitir respuestas
+            allow_editing_answers: Permitir a las usuarias registradas editar sus respuestas en la encuesta
+            allow_unregistered: Permitir a las usuarias no registradas responder a la encuesta
+            allow_unregistered_help: Si está activo, no será necesario iniciar sesión para responder a la encuesta. Esto puede llevar a datos pobres o poco fiables y será más vulnerable a ataques automatizados. ¡Usar con precaución! Es importante que un participante pueda responder a la misma encuesta varias veces, utilizando diferentes navegadores o la función de "navegación privada" de su navegador web.
+            announcement: Aviso
+            clean_after_publish: Borrar respuestas al publicar la encuesta
             description: Descripción
+            ends_at: Respuestas aceptadas hasta
+            ends_at_help: Dejar en blanco si no hay ninguna fecha específica
+            starts_at: Respuestas aceptadas desde
+            starts_at_help: Dejar en blanco si no hay ninguna fecha específica
             tos: Términos y condiciones de uso
         questionnaires:
           actions:
             back: Volver a las preguntas
+            publish_answers: Publicar respuestas
             show: Mostrar las respuestas
           answer_option:
             answer_option: Opción de respuesta
@@ -82,16 +100,18 @@ es-PY:
           edit:
             save: Guardar
             title: Editar el cuestionario
-          form:
+          edit_questions:
             add_question: Añadir pregunta
             add_separator: Añadir separador
             add_title_and_description: Añadir título y descripción
-            already_answered_warning: Algunos usuarios ya han respondido al cuestionario, por lo que no puedes modificar las preguntas.
+            save: Guardar
+            title: Preguntas
+          form:
+            add_question: Añadir pregunta
             collapse: Contraer todas las preguntas
             expand: Expandir todos las preguntas
             preview: Previsualizar
             title: Editar formulario para %{questionnaire_for}
-            unpublished_warning: El formulario no está publicado. Puedes modificar sus preguntas, pero al hacerlo eliminará las respuestas actuales.
           matrix_row:
             matrix_row: Fila
             remove: Retirar
@@ -110,6 +130,13 @@ es-PY:
             remove: Borrar
             statement: Declaración
             up: Arriba
+          questions_form:
+            already_answered_warning: No puedes modificar las preguntas porque algunas participantes ya han respondido el formulario.
+            collapse: Contraer todas las preguntas
+            expand: Desplegar todas las preguntas
+            unpublished_warning: El formulario no está publicado. Puedes modificar sus preguntas, pero al hacerlo se borrarán las respuestas actuales.
+            update:
+              success: Pregunta/s añadida/s correctamente a la encuesta.
           separator:
             down: Bajar
             remove: Eliminar
@@ -128,6 +155,9 @@ es-PY:
             invalid: Ha habido errores al guardar el cuestionario.
             success: Formulario guardado correctamente.
       admin_log:
+        question:
+          publish_answers: "%{user_name} publicó respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
+          unpublish_answers: "%{user_name} despublicó respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
         questionnaire:
           update: "%{user_name} actualizó el cuestionario %{resource_name}"
       errors:
@@ -170,6 +200,9 @@ es-PY:
           questionnaire_answered:
             body: Ya has respondido este cuestionario.
             title: Ya has respondido
+          questionnaire_answered_edit:
+            body: 'Ya has respondido a este formulario: %{link}'
+            edit: Editar las respuestas
           questionnaire_closed:
             body: El cuestionario está cerrado y ya no puedes responder.
             title: Cuestionario cerrado
@@ -184,9 +217,12 @@ es-PY:
           tos_agreement: Al responder aceptas los Términos y condiciones de uso
       step_navigation:
         show:
-          are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Estás seguro?
+          are_you_sure_edit: Podrás editar tus respuestas. ¿Seguro que quieres continuar?
+          are_you_sure_edit_guest: Si quieres poder editar tus respuestas más tarde, necesitas inicies tu sesión o crees una cuenta.
+          are_you_sure_no_edit: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Seguro que quieres continuar?
           back: Atrás
           continue: Continuar
+          disallowed: No puedes editar tus respuestas.
           submit: Enviar
       user_answers_serializer:
         body: Respuesta

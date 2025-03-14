@@ -98,7 +98,6 @@ el:
             initiative_title: Τίτλος πρωτοβουλίας
             name_and_surname: Όνομα και επώνυμο
             postal_code: Ταχυδρομικός κώδικας
-            time_and_date: Ώρα και ημερομηνία
             timestamp: Χρονική σήμανση
       titles:
         initiatives: Πρωτοβουλίες

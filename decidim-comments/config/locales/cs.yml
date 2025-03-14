@@ -20,6 +20,10 @@ cs:
         many: Hlasy
         other: Hlasy
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Komentáře
     comments:
       admin:
         shared:
@@ -117,10 +121,12 @@ cs:
           recent: Nedávné
         title: 'Seřadit podle:'
       comments:
+        against: Proti
         blocked_comments_for_unauthorized_user_warning: Musíte být ověřen, abyste mohli komentovat tuto chvíli, ale můžete si přečíst ty předchozí.
         blocked_comments_for_user_warning: Momentálně nemůžete komentovat, ale můžete si přečíst ty předchozí.
         blocked_comments_warning: Komentáře jsou momentálně zakázány, pouze administrátoři mohou odpovědět nebo psát nové.
         comment_details_title: Podrobnosti komentáře
+        in_favor: Líbí se mi
         loading: Načítání komentářů ...
         single_comment_warning: <a href="%{url}">Zobrazit všechny komentáře</a>
         single_comment_warning_title: Vidíte jeden komentář
@@ -129,6 +135,7 @@ cs:
           few: "%{count} komentáře"
           many: "%{count} komentářů"
           other: "%{count} komentářů"
+        top_comment_label: Nejvíce hlasovalo
       down_vote_button:
         text: Nesouhlasím s tímto komentářem
       edit_comment_modal_form:
@@ -141,6 +148,26 @@ cs:
         title: Upravit komentář
       up_vote_button:
         text: Souhlasím s tímto komentářem
+    download_your_data:
+      help:
+        comment_votes:
+          comment: ID komentáře, o kterém bylo hlasováno
+          created_at: Datum, kdy bylo toto hlasování vytvořeno
+          id: ID hlasování
+          updated_at: Datum, kdy bylo toto hlasování naposledy aktualizováno
+          weight: Váha hlasování (1 pro zvýšení, -1 pro snížení)
+        comments:
+          alignment: Pokud byl tento komentář příznivý, proti nebo neutrální
+          author: Jméno účastníka, který vytvořil tento komentář
+          body: Samotný komentář
+          commentable_id: Jedinečné id komentáře
+          commentable_type: Typ komentáře (pokud byl výsledek, návrh atd.)
+          created_at: Datum, kdy byl komentář vytvořen
+          depth: Místo, kde se tento komentář nachází v komentářovém větvení (pokud se jedná o odpověď nebo odpověď na odpověď)
+          id: ID pro tento komentář
+          locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
+          root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
+          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
     events:
       comments:
         comment_by_followed_user:

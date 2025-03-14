@@ -49,27 +49,6 @@ lt:
           new:
             download_export: Eksportuoti CSV formatu
             import: Importuoti
-            info: |
-              <p>Rekomenduojame laikytis šių žingsnių:</p>
-              <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Sukurti rezultatų būsenas</a>, kuriuos norite pridėti</li>
-              <li><a href='%{link_new_result}' target='_blank'>Sukurti bent vieną rezultatą rankiniu būdu</a> per šią administratoriaus skydelį prieš naudojantis Importavimu, kad geriau suprastumėte formatą ir tai, ką reikės užpildyti.</li>
-              <li>%{link_export_csv}</li>
-              <li>Atlikite pakeitimus lokaliai. Galite keisti tik šias CSV stulpelių dalis:
-                <ul>
-                <li><b>category/id:</b> Kategorijos ID</li>
-                <li><b>scope/id:</b> Srities ID</li>
-                <li><b>parent/id:</b> Tėvinio ID (susijusiems rezultatams). Pasirinktinai</li>
-                <li><b>title/en:</b> Pavadinimas anglų kalba. Tai priklausys nuo jūsų platformos kalbos konfigūracijos.</li>
-                <li><b>description/en:</b> Aprašymas anglų kalba. Tai priklausys nuo jūsų platformos kalbos konfigūracijos.</li>
-                <li><b>start_date:</b> data, kada prasideda rezultato įgyvendinimas (formatas YYYY-MM-DD)</li>
-                <li><b>end_date:</b> data, kada baigiasi rezultato įgyvendinimas (formatas YYYY-MM-DD)</li>
-                <li><b>status/id:</b> Būsenos ID šiam rezultatui</li>
-                <li><b>progress:</b> Įvykdymo procentas (nuo 0 iki 100)</li>
-                <li><b>proposals_ids:</b> susijusių pasiūlymų vidinis ID (atskirtas kableliais). Automatiškai konvertuojamas į <span class='attribute-name'>proposal_url</span></li>
-                </ul>
-              </li>
-              </ol>
         imports:
           create:
             success: Failas pradėtas importuoti. Po kelių minučių gausite e. laišką su importo rezultatu.
@@ -78,25 +57,6 @@ lt:
             name: Rezultatas
           status:
             name: Statusas
-        projects_import:
-          create:
-            invalid: Importuojant projektus į rezultatus iškilo problema. Atidžiai vykdykite instrukcijas ir įsitikinkite, kad pasirinkote įgyvendinimui skirtus projektus.
-          new:
-            create: Importuoti
-            import_all_selected_projects: Importuoti visus projektus, kurie buvo pasirinkti įgyvendinimui
-            new_items:
-              one: 1 pasirinktas projektas bus importuotas
-              few: "%{count} pasirinkti projektai bus importuoti"
-              many: "%{count} pasirinktų projektų bus importuoti"
-              other: "%{count} pasirinkti projektai bus importuoti"
-            no_components: Šioje dalyvaujamojoje erdvėje nėra biudžeto komponentų, skirtų importuoti į rezultatus.
-            origin_component_id: Pirminis komponentas
-            select_component: Pasirinkite komponentą
-            success:
-              one: 1 projektas įtrauktas į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu.
-              few: "%{count} projektai įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu."
-              many: "%{count} projektų buvo įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu."
-              other: "%{count} projektai buvo įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu."
         results:
           create:
             invalid: Kuriant šį rezultatą iškilo problema.
@@ -239,8 +199,6 @@ lt:
             comments_max_length: Maksimalus komentaro ilgis (įrašyti 0 įprastam ilgiui)
             display_progress_enabled: Rodyti progresą
             intro: Įžanga
-            scope_id: Apimtis
-            scopes_enabled: Apimtys įjungtos
           step:
             comments_blocked: Komentarai užblokuoti
     events:

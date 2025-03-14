@@ -5,7 +5,14 @@ require "decidim/maintenance"
 
 describe "Executing Decidim Taxonomy importer tasks" do
   let(:plan_file) { Rails.root.join("tmp/taxonomies/#{organization.host}_plan.json") }
-  let(:organization) { create(:organization) }
+  let(:another_plan_file) { Rails.root.join("tmp/taxonomies/#{external_organization.host}_plan.json") }
+
+  let!(:organization) { create(:organization, host: "foo.example.org") }
+  let!(:external_organization) { create(:organization, host: "bar.example.org") }
+
+  let!(:external_scope) { Decidim::Maintenance::ImportModels::Scope.create!(name: { "en" => "External Scope 1" }, code: "3", decidim_organization_id: external_organization.id) }
+  let!(:external_sub_scope) { Decidim::Maintenance::ImportModels::Scope.create!(name: { "en" => "External Scope 1 second level" }, code: "31", decidim_organization_id: external_organization.id, parent: external_scope) }
+  let!(:external_participatory_process) { create(:participatory_process, title: { "en" => "External Process" }, organization: external_organization, decidim_scope_id: external_scope.id) }
   let(:decidim_organization_id) { organization.id }
 
   # avoid using factories for this test in case old models are removed
@@ -31,7 +38,8 @@ describe "Executing Decidim Taxonomy importer tasks" do
   let!(:dummy_component) { create(:dummy_component, name: { "en" => "Dummy component" }, participatory_space: assembly) }
   let!(:dummy_resource) { create(:dummy_resource, title: { "en" => "Dummy resource" }, component: dummy_component, scope: nil, decidim_scope_id: sub_scope.id) }
   let!(:categorization) { Decidim::Maintenance::ImportModels::Categorization.create!(category:, categorizable: dummy_resource) }
-  let!(:metric) { create(:metric, organization:, decidim_category_id: subcategory.id, participatory_space: assembly, related_object: dummy_resource) }
+  # category_nil is here to avoid triggering the category creation in the factory
+  let!(:metric) { create(:metric, organization:, category: nil, decidim_category_id: subcategory.id, participatory_space: assembly, related_object: dummy_resource) }
   let(:settings) { { scopes_enabled: true, scope_id: sub_scope.id } }
 
   before do
@@ -40,7 +48,13 @@ describe "Executing Decidim Taxonomy importer tasks" do
     scope.update!(part_of: [scope.id])
     another_scope.update!(part_of: [scope.id])
     sub_scope.update!(part_of: [scope.id, sub_scope.id])
-    dummy_component.update!(settings:)
+    # as scope settings are disabled now, we need to update the settings directly as it was already there
+    # rubocop:disable Rails/SkipsModelValidations
+    dummy_component.update_column(:settings, {
+                                    "global" => settings
+                                  })
+    # rubocop:enable Rails/SkipsModelValidations
+
     Decidim::Maintenance::ImportModels::Scope.add_resource_class("Decidim::Dev::DummyResource")
   end
 
@@ -74,8 +88,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
 
       expect(process_type_roots["~ Participatory process types"]["filters"].count).to eq(1)
       expect(process_type_roots["~ Participatory process types"]["filters"].first["name"]).to eq("~ Participatory process types")
-      expect(process_type_roots["~ Participatory process types"]["filters"].first["space_filter"]).to be(true)
-      expect(process_type_roots["~ Participatory process types"]["filters"].first["space_manifest"]).to eq("participatory_processes")
+      expect(process_type_roots["~ Participatory process types"]["filters"].first["participatory_space_manifests"]).to eq(["participatory_processes"])
       expect(process_type_roots["~ Participatory process types"]["filters"].first["items"]).to contain_exactly(["Participatory Process Type 1"], ["Participatory Process Type 2"])
       expect(process_type_roots["~ Participatory process types"]["filters"].first["components"]).to eq([])
 
@@ -92,8 +105,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
 
       expect(assembly_types_roots["~ Assemblies types"]["filters"].count).to eq(1)
       expect(assembly_types_roots["~ Assemblies types"]["filters"].first["name"]).to eq("~ Assemblies types")
-      expect(assembly_types_roots["~ Assemblies types"]["filters"].first["space_filter"]).to be(true)
-      expect(assembly_types_roots["~ Assemblies types"]["filters"].first["space_manifest"]).to eq("assemblies")
+      expect(assembly_types_roots["~ Assemblies types"]["filters"].first["participatory_space_manifests"]).to eq(["assemblies"])
       expect(assembly_types_roots["~ Assemblies types"]["filters"].first["items"]).to contain_exactly(["Assembly Type 1"], ["Assembly Type 2"])
       expect(assembly_types_roots["~ Assemblies types"]["filters"].first["components"]).to eq([])
 
@@ -113,24 +125,15 @@ describe "Executing Decidim Taxonomy importer tasks" do
                                                          participatory_process.to_global_id.to_s => "Process"
                                                        })
 
-      expect(scope_roots["~ Scopes"]["filters"].count).to eq(5)
+      expect(scope_roots["~ Scopes"]["filters"].count).to eq(2)
       expect(scope_roots["~ Scopes"]["filters"]).to include(
-        "space_filter" => true,
-        "space_manifest" => "participatory_processes",
+        "participatory_space_manifests" => %w(assemblies participatory_processes conferences initiatives),
         "name" => "~ Scopes",
         "items" => [["Scope 1"], ["Scope 1", "Scope 1 second level"], ["Scope 2"]],
         "components" => []
       )
+
       expect(scope_roots["~ Scopes"]["filters"]).to include(
-        "space_filter" => true,
-        "space_manifest" => "assemblies",
-        "name" => "~ Scopes",
-        "items" => [["Scope 1"], ["Scope 1", "Scope 1 second level"], ["Scope 2"]],
-        "components" => []
-      )
-      expect(scope_roots["~ Scopes"]["filters"]).to include(
-        "space_filter" => false,
-        "space_manifest" => "assemblies",
         "name" => "~ Scopes",
         "internal_name" => "~ Scopes: Dummy component",
         "items" => [["Scope 1", "Scope 1 second level"]],
@@ -144,24 +147,9 @@ describe "Executing Decidim Taxonomy importer tasks" do
       expect(areas_roots["~ Areas"]["taxonomies"]["Area 1"]["resources"]).to eq({
                                                                                   assembly.to_global_id.to_s => "Assembly"
                                                                                 })
-      expect(areas_roots["~ Areas"]["filters"].count).to eq(3)
+      expect(areas_roots["~ Areas"]["filters"].count).to eq(1)
       expect(areas_roots["~ Areas"]["filters"]).to include(
-        "space_filter" => true,
-        "space_manifest" => "assemblies",
-        "name" => "~ Areas",
-        "items" => [["Area 1"]],
-        "components" => []
-      )
-      expect(areas_roots["~ Areas"]["filters"]).to include(
-        "space_filter" => true,
-        "space_manifest" => "participatory_processes",
-        "name" => "~ Areas",
-        "items" => [["Area 1"]],
-        "components" => []
-      )
-      expect(areas_roots["~ Areas"]["filters"]).to include(
-        "space_filter" => true,
-        "space_manifest" => "initiatives",
+        "participatory_space_manifests" => %w(assemblies participatory_processes initiatives),
         "name" => "~ Areas",
         "items" => [["Area 1"]],
         "components" => []
@@ -182,8 +170,6 @@ describe "Executing Decidim Taxonomy importer tasks" do
       expect(cat_taxonomies["Participatory process: Process"]["children"]["Another Category 2"]["name"]).to eq("en" => "Another Category 2", "ca" => "Una Altra Categoria 2")
       expect(categories_roots["~ Categories"]["filters"].count).to eq(1)
       expect(categories_roots["~ Categories"]["filters"]).to include(
-        "space_filter" => false,
-        "space_manifest" => "assemblies",
         "internal_name" => "Assembly: Assembly",
         "name" => "~ Categories",
         "items" => [["Assembly: Assembly", "Category 1"],
@@ -223,18 +209,26 @@ describe "Executing Decidim Taxonomy importer tasks" do
   end
 
   describe "rake decidim:taxonomies:import_all_plans", type: :task do
+    let!(:organization) { create(:organization, host: "baz.example.org") }
+    let!(:external_organization) { create(:organization, host: "qux.example.org") }
+
     let(:task) { Rake::Task["decidim:taxonomies:import_all_plans"] }
 
     before do
-      FileUtils.rm_rf(Rails.root.join("tmp/taxonomies/"))
+      FileUtils.rm_f(Rails.root.join("tmp/taxonomies/bar.example.org_plan.json"))
+      FileUtils.rm_f(Rails.root.join("tmp/taxonomies/foo.example.org_plan.json"))
+      sleep(0.1) # Filesystem may need some time to update
       Rake::Task["decidim:taxonomies:make_plan"].reenable
       Rake::Task["decidim:taxonomies:make_plan"].invoke
     end
 
     it "imports the plan for all organizations" do # rubocop:disable RSpec/ExampleLength
-      expect { task.invoke }.to change(Decidim::Taxonomy, :count).by(18)
+      expect { task.invoke }.to change(Decidim::Taxonomy, :count).by(21)
 
+      check_message_printed("Importing plan from #{plan_file}")
+      check_message_printed("Importing plan from #{another_plan_file}")
       check_message_printed("Importing taxonomies and filters for organization #{decidim_organization_id}")
+      check_message_printed("Importing taxonomies and filters for organization #{external_organization.id}")
 
       check_message_printed(<<~MSG)
         ...Importing 1 root taxonomies from decidim_participatory_process_types
@@ -243,8 +237,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
             Filters: 1
               - Filter name: ~ Participatory process types
                 Internal name: -
-                Manifest: participatory_processes
-                Space filter: true
+                Space manifests: participatory_processes
                 Items: 2
                 Components: 0
             !Taxonomy imported: Participatory Process Type 1
@@ -255,7 +248,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
               - Participatory Process Type 1
               - Participatory Process Type 2
             Created filters: 1
-              - participatory_processes: ~ Participatory process types: 2 items
+              - ~ Participatory process types: 2 items
             Assigned resources: 1
               - Participatory Process Type 1: 1 resources
             Assigned components: 0
@@ -270,8 +263,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
             Filters: 1
               - Filter name: ~ Assemblies types
                 Internal name: -
-                Manifest: assemblies
-                Space filter: true
+                Space manifests: assemblies
                 Items: 2
                 Components: 0
             !Taxonomy imported: Assembly Type 1
@@ -282,7 +274,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
               - Assembly Type 1
               - Assembly Type 2
             Created filters: 1
-              - assemblies: ~ Assemblies types: 2 items
+              - ~ Assemblies types: 2 items
             Assigned resources: 1
               - Assembly Type 1: 1 resources
             Assigned components: 0
@@ -294,42 +286,19 @@ describe "Executing Decidim Taxonomy importer tasks" do
         ...Importing 1 root taxonomies from decidim_scopes
           - Root taxonomy: ~ Scopes
             1st level taxonomies: 2
-            Filters: 5
-              - Filter name: ~ Scopes
-                Internal name: -
-                Manifest: assemblies
-                Space filter: true
-                Items: 3
-                Components: 0
+            Filters: 2
               - Filter name: ~ Scopes
                 Internal name: ~ Scopes: Dummy component
-                Manifest: assemblies
-                Space filter: false
+                Space manifests: -
                 Items: 1
                 Components: 1
               - Filter name: ~ Scopes
                 Internal name: -
-                Manifest: participatory_processes
-                Space filter: true
-                Items: 3
-                Components: 0
-              - Filter name: ~ Scopes
-                Internal name: -
-                Manifest: conferences
-                Space filter: true
-                Items: 3
-                Components: 0
-              - Filter name: ~ Scopes
-                Internal name: -
-                Manifest: initiatives
-                Space filter: true
+                Space manifests: assemblies, participatory_processes, conferences, initiatives
                 Items: 3
                 Components: 0
             !Taxonomy imported: Scope 1
             !Taxonomy imported: Scope 2
-            !Filter imported: ~ Scopes
-            !Filter imported: ~ Scopes
-            !Filter imported: ~ Scopes
             !Filter imported: ~ Scopes
             !Filter imported: ~ Scopes
             Created taxonomies: 4
@@ -337,18 +306,15 @@ describe "Executing Decidim Taxonomy importer tasks" do
               - Scope 1
               - Scope 1 second level
               - Scope 2
-            Created filters: 5
-              - assemblies: ~ Scopes: 3 items
-              - assemblies: ~ Scopes: Dummy component: 1 items
-              - participatory_processes: ~ Scopes: 3 items
-              - conferences: ~ Scopes: 3 items
-              - initiatives: ~ Scopes: 3 items
+            Created filters: 2
+              - ~ Scopes: Dummy component: 1 items
+              - ~ Scopes: 3 items
             Assigned resources: 3
               - Scope 1: 1 resources
               - Scope 1 second level: 1 resources
               - Scope 2: 1 resources
             Assigned components: 1
-              - assemblies: ~ Scopes: Dummy component: 1 components
+              - ~ Scopes: Dummy component: 1 components
             Failed resources: 0
             Failed components: 0
       MSG
@@ -357,36 +323,19 @@ describe "Executing Decidim Taxonomy importer tasks" do
         ...Importing 1 root taxonomies from decidim_areas
           - Root taxonomy: ~ Areas
             1st level taxonomies: 1
-            Filters: 3
+            Filters: 1
               - Filter name: ~ Areas
                 Internal name: -
-                Manifest: assemblies
-                Space filter: true
-                Items: 1
-                Components: 0
-              - Filter name: ~ Areas
-                Internal name: -
-                Manifest: participatory_processes
-                Space filter: true
-                Items: 1
-                Components: 0
-              - Filter name: ~ Areas
-                Internal name: -
-                Manifest: initiatives
-                Space filter: true
+                Space manifests: assemblies, participatory_processes, initiatives
                 Items: 1
                 Components: 0
             !Taxonomy imported: Area 1
             !Filter imported: ~ Areas
-            !Filter imported: ~ Areas
-            !Filter imported: ~ Areas
             Created taxonomies: 2
               - ~ Areas
               - Area 1
-            Created filters: 3
-              - assemblies: ~ Areas: 1 items
-              - participatory_processes: ~ Areas: 1 items
-              - initiatives: ~ Areas: 1 items
+            Created filters: 1
+              - ~ Areas: 1 items
             Assigned resources: 1
               - Area 1: 1 resources
             Assigned components: 0
@@ -401,8 +350,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
             Filters: 1
               - Filter name: ~ Categories
                 Internal name: Assembly: Assembly
-                Manifest: assemblies
-                Space filter: false
+                Space manifests: -
                 Items: 2
                 Components: 1
             !Taxonomy imported: Assembly: Assembly
@@ -416,11 +364,11 @@ describe "Executing Decidim Taxonomy importer tasks" do
               - Participatory process: Process
               - Another Category 2
             Created filters: 1
-              - assemblies: Assembly: Assembly: 2 items
+              - Assembly: Assembly: 2 items
             Assigned resources: 1
               - Category 1: 1 resources
             Assigned components: 1
-              - assemblies: Assembly: Assembly: 1 components
+              - Assembly: Assembly: 1 components
             Failed resources: 0
             Failed components: 0
       MSG
@@ -432,6 +380,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
 
       Rake::Task["decidim:taxonomies:update_all_metrics"].invoke
       check_message_printed("Updating 1 metrics for category #{subcategory.id} to taxonomy")
+      check_message_printed("No metric (categories) taxonomies found in the file")
       expect(Decidim::Taxonomy.where(organization:).non_roots.pluck(:id)).to include(metric.reload.decidim_taxonomy_id)
     end
   end

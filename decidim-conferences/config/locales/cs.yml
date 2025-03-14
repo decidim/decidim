@@ -21,8 +21,6 @@ cs:
         published_at: Publikováno v
         registration_terms: Podmínky registrace
         registrations_enabled: Registrace povoleny
-        scope_id: Oblast působnosti
-        scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis
         show_statistics: Zobrazit statistiky
         sign_date: Datum podpisu
@@ -52,7 +50,7 @@ cs:
       conference_registration_type:
         description: Popis
         price: Cena
-        title: Oslovení
+        title: Název
         weight: Pozice v řazení
       conference_speaker:
         affiliation: Příslušnost
@@ -68,6 +66,8 @@ cs:
         email: E-mail
         name: Název
         role: Role
+      partner:
+        logo: Logo
     errors:
       models:
         conference_registration_invite:
@@ -127,13 +127,13 @@ cs:
         destroy:
           success: Řečník byl úspěšně smazán pro tuto konferenci.
         edit:
-          title: Aktualizovat řečníka konference.
+          title: Aktualizovat řečníka konference
           update: Aktualizace
         index:
           conference_speakers_title: Řečníci konference
         new:
           create: Vytvořit
-          title: Nový řečník konference.
+          title: Nový řečník konference
         publish:
           invalid: Při publikování tohoto řečníka došlo k chybě.
           success: Řečník konference byl úspěšně zveřejněn.
@@ -150,13 +150,13 @@ cs:
         destroy:
           success: Administrátor konference byl úspěšně odstraněn.
         edit:
-          title: Aktualizovat uživatele konference.
+          title: Aktualizovat správce konference
           update: Aktualizace
         index:
           conference_admins_title: Administrátoři konference
         new:
           create: Vytvořit
-          title: Nový administrátor konference.
+          title: Nový správce konference
         update:
           error: Při aktualizaci tohoto administrátora konference došlo k potížím.
           success: Uživatel úspěšně aktualizován pro tuto konferenci.
@@ -188,17 +188,17 @@ cs:
       media_links:
         create:
           error: Při vytváření nového odkazu na média došlo k chybě.
-          success: Odkaz na media byl úspěšně vytvořen.
+          success: Odkaz na média byl úspěšně vytvořen.
         destroy:
-          success: Odkaz na media byl úspěšně smazán.
+          success: Odkaz na média byl úspěšně odstraněn.
         edit:
-          title: Aktualizovat odkaz na media.
+          title: Aktualizovat odkaz na média
           update: Aktualizace
         index:
           media_links_title: Odkazy na média
         new:
           create: Vytvořit
-          title: Odkaz na média
+          title: Vytvořit odkaz na média
         update:
           error: Při aktualizaci tohoto odkazu na média došlo k chybě.
           success: Odkaz na média byl úspěšně aktualizován.
@@ -208,12 +208,11 @@ cs:
           attachment_collections: Složky
           attachment_files: Soubory
           attachments: Přílohy
-          categories: Kategorie
           components: Komponenty
           conference_admins: Administrátoři konference
           conference_invites: Pozvánky
           conference_speakers: Řečníci
-          diploma: Potvrzení o účasti
+          diploma: Certifikát o účasti
           info: O této konferenci
           media_links: Odkazy na média
           moderations: Moderování
@@ -276,7 +275,7 @@ cs:
         destroy:
           success: Partner byl úspěšně odstraněn z této konference.
         edit:
-          title: Aktualizovat partnera.
+          title: Aktualizovat partnera
           update: Aktualizace
         new:
           create: Vytvořit
@@ -298,7 +297,7 @@ cs:
         destroy:
           success: Typ registrace byl z této konference úspěšně odstraněn.
         edit:
-          title: Aktualizovat typ registrace.
+          title: Aktualizovat typ registrace
           update: Aktualizace
         new:
           create: Vytvořit
@@ -306,6 +305,9 @@ cs:
         update:
           error: Při aktualizaci typu registrace pro tuto konferenci došlo k chybě.
           success: Typ registrace byl úspěšně aktualizován pro tuto konferenci.
+      taxonomy_filters:
+        space_filter_for:
+          conferences: Všechny konference
       titles:
         conferences: Konference
         conferences_deleted: Smazané konference
@@ -423,7 +425,7 @@ cs:
             diploma_html: Naleznete certifikát o účasti na konferenci <a href="%{url}">%{title}</a> v přílohách.
           diploma_user:
             attendance_verified_by: Účet ověřil
-            certificate_of_attendance: Potvrzení o účasti
+            certificate_of_attendance: Certifikát o účasti
             certificate_of_attendance_description: Tímto potvrzujeme, že <strong>%{user}</strong> se zúčastnilo a zúčastnilo se <strong>%{title}</strong> konaných na <strong>%{location}</strong> na <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Při odesílání konferenčních certifikátů docházelo k problému.
@@ -547,6 +549,25 @@ cs:
         objectives: Cíle
         related_assemblies: Související shromáždění
         related_participatory_processes: Související participativní procesy
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: Datum, kdy byla pozvánka na konferenci přijata
+          conference: Konference, na kterou byla tato pozvánka zaslána
+          confirmed_at: Datum, kdy bylo toto pozvání potvrzeno
+          created_at: Datum, kdy byla tato pozvánka vytvořena
+          id: Jedinečný identifikátor pozvánky na konferenci
+          registration_type: Typ registrace na tuto konferenci, která byla zaslána
+          rejected_at: Datum odmítnutí pozvánky na konferenci
+          sent_at: Datum odeslání pozvánky na konferenci
+          updated_at: Datum, kdy byla tato pozvánka naposledy aktualizována
+        conference_registrations:
+          conference: Konference, ke které patří
+          confirmed_at: Datum, kdy byla tato registrace potvrzena
+          created_at: Datum, kdy byla registrace vytvořena
+          id: Jedinečný identifikátor registrací konference
+          registration_type: Typ registrace, do které patří
+          updated_at: Datum, kdy byla registrace naposledy aktualizována
     events:
       conferences:
         conference_registration_confirmed:

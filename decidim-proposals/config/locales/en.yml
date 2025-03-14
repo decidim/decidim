@@ -10,7 +10,6 @@ en:
         scope_id: Scope
         state: State
         title: Title
-        user_group_id: Create collaborative draft as
       import_participatory_text:
         document: Document
       proposal:
@@ -28,7 +27,6 @@ en:
         state: State
         suggested_hashtags: Suggested hashtags
         title: Title
-        user_group_id: Create proposal as
       proposal_answer:
         answer: Answer
         cost: Cost
@@ -219,8 +217,6 @@ en:
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
             proposal_wizard_step_2_help_text: Proposal wizard "Publish" step help text
             resources_permissions_enabled: Actions permissions can be set for each proposal
-            scope_id: Scope
-            scopes_enabled: Scopes enabled
             taxonomy_filters: Select filters for the component
             taxonomy_filters_add: Add filter
             threshold_per_proposal: Threshold per proposal
@@ -349,6 +345,11 @@ en:
           email_outro: You have received this notification because you are an author of "%{resource_title}".
           email_subject: Your proposal "%{mentioned_proposal_title}" has been mentioned
           notification_title: Your proposal "%{mentioned_proposal_title}" has been mentioned <a href="%{resource_path}">in this space</a> in the comments.
+        proposal_merged:
+          email_intro: 'An admin has merged your proposal "%{resource_title}", check it out in this page:'
+          email_outro: You have received this notification because you are the author of the proposal.
+          email_subject: The %{resource_title} proposal has been merged
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been merged by an admin.
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, who you are following, has published a new proposal called "%{resource_title}". Check it out and contribute:'
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
@@ -448,7 +449,6 @@ en:
           id: The id for this comment
           locale: The locale (language) that the participant had when leaving this comment
           root_commentable_url: The URL of the resource that ties to this comment
-          user_group: The name of the user group that made this comment (if any)
         proposals:
           address: The address of the proposal in case the proposal has a physical location
           answer: The answer to the proposal in the case it has been answered
@@ -515,6 +515,16 @@ en:
         exports:
           proposal_comments: Comments
           proposals: Proposals
+        import_proposals_mailer:
+          notify_failure:
+            body: There was a problem while importing proposals from the %{origin_component_name} component to the %{target_component_name} component.
+            subject: There was an error importing proposals
+          notify_success:
+            added_proposals:
+              one: One proposal was imported.
+              other: "%{count} proposals were imported."
+            body: Successful imported proposals from the %{origin_component_name} component to the %{target_component_name} component. You can review the results in the administration interface.
+            subject: The proposals have been imported successfully
         imports:
           help:
             answers: |
@@ -637,7 +647,7 @@ en:
             cancel: Cancel
             change_taxonomies: Change taxonomies
             merge: Merge into a new one
-            merge_button: Merge
+            merge_button: Create
             no_templates_available: No templates available
             publish: Publish
             publish_answers: Publish answers
@@ -686,7 +696,7 @@ en:
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals.
-            success: "%{number} proposals successfully imported."
+            success: The import process has started. We will let you know once it has finished.
           new:
             create: Import proposals
             no_components: There are no other proposal components in this participatory space to import the proposals from.
@@ -697,6 +707,11 @@ en:
           create:
             invalid: 'There was a problem merging the selected proposals because some of them:'
             success: Successfully merged the proposals into a new one.
+          form:
+            created_in_meeting: This proposal comes from a meeting
+            select_a_meeting: Select a meeting
+          new:
+            title: Merge into a new one
         proposals_splits:
           create:
             invalid: 'There was a problem splitting the selected proposals because some of them:'
@@ -711,7 +726,7 @@ en:
       admin_log:
         proposal:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
-          create: "%{user_name} created the %{resource_name} proposal on the %{space_name} space as an official proposal"
+          create: "%{user_name} created the proposal %{resource_name} from the merging of %{merged_count} proposals in %{space_name}"
           publish_answer: "%{user_name} published the answer to %{resource_name} proposal on the %{space_name} space"
           restore: "%{user_name} restored the %{resource_name} proposal on the %{space_name} space"
           soft_delete: "%{user_name} moved to trash the %{resource_name} proposal on the %{space_name} space"
@@ -733,7 +748,6 @@ en:
           meetings: Meetings
           official: Official
           participants: Participants
-          user_groups: Groups
         filter_state_values:
           all: All
           not_answered: Not answered
@@ -868,7 +882,7 @@ en:
           success: Co-author invitation successfully canceled.
         create:
           error: There was a problem inviting the co-author.
-          success: "%{author_name} successfully invited as a co-author."
+          success: "%{author_name} has been successfully invited as a co-author."
         destroy:
           error: There was a problem declining the invitation.
           success: The invitation has been declined.
@@ -1006,7 +1020,7 @@ en:
           maximum_votes_reached: Vote limit reached
           no_votes_remaining: No votes remaining
           vote: Vote
-          votes_blocked: Voting disabled
+          votes_blocked: Vote
         votes_count:
           count:
             one: Vote

@@ -1,1 +1,8 @@
 bs:
+  decidim:
+    components:
+      blogs:
+        settings:
+          step:
+            endorsements_blocked: Podržavanja su onemogućena
+            endorsements_enabled: Podržavanja su omogućena

@@ -16,6 +16,17 @@ es:
             announcement: Aviso
           step:
             announcement: Aviso
+    open_data:
+      help:
+        pages:
+          body: El contenido de la página
+          component: El componente al que pertenece la página
+          created_at: La fecha en la que se creó esta página
+          id: El identificador único de esta página
+          participatory_space: A qué espacio pertenece esta página (proceso participativo, asamblea, etc.)
+          title: El título de la página
+          updated_at: La fecha de la última actualización de esta página
+          url: La URL para esta página
     pages:
       admin:
         models:

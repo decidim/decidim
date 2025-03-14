@@ -22,6 +22,10 @@ ca:
         one: Debat
         other: Debats
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Debats
     components:
       debates:
         actions:
@@ -38,8 +42,6 @@ ca:
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
-            scope_id: Àmbit
-            scopes_enabled: Àmbits habilitats
             taxonomy_filters: Seleccionar filtres pel component
             taxonomy_filters_add: Afegir un filtre
           step:
@@ -70,12 +72,18 @@ ca:
             title: Editar debat
             update: Actualitzar debat
           form:
-            add_documents: Afegir documents
-            attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
+            add_attachments: Afegir fitxer(s) adjunt(s)
+            attachment_legend: Afegir un document o una imatge
+            comments_visualization: Visualització dels comentaris
+            comments_warning: Una vegada que es publica el primer comentari, l'opció de visualització seleccionada no es pot canviar.
             debate_type: Tipus de debat
-            edit_documents: Editar documents
+            edit_attachments: Edita els fitxers adjunts
+            errors:
+              comments_layout_locked: No pots canviar el disseny del comentari una vegada que s'hagi publicat algun comentario.
             finite: Finit (amb moments d'inici i de fi)
             open: Obert (sense moments d'inici ni de fi)
+            single_column: 'Columna única: Els comentaris es mostren per ordre cronològic i poden rebre respostes.'
+            two_columns: 'Dues columnes: Els comentaris es mostren en les columnes: "A favor" i "En contra", i no poden rebre respostes.'
           index:
             title: Debats
           manage_trash:

@@ -115,8 +115,6 @@ tr:
             initiative_title: Girişim başlığı
             name_and_surname: Ad ve soyadı
             postal_code: Posta kodu
-            scope: Kapsam
-            time_and_date: Saat ve tarih
             timestamp: Zaman Damgası
       titles:
         initiatives: Girişimler

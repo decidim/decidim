@@ -22,9 +22,6 @@ zh-CN:
         promoted: 已升级
         published_at: 发布于
         related_process_ids: 相关进程
-        scope_id: 范围
-        scope_type_max_depth_id: 范围过滤器深度：
-        scopes_enabled: 范围已启用
         short_description: 简短描述
         slug: URL 名称
         start_date: 开始日期
@@ -83,7 +80,6 @@ zh-CN:
           attachment_collections: 文件夹
           attachment_files: 文件
           attachments: 附件
-          categories: 类别管理
           components: 组件
           moderations: 版面
           process_admins: 进程管理员
@@ -295,13 +291,9 @@ zh-CN:
           form:
             announcement_help: 您在此输入的文本将会显示给流程信息下方的用户。
             duration: 期限
-            filters: 筛选器
             images: 图像
             metadata: 元数据
-            other: 其他
             related_processes: 相关进程
-            scope_type_max_depth_help: 限制范围过滤器深度; 过滤器将从一般到所选范围类型显示。
-            select_an_area: 选择区域
             select_process_group: 选择一个流程组
             title: 一般信息
       content_blocks:

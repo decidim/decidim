@@ -183,16 +183,6 @@ describe Decidim::Initiatives::Admin::Permissions do
         context "when initiative is created" do
           let(:initiative) { create(:initiative, :created, organization:) }
 
-          context "when initiative is authored by a user group" do
-            let(:user_group) { create(:user_group, organization: user.organization, users: [user]) }
-
-            before do
-              initiative.update(decidim_user_group_id: user_group.id)
-            end
-
-            it { is_expected.to be true }
-          end
-
           context "when initiative has enough approved members" do
             before do
               allow(initiative).to receive(:enough_committee_members?).and_return(true)
@@ -296,20 +286,6 @@ describe Decidim::Initiatives::Admin::Permissions do
     let(:user) { create(:user, :admin, organization:) }
 
     it_behaves_like "initiative committee action"
-
-    context "when taxonomy filters" do
-      let(:action) do
-        { scope: :admin, action: :something, subject: :taxonomy_filter }
-      end
-
-      it { is_expected.to be true }
-
-      context "when user is not an admin" do
-        let(:user) { create(:user, organization:) }
-
-        it { is_expected.to be false }
-      end
-    end
 
     context "when managing attachments" do
       let(:action_subject) { :attachment }

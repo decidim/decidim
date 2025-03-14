@@ -1,6 +1,8 @@
 cs:
   activemodel:
     attributes:
+      answer:
+        add_documents: Přidat dokumenty
       close_meeting:
         attendees_count: Počet účastníků
         attending_organizations: Seznam organizací, které se zúčastnily
@@ -99,6 +101,9 @@ cs:
         other: Registrace
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Schůzky
       filters:
         accepted_at_not_null:
           label: Přijato
@@ -170,8 +175,6 @@ cs:
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             registration_code_enabled: Registrační kód povolen
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
-            scope_id: Oblast působnosti
-            scopes_enabled: Oblasti působnosti povoleny
             taxonomy_filters: Vyberte filtry pro komponentu
             taxonomy_filters_add: Přidat filtr
             terms_and_conditions_url_for_meeting_creators: URL pro Zásady a podmínky ke schůzce tvůrců
@@ -181,6 +184,24 @@ cs:
             creation_enabled_for_participants: Vytváření schůzek od účastníků povoleno
             creation_enabled_for_user_groups: Vytvoření schůzky od skupin uživatelů povoleno
     download_your_data:
+      help:
+        invites:
+          accepted_at: Datum a čas, kdy byla pozvánka přijata
+          created_at: Datum a čas, kdy byla pozvánka vytvořena
+          id: Jedinečný identifikátor pro tuto pozvánku
+          meeting: Schůzka, na které došlo k tomuto pozvání
+          rejected_at: Datum a čas, kdy byla pozvánka odmítnuta
+          sent_at: Datum a čas, kdy byla pozvánka odeslána
+          updated_at: Datum a čas, kdy byla pozvánka naposledy aktualizována
+        registrations:
+          code: Registrační kód
+          created_at: Datum a čas, kdy byla registrace vytvořena
+          id: Jedinečný identifikátor registrace
+          meeting: Schůzka, na kterou se uživatel zaregistroval
+          public_participation: Zda tato účast byla veřejně zobrazena
+          updated_at: Datum a čas, kdy byla registrace naposledy aktualizována
+          user: Uživatel, který provedl registraci
+          validated_at: Datum a čas, kdy byla registrace potvrzena
       show:
         meeting_comments: Export komentářů schůzky
         meetings: Exportovat schůzky
@@ -407,6 +428,7 @@ cs:
           form:
             available_slots_help: Nechte to na 0, pokud máte k dispozici neomezené sloty.
             invites: Pozvánky
+            manage_questions: Spravovat otázky
             recommendation_message: Z důvodu ochrany osobních údajů doporučujeme odstranit tento nadepsaný formulář, když jej již nepotřebujete. Ve výchozím nastavení je to 3 měsíce po ukončení schůzky.
             registration_email_help: Tento text se zobrazí uprostřed potvrzení registračním e-mailem. Hned za registračním kódem.
             registration_form: Registrační formulář
@@ -716,6 +738,7 @@ cs:
           body: Samotný komentář
           commentable_id: Jedinečné ID komentovatelného
           commentable_type: Typ komentovatelného (pokud to byl výsledek, návrh atd.)
+          comments: Data komentářů ke schůzce
           created_at: Datum, kdy byl komentář vytvořen
           depth: Místo, kde se tato poznámka nachází ve třech komentářích (pokud se jedná o odpověď nebo odpověď na odpověď)
           id: ID pro tento komentář
@@ -726,26 +749,53 @@ cs:
           address: Adresa schůzky v případě, že se koná osobně a má fyzické umístění
           attachments: Počet příloh v této schůzce
           attendees: Počet lidí účastnících se této schůzky
+          attending_organizations: Organizace, které se účastní schůzky
+          audio_url: Zvukový záznam schůzky
           author: Data autora této schůzky
-          comments: Počet komentářů k této schůzce
+          available_slots: Počet slotů dostupných na schůzce
+          closed_at: Datum, kdy byla schůzka uzavřena
+          closing_report: Zpráva o uzavřené schůzce
+          closing_visible: Viditelnost schůzky
+          comments: Data o připomínkách ke schůzce
           component: Komponenta, ke které schůzka patří,
           contributions: Počet příspěvků na této schůzce zúčastněných stran
+          created_at: Datum, kdy byla schůzka vytvořena
+          customize_registration_email: Možnost povolit vlastní e-mail při registraci
+          decidim_author_type: Typ autora schůzky
+          decidim_user_group_id: ID uživatelské skupiny osob zapojených do schůzky
           description: Popis schůzky
           end_time: Datum a čas ukončení této schůzky
-          followers: Počet sledujících tuto schůzku
+          follows_count: Počet sledujících které schůzka má
           id: Jedinečný identifikátor sschůzky
+          iframe_access_level: Úroveň přístupu k iframe na schůzce
+          iframe_embed_type: Typ iframe vložený do schůzky
+          latitude: Zeměpisná šířka schůzky
           location: Místo schůzky
+          location_hints: Nápověda k místu, kde se schůzka koná
+          longitude: Zeměpisná délka schůzky
+          online_meeting_url: URL adresa online schůzky
           organizations: Organizace, které se účastní této schůzky
           participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tato schůzka
+          private_meeting: Označení, zda je schůzka neveřejná, nebo ne
           published: Po zveřejnění schůzky
           reference: Jedinečný identifikátor zdroje na této platformě
+          registration_form_enabled: Zda byl nebo nebyl registrační formulář povolen
+          registration_terms: Podmínky dohodnuté před účastí na schůzce
+          registration_type: Typ registrace schůzky
+          registration_url: URL adresa registrace na schůzku
+          registrations_enabled: Zda byly povoleny registrace
           related_proposals: Návrhy související s touto schůzkou
           related_results: Výsledky týkající se této schůzky
+          reserved_slots: Počet rezervovaných míst, která má schůzka k dispozici
           start_time: Datum a čas zahájení této schůzky
           taxonomies: Taxonomie, do kterých tato schůzka patří,
           title: Název schůzky
+          transparent: Viditelnost schůzky pro nečleny
+          type_of_meeting: Typ schůzky
+          updated_at: Čas poslední aktualizace schůzky
           url: URL schůzky
-          withdrawn: Kdy byla tato schůzka stažena
+          video_url: Videozáznam ze schůzky
+          withdrawn: Zda byla tato schůzka stažena
           withdrawn_at: Kdy byla tato schůzka odvolána
     participatory_spaces:
       highlighted_meetings:

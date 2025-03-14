@@ -151,8 +151,6 @@ ko:
         attachment_collection:
           new: 새 첨부 폴더
         browse: 찾아보기
-        category:
-          new: 새 분류
         export: 모두 내보내기
         export-selection: 선택한 항목 내보내기
         import: 가져오기
@@ -239,23 +237,8 @@ ko:
           justification: 사유
           title: 사용자%{name} 차단
       categories:
-        create:
-          error: 이 카테고리를 생성하는 도중 문제가 생겼습니다.
-          success: 카테고리가 생성되었습니다.
-        destroy:
-          error: 이 카테고리를 삭제하는 도중 문제가 발생했습니다. 하위 카테고리를 먼저 삭제하고, 이 카테고리에 속한 항목이 없게 한 후 다시 시도해보세요
-          success: 카테고리가 성공적으로 삭제되었습니다.
-        edit:
-          title: 카테고리 수정
-          update: 업데이트
         index:
           categories_title: 카테고리
-        new:
-          create: 카테고리 생성
-          title: 새 카테고리
-        update:
-          error: 이 카테고리를 업데이트하는 도중 문제가 생겼습니다.
-          success: 카테고리가 성공덕으로 업데이트되었습니다.
       component_permissions:
         update:
           error: 이 구성 요소의 권한을 업데이트하는 동안 문제가 발생했습니다.
@@ -524,7 +507,6 @@ ko:
           confirm_delete: 이 뉴스레터를 삭제하시겠습니까?
           followers: '팔로워 '
           has_been_sent_to: '다음에게 전송됨: '
-          no_scopes: 범위가 없습니다.
           not_sent: 전송되지 않음
           participants: '참여자 '
           subscribed_count: '구독중:'
@@ -538,13 +520,9 @@ ko:
           confirm_deliver: 이 뉴스레터를 전송하시겠습니까? 이 작업은 취소할 수 없습니다.
           deliver: 뉴스레터 전송
           followers_help: 목록에서 선택한 참여 공간을 따르는 것이 확인된 모든 사용자에게 뉴스레터를 보냅니다.
-          none: 없음
           participants_help: 목록에서 선택한 참여 공간을 따르는 것이 확인된 모든 사용자에게 뉴스레터를 보냅니다.
           recipients_count: 이 뉴스레터는 <strong id='receiveners_count'>% {count}/strong> 사용자에게 발송됩니다.
-          scopes_help: 계정의 "내 관심사" 설정에서 선택한 범위 중 하나라도 활성화된 사용자에게 뉴스레터를 보냅니다.
-          select_scopes: 계정의 내 관심사 설정에서 선택한 범위를 활성화한 사용자를 위해 필터링합니다.
           select_spaces: 뉴스레터를 분할할 공간 선택
-          select_users: 뉴스레터를 보낼 사용자 선택
           title: 전송 받는 사람 선택
           warning: "<strong>주의:/strong>이 뉴스레터는 알림 설정에서 <em>I want to received newsletter</em>을 활성화한 사용자에게만 발송됩니다."
         send:

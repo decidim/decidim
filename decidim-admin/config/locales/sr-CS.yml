@@ -184,23 +184,8 @@ sr:
       autocomplete:
         no_results: Nema rezultata
       categories:
-        create:
-          error: Nastao je problem pri stvaranju ove kategorije.
-          success: Kategorija je uspešno stvorena.
-        destroy:
-          error: Nastao je problem pri brisanju ove kategorije. Molimo Vas da prvo obrišete sve podkategorije, proverite da nijedan drugi entitet ne pripada ovoj kategoriji i pokušate ponovo.
-          success: Kategorija je uspešno obrisana.
-        edit:
-          title: Izmeni kategoriju
-          update: Ažuriraj
         index:
           categories_title: Kategorije
-        new:
-          create: Stvori kategoriju
-          title: Nova katеgorija
-        update:
-          error: Nastao je problem pri ažuriranju ove kategorije.
-          success: Kategorija je uspešno ažurirana.
       component_permissions:
         update:
           error: Nastao je problem pri ažuriranju dozvola ove komponente.
@@ -427,7 +412,6 @@ sr:
           confirm_delete: Da li ste sigurni da želite da obrišete ovaj bilten?
           followers: 'pratioci '
           has_been_sent_to: 'Poslat je: '
-          no_scopes: Nema oblasti
           not_sent: Nije poslato
           participants: 'učesnici '
           segmented_to: 'Podeljeno po %{subject}: '
@@ -442,13 +426,10 @@ sr:
           confirm_deliver: Da li ste sigurni da želite da dostavite ovaj bilten? Ova radnja se ne može poništiti.
           deliver: Dostavi bilten
           followers_help: Pošalji bilten svim potvrđenim učesnicima koji prate bilo koji od odabranih prostora za učešće sa liste.
-          none: Nijеdan
           participants_help: Pošalji bilten svim potvrđenim učesnicima koji su učestvovali u bilo kojem od odabranih prostora za učešće sa liste.
           recipients_count: Ovaj bilten biće dostavljen <strong id='recipients_count'>%{count}</strong> korisnicima.
-          scopes_help: Šalje bilten korisnicima koji su aktivirali makar jedan od odabranih opsega u podešavanjima "Moji interesi" svog naloga.
-          select_scopes: Filter za korisnike koji su aktivirali makar jedan od odabranih opsega u podešavanjima "Moji interesi" svog naloga.
           select_spaces: Izaberite prostore da podelite bilten
-          select_users: Izaberite kojim korisnicima želite da pošaljete bilten
+          send_to_all_users: Pošalji svim korisnicima
           title: Izaberi primaoce za dostavu
           warning: "<strong>Pažnja:</strong> Ovaj bilten će biti poslan samo korisnicima koji su aktivirali <em>Želim da dobijam biltene</em> u svojim podešavanjima obaveštenja."
         show:

@@ -37,8 +37,12 @@ ar:
         user_group_id: إنشاء الاستيرادات ك
       newsletter:
         body: النص
+        send_to_all_users: إرسال إلى كافة المستخدمين
+        send_to_followers: إرسال إلى المتابِعين
+        send_to_participants: إرسال إلى المشتركين
         subject: الموضوع
       organization:
+        admin_terms_of_service_body: نص شروط الخدمة للمشرف
         alert_color: تنبيه
         available_authorizations: التراخيص المتاحة
         badges_enabled: تمكين الشارات
@@ -52,8 +56,12 @@ ar:
         enable_participatory_space_filters: تفعيل أختيارات فرز الفضاء التشاركي
         facebook_handler: مُعرّف حساب فيسبوك
         favicon: أيقونة
+        force_authentication: فرض المصادقة
+        force_users_to_authenticate_before_access_organization: إلزام المستخدمين على المصادقة قبل الدخول إلى المنظمة
+        from: البريد الإلكتروني للمرسل
         github_handler: مُعرّف حساب غِت هَب
         header_snippets: قصاصات رأس
+        highlight_alternative_color: تحديد، البديل
         highlight_color: تظليل
         highlighted_content_banner_action_subtitle: نص زر الإجراء
         highlighted_content_banner_action_title: عنوان زر الإجراء
@@ -84,9 +92,12 @@ ar:
         secondary_hosts: المستضيفين الثانويين
         send_welcome_notification: إرسال إشعار بالترحيب
         success_color: نجاح
+        tertiary_color: المستوى الثالث
         time_zone: المنطقة الزمنية
         tos_version: شروط وأحكام الخدمة
+        twitter_handler: X handler
         user_groups_enabled: تمكين المجموعات
+        users_registration_mode: وضع تسجيل المستخدمين
         warning_color: تحذير
         welcome_notification_body: محتوى إشعار الترحيب
         welcome_notification_subject: موضوع إشعار الترحيب
@@ -94,6 +105,8 @@ ar:
       participatory_space_private_user:
         email: البريد الإلكتروني
         name: الإسم
+      participatory_space_private_user_csv_import:
+        file: ملف
       scope:
         code: الشفرة
         name: الاسم
@@ -108,24 +121,46 @@ ar:
       settings:
         scope_id: المجال
       static_page:
+        allow_public_access: السماح بالوصول دون مصادقة
         changed_notably: كانت هناك تغييرات ملحوظة.
         content: المحتوى
         organization: المنظمة
         show_in_footer: تظهر في تذييل الصفحة
         slug: سبيكة العنوان الشبكي
         title: العنوان
+        topic_id: الموضوع
+        weight: موضع الطلب
       static_page_topic:
         description: وصف
+        name: عنوان الموضوع
         show_in_footer: تظهر في تذييل الصفحة
         title: العنوان
+        weight: موضع الطلب
       user_group_csv_verification:
         file: ملف
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: حدد مساحة تشاركية واحدة على الأقل.
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: ملف صورة غير صالح
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: خطأ في ملفّ الاستيراد، يرجى قراءة التعليمات بعناية والتأكد من أن ترميز الملف هو UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: خطأ في ملفّ الاستيراد، يرجى قراءة التعليمات بعناية والتأكد من أن ترميز الملف هو UTF-8.
+      new_import:
+        attributes:
+          file:
+            invalid_file: الملف غير صالح، يرجى التأكد من تنسيق الملف بشكل صحيح.
+            invalid_mime_type: ملف من نوع MIME غير صالح.
   activerecord:
     attributes:
       decidim/static_page:
@@ -144,10 +179,20 @@ ar:
     admin:
       actions:
         add: إضافة
+        attachment:
+          new: إضافة مرفق
+        attachment_collection:
+          new: مجلد مرفقات جديد
         browse: تصفح
-        category:
-          new: فئة جديدة
+        confirm_delete_component: |
+          هل أنت متأكد من أنك تريد حذف هذا العنصر؟<br>
+          يحتوي هذا المكون على:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} مصادر</li>
+          </ul>
+          يمكنك استعادة العنصر إذا غيرت رأيك لاحقاً.
         export: تصدير الكل
+        export-selection: تصدير الإختيار
         import: استيراد
         manage: تدبير
         newsletter:
@@ -228,23 +273,8 @@ ar:
           justification: المبرر
           title: حظر المستخدم %{name}
       categories:
-        create:
-          error: كانت هناك مشكلة في إنشاء هذه الفئة.
-          success: تم إنشاء الفئة بنجاح.
-        destroy:
-          error: حدثت مشكلة في حذف هذه الفئة. يرجى حذف أي فئة فرعية أولاً ، تأكد من عدم وجود كيان آخر ينتمي إلى هذه الفئة وحاول مرة أخرى.
-          success: تم حذف الفئة بنجاح.
-        edit:
-          title: تحرير الفئة
-          update: تحديث
         index:
           categories_title: الاقسام
-        new:
-          create: إنشاء فئة
-          title: فئة جديدة
-        update:
-          error: حدثت مشكلة أثناء تحديث هذه الفئة.
-          success: تم تحديث الفئة بنجاح.
       component_permissions:
         update:
           success: تم تحديث الأذونات بنجاح.
@@ -290,6 +320,9 @@ ar:
           title: نقل
         'true': 'نعم'
         user_name: المستخدم
+      content_blocks:
+        edit:
+          title: محتويات الصفحة
       dashboard:
         show:
           view_more_logs: عرض المزيد من السجلات
@@ -421,6 +454,9 @@ ar:
           download_example_format: مثال كـ %{name}
           file_legend: إضافة ملف استيراد سيتم تحليله.
           import: استيراد
+      logs:
+        filters:
+          user: المستخدم
       managed_users:
         promotion:
           error: كانت هناك مشكلة في تعزيز المشارك المُدار.
@@ -498,6 +534,7 @@ ar:
             plural: جمع
         share_token:
           fields:
+            actions: الإجراءات
             expires_at: تنتهي صلاحيته في
         static_page:
           fields:
@@ -527,6 +564,8 @@ ar:
         index:
           actions:
             block: حظر مستخدم
+            bulk_actions:
+              actions_dropdown: الإجراءات
             title: الإجراءات
             unblock: إلغاء حظر المستخدم
             unreport: إلغاء التبليغ
@@ -541,6 +580,11 @@ ar:
         tabs:
           blocked: محظور
       moderations:
+        index:
+          actions:
+            actions_dropdown: الإجراءات
+            hide:
+              title: إخفاء
         report:
           reasons:
             does_not_belong: لا ينتمي
@@ -553,11 +597,19 @@ ar:
             reported_content: محتوى تم الإبلاغ عنه
           show:
             report_reason: السبب
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: معاينة
           title: نماذج النشرة الإخبارية
       newsletters:
+        confirm_recipients:
+          email: البريد الإلكتروني
+          name: الإسم
         create:
           error: كانت هناك مشكلة في إنشاء هذه الرسالة الإخبارية.
         deliver:
@@ -576,7 +628,6 @@ ar:
           confirm_delete: هل أنت متأكد من أنك تريد حذف هذه الرسالة الإخبارية؟
           followers: 'مُتابِعون '
           has_been_sent_to: 'تم إرسالها إلى: '
-          no_scopes: لا توجد مجالات
           not_sent: غير مرسَلة
           participants: 'مشاركون '
           segmented_to: 'مقسمه إلى %{subject}: '
@@ -589,9 +640,7 @@ ar:
           all_spaces: الكل
           confirm_deliver: هل أنت متأكد من أنك تريد تسليم هذه الرسالة الإخبارية؟ لا يمكن التراجع عن هذا الإجراء.
           deliver: تسليم النشرة الإخبارية
-          none: لا شَيْء
-          scopes_help: إرسال النشرة الإخبارية للمستخدمين الذين لديهم أي من المجالات المحددة تم تفعيله في إعدادات "اهتماماتي" لحسابهم.
-          select_scopes: أختر للمستخدمين الذين فعلوا أي مجال محدد في إعدادات أهتماماتي لحساباتهم.
+          send_to_all_users: إرسال إلى كافة المستخدمين
           title: حدد المستلمين للإرسال اليهم
           warning: "<strong>تنبيه:</strong> سيتم إرسال هذه النشرة الإخبارية فقط للمستخدمين الذين فعلوا <em>أريد تلقي النشرات الإخبارية</em> في إعدادات الإشعارات الخاصة بهم."
         show:
@@ -717,7 +766,14 @@ ar:
           success: تم تحديث المجال بنجاح
       share_tokens:
         actions:
+          copy_link: نسخ الرابط
           destroy: حذف
+          edit: تعديل
+          preview: معاينة
+        form:
+          'true': 'نعم'
+        new:
+          create: إنشاء
       shared:
         gallery:
           add_images: إضافة صور
@@ -757,16 +813,30 @@ ar:
           without_topic: صفحات بدون موضوع
         update:
           error: حدثت مشكلة أثناء تحديث هذه الصفحة.
+      taxonomies:
+        actions:
+          actions: الإجراءات
+        name: الإسم
+      taxonomy_filters:
+        table:
+          actions: الإجراءات
+          destroy: حذف
+          edit: تعديل
+      taxonomy_filters_selector:
+        new:
+          save: حفظ
       titles:
         admin_log: سجل المسؤول
         area_types: أنواع المناطق
         areas: المناطق
         authorization_workflows: طرق التحقق
         dashboard: لوحة القيادة
+        edit_landing_page: محتويات الصفحة
         edit_organization_appearance: تعديل مظهر الصفحة الرئيسية
         impersonatable_users: المشاركون في الإدارة
         impersonations: إدارة المشاركين
         menu: القائمة الرئيسية
+        page_topics: المواضيع
         pages: الصفحات
         panel: مدير
         participants: المشاركين

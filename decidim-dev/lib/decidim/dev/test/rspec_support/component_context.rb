@@ -42,7 +42,7 @@ shared_context "with a component" do
   let!(:scope) { create(:scope, organization:) }
   let(:root_taxonomy) { create(:taxonomy, organization:) }
   let!(:taxonomy) { create(:taxonomy, organization:, parent: root_taxonomy) }
-  let(:taxonomy_filter) { create(:taxonomy_filter, internal_name:, name:, space_manifest: participatory_space.manifest.name, root_taxonomy:) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, internal_name:, name:, participatory_space_manifests: [participatory_space.manifest.name], root_taxonomy:) }
   let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
   let(:internal_name) { { "en" => "Internal taxonomy filter name" } }
   let(:name) { { "en" => "Public taxonomy filter name" } }

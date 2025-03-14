@@ -105,7 +105,7 @@ describe "Authentication" do
         it "creates a new User without sending confirmation instructions" do
           click_on "Create an account"
 
-          find(".login__omniauth-button.button--facebook").click
+          find(".login__omniauth-button.login__omniauth-button--facebook").click
 
           check :registration_user_tos_agreement
           within "#omniauth-register-form" do
@@ -121,7 +121,7 @@ describe "Authentication" do
       it "sends a welcome notification" do
         click_on "Create an account"
 
-        find(".login__omniauth-button.button--facebook").click
+        find(".login__omniauth-button.login__omniauth-button--facebook").click
 
         check :registration_user_tos_agreement
         check :registration_user_newsletter
@@ -157,7 +157,7 @@ describe "Authentication" do
             click_on("Log in")
           end
 
-          find(".login__omniauth-button.button--facebook").click
+          find(".login__omniauth-button.login__omniauth-button--facebook").click
           expect(page).to have_content("Please complete your profile")
           expect(page).to have_content("cannot be blank")
 
@@ -203,7 +203,7 @@ describe "Authentication" do
         it "redirects the user to a finish signup page" do
           click_on "Create an account"
 
-          find(".button--x").click
+          find(".login__omniauth-button--x").click
 
           expect(page).to have_content("Successfully")
           expect(page).to have_content("Please complete your profile")
@@ -220,7 +220,7 @@ describe "Authentication" do
             create(:user, :confirmed, email: "user@from-twitter.com", organization:)
             click_on "Create an account"
 
-            find(".button--x").click
+            find(".login__omniauth-button--x").click
 
             expect(page).to have_content("Successfully")
             expect(page).to have_content("Please complete your profile")
@@ -243,7 +243,7 @@ describe "Authentication" do
 
         it "creates a new User" do
           click_on "Create an account"
-          find(".login__omniauth-button.button--x").click
+          find(".login__omniauth-button.login__omniauth-button--x").click
 
           check :registration_user_tos_agreement
           check :registration_user_newsletter
@@ -256,7 +256,7 @@ describe "Authentication" do
 
         it "sends a welcome notification" do
           click_on "Create an account"
-          find(".login__omniauth-button.button--x").click
+          find(".login__omniauth-button.login__omniauth-button--x").click
           check :registration_user_tos_agreement
           check :registration_user_newsletter
           within "#omniauth-register-form" do
@@ -338,8 +338,8 @@ describe "Authentication" do
       end
     end
 
-    context "when nickname is not unique case-insensitively" do
-      let!(:user) { create(:user, nickname: "Responsible_Citizen", organization:) }
+    context "when nickname is not unique" do
+      let!(:user) { create(:user, nickname: "responsible_citizen", organization:) }
 
       it "creates a new User" do
         click_on "Create an account"
@@ -723,7 +723,7 @@ describe "Authentication" do
       it "authenticates an existing User" do
         click_on("Log in", match: :first)
 
-        find(".login__omniauth-button.button--facebook").click
+        find(".login__omniauth-button.login__omniauth-button--facebook").click
 
         expect(page).to have_content("Successfully")
         expect_current_user_to_be(user)
@@ -757,7 +757,7 @@ describe "Authentication" do
         it "authenticates an existing User" do
           click_on("Log in", match: :first)
 
-          find(".login__omniauth-button.button--facebook").click
+          find(".login__omniauth-button.login__omniauth-button--facebook").click
 
           expect(page).to have_content("Successfully")
           expect_current_user_to_be(user)
@@ -838,7 +838,7 @@ describe "Authentication" do
         it "creates a new User without sending confirmation instructions" do
           click_on "Create an account"
 
-          find(".login__omniauth-button.button--facebook").click
+          find(".login__omniauth-button.login__omniauth-button--facebook").click
 
           expect(page).to have_content("Finish creating your account")
 
@@ -847,7 +847,6 @@ describe "Authentication" do
           within "#omniauth-register-form" do
             click_on "Create an account"
           end
-
           expect_user_logged
         end
       end

@@ -22,8 +22,6 @@ shared_examples "a proposal form" do |options|
   end
   let(:body_template) { nil }
   let(:author) { create(:user, organization:) }
-  let(:user_group) { create(:user_group, :verified, users: [author], organization:) }
-  let(:user_group_id) { user_group.id }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:address) { nil }
@@ -82,9 +80,9 @@ shared_examples "a proposal form" do |options|
   context "when the title is too long" do
     let(:title) do
       if options[:i18n] == false
-        "A" * 200
+        "A#{"a" * 200}"
       else
-        { en: "A" * 200 }
+        { en: "A#{"a" * 200}" }
       end
     end
 
@@ -103,19 +101,7 @@ shared_examples "a proposal form" do |options|
     it { is_expected.to be_valid }
   end
 
-  unless options[:skip_etiquette_validation]
-    context "when the body is not etiquette-compliant" do
-      let(:body) do
-        if options[:i18n] == false
-          "A"
-        else
-          { en: "A" }
-        end
-      end
-
-      it { is_expected.to be_invalid }
-    end
-  end
+  it_behaves_like "etiquette validator", fields: [:title, :body], **options
 
   context "when there is no body" do
     let(:body) { nil }
@@ -188,21 +174,8 @@ shared_examples "a proposal form" do |options|
       context "when the proposal is unchanged" do
         let(:previous_proposal) { create(:proposal, address:) }
 
-        let(:title) do
-          if options[:skip_etiquette_validation]
-            previous_proposal.title
-          else
-            translated(previous_proposal.title)
-          end
-        end
-
-        let(:body) do
-          if options[:skip_etiquette_validation]
-            previous_proposal.body
-          else
-            translated(previous_proposal.body)
-          end
-        end
+        let(:title) { translated(previous_proposal.title) }
+        let(:body) { translated(previous_proposal.body) }
 
         let(:params) do
           {
@@ -224,14 +197,6 @@ shared_examples "a proposal form" do |options|
           expect(subject.longitude).to eq(longitude)
         end
       end
-    end
-  end
-
-  if options && options[:user_group_check]
-    it "properly maps user group id from model" do
-      proposal = create(:proposal, component:, users: [author], user_groups: [user_group])
-
-      expect(described_class.from_model(proposal).user_group_id).to eq(user_group_id)
     end
   end
 
@@ -369,19 +334,7 @@ shared_examples "a proposal form with meeting as author" do |options|
     it { is_expected.to be_invalid }
   end
 
-  unless options[:skip_etiquette_validation]
-    context "when the body is not etiquette-compliant" do
-      let(:body) do
-        if options[:i18n] == false
-          "A"
-        else
-          { en: "A" }
-        end
-      end
-
-      it { is_expected.to be_invalid }
-    end
-  end
+  it_behaves_like "etiquette validator", fields: [:title, :body], **options
 
   context "when there is no body" do
     let(:body) { nil }

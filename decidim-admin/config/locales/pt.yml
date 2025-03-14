@@ -30,6 +30,7 @@ pt:
         user_group_id: Criar importações como
       newsletter:
         body: Corpo
+        send_to_all_users: Enviar para todas as pessoas utilizadoras
         subject: Assunto
       organization:
         alert_color: Alerta
@@ -145,8 +146,6 @@ pt:
         attachment:
           new: Novo anexo
         browse: Explorar
-        category:
-          new: Nova categoria
         export: Exportar tudo
         export-selection: Exportar selecção
         import: Importar
@@ -159,6 +158,7 @@ pt:
         permissions: Permissões
         reject: Rejeitar
         share: Partilhar
+        soft_delete: Mover para a lixeira
         verify: Verificar
       area_types:
         create:
@@ -224,29 +224,20 @@ pt:
       autocomplete:
         no_results: Nenhum resultado encontrado
       block_user:
+        bulk_new:
+          action: Bloquear conta e enviar justificação
+          already_reported_html: Com essa ação todos os conteúdos dos participantes bloqueados serão ocultados.
+          description: Bloquear um participante torna a sua conta inutilizável. Pode dar na sua justificação orientações sobre o que poderia levar a considerar desbloquear o participante.
+          justification: Justificação
+          title: Bloquear participantes
         new:
           action: Bloquear conta e enviar justificação
           description: Bloquear um utilizador torna a sua conta inutilizável. Pode dar na sua justificação orientações sobre o que poderia levar a considerar desbloquear o utilizador.
           justification: Justificação
           title: Bloquear utilizador %{name}
       categories:
-        create:
-          error: Ocorreu um problema ao criar esta categoria.
-          success: Categoria criada com sucesso.
-        destroy:
-          error: Ocorreu um problema ao eliminar esta categoria. Por favor elimine qualquer subcategoria primeiro, certifique-se de que nenhuma outra entidade pertence a esta categoria e tente novamente.
-          success: Categoria apagada com sucesso.
-        edit:
-          title: Editar categoria
-          update: Atualizar
         index:
           categories_title: Categorias
-        new:
-          create: Criar categoria
-          title: Nova categoria
-        update:
-          error: Ocorreu um problema ao atualizar esta categoria.
-          success: Categoria atualizada com sucesso.
       component_permissions:
         update:
           error: Ocorreu um problema ao atualizar as permissões deste componente.
@@ -356,6 +347,9 @@ pt:
             pending: Pendentes
             rejected: Rejeitados
             verified: Verificados
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomia
       forms:
         file_help:
           import:
@@ -407,6 +401,8 @@ pt:
             back: Voltar
           file_legend: Adicionar ficheiro para importar a analisar.
           import: Importar
+      manage_trash:
+        deleted_items_warning: Visualize itens da lixeira no momento. Para fazer qualquer edição ou alterações, deve primeiro restaurá-los.
       managed_users:
         promotion:
           error: Ocorreu um problema ao promover o participante gerido.
@@ -434,6 +430,8 @@ pt:
         scopes: Âmbitos
         settings: Configurações
         static_pages: Páginas
+        taxonomies: Taxonomias
+        taxonomy_filters: Filtros de taxonomia
         user_groups: Grupos
         users: Utilizadores
       metrics:
@@ -516,13 +514,27 @@ pt:
         index:
           actions:
             block: Bloquear utilizador
+            bulk_actions:
+              actions_dropdown: Ações
+              block:
+                title: Bloquear
+                update_moderated_user_button: Bloquear participantes
+              unblock:
+                title: Desbloquear
+                update_moderated_user_button: Desbloquear participantes
+              unreport:
+                title: Remover denúncia
+            ignore:
+              update_moderated_user_button: Remover denúncias
             title: Acções
             unblock: Desbloquear utilizador
             unreport: Remover denúncia
+          cancel: Cancelar
           name: Nome
           nickname: Alcunha
           reason: Motivo
           reports: Contagem de denúncias
+          selected: Selecionado
         report:
           reasons:
             does_not_belong: Não pertence
@@ -580,7 +592,6 @@ pt:
           confirm_delete: Tem certeza de que deseja eliminar este boletim informativo?
           followers: 'seguidores '
           has_been_sent_to: 'Foi enviado para: '
-          no_scopes: Sem âmbitos
           not_sent: Não enviado
           participants: 'participantes '
           segmented_to: 'Segmentado para %{subject}: '
@@ -595,13 +606,10 @@ pt:
           confirm_deliver: Tem a certeza de que deseja enviar este boletim informativo? Esta ação não pode ser desfeita.
           deliver: Entregar boletim informativo
           followers_help: Envia um boletim informativo para todos os utilizadores confirmados que seguem quaisquer espaços participativos na lista.
-          none: Nenhum
           participants_help: Envia um boletim informativo para todos os utilizadores confirmados que tenham participado em qualquer um dos espaços participativos selecionados na lista.
           recipients_count: Este boletim informativo será enviado para <strong id='recipients_count'>%{count}</strong> utilizadores.
-          scopes_help: Envia um boletim informativo aos utilizadores que tenham qualquer um dos âmbitos selecionados ativados nas definições "Os meus interesses" das suas contas.
-          select_scopes: Filtro para os utilizadores que ativaram qualquer âmbito selecionado nas definições "Os meus interesses" das suas contas.
           select_spaces: Selecione os espaços para segmentar o boletim informativo
-          select_users: Selecione os utilizadores para os quais pretende enviar o boletim informativo
+          send_to_all_users: Enviar para todos os utilizadores
           title: Selecione os destinatários
           warning: "<strong>Atenção:</strong> Este boletim informativo apenas será enviado para utilizadores que tenham ativado a opção <em>Pretendo receber boletins informativo</em> nas suas definições de notificações."
         show:
