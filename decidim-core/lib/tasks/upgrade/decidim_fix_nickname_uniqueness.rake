@@ -3,7 +3,7 @@
 namespace :decidim do
   namespace :upgrade do
     desc "Modifies nickname of the user to lower case"
-    task :fix_nickname_casing => :environment do
+    task fix_nickname_casing: :environment do
       logger.info("Fixing user nicknames case...")
 
       has_changed = []
@@ -26,7 +26,7 @@ namespace :decidim do
     end
 
     desc "Modifies nicknames with random numbers when exists similar ones case-insensitively"
-    task :fix_nickname_uniqueness => :environment do
+    task fix_nickname_uniqueness: :environment do
       Rake::Task["decidim:upgrade:fix_nickname_casing"].execute
     end
 
