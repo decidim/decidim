@@ -12,8 +12,8 @@ module Decidim
       end
 
       def author
-        author = if object.respond_to?(:normalized_author)
-                   object&.normalized_author
+        author = if object.respond_to?(:author)
+                   object&.author
                  elsif object.respond_to?(:creator_identity)
                    object&.creator_identity
                  end
