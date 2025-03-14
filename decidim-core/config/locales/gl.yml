@@ -604,10 +604,18 @@ gl:
       home: Inicio
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          greeting: Ola, %{recipient}!
+        comanagers_new_message:
+          greeting: Ola, %{recipient}!
         new_conversation:
           greeting: Ola, %{recipient}!
           intro: "%{sender} comezou unha nova conversa contigo. Prema aquí para velo:"
           subject: "%{sender} comezou unha conversa contigo"
+        new_group_conversation:
+          greeting: Ola, %{recipient}!
+        new_group_message:
+          greeting: Ola, %{recipient}!
         new_message:
           greeting: Ola, %{recipient}!
           intro: "%{sender} publicou novas mensaxes na túa conversa. Prema aquí para velas:"
@@ -714,15 +722,20 @@ gl:
         badges: Insignias
         followers: Seguidores
         following: Segue
+        group_admins: Xestionar os administradores
+        group_members: Xestionar membros
         groups: Grupos
         members: Membros
       user:
         actions:
+          create_user_group: Crear grupo
           edit_profile: Editar perfil
           edit_user_group: Editar o perfil do grupo
           invite_user: Invitar ao usuario
           join_user_group: Solicitude para unirse ao grupo
           leave_user_group: Deixar de grupo
+          manage_user_group_admins: Xestionar os administradores
+          manage_user_group_users: Xestionar membros
           resend_email_confirmation_instructions: Reenvía as instrucións de confirmación de correo electrónico
     reported_mailer:
       hide:
@@ -809,6 +822,8 @@ gl:
       participants_count: Participantes
       users_count: Participantes
     user_conversations:
+      reply:
+        send: Enviar
       update:
         error: Mensaxe non enviada. Téntao de novo máis tarde
     user_interests:
