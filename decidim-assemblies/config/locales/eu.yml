@@ -41,7 +41,7 @@ eu:
         local_area: Antolakuntza Arloa
         meta_scope: Eremuko metadatuak
         parent_id: Batzar nagusia
-        participatory_processes_ids: Erlazionatutako prozesu parte-hartzaileak
+        participatory_processes_ids: Erlazionatutako partaidetza-prozesuak
         participatory_scope: Zer erabakitzen den
         participatory_structure: Nola erabakitzen den
         private_space: Espazio pribatua
@@ -401,7 +401,7 @@ eu:
           'false': opakua
           'true': gardena
         private_space: Hau batzar pribatua da
-        related_participatory_processes: Erlazionatutako prozesu parte-hartzaileak
+        related_participatory_processes: Erlazionatutako partaidetza-prozesuak
         social_networks_title: 'Bisitatu batzarra:'
     assembly_members:
       assembly_member:
