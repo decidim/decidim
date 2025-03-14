@@ -232,6 +232,7 @@ fr:
         delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
         export_component: "%{user_name} a exporté le %{resource_name} %{component_name} dans %{space_name} en tant que %{format_name}"
         publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
+        restore: "%{user_name} a restauré la fonctionnalité %{resource_name} dans l'espace %{space_name}"
         unpublish: "%{user_name} a dépublié la fonctionnalité %{resource_name} de l'espace %{space_name}"
         update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
       contextual_help_section:
@@ -387,6 +388,7 @@ fr:
     application:
       document:
         download: Télécharger le fichier
+        visit_link: Visiter le lien
       documents:
         component_documents:
           dummy: Documents de fonctionnalité factices
@@ -519,6 +521,7 @@ fr:
             dummy_global_translatable_text: Texte traduisible factice
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
+            taxonomy_filters: Sélectionner les filtres pour la fonctionnalité
           step:
             amendment_creation_enabled: Création d'amendement activée
             amendment_promotion_enabled: Promotion d'amendement activée
@@ -689,6 +692,8 @@ fr:
       export:
         ready: Prêt
       help:
+        notifications:
+          extra: Informations supplémentaires sur cette notification
         participatory_space_private_users:
           created_at: La date et l'heure de création de cet utilisateur privé
           id: L'identifiant unique de cet utilisateur privé
@@ -703,15 +708,31 @@ fr:
           locale: La langue de ce rapport
           reason: La raison de ce rapport
           updated_at: La date et l'heure de la dernière mise à jour de ce rapport
+        user_groups:
+          document_number: Le numéro de document de ce groupe d'utilisateurs
+          id: L'identifiant unique de groupe d'utilisateur
+          name: Le nom de ce groupe d'utilisateurs
+          phone: Le numéro de téléphone de ce groupe d'utilisateurs
+          verified_at: La date et l'heure où le groupe d'utilisateurs a été vérifié
         users:
           accepted_tos_version: La date à laquelle les conditions d'utilisation de cette plateforme ont été acceptées par l'utilisateur
+          deleted_at: La date et l'heure où cet utilisateur a été supprimé
+          email: L'adresse e-mail de cet utilisateur
           followers_count: Le nombre de participants qui suivent à cet utilisateur
           following_count: Le nombre de participants que cet utilisateur suit
+          id: L'identifiant unique de l'utilisateur
+          invitations_count: Le nombre d'invitations envoyées à cet utilisateur
+          invited_by: L'utilisateur qui a invité cet utilisateur
+          last_sign_in_at: La date et l'heure de la dernière connexion
+          last_sign_in_ip: L'adresse IP de la dernière connexion
+          locale: La langue que cet utilisateur a sélectionnée
+          nickname: Le pseudonyme de l'utilisateur
           password_updated_at: La date à laquelle leur mot de passe a été modifié pour la dernière fois
           roles: Le rôle de cet utilisateur s'il en a un
           type: Le type que cet utilisateur a
       show:
         action: Action
+        download: Télécharger le fichier
         download_data_description_1: Vous trouverez ici tous les téléchargements disponibles pour votre compte. Ces fichiers .zip seront disponibles pendant deux semaines avant d'être supprimés.
         download_data_description_2: Vous pouvez demander un fichier .zip avec vos contributions et vos données personnelles.
         download_your_data: Données personnelles
@@ -914,6 +935,7 @@ fr:
         download: Télécharger
       export:
         click_button_html: Votre téléchargement est prêt. <br/>Le fichier sera disponible en téléchargement jusqu'à %{date}.
+        download: Télécharger
       subject: Votre export "%{name}" est prêt
     filters:
       linked_classes:
@@ -953,6 +975,10 @@ fr:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
     forms:
+      attachment_link:
+        help_messages:
+        - Seuls les formats d'URL corrects sont acceptés.
+        - Veuillez noter que les liens doivent être publics pour que tous les participants puissent y accéder.
       errors:
         decidim/user:
           password: Le mot de passe est trop court.
@@ -1034,7 +1060,7 @@ fr:
       accept:
         error: Une erreur s'est produite lors de l'acceptation de cette invitation.
         success: L’invitation a été acceptée avec succès.
-      accept_invitation: Acceptez
+      accept_invitation: Accepter
       accept_or_reject_group_invitations: 'Les groupes suivants vous ont invité à les rejoindre. Accepter ou rejeter leurs demandes:'
       index:
         invite: Inviter
@@ -1092,7 +1118,7 @@ fr:
         success: Le groupe est parti avec succès.
       members:
         accept_or_reject_join_requests: 'Les utilisateurs suivants ont demandé à rejoindre ce groupe. Accepter ou rejeter leurs demandes:'
-        accept_request: Acceptez
+        accept_request: Accepter
         reject_request: Rejeter
       new:
         create_user_group: Créer un groupe
@@ -1179,7 +1205,7 @@ fr:
           subject: "%{manager} a commencé une nouvelle conversation en tant que %{group}"
         comanagers_new_message:
           admin_in_group: Vous recevez ceci parce que vous êtes un administrateur de %{group}.
-          greeting: Bonjour %{recipient} !
+          greeting: Bonjour, %{recipient} !
           intro: "%{manager} a posté de nouveaux messages dans une conversation au nom de %{group}. Cliquez ici pour les voir:"
           outro: Profitez de la plateforme !
           subject: "%{manager} a envoyé de nouveaux messages en tant que %{group}"
@@ -1374,11 +1400,16 @@ fr:
       click_link: Cliquez ici
       cta_html: <a href="%{path}">%{link_text}</a> pour %{action} dans %{resource_name} <strong>%{resource_title}</strong>
       ephemeral_authorized_message: Vous avez été autorisé avec succès.<br/>Vous avez commencé une session en tant qu'invité, vous pouvez maintenant participer.
+      expired_authorization_active_title: Votre autorisation a expiré.
+      finish_authorization_process: Vous pouvez terminer le processus d'autorisation
       pending_authorization_active_message: Veuillez remplir le formulaire pour procéder à cette action.
       pending_authorization_active_title: Nous devons vérifier votre identité.
       pending_ephemeral_authorization: Veuillez vérifier votre identité pour continuer.
     open_data:
       help:
+        core:
+          components: Fonctionnalités
+          spaces: Espaces
         metrics:
           day: Le jour de la création de cette métrique
           metric_type: Le type de métrique
@@ -1400,12 +1431,31 @@ fr:
           reported_content: Le contenu qui a été signalé
           reported_url: L'url de la ressource signalée
           reports: Une liste des raisons pour lesquelles la ressource a été signalée
+        user_groups:
+          avatar_url: L'avatar du groupe d'utilisateurs
+          badge: Le badge du groupe d'utilisateurs
+          id: L'identifiant unique du groupe d'utilisateurs
+          members: L'id et le nom des utilisateurs appartenant au groupe
+          members_count: Le nombre d'utilisateurs appartenant au groupe d'utilisateurs
+          name: Le nom du groupe d'utilisateurs
+          nickname: Le nom d'utilisateur du groupe d'utilisateurs
+          profile_url: L'url du profil
+        users:
+          about: Le champ "À propos" de l'utilisateur
+          avatar_url: L'avatar de l'utilisateur
+          badge: Le badge de l'utilisateur
+          groups: L'identifiant et le nom du groupe d'utilisateurs
+          id: L'identifiant unique de l'utilisateur
+          nickname: Le pseudonyme de l'utilisateur
+          profile_url: L'url du profil
       index:
         description: Bienvenue sur la page sur les données ouvertes de %{organization_name}. Ici, vous trouverez des fichiers de données qui sont régulièrement générés à partir de divers processus de délibération et de gouvernance au sein de %{organization_name}. Ces dossiers sont mis à disposition pour promouvoir la transparence, l'accessibilité et la collaboration. Ci-dessous, vous trouverez des informations détaillées sur ce que sont ces fichiers, comment les ouvrir et travailler avec, et une description du contenu et de la structure de chaque fichier.
         detailed:
+          components: Fonctionnalités
           spaces: Espaces participatifs
           title: Explication détaillée de chaque fichier
         download:
+          components: Fonctionnalités
           spaces: Espaces participatifs
           title: Télécharger les ressources
         download_open_data: Télécharger tous les fichiers de données ouvertes
@@ -1661,6 +1711,8 @@ fr:
       participants_count: Participants
       surveys_count: Enquêtes
       users_count: Participants
+    taxonomies:
+      prompt: Veuillez sélectionner une option
     translation_bar:
       help_text: "<strong>Attention :</strong> Le contenu peut être automatiquement traduit et ne pas être exact à 100%."
       show_original: Afficher le texte original
