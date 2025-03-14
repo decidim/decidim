@@ -1027,8 +1027,8 @@ ca:
         success: El grup s'ha abandonat correctament.
       members:
         accept_or_reject_join_requests: 'Les següents participants han sol·licitat unir-se a aquest grup. Accepta o rebutja les seves sol·licituds:'
-        accept_request: Accepta
-        reject_request: Rebutja
+        accept_request: Acceptar
+        reject_request: Rebutjar
       new:
         create_user_group: Crea un grup
         new_user_group: Nou grup
@@ -1366,14 +1366,14 @@ ca:
         followers: Seguidores
         following: Seguint
         group_admins: Gestionar administradores
-        group_members: Gestionar membres
+        group_members: Gestiona els membres
         groups: Grups
         members: Membres
         officialized: Participant oficial
         send_private_message: Enviar missatge privat
       user:
         actions:
-          create_user_group: Crear un grup
+          create_user_group: Crea un grup
           disabled_message: Missatge
           edit_profile: Edita el perfil
           edit_user_group: Edita el perfil del grup
@@ -1382,7 +1382,7 @@ ca:
           leave_user_group: Marxa del grup
           manage_user_group: Gestiona el grup
           manage_user_group_admins: Gestionar administradores
-          manage_user_group_users: Gestionar membres
+          manage_user_group_users: Gestiona els membres
           message: Missatge
           resend_email_confirmation_instructions: Reenvia un correu electrònic amb les instruccions de confirmació
         confirmation_instructions_sent: Instruccions de confirmació enviades per correu electrònic.
