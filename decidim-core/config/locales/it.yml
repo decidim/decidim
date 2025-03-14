@@ -29,6 +29,8 @@ it:
         password_confirmation: Conferma la tua password
         personal_url: Pagina personale
         remove_avatar: Rimuovi avatar
+      user_group:
+        avatar: Immagine del profilo
     models:
       decidim/attachment_created_event: Allegato
       decidim/component_published_event: Componente attivo
@@ -632,12 +634,12 @@ it:
         current_admins: 'Amministratori attuali:'
         manage_admins: Gestisci amministratori
     group_invites:
-      accept_invitation: Accettare
+      accept_invitation: Accettato
       accept_or_reject_group_invitations: 'I seguenti gruppi ti hanno invitato a unirti a loro. Accetta o rifiuta le loro richieste:'
       index:
         invite: Invitare
         invite_user: Invita un utente
-      reject_invitation: Rifiutare
+      reject_invitation: Rifiutato
     group_members:
       actions:
         are_you_sure: Sei sicuro?
@@ -663,8 +665,8 @@ it:
         success: Gruppo lasciato con successo.
       members:
         accept_or_reject_join_requests: 'I seguenti utenti hanno chiesto di unirsi a questo gruppo. Accetta o rifiuta le loro richieste:'
-        accept_request: Accettare
-        reject_request: Rifiutare
+        accept_request: Accettato
+        reject_request: Rifiutato
       new:
         create_user_group: Crea un gruppo
         new_user_group: Nuovo gruppo
@@ -765,6 +767,8 @@ it:
           new_conversation: Nuova conversazione
           next: Successivo
           title: Conversazioni
+        reply_form:
+          placeholder: La tua risposta...
         show:
           back: Torna a tutte le conversazioni
           chat_with: Conversazione con
@@ -888,17 +892,22 @@ it:
         conversations: Conversazioni
         followers: Followers
         following: Seguiti
+        group_admins: Gestisci amministratori
+        group_members: Gestisci i membri
         groups: gruppi
         members: Utenti
         officialized: Partecipante ufficiale
         send_private_message: Invia messaggio privato
       user:
         actions:
+          create_user_group: Crea un gruppo
           edit_profile: Modifica Profilo
           edit_user_group: Modifica il profilo del gruppo
           invite_user: Invita utente
           join_user_group: Richiesta di iscrizione al gruppo
           leave_user_group: Lascia il gruppo
+          manage_user_group_admins: Gestisci amministratori
+          manage_user_group_users: Gestisci i membri
           resend_email_confirmation_instructions: Rispedire le istruzioni per la conferma dell'email
     reported_mailer:
       hide:
