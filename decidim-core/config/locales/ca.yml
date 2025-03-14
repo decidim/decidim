@@ -54,7 +54,7 @@ ca:
         remove_avatar: Elimina la imatge de perfil
         tos_agreement: Termes i condicions d'ús
       user_group:
-        avatar: Imatge de perfil
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Arxiu adjunt
       decidim/component_published_event: Component actiu
@@ -1215,8 +1215,8 @@ ca:
         success: El grup s'ha abandonat correctament.
       members:
         accept_or_reject_join_requests: 'Les següents participants han sol·licitat unir-se a aquest grup. Accepta o rebutja les seves sol·licituds:'
-        accept_request: Accepta
-        reject_request: Rebutja
+        accept_request: Acceptar
+        reject_request: Rebutjar
       new:
         create_user_group: Crea un grup
         new_user_group: Nou grup
@@ -1551,13 +1551,13 @@ ca:
         user_groups:
           avatar_url: L'avatar del grup d'usuàries
           badge: L'ensenya del grup d'usuàries
-          deleted: Si el grup d'usuàries va ser eliminat o no
+          deleted: Si la usuària va ser eliminada o no
           id: L'identificador únic del grup d'usuàries
           members: L'ID i el nom de les usuàries que pertanyen al grup
           members_count: El número de membres que formen part del grup d'usuàries
           name: El nom que es mostra del grup d'usuàries
           nickname: El nom d'usuària del grup d'usuàries
-          profile_url: L'URL del perfil del grup d'usuàries
+          profile_url: L'URL del perfil de la usuària
         users:
           about: El text "Quant a" inclòs al perfil d'usuària
           avatar_url: L'avatar de la usuària
@@ -1688,14 +1688,14 @@ ca:
         followers: Seguidores
         following: Seguint
         group_admins: Gestionar administradores
-        group_members: Gestionar membres
+        group_members: Gestiona els membres
         groups: Grups
         members: Membres
         officialized: Participant oficial
         send_private_message: Enviar missatge privat
       user:
         actions:
-          create_user_group: Crear un grup
+          create_user_group: Crea un grup
           disabled_message: Missatge
           edit_profile: Edita el perfil
           edit_user_group: Edita el perfil del grup
@@ -1704,7 +1704,7 @@ ca:
           leave_user_group: Marxa del grup
           manage_user_group: Gestiona el grup
           manage_user_group_admins: Gestionar administradores
-          manage_user_group_users: Gestionar membres
+          manage_user_group_users: Gestiona els membres
           message: Missatge
           resend_email_confirmation_instructions: Reenvia un correu electrònic amb les instruccions de confirmació
         confirmation_instructions_sent: Instruccions de confirmació enviades per correu electrònic.
