@@ -316,6 +316,7 @@ Devise.setup do |config|
   config.jwt do |jwt|
     jwt.secret = Rails.application.secrets.dig(:api, :secret_key_jwt)
     next unless jwt.secret
+    next unless defined?(Decidim::Api)
 
     jwt.dispatch_requests = [
       ["POST", %r{^/sign_in$}]
@@ -323,7 +324,7 @@ Devise.setup do |config|
     jwt.revocation_requests = [
       ["DELETE", %r{^/sign_out$}]
     ]
-    jwt.expiration_time = 1.day.to_i
+    jwt.expiration_time = Decidim::Api.config.jwt_expiration_time
     jwt.aud_header = "JWT_AUD"
   end
 
