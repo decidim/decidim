@@ -25,12 +25,6 @@ uk:
         password: Пароль
         password_confirmation: Підтвердження паролю
         remember_me: Запам'ятати мене
-    models:
-      decidim/user_group:
-        one: Гурт учасників
-        few: Гурти учасників
-        many: Гуртів учасників
-        other: Гуртів учасників
   booleans:
     'false': 'Ні'
     'true': 'Так'
@@ -429,9 +423,6 @@ uk:
         share_link: Поділитись посиланням
     statistics:
       comments_count: Коментарів
-    user_conversations:
-      update:
-        error: Повідомлення не надіслано. Спробуйте ще раз пізніше
   devise:
     invitations:
       edit:
