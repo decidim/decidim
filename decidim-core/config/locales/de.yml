@@ -1558,7 +1558,7 @@ de:
         user_groups:
           avatar_url: Der Avatar der Gruppe
           badge: Das Abzeichen der Gruppe
-          deleted: Ob der Benutzer gelöscht wurde oder nicht
+          deleted: Ob das Konto gelöscht wurde oder nicht
           id: Die eindeutige Bezeichnung des Gruppe
           members: Die IDs und die Namen der Gruppenmitglieder
           members_count: Die Anzahl Gruppenmitglieder
