@@ -10,7 +10,6 @@ en:
         scope_id: Scope
         state: State
         title: Title
-        user_group_id: Create collaborative draft as
       import_participatory_text:
         document: Document
       proposal:
@@ -28,7 +27,6 @@ en:
         state: State
         suggested_hashtags: Suggested hashtags
         title: Title
-        user_group_id: Create proposal as
       proposal_answer:
         answer: Answer
         cost: Cost
@@ -451,7 +449,6 @@ en:
           id: The id for this comment
           locale: The locale (language) that the participant had when leaving this comment
           root_commentable_url: The URL of the resource that ties to this comment
-          user_group: The name of the user group that made this comment (if any)
         proposals:
           address: The address of the proposal in case the proposal has a physical location
           answer: The answer to the proposal in the case it has been answered
@@ -751,7 +748,6 @@ en:
           meetings: Meetings
           official: Official
           participants: Participants
-          user_groups: Groups
         filter_state_values:
           all: All
           not_answered: Not answered
@@ -886,7 +882,7 @@ en:
           success: Co-author invitation successfully canceled.
         create:
           error: There was a problem inviting the co-author.
-          success: "%{author_name} successfully invited as a co-author."
+          success: "%{author_name} has been successfully invited as a co-author."
         destroy:
           error: There was a problem declining the invitation.
           success: The invitation has been declined.

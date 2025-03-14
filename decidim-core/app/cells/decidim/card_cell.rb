@@ -49,9 +49,7 @@ module Decidim
     def resource_cell
       @resource_cell ||= if resource_card
                            resource_card
-                         elsif group_membership?
-                           "decidim/user_profile"
-                         elsif official_author? || user_or_user_group?
+                         elsif official_author? || user_base_entity?
                            "decidim/author"
                          end
     end
@@ -82,16 +80,8 @@ module Decidim
       model.is_a? Decidim::OfficialAuthorPresenter
     end
 
-    def user_or_user_group?
+    def user_base_entity?
       model.is_a?(Decidim::UserBaseEntity)
-    end
-
-    def group_membership?
-      model.instance_of?(::Decidim::UserGroupMembership)
-    end
-
-    def user_group?
-      model.instance_of?(::Decidim::UserGroup)
     end
 
     def stats
