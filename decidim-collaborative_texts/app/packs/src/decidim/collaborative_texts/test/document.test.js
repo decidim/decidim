@@ -1,4 +1,5 @@
 import Document from "src/decidim/collaborative_texts/document";
+import Suggestions from "src/decidim/collaborative_texts/suggestions";
 
 describe("Document", () => {
   let i18n = {test: "test"};
@@ -38,6 +39,7 @@ describe("Document", () => {
   });
 
   it("Filters text nodes and adds ids", () => {
+    expect(doc.fetchSuggestions().suggestions).toBeInstanceOf(Suggestions);
     expect(doc.fetchSuggestions().suggestions.document).toBe(doc);
     expect(doc.nodes.length).toBe(4);
     expect(doc.nodes[0].id).toBe("ct-node-1");
@@ -75,22 +77,5 @@ describe("Document", () => {
     it("disables suggestions", () => {
       expect(doc.active).toBe(false);
     });
-  });
-
-  // this to suggestions.test.js
-  it("fetches suggestions", async () => {
-    fetchResult = [
-      {
-        "changeset": {
-          "replace": ["This is a replacement"],
-          "firstNode":2,
-          "lastNode":2
-        },
-        "status":"pending"
-      }
-    ];
-    const s1 = await doc.fetchSuggestions();
-    console.log("DOOOC",s1.doc.innerHTML, doc.suggestions.suggestions);
-    expect(doc.doc.innerHTML).toContain("collaborative-texts-suggestions-menu");
   });
 });
