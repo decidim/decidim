@@ -32,6 +32,7 @@ gem "decidim-dev", github: "decidim/decidim"
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
+bin/rails decidim:upgrade:fix_nickname_casing
 ```
 
 ### 1.4. Follow the steps and commands detailed in these notes
@@ -46,9 +47,51 @@ We have noticed that when a resource (ex: Proposal, Meeting) is being moderated,
 bin/rails decidim:upgrade:clean:hidden_resources
 ```
 
-You can read more about this change on PR [#13554](https://github.com/decidim/decidim/pull/13554).
+### 2.2. User Groups removal
 
-### 2.2. [[TITLE OF THE ACTION]]
+As part of our efforts to simplify the experience for organizations, the "User Groups" feature has been deprecated. All previously existing User Groups has been converted into regular participants able to sign in providing the email and a password. The users with access to the email associated with the User Group will be able to set a password.
+
+There are some tasks to notify users affected by the changes, transfer authorships and remove deprecated references to groups. All of them can be executed in a main task:
+
+```bash
+bin/rails decidim:upgrade:user_groups:remove
+```
+
+The tasks can also be executed one by one:
+
+* An email will be sent to the email address associated with the User Group, informing them of the deprecation of User Groups and instructing them to define a password for the newly converted profile. For this run:
+
+```bash
+bin/rails decidim:upgrade:user_groups:send_reset_password_instructions
+```
+
+* To notify group members and admins associated with the User Group with an email explaining the changes and how to access the shared profile run:
+
+```bash
+bin/rails decidim:upgrade:user_groups:send_user_group_changes_notification_to_members
+```
+
+* To migrate the authorships and coauthorships of the old groups and assign to the new regular users:
+
+```bash
+bin/rails decidim:upgrade:user_groups:transfer_user_groups_authorships
+```
+
+* To avoid exceptions accessing to the activities log in the admin panel displaying activities associated with user groups:
+
+```bash
+bin/rails decidim:upgrade:user_groups:fix_user_groups_action_logs
+```
+
+* To avoid exceptions trying to display notifications associated with deprecated groups events:
+
+```bash
+bin/rails decidim:upgrade:user_groups:remove_groups_notifications
+```
+
+You can read more about this change on PR [#14130](https://github.com/decidim/decidim/pull/14130).
+
+### 2.3. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#xxxx](https://github.com/decidim/decidim/pull/xxx).
 
@@ -71,6 +114,18 @@ to
 ```
 
 You can read more about this change on PR [#14180](https://github.com/decidim/decidim/pull/14180).
+
+### 3.2. Convert nicknames to lowercase
+
+As of [#14272](https://github.com/decidim/decidim/pull/14272) we are migrating all the nicknames to lowercase fix performance issues which affects large databases having many participants.
+
+To apply the fix on your application, you need to run the below command.
+
+```bash
+bin/rails decidim:upgrade:fix_nickname_casing
+```
+
+You can read more about this change on PR [#14272](https://github.com/decidim/decidim/pull/14272).
 
 ### 3.2. [[TITLE OF THE ACTION]]
 

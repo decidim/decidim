@@ -10,11 +10,9 @@ module Decidim
     let!(:component) { create(:component, organization:, manifest_name: "dummy") }
     let!(:participatory_process) { create(:participatory_process, organization:) }
     let!(:author) { create(:user, organization:) }
-    let!(:user_group) { create(:user_group, verified_at: Time.current, organization:, users: [author]) }
     let!(:resource) { create(:dummy_resource, component:, users: [author]) }
     let!(:endorsement) do
-      build(:endorsement, resource:, author:,
-                          user_group:)
+      build(:endorsement, resource:, author:)
     end
 
     it "is valid" do
@@ -29,11 +27,10 @@ module Decidim
       expect(endorsement.resource).to be_a(Decidim::Dev::DummyResource)
     end
 
-    it "validates uniqueness for author and user_group and resource combination" do
+    it "validates uniqueness for author and resource combination" do
       endorsement.save!
       expect do
-        create(:endorsement, resource:, author:,
-                             user_group:)
+        create(:endorsement, resource:, author:)
       end.to raise_error(ActiveRecord::RecordInvalid)
     end
 
@@ -43,14 +40,6 @@ module Decidim
       end
 
       it { is_expected.to be_invalid }
-    end
-
-    context "when no user_group" do
-      before do
-        endorsement.user_group = nil
-      end
-
-      it { is_expected.to be_valid }
     end
 
     context "when no resource" do
@@ -76,20 +65,22 @@ module Decidim
         endorsement.save!
       end
 
-      let!(:other_user_group) { create(:user_group, verified_at: Time.current, organization: author.organization, users: [author]) }
+      let!(:other_resource) { create(:dummy_resource, component:, users: [author]) }
+      let!(:other_author) { create(:user, organization:) }
       let!(:other_endorsement1) do
-        create(:endorsement, resource:, author:)
+        create(:endorsement, resource:, author: other_author)
       end
       let!(:other_endorsement2) do
-        create(:endorsement, resource:, author:, user_group: other_user_group)
+        create(:endorsement, resource: other_resource, author:)
       end
 
-      it "sorts user_group endorsements first and then by created_at" do
+      it "sorts user endorsements first and then by created_at" do
         expected_sorting = [
-          other_endorsement1.id, endorsement.id,
-          other_endorsement2.id
+          endorsement.id,
+          other_endorsement2.id,
+          other_endorsement1.id
         ]
-        expect(resource.endorsements.for_listing.pluck(:id)).to eq(expected_sorting)
+        expect(Decidim::Endorsement.for_listing.pluck(:id)).to eq(expected_sorting)
       end
     end
   end

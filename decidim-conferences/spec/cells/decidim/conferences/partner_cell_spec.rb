@@ -19,7 +19,7 @@ module Decidim::Conferences
     context "when rendering a collaborator" do
       let(:partner) { create(:partner, :collaborator, conference:) }
 
-      it "renders a User_group author card" do
+      it "renders a User author card" do
         expect(subject).to have_css(".conference__grid-item")
       end
     end

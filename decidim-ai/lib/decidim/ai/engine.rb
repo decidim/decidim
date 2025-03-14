@@ -24,12 +24,6 @@ module Decidim
           Decidim::EventsManager.subscribe("decidim.update_account:after") do |_event_name, data|
             Decidim::Ai::SpamDetection::UserSpamAnalyzerJob.perform_later(data[:resource])
           end
-          Decidim::EventsManager.subscribe("decidim.update_user_group:after") do |_event_name, data|
-            Decidim::Ai::SpamDetection::UserSpamAnalyzerJob.perform_later(data[:resource])
-          end
-          Decidim::EventsManager.subscribe("decidim.create_user_group:after") do |_event_name, data|
-            Decidim::Ai::SpamDetection::UserSpamAnalyzerJob.perform_later(data[:resource])
-          end
         end
       end
 
