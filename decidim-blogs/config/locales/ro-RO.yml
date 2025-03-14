@@ -144,7 +144,6 @@ ro:
           id: Id-ul unic al comentariului
           locale: Localizarea (limba) pe care participantul a folosit-o atunci când a lăsat acest comentariu
           root_commentable_url: URL-ul resursei care se leagă de acest comentariu
-          user_group: Numele grupului de utilizatori care a făcut acest comentariu (dacă există)
         posts:
           author: Informațiile autorului
           body: Conținutul postării
