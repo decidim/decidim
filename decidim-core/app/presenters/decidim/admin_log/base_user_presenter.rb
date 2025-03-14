@@ -2,8 +2,8 @@
 
 module Decidim
   module AdminLog
-    # This class holds the shared logic for `Decidim::User` and `Decidim::UserGroup`
-    # presenters for the `AdminLog`.
+    # This class holds the shared logic for `Decidim::User`
+    # presenter for the `AdminLog`.
     class BaseUserPresenter < Decidim::Log::BasePresenter
       private
 

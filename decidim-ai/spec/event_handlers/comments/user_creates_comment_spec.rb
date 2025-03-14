@@ -8,7 +8,6 @@ describe "User creates comment", type: :system do
       "comment" => {
         "body" => body,
         "alignment" => 1,
-        "user_group_id" => nil,
         "commentable" => commentable
       }
     }

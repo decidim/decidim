@@ -83,8 +83,7 @@ describe "show" do
       let(:last_comment) { Decidim::Comments::Comment.last }
 
       before do
-        group = create(:user_group, organization: debate.organization)
-        create(:comment, commentable: debate, author: group)
+        create(:comment, commentable: debate)
         create(:comment, commentable: debate)
 
         visit current_url
@@ -92,8 +91,7 @@ describe "show" do
 
       it "shows the number of participants" do
         within ".layout-item__aside" do
-          expect(page).to have_content("Participants\n1")
-          expect(page).to have_content("Groups\n1")
+          expect(page).to have_content("Participants\n2")
         end
       end
     end

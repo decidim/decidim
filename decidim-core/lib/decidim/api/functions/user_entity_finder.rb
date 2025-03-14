@@ -2,7 +2,7 @@
 
 module Decidim
   module Core
-    # A resolver for the GraphQL user/group endpoints
+    # A resolver for the GraphQL user endpoint
     # Used in the keyword "user", ie:
     #
     # user(nickname: "foo") {

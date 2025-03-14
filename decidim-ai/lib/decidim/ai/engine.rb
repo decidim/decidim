@@ -26,16 +26,6 @@ module Decidim
               .set(wait: Decidim::Ai::SpamDetection.spam_detection_delay)
               .perform_later(data[:resource])
           end
-          Decidim::EventsManager.subscribe("decidim.update_user_group:after") do |_event_name, data|
-            Decidim::Ai::SpamDetection::UserSpamAnalyzerJob
-              .set(wait: Decidim::Ai::SpamDetection.spam_detection_delay)
-              .perform_later(data[:resource])
-          end
-          Decidim::EventsManager.subscribe("decidim.create_user_group:after") do |_event_name, data|
-            Decidim::Ai::SpamDetection::UserSpamAnalyzerJob
-              .set(wait: Decidim::Ai::SpamDetection.spam_detection_delay)
-              .perform_later(data[:resource])
-          end
         end
       end
 

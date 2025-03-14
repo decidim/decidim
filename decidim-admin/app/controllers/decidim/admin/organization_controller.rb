@@ -36,10 +36,6 @@ module Decidim
         search(current_organization.users.available)
       end
 
-      def user_entities
-        search(current_organization.user_entities.available)
-      end
-
       private
 
       def search(relation)
