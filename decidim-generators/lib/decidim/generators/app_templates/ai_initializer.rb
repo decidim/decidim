@@ -7,7 +7,7 @@ if Decidim.module_installed?(:ai)
 
   Decidim::Ai::SpamDetection.resource_score_threshold = 0.75 # default
 
-  Decidim::Ai::SpamDetection.spam_detection_delay = 5.minutes # default
+  Decidim::Ai::SpamDetection.spam_detection_delay = 30.seconds # default
 
   # The entry must be a hash with the following keys:
   # - name: the name of the analyzer

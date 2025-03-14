@@ -45,7 +45,7 @@ module Decidim
       # You can configure the spam delay for the spam detection service.
       # The default value is 5 minutes
       config_accessor :spam_detection_delay do
-        5.minutes
+        30.seconds
       end
 
       # Registered analyzers.
