@@ -13,6 +13,7 @@ module Decidim
         let(:oauth_signature) { OmniauthRegistrationForm.create_signature(provider, uid) }
         let(:verified_email) { email }
         let(:nickname) { "facebook_user" }
+        let(:tos_agreement) { true }
         let(:form_params) do
           {
             "user" => {
@@ -23,7 +24,8 @@ module Decidim
               "name" => "Facebook User",
               "nickname" => nickname,
               "oauth_signature" => oauth_signature,
-              "avatar_url" => "http://www.example.com/foo.jpg"
+              "avatar_url" => "http://www.example.com/foo.jpg", 
+              "tos_agreement" => tos_agreement
             }
           }
         end
