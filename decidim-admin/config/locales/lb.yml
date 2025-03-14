@@ -521,6 +521,7 @@ lb:
             created_at: Hergestellt in
             document_number: Dokumentnummer
             name: Name
+            nickname: Spitzname
             phone: Telefon
             state: Zustand
             users_count: Benutzer zählen
@@ -700,6 +701,8 @@ lb:
           title: Neuer privater Benutzer des Participatory Space.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Laden Sie Ihre CSV-Datei hoch
           upload: Hochladen
       resource_permissions:
         edit:
@@ -815,9 +818,9 @@ lb:
       user_groups:
         index:
           state:
-            pending: steht aus
-            rejected: Abgelehnt
-            verified: Überprüft
+            pending: Ausstoend
+            rejected: Verworf
+            verified: Iwwerpréift
           verify_via_csv: Überprüfen Sie über CSV
       user_groups_csv_verifications:
         new:
