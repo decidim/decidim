@@ -1068,7 +1068,7 @@ pt-BR:
           subject: "%{sender} iniciou uma conversa com %{group}"
         new_group_message:
           admin_in_group: Você está recebendo isso porque você é um administrador do %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Olá, %{recipient}!
           intro: "%{sender} postou novas mensagens em uma conversa com o grupo %{group}. Clique aqui para vê-la:"
           outro: Aproveite a plataforma!
           subject: "%{group} tem novas mensagens de %{sender}"
@@ -1295,7 +1295,7 @@ pt-BR:
         send_private_message: Enviar mensagem privada
       user:
         actions:
-          create_user_group: Criar grupo
+          create_user_group: Criar Grupo
           disabled_message: Mensagem
           edit_profile: Editar perfil
           edit_user_group: Editar perfil do grupo
