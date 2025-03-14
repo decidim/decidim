@@ -360,6 +360,7 @@ fr-CA:
     application:
       document:
         download: Télécharger le fichier
+        visit_link: Visiter le lien
       documents:
         component_documents:
           dummy: Documents de fonctionnalité factices
@@ -886,6 +887,10 @@ fr-CA:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
     forms:
+      attachment_link:
+        help_messages:
+          - Seuls les formats d'URL corrects sont acceptés.
+          - Veuillez noter que les liens doivent être publics pour que tous les participants puissent y accéder.
       errors:
         decidim/user:
           password: Le mot de passe est trop court.
@@ -967,7 +972,7 @@ fr-CA:
       accept:
         error: Une erreur s'est produite lors de l'acceptation de cette invitation.
         success: L’invitation a été acceptée avec succès.
-      accept_invitation: Acceptez
+      accept_invitation: Accepter
       accept_or_reject_group_invitations: 'Les groupes suivants vous ont invité à les rejoindre. Accepter ou rejeter leurs demandes:'
       index:
         invite: Inviter
@@ -1025,7 +1030,7 @@ fr-CA:
         success: Le groupe est parti avec succès.
       members:
         accept_or_reject_join_requests: 'Les utilisateurs suivants ont demandé à rejoindre ce groupe. Accepter ou rejeter leurs demandes:'
-        accept_request: Acceptez
+        accept_request: Accepter
         reject_request: Rejeter
       new:
         create_user_group: Créer un groupe
@@ -1110,7 +1115,7 @@ fr-CA:
           subject: "%{manager} a commencé une nouvelle conversation en tant que %{group}"
         comanagers_new_message:
           admin_in_group: Vous recevez ceci parce que vous êtes un administrateur de %{group}.
-          greeting: Bonjour %{recipient} !
+          greeting: Bonjour, %{recipient} !
           intro: "%{manager} a posté de nouveaux messages dans une conversation au nom de %{group}. Cliquez ici pour les voir:"
           outro: Profitez de la plateforme !
           subject: "%{manager} a envoyé de nouveaux messages en tant que %{group}"
