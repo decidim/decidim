@@ -236,7 +236,7 @@ eu:
           description_another: Parte-hartzaile honek %{score} eztabaidatan hartu du parte.
           description_own: '%{score} eztabaidatan hartu duzu parte.'
           name: Eztabaidak
-          next_level_in: Parte hartu %{score} eztabaidagai gehiago hurrengo mailara iristeko!
+          next_level_in: Hartu parte %{score} eztabaidagai gehiago hurrengo mailara iristeko!
           unearned_another: Parte-hartzaile honek eztabaida batean parte hartu du oraindik.
           unearned_own: Oraindik ez duzu parte hartu eztabaida batean ere.
     metrics:
