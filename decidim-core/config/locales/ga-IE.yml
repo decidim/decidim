@@ -17,6 +17,8 @@ ga:
         about: Faoi
         nickname: Leasainm
         password: Pasfhocal
+      user_group:
+        avatar: Abhatár
     models:
       decidim/attachment_created_event: Ceangaltán
   activerecord:
