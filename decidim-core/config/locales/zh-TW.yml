@@ -1239,6 +1239,8 @@ zh-TW:
         conversations: 對話
         followers: 追隨者
         following: 關注
+        group_admins: 管理管理員
+        group_members: 管理成員
         groups: 群組
         members: 成員
         officialized: 正式認證參與者
