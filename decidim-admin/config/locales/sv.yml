@@ -1046,8 +1046,8 @@ sv:
         index:
           state:
             pending: Väntande
-            rejected: Avvisad
-            verified: Verifierat
+            rejected: Avvisade
+            verified: Verifierade
           verify_via_csv: Verifiera via CSV
       user_groups_csv_verifications:
         new:
