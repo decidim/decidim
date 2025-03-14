@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t("decidim.forms.admin.questionnaires.edit.title")) %>
 
 <% if templates_defined? && choose_template? %>
-  <%= render partial: "decidim/templates/admin/questionnaire_templates/choose", locals: { target: questionnaire, form_title: t("decidim.forms.admin.questionnaires.edit.title") } %>
+  <%= render partial: "decidim/templates/admin/questionnaire_templates/choose", locals: { target: questionnaire, form_title: t("decidim.forms.admin.questionnaires.edit.title"), show_buttons: true } %>
 <% else %>
 
 <div class="item__edit item__edit-1col">

@@ -71,12 +71,6 @@ module Decidim
           it { is_expected.to be_invalid }
         end
       end
-
-      context "and a user_group has the email" do
-        let!(:user_group) { create(:user_group, organization:, email:) }
-
-        it { is_expected.to be_invalid }
-      end
     end
 
     context "when the name is an email" do
@@ -135,12 +129,6 @@ module Decidim
 
             it { is_expected.to be_valid }
           end
-        end
-
-        context "and a user_group has the nickname" do
-          let!(:user_group) { create(:user_group, organization:, nickname: name) }
-
-          it { is_expected.to be_valid }
         end
       end
 

@@ -50,6 +50,46 @@ module Decidim
           end
         end
 
+        describe "when the User name has invalid characters" do
+          let(:test_email) { "test_user@from-facebook.com" }
+          let(:test_form_params) do
+            {
+              "user" => {
+                "provider" => provider,
+                "uid" => uid,
+                "email" => test_email,
+                "email_verified" => true,
+                "name" => "Facebook# User",
+                "nickname" => "facebook_user",
+                "oauth_signature" => oauth_signature,
+                "avatar_url" => "http://www.example.com/foo.jpg",
+                "tos_agreement" => tos_agreement
+              }
+            }
+          end
+
+          let(:test_form) do
+            OmniauthRegistrationForm.from_params(
+              test_form_params
+            ).with_context(
+              current_organization: organization
+            )
+          end
+          let(:command) { described_class.new(test_form, test_email) }
+
+          it "sanitizes the name" do
+            allow(SecureRandom).to receive(:hex).and_return("decidim123456789")
+
+            expect do
+              command.call
+            end.to change(User, :count).by(1)
+
+            user = User.find_by(email: test_form.email)
+            expect(user.email).to eq(test_form.email)
+            expect(user.name).to eq("Facebook User")
+          end
+        end
+
         context "when the form is not valid" do
           before do
             allow(form).to receive(:invalid?).and_return(true)

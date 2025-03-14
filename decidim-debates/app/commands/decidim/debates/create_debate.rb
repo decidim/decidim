@@ -62,7 +62,6 @@ module Decidim
 
         super.merge({
                       author: form.current_user,
-                      decidim_user_group_id: form.user_group_id,
                       title: { I18n.locale => parsed_title },
                       description: { I18n.locale => parsed_description },
                       component: form.current_component

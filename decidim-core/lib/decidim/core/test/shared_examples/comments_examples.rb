@@ -703,28 +703,6 @@ shared_examples "comments" do
       end
     end
 
-    context "when the user has verified organizations" do
-      let(:user_group) { create(:user_group, :verified, organization:) }
-      let(:content) { "This is a new comment" }
-
-      before do
-        create(:user_group_membership, user:, user_group:)
-      end
-
-      it "adds new comment as a user group" do
-        visit resource_path
-
-        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
-          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
-          field.set " "
-          field.native.send_keys content
-          click_on "Publish comment"
-        end
-
-        expect(page).to have_comment_from(user_group, content, wait: 20)
-      end
-    end
-
     context "when a user deletes a comment" do
       let(:comment_body) { "This comment is a mistake" }
       let!(:comment) { create(:comment, body: comment_body, commentable:, author: comment_author) }
@@ -989,15 +967,6 @@ shared_examples "comments" do
           expect(page).to have_no_css(".tribute-container", text: mentioned_user.name)
         end
       end
-
-      context "when mentioning a group" do
-        let!(:mentioned_group) { create(:user_group, :confirmed, organization:) }
-        let(:content) { "A confirmed user group mention: @#{mentioned_group.nickname}" }
-
-        it "shows the tribute container" do
-          expect(page).to have_css(".tribute-container", text: mentioned_group.nickname, wait: 10)
-        end
-      end
     end
 
     describe "mentions", :slow do
@@ -1080,7 +1049,6 @@ shared_examples "comments" do
         it { is_expected.to have_key(:author) }
         it { is_expected.to have_key(:alignment) }
         it { is_expected.to have_key(:depth) }
-        it { is_expected.to have_key(:user_group) }
         it { is_expected.to have_key(:commentable_id) }
         it { is_expected.to have_key(:commentable_type) }
         it { is_expected.to have_key(:root_commentable_url) }
