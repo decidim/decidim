@@ -14,6 +14,10 @@ fr-CA:
         one: Article
         other: Articles
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Articles
     blogs:
       actions:
         author_id: Créer un article comme
@@ -48,6 +52,8 @@ fr-CA:
         post:
           create: "%{user_name} a créé l'article de blog %{resource_name} dans %{space_name}"
           delete: "%{user_name} a supprimé l'article de blog %{resource_name} dans %{space_name}"
+          restore: "%{user_name} a restauré l'article de blog %{resource_name} dans %{space_name}"
+          soft_delete: "%{user_name} a déplacé l'article de blog %{resource_name} dans %{space_name}"
           update: "%{user_name} a mis à jour l'article de blog %{resource_name} dans %{space_name}"
       content_blocks:
         highlighted_posts:
@@ -63,6 +69,7 @@ fr-CA:
             body: Corps du texte
             official_blog_post: Article officiel
             published_at: Date de publication
+            taxonomies: Taxonomies
             title: Titre
       posts:
         edit:
@@ -107,6 +114,7 @@ fr-CA:
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
             creation_enabled_for_participants: Les participants peuvent créer des articles
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
+            no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
             taxonomy_filters: Sélectionner les filtres pour le composant
             taxonomy_filters_add: Ajouter un filtre
           step:
