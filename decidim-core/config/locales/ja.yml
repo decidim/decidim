@@ -52,8 +52,6 @@ ja:
         personal_url: 個人用URL
         remove_avatar: アバターを削除
         tos_agreement: 利用規約
-      user_group:
-        avatar: アバター
     models:
       decidim/attachment_created_event: 添付ファイル
       decidim/component_published_event: アクティブなコンポーネント
@@ -69,7 +67,6 @@ ja:
       decidim/removed_from_group: グループから削除しました
       decidim/resource_endorsed_event: オススメされた
       decidim/resource_hidden_event: リソースを非表示
-      decidim/user_group_created_event: ユーザーグループが作成されました
       decidim/welcome_notification_event: ウェルカムメッセージ
   activerecord:
     attributes:
@@ -93,8 +90,6 @@ ja:
         other: オススメ
       decidim/user:
         other: 参加者
-      decidim/user_group:
-        other: グループ
   booleans:
     'false': 'いいえ'
     'true': 'はい'
@@ -369,7 +364,6 @@ ja:
             のこの修正は著者によって撤回されました。
       name: 修正
       new:
-        amendment_author: 著者の変更
         send: 作成
         title: 修正案を作成
       preview_draft:
@@ -736,12 +730,6 @@ ja:
         reports:
           reason: レポートの理由
           updated_at: レポートの最終更新日時
-        user_groups:
-          document_number: ユーザーグループのドキュメント番号
-          id: ユーザーグループの固有ID
-          name: ユーザーグループの名前
-          phone: ユーザーグループの電話番号
-          verified_at: ユーザーグループが認証された日時
         users:
           about: ユーザーの説明
           accepted_tos_version: プラットフォームの利用規約がユーザーに承諾された日時
@@ -790,10 +778,6 @@ ja:
     endorsement_buttons_cell:
       already_endorsed: オススメの取り消し
       endorse: オススメ
-    endorsements:
-      identities:
-        done: 完了
-        select_identity: IDを選択
     endorsers_list:
       endorsed_by:
         other: '%{visible} によるオススメ'
@@ -896,52 +880,6 @@ ja:
           email_outro: サイトでの活動によって、この通知を受け取りました。
           email_subject: '%{badge_name} バッジがレベル %{current_level} に達しました！'
           notification_title: おめでとうございます！ <a href="%{resource_path}">%{badge_name} バッジ</a>のレベル %{current_level} に到達しました！
-      groups:
-        demoted_membership:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> グループの管理者が、そのグループの管理者権限を削除しました。
-          email_outro: あなたがそのグループのメンバーであるため、この通知を受け取りました。
-          email_subject: あなたは %{user_group_name} グループの管理者ではありません！
-          notification_title: あなたは <a href="%{resource_path}">%{user_group_name}</a> グループの管理者ではありません。
-        invited_to_group:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> グループの管理者があなたを招待しました。
-          email_outro: グループに招待されたため、この通知を受信しました。プロフィールのグループタブを確認して承認してください。
-          email_subject: あなたは %{user_group_name} グループに招待されています！
-          notification_title: あなたは <a href="%{resource_path}">%{user_group_name}</a> グループに招待されています。プロフィールの <a href="%{groups_profile_tab_path}">グループ ページ</a> を確認して承認してください！
-        join_request_accepted:
-          email_intro: おめでとうございます! <a href="%{resource_url}">%{user_group_name}</a> グループの管理者があなたの参加リクエストを承認しました。
-          email_outro: 参加リクエストが更新されたため、この通知を受け取りました。
-          email_subject: あなたは %{user_group_name} グループに承認されました！
-          notification_title: <a href="%{resource_path}">%{user_group_name}</a> グループに承認されました。
-        join_request_created:
-          email_intro: '%{user_group_name} グループへの参加をリクエストされています。 <a href="%{resource_url}">グループメンバページ</a> から受け入れるか拒否することができます。'
-          email_outro: '%{user_group_name} グループを管理できるため、この通知を受け取りました。'
-          email_subject: '%{user_group_name} グループへの参加リクエストがありました！'
-          notification_title: '%{user_group_name} グループへの参加をリクエストされています。 <a href="%{resource_path}">グループメンバページ</a> から受け入れるか拒否することができます。'
-        join_request_rejected:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> グループの管理者が参加リクエストを拒否しました。
-          email_outro: 参加リクエストが更新されたため、この通知を受け取りました。
-          email_subject: '%{user_group_name} グループへの参加リクエストは拒否されました！'
-          notification_title: <a href="%{resource_path}">%{user_group_name}</a> グループへの参加リクエストは拒否されました。
-        promoted_to_admin:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> グループの管理者が、あなたにそのグループの管理者権限を与えました。
-          email_outro: あなたがそのグループのメンバーであるため、この通知を受け取りました。
-          email_subject: あなたは %{user_group_name} グループの管理者です！
-          notification_title: <a href="%{resource_path}">%{user_group_name}</a> グループの管理者になりました。
-        removed_from_group:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> グループの管理者があなたを削除しました。
-          email_outro: あなたがそのグループのメンバーであったため、この通知を受け取りました。
-          email_subject: あなたは %{user_group_name} グループから削除されました！
-          notification_title: <a href="%{resource_path}">%{user_group_name}</a> グループから削除されました。
-        user_group_created:
-          email_intro: '%{user_group_name} という名前の新しいユーザーグループが作成されました。 <a href="%{groups_admin_url}">管理画面</a> で確認できるようになりました。'
-          email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
-          email_subject: 新しいユーザーグループが作成されました
-          notification_title: '%{user_group_name} ユーザーグループが作成されました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
-        user_group_updated:
-          email_intro: ユーザーグループ「 %{user_group_name} 」がプロフィールページをアップデートし、未承認のままになっています。 <a href="%{groups_admin_url}">管理画面</a>から承認してください。
-          email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
-          email_subject: ユーザーグループがプロファイルを更新しました
-          notification_title: '%{user_group_name} ユーザーグループがプロファイルを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
       nickname_event:
         notification_body: ニックネームの使用方法を修正し、重複をなくすために大文字小文字を区別しないようにしました。<br/> あなたのニックネームは他の同じ名前の方の後に登録されたため、自動的にリネームされました。<a href="%{link_to_account_settings}">アカウント設定</a>から変更することができます。
       notification_event:
@@ -1088,92 +1026,11 @@ ja:
       level: レベル %{level}
       reached_top: このバッジの最高レベルに達しました。
       title: バッジとは？
-    group_admins:
-      actions:
-        are_you_sure: 本当によろしいですか？この操作はグループから参加者を削除しません。
-        demote_admin: 管理者を削除
-      demote:
-        error: この参加者を管理者リストから削除する際に問題が発生しました。
-        success: 参加者が管理者から削除されました。
-      index:
-        current_admins: '現在の管理者:'
-        manage_admins: 管理者の管理
-    group_invites:
-      accept:
-        error: 招待を承認する際に問題が発生しました。
-        success: 招待を承認しました。
-      accept_invitation: 同意する
-      accept_or_reject_group_invitations: '以下のグループがあなたを招待しています。リクエストを承認または拒否します。'
-      index:
-        invite: 招待
-        invite_user: 参加者を招待
-      invite:
-        error: 参加者を招待する際に問題が発生しました。
-        success: 参加者の招待に成功しました。
-      pending_invitations: 保留中のリクエスト
-      reject:
-        error: この招待を却下する際に問題が発生しました。
-        success: 招待を却下しました。
-      reject_invitation: 拒否
-    group_members:
-      accept:
-        error: この参加リクエストを承認する際に問題が発生しました。
-        success: 参加リクエストを承認しました。
-      actions:
-        are_you_sure: よろしいですか？
-        promote_to_admin: 管理者にする
-        remove_from_group: 参加者の削除
-      index:
-        current_members_without_admins: '現在のメンバー (管理者なし):'
-        manage_members: メンバーの管理
-      promote:
-        error: この参加者を昇格する際に問題が発生しました。
-        success: 参加者は正常に昇格しました。
-      reject:
-        error: この参加リクエストを却下する際に問題が発生しました。
-        success: 参加リクエストは却下されました。
-      remove:
-        error: この参加者をグループから削除する際に問題が発生しました。
-        success: 参加者がグループから削除されました。
     groups:
-      actions:
-        are_you_sure: よろしいですか？
-      create:
-        error: グループの作成中に問題が発生しました。
-        success: グループを作成しました。
-      edit:
-        edit_user_group: グループを編集
-        update_user_group: グループを更新
-      form:
-        document_number_help: ダッシュやスペースは使用しないでください。
-        email_help: 組織、団体、集団、グループなどのEメールアドレスです。
-        fill_in_for_verification: 'グループを認証させたい場合は、以下の項目を入力してください。'
-        name_help: 組織名、団体名、団体名、グループ名など。
-        nickname_help: 団体名、団体名、団体名、団体名などスペースやアクセントは使用しないでください。
-        phone_help: ダッシュやスペースは使用しないでください。
-      join:
-        error: グループに参加する際に問題が発生しました。
-        success: 参加リクエストは正常に作成されました。管理者はあなたをグループに承認する前にリクエストを確認します。
-      leave:
-        error: グループを離れる際に問題が発生しました。
-        last_admin: あなたが唯一の管理者であるため、このグループから自分自身を削除することはできません。グループから離脱するには他のメンバーを管理者にしてください。
-        success: グループを放棄しました。
-      members:
-        accept_or_reject_join_requests: '次のユーザーがこのグループに参加するために申請しました。リクエストを承認または拒否します。'
-        accept_request: 同意する
-        reject_request: 拒否
-      new:
-        create_user_group: グループを作成
-        new_user_group: 新しいグループ
-        subtitle: グループを作成し、グループレベルに参加するために他のユーザーを招待します。
-      no_user_groups: どのグループにも属していません。
       roles:
         admin: 管理者
         creator: 管理者
         member: メンバー
-      update:
-        error: グループを更新する際に問題が発生しました。
-        success: グループを更新しました。
     help:
       main_topic:
         default_page:
@@ -1234,42 +1091,16 @@ ja:
       static:
         latlng_text: '緯度: %{latitude}, 経度: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: このグループにはまだメンバーがいません。
     menu:
       help: ヘルプ
       home: ホーム
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: '%{recipient} さん、こんにちは。'
-          intro: "%{manager} が %{group}という名前で新しい会話を開始しました。こちらをクリックしてください:"
-          outro: プラットフォームをお楽しみください!
-          subject: "%{manager} が %{group} として新しい会話を開始しました"
-        comanagers_new_message:
-          admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: '%{recipient} さん、こんにちは。'
-          intro: "%{manager} は、 %{group}という名前の新しいメッセージを会話に投稿しました。それらを表示するにはここをクリックしてください："
-          outro: プラットフォームをお楽しみください!
-          subject: "%{manager} は %{group} として新しいメッセージを送信しました"
         new_conversation:
           greeting: '%{recipient} さん、こんにちは。'
           intro: "%{sender} があなたと新しい会話を開始しました。こちらをクリックしてください:"
           outro: プラットフォームをお楽しみください!
           subject: "%{sender} があなたと会話を開始しました"
-        new_group_conversation:
-          admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: '%{recipient} さん、こんにちは。'
-          intro: "%{sender} がグループ %{group}との新しい会話を開始しました。こちらをクリックしてください:"
-          outro: プラットフォームをお楽しみください!
-          subject: "%{sender} が %{group} と会話を開始しました"
-        new_group_message:
-          admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: '%{recipient} さん、こんにちは。'
-          intro: "%{sender} がグループ %{group}との会話に新しいメッセージを投稿しました。こちらをクリックしてください:"
-          outro: プラットフォームをお楽しみください!
-          subject: "%{group} に %{sender} からの新しいメッセージがあります"
         new_message:
           greeting: '%{recipient} さん、こんにちは。'
           intro: "%{sender} さんがあなたの会話に新しいメッセージを投稿しました。こちらをクリックしてください："
@@ -1493,16 +1324,6 @@ ja:
           taxonomizations_count: このタクソノミーを使用するリソースの数
           updated_at: このタクソノミーの最終更新日時
           weight: このタクソノミーが表示される順序
-        user_groups:
-          avatar_url: ユーザーグループのアバター
-          badge: ユーザーグループのバッジ
-          deleted: ユーザーが削除されたかどうか
-          id: ユーザーグループの固有ID
-          members: グループに属するユーザーのIDと名前
-          members_count: ユーザーグループに属するユーザーの数
-          name: ユーザーグループの表示名
-          nickname: ユーザーグループのユーザー名
-          profile_url: プロファイルURL
         users:
           about: ユーザーの紹介テキスト
           avatar_url: ユーザーのアバター
@@ -1624,7 +1445,6 @@ ja:
       deleted: 参加者を削除しました
       inaccessible_message: このプロファイルは利用規約違反のためアクセスできません！
     profiles:
-      default_officialization_text_for_user_groups: このグループは公的に検証されており、その名前が実際の名前に対応していることが検証されています。
       default_officialization_text_for_users: この参加者は公的に検証されます。彼/彼女の名前または役割が実名・実際の役割に対応していることが確認されています。
       show:
         activity: アクティビティ
@@ -1632,28 +1452,14 @@ ja:
         conversations: 会話
         followers: フォロワー
         following: フォロー
-        group_admins: 管理者の管理
-        group_members: メンバーの管理
-        groups: グループ
-        members: メンバー
         officialized: 正規参加者
         send_private_message: プライベートメッセージを送信
       user:
         actions:
-          create_user_group: グループを作成
           disabled_message: メッセージ
           edit_profile: プロフィールを編集
-          edit_user_group: グループプロフィールを編集
-          invite_user: 参加者を招待
-          join_user_group: グループへの参加リクエスト
-          leave_user_group: グループから退出する
-          manage_user_group: グループを管理
-          manage_user_group_admins: 管理者の管理
-          manage_user_group_users: メンバーの管理
           message: メッセージ
           resend_email_confirmation_instructions: 確認メールを再送する
-        confirmation_instructions_sent: メール確認の手順を送信しました。
-        fill_in_email_to_confirm_it: グループのメールアドレスを入力して確認してください。
     reported_mailer:
       hide:
         hello: こんにちは、 %{name} さん。
@@ -1760,9 +1566,6 @@ ja:
         public_participation: 参加を公開する
       reference:
         reference: 'リファレンス： %{reference}'
-      represent_user_group:
-        represent_user_group: 私はグループを代表します
-        select_user_group: グループを選択
       results_per_page:
         label: 'ページごとの結果:'
         title: ページあたりの結果数を選択
@@ -1797,19 +1600,8 @@ ja:
         no_activities_warning: この参加者にはまだアクティビティがありません。
     user_contact_disabled: この参加者はダイレクトメッセージを受け付けません。
     user_conversations:
-      create:
-        error: メッセージを作成できませんでした。後ほど改めてお試しください。
-        existing_error: メッセージを作成できませんでした。会話はすでに存在します。今すぐやり直してください。
-        success: 会話が正常に開始されました！
       index:
-        conversations_info: 会話はプライベートです。他の誰も見ることはできません。会話はプラットフォームに登録されている参加者またはグループで開始できます。
-        no_conversations_warning: 会話はまだありません。
         time_ago: "%{time} 前"
-      reply:
-        placeholder: あなたの返信...
-        send: 送信
-      update:
-        error: メッセージが送信されませんでした。後でもう一度お試しください。
     user_report_mailer:
       notify:
         body_1: ユーザー %{user} が %{token} によって報告されました
@@ -2221,7 +2013,6 @@ ja:
         notifications_settings: 通知の設定
         profile: プロフィール
         title: 参加者の設定
-        user_groups: グループ
   locale:
     name: 日本語
     name_with_error: 日本語 (エラー!)
