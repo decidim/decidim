@@ -4,7 +4,6 @@ gl:
       decidim/comments/comment_by_followed_user_event: Comentario
       decidim/comments/comment_created_event: Comentario
       decidim/comments/reply_created_event: Comentario de resposta
-      decidim/comments/user_group_mentioned_event: Mención
       decidim/comments/user_mentioned_event: Mención
   activerecord:
     models:
@@ -36,8 +35,6 @@ gl:
           body:
             label: Comentario
             placeholder: Que vos parece?
-          user_group_id:
-            label: Comentar como
         opinion:
           label: A túa opinión canto a este tema
           negative: Negativa
@@ -106,9 +103,6 @@ gl:
         comment_by_followed_user:
           email_intro: "%{author_name} deixou un comentario en %{resource_title}. Podes lelo nesta páxina:"
           email_outro: Recibiches esta notificación porque estás seguindo %{author_name}. Podes deixar de seguir este usuario desde a súa páxina de perfil.
-          email_subject: Hai un novo comentario por %{author_name} en %{resource_title}
-          notification_title: Hai un novo comentario <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
           email_subject: Hai un novo comentario por %{author_name} en %{resource_title}
           notification_title: Hai un novo comentario <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
