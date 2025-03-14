@@ -51,7 +51,7 @@ describe "Download Open Data files", download: true do
     end
 
     expect(page).to have_content("Core")
-    %w(moderated_users moderations users user_groups).each do |section|
+    %w(moderated_users moderations users).each do |section|
       expect(page).to have_content(section)
     end
 
