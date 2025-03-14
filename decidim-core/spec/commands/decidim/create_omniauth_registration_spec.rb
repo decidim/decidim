@@ -24,7 +24,7 @@ module Decidim
               "name" => "Facebook User",
               "nickname" => nickname,
               "oauth_signature" => oauth_signature,
-              "avatar_url" => "http://www.example.com/foo.jpg", 
+              "avatar_url" => "http://www.example.com/foo.jpg",
               "tos_agreement" => tos_agreement
             }
           }
