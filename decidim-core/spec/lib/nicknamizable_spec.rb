@@ -31,6 +31,10 @@ module Decidim
         expect(subject.nicknamize("peter")).to eq("peter")
       end
 
+      it "converts everything to lowercase" do
+        expect(subject.nicknamize("PETER")).to eq("peter")
+      end
+
       it "slugizes non-duplicated usernames" do
         expect(subject.nicknamize("Rodríguez San Pedro")).to eq("rodriguez_san_pedro")
       end
