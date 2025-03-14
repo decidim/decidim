@@ -691,6 +691,8 @@ lv:
           new_conversation: Jauna saruna
           next: Nākamais
           title: Sarunas
+        reply_form:
+          placeholder: Jūsu atbilde...
         show:
           chat_with: Saruna ar
           title: Saruna ar %{usernames}
@@ -803,6 +805,8 @@ lv:
         conversations: Sarunas
         followers: Sekotāji
         following: Seko
+        group_admins: Pārvaldīt administratorus
+        group_members: Pārvaldīt biedrus
         groups: Grupas
         members: Dalībnieki
       sidebar:
@@ -811,11 +815,14 @@ lv:
           title: Žetoni
       user:
         actions:
+          create_user_group: Izveidot grupu
           edit_profile: Rediģēt profilu
           edit_user_group: Rediģēt grupas profilu
           invite_user: Uzaicināt dalībnieku
           join_user_group: Pieteikums pievienoties grupai
           leave_user_group: Pamest grupu
+          manage_user_group_admins: Pārvaldīt administratorus
+          manage_user_group_users: Pārvaldīt biedrus
           resend_email_confirmation_instructions: Atkārtoti e-pastā nosūtīt apstiprināšanas norādījumus
         create_user_group: Izveidot grupu
         edit_profile: Rediģēt profilu
