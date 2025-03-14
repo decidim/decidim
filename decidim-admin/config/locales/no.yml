@@ -573,6 +573,7 @@
             created_at: Opprettet på
             document_number: Dokumentnummer
             name: Navn
+            nickname: Kallenavn
             phone: Telefon
             state: Stat
             users_count: Deltakere teller
@@ -753,6 +754,8 @@
           title: Ny deltaker område privat deltaker.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Last opp din CSV fil
           destroy:
             button: Slett alle private deltakere
             empty: Du har ingen private deltakere.
@@ -884,9 +887,9 @@
       user_groups:
         index:
           state:
-            pending: Venter
+            pending: Pågår
             rejected: Avvist
-            verified: Verifisert
+            verified: Bekreftet
           verify_via_csv: Verifiser via CSV
       user_groups_csv_verifications:
         new:
