@@ -45,7 +45,7 @@ eu:
         email: Zure helbide elektronikoa
         encrypted_password: Pasahitza
         locale: Tokikoa
-        name: Zure izena
+        name: Zure Izena
         nickname: Ezizena
         old_password: Egungo pasahitza
         password: Pasahitza
@@ -664,12 +664,12 @@ eu:
         new:
           already_have_an_account?: Baduzu kontu bat?
           log_in: Hasi saioa
-          newsletter: Jaso nahi dut noizbehinka informazio garrantzitsua duen buletina
+          newsletter: Jaso nahi dut informazio garrantzitsua biltzen duen aldizkako buletina
           newsletter_title: Harremanetarako baimena
           sign_up: Sortu kontu bat
           subtitle: Sortu kontu bat plataforman parte hartzeko.
           terms: zerbitzuaren baldintzak
-          tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
+          tos_agreement: 'Erregistratzean, hau onartzen duzu: %{link}.'
           tos_title: Zerbitzuaren baldintzak
           username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
       sessions:
@@ -1708,7 +1708,7 @@ eu:
           manage_user_group_users: Kudeatu kideak
           message: Mezua
           resend_email_confirmation_instructions: Birbidali posta elektronikoa berresteko instrukzioekin
-        confirmation_instructions_sent: Berresteko instrukzioak helbide elektronikoz bidalita.
+        confirmation_instructions_sent: Berresteko jarraibideak helbide elektronikoz bidalita.
         fill_in_email_to_confirm_it: Mesedez, sartu zure taldearen helbide elektronikoa, berresteko.
     reported_mailer:
       hide:
@@ -1724,7 +1724,7 @@ eu:
         details: Xehetasunak
         hello: Kaixo, %{name},
         id: ID
-        participatory_space: Parte hartzeko espazioa
+        participatory_space: Partaidetza-espazioa
         reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}"> edukia </a> salatua izan da.</p>
         see_report: Ikusi erreportea
@@ -1780,7 +1780,7 @@ eu:
         more: Gehiago
         unfold: Zabaldu
       filter_form_help:
-        help: Bilaketa-baldintzak aldatzen direnean, hurrengo formularioak dinamikoki iragazten ditu bilaketa-emaitzak.
+        help: "Bilaketa-baldintzak aldatzen direnean, beheko inprimakiak dinamikoki iragazten ditu bilaketaren\nemaitzak."
         skip: Joan emaitzetara
       flag_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
@@ -1968,7 +1968,7 @@ eu:
       invite_collaborator:
         subject: 'Gonbita jaso duzu erakunde honekin lankidetzan aritzeko: %{organization}'
       invite_private_user:
-        subject: Gonbidatu zaituzte prozesu parte-hartzaile pribatu batean %{organization} erakundean
+        subject: Gonbidatu zaituzte partaidetza-prozesu pribatu batean %{organization} erakundean
       organization_admin_invitation_instructions:
         subject: Gonbita jaso duzu %{organization} kudeatzeko
       password_change:
@@ -1998,8 +1998,8 @@ eu:
         confirm_new_password: Berretsi pasahitz berria
         new_password: Pasahitza
         old_password_help: Zure kontuaren aldaketak baieztatzeko, mesedez eman zure egungo pasahitza.
-        password_help: "%{minimum_characters} gutxieneko karaktereek, ez dute arruntegiak izan behar (adibidez, 123456), zure ezizenaren eta posta elektronikoaren desberdinak izan behar dute."
-        password_help_admin: "%{minimum_characters} gutxieneko karaktereek, ez dute arruntegiak izan behar (adibidez, 123456), zure ezizenaren eta posta elektronikoaren desberdinak izan behar dute, baita zure pasahitz zaharren desberdina ere."
+        password_help: "%{minimum_characters} karaktere izan behar ditu gutxienez, arruntegiak izan gabe (adib., 123456). Ezin da izan ezizenaren eta helbide elektronikoaren berdina."
+        password_help_admin: "%{minimum_characters} karaktere izan behar ditu gutxienez, arruntegiak izan gabe (adib., 123456). Ezin da izan ezizenaren eta helbide elektronikoaren berdina eta zure pasahitza ez bezalakoa izan behar du."
         title: Pasahitza aldatu egin da
       new:
         forgot_your_password: Pasahitza ahaztu duzu?
@@ -2028,7 +2028,7 @@ eu:
     shared:
       links:
         back: Atzera
-        didn_t_receive_confirmation_instructions: Ez duzu baieztatzeko instrukziorik jaso?
+        didn_t_receive_confirmation_instructions: Ez duzu baieztatzeko jarraibiderik jaso?
         didn_t_receive_unlock_instructions: Ez duzu desblokeatzeko instrukziorik jaso?
         forgot_your_password: Zure pasahitza ahaztu duzu?
         log_in: Hasi saioa
@@ -2163,7 +2163,7 @@ eu:
         one: Gutxienez karaktere bat
         other: Gutxienez %{count} karaktere
     required: Nahitaezkoa da
-    required_explanation: "Derrigorrezko eremuak * batez daude markatuta"
+    required_explanation: "* Nahitaez bete beharreko eremuak batez daude markatuta"
   invisible_captcha:
     sentence_for_humans: Gizaki bat bazara, ez egin kasu eremu honi
     timestamp_error_message: Barkatu, baina azkarregi aritu zara! Mesedez, birbidali.
