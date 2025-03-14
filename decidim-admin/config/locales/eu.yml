@@ -749,7 +749,7 @@ eu:
             author: Egilea(k)
             callout_html: Eduki bat moderazio-panelean agertzen da parte-hartzaile batek (erregistratutako kontu bat duen edozein pertsona izan daiteke) txostena bidaltzen duenean, edukiaren ondoan dagoen %{icon} ikonoan klik eginez.
             content_original_language: Jatorrizko edukiaren hizkuntza
-            participatory_space: Parte hartzeko espazioa
+            participatory_space: Partaidetza-espazioa
             reported_content: Erreportatutako edukia
             see_current: Ikusi egungoa
             see_original: Ikusi jatorrizkoa
@@ -1202,7 +1202,7 @@ eu:
           no_items: Taxonomia honetarako ez dago elementurik. Artikuluak sor ditzakezu taxonomia konfiguratzeko ezarpenetan.
           space_filter: Iragazki gisa eskuragarri honetarako
         index:
-          description: Taxonomia-iragazki batek aukera ematen die administratzaileei espazio parte-hartzaileak taxonomia batean oinarrituta ordenatzeko eta iragazteko. Adibidez, gehitu taxonomia-iragazki bat prozesuak eremu geografikoaren arabera sailkatzeko.
+          description: Taxonomia-iragazki batek aukera ematen die administratzaileei partaidetza-espazioak taxonomiaren arabera ordenatzeko eta iragazteko. Adibidez, gehitu taxonomia-iragazki bat prozesuak eremu geografikoaren arabera ordenatzeko.
           empty: Gaur egun ez dago taxonomia-iragazkirik. Sortu taxonomia-iragazkien zerrenda bat, espazio parte-hartzaileak taxonomia baten arabera ordenatu eta iragazteko.
           new_filter: Beste iragazki bat
         new:
@@ -1378,7 +1378,7 @@ eu:
             created_at: Noiz erreportatua
             deleted_resource: Baliabide ezabatua.
             hidden_at: Ezkutatze-data
-            participatory_space: Parte hartzeko espazioa
+            participatory_space: Partaidetza-espazioa
             report_count: Erreporte kopurua
             reportable_id: ID
             reportable_type: Mota
