@@ -669,9 +669,9 @@ fr-CA:
         user_group:
           fields:
             actions: Actions
-            created_at: Créé le
+            created_at: Créée le
             document_number: Numéro de document
-            name: Nom
+            name: Titre
             nickname: Pseudonyme
             phone: Téléphone
             state: État
@@ -1050,7 +1050,7 @@ fr-CA:
         index:
           state:
             pending: En attente
-            rejected: Non validés
+            rejected: Rejeté
             verified: Vérifié
           verify_via_csv: Vérifier via CSV
       user_groups_csv_verifications:
