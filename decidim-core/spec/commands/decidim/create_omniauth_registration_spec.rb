@@ -13,6 +13,7 @@ module Decidim
         let(:oauth_signature) { OmniauthRegistrationForm.create_signature(provider, uid) }
         let(:verified_email) { email }
         let(:tos_agreement) { true }
+        let(:nickname) { "facebook_user" }
         let(:form_params) do
           {
             "user" => {
@@ -21,7 +22,7 @@ module Decidim
               "email" => email,
               "email_verified" => true,
               "name" => "Facebook User",
-              "nickname" => "facebook_user",
+              "nickname" => nickname,
               "oauth_signature" => oauth_signature,
               "avatar_url" => "http://www.example.com/foo.jpg",
               "tos_agreement" => tos_agreement
@@ -268,6 +269,17 @@ module Decidim
             expect_any_instance_of(User).to receive(:skip_confirmation!)
             # rubocop:enable RSpec/AnyInstance
             command.call
+          end
+        end
+
+        context "when the nickname has capital letters" do
+          let(:nickname) { "Facebook_user" }
+
+          it "downcases the nickname" do
+            command.call
+
+            user = User.where(email:).last
+            expect(user.nickname).to eq("facebook_user")
           end
         end
 
