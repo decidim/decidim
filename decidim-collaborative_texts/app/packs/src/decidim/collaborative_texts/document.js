@@ -2,7 +2,7 @@ import Selection from "src/decidim/collaborative_texts/selection";
 import Suggestions from "src/decidim/collaborative_texts/suggestions";
 import Manager from "src/decidim/collaborative_texts/manager";
 
-class Document {
+export default class Document {
   constructor(doc) {
     this.doc = doc;
     this.selecting = false;
@@ -24,7 +24,7 @@ class Document {
     this.alertWrapper = window.document.querySelector(".collaborative-texts-alert");
     this.alertDiv = this.alertWrapper.querySelector("div");
     this._prepareNodes();
-    console.log("Document prepared", this);
+    // console.log("Document prepared", this);
   }
 
   // listen to new selections and allows the user to participate in the collaborative text
@@ -92,7 +92,7 @@ class Document {
     }
     this.selection.clear().detectNodes();
     if (this.selection.nodes.length > 0) {
-      this.selection.wrap().showMenu();
+      this.selection.wrap().showEditor();
     }
   }
 
@@ -151,5 +151,3 @@ class Document {
   }
 }
 
-
-export default Document;

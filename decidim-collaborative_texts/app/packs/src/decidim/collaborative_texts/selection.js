@@ -1,4 +1,3 @@
-import Menu from "src/decidim/collaborative_texts/menu";
 import Editor from "src/decidim/collaborative_texts/editor";
 
 class Selection {
@@ -12,7 +11,6 @@ class Selection {
     this.lastNode = null;
     this.wrapper = null;
     this.editor = null;
-    this.menu = null;
     this.blocked = false;
   }
   
@@ -33,7 +31,6 @@ class Selection {
   outsideBlock() {
     const node = this.selection.focusNode;
     if (node) {
-      console.log("Node: ", node);
       if (node.parentNode.closest(".collaborative-texts-selection") || node.parentNode.closest(".collaborative-texts-editor-container")) {
         return false;
       }
@@ -61,12 +58,6 @@ class Selection {
   }
 
 
-  showMenu() {
-    this.menu = new Menu(this);
-    this.selection.empty();
-    return this;
-  }
-
   showEditor() {
     this.editor = new Editor(this);
     return this;
@@ -77,9 +68,6 @@ class Selection {
     this.firstNode = null;
     this.lastNode = null;
     this.unWrap();
-    if (this.menu) {
-      this.menu.destroy();
-    }
     if (this.editor) {
       this.editor.destroy();
     }

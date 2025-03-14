@@ -1,4 +1,4 @@
-class Editor {
+export default class Editor {
   constructor(selection) {
     this.selection = selection;
     this.wrapper = selection.wrapper;
@@ -75,4 +75,3 @@ class Editor {
   }
 }
 
-export default Editor;

@@ -1,5 +1,5 @@
 import confirmDialog from "src/decidim/confirm";
-class Manager {
+export default class Manager {
   constructor(document) {
     this.document = document;
     this.doc = document.doc;
@@ -95,5 +95,3 @@ class Manager {
     this.consolidateButton.addEventListener("click", this._save.bind(this));
   }
 }
-
-export default Manager;

@@ -1,4 +1,4 @@
-class Suggestion {
+export default class Suggestion {
   constructor(suggestions, id, changeset) {
     this.id = id;
     this.suggestions = suggestions;
@@ -87,9 +87,15 @@ class Suggestion {
     let docTop = this.doc.getBoundingClientRect().top;
     let offsetTop = this.firstNode.getBoundingClientRect().top;
     let node = this.firstNode;
-    while (node.offsetHeight === 0) {
-      offsetTop = node.previousSibling.getBoundingClientRect().top;
-      node = node.previousSibling;
+
+    try {
+
+      while (node.offsetHeight === 0) {
+        offsetTop = node.previousSibling.getBoundingClientRect().top;
+        node = node.previousSibling;
+      }
+    } catch (e) {
+      console.error(e);
     }
 
     this.menuWrapper.style.top = `${offsetTop - docTop - 10}px`;
@@ -131,6 +137,7 @@ class Suggestion {
     this.menuWrapper = window.document.createElement("div");
     this.menuWrapper.classList.add("collaborative-texts-suggestions-menu");
     this.resetPosition().firstNode.before(this.menuWrapper);
+    console.log("Create menu wrapper", this.firstNode.previousSibling.outerHTML, this.doc.innerHTML);
   }
 
   _createMenu() {
@@ -173,5 +180,3 @@ class Suggestion {
     }
   }
 }
-
-export default Suggestion;

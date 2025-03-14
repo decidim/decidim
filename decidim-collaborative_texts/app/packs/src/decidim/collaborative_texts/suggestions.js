@@ -1,6 +1,6 @@
 import Suggestion from "src/decidim/collaborative_texts/suggestion";
 
-class Suggestions {
+export default class Suggestions {
   constructor(document) {
     this.document = document;
     this.nodes = document.nodes;
@@ -47,7 +47,6 @@ class Suggestions {
       then((data) => {
         data.forEach((item) => {
           let suggestion = new Suggestion(this, item.id, item.changeset)
-          console.log("Suggestion fetched", suggestion, item);
           if (suggestion.valid) {
             this.suggestions.push(suggestion);
           }
@@ -69,5 +68,3 @@ class Suggestions {
   }
 
 }
-
-export default Suggestions;
