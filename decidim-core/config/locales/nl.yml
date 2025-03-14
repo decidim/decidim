@@ -746,12 +746,12 @@ nl:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Je ontvangt dit omdat je een beheerder bent in %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Hallo, %{recipient}!
           intro: "%{manager} is een nieuw gesprek begonnen in de naam van %{group}. Klik hier om het te zien:"
           subject: "%{manager} is een nieuw gesprek begonnen als %{group}"
         comanagers_new_message:
           admin_in_group: Je ontvangt dit omdat je een beheerder bent in %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Hallo, %{recipient}!
           intro: "%{manager} heeft nieuwe berichten gepost in een gesprek in de naam van %{group}. Klik hier om ze te bekijken:"
           subject: "%{manager} heeft nieuwe berichten verzonden als %{group}"
         new_conversation:
@@ -760,12 +760,12 @@ nl:
           subject: "%{sender} is een gesprek met je begonnen"
         new_group_conversation:
           admin_in_group: Je ontvangt dit omdat je een beheerder bent in %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Hallo, %{recipient}!
           intro: "%{sender} is een nieuw gesprek begonnen met de groep %{group}. Klik hier om het te zien:"
           subject: "%{sender} is een gesprek begonnen met %{group}"
         new_group_message:
           admin_in_group: Je ontvangt dit omdat je een beheerder bent in %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Hallo, %{recipient}!
           intro: "%{sender} heeft nieuwe berichten gepost in een gesprek met de groep %{group}. Klik hier om het te zien:"
           subject: "%{group} heeft nieuwe berichten van %{sender}"
         new_message:
@@ -787,6 +787,8 @@ nl:
           new_conversation: Nieuwe conversatie
           next: Volgende
           title: conversaties
+        reply_form:
+          placeholder: Jouw antwoord...
         show:
           back: Terug naar alle gesprekken
           chat_with: Gesprek met
@@ -917,6 +919,8 @@ nl:
         conversations: Gesprekken
         followers: Volgers
         following: Aan het volgen
+        group_admins: Beheer beheerders
+        group_members: Leden beheren
         groups: Groepen
         members: Leden
         officialized: Officiële gebruiker
@@ -926,11 +930,14 @@ nl:
           title: Badges
       user:
         actions:
+          create_user_group: Maak een groep
           edit_profile: Bewerk profiel
           edit_user_group: Bewerk groepsprofiel
           invite_user: Nodig deelnemer uit
           join_user_group: Verzoek om lid te worden van de groep
           leave_user_group: Verlaat groep
+          manage_user_group_admins: Beheer beheerders
+          manage_user_group_users: Leden beheren
           resend_email_confirmation_instructions: Verzend instructies voor e-mailbevestiging opnieuw
         create_user_group: Maak een groep
         edit_profile: Bewerk profiel
