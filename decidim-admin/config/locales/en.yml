@@ -581,6 +581,7 @@ en:
         components: Components
         configuration: Configuration
         content: Reported content
+        demographic_data: Demographic data
         external_domain_allowlist: Allowed external domains
         help_sections: Help sections
         homepage: Homepage
@@ -598,6 +599,7 @@ en:
         share_tokens: Access links
         static_page_topics: Topics
         static_pages: Pages
+        statistics: Statistics
         taxonomies: Taxonomies
         taxonomy_filters: Taxonomy filters
         users: Participants
@@ -1356,5 +1358,7 @@ en:
       admin:
         global_moderations:
           title: Global moderations
+        insights: 
+          title: Insights
         taxonomy_filters_selector:
           title: Filters

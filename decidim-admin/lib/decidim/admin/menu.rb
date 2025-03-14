@@ -74,6 +74,23 @@ module Decidim
         end
       end
 
+      def self.register_admin_insights_menu!
+        Decidim.menu :admin_insights_menu do |menu|
+          menu.add_item :metrics,
+                        I18n.t("menu.statistics", scope: "decidim.admin"),
+                        decidim_admin.metrics_path,
+                        icon_name: "bar-chart-box-line",
+                        position: 1,
+                        active: is_active_link?(decidim_admin.metrics_path)
+
+          menu.add_item :demographic_data,
+                        I18n.t("menu.demographic_data", scope: "decidim.admin"),
+                        "#",
+                        icon_name: "earth-line",
+                        position: 2
+        end
+      end
+
       def self.register_admin_user_menu!
         Decidim.menu :admin_user_menu do |menu|
           menu.add_item :users,
