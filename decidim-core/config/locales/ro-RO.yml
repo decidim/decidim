@@ -1147,6 +1147,8 @@ ro:
         conversations: Conversații
         followers: Urmăritori
         following: Urmăriri
+        group_admins: Gestionare administratori
+        group_members: Gestionare membri
         groups: Grupuri
         members: Membri
         officialized: Participant oficial
@@ -1157,13 +1159,14 @@ ro:
           title: Insigne
       user:
         actions:
-          create_user_group: Creează grup
+          create_user_group: Creați grup
           edit_profile: Editare profil
           edit_user_group: Editează profilul grupului
           invite_user: Invite participant
           join_user_group: Cerere de aderare la grup
           leave_user_group: Părăsește grupul
-          manage_user_group_users: Gestionare participanți
+          manage_user_group_admins: Gestionare administratori
+          manage_user_group_users: Gestionare membri
           message: Mesaj
           resend_email_confirmation_instructions: Retrimite e-mail instrucțiuni de confirmare
         create_user_group: Creați grup
