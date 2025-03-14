@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "rqrcode"
+
 module Decidim
   module Meetings
     # A custom mailer for sending notifications to users when
