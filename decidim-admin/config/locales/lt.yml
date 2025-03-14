@@ -856,6 +856,8 @@ lt:
           invalid: Skaitant CSV failą kilo problema. Prašau įsitikinkite kad sekėte instrukcijas.
           success: CSV rinkmena įkelta, dalyviams siunčiame kvietimą e. laišku. Tai gali užtrukti.
         new:
+          csv_upload:
+            title: Įkelkite savo CSV rinkmeną
           destroy:
             button: Ištrinti visus privačius dalyvius
             confirm: Ar tikrai norite ištrinti visus privačius dalyvius? Atlikus šį veiksmą nebebus įmanoma sugražinti šių dalyvių į platformą.
