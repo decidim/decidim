@@ -1055,9 +1055,9 @@ fi:
       user_groups:
         index:
           state:
-            pending: Odottaa
-            rejected: Hylätty
-            verified: Vahvistettu
+            pending: Odottavat
+            rejected: Hylätyt
+            verified: Vahvistetut
           verify_via_csv: Vahvista CSV-tiedoston avulla
       user_groups_csv_verifications:
         new:
@@ -1067,7 +1067,7 @@ fi:
             acme@esimerkki.fi
             bubba.gump@esimerkki.fi
           title: Lataa CSV-tiedosto
-          upload: Lähetä
+          upload: Lataa
       users:
         create:
           error: Hallintakäyttäjän kutsuminen epäonnistui.
