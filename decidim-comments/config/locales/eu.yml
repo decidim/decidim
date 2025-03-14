@@ -167,8 +167,8 @@ eu:
         comment_by_followed_user_group:
           email_intro: '%{author_name} taldeak iruzkin bat utzi du hemen: %{resource_title}. Orrialde honetan irakur dezakezu:'
           email_outro: Jakinarazpena jaso duzu "%{author_name}" jarraitzen ari zarelako. Jarraitzeari utzi ahal diozu bere perfileko orrialdetik.
-          email_subject: '%{author_name} egileak iruzkin berri bat utzi du hemen: %{resource_title}'
-          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a>egileak iruzkin berri bat utzi du hemen: <a href="%{resource_path}">%{resource_title}</a>-an.'
+          email_subject: '%{author_name} egileak beste iruzkin bat egin du hemen: %{resource_title}'
+          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak iruzkin berri bat egin du hemen: <a href="%{resource_path}">%{resource_title}</a>.'
         comment_created:
           email_intro: "Norbaitek iruzkin bat egin du hemen: %{resource_title}. Orri honetan irakur dezakezu:"
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" edo bere egilea jarraitzen duzulako. Aurreko estekan jarrai dezakezu.
