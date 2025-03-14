@@ -665,7 +665,7 @@ hu:
             created_at: Létrehozva
             document_number: Dokumentum száma
             name: Név
-            nickname: Felhasználónév
+            nickname: Becenév
             phone: Telefon
             state: Állapot
             users_count: Résztvevők száma
@@ -1036,9 +1036,9 @@ hu:
       user_groups:
         index:
           state:
-            pending: Függőben
-            rejected: Elutasítva
-            verified: Megerősítve
+            pending: Függőben levő
+            rejected: Elutasított
+            verified: Ellenőrizve
           verify_via_csv: Ellenőrizze a CSV használatát
       user_groups_csv_verifications:
         new:
@@ -1048,7 +1048,7 @@ hu:
             naez@azemailcim.hu
             pelda.janos@peldaul.hu
           title: Töltse fel a CSV fájlját
-          upload: Feltöltés
+          upload: Feltölt
       users:
         create:
           error: Hiba történt a felhasználó adminnak történő meghívása során.
