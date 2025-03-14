@@ -315,10 +315,18 @@ uk:
       home: Головна
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          greeting: Вітаємо, %{recipient}!
+        comanagers_new_message:
+          greeting: Вітаємо, %{recipient}!
         new_conversation:
           greeting: Вітаємо, %{recipient}!
           intro: "%{sender} почав з вами нову бесіду. Клацніть тут, щоб прочитати її:"
           subject: "%{sender} почав з вами бесіду"
+        new_group_conversation:
+          greeting: Вітаємо, %{recipient}!
+        new_group_message:
+          greeting: Вітаємо, %{recipient}!
         new_message:
           greeting: Доброго дня, %{recipient}!
           intro: "%{sender} написав нові повідомлення у вашій бесіді. Клацніть тут, щоб переглянути їх:"
@@ -431,6 +439,8 @@ uk:
     statistics:
       comments_count: Коментарів
     user_conversations:
+      reply:
+        send: Надіслати
       update:
         error: Повідомлення не надіслано. Спробуйте ще раз пізніше
   devise:
