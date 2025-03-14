@@ -104,7 +104,7 @@ module Decidim::Meetings
       it "includes a QR with the registration code" do
         attachment = mail.attachments.last
         expect(attachment.filename).to match(/qr-#{registration.code.parameterize}.png/)
-        expect(attachment.content_type).to match(%r(image/png))
+        expect(attachment.content_type).to match(%r{image/png})
       end
     end
   end
