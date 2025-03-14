@@ -42,7 +42,7 @@ export default Mention.extend({
       },
       suggestion: {
         ...suggestion,
-        char: "$",
+        char: "/",
         pluginKey: MentionResourcePluginKey,
         allowSpaces: true,
         items: async ({ query }) => {
