@@ -253,12 +253,12 @@ de:
             add_agenda_item_child: Fügen Sie den Tagesordnungspunkt child hinzu
             agenda_item: Tagesordnungspunkt
             agenda_item_children: Tagesordnungspunkt Childs
-            down: Nieder
+            down: Nach unten
             remove: Löschen
             up: Oben
           agenda_item_child:
             agenda_item_child: Tagesordnungspunkt Kind
-            down: Nieder
+            down: Nach unten
             remove: Löschen
             up: Oben
           create:
@@ -344,7 +344,7 @@ de:
             success: Veranstaltung erfolgreich veröffentlicht.
           service:
             description: Beschreibung
-            down: Nieder
+            down: Nach unten
             remove: Löschen
             service: Bedienung
             title: Titel
