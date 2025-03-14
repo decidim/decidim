@@ -339,7 +339,6 @@ ja:
           id: このコメントのID
           locale: このコメントを残すときに参加者が使っていたロケール（言語）
           root_commentable_url: このコメントに関連するリソースの URL
-          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
         results:
           address: 結果のアドレス (もしあれば)
           children_count: 子の結果の数
