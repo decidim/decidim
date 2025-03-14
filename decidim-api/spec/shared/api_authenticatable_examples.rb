@@ -22,9 +22,9 @@ shared_examples "api authenticatable user" do
     post sign_in_path, params: params
     expect(response).to have_http_status(:ok)
     authorization = response.headers["Authorization"]
-    original_count = Decidim::Api::JwtBlacklist.count
+    original_count = Decidim::Api::JwtDenylist.count
     delete sign_out_path, params: {}, headers: { HTTP_AUTHORIZATION: authorization }
-    expect(Decidim::Api::JwtBlacklist.count).to eq(original_count + 1)
+    expect(Decidim::Api::JwtDenylist.count).to eq(original_count + 1)
   end
 
   context "when signed in" do

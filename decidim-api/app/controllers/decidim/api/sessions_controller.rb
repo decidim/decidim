@@ -21,7 +21,7 @@ module Decidim
       end
 
       def resource_name
-        if params["api_user"]
+        if params[:api_user]
           :api_user
         else
           :user
@@ -56,7 +56,7 @@ module Decidim
       end
 
       def anonymous_user
-        if params["api_user"]
+        if params[:api_user]
           Decidim::Api::ApiUser.new(api_key: params["api_user"]["key"])
         else
           Decidim::User.new(email: params["user"]["email"])

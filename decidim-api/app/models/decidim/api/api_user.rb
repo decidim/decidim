@@ -7,7 +7,7 @@ module Decidim
 
       attribute :tos_agreement, :boolean, default: true
 
-      devise :api_authenticatable, :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
+      devise :api_authenticatable, :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
 
       validates :api_key, :name, uniqueness: { case_sensitive: true, scope: :organization }
 

@@ -2,10 +2,10 @@
 
 module Decidim
   module Api
-    class JwtBlacklist < ApplicationRecord
+    class JwtDenylist < ApplicationRecord
       include ::Devise::JWT::RevocationStrategies::Denylist
 
-      self.table_name = "decidim_api_jwt_blacklists"
+      self.table_name = "decidim_api_jwt_denylists"
     end
   end
 end

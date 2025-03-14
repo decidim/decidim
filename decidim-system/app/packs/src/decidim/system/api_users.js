@@ -1,4 +1,4 @@
-$(() => {
+document.addEventListener("DOMContentLoaded", () => {
   const copyToClipboard = document.getElementById("api-user-token")
   if (!copyToClipboard) {
     return

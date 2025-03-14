@@ -15,7 +15,7 @@ module Decidim
       private
 
       def name_uniqueness
-        return unless ::Decidim::Api::ApiUser.where(name: name).where(decidim_organization_id: organization).any?
+        return unless ::Decidim::Api::ApiUser.where(name:).where(organization:).any?
 
         errors.add(:name, I18n.t("models.api_user.validations.name_uniqueness", scope: "decidim.system"))
       end

@@ -306,9 +306,26 @@ Devise.setup do |config|
   # devise keep error status for validation as :ok, and sets
   # the redirect_status as :found. However, these configuration
   # options is devised to change this behavior as
-  # needed(for more information refer to
+  # needed (for more information refer to
   # https://github.com/heartcombo/devise/blob/v4.9.0/CHANGELOG.md#490---2023-02-17):
   config.responder.error_status = :forbidden
+
+  # To be compatible with the jwt authentication, we need to set these configurations.
+  # JWT secret is being used by the devise-jwt to generate the tokens, once the
+  # user authenticated.
+  config.jwt do |jwt|
+    jwt.secret = Rails.application.secrets.dig(:api, :secret_key_jwt)
+    next unless jwt.secret
+
+    jwt.dispatch_requests = [
+      ["POST", %r{^/sign_in$}]
+    ]
+    jwt.revocation_requests = [
+      ["DELETE", %r{^/sign_out$}]
+    ]
+    jwt.expiration_time = 1.day.to_i
+    jwt.aud_header = "JWT_AUD"
+  end
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, we can call it `MyEngine`, and this engine
