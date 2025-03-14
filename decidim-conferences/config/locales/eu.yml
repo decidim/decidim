@@ -414,7 +414,7 @@ eu:
           cancel: Utzi
           confirm: Berretsi
         show:
-          going: joatean
+          going: Joango naiz
           no_slots_available: Ez dago slotarik erabilgarri
           registration: Izen-ematea
       conference_program:
