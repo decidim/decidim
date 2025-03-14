@@ -31,6 +31,8 @@ zh-TW:
         personal_url: 個人 URL
         remove_avatar: 刪除頭像
         tos_agreement: 同意服務條款
+      user_group:
+        avatar: 頭像
     models:
       decidim/attachment_created_event: 附件
       decidim/component_published_event: 啟用組件
@@ -1192,6 +1194,8 @@ zh-TW:
         conversations: 對話
         followers: 追隨者
         following: 關注
+        group_admins: 管理管理員
+        group_members: 管理成員
         groups: 群組
         members: 成員
         officialized: 正式認證參與者
