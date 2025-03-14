@@ -9,7 +9,7 @@
   <% end %>
   <%= form.hidden_field :commentable_gid, id: nil %>
   <%= form.hidden_field :alignment, id: nil, class: "alignment-input" %>
-  <%= comment_as_for(form) %>
+  <%= comment_as %>
 
   <div class="px-4 md:p-0">
     <%= form.text_area(

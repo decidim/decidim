@@ -24,7 +24,6 @@ shared_examples "create an initiative" do
         type_id: scoped_type.type.id,
         signature_type: "online",
         scope_id: scoped_type.scope.id,
-        decidim_user_group_id: nil,
         add_documents: uploaded_files,
         documents: current_files
       }

@@ -149,7 +149,7 @@ describe "Admin views proposal details from admin" do
 
         within "#proposal-endorsers-list" do
           proposal.endorsements.for_listing.each do |endorsement|
-            endorser = endorsement.normalized_author
+            endorser = endorsement.author
             expect(page).to have_css("a", text: endorser.name)
           end
         end

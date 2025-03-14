@@ -70,7 +70,6 @@ import backToListLink from "src/decidim/back_to_list"
 import markAsReadNotifications from "src/decidim/notifications"
 import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"
-import selectActiveIdentity from "src/decidim/identity_selector_dialog"
 import createTooltip from "src/decidim/tooltips"
 import fetchRemoteTooltip from "src/decidim/remote_tooltips"
 import createToggle from "src/decidim/toggle"
@@ -193,9 +192,6 @@ const initializer = (element = document) => {
 
   // Initialize available remote modals (ajax-fetched contents)
   element.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
-
-  // Add event listeners to identity modal
-  element.querySelectorAll("[data-user-identity]").forEach((elem) => selectActiveIdentity(elem))
 
   // Initialize data-tooltips
   element.querySelectorAll("[data-tooltip]").forEach((elem) => createTooltip(elem))
