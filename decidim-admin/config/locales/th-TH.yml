@@ -103,6 +103,10 @@ th:
       filters:
         scope_id_eq:
           label: ขอบเขต
+      models:
+        user_group:
+          fields:
+            name: ชื่อ
       organization_external_domain_whitelist:
         edit:
           update: อัปเดต
