@@ -679,9 +679,9 @@ fr:
         user_group:
           fields:
             actions: Actions
-            created_at: Créé le
+            created_at: Créée le
             document_number: Numéro de document
-            name: Nom
+            name: Titre
             nickname: Pseudonyme
             phone: Téléphone
             state: État
@@ -722,6 +722,19 @@ fr:
           unblocked: Non bloqué
       moderations:
         index:
+          actions:
+            actions_dropdown: Actions
+            hide:
+              title: Masquer
+              update_moderation_button: Masquer les ressources sélectionnées
+            unhide:
+              title: Afficher
+              update_moderation_button: Afficher les ressources sélectionnées
+            unreport:
+              title: Annuler le signalement
+              update_moderation_button: Annuler le signalement des ressources sélectionnées
+          cancel: Annuler
+          selected: sélectionné
           title: Contenu signalé
         report:
           reasons:
@@ -801,16 +814,20 @@ fr:
           deliver: Envoyer la newsletter
           followers_help: Envoie la newsletter à tous les utilisateurs confirmés qui suivent les espaces participatifs sélectionnés dans la liste.
           participants_help: Envoie la newsletter à tous les utilisateurs confirmés qui ont participé à l'un des espaces participatifs sélectionnés dans la liste.
+          private_members_help: Envoie une newsletter à tous les utilisateurs confirmés qui ont été ajoutés aux espaces privés participatifs sélectionnés.
           recipients_count: Cette newsletter sera envoyé à <strong id='recipients_count'>%{count}</strong> users.
           select_assemblies: Choisissez les assemblées
           select_conferences: Choisissez les conférences
+          select_initiatives: Choisir des pétitions
           select_participatory_processes: Choisissez les processus participatifs
           select_spaces: Sélectionnez les espaces pour segmenter la newsletter
           select_users_for_participatory_space: Envoyer la newsletter à un ou plusieurs espaces participatifs
+          select_users_general: Envoyer la newsletter générale
           select_verification_types: Choisissez les méthodes de vérification
           send_to_all_users: Envoyer à tous
           send_to_verified_users: Envoyer aux utilisateurs vérifiés
           title: Sélectionner les destinataires
+          verified_users_help: Envoie une newsletter à tous les utilisateurs confirmés et vérifiés via n'importe quelle méthode de vérification sélectionnée.
           warning: "<strong>Attention :</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir newsletters</em> dans leurs paramètres de notifications."
         send:
           no_recipients: Selon votre sélection, cette newsletter ne sera envoyée à aucun destinataire. 
@@ -828,6 +845,13 @@ fr:
         block:
           error: Une erreur s'est produite lors du blocage du participant.
           success: Participant bloqué avec succès.
+        bulk_action:
+          block:
+            invalid: Une erreur s'est produite lors du blocage du participant.
+            success: Participants bloqués avec succès.
+          unblock:
+            invalid: Une erreur s'est produite lors du déblocage des participants.
+            success: Participants débloqués avec succès.
         create:
           success: Utilisateur validé avec succès.
         destroy:
@@ -995,6 +1019,7 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d’application.
           success: Périmètre d'application créé avec succès.
+        deprecated: Gardez à l'esprit que les secteurs sont dépréciés et seront supprimés dans les versions futures. Veuillez utiliser des taxonomies à la place. Le seul module actuellement en utilisant des portées est le module des pétitions.
         destroy:
           success: Le secteur a été supprimé avec succès.
         edit:
@@ -1108,7 +1133,13 @@ fr:
       taxonomies:
         actions:
           actions: Actions
+          destroy: Supprimer la taxonomie et les éléments
+          edit: Modifier la taxonomie et les éléments
           filters: Gérer les filtres
+        breadcrumb:
+          edit: Modifier la taxonomie
+          new: Nouvelle taxonomie
+        count: Ressources associées
         total_filters: Filtres
       taxonomy_filters:
         breadcrumb:
@@ -1190,7 +1221,7 @@ fr:
         index:
           state:
             pending: En attente
-            rejected: Non validés
+            rejected: Rejeté
             verified: Vérifié
           verify_via_csv: Vérifier via CSV
       user_groups_csv_verifications:
