@@ -130,6 +130,10 @@ fr:
         title: Modifier votre commentaire
       up_vote_button:
         text: Je suis d'accord avec ce commentaire
+    download_your_data:
+      help:
+        comments:
+          user_group: Le nom du groupe d'utilisateurs qui a fait ce commentaire (le cas échéant)
     events:
       comments:
         comment_by_followed_user:
