@@ -710,7 +710,7 @@ eu:
             author: Egilea(k)
             callout_html: Eduki bat moderazio-panelean agertzen da parte-hartzaile batek (erregistratutako kontu bat duen edozein pertsona izan daiteke) txostena bidaltzen duenean, edukiaren ondoan dagoen %{icon} ikonoan klik eginez.
             content_original_language: Jatorrizko edukiaren hizkuntza
-            participatory_space: Parte hartzeko espazioa
+            participatory_space: Partaidetza-espazioa
             reported_content: Erreportatutako edukia
             see_current: Ikusi egungoa
             see_original: Ikusi jatorrizkoa
@@ -1124,7 +1124,7 @@ eu:
             created_at: Noiz erreportatua
             deleted_resource: Baliabide ezabatua.
             hidden_at: Ezkutatze-data
-            participatory_space: Parte hartzeko espazioa
+            participatory_space: Partaidetza-espazioa
             report_count: Erreporte kopurua
             reportable_id: ID
             reportable_type: Mota
