@@ -124,6 +124,8 @@ kaa:
             email: Elektron pochta
         user_group:
           fields:
+            actions: Háreketler
+            name: Ataması
             phone: Telefon
       moderated_users:
         index:
@@ -190,6 +192,9 @@ kaa:
       static_pages:
         edit:
           update: Jańalaw
+      user_groups_csv_verifications:
+        new:
+          upload: Júklew
       users_statistics:
         users_count:
           participants: Qatnasıwshılar
