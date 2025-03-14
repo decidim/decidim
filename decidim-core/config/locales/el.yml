@@ -910,6 +910,8 @@ el:
           new_conversation: Νέα συνομιλία
           next: Επόμενο
           title: Συνομιλίες
+        reply_form:
+          placeholder: Η απάντησή σας...
         show:
           back: Πίσω σε όλες τις συνομιλίες
           chat_with: Συνομιλία με
@@ -1057,6 +1059,8 @@ el:
         conversations: Συνομιλίες
         followers: Ακόλουθοι
         following: Ακολουθεί
+        group_admins: Διαχείριση διαχειριστών
+        group_members: Διαχείριση μελών
         groups: Ομάδες
         members: Μέλη
         officialized: Επίσημος συμμετέχων
