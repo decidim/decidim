@@ -142,7 +142,6 @@ es-PY:
           id: El identificador de este comentario
           locale: La configuración regional (idioma) que la participante tenía al dejar este comentario
           root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
-          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
         posts:
           author: La información de la autoría
           body: El contenido de la publicación
