@@ -142,7 +142,6 @@ ca:
           id: L'identificador id d'aquest comentari
           locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
           root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
-          user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
         posts:
           author: La informació de l'autoria
           body: El contingut de la publicació
