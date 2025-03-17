@@ -158,6 +158,8 @@ tr:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Bu bildirimi, teklifi değerlendirebileceğiniz için aldınız.
           proposal_note_created:
             email_outro: Bu bildirimi, teklifi değerlendirebileceğiniz için aldınız.
             email_subject: Birisi %{resource_title} teklifine not bıraktı.
@@ -347,7 +349,6 @@ tr:
           index:
             actions: Eylemler
             assign_to_valuator: Bilirkişiye ata
-            assign_to_valuator_button: Ata
             cancel: İptal Et
             merge: Yeni biriyle birleştir
             merge_button: Birleştir
@@ -360,7 +361,6 @@ tr:
             statuses: Durumlar
             title: Teklifler
             unassign_from_valuator: Bilirkişinin atamasını kaldır
-            unassign_from_valuator_button: Atamayı kaldır
             update: Güncelle
           new:
             create: Oluştur
