@@ -32,6 +32,57 @@ describe Decidim::AdminLog::UserPresenter, type: :helper do
     end
   end
 
+  context "when actions are performed on deleted user" do
+    include_examples "present admin log entry" do
+      let(:admin_log_resource) { create(:user, :blocked, :deleted, personal_url: "http://example.com", organization:) }
+      let(:admin_log_extra_data) { { resource: { title: user.name } } }
+      let(:action) { "block" }
+
+      describe "#present" do
+        subject { presenter.present }
+
+        it "presents the blocked user's name prior to blocking" do
+          expect(subject).not_to include("Blocked user")
+          expect(subject).to include(admin_log_extra_data[:resource][:title])
+        end
+      end
+    end
+
+    include_examples "present admin log entry" do
+      let(:admin_log_resource) { create(:user, :blocked, :deleted, personal_url: "http://example.com", organization:) }
+      let(:admin_log_extra_data) { { resource: { title: user.name } } }
+      let(:action) { "unblock" }
+
+      describe "#present" do
+        subject { presenter.present }
+
+        it "presents the unblocked user's name" do
+          within ".logs__log__explanation" do
+            expect(subject).to include("unblocked user")
+            expect(subject).to include(admin_log_extra_data[:resource][:title])
+          end
+        end
+      end
+    end
+
+    include_examples "present admin log entry" do
+      let(:admin_log_resource) { create(:user, :blocked, :deleted, personal_url: "http://example.com", organization:) }
+      let(:admin_log_extra_data) { { resource: { title: user.name } } }
+      let(:action) { "unreport" }
+
+      describe "#present" do
+        subject { presenter.present }
+
+        it "presents the unreport user's name" do
+          within ".logs__log__explanation" do
+            expect(subject).to include("unreported user")
+            expect(subject).to include(admin_log_extra_data[:resource][:title])
+          end
+        end
+      end
+    end
+  end
+
   context "when action is bulk_block" do
     include_examples "present admin log entry" do
       let(:admin_log_resource) { organization }
