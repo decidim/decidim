@@ -136,6 +136,8 @@ zh-CN:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: 您收到此通知是因为您可以评估提案。
           proposal_note_created:
             email_outro: 您收到此通知是因为您可以评估提案。
             email_subject: 有人在建议 %{resource_title} 留下了一条笔记。
@@ -283,7 +285,6 @@ zh-CN:
           index:
             actions: 行动
             assign_to_valuator: 分配给值器
-            assign_to_valuator_button: 分配
             cancel: 取消
             merge: 合并为一个新的
             merge_button: 合并
@@ -295,7 +296,6 @@ zh-CN:
             split_button: 拆分
             title: 建议
             unassign_from_valuator: 取消分配给值
-            unassign_from_valuator_button: 取消分配
             update: 更新
           new:
             create: 创建
