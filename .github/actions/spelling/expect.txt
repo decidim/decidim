@@ -820,6 +820,7 @@ smartbreak
 Smileys
 Snowlvhme
 Snoworg
+somecapitalguy
 somedatabase
 Sorbier
 sortings
@@ -1041,3 +1042,4 @@ Zbd
 zeitwerk
 Zupper
 zzz
+zzzupper
