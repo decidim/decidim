@@ -182,7 +182,6 @@ sq:
             admin: Administrator
             collaborator: Bashkëpunëtor/e
             moderator: Moderator/e
-            valuator: Vlerësues/e
       titles:
         assemblies: Asambletë
         assemblies_types: Tipet e asambleve
