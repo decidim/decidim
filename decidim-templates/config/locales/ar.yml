@@ -28,7 +28,6 @@ ar:
           choose:
             label: اختيار نموذج
             placeholder: اختيار نموذج
-            skip_template: تخطي
           edit:
             edit: تعديل
           preview:

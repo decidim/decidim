@@ -221,7 +221,7 @@ ca:
             taxonomy_filters: Seleccionar filtres pel component
             taxonomy_filters_add: Afegir un filtre
             threshold_per_proposal: Llindar per proposta
-            vote_limit: Límit de propostes per participant
+            vote_limit: Límit de suports per participant
           step:
             amendment_creation_enabled: Creació d'esmenes habilitada
             amendment_creation_enabled_help: Les participants poden esmenar les propostes.
@@ -517,6 +517,16 @@ ca:
         exports:
           proposal_comments: Comentaris
           proposals: Propostes
+        import_proposals_mailer:
+          notify_failure:
+            body: Hi ha hagut un problema en importar propostes del component %{origin_component_name} al component %{target_component_name}.
+            subject: S'ha produït un error en importar les propostes
+          notify_success:
+            added_proposals:
+              one: S'ha importat una proposta.
+              other: "S'han importat %{count} propostes."
+            body: S'han importat amb èxit les propostes des del component %{origin_component_name} al component %{target_component_name}. Pots revisar els resultats al tauler d'administració.
+            subject: Les propostes s'han importat correctament
         imports:
           help:
             answers: |
@@ -688,7 +698,7 @@ ca:
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes.
-            success: "%{number} propostes importades correctament."
+            success: El procés d'importació ha començat. T'avisarem quan hagi finalitzat.
           new:
             create: Importa propostes
             no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
@@ -875,7 +885,7 @@ ca:
           success: Invitació de coautoria cancel·lada amb èxit.
         create:
           error: S'ha produït un error en convidar a la coautora.
-          success: "S'ha convidat amb èxit a %{author_name} com a coautora."
+          success: "S'ha convidat amb èxit %{author_name} per ser coautor/a de la proposta."
         destroy:
           error: S'ha produït un error en rebutjar la invitació.
           success: S'ha rebutjat la invitació.

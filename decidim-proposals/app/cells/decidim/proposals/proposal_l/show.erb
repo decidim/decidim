@@ -4,7 +4,7 @@
     <%= render :content %>
     <%= render :extra_data if render_extra_data? %>
   <% end %>
-    <% if has_actions? && options.fetch(:hide_voting, false) == false %>
+    <% if has_actions? && options.fetch(:show_voting, false) == true %>
       <% if current_settings.votes_hidden? %>
         <div class="card__proposals-votes-hidden">
           <%= cell proposal_vote_cell, resource, **options %>

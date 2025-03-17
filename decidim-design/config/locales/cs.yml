@@ -294,6 +294,7 @@ cs:
         usage_typography_2: Vložený text
         usage_typography_3: Text na tmavém pozadí
         usage_typography_4: Odkazy a tlačítka
+        usage_typography_5: Vypnutá karta
         value: Hodnota
         variations: Variace
         variations_cards_description: Každá karta bude vypadat jinak než s ohledem na vlastnosti zobrazeného dokumentu. Toto chování můžete přepsat v konkrétní buňce.

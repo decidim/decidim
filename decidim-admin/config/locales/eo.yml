@@ -40,9 +40,6 @@ eo:
             ended_at: Finita je
         participatory_space_private_user:
           name: Privata partoprenanto
-        user_group:
-          fields:
-            document_number: Dokumento Nombro
       newsletters:
         select_recipients_to_deliver:
           all_users_help: Sendu la informilon al ĉiuj konfirmitaj partoprenantoj.

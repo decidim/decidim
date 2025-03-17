@@ -4,11 +4,3 @@ bs:
       comments:
         comment_details_title: Detalji o komentaru
         single_comment_warning_title: Vidite samo jedan komentar
-    events:
-      comments:
-        comment_by_followed_user_group:
-          email_intro: 'Grupa %{author_name} je ostavila komentar na %{resource_title}. Možete ga pročitati na ovoj strani:'
-        user_group_mentioned:
-          email_intro: Grupa kojoj pripadate je pomenuta
-          email_outro: Dobili ste ovo obaveštenje jer ste član grupe %{group_name} koja je pomenuta u %{resource_title}.
-          email_subject: Pomenuti ste u %{resource_title} kao član grupe %{group_name}

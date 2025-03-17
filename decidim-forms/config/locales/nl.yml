@@ -26,7 +26,6 @@ nl:
         questionnaires:
           actions:
             back: Terug naar vragen
-            show: Antwoorden tonen
           answer_option:
             answer_option: Antwoord optie
             free_text: Vrije tekst

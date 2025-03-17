@@ -408,7 +408,7 @@ sv:
           form:
             available_slots_help: Lämna det till 0 om du har obegränsade platser.
             invites: Inbjudningar
-            manage_questions: Hantera frågor
+            manage_questions: Frågor
             recommendation_message: Av sekretesskäl rekommenderar vi att du tar bort anmälningsformuläret när det inte längre används. Som standard är det 3 månader efter att mötet avslutats.
             registration_email_help: Texten visas i e-postmeddelandet med registreringsbekräftelsen, efter registreringskoden.
             registration_form: Anmälningsformulär

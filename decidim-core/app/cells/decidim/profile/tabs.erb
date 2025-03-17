@@ -1,4 +1,4 @@
-<% tab_items.each do |tab_item| %>
+<% user_tabs.each do |tab_item| %>
   <% active_link = is_active_link?(tab_item[:path]) %>
   <li class="profile__tab<%= " is-active" if active_link %>">
     <%= link_to tab_item[:path], title: tab_item[:text], class: "profile__tab-item", aria: { current: active_link ? "page" : nil } do %>

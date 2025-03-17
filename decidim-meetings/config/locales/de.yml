@@ -285,12 +285,12 @@ de:
             add_agenda_item_child: Fügen Sie den Tagesordnungspunkt child hinzu
             agenda_item: Tagesordnungspunkt
             agenda_item_children: Tagesordnungspunkt Childs
-            down: Nieder
+            down: Nach unten
             remove: Löschen
             up: Oben
           agenda_item_child:
             agenda_item_child: Tagesordnungspunkt Kind
-            down: Nieder
+            down: Nach unten
             remove: Löschen
             up: Oben
           create:
@@ -385,7 +385,7 @@ de:
             success: Veranstaltung erfolgreich veröffentlicht.
           service:
             description: Beschreibung
-            down: Nieder
+            down: Nach unten
             remove: Löschen
             service: Bedienung
             title: Titel
@@ -420,7 +420,7 @@ de:
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
             invites: Lädt ein
-            manage_questions: Fragen verwalten
+            manage_questions: Fragen
             recommendation_message: Aus Datenschutzgründen empfehlen wir, dass Sie dieses Einschreibeformular löschen, wenn es nicht länger benötigt wird. Standardmäßig ist das 3 Monate nachdem die Besprechung durchgeführt wurde.
             registration_email_help: Dieser Text erscheint in der Mitte der Registrierungs-E-Mail, direkt nach dem Registrierungscode.
             registration_form: Anmeldeformular

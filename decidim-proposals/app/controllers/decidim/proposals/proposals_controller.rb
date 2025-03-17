@@ -6,7 +6,6 @@ module Decidim
     class ProposalsController < Decidim::Proposals::ApplicationController
       helper ProposalWizardHelper
       helper ParticipatoryTextsHelper
-      helper UserGroupHelper
       helper Decidim::Admin::IconLinkHelper
       include Decidim::ApplicationHelper
       include Flaggable

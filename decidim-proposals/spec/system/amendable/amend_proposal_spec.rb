@@ -204,7 +204,6 @@ describe "Amend Proposal", versioning: true do
 
         context "when the user is logged in and clicks" do
           let!(:user) { create(:user, :confirmed, organization: component.organization) }
-          let!(:user_group) { create(:user_group, :verified, organization: user.organization, users: [user]) }
 
           before do
             login_as user, scope: :user
@@ -220,7 +219,6 @@ describe "Amend Proposal", versioning: true do
             within ".new_amendment" do
               expect(page).to have_content("Title")
               expect(page).to have_content("Body")
-              expect(page).to have_content("Amendment author")
               expect(page).to have_button("Create")
             end
           end
@@ -235,7 +233,6 @@ describe "Amend Proposal", versioning: true do
               within ".new_amendment" do
                 fill_in "amendment[emendation_params][title]", with: "More sidewalks and less roads"
                 fill_in "amendment[emendation_params][body]", with: "Cities need more people, not more cars"
-                select user_group.name, from: :amendment_user_group_id # Optional
               end
               click_on "Create"
             end

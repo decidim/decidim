@@ -80,15 +80,17 @@ eu:
             select_template: Aukeratu erantzun-txantiloi bat.
         questionnaire_templates:
           choose:
-            create_from_template: Sortu txantiloitik
-            description: Galdeketa berri bat sortuko duzu. Aurretik zehaztutako txantiloi bat aukeratu ahal duzu eta gero moldatu.
+            continue: Jarraitu
+            description: Beste galdetegi bat sor dezakezu edo aurrez zehaztutako txantiloi bat aukeratu eta aldatu. Hautatu aukera bat.
             label: Aukeratu txantiloi bat
+            options:
+              create_new_form: Sortu beste forma bat
+              select_template: Hautatu txantiloia
             placeholder: Aukeratu txantiloi bat
-            skip_template: Saltatu
           edit:
             edit: Editatu
             empty: Oraindik ez dago galderarik.
-            manage_questions: Kudeatu galderak
+            manage_questions: Galderak
             questionnaire: Galdetegia
             title: Editatu galdetegiaren txantiloia
           edit_questions:

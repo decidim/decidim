@@ -25,25 +25,6 @@ describe "Conversations" do
         expect(page).to have_no_selector("span[data-unread-items]")
       end
     end
-
-    context "when searching for a user group to a new conversation" do
-      let!(:user_group) { create(:user_group, :confirmed, name: "Example user group", nickname: "example", organization:) }
-
-      it "only shows one match even if the keyword matches both name and nickname" do
-        visit decidim.conversations_path
-
-        click_on "New conversation"
-
-        fill_in "add_conversation_users", with: "example"
-
-        expect(find_by_id("autoComplete_list_1")).to have_css("li", count: 1)
-
-        within "#autoComplete_result_0" do
-          expect(page).to have_content("example")
-          expect(page).to have_content("Example user group")
-        end
-      end
-    end
   end
 
   shared_examples "create new conversation" do
@@ -368,7 +349,7 @@ describe "Conversations" do
 
     context "and it is with four participants" do
       let(:user1) { create(:user, organization:) }
-      let(:user2) { create(:user_group, organization:) }
+      let(:user2) { create(:user, organization:) }
       let(:user3) { create(:user, organization:) }
       let!(:conversation4) do
         Decidim::Messaging::Conversation.start!(
@@ -428,7 +409,7 @@ describe "Conversations" do
 
     context "and it is with ten participants" do
       let(:user1) { create(:user, organization:) }
-      let(:user2) { create(:user_group, organization:) }
+      let(:user2) { create(:user, organization:) }
       let(:user3) { create(:user, organization:) }
       let(:user4) { create(:user, organization:) }
       let(:user5) { create(:user, organization:) }

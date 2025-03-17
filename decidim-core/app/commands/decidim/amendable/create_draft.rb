@@ -12,7 +12,6 @@ module Decidim
       def initialize(form)
         @form = form
         @amendable = form.amendable
-        @user_group = Decidim::UserGroup.find_by(id: form.user_group_id)
       end
 
       # Executes the command. Broadcasts these events:
@@ -34,7 +33,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :amendable, :user_group
+      attr_reader :form, :amendable
 
       # Prevent PaperTrail from creating an additional version
       # in the amendment multi-step creation process (step 1: create)
@@ -54,7 +53,7 @@ module Decidim
             emendation.body = { I18n.locale => form.emendation_params.with_indifferent_access[:body] }
             emendation.component = amendable.component
             emendation.taxonomies = amendable.taxonomies if amendable.respond_to?(:taxonomies)
-            emendation.add_author(current_user, user_group)
+            emendation.add_author(current_user)
             emendation.save!
             emendation
           end

@@ -79,9 +79,9 @@ ja:
         ephemeral_dummy_authorization_handler:
           help:
             - 開発者が簡単な検証の仕組みを理解できるようにするための、一時的な認可ハンドラーの例です。
-            - 
-            - 
-            - 
+            - 開発者が自身の検証システムを実装する方法を理解できるようにすることを目的としています。
+            - Example authorization のコピーです。
+            - '「X」で終わる本人確認書類の番号を導入して認証を受けましょう。'
         id_documents:
           help:
             - ユーザーは自分の身元情報を入力し、自分の文書のコピーをアップロードします。
@@ -143,6 +143,7 @@ ja:
         new:
           authorize: 送信
           authorize_with: '%{authorizer} で認証'
+          tos_agreement: 本人確認を行うことで、 %{link} に同意したことになります。
         onboarding_pending:
           completed_verifications: あなたは正常に承認されました。今、 %{resource_name} で %{action} ができます。
           granted_verifications: 許可された検証
