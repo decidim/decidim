@@ -4,14 +4,14 @@ require "spec_helper"
 
 module Decidim
   module Meetings
-    describe Answer do
-      subject { answer }
+    describe Response do
+      subject { response }
 
       let(:meeting) { create(:meeting) }
       let(:user) { create(:user, organization: meeting.organization) }
       let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: meeting) }
       let(:question) { create(:meetings_poll_question, questionnaire:) }
-      let(:answer) { create(:meetings_poll_answer, questionnaire:, question:, user:) }
+      let(:response) { create(:meetings_poll_response, questionnaire:, question:, user:) }
 
       it { is_expected.to be_valid }
 

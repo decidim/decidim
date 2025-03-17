@@ -13,15 +13,15 @@ module Decidim
             name: resource.user.name,
             email: resource.user.email
           },
-          registration_form_answers: serialize_answers
+          registration_form_responses: serialize_responses
         }
       end
 
       private
 
-      def serialize_answers
-        Decidim::Forms::UserAnswersSerializer.new(
-          resource.meeting.questionnaire.answers.where(user: resource.user)
+      def serialize_responses
+        Decidim::Forms::UserResponsesSerializer.new(
+          resource.meeting.questionnaire.responses.where(user: resource.user)
         ).serialize
       end
     end

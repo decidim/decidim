@@ -1,0 +1,13 @@
+<% choice = response.choices.first if response %>
+
+<% question.response_options.each_with_index do |response_option, idx| %>
+  <% choice_id = "#{field_id}_choices_#{idx}" %>
+
+  <%= label_tag "#{choice_id}_response_option" do %>
+    <%= radio_button_tag "response[choices][#{question.id}][response_option_id]",
+                         response_option.id,
+                         response_option.id == choice.try(:decidim_response_option_id),
+                         id: "#{choice_id}_response_option", disabled: %>
+    <%= translated_attribute(response_option.body) %>
+  <% end %>
+<% end %>

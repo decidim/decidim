@@ -6,10 +6,10 @@ require "decidim/dev/test/form_to_param_shared_examples"
 module Decidim
   module Meetings
     module Admin
-      describe AnswerOptionForm do
+      describe ResponseOptionForm do
         subject do
           described_class.from_params(
-            answer_option: attributes
+            response_option: attributes
           ).with_context(current_organization: organization)
         end
 
@@ -33,7 +33,7 @@ module Decidim
           it { is_expected.not_to be_valid }
         end
 
-        it_behaves_like "form to param", default_id: "questionnaire-question-answer-option-id"
+        it_behaves_like "form to param", default_id: "questionnaire-question-response-option-id"
       end
     end
   end

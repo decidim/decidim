@@ -2,9 +2,9 @@
 
 module Decidim
   module Meetings
-    class DownloadYourDataUserAnswersSerializer < Decidim::Exporters::Serializer
+    class DownloadYourDataUserResponsesSerializer < Decidim::Exporters::Serializer
       include Decidim::TranslationsHelper
-      # Serializes an user answer for download your data
+      # Serializes an user response for download your data
       def serialize
         {
           id: resource.id,
@@ -19,7 +19,7 @@ module Decidim
             body: translated_attribute(resource.question.body),
             description: translated_attribute(resource.question.description)
           },
-          answer: normalize_body(resource)
+          response: normalize_body(resource)
         }
       end
 

@@ -2,13 +2,13 @@
 
 module Decidim
   module Meetings
-    # This class holds a Form to save the questionnaire answers from Decidim's public page
-    class AnswerForm < Decidim::Form
+    # This class holds a Form to save the questionnaire responses from Decidim's public page
+    class ResponseForm < Decidim::Form
       include Decidim::TranslationsHelper
 
       attribute :question_id, String
       attribute :body, String
-      attribute :choices, Array[AnswerChoiceForm]
+      attribute :choices, Array[ResponseChoiceForm]
       attribute :current_user, Decidim::User
 
       validates :selected_choices, presence: true
@@ -20,8 +20,8 @@ module Decidim
         @question ||= Decidim::Meetings::Question.find(question_id)
       end
 
-      def answer
-        @answer ||= Decidim::Meetings::Answer.find_by(decidim_user_id: current_user.id, decidim_question_id: question_id) if current_user
+      def response
+        @response ||= Decidim::Meetings::Response.find_by(decidim_user_id: current_user.id, decidim_question_id: question_id) if current_user
       end
 
       def label
@@ -38,12 +38,12 @@ module Decidim
         self.question = model.question
 
         self.choices = model.choices.map do |choice|
-          AnswerChoiceForm.from_model(choice)
+          ResponseChoiceForm.from_model(choice)
         end
       end
 
       def selected_choices
-        choices.select(&:answer_option_id)
+        choices.select(&:response_option_id)
       end
 
       private

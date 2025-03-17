@@ -36,9 +36,9 @@ describe "Admin manages meetings polls" do
       visit questionnaire_edit_path
     end
 
-    it "adds a question with answer options" do
+    it "adds a question with response options" do
       question_body = ["This is the first question", "This is the second question"]
-      answer_options_body = [
+      response_options_body = [
         [
           "This is the Q1 first option",
           "This is the Q1 second option",
@@ -65,14 +65,14 @@ describe "Admin manages meetings polls" do
         page.all(".questionnaire-question").each do |question|
           within question do
             select "Single option", from: "Type"
-            click_on "Add answer option"
+            click_on "Add response option"
           end
         end
 
         page.all(".questionnaire-question").each_with_index do |question, question_idx|
-          question.all(".questionnaire-question-answer-option").each_with_index do |question_answer_option, answer_option_idx|
-            within question_answer_option do
-              fill_in find_nested_form_field_locator("body_en"), with: answer_options_body[question_idx][answer_option_idx]
+          question.all(".questionnaire-question-response-option").each_with_index do |question_response_option, response_option_idx|
+            within question_response_option do
+              fill_in find_nested_form_field_locator("body_en"), with: response_options_body[question_idx][response_option_idx]
             end
           end
         end
@@ -99,40 +99,40 @@ describe "Admin manages meetings polls" do
       expand_all_questions
 
       select "Single option", from: "Type"
-      expect(page).to have_css(".questionnaire-question-answer-option", count: 2)
+      expect(page).to have_css(".questionnaire-question-response-option", count: 2)
       expect(page).to have_no_selector(".questionnaire-question-matrix-row")
 
       select "Multiple option", from: "Type"
-      expect(page).to have_css(".questionnaire-question-answer-option", count: 2)
+      expect(page).to have_css(".questionnaire-question-response-option", count: 2)
       expect(page).to have_no_selector(".questionnaire-question-matrix-row")
     end
 
-    it "does not incorrectly reorder when clicking answer options" do
+    it "does not incorrectly reorder when clicking response options" do
       click_on "Add question"
       expand_all_questions
 
       select "Single option", from: "Type"
-      2.times { click_on "Add answer option" }
+      2.times { click_on "Add response option" }
 
-      within ".questionnaire-question-answer-option:first-of-type" do
+      within ".questionnaire-question-response-option:first-of-type" do
         fill_in find_nested_form_field_locator("body_en"), with: "Something"
       end
 
-      within ".questionnaire-question-answer-option:last-of-type" do
+      within ".questionnaire-question-response-option:last-of-type" do
         fill_in find_nested_form_field_locator("body_en"), with: "Else"
       end
 
       # If JS events for option reordering are incorrectly bound, clicking on
       # the field to gain focus can cause the options to get inverted... :S
-      within ".questionnaire-question-answer-option:first-of-type" do
+      within ".questionnaire-question-response-option:first-of-type" do
         find_nested_form_field("body_en").click
       end
 
-      within ".questionnaire-question-answer-option:first-of-type" do
+      within ".questionnaire-question-response-option:first-of-type" do
         expect(page).to have_nested_field("body_en", with: "Something")
       end
 
-      within ".questionnaire-question-answer-option:last-of-type" do
+      within ".questionnaire-question-response-option:last-of-type" do
         expect(page).to have_nested_field("body_en", with: "Else")
       end
     end
@@ -148,19 +148,19 @@ describe "Admin manages meetings polls" do
       expect(page).to have_select("Type", selected: "Single option")
     end
 
-    it "preserves answer options form across submission failures" do
+    it "preserves response options form across submission failures" do
       click_on "Add question"
       expand_all_questions
 
       select "Multiple option", from: "Type"
 
-      within ".questionnaire-question-answer-option:first-of-type" do
+      within ".questionnaire-question-response-option:first-of-type" do
         fill_in find_nested_form_field_locator("body_en"), with: "Something"
       end
 
-      click_on "Add answer option"
+      click_on "Add response option"
 
-      within ".questionnaire-question-answer-option:last-of-type" do
+      within ".questionnaire-question-response-option:last-of-type" do
         fill_in find_nested_form_field_locator("body_en"), with: "Else"
       end
 
@@ -169,11 +169,11 @@ describe "Admin manages meetings polls" do
       click_on "Save"
       expand_all_questions
 
-      within ".questionnaire-question-answer-option:first-of-type" do
+      within ".questionnaire-question-response-option:first-of-type" do
         expect(page).to have_nested_field("body_en", with: "Something")
       end
 
-      within ".questionnaire-question-answer-option:last-of-type" do
+      within ".questionnaire-question-response-option:last-of-type" do
         fill_in find_nested_form_field_locator("body_en"), with: "Else"
       end
 
@@ -213,16 +213,16 @@ describe "Admin manages meetings polls" do
         select "Multiple option", from: "Type"
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
 
-        click_on "Add answer option"
+        click_on "Add response option"
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
 
-        click_on "Add answer option"
+        click_on "Add response option"
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3 4))
 
-        within(".questionnaire-question-answer-option:last-of-type") { click_on "Remove" }
+        within(".questionnaire-question-response-option:last-of-type") { click_on "Remove" }
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
 
-        within(".questionnaire-question-answer-option:last-of-type") { click_on "Remove" }
+        within(".questionnaire-question-response-option:last-of-type") { click_on "Remove" }
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
 
         click_on "Add question"
@@ -263,9 +263,9 @@ describe "Admin manages meetings polls" do
 
       within ".questionnaire-question:last-of-type" do
         fill_in find_nested_form_field_locator("body_en"), with: "New question title"
-        page.all(".questionnaire-question-answer-option").each_with_index do |question_answer_option, answer_option_idx|
-          within question_answer_option do
-            fill_in find_nested_form_field_locator("body_en"), with: "New question answer option #{answer_option_idx + 1}"
+        page.all(".questionnaire-question-response-option").each_with_index do |question_response_option, response_option_idx|
+          within question_response_option do
+            fill_in find_nested_form_field_locator("body_en"), with: "New question response option #{response_option_idx + 1}"
           end
         end
       end
@@ -276,8 +276,8 @@ describe "Admin manages meetings polls" do
       visit_questionnaire_edit_path_and_expand_all
 
       expect(page).to have_css("input[value='New question title']")
-      expect(page).to have_css("input[value='New question answer option 1']")
-      expect(page).to have_css("input[value='New question answer option 2']")
+      expect(page).to have_css("input[value='New question response option 1']")
+      expect(page).to have_css("input[value='New question response option 2']")
     end
 
     it "can modify questionnaire open questions" do
@@ -287,11 +287,11 @@ describe "Admin manages meetings polls" do
       expand_all_questions
       within "#questionnaire_question_#{unpublished_question.id}-field" do
         expect(page).to have_content("Remove")
-        expect(page).to have_content("Add answer option")
+        expect(page).to have_content("Add response option")
         fill_in find_nested_form_field_locator("body_en"), with: "Changed title"
-        page.all(".questionnaire-question-answer-option").each_with_index do |question_answer_option, answer_option_idx|
-          within question_answer_option do
-            fill_in find_nested_form_field_locator("body_en"), with: "Changed answer option #{answer_option_idx + 1}"
+        page.all(".questionnaire-question-response-option").each_with_index do |question_response_option, response_option_idx|
+          within question_response_option do
+            fill_in find_nested_form_field_locator("body_en"), with: "Changed response option #{response_option_idx + 1}"
           end
         end
       end
@@ -303,9 +303,9 @@ describe "Admin manages meetings polls" do
       visit_questionnaire_edit_path_and_expand_all
 
       expect(page).to have_css("input[value='Changed title']")
-      expect(page).to have_css("input[value='Changed answer option 1']")
-      expect(page).to have_css("input[value='Changed answer option 2']")
-      expect(page).to have_css("input[value='Changed answer option 3']")
+      expect(page).to have_css("input[value='Changed response option 1']")
+      expect(page).to have_css("input[value='Changed response option 2']")
+      expect(page).to have_css("input[value='Changed response option 3']")
     end
 
     context "when there are validation errors" do

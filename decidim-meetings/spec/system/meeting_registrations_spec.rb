@@ -55,7 +55,7 @@ describe "Meeting registrations" do
     context "and registration form is also enabled" do
       let(:registration_form_enabled) { true }
 
-      it "cannot answer the registration form" do
+      it "cannot response the registration form" do
         visit questionnaire_public_path
 
         expect(page).to have_i18n_content(questionnaire.title)
@@ -63,7 +63,7 @@ describe "Meeting registrations" do
 
         expect(page).to have_no_i18n_content(question.body)
 
-        expect(page).to have_content("The form is closed and cannot be answered")
+        expect(page).to have_content("The form is closed and cannot be responded")
       end
     end
   end
@@ -90,7 +90,7 @@ describe "Meeting registrations" do
           login_as user, scope: :user
         end
 
-        it "cannot answer the registration form" do
+        it "cannot response the registration form" do
           visit questionnaire_public_path
 
           expect(page).to have_i18n_content(questionnaire.title)
@@ -98,7 +98,7 @@ describe "Meeting registrations" do
 
           expect(page).to have_no_i18n_content(question.body)
 
-          expect(page).to have_content("The form is closed and cannot be answered")
+          expect(page).to have_content("The form is closed and cannot be responded")
         end
       end
     end
@@ -145,7 +145,7 @@ describe "Meeting registrations" do
             expect(page).to have_i18n_content(questionnaire.title)
             expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
-            expect(page).to have_no_css(".form.answer-questionnaire")
+            expect(page).to have_no_css(".form.response-questionnaire")
 
             within "[data-question-readonly]" do
               expect(page).to have_i18n_content(question.body)
@@ -247,7 +247,7 @@ describe "Meeting registrations" do
 
     context "and has a registration form" do
       let(:registration_form_enabled) { true }
-      let(:callout_failure) { "There was a problem answering the form" }
+      let(:callout_failure) { "There was a problem responding the form" }
       let(:callout_success) { <<~EOCONTENT.strip.gsub("\n", " ") }
         You have joined the meeting successfully.
         Because you have registered for this meeting, you will be notified if there are updates on it.
@@ -312,7 +312,7 @@ describe "Meeting registrations" do
     end
 
     context "and the user is going to the meeting" do
-      let!(:answer) { create(:answer, questionnaire:, question:, user:) }
+      let!(:response) { create(:response, questionnaire:, question:, user:) }
       let!(:registration) { create(:registration, meeting:, user:) }
 
       before do
@@ -429,7 +429,7 @@ describe "Meeting registrations" do
       context "and registration form is enabled" do
         let(:registration_form_enabled) { true }
 
-        it "cannot answer the registration again" do
+        it "cannot response the registration again" do
           visit questionnaire_public_path
 
           expect(page).to have_i18n_content(questionnaire.title)
@@ -437,7 +437,7 @@ describe "Meeting registrations" do
 
           expect(page).to have_no_i18n_content(question.body)
 
-          expect(page).to have_content("You have already answered this form.")
+          expect(page).to have_content("You have already responded this form.")
         end
       end
     end

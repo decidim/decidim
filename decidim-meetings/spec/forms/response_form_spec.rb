@@ -4,9 +4,9 @@ require "spec_helper"
 
 module Decidim
   module Meetings
-    describe AnswerForm do
+    describe ResponseForm do
       subject do
-        described_class.from_model(answer).with_context(context)
+        described_class.from_model(response).with_context(context)
       end
 
       let(:current_organization) { create(:organization) }
@@ -22,8 +22,8 @@ module Decidim
           max_choices:
         )
       end
-      let(:answer_options) { create_list(:meetings_poll_answer_option, 5, question:) }
-      let!(:answer) { build(:meetings_poll_answer, user:, questionnaire:, question:) }
+      let(:response_options) { create_list(:meetings_poll_response_option, 5, question:) }
+      let!(:response) { build(:meetings_poll_response, user:, questionnaire:, question:) }
 
       let(:context) do
         {
@@ -54,8 +54,8 @@ module Decidim
 
         it "is valid if few enough options checked" do
           subject.choices = [
-            { "answer_option_id" => "1", "body" => "foo" },
-            { "answer_option_id" => "2", "body" => "bar" }
+            { "response_option_id" => "1", "body" => "foo" },
+            { "response_option_id" => "2", "body" => "bar" }
           ]
 
           expect(subject).to be_valid
@@ -63,9 +63,9 @@ module Decidim
 
         it "is not valid if too many options checked" do
           subject.choices = [
-            { "answer_option_id" => "1", "body" => "foo" },
-            { "answer_option_id" => "2", "body" => "bar" },
-            { "answer_option_id" => "3", "body" => "baz" }
+            { "response_option_id" => "1", "body" => "foo" },
+            { "response_option_id" => "2", "body" => "bar" },
+            { "response_option_id" => "3", "body" => "baz" }
           ]
 
           expect(subject).not_to be_valid

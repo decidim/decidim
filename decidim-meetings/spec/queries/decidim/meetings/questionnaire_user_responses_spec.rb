@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Meetings::QuestionnaireUserAnswers do
+describe Decidim::Meetings::QuestionnaireUserResponses do
   subject { described_class.new(questionnaire) }
 
   let(:current_organization) { create(:organization) }
@@ -18,15 +18,15 @@ describe Decidim::Meetings::QuestionnaireUserAnswers do
       create(:meetings_poll_question, questionnaire:, position: 1)
     ]
   end
-  let!(:answers_user1) { questions.map { |question| create(:meetings_poll_answer, question:, user: user1, questionnaire:) } }
-  let!(:answers_user2) { questions.map { |question| create(:meetings_poll_answer, question:, user: user2, questionnaire:) } }
+  let!(:responses_user1) { questions.map { |question| create(:meetings_poll_response, question:, user: user1, questionnaire:) } }
+  let!(:responses_user2) { questions.map { |question| create(:meetings_poll_response, question:, user: user2, questionnaire:) } }
 
-  it "returns the user answers for each user" do
+  it "returns the user responses for each user" do
     result = subject.query
 
     expect(result).to contain_exactly(
-      [answers_user1.last, answers_user1.first],
-      [answers_user2.last, answers_user2.first]
+      [responses_user1.last, responses_user1.first],
+      [responses_user2.last, responses_user2.first]
     )
   end
 end

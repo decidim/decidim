@@ -6,7 +6,7 @@
 
   <% announcement_body = capture do %>
     <ul>
-      <% t("announcement_html", admin_link: Decidim::EngineRouter.main_proxy(meeting.component).admin_meeting_polls_answers_path(meeting), scope: "decidim.meetings.admin.poll.form").each do |item| %>
+      <% t("announcement_html", admin_link: Decidim::EngineRouter.main_proxy(meeting.component).admin_meeting_polls_responses_path(meeting), scope: "decidim.meetings.admin.poll.form").each do |item| %>
         <li> <%= item %></li>
       <% end %>
     </ul>
@@ -19,9 +19,9 @@
                  form: question_form,
                  id: tabs_id_for_question(blank_question),
                  editable: true,
-                 answer_option_template_selector: "#answer-option-template-dummy" %>
+                 response_option_template_selector: "#response-option-template-dummy" %>
     </script>
-    <%= render "decidim/meetings/admin/poll/answer_option_template", form: question_form, editable: true, template_id: "answer-option-template-dummy" %>
+    <%= render "decidim/meetings/admin/poll/response_option_template", form: question_form, editable: true, template_id: "response-option-template-dummy" %>
   <% end %>
 
   <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0">
@@ -31,8 +31,8 @@
                    form: question_form,
                    id: tabs_id_for_question(question),
                    editable: question.editable?,
-                   answer_option_template_selector: "#answer-option-template-#{index}" %>
-        <%= render "decidim/meetings/admin/poll/answer_option_template", form: question_form, editable: question.editable?, template_id: "answer-option-template-#{index}" %>
+                   response_option_template_selector: "#response-option-template-#{index}" %>
+        <%= render "decidim/meetings/admin/poll/response_option_template", form: question_form, editable: question.editable?, template_id: "response-option-template-#{index}" %>
       <% end %>
     <% end %>
   </div>

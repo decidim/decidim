@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     module Polls
-      class AnswersController < Decidim::Meetings::ApplicationController
+      class ResponsesController < Decidim::Meetings::ApplicationController
         include Decidim::Meetings::PollsResources
         include FormFactory
 
@@ -18,10 +18,10 @@ module Decidim
         end
 
         def create
-          enforce_permission_to(:create, :answer, question:)
-          @form = form(AnswerForm).from_params(params.merge(question:, current_user:))
+          enforce_permission_to(:create, :response, question:)
+          @form = form(ResponseForm).from_params(params.merge(question:, current_user:))
 
-          CreateAnswer.call(@form, questionnaire) do
+          CreateResponse.call(@form, questionnaire) do
             # Both :ok and :invalid render the same template, because
             # validation errors are displayed in the template
             respond_to do |format|
@@ -33,11 +33,11 @@ module Decidim
         private
 
         def question
-          @question ||= questionnaire.questions.find(answer_params[:question_id]) if questionnaire
+          @question ||= questionnaire.questions.find(response_params[:question_id]) if questionnaire
         end
 
-        def answer_params
-          params.require(:answer).permit(:question_id, choices: [:body, :answer_option_id])
+        def response_params
+          params.require(:response).permit(:question_id, choices: [:body, :response_option_id])
         end
       end
     end

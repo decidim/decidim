@@ -22,17 +22,17 @@ module Decidim
                 },
                 "position" => "0",
                 "question_type" => "single_option",
-                "answer_options" => {
+                "response_options" => {
                   "0" => {
                     "body" => {
-                      "en" => "First answer",
+                      "en" => "First response",
                       "ca" => "Primera resposta",
                       "es" => "Primera respuesta"
                     }
                   },
                   "1" => {
                     "body" => {
-                      "en" => "Second answer",
+                      "en" => "Second response",
                       "ca" => "Segona resposta",
                       "es" => "Segunda respuesta"
                     }
@@ -48,17 +48,17 @@ module Decidim
                 "position" => "1",
                 "question_type" => "multiple_option",
                 "max_choices" => "2",
-                "answer_options" => {
+                "response_options" => {
                   "0" => {
                     "body" => {
-                      "en" => "First answer",
+                      "en" => "First response",
                       "ca" => "Primera resposta",
                       "es" => "Primera respuesta"
                     }
                   },
                   "1" => {
                     "body" => {
-                      "en" => "Second answer",
+                      "en" => "Second response",
                       "ca" => "Segona resposta",
                       "es" => "Segunda respuesta"
                     }
@@ -108,7 +108,7 @@ module Decidim
 
               expect(questionnaire.questions[0].question_type).to eq("single_option")
               expect(questionnaire.questions[0].max_choices).to be_nil
-              expect(questionnaire.questions[0].answer_options[1]["body"]["en"]).to eq(form_params["questions"]["0"]["answer_options"]["1"]["body"]["en"])
+              expect(questionnaire.questions[0].response_options[1]["body"]["en"]).to eq(form_params["questions"]["0"]["response_options"]["1"]["body"]["en"])
 
               expect(questionnaire.questions[1].question_type).to eq("multiple_option")
               expect(questionnaire.questions[1].max_choices).to eq(2)
@@ -140,17 +140,17 @@ module Decidim
                       "position" => 0,
                       "question_type" => "single_option",
                       "deleted" => "true",
-                      "answer_options" => [
+                      "response_options" => [
                         {
                           "body" => {
-                            "en" => "First answer",
+                            "en" => "First response",
                             "ca" => "Primera resposta",
                             "es" => "Primera respuesta"
                           }
                         },
                         {
                           "body" => {
-                            "en" => "Second answer",
+                            "en" => "Second response",
                             "ca" => "Segona resposta",
                             "es" => "Segunda respuesta"
                           }
@@ -215,7 +215,7 @@ module Decidim
 
               expect(questionnaire.questions[0].question_type).to eq("single_option")
               expect(questionnaire.questions[0].max_choices).to be_nil
-              expect(questionnaire.questions[0].answer_options[1]["body"]["en"]).to eq(form_params["questions"]["0"]["answer_options"]["1"]["body"]["en"])
+              expect(questionnaire.questions[0].response_options[1]["body"]["en"]).to eq(form_params["questions"]["0"]["response_options"]["1"]["body"]["en"])
 
               expect(questionnaire.questions[1].question_type).to eq("multiple_option")
               expect(questionnaire.questions[1].max_choices).to eq(2)
@@ -235,17 +235,17 @@ module Decidim
                       "position" => 0,
                       "question_type" => "single_option",
                       "deleted" => "true",
-                      "answer_options" => [
+                      "response_options" => [
                         {
                           "body" => {
-                            "en" => "First answer",
+                            "en" => "First response",
                             "ca" => "Primera resposta",
                             "es" => "Primera respuesta"
                           }
                         },
                         {
                           "body" => {
-                            "en" => "Second answer",
+                            "en" => "Second response",
                             "ca" => "Segona resposta",
                             "es" => "Segunda respuesta"
                           }

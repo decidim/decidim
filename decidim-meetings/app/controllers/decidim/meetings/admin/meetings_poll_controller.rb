@@ -6,8 +6,8 @@ module Decidim
       class MeetingsPollController < Admin::ApplicationController
         include Decidim::TranslatableAttributes
 
-        helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option,
-                      :question_types, :update_url, :answer_options_url, :edit_questionnaire_title,
+        helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_response_option,
+                      :question_types, :update_url, :response_options_url, :edit_questionnaire_title,
                       :meeting, :poll
 
         helper Decidim::Forms::Admin::ApplicationHelper
@@ -52,12 +52,12 @@ module Decidim
           end
         end
 
-        def answer_options
+        def response_options
           respond_to do |format|
             format.json do
               question_id = params["id"]
               question = Decidim::Meetings::Question.find_by(id: question_id)
-              render json: question.answer_options.map { |answer_option| AnswerOptionPresenter.new(answer_option).as_json } if question.present?
+              render json: question.response_options.map { |response_option| ResponseOptionPresenter.new(response_option).as_json } if question.present?
             end
           end
         end
@@ -66,10 +66,10 @@ module Decidim
           poll
         end
 
-        # Returns the url to get the answer options json (for the display conditions form)
+        # Returns the url to get the response options json (for the display conditions form)
         # for the question with id = params[:id]
-        def answer_options_url(params)
-          url_for([questionnaire.questionnaire_for, { action: :answer_options, format: :json, **params }])
+        def response_options_url(params)
+          url_for([questionnaire.questionnaire_for, { action: :response_options, format: :json, **params }])
         end
 
         # Implement this method in your controller to set the title
@@ -88,8 +88,8 @@ module Decidim
           @blank_question ||= Decidim::Meetings::Admin::QuestionForm.new
         end
 
-        def blank_answer_option
-          @blank_answer_option ||= Decidim::Meetings::Admin::AnswerOptionForm.new
+        def blank_response_option
+          @blank_response_option ||= Decidim::Meetings::Admin::ResponseOptionForm.new
         end
 
         def question_types

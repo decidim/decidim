@@ -22,7 +22,7 @@ module Decidim
 
         @meeting.with_lock do
           destroy_registration
-          destroy_questionnaire_answers
+          destroy_questionnaire_responses
           decrement_score
         end
         broadcast(:ok)
@@ -38,13 +38,13 @@ module Decidim
         registration.destroy!
       end
 
-      def questionnaire_answers
+      def questionnaire_responses
         questionnaire = Decidim::Forms::Questionnaire.find_by(questionnaire_for_id: @meeting)
-        questionnaire.answers.where(user: @user) if questionnaire.present?
+        questionnaire.responses.where(user: @user) if questionnaire.present?
       end
 
-      def destroy_questionnaire_answers
-        questionnaire_answers.try(:destroy_all)
+      def destroy_questionnaire_responses
+        questionnaire_responses.try(:destroy_all)
       end
 
       def decrement_score

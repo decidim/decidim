@@ -29,7 +29,7 @@ module Decidim
             position:,
             deleted:,
             max_choices: 3,
-            answer_options: {
+            response_options: {
               "0" => { "body" => { "en" => "A" } },
               "1" => { "body" => { "en" => "B" } },
               "2" => { "body" => { "en" => "C" } }
@@ -53,7 +53,7 @@ module Decidim
           it { is_expected.not_to be_valid }
         end
 
-        context "when the question has no answer options" do
+        context "when the question has no response options" do
           it "is invalid if max_choices present" do
             attributes[:max_choices] = 1
 
@@ -61,10 +61,10 @@ module Decidim
           end
         end
 
-        context "when the question has answer options" do
+        context "when the question has response options" do
           it "is invalid when max_choices over the number of options" do
             attributes[:max_choices] = 4
-            attributes[:answer_options] = {
+            attributes[:response_options] = {
               "0" => { "body" => { "en" => "A" } },
               "1" => { "body" => { "en" => "B" } },
               "2" => { "body" => { "en" => "C" } }
@@ -75,7 +75,7 @@ module Decidim
 
           it "is valid when max choices under the number of options" do
             attributes[:max_choices] = 2
-            attributes[:answer_options] = {
+            attributes[:response_options] = {
               "0" => { "body" => { "en" => "A" } },
               "1" => { "body" => { "en" => "B" } },
               "2" => { "body" => { "en" => "C" } }

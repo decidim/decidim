@@ -2,8 +2,8 @@
 
 module Decidim
   module Meetings
-    # A class used to collect user answers for a questionnaire
-    class QuestionnaireUserAnswers < Decidim::Query
+    # A class used to collect user responses for a questionnaire
+    class QuestionnaireUserResponses < Decidim::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # questionnaire - a Questionnaire object
@@ -18,11 +18,11 @@ module Decidim
         @questionnaire = questionnaire
       end
 
-      # Finds and group answers by user for each questionnaire's question.
+      # Finds and group responses by user for each questionnaire's question.
       def query
-        answers = Answer.joins(:question).where(questionnaire: @questionnaire)
+        responses = Response.joins(:question).where(questionnaire: @questionnaire)
 
-        answers.sort_by { |answer| answer.question.position }.group_by(&:user).values
+        responses.sort_by { |response| response.question.position }.group_by(&:user).values
       end
     end
   end

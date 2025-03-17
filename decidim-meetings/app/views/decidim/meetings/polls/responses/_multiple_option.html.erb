@@ -1,0 +1,13 @@
+<div class="response-questionnaire__single-option js-check-box-collection">
+  <% question.response_options.each_with_index do |response_option, idx| %>
+    <% choice = response.choices.find { |choice| choice.decidim_response_option_id == response_option.id } if response %>
+
+    <%= label_tag "response[choices][#{response_option.id}][response_option_id]", nil, class: "js-collection-input" do %>
+      <%= check_box_tag "response[choices][#{response_option.id}][response_option_id]",
+                        response_option.id,
+                        choice.present?, disabled: %>
+
+      <%= translated_attribute(response_option.body) %>
+    <% end %>
+  <% end %>
+</div>

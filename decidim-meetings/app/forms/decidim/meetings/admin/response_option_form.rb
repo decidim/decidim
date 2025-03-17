@@ -3,8 +3,8 @@
 module Decidim
   module Meetings
     module Admin
-      # This class holds a Form to update answer options
-      class AnswerOptionForm < Decidim::Form
+      # This class holds a Form to update response options
+      class ResponseOptionForm < Decidim::Form
         include TranslatableAttributes
 
         attribute :deleted, Boolean, default: false
@@ -16,7 +16,7 @@ module Decidim
         def to_param
           return id if id.present?
 
-          "questionnaire-question-answer-option-id"
+          "questionnaire-question-response-option-id"
         end
       end
     end

@@ -4,11 +4,11 @@ require "spec_helper"
 
 module Decidim
   module Meetings
-    describe DownloadYourDataUserAnswersSerializer do
+    describe DownloadYourDataUserResponsesSerializer do
       include Decidim::TranslationsHelper
 
       subject do
-        described_class.new(questionnaire.answers.first)
+        described_class.new(questionnaire.responses.first)
       end
 
       let!(:questionnaire) { create(:questionnaire) }
@@ -19,10 +19,10 @@ module Decidim
 
         context "when question is files" do
           let!(:question) { create(:questionnaire_question, questionnaire:, question_type: :files) }
-          let!(:answer) { create(:answer, :with_attachments, questionnaire:, question:, user:) }
+          let!(:response) { create(:response, :with_attachments, questionnaire:, question:, user:) }
 
-          it "includes the answer id" do
-            expect(serialized).to include(id: answer.id)
+          it "includes the response id" do
+            expect(serialized).to include(id: response.id)
           end
 
           it "includes the questionnaire information" do
@@ -52,17 +52,17 @@ module Decidim
             )
           end
 
-          it "includes the answer" do
-            expect(serialized[:answer]).to include_blob_urls(*answer.attachments.map(&:file).map(&:blob))
+          it "includes the response" do
+            expect(serialized[:response]).to include_blob_urls(*response.attachments.map(&:file).map(&:blob))
           end
         end
 
-        context "when question is shortanswer" do
+        context "when question is shortresponse" do
           let!(:question) { create(:questionnaire_question, questionnaire:) }
-          let!(:answer) { create(:answer, questionnaire:, question:, user:) }
+          let!(:response) { create(:response, questionnaire:, question:, user:) }
 
-          it "includes the answer id" do
-            expect(serialized).to include(id: answer.id)
+          it "includes the response id" do
+            expect(serialized).to include(id: response.id)
           end
 
           it "includes the questionnaire information" do
@@ -92,25 +92,25 @@ module Decidim
             )
           end
 
-          it "includes the answer" do
-            expect(serialized).to include(answer: answer.body)
+          it "includes the response" do
+            expect(serialized).to include(response: response.body)
           end
         end
 
         context "when question is multiple choice" do
           let!(:multichoice_question) { create(:questionnaire_question, questionnaire:, question_type: "multiple_option") }
-          let!(:multichoice_answer_options) { create_list(:answer_option, 2, question: multichoice_question) }
-          let!(:multichoice_answer) do
-            create(:answer, questionnaire:, question: multichoice_question, user:, body: nil)
+          let!(:multichoice_response_options) { create_list(:response_option, 2, question: multichoice_question) }
+          let!(:multichoice_response) do
+            create(:response, questionnaire:, question: multichoice_question, user:, body: nil)
           end
-          let!(:multichoice_answer_choices) do
-            multichoice_answer_options.map do |answer_option|
-              create(:answer_choice, answer: multichoice_answer, answer_option:, body: answer_option.body[I18n.locale.to_s])
+          let!(:multichoice_response_choices) do
+            multichoice_response_options.map do |response_option|
+              create(:response_choice, response: multichoice_response, response_option:, body: response_option.body[I18n.locale.to_s])
             end
           end
 
-          it "includes the answer id" do
-            expect(serialized).to include(id: multichoice_answer.id)
+          it "includes the response id" do
+            expect(serialized).to include(id: multichoice_response.id)
           end
 
           it "includes the question info" do
@@ -125,24 +125,24 @@ module Decidim
             )
           end
 
-          it "includes the answers" do
-            expect(serialized).to include(answer: multichoice_answer_choices.map(&:body))
+          it "includes the responses" do
+            expect(serialized).to include(response: multichoice_response_choices.map(&:body))
           end
         end
 
         context "when question is single choice" do
           let!(:singlechoice_question) { create(:questionnaire_question, questionnaire:, question_type: "single_option") }
-          let!(:singlechoice_answer_options) { create_list(:answer_option, 2, question: singlechoice_question) }
-          let!(:singlechoice_answer) do
-            create(:answer, questionnaire:, question: singlechoice_question, user:, body: nil)
+          let!(:singlechoice_response_options) { create_list(:response_option, 2, question: singlechoice_question) }
+          let!(:singlechoice_response) do
+            create(:response, questionnaire:, question: singlechoice_question, user:, body: nil)
           end
-          let!(:singlechoice_answer_choice) do
-            answer_option = singlechoice_answer_options.first
-            create(:answer_choice, answer: singlechoice_answer, answer_option:, body: answer_option.body[I18n.locale.to_s])
+          let!(:singlechoice_response_choice) do
+            response_option = singlechoice_response_options.first
+            create(:response_choice, response: singlechoice_response, response_option:, body: response_option.body[I18n.locale.to_s])
           end
 
-          it "includes the answer id" do
-            expect(serialized).to include(id: singlechoice_answer.id)
+          it "includes the response id" do
+            expect(serialized).to include(id: singlechoice_response.id)
           end
 
           it "includes the question info" do
@@ -157,8 +157,8 @@ module Decidim
             )
           end
 
-          it "includes the answers" do
-            expect(serialized).to include(answer: [singlechoice_answer_choice.body])
+          it "includes the responses" do
+            expect(serialized).to include(response: [singlechoice_response_choice.body])
           end
         end
       end

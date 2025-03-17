@@ -4,15 +4,15 @@
 
 <div>
 
-  <% @form = form || Decidim::Meetings::AnswerForm.new(question_id: question.id, current_user:) %>
+  <% @form = form || Decidim::Meetings::ResponseForm.new(question_id: question.id, current_user:) %>
 
   <p class="h3"><%= @form.label %></p>
 
-  <%= decidim_form_for(@form, url: meeting_polls_answers_path(meeting), method: :post, remote: true, html: { class: "form-defaults" }, data: { "safe-path" => meeting_live_event_path(meeting) }) do |form| %>
-    <div class="meeting-polls__answer" data-max-choices="<%= question.max_choices %>">
+  <%= decidim_form_for(@form, url: meeting_polls_responses_path(meeting), method: :post, remote: true, html: { class: "form-defaults" }, data: { "safe-path" => meeting_live_event_path(meeting) }) do |form| %>
+    <div class="meeting-polls__response" data-max-choices="<%= question.max_choices %>">
       <p class="form-error max-choices-alert mt-0 mb-4"><%= t(".max_choices_alert") %></p>
 
-      <%= render partial: "decidim/meetings/polls/answers/#{question.question_type}", locals: { answer: @form.answer, question:, answer_form: form, disabled: question.answered_by?(current_user), field_id: question.id } %>
+      <%= render partial: "decidim/meetings/polls/responses/#{question.question_type}", locals: { response: @form.response, question:, response_form: form, disabled: question.responded_by?(current_user), field_id: question.id } %>
 
       <%= form.hidden_field :question_id %>
 
@@ -20,7 +20,7 @@
         <small class="form-error is-visible mt-1"><%= msg %></small>
       <% end %>
 
-      <% if question.answered_by?(current_user) %>
+      <% if question.responded_by?(current_user) %>
         <%= cell("decidim/announcement", t(".question_replied"), callout_class: "success" ) %>
       <% else %>
         <button class="ml-auto mt-8 button button__lg button__secondary"><%= t(".reply_question") %></button>

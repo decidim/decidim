@@ -2,8 +2,8 @@
 
 module Decidim
   module Meetings
-    # The data store for an Answer in the Decidim::Meetings
-    class Answer < Meetings::ApplicationRecord
+    # The data store for an Response in the Decidim::Meetings
+    class Response < Meetings::ApplicationRecord
       include Decidim::DownloadYourData
 
       belongs_to :user, class_name: "Decidim::User", foreign_key: "decidim_user_id", optional: true
@@ -11,10 +11,10 @@ module Decidim
       belongs_to :question, class_name: "Question", foreign_key: "decidim_question_id"
 
       has_many :choices,
-               class_name: "AnswerChoice",
-               foreign_key: "decidim_answer_id",
+               class_name: "ResponseChoice",
+               foreign_key: "decidim_response_id",
                dependent: :destroy,
-               inverse_of: :answer
+               inverse_of: :response
 
       validate :user_questionnaire_same_organization
       validate :question_belongs_to_questionnaire
@@ -24,7 +24,7 @@ module Decidim
       end
 
       def self.export_serializer
-        Decidim::Meetings::DownloadYourDataUserAnswersSerializer
+        Decidim::Meetings::DownloadYourDataUserResponsesSerializer
       end
 
       def organization

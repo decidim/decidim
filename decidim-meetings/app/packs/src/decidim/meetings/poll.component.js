@@ -28,7 +28,7 @@ export default class PollComponent {
     this.mounted = false;
     this.questions = {};
     this.questionsStatuses = {};
-    this.answersStatuses = {};
+    this.responsesStatuses = {};
   }
 
   /**
@@ -102,7 +102,7 @@ export default class PollComponent {
 
       this.questionsStatuses[questionId] = $el.data("status");
       if (elForm.length > 0) {
-        this.answersStatuses[questionId] = Object.fromEntries(new FormData(elForm[0]));
+        this.responsesStatuses[questionId] = Object.fromEntries(new FormData(elForm[0]));
       }
       if ($el[0].open === true) {
         this.questions[questionId] = OPEN;
@@ -137,7 +137,7 @@ export default class PollComponent {
     // Current question state
     const state = this.questions[questionId];
     const questionStatus = this.questionsStatuses[questionId];
-    const answersStatuses = this.answersStatuses[questionId];
+    const responsesStatuses = this.responsesStatuses[questionId];
 
     // New questions have a special class
     if (!state) {
@@ -151,8 +151,8 @@ export default class PollComponent {
       document.getElementById(`closed-announcement-${questionId}`).hidden = false;
     }
 
-    if (answersStatuses) {
-      for (const [key, value] of Object.entries(answersStatuses)) {
+    if (responsesStatuses) {
+      for (const [key, value] of Object.entries(responsesStatuses)) {
         if (key.includes("[choices]")) {
           $el.find(`[name='${key}'][value='${value}']`).prop("checked", true);
         }

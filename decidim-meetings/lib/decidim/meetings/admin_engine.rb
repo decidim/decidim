@@ -12,7 +12,7 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        get "/answer_options", to: "registration_form#answer_options", as: :answer_options_meeting
+        get "/response_options", to: "registration_form#response_options", as: :response_options_meeting
 
         resources :meetings do
           member do
