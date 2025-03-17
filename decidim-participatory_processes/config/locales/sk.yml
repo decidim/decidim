@@ -119,7 +119,6 @@ sk:
             admin: Správca
             collaborator: Spolupracovník
             moderator: Moderátor
-            valuator: Hodnotiteľ
         user:
           fields:
             invitation_accepted_at: Pozvánka bola prijatá na
