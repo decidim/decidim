@@ -22,15 +22,15 @@ module Decidim
         #
         # This calculation is a bit complex because of multiple option responses
         question_responses_choices = Decidim::Meetings::ResponseOption.where(decidim_question_id: model.id)
-                                                                  .joins([choices: :response])
-                                                                  .group(Arel.sql("#{responses_table_name}.id, #{response_options_table_name}.id"))
-                                                                  .select(<<~SELECT
-                                                                    #{response_options_table_name}.id AS id,
-                                                                    #{response_options_table_name}.body,
-                                                                    #{responses_table_name}.id AS response_id,
-                                                                    COUNT(decidim_response_option_id) AS count
-                                                                  SELECT
-                                                                         )
+                                                                      .joins([choices: :response])
+                                                                      .group(Arel.sql("#{responses_table_name}.id, #{response_options_table_name}.id"))
+                                                                      .select(<<~SELECT
+                                                                        #{response_options_table_name}.id AS id,
+                                                                        #{response_options_table_name}.body,
+                                                                        #{responses_table_name}.id AS response_id,
+                                                                        COUNT(decidim_response_option_id) AS count
+                                                                      SELECT
+                                                                             )
 
         # Extract the number of uniq responses by the response_id attribute
         total_responses = question_responses_choices.map(&:response_id).compact.uniq.size
