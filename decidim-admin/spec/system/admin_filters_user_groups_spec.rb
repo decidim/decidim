@@ -85,7 +85,7 @@ describe "Admin filters user_groups" do
     let!(:group) do
       create(:user_group, organization:, users: [user, another_user],
                           name: "ZZZupper group",
-                          nickname: "ZZZupper",
+                          nickname: "zzzupper",
                           document_number: "9999999999",
                           phone: "999.999.9999").reload
     end
