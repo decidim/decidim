@@ -93,10 +93,6 @@ sk:
         update:
           error: Pri tvorbe nového zhromaždenia nastala chyba.
           success: Zhromaždenie úspešne aktualizované.
-      models:
-        assembly_user_role:
-          roles:
-            valuator: Hodnotiteľ
       titles:
         assemblies_types: Typy zhromaždení
     admin_log:

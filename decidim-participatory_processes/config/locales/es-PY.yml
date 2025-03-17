@@ -152,7 +152,6 @@ es-PY:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
-            valuator: Evaluadora
         user:
           fields:
             invitation_accepted_at: Invitación aceptada el día

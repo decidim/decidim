@@ -118,7 +118,6 @@ lb:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
-            valuator: Schätzer
         media_link:
           fields:
             date: Datum

@@ -143,8 +143,8 @@ ro:
           roles:
             admin: Administrator
             collaborator: Colaborator
+            evaluator: Evaluator
             moderator: Moderator
-            valuator: Evaluator
         user:
           fields:
             invitation_accepted_at: Invitație acceptată la

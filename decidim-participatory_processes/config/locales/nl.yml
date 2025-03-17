@@ -128,7 +128,6 @@ nl:
             admin: Administrator
             collaborator: Medewerker
             moderator: Moderator
-            valuator: Beoordelaar
         user:
           fields:
             invitation_accepted_at: Uitnodiging geaccepteerd op

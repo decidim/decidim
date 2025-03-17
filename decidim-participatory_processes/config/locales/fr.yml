@@ -151,8 +151,8 @@ fr:
           roles:
             admin: Administrateur
             collaborator: Relecteur
+            evaluator: Évaluateur
             moderator: Modérateur
-            valuator: Évaluateur
         user:
           fields:
             invitation_accepted_at: Invitation acceptée à

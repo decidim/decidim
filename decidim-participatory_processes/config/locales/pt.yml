@@ -129,7 +129,6 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
-            valuator: Avaliador
         user:
           fields:
             invitation_accepted_at: Convite aceite em

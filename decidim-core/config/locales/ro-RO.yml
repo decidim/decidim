@@ -1046,6 +1046,7 @@ ro:
         assigned_to_proposal: Vreau să primesc un e-mail atunci când cineva îmi atribuie o propunere pentru evaluare
         direct_messages: Primește mesaje directe de la oricine
         email_on_moderations: Vreau să primesc un e-mail de fiecare dată când se raportează ceva pentru moderare.
+        evaluators: Evaluatori
         everything_followed: Tot ce urmăresc
         newsletter_notifications: Vreau să primesc buletine informative
         newsletters: Newslettere

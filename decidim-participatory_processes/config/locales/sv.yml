@@ -152,7 +152,6 @@ sv:
             admin: Administratör
             collaborator: Medarbetare
             moderator: Moderator
-            valuator: Värderare
         user:
           fields:
             invitation_accepted_at: Inbjudan godkänd

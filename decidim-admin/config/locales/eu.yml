@@ -195,7 +195,7 @@ eu:
         newsletter:
           new: Beste buletin bat
         participatory_space_private_user:
-          new: Espazio parte-hartzaile berria, erabiltzaile pribatua
+          new: Partaidetza-espazio berria, erabiltzaile pribatua
         per_page: Orrialdeko
         permissions: Baimenak
         restore: Berreskuratu
@@ -554,7 +554,7 @@ eu:
         notice: "%{number} %{resource_name} zuzen inportatua."
       logs:
         filters:
-          participatory_space: Bilatu espazio parte-hartzailea
+          participatory_space: Bilatu partaidetza-espazioa
           text: Bilatu parte-hartzailearen helbide elektroniko, izen edo ezizenaren arabera.
           user: Parte-hartzailea
         logs_list:
@@ -796,16 +796,16 @@ eu:
           confirm_deliver: Ziur zaude buletin hau bidali nahi duzula? Ekintza hau ezin da desegin.
           confirm_recipients: Baieztatu hartzaileak
           deliver: Bidali buletina
-          followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein parte hartze espazio jarraitzen duten parte-hartzaile guztiei bidaltzen die.
+          followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein partaidetza-espazio jarraitzen duten parte-hartzaile guztiei bidaltzen die.
           participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein espazio parte-hartzailetan esku hartu duten parte-hartzaile guztiei bidaltzen die.
-          private_members_help: Bidali buletin bat aukeratutako parte hartzeko espazio pribatuetan gehitu diren baieztatutako parte-hartzaile guztiei.
+          private_members_help: Bidali buletin bat aukeratutako partaidetza-espazio pribatuetan gehitu diren baieztatutako parte-hartzaile guztiei.
           recipients_count: 'Buletin hau parte-hartzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
           select_assemblies: Hautatu batzarrak
           select_conferences: Hautatu jardunaldiak
           select_initiatives: Hautatu ekimenak
           select_participatory_processes: Hautatu partaidetza-prozesuak
           select_spaces: Hautatu espazioak buletina zatitzeko
-          select_users_for_participatory_space: Bidali buletina espazio parte-hartzaile bati baino gehiagori
+          select_users_for_participatory_space: Bidali buletina partaidetza-espazio bati baino gehiagori
           select_users_general: Bidali buletin orokorra
           select_verification_types: Hautatu egiaztapen-metodoak
           send_to_all_users: Bidali parte-hartzaile guztiei
@@ -923,30 +923,30 @@ eu:
           title: Baimendutako kanpoko domeinuen zerrenda
       participatory_space_private_users:
         create:
-          error: Arazo bat egon da parte-hartzaile pribatu bat gehitzean parte hartzeko espazio honetarako.
+          error: Arazo bat egon da parte-hartzaile pribatu bat gehitzean partaidetza-espazio honetarako.
           success: Zuzen sortu da sarbide pribatua partaidetza-espazioko partaideentzat.
         destroy:
-          error: Arazo bat egon da parte-hartzaile pribatu bat ezabatzean parte hartzeko espazio honetarako.
-          success: Behar bezala ezabatua parte-hartzailearen sarbidea parte hartzeko espazio pribaturako.
+          error: Arazo bat egon da parte-hartzaile pribatu bat ezabatzean partaidetza-espazio honetarako.
+          success: Behar bezala ezabatua parte-hartzailearen sarbidea partaidetza-espazio pribaturako.
         edit:
           title: Editatu espazio parte-hartzailea parte-hartzaile pribatua.
           update: Eguneratu
         index:
           import_via_csv: Inportatu CSV bidetik
           publish_all: Argitaratu guztiak
-          title: Parte hartzeko espazio pribatuko parte-hartzailea 
+          title: Partaidetza-espazio pribatuko parte-hartzailea
           unpublish_all: Desargitaratu guztiak
         new:
           create: Sortu
-          title: Parte hartzeko espazio pribatuko parte-hartzaile berria.
+          title: Partaidetza-espazio pribatuko parte-hartzaile berria.
         publish_all:
-          error: Arazo bat egon da parte-hartzaile pribatu guztiak argitaratzean parte hartzeko espazio honetarako.
-          success: Parte-hartzaile pribatu guztiak zuzen argitaratu dira parte hartzeko espazio honetarako
+          error: Arazo bat egon da parte-hartzaile pribatu guztiak argitaratzean partaidetza-espazio honetarako.
+          success: Parte-hartzaile pribatu guztiak zuzen argitaratu dira partaidetza-espazio honetarako
         unpublish_all:
-          error: Arazo bat egon da parte-hartzaile pribatu guztiak desargiratzean espazio parte-hartzaile honetarako.
-          success: Parte-hartzaile pribatu guztiak zuzen desargitaratu dira parte hartzeko espazio honetarako
+          error: Arazo bat egon da parte-hartzaile pribatu guztiak desargiratzean partaidetza-espazio honetarako.
+          success: Parte-hartzaile pribatu guztiak zuzen desargitaratu dira partaidetza-espazio honetarako
         update:
-          error: Arazo bat egon da parte-hartzaile pribatua espazio parte-hartzaile horretarako eguneratzean.
+          error: Arazo bat egon da parte-hartzaile pribatua partaidetza-espazio horretarako eguneratzean.
           success: Partaidetza-espazioa, parte-hartzaile pribatua, arrakastaz eguneratua
       participatory_space_private_users_csv_imports:
         create:
@@ -1186,7 +1186,7 @@ eu:
           space_filter: Iragazki gisa eskuragarri honetarako
         index:
           description: Taxonomia-iragazki batek aukera ematen die administratzaileei partaidetza-espazioak taxonomiaren arabera ordenatzeko eta iragazteko. Adibidez, gehitu taxonomia-iragazki bat prozesuak eremu geografikoaren arabera ordenatzeko.
-          empty: Gaur egun ez dago taxonomia-iragazkirik. Sortu taxonomia-iragazkien zerrenda bat, espazio parte-hartzaileak taxonomia baten arabera ordenatu eta iragazteko.
+          empty: Gaur egun ez dago taxonomia-iragazkirik. Sortu taxonomia-iragazkien zerrenda bat, partaidetza-espazioak taxonomia baten arabera ordenatu eta iragazteko.
           new_filter: Beste iragazki bat
         new:
           back: Atzera

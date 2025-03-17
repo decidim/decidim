@@ -9,7 +9,9 @@ eu:
         scope_id: Eremua
         state: Egoera
         title: Izenburua
-        user_group_id: Sortu zirriborro kolaboratiboa
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: Ebaluatzailearen izena
       import_participatory_text:
         document: Dokumentua
       proposal:
@@ -27,7 +29,6 @@ eu:
         state: Egoera
         suggested_hashtags: Iradokitako traolak
         title: Titulua
-        user_group_id: 'Sortu proposamen bat honako hau gisa:'
       proposal_answer:
         answer: Erantzuna
         cost: Kostua
@@ -55,9 +56,6 @@ eu:
         import_proposals: Inportatu proposamenak
         keep_answers: Mantendu egoera eta erantzunak
         keep_authors: Mantendu jatorrizko egileak
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Ebaluatzailearen izena
     errors:
       models:
         participatory_text:
@@ -123,6 +121,8 @@ eu:
           proposals: Proposamenak
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: Ebaluatzaileari esleitua
           is_emendation_true:
             label: Mota
             values:
@@ -142,8 +142,6 @@ eu:
               withdrawn: Kenduta
           taxonomies_part_of_contains:
             label: Taxonomia
-          valuator_role_ids_has:
-            label: Esleituta ebaluatzaileari
           with_any_state:
             label: Erantzunda
             values:
@@ -269,8 +267,8 @@ eu:
         accepted_coauthorship:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekide gisa gehitu zaituzte.
         admin:
-          proposal_assigned_to_valuator:
-            email_intro: Esleitu zaituzte "%{resource_title}" proposamenaren ebualatzaile izateko. Horrek esan nahi du datozen egunetan feedbacka eta erantzun egokia emango diezula. Begiratu <a href="%{admin_proposal_info_url}">the admin panel</a> admin panelean.
+          proposal_assigned_to_evaluator:
+            email_intro: 'Zu esleitu zaituzte ebaluatzaile gisa proposamen honetarako: "%{resource_title}". Horrek esan nahi du datozen egunetan feedbacka eta erantzun egokia emango dizkiezula. Begiratu <a href="%{admin_proposal_info_url}">the admin panel</a> admin. panelean.'
             email_outro: Jakinarazpen hau jaso duzu proposamena ebaluatu ahal duzulako.
             email_subject: Esleitu zaituzte ebaluatzaile gisa %{resource_title} proposamenerako.
             notification_title: Esleitu zaituzte <a href="%{resource_path}">%{resource_title}</a> proposamenaren ebaluatzaile izateko. Begiratu <a href="%{admin_proposal_info_path}"> admin. panelean.
@@ -450,7 +448,6 @@ eu:
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
-          user_group: Iruzkin hau egin duen parte-hartzaile taldearen izena (baldin badago)
         proposals:
           address: Proposamenaren helbidea, baldin eta proposamenak kokagune fisikoa badu
           answer: Proposamenaren erantzuna, erantzunda baldin badago
@@ -514,6 +511,13 @@ eu:
           deleted_proposals_info: Ezabatutako proposamenak berreskura daitezke zaborrontzitik.
           preview: Aurreikusi
           view_deleted_proposals: Ikusi ezabatutako proposamenak
+        evaluation_assignments:
+          create:
+            invalid: Arazo bat izan da proposamenak ebaluatzaile bati esleitzean.
+            success: Proposamenak zuzen esleituta ebaluatzaileari.
+          delete:
+            invalid: Arazo bat izan da ebaluatzaile bati proposamenak desesleitzean.
+            success: Proposamenentzako ebaluatzailea zuzen desesleitua.
         exports:
           proposal_comments: Iruzkinak
           proposals: Proposamenak
@@ -644,8 +648,8 @@ eu:
           index:
             actions: Ekintzak
             apply_answer_template: Erabili erantzuteko txantiloia
-            assign_to_valuator: Esleitu ebaluatzaileari
-            assign_to_valuator_button: Esleitu
+            assign_to_evaluator: Esleitu ebaluatzaileari
+            assign_to_evaluator_button: Esleitu
             cancel: Utzi
             change_taxonomies: Aldatu taxonomiak
             merge: Beste batean fusionatu
@@ -654,14 +658,14 @@ eu:
             publish: Argitaratu
             publish_answers: Argitaratu erantzunak
             select_component: Hautatu osagaia
-            select_valuators: Hautatu ebaluatzaile bat edo gehiago
+            select_evaluators: Hautatu ebaluatzaile bat edo gehiago
             selected: hautatutako
             split: Proposamen zatituak
             split_button: Zatitu
             statuses: Egoerak
             title: Proposamenak
-            unassign_from_valuator: Desesleitu ebaluatzaileari
-            unassign_from_valuator_button: Desesleitu
+            unassign_from_evaluator: Desesleitu ebaluatzaileari
+            unassign_from_evaluator_button: Desesleitu
             update: Eguneratu
           manage_trash:
             title: Ezabatutako proposamenak
@@ -673,12 +677,13 @@ eu:
             select_a_proposal: Mesedez, hautatu proposamen bat.
           show:
             amendments_count: Zuzenketa kopurua
-            assigned_valuators: Ebaluatzaileak esleituta
+            assigned_evaluators: Ebaluatzaileak esleituta
             body: Gorputza
             comments_count: Iruzkin kopurua
             documents: Dokumentuak
             endorsements_count: Atxikimendu kopurua
             endorsers: Atxiki dira
+            evaluators: Ebaluatzaileak
             link: Ikusi proposamena
             n_more_endorsers:
               one: eta 1 gehiago
@@ -688,7 +693,6 @@ eu:
             related_meetings: Erlazionatutako topaketak
             remove_assignment: Desegin esleipena
             remove_assignment_confirmation: Ziur zaude proposamen honen ebaluatzailea desesleitu nahi duzula?
-            valuators: Ebaluatzaileak
             votes_count: Babes kopurua
           update_taxonomies:
             invalid: 'Proposamen hauek bazuten %{taxonomia} taxonomia: %{proposals}.'
@@ -718,14 +722,10 @@ eu:
           create:
             invalid: 'Arazo bat izan da hautatutako proposamenak zatitzeko; izan ere, horietako batzuk:'
             success: Proposamen berrietara egokitu dira.
-        valuation_assignments:
-          create:
-            invalid: Arazo bat izan da proposamenak ebaluatzaile bati esleitzean.
-            success: Proposamenak zuzen esleituta ebaluatzaileari.
-          delete:
-            invalid: Arazo bat izan da ebaluatzaile bati proposamenak desesleitzean.
-            success: Proposamenentzako ebaluatzailea zuzen desesleitua.
       admin_log:
+        evaluation_assignment:
+          create: "%{user_name} k esleitu zion %{resource_name} proposamena ebaluatzaile bati"
+          delete: "%{user_name} k desesleitu du ebaluatzaile bat %{proposal_title} proposamenetik"
         proposal:
           answer: "%{user_name} parte-hartzaileak %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
           create: "%{user_name} -k sortu zuen %{resource_name} proposamena %{space_name} esparruko %{merged_count} proposamenen bat egitetik"
@@ -735,9 +735,6 @@ eu:
           update: "%{user_name} parte-hartzaileak %{resource_name} proposamena eguneratu du %{space_name} espazioan"
         proposal_note:
           create: "%{user_name} k %{resource_name} proposamenari buruzko ohar pribatu bat utzi du %{space_name} espazioan"
-        valuation_assignment:
-          create: "%{user_name} k esleitu zion %{resource_name} proposamena ebaluatzaile bati"
-          delete: "%{user_name} k desesleitu du ebaluatzaile bat %{proposal_title} proposamenetik"
       answers:
         accepted: Onartuta
         evaluating: Ebaluatzen
@@ -750,7 +747,6 @@ eu:
           meetings: Bilerak
           official: Ofiziala
           participants: Parte-hartzaileak
-          user_groups: Taldeak
         filter_state_values:
           all: Guztiak
           not_answered: Erantzun gabe
@@ -899,6 +895,8 @@ eu:
         proposal:
           fields:
             comments: Iruzkinak
+            evaluator: Ebaluatzailea
+            evaluators: Ebaluatzaileak
             id: ID
             notes: Oharrak
             official_proposal: Proposamen ofiziala
@@ -907,8 +905,6 @@ eu:
             state: Egoera
             taxonomies: Taxonomiak
             title: Titulua
-            valuator: Ebaluatzailea
-            valuators: Ebaluatzaileak
             votes: Babesak
         proposal_state:
           css_class: CSS klasea
