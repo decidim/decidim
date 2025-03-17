@@ -171,6 +171,8 @@ pt-BR:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Você recebeu esta notificação porque pode avaliar a proposta.
           proposal_note_created:
             email_outro: Você recebeu esta notificação porque pode avaliar a proposta.
             email_subject: Alguém deixou uma nota na proposta %{resource_title}.
@@ -354,7 +356,6 @@ pt-BR:
           index:
             actions: Ações
             assign_to_valuator: Atribuir ao avaliador
-            assign_to_valuator_button: Atribuir
             cancel: Cancelar
             merge: Junte-se a um novo
             merge_button: Combinar
@@ -366,7 +367,6 @@ pt-BR:
             split_button: Dividir
             title: Propostas
             unassign_from_valuator: Desatribuir do avaliador
-            unassign_from_valuator_button: Desatribuir
             update: Atualizar
           new:
             create: Criar
