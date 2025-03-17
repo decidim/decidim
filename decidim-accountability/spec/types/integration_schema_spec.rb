@@ -36,6 +36,11 @@ describe "Decidim::Api::QueryType" do
           progress
           reference
           startDate
+          address
+          coordinates{
+            latitude
+            longitude
+          }
           status {
             id
             createdAt
@@ -104,6 +109,11 @@ describe "Decidim::Api::QueryType" do
       "progress" => result.progress.to_f,
       "reference" => result.reference,
       "startDate" => result.start_date.to_s,
+      "address" => result.address.to_s,
+      "coordinates" => {
+        "latitude" => result.latitude,
+        "longitude" => result.longitude
+      },
       "status" => {
         "createdAt" => result.status.created_at.to_time.iso8601,
         "description" => { "translation" => result.status.description[locale] },
@@ -204,6 +214,11 @@ describe "Decidim::Api::QueryType" do
               progress
               reference
               startDate
+              address
+              coordinates{
+                latitude
+                longitude
+              }
               status {
                 id
                 createdAt

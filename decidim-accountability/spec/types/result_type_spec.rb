@@ -12,6 +12,14 @@ module Decidim
       let(:organization) { model.organization }
 
       include_examples "taxonomizable interface"
+      include_examples "attachable interface"
+      include_examples "attachable collection interface with attachment"
+      include_examples "traceable interface"
+      include_examples "timestamps interface"
+      include_examples "commentable interface"
+      include_examples "localizable interface"
+      include_examples "referable interface"
+      include_examples "resourceable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -37,14 +45,6 @@ module Decidim
         end
       end
 
-      describe "reference" do
-        let(:query) { "{ reference }" }
-
-        it "returns the reference field" do
-          expect(response["reference"]).to eq(model.reference.to_s)
-        end
-      end
-
       describe "startDate" do
         let(:query) { "{ startDate }" }
 
@@ -66,22 +66,6 @@ module Decidim
 
         it "returns the progress field" do
           expect(response["progress"]).to eq(model.progress)
-        end
-      end
-
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
-
-        it "returns the createdAt" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
-
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns the updatedAt" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
         end
       end
 

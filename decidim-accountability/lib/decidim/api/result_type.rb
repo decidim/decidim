@@ -3,9 +3,14 @@
 module Decidim
   module Accountability
     class ResultType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::ReferableInterface
+      implements Decidim::Comments::CommentableInterface
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::AttachableCollectionInterface
+      implements Decidim::Core::LocalizableInterface
       implements Decidim::Core::TaxonomizableInterface
       implements Decidim::Core::TimestampsInterface
-      implements Decidim::Comments::CommentableInterface
+      implements Decidim::Core::TraceableInterface
 
       description "A result"
 
@@ -17,7 +22,6 @@ module Decidim
       field :id, GraphQL::Types::ID, "The internal ID for this result", null: false
       field :parent, Decidim::Accountability::ResultType, "The parent result", null: true
       field :progress, GraphQL::Types::Float, "The progress for this result", null: true
-      field :reference, GraphQL::Types::String, "The reference for this result", null: true
       field :start_date, Decidim::Core::DateType, "The start date for this result", null: true
       field :status, Decidim::Accountability::StatusType, "The status for this result", null: true
       field :timeline_entries, [Decidim::Accountability::TimelineEntryType, { null: true }], "The timeline entries for this result", null: true
