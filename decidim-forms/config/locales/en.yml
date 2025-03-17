@@ -218,7 +218,6 @@ en:
           tos_agreement: By participating you accept its Terms of Service
       step_navigation:
         show:
-          are_you_sure_edit: You will be able to edit your answers. Are you sure?
           are_you_sure_edit_guest: If you want to be able to edit your answers afterwards, then you need to log in or create an account.
           are_you_sure_no_edit: This action cannot be undone and you will not be able to edit your answers. Are you sure?
           back: Back

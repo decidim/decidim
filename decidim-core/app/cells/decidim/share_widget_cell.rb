@@ -13,6 +13,10 @@ module Decidim
       render
     end
 
+    def processed_params
+      params.permit(:participatory_process_slug, :component_id, :id).to_h
+    end
+
     def title
       model.presenter.title(html_escape: true)
     end

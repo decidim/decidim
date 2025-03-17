@@ -27,9 +27,9 @@ module Decidim
           end
 
           def accessible_proposals_collection
-            return collection if current_participatory_space.user_roles(:valuator).where(user: current_user).empty?
+            return collection if current_participatory_space.user_roles(:evaluator).where(user: current_user).empty?
 
-            collection.with_valuation_assigned_to(current_user, current_participatory_space)
+            collection.with_evaluation_assigned_to(current_user, current_participatory_space)
           end
 
           def search_field_predicate
@@ -50,12 +50,12 @@ module Decidim
             ProposalState.where(component: current_component).pluck(:token) + ["withdrawn"]
           end
 
-          def valuator_role_ids
-            current_participatory_space.user_roles(:valuator).order_by_name.pluck(:id)
+          def evaluator_role_ids
+            current_participatory_space.user_roles(:evaluator).order_by_name.pluck(:id)
           end
 
-          def translated_valuator_role_ids_has(valuator_role_id)
-            user_role = current_participatory_space.user_roles(:valuator).find_by(id: valuator_role_id)
+          def translated_evaluator_role_ids_has(evaluator_role_id)
+            user_role = current_participatory_space.user_roles(:evaluator).find_by(id: evaluator_role_id)
             user_role&.user&.name
           end
         end

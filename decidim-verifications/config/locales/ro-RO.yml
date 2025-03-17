@@ -127,6 +127,7 @@ ro:
               update: Actualizează
             update:
               error: A apărut o eroare la actualizarea configurației.
+              success: Configurație actualizată cu succes.
           confirmations:
             new:
               introduce_user_data: Introdu datele din imagine

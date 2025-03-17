@@ -54,11 +54,8 @@ lt:
             save: Išsaugoti
         questionnaire_templates:
           choose:
-            create_from_template: Kurti iš šablono
-            description: Tuojaus sukursite naują klausimyną. Galite jį kurti iš šablono ir jį pakeisti vėliau.
             label: Pasirinkti šabloną
             placeholder: Pasirinkti šabloną
-            skip_template: Praleisti
           edit:
             edit: Redaguoti
             empty: Dar nėra klausimų.

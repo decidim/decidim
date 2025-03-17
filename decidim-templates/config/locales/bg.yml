@@ -80,11 +80,8 @@ bg:
             select_template: Изберете шаблонен отговор
         questionnaire_templates:
           choose:
-            create_from_template: Създайте от шаблон
-            description: На път сте да създадете нов въпросник. Можете да изберете предварително дефиниран шаблон и да го промените след това.
             label: Избор на шаблон
             placeholder: Избор на шаблон
-            skip_template: Пропусни
           edit:
             edit: Редактирай
             empty: Все още няма въпроси.

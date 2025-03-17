@@ -56,7 +56,7 @@ fi:
           actions:
             back: Takaisin kysymyksiin
             publish_answers: Julkaise vastaukset
-            show: Näytä vastaukset
+            show: Vastaukset
           answer_option:
             answer_option: Vastausvaihtoehto
             free_text: Vapaa teksti
@@ -217,7 +217,6 @@ fi:
           tos_agreement: Osallistumalla hyväksyt käyttöehdot
       step_navigation:
         show:
-          are_you_sure_edit: Voit muokata vastauksiasi. Oletko varma?
           are_you_sure_edit_guest: Mikäli haluat muokata vastauksiasi jälkikäteen, sinun tulee luoda alustalle oma tili ja kirjautua sisään.
           are_you_sure_no_edit: Tätä toimintoa ei voi perua, etkä voi muokata vastauksiasi. Oletko varma?
           back: Takaisin

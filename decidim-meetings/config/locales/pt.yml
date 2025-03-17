@@ -266,6 +266,7 @@ pt:
           form:
             available_slots_help: Deixar a 0 se tiver intervalos de tempo ilimitados disponíveis.
             invites: Convites
+            manage_questions: Pergunta
             recommendation_message: Por questões de privacidade recomendamos que elimine este formulário de inscrição quando já não for necessário. Por predefinição, isto acontece 3 meses após o fim da reunião.
             registration_email_help: Este texto irá aparecer no meio do e-mail de confirmação de registo. Logo a seguir ao código de registo.
             registration_form: Formulário de registo

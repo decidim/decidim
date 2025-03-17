@@ -329,6 +329,7 @@ zh-TW:
           form:
             available_slots_help: 如果您有無限的可用名額，請將其設置為0。
             invites: 邀請
+            manage_questions: 問題
             recommendation_message: 出於隱私考量，建議您在不需要此報名表時刪除它。默認情況下，在會議結束後3個月會自動刪除。
             registration_email_help: 這段文字會出現在註冊確認電子郵件中，位於註冊代碼之後。
             registration_form: 註冊表單

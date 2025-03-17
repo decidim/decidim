@@ -95,6 +95,7 @@ ga:
             save: Sábháil
           form:
             invites: Cuirí
+            manage_questions: Ceisteanna
       directory:
         meetings:
           index:
