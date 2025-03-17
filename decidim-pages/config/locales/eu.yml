@@ -3,8 +3,8 @@ eu:
   activerecord:
     models:
       decidim/pages/page:
-        one: Orria
-        other: Orriak
+        one: Orrialde
+        other: Orrialdeak
   decidim:
     admin_log:
       page:

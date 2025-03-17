@@ -1379,14 +1379,14 @@ de:
           disabled_message: Nachricht
           edit_profile: Profil bearbeiten
           edit_user_group: Gruppenprofil bearbeiten
-          invite_user: Teilnehmer einladen
-          join_user_group: Gruppenbeitritt anfragen
+          invite_user: Nutzer einladen
+          join_user_group: Anfrage zur Teilnahme an der Gruppe
           leave_user_group: Gruppe verlassen
           manage_user_group: Gruppe verwalten
           manage_user_group_admins: Admins verwalten
           manage_user_group_users: Mitglieder verwalten
           message: Nachricht
-          resend_email_confirmation_instructions: E-Mail-Bestätigungsanweisungen erneut versenden
+          resend_email_confirmation_instructions: Senden Sie die E-Mail-Bestätigungsanweisungen erneut
         confirmation_instructions_sent: E-Mail-Bestätigungsanweisungen gesendet.
         create_user_group: Gruppe erstellen
         edit_profile: Profil bearbeiten

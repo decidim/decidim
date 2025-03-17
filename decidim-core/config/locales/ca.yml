@@ -1019,8 +1019,8 @@ ca:
         success: El grup s'ha abandonat correctament.
       members:
         accept_or_reject_join_requests: 'Les següents participants han sol·licitat unir-se a aquest grup. Accepta o rebutja les seves sol·licituds:'
-        accept_request: Accepta
-        reject_request: Rebutja
+        accept_request: Acceptar
+        reject_request: Rebutjar
       new:
         create_user_group: Crea un grup
         new_user_group: Nou grup
@@ -1359,7 +1359,7 @@ ca:
         followers: Seguidores
         following: Seguint
         group_admins: Gestionar administradores
-        group_members: Gestionar membres
+        group_members: Gestiona els membres
         groups: Grups
         members: Membres
         officialized: Participant oficial
@@ -1370,16 +1370,16 @@ ca:
           title: Insígnies
       user:
         actions:
-          create_user_group: Crear un grup
+          create_user_group: Crea un grup
           disabled_message: Missatge
-          edit_profile: Editar el perfil
-          edit_user_group: Editar el perfil del grup
-          invite_user: Convidar participant
-          join_user_group: Sol·licitar unir-se al grup
-          leave_user_group: Surt del grup
+          edit_profile: Edita el perfil
+          edit_user_group: Edita el perfil del grup
+          invite_user: Convida la participant
+          join_user_group: Sol·licita unir-se al grup
+          leave_user_group: Marxa del grup
           manage_user_group: Gestiona el grup
           manage_user_group_admins: Gestionar administradores
-          manage_user_group_users: Gestionar membres
+          manage_user_group_users: Gestiona els membres
           message: Missatge
           resend_email_confirmation_instructions: Reenvia un correu electrònic amb les instruccions de confirmació
         confirmation_instructions_sent: Instruccions de confirmació enviades per correu electrònic.
@@ -1390,7 +1390,7 @@ ca:
         invite_user: Convida la participant
         join_user_group: Sol·licita unir-se al grup
         leave_user_group: Marxa del grup
-        manage_user_group_admins: Gestiona les administradores
+        manage_user_group_admins: Gestionar administradores
         manage_user_group_users: Gestiona els membres
         resend_email_confirmation_instructions: Reenvia un correu electrònic amb les instruccions de confirmació
     reported_mailer:
@@ -1619,11 +1619,11 @@ ca:
     failure:
       already_authenticated: Ja has iniciat la sessió.
       inactive: El teu compte encara no està activat.
-      invalid: L'%{authentication_keys} o la contrasenya no són vàlids.
+      invalid: El %{authentication_keys} o la contrasenya no són vàlids.
       invited: Tens una invitació pendent, accepta-la per acabar de crear el teu compte.
       last_attempt: Tens un intent més abans que el teu compte es bloquegi.
       locked: El teu compte està bloquejat.
-      not_found_in_database: L'%{authentication_keys} o la contrasenya no són vàlids.
+      not_found_in_database: El %{authentication_keys} o la contrasenya no són vàlids.
       timeout: La teva sessió ha expirat. Si us plau, torna a iniciar-la per continuar.
       unauthenticated: Cal iniciar sessió o registrar-te abans de continuar.
     invitations:

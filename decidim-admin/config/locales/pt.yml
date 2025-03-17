@@ -527,6 +527,7 @@ pt:
             created_at: Criado em
             document_number: Número do documento
             name: Nome
+            nickname: Alcunha
             phone: Telefone
             state: Estado
             users_count: Contagem de participantes
@@ -706,6 +707,8 @@ pt:
           title: Novo participante privado do Espaço Participativo.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Envie o seu ficheiro CSV
           upload: Carregar
       resource_permissions:
         edit:
@@ -821,15 +824,15 @@ pt:
       user_groups:
         index:
           state:
-            pending: Pendente
-            rejected: Rejeitado
-            verified: Verificado
+            pending: Pendentes
+            rejected: Rejeitados
+            verified: Verificados
           verify_via_csv: Verificar via CSV
       user_groups_csv_verifications:
         new:
           explanation: Envie o seu ficheiro CSV. Deve ter os e-mails oficiais dos grupos na sua organização na primeira coluna do ficheiro, sem cabeçalhos. Somente grupos que confirmaram os seus e-mails e que tenham um e-mail a aparecer no arquivo CSV serão validados.
           title: Envie o seu ficheiro CSV
-          upload: Envio
+          upload: Carregar
       users:
         create:
           error: Ocorreu um problema ao convidar este(a) administrador(a).

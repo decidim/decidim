@@ -1101,7 +1101,7 @@ es-PY:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
+          greeting: Hola, %{recipient}!
           intro: "%{manager} ha iniciado una nueva conversación en nombre de %{group}. Haz clic aquí para verla:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{manager} ha iniciado una nueva conversación como %{group}"
@@ -1118,13 +1118,13 @@ es-PY:
           subject: "%{sender} ha iniciado una conversación contigo"
         new_group_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
+          greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{sender} ha iniciado una nueva conversación con %{group}"
         new_group_message:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
+          greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{group} tiene nuevos mensajes de %{sender}"
@@ -1361,8 +1361,8 @@ es-PY:
         conversations: Conversaciones
         followers: Seguidores
         following: Sigue
-        group_admins: Gestionar administradoras
-        group_members: Gestionar miembros
+        group_admins: Administrar administradores
+        group_members: Administrar miembros
         groups: Los grupos
         members: Miembros
         officialized: Participante oficial
@@ -1370,21 +1370,21 @@ es-PY:
       sidebar:
         badges:
           info: Las insignias se obtienen realizando una actividad específica en la plataforma.
-          title: Insignias
+          title: Distintivos
       user:
         actions:
-          create_user_group: Crear un grupo
+          create_user_group: Crea un grupo
           disabled_message: Mensaje
-          edit_profile: Editar el perfil
-          edit_user_group: Editar el perfil del grupo
-          invite_user: Invitar a una participante
-          join_user_group: Solicitar unirse al grupo
-          leave_user_group: Salir del grupo
+          edit_profile: Editar perfil
+          edit_user_group: Editar perfil de grupo
+          invite_user: Invitar al usuario
+          join_user_group: Solicitud para unirse al grupo
+          leave_user_group: Dejar grupo
           manage_user_group: Gestionar el grupo
-          manage_user_group_admins: Gestionar administradoras
-          manage_user_group_users: Gestionar miembros
+          manage_user_group_admins: Administrar administradores
+          manage_user_group_users: Administrar miembros
           message: Mensaje
-          resend_email_confirmation_instructions: Reenvía un correo electrónico con las instrucciones de confirmación
+          resend_email_confirmation_instructions: Vuelva a enviar las instrucciones de confirmación por correo electrónico
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
         create_user_group: Crea un grupo
         edit_profile: Editar perfil

@@ -832,6 +832,8 @@ zh-TW:
           invalid: 讀取 CSV 檔案時發生問題。請確保您已按照指示進行操作。
           success: CSV檔案上傳成功，我們正在發送邀請電子郵件給參與者。這可能需要一些時間。
         new:
+          csv_upload:
+            title: 請上傳您的 CSV 檔案。
           destroy:
             button: 刪除所有私人參與者
             confirm: 您確定要刪除所有私人參與者嗎？此操作無法撤銷，您將無法恢復它們。

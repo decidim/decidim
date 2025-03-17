@@ -1004,7 +1004,7 @@ cs:
       accept:
         error: Při přijetí této pozvánky došlo k chybě.
         success: Pozvánka úspěšně přijata.
-      accept_invitation: Akceptovat
+      accept_invitation: Přijmout
       accept_or_reject_group_invitations: 'Následující skupiny vás pozvaly, abyste se k nim připojili. Přijmout nebo odmítnout jejich požadavky:'
       index:
         invite: Pozvat
@@ -1062,7 +1062,7 @@ cs:
         success: Skupina úspěšně opustila.
       members:
         accept_or_reject_join_requests: 'Následující uživatelé se připojili k této skupině. Přijmout nebo odmítnout jejich požadavky:'
-        accept_request: Akceptovat
+        accept_request: Přijmout
         reject_request: Odmítnout
       new:
         create_user_group: Vytvořit skupinu
@@ -1141,13 +1141,13 @@ cs:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
-          greeting: Dobrý den, %{recipient}!
+          greeting: Ahoj, %{recipient}!
           intro: "%{manager} zahájil novou konverzaci s názvem %{group}. Klikněte zde pro její zobrazení:"
           outro: Užijte si platformu!
           subject: "%{manager} zahájil novou konverzaci jako %{group}"
         comanagers_new_message:
           admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
-          greeting: Dobrý den, %{recipient}!
+          greeting: Ahoj, %{recipient}!
           intro: "%{manager} zveřejnil nové zprávy v konverzaci s názvem %{group}. Klikněte zde pro jejich zobrazení:"
           outro: Užijte si platformu!
           subject: "%{manager} odeslal nové zprávy jako %{group}"
@@ -1158,13 +1158,13 @@ cs:
           subject: "%{sender} začal s vámi konverzovat"
         new_group_conversation:
           admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
-          greeting: Dobrý den, %{recipient}!
+          greeting: Ahoj, %{recipient}!
           intro: "%{sender} zahájil novou konverzaci se skupinou %{group}. Klikněte zde pro její zobrazení:"
           outro: Užijte si platformu!
           subject: "%{sender} zahájil konverzaci s %{group}"
         new_group_message:
           admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
-          greeting: Dobrý den, %{recipient}!
+          greeting: Ahoj, %{recipient}!
           intro: "%{sender} přidal nové zprávy do konverzace se skupinou %{group}. Klikněte zde pro jejich zobrazení:"
           outro: Užijte si platformu!
           subject: "%{group} má nové zprávy od %{sender}"
@@ -1401,8 +1401,8 @@ cs:
         conversations: Konverzace
         followers: Sledující
         following: Sleduje
-        group_admins: Spravovat správce
-        group_members: Spravovat členy
+        group_admins: Správa administrátorů
+        group_members: Správa členů
         groups: Skupiny
         members: Členové
         officialized: Oficiální účastník
@@ -1415,14 +1415,14 @@ cs:
         actions:
           create_user_group: Vytvořit skupinu
           disabled_message: Zpráva
-          edit_profile: Upravit profil
+          edit_profile: Editovat profil
           edit_user_group: Upravit profil skupiny
-          invite_user: Pozvat účastníka
-          join_user_group: Požádat o připojení ke skupině
+          invite_user: Pozvat uživatele
+          join_user_group: Žádost o připojení ke skupině
           leave_user_group: Opustit skupinu
           manage_user_group: Spravovat skupinu
-          manage_user_group_admins: Spravovat správce
-          manage_user_group_users: Spravovat členy
+          manage_user_group_admins: Správa administrátorů
+          manage_user_group_users: Správa členů
           message: Zpráva
           resend_email_confirmation_instructions: Znovu odeslat pokyny pro potvrzení e-mailu
         confirmation_instructions_sent: Pokyny pro potvrzení e-mailu byly odeslány.
@@ -1600,7 +1600,7 @@ cs:
         time_ago: "před %{time}"
       reply:
         placeholder: Vaše odpověď...
-        send: Odeslat
+        send: Poslat
       update:
         error: Zpráva nebyla odeslána. Zkuste to později
     user_interests:

@@ -712,6 +712,8 @@ zh-CN:
           new_conversation: 新建对话
           next: 下一个
           title: 对话
+        reply_form:
+          placeholder: 您的回复...
         show:
           back: 回到所有对话
           chat_with: 对话
@@ -827,6 +829,8 @@ zh-CN:
         conversations: 对话
         followers: 关注者
         following: 关注的问题
+        group_admins: 管理管理员
+        group_members: 管理成员
         groups: 群組
         members: 成员
         officialized: 官方参与者
@@ -835,6 +839,16 @@ zh-CN:
           info: 徽章是通过在平台上执行特定活动赚取的。
           title: 徽章
       user:
+        actions:
+          create_user_group: 创建组
+          edit_profile: 编辑配置文件
+          edit_user_group: 编辑群组资料
+          invite_user: Invite participant
+          join_user_group: 加入组的请求
+          leave_user_group: 离开组
+          manage_user_group_admins: 管理管理员
+          manage_user_group_users: 管理成员
+          resend_email_confirmation_instructions: 重新发送电子邮件确认说明
         create_user_group: 创建组
         edit_profile: 编辑配置文件
         edit_user_group: 编辑群组资料
@@ -920,6 +934,8 @@ zh-CN:
         report: 报告
         spam: 包含点击、广告、骗子或脚本机器人。
         title: 报告不恰当的内容
+      flag_user_modal:
+        close: 关闭
       floating_help:
         help: 帮助
       login_modal:

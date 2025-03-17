@@ -1015,13 +1015,13 @@ hu:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
-          greeting: Kedves %{recipient}!
+          greeting: Szia %{recipient}!
           intro: "%{manager} egy új beszélgetést indított a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
           outro: Örömteli platform használatot kívánunk!
           subject: "%{manager} egy új beszélgetést indított a(z) %{group} nevében"
         comanagers_new_message:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
-          greeting: Kedves %{recipient}!
+          greeting: Szia %{recipient}!
           intro: "%{manager} egy új üzenetet tett közzé egy beszélgetésben a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
           outro: Örömteli platform használatot kívánunk!
           subject: "%{manager} új üzeneteket küldött a(z) %{group} nevében"
@@ -1032,13 +1032,13 @@ hu:
           subject: "%{sender} beszélgetést kezdett veled"
         new_group_conversation:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
-          greeting: Kedves %{recipient}!
+          greeting: Szia %{recipient}!
           intro: "%{sender} egy új beszélgetést indított a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
           outro: Örömteli platform használatot kívánunk!
           subject: "%{sender} új beszélgetést indított a(z) %{group} csoporttal"
         new_group_message:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
-          greeting: Kedves %{recipient}!
+          greeting: Szia %{recipient}!
           intro: "%{sender} új üzeneteket tett közzé a(z) %{group} csoporttal folytatott beszélgetésben. Kattintson ide a megtekintéshez:"
           outro: Örömteli platform használatot kívánunk!
           subject: "%{group} csoportba új üzenetet küldött %{sender}"
@@ -1066,7 +1066,7 @@ hu:
           no_conversations: Még nem rendelkezik beszélgetésekkel.
           title: Beszélgetések
         reply_form:
-          placeholder: Az Ön válasza...
+          placeholder: A válaszod...
           send: Küldés
         show:
           back: Vissza az összes beszélgetéshez
@@ -1264,7 +1264,7 @@ hu:
       sidebar:
         badges:
           info: A jelvények a platformon végzett konkrét tevékenység végrehajtásával érhetők el.
-          title: Kitűzők
+          title: Jelvények
       user:
         actions:
           create_user_group: Csoport létrehozása
@@ -1378,7 +1378,7 @@ hu:
       flag_user_modal:
         already_reported: Ezt a tartalmat már jelentették, az adminisztrátor éppen felülvizsgálja.
         block: Résztvevő blokkolása
-        close: Bezár
+        close: Bezárás
         description: Mi nem megfelelő a felhasználóval kapcsolatban?
         does_not_belong: 'Illegális tevékenységet, öngyilkosságra való felhívást, személyes adatokat vagy más olyan dolgot tartalmaz, amiről úgy gondolja, nem tartozik ide: %{organization_name}.'
         hide: Minden tartalom elrejtése

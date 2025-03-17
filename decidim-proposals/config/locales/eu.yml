@@ -338,7 +338,7 @@ eu:
         accepted_proposals:
           conditions:
             - Aukeratu zure intereseko partaidetza espazioa proposamenak bidaltzeko
-            - Saiatu gauzatu daitezkeen proposamenak egiten. Horrela errazagoa da onartuak izatea.
+            - Egin daitezkeen proposamenak egiten saiatu. Horrela onartuak izateko aukera gehiago dute.
           description: Garaikur hau proposamen berriekin aktiboki parte hartzen duzunean eta horiek onartzen direnean ematen da 
           description_another: Parte-hartzaile honek %{score} proposamen onartu ditu.
           description_own: Zure %{score} proposamen onartu dira.

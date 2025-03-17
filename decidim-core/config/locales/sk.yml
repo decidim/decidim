@@ -585,7 +585,7 @@ sk:
         current_admins: 'Aktuálni administrátori:'
         manage_admins: Správa administrátorov
     group_invites:
-      accept_invitation: Akceptovať
+      accept_invitation: Prijať
       accept_or_reject_group_invitations: 'Nasledujúce skupiny vás pozvali, aby ste sa k nim pripojili. Prijať alebo odmietnuť ich požiadavky: '
       index:
         invite: Pozvať
@@ -616,8 +616,8 @@ sk:
         success: Skupina úspěšně opustila.
       members:
         accept_or_reject_join_requests: 'Následující uživatelé se připojili k této skupině. Přijmout nebo odmítnout jejich požadavky:'
-        accept_request: Akceptovat
-        reject_request: Odmítnout
+        accept_request: Prijať
+        reject_request: Odmietnuť
       new:
         create_user_group: Vytvořit skupinu
         new_user_group: Nová skupina
@@ -661,10 +661,18 @@ sk:
       home: Domov
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          greeting: Dobrý deň, %{recipient}!
+        comanagers_new_message:
+          greeting: Dobrý deň, %{recipient}!
         new_conversation:
           greeting: Dobrý deň, %{recipient}!
           intro: "%{sender} zahájil novú diskusiu s vami. Kliknite sem pre zobrazenie:"
           subject: "%{sender} začal s vami konverzovať"
+        new_group_conversation:
+          greeting: Dobrý deň, %{recipient}!
+        new_group_message:
+          greeting: Dobrý deň, %{recipient}!
         new_message:
           greeting: Dobrý deň, %{recipient}!
           intro: "%{sender} poslala nové správy vo vašej konverzácii. Kliknite sem pre ich zobrazenie:"
@@ -792,6 +800,8 @@ sk:
         badges: Odznaky
         followers: Sledujúci
         following: Nasleduje
+        group_admins: Správa administrátorov
+        group_members: Správa členov
         groups: Skupiny
         members: Členovia
       sidebar:
@@ -799,7 +809,17 @@ sk:
           info: Odznaky získate za určité aktivity a účasť na platforme.
           title: Odznaky
       user:
-        create_user_group: Vytvoriť skupinu
+        actions:
+          create_user_group: Vytvořit skupinu
+          edit_profile: Editovať profil
+          edit_user_group: Upraviť profil skupiny
+          invite_user: Pozvať užívateľa
+          join_user_group: Žiadosť o pripojenie k skupine
+          leave_user_group: Opustiť skupinu
+          manage_user_group_admins: Správa administrátorov
+          manage_user_group_users: Správa členov
+          resend_email_confirmation_instructions: Opakujte e-mailové pokyny na potvrdenie
+        create_user_group: Vytvořit skupinu
         edit_profile: Editovať profil
         edit_user_group: Upraviť profil skupiny
         invite_user: Pozvať užívateľa
@@ -861,6 +881,8 @@ sk:
         report: Správa
         spam: Obsahuje clickbait, reklama, podvody alebo skripty.
         title: Nahlásiť problém
+      flag_user_modal:
+        close: Zavrieť
       floating_help:
         help: Pomoc
       login_modal:
@@ -884,6 +906,8 @@ sk:
       comments_count: Komentáre
     user_contact_disabled: Tento účastník nepovoľuje posielanie priamych správ.
     user_conversations:
+      reply:
+        send: Poslat
       update:
         error: Zpráva nebyla odeslána. Zkuste to později znovu
     user_interests:

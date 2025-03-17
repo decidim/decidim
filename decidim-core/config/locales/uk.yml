@@ -330,10 +330,18 @@ uk:
       home: Головна
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          greeting: Вітаємо, %{recipient}!
+        comanagers_new_message:
+          greeting: Вітаємо, %{recipient}!
         new_conversation:
           greeting: Вітаємо, %{recipient}!
           intro: "%{sender} почав з вами нову бесіду. Клацніть тут, щоб прочитати її:"
           subject: "%{sender} почав з вами бесіду"
+        new_group_conversation:
+          greeting: Вітаємо, %{recipient}!
+        new_group_message:
+          greeting: Вітаємо, %{recipient}!
         new_message:
           greeting: Доброго дня, %{recipient}!
           intro: "%{sender} написав нові повідомлення у вашій бесіді. Клацніть тут, щоб переглянути їх:"
@@ -402,6 +410,8 @@ uk:
         followers: Ті, хто стежить
         following: 'Стежить за:'
       user:
+        actions:
+          edit_profile: Редагувати профіль
         edit_profile: Редагувати профіль
     reported_mailer:
       hide:
@@ -442,6 +452,8 @@ uk:
         report: Поскаржитись
         spam: Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або лохотрони.
         title: Поскаржитись на ускладнення
+      flag_user_modal:
+        close: Закрити
       login_modal:
         sign_up: Зареєструватися
       reference:
@@ -454,6 +466,8 @@ uk:
     statistics:
       comments_count: Коментарів
     user_conversations:
+      reply:
+        send: Надіслати
       update:
         error: Повідомлення не надіслано. Спробуйте ще раз пізніше
   devise:

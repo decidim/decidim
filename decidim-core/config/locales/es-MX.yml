@@ -1101,7 +1101,7 @@ es-MX:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
+          greeting: Hola, %{recipient}!
           intro: "%{manager} ha iniciado una nueva conversación en nombre de %{group}. Haz clic aquí para verla:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{manager} ha iniciado una nueva conversación como %{group}"
@@ -1118,13 +1118,13 @@ es-MX:
           subject: "%{sender} ha iniciado una conversación contigo"
         new_group_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
+          greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{sender} ha iniciado una nueva conversación con %{group}"
         new_group_message:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
+          greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Haz clic aquí para verla:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{group} tiene nuevos mensajes de %{sender}"
@@ -1361,7 +1361,7 @@ es-MX:
         conversations: Conversaciones
         followers: Seguidores
         following: Sigue
-        group_admins: Gestionar administradoras
+        group_admins: Gestionar administradores
         group_members: Gestionar miembros
         groups: Grupos
         members: Miembros
@@ -1375,16 +1375,16 @@ es-MX:
         actions:
           create_user_group: Crear un grupo
           disabled_message: Mensaje
-          edit_profile: Editar el perfil
+          edit_profile: Editar perfil
           edit_user_group: Editar el perfil del grupo
-          invite_user: Invitar a una participante
+          invite_user: Invitar al usuario
           join_user_group: Solicitar unirse al grupo
-          leave_user_group: Salir del grupo
+          leave_user_group: Dejar el grupo
           manage_user_group: Gestionar el grupo
-          manage_user_group_admins: Gestionar administradoras
+          manage_user_group_admins: Gestionar administradores
           manage_user_group_users: Gestionar miembros
           message: Mensaje
-          resend_email_confirmation_instructions: Reenvía un correo electrónico con las instrucciones de confirmación
+          resend_email_confirmation_instructions: Vuelva a enviar las instrucciones de confirmación por correo electrónico
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
         create_user_group: Crear un grupo
         edit_profile: Editar perfil
@@ -1393,8 +1393,8 @@ es-MX:
         invite_user: Invitar al usuario
         join_user_group: Solicitar unirse al grupo
         leave_user_group: Dejar el grupo
-        manage_user_group_admins: Gestionar los administradores
-        manage_user_group_users: Gestionar los miembros
+        manage_user_group_admins: Gestionar administradores
+        manage_user_group_users: Gestionar miembros
         resend_email_confirmation_instructions: Vuelva a enviar las instrucciones de confirmación por correo electrónico
     reported_mailer:
       hide:

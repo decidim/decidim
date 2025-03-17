@@ -895,7 +895,7 @@ pl:
           success: Załadowanie pliku CSV powiodło się, wysyłamy e-mail z zaproszeniem do uczestników. To może chwilę potrwać.
         new:
           csv_upload:
-            title: Załaduj swój plik CSV
+            title: Prześlij swój plik CSV
           destroy:
             button: Usuń wszystkich prywatnych uczestników
             confirm: Czy na pewno chcesz usunąć wszystkich uczestników prywatnych? Tej akcji nie można cofnąć, nie będziesz w stanie odzyskać danych.
@@ -1055,8 +1055,8 @@ pl:
         index:
           state:
             pending: Oczekujące
-            rejected: Odrzucone
-            verified: Zweryfikowane
+            rejected: Odrzucono
+            verified: Zweryfikowano
           verify_via_csv: Zweryfikuj za pomocą CSV
       user_groups_csv_verifications:
         new:

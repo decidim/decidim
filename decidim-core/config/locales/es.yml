@@ -1019,8 +1019,8 @@ es:
         success: Has dejado el grupo correctamente.
       members:
         accept_or_reject_join_requests: 'Las siguientes participantes han solicitado unirse a este grupo. Acepta o rechaza sus solicitudes:'
-        accept_request: Acepta
-        reject_request: Rechaza
+        accept_request: Aceptar
+        reject_request: Rechazar
       new:
         create_user_group: Crear un grupo
         new_user_group: Nuevo grupo
@@ -1098,7 +1098,7 @@ es:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
+          greeting: Hola, %{recipient}!
           intro: "%{manager} ha iniciado una nueva conversación en nombre de %{group}. Para verla y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{manager} ha iniciado una nueva conversación como %{group}"
@@ -1115,13 +1115,13 @@ es:
           subject: "%{sender} ha iniciado una conversación contigo"
         new_group_conversation:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
+          greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación con el grupo %{group}. Para verlo y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{sender} ha iniciado una nueva conversación con %{group}"
         new_group_message:
           admin_in_group: Recibes esta notificación porque eres administradora de %{group}.
-          greeting: '¡Hola, %{recipient}!'
+          greeting: Hola, %{recipient}!
           intro: "%{sender} ha añadido nuevos mensajes en la conversación con el grupo %{group}. Para verlos y responder, inicia tu sesión y haz clic en el enlace que encontrarás más abajo:"
           outro: '¡Disfruta de la plataforma!'
           subject: "%{group} tiene nuevos mensajes de %{sender}"
@@ -1359,7 +1359,7 @@ es:
         followers: Seguidoras
         following: Siguiendo
         group_admins: Gestionar administradoras
-        group_members: Gestionar miembros
+        group_members: Gestionar los miembros
         groups: Grupos
         members: Miembros
         officialized: Participante oficial
@@ -1367,30 +1367,30 @@ es:
       sidebar:
         badges:
           info: Los distintivos se obtienen realizando una actividad específica en la plataforma.
-          title: Distintivos
+          title: Insignias
       user:
         actions:
           create_user_group: Crear un grupo
           disabled_message: Mensaje
-          edit_profile: Editar el perfil
-          edit_user_group: Editar el perfil del grupo
-          invite_user: Invitar a una participante
-          join_user_group: Solicitar unirse al grupo
-          leave_user_group: Salir del grupo
+          edit_profile: Edita el perfil
+          edit_user_group: Edita el perfil del grupo
+          invite_user: Invita a la participante
+          join_user_group: Solicita unirse al grupo
+          leave_user_group: Deja el grupo
           manage_user_group: Gestionar el grupo
           manage_user_group_admins: Gestionar administradoras
-          manage_user_group_users: Gestionar miembros
+          manage_user_group_users: Gestionar los miembros
           message: Mensaje
-          resend_email_confirmation_instructions: Reenvía un correo electrónico con las instrucciones de confirmación
+          resend_email_confirmation_instructions: Reenvia un correo electrónico con las instrucciones de confirmación
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
-        create_user_group: Crea un grupo
+        create_user_group: Crear un grupo
         edit_profile: Edita el perfil
         edit_user_group: Edita el perfil del grupo
         fill_in_email_to_confirm_it: Por favor, introduce el correo electrónico de tu grupo para confirmarlo.
         invite_user: Invita a la participante
         join_user_group: Solicita unirse al grupo
         leave_user_group: Deja el grupo
-        manage_user_group_admins: Gestiona las administradoras
+        manage_user_group_admins: Gestionar administradoras
         manage_user_group_users: Gestionar los miembros
         resend_email_confirmation_instructions: Reenvia un correo electrónico con las instrucciones de confirmación
     reported_mailer:

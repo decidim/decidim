@@ -1098,13 +1098,13 @@ fi:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
-          greeting: Hei %{recipient}!
+          greeting: Hei, %{recipient}!
           intro: "%{manager} on aloittanut uuden keskustelun ryhmän %{group} nimellä. Napsauta tätä linkkiä nähdäksesi keskustelun:"
           outro: Nauti palvelun käyttämisestä!
           subject: "%{manager} on aloittanut uuden keskutelun ryhmänä %{group}"
         comanagers_new_message:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
-          greeting: Hei %{recipient}!
+          greeting: Hei, %{recipient}!
           intro: "%{manager} on lähettänyt uusia viestejä keskustelussa ryhmän %{group} nimellä. Napsauta tätä linkkiä nähdäksesi ne:"
           outro: Nauti palvelun käyttämisestä!
           subject: "%{manager} on lähettänyt uusia viestejä ryhmänä %{group}"
@@ -1115,13 +1115,13 @@ fi:
           subject: "%{sender} on aloittanut keskustelun kanssasi"
         new_group_conversation:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
-          greeting: Hei %{recipient}!
+          greeting: Hei, %{recipient}!
           intro: "%{sender} on aloittanut uuden keskustelun ryhmänä %{group}. Napsauta tätä linkkiä nähdäksesi keskustelun:"
           outro: Nauti palvelun käyttämisestä!
           subject: "%{sender} on aloittanut keskustelun ryhmän %{group} kanssa"
         new_group_message:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
-          greeting: Hei %{recipient}!
+          greeting: Hei, %{recipient}!
           intro: "%{sender} on lähettänyt uusia viestejä keskustelussa ryhmän %{group} kesken. Napsauta tätä linkkiä nähdäksesi ne:"
           outro: Nauti palvelun käyttämisestä!
           subject: "Ryhmällä %{group} on uusia viestejä lähettäjältä %{sender}"
@@ -1358,7 +1358,7 @@ fi:
         conversations: Keskustelut
         followers: Seuraajat
         following: Seurattavat
-        group_admins: Hallinnoi hallintakäyttäjiä
+        group_admins: Hallinnoi ylläpitäjiä
         group_members: Hallinnoi jäseniä
         groups: Ryhmät
         members: Jäsenet
@@ -1373,8 +1373,8 @@ fi:
           create_user_group: Luo ryhmä
           disabled_message: Viesti
           edit_profile: Muokkaa profiilia
-          edit_user_group: Muokkaa ryhmäprofiilia
-          invite_user: Kutsu osallistuja
+          edit_user_group: Muokkaa ryhmän profiilia
+          invite_user: Kutsu käyttäjä
           join_user_group: Lähetä liittymispyyntö ryhmään
           leave_user_group: Poistu ryhmästä
           manage_user_group: Hallinnoi ryhmää
@@ -1480,7 +1480,7 @@ fi:
         reason: Syy
         report: Tee ilmoitus
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
-        title: Ilmoita asiatonta sisältöä
+        title: Ilmoita epäasiallista sisältöä
       flag_user_modal:
         already_reported: Tämä sisältö on jo ilmoitettu ja se odottaa hallintakäyttäjän tarkastusta.
         block: Estä tämä osallistuja

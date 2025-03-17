@@ -750,14 +750,15 @@ tr:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
-          greeting: Merhaba, %{recipient}!
+          greeting: Merhaba %{recipient}!
           intro: "%{manager}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
           outro: Platformun tadını çıkarın!
           subject: "%{manager}, %{group} olarak yeni bir görüşme başlattı"
         comanagers_new_message:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
-          greeting: Merhaba, %{recipient}!
+          greeting: Merhaba %{recipient}!
           intro: "%{manager}, %{group} adına bir görüşmede yeni mesajlar yayınladı. Onları görmek için buraya tıklayın:"
+          outro: Platformun tadını çıkarın!
           subject: "%{manager} %{group} olarak yeni mesajlar gönderdi"
         new_conversation:
           greeting: Merhaba %{recipient}!
@@ -766,13 +767,13 @@ tr:
           subject: "%{sender} sizinle bir konuşma başlattı"
         new_group_conversation:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
-          greeting: Merhaba, %{recipient}!
+          greeting: Merhaba %{recipient}!
           intro: "%{sender}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
           outro: Platformun tadını çıkarın!
           subject: "%{sender}, %{group} olarak yeni bir görüşme başlattı"
         new_group_message:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
-          greeting: Merhaba, %{recipient}!
+          greeting: Merhaba %{recipient}!
           intro: "%{sender}, %{group} grubuyla bir görüşmede yeni mesajlar yayınladı. Görmek için buraya tıklayın:"
           outro: Platformun tadını çıkarın!
           subject: "%{group}, %{sender} adlı kişiden yeni mesajlar aldı"
@@ -796,6 +797,8 @@ tr:
           new_conversation: Yeni görüşme
           next: Sonraki
           title: Konuşmalar
+        reply_form:
+          placeholder: Cevabınız...
         show:
           back: Tüm görüşmelere dön
           chat_with: ile görüşme
@@ -915,6 +918,8 @@ tr:
         conversations: Konuşmalar
         followers: Takipçiler
         following: Takip Et
+        group_admins: Yöneticileri yönet
+        group_members: Üyeleri yönet
         groups: Gruplar
         members: Üyeler
         officialized: Resmi katılımcı
@@ -923,6 +928,16 @@ tr:
           info: Rozetler, platformda belirli etkinlikler gerçekleştirilerek kazanılır.
           title: Rozetler
       user:
+        actions:
+          create_user_group: Grup oluştur
+          edit_profile: Profili Düzenle
+          edit_user_group: Grup profilini düzenle
+          invite_user: Katılımcı davet et
+          join_user_group: Gruba katılma isteği
+          leave_user_group: Gruptan ayrıl
+          manage_user_group_admins: Yöneticileri yönet
+          manage_user_group_users: Üyeleri yönet
+          resend_email_confirmation_instructions: E-posta doğrulama talimatlarını tekrar gönder
         create_user_group: Grup oluştur
         edit_profile: Profili Düzenle
         edit_user_group: Grup profilini düzenle

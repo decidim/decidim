@@ -1361,6 +1361,8 @@ lt:
         conversations: Pokalbiai
         followers: Sekėjai
         following: Seka
+        group_admins: Valdyti administratorių duomenis
+        group_members: Valdyti narius
         groups: Grupės
         members: Nariai
         officialized: Patikrintas dalyvis
@@ -1382,7 +1384,7 @@ lt:
           manage_user_group_admins: Valdyti administratorių duomenis
           manage_user_group_users: Valdyti narius
           message: Pranešimas
-          resend_email_confirmation_instructions: Išsiųsti patvirtinimo instrukcijas dar kartą
+          resend_email_confirmation_instructions: Persiųsti patvirtinimo nurodymus el. paštu
         confirmation_instructions_sent: Patvirtinimo el. laiškas išsiųstas.
         create_user_group: Sukurti grupę
         edit_profile: Redaguoti profilį
@@ -1391,7 +1393,7 @@ lt:
         invite_user: Kviesti dalyvį
         join_user_group: Prašyti prisijungti prie grupės
         leave_user_group: Palikti grupę
-        manage_user_group_admins: Tvarkyti administratorius
+        manage_user_group_admins: Valdyti administratorių duomenis
         manage_user_group_users: Valdyti narius
         resend_email_confirmation_instructions: Persiųsti patvirtinimo nurodymus el. paštu
     reported_mailer:

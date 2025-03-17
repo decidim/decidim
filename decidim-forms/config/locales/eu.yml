@@ -10,7 +10,7 @@ eu:
         max_choices: Gehieneko aukera kopurua
         question_type: Mota
       questionnaire_question:
-        mandatory: Derrigorrezkoa
+        mandatory: Nahitaezkoa
         max_characters: Karaktereen muga (utzi 0 mugarik ez badago)
     errors:
       models:

@@ -101,7 +101,7 @@ de:
             any: Irgendein
             collapse: Einklappen
             description: Beschreibung
-            down: Nieder
+            down: Nach unten
             expand: Ausklappen
             question: Frage
             remove: Löschen
@@ -111,7 +111,7 @@ de:
             down: Runter
             remove: Löschen
             separator: Trennzeichen
-            up: Hoch
+            up: Nach oben
           title_and_description:
             collapse: Einklappen
             description: Beschreibung

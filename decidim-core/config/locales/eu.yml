@@ -25,7 +25,7 @@ eu:
         email: Zure helbide elektronikoa
         encrypted_password: Pasahitza
         locale: Tokikoa
-        name: Zure izena
+        name: Zure Izena
         nickname: Ezizena
         old_password: Egungo pasahitza
         password: Pasahitza
@@ -532,7 +532,7 @@ eu:
           random: Ausazkoa
           recent: Azkenak
       how_to_participate:
-        name: Nola parte hartu
+        name: Nola hartu parte
       html:
         html_content: HTML edukia
         name: HTML blokea
@@ -596,12 +596,12 @@ eu:
         new:
           already_have_an_account?: Baduzu kontu bat?
           log_in: Hasi saioa
-          newsletter: Jaso nahi dut noizbehinka informazio garrantzitsua duen buletina
+          newsletter: Jaso nahi dut informazio garrantzitsua biltzen duen aldizkako buletina
           newsletter_title: Harremanetarako baimena
           sign_up: Erregistratu
-          subtitle: Sortu kontu bat eztabaida eta laguntza proposamenetan parte hartzeko.
+          subtitle: Sortu kontu bat eztabaidetan parte hartzeko, eta proposamenak babesteko.
           terms: zerbitzuaren baldintzak
-          tos_agreement: 'Erregistratzean hau onartzen duzu: %{link}.'
+          tos_agreement: 'Erregistratzean, hau onartzen duzu: %{link}.'
           tos_title: Zerbitzuaren baldintzak
           username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
       sessions:
@@ -699,7 +699,7 @@ eu:
             notification_title: '<a href="%{emendation_author_path}">%{emendation_author_nickname} egileak sortutako </a><a href="% emendation_path}">zuzenketa onartu da honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
           follower:
             email_intro: 'Zuzenketa bat bertan bera onartu %{amendable_title}. Orrialde hau ikusi dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko estekan sartu jakinarazpenak jasotzeari utzi nahi badiozu.
             email_subject: '%{emendation_author_nickname} ren aldaketa onartuta honetarako: %{amendable_title}'
             notification_title: '<a href="%{emendation_author_path}">%{emendation_author_nickname}</a> k sortutako <a href="%{emendation_path}"></a> zuzenketa onartu da honetarako: <a href="%{amendable_path}">%{amendable_title}</a>.'
         amendment_created:
@@ -765,12 +765,12 @@ eu:
           notification_title: Zorionak! <a href="%{resource_path}">%{badge_name}</a> garaikurraren %{current_level} maila lortu duzu!
       groups:
         demoted_membership:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak zure administratzaile-eskubideak kendu ditu talde horretarako.
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak zure administratzaile-baimenak kendu ditu talde horretan.
           email_outro: Jakinarazpen hau jaso duzu taldeko kide zarelako.
           email_subject: Ez zara jada %{user_group_name} taldearen administratzailea!
           notification_title: Ez zara jada <a href="%{resource_path}">%{user_group_name}</a> taldearen administratzailea.
         invited_to_group:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak gonbidatu zaitu taldera sartzea.
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldearen administratzaileak taldean sartzera gonbidatu zaitu.
           email_outro: Jakinarazpen hau jaso duzu talde honetara gonbidatuta zaudelako. Egiaztatu Taldeak fitxan zure profilean onartzeko.
           email_subject: '%{user_group_name} taldean sartzera gonbidatu zaituzte!'
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldean sartzera gonbidatu zaituzte. Begiratu <a href="%{groups_profile_tab_path}">Taldeak orrialdeko</a> zure profilean onartzeko!
@@ -780,25 +780,25 @@ eu:
           email_subject: '%{user_group_name} taldean onartu zaituzte!'
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldean onartu zaituzte.
         join_request_created:
-          email_intro: Norbaitek %{user_group_name} taldera lotzeko eskatu du. Eskaera onartu edo ukatu dezakezu hemen <a href="%{resource_path}">taldeko kideen orrialdea</a>.
+          email_intro: Norbaitek %{user_group_name} taldean sartzeko eskatu du. Eskaera onartu edo ukatu dezakezu hemen <a href="%{resource_path}">taldeko kideen orrialdea</a>.
           email_outro: Jakinarazpen hau jaso duzu %{user_group_name} taldea kudeatu ahal duzulako.
           email_subject: Norbaitek %{user_group_name} taldera lotzea eskatu du!
-          notification_title: Norbaitek %{user_group_name} taldera lotzeko eskatu du. Eskaera onartu edo ukatu dezakezu hemen <a href="%{resource_path}">taldeko kideen orrialdea</a>.
+          notification_title: Norbaitek %{user_group_name} taldean sartzeko eskatu du. Eskaera onartu edo ukatu dezakezu hemen <a href="%{resource_path}">taldeko kideen orrialdea</a>.
         join_request_rejected:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak bertara lotzeko zure eskaera ukatu du.
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldearen administratzaileak bertara sartzeko egin duzun eskaera errefusatu du.
           email_outro: Jakinarazpen hau jaso duzu zure lotzeko eskaera eguneratu delako.
           email_subject: '%{user_group_name} taldera lotzeko zure eskaera ukatu egin da!'
-          notification_title: '%{user_group_name} taldera lotzeko zure eskaera ukatu egin da!'
+          notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldean sartzeko egin duzun eskaera errefusatu egin da.
         promoted_to_admin:
-          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldeko administratzaileak talde horren administrazio-eskubideak eman dizkizu.
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldearen administratzaile batek talde horretarako administrazio-baimenak eman dizkizu.
           email_outro: Jakinarazpen hau jaso duzu taldeko kide zarelako.
           email_subject: Orain %{user_group_name} taldearen administraria zara!
           notification_title: Orain <a href="%{resource_path}">%{user_group_name}</a> taldearen administratzailea zara.
         removed_from_group:
-          email_intro: Taldeak <a href="%{resource_url}">%{user_group_name}</a> taldearen administratzaileak kendu egin zaitu.
+          email_intro: <a href="%{resource_url}">%{user_group_name}</a> taldearen administratzaile batek talde honetatik atera zaitu.
           email_outro: Jakinarazpen hori jaso duzu talde horretako kide zarelako.
           email_subject: '%{user_group_name} taldetik kendu duzu!'
-          notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldetik kendu zaituzte.
+          notification_title: <a href="%{resource_path}">%{user_group_name}</a> taldetik atera zaituzte.
         user_group_created:
           email_intro: Talde berri bat sortu da izen honekin %{user_group_name}. Orain egiaztatu ahal duzu, hala badagokio, hemen <a href="%{groups_admin_url}">panel de administración</a>.
           email_outro: Jakinarazpen hau jaso duzu plataformaren administratzaileetako bat zarelako.
@@ -815,12 +815,11 @@ eu:
         notification_title: 'Gertaera bat jazo da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       reports:
         resource_hidden:
-          email_intro: Administratzaile batek bere %{resource_type} ezabatu du erreportatua izan delako arrazoi honengatik %{report_reasons}.
+          email_intro: Administratzaile batek zure %{resource_type} ezabatu du salatua izan delako arrazoi honengatik %{report_reasons}.
           email_outro: Jakinarazpen hau jaso duzu ezabatutako edukiaren egileetako bat zarelako.
           email_subject: Zure %{resource_type} ezabatu egin da
           notification_title: |-
-            Administratzaile batek zure %{resource_type} erreportatua izan delako arrazoi honengatik honela %{report_reasons}.</br>
-            <i>%{resource_content}</i>
+            Administratzaile batek zure %{resource_type} ezabatu du salatua izan delako arrazoi honengatik %{report_reasons}.</br><i>%{resource_content}</i>
       resource_endorsed:
         email_intro: 'Jarraitzen duzun hau %{endorser_name} %{endorser_nickname} honi atxiki zaio "%{resource_title}" zure interesekoa izan daiteke, egiaztatu eta lagundu:'
         email_outro: Jakinarazpen hau jaso duzu % “ endorser_nickname”ri jarraitzen diozulako. Jakinarazpenak jasotzeari utzi ahal diozu, esteka hau jarraituz %{endorser_nickname}.
@@ -852,7 +851,7 @@ eu:
         dummy_resource: Balizko baliabideak
         meeting: Topaketa-zerrenda
         project: Proiektuak
-        proposal: Proposamen
+        proposal: Proposamenak
         result: Emaitzak
     fingerprint:
       check: Egiaztatu hatz-marka
@@ -1014,7 +1013,7 @@ eu:
         phone_help: Ez erabili gidoirik ez espaziorik.
       join:
         error: Arazo bat egon da taldera lotzean.
-        success: Erregistratu eskaera behar bezala sortu da. Administratzaileak zure eskaera berrikusiko du taldera onartu aurretik.
+        success: Lotzeko eskaera behar bezala sortu da. Administratzaile batek zure eskaera berrikusiko du taldera onartu aurretik.
       leave:
         error: Arazo bat egon da taldea uztean.
         last_admin: Ezin zara talde honetatik atera azken administratzailea zarelako. Izendatu beste kide bat administratzaile, taldea utzi ahal izateko.
@@ -1040,7 +1039,7 @@ eu:
         default_page:
           content: "<p> %{organization} gai desberdinetan parte hartu eta erabaki dezakezu, menu nagusian ikusten dituzun espazioen bidez: Prozesuak, Jardunaldiak, Ekimenak, Kontsultak.</p> <p>Parte bakoitzean parte hartzeko aukera desberdinak aurkituko dituzu: proposamenak egitea, banaka edo beste pertsona batzuekin, eztabaidetan parte hartzea, proiektuak gauzatzeko aurreikusitako aurrekontuak, aurrez aurreko topaketak eta bestelako ekintzak biltzea.</p>\n"
           title: Zer egin dezaket %{organization}?
-        description: 'Irakurri gehiago honetaz: %{organization}.'
+        description: 'Irakurri gehiago honi buruz: %{organization}.'
         title: Laguntza orokorra
     last_activities:
       all: Jarduera mota guztiak
@@ -1102,13 +1101,13 @@ eu:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{manager} kudeatzaileak elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
-          outro: Gozatu plataforma!
+          outro: Ongi etorri plataformara!
           subject: "%{manager} k elkarrizketa berri bat hasi du %{group} taldearekin"
         comanagers_new_message:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{manager} k mezu berriak argitaratu ditu %{group} taldearen elkarrizketa batean. Egin klik hemen ikusteko:"
-          outro: Gozatu plataforma!
+          outro: Ongi etorri plataformara!
           subject: "%{manager} k mezu berriak bidali ditu %{group} gisa"
         new_conversation:
           greeting: Kaixo, %{recipient}!
@@ -1296,20 +1295,20 @@ eu:
       home:
         extended:
           debates: Eztabaidak
-          debates_explanation: Debate eta eztabaidatu, partekatu zure iritziak eta gai garrantzitsuak aberasteko.
+          debates_explanation: Eztabaidatu, eta partekatu gai garrantzitsuei buruz duzun iritzia; aberasgarria da.
           how_to_participate: Nola har dezaket parte prozesu batean?
           meetings: Bilerak
-          meetings_explanation: Ezagutu non eta noiz bilera publikoetan parte har dezakezu.
-          more_info: Argibide gehiago
-          proposals: proposamenak
+          meetings_explanation: Jakin non eta noiz har dezakezun parte bilera publikoetan.
+          more_info: Argibide gehiago honi buruz %{resource_name}
+          proposals: Proposamenak
           proposals_explanation: Egin proposamenak, lehendik daudenak babestu eta ikusi nahi dituzun aldaketak sustatu.
         footer_sub_hero:
-          footer_sub_hero_body_html: Eraiki dezagun gizarte irekiago, gardenago eta kolaboratiboagoa <br /> Lotu, parte hartu eta erabaki.
-          footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
+          footer_sub_hero_body_html: Eraiki dezagun gizarte irekiago, gardenago eta kolaboratiboagoa <br /> Lotu, hartu parte eta erabaki.
+          footer_sub_hero_headline: Ongi etorri %{organization} erakundearen partaidetzarako plataformara.
           register: Erregistroa
         hero:
-          participate: Parte hartu
-          participate_title: Hartu parte plataformako prozesuetan
+          participate: Hartu parte
+          participate_title: Parte hartu plataformako prozesuetan
           welcome: Ongi etorri %{organization} erakundera!
         statistics:
           headline: '%{organization} erakundearen egungo egoera'
@@ -1318,7 +1317,7 @@ eu:
           register_title: Sortu zure kontua saioa hasteko
       index:
         standalone_pages: Orrialdeak
-        subheading: Laguntza orrietan nabigatzeko %{name}
+        subheading: Nabigatu %{name} gunearen laguntza-orrietan
         title: Laguntza
         topics: Gaiak
       participatory_space:
@@ -1360,7 +1359,7 @@ eu:
         conversations: Elkarrizketak
         followers: Jarraitzaileak
         following: Jarraitzen
-        group_admins: Kudeatu administratzaileak
+        group_admins: Kudeatu kudeatzaileak
         group_members: Kudeatu kideak
         groups: Taldeak
         members: Bazkideek
@@ -1377,14 +1376,14 @@ eu:
           edit_profile: Editatu profila
           edit_user_group: Editatu taldearen profila
           invite_user: Gonbidatu parte-hartzailea
-          join_user_group: Eskatu taldera lotzeko
+          join_user_group: Eskatu taldera lotzea
           leave_user_group: Utzi taldea
           manage_user_group: Kudeatu taldea
-          manage_user_group_admins: Kudeatu administratzaileak
+          manage_user_group_admins: Kudeatu kudeatzaileak
           manage_user_group_users: Kudeatu kideak
           message: Mezua
-          resend_email_confirmation_instructions: Birbidali helbide elektroniko bat berresteko instrukzioekin
-        confirmation_instructions_sent: Berresteko instrukzioak helbide elektronikoz bidalita.
+          resend_email_confirmation_instructions: Birbidali posta elektronikoa berresteko instrukzioekin
+        confirmation_instructions_sent: Berresteko jarraibideak helbide elektronikoz bidalita.
         create_user_group: Sortu taldea
         edit_profile: Editatu profila
         edit_user_group: Editatu taldearen profila
@@ -1392,7 +1391,7 @@ eu:
         invite_user: Gonbidatu parte-hartzailea
         join_user_group: Eskatu taldera lotzea
         leave_user_group: Utzi taldea
-        manage_user_group_admins: Kudeatu administratzaileak
+        manage_user_group_admins: Kudeatu kudeatzaileak
         manage_user_group_users: Kudeatu kideak
         resend_email_confirmation_instructions: Birbidali posta elektronikoa berresteko instrukzioekin
     reported_mailer:
@@ -1409,7 +1408,7 @@ eu:
         details: Xehetasunak
         hello: Kaixo, %{name},
         id: ID
-        participatory_space: Parte hartzeko espazioa
+        participatory_space: Partaidetza-espazioa
         reason: Arrazoia
         report_html: <p>Hurrengo <a href="%{url}"> edukia </a> salatua izan da.</p>
         see_report: Ikusi erreportea
@@ -1469,7 +1468,7 @@ eu:
         more: Gehiago
         unfold: Zabaldu
       filter_form_help:
-        help: Bilaketa-baldintzak aldatzen direnean, hurrengo formularioak dinamikoki iragazten ditu bilaketa-emaitzak.
+        help: "Bilaketa-baldintzak aldatzen direnean, beheko inprimakiak dinamikoki iragazten ditu bilaketaren\nemaitzak."
         skip: Joan emaitzetara
       flag_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
@@ -1671,7 +1670,7 @@ eu:
       invite_collaborator:
         subject: 'Gonbita jaso duzu erakunde honekin lankidetzan aritzeko: %{organization}'
       invite_private_user:
-        subject: Gonbidatu zaituzte prozesu parte-hartzaile pribatu batean %{organization} erakundean
+        subject: Gonbidatu zaituzte partaidetza-prozesu pribatu batean %{organization} erakundean
       organization_admin_invitation_instructions:
         subject: Gonbita jaso duzu %{organization} kudeatzeko
       password_change:
@@ -1700,8 +1699,8 @@ eu:
         confirm_new_password: Berretsi pasahitz berria
         new_password: Pasahitza
         old_password_help: Zure kontuaren aldaketak baieztatzeko, mesedez eman zure egungo pasahitza.
-        password_help: "%{minimum_characters} gutxieneko karaktereek, ez dute arruntegiak izan behar (adibidez, 123456), zure ezizenaren eta posta elektronikoaren desberdinak izan behar dute."
-        password_help_admin: "%{minimum_characters} gutxieneko karaktereek, ez dute arruntegiak izan behar (adibidez, 123456), zure ezizenaren eta posta elektronikoaren desberdinak izan behar dute, baita zure pasahitz zaharren desberdina ere."
+        password_help: "%{minimum_characters} karaktere izan behar ditu gutxienez, arruntegiak izan gabe (adib., 123456). Ezin da izan ezizenaren eta helbide elektronikoaren berdina."
+        password_help_admin: "%{minimum_characters} karaktere izan behar ditu gutxienez, arruntegiak izan gabe (adib., 123456). Ezin da izan ezizenaren eta helbide elektronikoaren berdina eta zure pasahitza ez bezalakoa izan behar du."
         title: Pasahitza aldatu egin da
       new:
         forgot_your_password: Pasahitza ahaztu duzu?
@@ -1730,7 +1729,7 @@ eu:
     shared:
       links:
         back: Atzera
-        didn_t_receive_confirmation_instructions: Ez duzu baieztatzeko instrukziorik jaso?
+        didn_t_receive_confirmation_instructions: Ez duzu baieztatzeko jarraibiderik jaso?
         didn_t_receive_unlock_instructions: Ez duzu desblokeatzeko instrukziorik jaso?
         forgot_your_password: Zure pasahitza ahaztu duzu?
         log_in: Hasi saioa
@@ -1863,7 +1862,7 @@ eu:
         one: Gutxienez karaktere bat
         other: Gutxienez %{count} karaktere
     required: Nahitaezkoa da
-    required_explanation: "Derrigorrezko eremuak * batez daude markatuta"
+    required_explanation: "* Nahitaez bete beharreko eremuak batez daude markatuta"
   invisible_captcha:
     sentence_for_humans: Gizaki bat bazara, ez egin kasu eremu honi
     timestamp_error_message: Barkatu, baina azkarregi aritu zara! Mesedez, birbidali.
@@ -1930,7 +1929,7 @@ eu:
         decidim_title: Decidim
         download_open_data: Deskargatu Open Data fitxategiak
         log_in: Hasi saioa
-        made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
+        made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software librea</a> erabili da.
         resources: Baliabideak
         sign_up: Erregistratu
         terms_and_conditions: Terminoak eta baldintzak
