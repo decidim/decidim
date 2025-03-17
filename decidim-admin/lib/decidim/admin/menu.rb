@@ -87,7 +87,9 @@ module Decidim
                         I18n.t("menu.demographic_data", scope: "decidim.admin"),
                         "#",
                         icon_name: "earth-line",
-                        position: 2
+                        position: 2,
+                        active: is_active_link?("#"),
+                        if: allowed_to?(:read, :demographic_data)
         end
       end
 
