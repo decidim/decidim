@@ -519,7 +519,6 @@ sv:
             split_button: Dela upp
             title: Förslag
             unassign_from_valuator: Ta bort tilldelning till handläggare
-            unassign_from_valuator_button: Ta bort tilldelning
             update: Uppdatera
             update_scope_button: Uppdatera indelning
           new:
