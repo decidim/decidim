@@ -225,6 +225,8 @@ pl:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Otrzymujesz to powiadomienie, ponieważ możesz weryfikować propozycję.
           proposal_note_created:
             email_outro: Otrzymujesz to powiadomienie, ponieważ możesz weryfikować propozycję.
             email_subject: Ktoś zostawił notatkę do propozycji %{resource_title}.
@@ -469,7 +471,6 @@ pl:
           index:
             actions: Działania
             assign_to_valuator: Przypisz do weryfikatora
-            assign_to_valuator_button: Przypisz
             cancel: Anuluj
             merge: Przyłącz do nowego
             merge_button: Przyłącz
@@ -483,7 +484,6 @@ pl:
             statuses: Statusy
             title: Propozycje
             unassign_from_valuator: Anuluj przypisanie do weryfikatora
-            unassign_from_valuator_button: Anuluj przypisanie
             update: Aktualizuj
           new:
             create: Utwórz

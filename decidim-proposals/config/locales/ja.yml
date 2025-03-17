@@ -268,7 +268,7 @@ ja:
         admin:
           proposal_assigned_to_valuator:
             email_intro: 提案「%{resource_title}」の評価者として割り当てられました。これは、今後数日以内にフィードバックや適切な対応を行うために信頼されていることを意味します。詳細は<a href="%{admin_proposal_info_url}">管理パネル</a>で確認してください。
-            email_outro: 提案の評価者のため、この通知を受け取りました。
+            email_outro: 提案を評価できるため、この通知を受け取りました。
             email_subject: あなたは提案 %{resource_title} に評価者として割り当てられています。
             notification_title: 誰かがあなたを提案 <a href="%{resource_path}">%{resource_title}</a> の評価者に割り当てました。詳細は<a href="%{admin_proposal_info_path}">管理者パネル</a>で確認してください。
           proposal_note_created:
@@ -634,7 +634,6 @@ ja:
             actions: アクション
             apply_answer_template: 回答テンプレートを適用
             assign_to_valuator: 評価者に割り当てる
-            assign_to_valuator_button: 割り当て
             cancel: キャンセル
             change_taxonomies: タクソノミーを変更
             merge: 新しいものにマージ
@@ -650,7 +649,6 @@ ja:
             statuses: ステータス
             title: 提案
             unassign_from_valuator: 評価者からの割り当てを解除
-            unassign_from_valuator_button: 割り当ての解除
             update: 更新
           manage_trash:
             title: 削除された提案

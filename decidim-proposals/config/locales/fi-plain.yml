@@ -272,7 +272,7 @@ fi-pl:
         admin:
           proposal_assigned_to_valuator:
             email_intro: Sinulle on annettu arvioitavaksi ehdotus "%{resource_title}". Tämä tarkoittaa, että sinut on valtuutettu antamaan palautetta ja vastaamaan ehdotukseen tulevien päivien aikana. Tarkasta ehdotus <a href="%{admin_proposal_info_url}">hallintapaneelin</a> kautta.
-            email_outro: Tämä ilmoitus on lähetetty sinulle, koska voit arvioida ehdotuksen.
+            email_outro: Saat tämän ilmoituksen, koska voit arvioida ehdotuksen.
             email_subject: Sinulle on annettu arvioitavaksi ehdotus %{resource_title}.
             notification_title: Sinulle on annettu arvioitavaksi ehdotus <a href="%{resource_path}">"%{resource_title}"</a>. Tarkasta ehdotus <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
           proposal_note_created:
@@ -641,7 +641,6 @@ fi-pl:
             actions: Toiminnot
             apply_answer_template: Käytä vastauksen mallipohjaa
             assign_to_valuator: Anna tehtäväksi arvioijalle
-            assign_to_valuator_button: Anna tehtäväksi
             cancel: Peruuta
             change_taxonomies: Muuta luokitteluja
             merge: Yhdistä uuteen
@@ -657,7 +656,6 @@ fi-pl:
             statuses: Tilat
             title: Ehdotukset
             unassign_from_valuator: Poista tehtävä arvioijalta
-            unassign_from_valuator_button: Poista tehtävä
             update: Päivitä
           manage_trash:
             title: Poistetut ehdotukset

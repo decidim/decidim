@@ -125,6 +125,8 @@ lv:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Jūs saņēmāt šo paziņojumu, jo varat izvērtēt priekšlikumu.
           proposal_note_created:
             email_outro: Jūs saņēmāt šo paziņojumu, jo varat izvērtēt priekšlikumu.
             email_subject: Kāds atstāja piezīmi par priekšlikumu %{resource_title}.
@@ -272,7 +274,6 @@ lv:
           index:
             actions: Darbības
             assign_to_valuator: Piešķirt vērtētājam
-            assign_to_valuator_button: Piešķirt
             cancel: Atcelt
             merge: Apvienot jaunā
             merge_button: Apvienot
@@ -284,7 +285,6 @@ lv:
             split_button: Sadalījums
             title: Priekšlikumi
             unassign_from_valuator: Atsaukt no vērtētāja
-            unassign_from_valuator_button: Atsaukt
             update: Atjaunināt
           new:
             create: Izveidot

@@ -577,7 +577,6 @@ sv:
             actions: Åtgärder
             apply_answer_template: Tillämpa svarsmall
             assign_to_valuator: Tilldela till handläggare
-            assign_to_valuator_button: Tilldela
             cancel: Avbryt
             merge: Slå samman till ett nytt
             merge_button: Slå ihop
@@ -592,7 +591,6 @@ sv:
             statuses: Statusar
             title: Förslag
             unassign_from_valuator: Ta bort tilldelning till handläggare
-            unassign_from_valuator_button: Ta bort tilldelning
             update: Uppdatera
           new:
             create: Skapa

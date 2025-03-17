@@ -178,6 +178,8 @@ ro:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Ai primit această notificare pentru a putea evalua propunerea.
           proposal_note_created:
             email_outro: Ai primit această notificare pentru a putea evalua propunerea.
             email_subject: Cineva a trimis o notă la propunerea %{resource_title}.
@@ -356,7 +358,7 @@ ro:
           index:
             actions: Acțiuni
             assign_to_valuator: Atribuie evaluatorului
-            assign_to_valuator_button: Atribuie
+            assign_to_valuator_button: Delegați
             cancel: Anulează
             merge: Combină într-o propunere nouă
             merge_button: Combină
@@ -369,7 +371,7 @@ ro:
             split_button: Împarte
             title: Propuneri
             unassign_from_valuator: Atribuire către evaluator anulată
-            unassign_from_valuator_button: Neatribuit
+            unassign_from_valuator_button: Anulare delegare
             update: Actualizează
           new:
             create: Creează

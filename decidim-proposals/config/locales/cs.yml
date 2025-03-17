@@ -280,7 +280,7 @@ cs:
         admin:
           proposal_assigned_to_valuator:
             email_intro: Byli jste přiděleni jako hodnotitel k nnávrhu "%{resource_title}". To znamená, že vám důvěřujeme, že jim v příštích dnech poskytnete zpětnou vazbu a náležitou odpověď. Podívejte se na <a href="%{admin_proposal_info_url}">administrátorský panel</a>.
-            email_outro: Obdrželi jste toto oznámení, protože můžete návrh hhodnotit.
+            email_outro: Obdrželi jste toto oznámení, protože můžete návrh ohodnotit.
             email_subject: Byl jste přiřazen jako hodnotitel k návrhu %{resource_title}.
             notification_title: Byli jste přiřazeni jako hodnotitel k nnávrhu <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">administrátorský panel</a>.
           proposal_note_created:
@@ -649,7 +649,6 @@ cs:
             actions: Akce
             apply_answer_template: Použít šablonu odpovědi
             assign_to_valuator: Přiřadit hodnotiteli
-            assign_to_valuator_button: Přiřadit
             cancel: Zrušit
             change_taxonomies: Změnit taxonomie
             merge: Sloučit do nového
@@ -665,7 +664,6 @@ cs:
             statuses: Statusy
             title: Návrhy
             unassign_from_valuator: Odebrat přiřazení od hodnotitele
-            unassign_from_valuator_button: Zrušit přiřazení
             update: Aktualizace
           manage_trash:
             title: Smazané návrhy

@@ -222,6 +222,8 @@ bg:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Получихте известие, защото можете да оценяте предложението.
           proposal_note_created:
             email_outro: Получихте известие, защото можете да оценяте предложението.
             email_subject: Някой е направил бележка в предложението %{resource_title}.
@@ -467,7 +469,6 @@ bg:
           index:
             actions: Активности
             assign_to_valuator: Възлагане на оценител
-            assign_to_valuator_button: Възлагане
             cancel: Отказ
             merge: Сливане в едно ново
             merge_button: Сливане
@@ -481,7 +482,6 @@ bg:
             statuses: Статуси
             title: Предложения
             unassign_from_valuator: Отнемане възложеното на оценителя
-            unassign_from_valuator_button: Отнемане на възложеното
             update: Актуализация
           new:
             create: Създаване

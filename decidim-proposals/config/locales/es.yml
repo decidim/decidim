@@ -641,7 +641,6 @@ es:
             actions: Acciones
             apply_answer_template: Aplicar la plantilla de respuesta
             assign_to_valuator: Asignar a evaluadora
-            assign_to_valuator_button: Asignar
             cancel: Cancelar
             change_taxonomies: Cambiar taxonomías
             merge: Fusionar en una nueva
@@ -657,7 +656,6 @@ es:
             statuses: Estados
             title: Propuestas
             unassign_from_valuator: Desasignar de evaluadora
-            unassign_from_valuator_button: Desasignar
             update: Actualizar
           manage_trash:
             title: Propuestas eliminadas

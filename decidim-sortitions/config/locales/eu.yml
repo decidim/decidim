@@ -27,7 +27,7 @@ eu:
             clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
-            define_taxonomy_filters: Mesedez, zehaztu iragazki batzuk espazio parte-hartzaile honetarako eszenatoki hau erabili aurretik.
+            define_taxonomy_filters: Mesedez, zehaztu iragazki batzuk partaidetza-espazio honetarako eszenatoki hau erabili aurretik.
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             taxonomy_filters: Aukeratu iragazkiak osagairako
             taxonomy_filters_add: Erantsi iragazkia
