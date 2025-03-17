@@ -184,7 +184,6 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
-            valuator: Avaliador
         media_link:
           fields:
             date: Data
