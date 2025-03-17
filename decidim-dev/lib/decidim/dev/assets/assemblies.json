@@ -653,7 +653,7 @@
                   "id": 9,
                   "decidim_questionnaire_id": 9,
                   "position": null,
-                  "question_type": "short_answer",
+                  "question_type": "short_response",
                   "mandatory": null,
                   "body": {
                     "ca": "Est incidunt ut. Et distinctio velit. Perferendis ratione qui.",
@@ -664,15 +664,13 @@
                   "max_choices": null,
                   "created_at": "2020-01-22T07:55:13.496Z",
                   "updated_at": "2020-01-22T07:55:13.496Z",
-                  "answer_options": [
-
-                  ]
+                  "response_options": []
                 },
                 {
                   "id": 10,
                   "decidim_questionnaire_id": 9,
                   "position": null,
-                  "question_type": "long_answer",
+                  "question_type": "long_response",
                   "mandatory": null,
                   "body": {
                     "ca": "Unde qui recusandae. Ab saepe praesentium. Quis velit et.",
@@ -683,9 +681,7 @@
                   "max_choices": null,
                   "created_at": "2020-01-22T07:55:13.507Z",
                   "updated_at": "2020-01-22T07:55:13.507Z",
-                  "answer_options": [
-
-                  ]
+                  "response_options": []
                 },
                 {
                   "id": 11,
@@ -702,7 +698,7 @@
                   "max_choices": null,
                   "created_at": "2020-01-22T07:55:13.520Z",
                   "updated_at": "2020-01-22T07:55:13.520Z",
-                  "answer_options": [
+                  "response_options": [
                     {
                       "id": 13,
                       "decidim_question_id": 11,
@@ -750,7 +746,7 @@
                   "max_choices": null,
                   "created_at": "2020-01-22T07:55:13.564Z",
                   "updated_at": "2020-01-22T07:55:13.564Z",
-                  "answer_options": [
+                  "response_options": [
                     {
                       "id": 16,
                       "decidim_question_id": 12,
