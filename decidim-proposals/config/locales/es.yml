@@ -506,7 +506,6 @@ es:
           index:
             actions: Acciones
             assign_to_valuator: Asignar a evaluadora
-            assign_to_valuator_button: Asignar
             cancel: Cancelar
             change_category: Cambiar categoría
             change_scope: Cambiar ámbito
@@ -520,7 +519,6 @@ es:
             split_button: Dividir
             title: Propuestas
             unassign_from_valuator: Desasignar de evaluadora
-            unassign_from_valuator_button: Desasignar
             update: Actualizar
             update_scope_button: Actualizar ámbito
           new:
