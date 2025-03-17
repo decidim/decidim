@@ -512,7 +512,6 @@ bg:
           index:
             actions: Активности
             assign_to_valuator: Възлагане на оценител
-            assign_to_valuator_button: Възлагане
             cancel: Отказ
             change_category: Промяна на категория
             change_scope: Промяна на обхвата
@@ -528,7 +527,6 @@ bg:
             statuses: Статуси
             title: Предложения
             unassign_from_valuator: Отнемане възложеното на оценителя
-            unassign_from_valuator_button: Отнемане на възложеното
             update: Актуализация
             update_scope_button: Актуализиране на обхвата
           new:
