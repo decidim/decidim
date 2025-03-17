@@ -514,7 +514,6 @@ pl:
           index:
             actions: Działania
             assign_to_valuator: Przypisz do weryfikatora
-            assign_to_valuator_button: Przypisz
             cancel: Anuluj
             change_category: Zmień kategorię
             change_scope: Zmień zakres
@@ -530,7 +529,6 @@ pl:
             statuses: Statusy
             title: Propozycje
             unassign_from_valuator: Anuluj przypisanie do weryfikatora
-            unassign_from_valuator_button: Anuluj przypisanie
             update: Aktualizuj
             update_scope_button: Aktualizuj zakres
           new:
