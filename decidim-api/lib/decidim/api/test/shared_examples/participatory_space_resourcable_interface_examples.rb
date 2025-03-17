@@ -8,6 +8,24 @@ shared_examples_for "participatory space resourcable interface" do
   let!(:process3) { create(:participatory_process, organization: model.organization) }
   let!(:model) { create(:assembly) }
 
+  context "when checks is has steps" do
+    describe "hasSteps" do
+      let(:query) { "{hasSteps}" }
+
+      it "has the field" do
+        expect(response["hasSteps"]).to be(false)
+      end
+    end
+
+    describe "allows_steps" do
+      let(:query) { "{allowsSteps}" }
+
+      it "has the field" do
+        expect(response["allowsSteps"]).to be(false)
+      end
+    end
+  end
+
   context "when linked from the model" do
     describe "linkedParticipatorySpaces" do
       let(:query) { "{ linkedParticipatorySpaces { participatorySpace { id } } }" }
