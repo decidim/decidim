@@ -53,7 +53,7 @@ module Decidim
           menu.add_item :survey_questions_edit,
                         I18n.t("questions", scope: "decidim.admin.menu.surveys_menu"),
                         @survey.nil? ? "#" : Decidim::EngineRouter.admin_proxy(@survey.component).edit_questions_questions_survey_path(@survey),
-                        icon_name: "question-response-line"
+                        icon_name: "question-answer-line"
 
           menu.add_item :survey_responses_view,
                         responses_caption.html_safe,
