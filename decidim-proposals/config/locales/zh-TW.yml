@@ -415,7 +415,6 @@ zh-TW:
           index:
             actions: 操作
             assign_to_valuator: 分配給評估人員
-            assign_to_valuator_button: 指派
             cancel: 取消
             change_category: 變更類別
             change_scope: 變更範圍
@@ -429,7 +428,6 @@ zh-TW:
             split_button: 拆分
             title: 提案
             unassign_from_valuator: 取消分派給評估者
-            unassign_from_valuator_button: 取消分配
             update: 更新
             update_scope_button: 更新範圍
           new:
