@@ -51,11 +51,9 @@ bs:
         proposals:
           index:
             assign_to_valuator: Dodeli procenjivaču
-            assign_to_valuator_button: Dodeli
             change_scope: Promeni opseg
             publish_answers: Objavi odgovore
             unassign_from_valuator: Oduzmi od procenjivača
-            unassign_from_valuator_button: Od dodeli
             update_scope_button: Ažuriraj opseg
           show:
             amendments_count: Broj izmena
