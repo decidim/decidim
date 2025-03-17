@@ -184,7 +184,6 @@ gl:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
-            valuator: Avaliador/a
         media_link:
           fields:
             date: Data
