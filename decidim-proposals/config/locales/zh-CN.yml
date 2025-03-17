@@ -307,7 +307,6 @@ zh-CN:
           index:
             actions: 行动
             assign_to_valuator: 分配给值器
-            assign_to_valuator_button: 分配
             cancel: 取消
             change_category: 更改类别
             change_scope: 更改范围
@@ -321,7 +320,6 @@ zh-CN:
             split_button: 拆分
             title: 建议
             unassign_from_valuator: 取消分配给值
-            unassign_from_valuator_button: 取消分配
             update: 更新
             update_scope_button: 更新范围
           new:
