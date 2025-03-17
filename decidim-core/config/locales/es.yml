@@ -1314,7 +1314,6 @@ es:
         push_notifications_reminder: Para recibir notificaciones de la plataforma, primero tienes que permitirlas en la configuración de tu navegador.
         receive_notifications_about: Quiero recibir notificaciones
         update_notifications_settings: Guardar cambios
-        valuators: Evaluadoras
       update:
         error: Se ha producido un error al actualizar la configuración de las notificaciones.
         success: La configuración de las notificaciones se ha actualizado correctamente.
