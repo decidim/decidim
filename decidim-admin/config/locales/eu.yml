@@ -192,7 +192,7 @@ eu:
         newsletter:
           new: Beste buletin bat
         participatory_space_private_user:
-          new: Espazio parte-hartzaile berria, erabiltzaile pribatua
+          new: Partaidetza-espazio berria, erabiltzaile pribatua
         per_page: Orrialdeko
         permissions: Baimenak
         reject: Ukatu
@@ -553,7 +553,7 @@ eu:
         notice: "%{number} %{resource_name} zuzen inportatua."
       logs:
         filters:
-          participatory_space: Bilatu espazio parte-hartzailea
+          participatory_space: Bilatu partaidetza-espazioa
           text: Bilatu parte-hartzailearen helbide elektroniko, izen edo ezizenaren arabera.
           user: Parte-hartzailea
         logs_list:
@@ -763,7 +763,7 @@ eu:
           all_users_help: Albisteen buletina baieztatu duten parte-hartzaile guztiei bidaltzen die.
           confirm_deliver: Ziur zaude buletin hau bidali nahi duzula? Ekintza hau ezin da desegin.
           deliver: Bidali buletina
-          followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein parte hartze espazio jarraitzen duten parte-hartzaile guztiei bidaltzen die.
+          followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein partaidetza-espazio jarraitzen duten parte-hartzaile guztiei bidaltzen die.
           none: Bat ere ez
           participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein espazio parte-hartzailetan esku hartu duten parte-hartzaile guztiei bidaltzen die.
           recipients_count: 'Buletin hau parte-hartzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
@@ -876,17 +876,17 @@ eu:
           title: Baimendutako kanpoko domeinuen zerrenda
       participatory_space_private_users:
         create:
-          error: Arazo bat egon da parte-hartzaile pribatu bat gehitzean parte hartzeko espazio honetarako.
+          error: Arazo bat egon da parte-hartzaile pribatu bat gehitzean partaidetza-espazio honetarako.
           success: Zuzen sortu da sarbide pribatua partaidetza-espazioko partaideentzat.
         destroy:
-          error: Arazo bat egon da parte-hartzaile pribatu bat ezabatzean parte hartzeko espazio honetarako.
-          success: Behar bezala ezabatua parte-hartzailearen sarbidea parte hartzeko espazio pribaturako.
+          error: Arazo bat egon da parte-hartzaile pribatu bat ezabatzean partaidetza-espazio honetarako.
+          success: Behar bezala ezabatua parte-hartzailearen sarbidea partaidetza-espazio pribaturako.
         index:
           import_via_csv: Inportatu CSV bidetik
-          title: Parte hartzeko espazio pribatuko parte-hartzailea 
+          title: Partaidetza-espazio pribatuko parte-hartzailea
         new:
           create: Sortu
-          title: Parte hartzeko espazio pribatuko parte-hartzaile berria.
+          title: Partaidetza-espazio pribatuko parte-hartzaile berria.
       participatory_space_private_users_csv_imports:
         create:
           invalid: Arazo bat egon da CSV fitxategia irakurtzean. Mesedez, ziurtatu jarraibideei kasu egin diezula.
