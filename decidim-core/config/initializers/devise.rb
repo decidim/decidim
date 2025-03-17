@@ -310,7 +310,8 @@ Devise.setup do |config|
   # https://github.com/heartcombo/devise/blob/v4.9.0/CHANGELOG.md#490---2023-02-17):
   config.responder.error_status = :forbidden
 
-  # To be compatible with the jwt authentication, we need to set these configurations.
+  # In order to be compatible with the jwt authentication, we need to set these
+  # configurations.
   # JWT secret is being used by the devise-jwt to generate the tokens, once the
   # user authenticated.
   config.jwt do |jwt|
