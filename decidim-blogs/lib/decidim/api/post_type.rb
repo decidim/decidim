@@ -7,6 +7,7 @@ module Decidim
       implements Decidim::Comments::CommentableInterface
       implements Decidim::Core::AttachableInterface
       implements Decidim::Core::AuthorableInterface
+      implements Decidim::Core::FollowableInterface
       implements Decidim::Core::TraceableInterface
       implements Decidim::Core::EndorsableInterface
       implements Decidim::Core::TimestampsInterface

@@ -15,6 +15,7 @@ module Decidim
       include_examples "traceable interface"
       include_examples "timestamps interface"
       include_examples "endorsable interface"
+      include_examples "followable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
