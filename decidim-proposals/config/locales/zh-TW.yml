@@ -178,6 +178,8 @@ zh-TW:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: 您收到此通知，因為您可以對提案進行評估。
           proposal_note_created:
             email_outro: 您收到此通知，因為您可以對提案進行評估。
             email_subject: 有人在提案 %{resource_title} 上留下了一則註記。
@@ -368,7 +370,6 @@ zh-TW:
           index:
             actions: 操作
             assign_to_valuator: 分配給評估人員
-            assign_to_valuator_button: 指派
             cancel: 取消
             merge: 合併為新提案
             merge_button: 合併
@@ -380,7 +381,6 @@ zh-TW:
             split_button: 拆分
             title: 提案
             unassign_from_valuator: 取消分派給評估者
-            unassign_from_valuator_button: 取消分配
             update: 更新
           new:
             create: 建立
