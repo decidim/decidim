@@ -2,7 +2,7 @@
 
 module Decidim
   module ParticipatorySpaceRoleConfig
-    class Valuator < Base
+    class Evaluator < Base
       def accepted_components
         [:proposals]
       end

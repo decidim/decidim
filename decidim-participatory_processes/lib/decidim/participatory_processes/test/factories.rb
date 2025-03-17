@@ -227,7 +227,7 @@ FactoryBot.define do
     end
   end
 
-  factory :process_valuator, parent: :user, class: "Decidim::User" do
+  factory :process_evaluator, parent: :user, class: "Decidim::User" do
     transient do
       skip_injection { false }
       participatory_process { create(:participatory_process, skip_injection:) }
@@ -240,7 +240,7 @@ FactoryBot.define do
       create(:participatory_process_user_role,
              user:,
              participatory_process: evaluator.participatory_process,
-             role: :valuator, skip_injection: evaluator.skip_injection)
+             role: :evaluator, skip_injection: evaluator.skip_injection)
     end
   end
 
