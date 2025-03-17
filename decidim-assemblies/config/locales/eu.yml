@@ -200,8 +200,8 @@ eu:
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzaile
+            evaluator: Ebaluatzailea
             moderator: Moderatzailea
-            valuator: Ebaluatzailea
       taxonomy_filters:
         space_filter_for:
           assemblies: Batzar guztiak
