@@ -893,7 +893,7 @@ ca:
           success: L'arxiu CSV s'ha carregat amb èxit, estem enviant un correu d'invitació a les participants. Això pot trigar una estona.
         new:
           csv_upload:
-            title: Puja el teu fitxer CSV
+            title: Puja el fitxer CSV
           destroy:
             button: Esborrar totes les participants privades
             confirm: Segur que vols esborrar totes les participants privades? Aquesta acció no es pot desfer, no podràs recuperar-les.
@@ -1055,9 +1055,9 @@ ca:
       user_groups:
         index:
           state:
-            pending: Pendent
-            rejected: Rebutjat
-            verified: Verificat
+            pending: Pendents
+            rejected: Rebutjada
+            verified: Verificades
           verify_via_csv: Verifica mitjançant CSV
       user_groups_csv_verifications:
         new:
@@ -1067,7 +1067,7 @@ ca:
             acme@example.org
             bubba.gump@example.org
           title: Puja el fitxer CSV
-          upload: Pujar
+          upload: Carrega
       users:
         create:
           error: S'ha produït un error en convidar aquesta participant.

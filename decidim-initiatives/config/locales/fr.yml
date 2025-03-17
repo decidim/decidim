@@ -362,7 +362,6 @@ fr:
         finish:
           back: Retour
           back_to_initiatives: Retour à l'index des pétitions
-          callout_text: Bravo ! Votre pétition a été créée avec succès.
           confirm: Vous allez envoyer la pétition à un administrateur pour qu'il la consulte et la publie. Une fois publiée, vous ne serez plus en mesure de l'éditer. Êtes-vous sûr que votre pétition est prête ?
           edit_my_initiative: Modifier ma pétition
           go_to_my_initiatives: Consulter mes pétitions
@@ -599,7 +598,7 @@ fr:
     decidim:
       initiative_creation_header:
         fill_data: Complétez votre pétition
-        finish: Publiez votre pétition
+        finish: terminer
         promotal_committee: Comité de promotion
         select_initiative_type: Sélectionnez le type de pétition
       initiative_signature_creation_header:

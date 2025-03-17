@@ -225,10 +225,18 @@ is:
       home: Heim
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          greeting: Hæ, %{recipient}!
+        comanagers_new_message:
+          greeting: Hæ, %{recipient}!
         new_conversation:
           greeting: Hæ, %{recipient}!
           intro: "%{sender} hefur byrjað nýtt samtal við þig. Smelltu hér til að sjá það:"
           subject: "%{sender} hefur byrjað samtal við þig"
+        new_group_conversation:
+          greeting: Hæ, %{recipient}!
+        new_group_message:
+          greeting: Hæ, %{recipient}!
         new_message:
           greeting: Hæ, %{recipient}!
           intro: "%{sender} hefur sent ný skilaboð í samtali þínu. Smelltu hér til að sjá þær:"
@@ -286,6 +294,8 @@ is:
         share: Deila
         share_link: Deila tengil
     user_conversations:
+      reply:
+        send: Senda
       update:
         error: Skilaboð ekki send. Reyndu aftur seinna
   devise:

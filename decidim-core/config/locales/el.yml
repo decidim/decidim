@@ -910,6 +910,8 @@ el:
           new_conversation: Νέα συνομιλία
           next: Επόμενο
           title: Συνομιλίες
+        reply_form:
+          placeholder: Η απάντησή σας...
         show:
           back: Πίσω σε όλες τις συνομιλίες
           chat_with: Συνομιλία με
@@ -1057,14 +1059,12 @@ el:
         conversations: Συνομιλίες
         followers: Ακόλουθοι
         following: Ακολουθεί
+        group_admins: Διαχείριση διαχειριστών
+        group_members: Διαχείριση μελών
         groups: Ομάδες
         members: Μέλη
         officialized: Επίσημος συμμετέχων
         send_private_message: Αποστολή προσωπικού μηνύματος
-      sidebar:
-        badges:
-          info: Τα εμβλήματα κερδίζονται πραγματοποιώντας μια συγκεκριμένη δραστηριότητα στην πλατφόρμα.
-          title: Εμβλήματα
       user:
         actions:
           create_user_group: Δημιουργία ομάδας
@@ -1072,20 +1072,13 @@ el:
           edit_user_group: Επεξεργασία προφίλ ομάδας
           invite_user: Πρόσκληση συμμετέχοντα
           join_user_group: Αίτημα συμμετοχής σε ομάδα
+          leave_user_group: Αποχώρηση από την ομάδα
           manage_user_group_admins: Διαχείριση διαχειριστών
           manage_user_group_users: Διαχείριση μελών
           message: Μήνυμα
+          resend_email_confirmation_instructions: Επανάληψη αποστολής των οδηγιών επιβεβαίωσης μέσω email
         confirmation_instructions_sent: Στάλθηκαν οι οδηγίες επιβεβαίωσης email.
-        create_user_group: Δημιουργία ομάδας
-        edit_profile: Επεξεργασία προφίλ
-        edit_user_group: Επεξεργασία προφίλ ομάδας
         fill_in_email_to_confirm_it: Συμπληρώστε τη διεύθυνση email της ομάδας σας για να την επιβεβαιώσετε.
-        invite_user: Πρόσκληση συμμετέχοντα
-        join_user_group: Αίτημα συμμετοχής σε ομάδα
-        leave_user_group: Αποχώρηση από την ομάδα
-        manage_user_group_admins: Διαχείριση διαχειριστών
-        manage_user_group_users: Διαχείριση μελών
-        resend_email_confirmation_instructions: Επανάληψη αποστολής των οδηγιών επιβεβαίωσης μέσω email
     reported_mailer:
       hide:
         hello: Γεια σας %{name},

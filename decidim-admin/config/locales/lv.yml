@@ -400,6 +400,7 @@ lv:
             created_at: Izveidots plkst.
             document_number: Dokumenta numurs
             name: Nosaukums
+            nickname: Segvārds
             phone: Tālrunis
             state: Stāvoklis
             users_count: Dalībnieku skaits
@@ -527,6 +528,8 @@ lv:
           title: Jauns līdzdalības telpas privāts dalībnieks
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Augšupielādējiet savu CSV failu
           upload: Augšupielādēt
       resource_permissions:
         edit:
@@ -626,9 +629,7 @@ lv:
       user_groups:
         index:
           state:
-            pending: Nepabeigts
             rejected: Noraidīts
-            verified: Pārbaudīts
           verify_via_csv: Pārbaudīt, izmantojot CSV
       user_groups_csv_verifications:
         new:

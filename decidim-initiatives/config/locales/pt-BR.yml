@@ -328,7 +328,6 @@ pt-BR:
         finish:
           back: Costas
           back_to_initiatives: De volta às iniciativas
-          callout_text: Parabéns! Sua iniciativa cidadã foi criada com sucesso.
           confirm: Você vai enviar a iniciativa para um administrador revisá-lo e publicá-lo. Uma vez publicado, você não será capaz de editá-lo. Você tem certeza?
           edit_my_initiative: Editar minha iniciativa
           go_to_my_initiatives: Vá para minhas iniciativas
@@ -545,7 +544,7 @@ pt-BR:
     decidim:
       initiative_creation_header:
         fill_data: Criar
-        finish: Finalizar
+        finish: Terminar
         promotal_committee: Comitê Promotor
         select_initiative_type: Escolher
       initiative_signature_creation_header:

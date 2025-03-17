@@ -398,6 +398,16 @@ fi:
         exports:
           proposal_comments: Kommentit
           proposals: Ehdotukset
+        import_proposals_mailer:
+          notify_failure:
+            body: Ehdotusten tuonti komponentista %{origin_component_name} komponenttiin %{target_component_name} epäonnistui.
+            subject: Ehdotusten tuonti epäonnistui
+          notify_success:
+            added_proposals:
+              one: Yksi ehdotus tuotiin.
+              other: "%{count} ehdotusta tuotiin."
+            body: Ehdotusten tuonti komponentista %{origin_component_name} komponenttiin %{target_component_name} onnistui. Voit tarkastella tuonnin lopputulosta hallintapaneelin kautta.
+            subject: Ehdotusten tuonti onnistui.
         imports:
           help:
             answers: |
@@ -571,7 +581,7 @@ fi:
         proposals_imports:
           create:
             invalid: Ehdotusten tuonti epäonnistui.
-            success: "%{number} ehdotuksen tuonti onnistui."
+            success: Ehdotusten tuonti on aloitettu. Ilmoitamme sinulle, kun tuonti valmistuu.
           new:
             create: Tuo ehdotuksia
             no_components: Tässä osallistumistilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.

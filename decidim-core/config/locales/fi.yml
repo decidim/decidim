@@ -1106,13 +1106,13 @@ fi:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
-          greeting: Hei %{recipient}!
+          greeting: Hei, %{recipient}!
           intro: "%{manager} on aloittanut uuden keskustelun ryhmän %{group} nimellä. Napsauta tätä linkkiä nähdäksesi keskustelun:"
           outro: Nauti palvelun käyttämisestä!
           subject: "%{manager} on aloittanut uuden keskutelun ryhmänä %{group}"
         comanagers_new_message:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
-          greeting: Hei %{recipient}!
+          greeting: Hei, %{recipient}!
           intro: "%{manager} on lähettänyt uusia viestejä keskustelussa ryhmän %{group} nimellä. Napsauta tätä linkkiä nähdäksesi ne:"
           outro: Nauti palvelun käyttämisestä!
           subject: "%{manager} on lähettänyt uusia viestejä ryhmänä %{group}"
@@ -1123,13 +1123,13 @@ fi:
           subject: "%{sender} on aloittanut keskustelun kanssasi"
         new_group_conversation:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
-          greeting: Hei %{recipient}!
+          greeting: Hei, %{recipient}!
           intro: "%{sender} on aloittanut uuden keskustelun ryhmänä %{group}. Napsauta tätä linkkiä nähdäksesi keskustelun:"
           outro: Nauti palvelun käyttämisestä!
           subject: "%{sender} on aloittanut keskustelun ryhmän %{group} kanssa"
         new_group_message:
           admin_in_group: Tämä viesti on lähetetty sinulle, koska olet hallintakäyttäjä ryhmässä %{group}.
-          greeting: Hei %{recipient}!
+          greeting: Hei, %{recipient}!
           intro: "%{sender} on lähettänyt uusia viestejä keskustelussa ryhmän %{group} kesken. Napsauta tätä linkkiä nähdäksesi ne:"
           outro: Nauti palvelun käyttämisestä!
           subject: "Ryhmällä %{group} on uusia viestejä lähettäjältä %{sender}"
@@ -1365,23 +1365,19 @@ fi:
         conversations: Keskustelut
         followers: Seuraajat
         following: Seurattavat
-        group_admins: Hallinnoi hallintakäyttäjiä
+        group_admins: Hallinnoi ylläpitäjiä
         group_members: Hallinnoi jäseniä
         groups: Ryhmät
         members: Jäsenet
         officialized: Virallinen osallistuja
         send_private_message: Lähetä yksityisviesti
-      sidebar:
-        badges:
-          info: Kunniamerkit ansaitaan suorittamalla tiettyjä toimintoja alustalla.
-          title: Kunniamerkit
       user:
         actions:
           create_user_group: Luo ryhmä
           disabled_message: Viesti
           edit_profile: Muokkaa profiilia
-          edit_user_group: Muokkaa ryhmäprofiilia
-          invite_user: Kutsu osallistuja
+          edit_user_group: Muokkaa ryhmän profiilia
+          invite_user: Kutsu käyttäjä
           join_user_group: Lähetä liittymispyyntö ryhmään
           leave_user_group: Poistu ryhmästä
           manage_user_group: Hallinnoi ryhmää
@@ -1390,16 +1386,7 @@ fi:
           message: Viesti
           resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudestaan
         confirmation_instructions_sent: Sähköpostivahvistuksen ohjeet lähetetty.
-        create_user_group: Luo ryhmä
-        edit_profile: Muokkaa profiilia
-        edit_user_group: Muokkaa ryhmän profiilia
         fill_in_email_to_confirm_it: Syötä ryhmäsi sähköpostiosoite ja vahvista se.
-        invite_user: Kutsu käyttäjä
-        join_user_group: Lähetä liittymispyyntö ryhmään
-        leave_user_group: Poistu ryhmästä
-        manage_user_group_admins: Hallinnoi ylläpitäjiä
-        manage_user_group_users: Hallinnoi jäseniä
-        resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudestaan
     reported_mailer:
       hide:
         hello: Hei %{name},
@@ -1489,18 +1476,17 @@ fi:
         reason: Syy
         report: Tee ilmoitus
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
-        title: Ilmoita asiatonta sisältöä
+        title: Ilmoita epäasiallista sisältöä
       flag_user_modal:
         already_reported: Tämä sisältö on jo ilmoitettu ja se odottaa hallintakäyttäjän tarkastusta.
         block: Estä tämä osallistuja
-        close: Sulje
-        description: Mikä tässä käyttäjässä on asiatonta?
+        description: Mikä tässä osallistujassa on epäasiallista?
         does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan %{organization_name} -palveluun.
         hide: Piilota kaikki osallistujan luoma sisältö
         offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
         report: Tee ilmoitus
         spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
-        title: Ilmoita asiaton käyttäjä
+        title: Ilmoita epäasiallinen käyttäjä
       floating_help:
         help: Ohjeet
       follow_button:

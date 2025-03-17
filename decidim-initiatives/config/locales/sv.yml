@@ -367,7 +367,6 @@ sv:
         finish:
           back: Tillbaka
           back_to_initiatives: Tillbaka till initiativ
-          callout_text: Grattis! Ditt medborgarinitiativ har skapats.
           confirm: Du kommer att skicka initiativet till en administratör för att granska och publicera det. När det har publicerats kommer du inte att kunna redigera det. Vill du gå vidare?
           edit_my_initiative: Redigera mitt initiativ
           go_to_my_initiatives: Gå till mina initiativ
@@ -377,7 +376,7 @@ sv:
           publish_helper_text: Kom ihåg att för att ditt initiativ ska publiceras måste du fylla i obligatoriska uppgifter och <strong>skicka det till teknisk validering</strong> för att en administratör ska kunna granska det.
         previous_form:
           back: Tillbaka
-          continue: Fortsätt
+          continue: Fortsätta
         promotal_committee:
           individual_help_text: Den här typen av medborgarinitiativ kräver att kampanjgruppen består av minst %{committee_size} personer (attesterare). Du måste dela följande länk med andra personer som är del av initiativet. När dina kontakter får denna länk måste de följa de angivna stegen.
           more_information: "(Mer information)"
@@ -604,7 +603,7 @@ sv:
     decidim:
       initiative_creation_header:
         fill_data: Skapa
-        finish: Avsluta
+        finish: Slutför
         promotal_committee: Kampanjgrupp
         select_initiative_type: Välj
       initiative_signature_creation_header:

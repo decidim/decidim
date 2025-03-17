@@ -555,6 +555,7 @@ gl:
             created_at: Creado en
             document_number: Número de documento
             name: Nome
+            nickname: Alcume
             phone: Teléfono
             state: Estado
             users_count: Usuarios contan
@@ -726,6 +727,8 @@ gl:
           title: Novo usuario privado do espazo participativo.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Carga o teu ficheiro CSV
           upload: Subir
       reminders:
         create:
@@ -859,7 +862,7 @@ gl:
         new:
           explanation: Carga o teu ficheiro CSV. Debe ter os correos electrónicos oficiais dos grupos de usuarios da súa organización na primeira columna do ficheiro, sen cabeceiras. Só se validarán os grupos de usuarios que confirmaron o seu correo electrónico e que teñen un correo electrónico que aparece no ficheiro CSV.
           title: Carga o teu ficheiro CSV
-          upload: Cargar
+          upload: Subir
       users:
         create:
           error: Produciuse un erro ao invitar a este usuario.

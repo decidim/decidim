@@ -132,6 +132,9 @@ sl:
         scope:
           fields:
             scope_type: Tip področja
+        user_group:
+          fields:
+            name: Ime
       newsletters:
         index:
           no_scopes: Ni področij
@@ -152,3 +155,7 @@ sl:
         new:
           create: Ustvari tip področja
           title: Novo področje
+      user_groups:
+        index:
+          state:
+            rejected: Zavrnjen

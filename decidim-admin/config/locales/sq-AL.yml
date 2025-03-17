@@ -399,6 +399,13 @@ sq:
             last_used_at: Hera e fundit që u përdor
             times_used: Sa herë është përdorur
             token: Token
+        user_group:
+          fields:
+            actions: Veprimet
+            created_at: Krijuar më
+            name: Emri
+            nickname: Nofka
+            state: Gjendja
       moderated_users:
         index:
           reason: Arsyeja
@@ -523,9 +530,12 @@ sq:
         statistics: Aktiviteti
         user_groups: Grupet
         users: Administratorët
-      user_groups_csv_verifications:
-        new:
-          upload: Ngarko
+      user_groups:
+        index:
+          state:
+            pending: Në pritje
+            rejected: Refuzuar
+            verified: Verifikuar
       users:
         form:
           email: Email

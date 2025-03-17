@@ -1068,7 +1068,7 @@ pt-BR:
           subject: "%{sender} iniciou uma conversa com %{group}"
         new_group_message:
           admin_in_group: Você está recebendo isso porque você é um administrador do %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Olá, %{recipient}!
           intro: "%{sender} postou novas mensagens em uma conversa com o grupo %{group}. Clique aqui para vê-la:"
           outro: Aproveite a plataforma!
           subject: "%{group} tem novas mensagens de %{sender}"
@@ -1293,34 +1293,22 @@ pt-BR:
         members: Membros
         officialized: Participante oficial
         send_private_message: Enviar mensagem privada
-      sidebar:
-        badges:
-          info: Os crachás são obtidos através da realização de atividades específicas na plataforma.
-          title: Selos
       user:
         actions:
-          create_user_group: Criar grupo
+          create_user_group: Criar Grupo
           disabled_message: Mensagem
           edit_profile: Editar perfil
-          edit_user_group: Editar o perfil de grupo
-          invite_user: Convidar participante
+          edit_user_group: Editar perfil do grupo
+          invite_user: Convidar Usuário
+          join_user_group: Solicitar para participar do grupo
           leave_user_group: Sair do grupo
           manage_user_group: Gerenciar grupo
           manage_user_group_admins: Gerenciar administradores
           manage_user_group_users: Gerenciar membros
           message: Mensagem
-          resend_email_confirmation_instructions: Reenviar instruções de confirmação
+          resend_email_confirmation_instructions: Reenvie as instruções de confirmação por email
         confirmation_instructions_sent: Reenviar instruções de confirmação.
-        create_user_group: Criar Grupo
-        edit_profile: Editar perfil
-        edit_user_group: Editar perfil do grupo
         fill_in_email_to_confirm_it: Por favor, preencha o e-mail do seu grupo para confirmar.
-        invite_user: Convidar Usuário
-        join_user_group: Solicitar para participar do grupo
-        leave_user_group: Sair do grupo
-        manage_user_group_admins: Gerenciar administradores
-        manage_user_group_users: Gerenciar membros
-        resend_email_confirmation_instructions: Reenvie as instruções de confirmação por email
     reported_mailer:
       hide:
         hello: Olá %{name},
@@ -1406,13 +1394,10 @@ pt-BR:
         title: Reportar um problema
       flag_user_modal:
         already_reported: Este conteúdo já foi reportado e será revisado por um administrador.
-        close: Fechar
-        description: O que é inapropriado sobre o usuário?
         hide: Ocultar todo o conteúdo
         offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
         report: Denunciar
         spam: Contém clickbait, publicidade, fraudes ou scripts bots.
-        title: Denunciar usuário inapropriado
       floating_help:
         help: Ajuda
       follow_button:

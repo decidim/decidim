@@ -360,6 +360,7 @@ fr-CA:
     application:
       document:
         download: Télécharger le fichier
+        visit_link: Visiter le lien
       documents:
         component_documents:
           dummy: Documents de fonctionnalité factices
@@ -886,6 +887,10 @@ fr-CA:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
     forms:
+      attachment_link:
+        help_messages:
+          - Seuls les formats d'URL corrects sont acceptés.
+          - Veuillez noter que les liens doivent être publics pour que tous les participants puissent y accéder.
       errors:
         decidim/user:
           password: Le mot de passe est trop court.
@@ -967,7 +972,7 @@ fr-CA:
       accept:
         error: Une erreur s'est produite lors de l'acceptation de cette invitation.
         success: L’invitation a été acceptée avec succès.
-      accept_invitation: Acceptez
+      accept_invitation: Accepter
       accept_or_reject_group_invitations: 'Les groupes suivants vous ont invité à les rejoindre. Accepter ou rejeter leurs demandes:'
       index:
         invite: Inviter
@@ -1025,7 +1030,7 @@ fr-CA:
         success: Le groupe est parti avec succès.
       members:
         accept_or_reject_join_requests: 'Les utilisateurs suivants ont demandé à rejoindre ce groupe. Accepter ou rejeter leurs demandes:'
-        accept_request: Acceptez
+        accept_request: Accepter
         reject_request: Rejeter
       new:
         create_user_group: Créer un groupe
@@ -1110,7 +1115,7 @@ fr-CA:
           subject: "%{manager} a commencé une nouvelle conversation en tant que %{group}"
         comanagers_new_message:
           admin_in_group: Vous recevez ceci parce que vous êtes un administrateur de %{group}.
-          greeting: Bonjour %{recipient} !
+          greeting: Bonjour, %{recipient} !
           intro: "%{manager} a posté de nouveaux messages dans une conversation au nom de %{group}. Cliquez ici pour les voir:"
           outro: Profitez de la plateforme !
           subject: "%{manager} a envoyé de nouveaux messages en tant que %{group}"
@@ -1369,15 +1374,11 @@ fr-CA:
         members: Membres
         officialized: Participant officiel
         send_private_message: Envoyer un message privé
-      sidebar:
-        badges:
-          info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
-          title: Badges
       user:
         actions:
           create_user_group: Créer un groupe
           disabled_message: Message
-          edit_profile: Modifier le profil
+          edit_profile: Mettre à jour le profil
           edit_user_group: Modifier le profil du groupe
           invite_user: Inviter un utilisateur
           join_user_group: Demander à rejoindre ce groupe
@@ -1388,16 +1389,7 @@ fr-CA:
           message: Message
           resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par courrier électronique
         confirmation_instructions_sent: Instructions de confirmation d'email envoyées.
-        create_user_group: Créer un groupe
-        edit_profile: Mettre à jour le profil
-        edit_user_group: Modifier le profil du groupe
         fill_in_email_to_confirm_it: Veuillez compléter le mail de votre groupe pour confirmer celui-ci.
-        invite_user: Inviter un utilisateur
-        join_user_group: Demander à rejoindre ce groupe
-        leave_user_group: Quitter le groupe
-        manage_user_group_admins: Gérer les administrateurs
-        manage_user_group_users: Gérer les membres
-        resend_email_confirmation_instructions: Renvoyer les instructions de confirmation par courrier électronique
     reported_mailer:
       hide:
         hello: Bonjour %{name},
@@ -1491,14 +1483,13 @@ fr-CA:
       flag_user_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         block: Bloquer ce participant
-        close: Fermer
-        description: Qu'est-ce qui est inapproprié à propos de cet utilisateur ?
+        description: Qu'est-ce qui est inapproprié à propos de ce participant?
         does_not_belong: Contient du contenu illégal, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{organization_name}.
         hide: Masquer tous ses contenus
         offensive: Rédige des contenus racistes, sexistes, contenant des insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine.
         report: Signaler
         spam: Rédige des contenus de type publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
-        title: Signaler un utilisateur inapproprié
+        title: Signaler un participant inapproprié
       floating_help:
         help: Aidez-moi
       follow_button:

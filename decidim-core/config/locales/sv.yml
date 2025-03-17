@@ -969,7 +969,7 @@ sv:
       accept:
         error: Det gick inte att godkänna den här inbjudan.
         success: Inbjudan har godkänts.
-      accept_invitation: Godkänn
+      accept_invitation: Acceptera
       accept_or_reject_group_invitations: 'Du har blivit inbjuden till följande grupper. Godkänn eller avvisa deras förfrågningar:'
       index:
         invite: Inbjudan
@@ -1027,7 +1027,7 @@ sv:
         success: Du har lämnat gruppen.
       members:
         accept_or_reject_join_requests: 'Följande användare har ansökt om att få gå med i den här gruppen. Godkänn eller avvisa deras förfrågningar:'
-        accept_request: Godkänn
+        accept_request: Acceptera
         reject_request: Avvisa
       new:
         create_user_group: Skapa grupp
@@ -1104,13 +1104,13 @@ sv:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Hej %{recipient}!
           intro: "%{manager} har startat en ny konversation som %{group}. Klicka här för att se den:"
           outro: Ha det så kul!
           subject: "%{manager} har startat en ny konversation som %{group}"
         comanagers_new_message:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Hej %{recipient}!
           intro: "%{manager} har postat nya meddelanden i en konversation som %{group}. Klicka här för att se dem:"
           outro: Ha det så kul!
           subject: "%{manager} har skickat nya meddelanden som %{group}"
@@ -1121,13 +1121,13 @@ sv:
           subject: "%{sender} har startat en konversation med dig"
         new_group_conversation:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Hej %{recipient}!
           intro: "%{sender} har startat en ny konversation med gruppen %{group}. Klicka här för att se den:"
           outro: Ha det så kul!
           subject: "%{sender} har startat en konversation med %{group}"
         new_group_message:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
-          greeting: Hi, %{recipient}!
+          greeting: Hej %{recipient}!
           intro: "%{sender} har postat nya meddelanden i en konversation med gruppen %{group}. Klicka här för att se den:"
           outro: Ha det så kul!
           subject: "%{group} har fått nya meddelanden från %{sender}"
@@ -1369,35 +1369,22 @@ sv:
         members: Medlemmar
         officialized: Officiell deltagare
         send_private_message: Skicka privat meddelande
-      sidebar:
-        badges:
-          info: Man får märken genom att utföra olika aktiviteter på plattformen.
-          title: Märken
       user:
         actions:
           create_user_group: Skapa grupp
           disabled_message: Meddelande
           edit_profile: Redigera profil
-          edit_user_group: Redigera gruppens profil
+          edit_user_group: Redigera grupprofil
           invite_user: Bjud in deltagare
-          join_user_group: Ansök om att gå med i grupp
+          join_user_group: Begäran att gå med i grupp
           leave_user_group: Lämna grupp
           manage_user_group: Hantera grupp
           manage_user_group_admins: Hantera administratörer
           manage_user_group_users: Hantera medlemmar
           message: Meddelande
-          resend_email_confirmation_instructions: Skicka e-postmeddelande med bekräftelseinstruktioner igen
+          resend_email_confirmation_instructions: Skicka anvisningarna om bekräftelse om e-post igen
         confirmation_instructions_sent: Instruktioner för e-postbekräftelse har skickats.
-        create_user_group: Skapa grupp
-        edit_profile: Redigera profil
-        edit_user_group: Redigera grupprofil
         fill_in_email_to_confirm_it: Fyll i gruppens e-postadress för att bekräfta den.
-        invite_user: Bjud in deltagare
-        join_user_group: Begäran att gå med i grupp
-        leave_user_group: Lämna grupp
-        manage_user_group_admins: Hantera administratörer
-        manage_user_group_users: Hantera medlemmar
-        resend_email_confirmation_instructions: Skicka anvisningarna om bekräftelse om e-post igen
     reported_mailer:
       hide:
         hello: Hej %{name},
@@ -1489,14 +1476,11 @@ sv:
       flag_user_modal:
         already_reported: Det här innehållet har redan rapporterats och kommer att granskas av en administratör.
         block: Blockera användaren
-        close: Stäng
-        description: Vad är olämpligt med användaren?
         does_not_belong: Innehåller olaglig information, hot om självmord, personuppgifter eller något annat som inte hör hemma på %{organization_name}.
         hide: Dölj allt innehåll
         offensive: Innehåller rasism, sexism, personangrepp, mordhot, uppmaning att begå självmord eller hets mot folkgrupp.
         report: Rapportera
         spam: Innehåller clickbait, reklam, bedrägerier eller botar.
-        title: Rapportera olämplig användare
       floating_help:
         help: Hjälp
       follow_button:

@@ -482,6 +482,8 @@ ja:
             dummy_step_attribute1: ダミーステップ属性１
             dummy_step_attribute2: ダミーステップ属性2
             dummy_step_translatable_text: ダミーフェーズ翻訳可能なテキスト
+      pagination:
+        page_title: "%{component_name} - %{current_page} / %{total_pages} ページ"
     contact: お問い合わせ
     content_blocks:
       announcement:
@@ -1351,35 +1353,22 @@ ja:
         members: メンバー
         officialized: 正規参加者
         send_private_message: プライベートメッセージを送信
-      sidebar:
-        badges:
-          info: バッジはプラットフォームで特定のアクティビティを実行することで獲得できます。
-          title: バッジ
       user:
         actions:
           create_user_group: グループを作成
           disabled_message: メッセージ
           edit_profile: プロフィールを編集
-          edit_user_group: グループプロフィールを編集
-          invite_user: 参加者を招待
-          join_user_group: グループへの参加リクエスト
+          edit_user_group: グループプロファイルを編集
+          invite_user: 参加者の招待
+          join_user_group: グループに参加するリクエスト
           leave_user_group: グループから退出する
           manage_user_group: グループを管理
           manage_user_group_admins: 管理者の管理
           manage_user_group_users: メンバーの管理
           message: メッセージ
-          resend_email_confirmation_instructions: 確認メールを再送する
+          resend_email_confirmation_instructions: 確認メールを再送信する
         confirmation_instructions_sent: メール確認の手順を送信しました。
-        create_user_group: グループを作成
-        edit_profile: プロフィールを編集
-        edit_user_group: グループプロファイルを編集
         fill_in_email_to_confirm_it: グループのメールアドレスを入力して確認してください。
-        invite_user: 参加者の招待
-        join_user_group: グループに参加するリクエスト
-        leave_user_group: グループから退出する
-        manage_user_group_admins: 管理者の管理
-        manage_user_group_users: メンバーの管理
-        resend_email_confirmation_instructions: 確認メールを再送信する
     reported_mailer:
       hide:
         hello: こんにちは、 %{name} さん。
@@ -1403,6 +1392,8 @@ ja:
       create:
         error: レポートの作成中にエラーが発生しました。もう一度やり直してください。
         success: レポートは正常に作成され、管理者によってレビューされます。
+      parent_hidden:
+        report_details: 親リソースは非表示
     resource_endorsements:
       create:
         error: オススメする際に問題がありました。
@@ -1471,14 +1462,11 @@ ja:
       flag_user_modal:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
         block: この参加者をブロック
-        close: 閉じる
-        description: ユーザーに不適切なのはどの点ですか？
         does_not_belong: 違法行為、自殺の脅威、個人情報、または %{organization_name} に属していないと思われる何かが含まれています。
         hide: すべての内容を隠す
         offensive: 人種差別、性差別、中傷、個人攻撃、死の脅威、自殺要求や何かしらの形態のヘイトスピーチが含まれています。
         report: 報告
         spam: 虚偽情報、広告、詐欺やスクリプトボットが含まれています。
-        title: 不適切なユーザーを報告
       floating_help:
         help: ヘルプ
       follow_button:
@@ -1928,6 +1916,8 @@ ja:
         expire_time_html: このログインセッションは <b><span class="minutes">%{minutes}</span> 分後に無効になります。</b>.
       language_chooser:
         choose_language: 言語を選択
+      navigation:
+        aria_label: 'ナビゲーションメニュー: %{title}'
       notifications_dashboard:
         mark_all_as_read: すべての通知を削除する
         mark_as_read: 既読にする

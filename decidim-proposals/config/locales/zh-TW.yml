@@ -466,7 +466,6 @@ zh-TW:
         proposals_imports:
           create:
             invalid: 匯入提案時發生問題.
-            success: "%{number} 個提案成功匯入."
           new:
             create: 匯入提案
             no_components: 這個參與空間中沒有其他的提案元件可以匯入提案。

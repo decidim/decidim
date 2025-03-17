@@ -1016,7 +1016,7 @@ pl:
         success: Opuszczono grupę.
       members:
         accept_or_reject_join_requests: 'Następujący użytkownicy zgłosili się, aby dołączyć do tej grupy. Zaakceptuj lub odrzuć ich prośby:'
-        accept_request: Zaakceptować
+        accept_request: Akceptuj
         reject_request: Odrzuć
       new:
         create_user_group: Utwórz grupę
@@ -1358,17 +1358,13 @@ pl:
         members: Członkowie
         officialized: Oficjalny użytkownik
         send_private_message: Wyślij wiadomość prywatną
-      sidebar:
-        badges:
-          info: Odznaki zdobywa się wykonując określoną czynność na platformie.
-          title: Odznaki
       user:
         actions:
           create_user_group: Utwórz grupę
           disabled_message: Wiadomość
           edit_profile: Edytuj profil
           edit_user_group: Edytuj profil grupy
-          invite_user: Zaproś uczestnika
+          invite_user: Zaproś użytkownika
           join_user_group: Poproś o dołączenie do grupy
           leave_user_group: Opuścić grupę
           manage_user_group: Zarządzanie grupą
@@ -1377,16 +1373,7 @@ pl:
           message: Wiadomość
           resend_email_confirmation_instructions: Wyślij ponownie instrukcje dotyczące potwierdzenia adresu e-mail
         confirmation_instructions_sent: Wysłano instrukcje dotyczące potwierdzenia adresu e-mail.
-        create_user_group: Utwórz grupę
-        edit_profile: Edytuj profil
-        edit_user_group: Edytuj profil grupy
         fill_in_email_to_confirm_it: Podaj adres e-mail grupy, aby go potwierdzić.
-        invite_user: Zaproś użytkownika
-        join_user_group: Poproś o dołączenie do grupy
-        leave_user_group: Opuścić grupę
-        manage_user_group_admins: Zarządzaj administratorami
-        manage_user_group_users: Zarządzaj członkami
-        resend_email_confirmation_instructions: Wyślij ponownie instrukcje dotyczące potwierdzenia adresu e-mail
     reported_mailer:
       hide:
         hello: Witaj %{name},
@@ -1478,14 +1465,11 @@ pl:
       flag_user_modal:
         already_reported: Ta treść została już zgłoszona i zostanie sprawdzona przez administratora.
         block: Zablokuj tego uczestnika
-        close: Zamknij
-        description: Jaki jest powód zgłoszenia użytkownika?
         does_not_belong: Zawiera nielegalną aktywność, groźby samobójstwa, dane o charakterze prywatnym lub inne treści, które według Ciebie nie powinny pojawić się w %{organization_name}.
         hide: Ukryj całą zawartość
         offensive: Promuje rasizm, seksizm, kłamstwa, ataki osobiste, groźby śmierci, prośby samobójcze lub jakąkolwiek formę mowy nienawiści.
         report: Zgłoś
         spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
-        title: Zgłoś użytkownika
       floating_help:
         help: Pomoc
       follow_button:
