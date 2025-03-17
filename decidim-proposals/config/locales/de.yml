@@ -517,6 +517,16 @@ de:
         exports:
           proposal_comments: Kommentare
           proposals: Vorschläge
+        import_proposals_mailer:
+          notify_failure:
+            body: Beim Importieren von Vorschlägen aus der Komponente %{origin_component_name} in die Komponente %{target_component_name} ist ein Fehler aufgetreten.
+            subject: Beim Importieren der Vorschläge ist ein Fehler aufgetreten
+          notify_success:
+            added_proposals:
+              one: Ein Vorschlag wurde importiert.
+              other: "%{count} Vorschläge wurden importiert."
+            body: Vorschläge erfolgreich aus der Komponente %{origin_component_name} zu %{target_component_name} importiert. Sie können die Ergebnisse in der Adminoberfläche überprüfen.
+            subject: Die Vorschläge wurden erfolgreich importiert
         imports:
           help:
             answers: |
@@ -688,7 +698,7 @@ de:
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge ist ein Problem aufgetreten.
-            success: "%{number} Vorschläge erfolgreich importiert."
+            success: Der Importprozess wurde gestartet. Sie werden benachrichtigt, sobald er beendet ist.
           new:
             create: Vorschläge importieren
             no_components: In diesem partizipatorischen Bereich gibt es keine weiteren Vorschlagskomponenten, aus denen die Vorschläge importiert werden könnten.
@@ -875,7 +885,6 @@ de:
           success: Einladung zur Mitverfassung erfolgreich zurückgezogen.
         create:
           error: Beim Einladen zur Mitverfassung ist ein Problem aufgetreten.
-          success: "%{author_name} wurde erfolgreich zur Mitverfassung eingeladen."
         destroy:
           error: Beim Ablehnen der Einladung ist ein Problem aufgetreten.
           success: Die Einladung wurde abgelehnt.

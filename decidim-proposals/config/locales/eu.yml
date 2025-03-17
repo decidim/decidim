@@ -390,7 +390,7 @@ eu:
         accepted_proposals:
           conditions:
             - Aukeratu zure intereseko partaidetza espazioa proposamenak bidaltzeko
-            - Saiatu gauzatu daitezkeen proposamenak egiten. Horrela errazagoa da onartuak izatea.
+            - Egin daitezkeen proposamenak egiten saiatu. Horrela onartuak izateko aukera gehiago dute.
           description: Garaikur hau proposamen berriekin aktiboki parte hartzen duzunean eta horiek onartzen direnean ematen da 
           description_another: Parte-hartzaile honek %{score} proposamen onartu ditu.
           description_own: Zure %{score} proposamen onartu dira.
@@ -474,7 +474,7 @@ eu:
           longitude: Proposamenaren luzera, baldin eta kokagune fisikoa badu
           meeting_urls: Proposamen hau aurkeztu edo eztabaidatu zen bileretako URLak
           original_proposal: Hasierako proposamenaren erreferentzia, zuzenketa bat bada
-          participatory_space: Zein espaziotakoa den proposamen hau (adibidez, Prozesu Parte-hartzailea edo Batzarra)
+          participatory_space: Zein espaziotakoa den proposamen hau (adibidez, Partaidetza-prozesua edo Batzarra)
           published_at: Zein datatan argitaratu zen proposamen hau
           reference: Baliabidearen identifikatzaile bakarra plataforma honetan
           related_proposals: Proposamen honekin lotutako proposamenak
@@ -517,6 +517,16 @@ eu:
         exports:
           proposal_comments: Iruzkinak
           proposals: Proposamenak
+        import_proposals_mailer:
+          notify_failure:
+            body: Arazo bat egon da proposamenak inportatzen ziren bitartean %{origin_sizent_nombre} osagaitik % {target et_espezi_nombre} osagaira.
+            subject: Errore bat egon da proposamenak inportatzean
+          notify_success:
+            added_proposals:
+              one: Proposamen bat inportatu da.
+              other: "%{count} proposamen inportatu dira."
+            body: Proposamenak zuzen inportatu dira %{origin_component_name} osagaitik %{target_component_name} osagaira. Administrazioaren interfazean berrikusi ditzakezu emaitzak.
+            subject: Proposamenak zuzen inportatu dira
         imports:
           help:
             answers: |
@@ -688,7 +698,7 @@ eu:
         proposals_imports:
           create:
             invalid: Arazo bat egon da proposamenak inportatzean.
-            success: "%{number} proposamen ondo inportatuta."
+            success: Inportazio-prozesua hasi da. Bukatutakoan jakinaraziko dizugu.
           new:
             create: Inportatu proposamenak
             no_components: Espazio honetan ez dago beste proposamenik proposamenak inportatzeko.
@@ -875,7 +885,7 @@ eu:
           success: Egilekide-gonbidapena behar bezala ezeztatua.
         create:
           error: Arazo bat izan da egilekidea gonbidatzean.
-          success: "%{author_name} zuzen gonbdatu da egilekide gisa."
+          success: "%{author_name} zuzen gonbidatu da koegile gisa."
         destroy:
           error: Arazo bat izan da gonbidapena baztertzean.
           success: Gonbidapena baztertua.

@@ -54,11 +54,8 @@ zh-TW:
             save: 儲存
         questionnaire_templates:
           choose:
-            create_from_template: 從範本建立
-            description: 您即將建立一份新問卷。您可以選擇預定義的範本，並在之後進行修改。
             label: 選擇範本
             placeholder: 選擇範本
-            skip_template: 略過
           edit:
             edit: 編輯
             empty: 目前為止還沒有什麼問題.

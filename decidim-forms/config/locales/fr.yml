@@ -48,7 +48,7 @@ fr:
           actions:
             back: Retour aux questions
             publish_answers: Publier les réponses
-            show: Afficher les réponses
+            show: Réponses
           answer_option:
             answer_option: Option de réponse
             free_text: Texte libre
@@ -209,7 +209,6 @@ fr:
           tos_agreement: En participant, vous acceptez ces conditions d'utilisation
       step_navigation:
         show:
-          are_you_sure_edit: Vous serez en mesure de modifier vos réponses. Êtes-vous sûr(e)?
           are_you_sure_edit_guest: Si vous voulez pouvoir modifier vos réponses par la suite, vous devez vous connecter ou créer un compte.
           are_you_sure_no_edit: Cette action ne peut pas être annulée et vous ne pourrez pas modifier vos réponses. Êtes-vous sûr(e) ?
           back: Revenir en arrière

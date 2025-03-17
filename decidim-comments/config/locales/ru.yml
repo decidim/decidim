@@ -4,7 +4,6 @@ ru:
       decidim/comments/comment_by_followed_user_event: Комментарий
       decidim/comments/comment_created_event: Комментарий
       decidim/comments/reply_created_event: Ответ на комментарий
-      decidim/comments/user_group_mentioned_event: Упоминание
       decidim/comments/user_mentioned_event: Упоминание
   activerecord:
     models:
@@ -29,8 +28,6 @@ ru:
           body:
             label: Комментарий
             placeholder: Что вы думаете об этом?
-          user_group_id:
-            label: Комментировать как
         opinion:
           neutral: Безучастно
         remaining_characters: "Осталось %{count} символов"
@@ -66,9 +63,6 @@ ru:
         comment_by_followed_user:
           email_intro: "%{author_name} оставил комментарий в %{resource_title}. Вы можете прочитать его на странице:"
           email_outro: Вы получили это уведомление, потому что вы следите за %{author_name}. Вы можете отписаться от таких уведомлений, перейдя на страницу профиля этого участника.
-          email_subject: В %{resource_title} появился новый комментарий от %{author_name}
-          notification_title: В <a href="%{resource_path}">%{resource_title}</a> появился новый комментарий от <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        comment_by_followed_user_group:
           email_subject: В %{resource_title} появился новый комментарий от %{author_name}
           notification_title: В <a href="%{resource_path}">%{resource_title}</a> появился новый комментарий от <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         comment_created:

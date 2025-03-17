@@ -343,6 +343,7 @@ lt:
           form:
             available_slots_help: Jei nėra ribojimų įrašykite 0.
             invites: Pakvietimai
+            manage_questions: Klausimai
             recommendation_message: Dėl privatumo priežasčių rekomenduojame ištrinti šią įrašo formą, kai jos nebereikės. Pagal numatytuosius parametrus, ji ištrinama praėjus 3 mėnesiams nuo susirinkimo pabaigos.
             registration_email_help: Šis tekstas bus rodomas registracijos patvirtinimo el. laiško viduryje. Iš karto po registracijos kodo.
             registration_form: Registracijos forma

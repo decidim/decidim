@@ -89,7 +89,7 @@ de:
             label: Status
             values:
               accepted: Ausreichend Unterschriften
-              created: Erstellt
+              created: Entworfen
               discarded: Verworfen
               open: Offen
               rejected: Zu wenige Unterschriften
@@ -345,7 +345,7 @@ de:
           update: "%{user_name} hat den Initiativentyp %{resource_name} aktualisiert"
       admin_states:
         accepted: Ausreichend Unterschriften
-        created: Erstellt
+        created: Entworfen
         discarded: Verworfen
         open: Offen
         rejected: Ungenügend Unterschriften
@@ -374,40 +374,33 @@ de:
         highlighted_initiatives:
           name: Hervorgehobene Initiativen
       create_initiative:
+        committee_member:
+          approve: Genehmigen
+          confirm_approve: Sind Sie sicher, dass Sie dieses Mitglied genehmigen möchten?
+          confirm_revoke: Sind Sie sicher, dass Sie dieses Mitglied widerrufen möchten?
+          revoke: Widerrufen
         fill_data:
-          back: Zurück
+          confirm_discard: Sind Sie sicher, dass Sie diese Initiative verwerfen möchten?
           continue: Fortsetzen
+          discard: Initiative verwerfen
           fill_data_help: "<ul> <li>Inhalt Ihrer Initiative überprüfen. Ist Ihr Titel leicht verständlich? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Was ist die geografische Reichweite der Initiative? Stadt, Bezirk?</li> </ul>"
-          more_information: "(Weitere Informationen)"
+          more_information: Weitere Informationen
           select_area: Wählen Sie einen Bereich aus
           select_scope: Wählen Sie einen Bereich aus
         finish:
           back: Zurück
-          back_to_initiatives: Zurück zu den Initiativen
-          callout_text: Herzlichen Glückwunsch! Ihre Initiative wurde erfolgreich erstellt.
-          confirm: Sie werden die Initiative an einen Administrator senden, welcher sie zu überprüft und veröffentlicht. Sobald die Initiative veröffentlicht ist, können Sie sie nicht bearbeiten. Sind Sie sicher?
-          edit_my_initiative: Meine Initiativen bearbeiten
-          go_to_my_initiatives: Geh zu meinen Initiativen
-          more_information: "(Weitere Informationen)"
-          send_my_initiative: Meine Initiative zur technischen Validierung senden
-        finish_help:
-          publish_helper_text: Denken Sie daran, dass Sie für die Veröffentlichung Ihrer Initiative die erforderlichen Informationen ausfüllen müssen und <strong>diese an die technische Validierung</strong> senden müssen, damit ein Administrator sie prüfen kann.
+          callout_text_created: Herzlichen Glückwunsch! Ihre Initiative wurde erfolgreich erstellt.
+          callout_text_validating: Ihre Initiative wurde erfolgreich an die technische Validierung gesendet.
+          go_to_initiatives: Zu Initiativen gehen
         previous_form:
           back: Zurück
-          continue: Fortsetzen
-        promotal_committee:
-          individual_help_text: Diese Art der Bürgerinitiative erfordert einen Ausschuss der Initiatoren, der aus mindestens %{committee_size} Personen (Zeugen) besteht. Sie müssen den folgenden Link mit den anderen Personen teilen, die an dieser Initiative beteiligt sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
-          more_information: "(Weitere Informationen)"
         select_initiative_type:
           back: Zurück
           choose_html: Ich möchte eine <strong>%{title}</strong> erstellen
           more_information: (Weitere Informationen)
           new: Neue Initiative erstellen
           select: Ich möchte diese Initiative fördern
-          select_initiative_type_help: Bürgerinitiativen sind ein Mittel, mit dem die Bürger eingreifen können, damit die Organisation Maßnahmen zur Verteidigung des Allgemeininteresses ergreifen kann, die in den Zuständigkeitsbereich der Stadtverwaltung fallen. Welche Initiative möchten Sie starten?
           verification_required: Bestätigen Sie Ihr Konto, um die Initiative zu unterstützen
-        share_committee_link:
-          invite_to_committee_help: Link, um Leute einzuladen, die Teil des Promoter-Komitees sein werden
       edit:
         accept: Initiative akzeptieren
         back: Zurück
@@ -591,7 +584,6 @@ de:
       show:
         badge_name:
           accepted: Ausreichend Unterschriften
-          created: Erstellt
           discarded: Verworfen
           open: Offen
           rejected: Ungenügend Unterschriften
@@ -647,8 +639,6 @@ de:
     decidim:
       initiative_creation_header:
         fill_data: Erstellen
-        finish: Fertig
-        promotal_committee: Promoter-Komitee
         select_initiative_type: Wählen
       initiative_signature_creation_header:
         fill_personal_data: Ergänzen Sie Ihre Daten
