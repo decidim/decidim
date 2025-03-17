@@ -12,6 +12,11 @@ module Decidim
         @responses = responses
       end
 
+      # i18n-tasks-use t('decidim.forms.user_responses_serializer.body')
+      # i18n-tasks-use t('decidim.forms.user_responses_serializer.id')
+      # i18n-tasks-use t('decidim.forms.user_responses_serializer.question')
+      # i18n-tasks-use t('decidim.forms.user_responses_serializer.registered')
+      # i18n-tasks-use t('decidim.forms.user_responses_serializer.unregistered')
       # Public: Exports a hash with the serialized data for the user responses.
       def serialize
         responses_hash = hash_for(@responses.first)

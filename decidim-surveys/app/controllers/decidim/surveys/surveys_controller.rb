@@ -4,6 +4,9 @@ module Decidim
   module Surveys
     # Exposes the survey resource so users can view and respond them.
     class SurveysController < Decidim::Surveys::ApplicationController
+      # i18n-tasks-use t('decidim.surveys.surveys.response.invalid')
+      # i18n-tasks-use t('decidim.surveys.surveys.response.spam_detected')
+      # i18n-tasks-use t('decidim.surveys.surveys.response.success')
       include Decidim::Forms::Concerns::HasQuestionnaire
       include Decidim::ComponentPathHelper
       include Decidim::Surveys::SurveyHelper
