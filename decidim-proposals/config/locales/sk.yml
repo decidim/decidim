@@ -276,7 +276,6 @@ sk:
           index:
             actions: Akcia
             assign_to_valuator: Priradiť ku hodnotiteľovi
-            assign_to_valuator_button: Priradiť
             cancel: zrušenie
             merge: Zlúčiť do nového
             merge_button: Spoj
@@ -288,7 +287,6 @@ sk:
             split_button: Rozdeliť
             title: Návrhy
             unassign_from_valuator: Zrušiť priradenie ku hodnotiteľovi
-            unassign_from_valuator_button: Zrušiť priradenie
             update: Aktualizácia
           new:
             create: Vytvoriť
