@@ -152,7 +152,6 @@ es:
             admin: Administradora
             collaborator: Colaboradora
             moderator: Moderadora
-            valuator: Evaluadora
         user:
           fields:
             invitation_accepted_at: Invitación aceptada el
