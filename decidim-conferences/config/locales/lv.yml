@@ -154,7 +154,6 @@ lv:
             admin: Administrators
             collaborator: Līdzizstrādātājs
             moderator: Moderators
-            valuator: Vērtētājs
         media_link:
           fields:
             date: Datums
