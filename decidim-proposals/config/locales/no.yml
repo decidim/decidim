@@ -349,7 +349,6 @@
             select_a_meeting: Velg et møte
           index:
             actions: Handlinger
-            assign_to_valuator_button: Tildel
             cancel: Avbryt
             change_category: Endre kategori
             change_scope: Endre tema
@@ -362,7 +361,6 @@
             split: Delte forslag
             split_button: Delt
             title: Forslag
-            unassign_from_valuator_button: Fjern tilegning
             update: Oppdater
             update_scope_button: Oppdater tema
           new:
