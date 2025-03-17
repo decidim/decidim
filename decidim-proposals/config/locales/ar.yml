@@ -198,6 +198,8 @@ ar:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: تلقيت هذا الإشعار لأنك تستطيع تقييم الاقتراح.
           proposal_note_created:
             email_outro: تلقيت هذا الإشعار لأنك تستطيع تقييم الاقتراح.
             email_subject: ترك شخص ملاحظة على الاقتراح %{resource_title}.
@@ -385,7 +387,6 @@ ar:
           index:
             actions: أفعال
             assign_to_valuator: أسنِده إلى مُقيِّم
-            assign_to_valuator_button: تعيين
             cancel: إلغاء
             merge: دمج في واحدة جديدة
             merge_button: دمج
@@ -397,7 +398,6 @@ ar:
             split_button: انشق، مزق
             title: اقتراحات
             unassign_from_valuator: إلغاء الإسناد مِن المُقيِّم
-            unassign_from_valuator_button: إلغاء الإسناد
             update: تحديث
           new:
             create: إنشاء
