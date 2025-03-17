@@ -165,6 +165,8 @@ hu:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Azért kapta ezt az értesítést, mert értékelheti a javaslatot.
           proposal_note_created:
             email_outro: Azért kapta ezt az értesítést, mert értékelheti a javaslatot.
             email_subject: Valaki egy jegyzetet írt a(z) "%{resource_title}" javaslathoz.
@@ -353,7 +355,6 @@ hu:
           index:
             actions: Műveletek
             assign_to_valuator: Értékelőhöz rendel
-            assign_to_valuator_button: Hozzárendel
             cancel: Mégse
             merge: Összeolvasztás egy újba
             merge_button: Összeolvasztás
@@ -365,7 +366,6 @@ hu:
             split_button: Szétválasztás
             title: Javaslatok
             unassign_from_valuator: Visszarendelés értékelőtől
-            unassign_from_valuator_button: Visszarendelés
             update: Frissítés
           new:
             create: Létrehozás
