@@ -193,6 +193,8 @@ lt:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Šį pranešimą gavote dėl to, kad galite vertinti pasiūlymą.
           proposal_note_created:
             email_outro: Šį pranešimą gavote dėl to, kad galite vertinti pasiūlymą.
             email_subject: Kažkas paliko pastabą dėl pasiūlymo „%{resource_title}“.
@@ -390,7 +392,6 @@ lt:
           index:
             actions: Veiksmai
             assign_to_valuator: Priskirti vertintojui
-            assign_to_valuator_button: Priskirti
             cancel: Atšaukti
             merge: Sulieti į vieną
             merge_button: Sulieti
@@ -402,7 +403,6 @@ lt:
             split_button: Skaidyti
             title: Pasiūlymai
             unassign_from_valuator: Panaikinti vertintojui pavestą užduotį
-            unassign_from_valuator_button: Atšaukti priskyrimą
             update: Atnaujinti
           new:
             create: Sukurti
