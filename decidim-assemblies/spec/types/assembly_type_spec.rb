@@ -14,6 +14,10 @@ module Decidim
       include_examples "attachable interface"
       include_examples "participatory space resourcable interface"
       include_examples "taxonomizable interface"
+      include_examples "referable interface"
+      include_examples "followable interface"
+      include_examples "traceable interface"
+      include_examples "timestamps interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -47,19 +51,11 @@ module Decidim
         end
       end
 
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
+      describe "weight" do
+        let(:query) { "{ weight }" }
 
-        it "returns when the Assembly was created" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
-
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns when the Assembly was updated" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
+        it "returns the Assembly' weight" do
+          expect(response["weight"]).to eq(model.weight)
         end
       end
 
@@ -76,14 +72,6 @@ module Decidim
 
         it "returns all the required fields" do
           expect(response["description"]["translation"]).to eq(model.description["en"])
-        end
-      end
-
-      describe "reference" do
-        let(:query) { "{ reference }" }
-
-        it "returns the Assembly' reference" do
-          expect(response["reference"]).to eq(model.reference)
         end
       end
 
@@ -167,14 +155,6 @@ module Decidim
         end
       end
 
-      describe "area" do
-        let(:query) { "{ area { id } }" }
-
-        it "returns the area field" do
-          expect(response["area"]).to be_nil
-        end
-      end
-
       describe "parent" do
         let(:query) { "{ parent { id }}" }
 
@@ -233,14 +213,6 @@ module Decidim
 
         it "returns the composition field" do
           expect(response["composition"]["translation"]).to eq(model.composition["en"])
-        end
-      end
-
-      describe "assemblyType" do
-        let(:query) { "{ assemblyType { id } }" }
-
-        it "returns the assemblyType field" do
-          expect(response["assemblyType"]).to be_nil
         end
       end
 
