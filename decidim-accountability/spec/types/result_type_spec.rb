@@ -19,7 +19,6 @@ module Decidim
       include_examples "commentable interface"
       include_examples "localizable interface"
       include_examples "referable interface"
-      include_examples "resourceable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
