@@ -8,6 +8,7 @@ describe "Editor" do
 
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:context_current_participatory_space) { "" }
 
   # Which features to enable for the toolbar: basic|full
   let(:features) { "basic" }
@@ -33,6 +34,7 @@ describe "Editor" do
         selfxssWarning: I18n.t("decidim.security.selfxss_warning")
       }
     }
+    meta_context = "<meta name='context-current-participatory-space' content='#{context_current_participatory_space}'>"
     editor_wrapper = form.editor(:body, toolbar: features, **editor_options)
     content_wrapper = <<~HTML
       <div data-content>
@@ -62,6 +64,7 @@ describe "Editor" do
             protection.
           -->
           <meta name="csrf-token" content="abcdef0123456789">
+          #{meta_context}
           #{stylesheet_pack_tag "decidim_core", media: "all"}
         </head>
         <body>
@@ -1239,6 +1242,13 @@ describe "Editor" do
     let!(:hashtag2) { create(:hashtag, name: "nation", organization:) }
     let!(:hashtag3) { create(:hashtag, name: "native", organization:) }
 
+    let!(:participatory_space) { create(:participatory_process, organization:) }
+    let!(:proposals_component) { create(:component, manifest_name: :proposals, participatory_space:) }
+    let!(:proposal1) { create(:proposal, component: proposals_component, title: { "en" => "Proposal 1" }) }
+    let!(:proposal2) { create(:proposal, component: proposals_component, title: { "en" => "Proposal 2" }) }
+    let!(:proposal3) { create(:proposal, component: proposals_component, title: { "en" => "Proposal 3" }) }
+    let(:context_current_participatory_space) { participatory_space.to_global_id }
+
     it "allows selecting hashtags" do
       prosemirror.native.send_keys "#na"
 
@@ -1261,6 +1271,33 @@ describe "Editor" do
       find(".editor-suggestions-item", text: "@doe_john (John Doe)").click
 
       expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="@doe_john (John Doe)">@doe_john (John Doe)</span> e</p>))
+    end
+
+    it "allows selecting resource mentions with a slash" do
+      allow(Decidim::SearchableResource).to receive(:where).with(
+        resource_type: %w(Decidim::Proposals::Proposal),
+        organization: organization,
+        decidim_participatory_space: participatory_space,
+        locale: I18n.locale
+      ).and_return(double(
+                     autocomplete_search: double(
+                       limit: [
+                         double(resource_global_id: "gid://decidim.org/Proposal/1", content_a: "Proposal 1"),
+                         double(resource_global_id: "gid://decidim.org/Proposal/2", content_a: "Proposal 2"),
+                         double(resource_global_id: "gid://decidim.org/Proposal/3", content_a: "Proposal 3")
+                       ]
+                     )
+                   ))
+
+      prosemirror.native.send_keys "/pro"
+
+      expect(page).to have_css(".editor-suggestions-item", text: "Proposal 1")
+      expect(page).to have_css(".editor-suggestions-item", text: "Proposal 2")
+      expect(page).to have_css(".editor-suggestions-item", text: "Proposal 3")
+
+      find(".editor-suggestions-item", text: "Proposal 1").click
+
+      expect_value(%(<p><span data-type="mentionResource" data-id="gid://decidim.org/Proposal/1" data-label="Proposal 1">Proposal 1</span> o</p>))
     end
 
     it "allows selecting emojis" do
