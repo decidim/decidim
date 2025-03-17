@@ -20,11 +20,12 @@ const isScreenSize = (key) => {
   return window.matchMedia(`(min-width: ${screens[key]})`).matches;
 }
 const adjustCtasButtons = () => {
-  if (isScreenSize("md")) {
+  if (!stickyButtons) {
     return;
   }
 
-  if (!stickyButtons) {
+  if (isScreenSize("md")) {
+    footer.style.marginBottom = "0px";
     return;
   }
 
