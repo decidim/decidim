@@ -5,7 +5,7 @@ module Decidim
     include Decidim::ShortLinkHelper
 
     def resource_url
-      @resource_url ||= (resource_name ? short_url(route_name: resource_name, params:) : decidim_meta_url)
+      @resource_url ||= (resource_name ? short_url(route_name: resource_name, params: processed_params) : decidim_meta_url)
     end
 
     def qr_code
