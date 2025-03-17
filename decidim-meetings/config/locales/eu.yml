@@ -163,7 +163,7 @@ eu:
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
             creation_enabled_for_participants: Parte-hartzaileek topaketak sortu ahal dituzte
             default_registration_terms: Izen-emate baldintzak lehenetsiak
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu partaidetza-espazio honetarako iragazki batzuk.
             enable_pads_creation: Gaitu pads sortzea
             maps_enabled: Mapak gaituta
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
@@ -222,7 +222,7 @@ eu:
           notification_title: <a href="%{resource_url}">%{resource_title}</a> topaketarako izen-ematea baieztatu da. Zure izena emateko kodea %{registration_code} da.
         meeting_registrations_over_percentage:
           email_intro: '"%{resource_title}" topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira.'
-          email_outro: Topaketako espazio parte-hartzailearen administratzaile zarelako jaso duzu jakinarazpen hau.
+          email_outro: Topaketako partaidetza-espazioaren administratzaile zarelako jaso duzu jakinarazpen hau.
           email_subject: '"%{resource_title}" topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako hartutako ordu-tarteak %{percentage}% baino gehiago dira.
         meeting_updated:
