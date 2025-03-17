@@ -45,6 +45,14 @@ module Decidim
         end
       end
 
+      describe "weight" do
+        let(:query) { "{ weight }" }
+
+        it "returns the total budget" do
+          expect(response["weight"]).to eq(model.weight)
+        end
+      end
+
       describe "projects" do
         let!(:budget2) { create(:budget, :with_projects) }
         let(:query) { "{ projects { id } }" }

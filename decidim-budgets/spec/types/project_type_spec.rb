@@ -13,6 +13,13 @@ module Decidim
 
       include_examples "taxonomizable interface"
       include_examples "attachable interface"
+      include_examples "attachable collection interface with attachment"
+      include_examples "traceable interface"
+      include_examples "timestamps interface"
+      include_examples "commentable interface"
+      include_examples "localizable interface"
+      include_examples "referable interface"
+      include_examples "followable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -61,30 +68,6 @@ module Decidim
           it "returns false" do
             expect(response["selected"]).to be_falsey
           end
-        end
-      end
-
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
-
-        it "returns when the resource was created" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
-
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns when the resource was updated" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
-        end
-      end
-
-      describe "reference" do
-        let(:query) { "{ reference }" }
-
-        it "returns the reference" do
-          expect(response["reference"]).to eq(model.reference)
         end
       end
 

@@ -7,13 +7,18 @@ module Decidim
       implements Decidim::Core::TaxonomizableInterface
       implements Decidim::Core::AttachableInterface
       implements Decidim::Comments::CommentableInterface
+      implements Decidim::Core::AttachableCollectionInterface
+      implements Decidim::Core::FollowableInterface
+      implements Decidim::Core::LocalizableInterface
+      implements Decidim::Core::TimestampsInterface
+      implements Decidim::Core::ReferableInterface
+      implements Decidim::Core::TraceableInterface
 
       description "A project"
 
       field :budget_amount, GraphQL::Types::Int, "The budget amount for this project", null: true, camelize: false
       field :description, Decidim::Core::TranslatedFieldType, "The description for this project", null: true
       field :id, GraphQL::Types::ID, "The internal ID for this project", null: false
-      field :reference, GraphQL::Types::String, "The reference for this project", null: true
       field :selected, GraphQL::Types::Boolean, "Whether this proposal is selected or not", method: :selected?, null: true
       field :title, Decidim::Core::TranslatedFieldType, "The title for this project", null: true
 

@@ -44,6 +44,7 @@ describe "Decidim::Api::QueryType" do
           versions {
             id
           }
+          weight
           versionsCount
         }
       }
@@ -86,6 +87,7 @@ describe "Decidim::Api::QueryType" do
       "total_budget" => budget.total_budget,
       "updatedAt" => budget.updated_at.to_time.iso8601,
       "versions" => [],
+      "weight" => budget.weight,
       "versionsCount" => 0
     }
   end
@@ -137,6 +139,7 @@ describe "Decidim::Api::QueryType" do
         "total_budget" => budget.total_budget,
         "updatedAt" => budget.updated_at.to_time.iso8601,
         "versions" => [],
+        "weight" => budget.weight,
         "versionsCount" => 0
       }
     end
@@ -163,6 +166,7 @@ describe "Decidim::Api::QueryType" do
               versions {
                 id
               }
+              weight
               versionsCount
             }
           }
@@ -224,6 +228,7 @@ describe "Decidim::Api::QueryType" do
         "total_budget" => budget.total_budget,
         "updatedAt" => budget.updated_at.to_time.iso8601,
         "versions" => [],
+        "weight" => budget.weight,
         "versionsCount" => 0
       }
     end
