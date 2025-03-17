@@ -16,7 +16,8 @@ module Decidim
           helper Decidim::Forms::ApplicationHelper
           include FormFactory
 
-          helper_method :questionnaire_for, :questionnaire, :allow_responses?, :visitor_can_response?, :visitor_already_responded?, :update_url, :visitor_can_edit_responses?, :form_path
+          helper_method :questionnaire_for, :questionnaire, :allow_responses?, :visitor_can_response?, :visitor_already_responded?, :update_url, :visitor_can_edit_responses?,
+                        :form_path
 
           invisible_captcha on_spam: :spam_detected
 

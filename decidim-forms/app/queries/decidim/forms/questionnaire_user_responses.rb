@@ -21,9 +21,9 @@ module Decidim
       # Finds and group responses by user for each questionnaire's question.
       def query
         responses = Response.not_separator
-                        .not_title_and_description
-                        .joins(:question)
-                        .where(questionnaire: @questionnaire)
+                            .not_title_and_description
+                            .joins(:question)
+                            .where(questionnaire: @questionnaire)
 
         responses.sort_by { |response| response.question.position.to_i }.group_by { |a| a.user || a.session_token }.values
       end

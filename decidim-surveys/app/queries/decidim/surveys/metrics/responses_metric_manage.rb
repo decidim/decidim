@@ -31,8 +31,8 @@ module Decidim
 
           @query = retrieve_surveys.each_with_object({}) do |survey, grouped_responses|
             responses = Decidim::Forms::Response.joins(:questionnaire)
-                                            .where(questionnaire: retrieve_questionnaires(survey))
-                                            .where(decidim_forms_responses: { created_at: ..end_time })
+                                                .where(questionnaire: retrieve_questionnaires(survey))
+                                                .where(decidim_forms_responses: { created_at: ..end_time })
             next grouped_responses unless responses
 
             group_key = generate_group_key(survey)

@@ -38,7 +38,7 @@ module Decidim
                                                       .where(questionnaire_for_type: Decidim::Surveys::Survey.name, questionnaire_for_id: surveys.pluck(:id))
 
         responses = Decidim::Forms::Response.joins(:questionnaire)
-                                        .where(questionnaire: questionnaires)
+                                            .where(questionnaire: questionnaires)
 
         responses.pluck(:decidim_user_id).flatten.compact.uniq
       end

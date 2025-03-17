@@ -214,10 +214,10 @@ describe "Respond a survey" do
   end
 
   context "when survey has action log entry" do
-    let!(:action_log) {
+    let!(:action_log) do
       create(:action_log, user:, action: "publish", organization: component.organization, resource: survey, component:, participatory_space: component.participatory_space,
                           visibility: "all")
-    }
+    end
 
     let(:router) { Decidim::EngineRouter.main_proxy(component) }
 
