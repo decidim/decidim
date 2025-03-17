@@ -841,6 +841,7 @@ Smileys
 Snowlvhme
 Snoworg
 softdeleteable
+somecapitalguy
 somedatabase
 Sorbier
 sortings
@@ -1066,3 +1067,4 @@ Zbd
 zeitwerk
 Zupper
 zzz
+zzzupper

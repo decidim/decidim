@@ -90,7 +90,7 @@ module Decidim
       end
 
       def user_endorsements
-        proposal.endorsements.for_listing.map { |identity| identity.normalized_author&.name }
+        proposal.endorsements.for_listing.map { |identity| identity.author&.name }
       end
 
       def original_proposal_url
@@ -107,22 +107,20 @@ module Decidim
       end
 
       def author_fields
-        is_author_user_group = resource.coauthorships.map(&:decidim_user_group_id).any?
-
         {
           id: resource.authors.map(&:id),
           name: resource.authors.map do |author|
-            author_name(is_author_user_group ? resource.coauthorships.first.user_group : author)
+            author_name(author)
           end,
           url: resource.authors.map do |author|
-            author_url(is_author_user_group ? resource.coauthorships.first.user_group : author)
+            author_url(author)
           end
         }
       end
 
       def author_name(author)
         if author.respond_to?(:name)
-          translated_attribute(author.name) # is a Decidim::User or Decidim::Organization or Decidim::UserGroup
+          translated_attribute(author.name) # is a Decidim::User or Decidim::Organization
         elsif author.respond_to?(:title)
           translated_attribute(author.title) # is a Decidim::Meetings::Meeting
         end
@@ -130,7 +128,7 @@ module Decidim
 
       def author_url(author)
         if author.respond_to?(:nickname)
-          profile_url(author) # is a Decidim::User or Decidim::UserGroup
+          profile_url(author) # is a Decidim::User
         elsif author.respond_to?(:title)
           meeting_url(author) # is a Decidim::Meetings::Meeting
         else

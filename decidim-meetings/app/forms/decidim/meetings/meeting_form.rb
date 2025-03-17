@@ -2,14 +2,13 @@
 
 module Decidim
   module Meetings
-    # This class holds a Form to create/update meetings for Participants and UserGroups.
+    # This class holds a Form to create/update meetings for Participants
     class MeetingForm < ::Decidim::Meetings::BaseMeetingForm
       attribute :title, String
       attribute :description, String
       attribute :location, String
       attribute :location_hints, String
 
-      attribute :user_group_id, Integer
       attribute :registration_type, String
       attribute :registrations_enabled, Boolean, default: false
       attribute :registration_url, String

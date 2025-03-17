@@ -165,11 +165,6 @@ module Decidim
         iframe_embed_types.except(:open_in_live_event_page)
       end
 
-      # Return registrations of a particular meeting made by users representing a group
-      def user_group_registrations
-        registrations.where.not(decidim_user_group_id: nil)
-      end
-
       # Returns the presenter for this author, to be used in the views.
       # Required by ActsAsAuthor.
       def presenter

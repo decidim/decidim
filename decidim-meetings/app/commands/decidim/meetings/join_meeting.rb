@@ -11,7 +11,6 @@ module Decidim
       # form - A form object with params; can be a questionnaire.
       def initialize(meeting, form)
         @meeting = meeting
-        @user_group = Decidim::UserGroup.find_by(id: form.user_group_id)
         @form = form
       end
 
@@ -38,7 +37,7 @@ module Decidim
 
       private
 
-      attr_reader :meeting, :user_group, :registration, :form
+      attr_reader :meeting, :registration, :form
 
       def accept_invitation
         meeting.invites.find_by(user: current_user)&.accept!
@@ -62,7 +61,6 @@ module Decidim
         @registration = Decidim::Meetings::Registration.create!(
           meeting:,
           user: current_user,
-          user_group:,
           public_participation: form.public_participation
         )
       end
