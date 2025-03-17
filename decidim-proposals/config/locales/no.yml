@@ -328,7 +328,6 @@
             select_a_meeting: Velg et møte
           index:
             actions: Handlinger
-            assign_to_valuator_button: Tildel
             cancel: Avbryt
             merge: Slå sammen til en ny
             merge_button: Slå sammen
@@ -339,7 +338,6 @@
             split: Delte forslag
             split_button: Delt
             title: Forslag
-            unassign_from_valuator_button: Fjern tilegning
             update: Oppdater
           new:
             create: Opprett
