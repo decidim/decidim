@@ -19,8 +19,8 @@ describe "AdminAccess" do
     it_behaves_like "admin participatory space edit button"
   end
 
-  context "with participatory space valuator" do
-    let(:role) { create(:assembly_valuator, :confirmed, organization:, assembly: participatory_space) }
+  context "with participatory space evaluator" do
+    let(:role) { create(:assembly_evaluator, :confirmed, organization:, assembly: participatory_space) }
     let(:target_path) { decidim_admin_assemblies.components_path(participatory_space) }
     let(:unauthorized_target_path) { decidim_admin_assemblies.components_path(other_participatory_space) }
 

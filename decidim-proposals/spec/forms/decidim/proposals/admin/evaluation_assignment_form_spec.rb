@@ -5,18 +5,18 @@ require "spec_helper"
 module Decidim
   module Proposals
     module Admin
-      describe ValuationAssignmentForm do
+      describe EvaluationAssignmentForm do
         subject { form }
 
         let(:organization) { component.participatory_space.organization }
         let(:proposals) { create_list(:proposal, 2, component:) }
         let(:component) { create(:proposal_component) }
-        let(:valuator_process) { component.participatory_space }
-        let(:valuator) { create(:user, organization:) }
-        let(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user: valuator, participatory_process: valuator_process) }
+        let(:evaluator_process) { component.participatory_space }
+        let(:evaluator) { create(:user, organization:) }
+        let(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user: evaluator, participatory_process: evaluator_process) }
         let(:params) do
           {
-            valuator_role_ids: [valuator_role.try(:id)],
+            evaluator_role_ids: [evaluator_role.try(:id)],
             proposal_ids: proposals.map(&:id)
           }
         end
@@ -32,8 +32,8 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "without valuator roles" do
-          let(:valuator_role) { nil }
+        context "without evaluator roles" do
+          let(:evaluator_role) { nil }
 
           it { is_expected.to be_invalid }
         end
@@ -44,8 +44,8 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when given a valuator role from another space" do
-          let(:valuator_process) { create(:participatory_process, organization:) }
+        context "when given a evaluator role from another space" do
+          let(:evaluator_process) { create(:participatory_process, organization:) }
 
           it { is_expected.to be_invalid }
         end

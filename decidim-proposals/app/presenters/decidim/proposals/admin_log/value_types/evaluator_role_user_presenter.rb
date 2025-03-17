@@ -4,11 +4,11 @@ module Decidim
   module Proposals
     module AdminLog
       module ValueTypes
-        class ValuatorRoleUserPresenter < Decidim::Log::ValueTypes::DefaultPresenter
+        class EvaluatorRoleUserPresenter < Decidim::Log::ValueTypes::DefaultPresenter
           def present
             return unless value
 
-            role = Decidim::Proposals::ValuationAssignment.find_by(valuator_role_id: value).valuator_role
+            role = Decidim::Proposals::EvaluationAssignment.find_by(evaluator_role_id: value).evaluator_role
             user = role.user
             user.try(:name)
           end

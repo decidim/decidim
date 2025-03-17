@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Valuator manages proposals" do
+describe "Evaluator manages proposals" do
   let(:manifest_name) { "proposals" }
   let!(:assigned_proposal) { create(:proposal, component: current_component) }
   let!(:unassigned_proposal) { create(:proposal, component: current_component) }
@@ -11,9 +11,9 @@ describe "Valuator manages proposals" do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
   end
   let!(:user) { create(:user, organization:) }
-  let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process:) }
+  let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process:) }
   let!(:another_user) { create(:user, organization:) }
-  let!(:another_valuator_role) { create(:participatory_process_user_role, role: :valuator, user: another_user, participatory_process:) }
+  let!(:another_evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user: another_user, participatory_process:) }
 
   include Decidim::ComponentPathHelper
 
@@ -22,8 +22,8 @@ describe "Valuator manages proposals" do
   before do
     user.update(admin: false)
 
-    create(:valuation_assignment, proposal: assigned_proposal, valuator_role:)
-    create(:valuation_assignment, proposal: assigned_proposal, valuator_role: another_valuator_role)
+    create(:evaluation_assignment, proposal: assigned_proposal, evaluator_role:)
+    create(:evaluation_assignment, proposal: assigned_proposal, evaluator_role: another_evaluator_role)
 
     visit current_path
   end
@@ -35,7 +35,7 @@ describe "Valuator manages proposals" do
     end
   end
 
-  context "when bulk unassigning valuators" do
+  context "when bulk unassigning evaluators" do
     before do
       within "tr", text: translated(assigned_proposal.title) do
         page.first(".js-proposal-list-check").set(true)
@@ -45,7 +45,7 @@ describe "Valuator manages proposals" do
     end
 
     it "cannot unassign others" do
-      expect(page).to have_no_content("Unassign from valuator")
+      expect(page).to have_no_content("Unassign from evaluator")
     end
   end
 

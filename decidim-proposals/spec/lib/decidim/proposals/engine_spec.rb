@@ -7,42 +7,42 @@ describe Decidim::Proposals::Engine do
 
   describe "decidim_proposals.remove_space_admins" do
     let(:component) { create(:proposal_component, participatory_space: space) }
-    let(:valuator) { create(:user, organization:) }
+    let(:evaluator) { create(:user, organization:) }
     let(:proposal) { create(:proposal, component:) }
 
     context "when removing participatory_space admin" do
-      let(:space) { valuator_role.participatory_process }
-      let(:valuator_role) { create(:participatory_process_user_role) }
-      let!(:assignment) { create(:valuation_assignment, proposal:, valuator_role:) }
+      let(:space) { evaluator_role.participatory_process }
+      let(:evaluator_role) { create(:participatory_process_user_role) }
+      let!(:assignment) { create(:evaluation_assignment, proposal:, evaluator_role:) }
 
       it "removes the record" do
         expect do
-          ActiveSupport::Notifications.publish("decidim.admin.participatory_space.destroy_admin:after", class_name: valuator_role.class.name, role: valuator_role.id)
-        end.to change(Decidim::Proposals::ValuationAssignment, :count).by(-1)
+          ActiveSupport::Notifications.publish("decidim.admin.participatory_space.destroy_admin:after", class_name: evaluator_role.class.name, role: evaluator_role.id)
+        end.to change(Decidim::Proposals::EvaluationAssignment, :count).by(-1)
       end
     end
 
     context "when removing assembly admin" do
-      let(:space) { valuator_role.assembly }
-      let(:valuator_role) { create(:assembly_user_role) }
-      let!(:assignment) { create(:valuation_assignment, proposal:, valuator_role:) }
+      let(:space) { evaluator_role.assembly }
+      let(:evaluator_role) { create(:assembly_user_role) }
+      let!(:assignment) { create(:evaluation_assignment, proposal:, evaluator_role:) }
 
       it "removes the record" do
         expect do
-          ActiveSupport::Notifications.publish("decidim.admin.participatory_space.destroy_admin:after", class_name: valuator_role.class.name, role: valuator_role.id)
-        end.to change(Decidim::Proposals::ValuationAssignment, :count).by(-1)
+          ActiveSupport::Notifications.publish("decidim.admin.participatory_space.destroy_admin:after", class_name: evaluator_role.class.name, role: evaluator_role.id)
+        end.to change(Decidim::Proposals::EvaluationAssignment, :count).by(-1)
       end
     end
 
     context "when removing conference admin" do
-      let(:space) { valuator_role.conference }
-      let(:valuator_role) { create(:conference_user_role) }
-      let!(:assignment) { create(:valuation_assignment, proposal:, valuator_role:) }
+      let(:space) { evaluator_role.conference }
+      let(:evaluator_role) { create(:conference_user_role) }
+      let!(:assignment) { create(:evaluation_assignment, proposal:, evaluator_role:) }
 
       it "removes the record" do
         expect do
-          ActiveSupport::Notifications.publish("decidim.admin.participatory_space.destroy_admin:after", class_name: valuator_role.class.name, role: valuator_role.id)
-        end.to change(Decidim::Proposals::ValuationAssignment, :count).by(-1)
+          ActiveSupport::Notifications.publish("decidim.admin.participatory_space.destroy_admin:after", class_name: evaluator_role.class.name, role: evaluator_role.id)
+        end.to change(Decidim::Proposals::EvaluationAssignment, :count).by(-1)
       end
     end
   end

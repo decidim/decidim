@@ -29,8 +29,8 @@ $(() => {
 
     if (selectedProposals === 0) {
       $("#js-selected-proposals-count").text("")
-      $("#js-assign-proposals-to-valuator-actions").addClass("hide");
-      $("#js-unassign-proposals-from-valuator-actions").addClass("hide");
+      $("#js-assign-proposals-to-evaluator-actions").addClass("hide");
+      $("#js-unassign-proposals-from-evaluator-actions").addClass("hide");
       $("#js-taxonomy-change-proposals-actions").addClass("hide");
     } else {
       $("#js-selected-proposals-count").text(selectedProposals);
@@ -115,8 +115,8 @@ $(() => {
 
       let action = $(e.target).data("action");
       const panelActions = [
-        "assign-proposals-to-valuator",
-        "unassign-proposals-from-valuator",
+        "assign-proposals-to-evaluator",
+        "unassign-proposals-from-evaluator",
         "taxonomy-change-proposals"
       ];
 
@@ -196,11 +196,11 @@ $(() => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const valuatorMultiselectContainers = document.querySelectorAll(
-    ".js-valuator-multiselect"
+  const evaluatorMultiselectContainers = document.querySelectorAll(
+    ".js-evaluator-multiselect"
   );
 
-  valuatorMultiselectContainers.forEach((container) => {
+  evaluatorMultiselectContainers.forEach((container) => {
     const config = {
       plugins: ["remove_button", "dropdown_input"],
       allowEmptyOption: true
