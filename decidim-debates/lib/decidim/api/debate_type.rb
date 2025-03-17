@@ -7,6 +7,11 @@ module Decidim
       implements Decidim::Comments::CommentableInterface
       implements Decidim::Core::AuthorableInterface
       implements Decidim::Core::TimestampsInterface
+      implements Decidim::Core::FollowableInterface
+      implements Decidim::Core::ReferableInterface
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::EndorsableInterface
+      implements Decidim::Core::TraceableInterface
 
       description "A debate"
 
@@ -16,9 +21,12 @@ module Decidim
       field :image, GraphQL::Types::String, "The image of this debate", null: true
       field :information_updates, Decidim::Core::TranslatedFieldType, "The information updates for this debate", null: true
       field :instructions, Decidim::Core::TranslatedFieldType, "The instructions for this debate", null: true
-      field :reference, GraphQL::Types::String, "The reference for this debate", null: true
       field :start_time, Decidim::Core::DateTimeType, "The start time for this debate", null: true
       field :title, Decidim::Core::TranslatedFieldType, "The title for this debate", null: true
+
+      field :closed_at, Decidim::Core::DateTimeType, "The closed time for this debate", null: true
+      field :comments_enabled, Boolean, "Whether the comments are enabled for this debate", null: true
+      field :conclusions, Decidim::Core::TranslatedFieldType, "The conclusion for this debate", null: true
 
       def self.authorized?(object, context)
         context[:debate] = object

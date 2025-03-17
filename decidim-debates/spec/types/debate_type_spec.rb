@@ -13,6 +13,15 @@ module Decidim
 
       include_examples "taxonomizable interface"
       include_examples "authorable interface"
+      include_examples "commentable interface"
+      include_examples "timestamps interface"
+      include_examples "followable interface"
+      include_examples "referable interface"
+      include_examples "attachable interface"
+      include_examples "traceable interface"
+      include_examples "endorsable interface" do
+        let(:model) { create(:debate, :open_ama, :with_endorsements) }
+      end
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -46,6 +55,23 @@ module Decidim
         end
       end
 
+      describe "conclusions" do
+        let(:model) { create(:debate, :closed) }
+        let(:query) { '{ conclusions { translation(locale: "en")}}' }
+
+        it "returns all the required fields" do
+          expect(response["conclusions"]["translation"]).to eq(model.conclusions["en"])
+        end
+      end
+
+      describe "comments_enabled" do
+        let(:query) { "{ commentsEnabled }" }
+
+        it "returns all the required fields" do
+          expect(response["commentsEnabled"]).to eq(model.comments_enabled)
+        end
+      end
+
       describe "informationUpdates" do
         let(:query) { '{ informationUpdates { translation(locale: "en")}}' }
 
@@ -62,35 +88,20 @@ module Decidim
         end
       end
 
+      describe "closedAt" do
+        let(:model) { create(:debate, :closed) }
+        let(:query) { "{ closedAt }" }
+
+        it "returns the date when the debate closed" do
+          expect(response["closedAt"]).to eq(model.closed_at.to_time.iso8601)
+        end
+      end
+
       describe "endTime" do
         let(:query) { "{ endTime }" }
 
         it "returns the date when the debate ends" do
           expect(response["endTime"]).to eq(model.end_time.to_time.iso8601)
-        end
-      end
-
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
-
-        it "returns when the debate was created" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
-
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns when the debate was updated" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
-        end
-      end
-
-      describe "reference" do
-        let(:query) { "{ reference }" }
-
-        it "returns all the required fields" do
-          expect(response).to include("reference" => model.reference.to_s)
         end
       end
 
