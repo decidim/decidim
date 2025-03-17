@@ -57,7 +57,7 @@ module Decidim
           end
         end
 
-        context "when question is shortresponse" do
+        context "when question is short response" do
           let!(:question) { create(:questionnaire_question, questionnaire:) }
           let!(:response) { create(:response, questionnaire:, question:, user:) }
 

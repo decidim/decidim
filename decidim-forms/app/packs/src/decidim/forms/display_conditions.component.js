@@ -54,7 +54,7 @@ class DisplayCondition {
     return $conditionWrapperField.find(".js-collection-input").find("input:not([type='hidden'])");
   }
 
-  checkResponsedCondition(value) {
+  checkRespondedCondition(value) {
     if (typeof (value) !== "object") {
       return Boolean(value);
     }
@@ -62,8 +62,8 @@ class DisplayCondition {
     return Boolean(value.some((it) => it.value));
   }
 
-  checkNotResponsedCondition(value) {
-    return !this.checkResponsedCondition(value);
+  checkNotRespondedCondition(value) {
+    return !this.checkRespondedCondition(value);
   }
 
   checkEqualCondition(value) {
@@ -100,10 +100,10 @@ class DisplayCondition {
 
     switch (this.type) {
     case "responded":
-      fulfilled = this.checkResponsedCondition(value);
+      fulfilled = this.checkRespondedCondition(value);
       break;
     case "not_responded":
-      fulfilled = this.checkNotResponsedCondition(value);
+      fulfilled = this.checkNotRespondedCondition(value);
       break;
     case "equal":
       fulfilled = this.checkEqualCondition(value);
