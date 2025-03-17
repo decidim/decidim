@@ -288,7 +288,6 @@ pt:
         finish:
           back: Retroceder
           back_to_initiatives: Retroceder para as iniciativas
-          callout_text: Parabéns! A sua iniciativa foi criada com êxito.
           confirm: Vai enviar esta iniciativa para que um administrador a possa rever e publicar. Assim que esteja publicada não a poderá editar. Tem a certeza?
           edit_my_initiative: Editar a minha iniciativa
           go_to_my_initiatives: Ir para as minhas iniciativas

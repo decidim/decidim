@@ -521,6 +521,12 @@ cs:
         exports:
           proposal_comments: Komentáře
           proposals: Návrhy
+        import_proposals_mailer:
+          notify_failure:
+            body: Při importu návrhů ze komponenty %{origin_component_name} do komponenty %{target_component_name} došlo k chybě.
+            subject: Došlo k chybě při importu návrhů
+          notify_success:
+            subject: Návrhy byly úspěšně importovány
         imports:
           help:
             answers: |
@@ -698,7 +704,7 @@ cs:
         proposals_imports:
           create:
             invalid: Při importu návrhů došlo k chybě.
-            success: "%{number} návrhů bylo úspěšně importováno."
+            success: Proces importu byl zahájen. Jakmile bude dokončen, dáme vám vědět.
           new:
             create: Návrhy na dovoz
             no_components: V tomto účastnickém prostoru neexistují žádné jiné komponenty návrhu, které by mohly importovat návrhy.
@@ -884,7 +890,6 @@ cs:
           success: Pozvánka spoluautora byla úspěšně zrušena.
         create:
           error: Při pozvání spoluautora došlo k chybě.
-          success: "%{author_name} byl úspěšně pozván jako spoluautor."
         destroy:
           error: Při odmítání pozvánky došlo k chybě.
           success: Pozvánka byla zamítnuta.

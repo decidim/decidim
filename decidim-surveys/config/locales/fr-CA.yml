@@ -13,6 +13,10 @@ fr-CA:
         one: Réponse
         other: Réponses
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: enquêtes
     components:
       surveys:
         actions:
@@ -45,6 +49,7 @@ fr-CA:
       answers_count: Réponses
     surveys:
       actions:
+        answers_alert: La suppression des réponses lors de la publication est active pour cette enquête. Il y a actuellement des réponses %{answers_count} qui seront supprimées si vous continuez.
         confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer cela ?
         destroy: Détruire
         edit: Modifier

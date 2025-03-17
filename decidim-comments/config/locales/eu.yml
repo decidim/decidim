@@ -163,17 +163,17 @@ eu:
           email_intro: "%{author_name} egileak iruzkin bat utzi du %{resource_title} helbidean. Orri honetan irakur dezakezu:"
           email_outro: Jakinarazpen hau jaso duzu %{author_name} parte-hartzailea jarraitzen duzulako. Nahi izatekotan erabiltzaile hori bere profil-orritik jarraitzeari utz diezaiokezu.
           email_subject: '%{author_name} egileak beste iruzkin bat egin du hemen: %{resource_title}'
-          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> k iruzkin berri bat egin du hemen: <a href="%{resource_path}">%{resource_title}</a>-an.'
+          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak iruzkin berri bat egin du hemen: <a href="%{resource_path}">%{resource_title}</a>.'
         comment_by_followed_user_group:
-          email_intro: '%{author_name} k iruzkin bat utzi du hemen %{resource_title}. Orrialde honetan irakur dezakezu:'
+          email_intro: '%{author_name} taldeak iruzkin bat utzi du hemen: %{resource_title}. Orrialde honetan irakur dezakezu:'
           email_outro: Jakinarazpena jaso duzu "%{author_name}" jarraitzen ari zarelako. Jarraitzeari utzi ahal diozu bere perfileko orrialdetik.
-          email_subject: '%{author_name} egileak iruzkin berri bat utzi du hemen: %{resource_title}'
-          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a>egileak iruzkin berri bat utzi du hemen: <a href="%{resource_path}">%{resource_title}</a>-an.'
+          email_subject: '%{author_name} egileak beste iruzkin bat egin du hemen: %{resource_title}'
+          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak iruzkin berri bat egin du hemen: <a href="%{resource_path}">%{resource_title}</a>.'
         comment_created:
-          email_intro: "%{resource_title} iruzkindu da. Orri honetan irakur dezakezu iruzkina:"
+          email_intro: "Norbaitek iruzkin bat egin du hemen: %{resource_title}. Orri honetan irakur dezakezu:"
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" edo bere egilea jarraitzen duzulako. Aurreko estekan jarrai dezakezu.
           email_subject: '%{author_name} egileak beste iruzkin berri bat egin du hemen: %{resource_title}'
-          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> k iruzkin berri bat egin du hemen: <a href="%{resource_path}">%{resource_title}</a></a>'
+          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak iruzkin berri bat egin du hemen: <a href="%{resource_path}">%{resource_title}</a>'
         comment_downvoted:
           email_intro: Zure iruzkina hemen "%{resource_title}" negatiboki bozkatu da. Orain %{upvotes} babes positibo eta %{downvotes} boto negatibo dituzu guztira.
           email_outro: Jakinarazpen hau jaso duzu iruzkin honen egilea zarelako.
@@ -187,13 +187,13 @@ eu:
         reply_created:
           email_intro: "%{author_name} egileak zure iruzkina erantzun du hemen: %{resource_title}. Orri honetan irakur dezakezu:"
           email_outro: Jakinarazpen hau jaso duzu zure iruzkina erantzun delako.
-          email_subject: "%{author_name} k zure iruzkina erantzun du hemen: %{resource_title}"
+          email_subject: "%{author_name} parte-hartzaileak zure iruzkina erantzun du hemen: %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> -k zure iruzkinari erantzun dio hemen <a href="%{resource_path}">%{resource_title}</a>
         user_group_mentioned:
           email_intro: Zure talde bat aipatu dute
           email_outro: '%{resource_title}-an aipatutako %{group_name} taldeko kidea zarelako jaso duzu jakinarazpen hau.'
-          email_subject: Hemen %{resource_title} aipatu zaituzte %{group_name} taldearen kide gisa
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> k aipatu zaitu hemen <a href="%{resource_path}">%{resource_title}</a> <a href="%{group_path}">%{group_name} %{group_nickname}</a> taldearen kide gisa
+          email_subject: Hemen %{resource_title} aipatu zaituzte %{group_name} taldeko kide gisa
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak aipatu zaitu, hemen <a href="%{resource_path}">%{resource_title}</a> <a href="%{group_path}">%{group_name} %{group_nickname}</a> taldeko kide gisa
         user_mentioned:
           email_intro: Aipatu zaituzte
           email_outro: 'Jakinarazpen hau jaso duzu hemen: %{resource_title} aipatu zaituztelako.'

@@ -513,6 +513,16 @@ es-PY:
         exports:
           proposal_comments: Comentarios
           proposals: Propuestas
+        import_proposals_mailer:
+          notify_failure:
+            body: Ha habido un problema al importar propuestas del componente %{origin_component_name} al componente %{target_component_name}.
+            subject: Se ha producido un error al importar las propuestas
+          notify_success:
+            added_proposals:
+              one: Se ha importado una propuesta.
+              other: "Se han importado %{count} propuestas."
+            body: Se han importado con éxito las propuestas desde el componente %{origin_component_name} al componente %{target_component_name}. Puedes revisar los resultados en el tablero de administración.
+            subject: Las propuestas se han importado correctamente
         imports:
           help:
             answers: |
@@ -684,7 +694,7 @@ es-PY:
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas.
-            success: "%{number} propuestas importadas correctamente."
+            success: El proceso de importación ha comenzado. Te avisaremos cuando haya terminado.
           new:
             create: Importar propuestas
             no_components: No hay otros componentes propuesta en este espacio participativo desde el que importar.
@@ -866,7 +876,7 @@ es-PY:
           success: Invitación de coautoría cancelada con éxito.
         create:
           error: Se ha producido un error al invitar a la coautora.
-          success: "%{author_name} ha sido invitada como coautora con éxito."
+          success: "Se ha invitado con éxito a %{author_name} para ser coautor/a de la propuesta."
         destroy:
           error: Se ha producido un error al rechazar la invitación.
           success: Se ha rechazado su invitación.

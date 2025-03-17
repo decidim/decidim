@@ -10,7 +10,7 @@ eu:
         max_choices: Gehieneko aukera kopurua
         question_type: Mota
       questionnaire_question:
-        mandatory: Derrigorrezkoa
+        mandatory: Nahitaezkoa
         max_characters: Karaktereen muga (utzi 0 mugarik ez badago)
     errors:
       models:
@@ -218,7 +218,6 @@ eu:
           tos_agreement: Parte hartzean, haren zerbitzu-baldintzak onartzen dituzu
       step_navigation:
         show:
-          are_you_sure_edit: Zure erantzunak editatu ahal izango dituzu. Ziur zaude?
           are_you_sure_edit_guest: Erantzunak editatu nahi badituzu, orduan sartu behar zara edo kontu bat sortu behar duzu.
           are_you_sure_no_edit: Ekintza hau ezin da desegin eta ezin izango dituzu zure erantzunak editatu. Ziur zaude?
           back: Atzera

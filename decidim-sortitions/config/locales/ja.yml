@@ -23,8 +23,13 @@ ja:
         name: 並べ替え
         settings:
           global:
+            clear_all: すべてクリア
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
+            taxonomy_filters: コンポーネントのフィルタを選択
+            taxonomy_filters_add: フィルターを追加
     events:
       sortitions:
         sortition_created:
@@ -49,6 +54,7 @@ ja:
               request_timestamp: ドロー時間
               seed: Seed
               target_items: 選択するアイテム
+              taxonomies: タクソノミー
               title: タイトル
         sortitions:
           confirm_destroy:
@@ -65,7 +71,9 @@ ja:
             title: 並べ替えに関する情報を更新する
             update: 更新
           form:
+            all_taxonomies: すべてのタクソノミー
             select_proposal_component: 提案セットを選択
+            select_taxonomies: 抽選を適用したい提案のセットに関連するタクソノミー。空のままにすると、そのタクソノミー内のすべての提案に抽選が適用されます。
           index:
             title: 並べ替え
           new:
@@ -105,6 +113,7 @@ ja:
             other: 選択された提案
         show:
           algorithm: 並べ替えのアルゴリズム コード
+          any_taxonomy: すべてのタクソノミーから
           cancelled: キャンセルされた並べ替え
           candidate_proposal_ids: 並べ替え提案の順序とID
           dice_result: (1)サイコロ結果
@@ -112,6 +121,7 @@ ja:
           mathematical_result: 結果 (1) x (2)
           proposals_selected_by_sortition: 並べ替えによって選択された提案
           sortition_reproducibility_details: 並べ替え再現性の詳細
+          taxonomies: '%{taxonomies} タクソノミーから'
           time_seed: (2) 時間の種
           witnesses: 目撃者
         sortition:

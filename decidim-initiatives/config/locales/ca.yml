@@ -386,7 +386,7 @@ ca:
           back: Torna
           back_to_initiatives: Torna a iniciatives
           callout_text: Enhorabona! La teva iniciativa s'ha creat correctament.
-          confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segura?
+          confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui. Un cop publicada no la podràs editar. Segur?
           edit_my_initiative: Editar la meva iniciativa
           go_to_my_initiatives: Ves a les meves iniciatives
           more_information: "(Més informació)"
@@ -648,7 +648,7 @@ ca:
     decidim:
       initiative_creation_header:
         fill_data: Crear
-        finish: Acabar
+        finish: Finalitzar
         promotal_committee: Comissió Promotora
         select_initiative_type: Tria
       initiative_signature_creation_header:

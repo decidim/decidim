@@ -54,7 +54,7 @@ ro:
         remove_avatar: Eliminați avatar
         tos_agreement: Acordul privind termenii și condițiile
       user_group:
-        avatar: Fotografie de profil
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Atașament
       decidim/component_published_event: Componentă activă
@@ -1239,29 +1239,24 @@ ro:
         conversations: Conversații
         followers: Urmăritori
         following: Urmăriri
+        group_admins: Gestionare administratori
+        group_members: Gestionare membri
         groups: Grupuri
         members: Membri
         officialized: Participant oficial
         send_private_message: Trimite mesaj privat
-      sidebar:
-        badges:
-          info: Insignele sunt câștigate prin desfășurarea de activități specifice pe platformă.
-          title: Insigne
       user:
         actions:
-          create_user_group: Creează grup
-          invite_user: Invită un participant
-          manage_user_group_users: Gestionare participanți
+          create_user_group: Creați grup
+          edit_profile: Editare profil
+          edit_user_group: Editează profilul grupului
+          invite_user: Invite participant
+          join_user_group: Cerere de aderare la grup
+          leave_user_group: Părăsește grupul
+          manage_user_group_admins: Gestionare administratori
+          manage_user_group_users: Gestionare membri
           message: Mesaj
-        create_user_group: Creează grup
-        edit_profile: Editare profil
-        edit_user_group: Editează profilul grupului
-        invite_user: Invite participant
-        join_user_group: Cerere de aderare la grup
-        leave_user_group: Părăsește grupul
-        manage_user_group_admins: Gestionează administratorii
-        manage_user_group_users: Gestionează membrii
-        resend_email_confirmation_instructions: Retrimite e-mail instrucțiuni de confirmare
+          resend_email_confirmation_instructions: Retrimite e-mail instrucțiuni de confirmare
     reported_mailer:
       hide:
         hello: Bună ziua %{name},
@@ -1340,12 +1335,11 @@ ro:
         title: Raportează o problemă
       flag_user_modal:
         already_reported: Acest conținut este deja raportat și va fi revizuit de către un administrator.
-        close: Închideți
-        description: Ce este nepotrivit pentru utilizator?
+        description: Ce este nepotrivit pentru acest participant?
         offensive: Conține rasism, sexism, insulte, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
         report: Raportează
         spam: Conține clickbait, publicitate, escrocherii sau roboți script.
-        title: Raportează un utilizator nepotrivit
+        title: Raportează un participant nepotrivit
       floating_help:
         help: Ajutor
       login_modal:

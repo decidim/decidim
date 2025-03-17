@@ -33,6 +33,8 @@ hu:
         personal_url: Személyes URL
         remove_avatar: Avatár eltávolítása
         tos_agreement: A szolgáltatás felhasználási feltételei
+      user_group:
+        avatar: Profilkép
     models:
       decidim/attachment_created_event: Melléklet
       decidim/component_published_event: Aktív elem
@@ -980,13 +982,13 @@ hu:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
-          greeting: Kedves %{recipient}!
+          greeting: Szia %{recipient}!
           intro: "%{manager} egy új beszélgetést indított a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
           outro: Örömteli platform használatot kívánunk!
           subject: "%{manager} egy új beszélgetést indított a(z) %{group} nevében"
         comanagers_new_message:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
-          greeting: Kedves %{recipient}!
+          greeting: Szia %{recipient}!
           intro: "%{manager} egy új üzenetet tett közzé egy beszélgetésben a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
           outro: Örömteli platform használatot kívánunk!
           subject: "%{manager} új üzeneteket küldött a(z) %{group} nevében"
@@ -997,13 +999,13 @@ hu:
           subject: "%{sender} beszélgetést kezdett veled"
         new_group_conversation:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
-          greeting: Kedves %{recipient}!
+          greeting: Szia %{recipient}!
           intro: "%{sender} egy új beszélgetést indított a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
           outro: Örömteli platform használatot kívánunk!
           subject: "%{sender} új beszélgetést indított a(z) %{group} csoporttal"
         new_group_message:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
-          greeting: Kedves %{recipient}!
+          greeting: Szia %{recipient}!
           intro: "%{sender} új üzeneteket tett közzé a(z) %{group} csoporttal folytatott beszélgetésben. Kattintson ide a megtekintéshez:"
           outro: Örömteli platform használatot kívánunk!
           subject: "%{group} csoportba új üzenetet küldött %{sender}"
@@ -1031,7 +1033,7 @@ hu:
           no_conversations: Még nem rendelkezik beszélgetésekkel.
           title: Beszélgetések
         reply_form:
-          placeholder: Az Ön válasza...
+          placeholder: A válaszod...
           send: Küldés
         show:
           back: Vissza az összes beszélgetéshez
@@ -1223,10 +1225,6 @@ hu:
         members: Belépés
         officialized: Hivatalos résztvevő
         send_private_message: Privát üzenet küldése
-      sidebar:
-        badges:
-          info: A jelvények a platformon végzett konkrét tevékenység végrehajtásával érhetők el.
-          title: Kitűzők
       user:
         actions:
           create_user_group: Csoport létrehozása
@@ -1242,16 +1240,7 @@ hu:
           message: Üzenet
           resend_email_confirmation_instructions: E-mail visszaigazolási utasítások újraküldése
         confirmation_instructions_sent: A megerősítő email az utasításokkal elküldve.
-        create_user_group: Csoport létrehozása
-        edit_profile: Profil szerkesztése
-        edit_user_group: Csoportprofil szerkesztése
         fill_in_email_to_confirm_it: Kérjük, töltse ki a csoport e-mailjét a megerősítéshez.
-        invite_user: Résztvevő meghívása
-        join_user_group: Csatlakozás kérése a csoporthoz
-        leave_user_group: Kilépés a csoportból
-        manage_user_group_admins: Adminisztrátorok kezelése
-        manage_user_group_users: Tagok kezelése
-        resend_email_confirmation_instructions: E-mail visszaigazolási utasítások újraküldése
     reported_mailer:
       hide:
         hello: Helló %{name}!
@@ -1330,14 +1319,11 @@ hu:
       flag_user_modal:
         already_reported: Ezt a tartalmat már jelentették, az adminisztrátor éppen felülvizsgálja.
         block: Résztvevő blokkolása
-        close: Bezár
-        description: Mi nem megfelelő a felhasználóval kapcsolatban?
         does_not_belong: 'Illegális tevékenységet, öngyilkosságra való felhívást, személyes adatokat vagy más olyan dolgot tartalmaz, amiről úgy gondolja, nem tartozik ide: %{organization_name}.'
         hide: Minden tartalom elrejtése
         offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
         report: Jelentés
         spam: Klikkvadászat, reklám, átverés vagy script bot.
-        title: Nem megfelelően viselkedő felhasználó jelentése
       floating_help:
         help: Segítség
       follow_button:

@@ -153,7 +153,7 @@ eu:
       meetings:
         actions:
           comment: Iruzkina
-          join: Parte hartu
+          join: Hartu parte
           reply_poll: Erantzun inkesta
         name: Topaketak
         settings:
@@ -460,7 +460,7 @@ eu:
           all: Guztiak
       calendar:
         meeting_to_event:
-          read_more: Irakurri gehiago topaketa honetaz
+          read_more: Irakurri gehiago topaketa honi buruz
       calendar_modal:
         calendar_url: Egutegiaren URLa
         copy_calendar_url: Kopiatu
@@ -472,7 +472,7 @@ eu:
         export_calendar: Esportatu egutegia
       close_meeting_reminder_mailer:
         close_meeting_reminder:
-          body: <a href="%{meeting_path}">"%{meeting_title}"</a> topaketa ixteko dago. Mesedez, gehitu bilerari buruzko txosten bat "Itxi bilera" botoia erabiliz.
+          body: <a href="%{meeting_path}">"%{meeting_title}"</a> bilera ixteko dago. Mesedez, gehitu bilerari buruzko txosten bat "Itxi bilera" botoia erabiliz.
           greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Kaixo %{username},
           subject: Zuk orain "%{meeting_title}" topaketa itxi ahal duzu txosten batekin
@@ -484,7 +484,7 @@ eu:
         meetings:
           index:
             meetings: Topaketak
-            space_type: Parte hartzeko espazioa
+            space_type: Partaidetza-espazioa
       iframe_access_level:
         all: Bisitari guztiak
         registered: "Parte hartzaile erregistratuak topaketa honetan\n"
@@ -760,7 +760,7 @@ eu:
           longitude: Topaketaren luzera
           online_meeting_url: Online topaketaren URLa
           organizations: Zein erakundek hartu du parte topaketa honetan?
-          participatory_space: Zein espaziotakoa datopaketa hau (adibidez, Prozesu Parte-hartzailea edo Batzarra)?
+          participatory_space: Zein espaziotakoa datopaketa hau (adibidez, Partaidetza-prozesu edo Batzarra)
           private_meeting: Topaketa pribatua izan zen ala ez adierazteko
           published: Noiz argitaratu da topaketa?
           reference: Plataforma honetako baliabidearen identifikatzaile bakarra

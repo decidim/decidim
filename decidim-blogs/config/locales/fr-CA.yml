@@ -15,6 +15,10 @@ fr-CA:
         one: Article
         other: Articles
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Articles
     blogs:
       actions:
         author_id: Créer un article comme
@@ -49,6 +53,8 @@ fr-CA:
         post:
           create: "%{user_name} a créé l'article de blog %{resource_name} dans %{space_name}"
           delete: "%{user_name} a supprimé l'article de blog %{resource_name} dans %{space_name}"
+          restore: "%{user_name} a restauré l'article de blog %{resource_name} dans %{space_name}"
+          soft_delete: "%{user_name} a déplacé l'article de blog %{resource_name} dans %{space_name}"
           update: "%{user_name} a mis à jour l'article de blog %{resource_name} dans %{space_name}"
       content_blocks:
         highlighted_posts:
@@ -124,5 +130,6 @@ fr-CA:
           commentable_id: L'identifiant unique du commentaire
           created_at: La date de création de ce commentaire
           id: L'id de ce commentaire
+          user_group: Le nom du groupe d'utilisateurs qui a fait ce commentaire (le cas échéant)
     statistics:
       posts_count: Publications

@@ -169,7 +169,6 @@ is:
     decidim:
       initiative_creation_header:
         fill_data: Búa til
-        finish: Klára
         select_initiative_type: Veldu
       initiatives:
         no_initiatives_yet:

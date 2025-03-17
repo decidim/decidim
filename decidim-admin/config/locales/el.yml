@@ -601,7 +601,7 @@ el:
             created_at: Δημιουργήθηκε στις
             document_number: Αριθμός εγγράφου
             name: Όνομα
-            nickname: Ψευδωνυμο
+            nickname: Ψευδώνυμο
             phone: Τηλέφωνο
             state: Κατάσταση
             users_count: Πλήθος συμμετεχόντων
@@ -794,6 +794,8 @@ el:
         create:
           success: Το αρχείο CSV μεταφορτώθηκε με επιτυχία. Στέλνουμε πρόσκληση στους συμμετέχοντες μέσω email. Αυτή η διαδικασία μπορεί να χρειαστεί λίγη ώρα.
         new:
+          csv_upload:
+            title: Αποστολή του αρχείου σας CSV
           example_file: 'Παράδειγμα αρχείου:'
           upload: Αποστολή
       reminders:
@@ -913,7 +915,7 @@ el:
       user_groups:
         index:
           state:
-            pending: Σε εκκρεμότητα
+            pending: Εκκρεμεί
             rejected: Απορρίφθηκε
             verified: Επαληθεύτηκε
           verify_via_csv: Επαλήθευση μέσω CSV

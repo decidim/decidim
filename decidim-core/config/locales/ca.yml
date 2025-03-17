@@ -54,7 +54,7 @@ ca:
         remove_avatar: Elimina la imatge de perfil
         tos_agreement: Termes i condicions d'ús
       user_group:
-        avatar: Imatge de perfil
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Arxiu adjunt
       decidim/component_published_event: Component actiu
@@ -1215,8 +1215,8 @@ ca:
         success: El grup s'ha abandonat correctament.
       members:
         accept_or_reject_join_requests: 'Les següents participants han sol·licitat unir-se a aquest grup. Accepta o rebutja les seves sol·licituds:'
-        accept_request: Accepta
-        reject_request: Rebutja
+        accept_request: Acceptar
+        reject_request: Rebutjar
       new:
         create_user_group: Crea un grup
         new_user_group: Nou grup
@@ -1551,13 +1551,13 @@ ca:
         user_groups:
           avatar_url: L'avatar del grup d'usuàries
           badge: L'ensenya del grup d'usuàries
-          deleted: Si el grup d'usuàries va ser eliminat o no
+          deleted: Si la usuària va ser eliminada o no
           id: L'identificador únic del grup d'usuàries
           members: L'ID i el nom de les usuàries que pertanyen al grup
           members_count: El número de membres que formen part del grup d'usuàries
           name: El nom que es mostra del grup d'usuàries
           nickname: El nom d'usuària del grup d'usuàries
-          profile_url: L'URL del perfil del grup d'usuàries
+          profile_url: L'URL del perfil de la usuària
         users:
           about: El text "Quant a" inclòs al perfil d'usuària
           avatar_url: L'avatar de la usuària
@@ -1688,40 +1688,27 @@ ca:
         followers: Seguidores
         following: Seguint
         group_admins: Gestionar administradores
-        group_members: Gestionar membres
+        group_members: Gestiona els membres
         groups: Grups
         members: Membres
         officialized: Participant oficial
         send_private_message: Enviar missatge privat
-      sidebar:
-        badges:
-          info: Els distintius s'aconsegueixen mitjançant la realització d'activitats específiques a la plataforma.
-          title: Insígnies
       user:
         actions:
-          create_user_group: Crear un grup
+          create_user_group: Crea un grup
           disabled_message: Missatge
-          edit_profile: Editar el perfil
-          edit_user_group: Editar el perfil del grup
-          invite_user: Convidar participant
-          join_user_group: Sol·licitar unir-se al grup
-          leave_user_group: Surt del grup
+          edit_profile: Edita el perfil
+          edit_user_group: Edita el perfil del grup
+          invite_user: Convida la participant
+          join_user_group: Sol·licita unir-se al grup
+          leave_user_group: Marxa del grup
           manage_user_group: Gestiona el grup
           manage_user_group_admins: Gestionar administradores
-          manage_user_group_users: Gestionar membres
+          manage_user_group_users: Gestiona els membres
           message: Missatge
           resend_email_confirmation_instructions: Reenvia un correu electrònic amb les instruccions de confirmació
         confirmation_instructions_sent: Instruccions de confirmació enviades per correu electrònic.
-        create_user_group: Crea un grup
-        edit_profile: Edita el perfil
-        edit_user_group: Edita el perfil del grup
         fill_in_email_to_confirm_it: Si us plau, omple el correu electrònic del teu grup per confirmar-lo.
-        invite_user: Convida la participant
-        join_user_group: Sol·licita unir-se al grup
-        leave_user_group: Marxa del grup
-        manage_user_group_admins: Gestiona les administradores
-        manage_user_group_users: Gestiona els membres
-        resend_email_confirmation_instructions: Reenvia un correu electrònic amb les instruccions de confirmació
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -1809,14 +1796,13 @@ ca:
       flag_user_modal:
         already_reported: Aquest contingut ja ha estat reportat i serà revisat per una administradora.
         block: Eliminar aquesta participant
-        close: Tancar
-        description: Què és inapropiat d'aquesta usuària?
+        description: Què té inapropiat aquesta participant?
         does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
         hide: Amagar tots els seus continguts
         offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
         report: Reportar
         spam: Conté "clickbait", publicitat o estafes.
-        title: Reportar contingut inapropiat
+        title: Reportar participant inapropiada
       floating_help:
         help: Ajuda
       follow_button:
@@ -1931,11 +1917,11 @@ ca:
     failure:
       already_authenticated: Ja has iniciat la sessió.
       inactive: El teu compte encara no està activat.
-      invalid: L'%{authentication_keys} o la contrasenya no són vàlids.
+      invalid: El %{authentication_keys} o la contrasenya no són vàlids.
       invited: Tens una invitació pendent, accepta-la per acabar de crear el teu compte.
       last_attempt: Tens un intent més abans que el teu compte es bloquegi.
       locked: El teu compte està bloquejat.
-      not_found_in_database: L'%{authentication_keys} o la contrasenya no són vàlids.
+      not_found_in_database: El %{authentication_keys} o la contrasenya no són vàlids.
       timeout: La teva sessió ha expirat. Si us plau, torna a iniciar-la per continuar.
       unauthenticated: Cal iniciar sessió o crear un compte abans de continuar.
     invitations:

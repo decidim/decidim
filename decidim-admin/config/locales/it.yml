@@ -159,6 +159,7 @@ it:
         reject: Rifiuta
         share: Condividi
         share_tokens: Link di accesso
+        soft_delete:
         verify: Verifica
       area_types:
         create:
@@ -300,6 +301,10 @@ it:
           values:
             'false': 'No'
             'true': 'Sì'
+        moderated_users:
+          reports_reason_eq:
+            values:
+              does_not_belong:
         moderations:
           reportable_type_string_eq:
             label: Tipo
@@ -496,6 +501,7 @@ it:
             created_at: Creato il
             document_number: Numero del documento
             name: Nome
+            nickname: Nickname
             phone: Telefono
             state: Stato
             users_count: Conteggio dei partecipanti
@@ -665,6 +671,8 @@ it:
           title: Nuovo utente privato dello spazio partecipativo.
       participatory_space_private_users_csv_imports:
         new:
+          csv_upload:
+            title: Carica il tuo file CSV
           upload: Carica File
       reminders:
         create:
@@ -773,15 +781,15 @@ it:
       user_groups:
         index:
           state:
-            pending: in attesa di
-            rejected: Rifiutata
+            pending: In Sospeso
+            rejected: Respinto
             verified: Verificato
           verify_via_csv: Verifica tramite CSV
       user_groups_csv_verifications:
         new:
           explanation: Carica il tuo file CSV. Deve avere le e-mail ufficiali dei gruppi di utenti nella tua organizzazione nella prima colonna del file, senza intestazioni. Verranno convalidati solo i gruppi di utenti che hanno confermato la loro e-mail e che hanno una e-mail che appare nel file CSV.
           title: Carica il tuo file CSV
-          upload: Caricare
+          upload: Carica File
       users:
         create:
           error: Si è verificato un problema durante l'invito a questo amministratore.

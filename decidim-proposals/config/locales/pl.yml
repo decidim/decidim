@@ -515,7 +515,6 @@ pl:
         proposals_imports:
           create:
             invalid: Podczas importowania propozycji wystąpił błąd.
-            success: "Zaimportowano %{number} propozycji."
           new:
             create: Importuj propozycje
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów propozycji do zaimportowania propozycji.

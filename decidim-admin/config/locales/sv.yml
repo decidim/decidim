@@ -588,7 +588,7 @@ sv:
         content: Rapporterat innehåll
         external_domain_allowlist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
-        homepage: Hemsida
+        homepage: Startsida
         impersonations: Uppträd som
         manage: Hantera
         moderation: Moderering
@@ -970,7 +970,7 @@ sv:
           success: CSV-filen har laddats upp och vi skickar en inbjudan med e-post till deltagarna. Det kan ta en stund.
         new:
           csv_upload:
-            title: Ladda upp din CSV-fil
+            title: Skicka CSV-fil
           destroy:
             button: Radera alla privata deltagare
             confirm: Är du säker på att du vill radera alla privata deltagare? Den här åtgärden kan inte ångras.
@@ -1287,8 +1287,8 @@ sv:
         index:
           state:
             pending: Väntande
-            rejected: Avvisad
-            verified: Verifierat
+            rejected: Avvisade
+            verified: Verifierade
           verify_via_csv: Verifiera via CSV
       user_groups_csv_verifications:
         new:

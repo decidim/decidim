@@ -1313,7 +1313,7 @@ cs:
             acme@example.org
             bubba.gump@example.org
           title: Nahrát soubor CSV
-          upload: nahrát
+          upload: Nahrát
       users:
         create:
           error: Při pozvání tohoto administrátora došlo k chybě.

@@ -319,6 +319,7 @@ is:
             created_at: Búið til á
             document_number: Skjal númer
             name: Nafn
+            nickname: Gælunafn
             phone: Sími
             state: Ríki
       moderations:
@@ -441,12 +442,6 @@ is:
         dashboard: Mælaborð
         scope_types: Gildissvið
         scopes: Scopes
-      user_groups:
-        index:
-          state:
-            pending: Í bið
-            rejected: Hafnað
-            verified: Staðfest
       users:
         form:
           email: Email
