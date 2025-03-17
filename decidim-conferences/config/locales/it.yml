@@ -185,7 +185,6 @@ it:
             admin: Amministratore
             collaborator: Collaboratore
             moderator: Moderatore
-            valuator: Valutatore
         media_link:
           fields:
             date: Data
