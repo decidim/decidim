@@ -80,7 +80,6 @@ module Decidim
     autoload :EndorsableInterface, "decidim/api/interfaces/endorsable_interface"
     autoload :LocalizableInterface, "decidim/api/interfaces/localizable_interface"
     autoload :FollowableInterface, "decidim/api/interfaces/followable_interface"
-    autoload :ResourceableInterface, "decidim/api/interfaces/resourceable_interface"
     autoload :ReferableInterface, "decidim/api/interfaces/referable_interface"
 
     autoload :DateTimeType, "decidim/api/scalars/date_time_type"
