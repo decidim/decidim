@@ -295,7 +295,6 @@ lv:
           index:
             actions: Darbības
             assign_to_valuator: Piešķirt vērtētājam
-            assign_to_valuator_button: Piešķirt
             cancel: Atcelt
             change_category: Mainīt kategoriju
             change_scope: Mainīt tvērumu
@@ -309,7 +308,6 @@ lv:
             split_button: Sadalījums
             title: Priekšlikumi
             unassign_from_valuator: Atsaukt no vērtētāja
-            unassign_from_valuator_button: Atsaukt
             update: Atjaunināt
             update_scope_button: Atjaunināt tvērumu
           new:

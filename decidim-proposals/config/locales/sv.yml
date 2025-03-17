@@ -515,7 +515,6 @@ sv:
           index:
             actions: Åtgärder
             assign_to_valuator: Tilldela till handläggare
-            assign_to_valuator_button: Tilldela
             cancel: Avbryt
             change_category: Ändra kategori
             change_scope: Ändra indelning
@@ -531,7 +530,6 @@ sv:
             statuses: Statusar
             title: Förslag
             unassign_from_valuator: Ta bort tilldelning till handläggare
-            unassign_from_valuator_button: Ta bort tilldelning
             update: Uppdatera
             update_scope_button: Uppdatera indelning
           new:

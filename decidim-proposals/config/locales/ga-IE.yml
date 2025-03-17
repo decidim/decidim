@@ -105,7 +105,6 @@ ga:
             select_a_category: Roghnaigh catagóir
           index:
             actions: Gníomhartha
-            assign_to_valuator_button: Ceap
             cancel: Cealaigh
             change_category: Athraigh catagóir
             merge_button: Cumaisc

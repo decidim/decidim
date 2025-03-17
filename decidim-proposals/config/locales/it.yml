@@ -342,7 +342,6 @@ it:
           index:
             actions: Azioni
             assign_to_valuator: Assegna al valutatore
-            assign_to_valuator_button: Assegna
             cancel: Annulla
             change_category: Cambia categoria
             change_scope: Cambia ambito
@@ -356,7 +355,6 @@ it:
             split_button: Diviso
             title: Proposte
             unassign_from_valuator: Annulla assegnazione al valutatore
-            unassign_from_valuator_button: Disassegna
             update: Aggiornare
             update_scope_button: Aggiorna Ambito
           new:
