@@ -1174,7 +1174,7 @@ eu:
       download:
         csv: Deskargatu datuak (CSV)
       followers:
-        description: Parte hartzeko espazio hau jarraitzen duten parte-hartzaile kopurua
+        description: Partaidetza-espazio hau jarraitzen duten parte-hartzaile kopurua
         object: jarraitzaileak
         title: Jarraitzaileak
       participants:
@@ -1378,7 +1378,7 @@ eu:
           invite_user: Gonbidatu parte-hartzailea
           join_user_group: Eskatu taldera lotzea
           leave_user_group: Utzi taldea
-          manage_user_group: Kudeatu taldea
+          manage_user_group: Taldea kudeatu
           manage_user_group_admins: Kudeatu kudeatzaileak
           manage_user_group_users: Kudeatu kideak
           message: Mezua
