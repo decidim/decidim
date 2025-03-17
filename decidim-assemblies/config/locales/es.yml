@@ -201,7 +201,6 @@ es:
             admin: Administradora
             collaborator: Colaboradora
             moderator: Moderadora
-            valuator: Evaluadora
       taxonomy_filters:
         space_filter_for:
           assemblies: Todas las asambleas
