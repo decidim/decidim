@@ -20,7 +20,6 @@ FactoryBot.define do
     author { component.try(:organization) }
     comments_layout { "single_column" }
     deleted_at { nil }
-    comments_enabled { false }
 
     trait :with_endorsements do
       after :create do |post, evaluator|

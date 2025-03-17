@@ -65,6 +65,7 @@ module Decidim
       end
 
       describe "comments_enabled" do
+        let(:model) { create(:debate, :open_ama, comments_enabled: true) }
         let(:query) { "{ commentsEnabled }" }
 
         it "returns all the required fields" do
