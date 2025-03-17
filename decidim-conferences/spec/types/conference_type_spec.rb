@@ -205,7 +205,7 @@ module Decidim
           let(:registrations_enabled) { false }
 
           it "does not return any registration type" do
-            expect(response["registrationTypes"]).to eq([ nil ])
+            expect(response["registrationTypes"]).to eq([nil])
           end
         end
 
