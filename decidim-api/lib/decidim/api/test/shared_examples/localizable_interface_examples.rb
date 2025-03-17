@@ -21,9 +21,9 @@ shared_examples_for "localizable interface" do
     end
     it "returns the meeting's address" do
       expect(response["coordinates"]).to include(
-                                           "latitude" => model.latitude,
-                                           "longitude" => model.longitude
-                                         )
+        "latitude" => model.latitude,
+        "longitude" => model.longitude
+      )
     end
   end
 end
