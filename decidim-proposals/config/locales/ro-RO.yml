@@ -433,7 +433,7 @@ ro:
           index:
             actions: Acțiuni
             assign_to_valuator: Atribuie evaluatorului
-            assign_to_valuator_button: Atribuie
+            assign_to_valuator_button: Delegați
             cancel: Anulează
             change_category: Schimbă categoria
             change_scope: Schimbă domeniul
@@ -447,7 +447,7 @@ ro:
             split_button: Împarte
             title: Propuneri
             unassign_from_valuator: Atribuire către evaluator anulată
-            unassign_from_valuator_button: Neatribuit
+            unassign_from_valuator_button: Anulare delegare
             update: Actualizează
             update_scope_button: Actualizează domeniu
           new:

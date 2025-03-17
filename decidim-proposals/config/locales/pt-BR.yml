@@ -441,7 +441,6 @@ pt-BR:
           index:
             actions: Ações
             assign_to_valuator: Atribuir ao avaliador
-            assign_to_valuator_button: Atribuir
             cancel: Cancelar
             change_category: Alterar categoria
             change_scope: Alterar o escopo
@@ -455,7 +454,6 @@ pt-BR:
             split_button: Dividir
             title: Propostas
             unassign_from_valuator: Desatribuir do avaliador
-            unassign_from_valuator_button: Desatribuir
             update: Atualizar
             update_scope_button: Atualizar Escopo
           new:

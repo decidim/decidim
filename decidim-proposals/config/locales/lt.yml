@@ -505,7 +505,6 @@ lt:
           index:
             actions: Veiksmai
             assign_to_valuator: Priskirti vertintojui
-            assign_to_valuator_button: Priskirti
             cancel: Atšaukti
             change_category: Keisti kategoriją
             change_scope: Keisti apimtį
@@ -519,7 +518,6 @@ lt:
             split_button: Skaidyti
             title: Pasiūlymai
             unassign_from_valuator: Panaikinti vertintojui pavestą užduotį
-            unassign_from_valuator_button: Atšaukti priskyrimą
             update: Atnaujinti
             update_scope_button: Atnaujinti apimtį
           new:

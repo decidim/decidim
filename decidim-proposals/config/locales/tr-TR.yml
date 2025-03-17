@@ -383,7 +383,6 @@ tr:
           index:
             actions: Eylemler
             assign_to_valuator: Bilirkişiye ata
-            assign_to_valuator_button: Ata
             cancel: İptal Et
             change_category: Kategoriyi değiştir
             change_scope: Kapsamı değiştir
@@ -397,7 +396,6 @@ tr:
             split_button: Böl
             title: Teklifler
             unassign_from_valuator: Bilirkişinin atamasını kaldır
-            unassign_from_valuator_button: Atamayı kaldır
             update: Güncelle
             update_scope_button: Kapsamı Güncelle
           new:

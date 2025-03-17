@@ -491,7 +491,6 @@ el:
           index:
             actions: Ενέργειες
             assign_to_valuator: Εκχώρηση σε εκτιμητή
-            assign_to_valuator_button: Εκχώρηση
             cancel: Ακύρωση
             change_category: Αλλαγή κατηγορίας
             change_scope: Αλλαγή πεδίου εφαρμογής
@@ -505,7 +504,6 @@ el:
             split_button: Διαχωρισμός
             title: Προτάσεις
             unassign_from_valuator: Κατάργηση εκχώρησης από εκτιμητή
-            unassign_from_valuator_button: Κατάργηση εκχώρησης
             update: Ενημέρωση
             update_scope_button: Ενημέρωση πεδίου εφαρμογής
           new:

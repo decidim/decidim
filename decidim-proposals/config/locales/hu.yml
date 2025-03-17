@@ -432,7 +432,6 @@ hu:
           index:
             actions: Műveletek
             assign_to_valuator: Értékelőhöz rendel
-            assign_to_valuator_button: Hozzárendel
             cancel: Mégse
             change_category: Kategória módosítása
             change_scope: Hatáskör megváltoztatása
@@ -446,7 +445,6 @@ hu:
             split_button: Szétválasztás
             title: Javaslatok
             unassign_from_valuator: Visszarendelés értékelőtől
-            unassign_from_valuator_button: Visszarendelés
             update: Frissítés
             update_scope_button: Hatáskör frissítése
           new:

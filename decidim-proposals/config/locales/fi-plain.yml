@@ -505,7 +505,6 @@ fi-pl:
           index:
             actions: Toiminnot
             assign_to_valuator: Anna tehtäväksi arvioijalle
-            assign_to_valuator_button: Anna tehtäväksi
             cancel: Peruuta
             change_category: Vaihda aihepiiri
             change_scope: Vaihda teemaa
@@ -519,7 +518,6 @@ fi-pl:
             split_button: Jaa
             title: Ehdotukset
             unassign_from_valuator: Poista tehtävä arvioijalta
-            unassign_from_valuator_button: Poista tehtävä
             update: Päivitä
             update_scope_button: Päivitä teema
           new:

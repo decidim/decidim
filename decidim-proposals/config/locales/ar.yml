@@ -484,7 +484,6 @@ ar:
           index:
             actions: أفعال
             assign_to_valuator: أسنِده إلى مُقيِّم
-            assign_to_valuator_button: تعيين
             cancel: إلغاء
             change_category: تغيير الفئة
             change_scope: تغيير النطاق
@@ -498,7 +497,6 @@ ar:
             split_button: انشق، مزق
             title: اقتراحات
             unassign_from_valuator: إلغاء الإسناد مِن المُقيِّم
-            unassign_from_valuator_button: إلغاء الإسناد
             update: تحديث
             update_scope_button: تحديث النطاق
           new:

@@ -412,7 +412,6 @@ nl:
           index:
             actions: acties
             assign_to_valuator: Toewijzen aan beoordelaar
-            assign_to_valuator_button: Toewijzen
             cancel: Annuleer
             change_category: Categorie wijzigen
             change_scope: Wijzig scope
@@ -426,7 +425,6 @@ nl:
             split_button: Splits
             title: Voorstellen
             unassign_from_valuator: Toewijzing beoordelaar ongedaan maken
-            unassign_from_valuator_button: Ontkoppelen
             update: Bijwerken
             update_scope_button: Toepassingsgebied bijwerken
           new:

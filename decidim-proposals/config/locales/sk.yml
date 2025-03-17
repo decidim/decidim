@@ -359,7 +359,6 @@ sk:
           index:
             actions: Akcia
             assign_to_valuator: Priradiť ku hodnotiteľovi
-            assign_to_valuator_button: Priradiť
             cancel: zrušenie
             change_category: Zmeniť kategórii
             change_scope: Zmeniť rozsah
@@ -373,7 +372,6 @@ sk:
             split_button: Rozdeliť
             title: Návrhy
             unassign_from_valuator: Zrušiť priradenie ku hodnotiteľovi
-            unassign_from_valuator_button: Zrušiť priradenie
             update: Aktualizácia
             update_scope_button: Aktualizovať rozsah
           new:
