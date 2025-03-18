@@ -20,6 +20,12 @@ cs:
       admin_log:
         changeset:
           surveys: průzkumy
+      menu:
+        surveys_menu:
+          answers: Odpovědi
+          main: Hlavní
+          questions: Otázky
+          settings: Nastavení
     components:
       surveys:
         actions:
@@ -56,13 +62,14 @@ cs:
         confirm_destroy: Opravdu to chcete smazat?
         destroy: Zničit
         edit: Upravit
-        manage_questions: Spravovat otázky
+        manage_questions: Otázky
         new_survey: Nový průzkum
         preview: Náhled
         title: Akce
       admin:
         answers:
           index:
+            no_answers: Zatím nejsou žádné odpovědi
             title: "%{total} odpovědí celkem"
           show:
             title: 'Odpověď č.%{number}'
@@ -83,6 +90,14 @@ cs:
               not_published: Nezveřejněno
               published: Zveřejněno
             title: Zveřejnit odpovědi
+        questions:
+          surveys:
+            edit:
+              title: Otázky
+        settings:
+          surveys:
+            edit:
+              title: Nastavení
         surveys:
           create:
             invalid: Při vytváření ankety došlo k chybě.
@@ -90,9 +105,11 @@ cs:
           destroy:
             success: Anketa byla úspěšně odstraněna.
           edit:
-            title: Upravit anketu
+            title: Hlavní
           index:
             title: Ankety
+          new:
+            title: Hlavní
           publish:
             invalid: Při publikování této ankety došlo k chybě.
             success: Anketa byla úspěšně publikována.

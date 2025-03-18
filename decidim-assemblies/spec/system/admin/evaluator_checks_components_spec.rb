@@ -2,24 +2,24 @@
 
 require "spec_helper"
 
-describe "Valuator checks components" do
-  let(:current_component) { create(:component, manifest_name: "proposals", participatory_space: conference) }
+describe "Evaluator checks components" do
+  let(:current_component) { create(:component, manifest_name: "proposals", participatory_space: assembly) }
   let!(:assigned_proposal) { create(:proposal, component: current_component) }
-  let(:conference) { create(:conference, organization:) }
+  let(:assembly) { create(:assembly, organization:) }
   let(:participatory_space_path) do
-    decidim_admin_conferences.components_path(conference)
+    decidim_admin_assemblies.components_path(assembly)
   end
   let(:components_path) { participatory_space_path }
   let!(:user) { create(:user, :confirmed, :admin_terms_accepted, admin: false, organization:) }
-  let!(:valuator_role) { create(:conference_user_role, role: :valuator, user:, conference:) }
-  let(:another_component) { create(:component, participatory_space: conference) }
+  let!(:evaluator_role) { create(:assembly_user_role, role: :evaluator, user:, assembly:) }
+  let(:another_component) { create(:component, participatory_space: assembly) }
 
   include Decidim::ComponentPathHelper
 
-  include_context "when administrating a conference"
+  include_context "when administrating an assembly"
 
   before do
-    create(:valuation_assignment, proposal: assigned_proposal, valuator_role:)
+    create(:evaluation_assignment, proposal: assigned_proposal, evaluator_role:)
 
     switch_to_host(organization.host)
     login_as user, scope: :user
@@ -49,8 +49,8 @@ describe "Valuator checks components" do
     end
 
     it "can access the participatory space" do
-      click_on "Conferences"
-      click_on translated(conference.title)
+      click_on "Assemblies"
+      click_on translated(assembly.title)
       expect(page).to have_link("Components")
     end
   end
