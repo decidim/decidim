@@ -128,7 +128,6 @@ lb:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
-            valuator: Schätzer
         user:
           fields:
             invitation_accepted_at: Einladung akzeptiert am
