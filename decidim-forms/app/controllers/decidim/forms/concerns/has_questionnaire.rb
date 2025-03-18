@@ -16,7 +16,7 @@ module Decidim
           helper Decidim::Forms::ApplicationHelper
           include FormFactory
 
-          helper_method :questionnaire_for, :questionnaire, :allow_responses?, :visitor_can_response?, :visitor_already_responded?, :update_url, :visitor_can_edit_responses?,
+          helper_method :questionnaire_for, :questionnaire, :allow_responses?, :visitor_can_respond?, :visitor_already_responded?, :update_url, :visitor_can_edit_responses?,
                         :form_path
 
           invisible_captcha on_spam: :spam_detected
@@ -28,8 +28,8 @@ module Decidim
 
           # i18n-tasks-use t("decidim.forms.questionnaires.response.success")
           # i18n-tasks-use t("decidim.forms.questionnaires.response.invalid")
-          def response
-            enforce_permission_to_response_questionnaire
+          def respond
+            enforce_permission_to_respond_questionnaire
 
             @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token:, ip_hash:)
 
@@ -59,11 +59,11 @@ module Decidim
           end
 
           # Public: return true if the current user (if logged) can response the questionnaire
-          def visitor_can_response?
+          def visitor_can_respond?
             current_user || allow_unregistered?
           end
 
-          # Public: return true if the current user (or session visitor) can response the questionnaire
+          # Public: return true if the current user (or session visitor) can respond the questionnaire
           def visitor_already_responded?
             questionnaire.responded_by?(current_user || tokenize(session[:session_id]))
           end
@@ -116,7 +116,7 @@ module Decidim
           end
 
           def spam_detected
-            enforce_permission_to_response_questionnaire
+            enforce_permission_to_respond_questionnaire
 
             @form = form(Decidim::Forms::QuestionnaireForm).from_params(params)
 
@@ -126,8 +126,8 @@ module Decidim
 
           # You can implement this method in your controller to change the
           # enforce_permission_to arguments.
-          def enforce_permission_to_response_questionnaire
-            enforce_permission_to :response, :questionnaire
+          def enforce_permission_to_respond_questionnaire
+            enforce_permission_to :respond, :questionnaire
           end
 
           def ip_hash

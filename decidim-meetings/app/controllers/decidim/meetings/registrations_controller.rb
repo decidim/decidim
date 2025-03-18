@@ -6,7 +6,7 @@ module Decidim
     class RegistrationsController < Decidim::Meetings::ApplicationController
       include Decidim::Forms::Concerns::HasQuestionnaire
 
-      def response
+      def respond
         enforce_permission_to(:join, :meeting, meeting:)
 
         @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token:)
@@ -90,7 +90,7 @@ module Decidim
       # You can implement this method in your controller to change the URL
       # where the questionnaire will be submitted.
       def update_url
-        response_meeting_registration_path(meeting_id: meeting.id)
+        respond_meeting_registration_path(meeting_id: meeting.id)
       end
 
       def questionnaire_for

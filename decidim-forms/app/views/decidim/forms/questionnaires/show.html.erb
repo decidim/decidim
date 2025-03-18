@@ -30,7 +30,7 @@
 
   <section>
     <% if allow_responses? %>
-      <% if visitor_can_response? %>
+      <% if visitor_can_respond? %>
         <% if visitor_already_responded? %>
           <% if visitor_can_edit_responses? && current_component.manifest_name == "surveys" %>
             <% body = t("decidim.forms.questionnaires.show.questionnaire_responded_edit.body",
