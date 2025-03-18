@@ -16,7 +16,7 @@
 
       <%= f.text_field :nickname, help_text: t("devise.invitations.edit.nickname_help", organization: current_organization_name), required: "required", autocomplete: "nickname" %>
 
-      <% if f.object.class.require_password_on_accepting %>
+      <% if current_organization.users_registration_mode != "disabled" %>
         <%= render partial: "decidim/account/password_fields", locals: { form: f, user: :user } %>
       <% end %>
     </div>
