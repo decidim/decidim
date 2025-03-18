@@ -31,6 +31,34 @@ module Decidim
         end
       end
 
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(Decidim::ResourceLocatorPresenter.new(model).url)
+        end
+      end
+
+      describe "last_comment_at" do
+        let(:model) { create(:debate, :open_ama, :with_endorsements, last_comment_at: 1.year.ago) }
+
+        let(:query) { "{ lastCommentAt }" }
+
+        it "returns all the required fields" do
+          expect(response["lastCommentAt"]).to eq(model.last_comment_at.to_time.iso8601)
+        end
+      end
+
+      describe "last_comment_by" do
+        let(:last_comment_by) { create(:user, :confirmed, name: "User") }
+        let(:model) { create(:debate, :open_ama, :with_endorsements, last_comment_by:) }
+        let(:query) { "{ lastCommentBy { id } }" }
+
+        it "returns all the required fields" do
+          expect(response["lastCommentBy"]).to eq({ "id" => model.last_comment_by_id.to_s })
+        end
+      end
+
       describe "title" do
         let(:query) { '{ title { translation(locale: "en")}}' }
 
