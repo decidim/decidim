@@ -36,8 +36,13 @@ module Decidim
       end
 
       def add_content
-        composer.text(I18n.t("decidim.budgets.order_pdf.text", space_name:), style: :h1, position: [30, 700])
-        composer.text(I18n.t("decidim.budgets.order_pdf.vote_now", component_url:), style: :text, position: [30, 680])
+        composer.text(I18n.t("decidim.budgets.order_pdf.title"), style: :h1, position: [30, 700])
+        composer.text(I18n.t("decidim.budgets.order_pdf.text", space_name:), style: :text, position: [30, 670])
+        order.projects.each_with_index do |project, index|
+          composer.text("- #{translated_attribute(project.title)}", style: :text, position: [30, 650 - (index * 20)])
+        end
+
+        composer.text(component_url, style: :text, position: [30, 650 - (order.projects.count * 20) - 10])
       end
 
       def space_name
