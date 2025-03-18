@@ -73,6 +73,36 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       expect(page).to have_content("New meeting: #{decidim_sanitize_translated(meeting.title)}")
     end
 
+    context "when the meeting does not have a reminder" do
+      let!(:meeting) { create(:meeting, services: [], component: current_component, reminder_enabled: false, send_reminders_before_hours: 0) }
+
+      it "can publish the meeting" do
+        visit current_path
+
+        within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+          click_on "Publish"
+        end
+
+        expect(page).to have_admin_callout("successfully")
+      end
+
+      it "can update the meeting" do
+        visit current_path
+
+        within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+          click_on "Edit"
+        end
+
+        within ".edit_meeting" do
+          fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
+
+          click_on "Update"
+        end
+
+        expect(page).to have_admin_callout("successfully")
+      end
+    end
+
     context "with enriched content" do
       before do
         meeting.update!(title: { en: "Meeting <strong>title</strong>" })
