@@ -451,7 +451,7 @@ es:
         attachment_legend: Añadir un documento o una imagen
         edit_attachments: Editar los archivos adjuntos
         edit_image: Editar imagen
-        image_legend: "(Opcional) Añadir una imágen"
+        image_legend: "(Opcional) Añadir una imagen"
       index:
         uninitialized: Las iniciativas aún no están configuradas desde la administración.
       initiative_signatures:
@@ -545,13 +545,13 @@ es:
           initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de firmas.
         show:
           area: Área
-          before_send_to_technical_validation_announcement: 'Antes de enviar tu iniciativa de validación técnica, tienes que añadir %{count} miembros más a la comisión promotora.<br/><br/>Comparte este enlace con las personas que quieres formar parte de la comisión: %{href}'
+          before_send_to_technical_validation_announcement: 'Antes de enviar tu iniciativa a validación técnica, tienes que añadir %{count} miembros más a la comisión promotora.<br/><br/>Comparte este enlace con las personas que quieres formar parte de la comisión: %{href}'
           confirm: Vas a enviar la iniciativa para que una administrador ala revise y publique. Una vez publicada no podrás editarla. ¿Estás segura?
           edit: Editar
           initiative_data: Datos sobre la iniciativa
           scope: Ámbito
           send_to_technical_validation: Enviar a validación técnica
-          send_to_technical_validation_announcement: Si todo parece correcto, haga clic en "Enviar a validación técnica" para que una administradora revise y publique tu iniciativa
+          send_to_technical_validation_announcement: Si está todo correcto, haz clic en "Enviar a validación técnica" para que una administradora revise y publique tu iniciativa
           signature_collection: Firmas recogidas
           state: Estado
           type: Tipo
