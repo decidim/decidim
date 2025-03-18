@@ -170,7 +170,7 @@ describe "Action Authorization" do
       end
 
       it "goes directly to action" do
-        expect(page).to have_css("h1", text: "Create your proposal")
+        expect(page).to have_css("h1", text: "Create new proposal")
       end
     end
   end
@@ -288,7 +288,7 @@ describe "Action Authorization" do
       end
 
       it "goes directly to action" do
-        expect(page).to have_css("h1", text: "Create your proposal")
+        expect(page).to have_css("h1", text: "Create new proposal")
       end
     end
   end
@@ -352,7 +352,7 @@ describe "Action Authorization" do
       end
 
       it "goes directly to action" do
-        expect(page).to have_css("h1", text: "Create your proposal")
+        expect(page).to have_css("h1", text: "Create new proposal")
       end
     end
   end
