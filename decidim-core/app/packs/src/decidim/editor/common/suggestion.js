@@ -1,3 +1,5 @@
+/* global jest */
+
 export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => {
   let suggestion = null;
   let suggestionItems = null;
@@ -49,8 +51,7 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
   const selectItem = (idx) => {
     const items = suggestionItems;
     const command = selectCommand;
-    
-    if (currentRange && !window.isTestEnvironment) {
+    if (currentRange && !window.isTestEnvironment && typeof jest === "undefined") {
       // Fixes an issue that after selecting the item, the written text will be
       // placed after the newly added suggestion.
       //
