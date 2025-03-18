@@ -361,7 +361,7 @@ en:
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
             registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
             reminder_enabled: Reminder enabled
-            reminder_help_text: Participants will receive an email the number of hours specified in advance of themeeting. If left empty or zero, the reminder will be sent at the default configured value of %{default_value} hours.
+            reminder_help_text: Participants will receive an email the number of hours specified in advance of the meeting. If left empty or zero, the reminder will be sent at the default configured value of %{default_value} hours.
             reminder_message: Reminder message
             reminder_message_help_text: Customize the message if necessary. This will be ignored if no reminder is scheduled.
             select_a_meeting_type: Please select a meeting type
