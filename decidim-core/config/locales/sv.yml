@@ -1200,6 +1200,7 @@ sv:
         assigned_to_proposal: Jag vill få ett e-postmeddelande när någon tilldelar mig ett förslag att utvärdera
         direct_messages: Ta emot direktmeddelanden från alla
         email_on_moderations: Jag vill få ett e-postmeddelande varje gång något eller någon rapporteras för moderering.
+        evaluators: Utvärderare
         everything_followed: Allt jag följer
         newsletter_notifications: Jag vill få nyhetsbrev
         newsletters: Nyhetsbrev
