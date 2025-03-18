@@ -125,7 +125,7 @@ module Decidim
               expect { post :update_multiple_answers, params: }.to have_enqueued_job(ProposalAnswerJob).exactly(2).times
 
               expect(response).to redirect_to(Decidim::EngineRouter.admin_proxy(component).root_path)
-              expect(flash[:notice]).to include("successfully")
+              expect(flash[:notice]).to include("successfully answered")
               expect(flash[:alert]).to be_nil
             end
           end
