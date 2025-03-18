@@ -366,9 +366,8 @@ ignore_eq_base:
 #   all:
 #     - common.ok
 
-  fr,es,ca:
-  - help.date_format
-  - help.order
+#   fr,es:
+#     - common.brand
 
 ## Ignore these keys completely:
 ignore:
