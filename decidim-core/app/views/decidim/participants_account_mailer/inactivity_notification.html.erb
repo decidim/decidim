@@ -1,7 +1,7 @@
 <p class="email-greeting"><%= t(".hello", username: @user.name) %></p>
 
 <p class="email-instructions"><%= t(
-                                    ".body",
+                                    ".body_html",
                                     organization_name: organization_name(@organization),
                                     date_account_creation: I18n.l(@user.created_at),
                                     date_last_connection: I18n.l(@user.current_sign_in_at) || t(".never_logged_in"),
