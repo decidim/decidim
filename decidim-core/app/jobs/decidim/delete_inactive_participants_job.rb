@@ -41,14 +41,13 @@ module Decidim
             }
           )
         )
-        user.save!
         send_notification(user, :inactivity_notification, days)
       end
     end
 
     def remove_inactive_users(users)
       process_users(users) do |user|
-        send_notification(user, :removal_notification, user.email, user.name, user.organization)
+        send_notification(user, :removal_notification, user.email, user.name, user.locale, user.organization)
         delete_user_account(user)
       end
     end

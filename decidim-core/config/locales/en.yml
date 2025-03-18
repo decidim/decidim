@@ -1501,11 +1501,11 @@ en:
           title: 'Required: Review updates to our terms of service'
     participants_account_mailer:
       inactivity_notification:
-        body: |
+        body_html: |
           Our records indicate you created a %{organization_name} account on %{date_account_creation} and have not been active since %{date_last_connection}.
           To protect your privacy, this account has been scheduled for automatic deletion in %{days} days.
           If you wish to keep your %{organization_name} account, simply %{login_url} before this time, and your account will be preserved.
-        greetings: |
+        greetings_html: |
           Kind regards,
           %{organization_name}
         hello: Dear %{username},
@@ -1514,7 +1514,7 @@ en:
         subject: Inactive account warning
       removal_notification:
         body: Your %{organization_name} account has been deleted due to inactivity.
-        greetings: |
+        greetings_html: |
           Kind regards,
           %{organization_name}
         hello: Dear %{username},

@@ -7,5 +7,5 @@
 </p>
 
 <p class="email-closing">
-  <%= t(".greetings", organization_name: organization_name(@organization), organization_url: decidim.root_url(host: @organization.host)).html_safe %>
+  <%= t(".greetings_html", organization_name: organization_name(@organization), organization_url: decidim.root_url(host: @organization.host)) %>
 </p>
