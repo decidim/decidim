@@ -365,14 +365,12 @@ ignore_unused:
 # ignore_eq_base:
 #   all:
 #     - common.ok
-
 #   fr,es:
 #     - common.brand
 
 ## Ignore these keys completely:
-ignore:
-  - help.date_format
-  - help.order
+# ignore:
+#   - kaminari.*
 
 ## Sometimes, it is not possible for i18n-tasks to match the key correctly,
 ## e.g. in case of a relative key defined in a helper method.
