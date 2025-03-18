@@ -372,6 +372,7 @@ pl:
           form:
             available_slots_help: Zostaw 0, jeśli dostępna jest nieograniczona liczba miejsc.
             invites: Zaproszenia
+            manage_questions: Pytania
             recommendation_message: Ze względu na ochronę prywatności zalecamy usunięcie tego podpisu, gdy nie będzie już wymagany. Standardowo są to 3 miesiące od zakończenia spotkania.
             registration_email_help: Ten tekst pojawi się w środku wiadomości e-mail z potwierdzeniem rejestracji. Tuż po kodzie rejestracyjnym.
             registration_form: Formularz rejestracyjny

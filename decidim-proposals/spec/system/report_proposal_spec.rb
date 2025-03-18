@@ -68,8 +68,8 @@ describe "Report Proposal" do
       include_examples "higher user role does not have hide"
     end
 
-    context "when reporting user is process valuator" do
-      let!(:user) { create(:process_valuator, :confirmed, participatory_process:) }
+    context "when reporting user is process evaluator" do
+      let!(:user) { create(:process_evaluator, :confirmed, participatory_process:) }
 
       include_examples "higher user role reports"
       include_examples "higher user role does not have hide"

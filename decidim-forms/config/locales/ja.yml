@@ -56,7 +56,6 @@ ja:
           actions:
             back: 質問に戻る
             publish_answers: 回答を公開
-            show: 回答を表示
           answer_option:
             answer_option: 回答オプション
             free_text: フリーテキスト
@@ -217,7 +216,6 @@ ja:
           tos_agreement: 参加することにより、利用規約に同意します。
       step_navigation:
         show:
-          are_you_sure_edit: 回答を編集することができます。よろしいですか？
           are_you_sure_edit_guest: 回答を後で編集できるようにしたい場合は、ログインまたはアカウントを作成する必要があります。
           are_you_sure_no_edit: この操作は元に戻すことができず、回答を編集することはできません。よろしいですか？
           back: 戻る

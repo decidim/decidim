@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     module Admin
-      class ProposalAssignedToValuatorEvent < Decidim::Events::SimpleEvent
+      class ProposalAssignedToEvaluatorEvent < Decidim::Events::SimpleEvent
         include Rails.application.routes.mounted_helpers
 
         i18n_attributes :admin_proposal_info_url, :admin_proposal_info_path

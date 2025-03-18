@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     module Log
-      class ValuationAssignmentPresenter < Decidim::Log::ResourcePresenter
+      class EvaluationAssignmentPresenter < Decidim::Log::ResourcePresenter
         private
 
         # Private: Presents resource name.

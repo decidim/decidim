@@ -201,7 +201,6 @@ ca:
             admin: Administradora
             collaborator: Col·laboradora
             moderator: Moderadora
-            valuator: Avaluadora
       taxonomy_filters:
         space_filter_for:
           assemblies: Totes les assemblees
