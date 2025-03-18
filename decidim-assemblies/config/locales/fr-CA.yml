@@ -200,8 +200,8 @@ fr-CA:
           roles:
             admin: Administrateur
             collaborator: Collaborateur
+            evaluator: Évaluateur
             moderator: Modérateur
-            valuator: Évaluateur
       taxonomy_filters:
         space_filter_for:
           assemblies: Toutes les assemblées

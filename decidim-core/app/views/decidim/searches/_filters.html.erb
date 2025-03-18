@@ -1,44 +1,46 @@
-<div class="filter-container search__filter">
-  <button id="dropdown-trigger-search" data-component="dropdown" data-target="dropdown-menu-search" data-auto-close="true">
-    <%= content_tag :span, t("decidim.searches.filters_small_view.filter_by"), class: "#{"is-active" if params.dig(:filter, :with_resource_type) == nil}" %>
-    <% @blocks.each do |elements| %>
-      <% elements.each do |type, results| %>
-        <%= content_tag :span, class: "#{"is-active" if params.dig(:filter, :with_resource_type) == type}" do %>
-          <span><%= searchable_resource_human_name(type) %></span>
+<nav role="navigation" aria-labelledby="search-results-title">
+  <div class="filter-container search__filter">
+    <button id="dropdown-trigger-search" data-component="dropdown" data-target="dropdown-menu-search" data-auto-close="true">
+      <%= content_tag :span, t("decidim.searches.filters_small_view.filter_by"), class: "#{"is-active" if params.dig(:filter, :with_resource_type) == nil}" %>
+      <% @blocks.each do |elements| %>
+        <% elements.each do |type, results| %>
+          <%= content_tag :span, class: "#{"is-active" if params.dig(:filter, :with_resource_type) == type}" do %>
+            <span><%= searchable_resource_human_name(type) %></span>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
-    <%= icon "arrow-down-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
-    <%= icon "arrow-up-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
-  </button>
-  <div id="dropdown-menu-search" aria-hidden="true">
-    <div>
-      <%= link_to main_search_path, class: "filter#{" is-active" if params.dig(:filter, :with_resource_type) == nil}" do %>
-        <%= resource_type_icon("all") %>
-        <span><%= t("all", scope: "decidim.searches.filters.state") %></span>
-        <span class="label ml-auto"><%= @results_count %></span>
-      <% end %>
-    </div>
-    <% @blocks.each do |elements| %>
+      <%= icon "arrow-down-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
+      <%= icon "arrow-up-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
+    </button>
+    <div id="dropdown-menu-search" aria-hidden="true">
       <div>
-        <% elements.each do |type, results| %>
-          <div>
-            <% if results[:count].positive? %>
-              <%= link_to search_path_by_resource_type(type), class: "filter#{" is-active" if params.dig(:filter, :with_resource_type) == type}" do %>
-                <%= resource_type_icon(type) %>
-                <span><%= searchable_resource_human_name(type) %></span>
-                <span class="label ml-auto"><%= results[:count] %></span>
-              <% end %>
-            <% else %>
-              <%= content_tag :div, class: "filter#{" is-empty" if results[:count].zero?}" do %>
-                <%= resource_type_icon(type) %>
-                <span><%= searchable_resource_human_name(type) %></span>
-                <span class="label ml-auto"><%= results[:count] %></span>
-              <% end %>
-            <% end %>
-          </div>
+        <%= link_to main_search_path, class: "filter#{" is-active" if params.dig(:filter, :with_resource_type) == nil}" do %>
+          <%= resource_type_icon("all") %>
+          <span><%= t("all", scope: "decidim.searches.filters.state") %></span>
+          <span class="label ml-auto"><%= @results_count %></span>
         <% end %>
       </div>
-    <% end %>
+      <% @blocks.each do |elements| %>
+        <div>
+          <% elements.each do |type, results| %>
+            <div>
+              <% if results[:count].positive? %>
+                <%= link_to search_path_by_resource_type(type), class: "filter#{" is-active" if params.dig(:filter, :with_resource_type) == type}" do %>
+                  <%= resource_type_icon(type) %>
+                  <span><%= searchable_resource_human_name(type) %></span>
+                  <span class="label ml-auto"><%= results[:count] %></span>
+                <% end %>
+              <% else %>
+                <%= content_tag :div, class: "filter#{" is-empty" if results[:count].zero?}" do %>
+                  <%= resource_type_icon(type) %>
+                  <span><%= searchable_resource_human_name(type) %></span>
+                  <span class="label ml-auto"><%= results[:count] %></span>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
+</nav>
