@@ -38,7 +38,12 @@ module Decidim
       field :slug, GraphQL::Types::String, "The slug of this conference", null: true
       field :speakers, [Decidim::Conferences::ConferenceSpeakerType, { null: true }], "List of speakers in this conference", null: true
       field :start_date, Decidim::Core::DateType, "The date this conference starts", null: true
+      field :url, GraphiQL::Types::String, "The URL of this conference", null: true
       field :weight, GraphQL::Types::Int, "The weight for this object", null: false
+
+      def url
+        EngineRouter.main_proxy(object).conference_url(object)
+      end
 
       def hero_image
         object.attached_uploader(:hero_image).url
