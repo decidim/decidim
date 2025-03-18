@@ -362,15 +362,18 @@ ignore_unused:
   - decidim.profiles.show.members
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
-# ignore_eq_base:
+ignore_eq_base:
 #   all:
 #     - common.ok
-#   fr,es:
-#     - common.brand
+
+  fr,es,ca:
+  - help.date_format
+  - help.order
 
 ## Ignore these keys completely:
-# ignore:
-#   - kaminari.*
+ignore:
+  - help.date_format
+  - help.order
 
 ## Sometimes, it is not possible for i18n-tasks to match the key correctly,
 ## e.g. in case of a relative key defined in a helper method.
