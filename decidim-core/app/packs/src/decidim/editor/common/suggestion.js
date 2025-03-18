@@ -1,5 +1,3 @@
-/* global jest */
-
 export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => {
   let suggestion = null;
   let suggestionItems = null;
