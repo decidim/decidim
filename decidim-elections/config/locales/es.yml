@@ -648,7 +648,7 @@ es:
           back: Comenzar de nuevo el proceso de votación
           ballot_hash: 'El indentificador de la papeleta es:'
           cast: Deposita la papeleta para terminar tu voto
-          description: Aquí tienes las opciones de emitir tu papeleta para que sea debidamente contada o, alternativamente, puedes auditar que tu papeleta fue cifrada correctamente. Por razones de seguridad, la auditoría de tu papeleta se invalidará. Esto quiere decir que, para emitir tu voto tendrás que reiniciar el proceso de votación.
+          description: Aquí tienes las opciones para emitir tu papeleta y que sea debidamente contada o, alternativamente, puedes auditar que tu papeleta fue cifrada correctamente. Por razones de seguridad, la auditoría de tu papeleta se invalidará. Esto quiere decir que, para emitir tu voto tendrás que reiniciar el proceso de votación.
           header: 'La papeleta se ha cifrado: envíala o audítala'
         casting:
           header: Se está emitiendo el voto...
@@ -909,9 +909,9 @@ es:
         monitoring_committee_members:
           create:
             invalid: Hubo un problema al crear esta miembro de la comisión de seguimiento.
-            success: Miembro del comisión de seguimiento creada con éxito.
+            success: Miembro de la comisión de seguimiento creada con éxito.
           destroy:
-            invalid: Hubo un problema al eliminar esta miembro de la comisión de seguimiento.
+            invalid: Hubo un problema al eliminar este miembro de la comisión de seguimiento.
             success: Miembro de la comisión de seguimiento eliminada con éxito.
           form:
             existing_user: Participante existente
@@ -961,7 +961,7 @@ es:
             success: Oficial de votación creada con éxito.
           destroy:
             invalid: Hubo un problema al eliminar esta oficial de votación.
-            success: Oficial de votación eliminada con éxito.
+            success: Gestora de mesa eliminada con éxito.
           form:
             existing_user: Participante existente
             non_user: Invitar nueva participante
