@@ -39,7 +39,7 @@ module Decidim
         let(:query) { "{ url }" }
 
         it "returns all the required fields" do
-          expect(response["url"]).to eq(EngineRouter.main_proxy(object).assembly_url(object))
+          expect(response["url"]).to eq(EngineRouter.main_proxy(model).assembly_url(model))
         end
       end
 
