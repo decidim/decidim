@@ -57,7 +57,9 @@ export default class Suggestion {
           node.replaceWith(paragraph);
         }
       });
-      this.wrapper.classList.add("applied");
+      if (this.wrapper) {
+        this.wrapper.classList.add("applied");
+      }
       let event = new CustomEvent("collaborative-texts:applied", { detail: { suggestion: this } });
       this.doc.dispatchEvent(event);
     }
@@ -89,7 +91,6 @@ export default class Suggestion {
     let node = this.firstNode;
 
     try {
-
       while (node.offsetHeight === 0) {
         offsetTop = node.previousSibling.getBoundingClientRect().top;
         node = node.previousSibling;

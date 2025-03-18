@@ -29,8 +29,8 @@ describe("Document", () => {
   
   global.fetch = jest.fn(() =>
     Promise.resolve({
-      json: () => Promise.resolve(fetchResult),
-    }),
+      json: () => Promise.resolve(fetchResult)
+    })
   );
 
   beforeEach(() => {
