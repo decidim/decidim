@@ -166,7 +166,6 @@ it:
             admin: Amministratore
             collaborator: Collaboratore
             moderator: Moderatore
-            valuator: Valutatore
       titles:
         assemblies: Assemblee
         assemblies_types: Tipi di assemblea
