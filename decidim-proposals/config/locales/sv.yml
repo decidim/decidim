@@ -9,6 +9,9 @@ sv:
         scope_id: Indelning
         state: Status
         title: Titel
+      evaluation_assignment:
+        admin_log:
+          evaluator_role_id: Utvärderarens namn
       import_participatory_text:
         document: Dokument
       proposal:
@@ -118,6 +121,8 @@ sv:
           proposals: Förslag
       filters:
         proposals:
+          evaluator_role_ids_has:
+            label: Tilldelad utvärderare
           is_emendation_true:
             label: Typ
             values:
