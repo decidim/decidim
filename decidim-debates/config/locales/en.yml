@@ -154,7 +154,7 @@ en:
         new:
           back: Back
           create: Create
-          title: New debate
+          title: Create new debate
         orders:
           commented: Most commented
           label: Order debates by
