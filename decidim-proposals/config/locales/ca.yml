@@ -525,6 +525,7 @@ ca:
           index:
             actions: Accions
             assign_to_valuator: Assignar a avaluadora
+            assign_to_valuator_button: Assignar
             cancel: Cancel·lar
             change_category: Canvia la categoria
             change_scope: Canviar àmbit
@@ -540,6 +541,7 @@ ca:
             statuses: Estats
             title: Propostes
             unassign_from_valuator: Desfer assignació a avaluadora
+            unassign_from_valuator_button: Desfer l'assignació
             update: Actualitza
             update_scope_button: Actualitzar àmbit
           new:
