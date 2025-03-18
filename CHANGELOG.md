@@ -1,5 +1,56 @@
 # Changelog
 
+## [0.30.0.rc3](https://github.com/decidim/decidim/tree/0.30.0.rc3)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-proposals**: Backport 'Import proposals from one component to another in the background' to v0.30 [\#14207](https://github.com/decidim/decidim/pull/14207)
+- **decidim-core**: Backport 'Add PaperTrailJob to help migration' to v0.30 [\#14215](https://github.com/decidim/decidim/pull/14215)
+- **decidim-admin**, **decidim-core**: Backport 'Fix modal for reported participants' to v0.30 [\#14222](https://github.com/decidim/decidim/pull/14222)
+- **decidim-proposals**: Backport 'Fix proposal state when importing from another component' to v0.30 [\#14227](https://github.com/decidim/decidim/pull/14227)
+- **decidim-core**: Backport 'Fix user activity filter' to v0.30 [\#14232](https://github.com/decidim/decidim/pull/14232)
+- **decidim-debates**, **decidim-meetings**, **decidim-proposals**, **decidim-sortitions**: Backport 'Fix WCAG status messages when update filter' to v0.30 [\#14235](https://github.com/decidim/decidim/pull/14235)
+- **decidim-comments**, **decidim-core**, **decidim-meetings**: Backport 'Fix CSS details (mostly alignments and gaps)' to v0.30 [\#14241](https://github.com/decidim/decidim/pull/14241)
+- **decidim-initiatives**: Backport 'Fix initiative admin main menu disappearing in other spaces' to v0.30 [\#14250](https://github.com/decidim/decidim/pull/14250)
+- Backport 'Document additional scheduled tasks' to v0.30 [\#14254](https://github.com/decidim/decidim/pull/14254)
+- Backport 'Update oauth.adoc, fix typo' to v0.30 [\#14260](https://github.com/decidim/decidim/pull/14260)
+- **decidim-proposals**: Backport 'Fix proposals votes frontend issues' to v0.30 [\#14261](https://github.com/decidim/decidim/pull/14261)
+- **decidim-proposals**: Backport 'Fix linked proposals' to v0.30 [\#14256](https://github.com/decidim/decidim/pull/14256)
+- **decidim-core**: Backport 'Fix accordion in Open Data page' to v0.30 [\#14255](https://github.com/decidim/decidim/pull/14255)
+- **decidim-admin**: Backport 'Fix submit on button on forms with taxonomies' to v0.30 [\#14277](https://github.com/decidim/decidim/pull/14277)
+- **decidim-core**, **decidim-generators**: Backport 'Fix static map image fetching with Here maps service' to v0.30 [\#14251](https://github.com/decidim/decidim/pull/14251)
+- **decidim-comments**: Backport 'Fix default order shown in comments dropdown' to v0.30 [\#14279](https://github.com/decidim/decidim/pull/14279)
+- **decidim-core**, **decidim-forms**, **decidim-participatory processes**, **decidim-proposals**, **decidim-surveys**: Backport 'Fix details and minor details ' to v0.30 [\#14276](https://github.com/decidim/decidim/pull/14276)
+- **decidim-core**: Backport 'Register user without avatar on omniauth registration' to v0.30 [\#14290](https://github.com/decidim/decidim/pull/14290)
+- **decidim-core**: Backport 'Fix invalid chars in name when using OAuth login' to v0.30 [\#14293](https://github.com/decidim/decidim/pull/14293)
+- **decidim-core**, **decidim-proposals**, **decidim-sortitions**: Backport 'Change `hide_voting` argument on proposal cell to `show_voting`' to v0.30 [\#14311](https://github.com/decidim/decidim/pull/14311)
+- **decidim-admin**, **decidim-core**: Backport 'Fix lower casing for user's nickname' to v0.30 [\#14305](https://github.com/decidim/decidim/pull/14305)
+- **decidim-budgets**, **decidim-core**: Backport 'Fix budget detail with "You voted for this" string' to v0.30 [\#14307](https://github.com/decidim/decidim/pull/14307)
+- **decidim-core**: Backport 'Fix hide comment from interface' to v0.30 [\#14313](https://github.com/decidim/decidim/pull/14313)
+- **decidim-ai**, **decidim-generators**: Backport 'Add delay of `spam_analysis` queue' to v0.30 [\#14314](https://github.com/decidim/decidim/pull/14314)
+- **decidim-core**: Backport 'Fix image missing error' to v0.30 [\#14315](https://github.com/decidim/decidim/pull/14315)
+- **decidim-core**: Backport 'Fix white bottom on proposal show with voting' to v0.30 [\#14333](https://github.com/decidim/decidim/pull/14333)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+Nothing.
+
 ## [0.30.0.rc2](https://github.com/decidim/decidim/tree/0.30.0.rc2)
 
 ### Added
