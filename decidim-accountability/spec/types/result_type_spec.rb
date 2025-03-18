@@ -76,6 +76,22 @@ module Decidim
         end
       end
 
+      describe "proposal_urls" do
+        let(:query) { "{ proposalUrls }" }
+
+        let!(:proposal_component) { create(:proposal_component, participatory_space: model.participatory_space) }
+        let(:proposals) { create_list(:proposal, 2, component: proposal_component) }
+
+        before do
+          model.link_resources(proposals, "included_proposals")
+        end
+
+        it "returns the proposal urls" do
+          expect(response["proposalUrls"].length).to eq(2)
+          expect(response["proposalUrls"].first).to match(%r{http.*/proposals})
+        end
+      end
+
       context "when participatory space is private" do
         let(:participatory_space) { create(:participatory_process, :with_steps, :private, organization: current_organization) }
         let(:current_component) { create(:accountability_component, participatory_space:) }
