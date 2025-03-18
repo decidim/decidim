@@ -8,7 +8,6 @@ module Decidim
       description "An interface that can be used in objects with endorsements"
 
       field :endorsements, [Decidim::Core::AuthorInterface, { null: true }], "The endorsements of this object.", null: false
-
       field :endorsements_count, Integer, description: "The total amount of endorsements the object has received", null: true
 
       def endorsements
