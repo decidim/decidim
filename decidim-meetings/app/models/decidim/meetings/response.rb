@@ -24,7 +24,7 @@ module Decidim
       end
 
       def self.export_serializer
-        Decidim::Meetings::DownloadYourDataUserResponsesSerializer
+        Decidim::Forms::DownloadYourDataUserResponsesSerializer
       end
 
       def organization
