@@ -148,7 +148,6 @@
             admin: Administrator
             collaborator: Samarbeidspartner
             moderator: Moderator
-            valuator: Evaluator
         user:
           fields:
             invitation_accepted_at: Invitasjon godtatt
