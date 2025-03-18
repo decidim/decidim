@@ -20,14 +20,6 @@ module Decidim
         { scope: resource_name, recall: "#{controller_path}#failure" }
       end
 
-      def resource_name
-        if params[:api_user]
-          :api_user
-        else
-          :user
-        end
-      end
-
       def after_sign_in_path_for(_resource_or_scope)
         nil
       end
@@ -56,11 +48,7 @@ module Decidim
       end
 
       def anonymous_user
-        if params[:api_user]
-          Decidim::Api::ApiUser.new(api_key: params["api_user"]["key"])
-        else
-          Decidim::User.new(email: params["user"]["email"])
-        end
+        Decidim::Api::ApiUser.new(api_key: params.dig("api_user", "key"))
       end
     end
   end
