@@ -26,7 +26,12 @@ module Decidim
       field :status, Decidim::Accountability::StatusType, "The status for this result", null: true
       field :timeline_entries, [Decidim::Accountability::TimelineEntryType, { null: true }], "The timeline entries for this result", null: true
       field :title, Decidim::Core::TranslatedFieldType, "The title for this result", null: true
+      field :url, String, "The URL for this result", null: false
       field :weight, GraphQL::Types::Int, "The order of this result", null: false
+
+      def url
+        Decidim::ResourceLocatorPresenter.new(object).url
+      end
     end
   end
 end
