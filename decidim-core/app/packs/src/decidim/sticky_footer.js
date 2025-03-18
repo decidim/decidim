@@ -8,9 +8,24 @@
 
 const footer = document.querySelector("footer");
 const stickyButtons = document.querySelector("[data-sticky-buttons]");
+import { screens } from "tailwindcss/defaultTheme"
 
+/**
+ * Checks if a key is in the current viewport
+ *
+ * @param {('sm'|'md'|'lg'|'xl'|'2xl')} key - The key to check the screen size.
+ * @returns {boolean} - Returns true if the screen size corresponds with the key
+ */
+const isScreenSize = (key) => {
+  return window.matchMedia(`(min-width: ${screens[key]})`).matches;
+}
 const adjustCtasButtons = () => {
   if (!stickyButtons) {
+    return;
+  }
+
+  if (isScreenSize("md")) {
+    footer.style.marginBottom = "0px";
     return;
   }
 
@@ -24,6 +39,10 @@ if (stickyButtons) {
   });
 
   document.addEventListener("on:toggle", () => {
+    adjustCtasButtons();
+  });
+
+  window.addEventListener("resize", () => {
     adjustCtasButtons();
   });
 }

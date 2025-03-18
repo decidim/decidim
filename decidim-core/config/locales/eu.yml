@@ -1205,7 +1205,7 @@ eu:
       download:
         csv: Deskargatu datuak (CSV)
       followers:
-        description: Parte hartzeko espazio hau jarraitzen duten parte-hartzaile kopurua
+        description: Partaidetza-espazio hau jarraitzen duten parte-hartzaile kopurua
         object: jarraitzaileak
         title: Jarraitzaileak
       participants:
@@ -1299,6 +1299,7 @@ eu:
         assigned_to_proposal: Mezu elektroniko bat jaso nahi dut norbaitek ebaluatzeko proposamen bat ematen didanean
         direct_messages: Jaso edonoren mezu zuzenak
         email_on_moderations: Mezu elektroniko bat jaso nahi dut zerbait neurriz erreportatzen den bakoitzean.
+        evaluators: Ebaluatzaileak
         everything_followed: Jarraitzen dudan guztia
         newsletter_notifications: Buletinak jaso nahi ditut
         newsletters: Buletinak
@@ -1315,7 +1316,6 @@ eu:
         push_notifications_reminder: Plataformaren jakinarazpenak jasotzeko, lehen zure nabigatzailearen konfigurazioan baimendu behar dituzu.
         receive_notifications_about: Jakinarazpenak jaso nahi ditut
         update_notifications_settings: Gorde aldaketak
-        valuators: Ebaluatzaileak
       update:
         error: Arazo bat egon da zure jakinarazpenen konfigurazioa eguneratzean.
         success: Jakinarazpenen konfigurazioa zuzen eguneratu da.
@@ -1394,12 +1394,12 @@ eu:
         detailed:
           body_1: 'Jarraian, dataset bakoitzaren deskribapena dago, eskema (egitura) eta daukan informazio mota barne:'
           components: Osagaiak
-          spaces: Espazio parte-hartzaileak
+          spaces: Partaidetza-espazioak
           title: Espediente bakoitzaren azalpen zehatza
         download:
           components: Osagaiak
           core: Mamia
-          spaces: Espazio parte-hartzaileak
+          spaces: Partaidetza-espazioak
           title: Deskargatu baliabideak
         download_open_data: Deskargatu Open Data fitxategi guztiak
         download_resource: Deskargatu %{resource_name} CSV formatuan
