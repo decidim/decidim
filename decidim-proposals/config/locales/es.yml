@@ -627,7 +627,7 @@ es:
             bulk_answer_error: No se ha podido responder a las propuestas con IDs [%{proposals}] debido a errores aplicando la plantilla "%{template}". Puedes comprobar que la plantilla de respuesta coincide con el formato esperado para este componente aplicándolo individualmente.
             bulk_answer_success: 'Las propuestas %{count} serán respondidas usando la plantilla "%{template}". Por favor, espera unos minutos y actualiza la página para ver las actualizaciones.'
             invalid: Se ha producido un error al responder a esta propuesta.
-            success: Propuesta respuesta con éxito.
+            success: Propuesta respondida con éxito.
           create:
             invalid: Se ha producido un error al crear esta propuesta.
             success: Propuesta creada correctamente.
@@ -641,6 +641,7 @@ es:
             actions: Acciones
             apply_answer_template: Aplicar la plantilla de respuesta
             assign_to_valuator: Asignar a evaluadora
+            assign_to_valuator_button: Asignar
             cancel: Cancelar
             change_taxonomies: Cambiar taxonomías
             merge: Fusionar en una nueva
@@ -656,6 +657,7 @@ es:
             statuses: Estados
             title: Propuestas
             unassign_from_valuator: Desasignar de evaluadora
+            unassign_from_valuator_button: Deshacer la asignación
             update: Actualizar
           manage_trash:
             title: Propuestas eliminadas
@@ -698,7 +700,7 @@ es:
             no_components: No hay otros componentes de propuestas en este espacio participativo desde donde importarlas.
             select_component: Selecciona un componente
             select_states: Comprueba los estados de las propuestas a importar
-            title: Importar proyectos desde otro componente
+            title: Importar propuestas desde otro componente
         proposals_merges:
           create:
             invalid: 'Se ha producido un error al fusionar las propuestas seleccionadas porque algunas de ellas:'
@@ -774,7 +776,7 @@ es:
           send: Enviar
           title: Editar borrador colaborativo
         empty: Todavía no hay borradores colaborativos
-        empty_filters: No hay un borrador de colaboración con este criterio
+        empty_filters: No hay ningún borrador colaborativo con este criterio
         filters:
           all: Todas
           amendment: Enmiendas

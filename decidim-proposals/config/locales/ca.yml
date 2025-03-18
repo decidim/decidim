@@ -284,7 +284,7 @@ ca:
             email_intro: '"%{author_name}" "%{author_nickname}" t''ha esmentat a una nota privada a "%{resource_title}". La pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
             email_outro: Has rebut aquesta notificació perquè t'han esmentat a una nota privada.
             email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> te ha esmentat a una nota privada a <a href="%{resource_path}">%{resource_title}</a>. La pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> t'ha esmentat a una nota privada a <a href="%{resource_path}">%{resource_title}</a>. La pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
           proposal_note_replied:
             email_intro: '%{author_name} ha respost la teva nota privada a %{resource_title}. Ho pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
             email_outro: Has rebut aquesta notificació perquè ets l'autora de la nota privada.
@@ -491,7 +491,7 @@ ca:
       actions:
         answer_proposal: Respondre a la proposta
         cancel_coauthor_invitation: Cancel·lar la invitació de coautoria
-        cancel_coauthor_invitation_confirm: Segur que vols cancel·lar la invitació de coaturia?
+        cancel_coauthor_invitation_confirm: Segur que vols cancel·lar la invitació de coautoria?
         delete_proposal_state_confirm: Segur que vols esborrar aquest estat?
         destroy: Esborrar estat
         edit_proposal: Edita la proposta
@@ -528,7 +528,7 @@ ca:
             answers: |
               El document d'importació ha d'incloure els següents noms de columna en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON (s'ignoraran altres columnes):
               <ul>
-              <li><b>id:</b> ID de la proposta a responder</li>
+              <li><b>id:</b> ID de la proposta a respondre</li>
               <li>state<b>:</b> Un d'aquests "acceptada", "en avaluació" o "rebutjada"</li>
               <li><b>answer/ca</b> Resposta en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
               </ul>
@@ -641,6 +641,7 @@ ca:
             actions: Accions
             apply_answer_template: Aplicar la plantilla de resposta
             assign_to_valuator: Assignar a avaluadora
+            assign_to_valuator_button: Assignar
             cancel: Cancel·lar
             change_taxonomies: Canviar taxonomies
             merge: Fusionar a una nova
@@ -656,6 +657,7 @@ ca:
             statuses: Estats
             title: Propostes
             unassign_from_valuator: Desfer assignació a avaluadora
+            unassign_from_valuator_button: Desfer l'assignació
             update: Actualitza
           manage_trash:
             title: Propostes eliminades

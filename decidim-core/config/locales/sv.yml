@@ -1387,6 +1387,7 @@ sv:
         push_notifications_reminder: För att få aviseringar från plattformen måste du först tillåta dem i webbläsarens inställningar.
         receive_notifications_about: Jag vill få notiser om
         update_notifications_settings: Spara ändringar
+        valuators: Utvärderare
       update:
         error: Det gick inte att uppdatera dina meddelandeinställningar.
         success: Dina meddelandeinställningar har uppdaterats.

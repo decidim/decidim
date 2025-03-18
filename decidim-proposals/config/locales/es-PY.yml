@@ -641,6 +641,7 @@ es-PY:
             actions: Acciones
             apply_answer_template: Aplicar la plantilla de respuesta
             assign_to_valuator: Asignar a evaluadora
+            assign_to_valuator_button: Asignar
             cancel: Cancelar
             change_taxonomies: Cambiar taxonomías
             merge: Sumérgete en uno nuevo
@@ -656,6 +657,7 @@ es-PY:
             statuses: Estados
             title: Propuestas
             unassign_from_valuator: Desasignar de evaluadora
+            unassign_from_valuator_button: Deshacer la asignación
             update: Actualizar
           manage_trash:
             title: Propuestas eliminadas
@@ -698,7 +700,7 @@ es-PY:
             no_components: No hay otros componentes propuesta en este espacio participativo desde el que importar.
             select_component: Por favor selecciona un componente
             select_states: Verifique los estados de las propuestas para importar
-            title: Importar proyectos desde otro componente
+            title: Importar propuestas desde otro componente
         proposals_merges:
           create:
             invalid: 'Se ha producido un error al fusionar las propuestas seleccionadas porque algunas de ellas:'
@@ -774,7 +776,7 @@ es-PY:
           send: Enviar
           title: Editar borrador colaborativo
         empty: Todavía no hay borradores colaborativos
-        empty_filters: No hay un borrador de colaboración con este criterio
+        empty_filters: No hay ningún borrador colaborativo con este criterio
         filters:
           all: Todas
           amendment: Enmiendas
