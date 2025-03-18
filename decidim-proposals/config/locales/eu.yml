@@ -641,6 +641,7 @@ eu:
             actions: Ekintzak
             apply_answer_template: Erabili erantzuteko txantiloia
             assign_to_valuator: Esleitu ebaluatzaileari
+            assign_to_valuator_button: Esleitu
             cancel: Utzi
             change_taxonomies: Aldatu taxonomiak
             merge: Beste batean fusionatu
@@ -656,6 +657,7 @@ eu:
             statuses: Egoerak
             title: Proposamenak
             unassign_from_valuator: Desesleitu ebaluatzaileari
+            unassign_from_valuator_button: Desesleitu
             update: Eguneratu
           manage_trash:
             title: Ezabatutako proposamenak
