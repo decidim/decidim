@@ -362,7 +362,7 @@ ignore_unused:
   - decidim.profiles.show.members
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
-ignore_eq_base:
+# ignore_eq_base:
 #   all:
 #     - common.ok
 
