@@ -2,7 +2,7 @@
 
 module Decidim
   module Core
-    # This interface represents a attachable object.
+    # This interface represents an attachable object.
     module AttachableCollectionInterface
       include Decidim::Api::Types::BaseInterface
       description "An interface that can be used in objects with attachments"
