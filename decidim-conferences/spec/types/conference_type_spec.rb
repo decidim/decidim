@@ -31,6 +31,14 @@ module Decidim
         end
       end
 
+      describe "url" do
+        let(:query) { "{ url }" }
+
+        it "returns all the required fields" do
+          expect(response["url"]).to eq(EngineRouter.main_proxy(model).conference_url(model))
+        end
+      end
+
       describe "title" do
         let(:query) { '{ title { translation(locale: "en")}}' }
 
