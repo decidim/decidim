@@ -46,7 +46,7 @@ module Decidim
       # Returns an HTML-safe String.
       def present_user
         return h.content_tag(:span, present_user_name, class: "logs__log__author") if user.blank?
-        return "Deleted" if user.respond_to?(:deleted?) && user.deleted?
+        return I18n.t("decidim.profile.deleted") if user.respond_to?(:deleted?) && user.deleted?
 
         h.link_to(
           present_user_name,
