@@ -27,7 +27,7 @@ describe Decidim::Meetings::Engine do
       expect(transferred_registrations.count).to eq(5)
       expect(transferred_responses.count).to eq(10)
       expect(transfer.records.count).to eq(18)
-      expect(transferred_resources).to eq(transferred_responses + transferred_meetings + transferred_registrations)
+      expect(transferred_resources).to eq(transferred_meetings + transferred_registrations + transferred_responses)
     end
   end
 end
