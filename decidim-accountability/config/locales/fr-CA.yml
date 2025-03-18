@@ -118,6 +118,7 @@ fr-CA:
             title: Modifier la réalisation
             update: Mise à jour de la réalisation
           index:
+            selected: Sélectionné
             title: Réalisations
           manage_trash:
             title: Résultats supprimés
@@ -247,12 +248,11 @@ fr-CA:
           results_count:
             one: 1 réalisation
             other: "%{count} réalisations"
-        home:
-          empty: Il n'y a aucun résultat pour le moment.
-          empty_filters: Il n'y a aucun résultat avec ces critères.
         home_header:
           global_status: État d'exécution global
         no_results: Il n'y a aucun projet.
+        root_taxonomies:
+          title: 'Visualiser par :'
         search:
           search: Rechercher des réalisations
         show:
@@ -277,6 +277,8 @@ fr-CA:
             clear_all: Tout supprimer
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            default_taxonomy: Taxonomie par défaut
+            default_taxonomy_help: Sélectionnez la taxonomie que vous voulez afficher par défaut. Si aucune taxonomie n'est sélectionnée, les résultats seront affichés dans un format de liste.
             define_taxonomy_filters: Pour utiliser ce paramètre, des filtres doivent être définis dans cet espace participatif.
             display_progress_enabled: Afficher les progrès
             geocoding_enabled: Cartes activées
@@ -286,6 +288,7 @@ fr-CA:
             taxonomy_filters_add: Ajouter un filtre
           step:
             comments_blocked: Bloquer la création de nouveaux commentaires
+          visualization: Visualisation
     download_your_data:
       show:
         result_comments: Export des commentaires des résultats
@@ -320,19 +323,27 @@ fr-CA:
           id: L'identifiant de ce commentaire
           locale: La langue que le participant a eu en créant ce commentaire
           root_commentable_url: L'URL de la ressource liée à ce commentaire
-          user_group: Le nom du groupe d'utilisateurs qui a fait ce commentaire (le cas échéant)
         results:
           address: L'adresse du résultat (optionnel)
           children_count: Le nombre de sous-résultats
           comments_count: Le nombre de commentaires reçu pour ce résultat
+          component: La fonctionnalité à laquelle le résultat appartient
           created_at: La date de création de ce résultat
           description: La description du résultat
           end_date: La date à laquelle le résultat se termine
           id: L'identifiant unique du résultat
+          latitude: La latitude du projet au cas où il a un emplacement physique
+          longitude: La longitude du projet dans le cas où il a un emplacement physique
           parent: Le résultat parent (le cas échéant) du résultat
           progress: Le pourcentage d'exécution du résultat
+          proposal_urls: Les URL des propositions qui sont incluses dans ce résultat
+          reference: La référence unique du résultat
+          start_date: La date de création de ce résultat
           status: Le statut actuel de ce résultat
+          taxonomies: Les taxonomies du résultat
           title: Le titre du résultat
+          updated_at: La dernière date de mise à jour de ce résultat
+          url: L'URL où ce résultat peut être trouvé
     participatory_spaces:
       highlighted_results:
         see_all: Voir tous les résultats (%{count})

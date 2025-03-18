@@ -18,7 +18,7 @@ on:
 
 env:
   CI: "true"
-  NODE_VERSION: 18.17.1
+  NODE_VERSION: 22.14.0
   NODE_ENV: "test"
   SHAKAPACKER_RUNTIME_COMPILE: "false"
 

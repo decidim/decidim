@@ -9,7 +9,6 @@ de:
         scope_id: Bereich
         state: Status
         title: Titel
-        user_group_id: Kollaborativen Entwurf erstellen als
       import_participatory_text:
         document: Dokument
       proposal:
@@ -27,7 +26,6 @@ de:
         state: Status
         suggested_hashtags: Vorgeschlagene Hashtags
         title: Titel
-        user_group_id: Vorschlag erstellen als
       proposal_answer:
         answer: Antworten
         cost: Kosten
@@ -55,9 +53,6 @@ de:
         import_proposals: Vorschläge importieren
         keep_answers: Status und Antworten behalten
         keep_authors: Behalten Sie die ursprünglichen Autoren
-      valuation_assignment:
-        admin_log:
-          valuator_role_id: Name des Bewertenden
     errors:
       models:
         participatory_text:
@@ -142,8 +137,6 @@ de:
               withdrawn: Zurückgezogen
           taxonomies_part_of_contains:
             label: Klassifizierung
-          valuator_role_ids_has:
-            label: Zur Bewertung zugewiesen
           with_any_state:
             label: Beantwortet
             values:
@@ -269,14 +262,8 @@ de:
         accepted_coauthorship:
           notification_title: Sie wurden als Co-AutorIn zum Vorschlag <a href="%{resource_path}">%{resource_title}</a> hinzugefügt.
         admin:
-          proposal_assigned_to_valuator:
-            email_intro: Ihnen wurde der Vorschlag "%{resource_title}" zur Bewertung zugewiesen. Das bedeutet, dass von Ihnen in den nächsten Tagen eine Rückmeldung und Einschätzung erwartet wird. Jetzt <a href="%{admin_proposal_info_url}">im Admin-Panel</a> anschauen.
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag bewerten können.
-            email_subject: Der Vorschlag %{resource_title} wurde Ihnen zur Bewertung zugewiesen.
-            notification_title: Ihnen wurde der Vorschlag <a href="%{resource_path}">%{resource_title}</a> zur Bewertung zugewiesen. Jetzt <a href="%{admin_proposal_info_path}">Admin-Panel</a> anschauen.
           proposal_note_created:
             email_intro: '%{author_name} hat eine private Notiz unter %{resource_title} erstellt. Jetzt im <a href="%{admin_proposal_info_url}">Admin-Panel</a> anzeigen.'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag bewerten können.
             email_subject: Jemand hat eine Notiz für Vorschlag %{resource_title} erstellt.
             notification_title: <a href="%{author_path}">%{author_name}</a> hat eine private Notiz unter <a href="%{resource_path}">%{resource_title}</a> erstellt. Jetzt im <a href="%{admin_proposal_info_path">Admin-Panel</a> anzeigen.
           proposal_note_mentioned:
@@ -346,6 +333,11 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
           email_subject: Ihr Vorschlag "%{mentioned_proposal_title}" wurde erwähnt
           notification_title: Ihr Vorschlag "%{mentioned_proposal_title}" wurde <a href="%{resource_path}">hier</a> in den Kommentaren erwähnt.
+        proposal_merged:
+          email_intro: 'Ein Admin hat Ihren Vorschlag "%{resource_title}" zusammengeführt. Jetzt ansehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag verfasst haben.
+          email_subject: Der Vorschlag %{resource_title} wurde zusammengeführt
+          notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde von einem Admin zusammengeführt.
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, dem Sie folgen, hat einen neuen Vorschlag mit dem Namen "%{resource_title}" veröffentlicht. Sehen Sie es sich an und reden Sie mit:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
@@ -445,7 +437,6 @@ de:
           id: Die ID dieses Kommentars
           locale: Die eingestellte Plattformsprache der kommentierenden Person
           root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
-          user_group: Der Name der Gruppe, die diesen Kommentar erstellt hat (falls vorhanden)
         proposals:
           address: Die Adresse des Vorschlags, falls es an einem Standort stattfindet
           answer: Die Antwort auf den Vorschlag im Falle einer Beantwortung
@@ -512,6 +503,16 @@ de:
         exports:
           proposal_comments: Kommentare
           proposals: Vorschläge
+        import_proposals_mailer:
+          notify_failure:
+            body: Beim Importieren von Vorschlägen aus der Komponente %{origin_component_name} in die Komponente %{target_component_name} ist ein Fehler aufgetreten.
+            subject: Beim Importieren der Vorschläge ist ein Fehler aufgetreten
+          notify_success:
+            added_proposals:
+              one: Ein Vorschlag wurde importiert.
+              other: "%{count} Vorschläge wurden importiert."
+            body: Vorschläge erfolgreich aus der Komponente %{origin_component_name} zu %{target_component_name} importiert. Sie können die Ergebnisse in der Adminoberfläche überprüfen.
+            subject: Die Vorschläge wurden erfolgreich importiert
         imports:
           help:
             answers: |
@@ -629,24 +630,19 @@ de:
           index:
             actions: Aktionen
             apply_answer_template: Antwortvorlage anwenden
-            assign_to_valuator: Zuweisen zur Bewertung
-            assign_to_valuator_button: Zuweisen
             cancel: Abbrechen
             change_taxonomies: Klassifizierungen ändern
             merge: Zu einem neuen zusammenführen
-            merge_button: Zusammenführen
+            merge_button: Erstellen
             no_templates_available: Keine Vorlagen verfügbar
             publish: Veröffentlichen
             publish_answers: Antworten veröffentlichen
             select_component: Komponente auswählen
-            select_valuators: Einen oder mehrere Bewertende auswählen
             selected: ausgewählt
             split: Vorschläge aufteilen
             split_button: Aufteilen
             statuses: Status
             title: Vorschläge
-            unassign_from_valuator: Zuweisung zur Bewertung zurückziehen
-            unassign_from_valuator_button: Zuweisung aufheben
             update: Aktualisieren
           manage_trash:
             title: Gelöschte Vorschläge
@@ -658,7 +654,6 @@ de:
             select_a_proposal: Bitte wählen Sie einen Vorschlag.
           show:
             amendments_count: Anzahl der Ergänzungen
-            assigned_valuators: Zugewiesene Bewertende
             body: Haupttext
             comments_count: Anzahl der Kommentare
             documents: Unterlagen
@@ -672,8 +667,6 @@ de:
             ranking: "%{ranking} von %{total}"
             related_meetings: Ähnliche Besprechungen
             remove_assignment: Zuweisung entfernen
-            remove_assignment_confirmation: Sind Sie sicher, dass Sie den BewerterIn dieses Vorschlags entfernen möchten?
-            valuators: Bewertende
             votes_count: Anzahl Stimmen
           update_taxonomies:
             invalid: 'Diese Vorschläge gehörten bereits zur Klassifizierung %{taxonomies}: %{proposals}.'
@@ -683,7 +676,7 @@ de:
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge ist ein Problem aufgetreten.
-            success: "%{number} Vorschläge erfolgreich importiert."
+            success: Der Importprozess wurde gestartet. Sie werden benachrichtigt, sobald er beendet ist.
           new:
             create: Vorschläge importieren
             no_components: In diesem partizipatorischen Bereich gibt es keine weiteren Vorschlagskomponenten, aus denen die Vorschläge importiert werden könnten.
@@ -694,30 +687,25 @@ de:
           create:
             invalid: 'Beim Zusammenführen der ausgewählten Vorschläge ist ein Problem aufgetreten, weil ein paar von ihnen:'
             success: Erfolgreich die Vorschläge in eine neue zusammengeführt.
+          form:
+            created_in_meeting: Dieser Vorschlag stammt von einer Veranstaltung
+            select_a_meeting: Veranstaltung auswählen
+          new:
+            title: Zu einem neuen zusammenführen
         proposals_splits:
           create:
             invalid: 'Beim Aufteilen der ausgewählten Vorschläge ist ein Problem aufgetreten, weil ein paar von ihnen:'
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
-        valuation_assignments:
-          create:
-            invalid: Beim Zuweisen der Vorschläge zur Bewertung ist ein Problem aufgetreten.
-            success: Die Vorschläge wurden erfolgreich zur Bewertung zugewiesen.
-          delete:
-            invalid: Bei Aufheben der Zuweisung der Vorschläge zur Einschätzung ist ein Fehler aufgetreten.
-            success: Die Zuweisung zur Bewertung der Vorschläge wurde erfolgreich aufgehoben.
       admin_log:
         proposal:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
-          create: "%{user_name} hat den %{resource_name} Vorschlag auf den %{space_name} Feldern als offizieller Vorschlag erstellt"
+          create: "%{user_name} hat den Vorschlag %{resource_name} aus dem Zusammenführen von %{merged_count} Vorschlägen in %{space_name} erstellt"
           publish_answer: "%{user_name} veröffentlichte die Antwort auf den Vorschlag %{resource_name} im Bereich %{space_name}"
           restore: "%{user_name} hat den Vorschlag %{resource_name} für den Bereich %{space_name} wiederhergestellt"
           soft_delete: "%{user_name} hat den Vorschlag %{resource_name} im Bereich %{space_name} in den Papierkorb verschoben"
           update: "%{user_name} aktualisiert den %{resource_name} offiziellen Vorschlag für die %{space_name} Flächen"
         proposal_note:
           create: "%{user_name} eine private Notiz zu dem %{resource_name} Vorschlag auf dem %{space_name} Feld hinterlassen"
-        valuation_assignment:
-          create: "%{user_name} hat den Vorschlag %{resource_name} zur Bewertung zugewiesen"
-          delete: "%{user_name} hat die Zuweisung zur Bewertung des Vorschlags %{proposal_title} zurückgezogen"
       answers:
         accepted: Angenommen
         evaluating: In Bewertung
@@ -730,7 +718,6 @@ de:
           meetings: Meetings
           official: Offiziell
           participants: Teilnehmer
-          user_groups: Benutzergruppen
         filter_state_values:
           all: Alle
           not_answered: Unbeantwortet
@@ -865,7 +852,6 @@ de:
           success: Einladung zur Mitverfassung erfolgreich zurückgezogen.
         create:
           error: Beim Einladen zur Mitverfassung ist ein Problem aufgetreten.
-          success: "%{author_name} wurde erfolgreich zur Mitverfassung eingeladen."
         destroy:
           error: Beim Ablehnen der Einladung ist ein Problem aufgetreten.
           success: Die Einladung wurde abgelehnt.
@@ -887,8 +873,6 @@ de:
             state: Status
             taxonomies: Klassifizierungen
             title: Titel
-            valuator: Bewertende
-            valuators: Bewertende
             votes: Stimmen
         proposal_state:
           css_class: CSS-Klasse
@@ -1003,6 +987,7 @@ de:
           maximum_votes_reached: Maximal mögliche Anzahl Stimmen erteilt
           no_votes_remaining: Keine verbleibenden Stimmen
           vote: Abstimmen
+          votes_blocked: Abstimmen
         votes_count:
           count:
             one: Stimme

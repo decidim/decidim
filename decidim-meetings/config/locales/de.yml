@@ -189,9 +189,13 @@ de:
           updated_at: Datum und Uhrzeit, an dem diese Einladung zuletzt aktualisiert wurde
         registrations:
           code: Der Registrierungscode
+          created_at: Datum und Uhrzeit, an dem diese Registrierung erstellt wurde
           id: Die eindeutige Bezeichnung der Registrierung
           meeting: Die Veranstaltung, für die der Benutzer sich registriert hat
+          public_participation: Ob die Teilnahme öffentlich angezeigt wurde
+          updated_at: Datum und Uhrzeit, an dem diese Registrierung zuletzt aktualisiert wurde
           user: Der Benutzer, der die Registrierung durchgeführt hat
+          validated_at: Datum und Uhrzeit, an dem diese Registrierung validiert wurde
       show:
         meeting_comments: Kommentare zu Veranstaltungen exportieren
         meetings: Export für Veranstaltungen
@@ -281,12 +285,12 @@ de:
             add_agenda_item_child: Fügen Sie den Tagesordnungspunkt child hinzu
             agenda_item: Tagesordnungspunkt
             agenda_item_children: Tagesordnungspunkt Childs
-            down: Nieder
+            down: Nach unten
             remove: Löschen
             up: Oben
           agenda_item_child:
             agenda_item_child: Tagesordnungspunkt Kind
-            down: Nieder
+            down: Nach unten
             remove: Löschen
             up: Oben
           create:
@@ -381,7 +385,7 @@ de:
             success: Veranstaltung erfolgreich veröffentlicht.
           service:
             description: Beschreibung
-            down: Nieder
+            down: Nach unten
             remove: Löschen
             service: Bedienung
             title: Titel
@@ -416,7 +420,7 @@ de:
           form:
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben.
             invites: Lädt ein
-            manage_questions: Fragen verwalten
+            manage_questions: Fragen
             recommendation_message: Aus Datenschutzgründen empfehlen wir, dass Sie dieses Einschreibeformular löschen, wenn es nicht länger benötigt wird. Standardmäßig ist das 3 Monate nachdem die Besprechung durchgeführt wurde.
             registration_email_help: Dieser Text erscheint in der Mitte der Registrierungs-E-Mail, direkt nach dem Registrierungscode.
             registration_form: Anmeldeformular
@@ -742,20 +746,40 @@ de:
           created_at: Das Datum, an dem das Veranstaltung erstellt wurde
           customize_registration_email: Die Möglichkeit, eine benutzerdefinierte E-Mail bei der Registrierung zu erlauben
           decidim_author_type: Autorentyp des Veranstaltungsautors
+          decidim_user_group_id: Benutzer-Gruppen-ID von Personen, die an der Veranstaltung beteiligt sind
           description: Die Beschreibung der Sitzung
           end_time: Das Datum und die Uhrzeit dieses Abschlusses der Sitzung
+          follows_count: Die Anzahl der Folgen, die das Meeting hat
           id: Die eindeutige Bezeichnung der Sitzung
+          iframe_access_level: Die iFrame-Zugriffsebene der Veranstaltung
+          iframe_embed_type: Die Art des iFrames, der in diese Veranstaltung eingebettet ist
+          latitude: Der Breitengrad des Veranstaltungsorts
           location: Der Ort der Veranstaltung
+          location_hints: Ein Hinweis auf den Ort, an dem die Veranstaltung stattfindet
+          longitude: Der Längengrad des Veranstaltungsorts
+          online_meeting_url: Die URL der Online-Veranstaltung
           organizations: Die Organisationen, die an diesem Treffen teilnehmen
           participatory_space: Zu welchem Bereich diese Sitzung gehört (z.B. Partizipationsprozesse oder Gremien)
+          private_meeting: Um anzugeben, ob die Veranstaltung privat ist oder nicht
           published: Wann die Sitzung veröffentlicht wurde
           reference: Die eindeutige Bezeichnung der Ressource auf dieser Plattform
+          registration_form_enabled: Ob das Anmeldeformular aktiviert wurde oder nicht
+          registration_terms: Die Teilnahmebedingungen, die vor der Veranstaltung angenommen wurden
+          registration_type: Die Art der Registrierung der Veranstaltung
+          registration_url: URL der Veranstaltungsregistrierung
+          registrations_enabled: Ob Registrierungen erlaubt waren
           related_proposals: Mit dieser Sitzung verknüpfte Vorschläge
           related_results: Die mit dieser Sitzung verknüpfte Ergebnisse
+          reserved_slots: Die Anzahl der reservierten Plätze für die Veranstaltung
           start_time: Datum und Uhrzeit des Beginns dieser Sitzung
           taxonomies: Die Klassifizierungen, zu denen diese Veranstaltung gehört
           title: Der Titel der Sitzung
+          transparent: Die Sichtbarkeit der Veranstaltung für Nicht-Teilnehmende
+          type_of_meeting: Der Veranstaltungstyp
+          updated_at: Das Datum, an dem die Veranstaltung zuletzt aktualisiert wurde
           url: Die URL der Sitzung
+          video_url: Videoaufzeichnung der Veranstaltung
+          withdrawn: Ob diese Veranstaltung zurückgezogen wurde
           withdrawn_at: Wann diese Sitzung zurückgezogen wurde
     participatory_spaces:
       highlighted_meetings:

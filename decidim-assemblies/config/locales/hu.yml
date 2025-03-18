@@ -191,7 +191,6 @@ hu:
             admin: Adminisztrátor
             collaborator: Közreműködő
             moderator: Moderátor
-            valuator: Értékelő
       titles:
         assemblies: Gyűlések
         assemblies_types: Gyűlés típusa

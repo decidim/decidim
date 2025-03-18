@@ -10,10 +10,6 @@
       <% end %>
   <% end %>
 
-  <% if @form.id.blank? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
-    <%= form.select :user_group_id, Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map { |g| [g.name, g.id] }, prompt: current_user.name %>
-  <% end %>
-
   <% if component_settings.attachments_allowed? %>
     <div class="row column">
       <%= form.attachment :documents,

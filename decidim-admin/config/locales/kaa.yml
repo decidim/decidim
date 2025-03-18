@@ -114,9 +114,6 @@ kaa:
         user:
           fields:
             email: Elektron pochta
-        user_group:
-          fields:
-            phone: Telefon
       moderated_users:
         index:
           actions:

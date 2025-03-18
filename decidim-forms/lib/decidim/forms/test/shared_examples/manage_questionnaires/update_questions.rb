@@ -85,7 +85,7 @@ shared_examples_for "update questions" do
 
       expect(page).to have_admin_callout("successfully")
 
-      click_on "Manage questions"
+      click_on "Questions"
 
       expect(page).to have_css(".questionnaire-question", count: 0)
     end
@@ -169,7 +169,7 @@ shared_examples_for "update questions" do
 
       expect(page).to have_admin_callout("successfully")
 
-      click_on "Manage questions"
+      click_on "Questions"
 
       expect(page).to have_css(".questionnaire-question", count: 0)
     end
@@ -205,7 +205,7 @@ shared_examples_for "update questions" do
 
     before do
       click_on "Save"
-      click_on "Manage questions"
+      click_on "Questions"
     end
 
     it "allows deleting answer options" do

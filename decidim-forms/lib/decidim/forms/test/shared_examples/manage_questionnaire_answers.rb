@@ -17,13 +17,6 @@ shared_examples_for "manage questionnaire answers" do
     [first, second, third]
   end
 
-  context "when there are no answers" do
-    it "do not answer admin link" do
-      click_on "Manage questions"
-      expect(page).to have_content("No answers yet")
-    end
-  end
-
   context "when there are answers" do
     let!(:answer1) { create(:answer, questionnaire:, question: first) }
     let!(:answer2) { create(:answer, body: "second answer", questionnaire:, question: first) }
@@ -31,14 +24,14 @@ shared_examples_for "manage questionnaire answers" do
     let!(:file_answer) { create(:answer, :with_attachments, questionnaire:, question: third, body: nil, user: answer3.user, session_token: answer3.session_token) }
 
     it "shows the answer admin link" do
-      click_on "Manage questions"
-      expect(page).to have_content("Show responses")
+      click_on "Questions"
+      expect(page).to have_content("Responses")
     end
 
     context "and managing answers page" do
       before do
-        click_on "Manage questions"
-        click_on "Show responses"
+        click_on "Questions"
+        click_on "Responses"
       end
 
       it "shows the answers page" do
@@ -97,8 +90,8 @@ shared_examples_for "manage questionnaire answers" do
       let!(:answer11) { create(:answer, questionnaire:, body: "", user: answer1.user, question: second) }
 
       before do
-        click_on "Manage questions"
-        click_on "Show responses"
+        click_on "Questions"
+        click_on "Responses"
       end
 
       it "shows all the questions and responses" do

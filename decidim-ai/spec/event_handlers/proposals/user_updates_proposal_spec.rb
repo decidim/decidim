@@ -9,7 +9,6 @@ describe "User updates proposal", type: :system do
       body:,
       address: nil,
       has_address: false,
-      user_group_id: user_group.try(:id),
       suggested_hashtags: [],
       attachment: nil,
       photos: [],

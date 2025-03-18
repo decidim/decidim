@@ -23,7 +23,7 @@ module Decidim
 
       def author
         author = object.creator_identity
-        author if author.is_a?(Decidim::User) || author.is_a?(Decidim::UserGroup)
+        author if author.is_a?(Decidim::User)
       end
     end
   end

@@ -53,20 +53,20 @@
 
         <% presented_endorsers = endorsers_presenters_for(proposal) %>
         <% if presented_endorsers.any? %>
-          <%= render partial: "endorsers", locals: { presented_endorsers:, proposal: } %>
+          <%= render partial: "decidim/proposals/admin/proposals/endorsers", locals: { presented_endorsers:, proposal: } %>
         <% end %>
 
         <% if proposal.documents.any? %>
-          <%= render partial: "documents", locals: { proposal: } %>
+          <%= render partial: "decidim/proposals/admin/proposals/documents", locals: { proposal: } %>
         <% end %>
 
         <% if proposal.photos.any? %>
-          <%= render partial: "photos", locals: { proposal: } %>
+          <%= render partial: "decidim/proposals/admin/proposals/photos", locals: { proposal: } %>
         <% end %>
 
         <% proposal_meetings = proposal.linked_resources(:meetings, "proposals_from_meeting") %>
         <% if proposal_meetings.any? %>
-          <%= render partial: "meetings", locals: { proposal_meetings: } %>
+          <%= render partial: "decidim/proposals/admin/proposals/meetings", locals: { proposal_meetings: } %>
         <% end %>
 
         <% if allowed_to?(:create, :proposal_note, proposal: proposal) %>
@@ -182,31 +182,31 @@
     </div>
   </div>
 
-  <% if proposal.valuators.any? %>
+  <% if proposal.evaluators.any? %>
     <div class="card">
       <div class="card-divider">
         <h2 class="card-title">
-          <%= t ".valuators" %>
+          <%= t ".evaluators" %>
         </h2>
       </div>
 
       <div class="card-section">
         <div class="row column">
-          <strong><%= t ".assigned_valuators" %>:</strong>
-          <ul id="valuators">
-            <% proposal.valuation_assignments.each do |assignment| %>
-              <% presented_valuator = present(assignment.valuator) %>
+          <strong><%= t ".assigned_evaluators" %>:</strong>
+          <ul id="evaluators">
+            <% proposal.evaluation_assignments.each do |assignment| %>
+              <% presented_evaluator = present(assignment.evaluator) %>
               <li>
                 <%= link_to(
-                      presented_valuator.name,
-                      presented_valuator.profile_path,
+                      presented_evaluator.name,
+                      presented_evaluator.profile_path,
                       target: :blank
                     ) %>
 
-                <% if allowed_to? :unassign_from_valuator, :proposals, valuator: assignment.valuator %>
+                <% if allowed_to? :unassign_from_evaluator, :proposals, evaluator: assignment.evaluator %>
                   <%= icon_link_to(
                         "delete-bin-line",
-                        valuation_assignment_path(proposal_ids: [proposal.id], valuator_role_ids: [assignment.valuator_role.id]),
+                        evaluation_assignment_path(proposal_ids: [proposal.id], evaluator_role_ids: [assignment.evaluator_role.id]),
                         t(".remove_assignment"),
                         method: :delete,
                         data: { confirm: t(".remove_assignment_confirmation") },

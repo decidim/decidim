@@ -17,6 +17,7 @@ module Decidim
         let(:test_version) { "0.27.0.dev" }
 
         it "returns the develop branch" do
+          # back to "develop" once https://github.com/decidim/decidim/pull/13978 is accepted
           expect(subject.edge_git_branch).to eq("develop")
         end
       end

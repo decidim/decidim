@@ -29,7 +29,7 @@ module Decidim
 
               @query = paginate(collection)
               @participants = participants(@query)
-              @total = participants_query.count_participants
+              @total = questionnaire.count_participants
 
               render template: "decidim/forms/admin/questionnaires/answers/index"
             end

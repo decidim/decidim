@@ -9,7 +9,6 @@ ru:
         scope_id: Охват
         state: Cостояние
         title: Заголовок
-        user_group_id: Создать предложение в качестве
       proposal_answer:
         answer: Ответить
       proposals_copy:
@@ -139,7 +138,6 @@ ru:
       admin_log:
         proposal:
           answer: "%{user_name} ответил на предложение %{resource_name} в пространстве %{space_name}"
-          create: "%{user_name} создал в пространстве %{space_name} предложение %{resource_name} в качестве служебного предложения"
         proposal_note:
           create: "%{user_name} оставил частное примечание по предложению %{resource_name} в пространстве %{space_name}"
       answers:

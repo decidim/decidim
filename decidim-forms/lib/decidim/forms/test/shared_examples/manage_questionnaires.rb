@@ -92,7 +92,7 @@ shared_examples_for "manage questionnaires" do
   end
 
   def visit_manage_questions_and_expand_all
-    click_on "Manage questions"
+    click_on "Questions"
     expand_all_questions
   end
 end

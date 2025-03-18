@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/type_context"
+require "decidim/api/test"
 
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql class type"

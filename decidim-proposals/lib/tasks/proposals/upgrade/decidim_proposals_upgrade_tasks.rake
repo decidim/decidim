@@ -15,29 +15,51 @@ namespace :decidim_proposals do
       end
     end
 
-    desc "Removes all proposal valuator records of which the role assignment does not exists"
-    task remove_valuator_orphan_records: :environment do
+    desc "Fix proposal states created by import from other component bug"
+    task fix_state: :environment do
+      states_ids_for_reset = []
+      Decidim::Proposals::Proposal.unscoped.includes(:proposal_state).where.not(decidim_proposals_proposal_state_id: nil).find_each(batch_size: 100) do |proposal|
+        next if proposal.decidim_component_id == proposal.proposal_state.decidim_component_id
+
+        states_ids_for_reset.push(proposal.proposal_state.id)
+        new_state = Decidim::Proposals::ProposalState.where(component: proposal.component, token: proposal.proposal_state.token).first
+        if new_state.present?
+          states_ids_for_reset.push(new_state.id)
+          proposal.update_columns(decidim_proposals_proposal_state_id: new_state.id) # rubocop:disable Rails/SkipsModelValidations
+        else
+          # if the state is not found on the proposal component, the state is custom and should be removed
+          proposal.update_columns(decidim_proposals_proposal_state_id: nil) # rubocop:disable Rails/SkipsModelValidations
+        end
+      end
+      states_ids_for_reset.uniq.each do |state_id|
+        Decidim::Proposals::ProposalState.reset_counters(state_id, :proposals)
+      end
+      puts "FINISHED"
+    end
+
+    desc "Removes all proposal evaluator records of which the role assignment does not exists"
+    task remove_evaluator_orphan_records: :environment do
       if Decidim.module_installed?("participatory_processes")
-        Decidim::Proposals::ValuationAssignment
-          .where(valuator_role_type: "Decidim::ParticipatoryProcessUserRole")
+        Decidim::Proposals::EvaluationAssignment
+          .where(evaluator_role_type: "Decidim::ParticipatoryProcessUserRole")
           .where
-          .not(valuator_role_id: Decidim::ParticipatoryProcessUserRole.pluck(:id))
+          .not(evaluator_role_id: Decidim::ParticipatoryProcessUserRole.pluck(:id))
           .destroy_all
       end
 
       if Decidim.module_installed?("assemblies")
-        Decidim::Proposals::ValuationAssignment
-          .where(valuator_role_type: "Decidim::AssemblyUserRole")
+        Decidim::Proposals::EvaluationAssignment
+          .where(evaluator_role_type: "Decidim::AssemblyUserRole")
           .where
-          .not(valuator_role_id: Decidim::AssemblyUserRole.pluck(:id))
+          .not(evaluator_role_id: Decidim::AssemblyUserRole.pluck(:id))
           .destroy_all
       end
 
       if Decidim.module_installed?("conferences")
-        Decidim::Proposals::ValuationAssignment
-          .where(valuator_role_type: "Decidim::ConferenceUserRole")
+        Decidim::Proposals::EvaluationAssignment
+          .where(evaluator_role_type: "Decidim::ConferenceUserRole")
           .where
-          .not(valuator_role_id: Decidim::ConferenceUserRole.pluck(:id))
+          .not(evaluator_role_id: Decidim::ConferenceUserRole.pluck(:id))
           .destroy_all
       end
     end

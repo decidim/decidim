@@ -81,10 +81,16 @@ module Decidim
       context "when a duplicate record exists" do
         include_context "with a duplicate authorization record"
 
-        it { is_expected.to be(false) }
+        it { is_expected.to be_falsey }
 
         context "and the other user is deleted" do
           let(:other_user) { create(:user, :deleted, organization: current_user.organization) }
+
+          it { is_expected.to be(true) }
+        end
+
+        context "and the other user is ephemeral" do
+          let(:other_user) { create(:user, :ephemeral, organization: current_user.organization) }
 
           it { is_expected.to be(true) }
         end

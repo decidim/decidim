@@ -11,8 +11,7 @@ module Decidim
           code: resource.code,
           user: {
             name: resource.user.name,
-            email: resource.user.email,
-            user_group: resource.user_group&.name || ""
+            email: resource.user.email
           },
           registration_form_answers: serialize_answers
         }

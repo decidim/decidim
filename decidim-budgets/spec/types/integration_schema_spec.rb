@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test/component_context"
+require "decidim/api/test"
 
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component" do
@@ -430,7 +430,7 @@ describe "Decidim::Api::QueryType" do
           end
         end
 
-        %w(admin collaborator valuator).each do |role|
+        %w(admin collaborator evaluator).each do |role|
           context "when the user is space #{role}" do
             let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
             let!(:role) { create(:assembly_user_role, assembly: participatory_process, user: current_user, role:) }

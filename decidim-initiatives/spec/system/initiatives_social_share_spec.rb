@@ -33,6 +33,9 @@ describe "Social shares" do
   end
 
   it_behaves_like "a social share meta tag", "city3.jpeg"
+  it_behaves_like "a social share via QR code" do
+    let(:card_image) { "city3.jpeg" }
+  end
 
   context "when no attachments" do
     let(:attachment) { nil }

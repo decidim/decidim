@@ -17,6 +17,12 @@ en:
       admin_log:
         changeset:
           surveys: surveys
+      menu:
+        surveys_menu:
+          answers: Responses
+          main: Main
+          questions: Questions
+          settings: Settings
     components:
       surveys:
         actions:
@@ -53,13 +59,14 @@ en:
         confirm_destroy: Are you sure you want to delete this?
         destroy: Destroy
         edit: Edit
-        manage_questions: Manage questions
+        manage_questions: Questions
         new_survey: New survey
         preview: Preview
         title: Actions
       admin:
         answers:
           index:
+            no_answers: There are no answers yet
             title: "%{total} total responses"
           show:
             title: 'Answer #%{number}'
@@ -78,6 +85,14 @@ en:
               not_published: Not published
               published: Published
             title: Publish answers
+        questions:
+          surveys:
+            edit:
+              title: Questions
+        settings:
+          surveys:
+            edit:
+              title: Settings
         surveys:
           create:
             invalid: There was a problem creating the survey.
@@ -85,9 +100,11 @@ en:
           destroy:
             success: Survey successfully deleted.
           edit:
-            title: Edit survey
+            title: Main
           index:
             title: Surveys
+          new:
+            title: Main
           publish:
             invalid: There was a problem publishing this survey.
             success: Survey successfully published.

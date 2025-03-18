@@ -22,11 +22,11 @@ module Decidim
 
           rand(0..6).times do
             comment1 = create_comment(resource)
-            NewCommentNotificationCreator.new(comment1, [], []).create
+            NewCommentNotificationCreator.new(comment1, []).create
 
             if [true, false].sample
               comment2 = create_comment(comment1, resource)
-              NewCommentNotificationCreator.new(comment2, [], []).create
+              NewCommentNotificationCreator.new(comment2, []).create
             end
 
             next if [true, false].sample
@@ -50,14 +50,12 @@ module Decidim
         # @return [Decidim::Comments::Comment]
         def create_comment(resource, root_commentable = nil)
           author = random_user
-          user_group = random_user_group(author)
 
           params = {
             commentable: resource,
             root_commentable: root_commentable || resource,
             body: { en: ::Faker::Lorem.sentence(word_count: 50) },
-            author:,
-            user_group:
+            author:
           }
 
           Decidim.traceability.create!(
@@ -69,7 +67,6 @@ module Decidim
         end
 
         # Creates a random amount of votes for a given comment.
-        # The votes can be from a user or a user group.
         #
         # @private
         #
@@ -78,9 +75,7 @@ module Decidim
         # @return nil
         def create_votes(comment)
           rand(0..12).times do
-            user = random_user
-            user_group = random_user_group(user)
-            author = [user, user_group].compact.sample
+            author = random_user
             next if CommentVote.where(comment:, author:).any?
 
             CommentVote.create!(comment:, author:, weight: [1, -1].sample)
@@ -95,13 +90,6 @@ module Decidim
           user = Decidim::User.where(organization:).not_deleted.not_blocked.confirmed.sample
 
           user.valid? ? user : random_user
-        end
-
-        def random_user_group(user)
-          user_group = Decidim::UserGroups::ManageableUserGroups.for(user).verified.sample
-          return nil unless user_group&.valid?
-
-          [true, false].sample ? user_group : nil
         end
       end
     end

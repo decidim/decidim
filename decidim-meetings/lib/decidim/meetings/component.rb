@@ -67,7 +67,7 @@ Decidim.register_component(:meetings) do |component|
     exports.collection do |component_instance|
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Meetings::Meeting, component_instance
-      ).includes(:author, :user_group, root_commentable: { component: { participatory_space: :organization } })
+      ).includes(:author, root_commentable: { component: { participatory_space: :organization } })
     end
 
     exports.include_in_open_data = true

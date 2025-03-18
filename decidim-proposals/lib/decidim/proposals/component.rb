@@ -34,12 +34,12 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :minimum_votes_per_user, type: :integer, default: 0, required: true
     settings.attribute :proposal_limit, type: :integer, default: 0, required: true
     settings.attribute :proposal_length, type: :integer, default: 500
-    settings.attribute :proposal_edit_time, type: :enum, default: "limited", choices: -> { %w(infinite limited) }
+    settings.attribute :proposal_edit_time, type: :enum, default: "limited", choices: ->(_context) { %w(infinite limited) }
     settings.attribute :edit_time, type: :integer_with_units, default: [5, "minutes"], required: true, units: %w(minutes hours days)
     settings.attribute :threshold_per_proposal, type: :integer, default: 0, required: true
     settings.attribute :can_accumulate_votes_beyond_threshold, type: :boolean, default: false
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
-    settings.attribute :default_sort_order, type: :select, default: "automatic", choices: -> { POSSIBLE_SORT_ORDERS }
+    settings.attribute :default_sort_order, type: :select, default: "automatic", choices: ->(_context) { POSSIBLE_SORT_ORDERS }
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: true
@@ -73,13 +73,13 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
     settings.attribute :publish_answers_immediately, type: :boolean, default: true
     settings.attribute :answers_with_costs, type: :boolean, default: false
-    settings.attribute :default_sort_order, type: :select, include_blank: true, choices: -> { POSSIBLE_SORT_ORDERS }
+    settings.attribute :default_sort_order, type: :select, include_blank: true, choices: ->(_context) { POSSIBLE_SORT_ORDERS }
     settings.attribute :amendment_creation_enabled, type: :boolean, default: true
     settings.attribute :amendment_reaction_enabled, type: :boolean, default: true
     settings.attribute :amendment_promotion_enabled, type: :boolean, default: true
     settings.attribute :amendments_visibility,
                        type: :enum, default: "all",
-                       choices: -> { Decidim.config.amendments_visibility_options }
+                       choices: ->(_context) { Decidim.config.amendments_visibility_options }
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :automatic_hashtags, type: :text, editor: false, required: false
     settings.attribute :suggested_hashtags, type: :text, editor: false, required: false
@@ -138,8 +138,8 @@ Decidim.register_component(:proposals) do |component|
                    .where(component: component_instance)
                    .includes(:taxonomies, :component)
 
-      if space.user_roles(:valuator).where(user:).any?
-        collection.with_valuation_assigned_to(user, space)
+      if space.user_roles(:evaluator).where(user:).any?
+        collection.with_evaluation_assigned_to(user, space)
       else
         collection
       end
@@ -154,7 +154,7 @@ Decidim.register_component(:proposals) do |component|
     exports.collection do |component_instance|
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Proposals::Proposal, component_instance
-      ).includes(:author, :user_group, root_commentable: { component: { participatory_space: :organization } })
+      ).includes(:author, root_commentable: { component: { participatory_space: :organization } })
     end
 
     exports.include_in_open_data = true
@@ -163,9 +163,6 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.imports :proposals do |imports|
-    imports.form_view = "decidim/proposals/admin/imports/proposals_fields"
-    imports.form_class_name = "Decidim::Proposals::Admin::ProposalsFileImportForm"
-
     imports.messages do |msg|
       msg.set(:resource_name) { |count: 1| I18n.t("decidim.proposals.admin.imports.resources.proposals", count:) }
       msg.set(:title) { I18n.t("decidim.proposals.admin.imports.title.proposals") }

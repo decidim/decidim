@@ -17,7 +17,7 @@ on:
 env:
   CI: "true"
   RUBY_VERSION: 3.3.4
-  NODE_VERSION: 18.17.1
+  NODE_VERSION: 22.14.0
   NODE_ENV: "test"
   DECIDIM_MODULE: decidim-generators
   CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326

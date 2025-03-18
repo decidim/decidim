@@ -1,8 +1,27 @@
+<% add_decidim_page_title(t(".title", total: @total)) %>
+
+<%= render "decidim/surveys/admin/surveys/tabs_menu" do %>
+  <% if allowed_to? :index, :questionnaire_publish_answers, survey: @survey %>
+    <% if @participants.count.zero? %>
+      <%= link_to t("actions.publish_answers", scope: "decidim.forms.admin.questionnaires"), "#", class: "button button__xs button__secondary h-8", disabled: true %>
+    <% else %>
+      <%= link_to t("actions.publish_answers", scope: "decidim.forms.admin.questionnaires"), survey_publish_answers_path(@survey), class: "button button__xs button__secondary h-8" %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if @participants.count.zero? %>
+  <%= cell("decidim/announcement", { body: t("decidim.surveys.admin.answers.index.no_answers") }) %>
+<% end %>
+
 <div class="card" id="answers">
   <div class="item_show__header">
     <h1 class="item_show__header-title">
       <%= t ".title", total: @total %>
-      <%= link_to t("actions.back", scope: "decidim.forms.admin.questionnaires"), questionnaire_url, class: "button button__sm button__secondary new" %>
+
+      <% if @survey.questionnaire.answers.any? %>
+        <%= export_dropdown(current_component, @survey.questionnaire.id) if allowed_to? :export_answers, :questionnaire %>
+      <% end %>
     </h1>
   </div>
   <div class="table-scroll">
@@ -10,7 +29,7 @@
       <thead>
         <tr>
           <th>#</th>
-          <th><%= first_table_th(@participants.first) %></th>
+          <th class="!text-left"><%= first_table_th(@participants.first) %></th>
           <th><%= t("user_status", scope: "decidim.forms.user_answers_serializer") %></th>
           <th><%= t("ip_hash", scope: "decidim.forms.user_answers_serializer") %></th>
           <th><%= t("completion", scope: "decidim.forms.user_answers_serializer") %></th>
@@ -22,7 +41,7 @@
         <% @participants.each_with_index do |participant, idx| %>
           <tr>
             <td><%= idx + 1 + page_offset %></td>
-            <td>
+            <td class="!text-left">
               <% if allowed_to? :show, :questionnaire_answers %>
                 <%= link_to first_table_td(participant), questionnaire_participant_answers_url(participant.session_token) %>
               <% else %>

@@ -272,9 +272,6 @@ sv:
           results_count:
             one: Ett resultat
             other: "%{count} resultat"
-        home:
-          empty: Det finns inget resultat ännu.
-          empty_filters: Det finns inget resultat med de här kriterierna.
         home_header:
           global_status: Status för genomförande
         no_results: Det finns inga projekt
@@ -345,7 +342,6 @@ sv:
           id: Id för kommentaren
           locale: Kommentarförfattarens språk
           root_commentable_url: URL till innehållet som är relaterat till kommentaren
-          user_group: Namn på gruppen som kommenterat (om det var en grupp)
         results:
           address: Adress till resultatet (om tillämpbart)
           children_count: Antal underliggande resultat

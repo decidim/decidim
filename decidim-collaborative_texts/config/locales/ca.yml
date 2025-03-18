@@ -1,0 +1,67 @@
+---
+ca:
+  decidim:
+    collaborative_texts:
+      actions:
+        confirm_delete_document: Segur que vols esborrar aquest document?
+        deleted_document_info: Els documents eliminats es poden restaurar des de la paperera.
+        edit: Editar
+        manage: Gestionar
+        new: Nou text
+        title: Accions
+        view_deleted_documents: Veure els documents eliminats
+      admin:
+        documents:
+          create:
+            invalid: S'ha produït un error en crear el comentari.
+            success: Document creat correctament.
+          edit:
+            title: Editar el text col·laboratiu
+            update: Actualitzar
+          edit_settings:
+            title: Configurar els textos col·laboratius
+            update: Actualitzar
+          index:
+            title: Textos col·laboratius
+          manage_trash:
+            title: Documents esborrats
+          new:
+            create: Crear
+            title: Crea textos col·laboratius
+          publish:
+            invalid: S'ha produït un error en publicar aquest document.
+            success: Document publicat amb èxit.
+          unpublish:
+            invalid: Hi ha hagut un problema en despublicar aquest document.
+            success: El document s'ha despublicat correctament.
+          update:
+            invalid: S'ha produït un error en actualitzar el document.
+            success: Document actualitzat correctament.
+          update_settings:
+            invalid: S'ha produït un error en actualitzar el document.
+            success: Document actualitzat correctament.
+        settings:
+          form:
+            allow_suggestions: Permetre a les participants fer suggeriments
+      documents:
+        index:
+          count:
+            one: "%{count} text col·laboratiu"
+            other: "%{count} textos col·laboratius"
+          empty: Encara no hi ha cap text col·laboratiu.
+      models:
+        collaborative_text:
+          fields:
+            suggestions: Accepta el(s) suggeriment(s)
+            title: Títol
+    components:
+      collaborative_texts:
+        name: Textos col·laboratius
+        settings:
+          global:
+            announcement: Avís
+            comments_blocked: Comentaris bloquejats
+          step:
+            announcement: Avís
+    statistics:
+      collaborative_texts_count: Textos col·laboratius

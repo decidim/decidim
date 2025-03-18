@@ -236,8 +236,8 @@ fr-CA:
           roles:
             admin: Administrateur
             collaborator: Collaborateur
+            evaluator: Évaluateur
             moderator: Modérateur
-            valuator: Évaluateur
         media_link:
           fields:
             date: Date

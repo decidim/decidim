@@ -55,7 +55,6 @@ module Decidim
           closing_report: resource.closing_report,
           attending_organizations: resource.attending_organizations,
           registration_url: resource.registration_url,
-          decidim_user_group_id: resource.decidim_user_group_id,
           decidim_author_type: resource.decidim_author_type,
           video_url: resource.video_url,
           audio_url: resource.audio_url,
@@ -88,7 +87,7 @@ module Decidim
 
       def author_url(author)
         if author.respond_to?(:nickname)
-          profile_url(author) # is a Decidim::User or Decidim::UserGroup
+          profile_url(author) # is a Decidim::User
         else
           root_url # is a Decidim::Organization
         end

@@ -20,6 +20,14 @@ describe "Admin manages surveys" do
   it_behaves_like "export survey user answers"
   it_behaves_like "manage announcements"
 
+  context "with a new survey" do
+    before do
+      click_on "Questions"
+    end
+
+    it_behaves_like "uses questionnaire templates", :survey
+  end
+
   context "when survey is not published" do
     before do
       component.unpublish!
@@ -46,20 +54,19 @@ describe "Admin manages surveys" do
       let!(:answer) { create(:answer, question:, questionnaire:) }
 
       it "shows warning message" do
-        click_on "Manage questions"
+        click_on "Questions"
         expect(page).to have_content("The form is not published")
       end
 
       it "allows editing questions" do
-        click_on "Manage questions"
+        click_on "Questions"
         click_on "Expand all"
         expect(page).to have_css("#questions_questions_#{question.id}_body_en")
         expect(page).to have_no_selector("#questions_questions_#{question.id}_body_en[disabled]")
       end
 
       it "deletes answers after published" do
-        click_on "Manage questions"
-
+        click_on "Questions"
         click_on "Expand all"
 
         within "#accordion-questionnaire_question_#{question.id}-field" do
@@ -68,6 +75,7 @@ describe "Admin manages surveys" do
         click_on "Save"
         expect(page).to have_admin_callout "Survey questions successfully saved"
 
+        click_on translated_attribute(component.name)
         click_on "Unpublish"
         expect(page).to have_admin_callout "Survey successfully unpublished"
 
@@ -133,6 +141,8 @@ describe "Admin manages surveys" do
 
           it "does not show the 'Publish answers' button" do
             visit manage_questions_path
+            click_on "Responses"
+
             expect(page).to have_no_content "Publish answers"
           end
         end
@@ -142,6 +152,7 @@ describe "Admin manages surveys" do
 
           it "shows the 'Publish answers' button" do
             visit manage_questions_path
+            click_on "Responses"
             expect(page).to have_content "Publish answers"
           end
         end
@@ -161,6 +172,7 @@ describe "Admin manages surveys" do
 
           before do
             visit manage_questions_path
+            click_on "Responses"
             click_on "Publish answers"
           end
 
@@ -221,6 +233,7 @@ describe "Admin manages surveys" do
             end
 
             visit manage_questions_path
+            click_on "Responses"
             click_on "Publish answers"
           end
 
@@ -291,7 +304,7 @@ describe "Admin manages surveys" do
   end
 
   def manage_questions_path
-    Decidim::EngineRouter.admin_proxy(component).edit_questions_survey_path(survey)
+    Decidim::EngineRouter.admin_proxy(component).edit_questions_questions_survey_path(survey)
   end
 
   def update_component_settings_or_attributes
@@ -306,8 +319,6 @@ describe "Admin manages surveys" do
   def questionnaire_public_path
     main_component_path(component)
   end
-
-  it_behaves_like "uses questionnaire templates", :survey
 
   private
 

@@ -52,8 +52,6 @@ ro:
         personal_url: URL personal
         remove_avatar: Eliminați avatar
         tos_agreement: Acordul privind termenii și condițiile
-      user_group:
-        avatar: Fotografie de profil
     models:
       decidim/attachment_created_event: Atașament
       decidim/component_published_event: Componentă activă
@@ -69,7 +67,6 @@ ro:
       decidim/removed_from_group: Eliminat din grup
       decidim/resource_endorsed_event: Resursă susținută
       decidim/resource_hidden_event: Conținut ascuns
-      decidim/user_group_created_event: Grup de utilizatori creat
       decidim/welcome_notification_event: Mesaj de întâmpinare
   activerecord:
     attributes:
@@ -101,10 +98,6 @@ ro:
         one: Participant
         few: Participanți
         other: Participanți
-      decidim/user_group:
-        one: Grup
-        few: Grupuri
-        other: Grupuri
   booleans:
     'false': 'Nu'
     'true': 'Da'
@@ -234,6 +227,8 @@ ro:
         delete: "%{user_name} a eliminat componenta %{resource_name} din spațiul participativ %{space_name}"
         export_component: "%{user_name} a exportat ca %{format_name} %{resource_name} %{component_name} din %{space_name}"
         publish: "%{user_name} a publicat componenta %{resource_name} în spațiul participativ %{space_name}"
+        restore: "%{user_name} a recuperat componenta %{resource_name} în spațiul %{space_name}"
+        soft_delete: "%{user_name} a mutat la gunoi componenta %{resource_name} în spațiul %{space_name}"
         unpublish: "%{user_name} a anulat publicarea componentei %{resource_name} din spațiul participativ %{space_name}"
         update_permissions_with_space: "%{user_name} a actualizat permisiunile %{resource_name} din spațiul participativ %{space_name}"
       contextual_help_section:
@@ -246,6 +241,7 @@ ro:
       impersonation_log:
         manage: "%{user_name} a gestionat %{resource_name} deoarece %{reason}"
       moderation:
+        bulk_hide: "%{user_name} a ascuns %{reported_count} resurse"
         hide: "%{user_name} a ascuns o resursă de tip %{resource_type} din spațiul participativ %{space_name}"
         unreport: "%{user_name} nu a raportat o resursă de tip %{resource_type} în spațiul %{space_name}"
       newsletter:
@@ -293,8 +289,15 @@ ro:
         delete_with_parent: "%{user_name} a șters taxonomia %{resource_name} din cadrul taxonomiei %{parent_taxonomy}"
         update: "%{user_name} a actualizat taxonomia %{resource_name}"
         update_with_parent: "%{user_name} a actualizat taxonomia %{resource_name} din cadrul taxonomiei %{parent_taxonomy}"
+      taxonomy_filter:
+        create: "%{user_name} a creat filtrul %{resource_name}"
+        create_with_filter_info: '%{user_name} a creat filtrul %{resource_name} bazat pe taxonomie"%{taxonomy_name}" care are %{filter_items_count} elemente'
+        delete: "%{user_name} a șters filtrul %{resource_name}"
+        update: "%{user_name} a actualizat filtrul %{resource_name}"
       user:
         block: "%{user_name} a blocat accesul participantului %{resource_name}"
+        bulk_block: "%{user_name} a blocat %{blocked_count} utilizatori"
+        bulk_unblock: "%{user_name} a deblocat %{unblocked_count} utilizatori"
         invite: "%{user_name} a invitat participantul %{resource_name} cu rolul: %{role}"
         officialize: "%{user_name} a validat participantul %{resource_name}"
         promote: "%{user_name} a promovat %{resource_name}"
@@ -305,6 +308,8 @@ ro:
         unofficialize: "%{user_name} a revocat validarea pentru participantul %{resource_name}"
       user_group:
         block: "%{user_name} a blocat grupul de utilizatori %{resource_name}"
+        bulk_block: "%{user_name} a blocat %{blocked_count} utilizatori"
+        bulk_unblock: "%{user_name} a deblocat %{unblocked_count} utilizatori"
         reject: "%{user_name} a respins verificarea grupului %{resource_name}"
         unblock: "%{user_name} a deblocat grupul de utilizatori %{resource_name}"
         verify: "%{user_name} a verificat grupul de utilizatori %{resource_name}"
@@ -353,7 +358,6 @@ ro:
             Acest amendament pentru %{amendable_type} %{proposal_link} a fost retras de către autor.
       name: Amendamente
       new:
-        amendment_author: Autorul amendamentului
         send: Creați
         title: Creați un proiect de amendament
       preview_draft:
@@ -388,6 +392,8 @@ ro:
         download: Descarcați fișier
         visit_link: Accesați link-ul
       documents:
+        component_documents:
+          meetings: Documente ale ședințelor
         documents: Documente
         related_documents: Documente asociate
       photo:
@@ -423,6 +429,7 @@ ro:
         name: Flux de lucru test pentru autorizare
       ephemeral_dummy_authorization_handler:
         fields:
+          document_number: Număr document
           postal_code: Cod poștal
       errors:
         duplicate_authorization: Un participant este deja autorizat cu aceleași date. Un administrator vă va contacta pentru a verifica detaliile.
@@ -459,6 +466,7 @@ ro:
           ok: Ok
           title: Nu este autorizat
         unconfirmed:
+          confirmation_instructions: 'Dacă nu aţi primit instrucţiunile de confirmare le puteţi solicita din nou:'
           explanation_html: Pentru a efectua această acțiune, trebuie să fiți autorizat, înainte de a face acest lucru, trebuie să confirmați adresa dumneavoastră de e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Cereți instrucțiunile de confirmare
           title: Confirmați e-mailul dumnevoastră
@@ -477,6 +485,7 @@ ro:
       see_less: "(mai puține detalii)"
     components:
       component_order_selector:
+        no_content: Nu am găsit niciun conținut cu aceste criterii.
         order:
           all_types: Toate tipurile
           collaborative_draft: Ciornă colaborativă
@@ -484,6 +493,7 @@ ro:
           debate: Dezbatere
           initiative: Inițiativă
           meeting: Întâlnire
+          order: Votul pentru buget
           post: Postează
           proposal: Propunere
           question: Întrebare
@@ -498,6 +508,7 @@ ro:
             amendments_enabled: Amendamente activate
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor
+            define_taxonomy_filters: Vă rugăm să definiți niște filtre pentru acest spațiu participativ înainte de a utiliza această setare.
             dummy_global_attribute1: Mostră de atribut 1
             dummy_global_attribute2: Mostră de atribut 2
             dummy_global_translatable_text: Text-test traductibil
@@ -581,6 +592,7 @@ ro:
     core:
       actions:
         login_before_access: Vă rugăm să vă autentificați înainte de a accesa.
+        unauthorized: Nu sunteți autorizat să efectuați această acțiune.
       application_helper:
         filter_area_values:
           all: Toate
@@ -598,6 +610,8 @@ ro:
         new_tos_fields:
           sign_up: Creați un cont
       registrations:
+        create:
+          error: A apărut o problemă la crearea contului dumneavoastră.
         new:
           already_have_an_account?: Aveți deja un cont?
           log_in: Autentificare
@@ -678,10 +692,6 @@ ro:
       drag_and_drop_help: Adaugați imagini prin tragere & plasare sau lipirea lor.
     endorsement_buttons_cell:
       endorse: Îmi place
-    endorsements:
-      identities:
-        done: Finalizat
-        select_identity: Selectare identitate
     errors:
       internal_server_error:
         copied: Text copiat!
@@ -760,52 +770,6 @@ ro:
           email_outro: Ai primit această notificare deoarece ai creat o activitate pe site-ul nostru.
         level_up:
           email_outro: Ai primit această notificare deoarece ai creat o activitate pe site-ul nostru.
-      groups:
-        demoted_membership:
-          email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> a eliminat drepturile tale de administrator din acel grup.
-          email_outro: Ai primit această notificare deoarece ești membru al acelui grup.
-          email_subject: Nu mai ești administrator al grupului %{user_group_name}!
-          notification_title: Nu mai ești administrator al grupului <a href="%{resource_path}">%{user_group_name}</a>.
-        invited_to_group:
-          email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> te-a invitat să te alături.
-          email_outro: Ai primit această notificare deoarece ai fost invitat într-un grup. Te rugăm să verifici fila Grupuri din profilul tău pentru a o aproba.
-          email_subject: Ai fost invitat să te alături grupului %{user_group_name}!
-          notification_title: Ai fost invitat să te alături grupului <a href="%{resource_path}">%{user_group_name}</a>. Verifică pagina <a href="%{groups_profile_tab_path}">Grupuri</a> din profilul tău pentru a o aproba!
-        join_request_accepted:
-          email_intro: Felicitări! Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> a acceptat cererea ta de a te alătura.
-          email_outro: Ai primit această notificare deoarece solicitarea ta de aderare a fost actualizată.
-          email_subject: Ai fost acceptat în grupul %{user_group_name}!
-          notification_title: Ați fost acceptat pentru grupul <a href="%{resource_path}">%{user_group_name}</a>.
-        join_request_created:
-          email_intro: Cineva a solicitat să se alăture grupului %{user_group_name}. Îl poți accepta sau respinge de la <a href="%{resource_url}">pagina membrilor grupului</a>.
-          email_outro: Ai primit această notificare, deoarece poți gestiona grupul %{user_group_name}.
-          email_subject: Cineva a solicitat să se alăture grupului %{user_group_name}!
-          notification_title: Cineva a solicitat să se alăture grupului %{user_group_name}. Îl poți accepta sau respinge de la <a href="%{resource_path}">pagina membrilor grupului</a>.
-        join_request_rejected:
-          email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> a respins cererea ta de a te alătura.
-          email_outro: Ai primit această notificare deoarece solicitarea ta de aderare a fost actualizată.
-          email_subject: Cererea ta de a te alătura grupului %{user_group_name} a fost respinsă!
-          notification_title: Cererea ta de a te alătura grupului <a href="%{resource_path}">%{user_group_name}</a> a fost respinsă.
-        promoted_to_admin:
-          email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> ți-a acordat drepturi de administrator acelui grup.
-          email_outro: Ai primit această notificare deoarece ești membru al acelui grup.
-          email_subject: Acum ești administrator al grupului %{user_group_name}!
-          notification_title: Acum ești administrator al grupului <a href="%{resource_path}">%{user_group_name}</a>.
-        removed_from_group:
-          email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> te-a eliminat din el.
-          email_outro: Ai primit această notificare deoarece ai fost membru al acelui grup.
-          email_subject: Ai fost eliminat din grupul %{user_group_name}!
-          notification_title: Ai fost eliminat din grupul <a href="%{resource_path}">%{user_group_name}</a>.
-        user_group_created:
-          email_intro: Un nou grup de utilizatori a fost creat cu numele %{user_group_name}. Acum îl poți verifica în panoul <a href="%{groups_admin_url}">de administratori</a>.
-          email_outro: Ai primit această notificare deoarece ești un administrator al platformei.
-          email_subject: A fost creat un nou grup de utilizatori
-          notification_title: Grupul de utilizatori %{user_group_name} a fost creat. Acum îl puteți verifica în panoul <a href="%{groups_admin_path}">de administratori</a>.
-        user_group_updated:
-          email_intro: Un grup de utilizatori cu numele %{user_group_name} și-a actualizat profilul, lăsându-l neverificat. Acum îl poți verifica în panoul <a href="%{groups_admin_url}">de administrare</a>.
-          email_outro: Ați primit această notificare deoarece sunteți un administrator al platformei.
-          email_subject: Un grup de utilizatori și-a actualizat profilul
-          notification_title: Grupul de utilizatori %{user_group_name} și-a actualizat profilul, lăsând neverificat. Acum îl poți verifica în panoul <a href="%{groups_admin_path}">de administratori</a>.
       reports:
         resource_hidden:
           email_intro: Un administrator a eliminat %{resource_type} deoarece a fost raportat ca %{report_reasons}.
@@ -913,50 +877,7 @@ ro:
       description: Insignele sunt recunoașterea acțiunilor participanților și progresele înregistrate în cadrul platformei. Pe măsură ce începi să descoperi, să participi și să interacționezi în platformă, vei câștiga diferite insigne.
       level: Nivelul %{level}
       title: Ce sunt insignele?
-    group_admins:
-      actions:
-        demote_admin: Eliminați administratorul
-      index:
-        current_admins: 'Administratori curenți:'
-        manage_admins: Gestionare administratori
-    group_invites:
-      accept_invitation: Acceptaţi
-      accept_or_reject_group_invitations: 'Următoarele grupuri v-au invitat să vă alăturați. Acceptați sau respingeți cererile lor:'
-      index:
-        invite: Invitați
-        invite_user: Invită un participant
-      reject_invitation: Respingeți
-    group_members:
-      actions:
-        are_you_sure: Sunteți sigur?
-        promote_to_admin: Setare ca administrator
-        remove_from_group: Eliminați participantul
-      index:
-        current_members_without_admins: 'Membrii actuali (fără administratori):'
-        manage_members: Gestionare membri
     groups:
-      actions:
-        are_you_sure: Sunteți sigur?
-      edit:
-        edit_user_group: Modificați grupul
-        update_user_group: Actualizați grupul
-      form:
-        email_help: E-mailul organizației, grupului, etc.
-        fill_in_for_verification: 'Completați aceste câmpuri dacă doriți ca grupul dumneavoastră să fie verificat:'
-        name_help: Numele organizației, asocierii, colectivelor, grupului, etc.
-        nickname_help: Pseudonimul organizaţiei, asocierii, colectivelor, grupului etc. Nu folosi spaţii sau accente.
-      join:
-        success: Cererea de intrare a fost făcută cu succes. Un administrator va revizui cererea ta înainte de a o accepta în grup.
-      leave:
-        success: Grupul a fost abandonat.
-      members:
-        accept_or_reject_join_requests: 'Următorii utilizatori au solicitat să se alăture acestui grup. Acceptă sau respinge cererile lor:'
-        accept_request: Acceptaţi
-        reject_request: Respingeți
-      new:
-        create_user_group: Creați grup
-        new_user_group: Grup nou
-        subtitle: Creează un grup și invită alți participanți să participe.
       roles:
         admin: Administrator
         creator: Administrator
@@ -1011,30 +932,10 @@ ro:
       home: Acasă
     messaging:
       conversation_mailer:
-        comanagers_new_conversation:
-          admin_in_group: Primiți acest lucru deoarece sunteți un administrator în %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{manager} a început o nouă conversație în numele lui %{group}. Click aici pentru a o vedea:"
-          subject: "%{manager} a început o nouă conversație ca %{group}"
-        comanagers_new_message:
-          admin_in_group: Primiți acest lucru deoarece sunteți un administrator în %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{manager} a postat mesaje noi într-o conversație în numele lui %{group}. Click aici pentru a le vedea:"
-          subject: "%{manager} a trimis mesaje noi ca %{group}"
         new_conversation:
           greeting: Hi, %{recipient}!
           intro: "%{sender} a început o nouă conversație cu tine. Apasă aici pentru a o vedea:"
           subject: "%{sender} a început o conversație cu tine"
-        new_group_conversation:
-          admin_in_group: Primiți acest lucru deoarece sunteți un administrator în %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{sender} a început o nouă conversație cu grupul %{group}. Click aici pentru a o vedea:"
-          subject: "%{sender} a început o conversație cu %{group}"
-        new_group_message:
-          admin_in_group: Primiți acest lucru deoarece sunteți un administrator în %{group}.
-          greeting: Hi, %{recipient}!
-          intro: "%{sender} a postat mesaje noi într-o conversație cu grupul %{group}. Click aici pentru a le vedea:"
-          subject: "%{group} au mesaje noi de la %{sender}"
         new_message:
           greeting: Hi, %{recipient}!
           intro: "%{sender} a postat mesaje noi în conversația ta. Apasă aici pentru a le vedea:"
@@ -1145,6 +1046,7 @@ ro:
         assigned_to_proposal: Vreau să primesc un e-mail atunci când cineva îmi atribuie o propunere pentru evaluare
         direct_messages: Primește mesaje directe de la oricine
         email_on_moderations: Vreau să primesc un e-mail de fiecare dată când se raportează ceva pentru moderare.
+        evaluators: Evaluatori
         everything_followed: Tot ce urmăresc
         newsletter_notifications: Vreau să primesc buletine informative
         newsletters: Newslettere
@@ -1216,29 +1118,17 @@ ro:
         conversations: Conversații
         followers: Urmăritori
         following: Urmăriri
-        groups: Grupuri
-        members: Membri
         officialized: Participant oficial
         send_private_message: Trimite mesaj privat
-      sidebar:
-        badges:
-          info: Insignele sunt câștigate prin desfășurarea de activități specifice pe platformă.
-          title: Insigne
       user:
         actions:
-          create_user_group: Creează grup
-          invite_user: Invită un participant
-          manage_user_group_users: Gestionare participanți
+          edit_profile: Editare profil
           message: Mesaj
-        create_user_group: Creează grup
-        edit_profile: Editare profil
-        edit_user_group: Editează profilul grupului
-        invite_user: Invite participant
-        join_user_group: Cerere de aderare la grup
-        leave_user_group: Părăsește grupul
-        manage_user_group_admins: Gestionează administratorii
-        manage_user_group_users: Gestionează membrii
-        resend_email_confirmation_instructions: Retrimite e-mail instrucțiuni de confirmare
+          resend_email_confirmation_instructions: Retrimite e-mail instrucțiuni de confirmare
+    qr:
+      show:
+        scan: Scanaţi codul QR
+        title: Cod QR pentru %{resource_title}
     reported_mailer:
       hide:
         hello: Bună ziua %{name},
@@ -1261,6 +1151,8 @@ ro:
     reports:
       create:
         success: Raportul a fost creat cu succes şi va fi revizuit de un administrator.
+      parent_hidden:
+        report_details: Resursa părinte a fost ascunsă
     resource:
       controls_label: Control resursă
     resource_endorsements:
@@ -1290,6 +1182,10 @@ ro:
       selfxss_warning:
         description: Această caracteristică de browser este destinată dezvoltatorilor și nu ar trebui să inserați nimic aici dacă vi s-a cerut să faceți acest lucru. Lipirea conținutului în această fereastră poate compromite intimitatea ta și permite hackerilor să îți acceseze contul.
         title: Opriți!
+    share_widget:
+      download: Download
+      print: Tipăriți afișul
+      qr_code: Cod QR
     shared:
       confirm_modal:
         cancel: Anulează
@@ -1315,12 +1211,11 @@ ro:
         title: Raportează o problemă
       flag_user_modal:
         already_reported: Acest conținut este deja raportat și va fi revizuit de către un administrator.
-        close: Închideți
-        description: Ce este nepotrivit pentru utilizator?
+        description: Ce este nepotrivit pentru acest participant?
         offensive: Conține rasism, sexism, insulte, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
         report: Raportează
         spam: Conține clickbait, publicitate, escrocherii sau roboți script.
-        title: Raportează un utilizator nepotrivit
+        title: Raportează un participant nepotrivit
       floating_help:
         help: Ajutor
       login_modal:
@@ -1329,9 +1224,6 @@ ro:
         public_participation: Arată public participarea mea
       reference:
         reference: 'Referință: %{reference}'
-      represent_user_group:
-        represent_user_group: Reprezint un grup
-        select_user_group: Selectați un grup
       results_per_page:
         label: 'Rezultate pe pagină:'
         title: Selectați numărul de rezultate pe pagină
@@ -1339,6 +1231,7 @@ ro:
         copy_share_link: Copiază
         copy_share_link_clarification: Copiază link-ul de partajare în clipboard
         copy_share_link_copied: Copiat!
+        copy_share_link_cta: Sau copiați link-ul
         copy_share_link_message: Link-ul a fost copiat cu succes în clipboard.
         share: Distribuie
         share_link: Distribuie link-ul
@@ -1360,18 +1253,8 @@ ro:
         no_activities_warning: Acest participant nu are nicio activitate încă.
     user_contact_disabled: Acest participant nu acceptă mesaje directe.
     user_conversations:
-      create:
-        existing_error: Mesajul nu a putut fi creat. Conversaţia există deja, vă rugăm să încercaţi din nou acum.
-        success: Conversația a început cu succes!
       index:
-        conversations_info: Conversațiile sunt private. nimeni altcineva nu le poate vedea. O conversație poate fi începută cu vreun participant sau grup înregistrat pe platformă.
-        no_conversations_warning: Nu există încă conversații.
         time_ago: "%{time} în urmă"
-      reply:
-        placeholder: Răspunsul tău...
-        send: Trimite
-      update:
-        error: Mesajul nu a fost trimis. Încercați din nou mai târziu
     user_report_mailer:
       notify:
         body_1: Utilizatorul %{user} a fost raportat de %{token}
@@ -1639,7 +1522,6 @@ ro:
         my_data: Datele mele
         notifications_settings: Setări notificări
         title: Setări participant
-        user_groups: Grupuri
   locale:
     name: Română
     name_with_error: Română (eroare!)
