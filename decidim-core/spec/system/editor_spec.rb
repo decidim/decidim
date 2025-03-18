@@ -34,12 +34,12 @@ describe "Editor" do
         selfxssWarning: I18n.t("decidim.security.selfxss_warning")
       }
     }
-    meta_context = "<meta name='context-current-participatory-space' content='#{context_current_participatory_space}'>"
     editor_wrapper = form.editor(:body, toolbar: features, **editor_options)
+    meta_context = "<meta name='context-current-participatory-space' content='#{context_current_participatory_space}'>"
     content_wrapper = <<~HTML
       <div data-content>
-        <main class="layout-1col">
-          <div class="cols-6">
+        <main>
+          <div>
             <div class="text-center py-12">
               <h1 class="h1 decorator inline-block text-left">Editor test</h1>
             </div>
@@ -76,6 +76,7 @@ describe "Editor" do
           #{javascript_pack_tag "decidim_core", defer: false}
           <script>
             Decidim.config.set(#{js_configs.to_json});
+            window.isTestEnvironment = true;
           </script>
         </body>
         </html>
@@ -1231,23 +1232,12 @@ describe "Editor" do
     end
   end
 
-  context "with hashtags, mentions and emojis" do
-    let(:editor_options) { { hashtaggable: true, mentionable: true, emojiable: true } }
-
-    let!(:user1) { create(:user, :confirmed, name: "John Doe", nickname: "doe_john", organization:) }
-    let!(:user2) { create(:user, :confirmed, name: "Jon Doe", nickname: "doe_jon", organization:) }
-    let!(:user3) { create(:user, :confirmed, name: "Jane Doe", nickname: "doe_jane", organization:) }
+  context "with hashtags" do
+    let(:editor_options) { { hashtaggable: true } }
 
     let!(:hashtag1) { create(:hashtag, name: "nature", organization:) }
     let!(:hashtag2) { create(:hashtag, name: "nation", organization:) }
     let!(:hashtag3) { create(:hashtag, name: "native", organization:) }
-
-    let!(:participatory_space) { create(:participatory_process, organization:) }
-    let!(:proposals_component) { create(:component, manifest_name: :proposals, participatory_space:) }
-    let!(:proposal1) { create(:proposal, component: proposals_component, title: { "en" => "Proposal 1" }) }
-    let!(:proposal2) { create(:proposal, component: proposals_component, title: { "en" => "Proposal 2" }) }
-    let!(:proposal3) { create(:proposal, component: proposals_component, title: { "en" => "Proposal 3" }) }
-    let(:context_current_participatory_space) { participatory_space.to_global_id }
 
     it "allows selecting hashtags" do
       prosemirror.native.send_keys "#na"
@@ -1256,10 +1246,18 @@ describe "Editor" do
       expect(page).to have_css(".editor-suggestions-item", text: "nation")
       expect(page).to have_css(".editor-suggestions-item", text: "native")
 
-      find(".editor-suggestions-item", text: "nature").click
+      prosemirror.native.send_keys [:enter]
 
-      expect_value(%(<p><span data-type="hashtag" data-label="#nature">#nature</span> a</p>))
+      expect_value(%(<p><span data-type="hashtag" data-label="#nature">#nature</span> na</p>))
     end
+  end
+
+  context "with mentions" do
+    let(:editor_options) { { mentionable: true } }
+
+    let!(:user1) { create(:user, :confirmed, name: "John Doe", nickname: "doe_john", organization:) }
+    let!(:user2) { create(:user, :confirmed, name: "Jon Doe", nickname: "doe_jon", organization:) }
+    let!(:user3) { create(:user, :confirmed, name: "Jane Doe", nickname: "doe_jane", organization:) }
 
     it "allows selecting mentions" do
       prosemirror.native.send_keys "@doe"
@@ -1268,10 +1266,16 @@ describe "Editor" do
       expect(page).to have_css(".editor-suggestions-item", text: "@doe_jon (Jon Doe)")
       expect(page).to have_css(".editor-suggestions-item", text: "@doe_jane (Jane Doe)")
 
-      find(".editor-suggestions-item", text: "@doe_john (John Doe)").click
+      prosemirror.native.send_keys [:enter]
 
-      expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="@doe_john (John Doe)">@doe_john (John Doe)</span> e</p>))
+      expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="@doe_john (John Doe)">@doe_john (John Doe)</span> doe</p>))
     end
+  end
+
+  context "with resource mentions" do
+    let(:editor_options) { { resource_mentionable: true } }
+    let!(:participatory_space) { create(:participatory_process, organization:) }
+    let(:context_current_participatory_space) { participatory_space.to_global_id }
 
     it "allows selecting resource mentions with a slash" do
       allow(Decidim::SearchableResource).to receive(:where).with(
@@ -1295,10 +1299,14 @@ describe "Editor" do
       expect(page).to have_css(".editor-suggestions-item", text: "Proposal 2")
       expect(page).to have_css(".editor-suggestions-item", text: "Proposal 3")
 
-      find(".editor-suggestions-item", text: "Proposal 1").click
+      prosemirror.native.send_keys [:enter]
 
-      expect_value(%(<p><span data-type="mentionResource" data-id="gid://decidim.org/Proposal/1" data-label="Proposal 1">Proposal 1</span> o</p>))
+      expect_value(%(<p><span data-type="mentionResource" data-id="gid://decidim.org/Proposal/1" data-label="Proposal 1">Proposal 1</span> </p>))
     end
+  end
+
+  context "with emojis" do
+    let(:editor_options) { { emojiable: true } }
 
     it "allows selecting emojis" do
       within ".editor-container .editor-input" do
