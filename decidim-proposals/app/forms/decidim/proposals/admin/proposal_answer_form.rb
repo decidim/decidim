@@ -20,6 +20,10 @@ module Decidim
 
         alias state internal_state
 
+        def costs_required?
+          costs_enabled? && state == "accepted"
+        end
+
         def publish_answer?
           current_component.current_settings.publish_answers_immediately?
         end
@@ -28,6 +32,10 @@ module Decidim
 
         def proposal_states
           Decidim::Proposals::ProposalState.where(component: current_component).pluck(:token).map(&:to_s) + ["not_answered"]
+        end
+
+        def costs_enabled?
+          current_component.current_settings.answers_with_costs?
         end
       end
     end
