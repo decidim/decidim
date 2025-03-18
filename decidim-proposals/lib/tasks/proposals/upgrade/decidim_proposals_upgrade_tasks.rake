@@ -37,29 +37,29 @@ namespace :decidim_proposals do
       puts "FINISHED"
     end
 
-    desc "Removes all proposal valuator records of which the role assignment does not exists"
-    task remove_valuator_orphan_records: :environment do
+    desc "Removes all proposal evaluator records of which the role assignment does not exists"
+    task remove_evaluator_orphan_records: :environment do
       if Decidim.module_installed?("participatory_processes")
-        Decidim::Proposals::ValuationAssignment
-          .where(valuator_role_type: "Decidim::ParticipatoryProcessUserRole")
+        Decidim::Proposals::EvaluationAssignment
+          .where(evaluator_role_type: "Decidim::ParticipatoryProcessUserRole")
           .where
-          .not(valuator_role_id: Decidim::ParticipatoryProcessUserRole.pluck(:id))
+          .not(evaluator_role_id: Decidim::ParticipatoryProcessUserRole.pluck(:id))
           .destroy_all
       end
 
       if Decidim.module_installed?("assemblies")
-        Decidim::Proposals::ValuationAssignment
-          .where(valuator_role_type: "Decidim::AssemblyUserRole")
+        Decidim::Proposals::EvaluationAssignment
+          .where(evaluator_role_type: "Decidim::AssemblyUserRole")
           .where
-          .not(valuator_role_id: Decidim::AssemblyUserRole.pluck(:id))
+          .not(evaluator_role_id: Decidim::AssemblyUserRole.pluck(:id))
           .destroy_all
       end
 
       if Decidim.module_installed?("conferences")
-        Decidim::Proposals::ValuationAssignment
-          .where(valuator_role_type: "Decidim::ConferenceUserRole")
+        Decidim::Proposals::EvaluationAssignment
+          .where(evaluator_role_type: "Decidim::ConferenceUserRole")
           .where
-          .not(valuator_role_id: Decidim::ConferenceUserRole.pluck(:id))
+          .not(evaluator_role_id: Decidim::ConferenceUserRole.pluck(:id))
           .destroy_all
       end
     end

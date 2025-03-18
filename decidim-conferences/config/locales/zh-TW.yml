@@ -196,7 +196,6 @@ zh-TW:
             admin: 管理員
             collaborator: 合作者
             moderator: 版主
-            valuator: 評價者
         media_link:
           fields:
             date: 日期

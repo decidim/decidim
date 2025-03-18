@@ -145,7 +145,7 @@ module Decidim
 
         it "serializes the endorsements" do
           expect(serialized[:endorsements]).to include(total_count: proposal.endorsements.count)
-          expect(serialized[:endorsements]).to include(user_endorsements: proposal.endorsements.for_listing.map { |identity| identity.normalized_author&.name })
+          expect(serialized[:endorsements]).to include(user_endorsements: proposal.endorsements.for_listing.map { |identity| identity.author&.name })
         end
 
         it "serializes related proposals" do
@@ -190,9 +190,9 @@ module Decidim
         end
 
         # This is an internal field for admins which should not be published
-        context "when valuation assignments are hidden" do
+        context "when evaluation assignments are hidden" do
           it "does not publish them" do
-            expect(serialized).not_to include(valuation_assignments_count: proposal.valuation_assignments_count)
+            expect(serialized).not_to include(evaluation_assignments_count: proposal.evaluation_assignments_count)
           end
         end
 

@@ -152,7 +152,6 @@ lv:
             admin: Administrators
             collaborator: Līdzizstrādātājs
             moderator: Moderators
-            valuator: Vērtētājs
       titles:
         assemblies: Asambleja
         assemblies_types: Asambleju veidi

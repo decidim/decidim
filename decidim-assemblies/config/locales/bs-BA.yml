@@ -1,10 +1,6 @@
 bs:
   decidim:
     admin:
-      models:
-        assembly_user_role:
-          roles:
-            valuator: Procenjivač
       titles:
         assemblies_types: Tipovi veća
     admin_log:

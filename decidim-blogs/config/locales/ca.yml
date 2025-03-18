@@ -69,11 +69,15 @@ ca:
             body: Cos
             official_blog_post: Post oficial
             published_at: Hora de publicació
+            taxonomies: Taxonomies
             title: Títol
       posts:
         edit:
+          add_attachments: Afegir fitxer(s) adjunt(s)
+          attachment_legend: Afegir un document o una imatge
           back: Tornar a la publicació
           button: Actualitzar
+          edit_attachments: Edita els fitxers adjunts
           title: Editar la publicació
         form:
           author_id: Autoria
@@ -105,9 +109,14 @@ ca:
         settings:
           global:
             announcement: Avís
+            attachments_allowed: Permetre fitxers adjunts
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
             creation_enabled_for_participants: Les participants poden crear noves entrades en el blog
+            define_taxonomy_filters: Si us plau, defineix alguns filtres per aquest espai de participació abans de fer servir aquesta configuració.
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
+            taxonomy_filters: Seleccionar filtres pel component
+            taxonomy_filters_add: Afegir un filtre
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
@@ -133,7 +142,6 @@ ca:
           id: L'identificador id d'aquest comentari
           locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
           root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
-          user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
         posts:
           author: La informació de l'autoria
           body: El contingut de la publicació

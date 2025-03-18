@@ -31,8 +31,8 @@ module Decidim
             end
           end
 
-          context "when admins, participatory space admins or proposal valuators are mentioned" do
-            let(:body) { body_with_mentions(participatory_space_admin, valuator) }
+          context "when admins, participatory space admins or proposal evaluators are mentioned" do
+            let(:body) { body_with_mentions(participatory_space_admin, evaluator) }
 
             it "affected users and parent note author are notified" do
               expect(Decidim::EventsManager)
@@ -54,7 +54,7 @@ module Decidim
                   event: "decidim.events.proposals.admin.proposal_note_mentioned",
                   event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
                   resource: proposal,
-                  affected_users: a_collection_containing_exactly(participatory_space_admin, valuator),
+                  affected_users: a_collection_containing_exactly(participatory_space_admin, evaluator),
                   extra: { note_author_id: form.current_user.id }
                 )
 
@@ -63,7 +63,7 @@ module Decidim
           end
 
           context "when not affected users are mentioned" do
-            let(:body) { body_with_mentions(normal_user, other_participatory_space_admin, other_proposal_valuator) }
+            let(:body) { body_with_mentions(normal_user, other_participatory_space_admin, other_proposal_evaluator) }
 
             it "only parent note author is notified" do
               expect(Decidim::EventsManager)

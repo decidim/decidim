@@ -80,11 +80,8 @@ pl:
             select_template: Wybierz szablon odpowiedzi
         questionnaire_templates:
           choose:
-            create_from_template: Utwórz z szablonu
-            description: Zamierzasz utworzyć nowy kwestionariusz. Możesz wybrać predefiniowany szablon i zmodyfikować go później.
             label: Wybierz szablon
             placeholder: Wybierz szablon
-            skip_template: Pomiń
           edit:
             edit: Edytuj
             empty: Nie ma jeszcze żadnych pytań.

@@ -152,7 +152,6 @@ fi-pl:
             admin: Järjestelmänvalvoja
             collaborator: Osallisuuskäyttäjä
             moderator: Moderoija
-            valuator: Arvon arvioija
         user:
           fields:
             invitation_accepted_at: Kutsu hyväksytty

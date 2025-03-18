@@ -201,7 +201,6 @@ sv:
             admin: Administratör
             collaborator: Medverkande
             moderator: Moderator
-            valuator: Handläggare
       taxonomy_filters:
         space_filter_for:
           assemblies: Alla samråd

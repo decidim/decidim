@@ -207,7 +207,6 @@ cs:
             admin: Správce
             collaborator: Spolupracovník
             moderator: Moderátor
-            valuator: Hodnotitel
       taxonomy_filters:
         space_filter_for:
           assemblies: Všechna shromáždění

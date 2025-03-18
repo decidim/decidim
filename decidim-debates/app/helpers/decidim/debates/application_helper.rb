@@ -44,7 +44,6 @@ module Decidim
       # its origin.
       def filter_origin_values
         origin_keys = %w(official participants)
-        origin_keys << "user_group" if current_organization.user_groups_enabled?
 
         origin_values = origin_keys.map { |key| [key, t(key, scope: "decidim.debates.debates.filters")] }
         origin_values.prepend(["", all_filter_text])

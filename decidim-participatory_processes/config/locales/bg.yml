@@ -148,7 +148,6 @@ bg:
             admin: Администратор
             collaborator: Сътрудник
             moderator: Модератор
-            valuator: Оценител
         user:
           fields:
             invitation_accepted_at: 'Поканата е приета на:'

@@ -31,7 +31,6 @@
         questionnaires:
           actions:
             back: Tilbake til spørsmål
-            show: Vis svar
           answer_option:
             answer_option: Svaralternativ
             free_text: Fri tekst

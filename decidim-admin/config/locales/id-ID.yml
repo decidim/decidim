@@ -59,7 +59,6 @@ id:
         secondary_color: Sekunder
         success_color: Keberhasilan
         tos_version: Versi persyaratan layanan
-        user_groups_enabled: Aktifkan grup pengguna
         warning_color: Peringatan
         youtube_handler: Penangan YouTube
       scope:
@@ -113,8 +112,6 @@ id:
         browse: Jelajahi
         manage: Mengelola
         permissions: Izin
-        reject: Menolak
-        verify: Memeriksa
       area_types:
         create:
           error: Terjadi kesalahan saat membuat jenis area baru.
@@ -283,7 +280,6 @@ id:
         scopes: Scopes
         settings: Pengaturan
         static_pages: Halaman
-        user_groups: Grup Pengguna
         users: Pengguna
       models:
         area:
@@ -344,15 +340,6 @@ id:
               admin: Admin
               user_manager: Pengelola pengguna
           name: Pengguna
-        user_group:
-          fields:
-            actions: Tindakan
-            created_at: Dibuat di
-            document_number: Nomor dokumen
-            name: Nama
-            phone: Telepon
-            state: Negara
-            users_count: Jumlah pengguna
       moderations:
         report:
           reasons:
@@ -443,6 +430,10 @@ id:
         new:
           create: Membuat
           title: Pengguna Pribadi Ruang Partisipatif Baru.
+      participatory_space_private_users_csv_imports:
+        new:
+          csv_upload:
+            title: Unggah file CSV Anda
       resource_permissions:
         edit:
           submit: Menyerahkan
@@ -486,7 +477,6 @@ id:
           title: Edit topik
           update: Perbarui topik
         new:
-          create: Buat topik
           title: Topik baru
         update:
           error: Ada kesalahan saat memperbarui topik ini.
@@ -507,7 +497,6 @@ id:
         index:
           last_notable_change: Perubahan penting terakhir
         new:
-          create: Membuat halaman
           title: Halaman baru
         topic:
           without_topic: Halaman tanpa topik
@@ -524,26 +513,6 @@ id:
         participants: Pengguna
         scope_types: Tipe lingkup
         scopes: Scopes
-        user_groups: Grup Pengguna
-      user_group:
-        csv_verify:
-          invalid: Ada kesalahan saat membaca file CSV.
-        reject:
-          invalid: Ada kesalahan saat menolak grup pengguna ini.
-        verify:
-          invalid: Ada kesalahan saat memverifikasi grup pengguna ini.
-      user_groups:
-        index:
-          state:
-            pending: Menunggu keputusan
-            rejected: Ditolak
-            verified: Diverifikasi
-          verify_via_csv: Verifikasi melalui CSV
-      user_groups_csv_verifications:
-        new:
-          explanation: Unggah file CSV Anda. Itu harus memiliki email resmi dari kelompok pengguna di organisasi Anda di kolom pertama file, tanpa header. Hanya grup pengguna yang telah mengkonfirmasi email mereka dan yang memiliki email yang muncul dalam file CSV akan divalidasi.
-          title: Unggah file CSV Anda
-          upload: Unggah
       users:
         create:
           error: Terjadi kesalahan saat mengundang pengguna ini.

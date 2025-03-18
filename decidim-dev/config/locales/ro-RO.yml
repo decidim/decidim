@@ -8,7 +8,7 @@ ro:
         start_date: Data de început
         title: Titlu
         translatable_text: Text traductibil
-        updated_at: Actualizat la
+        updated_at: Ultima actualizare
   decidim:
     components:
       dummy:

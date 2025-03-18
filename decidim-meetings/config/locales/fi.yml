@@ -420,7 +420,7 @@ fi:
           form:
             available_slots_help: Jätä arvoksi 0, mikäli tapaamiseen on rajoittamaton määrä paikkoja.
             invites: Kutsut
-            manage_questions: Hallinnoi kysymyksiä
+            manage_questions: Kysymykset
             recommendation_message: Osallistujien yksityisyyden kannalta suosittelemme, että poistat tämän lomakkeen tiedot, kun et enää tarvitse niitä. Oletuksena se säilytetään 3 kuukautta tapaamisen päättymisen jälkeen.
             registration_email_help: Tämä teksti näytetään tapaamisilmoittautumisten vahvistussähköpostin keskiosassa. Teksti näkyy heti ilmoittautumiskoodin jälkeen.
             registration_form: Ilmoittautumislomake

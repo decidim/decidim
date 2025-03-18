@@ -184,7 +184,6 @@
             admin: Administrator
             collaborator: Samarbeidspartner
             moderator: Moderator
-            valuator: Takstmann
         media_link:
           fields:
             date: Dato

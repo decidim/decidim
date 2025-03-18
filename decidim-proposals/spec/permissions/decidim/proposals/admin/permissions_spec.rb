@@ -87,15 +87,15 @@ describe Decidim::Proposals::Admin::Permissions do
     end
   end
 
-  context "when user is a valuator" do
+  context "when user is a evaluator" do
     let(:organization) { space.organization }
     let(:space) { current_component.participatory_space }
-    let!(:valuator_role) { create(:participatory_process_user_role, user:, role: :valuator, participatory_process: space) }
+    let!(:evaluator_role) { create(:participatory_process_user_role, user:, role: :evaluator, participatory_process: space) }
     let!(:user) { create(:user, organization:) }
 
-    context "and can valuate the current proposal" do
+    context "and can evaluate the current proposal" do
       let(:proposal) { create(:proposal, component: current_component) }
-      let!(:assignment) { create(:valuation_assignment, proposal:, valuator_role:) }
+      let!(:assignment) { create(:evaluation_assignment, proposal:, evaluator_role:) }
 
       it_behaves_like "can create proposal notes"
       it_behaves_like "can answer proposals"
@@ -210,17 +210,17 @@ describe Decidim::Proposals::Admin::Permissions do
     end
   end
 
-  describe "assign proposals to a valuator" do
+  describe "assign proposals to a evaluator" do
     let(:action) do
-      { scope: :admin, action: :assign_to_valuator, subject: :proposals }
+      { scope: :admin, action: :assign_to_evaluator, subject: :proposals }
     end
 
     it { is_expected.to be true }
   end
 
-  describe "unassign proposals from a valuator" do
+  describe "unassign proposals from a evaluator" do
     let(:action) do
-      { scope: :admin, action: :unassign_from_valuator, subject: :proposals }
+      { scope: :admin, action: :unassign_from_evaluator, subject: :proposals }
     end
 
     it { is_expected.to be true }

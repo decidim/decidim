@@ -180,8 +180,8 @@ ro:
           roles:
             admin: Administrator
             collaborator: Colaborator
+            evaluator: Evaluator
             moderator: Moderator
-            valuator: Evaluator
       titles:
         assemblies: Grupuri de lucru
         assemblies_types: Tipuri de grupuri de lucru

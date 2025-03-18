@@ -165,7 +165,6 @@
             admin: Administrator
             collaborator: Samarbeidspartner
             moderator: Moderator
-            valuator: Verdivurdering
       titles:
         assemblies: Forsamlinger
         assemblies_types: Forsamlingstyper

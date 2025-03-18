@@ -1,10 +1,6 @@
 sr:
   decidim:
     admin:
-      models:
-        participatory_process_user_role:
-          roles:
-            valuator: Procenjivač
       participatory_process_user_roles:
         edit:
           title: Ažuriraj administratora participatornog procesa

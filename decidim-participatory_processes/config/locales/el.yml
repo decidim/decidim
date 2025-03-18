@@ -141,7 +141,6 @@ el:
             admin: Διαχειριστής
             collaborator: Συνεργάτης
             moderator: Επόπτης
-            valuator: Εκτιμητής
         user:
           fields:
             invitation_accepted_at: Η πρόσκληση έγινε αποδεκτή στις

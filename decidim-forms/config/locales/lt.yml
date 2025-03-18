@@ -31,7 +31,6 @@ lt:
         questionnaires:
           actions:
             back: Grįžti į klausimus
-            show: Rodyti atsakymus
           answer_option:
             answer_option: Atsakymo variantas
             free_text: Laisva forma

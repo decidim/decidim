@@ -199,7 +199,6 @@ el:
             admin: Διαχειριστής
             collaborator: Συνεργάτης
             moderator: Επόπτης
-            valuator: Εκτιμητής
         media_link:
           fields:
             date: Ημερομηνία

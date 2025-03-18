@@ -11,7 +11,6 @@ Decidim::Admin::Engine.routes.draw do
 
       member do
         get :users
-        get :user_entities
       end
     end
 
@@ -84,16 +83,6 @@ Decidim::Admin::Engine.routes.draw do
         get :select_recipients_to_deliver
         post :deliver
         get :confirm_recipients
-      end
-    end
-
-    resources :user_groups, only: [:index] do
-      member do
-        put :verify
-        put :reject
-      end
-      collection do
-        resource :user_groups_csv_verification, only: [:new, :create], path: "csv_verification"
       end
     end
 

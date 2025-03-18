@@ -5,7 +5,6 @@ ca:
       decidim/comments/comment_created_event: Comentari
       decidim/comments/comment_upvoted_event: Comentari valorat positivament
       decidim/comments/reply_created_event: Resposta al comentari
-      decidim/comments/user_group_mentioned_event: Mencionar
       decidim/comments/user_mentioned_event: Mencionar
   activerecord:
     models:
@@ -51,9 +50,6 @@ ca:
           form_error: El text és necessari i no pot ser més llarg de %{length}.
           submit_reply: Publicar resposta
           submit_root_comment: Publicar comentari
-          user_group_id:
-            label: Comentar com a
-            your_profile: El teu perfil
         opinion:
           label: La teva opinió sobre aquest tema
           negative: Negativa
@@ -155,17 +151,11 @@ ca:
           id: L'identificador d'aquest comentari
           locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
           root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
-          user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} ha deixat un comentari a %{resource_title}. Podeu llegir-lo en aquesta pàgina:"
           email_outro: Has rebut aquesta notificació perquè estàs seguint el comentari "%{author_name}". Pots deixar de seguir a aquesta participant des de la seva pàgina de perfil.
-          email_subject: Hi ha un nou comentari de %{author_name} en %{resource_title}
-          notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>.
-        comment_by_followed_user_group:
-          email_intro: '%{author_name} ha deixat un comentari a%{resource_title}. Pots llegir-lo en aquesta pàgina:'
-          email_outro: Reps aquesta notificació perquè segueixes a "%{author_name}". Pots deixar de seguir aquest grup des de la seva pàgina de perfil.
           email_subject: Hi ha un nou comentari de %{author_name} en %{resource_title}
           notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
@@ -188,11 +178,6 @@ ca:
           email_outro: Has rebut aquesta notificació perquè s'ha respost el teu comentari.
           email_subject: "%{author_name} ha respost el teu comentari a %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respost el teu comentari a <a href="%{resource_path}">%{resource_title}</a>
-        user_group_mentioned:
-          email_intro: Un grup al qual pertanys ha estat esmentat
-          email_outro: Has rebut aquesta notificació perquè formes part del grup "%{group_name}" que ha estat esmentat a %{resource_title}.
-          email_subject: T'han esmentat a %{resource_title} com a membre de %{group_name}
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> t'ha esmentat com a membre de <a href="%{group_path}">%{group_name} %{group_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Has estat esmentada
           email_outro: Has rebut aquesta notificació perquè t'han esmentat al comentari "%{resource_title}".

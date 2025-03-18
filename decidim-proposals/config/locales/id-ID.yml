@@ -8,7 +8,6 @@ id:
         has_address: Memiliki alamat
         state: Negara
         title: Judul
-        user_group_id: Buat draf kolaboratif sebagai
       proposal:
         address: Alamat
         answer: Menjawab
@@ -19,7 +18,6 @@ id:
         state: Negara
         suggested_hashtags: Tagar yang disarankan
         title: Judul
-        user_group_id: Buat proposal sebagai
       proposal_answer:
         answer: Menjawab
       proposals_copy:
@@ -273,7 +271,6 @@ id:
           all: Semua
           meetings: Rapat
           official: Resmi
-          user_groups: Grup Pengguna
         filter_state_values:
           all: Semua
           not_answered: Tidak dijawab

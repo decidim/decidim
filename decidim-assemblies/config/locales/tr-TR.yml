@@ -172,7 +172,6 @@ tr:
             admin: Yönetici
             collaborator: İşbirlikçi
             moderator: Moderatör
-            valuator: Bilirkişi
       titles:
         assemblies: Kurullar
         assemblies_types: Kurul türleri

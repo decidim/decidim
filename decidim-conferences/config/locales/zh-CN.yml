@@ -148,7 +148,6 @@ zh-CN:
             admin: 管理员
             collaborator: 协作者
             moderator: 版主
-            valuator: 值者
         media_link:
           fields:
             date: 日期

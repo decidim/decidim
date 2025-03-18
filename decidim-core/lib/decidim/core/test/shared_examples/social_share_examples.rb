@@ -50,6 +50,7 @@ shared_examples "a social share via QR code" do
   let(:title) { resource.presenter.title }
   let(:parameterized_title) { CGI.escapeHTML(title) }
   let!(:card_image) { nil }
+
   it "has the QR code" do
     visit_resource
     click_on "Share"
@@ -88,5 +89,22 @@ shared_examples "a social share via QR code" do
     expect(page).to have_content(title)
 
     expect(page).to have_content(translated(organization.name))
+  end
+
+  it "generates the same QR code" do
+    visit_resource
+    click_on "Share"
+    click_on "Share to QR"
+
+    image = "Avoid comparing empty strings"
+
+    within "#QRCodeDialog" do
+      image = find("img")[:src]
+    end
+
+    click_on "Print poster"
+    new_image = find(%(img[alt="QR Code for #{parameterized_title}"]))[:src]
+
+    expect(image).to eq(new_image)
   end
 end

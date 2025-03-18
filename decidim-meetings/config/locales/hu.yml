@@ -275,6 +275,7 @@ hu:
           form:
             available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan.
             invites: Meghívók
+            manage_questions: Kérdések
             recommendation_message: Adatvédelmi okokból javasoljuk, hogy törölje ezt az űrlapot, ha már nincs rá szüksége. Alapértelmezés szerint ez 3 hónap az ülés végét követően.
             registration_email_help: Ez a szöveg a regisztrációt megerősítő e-mail közepén fog megjelenni. Épp a regisztrációs kód után.
             registration_form: Regisztrációs űrlap

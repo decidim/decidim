@@ -16,7 +16,6 @@ describe "User creates meeting", type: :system do
       latitude: 40.1234,
       longitude: 2.1234,
       taxonomizations:,
-      user_group_id: nil,
       current_user: author,
       current_component: component,
       component:,
