@@ -128,7 +128,6 @@ it:
             admin: Amministratore
             collaborator: Collaboratore
             moderator: Moderatore
-            valuator: Valutatore
         user:
           fields:
             invitation_accepted_at: Invito accettato su

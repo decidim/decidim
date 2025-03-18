@@ -43,3 +43,5 @@ ro:
           adjacent_links: Link-uri adiacente
           elements_hidden: Elemente ascunse
           elements_hidden_header: Elemente ascunse de API-ul de accesibilitate
+      helpers:
+        usage_typography_5: Tab dezactivat

@@ -56,7 +56,7 @@ es:
           actions:
             back: Volver a las preguntas
             publish_answers: Publicar respuestas
-            show: Mostrar las respuestas
+            show: Respuestas
           answer_option:
             answer_option: Opción de respuesta
             free_text: Texto libre
@@ -217,7 +217,6 @@ es:
           tos_agreement: Al participar aceptas los Términos y condiciones de uso
       step_navigation:
         show:
-          are_you_sure_edit: Podrás editar tus respuestas. ¿Seguro que quieres continuar?
           are_you_sure_edit_guest: Si quieres poder editar tus respuestas más tarde, necesitas inicies tu sesión o crees una cuenta.
           are_you_sure_no_edit: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Seguro que quieres continuar?
           back: Atrás

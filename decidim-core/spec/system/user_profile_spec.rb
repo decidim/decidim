@@ -9,6 +9,17 @@ describe "Profile" do
     switch_to_host(user.organization.host)
   end
 
+  context "when has casing in the nickname" do
+    before do
+      switch_to_host(user.organization.host)
+      visit decidim.profile_path(user.nickname.upcase)
+    end
+
+    it "downcases the path" do
+      expect(page).to have_current_path(decidim.profile_activity_path(user.nickname.downcase))
+    end
+  end
+
   context "when navigating privately" do
     before do
       login_as user, scope: :user

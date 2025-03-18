@@ -152,7 +152,7 @@ eu:
       meetings:
         actions:
           comment: Iruzkina
-          join: Parte hartu
+          join: Hartu parte
           reply_poll: Erantzun inkesta
         name: Topaketak
         settings:
@@ -163,7 +163,7 @@ eu:
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
             creation_enabled_for_participants: Parte-hartzaileek topaketak sortu ahal dituzte
             default_registration_terms: Izen-emate baldintzak lehenetsiak
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu partaidetza-espazio honetarako iragazki batzuk.
             enable_pads_creation: Gaitu pads sortzea
             maps_enabled: Mapak gaituta
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
@@ -222,7 +222,7 @@ eu:
           notification_title: <a href="%{resource_url}">%{resource_title}</a> topaketarako izen-ematea baieztatu da. Zure izena emateko kodea %{registration_code} da.
         meeting_registrations_over_percentage:
           email_intro: '"%{resource_title}" topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira.'
-          email_outro: Topaketako espazio parte-hartzailearen administratzaile zarelako jaso duzu jakinarazpen hau.
+          email_outro: Topaketako partaidetza-espazioaren administratzaile zarelako jaso duzu jakinarazpen hau.
           email_subject: '"%{resource_title}" topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako hartutako ordu-tarteak %{percentage}% baino gehiago dira.
         meeting_updated:
@@ -420,7 +420,7 @@ eu:
           form:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
             invites: Gonbidapenak
-            manage_questions: Kudeatu galderak
+            manage_questions: Galderak
             recommendation_message: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta eremu globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs. decidim. org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
             registration_email_help: Testu hau erregistroa berresteko posta elektronikoaren erdian agertuko da. Erregistro-kodearen ondoren.
             registration_form: Izena emateko formularioa
@@ -459,7 +459,7 @@ eu:
           all: Guztiak
       calendar:
         meeting_to_event:
-          read_more: Irakurri gehiago topaketa honetaz
+          read_more: Irakurri gehiago topaketa honi buruz
       calendar_modal:
         calendar_url: Egutegiaren URLa
         copy_calendar_url: Kopiatu
@@ -471,7 +471,7 @@ eu:
         export_calendar: Esportatu egutegia
       close_meeting_reminder_mailer:
         close_meeting_reminder:
-          body: <a href="%{meeting_path}">"%{meeting_title}"</a> topaketa ixteko dago. Mesedez, gehitu bilerari buruzko txosten bat "Itxi bilera" botoia erabiliz.
+          body: <a href="%{meeting_path}">"%{meeting_title}"</a> bilera ixteko dago. Mesedez, gehitu bilerari buruzko txosten bat "Itxi bilera" botoia erabiliz.
           greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Kaixo %{username},
           subject: Zuk orain "%{meeting_title}" topaketa itxi ahal duzu txosten batekin
@@ -483,7 +483,7 @@ eu:
         meetings:
           index:
             meetings: Topaketak
-            space_type: Parte hartzeko espazioa
+            space_type: Partaidetza-espazioa
       iframe_access_level:
         all: Bisitari guztiak
         registered: "Parte hartzaile erregistratuak topaketa honetan\n"
@@ -759,7 +759,7 @@ eu:
           longitude: Topaketaren luzera
           online_meeting_url: Online topaketaren URLa
           organizations: Zein erakundek hartu du parte topaketa honetan?
-          participatory_space: Zein espaziotakoa datopaketa hau (adibidez, Prozesu Parte-hartzailea edo Batzarra)?
+          participatory_space: Zein espaziotakoa datopaketa hau (adibidez, Partaidetza-prozesu edo Batzarra)
           private_meeting: Topaketa pribatua izan zen ala ez adierazteko
           published: Noiz argitaratu da topaketa?
           reference: Plataforma honetako baliabidearen identifikatzaile bakarra
