@@ -31,7 +31,6 @@ pt-BR:
         questionnaires:
           actions:
             back: Voltar às perguntas
-            show: Mostrar respostas
           answer_option:
             answer_option: Opção de resposta
             free_text: Texto livre
