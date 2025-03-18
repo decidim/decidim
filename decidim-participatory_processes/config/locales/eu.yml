@@ -151,8 +151,8 @@ eu:
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
+            evaluator: Ebaluatzailea
             moderator: Moderatzailea
-            valuator: Ebaluatzailea
         user:
           fields:
             invitation_accepted_at: Gonbidapena egun honetan onartu zen

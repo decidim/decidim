@@ -152,7 +152,6 @@ de:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
-            valuator: Bewertende
         user:
           fields:
             invitation_accepted_at: Einladung akzeptiert am

@@ -185,7 +185,6 @@ ar:
             admin: مدير
             collaborator: متعاون
             moderator: مُشرف
-            valuator: مُقيِّم
       titles:
         assemblies: الجمعيات
         assemblies_types: أنواع التجمّعات

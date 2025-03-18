@@ -9,7 +9,6 @@
         scope_id: Tema
         state: Delstat
         title: Tittel
-        user_group_id: Opprett samarbeids utkast som
       proposal:
         address: Adresse
         answer: Svar
@@ -22,7 +21,6 @@
         state: Delstat
         suggested_hashtags: Foreslåtte hashtags
         title: Tittel
-        user_group_id: Opprett forslag som
       proposal_answer:
         answer: Svar
         cost: Kostnad
@@ -327,7 +325,6 @@
             select_a_meeting: Velg et møte
           index:
             actions: Handlinger
-            assign_to_valuator_button: Tildel
             cancel: Avbryt
             merge: Slå sammen til en ny
             publish: Publiser
@@ -337,7 +334,6 @@
             split: Delte forslag
             split_button: Delt
             title: Forslag
-            unassign_from_valuator_button: Fjern tilegning
             update: Oppdater
           new:
             create: Opprett
@@ -384,7 +380,6 @@
           all: Alle
           meetings: Møter
           official: Offisiell
-          user_groups: Grupper
         filter_state_values:
           all: Alle
           not_answered: Ikke besvart
