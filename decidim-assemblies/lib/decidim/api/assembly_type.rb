@@ -55,8 +55,13 @@ module Decidim
       field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this assembly", null: true
       field :target, Decidim::Core::TranslatedFieldType, "Who participates in this assembly", null: true
       field :twitter_handler, String, "Twitter handler", null: true
+      field :url, GraphQL::Types::String, "The URL of this assembly", null: true
       field :weight, GraphQL::Types::Int, "The weight for this object", null: false
       field :youtube_handler, String, "YouTube handler", null: true
+
+      def url
+        EngineRouter.main_proxy(object).assembly_url(object)
+      end
 
       def hero_image
         object.attached_uploader(:hero_image).url
