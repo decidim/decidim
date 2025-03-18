@@ -110,7 +110,7 @@ ca:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: dd/mm/aaaa'
-      order: d-m-a
+      order: d-m-y
       separator: "/"
   datetime:
     distance_in_words:
@@ -298,7 +298,7 @@ ca:
         create_with_parent: "%{user_name} ha creat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
         delete: "%{user_name} ha esborrat la taxonomia \"%{resource_name}\""
         delete_with_parent: "%{user_name} ha esborrat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
-        update: "%{user_name} ha acutalitzat la taxonomia \"%{resource_name}\""
+        update: "%{user_name} ha actualitzat la taxonomia \"%{resource_name}\""
         update_with_parent: "%{user_name} ha actualitzat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
       taxonomy_filter:
         create: "%{user_name} va crear el filtre %{resource_name}"
@@ -1298,6 +1298,7 @@ ca:
         assigned_to_proposal: Vull rebre un correu electrònic quan algú m'assigni una proposta a avaluar
         direct_messages: Rebre missatges directes de qualsevol
         email_on_moderations: Vull rebre un correu electrònic cada cop que es reporti algo o a algú per moderació.
+        evaluators: Avaluadores
         everything_followed: Tot el que segueixo
         newsletter_notifications: Vull rebre butlletins informatius
         newsletters: Butlletins informatius
@@ -1326,7 +1327,7 @@ ca:
     onboarding_action_message:
       click_link: Fes clic aquí
       cta_html: <a href="%{path}">%{link_text}</a> per %{action} a %{resource_name} <strong>%{resource_title}</strong>
-      ephemeral_authorized_message: Ha estat autoritzada amb èxit.<br/>Has iniciat una sessió de convidada, ara hi pots participar.
+      ephemeral_authorized_message: Has estat autoritzada amb èxit.<br/>Has iniciat una sessió de convidada, ara hi pots participar.
       expired_authorization_active_title: La teva autorització ha caducat.
       finish_authorization_process: Pots finalitzar el procés de verificació
       incomplete_authorization_active_title: La teva verificació no s'ha completat amb tota la informació necessària.
