@@ -29,10 +29,6 @@ module Decidim
       ActionController::Base.helpers.asset_pack_path("media/images/default-avatar.svg")
     end
 
-    def official_icon
-      ActionController::Base.helpers.icon("award-line")
-    end
-
     def deleted?
       false
     end

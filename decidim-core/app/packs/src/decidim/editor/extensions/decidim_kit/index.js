@@ -32,10 +32,10 @@ export default Extension.create({
         uploadImagesPath: null,
         contentTypes: /^image\/(jpe?g|png|svg|webp)$/i
       },
-      hashtag: false,
-      mention: false,
+      hashtag: true,
+      mention: true,
       mentionResource: true,
-      emoji: false
+      emoji: true
     };
   },
 

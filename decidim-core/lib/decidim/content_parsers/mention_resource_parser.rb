@@ -4,7 +4,7 @@ module Decidim
   module ContentParsers
     # A parser that searches resource mentions in content.
     #
-    # A word starting with `@` will be considered as a possible mention if
+    # A word starting with `/` will be considered as a possible mention if
     # they only contains letters, numbers or underscores.
     #
     # @see BaseParser Examples of how to use a content parser

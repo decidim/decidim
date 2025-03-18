@@ -51,7 +51,8 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
   const selectItem = (idx) => {
     const items = suggestionItems;
     const command = selectCommand;
-    if (currentRange && typeof jest === "undefined") {
+    
+    if (currentRange && !window.isTestEnvironment) {
       // Fixes an issue that after selecting the item, the written text will be
       // placed after the newly added suggestion.
       //
