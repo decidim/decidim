@@ -130,7 +130,6 @@ tr:
             admin: yönetici
             collaborator: işbirlikçi
             moderator: arabulucu
-            valuator: Bilirkişi
         user:
           fields:
             invitation_accepted_at: Davet kabul edildi
