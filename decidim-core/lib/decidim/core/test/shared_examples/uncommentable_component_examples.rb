@@ -20,7 +20,7 @@ shared_examples "an uncommentable component" do
   end
 
   describe "when search a comment in the global search" do
-    let(:comment) { create :comment }
+    let(:comment) { create(:comment) }
 
     it "does not displays the comment" do
       component.update!(settings: { comments_enabled: false })

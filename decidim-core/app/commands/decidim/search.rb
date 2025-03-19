@@ -39,8 +39,8 @@ module Decidim
 
         uncommentable_resources = uncommentable_resources(results) if results.present?
         if uncommentable_resources.present?
-          results = results - uncommentable_resources
-          results_count = results_count - uncommentable_resources.count
+          results -= uncommentable_resources
+          results_count -= uncommentable_resources.count
         end
 
         results_by_type.update(class_name => {
@@ -99,8 +99,6 @@ module Decidim
     def uncommentable_resources(results)
       results.where(id: results.select { |obj| related_uncommentable_resources?(obj) }.map(&:id))
     end
-
-    private
 
     def related_uncommentable_resources?(object)
       object.respond_to?(:commentable) && !object.commentable.commentable?
