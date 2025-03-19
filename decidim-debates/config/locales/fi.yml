@@ -148,7 +148,7 @@ fi:
           state_values:
             closed: Suljetut
             open: Avoimet
-          user_group: Ryhmät
+          user_group: Ryhmiä
         index:
           new_debate: Uusi keskustelu
         new:
