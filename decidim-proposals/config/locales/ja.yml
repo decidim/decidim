@@ -921,7 +921,6 @@ ja:
           text_banner: 提案者が撤回した提案の一覧を表示しています。 %{go_back_link}.
         new:
           send: 続ける
-          title: 提案を作成
         orders:
           label: '提案の並び順：'
           most_commented: コメントの多い順
