@@ -27,7 +27,7 @@ module Decidim
 
         validates :title, :description, translatable_presence: true
         validates :title, :description, translated_etiquette: true
-        validates :instructions, translatable_presence: true
+        validates :instructions, translatable_presence: true, translated_etiquette: true
         validates :start_time, presence: { if: :validate_start_time? }, date: { before: :end_time, allow_blank: true, if: :validate_start_time? }
         validates :end_time, presence: { if: :validate_end_time? }, date: { after: :start_time, allow_blank: true, if: :validate_end_time? }
         validates :comments_layout, presence: true, inclusion: { in: %w(single_column two_columns) }
