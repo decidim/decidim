@@ -10,6 +10,8 @@ describe "Decidim::Api::QueryType" do
       fragment fooComponent on Blogs {
         post(id: #{post.id}) {
           acceptsNewComments
+          url
+          followsCount
           attachments {
             thumbnail
           }
@@ -63,10 +65,13 @@ describe "Decidim::Api::QueryType" do
   let(:component_type) { "Blogs" }
   let!(:current_component) { create(:post_component, participatory_space: participatory_process) }
   let!(:post) { create(:post, :with_endorsements, component: current_component, published_at: 2.days.ago) }
+  let!(:follows) { create_list(:follow, 3, followable: post) }
 
   let(:post_single_result) do
     {
       "acceptsNewComments" => true,
+      "url" => Decidim::ResourceLocatorPresenter.new(post).url,
+      "followsCount" => 3,
       "attachments" => [],
       "author" => { "id" => post.author.id.to_s },
       "body" => { "translation" => post.body[locale] },
@@ -150,6 +155,8 @@ describe "Decidim::Api::QueryType" do
           edges {
             node{
               acceptsNewComments
+              url
+              followsCount
               attachments {
                 thumbnail
               }
