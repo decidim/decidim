@@ -27,24 +27,6 @@ describe "Gamification" do
     end
   end
 
-  context "with a user group" do
-    describe "profile badges" do
-      let!(:user_group) { create(:user_group, organization:) }
-
-      before do
-        Decidim::Gamification.set_score(user_group, :test, 5)
-      end
-
-      it "shows a list of badges" do
-        visit decidim.profile_path(user_group.nickname)
-        click_on "Badges"
-        within "div[data-badge='test']" do
-          expect(page).to have_content "Level 2"
-        end
-      end
-    end
-  end
-
   describe "badges info page" do
     let!(:user) { create(:user, organization:) }
 

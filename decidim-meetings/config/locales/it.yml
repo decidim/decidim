@@ -266,6 +266,7 @@ it:
           form:
             available_slots_help: Lasciare a 0 se disponi di slot illimitati.
             invites: Inviti
+            manage_questions: Domande
             recommendation_message: Per motivi di privacy, ti consigliamo di eliminare questo modulo di iscrizione quando non ne hai più bisogno. Per impostazione predefinita, questo avverrà 3 mesi dopo la fine della riunione.
             registration_email_help: Questo testo apparirà nel mezzo dell'email di conferma della registrazione. Subito dopo il codice di registrazione.
             registration_form: Formulario di registrazione

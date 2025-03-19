@@ -56,7 +56,7 @@ ca:
           actions:
             back: Tornar a les preguntes
             publish_answers: Publica respostes
-            show: Mostrar les respostes
+            show: Respostes
           answer_option:
             answer_option: Opció de resposta
             free_text: Text lliure
@@ -217,7 +217,6 @@ ca:
           tos_agreement: En participar acceptes els Termes i condicions d'ús
       step_navigation:
         show:
-          are_you_sure_edit: Podràs editar les teves respostes. Segur que vols continuar?
           are_you_sure_edit_guest: Si vols poder editar les teves respostes més tard, cal que iniciïs la teva sessió o que creïs un compte.
           are_you_sure_no_edit: Aquesta acció no es pot desfer i no podràs editar les respostes. Segur que vols continuar?
           back: Enrere

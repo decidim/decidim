@@ -55,7 +55,7 @@ module Decidim
       end
 
       def reported_searchable_content_extras
-        [normalized_author.name]
+        [author.name]
       end
 
       def allow_resource_permissions?

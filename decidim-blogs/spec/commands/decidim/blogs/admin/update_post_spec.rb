@@ -92,27 +92,6 @@ module Decidim
             expect(action_log.version).to be_present
             expect(action_log.version.event).to eq "update"
           end
-
-          context "with a group author" do
-            let(:group) { create(:user_group, :verified, organization:) }
-            let(:form) do
-              double(
-                invalid?: invalid,
-                title: { en: title },
-                body: { en: body },
-                published_at: publish_time,
-                component: current_component,
-                current_user:,
-                author: group,
-                taxonomizations: []
-              )
-            end
-
-            it "sets the group as the author" do
-              subject.call
-              expect(post.author).to eq(group)
-            end
-          end
         end
       end
     end

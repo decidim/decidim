@@ -70,16 +70,12 @@ module Decidim
             longitude: form.longitude,
             state: "open"
           )
-          draft.coauthorships.build(author: @current_user, user_group: @form.user_group)
+          draft.coauthorships.build(author: @current_user)
           draft.save!
           draft
         end
 
         @attached_to = @collaborative_draft
-      end
-
-      def user_group
-        @user_group ||= Decidim::UserGroup.find_by(organization:, id: form.user_group_id)
       end
 
       def organization

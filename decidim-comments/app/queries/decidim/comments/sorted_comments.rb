@@ -31,7 +31,7 @@ module Decidim
       # level of nested replies.
       def query
         scope = base_scope
-                .includes(:author, :user_group, :up_votes, :down_votes)
+                .includes(:author, :up_votes, :down_votes)
 
         case @options[:order_by]
         when "recent"

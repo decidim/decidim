@@ -9,7 +9,6 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
 
   let!(:start_time) { 1.day.ago }
   let!(:end_time) { Time.zone.now }
-  let!(:user_group) { create(:user_group, organization: meeting.organization) }
   let!(:scope) { create(:scope, organization: meeting.organization) }
 
   before do
@@ -27,7 +26,6 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
       location_hints: { ca: "Indicacions", en: "Hints" },
       start_time:,
       end_time:,
-      decidim_user_group_id: user_group,
       decidim_scope_id: scope.id
     )
   end
@@ -69,8 +67,6 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
 
       expect(subject[:end_time][:old_value]).to eq old_values["end_time"].strftime("%FT%T.%LZ")
       expect(subject[:end_time][:new_value]).to eq end_time.strftime("%FT%T.%LZ")
-
-      expect(subject[:decidim_user_group_id]).to be_nil
 
       expect(subject[:decidim_scope_id][:old_value]).to be_blank
       expect(subject[:decidim_scope_id][:new_value]).to eq translated(scope.name)

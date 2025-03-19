@@ -623,6 +623,11 @@ Additional context: This has been revealed as an issue during a security audit o
 |15
 |No
 
+|DECIDIM_API_FORCE_API_AUTHENTICATION
+|Enable authentication for using api through setting Api configuration option. This is used to filter out unauthorized users from using api endpoint.
+|false
+|No
+
 |*DECIDIM_SERVICE_WORKER_ENABLED*
 |Enable/Disable the service worker. This is used to enable offline support and to deliver push notifications. In development it is recommended to be disabled because its aggressive cache configuration might cause some issues when submitting forms.
 |false

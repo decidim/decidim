@@ -85,7 +85,6 @@ hu:
             label: Állapot
             values:
               accepted: Elég aláírások
-              created: Létrehozva
               discarded: Elvetve
               rejected: Nincsen elég aláírás
               validating: Technikai érvényesítés
@@ -301,7 +300,6 @@ hu:
           update: "%{user_name} frissítette a(z) %{resource_name} kezdeményezés típust"
       admin_states:
         accepted: Elegendő aláírás
-        created: Létrehozva
         discarded: Elvetve
         rejected: Nincs elegendő aláírás
         validating: Technikai érvényesítés
@@ -330,38 +328,20 @@ hu:
           name: Kiemelt kezdeményezések
       create_initiative:
         fill_data:
-          back: Vissza
           continue: Tovább
           fill_data_help: "<ul><li>Nézd meg a kezdeményezésed tartalmát. Könnyű megérteni? Tiszta a kezdeményezésed célja?</li><li>Az aláírás típusát válaszd ki. Személyes, online vagy a kombinációja mindkettőnek</li><li>Mi a földrajzi hatóköre a kezdeményezésednek?</li></ul>"
-          more_information: "(További információk)"
           select_area: Válasszon ki egy területet
           select_scope: Válassz hatáskört
         finish:
           back: Vissza
-          back_to_initiatives: Vissza a kezdeményezésekhez
-          callout_text: Gratulálunk! A kezdeményezés létrehozása sikeres.
-          confirm: A kezdeményezés elküldése egy adminisztrátornak felülvizsgálat és közzététel céljából. A közzététel után már nem lesz lehetőség szerkeszteni. Biztos vagy benne?
-          edit_my_initiative: Kezdeményezésem szerkesztése
-          go_to_my_initiatives: Ugrás a saját kezdeményezéseimhez
-          more_information: "(További információk)"
-          send_my_initiative: A kezdeményezésem technikai ellenőrzésre küldése
-        finish_help:
-          publish_helper_text: Emlékeztetünk, hogy a kezdeményezésed publikációjához minden szükséges információt meg kell adjál <strong>és technikai ellenőrzésen kell átesnie</strong> egy adminisztrátor segítségével.
         previous_form:
           back: Vissza
-          continue: Tovább
-        promotal_committee:
-          individual_help_text: Ezt a típusú kezdeményezést csak olyan Előterjesztő Bizottság nyújthatja be, melynek legalább %{committee_size} tagja van. A következő linket oszd meg a kezdeményezést pártolókkal. Amikor megkapják a linket, az abban jelzett lépéseket kell követniük.
-          more_information: "(További információk)"
         select_initiative_type:
           back: Vissza
           choose_html: Szeretnék létrehozni egy <strong>%{title}</strong>
           more_information: (További információk)
           new: Új kezdeményezés létrehozása
           select: Szeretném támogatni ezt a kezdeményezést
-          select_initiative_type_help: A kezdeményezések olyan eszközök, amelyekkel a résztvevők beavatkozhatnak, hogy a szervezet a közérdek védelmében lépéseket tegyen. Milyen kezdeményezést szeretnél elindítani?
-        share_committee_link:
-          invite_to_committee_help: Link azok meghívásához, akik részt vesznek a kezdeményező bizottságban
       edit:
         accept: Kezdeményezés elfogadása
         back: Vissza
@@ -509,7 +489,6 @@ hu:
       show:
         badge_name:
           accepted: Elegendő aláírás
-          created: Létrehozva
           discarded: Elvetve
           rejected: Nincs elegendő aláírás
           validating: Technikai érvényesítés
@@ -531,8 +510,6 @@ hu:
     decidim:
       initiative_creation_header:
         fill_data: Létrehozás
-        finish: Befejezés
-        promotal_committee: Kezdeményező bizottság
         select_initiative_type: Válassz
       initiative_signature_creation_header:
         fill_personal_data: Add meg az adataidat

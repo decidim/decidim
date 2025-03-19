@@ -190,74 +190,6 @@ describe "Proposals" do
           end
         end
 
-        context "when the user has verified organizations" do
-          let(:user_group) { create(:user_group, :verified, organization:) }
-          let(:user_group_proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "Cities need more people, not more cars") }
-
-          before do
-            create(:user_group_membership, user:, user_group:)
-          end
-
-          it "creates a new proposal as a user group", :slow do
-            visit edit_draft_proposal_path(component, user_group_proposal_draft)
-
-            within ".edit_proposal" do
-              fill_in :proposal_title, with: "More sidewalks and less roads"
-              fill_in :proposal_body, with: "Cities need more people, not more cars"
-              select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
-              select user_group.name, from: :proposal_user_group_id
-
-              find("*[type=submit]").click
-            end
-
-            click_on "Publish"
-
-            expect(page).to have_content("successfully")
-            expect(page).to have_content("More sidewalks and less roads")
-            expect(page).to have_content("Cities need more people, not more cars")
-            expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
-            expect(page).to have_author(user_group.name)
-          end
-
-          context "when geocoding is enabled", :serves_geocoding_autocomplete do
-            let!(:component) do
-              create(:proposal_component,
-                     :with_creation_enabled,
-                     manifest:,
-                     participatory_space: participatory_process,
-                     settings: {
-                       geocoding_enabled: true,
-                       taxonomy_filters: taxonomy_filter_ids
-                     })
-            end
-
-            let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "It will not solve everything") }
-
-            it "creates a new proposal as a user group", :slow do
-              visit edit_draft_proposal_path(component, proposal_draft)
-
-              within ".edit_proposal" do
-                fill_in :proposal_title, with: "More sidewalks and less roads"
-                fill_in :proposal_body, with: "Cities need more people, not more cars"
-                fill_in :proposal_address, with: address
-                select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
-                select user_group.name, from: :proposal_user_group_id
-
-                find("*[type=submit]").click
-              end
-
-              click_on "Publish"
-
-              expect(page).to have_content("successfully")
-              expect(page).to have_content("More sidewalks and less roads")
-              expect(page).to have_content("Cities need more people, not more cars")
-              expect(page).to have_content(address)
-              expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
-              expect(page).to have_author(user_group.name)
-            end
-          end
-        end
-
         context "when the user is not authorized" do
           context "and there is only an authorization required" do
             before do
@@ -312,7 +244,9 @@ describe "Proposals" do
                    participatory_space: participatory_process)
           end
 
-          let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "Proposal with attachments", body: "This is my proposal and I want to upload attachments.") }
+          let(:proposal_draft) do
+            create(:proposal, :draft, users: [user], component:, title: "Proposal with attachments", body: "This is my proposal and I want to upload attachments.")
+          end
 
           it "creates a new proposal with attachments" do
             visit edit_draft_proposal_path(component, proposal_draft)
@@ -422,7 +356,9 @@ describe "Proposals" do
                  participatory_space: participatory_process)
         end
 
-        let!(:proposal_first) { create(:proposal, users: [user], component:, title: "Creating my first and only proposal", body: "This is my only proposal's body and I am using it unwisely.") }
+        let!(:proposal_first) do
+          create(:proposal, users: [user], component:, title: "Creating my first and only proposal", body: "This is my only proposal's body and I am using it unwisely.")
+        end
 
         before do
           visit_component

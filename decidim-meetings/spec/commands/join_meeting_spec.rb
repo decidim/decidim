@@ -26,18 +26,8 @@ module Decidim::Meetings
 
     let(:command) { described_class.new(form) }
 
-    let(:user_group) { create(:user_group) }
-
-    let(:form_params) do
-      {
-        user_group_id: user_group.id
-      }
-    end
-
     let(:form) do
-      Decidim::Meetings::JoinMeetingForm.from_params(
-        form_params
-      ).with_context(
+      Decidim::Meetings::JoinMeetingForm.new.with_context(
         current_user: user
       )
     end
