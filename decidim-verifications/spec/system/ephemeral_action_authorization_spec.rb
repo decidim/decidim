@@ -104,7 +104,7 @@ describe "ephemeral action authorization" do
               expect(page).to have_content "You have been successfully authorized"
               expect(page).to have_content "You have started a guest session, you can now participate"
 
-              expect(page).to have_css "h1", text: "Create your proposal"
+              expect(page).to have_css "h1", text: "Create new proposal"
             end
 
             it "the user is able to recover its session verifying with the same data" do
@@ -175,7 +175,7 @@ describe "ephemeral action authorization" do
               expect(page).to have_content "You have been successfully authorized"
               expect(page).to have_content "You have started a guest session, you can now participate"
 
-              expect(page).to have_css "h1", text: "Create your proposal"
+              expect(page).to have_css "h1", text: "Create new proposal"
             end
           end
         end
