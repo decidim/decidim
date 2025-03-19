@@ -12,12 +12,15 @@ describe "Decidim::Api::QueryType" do
   let!(:taxonomy) { create(:taxonomy, :with_parent, organization: current_organization) }
   let!(:assembly) { create(:assembly, organization: current_organization, assembly_type:, taxonomies: [taxonomy]) }
   let(:assembly_type) { create(:assemblies_type, organization: current_organization) }
-
+  let!(:follows) { create_list(:follow, 3, followable: assembly) }
   let(:assembly_data) do
     {
       "attachments" => [],
+      "attachmentCollections" => [],
       "categories" => [],
       "children" => [],
+      "url" => Decidim::EngineRouter.main_proxy(assembly).assembly_url(assembly),
+      "followsCount" => 3,
       "childrenCount" => 0,
       "closingDate" => assembly.closing_date.to_date.to_s,
       "closingDateReason" => { "translation" => assembly.closing_date_reason[locale] },
@@ -70,6 +73,11 @@ describe "Decidim::Api::QueryType" do
         attachments {
           thumbnail
         }
+        attachmentCollections {
+          name {
+            translation(locale:"#{locale}")
+          }
+        }
         bannerImage
         categories {
           id
@@ -77,6 +85,8 @@ describe "Decidim::Api::QueryType" do
         children {
           id
         }
+        url
+        followsCount
         childrenCount
         closingDate
         closingDateReason {
@@ -217,6 +227,11 @@ describe "Decidim::Api::QueryType" do
         attachments {
           thumbnail
         }
+        attachmentCollections {
+          name {
+            translation(locale:"#{locale}")
+          }
+        }
         bannerImage
         categories {
           id
@@ -224,6 +239,8 @@ describe "Decidim::Api::QueryType" do
         children {
           id
         }
+        url
+        followsCount
         childrenCount
         closingDate
         closingDateReason {
