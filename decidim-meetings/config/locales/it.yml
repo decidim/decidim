@@ -16,7 +16,6 @@ it:
         customize_registration_email: Pagina di registrazione personalizzata
         decidim_category_id: Categoria
         decidim_scope_id: Visibilità
-        decidim_user_group_id: Gruppo di utenti
         description: Descrizione
         id: ID
         location: Luogo
@@ -65,9 +64,6 @@ it:
             values:
               'false': Conclusi
               'true': Prossimi
-          with_any_origin:
-            values:
-              user_group: Gruppi di utenti
           with_any_type:
             label: Tipologia di incontro
             values:
@@ -101,7 +97,6 @@ it:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
             creation_enabled_for_participants: Creazione delle riunioni da parte dei partecipanti abilitata
-            creation_enabled_for_user_groups: Creazione delle riunioni da parte dei partecipanti abilitata
     events:
       meetings:
         meeting_closed:
@@ -361,7 +356,6 @@ it:
         form:
           address_help: 'Indirizzo: usato da Geocoder per trovare la posizione'
           available_slots_help: Lasciare a 0 se disponi di slot illimitati
-          create_as: Crea riunione come
           location_help: 'Posizione: messaggio diretto agli utenti che riporta il luogo dell''incontro'
           location_hints_help: 'Suggerimenti: informazioni aggiuntive. Esempio: il pavimento dell''edificio se si tratta di una riunione di persona o la password di riunione se si tratta di una riunione online con accesso ristretto.'
           online_meeting_url_help: 'Link: permette ai partecipanti di connettersi direttamente alla tua riunione'
@@ -375,7 +369,6 @@ it:
         new:
           back: Indietro
           create: Crea
-          title: Crea una riunione
         registration_confirm:
           cancel: Annulla
           confirm: Conferma
