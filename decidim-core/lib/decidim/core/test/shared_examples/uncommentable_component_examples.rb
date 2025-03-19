@@ -8,6 +8,7 @@ shared_examples "an uncommentable component" do
            manifest:,
            participatory_space:)
   end
+  let!(:comment) { create(:comment, commentable: resources.first ) }
 
   it "does not displays comments count" do
     component.update!(settings: { comments_enabled: false })
@@ -20,9 +21,18 @@ shared_examples "an uncommentable component" do
   end
 
   describe "when search a comment in the global search" do
-    let(:comment) { create(:comment) }
+    it "does displays the comments" do
+      visit decidim.root_path
 
-    it "does not displays the comment" do
+      within ".main-bar__search" do
+        fill_in "term", with: comment.body["en"]
+        find("input#input-search").native.send_keys :enter
+      end
+
+      expect(page).to have_content("1 Results for the search")
+    end
+
+    it "does not displays the comment when comments are disable" do
       component.update!(settings: { comments_enabled: false })
       visit decidim.root_path
 
