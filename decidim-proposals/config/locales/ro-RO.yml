@@ -592,6 +592,7 @@ ro:
           text_banner: Vizualizezi lista de propuneri retrase de autorii lor. %{go_back_link}.
         new:
           send: Continuă
+          title: Creează propunerea ta
         orders:
           label: 'Ordonează propunerile după:'
           most_commented: Cele mai comentate
