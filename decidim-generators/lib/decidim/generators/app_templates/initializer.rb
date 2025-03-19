@@ -389,12 +389,10 @@ Decidim.configure do |config|
   end
 
   # Delete inactive users configuration
-  Rails.application.secrets.dig(:decidim, :inactive_users).tap do |config_values|
-    config.delete_inactive_users_after_days = config_values&.dig(:after_days) || 365
-    config.minimum_inactivity_period = config_values&.dig(:minimum_period) || 30
-    config.delete_inactive_users_first_warning_days_before = config_values&.dig(:first_warning_days_before) || 30
-    config.delete_inactive_users_last_warning_days_before = config_values&.dig(:last_warning_days_before) || 7
-  end
+  config.delete_inactive_users_after_days = Rails.application.secrets.dig(:decidim, :inactive_users, :after_days).presence || 365
+  config.minimum_inactivity_period = Rails.application.secrets.dig(:decidim, :inactive_users, :minimum_period).presence || 30
+  config.delete_inactive_users_first_warning_days_before = Rails.application.secrets.dig(:decidim, :inactive_users, :first_warning_days_before).presence || 30
+  config.delete_inactive_users_last_warning_days_before = Rails.application.secrets.dig(:decidim, :inactive_users, :last_warning_days_before).presence || 7
 
   config.admin_password_expiration_days = Rails.application.secrets.dig(:decidim, :admin_password, :expiration_days).presence || 90
   config.admin_password_min_length = Rails.application.secrets.dig(:decidim, :admin_password, :min_length).presence || 15
