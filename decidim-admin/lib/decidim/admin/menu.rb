@@ -76,12 +76,12 @@ module Decidim
 
       def self.register_admin_insights_menu!
         Decidim.menu :admin_insights_menu do |menu|
-          menu.add_item :metrics,
+          menu.add_item :statistics,
                         I18n.t("menu.statistics", scope: "decidim.admin"),
-                        decidim_admin.metrics_path,
+                        decidim_admin.statistics_path,
                         icon_name: "bar-chart-box-line",
                         position: 1,
-                        active: is_active_link?(decidim_admin.metrics_path)
+                        active: is_active_link?(decidim_admin.statistics_path)
         end
       end
 

@@ -8,6 +8,7 @@ module Decidim
       helper_method :latest_action_logs
       helper_method :users_counter
       helper_method :metrics_presenter
+      helper_method :statistics_presenter
       helper_method :count_pending_moderations
 
       def show
@@ -31,6 +32,14 @@ module Decidim
 
       def metrics_presenter
         @metrics_presenter ||= Decidim::Admin::DashboardMetricChartsPresenter.new(
+          summary: true,
+          organization: current_organization,
+          view_context:
+        )
+      end
+
+      def statistics_presenter
+        @statistics_presenter ||= Decidim::Admin::DashboardMetricChartsPresenter.new(
           summary: true,
           organization: current_organization,
           view_context:
