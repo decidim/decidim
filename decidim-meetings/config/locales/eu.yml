@@ -526,7 +526,7 @@ eu:
         new:
           back: Atzera
           create: Sortu
-          title: Sortu zure topaketa
+          title: Sortu topaketa
         registration_confirm:
           cancel: Ezeztatu
           confirm: Berretsi
