@@ -79,7 +79,7 @@ module Decidim
           # You can implement this method in your controller to change the URL
           # where the questionnaire will be submitted.
           def update_url
-            url_for([questionnaire_for, { action: :response }])
+            url_for([questionnaire_for, { action: :respond }])
           end
 
           # Points to the shortest path accessing the current form. This will be

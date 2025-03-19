@@ -11,7 +11,7 @@ module Decidim
       routes do
         resources :surveys, only: [:index, :show, :edit] do
           member do
-            post :response
+            post :respond
           end
         end
         root to: "surveys#index"

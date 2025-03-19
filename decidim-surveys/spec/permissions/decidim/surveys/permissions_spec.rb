@@ -48,7 +48,7 @@ describe Decidim::Surveys::Permissions do
 
   context "when responding a survey" do
     let(:action) do
-      { scope: :public, action: :response, subject: :questionnaire }
+      { scope: :public, action: :respond, subject: :questionnaire }
     end
 
     context "when user is authorized" do

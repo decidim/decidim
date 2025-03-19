@@ -40,13 +40,13 @@ module Decidim
         end
 
         describe "show" do
-          let(:response) { create(:response, questionnaire: survey.questionnaire, question: survey.questionnaire.questions.first, user:) }
+          let(:survey_response) { create(:response, questionnaire: survey.questionnaire, question: survey.questionnaire.questions.first, user:) }
           let(:params) do
             {
               component_id: survey.component.id,
               participatory_process_slug: survey.component.participatory_space.slug,
               survey_id: survey.id,
-              id: response.id
+              id: survey_response.id
             }
           end
 
@@ -57,13 +57,13 @@ module Decidim
         end
 
         describe "export_response" do
-          let(:response) { create(:response, questionnaire: survey.questionnaire, question: survey.questionnaire.questions.first, user:) }
+          let(:survey_response) { create(:response, questionnaire: survey.questionnaire, question: survey.questionnaire.questions.first, user:) }
           let(:params) do
             {
               component_id: survey.component.id,
               participatory_process_slug: survey.component.participatory_space.slug,
               survey_id: survey.id,
-              id: response.id
+              id: survey_response.id
             }
           end
 
