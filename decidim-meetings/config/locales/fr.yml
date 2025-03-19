@@ -526,7 +526,7 @@ fr:
         new:
           back: Précédent
           create: Créer
-          title: Créez votre rencontre
+          title: Créer une nouvelle réunion
         registration_confirm:
           cancel: Annuler
           confirm: Confirmer
