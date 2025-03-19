@@ -802,7 +802,7 @@ fr:
           text_banner: Vous voyez actuellemnent la liste des propositions retirées par leurs auteurs. %{go_back_link}.
         new:
           send: Continuer
-          title: Créer une proposition
+          title: Créer une nouvelle proposition
         orders:
           label: 'Classement des propositions par :'
           most_commented: Les plus commentées
