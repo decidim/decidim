@@ -99,6 +99,7 @@ zh-CN:
           state_values:
             closed: 已关闭
             open: 打开
+          user_group: 群組
         index:
           new_debate: 新的辩论
         new:
