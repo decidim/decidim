@@ -525,7 +525,6 @@ sv:
         new:
           back: Tillbaka
           create: Skapa
-          title: Skapa ditt möte
         registration_confirm:
           cancel: Avbryt
           confirm: Bekräfta
