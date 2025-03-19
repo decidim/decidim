@@ -544,7 +544,6 @@ bg:
         new:
           back: Назад
           create: Създаване
-          title: Създайте среща
         registration_confirm:
           cancel: Отказ
           confirm: Потвърждаване
