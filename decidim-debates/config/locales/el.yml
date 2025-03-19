@@ -109,6 +109,7 @@ el:
           state_values:
             closed: Κλειστό
             open: Άνοιγμα
+          user_group: Ομάδες
         index:
           new_debate: Νέα συζήτηση
         new:
