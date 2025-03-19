@@ -805,7 +805,6 @@ lt:
           text_banner: Jūs žiūrite autorių atsiimtų pasiūlymų sąrašą. %{go_back_link}.
         new:
           send: Tęsti
-          title: Sukurti savo pasiūlymą
         orders:
           label: 'Rikiuoti pasiūlymus pagal:'
           most_commented: Labiausiai komentuojamas
