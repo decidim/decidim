@@ -14,67 +14,28 @@ module Decidim
 
     private
 
-    def clear_notifications_for_active_users(organization)
-      process_users(organization.users.not_deleted
-                                .with_inactivity_notification
-                                .active_after_notification) do |user|
-        user.extended_data.delete("inactivity_notification")
-        user.save!
+    def enqueue_jobs(users, action, *args)
+      users.find_each do |user|
+        ProcessInactiveParticipantJob.perform_later(user.id, action, *args)
       end
+    end
+
+    def clear_notifications_for_active_users(organization)
+      enqueue_jobs(organization.users.not_deleted
+                               .with_inactivity_notification
+                               .active_after_notification, :clear_notification)
     end
 
     def send_first_warning_notifications(users)
-      send_warning_notification(users, "first", Decidim.delete_inactive_users_first_warning_days_before)
+      enqueue_jobs(users, :send_warning, "first", Decidim.delete_inactive_users_first_warning_days_before)
     end
 
     def send_last_warning_notifications(users)
-      send_warning_notification(users, "second", Decidim.delete_inactive_users_last_warning_days_before)
-    end
-
-    def send_warning_notification(users, type, days)
-      process_users(users) do |user|
-        user.update!(
-          extended_data: user.extended_data.deep_merge!(
-            "inactivity_notification" => {
-              "notification_type" => type,
-              "sent_at" => Time.current
-            }
-          )
-        )
-        send_notification(user, :inactivity_notification, days)
-      end
+      enqueue_jobs(users, :send_warning, "second", Decidim.delete_inactive_users_last_warning_days_before)
     end
 
     def remove_inactive_users(users)
-      process_users(users) do |user|
-        send_notification(user, :removal_notification, user.email, user.name, user.locale, user.organization)
-        delete_user_account(user)
-      end
-    end
-
-    def process_users(users, &block)
-      users.find_each do |user|
-        user.transaction do
-          block.call(user)
-        end
-      end
-    end
-
-    def send_notification(user, mailer_method, *)
-      case mailer_method
-      when :removal_notification
-        ParticipantsAccountMailer.public_send(mailer_method, *).deliver_later
-      else
-        ParticipantsAccountMailer.public_send(mailer_method, user, *).deliver_later
-      end
-    end
-
-    def delete_user_account(user)
-      Decidim::DestroyAccount.call(
-        Decidim::DeleteAccountForm.from_params(
-          delete_reason: I18n.t("decidim.account.destroy.inactive_account_removal_reason", inactivity_period: Decidim.delete_inactive_users_after_days)
-        ).with_context(current_user: user)
-      )
+      enqueue_jobs(users, :remove)
     end
   end
 end
