@@ -355,7 +355,6 @@ tr:
         new:
           back: Geri
           create: Oluştur
-          title: Bir Toplantı Oluştur
         registration_confirm:
           cancel: İptal Et
           confirm: Onayla
