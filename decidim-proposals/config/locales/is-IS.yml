@@ -138,6 +138,7 @@ is:
           see_all_withdrawn: Sjá öll afturkallað tillögur
         new:
           send: Haltu áfram
+          title: Búðu til tillöguna þína
         orders:
           label: 'Panta tillögur með:'
           random: Handahófi
