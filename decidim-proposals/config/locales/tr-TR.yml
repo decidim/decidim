@@ -566,6 +566,7 @@ tr:
           see_all_withdrawn: Geri çekilen tüm tekliflere bakın
         new:
           send: Devam et
+          title: Teklifinizi oluşturun
         orders:
           label: 'Teklifleri şuna göre sırala:'
           most_commented: En çok yorum yapılan
