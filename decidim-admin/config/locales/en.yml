@@ -585,6 +585,7 @@ en:
         help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
+        insights: Insights
         manage: Manage
         moderation: Global moderations
         newsletters: Newsletters
@@ -597,6 +598,7 @@ en:
         share_tokens: Access links
         static_page_topics: Topics
         static_pages: Pages
+        statistics: Statistics
         taxonomies: Taxonomies
         taxonomy_filters: Taxonomy filters
         users: Participants
@@ -1355,5 +1357,7 @@ en:
       admin:
         global_moderations:
           title: Global moderations
+        insights:
+          title: Insights
         taxonomy_filters_selector:
           title: Filters
