@@ -521,7 +521,6 @@ lt:
         new:
           back: Atgal
           create: Sukurti
-          title: Sukurkite savo susitikimą
         registration_confirm:
           cancel: Atšaukti
           confirm: Patvirtinti
