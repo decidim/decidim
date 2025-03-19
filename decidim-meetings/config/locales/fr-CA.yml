@@ -18,7 +18,6 @@ fr-CA:
         customize_registration_email: Personnaliser l'email d'inscription
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
-        decidim_user_group_id: Groupe d'utilisateurs
         description: Description
         end_time: Heure de fin
         id: ID
@@ -113,7 +112,6 @@ fr-CA:
             values:
               official: Officiel
               participants: Participants
-              user_group: Groupes d’utilisateurs
           with_any_type:
             label: Type de rencontre
             values:
@@ -162,7 +160,6 @@ fr-CA:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
             creation_enabled_for_participants: La création de réunions par les participants est activée
-            creation_enabled_for_user_groups: La création de réunions par des groupes d'utilisateurs est activée
     download_your_data:
       help:
         invites:
@@ -523,7 +520,6 @@ fr-CA:
             all: Toutes
             official: Officiel
             participants: Participants
-            user_group: Groupes
           search: Rechercher
           type: Type
           type_values:
@@ -534,7 +530,6 @@ fr-CA:
         form:
           address_help: 'Adresse : utilisée par le géocodeur pour trouver l''emplacement'
           available_slots_help: Laisser à 0 si le nombre de places disponibles est illimité
-          create_as: Créer une réunion en tant que
           disclaimer: 'Avertissement : En utilisant un système d''enregistrement externe, sachez que les organisateurs de %{organization} ne sont pas responsables des données fournies par les utilisateurs au service externe.'
           iframe_embed_type_html: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
           location_help: 'Emplacement: message adressé aux utilisateurs impliquant le point de rencontre à'
@@ -563,7 +558,7 @@ fr-CA:
         new:
           back: Précédent
           create: Créer
-          title: Créez votre réunion
+          title: Créer une nouvelle réunion
         registration_confirm:
           cancel: Annuler
           confirm: Confirmer
@@ -649,7 +644,6 @@ fr-CA:
             question_replied: Réponse envoyée
             reply_question: Répondre
       public_participants_list:
-        attending_organizations: Organisations
         attending_participants: Participants présents
         hidden_participants_count:
           one: et %{count} personne de plus
