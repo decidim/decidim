@@ -82,14 +82,6 @@ module Decidim
                         icon_name: "bar-chart-box-line",
                         position: 1,
                         active: is_active_link?(decidim_admin.metrics_path)
-
-          menu.add_item :demographic_data,
-                        I18n.t("menu.demographic_data", scope: "decidim.admin"),
-                        "#",
-                        icon_name: "earth-line",
-                        position: 2,
-                        active: is_active_link?("#"),
-                        if: allowed_to?(:read, :demographic_data)
         end
       end
 

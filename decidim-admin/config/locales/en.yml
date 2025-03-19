@@ -581,7 +581,6 @@ en:
         components: Components
         configuration: Configuration
         content: Reported content
-        demographic_data: Demographic data
         external_domain_allowlist: Allowed external domains
         help_sections: Help sections
         homepage: Homepage
