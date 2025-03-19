@@ -134,7 +134,7 @@ fr:
         new:
           back: Retour
           create: Créer
-          title: Nouveau débat
+          title: Créer un nouveau débat
         orders:
           commented: Les plus commentés
           label: Trier les débats par
