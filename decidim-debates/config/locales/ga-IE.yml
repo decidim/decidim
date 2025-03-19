@@ -48,6 +48,7 @@ ga:
           state_values:
             closed: Dúnta
             open: Oscail
+          user_group: Grúpaí
         form:
           select_a_category: Roghnaigh catagóir le do thoil
         new:
