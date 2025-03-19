@@ -294,6 +294,7 @@ ca:
         usage_typography_2: Text en línia
         usage_typography_3: Text sobre fons fosc
         usage_typography_4: Enllaços i botons
+        usage_typography_5: Pestanya desactivada
         value: Valor
         variations: Variacions
         variations_cards_description: Cada targeta es veurà diferent d'acord amb les propietats del recurs que es mostri. Pot anul·lar aquest comportament a la cel·la específica.

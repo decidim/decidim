@@ -50,7 +50,6 @@ ja:
         confirm_destroy: 削除してもよろしいですか？
         destroy: 破棄
         edit: 編集
-        manage_questions: 質問の管理
         new_survey: 新しいアンケート
         preview: プレビュー
         title: アクション
@@ -80,8 +79,6 @@ ja:
             success: アンケートを作成しました。
           destroy:
             success: アンケートを削除しました。
-          edit:
-            title: アンケートを編集
           index:
             title: 調査
           publish:

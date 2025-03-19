@@ -31,7 +31,6 @@ el:
         questionnaires:
           actions:
             back: Επιστροφή στις ερωτήσεις
-            show: Εμφάνιση απαντήσεων
           answer_option:
             answer_option: Επιλογή απάντησης
             free_text: Ελεύθερο κείμενο
