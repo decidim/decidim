@@ -396,7 +396,6 @@ it:
         new:
           back: Indietro
           create: Crea
-          title: Crea una riunione
         registration_confirm:
           cancel: Annulla
           confirm: Conferma
