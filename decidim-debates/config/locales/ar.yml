@@ -88,6 +88,7 @@ ar:
           origin: الأصل
           participants: المشاركون
           search: بحث
+          user_group: الفِرَق
         index:
           new_debate: نقاش جديد
         new:
