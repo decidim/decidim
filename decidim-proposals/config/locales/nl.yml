@@ -551,6 +551,7 @@ nl:
           text_banner: Je bekijkt de lijst van voorstellen die zijn ingetrokken door hun maker. %{go_back_link}.
         new:
           send: Doorgaan
+          title: Maak je voorstel
         orders:
           label: 'Bestelling sorteren op:'
           most_commented: Meeste reacties
