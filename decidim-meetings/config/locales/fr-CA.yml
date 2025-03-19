@@ -545,7 +545,7 @@ fr-CA:
         new:
           back: Précédent
           create: Créer
-          title: Créez votre réunion
+          title: Créer une nouvelle réunion
         registration_confirm:
           cancel: Annuler
           confirm: Confirmer
