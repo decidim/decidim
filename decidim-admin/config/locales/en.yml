@@ -1117,6 +1117,9 @@ en:
         update:
           error: There was a problem updating this page.
           success: Page updated successfully.
+      statistics:
+        statistics:
+          see_more_statistics: See more statistics
       taxonomies:
         actions:
           actions: Actions

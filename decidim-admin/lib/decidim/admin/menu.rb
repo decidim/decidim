@@ -297,7 +297,7 @@ module Decidim
                         if: allowed_to?(:read, :admin_log)
           menu.add_item :insights,
                         I18n.t("menu.insights", scope: "decidim.admin"),
-                        decidim_admin.metrics_path,
+                        decidim_admin.statistics_path,
                         icon_name: "line-chart",
                         position: 11
         end
