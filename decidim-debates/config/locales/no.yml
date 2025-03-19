@@ -109,6 +109,7 @@
           state_values:
             closed: Lukket
             open: Åpen
+          user_group: Grupper
         index:
           new_debate: Ny innspillstråd
         new:
