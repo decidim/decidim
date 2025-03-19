@@ -121,6 +121,7 @@ ro:
           state_values:
             closed: Închisă
             open: Deschisă
+          user_group: Grupuri
         form:
           select_a_category: Te rugăm selectează o categorie
         index:
@@ -128,7 +129,6 @@ ro:
         new:
           back: Înapoi
           create: Creează
-          title: Dezbatere nouă
         orders:
           commented: Cele mai comentate
           label: Ordonează dezbaterile după
