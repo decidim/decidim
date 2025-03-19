@@ -10,19 +10,10 @@ describe Decidim::AuthorCell, type: :cell do
   let(:my_cell) { cell("decidim/author", model) }
   let!(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization:) }
-  let(:user_group) { create(:user_group, :verified) }
   let(:model) { Decidim::UserPresenter.new(user) }
 
   context "when rendering a user" do
     it "renders a User author card" do
-      expect(subject).to have_css("[data-author]")
-    end
-  end
-
-  context "when rendering a user group" do
-    let(:model) { Decidim::UserGroupPresenter.new(user_group) }
-
-    it "renders a User_group author card" do
       expect(subject).to have_css("[data-author]")
     end
   end

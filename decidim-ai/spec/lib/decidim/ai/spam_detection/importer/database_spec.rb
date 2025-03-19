@@ -129,20 +129,4 @@ describe Decidim::Ai::SpamDetection::Importer::Database do
       end
     end
   end
-
-  context "when trained model is Decidim::UserGroup" do
-    let(:tested) { 3 }
-    let(:training) { tested + 1 } # tested + author in shared example
-
-    let!(:user) { create_list(:user_group, tested, organization:) }
-    let(:resource_models) { { "Decidim::UserGroup" => "Decidim::Ai::SpamDetection::Resource::UserBaseEntity" } }
-
-    include_examples "resource is being indexed" do
-      let(:instance) { Decidim::Ai::SpamDetection::Service.new(registry: Decidim::Ai::SpamDetection.user_registry) }
-
-      before do
-        allow(Decidim::Ai::SpamDetection).to receive(:user_classifier).and_return(instance)
-      end
-    end
-  end
 end

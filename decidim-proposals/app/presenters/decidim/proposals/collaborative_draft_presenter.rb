@@ -7,12 +7,7 @@ module Decidim
     #
     class CollaborativeDraftPresenter < ProposalPresenter
       def author
-        coauthorship = __getobj__.coauthorships.first
-        @author ||= if coauthorship.user_group
-                      Decidim::UserGroupPresenter.new(coauthorship.user_group)
-                    else
-                      Decidim::UserPresenter.new(coauthorship.author)
-                    end
+        @author ||= Decidim::UserPresenter.new(__getobj__.coauthorships.first.author)
       end
 
       alias collaborative_draft proposal

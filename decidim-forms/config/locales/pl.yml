@@ -32,7 +32,6 @@ pl:
         questionnaires:
           actions:
             back: Powrót do pytań
-            show: Pokaż odpowiedzi
           answer_option:
             answer_option: Opcja odpowiedzi
             free_text: Możliwość wpisania dowolnego tekstu

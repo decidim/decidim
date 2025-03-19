@@ -349,7 +349,6 @@ en:
           id: The id for this comment
           locale: The locale (language) that the participant had when leaving this comment
           root_commentable_url: The URL of the resource that ties to this comment
-          user_group: The name of the user group that made this comment (if any)
         results:
           address: The address of the result (if any)
           children_count: The number of child results

@@ -82,10 +82,6 @@ module Decidim
         author.is_a?(Decidim::Organization)
       end
 
-      def user_group?
-        author.is_a?(Decidim::UserGroup)
-      end
-
       def users_to_notify_on_comment_created
         followers
       end
@@ -106,7 +102,7 @@ module Decidim
 
       # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
       def reported_searchable_content_extras
-        [normalized_author.name]
+        [author.name]
       end
     end
   end

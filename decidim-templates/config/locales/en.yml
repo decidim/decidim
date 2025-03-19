@@ -81,11 +81,13 @@ en:
             select_template: Select a template answer
         questionnaire_templates:
           choose:
-            create_from_template: Create from template
-            description: You are about to create a new questionnaire. You may choose a predefined template and modify it afterwards.
+            continue: Continue
+            description: You can create a new questionnaire or you can choose a predefined template and modify it later. Select an option.
             label: Choose template
+            options:
+              create_new_form: Create new form
+              select_template: Select template
             placeholder: Choose template
-            skip_template: Skip
           edit:
             edit: Edit
             empty: There are no questions yet.

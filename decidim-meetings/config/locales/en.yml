@@ -19,7 +19,6 @@ en:
         customize_registration_email: Customize registration email
         decidim_category_id: Category
         decidim_scope_id: Scope
-        decidim_user_group_id: User group
         description: Description
         end_time: End time
         id: ID
@@ -123,7 +122,6 @@ en:
             values:
               official: Official
               participants: Participant
-              user_group: User Groups
           with_any_type:
             label: Type of meeting
             values:
@@ -177,7 +175,6 @@ en:
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled_for_participants: Meeting creation by participants enabled
-            creation_enabled_for_user_groups: Meeting creation by user groups enabled
     download_your_data:
       help:
         invites:
@@ -547,7 +544,6 @@ en:
             all: All
             official: Official
             participants: Participants
-            user_group: Groups
           search: Search
           type: Type
           type_values:
@@ -558,7 +554,6 @@ en:
         form:
           address_help: 'Address: used by Geocoder to find the location'
           available_slots_help: Leave it to 0 if you have unlimited slots available
-          create_as: Create meeting as
           disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
           iframe_embed_type_html: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
           location_help: 'Location: message directed to the users implying the spot to meet at'
@@ -587,7 +582,7 @@ en:
         new:
           back: Back
           create: Create
-          title: Create Your Meeting
+          title: Create new meeting
         registration_confirm:
           cancel: Cancel
           confirm: Confirm
@@ -674,7 +669,6 @@ en:
             question_replied: Question replied
             reply_question: Reply question
       public_participants_list:
-        attending_organizations: Organizations
         attending_participants: Participants
         hidden_participants_count:
           one: and %{count} more person
@@ -729,7 +723,6 @@ en:
           id: The id for this comment
           locale: The locale (language) that the participant had when leaving this comment
           root_commentable_url: The URL of the resource that ties to this comment
-          user_group: The name of the user group that made this comment (if any)
         meetings:
           address: The address of the meeting in case it is in person and has a physical location
           attachments: The number of attachments in this meeting
@@ -747,7 +740,6 @@ en:
           created_at: The date at which the meeting was created
           customize_registration_email: The ability to allow a custom email at registration
           decidim_author_type: Author type of the meeting's author
-          decidim_user_group_id: User group ID of people involved in the meeting
           description: The description of the meeting
           end_time: The date and time that this meeting ends
           follows_count: The number of follows the meeting has

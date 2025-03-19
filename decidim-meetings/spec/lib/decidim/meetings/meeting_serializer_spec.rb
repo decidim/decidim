@@ -177,10 +177,6 @@ module Decidim
           expect(serialized).to include(decidim_author_type: meeting.decidim_author_type)
         end
 
-        it "serializes the user group id" do
-          expect(serialized).to include(decidim_user_group_id: meeting.decidim_user_group_id)
-        end
-
         it "serializes the closing date" do
           expect(serialized).to include(closed_at: meeting.closed_at)
         end

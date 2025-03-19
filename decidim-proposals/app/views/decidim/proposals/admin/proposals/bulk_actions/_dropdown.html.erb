@@ -35,14 +35,14 @@
         </button>
       </li>
       <li>
-        <button type="button" data-action="assign-proposals-to-valuator">
-          <%= t("decidim.proposals.admin.proposals.index.assign_to_valuator") %>
+        <button type="button" data-action="assign-proposals-to-evaluator">
+          <%= t("decidim.proposals.admin.proposals.index.assign_to_evaluator") %>
         </button>
       </li>
-      <% if allowed_to? :unassign_from_valuator, :proposals, valuator: current_user %>
+      <% if allowed_to? :unassign_from_evaluator, :proposals, evaluator: current_user %>
         <li>
-          <button type="button" data-action="unassign-proposals-from-valuator">
-            <%= t("decidim.proposals.admin.proposals.index.unassign_from_valuator") %>
+          <button type="button" data-action="unassign-proposals-from-evaluator">
+            <%= t("decidim.proposals.admin.proposals.index.unassign_from_evaluator") %>
           </button>
         </li>
       <% end %>

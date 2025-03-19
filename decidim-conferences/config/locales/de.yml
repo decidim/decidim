@@ -237,7 +237,6 @@ de:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
-            valuator: Bewertende
         media_link:
           fields:
             date: Datum

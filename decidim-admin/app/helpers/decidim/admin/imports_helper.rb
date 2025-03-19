@@ -43,11 +43,6 @@ module Decidim
         accepted_mime_types = Decidim::Admin::Import::Readers::ACCEPTED_MIME_TYPES.keys
         accepted_mime_types.index_with { |mime_type| I18n.t("decidim.admin.imports.new.accepted_mime_types.#{mime_type}") }
       end
-
-      # Returns verified user groups of current user
-      def user_groups
-        Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
-      end
     end
   end
 end
