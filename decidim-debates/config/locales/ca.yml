@@ -134,7 +134,7 @@ ca:
         new:
           back: Torna
           create: Crear
-          title: Nou debat
+          title: Crear un debat
         orders:
           commented: Més comentats
           label: Ordenar debats per
