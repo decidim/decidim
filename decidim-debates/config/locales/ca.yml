@@ -10,7 +10,6 @@ ca:
         instructions: Instruccions per participar
         start_time: Data d'inici
         title: Títol
-        user_group_id: Crea un debat com
     models:
       decidim/debates/close_debate_event: Debat tancat
       decidim/debates/create_debate_event: Debat
@@ -147,13 +146,12 @@ ca:
           state_values:
             closed: Tancat
             open: Obert
-          user_group: Grups
         index:
           new_debate: Nou debat
         new:
           back: Torna
           create: Crear
-          title: Nou debat
+          title: Crear un debat
         orders:
           commented: Més comentats
           label: Ordenar debats per
@@ -166,7 +164,6 @@ ca:
           debate_conclusions_are: 'El debat es va tancar el %{date} amb aquestes conclusions:'
           edit_conclusions: Editar conclusions
           edit_debate: Editar
-          groups_count: Grups
           open: Debat obert
           participants_count: Participants
         update:
@@ -257,7 +254,6 @@ ca:
           id: L'identificador id d'aquest comentari
           locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
           root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
-          user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
         debates:
           author: Les dades d'autoria d'aquesta debat
           closed_at: La data en què va ser tancar aquest debat
