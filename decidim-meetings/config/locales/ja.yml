@@ -519,7 +519,6 @@ ja:
         new:
           back: 戻る
           create: 作成
-          title: ミーティングを作成
         registration_confirm:
           cancel: キャンセル
           confirm: 確認する
