@@ -132,7 +132,6 @@ bg:
         new:
           back: Назад
           create: Създаване
-          title: Нов дебат
         orders:
           commented: Най-коментирани
           label: Подреждане на дебатите по
