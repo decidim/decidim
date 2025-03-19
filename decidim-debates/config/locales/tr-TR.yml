@@ -109,6 +109,7 @@ tr:
           state_values:
             closed: Kapalı
             open: Açık
+          user_group: Gruplar
         index:
           new_debate: Yeni tartışma
         new:
