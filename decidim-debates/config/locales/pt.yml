@@ -106,6 +106,7 @@ pt:
           state_values:
             closed: Fechar
             open: Abertas
+          user_group: Grupos
         index:
           new_debate: Novo debate
         new:
