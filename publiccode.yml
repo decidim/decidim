@@ -28,7 +28,7 @@ description:
     longDescription: >
        Decidim is a Free and Open-Source digital infrastructure for participatory democracy.
        Institutions and organizations around the world use Decidim to easily articulate governance and participatory processes: citizen initiatives, participatory budgets, strategic planning or collaborative legislation in an open and democratic way.
-       The project was originally developed for the Barcelona City Government, and now is mantianed by the Decidim Free Software Association and a vibrant community. 
+       The project was originally developed for the Barcelona City Government, and now is maintained by the Decidim Free Software Association and a vibrant community.
     features:
       - "Participatory process: Run participatory processes to foster debate, assessment, and decision-making on issues that matter to your community."
       - "Assembly: Create a space for your organization committees, choosing the level of privacy, to manage membership, meetings, or activities."
@@ -43,9 +43,9 @@ description:
     documentation: "https://docs.decidim.org"
     apiDocumentation: "https://nightly.decidim.org/api"
     awards:
-      - Sharing & Reuse Awards by European Comission (2019)
+      - Sharing & Reuse Awards by European Commission (2019)
       - Innovation in Politics Awards (2021)
-      - OSOR Awards by European Comission (2023)
+      - OSOR Awards by European Commission (2023)
       - Recognized as a Digital Public Good by the DPGA (2023)
      
 legal:
@@ -224,7 +224,7 @@ usedBy:
   - Est  Ensemble Grand Paris
   - Estratègia de l'Economia Social i Solidària a Barcelona 2030
   - European Citizens Bank
-  - European Comission - Missions
+  - European Commission - Missions
   - European Commission -  Citizens’ Engagement Platform
   - EUTeens4Green
   - Fàbrica de Creació Fabra i Coats
