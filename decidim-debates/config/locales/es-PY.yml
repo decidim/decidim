@@ -130,7 +130,7 @@ es-PY:
         new:
           back: Volver
           create: Crear
-          title: Nuevo debate
+          title: Crear un debate
         orders:
           commented: Más comentados
           label: Ordenar debates por
