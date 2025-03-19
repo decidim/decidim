@@ -500,7 +500,6 @@ el:
         new:
           back: Πίσω
           create: Δημιουργία
-          title: Δημιουργήστε τη Συνάντησή σας
         registration_confirm:
           cancel: Ακύρωση
           confirm: Επιβεβαίωση
