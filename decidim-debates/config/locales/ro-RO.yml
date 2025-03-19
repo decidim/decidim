@@ -111,6 +111,7 @@ ro:
           state_values:
             closed: Închisă
             open: Deschisă
+          user_group: Grupuri
         index:
           new_debate: Dezbatere nouă
         new:
