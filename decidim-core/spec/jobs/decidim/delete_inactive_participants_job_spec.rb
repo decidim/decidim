@@ -89,6 +89,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
       let(:current_sign_in_at) { 400.days.ago }
       let!(:email) { user.email }
       let!(:name) { user.name }
+      let!(:locale) { user.locale }
       let(:extended_data) do
         {
           "inactivity_notification" => { "notification_type" => "second", "sent_at" => 8.days.ago.to_s }
@@ -99,7 +100,7 @@ describe Decidim::DeleteInactiveParticipantsJob do
         perform_enqueued_jobs { subject.perform_later(organization) }
 
         expect(user.reload.email).to be_empty
-        expect(Decidim::ParticipantsAccountMailer).to have_received(:removal_notification).with(email, name, organization).once
+        expect(Decidim::ParticipantsAccountMailer).to have_received(:removal_notification).with(email, name, locale, organization).once
       end
     end
   end

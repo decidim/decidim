@@ -45,7 +45,8 @@ module Decidim
     describe "#removal_notification" do
       let!(:email) { user.email }
       let!(:name) { user.name }
-      let(:mail) { described_class.removal_notification(email, name, organization) }
+      let!(:locale) { user.locale }
+      let(:mail) { described_class.removal_notification(email, name, locale, organization) }
 
       it "renders the headers" do
         expect(mail.subject).to eq("Inactive account deleted")

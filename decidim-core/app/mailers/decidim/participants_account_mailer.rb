@@ -20,17 +20,19 @@ module Decidim
     end
 
     # Notify user about account removal due to inactivity
-    def removal_notification(email, name, organization)
+    def removal_notification(email, name, locale, organization)
       @email = email
       @user_name = name
       @organization = organization
 
-      subject = I18n.t(
-        "decidim.participants_account_mailer.removal_notification.subject",
-        organization_name: organization_name(@organization)
-      )
+      I18n.with_locale(locale) do
+        subject = I18n.t(
+          "decidim.participants_account_mailer.removal_notification.subject",
+          organization_name: organization_name(@organization)
+        )
 
-      mail(to: email, subject:)
+        mail(to: email, subject:)
+      end
     end
   end
 end
