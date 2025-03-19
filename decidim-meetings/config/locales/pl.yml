@@ -16,7 +16,6 @@ pl:
         customize_registration_email: Dostosuj maila rejestracji
         decidim_category_id: Kategoria
         decidim_scope_id: Zakres
-        decidim_user_group_id: Grupa użytkowników
         description: Opis
         end_time: Czas zakończenia
         id: Numer ID
@@ -117,7 +116,6 @@ pl:
             values:
               official: Oficjalny
               participants: Uczestnik
-              user_group: Grupy użytkowników
           with_any_type:
             label: Rodzaj spotkania
             values:
@@ -166,7 +164,6 @@ pl:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
             creation_enabled_for_participants: Możliwe tworzenie spotkań przez uczestników
-            creation_enabled_for_user_groups: Możliwe tworzenie spotkań przez grupy użytkowników
     events:
       meetings:
         meeting_closed:
@@ -500,7 +497,6 @@ pl:
             all: Wszystkie
             official: Oficjalny
             participants: Uczestnicy
-            user_group: Grupy
           search: Szukaj
           type: Typ
           type_values:
@@ -511,7 +507,6 @@ pl:
         form:
           address_help: 'Adres: używany przez Geocodera do znalezienia lokalizacji'
           available_slots_help: Zostaw 0 jeśli masz nieograniczoną liczbę dostępnych miejsc
-          create_as: Utwórz spotkanie jako
           disclaimer: 'Uwaga: Korzystając z zewnętrznego systemu uwierzytelniania, jesteś świadomy(a), że organizatorzy %{organization} nie są odpowiedzialni za dane dostarczone przez użytkowników do usługi zewnętrznej.'
           iframe_embed_type_html: 'Tylko kilka usług pozwala na osadzanie w spotkaniu lub wydarzeniu na żywo z następujących domen: %{domains}'
           location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
@@ -538,7 +533,6 @@ pl:
         new:
           back: Wróć
           create: Utwórz
-          title: Utwórz spotkanie
         registration_confirm:
           cancel: Anuluj
           confirm: Potwierdź
@@ -624,7 +618,6 @@ pl:
             question_replied: Odpowiedziano na pytanie
             reply_question: Odpowiedz na pytanie
       public_participants_list:
-        attending_organizations: Organizacje
         attending_participants: Uczestnicy
       read_more: "(zobacz więcej)"
       registration_mailer:
