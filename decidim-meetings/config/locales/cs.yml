@@ -18,7 +18,6 @@ cs:
         customize_registration_email: Přizpůsobit registrační e-mail
         decidim_category_id: Kategorie
         decidim_scope_id: Rozsah
-        decidim_user_group_id: Uživatelská skupina
         description: Popis
         end_time: Čas ukončení
         id: ID
@@ -128,7 +127,6 @@ cs:
             values:
               official: Úředník
               participants: Účastník
-              user_group: Skupiny uživatelů
           with_any_type:
             label: Typ schůzky
             values:
@@ -182,7 +180,6 @@ cs:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
             creation_enabled_for_participants: Vytváření schůzek od účastníků povoleno
-            creation_enabled_for_user_groups: Vytvoření schůzky od skupin uživatelů povoleno
     download_your_data:
       help:
         invites:
@@ -558,7 +555,6 @@ cs:
             all: Vše
             official: Úředník
             participants: Účastníci
-            user_group: Skupiny
           search: Vyhledávání
           type: Typ
           type_values:
@@ -569,7 +565,6 @@ cs:
         form:
           address_help: 'Adresa: použita Geocoderem k nalezení polohy'
           available_slots_help: Ponechte 0, pokud máte k dispozici neomezený počet slotů
-          create_as: Vytvořit schůzku jako
           disclaimer: 'Prohlášení o zřeknutí: použitím externího registračního systému, jste si vědomi toho, že organizátoři %{organization} nejsou odpovědní za data poskytovaná uživateli externí službě.'
           iframe_embed_type_html: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
           location_help: 'Poloha: zpráva určená uživatelům, kteří navrhují místo ke schůzce na'
@@ -598,7 +593,6 @@ cs:
         new:
           back: Zpět
           create: Vytvořit
-          title: Vytvořte si schůzku
         registration_confirm:
           cancel: Zrušit
           confirm: Potvrdit
@@ -687,7 +681,6 @@ cs:
             question_replied: Odpověď na otázku
             reply_question: Odpovědět na otázku
       public_participants_list:
-        attending_organizations: Organizace
         attending_participants: Účast účastníků
         hidden_participants_count:
           one: a %{count} další osoba
@@ -744,7 +737,6 @@ cs:
           id: ID pro tento komentář
           locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
           root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
-          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
         meetings:
           address: Adresa schůzky v případě, že se koná osobně a má fyzické umístění
           attachments: Počet příloh v této schůzce
@@ -762,7 +754,6 @@ cs:
           created_at: Datum, kdy byla schůzka vytvořena
           customize_registration_email: Možnost povolit vlastní e-mail při registraci
           decidim_author_type: Typ autora schůzky
-          decidim_user_group_id: ID uživatelské skupiny osob zapojených do schůzky
           description: Popis schůzky
           end_time: Datum a čas ukončení této schůzky
           follows_count: Počet sledujících které schůzka má
