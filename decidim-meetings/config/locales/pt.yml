@@ -395,7 +395,6 @@ pt:
         new:
           back: Retroceder
           create: Criar
-          title: Criar a Sua Reunião
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
