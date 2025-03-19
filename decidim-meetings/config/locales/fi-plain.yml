@@ -18,7 +18,6 @@ fi-pl:
         customize_registration_email: Muokkaa ilmoittautumisten sähköpostivastausta
         decidim_category_id: Aihepiiri
         decidim_scope_id: Teema
-        decidim_user_group_id: Käyttäjäryhmä
         description: Kuvaus
         end_time: Päättymisaika
         id: ID
@@ -122,7 +121,6 @@ fi-pl:
             values:
               official: Viralliset
               participants: Osallistujat
-              user_group: Käyttäjäryhmät
           with_any_type:
             label: Tapaamisen tyyppi
             values:
@@ -176,7 +174,6 @@ fi-pl:
             announcement: Ilmoitus
             comments_blocked: Kommentointi on estetty
             creation_enabled_for_participants: Tapahtuman luonti sallittu osallistujille
-            creation_enabled_for_user_groups: Tapahtuman luonti sallittu ryhmille
     download_your_data:
       help:
         invites:
@@ -546,7 +543,6 @@ fi-pl:
             all: Kaikki
             official: Viralliset
             participants: Osallistujat
-            user_group: Ryhmät
           search: Hae
           type: Tyyppi
           type_values:
@@ -557,7 +553,6 @@ fi-pl:
         form:
           address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
           available_slots_help: Määritä tähän kenttään arvo 0, jos tapahtuman paikkamäärää ei ole rajoitettu
-          create_as: Luo tapahtuma käyttäjänä
           disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että palvelu %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
           iframe_embed_type_html: 'Vain jotkin ulkoiset palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapaamisen sivulle: %{domains}'
           location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
@@ -586,7 +581,7 @@ fi-pl:
         new:
           back: Takaisin
           create: Luo
-          title: Luo tapahtuma
+          title: Luo uusi tapaaminen
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista
@@ -673,7 +668,6 @@ fi-pl:
             question_replied: Kysymykseen on vastattu
             reply_question: Vastaa kysymykseen
       public_participants_list:
-        attending_organizations: Organisaatiot
         attending_participants: Mukana olevat osallistujat
         hidden_participants_count:
           one: ja %{count} muu henkilö
@@ -728,7 +722,6 @@ fi-pl:
           id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
-          user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
         meetings:
           address: Tapaamisen osoite, mikäli tapaaminen on määritetty tiettyyn paikkaan
           attachments: Tapaamisen liitteiden lukumäärä
@@ -746,7 +739,6 @@ fi-pl:
           created_at: Tapaamisen laatimisaika
           customize_registration_email: Mahdollisuus muokata ilmoittautumisen yhteydessä lähetettävää sähköpostia
           decidim_author_type: Tapaamisen laatijan tyyppi
-          decidim_user_group_id: Tapaamisen osallistujien käyttäjäryhmän yksilöivä ID-tunniste
           description: Tapaamisen kuvaus
           end_time: Tapaamisen päättymisajankohta
           follows_count: Tapaamisen seuraajien lukumäärä
