@@ -492,6 +492,7 @@ zh-CN:
           see_all_withdrawn: 查看所有已撤销的提案
         new:
           send: 继续
+          title: 创建您的提议
         orders:
           label: '排序提议：'
           most_commented: 最多评论
