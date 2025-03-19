@@ -109,6 +109,7 @@ hu:
           state_values:
             closed: Lezárva
             open: Nyitva
+          user_group: Csoportok
         index:
           new_debate: Új vita
         new:
