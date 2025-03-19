@@ -117,6 +117,7 @@ zh-TW:
           state_values:
             closed: 關閉
             open: 開啟
+          user_group: 群組
         form:
           select_a_category: 請選擇一個類別
         index:
@@ -124,7 +125,6 @@ zh-TW:
         new:
           back: 返回
           create: 建立
-          title: 新辯論
         orders:
           commented: 最多評論
           label: 依序排列辯論
