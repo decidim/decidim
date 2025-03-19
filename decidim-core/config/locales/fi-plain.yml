@@ -1300,6 +1300,7 @@ fi-pl:
         assigned_to_proposal: Haluan saada sähköpostia, kun joku antaa minulle ehdotuksen arvioitavaksi
         direct_messages: Vastaanota yksityisviestejä kaikilta
         email_on_moderations: Haluan saada sähköpostia aina, kun jotain tai joku käyttäjä ilmoitetaan moderoitavaksi.
+        evaluators: Arvioijat
         everything_followed: Kaikki mitä seuraan
         newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
         newsletters: Uutiskirjeet
