@@ -26,6 +26,6 @@ help:
 order: m-d-y
 ----
 
-4. Save the changes and restart your application to apply the new format.
+4. Save the changes to apply the new format.
 
 This ensures that users see date values formatted in a way that aligns with their localization preferences.
