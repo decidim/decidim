@@ -511,6 +511,7 @@ gl:
           text_banner: Estás a ver todas as propostas anuladas polos seus autores. %{go_back_link}.
         new:
           send: Continuar
+          title: Crea a túa proposta
         orders:
           label: 'Solicitar propostas por:'
           most_commented: Máis comentadas
