@@ -16,7 +16,6 @@ nl:
         customize_registration_email: Aanpassen registratie e-mail
         decidim_category_id: Categorie
         decidim_scope_id: Scope
-        decidim_user_group_id: Gebruikers groep
         description: Beschrijving
         id: ID
         location: Plaats
@@ -70,7 +69,6 @@ nl:
             values:
               official: Officieel
               participants: Deelnemer
-              user_group: Gebruikersgroepen
           with_any_type:
             label: Type vergadering
             values:
@@ -106,7 +104,6 @@ nl:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
             creation_enabled_for_participants: Aanmaken van vergadering door deelnemers ingeschakeld
-            creation_enabled_for_user_groups: Aanmaken van vergadering door gebruikersgroepen ingeschakeld
     events:
       meetings:
         meeting_closed:
@@ -394,7 +391,6 @@ nl:
         form:
           address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
           available_slots_help: Laat op 0 staan als je onbeperkt aantal tijdsblokken beschikbaar hebt
-          create_as: Maak vergadering als
           location_help: 'Locatie: bericht over de ontmoetingsplek gericht naar de gebruikers'
           location_hints_help: 'Locatie hints: aanvullende informatie. Bijvoorbeeld: de verdieping van het gebouw als het een fysieke vergadering is, of het vergaderwachtwoord als het een online vergadering is met beperkte toegang.'
           online_meeting_url_help: 'Link: laat deelnemers direct verbinding maken met je vergadering'
@@ -413,7 +409,6 @@ nl:
         new:
           back: Achterzijde
           create: Aanmaken
-          title: Maak je vergadering
         registration_confirm:
           cancel: Annuleer
           confirm: Bevestigen
