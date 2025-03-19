@@ -18,7 +18,6 @@ eu:
         customize_registration_email: Pertsonalizatu izena emateko helbide elektronikoa
         decidim_category_id: Kategoria
         decidim_scope_id: Eremua
-        decidim_user_group_id: Partaide-taldea
         description: Deskribapena
         end_time: Bukaera ordua
         id: ID
@@ -122,7 +121,6 @@ eu:
             values:
               official: Ofiziala
               participants: Parte-hartzailea
-              user_group: Partaide-taldeak
           with_any_type:
             label: Topaketa mota
             values:
@@ -176,7 +174,6 @@ eu:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled_for_participants: Parte-hartzaileek topaketak sortu dizatkete
-            creation_enabled_for_user_groups: Parte-hartzaileek topaketak sor ditzakete taldearen arabera
     download_your_data:
       help:
         invites:
@@ -546,7 +543,6 @@ eu:
             all: Denak
             official: Ofiziala
             participants: Parte-hartzaileak
-            user_group: Taldeak
           search: Bilatu
           type: Mota
           type_values:
@@ -557,7 +553,6 @@ eu:
         form:
           address_help: 'Helbidea: Geocoderrek erabilia kokapena aurkitzeko'
           available_slots_help: Uzti 0an erabiltzeko espazio mugatua baduzu
-          create_as: Sortu topaketa honela
           disclaimer: 'Erantzukizun-deskargua: Kanpoko inskripzio-sistema bat erabiliz, onartzen duzu %{organization} ko antolatzaileak ez direla kanpo-zerbitzuko parte-hartzaileek emandako datuen erantzule.'
           iframe_embed_type_html: 'Zerbitzu gutxi batzuek baino ez dute uzten topaketan edo zuzeneko gertakarietan txertatzen honako domeinu hauetatik:%{domains}'
           location_help: 'Kokapena: mezua parte-hartzaileei zuzendua biltzeko lekua adieraziz'
@@ -586,7 +581,7 @@ eu:
         new:
           back: Atzera
           create: Sortu
-          title: Sortu zure topaketa
+          title: Sortu topaketa
         registration_confirm:
           cancel: Ezeztatu
           confirm: Berretsi
@@ -673,7 +668,6 @@ eu:
             question_replied: Galdera erantzunda
             reply_question: Erantzun galdera
       public_participants_list:
-        attending_organizations: Erakundeak
         attending_participants: Parte-hartzaileak
         hidden_participants_count:
           one: eta pertsona bat ehiago
@@ -728,7 +722,6 @@ eu:
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uztean du lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
-          user_group: Iruzkin hau egin duen parte-hartzaile taldearen izena (hala badagokio)
         meetings:
           address: Topaketaren helbidea, baldin eta aurrez aurre badago eta kokapen fisikoa badu
           attachments: Bilera honetako atxikipen kopurua
@@ -746,7 +739,6 @@ eu:
           created_at: Zein datatan sortu zen topaketa
           customize_registration_email: Posta elektroniko pertsonalizatua erregistratzeko aukera
           decidim_author_type: Topaketaren egile mota
-          decidim_user_group_id: Topaketan parte hartu duten parte-hartzaileen taldearen identifikazioa
           description: Topaketaren deskribapena
           end_time: Zein datatan eta ordutan amaituko da topaketa hau?
           follows_count: Topaketa honek duen jarraitzaile kopurua
