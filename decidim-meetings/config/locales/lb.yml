@@ -16,7 +16,6 @@ lb:
         customize_registration_email: Registrierungs-E-Mail anpassen
         decidim_category_id: Kategorie
         decidim_scope_id: Ëmfang
-        decidim_user_group_id: Benutzergruppe
         description: Beschreiwung
         id: ID
         location: Standuert
@@ -65,9 +64,6 @@ lb:
             values:
               'false': Vergaangenes
               'true': Demnächst stattfannend
-          with_any_origin:
-            values:
-              user_group: Benotzergruppen
           with_any_type:
             label: Typ vu Versammlung
       meeting_copies:
@@ -98,7 +94,6 @@ lb:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
             creation_enabled_for_participants: Besprechung-Erstellung durch Teilnehmer aktiviert
-            creation_enabled_for_user_groups: Besprechung-Erstellung durch Benutzergruppen aktiviert
     events:
       meetings:
         meeting_closed:
@@ -272,7 +267,6 @@ lb:
         new:
           back: Zréck
           create: Erstellen
-          title: Ihre Besprechung erstellen
         registration_confirm:
           cancel: Stornieren
           confirm: Bestätegen
