@@ -8,7 +8,7 @@ shared_examples "an uncommentable component" do
            manifest:,
            participatory_space:)
   end
-  let!(:comment) { create(:comment, commentable: resources.first ) }
+  let!(:comment) { create(:comment, commentable: resources.first) }
 
   it "does not displays comments count" do
     component.update!(settings: { comments_enabled: false })
