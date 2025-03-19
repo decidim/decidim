@@ -548,6 +548,7 @@ pt:
           text_banner: Está a ver a lista de propostas retiradas pelos seus próprios autores. %{go_back_link}
         new:
           send: Continuar
+          title: Criar a sua proposta
         orders:
           label: 'Ordenar propostas por:'
           most_commented: Mais comentadas
