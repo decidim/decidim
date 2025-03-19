@@ -107,6 +107,7 @@ zh-TW:
           state_values:
             closed: 關閉
             open: 開啟
+          user_group: 群組
         index:
           new_debate: 新辯論
         new:
