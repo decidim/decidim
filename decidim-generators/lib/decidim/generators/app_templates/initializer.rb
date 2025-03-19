@@ -406,6 +406,9 @@ Decidim.configure do |config|
   config.denied_passwords = Rails.application.secrets.decidim[:denied_passwords] if Rails.application.secrets.decidim[:denied_passwords].present?
   config.allow_open_redirects = Rails.application.secrets.decidim[:allow_open_redirects] if Rails.application.secrets.decidim[:allow_open_redirects].present?
   config.enable_etiquette_validator = Rails.application.secrets.decidim[:enable_etiquette_validator] if Rails.application.secrets.decidim[:enable_etiquette_validator].present?
+
+  config.delete_inactive_users_after_days = Rails.application.secrets.dig(:decidim, :delete_inactive_users_after_days).presence || 365
+  config.minimum_inactivity_period = Rails.application.secrets.dig(:decidim, :minimum_inactivity_period).presence || 30
 end
 
 if Decidim.module_installed? :api
