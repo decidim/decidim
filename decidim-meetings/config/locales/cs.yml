@@ -559,7 +559,6 @@ cs:
         new:
           back: Zpět
           create: Vytvořit
-          title: Vytvořte si schůzku
         registration_confirm:
           cancel: Zrušit
           confirm: Potvrdit
