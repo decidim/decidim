@@ -524,6 +524,7 @@ fi:
           index:
             actions: Toiminnot
             assign_to_valuator: Anna tehtäväksi arvioijalle
+            assign_to_valuator_button: Anna tehtäväksi
             cancel: Peruuta
             change_category: Vaihda aihepiiri
             change_scope: Vaihda teema
@@ -539,6 +540,7 @@ fi:
             statuses: Tilat
             title: Ehdotukset
             unassign_from_valuator: Poista tehtävä arvioijalta
+            unassign_from_valuator_button: Poista tehtävä
             update: Päivitä
             update_scope_button: Päivitä teema
           new:
@@ -819,7 +821,7 @@ fi:
           text_banner: Katselet ehdotuksia, jotka on peruttu niiden laatijoiden toimesta. %{go_back_link}.
         new:
           send: Jatka
-          title: Luo ehdotuksesi
+          title: Luo uusi ehdotus
         orders:
           label: 'Järjestä ehdotukset:'
           most_commented: Eniten kommentoidut
