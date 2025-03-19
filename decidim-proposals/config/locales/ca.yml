@@ -964,7 +964,7 @@ ca:
           text_banner: Estàs veient un llistat de propostes retirades per les seves autores. %{go_back_link}.
         new:
           send: Continua
-          title: Crea la teva proposta
+          title: Crea una nova proposta
         orders:
           label: 'Ordenar propostes:'
           most_commented: Més comentades
