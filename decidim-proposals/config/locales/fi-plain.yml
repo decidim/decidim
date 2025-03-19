@@ -641,6 +641,7 @@ fi-pl:
             actions: Toiminnot
             apply_answer_template: Käytä vastauksen mallipohjaa
             assign_to_valuator: Anna tehtäväksi arvioijalle
+            assign_to_valuator_button: Anna tehtäväksi
             cancel: Peruuta
             change_taxonomies: Muuta luokitteluja
             merge: Yhdistä uuteen
@@ -656,6 +657,7 @@ fi-pl:
             statuses: Tilat
             title: Ehdotukset
             unassign_from_valuator: Poista tehtävä arvioijalta
+            unassign_from_valuator_button: Poista tehtävä
             update: Päivitä
           manage_trash:
             title: Poistetut ehdotukset
