@@ -16,7 +16,7 @@
     input[type="week"],
     select,
     textarea {
-      @apply mt-0;
+      @apply mt-2;
     }
 
     & label:not(&-checkbox-label),

@@ -17,7 +17,7 @@
 }
 
 .editor-container {
-  @apply editor-props editor-suggestions-props flex flex-col border border-neutral-200 rounded;
+  @apply editor-props editor-suggestions-props flex flex-col border border-neutral-200 rounded mt-2;
 
   &.editor-disabled {
     .editor-input .ProseMirror {
