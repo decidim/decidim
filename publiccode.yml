@@ -5,8 +5,8 @@ url: "https://github.com/decidim/decidim.git"
 platforms:
   - web
 developmentStatus: stable
-softwareVersion: "0.29.1"
-releaseDate: "2024-10-02"
+softwareVersion: "0.29.2"
+releaseDate: "2025-02-12"
 logo: "https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/logo.svg"
 softwareType: "standalone/web"
 
