@@ -506,6 +506,7 @@ de:
           index:
             actions: Aktionen
             assign_to_valuator: Zuweisen zur Bewertung
+            assign_to_valuator_button: Zuweisen
             cancel: Abbrechen
             change_category: Kategorie ändern
             change_scope: Umfang ändern
@@ -519,6 +520,7 @@ de:
             split_button: Aufteilen
             title: Vorschläge
             unassign_from_valuator: Zuweisung zur Bewertung zurückziehen
+            unassign_from_valuator_button:
             update: Aktualisieren
             update_scope_button: Umfang aktualisieren
           new:
