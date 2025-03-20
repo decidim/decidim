@@ -12,9 +12,13 @@ describe "Decidim::Api::QueryType" do
 
   let!(:taxonomy) { create(:taxonomy, :with_parent, :with_children, organization: current_organization) }
   let!(:conference) { create(:conference, :diploma, organization: current_organization, taxonomies: [taxonomy]) }
+  let!(:follows) { create_list(:follow, 3, followable: conference) }
+
   let(:conference_data) do
     {
       "attachments" => [],
+      "followsCount" => 3,
+      "url" => Decidim::EngineRouter.main_proxy(conference).conference_url(conference),
       "availableSlots" => conference.available_slots,
       "categories" => [],
       "components" => [],
@@ -41,7 +45,8 @@ describe "Decidim::Api::QueryType" do
       "startDate" => conference.start_date.to_date.to_s,
       "title" => { "translation" => conference.title[locale] },
       "type" => conference.class.name,
-      "updatedAt" => conference.updated_at.to_time.iso8601
+      "updatedAt" => conference.updated_at.to_time.iso8601,
+      "weight" => conference.weight
     }
   end
 
@@ -51,6 +56,8 @@ describe "Decidim::Api::QueryType" do
         attachments {
           thumbnail
         }
+        followsCount
+        url
         availableSlots
         bannerImage
         categories {
@@ -113,6 +120,7 @@ describe "Decidim::Api::QueryType" do
         }
         type
         updatedAt
+        weight
       }
     )
   end
@@ -159,6 +167,8 @@ describe "Decidim::Api::QueryType" do
         attachments {
           thumbnail
         }
+        followsCount
+        url
         availableSlots
         bannerImage
         categories {
@@ -221,6 +231,7 @@ describe "Decidim::Api::QueryType" do
         }
         type
         updatedAt
+        weight
       }
     )
     end
