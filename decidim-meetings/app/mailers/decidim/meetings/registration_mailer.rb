@@ -22,10 +22,11 @@ module Decidim
           @registration = registration
           @organization = @meeting.organization
           @locator = Decidim::ResourceLocatorPresenter.new(@meeting)
+          @registration_code_enabled = meeting.component.settings.registration_code_enabled
           @qr_filename = "qr-#{@registration.code.parameterize}.png"
 
           add_calendar_attachment
-          add_qr_code_attachment
+          add_qr_code_attachment if @registration_code_enabled
 
           subject = I18n.t("confirmation.subject", scope: "decidim.meetings.mailer.registration_mailer")
           mail(to: user.email, subject:)
