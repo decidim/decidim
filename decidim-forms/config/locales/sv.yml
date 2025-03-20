@@ -34,7 +34,6 @@ sv:
         questionnaires:
           actions:
             back: Tillbaka till frågor
-            show: Visa svar
           answer_option:
             answer_option: Svarsalternativ
             free_text: Fritext

@@ -171,7 +171,6 @@ sk:
           send_to_technical_validation: "% {USER_NAME} zaslala% {resource_name} iniciatívu k technickému overenie"
           update: "% {USER_NAME} aktualizoval iniciatívu% {resource_name}"
       admin_states:
-        created: Vytvorené
         discarded: Odstránená
       application_helper:
         filter_state_values:
@@ -187,27 +186,17 @@ sk:
           name: Významné iniciatívy
       create_initiative:
         fill_data:
-          back: Späť
           continue: Pokračovať
-          more_information: "(Viac informácií)"
           select_scope: Zvoľte rozsah
         finish:
           back: Späť
-          back_to_initiatives: Späť na iniciatívy
-          go_to_my_initiatives: Ísť na mojej iniciatívy
-          more_information: "(Viac informácií)"
         previous_form:
           back: Späť
-          continue: Pokračovať
-        promotal_committee:
-          more_information: "(Viac informácií)"
         select_initiative_type:
           back: Späť
           choose_html: Chcem vytvoriť <strong>%{title} </strong>
           more_information: (Viac informácií)
           select: Chcem túto iniciatívu podporiť
-        share_committee_link:
-          invite_to_committee_help: Odkaz na pozvanie ľudí, ktorí budú súčasťou podporovaného výboru
       events:
         create_initiative_event:
           email_intro: "% {AUTHOR_NAME}% {author_nickname}, ktorého sledujete, vytvoril novú iniciatívu, skontroloval ju a prispel:"
@@ -315,8 +304,6 @@ sk:
     decidim:
       initiative_creation_header:
         fill_data: Vytvoriť
-        finish: Dokončiť
-        promotal_committee: Výbor predkladateľov
         select_initiative_type: Vybrať
       initiative_signature_creation_header:
         fill_personal_data: Dokončiť svoje údaje
