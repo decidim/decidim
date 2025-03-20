@@ -115,7 +115,6 @@ tr:
         new:
           back: Geri
           create: Oluştur
-          title: Yeni tartışma
         orders:
           commented: En çok yorum yapılan
           label: Tartışmaların sıralama ölçütü
