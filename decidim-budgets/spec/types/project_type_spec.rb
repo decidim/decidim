@@ -71,7 +71,7 @@ module Decidim
         context "when show_votes is false" do
           let(:component) { create(:budgets_component) }
 
-          it "returns all the required fields" do
+          it "does not return all the required fields" do
             expect(response["confirmedVotes"]).to be_nil
           end
         end
