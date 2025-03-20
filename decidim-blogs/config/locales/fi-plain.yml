@@ -69,11 +69,15 @@ fi-pl:
             body: Leipäteksti
             official_blog_post: Virallinen artikkeli
             published_at: Julkaisuaika
+            taxonomies: Luokittelut
             title: Otsikko
       posts:
         edit:
+          add_attachments: Lisää liitteitä
+          attachment_legend: Lisää asiakirja tai kuva
           back: Takaisin artikkeliin
           button: Päivitä
+          edit_attachments: Muokkaa liitteitä
           title: Muokkaa artikkelia
         form:
           author_id: Laatija
@@ -105,9 +109,14 @@ fi-pl:
         settings:
           global:
             announcement: Ilmoitus
+            attachments_allowed: Salli liitteet
             comments_enabled: Kommentointi käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             creation_enabled_for_participants: Osallistujat voivat luoda artikkeleita
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
+            taxonomy_filters: Valitse suodattimet komponentille
+            taxonomy_filters_add: Lisää suodatin
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
@@ -133,7 +142,6 @@ fi-pl:
           id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
-          user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
         posts:
           author: Tietoja laatijasta
           body: Artikkelin tekstisisältö

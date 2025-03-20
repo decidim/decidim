@@ -136,9 +136,11 @@ All the attributes of a workflow are optional except the registered name with wh
 
 Signature workflows can be defined as ephemeral, in which case users can sign initiatives without prior registration. For a workflow of this type to work correctly, an authorization handler form must be defined in `authorization_handler_form` and authorizations saving must not be disabled using the `save_authorizations` setting, in order to ensure that user verifications are saved based on the personal data they provide.
 
-To migrate old signature configurations review the One time actions section
+To migrate old signature configurations review the One time actions section.
 
-For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`
+In the process to extract the old initiatives vote form to a base handler a new secret has been added to extract the key used to encrypt the user metadata in the vote. This secret is available in the application calling `Decidim::Initiatives.signature_handler_encryption_secret` and is used in the base class `Decidim::Initiatives::SignatureHandler`.
+
+For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`.
 
 ### 2.4. [[TITLE OF THE ACTION]]
 
@@ -164,7 +166,23 @@ to
 
 You can read more about this change on PR [#14180](https://github.com/decidim/decidim/pull/14180).
 
-### 3.2. Convert nicknames to lowercase
+### 3.2. Change of Valuator for Evaluator
+
+We have updated the terminology of Valuator at a code base level throughout the platform. The role of Valuator is now Evaluator. With this change also affects strings, i18n translations and so on.
+
+Implementors must run the following 3 tasks:
+
+```bash
+./bin/rails decidim:upgrade:decidim_update_valuators
+./bin/rails decidim:upgrade:decidim_action_log_valuation_assignment
+./bin/rails decidim:upgrade:decidim_paper_trail_valuation_assignment
+```
+
+These tasks migrate the old data to the new names.
+
+More information about this change can be found on PR [#13684](https://github.com/decidim/decidim/pull/13684).
+
+### 3.3. Convert nicknames to lowercase
 
 As of [#14272](https://github.com/decidim/decidim/pull/14272) we are migrating all the nicknames to lowercase fix performance issues which affects large databases having many participants.
 
@@ -176,7 +194,7 @@ bin/rails decidim:upgrade:fix_nickname_casing
 
 You can read more about this change on PR [#14272](https://github.com/decidim/decidim/pull/14272).
 
-### 3.3. Migrate signature configuration of initiatives types
+### 3.4. Migrate signature configuration of initiatives types
 
 If there is any type of initiative with online signature enabled, you will have to reproduce the configuration by defining signature workflows. For direct signing is not necessary to define one or define an empty workflow.
 
@@ -207,7 +225,7 @@ Register a workflow for each different signature configuration and select them i
 
 You can read more about this change on PR [#13729](https://github.com/decidim/decidim/pull/13729).
 
-### 3.4. [[TITLE OF THE ACTION]]
+### 3.5. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

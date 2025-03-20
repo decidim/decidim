@@ -32,7 +32,6 @@ bg:
         questionnaires:
           actions:
             back: Назад към въпросите
-            show: Показване на отговорите
           answer_option:
             answer_option: Възможност за отговор
             free_text: Свободен текст

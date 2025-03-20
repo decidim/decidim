@@ -15,7 +15,5 @@ ga:
           form:
             save: Sábháil
         questionnaire_templates:
-          choose:
-            skip_template: Scipeáil
           edit:
             edit: Eagar

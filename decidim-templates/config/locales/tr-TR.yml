@@ -41,11 +41,8 @@ tr:
             proposal_state_id: İçsel durum
         questionnaire_templates:
           choose:
-            create_from_template: Şablondan Oluştur
-            description: Yeni bir anket oluşturmak üzeresiniz. Önceden tanımlanmış bir şablon seçebilir ve daha sonra değiştirebilirsiniz.
             label: Şablon seç
             placeholder: Şablon seç
-            skip_template: Atla
           edit:
             edit: Düzenle
             questionnaire: Anket

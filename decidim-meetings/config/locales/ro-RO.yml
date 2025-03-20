@@ -324,6 +324,7 @@ ro:
           form:
             available_slots_help: Lăsați la 0 dacă aveți sloturi nelimitate disponibile.
             invites: Invitații
+            manage_questions: Întrebări
             recommendation_message: Din motive de confidenţialitate îți recomandăm să şterge acest formular atunci când nu mai ai nevoie de el. Acest lucru se întâmplă în mod automat la 3 luni după încheierea ședinței.
             registration_email_help: Acest text va apărea în mijlocul e-mailului de confirmare a înregistrării. Imediat după codul de înregistrare.
             registration_form: Formular de înregistrare
