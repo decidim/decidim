@@ -77,7 +77,6 @@ sk:
         new:
           back: Späť
           create: Vytvoriť
-          title: Nová debata
       models:
         debate:
           fields:
