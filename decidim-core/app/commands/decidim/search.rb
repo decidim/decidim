@@ -37,6 +37,12 @@ module Decidim
                     klass.order_by_id_list(result_ids.take(HIGHLIGHTED_RESULTS_COUNT))
                   end
 
+        uncommentable_resources = uncommentable_resources(results) if results.present?
+        if uncommentable_resources.present?
+          results -= uncommentable_resources
+          results_count -= uncommentable_resources.count
+        end
+
         results_by_type.update(class_name => {
                                  count: results_count,
                                  results:
@@ -88,6 +94,14 @@ module Decidim
       query = query.order("datetime DESC")
       query = query.global_search(I18n.transliterate(term)) if term.present?
       query
+    end
+
+    def uncommentable_resources(results)
+      results.where(id: results.select { |obj| related_uncommentable_resources?(obj) }.map(&:id))
+    end
+
+    def related_uncommentable_resources?(object)
+      object.respond_to?(:commentable) && !object.commentable.commentable?
     end
   end
 end
