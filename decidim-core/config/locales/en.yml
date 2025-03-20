@@ -1506,16 +1506,17 @@ en:
           <p>To protect your privacy, this account has been scheduled for automatic deletion in <strong>%{days} days</strong>.</p>
           <p>If you wish to keep your %{organization_name} account, simply %{login_url} before this time, and your account will be preserved.<p>
         greetings_html: |
-          Kind regards,
+          Kind regards,<br>
           %{organization_name}
-        hello: Dear <strong>%{username}</strong>,
+        hello_html: |
+          Dear <strong>%{username}</strong>,
         log_in: log in
         never_logged_in: never logged in
         subject: Inactive account warning
       removal_notification:
         body: Your %{organization_name} account has been deleted due to inactivity.
         greetings_html: |
-          Kind regards,
+          Kind regards,<br>
           %{organization_name}
         hello: Dear %{username},
         subject: Inactive account deleted
