@@ -17,14 +17,13 @@ describe "Decidim::Api::QueryType" do
   let(:conference_data) do
     {
       "attachments" => [],
-      "followsCount" => 3,
-      "url" => Decidim::EngineRouter.main_proxy(conference).conference_url(conference),
       "availableSlots" => conference.available_slots,
       "categories" => [],
       "components" => [],
       "createdAt" => conference.created_at.to_time.iso8601,
       "description" => { "translation" => conference.description[locale] },
       "endDate" => conference.end_date.to_s,
+      "followsCount" => 3,
       "hashtag" => conference.hashtag,
       "id" => conference.id.to_s,
       "location" => conference.location,
@@ -46,6 +45,7 @@ describe "Decidim::Api::QueryType" do
       "title" => { "translation" => conference.title[locale] },
       "type" => conference.class.name,
       "updatedAt" => conference.updated_at.to_time.iso8601,
+      "url" => Decidim::EngineRouter.main_proxy(conference).conference_url(conference),
       "weight" => conference.weight
     }
   end
@@ -56,8 +56,6 @@ describe "Decidim::Api::QueryType" do
         attachments {
           thumbnail
         }
-        followsCount
-        url
         availableSlots
         bannerImage
         categories {
@@ -71,6 +69,7 @@ describe "Decidim::Api::QueryType" do
           translation(locale:"#{locale}")
         }
         endDate
+        followsCount
         hashtag
         heroImage
         id
@@ -120,6 +119,7 @@ describe "Decidim::Api::QueryType" do
         }
         type
         updatedAt
+        url
         weight
       }
     )
@@ -167,8 +167,6 @@ describe "Decidim::Api::QueryType" do
         attachments {
           thumbnail
         }
-        followsCount
-        url
         availableSlots
         bannerImage
         categories {
@@ -182,6 +180,7 @@ describe "Decidim::Api::QueryType" do
           translation(locale:"#{locale}")
         }
         endDate
+        followsCount
         hashtag
         heroImage
         id
@@ -231,6 +230,7 @@ describe "Decidim::Api::QueryType" do
         }
         type
         updatedAt
+        url
         weight
       }
     )
