@@ -12,6 +12,16 @@ fr:
         one: Réponse
         other: Réponses
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: enquêtes
+      menu:
+        surveys_menu:
+          answers: Réponses
+          main: Principal
+          questions: Questions
+          settings: Paramètres
     components:
       surveys:
         actions:
@@ -44,16 +54,18 @@ fr:
       answers_count: Réponses
     surveys:
       actions:
+        answers_alert: La suppression des réponses lors de la publication est active pour cette enquête. Il y a actuellement des réponses %{answers_count} qui seront supprimées si vous continuez.
         confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer cela ?
         destroy: Détruire
         edit: Modifier
-        manage_questions: Gérer les questions
+        manage_questions: Questions
         new_survey: Nouvelle enquête
         preview: Aperçu
         title: Actions
       admin:
         answers:
           index:
+            no_answers: Il n'y a pas encore de réponses
             title: "%{total} réponses totales"
           show:
             title: 'Réponse #%{number}'
@@ -72,6 +84,14 @@ fr:
               not_published: Non publié
               published: Publié
             title: Publier les réponses
+        questions:
+          surveys:
+            edit:
+              title: Questions
+        settings:
+          surveys:
+            edit:
+              title: Paramètres
         surveys:
           create:
             invalid: Un problème est survenu lors de la création de l’enquête.
@@ -79,9 +99,11 @@ fr:
           destroy:
             success: Enquête supprimée avec succès.
           edit:
-            title: Modifier l’enquête
+            title: Principal
           index:
             title: Enquêtes
+          new:
+            title: Principal
           publish:
             invalid: Une erreur s'est produite lors de la publication de cette enquête.
             success: Enquête publiée avec succès.

@@ -201,8 +201,8 @@ en:
           roles:
             admin: Administrator
             collaborator: Collaborator
+            evaluator: Evaluator
             moderator: Moderator
-            valuator: Valuator
       taxonomy_filters:
         space_filter_for:
           assemblies: All assemblies

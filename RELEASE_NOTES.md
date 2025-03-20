@@ -115,7 +115,23 @@ to
 
 You can read more about this change on PR [#14180](https://github.com/decidim/decidim/pull/14180).
 
-### 3.2. Convert nicknames to lowercase
+### 3.2. Change of Valuator for Evaluator
+
+We have updated the terminology of Valuator at a code base level throughout the platform. The role of Valuator is now Evaluator. With this change also affects strings, i18n translations and so on.
+
+Implementors must run the following 3 tasks:
+
+```bash
+./bin/rails decidim:upgrade:decidim_update_valuators
+./bin/rails decidim:upgrade:decidim_action_log_valuation_assignment
+./bin/rails decidim:upgrade:decidim_paper_trail_valuation_assignment
+```
+
+These tasks migrate the old data to the new names.
+
+More information about this change can be found on PR [#13684](https://github.com/decidim/decidim/pull/13684).
+
+### 3.3. Convert nicknames to lowercase
 
 As of [#14272](https://github.com/decidim/decidim/pull/14272) we are migrating all the nicknames to lowercase fix performance issues which affects large databases having many participants.
 
@@ -127,7 +143,7 @@ bin/rails decidim:upgrade:fix_nickname_casing
 
 You can read more about this change on PR [#14272](https://github.com/decidim/decidim/pull/14272).
 
-### 3.2. [[TITLE OF THE ACTION]]
+### 3.4. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

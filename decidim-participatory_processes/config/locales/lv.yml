@@ -116,7 +116,6 @@ lv:
             admin: Administrators
             collaborator: Līdzizstrādātājs
             moderator: Moderators
-            valuator: Vērtētājs
         user:
           fields:
             invitation_accepted_at: Ielūgums pieņemts

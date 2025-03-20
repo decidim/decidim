@@ -165,7 +165,6 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
-            valuator: Avaliador
       titles:
         assemblies: Reuniões
         assemblies_types: Tipos de reuniões
