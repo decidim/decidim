@@ -26,12 +26,12 @@ module Decidim
       end
 
       it "includes the account creation date" do
-        expect(mail.body.encoded).to include(I18n.l(user.created_at, format: :default))
+        expect(mail.body.encoded).to include(user.created_at.strftime("%d %B %Y"))
       end
 
       it "includes the last connection date or 'never logged in'" do
         if user.current_sign_in_at
-          expect(mail.body.encoded).to include(user.current_sign_in_at.strftime("%Y-%m-%d"))
+          expect(mail.body.encoded).to include(user.current_sign_in_at.strftime("%d %B %Y"))
         else
           expect(mail.body.encoded).to include("never logged in")
         end
