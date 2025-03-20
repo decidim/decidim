@@ -15,8 +15,6 @@ module Decidim
 
           return permission_action if initiative && !initiative.is_a?(Decidim::Initiative)
 
-          allow! if user&.admin_terms_accepted? && user_has_any_role?(user, initiative, broad_check: true) && (permission_action.subject == :editor_image)
-
           user_can_read_participatory_space?
 
           if !user.admin? && initiative&.has_authorship?(user)
