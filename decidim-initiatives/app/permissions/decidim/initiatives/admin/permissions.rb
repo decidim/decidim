@@ -4,8 +4,6 @@ module Decidim
   module Initiatives
     module Admin
       class Permissions < Decidim::DefaultPermissions
-        include Decidim::UserRoleChecker
-
         def permissions
           # The public part needs to be implemented yet
           return permission_action if permission_action.scope != :admin
