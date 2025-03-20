@@ -62,7 +62,7 @@ module Decidim
             final = super(value)
             return unless final # Do not set the `nil` values for the parent hash
 
-            final = value_type.serialize(final) if value_type
+            final = value_type.serialize(final) if value_type && !final.include?('/rails/active_storage/')
 
             public_send("#{name}=", field.merge(locale => final))
           end
