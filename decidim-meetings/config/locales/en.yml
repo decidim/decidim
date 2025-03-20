@@ -166,7 +166,7 @@ en:
             enable_pads_creation: Enable pads creation
             maps_enabled: Maps enabled
             no_taxonomy_filters_found: No taxonomy filters found.
-            registration_code_enabled: Registration code enabled
+            registration_code_enabled: Registration code and QR enabled
             resources_permissions_enabled: Actions permissions can be set for each meeting
             taxonomy_filters: Select filters for the component
             taxonomy_filters_add: Add filter
