@@ -83,7 +83,7 @@ localisation:
 dependsOn:
   open:
     - name: PostgreSQL
-      version: "14.5"
+      version: "16.5"
 
 usedBy:
   - Accio Escolta de Catalunya
