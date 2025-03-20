@@ -630,6 +630,8 @@ de:
           index:
             actions: Aktionen
             apply_answer_template: Antwortvorlage anwenden
+            assign_to_evaluator: Zuweisen zur Bewertung
+            assign_to_evaluator_button: Zuweisen
             cancel: Abbrechen
             change_taxonomies: Klassifizierungen ändern
             merge: Zu einem neuen zusammenführen
@@ -638,11 +640,14 @@ de:
             publish: Veröffentlichen
             publish_answers: Antworten veröffentlichen
             select_component: Komponente auswählen
+            select_evaluators: Einen oder mehrere bewertende Personen auswählen
             selected: ausgewählt
             split: Vorschläge aufteilen
             split_button: Aufteilen
             statuses: Status
             title: Vorschläge
+            unassign_from_evaluator: Zuweisung zur bewertenden Person aufheben
+            unassign_from_evaluator_button:
             update: Aktualisieren
           manage_trash:
             title: Gelöschte Vorschläge
@@ -654,11 +659,13 @@ de:
             select_a_proposal: Bitte wählen Sie einen Vorschlag.
           show:
             amendments_count: Anzahl der Ergänzungen
+            assigned_evaluators: Zugewiesene Personen
             body: Haupttext
             comments_count: Anzahl der Kommentare
             documents: Unterlagen
             endorsements_count: Anzahl der Befürwortungen
             endorsers: Befürworter
+            evaluators: Bewertende Personen
             link: Vorschlag anzeigen
             n_more_endorsers:
               one: und 1 mehr
