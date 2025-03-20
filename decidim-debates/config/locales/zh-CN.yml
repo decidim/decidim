@@ -105,7 +105,6 @@ zh-CN:
         new:
           back: 后退
           create: 创建
-          title: 新的辩论
         orders:
           commented: 最多评论
           label: 排序由
