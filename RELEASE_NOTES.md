@@ -132,9 +132,11 @@ end
 
 All the attributes of a workflow are optional except the registered name with which the workflow is registered. A flow without attributes uses default values that generate a direct signature process without steps.
 
-To migrate old signature configurations review the One time actions section
+To migrate old signature configurations review the One time actions section.
 
-For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`
+In the process to extract the old initiatives vote form to a base handler a new secret has been added to extract the key used to encrypt the user metadata in the vote. This secret is available in the application calling `Decidim::Initiatives.signature_handler_encryption_secret` and is used in the base class `Decidim::Initiatives::SignatureHandler`.
+
+For more information about the definition of a signature workflow read the documentation of `Decidim::Initiatives::SignatureWorkflowManifest`.
 
 ### 2.4. [[TITLE OF THE ACTION]]
 
