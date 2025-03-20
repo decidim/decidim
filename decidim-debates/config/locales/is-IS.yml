@@ -56,7 +56,6 @@ is:
         new:
           back: Til baka
           create: Búa til
-          title: Ný umræða
       models:
         debate:
           fields:
