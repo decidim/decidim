@@ -33,7 +33,7 @@ module Decidim
 
         apply_global_moderations_permission_for_admin!
 
-        allow! if permission_action.subject == :editor_image
+        can_use_image_editor?
 
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
@@ -286,6 +286,10 @@ module Decidim
 
       def component
         context.fetch(:component, nil)
+      end
+
+      def can_use_image_editor?
+        allow! if permission_action.subject == :editor_image
       end
     end
   end
