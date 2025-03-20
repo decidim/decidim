@@ -1508,8 +1508,7 @@ en:
         greetings_html: |
           Kind regards,<br>
           %{organization_name}
-        hello_html: |
-          Dear <strong>%{username}</strong>,
+        hello_html: Dear <strong>%{username}</strong>,
         log_in: log in
         never_logged_in: never logged in
         subject: Inactive account warning
