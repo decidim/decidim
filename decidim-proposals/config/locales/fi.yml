@@ -959,7 +959,7 @@ fi:
           text_banner: Katselet ehdotuksia, jotka on peruttu niiden laatijoiden toimesta. %{go_back_link}.
         new:
           send: Jatka
-          title: Luo ehdotuksesi
+          title: Luo uusi ehdotus
         orders:
           label: 'Järjestä ehdotukset:'
           most_commented: Eniten kommentoidut
