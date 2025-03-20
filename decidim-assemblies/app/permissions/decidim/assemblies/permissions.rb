@@ -307,7 +307,7 @@ module Decidim
         end
       end
 
-      # Checks if the user can upload images on the editor
+      # Checks if the assigned admins can upload images on the editor
       def user_can_upload_images_in_assembly?
         allow! if user&.admin_terms_accepted? && user_has_any_role?(user, assembly, broad_check: true) && (permission_action.subject == :editor_image)
       end
