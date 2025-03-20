@@ -143,7 +143,7 @@ describe "Initiative signing" do
       fill_in :dummy_signature_handler_name_and_surname, with: confirmed_user.name
       select "Identification number", from: :dummy_signature_handler_document_type
       fill_in :dummy_signature_handler_document_number, with: "012345678X"
-      fill_date 30.years.ago
+      fill_signature_date 30.years.ago
       fill_in :dummy_signature_handler_postal_code, with: "01234"
       select translated_attribute(initiative.scope.name), from: :dummy_signature_handler_scope_id
 
