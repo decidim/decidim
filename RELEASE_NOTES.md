@@ -91,7 +91,7 @@ bin/rails decidim:upgrade:user_groups:remove_groups_notifications
 
 You can read more about this change on PR [#14130](https://github.com/decidim/decidim/pull/14130).
 
-### 2.3. Automatic deletion of inactive participant accounts
+### 2.3. Automatic deletion of inactive accounts
 
 To reduce database clutter and automatically manage inactive user accounts, we have introduced a scheduled task to delete accounts that have been inactive for a configurable period (default: 365 days).
 
@@ -112,6 +112,18 @@ By default, the inactivity period is set to 365 days, but it can be customized b
 
 ```bash
 0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_inactive_participants[500]
+```
+
+If you want to enable this, make sure your `sidekiq.yml` includes the `delete_inactive_participants` queue. If it is missing, patch your `config/sidekiq.yml`:
+
+```yaml
+:concurrency: <%= ENV.fetch("SIDEKIQ_CONCURRENCY", 5) %>
+:queues:
+  - [default, 2]
+  - [delete_inactive_participants, 2]
+  - [mailers, 4]
+  - [reminders, 2]
+  - [newsletter, 2]
 ```
 
 You can read more about this change on PR [#13816](https://github.com/decidim/decidim/issues/13816).

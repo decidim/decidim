@@ -1502,13 +1502,13 @@ en:
     participants_account_mailer:
       inactivity_notification:
         body_html: |
-          Our records indicate you created a %{organization_name} account on %{date_account_creation} and have not been active since %{date_last_connection}.
-          To protect your privacy, this account has been scheduled for automatic deletion in %{days} days.
+          <p>Our records indicate you created a %{organization_name} account on <strong>%{date_account_creation}</strong> and have not been active since <strong>%{date_last_connection}</strong>.</p>
+          <p>To protect your privacy, this account has been scheduled for automatic deletion in <strong>%{days} days</strong>.</p>
           If you wish to keep your %{organization_name} account, simply %{login_url} before this time, and your account will be preserved.
         greetings_html: |
           Kind regards,
           %{organization_name}
-        hello: Dear %{username},
+        hello: Dear <strong>%{username}</strong>,
         log_in: log in
         never_logged_in: never logged in
         subject: Inactive account warning
