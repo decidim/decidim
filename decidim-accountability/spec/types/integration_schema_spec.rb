@@ -10,9 +10,6 @@ describe "Decidim::Api::QueryType" do
       fragment fooComponent on Accountability {
         result(id: #{result.id}) {
           acceptsNewComments
-          taxonomies {
-            id
-          }
           children {
             id
           }
@@ -41,6 +38,7 @@ describe "Decidim::Api::QueryType" do
             latitude
             longitude
           }
+          proposals { id }
           status {
             id
             createdAt
@@ -56,6 +54,9 @@ describe "Decidim::Api::QueryType" do
               id
             }
             updatedAt
+          }
+          taxonomies {
+            id
           }
           timelineEntries {
             id
@@ -78,10 +79,9 @@ describe "Decidim::Api::QueryType" do
           totalCommentsCount
           type
           updatedAt
+          url
           userAllowedToComment
           weight
-          url
-          proposals { id }
         }
       }
     )
@@ -91,7 +91,6 @@ describe "Decidim::Api::QueryType" do
   let(:accountability_single_result) do
     {
       "acceptsNewComments" => result.accepts_new_comments?,
-      "taxonomies" => [{ "id" => result.taxonomies.first.id.to_s }],
       "children" => [],
       "childrenCount" => result.children.size,
       "comments" => [],
@@ -112,6 +111,7 @@ describe "Decidim::Api::QueryType" do
         "latitude" => result.latitude,
         "longitude" => result.longitude
       },
+      "proposals" => proposals.sort_by(&:id).map { |proposal| { "id" => proposal.id.to_s } },
       "status" => {
         "createdAt" => result.status.created_at.to_time.iso8601,
         "description" => { "translation" => result.status.description[locale] },
@@ -122,6 +122,7 @@ describe "Decidim::Api::QueryType" do
         "results" => [{ "id" => result.id.to_s }],
         "updatedAt" => result.status.updated_at.to_time.iso8601
       },
+      "taxonomies" => [{ "id" => result.taxonomies.first.id.to_s }],
       "timelineEntries" => [
         {
           "createdAt" => result.timeline_entries.first.created_at.to_time.iso8601,
@@ -136,11 +137,10 @@ describe "Decidim::Api::QueryType" do
       "title" => { "translation" => result.title[locale] },
       "totalCommentsCount" => result.comments_count,
       "type" => "Decidim::Accountability::Result",
+      "url" => Decidim::ResourceLocatorPresenter.new(result).url,
       "updatedAt" => result.updated_at.to_time.iso8601,
       "userAllowedToComment" => result.user_allowed_to_comment?(current_user),
-      "weight" => result.weight.to_i,
-      "url" => Decidim::ResourceLocatorPresenter.new(result).url,
-      "proposals" => proposals.map { |proposal| { "id" => proposal.id.to_s } }
+      "weight" => result.weight.to_i
     }
   end
   let(:accountability_data) do
@@ -161,7 +161,6 @@ describe "Decidim::Api::QueryType" do
   let!(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
   let!(:result) { create(:result, component: current_component, taxonomies:) }
   let!(:timeline_entry) { create(:timeline_entry, result:) }
-
   let!(:proposal_component) { create(:proposal_component, participatory_space: result.participatory_space) }
   let(:proposals) { create_list(:proposal, 2, :published, component: proposal_component) }
 
@@ -197,9 +196,6 @@ describe "Decidim::Api::QueryType" do
           edges{
             node{
               acceptsNewComments
-              taxonomies {
-                id
-              }
               children {
                 id
               }
@@ -228,6 +224,7 @@ describe "Decidim::Api::QueryType" do
                 latitude
                 longitude
               }
+              proposals { id }
               status {
                 id
                 createdAt
@@ -243,6 +240,9 @@ describe "Decidim::Api::QueryType" do
                   id
                 }
                 updatedAt
+              }
+              taxonomies {
+                id
               }
               timelineEntries {
                 id
@@ -265,10 +265,9 @@ describe "Decidim::Api::QueryType" do
               totalCommentsCount
               type
               updatedAt
+              url
               userAllowedToComment
               weight
-              url
-              proposals { id }
             }
           }
         }
