@@ -35,12 +35,19 @@ describe "Decidim::Api::QueryType" do
             type
             updatedAt
             userAllowedToComment
+            followsCount
+            address
+            coordinates { latitude longitude }
+            selectedAt
+            confirmedVotes
+            url
           }
           title {
             translation(locale:"#{locale}")
           }
           total_budget
           updatedAt
+          url
           versions {
             id
           }
@@ -54,7 +61,7 @@ describe "Decidim::Api::QueryType" do
   let(:component_type) { "Budgets" }
   let!(:current_component) { create(:budgets_component, :published, participatory_space: participatory_process) }
   let!(:budget) { create(:budget, component: current_component) }
-  let!(:projects) { create_list(:project, 2, budget:, taxonomies:) }
+  let!(:projects) { create_list(:project, 2, :selected, budget:, taxonomies:) }
 
   let(:budget_single_result) do
     {
@@ -80,12 +87,19 @@ describe "Decidim::Api::QueryType" do
           "totalCommentsCount" => project.comments_count,
           "type" => "Decidim::Budgets::Project",
           "updatedAt" => project.updated_at.to_time.iso8601,
-          "userAllowedToComment" => project.user_allowed_to_comment?(current_user)
+          "userAllowedToComment" => project.user_allowed_to_comment?(current_user),
+          "followsCount" => project.follows_count,
+          "address" => project.address,
+          "coordinates" => { "latitude" => project.latitude, "longitude" => project.longitude },
+          "selectedAt" => project.selected_at.to_time.iso8601,
+          "confirmedVotes" => nil,
+          "url" => project.resource_locator.url
         }
       end,
       "title" => { "translation" => budget.title[locale] },
       "total_budget" => budget.total_budget,
       "updatedAt" => budget.updated_at.to_time.iso8601,
+      "url" => Decidim::EngineRouter.main_proxy(budget.component).budget_url(budget),
       "versions" => [],
       "weight" => budget.weight,
       "versionsCount" => 0
@@ -138,6 +152,7 @@ describe "Decidim::Api::QueryType" do
         "title" => { "translation" => budget.title[locale] },
         "total_budget" => budget.total_budget,
         "updatedAt" => budget.updated_at.to_time.iso8601,
+        "url" => Decidim::EngineRouter.main_proxy(budget.component).budget_url(budget),
         "versions" => [],
         "weight" => budget.weight,
         "versionsCount" => 0
@@ -163,6 +178,7 @@ describe "Decidim::Api::QueryType" do
               }
               total_budget
               updatedAt
+              url
               versions {
                 id
               }
@@ -221,12 +237,19 @@ describe "Decidim::Api::QueryType" do
             "totalCommentsCount" => project.comments_count,
             "type" => "Decidim::Budgets::Project",
             "updatedAt" => project.updated_at.to_time.iso8601,
-            "userAllowedToComment" => project.user_allowed_to_comment?(current_user)
+            "userAllowedToComment" => project.user_allowed_to_comment?(current_user),
+            "followsCount" => project.follows_count,
+            "address" => project.address,
+            "coordinates" => { "latitude" => project.latitude, "longitude" => project.longitude },
+            "selectedAt" => project.selected_at.to_time.iso8601,
+            "confirmedVotes" => nil,
+            "url" => project.resource_locator.url
           }
         end,
         "title" => { "translation" => budget.title[locale] },
         "total_budget" => budget.total_budget,
         "updatedAt" => budget.updated_at.to_time.iso8601,
+        "url" => Decidim::EngineRouter.main_proxy(budget.component).budget_url(budget),
         "versions" => [],
         "weight" => budget.weight,
         "versionsCount" => 0
