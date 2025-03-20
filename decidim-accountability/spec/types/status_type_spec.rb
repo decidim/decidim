@@ -10,6 +10,11 @@ module Decidim
 
       let(:model) { create(:status) }
 
+      include_examples "traceable interface" do
+        let!(:field) { :name }
+      end
+      include_examples "timestamps interface"
+
       describe "id" do
         let(:query) { "{ id }" }
 
@@ -39,22 +44,6 @@ module Decidim
 
         it "returns the progress field" do
           expect(response["progress"]).to eq(model.progress)
-        end
-      end
-
-      describe "createdAt" do
-        let(:query) { "{ createdAt }" }
-
-        it "returns the createdAt" do
-          expect(response["createdAt"]).to eq(model.created_at.to_time.iso8601)
-        end
-      end
-
-      describe "updatedAt" do
-        let(:query) { "{ updatedAt }" }
-
-        it "returns the updatedAt" do
-          expect(response["updatedAt"]).to eq(model.updated_at.to_time.iso8601)
         end
       end
 
