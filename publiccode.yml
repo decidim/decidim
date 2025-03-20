@@ -41,7 +41,7 @@ description:
       - "Result: Ensure accountability in your participatory processes by converting proposals into results and tracking their implementation with the level of detail you prefer."
       - "Post: Don’t forget to blog about your activities and share your learnings."
     documentation: "https://docs.decidim.org"
-    apiDocumentation: "https://nightly.decidim.org/api"
+    apiDocumentation: "https://meta.decidim.org/api"
     awards:
       - Sharing & Reuse Awards by European Commission (2019)
       - Innovation in Politics Awards (2021)
