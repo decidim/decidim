@@ -8,7 +8,7 @@ module Decidim
       subject { described_class.new(version).diff }
 
       let(:proposal) { create(:proposal) }
-      let(:version) { PaperTrail::Version.create(item: proposal, event: "update", object_changes: { title: [title, other_title] }) }
+      let(:version) { PaperTrail::Version.create(item: proposal, event: "update", object_changes: YAML.dump({ title: [title, other_title] })) }
 
       context "with title as string" do
         let(:title) { generate(:title) }
