@@ -154,7 +154,7 @@ fi:
         new:
           back: Takaisin
           create: Luo
-          title: Uusi keskustelu
+          title: Luo uusi keskustelu
         orders:
           commented: Eniten kommentoidut
           label: Järjestä keskustelut
