@@ -19,8 +19,6 @@ describe "Decidim::Api::QueryType" do
       "attachmentCollections" => [],
       "categories" => [],
       "children" => [],
-      "url" => Decidim::EngineRouter.main_proxy(assembly).assembly_url(assembly),
-      "followsCount" => 3,
       "childrenCount" => 0,
       "closingDate" => assembly.closing_date.to_date.to_s,
       "closingDateReason" => { "translation" => assembly.closing_date_reason[locale] },
@@ -34,6 +32,7 @@ describe "Decidim::Api::QueryType" do
       "developerGroup" => { "translation" => assembly.developer_group[locale] },
       "duration" => assembly.duration.to_s,
       "facebookHandler" => assembly.facebook_handler,
+      "followsCount" => 3,
       "githubHandler" => assembly.github_handler,
       "hashtag" => assembly.hashtag,
       "id" => assembly.id.to_s,
@@ -63,6 +62,7 @@ describe "Decidim::Api::QueryType" do
       "twitterHandler" => assembly.twitter_handler,
       "type" => assembly.class.name,
       "updatedAt" => assembly.updated_at.to_time.iso8601,
+      "url" => Decidim::EngineRouter.main_proxy(assembly).assembly_url(assembly),
       "youtubeHandler" => assembly.youtube_handler,
       "weight" => assembly.weight
     }
@@ -85,8 +85,6 @@ describe "Decidim::Api::QueryType" do
         children {
           id
         }
-        url
-        followsCount
         childrenCount
         closingDate
         closingDateReason {
@@ -112,6 +110,7 @@ describe "Decidim::Api::QueryType" do
         }
         duration
         facebookHandler
+        followsCount
         githubHandler
         hashtag
         heroImage
@@ -179,6 +178,7 @@ describe "Decidim::Api::QueryType" do
         twitterHandler
         type
         updatedAt
+        url
         weight
         youtubeHandler
       }
@@ -239,8 +239,6 @@ describe "Decidim::Api::QueryType" do
         children {
           id
         }
-        url
-        followsCount
         childrenCount
         closingDate
         closingDateReason {
@@ -266,6 +264,7 @@ describe "Decidim::Api::QueryType" do
         }
         duration
         facebookHandler
+        followsCount
         githubHandler
         hashtag
         heroImage
@@ -333,6 +332,7 @@ describe "Decidim::Api::QueryType" do
         twitterHandler
         type
         updatedAt
+        url
         weight
         youtubeHandler
       }
