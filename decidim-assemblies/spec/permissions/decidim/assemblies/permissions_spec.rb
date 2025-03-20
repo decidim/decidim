@@ -259,7 +259,7 @@ describe Decidim::Assemblies::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      valuator: true
+      evaluator: true
     )
   end
 
