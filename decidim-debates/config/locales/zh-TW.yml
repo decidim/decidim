@@ -113,7 +113,6 @@ zh-TW:
         new:
           back: 返回
           create: 建立
-          title: 新辯論
         orders:
           commented: 最多評論
           label: 依序排列辯論
