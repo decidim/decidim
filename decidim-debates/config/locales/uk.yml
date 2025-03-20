@@ -77,7 +77,6 @@ uk:
         new:
           back: Повернутись
           create: Започаткувати
-          title: Додати обговорення
       models:
         debate:
           fields:
