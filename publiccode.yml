@@ -87,6 +87,8 @@ dependsOn:
   open:
     - name: PostgreSQL
       version: "16.5"
+    - name: Redis
+      version: "7.4"
 
 usedBy:
   - Accio Escolta de Catalunya
