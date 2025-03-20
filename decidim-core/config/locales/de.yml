@@ -1305,6 +1305,7 @@ de:
         assigned_to_proposal: Ich möchte eine E-Mail erhalten, wenn mir jemand einen Vorschlag zur Bewertung zuweist
         direct_messages: Direktnachrichten von allen erhalten
         email_on_moderations: Ich möchte jedes Mal, wenn etwas oder jemand zur Moderation gemeldet wird, eine E-Mail erhalten.
+        evaluators: Bewertende Personen
         everything_followed: Alles was ich folge
         newsletter_notifications: Ich möchte Newsletter erhalten
         newsletters: Newsletter
@@ -1672,6 +1673,11 @@ de:
     user_conversations:
       index:
         time_ago: "Vor %{time}"
+    user_group_mailer:
+      notify_deprecation_to_member:
+        body_1: 'Wir möchten Sie gerne über ein wichtiges Update für folgende Gruppe, bei der Sie Mitglied sind, informieren: <strong>%{group_name}</strong>.'
+        body_2: Um die Benutzerfreundlichkeit zu steigern, wird die Funktion "Gruppen" nicht mehr weiterentwickelt. Das Profil der Gruppe wird nun in ein reguläres Profil umgewandelt.
+        greeting: Hallo %{name},
     user_report_mailer:
       notify:
         body_1: Benutzer %{user} wurde von %{token} gemeldet
