@@ -1504,7 +1504,7 @@ en:
         body_html: |
           <p>Our records indicate you created a %{organization_name} account on <strong>%{date_account_creation}</strong> and have not been active since <strong>%{date_last_connection}</strong>.</p>
           <p>To protect your privacy, this account has been scheduled for automatic deletion in <strong>%{days} days</strong>.</p>
-          If you wish to keep your %{organization_name} account, simply %{login_url} before this time, and your account will be preserved.
+          <p>If you wish to keep your %{organization_name} account, simply %{login_url} before this time, and your account will be preserved.<p>
         greetings_html: |
           Kind regards,
           %{organization_name}
