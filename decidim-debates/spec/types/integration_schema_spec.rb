@@ -13,29 +13,22 @@ describe "Decidim::Api::QueryType" do
           attachments {
             thumbnail
           }
-          endorsementsCount
-          closedAt
-          commentsEnabled
-          conclusions {
-            translation(locale:"#{locale}")
-          }
-          lastCommentAt
-          lastCommentBy { id }
           author {
             id
           }
-          taxonomies {
-            id
-          }
+          closedAt
           comments {
             id
           }
+          commentsEnabled
           commentsHaveAlignment
           commentsHaveVotes
+          conclusions { translation(locale:"#{locale}") }
           createdAt
           description {
             translation(locale: "#{locale}")
           }
+          endorsementsCount
           endTime
           followsCount
           hasComments
@@ -47,8 +40,13 @@ describe "Decidim::Api::QueryType" do
           instructions {
             translation(locale: "#{locale}")
           }
+          lastCommentAt
+          lastCommentBy { id }
           reference
           startTime
+          taxonomies {
+            id
+          }
           title {
             translation(locale: "#{locale}")
           }
@@ -82,19 +80,16 @@ describe "Decidim::Api::QueryType" do
     {
       "acceptsNewComments" => debate.accepts_new_comments?,
       "attachments" => [],
-      "endorsementsCount" => 5,
-      "closedAt" => debate.closed_at.to_time.iso8601,
-      "commentsEnabled" => true,
-      "conclusions" => { "translation" => translated(debate.conclusions) },
-      "lastCommentAt" => debate.last_comment_at.to_time.iso8601,
-      "lastCommentBy" => { "id" => last_comment_by.id.to_s },
       "author" => { "id" => debate.author.id.to_s },
-      "taxonomies" => [{ "id" => debate.taxonomies.first.id.to_s }],
+      "closedAt" => debate.closed_at.to_time.iso8601,
       "comments" => [],
+      "commentsEnabled" => true,
       "commentsHaveAlignment" => debate.comments_have_alignment?,
       "commentsHaveVotes" => debate.comments_have_votes?,
+      "conclusions" => { "translation" => translated(debate.conclusions) },
       "createdAt" => debate.created_at.to_time.iso8601,
       "description" => { "translation" => debate.description[locale] },
+      "endorsementsCount" => 5,
       "endTime" => debate.end_time,
       "followsCount" => 3,
       "hasComments" => debate.comment_threads.size.positive?,
@@ -102,8 +97,11 @@ describe "Decidim::Api::QueryType" do
       "image" => nil,
       "informationUpdates" => { "translation" => debate.information_updates[locale] },
       "instructions" => { "translation" => debate.instructions[locale] },
+      "lastCommentAt" => debate.last_comment_at.to_time.iso8601,
+      "lastCommentBy" => { "id" => last_comment_by.id.to_s },
       "reference" => debate.reference,
       "startTime" => debate.start_time,
+      "taxonomies" => [{ "id" => debate.taxonomies.first.id.to_s }],
       "title" => { "translation" => debate.title[locale] },
       "totalCommentsCount" => debate.comments_count,
       "type" => "Decidim::Debates::Debate",
@@ -160,27 +158,22 @@ describe "Decidim::Api::QueryType" do
               attachments {
                 thumbnail
               }
-              endorsementsCount
-              closedAt
-              commentsEnabled
-              conclusions { translation(locale:"#{locale}") }
-              lastCommentAt
-              lastCommentBy { id }
               author {
                 id
               }
-              taxonomies {
-                id
-              }
+              closedAt
               comments {
                 id
               }
+              commentsEnabled
               commentsHaveAlignment
               commentsHaveVotes
+              conclusions { translation(locale:"#{locale}") }
               createdAt
               description {
                 translation(locale: "#{locale}")
               }
+              endorsementsCount
               endTime
               followsCount
               hasComments
@@ -192,8 +185,13 @@ describe "Decidim::Api::QueryType" do
               instructions {
                 translation(locale: "#{locale}")
               }
+              lastCommentAt
+              lastCommentBy { id }
               reference
               startTime
+              taxonomies {
+                id
+              }
               title {
                 translation(locale: "#{locale}")
               }
