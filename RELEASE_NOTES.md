@@ -96,8 +96,9 @@ You can read more about this change on PR [#14130](https://github.com/decidim/de
 To reduce database clutter and automatically manage inactive user accounts, we have introduced a scheduled task to delete accounts that have been inactive for a configurable period (default: 365 days).
 
 Before deletion, the system will send two notification emails:
-- The first email is sent **30 days** before the scheduled deletion.
-- The second email is sent **7 days** before the deletion deadline.
+
+* The first email is sent **30 days** before the scheduled deletion.
+* The second email is sent **7 days** before the deletion deadline.
 
 Participants can prevent their account from being deleted by logging in before the deadline. A final email will be sent to inform the user once their account has been permanently deleted.
 
