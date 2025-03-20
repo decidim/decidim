@@ -959,7 +959,7 @@ es-MX:
           text_banner: Estás viendo la lista de propuestas retiradas por sus autoras. %{go_back_link}.
         new:
           send: Continuar
-          title: Crear tu propuesta
+          title: Crear una nueva propuesta
         orders:
           label: 'Ordenar propuestas por:'
           most_commented: Más comentadas
