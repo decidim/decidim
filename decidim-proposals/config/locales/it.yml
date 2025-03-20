@@ -536,7 +536,6 @@ it:
           see_all_withdrawn: Vedi tutte le proposte ritirate
         new:
           send: Continua
-          title: Crea la tua proposta
         orders:
           label: 'Ordina le proposte per:'
           most_commented: I più commentati
