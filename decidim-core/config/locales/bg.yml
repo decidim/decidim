@@ -85,7 +85,7 @@ bg:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Формат: дд/мм/гггг'
-      order: d-m-y
+      order: д-м-г
       separator: "/"
   datetime:
     distance_in_words:

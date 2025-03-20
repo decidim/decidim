@@ -87,7 +87,7 @@ pt-BR:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Formato: dd/mm/aaaa'
-      order: d-m-y
+      order: dia-mês-ano
       separator: "/"
   datetime:
     distance_in_words:
