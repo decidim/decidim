@@ -587,7 +587,7 @@ es-MX:
         new:
           back: Atrás
           create: Crear
-          title: Crea tu encuentro
+          title: Crear un nuevo encuentro
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
