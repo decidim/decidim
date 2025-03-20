@@ -115,7 +115,6 @@ el:
         new:
           back: Πίσω
           create: Δημιουργία
-          title: Νέα συζήτηση
         orders:
           commented: Πιο σχολιασμένα
           label: Ταξινόμηση συζητήσεων κατά
