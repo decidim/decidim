@@ -144,7 +144,7 @@
   }
 
   &__list--header {
-    @apply flex items-center -ml-2 md:ml-0;
+    @apply flex items-center justify-between -ml-2 md:ml-0;
   }
 
   &-list {
