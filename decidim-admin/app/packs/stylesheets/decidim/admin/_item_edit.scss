@@ -71,12 +71,6 @@
       .editor-container .editor-input .ProseMirror {
         @apply bg-background-2;
       }
-
-      &.edit_content_block {
-        .tabs-content {
-          @apply mb-2;
-        }
-      }
     }
   }
 
@@ -106,10 +100,6 @@
         @apply bg-white text-secondary;
       }
     }
-  }
-
-  .label--tabs {
-    @apply mb-2;
   }
 }
 
