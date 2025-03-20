@@ -112,7 +112,6 @@ pt:
         new:
           back: Retroceder
           create: Criar
-          title: Novo debate
         orders:
           commented: Mais comentado
           label: Ordenar debates por
