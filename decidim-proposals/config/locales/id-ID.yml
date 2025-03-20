@@ -410,7 +410,6 @@ id:
           see_all_withdrawn: Lihat semua proposal yang ditarik
         new:
           send: Terus
-          title: Buat proposal Anda
         orders:
           label: 'Memesan proposal dengan:'
           random: Acak
