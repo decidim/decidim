@@ -10,8 +10,6 @@ describe "Decidim::Api::QueryType" do
       fragment fooComponent on Debates {
         debate(id: #{debate.id}){
           acceptsNewComments
-          url
-          followsCount
           attachments {
             thumbnail
           }
@@ -39,6 +37,7 @@ describe "Decidim::Api::QueryType" do
             translation(locale: "#{locale}")
           }
           endTime
+          followsCount
           hasComments
           id
           image
@@ -56,6 +55,7 @@ describe "Decidim::Api::QueryType" do
           totalCommentsCount
           type
           updatedAt
+          url
           userAllowedToComment
         }
       }
@@ -81,8 +81,6 @@ describe "Decidim::Api::QueryType" do
   let(:debate_single_result) do
     {
       "acceptsNewComments" => debate.accepts_new_comments?,
-      "url" => Decidim::ResourceLocatorPresenter.new(debate).url,
-      "followsCount" => 3,
       "attachments" => [],
       "endorsementsCount" => 5,
       "closedAt" => debate.closed_at.to_time.iso8601,
@@ -98,6 +96,7 @@ describe "Decidim::Api::QueryType" do
       "createdAt" => debate.created_at.to_time.iso8601,
       "description" => { "translation" => debate.description[locale] },
       "endTime" => debate.end_time,
+      "followsCount" => 3,
       "hasComments" => debate.comment_threads.size.positive?,
       "id" => debate.id.to_s,
       "image" => nil,
@@ -109,6 +108,7 @@ describe "Decidim::Api::QueryType" do
       "totalCommentsCount" => debate.comments_count,
       "type" => "Decidim::Debates::Debate",
       "updatedAt" => debate.updated_at.to_time.iso8601,
+      "url" => Decidim::ResourceLocatorPresenter.new(debate).url,
       "userAllowedToComment" => debate.user_allowed_to_comment?(current_user)
     }
   end
@@ -157,8 +157,6 @@ describe "Decidim::Api::QueryType" do
           edges{
             node{
               acceptsNewComments
-              url
-              followsCount
               attachments {
                 thumbnail
               }
@@ -184,6 +182,7 @@ describe "Decidim::Api::QueryType" do
                 translation(locale: "#{locale}")
               }
               endTime
+              followsCount
               hasComments
               id
               image
@@ -201,6 +200,7 @@ describe "Decidim::Api::QueryType" do
               totalCommentsCount
               type
               updatedAt
+              url
               userAllowedToComment
             }
           }

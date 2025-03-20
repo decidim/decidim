@@ -10,8 +10,6 @@ describe "Decidim::Api::QueryType" do
       fragment fooComponent on Blogs {
         post(id: #{post.id}) {
           acceptsNewComments
-          url
-          followsCount
           attachments {
             thumbnail
           }
@@ -39,6 +37,7 @@ describe "Decidim::Api::QueryType" do
             __typename
           }
           endorsementsCount
+          followsCount
           hasComments
           id
           title {
@@ -47,6 +46,7 @@ describe "Decidim::Api::QueryType" do
           totalCommentsCount
           type
           updatedAt
+          url
           userAllowedToComment
           versions {
             id
@@ -70,8 +70,6 @@ describe "Decidim::Api::QueryType" do
   let(:post_single_result) do
     {
       "acceptsNewComments" => true,
-      "url" => Decidim::ResourceLocatorPresenter.new(post).url,
-      "followsCount" => 3,
       "attachments" => [],
       "author" => { "id" => post.author.id.to_s },
       "body" => { "translation" => post.body[locale] },
@@ -93,12 +91,14 @@ describe "Decidim::Api::QueryType" do
         }
       end,
       "endorsementsCount" => 5,
+      "followsCount" => 3,
       "hasComments" => false,
       "id" => post.id.to_s,
       "title" => { "translation" => post.title[locale] },
       "totalCommentsCount" => 0,
       "type" => "Decidim::Blogs::Post",
       "updatedAt" => post.updated_at.to_time.iso8601,
+      "url" => Decidim::ResourceLocatorPresenter.new(post).url,
       "userAllowedToComment" => post.user_allowed_to_comment?(current_user),
       "versions" => [],
       "versionsCount" => 0
@@ -155,8 +155,6 @@ describe "Decidim::Api::QueryType" do
           edges {
             node{
               acceptsNewComments
-              url
-              followsCount
               attachments {
                 thumbnail
               }
@@ -184,6 +182,7 @@ describe "Decidim::Api::QueryType" do
                 __typename
               }
               endorsementsCount
+              followsCount
               hasComments
               id
               title {
@@ -192,6 +191,7 @@ describe "Decidim::Api::QueryType" do
               totalCommentsCount
               type
               updatedAt
+              url
               userAllowedToComment
               versions {
                 id
