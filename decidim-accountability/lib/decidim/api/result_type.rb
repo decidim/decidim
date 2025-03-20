@@ -22,7 +22,7 @@ module Decidim
       field :id, GraphQL::Types::ID, "The internal ID for this result", null: false
       field :parent, Decidim::Accountability::ResultType, "The parent result", null: true
       field :progress, GraphQL::Types::Float, "The progress for this result", null: true
-      field :proposal_urls, [String, { null: true }], "The proposal URLs for this result", null: true
+      field :proposals, [Decidim::Proposals::ProposalType, { null: true }], "The proposal URLs for this result", null: true
       field :start_date, Decidim::Core::DateType, "The start date for this result", null: true
       field :status, Decidim::Accountability::StatusType, "The status for this result", null: true
       field :timeline_entries, [Decidim::Accountability::TimelineEntryType, { null: true }], "The timeline entries for this result", null: true
@@ -34,10 +34,8 @@ module Decidim
         Decidim::ResourceLocatorPresenter.new(object).url
       end
 
-      def proposal_urls
-        object.linked_resources(:proposals, "included_proposals").map do |proposal|
-          Decidim::ResourceLocatorPresenter.new(proposal).url
-        end
+      def proposals
+        object.linked_resources(:proposals, "included_proposals")
       end
     end
   end

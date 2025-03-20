@@ -80,16 +80,14 @@ describe "Decidim::Api::QueryType" do
           updatedAt
           userAllowedToComment
           weight
+          url
+          proposals { id }
         }
       }
     )
     end
   end
   let(:component_type) { "Accountability" }
-  let!(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
-  let!(:result) { create(:result, component: current_component, taxonomies:) }
-  let!(:timeline_entry) { create(:timeline_entry, result:) }
-
   let(:accountability_single_result) do
     {
       "acceptsNewComments" => result.accepts_new_comments?,
@@ -140,10 +138,11 @@ describe "Decidim::Api::QueryType" do
       "type" => "Decidim::Accountability::Result",
       "updatedAt" => result.updated_at.to_time.iso8601,
       "userAllowedToComment" => result.user_allowed_to_comment?(current_user),
-      "weight" => result.weight.to_i
+      "weight" => result.weight.to_i,
+      "url" => Decidim::ResourceLocatorPresenter.new(result).url,
+      "proposals" => proposals.map { |proposal| { "id" => proposal.id.to_s } }
     }
   end
-
   let(:accountability_data) do
     {
       "__typename" => "Accountability",
@@ -158,6 +157,16 @@ describe "Decidim::Api::QueryType" do
       },
       "weight" => 0
     }
+  end
+  let!(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
+  let!(:result) { create(:result, component: current_component, taxonomies:) }
+  let!(:timeline_entry) { create(:timeline_entry, result:) }
+
+  let!(:proposal_component) { create(:proposal_component, participatory_space: result.participatory_space) }
+  let(:proposals) { create_list(:proposal, 2, :published, component: proposal_component) }
+
+  before do
+    result.link_resources(proposals, "included_proposals")
   end
 
   describe "commentable" do
@@ -258,6 +267,8 @@ describe "Decidim::Api::QueryType" do
               updatedAt
               userAllowedToComment
               weight
+              url
+              proposals { id }
             }
           }
         }

@@ -76,19 +76,18 @@ module Decidim
         end
       end
 
-      describe "proposal_urls" do
-        let(:query) { "{ proposalUrls }" }
+      describe "proposals" do
+        let(:query) { "{ proposals { id } } " }
 
         let!(:proposal_component) { create(:proposal_component, participatory_space: model.participatory_space) }
-        let(:proposals) { create_list(:proposal, 2, component: proposal_component) }
+        let(:proposals) { create_list(:proposal, 2, :published, component: proposal_component) }
 
         before do
           model.link_resources(proposals, "included_proposals")
         end
 
         it "returns the proposal urls" do
-          expect(response["proposalUrls"].length).to eq(2)
-          expect(response["proposalUrls"].first).to match(%r{http.*/proposals})
+          expect(response["proposals"]).to eq(proposals.collect { |proposal| { "id" => proposal.id.to_s } })
         end
       end
 
