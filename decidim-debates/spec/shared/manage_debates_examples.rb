@@ -69,6 +69,28 @@ RSpec.shared_examples "manage debates" do
       expect(page).to have_content("updated the #{translated(attributes[:title])} debate on the")
     end
 
+    it "throws error when submitting with empty mandatory fields" do
+      within "tr", text: translated(debate.title) do
+        page.find(".action-icon--edit").click
+      end
+
+      within ".edit_debate" do
+        fill_in_i18n(:debate_title, "#debate-title-tabs", **attributes[:title].except("machine_translations"))
+
+        within "#debate_description_en" do
+          attributes[:description]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
+        end
+        within "#debate_instructions_en" do
+          attributes[:instructions]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
+        end
+        click_link_or_button "Update"
+      end
+
+      within ".flash__message" do
+        expect(page).to have_content("There was a problem updating this debate.")
+      end
+    end
+
     context "when the debate has an author" do
       let!(:debate) { create(:debate, :participant_author, component: current_component) }
 

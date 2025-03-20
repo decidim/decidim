@@ -195,6 +195,24 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     expect(page).to have_content("updated the #{translated(attributes[:title])} meeting on the")
   end
 
+  it "throws error when submitting with empty mandatory fields" do
+    within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
+      click_on "Edit"
+    end
+
+    within ".edit_meeting" do
+      fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
+
+      within "#meeting_description_en" do
+        attributes[:description]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
+      end
+      click_link_or_button "Update"
+    end
+    within ".flash__message" do
+      expect(page).to have_content("There was a problem updating this meeting.")
+    end
+  end
+
   it "sets registration enabled to true when registration type is on this platform" do
     within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
       click_on "Edit"

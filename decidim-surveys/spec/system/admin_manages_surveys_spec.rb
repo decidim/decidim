@@ -12,6 +12,7 @@ describe "Admin manages surveys" do
   end
   let!(:questionnaire) { create(:questionnaire) }
   let!(:survey) { create(:survey, :published, :clean_after_publish, component:, questionnaire:) }
+  let(:attributes) { attributes_for(:survey, component:) }
 
   include_context "when managing a component as an admin"
 
@@ -300,6 +301,21 @@ describe "Admin manages surveys" do
       choose "All"
 
       expect(page).to have_content("New description")
+    end
+
+    it "updates the questionnaire tos with empty value" do
+      visit manage_questions_path
+      click_link_or_button "Main"
+
+      within "#survey_tos_en" do
+        questionnaire.tos["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
+      end
+
+      click_on "Save"
+
+      within ".flash__message" do
+        expect(page).to have_content("There was a problem saving the survey.")
+      end
     end
   end
 
