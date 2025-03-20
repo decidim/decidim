@@ -94,7 +94,6 @@ ar:
         new:
           back: الى الخلف
           create: إنشاء
-          title: نقاش جديد
         show:
           groups_count: الفِرَق
           participants_count: المشاركون
