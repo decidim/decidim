@@ -10,6 +10,7 @@ describe "Decidim::Api::QueryType" do
       fragment fooComponent on Accountability {
         result(id: #{result.id}) {
           acceptsNewComments
+          address
           children {
             id
           }
@@ -19,6 +20,10 @@ describe "Decidim::Api::QueryType" do
           }
           commentsHaveAlignment
           commentsHaveVotes
+          coordinates{
+            latitude
+            longitude
+          }
           createdAt
           description {
             translation(locale:"#{locale}")
@@ -31,14 +36,9 @@ describe "Decidim::Api::QueryType" do
             id
           }
           progress
+          proposals { id }
           reference
           startDate
-          address
-          coordinates{
-            latitude
-            longitude
-          }
-          proposals { id }
           status {
             id
             createdAt
@@ -91,11 +91,16 @@ describe "Decidim::Api::QueryType" do
   let(:accountability_single_result) do
     {
       "acceptsNewComments" => result.accepts_new_comments?,
+      "address" => result.address.to_s,
       "children" => [],
       "childrenCount" => result.children.size,
       "comments" => [],
       "commentsHaveAlignment" => result.comments_have_alignment?,
       "commentsHaveVotes" => result.comments_have_votes?,
+      "coordinates" => {
+        "latitude" => result.latitude,
+        "longitude" => result.longitude
+      },
       "createdAt" => result.created_at.to_time.iso8601,
       "description" => { "translation" => result.description[locale] },
       "endDate" => result.end_date.to_s,
@@ -104,14 +109,9 @@ describe "Decidim::Api::QueryType" do
       "id" => result.id.to_s,
       "parent" => result.parent,
       "progress" => result.progress.to_f,
+      "proposals" => proposals.sort_by(&:id).map { |proposal| { "id" => proposal.id.to_s } },
       "reference" => result.reference,
       "startDate" => result.start_date.to_s,
-      "address" => result.address.to_s,
-      "coordinates" => {
-        "latitude" => result.latitude,
-        "longitude" => result.longitude
-      },
-      "proposals" => proposals.sort_by(&:id).map { |proposal| { "id" => proposal.id.to_s } },
       "status" => {
         "createdAt" => result.status.created_at.to_time.iso8601,
         "description" => { "translation" => result.status.description[locale] },
