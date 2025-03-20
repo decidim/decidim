@@ -7,6 +7,8 @@ describe "Admin invite" do
     Decidim::System::RegisterOrganizationForm.new(params)
   end
 
+  let(:org) { Decidim::Organization.last }
+
   let(:params) do
     {
       name: "Gotham City",
@@ -37,19 +39,99 @@ describe "Admin invite" do
   end
 
   describe "Accept an invitation" do
-    it "asks for a password and nickname and redirects to the organization dashboard" do
-      visit last_email_link
-
-      within "form.new_user" do
-        fill_in :invitation_user_nickname, with: "caballo_loco"
-        fill_in :invitation_user_password, with: "decidim123456789"
-        check :invitation_user_tos_agreement
-        find("*[type=submit]").click
+    context "when users_registration_mode enabled" do
+      before do
+        org.update!(users_registration_mode: "enabled")
+        visit last_email_link
       end
 
-      expect(page).to have_admin_callout "Your password was set successfully. You are now signed in."
+      it "has password" do
+        expect(page).to have_css "#invitation_user_password"
+      end
 
-      expect(page).to have_current_path "/admin/admin_terms/show"
+      it "asks for a password and nickname and redirects to the organization dashboard" do
+        within "form.new_user" do
+          fill_in :invitation_user_nickname, with: "caballo_loco"
+          fill_in :invitation_user_password, with: "decidim123456789"
+          check :invitation_user_tos_agreement
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_admin_callout "Your password was set successfully. You are now signed in."
+
+        expect(page).to have_current_path "/admin/admin_terms/show"
+      end
+
+      it "shows error when password not valid" do
+        within "form.new_user" do
+          fill_in :invitation_user_nickname, with: "caballo_loco"
+          check :invitation_user_tos_agreement
+          find("*[type=submit]").click
+        end
+
+        within "div.user-password" do
+          expect(page).to have_content "The password is too short."
+        end
+      end
+    end
+
+    context "when users_registration_mode existing" do
+      before do
+        org.update!(users_registration_mode: "existing")
+        visit last_email_link
+      end
+
+      it "has password" do
+        expect(page).to have_css "#invitation_user_password"
+      end
+
+      it "asks for a password and nickname and redirects to the organization dashboard" do
+        within "form.new_user" do
+          fill_in :invitation_user_nickname, with: "caballo_loco"
+          fill_in :invitation_user_password, with: "decidim123456789"
+          check :invitation_user_tos_agreement
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_admin_callout "Your password was set successfully. You are now signed in."
+
+        expect(page).to have_current_path "/admin/admin_terms/show"
+      end
+
+      it "shows error when password not valid" do
+        within "form.new_user" do
+          fill_in :invitation_user_nickname, with: "caballo_loco"
+          check :invitation_user_tos_agreement
+          find("*[type=submit]").click
+        end
+
+        within "div.user-password" do
+          expect(page).to have_content "The password is too short."
+        end
+      end
+    end
+
+    context "when users_registration_mode disabled" do
+      before do
+        org.update!(users_registration_mode: "disabled")
+        visit last_email_link
+      end
+
+      it "has no password" do
+        expect(page).to have_no_css "#invitation_user_password"
+      end
+
+      it "asks for nickname and redirects to the organization dashboard" do
+        within "form.new_user" do
+          fill_in :invitation_user_nickname, with: "caballo_loco"
+          check :invitation_user_tos_agreement
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_admin_callout "Your password was set successfully. You are now signed in."
+
+        expect(page).to have_current_path "/admin/admin_terms/show"
+      end
     end
   end
 end
