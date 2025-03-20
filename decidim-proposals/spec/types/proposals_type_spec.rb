@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/type_context"
+require "decidim/core/test"
 
 module Decidim
   module Proposals
@@ -27,15 +28,14 @@ module Decidim
           expect(ids).not_to include(*other_proposals.map(&:id).map(&:to_s))
         end
 
-        context "when querying proposals with taxonomies" do
-          let(:root_taxonomy) { create(:taxonomy, organization: model.organization) }
-          let(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization: model.organization) }
-          let!(:proposal_with_taxonomy) { create(:proposal, component: model, taxonomies: [taxonomy]) }
-          let(:all_proposals) { published_proposals + [proposal_with_taxonomy] }
+        context "when querying proposals with categories" do
+          let(:category) { create(:category, participatory_space: model.participatory_space) }
+          let!(:proposal_with_category) { create(:proposal, component: model, category:) }
+          let(:all_proposals) { published_proposals + [proposal_with_category] }
 
-          let(:query) { "{ proposals { edges { node { id, taxonomies { id } } } } }" }
+          let(:query) { "{ proposals { edges { node { id, category { id } } } } }" }
 
-          it "return proposals with and without taxonomies" do
+          it "return proposals with and without categories" do
             ids = response["proposals"]["edges"].map { |edge| edge["node"]["id"] }
             expect(ids.count).to eq(3)
             expect(ids).to eq(all_proposals.map(&:id).sort.map(&:to_s))

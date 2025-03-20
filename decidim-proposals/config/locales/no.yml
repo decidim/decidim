@@ -1,26 +1,31 @@
+---
 "no":
   activemodel:
     attributes:
       collaborative_draft:
         address: Adresse
         body: Body
+        category_id: Kategori
         decidim_scope_id: Tema
         has_address: Har adresse
         scope_id: Tema
         state: Delstat
         title: Tittel
+        user_group_id: Opprett samarbeids utkast som
       proposal:
         address: Adresse
         answer: Svar
         answered_at: Besvart på
         automatic_hashtags: Hashtagger ble automatisk lagt til
         body: Tekst
+        category_id: Kategori
         decidim_scope_id: Tema
         has_address: Har adresse
         scope_id: Tema
         state: Delstat
         suggested_hashtags: Foreslåtte hashtags
         title: Tittel
+        user_group_id: Opprett forslag som
       proposal_answer:
         answer: Svar
         cost: Kostnad
@@ -54,6 +59,8 @@
             base:
               not_official: Er ikke offisiell
     models:
+      decidim/proposals/admin/update_proposal_category_event: Forslags kategorien ble endret
+      decidim/proposals/admin/update_proposal_scope_event: Forslagstema er endret
       decidim/proposals/creation_enabled_event: Opprettelse av forslag aktivert
       decidim/proposals/endorsing_enabled_event: Forslags påtegning aktivert
       decidim/proposals/proposal_mentioned_event: Forslag nevnt
@@ -74,11 +81,15 @@
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Kategori
           is_emendation_true:
             label: Type
             values:
               'false': Forslag
               'true': Endringer
+          scope_id_eq:
+            label: Tema
           state_eq:
             label: Tilstand
             values:
@@ -95,6 +106,7 @@
         actions:
           amend: Endre
           comment: Kommentar
+          create: Opprett
           endorse: Påtegne
           vote_comment: Stem på kommentar
           withdraw: Trekk tilbake
@@ -117,6 +129,7 @@
               random: Tilfeldig
               recent: Nylig
               with_more_authors: Med flere forfattere
+            geocoding_enabled: Geokoding aktivert
             new_proposal_body_template: Nytt forslag korppsmal
             new_proposal_body_template_help: Du kan definere forhåndsutfylt tekst som de nye forslagene vil ha
             new_proposal_help_text: Ny forslag hjelpetekst
@@ -124,6 +137,7 @@
             participatory_texts_enabled: Deltakende tekster aktivert
             participatory_texts_enabled_readonly: Kan ikke samhandle med denne innstillingen hvis det finnes eksisterende forslag. Vennligst, opprett et nytt "Forslags komponent" hvis du vil aktivere denne funksjonen eller forkaste alle importerte forslag i `Deltakende tekster` -menyen hvis du vil deaktivere den.
             proposal_answering_enabled: Forslags besvaring aktivert
+            proposal_edit_before_minutes: Forslag kan redigeres av forfattere før så mange minutter går
             proposal_edit_time: Forslagsredigering
             proposal_edit_time_choices:
               infinite: Tillat å redigere forslag til en uendelig tidsperiode
@@ -132,6 +146,8 @@
             proposal_limit: Forslagsgrense per deltaker
             proposal_wizard_step_1_help_text: Forslags veiviseren "Opprett" trinn-hjelpeteksten
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert forslag
+            scope_id: Tema
+            scopes_enabled: Aktiverte temaer
             threshold_per_proposal: Terskel per forslag
           step:
             amendment_creation_enabled: Oppretting av endringer aktivert
@@ -204,6 +220,10 @@
           email_intro: Forslaget "%{resource_title}" er blitt lagt til "%{participatory_space_title}" som du følger.
           email_outro: Du har mottatt denne varslingen fordi du følger "%{participatory_space_title}". Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: Nytt forslag "%{resource_title}" lagt til %{participatory_space_title}
+        proposal_update_category:
+          email_intro: 'En admin har oppdatert kategorien for forslaget ditt "%{resource_title}", sjekk det ut på denne siden:'
+          email_subject: Forslags kategorien %{resource_title} ble oppdatert
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> forslags kategorien er blitt oppdatert av en administrator.
         voting_enabled:
           email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
     gamification:
@@ -315,18 +335,26 @@
           form:
             note: Merk
             submit: Send inn
+          leave_your_note: Legg igjen notatene dine
           title: Private notater
         proposals:
           edit:
             title: Oppdater forslag
             update: Oppdater
           form:
+            attachment_legend: "(Valgfritt) Legg til et vedlegg"
             created_in_meeting: Dette forslaget kommer fra et møte
+            delete_attachment: Slett vedlegg
+            select_a_category: Velg en kategori
             select_a_meeting: Velg et møte
           index:
             actions: Handlinger
+            assign_to_valuator_button: Tildel
             cancel: Avbryt
+            change_category: Endre kategori
+            change_scope: Endre tema
             merge: Slå sammen til en ny
+            merge_button: Slå sammen
             publish: Publiser
             publish_answers: Publiser svar
             select_component: Velg en komponent
@@ -334,7 +362,9 @@
             split: Delte forslag
             split_button: Delt
             title: Forslag
+            unassign_from_valuator_button: Fjern tilegning
             update: Oppdater
+            update_scope_button: Oppdater tema
           new:
             create: Opprett
             title: Opprett forslag
@@ -366,6 +396,7 @@
       admin_log:
         proposal:
           answer: "%{user_name} svarte på %{resource_name} forslaget på %{space_name} rommet"
+          create: "%{user_name} opprettet %{resource_name} forslaget på %{space_name} rommet som et offisielt forslag"
           update: "%{user_name} oppdaterte %{resource_name} offisielle forslaget på %{space_name} rommet"
         proposal_note:
           create: "%{user_name} la igjen en privat merknad på %{resource_name} forslaget på %{space_name} rommet"
@@ -380,6 +411,7 @@
           all: Alle
           meetings: Møter
           official: Offisiell
+          user_groups: Grupper
         filter_state_values:
           all: Alle
           not_answered: Ikke besvart
@@ -406,15 +438,19 @@
         create:
           success: Samarbeids utkast opprettet.
         edit:
+          attachment_legend: "(Valgfritt) Legg til et vedlegg"
           back: Tilbake
+          select_a_category: Velg en kategori
           send: Send
           title: Rediger samarbeids utkastet
         filters:
           all: Alle
           amendment: Endringer
+          category: Kategori
           open: Åpen
           published: Publisert
           related_to: Relatert til
+          scope: Tema
           search: Søk
           state: Status
           withdrawn: Trukket tilbake
@@ -448,6 +484,7 @@
           rejected_request:
             error: Kunne ikke bli avvist som en samarbeidspartner, Prøv igjen senere.
         show:
+          edit: Rediger samarbeids utkastet
           final_proposal: endelig forslag
           final_proposal_help_text: Dette utkastet er ferdig. Sjekk ut det endelige forslaget
           hidden_authors_count:
@@ -477,11 +514,13 @@
       models:
         proposal:
           fields:
+            category: Kategori
             comments: Kommentarer
             id: ID
             notes: Merknader
             official_proposal: Offisielt forslag
             published_at: Publisert på
+            scope: Tema
             state: Status
             title: Tittel
             votes: Stemmer
@@ -492,7 +531,9 @@
           comment: Kommentar
       proposals:
         edit:
+          attachment_legend: "(Valgfritt) Legg til et vedlegg"
           back: Tilbake
+          select_a_category: Velg en kategori
           send: Send
           title: Rediger forslaget
         edit_draft:
@@ -503,6 +544,7 @@
           activity: Min aktivitet
           all: Alle
           amendment_type: Type
+          category: Kategori
           my_proposals: Mine forslag
           origin: Opprinnelse
           related_to: Relatert til
@@ -543,6 +585,7 @@
         show:
           answer: Svar
           changes_at_title: Endring til "%{title}"
+          edit_proposal: Rediger forslaget
           estimated_cost: Estimert kostnad
           hidden_endorsers_count:
             one: og %{count} til person
@@ -557,13 +600,12 @@
           proposal_in_evaluation_reason: Dette forslaget blir evaluert
           proposal_rejected_reason: 'Dette forslaget ble avvist fordi:'
           withdraw_confirmation_html: Er du sikker på at du vil trekke tilbake dette forslaget?<br><br><strong>Denne handlingen kan ikke avbrytes!</strong>
+          withdraw_proposal: Trekk tilbake forslag
         update:
           title: Oppdater forslag
         voting_rules:
           proposal_limit:
             description: Du kan lage opptil %{limit} forslag.
-          vote_limit:
-            description: Du kan støtte opptil %{limit} forslag.
         wizard_aside:
           back: Tilbake
           back_from_step_1: Tilbake til forslag

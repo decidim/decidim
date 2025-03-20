@@ -1,8 +1,7 @@
+---
 fi-pl:
   activemodel:
     attributes:
-      authorization:
-        verification_attachment: Vahvistuksen liitetiedosto
       config:
         available_methods: Käytettävissä olevat menetelmät
         offline: Offline
@@ -76,12 +75,6 @@ fi-pl:
             - Esimerkkikäsittelijä vahvistuksille, jonka avulla kehittäjät ymmärtävät paremmin, kuinka käyttäjätilien vahvistaminen toimii.
             - Se on tarkoitettu kehittäjille, jotta he voivat ymmärtää, miten omia käyttäjätilien vahvistamistoimintoja voi toteuttaa järjestelmään.
             - Vahvista itsesi syöttämällä X-kirjaimella alkava asiakirjan numero.
-        ephemeral_dummy_authorization_handler:
-          help:
-            - Esimerkkikäsittelijä väliaikaiselle vahvistukselle, jonka avulla kehittäjät ymmärtävät paremmin, kuinka käyttäjätilien vahvistaminen toimii.
-            - Se on tarkoitettu kehittäjille, jotta he voivat ymmärtää, miten omia käyttäjätilien vahvistamistoimintoja voi toteuttaa järjestelmään.
-            - Se on kopio esimerkkivahvistuksesta.
-            - Vahvista tilisi syöttämällä asiakirjan numero, joka päättyy kirjaimeen "X".
         id_documents:
           help:
             - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
@@ -132,6 +125,17 @@ fi-pl:
         destroy:
           error: Vahvistuksen poisto epäonnistui.
           success: Vahvistuksen poisto onnistui.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Varmista toisen esimerkkivahvistustavan käsittelijällä
+            csv_census: Vahvista organisaation rekisteritietojen avulla
+            dummy_authorization_handler: Vahvista tili esimerkkivaltuuttajan avulla
+            dummy_authorization_workflow: Vahvista esimerkkivaltuutuksen työnkulkuprosessin kautta
+            id_documents: Vahvista tilisi lataamalla henkilöllisyystodistuksesi
+            postal_letter: Vahvista tilisi paperipostissa lähetettävän vahvistuskoodin avulla
+            sms: Vahvista tilisi tekstiviestillä lähetettävällä vahvistuskoodilla
+          title: Vahvista henkilöllisyytesi
+          verify_with_these_options: 'Käytettävissä olevat tavat vahvistaa identiteettisi:'
         index:
           expired_verification: Vahvistus on erääntynyt
           granted_verification: Hyväksytyt tunnistautumiset
@@ -143,14 +147,6 @@ fi-pl:
         new:
           authorize: Lähetä
           authorize_with: Vahvista palvelulla %{authorizer}
-          tos_agreement: Vahvistamalla henkilöllisyytesi hyväksyt %{link}.
-        onboarding_pending:
-          completed_verifications: Käyttäjätilisi vahvistaminen onnistui, voit nyt suorittaa toiminnon %{action} kohteessa %{resource_name}
-          granted_verifications: Myönnetyt vahvistukset
-          onboarding_message_html: Melkein valmista suorittaaksesi toiminnon %{action} kohteessa <strong>%{resource_title}</strong> %{resource_name}. Vahvista tilisi suorittamalla seuraavat tilin vahvistustoimet.
-          pending_admin_approval_verifications: Hallintakäyttäjän tarkastusta odottavat vahvistukset
-          pending_verifications: Odottavat vahvistukset
-          unauthorized: Sinulla ei ole oikeutta suorittaa toimintoa %{action} tässä kohteessa
         renew_modal:
           cancel: Peruuta
           continue: Jatka
@@ -162,7 +158,7 @@ fi-pl:
         admin:
           census:
             create:
-              error: Henkilötietorekisterin tuonti epäonnistui.
+              error: Rekisteritietojen tuonnissa tapahtui virhe.
               success: '%{count} kohdetta tuotiin onnistuneesti (%{errors} virhettä).'
             destroy_all:
               success: Kaikki henkilötietorekisterin tiedot on poistettu.
@@ -193,9 +189,11 @@ fi-pl:
           postal_codes:
             one: Osallistuminen on rajoitettu niille käyttäjille, joilla on postinumero %{postal_codes}.
             other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}.'
+          scope: Osallistuminen on rajoitettu niille käyttäjille, joilla on teema %{scope_name}.
           user_postal_codes:
             one: Osallistuminen on rajoitettu osallistujille, joilla on postinumero %{postal_codes}. Oma postinumerosi on %{user_postal_code}.
             other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}. Oma postinumerosi on %{user_postal_code}.'
+          user_scope: Osallistuminen on rajoitettu osallistujille, joilla on teema %{scope_name}. Oma teemasi on %{user_scope_name}.
       id_documents:
         admin:
           config:

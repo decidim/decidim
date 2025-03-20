@@ -1,3 +1,4 @@
+---
 id:
   activemodel:
     attributes:
@@ -22,6 +23,8 @@ id:
         promoted: Dipromosikan
         published_at: Diterbitkan di
         related_process_ids: Proses terkait
+        scope_id: Cakupan
+        scopes_enabled: Lingkup diaktifkan
         short_description: Deskripsi Singkat
         slug: Siput URL
         start_date: Mulai tanggal
@@ -39,6 +42,8 @@ id:
         end_date: Tanggal akhir
         short_description: Deskripsi Singkat
         start_date: Mulai tanggal
+        title: Judul
+      participatory_process_type:
         title: Judul
       participatory_process_user_role:
         email: E-mail
@@ -79,8 +84,10 @@ id:
           attachment_collections: Folder
           attachment_files: File
           attachments: Lampiran
+          categories: Kategori
           components: Komponen
           moderations: Moderasi
+          private_users: Pengguna Pribadi
           process_admins: Memproses pengguna
           steps: Tangga
       models:
@@ -99,6 +106,10 @@ id:
             start_date: Mulai tanggal
             title: Judul
           name: Langkah proses partisipatif
+        participatory_process_type:
+          fields:
+            created_at: Dibuat di
+            title: Judul
         participatory_process_user_role:
           fields:
             email: E-mail
@@ -161,6 +172,11 @@ id:
         update:
           error: Ada kesalahan saat memperbarui langkah proses partisipatif ini.
           success: Langkah proses partisipatif berhasil diperbarui.
+      participatory_process_types:
+        edit:
+          update: Memperbarui
+        new:
+          create: Membuat
       participatory_process_user_roles:
         create:
           error: Terjadi kesalahan saat menambahkan pengguna untuk proses partisipatif ini.
@@ -268,9 +284,12 @@ id:
           form:
             announcement_help: Teks yang Anda masukkan di sini akan ditampilkan kepada pengguna tepat di bawah informasi proses.
             duration: Lamanya
+            filters: Filter
             images: Gambar
             metadata: Metadata
+            other: Lain
             related_processes: Proses terkait
+            select_an_area: Pilih suatu Area
             select_process_group: Pilih grup proses
             title: Informasi Umum
       content_blocks:

@@ -1,8 +1,7 @@
+---
 ja:
   activemodel:
     attributes:
-      answer:
-        add_documents: ドキュメントを追加
       close_meeting:
         attendees_count: 出席者数
         attending_organizations: 参加した組織一覧
@@ -80,10 +79,6 @@ ja:
       decidim/meetings/update_meeting_event: ミーティングが更新されました
   activerecord:
     models:
-      decidim:
-        meetings:
-          meeting:
-            text: 'このミーティングで議論されました: %{link}'
       decidim/meetings/meeting:
         other: ミーティング
       decidim/meetings/minutes:
@@ -92,9 +87,6 @@ ja:
         other: 登録
   decidim:
     admin:
-      admin_log:
-        changeset:
-          meetings: ミーティング
       filters:
         accepted_at_not_null:
           label: 承認済み
@@ -102,6 +94,8 @@ ja:
             'false': 未承認
             'true': 承認済み
         meetings:
+          category_id_eq:
+            label: カテゴリ
           closed_at_present:
             label: 状態
             values:
@@ -112,8 +106,8 @@ ja:
             values:
               'false': 過去
               'true': 近日公開
-          taxonomies_part_of_contains:
-            label: タクソノミー
+          scope_id_eq:
+            label: スコープ
           with_any_origin:
             label: オリジン
             values:
@@ -155,35 +149,22 @@ ja:
         settings:
           global:
             announcement: お知らせ
-            clear_all: すべてクリア
             comments_enabled: コメントが有効
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             creation_enabled_for_participants: 出席者はミーティングを作成できます
             default_registration_terms: デフォルトの登録条件
-            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             enable_pads_creation: パッドの作成を有効にする
             maps_enabled: 地図が有効
-            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             registration_code_enabled: 登録コードが有効
             resources_permissions_enabled: アクションの権限はミーティングごとに設定できます
-            taxonomy_filters: コンポーネントのフィルタを選択
-            taxonomy_filters_add: フィルターを追加
+            scope_id: スコープ
+            scopes_enabled: スコープが有効
             terms_and_conditions_url_for_meeting_creators: ミーティング作成者の利用規約URL
           step:
             announcement: お知らせ
             comments_blocked: コメントをブロック
             creation_enabled_for_participants: 参加者によるミーティングの作成が有効です
             creation_enabled_for_user_groups: ユーザーグループによるミーティングの作成が有効です
-    download_your_data:
-      help:
-        registrations:
-          code: 参加登録コード
-          id: 参加登録の固有ID
-          meeting: ユーザーが参加登録したミーティング
-          user: 参加登録したユーザー
-      show:
-        meeting_comments: ミーティングコメントのエクスポート
-        meetings: ミーティングのエクスポート
     events:
       meetings:
         meeting_closed:
@@ -251,8 +232,8 @@ ja:
         attachment_collections: フォルダ
         attachments: 添付ファイル
         close: 閉じる
-        confirm_delete_meeting: このミーティングを削除してもよろしいですか？
-        deleted_meetings_info: 削除されたミーティングはゴミ箱から復元できます。
+        confirm_destroy: このミーティングを削除してもよろしいですか？
+        destroy: 削除
         edit: 編集
         invalid_destroy:
           proposals_count:
@@ -262,7 +243,6 @@ ja:
         preview: プレビュー
         registrations: 登録
         title: アクション
-        view_deleted_meetings: 削除されたミーティングを表示
       admin:
         agenda:
           agenda_item:
@@ -327,11 +307,14 @@ ja:
           close:
             invalid: このミーティングを終了する際に問題が発生しました。
             success: ミーティングは正常に終了しました。
-          component:
-            unlink: リンク解除
           create:
             invalid: このミーティングの作成に問題がありました．
             success: ミーティングが正常に作成されました．これはまだ公開されていません．手動で公開する必要があります．
+          destroy:
+            invalid:
+              proposals_count:
+                other: '%{count} 件の提案が関連付けられているため、ミーティングを破壊できません。'
+            success: ミーティングを削除しました
           edit:
             title: ミーティングを編集
             update: 更新
@@ -347,20 +330,7 @@ ja:
             select_a_registration_type: 登録種別を選択してください
             select_an_iframe_access_level: Iframeアクセスレベルを選択してください
           index:
-            linked_meeting_warning_html: このミーティングは <br><a href="%{href}">%{name}</a> から編集する必要があります．
             title: ミーティング
-          linked_spaces:
-            assign: 割り当て
-            link_a_space: スペースをリンク
-            private_meeting_warning: ミーティングが非公開で透明性のない場合、リンクされたスペースは適用されません。
-            private_space_warning: ミーティングが非透明なスペースに属している場合、リンクされたスペースは適用されません。
-            select: スペースを選択
-            table:
-              actions: アクション
-              component: リンクされたスペース
-            title: リンクされたスペース
-          manage_trash:
-            title: 削除されたミーティング
           new:
             create: 作成
             title: ミーティングを作成
@@ -404,7 +374,6 @@ ja:
           form:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             invites: 招待
-            manage_questions: 質問
             recommendation_message: プライバシー上の理由から、不要になったときにこの碑文フォームを削除することをお勧めします。 デフォルトでは、ミーティングが終了してから3ヶ月です。
             registration_email_help: このテキストは登録確認メールの途中に表示されます。場所は登録コードの直後になります。
             registration_form: 登録フォーム
@@ -429,8 +398,6 @@ ja:
           create: "%{user_name} が %{resource_name} スペースで %{space_name} ミーティングを作成しました"
           delete: "%{user_name} が %{resource_name} スペースの %{space_name} ミーティングを削除しました"
           export_registrations: "%{user_name} は %{resource_name} スペースに %{space_name} ミーティングの登録をエクスポートしました"
-          restore: "%{user_name} が %{space_name} スペースのミーティング %{resource_name} を復元しました"
-          soft_delete: "%{user_name} は %{space_name} スペースでのミーティング %{resource_name} をゴミ箱に移動しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} ミーティングを更新しました"
           value_types:
             organizer_presenter:
@@ -438,6 +405,8 @@ ja:
         questionnaire:
           update: "%{user_name} が %{meeting_name} ミーティングのアンケートを更新しました"
       application_helper:
+        filter_category_values:
+          all: すべて
         filter_meeting_space_values:
           all: すべて
       calendar:
@@ -546,6 +515,7 @@ ja:
           location_hints_help: '位置情報のヒント：追加情報。 例: 対面ミーティングでの建物のフロア、またはアクセス制限のあるオンラインミーティングでのミーティングパスワード。'
           online_meeting_url_help: 'リンク: 参加者があなたのミーティングに直接接続できるようにします'
           registration_url_help: 'リンク: 参加者が登録に使用している外部サービスにアクセスできるようにします'
+          select_a_category: カテゴリを選択してください
           select_a_meeting_type: ミーティング種別を選択してください
           select_a_registration_type: 登録種別を選択してください
           select_an_iframe_access_level: iframeアクセスレベルを選択してください
@@ -556,9 +526,9 @@ ja:
           see_all_withdrawn: 取り消したすべてのミーティングを見る
           text_banner: 作成者が取り消したミーティングの一覧を表示しています． %{go_back_link}
         meeting:
-          close_meeting: 閉じる
+          close_meeting: ミーティングを閉じる
           edit_close_meeting: ミーティングレポートを編集
-          edit_meeting: 編集
+          edit_meeting: ミーティングを編集
           join_meeting: ミーティングに参加
           reply_poll: 投票に返信
           view_poll: 投票を表示
@@ -585,7 +555,6 @@ ja:
           micro_camera_permissions_warning: 下のボタンをクリックすると、マイクおよび/またはカメラの権限を求められ、ビデオ会議に参加できます
           no_slots_available: 利用可能なスロットがありません
           organizations: 組織に参加
-          redirect_notice: このミーティングは別のスペースの一部であるため、あなたは %{current_space_name} に移動されました。<br> ご希望の場合は、 <a href="%{previous_space_url}">%{previous_space_name}</a> に戻ることができます。
           registration_code_help_text: 登録コード
           registration_state:
             validated: 有効化
@@ -595,7 +564,7 @@ ja:
           visit_finished: 過去のミーティングを表示
           withdraw_btn_hint: 気が変わった場合はミーティングを取り消せます．ミーティングは削除されません．取り消されたミーティングのリストに表示されます．
           withdraw_confirmation_html: このミーティングを取り消してもよろしいですか?<br><br><strong>この操作はキャンセルできません!</strong>
-          withdraw_meeting: 撤回する
+          withdraw_meeting: ミーティングを撤回する
         update:
           invalid: ミーティングの更新に問題がありました。
           success: ミーティングを更新しました．
@@ -618,7 +587,6 @@ ja:
             map: 地図
             official_meeting: 公式ミーティング
             start_time: 開始日
-            taxonomies: タクソノミー
             title: タイトル
       polls:
         answers:
@@ -687,49 +655,13 @@ ja:
         transparent: 透明性
         withdraw: 取り消し
       withdraw:
-        error: ミーティングを取り消す際に問題がありました。
+        error: ミーティングを取り上げる際にエラーが発生しました。
         success: ミーティングは正常に取り下げられました。
     metrics:
       meetings:
         description: 作成されたミーティング数
         object: ミーティング
         title: ミーティング
-    open_data:
-      help:
-        meeting_comments:
-          alignment: このコメントが好意的、反対的、中立的であった場合
-          author: このコメントを作成した参加者の名前
-          body: コメント本体
-          commentable_id: コメント対象の固有ID
-          commentable_type: コメント対象の種別 (結果、提案など)
-          created_at: このコメントが作成された日時
-          depth: このコメントがコメントツリーのどこに位置しているか（もしそれが回答であるか、または回答の回答である場合）
-          id: このコメントのID
-          locale: このコメントを残すときに参加者が使っていたロケール（言語）
-          root_commentable_url: このコメントに関連するリソースの URL
-          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
-        meetings:
-          address: ミーティングの場所、対面で行われ物理的な場所がある場合の所在地
-          attachments: このミーティングの添付ファイル数
-          attendees: このミーティングに出席する人数
-          author: このミーティングの作者のデータ
-          component: ミーティングが属しているコンポーネント
-          contributions: このミーティングの参加者による貢献数
-          description: ミーティングの説明
-          end_time: このミーティングの終了日時
-          id: ミーティングの固有ID
-          location: ミーティングの場所
-          organizations: このミーティングに参加している組織
-          participatory_space: このミーティングが所属するスペース（例えば参加型プロセス、参加スペース）
-          published: ミーティングが公開された日時
-          reference: このプラットフォームでのリソースの固有ID
-          related_proposals: このミーティングに関連する提案
-          related_results: このミーティングに関連する結果
-          start_time: このミーティングの開始日時
-          taxonomies: このミーティングが属しているタクソノミー
-          title: ミーティングのタイトル
-          url: ミーティングのURL
-          withdrawn_at: このミーティングが撤回された日時
     participatory_spaces:
       highlighted_meetings:
         past_meetings: 過去のミーティング
@@ -743,7 +675,6 @@ ja:
         meeting_proposal: '関連する提案:'
         proposal_meeting: '関連するミーティング:'
     statistics:
-      attendees_count: ミーティング参加者
       meetings_count: ミーティング
   devise:
     mailer:

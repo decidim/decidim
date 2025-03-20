@@ -9,17 +9,14 @@
         disabled: !model.has_available_slots?
       ) %>
     <% else %>
-      <% unless options[:hide_modal] %>
-        <%= render :registration_modal %>
-      <% end %>
+      <%= render :registration_modal %>
       <%= action_authorized_button_to(
         :join,
         i18n_join_text,
         "#",
         class: button_classes,
         disabled: !model.has_available_slots?,
-        data: { "dialog-open": current_user.present? ? "meeting-registration-confirm-#{model.id}" : "loginModal" },
-        resource: model
+        data: { "dialog-open": current_user.present? ? "meeting-registration-confirm-#{model.id}" : "loginModal" }
       ) %>
     <% end %>
   <% end %>

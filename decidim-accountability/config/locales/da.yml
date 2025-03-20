@@ -1,3 +1,4 @@
+---
 da:
   activemodel:
     attributes:
@@ -8,6 +9,8 @@ da:
         description: Beskrivelse
         end_date: Slutdato
         progress: Fremskridt
+        project_ids: Inkluderede projekter
+        proposals: Inkluderede projekter
         start_date: Start dato
         title: Titel
         updated_at: Opdateret
@@ -94,8 +97,10 @@ da:
       models:
         result:
           fields:
+            category: Kategori
             end_date: Slutdato
             progress: Fremskridt
+            scope: Anvendelsesområde
             start_date: Start dato
             status: Status
             title: Titel
@@ -113,8 +118,12 @@ da:
           results_count:
             one: 1 resultat
             other: "%{count} resultater"
+        filters:
+          all: Alle
         home_header:
           global_status: Samlet gennemførelsesstatus
+        nav_breadcrumb:
+          global: Samlet udførelse
         search:
           search: Søg efter handlinger
         show:
@@ -122,6 +131,13 @@ da:
             back_to_resource: Tilbage til resultater
         timeline:
           title: Projektets udvikling
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: Anvendelsesområde
     components:
       accountability:
         name: Ansvarlighed
@@ -131,6 +147,8 @@ da:
             comments_max_length: Kommentarer maks. længde (Leave 0 for standardværdi)
             display_progress_enabled: Vis fremskridt
             intro: Intro
+            scope_id: Omfang
+            scopes_enabled: Omfang aktiveret
     resource_links:
       included_proposals:
         result_proposal: Forslag i dette resultat

@@ -1,3 +1,4 @@
+---
 zh-CN:
   activemodel:
     attributes:
@@ -42,6 +43,12 @@ zh-CN:
         other: 注册
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: 类别
+          scope_id_eq:
+            label: 范围
       meeting_copies:
         create:
           error: 重复这次会议时出现问题。
@@ -63,6 +70,8 @@ zh-CN:
             default_registration_terms: 默认注册条款
             enable_pads_creation: 启用页面创建
             resources_permissions_enabled: 每次会议都可以设置动作权限
+            scope_id: 范围
+            scopes_enabled: 范围已启用
           step:
             announcement: 通 知
             comments_blocked: 评论已阻止
@@ -129,6 +138,7 @@ zh-CN:
         attachment_collections: 文件夹
         attachments: 附件
         close: 关闭
+        destroy: 删除
         edit: 编辑
         invalid_destroy:
           proposals_count:
@@ -188,6 +198,8 @@ zh-CN:
             close: 关闭
             title: 关闭会议
         meetings:
+          destroy:
+            success: 会议已成功删除
           edit:
             update: 更新
           form:
@@ -242,6 +254,9 @@ zh-CN:
           value_types:
             organizer_presenter:
               not_found: '在数据库中找不到组织者 (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: 所有的
       calendar_modal:
         calendar_url: 日历 URL
         export_calendar: 导出日历
@@ -285,8 +300,11 @@ zh-CN:
           address_help: '地址：由地理编码器用来查找位置'
           create_as: 创建会议为
           location_help: '位置：发送给用户的消息，这些消息暗示要会见的地点'
+          select_a_category: 请选择一个类别
         index:
           new_meeting: 新会议
+        meeting:
+          close_meeting: 关闭会议
         meetings:
           upcoming_meetings_warning: 目前没有排定的会议，但在这里你可以找到过去所有会议的清单。
         new:

@@ -1,9 +1,10 @@
+---
 eu:
   activerecord:
     models:
       decidim/pages/page:
-        one: Orrialde
-        other: Orrialdeak
+        one: Orria
+        other: Orriak
   decidim:
     admin_log:
       page:
@@ -16,17 +17,6 @@ eu:
             announcement: Oharra
           step:
             announcement: Oharra
-    open_data:
-      help:
-        pages:
-          body: Orriaren gorputza
-          component: Orriaren osagaia honi dagokio
-          created_at: Zein datatan sortu zen orri hau
-          id: Orri honen identifikatzaile bakarra
-          participatory_space: Zein espaziori dagokio (adibidez, Partaidetza-prozesua edo Batzarra) orri hau
-          title: Orriaren izenburua
-          updated_at: Zein egunetan eguneratu zen azken aldiz orri hau
-          url: Orri honetarakko URLa
     pages:
       admin:
         models:

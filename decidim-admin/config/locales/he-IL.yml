@@ -1,3 +1,4 @@
+---
 he:
   activemodel:
     attributes:
@@ -33,6 +34,8 @@ he:
       help_section:
         content: תוכן
       id: מספר מזהה
+      import:
+        user_group_id: יצירת ייבוא כ
       newsletter:
         body: גוף
         send_to_all_users: שליחה לכל המשתמשים.ות

@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     models:
@@ -5,6 +6,7 @@ sv:
       decidim/comments/comment_created_event: Kommentar
       decidim/comments/comment_upvoted_event: Uppröstad kommentarer
       decidim/comments/reply_created_event: Svar till en kommentar
+      decidim/comments/user_group_mentioned_event: Nämn
       decidim/comments/user_mentioned_event: Nämn
   activerecord:
     models:
@@ -15,10 +17,6 @@ sv:
         one: Röst
         other: Röster
   decidim:
-    admin:
-      admin_log:
-        changeset:
-          comments: Kommentarer
     comments:
       admin:
         shared:
@@ -41,8 +39,7 @@ sv:
           error: Det gick inte att rösta om kommentaren.
     components:
       add_comment_form:
-        account_message: Logga in eller skapa ett konto för kommentera.
-        add_comment: Kommentera
+        account_message: <a href="%{sign_in_url}">Logga in</a> eller <a href="%{sign_up_url}">skapa ett konto</a> för kommentera.
         form:
           body:
             label: Kommentera
@@ -50,6 +47,8 @@ sv:
           form_error: Texten är obligatorisk och får inte vara längre än %{length} tecken.
           submit_reply: Publicera svar
           submit_root_comment: Publicera kommentar
+          user_group_id:
+            label: Kommentera som
         opinion:
           label: Din åsikt om frågan
           negative: Negativ
@@ -65,9 +64,6 @@ sv:
         alignment:
           against: Mot
           in_favor: För
-        answers:
-          one: "%{count} svar"
-          other: "%{count} svar"
         cancel_reply: Avbryt svar
         comment_label: Kommentar %{comment_id}
         comment_label_reply: Kommentar %{comment_id} (svar på kommentar %{parent_comment_id})
@@ -98,7 +94,6 @@ sv:
           one: Visa svar
           other: Visa %{count} svar
         single_comment_link_title: Hämta länk
-        sort_by: 'Sortera efter: '
       comment_order_selector:
         order:
           best_rated: Bästa betyg
@@ -107,19 +102,16 @@ sv:
           recent: Senaste
         title: 'Sortera efter:'
       comments:
-        against: Mot
         blocked_comments_for_unauthorized_user_warning: Du behöver verifiera dig för att kunna kommentera just nu, men du kan läsa tidigare kommentarer.
         blocked_comments_for_user_warning: Du kan inte kommentera just nu, men du kan läsa tidigare kommentarer.
-        blocked_comments_warning: Kommentarer är inaktiverade, endast administratörer kan svara eller skriva nya.
+        blocked_comments_warning: Kommentarer är inaktiverade just nu, men du kan läsa de föregående.
         comment_details_title: Kommentarsdetaljer
-        in_favor: För
         loading: Laddar kommentarer...
         single_comment_warning: <a href="%{url}">Visa alla kommentarer</a>
         single_comment_warning_title: Du visar en enda kommentar
         title:
           one: "%{count} kommentar"
           other: "%{count} kommentarer"
-        top_comment_label: Mest stöd
       down_vote_button:
         text: Jag instämmer inte i denna kommentar
       edit_comment_modal_form:
@@ -132,30 +124,16 @@ sv:
         title: Redigera din kommentar
       up_vote_button:
         text: Jag instämmer i denna kommentar
-    download_your_data:
-      help:
-        comment_votes:
-          comment: Id för kommentaren som gillades
-          created_at: Datum då denna omröstning skapades
-          id: Röstens id
-          updated_at: Datum då rösten senaste uppdaterades
-          weight: Röstens vikt (1 för uppröstning, -1 för nedröstning)
-        comments:
-          alignment: Positiva, negativa eller neutrala kommentarer
-          author: Namn på den som kommenterat
-          body: Kommentaren
-          commentable_id: Kommentarens unika id
-          commentable_type: Vad som kommenterades (resultat, förslag etc)
-          created_at: Datum för kommentaren
-          depth: Kommentarens plats i en hierarki av kommentarer (om den är ett svar på en annan kommentar)
-          id: Id för kommentaren
-          locale: Kommentarförfattarens språk
-          root_commentable_url: URL till innehållet för kommentaren
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} har lämnat en kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
           email_outro: Du har fått den här notisen eftersom du följer %{author_name}. Du kan avfölja den här användaren från deras profilsida.
+          email_subject: Det finns en ny kommentar av %{author_name} i %{resource_title}
+          notification_title: Det finns en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_intro: 'Gruppen %{author_name} har lämnat en kommentar i %{resource_title}. Du kan läsa den här:'
+          email_outro: Du har fått det här meddelandet eftersom du följer %{author_name}. Du kan sluta följa den här gruppen från dess profilsida.
           email_subject: Det finns en ny kommentar av %{author_name} i %{resource_title}
           notification_title: Det finns en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
@@ -178,6 +156,11 @@ sv:
           email_outro: Du har fått denna notis eftersom din kommentar blev besvarad.
           email_subject: "%{author_name} har svarat din kommentar i %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har svarat din kommentar i <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: En grupp som du tillhör har nämnts
+          email_outro: Du har fått det här meddelandet eftersom du är medlem i gruppen %{group_name} som har nämnts i %{resource_title}.
+          email_subject: Du har nämnts i %{resource_title} som en medlem i %{group_name}
+          notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a> som medlem av <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Du har nämnts
           email_outro: Du har fått denna notis eftersom du har nämnts i %{resource_title}.

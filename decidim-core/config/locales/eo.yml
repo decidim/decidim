@@ -1,3 +1,4 @@
+---
 eo:
   activemodel:
     attributes:
@@ -36,6 +37,7 @@ eo:
     attributes:
       decidim/user:
         current_password: Aktuala Pasvorto
+        email: retpoŝta adreso
         name: Kaŝnomo
         password: Pasvorto
         password_confirmation: Pasvorta konfirmo
@@ -62,6 +64,7 @@ eo:
         success: La amendo estis akceptita sukcese.
       amendable:
         button: Amendi %{model_name}
+        error: Okazis eraro ŝanĝante ĉi tiun rimedon.
       edit_draft:
         send: Antaŭvido
   devise:

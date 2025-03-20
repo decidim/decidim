@@ -26,32 +26,28 @@ module Decidim
       sent_at.present?
     end
 
-    def sent_to_all_users?
+    def sent_scopes_ids
+      extended_data["scope_ids"] || []
+    end
+
+    def sent_scopes
+      @sent_scopes ||= organization.scopes.where(id: sent_scopes_ids)
+    end
+
+    def sended_to_all_users?
       extended_data["send_to_all_users"]
     end
 
-    def sent_to_verified_users?
-      extended_data["send_to_verified_users"]
-    end
-
-    def sent_to_users_with_verification_types
-      extended_data["verification_types"]
-    end
-
-    def sent_to_followers?
+    def sended_to_followers?
       extended_data["send_to_followers"]
     end
 
-    def sent_to_participants?
+    def sended_to_participants?
       extended_data["send_to_participants"]
     end
 
     def sent_to_participatory_spaces
       extended_data["participatory_space_types"]
-    end
-
-    def sent_to_private_members?
-      extended_data["send_to_private_members"]
     end
 
     def template

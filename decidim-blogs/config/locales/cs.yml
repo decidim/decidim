@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -16,19 +17,14 @@ cs:
         many: Příspěvky
         other: Příspěvky
   decidim:
-    admin:
-      admin_log:
-        changeset:
-          posts: Příspěvky
     blogs:
       actions:
         author_id: Vytvořit příspěvek jako
-        confirm_delete_post: Opravdu chcete odstranit tento příspěvek?
-        deleted_posts_info: Smazané příspěvky mohou být obnoveny z koše.
+        confirm_destroy: Opravdu chcete odstranit tento příspěvek?
+        destroy: Smazat
         edit: Upravit
         new: Nový příspěvek
         title: Akce
-        view_deleted_posts: Zobrazit odstraněné příspěvky
       admin:
         posts:
           create:
@@ -42,8 +38,6 @@ cs:
           index:
             not_published_yet: Zatím nezveřejněno.
             title: Příspěvky
-          manage_trash:
-            title: Smazané příspěvky
           new:
             create: Vytvořit
             title: Vytvořit příspěvek
@@ -54,8 +48,6 @@ cs:
         post:
           create: "%{user_name} vytvořil příspěvek %{resource_name} v %{space_name}"
           delete: "%{user_name} odstranil příspěvek %{resource_name} z %{space_name}"
-          restore: "%{user_name} obnovil příspěvek %{resource_name} v %{space_name}"
-          soft_delete: "%{user_name} přesunul příspěvek %{resource_name} v %{space_name} do koše"
           update: "%{user_name} aktualizoval příspěvek %{resource_name} v %{space_name}"
       content_blocks:
         highlighted_posts:
@@ -71,20 +63,8 @@ cs:
             body: Tělo
             official_blog_post: Oficiální příspěvek
             published_at: Čas zveřejnění
-            taxonomies: Taxonomie
             title: Název
       posts:
-        edit:
-          add_attachments: Přidat přílohy
-          attachment_legend: Přidat dokument nebo obrázek
-          back: Zpět na příspěvek
-          button: Aktualizovat
-          edit_attachments: Upravit přílohy
-          title: Upravit příspěvek
-        form:
-          author_id: Autor
-          body: Tělo
-          title: Název
         index:
           count:
             one: "%{count} příspěvek"
@@ -92,15 +72,6 @@ cs:
             many: "%{count} příspěvků"
             other: "%{count} příspěvků"
           empty: Zatím nejsou žádné příspěvky.
-          new_post: Nový příspěvek
-        menu_actions:
-          button_destroy: Smazat příspěvek
-          button_destroy_confirm: Opravdu chcete smazat tento příspěvek?
-          button_edit: Upravit příspěvek
-        new:
-          back: Zpět na příspěvky
-          button: Vytvořit
-          title: Vytvořit nový příspěvek
     components:
       blogs:
         actions:
@@ -113,14 +84,8 @@ cs:
         settings:
           global:
             announcement: Oznámení
-            attachments_allowed: Povolit přílohy
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
-            creation_enabled_for_participants: Účastníci mohou vytvářet příspěvky
-            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
-            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
-            taxonomy_filters: Vyberte filtry pro komponentu
-            taxonomy_filters_add: Přidat filtr
           step:
             announcement: Oznámení
             comments_blocked: Komentáře byly blokovány
@@ -133,32 +98,5 @@ cs:
           email_outro: Obdrželi jste toto oznámení, protože sledujete "%{participatory_space_title}". Můžete ho zrušit z předchozího odkazu.
           email_subject: Nový příspěvek publikován v %{participatory_space_title}
           notification_title: Příspěvek <a href="%{resource_path}">%{resource_title}</a> byl zveřejněn ve %{participatory_space_title}
-    open_data:
-      help:
-        post_comments:
-          alignment: Pokud byl tento komentář příznivý, proti nebo neutrální
-          author: Jméno účastníka, který vytvořil tento komentář
-          body: Samotný komentář
-          commentable_id: Jedinečné ID komentáře
-          commentable_type: Typ komentáře (pokud byl výsledek, návrh atd.)
-          created_at: Datum, kdy byl komentář vytvořen
-          depth: Místo, kde se tento komentář nachází je ve třech komentářích (pokud se jedná o odpověď nebo odpověď na odpověď)
-          id: ID pro tento komentář
-          locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
-          root_commentable_url: Adresa URL zdroje, který má vazbu na tento komentář
-        posts:
-          author: Informace autora
-          body: Tělo příspěvku
-          comments_count: Počet komentářů, které má tento příspěvek
-          component: Komponenta, do které příspěvek patří,
-          created_at: Datum, kdy byl příspěvek vytvořen
-          endorsements_count: Počet podpor, které má tento příspěvek
-          follows_count: Počet sledujících tohoto příspěvku
-          id: Jedinečný identifikátor tohoto příspěvku
-          participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tento příspěvek
-          published_at: Datum zveřejnění tohoto příspěvku
-          title: Název příspěvku
-          updated_at: Poslední datum, kdy byl příspěvek aktualizován
-          url: URL pro tento příspěvek
     statistics:
       posts_count: Příspěvky

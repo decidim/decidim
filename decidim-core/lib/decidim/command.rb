@@ -22,7 +22,7 @@ module Decidim
     end
 
     def evaluate(&block)
-      @caller = block.binding.receiver
+      @caller = eval("self", block.binding, __FILE__, __LINE__)
       instance_eval(&block)
     end
 
@@ -42,10 +42,10 @@ module Decidim
       @caller.respond_to?(method_name, include_private)
     end
 
-    def with_events(with_transaction: false, &)
+    def with_events(with_transaction: false, &block)
       ActiveSupport::Notifications.publish("#{event_namespace}:before", **event_arguments)
 
-      with_transaction ? transaction(&) : yield
+      with_transaction ? transaction(&block) : yield
 
       ActiveSupport::Notifications.publish("#{event_namespace}:after", **event_arguments)
     end

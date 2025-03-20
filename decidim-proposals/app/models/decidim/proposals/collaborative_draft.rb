@@ -5,7 +5,6 @@ module Decidim
     class CollaborativeDraft < Proposals::ApplicationRecord
       include Decidim::Resourceable
       include Decidim::Coauthorable
-      include Decidim::Taxonomizable
       include Decidim::HasComponent
       include Decidim::ScopableResource
       include Decidim::HasReference
@@ -46,10 +45,6 @@ module Decidim
         authored_by?(user)
       end
 
-      def presenter
-        Decidim::Proposals::CollaborativeDraftPresenter.new(self)
-      end
-
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
@@ -69,15 +64,7 @@ module Decidim
       ransacker_text_multi :search_text, [:title, :body]
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_state, :related_to, :with_any_taxonomies]
-      end
-
-      def self.ransackable_attributes(_auth_object = nil)
-        %w(id_string search_text title body)
-      end
-
-      def self.ransackable_associations(_auth_object = nil)
-        %w(taxonomies)
+        [:with_any_state, :related_to, :with_any_scope, :with_any_category]
       end
     end
   end

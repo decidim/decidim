@@ -1,3 +1,4 @@
+---
 ga:
   activemodel:
     attributes:
@@ -54,10 +55,12 @@ ga:
       models:
         result:
           fields:
+            category: Catagóir
             created_at: Cruthaithe
             end_date: Dáta deiridh
             id: ID
             progress: Forás
+            scope: Scóip
             status: Stádas
             title: Teideal
         status:
@@ -68,9 +71,16 @@ ga:
         timeline_entry:
           fields:
             entry_date: Dáta
+      results:
+        filters:
+          all: Uile
     admin:
       filters:
         results:
+          category_id_eq:
+            label: Catagóir
+          scope_id_eq:
+            label: Scóip
           status_id_eq:
             label: Stádas
     components:
@@ -80,6 +90,7 @@ ga:
         settings:
           global:
             intro: Réamhrá
+            scope_id: Scóip
     metrics:
       results:
         object: torthaí

@@ -26,7 +26,6 @@ describe "Explore versions", versioning: true do
   end
 
   before do
-    stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
     Decidim.traceability.update!(
       meeting,
       "test suite",

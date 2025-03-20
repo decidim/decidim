@@ -6,17 +6,20 @@ describe "Admin orders results" do
   let(:manifest_name) { "accountability" }
   let!(:results) do
     [
-      create(:result, taxonomies: [create(:taxonomy, :with_parent, organization: component.organization,
-                                                                   name: { "ca" => "Taxonomy3", "en" => "Taxonomy3" })],
+      create(:result, scope: create(:scope, organization: component.organization,
+                                            name: { "ca" => "Scope2", "en" => "Scope3" }),
                       component: current_component,
+                      category: create(:category, participatory_space:),
                       created_at: 2.days.ago),
-      create(:result, taxonomies: [create(:taxonomy, :with_parent, organization: component.organization,
-                                                                   name: { "ca" => "Taxonomy1", "en" => "Taxonomy1" })],
+      create(:result, scope: create(:scope, organization: component.organization,
+                                            name: { "ca" => "Scope3", "en" => "Scope1" }),
                       component: current_component,
+                      category: create(:category, participatory_space:),
                       created_at: 1.day.ago),
-      create(:result, taxonomies: [create(:taxonomy, :with_parent, organization: component.organization,
-                                                                   name: { "ca" => "Taxonomy2", "en" => "Taxonomy2" })],
+      create(:result, scope: create(:scope, organization: component.organization,
+                                            name: { "ca" => "Scope1", "en" => "Scope2" }),
                       component: current_component,
+                      category: create(:category, participatory_space:),
                       created_at: Time.current)
     ]
   end
@@ -45,10 +48,21 @@ describe "Admin orders results" do
     end
   end
 
-  it "orders results by taxonomy" do
-    ordered_results = results.sort_by { |result| translated(result.taxonomies.first.name) }
+  it "orders results by category" do
+    ordered_results = results.sort_by { |result| translated(result.category.name) }
 
-    click_on "Taxonomies"
+    click_on "Category"
+    rows = page.all("tbody tr")
+
+    rows.each_with_index do |row, i|
+      expect(row).to have_text(translated(ordered_results[i].title))
+    end
+  end
+
+  it "orders results by scope" do
+    ordered_results = results.sort_by { |result| translated(result.scope.name) }
+
+    click_on "Scope"
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|

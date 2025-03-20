@@ -46,8 +46,8 @@ Decidim.register_component(:budgets) do |component|
   component.register_stat :orders_count do |components, start_at, end_at|
     budgets = Decidim::Budgets::Budget.where(component: components)
     orders = Decidim::Budgets::Order.where(budget: budgets)
-    orders = orders.where(created_at: start_at..) if start_at.present?
-    orders = orders.where(created_at: ..end_at) if end_at.present?
+    orders = orders.where("created_at >= ?", start_at) if start_at.present?
+    orders = orders.where("created_at <= ?", end_at) if end_at.present?
     orders.count
   end
 
@@ -66,7 +66,7 @@ Decidim.register_component(:budgets) do |component|
       budgets = resource_id ? Decidim::Budgets::Budget.find(resource_id) : Decidim::Budgets::Budget.where(decidim_component_id: component_instance)
       Decidim::Budgets::Project
         .where(decidim_budgets_budget_id: budgets)
-        .includes(:taxonomies, :component)
+        .includes(:category, :component)
     end
 
     exports.include_in_open_data = true
@@ -75,8 +75,9 @@ Decidim.register_component(:budgets) do |component|
   end
 
   component.settings(:global) do |settings|
-    settings.attribute :taxonomy_filters, type: :taxonomy_filters
-    settings.attribute :workflow, type: :enum, default: "one", choices: ->(_context) { Decidim::Budgets.workflows.keys.map(&:to_s) }
+    settings.attribute :scopes_enabled, type: :boolean, default: false
+    settings.attribute :scope_id, type: :scope
+    settings.attribute :workflow, type: :enum, default: "one", choices: -> { Decidim::Budgets.workflows.keys.map(&:to_s) }
     settings.attribute :projects_per_page, type: :integer, default: 12
     settings.attribute :vote_rule_threshold_percent_enabled, type: :boolean, default: true
     settings.attribute :vote_threshold_percent, type: :integer, default: 70

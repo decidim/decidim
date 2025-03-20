@@ -1,13 +1,17 @@
+---
 bg:
   activemodel:
     attributes:
       debate:
+        category_id: Категория
         closed_at: Затворено на
         conclusions: Заключения
+        decidim_category_id: Категория
         description: Описание
         end_time: Завършва на
         information_updates: Актуализации на информацията
         instructions: Инструкции за участие
+        scope_id: Обхват
         start_time: Започва в
         title: Заглавие
         user_group_id: Създаване на дебат като
@@ -26,6 +30,7 @@ bg:
       debates:
         actions:
           comment: Коментар
+          create: Създаване
           endorse: Одобрявам
         name: Дебати
         settings:
@@ -33,6 +38,8 @@ bg:
             announcement: Обявление
             comments_enabled: Коментарите са активирани
             comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
+            scope_id: Обхват
+            scopes_enabled: Обхватите са активирани
           step:
             announcement: Обявление
             comments_blocked: Коментарите са блокирани
@@ -42,6 +49,8 @@ bg:
     debates:
       actions:
         close: Затвори
+        confirm_destroy: Сигурни ли сте?
+        destroy: Изтрий
         edit: Редактирай
         new: Нов дебат
         title: Активности
@@ -54,6 +63,8 @@ bg:
           create:
             invalid: Възникна проблем при създаването на дебата.
             success: Дебатът беше създаден успешно.
+          destroy:
+            success: Дебатът беше изтрит успешно.
           edit:
             title: Редактиране на дебата
             update: Актуализиране на дебата
@@ -114,6 +125,8 @@ bg:
             closed: Затворен
             open: Отворен
           user_group: Групи
+        form:
+          select_a_category: Моля, изберете категория
         index:
           new_debate: Нов дебат
         new:
@@ -127,9 +140,11 @@ bg:
           recent: Най-скорошни
           updated: Скоро обновени
         show:
+          close_debate: Затваряне на дебата
           debate_closed: Затворен
           debate_conclusions_are: 'Дебатът беше затворен на %{date} със следните заключения:'
           edit_conclusions: Редактиране на заключенията
+          edit_debate: Редактиране на дебата
           groups_count: Групи
           open: Отворен дебат
           participants_count: Участници

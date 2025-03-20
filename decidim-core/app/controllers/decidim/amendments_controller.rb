@@ -6,6 +6,7 @@ module Decidim
     include FormFactory
     include HasSpecificBreadcrumb
     helper Decidim::ResourceReferenceHelper
+    helper UserGroupHelper
 
     before_action :authenticate_user!
     helper_method :amendment, :amendable, :emendation

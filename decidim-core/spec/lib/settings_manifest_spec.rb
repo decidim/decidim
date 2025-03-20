@@ -91,7 +91,7 @@ module Decidim
         subject.attribute :something, choices: %w(a b c)
         expect(subject.attributes[:something].build_choices).to eq(%w(a b c))
 
-        subject.attribute :something, choices: ->(_context) { %w(a b c) }
+        subject.attribute :something, choices: -> { %w(a b c) }
         expect(subject.attributes[:something].build_choices).to eq(%w(a b c))
       end
 
@@ -148,18 +148,6 @@ module Decidim
           attribute = SettingsManifest::Attribute.new(type: :scope)
           expect(attribute.type_class).to eq(Integer)
           expect(attribute.default_value).to be_nil
-        end
-
-        it "supports integer_with_units" do
-          attribute = SettingsManifest::Attribute.new(type: :integer_with_units)
-          expect(attribute.type_class).to eq(Decidim::Attributes::IntegerWithUnits)
-          expect(attribute.default_value).to eq([5, "minutes"])
-        end
-
-        it "supports taxonomy_filters" do
-          attribute = SettingsManifest::Attribute.new(type: :taxonomy_filters)
-          expect(attribute.type_class).to eq(Array)
-          expect(attribute.default_value).to eq([])
         end
       end
 

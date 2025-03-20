@@ -37,13 +37,6 @@ module Decidim
           described_class.new(form)
         end
 
-        it_behaves_like "fires an ActiveSupport::Notification event", "decidim.initiatives.create_initiative:before" do
-          let(:command) { subject }
-        end
-        it_behaves_like "fires an ActiveSupport::Notification event", "decidim.initiatives.create_initiative:after" do
-          let(:command) { subject }
-        end
-
         let(:area) { create(:area, organization:) }
         let(:scoped_type) { create(:initiatives_type_scope) }
         let(:organization) { scoped_type.type.organization }
@@ -64,6 +57,7 @@ module Decidim
             type_id: scoped_type.type.id,
             signature_type: "online",
             scope_id: scoped_type.scope.id,
+            decidim_user_group_id: nil,
             area_id: area.id
           }
         end

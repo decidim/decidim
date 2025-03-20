@@ -20,10 +20,6 @@ module Decidim
         resource_locator([model.budget, model]).path
       end
 
-      def resource_index_path
-        resource_locator(model.budget).path
-      end
-
       def resource_title
         translated_attribute model.title
       end

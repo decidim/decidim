@@ -1,13 +1,17 @@
+---
 gl:
   activemodel:
     attributes:
       budget:
+        decidim_scope_id: Ámbito
         description: Descripción
         title: Título
         total_budget: Orzamento total
         weight: Orde de posición
       project:
         budget_amount: Importe do orzamento
+        decidim_category_id: Categoría
+        decidim_scope_id: Ámbito
         description: Descrición
         proposal_ids: Propostas relacionadas
         title: Título
@@ -20,6 +24,10 @@ gl:
     admin:
       filters:
         projects:
+          category_id_eq:
+            label: Categoría
+          scope_id_eq:
+            label: Ámbito
           selected_at_null:
             label: Seleccionado
             values:
@@ -29,6 +37,7 @@ gl:
       actions:
         attachment_collections: Carpetas
         attachments: Anexos
+        destroy: Eliminar
         edit: Editar
         edit_projects: Xestionar proxectos
         import: Importa propostas a proxectos
@@ -101,11 +110,9 @@ gl:
             total_budget: Orzamento total
         project:
           fields:
+            category: Categoría
             id: ID
             title: Título
-      order:
-        status:
-          title: O teu voto foi aceptado con éxito
       order_summary_mailer:
         order_summary:
           selected_projects: 'Os proxectos que seleccionaches son:'
@@ -134,6 +141,8 @@ gl:
           message: O teu voto non foi rexistrado xa que aínda non completaches o proceso de votación. Estás certo/a de querer saír da votación?
           title: Aínda non votaches
         filters:
+          category: Categoría
+          scope: Ámbito
           search: Busca
           status: Estado
           status_values:
@@ -172,6 +181,8 @@ gl:
             comments_enabled: Comentarios habilitados
             comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
             projects_per_page: Proxectos por páxina
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
             title: Título
             total_budget: Orzamento total
             vote_minimum_budget_projects_number: Número mínimo de proxectos a votar

@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Initiative" do
   let(:organization) { create(:organization, available_authorizations: authorizations) }
   let(:do_not_require_authorization) { true }
-  let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
+  let(:authorizations) { %w(dummy_authorization_handler) }
   let!(:authorized_user) { create(:user, :confirmed, organization:) }
   let!(:authorization) { create(:authorization, user: authorized_user) }
   let(:login) { true }
@@ -28,7 +28,7 @@ describe "Initiative" do
   shared_examples "initiatives path redirection" do
     it "redirects to initiatives path" do
       accept_confirm do
-        click_on("Send to technical validation")
+        click_on("Send my initiative to technical validation")
       end
 
       expect(page).to have_current_path("/initiatives")
@@ -181,13 +181,15 @@ describe "Initiative" do
 
           it "they need to verify" do
             click_on "New initiative"
-            expect(page).to have_content("We need to verify your identity")
+            expect(page).to have_content("Authorization required")
           end
 
           it "they are authorized to create after verifying" do
             click_on "New initiative"
+            click_on 'Authorize with "Example authorization"'
             fill_in "Document number", with: "123456789X"
             click_on "Send"
+            click_on "New initiative"
             expect(page).to have_content("Review the content of your initiative. ")
           end
         end
@@ -264,7 +266,7 @@ describe "Initiative" do
 
           let(:authorization) { nil }
 
-          it "they are redirected to authorization form page" do
+          it "they are shown an error" do
             click_on "New initiative"
             within "#loginModal" do
               fill_in "Email", with: authorized_user.email
@@ -272,38 +274,7 @@ describe "Initiative" do
               click_on "Log in"
             end
 
-            expect(page).to have_content("We need to verify your identity")
-            expect(page).to have_content("Verify with Example authorization")
-          end
-        end
-
-        context "and more than one authorization handlers has been activated" do
-          before do
-            initiative_type.create_resource_permission(
-              permissions: {
-                "create" => {
-                  "authorization_handlers" => {
-                    "dummy_authorization_handler" => { "options" => {} },
-                    "another_dummy_authorization_handler" => { "options" => {} }
-                  }
-                }
-              }
-            )
-            visit decidim_initiatives.initiatives_path
-          end
-
-          let(:authorization) { nil }
-
-          it "they are redirected to pending onboarding authorizations page" do
-            click_on "New initiative"
-            within "#loginModal" do
-              fill_in "Email", with: authorized_user.email
-              fill_in "Password", with: "decidim123456789"
-              click_on "Log in"
-            end
-
-            expect(page).to have_content("You are almost ready to create an initiative")
-            expect(page).to have_css("a[data-verification]", count: 2)
+            expect(page).to have_content("You are not authorized to perform this action")
           end
         end
       end
@@ -335,15 +306,12 @@ describe "Initiative" do
 
             it "they need to verify" do
               click_on "New initiative"
-              expect(page).to have_css("a[data-dialog-open=not-authorized-modal]", visible: :all, count: 2)
+              expect(page).to have_css("button[data-dialog-open=not-authorized-modal]", visible: :all, count: 2)
             end
 
             it "they are redirected to the initiative form after verifying" do
               click_on "New initiative"
-              within "#radio-accordion-#{initiative_type.id}" do
-                click_on "Show more"
-                click_on "Verify your account to promote this initiative", match: :first
-              end
+              click_on "Verify your account to promote this initiative", match: :first
               click_on "View authorizations"
               click_on(text: /Example authorization/)
               fill_in "Document number", with: "123456789X"
@@ -371,21 +339,17 @@ describe "Initiative" do
 
           it "they need to verify" do
             click_on "New initiative"
-            within "#radio-accordion-#{initiative_type.id}" do
-              click_on "Show more"
-              click_on "Verify your account to promote this initiative", match: :first
-            end
-            expect(page).to have_content("We need to verify your identity")
+            click_on "Verify your account to promote this initiative", match: :first
+            expect(page).to have_content("Authorization required")
           end
 
           it "they are authorized to create after verifying" do
             click_on "New initiative"
-            within "#radio-accordion-#{initiative_type.id}" do
-              click_on "Show more"
-              click_on "Verify your account to promote this initiative", match: :first
-            end
+            click_on "Verify your account to promote this initiative", match: :first
+            click_on 'Authorize with "Example authorization"'
             fill_in "Document number", with: "123456789X"
             click_on "Send"
+            click_on(class: "card__highlight", text: translated(initiative_type.title))
             expect(page).to have_content("Review the content of your initiative.")
           end
         end
@@ -441,7 +405,7 @@ describe "Initiative" do
                 click_on "Log in"
               end
 
-              expect(page).to have_css("a[data-dialog-open=not-authorized-modal]", visible: :all, count: 2)
+              expect(page).to have_css("button[data-dialog-open=not-authorized-modal]", visible: :all, count: 2)
             end
           end
         end
@@ -471,11 +435,8 @@ describe "Initiative" do
             end
 
             expect(page).to have_content("Create a new initiative")
-            within "#radio-accordion-#{initiative_type.id}" do
-              click_on "Show more"
-              click_on "Verify your account to promote this initiative", match: :first
-            end
-            expect(page).to have_content("We need to verify your identity")
+            click_on "Verify your account to promote this initiative", match: :first
+            expect(page).to have_content("Authorization required")
           end
         end
       end
@@ -486,8 +447,7 @@ describe "Initiative" do
     before do
       organization.update(rich_text_editor_in_public_views: true)
       click_on "New initiative"
-      first("input.radio-accordion-radio").click
-      click_on "Continue"
+      first("button.card__highlight").click
     end
 
     it_behaves_like "having a rich text editor", "new_initiative_form", "content"
@@ -509,11 +469,7 @@ describe "Initiative" do
         it "shows the available initiative types" do
           within "[data-content]" do
             expect(page).to have_content(translated(initiative_type.title, locale: :en))
-
-            within "#radio-accordion-#{initiative_type.id}" do
-              click_on "Show more"
-              expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative_type.description, locale: :en), tags: []))
-            end
+            expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative_type.description, locale: :en), tags: []))
           end
         end
 
@@ -527,8 +483,7 @@ describe "Initiative" do
 
       context "and fill basic data" do
         before do
-          first("input.radio-accordion-radio").click
-          click_on "Continue"
+          first("button.card__highlight").click
         end
 
         it "does not show the select input for initiative_type" do
@@ -628,8 +583,7 @@ describe "Initiative" do
 
         context "when there are several initiative types" do
           before do
-            first("input.radio-accordion-radio").click
-            click_on "Continue"
+            first("button.card__highlight").click
           end
 
           it "create view is shown" do
@@ -727,8 +681,7 @@ describe "Initiative" do
         let(:initiative) { build(:initiative, organization:, scoped_type: initiative_type_scope) }
 
         before do
-          first("input.radio-accordion-radio").click
-          click_on "Continue"
+          first("button.card__highlight").click
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
@@ -738,12 +691,12 @@ describe "Initiative" do
         end
 
         it "shows the promoter committee" do
-          expect(page).to have_content("Promoters Committee")
+          expect(page).to have_content("Promoter committee")
         end
 
         it "offers contextual help" do
-          within "[data-content]" do
-            expect(page).to have_content("This type of citizen initiative requires a promoter committee composed of at least #{initiative_type_minimum_committee_members} members (certifiers). You must share the following link with the other people who are part of this initiative. When your contacts receive this link, they will have to follow the indicated steps.")
+          within ".flash.secondary" do
+            expect(page).to have_content("This kind of initiative requires a Promoting Commission consisting of at least #{initiative_type_minimum_committee_members} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.")
           end
         end
 
@@ -752,7 +705,7 @@ describe "Initiative" do
         end
 
         it "contains a button to continue with next step" do
-          expect(page).to have_content("Send to technical validation")
+          expect(page).to have_content("Continue")
         end
 
         context "when minimum committee size is zero" do
@@ -760,8 +713,8 @@ describe "Initiative" do
 
           it "skips to next step" do
             within("#wizard-steps [data-active]") do
-              expect(page).to have_no_content("Promoters Committee")
-              expect(page).to have_content("Technical validation")
+              expect(page).to have_no_content("Promoter committee")
+              expect(page).to have_content("Finish")
             end
           end
         end
@@ -770,21 +723,40 @@ describe "Initiative" do
           let(:initiative_type) { create(:initiatives_type, organization:, promoting_committee_enabled: false, signature_type:) }
 
           it "skips the promoting committee settings" do
-            expect(page).to have_no_content("Promoters Committee")
-            expect(page).to have_content("Send to technical validation")
+            expect(page).to have_no_content("Promoter committee")
+            expect(page).to have_content("Finish")
           end
+        end
+      end
+
+      context "when the initiative is created by an user group" do
+        let(:organization) { create(:organization, available_authorizations: authorizations, user_groups_enabled: true) }
+        let(:initiative) { build(:initiative) }
+        let!(:user_group) { create(:user_group, :verified, organization:, users: [authorized_user]) }
+
+        before do
+          authorized_user.reload
+          first("button.card__highlight").click
+
+          fill_in "Title", with: translated(initiative.title, locale: :en)
+          fill_in "initiative_description", with: translated(initiative.description, locale: :en)
+          select("Online", from: "Signature collection type")
+          select(translated(initiative_type_scope&.scope&.name, locale: :en), from: "Scope")
+        end
+
+        it "shows the user group as author" do
+          expect(Decidim::Initiative.where(decidim_user_group_id: user_group.id).count).to eq(0)
+          select(user_group.name, from: "Author")
+          find_button("Continue").click
+          expect(Decidim::Initiative.where(decidim_user_group_id: user_group.id).count).to eq(1)
         end
       end
 
       context "when finish" do
         let(:initiative) { build(:initiative) }
-        let(:initiative_type_minimum_committee_members) { 0 }
 
         before do
-          within "#radio-accordion-#{initiative_type.id}" do
-            first("input.radio-accordion-radio").click
-          end
-          click_on "Continue"
+          first("button.card__highlight").click
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
@@ -800,15 +772,43 @@ describe "Initiative" do
           expect(Decidim::Initiative.last.photos.count).to eq(1)
         end
 
+        it "shows the page component" do
+          find_link("Continue").click
+          find_link("Go to my initiatives").click
+          find_link(translated(initiative.title, locale: :en)).click
+
+          within ".participatory-space__nav-container" do
+            find_link("Page").click
+          end
+
+          expect(page).to have_content("Page")
+        end
+
         context "when minimum committee size is above zero" do
           before do
-            find_link("Send to technical validation").click
-            click_on "OK"
+            find_link("Continue").click
+          end
+
+          it "finish view is shown" do
+            expect(page).to have_content("Finish")
           end
 
           it "Offers contextual help" do
-            expect(page).to have_content("The initiative has been sent to technical validation.")
+            within ".flash.secondary" do
+              expect(page).to have_content("Congratulations! Your initiative has been successfully created.")
+            end
           end
+
+          it "displays an edit link" do
+            expect(page).to have_link("Edit my initiative")
+          end
+        end
+
+        it "displays a link to take the user to their initiatives" do
+          find_link("Continue").click
+          find_link("Edit my initiative").click
+
+          expect(page).to have_field("initiative_title", with: translated(initiative.title, locale: :en))
         end
       end
 
@@ -818,8 +818,7 @@ describe "Initiative" do
         let(:expected_message) { "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?" }
 
         before do
-          first("input.radio-accordion-radio").click
-          click_on "Continue"
+          first("button.card__highlight").click
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
@@ -829,7 +828,7 @@ describe "Initiative" do
         end
 
         it "displays a send to technical validation link" do
-          expect(page).to have_link("Send to technical validation")
+          expect(page).to have_link("Send my initiative to technical validation")
           expect(page).to have_css "a[data-confirm='#{expected_message}']"
         end
 
@@ -843,8 +842,7 @@ describe "Initiative" do
         let(:expected_message) { "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?" }
 
         before do
-          first("input.radio-accordion-radio").click
-          click_on "Continue"
+          first("button.card__highlight").click
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
           fill_in "initiative_description", with: translated(initiative.description, locale: :en)
@@ -854,7 +852,7 @@ describe "Initiative" do
         end
 
         it "displays a send to technical validation link" do
-          expect(page).to have_link("Send to technical validation")
+          expect(page).to have_link("Send my initiative to technical validation")
           expect(page).to have_css "a[data-confirm='#{expected_message}']"
         end
 

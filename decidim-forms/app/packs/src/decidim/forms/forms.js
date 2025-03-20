@@ -11,7 +11,6 @@ import "dragula/dist/dragula.css";
 import createOptionAttachedInputs from "src/decidim/forms/option_attached_inputs.component"
 import createDisplayConditions from "src/decidim/forms/display_conditions.component"
 import createMaxChoicesAlertComponent from "src/decidim/forms/max_choices_alert.component"
-import { preventUnload } from "src/decidim/utilities/dom"
 
 $(() => {
   $(".js-radio-button-collection, .js-check-box-collection").each((idx, el) => {
@@ -46,33 +45,30 @@ $(() => {
     });
   });
 
-  const form = document.querySelector("form.answer-questionnaire");
-  if (form) {
-    const safePath = form.dataset.safePath.split("?")[0];
-    let exitUrl = "";
-    document.addEventListener("click", (event) => {
-      const link = event.target?.closest("a");
-      if (link) {
-        exitUrl = link.href;
-      }
+  const $form = $("form.answer-questionnaire");
+  if ($form.length > 0) {
+    $form.find("input, textarea, select").on("change", () => {
+      $form.data("changed", true);
     });
 
-    // The submit listener has to be registered through jQuery because the
-    // custom confirm dialog does not dispatch the "submit" event normally.
+    const safePath = $form.data("safe-path").split("?")[0];
+    $(document).on("click", "a", (event) => {
+      window.exitUrl = event.currentTarget.href;
+    });
     $(document).on("submit", "form", (event) => {
-      exitUrl = event.currentTarget.action;
+      window.exitUrl = event.currentTarget.action;
     });
 
-    let hasChanged = false;
-    const controls = form.querySelectorAll("input, textarea, select");
-    const changeListener = () => {
-      if (!hasChanged) {
-        hasChanged = true;
-        controls.forEach((control) => control.removeEventListener("change", changeListener));
+    window.addEventListener("beforeunload", (event) => {
+      const exitUrl = window.exitUrl;
+      const hasChanged = $form.data("changed");
+      window.exitUrl = null;
 
-        preventUnload(() => !exitUrl.includes(safePath));
+      if (!hasChanged || (exitUrl && exitUrl.includes(safePath))) {
+        return;
       }
-    };
-    controls.forEach((control) => control.addEventListener("change", changeListener));
+
+      event.returnValue = true;
+    });
   }
 })

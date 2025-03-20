@@ -6,7 +6,7 @@ describe "Orders" do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
 
-  let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)) }
+  let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler)) }
   let!(:user) { create(:user, :confirmed, organization:) }
   let(:project) { projects.first }
 
@@ -247,55 +247,26 @@ describe "Orders" do
     end
 
     context "and is not authorized" do
-      context "when there is only an authorization required" do
-        before do
-          permissions = {
-            vote: {
-              authorization_handlers: {
-                "dummy_authorization_handler" => {}
-              }
+      before do
+        permissions = {
+          vote: {
+            authorization_handlers: {
+              "dummy_authorization_handler" => {}
             }
           }
+        }
 
-          component.update!(permissions:)
-        end
-
-        it "redirects to the authorization form" do
-          visit_budget
-
-          within "#project-#{project.id}-item" do
-            page.find(".budget-list__action").click
-          end
-
-          expect(page).to have_content("We need to verify your identity")
-          expect(page).to have_content("Verify with Example authorization")
-        end
+        component.update!(permissions:)
       end
 
-      context "when there are more than one authorization required" do
-        before do
-          permissions = {
-            vote: {
-              authorization_handlers: {
-                "dummy_authorization_handler" => {},
-                "another_dummy_authorization_handler" => { "options" => {} }
-              }
-            }
-          }
+      it "shows a modal dialog" do
+        visit_budget
 
-          component.update!(permissions:)
+        within "#project-#{project.id}-item" do
+          page.find(".budget-list__action").click
         end
 
-        it "redirects to pending onboarding authorizations page" do
-          visit_budget
-
-          within "#project-#{project.id}-item" do
-            page.find(".budget-list__action").click
-          end
-
-          expect(page).to have_content("You are almost ready to vote")
-          expect(page).to have_css("a[data-verification]", count: 2)
-        end
+        expect(page).to have_content("Authorization required")
       end
     end
 
@@ -409,8 +380,6 @@ describe "Orders" do
 
           expect(page).to have_content("successfully")
 
-          page.find(".button", text: "View votes").click
-
           within "#order-progress .budget-summary__content", match: :first do
             expect(page).to have_css(".button", text: "delete your vote")
           end
@@ -460,7 +429,7 @@ describe "Orders" do
             before do
               find("[data-dialog-open='budget-confirm']", match: :first).click
               click_on "Confirm"
-              expect(page).to have_css("h1", text: "Your vote has been successfully accepted")
+              expect(page).to have_css(".flash.success")
             end
 
             it "shows private-only activity log entry" do
@@ -695,11 +664,9 @@ describe "Orders" do
         visit_budget
         click_on translated(project.title)
 
-        expect(page).to have_content("History")
-
         proposals.each do |proposal|
-          expect(page).to have_content(decidim_sanitize_translated(proposal.title))
-          expect(page).to have_no_content(proposal.creator_author.name)
+          expect(page).to have_content(translated(proposal.title))
+          expect(page).to have_content(proposal.creator_author.name)
           expect(page).to have_content(proposal.endorsements.size)
         end
       end

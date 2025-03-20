@@ -1,3 +1,4 @@
+---
 ja:
   activemodel:
     attributes:
@@ -21,6 +22,8 @@ ja:
         published_at: 公開日時
         registration_terms: 参加規約
         registrations_enabled: 登録可能
+        scope_id: スコープ
+        scopes_enabled: スコープは有効です
         short_description: 短い説明
         show_statistics: 統計情報を表示
         sign_date: 署名日
@@ -66,8 +69,6 @@ ja:
         email: Eメールアドレス
         name: 名前
         role: ロール
-      partner:
-        logo: ロゴ
     errors:
       models:
         conference_registration_invite:
@@ -86,7 +87,6 @@ ja:
     admin:
       actions:
         confirm: 確認する
-        confirm_delete_conference: このカンファレンスを削除してもよろしいですか？気が変わった場合は、後で復元できます。
         new_conference: 新しいカンファレンス
         new_conference_user_role: 新しいカンファレンス管理者
         new_media_link: 新しいメディア リンク
@@ -94,7 +94,6 @@ ja:
         new_registration_type: 新規登録種別
         new_speaker: 新しいスピーカー
         send_diplomas: 出席証明書を送信
-        view_deleted_conferences: 削除されたカンファレンスを表示
       conference_copies:
         new:
           copy: コピー
@@ -118,13 +117,13 @@ ja:
         destroy:
           success: カンファレンススピーカーを削除しました。
         edit:
-          title: カンファレンススピーカーを更新
+          title: カンファレンススピーカーを更新します。
           update: 更新
         index:
           conference_speakers_title: カンファレンススピーカー
         new:
           create: 作成
-          title: 新しいカンファレンススピーカー
+          title: 新しいカンファレンススピーカー。
         publish:
           invalid: このスピーカーを公開中に問題が発生しました。
           success: カンファレンスのスピーカーを公開しました。
@@ -164,8 +163,6 @@ ja:
         index:
           published: 公開済み
           unpublished: 未公開
-        manage_trash:
-          title: 削除されたカンファレンス
         new:
           create: 作成
           title: カンファレンス
@@ -183,13 +180,13 @@ ja:
         destroy:
           success: メディアリンクを削除しました。
         edit:
-          title: メディア リンクを更新
+          title: メディアリンクを更新
           update: 更新
         index:
           media_links_title: メディアリンク
         new:
           create: 作成
-          title: メディアリンクを作成
+          title: メディアリンク
         update:
           error: このメディア リンクの更新中に問題が発生しました。
           success: メディアリンクを更新しました。
@@ -199,11 +196,12 @@ ja:
           attachment_collections: フォルダ
           attachment_files: ファイル
           attachments: 添付ファイル
+          categories: カテゴリ
           components: コンポーネント
           conference_admins: カンファレンス管理者
           conference_invites: 招待
           conference_speakers: スピーカー
-          diploma: 参加証明書
+          diploma: 出席証明書
           info: このカンファレンスについて
           media_links: メディアリンク
           moderations: モデレーション
@@ -234,12 +232,13 @@ ja:
             admin: 管理者
             collaborator: コラボレーター
             moderator: モデレーター
+            valuator: 評価者
         media_link:
           fields:
             date: 日付
             link: リンク
             title: タイトル
-          name: メディア リンク
+          name: メディアリンク
         partner:
           fields:
             link: リンク
@@ -265,7 +264,7 @@ ja:
         destroy:
           success: カンファレンスパートナーを削除しました。
         edit:
-          title: パートナーを更新
+          title: パートナーを更新します。
           update: 更新
         new:
           create: 作成
@@ -287,7 +286,7 @@ ja:
         destroy:
           success: カンファレンスの登録種別を削除しました。
         edit:
-          title: 登録種別を更新
+          title: 登録種別の更新。
           update: 更新
         new:
           create: 作成
@@ -295,21 +294,13 @@ ja:
         update:
           error: このカンファレンスの登録種別の更新に問題がありました。
           success: カンファレンスの登録種別を更新しました。
-      taxonomy_filters:
-        space_filter_for:
-          conferences: すべてのカンファレンス
       titles:
         conferences: カンファレンス
-        conferences_deleted: 削除されたカンファレンス
-      tooltips:
-        deleted_conferences_info: カンファレンスは、ステータスが "未公開" の場合にのみ削除できます。
     admin_log:
       conference:
         create: "%{user_name} が %{resource_name} カンファレンスを作成しました"
         publish: "%{user_name} が %{resource_name} カンファレンスを公開しました"
-        restore: "%{user_name} が %{resource_name} カンファレンスを復元しました"
         send_conference_diplomas: "%{user_name} が %{resource_name} カンファレンスに出席証明書を送信しました"
-        soft_delete: "%{user_name} が %{resource_name} カンファレンスをゴミ箱に移動しました"
         unpublish: "%{user_name} が %{resource_name} カンファレンスを非公開にしました"
         update: "%{user_name} が %{resource_name} のカンファレンスを更新しました"
         update_diploma: "%{user_name} が %{resource_name} カンファレンスの出席設定証明書を更新しました"
@@ -380,19 +371,16 @@ ja:
         conferences:
           form:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
-            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
-            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             registrations_count:
               other: '%{count} 件の登録がありました。'
             slug_help_html: 'URLスラグは、このカンファレンスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
-            taxonomies: タクソノミー
         content_blocks:
           highlighted_conferences:
             max_results: 表示する要素の最大数
         diplomas:
           edit:
             save: 保存
-            title: 参加証明書
+            title: 出席証明書
         invite_join_conference_mailer:
           invite:
             decline: 招待を拒否する '%{conference_title}'
@@ -412,7 +400,7 @@ ja:
             diploma_html: 添付ファイルに、カンファレンス <a href="%{url}">%{title}</a> の出席証明書があります。
           diploma_user:
             attendance_verified_by: 出席者が確認しました
-            certificate_of_attendance: 参加証明書
+            certificate_of_attendance: 出席証明書
             certificate_of_attendance_description: これは、<strong>%{user}</strong>が、<strong>%{start} から %{end}</strong>に<strong>%{location}</strong>で開催された<strong>%{title}</strong>に出席し、参加したことを証明するものです。
         send_diploma:
           error: カンファレンス出席証明書の送信に問題がありました。
@@ -533,25 +521,6 @@ ja:
         objectives: 目的
         related_assemblies: 関連する参加スペース
         related_participatory_processes: 関連する参加型プロセス
-    download_your_data:
-      help:
-        conference_invites:
-          accepted_at: カンファレンスへの招待が承認された日時
-          conference: この招待状が送信されたカンファレンス
-          confirmed_at: この招待の確認日時
-          created_at: この招待の作成日時
-          id: カンファレンス招待の固有ID
-          registration_type: 送信されたカンファレンス参加登録の種別
-          rejected_at: カンファレンスへの招待が却下された日時
-          sent_at: カンファレンスへの招待が送信された日時
-          updated_at: この招待の最終更新日時
-        conference_registrations:
-          conference: 所属するカンファレンス
-          confirmed_at: この登録の確認日時
-          created_at: この登録の作成日時
-          id: カンファレンス参加登録の固有ID
-          registration_type: これが属する参加登録の種別
-          updated_at: この登録の最終更新日時
     events:
       conferences:
         conference_registration_confirmed:
@@ -599,33 +568,6 @@ ja:
         title: メディアとリンク
     menu:
       conferences: カンファレンス
-    open_data:
-      help:
-        conferences:
-          created_at: このスペースが作成された日時
-          decidim_scope_id: カンファレンスのスコープ
-          description: カンファレンスの詳しい説明
-          end_date: カンファレンスの終了日時
-          follows_count: このスペースをフォローしているユーザー数
-          hashtag: Twitter/Xで使用されるカンファレンスハッシュタグ
-          id: このカンファレンスの固有ID
-          location: カンファレンスの場所. このカンファレンスが開催されるところ.
-          objectives: この感ファンレスの目的。開催する目標は何か。
-          promoted: カンファレンスがプロモートされるかどうか
-          published_at: このスペースが公開された日時
-          reference: スペースのユニークな参照
-          remote_banner_image_url: カンファレンスバナー画像のURL
-          remote_hero_image_url: カンファレンスのヒーロー画像のURL
-          scope: カンファレンスのスコープ
-          scopes_enabled: スコープが有効かどうか
-          short_description: カンファレンスの簡単な説明
-          slogan: このカンファレンスのスローガン
-          slug: カンファレンスのスラグ（識別目的、URLに使用）
-          start_date: カンファレンスの開始日時
-          taxonomies: このカンファレンスのタクソノミー
-          title: カンファレンスのタイトル
-          updated_at: このスペースの最終更新日時
-          url: スペースのURL
     statistics:
       conferences_count: カンファレンス
   devise:

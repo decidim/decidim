@@ -9,7 +9,7 @@ shared_examples "logged in user reports content" do
     context "and the user has not reported the resource yet" do
       it "reports the resource" do
         visit reportable_path
-        find("#dropdown-trigger-resource-#{reportable.id}").click
+
         expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
         find(%(button[data-dialog-open="flagModal"])).click
         expect(page).to have_css(".flag-modal", visible: :visible)
@@ -44,7 +44,6 @@ shared_examples "higher user role hides" do
     it "reports the resource" do
       visit reportable_path
 
-      find("#dropdown-trigger-resource-#{reportable.id}").click
       expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
       find(%(button[data-dialog-open="flagModal"])).click
       expect(page).to have_css(".flag-modal", visible: :visible)
@@ -55,56 +54,6 @@ shared_examples "higher user role hides" do
       end
 
       expect(reportable.reload).to be_hidden
-    end
-  end
-end
-
-shared_examples "higher user role hides resource with comments" do
-  context "and the admin hides a resource with comments" do
-    let!(:comments) { create_list(:comment, 2, body: "Dummy comment", commentable: reportable, author: user) }
-
-    before do
-      login_as user, scope: :user
-      Decidim::Ai::SpamDetection.create_reporting_user!
-    end
-    around do |example|
-      previous = Capybara.raise_server_errors
-
-      # Disabling server errors to that we can test page not found error.
-      Capybara.raise_server_errors = false
-      example.run
-      Capybara.raise_server_errors = previous
-    end
-
-    it "hides the resource" do
-      visit decidim.search_path
-      expect(page).to have_content(translated(comments.first.body))
-      expect(page).to have_content(translated(comments.second.body))
-
-      visit reportable_path
-
-      expect(page).to have_content(translated(comments.first.body))
-      expect(page).to have_content(translated(comments.second.body))
-
-      find("#dropdown-trigger-resource-#{reportable.id}").click
-      expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
-      find(%(button[data-dialog-open="flagModal"])).click
-      expect(page).to have_css(".flag-modal", visible: :visible)
-
-      within ".flag-modal" do
-        find(:css, "input[name='report[hide]']").set(true)
-        click_on "Hide"
-      end
-
-      perform_enqueued_jobs
-
-      expect(reportable.reload).to be_hidden
-      expect(comments.first.reload).to be_hidden
-      expect(comments.second.reload).to be_hidden
-
-      visit decidim.search_path
-      expect(page).to have_no_content(translated(comments.first.body))
-      expect(page).to have_no_content(translated(comments.second.body))
     end
   end
 end
@@ -118,7 +67,6 @@ shared_examples "higher user role does not have hide" do
     it "reports the resource" do
       visit reportable_path
 
-      find("#dropdown-trigger-resource-#{reportable.id}").click
       expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
       find(%(button[data-dialog-open="flagModal"])).click
       expect(page).to have_css(".flag-modal", visible: :visible)
@@ -137,7 +85,6 @@ shared_examples "reports" do
 
       expect(page).to have_no_css("html.is-disabled")
 
-      find("#dropdown-trigger-resource-#{reportable.id}").click
       click_on "Report"
 
       expect(page).to have_css("html.is-disabled")
@@ -156,7 +103,6 @@ shared_examples "reports" do
     it "cannot report it twice" do
       visit reportable_path
 
-      find("#dropdown-trigger-resource-#{reportable.id}").click
       expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
       find(%(button[data-dialog-open="flagModal"])).click
       expect(page).to have_css(".flag-modal", visible: :visible)
@@ -174,26 +120,25 @@ shared_examples "reports by user type" do
     let!(:user) { create(:user, :admin, :confirmed, organization:) }
     include_examples "higher user role reports"
     include_examples "higher user role hides"
-    include_examples "higher user role hides resource with comments"
   end
   context "When reporting user is process admin" do
-    let!(:user) { create(:process_admin, :confirmed, participatory_process:) }
+    let!(:user) { create :process_admin, :confirmed, participatory_process: }
 
     include_examples "higher user role reports"
     include_examples "higher user role hides"
   end
   context "When reporting user is process collaborator" do
-    let!(:user) { create(:process_collaborator, :confirmed, participatory_process:) }
+    let!(:user) { create :process_collaborator, :confirmed, participatory_process: }
     include_examples "higher user role reports"
     include_examples "higher user role does not have hide"
   end
   context "When reporting user is process moderator" do
-    let!(:user) { create(:process_moderator, :confirmed, participatory_process:) }
+    let!(:user) { create :process_moderator, :confirmed, participatory_process: }
     include_examples "higher user role reports"
     include_examples "higher user role hides"
   end
-  context "When reporting user is process evaluator" do
-    let!(:user) { create(:process_evaluator, :confirmed, participatory_process:) }
+  context "When reporting user is process valuator" do
+    let!(:user) { create :process_valuator, :confirmed, participatory_process: }
     include_examples "higher user role reports"
     include_examples "higher user role does not have hide"
   end

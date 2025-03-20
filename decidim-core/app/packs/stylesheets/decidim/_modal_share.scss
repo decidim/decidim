@@ -1,98 +1,24 @@
-.qr-modal {
-  @apply md:p-6 lg:p-8;
-
-  [data-dialog-title] {
-    @apply flex justify-start items-center text-2xl text-black font-semibold focus:outline-none;
-
-    > svg {
-      @apply w-10 h-10 text-gray fill-current flex-none;
-    }
-
-    > :last-child {
-      @apply ml-1;
-    }
-  }
-
-  [data-dialog-container] {
-    @apply inline grid-cols-none;
-
-    .content {
-      @apply md:grid md:grid-cols-2 gap-5 md:py-4;
-
-      > * {
-        @apply mx-auto w-full mb-8;
-
-        &:first-child {
-          img {
-            @apply h-32;
-          }
-
-          h2 {
-            @apply mb-4 md:text-2xl text-center text-gray-2;
-          }
-        }
-
-        > * {
-          @apply mx-auto;
-        }
-      }
-
-      > :first-child {
-        @apply md:self-center;
-      }
-    }
-  }
-
-  [data-dialog-actions] {
-    @apply mt-0;
-  }
-
-  [data-dialog-closable] {
-    @apply top-6 right-6 lg:top-8 lg:right-8;
-  }
-}
-
 .share-modal {
-  @apply md:pb-16;
-
-  [data-dialog-closable] {
-    @apply top-6 right-6;
-  }
-
-  [data-dialog-container] {
-    @apply inline grid-cols-none;
-  }
-
-  [data-dialog-title] {
-    @apply col-span-2 md:col-span-1 md:col-start-2 grid grid-cols-[auto_1fr] items-start md:items-center gap-2 pb-4 text-left text-xl text-gray-2 md:border-b md:border-gray-3;
-  }
+  @apply md:pb-16 md:pr-16;
 
   &__list {
-    @apply my-6 flex flex-wrap justify-center items-center md:grid grid-cols-4 md:grid-cols-5 gap-3 md:gap-6 max-w-96 mx-auto text-secondary;
+    @apply mt-8 grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-6;
 
-    > a {
-      @apply text-center;
+    > * {
+      @apply button button__lg border border-gray hover:border-tertiary shadow-[0_4px_6px_rgba(211,211,211,0.25)] text-md text-gray-2 gap-2;
 
-      .icon {
-        @apply inline-block w-11 h-11 rounded-full p-2.5 bg-background-2 shadow-[0_4px_6px_rgba(211,211,211,0.25)];
-
-        img,
-        svg {
-          @apply w-6 h-6 flex-none fill-current;
-        }
-      }
-
-      .text {
-        @apply text-center block;
+      img,
+      svg {
+        @apply flex-none w-6 h-6 fill-current;
       }
     }
   }
 
   &__input {
-    @apply mt-6 w-full relative;
+    @apply mt-8 w-full relative;
 
     #urlShareLink {
-      @apply w-full truncate pr-16;
+      @apply w-full truncate pr-10;
     }
 
     > button {

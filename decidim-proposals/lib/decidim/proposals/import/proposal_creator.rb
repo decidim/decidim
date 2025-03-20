@@ -26,7 +26,7 @@ module Decidim
         #
         # Returns a proposal
         def produce
-          resource.add_coauthor(context[:current_user])
+          resource.add_coauthor(context[:current_user], user_group: context[:user_group])
 
           resource
         end
@@ -45,7 +45,7 @@ module Decidim
 
         def resource
           @resource ||= Decidim::Proposals::Proposal.new(
-            taxonomies:,
+            category:,
             scope:,
             title:,
             body:,
@@ -57,9 +57,9 @@ module Decidim
           )
         end
 
-        def taxonomies
-          id = data.has_key?(:taxonomies) ? data[:taxonomies]["ids"] : data[:"taxonomies/ids"]&.split(",")&.map(&:to_i)
-          Decidim::Taxonomy.where(id:)
+        def category
+          id = data.has_key?(:category) ? data[:category]["id"] : data[:"category/id"].to_i
+          Decidim::Category.find_by(id:)
         end
 
         def scope

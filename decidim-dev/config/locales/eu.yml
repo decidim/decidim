@@ -1,13 +1,11 @@
+---
 eu:
   activemodel:
     attributes:
-      dummy:
-        image: Irudia
-      dummy_attribute: Balizko atributua
       dummy_resource:
         created_at: Sortua
-        decidim_scope_id: Eremua
-        field: Nire datu-eremua
+        decidim_scope_id: Esparrua
+        field: Nire eremua
         start_date: Hasiera data
         title: Izenburua
         translatable_text: Itzul daitekeen testua
@@ -17,7 +15,6 @@ eu:
       dummy:
         settings:
           global:
-            clear_all: Garbitu dena
             guided: Input gidatua
             guided_help: Laguntza-testua
             guided_readonly: Input desgaitua
@@ -26,7 +23,6 @@ eu:
             guided_rich_readonly_html: HTML<strong>laguntza</strong>testua input desgaiturako
             readonly_attribute: Soilik irakurtzeko atributua
             test: Proba bat
-            test_add: Erantsi testa
             test_choices:
               a: A aukera
               b: B aukera

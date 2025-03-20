@@ -13,17 +13,17 @@ module Decidim
 
     # Public: icon for omniauth buttons
     def oauth_icon(provider)
-      provider_info = current_organization.enabled_omniauth_providers[provider.to_sym]
+      info = current_organization.enabled_omniauth_providers[provider.to_sym]
 
       name = normalize_provider_name(provider)
       name = "twitter-x" if provider == :twitter
       name = "#{name}-fill"
 
-      if provider_info
-        icon_path = provider_info[:icon_path] || Rails.application.secrets.omniauth[provider][:icon_path].presence
-        return external_icon(icon_path) if icon_path.present?
+      if info
+        icon_path = info[:icon_path]
+        return external_icon(icon_path) if icon_path
 
-        name = provider_info[:icon] if provider_info[:icon]
+        name = info[:icon] if info[:icon]
       end
 
       icon(name)

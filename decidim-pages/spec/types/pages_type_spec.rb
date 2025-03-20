@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/type_context"
+require "decidim/core/test"
 
 module Decidim
   module Pages

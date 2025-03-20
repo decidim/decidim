@@ -45,22 +45,6 @@ module Decidim
       end
     end
 
-    describe "#open_data_serializer" do
-      context "when no serializer is specified" do
-        it "returns nil" do
-          expect(subject.open_data_serializer).to be_nil
-        end
-      end
-
-      context "when a serializer is set" do
-        it "returns the serializer" do
-          klass = Class.new
-          subject.open_data_serializer klass
-          expect(subject.open_data_serializer).to eq(klass)
-        end
-      end
-    end
-
     describe "#formats" do
       context "when no formats are specified" do
         it "returns the default formats array" do

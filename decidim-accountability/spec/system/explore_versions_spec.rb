@@ -13,6 +13,7 @@ describe "Explore versions", versioning: true do
       id: result.id
     )
   end
+  let!(:scope) { create(:scope, organization:) }
   let!(:result) do
     create(
       :result,

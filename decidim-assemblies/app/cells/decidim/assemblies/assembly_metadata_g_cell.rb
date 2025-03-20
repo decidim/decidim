@@ -9,7 +9,16 @@ module Decidim
       private
 
       def items
-        [children_item].compact
+        [children_item, assembly_type].compact
+      end
+
+      def assembly_type
+        return unless has_assembly_type?
+
+        {
+          text: translated_attribute(model.assembly_type.title),
+          icon: "group-2-line"
+        }
       end
 
       def children_item
@@ -27,6 +36,10 @@ module Decidim
 
       def published_children_assemblies
         @published_children_assemblies ||= model.children.published
+      end
+
+      def has_assembly_type?
+        model.assembly_type.present?
       end
     end
   end

@@ -21,7 +21,7 @@ module Decidim
       user = Decidim::User.find_or_initialize_by(email:)
       user.update!(
         name: ::Faker::Name.name,
-        nickname: "#{::Faker::Twitter.unique.screen_name}-#{rand(10_000)}"[0...20],
+        nickname: ::Faker::Twitter.unique.screen_name,
         password: "decidim123456789",
         organization:,
         confirmed_at: Time.current,
@@ -36,6 +36,18 @@ module Decidim
       )
 
       user
+    end
+
+    def random_scope(participatory_space:)
+      if participatory_space.scope
+        scopes = participatory_space.scope.descendants
+        global = participatory_space.scope
+      else
+        scopes = participatory_space.organization.scopes
+        global = nil
+      end
+
+      ::Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample
     end
 
     def seeds_root = File.join(__dir__, "..", "..", "db", "seeds")
@@ -85,23 +97,13 @@ module Decidim
       )
     end
 
-    def create_taxonomy!(name:, parent:)
-      Decidim::Taxonomy.create!(
-        name: Decidim::Faker::Localized.literal(name),
-        organization:,
-        parent:
-      )
-    end
-
-    def create_taxonomy_filter!(root_taxonomy:, taxonomies:, participatory_space_manifests: [])
-      Decidim::TaxonomyFilter.create!(
-        root_taxonomy:,
-        participatory_space_manifests:,
-        filter_items: taxonomies.map do |taxonomy_item|
-          Decidim::TaxonomyFilterItem.new(
-            taxonomy_item:
-          )
-        end
+    def create_category!(participatory_space:)
+      Decidim::Category.create!(
+        name: Decidim::Faker::Localized.sentence(word_count: 5),
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
+        end,
+        participatory_space:
       )
     end
 

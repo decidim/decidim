@@ -9,9 +9,6 @@ module Decidim
       description "An author"
 
       field :id, ID, "The author ID", null: false
-
-      field :deleted, Boolean, "Whether the author's account has been deleted or not", null: false
-
       field :name, String, "The author's name", null: false
       field :nickname, String, "The author's nickname", null: false
 
@@ -24,8 +21,11 @@ module Decidim
         object.organization.name
       end
 
+      field :deleted, Boolean, "Whether the author's account has been deleted or not", null: false
+
       def self.resolve_type(obj, _ctx)
         return Decidim::Core::UserType if obj.is_a? Decidim::User
+        return Decidim::Core::UserGroupType if obj.is_a? Decidim::UserGroup
       end
     end
   end

@@ -1,3 +1,4 @@
+---
 id:
   activemodel:
     attributes:
@@ -81,6 +82,8 @@ id:
             initiative_title: Judul inisiatif
             name_and_surname: Nama dan nama keluarga
             postal_code: Kode Pos
+            scope: Cakupan
+            time_and_date: Waktu dan tanggal
             timestamp: Stempel waktu
       titles:
         initiatives: Inisiatif
@@ -181,7 +184,9 @@ id:
           unpublish: "%{user_name} membuang %{resource_name} inisiatif"
           update: "%{user_name} memperbarui %{resource_name} inisiatif"
       admin_states:
+        created: Dibuat
         discarded: Dibuang
+        published: Diterbitkan
         validating: Validasi teknis
       application_helper:
         filter_state_values:
@@ -197,17 +202,27 @@ id:
           name: Inisiatif yang disorot
       create_initiative:
         fill_data:
+          back: Kembali
           continue: Terus
+          more_information: "(Informasi lebih lanjut)"
           select_scope: Pilih cakupan
         finish:
           back: Kembali
+          back_to_initiatives: Kembali ke inisiatif
+          go_to_my_initiatives: Pergi ke inisiatif saya
+          more_information: "(Informasi lebih lanjut)"
         previous_form:
           back: Kembali
+          continue: Terus
+        promotal_committee:
+          more_information: "(Informasi lebih lanjut)"
         select_initiative_type:
           back: Kembali
           choose_html: Saya ingin membuat <strong>%{title}</strong>
           more_information: (Informasi lebih lanjut)
           select: Saya ingin mempromosikan inisiatif ini
+        share_committee_link:
+          invite_to_committee_help: Tautan untuk mengundang orang yang akan menjadi bagian dari komite promotor
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, siapa yang Anda ikuti, telah membuat inisiatif baru, lihat dan sumbangkan:"
@@ -263,12 +278,14 @@ id:
           recent: Terbaru
         print:
           city: Kota
+          print: Mencetak
         result:
           initiative_rejected_reason: Inisiatif ini telah ditolak karena kurangnya dukungan.
         signatures_count:
           other: " tanda tangan"
         vote_cabin:
           already_voted: Sudah ditandatangani
+          verification_required: Verifikasi akun Anda untuk menandatangani inisiatif
           vote: Tanda
           votes_blocked: Penandatanganan dinonaktifkan
         votes_count:
@@ -294,12 +311,15 @@ id:
     resources:
       initiatives_type:
         actions:
+          create: Membuat
           title: Tindakan
           vote: Memilih
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Membuat
+        finish: Selesai
+        promotal_committee: Komite promotor
         select_initiative_type: Memilih
       initiative_signature_creation_header:
         fill_personal_data: Lengkapi data Anda

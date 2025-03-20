@@ -43,20 +43,20 @@ module Decidim
           items = [{
             method: :with_any_state,
             collection: filter_collaborative_drafts_state_values,
-            label: t("decidim.proposals.collaborative_drafts.filters.state"),
+            label_scope: "decidim.proposals.collaborative_drafts.filters",
             id: "state"
           }]
-          current_component.available_taxonomy_filters.each do |taxonomy_filter|
-            items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
-                         collection: filter_taxonomy_values_for(taxonomy_filter),
-                         label: decidim_sanitize_translated(taxonomy_filter.name),
-                         id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
+          if current_component.has_subscopes?
+            items.append(method: :with_any_scope, collection: filter_scopes_values, label_scope: "decidim.proposals.collaborative_drafts.filters", id: "scope")
+          end
+          if current_component.categories.any?
+            items.append(method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.proposals.collaborative_drafts.filters", id: "category")
           end
           if linked_classes_for(Decidim::Proposals::CollaborativeDraft).any?
             items.append(
               method: :related_to,
               collection: linked_classes_filter_values_for(Decidim::Proposals::CollaborativeDraft),
-              label: t("decidim.proposals.collaborative_drafts.filters.related_to"),
+              label_scope: "decidim.proposals.collaborative_drafts.filters",
               id: "related_to",
               type: :radio_buttons
             )

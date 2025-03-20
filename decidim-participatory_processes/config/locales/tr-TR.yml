@@ -1,3 +1,4 @@
+---
 tr:
   activemodel:
     attributes:
@@ -22,6 +23,9 @@ tr:
         promoted: Tanıtılan
         published_at: Yayınlandı
         related_process_ids: İlgili süreçler
+        scope_id: kapsam
+        scope_type_max_depth_id: Kapsam filtre derinliği
+        scopes_enabled: Kapsamlar etkin
         short_description: Kısa Açıklama
         slug: URL özel bilgisi
         start_date: Başlangıç tarihi
@@ -48,6 +52,8 @@ tr:
         end_date: Bitiş tarihi
         short_description: Kısa Açıklama
         start_date: Başlangıç tarihi
+        title: Başlık
+      participatory_process_type:
         title: Başlık
       participatory_process_user_role:
         email: E-posta
@@ -96,9 +102,11 @@ tr:
           attachment_collections: Klasörler
           attachment_files: Dosyalar
           attachments: Ekler
+          categories: Kategoriler
           components: Bileşenler
           info: Süreç Hakkında
           moderations: Denetimler
+          private_users: Özel Kullanıcılar
           process_admins: İşlemi gerçekleştiren kullanıcılar
           steps: adımlar
       models:
@@ -120,6 +128,10 @@ tr:
             start_date: Başlangıç tarihi
             title: Başlık
           name: Katılımcı süreç adımı
+        participatory_process_type:
+          fields:
+            created_at: Düzenlendi
+            title: Başlık
         participatory_process_user_role:
           fields:
             email: E-posta
@@ -130,6 +142,7 @@ tr:
             admin: yönetici
             collaborator: işbirlikçi
             moderator: arabulucu
+            valuator: Bilirkişi
         user:
           fields:
             invitation_accepted_at: Davet kabul edildi
@@ -141,6 +154,7 @@ tr:
           title: Yinelenen katılımcı süreç
       participatory_process_groups:
         destroy:
+          error: Katılımcı süreç grubu yok edilirken bir hata oluştu.
           success: Katılımcı süreç grubu başarıyla silindi.
         edit:
           title: İşlem grubunu düzenle
@@ -190,6 +204,11 @@ tr:
         update:
           error: Bu katılımcı süreç adımı güncellenirken bir hata oluştu.
           success: Katılımcı süreç adımı başarıyla güncellendi.
+      participatory_process_types:
+        edit:
+          update: Güncelleştirme
+        new:
+          create: yaratmak
       participatory_process_user_roles:
         create:
           error: Bu katılımcı süreç için bir kullanıcı eklenirken bir hata oluştu.
@@ -332,9 +351,13 @@ tr:
           form:
             announcement_help: Buraya girdiğiniz metin, işlem bilgilerinin hemen altındaki kullanıcıya gösterilecektir.
             duration: süre
+            filters: Filtreler
             images: Görüntüler
             metadata: Meta veri
+            other: Diğer
             related_processes: İlgili süreçler
+            scope_type_max_depth_help: Kapsam filtresi derinliğini sınırlayın; Filtre genelden seçilen kapsam türüne kadar gösterilecektir.
+            select_an_area: Bir alan seçin
             select_process_group: Bir işlem grubu seçin
             title: Genel bilgi
       content_blocks:

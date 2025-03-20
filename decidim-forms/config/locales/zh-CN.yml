@@ -1,3 +1,4 @@
+---
 zh-CN:
   activemodel:
     attributes:
@@ -26,6 +27,7 @@ zh-CN:
         questionnaires:
           actions:
             back: 返回问题
+            show: 显示回复
           answer_option:
             answer_option: 答案选项
             free_text: 免费文本
@@ -137,6 +139,7 @@ zh-CN:
           tos_agreement: 通过参与您接受其服务条款
       step_navigation:
         show:
+          are_you_sure: 此操作不能撤消，您将无法编辑您的答案。您确定吗？
           back: 后退
           continue: 继续
           submit: 提交

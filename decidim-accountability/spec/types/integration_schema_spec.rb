@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/component_context"
 
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component" do
@@ -10,8 +10,17 @@ describe "Decidim::Api::QueryType" do
       fragment fooComponent on Accountability {
         result(id: #{result.id}) {
           acceptsNewComments
-          taxonomies {
+          category {
             id
+            name {
+              translation(locale: "#{locale}")
+            }
+            parent {
+              id
+            }
+            subcategories {
+              id
+            }
           }
           children {
             id
@@ -35,6 +44,18 @@ describe "Decidim::Api::QueryType" do
           }
           progress
           reference
+          scope {
+            id
+            children {
+              id
+            }
+            name {
+              translation(locale:"#{locale}")
+            }
+            parent {
+              id
+            }
+          }
           startDate
           status {
             id
@@ -82,19 +103,24 @@ describe "Decidim::Api::QueryType" do
   end
   let(:component_type) { "Accountability" }
   let!(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
-  let!(:result) { create(:result, component: current_component, taxonomies:) }
+  let!(:result) { create(:result, component: current_component, category:) }
   let!(:timeline_entry) { create(:timeline_entry, result:) }
 
   let(:accountability_single_result) do
     {
       "acceptsNewComments" => result.accepts_new_comments?,
-      "taxonomies" => [{ "id" => result.taxonomies.first.id.to_s }],
+      "category" => {
+        "id" => result.category.id.to_s,
+        "name" => { "translation" => result.category.name[locale] },
+        "parent" => nil,
+        "subcategories" => []
+      },
       "children" => [],
       "childrenCount" => result.children.size,
       "comments" => [],
       "commentsHaveAlignment" => result.comments_have_alignment?,
       "commentsHaveVotes" => result.comments_have_votes?,
-      "createdAt" => result.created_at.to_time.iso8601,
+      "createdAt" => result.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "description" => { "translation" => result.description[locale] },
       "endDate" => result.end_date.to_s,
       "externalId" => result.external_id,
@@ -103,32 +129,33 @@ describe "Decidim::Api::QueryType" do
       "parent" => result.parent,
       "progress" => result.progress.to_f,
       "reference" => result.reference,
+      "scope" => result.scope,
       "startDate" => result.start_date.to_s,
       "status" => {
-        "createdAt" => result.status.created_at.to_time.iso8601,
+        "createdAt" => result.status.created_at.to_date.to_s,
         "description" => { "translation" => result.status.description[locale] },
         "id" => result.status.id.to_s,
         "key" => result.status.key,
         "name" => { "translation" => result.status.name[locale] },
         "progress" => result.status.progress,
         "results" => [{ "id" => result.id.to_s }],
-        "updatedAt" => result.status.updated_at.to_time.iso8601
+        "updatedAt" => result.status.updated_at.to_date.to_s
       },
       "timelineEntries" => [
         {
-          "createdAt" => result.timeline_entries.first.created_at.to_time.iso8601,
+          "createdAt" => result.timeline_entries.first.created_at.iso8601.to_s.gsub("Z", "+00:00"),
           "title" => { "translation" => result.timeline_entries.first.title[locale] },
           "description" => { "translation" => result.timeline_entries.first.description[locale] },
           "entryDate" => result.timeline_entries.first.entry_date.to_s,
           "id" => result.timeline_entries.first.id.to_s,
           "result" => { "id" => result.id.to_s },
-          "updatedAt" => result.timeline_entries.first.updated_at.to_time.iso8601
+          "updatedAt" => result.timeline_entries.first.updated_at.iso8601.to_s.gsub("Z", "+00:00")
         }
       ],
       "title" => { "translation" => result.title[locale] },
       "totalCommentsCount" => result.comments_count,
       "type" => "Decidim::Accountability::Result",
-      "updatedAt" => result.updated_at.to_time.iso8601,
+      "updatedAt" => result.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
       "userAllowedToComment" => result.user_allowed_to_comment?(current_user),
       "weight" => result.weight.to_i
     }
@@ -178,8 +205,17 @@ describe "Decidim::Api::QueryType" do
           edges{
             node{
               acceptsNewComments
-              taxonomies {
+              category {
                 id
+                name {
+                  translation(locale: "#{locale}")
+                }
+                parent {
+                  id
+                }
+                subcategories {
+                  id
+                }
               }
               children {
                 id
@@ -203,6 +239,18 @@ describe "Decidim::Api::QueryType" do
               }
               progress
               reference
+              scope {
+                id
+                children {
+                  id
+                }
+                name {
+                  translation(locale:"#{locale}")
+                }
+                parent {
+                  id
+                }
+              }
               startDate
               status {
                 id

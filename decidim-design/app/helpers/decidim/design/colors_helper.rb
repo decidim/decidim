@@ -48,8 +48,7 @@ module Decidim
                   { value: "#020203", name: "black", rgba: "rgba(2,2,3,1)", usage: t("decidim.design.helpers.usage_typography_1") },
                   { value: "#3E4C5C", name: "gray-2", rgba: "rgba(62,76,92,1)", usage: t("decidim.design.helpers.usage_typography_2") },
                   { value: "#FFFFFF", name: "white", rgba: "rgba(255,255,255,1)", usage: t("decidim.design.helpers.usage_typography_3") },
-                  { value: "#155ABF", name: "secondary", rgba: "rgba(21,90,191,1)", usage: t("decidim.design.helpers.usage_typography_4") },
-                  { value: "#a3a3a3", name: "neutral-400", rgba: "rgba(163,163,163,1)", usage: t("decidim.design.helpers.usage_typography_5") }
+                  { value: "#155ABF", name: "secondary", rgba: "rgba(21,90,191,1)", usage: t("decidim.design.helpers.usage_typography_4") }
                 )
               },
               {

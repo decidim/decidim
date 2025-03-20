@@ -20,10 +20,7 @@ module Decidim
     # infer the class name of the authorization handler.
     attribute :handler_name, String
 
-    attribute :tos_agreement, Boolean
-
     validate :uniqueness
-    validates :tos_agreement, allow_nil: false, acceptance: true, if: :ephemeral_tos_pending?
 
     # A unique ID to be implemented by the authorization handler that ensures
     # no duplicates are created. This uniqueness check will be skipped if
@@ -47,16 +44,7 @@ module Decidim
     # @return [Boolean] A boolean indicating whether the authorization can be
     #   transferred.
     def transferrable?
-      duplicate.present? && (duplicate.user.deleted? || duplicate.user.ephemeral?)
-    end
-
-    # Defines whether the identity of an ephemeral user with the same authorization
-    # can be transferred to the current session and replace the existing user.
-    #
-    # @return [Boolean] A boolean indicating whether the user identifier can be
-    #   transferred.
-    def user_transferrable?
-      duplicate.present? && [user, duplicate.user].all?(&:ephemeral?)
+      duplicate.present? && duplicate.user.deleted?
     end
 
     # Fetches the duplicate record of the same authorization currently belonging
@@ -79,10 +67,7 @@ module Decidim
     #
     # Returns an Array of Strings.
     def form_attributes
-      excluded = %w(id user)
-      excluded << "tos_agreement" unless ephemeral_tos_pending?
-
-      attributes.except(*excluded).keys
+      attributes.except("id", "user").keys
     end
 
     # The String partial path so Rails can render the handler as a form. This
@@ -168,12 +153,6 @@ module Decidim
       return unless manifest
 
       manifest.form.constantize.from_params(params || {})
-    end
-
-    def ephemeral_tos_pending?
-      return if user.blank?
-
-      user.ephemeral? && !user.tos_accepted?
     end
 
     private

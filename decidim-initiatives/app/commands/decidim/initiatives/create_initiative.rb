@@ -46,28 +46,16 @@ module Decidim
         end
       end
 
-      protected
-
-      def event_arguments
-        {
-          resource: initiative,
-          extra: {
-            event_author: form.current_user,
-            locale:
-          }
-        }
-      end
-
       private
 
-      attr_reader :form, :attachment, :initiative
+      attr_reader :form, :attachment
 
       # Creates the initiative and all default components
       def create_initiative
-        build_initiative
+        initiative = build_initiative
         return initiative unless initiative.valid?
 
-        with_events(with_transaction: true) do
+        initiative.transaction do
           initiative.save!
 
           @attached_to = initiative
@@ -84,14 +72,14 @@ module Decidim
       end
 
       def build_initiative
-        @initiative = Initiative.new(
+        Initiative.new(
           organization: form.current_organization,
           title: { current_locale => form.title },
           description: { current_locale => form.description },
-          hashtag: form.hashtag,
           author: current_user,
           scoped_type:,
           signature_type: form.type.signature_type,
+          decidim_user_group_id: form.decidim_user_group_id,
           decidim_area_id: form.area_id,
           state: "created"
         )

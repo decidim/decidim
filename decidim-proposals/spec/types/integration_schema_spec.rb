@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/component_context"
 require "decidim/proposals/test/factories"
 
 describe "Decidim::Api::QueryType" do
@@ -38,7 +38,7 @@ describe "Decidim::Api::QueryType" do
           body {
             translation(locale:"#{locale}")
           }
-          taxonomies {
+          category {
             id
           }
           comments {
@@ -75,6 +75,9 @@ describe "Decidim::Api::QueryType" do
           position
           publishedAt
           reference
+          scope {
+            id
+          }
           state
           title {
             translation(locale:"#{locale}")
@@ -101,9 +104,8 @@ describe "Decidim::Api::QueryType" do
     end
   end
   let(:component_type) { "Proposals" }
-  let(:organization) { participatory_process.organization }
   let!(:current_component) { create(:proposal_component, participatory_space: participatory_process) }
-  let!(:proposal) { create(:proposal, :with_votes, :with_endorsements, :participant_author, component: current_component, taxonomies:) }
+  let!(:proposal) { create(:proposal, :with_votes, :with_endorsements, :participant_author, component: current_component, category:) }
   let!(:amendments) { create_list(:proposal_amendment, 5, amendable: proposal, emendation: proposal) }
 
   let(:proposal_single_result) do
@@ -129,12 +131,12 @@ describe "Decidim::Api::QueryType" do
       "authors" => proposal.authors.map { |a| { "id" => a.id.to_s } },
       "authorsCount" => proposal.authors.size,
       "body" => { "translation" => proposal.body[locale] },
-      "taxonomies" => [{ "id" => proposal.taxonomies.first.id.to_s }],
+      "category" => { "id" => proposal.category.id.to_s },
       "comments" => [],
       "commentsHaveAlignment" => proposal.comments_have_alignment?,
       "commentsHaveVotes" => proposal.comments_have_votes?,
       "coordinates" => { "latitude" => proposal.latitude, "longitude" => proposal.longitude },
-      "createdAt" => proposal.created_at.to_time.iso8601,
+      "createdAt" => proposal.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "createdInMeeting" => proposal.created_in_meeting?,
       "endorsements" => proposal.endorsements.map do |e|
         { "deleted" => e.author.deleted?,
@@ -152,19 +154,20 @@ describe "Decidim::Api::QueryType" do
       "official" => proposal.official?,
       "participatoryTextLevel" => proposal.participatory_text_level,
       "position" => proposal.position,
-      "publishedAt" => proposal.published_at.to_time.iso8601,
+      "publishedAt" => proposal.published_at.iso8601.to_s.gsub("Z", "+00:00"),
       "reference" => proposal.reference,
+      "scope" => proposal.scope,
       "state" => proposal.state,
       "title" => { "translation" => proposal.title[locale] },
       "totalCommentsCount" => proposal.comments_count,
       "type" => "Decidim::Proposals::Proposal",
-      "updatedAt" => proposal.updated_at.to_time.iso8601,
+      "updatedAt" => proposal.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
       "userAllowedToComment" => proposal.user_allowed_to_comment?(current_user),
       "versions" => [],
       "versionsCount" => 0,
       "voteCount" => proposal.votes.size,
       "withdrawn" => proposal.withdrawn?,
-      "withdrawnAt" => proposal.withdrawn_at&.to_time&.iso8601
+      "withdrawnAt" => proposal.withdrawn_at&.iso8601&.to_s&.gsub("Z", "+00:00")
     }
   end
 
@@ -238,7 +241,7 @@ describe "Decidim::Api::QueryType" do
               body {
                 translation(locale:"#{locale}")
               }
-              taxonomies {
+              category {
                 id
               }
               comments {
@@ -275,6 +278,9 @@ describe "Decidim::Api::QueryType" do
               position
               publishedAt
               reference
+              scope {
+                id
+              }
               state
               title {
                 translation(locale:"#{locale}")

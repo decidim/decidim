@@ -1,3 +1,4 @@
+---
 "no":
   activemodel:
     attributes:
@@ -73,6 +74,17 @@
           unconfirmed: Du må bekrefte e-posten din for å autorisere deg.
         destroy:
           error: Det oppsto et problem med å slette autorisasjonen.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Verifiser mot et annet eksempel på autorisasjons behandler
+            csv_census: Verifiser mot organisasjonens folketelling
+            dummy_authorization_handler: Verifiser mot eksempelets autoriserings behandler
+            dummy_authorization_workflow: Verifiser mot eksempelets autoriserings arbeidsflyt
+            id_documents: Bli verifisert med å laste opp ditt identitets dokumentet
+            postal_letter: Bli verifisert med å motta en verifiseringskode gjennom posten
+            sms: Bli bekreftet ved å motta en verifiseringskode på SMS
+          title: Verifiser din identitet
+          verify_with_these_options: 'Disse er de tilgjengelige alternativene for å verifisere identiteten din:'
         index:
           expired_verification: Verifikasjon utløpt
           pending_verification: Venter på verifisering
@@ -88,6 +100,9 @@
         start_exploring: begynn å utforske
       csv_census:
         admin:
+          census:
+            create:
+              error: Det oppstod et problem under import av folketellingen.
           destroy:
             title: Slett alle folketellingsdata
           index:
@@ -110,9 +125,11 @@
           postal_codes:
             one: Deltakelse er begrenset til deltakere med postnummer %{postal_codes}.
             other: 'Deltakelse er begrenset til deltakere med postnummer %{postal_codes}.'
+          scope: Deltakelse er begrenset til deltakere med tema %{scope_name}.
           user_postal_codes:
             one: Deltagelse er begrenset til deltakere med postnummer %{postal_codes}, og postnummeret ditt er %{user_postal_code}.
             other: 'Deltagelse er begrenset til deltakere med følgende postkoder: %{postal_codes}. Ditt postnummer er %{user_postal_code}.'
+          user_scope: Deltakelse er begrenset til deltakere med tema %{scope_name}, og ditt tema er %{user_scope_name}.
       id_documents:
         admin:
           config:

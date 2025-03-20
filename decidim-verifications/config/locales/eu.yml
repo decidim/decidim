@@ -1,8 +1,7 @@
+---
 eu:
   activemodel:
     attributes:
-      authorization:
-        verification_attachment: Egiaztapen-eranskina
       config:
         available_methods: Metodo erabilgarriak
         offline: Offline
@@ -45,7 +44,7 @@ eu:
           destroy:
             confirm: Data horren aurreko baimenak baliogabetzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
             confirm_all: Baimen guztiak baliogabetzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
-          destroy_nok: Arazo bat izn da baimenak ezeztatzean.
+          destroy_nok: Arazo bat izan da baimen guztiak baliogabetzean.
           destroy_ok: Bat datozen baimen guztiak zuzen ezeztatu dira.
           info: Guztira %{count} parte-hartzaile egiaztatuta daude.
           no_data: Ez dago parte-hartzaile egiaztaturik.
@@ -55,7 +54,7 @@ eu:
       organization:
         update_id_documents_config: "%{user_name} parte-hartzaileak eguneratu du nortasun agiriko dokumentuen konfiguraziorako baimena"
       user:
-        grant_id_documents_offline_verification: "%{user_name} parte-hartzaileak egiaztatu du %{resource_name} nortasun agirien baimen bat erabiliz"
+        grant_id_documents_offline_verification: "%{user_name} parte-hartzaileak egiaztatu zuen %{resource_name} nortasun agirien baimen bat erabiliz"
     authorization_handlers:
       admin:
         another_dummy_authorization_handler:
@@ -76,12 +75,6 @@ eu:
             - Baimen-emaile adibide bat garatzaileek uler dezaten nola funtzionatzen duen egiaztapen sinple batek.
             - Garatzaileentzat da, beren egiaztapen-sistema ezartzeko modua uler dezaten.
             - Egiaztatu "X" letraz hasten den pasaporte zenbaki bat sartuz.
-        ephemeral_dummy_authorization_handler:
-          help:
-            - Baimen-emaile adibide bat garatzaileek uler dezaten nola funtzionatzen duen egiaztapen sinple batek.
-            - Garatzaileentzat da, beren egiaztapen-sistema ezartzeko modua uler dezaten.
-            - Ereduzko baimenaren kopia da.
-            - Egiaztatu "X" zenbakiaz amaitzen den dokumentu zenbaki bat sartuz.
         id_documents:
           help:
             - Parte-hartzaileek beren identifikazio informazioa bete, eta dokumentuaren kopia bat kargatzen dute.
@@ -132,6 +125,17 @@ eu:
         destroy:
           error: Arazo bat egon da baimena ezabatzean.
           success: Baimena zuzen ezabatu duzu.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Egiaztatu baimenen kudeatzailearen beste adibide baten aurka
+            csv_census: Egiaztatu erakundearen zentsuaren aurka
+            dummy_authorization_handler: Egiaztatu adibide-baimenaren kudeatzailearen aurka
+            dummy_authorization_workflow: Egiaztatu baimenen laneko fluxuaren aurka
+            id_documents: Egiaztatu zure identifikazio dokumentua kargatzen
+            postal_letter: Egiaztatu egiaztapen-kodea posta-posta bidez egiaztatuz
+            sms: Identifikatu zaitez SMS bidez bidalitako kode baten bitartez
+          title: Egiaztatu zure identitatea
+          verify_with_these_options: 'Hauek dira zure identitatea egiaztatzeko erabilgarri dauden aukerak:'
         index:
           expired_verification: Egiaztapena iraungi egin da
           granted_verification: Egiaztapen emana
@@ -143,14 +147,6 @@ eu:
         new:
           authorize: Bidali
           authorize_with: Egiaztatu %{authorizer} rekin
-          tos_agreement: 'Zure nortasuna egiaztatzeko, onartu: % {link}.'
-        onboarding_pending:
-          completed_verifications: 'Bainema zuzen lortu duzu, orain zuk ahal duzu %{action} hemen: %{resource_name}'
-          granted_verifications: Emandako egiaztapenak
-          onboarding_message_html: 'Ia prest zaude %{action} ekintzarako hemen: <strong>%{resource_title}</strong> %{resource_name}. Mesedez, egiaztatu zure kontua baimen hauek betez.'
-          pending_admin_approval_verifications: Admin. onespenaren egiaztapenen zain
-          pending_verifications: Egiaztatzeke
-          unauthorized: Ez duzu baimenik %{ekintza} ekintzarako baliabide honetan
         renew_modal:
           cancel: Ezeztatu
           continue: Jarraitu
@@ -162,7 +158,7 @@ eu:
         admin:
           census:
             create:
-              error: Arazo bat izan da erroldak inportatzean.
+              error: Errore bat egon da errolda inportatzean.
               success: Zuzen inportatutako %{count} itemak (%{errors} errors).
             destroy_all:
               success: Erroldako datu guztiak ezabatu dira.
@@ -193,9 +189,11 @@ eu:
           postal_codes:
             one: Partehartzea mugatua da %{postal_codes} kode postalarekin duten erabiltzaileentzat.
             other: 'Parte-hartzea honako posta-kode hauetakoren bat duten eparte-hartzaileentzat mugatuta dago: %{postal_codes}.'
+          scope: Partehartzea mugatua da %{scope_name} eremuan egiaztatutako parte-hartzaileentzat.
           user_postal_codes:
             one: Parte-hartzea mugatuta dago %{postal_codes} posta-kodea duten parte-hartzaileentzat eta zure posta-kodea hau da %{user_postal_code}.
             other: 'Parte-hartzea mugatuta dago %{postal_codes} posta-kodea duten parte-hartzaileentzat eta zure posta-kodea hau da %{user_postal_code}.'
+          user_scope: Parte hartzea mugatuta dago %{scope_name} esparrua duten parte-hartzaileentzat eta zure esparrua hau da %{user_scope_name}.
       id_documents:
         admin:
           config:

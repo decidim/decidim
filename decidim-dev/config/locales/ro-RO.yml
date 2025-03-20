@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     attributes:
@@ -8,7 +9,7 @@ ro:
         start_date: Data de început
         title: Titlu
         translatable_text: Text traductibil
-        updated_at: Ultima actualizare
+        updated_at: Actualizat la
   decidim:
     components:
       dummy:

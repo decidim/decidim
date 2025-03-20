@@ -1,13 +1,17 @@
+---
 "no":
   activemodel:
     attributes:
       debate:
+        category_id: Kategori
         closed_at: Stengt
         conclusions: Konklusjoner
+        decidim_category_id: Kategori
         description: Beskrivelse
         end_time: Avsluttes den
         information_updates: Oppdateringer
         instructions: Instruksjoner for å delta
+        scope_id: Tema
         start_time: Starter den
         title: Tittel
         user_group_id: Opprett innspillstråd som
@@ -26,6 +30,7 @@
       debates:
         actions:
           comment: Kommenter
+          create: Opprett
           endorse: Påtegne
         name: Innspillstråder
         settings:
@@ -33,6 +38,8 @@
             announcement: Kunngjøring
             comments_enabled: Kommentarer er aktivert
             comments_max_length: Maks kommentarlengde
+            scope_id: Tema
+            scopes_enabled: Aktiverte temaer
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer er blokkert
@@ -42,6 +49,8 @@
     debates:
       actions:
         close: Lukk
+        confirm_destroy: Er du sikker?
+        destroy: Slett
         edit: Rediger
         title: Handling
       admin:
@@ -53,6 +62,8 @@
           create:
             invalid: Det oppstod et problem med å opprette innspillstråden.
             success: Innspillstråden ble opprettet.
+          destroy:
+            success: Innspillstråden ble slettet.
           edit:
             title: Rediger innspillstråd
             update: Oppdater innspillstråd
@@ -108,6 +119,8 @@
           state_values:
             closed: Lukket
             open: Åpen
+        form:
+          select_a_category: Velg en kategori
         index:
           new_debate: Ny innspillstråd
         new:
@@ -121,9 +134,11 @@
           recent: Nyeste
           updated: Sist oppdatert
         show:
+          close_debate: Lukk innspillstråd
           debate_closed: Lukket
           debate_conclusions_are: 'Innspillstråden er avsluttet den %{date}, med denne oppsummeringen:'
           edit_conclusions: Rediger oppsummering
+          edit_debate: Rediger innspillstråd
           groups_count: Grupper
           open: Åpen debatt
           participants_count: Deltakere

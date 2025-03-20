@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -9,7 +10,7 @@ eu:
         max_choices: Gehieneko aukera kopurua
         question_type: Mota
       questionnaire_question:
-        mandatory: Nahitaezkoa
+        mandatory: Derrigorrezkoa
         max_characters: Karaktereen muga (utzi 0 mugarik ez badago)
     errors:
       models:
@@ -23,40 +24,18 @@ eu:
               missing: ez dira osatu
               too_many: Gehienez, %{count} aukeratu ahal duzu.
         questionnaire:
-          request_invalid: Arazo bat izan da eskaera kudeatzean. Mesedez, saiatu berriro.
+          request_invalid: Errore bat egon da eskaera bidaltzean. Mesedez, saiatu berriro.
   decidim:
-    download_your_data:
-      help:
-        answers:
-          answer: Galderaren erantzuna
-          id: Erantzunaren identifikatzaile bakarra
-          question: Erantzun zen galdera
-          questionnaire: Erantzun zen galdetegia
-          user: Inkesta erantzun du parte-hartzailea
-      show:
-        answers: Esportatu erantzunak
-        survey_user_answers: Inkesta parte-hartzaile erantzunak
     forms:
       admin:
         models:
           components:
-            allow_answers: Baimendu erantzunak
-            allow_editing_answers: Eman aukera erregistratutako parte-hartzaileei inkestako erantzunak editatzeko
-            allow_unregistered: Baimentzea erregistratu gabeko parte-hartzaileek inkesta erantzutea
-            allow_unregistered_help: Aktibatuta badago ez da beharrezkoa saioa hastea inkesta erantzuteko. Honen ondorioz datu eskas edo fidagarritasun gutxikoak bildu litezke. Kontuz erabili! Izan ere, parte-hartzaile berak hainbat aldiz erantzun litzake nabigatzaile desberdinetatik edo "nabigazio pribatuaren" aukera erabiliz.
-            announcement: Oharra
-            clean_after_publish: Ezabatu erantzunak inkesta argitaratzean
             description: Deskribapena
-            ends_at: Erantzunak noiz arte onartuta
-            ends_at_help: Utzi zuriz data zehatzik ez badago
-            starts_at: Erantzunak noiztik onartuak
-            starts_at_help: Utzi zuriz data zehatzik ez badago
             tos: Zerbitzu-baldintzak
         questionnaires:
           actions:
             back: Itzuli galderetara
-            publish_answers: Argitaratu erantzunak
-            show: Erantzunak
+            show: Erakutsi erantzunak
           answer_option:
             answer_option: Erantzun aukera
             free_text: Testu librea
@@ -100,18 +79,16 @@ eu:
           edit:
             save: Gorde
             title: Editatu galdetegia
-          edit_questions:
+          form:
             add_question: Gehitu galdera
             add_separator: Gehitu banatzailea
             add_title_and_description: Gehitu izenburua eta deskribapena
-            save: Gorde
-            title: Galderak
-          form:
-            add_question: Gehitu galdera
+            already_answered_warning: Formularioa parte-hartzaile batzuek erantzuten dute dagoeneko; beraz, ezin dituzu galderak aldatu.
             collapse: Bildu galdera guztiak
             expand: Zabaldu galdera guztiak
             preview: Aurreikusi
             title: Editatu galdetegia honetarako %{questionnaire_for}
+            unpublished_warning: Galdetegia ez dago argitaratuta. Galderak alda ditzakezu, baina eginez gero, oraingo erantzunak ezabatuko dituzu.
           matrix_row:
             matrix_row: Errenkada
             remove: Kendu
@@ -130,13 +107,6 @@ eu:
             remove: Kendu
             statement: Adierazpena
             up: Gora
-          questions_form:
-            already_answered_warning: Formularioa parte-hartzaile batzuek erantzuten dute dagoeneko; beraz, ezin dituzu galderak aldatu.
-            collapse: Kolapsatu galdera guztiak
-            expand: Zabaldu galdera guztiak
-            unpublished_warning: Galdetegia ez dago argitaratuta. Galderak alda ditzakezu, baina eginez gero, oraingo erantzunak ezabatuko dituzu.
-            update:
-              success: Inkestaren galderak zuzen gordeta.
           separator:
             down: Behera
             remove: Kendu
@@ -155,9 +125,6 @@ eu:
             invalid: Arazo bat egon da inprimakia gordetzean.
             success: Galdetegia zuzen gorde da.
       admin_log:
-        question:
-          publish_answers: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} inkesta %{space_name} espazioan"
-          unpublish_answers: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} inkesta %{space_name} espazioan"
         questionnaire:
           update: "%{user_name} parte-hartzaileak %{resource_name} galdetegia eguneratu du"
       errors:
@@ -200,9 +167,6 @@ eu:
           questionnaire_answered:
             body: Dagoeneko inkesta hau erantzun duzu.
             title: Dagoeneko erantzunda
-          questionnaire_answered_edit:
-            body: Dagoeneko inkesta hau erantzun duzu.%{link}
-            edit: Editatu zure erantzunak
           questionnaire_closed:
             body: Galdetegia itxita dago eta ezin da erantzun.
             title: Galdeketa itxia
@@ -217,11 +181,9 @@ eu:
           tos_agreement: Parte hartzean, haren zerbitzu-baldintzak onartzen dituzu
       step_navigation:
         show:
-          are_you_sure_edit_guest: Erantzunak editatu nahi badituzu, orduan sartu behar zara edo kontu bat sortu behar duzu.
-          are_you_sure_no_edit: Ekintza hau ezin da desegin eta ezin izango dituzu zure erantzunak editatu. Ziur zaude?
+          are_you_sure: Ekintza hau ezin da desegin eta ezin izango dituzu zure erantzunak editatu. Ziur zaude?
           back: Atzera
           continue: Jarraitu
-          disallowed: Ezin dituzu zure erantzunak editatu.
           submit: Bidali
       user_answers_serializer:
         body: Erantzuna

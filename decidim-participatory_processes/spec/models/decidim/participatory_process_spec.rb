@@ -9,8 +9,8 @@ module Decidim
     let(:participatory_process) { build(:participatory_process, slug: "my-slug") }
 
     it { is_expected.to be_valid }
+
     it { is_expected.to be_versioned }
-    it { is_expected.to act_as_paranoid }
 
     it_behaves_like "publicable"
     it_behaves_like "has private users"
@@ -36,8 +36,7 @@ module Decidim
     end
 
     context "when a process is attached to a scope type" do
-      let!(:participatory_process) { create(:participatory_process, scope:, slug: "my-slug", scope_type_max_depth: scope_type, organization:) }
-      let(:scope) { create(:scope, organization:) }
+      let!(:participatory_process) { create(:participatory_process, :with_scope, slug: "my-slug", scope_type_max_depth: scope_type, organization:) }
       let(:organization) { create(:organization) }
       let(:scope_type) { create(:scope_type, organization:) }
 
@@ -144,30 +143,6 @@ module Decidim
           expect(described_class.past_spaces).not_to include active
           expect(described_class.past_spaces).to include past
           expect(described_class.past_spaces).not_to include upcoming
-        end
-      end
-    end
-
-    describe "taxonomies" do
-      let!(:taxonomy) { create(:taxonomy, :with_parent) }
-      let(:participatory_process) { build(:participatory_process, taxonomies: [taxonomy], organization: taxonomy.organization) }
-
-      it { is_expected.to be_valid }
-
-      context "when a root taxonomy is assigned" do
-        let(:taxonomy) { create(:taxonomy) }
-
-        it "is not valid" do
-          expect(subject).not_to be_valid
-        end
-      end
-
-      context "when a taxonomy from another organization is assigned" do
-        let!(:organization) { create(:organization) }
-        let(:participatory_process) { build(:participatory_process, taxonomies: [taxonomy]) }
-
-        it "is not valid" do
-          expect(subject).not_to be_valid
         end
       end
     end

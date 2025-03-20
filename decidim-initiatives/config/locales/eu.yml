@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -11,7 +12,7 @@ eu:
         hashtag: Traola
         offline_votes: Aurrez aurreko sinadurak
         offline_votes_for_scope: Aurrez aurreko sinadurak %{scope_name} rentzat
-        scope_id: Eremua
+        scope_id: Esparrua
         signature_end_date: Sinadurak biltzeko epearen amaiera
         signature_start_date: Sinadurak biltzeko epearen hasiera
         signature_type: Sinadura bilketa mota
@@ -27,10 +28,10 @@ eu:
       initiatives_settings:
         initiatives_order: Ordena
       initiatives_type:
-        area_enabled: Gaitu egileak beren ekimenerako arloa aukeratzeko
+        area_enabled: Gaitu egileak beren ekimenerako eremua aukeratzeko
         attachments_enabled: Gaitu eranskinak
         banner_image: Banner irudia
-        child_scope_threshold_enabled: Gaitu sinadurak eremuaren arabera
+        child_scope_threshold_enabled: Gaitu sinadurak azpiesparruaren arabera
         collect_user_extra_fields: Bildu parte-hartzailearen datu pertsonalak sinaduraz
         comments_enabled: Gaitu iruzkinak
         custom_signature_end_date_enabled: Gaitu egileak sinadurak biltzeko aldiaren amaiera aukeratzeko
@@ -39,14 +40,14 @@ eu:
         extra_fields_legal_information: Datu pertsonalen bilketari buruzko informazio juridikoa
         minimum_committee_members: Batzorde kideen gutxienekoa
         online_signature_enabled: Sinadura elektronikoa gaituta
-        only_global_scope_enabled: Eremu globaleko ekimenak soilik sortzeko aukera ematea
+        only_global_scope_enabled: Baimendu soilik esparru globaleko ekimenak sortzea
         promoting_committee_enabled: Gaitu batzorde sustatzailea
         signature_type: Sinadura mota
         title: Izenburua
         undo_online_signatures_enabled: Gaitu parte-hartzaileak beren sinadura digitalak desegiteko
         validate_sms_code_on_votes: Gehitu SMS kodea baliozkotzeko urratsa sinadura prozesura
       initiatives_type_scope:
-        decidim_scopes_id: Eremuak
+        decidim_scopes_id: Esparruak
         supports_required: Babesak behar dira
       initiatives_vote:
         date_of_birth: Jaioteguna
@@ -80,7 +81,7 @@ eu:
     admin:
       actions:
         new_initiative_type: Beste ekimen mota bat
-        new_initiative_type_scope: Beste ekimen mota bat eremuan
+        new_initiative_type_scope: Beste ekimen mota bat esparruan
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -89,9 +90,9 @@ eu:
             label: Egoera
             values:
               accepted: Beharrezko sinadurekin
-              created: Ziriborroan
+              created: Sortua
               discarded: Baztertua
-              open: Zabaldu
+              published: Argitaratua
               rejected: Beharrezko sinadurarik gabe
               validating: Baliozkotze teknikoa
           type_id_eq:
@@ -100,13 +101,13 @@ eu:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Bilatu %{collection} izenburuaren, deskribapenaren, IDaren edo egiletzaren arabera.
       initiatives_settings:
         update:
-          error: Arazo bat izan da ekimenen konfigurazioak eguneratzean.
+          error: Errore bat egon da.
           success: Ekimenen ezarpenak zuzen eguneratu dira.
       menu:
         attachments: Eranskinak
         committee_members: Batzorde-kideak
         information: informazioa
-        initiative_type_scopes: Ekimen motaren eremuak
+        initiative_type_scopes: Ekimen motaren esparruak
         initiatives: Ekimenak
         initiatives_menu:
           see_initiative: Ikusi ekimena 
@@ -126,9 +127,9 @@ eu:
             title: Ekimenak
         initiatives_type_scope:
           fields:
-            scope: Eremua
+            scope: Esparrua
             supports_required: Sinadurak behar dira
-          name: Ekimen motaren eremua
+          name: Ekimen motaren esparrua
         initiatives_types:
           fields:
             created_at: Sortutako at
@@ -136,45 +137,37 @@ eu:
           name: Ekimen mota
         initiatives_votes:
           fields:
-            date_and_time: Data eta ordua
             date_of_birth: Jaioteguna
             document_number: Dokumentuaren zenbakia
             hash: hash
             initiative_end_date: Amaiera data
             initiative_id: Initiative ID
-            initiative_scope: Eremua
             initiative_signatures_count: Sinadura kopurua
             initiative_start_date: Hasiera data
             initiative_title: Ekimenaren izenburua
             name_and_surname: Izena eta abizena
-            nickname: Ezizena
             postal_code: Posta kodea
-            signature_count: Sinadurak zenbatzea
+            scope: Esparrua
+            time_and_date: Denbora eta data
             timestamp: Denbora-marka
-      taxonomy_filters:
-        space_filter_for:
-          initiatives: Ekimen guztiak
       titles:
         initiatives: Ekimenak
         initiatives_types: Ekimen motak
-    download_your_data:
-      show:
-        initiatives: Esportatu ekimenak
     events:
       initiatives:
         admin:
           initiative_sent_to_technical_validation:
-            email_intro: '"%{resource_title}" ekimena balioespen teknikora bidali da. Egiaztatu honen bitartez: <a href="%{admin_initiative_url}">administrazio-panela</a>'
+            email_intro: '"%{resource_title}" ekimena balidazio teknikora bidali da. Egiaztatu honen bitartez: <a href="%{admin_initiative_url}">administrazio-panela</a>'
             email_outro: Jakinarazpen hau jaso duzu plataformaren administratzaileetako bat zarelako.
-            email_subject: '%{resource_title} ekimenak balioespen teknikoa eskatu du.'
-            notification_title: '" %{resource_title}" ekimena balioespen teknikora bidali da. Egiaztatu honen bidez: <a href=" %{admin_initiative_path}">administrazio-panela</a>'
+            email_subject: '%{resource_title} ekimenak baliozkotze teknikoa eskatu du.'
+            notification_title: '" %{resource_title}" ekimena baliozkotze teknikora bidali da. Egiaztatu honen bidez: <a href=" %{admin_initiative_path}">administrazio-panela</a>'
         initiative_extended:
-          email_intro: '%{resource_title} ekimenaren amaiera-data luzatu egin da!'
-          email_outro: Jakinarazpen hau jaso duzu %{resource_title} jarraitzen duzulako. Aurreko estekan sartu jakinarazpenak jasotzeari utzi nahi badiozu.
+          email_intro: Ekimenaren amaiera-data %{resource_title} luzatu egin da!
+          email_outro: Jakinarazpen hau jaso duzu %{resource_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Ekimen honetarako sinadurak jasotzeko amaiera data luzatu da!
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ekimenaren amaierako data luzatu egin da.
         initiative_sent_to_technical_validation:
-          email_intro: '"%{resource_title}" ekimena balioespen teknikora bidali da. Egiaztatu honen bitartez: <a href="%{admin_initiative_url}">administrazio-panela</a>'
+          email_intro: '"%{resource_title}" ekimena balidazio teknikora bidali da. Egiaztatu honen bitartez: <a href="%{admin_initiative_url}">administrazio-panela</a>'
           email_outro: Jakinarazpen hau jaso duzu plataformaren administratzaileetako bat zarelako.
           email_subject: '%{resource_title} ekimena baliozkotze teknikora bidali da.'
           notification_title: '" %{resource_title}" ekimena baliozkotze teknikora bidali da. Egiaztatu honen bidez: <a href=" %{admin_initiative_path}">administrazio-panela</a>'
@@ -198,7 +191,7 @@ eu:
       badges:
         initiatives:
           conditions:
-            - Joan zaitez Intiatives-ko partaidetza espaziora
+            - Joan zaitez Intiatives-ko partaidetza eremura
             - Jarraitu urrats berriak beste ekimen bat sortzeko
           description: Garaikur hau ekimen berriak martxan jartzean ematen da, beste batzuekin partekatuz horiek lortzeko.
           description_another: Parte-hartzaile honek %{score} ekimen argitaratzea lortu du.
@@ -210,8 +203,8 @@ eu:
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Ekimen batek ekimenez ekar dezakeen proposamen bat da (beste kanal edo partaidetza-espazio batzuk alde batera utzita) erakundearen sinadura (digitalak) bildumaren bidez ekintza zehatz bat gauzatzeko (araudia aldatzea, proiektu bat abiaraztea, aldatu departamentu edo kalean izena, etab.).</p> <p>Ekimen baten sustatzaileak helburuak definitu, laguntza jaso, eztabaidatu, hedatu, eta parte-hartzaileei irekitako eztabaidetara bertaratu diren sinadurak biltzeko puntuak biltzen ditu.</p> <p>Adibideak: Ekimen batek sinadurak jaso ditzake erakunde baten pertsona guztien artean kontsultatzeko, muntaia sortzeko edo deitzeko, edota erakundearen lurralde edo eremuko aurrekontu-gehikuntza prozesu bat hasteko. Sinadurak biltzeko prozesuan zehar, jende gehiago eskari horri gehitu eta erakundean aurrera eraman dezakegu.</p>\n"
-          page: "<p>Ekimen batek ekimenez ekar dezakeen proposamen bat da (beste kanal edo partaidetza-espazio batzuk alde batera utzita) erakundearen sinadura (digitalak) bildumaren bidez ekintza zehatz bat gauzatzeko (araudia aldatzea, proiektu bat abiaraztea, aldatu departamentu edo kalean izena, etab.).</p> <p>Ekimen baten sustatzaileak helburuak definitu, laguntza jaso, eztabaidatu, hedatu, eta parte-hartzaileei irekitako eztabaidetara bertaratu diren sinadurak biltzeko puntuak biltzen ditu.</p> <p>Adibideak: Ekimen batek sinadurak jaso ditzake erakunde baten pertsona guztien artean kontsultatzeko, muntaia sortzeko edo deitzeko, edota erakundearen lurralde edo eremuko aurrekontu-gehikuntza prozesu bat hasteko. Sinadurak biltzeko prozesuan zehar, jende gehiago eskari horri gehitu eta erakundean aurrera eraman dezakegu.</p>\n"
+          contextual: "<p>Ekimen batek ekimenez ekar dezakeen proposamen bat da (beste kanal edo parte-hartze espazioen independientea) erakundearen sinadura (digitalak) bildumaren bidez ekintza zehatz bat gauzatzeko (araudia aldatzea, proiektu bat abiaraztea , aldatu departamentu edo kalean izena, etab.).</p> <p>Ekimen baten sustatzaileak helburuak definitu, laguntza jaso, eztabaidatu, hedatu, eta parte-hartzaileei irekitako eztabaidetara bertaratu diren sinadurak biltzeko puntuak biltzen ditu.</p> <p>Adibideak: Ekimen batek sinadurak jaso ditzake erakunde baten pertsona guztien artean kontsultatzeko, muntaia sortzeko edo deitzeko, edota erakundearen lurralde edo eremuko aurrekontu-gehikuntza prozesu bat hasteko. Sinadurak biltzeko prozesuan zehar, jende gehiago eskari horri gehitu eta erakundean aurrera eraman dezakegu.</p>\n"
+          page: "<p>Ekimen batek ekimenez ekar dezakeen proposamen bat da (beste kanal edo parte-hartze espazioen independientea) erakundearen sinadura (digitalak) bildumaren bidez ekintza zehatz bat gauzatzeko (araudia aldatzea, proiektu bat abiaraztea , aldatu departamentu edo kalean izena, etab.).</p> <p>Ekimen baten sustatzaileak helburuak definitu, laguntza jaso, eztabaidatu, hedatu, eta parte-hartzaileei irekitako eztabaidetara bertaratu diren sinadurak biltzeko puntuak biltzen ditu.</p> <p>Adibideak: Ekimen batek sinadurak jaso ditzake erakunde baten pertsona guztien artean kontsultatzeko, muntaia sortzeko edo deitzeko, edota erakundearen lurralde edo eremuko aurrekontu-gehikuntza prozesu bat hasteko. Sinadurak biltzeko prozesuan zehar, jende gehiago eskari horri gehitu eta erakundean aurrera eraman dezakegu.</p>\n"
           title: Zer dira ekimenak?
     initiatives:
       actions:
@@ -224,14 +217,14 @@ eu:
           info_initiative:
             created_at: Sortutako at
             description: Deskribapena
-            initiative_votes_count: Babesen zenbaketa
+            initiative_votes_count: Botoien zenbaketa
             initiatives: Ekimenak
             state: Estatu
         committee_requests:
           index:
             approve: Onartu
             confirm_revoke: Ziur zaude?
-            invite_to_committee_help: Partekatu esteka hau beste parte-hartzaile batzuk batzorde bultzatzailera gonbidatzeko.
+            invite_to_committee_help: Partekatu lotura hau beste parte-hartzaile batzuk batzorde bultzatzailera gonbidatzeko.
             no_members_yet: Ez dago kiderik batzorde bultzatzailean.
             revoke: Baliogabetu
             title: Batzarkideak
@@ -259,11 +252,11 @@ eu:
             confirm_send_to_technical_validation: Ziur zaude?
             discard: Ekimena baztertu
             export_pdf_signatures: Esportatu sinaduren PDF
-            export_votes: Esportatu sinadurak
+            export_votes: Esportatu euskarriak
             reject: Ukatu ekimena
             send_to_technical_validation: Bidali baliozkotzeko teknikora
             success: Ekimena baliozkotze teknikora bidali da.
-            update: Eguneratu
+            update: eguneratzearen
           form:
             settings: Ezarpenak
             title: Informazio orokorra
@@ -283,7 +276,7 @@ eu:
           unpublish:
             success: Ekimena zuzen desargitaratu da.
           update:
-            error: Arazo bat izan da ekimena eguneratzean.
+            error: Errore bat egon da.
             success: Ekimena zuzen eguneratu da.
         initiatives_settings:
           edit:
@@ -297,39 +290,39 @@ eu:
             title: Ekimenen ezarpenak
         initiatives_type_scopes:
           create:
-            error: Arazo bat izan da hautatutako ekimenerako eremu berri bat sortzean.
-            success: Beste eremu bat sortu da emandako ekimen motarako.
+            error: Errore bat egon da.
+            success: Beste esparru bat sortu da emandako ekimen motarako.
           destroy:
-            success: Eremua behar bezala kendu da.
+            success: Esparrua behar bezala kendu da.
           edit:
-            title: Editatu ekimen motaren eremua
+            title: Editatu ekimen motaren esparrua
             update: Eguneratu
           new:
             create: Sortu
-            title: Ekimen-eremu mota sortu
+            title: Sortu ekimen motaren esparrua
           update:
-            error: Arazo bat izan da eremua eguneratzean.
-            success: Eremua zuzen eguneratu da.
+            error: Errore bat egon da.
+            success: Esparrua zuzen eguneratu da.
         initiatives_types:
           create:
-            error: Arazo bat izan da ekimen mota sortzean.
+            error: Errore bat egon da.
             success: Beste ekimen mota bat zuzen sortua. Ekimen mota honetarako gutxienez eremu bat definitu behar duzu, egin ahal izateko.
           destroy:
             success: Ekimen mota zuzen kendu da.
           edit:
-            update: Eguneratu
+            update: eguneratzearen
           form:
             authorizations: Baimen-doikuntzak
-            child_scope_threshold_enabled_help_html: 'Konfigurazio-ezarpen honek ez ditu onartzen konexiorik gabeko bozketak. Azpiesparruak gaitzen ditu eta eremu bat parte-hartzailearekin lotzen duen baimen-kudeatzaile batekin lan egiten du. Ziurtatu baimen hori hautatu duzula, beherago, baimenen konfigurazioan. Funtziona dezan, esparruak hierarkikoki eratu behar dira: 1 Nagusia - N Txikiak. Konfigurazio honen funtzionamenduari buruzko informazio gehiago, ikusi <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ekimenen administrazioari buruzko dokumentazioa</a>.'
-            only_global_scope_enabled_help_html: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta eremu globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
+            child_scope_threshold_enabled_help_html: 'Konfigurazio-ezarpen honek ez ditu onartzen konexiorik gabeko bozketak. Azpiesparruak gaitzen ditu eta esparru bat parte-hartzailearekin lotzen duen baimen-kudeatzaile batekin lan egiten du. Ziurtatu baimen hori hautatu duzula, beherago, baimenen konfigurazioan. Funtziona dezan, esparruak hierarkikoki eratu behar dira: 1 Nagusia - N Txikiak. Konfigurazio honen funtzionamenduari buruzko informazio gehiago, ikusi <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ekimenen administrazioari buruzko dokumentazioa</a>.'
+            only_global_scope_enabled_help_html: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta esparru globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
             options: Aukerak
           initiative_type_scopes:
-            title: Ekimen motaren eremuak
+            title: Ekimen motaren esparruak
           new:
             create: Sortu
             title: Beste ekimen mota bat
           update:
-            error: Arazo bat izan da ekimen mota eguneratzean.
+            error: Errore bat egon da.
             success: Ekimen mota zuzen eguneratu da.
       admin_log:
         initiative:
@@ -345,9 +338,9 @@ eu:
           update: "%{user_name} parte-hartzaileak %{resource_name} ekimen motak eguneratu ditu"
       admin_states:
         accepted: Beharrezko sinadurak lortu ditu
-        created: Ziriborroan
+        created: Sortu
         discarded: Baztertuta
-        open: Zabaldu
+        published: Argitaratutako
         rejected: Beharrezko sinadurarik gabe
         validating: Balidazio teknikoa
       application_helper:
@@ -374,55 +367,40 @@ eu:
         highlighted_initiatives:
           name: Ekimen nabarmenak
       create_initiative:
-        committee_member:
-          approve: Onartu
-          confirm_approve: Ziur zaude kide hau onartu nahi duzula?
-          confirm_revoke: Ziur zaude kide hau baliogabetu nahi duzula?
-          revoke: Baliogabetu
         fill_data:
-          confirm_discard: Ziur zaude ekimen hau baztertu nahi duzula?
+          back: Back
           continue: Jarraitu
-          discard: Kendu ekimena
           fill_data_help: "<ul> <li>Berrikusi zure ekimenaren edukia. Zure izenburua ulertzen erraza da? Zure ekimenaren helburua argi dago?</li> <li>Sinadura mota aukeratu behar duzu.</li> <li>aurrez aurre, linean edo biak konbinatuta. Zein da ekimenaren eremu geografikoa? </li> </ul>"
-          more_information: Informazio gehiago
+          more_information: "(Informazio gehiago)"
           select_area: Hautatu arlo bat
-          select_scope: Hautatu eremua
+          select_scope: Hautatu esparrua
         finish:
           back: Atzera
-          callout_text_created: Zorionak! Zure ekimena zuzen sortu da.
-          callout_text_validating: Zure ekimena zuzen bidali da balidazio teknikora.
-          go_to_initiatives: Joan ekimenetara
-          publish_helper_text_html: "Gogoan izan zure ekimena argitaratzeko teknikoki baliozkotu behar dela, administratzaile batek berrikus dezan.\n"
+          back_to_initiatives: Itzuli ekimenetara
+          callout_text: Zorionak! Zure ekimena zuzen sortu da.
+          confirm: Ekimena bidaliko duzu administratzaile batek berrikus eta argitara dezan. Argitaratu ondoren, ezin izango duzu editatu. Ziur zaude?
+          edit_my_initiative: Editatu nire ekimena
+          go_to_my_initiatives: Joan nire ekimenetara
+          more_information: "(Informazio gehiago)"
+          send_my_initiative: Bidali nire ekimena baliozkotze eknikora
+        finish_help:
+          publish_helper_text: Gogoratu zure ekimena argitaratu ahal izateko eskatzen zaizun informazioa bete behar duzula, eta <strong>baliozkotze teknikora</strong> bidali, administratzaile batek berrikus dezan.
         previous_form:
           back: Back
+          continue: Jarraitu
         promotal_committee:
-          individual_help_text: Zure ekimena sortu da, eta zirriborro gisa gorde da. Orain jendea gehitu behar zaio batzorde sustatzaileari.
-          invite_link_title: Jendea gonbidatzeko esteka
-          promoters_committee_help_2: Gogoan izan zure ekimena argitaratzeko beharrezkoa dela eskatutako informazioa betetzea eta baliozkotze teknikora bidaltzea, administratzaile batek berrikus dezan.
-          promoters_committee_help_html: Zure ekimena balidazio teknikorako bidali aurretik, %{committee_members_left} batzorde sustatzaileari beste kide batzuk gehitu behar dizkiozu, zuk duzu <strong>%{committee_members_count}/%{committee_size}</strong>.
-          promoters_committee_title: Sustatzaileen batzordea
-        return_to_initiatives_button:
-          return_initiatives_html: Oraingoz, joan eta <a href="%{initiatives_path}">itzuli ekimenetara</a>
+          individual_help_text: Herritarren ekimen mota horrek batzorde sustatzaile bat eskatzen du, gutxienez % {committee_size} kidez osatua (ziurtatzaileak). Ekimen honetan parte hartzen duten gainerako pertsonekin partekatu behar duzu esteka hau. Zure kontaktuek esteka hau jasotzen dutenean, adierazten zaizkien urratsak jarraitu beharko dituzte.
+          more_information: "(Informazio gehiago)"
         select_initiative_type:
           back: Back
           choose_html: <strong>%{title}</strong>bat sortu nahi dut
-          consult_existing_initiatives: Kontsultatu lehendik dauden ekimenak
-          continue: Jarraitu
           more_information: (Informazio gehiago)
           new: Sortu beste ekimen bat
           select: Ekimen hau sustatu nahi dut
-          select_initiative_type_help_html: "<p>Ekimenak bide dira parte-hartzaileek parte har dezaten, erakundeak interes orokorraren aldeko ekintzak egin ditzan. Zein ekimen jarri nahi duzu abian?</p>"
-          show_less: Erakutsi gutxiago
-          show_more: Erakutsi gehiago
-          subtitle: Zein ekimen sustatu nahi duzu?
+          select_initiative_type_help: Ekimenen bidez, parte-hartzaileek esku har dezakete erakundeak interes orokorraren aldeko ekintzak egin ditzan. Zein ekimen abiarazi nahi duzu?
           verification_required: Egiaztatu zure kontua ekimen hau sustatzeko.
-        send_to_technical_validation_button:
-          button: Bidali balidazio teknikora
-          confirm: Ekimena bidaliko duzu administrari batek berrikusi eta argitara dezan. Argitaratu ondoren, ezin izango duzu editatu. Ziur zaude?
         share_committee_link:
-          invite_to_committee_help: Sustapen Batzordeko kideak gonbidatzeko esteka.
-          invite_to_committee_help_2: Herritarren ekimen mota honek gutxienez %{committee_size} kidez (ziurtatzagiriak) osatutako batzorde sustatzailea behar du. Esteka hau partekatu behar duzu ekimen honetan parte hartzen duten gainerako pertsonekin. Zure kontaktuek esteka hau jasotzen dutenean, adierazitako urratsei jarraitu beharko diete.
-          more_information: Informazio gehiago
+          invite_to_committee_help: Sustapen batzordearen parte izango duten pertsonei gonbidatzeko esteka
       edit:
         accept: Onartu ekimena
         back: Atzera
@@ -460,10 +438,10 @@ eu:
           email_subject: "%{applicant_nickname} k zure ekimenarekin bat egin nahi du"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> k eskatu du <a href="%{resource_url}">%{resource_title}</a> zure ekimenaren batzorde bultzatzailearekin bat egitea. Eskaera onartzeko edo ukatzeko, egin klik hemen <a href="%{resource_url}/edit">aquí</a>.
       form:
-        add_attachments: Gehitu eranskinak
+        add_documents: Gehitu dokumentuak
         add_image: Gehitu irudia
-        attachment_legend: Gehitu dokumentu bat edo irudi bat
-        edit_attachments: Editatu eranskinak
+        attachment_legend: "(Aukerakoa) Gehitu eranskina"
+        edit_documents: Editatu dokumentuak
         edit_image: Editatu irudia
         image_legend: "(Aukerakoa) Gehitu irudi bat"
       index:
@@ -500,18 +478,18 @@ eu:
           approve: Onartu
           confirm_approve: Ziur zaude kide hau onartu nahi duzula?
           confirm_revoke: Ziur zaude kide hau baliogabetu nahi duzula?
-          invite_to_committee_help: Partekatu esteka hau beste parte-hartzaile batzuk batzorde bultzatzailera gonbidatzeko.
-          link: Esteka
+          invite_to_committee_help: Partekatu lotura hau beste parte-hartzaile batzuk batzorde bultzatzailera gonbidatzeko.
+          link: Lotura
           no_members_yet: Ez dago kiderik batzorde bultzatzailean.
           revoke: Baliogabetu
           title: Batzarkideak
         count:
           title:
-            one: "Ekimen bat"
-            other: "%{count} ekimen"
+            one: "%{count} ekimena"
+            other: "%{count} ekimenak"
         filters:
           any: Edozein
-          area: Arloa
+          area: Area
           author: Egilea
           myself: Nire ekimenak
           scope: Esparrua
@@ -534,13 +512,11 @@ eu:
           random: Random
           recent: Berrienak
           recently_published: Oraintsu argitaratutakoa
-        pending_initiatives:
-          title: Proiektuak eta egiteke dauden ekimenak
         print:
           address: Helbidea
           author_title: Ekimenaren egilea
           city: Hiria
-          email: Helbide elektronikoa
+          email: E-maila
           full_name: Izen osoa
           general_title: Ekimen batean onartzeko eskaera
           id_number: ID zenbakia
@@ -554,18 +530,20 @@ eu:
           phone_number: Telefono zenbakia
           place_date: Lekua, data
           postal_code: Posta-kodea/ZIP
+          print: Inprimatu
           province: Probintzia/Estatua
+          section: 'Antolakuntzak eskatzen badu, mesedez, inprimatu eta bete formulario hau, adierazten den tokira bidaltzeko:'
           signature: Sinadura
         result:
           answer_title: Ekimen hau erantzun egin da.
           initiative_rejected_reason: Ekimen hau ukatu egin da sinadura faltagatik.
         show:
           area: Arloa
-          before_send_to_technical_validation_announcement: 'Baliozkotze teknikorako ekimena bidali aurretik, %{count} kide gehiago gehitu behar dizkiozu batzorde sustatzaileari. < br/> < br/>Etxebatzordeko kide izan nahi duzun pertsonekin duzu esteka hau: % {href}'
+          before_send_to_technical_validation_announcement: 'Baliozkotze teknikorako ekimena bidali aurretik, % {count} kide gehiago gehitu behar dizkiozu batzorde sustatzaileari. < br/> < br/>Etxebatzordeko kide izan nahi duzun pertsonekin duzu esteka hau: % {href}'
           confirm: Ekimena bidaliko duzu administratzaile batek berrikus eta argitara dezan. Argitaratu ondoren, ezin izango duzu editatu. Ziur zaude?
           edit: Editatu
           initiative_data: Ekimenaren datuak
-          scope: Eremua
+          scope: Esparrua
           send_to_technical_validation: Bidali baliozkotze teknikora
           send_to_technical_validation_announcement: Dena zuzena bada, egin klik "Bidali baliozkotze teknikora" botoian, administratzaile batek zure ekimena berrikus eta argitara dezan
           signature_collection: Bildutako sinadurak
@@ -576,6 +554,7 @@ eu:
           other: " sinadurak"
         vote_cabin:
           already_voted: Dagoeneko sinatuta
+          verification_required: Egiaztatu kontua ekimena sinatzeko
           vote: Saioa
           votes_blocked: Sinadura desgaituta dago
         votes_count:
@@ -588,7 +567,7 @@ eu:
           check_initiative_details: Ekimenaren xehetasunak ikus ditzakezu
           here: hemen
         more_information: Hemen ekimenaren sorrera prozesuari buruzko informazio gehiago duzu.
-        progress_report_body_for: '%{title} ekimenak eskatutako sinaduren %{percentage}% gainditu du.'
+        progress_report_body_for: '%{title} ekimenak eskatutako euskarrien%{percentage}% gainditu du.'
         progress_report_for: 'Laburpena %{title} ekimenari buruz'
         promotal_committee_help: Gogoan izan gutxienez %{member_count} pertsona gonbidatu behar dituzula sustatzaile batzordera. Birbidali hurrengo estekara gonbidatzeko jendea sustatzaile batzordera
         status_change_body_for: '%{title} ekimenak bere egoera aldatu du: %{state}'
@@ -608,64 +587,35 @@ eu:
       show:
         badge_name:
           accepted: Beharrezko sinadurekin
-          created: Ziriborroan
+          created: Sortua
           discarded: Baztertua
-          open: Zabaldu
+          published: Argitaratua
           rejected: Beharrezko sinadurarik gabe
           validating: Baliozkotze teknikoa
       states:
         accepted: Onartua
         expired: iraungi
-      unavailable_scope: Eremua ez dago erabilgarri
+      unavailable_scope: Esparrua ez dago erabilgarri
       update:
-        error: Arazo bat izan da ekimena eguneratzean.
+        error: Errore bat egon da.
         success: Ekimena zuzen eguneratu da.
     menu:
       initiatives: Ekimenak
-    open_data:
-      help:
-        initiatives:
-          answer: Ekimen honek jaso duen erantzuna (balego)
-          answer_url: Erantzunaren URLa (balego)
-          answered_at: Erantzunaren data (balego)
-          area: Ekimen honen arloa
-          authors: Ekimen honen egileak
-          comments_count: Ekimen honek zenbat iruzkin dituen
-          created_at: Zein datatan sortu zen espazio hau
-          description: Ekimenaren deskribapena
-          first_progress_notification_at: Zein datatan bidali zen aurrerapenaren lehen jakinarazpena?
-          follows_count: Espazio hau zenbat parte-hartzaileek jarraitzen duten
-          hashtag: Ekimenaren traola, X sarerako erabilia
-          offline_votes: Ekimen honek plataforma honetatik kanpo jaso dituen sinadura kopurua
-          online_votes: Ekimen honek online jaso duen sinadura kopurua (plataformaren bidez zuzenean)
-          published_at: Zein egunetan argitaratu zen espazio hau
-          reference: Espazioaren erreferentzia bakarra
-          scope: Ekimenaren eremua
-          second_progress_notification_at: Zein datatan bidali zen aurrerapenaren bigarren jakinarazpena
-          signature_end_date: Zein datatan amaitzen da sinadura biltzeko epea
-          signature_start_date: Zein datatan hasten da sinadura biltzeko epea
-          signature_type: Zein motatako sinadura bilketa (online edo aurrez aurre)
-          signatures: Zenbat sinadura ditu ekimen honek?
-          state: Zein egoera du ekimen honek une honetan?
-          title: Ekimenaren izenburua
-          type: Ekimen mota
-          updated_at: Zein egunetan eguneratu zen azken aldiz espazio hau
-          url: Espazioaren URLa
     resources:
       initiative:
         actions:
           comment: Egin iruzkina
       initiatives_type:
         actions:
-          create: Sortu ekimen bat
+          create: Sortu
           title: Ekintzak
           vote: Bozkatu
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Sortu
-        finish: Balidazio teknikoa
-        promotal_committee: Bilatu sustatzaileak
+        finish: Amaitu
+        promotal_committee: Sustatzaile batzordea
         select_initiative_type: Aukeratu
       initiative_signature_creation_header:
         fill_personal_data: Zure datuak osatzea

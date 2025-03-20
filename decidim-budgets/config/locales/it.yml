@@ -1,13 +1,17 @@
+---
 it:
   activemodel:
     attributes:
       budget:
+        decidim_scope_id: Obiettivo
         description: Descrizione
         title: Titolo
         total_budget: Budget totale
         weight: Ordine di posizionamento
       project:
         budget_amount: Importo del budget
+        decidim_category_id: Categoria
+        decidim_scope_id: Obiettivo
         description: Descrizione
         proposal_ids: Proposte correlate
         selected: Selezionato per l'implementazione
@@ -18,10 +22,16 @@ it:
         one: Progetto
         other: Progetti
   decidim:
+    admin:
+      filters:
+        projects:
+          scope_id_eq:
+            label: Obiettivo
     budgets:
       actions:
         attachment_collections: Cartelle
         attachments: Allegati
+        destroy: Cancella
         edit: Modifica
         edit_projects: Gestisci progetti
         import: Importa proposte nei progetti
@@ -102,14 +112,12 @@ it:
         project:
           fields:
             title: Titolo
-      order:
-        status:
-          title: OK, il tuo voto è stato acquisito.
       order_summary_mailer:
         order_summary:
           selected_projects: 'I progetti che hai selezionato sono:'
           subject: Hai votato nello spazio partecipativo %{space_name}
           voted_on_space: Hai votato il budget %{budget_name} per lo spazio partecipativo %{space_name}.
+          voted_on_space_with_scope: Hai votato il budget %{budget_name} per lo spazio partecipativo %{space_name} su %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Se cambi idea, puoi cambiare il tuo voto più tardi.
@@ -138,6 +146,8 @@ it:
           message: Il tuo voto non è stato registrato perché non hai ancora completato il processo di votazione. Sei sicuro di voler uscire dal voto?
           title: Non hai ancora votato
         filters:
+          category: Categoria
+          scope: Obiettivo
           search: Cerca
           status: Stato
           status_values:
@@ -177,6 +187,8 @@ it:
             more_information_modal: Finestra modale "Maggiori informazioni"
             projects_per_page: Progetti per pagina
             resources_permissions_enabled: Le autorizzazioni relative alle azioni possono essere impostate per ogni progetto
+            scope_id: Obiettivo
+            scopes_enabled: Obiettivi abilitati
             title: Titolo
             total_budget: Budget totale
             vote_minimum_budget_projects_number: Numero minimo di progetti da votare

@@ -15,12 +15,12 @@ module Decidim
         let(:witnesses) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) } }
         let(:additional_info) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) } }
         let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
-        let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
-        let(:taxonomies) { [] }
+        let(:category) { create(:category, participatory_space: participatory_process) }
+        let(:category_id) { nil }
         let(:params) do
           {
             decidim_proposals_component_id: proposal_component.id,
-            taxonomies:,
+            decidim_category_id: category_id,
             dice:,
             title:,
             target_items:,
@@ -102,19 +102,19 @@ module Decidim
             expect(sortition.candidate_proposals).not_to be_empty
           end
 
-          it "has no taxonomies" do
+          it "has no category" do
             command.call
             sortition = Sortition.where(component: sortition_component).last
-            expect(sortition.taxonomies).to be_blank
+            expect(sortition.category).to be_nil
           end
 
-          context "when restricted to a taxonomy without proposals" do
-            let!(:taxonomies) { [taxonomy.id] }
+          context "when restricted to a category without proposals" do
+            let(:category_id) { category.id }
 
-            it "has taxonomies" do
+            it "has a category" do
               command.call
               sortition = Sortition.where(component: sortition_component).last
-              expect(sortition.taxonomies).to eq([taxonomy])
+              expect(sortition.category).to eq(category)
             end
 
             it "the created sortition has not proposals" do
@@ -184,9 +184,9 @@ module Decidim
             end
           end
 
-          context "when restricted to taxonomies with proposals" do
-            let!(:taxonomies) { [taxonomy.id] }
-            let!(:proposal) { create(:proposal, component: proposal_component, taxonomies: [taxonomy]) }
+          context "when restricted to a category with proposals" do
+            let(:category_id) { category.id }
+            let!(:proposal) { create(:proposal, component: proposal_component, category:) }
 
             it "the created sortition contains proposals" do
               command.call
@@ -199,7 +199,7 @@ module Decidim
               let!(:proposals) do
                 create_list(:proposal, target_items.to_i,
                             :hidden,
-                            taxonomies: [taxonomy],
+                            category:,
                             component: proposal_component,
                             created_at: Time.now.utc - 1.day)
               end
@@ -215,7 +215,7 @@ module Decidim
               let!(:proposals) do
                 create_list(:proposal, target_items.to_i,
                             :rejected,
-                            taxonomies: [taxonomy],
+                            category:,
                             component: proposal_component,
                             created_at: Time.now.utc - 1.day)
               end
@@ -231,7 +231,7 @@ module Decidim
               let!(:proposals) do
                 create_list(:proposal, target_items.to_i,
                             :withdrawn,
-                            taxonomies: [taxonomy],
+                            category:,
                             component: proposal_component,
                             created_at: Time.now.utc - 1.day)
               end
@@ -247,7 +247,7 @@ module Decidim
               let!(:proposals) do
                 create_list(:proposal, target_items.to_i,
                             :draft,
-                            taxonomies: [taxonomy],
+                            category:,
                             component: proposal_component,
                             created_at: Time.now.utc - 1.day)
               end

@@ -1,3 +1,4 @@
+---
 zh-TW:
   activemodel:
     attributes:
@@ -84,6 +85,8 @@ zh-TW:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: 分類
           closed_at_present:
             label: 狀態
             values:
@@ -94,6 +97,8 @@ zh-TW:
             values:
               'false': 過去
               'true': 即將舉行
+          scope_id_eq:
+            label: 範圍
           with_any_origin:
             label: 起源
             values:
@@ -130,6 +135,8 @@ zh-TW:
             maps_enabled: 啟用地圖
             registration_code_enabled: 啟用註冊碼
             resources_permissions_enabled: 可以針對每個會議設定操作權限
+            scope_id: 範圍
+            scopes_enabled: 啟用範圍
             terms_and_conditions_url_for_meeting_creators: 會議創建者的使用條款和條件 URL
           step:
             announcement: 公告
@@ -203,6 +210,7 @@ zh-TW:
         attachment_collections: 資料夾
         attachments: 附件
         close: 關閉
+        destroy: 刪除
         edit: 編輯
         invalid_destroy:
           proposals_count:
@@ -278,6 +286,11 @@ zh-TW:
           create:
             invalid: 建立會議時發生問題.
             success: 會議已成功建立。請注意這仍未發佈，您需要手動發佈。
+          destroy:
+            invalid:
+              proposals_count:
+                other: 該會議因有 %{count} 個相關提案而無法刪除.
+            success: 會議已成功刪除
           edit:
             title: 編輯會議
             update: 更新
@@ -329,7 +342,6 @@ zh-TW:
           form:
             available_slots_help: 如果您有無限的可用名額，請將其設置為0。
             invites: 邀請
-            manage_questions: 問題
             recommendation_message: 出於隱私考量，建議您在不需要此報名表時刪除它。默認情況下，在會議結束後3個月會自動刪除。
             registration_email_help: 這段文字會出現在註冊確認電子郵件中，位於註冊代碼之後。
             registration_form: 註冊表單
@@ -361,6 +373,8 @@ zh-TW:
         questionnaire:
           update: "%{user_name} 更新了 %{meeting_name} 會議的問卷"
       application_helper:
+        filter_category_values:
+          all: 全部
         filter_meeting_space_values:
           all: 全部
       calendar_modal:
@@ -462,6 +476,7 @@ zh-TW:
           location_hints_help: '地點提示：額外的訊息。例如，如果是面對面的會議，可以提供建築物樓層的資訊；如果是限制存取權限的線上會議，可以提供會議密碼的資訊。'
           online_meeting_url_help: '連結：允許參與者直接連接到您的會議'
           registration_url_help: '連結：允許參與者進入您用於註冊的外部服務'
+          select_a_category: 請選擇一個類別
           select_a_meeting_type: 請選擇一種會議類型。
           select_a_registration_type: 請選擇一種註冊類型
           select_an_iframe_access_level: 請選擇一個 iframe 存取級別
@@ -471,6 +486,9 @@ zh-TW:
           see_all: 查看所有會議
           see_all_withdrawn: 查看所有撤回的會議
           text_banner: 您正在查看已被其作者撤回的會議列表。 %{go_back_link}。
+        meeting:
+          close_meeting: 關閉會議
+          edit_meeting: 編輯會議
         meetings:
           no_meetings_warning: 沒有符合搜尋條件的會議或者目前沒有任何已排定的會議。
           upcoming_meetings_warning: 目前沒有安排的會議，但您可以在這裡找到所有過去的會議列表。
@@ -503,6 +521,7 @@ zh-TW:
           visit_finished: 查看過去的會議
           withdraw_btn_hint: 您可以撤回您的會議，如果您改變了主意。會議不會被刪除，而是會顯示在已撤回的會議列表中。
           withdraw_confirmation_html: 您確定要撤回此會議嗎？<br><br><strong>此操作無法取消！</strong>
+          withdraw_meeting: 撤回會議
         update:
           invalid: 更新會議時發生問題.
           success: 您已成功更新會議。
@@ -576,6 +595,7 @@ zh-TW:
         transparent: 透明
         withdraw: 撤回
       withdraw:
+        error: 退出會議時發生錯誤.
         success: 會議已成功撤回.
     metrics:
       meetings:

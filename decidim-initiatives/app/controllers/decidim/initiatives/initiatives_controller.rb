@@ -17,7 +17,6 @@ module Decidim
       helper PaginateHelper
       helper InitiativeHelper
       helper SignatureTypeOptionsHelper
-      helper Decidim::ActionAuthorizationHelper
 
       include InitiativeSlug
       include FilterResource
@@ -29,7 +28,7 @@ module Decidim
       include SingleInitiativeType
       include Decidim::IconHelper
 
-      helper_method :collection, :initiatives, :pending_initiatives, :filter, :stats, :tabs, :panels
+      helper_method :collection, :initiatives, :filter, :stats, :tabs, :panels
       helper_method :initiative_type, :available_initiative_types
 
       before_action :authorize_participatory_space, only: [:show]
@@ -107,23 +106,8 @@ module Decidim
         end
       end
 
-      # DELETE /initiatives/:id/discard
-      def discard
-        enforce_permission_to :discard, :initiative, initiative: current_initiative
-
-        Decidim.traceability.perform_action!(:discard, current_initiative, current_user) do
-          current_initiative.discarded!
-          current_initiative
-        end
-
-        flash[:notice] = I18n.t("initiatives.discard.success", scope: "decidim.initiatives.admin")
-        redirect_to decidim_initiatives.initiatives_path
-      end
-
       def print
         enforce_permission_to :print, :initiative, initiative: current_initiative
-        output = Decidim::Initiatives::ApplicationFormPDF.new(current_initiative).render
-        send_data(output, filename: "initiative_submit_#{current_initiative.id}.pdf", type: "application/pdf")
       end
 
       private
@@ -144,10 +128,6 @@ module Decidim
         @initiatives = search.result.includes(:scoped_type)
         @initiatives = reorder(@initiatives)
         @initiatives = paginate(@initiatives)
-      end
-
-      def pending_initiatives
-        @pending_initiatives ||= Initiative.where(state: %w(created validating)).where(author: current_user)
       end
 
       alias collection initiatives

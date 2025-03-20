@@ -30,8 +30,8 @@ module Decidim
       it { is_expected.to be_valid }
     end
 
-    context "when the role is evaluator" do
-      let(:role) { "evaluator" }
+    context "when the role is valuator" do
+      let(:role) { "valuator" }
 
       it { is_expected.to be_valid }
     end

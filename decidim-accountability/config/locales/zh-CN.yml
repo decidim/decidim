@@ -1,3 +1,4 @@
+---
 zh-CN:
   activemodel:
     attributes:
@@ -8,6 +9,8 @@ zh-CN:
         description: 描述
         end_date: 结束日期
         progress: 进展情况
+        project_ids: 包括项目
+        proposals: 包括的建议
         start_date: 开始日期
         title: 标题
         updated_at: 更新于
@@ -93,8 +96,10 @@ zh-CN:
       models:
         result:
           fields:
+            category: 类别
             end_date: 结束日期
             progress: 进展情况
+            scope: 范围
             start_date: 开始日期
             status: 状态
             title: 标题
@@ -111,8 +116,12 @@ zh-CN:
         count:
           results_count:
             other: "%{count} 个结果"
+        filters:
+          all: 所有的
         home_header:
           global_status: 全局执行状态
+        nav_breadcrumb:
+          global: 全局执行
         search:
           search: 搜索操作
         show:
@@ -120,6 +129,13 @@ zh-CN:
             back_to_resource: 返回结果
         timeline:
           title: 项目进化
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: 类别
+          scope_id_eq:
+            label: 范围
     components:
       accountability:
         name: 问责制
@@ -129,6 +145,8 @@ zh-CN:
             comments_max_length: 评论最大长度 (默认值留0)
             display_progress_enabled: 显示进度
             intro: 简介
+            scope_id: 范围
+            scopes_enabled: 范围已启用
           step:
             comments_blocked: 评论已阻止
     events:

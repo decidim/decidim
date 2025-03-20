@@ -1,3 +1,4 @@
+---
 lt:
   activemodel:
     attributes:
@@ -33,6 +34,8 @@ lt:
       help_section:
         content: Turinys
       id: ID
+      import:
+        user_group_id: Sukurti importus kaip
       newsletter:
         body: Pagrindinė dalis
         subject: Tema
@@ -90,6 +93,7 @@ lt:
         tertiary_color: Tretinis
         time_zone: Laiko zona
         tos_version: Paslaugų teikimo sąlygų versija
+        user_groups_enabled: Įjungti grupes
         users_registration_mode: Vartotojo registracijos tipas
         warning_color: Perspėjimas
         welcome_notification_body: Pasisveikinimo pranešimo tekstas
@@ -174,6 +178,8 @@ lt:
         attachment_collection:
           new: Naujas priedų aplankas
         browse: Naršyti
+        category:
+          new: Nauja kategorija
         export: Eksportuoti viską
         export-selection: Eksportuoti pasirinktą
         import: Importuoti
@@ -184,12 +190,15 @@ lt:
           new: Naujas dalyvaujamosios erdvės privatus naudotojas
         per_page: Per puslapį
         permissions: Leidimai
+        reject: Atmesti
         send_me_a_test_email: Siųsti man bandomąjį el. laišką
         share: Dalintis
         user:
           new: Naujas administratorius
+        verify: Patikrinti
       admin_terms_of_service:
         accept:
+          error: Sutinkant su administratoriaus nustatytomis naudojimosi sąlygomis įvyko klaida.
           success: Puiku! Jūs sutikote su administratoriaus naudojimosi sąlygomis.
         actions:
           accept: Aš sutinku su šiomis sąlygomis
@@ -279,8 +288,23 @@ lt:
           justification: Paaiškinimas
           title: Blokuoti naudotoją %{name}
       categories:
+        create:
+          error: Kuriant šią kategoriją iškilo problema.
+          success: Kategorija sėkmingai sukurta.
+        destroy:
+          error: Šalinant šią kategoriją iškilo problema. Pirmiausia pašalinkite bet kurią pakategorę, įsitikinkite, kad joks kitas subjektas nesusietas su šia kategorija, ir bandykite dar kartą.
+          success: Kategorija sėkmingai pašalinta.
+        edit:
+          title: Redaguoti kategoriją
+          update: Atnaujinti
         index:
           categories_title: Kategorijos
+        new:
+          create: Sukurti kategoriją
+          title: Nauja kategorija
+        update:
+          error: Atnaujinant šią kategoriją iškilo problema.
+          success: Kategorija sėkmingai atnaujinta.
       component_permissions:
         update:
           error: Atnaujinant šio komponento leidimus iškilo problema.
@@ -290,6 +314,9 @@ lt:
           error: Kuriant šį komponentą iškilo problema.
           success: Komponentas sukurtas.
           success_landing_page: Komponentas sėkmingai sukurtas. Šiam komponentui galite pridėti turinio bloką erdvės pradžioje. Eikite į <a href="%{landing_page_path}">Pradžios puslapį</a>, kad jį konfigūruotumėte.
+        destroy:
+          error: Naikinant šį komponentą iškilo problema.
+          success: Komponentas pašalintas.
         edit:
           title: Redaguoti komponentą
           update: Atnaujinti
@@ -302,6 +329,7 @@ lt:
           headers:
             actions: Veiksmai
             name: Komponento pavadinimas
+            scope: Komponento apimtis
             type: Komponento tipas
         new:
           add: Pridėti komponentą
@@ -343,6 +371,8 @@ lt:
           JSON: JSON
         notice: Jūsų rinkmena šiuo metu eksportuojama. Kai eksportas bus baigtas, gausite el. laišką.
       filters:
+        category_id_eq:
+          label: Kategorija
         filter_label: Filtras
         invitation_accepted_at_present:
           label: Pakvietimas priimtas
@@ -390,6 +420,8 @@ lt:
           values:
             'false': Publikuota
             'true': Nebeskelbiama
+        scope_id_eq:
+          label: Apimtis
         search_label: Ieškoti
         search_placeholder:
           name_or_nickname_or_email_cont: Ieškoti %{collection} pagal el. pašto adresą, vardą ir pavardę arba naudotojo vardą.
@@ -531,6 +563,7 @@ lt:
         scopes: Apimtys
         settings: Nustatymai
         static_pages: Puslapiai
+        user_groups: Grupės
         users: Dalyviai
       metrics:
         metrics:
@@ -583,8 +616,12 @@ lt:
             plural: Pluralistinis
         share_token:
           fields:
+            created_at: Sukurta
             expires_at: Nustoja galioti
+            last_used_at: Paskutinį kartą naudota
             times_used: Kiek kartų naudota
+            token: Žetonas
+            user: Sukūrė
         static_page:
           fields:
             created_at: Sukurta
@@ -599,6 +636,16 @@ lt:
               admin: Administratorius
               user_manager: Dalyvių tvarkytojas
           name: Dalyvis
+        user_group:
+          fields:
+            actions: Veiksmai
+            created_at: Sukurta
+            document_number: Dokumento numeris
+            name: Vardas
+            nickname: Slapyvardis
+            phone: Telefonas
+            state: Būsena
+            users_count: Dalyvių skaičius
       moderated_users:
         index:
           actions:
@@ -671,6 +718,7 @@ lt:
           confirm_delete: Ar tikrai norite ištrinti šį naujienlaiškį?
           followers: 'sekėjai '
           has_been_sent_to: 'Buvo išsiųsta: '
+          no_scopes: Sričių nėra
           not_sent: Neišsiųstas
           participants: 'dalyviai '
           segmented_to: 'Išskaidyta į %{subject}: '
@@ -685,10 +733,13 @@ lt:
           confirm_deliver: Ar tikrai norite išsiųsti šį naujienlaiškį? Šio veiksmo atšaukti negalima.
           deliver: Pristatyti naujienlaiškį
           followers_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams, kurie seka sąraše nurodytas pasirinktas dalyvaujamojo proceso erdves.
+          none: Nėra
           participants_help: Naujienlaiškis išsiunčiamas visiems patvirtintiems naudotojams, kurie dalyvavo bet kurioje sąraše nurodytoje pasirinktoje dalyvaujamojo proceso erdvėje.
           recipients_count: Šis naujienlaiškis bus išsiųstas <strong id='recipients_count'>%{count}</strong> naudotojams.
+          scopes_help: Naujienlaiškis siunčiamas naudotojams, kurių paskyros „Mano interesai“ nuostatose aktyvuota kuri nors pasirinkta sritis.
+          select_scopes: Filtruoti naudotojus, kurie savo paskyros „Mano interesai“ nuostatose aktyvino bet kurią pasirinktą sritį.
           select_spaces: Pasirinkite naujienlaiškio segmentacijos vietas
-          send_to_all_users: Siųsti visiems naudotojams
+          select_users: Pasirinkite, kuriems naudotojams norite siųsti naujienlaiškį
           title: Pasirinkti gavėjus, kuriems išsiųsti
           warning: "<strong>Dėmesio:</strong> Šis naujienlaiškis bus išsiųstas tik tiems dalyviams, kurie savo pranešimų nuostatose aktyvino<em> „noriu gauti naujienlaiškius“</em>."
         send:
@@ -705,6 +756,7 @@ lt:
           success: Naujienlaiškis atnaujintas. Peržiūrėkite jį prieš išsiųsdami.
       officializations:
         block:
+          error: Blokuojant dalyvį iškilo problema.
           success: Dalyvis sėkmingai užblokuotas.
         create:
           success: Dalyvis sėkmingai oficializuotas.
@@ -738,6 +790,7 @@ lt:
           show: Rodyti
           title: Rodyti dalyvio el. pašto adresą
         unblock:
+          error: Atblokuojant dalyvį iškilo problema.
           success: Dalyvis sėkmingai atblokuotas.
       organization:
         edit:
@@ -792,8 +845,6 @@ lt:
           invalid: Skaitant CSV failą kilo problema. Prašau įsitikinkite kad sekėte instrukcijas.
           success: CSV rinkmena įkelta, dalyviams siunčiame kvietimą e. laišku. Tai gali užtrukti.
         new:
-          csv_upload:
-            title: Įkelkite savo CSV rinkmeną
           destroy:
             button: Ištrinti visus privačius dalyvius
             confirm: Ar tikrai norite ištrinti visus privačius dalyvius? Atlikus šį veiksmą nebebus įmanoma sugražinti šių dalyvių į platformą.
@@ -822,6 +873,10 @@ lt:
           title: Redaguoti leidimus
         update:
           success: Leidimai atnaujinti.
+      resources:
+        index:
+          headers:
+            scope: Apimtis
       scope_types:
         create:
           error: Kuriant naujo tipo sritį iškilo problema.
@@ -855,7 +910,16 @@ lt:
           success: Sritis atnaujinta
       share_tokens:
         actions:
+          confirm_destroy: Ar tikrai norite pašalinti šį žetoną?
           destroy: Ištrinti
+          share: Dalintis
+        destroy:
+          error: Pašalinant žetoną iškilo problema.
+          success: Žetonas pašalintas sėkmingai.
+        share_tokens:
+          empty: Nėra aktyvių žetonų.
+          help: Šie prieigos raktai naudojami siekiant pasidalinti nepublikuojamu ištekliu su bet kokiu naudotoju. Jie bus paslėpti kai išteklis bus publikuotas. Paspauskite ant rakto dalinimosi įkonos norėdami gauti dalinimosi nuorodą.
+          title: Bendrinti prieigos raktus
       shared:
         gallery:
           add_images: Pridėti paveikslėlių
@@ -871,6 +935,7 @@ lt:
           title: Redaguoti temą
           update: Atnaujinti temą
         new:
+          create: Sukurti temą
           title: Nauja tema
         update:
           error: Atnaujinant šią temą iškilo problema.
@@ -892,6 +957,7 @@ lt:
         index:
           last_notable_change: Paskutinis pastebimas pakeitimas
         new:
+          create: Sukurti puslapį
           title: Naujas puslapis
         topic:
           empty: Šioje temoje puslapių nėra.
@@ -916,7 +982,34 @@ lt:
         scope_types: Apimties tipai
         scopes: Apimtys
         statistics: Veikla
+        user_groups: Grupės
         users: Administratoriai
+      user_group:
+        csv_verify:
+          invalid: Skaitant CSV rinkmeną iškilo problema.
+          success: CSV rinkmena įkelta, tikriname, kurios grupės atitinka kriterijus. Tai gali užtrukti.
+        reject:
+          invalid: Atmetant šią grupę iškilo problema.
+          success: Grupė atmesta.
+        verify:
+          invalid: Verifikuojant šią grupę iškilo problema.
+          success: Grupė patikrinta.
+      user_groups:
+        index:
+          state:
+            pending: Laukiama
+            rejected: Atmesta
+            verified: Patvirtinta
+          verify_via_csv: Patvirtinti naudojant CSV
+      user_groups_csv_verifications:
+        new:
+          example_file: 'Pavyzdinė rinkmena:'
+          explanation: Įkelkite savo CSV rinkmeną. Pirmoje rinkmenos skiltyje turi būti pateikti oficialūs jūsų organizacijos grupių el. pašto adresai, be antraščių. Bus patvirtintos tik tos grupės, kurios patvirtino savo el. pašto adresą ir kurių el. pašto adresai yra matomi CSV rinkmenoje.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
+          title: Įkelkite savo CSV rinkmeną
+          upload: Įkelti
       users:
         create:
           error: Kviečiant šį administratorių iškilo problema.

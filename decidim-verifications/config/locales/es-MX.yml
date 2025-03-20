@@ -1,8 +1,7 @@
+---
 es-MX:
   activemodel:
     attributes:
-      authorization:
-        verification_attachment: Archivo adjunto de la verificación
       config:
         available_methods: Metodos disponibles
         offline: Desconectado
@@ -45,7 +44,7 @@ es-MX:
           destroy:
             confirm: La revocación de las autorizaciones anteriores a esta fecha no se puede deshacer. ¿Seguro que quieres continuar?
             confirm_all: La revocación de todas las autorizaciones no se puede deshacer. ¿Seguro que quieres continuar?
-          destroy_nok: Se ha producido un error al revocar las autorizaciones.
+          destroy_nok: Ha habido un problema al revocar las autorizaciones.
           destroy_ok: Todas las autorizaciones coincidentes han sido revocadas con éxito.
           info: Hay un total de %{count} participantes verificadas.
           no_data: No hay participantes verificadas.
@@ -75,12 +74,6 @@ es-MX:
           help:
             - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona una verificación simple.
             - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
-            - Verifícate introduciendo un número de documento que termine con "X".
-        ephemeral_dummy_authorization_handler:
-          help:
-            - Un ejemplo de gestor de autorización para que las desarrolladoras puedan entender como funciona una verificación simple.
-            - Está dirigido a las desarrolladoras para que puedan entender cómo implementar su propio sistema de verificación.
-            - Es una copia de la Autorización de ejemplo.
             - Verifícate introduciendo un número de documento que termine con "X".
         id_documents:
           help:
@@ -132,6 +125,17 @@ es-MX:
         destroy:
           error: Se ha producido un error al borrar la autorización.
           success: Has borrado la autorización correctamente.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Verificar contra otro ejemplo de controlador de autorización
+            csv_census: Verificar contra el censo de la organización.
+            dummy_authorization_handler: Verificar contra el gestor de autorización de ejemplo
+            dummy_authorization_workflow: Verificar contra el flujo de autorización de ejemplo
+            id_documents: Verifícate subiendo tu documento de identidad
+            postal_letter: Verifícate recibiendo un código de verificación a través de correo postal
+            sms: Verifícate a través de un código enviado por SMS
+          title: Verifica tu identidad
+          verify_with_these_options: 'Estas son las opciones disponibles para verificar tu identidad:'
         index:
           expired_verification: La verificación ha caducado
           granted_verification: Autorización concedida
@@ -143,14 +147,6 @@ es-MX:
         new:
           authorize: Enviar
           authorize_with: Verificar con %{authorizer}
-          tos_agreement: Al verificar tu identidad, aceptas los %{link}.
-        onboarding_pending:
-          completed_verifications: Tu perfil se ha verificado con éxito, ahora puedes %{action} en %{resource_name}
-          granted_verifications: Verificaciones concedidas
-          onboarding_message_html: 'Faltan unos pasos previos para poder %{action} en <strong>%{resource_title}</strong>%{resource_name}. Por favor, verifica tu cuenta completando las siguientes verificaciones:'
-          pending_admin_approval_verifications: Verificaciones pendientes de aprobación de una administradora
-          pending_verifications: Verificaciones pendientes
-          unauthorized: No tienes la autorización correspondiente para %{action} en este recurso
         renew_modal:
           cancel: Cancelar
           continue: Continuar
@@ -162,7 +158,7 @@ es-MX:
         admin:
           census:
             create:
-              error: Se ha producido un error al importar el censo.
+              error: Hubo un error al importar el censo.
               success: '%{count} ítems importados correctamente (%{errors} errores).'
             destroy_all:
               success: Todos los datos del censo han sido eliminados.
@@ -193,9 +189,11 @@ es-MX:
           postal_codes:
             one: La participación está restringida a usuarios con el código postal %{postal_codes}.
             other: 'La participación está restringida a usuarios con cualquiera de los siguientes códigos postales: %{postal_codes}.'
+          scope: La participación está restringida a las personas verificadas en el ámbito de %{scope_name}.
           user_postal_codes:
             one: La participación está restringida a las participantes con el código postal %{postal_codes} y tu código postal es %{user_postal_code}.
             other: 'La participación está restringida a las participantes con cualquiera de los siguientes códigos postales: %{postal_codes}. Tu código postal es %{user_postal_code}.'
+          user_scope: La participación está restringida a las participantes con el ámbito %{scope_name} y tu ámbito es %{user_scope_name}.
       id_documents:
         admin:
           config:

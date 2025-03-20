@@ -1,7 +1,7 @@
 <div id="js-bulk-actions-wrapper">
   <button
     id="js-bulk-actions-button"
-    class="button button__sm button__transparent-secondary"
+    class="button button__sm button__secondary"
     type="button"
     data-toggle="js-bulk-actions-dropdown">
     <%= t("decidim.proposals.admin.proposals.index.actions") %>
@@ -10,22 +10,25 @@
 
   <div
     id="js-bulk-actions-dropdown"
-    class="dropdown-pane dropdown-pane--buttons"
+    class="dropdown-pane"
     data-position="bottom"
     data-alignment="right"
     data-dropdown="dropdown"
     data-auto-focus="false"
     data-events="resize">
     <ul>
-      <% if current_component_taxonomy_filters&.any? %>
-        <li>
-          <button type="button" data-action="taxonomy-change-proposals">
-            <%= t("decidim.proposals.admin.proposals.index.change_taxonomies") %>
-          </button>
-        </li>
-      <% end %>
       <li>
-        <button type="button" data-action="merge-proposals" data-merge-dialog="merge-proposals_drawer" data-merge-url="<%= new_proposals_merge_path %>">
+        <button type="button" data-action="recategorize-proposals">
+          <%= t("decidim.proposals.admin.proposals.index.change_category") %>
+        </button>
+      </li>
+      <li>
+        <button type="button" data-action="scope-change-proposals">
+          <%= t("decidim.proposals.admin.proposals.index.change_scope") %>
+        </button>
+      </li>
+      <li>
+        <button type="button" data-action="merge-proposals">
           <%= t("decidim.proposals.admin.proposals.index.merge") %>
         </button>
       </li>
@@ -35,21 +38,14 @@
         </button>
       </li>
       <li>
-        <button type="button" data-action="assign-proposals-to-evaluator">
-          <%= t("decidim.proposals.admin.proposals.index.assign_to_evaluator") %>
+        <button type="button" data-action="assign-proposals-to-valuator">
+          <%= t("decidim.proposals.admin.proposals.index.assign_to_valuator") %>
         </button>
       </li>
-      <% if allowed_to? :unassign_from_evaluator, :proposals, evaluator: current_user %>
+      <% if allowed_to? :unassign_from_valuator, :proposals, valuator: current_user %>
         <li>
-          <button type="button" data-action="unassign-proposals-from-evaluator">
-            <%= t("decidim.proposals.admin.proposals.index.unassign_from_evaluator") %>
-          </button>
-        </li>
-      <% end %>
-      <% if templates_available? %>
-        <li>
-          <button type="button" data-action="apply-answer-template">
-            <%= t("decidim.proposals.admin.proposals.index.apply_answer_template") %>
+          <button type="button" data-action="unassign-proposals-from-valuator">
+            <%= t("decidim.proposals.admin.proposals.index.unassign_from_valuator") %>
           </button>
         </li>
       <% end %>

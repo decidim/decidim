@@ -1,7 +1,10 @@
+---
 id:
   activemodel:
     attributes:
       debate:
+        category_id: Kategori
+        decidim_category_id: Kategori
         description: Deskripsi
         end_time: Berakhir pada
         information_updates: Pembaruan informasi
@@ -19,6 +22,8 @@ id:
   decidim:
     components:
       debates:
+        actions:
+          create: Membuat
         name: Debat
         settings:
           global:
@@ -29,6 +34,8 @@ id:
             comments_blocked: Komentar diblokir
     debates:
       actions:
+        confirm_destroy: Apakah kamu yakin
+        destroy: Menghapus
         edit: Edit
         title: Tindakan
       admin:
@@ -36,6 +43,8 @@ id:
           create:
             invalid: Terjadi masalah saat membuat debat.
             success: Debat berhasil dibuat.
+          destroy:
+            success: Debat berhasil dihapus.
           edit:
             title: Edit debat
             update: Perbarui debat
@@ -65,12 +74,16 @@ id:
           official: Resmi
           origin: Asal
           search: Pencarian
+        form:
+          select_a_category: Silakan pilih kategori
         index:
           new_debate: Debat baru
         new:
           back: Kembali
           create: Membuat
           title: Debat baru
+        show:
+          edit_debate: Edit debat
       models:
         debate:
           fields:

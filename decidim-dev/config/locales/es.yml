@@ -1,9 +1,7 @@
+---
 es:
   activemodel:
     attributes:
-      dummy:
-        image: Imagen
-      dummy_attribute: Atributo de prueba
       dummy_resource:
         created_at: Creado en
         decidim_scope_id: Ámbito
@@ -17,7 +15,6 @@ es:
       dummy:
         settings:
           global:
-            clear_all: Limpiar todo
             guided: Entrada guiada
             guided_help: Texto de ayuda
             guided_readonly: Entrada deshabilitada
@@ -26,7 +23,6 @@ es:
             guided_rich_readonly_html: Texto de <strong>ayuda</strong> HTML para la entrada deshabilitada
             readonly_attribute: Atributo de sólo lectura
             test: Una prueba
-            test_add: Añadir una prueba
             test_choices:
               a: Opción A
               b: Opción B

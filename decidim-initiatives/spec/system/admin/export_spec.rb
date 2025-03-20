@@ -60,7 +60,7 @@ describe "Admin exports initiatives" do
     context "when accessing initiatives list" do
       it "shows the export dropdown" do
         visit decidim_admin_initiatives.initiatives_path
-        apply_filter("State", "Drafted")
+        apply_filter("State", "Created")
 
         expect(page).to have_content("Export all")
         expect(page).to have_content("Export selection")
@@ -70,7 +70,7 @@ describe "Admin exports initiatives" do
     context "when clicking the export dropdown" do
       before do
         visit decidim_admin_initiatives.initiatives_path
-        apply_filter("State", "Drafted")
+        apply_filter("State", "Created")
       end
 
       it "shows the export formats" do
@@ -84,7 +84,7 @@ describe "Admin exports initiatives" do
     context "when clicking the export link" do
       before do
         visit decidim_admin_initiatives.initiatives_path
-        apply_filter("State", "Drafted")
+        apply_filter("State", "Created")
         find("span", text: "Export selection").click
       end
 

@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -33,25 +34,27 @@ eu:
       help_section:
         content: Edukia
       id: ID
+      import:
+        user_group_id: Inportatu hau bezala
       newsletter:
-        body: Testu-gorputza
+        body: Gorputza
         send_to_all_users: Bidali parte-hartzaile guztiei
         send_to_followers: Bidali jarraitzaileei
         send_to_participants: Bidali parte-hartzaileei
         subject: Gaia
       organization:
         admin_terms_of_service_body: Administratzailearen zerbitzu-baldintzen testuaren gorputza
-        alert_color: Abisua
+        alert_color: Alerta
         available_authorizations: Baimen erabilgarriak
         badges_enabled: Gaitu garaikurrak
         comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
-        cta_button_path: Ekintza-botoiaren testua
+        cta_button_path: Deitu ekintza botoiaren bideora
         cta_button_text: Ekintza-botoiaren testua
-        customize_welcome_notification: Pertsonalizatu ongi etorri jakinarazpena
+        customize_welcome_notification: Pertsonalizatu ongietorri-jakinarazpena
         default_locale: Kokapen lehenetsia
         description: Deskribapena
         enable_omnipresent_banner: Erakutsi banner nonahikoa
-        enable_participatory_space_filters: Gaitu iragazkiak parte hartzeko espazioan
+        enable_participatory_space_filters: Gaitu iragazkiak parte hartzeko gunean
         facebook_handler: Facebook kudeatzailea
         favicon: Ikonoa
         force_authentication: Behartu autentikazioa
@@ -72,10 +75,10 @@ eu:
         instagram_handler: Instagramen kudeatzailea
         logo: Logotipoa
         machine_translation_display_priority: Itzulpen automatikoaren lehentasuna
-        machine_translation_display_priority_original: Jatorrizko testua lehenik
-        machine_translation_display_priority_translation: Itzulitako testua lehenik
+        machine_translation_display_priority_original: Lehen jatorrizko testua
+        machine_translation_display_priority_translation: Lehen itzulitako testua
         name: Izena
-        official_img_footer: Logotipoaren logotipo ofiziala
+        official_img_footer: Orri-oinaren logotipo ofiziala
         official_url: Erakundearen URL ofiziala
         omnipresent_banner_short_description: Deskribapen laburra
         omnipresent_banner_title: Izenburua
@@ -83,48 +86,47 @@ eu:
         organization_admin_email: Erakundearen administratzailearen mezu elektronikoa
         organization_admin_name: Erakundearen administratzailearen izena
         organization_locales: Tokiko erakundeak
-        primary_color: Primarioa
+        primary_color: Lehen
         reference_prefix: Erreferentzia-aurrizkia
         rich_text_editor_in_public_views: Gaitu testu-editore aberastua parte-hartzaileentzat
         secondary_color: Bigarren
         secondary_hosts: Bigarren mailako zerbitzariak
-        send_welcome_notification: Bidali ongi etorri jakinarazpena
+        send_welcome_notification: Bidali ongietorri-jakinarazpena
         success_color: Arrakasta
         tertiary_color: Hirugarren
         time_zone: Ordu-zona
         tos_version: Zerbitzu-baldintzen bertsioa
         twitter_handler: X sarerako kudeatzailea
+        user_groups_enabled: Gaitu parte-hartzaileen taldeak
         users_registration_mode: Parte-hartzaileak erregistratzeko modua
         warning_color: Abisua
         welcome_notification_body: Ongietorri-jakinarazpenaren gorputza
-        welcome_notification_subject: Ongi etorri jakinarazpenaren mezuaren gaia
+        welcome_notification_subject: Ongietorri-jakinarazpenaren mezuaren gaia
         youtube_handler: YouTubeko kudeatzailea
       participatory_space_private_user:
         email: Helbide elektronikoa
         name: Izena
-      participatory_space_private_user_csv_import:
-        file: Fitxategia
       scope:
         code: Kodea
         name: Izena
         organization: Erakundea
         parent_id: Nagusia
-        scope_type: Eremua mota
-        scope_type_id: Eremua mota
+        scope_type: Esparru mota
+        scope_type_id: Esparru mota
       scope_type:
         name: Izena
         organization: Erakundea
         plural: Plurala
       settings:
-        scope_id: Eremua
+        scope_id: Esparrua
       static_page:
         allow_public_access: Baimendu sarbidea balidatu gabe
         changed_notably: Aldaketa nabarmenak izan dira.
         content: Edukia
         organization: Erakundea
         show_in_footer: Erakutsi orri-oinean
-        slug: URL laburra
-        title: Izenburua
+        slug: URL l
+        title: Titulua
         topic_id: Gaia
         weight: Kokapenaren hurrenkera
       static_page_topic:
@@ -148,11 +150,11 @@ eu:
         participatory_space_private_user_csv_import:
           attributes:
             file:
-              malformed: Fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
+              malformed: Inportazio-fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
         user_group_csv_verification:
           attributes:
             file:
-              malformed: Fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
+              malformed: Inportazio-fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
       new_import:
         attributes:
           file:
@@ -161,9 +163,9 @@ eu:
   activerecord:
     attributes:
       decidim/static_page:
-        content: Edukia
+        content: Contenido
         slug: URL laburra
-        title: Izenburua
+        title: Titulua
       doorkeeper/application:
         authorize_url: Baimendu URLa
         client_id: Bezeroaren IDa
@@ -181,13 +183,8 @@ eu:
         attachment_collection:
           new: Beste eranskin-bilduma bat
         browse: Arakatu
-        confirm_delete_component: |
-          Ziur zaude osagai hau ezabatu nahi duzula?
-          Osagai honek honako hauek ditu: 
-          <ul class="list-disc ml-6 my-2">
-           <li class="font-bold">%{baliabide_kopurua} resources</li>
-          </ul>
-          Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.
+        category:
+          new: Beste kategoria bat
         export: Esportatu dena
         export-selection: Esportatu hautaketa
         import: Inportatu
@@ -195,20 +192,18 @@ eu:
         newsletter:
           new: Beste buletin bat
         participatory_space_private_user:
-          new: Partaidetza-espazio berria, erabiltzaile pribatua
+          new: Eremu parte-hartzaileko beste parte-hartzaile pribatu bat
         per_page: Orrialdeko
         permissions: Baimenak
-        restore: Berreskuratu
+        reject: Ukatu
         send_me_a_test_email: Bidali proba-posta elektronikoa
         share: Partekatu
-        share_tokens: Sarbide-estekak
-        soft_delete: Ezabatze biguna
         user:
           new: Beste administratzaile bat
-        view_deleted_components: Ikusi ezabatutako osagaiak
+        verify: Egiaztatu
       admin_terms_of_service:
         accept:
-          error: Arazoa izan da zerbitzuaren baldintzak onartzean.
+          error: Errore bat egon da zerbitzuaren administrazio-baldintzak onartzean.
           success: Bikain! Onartu dituzu zerbitzuaren administrazio-baldintzak.
         actions:
           accept: Bat nator baldintzekin
@@ -228,7 +223,7 @@ eu:
           success: Arlo mota behar bezala suntsitua.
         edit:
           title: Editatu arlo mota
-          update: Onartu
+          update: Eguneratu
         new:
           create: Sortu arlo mota
           title: Beste arlo mota bat
@@ -239,7 +234,6 @@ eu:
         create:
           error: Arazo bat egon da beste arlo bat sortzean.
           success: Arloa zuzen sortua.
-        deprecated: Kontuan izan arloak ez daudela erabilgarri eta etorkizuneko bertsioetan kenduko direla. Mesedez, erabili taxonomiak horien ordez. Gaur egun arloakak erabiltzen dituen modulua bakarra ekimenen modulua da.
         destroy:
           has_spaces: Arlo honek mendekotasuna duten espazioak ditu. Kendu aurretik, ziurtatu ez duela parte hartzeko gunerik aipatzen.
           success: Arloa behar bezala suntsitua.
@@ -261,7 +255,7 @@ eu:
           success: Karpeta behar bezala suntsitua.
         edit:
           title: Editatu karpeta
-          update: Onartu
+          update: Eguneratu
         index:
           attachment_collections_title: Erantsitako karpetak
         new:
@@ -293,12 +287,6 @@ eu:
         no_results: Ez da emaitzarik aurkitu
         search_prompt: Idatzi gutxienez hiru karaktere bilatzeko.
       block_user:
-        bulk_new:
-          action: Blokeatu kontuak eta bidali justifikazioa
-          already_reported_html: Ekintza honekin jarraituz gero, parte-hartzaile guztien edukiak ere ezkutatuko dituzu.
-          description: Parte-hartzaile bat blokeatzeak bere kontua erabilezin bihurtuko du. Zure justifikazioan edozein jarraibide eman dezakezu parte-hartzailea desblokeatzeko moduei buruz.
-          justification: Justifikazioa
-          title: Blokeatu parte-hartzaileak
         new:
           action: Blokeatu kontua eta bidali justifikazioa
           already_reported_html: Ekintza honekin jarraituz, parte-hartzailearen eduki guztiak ere ezkutatuko dituzu.
@@ -306,8 +294,23 @@ eu:
           justification: Justifikazioa
           title: Blokeatu parte-hartzaile hau %{name}
       categories:
+        create:
+          error: Arazo bat egon da kategoria hau sortzean.
+          success: Kategoria zuzen sortua.
+        destroy:
+          error: Arazo bat egon da kategoria hau ezabatzean. Mesedez, lehenik eta behin ezabatu azpikategoriak, ziurtatu beste entitaterik ez dagoela kategoria honetan eta saiatu berriro.
+          success: Kategoria behar bezala ezabatua.
+        edit:
+          title: Editatu kategoria
+          update: Eguneratu
         index:
           categories_title: Kategoriak
+        new:
+          create: Sortu kategoria
+          title: Beste kategoria bat
+        update:
+          error: Arazo bat egon da kategoria hau eguneratzean.
+          success: Kategoria zuzen eguneratua.
       component_permissions:
         update:
           error: Arazo bat egon da osagai honen baimenak eguneratzean.
@@ -316,28 +319,27 @@ eu:
         create:
           error: Arazo bat egon da osagai hau sortzean.
           success: Osagaia zuzen sortua.
-          success_landing_page: Osagaia zuzen sortu da. Espazio honen hasiera orrian eduki atal bat gehitu ahal duzu. Joan <a href="%{landing_page_path}">orrira</a> konfiguratzeko.
+          success_landing_page: Osagaia zuzuen osatua. Eduki bloke bat gehitu ahal duzu osagai honetarako parte hartzeko espazioaren hasiera-orrian. Zoaz hasiera-orrira konfiguratzeko. <a href="%{landing_page_path}">.
+        destroy:
+          error: Arazo bat egon da osagai hau suntsitzean.
+          success: Osagaia behar bezala ezabatua.
         edit:
           title: Editatu osagaia
-          update: Onartu
+          update: Eguneratu
         form:
           default_step_settings: Faseen ezarpen lehenetsiak
           global_settings: Ezarpen globalak
           step_settings: Ezarpenen faseak
-        hide:
-          success: Osagaia zuzen ezkutatu da menutik.
         index:
           add: Gehitu osagaia
           headers:
             actions: Ekintzak
             name: Osagaiaren izena
+            scope: Osagaiaren esparrua
             type: Osagai mota
-            visibility: Ikusgarritasuna
-        manage_trash:
-          title: Ezabatutako osagaiak
         new:
           add: Gehitu osagaia
-          title: 'Gehitu %{name} osagaia'
+          title: 'Gehitu osagaia: %{name}'
         publish:
           success: Osagaia zuzen argitaratua.
         title: Osagaiak
@@ -346,10 +348,6 @@ eu:
         update:
           error: Arazo bat egon da osagai hau eguneratzean.
           success: Osagaia zuzen eguneratua.
-        visibility_label:
-          menu_hidden: Menu ezkutua
-          published: Argitaratua
-          unpublished: Desargitaratuta
       conflicts:
         attempts: Saiakerak
         'false': 'Ez'
@@ -369,7 +367,7 @@ eu:
         user_name: Parte-hartzailea
       content_blocks:
         create:
-          error: Arazo bat izan da edukien blokea sortzean.
+          error: Errorea izan da eduki-blokea sortzean
           success: Eduki-blokea zuzen sortua.
         destroy:
           error: Arazoa izan da eduki-bloke hau ezabatzen saiatzean
@@ -406,6 +404,8 @@ eu:
           JSON: JSON
         notice: Zure esportazioa bidean da. Mezu elektroniko bat jasoko duzu bukatutakoan.
       filters:
+        category_id_eq:
+          label: Kategoria
         filter_label: Iragazkia
         invitation_accepted_at_present:
           label: Gonbidapena onartua
@@ -454,10 +454,12 @@ eu:
             'false': Argitaratua
             'true': Ez da argitaratu
         remove_all: Ezabatu denak
+        scope_id_eq:
+          label: Esparrua
         search_label: Bilatu
         search_placeholder:
           name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
-          report_count_eq: Erreporte kopurua
+          report_count_eq: Salaketa kopurua
           reported_id_string_or_reported_content_cont: Bilatu %{collection} eduki edo Id erreportablearen arabera.
           title_cont: Bilatu %{collection} izenburuaren arabera.
           user_name_or_user_nickname_or_user_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
@@ -468,9 +470,6 @@ eu:
             pending: Zain
             rejected: Ukatua
             verified: Egiaztatua
-        taxonomies:
-          taxonomy_id_eq:
-            label: Taxonomia
       forms:
         file_help:
           import:
@@ -524,19 +523,19 @@ eu:
               other: Bikoiztu %{columns} zutabe.
           invalid_indexes:
             lines:
-              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
+              detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
               message:
                 one: Errore bat aurkitu da inportazio-fitxategiko %{indexes} lerroan.
                 other: Erroreak aurkitu dira inportazio-fitxategiko %{indexes} lerroetan.
             records:
-              detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
+              detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
               message:
-                one: Errore bat aurkitu da %{indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
-                other: Erroreak aurkitu dira %{indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
+                one: Errore bat aurkitu da % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
+                other: Erroreak aurkitu dira % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
           missing_headers:
             detail: Mesedez, egiaztatu fitxategiak eskatutako zutabeak dituela.
             message:
-              one: Falta da zutabe %{columns}.
+              one: Falta da %{columns} zutabe.
               other: Falta dira %{columns} zutabe.
         error: Arazo bat egon da inportatzean.
         example_error: Arazo bat egon da aukeratutako tiporako adibide bat sortzean.
@@ -548,20 +547,18 @@ eu:
           actions:
             back: Atzera
           download_example: Deskargatu adibidea
-          download_example_format: Adibidez, %{name}
+          download_example_format: Adibidez, % {name}
           file_legend: Gehitu prozesatuko den inportazio-artxibo bat.
           import: Inportatu
         notice: "%{number} %{resource_name} zuzen inportatua."
       logs:
         filters:
-          participatory_space: Bilatu partaidetza-espazioa
+          participatory_space: Bilatu espazio parte-hartzailea
           text: Bilatu parte-hartzailearen helbide elektroniko, izen edo ezizenaren arabera.
           user: Parte-hartzailea
         logs_list:
           no_logs_yet: Oraindik ez dago erregistrorik.
           no_matching_logs: Ez dago erregistrorik hautatutako bilaketa-iragazkiekin. Erabili beste batzuk eta saiatu berriro.
-      manage_trash:
-        deleted_items_warning: Ezabatutako gauzak ikusten ari zara. Edozein edizio edo aldaketa egiteko, berreskuratu egin behar dituzu.
       managed_users:
         promotion:
           error: Arazo bat egon da kudeatutako parte-hartzailea mailaz igotzean.
@@ -572,7 +569,7 @@ eu:
             new_managed_user_promotion: Kudeatutako parte-hartzaileen beste maila-igoera bat
             promote: Sustatu
       menu:
-        admin_log: Administratzaile jarduera-erregistroa
+        admin_log: Admin jarduera-erregistroa
         admins: Administratzaileak
         appearance: Itxura
         area_types: Arlo motak
@@ -589,15 +586,13 @@ eu:
         newsletters: Buletinak
         participants: Parte-hartzaileak
         reported_users: Parte-hartzaile erreportatuak
-        scope_types: Eremu motak
-        scopes: Eremuak
+        scope_types: Esparru motak
+        scopes: Esparruak
         see_site: Ikusi web-orria
         settings: Ezarpenak
-        share_tokens: Sarbide-estekak
         static_page_topics: Gaiak
         static_pages: Orriak
-        taxonomies: Taxonomiak
-        taxonomy_filters: Taxonomia-iragazkiak
+        user_groups: Parte-hartzaile taldeak
         users: Parte-hartzaileak 
       metrics:
         metrics:
@@ -616,7 +611,7 @@ eu:
             collection: Karpeta
             content_type: Mota
             file_size: Tamaina
-            title: Izenburua
+            title: Titulua
           name: Eranskina
         attachment_collection:
           name: Karpeta
@@ -643,22 +638,23 @@ eu:
         scope:
           fields:
             name: Izena
-            scope_type: Eremu mota
+            scope_type: Esparru mota
         scope_type:
           fields:
             name: Izena
             plural: Plurala
         share_token:
           fields:
-            actions: Ekintzak
+            created_at: Noiz sortua
             expires_at: Noiz iraungia
-            registered_only: Bakarrik erregistratuta?
+            last_used_at: Noiz erabilia azkenik
             times_used: Erabilitako denbora
-            token: Sarbide-esteka
+            token: Sinboloak
+            user: Nork sortua
         static_page:
           fields:
             created_at: Noiz sortua
-            title: Izenburua
+            title: Titulua
         user:
           fields:
             created_at: Sortze-data
@@ -670,31 +666,27 @@ eu:
               admin: Administratzailea
               user_manager: Parte-hartzaileen kudeatzailea
           name: Parte-hartzailea
+        user_group:
+          fields:
+            actions: Ekintzak
+            created_at: Noiz sortua
+            document_number: Agiri-zenbakia
+            name: Izena
+            nickname: Goitizena
+            phone: Telefonoa
+            state: Egoera
+            users_count: Parte-hartzaile kopurua
       moderated_users:
         index:
           actions:
             block: Blokeatu erabiltzailea
-            bulk_actions:
-              actions_dropdown: Ekintzak
-              block:
-                title: Blokeatu
-                update_moderated_user_button: Blokeatu parte-hartzaileak
-              unblock:
-                title: Desblokeatu
-                update_moderated_user_button: Desblokeatu parte-hartzaileak
-              unreport:
-                title: Ez erreportatu
-            ignore:
-              update_moderated_user_button: Ez erreportatu parte-hartzaileak
             title: Ekintzak
             unblock: Desblokeatu parte-hartzailea
             unreport: Ez erreportatu
-          cancel: Ezeztatu
           name: Izena
           nickname: Ezizena
           reason: Arrazoia
           reports: Erreporte kopurua
-          selected: Hautatua
           title: Parte-hartzaile erreportatuak
         report:
           reasons:
@@ -706,33 +698,19 @@ eu:
           unblocked: Ez blokeatuta
       moderations:
         index:
-          actions:
-            actions_dropdown: Ekintzak
-            hide:
-              title: Ezkutatu
-              update_moderation_button: Ezkutatu hautatutako edukiak
-            unhide:
-              title: Erakutsi berriro
-              update_moderation_button: Erakutsi berriro hautatutako edukiak
-            unreport:
-              title: Ez erreportatu
-              update_moderation_button: Ez erreportatu hautatutako edukiak
-          cancel: Ezeztatu
-          selected: hautatua
           title: Eduki erreportatua
         report:
           reasons:
             does_not_belong: Ez dagokio
             hidden_during_block: Ezkutatuta, parte-hartzailea blokeatzen den bitartean
             offensive: Iraingarria
-            parent_hidden: Eduki nagusia ezkutatu egin da
             spam: Spam
         reports:
           index:
             author: Egilea(k)
             callout_html: Eduki bat moderazio-panelean agertzen da parte-hartzaile batek (erregistratutako kontu bat duen edozein pertsona izan daiteke) txostena bidaltzen duenean, edukiaren ondoan dagoen %{icon} ikonoan klik eginez.
             content_original_language: Jatorrizko edukiaren hizkuntza
-            participatory_space: Partaidetza-espazioa
+            participatory_space: Parte hartzeko esparrua
             reported_content: Erreportatutako edukia
             see_current: Ikusi egungoa
             see_original: Ikusi jatorrizkoa
@@ -742,11 +720,6 @@ eu:
             report_language: Txostenaren hizkuntza
             report_reason: Arrazoia
             title: Erreportatu xehetasunak
-      new_import:
-        accepted_mime_types:
-          csv: CSV
-          json: JSON
-          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Aurreikusi
@@ -756,10 +729,6 @@ eu:
           preview: 'Aurrebistaratu txantiloia: %{template_name}'
           use_template: Erabili txantiloi hau
       newsletters:
-        confirm_recipients:
-          email: Helbide elektronikoa
-          name: Izena
-          title: Baieztatu hartzaileak
         create:
           error: Arazo bat egon da buletin hau sortzean.
           success: Buletina zuzen sortua. Mesedez, berrikusi bidali baino lehen.
@@ -779,14 +748,12 @@ eu:
           confirm_delete: Ziur zaude buletin hau ezabatu nahi duzula?
           followers: 'jarraitzaileak '
           has_been_sent_to: 'Honi bidalia: '
-          not_sent: Ez da bidali
+          no_scopes: Esparrurik gabe
+          not_sent: Ez bidalita
           participants: 'parte-hartzaileak '
-          private_members: 'kide pribatuak '
           segmented_to: 'Honentzat zatitua %{subject}:'
           subscribed_count: 'Harpidetuak:'
           title: Buletinak
-          verification_types: 'Egiaztapen motak: %{types}'
-          verified_users: Parte-hartzaileak egiaztatuta
         new:
           save: Gorde
           title: Beste buletin bat
@@ -794,32 +761,24 @@ eu:
           all_spaces: Guztiak
           all_users_help: Albisteen buletina baieztatu duten parte-hartzaile guztiei bidaltzen die.
           confirm_deliver: Ziur zaude buletin hau bidali nahi duzula? Ekintza hau ezin da desegin.
-          confirm_recipients: Baieztatu hartzaileak
           deliver: Bidali buletina
-          followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein partaidetza-espazio jarraitzen duten parte-hartzaile guztiei bidaltzen die.
-          participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein espazio parte-hartzailetan esku hartu duten parte-hartzaile guztiei bidaltzen die.
-          private_members_help: Bidali buletin bat aukeratutako partaidetza-espazio pribatuetan gehitu diren baieztatutako parte-hartzaile guztiei.
+          followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu jarraitzen duten parte-hartzaile guztiei bidaltzen die.
+          none: Bat ere ez
+          participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu parte-hartzailetan esku hartu duten parte-hartzaile guztiei bidaltzen die.
           recipients_count: 'Buletin hau parte-hartzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
-          select_assemblies: Hautatu batzarrak
-          select_conferences: Hautatu jardunaldiak
-          select_initiatives: Hautatu ekimenak
-          select_participatory_processes: Hautatu partaidetza-prozesuak
+          scopes_help: Albisteen buletina "Nire interesekoak" konfigurazioan edozein esparru aktibatuta duten parte-hartzaileei bidaltzen die.
+          select_scopes: Iragazi "Nire interesekoak" konfigurazioan edozein esparru aktibatu duten parte-hartzaileentzat.
           select_spaces: Hautatu espazioak buletina zatitzeko
-          select_users_for_participatory_space: Bidali buletina partaidetza-espazio bati baino gehiagori
-          select_users_general: Bidali buletin orokorra
-          select_verification_types: Hautatu egiaztapen-metodoak
-          send_to_all_users: Bidali parte-hartzaile guztiei
-          send_to_verified_users: Bidali egiaztatutako parte-hartzaileei
-          title: Hautatu entregaren hartzaileak
-          verified_users_help: Buletin bat bidaltzen du egiaztatutako eta baieztatutako parte-hartzaile guztiei, aukeratutako edozein egiaztatze-metodo erabiliz.
+          select_users: Hautatu zein parte-hartzaileri bidali nahi diezun buletina
+          title: Hautatu hartzaileak entregatzeko
           warning: "<strong>Adi:</strong> Jakinarazpen-doikuntzetan “Albiste-buletinak jaso nahi ditut” aktibatu duten parte-hartzaileei baino ez zaie bidaliko buletin hau."
         send:
           no_recipients: Ez dago hartzailerik hautaketa honetarako.
         send_to_user:
-          sent_successfully: Buletina behar bezala bidali zaio %{email} helbideari
+          sent_successfully: Buletina behar bezala bidali zaio % {email} -ri
         show:
           preview: Aurreikusi
-          select_recipients_to_deliver: Hautatu entregaren hartzaileak
+          select_recipients_to_deliver: Hautatu hartzaileak entregatzeko
           send_me_a_test_email: Bidali probako posta elektronikoa
           subject: Gaia
         update:
@@ -827,15 +786,8 @@ eu:
           success: Buletina zuzen eguneratu da. Mesedez, berrikusi bidali baino lehen.
       officializations:
         block:
-          error: Arazo bat izan da parte-hartzailea blokeatzean.
+          error: Errore bat gertatu da parte-hartzailea blokeatzen.
           success: Parte-hartzailea zuzen blokeatua.
-        bulk_action:
-          block:
-            invalid: Arazo bat egon da parte-hartzaileak blokeatzean.
-            success: Parte-hartzaileak zuzen blokeatuta.
-          unblock:
-            invalid: Arazo bat izan da parte-hartzaileak desblokeatzean.
-            success: Parte-hartzaileak zuzen desblokeatuta.
         create:
           success: Pate-hartzailea zuzen ofizializatua.
         destroy:
@@ -868,7 +820,7 @@ eu:
           show: Erakutsi
           title: Erakutsi parte-hartzailearen helbide elektronikoa
         unblock:
-          error: Arazo bat izan da parte-hartzailea desblokeatzean.
+          error: Errore bat egon da parte-hartzailea desblokeatzean.
           success: Parte-hartzailea zuzen desblokeatua.
       organization:
         edit:
@@ -879,7 +831,7 @@ eu:
           github: GitHub
           instagram: Instagram
           rich_text_editor_in_public_views_help: Testu-eremu batzuetan, parte-hartzaileek HTML etiketa batzuk txertatu ahal izango dituzte testu-editore aberastua erabiliz.
-          social_handlers: Gizarte
+          social_handlers: Soziala
           twitter: X
           url: URL
           youtube: YouTube
@@ -893,16 +845,16 @@ eu:
           colors:
             choose_color: Aukeratu kolore nagusia
             colors_title: Erakundearen koloreak
-            colors_warning_html: Kontuz! Kolore horiek aldatzeak irisgarritasun-kontrasteak hautsi ditzake. Zure aukeraren kontrastea egiazta dezakezu <a href="https://webaim.org/resources/contrastchecker">WebAIM Contrast Checker</a> edo antzeko tresnekin.
+            colors_warning_html: "\nKontuz! Kolore horiek aldatzeak irisgarritasun-kontrasteak hautsi ditzake. Zure aukeraren kontrastea egiazta dezakezu <a href=\"%{link}\">WebAIM Contrast Checker</a> edo antzeko tresnekin."
             explanation: Tresna honek kolore-eskema bat aukeratzen laguntzen dizu, kolore bolantearen inguruan barreiatutako huez osatua, erakundearen webgunean erabiliko dena.
             legend_html: <a href="https://www.color-meanings.com/triadic-colors/">Triadic algoritmoa.</a> <i>bigarren mailako </i> kolorea zuk aukeratutako kolore primariotik eta asetasunetik abiatuta kalkulatzen da.
             saturation: Saturazioa
             title: Kolore-hautatzailea
             update_suggested_colors: Eguneratu iradokitako koloreak
-          cta_button_path_help_html: 'Hasierako orriko ekintzara deitzeko botoia nora estekatzen den gainidatz dezakezu. Erabili hemen ibilbide partzialak, ez URL osoak. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Ekintzara deitzeko botoia hasierako orrian agertuko da, ongi etorri testuaren eta deskribapenaren artean. Adibidez:%{url}'
-          cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundean eskuragarri dagoen hizkuntza bakoitzarentzat. Ezarrita ez badago, balio lehenetsia erabiliko da. The Call To Action botoia hasierako orrian erakusten da ongi etorri testua eta azalpenaren artean.
+          cta_button_path_help_html: 'Hasierako orriko ekintzara deitzeko botoia nora estekatzen den gainidatz dezakezu. Erabili hemen ibilbide partzialak, ez URL osoak. Letrak, zenbakiak, gidoiak eta barrak onartzen ditu, eta letra batez hasi behar du. Ekintzara deitzeko botoia hasierako orrian agertuko da, ongietorri-testuaren eta deskribapenaren artean. Adibidez:%{url}'
+          cta_button_text_help: Hasierako pantailako Call To Action botoian testua gainidatz dezakezu zure erakundean eskuragarri dagoen hizkuntza bakoitzarentzat. Ezarrita ez badago, balio lehenetsia erabiliko da. The Call To Action botoia hasierako orrian erakusten da ongietorri testua eta azalpenaren artean.
           header_snippets:
-            header_snippets_help_html: Eremu hau erabili HTML goiburuari gauzak gehitzeko. Erabilera ohikoena da JavaScript edo CSS osagarriak behar dituzten hirugarrenen zerbitzuak integratzea. HTMLri meta-etiketa gehigarriak gehitzeko ere erabil dezakezu. Kontuan izan hori orrialde publikoetan soilik renderizatuko dela, ez administrazio-atalean. Kodeak kanpoko APIekin elkarreragiten badu edo aplikazioaren segurtasun-jarraibideak betetzen ez baditu, Edukiaren Segurtasun Politika aldatu beharko da. Irakurri gehiago honi buruz<a href="https://docs.decidim.org/develop/en/customize/content_security_policy"> dokumentazioaren kokalekuan</a>.
+            header_snippets_help_html: Eremu hau erabili HTML goiburuari gauzak gehitzeko. Erabilera ohikoena da JavaScript edo CSS osagarriak behar dituzten hirugarrenen zerbitzuak integratzea. HTMLri meta-etiketa gehigarriak gehitzeko ere erabil dezakezu. Kontuan izan hori orrialde publikoetan soilik renderizatuko dela, ez administrazio-atalean. Kodeak kanpoko APIekin elkarreragiten badu edo aplikazioaren segurtasun-jarraibideak betetzen ez baditu, Edukiaren Segurtasun Politika aldatu beharko da. Irakurri gehiago honetaz<a href="https://docs.decidim.org/develop/en/customize/content_security_policy"> dokumentazioaren kokalekuan</a>.
             title: Goiburuko HTML kode-zatiak
           homepage_appearance_title: Editatu hasierako orriaren itxura
           homepage_highlighted_content_banner_title: Edukien bannerra nabarmendua
@@ -923,31 +875,17 @@ eu:
           title: Baimendutako kanpoko domeinuen zerrenda
       participatory_space_private_users:
         create:
-          error: Arazo bat egon da parte-hartzaile pribatu bat gehitzean partaidetza-espazio honetarako.
+          error: Arazo bat egon da parte-hartzaile pribatu bat gehitzean parte hartzeko espazio honetarako.
           success: Zuzen sortu da sarbide pribatua partaidetza-espazioko partaideentzat.
         destroy:
-          error: Arazo bat egon da parte-hartzaile pribatu bat ezabatzean partaidetza-espazio honetarako.
-          success: Behar bezala ezabatua parte-hartzailearen sarbidea partaidetza-espazio pribaturako.
-        edit:
-          title: Editatu espazio parte-hartzailea parte-hartzaile pribatua.
-          update: Eguneratu
+          error: Arazo bat egon da parte-hartzaile pribatu bat ezabatzean parte hartzeko espazio honetarako.
+          success: Behar bezala ezabatua parte-hartzailearen sarbidea parte hartzeko espazio pribaturako.
         index:
           import_via_csv: Inportatu CSV bidetik
-          publish_all: Argitaratu guztiak
-          title: Partaidetza-espazio pribatuko parte-hartzailea
-          unpublish_all: Desargitaratu guztiak
+          title: Parte hartzeko espazio pribatuko parte-hartzailea 
         new:
           create: Sortu
-          title: Partaidetza-espazio pribatuko parte-hartzaile berria.
-        publish_all:
-          error: Arazo bat egon da parte-hartzaile pribatu guztiak argitaratzean partaidetza-espazio honetarako.
-          success: Parte-hartzaile pribatu guztiak zuzen argitaratu dira partaidetza-espazio honetarako
-        unpublish_all:
-          error: Arazo bat egon da parte-hartzaile pribatu guztiak desargiratzean partaidetza-espazio honetarako.
-          success: Parte-hartzaile pribatu guztiak zuzen desargitaratu dira partaidetza-espazio honetarako
-        update:
-          error: Arazo bat egon da parte-hartzaile pribatua partaidetza-espazio horretarako eguneratzean.
-          success: Partaidetza-espazioa, parte-hartzaile pribatua, arrakastaz eguneratua
+          title: Parte hartzeko espazio pribatuko parte-hartzaile berria.
       participatory_space_private_users_csv_imports:
         create:
           invalid: Arazo bat egon da CSV fitxategia irakurtzean. Mesedez, ziurtatu jarraibideei kasu egin diezula.
@@ -962,7 +900,7 @@ eu:
             explanation: '%{count} parte-hartzaile pribatu dituzu.'
             title: Ezabatu parte-hartzaile pribatuak
           example_file: 'Fitxategi eredua:'
-          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean partaidetza-prozesura gehitu nahi dituzun parte-hartzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
+          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean parte-hartze prozesura gehitu nahi dituzun parte-hartzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
@@ -972,96 +910,63 @@ eu:
         create:
           error: Arazo bat egon da ohartarazpenak sortzean.
           success:
-            one: "%{count} parte-hartzaile gogoratuko da."
-            other: "%{count} parte-hartzailea gogoratuko dira."
+            one: "Pparte-hartzaile bat gogoratuko da."
+            other: "%{count} parte-hartzaile gogoratuko dira."
         new:
           submit: Bidali
       resource_permissions:
         edit:
           submit: Bidali
           title: Editatu baimenak
-        options_form:
-          ephemeral_warning: Baimen-metodo hori ahalbidetzeko, <a href="% {path}"> indarrean dauden baimen guztiak ezeztatu behar dira. Horrela, egiaztatze-gatazkak izateko arriskua murrizten da. Horrelako baimen guztiak automatikoki ezeztatuko dira erakundean, baldin eta metodo hori gehitzen duten aldaketak aurkezten badituzu edo, gehitu ondoren, konfigurazioa aldatzen baduzu.
         update:
           success: Baimenak behar bezala eguneratuak.
+      resources:
+        index:
+          headers:
+            scope: Esparrua
       scope_types:
         create:
-          error: Arazo bat egon da beste eremu mota bat sortzean.
-          success: Eremu mota arrakastaz sortu da.
+          error: Arazo bat egon da beste esparru mota bat sortzean.
+          success: Esparru mota arrakastaz sortu da.
         destroy:
-          success: Eremu mota behar bezala suntsitua
+          success: Esparru mota behar bezala suntsitua
         edit:
-          title: Editatu eremu mota
+          title: Editatu esparru mota
           update: Eguneratu
         new:
-          create: Sortu eremu mota
-          title: Beste eremu mota bat
+          create: Sortu esparru mota
+          title: Beste esparru mota bat
         update:
-          error: Arazo bat egon da eremu mota hau eguneratzean.
-          success: Eremu mota zuzen eguneratua
+          error: Arazo bat egon da esparru mota hau eguneratzean.
+          success: Esparru mota zuzen eguneratua
       scopes:
         create:
-          error: Arazo bat egon da beste eremu bat sortzean.
-          success: Eremua zuzen sortua.
-        deprecated: Kontuz, eremuak desinformatuta daude eta hurrengo bertsioetan kenduko dira. Mesedez, erabili taxonomiak. Gaur egun eskopioak erabiltzen dituen modulu bakarra ekimenen modulua da.
+          error: Arazo bat egon da beste esparru bat sortzean.
+          success: Esparrua zuzen sortua.
         destroy:
-          success: Eremua behar bezala suntsitua.
+          success: Esparrua behar bezala suntsitua.
         edit:
-          title: Editatu eremua
+          title: Editatu esparrua
           update: Eguneratu
         new:
-          create: Sortu eremua
-          title: Beste eremu bat
-        no_scopes: Maila honetan ez dago eremurik.
+          create: Sortu esparrua
+          title: Beste esparru bat
+        no_scopes: Maila honetan ez dago esparrurik.
         update:
-          error: Arazo bat egon da eremu hau eguneratzean.
-          success: Eremua zuzen eguneratua
+          error: Arazo bat egon da esparru hau eguneratzean.
+          success: Esparrua zuzen eguneratua
       share_tokens:
         actions:
-          confirm_destroy: Ziur zaude sarbide hau ezabatu nahi duzula?
-          copy_link: Kopiatu esteka
+          confirm_destroy: Ziur zaude identifikatzaile-ikur hau ezabatu nahi duzula?
           destroy: Ezabatu
-          edit: Editatu
-          preview: Aurreikusi
-        create:
-          invalid: Arazo bat izan da sarbide-esteka sortzean.
-          success: Esteka zuzen sortua.
+          share: Partekatu
         destroy:
-          error: Arazo bat izan da sarbide-esteka suntsitzean.
-          success: Sarbide-esteka zuzen suntsitua.
-        edit:
-          title: 'Editatu sarbide-estekak honetarako: %{name}'
-          update: Eguneratu
-        form:
-          automatic: Automatikoa
-          custom: Pertsonalizatua
-          custom_expiration: Iraungitze pertsonalizatua
-          custom_token: Hitz pertsonalizatua
-          expires_at: Noiz iraungia
-          'false': 'Ez'
-          never_expire: Inoiz ez
-          registered_only: Bakarrik erregistratuta?
-          token: Sarbide-gakoa
-          'true': 'Bai'
-        index:
-          back_to_share_tokens: Itzuli sarbide-esteketara
-          copied: Sarbide-esteka kopiatuta!
-          copy_message: Testua zuzen kopiatu da arbelean.
-          create_new_token: Sortu zure lehen esteka!
-          empty_html: Ez dago konexio aktiborik. %{new_token_link}
-          never: Inoiz ez
-          new_share_token_button: Sarbide-esteka berria
-          share_tokens_help_html: |
-            Sortu eta partekatu sarbide-esteka, besteek ikusi ahal izateko baliabide argitaragabe hau.
-            Sarbide-estekak erregistratutako parte-hartzaileentzat soilik izan daitezke baliozkoak, edo, beharrezkoa bada, iraungitze-data eduki dezakete.
-            Sarbide-lotura berri bat partekatzeko, sortu eta gero kopiatu esteka "%{clipboard}" ekintza-ikonoa erabiliz.
-          title: 'Sarbide-estekak honetarako: %{name}'
-        new:
-          create: Sortu
-          title: 'Sarbide-esteka berria honentzat: %{name}'
-        update:
-          error: Arazo bat egon da sarbide hau eguneratzean.
-          success: Sarbide-esteka zuzen eguneratu da.
+          error: Arazo bat egon da identifikatzaile-ikurra suntsitzean.
+          success: Identifikatzaile-ikurra behar bezala suntsitua.
+        share_tokens:
+          empty: Ez dago identifikatzaile-ikur aktiborik.
+          help: Identifikatzaile-ikur hauek argitaratu gabeko baliabide hori edozein erabiltzaileri publikoki partekatzeko erabiltzen dira. Errekurtsoa argitaratzean ezkutatuko dira. Egin klik identifikatzaile-ikurra partekatzeko ikonoan, URL partekagarria bisitatzeko.
+          title: Partekatu identifikatzaile-ikurrak
       shared:
         adjacent_navigation:
           next: Hurrengoa
@@ -1082,7 +987,7 @@ eu:
           title: Editatu gaia
           update: Eguneratu gaia
         new:
-          create: Beste gai bat
+          create: Sortu gaia
           title: Beste gai bat
         update:
           error: Arazo bat egon da gai hau eguneratzean.
@@ -1106,7 +1011,7 @@ eu:
         index:
           last_notable_change: Azken aldaketa nabaria
         new:
-          create: Beste orri bat
+          create: Sortu orrialdea
           title: Beste orri bat
         topic:
           empty: Ez dago orrialderik gai honi buruz.
@@ -1114,116 +1019,6 @@ eu:
         update:
           error: Arazo bat egon da orri hau eguneratzean.
           success: Orria zuzen eguneratua.
-      taxonomies:
-        actions:
-          actions: Ekintzak
-          destroy: Ezabatu taxonomia eta elementuak
-          edit: Editatu taxonomia eta elementuak
-          filters: Kudeatu iragazkiak
-        breadcrumb:
-          edit: Editatu taxonomia
-          new: Beste taxonomia bat
-        count: Lotutako baliabideak
-        create:
-          invalid: Arazo bat egon da kategoria hau sortzean.
-          success: Kategoria zuzen sortua.
-        destroy:
-          invalid: Arazo bat egon da osagai hau ezabatzean.
-          success: Taxonomia behar bezala suntsitua.
-        edit:
-          back: Atzera
-          description: Taxonomia honetako elementuak baliabideak sailkatzeko edo iragazteko erabiliko dira, hala nola espazio edo osagai parte-hartzaileak. Arrastatu eta utzi zerrenda berrantolatzeko.
-          new_item: Elementu berria
-          no_items: Gaur egun ez dago taxonomia honetako elementurik. Sortu hemen elementuen zerrenda bat baliabideak sailkatzeko edo iragazteko, hala nola espazio edo osagai parte-hartzaileak. Elementuak hiru mailatan sailka daitezke.
-          subtitle: 'Elementuak hemen: "%{taxonomy_name}"'
-          title: Editatu "%{taxonomy_name}" taxonomia
-          update: Eguneratu
-        filters:
-          search_placeholder: Bilatu
-        index:
-          description: Taxonomiek eta iragazkiek aukera ematen diete administratzaileei edukiak ordenatzeko eta antolatzeko. Adibidez, gehitu taxonomia bat hiriko auzo eta barrutiekin, eta gero sortu iragazkiak barrutiekin edo auzo jakin baterako.
-          new_taxonomy: Taxonomia berria
-          no_items_found: Ez dago bilaketa-irizpidearekin bat datorren taxonomiarik.
-        name: Izena
-        new:
-          create: Sortu taxonomia
-          title: Beste taxonomia bat
-        no_taxonomies: Gaur egun ez dago taxonomiarik. Sortutaxonomia-zerrenda bat hemen eta zehaztu elementuak horietako bakoitzean baliabideak sailkatu edo iragazteko.
-        table:
-          to_next_page: Arrastatu hurrengo orrira
-          to_prev_page: Arrastatu aurreko orrira
-        taxonomy_actions:
-          confirm_destroy: 'Ziur zaude %{name} ezabatu nahi duzula? Honek, gainera, haurren objektu guztiak ezabatuko ditu. OHARRA: Taxonomia hori erabiltzen ari diren baliabideek ez dute eraginik izango, baina taxonomia horren erreferentzia galduko dute.'
-        total_filters: Iragazkiak
-        total_items: Elementuak taxonomian
-        update:
-          invalid: Arazo bat izan da taxonomia hau eguneratzean.
-          success: Taxonomia zuzen eguneratua.
-      taxonomy_filters:
-        actions:
-          new_taxonomy_filter: Beste taxonomia-iragazki bat
-        breadcrumb:
-          edit: Editatu iragazkia
-          filters: Iragazkiak
-          new: Beste iragazki bat
-        create:
-          error: Arazo bai izan da taxonomia-iragazki hau sortzean.
-          success: Taxonomia-iragazkia zuzen sortua.
-        destroy:
-          error: Arazo bat izan da taxonomia-iragazki hau suntsitzean.
-          success: Taxonomia-iragazkia behar bezala suntsitua.
-        edit:
-          back: Atzera
-          title: Editatu taxonomia-iragazkia
-          update: Eguneratu taxonomia-iragazkia
-        form:
-          all: Guztiak
-          items:
-            one: "Item bat hautatuta"
-            other: "%{count} item hautatuta"
-          name_help: Aurrealdean erakutsiko den iragazkiaren izenburua.
-          no_items: Taxonomia honetarako ez dago elementurik. Artikuluak sor ditzakezu taxonomia konfiguratzeko ezarpenetan.
-          space_filter: Iragazki gisa eskuragarri honetarako
-        index:
-          description: Taxonomia-iragazki batek aukera ematen die administratzaileei partaidetza-espazioak taxonomiaren arabera ordenatzeko eta iragazteko. Adibidez, gehitu taxonomia-iragazki bat prozesuak eremu geografikoaren arabera ordenatzeko.
-          empty: Gaur egun ez dago taxonomia-iragazkirik. Sortu taxonomia-iragazkien zerrenda bat, partaidetza-espazioak taxonomia baten arabera ordenatu eta iragazteko.
-          new_filter: Beste iragazki bat
-        new:
-          back: Atzera
-          create: Sortu taxonomia-iragazkia
-          title: Beste taxonomia-iragazki bat
-        table:
-          actions: Ekintzak
-          components_count: Osagaiak erabiltzen dituzte
-          confirm_destroy: 'Ziur zaude %{name} iragazkia ezabatu nahi duzula? OHARRA: Iragazki hau erabiltzen ari diren baliabideei ez zaie eragingo, baina iragazki horren erreferentzia galduko dute.'
-          destroy: Ezabatu
-          edit: Editatu
-          internal_name: Barneko etiketa
-          name: Etiketa
-        update:
-          error: Arazo bai izan da taxonomia-iragazki hau eguneratzean.
-          success: Taxonomia-iragazkia zuzen eguneratua.
-      taxonomy_filters_selector:
-        new:
-          add_new_items_html: 'Beste iragazki edo elementu bat jarri behar baduzu, egin konfigurazio-ezarpenaren bidez edo klikatuz: <a href="%{url}">here</a>.'
-          items_count: "Elementu %{count}"
-          save: Gorde
-        show:
-          items_count: "Elementu %{count}"
-          remove: Kendu
-        taxonomies_select:
-          filters: Iragazkiak
-          select_filter: Hautatu iragazki bat
-          select_taxonomy: Hautatu taxonomia bat
-          taxonomies: Taxonomiak
-      taxonomy_items:
-        edit:
-          title: 'Editatu elementua hemen: %{taxonomy}'
-          update: Eguneratu elementua
-        new:
-          create: Sortu elementua
-          none: Bat ere ez
-          title: 'Beste elementu bat hemen: %{taxonomy}'
       titles:
         admin_log: Administratzaile-erregistroa
         area_types: Arlo motak
@@ -1233,29 +1028,45 @@ eu:
         edit_external_domains: Baimendutako kanpoko domeinuen zerrenda
         edit_landing_page: Orriaren edukiak
         edit_organization_appearance: Editatu hasierako orriaren itxura
-        impersonatable_users: Parte-hartzaile erabilgarriak
-        impersonations: Parte-hartzaileen kudeaketa
+        impersonatable_users: Erabiltzaile erabilgarriak
+        impersonations: Erabiltzaileen kudeaketa
         menu: Menua
         metrics: Metrikak
         page_topics: Gaiak
         pages: Orriak
         panel: Administratzailea
-        participants: Parte-hartzaileak
-        scope_types: Eremu motak
-        scopes: Eremuak
+        participants: erabiltzaileak
+        scope_types: Esparru motak
+        scopes: Esparruak
         statistics: Jarduera
-        taxonomies: Taxonomiak
-        taxonomy_filters: 'Taxonomia-iragazkiak honetarako: "%{taxonomy}"'
+        user_groups: Erabiltzaile-taldeak
         users: Administratzaileak
-      tooltips:
-        deleted_component_info: Osagai hau ezabatu ahal izateko, egoera "Argitaratugabea" izan behar da.
-      trash_management:
-        restore:
-          invalid: Arazo bat egon da % {baliabide_name} berreskuratzean.
-          success: "%{resource_name} zuzen berreskuratu da."
-        soft_delete:
-          invalid: Arazo bat egon da %{resource_name} ezabatzean.
-          success: "%{resource_name} zuzen ezabatua."
+      user_group:
+        csv_verify:
+          invalid: Arazo bat egon da CSV fitxategia irakurtzean.
+          success: CSV fitxategia behar bezala kargatu da, irizpideekin bat datozen partaide-taldeak egiaztatzen ari gara. Honek denbora beharko du.
+        reject:
+          invalid: Arazo bat egon da talde hau ukatzean.
+          success: Taldea behar bezala ukatua.
+        verify:
+          invalid: Arazo bat egon da talde hau egiaztatzean.
+          success: Taldea zuzen egiaztatua.
+      user_groups:
+        index:
+          state:
+            pending: Zain
+            rejected: Ukatua
+            verified: Egiaztatuta
+          verify_via_csv: Egiaztatu CSV bidez
+      user_groups_csv_verifications:
+        new:
+          example_file: 'Fitxategi eredua:'
+          explanation: Igo zure CSV fitxategia. Zure erakundeko taldeen mezu elektronikoak fitxategiko lehen zutabean izan behar dituzu, goibururik gabe. Soilik baliozkotuko dira bere posta elektronikoa baieztatu duten taldeak eta CSV fitxategian agertzen den posta elektronikoa dutenak.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
+          title: Igo zure CSV fitxategia
+          upload: Igo
       users:
         create:
           error: Arazo bat egon da administratzaile hau gonbitzean.
@@ -1284,13 +1095,13 @@ eu:
           reason: Arrazoi bat adierazi behar duzu kudeatu gabeko parte-hartzaile bat kudeatzeko.
     metrics:
       blocked_users:
-        object: parte-hartzaile blokeatuak
+        object: erabiltzaile blokeatuak
         title: Parte-hartzaile blokeatuak
       reported_users:
-        object: parte-hartzaile erreportatuak
-        title: Parte-hartzaile erreportatuak
+        object: erabiltzaile erreportatuak
+        title: Erabiltzaile erreportatuak
       user_reports:
-        object: parte-hartzaileak erreportatzen du
+        object: parte-hartzailearen erreporteak
         title: Parte-hartzaileak erreportatzen du
     moderations:
       actions:
@@ -1303,38 +1114,22 @@ eu:
         unreport: Ez erreportatu
       admin:
         reportable:
-          bulk_action:
-            hide:
-              failed: 'Arazo bat izan da eduki batzuk ezkutatzean: %{errored}'
-              invalid: Ez dago moderaziorik hautatuta.
-              success: Edukiak zuzen ezkutatuta.
-            ignore:
-              invalid: Ez dago moderaziorik hautatuta.
-              success: Parte-hartzaileak zuzen ez erreportatuak.
-            unhide:
-              failed: 'Arazo bat izan da eduki batzuk %{errored} berriro erakustean'
-              invalid: Ez dago moderaziorik hautatuta.
-              success: Edukiak zuzen berriro erakutsita.
-            unreport:
-              failed: 'Arazo bat izan da eduki batzuk %{errored} berriro erakustean'
-              invalid: Ez dago moderaziorik hautatuta.
-              success: Edukiak zuzen ez erreportatuak.
           hide:
             invalid: Arazo bat egon da baliabidea ezkutatzean.
-            success: Edukia zuzen ezkutatua.
+            success: "Edukia zuzen ezkutatua.\n\n\n"
           unhide:
             invalid: Arazo bat egon da baliabidea erakustean.
             success: Edukia zuzen desezkutatua.
           unreport:
             invalid: Arazo bat egon da salaketa bertan behera uztean.
-            success: Salaketa zuzen ezeztatu da.
+            success: Salaketa behar bezala ezeztatua.
       models:
         moderation:
           fields:
             created_at: Noiz erreportatua
             deleted_resource: Baliabide ezabatua.
             hidden_at: Ezkutatze-data
-            participatory_space: Partaidetza-espazioa
+            participatory_space: Parte hartzeko espazioa
             report_count: Erreporte kopurua
             reportable_id: ID
             reportable_type: Mota
@@ -1354,5 +1149,3 @@ eu:
       admin:
         global_moderations:
           title: Moderazio globalak
-        taxonomy_filters_selector:
-          title: Iragazkiak

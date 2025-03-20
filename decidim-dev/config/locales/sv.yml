@@ -1,9 +1,7 @@
+---
 sv:
   activemodel:
     attributes:
-      dummy:
-        image: Bild
-      dummy_attribute: Testattribut
       dummy_resource:
         created_at: Skapad
         decidim_scope_id: Indelning
@@ -17,16 +15,10 @@ sv:
       dummy:
         settings:
           global:
-            clear_all: Rensa alla
-            guided: Guidad inmatning
+            guided: Guidad ingång
             guided_help: Hjälptext
-            guided_readonly: Inmatning inaktiverad
-            guided_rich: Guidad formatterad textinmatning
-            guided_rich_help_html: HTML <strong>hjälp</strong>-text
-            guided_rich_readonly_html: HTML <strong>hjälp</strong>-text för inaktiverad inmatning
             readonly_attribute: Skrivskyddat attribut
             test: Ett test
-            test_add: Lägg till test
             test_choices:
               a: Alternativ A
               b: Alternativ B
@@ -57,7 +49,6 @@ sv:
           description_own: Du har skapat %{score} tester.
           name: Tester
           next_level_in: Skapa %{score} till tester för att nå nästa nivå!
-          unearned_another: Den här deltagaren har inte skapat några tester än.
           unearned_own: Du har inte skapat några tester än.
     resource_links:
       test_link:

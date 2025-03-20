@@ -7,13 +7,14 @@ describe Decidim::Assemblies::Permissions do
 
   let(:user) { create(:user, :admin, organization:) }
   let(:organization) { create(:organization) }
-  let(:assembly) { create(:assembly, organization:) }
+  let(:assembly_type) { create(:assemblies_type, organization:) }
+  let(:assembly) { create(:assembly, organization:, assembly_type:) }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:assembly_admin) { create(:assembly_admin, assembly:) }
   let(:assembly_collaborator) { create(:assembly_collaborator, assembly:) }
   let(:assembly_moderator) { create(:assembly_moderator, assembly:) }
-  let(:assembly_evaluator) { create(:assembly_evaluator, assembly:) }
+  let(:assembly_valuator) { create(:assembly_valuator, assembly:) }
 
   shared_examples "access for role" do |access|
     case access
@@ -49,10 +50,10 @@ describe Decidim::Assemblies::Permissions do
       it_behaves_like "access for role", access[:moderator]
     end
 
-    context "when user is a space evaluator" do
-      let(:user) { assembly_evaluator }
+    context "when user is a space valuator" do
+      let(:user) { assembly_valuator }
 
-      it_behaves_like "access for role", access[:evaluator]
+      it_behaves_like "access for role", access[:valuator]
     end
   end
 
@@ -68,7 +69,7 @@ describe Decidim::Assemblies::Permissions do
         admin: true,
         collaborator: true,
         moderator: true,
-        evaluator: true
+        valuator: true
       )
     end
 
@@ -85,7 +86,7 @@ describe Decidim::Assemblies::Permissions do
         admin: true,
         collaborator: false,
         moderator: true,
-        evaluator: false
+        valuator: false
       )
     end
 
@@ -179,7 +180,7 @@ describe Decidim::Assemblies::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      evaluator: true
+      valuator: true
     )
   end
 
@@ -194,7 +195,7 @@ describe Decidim::Assemblies::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      evaluator: true
+      valuator: true
     )
   end
 
@@ -211,7 +212,7 @@ describe Decidim::Assemblies::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: :not_set,
-        evaluator: true
+        valuator: true
       )
     end
 
@@ -227,7 +228,7 @@ describe Decidim::Assemblies::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: :not_set,
-        evaluator: :not_set
+        valuator: :not_set
       )
     end
   end
@@ -236,22 +237,6 @@ describe Decidim::Assemblies::Permissions do
     let(:action) do
       { scope: :admin, action: :read, subject: :assembly_list }
     end
-
-    it_behaves_like(
-      "access for roles",
-      org_admin: true,
-      admin: true,
-      collaborator: true,
-      moderator: true,
-      evaluator: true
-    )
-  end
-
-  context "when uploading editor images" do
-    let(:action) do
-      { scope: :admin, action: :create, subject: :editor_image }
-    end
-    let(:context) { { assembly: } }
 
     it_behaves_like(
       "access for roles",
@@ -275,7 +260,7 @@ describe Decidim::Assemblies::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      evaluator: true
+      valuator: true
     )
   end
 
@@ -291,7 +276,7 @@ describe Decidim::Assemblies::Permissions do
       admin: true,
       collaborator: true,
       moderator: true,
-      evaluator: true
+      valuator: true
     )
   end
 
@@ -306,7 +291,7 @@ describe Decidim::Assemblies::Permissions do
       admin: false,
       collaborator: false,
       moderator: false,
-      evaluator: false
+      valuator: false
     )
   end
 
@@ -321,7 +306,7 @@ describe Decidim::Assemblies::Permissions do
       admin: false,
       collaborator: false,
       moderator: false,
-      evaluator: false
+      valuator: false
     )
   end
 
@@ -336,7 +321,7 @@ describe Decidim::Assemblies::Permissions do
       admin: false,
       collaborator: false,
       moderator: false,
-      evaluator: false
+      valuator: false
     )
   end
 
@@ -353,7 +338,7 @@ describe Decidim::Assemblies::Permissions do
         org_admin: true,
         admin: true,
         collaborator: :not_set,
-        evaluator: :not_set,
+        valuator: :not_set,
         moderator: true
       )
     end
@@ -368,7 +353,7 @@ describe Decidim::Assemblies::Permissions do
         org_admin: true,
         admin: true,
         collaborator: :not_set,
-        evaluator: :not_set,
+        valuator: :not_set,
         moderator: :not_set
       )
     end
@@ -424,13 +409,15 @@ describe Decidim::Assemblies::Permissions do
 
       it_behaves_like "allows any action on subject", :attachment
       it_behaves_like "allows any action on subject", :attachment_collection
+      it_behaves_like "allows any action on subject", :category
       it_behaves_like "allows any action on subject", :component
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :assembly
+      it_behaves_like "allows any action on subject", :assembly_member
       it_behaves_like "allows any action on subject", :assembly_user_role
 
       context "when private assembly" do
-        let(:assembly) { create(:assembly, organization:, private_space: true) }
+        let(:assembly) { create(:assembly, organization:, assembly_type:, private_space: true) }
         let!(:context) { { current_participatory_space: assembly } }
 
         it_behaves_like "allows any action on subject", :space_private_user
@@ -458,13 +445,15 @@ describe Decidim::Assemblies::Permissions do
 
       it_behaves_like "allows any action on subject", :attachment
       it_behaves_like "allows any action on subject", :attachment_collection
+      it_behaves_like "allows any action on subject", :category
       it_behaves_like "allows any action on subject", :component
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :assembly
+      it_behaves_like "allows any action on subject", :assembly_member
       it_behaves_like "allows any action on subject", :assembly_user_role
 
       context "when private assembly" do
-        let(:assembly) { create(:assembly, organization:, private_space: true) }
+        let(:assembly) { create(:assembly, organization:, assembly_type:, private_space: true) }
         let!(:context) { { current_participatory_space: assembly } }
 
         it_behaves_like "allows any action on subject", :space_private_user
@@ -472,60 +461,115 @@ describe Decidim::Assemblies::Permissions do
     end
   end
 
-  context "when listing assemblies list" do
-    let!(:user) { create(:user, organization:) }
-    let(:context) { { assembly: } }
-
-    context "when assembly is a root assembly" do
-      before do
-        create(:assembly_user_role, user:, assembly:)
-      end
-
+  describe "assemblies types" do
+    context "when action is :index" do
       let(:action) do
-        { scope: :admin, action: :list, subject: :assembly }
+        { scope: :admin, action: :index, subject: :assembly_type }
       end
 
-      it { is_expected.to be(true) }
+      it { is_expected.to be true }
     end
 
-    context "when the assembly has one ancestor" do
-      before do
-        create(:assembly_user_role, user:, assembly: child_assembly)
-      end
-
-      let(:child_assembly) { create(:assembly, parent: assembly, organization:) }
+    context "when action is :create" do
       let(:action) do
-        { scope: :admin, action: :list, subject: :assembly }
+        { scope: :admin, action: :create, subject: :assembly_type }
       end
 
-      it { is_expected.to be(true) }
+      it { is_expected.to be true }
     end
 
-    context "when the assembly has more than one ancestor" do
-      before do
-        create(:assembly_user_role, user:, assembly: grand_child_assembly)
-      end
-
-      let(:child_assembly) { create(:assembly, parent: assembly, organization:) }
-      let(:grand_child_assembly) { create(:assembly, parent: child_assembly, organization:) }
+    context "when action is :edit" do
       let(:action) do
-        { scope: :admin, action: :list, subject: :assembly }
+        { scope: :admin, action: :edit, subject: :assembly_type }
       end
 
-      it { is_expected.to be(true) }
+      it { is_expected.to be true }
     end
 
-    context "when the assembly has one successor" do
-      before do
-        create(:assembly_user_role, user:, assembly: assembly.parent)
-      end
-
-      let!(:assembly) { create(:assembly, :with_parent, organization:) }
+    context "when action is :destroy" do
+      let(:context) { { assembly_type: } }
       let(:action) do
-        { scope: :admin, action: :list, subject: :assembly }
+        { scope: :admin, action: :destroy, subject: :assembly_type }
       end
 
-      it { is_expected.to be(true) }
+      context "and assembly type has children" do
+        let!(:assembly) { create(:assembly, organization:, assembly_type:) }
+
+        it { is_expected.to be false }
+      end
+
+      context "and assembly type has no children" do
+        let(:assembly) { create(:assembly, organization:) }
+
+        it { is_expected.to be true }
+      end
+    end
+
+    context "when user is not an admin" do
+      let(:user) { assembly_collaborator }
+
+      let(:action) do
+        { scope: :admin, action: :create, subject: :assembly_type }
+      end
+
+      it { is_expected.to be false }
+    end
+
+    context "when listing assemblies list" do
+      let!(:user) { create(:user, organization:) }
+      let(:context) { { assembly: } }
+
+      context "when assembly is a root assembly" do
+        before do
+          create(:assembly_user_role, user:, assembly:)
+        end
+
+        let(:action) do
+          { scope: :admin, action: :list, subject: :assembly }
+        end
+
+        it { is_expected.to be(true) }
+      end
+
+      context "when the assembly has one ancestor" do
+        before do
+          create(:assembly_user_role, user:, assembly: child_assembly)
+        end
+
+        let(:child_assembly) { create(:assembly, parent: assembly, organization:) }
+        let(:action) do
+          { scope: :admin, action: :list, subject: :assembly }
+        end
+
+        it { is_expected.to be(true) }
+      end
+
+      context "when the assembly has more than one ancestor" do
+        before do
+          create(:assembly_user_role, user:, assembly: grand_child_assembly)
+        end
+
+        let(:child_assembly) { create(:assembly, parent: assembly, organization:) }
+        let(:grand_child_assembly) { create(:assembly, parent: child_assembly, organization:) }
+        let(:action) do
+          { scope: :admin, action: :list, subject: :assembly }
+        end
+
+        it { is_expected.to be(true) }
+      end
+
+      context "when the assembly has one successor" do
+        before do
+          create(:assembly_user_role, user:, assembly: assembly.parent)
+        end
+
+        let!(:assembly) { create(:assembly, :with_parent, organization:) }
+        let(:action) do
+          { scope: :admin, action: :list, subject: :assembly }
+        end
+
+        it { is_expected.to be(true) }
+      end
     end
   end
 

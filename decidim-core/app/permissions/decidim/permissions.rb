@@ -21,8 +21,9 @@ module Decidim
       amend_action?
       notification_action?
       conversation_action?
+      user_group_action?
+      user_group_invitations_action?
       apply_endorsement_permissions if permission_action.subject == :endorsement
-      show_my_location_button?
 
       permission_action
     end
@@ -55,6 +56,7 @@ module Decidim
 
       return allow! if component.published?
       return allow! if user_can_preview_component?
+      return allow! if user_can_admin_component?
       return allow! if user_can_admin_component_via_space?
 
       disallow!
@@ -141,8 +143,27 @@ module Decidim
       toggle_allow(conversation&.participating?(interlocutor))
     end
 
+    def user_group_action?
+      return unless permission_action.subject == :user_group
+      return allow! if [:join, :create].include?(permission_action.action)
+
+      user_group = context.fetch(:user_group)
+
+      if permission_action.action == :leave
+        user_can_leave_group = Decidim::UserGroupMembership.where(user:, user_group:).any?
+        return toggle_allow(user_can_leave_group)
+      end
+
+      user_manages_group = Decidim::UserGroups::ManageableUserGroups.for(user).include?(user_group)
+      toggle_allow(user_manages_group) if permission_action.action == :manage
+    end
+
+    def user_group_invitations_action?
+      allow! if permission_action.subject == :user_group_invitations
+    end
+
     def user_can_preview_component?
-      context[:share_token].present? && Decidim::ShareToken.use!(token_for: component, token: context[:share_token], user:)
+      return allow! if context[:share_token].present? && Decidim::ShareToken.use!(token_for: component, token: context[:share_token])
     rescue ActiveRecord::RecordNotFound, StandardError
       nil
     end
@@ -170,12 +191,6 @@ module Decidim
       rescue Decidim::PermissionAction::PermissionNotSetError
         nil
       end
-    end
-
-    def show_my_location_button?
-      return unless permission_action.action == :locate && permission_action.subject == :geolocation
-
-      allow!
     end
 
     def not_already_active?(authorization)

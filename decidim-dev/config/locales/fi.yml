@@ -1,9 +1,7 @@
+---
 fi:
   activemodel:
     attributes:
-      dummy:
-        image: Kuva
-      dummy_attribute: Esimerkkitietue
       dummy_resource:
         created_at: Luontiaika
         decidim_scope_id: Teema
@@ -17,7 +15,6 @@ fi:
       dummy:
         settings:
           global:
-            clear_all: Tyhjennä kaikki
             guided: Ohjeistettu syöte
             guided_help: Ohjeteksti
             guided_readonly: Käytöstä poistettu syöte
@@ -26,7 +23,6 @@ fi:
             guided_rich_readonly_html: Käytöstä poistettu HTML <strong>ohjeteksti</strong>
             readonly_attribute: Vain luku -attribuutti
             test: Testi
-            test_add: Lisää testi
             test_choices:
               a: A-valinta
               b: B-valinta

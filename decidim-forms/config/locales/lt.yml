@@ -1,3 +1,4 @@
+---
 lt:
   activemodel:
     attributes:
@@ -21,6 +22,8 @@ lt:
               too_long: per ilgas
             choices:
               missing: nepilnas - trūksta elementų
+        questionnaire:
+          request_invalid: Tvarkant prašymą įvyko klaida. Bandykite dar kartą.
   decidim:
     forms:
       admin:
@@ -31,6 +34,7 @@ lt:
         questionnaires:
           actions:
             back: Grįžti į klausimus
+            show: Rodyti atsakymus
           answer_option:
             answer_option: Atsakymo variantas
             free_text: Laisva forma
@@ -170,6 +174,7 @@ lt:
           tos_agreement: Dalyvaudami sutinkate su paslaugos teikimo sąlygomis
       step_navigation:
         show:
+          are_you_sure: Šio veiksmo atšaukti negalima ir savo atsakymų keisti negalėsite. Ar esate įsitikinę?
           back: Atgal
           continue: Tęsti
           submit: Pateikti

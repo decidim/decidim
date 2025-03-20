@@ -16,8 +16,8 @@ on:
 
 env:
   CI: "true"
-  RUBY_VERSION: 3.3.4
-  NODE_VERSION: 22.14.0
+  RUBY_VERSION: 3.2.2
+  NODE_VERSION: 18.17.1
   NODE_ENV: "test"
   DECIDIM_MODULE: decidim-generators
   CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
@@ -54,7 +54,7 @@ jobs:
     name: ${{ matrix.test.name }}
     runs-on: ubuntu-22.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
-    timeout-minutes: 90
+    timeout-minutes: 60
     services:
       postgres:
         image: postgres:14
@@ -70,8 +70,7 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
-      DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
-      DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
+      RUBYOPT: '-W:no-deprecated'
     steps:
       - uses: actions/checkout@v4
         with:

@@ -31,7 +31,7 @@ module Decidim
               expect(subject.builder_options).to eq(
                 marker_color: "#e02d2d",
                 tile_layer: {
-                  api_key: "key1234", foo: "bar", language: "en"
+                  api_key: "key1234", foo: "bar", language: "eng"
                 }
               )
             end
@@ -50,7 +50,7 @@ module Decidim
                 expect(subject.builder_options).to eq(
                   marker_color: "#e02d2d",
                   tile_layer: {
-                    api_key: "key1234", foo: "bar", language: "ca"
+                    api_key: "key1234", foo: "bar", language: "cat"
                   }
                 )
               end
@@ -60,7 +60,7 @@ module Decidim
                 expect(subject.builder_options).to eq(
                   marker_color: "#e02d2d",
                   tile_layer: {
-                    api_key: "key1234", foo: "bar", language: "es"
+                    api_key: "key1234", foo: "bar", language: "spa"
                   }
                 )
               end
@@ -69,19 +69,19 @@ module Decidim
             context "with legacy style API key configuration" do
               let(:config) do
                 {
-                  api_key: "appid123secret456",
+                  api_key: %w(appid123 secret456),
                   tile_layer: { foo: "bar" }
                 }
               end
 
               it "returns the correct builder options" do
-                allow(ActiveSupport::Deprecation).to receive(:warn)
+                expect(ActiveSupport::Deprecation).to receive(:warn)
                 expect(subject.builder_options).to eq(
                   marker_color: "#e02d2d",
                   tile_layer: {
-                    api_key: "appid123secret456",
-                    foo: "bar",
-                    language: "en"
+                    app_id: "appid123",
+                    app_code: "secret456",
+                    foo: "bar"
                   }
                 )
               end

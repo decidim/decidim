@@ -5,8 +5,6 @@ module Decidim
     module Admin
       # This controller allows the user to update a Page.
       class PagesController < Admin::ApplicationController
-        include Decidim::Admin::HasTrashableResources
-
         def edit
           enforce_permission_to :update, :page
 
@@ -33,15 +31,9 @@ module Decidim
 
         private
 
-        def trashable_deleted_resource_type
-          :page
-        end
-
         def page
           @page ||= Pages::Page.find_by(component: current_component)
         end
-
-        alias trashable_deleted_resource current_component
       end
     end
   end

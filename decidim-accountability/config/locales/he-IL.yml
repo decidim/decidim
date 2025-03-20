@@ -1,3 +1,4 @@
+---
 he:
   activemodel:
     attributes:
@@ -7,7 +8,10 @@ he:
         decidim_scope_id: היקף
         description: תיאור
         end_date: תאריך סיום
+        meetings_ids: פגישות כלולות
         progress: התקדמות
+        project_ids: פרויקטים כלולים
+        proposals: הצעות כלולות
         start_date: תאריך התחלה
         subresults: תוצאות משנה
         title: כותרת
@@ -26,14 +30,6 @@ he:
       decidim/accountability/result_progress_updated_event: התקדמות התוצאה עודכנה
   activerecord:
     models:
-      decidim:
-        accountability:
-          result:
-            budget_text: תוצאה זו %{link} הייתה כלולה
-            meetings_ids: 'זה נידון בפגישה זו: %{link}'
-            project_ids: 'זה היה כלול בפרויקט: %{link}'
-            proposal_ids: 'זה היה כלול בהצעה: %{link}'
-            text: 'זה נוסף לתוצאה: %{link}'
       decidim/accountability/result:
         one: תוצאה
         two: תוצאות
@@ -44,11 +40,10 @@ he:
       actions:
         attachment_collections: תיקיות
         attachments: צרופות
-        confirm_delete_result: אתה בטוח שאתה רוצה למחוק כלל זה?
         confirm_destroy: האם את/ה בטוח/ה שברצונך למחוק את {name}?
-        deleted_results_info: תוצאות מחוקות ניתן לאחזר מסל המחזור.
         destroy: מחיקה
         edit: עריכה
+        import: ייבוא פרויקטים מרכיב אחר
         import_csv: ייבוא תוצאות מקובץ CSV
         new_result: תוצאה חדשה
         new_status: סטאטוס חדש
@@ -56,7 +51,6 @@ he:
         preview: תצוגה מקדימה
         timeline_entries: אבולוציה של הפרויקט
         title: פעולות
-        view_deleted_results: לצפייה בתוצאות מחוקות
       admin:
         exports:
           result_comments: תגובות
@@ -65,6 +59,27 @@ he:
           new:
             download_export: להורדת הייצוא כקובץ CSV
             import: ייבוא
+            info: |
+              <p>אנו ממליצים לעקוב אחר השלבים הבאים</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>ליצור את הסטאטוס לתוצאה</a> שברצונך להוסיף</li>
+              <li><a href='%{link_new_result}' target='_blank'>מומלץ ליצור לפחות תוצאה אחת ידנית</a>  ד Import, for having a better understanding of the format and what you will need to fill out.</li>
+              <li>%{link_export_csv}</li>
+              <li>Make the changes locally. You can only change the following columns of the CSV:
+                <ul>
+                <li><b>category/id:</b> ID for the Category</li>
+                <li><b>scope/id:</b> ID for the Scope</li>
+                <li><b>parent/id:</b> ID of the parent (for related Results). Optional</li>
+                <li><b>title/en:</b> Title on English language. This will depend on your platform language configuration.</li>
+                <li><b>description/en:</b> Description on English language. This will depend on your platform language configuration.</li>
+                <li><b>start_date:</b> date when the result starts execution (format YYYY-MM-DD)</li>
+                <li><b>end_date:</b> date when the result ends execution (format YYYY-MM-DD)</li>
+                <li><b>status/id:</b> ID of the Status for this result</li>
+                <li><b>progress:</b> Percentage (from 0 to 100) of the execution</li>
+                <li><b>proposals_ids:</b> internal ID of the related proposals (separated with a comma). It gets automatically converted to <span class='attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
             title: ייבוא תוצאות מקובץ CSV
         imports:
           create:
@@ -75,49 +90,43 @@ he:
             name: תוצאה
           status:
             name: סטטוס
+        projects_import:
+          create:
+            invalid: הייתה בעיה בייבוא ​​הפרויקטים לתוצאות, נא לעקוב אחר ההוראות בקפידה ולודא שבחרתם.ן פרויקטים ליישום.
+          new:
+            create: ייבוא
+            import_all_selected_projects: ייבוא כל הפרויקטים שנבחרו ליישום
+            new_items:
+              one: פרויקט אחד יהיה מיובא
+              two: "שני פרויקטים יהיו מיובאים"
+              many: "הרבה פרויקטים יהיו מיובאים"
+              other: "%{count} פרויקטים יהיו מיובאים"
+            no_components: אין מרכיבי תקציבים במרחב ההשתתפותי הזה כדי לייבא את הפרויקטים לתוצאות.
+            origin_component_id: רכיב מקורי
+            select_component: בחר רכיב
+            success:
+              one: פרויקט אחד עומד בתור לייבוא. תתקבל הודעה באימייל, לאחר השלמתו.
+              two: "שני פרויקטים עומדים בתור לייבוא. תתקבל הודעה באימייל, לאחר השלמתו."
+              many: "%{count} פרויקטים עומדים בתור לייבוא. תתקבל הודעה באימייל, לאחר השלמתו."
+              other: "%{count} פרויקטים עומדים בתור לייבוא. תתקבל הודעה באימייל, לאחר השלמתו."
+            title: ייבוא ​​פרויקטים מרכיב אחר
         results:
-          bulk_actions:
-            dates_form:
-              change_dates: שינוי תאריך
-              end_date: תאריך סיום
-              start_date: תאריך התחלה
-            dropdown:
-              actions: פעולות
-              change_dates: שינוי תאריכים
-              change_status: שינוי סטטוס
-              change_taxonomies: שינוי טקסונומיות
-            status_form:
-              change_status: שינוי סטטוס
-              status: סטטוס
-            submit_buttons:
-              cancel: ביטול
-            taxonomies_form:
-              change_taxonomies: שינוי טקסונומיות
           create:
             invalid: הייתה בעיה ביצירת תוצאה זו.
             success: התוצאה נוצרה בהצלחה.
+          destroy:
+            success: התוצאה נמחקה בהצלחה.
           edit:
             title: עריכת תוצאה
             update: עדכון תוצאה
           index:
-            selected: נבחר
             title: תוצאות
-          manage_trash:
-            title: תוצאות מחוקות
           new:
             create: יצירת תוצאה
             title: תוצאה חדשה
           update:
             invalid: הייתה בעיה בעדכון תוצאה זו.
             success: התוצאה עודכנה בהצלחה.
-          update_dates:
-            invalid:
-            success: התוצאות עודכנו בהצלחה
-          update_status:
-            invalid: הייתה בעיה בעדכון סטטוס זה
-            success: הסטטוס עודכן בהצלחה
-          update_taxonomies:
-            select_a_result: בחר תוצאה
         shared:
           subnav:
             statuses: סטטוסים
@@ -195,10 +204,12 @@ he:
       models:
         result:
           fields:
+            category: קטגוריה
             created_at: נוצר
             end_date: תאריך סיום
             id: מספר מזהה
             progress: התקדמות
+            scope: היקף
             start_date: תאריך התחלה
             status: סטטוס
             title: כותרת
@@ -219,8 +230,17 @@ he:
             two: "שתי תוצאות"
             many: "%{count} תוצאות"
             other: "%{count} תוצאות"
+        filters:
+          all: הכל
+        home:
+          categories_label: קטגוריות
+          empty: אין תוצאות עדיין.
+          empty_filters: אין תוצאות עם קריטריון זה.
+          subcategories_label: תתי קטגוריות
         home_header:
           global_status: סטטוס ביצוע גלובלי
+        nav_breadcrumb:
+          global: ביצוע גלובלי
         no_results: אין פרוייקטים
         search:
           search: חיפוש פעולה
@@ -232,10 +252,12 @@ he:
     admin:
       filters:
         results:
+          category_id_eq:
+            label: קטגוריה
+          scope_id_eq:
+            label: היקף
           status_id_eq:
             label: סטטוס
-          taxonomies_part_of_contains:
-            label: טקסונומיה
     components:
       accountability:
         actions:
@@ -243,16 +265,14 @@ he:
         name: אחריותיות
         settings:
           global:
-            clear_all: נקה הכל
             comments_enabled: תגובות אפשריות
             comments_max_length: אורך מקסימלי להערות (השאירו 0 לערך ברירת המחדל)
             display_progress_enabled: הצגת התקדמות
             intro: הקדמה
+            scope_id: היקף
+            scopes_enabled: היקפים מאופשרים
           step:
             comments_blocked: תגובות חסומות
-    download_your_data:
-      show:
-        result_comments:
     events:
       accountability:
         proposal_linked:

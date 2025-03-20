@@ -19,20 +19,26 @@ RSpec.describe "Project search" do
     create(
       :project,
       :selected,
-      budget:
+      budget:,
+      scope: create(:scope, organization:),
+      category: create(:category, participatory_space:)
     )
   end
   let!(:project2) do
     create(
       :project,
       :selected,
-      budget:
+      budget:,
+      scope: create(:scope, organization:),
+      category: create(:category, participatory_space:)
     )
   end
   let!(:project3) do
     create(
       :project,
-      budget:
+      budget:,
+      scope: create(:scope, organization:),
+      category: create(:category, participatory_space:)
     )
   end
   let!(:project4) { create(:project, budget: budget2) }
@@ -49,7 +55,8 @@ RSpec.describe "Project search" do
   end
 
   it_behaves_like "a resource search", :project
-  it_behaves_like "a resource search with taxonomies", :project
+  it_behaves_like "a resource search with scopes", :project
+  it_behaves_like "a resource search with categories", :project
 
   it "displays all projects within the budget without any filters" do
     expect(subject).to include(decidim_escape_translated(project1.title))
@@ -62,7 +69,7 @@ RSpec.describe "Project search" do
   context "when searching by status" do
     let(:filter_params) { { with_any_status: status } }
 
-    context "with the all statuses" do
+    context "with the all scope" do
       let(:status) { ["all"] }
 
       it "displays all projects" do

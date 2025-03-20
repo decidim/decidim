@@ -1,3 +1,4 @@
+---
 sk:
   activemodel:
     attributes:
@@ -22,6 +23,9 @@ sk:
         promoted: propagované
         published_at: Publikované v
         related_process_ids: Súvisiace procesy
+        scope_id: Rozsah
+        scope_type_max_depth_id: Hĺbka filtra rozsahu
+        scopes_enabled: Schopnosti povolené
         short_description: Stručný opis
         slug: URL slug
         start_date: Dátum začatia
@@ -39,6 +43,8 @@ sk:
         end_date: Dátum ukončenia
         short_description: Stručný opis
         start_date: Dátum začatia
+        title: Titul
+      participatory_process_type:
         title: Titul
       participatory_process_user_role:
         email: E-mailom
@@ -89,8 +95,10 @@ sk:
           attachment_collections: Zložky
           attachment_files: Súbory
           attachments: Prílohy
+          categories: Kategória
           components: Komponenty
           moderations: Moderovanie
+          private_users: Súkromní užívatelia
           process_admins: Spracovať užívateľa
           steps: Kroky
       models:
@@ -109,6 +117,10 @@ sk:
             start_date: Dátum začatia
             title: Titul
           name: Participatívne krok procesu
+        participatory_process_type:
+          fields:
+            created_at: Vytvorené u
+            title: Titul
         participatory_process_user_role:
           fields:
             email: E-mailom
@@ -119,6 +131,7 @@ sk:
             admin: Správca
             collaborator: Spolupracovník
             moderator: Moderátor
+            valuator: Hodnotiteľ
         user:
           fields:
             invitation_accepted_at: Pozvánka bola prijatá na
@@ -130,6 +143,7 @@ sk:
           title: Duplicitné participačné proces
       participatory_process_groups:
         destroy:
+          error: Došlo k chybe pri zrušení skupiny účastníckych procesov.
           success: Zúčastňujú skupina procesov bola úspešne zmazaná.
         edit:
           title: Upraviť skupinu procesov
@@ -179,6 +193,11 @@ sk:
         update:
           error: Pri aktualizácii tohto kroku procesu participácie došlo k chybe.
           success: Úspešný krok procesu bol úspešne aktualizovaný.
+      participatory_process_types:
+        edit:
+          update: Aktualizácia
+        new:
+          create: Vytvoriť
       participatory_process_user_roles:
         create:
           error: Pri pridávaní používateľa pre tento participačné proces došlo k chybe.
@@ -294,9 +313,13 @@ sk:
           form:
             announcement_help: Text, ktorý tu zadáte, sa užívateľovi zobrazí priamo pod informáciami o procese.
             duration: Čas trvania
+            filters: Filtre
             images: snímky
             metadata: Metadata
+            other: iný
             related_processes: Súvisiace procesy
+            scope_type_max_depth_help: Obmedziť hĺbku filtra rozsahu; filter umožňuje zobraziť všeobecné alebo vybrané druhy rozsahov.
+            select_an_area: Vyberte rozsah
             select_process_group: Vyberte skupinu procesov
             title: Všeobecná informácia
       content_blocks:

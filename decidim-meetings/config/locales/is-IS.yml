@@ -1,4 +1,5 @@
-is-IS:
+---
+is:
   activemodel:
     attributes:
       close_meeting:
@@ -23,6 +24,12 @@ is-IS:
         transparent: Gegnsætt
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Flokkur
+          scope_id_eq:
+            label: Umfang
       meeting_copies:
         new:
           copy: Afrita
@@ -76,6 +83,7 @@ is-IS:
       actions:
         attachments: Viðhengi
         close: Loka
+        destroy: Eyða
         edit: Breyta
         preview: Preview
         registrations: Skráningar
@@ -91,6 +99,8 @@ is-IS:
             close: Loka
             title: Loka fundi
         meetings:
+          destroy:
+            success: Fundur með góðum árangri eytt
           edit:
             update: Uppfæra
           index:
@@ -138,6 +148,8 @@ is-IS:
           category: Flokkur
           date: Dagsetning
           search: Leita
+        meeting:
+          close_meeting: Loka fundi
         meetings:
           upcoming_meetings_warning: Eins og er, eru engar áætlanir fundar, en hér er hægt að finna allar fyrri fundi skráð.
         registration_confirm:

@@ -1,23 +1,28 @@
+---
 id:
   activemodel:
     attributes:
       collaborative_draft:
         address: Alamat
         body: Tubuh
+        category_id: Kategori
         decidim_scope_id: Cakupan
         has_address: Memiliki alamat
         state: Negara
         title: Judul
+        user_group_id: Buat draf kolaboratif sebagai
       proposal:
         address: Alamat
         answer: Menjawab
         answered_at: Dijawab di
         automatic_hashtags: Hashtag secara otomatis ditambahkan
         body: Tubuh
+        category_id: Kategori
         has_address: Memiliki alamat
         state: Negara
         suggested_hashtags: Tagar yang disarankan
         title: Judul
+        user_group_id: Buat proposal sebagai
       proposal_answer:
         answer: Menjawab
       proposals_copy:
@@ -38,6 +43,7 @@ id:
             title:
               identical: DAN tubuh tidak bisa identik
     models:
+      decidim/proposals/admin/update_proposal_category_event: Kategori proposal berubah
       decidim/proposals/creation_enabled_event: Pembuatan proposal diaktifkan
       decidim/proposals/endorsing_enabled_event: Proposal dukungan diaktifkan
       decidim/proposals/proposal_mentioned_event: Proposal disebutkan
@@ -52,9 +58,17 @@ id:
       decidim/proposals/proposal_note:
         other: Catatan
   decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: Cakupan
     components:
       proposals:
         actions:
+          create: Membuat
           endorse: Mengesahkan
           withdraw: Menarik
         name: Proposal
@@ -65,10 +79,12 @@ id:
             attachments_allowed: Izinkan lampiran
             collaborative_drafts_enabled: Draf kolaboratif diaktifkan
             comments_enabled: Komentar diaktifkan
+            geocoding_enabled: Geocoding diaktifkan
             new_proposal_help_text: Teks bantuan proposal baru
             official_proposals_enabled: Proposal resmi diaktifkan
             participatory_texts_enabled: Teks partisipatif diaktifkan
             proposal_answering_enabled: Pengangkatan proposal diaktifkan
+            proposal_edit_before_minutes: Proposal dapat diedit oleh penulis sebelum ini banyak menit berlalu
             proposal_length: Panjang badan proposal maksimum
             proposal_limit: Batas proposal per pengguna
             proposal_wizard_step_1_help_text: Panduan proposal "Buat" teks bantuan langkah
@@ -123,6 +139,10 @@ id:
           email_intro: Proposal "%{resource_title}" telah ditambahkan ke "%{participatory_space_title}" yang Anda ikuti.
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{participatory_space_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
           email_subject: Proposal baru "%{resource_title}" ditambahkan ke %{participatory_space_title}
+        proposal_update_category:
+          email_intro: 'Admin telah memperbarui kategori proposal Anda "%{resource_title}", periksa ini:'
+          email_subject: Kategori proposal %{resource_title} telah diperbarui
+          notification_title: Kategori proposal <a href="%{resource_path}">%{resource_title}</a> telah diperbarui oleh admin.
         voting_enabled:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
     gamification:
@@ -218,18 +238,23 @@ id:
           form:
             note: Catatan
             submit: Menyerahkan
+          leave_your_note: Tinggalkan catatanmu
           title: Catatan pribadi
         proposals:
           edit:
             title: Perbarui proposal
             update: Memperbarui
           form:
+            attachment_legend: "(Opsional) Tambahkan lampiran"
             created_in_meeting: Proposal ini berasal dari rapat
+            select_a_category: Pilih Kategori
             select_a_meeting: Pilih rapat
           index:
             actions: Tindakan
             cancel: Membatalkan
+            change_category: Ubah kategori
             merge: Bergabunglah dengan yang baru
+            merge_button: Menggabungkan
             publish: Menerbitkan
             select_component: Pilih komponen
             selected: terpilih
@@ -257,6 +282,7 @@ id:
       admin_log:
         proposal:
           answer: "%{user_name} menjawab %{resource_name} proposal pada %{space_name} ruang"
+          create: "%{user_name} membuat %{resource_name} proposal pada %{space_name} ruang sebagai proposal resmi"
           update: "%{user_name} memperbarui %{resource_name} proposal resmi pada %{space_name} ruang"
         proposal_note:
           create: "%{user_name} meninggalkan catatan pribadi pada %{resource_name} proposal pada %{space_name} ruang"
@@ -271,6 +297,7 @@ id:
           all: Semua
           meetings: Rapat
           official: Resmi
+          user_groups: Grup Pengguna
         filter_state_values:
           all: Semua
           not_answered: Tidak dijawab
@@ -297,15 +324,19 @@ id:
         create:
           success: Draf kolaboratif berhasil dibuat.
         edit:
+          attachment_legend: "(Opsional) Tambahkan lampiran"
           back: Kembali
+          select_a_category: Silakan pilih kategori
           send: Kirim
           title: Edit draf kolaboratif
         filters:
           all: Semua
           amendment: Amandemen
+          category: Kategori
           open: Buka
           published: Diterbitkan
           related_to: Berhubungan dengan
+          scope: Cakupan
           search: Pencarian
           state: Negara
           withdrawn: Ditarik
@@ -338,6 +369,7 @@ id:
           rejected_request:
             error: Tidak dapat ditolak sebagai kolaborator, coba lagi nanti.
         show:
+          edit: Edit draf kolaboratif
           final_proposal: proposal terakhir
           final_proposal_help_text: Rancangan ini selesai. Anda dapat melihat proposal selesai akhir
           hidden_authors_count:
@@ -366,11 +398,13 @@ id:
       models:
         proposal:
           fields:
+            category: Kategori
             comments: Komentar
             id: ID
             notes: Catatan
             official_proposal: Proposal resmi
             published_at: Diterbitkan di
+            scope: Cakupan
             state: Negara
             title: Judul
             votes: Suara
@@ -381,7 +415,9 @@ id:
           comment: Komentar
       proposals:
         edit:
+          attachment_legend: "(Opsional) Tambahkan lampiran"
           back: Kembali
+          select_a_category: Silakan pilih kategori
           send: Kirim
           title: Edit proposal
         edit_draft:
@@ -390,6 +426,7 @@ id:
           send: Preview
         filters:
           amendment_type: Mengetik
+          category: Kategori
           origin: Asal
           related_to: Berhubungan dengan
           scope: Cakupan
@@ -416,6 +453,7 @@ id:
           title: Publikasikan proposal Anda
         show:
           answer: Menjawab
+          edit_proposal: Edit proposal
           hidden_endorsers_count:
             other: dan %{count} lebih banyak orang
           link_to_collaborative_draft_help_text: Proposal ini adalah hasil dari draf kolaboratif. Tinjau sejarahnya
@@ -423,11 +461,10 @@ id:
           proposal_accepted_reason: 'Proposal ini telah diterima karena:'
           proposal_in_evaluation_reason: Proposal ini sedang dievaluasi
           proposal_rejected_reason: 'Proposal ini telah ditolak karena:'
+          withdraw_proposal: Tarik proposal
         voting_rules:
           proposal_limit:
             description: Anda dapat membuat hingga %{limit} proposal.
-          vote_limit:
-            description: Anda dapat memilih hingga %{limit} proposal.
         wizard_aside:
           back: Kembali
         wizard_steps:

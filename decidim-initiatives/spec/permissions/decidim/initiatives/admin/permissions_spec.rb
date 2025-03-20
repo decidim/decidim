@@ -98,16 +98,6 @@ describe Decidim::Initiatives::Admin::Permissions do
     it_behaves_like "permission is not set"
   end
 
-  describe "editor image upload" do
-    let(:user) { create(:user, :admin, organization:) }
-
-    let(:action) do
-      { scope: :admin, action: :create, subject: :editor_image }
-    end
-
-    it { is_expected.to be true }
-  end
-
   context "when checking access to space area" do
     let(:action) do
       { scope: :admin, action: :enter, subject: :space_area }
@@ -192,6 +182,16 @@ describe Decidim::Initiatives::Admin::Permissions do
 
         context "when initiative is created" do
           let(:initiative) { create(:initiative, :created, organization:) }
+
+          context "when initiative is authored by a user group" do
+            let(:user_group) { create(:user_group, organization: user.organization, users: [user]) }
+
+            before do
+              initiative.update(decidim_user_group_id: user_group.id)
+            end
+
+            it { is_expected.to be true }
+          end
 
           context "when initiative has enough approved members" do
             before do
@@ -414,11 +414,11 @@ describe Decidim::Initiatives::Admin::Permissions do
         end
       end
 
-      it_behaves_like "checks initiative state", :publish, :validating, :open
-      it_behaves_like "checks initiative state", :unpublish, :open, :validating
-      it_behaves_like "checks initiative state", :discard, :validating, :open
+      it_behaves_like "checks initiative state", :publish, :validating, :published
+      it_behaves_like "checks initiative state", :unpublish, :published, :validating
+      it_behaves_like "checks initiative state", :discard, :validating, :published
       it_behaves_like "checks initiative state", :export_votes, :offline, :online
-      it_behaves_like "checks initiative state", :export_pdf_signatures, :open, :validating
+      it_behaves_like "checks initiative state", :export_pdf_signatures, :published, :validating
 
       context "when accepting the initiative" do
         let(:action_name) { :accept }

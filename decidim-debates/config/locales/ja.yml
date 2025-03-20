@@ -1,13 +1,17 @@
+---
 ja:
   activemodel:
     attributes:
       debate:
+        category_id: カテゴリ
         closed_at: 終了日時
         conclusions: まとめ
+        decidim_category_id: カテゴリ
         description: 説明
         end_time: 終了時刻
         information_updates: 情報の更新
         instructions: 参加方法
+        scope_id: スコープ
         start_time: 開始
         title: タイトル
         user_group_id: ディベートを作成
@@ -21,28 +25,20 @@ ja:
       decidim/debates/debate:
         other: ディベート数
   decidim:
-    admin:
-      admin_log:
-        changeset:
-          debates: ディベート
     components:
       debates:
         actions:
           comment: コメント
-          create: ディベートを作成
+          create: 作成
           endorse: オススメ
         name: ディベート
         settings:
           global:
             announcement: お知らせ
-            attachments_allowed: 添付ファイルを許可
-            clear_all: すべてクリア
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
-            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
-            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
-            taxonomy_filters: コンポーネントのフィルタを選択
-            taxonomy_filters_add: フィルターを追加
+            scope_id: スコープ
+            scopes_enabled: スコープが有効
           step:
             announcement: お知らせ
             comments_blocked: コメントをブロック
@@ -52,12 +48,11 @@ ja:
     debates:
       actions:
         close: 閉じる
-        confirm_delete_debate: このディベートを削除してもよろしいですか？
-        deleted_debate_info: 削除された議論はゴミ箱から復元できます。
+        confirm_destroy: よろしいですか？
+        destroy: 削除
         edit: 編集
         new: 新しいディベート
         title: アクション
-        view_deleted_debates: 削除されたディベートを表示
       admin:
         debate_closes:
           edit:
@@ -67,26 +62,17 @@ ja:
           create:
             invalid: ディベートの作成で不具合が発生しました。
             success: ディベートが正常に作成されました。
+          destroy:
+            success: ディベートを削除しました。
           edit:
             title: ディベートを編集
             update: ディベートを更新
           form:
-            add_attachments: 添付ファイルを追加
-            attachment_legend: ドキュメントまたは画像を追加
-            comments_visualization: コメントの視覚化
-            comments_warning: 最初のコメントが投稿されると、選択した表示オプションは変更できません。
             debate_type: ディベートタイプ
-            edit_attachments: 添付ファイルを編集
-            errors:
-              comments_layout_locked: コメントが投稿されると、コメントレイアウトを変更することはできません。
             finite: 期間限定 (開始時刻と終了時刻あり)
             open: 無期限 (開始時刻または終了時刻なし)
-            single_column: '1カラム: コメントは時系列で表示され、返信を持つことができます。'
-            two_columns: '2カラム: コメントは「賛成」と「反対」の列の下に表示され、返信を持つことはできません。'
           index:
             title: ディベート
-          manage_trash:
-            title: ディベートを削除しました
           new:
             create: ディベートを作成
             title: 新しいディベート
@@ -94,19 +80,12 @@ ja:
             invalid: このディベートを更新する際に問題が発生しました。
             success: ディベートが正常に更新されました。
         exports:
-          debate_comments: コメント
-          debates: ディベート
+          comments: コメント
       admin_log:
         debate:
           close: "%{user_name} は、 %{resource_name} スペースの %{space_name} ディベートを終了しました"
           create: "%{user_name} が %{resource_name} スペースで %{space_name} ディベートを作成しました"
-          restore: "%{user_name} は %{space_name} スペースでの議論 %{resource_name} を復元しました"
-          soft_delete: "%{user_name} は %{space_name} スペースでのディベート %{resource_name} をゴミ箱に移動しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} ディベートを更新しました"
-      content_blocks:
-        highlighted_debates:
-          name: ディベート
-          see_all: すべてのディベートを見る
       debate_m:
         commented_time_ago: コメント %{time} 前
       debates:
@@ -146,6 +125,8 @@ ja:
             closed: 終了
             open: 公開
           user_group: グループ
+        form:
+          select_a_category: カテゴリを選択してください
         index:
           new_debate: 新しいディベート
         new:
@@ -159,11 +140,11 @@ ja:
           recent: 新着順
           updated: 更新が新しい順
         show:
-          close_debate: 閉じる
+          close_debate: ディベートを閉じる
           debate_closed: 終了
           debate_conclusions_are: 'ディベートは %{date} に、以下の結論を持って終了しました。'
           edit_conclusions: 結論を編集
-          edit_debate: 編集
+          edit_debate: ディベートを編集
           groups_count: グループ
           open: 公開ディベート
           participants_count: 参加者
@@ -181,12 +162,7 @@ ja:
             official_debate: 公式のディベート
             start: 開始
             start_time: 開始日
-            taxonomies: タクソノミー
             title: タイトル
-    download_your_data:
-      show:
-        debate_comments: ディベートのコメントのエクスポート
-        debates: ディベートのエクスポート
     events:
       debates:
         create_debate_event:
@@ -242,43 +218,5 @@ ja:
         description: 作成されたディベート数
         object: ディベート
         title: ディベート
-    open_data:
-      help:
-        debate_comments:
-          alignment: このコメントが好意的、敵対的、中立的であった場合
-          author: このコメントを作成した参加者の名前
-          body: コメント本文
-          commentable_id: コメント対象の固有ID
-          commentable_type: コメント対象の種別 (結果、提案など)
-          created_at: コメントの作成日時
-          depth: コメントがコメントツリーのどこに位置しているか（回答、または回答の回答である場合）
-          id: コメントのID
-          locale: コメントを残した参加者の使っていたロケール（言語）
-          root_commentable_url: コメントに関連するリソースの URL
-          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
-        debates:
-          author: ディベートの作者に関するデータ
-          closed_at: ディベートの終了日時
-          comments: ディベートのコメント数
-          comments_enabled: ディベートのコメントを有効にするか無効にするか
-          component: ディベートが属するコンポーネント
-          conclusions: 終了している場合のディベートの結論
-          created_at: ディベートの作成日時
-          description: ディベートの説明
-          end_time: ディベートの終了予定日時（公開討論で時間が限られている場合）
-          endorsements_count: ディベートのオススメ数
-          follows_count: この議論のフォロワー数
-          id: ディベートの固有ID
-          information_updates: 作者がディベートに加えた更新
-          instructions: ディベートにコメントするための指示
-          last_comment_at: ディベートが最後にコメントされた日時
-          last_comment_by: ディベート内コメントの最終作成日時
-          participatory_space: このディベートが属するスペース（参加型プロセス、参加スペースなど）
-          reference: このプラットフォームでのリソースの固有ID
-          start_time: ディベートの開始予定日時（公開討論で時間が限られている場合）
-          taxonomies: このプロジェクトのタクソノミー
-          title: ディベートのタイトル
-          updated_at: ディベートの最終更新日時
-          url: このディベートが見つかるURL
     statistics:
       debates_count: ディベート

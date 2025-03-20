@@ -1,3 +1,4 @@
+---
 sl:
   activemodel:
     attributes:
@@ -12,5 +13,7 @@ sl:
           edit:
             close: Zapri
       debates:
+        form:
+          select_a_category: Prosim izberi kategorijo
         show:
           debate_closed: Zaprto

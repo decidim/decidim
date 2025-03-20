@@ -616,8 +616,7 @@ describe("CommentsComponent", () => {
           textArea.val("I am writing a new comment...");
 
           const newThread = generateCommentThread(999, "This is a dynamically added comment");
-          const alignment = null;
-          subject.addThread(newThread, alignment, true);
+          subject.addThread(newThread, true);
 
           expect(textArea.val()).toEqual("");
         });

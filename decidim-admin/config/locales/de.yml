@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -33,6 +34,8 @@ de:
       help_section:
         content: Inhalt
       id: ID
+      import:
+        user_group_id: Importierte Inhalte erstellen als
       newsletter:
         body: Haupttext
         send_to_all_users: An alle Benutzenden senden
@@ -94,6 +97,7 @@ de:
         time_zone: Zeitzone
         tos_version: Nutzungsbedingungen Version
         twitter_handler: X-Handler
+        user_groups_enabled: Benutzergruppen aktivieren
         users_registration_mode: Benutzerregistrierungs-Modus
         warning_color: Warnung
         welcome_notification_body: Text der Willkommens-Benachrichtigung
@@ -102,8 +106,6 @@ de:
       participatory_space_private_user:
         email: E-Mail
         name: Name
-      participatory_space_private_user_csv_import:
-        file: Datei
       scope:
         code: Code
         name: Name
@@ -181,13 +183,8 @@ de:
         attachment_collection:
           new: Neuer Ordner für Dateianhänge
         browse: Durchsuchen
-        confirm_delete_component: |
-          Sind Sie sicher, dass Sie diese Komponente löschen möchten?<br>
-          Diese Komponente enthält:<br>
-          <ul class="list-disc ml-6 my-2">
-            <li class="font-bold">%{resources_count} Ressourcen</li>
-          </ul>
-          Wenn Sie Ihre Meinung ändern, können Sie es später wiederherstellen.
+        category:
+          new: Neue Kategorie
         export: Alles exportieren
         export-selection: Auswahl exportieren
         import: Importieren
@@ -198,17 +195,15 @@ de:
           new: Neuer privater Benutzer
         per_page: Pro Seite
         permissions: Berechtigungen
-        restore: Wiederherstellen
+        reject: Ablehnen
         send_me_a_test_email: Mir eine Test-E-Mail senden
         share: Teilen
-        share_tokens: Zugangslinks
-        soft_delete: Vorläufiges Löschen
         user:
           new: Neuer Administrator
-        view_deleted_components: Gelöschte Komponenten ansehen
+        verify: Überprüfen
       admin_terms_of_service:
         accept:
-          error: Beim Akzeptieren der Nutzungsbedingungen ist ein Problem aufgetreten.
+          error: Beim Akzeptieren der Admin-Nutzungsbedingungen ist ein Fehler aufgetreten.
           success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
           accept: Ich stimme diesen Bedingungen zu
@@ -239,7 +234,6 @@ de:
         create:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich erstellt.
-        deprecated: Beachten Sie, dass Gebiete veraltet sind und in zukünftigen Versionen entfernt werden. Bitte verwenden Sie stattdessen Taxonomien. Das einzige Modul, das derzeit Gebiete verwendet, ist das Initiativmodul.
         destroy:
           has_spaces: Dieser Bereich hat abhängige partizipative Räume. Bitte stellen Sie sicher, dass kein partizipativer Raum mehr diesen Bereich referenziert, bevor sie ihn löschen.
           success: Bereich wurde erfolgreich gelöscht.
@@ -293,12 +287,6 @@ de:
         no_results: keine Ergebnisse gefunden
         search_prompt: Geben Sie mindestens drei Zeichen ein, um zu suchen.
       block_user:
-        bulk_new:
-          action: Konten sperren und Begründung senden
-          already_reported_html: Wenn Sie diese Aktion fortsetzen, werden Sie auch alle Inhalte der Teilnehmenden ausblenden.
-          description: Das Blockieren eines Teilnehmenden wird das verknüpfte Konto unbrauchbar machen. Sie können dies begründen und Richtlinien dafür bieten, wie der Teilnehmende vorgehen kann, damit das Konto wieder entsperrt wird.
-          justification: Begründung
-          title: Teilnehmende blockieren
         new:
           action: Konto sperren und Begründung senden
           already_reported_html: Wenn Sie diese Aktion fortsetzen, werden Sie auch alle Inhalte der Teilnehmenden ausblenden.
@@ -306,8 +294,23 @@ de:
           justification: Begründung
           title: Benutzer %{name} blockieren
       categories:
+        create:
+          error: Beim Erstellen dieser Kategorie ist ein Fehler aufgetreten.
+          success: Kategorie wurde erfolgreich erstellt.
+        destroy:
+          error: Beim Löschen dieser Kategorie ist ein Fehler aufgetreten. Bitte löschen Sie zuerst eine Unterkategorie, stellen Sie sicher, dass keine andere Entität zu dieser Kategorie gehört, und versuchen Sie es erneut.
+          success: Kategorie wurde erfolgreich gelöscht.
+        edit:
+          title: Kategorie bearbeiten
+          update: Aktualisieren
         index:
           categories_title: Kategorien
+        new:
+          create: Kategorie erstellen
+          title: Neue Kategorie
+        update:
+          error: Beim Aktualisieren dieser Kategorie ist ein Fehler aufgetreten.
+          success: Die Kategorie wurde erfolgreich aktualisiert.
       component_permissions:
         update:
           error: Es gab ein Problem beim Aktualisieren der Berechtigungen dieser Komponente.
@@ -317,6 +320,9 @@ de:
           error: Beim Erstellen dieser Komponente ist ein Fehler aufgetreten.
           success: Komponente wurde erfolgreich erstellt.
           success_landing_page: Komponente erfolgreich erstellt. Sie können einen Inhaltsblock für diese Komponente auf der Startseite des Bereichs hinzufügen. Gehen Sie dazu zur <a href="%{landing_page_path}">Startseite</a>, um sie zu konfigurieren.
+        destroy:
+          error: Beim Löschen dieser Komponente ist ein Fehler aufgetreten.
+          success: Komponente wurde erfolgreich gelöscht.
         edit:
           title: Komponente bearbeiten
           update: Aktualisieren
@@ -324,17 +330,13 @@ de:
           default_step_settings: Standardschritteinstellungen
           global_settings: Globale Einstellungen
           step_settings: Schritteinstellungen
-        hide:
-          success: Die Komponente wurde erfolgreich aus dem Menü ausgeblendet.
         index:
           add: Komponente hinzufügen
           headers:
             actions: Aktionen
             name: Komponentenname
+            scope: Komponentenbereich
             type: Komponententyp
-            visibility: Sichtbarkeit
-        manage_trash:
-          title: Gelöschte Komponenten
         new:
           add: Komponente hinzufügen
           title: 'Komponente hinzufügen: %{name}'
@@ -346,10 +348,6 @@ de:
         update:
           error: Beim Aktualisieren dieser Komponente ist ein Fehler aufgetreten.
           success: Die Komponente wurde erfolgreich aktualisiert.
-        visibility_label:
-          menu_hidden: Menü versteckt
-          published: Veröffentlicht
-          unpublished: Unveröffentlicht
       conflicts:
         attempts: Versuche
         'false': 'Nein'
@@ -369,7 +367,7 @@ de:
         user_name: Nutzer
       content_blocks:
         create:
-          error: Beim Erstellen des Inhaltsblocks ist ein Problem aufgetreten.
+          error: Beim Erstellen des Inhaltsblocks ist ein Fehler aufgetreten.
           success: Inhaltsblock erfolgreich erstellt.
         destroy:
           error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
@@ -406,6 +404,8 @@ de:
           JSON: JSON
         notice: Ihr Export wird gerade ausgeführt. Sie erhalten nach Fertigstellung eine E-Mail.
       filters:
+        category_id_eq:
+          label: Kategorie
         filter_label: Filtern
         invitation_accepted_at_present:
           label: Einladung angenommen
@@ -454,6 +454,8 @@ de:
             'false': Veröffentlicht
             'true': Unveröffentlicht
         remove_all: Alle entfernen
+        scope_id_eq:
+          label: Umfang
         search_label: Suche
         search_placeholder:
           name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Kontoname.
@@ -468,9 +470,6 @@ de:
             pending: Ausstehend
             rejected: Abgelehnt
             verified: Überprüft
-        taxonomies:
-          taxonomy_id_eq:
-            label: Taxonomie
       forms:
         file_help:
           import:
@@ -560,8 +559,6 @@ de:
         logs_list:
           no_logs_yet: Es gibt noch keine Protokolle.
           no_matching_logs: Es gibt keine Protokolle mit den angegebenen Suchfiltern. Ändern Sie sie und versuchen Sie es erneut.
-      manage_trash:
-        deleted_items_warning: Sie sehen derzeit gelöschte Elemente. Um Änderungen vornehmen zu können, müssen Sie diese zuerst wiederherstellen.
       managed_users:
         promotion:
           error: Es ist ein Fehler aufgetreten, der den verwalteten Benutzer unterstützt.
@@ -593,11 +590,9 @@ de:
         scopes: Bereiche
         see_site: Seite ansehen
         settings: Einstellungen
-        share_tokens: Zugangslinks
         static_page_topics: Themen
         static_pages: Seiten
-        taxonomies: Taxonomien
-        taxonomy_filters: Taxonomie-Filter
+        user_groups: Benutzergruppen
         users: Benutzer
       metrics:
         metrics:
@@ -650,11 +645,12 @@ de:
             plural: Plural
         share_token:
           fields:
-            actions: Aktionen
+            created_at: Erstellt am
             expires_at: Läuft ab am
-            registered_only: Nur registrierte?
+            last_used_at: Zuletzt verwendet
             times_used: Anzahl Anwendungen
-            token: Zugangslink
+            token: Token
+            user: Erstellt von
         static_page:
           fields:
             created_at: Erstellt am
@@ -670,31 +666,27 @@ de:
               admin: Administrator
               user_manager: Benutzer Manager
           name: Benutzer
+        user_group:
+          fields:
+            actions: Aktionen
+            created_at: Erstellt am
+            document_number: Dokumentnummer
+            name: Name
+            nickname: Spitzname
+            phone: Telefon
+            state: Status
+            users_count: Benutzer zählen
       moderated_users:
         index:
           actions:
             block: Benutzer blockieren
-            bulk_actions:
-              actions_dropdown: Aktionen
-              block:
-                title: Blockieren
-                update_moderated_user_button: Teilnehmende blockieren
-              unblock:
-                title: Blockierung aufheben
-                update_moderated_user_button: Blockierung aufheben
-              unreport:
-                title: Meldung zurückweisen
-            ignore:
-              update_moderated_user_button: Gemeldete Teilnehmende zurückweisen
             title: Aktionen
             unblock: Blockierung des Benutzers aufheben
             unreport: Meldung Rückgängig machen
-          cancel: Abbrechen
           name: Name
           nickname: Spitzname
           reason: Grund
           reports: Anzahl Meldungen
-          selected: Ausgewählt
           title: Gemeldete Teilnehmende
         report:
           reasons:
@@ -706,26 +698,12 @@ de:
           unblocked: Nicht blockiert
       moderations:
         index:
-          actions:
-            actions_dropdown: Aktionen
-            hide:
-              title: Verbergen
-              update_moderation_button: Ausgewählte Ressourcen verbergen
-            unhide:
-              title: Einblenden
-              update_moderation_button: Ausgewählte Ressourcen einblenden
-            unreport:
-              title: Meldung zurückweisen
-              update_moderation_button: Meldung ausgewählter Ressourcen aufheben
-          cancel: Abbrechen
-          selected: ausgewählt
           title: Gemeldeter Inhalt
         report:
           reasons:
             does_not_belong: Gehört nicht
             hidden_during_block: Versteckt beim Blockieren des Benutzers
             offensive: Beleidigend
-            parent_hidden: Übergeordneter Inhalt wurde ausgeblendet
             spam: Spam
         reports:
           index:
@@ -742,11 +720,6 @@ de:
             report_language: Berichtssprache
             report_reason: Grund
             title: Berichtdetails
-      new_import:
-        accepted_mime_types:
-          csv: CSV
-          json: JSON
-          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Vorschau
@@ -756,10 +729,6 @@ de:
           preview: 'Vorschau der Vorlage: %{template_name}'
           use_template: Diese Vorlage verwenden
       newsletters:
-        confirm_recipients:
-          email: E-Mail
-          name: Name
-          title: Empfangende bestätigten
         create:
           error: Beim Erstellen dieses Newsletters ist ein Fehler aufgetreten.
           success: Newsletter erfolgreich erstellt Bitte, überprüfen Sie es vor dem Senden.
@@ -779,14 +748,12 @@ de:
           confirm_delete: Möchten Sie diesen Newsletter wirklich löschen?
           followers: 'Follower '
           has_been_sent_to: 'Wurde gesendet an: '
+          no_scopes: Keine Themenbereiche
           not_sent: Nicht gesendet
           participants: 'Teilnehmer: '
-          private_members: 'private Mitglieder '
           segmented_to: 'Unterteilt in %{subject}: '
           subscribed_count: 'Abonniert:'
           title: Newsletter
-          verification_types: 'Verifizierungstypen: %{types}'
-          verified_users: Verifizierte Nutzende
         new:
           save: Speichern
           title: Neuer Newsletter
@@ -794,24 +761,16 @@ de:
           all_spaces: Alle
           all_users_help: Sendet Newsletter an alle bestätigten Benutzer.
           confirm_deliver: Möchten Sie diesen Newsletter wirklich versenden? Diese Aktion kann nicht rückgängig gemacht werden.
-          confirm_recipients: Empfangende bestätigten
           deliver: Newsletter versenden
           followers_help: Sendet den Newsletter an alle bestätigten Benutzer, die den ausgewählten Teilnehmerräumen in der Liste folgen.
+          none: Keiner
           participants_help: Sendet den Newsletter an alle bestätigten Benutzer, die an den ausgewählten Teilnehmerräumen der Liste teilgenommen haben.
-          private_members_help: Sendet einen Newsletter an alle bestätigten Teilnehmende, die den ausgewählten privaten Teilnahmebereichen hinzugefügt wurden.
           recipients_count: Dieser Newsletter wird an <strong id='recipients_count'>%{count}</strong> Teilnehmer gesendet.
-          select_assemblies: Gremien auswählen
-          select_conferences: Konferenzen auswählen
-          select_initiatives: Initiativen auswählen
-          select_participatory_processes: Beteiligungsprozesse auswählen
+          scopes_help: Sendet den Newsletter an Teilnehmer, die einen der gewählten Themenbereiche in den "Meine Interessen" Einstellungen ihres Kontos aktiviert haben.
+          select_scopes: Nur Teilnehmer anzeigen, die einen der gewählten Themenbereiche in Ihren "Meine Interessen" Einstellungen ihres Kontos aktiviert haben.
           select_spaces: Wählen Sie Abschnitte, um den Newsletter zu unterteilen
-          select_users_for_participatory_space: Newsletter an einen oder mehrere partizipative Bereiche senden
-          select_users_general: Plattformweiter Newsletter senden
-          select_verification_types: Verifizierungsmethoden auswählen
-          send_to_all_users: An alle Benutzer senden
-          send_to_verified_users: An verifizierte Teilnehmende senden
+          select_users: Wählen Sie aus, welchen Benutzern Sie den Newsletter senden möchten
           title: Empfänger auswählen
-          verified_users_help: Sendet einen Newsletter an alle bestätigten und verifizierten Teilnehmenden über jede ausgewählte Verifikationsmethode.
           warning: "<strong>Achtung:</strong> Dieser Newsletter wird nur an Benutzer gesendet, die <em>Ich möchte Newsletter empfangen</em> in ihren Benachrichtigungseinstellungen aktiviert haben."
         send:
           no_recipients: Keine Empfänger für diese Auswahl.
@@ -827,15 +786,8 @@ de:
           success: Newsletter erfolgreich aktualisiert. Bitte überprüfen Sie es vor dem Senden.
       officializations:
         block:
-          error: Bei der Teilnehmendenblockierung ist ein Problem aufgetreten.
+          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten.
           success: Teilnehmer erfolgreich blockiert.
-        bulk_action:
-          block:
-            invalid: Es gab ein Problem beim Blockieren der Teilnehmenden.
-            success: Teilnehmende erfolgreich blockiert.
-          unblock:
-            invalid: Es gab ein Problem beim Entsperren der Teilnehmenden.
-            success: Teilnehmende erfolgreich entsperrt.
         create:
           success: Benutzer wurde offiziell anerkannt.
         destroy:
@@ -868,7 +820,7 @@ de:
           show: Anzeigen
           title: E-Mail-Adresse des Teilnehmers anzeigen
         unblock:
-          error: Bei der Entblockierung des Kontos ist ein Problem aufgetreten.
+          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten.
           success: Blockierung des Teilnehmers wurde erfolgreich aufgehoben.
       organization:
         edit:
@@ -917,7 +869,7 @@ de:
           down: Runter
           external_domain: Externe Domain
           remove: Entfernen
-          up: Nach oben
+          up: Hoch
         form:
           add: Zur erlaubten Liste hinzufügen
           title: Liste erlaubter externer Domains
@@ -928,26 +880,12 @@ de:
         destroy:
           error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
           success: Privater Zugriff zum partizipativen Raum erfolgreich gelöscht.
-        edit:
-          title: Privates Mitglied des partiziaptiven Bereichs bearbeiten.
-          update: Aktualisieren
         index:
           import_via_csv: Aus CSV-Datein importieren
-          publish_all: Alle veröffentlichen
           title: Participatory Space privater Benutzer
-          unpublish_all: Alle Veröffentlichungen aufheben
         new:
           create: Erstellen
           title: Neuer privater Benutzer des Participatory Space.
-        publish_all:
-          error: Es gab ein Problem bei der Veröffentlichung aller privaten Teilnehmenden für diesen partizipativen Bereich.
-          success: Alle privaten Teilnehmenden erfolgreich für diesen partizipativen Bereich veröffentlicht
-        unpublish_all:
-          error: Es gab ein Problem beim Entfernen aller privaten Teilnehmenden für diesen partizipativen Bereich.
-          success: Alle privaten Teilnehmenden für diesen teilnehmenden Raum erfolgreich zurückgezogen
-        update:
-          error: Beim Aktualisieren des privaten Teilnehmenden für diesen Beteiligungsbereich ist ein Problem aufgetreten.
-          success: Privater Teilnehmende für diesen partizipativen Raum erfolgreich erstellt
       participatory_space_private_users_csv_imports:
         create:
           invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
@@ -980,10 +918,12 @@ de:
         edit:
           submit: einreichen
           title: Berechtigungen bearbeiten
-        options_form:
-          ephemeral_warning: Um diese Autorisierungsmethode zu aktivieren, müssen Sie alle bestehenden Autorisierungen <a href="%{path}“>zurücknehmen</a>. Dadurch wird das Risiko von Überprüfungskonflikten minimiert. Alle Berechtigungen dieses Typs werden in der Organisation automatisch entzogen, wenn Sie Änderungen einreichen, die diese Methode hinzufügen oder ihre Konfiguration verändern, nachdem sie hinzugefügt wurde.
         update:
           success: Berechtigungen wurden erfolgreich aktualisiert.
+      resources:
+        index:
+          headers:
+            scope: Umfang
       scope_types:
         create:
           error: Beim Erstellen eines neuen Geltungstyps ist ein Fehler aufgetreten.
@@ -1003,7 +943,6 @@ de:
         create:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich erfolgreich erstellt
-        deprecated: Beachten Sie, dass Bereiche veraltet sind und in zukünftigen Versionen entfernt werden. Bitte verwenden Sie stattdessen Taxonomien. Das einzige Modul, das derzeit Bereiche verwendet, ist das Initiativmodul.
         destroy:
           success: Scope erfolgreich gelöscht.
         edit:
@@ -1018,50 +957,16 @@ de:
           success: Bereich wurde erfolgreich aktualisiert
       share_tokens:
         actions:
-          confirm_destroy: Sind Sie sicher, dass Sie diesen Zugang löschen wollen?
-          copy_link: Link kopieren
+          confirm_destroy: Sind Sie sicher, dass Sie diesen Token löschen wollen?
           destroy: Löschen
-          edit: Bearbeiten
-          preview: Vorschau
-        create:
-          invalid: Beim Erstellen des Zugangslinks ist ein Problem aufgetreten.
-          success: Zugangslink erfolgreich erstellt.
+          share: Teilen
         destroy:
-          error: Beim Löschen des Zugangslinks ist ein Problem aufgetreten.
-          success: Der Zugangslink wurde erfolgreich gelöscht.
-        edit:
-          title: 'Zugangslinks bearbeiten für: %{name}'
-          update: Aktualisieren
-        form:
-          automatic: Automatisch
-          custom: Personalisiert
-          custom_expiration: Benutzerdefiniertes Ablaufen
-          custom_token: Benutzerdefiniertes Wort
-          expires_at: Läuft ab am
-          'false': 'Nein'
-          never_expire: Niemals
-          registered_only: Nur registrierte?
-          token: Zugangsschlüssel
-          'true': 'Ja'
-        index:
-          back_to_share_tokens: Zurück zu den Zugangslinks
-          copied: Zugangslink kopiert!
-          copy_message: Der Text wurde erfolgreich in die Zwischenablage kopiert.
-          create_new_token: Einen ersten Zugangslink erstellen!
-          empty_html: Keine aktiven Zugangslinks vorhanden. %{new_token_link}
-          never: Niemals
-          new_share_token_button: Neuer Zugangslink
-          share_tokens_help_html: |
-            Erstellen und teilen Sie einen Zugangslink, um anderen die Ansicht dieser unveröffentlichten Ressource zu ermöglichen.
-            Zugangslinks können z.B. nur für registrierte Teilnehmer gültig sein oder falls nötig über ein Ablaufdatum verfügen.
-            Um einen neuen Zugangslink mit jemandem zu teilen, erstellen Sie ihn und kopieren Sie dann den Link mit dem Aktionssymbol "%{clipboard} Zwischenablage".
-          title: 'Zugangslinks für: %{name}'
-        new:
-          create: Erstellen
-          title: 'Neuer Zugangslink für: %{name}'
-        update:
-          error: Bei der Aktualisierung dieses Zugangs ist ein Problem aufgetreten.
-          success: Zugangslink erfolgreich aktualisiert.
+          error: Beim Löschen dieses Tokens ist ein Fehler aufgetreten.
+          success: Token wurde erfolgreich gelöscht.
+        share_tokens:
+          empty: Es gibt keine aktiven Token.
+          help: Diese Token werden verwendet, um diese unveröffentlichte Ressource öffentlich an jeden Benutzer weiterzugeben. Sie werden ausgeblendet, wenn das Werk veröffentlicht wird. Klicken Sie auf das Teilen-Symbol des Tokens um die teilbare URL zu besuchen.
+          title: Token teilen
       shared:
         adjacent_navigation:
           next: Weiter
@@ -1082,7 +987,7 @@ de:
           title: Thema bearbeiten
           update: Thema aktualisieren
         new:
-          create: Neues Thema
+          create: Thema erstellen
           title: Neues Thema
         update:
           error: Beim Aktualisieren dieses Themas ist ein Fehler aufgetreten.
@@ -1106,7 +1011,7 @@ de:
         index:
           last_notable_change: Letzte signifikante Änderung
         new:
-          create: Neue Seite
+          create: Seite erstellen
           title: Neue Seite
         topic:
           empty: Es gibt keine Seite zu diesem Thema.
@@ -1114,116 +1019,6 @@ de:
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
           success: Seite wurde erfolgreich aktualisiert.
-      taxonomies:
-        actions:
-          actions: Aktionen
-          destroy: Klassifizierung & Elemente löschen
-          edit: Klassifizierung & Elemente bearbeiten
-          filters: Filter verwalten
-        breadcrumb:
-          edit: Klassifizierung bearbeiten
-          new: Neue Klassifizierung
-        count: Verknüpfte Ressourcen
-        create:
-          invalid: Beim Erstellen dieser Klassifizierung ist ein Fehler aufgetreten.
-          success: Klassifizierung wurde erfolgreich erstellt.
-        destroy:
-          invalid: Beim Löschen dieser Klassifizierung ist ein Fehler aufgetreten.
-          success: Klassifizierung erfolgreich gelöscht.
-        edit:
-          back: Zurück
-          description: Die Elemente dieser Klassifizierung werden verwendet, um Ressourcen zu klassifizieren oder zu filtern, wie Partizipationsbereiche oder Komponenten. Per "Drag and Drop" kann die Liste neu geordnet werden.
-          new_item: Neues Element
-          no_items: Es gibt derzeit keine Elemente in dieser Klassifizierung. Erstellen Sie hier eine Liste von Elementen, um Ressourcen zu klassifizieren oder zu filtern, z. B. Partizipationsbereiche oder Komponenten. Elemente können auf bis zu drei Ebenen verschachtelt werden.
-          subtitle: Elemente in "%{taxonomy_name}"
-          title: Klassifizierung "%{taxonomy_name} " bearbeiten
-          update: Aktualisieren
-        filters:
-          search_placeholder: Suchen
-        index:
-          description: Klassifizierungen und Filter ermöglichen es Administratoren, Inhalte zu sortieren und zu organisieren. Fügen Sie zum Beispiel eine Klassifizierung mit den Stadtbezirken und Stadtquartieren hinzu und erstellen Sie dann Filter nur mit den Bezirken oder für ein bestimmtes Viertel.
-          new_taxonomy: Neue Klassifizierung
-          no_items_found: Es wurden keine Klassifizierungen gefunden, die Ihren Suchkriterien entsprechen.
-        name: Name
-        new:
-          create: Klassifizierung erstellen
-          title: Neue Klassifizierung
-        no_taxonomies: Derzeit gibt es keine Klassifizierungen. Erstellen Sie eine Liste von Klassifizierungen hier und füge ihnen Elemente hinzu, um nach Ressourcen klassifizieren oder filtern zu können.
-        table:
-          to_next_page: Für die nächste Seite hinziehen
-          to_prev_page: Für die vorherige Seite hinziehen
-        taxonomy_actions:
-          confirm_destroy: 'Sind Sie sicher, dass Sie %{name} löschen möchten? Dies wird auch alle untergeordneten Elemente löschen. HINWEIS: Nicht betroffen sind Ressourcen, die diese Klassifizierung verwenden, aber sie verlieren den Verweis auf diese Klassifizierung.'
-        total_filters: Filter
-        total_items: Elemente in der Klassifizierung
-        update:
-          invalid: Beim Aktualisieren dieser Klassifizierung ist ein Fehler aufgetreten.
-          success: Klassifizierung wurde erfolgreich aktualisiert.
-      taxonomy_filters:
-        actions:
-          new_taxonomy_filter: Neuer Klassifizierung-Filter
-        breadcrumb:
-          edit: Filter bearbeiten
-          filters: Filter
-          new: Neuer Filter
-        create:
-          error: Beim Erstellen dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
-          success: Klassifizierungsfilter wurde erfolgreich erstellt.
-        destroy:
-          error: Beim Löschen dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
-          success: Klassifizeriungsfilter erfolgreich gelöscht.
-        edit:
-          back: Zurück
-          title: Klassifizierungsfilter bearbeiten
-          update: Klassifizierungsfilter aktualisieren
-        form:
-          all: Alle
-          items:
-            one: "%{count} ausgewähltes Element"
-            other: "%{count} ausgewählte Elemente"
-          name_help: Der Titel des Filters, der im Frontend angezeigt wird.
-          no_items: Keine Elemente für diese Klassifizierungen verfügbar. Sie können Elemente in den Klassifizierungseinstellungen erstellen.
-          space_filter: Als Filter verfügbar für
-        index:
-          description: Ein Klassifizierungsfilter erlaubt es Admins, partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern. Fügen Sie zum Beispiel einen Taxonomie-Filter hinzu, um Prozesse nach geografischen Typologien zu sortieren.
-          empty: Derzeit gibt es keine Klassifizierungsfilter. Erstellen Sie hier eine Liste von Klassifizierungsfilter, um partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern.
-          new_filter: Neuer Filter
-        new:
-          back: Zurück
-          create: Klassifizierungsfilter erstellen
-          title: Neuer Klassifizierungsfilter
-        table:
-          actions: Aktionen
-          components_count: Komponenten, die dies verwenden
-          confirm_destroy: 'Sind Sie sicher, dass Sie den Filter %{name} löschen möchten? HINWEIS: Ressourcen, die diesen Filter verwenden, sind nicht betroffen, aber sie verlieren den Verweis auf diesen Filter.'
-          destroy: Löschen
-          edit: Bearbeiten
-          internal_name: Interne Bezeichnung
-          name: Bezeichnung
-        update:
-          error: Beim Aktualisieren dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
-          success: Klassifizierungsfilter wurde erfolgreich aktualisiert.
-      taxonomy_filters_selector:
-        new:
-          add_new_items_html: Wenn Sie einen neuen Filter oder ein neues Element einstellen müssen, tun Sie dies durch die Konfigurationseinstellungen oder indem Sie <a href="%{url}">hier</a> klicken.
-          items_count: "%{count} Elemente"
-          save: Speichern
-        show:
-          items_count: "%{count} Elemente"
-          remove: Entfernen
-        taxonomies_select:
-          filters: Filter
-          select_filter: Filter auswählen
-          select_taxonomy: Klassifizierung auswählen
-          taxonomies: Klassifizierungen
-      taxonomy_items:
-        edit:
-          title: Element in %{taxonomy} bearbeiten
-          update: Element aktualisieren
-        new:
-          create: Element erstellen
-          none: Keine
-          title: Neues Element in %{taxonomy}
       titles:
         admin_log: Adminprotokoll
         area_types: Bereichstypen
@@ -1244,18 +1039,34 @@ de:
         scope_types: Bereichstypen
         scopes: Bereiche
         statistics: Aktivität
-        taxonomies: Klassifizierungen
-        taxonomy_filters: Klassifizierungsfilter für "%{taxonomy}"
+        user_groups: Benutzergruppen
         users: Administratoren
-      tooltips:
-        deleted_component_info: Diese Komponente kann nur gelöscht werden, wenn der Status 'Nicht veröffentlicht' ist.
-      trash_management:
-        restore:
-          invalid: Es gab ein Problem beim Wiederherstellen von %{resource_name}.
-          success: "%{resource_name} erfolgreich wiederhergestellt."
-        soft_delete:
-          invalid: Es gab ein Problem beim Löschen von %{resource_name}.
-          success: "%{resource_name} erfolgreich gelöscht."
+      user_group:
+        csv_verify:
+          invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
+          success: CSV-Datei wurde erfolgreich hochgeladen. Wir überprüfen, welche Gruppen den Kriterien entsprechen. Das kann eine Weile dauern.
+        reject:
+          invalid: Beim Ablehnen dieser Benutzergruppe ist ein Fehler aufgetreten.
+          success: Gruppe erfolgreich abgelehnt.
+        verify:
+          invalid: Beim Überprüfen dieser Benutzergruppe ist ein Fehler aufgetreten.
+          success: Gruppe erfolgreich verifiziert.
+      user_groups:
+        index:
+          state:
+            pending: steht aus
+            rejected: Abgelehnt
+            verified: Überprüft
+          verify_via_csv: Überprüfen Sie über CSV
+      user_groups_csv_verifications:
+        new:
+          example_file: 'Beispieldatei:'
+          explanation: Laden Sie Ihre CSV-Datei hoch. In der ersten Spalte der Datei müssen die offiziellen E-Mails der Benutzergruppen in Ihrer Organisation enthalten sein, ohne Kopfzeilen. Nur Benutzergruppen, die ihre E-Mail bestätigt haben und deren E-Mail in der CSV-Datei enthalten ist, werden überprüft.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
+          title: Laden Sie Ihre CSV-Datei hoch
+          upload: Hochladen
       users:
         create:
           error: Beim Einladen dieses Benutzers ist ein Fehler aufgetreten.
@@ -1303,22 +1114,6 @@ de:
         unreport: Nicht melden
       admin:
         reportable:
-          bulk_action:
-            hide:
-              failed: 'Es gab ein Problem beim Verbergen einiger Ressourcen: %{errored}'
-              invalid: Keine Moderationen ausgewählt.
-              success: Ressourcen erfolgreich ausgeblendet.
-            ignore:
-              invalid: Keine Moderationen ausgewählt.
-              success: Die Meldung der Teilnehmenden wurde erfolgreich entfernt.
-            unhide:
-              failed: 'Es gab ein Problem beim Aufdecken einiger Ressourcen: %{errored}'
-              invalid: Keine Moderationen ausgewählt.
-              success: Ressource erfolgreich eingeblendet.
-            unreport:
-              failed: 'Es gab ein Problem beim Aufdecken einiger Ressourcen: %{errored}'
-              invalid: Keine Moderationen ausgewählt.
-              success: Meldung der Ressource erfolgreich rückgängig gemacht.
           hide:
             invalid: Beim Verbergen der Ressource ist ein Problem aufgetreten.
             success: Ressource erfolgreich ausgeblendet
@@ -1354,5 +1149,3 @@ de:
       admin:
         global_moderations:
           title: Globale Moderationen
-        taxonomy_filters_selector:
-          title: Filter

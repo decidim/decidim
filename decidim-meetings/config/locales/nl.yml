@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -55,6 +56,8 @@ nl:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: Categorie
           closed_at_present:
             label: Status
             values:
@@ -65,6 +68,8 @@ nl:
             values:
               'false': Verleden
               'true': Toekomstige
+          scope_id_eq:
+            label: Scope
           with_any_origin:
             label: Afkomstig van
             values:
@@ -101,6 +106,8 @@ nl:
             maps_enabled: Kaarten ingeschakeld
             registration_code_enabled: Inschrijvingsformulier ingeschakeld
             resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
+            scope_id: Scope
+            scopes_enabled: Scopes ingeschakeld
             terms_and_conditions_url_for_meeting_creators: Algemene voorwaarden URL voor de makers van de vergadering
           step:
             announcement: Aankondiging
@@ -169,6 +176,7 @@ nl:
         attachment_collections: Mappen
         attachments: Bijlagen
         close: Sluit
+        destroy: Verwijderen
         edit: Bewerk
         invalid_destroy:
           proposals_count:
@@ -234,6 +242,8 @@ nl:
         meetings:
           create:
             success: Vergadering met succes aangemaakt. Merk op dat deze nog niet gepubliceerd is, je moet deze nog handmatig publiceren.
+          destroy:
+            success: Vergadering succesvol verwijderd
           edit:
             title: Vergadering bewerken
             update: Bijwerken
@@ -272,7 +282,6 @@ nl:
           form:
             available_slots_help: Laat het op 0 indien u onbeperkt beschikbare plaatsen hebt.
             invites: Uitnodigingen
-            manage_questions: Vragen
             recommendation_message: Om privacyredenen raden we je aan dit inschrijvingsformulier te verwijderen als je het niet meer nodig hebt. Standaard is dit 3 maanden na afloop van de vergadering.
             registration_email_help: Deze tekst verschijnt in het midden van de registratie bevestigingsmail, net na de registratiecode.
             registration_form: Registratieformulier
@@ -304,6 +313,8 @@ nl:
         questionnaire:
           update: "%{user_name} heeft de vragenlijst bijgewerkt voor het %{meeting_name} event"
       application_helper:
+        filter_category_values:
+          all: Alle
         filter_meeting_space_values:
           all: Alle
       calendar_modal:
@@ -399,6 +410,7 @@ nl:
           location_hints_help: 'Locatie hints: aanvullende informatie. Bijvoorbeeld: de verdieping van het gebouw als het een fysieke vergadering is, of het vergaderwachtwoord als het een online vergadering is met beperkte toegang.'
           online_meeting_url_help: 'Link: laat deelnemers direct verbinding maken met je vergadering'
           registration_url_help: 'Link: verleen deelnemers toegang tot de externe dienst die je gebruikt voor registraties'
+          select_a_category: Selecteer een categorie
           select_a_meeting_type: Selecteer een vergaderingstype
           select_a_registration_type: Selecteer een registratietype
           select_an_iframe_access_level: Selecteer een iframe toegangsniveau
@@ -408,6 +420,9 @@ nl:
           see_all: Alle vergaderingen bekijken
           see_all_withdrawn: Bekijk alle afgelaste vergaderingen
           text_banner: Je bekijkt de lijst van vergaderingen die zijn afgelast door hun maker. %{go_back_link}.
+        meeting:
+          close_meeting: Vergadering sluiten
+          edit_meeting: Vergadering bewerken
         meetings:
           upcoming_meetings_warning: Momenteel zijn er geen geplande vergaderingen, maar hier vindt u alle afgelopen vergaderingen.
         new:
@@ -440,6 +455,7 @@ nl:
           visit_finished: Bekijk voorbije vergadering
           withdraw_btn_hint: Je kunt je vergadering afgelasten indien nodig. De vergadering wordt niet verwijderd, deze verschijnt in de lijst met afgelaste vergaderingen.
           withdraw_confirmation_html: Weet je zeker dat je deze vergadering wil afgelasten? <br><br><strong>Deze actie kan niet worden ongedaan gemaakt</strong>
+          withdraw_meeting: Vergadering afgelasten
         update:
           invalid: Er was een probleem bij het bijwerken van de vergadering.
           success: De vergadering is succesvol bijgewerkt.

@@ -1,8 +1,7 @@
+---
 de:
   activemodel:
     attributes:
-      authorization:
-        verification_attachment: Anhang zur Verifizierung
       config:
         available_methods: Verfügbare Methoden
         offline: Offline
@@ -76,12 +75,6 @@ de:
             - Ein Beispiel-Autorisierungshandler, damit Entwickler verstehen können, wie eine einfache Verifizierung funktioniert.
             - Es ist für Entwickler gedacht, damit sie verstehen können, wie sie ihr eigenes Verifizierungssystem implementieren.
             - Lassen Sie sich verifizieren, indem Sie eine Dokumentennummer eingeben, die mit "X" endet.
-        ephemeral_dummy_authorization_handler:
-          help:
-            - Ein Beispiel für ephemere Autorisierungshandler, damit Entwickler verstehen können, wie eine einfache Verifizierung funktioniert.
-            - Es ist für Entwickler gedacht, damit sie verstehen können, wie sie ihr eigenes Verifizierungssystem implementieren.
-            - Es ist eine Kopie der Beispielgenehmigung.
-            - Lassen Sie sich durch die Einführung einer Dokumentnummer verifizieren, die mit "X" endet.
         id_documents:
           help:
             - Benutzer geben ihre Identitätsinformationen ein und laden eine Kopie ihres Dokuments hoch.
@@ -132,6 +125,17 @@ de:
         destroy:
           error: Beim Löschen der Berechtigung ist ein Fehler aufgetreten.
           success: Sie haben die Berechtigung erfolgreich gelöscht.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Überprüfen Sie anhand eines anderen Beispiels des Autorisierungshandlers
+            csv_census: Vergewissern Sie sich anhand der Erhebung der Organisation
+            dummy_authorization_handler: Überprüfen Sie anhand des Beispielautorisierungshandlers
+            dummy_authorization_workflow: Überprüfen Sie anhand des beispielhaften Autorisierungsworkflows
+            id_documents: Bestätigen Sie, indem Sie Ihr Identitätsdokument hochladen
+            postal_letter: Bestätigen Sie, indem Sie einen Bestätigungscode per Post erhalten
+            sms: Lassen Sie sich über einen Bestätigungscode per SMS verifizieren
+          title: Bestätigen Sie Ihre Identität
+          verify_with_these_options: 'Mit diesen Optionen können Sie Ihre Identität überprüfen:'
         index:
           expired_verification: Verifizierung abgelaufen
           granted_verification: Verifizierung erfolgeich
@@ -143,14 +147,6 @@ de:
         new:
           authorize: Senden
           authorize_with: Bestätigen Sie mit %{authorizer}
-          tos_agreement: Durch die Überprüfung Ihrer Identität akzeptieren Sie %{link}.
-        onboarding_pending:
-          completed_verifications: Sie wurden erfolgreich autorisiert, jetzt können Sie %{action} auf %{resource_name}
-          granted_verifications: Verifizierung erfolgeich
-          onboarding_message_html: Sie sind fast bereit für die %{action} auf <strong>%{resource_title}</strong> %{resource_name}. Bitte überprüfen Sie Ihr Konto durch das Ausfüllen der folgenden Berechtigungen.
-          pending_admin_approval_verifications: Ausstehende Administrator-Freigabeüberprüfungen
-          pending_verifications: Ausstehende Verifizierung
-          unauthorized: Sie sind nicht berechtigt für %{action} in dieser Ressource
         renew_modal:
           cancel: Abbrechen
           continue: Weiter
@@ -162,7 +158,7 @@ de:
         admin:
           census:
             create:
-              error: Beim Importieren der Erhebung ist ein Fehler aufgetreten.
+              error: Beim Import der Erhebung ist ein Fehler aufgetreten.
               success: '%{count} Elemente erfolgreich hinzugefügt (%{errors} Fehler).'
             destroy_all:
               success: Alle Erhebungsdaten wurden gelöscht.
@@ -193,9 +189,11 @@ de:
           postal_codes:
             one: Die Teilnahme ist auf Benutzer mit der Postleitzahl %{postal_codes}.
             other: 'Die Teilnahme ist auf Benutzer mit einer der folgenden Postleitzahlen beschränkt: %{postal_codes}.'
+          scope: Die Teilnahme ist auf Benutzer mit dem Umgang %{scope_name} begrenzt.
           user_postal_codes:
             one: Die Teilnahme ist auf Teilnehmer mit der Postleitzahl %{postal_codes} beschränkt, und Ihre Postleitzahl ist %{user_postal_code}.
             other: 'Die Teilnahme ist auf Teilnehmer mit einer der folgenden Postleitzahlen beschränkt: %{postal_codes}. Ihre Postleitzahl ist %{user_postal_code}.'
+          user_scope: Die Teilnahme ist auf Teilnehmer aus dem Bereich %{scope_name} beschränkt, und Ihr Bereich ist %{user_scope_name}.
       id_documents:
         admin:
           config:

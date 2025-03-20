@@ -16,7 +16,7 @@ module Decidim
             quantity_value = results[:quantity] || 0
             space_type, space_id, survey_id = key
             record = Decidim::Metric.find_or_initialize_by(day: @day.to_s, metric_type: @metric_name,
-                                                           organization: @organization, decidim_taxonomy_id: nil,
+                                                           organization: @organization, decidim_category_id: nil,
                                                            participatory_space_type: space_type, participatory_space_id: space_id,
                                                            related_object_type: Decidim::Surveys::Survey.name, related_object_id: survey_id)
             record.assign_attributes(cumulative: cumulative_value, quantity: quantity_value)
@@ -32,13 +32,13 @@ module Decidim
           @query = retrieve_surveys.each_with_object({}) do |survey, grouped_answers|
             answers = Decidim::Forms::Answer.joins(:questionnaire)
                                             .where(questionnaire: retrieve_questionnaires(survey))
-                                            .where(decidim_forms_answers: { created_at: ..end_time })
+                                            .where("decidim_forms_answers.created_at <= ?", end_time)
             next grouped_answers unless answers
 
             group_key = generate_group_key(survey)
             grouped_answers[group_key] ||= { cumulative: 0, quantity: 0 }
             grouped_answers[group_key][:cumulative] += answers.count
-            grouped_answers[group_key][:quantity] += answers.where(decidim_forms_answers: { created_at: start_time.. }).count
+            grouped_answers[group_key][:quantity] += answers.where("decidim_forms_answers.created_at >= ?", start_time).count
           end
           @query
         end

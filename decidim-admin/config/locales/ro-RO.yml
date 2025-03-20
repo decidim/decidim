@@ -1,3 +1,4 @@
+---
 ro:
   activemodel:
     attributes:
@@ -22,7 +23,7 @@ ro:
       category:
         description: Descriere
         name: Nume
-        parent_id: Categoria părinte
+        parent_id: Categoria mamă
         weight: Poziție
       component:
         name: Nume
@@ -33,6 +34,8 @@ ro:
       help_section:
         content: Conținut
       id: ID
+      import:
+        user_group_id: Creează importuri ca
       newsletter:
         body: Conținut
         send_to_all_users: Trimiteți către toți utilizatorii
@@ -92,6 +95,7 @@ ro:
         success_color: Succes
         time_zone: Fus orar
         tos_version: Versiune a condițiilor de furnizare a serviciului
+        user_groups_enabled: Activează grupurile
         users_registration_mode: Mod înregistrare utilizatori
         warning_color: Avertizare
         welcome_notification_body: Conținutul notificării de bun venit
@@ -177,6 +181,8 @@ ro:
         attachment_collection:
           new: Foldere pentru atașamente
         browse: Caută
+        category:
+          new: Categorie nouă
         export: Exportă tot
         export-selection: Exportă selecția
         import: Importă
@@ -187,13 +193,15 @@ ro:
           new: Nou utilizator privat al spațiului participativ
         per_page: Pe pagină
         permissions: Drepturi
+        reject: Respinge
         send_me_a_test_email: Trimite-mi un e-mail de test
         share: Distribuie
         user:
           new: Administrator nou
+        verify: Verifică
       admin_terms_of_service:
         accept:
-          error: A apărut o problemă la acceptarea termenilor de administrare a serviciului.
+          error: A apărut o eroare la acceptarea termenilor de utilizare a serviciului.
           success: Excelent! Ați acceptat termenii de utilizare a serviciului.
         actions:
           accept: Sunt de acord cu termenii
@@ -224,7 +232,6 @@ ro:
         create:
           error: A apărut o problemă la crearea unei zone noi.
           success: Zona a fost creată cu succes.
-        deprecated: Rețineți că zonele sunt învechite și vor fi eliminate în versiunile viitoare. Vă rugăm să folosiți taxonomiile în schimb. Singurul modul care folosește in prezent conceptul de zone este modul de inițiative.
         destroy:
           has_spaces: Această zonă are spații participative dependente. Te rugăm să te asiguri că nu există referințe la spațiul participativ din această zonă înainte de a o șterge.
           success: Zona a fost eliminată cu succes.
@@ -285,8 +292,23 @@ ro:
           justification: Justificare
           title: Blochează utilizatorul %{name}
       categories:
+        create:
+          error: A apărut o eroare la crearea acestei categorii.
+          success: Categoria a fost creată cu succes.
+        destroy:
+          error: A apărut o eroare la ștergerea acestei categorii. Vă rugăm să ștergeți mai întâi orice subcategorie, asigurați-vă că nicio altă entitate nu aparține acestei categorii și încercați din nou.
+          success: Categoria a fost ștearsă cu succes.
+        edit:
+          title: Editează categoria
+          update: Actualizează
         index:
           categories_title: Categorii
+        new:
+          create: Creează o categorie
+          title: Categorie nouă
+        update:
+          error: A apărut o eroare la actualizarea acestei categorii.
+          success: Categoria a fost actualizată cu succes.
       component_permissions:
         update:
           error: A apărut o eroare la actualizarea drepturilor de acces pentru acestă componentă.
@@ -295,6 +317,9 @@ ro:
         create:
           error: A apărut o eroare la crearea acestei componente.
           success: Componenta a fost creată cu succes.
+        destroy:
+          error: A apărut o problemă la eliminarea acestei componente.
+          success: Componenta a fost ștearsă cu succes.
         edit:
           title: Editează componenta
           update: Actualizează
@@ -307,6 +332,7 @@ ro:
           headers:
             actions: Acțiuni
             name: Numele componentei
+            scope: Domeniul componentei
             type: Tipul componentei
         new:
           add: Adaugă componentă
@@ -348,6 +374,8 @@ ro:
           JSON: JSON
         notice: Exportul dvs. este în desfășurare. Veți primi un e-mail atunci când acesta este complet.
       filters:
+        category_id_eq:
+          label: Categorie
         filter_label: Filtru
         invitation_accepted_at_present:
           label: Invitația a fost acceptată
@@ -395,6 +423,8 @@ ro:
           values:
             'false': Publicat
             'true': Nepublicat
+        scope_id_eq:
+          label: Domeniu de interes
         search_label: Caută
         search_placeholder:
           name_or_nickname_or_email_cont: Caută %{collection} după e-mail, nume sau pseudonim.
@@ -456,7 +486,7 @@ ro:
         and: și
         data_errors:
           duplicate_headers:
-            detail: Vă rugăm verificați că fișierul conține coloanele sau antetele o singură dată.
+            detail: Te rugăm verifică dacă fişierul conţine coloanele sau antetele obligatorii o singură dată.
             message:
               one: Duplică coloana %{columns}.
               few: Duplică coloanele %{columns}.
@@ -531,7 +561,7 @@ ro:
         scopes: Domenii de interes
         settings: Setări
         static_pages: Pagini
-        taxonomy_filters: Filtre taxonomie
+        user_groups: Grupuri
         users: Participanți
       metrics:
         metrics:
@@ -584,8 +614,12 @@ ro:
             plural: Plural
         share_token:
           fields:
+            created_at: Creat la
             expires_at: Expiră la
+            last_used_at: Ultima utilizare
             times_used: Număr utilizări
+            token: Token
+            user: Creat de
         static_page:
           fields:
             created_at: Creat la
@@ -600,6 +634,16 @@ ro:
               admin: Administrator
               user_manager: Manager de participanți
           name: Participant
+        user_group:
+          fields:
+            actions: Acțiuni
+            created_at: Creat la
+            document_number: Număr document
+            name: Nume
+            nickname: Pseudonim
+            phone: Telefon
+            state: Stadiu
+            users_count: Numărul de participanți
       moderated_users:
         index:
           actions:
@@ -628,7 +672,6 @@ ro:
             does_not_belong: Nu aparține
             hidden_during_block: Ascuns în timpul blocării utilizatorului
             offensive: Ofensiv
-            parent_hidden: Conținutul părinte a fost ascuns
             spam: Spam
         reports:
           index:
@@ -673,6 +716,7 @@ ro:
           confirm_delete: Sigur dorești să ştergi acest buletin informativ?
           followers: 'urmăritori '
           has_been_sent_to: 'A fost trimis la: '
+          no_scopes: Nici un domeniu
           not_sent: Nu a fost trimis
           participants: 'participanți '
           segmented_to: 'Segmentat la %{subject}: '
@@ -687,10 +731,13 @@ ro:
           confirm_deliver: Sigur dorești să livrezi acest buletin informativ? Această acţiune nu poate fi anulată.
           deliver: Trimite buletinul informativ
           followers_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care urmăresc orice spații participative selectate din listă.
+          none: Niciunul
           participants_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care au participat la oricare dintre spațiile participative selectate din listă.
           recipients_count: Acest buletin informativ va fi trimis la <strong id='recipients_count'>%{count}</strong> utilizatori.
+          scopes_help: Trimite buletinul informativ utilizatorilor care au unul dintre domeniile selectate activat în setările privind „Interesele mele” din contul lor.
+          select_scopes: Filtrați utilizatorii care au activat oricare dintre domeniile selectate în setările privind „Interesele mele” din contul lor.
           select_spaces: Selectează spațiile pentru segmentarea buletinului informativ
-          send_to_all_users: Trimiteți către toți utilizatorii
+          select_users: Selectează utilizatorii cărora vrei să trimiți buletinul informativ
           title: Selectează destinatarii pentru trimitere
           warning: "<strong>Atenție:</strong> Acest buletin informativ va fi trimis doar utilizatorilor care au activat <em>Vreau să primesc știri</em> în setările lor."
         send:
@@ -704,6 +751,7 @@ ro:
           success: Buletinul informativ a fost actualizat cu succes. Te rugăm să îl revizuiești înainte de a-l trimite.
       officializations:
         block:
+          error: A apărut o eroare la blocarea participantului.
           success: Participantul a fost blocat.
         create:
           success: Participantul a fost ales ca reprezentant oficial.
@@ -737,6 +785,7 @@ ro:
           show: Afișează
           title: Afișează adresa de e-mail a participantului
         unblock:
+          error: A apărut o eroare la deblocarea participantului.
           success: Participantul a fost deblocat.
       organization:
         edit:
@@ -785,8 +834,6 @@ ro:
           invalid: A apărut o eroare la citirea fișierului CSV. Vă rugăm să vă asigurați că ați urmat instrucțiunile.
           success: Fișier-ul CSV a fost încărcat cu succes, trimitem câte un e-mail participanților cu invitația. Acest lucru ar putea dura puțin timp.
         new:
-          csv_upload:
-            title: Încarcă fișierul tău CSV
           destroy:
             button: Șterge toți participanții privați
             confirm: Sunteți sigur că doriți să ștergeți toți participanții privați? Această acțiune nu poate fi anulată, și nu îi veți putea recupera.
@@ -814,6 +861,10 @@ ro:
           title: Editează drepturile
         update:
           success: Drepturile au fost actualizate cu succes.
+      resources:
+        index:
+          headers:
+            scope: Domeniu de interes
       scope_types:
         create:
           error: A apărut o problemă la crearea unui nou tip de domeniu.
@@ -833,7 +884,6 @@ ro:
         create:
           error: A apărut o problemă la crearea unui nou domeniu.
           success: Domeniul a fost creat cu succes.
-        deprecated: Rețineți că domeniile de interes sunt învechite și vor fi eliminate în versiunile viitoare. Vă rugăm să folosiți taxonomiile în schimb. Singurul modul care folosește in prezent conceptul de domenii de interes este modul de inițiative.
         destroy:
           success: Domeniul a fost eliminat cu succes.
         edit:
@@ -848,10 +898,16 @@ ro:
           success: Domeniul a fost actualizat cu succes
       share_tokens:
         actions:
+          confirm_destroy: Sigur vrei să ștergi acest token?
           destroy: Șterge
-        index:
-          copied: Link de acces copiat!
-          title: 'Link-uri de acces pentru: %{name}'
+          share: Distribuie
+        destroy:
+          error: A apărut o problemă la distrugerea acestui token.
+          success: Token-ul a fost distrus cu succes.
+        share_tokens:
+          empty: Nu există token-uri active.
+          help: Aceste tipuri de token sunt utilizate pentru a distribui public această resursă nepublicată cu orice utilizator. Acestea vor fi ascunse la momentul publicării resursei. Faceți clic pe pictograma de distribuire aferentă acestui token pentru a vizita URL-ul distribuit.
+          title: Distribuiți token
       shared:
         gallery:
           add_images: Adaugă imagini
@@ -867,7 +923,7 @@ ro:
           title: Editează subiectul
           update: Actualizează subiectul
         new:
-          create: Subiect nou
+          create: Creează un subiect
           title: Subiect nou
         update:
           error: A apărut o eroare la actualizarea acestui subiect.
@@ -889,7 +945,7 @@ ro:
         index:
           last_notable_change: Ultima modificare importantă
         new:
-          create: Pagină nouă
+          create: Creează o pagină
           title: Pagină nouă
         topic:
           empty: Nu sunt pagini sub acest subiect.
@@ -897,33 +953,6 @@ ro:
         update:
           error: A apărut o eroare la actualizarea acestei pagini.
           success: Pagina a fost actualizată cu succes.
-      taxonomy_filters:
-        actions:
-          new_taxonomy_filter: Filtru nou de taxonomie
-        create:
-          error: A apărut o problemă la crearea acestui filtru de taxonomie.
-          success: Filtru de taxonomie creat cu succes.
-        destroy:
-          error: A apărut o problemă la ștergerea acestui filtru de taxonomie.
-          success: Filtru taxonomie șters cu succes.
-        edit:
-          back: Înapoi
-          title: Actualizare filtru taxonomie
-          update: Actualizare filtru taxonomie
-        index:
-          description: Un filtru de taxonomie permite administratorilor să sorteze si să filtreze spațiile participative pe baza unei taxonomii. De exemplu, adăugați un filtru de taxonomie pentru a sorta procesele în funcție de aria geografică.
-          empty: Momentan nu există filtre de taxonomie. Creați o listă de filtre de taxonomie aici pentru a sorta și filtra spațiile participative bazate pe taxonomie.
-        new:
-          back: Înapoi
-          create: Creați filtru taxonomie
-          title: Filtru nou de taxonomie
-        table:
-          actions: Acțiuni
-          destroy: Ștergere
-          edit: Actualizare
-        update:
-          error: A apărut o problema la actualizarea acestui filtru de taxonomie.
-          success: Filtrul de taxonomie actualizat cu succes.
       titles:
         admin_log: Jurnal de administrare
         area_types: Tipuri de zone
@@ -938,7 +967,34 @@ ro:
         scope_types: Tipuri de domeniu
         scopes: Domenii de interes
         statistics: Activitate
+        user_groups: Grupuri
         users: Administratori
+      user_group:
+        csv_verify:
+          invalid: A apărut o problemă la citirea fișierului CSV.
+          success: Fișierul CSV încărcat cu succes, verificăm grupurile care corespund criteriilor. Acest lucru ar putea dura un timp.
+        reject:
+          invalid: A apărut o eroare la respingerea acestui grup.
+          success: Grupul a fost respins cu succes.
+        verify:
+          invalid: A apărut o eroare la verificarea acestui grup.
+          success: Grupul a fost verificat cu succes.
+      user_groups:
+        index:
+          state:
+            pending: În așteptare
+            rejected: Respins
+            verified: Verificat
+          verify_via_csv: Verifică prin CSV
+      user_groups_csv_verifications:
+        new:
+          example_file: 'Exemplu de fişier:'
+          explanation: Încărcă fișierul tău CSV. Acesta trebuie să aibă e-mail-urile oficiale ale grupurilor din organizația ta în prima coloană a fișierului, fără antet. Doar grupurile care și-au confirmat adresa de e-mail și care au un e-mail care apare în fișierul CSV vor fi validate.
+          explanation_example: |
+            acme@exemplu.org
+            bubba.gump@example.org
+          title: Încarcă fișierul tău CSV
+          upload: Încarcă
       users:
         create:
           error: A apărut o eroare la invitarea acestui administrator.

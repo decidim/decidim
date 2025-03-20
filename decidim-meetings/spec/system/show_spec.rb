@@ -9,7 +9,6 @@ describe "show" do
   let!(:meeting) { create(:meeting, :published, component:) }
 
   before do
-    stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
     visit_component
     click_on meeting.title[I18n.locale.to_s]
   end
@@ -32,15 +31,6 @@ describe "show" do
 
       it "shows the correct time zone" do
         expect(page).to have_content("HST")
-      end
-    end
-
-    context "when participant is deleted" do
-      let(:user) { create(:user, :deleted, organization:) }
-      let!(:meeting) { create(:meeting, :published, author: user.reload, component:) }
-
-      it "successfully shows the page" do
-        expect(page).to have_content("Deleted participant")
       end
     end
   end

@@ -10,11 +10,10 @@ describe Decidim::Debates::Debate do
 
   it { is_expected.to be_valid }
   it { is_expected.to be_versioned }
-  it { is_expected.to act_as_paranoid }
 
   include_examples "endorsable"
   include_examples "has component"
-  include_examples "has taxonomies"
+  include_examples "has category"
   include_examples "resourceable"
   include_examples "has comments availability attributes"
 
@@ -42,6 +41,12 @@ describe Decidim::Debates::Debate do
 
     context "when author is set" do
       let(:debate) { build(:debate, :participant_author) }
+
+      it { is_expected.not_to be_official }
+    end
+
+    context "when it is authored by a user group" do
+      let(:debate) { build(:debate, :user_group_author) }
 
       it { is_expected.not_to be_official }
     end

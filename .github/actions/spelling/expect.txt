@@ -4,9 +4,7 @@ abans
 abcd
 abcert
 abcloktpes
-acceptada
 accesslist
-Aceasta
 acentos
 acro
 activejob
@@ -23,12 +21,9 @@ admins
 adoc
 AFFERO
 AGPL
-aitools
 Ajuntament
 Ajuntamentde
 alabs
-alecslupu
-Alexandru
 amd
 amendables
 AMR
@@ -71,7 +66,6 @@ backticks
 barcat
 Basecontroller
 Batchloader
-bayes
 bbb
 Bbbb
 BCN
@@ -96,7 +90,6 @@ boundingbox
 Brakus
 breadcrumb
 browserstack
-builder
 bugfixing
 byebug
 bytesize
@@ -125,13 +118,11 @@ cdp
 cellphone
 centerblock
 changeme
-chartkick
 cherrypicking
 childs
 chromedriver
 cht
 cityhall
-cld
 clickable
 clickbait
 cmax
@@ -157,7 +148,6 @@ contingut
 continuar
 contrasenya
 coopdevs
-correu
 Cov
 Cprojects
 crdownload
@@ -291,7 +281,6 @@ ERVz
 Esa
 espa
 estat
-este
 Etags
 etherpad
 evanfuture
@@ -367,7 +356,6 @@ gpu
 gql
 Graphi
 graphiql
-Gruhier
 groupless
 grup
 gsutil
@@ -417,7 +405,6 @@ iframes
 iife
 Ijkl
 ilike
-illgotten
 impersonatable
 inbox
 includeurl
@@ -428,16 +415,15 @@ informables
 Inici
 iniciar
 initialiser
+Inscriu
 inodes
 inputdialog
 inputname
-Inscriu
 interf
 inviteduser
 isbn
 iseq
 isready
-ivan
 Jaskolski
 Jaume
 javascripts
@@ -476,7 +462,6 @@ Lalalilo
 lastcenter
 lastleft
 latlng
-Layouter
 LCell
 legacysupport
 Lesch
@@ -514,7 +499,6 @@ lsclusters
 lte
 lteq
 LTREE
-Lupu
 lvh
 lvml
 magick
@@ -528,7 +512,6 @@ marydoe
 Massot
 matrixmultiple
 matutes
-maxtimeout
 mcdoggo
 mcell
 medios
@@ -553,7 +536,6 @@ Milhouse
 millor
 Millora
 minicard
-mintimeout
 minuscat
 misogi
 mlat
@@ -597,7 +579,6 @@ NEWCODE
 newsletterable
 newusermanager
 newwindow
-ngrams
 nicknamizable
 nicknamize
 nie
@@ -735,7 +716,6 @@ promotal
 promotors
 proposta
 Propostes
-propozitie
 Propuesta
 prosemirror
 protonmail
@@ -744,7 +724,6 @@ Pujol
 pwa
 QLiterals
 queda
-qux
 railtie
 railties
 randomable
@@ -754,7 +733,6 @@ Raymundo
 rbngzlv
 reallowed
 rebornix
-rebutjada
 recapitated
 reconfirmable
 redcarpet
@@ -787,8 +765,6 @@ routable
 rowchart
 rowdata
 rowi
-RQR
-rqrcode
 rroe
 rsefa
 rsimplecov
@@ -840,8 +816,6 @@ smartbreak
 Smileys
 Snowlvhme
 Snoworg
-softdeleteable
-somecapitalguy
 somedatabase
 Sorbier
 sortings
@@ -894,8 +868,6 @@ tableize
 tagsinput
 tailwindcss
 tarekraafat
-taxonomizable
-taxonomization
 technopolitical
 templatable
 templateable
@@ -935,7 +907,6 @@ traceabilty
 traducido
 Tramuntana
 traslatable
-trashable
 trgm
 trobada
 tsearch
@@ -980,7 +951,6 @@ unresolveable
 unsigning
 unsigns
 unsubscribes
-untrains
 unvotes
 upcomingfoobar
 UPDREF
@@ -999,6 +969,7 @@ Uusimaa
 Valero
 validable
 valids
+valuatable
 valueline
 Valuetypes
 VCALENDAR
@@ -1066,4 +1037,3 @@ Zbd
 zeitwerk
 Zupper
 zzz
-zzzupper

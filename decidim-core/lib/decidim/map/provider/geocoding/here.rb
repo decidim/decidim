@@ -29,7 +29,9 @@ module Decidim
             # Some of the matches that have "resultType" == "street" do not even
             # contain the street name unless they also have the "streets" key in
             # the "scoring" -> "fieldScore" attribute defined.
-            street_result = find_street_with_name(results)
+            street_result = results.find do |r|
+              r.data["scoring"]["fieldScore"].has_key?("streets")
+            end
             return street_result.address if street_result
 
             # Otherwise, sort the results based on their exact distances from
@@ -48,14 +50,6 @@ module Decidim
             end
 
             results.first.address
-          end
-
-          private
-
-          def find_street_with_name(results)
-            results.find do |r|
-              r.data && r.data["scoring"] && r.data["scoring"]["fieldScore"] && r.data["scoring"]["fieldScore"].has_key?("streets")
-            end
           end
         end
       end

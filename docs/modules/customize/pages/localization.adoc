@@ -1,0 +1,31 @@
+= Changing the Date Format
+
+By default, the date format in Decidim follows the *day-month-year (d-m-y)* order. If users wish to customize this format according to their localization preferences, they can do so by modifying the relevant i18n key.
+
+== How to Change the Date Format
+
+The date format is defined in the `decidim-core/config/locales/en.yml` file. The specific key that controls this format is:
+
+[source,yaml]
+----
+help:
+  date_format: 'Format: dd/mm/yyyy'
+order: d-m-y
+----
+
+=== Steps to Customize
+
+1. Open the `decidim-core/config/locales/en.yml` file.
+2. Locate the `help.date_format` and `order` keys.
+3. Modify the format as needed. For example, to switch to a *month-day-year (m-d-y)* format:
+
+[source,yaml]
+----
+help:
+  date_format: 'Format: mm/dd/yyyy'
+order: m-d-y
+----
+
+4. Save the changes to apply the new format.
+
+This ensures that users see date values formatted in a way that aligns with their localization preferences.

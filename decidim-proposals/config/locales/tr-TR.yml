@@ -1,26 +1,31 @@
+---
 tr:
   activemodel:
     attributes:
       collaborative_draft:
         address: Adres
         body: Vücut
+        category_id: Kategori
         decidim_scope_id: kapsam
         has_address: Adresi var
         scope_id: Kapsam
         state: Belirtmek, bildirmek
         title: Başlık
+        user_group_id: Ortak çalışma taslağını oluştur
       proposal:
         address: Adres
         answer: Cevap
         answered_at: Yanıtladı
         automatic_hashtags: Hashtag'ler otomatik olarak eklendi
         body: Vücut
+        category_id: Kategori
         decidim_scope_id: Kapsam
         has_address: Adresi var
         scope_id: Kapsam
         state: Durum
         suggested_hashtags: Önerilen Etiketler
         title: Başlık
+        user_group_id: Teklif oluştur
       proposal_answer:
         answer: Cevap
         cost: Maliyet
@@ -44,6 +49,9 @@ tr:
       proposals_import:
         import_proposals: Teklifleri içe aktar
         keep_authors: Orijinal yazarları sakla
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Bilirkişi adı
     errors:
       models:
         proposal:
@@ -58,6 +66,8 @@ tr:
             title:
               identical: VE gövde aynı olamaz
     models:
+      decidim/proposals/admin/update_proposal_category_event: Teklif kategorisi değişti
+      decidim/proposals/admin/update_proposal_scope_event: Teklif kapsamı değişti
       decidim/proposals/creation_enabled_event: Teklif oluşturma etkin
       decidim/proposals/endorsing_enabled_event: Teklif onayı etkin
       decidim/proposals/proposal_mentioned_event: Bahsi geçen teklif
@@ -78,6 +88,8 @@ tr:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Kategori
           is_emendation_true:
             label: Türü
             values:
@@ -85,6 +97,8 @@ tr:
               'true': Değişiklikler
           proposal_state_id_eq:
             label: Durum
+          scope_id_eq:
+            label: kapsam
           state_eq:
             label: Durum
             values:
@@ -94,12 +108,15 @@ tr:
               rejected: Reddedildi
               validating: Teknik doğrulama
               withdrawn: Geri çekildi
+          valuator_role_ids_has:
+            label: Bilirkişiye atandı
         search_placeholder:
           id_string_or_title_cont: Başlığa vey ID'ye göre %{collection} ara.
     components:
       proposals:
         actions:
           amend: Değiştir
+          create: Oluştur
           endorse: Onayla
           withdraw: Geri çek
         name: Teklifler
@@ -113,6 +130,7 @@ tr:
             collaborative_drafts_enabled: Ortak çalışma taslakları etkin
             comments_enabled: Yorumlar etkin
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
+            geocoding_enabled: Coğrafi kod etkin
             new_proposal_body_template: Yeni teklif gövdesi şablonu
             new_proposal_body_template_help: Yeni Tekliflerin sahip olacağı önceden doldurulmuş metni tanımlayabilirsiniz
             new_proposal_help_text: Yeni teklif yardım metni
@@ -120,11 +138,14 @@ tr:
             participatory_texts_enabled: Katılımcı metinler etkinleştirildi
             participatory_texts_enabled_readonly: Mevcut teklifler varsa bu ayarla etkileşim kurulamaz. Bu özelliği etkinleştirmek istiyorsanız lütfen yeni bir "Teklifler bileşeni" oluşturun veya devre dışı bırakmak istiyorsanız "Katılımcı Metinler" menüsünde içe aktarılan tüm teklifleri iptal edin.
             proposal_answering_enabled: Teklif yanıtlama etkin
+            proposal_edit_before_minutes: Teklifler, bu birkaç dakika geçmeden yazarlar tarafından düzenlenebilir
             proposal_length: Maksimum teklif gövdesi uzunluğu
             proposal_limit: Katılımcı başına teklif sınırı
             proposal_wizard_step_1_help_text: Teklif sihirbazı "Oluştur" adımı yardım metni
             proposal_wizard_step_2_help_text: Teklif "Yayınlama"  sihirbazı  yardım metni
             resources_permissions_enabled: Her teklif için işlem izinleri ayarlanabilir
+            scope_id: Kapsam
+            scopes_enabled: Kapsamlar etkinleştirildi
             threshold_per_proposal: Teklif başına eşik
           step:
             amendment_creation_enabled: Değişiklik oluşturma etkinleştirildi
@@ -151,6 +172,7 @@ tr:
       proposals:
         admin:
           proposal_note_created:
+            email_outro: Bu bildirimi, teklifi değerlendirebileceğiniz için aldınız.
             email_subject: Birisi %{resource_title} teklifine not bıraktı.
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name}, %{resource_title} katkı sağlayıcısı olarak erişim için kabul edildi."
@@ -203,6 +225,14 @@ tr:
             email_outro: Bu bildirimi "%{resource_title}" adresini takip ettiğiniz için aldınız. Önceki bağlantıdan takibi bırakabilirsiniz.
             email_subject: Takip ettiğiniz bir teklifin durumu (%{state}) olarak değiştirilmiştir.
             notification_title: Takip ettiğiniz bir teklifin durumu (%{state}) olarak değiştirimiştir.
+        proposal_update_category:
+          email_intro: 'Bir yönetici "%{resource_title}" teklifinizin kategorisini güncelledi, bu sayfada kontrol edin:'
+          email_subject: '%{resource_title} teklif kategorisi güncellendi'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> teklif kategorisi bir yönetici tarafından güncellendi.
+        proposal_update_scope:
+          email_intro: 'Bir yönetici, "%{resource_title}" teklifinizin kapsamını güncelledi, bu sayfada göz atın:'
+          email_subject: '%{resource_title} teklif kapsamı güncellendi'
+          notification_title: <a href="%{resource_path}">%{resource_title} </a> teklif kapsamı bir yönetici tarafından güncellendi.
         voting_enabled:
           email_outro: Bu bildirimi, %{participatory_space_title} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
     gamification:
@@ -308,6 +338,7 @@ tr:
           form:
             note: Not
             submit: Gönder
+          leave_your_note: Notunu bırak
           title: Özel notlar
         proposal_states:
           create:
@@ -333,12 +364,19 @@ tr:
             title: Teklifi güncelle
             update: Güncelle
           form:
+            attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
             created_in_meeting: Bu teklif bir toplantıdan geliyor
+            select_a_category: Bir kategori seç
             select_a_meeting: Bir toplantı seç
           index:
             actions: Eylemler
+            assign_to_valuator: Bilirkişiye ata
+            assign_to_valuator_button: Ata
             cancel: İptal Et
+            change_category: Kategoriyi değiştir
+            change_scope: Kapsamı değiştir
             merge: Yeni biriyle birleştir
+            merge_button: Birleştir
             publish: Yayınla
             publish_answers: Cevapları yayınla
             select_component: Bir bileşen seç
@@ -347,12 +385,16 @@ tr:
             split_button: Böl
             statuses: Durumlar
             title: Teklifler
+            unassign_from_valuator: Bilirkişinin atamasını kaldır
+            unassign_from_valuator_button: Atamayı kaldır
             update: Güncelle
+            update_scope_button: Kapsamı Güncelle
           new:
             create: Oluştur
             title: Teklif oluştur
           show:
             amendments_count: Değişikliklerin sayısı
+            assigned_valuators: Atanan bilirkişiler
             body: Gövde
             comments_count: Yorum sayısı
             documents: Dokümanlar
@@ -365,6 +407,14 @@ tr:
             ranking: "%{ranking} / %{total}"
             related_meetings: İlgili toplantılar
             remove_assignment: Atamayı kaldır
+            remove_assignment_confirmation: Bilirkişiyi, bu tekliften çıkarmak istediğinizden emin misiniz?
+            valuators: Bilirkişiler
+          update_category:
+            invalid: 'Bu teklifler zaten %{subject_name} kategorisine sahipti: %{proposals}.'
+            success: 'Teklifler, %{subject_name} kategorisine başarıyla güncellendi: %{proposals}.'
+          update_scope:
+            invalid: 'Bu teklifler zaten %{subject_name} kapsamına sahipti: %{proposals}.'
+            success: 'Teklifler, %{subject_name} kapsamına başarıyla güncellendi: %{proposals}.'
         proposals_imports:
           new:
             create: Teklifleri içe aktar
@@ -380,10 +430,14 @@ tr:
       admin_log:
         proposal:
           answer: "%{user_name}, %{space_name} alanında %{resource_name} teklifini yanıtladı"
+          create: "%{user_name}, %{resource_name} teklifini %{space_name} alanında resmi bir teklif olarak oluşturdu"
           publish_answer: "%{user_name}, %{resource_name} teklifinin cevabını %{space_name} alanında yayınladı"
           update: "%{user_name}, %{space_name} alanda %{resource_name} resmi öneriyi güncelledi"
         proposal_note:
           create: "%{user_name}, %{space_name} alanda %{resource_name} teklif üzerinde özel bir not bıraktı"
+        valuation_assignment:
+          create: "%{user_name}, %{resource_name} teklifini bir değerleyiciye atadı"
+          delete: "%{user_name}, %{proposal_title} teklifinden bir değerleyicinin atamasını kaldırdı"
       answers:
         accepted: Kabul Edildi
         evaluating: Değerlendiriliyor
@@ -395,6 +449,7 @@ tr:
           all: Tümü
           meetings: Toplantılar
           official: Resmi
+          user_groups: Gruplar
         filter_state_values:
           all: Tümü
           not_answered: Cevaplanmadı
@@ -421,15 +476,19 @@ tr:
         create:
           success: Ortak taslak başarıyla oluşturuldu.
         edit:
+          attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
           back: Geri
+          select_a_category: Lütfen bir kategori seçin
           send: Gönder
           title: Ortak taslak düzenle
         filters:
           all: Tümü
           amendment: Değişiklikler
+          category: Kategori
           open: Aç
           published: Yayınlandı
           related_to: İle ilgili
+          scope: kapsam
           search: Arama
           state: Statü
           withdrawn: Geri çekildi
@@ -463,6 +522,7 @@ tr:
           rejected_request:
             error: Ortak çalışan olarak reddedilemedi, lütfen daha sonra tekrar deneyin.
         show:
+          edit: Ortak taslak düzenle
           final_proposal: son teklif
           final_proposal_help_text: Bu taslak bitti. Son teklife göz atın
           hidden_authors_count:
@@ -494,14 +554,18 @@ tr:
       models:
         proposal:
           fields:
+            category: Kategori
             comments: Yorumlar
             id: İD
             notes: Notlar
             official_proposal: Resmi teklif
             published_answer: Yayınlanan cevap
             published_at: Yayınlandı
+            scope: kapsam
             state: Durum
             title: Başlık
+            valuator: Bilirkişi
+            valuators: Bilirkişiler
             votes: Oylar
         proposal_state:
           css_class: CSS Sınıfı 
@@ -513,7 +577,9 @@ tr:
           comment: Yorum Yap
       proposals:
         edit:
+          attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
           back: Geri
+          select_a_category: Lütfen bir kategori seçin
           send: Gönder
           title: Teklifi düzenle
         edit_draft:
@@ -526,6 +592,7 @@ tr:
           activity: Aktivitelerim
           all: Tümü
           amendment_type: Tür
+          category: Kategori
           my_proposals: Tekliflerim
           origin: Orijin
           related_to: İle ilgili
@@ -562,6 +629,7 @@ tr:
         show:
           answer: Cevap
           changes_at_title: Değişiklikler "%{title}"
+          edit_proposal: Teklifi düzenle
           estimated_cost: Tahmini maliyet
           hidden_endorsers_count:
             one: ve %{count} kişi daha
@@ -576,13 +644,12 @@ tr:
           proposal_in_evaluation_reason: Bu teklif değerlendiriliyor
           proposal_rejected_reason: 'Bu teklif reddedildi çünkü:'
           withdraw_confirmation_html: Bu teklifi geri çekmek istediğinizden emin misiniz? <br> <br> <strong> Bu eylem iptal edilemez! </strong>
+          withdraw_proposal: Teklifi geri çek
         update:
           title: Teklif güncelleme
         voting_rules:
           proposal_limit:
             description: En fazla %{limit} teklif oluşturabilirsin.
-          vote_limit:
-            description: En fazla %{limit} teklife oy verebilirsiniz.
         wizard_aside:
           back: Geri
           back_from_step_1: Teklifte geri dön

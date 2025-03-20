@@ -9,9 +9,8 @@ module Decidim::Accountability
     let(:result) { create(:result, progress: 10) }
     let(:organization) { result.component.organization }
     let(:user) { create(:user, organization:) }
-    let!(:taxonomizations) do
-      2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: result) }
-    end
+    let(:scope) { create(:scope, organization:) }
+    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:participatory_process) { result.component.participatory_space }
     let(:meeting_component) do
       create(:component, manifest_name: :meetings, participatory_space: participatory_process)
@@ -57,7 +56,8 @@ module Decidim::Accountability
         description: { en: "description" },
         proposal_ids: proposals.map(&:id),
         project_ids: projects.map(&:id),
-        taxonomizations:,
+        scope:,
+        category:,
         start_date:,
         end_date:,
         decidim_accountability_status_id: status.id,
@@ -102,9 +102,14 @@ module Decidim::Accountability
         expect(action_log.version).to be_present
       end
 
-      it "sets the taxonomies" do
+      it "sets the scope" do
         subject.call
-        expect(result.taxonomizations).to eq taxonomizations
+        expect(result.scope).to eq scope
+      end
+
+      it "sets the category" do
+        subject.call
+        expect(result.category).to eq category
       end
 
       it "links proposals" do

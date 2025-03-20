@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hexapdf"
+require "wicked_pdf"
 
 module Decidim
   module Exporters
@@ -10,51 +10,47 @@ module Decidim
     # the desired template, layout and orientation.
     #
     class PDF < Exporter
-      include Decidim::TranslatableAttributes
-      include Decidim::SanitizeHelper
-
       # Public: Exports a PDF version of the collection by rendering
       # the template into html and then converting it to PDF.
       #
       # Returns an ExportData instance.
       def export
-        composer.styles(**styles)
+        html = controller.render_to_string(
+          template:,
+          layout:,
+          locals:
+        )
 
-        add_data!
+        document = WickedPdf.new.pdf_from_string(html, orientation:)
 
-        ExportData.new(composer.write_to_string, "pdf")
+        ExportData.new(document, "pdf")
+      end
+
+      # may be overwritten if needed
+      def orientation
+        "Portrait"
+      end
+
+      # implementing classes should return a valid ERB path here
+      def template
+        raise NotImplementedError
+      end
+
+      # implementing classes should return a valid ERB path here
+      def layout
+        raise NotImplementedError
+      end
+
+      # This method may be overwritten if the template needs more local variables
+      def locals
+        { collection: }
       end
 
       protected
 
-      delegate :document, to: :composer
-      delegate :layout, to: :document
-
-      def font
-        @font ||= load_font("source-sans-pro-v21-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-regular.ttf")
-      end
-
-      def bold_font
-        @bold_font ||= load_font("source-sans-pro-v21-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-700.ttf")
-      end
-
-      def load_font(path)
-        document.fonts.add(Decidim::Core::Engine.root.join("app/packs/fonts/decidim/").join(path))
-      end
-
-      def composer
-        @composer ||= ::HexaPDF::Composer.new(page_size:, page_orientation:)
-      end
-
-      def page_size = :A4
-
-      def page_orientation = :portrait
-
-      def add_data!
+      def controller
         raise NotImplementedError
       end
-
-      def styles = {}
     end
   end
 end

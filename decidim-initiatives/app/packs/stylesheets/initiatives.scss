@@ -3,7 +3,7 @@
 
   &__selection {
     .form-defaults {
-      @apply my-8;
+      @apply my-10;
     }
 
     .card__highlight {
@@ -90,7 +90,7 @@
   }
 
   &__form__committee {
-    @apply flex items-center px-4 py-2 border border-gray outline outline-1 outline-transparent rounded bg-background-2 focus:outline-2 focus:outline-secondary w-full mt-4;
+    @apply flex items-center px-4 py-2 border border-gray outline outline-1 outline-transparent rounded bg-background-2 focus:outline-2 focus:outline-secondary w-full;
 
     span {
       @apply text-black font-normal;
@@ -168,18 +168,4 @@
 
 .edit_initiative .profile__group__list {
   @apply w-full;
-}
-
-.pending-initiatives {
-  @apply bg-background rounded-lg px-4 py-8 mb-12;
-
-  .card__grid {
-    @apply bg-white;
-
-    --tw-ring-color: #ddd;
-
-    &:hover {
-      --tw-ring-color: var(--tertiary);
-    }
-  }
 }

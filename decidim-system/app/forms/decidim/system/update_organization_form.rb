@@ -14,7 +14,7 @@ module Decidim
       private
 
       def validate_organization_name_presence
-        translated_attr = :"name_#{current_organization.try(:default_locale) || Decidim.default_locale.to_s}"
+        translated_attr = "name_#{current_organization.try(:default_locale) || Decidim.default_locale.to_s}".to_sym
         errors.add(translated_attr, :blank) if send(translated_attr).blank?
       end
 

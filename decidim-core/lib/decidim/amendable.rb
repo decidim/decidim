@@ -57,7 +57,7 @@ module Decidim
         when "participants"
           return only_amendables unless user
 
-          where.not(id: joins(:amendable).where.not(decidim_amendments: { decidim_user_id: user.id }))
+          where.not(id: joins(:amendable).where.not("decidim_amendments.decidim_user_id = ?", user.id))
         else # Assume 'all'
           all
         end
@@ -147,16 +147,16 @@ module Decidim
     end
 
     # Handles the logic to assign an author to the resource, be it Authorable or Coauthorable.
-    def add_author(author)
+    def add_author(author, user_group = nil)
       if is_a?(Decidim::Authorable)
         if persisted?
-          update(author:)
+          update(author: user_group || author)
         else
-          self.author = author
+          self.author = user_group || author
         end
       else # Assume is_a?(Decidim::Coauthorable)
         coauthorships.clear
-        add_coauthor(author)
+        add_coauthor(author, user_group:)
       end
     end
 

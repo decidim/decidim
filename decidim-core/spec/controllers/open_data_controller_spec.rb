@@ -7,13 +7,11 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let!(:organization) { create(:organization) }
-    let(:open_data_file_url) do
-      Rails.application.routes.url_helpers.rails_blob_url(organization.open_data_files.first.blob, only_path: true)
-    end
+    let(:open_data_file_path) { Rails.application.routes.url_helpers.rails_blob_url(organization.open_data_file.blob, only_path: true) }
 
     before do
       request.env["decidim.current_organization"] = organization
-      organization.open_data_files.delete_all
+      FileUtils.rm(organization.open_data_file.file.path) if organization.open_data_file.attached?
     end
 
     describe "GET download" do
@@ -26,16 +24,15 @@ module Decidim
         let(:generate_file) { true }
 
         it "redirects to download it" do
-          expect(response.content_type).to eq("application/zip")
-          expect(response).to have_http_status(:ok)
+          expect(controller).to redirect_to(open_data_file_path)
         end
       end
 
       context "when the open data file does not exist" do
         let(:generate_file) { false }
 
-        it "redirects to the open data page" do
-          expect(controller).to redirect_to(open_data_path)
+        it "redirects to the homepage" do
+          expect(controller).to redirect_to(root_path)
         end
 
         it "warns the user" do

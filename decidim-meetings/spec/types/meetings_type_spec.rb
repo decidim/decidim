@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/type_context"
+require "decidim/core/test"
 
 module Decidim
   module Meetings
@@ -34,21 +35,6 @@ module Decidim
             ids = response["meetings"]["edges"].map { |edge| edge["node"]["id"] }
             expect(ids).not_to include(meetings.first.id.to_s)
             expect(ids).to include(meetings.second.id.to_s)
-          end
-        end
-
-        context "when querying meetings with taxonomies" do
-          let(:root_taxonomy) { create(:taxonomy, organization: model.organization) }
-          let(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization: model.organization) }
-          let!(:meetings_with_taxonomy) { create(:meeting, :published, component: model, taxonomies: [taxonomy]) }
-          let(:all_meetings) { meetings + [meetings_with_taxonomy] }
-
-          let(:query) { "{ meetings { edges { node { id, taxonomies { id } } } } }" }
-
-          it "return meetings with and without taxonomies" do
-            ids = response["meetings"]["edges"].map { |edge| edge["node"]["id"] }
-            expect(ids.count).to eq(3)
-            expect(ids).to eq(all_meetings.map(&:id).sort.map(&:to_s))
           end
         end
       end

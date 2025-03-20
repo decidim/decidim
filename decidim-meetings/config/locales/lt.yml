@@ -1,3 +1,4 @@
+---
 lt:
   activemodel:
     attributes:
@@ -95,6 +96,8 @@ lt:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: Kategorija
           closed_at_present:
             label: Būsena
             values:
@@ -105,6 +108,8 @@ lt:
             values:
               'false': Praėję
               'true': Artėjantys
+          scope_id_eq:
+            label: Apimtis
           with_any_origin:
             label: Kilmė
             values:
@@ -141,6 +146,8 @@ lt:
             maps_enabled: Žemėlapiai įjungti
             registration_code_enabled: Registracijos kodas įjungtas
             resources_permissions_enabled: Kiekvienam posėdžiui galima nustatyti leistinus veiksmus
+            scope_id: Apimtis
+            scopes_enabled: Sritys įjungtos
             terms_and_conditions_url_for_meeting_creators: Naudojimo taisyklių ir sąlygų URL susirinkimų kūrėjams
           step:
             announcement: Pranešimas
@@ -214,6 +221,7 @@ lt:
         attachment_collections: Aplankai
         attachments: Priedai
         close: Uždaryti
+        destroy: Ištrinti
         edit: Redaguoti
         invalid_destroy:
           proposals_count:
@@ -292,6 +300,14 @@ lt:
           create:
             invalid: Kuriant šį susirinkimą iškilo problema.
             success: Susirinkimas sėkmingai sukurtas. Jis dar nepublikuotas, tai turite padaryti rankiniu būdu.
+          destroy:
+            invalid:
+              proposals_count:
+                one: Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymas.
+                few: Posėdžio negalima panaikinti, nes su juo susieti %{count} pasiūlymai.
+                many: Posėdžio negalima panaikinti, nes su juo susieti %{count} pasiūlymai.
+                other: Posėdžio negalima panaikinti, nes su juo susieti %{count} pasiūlymai.
+            success: Susirinkimas sėkmingai pašalintas
           edit:
             title: Redaguoti susirinkimą
             update: Atnaujinti
@@ -343,7 +359,6 @@ lt:
           form:
             available_slots_help: Jei nėra ribojimų įrašykite 0.
             invites: Pakvietimai
-            manage_questions: Klausimai
             recommendation_message: Dėl privatumo priežasčių rekomenduojame ištrinti šią įrašo formą, kai jos nebereikės. Pagal numatytuosius parametrus, ji ištrinama praėjus 3 mėnesiams nuo susirinkimo pabaigos.
             registration_email_help: Šis tekstas bus rodomas registracijos patvirtinimo el. laiško viduryje. Iš karto po registracijos kodo.
             registration_form: Registracijos forma
@@ -378,6 +393,8 @@ lt:
         questionnaire:
           update: "%{user_name} atnaujino klausimyną %{meeting_name} susirinkimui"
       application_helper:
+        filter_category_values:
+          all: Visi
         filter_meeting_space_values:
           all: Visi
       calendar_modal:
@@ -483,6 +500,7 @@ lt:
           location_hints_help: 'Vietos užuominos: papildoma informacija. Pavyzdžiui: pastato aukštas, jei tai yra susitikimas gyvai, arba susitikimo slaptažodis, jei tai virtualus susitikimas su ribota prieiga.'
           online_meeting_url_help: 'Nuoroda: leiskite dalyviams tiesiai prisijungti prie susitikimo'
           registration_url_help: 'Nuoroda: leiskite dalyviams prisijungti prie išorinės paslaugos, kurią naudojate registracijai'
+          select_a_category: Pasirinkite kategoriją
           select_a_meeting_type: Pasirinkite susitikimo tipą
           select_a_registration_type: Pasirinkite registracijos tipą
           select_an_iframe_access_level: Pasirinkite iframe prieigos lygį
@@ -493,7 +511,9 @@ lt:
           see_all_withdrawn: Žiūrėti visus atšauktus susitikimus
           text_banner: Jūs žiūrite susitikimų, kuriuos atšaukė jų autoriai, sąrašą. %{go_back_link}.
         meeting:
+          close_meeting: Baigti susirinkimą
           edit_close_meeting: Redaguoti susitikimo ataskaitą
+          edit_meeting: Redaguoti susirinkimą
           join_meeting: Prisijunkite prie susitikimo
         meetings:
           no_meetings_warning: Jūsų paieškos kriterijus atitinkančių susirinkimų nerasta arba neplanuojama.
@@ -530,6 +550,7 @@ lt:
           visit_finished: Peržiūrėti susirinkimą
           withdraw_btn_hint: Galite išimti susirinkimą jei apsigalvojoje. Susirinkimas nebus ištrintas - jis atsidurs išimtų susirinkimų sąraše.
           withdraw_confirmation_html: Ar tikrai norite išimti šį susirinkimą? <br><br><strong>Šio veiksmo atšaukti negalima!</strong>
+          withdraw_meeting: Išimti susirinkimą
         update:
           invalid: Atnaujinant susirinkimą iškilo problema.
           success: Sėkmingai atnaujinote susirinkimą.
@@ -607,6 +628,7 @@ lt:
         transparent: Skaidrus
         withdraw: Atsiimta
       withdraw:
+        error: Išimant susirinkimą įvyko klaida.
         success: Susirinkimas sėkmingai išimtas.
     metrics:
       meetings:

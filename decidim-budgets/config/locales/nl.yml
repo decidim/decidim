@@ -1,13 +1,17 @@
+---
 nl:
   activemodel:
     attributes:
       budget:
+        decidim_scope_id: Scope
         description: Omschrijving
         title: Titel
         total_budget: Totale budget
         weight: Bestelpositie
       project:
         budget_amount: Budget bedrag
+        decidim_category_id: Categorie
+        decidim_scope_id: Scope
         description: Beschrijving
         proposal_ids: Verwante voorstellen
         proposals: Voorstellen
@@ -24,6 +28,10 @@ nl:
     admin:
       filters:
         projects:
+          category_id_eq:
+            label: Categorie
+          scope_id_eq:
+            label: Scope
           selected_at_null:
             label: Geselecteerd
             values:
@@ -33,6 +41,7 @@ nl:
       actions:
         attachment_collections: Mappen
         attachments: Bijlagen
+        destroy: Verwijderen
         edit: Bewerk
         edit_projects: Beheer projecten
         import: Voorstellen importeren in projecten
@@ -66,14 +75,23 @@ nl:
           index:
             actions: Acties
             cancel: Annuleren
+            change_category: Categorie wijzigen
+            change_scope: Scope wijzigen
             finished_orders: Voltooide stemmen
             pending_orders: Afwachtende stemmen
             selected: Geselecteerd
             title: Projecten
             update: Bijwerken
+            update_scope_button: Scope bijwerken
           new:
             create: Creëren
             title: Nieuw project
+          update_category:
+            invalid: 'Deze voorstellen hadden al categorie %{subject_name}: %{projects}.'
+            success: 'Voorstellen succesvol bijgewerkt naar categorie %{subject_name}: %{projects}.'
+          update_scope:
+            invalid: 'Deze voorstellen hadden al scope %{subject_name}: %{projects}.'
+            success: 'Voorstellen succesvol bijgewerkt naar categorie %{subject_name}: %{projects}.'
         proposals_imports:
           new:
             create: Voorstellen importeren in projecten
@@ -119,16 +137,15 @@ nl:
             total_budget: Totale budget
         project:
           fields:
+            category: Categorie
             id: ID
             title: Titel
-      order:
-        status:
-          title: Uw stem is aanvaard
       order_summary_mailer:
         order_summary:
           selected_projects: 'De projecten die je hebt geselecteerd zijn:'
           subject: Je hebt gestemd in %{space_name}
           voted_on_space: Je hebt gestemd op het %{budget_name} budget voor de %{space_name} inspraakruimte.
+          voted_on_space_with_scope: Je hebt gestemd op het %{budget_name} budget voor de %{space_name} inspraakruimte op %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Als je van gedachten verandert, kun je later je stem wijzigen.
@@ -158,6 +175,8 @@ nl:
           message: Je stem is niet geregistreerd omdat je het stemproces nog niet hebt voltooid. Weet je zeker dat je stemmen wil verlaten?
           title: Je hebt nog niet gestemd
         filters:
+          category: Categorie
+          scope: Scope
           search: Zoeken
           status: Status
           status_values:
@@ -202,10 +221,13 @@ nl:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
             comments_max_length: Commentaar maximale lengte (laat 0 voor standaardwaarde)
+            geocoding_enabled: Geocoding ingeschakeld
             landing_page_content: Budgetten landingspagina
             more_information_modal: Meer informatie
             projects_per_page: Projecten per pagina
             resources_permissions_enabled: Actiemachtigingen kunnen voor elk project worden ingesteld
+            scope_id: Scope
+            scopes_enabled: Scopes ingeschakeld
             title: Titel
             total_budget: Totale budget
             vote_minimum_budget_projects_number: Minimumaantal projecten waarvoor moet worden gestemd

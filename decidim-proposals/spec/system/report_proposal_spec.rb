@@ -27,7 +27,6 @@ describe "Report Proposal" do
 
     it "reports the resource" do
       visit reportable_path
-      find("#dropdown-trigger-resource-#{reportable.id}").click
 
       expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
       find(%(button[data-dialog-open="flagModal"])).click
@@ -68,8 +67,8 @@ describe "Report Proposal" do
       include_examples "higher user role does not have hide"
     end
 
-    context "when reporting user is process evaluator" do
-      let!(:user) { create(:process_evaluator, :confirmed, participatory_process:) }
+    context "when reporting user is process valuator" do
+      let!(:user) { create(:process_valuator, :confirmed, participatory_process:) }
 
       include_examples "higher user role reports"
       include_examples "higher user role does not have hide"

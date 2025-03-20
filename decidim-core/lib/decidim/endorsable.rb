@@ -14,10 +14,15 @@ module Decidim
                counter_cache: "endorsements_count"
 
       # Public: Check if the user has endorsed the resource.
+      # - user_group: may be nil if user is not representing any user_group.
       #
       # Returns Boolean.
-      def endorsed_by?(user)
-        endorsements.where(author: user).any?
+      def endorsed_by?(user, user_group = nil)
+        if user_group
+          endorsements.where(user_group:).any?
+        else
+          endorsements.where(author: user, user_group: 0).any?
+        end
       end
     end
   end

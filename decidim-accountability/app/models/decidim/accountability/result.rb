@@ -6,7 +6,6 @@ module Decidim
     # title, description and any other useful information to render a custom result.
     class Result < Accountability::ApplicationRecord
       include Decidim::Resourceable
-      include Decidim::Taxonomizable
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
       include Decidim::HasComponent
@@ -21,7 +20,6 @@ module Decidim
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::FilterableResource
-      include Decidim::SoftDeletable
 
       component_manifest_name "accountability"
 
@@ -47,14 +45,8 @@ module Decidim
         datetime: :start_date
       )
 
-      geocoded_by :address
-
       def self.log_presenter_class_for(_log)
         Decidim::Accountability::AdminLog::ResultPresenter
-      end
-
-      def presenter
-        Decidim::Accountability::ResultPresenter.new(self)
       end
 
       def update_parent_progress
@@ -91,7 +83,7 @@ module Decidim
       end
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_taxonomies]
+        [:with_category, :with_scope]
       end
 
       ransacker :id_string do
@@ -101,20 +93,6 @@ module Decidim
       # Create i18n ransackers for :title and :description.
       # Create the :search_text ransacker alias for searching from both of these.
       ransacker_i18n_multi :search_text, [:title, :description]
-
-      def self.ransackable_attributes(auth_object = nil)
-        base = %w(search_text title description)
-
-        return base unless auth_object&.admin?
-
-        base + %w(id_string created_at id progress)
-      end
-
-      def self.ransackable_associations(auth_object = nil)
-        return [] unless auth_object&.admin?
-
-        %w(taxonomies status)
-      end
 
       private
 

@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -73,6 +74,17 @@ nl:
           unconfirmed: U moet uw e-mail bevestigen om uzelf te autoriseren.
         destroy:
           error: Er is een probleem opgetreden bij het verwijderen van de autorisatie.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Controleer tegen een ander voorbeeld van autorisatieaanduiding
+            csv_census: Controleer aan de hand van de ledenadministratie van de organisatie
+            dummy_authorization_handler: Verifieer met het voorbeeld van de autorisatieaanduiding
+            dummy_authorization_workflow: Controleer aan de hand van het machtigingsworkflow voorbeeld
+            id_documents: Wordt geverifieerd door uw identiteitsdocument te uploaden
+            postal_letter: Wordt geverifieerd door een verificatiecode te ontvangen via de post
+            sms: Wordt geverifieerd door een SMS-verificatiecode te ontvangen
+          title: Verifieer uw identiteit
+          verify_with_these_options: 'Dit zijn de beschikbare opties om uw identiteit te verifiëren:'
         index:
           expired_verification: Verificatie verlopen
           pending_verification: Verificatie in behandeling
@@ -88,6 +100,9 @@ nl:
         start_exploring: begin met verkennen
       csv_census:
         admin:
+          census:
+            create:
+              error: Er is een fout opgetreden bij het importeren van census.
           destroy:
             title: Verwijder alle censusgegevens
           index:
@@ -110,9 +125,11 @@ nl:
           postal_codes:
             one: Deelname is beperkt tot gebruikers met postcode %{postal_codes}.
             other: 'Deelname is beperkt tot gebruikers met een van de volgende postcodes: %{postal_codes}.'
+          scope: Deelname is beperkt tot deelnemers met bereik %{scope_name}.
           user_postal_codes:
             one: Deelname is beperkt tot deelnemers met postcode %{postal_codes}, en jouw postcode is %{user_postal_code}.
             other: 'Deelname is beperkt tot gebruikers met geen van volgende postcodes: %{postal_codes}. Jouw postcode is %{user_postal_code}.'
+          user_scope: Deelname is beperkt tot deelnemers met scope %{scope_name}, en jij hebt %{user_scope_name} als scope.
       id_documents:
         admin:
           config:

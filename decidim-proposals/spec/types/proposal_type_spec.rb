@@ -1,7 +1,18 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/type_context"
+require "decidim/core/test/shared_examples/categorizable_interface_examples"
+require "decidim/core/test/shared_examples/scopable_interface_examples"
+require "decidim/core/test/shared_examples/attachable_interface_examples"
+require "decidim/core/test/shared_examples/authorable_interface_examples"
+require "decidim/core/test/shared_examples/coauthorable_interface_examples"
+require "decidim/core/test/shared_examples/fingerprintable_interface_examples"
+require "decidim/core/test/shared_examples/amendable_interface_examples"
+require "decidim/core/test/shared_examples/amendable_proposals_interface_examples"
+require "decidim/core/test/shared_examples/traceable_interface_examples"
+require "decidim/core/test/shared_examples/timestamps_interface_examples"
+require "decidim/core/test/shared_examples/endorsable_interface_examples"
 
 module Decidim
   module Proposals
@@ -9,9 +20,9 @@ module Decidim
       include_context "with a graphql class type"
       let(:component) { create(:proposal_component) }
       let(:model) { create(:proposal, :with_votes, :with_endorsements, :with_amendments, component:) }
-      let(:organization) { model.organization }
 
-      include_examples "taxonomizable interface"
+      include_examples "categorizable interface"
+      include_examples "scopable interface"
       include_examples "attachable interface"
       include_examples "coauthorable interface"
       include_examples "fingerprintable interface"

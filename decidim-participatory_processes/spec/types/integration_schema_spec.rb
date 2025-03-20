@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/type_context"
 
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql class type"
@@ -9,8 +9,7 @@ describe "Decidim::Api::QueryType" do
 
   let(:locale) { "en" }
 
-  let!(:taxonomy) { create(:taxonomy, :with_parent, :with_children, organization: current_organization) }
-  let(:participatory_process) { create(:participatory_process, organization: current_organization, taxonomies: [taxonomy]) }
+  let(:participatory_process) { create(:participatory_process, organization: current_organization) }
 
   let(:participatory_process_query) do
     %(
@@ -93,7 +92,7 @@ describe "Decidim::Api::QueryType" do
         promoted
         publishedAt
         reference
-        taxonomies {
+        scope {
           children {
             id
           }
@@ -105,6 +104,7 @@ describe "Decidim::Api::QueryType" do
             id
           }
         }
+        scopesEnabled
         shortDescription {
             translation(locale: "#{locale}")
           }
@@ -158,7 +158,7 @@ describe "Decidim::Api::QueryType" do
       "attachments" => [],
       "categories" => [],
       "components" => components,
-      "createdAt" => participatory_process.created_at.to_time.iso8601,
+      "createdAt" => participatory_process.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "description" => { "translation" => participatory_process.description[locale] },
       "developerGroup" => { "translation" => participatory_process.developer_group[locale] },
       "endDate" => participatory_process.end_date.to_s,
@@ -171,9 +171,10 @@ describe "Decidim::Api::QueryType" do
       "participatoryScope" => { "translation" => participatory_process.participatory_scope[locale] },
       "participatoryStructure" => { "translation" => participatory_process.participatory_structure[locale] },
       "promoted" => false,
-      "publishedAt" => participatory_process.published_at.to_time.iso8601,
+      "publishedAt" => participatory_process.published_at.iso8601.to_s.gsub("Z", "+00:00"),
       "reference" => participatory_process.reference,
-      "taxonomies" => [{ "id" => taxonomy.id.to_s, "name" => { "translation" => taxonomy.name[locale] }, "parent" => { "id" => taxonomy.parent_id.to_s }, "children" => taxonomy.children.map { |child| { "id" => child.id.to_s } } }],
+      "scope" => participatory_process.scope,
+      "scopesEnabled" => participatory_process.scopes_enabled,
       "shortDescription" => { "translation" => participatory_process.short_description[locale] },
       "slug" => participatory_process.slug,
       "startDate" => participatory_process.start_date.to_s,
@@ -182,7 +183,7 @@ describe "Decidim::Api::QueryType" do
       "target" => { "translation" => participatory_process.target[locale] },
       "title" => { "translation" => participatory_process.title[locale] },
       "type" => "Decidim::ParticipatoryProcess",
-      "updatedAt" => participatory_process.updated_at.to_time.iso8601
+      "updatedAt" => participatory_process.updated_at.iso8601.to_s.gsub("Z", "+00:00")
     }
   end
   let(:query) do

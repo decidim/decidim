@@ -86,7 +86,6 @@
 /db/migrate/
 /locales/
 ^\Q.erb-lint.yml\E$
-^\Q.erb_lint.yml\E$
 ^\Q.spelling.yml\E$
 ^\Qdecidim-accountability/spec/fixtures/valid_result.csv\E$
 ^\Qdecidim-assemblies/app/packs/src/decidim/assemblies/orgchart.js\E$
@@ -109,8 +108,5 @@
 ^\Qdecidim-meetings/app/views/decidim/meetings/admin/agenda/show.html.erb\E$
 ^\Qdecidim-participatory_processes/app/views/decidim/participatory_processes/participatory_processes/_statistics.html.erb\E$
 ^\Qdecidim-proposals/app/views/decidim/proposals/proposals/_endorsements_card_row.html.erb\E$
-^\Qdecidim-ai/data/blocked_accounts.csv\E$
-^\Qdecidim-ai/data/sms-spam.csv\E$
-^\Qdecidim-ai/data/spam_comments.csv\E$
-^\Qdecidim-ai/spec/support/test.csv\E$
 ignore$
+^\QCHANGELOG.md\E$

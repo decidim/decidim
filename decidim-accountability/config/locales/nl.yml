@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -8,6 +9,8 @@ nl:
         description: Beschrijving
         end_date: Einddatum
         progress: Vooruitgang
+        project_ids: Opgenomen projecten
+        proposals: Inbegrepen voorstellen
         start_date: Startdatum
         title: Titel
         updated_at: Bijgewerkt op
@@ -109,10 +112,12 @@ nl:
       models:
         result:
           fields:
+            category: Categorie
             created_at: Aangemaakt
             end_date: Einddatum
             id: ID
             progress: Vooruitgang
+            scope: Scope
             start_date: Startdatum
             status: Status
             title: Titel
@@ -131,8 +136,12 @@ nl:
           results_count:
             one: 1 resultaat
             other: "%{count} resultaten"
+        filters:
+          all: Alle
         home_header:
           global_status: Globale uitvoeringstatus
+        nav_breadcrumb:
+          global: Globale uitvoering
         search:
           search: Zoek naar acties
         show:
@@ -143,6 +152,10 @@ nl:
     admin:
       filters:
         results:
+          category_id_eq:
+            label: Categorie
+          scope_id_eq:
+            label: Scope
           status_id_eq:
             label: Status
     components:
@@ -156,6 +169,8 @@ nl:
             comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
             display_progress_enabled: Geef de voortgang weer
             intro: Inleiding
+            scope_id: Scope
+            scopes_enabled: Scopes ingeschakeld
           step:
             comments_blocked: Reacties geblokkeerd
     events:

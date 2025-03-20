@@ -1,7 +1,9 @@
+---
 id:
   activemodel:
     attributes:
       project:
+        decidim_category_id: Kategori
         description: Deskripsi
         proposal_ids: Proposal terkait
         title: Judul
@@ -14,6 +16,7 @@ id:
       actions:
         attachment_collections: Folder
         attachments: Lampiran
+        destroy: Menghapus
         edit: Edit
         import: Impor proposal ke proyek
         preview: Pratinjau
@@ -47,9 +50,6 @@ id:
         project:
           fields:
             title: Judul
-      order:
-        status:
-          title: Pilihan Anda telah berhasil diterima
       projects:
         budget_confirm:
           cancel: Membatalkan
@@ -69,6 +69,7 @@ id:
           projects_count:
             other: "%{count} proyek"
         filters:
+          category: Kategori
           search: Pencarian
         show:
           budget: Anggaran

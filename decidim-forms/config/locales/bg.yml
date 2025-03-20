@@ -1,3 +1,4 @@
+---
 bg:
   activemodel:
     attributes:
@@ -22,6 +23,8 @@ bg:
             choices:
               missing: не са завършени
               too_many: Можете да изберете максимум %{count}.
+        questionnaire:
+          request_invalid: Възникна грешка при обработката на заявката. Моля, опитайте отново.
   decidim:
     forms:
       admin:
@@ -32,6 +35,7 @@ bg:
         questionnaires:
           actions:
             back: Назад към въпросите
+            show: Показване на отговорите
           answer_option:
             answer_option: Възможност за отговор
             free_text: Свободен текст
@@ -172,6 +176,7 @@ bg:
           tos_agreement: С участието си приемате Условията на ползване
       step_navigation:
         show:
+          are_you_sure: Това действие не може да се отмени и Вие не можете да редактирате отговорите си. Сигурни ли сте?
           back: Назад
           continue: Продължи
           submit: Изпрати

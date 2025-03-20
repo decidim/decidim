@@ -1,3 +1,4 @@
+---
 es-PY:
   activemodel:
     attributes:
@@ -89,9 +90,9 @@ es-PY:
             label: Estado
             values:
               accepted: Con las firmas necesarias
-              created: Borrador creado
+              created: Creada
               discarded: Descartada
-              open: Abierta
+              published: Publicada
               rejected: No ha conseguido las firmas necesarias
               validating: Validación técnica
           type_id_eq:
@@ -100,7 +101,7 @@ es-PY:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Buscar %{collection} por título, descripción, ID o autoría.
       initiatives_settings:
         update:
-          error: Se produjo un problema al actualizar la configuración de las iniciativas.
+          error: Se ha producido un error.
           success: La configuración de las iniciativas se ha actualizado correctamente.
       menu:
         attachments: Adjuntos
@@ -136,30 +137,22 @@ es-PY:
           name: Tipo de iniciativa
         initiatives_votes:
           fields:
-            date_and_time: Fecha y hora
             date_of_birth: Fecha de nacimiento
             document_number: Número del Documento
             hash: Picadillo
             initiative_end_date: Fecha final
             initiative_id: ID de la iniciativa
-            initiative_scope: Ámbito
             initiative_signatures_count: Número de firmas
             initiative_start_date: Fecha de inicio
             initiative_title: Título de la iniciativa
             name_and_surname: Nombre y apellido
-            nickname: Alias
             postal_code: código postal
-            signature_count: Recuento de firmas
+            scope: Alcance
+            time_and_date: Hora y fecha
             timestamp: Marca de tiempo
-      taxonomy_filters:
-        space_filter_for:
-          initiatives: Todas las iniciativas
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de Iniciativa
-    download_your_data:
-      show:
-        initiatives: Exportar las iniciativas
     events:
       initiatives:
         admin:
@@ -283,7 +276,7 @@ es-PY:
           unpublish:
             success: La iniciativa se ha despublicado correctamente.
           update:
-            error: Se ha producido un error al actualizar la iniciativa.
+            error: Se ha producido un error.
             success: La iniciativa se ha actualizado correctamente.
         initiatives_settings:
           edit:
@@ -297,7 +290,7 @@ es-PY:
             title: Configuración de iniciativas
         initiatives_type_scopes:
           create:
-            error: Se ha producido un error al crear un nuevo ámbito para la iniciativa seleccionada.
+            error: Se ha producido un error.
             success: Se ha creado un nuevo ámbito para el tipo de iniciativa dado.
           destroy:
             success: El ámbito ha sido eliminado con éxito.
@@ -308,11 +301,11 @@ es-PY:
             create: Crear
             title: Crear alcance del tipo de iniciativa
           update:
-            error: Se ha producido un error al actualizar el ámbito.
+            error: Se ha producido un error.
             success: El ámbito ha sido actualizado con éxito.
         initiatives_types:
           create:
-            error: Se ha producido un error al crear el tipo de iniciativa.
+            error: Se ha producido un error.
             success: Un nuevo tipo de iniciativa ha sido creado con éxito. Necesitas definir al menos un ámbito para este tipo de iniciativa para que se pueda utilizar.
           destroy:
             success: El tipo de iniciativa se ha eliminado correctamente.
@@ -329,7 +322,7 @@ es-PY:
             create: Crear
             title: Nuevo tipo de iniciativa
           update:
-            error: Se ha producido un error al actualizar el tipo de iniciativa.
+            error: Se ha producido un error.
             success: El tipo de iniciativa se ha actualizado correctamente.
       admin_log:
         initiative:
@@ -345,9 +338,9 @@ es-PY:
           update: "%{user_name} ha actualizado el tipo de iniciativa %{resource_name}"
       admin_states:
         accepted: Ha conseguido las firmas
-        created: Borrador creado
+        created: Creado
         discarded: Descartado
-        open: Abierta
+        published: Publicado
         rejected: No ha conseguido las firmas necesarias
         validating: Validación técnica
       application_helper:
@@ -374,55 +367,40 @@ es-PY:
         highlighted_initiatives:
           name: Iniciativas destacadas
       create_initiative:
-        committee_member:
-          approve: Aprobar
-          confirm_approve: '¿Seguro que quieres aprobar a este miembro?'
-          confirm_revoke: '¿Seguro que quieres revocar este miembro?'
-          revoke: Revocar
         fill_data:
-          confirm_discard: '¿Seguro que quieres descartar esta iniciativa?'
+          back: Volver
           continue: Continuar
-          discard: Descartar la iniciativa
           fill_data_help: "<ul> <li>Revisa el contenido de tu iniciativa. ¿Tu título es fácil de entender? ¿Está claro el objetivo de tu iniciativa?</li> <li>Tienes que elegir el tipo de firma. En persona, en línea o una combinación de ambos</li> <li>¿Cuál es el alcance geográfico de la iniciativa?</li> </ul>"
-          more_information: Más información
+          more_information: "(Más información)"
           select_area: Selecciona una área
           select_scope: Seleccione un alcance
         finish:
           back: Volver
-          callout_text_created: '¡Enhorabuena! Tu iniciativa se ha creado correctamente.'
-          callout_text_validating: La iniciativa se ha enviado correctamente a validación técnica.
-          go_to_initiatives: Ir a iniciativas
-          publish_helper_text_html: Recuerda que para que tu iniciativa sea publicada esta debe ser enviada a validación técnica para su revisión por una administradora.
+          back_to_initiatives: Volver a iniciativas
+          callout_text: '¡Enhorabuena! Tu iniciativa se ha creado correctamente.'
+          confirm: Vas a enviar la iniciativa para que una administradora la revise y publique. Una vez publicada no podrás editarla. ¿Estás segura?
+          edit_my_initiative: Editar mi iniciativa
+          go_to_my_initiatives: Ir a mis iniciativas
+          more_information: "(Más información)"
+          send_my_initiative: Enviar mi iniciativa a validación técnica
+        finish_help:
+          publish_helper_text: Recuerda que para que tu iniciativa sea publicada debes completar la información requerida y <strong>enviarla a validación técnica</strong> para que una administradora la revise.
         previous_form:
           back: Volver
+          continue: Continuar
         promotal_committee:
-          individual_help_text: Tu iniciativa ha sido creada y guardado como borrador. Ahora necesitas añadir gente al Comisión Promotora.
-          invite_link_title: Enlace para invitar a gente a formar parte de la Comisión Promotora
-          promoters_committee_help_2: Recuerda que para poder publicar tu iniciativa debes completar la información requerida y enviarla a validación técnica para que sea revisada por una administradora.
-          promoters_committee_help_html: Antes de enviar tu iniciativa de validación técnica, necesitas añadir a la Comisión Promotora a %{committee_members_left} personas más. Actualmente hay <strong>%{committee_members_count}/%{committee_size}</strong> en la comisión.
-          promoters_committee_title: Comisión Promotora
-        return_to_initiatives_button:
-          return_initiatives_html: Omitir por ahora y <a href="%{initiatives_path}">volver a las iniciativas</a>
+          individual_help_text: Este tipo de iniciativa ciudadana requiere un comité promotor compuesto por al menos %{committee_size} miembros (certificadores). Debes compartir el siguiente enlace con las demás personas que forman parte de esta iniciativa. Cuando tus contactos reciban este enlace, tendrán que seguir los pasos que se les indiquen.
+          more_information: "(Más información)"
         select_initiative_type:
           back: Volver
           choose_html: Quiero crear un <strong>%{title}</strong>
-          consult_existing_initiatives: Consultar iniciativas existentes
-          continue: Continuar
           more_information: (Más información)
           new: Crea una nueva iniciativa
           select: Quiero promover esta iniciativa.
-          select_initiative_type_help_html: "<p>Las iniciativas ciudadanas son un medio a través del cual las participantes pueden solicitar que la organización, dentro de sus competencias, adopte medidas en defensa del interés general. ¿Qué iniciativa quieres poner en marcha?</p>"
-          show_less: Mostrar menos
-          show_more: Mostrar más
-          subtitle: '¿Qué tipo de iniciativa quieres promover?'
+          select_initiative_type_help: Las iniciativas son un medio por el que las participantes pueden intervenir para que la organización emprenda acciones en defensa del interés general. ¿Qué iniciativa quieres lanzar?
           verification_required: Verifica tu cuenta para impulsar la iniciativa
-        send_to_technical_validation_button:
-          button: Enviar a validación técnica
-          confirm: Vas a enviar la iniciativa para que una administradora la revise y publique si procede. Una vez publicada no podrás editarla. ¿Estás segura?
         share_committee_link:
-          invite_to_committee_help: Enlace para invitar a otras personas para que formen parte de la Comisión Promotora.
-          invite_to_committee_help_2: Este tipo de iniciativa ciudadana requiere una Comisión Promotora formada por al menos %{committee_size} personas. Comparte el siguiente enlace con otras personas para que formen parte de la comisión. Cuando estas personas reciban este enlace, tendrán que seguir los pasos indicados.
-          more_information: Más información
+          invite_to_committee_help: Enlace para invitar a personas que formarán parte del Comisión Promotora.
       edit:
         accept: Aceptar la iniciativa
         back: Volver
@@ -460,10 +438,10 @@ es-PY:
           email_subject: "%{applicant_nickname} quiere unirse a tu iniciativa"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha solicitado unirse al comité promotor de tu iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceptar o rechazar la solicitud haz clic <a href="%{resource_url}/edit">aquí</a>.
       form:
-        add_attachments: Agregar archivo(s) adjunto(s)
+        add_documents: Añadir documentos
         add_image: Añadir imagen
-        attachment_legend: Añadir un documento o una imagen
-        edit_attachments: Editar los archivos adjuntos
+        attachment_legend: "(Opcional) Añadir un archivo adjunto"
+        edit_documents: Editar documentos
         edit_image: Editar imagen
         image_legend: "(Opcional) Añadir una imágen"
       index:
@@ -534,8 +512,6 @@ es-PY:
           random: Aleatorio
           recent: Más reciente
           recently_published: Publicada más recientemente
-        pending_initiatives:
-          title: Borradores e iniciativas pendientes
         print:
           address: Dirección
           author_title: Autora de la iniciativa
@@ -554,7 +530,9 @@ es-PY:
           phone_number: Número de teléfono
           place_date: Lugar, fecha
           postal_code: Código postal
+          print: Impresión
           province: Provincia
+          section: 'Si lo solicita la organización, por favor imprime y rellena este formulario para enviar donde se indique:'
           signature: Firma
         result:
           answer_title: Se ha respondido a esta iniciativa.
@@ -576,6 +554,7 @@ es-PY:
           other: " firmas"
         vote_cabin:
           already_voted: Ha sido firmado
+          verification_required: Verifica tu cuenta para firmar la iniciativa.
           vote: Firmar
           votes_blocked: Firma desactivada
         votes_count:
@@ -608,9 +587,9 @@ es-PY:
       show:
         badge_name:
           accepted: Con las firmas necesarias
-          created: Borrador creado
+          created: Creada
           discarded: Descartada
-          open: Abiertas
+          published: Publicada
           rejected: No ha conseguido las firmas
           validating: Validación técnica
       states:
@@ -618,54 +597,25 @@ es-PY:
         expired: Caducado
       unavailable_scope: Alcance no disponible
       update:
-        error: Se ha producido un error al actualizar la iniciativa.
+        error: Se ha producido un error.
         success: La iniciativa se ha actualizado correctamente.
     menu:
       initiatives: Iniciativas
-    open_data:
-      help:
-        initiatives:
-          answer: La respuesta que ha recibido esta iniciativa (si la hay)
-          answer_url: La URL de la respuesta (si la hay)
-          answered_at: La fecha de la respuesta (si existe)
-          area: El área de esta iniciativa
-          authors: Las autoras de esta iniciativa
-          comments_count: El número de comentarios que tiene esta iniciativa
-          created_at: La fecha en la que se creó esta iniciativa
-          description: La descripción de la iniciativa
-          first_progress_notification_at: La fecha en la que se envió la primera notificación de progreso
-          follows_count: El número de usuarias que siguen esta iniciativa
-          hashtag: La etiqueta que utiliza la iniciativa en Twitter/X
-          offline_votes: El número de firmas que esta iniciativa recogió presencialmente (en papel)
-          online_votes: El número de firmas digitales que recogió esta iniciativa (directamente a través de la plataforma)
-          published_at: La fecha en la que se publicó esta iniciativa
-          reference: La referencia única de la iniciativa
-          scope: El ámbito territorial de la iniciativa
-          second_progress_notification_at: La fecha en la que se envió la segunda notificación de progreso
-          signature_end_date: La fecha en la que terminó el período de recogida de firmas
-          signature_start_date: La fecha en la que se inició el período de recogida de firmas
-          signature_type: El tipo de recogida de firmas (presencial, digital o mixta)
-          signatures: El número de firmas que recogió esta iniciativa
-          state: El estado en que se encuentra esta iniciativa en este momento
-          title: El título de la iniciativa
-          type: El tipo de iniciativa
-          updated_at: La fecha de la última actualización de esta iniciativa
-          url: La URL de la iniciativa
     resources:
       initiative:
         actions:
           comment: Comentar
       initiatives_type:
         actions:
-          create: Crear una iniciativa
+          create: Crear
           title: Comportamiento
           vote: Votar
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Crear
-        finish: Validación técnica
-        promotal_committee: Buscar promotoras
+        finish: Terminar
+        promotal_committee: Comisión Promotora.
         select_initiative_type: Escoger
       initiative_signature_creation_header:
         fill_personal_data: Completa tus datos

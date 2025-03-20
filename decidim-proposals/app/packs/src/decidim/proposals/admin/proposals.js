@@ -5,11 +5,6 @@
 import TomSelect from "tom-select/dist/cjs/tom-select.popular";
 
 $(() => {
-  let isMergeProposalsClicked = false;
-  $('button[data-action="merge-proposals"]').on("click", function() {
-    isMergeProposalsClicked = true;
-  });
-
   const selectedProposalsCount = function() {
     return $(".table-list .js-check-all-proposal:checked").length
   }
@@ -18,20 +13,13 @@ $(() => {
     return $(".table-list [data-published-state=false] .js-check-all-proposal:checked").length
   }
 
-  const selectedProposalsAllowsAnswerCount = function() {
-    return $(".table-list [data-allow-answer=true] .js-check-all-proposal:checked").length
-  }
-
   const selectedProposalsCountUpdate = function() {
     const selectedProposals = selectedProposalsCount();
     const selectedProposalsNotPublishedAnswer = selectedProposalsNotPublishedAnswerCount();
-    const allowAnswerProposals = selectedProposalsAllowsAnswerCount();
-
     if (selectedProposals === 0) {
       $("#js-selected-proposals-count").text("")
-      $("#js-assign-proposals-to-evaluator-actions").addClass("hide");
-      $("#js-unassign-proposals-from-evaluator-actions").addClass("hide");
-      $("#js-taxonomy-change-proposals-actions").addClass("hide");
+      $("#js-assign-proposals-to-valuator-actions").addClass("hide");
+      $("#js-unassign-proposals-from-valuator-actions").addClass("hide");
     } else {
       $("#js-selected-proposals-count").text(selectedProposals);
     }
@@ -47,13 +35,6 @@ $(() => {
       $("#js-form-publish-answers-number").text(selectedProposalsNotPublishedAnswer);
     } else {
       $('button[data-action="publish-answers"]').parent().hide();
-    }
-
-    if (allowAnswerProposals > 0) {
-      $('button[data-action="apply-answer-template"]').parent().show();
-      $("#js-form-apply-answer-template-number").text(allowAnswerProposals);
-    } else {
-      $('button[data-action="apply-answer-template"]').parent().hide();
     }
   }
 
@@ -77,16 +58,10 @@ $(() => {
   }
 
   const showOtherActionsButtons = function() {
-    if (isMergeProposalsClicked) {
-      return;
-    }
     $("#js-other-actions-wrapper").removeClass("hide");
   }
 
   const hideOtherActionsButtons = function() {
-    if (isMergeProposalsClicked) {
-      return;
-    }
     $("#js-other-actions-wrapper").addClass("hide");
   }
 
@@ -115,9 +90,8 @@ $(() => {
 
       let action = $(e.target).data("action");
       const panelActions = [
-        "assign-proposals-to-evaluator",
-        "unassign-proposals-from-evaluator",
-        "taxonomy-change-proposals"
+        "assign-proposals-to-valuator",
+        "unassign-proposals-from-valuator"
       ];
 
       if (!action) {
@@ -136,7 +110,7 @@ $(() => {
         });
 
         $(`#js-${action}-actions`).removeClass("hide");
-        hideBulkActionsButton(!isMergeProposalsClicked);
+        hideBulkActionsButton(true);
         hideOtherActionsButtons();
       }
     });
@@ -196,11 +170,11 @@ $(() => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const evaluatorMultiselectContainers = document.querySelectorAll(
-    ".js-evaluator-multiselect"
+  const valuatorMultiselectContainers = document.querySelectorAll(
+    ".js-valuator-multiselect"
   );
 
-  evaluatorMultiselectContainers.forEach((container) => {
+  valuatorMultiselectContainers.forEach((container) => {
     const config = {
       plugins: ["remove_button", "dropdown_input"],
       allowEmptyOption: true

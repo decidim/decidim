@@ -20,7 +20,7 @@ module Decidim
           double(
             target_items:,
             seed:,
-            taxonomies: [],
+            category: nil,
             request_timestamp: Time.now.utc,
             decidim_proposals_component: proposal_component
           )

@@ -59,9 +59,6 @@ module Decidim
         end
 
         describe "when the form is valid" do
-          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.initiatives.update_initiative:before"
-          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.initiatives.update_initiative:after"
-
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end
@@ -113,6 +110,7 @@ module Decidim
                 description: "A reasonable initiative description",
                 type_id: initiative_type.id,
                 signature_type: "online",
+                decidim_user_group_id: nil,
                 area_id: area.id
               }
             end

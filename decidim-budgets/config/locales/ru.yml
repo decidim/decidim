@@ -1,7 +1,9 @@
+---
 ru:
   activemodel:
     attributes:
       project:
+        decidim_category_id: Категория
         description: Описание
         proposal_ids: Подобные предложения
         title: Название
@@ -17,6 +19,7 @@ ru:
       actions:
         attachment_collections: Папки
         attachments: Прикрепленные файлы
+        destroy: Удалить
         edit: Редактировать
         import: Внести в проекты позаимствованные предложения
         preview: Предпросмотр
@@ -50,9 +53,6 @@ ru:
         project:
           fields:
             title: Название
-      order:
-        status:
-          title: Ваш голос был успешно принят
       projects:
         budget_confirm:
           cancel: Отменить
@@ -75,6 +75,7 @@ ru:
             many: "%{count} проектов"
             other: "%{count} проектов"
         filters:
+          category: Категория
           search: Поиск
         project_budget_button:
           add: Добавить

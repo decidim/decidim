@@ -13,7 +13,6 @@ module Decidim
     autoload :Model, "decidim/attributes/model"
     autoload :Symbol, "decidim/attributes/symbol"
     autoload :Integer, "decidim/attributes/integer"
-    autoload :IntegerWithUnits, "decidim/attributes/integer_with_units"
 
     # Base types
     ActiveModel::Type.register(:array, Decidim::Attributes::Array)
@@ -31,7 +30,6 @@ module Decidim
     ActiveModel::Type.register(:"decidim/attributes/clean_string", Decidim::Attributes::CleanString)
     ActiveModel::Type.register(:"decidim/attributes/rich_text", Decidim::Attributes::RichText)
     ActiveModel::Type.register(:"decidim/attributes/blob", Decidim::Attributes::Blob)
-    ActiveModel::Type.register(:"decidim/attributes/integer_with_units", Decidim::Attributes::IntegerWithUnits)
 
     ActiveModel::Type.register(:integer, Decidim::Attributes::Integer)
   end

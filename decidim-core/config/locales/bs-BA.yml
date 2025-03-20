@@ -1,3 +1,4 @@
+---
 bs:
   activerecord:
     models:
@@ -26,6 +27,10 @@ bs:
         welcome_text: Tekst dobrodošlice
       stats:
         name: Statistika organizacije
+    endorsements:
+      identities:
+        done: Gotovo
+        select_identity: Izaberite identitet
     events:
       resource_endorsed:
         email_intro: '%{endorser_name}%{endorser_nickname}, koga pratite, je podržao %{resource_title} i mislimo da bi vas to možda interesovalo. Pogledajte i doprinesite:'
@@ -79,7 +84,7 @@ bs:
     messages:
       invalid_time_zone: nije validna vremenska zona
   locale:
-    name: Bosanski
+    name: Srpski
   time:
     formats:
       long_dashed: "%d-%m-%Y %H:%M:%S"

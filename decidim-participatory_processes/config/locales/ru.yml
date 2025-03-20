@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -20,6 +21,8 @@ ru:
         promoted: Рекомендуется
         published_at: 'Обнародовано:'
         related_process_ids: Подобные движения
+        scope_id: Охват
+        scopes_enabled: Охваты включены
         short_description: Краткое описание
         slug: Сокращенный веб-адрес
         start_date: Дата начала
@@ -35,6 +38,8 @@ ru:
         end_date: Дата окончания
         short_description: Краткое описание
         start_date: Дата начала
+        title: Название
+      participatory_process_type:
         title: Название
       participatory_process_user_role:
         email: Эл. адрес
@@ -84,8 +89,10 @@ ru:
           attachment_collections: Папки
           attachment_files: Прикрепленные файлы
           attachments: Прикрепленные файлы
+          categories: Категории
           components: Составляющие
           moderations: Действия по модерации
+          private_users: Частные участники
           process_admins: Участники движения
           steps: Шаги
       models:
@@ -104,6 +111,10 @@ ru:
             start_date: Дата начала
             title: Название
           name: Шаг движения соучастия
+        participatory_process_type:
+          fields:
+            created_at: 'Создано:'
+            title: Название
         participatory_process_user_role:
           fields:
             email: Эл. адрес
@@ -166,6 +177,11 @@ ru:
         update:
           error: При попытке обновить этот шаг движения соучастия произошла ошибка.
           success: Шаг движения соучастия успешно обновлен.
+      participatory_process_types:
+        edit:
+          update: Обновить
+        new:
+          create: Создать
       participatory_process_user_roles:
         create:
           error: При попытке добавить участника в это движение соучастия произошла ошибка.

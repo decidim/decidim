@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/type_context"
+
+require "decidim/core/test/shared_examples/attachable_interface_examples"
 
 module Decidim
   module Conferences
@@ -11,11 +13,9 @@ module Decidim
       let(:model) { create(:conference) }
       let!(:published_speaker) { create(:conference_speaker, :published, conference: model) }
       let!(:unpublished_speaker) { create(:conference_speaker, conference: model) }
-      let(:organization) { model.organization }
 
       include_examples "attachable interface"
       include_examples "categories container interface"
-      include_examples "taxonomizable interface"
 
       describe "id" do
         let(:query) { "{ id }" }

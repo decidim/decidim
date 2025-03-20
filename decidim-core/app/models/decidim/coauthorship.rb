@@ -9,7 +9,7 @@ module Decidim
     after_commit :author_is_follower, on: [:create]
 
     def identity
-      author
+      user_group || author
     end
 
     # Reports the mapped resource type for authorization transfers.

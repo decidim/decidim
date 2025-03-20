@@ -6,12 +6,9 @@ module Decidim::Meetings
   describe Admin::CopyMeeting do
     subject { described_class.new(form, meeting) }
 
-    let(:organization) { create(:organization) }
-    let(:participatory_space) { create(:participatory_process, organization:) }
-    let(:component) { create(:meeting_component, participatory_space:) }
-    let!(:meeting) { create(:meeting, component:, taxonomies: [taxonomy]) }
+    let!(:meeting) { create(:meeting) }
 
-    let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+    let(:current_user) { create(:user, :admin, :confirmed, organization: meeting.organization) }
     let(:address) { "address" }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
@@ -25,7 +22,6 @@ module Decidim::Meetings
     let(:services_to_persist) do
       services.map { |service| Admin::MeetingServiceForm.from_params(service.attributes) }
     end
-    let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
 
     let(:form) do
       double(
@@ -39,13 +35,14 @@ module Decidim::Meetings
         address:,
         latitude:,
         longitude:,
-        taxonomies: meeting.taxonomies,
+        scope: meeting.scope,
+        category: meeting.category,
         services_to_persist:,
         current_user:,
         questionnaire: Decidim::Forms::Questionnaire.new,
         private_meeting: meeting.private_meeting,
         transparent: meeting.transparent,
-        current_organization: organization,
+        current_organization: current_user.organization,
         current_component: meeting.component,
         online_meeting_url: meeting.online_meeting_url,
         iframe_embed_type: meeting.iframe_embed_type,
@@ -76,7 +73,8 @@ module Decidim::Meetings
 
         expect(new_meeting.title["en"]).to eq("title")
         expect(new_meeting.description["en"]).to eq("description")
-        expect(new_meeting.taxonomies).to eq(old_meeting.taxonomies)
+        expect(new_meeting.scope).to eq(old_meeting.scope)
+        expect(new_meeting.category).to eq(old_meeting.category)
         expect(new_meeting.component).to eq(old_meeting.component)
         expect(new_meeting.component).not_to eq(be_published)
 
@@ -92,7 +90,7 @@ module Decidim::Meetings
 
       context "and saves the correct meeting type" do
         context "with in_person meeting type" do
-          let!(:meeting) { create(:meeting, :in_person, component:) }
+          let!(:meeting) { create(:meeting, :in_person) }
 
           it "duplicates an in_person meeting" do
             expect { subject.call }.to change(Meeting, :count).by(1)
@@ -102,7 +100,7 @@ module Decidim::Meetings
         end
 
         context "with online meeting type" do
-          let!(:meeting) { create(:meeting, :online, component:) }
+          let!(:meeting) { create(:meeting, :online) }
 
           it "duplicates an online meeting" do
             expect { subject.call }.to change(Meeting, :count).by(1)
@@ -113,7 +111,7 @@ module Decidim::Meetings
         end
 
         context "with hybrid meeting type" do
-          let!(:meeting) { create(:meeting, :hybrid, component:) }
+          let!(:meeting) { create(:meeting, :hybrid) }
 
           it "duplicates a hybrid meeting" do
             expect { subject.call }.to change(Meeting, :count).by(1)

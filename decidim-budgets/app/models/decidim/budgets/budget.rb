@@ -4,7 +4,6 @@ module Decidim
   module Budgets
     # The data store for a budget in the Decidim::Budgets component.
     class Budget < ApplicationRecord
-      include Decidim::Taxonomizable
       include Decidim::Resourceable
       include Decidim::ScopableResource
       include Decidim::HasComponent
@@ -12,7 +11,6 @@ module Decidim
       include Decidim::Randomable
       include Traceable
       include Loggable
-      include Decidim::SoftDeletable
 
       component_manifest_name "budgets"
 

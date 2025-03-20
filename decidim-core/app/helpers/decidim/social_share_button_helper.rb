@@ -6,7 +6,9 @@ module Decidim
     def social_share_button_tag(title, args)
       return unless enabled_services.length.positive?
 
-      render_social_share_buttons(enabled_services, title, args)
+      content_tag :div, class: "share-modal__list", data: { social_share: "" } do
+        render_social_share_buttons(enabled_services, title, args)
+      end
     end
 
     def render_social_share_buttons(services, title, args)
@@ -19,21 +21,18 @@ module Decidim
       uri = service.formatted_share_uri(title, args)
       return unless uri
 
-      data = service.optional_args.reverse_merge(
-        "site" => service.name.downcase,
-        "external-link" => "text-only",
-        "external-domain-link" => false
-      )
-
       link_to(
         uri,
         rel: "nofollow noopener noreferrer",
         target: "_blank",
-        data:,
+        data: {
+          "site" => service.name.downcase,
+          "external-link" => "text-only",
+          "external-domain-link" => false
+        },
         title: t("decidim.shared.share_modal.share_to", service: service.name)
       ) do
-        content_tag(:span, render_social_share_icon(service), class: "icon") +
-          content_tag(:span, service.name, class: "text")
+        render_social_share_icon(service) + content_tag(:span, service.name)
       end
     end
 
@@ -41,7 +40,7 @@ module Decidim
       if service.icon.include? ".svg"
         image_tag service.icon_path, options.merge(alt: t("decidim.shared.share_modal.share_to", service: service.name))
       else
-        icon(service.icon, options.merge(ignore_missing: true))
+        icon(service.icon, options.merge(ignore_missing: true, style: "color: #{service.icon_color};"))
       end
     end
 

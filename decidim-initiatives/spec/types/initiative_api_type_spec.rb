@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/type_context"
 
 module Decidim
   module Initiatives
@@ -124,8 +124,7 @@ module Decidim
         end
 
         context "when there are initiatives" do
-          let(:scoped_type) { create(:initiatives_type_scope, type: model) }
-          let!(:initiatives) { create_list(:initiative, 5, scoped_type:, organization: model.organization) }
+          let(:initiatives) { create_list(:initiative, initiatives_type: model, organization: :current_organization) }
 
           it "returns the initiatives" do
             ids = response["initiatives"].map { |item| item["id"] }

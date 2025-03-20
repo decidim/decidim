@@ -1,13 +1,17 @@
+---
 el:
   activemodel:
     attributes:
       budget:
+        decidim_scope_id: Πεδίο εφαρμογής
         description: Περιγραφή
         title: Τίτλος
         total_budget: Συνολικός προϋπολογισμός
         weight: Θέση κατάταξης
       project:
         budget_amount: Ποσό προϋπολογισμού
+        decidim_category_id: Κατηγορία
+        decidim_scope_id: Πεδίο εφαρμογής
         description: Περιγραφή
         proposal_ids: Σχετικές προτάσεις
         proposals: Προτάσεις
@@ -24,6 +28,10 @@ el:
     admin:
       filters:
         projects:
+          category_id_eq:
+            label: Κατηγορία
+          scope_id_eq:
+            label: Πεδίο εφαρμογής
           selected_at_null:
             label: Επιλέχθηκε
             values:
@@ -33,6 +41,7 @@ el:
       actions:
         attachment_collections: Φάκελοι
         attachments: Συνημμένα
+        destroy: Διαγραφή
         edit: Επεξεργασία
         edit_projects: Διαχείριση έργων
         import: Εισαγωγή προτάσεων σε έργα
@@ -44,6 +53,9 @@ el:
           create:
             invalid: Υπήρξε ένα πρόβλημα στη δημιουργία αυτού του προϋπολογισμού.
             success: Ο προϋπολογισμός δημιουργήθηκε επιτυχώς.
+          destroy:
+            invalid: Υπήρξε πρόβλημα με τη διαγραφή αυτού του προϋπολογισμού.
+            success: Ο προϋπολογισμός διαγράφηκε επιτυχώς.
           edit:
             title: Επεξεργασία προϋπολογισμού
             update: Ενημέρωση προϋπολογισμού
@@ -70,12 +82,16 @@ el:
           create:
             invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτού του έργου.
             success: Το έργο δημιουργήθηκε επιτυχώς.
+          destroy:
+            success: Το έργο διαγράφηκε επιτυχώς.
           edit:
             title: Επεξεργασία έργου
             update: Ενημέρωση
           index:
             actions: Ενέργειες
             cancel: Ακύρωση
+            change_category: Αλλαγή κατηγορίας
+            change_scope: Αλλαγή πεδίου εφαρμογής
             change_selected: Αλλαγή επιλεγμένης κατάστασης
             deselect_implementation: Αποεπιλογή για υλοποίηση
             finished_orders: Ολοκληρωμένες ψηφοφορίες
@@ -84,15 +100,32 @@ el:
             selected: Επιλεγμένο
             title: Έργα
             update: Ενημέρωση
+            update_scope_button: Ενημέρωση πεδίου εφαρμογής
           new:
             create: Δημιουργία
             title: Νέο έργο
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του έργου.
             success: Το έργο ενημερώθηκε με επιτυχία.
+          update_category:
+            invalid: 'Αυτά τα έργα είχαν ήδη την %{subject_name} κατηγορία: %{projects}.'
+            select_a_category: Παρακαλώ επιλέξτε κατηγορία.
+            select_a_project: Παρακαλώ επιλέξτε ένα έργο.
+            success: 'Τα έργα ενημερώθηκαν επιτυχώς στην %{subject_name} κατηγορία: %{projects}.'
+          update_scope:
+            invalid: 'Αυτά τα έργα είχαν ήδη %{subject_name} εμβέλεια: %{projects}.'
+            select_a_project: Παρακαλώ επιλέξτε ένα έργο.
+            select_a_scope: Παρακαλώ επιλέξτε ένα πεδίο εφαρμογής.
+            success: 'Τα έργα ενημερώθηκαν με επιτυχία στο %{subject_name} πεδίο εφαρμογής: %{projects}.'
           update_selected:
+            invalid:
+              selected: 'Αυτά τα έργα έχουν ήδη επιλεχθεί για υλοποίηση: %{projects}.'
+              unselected: 'Αυτά τα έργα έχουν ήδη αποεπιλεχθεί για υλοποίηση: %{projects}.'
             select_a_project: Παρακαλώ επιλέξτε ένα έργο.
             select_a_selection: Παρακαλώ επιλέξτε μια κατάσταση υλοποίησης.
+            success:
+              selected: 'Αυτά τα έργα επιλέχθηκαν επιτυχώς για υλοποίηση: %{projects}.'
+              unselected: 'Αυτά τα έργα αποεπιλέχθηκαν επιτυχώς για υλοποίηση: %{projects}.'
         proposals_imports:
           create:
             invalid: Υπήρξε ένα πρόβλημα κατά την εισαγωγή των προτάσεων στα έργα.
@@ -147,16 +180,15 @@ el:
             total_budget: Συνολικός προϋπολογισμός
         project:
           fields:
+            category: Κατηγορία
             id: ID
             title: Τίτλος
-      order:
-        status:
-          title: Η ψήφος σας έγινε δεκτή με επιτυχία
       order_summary_mailer:
         order_summary:
           selected_projects: 'Τα έργα που έχετε επιλέξει είναι τα εξής:'
           subject: Ψηφίσατε για τον χώρο συμμετοχής %{space_name}
           voted_on_space: Ψηφίσατε τον %{budget_name} προϋπολογισμό για τον %{space_name} συμμετοχικό χώρο.
+          voted_on_space_with_scope: Ψηφίσατε τον %{budget_name} προϋπολογισμό για τον %{space_name} συμμετοχικό χώρο στο %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Αν αλλάξετε γνώμη, μπορείτε να αλλάξετε την ψήφο σας αργότερα.
@@ -188,6 +220,8 @@ el:
           message: Η ψήφος σας δεν έχει εγγραφεί επειδή δεν έχετε ολοκληρώσει ακόμα τη διαδικασία ψηφοφορίας. Είστε σίγουροι ότι θέλετε να βγείτε από την ψηφοφορία;
           title: Δεν έχετε ψηφίσει ακόμα
         filters:
+          category: Κατηγορία
+          scope: Πεδίο εφαρμογής
           search: Αναζήτηση
           status: Κατάσταση
           status_values:
@@ -241,10 +275,13 @@ el:
               errors:
                 budget_voting_rule_only_one: Μόνο ένας κανόνας ψηφοφορίας πρέπει να είναι ενεργοποιημένος.
                 budget_voting_rule_required: Απαιτείται ένας κανόνας ψηφοφορίας.
+            geocoding_enabled: Γεωκωδικοποίηση ενεργοποιημένη
             landing_page_content: Σελίδα προορισμού προϋπολογισμών
             more_information_modal: Παράθυρο για περισσότερες πληροφορίες
             projects_per_page: Έργα ανά σελίδα
             resources_permissions_enabled: Τα δικαιώματα ενεργειών μπορούν να οριστούν για κάθε έργο
+            scope_id: Πεδίο εφαρμογής
+            scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
             title: Τίτλος
             total_budget: Συνολικός προϋπολογισμός
             vote_minimum_budget_projects_number: Ελάχιστος αριθμός έργων προς ψηφοφορία

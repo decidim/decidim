@@ -1,9 +1,7 @@
+---
 ja:
   activemodel:
     attributes:
-      dummy:
-        image: 画像
-      dummy_attribute: ダミー属性
       dummy_resource:
         created_at: 作成日時
         decidim_scope_id: スコープ
@@ -17,7 +15,6 @@ ja:
       dummy:
         settings:
           global:
-            clear_all: すべてクリア
             guided: ガイド付き入力
             guided_help: ヘルプテキスト
             guided_readonly: 無効化された入力
@@ -26,7 +23,6 @@ ja:
             guided_rich_readonly_html: HTML <strong>ヘルプ</strong> の入力を無効にする
             readonly_attribute: 読み取り専用属性
             test: テスト
-            test_add: テストの追加
             test_choices:
               a: 選択
               b: B の選択

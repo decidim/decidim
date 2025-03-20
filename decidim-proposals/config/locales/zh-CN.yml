@@ -1,26 +1,31 @@
+---
 zh-CN:
   activemodel:
     attributes:
       collaborative_draft:
         address: 地址
         body: 正文内容
+        category_id: 类别
         decidim_scope_id: 范围
         has_address: 有地址
         scope_id: 范围
         state: 状态
         title: 标题
+        user_group_id: 创建协作草稿为
       proposal:
         address: 地址
         answer: 答案
         answered_at: 回答于
         automatic_hashtags: 自动添加标签
         body: 正文内容
+        category_id: 类别
         decidim_scope_id: 范围
         has_address: 有地址
         scope_id: 范围
         state: 状态
         suggested_hashtags: 建议的哈希标签
         title: 标题
+        user_group_id: 创建提案为
       proposal_answer:
         answer: 答案
       proposals_copy:
@@ -28,6 +33,9 @@ zh-CN:
       proposals_import:
         import_proposals: 导入提议
         keep_authors: 保留原始作者
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: 值名称
     errors:
       models:
         proposal:
@@ -42,6 +50,8 @@ zh-CN:
             title:
               identical: 和正文不能相同
     models:
+      decidim/proposals/admin/update_proposal_category_event: 建议类别已更改
+      decidim/proposals/admin/update_proposal_scope_event: 建议范围已更改
       decidim/proposals/creation_enabled_event: 建议创建已启用
       decidim/proposals/endorsing_enabled_event: 提案已启用
       decidim/proposals/proposal_mentioned_event: 提及的建议
@@ -59,11 +69,15 @@ zh-CN:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: 类别
           is_emendation_true:
             label: 类型
             values:
               'false': 建议
               'true': 修 正 案
+          scope_id_eq:
+            label: 范围
           state_eq:
             label: 状态
             values:
@@ -73,12 +87,15 @@ zh-CN:
               rejected: 已拒绝
               validating: 技术验证
               withdrawn: 取出
+          valuator_role_ids_has:
+            label: 分配给值者
         search_placeholder:
           id_string_or_title_cont: 通过ID或标题搜索 %{collection}。
     components:
       proposals:
         actions:
           amend: 修改：
+          create: 创建
           endorse: 批准
           withdraw: 取款
         name: 建议
@@ -92,6 +109,7 @@ zh-CN:
             collaborative_drafts_enabled: 协作草稿已启用
             comments_enabled: 评论已启用
             comments_max_length: 评论最大长度 (默认值留0)
+            geocoding_enabled: 地理编码已启用
             new_proposal_body_template: 新的提案正文模板
             new_proposal_body_template_help: 您可以定义新建议将包含的预填文本
             new_proposal_help_text: 新建议帮助文本
@@ -99,10 +117,13 @@ zh-CN:
             participatory_texts_enabled: 参与性案文已启用
             participatory_texts_enabled_readonly: 如果有现存的提议，无法与此设置进行交互。 请， 如果您想要启用此功能，或在"参与文本"菜单中放弃所有导入的提议，则创建一个新的 "建议组件"。
             proposal_answering_enabled: 建议答案已启用
+            proposal_edit_before_minutes: 建议可以由作者在这么多分钟过去之前编辑
             proposal_length: 最大建议体长度
             proposal_limit: 每个参与者的建议限制
             proposal_wizard_step_1_help_text: 建议向导“创建”步骤帮助文本
             resources_permissions_enabled: 每个提案都可以设置动作权限
+            scope_id: 范围
+            scopes_enabled: 范围已启用
             threshold_per_proposal: 每个建议的阈值
           step:
             amendment_creation_enabled: 修改创建已启用
@@ -129,6 +150,7 @@ zh-CN:
       proposals:
         admin:
           proposal_note_created:
+            email_outro: 您收到此通知是因为您可以评估提案。
             email_subject: 有人在建议 %{resource_title} 留下了一条笔记。
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} 已被接受作为贡献者访问 %{resource_title}。"
@@ -166,6 +188,14 @@ zh-CN:
           email_intro: 提议 "%{resource_title}" 已被添加到"%{participatory_space_title}"，您正在关注它。
           email_outro: 您收到此通知是因为您正在关注 "%{participatory_space_title}"。您可以停止收到跟随上一个链接的通知。
           email_subject: 新提议 "%{resource_title}" 已添加到 %{participatory_space_title}
+        proposal_update_category:
+          email_intro: '管理员更新了您的提议 "%{resource_title}"的类别，在此页面查看：'
+          email_subject: '%{resource_title} 建议类别已更新'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议类别已被管理员更新。
+        proposal_update_scope:
+          email_intro: '管理员更新了您的提议 "%{resource_title}"的范围，在此页面查看：'
+          email_subject: '%{resource_title} 建议范围已更新'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议范围已被管理员更新。
         voting_enabled:
           email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
     gamification:
@@ -263,18 +293,26 @@ zh-CN:
           form:
             note: 说明
             submit: 提交
+          leave_your_note: 留下您的便笺
           title: 私人笔记
         proposals:
           edit:
             title: 更新提议
             update: 更新
           form:
+            attachment_legend: "(可选) 添加附件"
             created_in_meeting: 这项建议来自一次会议
+            select_a_category: 选择一个类别
             select_a_meeting: 选择会议
           index:
             actions: 行动
+            assign_to_valuator: 分配给值器
+            assign_to_valuator_button: 分配
             cancel: 取消
+            change_category: 更改类别
+            change_scope: 更改范围
             merge: 合并为一个新的
+            merge_button: 合并
             publish: 发布
             publish_answers: 发布答案
             select_component: 选择一个组件
@@ -282,12 +320,16 @@ zh-CN:
             split: 拆分提案
             split_button: 拆分
             title: 建议
+            unassign_from_valuator: 取消分配给值
+            unassign_from_valuator_button: 取消分配
             update: 更新
+            update_scope_button: 更新范围
           new:
             create: 创建
             title: 创建提案
           show:
             amendments_count: 修改计数
+            assigned_valuators: 分配给值者
             body: 正文内容
             comments_count: 评论计数
             documents: www.un.org/webcast
@@ -299,6 +341,14 @@ zh-CN:
             ranking: "%{ranking} / %{total}"
             related_meetings: 相关会议
             remove_assignment: 移除作业
+            remove_assignment_confirmation: 您确定要从此建议中删除值吗？
+            valuators: 估价器
+          update_category:
+            invalid: '这些建议已经有 %{subject_name} 分类: %{proposals}。'
+            success: '建议已成功更新到 %{subject_name} 类别： %{proposals}。'
+          update_scope:
+            invalid: '这些建议已经有 %{subject_name} 范围： %{proposals}。'
+            success: '建议已成功更新到 %{subject_name} 范围： %{proposals}。'
         proposals_imports:
           new:
             create: 导入提议
@@ -314,10 +364,14 @@ zh-CN:
       admin_log:
         proposal:
           answer: "%{user_name} 回答了 %{resource_name} 在 %{space_name} 空间的建议"
+          create: "%{user_name} 在 %{space_name} 空间上创建了 %{resource_name} 提案作为官方提案"
           publish_answer: "%{user_name} 在 %{space_name} 空间上发布了 %{resource_name} 建议的答案"
           update: "%{user_name} 更新了 %{resource_name} 在 %{space_name} 空间的官方提议"
         proposal_note:
           create: "%{user_name} 在 %{space_name} 空间的 %{resource_name} 提案上留下了一个私人笔记"
+        valuation_assignment:
+          create: "%{user_name} 将 %{resource_name} 的建议分配给了一个值者"
+          delete: "%{user_name} 在 %{proposal_title} 提议中没有分配到一个值者"
       answers:
         accepted: 已接受
         evaluating: 评价
@@ -329,6 +383,7 @@ zh-CN:
           all: 所有的
           meetings: 会议
           official: 官方的
+          user_groups: 群組
         filter_state_values:
           all: 所有的
           not_answered: 未回答
@@ -355,15 +410,19 @@ zh-CN:
         create:
           success: 协作草稿成功创建。
         edit:
+          attachment_legend: "(可选) 添加附件"
           back: 后退
+          select_a_category: 请选择一个类别
           send: 发送
           title: 编辑协作草稿
         filters:
           all: 所有的
           amendment: 修 正 案
+          category: 类别
           open: 打开
           published: 已发布
           related_to: 关联到
+          scope: 范围
           search: 搜索
           state: 状态
           withdrawn: 取出
@@ -396,6 +455,7 @@ zh-CN:
           rejected_request:
             error: 无法以协作者身份拒绝，请稍后再试。
         show:
+          edit: 编辑协作草稿
           final_proposal: 最后提案
           final_proposal_help_text: 这个草稿已完成。查看最后建议
           hidden_authors_count:
@@ -426,14 +486,18 @@ zh-CN:
       models:
         proposal:
           fields:
+            category: 类别
             comments: 评论
             id: ID
             notes: 注
             official_proposal: 正式提案
             published_answer: 已发布的答案
             published_at: 发布于
+            scope: 范围
             state: 状态
             title: 标题
+            valuator: 值者
+            valuators: 估价器
             votes: 所得票数
       participatory_text_proposal:
         alternative_title: 目前没有参与性文本
@@ -442,7 +506,9 @@ zh-CN:
           comment: 评论
       proposals:
         edit:
+          attachment_legend: "(可选) 添加附件"
           back: 后退
+          select_a_category: 请选择一个类别
           send: 发送
           title: 编辑提案
         edit_draft:
@@ -453,6 +519,7 @@ zh-CN:
           activity: 我的活动
           all: 所有的
           amendment_type: 类型
+          category: 类别
           my_proposals: 我的提议
           origin: 始发地
           related_to: 关联到
@@ -485,6 +552,7 @@ zh-CN:
         show:
           answer: 答案
           changes_at_title: 对"%{title}" 的修正
+          edit_proposal: 编辑提案
           estimated_cost: 估计费用
           hidden_endorsers_count:
             other: 和更多 %{count} 人
@@ -498,13 +566,12 @@ zh-CN:
           proposal_in_evaluation_reason: 这项建议正在评估
           proposal_rejected_reason: '这一提议被否决，理由是：'
           withdraw_confirmation_html: 您确定要撤回此建议吗？<br><br><strong>此操作不能取消！</strong>
+          withdraw_proposal: 撤回提案
         update:
           title: 更新提议
         voting_rules:
           proposal_limit:
             description: 您最多可以创建 %{limit} 个建议。
-          vote_limit:
-            description: 您可以最多支持 %{limit} 个建议。
         wizard_aside:
           back: 后退
           back_from_step_1: 回到提议

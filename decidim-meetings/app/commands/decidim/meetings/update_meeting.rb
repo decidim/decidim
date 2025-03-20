@@ -52,6 +52,8 @@ module Decidim
           meeting,
           current_user,
           {
+            scope: form.scope,
+            category: form.category,
             title: { I18n.locale => parsed_title },
             description: { I18n.locale => parsed_description },
             end_time: form.end_time,
@@ -62,6 +64,7 @@ module Decidim
             location: { I18n.locale => form.location },
             location_hints: { I18n.locale => form.location_hints },
             author: current_user,
+            decidim_user_group_id: form.user_group_id,
             registration_type: form.registration_type,
             registration_url: form.registration_url,
             available_slots: form.available_slots,
@@ -70,8 +73,7 @@ module Decidim
             type_of_meeting: form.clean_type_of_meeting,
             online_meeting_url: form.online_meeting_url,
             iframe_embed_type: form.iframe_embed_type,
-            iframe_access_level: form.iframe_access_level,
-            taxonomizations: form.taxonomizations
+            iframe_access_level: form.iframe_access_level
           },
           visibility: "public-only"
         )

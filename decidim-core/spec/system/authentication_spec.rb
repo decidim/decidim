@@ -18,7 +18,7 @@ describe "Authentication" do
 
     context "when using email and password" do
       it "creates a new User" do
-        click_on "Create an account"
+        click_on("Create an account")
 
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"
@@ -59,7 +59,7 @@ describe "Authentication" do
 
     context "when being a robot" do
       it "denies the sign up" do
-        click_on "Create an account"
+        click_on("Create an account")
 
         within ".new_user" do
           page.execute_script("$($('.new_user > div > input')[0]).val('Ima robot :D')")
@@ -82,7 +82,6 @@ describe "Authentication" do
           uid: "123545",
           info: {
             email: "user@from-facebook.com",
-            nickname: "facebook_user",
             name: "Facebook User"
           }
         )
@@ -103,15 +102,9 @@ describe "Authentication" do
 
       context "when the user has confirmed the email in facebook" do
         it "creates a new User without sending confirmation instructions" do
-          click_on "Create an account"
+          click_on("Create an account")
 
-          find(".login__omniauth-button.login__omniauth-button--facebook").click
-
-          check :registration_user_tos_agreement
-          within "#omniauth-register-form" do
-            click_on "Create an account"
-          end
-          click_on("Keep unchecked")
+          find(".login__omniauth-button.button--facebook").click
 
           expect(page).to have_content("Successfully")
           expect_user_logged
@@ -119,15 +112,10 @@ describe "Authentication" do
       end
 
       it "sends a welcome notification" do
-        click_on "Create an account"
+        click_on("Create an account")
 
-        find(".login__omniauth-button.login__omniauth-button--facebook").click
-
-        check :registration_user_tos_agreement
-        check :registration_user_newsletter
-        within "#omniauth-register-form" do
-          click_on "Create an account"
-        end
+        find(".login__omniauth-button.button--facebook").click
+        click_on "I agree with these terms"
 
         within_user_menu do
           click_on "Notifications"
@@ -138,36 +126,6 @@ describe "Authentication" do
         end
 
         expect(last_email_body).to include("thanks for joining #{translated(organization.name)}")
-      end
-
-      context "when user did not fill one of the fields" do
-        let!(:omniauth_hash) do
-          OmniAuth::AuthHash.new(
-            provider: "developer",
-            uid: "123545",
-            info: {
-              nickname: "developer_user",
-              name: "Developer User"
-            }
-          )
-        end
-
-        it "has to complete the account profile" do
-          within "#main-bar" do
-            click_on("Log in")
-          end
-
-          find(".login__omniauth-button.login__omniauth-button--facebook").click
-          expect(page).to have_content("Please complete your profile")
-          expect(page).to have_content("cannot be blank")
-
-          fill_in "Your email", with: "user@from-developer.com"
-          page.find_by_id("registration_user_tos_agreement").check
-          page.find_by_id("registration_user_newsletter").check
-          click_on "Complete profile"
-
-          expect(page).to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
-        end
       end
     end
 
@@ -201,9 +159,9 @@ describe "Authentication" do
 
       context "when the response does not include the email" do
         it "redirects the user to a finish signup page" do
-          click_on "Create an account"
+          click_on("Create an account")
 
-          find(".login__omniauth-button--x").click
+          find(".button--x").click
 
           expect(page).to have_content("Successfully")
           expect(page).to have_content("Please complete your profile")
@@ -218,17 +176,15 @@ describe "Authentication" do
         context "and a user already exists with the given email" do
           it "does not allow it" do
             create(:user, :confirmed, email: "user@from-twitter.com", organization:)
-            click_on "Create an account"
+            click_on("Create an account")
 
-            find(".login__omniauth-button--x").click
+            find(".button--x").click
 
             expect(page).to have_content("Successfully")
             expect(page).to have_content("Please complete your profile")
 
             within ".new_user" do
               fill_in :registration_user_email, with: "user@from-twitter.com"
-              check :registration_user_tos_agreement
-              check :registration_user_newsletter
               find("*[type=submit]").click
             end
 
@@ -242,26 +198,17 @@ describe "Authentication" do
         let(:email) { "user@from-twitter.com" }
 
         it "creates a new User" do
-          click_on "Create an account"
-          find(".login__omniauth-button.login__omniauth-button--x").click
-
-          check :registration_user_tos_agreement
-          check :registration_user_newsletter
-          within "#omniauth-register-form" do
-            click_on "Create an account"
-          end
+          click_on("Create an account")
+          find(".login__omniauth-button.button--x").click
 
           expect_user_logged
         end
 
         it "sends a welcome notification" do
-          click_on "Create an account"
-          find(".login__omniauth-button.login__omniauth-button--x").click
-          check :registration_user_tos_agreement
-          check :registration_user_newsletter
-          within "#omniauth-register-form" do
-            click_on "Create an account"
-          end
+          click_on("Create an account")
+          find(".login__omniauth-button.button--x").click
+
+          click_on "I agree with these terms"
 
           within_user_menu do
             click_on "Notifications"
@@ -283,7 +230,6 @@ describe "Authentication" do
           uid: "123545",
           info: {
             name: "Google User",
-            nickname: "google_user",
             email: "user@from-google.com"
           }
         )
@@ -304,27 +250,19 @@ describe "Authentication" do
       end
 
       it "creates a new User" do
-        click_on "Create an account"
+        click_on("Create an account")
 
         click_on "Log in with Google"
-        check :registration_user_tos_agreement
-        check :registration_user_newsletter
-        within "#omniauth-register-form" do
-          click_on "Create an account"
-        end
 
         expect_user_logged
       end
 
       it "sends a welcome notification" do
-        click_on "Create an account"
+        click_on("Create an account")
 
         click_on "Log in with Google"
-        check :registration_user_tos_agreement
-        check :registration_user_newsletter
-        within "#omniauth-register-form" do
-          click_on "Create an account"
-        end
+
+        click_on "I agree with these terms"
 
         within_user_menu do
           click_on "Notifications"
@@ -338,11 +276,11 @@ describe "Authentication" do
       end
     end
 
-    context "when nickname is not unique" do
-      let!(:user) { create(:user, nickname: "responsible_citizen", organization:) }
+    context "when nickname is not unique case-insensitively" do
+      let!(:user) { create(:user, nickname: "Responsible_Citizen", organization:) }
 
       it "creates a new User" do
-        click_on "Create an account"
+        click_on("Create an account")
 
         within ".new_user" do
           fill_in :registration_user_email, with: "user@example.org"
@@ -723,7 +661,7 @@ describe "Authentication" do
       it "authenticates an existing User" do
         click_on("Log in", match: :first)
 
-        find(".login__omniauth-button.login__omniauth-button--facebook").click
+        find(".login__omniauth-button.button--facebook").click
 
         expect(page).to have_content("Successfully")
         expect_current_user_to_be(user)
@@ -757,7 +695,7 @@ describe "Authentication" do
         it "authenticates an existing User" do
           click_on("Log in", match: :first)
 
-          find(".login__omniauth-button.login__omniauth-button--facebook").click
+          find(".login__omniauth-button.button--facebook").click
 
           expect(page).to have_content("Successfully")
           expect_current_user_to_be(user)
@@ -786,7 +724,7 @@ describe "Authentication" do
     describe "Create an account" do
       context "when using the same email" do
         it "creates a new User" do
-          click_on "Create an account"
+          click_on("Create an account")
 
           within ".new_user" do
             fill_in :registration_user_email, with: user.email
@@ -814,7 +752,6 @@ describe "Authentication" do
         info: {
           email: user.email,
           name: "Facebook User",
-          nickname: "facebook_user",
           verified: true
         }
       )
@@ -836,17 +773,11 @@ describe "Authentication" do
     describe "Create an account" do
       context "when the user has confirmed the email in facebook" do
         it "creates a new User without sending confirmation instructions" do
-          click_on "Create an account"
+          click_on("Create an account")
 
-          find(".login__omniauth-button.login__omniauth-button--facebook").click
+          find(".login__omniauth-button.button--facebook").click
 
-          expect(page).to have_content("Finish creating your account")
-
-          check :registration_user_tos_agreement
-          check :registration_user_newsletter
-          within "#omniauth-register-form" do
-            click_on "Create an account"
-          end
+          expect(page).to have_content("Successfully")
           expect_user_logged
         end
       end

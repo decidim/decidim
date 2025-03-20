@@ -1,3 +1,4 @@
+---
 cs:
   activemodel:
     attributes:
@@ -22,12 +23,16 @@ cs:
         local_area: Oblast působnosti organizace
         meta_scope: Metadata Oblasti působnosti
         participatory_process_group_id: Skupina procesů
+        participatory_process_type_id: Typ procesů
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
         private_space: Soukromý proces
         promoted: Propagováno
         published_at: Publikováno v
         related_process_ids: Související procesy
+        scope_id: Rozsah
+        scope_type_max_depth_id: Hloubka filtru rozsahu
+        scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis
         slug: URL slug
         start_date: Datum zahájení
@@ -55,6 +60,8 @@ cs:
         end_date: Datum ukončení
         short_description: Stručný popis
         start_date: Datum zahájení
+        title: Titul
+      participatory_process_type:
         title: Titul
       participatory_process_user_role:
         email: E-mailem
@@ -91,24 +98,22 @@ cs:
       actions:
         activate: Aktivovat
         configure: Konfigurovat
-        confirm_delete_process: Opravdu chcete odstranit tento proces? Pokud změníte názor, můžete jej obnovit později.
         confirm_destroy: Potvrďte smazání
         destroy: Odstranit
         duplicate: Duplikát
         edit: Upravit
         import_process: Importovat
-        menu_hidden: Skrýt
         moderate: Moderovat
         new_process: Nový proces
         new_process_group: Nová skupina procesů
         new_process_step: Nový krok
+        new_process_type: Nový typ procesu
         new_process_user_role: Nový uživatel procesu
         preview: Náhled
         publish: Publikovat
         resend_invitation: Znovu poslat pozvánku
         see_process: Zobrazit proces
         unpublish: Zrušit publikování
-        view_deleted_processes: Zobrazit odstraněné procesy
       filters:
         decidim_participatory_process_group_id_eq:
           label: Podle skupiny procesů
@@ -117,16 +122,18 @@ cs:
         participatory_process_groups_submenu:
           info: Info
           landing_page: Úvodní stránka
+        participatory_process_types: Typy procesů
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Složky
           attachment_files: Soubory
           attachments: Přílohy
+          categories: Kategorie
           components: Komponenty
           info: O tomto procesu
           landing_page: Úvodní stránka
           moderations: Moderování
-          private_users: Členové
+          private_users: Soukromí uživatelé
           process_admins: Administrátoři procesu
           steps: Kroky
       models:
@@ -148,6 +155,11 @@ cs:
             start_date: Datum zahájení
             title: Titul
           name: Participační krok procesu
+        participatory_process_type:
+          fields:
+            created_at: Vytvořeno v
+            title: Titul
+          name: Typ procesu
         participatory_process_user_role:
           fields:
             email: E-mailem
@@ -158,11 +170,11 @@ cs:
             admin: Správce
             collaborator: Spolupracovník
             moderator: Moderátor
+            valuator: Hodnotitel
         user:
           fields:
             invitation_accepted_at: Pozvánka byla přijata na
             invitation_sent_at: Pozvánka odeslána na
-            published: Publikováno
       participatory_process_copies:
         new:
           copy: Kopírovat
@@ -170,7 +182,7 @@ cs:
           title: Duplicitní participační proces
       participatory_process_groups:
         destroy:
-          error: Došlo k chybě při zničení skupiny participačních procesů.
+          error: Došlo k chybě při zrušení skupiny účastnických procesů.
           success: Účastní skupina procesů byla úspěšně smazána.
         edit:
           title: Upravit skupinu procesů
@@ -230,6 +242,21 @@ cs:
         update:
           error: Při aktualizaci tohoto kroku procesu participace došlo k chybě.
           success: Úspěšný krok procesu byl úspěšně aktualizován.
+      participatory_process_types:
+        create:
+          error: Při vytváření nového typu procesu došlo k chybě.
+          success: Typ procesu byl úspěšně vytvořen.
+        destroy:
+          success: Typ procesu byl úspěšně odstraněn.
+        edit:
+          title: Upravit typ procesu
+          update: Aktualizace
+        new:
+          create: Vytvořit
+          title: Nový typ procesu
+        update:
+          error: Při aktualizaci tohoto typu procesu došlo k chybě.
+          success: Typ procesu byl úspěšně aktualizován.
       participatory_process_user_roles:
         create:
           error: Při přidávání uživatele pro tento participační proces došlo k chybě.
@@ -258,8 +285,6 @@ cs:
           public: Veřejné
           published: Publikováno
           unpublished: Nezveřejněno
-        manage_trash:
-          title: Odstraněné participační procesy
         new:
           create: Vytvořit
           title: Nový participační proces
@@ -274,16 +299,10 @@ cs:
         create:
           error: Došlo k chybě při vytváření nové skupiny účastnických procesů.
           success: Skupina úspěšně vytvořená skupina účastníků.
-      taxonomy_filters:
-        space_filter_for:
-          participatory_processes: Všechny participační procesy
       titles:
         participatory_process_groups: Skupiny účastnických procesů
         participatory_process_types: Typy participačních procesů
         participatory_processes: Participativní procesy
-        participatory_processes_deleted: Odstraněné participační procesy
-      tooltips:
-        deleted_processes_info: Proces může být odstraněn pouze v případě, že je stav "Nezveřejněný".
       users:
         resend_invitation:
           error: Při odeslání pozvánky došlo k chybě.
@@ -295,13 +314,10 @@ cs:
         export: "%{user_name} exportoval participační proces %{resource_name}"
         import: "%{user_name} importoval participační proces %{resource_name}"
         publish: "%{user_name} publikoval %{resource_name} participační proces"
-        restore: "%{user_name} obnovil participační proces %{resource_name}"
-        soft_delete: "%{user_name} přemístil paarticipační proces %{resource_name} do koše"
         unpublish: "%{user_name} neuveřejnil %{resource_name} participační proces"
         update: "%{user_name} aktualizoval %{resource_name} participační proces"
       participatory_process_group:
         create: "%{user_name} vytvořil skupinu %{resource_name} na participační proces"
-        unpublish: "%{user_name} zrušil publikaci účastníků %{resource_name} participačního procesu"
         update: "%{user_name} aktualizoval skupinu %{resource_name} na participační proces"
       participatory_process_step:
         activate: "%{user_name} aktivoval %{resource_name} krok %{space_name} participaci"
@@ -316,9 +332,6 @@ cs:
         create: "%{user_name} pozval uživatele %{resource_name} do procesu participace %{space_name}"
         delete: "%{user_name} odstranil uživatele %{resource_name} z procesu participace %{space_name}"
         update: "%{user_name} změnilo roli uživatele %{resource_name} ve %{space_name} účastnických procesech"
-    download_your_data:
-      show:
-        participatory_processes: Export particippačních procesů
     events:
       participatory_process:
         role_assigned:
@@ -353,38 +366,6 @@ cs:
         description: Počet participativních procesů v této organizaci
         object: participativní procesy
         title: Participativní procesy
-    open_data:
-      help:
-        participatory_processes:
-          announcement: Oznámení (vyhlášení) informací
-          area: Oblast, ve které probíhá proces
-          created_at: Datum, kdy byl tento prostor vytvořen
-          description: Dlouhý popis procesu
-          developer_group: Skupina tvůrců procesu. Jedná se o organizaci, která proces prosazuje.
-          end_date: Datum ukončení procesu
-          follows_count: Počet uživatelů sledujících tento prostor
-          hashtag: Hashtag Procesu, používaný pro Twitter/X
-          id: Jedinečný identifikátor tohoto procesu
-          local_area: Místní oblast procesu. Tohle je oblast organizace, kde probíhá proces.
-          meta_scope: Rozsah metadat procesu
-          participatory_process_group: Skupina procesu, pokud existuje
-          participatory_process_type: Typ procesu
-          participatory_scope: Participační rozsah procesu
-          participatory_structure: Participativní struktura procesu. Takto se o procesu rozhoduje.
-          promoted: Zda je proces propagován, nebo ne
-          published_at: Datum, kdy byl tento prostor publikován
-          reference: Jedinečný odkaz na prostor
-          remote_hero_image_url: URL obrázku předáka procesu
-          scope: Rozsah procesu
-          scopes_enabled: Zda jsou rozsahy povoleny nebo ne
-          short_description: Stručný popis procesu
-          slug: Slug procesu (používá se pro účely identifikace, pro URL)
-          start_date: Počáteční datum procesu
-          subtitle: Podtitulek procesu
-          target: Cíl procesu je ten, kdo je vyzván, aby se tohoto procesu zúčastnil.
-          title: Název procesu
-          updated_at: Poslední datum, kdy byl tento prostor aktualizován
-          url: URL prostoru
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -450,16 +431,17 @@ cs:
         participatory_processes:
           form:
             announcement_help: Text, který zde zadáte, se uživateli zobrazí přímo pod informacemi o procesu.
-            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
+            filters: Filtry
             images: Obrázky
             metadata: Metadata
-            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
-            private_notice: Po nastavení jako soukromé budete moci spravovat členy
+            other: Ostatní
             related_processes: Související procesy
+            scope_type_max_depth_help: Omezit hloubku filtru rozsahu. Filtr se zobrazí od obecného k vybranému typu rozsahu.
+            select_an_area: Vyberte oblast
+            select_participatory_process_type: Vyberte typ procesu
             select_process_group: Vyberte skupinu procesů
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
-            taxonomies: Taxonomie
             title: Obecná informace
             visibility: Viditelnost
       content_blocks:
@@ -532,9 +514,6 @@ cs:
           type: Typ
         show:
           title: O tomto procesu
-      participatory_space_private_users:
-        index:
-          title: Členové
       show:
         belongs_to_group: Tento proces patří do
         private_space: Jedná se o soukromý proces
@@ -548,8 +527,6 @@ cs:
           browse: Procházet
           browse_resource: Procházet skupinu procesů %{resource_name}
           processes_count: 'Procesy:'
-      participatory_process_navigation:
-        member_menu_item: Členové
       participatory_processes:
         index:
           promoted_processes: Zvýrazněné procesy

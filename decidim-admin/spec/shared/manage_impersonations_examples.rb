@@ -106,9 +106,10 @@ shared_examples "manage impersonations examples" do
       context "and the action not allowed by the handler used to impersonate", :slow do
         let(:authorization_handler) { "another_dummy_authorization_handler" }
 
-        it "redirects to the authorization form" do
-          expect(page).to have_content("We need to verify your identity")
-          expect(page).to have_content("Verify with Another example authorization")
+        it "shows popup to require verification" do
+          expect(page).to have_content(
+            /In order to perform this action, you need to be authorized with "Another example authorization"/
+          )
         end
       end
     end

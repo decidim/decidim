@@ -17,11 +17,11 @@ module Decidim
 
           answers = Decidim::Forms::Answer.joins(:questionnaire)
                                           .where(questionnaire: questionnaires)
-                                          .where(decidim_forms_answers: { created_at: ..end_time })
+                                          .where("decidim_forms_answers.created_at <= ?", end_time)
 
           {
             cumulative_users: answers.pluck(:decidim_user_id).uniq,
-            quantity_users: answers.where(decidim_forms_answers: { created_at: start_time.. }).pluck(:decidim_user_id).uniq
+            quantity_users: answers.where("decidim_forms_answers.created_at >= ?", start_time).pluck(:decidim_user_id).uniq
           }
         end
       end

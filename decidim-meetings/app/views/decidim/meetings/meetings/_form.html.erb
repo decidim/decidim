@@ -53,11 +53,15 @@
   <%= form.datetime_field :end_time %>
 </div>
 
-<% if @form.taxonomy_filters&.any? %>
-  <% @form.taxonomy_filters.each do |filter| %>
-    <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
-  <% end %>
+<% if current_participatory_space.has_subscopes? %>
+  <div>
+    <%= scopes_select_field form, :decidim_scope_id %>
+  </div>
 <% end %>
+
+<div>
+  <%= form.categories_select :decidim_category_id, current_participatory_space.categories, prompt: t(".select_a_category"), disable_parents: false %>
+</div>
 
 <div class="row column">
   <%= form.select :registration_type,
@@ -77,6 +81,15 @@
 <div id="meeting_registration_url">
   <%= form.text_field :registration_url, help_text: t(".registration_url_help") %>
   <label><%= t(".disclaimer", organization: organization_name(current_component.organization)) %></label><br>
+</div>
+
+<div>
+  <%= form.select(
+    :user_group_id,
+    Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map { |g| [g.name, g.id] },
+    prompt: current_user.name,
+    label: t(".create_as")
+  ) %>
 </div>
 
 <%= append_javascript_pack_tag "decidim_meetings" %>

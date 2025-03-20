@@ -1,3 +1,4 @@
+---
 lb:
   activemodel:
     attributes:
@@ -31,6 +32,7 @@ lb:
         questionnaires:
           actions:
             back: Zurück zu Fragen
+            show: Antworten anzeigen
           answer_option:
             answer_option: Antwortoption
             free_text: Freier Text
@@ -144,6 +146,7 @@ lb:
           tos_agreement: Mit der Teilnahme stimmen Sie den Nutzungsbedingungen zu
       step_navigation:
         show:
+          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Bist du sicher?
           back: Zurück
           continue: Weiter
           submit: einreichen

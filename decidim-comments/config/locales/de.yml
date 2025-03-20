@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     models:
@@ -5,6 +6,7 @@ de:
       decidim/comments/comment_created_event: Kommentar
       decidim/comments/comment_upvoted_event: Kommentar positiv bewertet
       decidim/comments/reply_created_event: Kommentarantwort
+      decidim/comments/user_group_mentioned_event: Erwähnen
       decidim/comments/user_mentioned_event: Erwähnen
   activerecord:
     models:
@@ -15,10 +17,6 @@ de:
         one: Abstimmung
         other: Stimmen
   decidim:
-    admin:
-      admin_log:
-        changeset:
-          comments: Kommentare
     comments:
       admin:
         shared:
@@ -41,8 +39,7 @@ de:
           error: Beim Abstimmen des Kommentars sind Fehler aufgetreten.
     components:
       add_comment_form:
-        account_message: Melden Sie sich an oder erstellen Sie ein Konto, um einen Kommentar hinzuzufügen.
-        add_comment: Kommentar hinzufügen
+        account_message: Sie müssen sich <a href="%{sign_in_url}">mit einem bestehendem Konto anmelden</a> oder <a href="%{sign_up_url}"> ein neues Konto registrieren</a>, um Ihren Kommentar hinzufügen.
         form:
           body:
             label: Kommentar
@@ -50,6 +47,8 @@ de:
           form_error: Der Text ist erforderlich und darf nicht länger als %{length} Zeichen sein.
           submit_reply: Antwort veröffentlichen
           submit_root_comment: Kommentar veröffentlichen
+          user_group_id:
+            label: Kommentieren als
         opinion:
           label: Ihre Meinung zu diesem Thema
           negative: Negativ
@@ -65,9 +64,6 @@ de:
         alignment:
           against: Gegen
           in_favor: Zugunsten
-        answers:
-          one: "%{count} Antwort"
-          other: "%{count} Antworten"
         cancel_reply: Antwort abbrechen
         comment_label: Kommentar %{comment_id}
         comment_label_reply: Kommentar %{comment_id} (Antwort auf Kommentar %{parent_comment_id})
@@ -98,7 +94,6 @@ de:
           one: Antwort anzeigen
           other: '%{count} Antworten anzeigen'
         single_comment_link_title: Link erhalten
-        sort_by: 'Sortieren nach: '
       comment_order_selector:
         order:
           best_rated: Am besten bewertet
@@ -107,19 +102,16 @@ de:
           recent: Kürzlich hinzugefügt
         title: 'Sortieren nach:'
       comments:
-        against: Ablehnend
         blocked_comments_for_unauthorized_user_warning: Sie müssen aktuell verifiziert sein um zu kommentieren, aber Sie können die bisherigen Kommentare lesen.
         blocked_comments_for_user_warning: Sie können momentan nichts kommentieren, aber Sie können die vorherigen lesen.
-        blocked_comments_warning: Kommentare sind derzeit deaktiviert. Nur Admins können antworten oder neue Kommentare verfassen.
+        blocked_comments_warning: Kommentare sind zu diesem Zeitpunkt deaktiviert, aber Sie können die vorherigen lesen.
         comment_details_title: Kommentarinformationen
-        in_favor: Zustimmend
         loading: Kommentare werden geladen ...
         single_comment_warning: <a href="%{url}">Alle Kommentare anzeigen</a>
         single_comment_warning_title: Ihnen wird ein einzelner Kommentar angezeigt
         title:
           one: "%{count} Kommentar"
           other: "%{count} Kommentare"
-        top_comment_label: Bestbewertete
       down_vote_button:
         text: Ich bin mit diesem Kommentar nicht einverstanden
       edit_comment_modal_form:
@@ -132,30 +124,16 @@ de:
         title: Kommentar bearbeiten
       up_vote_button:
         text: Ich stimme diesem Kommentar zu
-    download_your_data:
-      help:
-        comment_votes:
-          comment: Die ID des Kommentars, über den abgestimmt wurde
-          created_at: Das Erstellungsdatum der Stimme
-          id: Die ID der Stimme
-          updated_at: Das Datum, an dem die Stimme zuletzt aktualisiert wurde
-          weight: Das Gewicht der Stimme (1 für Zustimmung, -1 für Ablehnung)
-        comments:
-          alignment: Ob dieser Kommentar zustimmend, ablehnend oder neutral war
-          author: Der Name des Teilnehmenden, der diesen Kommentar erstellt hat
-          body: Der Kommentarinhalt
-          commentable_id: Die eindeutige ID des kommentierten Objekts
-          commentable_type: Die Art des kommentierten Objekts (ob es ein Ergebnis, Vorschlag o.ä. war)
-          created_at: Das Erstellungsdatum des Kommentars
-          depth: Die Position dieses Kommentars im Thread (ob es sich um eine Antwort oder eine Antwort auf eine Antwort handelt)
-          id: Die ID dieses Kommentars
-          locale: Die eingestellte Plattformsprache der kommentierenden Person
-          root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
     events:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} hat einen Kommentar zu %{resource_title} hinterlassen. Sie können diesen auf dieser Seite lesen:"
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie die Profil-Seite dieses Benutzers.
+          email_subject: Neuer Kommentar von %{author_name} zu %{resource_title}
+          notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> zu <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_intro: 'Die Gruppe %{author_name} hat einen Kommentar in %{resource_title} hinterlassen. Sie können diesen auf dieser Seite lesen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie die Profil-Seite dieser Gruppe.
           email_subject: Neuer Kommentar von %{author_name} zu %{resource_title}
           notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> zu <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
@@ -178,6 +156,11 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihr Kommentar beantwortet wurde.
           email_subject: "%{author_name} hat auf Ihren Kommentar zu %{resource_title} geantwortet"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat auf Ihren Kommentar in <a href="%{resource_path}">%{resource_title}</a> geantwortet
+        user_group_mentioned:
+          email_intro: Eine Ihrer Gruppen wurde erwähnt
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Mitglied der Gruppe %{group_name} sind, die in %{resource_title} erwähnt wurde.
+          email_subject: Sie wurden in %{resource_title} als Mitglied von %{group_name} erwähnt
+          notification_title: Sie wurden in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a> als ein Mitglied von <a href="%{group_path}">%{group_name} %{group_nickname}</a> erwähnt
         user_mentioned:
           email_intro: Sie wurden erwähnt
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie in %{resource_title} erwähnt wurden.

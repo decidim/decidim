@@ -5,14 +5,12 @@
  * it to gain control over the confirm events BEFORE rails-ujs is loaded.
  */
 
-const { Rails } = window;
+import Rails from "@rails/ujs"
 
 class ConfirmDialog {
   constructor(sourceElement) {
     this.$modal = $("#confirm-modal");
-    if (sourceElement) {
-      this.$source = $(sourceElement);
-    }
+    this.$source = sourceElement;
     this.$content = $("[data-confirm-modal-content]", this.$modal);
     this.$buttonConfirm = $("[data-confirm-ok]", this.$modal);
     this.$buttonCancel = $("[data-confirm-cancel]", this.$modal);
@@ -31,36 +29,21 @@ class ConfirmDialog {
       this.$buttonConfirm.on("click", (ev) => {
         ev.preventDefault();
 
-        this.close(() => resolve(true));
+        window.Decidim.currentDialogs["confirm-modal"].close()
+        resolve(true);
+        this.$source.focus();
       });
 
       this.$buttonCancel.on("click", (ev) => {
         ev.preventDefault();
 
-        this.close(() => resolve(false));
+        window.Decidim.currentDialogs["confirm-modal"].close()
+        resolve(false);
+        this.$source.focus();
       });
     });
   }
-
-  close(afterClose) {
-    window.Decidim.currentDialogs["confirm-modal"].close()
-    afterClose();
-    if (this.$source) {
-      this.$source.focus();
-    }
-  }
 }
-
-const runConfirm = (message, sourceElement = null) => new Promise((resolve) => {
-  const dialog = new ConfirmDialog(sourceElement);
-  dialog.confirm(message).then((answer) => {
-    let completed = true;
-    if (sourceElement) {
-      completed = Rails.fire(sourceElement, "confirm:complete", [answer]);
-    }
-    resolve(answer && completed);
-  });
-});
 
 // Override the default confirm dialog by Rails
 // See:
@@ -81,35 +64,37 @@ const allowAction = (ev, element) => {
     return false;
   }
 
-  runConfirm(message, element).then((answer) => {
-    if (!answer) {
-      return;
-    }
+  const dialog = new ConfirmDialog(
+    $(element)
+  );
+  dialog.confirm(message).then((answer) => {
+    const completed = Rails.fire(element, "confirm:complete", [answer]);
+    if (answer && completed) {
+      // Allow the event to propagate normally and re-dispatch it without
+      // the confirm data attribute which the Rails internal method is
+      // checking.
+      $(element).data("confirm", null);
+      $(element).removeAttr("data-confirm");
 
-    // Allow the event to propagate normally and re-dispatch it without
-    // the confirm data attribute which the Rails internal method is
-    // checking.
-    $(element).data("confirm", null);
-    $(element).removeAttr("data-confirm");
-
-    // The submit button click events will not do anything if they are
-    // dispatched as is. In these cases, just submit the underlying form.
-    if (ev.type === "click" &&
-      (
-        $(element).is('button[type="submit"]') ||
-        $(element).is('input[type="submit"]')
-      )
-    ) {
-      $(element).parents("form").submit();
-    } else {
-      let origEv = ev.originalEvent || ev;
-      let newEv = origEv;
-      if (typeof Event === "function") {
-        // Clone the event because otherwise some click events may not
-        // work properly when re-dispatched.
-        newEv = new origEv.constructor(origEv.type, origEv);
+      // The submit button click events will not do anything if they are
+      // dispatched as is. In these cases, just submit the underlying form.
+      if (ev.type === "click" &&
+        (
+          $(element).is('button[type="submit"]') ||
+          $(element).is('input[type="submit"]')
+        )
+      ) {
+        $(element).parents("form").submit();
+      } else {
+        let origEv = ev.originalEvent || ev;
+        let newEv = origEv;
+        if (typeof Event === "function") {
+          // Clone the event because otherwise some click events may not
+          // work properly when re-dispatched.
+          newEv = new origEv.constructor(origEv.type, origEv);
+        }
+        ev.target.dispatchEvent(newEv);
       }
-      ev.target.dispatchEvent(newEv);
     }
   });
 
@@ -144,31 +129,26 @@ const handleDocumentEvent = (ev, matchSelectors) => {
   });
 };
 
-// Note that this needs to be run **before** Rails.start()
-export const initializeConfirm = () => {
-  document.addEventListener("click", (ev) => {
-    return handleDocumentEvent(ev, [
-      Rails.linkClickSelector,
-      Rails.buttonClickSelector,
-      Rails.formInputClickSelector
-    ]);
-  });
-  document.addEventListener("change", (ev) => {
-    return handleDocumentEvent(ev, [Rails.inputChangeSelector]);
-  });
-  document.addEventListener("submit", (ev) => {
-    return handleDocumentEvent(ev, [Rails.formSubmitSelector]);
-  });
+document.addEventListener("click", (ev) => {
+  return handleDocumentEvent(ev, [
+    Rails.linkClickSelector,
+    Rails.buttonClickSelector,
+    Rails.formInputClickSelector
+  ]);
+});
+document.addEventListener("change", (ev) => {
+  return handleDocumentEvent(ev, [Rails.inputChangeSelector]);
+});
+document.addEventListener("submit", (ev) => {
+  return handleDocumentEvent(ev, [Rails.formSubmitSelector]);
+});
 
-  // This is needed for the confirm dialog to work with Foundation Abide.
-  // Abide registers its own submit click listeners since Foundation 5.6.x
-  // which will be handled before the document listeners above. This would
-  // break the custom confirm functionality when used with Foundation Abide.
-  document.addEventListener("DOMContentLoaded", function() {
-    $(Rails.formInputClickSelector).on("click.confirm", (ev) => {
-      handleConfirm(ev, getMatchingEventTarget(ev, Rails.formInputClickSelector));
-    });
+// This is needed for the confirm dialog to work with Foundation Abide.
+// Abide registers its own submit click listeners since Foundation 5.6.x
+// which will be handled before the document listeners above. This would
+// break the custom confirm functionality when used with Foundation Abide.
+document.addEventListener("DOMContentLoaded", function() {
+  $(Rails.formInputClickSelector).on("click.confirm", (ev) => {
+    handleConfirm(ev, getMatchingEventTarget(ev, Rails.formInputClickSelector));
   });
-};
-
-export default runConfirm;
+});

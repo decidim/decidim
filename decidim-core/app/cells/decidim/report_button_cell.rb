@@ -11,6 +11,8 @@ module Decidim
     end
 
     def frontend_administrable?
+      return true if user_reportable? && current_user&.admin?
+
       user_entity? &&
         model.can_be_administered_by?(current_user) &&
         (model.respond_to?(:official?) && !model.official?)
@@ -30,7 +32,6 @@ module Decidim
     def cache_hash
       hash = []
       hash.push(I18n.locale)
-      hash.push(only_button? ? 1 : 0)
       hash.push(current_user.try(:id))
       hash.push(model.reported_by?(current_user) ? 1 : 0)
       hash.push(model.class.name.gsub("::", ":"))
@@ -46,12 +47,16 @@ module Decidim
       options[:modal_id] || "flagModal"
     end
 
+    def user_reportable?
+      model.is_a?(Decidim::UserReportable)
+    end
+
     def report_form
-      @report_form ||= Decidim::ReportForm.new(reason: "spam")
+      @report_form ||= user_reportable? ? Decidim::ReportForm.from_params(reason: "spam") : Decidim::ReportForm.new(reason: "spam")
     end
 
     def report_path
-      @report_path ||= decidim.report_path(sgid: model.to_sgid.to_s)
+      @report_path ||= user_reportable? ? decidim.report_user_path(sgid: model.to_sgid.to_s) : decidim.report_path(sgid: model.to_sgid.to_s)
     end
 
     def builder

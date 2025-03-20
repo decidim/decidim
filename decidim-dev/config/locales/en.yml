@@ -2,9 +2,6 @@
 en:
   activemodel:
     attributes:
-      dummy:
-        image: Image
-      dummy_attribute: Dummy attribute
       dummy_resource:
         created_at: Created at
         decidim_scope_id: Scope
@@ -18,7 +15,6 @@ en:
       dummy:
         settings:
           global:
-            clear_all: Clear all
             guided: Guided input
             guided_help: Help text
             guided_readonly: Disabled input
@@ -27,7 +23,6 @@ en:
             guided_rich_readonly_html: HTML <strong>help</strong> text for disabled input
             readonly_attribute: Readonly attribute
             test: A test
-            test_add: Add test
             test_choices:
               a: A choice
               b: B choice

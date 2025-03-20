@@ -6,14 +6,8 @@
   <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_for_private_users.title"), body: t("decidim.forms.questionnaires.show.questionnaire_for_private_users.body") }, callout_class: "alert") %>
 <% end %>
 
-<% if questionnaire_for.respond_to?(:announcement) and questionnaire_for.announcement.present? %>
-  <%= cell("decidim/announcement", translated_attribute(questionnaire_for.announcement), callout_class: "warning") %>
-<% end %>
-
 <%= decidim_form_for(@form, url: update_url, method: :post, html: { multipart: true, class: "form answer-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
   <%= form_required_explanation %>
-
-  <%= form.hidden_field :allow_editing_answers %>
 
   <%= invisible_captcha %>
   <% answer_idx = 0 %>
@@ -55,6 +49,10 @@
 
       <div class="answer-questionnaire__footer">
         <% if step_index + 1 == @form.total_steps %>
+          <% if show_represent_user_group? %>
+            <%= cell("decidim/represent_user_group", form) %>
+          <% end %>
+
           <% if show_public_participation? %>
             <%= cell("decidim/public_participation", form) %>
           <% end %>
@@ -72,8 +70,7 @@
           step_index,
           total_steps: @form.total_steps,
           button_disabled: !current_participatory_space.can_participate?(current_user),
-          form:,
-          allow_editing_answers: questionnaire_for.try(:allow_editing_answers?)
+          form:
         ) %>
       </div>
     </div>

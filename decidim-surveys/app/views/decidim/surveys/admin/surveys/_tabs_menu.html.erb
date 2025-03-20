@@ -1,9 +1,0 @@
-<% show_button = local_assigns.fetch(:show_button, true) %>
-
-<div class="flex justify-between">
-  <div class="w-2/3">
-    <%= admin_tabs(:admin_surveys_menu).render %>
-  </div>
-
-  <%= yield if block_given? %>
-</div>

@@ -11,15 +11,7 @@ describe "Explore projects", :slow do
     create_list(:project, projects_count, budget:)
   end
   let!(:project) { projects.first }
-  let(:taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization:) }
-  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: taxonomy.parent) }
-  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
-  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
-
-  before do
-    component_settings = component["settings"]["global"].merge!(taxonomy_filters: taxonomy_filter_ids)
-    component.update!(settings: component_settings)
-  end
+  let(:categories) { create_list(:category, 3, participatory_space: component.participatory_space) }
 
   describe "show" do
     let(:description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
@@ -77,7 +69,7 @@ describe "Explore projects", :slow do
             [-142.15275006889419, 33.33377235135252],
             [-55.28745034772282, -35.587843900166945]
           ]
-          Decidim::Budgets::Project.where(budget: budget).geocoded.each_with_index do |project, index|
+          Decidim::Budgets::Project.where(budget:).geocoded.each_with_index do |project, index|
             project.update!(latitude: coordinates[index][0], longitude: coordinates[index][1]) if coordinates[index]
           end
 
@@ -133,14 +125,32 @@ describe "Explore projects", :slow do
         expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
       end
 
-      it "allows filtering by taxonomy" do
-        project.taxonomies = [taxonomy]
+      it "allows filtering by scope" do
+        scope = create(:scope, organization:)
+        project.scope = scope
         project.save
 
         visit_budget
 
-        within "#panel-dropdown-menu-taxonomy-#{taxonomy.parent.id}" do
-          click_filter_item decidim_escape_translated(taxonomy.name)
+        within "#panel-dropdown-menu-scope" do
+          click_filter_item translated(scope.name)
+        end
+
+        within "#projects" do
+          expect(page).to have_css(".card__list", count: 1)
+          expect(page).to have_content(translated(project.title))
+        end
+      end
+
+      it "allows filtering by category" do
+        category = categories.first
+        project.category = category
+        project.save
+
+        visit_budget
+
+        within "#panel-dropdown-menu-category" do
+          click_filter_item decidim_escape_translated(category.name)
         end
 
         within "#projects" do

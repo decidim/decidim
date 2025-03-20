@@ -1,9 +1,10 @@
 <div class="comment__as">
-  <div class="comment__as-author-info">
-    <div class="author__avatar-container border border-white">
-      <%= image_tag author_presenter.avatar_url(:thumb), alt: t("decidim.author.avatar", name: author_presenter.name), class: "author__avatar" %>
-    </div>
-
-    <p class="comment__as-author-name"><%= author_presenter.name %></p>
-  </div>
+  <label class="mr-2 inline-block" for="<%= comment_as_id %>">
+    <%= t("decidim.components.add_comment_form.form.user_group_id.label") %>
+  </label>
+  <select class="p-2" id="<%= comment_as_id %>" name="comment[user_group_id]">
+    <% comment_as_options.each do |option| %>
+      <option value="<%= option[1] %>"><%= option[0] %></option>
+    <% end %>
+  </select>
 </div>

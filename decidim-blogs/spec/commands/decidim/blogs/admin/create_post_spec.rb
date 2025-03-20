@@ -25,8 +25,7 @@ module Decidim
             published_at: publish_time,
             component:,
             author: current_user,
-            current_user:,
-            taxonomizations: []
+            current_user:
           )
         end
 
@@ -110,6 +109,26 @@ module Decidim
             action_log = Decidim::ActionLog.last
             expect(action_log.version).to be_present
             expect(action_log.version.event).to eq "create"
+          end
+
+          context "with a group author" do
+            let(:group) { create(:user_group, :verified, organization:) }
+            let(:form) do
+              double(
+                invalid?: invalid,
+                title: { en: title },
+                published_at: publish_time,
+                body: { en: body },
+                component:,
+                current_user:,
+                author: group
+              )
+            end
+
+            it "sets the group as the author" do
+              subject.call
+              expect(post.author).to eq(group)
+            end
           end
         end
       end

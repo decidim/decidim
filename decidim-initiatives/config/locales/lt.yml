@@ -1,3 +1,4 @@
+---
 lt:
   activemodel:
     attributes:
@@ -94,7 +95,9 @@ lt:
             label: Būsena
             values:
               accepted: Parašų užtenka
+              created: Sukurta
               discarded: Atmesta
+              published: Publikuota
               rejected: Parašų neužtenka
               validating: Techninis patvirtinimas
           type_id_eq:
@@ -103,6 +106,7 @@ lt:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Ieškoti %{collection} pagal pavadinimą, aprašymą, ID ar autoriaus vardą ir pavardę.
       initiatives_settings:
         update:
+          error: Įvyko klaida.
           success: Iniciatyvų nustatymai atnaujinti.
       menu:
         attachments: Priedai
@@ -143,6 +147,8 @@ lt:
             initiative_title: Iniciatyvos pavadinimas
             name_and_surname: Vardas ir pavardė
             postal_code: Pašto kodas
+            scope: Apimtis
+            time_and_date: Laikas ir data
             timestamp: Laiko žymė
       titles:
         initiatives: Iniciatyvos
@@ -256,6 +262,7 @@ lt:
             new: Naujas
             photos: Nuotraukos
           update:
+            error: Įvyko klaida.
             success: Iniciatyva sėkmingai atnaujinta.
         initiatives_settings:
           edit:
@@ -269,6 +276,7 @@ lt:
             title: Nustatymai iniciatyvoms
         initiatives_type_scopes:
           create:
+            error: Įvyko klaida.
             success: Sukurta nauja sritis šiam iniciatyvų tipui.
           destroy:
             success: Sritis sėkmingai pašalinta.
@@ -279,8 +287,11 @@ lt:
             create: Sukurti
             title: Sukurti iniciatyvos tipo sritį
           update:
+            error: Įvyko klaida.
             success: Sritis atnaujinta.
         initiatives_types:
+          create:
+            error: Įvyko klaida.
           destroy:
             success: Iniciatyvos tipas sėkmingai pašalintas.
           edit:
@@ -294,6 +305,7 @@ lt:
             create: Sukurti
             title: Naujas iniciatyvos tipas
           update:
+            error: Įvyko klaida.
             success: Iniciatyvos tipas sėkmingai atnaujintas.
       admin_log:
         initiative:
@@ -309,7 +321,9 @@ lt:
           update: "%{user_name} atnaujino %{resource_name} iniciatyvos tipą"
       admin_states:
         accepted: Parašų užtenka
+        created: Sukurta
         discarded: Atmesta
+        published: Paskelbta
         rejected: Parašų neužtenka
         validating: Techninis patvirtinimas
       application_helper:
@@ -337,21 +351,39 @@ lt:
           name: Paryškintos iniciatyvos
       create_initiative:
         fill_data:
+          back: Atgal
           continue: Tęsti
           fill_data_help: "<ul> <li>Peržiūrėkite savo iniciatyvos turinį. Ar jūsų pavadinimas lengvai suprantamas? Ar jūsų iniciatyvos tikslas aiškus?</li> <li>Turite pasirinkti parašo rūšį. Asmeniškai, internetu, derinti abu būdus</li> <li>Kokia iniciatyvos geografinė taikymo sritis?</li> </ul>"
+          more_information: "(Daugiau informacijos)"
           select_area: Pasirinkti erdvę
           select_scope: Pasirinkti apimtį
         finish:
           back: Atgal
+          back_to_initiatives: Grįžti į iniciatyvas
+          callout_text: Sveikiname! Jūsų iniciatyva sukurta.
+          confirm: Jūs siųsite šią iniciatyvą administratoriaus peržiūrai ir publikavimui. Paskelbus iniciatyvą jos koreguoti nebegalėsite. Ar tikrai norite ją siųsti?
+          edit_my_initiative: Redaguoti mano iniciatyvas
+          go_to_my_initiatives: Eiti į mano iniciatyvas
+          more_information: "(Daugiau informacijos)"
+          send_my_initiative: Siųsti mano iniciatyvą techniniam patvirtinimui
+        finish_help:
+          publish_helper_text: Prisiminkite, kad tam, kad iniciatyva būtų publikuota turite užpildyti būtiną informaciją ir <strong>išsiųsti ją techniniam patvirtinimui</strong> atliekamam administratorių.
         previous_form:
           back: Atgal
+          continue: Tęsti
+        promotal_committee:
+          individual_help_text: Kad būtų galima įgyvendinti tokią piliečių iniciatyvą, Rėmimo komisiją turi sudaryti ne mažiau kaip %{committee_size} nariai (vertintojai). Šią nuorodą bendrinkite su kitais šioje iniciatyvoje dalyvaujančiais asmenimis. Gavę šią nuorodą, jūsų kontaktiniai asmenys turės atlikti nurodytus veiksmus.
+          more_information: "(Daugiau informacijos)"
         select_initiative_type:
           back: Atgal
           choose_html: Noriu sukurti <strong>%{title}</strong>
           more_information: (Daugiau informacijos)
           new: Sukurti naują iniciatyvą
           select: Noriu paremti šią iniciatyvą
+          select_initiative_type_help: Iniciatyvos yra būdas dalyviams įsitraukti ir kartu su organizacija ginti bendrąjį interesą. Kurią iniciatyvą norite pradėti Jūs?
           verification_required: Norėdami pasirašyti iniciatyvą, patvirtinkite savo paskyrą
+        share_committee_link:
+          invite_to_committee_help: Nuoroda, skirta dalyviams į rėmėjų komitetą pakviesti
       edit:
         accept: Priimti iniciatyvą
         back: Atgal
@@ -389,7 +421,10 @@ lt:
           email_subject: "%{applicant_nickname} nori prisijungti prie Jūsų iniciatyvos"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> pateikė paraišką prisijungti prie <a href="%{resource_url}">%{resource_title}</a> iniciatyvos remėjų komiteto. Norėdami priimti ar atmesti paraišką, spauskite <a href="%{resource_url}/edit">čia</a>.
       form:
+        add_documents: Pridėti dokumentus
         add_image: Pridėti paveikslėlį
+        attachment_legend: "(Neprivaloma) Pridėti priedą"
+        edit_documents: Redaguoti dokumentus
         edit_image: Redaguoti paveikslėlį
         image_legend: "(Neprivaloma) Pridėti paveikslėlį"
       index:
@@ -482,7 +517,9 @@ lt:
           phone_number: Telefono numeris
           place_date: Vieta, Data
           postal_code: Pašto kodas
+          print: Spausdinti
           province: Provincija/Rajonas
+          section: 'Jei to reikalauja organizacija, prašome atspausdinti ir užpildyti šią formą išsiunčiamą kur nurodyta:'
           signature: Parašas
         result:
           answer_title: Į iniciatyvą buvo atsakyta.
@@ -504,6 +541,7 @@ lt:
           other: " parašai"
         vote_cabin:
           already_voted: Jau pasirašyta
+          verification_required: Norėdami pasirašyti iniciatyvą, patvirtinkite savo paskyrą
           vote: Pasirašyti
           votes_blocked: Pasirašymas išjungtas
         votes_count:
@@ -538,7 +576,9 @@ lt:
       show:
         badge_name:
           accepted: Parašų užtenka
+          created: Sukurta
           discarded: Atmesta
+          published: Publikuota
           rejected: Parašų neužtenka
           validating: Techninis patvirtinimas
       states:
@@ -546,6 +586,7 @@ lt:
         expired: Nebegalioja
       unavailable_scope: Sritis nepasiekiama
       update:
+        error: Įvyko klaida.
         success: Iniciatyva sėkmingai atnaujinta.
     menu:
       initiatives: Iniciatyvos
@@ -555,12 +596,15 @@ lt:
           comment: Komentaras
       initiatives_type:
         actions:
+          create: Sukurti
           title: Veiksmai
           vote: Pasirašyti
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Sukurti
+        finish: Baigti
+        promotal_committee: Rėmėjų komitetas
         select_initiative_type: Pasirinkti
       initiative_signature_creation_header:
         fill_personal_data: Užpildyti savo duomenis

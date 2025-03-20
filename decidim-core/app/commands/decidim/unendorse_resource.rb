@@ -1,15 +1,17 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A command with all the business logic to unendorse a resource.
+  # A command with all the business logic to unendorse a resource, both as a user or as a user_group.
   class UnendorseResource < Decidim::Command
     # Public: Initializes the command.
     #
     # resource     - A Decidim::Endorsable object.
     # current_user - The current user.
-    def initialize(resource, current_user)
+    # current_group- (optional) The current_group that is unendorsing the Resource.
+    def initialize(resource, current_user, current_group = nil)
       @resource = resource
       @current_user = current_user
+      @current_group = current_group
     end
 
     # Executes the command. Broadcasts these events:
@@ -26,8 +28,11 @@ module Decidim
     private
 
     def destroy_resource_endorsement
-      query = @resource.endorsements.where(author: @current_user)
-
+      query = if @current_group.present?
+                @resource.endorsements.where(decidim_user_group_id: @current_group&.id)
+              else
+                @resource.endorsements.where(author: @current_user, decidim_user_group_id: 0)
+              end
       query.destroy_all
     end
   end

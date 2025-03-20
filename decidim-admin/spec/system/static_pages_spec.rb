@@ -59,7 +59,7 @@ describe "Content pages" do
       end
 
       it "can create topics" do
-        click_on "New topic"
+        click_on "Create topic"
 
         within ".new_static_page_topic" do
           fill_in_i18n(
@@ -158,14 +158,14 @@ describe "Content pages" do
 
     context "when displaying the page form" do
       before do
-        click_on "New page"
+        click_on "Create page"
       end
 
       it_behaves_like "having a rich text editor", "new_static_page", "full"
     end
 
     it "can create new pages" do
-      click_on "New page"
+      click_on "Create page"
 
       within ".new_static_page" do
         fill_in :static_page_slug, with: "welcome"

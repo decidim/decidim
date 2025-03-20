@@ -53,15 +53,6 @@ describe "show" do
 
       it { expect(page).to have_no_selector("iframe") }
     end
-
-    context "when participant is deleted" do
-      let(:author) { create(:user, :deleted, organization: component.organization) }
-      let!(:debate) { create(:debate, component:, author:) }
-
-      it "successfully shows the page" do
-        expect(page).to have_content("Deleted participant")
-      end
-    end
   end
 
   context "when shows the debate component" do
@@ -83,7 +74,8 @@ describe "show" do
       let(:last_comment) { Decidim::Comments::Comment.last }
 
       before do
-        create(:comment, commentable: debate)
+        group = create(:user_group, organization: debate.organization)
+        create(:comment, commentable: debate, author: group)
         create(:comment, commentable: debate)
 
         visit current_url
@@ -91,7 +83,8 @@ describe "show" do
 
       it "shows the number of participants" do
         within ".layout-item__aside" do
-          expect(page).to have_content("Participants\n2")
+          expect(page).to have_content("Participants\n1")
+          expect(page).to have_content("Groups\n1")
         end
       end
     end

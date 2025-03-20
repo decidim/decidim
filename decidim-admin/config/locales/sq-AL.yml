@@ -1,3 +1,4 @@
+---
 sq:
   activemodel:
     attributes:
@@ -33,6 +34,8 @@ sq:
       help_section:
         content: Përmbajtja
       id: ID
+      import:
+        user_group_id: Krijo importet si
       newsletter:
         body: Trupi i mesazhit
         send_to_all_users: Dërgo të gjithë përdoruesve
@@ -89,6 +92,7 @@ sq:
         time_zone: Zona orare
         tos_version: Versioni i kushteve të shërbimit
         twitter_handler: Emri i përdoruesit X
+        user_groups_enabled: Aktivizo grupet
         users_registration_mode: Mënyra e regjistrimit të përdoruesve
         warning_color: Kujdes
         welcome_notification_body: Përmbajtja e njoftimit të mirëseardhjes
@@ -146,16 +150,20 @@ sq:
         attachment:
           new: Shtojcë e re
         browse: Shfleto
+        category:
+          new: Kategoria e re
         export: Eksporto të gjitha
         import: Importo
         newsletter:
           new: Newsletter i ri
         per_page: Për faqe
         permissions: Lejet
+        reject: Refuzo
         send_me_a_test_email: Më dërgo një email prove
         share: Shpërndaj
         user:
           new: Administrator i ri
+        verify: Verifiko
       admin_terms_of_service:
         actions:
           accept: Pranoj kushtet
@@ -193,8 +201,22 @@ sq:
           justification: Arsye
           title: Blloko përdoruesin %{name}
       categories:
+        create:
+          error: Ndodhi një gabim gjatë krijimit të kësaj kategorie.
+          success: Kategoria u krijua me sukses.
+        destroy:
+          success: Kategoria u fshi me sukses.
+        edit:
+          title: Përpuno kategoritë
+          update: Përditëso
         index:
           categories_title: Kategoritë
+        new:
+          create: Krijo kategori
+          title: Kategori e re
+        update:
+          error: Ndodhi një gabim gjatë përditësimit të kësaj kategorie.
+          success: Kategoria u përditësua me sukses.
       component_permissions:
         update:
           success: Të drejtat u përditësuan me sukses.
@@ -228,6 +250,8 @@ sq:
           JSON: JSON
         notice: Eksportimi është duke u kryer. Do të merrni një email kur të ketë perfunduar.
       filters:
+        category_id_eq:
+          label: Kategori
         filter_label: Filtra
         invitation_accepted_at_present:
           label: Ftesa u pranua
@@ -323,6 +347,7 @@ sq:
         settings: Cilësimet
         static_page_topics: Temat
         static_pages: Faqet
+        user_groups: Grupet
         users: Pjesëmarrësit
       metrics:
         metrics:
@@ -369,8 +394,11 @@ sq:
             plural: Shumës
         share_token:
           fields:
+            created_at: Krijuar më
             expires_at: Skadon më
+            last_used_at: Hera e fundit që u përdor
             times_used: Sa herë është përdorur
+            token: Token
       moderated_users:
         index:
           reason: Arsyeja
@@ -473,11 +501,13 @@ sq:
       share_tokens:
         actions:
           destroy: Fshi
+          share: Shpërndaj
       static_page_topics:
         edit:
           title: Përpuno temën
           update: Përditëso temën
         new:
+          create: Krijo temën
           title: Temë e re
       static_pages:
         edit:
@@ -491,7 +521,11 @@ sq:
         panel: Administrator
         participants: Pjesëmarrësit
         statistics: Aktiviteti
+        user_groups: Grupet
         users: Administratorët
+      user_groups_csv_verifications:
+        new:
+          upload: Ngarko
       users:
         form:
           email: Email

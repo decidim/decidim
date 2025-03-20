@@ -6,9 +6,9 @@ module Decidim
       # This command is executed when the user changes a Meeting from the admin
       # panel.
       class UpdateMeeting < Decidim::Commands::UpdateResource
-        fetch_form_attributes :end_time, :start_time, :online_meeting_url, :registration_type,
+        fetch_form_attributes :scope, :category, :end_time, :start_time, :online_meeting_url, :registration_type,
                               :registration_url, :registrations_enabled, :address, :latitude, :longitude, :location,
-                              :location_hints, :taxonomizations,
+                              :location_hints,
                               :private_meeting, :transparent, :iframe_embed_type, :comments_enabled,
                               :comments_start_time, :comments_end_time, :iframe_access_level
 
@@ -18,7 +18,6 @@ module Decidim
           send_notification if should_notify_followers?
           schedule_upcoming_meeting_notification if resource.published? && start_time_changed?
           update_services!
-          update_components!
         end
 
         def attributes
@@ -35,11 +34,6 @@ module Decidim
           resource.services = form.services_to_persist.map do |service|
             Decidim::Meetings::Service.new(title: service.title, description: service.description)
           end
-          resource.save!
-        end
-
-        def update_components!
-          resource.components = form.components
           resource.save!
         end
 

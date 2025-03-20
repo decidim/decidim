@@ -1,3 +1,4 @@
+---
 sv:
   activemodel:
     attributes:
@@ -34,6 +35,7 @@ sv:
         questionnaires:
           actions:
             back: Tillbaka till frågor
+            show: Visa svar
           answer_option:
             answer_option: Svarsalternativ
             free_text: Fritext
@@ -175,6 +177,7 @@ sv:
           tos_agreement: Genom att delta godkänner du användarvillkoren
       step_navigation:
         show:
+          are_you_sure: Den här åtgärden kan inte ångras och du kommer inte att kunna redigera dina svar. Är du säker?
           back: Tillbaka
           continue: Fortsätt
           submit: Skicka in

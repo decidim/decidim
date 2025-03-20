@@ -108,7 +108,6 @@ FactoryBot.define do
     end
     type { create(:initiatives_type, skip_injection:) }
     scope { create(:scope, organization: type.organization, skip_injection:) }
-    taxonomy { create(:taxonomy, organization: type.organization, skip_injection:) }
     supports_required { 1000 }
 
     trait :with_user_extra_fields_collection do
@@ -125,8 +124,8 @@ FactoryBot.define do
     description { generate_localized_description(:initiative_description, skip_injection:) }
     organization
     author { create(:user, :confirmed, organization:, skip_injection:) }
-    state { "open" }
-    published_at { Time.current.utc }
+    published_at { Time.current }
+    state { "published" }
     signature_type { "online" }
     signature_start_date { Date.current - 1.day }
     signature_end_date { Date.current + 120.days }
@@ -157,8 +156,12 @@ FactoryBot.define do
       signature_end_date { nil }
     end
 
-    trait :open do
-      state { "open" }
+    trait :published do
+      state { "published" }
+    end
+
+    trait :unpublished do
+      published_at { nil }
     end
 
     trait :accepted do
@@ -268,6 +271,10 @@ FactoryBot.define do
     end
     initiative { create(:initiative, skip_injection:) }
     author { create(:user, :confirmed, organization: initiative.organization, skip_injection:) }
+    decidim_user_group_id { create(:user_group, skip_injection:).id }
+    after(:create) do |support, evaluator|
+      create(:user_group_membership, user: support.author, user_group: Decidim::UserGroup.find(support.decidim_user_group_id), skip_injection: evaluator.skip_injection)
+    end
   end
 
   factory :initiatives_committee_member, class: "Decidim::InitiativesCommitteeMember" do

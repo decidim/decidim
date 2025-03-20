@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.3.0"
+  s.required_ruby_version = "~> 3.2.0"
 
   s.name = "decidim-conferences"
   s.summary = "Decidim conferences module"
@@ -32,6 +32,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-core", Decidim::Conferences.version
   s.add_dependency "decidim-meetings", Decidim::Conferences.version
+  s.add_dependency "wicked_pdf", "~> 2.7"
 
   s.add_development_dependency "decidim-admin", Decidim::Conferences.version
   s.add_development_dependency "decidim-dev", Decidim::Conferences.version

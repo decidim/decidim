@@ -6,9 +6,8 @@ module Decidim
   module Proposals
     describe PublishCollaborativeDraft do
       let(:component) { create(:proposal_component) }
-      let(:taxonomies) { [create(:taxonomy, :with_parent, organization: component.organization)] }
       let(:state) { :open }
-      let!(:collaborative_draft) { create(:collaborative_draft, component:, state:, taxonomies:) }
+      let!(:collaborative_draft) { create(:collaborative_draft, component:, state:) }
       let!(:attachment) { Decidim::Attachment.create(attachment_params) }
       let(:attachment_params) do
         {
@@ -61,7 +60,8 @@ module Decidim
             command.call
             proposal = Decidim::Proposals::Proposal.last
 
-            expect(proposal.taxonomies).to eq(collaborative_draft.taxonomies)
+            expect(proposal.category).to eq(collaborative_draft.category)
+            expect(proposal.scope).to eq(collaborative_draft.scope)
             expect(proposal.address).to eq(collaborative_draft.address)
             expect(proposal.attachments).to eq(collaborative_draft.attachments)
           end

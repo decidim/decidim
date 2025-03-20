@@ -6,7 +6,9 @@ module Decidim::Assemblies
   describe Admin::UpdateAssembly do
     describe "call" do
       let(:organization) { create(:organization) }
-      let(:my_assembly) { create(:assembly, organization:) }
+      let(:assembly_type) { create(:assemblies_type, organization:) }
+      let(:assembly_type_id) { assembly_type.id }
+      let(:my_assembly) { create(:assembly, assembly_type:, organization:) }
       let(:user) { create(:user, :admin, :confirmed, organization: my_assembly.organization) }
 
       let(:participatory_processes) do
@@ -18,10 +20,6 @@ module Decidim::Assemblies
       end
 
       let(:hero_image) { my_assembly.hero_image }
-      let!(:taxonomizations) do
-        2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: my_assembly) }
-      end
-      let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
       let(:banner_image) { my_assembly.banner_image }
       let(:params) do
         {
@@ -45,10 +43,14 @@ module Decidim::Assemblies
             short_description_ca: my_assembly.short_description,
             short_description_es: my_assembly.short_description,
             current_organization: my_assembly.organization,
+            scopes_enabled: my_assembly.scopes_enabled,
+            scope: my_assembly.scope,
+            area: my_assembly.area,
             errors: my_assembly.errors,
             participatory_processes_ids: participatory_processes.map(&:id),
             purpose_of_action: my_assembly.purpose_of_action,
             composition: my_assembly.composition,
+            decidim_assemblies_type_id: assembly_type_id,
             creation_date: my_assembly.creation_date,
             created_by: my_assembly.created_by,
             created_by_other: my_assembly.created_by_other,
@@ -64,8 +66,7 @@ module Decidim::Assemblies
             instagram_handler: my_assembly.instagram_handler,
             youtube_handler: my_assembly.youtube_handler,
             github_handler: my_assembly.github_handler,
-            announcement: my_assembly.announcement,
-            taxonomies: [taxonomy.id, taxonomizations.first.taxonomy.id]
+            announcement: my_assembly.announcement
           }.merge(attachment_params)
         }
       end
@@ -154,12 +155,6 @@ module Decidim::Assemblies
           expect(my_assembly.title["en"]).to eq("Foo title")
         end
 
-        it "updates the taxonomizations" do
-          expect(my_assembly.reload.taxonomies).to contain_exactly(taxonomizations.first.taxonomy, taxonomizations.second.taxonomy)
-          command.call
-          expect(my_assembly.reload.taxonomies).to contain_exactly(taxonomy, taxonomizations.first.taxonomy)
-        end
-
         it "traces the action", versioning: true do
           expect(Decidim.traceability)
             .to receive(:perform_action!)
@@ -176,6 +171,22 @@ module Decidim::Assemblies
 
           linked_participatory_processes = my_assembly.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
           expect(linked_participatory_processes).to match_array(participatory_processes)
+        end
+
+        it "links to assembly type" do
+          command.call
+
+          expect(my_assembly.assembly_type).to eq(assembly_type)
+        end
+
+        context "when no assembly type is set" do
+          let(:assembly_type_id) { nil }
+
+          it "assembly type is null" do
+            command.call
+
+            expect(my_assembly.assembly_type).to be_nil
+          end
         end
 
         context "when homepage image is not updated" do

@@ -1,3 +1,4 @@
+---
 fr-CA:
   activemodel:
     attributes:
@@ -14,19 +15,14 @@ fr-CA:
         one: Article
         other: Articles
   decidim:
-    admin:
-      admin_log:
-        changeset:
-          posts: Articles
     blogs:
       actions:
         author_id: Créer un article comme
-        confirm_delete_post: Êtes-vous sûr(e) de vouloir supprimer cet article ?
-        deleted_posts_info: Les articles supprimés peuvent être restaurés depuis la corbeille.
+        confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer cet article ?
+        destroy: Supprimer
         edit: Modifier
         new: Nouvel article
         title: Actions
-        view_deleted_posts: Voir les articles supprimés
       admin:
         posts:
           create:
@@ -40,8 +36,6 @@ fr-CA:
           index:
             not_published_yet: Pas encore publié.
             title: Articles
-          manage_trash:
-            title: Articles supprimés
           new:
             create: Créer
             title: Créer un article
@@ -52,8 +46,6 @@ fr-CA:
         post:
           create: "%{user_name} a créé l'article de blog %{resource_name} dans %{space_name}"
           delete: "%{user_name} a supprimé l'article de blog %{resource_name} dans %{space_name}"
-          restore: "%{user_name} a restauré l'article de blog %{resource_name} dans %{space_name}"
-          soft_delete: "%{user_name} a déplacé l'article de blog %{resource_name} dans %{space_name}"
           update: "%{user_name} a mis à jour l'article de blog %{resource_name} dans %{space_name}"
       content_blocks:
         highlighted_posts:
@@ -69,34 +61,13 @@ fr-CA:
             body: Corps du texte
             official_blog_post: Article officiel
             published_at: Date de publication
-            taxonomies: Taxonomies
             title: Titre
       posts:
-        edit:
-          add_attachments: Ajouter des pièces jointes
-          attachment_legend: Ajouter un document ou une image
-          back: Retour à l'article
-          button: Mettre à jour
-          edit_attachments: Modifier les pièces jointes
-          title: Modifier l'article
-        form:
-          author_id: Auteur
-          body: Corps de texte
-          title: Titre
         index:
           count:
             one: "%{count} article"
             other: "%{count} articles"
           empty: Il n'y a pas encore d'articles.
-          new_post: Nouvel article
-        menu_actions:
-          button_destroy: Supprimer l'article
-          button_destroy_confirm: Êtes-vous sûr(e) de vouloir supprimer cet article ?
-          button_edit: Modifier l'article
-        new:
-          back: Retour aux articles
-          button: Créer
-          title: Créer un nouvel article
     components:
       blogs:
         actions:
@@ -109,14 +80,8 @@ fr-CA:
         settings:
           global:
             announcement: Annonce
-            attachments_allowed: Autoriser les pièces jointes
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
-            creation_enabled_for_participants: Les participants peuvent créer des articles
-            define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
-            no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
-            taxonomy_filters: Sélectionner les filtres pour le composant
-            taxonomy_filters_add: Ajouter un filtre
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
@@ -129,14 +94,5 @@ fr-CA:
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez le retirer du lien précédent.
           email_subject: Nouvel article publié dans %{participatory_space_title}
           notification_title: L'article <a href="%{resource_path}">%{resource_title}</a> a été publié dans %{participatory_space_title}
-    open_data:
-      help:
-        post_comments:
-          alignment: Si ce commentaire était pour, contre ou neutre
-          author: Le nom du participant qui a fait ce commentaire
-          body: Le commentaire lui-même
-          commentable_id: L'identifiant unique du commentaire
-          created_at: La date de création de ce commentaire
-          id: L'id de ce commentaire
     statistics:
       posts_count: Publications

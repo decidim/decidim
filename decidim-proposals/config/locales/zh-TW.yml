@@ -1,26 +1,31 @@
+---
 zh-TW:
   activemodel:
     attributes:
       collaborative_draft:
         address: 地址
         body: 內容
+        category_id: 類別
         decidim_scope_id: 範圍
         has_address: 有地址
         scope_id: 範圍
         state: 狀態
         title: 標題
+        user_group_id: 建立協作草稿為
       proposal:
         address: 地址
         answer: 回答
         answered_at: 回答
         automatic_hashtags: 已自動添加標籤
         body: 內容
+        category_id: 類別
         decidim_scope_id: 範圍
         has_address: 有地址
         scope_id: 範圍
         state: 狀態
         suggested_hashtags: 建議使用標籤
         title: 標題
+        user_group_id: 建立提案
       proposal_answer:
         answer: 回答
         cost: 費用
@@ -33,6 +38,9 @@ zh-TW:
         import_proposals: 導入提案
         keep_answers: 保留狀態和回答
         keep_authors: 保留原作者
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: 檢核者名稱
     errors:
       models:
         participatory_text:
@@ -59,6 +67,8 @@ zh-TW:
             base:
               not_official: 非正式
     models:
+      decidim/proposals/admin/update_proposal_category_event: 提案類別已更改
+      decidim/proposals/admin/update_proposal_scope_event: 提案範圍已更改
       decidim/proposals/creation_enabled_event: 建立提案已啟用
       decidim/proposals/endorsing_enabled_event: 提案連署功能已啟用
       decidim/proposals/proposal_mentioned_event: 提案已被提及
@@ -76,11 +86,15 @@ zh-TW:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: 類別
           is_emendation_true:
             label: 類別
             values:
               'false': 提案
               'true': 修正案
+          scope_id_eq:
+            label: 範圍
           state_eq:
             label: 狀態
             values:
@@ -90,6 +104,8 @@ zh-TW:
               rejected: 已拒絕
               validating: 技術驗證
               withdrawn: 已撤回
+          valuator_role_ids_has:
+            label: 已分配給評估人員
         search_placeholder:
           id_string_or_title_cont: 透過 ID 或標題搜尋%{collection}
     components:
@@ -97,6 +113,7 @@ zh-TW:
         actions:
           amend: 修訂
           comment: 評論
+          create: 建立
           endorse: 連署
           vote_comment: 投票評論
           withdraw: 撤回
@@ -119,6 +136,7 @@ zh-TW:
               random: 隨機
               recent: 最近
               with_more_authors: 有更多作者
+            geocoding_enabled: 地理編碼已啟用
             new_proposal_body_template: 新提案正文樣板
             new_proposal_body_template_help: 您可以定義新提案預先填寫的文字
             new_proposal_help_text: 新提案幫助文本
@@ -126,6 +144,7 @@ zh-TW:
             participatory_texts_enabled: 參與式文字已啟用
             participatory_texts_enabled_readonly: 如果已經存在提案，則無法與此設置互動。如果您想要啟用此功能，請創建一個新的“提案組件”，或者如果要禁用此功能，請在“參與式文字”選單中放棄所有已匯入的提案。
             proposal_answering_enabled: 提案回答已啟用
+            proposal_edit_before_minutes: 在幾分鐘後，作者可以編輯提案
             proposal_edit_time: 編輯提案
             proposal_edit_time_choices:
               infinite: 允許無限時間編輯提案
@@ -134,6 +153,8 @@ zh-TW:
             proposal_limit: 參與者可提出提案的上限
             proposal_wizard_step_1_help_text: 提案向導「創建」步驟說明文字
             resources_permissions_enabled: 每個提案都可以設定行動權限
+            scope_id: 範圍
+            scopes_enabled: 啟用範圍
             threshold_per_proposal: 每個提案的門檻
           step:
             amendment_creation_enabled: 創建修正案已啟用
@@ -171,7 +192,10 @@ zh-TW:
       proposals:
         admin:
           proposal_note_created:
+            email_intro: 有人在提案「%{resource_title}」上留了一則留言。在<a href="%{admin_proposal_info_url}">管理員面板</a>檢查它。
+            email_outro: 您收到此通知，因為您可以對提案進行評估。
             email_subject: 有人在提案 %{resource_title} 上留下了一則註記。
+            notification_title: 有人在提案「<a href="%{resource_path}">%{resource_title}</a>」上留了一則留言。請至<a href="%{admin_proposal_info_path}">管理面板</a>查看。
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} 已經被接受成為 <a href="%{resource_url}">%{resource_title}</a> 協作草稿的貢獻者。'
           email_outro: 您收到此通知，是因為您是 <a href="%{resource_url}">%{resource_title}</a> 的協作者。
@@ -228,6 +252,14 @@ zh-TW:
           email_subject: 新增提案「%{resource_title}」至「%{participatory_space_title}」。
           notification_title: '%{author} 將提案<a href="%{resource_path}">%{resource_title}</a>新增至%{participatory_space_title}.'
           notification_title_official: 官方提案 <a href="%{resource_path}">%{resource_title}</a> 已經被添加到 %{participatory_space_title}.
+        proposal_update_category:
+          email_intro: '管理員已更新您的提案 "%{resource_title}" 的分類，請前往此頁面查看：'
+          email_subject: '「%{resource_title}」提案的分類已更新'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案類別已由管理員更新。
+        proposal_update_scope:
+          email_intro: '一位管理員已更新您的提案"%{resource_title}" 的範圍，您可以在此頁面檢查：'
+          email_subject: '%{resource_title} 提案範圍已更新'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案範圍已由管理員更新。
         voting_enabled:
           email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
     gamification:
@@ -290,6 +322,24 @@ zh-TW:
           proposal_comments: 評論
           proposals: 提案
         imports:
+          help:
+            answers: |
+              匯入文件如果是 CSV 或 Excel 檔案，應包含以下列名，如果是 JSON 檔案，則應包含以下名稱：
+
+              <ul>
+              <li><b>id：</b>要回答的提案的 ID</li>
+              <li><b>state：</b>狀態之一，可以是 "接受"、"評估中" 或 "拒絕"</li>
+              <li><b>answer/en：</b>英文語言的答案。這將取決於您平台的語言設置。</li>
+              </ul>
+            proposals: |
+              在 CSV 或 Excel 文件的情況下，或在 JSON 文件的情況下，文件必須具有以下列名稱：
+
+              <ul>
+              <li><b>title/en：</b>英文標題，這取決於您平台的語言配置。</li>
+              <li><b>body/en：</b>英文正文，這取決於您平台的語言配置。</li>
+              <li><b>scope/id：</b>範圍的 ID。</li>
+              <li><b>category/id：</b>類別的 ID。</li>
+              </ul>
           label:
             answers: 從檔案匯入回覆
             proposals: 從檔案匯入提案
@@ -344,22 +394,33 @@ zh-TW:
           form:
             note: 附註
             submit: 提交
+          leave_your_note: 留下您的註記
           title: 私有注解
         proposals:
           answer:
+            invalid: 回答這個提案時出現了問題.
             success: 提案回覆成功.
           create:
+            invalid: 創建提案時發生問題.
             success: 提案已成功建立.
           edit:
             title: 更新提案
             update: 更新
           form:
+            attachment_legend: "(可選) 新增附件"
             created_in_meeting: 這個提案來自會議
+            delete_attachment: 刪除附件
+            select_a_category: 選擇一個類別
             select_a_meeting: 選擇一個會議
           index:
             actions: 操作
+            assign_to_valuator: 分配給評估人員
+            assign_to_valuator_button: 指派
             cancel: 取消
+            change_category: 變更類別
+            change_scope: 變更範圍
             merge: 合併為新提案
+            merge_button: 合併
             publish: 發布
             publish_answers: 發佈回應
             select_component: 選擇一個元件
@@ -367,7 +428,10 @@ zh-TW:
             split: 拆分提案
             split_button: 拆分
             title: 提案
+            unassign_from_valuator: 取消分派給評估者
+            unassign_from_valuator_button: 取消分配
             update: 更新
+            update_scope_button: 更新範圍
           new:
             create: 建立
             title: 建立提案
@@ -375,6 +439,7 @@ zh-TW:
             select_a_proposal: 請選擇一個提案。
           show:
             amendments_count: 修改案數量
+            assigned_valuators: 已分配給評估人員
             body: 正文
             comments_count: 評論次數
             documents: 文件
@@ -386,9 +451,22 @@ zh-TW:
             ranking: "%{total} 的%{ranking}"
             related_meetings: 相關會議
             remove_assignment: 移除指派
+            remove_assignment_confirmation: 您確定要將評估者從此提案中移除嗎？
+            valuators: 評估者
+          update_category:
+            invalid: '這些提案已經擁有 %{subject_name} 類別: %{proposals}。'
+            select_a_category: 請選擇一個類別。
+            select_a_proposal: 請選擇一個提案。
+            success: '已成功將以下提案更新至 %{subject_name} 類別: %{proposals}。'
+          update_scope:
+            invalid: '這些提案已經有了 %{subject_name} 的範圍: %{proposals}。'
+            select_a_proposal: 請選擇一個提案。
+            select_a_scope: 請選擇一個範圍。
+            success: '成功將提案更新到 %{subject_name} 的範圍內： %{proposals}。'
         proposals_imports:
           create:
             invalid: 匯入提案時發生問題.
+            success: "%{number} 個提案成功匯入."
           new:
             create: 匯入提案
             no_components: 這個參與空間中沒有其他的提案元件可以匯入提案。
@@ -396,17 +474,30 @@ zh-TW:
             select_states: 檢查要匯入的提案狀態。
         proposals_merges:
           create:
+            invalid: '由於其中一些提案存在問題，因此無法合併所選提案：'
             success: 已成功合併提案成為新的提案。
         proposals_splits:
           create:
+            invalid: '由於其中一些提案存在問題，因此無法分割所選提案：'
             success: 成功將提案拆分為新的提案。
+        valuation_assignments:
+          create:
+            invalid: 有一個錯誤在指定提案給評估者。
+            success: 提案已成功分配給評估人員.
+          delete:
+            invalid: 取消指派建議書給評估人員時發生錯誤.
+            success: 評估員已成功取消分配提案.
       admin_log:
         proposal:
           answer: "%{user_name} 回覆了在 %{space_name} 空間的 %{resource_name} 提案。"
+          create: "%{user_name} 在%{space_name} 空間中創建了官方提案%{resource_name}"
           publish_answer: "%{user_name} 在%{space_name} 空間中發表了對%{resource_name} 提案的回答"
           update: "%{user_name} 在%{space_name} 空間中更新了%{resource_name} 官方提案"
         proposal_note:
           create: "%{user_name} 在 %{space_name} 空間的 %{resource_name} 提案中留下了私人註記。"
+        valuation_assignment:
+          create: "%{user_name} 將 %{resource_name} 提案指派給了一個評估者。"
+          delete: "%{user_name} 取消了 %{proposal_title} 提案的評估者指派。"
       answers:
         accepted: 已接受
         evaluating: 評估
@@ -419,6 +510,7 @@ zh-TW:
           meetings: 會議
           official: 官方
           participants: 參與者
+          user_groups: 群組
         filter_state_values:
           all: 全部
           not_answered: 未回答
@@ -448,15 +540,19 @@ zh-TW:
           error: 建立協作草稿時發生問題。
           success: 協作草稿建立成功。
         edit:
+          attachment_legend: "(可選) 新增附件"
           back: 返回
+          select_a_category: 請選擇一個類別
           send: 發送
           title: 編輯協作草稿
         filters:
           all: 全部
           amendment: 修正案
+          category: 類別
           open: 開啟
           published: 已發佈
           related_to: 相關於
+          scope: 範圍
           search: 搜尋
           state: 狀態
           withdrawn: 已撤回
@@ -494,6 +590,7 @@ zh-TW:
             error: 無法拒絕作為合作者，請稍後再試。
             success: "@%{user} 已被成功拒絕成為協作者。"
         show:
+          edit: 編輯協作草稿
           final_proposal: 最終提案
           final_proposal_help_text: 此草案已完成。請查看最終提案。
           hidden_authors_count:
@@ -528,14 +625,18 @@ zh-TW:
       models:
         proposal:
           fields:
+            category: 類別
             comments: 評論
             id: ID
             notes: 備註
             official_proposal: 正式提案
             published_answer: 已發布的回答
             published_at: 發佈於
+            scope: 範圍
             state: 狀態
             title: 標題
+            valuator: 評估者
+            valuators: 評估者
             votes: 投票
       new:
         limit_reached: 你已經超過了提案數量的限制，因此無法創建新的提案。
@@ -549,7 +650,11 @@ zh-TW:
           description: 當點擊“預覽”按鈕時，座標將會更新，但地址不會更改。
           instructions: 您可以在地圖上移動點。
         edit:
+          add_documents: 新增文件
+          attachment_legend: "(可選) 新增附件"
           back: 返回
+          edit_documents: 編輯文件
+          select_a_category: 請選擇一個類別
           send: 發送
           title: 編輯提案
         edit_draft:
@@ -560,6 +665,7 @@ zh-TW:
           activity: 我的活動
           all: 全部
           amendment_type: 類別
+          category: 分類
           my_proposals: 我的提案
           origin: 起源
           related_to: 相關於
@@ -603,6 +709,7 @@ zh-TW:
         show:
           answer: 回答
           changes_at_title: 修正案 "%{title}"
+          edit_proposal: 編輯提案
           estimated_cost: 預估成本
           hidden_endorsers_count:
             other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
@@ -616,13 +723,12 @@ zh-TW:
           proposal_in_evaluation_reason: 這個提案正在被評估中
           proposal_rejected_reason: '這個提案被拒絕了，因為：'
           withdraw_confirmation_html: 您確定要撤回此提案嗎？<br><br><strong>此操作無法取消！</strong>
+          withdraw_proposal: 撤回提案
         update:
           title: 更新提案
         voting_rules:
           proposal_limit:
             description: 您最多可以創建 %{limit} 個提案。
-          vote_limit:
-            description: 您最多可以支持 %{limit} 個提案。
         wizard_aside:
           back: 返回
           back_from_step_1: 返回提案

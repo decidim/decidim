@@ -1,3 +1,4 @@
+---
 de:
   activemodel:
     attributes:
@@ -23,40 +24,18 @@ de:
               missing: sind nicht vollständig
               too_many: Sie können ein Maximum von %{count} auswählen.
         questionnaire:
-          request_invalid: Bei der Verarbeitung der Anfrage ist ein Fehler auftreten. Bitte versuchen Sie es erneut.
+          request_invalid: Beim Bearbeiten der Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es nochmal.
   decidim:
-    download_your_data:
-      help:
-        answers:
-          answer: Die Antwort auf die Frage
-          id: Die eindeutige Bezeichnung der Antwort
-          question: Die Frage, die beantwortet wurde
-          questionnaire: Der Fragebogen, der beantwortet wurde
-          user: Der Benutzer, der den Fragebogen beantwortet hat
-      show:
-        answers: Antworten exportieren
-        survey_user_answers: Antworten zur Benutzerumfrage
     forms:
       admin:
         models:
           components:
-            allow_answers: Antworten zulassen
-            allow_editing_answers: Registrierten Benutzern die Bearbeitung eigener Umfrageantworten ermöglichen
-            allow_unregistered: Nicht registrierten Benutzern erlauben, die Umfrage zu beantworten
-            allow_unregistered_help: Wenn aktiviert, ist keine Anmeldung erforderlich, um die Umfrage zu beantworten. Dies kann zu schlechten oder unzuverlässigen Daten führen und ist anfälliger für automatisierte Angriffe. Verwenden Sie diese Funktion mit Vorsicht! Beachten Sie, dass ein Teilnehmer die gleiche Umfrage mehrfach beantworten kann, indem er verschiedene Browser oder die "Private Browsing"-Funktion ihres Web-Browsers nutzt.
-            announcement: Ankündigung
-            clean_after_publish: Antworten bei Veröffentlichung des Fragebogens löschen
             description: Beschreibung
-            ends_at: Antworten akzeptiert bis
-            ends_at_help: Leer lassen für unbestimmtes Datum
-            starts_at: Antworten akzeptiert von
-            starts_at_help: Leer lassen für unbestimmtes Datum
             tos: Nutzungsbedingungen
         questionnaires:
           actions:
             back: Zurück zu Fragen
-            publish_answers: Antworten veröffentlichen
-            show: Antworten
+            show: Antworten anzeigen
           answer_option:
             answer_option: Antwortoption
             free_text: Freier Text
@@ -100,18 +79,16 @@ de:
           edit:
             save: Speichern
             title: Fragebogen bearbeiten
-          edit_questions:
+          form:
             add_question: Frage hinzufügen
             add_separator: Trennzeichen hinzufügen
             add_title_and_description: Titel und Beschreibung hinzufügen
-            save: Speichern
-            title: Fragen
-          form:
-            add_question: Frage hinzufügen
+            already_answered_warning: Der Fragebogen wird bereits von einigen Benutzern beantwortet, sodass Sie die Fragen nicht ändern können.
             collapse: Alle Fragen einklappen
             expand: Alle Fragen ausklappen
             preview: Vorschau
             title: Formular für %{questionnaire_for} bearbeiten
+            unpublished_warning: Das Formular ist nicht veröffentlicht. Sie können die Fragen ändern, aber dadurch werden die aktuellen Antworten gelöscht.
           matrix_row:
             matrix_row: Zeile
             remove: Löschen
@@ -124,24 +101,17 @@ de:
             any: Irgendein
             collapse: Einklappen
             description: Beschreibung
-            down: Nach unten
+            down: Nieder
             expand: Ausklappen
             question: Frage
             remove: Löschen
             statement: Aussage
             up: Oben
-          questions_form:
-            already_answered_warning: Der Fragebogen wird bereits von einigen Benutzern beantwortet, sodass Sie die Fragen nicht ändern können.
-            collapse: Alle Fragen einklappen
-            expand: Alle Fragen ausklappen
-            unpublished_warning: Das Formular ist nicht veröffentlicht. Sie können die Fragen ändern, aber dadurch werden die aktuellen Antworten gelöscht.
-            update:
-              success: Umfrage erfolgreich gespeichert.
           separator:
             down: Runter
             remove: Löschen
             separator: Trennzeichen
-            up: Nach oben
+            up: Hoch
           title_and_description:
             collapse: Einklappen
             description: Beschreibung
@@ -155,9 +125,6 @@ de:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.
       admin_log:
-        question:
-          publish_answers: "%{user_name} hat die Antworten zu den Fragen %{resource_name} im Bereich %{space_name} veröffentlicht"
-          unpublish_answers: "%{user_name} hat die Antworten zu den Fragen %{resource_name} im Bereich %{space_name} verborgen"
         questionnaire:
           update: "%{user_name} hat die Umfrage %{resource_name} aktualisiert"
       errors:
@@ -200,9 +167,6 @@ de:
           questionnaire_answered:
             body: Sie haben diesen Fragebogen bereits beantwortet.
             title: Schon beantwortet
-          questionnaire_answered_edit:
-            body: Sie haben dieses Formular bereits beantwortet. %{link}
-            edit: Antworten bearbeiten
           questionnaire_closed:
             body: Der Fragebogen ist geschlossen und kann nicht beantwortet werden.
             title: Fragebogen geschlossen
@@ -217,11 +181,9 @@ de:
           tos_agreement: 'Mit Ihrer Teilnahme stimmen Sie folgenden Nutzungsbedingungen zu:'
       step_navigation:
         show:
-          are_you_sure_edit_guest: Wenn Sie Ihre Antworten nachträglich bearbeiten möchten, müssen Sie sich anmelden oder ein Konto erstellen.
-          are_you_sure_no_edit: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht mehr bearbeiten. Sind Sie sicher?
+          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Sind Sie sich sicher?
           back: Zurück
           continue: Weiter
-          disallowed: Sie dürfen Ihre Antworten nicht bearbeiten.
           submit: einreichen
       user_answers_serializer:
         body: Antwort

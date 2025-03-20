@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -20,6 +21,8 @@ uk:
         promoted: Висвітлено
         published_at: 'Оприлюднено:'
         related_process_ids: Супутні рухи
+        scope_id: Обсяг
+        scopes_enabled: Обсяги увімкнено
         short_description: Стислий опис
         slug: Скорочена веб-адреса
         start_date: Дата початку
@@ -35,6 +38,8 @@ uk:
         end_date: Дата закінчення
         short_description: Стислий опис
         start_date: Дата початку
+        title: Назва
+      participatory_process_type:
         title: Назва
       participatory_process_user_role:
         email: Адреса електронної пошти
@@ -84,8 +89,10 @@ uk:
           attachment_collections: Теки
           attachment_files: Вкладені файли
           attachments: Вкладені файли
+          categories: Категорії
           components: Складові
           moderations: Дії з модерації
+          private_users: Приватні учасники
           process_admins: Учасники руху
           steps: Кроки
       models:
@@ -104,6 +111,10 @@ uk:
             start_date: Дата початку
             title: Назва
           name: Крок руху співучасті
+        participatory_process_type:
+          fields:
+            created_at: 'Додано:'
+            title: Назва
         participatory_process_user_role:
           fields:
             email: Адреса електронної пошти
@@ -166,6 +177,11 @@ uk:
         update:
           error: При спробі оновити цей крок руху співучасті сталася помилка.
           success: Крок руху співучасті успішно оновлено.
+      participatory_process_types:
+        edit:
+          update: Оновити
+        new:
+          create: Створити
       participatory_process_user_roles:
         create:
           error: При спробі додати учасника в цей рух співучасті сталася помилка.

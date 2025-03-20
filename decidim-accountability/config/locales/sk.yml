@@ -1,3 +1,4 @@
+---
 sk:
   activemodel:
     attributes:
@@ -8,6 +9,8 @@ sk:
         description: Popis
         end_date: Koniec
         progress: Postup
+        project_ids: Zahrnuté projekty
+        proposals: Zahrnuté návrhy
         start_date: Začiatok 
         title: Názov
         updated_at: Aktualizované
@@ -99,8 +102,10 @@ sk:
       models:
         result:
           fields:
+            category: Kategória
             end_date: Koniec
             progress: Postup
+            scope: Rozsah
             start_date: Začiatok 
             status: Stav
             title: Názov
@@ -120,8 +125,12 @@ sk:
             few: "%{count} výsledkov"
             many: "%{count} výsledkov"
             other: "%{count} výsledkov"
+        filters:
+          all: Všetko
         home_header:
           global_status: Globálny stav vykonávania
+        nav_breadcrumb:
+          global: Globálne vykonanie
         search:
           search: Hľadať akcie
         show:
@@ -129,6 +138,13 @@ sk:
             back_to_resource: Naspať na výsledky
         timeline:
           title: Vývoj projektu
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategória
+          scope_id_eq:
+            label: Rozsah
     components:
       accountability:
         name: Zodpovednosť

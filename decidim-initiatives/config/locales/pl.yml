@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -95,7 +96,9 @@ pl:
             label: Stan
             values:
               accepted: Wystarczająca liczba podpisów
+              created: Utworzono
               discarded: Odrzucono
+              published: Opublikowano
               rejected: Niewystarczająca liczba podpisów
               validating: Walidacja techniczna
           type_id_eq:
@@ -104,6 +107,7 @@ pl:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Wyszukaj %{collection} według tytułu, opisu, ID lub nazwy autora.
       initiatives_settings:
         update:
+          error: Wystąpił błąd.
           success: Ustawienia inicjatyw zostały pomyślnie zaktualizowane.
       menu:
         attachments: Załączniki
@@ -149,6 +153,8 @@ pl:
             initiative_title: Tytuł inicjatywy
             name_and_surname: Imię i nazwisko
             postal_code: Kod pocztowy
+            scope: Zakres
+            time_and_date: Czas i data
             timestamp: Znacznik czasu
       titles:
         initiatives: Inicjatywy
@@ -266,6 +272,7 @@ pl:
             new: Nowy
             photos: Zdjęcia
           update:
+            error: Wystąpił błąd.
             success: Inicjatywa została zaktualizowana.
         initiatives_settings:
           edit:
@@ -279,6 +286,7 @@ pl:
             title: Ustawienia dla inicjatyw
         initiatives_type_scopes:
           create:
+            error: Wystąpił błąd.
             success: Utworzono nowy zakres dla danego typu inicjatywy.
           destroy:
             success: Zakres został pomyślnie usunięty.
@@ -289,9 +297,11 @@ pl:
             create: Utwórz
             title: Utwórz zakres typu inicjatywy
           update:
+            error: Wystąpił błąd.
             success: Zakres został zaktualizowany.
         initiatives_types:
           create:
+            error: Wystąpił błąd.
             success: Nowy typ inicjatywy został pomyślnie utworzony. Musisz zdefiniować co najmniej jeden zakres dla tego typu inicjatywy, aby można go było użyć.
           destroy:
             success: Typ inicjatywy został usunięty.
@@ -308,6 +318,7 @@ pl:
             create: Utwórz
             title: Nowy typ inicjatywy
           update:
+            error: Wystąpił błąd.
             success: Typ inicjatywy został zaktualizowany.
       admin_log:
         initiative:
@@ -323,7 +334,9 @@ pl:
           update: "%{user_name} zaktualizował(a) typ inicjatyw %{resource_name}"
       admin_states:
         accepted: Wystarczająca liczba podpisów
+        created: Utworzono
         discarded: Odrzucono
+        published: Opublikowano
         rejected: Niewystarczająca liczba podpisów
         validating: Weryfikacja techniczna
       application_helper:
@@ -351,21 +364,39 @@ pl:
           name: Wyróżnione inicjatywy
       create_initiative:
         fill_data:
+          back: Wróć
           continue: Dalej
           fill_data_help: "<ul> <li>Sprawdź treść swojej inicjatywy. Czy tytuł jest łatwy do zrozumienia? Czy cel inicjatywy jest jasny?</li> <li>Musisz wybrać rodzaj podpisu. Na piśmie, online lub połączenie obu</li> <li>Jaki jest zasięg geograficzny inicjatywy?</li> </ul>"
+          more_information: "(Więcej informacji)"
           select_area: Wybierz kategorię
           select_scope: Wybierz zakres
         finish:
           back: Wróć
+          back_to_initiatives: Wróć do inicjatyw
+          callout_text: Gratulacje! Twoja inicjatywa została utworzona.
+          confirm: Zamierzasz wysłać inicjatywę administratorowi, aby ją przejrzał i opublikował. Po opublikowaniu nie będziesz mógł jej edytować. Czy jesteś pewien?
+          edit_my_initiative: Edytuj moją inicjatywę
+          go_to_my_initiatives: Przejdź do moich inicjatyw
+          more_information: "(Więcej informacji)"
+          send_my_initiative: Wyślij moją inicjatywę do weryfikacji technicznej
+        finish_help:
+          publish_helper_text: Pamiętaj, że aby Twoja inicjatywa została opublikowana, musisz uzupełnić wymagane informacje i <strong>przesłać ją do weryfikacji technicznej</strong>, aby administrator mógł ją przejrzeć.
         previous_form:
           back: Wróć
+          continue: Dalej
+        promotal_committee:
+          individual_help_text: Tego rodzaju inicjatywa obywatelska wymaga Komisji Organizacyjnej, która składa się z co najmniej %{committee_size} osób. Udostępnij poniższy link innym osobom, które są częścią tej inicjatywy. Gdy Twoi znajomi otrzymają ten link, będą musieli wykonać wskazane kroki.
+          more_information: "(Więcej informacji)"
         select_initiative_type:
           back: Wróć
           choose_html: Chcę utworzyć <strong>%{title}</strong>
           more_information: (Więcej informacji)
           new: Utwórz nową inicjatywę
           select: Chcę utworzyć inicjatywę tego typu
+          select_initiative_type_help: Inicjatywy są środkiem, za pomocą którego uczestnicy mogą interweniować tak, aby organizacja mogła podejmować działania w obronie interesu ogólnego. Którą inicjatywę chcesz uruchomić?
           verification_required: Zweryfikuj swoje konto, aby promować tę inicjatywę
+        share_committee_link:
+          invite_to_committee_help: Link do zaproszenia osób, które będą częścią komitetu organizacyjnego
       edit:
         accept: Akceptuj inicjatywę
         back: Wróć
@@ -403,7 +434,10 @@ pl:
           email_subject: "%{applicant_nickname} chce dołączyć do Twojej inicjatywy"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> złożył wniosek na członka komitetu organizacyjnego Twojej inicjatywy <a href="%{resource_url}">%{resource_title}</a>. Aby zaakceptować lub odrzucić kliknij <a href="%{resource_url}/edit">tutaj</a>.
       form:
+        add_documents: Dodaj dokumenty
         add_image: Dodaj obraz
+        attachment_legend: "(Opcjonalnie) Dodaj załącznik"
+        edit_documents: Edytuj dokumenty
         edit_image: Edytuj obraz
         image_legend: "(Opcjonalnie) Dodaj obraz"
       index:
@@ -498,7 +532,9 @@ pl:
           phone_number: Numer telefonu
           place_date: Miejsce, data
           postal_code: Kod pocztowy
+          print: Drukuj
           province: Województwo
+          section: 'Na wniosek organizacji proszę wydrukować i wypełnić niniejszy formularz w celu przesłania, jeśli jest to wskazane:'
           signature: Podpis
         result:
           answer_title: Odpowiedziano na tę inicjatywę.
@@ -522,6 +558,7 @@ pl:
           other: " podpisy"
         vote_cabin:
           already_voted: Już podpisano
+          verification_required: Zweryfikuj swoje konto, aby podpisać inicjatywę
           vote: Podpisz
           votes_blocked: Podpisywanie wyłączone
         votes_count:
@@ -556,7 +593,9 @@ pl:
       show:
         badge_name:
           accepted: Wystarczająca liczba podpisów
+          created: Utworzone
           discarded: Odrzucone
+          published: Opublikowane
           rejected: Niewystarczająca liczba podpisów
           validating: Walidacja techniczna
       states:
@@ -564,6 +603,7 @@ pl:
         expired: Przedawnione
       unavailable_scope: Niedostępny zakres
       update:
+        error: Wystąpił błąd.
         success: Inicjatywa została zaktualizowana.
     menu:
       initiatives: Inicjatywy
@@ -573,12 +613,15 @@ pl:
           comment: Skomentuj
       initiatives_type:
         actions:
+          create: Utwórz
           title: Działania
           vote: Wspieranie
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Utwórz
+        finish: Koniec
+        promotal_committee: Komitet organizacyjny
         select_initiative_type: Wybierz
       initiative_signature_creation_header:
         fill_personal_data: Uzupełnij swoje dane

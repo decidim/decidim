@@ -8,11 +8,9 @@ module Decidim
       #
       # reportable - A Decidim::Reportable
       # current_user - the user performing the action
-      # with_admin_log Boolean - determines whether to log the action of unreport a resource in the admin log
-      def initialize(reportable, current_user, with_admin_log: true)
+      def initialize(reportable, current_user)
         @reportable = reportable
         @current_user = current_user
-        @with_admin_log = with_admin_log
       end
 
       # Executes the command. Broadcasts these events:
@@ -24,13 +22,13 @@ module Decidim
       def call
         return broadcast(:invalid) unless @reportable.reported?
 
-        @with_admin_log ? unreport_with_admin_log! : unreport!
+        unreport!
         broadcast(:ok, @reportable)
       end
 
       private
 
-      def unreport_with_admin_log!
+      def unreport!
         Decidim.traceability.perform_action!(
           "unreport",
           @reportable.moderation,
@@ -39,12 +37,6 @@ module Decidim
             reportable_type: @reportable.class.name
           }
         ) do
-          unreport!
-        end
-      end
-
-      def unreport!
-        Decidim.traceability.perform_action_without_log!(@current_user) do
           @reportable.moderation.destroy!
         end
       end

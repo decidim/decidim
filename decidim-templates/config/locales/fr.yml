@@ -1,3 +1,4 @@
+---
 fr:
   activemodel:
     attributes:
@@ -50,7 +51,7 @@ fr:
           edit:
             title: Modifier le modèle de message de blocage utilisateur
           form:
-            save: Enregistrer
+            save: Sauvegarder
           index:
             confirm_delete: Êtes-vous sûr(e) de vouloir supprimer ce modèle ?
             title: Bloquer les messages de l'utilisateur
@@ -80,23 +81,16 @@ fr:
             select_template: Sélectionnez un modèle de réponse
         questionnaire_templates:
           choose:
-            continue: Continuer
-            description: Vous pouvez créer un nouveau questionnaire ou vous pouvez choisir un modèle prédéfini et le modifier plus tard. Sélectionnez une option.
+            create_from_template: Créer depuis un modèle
+            description: Vous êtes sur le point de créer un nouveau questionnaire. Vous pouvez choisir un modèle prédéfini et le modifier par la suite.
             label: Choisir un modèle
-            options:
-              create_new_form: Créer un nouveau formulaire
-              select_template: Sélectionner un modèle
             placeholder: Choisir un modèle
+            skip_template: Passer
           edit:
             edit: Modifier
             empty: Il n'y a pas encore de question.
-            manage_questions: Questions
             questionnaire: Questionnaire
             title: Modifier le modèle de questionnaire
-          edit_questions:
-            add_question: Ajouter une question
-            add_separator: Ajouter un séparateur
-            add_title_and_description: Ajouter un titre et une description
           form:
             title: Modèle de questionnaire %{questionnaire_for}
           index:

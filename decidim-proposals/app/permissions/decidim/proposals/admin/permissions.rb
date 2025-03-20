@@ -8,12 +8,12 @@ module Decidim
           # The public part needs to be implemented yet
           return permission_action if permission_action.scope != :admin
 
-          # Evaluators can only perform these actions
-          if user_is_evaluator?
-            if evaluator_assigned_to_proposal?
+          # Valuators can only perform these actions
+          if user_is_valuator?
+            if valuator_assigned_to_proposal?
               can_create_proposal_note?
               can_create_proposal_answer?
-              can_assign_evaluator_to_proposal?
+              can_assign_valuator_to_proposal?
             end
             can_export_proposals?
 
@@ -30,8 +30,11 @@ module Decidim
           # time limit.
           allow! if permission_action.subject == :proposal && permission_action.action == :edit && admin_edition_is_available?
 
-          # Every user allowed by the space can update the taxonomy of the proposal
-          allow! if permission_action.subject == :proposal_taxonomy && permission_action.action == :update
+          # Every user allowed by the space can update the category of the proposal
+          allow! if permission_action.subject == :proposal_category && permission_action.action == :update
+
+          # Every user allowed by the space can update the scope of the proposal
+          allow! if permission_action.subject == :proposal_scope && permission_action.action == :update
 
           # Every user allowed by the space can import proposals from another_component
           allow! if permission_action.subject == :proposals && permission_action.action == :import
@@ -45,11 +48,11 @@ module Decidim
           # Every user allowed by the space can split proposals to another component
           allow! if permission_action.subject == :proposals && permission_action.action == :split
 
-          # Every user allowed by the space can assign proposals to a evaluator
-          can_assign_evaluator_to_proposal?
+          # Every user allowed by the space can assign proposals to a valuator
+          can_assign_valuator_to_proposal?
 
-          # Every user allowed by the space can unassign a evaluator from proposals
-          can_unassign_evaluator_from_proposals?
+          # Every user allowed by the space can unassign a valuator from proposals
+          can_unassign_valuator_from_proposals?
 
           # Only admin users can publish many answers at once
           toggle_allow(user.admin?) if permission_action.subject == :proposals && permission_action.action == :publish_answers
@@ -80,20 +83,20 @@ module Decidim
           @proposal ||= context.fetch(:proposal, nil)
         end
 
-        def user_evaluator_role
-          @user_evaluator_role ||= space.user_roles(:evaluator).find_by(user:)
+        def user_valuator_role
+          @user_valuator_role ||= space.user_roles(:valuator).find_by(user:)
         end
 
-        def user_is_evaluator?
+        def user_is_valuator?
           return if user.admin?
 
-          user_evaluator_role.present?
+          user_valuator_role.present?
         end
 
-        def evaluator_assigned_to_proposal?
-          @evaluator_assigned_to_proposal ||=
-            Decidim::Proposals::EvaluationAssignment
-            .where(proposal:, evaluator_role: user_evaluator_role)
+        def valuator_assigned_to_proposal?
+          @valuator_assigned_to_proposal ||=
+            Decidim::Proposals::ValuationAssignment
+            .where(proposal:, valuator_role: user_valuator_role)
             .any?
         end
 
@@ -142,12 +145,12 @@ module Decidim
           toggle_allow(admin_proposal_answering_is_enabled?) if permission_action.subject == :proposal_answer
         end
 
-        def can_unassign_evaluator_from_proposals?
-          allow! if permission_action.subject == :proposals && permission_action.action == :unassign_from_evaluator
+        def can_unassign_valuator_from_proposals?
+          allow! if permission_action.subject == :proposals && permission_action.action == :unassign_from_valuator
         end
 
-        def can_assign_evaluator_to_proposal?
-          allow! if permission_action.subject == :proposals && permission_action.action == :assign_to_evaluator
+        def can_assign_valuator_to_proposal?
+          allow! if permission_action.subject == :proposals && permission_action.action == :assign_to_valuator
         end
 
         def can_export_proposals?

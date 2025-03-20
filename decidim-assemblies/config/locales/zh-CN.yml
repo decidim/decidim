@@ -1,6 +1,9 @@
+---
 zh-CN:
   activemodel:
     attributes:
+      assemblies_type:
+        title: 标题
       assembly:
         area_id: 区域
         assembly_type: 程序集类型
@@ -16,6 +19,7 @@ zh-CN:
         created_by_other: 由其他人创建
         creation_date: 创建日期
         decidim_area_id: 区域
+        decidim_assemblies_type_id: 程序集类型
         decidim_scope_id: 范围
         description: 描述
         developer_group: 促销者组
@@ -27,6 +31,7 @@ zh-CN:
         hero_image: 首页图像
         included_at: 包含于
         instagram: Instagram
+        internal_organisation: 内部组织
         is_transparent: 是否透明度
         local_area: 组织区域
         meta_scope: 范围元数据
@@ -38,6 +43,8 @@ zh-CN:
         promoted: 高亮
         published_at: 发布于
         purpose_of_action: 行动的目的
+        scope_id: 范围
+        scopes_enabled: 范围已启用
         short_description: 简短描述
         slug: URL 名称
         special_features: 特殊功能
@@ -70,9 +77,11 @@ zh-CN:
       actions:
         import_assembly: 导入
         new_assembly: 新建程序集
+        new_assembly_type: 新装配体类型
       assemblies:
         create:
           error: 创建新议会时出现问题。
+          success: 程序集创建成功。
         edit:
           update: 更新
         index:
@@ -89,6 +98,18 @@ zh-CN:
         create:
           error: 复制这个组件时出现问题。
           success: 已成功复制组合。
+      assemblies_types:
+        create:
+          error: 创建新组装类型时出现问题。
+          success: 程序集类型创建成功。
+        destroy:
+          success: 程序集类型已成功删除。
+        new:
+          create: 创建
+          title: 新装配体类型
+        update:
+          error: 更新此组装类型时出现问题。
+          success: 程序类型已成功更新。
       assembly_copies:
         new:
           copy: 复制
@@ -102,6 +123,21 @@ zh-CN:
           import: 导入
           select: 选择您想要导入的数据
           title: 导入程序集
+      assembly_members:
+        create:
+          error: 在为这个会议添加成员时出现问题。
+          success: 会员已成功创建此程序集。
+        destroy:
+          success: 成功删除此组件的会员。
+        edit:
+          update: 更新
+        index:
+          assembly_members_title: 大会成员
+        new:
+          create: 创建
+        update:
+          error: 更新这个会议的成员时出现问题。
+          success: 会员已成功更新此程序集。
       assembly_publications:
         create:
           error: 发布这个组件时出现问题。
@@ -124,16 +160,26 @@ zh-CN:
         update:
           error: 更新这个会议的管理员时出现问题。
           success: 管理员已成功更新此程序集。
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: 程序集类型
       menu:
         assemblies: 程序集
         assemblies_submenu:
           assembly_admins: 集合管理员
+          assembly_members: 成员
           attachment_collections: 文件夹
           attachment_files: 文件
           attachments: 附件
+          categories: 类别管理
           components: 组件
           moderations: 版面
+        assemblies_types: 程序集类型
       models:
+        assemblies_types:
+          fields:
+            created_at: 创建于
+            title: 标题
         assembly:
           fields:
             created_at: 创建于
@@ -143,6 +189,11 @@ zh-CN:
             title: 标题
           name: 程序集
         assembly_member:
+          fields:
+            ceased_date: 缓存日期
+            designation_date: 指定日期
+            full_name: 名称
+            position: 位置
           name: 成员
           positions:
             other: 其他
@@ -159,6 +210,7 @@ zh-CN:
             admin: 管理员
             collaborator: 协作者
             moderator: 版主
+            valuator: 值者
       titles:
         assemblies: 程序集
         assemblies_types: 程序集类型
@@ -189,13 +241,26 @@ zh-CN:
           form:
             duration: 期限
             duration_help: 如果这个程序集的持续时间有限，请选择结束日期。否则，它将显示为无限期。
+            filters: 筛选器
             images: 图像
             metadata: 元数据
             other: 其他
             select_a_created_by: 选择创建者：
+            select_an_area: 选择区域
+            select_an_assembly_type: 选择程序集类型
             select_parent_assembly: 选择父程序集
             social_handlers: 社交活动
             title: 一般信息
+        assemblies_types:
+          form:
+            title: 标题
+        assembly_members:
+          form:
+            existing_user: 现有参与者
+            non_user: Non participant
+            select_a_position: 选择一个位置
+            select_user: 选择一名参与者
+            user_type: 参与者类型
         content_blocks:
           highlighted_assemblies:
             max_results: 显示元素的最大数量
@@ -206,6 +271,14 @@ zh-CN:
       assembly_members:
         index:
           members: 成员
+      assembly_types:
+        commission: 加密的
+        consultative_advisory: 咨询/咨询
+        executive: 行政机构
+        government: 政府
+        others: 其 他
+        participatory: 参与
+        working_group: 工作组
       content_blocks:
         highlighted_assemblies:
           name: 突出显示的会议
@@ -230,9 +303,12 @@ zh-CN:
           member_of:
             member_of: 成员
       show:
+        assembly_type: 程序集类型
         duration: 期限
         private_space: 这是一个私人装饰
     assembly_members:
+      assembly_member:
+        designated_on: 指定于
       index:
         title: 成员
     events:

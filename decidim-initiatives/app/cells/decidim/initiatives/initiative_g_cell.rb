@@ -8,11 +8,7 @@ module Decidim
       private
 
       def resource_path
-        if resource.state == "created" || resource.state == "validating"
-          Decidim::Initiatives::Engine.routes.url_helpers.load_initiative_draft_create_initiative_index_path(initiative_id: resource.id)
-        else
-          Decidim::Initiatives::Engine.routes.url_helpers.initiative_path(model)
-        end
+        Decidim::Initiatives::Engine.routes.url_helpers.initiative_path(model)
       end
 
       def image

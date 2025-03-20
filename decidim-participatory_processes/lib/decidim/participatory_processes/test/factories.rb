@@ -23,7 +23,6 @@ FactoryBot.define do
     organization
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
     published_at { Time.current }
-    deleted_at { nil }
     meta_scope { generate_localized_word(:participatory_process_meta_scope, skip_injection:) }
     developer_group { generate_localized_title(:participatory_process_developer_group, skip_injection:) }
     local_area { generate_localized_title(:participatory_process_local_area, skip_injection:) }
@@ -46,10 +45,6 @@ FactoryBot.define do
 
     trait :published do
       published_at { Time.current }
-    end
-
-    trait :trashed do
-      deleted_at { Time.current }
     end
 
     trait :private do
@@ -83,6 +78,11 @@ FactoryBot.define do
     trait :upcoming do
       start_date { 1.week.from_now }
       end_date { 2.weeks.from_now }
+    end
+
+    trait :with_scope do
+      scopes_enabled { true }
+      scope { create :scope, organization:, skip_injection: }
     end
 
     trait :with_content_blocks do
@@ -186,10 +186,10 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create(:participatory_process_user_role,
+      create :participatory_process_user_role,
              user:,
              participatory_process: evaluator.participatory_process,
-             role: :admin, skip_injection: evaluator.skip_injection)
+             role: :admin, skip_injection: evaluator.skip_injection
     end
   end
 
@@ -203,10 +203,10 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create(:participatory_process_user_role,
+      create :participatory_process_user_role,
              user:,
              participatory_process: evaluator.participatory_process,
-             role: :collaborator, skip_injection: evaluator.skip_injection)
+             role: :collaborator, skip_injection: evaluator.skip_injection
     end
   end
 
@@ -220,14 +220,14 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create(:participatory_process_user_role,
+      create :participatory_process_user_role,
              user:,
              participatory_process: evaluator.participatory_process,
-             role: :moderator, skip_injection: evaluator.skip_injection)
+             role: :moderator, skip_injection: evaluator.skip_injection
     end
   end
 
-  factory :process_evaluator, parent: :user, class: "Decidim::User" do
+  factory :process_valuator, parent: :user, class: "Decidim::User" do
     transient do
       skip_injection { false }
       participatory_process { create(:participatory_process, skip_injection:) }
@@ -237,10 +237,10 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create(:participatory_process_user_role,
+      create :participatory_process_user_role,
              user:,
              participatory_process: evaluator.participatory_process,
-             role: :evaluator, skip_injection: evaluator.skip_injection)
+             role: :valuator, skip_injection: evaluator.skip_injection
     end
   end
 
@@ -249,7 +249,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     user
-    participatory_process { create(:participatory_process, organization: user.organization, skip_injection:) }
+    participatory_process { create :participatory_process, organization: user.organization, skip_injection: }
     role { "admin" }
   end
 end

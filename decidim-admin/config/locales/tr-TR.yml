@@ -1,3 +1,4 @@
+---
 tr:
   activemodel:
     attributes:
@@ -71,6 +72,7 @@ tr:
         time_zone: Zaman Dilimi
         tos_version: Hizmet sürümü şartları
         twitter_handler: "X işleyicisi.\nX Çözümleyici\n\n"
+        user_groups_enabled: Kullanıcı gruplarını etkinleştir
         warning_color: Uyarı
         welcome_notification_body: Karşılama bildirimi gövdesi
         welcome_notification_subject: Karşılama bildirimi konusu
@@ -132,7 +134,9 @@ tr:
         manage: yönetme
         per_page: Sayfa başına
         permissions: İzinler
+        reject: reddetmek
         share: Paylaş
+        verify: DOĞRULAYIN
       area_types:
         create:
           error: Yeni alan türü oluştururken bir hata oluştu.
@@ -201,8 +205,23 @@ tr:
           justification: Gerekçe
           title: '%{name} Kullanıcısını Engelle'
       categories:
+        create:
+          error: Bu kategori oluşturulurken bir hata oluştu.
+          success: Kategori başarıyla oluşturuldu.
+        destroy:
+          error: Bu kategoriyi silerken bir hata oluştu. Lütfen önce herhangi bir alt kategoriyi silin, başka bir varlığın bu kategoriye ait olmadığından emin olun ve tekrar deneyin.
+          success: Kategori başarıyla silindi.
+        edit:
+          title: Kategoriyi düzenle
+          update: Güncelleştirme
         index:
           categories_title: Kategoriler
+        new:
+          create: Kategori oluştur
+          title: Yeni kategori
+        update:
+          error: Bu kategori güncellenirken bir hata oluştu.
+          success: Kategori başarıyla güncellendi.
       component_permissions:
         update:
           error: Bu bileşenin izinleri güncellenirken bir sorun oluştu.
@@ -211,6 +230,9 @@ tr:
         create:
           error: Bu bileşeni oluştururken bir hata oluştu.
           success: Bileşen başarıyla oluşturuldu.
+        destroy:
+          error: Bu bileşeni yok eden bir hata oluştu.
+          success: Bileşen başarıyla silindi.
         edit:
           title: Bileşeni düzenle
           update: Güncelleştirme
@@ -223,6 +245,7 @@ tr:
           headers:
             actions: Eylemler
             name: Bileşen Adı
+            scope: Bileşen kapsamı
             type: Bileşen tipi
         new:
           add: Bileşen ekle
@@ -259,6 +282,8 @@ tr:
           FormPDF: PDF
           JSON: JSON
       filters:
+        category_id_eq:
+          label: Kategori
         filter_label: Filtrele
         moderations:
           reportable_type_string_eq:
@@ -278,6 +303,8 @@ tr:
           values:
             'false': Yayınlandı
             'true': Yayından kaldırıldı
+        scope_id_eq:
+          label: Kapsam
         search_label: Arama
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection} e-posta, isim veya takma ad ile arayın.'
@@ -347,6 +374,7 @@ tr:
         scopes: kapsamları
         settings: Ayarlar
         static_pages: Sayfalar
+        user_groups: Kullanıcı Grupları
         users: Kullanıcılar
       metrics:
         metrics:
@@ -399,8 +427,12 @@ tr:
             plural: Çoğul
         share_token:
           fields:
+            created_at: Düzenlendi
             expires_at: Süre sonu
+            last_used_at: Son kullanıldığı zaman
             times_used: Kullanım Sayısı
+            token: Jeton
+            user: Oluşturan
         static_page:
           fields:
             created_at: Düzenlendi
@@ -415,6 +447,15 @@ tr:
               admin: yönetim
               user_manager: Kullanıcı yöneticisi
           name: kullanıcı
+        user_group:
+          fields:
+            actions: Eylemler
+            created_at: Düzenlendi
+            document_number: Belge Numarası
+            name: isim
+            phone: Telefon
+            state: Belirtmek, bildirmek
+            users_count: Kullanıcılar
       moderated_users:
         index:
           actions:
@@ -476,6 +517,7 @@ tr:
           confirm_delete: Bu bülteni silmek istediğinizden emin misiniz?
           followers: 'takipçiler '
           has_been_sent_to: 'Şuraya gönderildi: '
+          no_scopes: Kapsam yok
           not_sent: Gönderilmedi
           participants: 'katılımcılar '
           segmented_to: '%{subject} bölüme ayrılmış: '
@@ -490,10 +532,13 @@ tr:
           confirm_deliver: Bu bülteni sunmak istediğinizden emin misiniz? Bu işlem geri alınamaz.
           deliver: Bülten sunun
           followers_help: Listede seçili herhangi bir katılımcı süreci takip eden bütün onaylanmış kullanıcılara haber bülteni gönderir.
+          none: Yok
           participants_help: Listede seçili herhangi bir katılımcı sürece katılmış olan bütün onaylanmış kullanıcılara haber bülteni gönderir.
           recipients_count: Bu haber bülteni <strong id='recipients_count'>%{count}</strong> kullanıcıya gönderilecektir.
+          scopes_help: Hesaplarındaki 'İlgi Alanlarım' ayarlarında etkinleştirilmiş herhangi bir seçili kapsam bulunan kullanıcılara haber bülteni gönderir.
+          select_scopes: Hesaplarındaki 'İlgi Alanlarım' ayarlarında herhangi bir seçilmiş kapsam etkinleştirilmiş bulunan kullanıcılar için filtre.
           select_spaces: Haber bültenini bölmek için alanları seçin
-          send_to_all_users: Tüm kullanıcılara gönder
+          select_users: Haber bültenini göndermek istediğiniz kullanıcıları seçiniz
           title: Teslim etmek için alıcıları seçiniz
           warning: "<strong>Dikkat:</strong> Haber bülteni yalnızca bildirim seçeneklerinden <em>Haber bülteni almak istiyorum</em> ayarını etkinleştirmiş kullanıcılara gönderilecektir."
         show:
@@ -573,8 +618,6 @@ tr:
           title: Yeni Katılımcı Uzay özel kullanıcısı.
       participatory_space_private_users_csv_imports:
         new:
-          csv_upload:
-            title: CSV dosyanızı yükleyin
           upload: Yükle
       resource_permissions:
         edit:
@@ -582,6 +625,10 @@ tr:
           title: İzinleri düzenle
         update:
           success: İzinler başarıyla güncellendi.
+      resources:
+        index:
+          headers:
+            scope: Kapsam
       scope_types:
         create:
           error: Yeni kapsam türü oluştururken bir hata oluştu.
@@ -613,7 +660,15 @@ tr:
           success: Kapsam başarıyla güncellendi
       share_tokens:
         actions:
+          confirm_destroy: Bu jetonu silmek istediğinizden emin misiniz?
           destroy: Sil
+          share: Paylaş
+        destroy:
+          error: Bu jetonu yok ederken bir hata oluştu.
+          success: Jeton başarılı bir şekilde yok edildi.
+        share_tokens:
+          help: Bu jeton, yayınlanmamış kaynağı herhangi bir kullanıcıyla herkese açık olarak paylaşmak için kullanılır. Kaynak yayınlandığında gizlenecekler. Paylaşılabilir URL'yi ziyaret etmek için jetonun paylaş simgesine tıklayın.
+          title: Jeton paylaş
       shared:
         gallery:
           add_images: Resim ekle
@@ -626,6 +681,7 @@ tr:
           title: Konuyu düzenle
           update: Konuyu güncelle
         new:
+          create: Konu oluştur
           title: Yeni Konu
         update:
           error: Bu konu güncellenirken bir hata oluştu.
@@ -646,6 +702,7 @@ tr:
         index:
           last_notable_change: Son önemli değişiklik
         new:
+          create: Sayfa oluştur
           title: Yeni sayfa
         topic:
           without_topic: Konu olmayan sayfalar
@@ -668,6 +725,26 @@ tr:
         scope_types: Kapsam türleri
         scopes: kapsamları
         statistics: Aktivite
+        user_groups: Kullanıcı Grupları
+      user_group:
+        csv_verify:
+          invalid: CSV dosyasını okurken bir hata oluştu.
+        reject:
+          invalid: Bu kullanıcı grubunu reddederken bir hata oluştu.
+        verify:
+          invalid: Bu kullanıcı grubunu doğrularken bir hata oluştu.
+      user_groups:
+        index:
+          state:
+            pending: kadar
+            rejected: Reddedilen
+            verified: Doğrulanmış
+          verify_via_csv: CSV ile doğrulayın
+      user_groups_csv_verifications:
+        new:
+          explanation: CSV dosyanızı yükleyin. Dosyanın ilk sütunundaki kullanıcı gruplarının resmi e-postalarının, başlıksız olarak olması gerekir. Sadece e-postalarını onaylayan ve CSV dosyasında görünen bir e-postaya sahip olan kullanıcı grupları doğrulanacaktır.
+          title: CSV dosyanızı yükleyin
+          upload: Yükleme
       users:
         create:
           error: Bu kullanıcıyı davet ederken bir hata oluştu.

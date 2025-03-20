@@ -37,6 +37,7 @@ describe "Search" do
       within ".search__filter" do
         expect(page).to have_content("All").once
         expect(page).to have_content("Participants").once
+        expect(page).to have_content("Groups").once
         expect(page).to have_content("Participatory processes").once
         expect(page).to have_content("Assemblies").once
         expect(page).to have_content("Conferences").once

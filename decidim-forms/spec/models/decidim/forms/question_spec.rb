@@ -68,12 +68,6 @@ module Decidim
           end
         end
       end
-
-      describe ".log_presenter_class_for" do
-        it "returns the correct presenter class for logs" do
-          expect(described_class.log_presenter_class_for(nil)).to eq(Decidim::Forms::AdminLog::QuestionPresenter)
-        end
-      end
     end
   end
 end

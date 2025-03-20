@@ -1,3 +1,4 @@
+---
 th:
   activemodel:
     attributes:
@@ -40,6 +41,7 @@ th:
         time_zone: เขตเวลา
         tos_version: เงื่อนไขการให้บริการเวอร์ชัน
         twitter_handler: ตัวจัดการเอ็กซ์
+        user_groups_enabled: เปิดใช้งานกลุ่ม
         users_registration_mode: โหมดการลงทะเบียนผู้ใช้
         warning_color: คำเตือน
         welcome_notification_body: ยินดีต้อนรับเนื้อหาการแจ้งเตือน
@@ -95,3 +97,13 @@ th:
           success: ทำลายพื้นที่สำเร็จ
         edit:
           title: แก้ไขพื้นที่
+      categories:
+        edit:
+          update: อัปเดต
+      filters:
+        scope_id_eq:
+          label: ขอบเขต
+      resources:
+        index:
+          headers:
+            scope: ขอบเขต

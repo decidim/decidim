@@ -48,9 +48,9 @@ module Decidim
       OMNIATH_PROVIDERS_ATTRIBUTES = Decidim::OmniauthProvider.available.keys.map do |provider|
         Rails.application.secrets.dig(:omniauth, provider).keys.map do |setting|
           if setting == :enabled
-            [:"omniauth_settings_#{provider}_enabled", Boolean]
+            ["omniauth_settings_#{provider}_enabled".to_sym, Boolean]
           else
-            [:"omniauth_settings_#{provider}_#{setting}", String]
+            ["omniauth_settings_#{provider}_#{setting}".to_sym, String]
           end
         end
       end.flatten(1)
@@ -74,13 +74,13 @@ module Decidim
       def clean_secondary_hosts
         return unless secondary_hosts
 
-        secondary_hosts.split("\n").map(&:chomp).compact_blank
+        secondary_hosts.split("\n").map(&:chomp).select(&:present?)
       end
 
       def clean_available_authorizations
         return unless available_authorizations
 
-        available_authorizations.compact_blank
+        available_authorizations.select(&:present?)
       end
 
       def password
@@ -114,7 +114,7 @@ module Decidim
       # We need a valid secret key base for encrypting the SMTP password with it
       # It is also necessary for other things in Rails (like Cookies encryption)
       def validate_secret_key_base_for_encryption
-        return if Rails.application.secret_key_base&.length == 128
+        return if Rails.application.secrets.secret_key_base&.length == 128
 
         errors.add(:password, I18n.t("activemodel.errors.models.organization.attributes.password.secret_key"))
       end

@@ -1,3 +1,4 @@
+---
 si:
   activemodel:
     models:
@@ -14,3 +15,5 @@ si:
         form:
           body:
             label: අදහස
+          user_group_id:
+            label: ලෙස අදහස් දක්වන්න

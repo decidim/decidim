@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -47,8 +48,11 @@ hu:
             title: Javaslat válaszok
         questionnaire_templates:
           choose:
+            create_from_template: Létrehozás sablonból
+            description: Egy új kérdőív létrehozására készült. Választhatsz előre létrehozott sablonok közül amelyeket később módosíthatsz.
             label: Válassz egy sablont
             placeholder: Válassz egy sablont
+            skip_template: Átugrás
           edit:
             edit: Szerkesztés
             questionnaire: Kérdőív

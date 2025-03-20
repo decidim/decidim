@@ -1,6 +1,9 @@
+---
 pt:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Título
       assembly:
         area_id: Área
         assembly_type: Tipo de reunião
@@ -16,6 +19,7 @@ pt:
         created_by_other: Criado por outro
         creation_date: Data de criação
         decidim_area_id: Área
+        decidim_assemblies_type_id: Tipo de reunião
         decidim_scope_id: Âmbito
         description: Descrição
         developer_group: Grupo promotor
@@ -27,6 +31,7 @@ pt:
         hero_image: Imagem inicial
         included_at: Incluído em
         instagram: Instagram
+        internal_organisation: Organização interna
         is_transparent: É transparente
         local_area: Área de organização
         meta_scope: Metadados do âmbito
@@ -38,6 +43,8 @@ pt:
         promoted: Realçado
         published_at: Publicado em
         purpose_of_action: Objetivo da ação
+        scope_id: Âmbito
+        scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
         slug: Campo de dados dinâmicos de URL
         special_features: Características especiais
@@ -76,9 +83,11 @@ pt:
       actions:
         import_assembly: Importar
         new_assembly: Nova reunião
+        new_assembly_type: Novo tipo de reunião
       assemblies:
         create:
           error: Ocorreu um problema ao criar uma nova reunião.
+          success: Assembléia criada com sucesso.
         edit:
           update: Atualizar
         index:
@@ -95,6 +104,18 @@ pt:
         create:
           error: Ocorreu um problema ao duplicar esta reunião.
           success: Reunião duplicada corretamente.
+      assemblies_types:
+        create:
+          error: Ocorreu um problema ao criar um novo tipo de reunião.
+          success: Tipo de reunião criado corretamente.
+        destroy:
+          success: Tipo de reunião eliminado corretamente.
+        new:
+          create: Criar
+          title: Novo tipo de reunião
+        update:
+          error: Ocorreu um problema ao atualizar este tipo de reunião.
+          success: Tipo de reunião atualizado corretamente.
       assembly_copies:
         new:
           copy: Cópia
@@ -108,6 +129,21 @@ pt:
           import: Importar
           select: Selecione os dados que pretende importar
           title: Importar reunião
+      assembly_members:
+        create:
+          error: Ocorreu um problema ao adicionar um membro a esta reunião.
+          success: Membro criado corretamente nesta reunião.
+        destroy:
+          success: Membro eliminado corretamente nesta reunião.
+        edit:
+          update: Atualizar
+        index:
+          assembly_members_title: Membros da reunião
+        new:
+          create: Criar
+        update:
+          error: Ocorreu um problema ao atualizar o membro nesta reunião.
+          success: Membro atualizado corretamente nesta reunião.
       assembly_publications:
         create:
           error: Ocorreu um problema ao publicar esta reunião.
@@ -130,16 +166,26 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar um administrador para esta reunião.
           success: Administrador atualizador corretamente para esta reunião.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipo de reunião
       menu:
         assemblies: Reuniões
         assemblies_submenu:
           assembly_admins: Administradores da Reunião
+          assembly_members: Membros
           attachment_collections: Pastas
           attachment_files: Ficheiros
           attachments: Anexos
+          categories: Categorias
           components: Componentes
           moderations: Moderação
+        assemblies_types: Tipos de reuniões
       models:
+        assemblies_types:
+          fields:
+            created_at: Criado em
+            title: Título
         assembly:
           fields:
             created_at: Criado em
@@ -149,6 +195,11 @@ pt:
             title: Título
           name: Assembléia
         assembly_member:
+          fields:
+            ceased_date: Data de cessação
+            designation_date: Data de designação
+            full_name: Nome
+            position: Posição
           name: Membro
           positions:
             other: Outros
@@ -165,6 +216,7 @@ pt:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Avaliador
       titles:
         assemblies: Reuniões
         assemblies_types: Tipos de reuniões
@@ -197,17 +249,28 @@ pt:
             announcement_help: O texto que introduzir aqui será mostrado ao utilizador imediatamente abaixo da informação sobre a reunião.
             duration: Duração
             duration_help: Se a duração desta reunião for limitada, selecione a data final. Caso contrário, aparecerá como indefinida.
+            filters: Filtros
             images: Imagens
             metadata: Metadados
             other: Outros
             select_a_created_by: Selecione um criado por
+            select_an_area: Selecione uma Área
+            select_an_assembly_type: Selecione um tipo de reunião
             select_parent_assembly: Selecione a reunião pai
             social_handlers: Social
             title: Informação geral
+        assemblies_types:
+          form:
+            title: Título
         assembly_members:
           form:
+            existing_user: Participante existente
             explanation: 'Orientações para imagem:'
+            non_user: Não participante
             non_user_avatar_help: Deve obter o consentimento das pessoas antes de as publicar como membros.
+            select_a_position: Selecione uma posição
+            select_user: Selecione um participante
+            user_type: Tipo de participante
         content_blocks:
           highlighted_assemblies:
             max_results: Quantidade máxima de elementos a mostrar
@@ -221,6 +284,14 @@ pt:
       assembly_members:
         index:
           members: Membros
+      assembly_types:
+        commission: Comissão
+        consultative_advisory: Consultivo
+        executive: Executivo
+        government: Governo
+        others: Outros
+        participatory: Participativo
+        working_group: Grupo de trabalho
       content_blocks:
         highlighted_assemblies:
           name: Reuniões realçadas
@@ -245,9 +316,12 @@ pt:
           member_of:
             member_of: Membro de
       show:
+        assembly_type: Tipo de reunião
         duration: Duração
         private_space: Esta é uma reunião privada
     assembly_members:
+      assembly_member:
+        designated_on: Designado em
       index:
         title: Membros
     events:

@@ -2,9 +2,9 @@
 
 require "spec_helper"
 
-describe "preview budgets with a share token" do
+describe "Preview budgets with share token" do
   let(:manifest_name) { "budgets" }
 
   include_context "with a component"
-  it_behaves_like "preview component with a share_token"
+  it_behaves_like "preview component with share_token"
 end

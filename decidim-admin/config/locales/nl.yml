@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -26,6 +27,8 @@ nl:
         published_at: Gepubliceerd op
         weight: Bestelpositie
       id: ID
+      import:
+        user_group_id: Import maken als
       newsletter:
         body: Body
         subject: Onderwerp
@@ -81,6 +84,7 @@ nl:
         success_color: Succes
         time_zone: Tijdszone
         tos_version: Servicevoorwaarden versie
+        user_groups_enabled: Groepen inschakelen
         users_registration_mode: Gebruikers registratiemodus
         warning_color: Waarschuwing
         welcome_notification_body: Tekst van de welkomstmelding
@@ -142,6 +146,8 @@ nl:
         attachment:
           new: Nieuwe bijlage
         browse: Browsen
+        category:
+          new: Nieuwe categorie
         export: Alles exporteren
         export-selection: Selectie exporteren
         import: Importeren
@@ -152,9 +158,11 @@ nl:
           new: Nieuwe privégebruiker van de inspraakruimte
         per_page: Per pagina
         permissions: Permissies
+        reject: Weigeren
         share: Deel
         user:
           new: Nieuwe admin
+        verify: Verifiëren
       area_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe pagina.
@@ -227,8 +235,23 @@ nl:
           justification: Toelichting
           title: Gebruiker %{name} blokkeren
       categories:
+        create:
+          error: Er is een fout opgetreden bij het maken van deze categorie.
+          success: Categorie succesvol gemaakt.
+        destroy:
+          error: Er is een fout opgetreden bij het verwijderen van deze categorie. Verwijder eerst een subcategorie, zorg ervoor dat er geen andere entiteit in deze categorie hoort en probeer het opnieuw.
+          success: Categorie is succesvol verwijderd.
+        edit:
+          title: Categorie bewerken
+          update: Bijwerken
         index:
           categories_title: Categorieën
+        new:
+          create: Categorie creëren
+          title: Nieuwe categorie
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze categorie.
+          success: Categorie is succesvol bijgewerkt.
       component_permissions:
         update:
           error: Er is een probleem opgetreden bij het bijwerken van de rechten van deze component.
@@ -237,6 +260,9 @@ nl:
         create:
           error: Er is een fout opgetreden bij het aanmaken van dit onderdeel.
           success: Onderdeel met succes gemaakt.
+        destroy:
+          error: Er is een fout opgetreden bij het vernietigen van dit onderdeel.
+          success: Onderdeel succesvol verwijderd.
         edit:
           title: Bewerk onderdeel
           update: Bijwerken
@@ -249,6 +275,7 @@ nl:
           headers:
             actions: Acties
             name: Naam onderdeel
+            scope: Onderdeel scope
             type: Onderdeel type
         new:
           add: Voeg onderdeel toe
@@ -286,6 +313,8 @@ nl:
           FormPDF: PDF-bestand
           JSON: JSON
       filters:
+        category_id_eq:
+          label: Categorie
         filter_label: Filteren
         invitation_accepted_at_present:
           label: Uitnodiging geaccepteerd
@@ -333,6 +362,8 @@ nl:
           values:
             'false': Ingediend
             'true': Niet-gepubliceerde
+        scope_id_eq:
+          label: Scope
         search_label: Zoeken
         search_placeholder:
           name_or_nickname_or_email_cont: Zoek %{collection} op e-mail, naam of bijnaam.
@@ -458,6 +489,7 @@ nl:
         scopes: Scopes
         settings: Instellingen
         static_pages: Pagina's
+        user_groups: groepen
         users: Deelnemers
       metrics:
         metrics:
@@ -510,8 +542,12 @@ nl:
             plural: Meervoud
         share_token:
           fields:
+            created_at: Aangemaakt op
             expires_at: Vervalt op
+            last_used_at: Laatste keer gebruikt
             times_used: Aantal keren gebruikt
+            token: Token
+            user: Aangemaakt door
         static_page:
           fields:
             created_at: Aangemaakt op
@@ -526,6 +562,15 @@ nl:
               admin: Beheerder
               user_manager: Deelnemersmanager
           name: Deelnemer
+        user_group:
+          fields:
+            actions: acties
+            created_at: Aangemaakt op
+            document_number: Documentnummer
+            name: Naam
+            phone: Telefoon
+            state: Staat
+            users_count: Aantal deelnemers
       moderated_users:
         index:
           actions:
@@ -594,6 +639,7 @@ nl:
           confirm_delete: Weet u zeker dat u deze nieuwsbrief wilt verwijderen?
           followers: 'volgers '
           has_been_sent_to: 'Is verzonden naar: '
+          no_scopes: Geen scopes
           not_sent: Niet verzonden
           participants: 'deelnemers '
           segmented_to: 'Gesplitst naar %{subject}: '
@@ -608,10 +654,13 @@ nl:
           confirm_deliver: Weet u zeker dat u deze nieuwsbrief wilt bezorgen? Deze actie kan niet ongedaan gemaakt worden.
           deliver: Stuur nieuwsbrief
           followers_help: Verstuurt nieuwsbrief naar alle bevestigde gebruikers die de geselecteerde participatieve ruimtes in de lijst volgen.
+          none: Geen
           participants_help: Verstuurt nieuwsbrief naar alle bevestigde gebruikers die hebben deelgenomen aan een van de geselecteerde participatieve ruimten in de lijst.
           recipients_count: Deze nieuwsbrief zal worden verzonden naar <strong id='recipients_count'>%{count}</strong> gebruikers.
+          scopes_help: Verstuurt nieuwsbrief naar gebruikers die de geselecteerde scope geactiveerd hebben in de "Mijn interesses" instellingen van hun account.
+          select_scopes: Filter gebruikers uit die een scope geselecteerd hebben in de Mijn interesses instellingen van hun account.
           select_spaces: Selecteer ruimtes om de nieuwsbrief te segmenteren
-          send_to_all_users: Stuur naar alle gebruikers
+          select_users: Selecteer welke gebruikers u de nieuwsbrief wilt verzenden
           title: Selecteer ontvangers
           warning: "<strong>Opgelet:</strong> Deze nieuwsbrief zal alleen worden verzonden naar gebruikers die <em>Ik wil nieuwsbrieven ontvangen</em> in hun notificatie instellingen hebben geactiveerd."
         show:
@@ -693,8 +742,6 @@ nl:
           title: Nieuwe privé deelnemer burgerinspraak.
       participatory_space_private_users_csv_imports:
         new:
-          csv_upload:
-            title: Upload uw CSV-bestand
           destroy:
             button: Verwijder alle privé deelnemers
             empty: Je hebt geen privé deelnemers.
@@ -715,6 +762,10 @@ nl:
           title: Bewerk toelatingen
         update:
           success: Machtigingen succesvol bijgewerkt.
+      resources:
+        index:
+          headers:
+            scope: Scope
       scope_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe scope type.
@@ -746,7 +797,15 @@ nl:
           success: Scope is succesvol bijgewerkt
       share_tokens:
         actions:
+          confirm_destroy: Weet je zeker dat je deze token wil verwijderen?
           destroy: Verwijderen
+          share: Deel
+        destroy:
+          error: Er is een fout opgetreden bij het vernietigen van de token.
+          success: Token met succes verwijderd.
+        share_tokens:
+          help: Deze tokens worden gebruikt om deze niet-gepubliceerde bron openbaar te delen met alle gebruikers. Ze worden verborgen wanneer de bron is gepubliceerd. Klik op het pictogram “delen” van het token om de deelbare URL te bezoeken.
+          title: Tokens delen
       shared:
         gallery:
           add_images: Afbeeldingen toevoegen
@@ -760,6 +819,7 @@ nl:
           title: Onderwerp bewerken
           update: Onderwerp bijwerken
         new:
+          create: Maak een onderwerp aan
           title: Nieuw onderwerp
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit onderwerp.
@@ -780,6 +840,7 @@ nl:
         index:
           last_notable_change: Laatste opvallende verandering
         new:
+          create: Creëer pagina
           title: Nieuwe pagina
         topic:
           without_topic: Pagina's zonder onderwerp
@@ -799,7 +860,27 @@ nl:
         scope_types: Scope types
         scopes: Scopes
         statistics: Activiteit
+        user_groups: groepen
         users: Beheerders
+      user_group:
+        csv_verify:
+          invalid: Er is een fout opgetreden bij het lezen van het CSV-bestand.
+        reject:
+          invalid: Er was een probleem met het afwijzen van deze groep.
+        verify:
+          invalid: Er is een probleem opgetreden bij het verifiëren van deze groep.
+      user_groups:
+        index:
+          state:
+            pending: In afwachting
+            rejected: Geweigerd
+            verified: Geverifieerd
+          verify_via_csv: Controleer via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Upload uw CSV-bestand. De officiële e-mails van de groepen in uw organisatie moeten in de eerste kolom van het bestand staan, zonder kopteksten. Alleen groepen die hun e-mail hebben bevestigd en een e-mail hebben die in het CSV-bestand wordt weergegeven, worden gevalideerd.
+          title: Upload uw CSV-bestand
+          upload: Uploaden
       users:
         create:
           error: Er is een probleem opgetreden bij het uitnodigen van deze beheerder.

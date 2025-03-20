@@ -1,3 +1,4 @@
+---
 "no":
   activemodel:
     models:
@@ -11,6 +12,7 @@
     blogs:
       actions:
         author_id: Opprett innlegg som
+        destroy: Slett
         edit: Editar
         new: Nytt innlegg
         title: Handlinger

@@ -52,8 +52,8 @@ describe "Authorized comments" do
         page.find(".js-comment__votes--up").click
       end
 
-      expect(page).to have_content("We need to verify your identity")
-      expect(page).to have_content("Verify with Example authorization")
+      expect(page).to have_css(".js-comment__votes--up", text: /0/)
+      expect(page).to have_content("Authorization required")
     end
   end
 

@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -19,6 +20,7 @@ ru:
     blogs:
       actions:
         author_id: Создать пост как
+        destroy: Удалить
         edit: Редактировать
         new: Создать новый пост
         title: Действия
@@ -27,6 +29,8 @@ ru:
           create:
             invalid: При попытке добавить этот пост произошла ошибка.
             success: Пост успешно создан.
+          destroy:
+            success: Пост успешно удален.
           edit:
             save: Обновить
             title: Изменить пост

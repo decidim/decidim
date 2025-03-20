@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -89,7 +90,7 @@ eu:
         count:
           proposals_count:
             one: proposamen 1
-            other: "Proposamen bat"
+            other: "%{count} proposamen"
         filters:
           active: Aktiboak
           all: Guztiak

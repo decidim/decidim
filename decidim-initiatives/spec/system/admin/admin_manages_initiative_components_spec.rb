@@ -159,16 +159,16 @@ describe "Admin manages initiative components" do
     end
 
     let!(:component) do
-      create(:component, :unpublished, name: component_name, participatory_space: initiative)
+      create(:component, name: component_name, participatory_space: initiative)
     end
 
     before do
       visit decidim_admin_initiatives.components_path(initiative)
     end
 
-    it "soft deletes the component" do
+    it "removes the component" do
       within ".component-#{component.id}" do
-        accept_confirm { click_on("Soft delete") }
+        page.find(".action-icon--remove").click
       end
 
       expect(page).to have_no_content("My component")
@@ -177,11 +177,10 @@ describe "Admin manages initiative components" do
 
   context "when publish and unpublish a component" do
     let!(:component) do
-      create(:component, participatory_space: initiative, published_at:, visible:)
+      create(:component, participatory_space: initiative, published_at:)
     end
 
     let(:published_at) { nil }
-    let(:visible) { true }
 
     before do
       switch_to_host(organization.host)
@@ -199,57 +198,22 @@ describe "Admin manages initiative components" do
           expect(page).to have_css(".action-icon--unpublish")
         end
       end
+
+      it_behaves_like "manage component share tokens"
     end
 
     context "when the component is published" do
       let(:published_at) { Time.current }
 
-      it "hides the component from the menu" do
-        within ".component-#{component.id}" do
-          click_on "Hide"
-        end
-
-        within ".component-#{component.id}" do
-          expect(page).to have_css(".action-icon--menu-hidden")
-        end
-      end
-    end
-
-    context "when the component is hidden from the menu" do
-      let(:published_at) { Time.current }
-      let(:visible) { false }
-
       it "unpublishes the component" do
         within ".component-#{component.id}" do
-          click_on "Unpublish"
+          page.find(".action-icon--unpublish").click
         end
 
         within ".component-#{component.id}" do
           expect(page).to have_css(".action-icon--publish")
         end
       end
-    end
-  end
-
-  describe "reorders a component" do
-    let!(:component1) { create(:component, name: { en: "Component 1" }, participatory_space:) }
-    let!(:component2) { create(:component, name: { en: "Component 2" }, participatory_space:) }
-    let!(:component3) { create(:component, name: { en: "Component 3" }, participatory_space:) }
-
-    before do
-      visit participatory_space_components_path(participatory_space)
-    end
-
-    it "changes the order of the components" do
-      expect(page.text.index("Component 1")).to be < page.text.index("Component 2")
-      expect(page.text.index("Component 2")).to be < page.text.index("Component 3")
-
-      first("td.dragging-handle").drag_to(find("tbody.draggable-table tr:last-child"))
-
-      visit current_path
-
-      expect(page.text.index("Component 2")).to be < page.text.index("Component 1")
-      expect(page.text.index("Component 1")).to be < page.text.index("Component 3")
     end
   end
 

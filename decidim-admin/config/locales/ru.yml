@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -61,6 +62,7 @@ ru:
         send_welcome_notification: Отправить приветственное уведомление
         success_color: Успешно
         tos_version: Версия условий участия
+        user_groups_enabled: Включить группы
         warning_color: Предупреждение
         welcome_notification_body: Текст приветствия
         welcome_notification_subject: Тема приветствия
@@ -116,6 +118,8 @@ ru:
         browse: Просмотреть
         manage: Управлять
         permissions: Права
+        reject: Отклонить
+        verify: Подтвердить личность
       area_types:
         create:
           error: При попытке создать новый вид участка произошла ошибка.
@@ -178,8 +182,23 @@ ru:
       autocomplete:
         no_results: Ничего не найдено
       categories:
+        create:
+          error: При попытке создать эту категорию произошла ошибка.
+          success: Категория успешно создана.
+        destroy:
+          error: Не удалось удалить эту категорию. Сначала удалите все подкатегории, затем убедитесь, что ничто не относится к этой категории, и повторите попытку.
+          success: Категория успешно удалена.
+        edit:
+          title: Редактировать категорию
+          update: Обновить
         index:
           categories_title: Категории
+        new:
+          create: Создать категорию
+          title: Добавить категорию
+        update:
+          error: При попытке обновить эту категорию произошла ошибка.
+          success: Категория успешно обновлена.
       component_permissions:
         update:
           success: Права доступа успешно обновлены.
@@ -187,6 +206,9 @@ ru:
         create:
           error: При попытке создать эту составляющую произошла ошибка.
           success: Составляющая успешно создана.
+        destroy:
+          error: При попытке удалить эту составляющую произошла ошибка.
+          success: Составляющая успешно удалена.
         edit:
           title: Редактировать составляющую
           update: Обновить
@@ -217,6 +239,8 @@ ru:
       exports:
         export_as: "%{name} как %{export_format}"
       filters:
+        category_id_eq:
+          label: Категория
         officialized_at_null:
           label: Cостояние
           values:
@@ -284,6 +308,7 @@ ru:
         scopes: Охваты
         settings: Настройки
         static_pages: Страницы
+        user_groups: Группы участников
         users: Участники
       models:
         area:
@@ -331,6 +356,9 @@ ru:
           fields:
             name: Имя
             plural: Множественное число
+        share_token:
+          fields:
+            created_at: 'Создано:'
         static_page:
           fields:
             created_at: 'Создано:'
@@ -345,6 +373,15 @@ ru:
               admin: Администратор
               user_manager: Распорядитель участников
           name: участника
+        user_group:
+          fields:
+            actions: Действия
+            created_at: 'Создано:'
+            document_number: Номер документа
+            name: Имя
+            phone: Телефон
+            state: Cостояние
+            users_count: Количество участников
       moderations:
         report:
           reasons:
@@ -373,6 +410,7 @@ ru:
           confirm_delete: Вы действительно хотите удалить эту рассылку новостей?
           followers: 'подписчики '
           has_been_sent_to: 'Отправлено: '
+          no_scopes: Нет областей
           not_sent: Не отправлено
           participants: 'участники '
           title: Рассылки новостей
@@ -383,7 +421,6 @@ ru:
           confirm_deliver: Вы уверены, что хотите доставить эту рассылку новостей? Это действие нельзя будет отменить.
           deliver: Доставить рассылку новостей
           participants_help: Отправляет новостную рассылку всем подтвержденным пользователям, которые участвовали в любом из выбранных пространств в списке.
-          send_to_all_users: Отправить всем пользователям
         show:
           preview: Предпросмотр
           subject: Тема
@@ -441,10 +478,6 @@ ru:
         new:
           create: Добавить
           title: Добавить частного участника пространства соучастия.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Загрузите ваш CSV файл
       resource_permissions:
         edit:
           title: Редактировать права доступа
@@ -502,6 +535,22 @@ ru:
         dashboard: Панель управления
         scope_types: Виды охвата
         scopes: Охваты
+        user_groups: Группы участников
+      user_group:
+        reject:
+          invalid: При отказе от этой группы участников произошла ошибка.
+        verify:
+          invalid: При подтверждении этой группы участников произошла ошибка.
+      user_groups:
+        index:
+          state:
+            pending: В ожидании
+            rejected: Отклонено
+            verified: Проверено
+      user_groups_csv_verifications:
+        new:
+          title: Загрузите ваш CSV файл
+          upload: Загрузить
       users:
         create:
           error: При приглашении этого участника произошла ошибка.

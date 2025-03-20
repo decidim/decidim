@@ -1,9 +1,11 @@
+---
 ga:
   activemodel:
     attributes:
       collaborative_draft:
         address: Seoladh
         body: Corp
+        category_id: Catagóir
         decidim_scope_id: Scóip
         scope_id: Scóip
         state: Staid
@@ -12,6 +14,7 @@ ga:
         address: Seoladh
         answer: Freagra
         body: Corp
+        category_id: Catagóir
         decidim_scope_id: Scóip
         scope_id: Scóip
         state: Staid
@@ -31,10 +34,14 @@ ga:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Catagóir
           is_emendation_true:
             label: Cineál
             values:
               'false': Moltaí
+          scope_id_eq:
+            label: Scóip
           state_eq:
             label: Staid
             values:
@@ -45,9 +52,12 @@ ga:
         actions:
           amend: Leasaigh
           comment: Tabhair Trácht
+          create: Cruthaigh
           endorse: Formhuinigh
         name: Moltaí
         settings:
+          global:
+            scope_id: Scóip
           step:
             endorsements_blocked: Formhuinithe blocáilte
             endorsements_enabled: Formhuinithe cumasaithe
@@ -91,9 +101,14 @@ ga:
         proposals:
           edit:
             update: Nuashonraigh
+          form:
+            select_a_category: Roghnaigh catagóir
           index:
             actions: Gníomhartha
+            assign_to_valuator_button: Ceap
             cancel: Cealaigh
+            change_category: Athraigh catagóir
+            merge_button: Cumaisc
             publish: Foilsigh
             selected: roghnaithe
             split_button: Scoilt
@@ -114,6 +129,7 @@ ga:
           all: Uile
           meetings: Cruinnithe
           official: Oifigiúil
+          user_groups: Grúpaí
         filter_state_values:
           all: Uile
         filter_type_values:
@@ -129,10 +145,13 @@ ga:
               cancel: Cealaigh
         edit:
           back: Ar Ais
+          select_a_category: Roghnaigh catagóir le do thoil
           send: Seol
         filters:
           all: Uile
+          category: Catagóir
           open: Oscail
+          scope: Scóip
           search: Cuardaigh
           state: Stádas
         filters_small_view:
@@ -154,11 +173,14 @@ ga:
       models:
         proposal:
           fields:
+            category: Catagóir
             comments: Tráchtanna
             id: ID
             notes: Nótaí
+            scope: Scóip
             state: Stádas
             title: Teideal
+            valuator: Luachálaí
             votes: Vótaí
       participatory_text_proposal:
         buttons:
@@ -167,12 +189,14 @@ ga:
       proposals:
         edit:
           back: Ar Ais
+          select_a_category: Roghnaigh catagóir le do thoil
           send: Seol
         edit_draft:
           send: Réamhamharc
         filters:
           all: Uile
           amendment_type: Cineál
+          category: Catagóir
           origin: Bunús
           scope: Scóip
           search: Cuardaigh

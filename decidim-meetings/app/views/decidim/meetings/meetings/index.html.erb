@@ -1,12 +1,3 @@
-<% add_decidim_meta_tags(
-  description: translated_attribute(current_component.participatory_space.try(:description)),
-  title: t("decidim.components.pagination.page_title",
-           component_name: translated_attribute(current_component.name),
-           current_page: meetings.current_page,
-           total_pages: meetings.total_pages ),
-  url: meetings_url,
-  resource: current_component) %>
-
 <%= render partial: "decidim/meetings/shared/index", locals: {
       display_map: Decidim::Map.available?(:geocoding, :dynamic) && current_component.settings.maps_enabled? && search.result.not_online.exists?,
       display_announcement: true,
@@ -15,7 +6,8 @@
       filter_options: {
         date: !@forced_past_meetings,
         type: true,
-        taxonomies: true,
+        scopes: current_component.has_subscopes?,
+        categories: current_component.categories.any?,
         origin: component_settings.creation_enabled_for_participants?,
         space_type: false,
         activity: current_user.present?

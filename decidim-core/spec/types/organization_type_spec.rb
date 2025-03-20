@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/type_context"
 
 module Decidim
   module Core
@@ -30,16 +30,6 @@ module Decidim
         it "show all the stats for this organization" do
           # shows 5 as user_count, as we have the 4 confirmed_users + the admin
           expect(response["stats"]).to include("name" => "users_count", "value" => 5)
-        end
-      end
-
-      describe "taxonomies" do
-        let(:query) { %({ taxonomies { id } }) }
-        let!(:root_taxonomy) { create(:taxonomy, organization: model) }
-        let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization: model) }
-
-        it "has root taxonomies only" do
-          expect(response["taxonomies"]).to contain_exactly("id" => root_taxonomy.id.to_s)
         end
       end
     end

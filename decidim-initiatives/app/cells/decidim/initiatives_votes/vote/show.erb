@@ -1,0 +1,39 @@
+<% collect_user_extra_fields = model.initiative.type.collect_user_extra_fields %>
+<% cell_small_width = collect_user_extra_fields ? "9.4%" : "15.6%" %>
+<% style_initiatives_votes_table_row = "width: 100%; display: inline-block; min-height: 33pt; border-bottom: 1pt solid black;" %>
+<% style_initiatives_votes_table_cell = "width: #{cell_small_width}; padding-left: 5pt; word-wrap: break-word; display: inline-block; float: left; min-height: 36pt;" %>
+<br>
+<div class="initiatives-votes-table-row" style="<%= style_initiatives_votes_table_row %>">
+  <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell %>">
+    <%= initiative_id %>
+  </div>
+  <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell %>">
+    <%= initiative_title %>
+  </div>
+  <% if collect_user_extra_fields %>
+    <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell %>">
+      <%= name_and_surname %>
+    </div>
+    <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell %>">
+      <%= document_number %>
+    </div>
+    <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell %>">
+      <%= date_of_birth %>
+    </div>
+    <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell %>">
+      <%= postal_code %>
+    </div>
+  <% end %>
+  <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell %>">
+    <%= time_and_date %>
+  </div>
+  <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell %>">
+    <%= timestamp %>
+  </div>
+  <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell %>">
+    <%= hash_id %>
+  </div>
+  <div class="initiatives-votes-table-cell w11" style="<%= style_initiatives_votes_table_cell %>">
+    <%= scope %>
+  </div>
+</div>

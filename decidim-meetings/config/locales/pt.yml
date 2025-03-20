@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -55,6 +56,8 @@ pt:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: Categoria
           closed_at_present:
             label: Estado
             values:
@@ -65,6 +68,8 @@ pt:
             values:
               'false': Passado
               'true': Seguinte
+          scope_id_eq:
+            label: Âmbito
           with_any_origin:
             values:
               user_group: Grupos de utilizadores
@@ -96,6 +101,8 @@ pt:
             maps_enabled: Mapas activados
             registration_code_enabled: Código de registo activado
             resources_permissions_enabled: As permissões de ações podem ser definidas para cada reunião
+            scope_id: Âmbito
+            scopes_enabled: Âmbitos activados
             terms_and_conditions_url_for_meeting_creators: URL dos termos e condições para criadores de reuniões
           step:
             announcement: Anúncio
@@ -164,6 +171,7 @@ pt:
         attachment_collections: Pastas
         attachments: Anexos
         close: Fechar
+        destroy: Eliminar
         edit: Editar
         invalid_destroy:
           proposals_count:
@@ -229,6 +237,8 @@ pt:
         meetings:
           create:
             success: A reunião foi criada com êxito. Tome nota que ainda não foi publicada, precisa de a publicar manualmente.
+          destroy:
+            success: Reunião eliminada corretamente
           edit:
             title: Editar reunião
             update: Atualizar
@@ -266,7 +276,6 @@ pt:
           form:
             available_slots_help: Deixar a 0 se tiver intervalos de tempo ilimitados disponíveis.
             invites: Convites
-            manage_questions: Pergunta
             recommendation_message: Por questões de privacidade recomendamos que elimine este formulário de inscrição quando já não for necessário. Por predefinição, isto acontece 3 meses após o fim da reunião.
             registration_email_help: Este texto irá aparecer no meio do e-mail de confirmação de registo. Logo a seguir ao código de registo.
             registration_form: Formulário de registo
@@ -295,6 +304,9 @@ pt:
           value_types:
             organizer_presenter:
               not_found: 'O(A) organizador(a) não foi encontrado(a) na base de dados (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Todos
       calendar_modal:
         calendar_url: URL do calendário
         export_calendar: Exportar calendário
@@ -365,10 +377,14 @@ pt:
           location_hints_help: 'Sugestões de localização: informação adicional. Exemplo: o piso do edifício se for uma reunião presencial, ou a palavra-chave se for uma reunião on-line de acesso restrito.'
           online_meeting_url_help: 'Ligação: permitir aos participantes ligarem-se directamente à sua reunião'
           registration_url_help: 'Ligação: permitir aos participantes dirigirem-se ao serviço externo que está a usar para os registos'
+          select_a_category: Por favor selecione uma categoria
           select_a_meeting_type: Por favor seleccione um tipo de reunião
           select_a_registration_type: Por favor seleccione um tipo de registo
         index:
           new_meeting: Nova reunião
+        meeting:
+          close_meeting: Encerrar reunião
+          edit_meeting: Editar reunião
         meetings:
           upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui pode encontrar listadas todas as reuniões passadas.
         new:

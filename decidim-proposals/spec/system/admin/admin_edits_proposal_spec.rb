@@ -8,8 +8,6 @@ describe "Admin edits proposals" do
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let!(:proposal) { create(:proposal, :official, component:) }
   let(:creation_enabled?) { true }
-  let(:image_filename) { "city.jpeg" }
-  let(:image_path) { Decidim::Dev.asset(image_filename) }
 
   include_context "when managing a component as an admin"
 
@@ -87,6 +85,7 @@ describe "Admin edits proposals" do
       it "can be remove attachment" do
         visit_component_admin
         find("a.action-icon--edit-proposal").click
+        find("input#proposal_attachment_delete_file").set(true)
         within ".item__edit-form" do
           click_on "Update"
         end
@@ -101,18 +100,19 @@ describe "Admin edits proposals" do
       it "can attach a file" do
         visit_component_admin
         find("a.action-icon--edit-proposal").click
-        dynamically_attach_file(:proposal_documents, image_path)
+        fill_in :proposal_attachment_title, with: "FOO BAR"
 
-        click_on("Edit attachments")
-        within "li[data-filename='#{image_filename}']" do
-          click_on("Remove")
-        end
+        find("input#proposal_attachment_delete_file").set(true)
+        click_on("Replace")
+        click_on("Remove")
         click_on("Save")
+        dynamically_attach_file(:proposal_attachment_file, Decidim::Dev.asset("city.jpeg"))
 
         click_on("Update")
         find("a.action-icon--edit-proposal").click
 
-        expect(page).to have_no_content("city.jpeg")
+        expect(page).to have_content("city.jpeg")
+        expect(page).to have_content("FOO BAR")
       end
     end
   end

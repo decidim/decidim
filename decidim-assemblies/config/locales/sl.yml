@@ -1,6 +1,9 @@
+---
 sl:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Naziv
       assembly:
         area_id: Področje
         assembly_type: Vrsta združbe
@@ -15,6 +18,7 @@ sl:
         created_by: Ustvaril
         creation_date: Datum nastanka
         decidim_area_id: Področje
+        decidim_assemblies_type_id: Vrsta združbe
         decidim_scope_id: Obseg
         description: Opis
         domain: Domena
@@ -25,6 +29,7 @@ sl:
         hero_image: Domača slika
         included_at: Vsebovan
         instagram: Instagram
+        internal_organisation: Notranja organizacija
         is_transparent: Je prosojna
         local_area: Območje organizacije
         parent_id: Matična združba
@@ -35,6 +40,8 @@ sl:
         promoted: Poudarjeno
         published_at: Objavljeno
         purpose_of_action: Namen ukrepanja
+        scope_id: Obseg
+        scopes_enabled: Omogočeni obsegi
         short_description: Kratek opis
         special_features: Posebne funkcije
         subtitle: Podnapis
@@ -75,9 +82,11 @@ sl:
       actions:
         import_assembly: Uvozi
         new_assembly: Nova združba
+        new_assembly_type: Nova vrsta združbe
       assemblies:
         create:
           error: Pojavila se je težava pri kreiranju združbe.
+          success: Združba uspešno ustvarjena.
         edit:
           update: Posodobi
         index:
@@ -94,6 +103,18 @@ sl:
         create:
           error: Pojavila se je težava pri podvajanju združbe.
           success: Združba uspešno podvojena.
+      assemblies_types:
+        create:
+          error: Pojavila se je težava pri kreiranju nove združbe.
+          success: Vrsta združbe uspešno ustvarjena.
+        destroy:
+          success: Vrsta združbe uspešno izbrisana.
+        new:
+          create: Ustvari
+          title: Nova vrsta združbe
+        update:
+          error: Pojavila se je težava pri urejanju vrste združbe.
+          success: Vrsta združbe uspešno posodobljena.
       assembly_copies:
         new:
           copy: Kopiraj
@@ -107,14 +128,40 @@ sl:
           import: Uvozi
           select: Izberi, katere podatke želiš uvoziti
           title: Uvozi združbo
+      assembly_members:
+        create:
+          error: Pojavila se je težava pri dodanju člana v to združbo.
+          success: Član uspešno kreiran v tej združbi.
+        destroy:
+          success: Član uspešno izbrisan v tej združbi.
+        edit:
+          update: Posodobi
+        new:
+          create: Ustvari
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Vrsta združbe
       menu:
         assemblies: Združbe
         assemblies_submenu:
           assembly_admins: Skrbniki združbe
+          assembly_members: Člani
           attachment_collections: Mape
           attachment_files: Datoteke
           attachments: Priponke
+          categories: Kategorije
           components: Komponente
+        assemblies_types: Vrste združb
+      models:
+        assemblies_types:
+          fields:
+            title: Naziv
+        assembly_member:
+          fields:
+            ceased_date: Datum prenehanja
+            designation_date: Datum imenovanja
+            full_name: Ime
+            position: Položaj
       titles:
         assemblies: Združbe
         assemblies_types: Vrste združb
@@ -126,10 +173,15 @@ sl:
         assemblies:
           form:
             duration: Trajanje
+            filters: Filtri
             images: Slike
             metadata: Meta podatki
             other: Drugo
+            select_an_assembly_type: Izberi vrsto združbe
             select_parent_assembly: Izberi matično združbo
+        assemblies_types:
+          form:
+            title: Naziv
       assemblies:
         filters:
           names:
@@ -137,6 +189,8 @@ sl:
       assembly_members:
         index:
           members: Člani
+      assembly_types:
+        commission: Provizija
       content_blocks:
         highlighted_assemblies:
           name: Poudarjene združbe
@@ -148,6 +202,7 @@ sl:
       index:
         title: Združbe
       show:
+        assembly_type: Vrsta združbe
         duration: Trajanje
     help:
       participatory_spaces:

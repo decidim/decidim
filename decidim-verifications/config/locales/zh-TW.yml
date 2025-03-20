@@ -1,3 +1,4 @@
+---
 zh-TW:
   activemodel:
     attributes:
@@ -39,6 +40,7 @@ zh-TW:
           destroy:
             confirm: 撤銷在指定日期之前的授權無法撤消。您確定要繼續嗎？
             confirm_all: 撤銷所有授權後無法還原，確定要繼續嗎？
+          destroy_nok: 撤銷授權時發生問題。
           destroy_ok: 所有匹配的授權已成功撤銷。
           info: 總共有 %{count} 名已驗證的參與者。
           no_data: 沒有經過驗證的參與者.
@@ -98,6 +100,17 @@ zh-TW:
         destroy:
           error: 刪除授權時出現問題。
           success: 您已成功刪除授權。
+        first_login:
+          actions:
+            another_dummy_authorization_handler: 使用另一個授權處理器進行驗證
+            csv_census: 根據組織的人口統計進行驗證
+            dummy_authorization_handler: 根據範例授權處理器進行驗證
+            dummy_authorization_workflow: 根據範例授權工作流程進行驗證
+            id_documents: 通過上傳身份證明文件進行驗證
+            postal_letter: 通過郵寄獲得驗證碼進行驗證
+            sms: 通過收到SMS短信驗證碼進行驗證
+          title: 驗證你的身份
+          verify_with_these_options: '這是可以驗證您身份的可用選項:'
         index:
           expired_verification: 驗證已過期
           granted_verification: 已授權驗證
@@ -120,6 +133,7 @@ zh-TW:
         admin:
           census:
             create:
+              error: 匯入戶籍普查資料時發生錯誤。
               success: 成功匯入 %{count} 項目(%{errors} 錯誤).
             destroy_all:
               success: 所有戶籍數據都已刪除.
@@ -149,8 +163,10 @@ zh-TW:
         extra_explanation:
           postal_codes:
             other: "參與僅限於具有郵政編碼%{postal_codes} 的參與者。\n參與僅限於具有以下任何郵政編碼的參與者：%{postal_codes}。"
+          scope: 參與資格限制於具有 %{scope_name} 范圍的參與者。
           user_postal_codes:
             other: "參與資格限制於具有郵政編碼 %{postal_codes} 的參與者，而您的郵政編碼為 %{user_postal_code}。\n參與資格限制於具有以下任一郵政編碼的參與者：%{postal_codes}。而您的郵政編碼為 %{user_postal_code}。"
+          user_scope: 參與限制僅限於範圍為 %{scope_name} 的參與者，而您的範圍為 %{user_scope_name}。
       id_documents:
         admin:
           config:

@@ -29,4 +29,4 @@ Inside of your application you can customize it in different ways:
 * xref:customize:texts.adoc[Texts]
 * xref:customize:users_registration_mode.adoc[User registration mode]
 * xref:customize:views.adoc[Views]
-
+* xref:customize:localization.adoc[localization]

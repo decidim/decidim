@@ -15,7 +15,7 @@ module Decidim
     def tos_accepted_by_user
       return true unless request.format.html?
       return true unless current_user
-      return if current_user.tos_accepted? || current_user.ephemeral?
+      return if current_user.tos_accepted?
       return if permitted_paths?
 
       redirect_to_tos
@@ -33,11 +33,12 @@ module Decidim
     end
 
     def permitted_paths?
-      return true if request.path.starts_with?(decidim.download_your_data_path)
-
       permitted_paths = [tos_path,
                          decidim.delete_account_path,
-                         decidim.accept_tos_path]
+                         decidim.accept_tos_path,
+                         decidim.download_your_data_path,
+                         decidim.export_download_your_data_path,
+                         decidim.download_file_download_your_data_path]
       # ensure that path with or without query string pass
       permitted_paths.find { |el| el.split("?").first == request.path }
     end

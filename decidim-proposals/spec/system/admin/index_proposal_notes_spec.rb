@@ -21,7 +21,6 @@ describe "Index Proposal Notes" do
       proposal:
     )
   end
-  let(:proposal_note) { proposal_notes.first }
 
   include_context "when managing a component as an admin"
 
@@ -51,8 +50,7 @@ describe "Index Proposal Notes" do
       expect(page).to have_admin_callout("successfully")
 
       click_on "Private notes"
-
-      within "#panel-notes .comment:last-of-type" do
+      within ".component__show_notes-grid .comment:last-child" do
         expect(page).to have_content(decidim_sanitize_translated(attributes[:body]))
       end
 
@@ -73,28 +71,5 @@ describe "Index Proposal Notes" do
 
       expect(page).to have_content("There is an error in this field.")
     end
-  end
-
-  it "allows to add a reply to a proposal note" do
-    within("div.comment", text: decidim_sanitize_translated(proposal_note.body)) do
-      click_on "Reply"
-      expect(page).to have_css("form")
-      fill_in :proposal_note_body, with: attributes[:body]
-
-      find("*[type=submit]").click
-    end
-
-    expect(page).to have_admin_callout("successfully")
-
-    click_on "Private notes"
-
-    within("div.comment", text: decidim_sanitize_translated(proposal_note.body)) do
-      expect(page).to have_content(decidim_sanitize_translated(attributes[:body]))
-    end
-
-    expect(proposal_note.replies.count).to eq(1)
-
-    visit decidim_admin.root_path
-    expect(page).to have_content("left a private note on the #{translated(proposal.title)} proposal")
   end
 end

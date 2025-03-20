@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -8,6 +9,8 @@ ru:
         description: Описание
         end_date: Дата окончания
         progress: Продвижение
+        project_ids: Включенные проекты
+        proposals: Включенные предложения
         start_date: Дата начала
         title: Заголовок
         updated_at: 'Обновлено:'
@@ -87,8 +90,10 @@ ru:
       models:
         result:
           fields:
+            category: Категория
             end_date: Дата окончания
             progress: Продвижение
+            scope: Охват
             start_date: Дата начала
             status: Состояние
             title: Заголовок
@@ -108,8 +113,12 @@ ru:
             few: "%{count} итога"
             many: "%{count} итогов"
             other: "%{count} итога"
+        filters:
+          all: Все
         home_header:
           global_status: Состояние общего исполнения
+        nav_breadcrumb:
+          global: Всеобщее исполнение
         search:
           search: Поиск действий
         show:
@@ -117,6 +126,13 @@ ru:
             back_to_resource: Вернуться к итогу
         timeline:
           title: Развитие проекта
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Категория
+          scope_id_eq:
+            label: Охват
     components:
       accountability:
         name: Отчетность

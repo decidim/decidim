@@ -5,8 +5,7 @@ module Decidim
     module Admin
       # This controller allows the create or update a blog.
       class PostsController < Admin::ApplicationController
-        include Decidim::Admin::HasTrashableResources
-
+        helper UserGroupHelper
         helper PostsHelper
 
         def new
@@ -53,19 +52,18 @@ module Decidim
           end
         end
 
+        def destroy
+          enforce_permission_to :destroy, :blogpost, blogpost: post
+
+          Decidim::Commands::DestroyResource.call(post, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("posts.destroy.success", scope: "decidim.blogs.admin")
+              redirect_to posts_path
+            end
+          end
+        end
+
         private
-
-        def trashable_deleted_resource_type
-          :post
-        end
-
-        def trashable_deleted_resource
-          @trashable_deleted_resource ||= Blogs::Post.with_deleted.find_by(component: current_component, id: params[:id])
-        end
-
-        def trashable_deleted_collection
-          @trashable_deleted_collection ||= Post.where(component: current_component).only_deleted.deleted_at_desc.page(params[:page]).per(15)
-        end
 
         def post
           @post ||= Blogs::Post.find_by(component: current_component, id: params[:id])

@@ -6,7 +6,6 @@ import "src/decidim/decidim_application"
 
 // CSS
 import "entrypoints/decidim_core.scss"
-import "stylesheets/decidim/resource_history.scss"
 
 // Images
 require.context("../images", true)

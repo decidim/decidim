@@ -1,3 +1,4 @@
+---
 zh-TW:
   activemodel:
     attributes:
@@ -21,6 +22,8 @@ zh-TW:
               too_long: 太長
             choices:
               missing: 尚未完成
+        questionnaire:
+          request_invalid: 處理請求時發生錯誤。請再試一次。
   decidim:
     forms:
       admin:
@@ -31,6 +34,7 @@ zh-TW:
         questionnaires:
           actions:
             back: 返回問題
+            show: 顯示回應
           answer_option:
             answer_option: 答案選項：
             free_text: 免費文字
@@ -170,6 +174,7 @@ zh-TW:
           tos_agreement: 透過參與，您同意其服務條款
       step_navigation:
         show:
+          are_you_sure: 此操作無法撤消，您將無法編輯您的答案。您確定嗎？
           back: 返回
           continue: 繼續
           submit: 提交

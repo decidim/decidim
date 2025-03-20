@@ -1,14 +1,19 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/type_context"
+require "decidim/core/test/shared_examples/attachable_interface_examples"
+require "decidim/core/test/shared_examples/authorable_interface_examples"
+require "decidim/core/test/shared_examples/traceable_interface_examples"
+require "decidim/core/test/shared_examples/timestamps_interface_examples"
+require "decidim/core/test/shared_examples/endorsable_interface_examples"
 
 module Decidim
   module Blogs
     describe PostType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:post, :with_endorsements) }
+      let(:model) { create(:post) }
 
       include_examples "attachable interface"
       include_examples "authorable interface"

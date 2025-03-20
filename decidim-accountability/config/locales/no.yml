@@ -1,3 +1,4 @@
+---
 "no":
   activemodel:
     attributes:
@@ -8,6 +9,8 @@
         description: Beskrivelse
         end_date: Sluttdato
         progress: Framgang
+        project_ids: Inkluderte prosjekter
+        proposals: Inkluderte forslag
         start_date: Startdato
         title: Tittel
         updated_at: Oppdatert
@@ -109,10 +112,12 @@
       models:
         result:
           fields:
+            category: Kategori
             created_at: Opprettet
             end_date: Sluttdato
             id: ID
             progress: Framgang
+            scope: Tema
             start_date: Startdato
             status: Status
             title: Tittel
@@ -131,8 +136,12 @@
           results_count:
             one: 1 resultat
             other: "%{count} resultater"
+        filters:
+          all: Alle
         home_header:
           global_status: Global utførelse status
+        nav_breadcrumb:
+          global: Global utførelse
         search:
           search: Søk etter handlinger
         show:
@@ -143,6 +152,10 @@
     admin:
       filters:
         results:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: Tema
           status_id_eq:
             label: Status
     components:
@@ -156,6 +169,8 @@
             comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
             display_progress_enabled: Vis fremgang
             intro: Introduksjon
+            scope_id: Tema
+            scopes_enabled: Temaer aktivert
           step:
             comments_blocked: Kommentarer blokkert
     events:

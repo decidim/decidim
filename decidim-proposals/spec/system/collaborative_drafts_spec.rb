@@ -9,6 +9,7 @@ describe "Explore Collaborative Drafts", versioning: true do
   include_context "with a component"
 
   let(:manifest_name) { "proposals" }
+  let!(:scope) { create(:scope, organization:) }
   let!(:author) { create(:user, :confirmed, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
@@ -20,23 +21,19 @@ describe "Explore Collaborative Drafts", versioning: true do
            organization:,
            settings: {
              collaborative_drafts_enabled: true,
-             taxonomy_filters: [taxonomy_filter.id]
+             scopes_enabled: true,
+             scope_id: participatory_process.scope&.id
            })
   end
-  let(:root_taxonomy) { create(:taxonomy, organization:) }
-  let!(:taxonomy) { create(:taxonomy, skip_injection: true, parent: root_taxonomy, organization:) }
-  let!(:taxonomy2) { create(:taxonomy, skip_injection: true, parent: root_taxonomy, organization:) }
-  let!(:taxonomy3) { create(:taxonomy, skip_injection: true, parent: root_taxonomy, organization:) }
-  let(:taxonomies) { [taxonomy] }
-  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
-  let!(:taxonomy_filter_item2) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy2) }
-  let!(:taxonomy_filter_item3) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy3) }
-  let!(:collaborative_draft) { create(:collaborative_draft, :open, component:, taxonomies:, users: [author]) }
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:category2) { create(:category, participatory_space: participatory_process) }
+  let!(:category3) { create(:category, participatory_space: participatory_process) }
+  let!(:collaborative_draft) { create(:collaborative_draft, :open, component:, category:, scope:, users: [author]) }
   let!(:collaborative_draft_no_tags) { create(:collaborative_draft, :open, component:) }
 
-  let!(:open_collaborative_draft) { create(:collaborative_draft, :open, component:, taxonomies:) }
-  let!(:withdrawn_collaborative_draft) { create(:collaborative_draft, :withdrawn, component:, taxonomies: [taxonomy2]) }
-  let!(:published_collaborative_draft) { create(:collaborative_draft, :published, component:, taxonomies: [taxonomy3]) }
+  let!(:open_collaborative_draft) { create(:collaborative_draft, :open, component:, category:) }
+  let!(:withdrawn_collaborative_draft) { create(:collaborative_draft, :withdrawn, component:, category: category2) }
+  let!(:published_collaborative_draft) { create(:collaborative_draft, :published, component:, category: category3) }
 
   let(:request_access_form) { Decidim::Proposals::RequestAccessToCollaborativeDraftForm.from_params(state: collaborative_draft.state, id: collaborative_draft.id) }
   let!(:other_user) { create(:user, :confirmed, organization:) }
@@ -74,11 +71,11 @@ describe "Explore Collaborative Drafts", versioning: true do
         end
       end
 
-      it "shows taxonomy filters" do
+      it "shows category filters" do
         within "[data-filters]" do
           expect(page).to have_field("All")
-          [taxonomy, taxonomy2, taxonomy3].each do |tax|
-            expect(page).to have_field(decidim_sanitize_translated(tax.name))
+          [category, category2, category3].each do |cat|
+            expect(page).to have_field(decidim_escape_translated(cat.name))
           end
         end
       end
@@ -113,10 +110,12 @@ describe "Explore Collaborative Drafts", versioning: true do
                  organization:,
                  settings: {
                    collaborative_drafts_enabled: true,
-                   geocoding_enabled: true
+                   geocoding_enabled: true,
+                   scopes_enabled: true,
+                   scope_id: participatory_process.scope&.id
                  })
         end
-        let!(:collaborative_draft) { create(:collaborative_draft, :open, component:, address:, taxonomies:, users: [author]) }
+        let!(:collaborative_draft) { create(:collaborative_draft, :open, component:, address:, category:, scope:, users: [author]) }
         let(:address) { "Some address" }
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
@@ -138,7 +137,7 @@ describe "Explore Collaborative Drafts", versioning: true do
         end
       end
 
-      context "without taxonomies" do
+      context "without category or scope" do
         before do
           visit_component
           click_on "Access collaborative drafts"
@@ -150,11 +149,20 @@ describe "Explore Collaborative Drafts", versioning: true do
         end
       end
 
-      context "with a taxonomy" do
-        it "shows tags for taxonomy" do
+      context "with a category" do
+        it "shows tags for category" do
           expect(page).to have_css("ul.tag-container")
           within "ul.tag-container" do
-            expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+            expect(page).to have_content(translated(collaborative_draft.category.name))
+          end
+        end
+      end
+
+      context "with a scope" do
+        it "shows tags for scope" do
+          expect(page).to have_css("ul.tag-container")
+          within "ul.tag-container" do
+            expect(page).to have_content(translated(collaborative_draft.scope.name))
           end
         end
       end
@@ -306,8 +314,7 @@ describe "Explore Collaborative Drafts", versioning: true do
               end
 
               it "shows a button to edit" do
-                find("#dropdown-trigger-resource-#{collaborative_draft.id}").click
-                expect(page).to have_css("#collaborative_draft_edit", text: "Edit")
+                expect(page).to have_css("#collaborative_draft_edit", text: "Edit collaborative draft")
               end
 
               it "does not show the Collaboration Requests from other users" do
@@ -343,8 +350,7 @@ describe "Explore Collaborative Drafts", versioning: true do
         end
 
         it "shows a button to edit" do
-          find("#dropdown-trigger-resource-#{collaborative_draft.id}").click
-          expect(page).to have_css("#collaborative_draft_edit", text: "Edit")
+          expect(page).to have_css("#collaborative_draft_edit", text: "Edit collaborative draft")
         end
       end
     end

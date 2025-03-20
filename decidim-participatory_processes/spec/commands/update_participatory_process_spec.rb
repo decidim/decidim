@@ -5,11 +5,7 @@ require "spec_helper"
 module Decidim::ParticipatoryProcesses
   describe Admin::UpdateParticipatoryProcess do
     describe "call" do
-      let(:organization) { create(:organization) }
-      let(:my_process) { create(:participatory_process, organization:, taxonomies:) }
-      let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }
-      let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
-      let(:user) { create(:user, :admin, :confirmed, organization:) }
+      let(:my_process) { create(:participatory_process) }
       let(:params) do
         {
           participatory_process: {
@@ -31,11 +27,13 @@ module Decidim::ParticipatoryProcesses
             short_description_en: my_process.short_description,
             short_description_ca: my_process.short_description,
             short_description_es: my_process.short_description,
-            current_organization: organization,
+            current_organization: my_process.organization,
+            scopes_enabled: my_process.scopes_enabled,
+            scope: my_process.scope,
+            area: my_process.area,
             errors: my_process.errors,
             participatory_process_group: my_process.participatory_process_group,
-            private_space: my_process.private_space,
-            taxonomies: [taxonomy.id, taxonomies.first.id]
+            private_space: my_process.private_space
           }.merge(attachment_params)
         }
       end
@@ -44,9 +42,10 @@ module Decidim::ParticipatoryProcesses
           hero_image: my_process.hero_image.blob
         }
       end
+      let(:user) { create(:user, :admin, :confirmed, organization: my_process.organization) }
       let(:context) do
         {
-          current_organization: organization,
+          current_organization: my_process.organization,
           current_user: user,
           process_id: my_process.id
         }
@@ -96,12 +95,6 @@ module Decidim::ParticipatoryProcesses
           expect { command.call }.to broadcast(:ok)
         end
 
-        it "updates the taxonomizations" do
-          expect(my_process.reload.taxonomies).to match_array(taxonomies)
-          command.call
-          expect(my_process.reload.taxonomies).to contain_exactly(taxonomy, taxonomies.first)
-        end
-
         it "updates the participatory process" do
           expect { command.call }.to broadcast(:ok)
           my_process.reload
@@ -122,7 +115,7 @@ module Decidim::ParticipatoryProcesses
         end
 
         context "with related processes" do
-          let!(:another_process) { create(:participatory_process, organization:) }
+          let!(:another_process) { create(:participatory_process, organization: my_process.organization) }
 
           it "links related processes" do
             allow(form).to receive(:related_process_ids).and_return([another_process.id])

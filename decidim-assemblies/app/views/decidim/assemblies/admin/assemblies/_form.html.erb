@@ -113,6 +113,34 @@
     </div>
   </div>
 
+  <div class="card" data-component="accordion" id="accordion-filters">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-filters" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="filters">
+          <%= t("filters", scope: "decidim.assemblies.admin.assemblies.form") %>
+        </h2>
+      </button>
+    </div>
+
+    <div id="panel-filters" class="card-section">
+      <div class="row column">
+        <%= form.check_box :scopes_enabled %>
+      </div>
+
+      <div class="row column">
+        <%= scopes_select_field form, :scope_id, root: nil %>
+      </div>
+
+      <div class="row column">
+        <%= form.areas_select :area_id,
+                              areas_for_select(current_organization),
+                              selected: current_assembly.try(:decidim_area_id),
+                              include_blank: t(".select_an_area") %>
+      </div>
+    </div>
+  </div>
+
   <div class="card" data-component="accordion" id="accordion-metadata">
     <div class="card-divider">
       <button class="card-divider-button" data-open="true" data-controls="panel-metadata" type="button">
@@ -153,33 +181,6 @@
     </div>
   </div>
 
-  <div class="card" data-component="accordion" id="accordion-taxonomies">
-    <div class="card-divider">
-      <button class="card-divider-button" data-open="true" data-controls="panel-taxonomies" type="button">
-        <%= icon "arrow-right-s-line" %>
-        <h2 class="card-title" id="taxonomies">
-          <%= t("taxonomies", scope: "decidim.assemblies.admin.assemblies.form") %>
-        </h2>
-      </button>
-    </div>
-    <div id="panel-taxonomies" class="card-section">
-      <% if @form.taxonomy_filters.blank? %>
-        <div class="row column">
-          <p class="text-gray mr-2 mt-4">
-            <%= t("no_taxonomy_filters_found", scope: "decidim.assemblies.admin.assemblies.form") %>
-            <%= link_to(t("define_taxonomy_filters", scope: "decidim.assemblies.admin.assemblies.form"), decidim_admin.taxonomies_path, class: "button button__text-secondary") %>
-          </p>
-      </div>
-      <% else %>
-        <% @form.taxonomy_filters.each do |filter| %>
-          <div class="row column">
-            <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-
   <div class="card" data-component="accordion" id="accordion-visibility">
     <div class="card-divider">
       <button class="card-divider-button" data-open="true" data-controls="panel-visibility" type="button">
@@ -196,7 +197,12 @@
       <% else %>
         <div class="row column">
           <%= form.select :parent_id,
-                          parent_assemblies_options,
+                          options_from_collection_for_select(
+                            parent_assemblies_for_select,
+                            :id,
+                            :translated_title,
+                            selected: current_assembly.try(:parent_id)
+                          ),
                           include_blank: t(".select_parent_assembly") %>
         </div>
       <% end %>
@@ -207,7 +213,6 @@
 
       <div class="row column" id="private_space">
         <%= form.check_box :private_space %>
-        <p class="help-text"><%= t(".private_notice") %></p>
       </div>
 
       <div class="row column" id="is_transparent">
@@ -236,6 +241,13 @@
 
       <div class="row column" id="created_by_other">
         <%= form.translated :text_field, :created_by_other, aria: { label: :created_by_other } %>
+      </div>
+
+      <div class="row column">
+        <%= form.select :decidim_assemblies_type_id,
+                        @form.assembly_types_for_select,
+                        { include_blank: t(".select_an_assembly_type") },
+                        { multiple: false } %>
       </div>
 
       <div class="row column">

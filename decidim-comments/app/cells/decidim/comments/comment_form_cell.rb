@@ -4,14 +4,13 @@ module Decidim
   module Comments
     # A cell to display a form for adding a new comment.
     class CommentFormCell < Decidim::ViewModel
-      def comment_as
-        return if current_user.blank?
+      def comment_as_for(form)
+        return if verified_user_groups.blank?
 
-        render
-      end
-
-      def two_columns_layout?
-        model.respond_to?(:two_columns_layout?) && model.two_columns_layout?
+        # Note that the form.select does not seem to work correctly in the cell
+        # context. The Rails form builder tries to call @template.select which
+        # is not available for the cell objects.
+        render view: :comment_as, locals: { form: }
       end
 
       private
@@ -22,7 +21,6 @@ module Decidim
         hash.push(model.cache_key)
         hash.push(order)
         hash.push(current_user.try(:id))
-        hash.push(options)
         hash.join(Decidim.cache_key_separator)
       end
 
@@ -54,6 +52,10 @@ module Decidim
         "add-comment-#{commentable_type.demodulize}-#{model.id}"
       end
 
+      def comment_as_id
+        "add-comment-#{commentable_type.demodulize}-#{model.id}-user-group-id"
+      end
+
       def root_depth
         options[:root_depth] || 0
       end
@@ -65,8 +67,16 @@ module Decidim
         )
       end
 
-      def author_presenter
-        current_user&.presenter
+      def verified_user_groups
+        return [] unless current_user
+
+        @verified_user_groups ||= Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
+      end
+
+      def comment_as_options
+        [[current_user.name, ""]] + verified_user_groups.map do |group|
+          [group.name, group.id]
+        end
       end
 
       def comments_max_length

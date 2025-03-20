@@ -14,10 +14,10 @@ module Decidim
           participatory_process = @resource
 
           process_followers = Decidim::Follow.where(followable: participatory_process).joins(:user)
-                                             .where(decidim_follows: { created_at: ..end_time })
+                                             .where("decidim_follows.created_at <= ?", end_time)
           cumulative_users = process_followers.pluck(:decidim_user_id)
 
-          process_followers = process_followers.where(decidim_follows: { created_at: start_time.. })
+          process_followers = process_followers.where("decidim_follows.created_at >= ?", start_time)
           quantity_users = process_followers.pluck(:decidim_user_id)
 
           {

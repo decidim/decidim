@@ -1,3 +1,4 @@
+---
 gn:
   activemodel:
     attributes:
@@ -7,3 +8,14 @@ gn:
         description: Techaukaha
       timeline_entry:
         entry_date: Fecha
+  decidim:
+    accountability:
+      models:
+        result:
+          fields:
+            category: Hendápe
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Hendápe

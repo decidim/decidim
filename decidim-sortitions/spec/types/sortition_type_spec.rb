@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/type_context"
 
 module Decidim
   module Sortitions
@@ -9,9 +9,7 @@ module Decidim
       include_context "with a graphql class type"
 
       let(:model) { create(:sortition) }
-      let(:organization) { model.organization }
 
-      include_examples "taxonomizable interface"
       describe "id" do
         let(:query) { "{ id }" }
 

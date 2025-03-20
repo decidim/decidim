@@ -1,0 +1,9 @@
+<% if has_profile? %>
+  <%= link_to profile_url, class: "profile__user" do %>
+    <%= render :data %>
+  <% end %>
+<% else %>
+  <div class="profile__user">
+    <%= render :data %>
+  </div>
+<% end %>

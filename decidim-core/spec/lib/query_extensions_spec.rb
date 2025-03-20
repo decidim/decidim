@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/type_context"
 
 module Decidim
   module Core
@@ -34,18 +34,8 @@ module Decidim
       describe "decidim" do
         let(:query) { %({ decidim { version }}) }
 
-        it "returns nil" do
-          expect(response["decidim"]).to include("version" => nil)
-        end
-
-        context "when disclosing system version is enabled" do
-          before do
-            allow(Decidim::Api).to receive(:disclose_system_version).and_return(true)
-          end
-
-          it "returns the right version" do
-            expect(response["decidim"]).to include("version" => Decidim.version)
-          end
+        it "returns the right version" do
+          expect(response["decidim"]).to include("version" => Decidim.version)
         end
       end
 
@@ -59,7 +49,7 @@ module Decidim
 
       describe "users" do
         let!(:user1) { create(:user, :confirmed, organization: current_organization) }
-        let!(:user2) { create(:user, :confirmed, organization: current_organization) }
+        let!(:user2) { create(:user_group, :confirmed, organization: current_organization) }
         let!(:user3) { create(:user, organization: current_organization) }
         let!(:user4) { create(:user, :confirmed) }
 
@@ -75,7 +65,7 @@ module Decidim
 
       describe "users with empty exclusion list" do
         let!(:user1) { create(:user, :confirmed, organization: current_organization) }
-        let!(:user2) { create(:user, :confirmed, organization: current_organization) }
+        let!(:user2) { create(:user_group, :confirmed, organization: current_organization) }
         let!(:user3) { create(:user, organization: current_organization) }
         let!(:user4) { create(:user, :confirmed) }
         let!(:user5) { create(:user, :confirmed, organization: current_organization) }
@@ -96,7 +86,7 @@ module Decidim
 
       describe "users with one user exclusion list" do
         let!(:user1) { create(:user, :confirmed, organization: current_organization) }
-        let!(:user2) { create(:user, :confirmed, organization: current_organization) }
+        let!(:user2) { create(:user_group, :confirmed, organization: current_organization) }
         let!(:user3) { create(:user, organization: current_organization) }
         let!(:user4) { create(:user, :confirmed) }
         let!(:user5) { create(:user, :confirmed, organization: current_organization) }
@@ -117,7 +107,7 @@ module Decidim
 
       describe "users with multiple users exclusion list" do
         let!(:user1) { create(:user, :confirmed, organization: current_organization) }
-        let!(:user2) { create(:user, :confirmed, organization: current_organization) }
+        let!(:user2) { create(:user_group, :confirmed, organization: current_organization) }
         let!(:user3) { create(:user, organization: current_organization) }
         let!(:user4) { create(:user, :confirmed) }
         let!(:user5) { create(:user, :confirmed, organization: current_organization) }

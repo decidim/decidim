@@ -20,6 +20,8 @@ module Decidim
   # :follows - a collection of `Decidim::Follow` resources. It will return any
   #   activity affecting any of these resources, performed by any of them or
   #   contained in any of them as spaces.
+  # :scopes - a collection of `Decidim::Scope`. It will return any activity that
+  #   took place in any of those scopes.
   class PublicActivities < LastActivity
     def initialize(organization, options = {})
       @organization = organization
@@ -27,6 +29,7 @@ module Decidim
       @user = options[:user]
       @current_user = options[:current_user]
       @follows = options[:follows]
+      @scopes = options[:scopes]
     end
 
     def query
@@ -42,7 +45,7 @@ module Decidim
 
     private
 
-    attr_reader :resource_name, :user, :follows
+    attr_reader :resource_name, :user, :follows, :scopes
 
     def filter_follows(query)
       conditions = []
@@ -57,6 +60,8 @@ module Decidim
         conditions += followed_users_conditions(follows)
         conditions += followed_spaces_conditions(follows)
       end
+
+      conditions += interesting_scopes_conditions(scopes)
 
       return query if conditions.empty?
 
@@ -83,6 +88,12 @@ module Decidim
           Decidim::ActionLog.arel_table[:participatory_space_id].in(grouped_follows.map(&:decidim_followable_id))
         )
       end
+    end
+
+    def interesting_scopes_conditions(interesting_scopes)
+      return [] if interesting_scopes.blank?
+
+      [Decidim::ActionLog.arel_table[:decidim_scope_id].in(interesting_scopes.map(&:id))]
     end
 
     def participatory_space_classes

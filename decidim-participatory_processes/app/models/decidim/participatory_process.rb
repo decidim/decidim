@@ -12,7 +12,6 @@ module Decidim
     include Decidim::Participable
     include Decidim::Publicable
     include Decidim::ScopableParticipatorySpace
-    include Decidim::Taxonomizable
     include Decidim::Followable
     include Decidim::HasReference
     include Decidim::Traceable
@@ -24,8 +23,6 @@ module Decidim
     include Decidim::TranslatableResource
     include Decidim::HasArea
     include Decidim::FilterableResource
-    include Decidim::SoftDeletable
-    include Decidim::ShareableWithToken
 
     translatable_fields :title, :subtitle, :short_description, :description, :developer_group, :meta_scope, :local_area,
                         :target, :participatory_scope, :participatory_structure, :announcement
@@ -100,6 +97,8 @@ module Decidim
         )
       end
     }
+
+    scope :with_any_type, ->(*type_ids) { where(decidim_participatory_process_type_id: type_ids) }
 
     searchable_fields({
                         scope_id: :decidim_scope_id,
@@ -201,26 +200,11 @@ module Decidim
       :admin
     end
 
-    def shareable_url(share_token)
-      EngineRouter.main_proxy(self).participatory_process_url(self, share_token: share_token.token)
-    end
-
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker_i18n :title
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:with_date, :with_any_taxonomies]
-    end
-
-    def self.ransackable_attributes(auth_object = nil)
-      base = %w(title short_description description id)
-      return base unless auth_object&.admin?
-
-      base + %w(private_space published_at decidim_participatory_process_group_id)
-    end
-
-    def self.ransackable_associations(_auth_object = nil)
-      %w(participatory_process_type participatory_process_group taxonomies)
+      [:with_date, :with_any_area, :with_any_scope, :with_any_type]
     end
   end
 end

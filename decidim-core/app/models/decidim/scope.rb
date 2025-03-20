@@ -76,10 +76,6 @@ module Decidim
     # Allow ransacker to search for a key in a hstore column (`name`.`en`)
     ransacker_i18n :name
 
-    def self.ransackable_attributes(_auth_object = nil)
-      %w(name id)
-    end
-
     private
 
     def forbid_cycles

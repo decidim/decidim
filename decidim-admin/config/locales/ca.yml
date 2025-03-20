@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -33,6 +34,8 @@ ca:
       help_section:
         content: Contingut
       id: ID
+      import:
+        user_group_id: Importar com
       newsletter:
         body: Cos
         send_to_all_users: Envia a totes les usuàries
@@ -94,6 +97,7 @@ ca:
         time_zone: Zona horària
         tos_version: Versió dels Termes de Servei
         twitter_handler: Nom d'usuària a X
+        user_groups_enabled: Habilitar grups
         users_registration_mode: Mode registre d'usuàries
         warning_color: Avís
         welcome_notification_body: Cos de la notificació de benvinguda
@@ -102,8 +106,6 @@ ca:
       participatory_space_private_user:
         email: Correu electrònic
         name: Nom
-      participatory_space_private_user_csv_import:
-        file: Arxiu
       scope:
         code: Codi
         name: Nom
@@ -181,13 +183,8 @@ ca:
         attachment_collection:
           new: Nova col·lecció d'arxius adjunts
         browse: Explorar
-        confirm_delete_component: |
-          ¿Segur que vols eliminar aquest component?<br>
-          Aquest component conté:<br>
-          <ul class="list-disc ml-6 my-2">
-            <li class="font-bold">%{resources_count} recursos</li>
-          </ul>
-          Si canvies d'opinió, el pots restaurar més endavant.
+        category:
+          new: Nova categoria
         export: Exportar tot
         export-selection: Exportar selecció
         import: Importar
@@ -198,17 +195,15 @@ ca:
           new: Nou usuari privat de l'espai participatiu
         per_page: Per pàgina
         permissions: Permisos
-        restore: Restaurar
+        reject: Rebutjar
         send_me_a_test_email: Envia'm un correu electrònic de prova
         share: Compartir
-        share_tokens: Enllaços d'accés
-        soft_delete: Enviar a la paperera
         user:
           new: Nova administradora
-        view_deleted_components: Veure els components eliminats
+        verify: Verificar
       admin_terms_of_service:
         accept:
-          error: Hi ha hagut un problema en acceptar els Termes i Condicions d'administració.
+          error: S'ha produït un error en acceptar els Termes i Condicions d'administració.
           success: Genial! Has acceptat les condicions del servei d'administració.
         actions:
           accept: Estic d'acord amb les condicions
@@ -239,7 +234,6 @@ ca:
         create:
           error: S'ha produït un error en crear una nova àrea.
           success: Àrea creada correctament.
-        deprecated: Tingues en compte que les àrees estan obsoletes i s'eliminaran en versions futures. Si us plau, utilitza taxonomies al seu lloc. L'únic espai de participació que actualment fa servir àrees és el d'iniciatives.
         destroy:
           has_spaces: Aquesta àrea té espais dependents. Assegura't que no fa referència a cap espai de participació abans d'eliminar-la.
           success: Àrea eliminada correctament.
@@ -293,12 +287,6 @@ ca:
         no_results: No s'han trobat resultats
         search_prompt: Escriu com a mínim tres caràcters per cercar.
       block_user:
-        bulk_new:
-          action: Bloquejar comptes i enviar justificació
-          already_reported_html: Si segueixes amb aquesta acció, amagaràs tots els continguts de les participants.
-          description: El bloqueig de les usuàries deixarà els seus comptes inutilitzables. Pots proporcionar en la teva justificació els criteris sota els quals consideraries desbloquejar-les.
-          justification: Justificació
-          title: Bloquejar usuàries
         new:
           action: Bloquejar compte i enviar justificació
           already_reported_html: Si segueixes amb aquesta acció, amagaràs tots els continguts de la participant.
@@ -306,8 +294,23 @@ ca:
           justification: Justificació
           title: Bloquejar a la usuària %{name}
       categories:
+        create:
+          error: S'ha produït un error en crear aquesta categoria.
+          success: Categoria creada correctament.
+        destroy:
+          error: S'ha produït un error en eliminar aquesta categoria. Si us plau, elimina qualsevol subcategoria en primer lloc, assegura't que cap altra entitat pertany a aquesta categoria i torna a intentar-ho.
+          success: Categoria eliminada correctament.
+        edit:
+          title: Edita categoria
+          update: Actualitzar
         index:
           categories_title: Categories
+        new:
+          create: Crear categoria
+          title: Nova categoria
+        update:
+          error: S'ha produït un error en actualitzar aquesta categoria.
+          success: Categoria actualitzada correctament.
       component_permissions:
         update:
           error: S'ha produït un error actualitzant els permisos d'aquest component.
@@ -317,6 +320,9 @@ ca:
           error: S'ha produït un error en crear aquest component.
           success: El component s'ha creat correctament.
           success_landing_page: Component creat amb èxit. Pots afegir un bloc de contingut per aquest component a la pàgina d'inici de l'espai de participació. <a href="%{landing_page_path}">Vés a la pàgina d'inici</a> per a configurar-la.
+        destroy:
+          error: S'ha produït un error en eliminar aquest component.
+          success: El component s'ha eliminat correctament.
         edit:
           title: Edita el component
           update: Actualitzar
@@ -324,17 +330,13 @@ ca:
           default_step_settings: Configuració per defecte
           global_settings: Configuració global
           step_settings: Configuració de fase
-        hide:
-          success: El component s'ha amagat correctament del menú.
         index:
           add: Afegeix un component
           headers:
             actions: Accions
             name: Nom del component
+            scope: Àmbit del component
             type: Tipus de component
-            visibility: Visibilitat
-        manage_trash:
-          title: Components eliminats
         new:
           add: Afegeix un component
           title: 'Afegir component: %{name}'
@@ -346,10 +348,6 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest component.
           success: El component s'ha actualitzat correctament.
-        visibility_label:
-          menu_hidden: Menú amagat
-          published: Publicat
-          unpublished: Despublicat
       conflicts:
         attempts: Intents
         'false': 'No'
@@ -369,7 +367,7 @@ ca:
         user_name: Usuària
       content_blocks:
         create:
-          error: Hi ha hagut un problema creant el bloc de contingut.
+          error: S'ha produït un error creant el bloc de contingut.
           success: El bloc de contingut s'ha creat correctament.
         destroy:
           error: S'ha produït un error en intentar eliminar aquest bloc de contingut.
@@ -406,6 +404,8 @@ ca:
           JSON: JSON
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
       filters:
+        category_id_eq:
+          label: Categoria
         filter_label: Filtre
         invitation_accepted_at_present:
           label: 'Invitació: acceptada'
@@ -454,6 +454,8 @@ ca:
             'false': Publicat
             'true': Despublicat
         remove_all: Eliminar tots
+        scope_id_eq:
+          label: Àmbit
         search_label: Cercar
         search_placeholder:
           name_or_nickname_or_email_cont: Buscar %{collection} per correu electrònic, nom o àlies.
@@ -468,9 +470,6 @@ ca:
             pending: Pendents
             rejected: Rebutjada
             verified: Verificades
-        taxonomies:
-          taxonomy_id_eq:
-            label: Taxonomia
       forms:
         file_help:
           import:
@@ -560,8 +559,6 @@ ca:
         logs_list:
           no_logs_yet: Encara no hi ha cap registre d'activitat.
           no_matching_logs: No hi ha cap registre d'activitat amb els filtres de cerca seleccionats. Prova de canviar-los i intenta-ho de nou.
-      manage_trash:
-        deleted_items_warning: Actualment estàs veient elements eliminats. Per fer qualsevol modificació o canvi, primer els has de restaurar.
       managed_users:
         promotion:
           error: S'ha produït un error en promoure aquesta participant.
@@ -593,11 +590,9 @@ ca:
         scopes: Àmbits
         see_site: Veure el lloc web
         settings: Configuració
-        share_tokens: Enllaços d'accés
         static_page_topics: Temes
         static_pages: Pàgines
-        taxonomies: Taxonomies
-        taxonomy_filters: Filtres de taxonomia
+        user_groups: Grups
         users: Participants
       metrics:
         metrics:
@@ -650,11 +645,12 @@ ca:
             plural: Plural
         share_token:
           fields:
-            actions: Accions
+            created_at: Data de creació
             expires_at: Caduca el
-            registered_only: '¿Només per a usuàries registrades?'
+            last_used_at: Darrer cop que es va fer servir
             times_used: Cops utilitzat
-            token: Enllaç d'accés
+            token: Token
+            user: Creat per
         static_page:
           fields:
             created_at: Data de creació
@@ -670,31 +666,27 @@ ca:
               admin: Administradora
               user_manager: Administradora de participants
           name: Participant
+        user_group:
+          fields:
+            actions: Accions
+            created_at: Data de creació
+            document_number: Número de document
+            name: Nom
+            nickname: Àlies
+            phone: Telèfon
+            state: Estat
+            users_count: Nombre de participants
       moderated_users:
         index:
           actions:
             block: Bloquejar usuària
-            bulk_actions:
-              actions_dropdown: Accions
-              block:
-                title: Bloquejar
-                update_moderated_user_button: Bloquejar usuàries
-              unblock:
-                title: Desbloquejar
-                update_moderated_user_button: Desbloquejar usuàries
-              unreport:
-                title: Desfer la denúncia
-            ignore:
-              update_moderated_user_button: Desfer la denúncia a les usuàries
             title: Accions
             unblock: Desbloquejar usuària
             unreport: Desfer denúncia
-          cancel: Cancel·lar
           name: Nom
           nickname: Àlies
           reason: Raó
           reports: Número de denúncies
-          selected: Seleccionades
           title: Participants reportades
         report:
           reasons:
@@ -706,26 +698,12 @@ ca:
           unblocked: No bloquejat
       moderations:
         index:
-          actions:
-            actions_dropdown: Accions
-            hide:
-              title: Amagar
-              update_moderation_button: Amagar els continguts seleccionats
-            unhide:
-              title: Tornar a mostrar
-              update_moderation_button: Tornar a mostrar els continguts seleccionats
-            unreport:
-              title: Desfer la denúncia
-              update_moderation_button: Desfer la denúncia dels continguts seleccionats
-          cancel: Cancel·lar
-          selected: seleccionades
           title: Contingut reportat
         report:
           reasons:
             does_not_belong: No pertany
             hidden_during_block: Ocult mentre es bloqueja a la participant
             offensive: Ofensiu
-            parent_hidden: S'ha amagat el contingut principal
             spam: Contingut no desitjat
         reports:
           index:
@@ -742,11 +720,6 @@ ca:
             report_language: Idioma de l'informe
             report_reason: Motiu
             title: Detalls de l'informe
-      new_import:
-        accepted_mime_types:
-          csv: CSV
-          json: JSON
-          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Previsualitzar
@@ -756,10 +729,6 @@ ca:
           preview: 'Previsualitzar la plantilla: %{template_name}'
           use_template: Utilitzar aquesta plantilla
       newsletters:
-        confirm_recipients:
-          email: Correu electrònic
-          name: Nom
-          title: Confirmar destinatàries
         create:
           error: S'ha produït un error en crear aquest butlletí.
           success: Butlletí creat correctament. Si us plau, revisa'l abans d'enviar-lo.
@@ -779,14 +748,12 @@ ca:
           confirm_delete: Segur que vols suprimir aquest butlletí?
           followers: 'seguidores '
           has_been_sent_to: 'Ha estat enviat a: '
+          no_scopes: Sense àmbits
           not_sent: No enviat
           participants: 'participants '
-          private_members: 'membres privades'
           segmented_to: 'Segmentat a %{subject}: '
           subscribed_count: 'Subscrites:'
           title: Butlletins
-          verification_types: 'Tipus de verificació: %{types}'
-          verified_users: Usuàries verificades
         new:
           save: Desar
           title: Nou butlletí
@@ -794,24 +761,16 @@ ca:
           all_spaces: Totes
           all_users_help: Envia el butlletí a tots els usuaris confimats.
           confirm_deliver: Segur que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
-          confirm_recipients: Confirmar destinatàries
           deliver: Enviar butlletí
           followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
+          none: Cap
           participants_help: Envia el butlletí a tots els usuaris confirmats que hagin participat a qualsevol dels espais participatius de la llista.
-          private_members_help: Envia un butlletí informatiu a totes les usuàries confirmades que han estat afegides als espais de participació privats seleccionats.
           recipients_count: Aquest bulleti s'enviarà a <strong id='recipients_count'>%{count}</strong> participants.
-          select_assemblies: Seleccionar assemblees
-          select_conferences: Seleccionar jornades
-          select_initiatives: Seleccionar iniciatives
-          select_participatory_processes: Seleccionar processos participatius
+          scopes_help: Envia el butlletí als usuaris que tinguin qualsevol dels àmbits seleccionats activat als paràmetres "Els meus interessos" del seu compte.
+          select_scopes: Filtra per als usuaris que hagin activat qualsevol àmbit seleccionat a la configuració "Els meus interessos" del seu compte.
           select_spaces: Selecciona espais per segmentar el butlletí
-          select_users_for_participatory_space: Enviar el butlletí informatiu a un o més espais de participació
-          select_users_general: Enviar un butlletí general
-          select_verification_types: Seleccionar mètodes de verificació
-          send_to_all_users: Envia a totes les participants
-          send_to_verified_users: Enviar a usuàries verificades
+          select_users: Selecciona a quines participants vols enviar el butlletí de notícies
           title: Selecciona les destinatàries a lliurar
-          verified_users_help: Envia un butlletí informatiu a tots els usuaris confirmats i verificats amb qualsevol dels mètodes de verificació seleccionats.
           warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà a les participants que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
         send:
           no_recipients: No hi ha destinatàries per a aquesta selecció.
@@ -827,15 +786,8 @@ ca:
           success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
       officializations:
         block:
-          error: Hi ha hagut un problema en bloquejar a la participant.
+          error: S'ha produït un error en bloquejar a la participant.
           success: Participant bloquejada correctament.
-        bulk_action:
-          block:
-            invalid: Hi ha hagut un problema en bloquejar a les participants.
-            success: Participants bloquejades correctament.
-          unblock:
-            invalid: Hi ha hagut un problema en desbloquejar a les participants.
-            success: Participants desbloquejades correctament.
         create:
           success: Participant oficialitzada correctament.
         destroy:
@@ -868,7 +820,7 @@ ca:
           show: Mostra
           title: Mostra l'adreça de correu electrònic de la participant
         unblock:
-          error: Hi ha hagut un problema en desbloquejar a la participant.
+          error: S'ha produït un error en desbloquejar a la participant.
           success: Participant desbloquejada correctament.
       organization:
         edit:
@@ -928,26 +880,12 @@ ca:
         destroy:
           error: S'ha produït un error en eliminar una participant participada d'aquest espai participatiu.
           success: L'accés de la participant a l'espai de participació privat s'ha eliminat correctament.
-        edit:
-          title: Editar participant privada de l'espai de participació.
-          update: Actualitzar
         index:
           import_via_csv: Importar des de CSV
-          publish_all: Publicar tot
           title: Participant de l'espai participatiu privat
-          unpublish_all: Despublicar tot
         new:
           create: Crear
           title: Nova participant de l'espai privat.
-        publish_all:
-          error: S'ha produït un error en publicar totes les participants privades d'aquest espai de participació.
-          success: S'han publicat correctament totes les participants privades d'aquest espai de participació
-        unpublish_all:
-          error: S'ha produït un error en despublicar totes les participants privades d'aquest espai de participació.
-          success: S'han despublicat correctament totes les participants privades d'aquest espai de participació
-        update:
-          error: S'ha produït un error en actualitzar una participant participada d'aquest espai de participació.
-          success: S'ha actualitzat correctament l'espai de participació privat
       participatory_space_private_users_csv_imports:
         create:
           invalid: S'ha produït un error llegint el fitxer CSV. Si us plau, assegura't d'haver seguit les instruccions.
@@ -980,10 +918,12 @@ ca:
         edit:
           submit: Enviar
           title: Edita els permisos
-        options_form:
-          ephemeral_warning: Per habilitar aquest mètode d'autorització, necessites <a href="%{path}">revocar totes les autoritzacions existents</a>. Això minimitza el risc de conflictes de verificació. Totes les autoritzacions d'aquest tipus seran revocades automàticament a l'organització si envies els canvis afegint aquest mètode o modificant la teva configuració una vegada desada.
         update:
           success: Els permisos s'han actualitzat correctament.
+      resources:
+        index:
+          headers:
+            scope: Àmbit
       scope_types:
         create:
           error: S'ha produït un error en crear un nou tipus d'àmbit.
@@ -1003,7 +943,6 @@ ca:
         create:
           error: S'ha produït un error en crear un nou àmbit.
           success: Àmbit creat correctament.
-        deprecated: Tingues en compte que els àmbits estan obsoletes i s'eliminaran en versions futures. Si us plau, utilitza taxonomies al seu lloc. L'únic espai de participació que actualment fa servir àmbits és el d'iniciatives.
         destroy:
           success: Àmbit eliminat correctament.
         edit:
@@ -1018,50 +957,16 @@ ca:
           success: Àmbit actualitzat correctament
       share_tokens:
         actions:
-          confirm_destroy: Segur que vols eliminar aquest accés?
-          copy_link: Copiar l'enllaç
+          confirm_destroy: Segur que vols eliminar aquest token?
           destroy: Eliminar
-          edit: Editar
-          preview: Previsualitzar
-        create:
-          invalid: Hi ha hagut un problema en generar l'enllaç d'accés.
-          success: Enllaç d'accés creat correctament.
+          share: Compartir
         destroy:
-          error: S'ha produït un error en eliminar aquest enllaç d'accés.
-          success: Enllaç d'accés eliminat correctament.
-        edit:
-          title: 'Editar l''enllaç d''accés per a: %{name}'
-          update: Actualitzar
-        form:
-          automatic: Automàtic
-          custom: Personalitzat
-          custom_expiration: Caducitat personalitzada
-          custom_token: Paraula personalitzada
-          expires_at: Caduca el
-          'false': 'No'
-          never_expire: Mai
-          registered_only: '¿Només per a usuàries registrades?'
-          token: Clau d'accés
-          'true': 'Sí'
-        index:
-          back_to_share_tokens: Tornar als enllaços d'accés
-          copied: Enllaç d'accés copiat!
-          copy_message: S'ha copiat el text al porta-retalls correctament.
-          create_new_token: Crea el teu primer enllaç d'accés!
-          empty_html: No hi ha cap enllaç d'accés actiu. %{new_token_link}
-          never: Mai
-          new_share_token_button: Nou enllaç d'accés
-          share_tokens_help_html: |
-            Crea i comparteix un enllaç d'accés perquè altres persones puguin veure aquest recurs inèdit.
-            Els enllaços d'accés poden ser vàlids només per a les participants registrades o tenir una data de caducitat si cal.
-            Per compartir un enllaç d'accés nou amb algú, crea'l i, a continuació, copia l'enllaç fent servir la icona d'acció del «%{clipboard} porta-retalls».
-          title: 'Enllaços d''accés per a: %{name}'
-        new:
-          create: Crear
-          title: 'Nou enllaç d''accés per a: %{name}'
-        update:
-          error: S'ha produït un error en actualitzar aquest accés.
-          success: Enllaç d'accés actualitzat amb èxit.
+          error: S'ha produït un error en eliminar aquest token.
+          success: El token s'ha eliminat correctament.
+        share_tokens:
+          empty: No hi ha tokens actius.
+          help: Aquests tokens s'utilitzen per a compartir públicament aquest recurs no publicat a qualsevol usuari. S'ocultaran quan es publiqui el recurs. Fes clic en la icona de compartir el token per a visitar la URL compartible.
+          title: Compartir tokens
       shared:
         adjacent_navigation:
           next: Següent
@@ -1082,7 +987,7 @@ ca:
           title: Edita el tema
           update: Actualitza el tema
         new:
-          create: Nou tema
+          create: Crea un tema
           title: Nou tema
         update:
           error: S'ha produït un error en actualitzar aquest tema.
@@ -1106,7 +1011,7 @@ ca:
         index:
           last_notable_change: Últims canvis notables
         new:
-          create: Nova pàgina
+          create: Crea una pàgina
           title: Nova pàgina
         topic:
           empty: No hi ha cap pàgina sobre aquest tema.
@@ -1114,116 +1019,6 @@ ca:
         update:
           error: S'ha produït un error en l'actualització d'aquesta pàgina.
           success: La pàgina s'ha actualitzat correctament.
-      taxonomies:
-        actions:
-          actions: Accions
-          destroy: Eliminar taxonomia i elements
-          edit: Editar taxonomia i elements
-          filters: Administrar filtres
-        breadcrumb:
-          edit: Editar taxonomia
-          new: Nova taxonomia
-        count: Recursos associats
-        create:
-          invalid: S'ha produït un error en crear aquesta taxonomia.
-          success: Taxonomia creada correctament.
-        destroy:
-          invalid: S'ha produït un error en eliminar aquesta taxonomia.
-          success: Taxonomia eliminada correctament.
-        edit:
-          back: Enrere
-          description: Els elements d'aquesta taxonomia es faran servir per a classificar o filtrar recursos, com ara espais de participació o components. Pots endreçar el llistat arrossegant els elements.
-          new_item: Nou element
-          no_items: Actualment no hi ha elements en aquesta taxonomia. Crea una llista d'elements per classificar o filtrar recursos, com ara espais participatius o components. Els elements es poden niar fins a tres nivells.
-          subtitle: Elements a %{taxonomy_name}"
-          title: Editar la taxonomina "%{taxonomy_name}"
-          update: Actualitzar
-        filters:
-          search_placeholder: Cercar
-        index:
-          description: Les taxonomies i els filtres permeten a les administradores ordenar i organitzar els continguts. Per exemple, afegir una taxonomia amb els districtes de la ciutat i els barris i després crear filtres només amb els districtes o per a un barri concret.
-          new_taxonomy: Nova taxonomia
-          no_items_found: No s'han trobat taxonomies que coincideixin amb els criteris de cerca.
-        name: Nom
-        new:
-          create: Crear taxonomia
-          title: Nova taxonomia
-        no_taxonomies: Actualment no hi ha taxonomies. Crea una llista de taxonomies i defineix-ne els elements per classificar-los o filtrar els recursos.
-        table:
-          to_next_page: Passa a la pàgina següent
-          to_prev_page: Arrossega per passar a la pàgina anterior
-        taxonomy_actions:
-          confirm_destroy: 'Segur que voleu suprimir %{name}? Això també suprimirà tots els elements secundaris. NOTA: Els recursos que utilitzen aquesta taxonomia no es veuran afectats, però perdran la referència a aquesta taxonomia.'
-        total_filters: Filtres
-        total_items: Elements a la taxonomia
-        update:
-          invalid: S'ha produït un error en actualitzar aquesta taxonomia.
-          success: Taxonomia actualitzada correctament.
-      taxonomy_filters:
-        actions:
-          new_taxonomy_filter: Nou filtre de taxonomia
-        breadcrumb:
-          edit: Editar filtre
-          filters: Filtres
-          new: Nou filtre
-        create:
-          error: S'ha produït un error en crear aquesta taxonomia.
-          success: Filtre de taxonomia creat correctament.
-        destroy:
-          error: S'ha produït un error eliminant aquest filtre de taxonomia.
-          success: Filtre de taxonomia eliminat correctament.
-        edit:
-          back: Enrere
-          title: Editar el filtre de taxonomia
-          update: Actualitzar el filtre de taxonomia
-        form:
-          all: Totes
-          items:
-            one: "%{count} element seleccionat"
-            other: "%{count} elements seleccionats"
-          name_help: El títol del filtre que es mostrarà a la part pública.
-          no_items: Encara no hi ha elements disponibles a aquesta taxonomia. Pots afegir-hi elements a través de les opcions de configuració de la taxonomia.
-          space_filter: Disponible com a filtre per a
-        index:
-          description: Un filtre de taxonomia permet a les administradores ordenar i filtrar espais de participació basats en una taxonomia. Per exemple, afegir un filtre de taxonomies per ordenar processos per àmbit territorial.
-          empty: Actualment no hi ha cap filtre de taxonomia. Creeu una llista de filtres de taxonomia aquí per ordenar i filtrar els espais de participació basats en una taxonomia.
-          new_filter: Nou filtre
-        new:
-          back: Enrere
-          create: Crear un filtre de taxonomia
-          title: Nou filtre de taxonomia
-        table:
-          actions: Accions
-          components_count: Components que el fan servir
-          confirm_destroy: 'Segur que voleu suprimir el filtre %{name}? NOTA: Els recursos que utilitzen aquest filtre no es veuran afectats però perdran la referència a aquest filtre.'
-          destroy: Esborrar
-          edit: Editar
-          internal_name: Estat intern
-          name: Etiqueta
-        update:
-          error: Hi ha hagut un problema actualitzant aquest filtre de taxonomia.
-          success: Filtre de taxonomia actualitzat correctament.
-      taxonomy_filters_selector:
-        new:
-          add_new_items_html: Si necessites establir un nou filtre o element, feu-ho a través de la configuració o clicant <a href="%{url}">aquí</a>.
-          items_count: "%{count} elements"
-          save: Desar
-        show:
-          items_count: "%{count} elements"
-          remove: Eliminar
-        taxonomies_select:
-          filters: Filtres
-          select_filter: Seleccionar un filtre
-          select_taxonomy: Selecciona una taxonomia
-          taxonomies: Taxonomies
-      taxonomy_items:
-        edit:
-          title: Editar element a "%{taxonomy}"
-          update: Actualitza l'element
-        new:
-          create: Crea un element
-          none: Cap
-          title: Editar element a "%{taxonomy}"
       titles:
         admin_log: Registre d'administració
         area_types: Tipus d'àrees
@@ -1244,18 +1039,34 @@ ca:
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         statistics: Activitat
-        taxonomies: Taxonomies
-        taxonomy_filters: Filtre de taxonomia per a "%{taxonomy}"
+        user_groups: Grups
         users: Administradores
-      tooltips:
-        deleted_component_info: Aquest component només es pot eliminar si el seu estat és 'Despublicat'.
-      trash_management:
-        restore:
-          invalid: S'ha produït un problema en restaurar %{resource_name}.
-          success: "%{resource_name} s'ha importat correctament."
-        soft_delete:
-          invalid: S'ha produït un problema en eliminar %{resource_name}.
-          success: "%{resource_name} s'ha eliminat correctament."
+      user_group:
+        csv_verify:
+          invalid: S'ha produït un error en llegir el fitxer CSV.
+          success: L'arxiu CSV s'ha pujat correctament, estem verificant que els grups coincideixin amb els criteris. Això pot trigar una estona.
+        reject:
+          invalid: S'ha produït un error al rebutjar aquest grup.
+          success: El grup s'ha rebutjat correctament.
+        verify:
+          invalid: S'ha produït un error al verificar aquest grup.
+          success: Grup verificat correctament.
+      user_groups:
+        index:
+          state:
+            pending: Pendent
+            rejected: Rebutjat
+            verified: Verificat
+          verify_via_csv: Verifica mitjançant CSV
+      user_groups_csv_verifications:
+        new:
+          example_file: 'Fitxer d''exemple:'
+          explanation: Puja el fitxer CSV. Ha de tenir els correus electrònics oficials dels grups de la vostra organització a la primera columna del fitxer, sense encapçalaments. Només es validaran els grups que hagin confirmat el seu correu electrònic i que tinguin un correu electrònic que aparegui al fitxer CSV.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
+          title: Puja el fitxer CSV
+          upload: Pujar
       users:
         create:
           error: S'ha produït un error en convidar aquesta participant.
@@ -1303,22 +1114,6 @@ ca:
         unreport: Desfer denúncia
       admin:
         reportable:
-          bulk_action:
-            hide:
-              failed: 'Hi ha hagut un problema en amagar alguns continguts: %{errored}'
-              invalid: No hi ha cap moderació seleccionada.
-              success: Els continguts s'han amagat correctament.
-            ignore:
-              invalid: No hi ha cap moderació d'usuària seleccionada.
-              success: Les denuncies sobre les usuàries han estat retirades correctament.
-            unhide:
-              failed: 'Hi ha hagut un problema tornant a mostrar alguns continguts: %{errored}'
-              invalid: No hi ha cap moderació seleccionada.
-              success: Els continguts s'han tornat a mostrar correctament.
-            unreport:
-              failed: 'Hi ha hagut un problema en retirar la denúncia d''alguns continguts: %{errored}'
-              invalid: No hi ha cap moderació seleccionada.
-              success: S'ha desfet la denúncia als continguts correctament.
           hide:
             invalid: S'ha produït un error en ocultar el contingut.
             success: Contingut amagat correctament.
@@ -1354,5 +1149,3 @@ ca:
       admin:
         global_moderations:
           title: Moderacions globals
-        taxonomy_filters_selector:
-          title: Filtres

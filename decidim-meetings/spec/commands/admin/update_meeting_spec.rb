@@ -8,6 +8,8 @@ module Decidim::Meetings
 
     let(:meeting) { create(:meeting, :published) }
     let(:organization) { meeting.component.organization }
+    let(:scope) { create(:scope, organization:) }
+    let(:category) { create(:category, participatory_space: meeting.component.participatory_space) }
     let(:address) { meeting.address }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
@@ -29,10 +31,6 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:iframe_embed_type) { "none" }
     let(:iframe_access_level) { nil }
-    let(:components) { [] }
-    let(:taxonomizations) do
-      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
-    end
 
     let(:form) do
       double(
@@ -43,7 +41,8 @@ module Decidim::Meetings
         location_hints: { en: "location_hints" },
         start_time: 1.day.from_now,
         end_time: 1.day.from_now + 1.hour,
-        taxonomizations:,
+        scope:,
+        category:,
         address:,
         latitude:,
         longitude:,
@@ -61,8 +60,7 @@ module Decidim::Meetings
         comments_enabled: true,
         comments_start_time: nil,
         comments_end_time: nil,
-        iframe_access_level:,
-        components:
+        iframe_access_level:
       )
     end
 
@@ -80,9 +78,14 @@ module Decidim::Meetings
         expect(translated(meeting.title)).to eq "title"
       end
 
-      it "sets the taxonomies" do
+      it "sets the scope" do
         subject.call
-        expect(meeting.reload.taxonomies).to eq(taxonomizations.map(&:taxonomy))
+        expect(meeting.scope).to eq scope
+      end
+
+      it "sets the category" do
+        subject.call
+        expect(meeting.category).to eq category
       end
 
       it "sets the latitude and longitude" do
@@ -141,7 +144,8 @@ module Decidim::Meetings
             location_hints: meeting.location_hints,
             start_time:,
             end_time:,
-            taxonomizations: meeting.taxonomizations,
+            scope: meeting.scope,
+            category: meeting.category,
             address:,
             latitude: meeting.latitude,
             longitude: meeting.longitude,
@@ -159,8 +163,7 @@ module Decidim::Meetings
             comments_enabled: true,
             comments_start_time: nil,
             comments_end_time: nil,
-            iframe_access_level:,
-            components:
+            iframe_access_level:
           )
         end
 

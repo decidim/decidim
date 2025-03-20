@@ -1,6 +1,9 @@
+---
 "no":
   activemodel:
     attributes:
+      assemblies_type:
+        title: Tittel
       assembly:
         area_id: Område
         assembly_type: Forsamlingstype
@@ -16,6 +19,7 @@
         created_by_other: Opprettet av annet
         creation_date: Dato opprettet
         decidim_area_id: Område
+        decidim_assemblies_type_id: Forsamlingstype
         decidim_scope_id: Tema
         description: Beskrivelse
         developer_group: Prosessen styres av
@@ -27,6 +31,7 @@
         hero_image: Hjem bilde
         included_at: Inkludert på
         instagram: Instagram
+        internal_organisation: Intern organisasjon
         is_transparent: Er transparent
         local_area: Organisasjonsområde
         meta_scope: Tema metadata
@@ -38,6 +43,8 @@
         promoted: Fremhevet
         published_at: Publisert på
         purpose_of_action: Formål
+        scope_id: Tema
+        scopes_enabled: Temaer aktivert
         short_description: Kort beskrivelse
         slug: URL slug
         special_features: Spesialfunksjoner
@@ -76,9 +83,11 @@
       actions:
         import_assembly: Importer
         new_assembly: Ny forsamling
+        new_assembly_type: Ny forsamlingstype
       assemblies:
         create:
           error: Det oppstod et problem med å lage en ny forsamling.
+          success: Forsamling ble opprettet.
         edit:
           update: Oppdater
         index:
@@ -95,6 +104,18 @@
         create:
           error: Det oppstod et problem med å publisere denne forsamlingen.
           success: Forsamlingen ble duplisert.
+      assemblies_types:
+        create:
+          error: Det oppstod et problem med å lage en ny forsamlingstype.
+          success: Forsamlingtypen ble opprettet.
+        destroy:
+          success: Forsamlingstypen ble slettet.
+        new:
+          create: Opprett
+          title: Ny forsamlingstype
+        update:
+          error: Det oppsto et problem med å oppdatere denne forsamlingstypen.
+          success: Forsamlingstypen ble oppdatert.
       assembly_copies:
         new:
           copy: Kopier
@@ -108,6 +129,21 @@
           import: Importer
           select: Velg hvilke data du vil importere
           title: Importer forsamling
+      assembly_members:
+        create:
+          error: Det oppstod et problem med å legge til et medlem for denne forsamlingen.
+          success: Medlem ble opprettet for denne forsamlingen.
+        destroy:
+          success: Medlem ble slettet for denne forsamlingen.
+        edit:
+          update: Oppdater
+        index:
+          assembly_members_title: Forsamlings medlemmer
+        new:
+          create: Opprett
+        update:
+          error: Det oppstod et problem med å oppdatere medlemmet for denne forsamlingen.
+          success: Medlem ble oppdatert for denne forsamlingen.
       assembly_publications:
         create:
           error: Det oppstod et problem med å publisere denne forsamlingen.
@@ -130,16 +166,26 @@
         update:
           error: Det oppstod et problem med å oppdatere en administrator for denne forsamlingen.
           success: Admin ble oppdatert for denne forsamlingen.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Forsamlingstype
       menu:
         assemblies: Forsamlinger
         assemblies_submenu:
           assembly_admins: Forsamlings adminer
+          assembly_members: Medlemmer
           attachment_collections: Mapper
           attachment_files: Filer
           attachments: Vedlegg
+          categories: Kategorier
           components: Komponenter
           moderations: Moderering
+        assemblies_types: Forsamlingstyper
       models:
+        assemblies_types:
+          fields:
+            created_at: Opprettet på
+            title: Tittel
         assembly:
           fields:
             created_at: Opprettet på
@@ -149,6 +195,11 @@
             title: Tittel
           name: Forsamling
         assembly_member:
+          fields:
+            ceased_date: Opphørt dato
+            designation_date: Valgdato
+            full_name: Navn
+            position: Stilling
           name: Medlem
           positions:
             other: Annet
@@ -165,6 +216,7 @@
             admin: Administrator
             collaborator: Samarbeidspartner
             moderator: Moderator
+            valuator: Verdivurdering
       titles:
         assemblies: Forsamlinger
         assemblies_types: Forsamlingstyper
@@ -197,17 +249,28 @@
             announcement_help: Teksten du skriver her vil bli vist til brukeren rett under forsamlingsinformasjonen.
             duration: Varighet
             duration_help: Hvis varigheten av denne forsamlingen er limitert, velg en sluttdato. Hvis ikke, vil den vises som ubestemt.
+            filters: Filter
             images: Bilder
             metadata: Metadata
             other: Annet
             select_a_created_by: Velg en opprettet av
+            select_an_area: Velg et Område
+            select_an_assembly_type: Velg en forsamlingstype
             select_parent_assembly: Velg foreldre-forsamling
             social_handlers: Sosial
             title: Generell Informasjon
+        assemblies_types:
+          form:
+            title: Tittel
         assembly_members:
           form:
+            existing_user: Eksisterende deltaker
             explanation: 'Veiledning for bilde:'
+            non_user: Ingen deltakende
             non_user_avatar_help: Du bør få samtykke fra personene før du offentliggjør dem som medlem.
+            select_a_position: Velg en posisjon
+            select_user: Velg en deltaker
+            user_type: Deltakertype
         content_blocks:
           highlighted_assemblies:
             max_results: Maksimal mengde elementer som skal vises
@@ -221,6 +284,14 @@
       assembly_members:
         index:
           members: Medlemmer
+      assembly_types:
+        commission: Kommisjon
+        consultative_advisory: Rådgivende
+        executive: Overordnet
+        government: Myndighetene
+        others: Andre
+        participatory: Deltakende
+        working_group: Arbeidsgruppe
       content_blocks:
         highlighted_assemblies:
           name: Fremhevede forsamlinger
@@ -245,9 +316,12 @@
           member_of:
             member_of: Medlem av
       show:
+        assembly_type: Forsamlingstype
         duration: Varighet
         private_space: Dette er en privat forsamling
     assembly_members:
+      assembly_member:
+        designated_on: Utpekt på
       index:
         title: Medlemmer
     events:

@@ -11,12 +11,15 @@ module Decidim
   class EndorsersListCell < Decidim::ViewModel
     include ApplicationHelper
 
-    MAX_ITEMS_STACKED = 8
+    MAX_ITEMS_STACKED = 3
 
     def show
-      return render :empty if visible_endorsers.count.zero?
       return render :full if full_list?
 
+      render
+    end
+
+    def full_endorsers_list
       render
     end
 
@@ -32,33 +35,17 @@ module Decidim
 
     # Finds the correct author for each endorsement.
     #
-    # Returns an Array of presented Users
+    # Returns an Array of presented Users/UserGroups
     def visible_endorsers
-      @visible_endorsers ||= if voted_by_me?
-                               base_relation.where.not(author: current_user).limit(MAX_ITEMS_STACKED - 1).map do |identity|
-                                 present(identity.author)
-                               end + [present(current_user)]
-                             else
-                               base_relation.limit(MAX_ITEMS_STACKED).map { |identity| present(identity.author) }
-                             end
+      @visible_endorsers ||= base_relation.limit(MAX_ITEMS_STACKED).map { |identity| present(identity.normalized_author) }
     end
 
     def full_endorsers
-      @full_endorsers ||= base_relation.map { |identity| present(identity.author) }
+      @full_endorsers ||= base_relation.map { |identity| present(identity.normalized_author) }
     end
 
     def base_relation
-      @base_relation ||= model.endorsements.for_listing.includes(:author)
-    end
-
-    def voted_by_me?
-      @voted_by_me ||= model.endorsed_by?(current_user)
-    end
-
-    def display_link(text, css_class: "")
-      link_to(text, "#",
-              class: "text-sm font-semibold text-secondary inline-block #{css_class}",
-              data: { "dialog-open": "endorsersModal-#{model.id}" })
+      @base_relation ||= model.endorsements.for_listing.includes(:author, :user_group)
     end
   end
 end

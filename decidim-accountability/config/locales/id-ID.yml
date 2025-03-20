@@ -1,3 +1,4 @@
+---
 id:
   activemodel:
     attributes:
@@ -8,6 +9,8 @@ id:
         description: Deskripsi
         end_date: Tanggal akhir
         progress: Kemajuan
+        project_ids: Termasuk proyek
+        proposals: Termasuk proposal
         start_date: Mulai tanggal
         title: Judul
         updated_at: Diperbarui pada
@@ -84,8 +87,10 @@ id:
       models:
         result:
           fields:
+            category: Kategori
             end_date: Tanggal akhir
             progress: Kemajuan
+            scope: Cakupan
             start_date: Mulai tanggal
             status: Status
             title: Judul
@@ -102,8 +107,12 @@ id:
         count:
           results_count:
             other: "%{count} hasil"
+        filters:
+          all: Semua
         home_header:
           global_status: Status eksekusi global
+        nav_breadcrumb:
+          global: Eksekusi global
         search:
           search: Cari tindakan
         show:
@@ -111,6 +120,13 @@ id:
             back_to_resource: Kembali ke hasil
         timeline:
           title: Evolusi proyek
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: Cakupan
     components:
       accountability:
         name: Akuntabilitas

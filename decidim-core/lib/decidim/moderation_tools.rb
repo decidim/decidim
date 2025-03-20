@@ -28,16 +28,12 @@ module Decidim
 
     # Public: fetches the participatory space of the resource's component or from the resource itself
     def participatory_space
-      @participatory_space ||= if reportable.class.respond_to?(:participatory_space?)
-                                 reportable
-                               else
-                                 reportable.component&.participatory_space || reportable.try(:participatory_space)
-                               end
+      @participatory_space ||= @reportable.component&.participatory_space || @reportable.try(:participatory_space)
     end
 
     # Public: updates the reported content for the moderation object associated with resource
     def update_reported_content!
-      moderation.update!(reported_content: reportable.reported_searchable_content_text)
+      moderation.update!(reported_content: @reportable.reported_searchable_content_text)
     end
 
     # Public: creates a new report for the given resource, having a basic set of options
@@ -58,8 +54,6 @@ module Decidim
 
     # Public: Broadcasts a notification to the author of the resource that has been hidden
     def send_notification_to_author
-      return if affected_users.blank?
-
       data = {
         event: "decidim.events.reports.resource_hidden",
         event_class: Decidim::ResourceHiddenEvent,
@@ -67,13 +61,14 @@ module Decidim
         extra: {
           report_reasons:
         },
-        affected_users:
+        affected_users: @reportable.try(:authors) || [@reportable.try(:normalized_author)]
       }
 
       Decidim::EventsManager.publish(**data)
     end
 
-    def hide_with_admin_log!
+    # Public: hides the resource
+    def hide!
       Decidim.traceability.perform_action!(
         "hide",
         moderation,
@@ -82,31 +77,12 @@ module Decidim
           reportable_type: @reportable.class.name
         }
       ) do
-        hide!
-      end
-    end
-
-    # Public: hides the resources
-    def hide!
-      Decidim.traceability.perform_action_without_log!(current_user) do
         @reportable.moderation.update!(hidden_at: Time.current)
         @reportable.try(:touch)
       end
-
-      if @reportable.is_a?(Decidim::Comments::Commentable)
-        @reportable.comment_threads.each do |comment|
-          Decidim::HideChildResourcesJob.perform_later(comment, @current_user.id)
-        end
-      end
-
-      send_notification_to_author
     end
 
     private
-
-    def affected_users
-      @affected_users ||= (@reportable.try(:authors) || [@reportable.try(:author)]).select { |author| author.is_a?(Decidim::User) }
-    end
 
     def report_reasons
       @reportable.moderation.reports.pluck(:reason).uniq

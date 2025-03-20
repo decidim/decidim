@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     models:
@@ -11,6 +12,7 @@ gl:
     blogs:
       actions:
         author_id: Crear publicación como
+        destroy: Eliminar
         edit: Editar
         new: Nova publicación
         title: Accións

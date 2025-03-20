@@ -20,32 +20,41 @@
 <% end %>
 
 <% if @form.geocoding_enabled? %>
-  <div id="address_input">
-    <div class="address-fill">
-      <%= form.geocoding_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address"), data: { screen_reader_announcement: t("decidim.proposals.proposals.edit_form_fields.marker_added") } %>
-    </div>
-    <div id="address_map" class="proposal__container">
-      <p class="help-text">
-        <%= t("instructions", scope: "decidim.proposals.proposals.dynamic_map_instructions") %> <%= t("description", scope: "decidim.proposals.proposals.dynamic_map_instructions") %>
-      </p>
-      <%= dynamic_map_for proposal_preview_data_for_map(@form.to_h) %>
-    </div>
+  <%= form.geocoding_field(
+    :address,
+    placeholder: t("decidim.proposals.proposals.placeholder.address"),
+    data: {
+      screen_reader_announcement: t("decidim.proposals.proposals.edit_form_fields.marker_added")
+    }
+  ) %>
+
+  <div id="address_map" class="proposal__container">
+    <p class="help-text">
+      <%= t("instructions", scope: "decidim.proposals.proposals.dynamic_map_instructions") %> <%= t("description", scope: "decidim.proposals.proposals.dynamic_map_instructions") %>
+    </p>
+    <%= dynamic_map_for proposal_preview_data_for_map(@proposal) unless new_proposal %>
   </div>
 <% end %>
 
-<% if @form.taxonomy_filters&.any? %>
-  <% @form.taxonomy_filters.each do |filter| %>
-    <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
-  <% end %>
+<% if @form.categories&.any? %>
+  <%= form.categories_select :category_id, @form.categories, include_blank: t("decidim.proposals.proposals.edit.select_a_category") %>
+<% end %>
+
+<% if current_component.has_subscopes? %>
+  <%= scopes_select_field form, :scope_id, root: current_component.scope %>
 <% end %>
 
 <% if component_settings.attachments_allowed? && (new_proposal || @proposal) %>
   <%= form.attachment :documents,
                       multiple: true,
-                      label: t("decidim.proposals.proposals.edit.add_attachments"),
-                      button_label: t("decidim.proposals.proposals.edit.add_attachments"),
-                      button_edit_label: t("decidim.proposals.proposals.edit.edit_attachments"),
+                      label: t("decidim.proposals.proposals.edit.add_documents"),
+                      button_label: t("decidim.proposals.proposals.edit.add_documents"),
+                      button_edit_label: t("decidim.proposals.proposals.edit.edit_documents"),
                       button_class: "button button__lg button__transparent-secondary w-full",
                       help_i18n_scope: "decidim.forms.file_help.file",
                       help_text: t("attachment_legend", scope: "decidim.proposals.proposals.edit") %>
+<% end %>
+
+<% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+  <%= user_group_select_field form, :user_group_id %>
 <% end %>

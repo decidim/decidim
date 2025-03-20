@@ -4,20 +4,10 @@ en:
     attributes:
       account:
         delete_reason: Reason to delete your account
-      attachment:
-        documents: Documents
-        photos: Photos
       common:
         created_at: Created at
-      component:
-        taxonomy_filters: Taxonomy filters
-      content_block_attachment:
-        background_image: Background image
-        main_image: Main image
       conversation:
         body: Body
-      editor_image:
-        file: File
       group:
         about: About
         avatar: Avatar
@@ -26,22 +16,12 @@ en:
         name: Name
         nickname: Nickname
         phone: Phone
-      import:
-        file: File
       message:
         body: Body
       report:
         details: Additional comments
-      taxonomy:
-        name: Taxonomy name
-      taxonomy_filter:
-        internal_name: Internal label
-        name: Label
-        root_taxonomy_id: From taxonomy
-        space_filter: Available as filter for
       user:
         about: About
-        avatar: Avatar
         email: Your email
         encrypted_password: Password
         locale: Locale
@@ -68,6 +48,7 @@ en:
       decidim/removed_from_group: Removed from group
       decidim/resource_endorsed_event: Resource endorsed
       decidim/resource_hidden_event: Resource hidden
+      decidim/user_group_created_event: User group created
       decidim/welcome_notification_event: Welcome message
   activerecord:
     attributes:
@@ -76,16 +57,12 @@ en:
         with_participatory_space: Participatory space
       decidim/user:
         current_password: Current password
-        email: Email address
+        email: Email
         name: Nickname
         password: Password
         password_confirmation: Password confirmation
         remember_me: Remember me
     models:
-      decidim:
-        history:
-          one: History
-          other: History
       decidim/amendment:
         one: Amendment
         other: Amendments
@@ -95,6 +72,9 @@ en:
       decidim/user:
         one: Participant
         other: Participants
+      decidim/user_group:
+        one: Group
+        other: Groups
   booleans:
     'false': 'No'
     'true': 'Yes'
@@ -182,7 +162,6 @@ en:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
       download_your_data_export:
-        export_expired: The export has expired. Try to generate a new export.
         file_no_exists: File does not exist
         notice: The download of your data is currently in progress. You will receive an email when it is complete.
       email_change:
@@ -237,8 +216,6 @@ en:
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
         export_component: "%{user_name} exported the %{resource_name} %{component_name} in %{space_name} as %{format_name}"
         publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
-        restore: "%{user_name} restored the %{resource_name} component in the %{space_name} space"
-        soft_delete: "%{user_name} moved to trash the %{resource_name} component in the %{space_name} space"
         unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
       contextual_help_section:
@@ -251,9 +228,6 @@ en:
       impersonation_log:
         manage: "%{user_name} has managed %{resource_name} because %{reason}"
       moderation:
-        bulk_hide: "%{user_name} hid %{reported_count} resources"
-        bulk_unhide: "%{user_name} unhid %{reported_count} resources"
-        bulk_unreport: "%{user_name} unreported %{reported_count} resources"
         hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
         unreport: "%{user_name} unreported a resource of type %{resource_type} in the %{space_name} space"
       newsletter:
@@ -283,36 +257,12 @@ en:
         create: "%{user_name} created the %{resource_name} scope type"
         delete: "%{user_name} deleted the %{resource_name} scope type"
         update: "%{user_name} updated the %{resource_name} scope type"
-      share_token:
-        create: "%{user_name} created an access link in %{space_name}"
-        create_with_space: "%{user_name} created an access link for %{resource_name} in %{space_name}"
-        delete: "%{user_name} deleted an access link in %{space_name}"
-        delete_with_space: "%{user_name} deleted an access link for %{resource_name} in %{space_name}"
-        update: "%{user_name} updated an access link in %{space_name}"
-        update_with_space: "%{user_name} updated an access link for %{resource_name} in %{space_name}"
       static_page:
         create: "%{user_name} created the %{resource_name} static page"
         delete: "%{user_name} deleted the %{resource_name} static page"
         update: "%{user_name} updated the %{resource_name} static page"
-      taxonomy:
-        create: "%{user_name} created the %{resource_name} taxonomy"
-        create_with_parent: "%{user_name} created the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
-        delete: "%{user_name} deleted the %{resource_name} taxonomy"
-        delete_with_parent: "%{user_name} deleted the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
-        update: "%{user_name} updated the %{resource_name} taxonomy"
-        update_with_parent: "%{user_name} updated the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
-      taxonomy_filter:
-        create: "%{user_name} created the filter %{resource_name}"
-        create_with_filter_info: '%{user_name} created the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
-        delete: "%{user_name} deleted the filter %{resource_name}"
-        delete_with_filter_info: '%{user_name} deleted the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
-        update: "%{user_name} updated the filter %{resource_name}"
-        update_with_filter_info: '%{user_name} updated the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
       user:
         block: "%{user_name} blocked user %{resource_name}"
-        bulk_block: "%{user_name} blocked %{blocked_count} users"
-        bulk_ignore: "%{user_name} unreported %{unreported_users_count} users"
-        bulk_unblock: "%{user_name} unblocked %{unblocked_count} users"
         invite: "%{user_name} invited the participant %{resource_name} with role: %{role}"
         officialize: "%{user_name} officialized the participant %{resource_name}"
         promote: "%{user_name} has promoted %{resource_name}"
@@ -323,9 +273,6 @@ en:
         unofficialize: "%{user_name} unofficialized the participant %{resource_name}"
       user_group:
         block: "%{user_name} blocked user group %{resource_name}"
-        bulk_block: "%{user_name} blocked %{blocked_count} users"
-        bulk_ignore: "%{user_name} unreported %{unreported_users_count} users"
-        bulk_unblock: "%{user_name} unblocked %{unblocked_count} users"
         reject: "%{user_name} rejected the %{resource_name} group verification"
         unblock: "%{user_name} unblocked user group %{resource_name}"
         verify: "%{user_name} verified the group %{resource_name}"
@@ -338,11 +285,11 @@ en:
       dismiss: Dismiss notification
     amendments:
       accepted:
-        error: There was a problem accepting the amendment.
+        error: An error ocurred while accepting the amendment.
         success: The amendment has been accepted successfully.
       amendable:
         button: Amend %{model_name}
-        error: There was a problem amending this resource.
+        error: There has been an error amending this resource.
         promote_button: Promote to %{model_name}
         promote_confirm_text: Are you sure you want to promote this emendation?
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}.
@@ -351,7 +298,7 @@ en:
           one: "%{count} amendment"
           other: "%{count} amendments"
       created:
-        error: There was a problem creating the amendment draft.
+        error: An error ocurred while creating the amendment draft.
         success: Amendment draft has been created successfully.
       destroy_draft:
         error: There was a problem deleting the amendment draft.
@@ -379,6 +326,7 @@ en:
             has been withdrawn by the author.
       name: Amendment
       new:
+        amendment_author: Amendment author
         send: Create
         title: Create Amendment Draft
       preview_draft:
@@ -402,7 +350,7 @@ en:
         error: There was a problem updating the amendment draft.
         success: Amendment draft successfully updated.
       withdraw:
-        error: There was a problem withdrawing the amendment.
+        error: An error ocurred while withdrawing the amendment.
         success: The amendment has been withdrawn successfully.
       wizard_step_form:
         steps:
@@ -445,19 +393,13 @@ en:
         explanation: Get verified by introducing a document number ending with "X".
         fields:
           allowed_postal_codes: Allowed postal codes (separated by commas)
+          allowed_scope_id: Allowed scope
           document_number: Document number
           postal_code: Postal code
+          scope_id: Scope
         name: Example authorization
       dummy_authorization_workflow:
-        explanation: Dummy authorization workflow
         name: Dummy authorization workflow
-      ephemeral_dummy_authorization_handler:
-        explanation: Get verified by introducing a document number ending with "X".
-        fields:
-          allowed_postal_codes: Allowed postal codes (separated by commas)
-          document_number: Document number
-          postal_code: Postal code
-        name: Ephemeral example authorization
       errors:
         duplicate_authorization: A participant is already authorized with the same data. An administrator will contact you to verify your details.
       expired_at: Expired at %{timestamp}
@@ -541,14 +483,13 @@ en:
             amendments_enabled: Amendments enabled
             comments_enabled: Comments enabled
             comments_max_length: Comments max length
-            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             dummy_global_attribute1: Dummy Attribute 1
             dummy_global_attribute2: Dummy Attribute 2
             dummy_global_translatable_text: Dummy Translatable Text
             enable_pads_creation: Enable pads creation
-            no_taxonomy_filters_found: No taxonomy filters found.
             resources_permissions_enabled: Resources permissions enabled
-            taxonomy_filters: Select filters for the component
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
           step:
             amendment_creation_enabled: Amendment creation enabled
             amendment_promotion_enabled: Amendment promotion enabled
@@ -558,8 +499,6 @@ en:
             dummy_step_attribute1: Dummy Step Attribute 1
             dummy_step_attribute2: Dummy Step Attribute 2
             dummy_step_translatable_text: Dummy Step Translatable Text
-      pagination:
-        page_title: "%{component_name} - Page %{current_page} of %{total_pages}"
     contact: Contact
     content_blocks:
       announcement:
@@ -635,9 +574,9 @@ en:
       application_helper:
         filter_area_values:
           all: All
-        filter_scope_values:
+        filter_category_values:
           all: All
-        filter_taxonomy_values:
+        filter_scope_values:
           all: All
     devise:
       omniauth_registrations:
@@ -649,9 +588,6 @@ en:
           sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the account creation
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
-        new_tos_fields:
-          sign_up: Create an account
-          sign_up_title: Finish creating your account
       registrations:
         create:
           error: There was a problem creating your account.
@@ -668,12 +604,11 @@ en:
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       sessions:
         new:
-          are_you_new?: Not registered yet?
+          are_you_new?: New to the platform?
           register: Create an account
           sign_in_disabled: You can access with an external account.
           sign_up_disabled: Account creation is disabled, you can use an existing account to access.
         user:
-          ephemeral_session_closed: Your guest session has finished
           timed_out: You were inactive for too long and you have been automatically logged out from the service. If you would like to continue using the service, please log in again.
       shared:
         newsletter_modal:
@@ -693,16 +628,13 @@ en:
             <p>Thanks for reading this!</p>
           title: Newsletter notifications
         omniauth_buttons:
-          or: or
+          or: Or
         password_fields:
           hidden_password: Your password is hidden
           hide_password: Hide password
           show_password: Show password
           shown_password: Your password is shown
         placeholder_email: hi@example.org
-    documents:
-      one: "%{count} document"
-      other: "%{count} documents"
     doorkeeper:
       authorizations:
         new:
@@ -721,123 +653,27 @@ en:
     download_your_data:
       export:
         ready: Ready
-      help:
-        core:
-          description: These are the files with the personal data, contributions and activity from the user %{user_name}
-          title: Download your data files from %{organization}
-        follows:
-          created_at: The date and time when the follow was created
-          followable: The resource or space that is being followed
-          id: The unique identifier of this follow
-          updated_at: The date and time when the follow was last updated
-        identities:
-          created_at: The date and time when the identity was created
-          id: The unique identifier of this identity
-          provider: The provider of this identity
-          uid: The unique identifier of this identity
-          updated_at: The date and time when the identity was last updated
-          user: The user that this identity belongs to
-        messaging_conversations:
-          created_at: The date when this conversation was created
-          id: The unique identifier for this conversation
-          messages: The messages of this conversation
-          updated_at: The date when this converstaion was last updated
-        notifications:
-          created_at: The date and time when the notification was created
-          event_class: The class of the event that triggered the notification
-          event_name: The name of the event that triggered the notification
-          extra: Extra information of this notification
-          id: The unique identifier of this notification
-          resource_type: The type of the resource that the notification is related to
-          updated_at: The date and time when the notification was last updated
-        participatory_space_private_users:
-          created_at: The date and time when this private user was created
-          id: The unique identifier of this private user
-          privatable_to: To which space this private user belongs
-          published: Wether this private user is published or not
-          role: The role that this private user has
-          updated_at: The date and time when this private user was last updated
-        reports:
-          created_at: The date and time when this report was created
-          details: The details of this report
-          id: The unique identifier of this report
-          locale: The language of this report
-          moderation: The moderation that this report has
-          reason: The reason of this report
-          updated_at: The date and time when this report was last updated
-        users:
-          about: The biography of this user
-          accepted_tos_version: The date when the Terms of Service of this platform was accepted by the user
-          admin: Whether this user is an administrator
-          confirmation_sent_at: The date and time when the confirmation was sent
-          confirmed_at: The date and time when this user was confirmed
-          created_at: The date and time when this user was created
-          current_sign_in_at: The date and time of the current login
-          current_sign_in_ip: The IP address of the current login
-          delete_reason: The reason given for deleting this user
-          deleted_at: The date and time when this user was deleted
-          email: The email address of this user
-          followers_count: The number of participants that are following to this user
-          following_count: The number of participants this user is following
-          id: The unique identifier of this user
-          invitation_accepted_at: The date and time when the invitation was accepted
-          invitation_created_at: The date and time when this user was invited
-          invitation_sent_at: The date and time when the invitation was sent
-          invitations_count: The number of invitations sent to this user
-          invited_by: The user who invited this user
-          last_sign_in_at: The date and time of the last login
-          last_sign_in_ip: The IP address of the last login
-          locale: The locale (language) that this user has selected
-          managed: Whether this user is managed by another user
-          name: The name of this user
-          newsletter_notifications_at: The date and time when this user last received a newsletter
-          nickname: The nickname of this user
-          notification_settings: The notification settings that this user has selected
-          notifications_sending_frequency: The frequency of the notifications that this user receives
-          officialized_as: The name of the officialization (Counsellor, Mayor, etc)
-          officialized_at: The date and time when this user was officialized
-          organization: The organization that this user belongs to
-          password_updated_at: The date when their password was changed for the last time
-          personal_url: The personal URL of this user
-          remember_created_at: The date and time when the user was selected to be remembered
-          reset_password_sent_at: The date and time when the password reset was sent
-          roles: The role this user has, if they has any
-          sign_in_count: The number of times this user has logged in
-          type: The type that this user has
-          unconfirmed_email: The email address that this user has not yet confirmed
-          updated_at: The date and time when this user was last updated
       show:
-        action: Action
-        download: Download file
-        download_data: Data download
-        download_data_description_1: Here you can find all the downloads available for your account. These .zip files will be available during two weeks before being deleted.
-        download_data_description_2: You can request a .zip file with your submissions and personal data.
-        download_your_data: Personal data
-        expiration: Expiration
-        expired: Already expired
-        explanation:
-          body_1: These files are datasets exported from your activity in this platform, such as proposals, or comments. They provide raw, structured data that can be used for analysis, research, or integration with other tools
-          body_2: These files are in CSV (Comma-Separated Values) format, which is a widely-used file format that can be opened and processed by a variety of software applications, including spreadsheet programs, text editors, and data analysis tools.
-          title: What are these files?
-        files_to_download: Files to download
-        request_data: Request
-        type: Download type
+        download_data: Download the data
+        download_data_description_html: |-
+          A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>.
+          This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS).
+          If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
+        request_data: Request data
     editor_images:
       create:
         error: Error uploading image.
         success: Image uploaded successfully.
       drag_and_drop_help: Add images by dragging & dropping or pasting them.
     endorsement_buttons_cell:
-      already_endorsed: Undo the like
+      already_endorsed: Dislike
       endorse: Like
+    endorsements:
+      identities:
+        done: Done
+        select_identity: Select identity
     endorsers_list:
-      endorsed_by:
-        one: Liked by %{visible}
-        other: Liked by %{visible} and %{others}
-      others: "%{count} more"
-      title: Liked by
-      you: you
-    ephemeral_user: Visitor
+      endorsed_by: Liked by…
     errors:
       files:
         file_cannot_be_processed: File cannot be processed
@@ -905,11 +741,6 @@ en:
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
             email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a>.
-        emendation_promoted:
-          follower:
-            email_intro: 'An emendation has been published for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: An emendation from %{emendation_author_nickname} has been published as a new %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
@@ -938,6 +769,52 @@ en:
           email_outro: You have received this notification because you made activity on our website.
           email_subject: You have reached level %{current_level} on the %{badge_name} badge!
           notification_title: Congratulations! You have reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
+      groups:
+        demoted_membership:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed your admin rights to that group.
+          email_outro: You have received this notification because you are a member of that group.
+          email_subject: You are no longer an admin of the %{user_group_name} group!
+          notification_title: You are no longer an admin of the <a href="%{resource_path}">%{user_group_name}</a> group.
+        invited_to_group:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has invited you to join it.
+          email_outro: You have received this notification because you have been invited to an group. Please check the Groups tab in your profile to approve it.
+          email_subject: You have been invited to join the %{user_group_name} group!
+          notification_title: You have been invited to join the <a href="%{resource_path}">%{user_group_name}</a> group. Check the <a href="%{groups_profile_tab_path}">Groups page</a> in your profile to approve it!
+        join_request_accepted:
+          email_intro: Congratulations! An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has accepted your request to join it.
+          email_outro: You have received this notification because your join request has been updated.
+          email_subject: You have been accepted to the %{user_group_name} group!
+          notification_title: You have been accepted to the <a href="%{resource_path}">%{user_group_name}</a> group.
+        join_request_created:
+          email_intro: Someone requested to join the %{user_group_name} group. You can accept or reject it from <a href="%{resource_url}">the group members page</a>.
+          email_outro: You have received this notification because you can manage the %{user_group_name} group.
+          email_subject: Someone requested to join the %{user_group_name} group!
+          notification_title: Someone requested to join the %{user_group_name} group. You can accept or reject it from <a href="%{resource_path}">the group members page</a>.
+        join_request_rejected:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group rejected your request to join it.
+          email_outro: You have received this notification because your join request has been updated.
+          email_subject: Your request to join the %{user_group_name} group has been rejected!
+          notification_title: Your request to join the <a href="%{resource_path}">%{user_group_name}</a> group has been rejected.
+        promoted_to_admin:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has given you admin rights to that group.
+          email_outro: You have received this notification because you are a member of that group.
+          email_subject: You are now an admin of the %{user_group_name} group!
+          notification_title: You are now an admin of the <a href="%{resource_path}">%{user_group_name}</a> group.
+        removed_from_group:
+          email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed you from it.
+          email_outro: You have received this notification because you were a member of that group.
+          email_subject: You have been removed from the %{user_group_name} group!
+          notification_title: You have been removed from the <a href="%{resource_path}">%{user_group_name}</a> group.
+        user_group_created:
+          email_intro: A new user group has been created with the name %{user_group_name}. You can now verify it in the <a href="%{groups_admin_url}">admin panel</a>.
+          email_outro: You have received this notification because you are an admin of the platform.
+          email_subject: A new user group has been created
+          notification_title: The %{user_group_name} user group has been created. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
+        user_group_updated:
+          email_intro: A user group with the name %{user_group_name} has updated its profile, leaving it unverified. You can now verify it in the <a href="%{groups_admin_url}">admin panel</a>.
+          email_outro: You have received this notification because you are an admin of the platform.
+          email_subject: A user group has updated its profile
+          notification_title: The %{user_group_name} user group has updated its profile, leaving it unverified. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
       nickname_event:
         notification_body: We have corrected the way nicknames are used so that there are no duplicates, and that is why we have removed the case-sensitive rule. <br/> Your nickname was created after another one with the same name, so we have automatically renamed it. You can change it from <a href="%{link_to_account_settings}">your account settings</a>.
       notification_event:
@@ -955,9 +832,6 @@ en:
         email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
         email_subject: "%{endorser_nickname} has performed a new endorsement"
         notification_title: The <a href="%{resource_path}">%{resource_title}</a> %{resource_type} has been endorsed by <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
-      resources:
-        soft_deleted:
-          notification_title: An admin has deleted your "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
           email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
@@ -971,11 +845,10 @@ en:
           notification_title: Participant %{name} (%{nickname}) has been officialized.
     export_mailer:
       download_your_data_export:
-        click_button_html: Click the next link to download your data.<br/>The file will be available for download until %{date}.
+        click_button: 'Click the next link to download your data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
         download: Download
       export:
-        click_button_html: Your download is ready. <br/>The file will be available for download until %{date}.
-        download: Download
+        ready: Please find attached a zipped version of your export.
       subject: Your export "%{name}" is ready
     filters:
       linked_classes:
@@ -1029,7 +902,7 @@ en:
         file:
           explanation: 'Guidance for file:'
           message_1: Has to be an image or a document.
-          message_2: If it is an image, it preferably be a landscape image that does not have any text. The service crops the image.
+          message_2: For images, use preferably landscape images, the service crops the image.
         icon:
           explanation: 'Guidance for icon:'
           message_1: Has to be a square image.
@@ -1087,11 +960,92 @@ en:
       level: Level %{level}
       reached_top: You have reached the top level for this badge.
       title: What are the badges?
+    group_admins:
+      actions:
+        are_you_sure: Are you sure? This will not remove the participant from the group.
+        demote_admin: Remove admin
+      demote:
+        error: There was a problem removing this participant from the admins list.
+        success: Participant successfully removed from admin.
+      index:
+        current_admins: 'Current admins:'
+        manage_admins: Manage admins
+    group_invites:
+      accept:
+        error: There was a problem accepting this invitation.
+        success: Invitation successfully accepted.
+      accept_invitation: Accept
+      accept_or_reject_group_invitations: 'The following groups have invited you to join them. Accept or reject their requests:'
+      index:
+        invite: Invite
+        invite_user: Invite a participant
+      invite:
+        error: There was a problem inviting this participant.
+        success: Participant successfully invited.
+      pending_invitations: Pending requests
+      reject:
+        error: There was a problem rejecting this invitation.
+        success: Invitation successfully rejected.
+      reject_invitation: Reject
+    group_members:
+      accept:
+        error: There was a problem accepting this join request.
+        success: Join request successfully accepted.
+      actions:
+        are_you_sure: Are you sure?
+        promote_to_admin: Make admin
+        remove_from_group: Remove participant
+      index:
+        current_members_without_admins: 'Current members (without admins):'
+        manage_members: Manage members
+      promote:
+        error: There was a problem promoting this participant.
+        success: Participant promoted successfully.
+      reject:
+        error: There was a problem rejecting this join request.
+        success: Join request successfully rejected.
+      remove:
+        error: There was a problem removing this participant from the group.
+        success: Participant successfully removed from the group.
     groups:
+      actions:
+        are_you_sure: Are you sure?
+      create:
+        error: There was a problem creating the group.
+        success: Group successfully created.
+      edit:
+        edit_user_group: Edit group
+        update_user_group: Update group
+      form:
+        document_number_help: Do not use dashes nor spaces.
+        email_help: Email of your organization, association, collective, group, etc.
+        fill_in_for_verification: 'Fill in these fields if you want your group to be verified:'
+        name_help: Name of your organization, association, collective, group, etc.
+        nickname_help: Nickname of your organization, association, collective, group, etc. Do not use spaces nor accents.
+        phone_help: Do not use dashes nor spaces.
+      join:
+        error: There was a problem joining the group.
+        success: Join request successfully created. An admin will review your request before accepting you to the group.
+      leave:
+        error: There was a problem leaving the group.
+        last_admin: You cannot remove yourself from this group as you are the last administrator. Make another member an administrator in order to leave the group.
+        success: Group successfully abandoned.
+      members:
+        accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
+        accept_request: Accept
+        reject_request: Reject
+      new:
+        create_user_group: Create group
+        new_user_group: New group
+        subtitle: Create a group and invite other users to join to participate in a collective level.
+      no_user_groups: Does not belong to any group yet.
       roles:
         admin: Administrator
         creator: Administrator
         member: Member
+      update:
+        error: There was a problem updating the group.
+        success: Group successfully updated.
     help:
       main_topic:
         default_page:
@@ -1126,8 +1080,6 @@ en:
         unknown_action_with_space: "%{user_name} performed some action on %{resource_name} in %{space_name}"
         unpublish_with_space: "%{user_name} unpublished %{resource_name} from %{space_name}"
         update: "%{user_name} updated %{resource_name}"
-        update_filters: "%{user_name} updated the filters of %{resource_name}"
-        update_filters_with_space: "%{user_name} updated the filters of %{resource_name} in %{space_name}"
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
         update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
       value_types:
@@ -1139,8 +1091,6 @@ en:
           not_found: 'The scope was not found on the database (ID: %{id})'
         scope_type_presenter:
           not_found: 'The scope type was not found on the database (ID: %{id})'
-        taxonomy_presenter:
-          not_found: 'The taxonomy was not found on the database (ID: %{id})'
     machine_translations:
       automatic: automatic translation in %{locale_name}
     managed_users:
@@ -1152,16 +1102,42 @@ en:
       static:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
+    members:
+      no_members: This group does not have any members yet.
     menu:
       help: Help
       home: Home
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: You are receiving this because you are an admin in %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{manager} has started a new conversation in the name of %{group}. Click here to see it:"
+          outro: Enjoy the platform!
+          subject: "%{manager} has started a new conversation as a %{group}"
+        comanagers_new_message:
+          admin_in_group: You are receiving this because you are an admin in %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{manager} has posted new messages in a conversation in the name of %{group}. Click here to see them:"
+          outro: Enjoy the platform!
+          subject: "%{manager} has send new messages as a %{group}"
         new_conversation:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has started a new conversation with you. Click here to see it:"
           outro: Enjoy the platform!
           subject: "%{sender} has started a conversation with you"
+        new_group_conversation:
+          admin_in_group: You are receiving this because you are an admin in %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{sender} has started a new conversation with the group %{group}. Click here to see it:"
+          outro: Enjoy the platform!
+          subject: "%{sender} has started a conversation with %{group}"
+        new_group_message:
+          admin_in_group: You are receiving this because you are an admin in %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{sender} has posted new messages in a conversation with the group %{group}. Click here to see it:"
+          outro: Enjoy the platform!
+          subject: "%{group} have new messages from %{sender}"
         new_message:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has posted new messages in your conversation. Click here to see them:"
@@ -1207,8 +1183,6 @@ en:
         not_started: Not started yet
         remaining: "%{time_distance} remaining"
     metrics:
-      blocked_users:
-        description: Number of blocked participants
       download:
         csv: Download data (CSV)
       followers:
@@ -1219,10 +1193,6 @@ en:
         description: Number of active participants in organization
         object: participants
         title: Participants
-      reported_users:
-        description: Number of reported participants
-      user_reports:
-        description: Number of reports done by participants
       users:
         description: Number of participants in organization
         object: participants
@@ -1288,12 +1258,10 @@ en:
     notifications_digest_mailer:
       header:
         daily: Daily Notification Digest
-        real_time: Real time
         weekly: Weekly Notification Digest
       hello: Hello %{name},
       intro:
         daily: 'These are the notifications from the last day based on the activity you are following:'
-        real_time: 'These is a notification on the activity you are following:'
         weekly: 'These are the notifications from the last week based on the activity you are following:'
       outro: You have received these notifications because you are following this content or its authors. You can unfollow them from their respective pages.
       see_more: See more notifications
@@ -1303,10 +1271,8 @@ en:
         administrators: Administrators
         allow_public_contact: Allow anyone to send me a direct message, even if I do not follow them.
         allow_push_notifications: Get push notifications to find out what is going on when you are not on the platform. You can turn them off anytime.
-        assigned_to_proposal: I want to receive an email when someone assigns me a proposal to evaluate
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
-        evaluators: Evaluators
         everything_followed: Everything I follow
         newsletter_notifications: I want to receive newsletters
         newsletters: Newsletters
@@ -1332,117 +1298,7 @@ en:
         message_1: It looks like you are currently offline.
         message_2: Please, try again later.
         retry: Retry
-    onboarding_action_message:
-      click_link: Click here
-      cta_html: <a href="%{path}">%{link_text}</a> in order to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
-      ephemeral_authorized_message: You have been successfully authorized.<br/>You have started a guest session, you can now participate.
-      expired_authorization_active_title: Your authorization has expired.
-      finish_authorization_process: You can finish the authorization process
-      incomplete_authorization_active_title: Your verification has not been completed with all the necessary information.
-      pending_authorization_active_message: Please complete the form to proceed with this action.
-      pending_authorization_active_title: We need to verify your identity.
-      pending_ephemeral_authorization: Please verify your identity to proceed.
     open_data:
-      help:
-        core:
-          components: Components
-          description: This ZIP file contains files for studying and researching about this participation platform.
-          main: Core
-          spaces: Spaces
-          title: Open Data files for %{organization}
-        metrics:
-          cumulative: The total number of the metric at this day
-          day: The day this metric was created
-          metric_type: The type of the metric
-          quantity: The number of the metrics for this day
-        moderated_users:
-          about: The about field of the user
-          block_reasons: The reason why the admin user blocked the user
-          blocked_at: Date and time when the user has been blocked
-          blocking_user: The name of the user that has performed the blocking
-          details: The details of the reports
-          reasons: A list of the reasons why the profile has been reported
-          user_id: The unique ID of the reported user
-        moderations:
-          hidden_at: Date and time when the content has been hidden
-          id: The unique identifier of the moderation
-          report_count: The number of times it has been reported
-          reportable_id: The unique id of the reportable
-          reportable_type: Type of the reportable
-          reported_content: The content that has been reported
-          reported_url: The url of the reported resource
-          reports: A list of reasons for which the resource has been reported
-        taxonomies:
-          children_count: The count of the children that this taxonomy has
-          created_at: The date when this taxonomy was created
-          filter_items_count: The number of items filters that are using this taxonomy
-          filters_count: The number of filters that is using this taxonomy
-          id: The unique identifier of this taxonomy
-          is_root: True if this taxonomy do not have any parent
-          name: The name of this taxonomy
-          parent_id: The unique identifiers of this taxonomy parent (if any)
-          part_of: Used to detect if this taxonomy is part of another taxonomy
-          taxonomizations_count: The count of the resources that use this taxonomy
-          updated_at: The date when this taxonomy was updated for the last time
-          weight: The order in which this taxonomy is shown
-        users:
-          about: The about text of the user
-          avatar_url: The avatar of the user
-          badge: The badge of the user
-          deleted: Whether the user is deleted or not
-          direct_messages_enabled: Whether the user allows direct messages
-          groups: The id and name of the user group
-          id: The unique identifier of the user
-          name: The display name of user
-          nickname: The username of the user
-          profile_url: The profile url
-      index:
-        description: Welcome to the %{organization_name} Open Data page. Here, you will find data files that are regularly generated from various deliberative and governance processes within %{organization_name}. These files are made available to promote transparency, accessibility, and collaboration. Below, you will find detailed information on what these files are, how to open and work with them, and a description of the content and structure of each file.
-        detailed:
-          body_1: 'Below is a description of each dataset, including its schema (structure) and the type of information it contains:'
-          components: Components
-          spaces: Participatory spaces
-          title: Detailed explanation of each file
-        download:
-          components: Components
-          core: Core
-          spaces: Participatory spaces
-          title: Download resources
-        download_open_data: Download all the Open Data files
-        download_resource: Download %{resource_name} in CSV format
-        explanation:
-          body_1: These files are datasets exported from %{organization_name}'s participatory processes, such as proposals, comments, and meetings. They provide raw, structured data that can be used for analysis, research, or integration with other tools. The data is updated automatically every 24 hours, ensuring that you have access to the most recent information.
-          body_2: These files are in CSV (Comma-Separated Values) format, which is a widely-used file format that can be opened and processed by a variety of software applications, including spreadsheet programs, text editors, and data analysis tools.
-          title: What are these files?
-        how_to:
-          step_1:
-            body_html: Click on the links provided below to download the CSV files to your computer.
-            title: 1. Download the files
-          step_2:
-            body_html: |-
-              <ul>
-                <li><b>Spreadsheet Applications</b>: You can open CSV files using applications like Microsoft Excel, Google Sheets, or LibreOffice Calc. Simply open the application, then select "Open" from the File menu, and choose the downloaded CSV file.</li>
-                <li><b>Text Editors</b>: CSV files can also be opened in any text editor, such as Notepad or Sublime Text. This will display the raw data, with each line representing a row and each value separated by a comma.</li>
-                <li><b>Data Analysis Tools</b>: If you are familiar with data analysis tools like Python (with pandas), R, or SQL databases, you can import these CSV files directly for processing and analysis.</li>
-              </ul>
-            title: 2. Open the files
-          step_3:
-            body_html: |-
-              <ul>
-                <li><b>Filtering and Sorting</b>: In spreadsheet applications, you can filter and sort the data to focus on specific subsets of information.</li>
-                <li><b>Analysis</b>: Use the data to perform various analyses, such as counting the number of proposals, analyzing trends in comments, or evaluating participation in meetings.</li>
-                <li><b>Visualization</b>: You can create charts, graphs, and other visualizations to help interpret the data.</li>
-              </ul>
-            title: 3. Working with the data
-          title: How to open and work with these files
-        license:
-          body_1_html: This %{organization_name} database is made available under the %{link_database}. Any rights in individual contents of the database are licensed under the %{link_contents}.
-          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
-          license_contents_name: Database Contents License
-          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
-          license_database_name: Open Database License
-          title: License
-        title: Open Data
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     pad_iframe:
       disclaimer: The contents of this pad are written by registered users and express their opinions. %{organization} cannot be held responsible for its contents.
@@ -1506,6 +1362,7 @@ en:
       deleted: Deleted participant
       inaccessible_message: This profile is inaccessible due to terms of service violation!
     profiles:
+      default_officialization_text_for_user_groups: This group is publicly verified, its name has been verified to correspond with its real name.
       default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role.
       show:
         activity: Activity
@@ -1513,18 +1370,41 @@ en:
         conversations: Conversations
         followers: Followers
         following: Follows
+        group_admins: Manage admins
+        group_members: Manage members
+        groups: Groups
+        members: Members
         officialized: Official participant
         send_private_message: Send private message
+      sidebar:
+        badges:
+          info: Badges are earned by performing specific activity in the platform.
+          title: Badges
       user:
         actions:
+          create_user_group: Create group
           disabled_message: Message
           edit_profile: Edit profile
+          edit_user_group: Edit group profile
+          invite_user: Invite participant
+          join_user_group: Request to join group
+          leave_user_group: Leave group
+          manage_user_group: Manage group
+          manage_user_group_admins: Manage admins
+          manage_user_group_users: Manage members
           message: Message
           resend_email_confirmation_instructions: Resend email confirmation instructions
-    qr:
-      show:
-        scan: Scan the QR code
-        title: QR Code for %{resource_title}
+        confirmation_instructions_sent: Email confirmation instructions sent.
+        create_user_group: Create group
+        edit_profile: Edit profile
+        edit_user_group: Edit group profile
+        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it.
+        invite_user: Invite participant
+        join_user_group: Request to join group
+        leave_user_group: Leave group
+        manage_user_group_admins: Manage admins
+        manage_user_group_users: Manage members
+        resend_email_confirmation_instructions: Resend email confirmation instructions
     reported_mailer:
       hide:
         hello: Hello %{name},
@@ -1546,18 +1426,23 @@ en:
         subject: A resource has been reported
     reports:
       create:
-        error: There was a problem creating the report. Please, try it again.
+        error: An error ocurred while creating the report. Please, try it again.
         success: The report has been created successfully and it will be reviewed by an admin.
-      parent_hidden:
-        report_details: The parent resource was hidden
-    resource:
-      controls_label: Resource controls
     resource_endorsements:
       create:
         error: There was a problem during the endorsement action.
     scopes:
       global: Global scope
+      picker:
+        cancel: Cancel
+        change: Change selected scope
+        choose: Select
+        currently_selected: Currently selected scope
+        title: Select %{field}
       prompt: Select a scope
+      scopes: Scopes
+      scopes_picker_input:
+        select_scope: 'Select a scope (currently: %{current})'
     search:
       name: Search
       results: Search results
@@ -1582,17 +1467,12 @@ en:
       selfxss_warning:
         description: This browser feature is meant for developers and you should not paste anything here if you were asked to do so. Pasting content in this window can compromise your privacy and give hackers access to your account.
         title: Stop!
-    share_widget:
-      download: Download
-      print: Print poster
-      qr_code: QR Code
     shared:
       confirm_modal:
         cancel: Cancel
         close_modal: Close modal
         ok: OK
         title: Confirm
-      confirm_unload: This page contains unsaved changes. Are you sure you want to leave this page?
       embed:
         title: Embedded video content
       extended_navigation_bar:
@@ -1616,13 +1496,14 @@ en:
       flag_user_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         block: Block this participant
-        description: What is inappropriate about this participant?
+        close: Close
+        description: What is inappropriate about the user?
         does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.
         hide: Hide all their contents
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
-        title: Report inappropriate participant
+        title: Report inappropriate User
       floating_help:
         help: Help
       follow_button:
@@ -1632,11 +1513,20 @@ en:
         sign_up: Create an account
       mentions_modal:
         remove_recipient: Remove recipient %{name}
+      participatory_space_filters:
+        filters:
+          area: Area
+          areas: Areas
+          scope: Scope
+          select_an_area: Select an area
       progress: Progress
       public_participation:
         public_participation: Show my attendance publicly
       reference:
         reference: 'Reference: %{reference}'
+      represent_user_group:
+        represent_user_group: I represent a group
+        select_user_group: Select a group
       results_per_page:
         label: 'Results per page:'
         title: Select number of results per page
@@ -1644,7 +1534,6 @@ en:
         copy_share_link: Copy
         copy_share_link_clarification: Copy share link to clipboard
         copy_share_link_copied: Copied!
-        copy_share_link_cta: Or copy link
         copy_share_link_message: The link was successfully copied to clipboard.
         share: Share
         share_link: Share link
@@ -1657,12 +1546,10 @@ en:
       no_stats: There are no statistics yet.
       pages_count: Pages
       participants_count: Participants
-      surveys_count: Surveys
       users_count: Participants
     tags:
-      filter_results_for_taxonomy: 'Filter results for: %{resource}'
-    taxonomies:
-      prompt: Please select an option
+      filter_results_for_category: 'Filter results for category: %{resource}'
+      filter_results_for_scope: 'Filter results for scope: %{resource}'
     translation_bar:
       help_text: "<strong>Warning:</strong> Content might be automatically translated and not be 100% accurate."
       show_original: Show original text
@@ -1672,18 +1559,28 @@ en:
         no_activities_warning: This participant does not have any activity yet.
     user_contact_disabled: This participant does not accept direct messages.
     user_conversations:
+      create:
+        error: The message could not be created. Try again later.
+        existing_error: The message could not be created. The conversation already exists, please try again now.
+        success: Conversation started successfully!
       index:
+        conversations_info: Conversations are private. no one else can see them. A conversation can be started with any participant or group registered on the platform.
+        no_conversations_warning: There are no conversations yet.
         time_ago: "%{time} ago"
-    user_group_mailer:
-      notify_deprecation_to_member:
-        body_1: 'We are reaching out to inform you about an important update to the User Group you are a member of: <strong>%{group_name}</strong>.'
-        body_2: As part of our efforts to simplify the experience for organizations, the "User Groups" feature is being deprecated. Your User Group profile has now been converted into a regular participant profile.
-        greeting: Dear %{name},
-        instructions_1: If you have access to that email account, please check your inbox for the instructions.
-        instructions_2: If not, one of your colleagues who has access will need to set the password and share the login credentials with you.
-        instructions_intro: Group members will now share access to this profile using shared login credentials (email and password). We have sent instructions to <strong>%{group_email}</strong> to set a new password for the profile.
-        instructions_title: "<strong>What this means to you?</strong>"
-        subject: User group you are member of important update
+      reply:
+        placeholder: Your reply...
+        send: Send
+      update:
+        error: Message not sent. Try again later
+    user_interests:
+      show:
+        my_interests: My interests
+        no_scopes: This organization does not have any scope yet!
+        select_your_interests: Select the topics you are interested in to receive events related to them in your profile Timeline tab.
+        update_my_interests: Update my interests
+      update:
+        error: There was a problem updating your interests.
+        success: Your interests have been successfully updated.
     user_report_mailer:
       notify:
         body_1: User %{user} has been reported by %{token}
@@ -1805,18 +1702,7 @@ en:
         instruction: 'Click the link below to unlock your account:'
         message: Your account has been locked due to an excessive amount of unsuccessful log in attempts.
         subject: Unlock instructions
-      user_group_reset_password_instructions:
-        body_1: We are reaching out to inform you about an important update regarding your Group profile on %{organization_name}.
-        body_2: As part of our efforts to simplify and improve the experience for organizations like yours, we are deprecating the "User Groups" feature. Your Group, <strong>%{name}</strong>, has been converted into a regular account.
-        body_3: To continue accessing your account and share access, we need you to set a password. Once set, you can share the login credentials (email and password) with anyone.
-        greeting: Dear %{name},
-        instructions_1: 'Click the link below to set your password:'
-        instructions_2: 'Share the login credentials (email: %{email} and the new password) with your colleagues.'
-        instructions_title: "<strong>What you need to do</strong>"
-        set_password: Set your password
-        subject: User group important update
     omniauth_callbacks:
-      add_tos_errors: Terms of service must be accepted in order to create an account.
       failure: Could not authenticate you from %{kind} because "%{reason}".
       success: Successfully authenticated from %{kind} account.
     passwords:
@@ -1977,7 +1863,7 @@ en:
       not_found: could not be found. Have you created an account previously?
       not_locked: was not locked
       not_saved:
-        one: 'There has been an error processing your request:'
+        one: 'There''s been an error processing your request:'
         other: 'There were multiple errors when processing your request:'
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
@@ -2055,15 +1941,13 @@ en:
         data_consent_settings: Cookie settings
         decidim_logo: Decidim Logo
         decidim_title: Decidim
+        download_open_data: Download Open Data files
         log_in: Log in
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
-        open_data: Open Data
         resources: Resources
         sign_up: Create an account
         terms_of_service: Terms of Service
       header:
-        close: Close
-        confirm_close_ephemeral_session: If you navigate out of this page, your session will be closed. Are you sure?
         log_in: Log in
         main_menu: Main menu
         user_menu: User menu
@@ -2106,9 +1990,11 @@ en:
         authorizations: Authorizations
         delete_my_account: Delete my account
         my_data: My data
+        my_interests: My interests
         notifications_settings: Notifications settings
         profile: Profile
         title: Participant settings
+        user_groups: Groups
   locale:
     name: English
     name_with_error: English (error!)

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/type_context"
 
 module Decidim
   module Comments
@@ -107,14 +107,24 @@ module Decidim
         let(:query) { "{ author { name } }" }
         let(:commentable) { build(:dummy_resource, :published) }
         let(:model) do
-          create(:comment, author:, commentable:)
+          create(:comment, author:, user_group:, commentable:)
         end
 
         context "when the author is a user" do
           let(:author) { create(:user, :confirmed, organization: commentable.organization) }
+          let(:user_group) { nil }
 
           it "returns the user" do
             expect(response).to include("author" => { "name" => author.name })
+          end
+        end
+
+        context "when the author is a user group" do
+          let(:user_group) { create(:user_group, :verified, organization: commentable.organization, users: [create(:user, organization: commentable.organization)]) }
+          let(:author) { user_group.managers.first }
+
+          it "returns the user" do
+            expect(response).to include("author" => { "name" => user_group.name })
           end
         end
       end
@@ -132,7 +142,7 @@ module Decidim
         let(:query) { "{ createdAt }" }
 
         it "returns its created_at field to iso format" do
-          expect(response).to include("createdAt" => model.created_at.to_time.iso8601)
+          expect(response).to include("createdAt" => model.created_at.iso8601)
         end
       end
 

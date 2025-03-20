@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -22,6 +23,8 @@ gl:
         promoted: Promocionado
         published_at: Publicado en
         related_process_ids: Procesos relacionados
+        scope_id: Alcance
+        scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
         slug: URL slug
         start_date: Data de inicio
@@ -46,6 +49,8 @@ gl:
         end_date: Data de finalización
         short_description: Descrición curta
         start_date: Data de inicio
+        title: Título
+      participatory_process_type:
         title: Título
       participatory_process_user_role:
         email: Correo electrónico
@@ -93,8 +98,10 @@ gl:
           attachment_collections: Carpetas
           attachment_files: Arquivos
           attachments: Anexos
+          categories: Categorías
           components: Compoñentes
           moderations: Moderacións
+          private_users: Usuarios privados
           process_admins: Usuarios do proceso
           steps: Pasos
       models:
@@ -115,6 +122,10 @@ gl:
             start_date: Data de inicio
             title: Título
           name: Paso de proceso participativo
+        participatory_process_type:
+          fields:
+            created_at: Creado en
+            title: Título
         participatory_process_user_role:
           fields:
             email: Correo electrónico
@@ -180,6 +191,11 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este paso de proceso participativo.
           success: Paso de proceso participativo actualizado con éxito.
+      participatory_process_types:
+        edit:
+          update: Actualización
+        new:
+          create: Crear
       participatory_process_user_roles:
         create:
           error: Houbo un erro engadindo un usuario a este proceso participativo.
@@ -313,9 +329,12 @@ gl:
           form:
             announcement_help: O texto que introduce aquí será mostrado ao usuario debaixo da información do proceso.
             duration: Duración
+            filters: Filtros
             images: Imaxes
             metadata: Metadatos
+            other: Outra
             related_processes: Procesos relacionados
+            select_an_area: Seleccione unha área
             select_process_group: Seleccione un grupo de procesos
             title: Información xeral
       content_blocks:

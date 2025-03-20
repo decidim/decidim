@@ -3,8 +3,6 @@
 module Decidim
   module Initiatives
     class ExportInitiativesJob < ApplicationJob
-      include Decidim::PrivateDownloadHelper
-
       queue_as :exports
 
       def perform(user, organization, format, collection_ids = nil)
@@ -13,9 +11,7 @@ module Decidim
           serializer
         ).export
 
-        private_export = attach_archive(export_data, "initiatives", user)
-
-        ExportMailer.export(user, private_export).deliver_later
+        ExportMailer.export(user, "initiatives", export_data).deliver_now
       end
 
       private

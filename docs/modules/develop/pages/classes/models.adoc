@@ -73,7 +73,6 @@ Most commonly used concerns are:
 - `Decidim::ScopableParticipatorySpace`
 - `Decidim::ScopableResource`
 - `Decidim::Searchable`
-- `xref:develop:taxonomies.adoc[Decidim::Taxonomizable]`
 - `xref:develop:share_tokens.adoc[Decidim::ShareableWithToken]`
 - `xref:develop:traceable.adoc[Decidim::Traceable]`
 - `xref:develop:machine_translations.adoc[Decidim::TranslatableAttributes]`
@@ -81,16 +80,16 @@ Most commonly used concerns are:
 
 === Module specific concerns
 
-- `xref:develop:commentable.adoc[Decidim::Comments::Commentable]`
-- `xref:develop:commentable.adoc[Decidim::Comments::CommentableWithComponent]`
-- `xref:develop:commentable.adoc[Decidim::Comments::HasAvailabilityAttributes]`
+- `Decidim::Comments::Commentable`
+- `Decidim::Comments::CommentableWithComponent`
+- `Decidim::Comments::HasAvailabilityAttributes`
 - `Decidim::Forms::HasQuestionnaire`
 - `Decidim::Initiatives::HasArea`
 - `Decidim::Initiatives::InitiativeSlug`
 - `Decidim::Proposals::CommentableCollaborativeDraft`
 - `Decidim::Proposals::CommentableProposal`
 - `Decidim::Proposals::ParticipatoryTextSection`
-- `Decidim::Proposals::Evaluable`
+- `Decidim::Proposals::Valuatable`
 - `Decidim::Templates::Templatable`
 
 == More information

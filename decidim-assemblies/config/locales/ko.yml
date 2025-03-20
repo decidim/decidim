@@ -1,3 +1,4 @@
+---
 ko:
   activemodel:
     attributes:
@@ -15,6 +16,8 @@ ko:
         instagram: 인스타그램
         local_area: 조직 영역
         private_space: 비공개 공간
+        scope_id: 범위
+        scopes_enabled: 범위 활성화됨
         twitter: X
         youtube: 유튜브
       assembly_member:
@@ -43,12 +46,16 @@ ko:
           create: 생성하기
       menu:
         assemblies_submenu:
+          assembly_members: 멤버
           attachment_collections: 폴더
           attachment_files: 파일
           attachments: 첨부 파일
+          categories: 카테고리
           components: 구성요소
       models:
         assembly_member:
+          fields:
+            full_name: 이름
           name: 멤버
         assembly_user_role:
           fields:
@@ -60,6 +67,7 @@ ko:
         assemblies:
           form:
             metadata: 메타데이터
+            select_an_area: 영역 선택
         new_import:
           accepted_types:
             json: JSON

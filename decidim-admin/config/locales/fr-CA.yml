@@ -1,3 +1,4 @@
+---
 fr-CA:
   activemodel:
     attributes:
@@ -33,6 +34,8 @@ fr-CA:
       help_section:
         content: Contenu
       id: ID
+      import:
+        user_group_id: Créer des imports en tant que
       newsletter:
         body: Corps de texte
         send_to_all_users: Envoyer à tous les utilisateurs
@@ -94,6 +97,7 @@ fr-CA:
         time_zone: Fuseau horaire
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire X (ancien Twitter)
+        user_groups_enabled: Activer les groupes d'utilisateurs
         users_registration_mode: Mode d'inscription des utilisateurs
         warning_color: Attention
         welcome_notification_body: Corps du mail de bienvenue
@@ -102,8 +106,6 @@ fr-CA:
       participatory_space_private_user:
         email: Email
         name: Nom
-      participatory_space_private_user_csv_import:
-        file: Fichier
       scope:
         code: Code
         name: Titre
@@ -181,13 +183,8 @@ fr-CA:
         attachment_collection:
           new: Nouveau dossier
         browse: Parcourir
-        confirm_delete_component: |
-          Êtes-vous sûr de vouloir supprimer cette fonctionnalité ?<br>
-          Cette fonctionnalité contient :<br>
-          <ul class="list-disc ml-6 my-2">
-            <li class="font-bold">%{resources_count} ressources</li>
-          </ul>
-          Si vous changez d'avis, vous pourrez annuler cette action plus tard.
+        category:
+          new: Nouvelle catégorie
         export: Tout exporter
         export-selection: Exporter la sélection
         import: Importer
@@ -198,17 +195,15 @@ fr-CA:
           new: Nouvel utilisateur privé de l'espace participatif
         per_page: Par page
         permissions: Autorisations
-        restore: Restaurer
+        reject: Rejeter
         send_me_a_test_email: Envoyez-moi un e-mail de test
         share: Partager
-        share_tokens: Liens d'accès
-        soft_delete: Placer dans la corbeille
         user:
           new: Nouvel administrateur
-        view_deleted_components: Voir les composants supprimés
+        verify: Vérifier
       admin_terms_of_service:
         accept:
-          error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation relatives aux administrateurs.
+          error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation de l'administrateur.
           success: Félicitations ! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
           accept: J'accepte les conditions d'utilisation
@@ -292,12 +287,6 @@ fr-CA:
         no_results: Aucun résultat trouvé
         search_prompt: Renseignez au moins trois caractères pour lancer la recherche.
       block_user:
-        bulk_new:
-          action: Bloquer le compte et envoyer la justification
-          already_reported_html: En poursuivant cette action, vous masquerez également tous les contenus des participants bloqués.
-          description: Bloquer des participants rendra son compte inutilisable, vous pouvez fournir dans votre justification les conditions de déblocage de ces participants.
-          justification: Justification
-          title: Bloquer des participants
         new:
           action: Bloquer le compte et envoyer la justification
           already_reported_html: En poursuivant cette action, vous masquerez également tous les contenus du participant.
@@ -305,8 +294,23 @@ fr-CA:
           justification: Justification
           title: Bloquer l'utilisateur %{name}
       categories:
+        create:
+          error: Une erreur s'est produite lors de la création de cette catégorie.
+          success: Catégorie créée avec succès.
+        destroy:
+          error: Une erreur s'est produite lors de la suppression de cette catégorie. Supprimez d'abord toute sous-catégorie et assurez-vous qu'aucune autre entité n'appartient à cette catégorie avant de réessayer.
+          success: Catégorie supprimée avec succès.
+        edit:
+          title: Modifier la catégorie
+          update: Mettre à jour
         index:
           categories_title: Catégories
+        new:
+          create: Créer une catégorie
+          title: Nouvelle catégorie
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette catégorie.
+          success: Catégorie mise à jour avec succès.
       component_permissions:
         update:
           error: Un problème est survenu lors de la mise à jour des permissions de ce composant.
@@ -316,6 +320,9 @@ fr-CA:
           error: Une erreur s'est produite lors de la création de cette fonctionnalité.
           success: Fonctionnalité créée avec succès.
           success_landing_page: Fonctionnalité créée avec succès. Vous pouvez ajouter un bloc de contenu pour cette fonctionnalité sur la page d'accueil de l'espace. Rendez-vous sur <a href="%{landing_page_path}">la page d'accueil de l'espace</a> pour la configurer.
+        destroy:
+          error: Une erreur s'est produite lors de la suppression de cette fonctionnalité.
+          success: La fonctionnalité a été supprimée avec succès.
         edit:
           title: Modifier la fonctionnalité
           update: Mettre à jour
@@ -323,17 +330,13 @@ fr-CA:
           default_step_settings: Paramètres d'étape par défaut
           global_settings: Paramètres globaux
           step_settings: Paramètres de l'étape
-        hide:
-          success: Le composant a été retiré du menu avec succès.
         index:
           add: Ajouter une fonctionnalité
           headers:
             actions: Actions
             name: Nom de la fonctionnalité
+            scope: Secteur de la fonctionnalité
             type: Type de fonctionnalité
-            visibility: Visibilité
-        manage_trash:
-          title: Composants supprimés
         new:
           add: Ajouter une fonctionnalité
           title: 'Ajouter une fonctionnalité : %{name}'
@@ -345,10 +348,6 @@ fr-CA:
         update:
           error: Une erreur est survenue lors de la mise à jour de cette fonctionnalité.
           success: La fonctionnalité a été mise à jour avec succès.
-        visibility_label:
-          menu_hidden: Retiré du menu
-          published: Publié
-          unpublished: Non publié
       conflicts:
         attempts: Tentatives
         'false': 'Non'
@@ -405,6 +404,8 @@ fr-CA:
           JSON: JSON
         notice: Votre export est en cours. Vous recevrez un email quand il sera terminé.
       filters:
+        category_id_eq:
+          label: Catégorie
         filter_label: Filtre
         invitation_accepted_at_present:
           label: Invitation acceptée
@@ -453,6 +454,8 @@ fr-CA:
             'false': Publié
             'true': Dépublié
         remove_all: Tout supprimer
+        scope_id_eq:
+          label: Secteur
         search_label: Rechercher
         search_placeholder:
           name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
@@ -467,9 +470,6 @@ fr-CA:
             pending: En attente
             rejected: Rejeté
             verified: Vérifié
-        taxonomies:
-          taxonomy_id_eq:
-            label: Taxonomie
       forms:
         file_help:
           import:
@@ -559,8 +559,6 @@ fr-CA:
         logs_list:
           no_logs_yet: Il n'y a pas encore de journaux d'activité.
           no_matching_logs: Il n'y a pas de journaux avec les filtres de recherche fournis. Essayez de les modifier et réessayez.
-      manage_trash:
-        deleted_items_warning: Vous visualisez actuellement des éléments de la corbeille. Pour effectuer des modifications ou des modifications, vous devez d'abord les restaurer.
       managed_users:
         promotion:
           error: Une erreur s'est produite lors de la promotion de l'utilisateur représenté.
@@ -592,11 +590,9 @@ fr-CA:
         scopes: Périmètres d’application
         see_site: Voir le site
         settings: Paramètres
-        share_tokens: Liens d'accès
         static_page_topics: Sujets
         static_pages: Pages
-        taxonomies: Taxonomies
-        taxonomy_filters: Filtres de taxonomie
+        user_groups: Groupes d'utilisateurs
         users: Utilisateurs
       metrics:
         metrics:
@@ -649,11 +645,12 @@ fr-CA:
             plural: Pluriel
         share_token:
           fields:
-            actions: Actions
+            created_at: Créée le
             expires_at: Expire le
-            registered_only: Enregistrés uniquement ?
+            last_used_at: Dernière utilisation
             times_used: Nombre d'utilisations
-            token: Lien d’accès
+            token: Jeton
+            user: Créé par
         static_page:
           fields:
             created_at: Créée le
@@ -669,31 +666,27 @@ fr-CA:
               admin: Administrateur
               user_manager: Représentant de l'utilisateur
           name: Utilisateur
+        user_group:
+          fields:
+            actions: Actions
+            created_at: Créé le
+            document_number: Numéro de document
+            name: Nom
+            nickname: Pseudonyme
+            phone: Téléphone
+            state: État
+            users_count: Nombre d'utilisateurs
       moderated_users:
         index:
           actions:
             block: Bloquer l'utilisateur
-            bulk_actions:
-              actions_dropdown: Actions
-              block:
-                title: Bloquer
-                update_moderated_user_button: Bloquer des participants
-              unblock:
-                title: Débloquer
-                update_moderated_user_button: Débloquer les participants
-              unreport:
-                title: Annuler le signalement
-            ignore:
-              update_moderated_user_button: Annuler les signalements
             title: Actions
             unblock: Débloquer l'utilisateur
             unreport: Annuler le signalement
-          cancel: Annuler
           name: Nom
           nickname: Pseudonyme
           reason: Raison du signalement
           reports: Nombre de signalements
-          selected: Sélectionné
           title: Participants signalés
         report:
           reasons:
@@ -705,26 +698,12 @@ fr-CA:
           unblocked: Non bloqué
       moderations:
         index:
-          actions:
-            actions_dropdown: Actions
-            hide:
-              title: Masquer
-              update_moderation_button: Masquer les ressources sélectionnées
-            unhide:
-              title: Afficher
-              update_moderation_button: Afficher les ressources sélectionnées
-            unreport:
-              title: Annuler le signalement
-              update_moderation_button: Annuler le signalement des ressources sélectionnées
-          cancel: Annuler
-          selected: sélectionné
           title: Contenu signalé
         report:
           reasons:
             does_not_belong: N'appartient pas
             hidden_during_block: Masqué pour blocage de l'utilisateur
             offensive: Agressif
-            parent_hidden: Le contenu parent a été masqué
             spam: Spam
         reports:
           index:
@@ -741,11 +720,6 @@ fr-CA:
             report_language: Langue d'origine du signalement
             report_reason: Motif
             title: Détails du signalement
-      new_import:
-        accepted_mime_types:
-          csv: CSV
-          json: JSON
-          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Aperçu
@@ -755,10 +729,6 @@ fr-CA:
           preview: 'Prévisualiser le modèle: %{template_name}'
           use_template: Utiliser ce modèle
       newsletters:
-        confirm_recipients:
-          email: Email
-          name: Nom
-          title: Confirmer les destinataires
         create:
           error: Il y a eu une erreur lors de la création de cette newsletter.
           success: Bulletin d'information créé avec succès. Veuillez le vérifier avant de l'envoyer.
@@ -778,14 +748,12 @@ fr-CA:
           confirm_delete: Êtes-vous sûr de vouloir supprimer cette newsletter ?
           followers: 'abonnés '
           has_been_sent_to: 'A été envoyé à : '
+          no_scopes: Aucun secteur
           not_sent: Envoi non effectué
           participants: 'participants '
-          private_members: 'membres privés '
           segmented_to: 'Segmenté à %{subject}: '
           subscribed_count: 'Abonné:'
           title: Newsletters
-          verification_types: 'Types de vérification : %{types}'
-          verified_users: Utilisateurs vérifiés
         new:
           save: Enregistrer
           title: Nouvelle newsletter
@@ -793,24 +761,16 @@ fr-CA:
           all_spaces: Tous
           all_users_help: Envoie la newsletter à tous les utilisateurs confirmés.
           confirm_deliver: Êtes-vous sûr de vouloir envoyer cette newsletter ? Cette action ne peut pas être annulée.
-          confirm_recipients: Confirmer les destinataires
           deliver: Envoyer la newsletter
           followers_help: Envoie la newsletter à tous les utilisateurs confirmés qui suivent les espaces participatifs sélectionnés dans la liste.
+          none: Aucun
           participants_help: Envoie la newsletter à tous les utilisateurs confirmés qui ont participé à l'un des espaces participatifs sélectionnés dans la liste.
-          private_members_help: Envoie une newsletter à tous les utilisateurs confirmés qui ont été ajoutés aux espaces privés participatifs sélectionnés.
           recipients_count: Cette newsletter sera envoyé à <strong id='recipients_count'>%{count}</strong> users.
-          select_assemblies: Choisissez les assemblées
-          select_conferences: Choisissez les conférences
-          select_initiatives: Choisir des pétitions
-          select_participatory_processes: Choisissez les processus participatifs
+          scopes_help: Envoie la newsletter aux utilisateurs qui ont un secteur sélectionné dans les paramètres "Mes intérêts".
+          select_scopes: Filtrer pour les utilisateurs ayant activé un secteur dans les paramètres "Mes intérêts".
           select_spaces: Sélectionnez les espaces pour segmenter la newsletter
-          select_users_for_participatory_space: Envoyer la newsletter à un ou plusieurs espaces participatifs
-          select_users_general: Envoyer la newsletter générale
-          select_verification_types: Choisissez les méthodes de vérification
-          send_to_all_users: Envoyer à tous
-          send_to_verified_users: Envoyer aux utilisateurs vérifiés
+          select_users: Sélectionnez les utilisateurs à qui vous souhaitez envoyer la newsletter
           title: Sélectionner les destinataires
-          verified_users_help: Envoie une newsletter à tous les utilisateurs confirmés et vérifiés via n'importe quelle méthode de vérification sélectionnée.
           warning: "<strong>Attention :</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir newsletters</em> dans leurs paramètres de notifications."
         send:
           no_recipients: Selon votre sélection, cette newsletter ne sera envoyée à aucun destinataire.
@@ -828,13 +788,6 @@ fr-CA:
         block:
           error: Une erreur s'est produite lors du blocage du participant.
           success: Participant bloqué avec succès.
-        bulk_action:
-          block:
-            invalid: Une erreur s'est produite lors du blocage du participant.
-            success: Participants bloqués avec succès.
-          unblock:
-            invalid: Une erreur s'est produite lors du déblocage des participants.
-            success: Participants débloqués avec succès.
         create:
           success: Utilisateur validé avec succès.
         destroy:
@@ -927,26 +880,12 @@ fr-CA:
         destroy:
           error: Une erreur s'est produite lors de la suppression d'un utilisateur privé pour cet espace participatif.
           success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
-        edit:
-          title: Modifier le participant privé de l'espace participatif.
-          update: Mettre à jour
         index:
           import_via_csv: Importer via csv
-          publish_all: Tout publier
           title: Utilisateur privé de l'espace participatif
-          unpublish_all: Tout dépublier
         new:
           create: Créer
           title: Nouvel utilisateur privé de l'espace participatif.
-        publish_all:
-          error: Une erreur s'est produite lors de la publication de tous les participants privés pour cet espace participatif.
-          success: Tous les participants privés ont été publiés avec succès pour cet espace participatif
-        unpublish_all:
-          error: Une erreur s'est produite lors de la dépublication de tous les participants privés pour cet espace participatif.
-          success: Tous les participants privés ont été dépubliés avec succès pour cet espace participatif
-        update:
-          error: Une erreur s'est produite lors de la mise à jour du participant privé pour cet espace participatif.
-          success: Participant privé de l'espace participatif mis à jour avec succès
       participatory_space_private_users_csv_imports:
         create:
           invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
@@ -979,10 +918,12 @@ fr-CA:
         edit:
           submit: Soumettre
           title: Modifier les autorisations
-        options_form:
-          ephemeral_warning: Afin d'activer cette méthode d'autorisation, vous devez <a href="%{path}">révoquer</a> toutes les autorisations existantes. Cela minimise le risque de conflits de vérification. Toutes les autorisations de ce type seront automatiquement révoquées dans l'organisation si vous soumettez des modifications en ajoutant cette méthode ou en modifiant sa configuration une fois ajoutée.
         update:
           success: Autorisations mises à jour avec succès.
+      resources:
+        index:
+          headers:
+            scope: Secteur
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de secteur.
@@ -1002,7 +943,6 @@ fr-CA:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d’application.
           success: Périmètre d'application créé avec succès.
-        deprecated: Gardez à l'esprit que les secteurs sont dépréciés et seront supprimés dans les versions futures. Veuillez utiliser des taxonomies à la place. Le seul module actuellement en utilisant des portées est le module des pétitions.
         destroy:
           success: Le secteur a été supprimé avec succès.
         edit:
@@ -1017,50 +957,16 @@ fr-CA:
           success: Périmètre d'application mis à jour avec succès
       share_tokens:
         actions:
-          confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer cet accès?
-          copy_link: Copier le lien
+          confirm_destroy: Souhaitez-vous vraiment supprimer ce jeton?
           destroy: Supprimer
-          edit: Modifier
-          preview: Aperçu
-        create:
-          invalid: Un problème est survenu lors de la génération du lien d'accès.
-          success: Lien d'accès créé avec succès.
+          share: Partager
         destroy:
-          error: Un problème est survenu lors de la suppression du lien d'accès.
-          success: Lien d'accès supprimé avec succès.
-        edit:
-          title: 'Modifier les liens d''accès pour: %{name}'
-          update: Mettre à jour
-        form:
-          automatic: Automatique
-          custom: Personnalisé
-          custom_expiration: Expiration personnalisée
-          custom_token: Mot personnalisé
-          expires_at: Expire le
-          'false': 'Non'
-          never_expire: Jamais
-          registered_only: Enregistrés uniquement ?
-          token: Clé d'accès
-          'true': 'Oui'
-        index:
-          back_to_share_tokens: Retour aux liens d'accès
-          copied: Lien d'accès copié !
-          copy_message: Le texte a été copié dans le presse-papiers.
-          create_new_token: Créez votre premier lien d'accès !
-          empty_html: Il n'y a pas de liens d'accès actifs. %{new_token_link}
-          never: Jamais
-          new_share_token_button: Nouveau lien d'accès
-          share_tokens_help_html: |
-            Créer et partager un lien d'accès pour autoriser d'autres personnes à voir cette ressource non publiée.
-            Les liens d'accès peuvent être valides uniquement pour les participants enregistrés ou peuvent avoir une date d'expiration si nécessaire.
-            Pour partager un nouveau lien d'accès avec quelqu'un, créez-le puis copiez le lien en utilisant l'icône d'action représentant le "%{clipboard} presse-papier".
-          title: 'Liens d''accès pour: %{name}'
-        new:
-          create: Créer
-          title: 'Nouveau lien d''accès pour : %{name}'
-        update:
-          error: Une erreur s'est produite lors de la mise à jour de cet accès.
-          success: Lien d'accès mis à jour avec succès.
+          error: Une erreur s'est produite lors de la destruction du jeton.
+          success: Jeton détruit avec succès.
+        share_tokens:
+          empty: Il n'y a pas de jeton actif.
+          help: Ces jetons sont utilisés pour partager cette ressource non publiée à n'importe quel utilisateur. Ils seront cachés dès que la ressource sera publiée. Cliquez sur l'icône du jeton pour visiter l'URL partageable.
+          title: Partager les jetons
       shared:
         adjacent_navigation:
           next: Suivant
@@ -1081,7 +987,7 @@ fr-CA:
           title: Modifier le sujet
           update: Mettre à jour le sujet
         new:
-          create: Nouveau sujet
+          create: Créer un sujet
           title: Nouveau sujet
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce sujet.
@@ -1105,7 +1011,7 @@ fr-CA:
         index:
           last_notable_change: Dernier changement notable
         new:
-          create: Nouvelle page
+          create: Créer une page
           title: Nouvelle page
         topic:
           empty: Il n'y a aucune page dans ce sujet.
@@ -1113,52 +1019,6 @@ fr-CA:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
           success: Page mise à jour avec succès.
-      taxonomies:
-        actions:
-          actions: Actions
-          destroy: Supprimer la taxonomie et les éléments
-          edit: Modifier la taxonomie et les éléments
-          filters: Gérer les filtres
-        breadcrumb:
-          edit: Modifier la taxonomie
-          new: Nouvelle taxonomie
-        count: Ressources associées
-        total_filters: Filtres
-      taxonomy_filters:
-        breadcrumb:
-          edit: Modifier le filtre
-          filters: Filtres
-          new: Nouveau filtre
-        edit:
-          back: Revenir en arrière
-          title: Modifier le filtre de taxonomie
-          update: Mettre à jour le filtre de taxonomie
-        form:
-          space_filter: Disponible comme filtre pour
-        index:
-          description: Un filtre de taxonomie permet aux administrateurs de trier et de filtrer les espaces participatifs selon une taxonomie. Par exemple, ajoutez un filtre de taxonomie pour trier les processus par étendue géographique.
-          empty: Il n'y a actuellement aucun filtre de taxonomie. Créez une liste de filtres de taxonomie ici pour trier et filtrer les espaces participatifs basés sur une taxonomie.
-          new_filter: Nouveau filtre
-        new:
-          back: Revenir en arrière
-          create: Créer un filtre de taxonomie
-          title: Nouveau filtre de taxonomie
-        table:
-          actions: Actions
-          components_count: Composants utilisant ceci
-          destroy: Supprimer
-          edit: Modifier
-        update:
-          error: Il y a eu un problème lors de la mise à jour de ce filtre de taxonomie.
-          success: Filtre de taxonomie mis à jour avec succès.
-      taxonomy_filters_selector:
-        new:
-          items_count: "%{count} éléments"
-          save: Enregistrer
-        show:
-          items_count: "%{count} éléments"
-        taxonomies_select:
-          filters: Filtres
       titles:
         admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée
@@ -1179,16 +1039,34 @@ fr-CA:
         scope_types: Types de secteur
         scopes: Périmètres d'application
         statistics: Activité
+        user_groups: Groupes d'utilisateurs
         users: Administrateurs
-      tooltips:
-        deleted_component_info: Ce composant ne peut être supprimé que si son statut est 'non publié'.
-      trash_management:
-        restore:
-          invalid: Il y a eu un problème lors de la restauration de %{resource_name}.
-          success: "%{resource_name} restauré(e) avec succès."
-        soft_delete:
-          invalid: Il y a eu un problème lors de la suppression de %{resource_name}.
-          success: "%{resource_name} supprimé(e) avec succès."
+      user_group:
+        csv_verify:
+          invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
+          success: Le fichier CSV a été téléchargé avec succès, une vérification des groupes correspondant aux critères est en cours. Cela peut prendre quelques instants.
+        reject:
+          invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
+          success: Groupe d'utilisateurs refusé avec succès.
+        verify:
+          invalid: Une erreur s'est produite lors de la vérification de ce groupe d'utilisateurs.
+          success: Groupe d'utilisateurs vérifié avec succès.
+      user_groups:
+        index:
+          state:
+            pending: En attente
+            rejected: Non validés
+            verified: Vérifié
+          verify_via_csv: Vérifier via CSV
+      user_groups_csv_verifications:
+        new:
+          example_file: 'Fichier d''exemple :'
+          explanation: Téléchargez votre fichier CSV. Les courriels officiels des groupes d'utilisateurs de votre organisation doivent figurer dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs ayant confirmé leur courrier électronique et ayant un courrier électronique dans le fichier CSV seront validés.
+          explanation_example: |
+            acme@exemple.org
+            bubba.gump@exemple.org
+          title: Téléchargez votre fichier CSV
+          upload: Télécharger
       users:
         create:
           error: Une erreur s'est produite lors de l'invitation de cet utilisateur.
@@ -1271,5 +1149,3 @@ fr-CA:
       admin:
         global_moderations:
           title: Modération globale
-        taxonomy_filters_selector:
-          title:

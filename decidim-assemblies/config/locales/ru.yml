@@ -1,6 +1,9 @@
+---
 ru:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Название
       assembly:
         area_id: Участок
         assembly_type: Вид собрания
@@ -16,6 +19,7 @@ ru:
         created_by_other: Создано кем-то еще
         creation_date: Дата создания
         decidim_area_id: Участок
+        decidim_assemblies_type_id: Вид собрания
         decidim_scope_id: Охват
         description: Описание
         developer_group: Рабочая группа по продвижению
@@ -27,6 +31,7 @@ ru:
         hero_image: Изображение главной страницы
         included_at: Включено в
         instagram: Инстаграм
+        internal_organisation: Внутренняя организация
         is_transparent: Прозрачное
         local_area: Участок организации
         meta_scope: Метаданные охвата
@@ -37,6 +42,8 @@ ru:
         promoted: Рекомендуется
         published_at: 'Обнародовано:'
         purpose_of_action: Цель действия
+        scope_id: Охват
+        scopes_enabled: Охваты включены
         short_description: Краткое описание
         slug: Сокращенный веб-адрес
         special_features: Особенности
@@ -80,6 +87,7 @@ ru:
       assemblies:
         create:
           error: При попытке добавить новое собрание произошла ошибка.
+          success: Собрание успешно добавлено.
         edit:
           update: Обновить
         index:
@@ -96,11 +104,29 @@ ru:
         create:
           error: При попытке создать копию этого собрания произошла ошибка.
           success: Успешно создана копия собрания.
+      assemblies_types:
+        new:
+          create: Добавить
       assembly_copies:
         new:
           copy: Копировать
           select: Выберите, какие данные вы хотите продублировать
           title: Создать копию собрания
+      assembly_members:
+        create:
+          error: При попытке добавить члена президиума этого собрания произошла ошибка.
+          success: Член президиума этого собрания успешно добавлен.
+        destroy:
+          success: Член президиума этого собрания успешно удален.
+        edit:
+          update: Обновить
+        index:
+          assembly_members_title: Члены президиума собрания
+        new:
+          create: Добавить
+        update:
+          error: При попытке обновить члена президиума этого собрания произошла ошибка.
+          success: Член президиума этого собрания успешно обновлен.
       assembly_publications:
         create:
           error: При обнародовании этого собрания произошла ошибка.
@@ -123,16 +149,25 @@ ru:
         update:
           error: При попытке обновить члена президиума этого собрания произошла ошибка.
           success: Участник этого собрания успешно обновлен.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Вид собрания
       menu:
         assemblies: Собрания
         assemblies_submenu:
           assembly_admins: Участники собрания
+          assembly_members: Члены президиума
           attachment_collections: Папки
           attachment_files: Прикрепленные файлы
           attachments: Прикрепленные файлы
+          categories: Категории
           components: Составляющие
           moderations: Действия по модерации
       models:
+        assemblies_types:
+          fields:
+            created_at: 'Добавлено:'
+            title: Название
         assembly:
           fields:
             created_at: 'Добавлено:'
@@ -142,6 +177,11 @@ ru:
             title: Название
           name: Собрание
         assembly_member:
+          fields:
+            ceased_date: Дата прекращения полномочий
+            designation_date: Дата предоставления полномочий
+            full_name: Имя
+            position: Должность
           name: Член президиума
           positions:
             other: Другая
@@ -180,8 +220,20 @@ ru:
           form:
             duration_help: Если длительность этого собрания ограничена, выберите дату окончания. В противном случае оно будет отображаться как бессрочное.
             select_a_created_by: Укажите, кем создано
+            select_an_area: Выберите участок
+            select_an_assembly_type: Выберите вид собрания
             social_handlers: Социальные сети
             title: Общие сведения
+        assemblies_types:
+          form:
+            title: Название
+        assembly_members:
+          form:
+            existing_user: Существующий участник
+            non_user: Не участник
+            select_a_position: Выберите должность
+            select_user: Выберите участника
+            user_type: Вид участника
       assemblies:
         filters:
           names:
@@ -189,6 +241,9 @@ ru:
       assembly_members:
         index:
           members: Члены президиума
+      assembly_types:
+        commission: Комиссия
+        others: Другие
       content_blocks:
         highlighted_assemblies:
           name: Рекомендуемые собрания
@@ -203,9 +258,12 @@ ru:
           member_of:
             member_of: 'Входит в состав:'
       show:
+        assembly_type: Вид собрания
         duration: Длительность
         private_space: Это частное собрание
     assembly_members:
+      assembly_member:
+        designated_on: 'Полномочия предоставлены:'
       index:
         title: Члены президиума
     log:

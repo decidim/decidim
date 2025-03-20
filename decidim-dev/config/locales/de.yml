@@ -1,9 +1,7 @@
+---
 de:
   activemodel:
     attributes:
-      dummy:
-        image: Bild
-      dummy_attribute: Dummy-Attribut
       dummy_resource:
         created_at: Erstellt am
         decidim_scope_id: Umfang
@@ -17,7 +15,6 @@ de:
       dummy:
         settings:
           global:
-            clear_all: Alles löschen
             guided: Geführte Eingabe
             guided_help: Hilfetext
             guided_readonly: Deaktivierte Eingabe
@@ -26,7 +23,6 @@ de:
             guided_rich_readonly_html: HTML <strong>Hilfe</strong> Text für deaktivierte Eingabe
             readonly_attribute: Attribut schreibgeschützt
             test: Test A
-            test_add: Test hinzufügen
             test_choices:
               a: Wahl A
               b: Wahl B

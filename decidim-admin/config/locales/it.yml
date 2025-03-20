@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -26,6 +27,8 @@ it:
         published_at: Pubblicato il
         weight: Posizionamento
       id: ID
+      import:
+        user_group_id: Importa come
       newsletter:
         body: Testo
         subject: Oggetto
@@ -81,6 +84,7 @@ it:
         success_color: Successo
         time_zone: Fuso Orario
         tos_version: Termini di versione del servizio
+        user_groups_enabled: Abilita gruppi
         users_registration_mode: Modalità di registrazione utenti
         warning_color: Attenzione
         welcome_notification_body: Testo del messaggio di Benvenuto
@@ -142,6 +146,8 @@ it:
         attachment:
           new: Nuovo allegato
         browse: Naviga
+        category:
+          new: Nuova categoria
         export: Esporta tutto
         export-selection: Esporta selezione
         import: Importazione
@@ -152,9 +158,9 @@ it:
           new: Nuovo utente dello spazio partecipativo privato
         per_page: Per pagina
         permissions: Permessi
+        reject: Rifiuta
         share: Condividi
-        share_tokens: Link di accesso
-        soft_delete:
+        verify: Verifica
       area_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di area.
@@ -225,8 +231,23 @@ it:
           justification: Motivazione
           title: Blocca utente %{name}
       categories:
+        create:
+          error: Si è verificato un errore durante la creazione di questa categoria.
+          success: OK, la categoria è stata creata.
+        destroy:
+          error: Si è verificato un errore durante la cancellazione di questa categoria. Assicurarsi di aver cancellato prima di tutto le eventuali sotto-categorie, assicurarsi che nessuna altra entità appartenga questa categoria e provare di nuovo.
+          success: OK, categoria cancellata.
+        edit:
+          title: Modifica categoria
+          update: Aggiorna
         index:
           categories_title: Categorie
+        new:
+          create: Crea nuova categoria
+          title: Nuova categoria
+        update:
+          error: Si è verificato un errore aggiornando questa categoria.
+          success: OK, la categoria è stata aggiornata.
       component_permissions:
         update:
           error: Si è verificato un problema durante l'aggiornamento dei permessi di questo componente.
@@ -235,6 +256,9 @@ it:
         create:
           error: Si è verificato un errore durante la creazione di questo componente.
           success: Componente creato con successo.
+        destroy:
+          error: C'è stato un errore nell'eliminare questo componente.
+          success: Componente cancellato con successo.
         edit:
           title: Modifica componente
           update: Aggiorna
@@ -247,6 +271,7 @@ it:
           headers:
             actions: Azioni
             name: Nome del componente
+            scope: Ambito del componente
             type: Tipo di componente
         new:
           add: Aggiungi componente
@@ -284,6 +309,8 @@ it:
           FormPDF: PDF
           JSON: JSON
       filters:
+        category_id_eq:
+          label: Categorie
         filter_label: Filtro
         invitation_accepted_at_present:
           label: Invito accettato
@@ -295,10 +322,6 @@ it:
           values:
             'false': 'No'
             'true': 'Sì'
-        moderated_users:
-          reports_reason_eq:
-            values:
-              does_not_belong:
         moderations:
           reportable_type_string_eq:
             label: Tipo
@@ -328,6 +351,8 @@ it:
           values:
             'false': Pubblicato
             'true': Non pubblicato (nascosto)
+        scope_id_eq:
+          label: Obiettivi
         search_label: Ricerca
         search_placeholder:
           name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
@@ -420,6 +445,7 @@ it:
         scopes: Ambito tematico
         settings: Impostazioni
         static_pages: Pagine
+        user_groups: Gruppi
         users: Partecipanti
       metrics:
         metrics:
@@ -472,8 +498,12 @@ it:
             plural: Plurale
         share_token:
           fields:
+            created_at: Creato il
             expires_at: Scade il
+            last_used_at: Ultimo utilizzo
             times_used: Volte usate
+            token: Token
+            user: Creata da
         static_page:
           fields:
             created_at: Creato il
@@ -488,6 +518,15 @@ it:
               admin: Amministratrice/tore
               user_manager: Responsabile del partecipante
           name: Utente
+        user_group:
+          fields:
+            actions: Azioni
+            created_at: Creato il
+            document_number: Numero del documento
+            name: Nome
+            phone: Telefono
+            state: Stato
+            users_count: Conteggio dei partecipanti
       moderated_users:
         index:
           actions:
@@ -556,6 +595,7 @@ it:
           confirm_delete: Sei sicuro di voler cancellare questa newsletter?
           followers: 'followers '
           has_been_sent_to: 'E'' stata inviata a: '
+          no_scopes: Nessun ambito
           not_sent: Non inviato
           participants: 'partecipanti '
           segmented_to: 'Segmentato a %{subject}: '
@@ -570,10 +610,13 @@ it:
           confirm_deliver: Sei certo di voler inviare questa Newsletter?  Questa azione sarà irrevocabile.
           deliver: Invia la newsletter
           followers_help: Invia newsletter a tutti gli utenti confermati che seguono tutti gli spazi partecipativi selezionati nella lista.
+          none: Nessuna
           participants_help: Invia newsletter a tutti gli utenti confermati che hanno partecipato a uno degli spazi partecipativi selezionati nella lista.
           recipients_count: Questa newsletter verrà inviata agli utenti <strong id='recipients_count'>%{count}</strong>.
+          scopes_help: Invia newsletter agli utenti che hanno uno dei campi selezionati attivati nelle impostazioni "I miei interessi".
+          select_scopes: Filtra per gli utenti che hanno attivato qualsiasi ambito selezionato nelle impostazioni interessi personali del proprio account.
           select_spaces: Selezionare gli spazi per segmentare la newsletter
-          send_to_all_users: Invia a tutti gli utenti
+          select_users: Seleziona gli utenti a cui desideri inviare la newsletter
           title: Seleziona destinatari a cui inviare
           warning: "<strong>Attenzione:</strong> Questa newsletter sarà inviata solo agli utenti che hanno attivato <em>Voglio ricevere newsletter</em> nelle impostazioni delle notifiche."
         show:
@@ -654,8 +697,6 @@ it:
           title: Nuovo utente privato dello spazio partecipativo.
       participatory_space_private_users_csv_imports:
         new:
-          csv_upload:
-            title: Carica il tuo file CSV
           upload: Carica File
       reminders:
         create:
@@ -668,6 +709,10 @@ it:
           title: Modifica permessi
         update:
           success: Autorizzazioni aggiornate correttamente.
+      resources:
+        index:
+          headers:
+            scope: Obiettivi
       scope_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di ambito.
@@ -699,7 +744,15 @@ it:
           success: OK, l'àmbito è stato aggiornato.
       share_tokens:
         actions:
+          confirm_destroy: Sei sicuro di voler eliminare questo token?
           destroy: Elimina
+          share: Condividi
+        destroy:
+          error: Si è verificato un problema durante la distruzione del token.
+          success: Token eliminato correttamente.
+        share_tokens:
+          help: Questi token sono utilizzati per condividere pubblicamente questa risorsa non pubblicata con qualsiasi utente. Saranno nascosti al momento della pubblicazione della risorsa. Clicca sull'icona di condivisione del token per visitare l'URL condivisibile.
+          title: Condividi token
       shared:
         gallery:
           add_images: Aggiungi immagini
@@ -712,6 +765,7 @@ it:
           title: Modifica argomento
           update: Aggiorna argomento
         new:
+          create: Crea argomento
           title: Nuovo argomento
         update:
           error: Si è verificato un errore durante l'aggiornamento di questo argomento.
@@ -732,6 +786,7 @@ it:
         index:
           last_notable_change: Ultimo cambiamento significativo
         new:
+          create: Crea pagina
           title: Nuova pagina
         topic:
           without_topic: Pagine senza argomento
@@ -751,6 +806,26 @@ it:
         scope_types: Tipi di ambito
         scopes: Ambiti
         statistics: Attività
+        user_groups: Gruppi di utenti
+      user_group:
+        csv_verify:
+          invalid: Si è verificato un errore durante la lettura del file CSV.
+        reject:
+          invalid: Si è verificato un errore rifiutando questo gruppo di utenti.
+        verify:
+          invalid: Si è verificato un errore durante la verifica di questo gruppo di utenti.
+      user_groups:
+        index:
+          state:
+            pending: in attesa di
+            rejected: Rifiutata
+            verified: Verificato
+          verify_via_csv: Verifica tramite CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Carica il tuo file CSV. Deve avere le e-mail ufficiali dei gruppi di utenti nella tua organizzazione nella prima colonna del file, senza intestazioni. Verranno convalidati solo i gruppi di utenti che hanno confermato la loro e-mail e che hanno una e-mail che appare nel file CSV.
+          title: Carica il tuo file CSV
+          upload: Caricare
       users:
         create:
           error: Si è verificato un problema durante l'invito a questo amministratore.

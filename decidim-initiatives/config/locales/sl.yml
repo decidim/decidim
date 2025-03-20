@@ -1,3 +1,4 @@
+---
 sl:
   activemodel:
     attributes:
@@ -11,7 +12,9 @@ sl:
             label: Področje
           state_eq:
             values:
+              created: Ustvarjeno
               discarded: Zavrženo
+              published: Objavljeno
           type_id_eq:
             label: Tip
     initiatives:

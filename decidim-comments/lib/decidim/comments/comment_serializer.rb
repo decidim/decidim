@@ -19,6 +19,10 @@ module Decidim
           },
           alignment: resource.alignment,
           depth: resource.depth,
+          user_group: {
+            id: resource.user_group.try(:id),
+            name: resource.user_group.try(:name) || empty_translatable
+          },
           commentable_id: resource.decidim_commentable_id,
           commentable_type: resource.decidim_commentable_type,
           root_commentable_url:

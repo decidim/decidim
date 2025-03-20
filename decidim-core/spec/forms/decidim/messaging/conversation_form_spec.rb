@@ -55,6 +55,12 @@ module Decidim
 
         it { is_expected.to be_invalid }
       end
+
+      context "when sender is a group" do
+        let(:sender) { create(:user_group) }
+
+        it { is_expected.to be_valid }
+      end
     end
   end
 end

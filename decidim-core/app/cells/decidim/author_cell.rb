@@ -72,7 +72,7 @@ module Decidim
     end
 
     def show_icons?
-      options[:show_icons] != false && layout != :compact
+      layout != :compact
     end
 
     def context_actions

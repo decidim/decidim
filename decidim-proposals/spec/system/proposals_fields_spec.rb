@@ -6,12 +6,10 @@ describe "Proposals" do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let(:root_taxonomy) { create(:taxonomy, organization:) }
-  let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
-  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
-  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:scope) { create(:scope, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
-  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
+  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
@@ -41,10 +39,32 @@ describe "Proposals" do
                  :with_creation_enabled,
                  manifest:,
                  participatory_space: participatory_process,
-                 settings: { taxonomy_filters: taxonomy_filter_ids })
+                 settings: { scopes_enabled: true, scope_id: participatory_process.scope&.id })
         end
 
         let(:proposal_draft) { create(:proposal, :draft, component:, users: [user]) }
+
+        context "when process is not related to any scope" do
+          it "can be related to a scope" do
+            visit edit_draft_proposal_path(component, proposal_draft)
+
+            within "form.edit_proposal" do
+              expect(page).to have_content(/Scope/i)
+            end
+          end
+        end
+
+        context "when process is related to a leaf scope" do
+          let(:participatory_process) { scoped_participatory_process }
+
+          it "cannot be related to a scope" do
+            visit edit_draft_proposal_path(component, proposal_draft)
+
+            within "form.edit_proposal" do
+              expect(page).to have_no_content("Scope")
+            end
+          end
+        end
 
         it "creates a new proposal", :slow do
           visit edit_draft_proposal_path(component, proposal_draft)
@@ -52,7 +72,8 @@ describe "Proposals" do
           within ".edit_proposal" do
             fill_in :proposal_title, with: "More sidewalks and less roads"
             fill_in :proposal_body, with: "Cities need more people, not more cars"
-            select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
+            select translated(category.name), from: :proposal_category_id
+            select translated(scope.name), from: :proposal_scope_id
 
             find("*[type=submit]").click
           end
@@ -65,32 +86,9 @@ describe "Proposals" do
           expect(page).to have_content("successfully")
           expect(page).to have_content("More sidewalks and less roads")
           expect(page).to have_content("Cities need more people, not more cars")
-          expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+          expect(page).to have_content(translated(category.name))
+          expect(page).to have_content(translated(scope.name))
           expect(page).to have_author(user.name)
-        end
-
-        context "when no taxonomy filter is selected" do
-          let(:taxonomy_filter_ids) { [] }
-
-          it "creates a proposal without taxonomies" do
-            visit edit_draft_proposal_path(component, proposal_draft)
-
-            within ".edit_proposal" do
-              fill_in :proposal_title, with: "More sidewalks and less roads"
-              fill_in :proposal_body, with: "Cities need more people, not more cars"
-              expect(page).to have_no_content(decidim_sanitize_translated(root_taxonomy.name))
-
-              find("*[type=submit]").click
-            end
-
-            click_on "Publish"
-
-            expect(page).to have_content("successfully")
-            expect(page).to have_content("More sidewalks and less roads")
-            expect(page).to have_content("Cities need more people, not more cars")
-            expect(page).to have_no_content(decidim_sanitize_translated(taxonomy.name))
-            expect(page).to have_author(user.name)
-          end
         end
 
         context "when geocoding is enabled", :serves_geocoding_autocomplete do
@@ -101,7 +99,8 @@ describe "Proposals" do
                    participatory_space: participatory_process,
                    settings: {
                      geocoding_enabled: true,
-                     taxonomy_filters: taxonomy_filter_ids
+                     scopes_enabled: true,
+                     scope_id: participatory_process.scope&.id
                    })
           end
 
@@ -118,7 +117,8 @@ describe "Proposals" do
               expect(page).to have_css("[data-decidim-map]")
               expect(page).to have_content("You can move the point on the map.")
 
-              select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
+              select translated(category.name), from: :proposal_category_id
+              select translated(scope.name), from: :proposal_scope_id
 
               find("*[type=submit]").click
             end
@@ -133,7 +133,8 @@ describe "Proposals" do
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(address)
-            expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+            expect(page).to have_content(translated(category.name))
+            expect(page).to have_content(translated(scope.name))
             expect(page).to have_author(user.name)
           end
 
@@ -190,48 +191,96 @@ describe "Proposals" do
           end
         end
 
-        context "when the user is not authorized" do
-          context "and there is only an authorization required" do
-            before do
-              permissions = {
-                create: {
-                  authorization_handlers: {
-                    "dummy_authorization_handler" => { "options" => {} }
-                  }
-                }
-              }
+        context "when the user has verified organizations" do
+          let(:user_group) { create(:user_group, :verified, organization:) }
+          let(:user_group_proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "Cities need more people, not more cars") }
 
-              component.update!(permissions:)
-            end
-
-            it "redirects to the authorization form" do
-              visit_component
-              click_on "New proposal"
-              expect(page).to have_content("We need to verify your identity")
-              expect(page).to have_content("Verify with Example authorization")
-            end
+          before do
+            create(:user_group_membership, user:, user_group:)
           end
 
-          context "and there are more than one authorization required" do
-            before do
-              permissions = {
-                create: {
-                  authorization_handlers: {
-                    "dummy_authorization_handler" => { "options" => {} },
-                    "another_dummy_authorization_handler" => { "options" => {} }
-                  }
+          it "creates a new proposal as a user group", :slow do
+            visit edit_draft_proposal_path(component, user_group_proposal_draft)
+
+            within ".edit_proposal" do
+              fill_in :proposal_title, with: "More sidewalks and less roads"
+              fill_in :proposal_body, with: "Cities need more people, not more cars"
+              select translated(category.name), from: :proposal_category_id
+              select translated(scope.name), from: :proposal_scope_id
+              select user_group.name, from: :proposal_user_group_id
+
+              find("*[type=submit]").click
+            end
+
+            click_on "Publish"
+
+            expect(page).to have_content("successfully")
+            expect(page).to have_content("More sidewalks and less roads")
+            expect(page).to have_content("Cities need more people, not more cars")
+            expect(page).to have_content(translated(category.name))
+            expect(page).to have_content(translated(scope.name))
+            expect(page).to have_author(user_group.name)
+          end
+
+          context "when geocoding is enabled", :serves_geocoding_autocomplete do
+            let!(:component) do
+              create(:proposal_component,
+                     :with_creation_enabled,
+                     manifest:,
+                     participatory_space: participatory_process,
+                     settings: {
+                       geocoding_enabled: true,
+                       scopes_enabled: true,
+                       scope_id: participatory_process.scope&.id
+                     })
+            end
+
+            let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "It will not solve everything") }
+
+            it "creates a new proposal as a user group", :slow do
+              visit edit_draft_proposal_path(component, proposal_draft)
+
+              within ".edit_proposal" do
+                fill_in :proposal_title, with: "More sidewalks and less roads"
+                fill_in :proposal_body, with: "Cities need more people, not more cars"
+                fill_in :proposal_address, with: address
+                select translated(category.name), from: :proposal_category_id
+                select translated(scope.name), from: :proposal_scope_id
+                select user_group.name, from: :proposal_user_group_id
+
+                find("*[type=submit]").click
+              end
+
+              click_on "Publish"
+
+              expect(page).to have_content("successfully")
+              expect(page).to have_content("More sidewalks and less roads")
+              expect(page).to have_content("Cities need more people, not more cars")
+              expect(page).to have_content(address)
+              expect(page).to have_content(translated(category.name))
+              expect(page).to have_content(translated(scope.name))
+              expect(page).to have_author(user_group.name)
+            end
+          end
+        end
+
+        context "when the user is not authorized" do
+          before do
+            permissions = {
+              create: {
+                authorization_handlers: {
+                  "dummy_authorization_handler" => { "options" => {} }
                 }
               }
+            }
 
-              component.update!(permissions:)
-            end
+            component.update!(permissions:)
+          end
 
-            it "redirects to pending onboarding authorizations page" do
-              visit_component
-              click_on "New proposal"
-              expect(page).to have_content("You are almost ready to create a proposal")
-              expect(page).to have_css("a[data-verification]", count: 2)
-            end
+          it "shows a modal dialog" do
+            visit_component
+            click_on "New proposal"
+            expect(page).to have_content("Authorization required")
           end
         end
 
@@ -244,9 +293,7 @@ describe "Proposals" do
                    participatory_space: participatory_process)
           end
 
-          let(:proposal_draft) do
-            create(:proposal, :draft, users: [user], component:, title: "Proposal with attachments", body: "This is my proposal and I want to upload attachments.")
-          end
+          let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "Proposal with attachments", body: "This is my proposal and I want to upload attachments.") }
 
           it "creates a new proposal with attachments" do
             visit edit_draft_proposal_path(component, proposal_draft)
@@ -265,7 +312,6 @@ describe "Proposals" do
             click_on "Publish"
 
             expect(page).to have_content("successfully")
-            expect(page).to have_content("Images")
 
             within "#panel-images" do
               expect(page).to have_css("img[src*=\"city.jpeg\"]", count: 1)
@@ -356,9 +402,7 @@ describe "Proposals" do
                  participatory_space: participatory_process)
         end
 
-        let!(:proposal_first) do
-          create(:proposal, users: [user], component:, title: "Creating my first and only proposal", body: "This is my only proposal's body and I am using it unwisely.")
-        end
+        let!(:proposal_first) { create(:proposal, users: [user], component:, title: "Creating my first and only proposal", body: "This is my only proposal's body and I am using it unwisely.") }
 
         before do
           visit_component

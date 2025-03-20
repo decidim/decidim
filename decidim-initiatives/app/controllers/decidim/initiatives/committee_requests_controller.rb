@@ -46,7 +46,7 @@ module Decidim
 
         ApproveMembershipRequest.call(membership_request) do
           on(:ok) do
-            redirect_to redirect_page, flash: {
+            redirect_to edit_initiative_path(current_initiative), flash: {
               notice: I18n.t("success", scope: "decidim.initiatives.committee_requests.approve")
             }
           end
@@ -59,7 +59,7 @@ module Decidim
 
         RevokeMembershipRequest.call(membership_request) do
           on(:ok) do
-            redirect_to redirect_page, flash: {
+            redirect_to edit_initiative_path(current_initiative), flash: {
               notice: I18n.t("success", scope: "decidim.initiatives.committee_requests.revoke")
             }
           end
@@ -67,14 +67,6 @@ module Decidim
       end
 
       private
-
-      def redirect_page
-        if request.referer&.include?("create_initiative")
-          promotal_committee_create_initiative_index_path
-        else
-          edit_initiative_path(current_initiative)
-        end
-      end
 
       def membership_request
         @membership_request ||= InitiativesCommitteeMember.where(initiative: current_participatory_space).find(params[:id])

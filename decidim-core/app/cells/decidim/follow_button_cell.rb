@@ -23,11 +23,6 @@ module Decidim
 
     private
 
-    # This method is required by action_authorized_button_to
-    def current_component
-      controller.try(:current_component)
-    end
-
     def button_classes
       options[:button_classes] || "button button__sm button__text-secondary only:m-auto"
     end

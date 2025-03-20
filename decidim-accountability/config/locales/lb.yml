@@ -1,3 +1,4 @@
+---
 lb:
   activemodel:
     attributes:
@@ -8,6 +9,8 @@ lb:
         description: Beschreiwung
         end_date: Schlussdatum
         progress: Progrès
+        project_ids: Bedeelegt Projeten
+        proposals: Bedeelegt Proposen
         start_date: Ufanksdatum
         title: Titel
         updated_at: Aktualiséiert den
@@ -100,10 +103,12 @@ lb:
       models:
         result:
           fields:
+            category: Kategorie
             created_at: Erstellt am
             end_date: Enddatum
             id: ID
             progress: Fortschritt
+            scope: Umfang
             start_date: Startdatum
             status: Status
             title: Titel
@@ -121,8 +126,12 @@ lb:
           results_count:
             one: 1 Ergebnis
             other: "%{count} Ergebnisse"
+        filters:
+          all: Alle
         home_header:
           global_status: Globaler Umsetzungsstatus
+        nav_breadcrumb:
+          global: Globale Ausführung
         search:
           search: Suche nach Aktionen
         show:
@@ -133,6 +142,10 @@ lb:
     admin:
       filters:
         results:
+          category_id_eq:
+            label: Kategorie
+          scope_id_eq:
+            label: Umfang
           status_id_eq:
             label: Status
     components:
@@ -146,6 +159,8 @@ lb:
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             display_progress_enabled: Fortschritt anzeigen
             intro: Einführung
+            scope_id: Bereich
+            scopes_enabled: Bereiche aktiviert
           step:
             comments_blocked: Kommentare blockiert
     events:

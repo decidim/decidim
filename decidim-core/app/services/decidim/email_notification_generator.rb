@@ -36,29 +36,22 @@ module Decidim
       return unless resource
       return unless event_class.types.include?(:email)
 
-      send_to_followers
-      send_to_affected_users
-    end
+      followers.each do |recipient|
+        next unless ["all", "followed-only"].include?(recipient.notification_types)
+        next if recipient.blocked?
 
-    private
+        send_email_to(recipient, user_role: :follower)
+      end
 
-    def send_to_affected_users
       affected_users.each do |recipient|
         next unless ["all", "own-only"].include?(recipient.notification_types)
-        next if recipient.deleted? || recipient.blocked?
+        next if recipient.blocked?
 
         send_email_to(recipient, user_role: :affected_user)
       end
     end
 
-    def send_to_followers
-      followers.each do |recipient|
-        next unless ["all", "followed-only"].include?(recipient.notification_types)
-        next if recipient.deleted? || recipient.blocked?
-
-        send_email_to(recipient, user_role: :follower)
-      end
-    end
+    private
 
     attr_reader :event, :event_class, :resource, :followers, :affected_users, :extra
 

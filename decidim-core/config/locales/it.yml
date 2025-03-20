@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -43,6 +44,7 @@ it:
     attributes:
       decidim/user:
         current_password: Password attuale
+        email: Email
         name: Nickname
         password: Password
         password_confirmation: Conferma della password
@@ -57,6 +59,9 @@ it:
       decidim/user:
         one: Partecipante
         other: Partecipanti
+      decidim/user_group:
+        one: Gruppo di utenti
+        other: Gruppi di utenti
   booleans:
     'false': 'No'
     'true': 'Si'
@@ -158,6 +163,7 @@ it:
       dismiss: Rimuovi notifica
     amendments:
       accepted:
+        error: Si è verificato un errore durante l'accettazione dell'emendamento.
         success: L'emendamento è stato accettato con successo.
       amendable:
         button: Modificare %{model_name}
@@ -165,6 +171,7 @@ it:
         promote_button: Promuovi a %{model_name}
         promote_confirm_text: Sei sicuro di voler promuovere questa emendazione?
       created:
+        error: Si è verificato un errore durante la creazione della proposta di emendamento.
         success: La proposta di emendamento è stata creata con successo.
       destroy_draft:
         error: C'è stato un problema nell'eliminazione della bozza di emendamento.
@@ -191,6 +198,7 @@ it:
             Questo emendamento per il %{amendable_type} %{proposal_link}
             è stato ritirato dall'autore.
       new:
+        amendment_author: Autore dell'autore
         send: Crea
         title: Crea proposta di emendamento
       preview_draft:
@@ -207,6 +215,8 @@ it:
       update_draft:
         error: C'è stato un problema nell'eliminazione della bozza di emendamento.
         success: Bozza emendamento aggiornata correttamente.
+      withdraw:
+        error: Si è verificato un errore durante il ritiro dell'emendamento.
       wizard_step_form:
         steps:
           '1': Crea il tuo emendamento
@@ -235,8 +245,10 @@ it:
       dummy_authorization_handler:
         fields:
           allowed_postal_codes: Codici postali consentiti (separati da virgole)
+          allowed_scope_id: Ambito consentito
           document_number: Numero del documento
           postal_code: Codice postale
+          scope_id: Ambito
         name: Esempio di autorizzazione
       dummy_authorization_workflow:
         name: Flusso di lavoro fittizio di autorizzazione
@@ -318,6 +330,8 @@ it:
             dummy_global_translatable_text: Testo traducibile Dummy
             enable_pads_creation: Abilita la creazione di pad
             resources_permissions_enabled: Permessi di risorse abilitati
+            scope_id: Ambito
+            scopes_enabled: Ambiti abilitati
           step:
             amendment_creation_enabled: Creazione di emendamenti abilitata
             amendment_promotion_enabled: Promozione dell'emendamento abilitata
@@ -363,6 +377,10 @@ it:
         name: Statistiche dell'organizzazione
       sub_hero:
         name: Testo in evidenza home
+    core:
+      application_helper:
+        filter_category_values:
+          all: Tutto
     devise:
       omniauth_registrations:
         new:
@@ -370,9 +388,6 @@ it:
           nickname_help: Il tuo alias in %{organization} può contenere solo lettere, numeri, '-' e '_'.
           sign_up: Completa il tuo profilo
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
-        new_tos_fields:
-          sign_up: Crea un account
-          sign_up_title: Completa l'impostazione del tuo account
       registrations:
         new:
           already_have_an_account?: Hai già un account?
@@ -384,6 +399,7 @@ it:
           username_help: Nome "pubblico" che comparirà a firma di tutti i tuoi contributi e che sarà accessibile a tutti i navigatori, anche non iscritti alla piattaforma. Ti invitiamo a utilizzare un nome di fantasia per una maggiore tutela della riservatezza.
       sessions:
         new:
+          are_you_new?: Sei nuovo nella piattaforma?
           register: Crea un account
       shared:
         newsletter_modal:
@@ -391,6 +407,8 @@ it:
             check: Controlla e continua
             uncheck: Mantieni deselezionato
           title: Iscrizioni alla newsletter
+        omniauth_buttons:
+          or: O
     doorkeeper:
       authorizations:
         new:
@@ -408,8 +426,21 @@ it:
     download_your_data:
       export:
         ready: Pronto
+      show:
+        download_data: Scarica i dati
+        download_data_description_html: |-
+          Un file contenente tutte le informazioni associate al tuo account verrà inviato a <strong>%{user_email}</strong>. Questa email conterrà un file .zip e una password per aprirlo.<br/><br/>Per decomprimere il file, avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows) o <a href="https://www.keka.io/">Keka</a> (per MacOS). Se si utilizza Linux, la maggior parte delle volte il software predefinito è sufficiente. In caso contrario, è possibile utilizzare <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
+        request_data: Richiedi dati
     editor_images:
       drag_and_drop_help: Aggiungi immagini trascinandole o incollandole.
+    endorsement_buttons_cell:
+      already_endorsed: Non mi piace
+    endorsements:
+      identities:
+        done: Fatto
+        select_identity: Seleziona identità
+    endorsers_list:
+      endorsed_by: Piace a…
     errors:
       internal_server_error:
         title: C'era un problema con il nostro server
@@ -484,6 +515,52 @@ it:
           email_outro: Hai ricevuto questa notifica perché hai fatto attività sul nostro sito web.
         level_up:
           email_outro: Hai ricevuto questa notifica perché hai fatto attività sul nostro sito web.
+      groups:
+        demoted_membership:
+          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ha rimosso i diritti di amministratore per quel gruppo.
+          email_outro: Hai ricevuto questa notifica perché sei un membro di quel gruppo.
+          email_subject: Non sei più un amministratore del gruppo %{user_group_name}!
+          notification_title: Non sei più un amministratore del gruppo <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ti ha invitato a parteciparvi.
+          email_outro: Hai ricevuto questa notifica perché sei stato invitato a un gruppo. Controlla la scheda Gruppi nel tuo profilo per approvarla.
+          email_subject: Sei stato invitato a far parte del gruppo %{user_group_name}!
+          notification_title: Sei stato invitato a far parte del gruppo <a href="%{resource_path}">%{user_group_name}</a> . Controlla la pagina <a href="%{groups_profile_tab_path}">Gruppi</a> nel tuo profilo per approvarla!
+        join_request_accepted:
+          email_intro: Congratulazioni! Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ha accettato la tua richiesta di adesione.
+          email_outro: Hai ricevuto questa notifica perché la tua richiesta di partecipazione è stata aggiornata.
+          email_subject: Sei stato accettato nel gruppo %{user_group_name}!
+          notification_title: Sei stato accettato nel gruppo <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: Qualcuno ha richiesto di unirsi al gruppo %{user_group_name} . Puoi accettarlo o rifiutarlo dalla <a href="%{resource_url}">pagina dei membri del gruppo</a>.
+          email_outro: Hai ricevuto questa notifica perché puoi gestire il gruppo %{user_group_name}.
+          email_subject: Qualcuno ha richiesto di unirsi al gruppo %{user_group_name}!
+          notification_title: Qualcuno ha richiesto di unirsi al gruppo %{user_group_name} . Puoi accettarlo o rifiutarlo dalla <a href="%{resource_path}">pagina dei membri del gruppo</a>.
+        join_request_rejected:
+          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ha respinto la tua richiesta di adesione.
+          email_outro: Hai ricevuto questa notifica perché la tua richiesta di partecipazione è stata aggiornata.
+          email_subject: La tua richiesta di aderire al gruppo %{user_group_name} è stata respinta!
+          notification_title: La tua richiesta di aderire al gruppo <a href="%{resource_path}">%{user_group_name}</a> è stata respinta.
+        promoted_to_admin:
+          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ti ha concesso i diritti di amministratore per quel gruppo.
+          email_outro: Hai ricevuto questa notifica perché sei un membro di quel gruppo.
+          email_subject: Ora sei un amministratore del gruppo %{user_group_name}!
+          notification_title: Ora sei un amministratore del gruppo <a href="%{resource_path}">%{user_group_name}</a>.
+        removed_from_group:
+          email_intro: Un amministratore del gruppo <a href="%{resource_url}">%{user_group_name}</a> ti ha rimosso da esso.
+          email_outro: Hai ricevuto questa notifica perché eri un membro di quel gruppo.
+          email_subject: Sei stato rimosso dal gruppo %{user_group_name}!
+          notification_title: Sei stato rimosso dal gruppo <a href="%{resource_path}">%{user_group_name}</a>.
+        user_group_created:
+          email_intro: Un nuovo gruppo di utenti è stato creato con il nome %{user_group_name}. Ora puoi verificarlo nel <a href="%{groups_admin_url}">pannello di amministrazione</a>.
+          email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
+          email_subject: È stato creato un nuovo gruppo di utenti
+          notification_title: Il gruppo utente %{user_group_name} è stato creato. Ora puoi verificarlo nel <a href="%{groups_admin_path}">pannello di amministratore</a>.
+        user_group_updated:
+          email_intro: Un gruppo di utenti con il nome %{user_group_name} ha aggiornato il suo profilo, lasciandolo non verificato. Ora puoi verificarlo nel <a href="%{groups_admin_url}">pannello di amministrazione</a>.
+          email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
+          email_subject: Un gruppo di utenti ha aggiornato il suo profilo
+          notification_title: Il gruppo utenti %{user_group_name} ha aggiornato il suo profilo, lasciandolo non verificato. Ora puoi verificarlo nel <a href="%{groups_admin_path}">pannello di amministratore</a>.
       reports:
         resource_hidden:
           email_intro: Un amministratore ha rimosso il tuo %{resource_type} perché è stato segnalato come %{report_reasons}.
@@ -503,11 +580,12 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: "%{nickname} ha aggiornato il proprio profilo"
           notification_title: La pagina <a href="%{resource_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
-        user_officialized:
-          email_subject: ""
     export_mailer:
       download_your_data_export:
+        click_button: 'Clicca sul link per scaricare i tuoi dati.<br/>Il file sarà disponibile fino a %{date}.<br/>Avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows), <a href="https://www.keka.io/en/">Keka</a> (per MacOS) o <a href="https://peazip.github.io">PeaZip</a> (per Linux) per aprirlo. Password: %{password}'
         download: Scaricare
+      export:
+        ready: In allegato una versione zippata (Zip) dei dati esportati.
       subject: Ecco i dati che hai chiesto di esportare per "%{name}"
     filters:
       linked_classes:
@@ -570,7 +648,50 @@ it:
           title: Badge
       description: I badge sono riconoscimenti delle azioni dei partecipanti e dei progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi.
       level: Livello %{level}
+    group_admins:
+      actions:
+        demote_admin: Rimuovi l'amministratore
+      index:
+        current_admins: 'Amministratori attuali:'
+        manage_admins: Gestisci amministratori
+    group_invites:
+      accept_invitation: Accettare
+      accept_or_reject_group_invitations: 'I seguenti gruppi ti hanno invitato a unirti a loro. Accetta o rifiuta le loro richieste:'
+      index:
+        invite: Invitare
+        invite_user: Invita un utente
+      reject_invitation: Rifiutare
+    group_members:
+      actions:
+        are_you_sure: Sei sicuro?
+        promote_to_admin: Rendere amministratore
+        remove_from_group: Rimuovi utente
+      index:
+        current_members_without_admins: 'Membri attuali (senza amministratori):'
+        manage_members: Gestisci i membri
     groups:
+      actions:
+        are_you_sure: Sei sicuro?
+      edit:
+        edit_user_group: Modifica gruppo
+        update_user_group: Gruppo di aggiornamento
+      form:
+        email_help: Email della tua organizzazione, associazione, collettivo, gruppo, ecc.
+        fill_in_for_verification: 'Compila questi campi se vuoi che il tuo gruppo sia verificato:'
+        name_help: Nome della tua organizzazione, associazione, collettivo, gruppo, ecc.
+        nickname_help: Nome utente della propria organizzazione, associazione, collettivo, gruppo, ecc. Non utilizzare spazi né accenti.
+      join:
+        success: Richiesta di unione creata con successo. Un amministratore esaminerà la tua richiesta prima di accettarti nel gruppo.
+      leave:
+        success: Gruppo lasciato con successo.
+      members:
+        accept_or_reject_join_requests: 'I seguenti utenti hanno chiesto di unirsi a questo gruppo. Accetta o rifiuta le loro richieste:'
+        accept_request: Accettare
+        reject_request: Rifiutare
+      new:
+        create_user_group: Crea un gruppo
+        new_user_group: Nuovo gruppo
+        subtitle: Crea un gruppo e invita altri utenti a partecipare per partecipare a un livello collettivo.
       roles:
         admin: Amministratore
         member: Membro
@@ -624,10 +745,30 @@ it:
       home: Home
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Hai ricevuto questo perché sei un amministratore di %{group}.
+          greeting: Ciao, %{recipient}!
+          intro: "%{manager} ha iniziato una nuova conversazione a nome di %{group}. Clicca qui per vederla:"
+          subject: "%{manager} ha iniziato una nuova conversazione come %{group}"
+        comanagers_new_message:
+          admin_in_group: Hai ricevuto questo perché sei un amministratore di %{group}.
+          greeting: Ciao, %{recipient}!
+          intro: "%{manager} ha postato nuovi messaggi in una conversazione a nome di %{group}. Clicca qui per vederli:"
+          subject: "%{manager} ha inviato nuovi messaggi come %{group}"
         new_conversation:
           greeting: Ciao, %{recipient}!
           intro: "%{sender} ha avviato una nuova conversazione con te. Clicca qui per vederlo:"
           subject: "%{sender} ha iniziato una conversazione con te"
+        new_group_conversation:
+          admin_in_group: Hai ricevuto questo perché sei un amministratore di %{group}.
+          greeting: Ciao, %{recipient}!
+          intro: "%{sender} ha iniziato una nuova conversazione con il gruppo %{group}. Clicca qui per vederla:"
+          subject: "%{sender} ha iniziato una conversazione con %{group}"
+        new_group_message:
+          admin_in_group: Hai ricevuto questo perché sei un amministratore di %{group}.
+          greeting: Ciao, %{recipient}!
+          intro: "%{sender} ha postato nuovi messaggi in una conversazione con il gruppo %{group}. Clicca qui per vederlo:"
+          subject: "%{group} ha nuovi messaggi da %{sender}"
         new_message:
           greeting: Ciao, %{recipient}!
           intro: "%{sender} ha pubblicato nuovi messaggi nella tua conversazione. Clicca qui per vederli:"
@@ -647,8 +788,6 @@ it:
           new_conversation: Nuova conversazione
           next: Successivo
           title: Conversazioni
-        reply_form:
-          placeholder: La tua risposta...
         show:
           back: Torna a tutte le conversazioni
           chat_with: Conversazione con
@@ -772,12 +911,24 @@ it:
         conversations: Conversazioni
         followers: Followers
         following: Seguiti
+        groups: gruppi
+        members: Utenti
         officialized: Partecipante ufficiale
         send_private_message: Invia messaggio privato
+      sidebar:
+        badges:
+          info: I badge vengono guadagnati eseguendo attività specifiche sulla piattaforma.
+          title: badge
       user:
-        actions:
-          edit_profile: Modifica Profilo
-          resend_email_confirmation_instructions: Rispedire le istruzioni per la conferma dell'email
+        create_user_group: Crea un gruppo
+        edit_profile: Modifica Profilo
+        edit_user_group: Modifica il profilo del gruppo
+        invite_user: Invita utente
+        join_user_group: Richiesta di iscrizione al gruppo
+        leave_user_group: Lascia il gruppo
+        manage_user_group_admins: Gestisci amministratori
+        manage_user_group_users: Gestisci i membri
+        resend_email_confirmation_instructions: Rispedire le istruzioni per la conferma dell'email
     reported_mailer:
       hide:
         hello: Ciao %{name},
@@ -799,13 +950,23 @@ it:
         subject: Un contenuto è stato denunciato
     reports:
       create:
+        error: Si è verificato un un errore. Ti preghiamo di riprovare.
         success: Il report è stato creato e sarà rivisto da un amministratore.
     resource_endorsements:
       create:
         error: C'è stato un problema durante l'azione di appoggio.
     scopes:
       global: Ambito globale
+      picker:
+        cancel: Annulla
+        change: Cambia l'ambito selezionato
+        choose: Selezionare
+        currently_selected: Ambito attualmente selezionato
+        title: Seleziona %{field}
       prompt: Seleziona un ambito
+      scopes: Ambiti
+      scopes_picker_input:
+        select_scope: 'Seleziona un ambito (attualmente: %{current})'
     search:
       results: Risultato della ricerca
       results_found_for_term: '%{count} Risultati per la ricerca: "%{term}"'
@@ -850,15 +1011,27 @@ it:
         title: Segnala un problema
       flag_user_modal:
         already_reported: Questo contenuto è già stato segnalato e sarà esaminato da un amministratore.
+        close: Chiudi
+        description: Che cosa è inappropriato riguardo all'utente?
         offensive: Vi sono contenuti razzisti, sessisti, offensivi, attacchi di carattere personale, minacce di morte o altro tipo di minacci, istigazioni al suicidio o altre forme d'odio verbale.
         report: Segnala
         spam: Contiene pubblicità, truffe, clickbait ("esca da click") o altro contenuto mirato ad attrarre traffico internet.
+        title: Segnala utente inappropriato
       floating_help:
         help: Aiuto
+      participatory_space_filters:
+        filters:
+          area: Area
+          areas: Ambiti territoriali
+          scope: Ambito
+          select_an_area: Seleziona un'area
       public_participation:
         public_participation: Mostra pubblicamente la mia presenza
       reference:
         reference: 'Riferimento: %{reference}'
+      represent_user_group:
+        represent_user_group: Rappresento un gruppo
+        select_user_group: Seleziona un gruppo
       results_per_page:
         label: 'Risultati per pagina:'
         title: Seleziona il numero di risultati per pagina
@@ -878,14 +1051,34 @@ it:
       pages_count: Pagine
       participants_count: Partecipanti
       users_count: Partecipanti
+    tags:
+      filter_results_for_category: 'Filtra i risultati per categoria: %{resource}'
+      filter_results_for_scope: 'Filtra i risultati per l''ambito: %{resource}'
     translation_bar:
       help_text: "<strong>Attenzione:</strong> Il contenuto potrebbe essere tradotto automaticamente e non essere accurato al 100%."
       show_original: Mostra testo originale
       show_translated: Mostra testo tradotto automaticamente
     user_contact_disabled: Questo partecipante non accetta messaggi diretti.
     user_conversations:
+      create:
+        existing_error: Il messaggio non può essere creato. La conversazione esiste già, riprova ora.
+        success: Conversazione iniziata con successo!
       index:
+        conversations_info: Le conversazioni sono private. Nessun altro può vederle. Una conversazione può essere avviata con qualsiasi partecipante o gruppo registrato sulla piattaforma.
+        no_conversations_warning: Non ci sono ancora conversazioni.
         time_ago: "%{time} fa"
+      reply:
+        placeholder: La tua risposta...
+        send: Invia
+      update:
+        error: Messaggio non inviato. Riprova più tardi
+    user_interests:
+      show:
+        my_interests: I miei interessi
+        update_my_interests: Aggiorna i miei interessi
+      update:
+        error: Si è verificato un errore durante l'aggiornamento dei tuoi interessi.
+        success: I tuoi interessi sono stati aggiornati con successo.
     user_report_mailer:
       notify:
         body_1: L'utente %{user} è stato segnalato da %{token}
@@ -978,7 +1171,6 @@ it:
         instruction: 'Clicca sul link sottostante per sbloccare il tuo account:'
         subject: Sblocca le istruzioni
     omniauth_callbacks:
-      add_tos_errors: I termini di servizio devono essere accettati per creare un account.
       failure: Impossibile autenticare da %{kind} perché "%{reason}".
       success: Autenticato con successo da account %{kind}.
     passwords:
@@ -1030,6 +1222,9 @@ it:
       long_words: contiene parole troppo lunghe (oltre 35 caratteri)
       must_start_with_caps: deve iniziare con una lettera maiuscola
       not_locked: non era bloccato
+      not_saved:
+        one: 'Si è verificato un errore durante l''elaborazione della tua richiesta:'
+        other: 'Ci sono stati molteplici errori durante l''elaborazione della tua richiesta:'
       too_many_marks: sta usando troppi segni di punteggiatura consecutivi (ad esempio! e?)
       too_much_caps: usa troppe lettere maiuscole (oltre il 25% del testo)
   forms:
@@ -1054,6 +1249,7 @@ it:
       footer:
         cc_by_license: Licenza Creative Commons
         decidim_logo: Logo Decidim
+        download_open_data: Scarica i file Open Data
         log_in: Accedi
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
       header:
@@ -1091,8 +1287,10 @@ it:
         authorizations: Autorizzazioni
         delete_my_account: Cancella il mio account
         my_data: I miei dati
+        my_interests: I miei interessi
         notifications_settings: Impostazioni delle notifiche
         title: Impostazioni utente
+        user_groups: gruppi
   locale:
     name: Italiano
     name_with_error: Italiano (errore!)
@@ -1131,8 +1329,6 @@ it:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
-    buttons:
-      select: Selezionare
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

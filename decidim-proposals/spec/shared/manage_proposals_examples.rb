@@ -7,8 +7,6 @@ shared_examples "manage proposals" do
   let(:participatory_process) { create(:participatory_process, :with_steps, organization:, scope: participatory_process_scope) }
   let(:participatory_process_scope) { nil }
   let(:proposal_title) { translated(proposal.title) }
-  let(:image_filename) { "city.jpeg" }
-  let(:image_path) { Decidim::Dev.asset(image_filename) }
 
   before do
     stub_geocoding(address, [latitude, longitude])
@@ -66,8 +64,16 @@ shared_examples "manage proposals" do
           it_behaves_like "having a rich text editor", "new_proposal", "full"
         end
 
-        context "when not taxonomy filters are defined" do
+        context "when process is not related to any scope" do
           let(:attributes) { attributes_for(:proposal, component: current_component) }
+
+          it "can be related to a scope" do
+            click_on "New proposal"
+
+            within "form" do
+              expect(page).to have_content(/Scope/i)
+            end
+          end
 
           it "creates a new proposal", versioning: true do
             click_on "New proposal"
@@ -75,7 +81,8 @@ shared_examples "manage proposals" do
             within ".new_proposal" do
               fill_in_i18n :proposal_title, "#proposal-title-tabs", **attributes[:title].except("machine_translations")
               fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", **attributes[:body].except("machine_translations")
-              expect(page).to have_no_content(decidim_sanitize_translated(root_taxonomy.name))
+              select translated(category.name), from: :proposal_category_id
+              select translated(scope.name), from: :proposal_scope_id
               find("*[type=submit]").click
             end
 
@@ -86,10 +93,11 @@ shared_examples "manage proposals" do
 
               expect(page).to have_content(translated(attributes[:title]))
               expect(translated(proposal.body)).to eq("<p>#{strip_tags(translated(attributes[:body]))}</p>")
-              expect(proposal.taxonomies).to eq([])
+              expect(proposal.category).to eq(category)
+              expect(proposal.scope).to eq(scope)
             end
             visit decidim_admin.root_path
-            expect(page).to have_content("created the proposal #{translated(attributes[:title])} from the merging of")
+            expect(page).to have_content("created the #{translated(attributes[:title])} proposal")
 
             visit decidim.last_activities_path
             expect(page).to have_content("New proposal: #{translated(attributes[:title])}")
@@ -101,10 +109,12 @@ shared_examples "manage proposals" do
           end
         end
 
-        context "when filters are defined" do
+        context "when process is related to a scope" do
           before do
-            component.update!(settings: { taxonomy_filters: [taxonomy_filter.id] })
+            component.update!(settings: { scopes_enabled: false })
           end
+
+          let(:participatory_process_scope) { scope }
 
           it "cannot be related to a scope, because it has no children" do
             click_on "New proposal"
@@ -120,7 +130,7 @@ shared_examples "manage proposals" do
             within ".new_proposal" do
               fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
               fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Decidim is great but it can be better"
-              select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
+              select category.name["en"], from: :proposal_category_id
               find("*[type=submit]").click
             end
 
@@ -131,23 +141,30 @@ shared_examples "manage proposals" do
 
               expect(page).to have_content("Make decidim great again")
               expect(translated(proposal.body)).to eq("<p>Decidim is great but it can be better</p>")
-              expect(proposal.taxonomies).to eq([taxonomy])
+              expect(proposal.category).to eq(category)
+              expect(proposal.scope).to eq(scope)
             end
           end
 
-          context "when geocoding is enabled", :serves_geocoding_autocomplete do
-            before do
-              current_component.update!(settings: { geocoding_enabled: true, taxonomy_filters: [taxonomy_filter.id] })
+          context "when the process scope has a child scope" do
+            let!(:child_scope) { create(:scope, parent: scope) }
+
+            it "can be related to a scope" do
+              click_on "New proposal"
+
+              within "form" do
+                expect(page).to have_content(/Scope/i)
+              end
             end
 
-            it "creates a new proposal related to the taxonomy" do
+            it "creates a new proposal related to a process scope child" do
               click_on "New proposal"
 
               within ".new_proposal" do
                 fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
                 fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Decidim is great but it can be better"
-                fill_in :proposal_address, with: address
-                select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
+                select category.name["en"], from: :proposal_category_id
+                select translated(child_scope.name), from: :proposal_scope_id
                 find("*[type=submit]").click
               end
 
@@ -158,7 +175,37 @@ shared_examples "manage proposals" do
 
                 expect(page).to have_content("Make decidim great again")
                 expect(translated(proposal.body)).to eq("<p>Decidim is great but it can be better</p>")
-                expect(proposal.taxonomies).to eq([taxonomy])
+                expect(proposal.category).to eq(category)
+                expect(proposal.scope).to eq(child_scope)
+              end
+            end
+          end
+
+          context "when geocoding is enabled", :serves_geocoding_autocomplete do
+            before do
+              current_component.update!(settings: { geocoding_enabled: true })
+            end
+
+            it "creates a new proposal related to the process scope" do
+              click_on "New proposal"
+
+              within ".new_proposal" do
+                fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
+                fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Decidim is great but it can be better"
+                fill_in :proposal_address, with: address
+                select category.name["en"], from: :proposal_category_id
+                find("*[type=submit]").click
+              end
+
+              expect(page).to have_admin_callout("successfully")
+
+              within "table" do
+                proposal = Decidim::Proposals::Proposal.last
+
+                expect(page).to have_content("Make decidim great again")
+                expect(translated(proposal.body)).to eq("<p>Decidim is great but it can be better</p>")
+                expect(proposal.category).to eq(category)
+                expect(proposal.scope).to eq(scope)
               end
             end
 
@@ -194,9 +241,10 @@ shared_examples "manage proposals" do
             within ".new_proposal" do
               fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Proposal with attachments"
               fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "This is my proposal and I want to upload attachments."
+              fill_in :proposal_attachment_title, with: "My attachment"
             end
 
-            dynamically_attach_file(:proposal_documents, image_path)
+            dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("city.jpeg"))
 
             within ".new_proposal" do
               find("*[type=submit]").click
@@ -205,7 +253,6 @@ shared_examples "manage proposals" do
             expect(page).to have_admin_callout("successfully")
 
             visit resource_locator(Decidim::Proposals::Proposal.last).path
-            expect(page).to have_content("Images")
             expect(page).to have_css("img[src*=\"city.jpeg\"]", count: 1)
           end
         end
@@ -223,6 +270,7 @@ shared_examples "manage proposals" do
               execute_script("$('#proposal_created_in_meeting').change()")
               find_by_id("proposal_created_in_meeting").set(true)
               select translated(meetings.first.title), from: :proposal_meeting_id
+              select category.name["en"], from: :proposal_category_id
               find("*[type=submit]").click
             end
 
@@ -233,6 +281,7 @@ shared_examples "manage proposals" do
 
               expect(page).to have_content("Proposal with meeting as author")
               expect(translated(proposal.body)).to eq("<p>Proposal body of meeting as author</p>")
+              expect(proposal.category).to eq(category)
             end
           end
         end

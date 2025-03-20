@@ -14,22 +14,22 @@ module Decidim
           end
         end
 
-        describe "sortition_taxonomies" do
-          let(:sortition) { double(taxonomies:) }
+        describe "sortition_category" do
+          let(:sortition) { double(category:) }
 
-          context "when taxonomy is null" do
-            let(:taxonomies) { [] }
+          context "when category is null" do
+            let(:category) { nil }
 
-            it "Returns all taxonomies" do
-              expect(helper.sortition_taxonomies(sortition)).to eq("All taxonomies")
+            it "Returns all categories" do
+              expect(helper.sortition_category(sortition)).to eq("All categories")
             end
           end
 
-          context "when taxonomy is not null" do
-            let(:taxonomies) { [double(name: { "en" => "Taxonomy name" })] }
+          context "when category is not null" do
+            let(:category) { double(name: { "en" => "Category name" }) }
 
-            it "Returns the taxonomy name" do
-              expect(helper.sortition_taxonomies(sortition)).to eq("Taxonomy name")
+            it "Returns the category name" do
+              expect(helper.sortition_category(sortition)).to eq("Category name")
             end
           end
         end

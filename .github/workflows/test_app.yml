@@ -8,7 +8,7 @@ on:
         type: string
       ruby_version:
         description: 'Ruby Version'
-        default: "3.3.4"
+        default: "3.2.2"
         required: false
         type: string
       working-directory:
@@ -54,8 +54,7 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
-      DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
-      DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
+      RUBYOPT: '-W:no-deprecated'
     services:
       validator:
         image: ghcr.io/validator/validator:latest
@@ -72,7 +71,6 @@ jobs:
           POSTGRES_PASSWORD: postgres
       redis:
         image: redis
-        ports: ["6379:6379"]
         options: >-
           --health-cmd "redis-cli ping"
           --health-interval 10s
@@ -95,6 +93,8 @@ jobs:
         with:
           chromedriver-version: ${{inputs.chrome_version}}
         name: Install Chrome version ${{inputs.chrome_version}}
+      - run: |
+          sudo apt install wkhtmltopdf
       - uses: actions/cache@v4
         id: app-cache
         with:

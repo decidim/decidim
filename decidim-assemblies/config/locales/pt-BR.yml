@@ -1,6 +1,9 @@
+---
 pt-BR:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Título
       assembly:
         announcement: Avisos
         area_id: Área
@@ -17,6 +20,7 @@ pt-BR:
         created_by_other: Criado por outro
         creation_date: Data de criação
         decidim_area_id: Área
+        decidim_assemblies_type_id: Tipo de assembleia
         decidim_scope_id: Âmbito
         description: Descrição
         developer_group: Grupo promotor
@@ -32,6 +36,7 @@ pt-BR:
         import_components: Importar componentes
         included_at: Incluído em
         instagram: Instagram
+        internal_organisation: Organização interna
         is_transparent: É transparente
         local_area: Área da organização
         meta_scope: Metadados do escopo
@@ -43,6 +48,8 @@ pt-BR:
         promoted: Destacado
         published_at: Publicado em
         purpose_of_action: Objetivo da ação
+        scope_id: Âmbito
+        scopes_enabled: Escopos ativados
         short_description: Pequena descrição
         slug: Slug de URL
         special_features: Funcionalidades especiais
@@ -89,10 +96,13 @@ pt-BR:
       actions:
         import_assembly: Importar
         new_assembly: Nova assembleia
+        new_assembly_member: Novo membro da assembleia
+        new_assembly_type: Novo tipo de assembleia
         new_assembly_user_role: Novo administrador da assembleia
       assemblies:
         create:
           error: Ocorreu um erro ao criar uma nova assembleia.
+          success: Assembleia criada com sucesso.
         edit:
           update: Atualizar
         index:
@@ -110,6 +120,18 @@ pt-BR:
         create:
           error: Ocorreu um erro ao duplicar esta assembleia.
           success: Assembleia duplicada com sucesso.
+      assemblies_types:
+        create:
+          error: Ocorreu um erro ao criar um novo tipo de assembleia.
+          success: Tipo de assembleia criado com sucesso.
+        destroy:
+          success: Tipo de assembleia excluído com sucesso.
+        new:
+          create: Criar
+          title: Novo tipo de assembleia
+        update:
+          error: Ocorreu um erro ao atualizar este tipo de assembleia.
+          success: Tipo de assembleia atualizado com sucesso.
       assembly_copies:
         new:
           copy: Cópia
@@ -123,6 +145,23 @@ pt-BR:
           import: Importar
           select: Selecione quais dados você gostaria de importar
           title: Importar assembleia
+      assembly_members:
+        create:
+          error: Ocorreu um erro ao adicionar um membro para esta assembleia.
+          success: Membro criado com sucesso para esta assembleia.
+        destroy:
+          success: Membro excluído com êxito para esta assembleia.
+        edit:
+          title: Atualizar membro da assembleia
+          update: Atualizar
+        index:
+          assembly_members_title: Membros da assembleia
+        new:
+          create: Criar
+          title: Novo membro da assembleia
+        update:
+          error: Houve um erro ao atualizar o membro para esta assembleia.
+          success: Membro atualizado com êxito para esta assembleia.
       assembly_publications:
         create:
           error: Ocorreu um erro ao publicar esta assembleia.
@@ -153,21 +192,30 @@ pt-BR:
           values:
             'false': Não cessado
             'true': Cessado
+        decidim_assemblies_type_id_eq:
+          label: Tipo de assembleia
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Procurar por nome ou nome de usuário
       menu:
         assemblies: Assembleias
         assemblies_submenu:
           assembly_admins: Administradores da assembleia
+          assembly_members: Membros
           attachment_collections: Pastas
           attachment_files: arquivos
           attachments: Anexos
+          categories: Categorias
           components: Componentes
           info: Sobre essa assambleia
           landing_page: Página principal
           moderations: Moderação
           see_assembly: Ver assembleia
+        assemblies_types: Tipos de assembleia
       models:
+        assemblies_types:
+          fields:
+            created_at: Criado em
+            title: Título
         assembly:
           fields:
             actions: Ações
@@ -178,6 +226,11 @@ pt-BR:
             title: Título
           name: Assembleia
         assembly_member:
+          fields:
+            ceased_date: Data de cessação
+            designation_date: Data de designação
+            full_name: Nome
+            position: Posição
           name: Membro
           positions:
             other: De outros
@@ -194,6 +247,7 @@ pt-BR:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Avaliador
       titles:
         assemblies: Assembleias
         assemblies_types: Tipos de assembleia
@@ -229,15 +283,21 @@ pt-BR:
             announcement_help: O texto que você inserir aqui será mostrado ao usuário logo abaixo das informações de assembleia.
             duration: Duração
             duration_help: Se a duração dessa assembleia for limitada, selecione a data final. Caso contrário, aparecerá como indefinido.
+            filters: Filtros
             images: Imagens
             included_at_help: Selecione a data em que a assambleia foi adicionada à plataforma. Não precisa necessariamente ser o mesmo que a data de criação.
             metadata: Metadados
             other: De outros
             select_a_created_by: Selecione um criado por
+            select_an_area: Selecione uma área
+            select_an_assembly_type: Selecione um tipo de assembleia
             select_parent_assembly: Selecione a assembleia mãe
             slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             social_handlers: Social
             title: Informação geral
+        assemblies_types:
+          form:
+            title: Editar o tipo de assembleia
         assembly_copies:
           form:
             slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
@@ -246,8 +306,13 @@ pt-BR:
             slug_help_html: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         assembly_members:
           form:
+            existing_user: Participante existente
             explanation: 'Orientação para a imagem:'
+            non_user: Não-participante
             non_user_avatar_help: Você deve receber o consentimento das pessoas antes de publicá-las como membro.
+            select_a_position: Selecione uma posição
+            select_user: Selecione um participante
+            user_type: Tipo de participante
         content_blocks:
           highlighted_assemblies:
             max_results: Quantidade máxima de elementos para mostrar
@@ -280,6 +345,14 @@ pt-BR:
       assembly_members:
         index:
           members: Membros
+      assembly_types:
+        commission: Comissão
+        consultative_advisory: Consultivo / Consultivo
+        executive: Executivo
+        government: Governo
+        others: Outras
+        participatory: Participativo
+        working_group: Grupo de trabalho
       content_blocks:
         children_assemblies:
           name: Assembleias
@@ -318,10 +391,13 @@ pt-BR:
           member_of:
             member_of: Membro de
       show:
+        assembly_type: Tipo de assembleia
         duration: Duração
         private_space: Esta é uma assembleia privada
         social_networks_title: Visite assembleia em
     assembly_members:
+      assembly_member:
+        designated_on: Designado em
       index:
         title: Membros
     events:

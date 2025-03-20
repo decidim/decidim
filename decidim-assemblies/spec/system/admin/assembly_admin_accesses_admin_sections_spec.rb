@@ -14,9 +14,11 @@ describe "Assembly admin accesses admin sections" do
     it "can access all sections" do
       expect(page).to have_content("Info")
       expect(page).to have_content("Components")
+      expect(page).to have_content("Categories")
       expect(page).to have_content("Attachments")
+      expect(page).to have_content("Members")
       expect(page).to have_content("Assembly admins")
-      expect(page).to have_no_content("Members")
+      expect(page).to have_no_content("Private participants")
       expect(page).to have_content("Moderations")
     end
   end
@@ -25,9 +27,11 @@ describe "Assembly admin accesses admin sections" do
     it "can access all sections" do
       expect(page).to have_content("Info")
       expect(page).to have_content("Components")
+      expect(page).to have_content("Categories")
       expect(page).to have_content("Attachments")
-      expect(page).to have_content("Assembly admins")
       expect(page).to have_content("Members")
+      expect(page).to have_content("Assembly admins")
+      expect(page).to have_content("Private participants")
       expect(page).to have_content("Moderations")
     end
   end
@@ -53,7 +57,12 @@ describe "Assembly admin accesses admin sections" do
     let!(:child_assembly) { create(:assembly, parent: assembly, organization:, hashtag: "child") }
 
     before do
-      visit decidim_admin_assemblies.edit_assembly_path(child_assembly)
+      visit decidim_admin_assemblies.assemblies_path
+      within "tr", text: translated(assembly.title) do
+        click_on "Assemblies"
+      end
+
+      click_on "Configure"
     end
 
     context "when is a public assembly" do

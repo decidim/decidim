@@ -1,3 +1,4 @@
+---
 lv:
   activemodel:
     attributes:
@@ -91,6 +92,7 @@ lv:
           tos_agreement: Piedaloties jūs piekrītat pakalpojumu sniegšanas noteikumiem.
       step_navigation:
         show:
+          are_you_sure: Šo darbību nevar atsaukt, un jūs nevarēsiet rediģēt savas atbildes. Vai esat pārliecināts?
           back: Atpakaļ
           continue: Turpināt
           submit: Iesniegt

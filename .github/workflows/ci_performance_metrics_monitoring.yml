@@ -18,14 +18,12 @@ on:
 env:
   CI: "true"
   SIMPLECOV: "true"
-  RUBY_VERSION: 3.3.4
-  NODE_VERSION: 22.14.0
+  RUBY_VERSION: 3.2.2
+  NODE_VERSION: 18.17.1
   NODE_ENV: "test"
   RAILS_ENV: development
   RAILS_BOOST_PERFORMANCE: "true"
   SHAKAPACKER_RUNTIME_COMPILE: "false"
-  DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
-  DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
@@ -38,14 +36,6 @@ jobs:
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     services:
-      redis:
-        image: redis
-        ports: ["6379:6379"]
-        options: >-
-          --health-cmd "redis-cli ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
       postgres:
         image: postgres:14
         ports: ["5432:5432"]
@@ -60,8 +50,7 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
-      DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
-      DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
+      RUBYOPT: '-W:no-deprecated'
     steps:
       - uses: actions/checkout@v4
         with:

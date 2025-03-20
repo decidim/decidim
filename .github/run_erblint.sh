@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 shopt -s globstar
 
@@ -11,9 +11,9 @@ MODIFIED_VIEWS=$(git diff --name-only "${DEFAULT_BRANCH}" --diff-filter=AMR | gr
 # Scan only the modified ERB files, except for the default branch
 FILES=$([[ "${CURRENT_BRANCH}" == "${DEFAULT_BRANCH}" ]] && echo ${ALL_VIEWS} || echo ${MODIFIED_VIEWS})
 
-if [[ -n "$FILES" ]] ; then
-  bundle exec erb_lint ${FILES}
-else
+if [[ -n "$FILES" ]] ; then 
+  bundle exec erblint ${FILES} 
+else 
   echo "No ERB files changed"
 fi
 

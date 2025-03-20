@@ -6,7 +6,6 @@ module Decidim
     # title, description and any other useful information to render a custom project.
     class Project < Budgets::ApplicationRecord
       include Decidim::Resourceable
-      include Decidim::Taxonomizable
       include Decidim::ScopableResource
       include Decidim::HasCategory
       include Decidim::HasAttachments
@@ -20,7 +19,6 @@ module Decidim
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::FilterableResource
-      include Decidim::SoftDeletable
 
       translatable_fields :title, :description
 
@@ -69,12 +67,6 @@ module Decidim
 
       def self.log_presenter_class_for(_log)
         Decidim::Budgets::AdminLog::ProjectPresenter
-      end
-
-      # Returns the presenter for this project, to be used in the views.
-      # Required by ResourceRenderer.
-      def presenter
-        Decidim::Budgets::ProjectPresenter.new(self)
       end
 
       def resource_locator
@@ -147,19 +139,7 @@ module Decidim
       end
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_status, :with_any_taxonomies]
-      end
-
-      def self.ransackable_attributes(auth_object = nil)
-        base = %w(search_text description title)
-
-        return base unless auth_object&.admin?
-
-        base + %w(id_string id selected selected_at confirmed_orders_count)
-      end
-
-      def self.ransackable_associations(_auth_object = nil)
-        %w(taxonomies)
+        [:with_any_status, :with_any_scope, :with_any_category]
       end
     end
   end

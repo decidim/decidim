@@ -1,29 +1,31 @@
+---
 ro:
   activemodel:
     attributes:
       collaborative_draft:
         address: Adresa
         body: Conținut
+        category_id: Categorie
         decidim_scope_id: Domeniu de interes
         has_address: Are adresă
         scope_id: Domeniu de interes
         state: Stadiu
         title: Titlu
-      evaluation_assignment:
-        admin_log:
-          evaluator_role_id: Numele evaluatorului
+        user_group_id: Creează ciornă colaborativă ca
       proposal:
         address: Adresa
         answer: Răspuns
         answered_at: Răspuns la
         automatic_hashtags: Hashtag-uri adăugate automat
         body: Conținut
+        category_id: Categorie
         decidim_scope_id: Domeniu de interes
         has_address: Are adresă
         scope_id: Domeniu de interes
         state: Stadiu
         suggested_hashtags: Hashtag-uri sugerate
         title: Titlu
+        user_group_id: Creați propunerea ca
       proposal_answer:
         answer: Răspuns
         cost: Cost
@@ -35,6 +37,9 @@ ro:
         import_proposals: Importă propuneri
         keep_answers: Păstrează starea și răspunsurile
         keep_authors: Păstrează autorii originali
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Numele evaluatorului
     errors:
       models:
         proposal:
@@ -57,6 +62,8 @@ ro:
             base:
               not_official: Nu sunt oficiale
     models:
+      decidim/proposals/admin/update_proposal_category_event: Categorie de propunere modificată
+      decidim/proposals/admin/update_proposal_scope_event: Domeniu de interes al propunerii modificat
       decidim/proposals/creation_enabled_event: Crearea de propuneri este activată
       decidim/proposals/endorsing_enabled_event: Susținerea propunerii este activată
       decidim/proposals/proposal_mentioned_event: Propunere menționată
@@ -80,13 +87,15 @@ ro:
     admin:
       filters:
         proposals:
-          evaluator_role_ids_has:
-            label: Delegat evaluatorului
+          category_id_eq:
+            label: Categorie
           is_emendation_true:
             label: Tip
             values:
               'false': Propuneri
               'true': Amendamente
+          scope_id_eq:
+            label: Domeniu de interes
           state_eq:
             label: Stadiu
             values:
@@ -96,6 +105,8 @@ ro:
               rejected: Respins
               validating: Validarea tehnică
               withdrawn: Retras
+          valuator_role_ids_has:
+            label: Atribuit evaluatorului
         search_placeholder:
           id_string_or_title_cont: Caută %{collection} după ID sau titlu.
     components:
@@ -103,6 +114,7 @@ ro:
         actions:
           amend: Trimite un amendament
           comment: Comentează
+          create: Creează
           endorse: Susține
           vote_comment: Votează comentariul
           withdraw: Retrage
@@ -125,6 +137,7 @@ ro:
               random: Aleator
               recent: Recente
               with_more_authors: Cu mai mulți autori
+            geocoding_enabled: Geocodarea a fost activată
             new_proposal_body_template: Model de conținut pentru o propunere nouă
             new_proposal_body_template_help: Poți defini textul precompletat pe care îl vor avea noile propuneri
             new_proposal_help_text: Text de ajutor pentru propunere nouă
@@ -132,6 +145,7 @@ ro:
             participatory_texts_enabled: Modulul texte participative a fost activat
             participatory_texts_enabled_readonly: Nu se poate interacționa cu această setare dacă există deja propuneri. Te rugăm, creează o nouă componenta 'Propuneri' dacă dorești să activezi această funcționalitate. Dacă vrei să o dezactivezi mergi în meniul `Texte participative`și renunță la toate propunerile importate.
             proposal_answering_enabled: Modulul de răspuns pentru propuneri a fost activat
+            proposal_edit_before_minutes: Propunerile pot fi editate de către autori până la expirarea termenului definit mai jos în minute
             proposal_edit_time: Durata editării propunerii
             proposal_edit_time_choices:
               infinite: Permite editarea propunerilor pentru o perioadă infinită de timp
@@ -141,6 +155,8 @@ ro:
             proposal_wizard_step_1_help_text: Text de ajutor pentru pasul „Creează” din crearea unei propuneri
             proposal_wizard_step_2_help_text: Text de ajutor pentru pasul „Publică” din crearea unei propuneri
             resources_permissions_enabled: Pentru fiecare propunere pot fi setate drepturi pentru acțiuni
+            scope_id: Domeniu de interes
+            scopes_enabled: Domeniile de interes au fost activate
             threshold_per_proposal: Prag per propunere
           step:
             amendment_creation_enabled: Crearea de amendamente a fost activată
@@ -175,13 +191,8 @@ ro:
     events:
       proposals:
         admin:
-          proposal_assigned_to_evaluator:
-            email_intro: Ați fost desemnat ca evaluator al propunerii "%{resource_title}". Aceasta înseamnă că ați fost delegat să oferiți feedback și un răspuns adecvat în următoarele zile. Verificați în <a href="%{admin_proposal_info_url}">panoul de administrare</a>.
-            email_outro: Ați primit această notificare deoarece puteți evalua propunerea.
-            email_subject: Ați fost desemnat ca evaluator al propunerii %{resource_title}.
-            notification_title: Ați fost desemnat ca evaluator al propunerii <a href="%{resource_path}">%{resource_title}</a>. Verificați în <a href="%{admin_proposal_info_path}">panoul de administrare</a>.
           proposal_note_created:
-            email_outro: Ați primit această notificare deoarece puteți evalua propunerea.
+            email_outro: Ai primit această notificare pentru a putea evalua propunerea.
             email_subject: Cineva a trimis o notă la propunerea %{resource_title}.
         collaborative_draft_access_accepted:
           email_subject: "Utilizatorul %{requester_name} a fost acceptat drept colaborator pentru %{resource_title}."
@@ -214,11 +225,6 @@ ro:
           email_outro: Ai primit această notificare deoarece ești autor al propunerii "%{resource_title}".
           email_subject: Propunerea ta „%{mentioned_proposal_title}” a fost menționată
           notification_title: Propunerea ta "%{mentioned_proposal_title}" a fost menționată <a href="%{resource_path}">în acest spațiu</a> în comentarii.
-        proposal_merged:
-          email_intro: 'Un administrator a fuzionat propunerea dvs. "%{resource_title}", verificați-o în această pagină:'
-          email_outro: Ați primit această notificare deoarece sunteți autorul propunerii.
-          email_subject: Propunerea %{resource_title} a fost fuzionată
-          notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost fuzionată de un administrator.
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, pe care îl urmărești, a publicat o nouă propunere denumită "%{resource_title}". Verifică propunerea și colaborează:'
           email_outro: Ai primit această notificare deoarece urmărești %{author_nickname}. Poți înceta să primești notificări urmând linkul anterior.
@@ -228,6 +234,14 @@ ro:
           email_intro: Propunerea "%{resource_title}" a fost adăugată la "%{participatory_space_title}", spațiu participativ pe care îl urmărești.
           email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula aceste notificări de la link-ul anterior.
           email_subject: O nouă propunere "%{resource_title}" a fost adăugată la %{participatory_space_title}
+        proposal_update_category:
+          email_intro: 'Un administrator a actualizat categoria propunerii tale „%{resource_title}", verifică modificarea în această pagină:'
+          email_subject: Categoria propunerii %{resource_title} a fost actualizată
+          notification_title: Categoria propunerii <a href="%{resource_path}">%{resource_title}</a> a fost actualizată de către un administrator.
+        proposal_update_scope:
+          email_intro: 'Un administrator a actualizat domeniul de interes al propunerii tale „%{resource_title}”, verifică modificarea în această pagină:'
+          email_subject: Domeniul de interes al propunerii %{resource_title} a fost actualizat
+          notification_title: Domeniul de interes al propunerii <a href="%{resource_path}">%{resource_title}</a> a fost actualizat de către un administrator.
         voting_enabled:
           email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
     gamification:
@@ -285,27 +299,9 @@ ro:
       admin:
         actions:
           preview: Previzualizați
-        evaluation_assignments:
-          create:
-            invalid: A apărut o eroare la delegarea propunerilor către un evaluator.
-            success: Propunerile au fost delegate cu succes unui evaluator.
-          delete:
-            invalid: A apărut o eroare la anularea delegării propunerilor de la un evaluator.
-            success: Evaluatorului i-a fost anulat mandatul cu succes.
         exports:
           proposal_comments: Comentarii
           proposals: Propuneri
-        import_proposals_mailer:
-          notify_failure:
-            body: A apărut o problemă la importul propunerilor din componenta %{origin_component_name} în componenta %{target_component_name}.
-            subject: A apărut o problemă la importul propunerilor
-          notify_success:
-            added_proposals:
-              one: A fost importată o propunere.
-              few: "Au fost importate %{count} propuneri."
-              other: "Au fost importate %{count} propuneri."
-            body: Propuneri importate cu succes din componenta %{origin_component_name} în componenta %{target_component_name}. Puteți analiza rezultatele în interfața de administrare.
-            subject: Propunerile au fost importate cu succes
         imports:
           label:
             answers: Importați răspunsuri dintr-un fișier
@@ -359,43 +355,50 @@ ro:
           form:
             note: Notă
             submit: Trimite
+          leave_your_note: Lasă-ți nota
           title: Note private
         proposals:
           edit:
             title: Actualizează propunerea
             update: Actualizează
           form:
+            attachment_legend: "(Opțional) Adaugă un atașament"
             created_in_meeting: Această propunere provine dintr-o întâlnire
+            delete_attachment: Șterge atașamentul
+            select_a_category: Selectează o categorie
             select_a_meeting: Selectează o întâlnire
           index:
             actions: Acțiuni
-            assign_to_evaluator: Delegați evaluatorului
-            assign_to_evaluator_button: Delegați
+            assign_to_valuator: Atribuie evaluatorului
+            assign_to_valuator_button: Atribuie
             cancel: Anulează
+            change_category: Schimbă categoria
+            change_scope: Schimbă domeniul
             merge: Combină într-o propunere nouă
+            merge_button: Combină
             publish: Publică
             publish_answers: Publică răspunsuri
             select_component: Selectează o componentă
-            select_evaluators: Selectați unul sau mai mulți evaluatori
+            select_valuators: Selectați unul sau mai mulți evaluatori
             selected: selectate
             split: Împarte propuneri
             split_button: Împarte
             title: Propuneri
-            unassign_from_evaluator: Anulare delegare către evaluator
-            unassign_from_evaluator_button: Anulare delegare
+            unassign_from_valuator: Atribuire către evaluator anulată
+            unassign_from_valuator_button: Neatribuit
             update: Actualizează
+            update_scope_button: Actualizează domeniu
           new:
             create: Creează
             title: Creează propunere
           show:
             amendments_count: Număr de amendamente
-            assigned_evaluators: Evaluatori delegați
+            assigned_valuators: Evaluatori atribuiți
             body: Conținut
             comments_count: Număr de comentarii
             documents: Documente
             endorsements_count: Număr de susțineri
             endorsers: Susținători
-            evaluators: Evaluatori
             n_more_endorsers:
               one: și încă 1
               few: și încă %{count}
@@ -404,10 +407,15 @@ ro:
             ranking: "%{ranking} din %{total}"
             related_meetings: Întâlniri similare
             remove_assignment: Elimină atribuirea
-            remove_assignment_confirmation: Sunteți sigur că doriți să anulați mandatul evaluatorului din această propunere?
+            remove_assignment_confirmation: Sigur dorești să elimini evaluatorul din această propunere?
+            valuators: Evaluatori
+          update_category:
+            invalid: 'Aceste propuneri aveau deja categoria %{subject_name} : %{proposals}.'
+            success: 'Propuneri actualizate cu succes la categoria %{subject_name} : %{proposals}.'
+          update_scope:
+            invalid: 'Aceste propuneri aveau deja domeniul %{subject_name} : %{proposals}.'
+            success: 'Propuneri actualizate cu succes în domeniul %{subject_name} : %{proposals}.'
         proposals_imports:
-          create:
-            success: Procesul de import a început. Vă vom anunța de îndată ce s-a terminat.
           new:
             create: Importă propuneri
             no_components: Nu există alte componente de propunere în acest spațiu participativ din care să se importe propunerile.
@@ -415,26 +423,23 @@ ro:
             select_states: Verifică stadiul propunerilor de importat
         proposals_merges:
           create:
+            invalid: 'A apărut o problemă la combinarea propunerilor selectate, deoarece unele dintre ele:'
             success: Propunerile au fost combinate cu succes într-o propunere nouă.
-          form:
-            created_in_meeting: Această propunere provine dintr-o întâlnire
-            select_a_meeting: Selectați o întâlnire
-          new:
-            title: Fuzionați într-o propunere nouă
         proposals_splits:
           create:
+            invalid: 'A apărut o problemă la împărțirea propunerilor selectate, deoarece unele dintre ele:'
             success: Propunerile au fost împărțite cu succes în altele noi.
       admin_log:
-        evaluation_assignment:
-          create: "%{user_name} a delegat unui evaluator propunerea %{resource_name}"
-          delete: "%{user_name} a anulat mandatul unui evaluator pentru propunerea %{proposal_title}"
         proposal:
           answer: "%{user_name} a răspuns la propunerea %{resource_name} pentru spațiul %{space_name}"
-          create: "%{user_name} a creat propunerea %{resource_name} prin fuzionarea a %{merged_count} propuneri în %{space_name}"
+          create: "%{user_name} a creat propunerea %{resource_name} pentru spațiul %{space_name} drept propunere oficială"
           publish_answer: "%{user_name} a publicat răspunsul la propunerea de %{resource_name} privind spațiul %{space_name}"
           update: "%{user_name} a actualizat propunerea oficială %{resource_name} pentru spațiul %{space_name}"
         proposal_note:
           create: "%{user_name} a lăsat o notă privată despre propunerea %{resource_name} pentru spațiul %{space_name}"
+        valuation_assignment:
+          create: "%{user_name} a atribuit propunerea %{resource_name} unui evaluator"
+          delete: "%{user_name} a anulat atribuirea către un evaluator pentru propunerea %{proposal_title}"
       answers:
         accepted: Acceptate
         evaluating: În evaluare
@@ -447,6 +452,7 @@ ro:
           meetings: Întâlniri
           official: Oficial
           participants: Participanți
+          user_groups: Grupuri
         filter_state_values:
           all: Toate
           not_answered: Fără răspuns
@@ -473,15 +479,19 @@ ro:
         create:
           success: Ciorna colaborativă a fost creată cu succes.
         edit:
+          attachment_legend: "(Opțional) Adaugă un atașament"
           back: Înapoi
+          select_a_category: Te rugăm selectează o categorie
           send: Trimite
           title: Editează ciorna colaborativă
         filters:
           all: Toate
           amendment: Amendamente
+          category: Categorie
           open: Deschise
           published: Publicate
           related_to: Asociate cu
+          scope: Domeniu de interes
           search: Caută
           state: Stadiu
           withdrawn: Retrase
@@ -516,6 +526,7 @@ ro:
           rejected_request:
             error: Nu ai putut fi respins drept colaborator, te rugăm să încerci din nou mai târziu.
         show:
+          edit: Editează ciorna colaborativă
           final_proposal: propunere finală
           final_proposal_help_text: Această ciornă este finalizată. Verifică propunerea finală
           hidden_authors_count:
@@ -545,22 +556,21 @@ ro:
       destroy_draft:
         error: A apărut o eroare la ștergerea ciornei colaborative.
         success: Ciorna de propunere a fost ştearsă cu succes.
-      invite_coauthors:
-        create:
-          success: "%{author_name} a fost invitat cu succes să fie coautor."
       models:
         proposal:
           fields:
+            category: Categorie
             comments: Comentarii
-            evaluator: Evaluator
-            evaluators: Evaluatori
             id: ID
             notes: Note
             official_proposal: Propunere oficială
             published_answer: Răspuns publicat
             published_at: Publicat la
+            scope: Domeniu de interes
             state: Stadiu
             title: Titlu
+            valuator: Evaluator
+            valuators: Evaluatori
             votes: Voturi
       participatory_text_proposal:
         alternative_title: Nu există niciun text participativ în acest moment
@@ -572,9 +582,9 @@ ro:
           description: Coordonatele vor fi actualizate când apeși pe butonul 'previzualizează'. Cu toate acestea, adresa nu se schimbă.
           instructions: Poți muta punctul de pe hartă.
         edit:
-          add_attachments: Adaugați atașamente
+          attachment_legend: "(Opțional) Adaugă un atașament"
           back: Înapoi
-          edit_attachments: Actualizați atașamente
+          select_a_category: Te rugăm selectează o categorie
           send: Trimite
           title: Editează propunerea
         edit_draft:
@@ -587,6 +597,7 @@ ro:
           activity: Activitatea mea
           all: Toate
           amendment_type: Tip
+          category: Categorie
           my_proposals: Propunerile mele
           origin: Origine
           related_to: Asociate cu
@@ -630,6 +641,7 @@ ro:
         show:
           answer: Răspuns
           changes_at_title: Amendament pentru „%{title}”
+          edit_proposal: Editează propunerea
           estimated_cost: Cost estimat
           hidden_endorsers_count:
             one: și încă %{count} persoană
@@ -645,15 +657,12 @@ ro:
           proposal_in_evaluation_reason: Această propunere este în curs de evaluare
           proposal_rejected_reason: 'Această propunere a fost respinsă deoarece:'
           withdraw_confirmation_html: Sigur dorești să retragi această propunere?<br><br><strong>Această acțiune nu poate fi anulată!</strong>
+          withdraw_proposal: Retrage propunerea
         update:
           title: Actualizează propunerea
-        vote_button:
-          votes_blocked: Votați
         voting_rules:
           proposal_limit:
             description: Poți crea până la %{limit} propuneri.
-          vote_limit:
-            description: Poți vota până la %{limit} propuneri.
         wizard_aside:
           back: Înapoi
           back_from_step_1: Înapoi la propuneri

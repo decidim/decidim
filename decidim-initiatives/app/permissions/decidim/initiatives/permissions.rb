@@ -4,10 +4,10 @@ module Decidim
   module Initiatives
     class Permissions < Decidim::DefaultPermissions
       def permissions
+        return permission_action if initiative && !initiative.is_a?(Decidim::Initiative)
+
         # Delegate the admin permission checks to the admin permissions class
         return Decidim::Initiatives::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
-
-        return permission_action if initiative && !initiative.is_a?(Decidim::Initiative)
         return permission_action if permission_action.scope != :public
 
         # Non-logged users permissions
@@ -21,7 +21,6 @@ module Decidim
         create_initiative?
         edit_public_initiative?
         update_public_initiative?
-        discard_initiative?
         print_initiative?
 
         vote_initiative?
@@ -55,8 +54,7 @@ module Decidim
         return unless [:initiative, :participatory_space].include?(permission_action.subject) &&
                       permission_action.action == :read
 
-        return allow! if initiative.open? || initiative.rejected? || initiative.accepted?
-        return allow! if user_can_preview_space?
+        return allow! if initiative.published? || initiative.rejected? || initiative.accepted?
         return allow! if user && authorship_or_admin?
 
         disallow!
@@ -90,17 +88,11 @@ module Decidim
         toggle_allow(initiative&.created? && authorship_or_admin?)
       end
 
-      def discard_initiative?
-        return unless permission_action.subject == :initiative &&
-                      permission_action.action == :discard
-
-        toggle_allow(initiative&.created? && authorship_or_admin?)
-      end
-
       def creation_enabled?
         Decidim::Initiatives.creation_enabled && (
         Decidim::Initiatives.do_not_require_authorization ||
-          UserAuthorizations.for(user).any?) &&
+          UserAuthorizations.for(user).any? ||
+          Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?) &&
           authorized?(:create, permissions_holder: initiative_type)
       end
 
@@ -118,16 +110,17 @@ module Decidim
       end
 
       def access_request_without_user?
-        (!initiative.open? && initiative.promoting_committee_enabled?) || Decidim::Initiatives.do_not_require_authorization
+        (!initiative.published? && initiative.promoting_committee_enabled?) || Decidim::Initiatives.do_not_require_authorization
       end
 
       def access_request_membership?
-        !initiative.open? &&
+        !initiative.published? &&
           initiative.promoting_committee_enabled? &&
           !initiative.has_authorship?(user) &&
           (
           Decidim::Initiatives.do_not_require_authorization ||
-              UserAuthorizations.for(user).any?
+              UserAuthorizations.for(user).any? ||
+              Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
         )
       end
 
@@ -184,6 +177,10 @@ module Decidim
         toggle_allow(can_sign)
       end
 
+      def decidim_user_group_id
+        context.fetch(:group_id, nil)
+      end
+
       def can_vote?
         initiative.votes_enabled? &&
           initiative.organization&.id == user.organization&.id &&
@@ -196,12 +193,6 @@ module Decidim
         Decidim::Initiatives.do_not_require_authorization ||
             UserAuthorizations.for(user).any?
       )
-      end
-
-      def user_can_preview_space?
-        context[:share_token].present? && Decidim::ShareToken.use!(token_for: initiative, token: context[:share_token], user:)
-      rescue ActiveRecord::RecordNotFound, StandardError
-        nil
       end
 
       def initiative_committee_action?
@@ -228,7 +219,10 @@ module Decidim
       end
 
       def allowed_to_send_to_technical_validation?
-        initiative.created? && initiative.enough_committee_members?
+        initiative.created? && (
+        !initiative.created_by_individual? ||
+            initiative.enough_committee_members?
+      )
       end
 
       def authorship_or_admin?

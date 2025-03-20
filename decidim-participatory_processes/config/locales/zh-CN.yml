@@ -1,3 +1,4 @@
+---
 zh-CN:
   activemodel:
     attributes:
@@ -22,6 +23,9 @@ zh-CN:
         promoted: 已升级
         published_at: 发布于
         related_process_ids: 相关进程
+        scope_id: 范围
+        scope_type_max_depth_id: 范围过滤器深度：
+        scopes_enabled: 范围已启用
         short_description: 简短描述
         slug: URL 名称
         start_date: 开始日期
@@ -39,6 +43,8 @@ zh-CN:
         end_date: 结束日期
         short_description: 简短描述
         start_date: 开始日期
+        title: 标题
+      participatory_process_type:
         title: 标题
       participatory_process_user_role:
         email: 电子邮件地址
@@ -80,8 +86,10 @@ zh-CN:
           attachment_collections: 文件夹
           attachment_files: 文件
           attachments: 附件
+          categories: 类别管理
           components: 组件
           moderations: 版面
+          private_users: 私人参与者
           process_admins: 进程管理员
           steps: 阶段
       models:
@@ -100,6 +108,10 @@ zh-CN:
             start_date: 开始日期
             title: 标题
           name: 参与进程阶段
+        participatory_process_type:
+          fields:
+            created_at: 创建于
+            title: 标题
         participatory_process_user_role:
           fields:
             email: 电子邮件地址
@@ -110,6 +122,7 @@ zh-CN:
             admin: 管理员
             collaborator: 协作者
             moderator: 版主
+            valuator: 值者
         user:
           fields:
             invitation_accepted_at: 邀请接受于
@@ -121,6 +134,7 @@ zh-CN:
           title: 重复的参与进程
       participatory_process_groups:
         destroy:
+          error: 销毁参与性进程小组时出错。
           success: 参与进程组已成功删除。
         edit:
           title: 编辑流程组
@@ -170,6 +184,11 @@ zh-CN:
         update:
           error: 在更新这一阶段的参与进程时遇到了问题。
           success: 参与阶段更新成功。
+      participatory_process_types:
+        edit:
+          update: 更新
+        new:
+          create: 创建
       participatory_process_user_roles:
         create:
           error: 在这个参与进程中增加参与者时遇到了问题。
@@ -290,9 +309,13 @@ zh-CN:
           form:
             announcement_help: 您在此输入的文本将会显示给流程信息下方的用户。
             duration: 期限
+            filters: 筛选器
             images: 图像
             metadata: 元数据
+            other: 其他
             related_processes: 相关进程
+            scope_type_max_depth_help: 限制范围过滤器深度; 过滤器将从一般到所选范围类型显示。
+            select_an_area: 选择区域
             select_process_group: 选择一个流程组
             title: 一般信息
       content_blocks:

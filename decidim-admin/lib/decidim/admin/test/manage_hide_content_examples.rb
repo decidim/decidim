@@ -21,14 +21,14 @@ shared_examples "hideable resource during block" do
     within ".profile__actions-secondary", match: :first do
       click_on(I18n.t("decidim.shared.flag_modal.report"))
     end
-    within ".flag-user-modal" do
+    within ".flag-modal" do
       find(:css, "input[name='report[block]']").set(true)
     end
     content.reload
   end
 
   it "chooses to hide content" do
-    within ".flag-user-modal" do
+    within ".flag-modal" do
       find(:css, "input[name='report[hide]']").set(true)
     end
     click_on I18n.t("decidim.shared.flag_user_modal.block")
@@ -43,8 +43,7 @@ shared_examples "hideable resource during block" do
     end
 
     it "chooses to hide content" do
-      within ".flag-user-modal" do
-        expect(page).to have_content("Report inappropriate participant")
+      within ".flag-modal" do
         find(:css, "input[name='report[hide]']").set(true)
       end
       click_on I18n.t("decidim.shared.flag_user_modal.block")
@@ -58,6 +57,7 @@ shared_examples "hideable resource during block" do
 
       visit decidim_admin.root_path
       expect(page).to have_content("blocked user")
+      expect(page).to have_content("hid a resource of type")
     end
   end
 end

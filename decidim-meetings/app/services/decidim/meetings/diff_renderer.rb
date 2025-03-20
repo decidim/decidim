@@ -12,6 +12,7 @@ module Decidim
           location_hints: :i18n,
           start_time: :date,
           end_time: :date,
+          decidim_user_group_id: :user_group,
           decidim_scope_id: :scope
         }
       end

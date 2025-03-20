@@ -8,7 +8,7 @@ module Decidim
     def cache(name = {}, options = {}, &)
       name = Array(name) + [current_locale]
 
-      super
+      super(name, options, &)
     end
   end
 end

@@ -4,14 +4,10 @@ module Decidim
   # Main module to add application-wide helpers.
   module ApplicationHelper
     include Decidim::OmniauthHelper
-    include Decidim::DecidimFormHelper
+    include Decidim::ScopesHelper
     include Decidim::ContextualHelpHelper
     include Decidim::AmendmentsHelper
     include Decidim::CacheHelper
-
-    def layout_item_classes
-      "layout-item"
-    end
 
     # Truncates a given text respecting its HTML tags.
     #
@@ -103,7 +99,7 @@ module Decidim
     # Renders the cell contents.
     def cell(name, model, options = {}, &)
       options = { context: { view_context: self, current_user: } }.deep_merge(options)
-      super
+      super(name, model, options, &)
     end
 
     def prevent_timeout_seconds

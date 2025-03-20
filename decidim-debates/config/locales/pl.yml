@@ -1,13 +1,17 @@
+---
 pl:
   activemodel:
     attributes:
       debate:
+        category_id: Kategoria
         closed_at: Zamknięto
         conclusions: Wnioski
+        decidim_category_id: Kategoria
         description: Opis
         end_time: Skończy się
         information_updates: Aktualizacje informacji
         instructions: Instrukcje uczestnictwa
+        scope_id: Zakres
         start_time: Zaczyna się
         title: Tytuł
         user_group_id: Utwórz debatę jako
@@ -28,6 +32,7 @@ pl:
       debates:
         actions:
           comment: Skomentuj
+          create: Utwórz
           endorse: Rekomendacje
         name: Debaty
         settings:
@@ -35,6 +40,8 @@ pl:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
             comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
+            scope_id: Zakres
+            scopes_enabled: Zakresy włączone
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
@@ -44,6 +51,8 @@ pl:
     debates:
       actions:
         close: Zamknij
+        confirm_destroy: Jesteś pewny?
+        destroy: Usuń
         edit: Edytuj
         new: Nowa debata
         title: Działania
@@ -56,6 +65,8 @@ pl:
           create:
             invalid: Podczas tworzenia debaty wystąpił błąd.
             success: Debata została utworzona pomyślnie.
+          destroy:
+            success: Debata została usunięta.
           edit:
             title: Edytuj debatę
             update: Zaktualizuj debatę
@@ -118,6 +129,8 @@ pl:
             closed: Zakończone
             open: Otwarte
           user_group: Grupy
+        form:
+          select_a_category: Wybierz kategorię
         index:
           new_debate: Nowa debata
         new:
@@ -131,9 +144,11 @@ pl:
           recent: Najnowsze
           updated: Ostatnio aktualizowane
         show:
+          close_debate: Zamknij debatę
           debate_closed: Zamknięta
           debate_conclusions_are: 'Debata została zamknięta %{date} z następującymi wnioskami:'
           edit_conclusions: Edytuj wnioski
+          edit_debate: Edytuj debatę
           groups_count: Grupy
           open: Otwarta
           participants_count: Użytkownicy

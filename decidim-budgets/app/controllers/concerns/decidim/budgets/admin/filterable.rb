@@ -16,11 +16,7 @@ module Decidim
           private
 
           def base_query
-            return collection unless taxonomy_order_or_search?
-
-            # this is a trick to avoid duplicates when using search in associations as suggested in:
-            # https://activerecord-hackery.github.io/ransack/going-further/other-notes/#problem-with-distinct-selects
-            collection.includes(:taxonomies).joins(:taxonomies)
+            collection
           end
 
           def search_field_predicate
@@ -29,16 +25,24 @@ module Decidim
 
           def filters
             [
-              :taxonomies_part_of_contains,
+              :scope_id_eq,
+              :category_id_eq,
               :selected_at_null
             ]
           end
 
           def filters_with_values
             {
-              taxonomies_part_of_contains: taxonomy_ids_hash(available_root_taxonomies),
+              scope_id_eq: scope_ids_hash(scopes.top_level),
+              category_id_eq: category_ids_hash(categories.first_class),
               selected_at_null: [true, false]
             }
+          end
+
+          # Cannot user `super` here, because it does not belong to a superclass
+          # but to a concern.
+          def dynamically_translated_filters
+            [:scope_id_eq, :category_id_eq]
           end
         end
       end

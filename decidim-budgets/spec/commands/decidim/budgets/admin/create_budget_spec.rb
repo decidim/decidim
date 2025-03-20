@@ -9,6 +9,7 @@ describe Decidim::Budgets::Admin::CreateBudget do
   let(:participatory_process) { create(:participatory_process, organization:) }
   let!(:component) { create(:component, participatory_space: participatory_process, manifest_name: "budgets") }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:scope) { create(:scope, organization:) }
 
   let(:form) do
     double(
@@ -17,6 +18,7 @@ describe Decidim::Budgets::Admin::CreateBudget do
       title: { en: "title" },
       description: { en: "description" },
       total_budget: 100_000_000,
+      scope:,
       current_user: user,
       component:,
       current_organization: organization
@@ -37,6 +39,7 @@ describe Decidim::Budgets::Admin::CreateBudget do
     expect(translated(budget.description)).to eq "description"
     expect(budget.weight).to eq 0
     expect(budget.total_budget).to eq 100_000_000
+    expect(budget.scope).to eq scope
   end
 
   it "sets the component" do

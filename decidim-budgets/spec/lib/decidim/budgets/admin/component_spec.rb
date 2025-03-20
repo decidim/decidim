@@ -49,7 +49,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
       Decidim::Component.build_settings(manifest, name, data, organization)
     end
 
-    describe "with maps enabled" do
+    describe "with geocoding enabled" do
       let(:geocoding_enabled) { true }
       # One budget rule must me activated
       let(:percent_enabled) { true }

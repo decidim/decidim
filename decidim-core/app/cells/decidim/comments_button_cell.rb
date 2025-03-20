@@ -2,8 +2,6 @@
 
 module Decidim
   class CommentsButtonCell < ButtonCell
-    include UserRoleChecker
-
     def show
       if options.has_key?(:display)
         return render if options[:display]
@@ -11,19 +9,13 @@ module Decidim
         return
       end
 
-      render if comments_enabled?
+      render if component_settings.comments_enabled? && !current_settings.try(:comments_blocked?)
     end
 
     private
 
-    def comments_enabled?
-      return true if user_has_any_role?(current_user, current_participatory_space)
-
-      component_settings.comments_enabled? && !current_settings.try(:comments_blocked?)
-    end
-
     def path
-      "#add-comment-anchor"
+      "#comments"
     end
 
     def text
@@ -32,10 +24,6 @@ module Decidim
 
     def icon_name
       resource_type_icon_key "Decidim::Comments::Comment"
-    end
-
-    def button_classes
-      "button button__sm button__transparent-secondary add-comment-mobile"
     end
   end
 end

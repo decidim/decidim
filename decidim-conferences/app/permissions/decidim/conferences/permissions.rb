@@ -3,8 +3,6 @@
 module Decidim
   module Conferences
     class Permissions < Decidim::DefaultPermissions
-      include Decidim::UserRoleChecker
-
       def permissions
         user_can_enter_space_area?
 
@@ -38,8 +36,6 @@ module Decidim
         end
         return permission_action unless permission_action.scope == :admin
 
-        allow! if user&.admin_terms_accepted? && user_has_any_role?(user, conference, broad_check: true) && (permission_action.subject == :editor_image)
-
         user_can_read_conference_list?
         user_can_read_current_conference?
         user_can_read_conference_registrations?
@@ -54,7 +50,7 @@ module Decidim
 
         moderator_action?
         collaborator_action?
-        evaluator_action?
+        valuator_action?
         conference_admin_action?
 
         permission_action
@@ -131,7 +127,6 @@ module Decidim
 
         return allow! if user&.admin?
         return allow! if conference.published?
-        return allow! if user_can_preview_space?
 
         toggle_allow(can_manage_conference?)
       end
@@ -251,9 +246,9 @@ module Decidim
         allow! if permission_action.action == :read || permission_action.action == :preview
       end
 
-      # Evaluators can only read components
-      def evaluator_action?
-        return unless can_manage_conference?(role: :evaluator)
+      # Valuators can only read components
+      def valuator_action?
+        return unless can_manage_conference?(role: :valuator)
 
         allow! if permission_action.action == :read && permission_action.subject == :component
         allow! if permission_action.action == :export && permission_action.subject == :component_data
@@ -271,6 +266,7 @@ module Decidim
         is_allowed = [
           :attachment,
           :attachment_collection,
+          :category,
           :component,
           :component_data,
           :moderation,
@@ -280,8 +276,7 @@ module Decidim
           :partner,
           :media_link,
           :registration_type,
-          :conference_invite,
-          :share_tokens
+          :conference_invite
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
@@ -292,6 +287,7 @@ module Decidim
         is_allowed = [
           :attachment,
           :attachment_collection,
+          :category,
           :component,
           :component_data,
           :moderation,
@@ -303,16 +299,9 @@ module Decidim
           :partner,
           :registration_type,
           :read_conference_registrations,
-          :export_conference_registrations,
-          :share_tokens
+          :export_conference_registrations
         ].include?(permission_action.subject)
         allow! if is_allowed
-      end
-
-      def user_can_preview_space?
-        context[:share_token].present? && Decidim::ShareToken.use!(token_for: conference, token: context[:share_token], user:)
-      rescue ActiveRecord::RecordNotFound, StandardError
-        nil
       end
 
       # Checks if the permission_action is to read the admin conferences list or

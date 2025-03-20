@@ -27,6 +27,7 @@ module Decidim
           Conference.transaction do
             copy_conference
             copy_conference_attachments
+            copy_conference_categories if @form.copy_categories?
             copy_conference_components if @form.copy_components?
           end
 
@@ -48,10 +49,11 @@ module Decidim
             short_description: @conference.short_description,
             location: @conference.location,
             promoted: @conference.promoted,
+            scopes_enabled: @conference.scopes_enabled,
+            scope: @conference.scope,
             objectives: @conference.objectives,
             start_date: @conference.start_date,
-            end_date: @conference.end_date,
-            taxonomies: @conference.taxonomies
+            end_date: @conference.end_date
           )
         end
 
@@ -60,6 +62,14 @@ module Decidim
             next unless @conference.attached_uploader(attribute).attached?
 
             @copied_conference.send(attribute).attach(@conference.send(attribute).blob)
+          end
+        end
+
+        def copy_conference_categories
+          @conference.categories.each do |category|
+            category_copied = category.dup
+            category_copied.participatory_space = @copied_conference
+            category_copied.save
           end
         end
 

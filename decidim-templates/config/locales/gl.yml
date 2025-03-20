@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -41,8 +42,11 @@ gl:
             save: Gardar
         questionnaire_templates:
           choose:
+            create_from_template: Crear a partir dun padrón
+            description: Estás a punto de crear un novo cuestonario. Podes escoller un padrón predefinido e modificalo despois.
             label: Escoller padrón
             placeholder: Escoller padrón
+            skip_template: Omitir
           edit:
             edit: Editar
             questionnaire: Cuestionario

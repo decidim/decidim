@@ -28,13 +28,11 @@ module Decidim
           params = {
             title: project.title,
             description: project.description,
-            taxonomies: project.taxonomies,
+            category: project.category,
+            scope: project.scope || project.budget.scope,
             component:,
             status:,
-            progress: status&.progress || 0,
-            address: project.address,
-            latitude: project.latitude,
-            longitude: project.longitude
+            progress: status&.progress || 0
           }
           @result = Decidim.traceability.create!(
             Result,

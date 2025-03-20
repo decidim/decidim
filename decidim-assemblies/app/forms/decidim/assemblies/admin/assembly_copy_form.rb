@@ -14,6 +14,7 @@ module Decidim
         mimic :assembly
 
         attribute :slug, String
+        attribute :copy_categories, Boolean
         attribute :copy_components, Boolean
 
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }

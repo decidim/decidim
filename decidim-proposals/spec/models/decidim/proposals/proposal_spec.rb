@@ -15,14 +15,14 @@ module Decidim
       include_examples "coauthorable"
       include_examples "endorsable"
       include_examples "has component"
-      include_examples "has taxonomies"
+      include_examples "has scope"
+      include_examples "has category"
       include_examples "has reference"
       include_examples "reportable"
       include_examples "resourceable"
 
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }
-      it { is_expected.to act_as_paranoid }
 
       describe "newsletter participants" do
         subject { Decidim::Proposals::Proposal.newsletter_participant_ids(proposal.component) }
@@ -141,6 +141,13 @@ module Decidim
           end
         end
 
+        context "when proposal is from user group and user is admin" do
+          let(:user_group) { create(:user_group, :verified, users: [author], organization: author.organization) }
+          let(:proposal) { create(:proposal, component:, updated_at: Time.current, users: [author], user_groups: [user_group]) }
+
+          it { is_expected.to be_editable_by(author) }
+        end
+
         context "when user is not the author" do
           let(:proposal) { create(:proposal, component:, updated_at: Time.current) }
 
@@ -249,102 +256,17 @@ module Decidim
         it { is_expected.not_to be_published_state }
       end
 
-      describe "#with_evaluation_assigned_to" do
+      describe "#with_valuation_assigned_to" do
         let(:user) { create(:user, organization:) }
         let(:space) { component.participatory_space }
-        let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process: space) }
+        let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: space) }
         let(:assigned_proposal) { create(:proposal, component:) }
-        let!(:assignment) { create(:evaluation_assignment, proposal: assigned_proposal, evaluator_role:) }
+        let!(:assignment) { create(:valuation_assignment, proposal: assigned_proposal, valuator_role:) }
 
         it "only returns the assigned proposals for the given space" do
-          results = described_class.with_evaluation_assigned_to(user, space)
+          results = described_class.with_valuation_assigned_to(user, space)
 
           expect(results).to eq([assigned_proposal])
-        end
-      end
-
-      describe "#coauthor_invitations_for" do
-        let!(:notification) do
-          create(:notification, :proposal_coauthor_invite, resource: proposal, user: coauthor)
-        end
-        let(:coauthor) { create(:user, organization:) }
-
-        it "returns the coauthor invitations for the given user" do
-          expect(proposal.coauthor_invitations_for(coauthor)).to eq([notification])
-        end
-
-        context "when the user has not been invited" do
-          it "returns empty" do
-            expect(proposal.coauthor_invitations_for(create(:user))).to be_empty
-          end
-        end
-
-        context "when the user the notification is for another event" do
-          let!(:notification) do
-            create(:notification, event_class: "Decidim::Proposals::AnotherEvent", resource: proposal, user: coauthor)
-          end
-
-          it "returns empty" do
-            expect(proposal.coauthor_invitations_for(coauthor)).to be_empty
-          end
-        end
-      end
-
-      describe "#actions_for_comment" do
-        let(:proposal) { create(:proposal, component:) }
-        let(:author) { create(:user, :confirmed, organization: component.organization) }
-        let(:comment) { create(:comment, author:, commentable: proposal) }
-
-        it "returns actions to invite the comment author as a co-author" do
-          expect(proposal.actions_for_comment(comment, proposal.creator_author)).to eq([
-                                                                                         {
-                                                                                           label: "Mark as co-author",
-                                                                                           url: EngineRouter.main_proxy(component).proposal_invite_coauthors_path(proposal_id: proposal.id, id: comment.author.id),
-                                                                                           icon: "user-add-line",
-                                                                                           method: :post,
-                                                                                           data: {
-                                                                                             confirm: "Are you sure you want to mark this user as a co-author? The receiver will receive a notification to accept or decline the invitation."
-                                                                                           }
-                                                                                         }
-                                                                                       ])
-        end
-
-        context "when the requester user is not the author of the proposal" do
-          it "returns nil" do
-            expect(proposal.actions_for_comment(comment, create(:user))).to be_nil
-          end
-        end
-
-        context "when no requester" do
-          it "returns nil" do
-            expect(proposal.actions_for_comment(comment, nil)).to be_nil
-          end
-        end
-
-        context "when the author has already been invited" do
-          let!(:notification) do
-            create(:notification, :proposal_coauthor_invite, resource: proposal, user: comment.author)
-          end
-
-          it "returns actions to remove the co-author invitation" do
-            expect(proposal.actions_for_comment(comment, proposal.creator_author)).to eq([
-                                                                                           {
-                                                                                             label: "Cancel co-author invitation",
-                                                                                             url: EngineRouter.main_proxy(component).cancel_proposal_invite_coauthors_path(proposal_id: proposal.id, id: comment.author.id),
-                                                                                             icon: "user-forbid-line",
-                                                                                             method: :delete,
-                                                                                             data: {
-                                                                                               confirm: "Are you sure you want to cancel the co-author invitation?"
-                                                                                             }
-                                                                                           }
-                                                                                         ])
-          end
-
-          context "when the requester user is not the author of the proposal" do
-            it "returns nil" do
-              expect(proposal.actions_for_comment(comment, create(:user))).to be_nil
-            end
-          end
         end
       end
     end

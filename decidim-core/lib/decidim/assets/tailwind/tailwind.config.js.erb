@@ -5,7 +5,7 @@
 // https://docs.decidim.org/en/develop/customize/styles
 //
 
-const { inherit, current, transparent, white, neutral } = require("tailwindcss/colors")
+const { inherit, current, transparent, white } = require("tailwindcss/colors")
 
 const withOpacity =
   (variable) =>
@@ -33,7 +33,6 @@ module.exports = {
       current,
       transparent,
       white,
-      neutral,
       primary: withOpacity("--primary-rgb"),
       secondary: withOpacity("--secondary-rgb"),
       tertiary: withOpacity("--tertiary-rgb"),
@@ -52,8 +51,7 @@ module.exports = {
         DEFAULT: "#F3F4F7",
         2: "#FAFBFC",
         3: "#EFEFEF",
-        4: "#E4EEFF99", // 60% opacity
-        5: "#E9E9E9"
+        4: "#E4EEFF99" // 60% opacity
       }
     },
     container: {

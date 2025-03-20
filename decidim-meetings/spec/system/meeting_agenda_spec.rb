@@ -14,10 +14,6 @@ describe "Meeting agenda" do
     visit resource_locator(meeting).path
   end
 
-  before do
-    stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
-  end
-
   context "when meeting agenda is not visible" do
     let(:visible) { false }
 

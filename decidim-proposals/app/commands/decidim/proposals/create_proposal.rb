@@ -82,10 +82,11 @@ module Decidim
               component: form.component
             )
 
-            proposal.taxonomizations = form.taxonomizations if form.taxonomizations.present?
+            proposal.category = form.category if form.category_id.present?
+            proposal.scope = form.scope if form.scope_id.present?
             proposal.documents = form.documents if form.documents.present?
             proposal.address = form.address if form.has_address? && !form.geocoded?
-            proposal.add_coauthor(@current_user)
+            proposal.add_coauthor(@current_user, user_group:)
             proposal.save!
             @attached_to = proposal
             proposal
@@ -100,7 +101,15 @@ module Decidim
 
         return false if proposal_limit.zero?
 
-        current_user_proposals.count >= proposal_limit
+        if user_group
+          user_group_proposals.count >= proposal_limit
+        else
+          current_user_proposals.count >= proposal_limit
+        end
+      end
+
+      def user_group
+        @user_group ||= Decidim::UserGroup.find_by(organization:, id: form.user_group_id)
       end
 
       def organization
@@ -109,6 +118,10 @@ module Decidim
 
       def current_user_proposals
         Proposal.not_withdrawn.from_author(@current_user).where(component: form.current_component)
+      end
+
+      def user_group_proposals
+        Proposal.not_withdrawn.from_user_group(@user_group).where(component: form.current_component)
       end
 
       def first_attachment_weight

@@ -1,24 +1,29 @@
+---
 sk:
   activemodel:
     attributes:
       collaborative_draft:
         address: Adresa
         body: Telo
+        category_id: Kategória
         decidim_scope_id: Rozsah
         has_address: Má adresu
         state: Štát
         title: Titul
+        user_group_id: Vytvoriť návrh spolupráce ako
       proposal:
         address: Adresa
         answer: Odpovedať
         answered_at: odpovedané na
         automatic_hashtags: Hashtagy sa automaticky pridali
         body: Telo
+        category_id: Kategória
         decidim_scope_id: Rozsah
         has_address: Má adresu
         state: Štát
         suggested_hashtags: Navrhované hashtags
         title: Titul
+        user_group_id: Vytvoriť návrh ako
       proposal_answer:
         answer: Odpovedať
         cost: Náklady
@@ -29,6 +34,9 @@ sk:
       proposals_import:
         import_proposals: Importovať návrhy
         keep_authors: Uchovať pôvodných autorov
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Meno hodnotiteľa
     errors:
       models:
         proposal:
@@ -43,6 +51,8 @@ sk:
             title:
               identical: A telo nemôže byť totožné
     models:
+      decidim/proposals/admin/update_proposal_category_event: Kategória návrhu zmenená
+      decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu zmenený
       decidim/proposals/creation_enabled_event: Tvorba návrhu povolená
       decidim/proposals/endorsing_enabled_event: Podpora návrhu povolená
       decidim/proposals/proposal_mentioned_event: Návrh spomenutý
@@ -68,12 +78,20 @@ sk:
   decidim:
     admin:
       filters:
+        proposals:
+          category_id_eq:
+            label: Kategória
+          scope_id_eq:
+            label: Rozsah
+          valuator_role_ids_has:
+            label: Priradené ku hodnotiteľov
         search_placeholder:
           id_string_or_title_cont: Hľadať %{collection} podľa titulku alebo ID.
     components:
       proposals:
         actions:
           amend: Upraviť
+          create: Vytvoriť
           endorse: Schváliť
           withdraw: Vrátiť späť
         name: Návrhy
@@ -86,6 +104,7 @@ sk:
             attachments_allowed: Povoliť prílohy
             collaborative_drafts_enabled: Spoločné návrhy sú povolené
             comments_enabled: Komentáre povolené
+            geocoding_enabled: Geokódovanie povolené
             new_proposal_body_template: Telo šablóny nového návrhu
             new_proposal_body_template_help: Môžete definovať predvyplnený text, ktorý budú mať všetky nové návrhy
             new_proposal_help_text: Pomocný text ku novému návrhu
@@ -93,6 +112,7 @@ sk:
             participatory_texts_enabled: Povolené participatívne texty
             participatory_texts_enabled_readonly: Ak existujú návrhy, nemožno toto nastavenie meniť. Prosíme vytvorte novú "Súčasť návrhov", ak ho chcete povoliť, alebo zahoďte všetky importované návrhy v "Participatívnych textoch" v menu, ak ho chcete zakázať.
             proposal_answering_enabled: Odpovedanie na návrh je povolené
+            proposal_edit_before_minutes: Návrhy môžu byť editované autormi až po uplynutí toľkoto minút
             proposal_length: Maximálna dĺžka návrhu
             proposal_limit: Limit návrhu na užívateľa
             proposal_wizard_step_1_help_text: Pomocný text Sprievodcu "Vytvoriť" návrh
@@ -158,6 +178,14 @@ sk:
           email_intro: Návrh "%{resource_title}" bol pridaný k "%{participatory_space_title}", ktorý sledujete.
           email_outro: Toto oznámenie ste dostali, pretože sledujete "%{participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
           email_subject: Nový návrh "%{resource_title}" bol pridaný k%{participatory_space_title}
+        proposal_update_category:
+          email_intro: 'Správca aktualizoval kategórii vášho návrhu "%{resource_title}", pozrite sa na neho:'
+          email_subject: Kategória návrhov %{resource_title} bola aktualizovaná
+          notification_title: Kategória návrhu <a href="%{resource_path}">%{resource_title} </a> bola aktualizovaná administrátorom.
+        proposal_update_scope:
+          email_intro: 'Admin upravil rozsah Vašeho návrhu %{resource_title}, pozrite sa na to na tejto stránke:'
+          email_subject: Rozsah návrhu %{resource_title} bol aktualizovaný
+          notification_title: Rozsah návrhu <a href="%{resource_path}">%{resource_title}</a> bol aktualizovaný administrátorom.
         voting_enabled:
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
     gamification:
@@ -256,18 +284,26 @@ sk:
           form:
             note: Poznámka
             submit: Predložiť
+          leave_your_note: Nechajte svoju poznámku
           title: Súkromné ​​poznámky
         proposals:
           edit:
             title: Návrh aktualizácie
             update: Aktualizácia
           form:
+            attachment_legend: "(Voliteľné) Pridanie prílohy"
             created_in_meeting: Tento návrh pochádza z rokovania
+            select_a_category: Vyberte kategóriu
             select_a_meeting: Vyberte schôdzku
           index:
             actions: Akcia
+            assign_to_valuator: Priradiť ku hodnotiteľovi
+            assign_to_valuator_button: Priradiť
             cancel: zrušenie
+            change_category: Zmeniť kategórii
+            change_scope: Zmeniť rozsah
             merge: Zlúčiť do nového
+            merge_button: Spoj
             publish: Publikovať
             publish_answers: Zverejniť odpovede
             select_component: Vyberte súčasť
@@ -275,12 +311,16 @@ sk:
             split: Rozdeliť návrhy
             split_button: Rozdeliť
             title: Návrhy
+            unassign_from_valuator: Zrušiť priradenie ku hodnotiteľovi
+            unassign_from_valuator_button: Zrušiť priradenie
             update: Aktualizácia
+            update_scope_button: Aktualizovať rozsah
           new:
             create: Vytvoriť
             title: Vytvorte návrh
           show:
             amendments_count: Počet zmien
+            assigned_valuators: Priradení hodnotitelia
             body: Telo
             comments_count: Počet komentárov
             documents: Dokumenty
@@ -295,6 +335,14 @@ sk:
             ranking: "%{ranking} z celkového %{total}"
             related_meetings: Podobné stretnutia
             remove_assignment: Zrušiť priradenie
+            remove_assignment_confirmation: Ste si istý, že chcete odstrániť hodnotiteľa z návrhu?
+            valuators: Hodnotiteľ
+          update_category:
+            invalid: 'Tieto návrhy už majú kategóriu %{subject_name}: %{proposals}.'
+            success: 'Návrhy úspešne pridané do kategórie %{subject_name}: %{proposals}.'
+          update_scope:
+            invalid: 'Tieto návrhy už mali %{subject_name} rozsah: %{proposals}.'
+            success: 'Návrhy úspešne pridané do kategórie %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
             create: Návrhy na dovoz
@@ -310,10 +358,14 @@ sk:
       admin_log:
         proposal:
           answer: "%{user_name} odpovedalo na %{resource_name} návrh na priestore %{space_name}"
+          create: "%{user_name} vytvoril návrh %{resource_name} na priestore %{space_name} ako oficiálny návrh"
           publish_answer: "%{user_name} publikoval odpoveď na návrh %{resource_name} v priestore %{space_name}"
           update: "%{user_name} aktualizoval oficiálny návrh %{resource_name} na priestore %{space_name}"
         proposal_note:
           create: "%{user_name} zanechal súkromnú poznámku k návrhu %{resource_name} na %{space_name} priestore."
+        valuation_assignment:
+          create: "%{user_name} pridelil návrh %{resource_name} hodnotiteľovi"
+          delete: "%{user_name} odobral hodnotiteľovi návrh %{proposal_title}"
       answers:
         accepted: Prijaté
         evaluating: Hodnotené
@@ -325,6 +377,7 @@ sk:
           all: Všetko
           meetings: Stretnutie
           official: Oficiálne
+          user_groups: Skupiny užívateľov
         filter_state_values:
           all: Všetko
           not_answered: Nezodpovedané
@@ -351,15 +404,19 @@ sk:
         create:
           success: Projekt spolupráce bol úspešne vytvorený.
         edit:
+          attachment_legend: "(Voliteľné) Pridanie prílohy"
           back: Zadná
+          select_a_category: Vyberte kategóriu
           send: Poslať
           title: Úprava konceptu spolupráce
         filters:
           all: Všetko
           amendment: Zmeny
+          category: Kategória
           open: otvorené
           published: Publikované
           related_to: súvisiace s
+          scope: Rozsah
           search: Vyhľadávanie
           state: Štát
           withdrawn: Stiahnuté
@@ -395,6 +452,7 @@ sk:
           rejected_request:
             error: Nemohol byť odmietnutý ako spolupracovník, skúste to znova neskôr.
         show:
+          edit: Úprava konceptu spolupráce
           final_proposal: konečný návrh
           final_proposal_help_text: Tento návrh je dokončený. Môžete vidieť konečný konečný návrh
           hidden_authors_count:
@@ -426,14 +484,18 @@ sk:
       models:
         proposal:
           fields:
+            category: Kategória
             comments: Komentáre
             id: ID
             notes: Poznámky
             official_proposal: Oficiálne návrh
             published_answer: Zverejnená odpoveď
             published_at: Publikované v
+            scope: Rozsah
             state: Štát
             title: Titul
+            valuator: Hodnotiteľ
+            valuators: Hodnotitelia
             votes: Hlasy
       participatory_text_proposal:
         alternative_title: Momentálne nie sú k dispozícii žiadne príspevky
@@ -442,7 +504,9 @@ sk:
           comment: Komentár
       proposals:
         edit:
+          attachment_legend: "(Voliteľné) Pridanie prílohy"
           back: Zadná
+          select_a_category: Vyberte kategóriu
           send: Poslať
           title: Upraviť návrh
         edit_draft:
@@ -453,6 +517,7 @@ sk:
           activity: Moja aktivita
           all: Všetko
           amendment_type: Typ
+          category: Kategória
           my_proposals: Moje návrhy
           origin: Pôvod
           related_to: súvisiace s
@@ -491,6 +556,7 @@ sk:
         show:
           answer: Odpovedať
           changes_at_title: doplňujúci návrh k "%{title}"
+          edit_proposal: Upraviť návrh
           estimated_cost: Odhadované náklady
           hidden_endorsers_count:
             one: a%{count} ďalšia osoba
@@ -506,11 +572,10 @@ sk:
           proposal_accepted_reason: 'Tento návrh bol prijatý, pretože:'
           proposal_in_evaluation_reason: Tento návrh sa hodnotí
           proposal_rejected_reason: 'Tento návrh bol zamietnutý, pretože:'
+          withdraw_proposal: Návrh stiahnuť
         voting_rules:
           proposal_limit:
             description: Môžete vytvoriť až %{limit} návrhov.
-          vote_limit:
-            description: Môžete hlasovať až pre %{limit} návrhov.
         wizard_aside:
           back: Zadná
         wizard_steps:

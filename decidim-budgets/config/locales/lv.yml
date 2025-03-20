@@ -1,7 +1,9 @@
+---
 lv:
   activemodel:
     attributes:
       project:
+        decidim_category_id: Kategorija
         description: Apraksts
         proposal_ids: Saistītie priekšlikumi
         title: Nosaukums
@@ -16,6 +18,7 @@ lv:
       actions:
         attachment_collections: Mapes
         attachments: Pielikumi
+        destroy: Dzēst
         edit: Labot
         import: Importēt priekšlikumus projektos
         preview: Priekšskatīt
@@ -49,9 +52,6 @@ lv:
         project:
           fields:
             title: Nosaukums
-      order:
-        status:
-          title: Jūsu balsojums ir veiksmīgi pieņemts
       order_summary_mailer:
         order_summary:
           selected_projects: 'Jūsu izvēlētie projekti ir:'
@@ -77,6 +77,7 @@ lv:
             one: 1 projekts
             other: "%{count} projekti"
         filters:
+          category: Kategorija
           search: Meklēt
         orders:
           highest_cost: Lielākās izmaksas

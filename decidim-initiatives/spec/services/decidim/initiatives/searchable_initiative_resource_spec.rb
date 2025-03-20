@@ -8,7 +8,7 @@ module Decidim
       let(:initiative) do
         create(
           :initiative,
-          :created,
+          :unpublished,
           organization:,
           title: Decidim::Faker::Localized.name,
           description: description1

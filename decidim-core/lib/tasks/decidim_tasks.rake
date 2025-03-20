@@ -6,7 +6,6 @@ namespace :decidim do
     :choose_target_plugins,
     :"decidim:upgrade_app",
     :"railties:install:migrations",
-    :"decidim:upgrade:migrations",
     :"decidim:upgrade:webpacker",
     :"decidim_api:generate_docs"
   ]
@@ -22,7 +21,6 @@ namespace :decidim do
       decidim_assemblies
       decidim_blogs
       decidim_budgets
-      decidim_collaborative_texts
       decidim_comments
       decidim_conferences
       decidim_debates

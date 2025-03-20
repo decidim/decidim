@@ -1,3 +1,4 @@
+---
 id:
   activemodel:
     attributes:
@@ -28,6 +29,7 @@ id:
     attributes:
       decidim/user:
         current_password: Kata sandi saat ini
+        email: E-mail
         name: Nama pengguna
         password: Kata sandi
         password_confirmation: konfirmasi kata kunci
@@ -37,12 +39,12 @@ id:
         other: Amandemen
       decidim/user:
         other: Pengguna
+      decidim/user_group:
+        other: Grup Pengguna
   booleans:
     'false': 'Tidak'
     'true': 'iya nih'
   date:
-    buttons:
-      select: Memilih
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -121,6 +123,7 @@ id:
         verify_via_csv: "%{user_name} memverifikasi %{resource_name} grup pengguna melalui file CSV"
     amendments:
       accepted:
+        error: Terjadi kesalahan saat menerima amandemen.
         success: Amandemen telah diterima dengan sukses.
       amendable:
         button: Ubah %{model_name}
@@ -143,6 +146,8 @@ id:
           withdrawn: |-
             Perubahan ini untuk %{amendable_type} %{amendable_link}
             telah ditarik oleh penulis.
+      new:
+        amendment_author: Pengarang perubahan
       review:
         back: Kembali
         heading: Tinjau amandemennya
@@ -251,6 +256,10 @@ id:
         name: Statistik organisasi
       sub_hero:
         name: Spanduk sub hero
+    core:
+      application_helper:
+        filter_category_values:
+          all: Semua
     devise:
       omniauth_registrations:
         new:
@@ -267,12 +276,15 @@ id:
           username_help: Nama publik yang muncul di pos Anda. Dengan tujuan menjamin anonimitas, dapat berupa nama apa pun.
       sessions:
         new:
+          are_you_new?: Baru ke platform?
           register: Buat sebuah akun
       shared:
         newsletter_modal:
           buttons:
             check: Periksa dan lanjutkan
           title: Notifikasi buletin
+        omniauth_buttons:
+          or: Atau
     doorkeeper:
       authorizations:
         new:
@@ -290,6 +302,9 @@ id:
     download_your_data:
       export:
         ready: Siap
+      show:
+        download_data: Unduh datanya
+        request_data: Meminta data
     errors:
       internal_server_error:
         title: Ada masalah dengan server kami
@@ -364,6 +379,42 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda melakukan aktivitas di situs web kami.
         level_up:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda melakukan aktivitas di situs web kami.
+      groups:
+        demoted_membership:
+          email_intro: Admin grup <a href="%{resource_url}">%{user_group_name}</a> telah menghapus hak admin Anda ke grup itu.
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah anggota grup itu.
+          email_subject: Anda bukan lagi admin dari grup %{user_group_name}!
+          notification_title: Anda bukan lagi admin grup <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Admin grup <a href="%{resource_url}">%{user_group_name}</a> telah mengundang Anda untuk bergabung.
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda telah diundang ke grup. Silakan periksa tab Grup di profil Anda untuk menyetujuinya.
+          email_subject: Anda diundang untuk bergabung dengan grup %{user_group_name}!
+          notification_title: Anda diundang untuk bergabung dengan grup <a href="%{resource_path}">%{user_group_name}</a> . Periksa <a href="%{groups_profile_tab_path}">Grup halaman</a> di profil Anda untuk menyetujuinya!
+        join_request_accepted:
+          email_intro: Selamat! Admin grup <a href="%{resource_url}">%{user_group_name}</a> telah menerima permintaan Anda untuk bergabung.
+          email_outro: Anda telah menerima pemberitahuan ini karena permintaan bergabung Anda telah diperbarui.
+          email_subject: Anda telah diterima di grup %{user_group_name}!
+          notification_title: Anda telah diterima ke grup <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: Seseorang diminta untuk bergabung dengan grup %{user_group_name} . Anda dapat menerima atau menolaknya dari <a href="%{resource_url}">halaman anggota grup</a>.
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda dapat mengelola grup %{user_group_name}.
+          email_subject: Seseorang diminta untuk bergabung dengan grup %{user_group_name}!
+          notification_title: Seseorang diminta untuk bergabung dengan grup %{user_group_name} . Anda dapat menerima atau menolaknya dari <a href="%{resource_path}">halaman anggota grup</a>.
+        join_request_rejected:
+          email_intro: Admin grup <a href="%{resource_url}">%{user_group_name}</a> menolak permintaan Anda untuk bergabung.
+          email_outro: Anda telah menerima pemberitahuan ini karena permintaan bergabung Anda telah diperbarui.
+          email_subject: Permintaan Anda untuk bergabung dengan grup %{user_group_name} telah ditolak!
+          notification_title: Permintaan Anda untuk bergabung dengan grup <a href="%{resource_path}">%{user_group_name}</a> telah ditolak.
+        promoted_to_admin:
+          email_intro: Admin grup <a href="%{resource_url}">%{user_group_name}</a> telah memberi Anda hak admin ke grup itu.
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah anggota grup itu.
+          email_subject: Anda sekarang menjadi admin dari grup %{user_group_name}!
+          notification_title: Anda sekarang menjadi admin dari grup <a href="%{resource_path}">%{user_group_name}</a>.
+        removed_from_group:
+          email_intro: Admin grup <a href="%{resource_url}">%{user_group_name}</a> telah menghapus Anda darinya.
+          email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah anggota grup itu.
+          email_subject: Anda telah dikeluarkan dari grup %{user_group_name}!
+          notification_title: Anda telah dikeluarkan dari grup <a href="%{resource_path}">%{user_group_name}</a>.
       users:
         profile_updated:
           email_intro: Halaman <a href="%{resource_url}">profil</a> dari %{name} (%{nickname}), yang Anda ikuti, telah diperbarui.
@@ -373,6 +424,8 @@ id:
     export_mailer:
       download_your_data_export:
         download: Unduh
+      export:
+        ready: Silakan temukan terlampir versi zip dari ekspor Anda.
       subject: Ekspor Anda "%{name}" sudah siap
     filters:
       linked_classes:
@@ -417,7 +470,50 @@ id:
           title: Lencana
       description: Lencana adalah pengakuan untuk tindakan dan kemajuan peserta dalam platform. Ketika Anda mulai menemukan, berpartisipasi, dan berinteraksi di platform, Anda akan mendapatkan lencana yang berbeda.
       level: Level %{level}
+    group_admins:
+      actions:
+        demote_admin: Hapus admin
+      index:
+        current_admins: 'Admin saat ini:'
+        manage_admins: Kelola admin
+    group_invites:
+      accept_invitation: Menerima
+      accept_or_reject_group_invitations: 'Grup berikut telah mengundang Anda untuk bergabung dengan mereka. Terima atau tolak permintaan mereka:'
+      index:
+        invite: Undang
+        invite_user: Undang pengguna
+      reject_invitation: Menolak
+    group_members:
+      actions:
+        are_you_sure: Apakah kamu yakin?
+        promote_to_admin: Membuat admin
+        remove_from_group: Hapus pengguna
+      index:
+        current_members_without_admins: 'Anggota saat ini (tanpa admin):'
+        manage_members: Kelola anggota
     groups:
+      actions:
+        are_you_sure: Apakah kamu yakin?
+      edit:
+        edit_user_group: Edit grup
+        update_user_group: Perbarui grup
+      form:
+        email_help: Email dari organisasi Anda, asosiasi, kolektif, grup, dll.
+        fill_in_for_verification: 'Isi bidang-bidang ini jika Anda ingin grup Anda diverifikasi:'
+        name_help: Nama organisasi Anda, asosiasi, kolektif, grup, dll.
+        nickname_help: Nama pengguna organisasi Anda, asosiasi, kolektif, grup, dll. Jangan menggunakan spasi atau aksen.
+      join:
+        success: Gabung permintaan berhasil dibuat. Admin akan meninjau permintaan Anda sebelum menerima Anda ke grup.
+      leave:
+        success: Grup berhasil dibiarkan.
+      members:
+        accept_or_reject_join_requests: 'Pengguna berikut telah mendaftar untuk bergabung dengan grup ini. Terima atau tolak permintaan mereka:'
+        accept_request: Menerima
+        reject_request: Menolak
+      new:
+        create_user_group: Membuat grup
+        new_user_group: Grup baru
+        subtitle: Buat grup dan undang pengguna lain untuk bergabung untuk berpartisipasi dalam tingkat kolektif.
       roles:
         admin: Administrator
         member: Anggota
@@ -557,10 +653,22 @@ id:
         badges: Lencana
         followers: Pengikut
         following: Mengikuti
+        groups: Grup
+        members: Anggota
+      sidebar:
+        badges:
+          info: Lencana diperoleh dengan melakukan aktivitas tertentu di platform.
+          title: Lencana
       user:
-        actions:
-          edit_profile: Edit profil
-          resend_email_confirmation_instructions: Kirim ulang instruksi konfirmasi email
+        create_user_group: Membuat grup
+        edit_profile: Edit profil
+        edit_user_group: Edit profil grup
+        invite_user: Undang pengguna
+        join_user_group: Permintaan untuk bergabung dengan grup
+        leave_user_group: Meninggalkan grup
+        manage_user_group_admins: Kelola admin
+        manage_user_group_users: Kelola anggota
+        resend_email_confirmation_instructions: Kirim ulang instruksi konfirmasi email
     reported_mailer:
       hide:
         hello: Halo %{name},
@@ -573,10 +681,16 @@ id:
         subject: Sumber daya telah dilaporkan
     reports:
       create:
+        error: Terjadi kesalahan saat membuat laporan. Tolong, coba lagi.
         success: Laporan telah berhasil dibuat dan akan ditinjau oleh admin.
     scopes:
       global: Ruang lingkup global
+      picker:
+        cancel: Membatalkan
+        choose: Memilih
+        title: Pilih %{field}
       prompt: Pilih cakupan
+      scopes: Scopes
     search:
       results_found_for_term: '%{count} Hasil untuk pencarian: "%{term}"'
       term_input_placeholder: Pencarian
@@ -607,8 +721,15 @@ id:
         title: Laporkan masalah
       floating_help:
         help: Membantu
+      participatory_space_filters:
+        filters:
+          areas: Area
+          select_an_area: Pilih satu area
       reference:
         reference: 'Referensi: %{reference}'
+      represent_user_group:
+        represent_user_group: Saya mewakili grup
+        select_user_group: Pilih satu grup
       results_per_page:
         label: 'Hasil per halaman:'
       share_modal:
@@ -616,6 +737,16 @@ id:
         share_link: Membagikan tautan
     statistics:
       comments_count: Komentar
+    user_conversations:
+      update:
+        error: Pesan tidak terkirim. Coba lagi nanti
+    user_interests:
+      show:
+        my_interests: Minat saya
+        update_my_interests: Perbarui minat saya
+      update:
+        error: Terjadi kesalahan saat memperbarui minat Anda.
+        success: Minat Anda telah berhasil diperbarui.
     welcome_notification:
       default_subject: Terima kasih telah bergabung dengan {{organization}}!
   devise:
@@ -742,6 +873,7 @@ id:
       edit_link:
         edit: Edit
       footer:
+        download_open_data: Unduh file Open Data
         made_with_open_source: Situs web dibuat dengan <a target="_blank" href="https://github.com/decidim/decidim">perangkat lunak gratis</a>.
       impersonation_warning:
         close_session: Tutup sesi
@@ -760,8 +892,10 @@ id:
         authorizations: Otorisasi
         delete_my_account: Hapus akun Saya
         my_data: Data saya
+        my_interests: Minat saya
         notifications_settings: Pengaturan Notifikasi
         title: Pengaturan pengguna
+        user_groups: Grup
   locale:
     name: Bahasa Indonesia
     name_with_error: Bahasa Indonesia (salah!)
@@ -796,8 +930,6 @@ id:
     weibo: Sina Weibo
     xing: Xing
   time:
-    buttons:
-      select: Memilih
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

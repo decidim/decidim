@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -77,7 +78,9 @@ pt-BR:
             label: Estado
             values:
               accepted: Assinaturas suficientes
+              created: Criado
               discarded: Descartado
+              published: Publicado
               rejected: Não há assinaturas suficientes
               validating: Validação técnica
           type_id_eq:
@@ -86,6 +89,7 @@ pt-BR:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Pesquisar %{collection} por título, descrição, ID ou nome do autor.
       initiatives_settings:
         update:
+          error: Ocorreu um erro.
           success: As configurações de iniciativas foram atualizadas com sucesso.
       menu:
         attachments: Anexos
@@ -125,6 +129,8 @@ pt-BR:
             initiative_title: Título da iniciativa
             name_and_surname: Nome e sobrenome
             postal_code: Código postal
+            scope: Escopo
+            time_and_date: Hora e data
             timestamp: Timestamp
       titles:
         initiatives: Iniciativas
@@ -232,6 +238,8 @@ pt-BR:
             edit: Editar
             new: Novo
             photos: Fotos
+          update:
+            error: Ocorreu um erro.
         initiatives_settings:
           form:
             comments: Mais comentado
@@ -241,13 +249,19 @@ pt-BR:
             signatures: Mais assinadas
             title: Configurações de iniciativas
         initiatives_type_scopes:
+          create:
+            error: Ocorreu um erro.
           edit:
             title: Editar o âmbito do tipo de iniciativa
             update: Atualizar
           new:
             create: Criar
             title: Criar âmbito de tipo de iniciativa
+          update:
+            error: Ocorreu um erro.
         initiatives_types:
+          create:
+            error: Ocorreu um erro.
           edit:
             update: Atualizar
           form:
@@ -260,6 +274,8 @@ pt-BR:
           new:
             create: Criar
             title: Novo tipo de iniciativa
+          update:
+            error: Ocorreu um erro.
       admin_log:
         initiative:
           publish: "%{user_name} publicou a iniciativa %{resource_name}"
@@ -274,7 +290,9 @@ pt-BR:
           update: "%{user_name} atualizou o tipo de iniciativas %{resource_name}"
       admin_states:
         accepted: Assinaturas suficientes
+        created: Criada
         discarded: Descartado
+        published: Publicados
         rejected: Não há assinaturas suficientes
         validating: Validação técnica
       application_helper:
@@ -301,20 +319,38 @@ pt-BR:
           name: Iniciativas destacadas
       create_initiative:
         fill_data:
+          back: Costas
           continue: Continuar
           fill_data_help: "<ul> <li>Revise o conteúdo de sua iniciativa. Seu título é fácil de entender? O objetivo da sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da iniciativa?</li> </ul>"
+          more_information: "(Mais Informações)"
           select_area: Selecione uma área
           select_scope: Selecione um âmbito
         finish:
           back: Costas
+          back_to_initiatives: De volta às iniciativas
+          callout_text: Parabéns! Sua iniciativa cidadã foi criada com sucesso.
+          confirm: Você vai enviar a iniciativa para um administrador revisá-lo e publicá-lo. Uma vez publicado, você não será capaz de editá-lo. Você tem certeza?
+          edit_my_initiative: Editar minha iniciativa
+          go_to_my_initiatives: Vá para minhas iniciativas
+          more_information: "(Mais Informações)"
+          send_my_initiative: Enviar minha iniciativa para validação técnica
+        finish_help:
+          publish_helper_text: Lembre-se de que para que sua iniciativa seja publicada, você precisa preencher as informações necessárias e <strong>enviá-las à validação técnica</strong> para que um administrador as analise.
         previous_form:
           back: Costas
+          continue: Continuar
+        promotal_committee:
+          individual_help_text: Este tipo de iniciativa requer uma Comissão Promover composta por pelo menos %{committee_size} pessoas (atestadores). Têm de partilhar o seguinte link com as outras pessoas que fazem parte desta iniciativa. Quando seus contatos receberem este link eles terão que seguir os passos indicados.
+          more_information: "(Mais Informações)"
         select_initiative_type:
           back: Costas
           choose_html: Eu quero criar um <strong>%{title}</strong>
           more_information: (Mais Informações)
           new: Criar iniciativa
           select: Eu quero promover essa iniciativa
+          select_initiative_type_help: As iniciativas são um meio através do qual os participantes podem intervir para que a organização possa empreender acções em defesa do interesse geral. Qual iniciativa você quer lançar?
+        share_committee_link:
+          invite_to_committee_help: Link para convidar pessoas que farão parte do comitê de promotores
       edit:
         accept: Aceitar a iniciativa
         back: Voltar
@@ -352,7 +388,10 @@ pt-BR:
           email_subject: "%{applicant_nickname} quer participar de sua iniciativa"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> se candidatou ao comitê de promotores da sua iniciativa <a href="%{resource_url}">%{resource_title}</a>. Para aceitar ou rejeitar, clique <a href="%{resource_url}/edit">aqui</a>.
       form:
+        add_documents: Adicionar Documentos
         add_image: Adicionar imagem
+        attachment_legend: "(Opcional) Adicionar um anexo"
+        edit_documents: Editar documentos
         edit_image: Editar imagem
         image_legend: "(Opcional) Adicionar um anexo"
       index:
@@ -431,7 +470,9 @@ pt-BR:
           phone_number: Número de telefone
           place_date: Local, data
           postal_code: CEP/CEP
+          print: Impressão
           province: Cidade/Estado
+          section: 'Se solicitado pela organização, por favor imprima e preencha este formulário para enviar quando indicado:'
           signature: Assinatura
         result:
           initiative_rejected_reason: Esta iniciativa foi rejeitada devido à falta de suporte.
@@ -450,6 +491,7 @@ pt-BR:
           other: " assinaturas"
         vote_cabin:
           already_voted: Já assinadas
+          verification_required: Confirme sua conta para assinar a iniciativa
           vote: Placa
           votes_blocked: Assinatura desativada
         votes_count:
@@ -480,24 +522,31 @@ pt-BR:
       show:
         badge_name:
           accepted: Assinaturas suficientes
+          created: Criado
           discarded: Descartado
+          published: Publicados
           rejected: Não há assinaturas suficientes
           validating: Validação técnica
       states:
         accepted: Aceitaram
         expired: Expirado
       unavailable_scope: Escopo não disponível
+      update:
+        error: Ocorreu um erro.
     menu:
       initiatives: Iniciativas
     resources:
       initiatives_type:
         actions:
+          create: Criar
           title: Ações
           vote: Voto
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Criar
+        finish: Finalizar
+        promotal_committee: Comitê Promotor
         select_initiative_type: Escolher
       initiative_signature_creation_header:
         fill_personal_data: Complete seus dados

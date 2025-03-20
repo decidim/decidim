@@ -37,6 +37,12 @@ module Decidim
         formatted_date(date)
       end
 
+      def assembly_type
+        return if assembly.assembly_type.blank?
+
+        translated_attribute(assembly.assembly_type.title)
+      end
+
       def formatted_date(date)
         return if date.blank?
 

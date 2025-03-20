@@ -5,6 +5,8 @@ require "spec_helper"
 module Decidim
   module Budgets
     describe ProjectsController do
+      routes { Decidim::Budgets::Engine.routes }
+
       let(:user) { create(:user, :confirmed, organization: component.organization) }
       let!(:budget) { create(:budget, component:) }
 

@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -21,6 +22,8 @@ eu:
         published_at: Argitaratze-data
         registration_terms: Erregistro-baldintzak
         registrations_enabled: Izen-emateak gaituta
+        scope_id: Esparrua
+        scopes_enabled: Esparruak gaituta
         short_description: Deskribapen laburra
         show_statistics: Erakutsi estatistikak
         sign_date: Sinatze-data
@@ -66,8 +69,6 @@ eu:
         email: Helbide elektronikoa
         name: Izena
         role: Rola
-      partner:
-        logo: Logoa
     errors:
       models:
         conference_registration_invite:
@@ -77,19 +78,18 @@ eu:
   activerecord:
     models:
       decidim/conference:
-        one: Jardunaldia
+        one: Hitzaldia
         other: Jardunaldiak
       decidim/conference_speaker:
-        one: Jardunaldiaren hizlaria
-        other: Jardunaldiaren hizlariak
+        one: Hitzaldi hizlaria
+        other: Jardunaldiko hizlariak
       decidim/conference_user_role:
-        one: Jardunaldiko parte-hartzailearen rola
-        other: Jardunaldiko parte-hartzaile rolak
+        one: Hitzaldiko erabiltzaile rola
+        other: Jardunaldiko hizlariaren rolak
   decidim:
     admin:
       actions:
         confirm: Berretsi
-        confirm_delete_conference: Ziur zaude jardunaldi hau ezabatu nahi duzula? Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.
         new_conference: Beste jardunaldi bat
         new_conference_user_role: Jardunaldiaren beste administratzaile bat
         new_media_link: Hedabideen beste esteka bat
@@ -97,7 +97,6 @@ eu:
         new_registration_type: Beste erregistro mota bat
         new_speaker: Beste hizlari bat
         send_diplomas: Bidali bertaratze-ziurtagiriak
-        view_deleted_conferences: Ikusi ezabatutako jardunaldiak
       conference_copies:
         new:
           copy: Kopiatu
@@ -112,51 +111,51 @@ eu:
           success: Jardunaldia zuzen despublikatua.
       conference_registration:
         confirm:
-          error: Arazo bat egon da jardunaldi erregistratzean.
+          error: Arazo bat egon da hitzaldi hau erregistratzean.
           success: Jardunaldiaren erregistroa zuzen onartua.
       conference_speakers:
         create:
-          error: Arazo bat egon da hizlari bat gehitzean jardunaldi honetarako.
-          success: Hizlaria zuzen sortua jardunaldi honetarako.
+          error: Arazo bat egon da hizlari bat gehitzean hitzaldi honetarako.
+          success: Hizlaria zuzen sortua hitzaldi honetarako.
         destroy:
           success: Hizlaria behar bezala ezabatua.
         edit:
-          title: Eguneratu jardunaldiaren hizlaria
+          title: Eguneratu hitzaldiko hizlaria.
           update: Eguneratu
         index:
           conference_speakers_title: Jardunaldiaren hizlariak
         new:
           create: Sortu
-          title: Beste hizlari bat
+          title: Beste hizlari bat.
         publish:
-          invalid: Arazo bat izan da hizlari hau argitaratzean.
+          invalid: Arazo bat izan zen hizlari hau argitaratzean.
           success: Hizlaria behar bezala argitaratua.
         unpublish:
-          invalid: Arazo bat izan da hizlari hau ezargitaratzean.
-          success: Hizlaria behar bezala ezargitaratuta.
+          invalid: Arazo bat izan da hizlari hau despublikatzean.
+          success: Hizlaria behar bezala despublikatua.
         update:
           error: Arazo bat egon da hizlari hau eguneratzean.
-          success: Hizlaria zuzen eguneratua jardunaldi honetarako.
+          success: Hizlaria zuzen eguneratua hitzaldi honetarako.
       conference_user_roles:
         create:
-          error: Arazo bat egon da administratzaile bat gehitzean jardunaldi honetarako.
+          error: Arazo bat egon da administratzaile bat gehitzean hitzaldi honetarako.
           success: Jardunaldiaren administratzailea zuzen gehitua.
         destroy:
           success: Jardunaldiren administratzailea behar bezala ezabatua.
         edit:
-          title: Eguneratu jardunaldiaren hizlaria
+          title: Eguneratu hitzaldiaren administratzailea.
           update: Eguneratu
         index:
           conference_admins_title: Jardunaldiaren administratzaileak
         new:
           create: Sortu
-          title: Beste jardunaldiaren administratzaile bat
+          title: Jardunaldiaren beste administratzaile bat.
         update:
           error: Arazo bat egon da hitzaldi-administratzaile hau eguneratzean.
           success: Jardunaldiaren administratzailea zuzen eguneratua.
       conferences:
         create:
-          error: Arazo bat egon da jardunaldi hau sortzean.
+          error: Arazo bat egon da hitzaldi hau sortzean.
           success: Jardunaldia zuzen sortua.
         edit:
           update: Eguneratu
@@ -166,52 +165,51 @@ eu:
           title: Informazio orokorra
         index:
           published: Argitaratua
-          unpublished: Argitaragabea
-        manage_trash:
-          title: Ezabatutako jardunaldiak
+          unpublished: Despublikatua
         new:
           create: Sortu
           title: Jardunaldia
         update:
-          error: Arazo bat egon da jardunaldi hau eguneratzean.
+          error: Arazo bat egon da hitzaldi hau eguneratzean.
           success: Jardunaldia zuzen eguneratua.
       conferences_copies:
         create:
-          error: Arazo bat egon da jardunaldi hau bikoiztean.
+          error: Arazo bat egon da hitzaldi hau bikoiztean.
           success: Jardunaldia zuzen eguneratua.
       media_links:
         create:
           error: Arazo bat egon da beste komunikazio-esteka bat sortzean.
           success: Hedabideen esteka zuzen sortua.
         destroy:
-          success: Multimediaren esteka behar bezala ezabatua.
+          success: Hedabideen lotura behar bezala ezabatua.
         edit:
-          title: Multimedia esteka eguneratu
+          title: Eguneratu hedabideen lotura.
           update: Eguneratu
         index:
           media_links_title: Hedabideen loturak
         new:
           create: Sortu
-          title: Sortu multimediarako esteka
+          title: Hedabideen lotura
         update:
-          error: Arazo bat egon da multimedia esteka hau eguneratzean.
-          success: Multimediaren esteka zuzen eguneratua.
+          error: Arazo bat egon da multimedia link hau eguneratzean.
+          success: Hedabideen lotura zuzen eguneratua.
       menu:
-        conferences: Jardunaldiak
+        conferences: Hitzaldiak
         conferences_submenu:
           attachment_collections: Karpetak
           attachment_files: Fitxategiak
           attachments: Eranskinak
+          categories: Kategoriak
           components: Osagaiak
           conference_admins: Jardunaldi-administratzaileak
           conference_invites: Gonbidapenak
           conference_speakers: Hizlariak
-          diploma: Parte-hartze ziurtagiria
+          diploma: Bertaratze-ziurtagiria
           info: Jardunaldi honi buruz
           media_links: Hedabideen loturak
           moderations: Moderazioak
           partners: Kideak
-          registration_types: Erregistro motak
+          registration_types: Izen-emate motak
           registrations: Izen-emateak
           see_conference: Ikusi jardunaldia
           user_registrations: Parte-hatzaileen erregistroak
@@ -232,12 +230,12 @@ eu:
             email: Helbide elektronikoa
             name: Izena
             role: Rola
-          name: Jardunaldiaren administratzailea
+          name: Hitzaldiaren administratzailea
           roles:
             admin: Administratzailea
             collaborator: Kolaboratzailea
-            evaluator: Ebaluatzailea
             moderator: Moderatzailea
+            valuator: Ebaluatzailea
         media_link:
           fields:
             date: Data
@@ -269,7 +267,7 @@ eu:
         destroy:
           success: Kidea behar bezala kenduta.
         edit:
-          title: Eguneratu kidea
+          title: Eguneratu kidea.
           update: Eguneratu
         new:
           create: Sortu
@@ -291,29 +289,21 @@ eu:
         destroy:
           success: Izen-emate mota jardunaldi honetatik atera da.
         edit:
-          title: Eguneratu erregistro mota
-          update: Eguneratu
+          title: Eguneratu erregistro mota.
+          update: eguneratzearen
         new:
           create: Sortu
           title: Beste erregistro mota bat
         update:
           error: Arazo bat egon da jardunaldi honetarako izen-emate mota hau eguneratzean.
           success: Izen-emate mota arrakastaz eguneratu da jardunaldi honetarako.
-      taxonomy_filters:
-        space_filter_for:
-          conferences: Jardunaldi guztiak
       titles:
         conferences: Jardunaldiak
-        conferences_deleted: Ezabatutako jardunaldiak
-      tooltips:
-        deleted_conferences_info: Jardunaldiak soilik ezabatu daitezke egoera "Argitaratugabea" bada.
     admin_log:
       conference:
         create: "%{user_name} parte-hartzaileak sortu du %{resource_name} jardunaldia"
         publish: "%{user_name} parte-hartzaileak argitaratu du %{resource_name} jardunaldia"
-        restore: "%{user_name} parte-hartzaileak %{resource_name} jardunaldia a berreskuratu du"
         send_conference_diplomas: "%{user_name} parte-hartzaileak bertaratze-ziurtagiriak bidali dizkie %{resource_name} jardunaldira bertaratuei"
-        soft_delete: "%{user_name} parte-hartzaileak %{resource_name} jardunaldia zaborrontzira eraman du"
         unpublish: "%{user_name} parte-hartzaileak desargitaratu du %{resource_name} jardunaldia"
         update: "%{user_name} parte-hartzaileak eguneratu du %{resource_name} jardunaldia"
         update_diploma: "%{user_name} parte-hartzaileak bertaratze-agirien konfigurazioa eguneratu du %{resource_name} jardunaldirako"
@@ -323,7 +313,7 @@ eu:
         update: "%{user_name} parte-hartzaileak %{resource_name} hizlaria eguneratu du %{space_name} jardunaldian"
       conference_user_role:
         create: "%{user_name} parte-hartzaileak %{resource_name} gonbidatu du %{space_name} jardunaldira"
-        delete: "%{user_name} parte-hartzaileak %{resource_name} administratzailea kendu du %{space_name} jardunalditik"
+        delete: "%{user_name} part-hartzaileak %{resource_name} administratzailea kendu du %{space_name} jardunalditik"
         update: "%{user_name} parte-hartzaileak %{resource_name} ren rola aldatu du %{space_name} jardunaldian"
       conferences:
         conference_registration:
@@ -384,20 +374,17 @@ eu:
         conferences:
           form:
             available_slots_help: Utzi 0 mugak mugagabea badaude.
-            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
-            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             registrations_count:
               one: Izen-emate 1 egon da.
-              other: Dena den, %{count} izen-emateak.
+              other: Dena den, %{count} matrikulazioak.
             slug_help_html: 'URL slugak erabiltzen dira jardunaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: % {url}'
-            taxonomies: Taxonomiak
         content_blocks:
           highlighted_conferences:
             max_results: Erakusteko gehieneko elementu kopurua
         diplomas:
           edit:
             save: Gorde
-            title: Parte-hartze ziurtagiria
+            title: Asistentzia ziurtagiria
         invite_join_conference_mailer:
           invite:
             decline: Baztertu gonbidapena '%{conference_title}'
@@ -417,8 +404,8 @@ eu:
             diploma_html: < a href = " % {url}" >% {title} jardunaldira joan izanaren ziurtagiria aurkituko duzu eranskinetan.
           diploma_user:
             attendance_verified_by: Bertaratzea nork egiaztatua
-            certificate_of_attendance: Parte-hartze ziurtagiria
-            certificate_of_attendance_description: Honek ziurtatzen du <strong>%{user}</strong> bertaratu dela eta hartu parte duela <strong>%{title}</strong> etan ospatua <strong>%{location}</strong> an <strong>%{start} - %{end}</strong>
+            certificate_of_attendance: Bertaratze-agiria
+            certificate_of_attendance_description: Honek ziurtatzen du <strong>%{user}</strong> bertaratu dela eta parte hartu duela <strong>%{title}</strong> etan ospatua <strong>%{location}</strong> an <strong>%{start} - %{end}</strong>
         send_diploma:
           error: Arazo bat egon da jardunaldiaren bertaratze-agiriak bidaltzean.
           success: Jardunaldirako ziurtagiriak zuzen bidali behar dira
@@ -427,12 +414,12 @@ eu:
           cancel: Utzi
           confirm: Berretsi
         show:
-          going: Joango naiz
+          going: joatean
           no_slots_available: Ez dago slotarik erabilgarri
           registration: Izen-ematea
       conference_program:
         show:
-          program: Egitaraua
+          program: Programa
       conference_registration_mailer:
         confirmation:
           confirmed_html: Zure jardunaldirako izena emateko <a href="%{url}">%{title}</a> baieztatu da.
@@ -486,7 +473,7 @@ eu:
         highlighted_conferences:
           name: Nabarmendutako jardunaldiak
       index:
-        title: Jardunaldiak
+        title: Hitzaldiak
       last_activity:
         new_conference: 'Beste jardunaldi bat:'
       mailer:
@@ -504,7 +491,7 @@ eu:
       models:
         conference_invite:
           fields:
-            email: Helbide elektronkoa
+            email: Emaila
             name: izena
             registration_type: Izen-emate mota
             sent_at: Bidalitakoan
@@ -512,10 +499,10 @@ eu:
           status:
             accepted: Onartuta (%{at})
             rejected: Ukatua (%{at})
-            sent: Bidalia
+            sent: bidalia
         conference_registration:
           fields:
-            email: Helbide elektronikoa
+            email: Emaila
             name: izena
             registration_type: Izen-emate mota
             state: Estatu
@@ -537,27 +524,8 @@ eu:
         details: Xehetasunak
         introduction: Sarrera
         objectives: Helburuak
-        related_assemblies: Lotutako batzarrak
+        related_assemblies: Lotutako Batzarrak
         related_participatory_processes: Lotutako parte-hartze prozesuak
-    download_your_data:
-      help:
-        conference_invites:
-          accepted_at: Zein datatan onartu zen jardunaldirako gonbidapena
-          conference: Zein jardunaldirako bidali zen gonbidapena
-          confirmed_at: Zein datatan berretsi zen gonbidapena
-          created_at: Zein datatan sortu zen gonbidapena
-          id: Jardunaldirakoko gonbidapenaren identifikatzaile bakarra
-          registration_type: Zein erregistro mota bidali zen jardunaldi honetarako
-          rejected_at: Zein datatan ukatu zen jardunaldirako gonbidapena
-          sent_at: Zein datatan bidali zen jardunaldi honetarako gonbidapena
-          updated_at: Zein datatan eguneratu zen gonbidapen hau azkenekoz
-        conference_registrations:
-          conference: Zein jardunaldiri dagokion hau
-          confirmed_at: Zein datatan berretsi zen erregistro hau
-          created_at: Zein datatan sortu zen erregistro hau
-          id: Jardunaldirako erregistroaren identifikatzaile bakarra
-          registration_type: Honetarako gaituta dagoen erregistro mota
-          updated_at: Zein datatan eguneratu zen erregistro hau azkenekoz
     events:
       conferences:
         conference_registration_confirmed:
@@ -566,7 +534,7 @@ eu:
           notification_title: <a href="%{resource_url}">%{resource_title}</a> jardunaldirako zure izen-ematea zain dago berresteko.
         conference_registrations_over_percentage:
           email_intro: '"%{resource_title}" jardunaldiak okupatutako slotak %{percentage}% baino gehiago dira.'
-          email_outro: Jakinarazpen hau jaso duzu, jardunaldiko parte hartzaileen espazioa delako.
+          email_outro: Jakinarazpen hau jaso duzu, jardunaldiko parte hartzaileen gunea delako.
           email_subject: '"%{resource_title}" jardunaldiak okupatutako slotak %{percentage}% baino gehiago dira'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> jardunaldiak okupatutako slot-ak %{percentage}% baino gehiago dira.
         conference_updated:
@@ -602,36 +570,9 @@ eu:
     media:
       index:
         description: Estekak jardunaldi honi buruz
-        title: Multimedia eta estekak
+        title: Media eta estekak
     menu:
       conferences: Jardunaldiak
-    open_data:
-      help:
-        conferences:
-          created_at: Zein datatan sortu da jardunaldi hau
-          decidim_scope_id: Jardunaldiaren esparrua
-          description: Jardunaldiaren deskribapen luzea
-          end_date: Zein datatan amaitu zen jardunaldi hau.
-          follows_count: Espazio hau zenbat parte-hartzaileek jarraitzen duten
-          hashtag: Jardunaldiaren traola, Twitter/Xerako erabilia
-          id: Jardunaldi honen identifikatzaile bakarra
-          location: Jardunaldiaren kokalekua. Non egingo da hitzaldi hau.
-          objectives: Jardunaldi honen helburuak. Zein da helburua.
-          promoted: Jardunaldia sustatu edo ez
-          published_at: Zein egunetan argitaratu zen espazio hau
-          reference: Espazioaren erreferentzia bakarra
-          remote_banner_image_url: Jardunaldiaren irudiaren URLa
-          remote_hero_image_url: Batzarraren protagonistaren irudiaren URLa
-          scope: Jardunaldiaren esparrua
-          scopes_enabled: Esparruak gaituta dauden ala ez
-          short_description: Jardunaldiaren deskribapen laburra
-          slogan: Jardunaldi honen leloa
-          slug: Batzarraren lerroa (helburuen identifikaziorako erabiltzen da, URLrako)
-          start_date: Zein datatan hasi zen jardunaldi hau.
-          taxonomies: Jardunaldiaren taxonomiak
-          title: Jardunaldiaren izenburua
-          updated_at: Zein egunetan eguneratu zen azken aldiz espazio hau
-          url: Espazioaren URLa
     statistics:
       conferences_count: Jardunaldiak
   devise:
@@ -646,7 +587,7 @@ eu:
       conferences:
         conference:
           more_info: Informazio gehiago
-          take_part: Hartu parte
+          take_part: Parte hartu
         index:
           promoted_conferences: Sustatutako jardunaldiak
         order_by_conferences:
@@ -656,5 +597,5 @@ eu:
       conferences_nav:
         conference_partners_menu_item: Kideak
         conference_speaker_menu_item: Hizlariak
-        media: Multimedia
+        media: Media
         venues: Egoitzak

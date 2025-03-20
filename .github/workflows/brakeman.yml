@@ -12,8 +12,8 @@ on:
 
 env:
   CI: "true"
-  RUBY_VERSION: 3.3.4
-  NODE_VERSION: 22.14.0
+  RUBY_VERSION: 3.2.2
+  NODE_VERSION: 18.17.1
   PARALLEL_TEST_PROCESSORS: 2
   CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
   SHAKAPACKER_RUNTIME_COMPILE: "false"
@@ -35,7 +35,6 @@ jobs:
           - decidim-blogs
           - decidim-budgets
           - decidim-comments
-          - decidim-collaborative_texts
           - decidim-conferences
           - decidim-core
           - decidim-debates
@@ -63,7 +62,7 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
-      - run: bundle exec brakeman --rails7 --force-scan .
+      - run: bundle exec brakeman --rails6 --force-scan .
         name: Scanning Security issues on module
         working-directory: ${{ matrix.working-directory }}
         shell: "bash"

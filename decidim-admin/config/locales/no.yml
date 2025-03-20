@@ -1,3 +1,4 @@
+---
 "no":
   activemodel:
     attributes:
@@ -26,6 +27,8 @@
         published_at: Publisert den
         weight: Plassering av sortering
       id: ID
+      import:
+        user_group_id: Opprett importer som
       newsletter:
         body: Tekst
         subject: Emne
@@ -81,6 +84,7 @@
         success_color: Vellykket
         time_zone: Tidssone
         tos_version: Vilkår for tjenesten
+        user_groups_enabled: Aktiver grupper
         users_registration_mode: Brukerregistrering
         warning_color: Advarsel
         welcome_notification_body: Velkomst varslings tekst
@@ -142,6 +146,8 @@
         attachment:
           new: Nytt vedlegg
         browse: Bla gjennom
+        category:
+          new: Ny kategori
         export: Eksporter alt
         export-selection: Eksporter valg
         import: Importer
@@ -152,9 +158,11 @@
           new: Nytt deltakerområde for privat bruker
         per_page: Per side
         permissions: Tillatelser
+        reject: Avvis
         share: Del
         user:
           new: Ny admin
+        verify: Verifiser
       area_types:
         create:
           error: Det oppstod et problem med å lage en ny områdetype.
@@ -227,8 +235,23 @@
           justification: Begrunnelse
           title: Blokker bruker %{name}
       categories:
+        create:
+          error: Det oppstod et problem med å oppdatere denne kategorien.
+          success: Kategorien opprettet.
+        destroy:
+          error: Det oppstod et problem med å slette denne kategorien. Vennligst slett alle underkategorier først, sørg for at ingen andre enheter hører til denne kategorien, og prøv igjen.
+          success: Kategorien slettet.
+        edit:
+          title: Rediger kategori
+          update: Oppdater
         index:
           categories_title: Kategorier
+        new:
+          create: Opprett kategori
+          title: Ny kategori
+        update:
+          error: Det oppstod et problem med å oppdatere denne kategorien.
+          success: Kategorien oppdatert.
       component_permissions:
         update:
           error: Det oppstod et problem med å oppdatere tillatelsene til denne komponenten.
@@ -237,6 +260,9 @@
         create:
           error: Det oppstod et problem med å opprette denne komponenten.
           success: Komponent ble opprettet.
+        destroy:
+          error: Det oppstod et problem med å ødelegge denne komponenten.
+          success: Komponent ble slettet.
         edit:
           title: Rediger komponent
           update: Oppdater
@@ -249,6 +275,7 @@
           headers:
             actions: Handlinger
             name: Komponentnavn
+            scope: Komponenttype
             type: Komponenttype
         new:
           add: Legg til komponent
@@ -298,6 +325,8 @@
           FormPDF: PDF
           JSON: JSON
       filters:
+        category_id_eq:
+          label: Kategori
         filter_label: Filter
         invitation_accepted_at_present:
           label: Invitasjonen er akseptert
@@ -345,6 +374,8 @@
           values:
             'false': Publisert
             'true': Avpublisert
+        scope_id_eq:
+          label: Tema
         search_label: Søk
         search_placeholder:
           name_or_nickname_or_email_cont: Søk %{collection} via email, navn eller kallenavn.
@@ -462,6 +493,7 @@
         scopes: Tema
         settings: Innstillinger
         static_pages: Sider
+        user_groups: Grupper
         users: Deltakere
       metrics:
         metrics:
@@ -514,8 +546,12 @@
             plural: Flertall
         share_token:
           fields:
+            created_at: Opprettet på
             expires_at: Utløper
+            last_used_at: Sist brukt
             times_used: Ganger brukt
+            token: Token
+            user: Opprettet av
         static_page:
           fields:
             created_at: Opprettet på
@@ -530,6 +566,15 @@
               admin: Administrator
               user_manager: Deltaker sjef
           name: Deltaker
+        user_group:
+          fields:
+            actions: Handlinger
+            created_at: Opprettet på
+            document_number: Dokumentnummer
+            name: Navn
+            phone: Telefon
+            state: Stat
+            users_count: Deltakere teller
       moderated_users:
         index:
           actions:
@@ -598,6 +643,7 @@
           confirm_delete: Er du sikker på at du vil slette dette nyhetsbrevet?
           followers: 'følgere '
           has_been_sent_to: 'Har blitt sendt til: '
+          no_scopes: Ingen tema
           not_sent: Ikke sendt
           participants: 'deltakere '
           segmented_to: 'Segmentert til %{subject}: '
@@ -612,10 +658,13 @@
           confirm_deliver: Er du sikker på at du vil levere dette nyhetsbrevet? Denne handlingen kan ikke angres.
           deliver: Lever nyhetsbrev
           followers_help: Sender nyhetsbrev til alle bekreftede brukere som følger noen av de valgte deltakerområdene på listen.
+          none: Ingen
           participants_help: Sender nyhetsbrev til alle bekreftede brukere som har deltatt i noen av de valgte deltakerområdene på listen.
           recipients_count: Dette nyhetsbrevet vil bli sendt til <strong id='recipients_count'>%{count}</strong> brukere.
+          scopes_help: Sender nyhetsbrev til brukere som har noen av de valgte temaene aktivert i kontoens "Mine interesser" innstillinger.
+          select_scopes: Filtrer for brukere som har aktivert et valgt tema i innstillingene for Mine interesser.
           select_spaces: Velg rom for å segmentere nyhetsbrevet
-          send_to_all_users: Send til alle brukere
+          select_users: Velg hvilke brukere du vil sende nyhetsbrevet
           title: Velg mottakere som skal leveres
           warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
         show:
@@ -697,8 +746,6 @@
           title: Ny deltaker område privat deltaker.
       participatory_space_private_users_csv_imports:
         new:
-          csv_upload:
-            title: Last opp din CSV fil
           destroy:
             button: Slett alle private deltakere
             empty: Du har ingen private deltakere.
@@ -719,6 +766,10 @@
           title: Endre tillatelser
         update:
           success: Tillatelsene ble oppdatert.
+      resources:
+        index:
+          headers:
+            scope: Tema
       scope_types:
         create:
           error: Det oppstod et problem med å lage en ny tematype.
@@ -750,7 +801,15 @@
           success: Temaet ble oppdatert
       share_tokens:
         actions:
+          confirm_destroy: Er du sikker på at du vil slette denne token?
           destroy: Slett
+          share: Del
+        destroy:
+          error: Et problem oppstod under ødelggelsen av token.
+          success: Token ble ødelagt.
+        share_tokens:
+          help: Disse tokenene brukes til å dele denne upubliserte ressursen til hvilken som helst bruker. De vil bli skjult når ressursen publiseres. Klikk på tokenenes deleikon for å besøke den delte URL-en.
+          title: Del tokener
       shared:
         gallery:
           add_images: Legg til bilder
@@ -764,6 +823,7 @@
           title: Rediger emne
           update: Oppdater emne
         new:
+          create: Opprett emne
           title: Nytt emne
         update:
           error: Det oppstod et problem med å oppdatere dette emnet.
@@ -784,6 +844,7 @@
         index:
           last_notable_change: Siste merkbare endring
         new:
+          create: Opprett side
           title: Ny side
         topic:
           without_topic: Sider uten emne
@@ -804,7 +865,27 @@
         scope_types: Tematyper
         scopes: Tema
         statistics: Aktivitet
+        user_groups: Grupper
         users: Administratorer
+      user_group:
+        csv_verify:
+          invalid: Det oppstod et problem med å lese CSV-filen.
+        reject:
+          invalid: Det oppstod et problem med å avvise denne gruppen.
+        verify:
+          invalid: Det oppstod et problem med å verifisere denne gruppen.
+      user_groups:
+        index:
+          state:
+            pending: Venter
+            rejected: Avvist
+            verified: Verifisert
+          verify_via_csv: Verifiser via CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Last opp CSV-filen din. Den må ha de offisielle e-postene til gruppene i organisasjonen din i den første kolonnen av filen, uten overskrifter. Bare grupper som har bekreftet e-posten deres og har en e-post som vises i CSV-filen, vil bli validert.
+          title: Last opp din CSV fil
+          upload: Last opp
       users:
         create:
           error: Det oppstod et problem med å invitere denne administratoren.

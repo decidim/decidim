@@ -56,7 +56,9 @@ module Decidim
 
       def default_filter_params
         {
-          with_any_taxonomies: nil
+          with_any_scope: nil,
+          with_any_area: nil,
+          with_any_type: nil
         }
       end
 

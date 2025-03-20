@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -55,6 +56,8 @@ it:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: Categoria
           closed_at_present:
             label: Stato
             values:
@@ -65,6 +68,8 @@ it:
             values:
               'false': Conclusi
               'true': Prossimi
+          scope_id_eq:
+            label: Visibilità
           with_any_origin:
             values:
               user_group: Gruppi di utenti
@@ -96,6 +101,8 @@ it:
             maps_enabled: Mappe abilitate
             registration_code_enabled: Codice di registrazione abilitato
             resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
+            scope_id: Ambito
+            scopes_enabled: Ambiti abilitati
             terms_and_conditions_url_for_meeting_creators: Termini e condizioni URL per i creatori di riunione
           step:
             announcement: Annuncio
@@ -164,6 +171,7 @@ it:
         attachment_collections: Cartelle
         attachments: Allegati
         close: Chiuso
+        destroy: Cancella
         edit: Modifica
         invalid_destroy:
           proposals_count:
@@ -229,6 +237,8 @@ it:
         meetings:
           create:
             success: Riunione creata con successo. Nota che non è ancora pubblicata, devi pubblicarla manualmente.
+          destroy:
+            success: OK, il meeting è stato cancellato.
           edit:
             title: Modifica la riunione
             update: Modifica
@@ -266,7 +276,6 @@ it:
           form:
             available_slots_help: Lasciare a 0 se disponi di slot illimitati.
             invites: Inviti
-            manage_questions: Domande
             recommendation_message: Per motivi di privacy, ti consigliamo di eliminare questo modulo di iscrizione quando non ne hai più bisogno. Per impostazione predefinita, questo avverrà 3 mesi dopo la fine della riunione.
             registration_email_help: Questo testo apparirà nel mezzo dell'email di conferma della registrazione. Subito dopo il codice di registrazione.
             registration_form: Formulario di registrazione
@@ -295,6 +304,9 @@ it:
           value_types:
             organizer_presenter:
               not_found: 'L''organizzatore non è stato trovato nel database (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Tutte
       calendar_modal:
         calendar_url: URL del calendario
         export_calendar: Esporta il calendario
@@ -366,10 +378,14 @@ it:
           location_hints_help: 'Suggerimenti: informazioni aggiuntive. Esempio: il pavimento dell''edificio se si tratta di una riunione di persona o la password di riunione se si tratta di una riunione online con accesso ristretto.'
           online_meeting_url_help: 'Link: permette ai partecipanti di connettersi direttamente alla tua riunione'
           registration_url_help: 'Link: consentire ai partecipanti di accedere al servizio esterno che stai utilizzando per le iscrizioni'
+          select_a_category: Scegli una categoria
           select_a_meeting_type: Seleziona un tipo di riunione
           select_a_registration_type: Seleziona un tipo di registrazione
         index:
           new_meeting: Nuova riunione
+        meeting:
+          close_meeting: Chiusura meeting
+          edit_meeting: Modifica la riunione
         meetings:
           upcoming_meetings_warning: Attualmente non vi sono meeting in programma, ma qui puoi trovare elencati tutti i meeting effettuati in passato.
         new:

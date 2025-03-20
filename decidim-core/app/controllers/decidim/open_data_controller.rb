@@ -2,49 +2,24 @@
 
 module Decidim
   class OpenDataController < Decidim::ApplicationController
-    helper_method :open_data_component_manifests, :open_data_participatory_space_manifests, :open_data_core_manifests
-
-    def index; end
-
     def download
-      resource = params[:resource] || nil
-
-      if open_data_file_for_resource(resource)
-        file = open_data_file_for_resource(resource)
-        send_data file.download, filename: file.blob.filename.to_s, type: file.blob.content_type
+      if uploader.attached?
+        redirect_to uploader.path
       else
-        schedule_open_data_generation(resource)
+        schedule_open_data_generation
         flash[:alert] = t("decidim.open_data.not_available_yet")
-        redirect_back fallback_location: open_data_path
+        redirect_back fallback_location: root_path
       end
     end
 
     private
 
-    def open_data_core_manifests
-      @open_data_core_manifests ||= Decidim.open_data_manifests.select(&:include_in_open_data)
+    def uploader
+      @uploader ||= Decidim::ApplicationUploader.new(current_organization, :open_data_file)
     end
 
-    def open_data_component_manifests
-      @open_data_component_manifests ||= Decidim.component_manifests
-                                                .flat_map(&:export_manifests)
-                                                .select(&:include_in_open_data?)
-    end
-
-    def open_data_participatory_space_manifests
-      @open_data_participatory_space_manifests ||= Decidim.participatory_space_manifests
-                                                          .flat_map(&:export_manifests)
-                                                          .select(&:include_in_open_data?)
-    end
-
-    def open_data_file_for_resource(resource)
-      current_organization.open_data_files.all.find do |file|
-        file.blob.filename == current_organization.open_data_file_path(resource)
-      end
-    end
-
-    def schedule_open_data_generation(resource = nil)
-      OpenDataJob.perform_later(current_organization, resource)
+    def schedule_open_data_generation
+      OpenDataJob.perform_later(current_organization)
     end
   end
 end

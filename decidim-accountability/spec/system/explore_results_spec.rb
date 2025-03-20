@@ -7,35 +7,38 @@ describe "Explore results", :versioning do
 
   let(:manifest_name) { "accountability" }
   let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
-  let(:taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization:) }
-  let(:sub_taxonomy) { create(:taxonomy, parent: taxonomy, organization:) }
-  let!(:other_taxonomy) { create(:taxonomy, parent: taxonomy.parent, organization:) }
-  let(:other_sub_taxonomy) { create(:taxonomy, parent: other_taxonomy, organization:) }
-  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: taxonomy.parent) }
-  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
-  let!(:sub_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: sub_taxonomy) }
-  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
-
-  before do
-    component.update!(settings: { taxonomy_filters: taxonomy_filter_ids })
-  end
 
   context "when there are no results" do
     before do
       visit path
     end
 
-    context "without any taxonomy" do
-      let(:taxonomy_filter_ids) { [] }
+    context "without any category" do
+      let(:category) { nil }
 
       it "shows an empty page with a message" do
-        expect(page).to have_content "There are no projects"
+        expect(page).to have_content "There are no results yet"
+      end
+
+      context "when filtering by scope" do
+        it "shows an empty page with a message" do
+          within ".filter-container:not(.filter-search)" do
+            click_on translated(scope.name)
+          end
+
+          within "main" do
+            expect(page).to have_content("There are no results with this criteria")
+          end
+        end
       end
     end
 
-    context "with a taxonomy" do
+    context "with a category" do
+      let!(:category) { create(:category, participatory_space:) }
+
       it "shows an empty page with a message" do
         within "main" do
+          expect(page).to have_i18n_content(category.name)
           expect(page).to have_content "There are no projects"
         end
       end
@@ -44,9 +47,7 @@ describe "Explore results", :versioning do
 
   context "when there are results" do
     let(:results_count) { 5 }
-    let(:address) { "Carrer de Sant Joan, 123, 08001 Barcelona" }
-    let(:latitude) { 41.38879 }
-    let(:longitude) { 2.15899 }
+    let!(:scope) { create(:scope, organization:) }
     let!(:results) do
       create_list(
         :result,
@@ -55,20 +56,23 @@ describe "Explore results", :versioning do
       )
     end
 
+    before do
+      component.update(settings: { scopes_enabled: true })
+
+      visit path
+    end
+
     describe "home" do
+      let!(:other_category) { create(:category, participatory_space:) }
+      let!(:other_scope) { create(:scope, organization:) }
+
+      let(:subcategory) { create(:subcategory, parent: category) }
+      let(:other_subcategory) { create(:subcategory, parent: other_category) }
+
       before do
-        # Add taxonomies for the results to test they work correctly
-        results[0..2].each { |r| r.update!(taxonomies: [sub_taxonomy]) }
-        results[3..-1].each { |r| r.update!(taxonomies: [other_sub_taxonomy]) }
-
-        # Add address to one result to see if it works correctly
-        results.first.update!(address:, latitude:, longitude:)
-
-        # Enable geocoding in the component
-        component.update!(settings: { taxonomy_filters: taxonomy_filter_ids, geocoding_enabled: true })
-
-        # Mock Decidim::Map.available?(:geocoding, :dynamic) to return true
-        allow(Decidim::Map).to receive(:available?).with(:geocoding, :dynamic).and_return(true)
+        # Add scopes and categories for the results to test they work correctly
+        results[0..2].each { |r| r.update!(category: subcategory, scope:) }
+        results[3..-1].each { |r| r.update!(category: other_subcategory, scope: other_scope) }
 
         # Revisit the path to load updated results
         visit path
@@ -80,13 +84,10 @@ describe "Explore results", :versioning do
         end
       end
 
-      it "shows the map" do
-        expect(page).to have_css(".accountability__map")
-      end
-
-      it "shows root taxonomies filters" do
-        within("aside") do
-          expect(page).to have_content(translated(taxonomy.parent.name))
+      it "shows categories and subcategories with results" do
+        participatory_process.categories.each do |category|
+          category_count = Decidim::Accountability::ResultsCalculator.new(component, nil, category.id).count
+          expect(page).to have_content(translated(category.name)) if category_count.positive?
         end
       end
 
@@ -99,7 +100,7 @@ describe "Explore results", :versioning do
 
       context "with progress disabled" do
         before do
-          component.update!(settings: { display_progress_enabled: false, taxonomy_filters: taxonomy_filter_ids })
+          component.update!(settings: { display_progress_enabled: false })
         end
 
         it "does not show progress" do
@@ -108,6 +109,31 @@ describe "Explore results", :versioning do
           expect(page).to have_no_content("Global execution status")
           within("aside") do
             expect(page).to have_no_css(".accountability__status-value")
+          end
+        end
+      end
+
+      context "with a scope" do
+        before do
+          within ".filter-container:not(.filter-search)" do
+            click_on translated(scope.name)
+          end
+        end
+
+        it "shows current scope active" do
+          within ".filter-container:not(.filter-search) a.is-active" do
+            expect(page).to have_content(translated(scope.name))
+          end
+        end
+
+        it "shows only the categories with results matching the current scope" do
+          participatory_process.categories.each do |category|
+            category_count = Decidim::Accountability::ResultsCalculator.new(component, scope.id, category.id).count
+            if category_count.positive?
+              expect(page).to have_content(translated(category.name))
+            else
+              expect(page).to have_content("There are no projects")
+            end
           end
         end
       end
@@ -150,16 +176,44 @@ describe "Explore results", :versioning do
     describe "index" do
       let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
 
-      before do
-        visit path
-      end
-
-      it "shows all results for the given process and taxonomy" do
+      it "shows all results for the given process and category" do
         within("#results") do
           expect(page).to have_css(".card__list", count: results_count)
 
           results.each do |result|
             expect(page).to have_content(translated(result.title))
+          end
+        end
+      end
+
+      context "with a category and a scope" do
+        let!(:category) { create(:category, participatory_space: participatory_process) }
+        let!(:scope) { create(:scope, organization:) }
+        let!(:result) do
+          result = results.first
+          result.category = category
+          result.scope = scope
+          result.save
+          result
+        end
+
+        let(:path) do
+          decidim_participatory_process_accountability.results_path(
+            participatory_process_slug: participatory_process.slug, component_id: component.id, filter: { with_category: category.id, with_scope: scope.id }
+          )
+        end
+
+        it "shows current scope active" do
+          within ".filter-container:not(.filter-search) a.is-active" do
+            expect(page).to have_content(translated(scope.name))
+          end
+        end
+
+        it "maintains scope filter" do
+          click_on translated(category.name)
+
+          within ".filter-container:not(.filter-search) a.is-active" do
+            expect(page).to have_content(translated(scope.name))
           end
         end
       end
@@ -169,10 +223,6 @@ describe "Explore results", :versioning do
       let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_slug: participatory_process.slug, component_id: component.id) }
       let(:results_count) { 1 }
       let(:result) { results.first }
-
-      before do
-        visit path
-      end
 
       it "shows all result info" do
         expect(page).to have_i18n_content(result.title)
@@ -198,18 +248,44 @@ describe "Explore results", :versioning do
         end
       end
 
-      context "with a taxonomy" do
+      context "without category or scope" do
+        it "does not show any tag" do
+          expect(page).to have_no_css("[data-tags]")
+        end
+      end
+
+      context "with a category" do
         let(:result) do
           result = results.first
-          result.taxonomies << taxonomy
+          result.category = create :category, participatory_space: participatory_process
           result.save
           result
         end
 
-        it "shows tags for taxonomy" do
+        it "shows tags for category" do
           expect(page).to have_css("[data-tags]")
           within "[data-tags]" do
-            expect(page).to have_content(translated(taxonomy.name))
+            expect(page).to have_content(translated(result.category.name))
+          end
+        end
+      end
+
+      context "with a scope" do
+        let(:result) do
+          result = results.first
+          result.scope = create(:scope, organization:)
+          result.save
+          result
+        end
+
+        before do
+          visit current_path
+        end
+
+        it "shows tags for scope" do
+          expect(page).to have_css("[data-tags]")
+          within "[data-tags]" do
+            expect(page).to have_content(translated(result.scope.name))
           end
         end
       end
@@ -291,27 +367,25 @@ describe "Explore results", :versioning do
         end
 
         it "shows the tab" do
-          expect(page).to have_content("History")
+          expect(page).to have_content("Included proposals")
         end
 
         it "shows related proposals" do
           proposals.each do |proposal|
-            expect(page).to have_content(decidim_sanitize_translated(proposal.title))
-            expect(page).to have_no_content(proposal.creator_author.name)
+            expect(page).to have_content(translated(proposal.title))
+            expect(page).to have_content(proposal.creator_author.name)
             expect(page).to have_content(proposal.votes.size)
           end
         end
 
         it "the result is mentioned in the proposal page" do
-          click_on decidim_sanitize_translated(proposal.title)
-
-          expect(page).to have_i18n_content(decidim_sanitize_translated(result.title))
+          click_on translated(proposal.title)
+          expect(page).to have_i18n_content(result.title)
         end
 
         it "a banner links back to the result" do
-          click_on decidim_sanitize_translated(proposal.title)
-
-          expect(page).to have_content(decidim_sanitize_translated(result.title))
+          click_on translated(proposal.title)
+          expect(page).to have_content("Included in #{translated(result.title)}")
         end
       end
 
@@ -329,18 +403,18 @@ describe "Explore results", :versioning do
         end
 
         it "shows the tab" do
-          expect(page).to have_content("History")
+          expect(page).to have_content("Included projects")
         end
 
         it "shows related projects" do
           projects.each do |project|
-            expect(page).to have_content(decidim_sanitize_translated(project.title))
+            expect(page).to have_content(translated(project.title))
           end
         end
 
         it "the result is mentioned in the project page" do
-          click_on decidim_sanitize_translated(project.title)
-          expect(page).to have_i18n_content(decidim_sanitize_translated(result.title))
+          click_on translated(project.title)
+          expect(page).to have_i18n_content(result.title)
         end
       end
 
@@ -352,29 +426,61 @@ describe "Explore results", :versioning do
         let(:meeting) { meetings.first }
 
         before do
-          stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
           result.link_resources(meetings, "meetings_through_proposals")
           visit current_path
         end
 
         it "shows the tab" do
-          expect(page).to have_content("History")
+          expect(page).to have_content("Included meetings")
         end
 
         it "shows related meetings" do
           meetings.each do |meeting|
-            expect(page).to have_i18n_content(decidim_sanitize_translated(meeting.title))
+            expect(page).to have_i18n_content(meeting.title)
           end
         end
 
         it "the result is mentioned in the meeting page" do
-          click_on decidim_sanitize_translated(meeting.title)
-          expect(page).to have_i18n_content(translated(result.title))
+          click_on translated(meeting.title)
+          expect(page).to have_i18n_content(result.title)
         end
 
         it "a banner links back to the result" do
-          click_on decidim_sanitize_translated(meeting.title)
-          expect(page).to have_content(translated(result.title))
+          click_on translated(meeting.title)
+          expect(page).to have_content("Included in #{translated(result.title)}")
+        end
+      end
+
+      context "when filtering" do
+        before do
+          create(:result, component:, scope:)
+          visit_component
+        end
+
+        context "when the process has a linked scope and the component has scopes disabled" do
+          before do
+            participatory_process.update(scope:)
+            component.update(settings: { scopes_enabled: false })
+            visit current_path
+          end
+
+          it "disables filtering by scope" do
+            expect(page).to have_no_css("[data-scope-filters]")
+          end
+        end
+
+        context "when the process has no linked scope" do
+          before do
+            participatory_process.update(scope: nil)
+            visit current_path
+          end
+
+          it "enables filtering by scope" do
+            within "[data-scope-filters]" do
+              expect(page).to have_content(/All/i)
+              expect(page).to have_content(translated(scope.name))
+            end
+          end
         end
       end
 

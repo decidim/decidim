@@ -1,3 +1,4 @@
+---
 ga:
   activemodel:
     attributes:
@@ -21,14 +22,13 @@ ga:
   activerecord:
     attributes:
       decidim/user:
+        email: Seoladh ríomhphoist
         name: Leasainm
         password: Pasfhocal
   booleans:
     'false': 'Níl'
     'true': 'Is ea'
   date:
-    buttons:
-      select: Roghnaigh
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -59,6 +59,7 @@ ga:
       dummy_authorization_handler:
         fields:
           postal_code: Cód poist
+          scope_id: Scóip
       foo_authorization:
         fields:
           bar: Bar
@@ -87,6 +88,9 @@ ga:
         actions:
           bar: Bar
           foo: Foo
+        settings:
+          global:
+            scope_id: Scóip
     contact: Teagmháil
     content_blocks:
       highlighted_elements_settings_form:
@@ -94,10 +98,17 @@ ga:
           random: Randamach
       last_activity:
         view_all: Amharc ar uile
+    core:
+      application_helper:
+        filter_category_values:
+          all: Uile
     devise:
       registrations:
         new:
           log_in: Logáil isteach
+      shared:
+        omniauth_buttons:
+          or: Nó
     doorkeeper:
       authorizations:
         new:
@@ -105,6 +116,9 @@ ga:
     download_your_data:
       export:
         ready: Réidh
+    endorsements:
+      identities:
+        done: Críochnaithe
     export_mailer:
       download_your_data_export:
         download: Íoslódáil
@@ -125,7 +139,15 @@ ga:
       badges:
         index:
           title: Suaitheantais
+    group_invites:
+      accept_invitation: Glac
+      index:
+        invite: Tabhair Cuireadh
+      reject_invitation: Diúltaigh
     groups:
+      members:
+        accept_request: Glac
+        reject_request: Diúltaigh
       roles:
         admin: Riarthóir
         member: Ball
@@ -180,12 +202,22 @@ ga:
         activity: Gníomhaíocht
         badges: Suaitheantais
         following: Leantach
+        groups: Grúpaí
+        members: Baill
+      sidebar:
+        badges:
+          title: Suaitheantais
     reported_mailer:
       report:
         authors: Údair
         details: Sonraí
         id: ID
         reason: Cúis
+    scopes:
+      picker:
+        cancel: Cealaigh
+        choose: Roghnaigh
+      scopes: Scóip
     search:
       term_input_placeholder: Cuardaigh
     searches:
@@ -213,9 +245,14 @@ ga:
         reason: Cúis
         report: Tuairiscigh
       flag_user_modal:
+        close: Dún
         report: Tuairiscigh
       floating_help:
         help: Cabhair
+      participatory_space_filters:
+        filters:
+          areas: Ceantair
+          scope: Scóip
       share_modal:
         copy_share_link: Cóipeáil
         copy_share_link_copied: Cóipeáilte!
@@ -224,6 +261,9 @@ ga:
       comments_count: Tráchtanna
       endorsements_count: Formhuinithe
       pages_count: Leathanaigh
+    user_conversations:
+      reply:
+        send: Seol
     version:
       show:
         back_to_resource: Dul ar ais
@@ -257,6 +297,7 @@ ga:
       user_profile:
         account: Cuntas
         my_data: Mo chuid sonraí
+        user_groups: Grúpaí
   locale:
     name: Gaeilge
     name_with_error: Gaeilge (earráid!)
@@ -276,8 +317,6 @@ ga:
     whatsapp_web: WhatsApp
     xing: Xing
   time:
-    buttons:
-      select: Roghnaigh
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

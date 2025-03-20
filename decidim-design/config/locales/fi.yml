@@ -294,7 +294,6 @@ fi:
         usage_typography_2: Leipäteksti
         usage_typography_3: Tumman taustan päällä näytettävän tekstin väri
         usage_typography_4: Linkit ja painikkeet
-        usage_typography_5: Käytöstä poistettu välilehti
         value: Arvo
         variations: Muunnelmat
         variations_cards_description: Jokainen kortti näyttää erilaiselta, riippuen mitä tietueen ominaisuuksia näytetään. Voit ohittaa tämän oletustoiminnallisuuden yksittäisissä soluissa.

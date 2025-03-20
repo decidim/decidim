@@ -27,7 +27,7 @@ shared_examples "sorted moderations" do
       click_on link_text
     end
     all("tbody tr").each_with_index do |row, _index|
-      expect(row.find("td:nth-child(2)")).to have_content(reportables.first.id)
+      expect(row.find("td:first-child")).to have_content(reportables.first.id)
     end
   end
 end
@@ -62,7 +62,7 @@ shared_examples "manage moderations" do
 
   context "when listing moderations" do
     it "only lists moderations for the current organization" do
-      external_reportable = create(:dummy_resource)
+      external_reportable = create :dummy_resource
       external_moderation = create(:moderation, reportable: external_reportable, report_count: 1, reported_content: external_reportable.reported_searchable_content_text)
       create(:report, moderation: external_moderation)
 
@@ -106,7 +106,7 @@ shared_examples "manage moderations" do
 
         all("tbody tr").each_with_index do |row, index|
           reportable_id = moderations_ordered_by_report_count_asc[index].reportable.id
-          expect(row.find("td:nth-child(2)")).to have_content(reportable_id)
+          expect(row.find("td:first-child")).to have_content(reportable_id)
         end
       end
     end

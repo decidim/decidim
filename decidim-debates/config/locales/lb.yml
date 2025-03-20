@@ -1,3 +1,4 @@
+---
 lb:
   activemodel:
     attributes:
@@ -8,6 +9,7 @@ lb:
         end_time: Endet am
         information_updates: Informationsaktualisierungen
         instructions: Anweisungen zur Teilnahme
+        scope_id: Bereich
         start_time: Startet um
         title: Titel
         user_group_id: Debatte erstellen als
@@ -25,6 +27,7 @@ lb:
       debates:
         actions:
           comment: Kommentar
+          create: Erstellen
           endorse: Bestätigen
         name: Debatten
         settings:
@@ -32,6 +35,8 @@ lb:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            scope_id: Bereich
+            scopes_enabled: Bereiche aktiviert
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
@@ -49,6 +54,8 @@ lb:
           state_values:
             closed: Geschlossen
             open: Offen
+        form:
+          select_a_category: Bitte wählen sie eine Kategorie
         index:
           new_debate: Neue Debatte
         new:

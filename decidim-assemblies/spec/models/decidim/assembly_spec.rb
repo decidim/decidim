@@ -10,7 +10,6 @@ module Decidim
 
     it { is_expected.to be_valid }
     it { is_expected.to be_versioned }
-    it { is_expected.to act_as_paranoid }
 
     include_examples "publicable"
     include_examples "resourceable"
@@ -161,28 +160,10 @@ module Decidim
       end
     end
 
-    describe "taxonomies" do
-      let!(:taxonomy) { create(:taxonomy, :with_parent) }
-      let(:assembly) { build(:assembly, taxonomies: [taxonomy], organization: taxonomy.organization) }
+    describe "types" do
+      let!(:assembly) { create(:assembly, :with_type) }
 
       it { is_expected.to be_valid }
-
-      context "when a root taxonomy is assigned" do
-        let(:taxonomy) { create(:taxonomy) }
-
-        it "is not valid" do
-          expect(subject).not_to be_valid
-        end
-      end
-
-      context "when a taxonomy from another organization is assigned" do
-        let!(:organization) { create(:organization) }
-        let(:assembly) { build(:assembly, taxonomies: [taxonomy]) }
-
-        it "is not valid" do
-          expect(subject).not_to be_valid
-        end
-      end
     end
   end
 end

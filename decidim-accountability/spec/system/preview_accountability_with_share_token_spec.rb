@@ -2,9 +2,9 @@
 
 require "spec_helper"
 
-describe "preview accountability with a share token" do
+describe "Preview accountability with share token" do
   let(:manifest_name) { "accountability" }
 
   include_context "with a component"
-  it_behaves_like "preview component with a share_token"
+  it_behaves_like "preview component with share_token"
 end

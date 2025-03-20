@@ -8,8 +8,7 @@ module Decidim
       describe ImportProposals do
         describe "call" do
           let!(:organization) { create(:organization) }
-          let!(:proposal) { create(:proposal, :accepted, component: proposal_component, taxonomies:) }
-          let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }
+          let!(:proposal) { create(:proposal, :accepted, component: proposal_component) }
           let!(:proposal_component) do
             create(
               :proposal_component,
@@ -33,19 +32,17 @@ module Decidim
               keep_authors:,
               keep_answers:,
               states:,
+              scopes:,
+              scope_ids:,
               current_user: create(:user, organization:),
-              valid?: valid,
-              as_json: {
-                "origin_component_id" => proposal_component.id,
-                "states" => states,
-                "keep_authors" => keep_authors,
-                "keep_answers" => keep_answers
-              }
+              valid?: valid
             )
           end
           let(:keep_authors) { false }
           let(:keep_answers) { false }
           let(:states) { ["accepted"] }
+          let(:scopes) { [] }
+          let(:scope_ids) { scopes.map(&:id) }
           let(:command) { described_class.new(form) }
 
           describe "when the form is not valid" do
@@ -57,7 +54,7 @@ module Decidim
 
             it "does not create the proposal" do
               expect do
-                call_command_and_perform_enqueued_jobs
+                command.call
               end.not_to change(Proposal, :count)
             end
           end
@@ -71,21 +68,21 @@ module Decidim
 
             it "creates the proposals" do
               expect do
-                call_command_and_perform_enqueued_jobs
+                command.call
               end.to change { Proposal.where(component: current_component).count }.by(1)
             end
 
             context "when a proposal was already imported" do
-              let(:second_proposal) { create(:proposal, :accepted, component: proposal_component, taxonomies:) }
+              let(:second_proposal) { create(:proposal, :accepted, component: proposal_component) }
 
               before do
-                call_command_and_perform_enqueued_jobs
+                command.call
                 second_proposal
               end
 
               it "does not import it again" do
                 expect do
-                  call_command_and_perform_enqueued_jobs
+                  command.call
                 end.to change { Proposal.where(component: current_component).count }.by(1)
 
                 titles = Proposal.where(component: current_component).map(&:title)
@@ -97,7 +94,7 @@ module Decidim
 
                 it "does not import it again" do
                   expect do
-                    call_command_and_perform_enqueued_jobs
+                    command.call
                   end.to change { Proposal.where(component: current_component).count }.by(1)
 
                   titles = Proposal.where(component: current_component).map(&:title)
@@ -107,7 +104,7 @@ module Decidim
             end
 
             it "links the proposals" do
-              call_command_and_perform_enqueued_jobs
+              command.call
 
               linked = proposal.linked_resources(:proposals, "copied_from_component")
               new_proposal = Proposal.where(component: current_component).last
@@ -116,17 +113,15 @@ module Decidim
             end
 
             it "only imports wanted attributes" do
-              call_command_and_perform_enqueued_jobs
+              command.call
 
               new_proposal = Proposal.where(component: current_component).last
               expect(new_proposal.title).to eq(proposal.title)
               expect(new_proposal.body).to eq(proposal.body)
               expect(new_proposal.creator_author).to eq(organization)
-              expect(new_proposal.taxonomies).to eq(proposal.taxonomies)
+              expect(new_proposal.category).to eq(proposal.category)
 
               expect(new_proposal.state).to be_nil
-              expect(new_proposal.state_published_at).to be_nil
-              expect(new_proposal.decidim_proposals_proposal_state_id).to be_nil
               expect(new_proposal.answer).to be_nil
               expect(new_proposal.answered_at).to be_nil
               expect(new_proposal.reference).not_to eq(proposal.reference)
@@ -141,7 +136,7 @@ module Decidim
               let(:keep_authors) { true }
 
               it "only keeps the proposal authors" do
-                call_command_and_perform_enqueued_jobs
+                command.call
 
                 new_proposal = Proposal.where(component: current_component).last
                 expect(new_proposal.title).to eq(proposal.title)
@@ -154,7 +149,7 @@ module Decidim
               let(:keep_answers) { true }
 
               it "keeps the proposal state and answers" do
-                call_command_and_perform_enqueued_jobs
+                command.call
 
                 new_proposal = Proposal.where(component: current_component).last
                 expect(new_proposal.answer).to eq(proposal.answer)
@@ -166,29 +161,54 @@ module Decidim
 
             describe "proposal states" do
               let(:states) { %w(not_answered rejected) }
-              let!(:rejected_proposal) { create(:proposal, :rejected, component: proposal_component, taxonomies:) }
-              let!(:random_proposal) { create(:proposal, component: proposal_component, taxonomies:) }
+
+              before do
+                create(:proposal, :rejected, component: proposal_component)
+                create(:proposal, component: proposal_component)
+              end
 
               it "only imports proposals from the selected states" do
                 expect do
-                  call_command_and_perform_enqueued_jobs
+                  command.call
                 end.to change { Proposal.where(component: current_component).count }.by(2)
 
                 expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
               end
+            end
 
-              context "when using translation" do
-                let(:states) { %w(not_answered rebutjada) }
+            describe "proposal scopes" do
+              let(:states) { ProposalsImportForm::VALID_STATES.dup }
+              let(:scope) { create(:scope, organization:) }
+              let(:other_scope) { create(:scope, organization:) }
 
-                it "only imports proposals from the selected states" do
-                  Decidim::Proposals::ProposalState.where(component: proposal_component).where(token: "rejected").update(token: "rebutjada")
-                  Decidim::Proposals::ProposalState.where(component: proposal_component).where(token: "accepted").update(token: "acceptada")
+              let(:scopes) { [scope] }
+              let(:scope_ids) { [scope.id] }
 
+              let!(:proposals) do
+                [
+                  create(:proposal, component: proposal_component, scope:),
+                  create(:proposal, component: proposal_component, scope: other_scope)
+                ]
+              end
+
+              it "only imports proposals from the selected scope" do
+                expect do
+                  command.call
+                end.to change { Proposal.where(component: current_component).count }.by(1)
+
+                expect(Proposal.where(component: current_component).pluck(:decidim_scope_id)).to eq([scope.id])
+              end
+
+              context "when the global scope is selected" do
+                let(:scope) { nil }
+                let(:scope_ids) { [nil] }
+
+                it "only imports proposals from the global scope" do
                   expect do
-                    I18n.with_locale(:ca) { call_command_and_perform_enqueued_jobs }
+                    command.call
                   end.to change { Proposal.where(component: current_component).count }.by(2)
 
-                  expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
+                  expect(Proposal.where(component: current_component).pluck(:decidim_scope_id)).to eq([nil, nil])
                 end
               end
             end
@@ -200,18 +220,13 @@ module Decidim
 
               it "duplicates the attachments" do
                 expect do
-                  call_command_and_perform_enqueued_jobs
+                  command.call
                 end.to change(Attachment, :count).by(1)
 
                 new_proposal = Proposal.where(component: current_component).last
                 expect(new_proposal.attachments.count).to eq(1)
               end
             end
-          end
-
-          def call_command_and_perform_enqueued_jobs
-            command.call
-            perform_enqueued_jobs
           end
         end
       end

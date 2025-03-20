@@ -1,13 +1,16 @@
-is-IS:
+---
+is:
   activemodel:
     attributes:
       proposal:
         answer: Svara
         answered_at: Svarað á
         body: Líkami
+        category_id: Flokkur
         has_address: Hefur heimilisfang
         state: Ríki
         title: Titill
+        user_group_id: Búðu til tillögu sem
       proposal_answer:
         answer: Svara
       proposals_copy:
@@ -16,6 +19,7 @@ is-IS:
     components:
       proposals:
         actions:
+          create: Búa til
           endorse: Styðja
           withdraw: Afturkalla
         name: Tillögur
@@ -24,9 +28,11 @@ is-IS:
             announcement: Tilkynning
             attachments_allowed: Leyfa viðhengi
             comments_enabled: Athugasemdir virkt
+            geocoding_enabled: Geocoding virkt
             new_proposal_help_text: Ný tillaga hjálpartexta
             official_proposals_enabled: Opinberar tillögur virkar
             proposal_answering_enabled: Tillaga svarað virkt
+            proposal_edit_before_minutes: Tillögur má breyta af höfundum áður en þessi mörg mínútur fara fram
             proposal_length: Hámark umsóknar lengd líkamans
             proposal_wizard_step_1_help_text: Tillaga töframaður "Búa til" skref hjálpartexta
             threshold_per_proposal: Gildi fyrir hverja tillögu
@@ -54,6 +60,9 @@ is-IS:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna var gefin út af <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Tillagan "%{resource_title}" hefur verið bætt við "%{participatory_space_title}" sem þú fylgist með.
+        proposal_update_category:
+          email_subject: '%{resource_title} tillöguflokkinn hefur verið uppfærður'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> tillögu flokkurinn hefur verið uppfærður af admin.
         voting_enabled:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
     proposals:
@@ -76,11 +85,15 @@ is-IS:
           form:
             note: Athugaðu
             submit: Senda inn
+          leave_your_note: Skildu athugasemdina þína
           title: Einkaskilaboð
         proposals:
+          form:
+            select_a_category: Veldu flokk
           index:
             actions: Aðgerðir
             cancel: Hætta við
+            change_category: Breyta flokki
             selected: valin
             title: Tillögur
             update: Uppfæra
@@ -95,6 +108,7 @@ is-IS:
       admin_log:
         proposal:
           answer: "%{user_name} svaraði %{resource_name} tillögunni á %{space_name} plássinu"
+          create: "%{user_name} skapaði %{resource_name} tillöguna á %{space_name} plássinu sem opinbera tillögu"
         proposal_note:
           create: "%{user_name} fór með einkapóst á %{resource_name} tillögunni á %{space_name} plássinu"
       answers:
@@ -120,6 +134,7 @@ is-IS:
       proposals:
         edit:
           back: Til baka
+          select_a_category: Vinsamlegast veldu flokk
           send: Senda
           title: Breyta tillögu
         edit_draft:
@@ -127,6 +142,7 @@ is-IS:
           discard_confirmation: Ertu viss um að þú viljir fleygja þessari tillögu drög?
           send: Preview
         filters:
+          category: Flokkur
           origin: Uppruni
           related_to: Tengjast
           search: Leita
@@ -151,6 +167,7 @@ is-IS:
           proposal_accepted_reason: 'Þessi tillaga hefur verið samþykkt vegna þess að:'
           proposal_in_evaluation_reason: Þessi tillaga er metin
           proposal_rejected_reason: 'Þessi tillaga hefur verið hafnað vegna þess að:'
+          withdraw_proposal: Afturkalla tillögu
         voting_rules:
           proposal_limit:
             description: Þú getur búið til allt að %{limit} tillögur.

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "uri"
-
 shared_context "when generating a new application" do
   let(:env) do |example|
     #
@@ -46,7 +44,6 @@ shared_examples_for "a new production application" do
       .to match(/^# gem "decidim-initiatives"/)
       .and match(/^# gem "decidim-conferences"/)
       .and match(/^# gem "decidim-templates"/)
-      .and match(/^# gem "decidim-collaborative_texts"/)
   end
 end
 
@@ -58,7 +55,6 @@ shared_examples_for "a new development application" do
       .to match(/^gem "decidim-initiatives"/)
       .and match(/^gem "decidim-conferences"/)
       .and match(/^gem "decidim-templates"/)
-      .and match(/^gem "decidim-collaborative_texts"/)
 
     # Checks that every table from a migration is included in the generated schema
     schema = File.read("#{test_app}/db/schema.rb")
@@ -67,10 +63,10 @@ shared_examples_for "a new development application" do
     Decidim::GemManager.plugins.each do |plugin|
       Dir.glob("#{plugin}db/migrate/*.rb").each do |migration|
         lines = File.readlines(migration)
-        tables.concat(lines.grep(/create_table/).map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
-        dropped.concat(lines.grep(/drop_table/).map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
-        tables.concat(lines.grep(/rename_table/).map { |line| line.match(/(, :)([a-z_0-9]+)/)[2] })
-        dropped.concat(lines.grep(/rename_table/).map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
+        tables.concat(lines.filter { |line| line.match? "create_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
+        dropped.concat(lines.filter { |line| line.match? "drop_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
+        tables.concat(lines.filter { |line| line.match? "rename_table" }.map { |line| line.match(/(, :)([a-z_0-9]+)/)[2] })
+        dropped.concat(lines.filter { |line| line.match? "rename_table" }.map { |line| line.match(/(:)([a-z_0-9]+)/)[2] })
       end
     end
     tables.each do |table|
@@ -349,7 +345,7 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim initiatives creation_enabled) => "auto",
       %w(decidim initiatives minimum_committee_members) => 2,
       %w(decidim initiatives default_signature_time_period_length) => 120,
-      %w(decidim initiatives default_components) => %w(pages meetings blogs),
+      %w(decidim initiatives default_components) => %w(pages meetings),
       %w(decidim initiatives first_notification_percentage) => 33,
       %w(decidim initiatives second_notification_percentage) => 66,
       %w(decidim initiatives stats_cache_expiration_time) => 5,
@@ -537,7 +533,7 @@ shared_examples_for "an application with configurable env vars" do
         "provider" => "here",
         "api_key" => "a-maps-api-key",
         "static" => {
-          "url" => "https://image.maps.hereapi.com/mia/v3/base/mc/overlay"
+          "url" => "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
         },
         "dynamic" => {
           "provider" => "here",
@@ -578,7 +574,7 @@ shared_examples_for "an application with configurable env vars" do
         "provider" => "here",
         "api_key" => "a-maps-api-key",
         "static" => {
-          "url" => "https://image.maps.hereapi.com/mia/v3/base/mc/overlay"
+          "url" => "https://image.maps.ls.hereapi.com/mia/1.6/mapview"
         },
         "dynamic" => {
           "provider" => "osm",
@@ -838,7 +834,7 @@ shared_examples_for "an application with extra configurable env vars" do
       "creation_enabled" => true,
       "minimum_committee_members" => 2,
       "default_signature_time_period_length" => 120,
-      "default_components" => %w(pages meetings blogs),
+      "default_components" => %w(pages meetings),
       "first_notification_percentage" => 33,
       "second_notification_percentage" => 66,
       "stats_cache_expiration_time" => 300, # 5.minutes

@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -73,6 +74,17 @@ gl:
           unconfirmed: Debes confirmar o teu correo electrónico para autorizarte.
         destroy:
           error: Produciuse un problema ao eliminar a autorización.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Verifique contra outro exemplo de controlador de autorización
+            csv_census: Comprobe contra o censo da organización
+            dummy_authorization_handler: Verifique contra o controlador de autorización de exemplo
+            dummy_authorization_workflow: Verifique contra o fluxo de traballo de autorización de exemplo
+            id_documents: Verifique a carga do documento de identidade
+            postal_letter: Verifique a recepción dun código de verificación a través do correo postal
+            sms: Verifícate ao recibir un SMS co código de verificación
+          title: Verifica a túa identidade
+          verify_with_these_options: 'Estas son as opcións dispoñibles para verificar a súa identidade:'
         index:
           expired_verification: Verificación caducada
           pending_verification: Verificación pendente
@@ -88,6 +100,9 @@ gl:
         start_exploring: comezar a explorar
       csv_census:
         admin:
+          census:
+            create:
+              error: Produciuse un erro ao importar o censo.
           destroy:
             title: Elimine todos os datos do censo
           index:
@@ -110,9 +125,11 @@ gl:
           postal_codes:
             one: A participación está restrinxida aos usuarios co código postal %{postal_codes}.
             other: 'A participación está restrinxida aos usuarios que conteñan algún dos seguintes códigos postais: %{postal_codes}.'
+          scope: A participación está restrinxida aos participantes no ámbito de %{scope_name}.
           user_postal_codes:
             one: A participación está restrinxida a participantes co código postal %{postal_codes}, e o teu é %{user_postal_code}.
             other: 'A participación está restrinxida a calquera dos seguintes códigos postais: %{postal_codes}. O teu é %{user_postal_code}.'
+          user_scope: A participación está restrinxida aos participantes do ámbito %{scope_name}, e o teu é %{user_scope_name}.
       id_documents:
         admin:
           config:

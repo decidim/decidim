@@ -1,13 +1,17 @@
+---
 pt:
   activemodel:
     attributes:
       debate:
+        category_id: Categoria
         closed_at: Encerrado às
         conclusions: Conclusões
+        decidim_category_id: Categoria
         description: Descrição
         end_time: Termina em
         information_updates: Atualizações de informações
         instructions: Instruções para participar
+        scope_id: Âmbito
         start_time: Começa em
         title: Título
         user_group_id: Criar debate como
@@ -25,6 +29,7 @@ pt:
       debates:
         actions:
           comment: Comentários
+          create: Criar
           endorse: Apoiar
         name: Debates
         settings:
@@ -32,6 +37,8 @@ pt:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
+            scope_id: Âmbito
+            scopes_enabled: Âmbitos activados
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
@@ -40,6 +47,8 @@ pt:
     debates:
       actions:
         close: Fechar
+        confirm_destroy: Tem a certeza?
+        destroy: Eliminar
         edit: Editar
         title: Ações
       admin:
@@ -51,6 +60,8 @@ pt:
           create:
             invalid: Ocorreu um problema ao criar o debate.
             success: Debate criado corretamente.
+          destroy:
+            success: Debate eliminado corretamente.
           edit:
             title: Editar debate
             update: Atualizar debate
@@ -105,6 +116,8 @@ pt:
           state_values:
             closed: Fechar
             open: Abertas
+        form:
+          select_a_category: Por favor, selecione uma categoria
         index:
           new_debate: Novo debate
         new:
@@ -118,9 +131,11 @@ pt:
           recent: Mais recente
           updated: Actualizado recentemente
         show:
+          close_debate: Fechar debate
           debate_closed: Fechar
           debate_conclusions_are: 'O debate foi fechado em %{date} com as seguintes conclusões:'
           edit_conclusions: Editar conclusões
+          edit_debate: Editar debate
           groups_count: Grupos
           open: Abrir debate
           participants_count: Participantes

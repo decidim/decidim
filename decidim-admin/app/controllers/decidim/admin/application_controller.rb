@@ -26,9 +26,10 @@ module Decidim
       helper Decidim::Admin::IconLinkHelper
       helper Decidim::Admin::IconWithTooltipHelper
       helper Decidim::Admin::MenuHelper
+      helper Decidim::Admin::ScopesHelper
       helper Decidim::DecidimFormHelper
       helper Decidim::ReplaceButtonsHelper
-      helper Decidim::TaxonomiesHelper
+      helper Decidim::ScopesHelper
       helper Decidim::TranslationsHelper
       helper Decidim::LanguageChooserHelper
       helper Decidim::ComponentPathHelper

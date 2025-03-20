@@ -25,6 +25,15 @@ module Decidim
             expect(serialized).to include(id: answer.id)
           end
 
+          it "includes the user" do
+            expect(serialized[:user]).to(
+              include(name: answer.user.name)
+            )
+            expect(serialized[:user]).to(
+              include(email: answer.user.email)
+            )
+          end
+
           it "includes the questionnaire information" do
             expect(serialized[:questionnaire]).to(
               include(id: questionnaire.id)
@@ -63,6 +72,15 @@ module Decidim
 
           it "includes the answer id" do
             expect(serialized).to include(id: answer.id)
+          end
+
+          it "includes the user" do
+            expect(serialized[:user]).to(
+              include(name: answer.user.name)
+            )
+            expect(serialized[:user]).to(
+              include(email: answer.user.email)
+            )
           end
 
           it "includes the questionnaire information" do
@@ -113,6 +131,15 @@ module Decidim
             expect(serialized).to include(id: multichoice_answer.id)
           end
 
+          it "includes the user" do
+            expect(serialized[:user]).to(
+              include(name: multichoice_answer.user.name)
+            )
+            expect(serialized[:user]).to(
+              include(email: multichoice_answer.user.email)
+            )
+          end
+
           it "includes the question info" do
             expect(serialized[:question]).to(
               include(id: multichoice_question.id)
@@ -143,6 +170,15 @@ module Decidim
 
           it "includes the answer id" do
             expect(serialized).to include(id: singlechoice_answer.id)
+          end
+
+          it "includes the user" do
+            expect(serialized[:user]).to(
+              include(name: singlechoice_answer.user.name)
+            )
+            expect(serialized[:user]).to(
+              include(email: singlechoice_answer.user.email)
+            )
           end
 
           it "includes the question info" do

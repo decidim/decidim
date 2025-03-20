@@ -4,8 +4,6 @@ module Decidim
   module Initiatives
     module Admin
       class Permissions < Decidim::DefaultPermissions
-        include Decidim::UserRoleChecker
-
         def permissions
           # The public part needs to be implemented yet
           return permission_action if permission_action.scope != :admin
@@ -14,8 +12,6 @@ module Decidim
           user_can_enter_space_area?
 
           return permission_action if initiative && !initiative.is_a?(Decidim::Initiative)
-
-          allow! if user&.admin_terms_accepted? && user_has_any_role?(user, initiative, broad_check: true) && (permission_action.subject == :editor_image)
 
           user_can_read_participatory_space?
 
@@ -43,7 +39,6 @@ module Decidim
           initiative_export_action?
           initiatives_settings_action?
           moderator_action?
-          share_tokens_action?
           allow! if permission_action.subject == :attachment
 
           permission_action
@@ -184,12 +179,6 @@ module Decidim
           allow!
         end
 
-        def share_tokens_action?
-          return unless permission_action.subject == :share_tokens
-
-          allow!
-        end
-
         def read_initiative_list_action?
           return unless permission_action.subject == :initiative &&
                         permission_action.action == :list
@@ -218,7 +207,10 @@ module Decidim
 
         def allowed_to_send_to_technical_validation?
           initiative.discarded? ||
-            (initiative.created? && initiative.enough_committee_members?)
+            (initiative.created? && (
+              !initiative.created_by_individual? ||
+              initiative.enough_committee_members?
+            ))
         end
       end
     end

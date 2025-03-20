@@ -8,11 +8,9 @@ module Decidim
       #
       # reportable - A Decidim::Reportable
       # current_user - the user that performs the action
-      # with_admin_log Boolean - determines whether to log the action of hiding a resource in the admin log
-      def initialize(reportable, current_user, with_admin_log: true)
+      def initialize(reportable, current_user)
         @reportable = reportable
         @current_user = current_user
-        @with_admin_log = with_admin_log
       end
 
       # Executes the command. Broadcasts these events:
@@ -26,7 +24,8 @@ module Decidim
 
         with_events do
           tool = Decidim::ModerationTools.new(@reportable, @current_user)
-          @with_admin_log ? tool.hide_with_admin_log! : tool.hide!
+          tool.hide!
+          tool.send_notification_to_author
         end
 
         broadcast(:ok, @reportable)

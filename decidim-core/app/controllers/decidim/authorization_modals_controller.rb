@@ -5,12 +5,10 @@ module Decidim
     helper_method :authorizations, :authorize_action_path
     layout false
 
-    def show
-      store_onboarding_cookie_data!(current_user)
-    end
+    def show; end
 
     def authorize_action_path(handler_name)
-      authorizations.status_for(handler_name).current_path(redirect_url:)
+      authorizations.status_for(handler_name).current_path(redirect_url: URI(request.referer).path)
     end
 
     private
@@ -32,10 +30,6 @@ module Decidim
 
     def authorizations
       @authorizations ||= action_authorized_to(authorization_action, resource:)
-    end
-
-    def redirect_url
-      pending_onboarding_action?(current_user) ? decidim_verifications.onboarding_pending_authorizations_path : URI(request.referer).path
     end
   end
 end

@@ -4,7 +4,6 @@ module Decidim
   module Proposals
     module Admin
       class ProposalNoteCreatedEvent < Decidim::Events::SimpleEvent
-        include Decidim::Events::AuthorEvent
         include Rails.application.routes.mounted_helpers
 
         i18n_attributes :admin_proposal_info_url, :admin_proposal_info_path
@@ -18,10 +17,6 @@ module Decidim
         end
 
         private
-
-        def author
-          Decidim::User.find(extra[:note_author_id])
-        end
 
         def organization
           @organization ||= component.participatory_space.organization

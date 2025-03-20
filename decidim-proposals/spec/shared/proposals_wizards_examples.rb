@@ -4,7 +4,11 @@ shared_examples "proposals wizards" do |options|
   include_context "with a component"
   let(:manifest_name) { "proposals" }
   let(:organization) { create(:organization) }
+
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:scope) { create(:scope, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
+  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   let(:address) { "Plaça Santa Jaume, 1, 08002 Barcelona" }
   let(:latitude) { 41.3825 }
@@ -113,12 +117,11 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "displays the attachments correctly" do
-          click_on "Images"
           within "#panel-images" do
             expect(find("img")["alt"]).to eq(".jpg")
           end
 
-          click_on "Documents"
+          click_on("trigger-documents")
           within "#panel-documents" do
             expect(find("a.card__list-title")["innerHTML"]).to include("&lt;svg onload=alert('ALERT')&gt;.pdf")
           end

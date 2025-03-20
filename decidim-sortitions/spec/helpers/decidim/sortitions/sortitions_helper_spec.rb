@@ -13,24 +13,28 @@ module Decidim
         end
       end
 
-      describe "sortition_taxonomy_labels" do
+      describe "sortition_category_label" do
         let(:sortition) { create(:sortition) }
 
-        context "when sortition has no taxonomies" do
-          it "returns from all taxonomies" do
-            expect(helper.sortition_taxonomy_labels(sortition)).to eq("from all taxonomies")
+        context "when uncategorized sortition" do
+          it "returns from all categories" do
+            expect(helper.sortition_category_label(sortition)).to eq("from all categories")
           end
         end
 
-        context "when sortition has taxonomies" do
-          let(:taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization: sortition.organization) }
+        context "when categorized sortition" do
+          let(:category) { create(:category, participatory_space: sortition.component.participatory_space) }
 
           before do
-            sortition.taxonomies << taxonomy
+            Decidim::Categorization.create!(
+              decidim_category_id: category.id,
+              categorizable: sortition
+            )
+            sortition.reload
           end
 
-          it "returns from the given taxonomy" do
-            expect(helper.sortition_taxonomy_labels(sortition)).to eq("from the #{taxonomy.name["en"]} taxonomies")
+          it "returns from the given category" do
+            expect(helper.sortition_category_label(sortition)).to eq("from the #{category.name["en"]} category")
           end
         end
       end

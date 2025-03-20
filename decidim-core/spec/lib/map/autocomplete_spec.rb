@@ -62,8 +62,8 @@ module Decidim
           { url: "#{Decidim::Dev::Test::MapServer.host}/photon_api" }.to_json
         )
         expect(form_markup).to include(%(
-      <input autocomplete="off" data-decidim-geocoding="#{config}" type="text" name="test[address]" id="test_address" />
-    ).strip)
+          <input autocomplete="off" data-decidim-geocoding="#{config}" type="text" name="test[address]" id="test_address" />
+        ).strip)
       end
 
       context "when object responds to latitude and longitude" do
@@ -82,7 +82,9 @@ module Decidim
         end
 
         it "does not add empty values" do
-          expect(form_markup).not_to include(%(data-coordinates=).strip)
+          expect(form_markup).not_to include(%(
+            data-coordinates=
+          ).strip)
         end
       end
 

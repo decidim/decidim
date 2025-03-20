@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -86,6 +87,8 @@ gl:
             initiative_title: Título da iniciativa
             name_and_surname: Nome e apelidos
             postal_code: Código postal
+            scope: Alcance
+            time_and_date: Hora e data
             timestamp: Timestamp
       titles:
         initiatives: Iniciativas
@@ -186,7 +189,9 @@ gl:
           unpublish: "%{user_name} eliminou a iniciativa %{resource_name}"
           update: "%{user_name} actualizou a iniciativa %{resource_name}"
       admin_states:
+        created: Creada
         discarded: Descartou
+        published: Publicado
         validating: Validación técnica
       application_helper:
         filter_state_values:
@@ -202,17 +207,27 @@ gl:
           name: Iniciativas destacadas
       create_initiative:
         fill_data:
+          back: De volta
           continue: Continuar
+          more_information: "(Máis información)"
           select_scope: Seleccione un alcance
         finish:
           back: De volta
+          back_to_initiatives: Volver a iniciativas
+          go_to_my_initiatives: Vaia ás miñas iniciativas
+          more_information: "(Máis información)"
         previous_form:
           back: De volta
+          continue: Continuar
+        promotal_committee:
+          more_information: "(Máis información)"
         select_initiative_type:
           back: De volta
           choose_html: Quero crear un <strong>%{title}</strong>
           more_information: (Máis información)
           select: Quero promocionar esta iniciativa
+        share_committee_link:
+          invite_to_committee_help: Ligazón para convidar persoas que formarán parte do comité promotor
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, quen está seguindo, creou unha nova iniciativa, revisa e contribúe:"
@@ -224,6 +239,8 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Iniciativa aprobada por %{author_nickname}
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> iniciativa foi aprobada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      form:
+        attachment_legend: "(Opcional) Engade un anexo"
       initiative_signatures:
         fill_personal_data:
           continue: Continuar
@@ -271,6 +288,7 @@ gl:
           recent: Máis recente
         print:
           city: Cidade
+          print: Imprimir
         result:
           initiative_rejected_reason: Esta iniciativa foi rexeitada debido á súa falta de apoios.
         signatures_count:
@@ -278,6 +296,7 @@ gl:
           other: " sinaturas"
         vote_cabin:
           already_voted: Xa está asinado
+          verification_required: Verifica a túa conta para asinar a iniciativa
           vote: Iniciar sesión
           votes_blocked: A sinatura está desactivada
         votes_count:
@@ -304,12 +323,15 @@ gl:
     resources:
       initiatives_type:
         actions:
+          create: Crear
           title: Accións
           vote: Vota
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Crear
+        finish: Rematar
+        promotal_committee: Comité de promoción
         select_initiative_type: Elixe
       initiative_signature_creation_header:
         fill_personal_data: Completa os teus datos

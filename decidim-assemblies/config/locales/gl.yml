@@ -1,6 +1,9 @@
+---
 gl:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Título
       assembly:
         area_id: Área
         assembly_type: Tipo de montaxe
@@ -16,6 +19,7 @@ gl:
         created_by_other: Creado por outro
         creation_date: Data de creación
         decidim_area_id: Área
+        decidim_assemblies_type_id: Tipo de montaxe
         decidim_scope_id: Alcance
         description: Descrición
         developer_group: Grupo promotor
@@ -27,6 +31,7 @@ gl:
         hero_image: Imaxe da portada
         included_at: Incluído en
         instagram: Instagram
+        internal_organisation: Organización interna
         is_transparent: É transparente
         local_area: Área de organización
         meta_scope: Metadatos de ámbito
@@ -38,6 +43,8 @@ gl:
         promoted: Promocionado
         published_at: Publicado en
         purpose_of_action: Propósito da acción
+        scope_id: Alcance
+        scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
         slug: URL slug
         special_features: Características especiais
@@ -76,9 +83,11 @@ gl:
       actions:
         import_assembly: Importar
         new_assembly: Nova montaxe
+        new_assembly_type: Novo tipo de xuntanza
       assemblies:
         create:
           error: Produciuse un erro ao crear un novo conxunto.
+          success: Asemblea creada con éxito.
         edit:
           update: Actualización
         index:
@@ -95,6 +104,18 @@ gl:
         create:
           error: Produciuse un erro ao duplicar este conxunto.
           success: Asemblea duplicouse con éxito.
+      assemblies_types:
+        create:
+          error: Produciuse un problema ao crear un novo tipo de xuntanza.
+          success: Tipo de xuntanza creado con éxito.
+        destroy:
+          success: Tipo de xuntanza eliminado con éxito.
+        new:
+          create: Crear
+          title: Novo tipo de xuntanza
+        update:
+          error: Produciuse un problema ao actualizar este tipo de xuntanza.
+          success: Tipo de xuntanza modificado con éxito.
       assembly_copies:
         new:
           copy: Copiar
@@ -108,6 +129,21 @@ gl:
           import: Importar
           select: Selecciona que tipo de datos desexas importar
           title: Importar xuntanza
+      assembly_members:
+        create:
+          error: Produciuse un erro ao engadir un membro para este conxunto.
+          success: Membro creado con éxito para este conxunto.
+        destroy:
+          success: O membro eliminouse con éxito por este conxunto.
+        edit:
+          update: Actualización
+        index:
+          assembly_members_title: Membros da asemblea
+        new:
+          create: Crear
+        update:
+          error: Produciuse un erro ao actualizar o membro para este conxunto.
+          success: Membro actualizado correctamente para este conxunto.
       assembly_publications:
         create:
           error: Produciuse un erro ao publicar esta asemblea.
@@ -130,16 +166,26 @@ gl:
         update:
           error: Houbo un erro actualizado por un usuario para este conxunto.
           success: O usuario actualizouse con éxito para este conxunto.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipo de montaxe
       menu:
         assemblies: Asembleas
         assemblies_submenu:
           assembly_admins: Usuarios da asemblea
+          assembly_members: Membros
           attachment_collections: Carpetas
           attachment_files: Arquivos
           attachments: Anexos
+          categories: Categorías
           components: Compoñentes
           moderations: Moderacións
+        assemblies_types: Tipo de xuntanzas
       models:
+        assemblies_types:
+          fields:
+            created_at: Creado en
+            title: Título
         assembly:
           fields:
             created_at: Creado en
@@ -149,6 +195,11 @@ gl:
             title: Título
           name: Asemblea
         assembly_member:
+          fields:
+            ceased_date: Data de suspensión
+            designation_date: Data de designación
+            full_name: Nome
+            position: Posición
           name: Membro
           positions:
             other: Outra
@@ -165,6 +216,7 @@ gl:
             admin: Administrador
             collaborator: Colaborador
             moderator: Moderador
+            valuator: Avaliador/a
       titles:
         assemblies: Asembleas
         assemblies_types: Tipo de xuntanzas
@@ -197,18 +249,29 @@ gl:
             announcement_help: O texto que insires aquí amosarase ao participante xusto debaixo da información da xuntanza.
             duration: Duración
             duration_help: Se a duración deste conxunto é limitada, seleccione a data de finalización. Se non, aparecerá como indefinido.
+            filters: Filtros
             images: Imaxes
             included_at_help: Selecciona a data na que engadiches esta xuntanza á plataforma. Non ten por que ser a mesma que a data de creación.
             metadata: Metadatos
             other: Outra
             select_a_created_by: Seleccione un creado por
+            select_an_area: Seleccione unha área
+            select_an_assembly_type: Seleccione un tipo de conxunto
             select_parent_assembly: Seleccione o conxunto primario
             social_handlers: Social
             title: Información xeral
+        assemblies_types:
+          form:
+            title: Título
         assembly_members:
           form:
+            existing_user: Usuario existente
             explanation: 'Instrucións para a imaxe:'
+            non_user: Non usuario
             non_user_avatar_help: Tes que obter o consentimento das persoas antes de publicalas coma membros.
+            select_a_position: Seleccione unha posición
+            select_user: Selecciona un usuario
+            user_type: Tipo de usuario
         content_blocks:
           highlighted_assemblies:
             max_results: Cantidade máxima de elementos para mostrar
@@ -224,6 +287,14 @@ gl:
       assembly_members:
         index:
           members: Membros
+      assembly_types:
+        commission: Comisión
+        consultative_advisory: Consultivo / asesor
+        executive: Executivo
+        government: Goberno
+        others: Outros
+        participatory: Participativa
+        working_group: Grupo de traballo
       content_blocks:
         highlighted_assemblies:
           name: Asembleas destacadas
@@ -248,9 +319,12 @@ gl:
           member_of:
             member_of: Membro de
       show:
+        assembly_type: Tipo de montaxe
         duration: Duración
         private_space: Esta é unha asemblea privada
     assembly_members:
+      assembly_member:
+        designated_on: Designado en
       index:
         title: Membros
     events:

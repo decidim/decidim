@@ -13,28 +13,14 @@ module Decidim
 
       routes do
         resources :statuses
-        resources :results, except: [:show, :destroy] do
-          member do
-            patch :soft_delete
-            patch :restore
-          end
-
-          collection do
-            post :update_taxonomies, controller: "results_bulk_actions"
-            post :update_status, controller: "results_bulk_actions"
-            post :update_dates, controller: "results_bulk_actions"
-          end
-
+        resources :results, except: [:show] do
           get :proposals_picker, on: :collection
-          get :manage_trash, on: :collection
 
           resources :attachment_collections, except: [:show]
           resources :attachments, except: [:show]
           resources :timeline_entries, except: [:show]
         end
-        resources :import_components, only: [:new, :create] do
-          get :preview, on: :collection
-        end
+        resources :projects_import, only: [:new, :create]
         get :import_results, to: "import_results#new"
         post :import_results, to: "import_results#create"
         root to: "results#index"

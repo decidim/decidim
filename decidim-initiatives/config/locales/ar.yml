@@ -1,3 +1,4 @@
+---
 ar:
   activemodel:
     attributes:
@@ -95,8 +96,9 @@ ar:
             initiative_start_date: تاريخ البدء
             initiative_title: عنوان المبادرة
             name_and_surname: اسم ولقب
-            nickname: الاسم المستعار
             postal_code: الكود البريدى
+            scope: نطاق
+            time_and_date: الوقت و التاريخ
             timestamp: الطابع الزمني
       titles:
         initiatives: المبادرات
@@ -198,7 +200,9 @@ ar:
           unpublish: "تجاهل %{user_name} المبادرة %{resource_name}"
           update: "%{user_name} تحديث المبادرة %{resource_name}"
       admin_states:
+        created: تمّ إنشاؤه
         discarded: التخلص منها
+        published: نشرت
         validating: المصادقة الفنية
       application_helper:
         filter_state_values:
@@ -217,17 +221,27 @@ ar:
           name: المبادرات البارزة
       create_initiative:
         fill_data:
+          back: الى الخلف
           continue: استمر
+          more_information: "(معلومات اكثر)"
           select_scope: حدد النطاق
         finish:
           back: الى الخلف
+          back_to_initiatives: العودة إلى المبادرات
+          go_to_my_initiatives: انتقل إلى مبادراتي
+          more_information: "(معلومات اكثر)"
         previous_form:
           back: الى الخلف
+          continue: استمر
+        promotal_committee:
+          more_information: "(معلومات اكثر)"
         select_initiative_type:
           back: الى الخلف
           choose_html: أريد إنشاء <strong>%{title}</strong>
           more_information: (معلومات اكثر)
           select: أريد أن أشجع هذه المبادرة
+        share_committee_link:
+          invite_to_committee_help: رابط لدعوة الأشخاص الذين سيكونون جزءًا من لجنة المروجين
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}، الذي تتابعه ، بإنشاء مبادرة جديدة والتحقق منها والمساهمة فيها:"
@@ -239,10 +253,6 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: المبادرة التي أقرتها %{author_nickname}
           notification_title: تمت الموافقة على مبادرة <a href="%{resource_path}">%{resource_title}</a> من قبل <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-      form:
-        add_attachments: إضافة مرفقات
-        attachment_legend: إضافة مستند أو صورة
-        edit_attachments: تعديل المرفقات
       initiative_signatures:
         fill_personal_data:
           continue: استمر
@@ -305,6 +315,7 @@ ar:
           full_name: الاسم الكامل
           initiative:
             description: 'الوصف:'
+          print: طباعة
         result:
           initiative_rejected_reason: تم رفض هذه المبادرة بسبب افتقارها للتوقيعات.
         signatures_count:
@@ -316,6 +327,7 @@ ar:
           other: " التوقيعات"
         vote_cabin:
           already_voted: وقعت بالفعل
+          verification_required: تحقق من حسابك لتوقيع المبادرة
           vote: إشارة
           votes_blocked: توقيع المعوقين
         votes_count:
@@ -348,17 +360,17 @@ ar:
     menu:
       initiatives: المبادرات
     resources:
-      initiative:
-        actions:
-          comment: تعليق
       initiatives_type:
         actions:
+          create: إنشاء
           title: أفعال
           vote: إشارة
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: إنشاء
+        finish: إنهاء
+        promotal_committee: لجنة المروجين
         select_initiative_type: أختر
       initiative_signature_creation_header:
         fill_personal_data: أكمل بياناتك

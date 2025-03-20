@@ -17,27 +17,21 @@ describe Decidim::Debates::DebateForm do
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
   let(:title) { "My title" }
   let(:description) { "My description" }
-  let(:uploaded_files) { [] }
-  let(:current_files) { [] }
-  let(:taxonomies) { [] }
+  let(:category) { create(:category, participatory_space: participatory_process) }
+  let(:category_id) { category.id }
+  let(:parent_scope) { create(:scope, organization:) }
+  let(:scope) { create(:subscope, parent: parent_scope) }
+  let(:scope_id) { scope.id }
   let(:attributes) do
     {
-      taxonomies:,
+      category_id:,
+      scope_id:,
       title:,
-      description:,
-      add_documents: uploaded_files,
-      documents: current_files
+      description:
     }
   end
 
-  describe "taxonomies" do
-    let(:component) { current_component }
-    let(:participatory_space) { participatory_process }
-
-    it_behaves_like "a taxonomizable resource"
-  end
-
-  it_behaves_like "etiquette validator", fields: [:title, :description]
+  it_behaves_like "a scopable resource"
 
   it { is_expected.to be_valid }
 
@@ -53,10 +47,16 @@ describe Decidim::Debates::DebateForm do
     it { is_expected.not_to be_valid }
   end
 
+  describe "when the category does not exist" do
+    let(:category_id) { category.id + 10 }
+
+    it { is_expected.not_to be_valid }
+  end
+
   context "when a debate exists" do
     subject { described_class.from_model(debate).with_context(context.merge(current_user: user)) }
 
-    let(:debate) { create(:debate, component: current_component) }
+    let(:debate) { create(:debate, category:, component: current_component) }
 
     describe "when the user is the author" do
       let(:user) { debate.author }
@@ -71,24 +71,10 @@ describe Decidim::Debates::DebateForm do
     end
   end
 
-  context "when handling attachments" do
-    let(:uploaded_files) do
-      [
-        { file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") },
-        { file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }
-      ]
-    end
-
-    it "accepts valid attachments" do
-      expect(form).to be_valid
-      expect(form.add_documents.count).to eq(2)
-    end
-  end
-
   describe "map_model" do
     subject { described_class.from_model(debate).with_context(context) }
 
-    let(:debate) { create(:debate, component: current_component) }
+    let(:debate) { create(:debate, category:, component: current_component) }
 
     it "sets the title" do
       expect(subject.title).to be_present
@@ -98,12 +84,12 @@ describe Decidim::Debates::DebateForm do
       expect(subject.description).to be_present
     end
 
-    it "sets the debate" do
-      expect(subject.debate).to eq(debate)
+    it "sets the category" do
+      expect(subject.category).to be_present
     end
 
-    it "sets the attachments" do
-      expect(subject.documents).to eq(debate.documents)
+    it "sets the debate" do
+      expect(subject.debate).to eq(debate)
     end
   end
 end

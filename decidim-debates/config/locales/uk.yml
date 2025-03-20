@@ -1,7 +1,10 @@
+---
 uk:
   activemodel:
     attributes:
       debate:
+        category_id: Категорія
+        decidim_category_id: Категорія
         description: Опис
         end_time: 'Закінчується:'
         information_updates: Оновлення відомостей
@@ -22,6 +25,8 @@ uk:
   decidim:
     components:
       debates:
+        actions:
+          create: Започаткувати
         name: Обговорення
         settings:
           global:
@@ -32,6 +37,8 @@ uk:
             comments_blocked: Коментарі вимкнено
     debates:
       actions:
+        confirm_destroy: Ви впевнені?
+        destroy: Видалити
         edit: Редагувати
         title: Дії
       admin:
@@ -39,6 +46,8 @@ uk:
           create:
             invalid: При спробі започаткувати обговорення сталася помилка.
             success: Обговорення успішно започатковано.
+          destroy:
+            success: Обговорення успішно видалено.
           edit:
             title: Редагувати обговорення
             update: Оновити обговорення
@@ -71,12 +80,16 @@ uk:
           official: Службове
           origin: Джерело
           search: Шукати
+        form:
+          select_a_category: Будь ласка, виберіть категорію
         index:
           new_debate: Додати обговорення
         new:
           back: Повернутись
           create: Започаткувати
           title: Додати обговорення
+        show:
+          edit_debate: Редагувати обговорення
       models:
         debate:
           fields:

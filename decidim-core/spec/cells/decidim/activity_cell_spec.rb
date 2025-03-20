@@ -23,6 +23,18 @@ describe Decidim::ActivityCell, type: :cell do
 
     let(:author) { create(:user, organization: component.organization) }
 
+    context "when the author is a user group" do
+      before do
+        resource.author = author
+        resource.user_group = create(:user_group, :verified, organization: component.organization, users: [author])
+        resource.save!
+      end
+
+      it "returns the user group" do
+        expect(subject.user).to eq(resource.user_group)
+      end
+    end
+
     context "when the author is a user" do
       before do
         resource.author = author
@@ -81,7 +93,7 @@ describe Decidim::ActivityCell, type: :cell do
 
         before do
           # rubocop:disable Rails/SkipsModelValidations
-          resource.author.touch
+          resource.normalized_author.touch
           # rubocop:enable Rails/SkipsModelValidations
 
           subject.user.reload

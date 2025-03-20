@@ -1,3 +1,4 @@
+---
 ja:
   activemodel:
     attributes:
@@ -86,9 +87,9 @@ ja:
             label: 州(県)
             values:
               accepted: 十分な署名
-              created: 下書き
+              created: 作成日
               discarded: 削除済み
-              open: 公開
+              published: 公開済
               rejected: 十分な署名がありません
               validating: 技術的検証
           type_id_eq:
@@ -97,7 +98,7 @@ ja:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} をタイトル、説明、ID、または著者名で検索します。'
       initiatives_settings:
         update:
-          error: イニシアチブ設定の更新中に問題が発生しました。
+          error: エラーが発生しました。
           success: イニシアチブの設定が正常に更新されました。
       menu:
         attachments: 添付ファイル
@@ -133,30 +134,22 @@ ja:
           name: イニシアチブ種別
         initiatives_votes:
           fields:
-            date_and_time: 日付と時刻
             date_of_birth: 誕生日
             document_number: ドキュメント番号
             hash: ハッシュ
             initiative_end_date: 終了日
             initiative_id: イニシアチブID
-            initiative_scope: スコープ
             initiative_signatures_count: 署名の数
             initiative_start_date: 開始日
             initiative_title: イニシアチブのタイトル
             name_and_surname: 名前と苗字
-            nickname: アカウントID
             postal_code: 郵便番号
-            signature_count: 署名数
+            scope: スコープ
+            time_and_date: 日時
             timestamp: タイムスタンプ
-      taxonomy_filters:
-        space_filter_for:
-          initiatives: すべてのイニシアチブ
       titles:
         initiatives: イニシアチブ
         initiatives_types: イニシアチブ種別
-    download_your_data:
-      show:
-        initiatives: イニシアチブのエクスポート
     events:
       initiatives:
         admin:
@@ -280,7 +273,7 @@ ja:
           unpublish:
             success: イニシアチブは非公開になりました。
           update:
-            error: イニシアチブの更新中に問題がありました。
+            error: エラーが発生しました。
             success: イニシアチブを更新しました。
         initiatives_settings:
           edit:
@@ -294,7 +287,7 @@ ja:
             title: イニシアチブの設定
         initiatives_type_scopes:
           create:
-            error: イニシアチブの新しいスコープの作成中に問題が発生しました。
+            error: エラーが発生しました。
             success: 指定されたイニシアチブ種別の新しいスコープが作成されました。
           destroy:
             success: スコープを削除しました。
@@ -305,11 +298,11 @@ ja:
             create: 作成
             title: イニシアチブ種別のスコープを作成
           update:
-            error: スコープの更新中に問題が発生しました。
+            error: エラーが発生しました。
             success: スコープを更新しました。
         initiatives_types:
           create:
-            error: イニシアチブ種別の作成中に問題が発生しました。
+            error: エラーが発生しました。
             success: 新しいイニシアチブ種別を作成しました。このイニシアチブ種別を使用するには、少なくとも 1 つのスコープを定義する必要があります。
           destroy:
             success: イニシアチブ種別を削除しました。
@@ -326,7 +319,7 @@ ja:
             create: 作成
             title: 新しいイニシアチブ種別
           update:
-            error: イニシアチブ種別の更新中に問題が発生しました。
+            error: エラーが発生しました。
             success: イニシアチブ種別を更新しました。
       admin_log:
         initiative:
@@ -342,9 +335,9 @@ ja:
           update: "%{user_name} は %{resource_name} イニシアチブ種別を更新しました"
       admin_states:
         accepted: 十分な署名
-        created: 下書き
+        created: 作成済み
         discarded: 破棄しました
-        open: 公開
+        published: 公開済み
         rejected: 十分な署名がありません
         validating: 技術的検証
       application_helper:
@@ -371,33 +364,40 @@ ja:
         highlighted_initiatives:
           name: イニシアチブを強調しました
       create_initiative:
-        committee_member:
-          approve: 承認
-          revoke: 取り消し
         fill_data:
+          back: 戻る
           continue: 続ける
           fill_data_help: "<ul> <li>イニシアチブの内容を確認しましょう。タイトルはわかりやすいでしょうか? イニシアチブの目的は明確でしょうか? </li> <li>署名の種別を選択する必要があります。対面署名、オンライン署名、または両方の組み合わせのいずれかです。</li> <li>イニシアチブの地理的範囲はどうなりますか?</li></ul>"
+          more_information: "(詳細)"
           select_area: エリアを選択
           select_scope: スコープを選択
         finish:
           back: 戻る
+          back_to_initiatives: イニシアチブに戻る
+          callout_text: おめでとうございます！あなたのイニシアチブが問題なく作成されました。
+          confirm: イニシアチブを提出し、管理者がレビューして公開することになります。一度公開すると編集できなくなりますが、よろしいですか？
+          edit_my_initiative: 自分のイニシアチブを編集
+          go_to_my_initiatives: 私のイニシアチブに移動
+          more_information: "(詳細)"
+          send_my_initiative: 自分のイニシアチブを技術検証に提出
+        finish_help:
+          publish_helper_text: イニシアチブを公開するためには、必要な情報を記入し、<strong>技術検証に提出</strong>して管理者に確認してもらう必要があることを覚えておいてください。
         previous_form:
           back: 戻る
+          continue: 続ける
         promotal_committee:
-          individual_help_text: イニシアチブが作成され、下書きとして保存されました。今度は推進委員会に人を追加する必要があります。
-          promoters_committee_help_2: イニシアチブを公開するためには、必要な情報を記入し、技術検証に提出して管理者に確認してもらう必要があることを覚えておいてください。
-          promoters_committee_help_html: イニシアチブを技術審査に送る前に、推進委員会にあと %{committee_members_left} 名のメンバーを追加する必要があります。現在のメンバー数は <strong>%{committee_members_count}/%{committee_size}</strong> です。
-          promoters_committee_title: 推進委員会
+          individual_help_text: この種類のイニシアチブでは、少なくとも%{committee_size} のメンバー(証人) で構成される推進委員会が必要です。以下のリンクを、このイニシアチブに参加している他の人々と共有する必要があります。あなたの連絡先がこのリンクを受け取ったら、指示された手順に従う必要があります。
+          more_information: "(詳細)"
         select_initiative_type:
           back: 戻る
           choose_html: <strong>%{title}</strong> を作成したい
           more_information: (詳細)
           new: 新しいイニシアチブを作成
           select: 私はこのイニシアチブを推進したいです
+          select_initiative_type_help: イニシアチブとは、一般的な利益を守るために組織が行動を起こすよう、参加者が介入するための手段です。 どのようなイニシアチブを立ち上げたいですか？
           verification_required: このイニシアチブを推進するためにあなたのアカウントを確認してください
         share_committee_link:
-          invite_to_committee_help_2: この種類のイニシアチブでは、少なくとも%{committee_size} 名のメンバー(証人) で構成される推進委員会が必要です。以下のリンクを、このイニシアチブに参加している他の人々と共有する必要があります。あなたの連絡先がこのリンクを受け取ったら、指示された手順に従う必要があります。
-          more_information: 詳しい情報
+          invite_to_committee_help: 推進委員会に参加する人を招待するためのリンク
       edit:
         accept: イニシアチブを承認する
         back: 戻る
@@ -435,10 +435,10 @@ ja:
           email_subject: "%{applicant_nickname} があなたのイニシアチブに参加しようとしています"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> があなたのイニシアチブの推進委員会に申請しました <a href="%{resource_url}">%{resource_title}</a>. 受け入れるか拒否するには <a href="%{resource_url}/edit">ここ</a>をクリックしてください。
       form:
-        add_attachments: 添付ファイルを追加
+        add_documents: ドキュメントを追加
         add_image: 画像を追加
-        attachment_legend: ドキュメントまたは画像を追加
-        edit_attachments: 添付ファイルを編集
+        attachment_legend: "(オプション) 添付ファイルを追加"
+        edit_documents: ドキュメントを編集
         edit_image: 画像を編集
         image_legend: "(オプション) 画像を追加"
       index:
@@ -506,8 +506,6 @@ ja:
           random: ランダム
           recent: 直近のもの
           recently_published: 直近に公開
-        pending_initiatives:
-          title: 下書きと保留中のイニシアチブ
         print:
           address: 住所
           author_title: イニシアチブの作成者
@@ -526,7 +524,9 @@ ja:
           phone_number: 電話番号
           place_date: 場所、日付
           postal_code: 郵便番号
+          print: 印刷
           province: 都道府県/州
+          section: '組織から要求された場合、印刷した紙に必要事項を記入して、指定の場所に送信してください:'
           signature: 署名
         result:
           answer_title: このイニシアチブに回答がありました。
@@ -547,6 +547,7 @@ ja:
           other: " 署名"
         vote_cabin:
           already_voted: 既に署名されています
+          verification_required: イニシアチブに署名するにはアカウントを確認してください
           vote: サイン
           votes_blocked: ログインが無効になっています
         votes_count:
@@ -578,9 +579,9 @@ ja:
       show:
         badge_name:
           accepted: 十分な署名
-          created: 下書き
+          created: 作成済み
           discarded: 破棄しました
-          open: 公開
+          published: 公開済み
           rejected: 十分な署名がありません
           validating: 技術的検証
       states:
@@ -588,54 +589,25 @@ ja:
         expired: 期限切れ
       unavailable_scope: 利用できないスコープ
       update:
-        error: イニシアチブの更新に問題がありました。
+        error: エラーが発生しました。
         success: イニシアチブを更新しました。
     menu:
       initiatives: イニシアチブ
-    open_data:
-      help:
-        initiatives:
-          answer: このイニシアチブが受け取った回答 (もしあれば)
-          answer_url: 回答の URL (もしあれば)
-          answered_at: 回答の日時 (もしあれば)
-          area: このイニシアチブのエリア
-          authors: このイニシアチブの作成者
-          comments_count: このイニシアチブが持つコメント数
-          created_at: このスペースの作成日時
-          description: イニシアチブの説明
-          first_progress_notification_at: 最初の進捗通知の送信日時
-          follows_count: このスペースをフォローしているユーザー数
-          hashtag: Twitter/Xで使用されるイニシアチブのハッシュタグ
-          offline_votes: このプラットフォーム外でこのイニシアチブが受け取った署名の数
-          online_votes: このイニシアチブが（プラットフォームを介して直接）オンラインで受信した署名の数
-          published_at: このスペースの公開日時
-          reference: スペースのユニークな参照
-          scope: イニシアチブのスコープ
-          second_progress_notification_at: 2回目の進捗通知の送信日時
-          signature_end_date: 署名の収集期間の終了日時
-          signature_start_date: 署名の収集期間の開始日時
-          signature_type: 署名コレクションの種類（オンラインまたは対面）
-          signatures: このイニシアチブでの署名の数
-          state: このイニシアチブの現時点での状態
-          title: イニシアチブのタイトル
-          type: イニシアチブの種別
-          updated_at: このスペースの最終更新日時
-          url: スペースのURL
     resources:
       initiative:
         actions:
           comment: コメント
       initiatives_type:
         actions:
-          create: イニシアチブを作成
+          create: 作成
           title: アクション
           vote: サイン
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: 作成
-        finish: 技術的検証
-        promotal_committee: プロモーターを探す
+        finish: 完了
+        promotal_committee: 推進委員会
         select_initiative_type: 選択
       initiative_signature_creation_header:
         fill_personal_data: データを完成させましょう

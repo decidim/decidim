@@ -31,6 +31,7 @@
   @import "stylesheets/decidim/_modal.scss";
   @import "stylesheets/decidim/_modal_share.scss";
   @import "stylesheets/decidim/_modal_flag.scss";
+  @import "stylesheets/decidim/_modal_identities.scss";
   @import "stylesheets/decidim/_modal_authorization.scss";
   @import "stylesheets/decidim/_modal_update.scss";
   @import "stylesheets/decidim/_modal_tos_refuse.scss";
@@ -57,8 +58,6 @@
   @import "stylesheets/decidim/_hero.scss";
   @import "stylesheets/decidim/_actions.scss";
   @import "stylesheets/decidim/_emoji.scss";
-  @import "stylesheets/decidim/_success_image.scss";
-  @import "stylesheets/decidim/_hashtags.scss";
 }
 
 @import "stylesheets/decidim/vendor/datepicker_light.scss";

@@ -1,13 +1,17 @@
+---
 pt-BR:
   activemodel:
     attributes:
       budget:
+        decidim_scope_id: Escopo
         description: Descrição
         title: Título
         total_budget: Orçamento total
         weight: Posição do pedido
       project:
         budget_amount: Valor do orçamento
+        decidim_category_id: Categoria
+        decidim_scope_id: Escopo
         description: Descrição
         proposal_ids: Propostas relacionadas
         proposals: Propostas
@@ -27,6 +31,10 @@ pt-BR:
     admin:
       filters:
         projects:
+          category_id_eq:
+            label: Categoria
+          scope_id_eq:
+            label: Escopo
           selected_at_null:
             label: Selecionado
             values:
@@ -36,6 +44,7 @@ pt-BR:
       actions:
         attachment_collections: Pastas
         attachments: Anexos
+        destroy: Excluir
         edit: Editar
         edit_projects: Gerenciar projetos
         import: Importar propostas para os projetos
@@ -49,6 +58,9 @@ pt-BR:
           create:
             invalid: Ocorreu um erro ao criar este orçamento.
             success: Orçamento criado com sucesso.
+          destroy:
+            invalid: Ocorreu um erro ao deletar este orçamento.
+            success: Orçamento deletado com sucesso.
           edit:
             title: Editar orçamento
             update: Atualizar orçamento
@@ -75,6 +87,8 @@ pt-BR:
           create:
             invalid: Ocorreu um erro ao criar este projeto.
             success: Projeto criado com sucesso.
+          destroy:
+            success: Projeto deletado com sucesso.
           edit:
             title: Editar projeto
             update: Atualizar
@@ -82,6 +96,8 @@ pt-BR:
             actions: Ações
             cancel: Cancelar
             change_budget: Alterar orçamento
+            change_category: Mudar categoria
+            change_scope: Mudar escopo
             change_selected: Alterar estado selecionado
             deselect_implementation: Desselecionar da implementação
             finished_orders: Votos finais
@@ -94,6 +110,7 @@ pt-BR:
             title: Projetos
             update: Atualizar
             update_budget_button: Atualizar orçamento do projeto
+            update_scope_button: Atualizar escopo
           new:
             create: Criar
             title: Novo projeto
@@ -101,10 +118,28 @@ pt-BR:
             invalid: Houve um problema ao atualizar este projeto.
             success: Projeto atualizado com sucesso.
           update_budget:
+            invalid: 'Esses projetos já estão no mesmo orçamento ou seus orçamentos são mais que o máximo permitido: %{projects}.'
             select_a_project: Por favor, selecione um projeto.
+            success: 'Projetos atualizados com sucesso no scopo %{subject_name}: %{projects}.'
+          update_category:
+            invalid: 'Estes projetos já tinham a categoria %{subject_name}: %{projects}.'
+            select_a_category: Por favor, selecione uma categoria.
+            select_a_project: Por favor, selecione um projeto.
+            success: 'Projetos atualizados com sucesso para a categoria %{subject_name}: %{projects}.'
+          update_scope:
+            invalid: 'Estes projetos já tinham o escopo %{subject_name}: %{projects}.'
+            select_a_project: Por favor, selecione um projeto.
+            select_a_scope: Por favor, selecione um escopo.
+            success: 'Projetos atualizados com sucesso no scopo %{subject_name}: %{projects}.'
           update_selected:
+            invalid:
+              selected: 'Estes projetos já foram selecionados para a implementação: %{projects}.'
+              unselected: 'Estes projetos já foram desselecionados da implementação: %{projects}.'
             select_a_project: Por favor, selecione um projeto.
             select_a_selection: Por favor, selecione um estado de implementação.
+            success:
+              selected: 'Estes projetos foram selecionados com sucesso para a implementação: %{projects}.'
+              unselected: 'Estes projetos foram desselecionados da implementação com sucesso: %{projects}.'
         proposals_imports:
           create:
             invalid: Houve um problema ao importar as propostas para projetos.
@@ -173,17 +208,16 @@ pt-BR:
             total_budget: Orçamento total
         project:
           fields:
+            category: Categoria
             id: ID
             map: Mapa
             title: Título
-      order:
-        status:
-          title: Seu voto foi aceito com sucesso
       order_summary_mailer:
         order_summary:
           selected_projects: 'Os projetos que você selecionou são:'
           subject: Você votou no espaço participativo %{space_name}
           voted_on_space: Você votou no orçamento %{budget_name} para o espaço participativo %{space_name}.
+          voted_on_space_with_scope: Você votou no orçamento %{budget_name} para o espaço participativo %{space_name} em %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Se mudar de ideia, você pode mudar de voto mais tarde.
@@ -218,6 +252,8 @@ pt-BR:
           message: Seu voto não foi registrado porque você ainda não concluiu o processo de votação. Tem certeza que deseja sair da votação?
           title: Você ainda não votou
         filters:
+          category: Categoria
+          scope: Escopo
           search: Pesquisa
           status: Status
           status_values:
@@ -292,11 +328,13 @@ pt-BR:
               errors:
                 budget_voting_rule_only_one: Apenas uma regra de votação deve estar habilitada.
                 budget_voting_rule_required: Uma regra de votação é necessária.
-            geocoding_enabled: Mapas ativados
+            geocoding_enabled: Geocoding habilitado
             landing_page_content: Página inicial dos orçamentos
             more_information_modal: Modal de mais informação
             projects_per_page: Projetos por página
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada projeto
+            scope_id: Escopo
+            scopes_enabled: Escopos habilitados
             title: Título
             total_budget: Orçamento total
             vote_minimum_budget_projects_number: Número mínimo de projetos para votar
@@ -334,6 +372,8 @@ pt-BR:
     orders:
       checkout:
         error: Ocorreu um erro ao processar seu voto.
+        success_html:
+        success_no_left_budgets_html: Seu voto foi aceito com sucesso.
       destroy:
         error: Ocorreu um erro ao cancelar o seu voto.
         success: Seu voto foi cancelado com sucesso.

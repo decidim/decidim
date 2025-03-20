@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/type_context"
+require "decidim/core/test/shared_examples/traceable_interface_examples"
+require "decidim/core/test/shared_examples/scopable_interface_examples"
 
 module Decidim
   module Budgets
     describe BudgetType, type: :graphql do
       include_context "with a graphql class type"
-      let(:model) { create(:budget, :with_projects) }
+      let(:model) { create(:budget) }
+
+      include_examples "scopable interface"
 
       it_behaves_like "traceable interface" do
         let(:author) { create(:user, :admin, organization: model.component.organization) }
@@ -46,7 +50,7 @@ module Decidim
       end
 
       describe "projects" do
-        let!(:budget2) { create(:budget, :with_projects) }
+        let!(:budget2) { create(:budget) }
         let(:query) { "{ projects { id } }" }
 
         it "returns the budget projects" do

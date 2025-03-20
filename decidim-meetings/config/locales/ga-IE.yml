@@ -1,3 +1,4 @@
+---
 ga:
   activemodel:
     attributes:
@@ -19,6 +20,8 @@ ga:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: Catagóir
           closed_at_present:
             label: Staid
             values:
@@ -29,6 +32,8 @@ ga:
             values:
               'false': Roimhe
               'true': Le teacht
+          scope_id_eq:
+            label: Scóip
       meeting_copies:
         new:
           copy: Cóipeáil
@@ -38,12 +43,16 @@ ga:
           comment: Tabhair Trácht
           join: Téigh leis
         name: Cruinnithe
+        settings:
+          global:
+            scope_id: Scóip
     meetings:
       actions:
         agenda: Clár
         attachment_collections: Fillteáin
         attachments: Ceangaltáin
         close: Dún
+        destroy: Scrios
         edit: Eagar
         preview: Réamhamharc
         title: Gníomhartha
@@ -95,7 +104,9 @@ ga:
             save: Sábháil
           form:
             invites: Cuirí
-            manage_questions: Ceisteanna
+      application_helper:
+        filter_category_values:
+          all: Uile
       directory:
         meetings:
           index:
@@ -127,6 +138,8 @@ ga:
           type_values:
             all: Uile
             online: Ar líne
+        form:
+          select_a_category: Roghnaigh catagóir le do thoil
         new:
           back: Ar Ais
           create: Cruthaigh

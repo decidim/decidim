@@ -1,3 +1,4 @@
+---
 hu:
   activemodel:
     attributes:
@@ -85,7 +86,9 @@ hu:
             label: Állapot
             values:
               accepted: Elég aláírások
+              created: Létrehozva
               discarded: Elvetve
+              published: Közzétéve
               rejected: Nincsen elég aláírás
               validating: Technikai érvényesítés
           type_id_eq:
@@ -94,6 +97,7 @@ hu:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Keresés a(z) %{collection} elemei között cím, leírás, azonosító vagy szerző alapján.
       initiatives_settings:
         update:
+          error: Hiba történt.
           success: A kezdeményezés beállítása sikeres.
       menu:
         attachments: Csatolmányok
@@ -134,6 +138,8 @@ hu:
             initiative_title: Kezdeményezés címe
             name_and_surname: Keresztnév és Vezetéknév
             postal_code: Irányítószám
+            scope: Hatáskör
+            time_and_date: Idő és dátum
             timestamp: Időbélyeg
       titles:
         initiatives: Kezdeményezések
@@ -247,6 +253,7 @@ hu:
             new: Új
             photos: Fotók
           update:
+            error: Hiba történt.
             success: A kezdeményezés frissítése sikeres.
         initiatives_settings:
           edit:
@@ -260,6 +267,7 @@ hu:
             title: Kezdeményezések beállításai
         initiatives_type_scopes:
           create:
+            error: Hiba történt.
             success: Az adott kezdeményezési típushoz új hatáskört hoztunk létre.
           destroy:
             success: A hatáskör eltávolítása sikeres volt.
@@ -270,8 +278,11 @@ hu:
             create: Létrehozás
             title: Kezdeményezési típus hatáskörének létrehozása
           update:
+            error: Hiba történt.
             success: A hatáskör frissítése sikeres.
         initiatives_types:
+          create:
+            error: Hiba történt.
           destroy:
             success: A kezdeményezéstípus eltávolítása sikeres.
           edit:
@@ -285,6 +296,7 @@ hu:
             create: Létrehozás
             title: Új kezdeményezéstípus
           update:
+            error: Hiba történt.
             success: A kezdeményezéstípus frissítése sikeres.
       admin_log:
         initiative:
@@ -300,7 +312,9 @@ hu:
           update: "%{user_name} frissítette a(z) %{resource_name} kezdeményezés típust"
       admin_states:
         accepted: Elegendő aláírás
+        created: Létrehozva
         discarded: Elvetve
+        published: Közzétéve
         rejected: Nincs elegendő aláírás
         validating: Technikai érvényesítés
       application_helper:
@@ -328,20 +342,38 @@ hu:
           name: Kiemelt kezdeményezések
       create_initiative:
         fill_data:
+          back: Vissza
           continue: Tovább
           fill_data_help: "<ul><li>Nézd meg a kezdeményezésed tartalmát. Könnyű megérteni? Tiszta a kezdeményezésed célja?</li><li>Az aláírás típusát válaszd ki. Személyes, online vagy a kombinációja mindkettőnek</li><li>Mi a földrajzi hatóköre a kezdeményezésednek?</li></ul>"
+          more_information: "(További információk)"
           select_area: Válasszon ki egy területet
           select_scope: Válassz hatáskört
         finish:
           back: Vissza
+          back_to_initiatives: Vissza a kezdeményezésekhez
+          callout_text: Gratulálunk! A kezdeményezés létrehozása sikeres.
+          confirm: A kezdeményezés elküldése egy adminisztrátornak felülvizsgálat és közzététel céljából. A közzététel után már nem lesz lehetőség szerkeszteni. Biztos vagy benne?
+          edit_my_initiative: Kezdeményezésem szerkesztése
+          go_to_my_initiatives: Ugrás a saját kezdeményezéseimhez
+          more_information: "(További információk)"
+          send_my_initiative: A kezdeményezésem technikai ellenőrzésre küldése
+        finish_help:
+          publish_helper_text: Emlékeztetünk, hogy a kezdeményezésed publikációjához minden szükséges információt meg kell adjál <strong>és technikai ellenőrzésen kell átesnie</strong> egy adminisztrátor segítségével.
         previous_form:
           back: Vissza
+          continue: Tovább
+        promotal_committee:
+          individual_help_text: Ezt a típusú kezdeményezést csak olyan Előterjesztő Bizottság nyújthatja be, melynek legalább %{committee_size} tagja van. A következő linket oszd meg a kezdeményezést pártolókkal. Amikor megkapják a linket, az abban jelzett lépéseket kell követniük.
+          more_information: "(További információk)"
         select_initiative_type:
           back: Vissza
           choose_html: Szeretnék létrehozni egy <strong>%{title}</strong>
           more_information: (További információk)
           new: Új kezdeményezés létrehozása
           select: Szeretném támogatni ezt a kezdeményezést
+          select_initiative_type_help: A kezdeményezések olyan eszközök, amelyekkel a résztvevők beavatkozhatnak, hogy a szervezet a közérdek védelmében lépéseket tegyen. Milyen kezdeményezést szeretnél elindítani?
+        share_committee_link:
+          invite_to_committee_help: Link azok meghívásához, akik részt vesznek a kezdeményező bizottságban
       edit:
         accept: Kezdeményezés elfogadása
         back: Vissza
@@ -378,6 +410,8 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert Te vagy a %{resource_title} kezdeményezés elindítója.'
           email_subject: "%{applicant_nickname} szeretne csatlakozni a kezdeményezésedhez"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> a <a href="%{resource_url}"> %{resource_title}</a> kezdeményezésed előterjesztő bizottságába jelentkezett. Az elfogadáshoz vagy elutasításhoz kattints <a href="%{resource_url}/edit">ide</a>.
+      form:
+        attachment_legend: "(Opcionális) Csatolmány hozzáadása"
       initiative_signatures:
         fill_personal_data:
           continue: Tovább
@@ -451,7 +485,9 @@ hu:
           phone_number: Telefonszám
           place_date: Hely, dátum
           postal_code: Irányítószám
+          print: Nyomtatás
           province: Megye
+          section: 'Ha a szervezet kéri, kérjük, nyomtassa ki és töltse ki ezt az űrlapot, és küldje be a megadott helyre:'
           signature: Aláírás
         result:
           initiative_rejected_reason: A kezdeményezést a támogatás hiánya miatt elutasították.
@@ -464,6 +500,7 @@ hu:
           other: " aláírások"
         vote_cabin:
           already_voted: Már aláírtad
+          verification_required: Ellenőrizze fiókját, hogy aláírja a kezdeményezést
           vote: Aláírás
           votes_blocked: Aláírás letiltva
         votes_count:
@@ -489,7 +526,9 @@ hu:
       show:
         badge_name:
           accepted: Elegendő aláírás
+          created: Létrehozva
           discarded: Elvetve
+          published: Közzétéve
           rejected: Nincs elegendő aláírás
           validating: Technikai érvényesítés
       states:
@@ -504,12 +543,15 @@ hu:
           comment: Megjegyzés
       initiatives_type:
         actions:
+          create: Létrehozás
           title: Hozzászólások
           vote: Szavazás
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Létrehozás
+        finish: Befejezés
+        promotal_committee: Kezdeményező bizottság
         select_initiative_type: Válassz
       initiative_signature_creation_header:
         fill_personal_data: Add meg az adataidat

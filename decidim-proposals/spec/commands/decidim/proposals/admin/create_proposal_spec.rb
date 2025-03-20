@@ -27,8 +27,7 @@ module Decidim
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
         let(:attachment_params) { nil }
-        let(:uploaded_files) { [] }
-        let(:current_files) { [] }
+        let(:uploaded_photos) { [] }
         let(:photos) { [] }
         let(:created_in_meeting) { false }
         let(:meeting_id) { nil }
@@ -41,10 +40,11 @@ module Decidim
               address:,
               has_address:,
               attachment: attachment_params,
-              documents: current_files,
-              add_documents: uploaded_files,
+              photos:,
+              add_photos: uploaded_photos,
               created_in_meeting:,
-              meeting_id:
+              meeting_id:,
+              user_group_id: nil
             }
           end
 
@@ -201,18 +201,22 @@ module Decidim
 
             context "when attachments are allowed" do
               let(:component) { create(:proposal_component, :with_attachments_allowed) }
-              let(:uploaded_files) do
-                [
-                  file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf")
-                ]
+              let(:blob) do
+                ActiveStorage::Blob.create_and_upload!(
+                  io: File.open(Decidim::Dev.test_file("city.jpeg", "image/jpeg"), "rb"),
+                  filename: "city.jpeg",
+                  content_type: "image/jpeg" # Or figure it out from `name` if you have non-JPEGs
+                )
+              end
+              let(:attachment_params) do
+                {
+                  title: "My attachment",
+                  file: blob.signed_id
+                }
               end
 
-              let!(:file) { create(:attachment, :with_pdf) }
-              let(:current_files) { [file] }
-
               it "creates an attachment for the proposal" do
-                command.call
-                expect(Decidim::Attachment.count).to eq(Decidim::Attachment.count(+1))
+                expect { command.call }.to change(Decidim::Attachment, :count).by(1)
                 last_proposal = Decidim::Proposals::Proposal.last
                 last_attachment = Decidim::Attachment.last
                 expect(last_attachment.attached_to).to eq(last_proposal)
@@ -232,7 +236,7 @@ module Decidim
             end
 
             context "when galleries are allowed" do
-              it_behaves_like "admin creates resource gallery for resources" do
+              it_behaves_like "admin creates resource gallery" do
                 let(:component) { create(:proposal_component, :with_attachments_allowed) }
                 let(:command) { described_class.new(form) }
                 let(:resource_class) { Decidim::Proposals::Proposal }

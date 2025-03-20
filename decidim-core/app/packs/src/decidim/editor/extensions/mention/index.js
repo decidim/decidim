@@ -8,7 +8,8 @@ const searchUsers = async (queryText) => {
       nickname,
       name,
       avatarUrl,
-      __typename
+      __typename,
+      ...on UserGroup { membersCount }
     }
   }`;
 

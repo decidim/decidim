@@ -13,7 +13,7 @@ describe Decidim::Conferences::Permissions do
   let(:conference_admin) { create(:conference_admin, conference:) }
   let(:conference_collaborator) { create(:conference_collaborator, conference:) }
   let(:conference_moderator) { create(:conference_moderator, conference:) }
-  let(:conference_evaluator) { create(:conference_evaluator, conference:) }
+  let(:conference_valuator) { create(:conference_valuator, conference:) }
 
   shared_examples "access for role" do |access|
     case access
@@ -49,10 +49,10 @@ describe Decidim::Conferences::Permissions do
       it_behaves_like "access for role", access[:moderator]
     end
 
-    context "when user is a space evaluator" do
-      let(:user) { conference_evaluator }
+    context "when user is a space valuator" do
+      let(:user) { conference_valuator }
 
-      it_behaves_like "access for role", access[:evaluator]
+      it_behaves_like "access for role", access[:valuator]
     end
   end
 
@@ -67,7 +67,7 @@ describe Decidim::Conferences::Permissions do
         org_admin: true,
         admin: true,
         collaborator: true,
-        evaluator: true,
+        valuator: true,
         moderator: true
       )
     end
@@ -85,7 +85,7 @@ describe Decidim::Conferences::Permissions do
         admin: true,
         collaborator: false,
         moderator: true,
-        evaluator: false
+        valuator: false
       )
     end
 
@@ -194,7 +194,7 @@ describe Decidim::Conferences::Permissions do
       org_admin: true,
       admin: true,
       collaborator: true,
-      evaluator: true,
+      valuator: true,
       moderator: true
     )
   end
@@ -209,7 +209,7 @@ describe Decidim::Conferences::Permissions do
       org_admin: true,
       admin: true,
       collaborator: true,
-      evaluator: true,
+      valuator: true,
       moderator: true
     )
   end
@@ -227,7 +227,7 @@ describe Decidim::Conferences::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: :not_set,
-        evaluator: true
+        valuator: true
       )
     end
 
@@ -243,7 +243,7 @@ describe Decidim::Conferences::Permissions do
         admin: true,
         collaborator: :not_set,
         moderator: :not_set,
-        evaluator: :not_set
+        valuator: :not_set
       )
     end
   end
@@ -258,24 +258,8 @@ describe Decidim::Conferences::Permissions do
       org_admin: true,
       admin: true,
       collaborator: true,
-      evaluator: true,
+      valuator: true,
       moderator: true
-    )
-  end
-
-  context "when uploading editor images" do
-    let(:action) do
-      { scope: :admin, action: :create, subject: :editor_image }
-    end
-    let(:context) { { space_name: :conferences } }
-
-    it_behaves_like(
-      "access for roles",
-      org_admin: true,
-      admin: true,
-      collaborator: true,
-      moderator: true,
-      valuator: true
     )
   end
 
@@ -290,7 +274,7 @@ describe Decidim::Conferences::Permissions do
       org_admin: true,
       admin: true,
       collaborator: true,
-      evaluator: true,
+      valuator: true,
       moderator: true
     )
   end
@@ -306,7 +290,7 @@ describe Decidim::Conferences::Permissions do
       org_admin: true,
       admin: true,
       collaborator: true,
-      evaluator: true,
+      valuator: true,
       moderator: true
     )
   end
@@ -321,7 +305,7 @@ describe Decidim::Conferences::Permissions do
       org_admin: true,
       admin: false,
       collaborator: false,
-      evaluator: false,
+      valuator: false,
       moderator: false
     )
   end
@@ -339,7 +323,7 @@ describe Decidim::Conferences::Permissions do
         org_admin: true,
         admin: true,
         collaborator: :not_set,
-        evaluator: :not_set,
+        valuator: :not_set,
         moderator: true
       )
     end
@@ -354,7 +338,7 @@ describe Decidim::Conferences::Permissions do
         org_admin: true,
         admin: true,
         collaborator: :not_set,
-        evaluator: :not_set,
+        valuator: :not_set,
         moderator: :not_set
       )
     end
@@ -410,6 +394,7 @@ describe Decidim::Conferences::Permissions do
 
       it_behaves_like "allows any action on subject", :attachment
       it_behaves_like "allows any action on subject", :attachment_collection
+      it_behaves_like "allows any action on subject", :category
       it_behaves_like "allows any action on subject", :component
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :conference
@@ -440,6 +425,7 @@ describe Decidim::Conferences::Permissions do
 
       it_behaves_like "allows any action on subject", :attachment
       it_behaves_like "allows any action on subject", :attachment_collection
+      it_behaves_like "allows any action on subject", :category
       it_behaves_like "allows any action on subject", :component
       it_behaves_like "allows any action on subject", :moderation
       it_behaves_like "allows any action on subject", :conference

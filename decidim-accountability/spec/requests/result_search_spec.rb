@@ -5,21 +5,10 @@ require "spec_helper"
 RSpec.describe "Result search" do
   include Decidim::ComponentPathHelper
 
-  let(:organization) { create(:organization) }
-  let(:participatory_space) { create(:participatory_process, organization:) }
-  let(:component) { create(:accountability_component, participatory_space:, settings: { taxonomy_filters: [taxonomy_filter.id] }) }
+  let(:component) { create(:accountability_component) }
+  let(:participatory_space) { component.participatory_space }
   let(:parent_id) { nil }
   let(:filter_params) { {} }
-  let(:root_taxonomy) { create(:taxonomy, organization:) }
-  let(:taxonomy1) { create(:taxonomy, parent: root_taxonomy, organization:) }
-  let(:taxonomy2) { create(:taxonomy, parent: root_taxonomy, organization:) }
-  let(:child_taxonomy1) { create(:taxonomy, organization:, parent: taxonomy1) }
-  let(:child_taxonomy2) { create(:taxonomy, organization:, parent: taxonomy2) }
-  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [participatory_space.manifest.name]) }
-  let!(:taxonomy_filter_item1) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy1) }
-  let!(:taxonomy_filter_item2) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy2) }
-  let!(:taxonomy_filter_item3) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: child_taxonomy1) }
-  let!(:taxonomy_filter_item4) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: child_taxonomy2) }
 
   let!(:result1) do
     create(
@@ -27,7 +16,7 @@ RSpec.describe "Result search" do
       title: Decidim::Faker::Localized.literal("A doggo in the title"),
       component:,
       parent: nil,
-      taxonomies: [taxonomy1]
+      category: create(:category, participatory_space:)
     )
   end
   let!(:result2) do
@@ -36,7 +25,7 @@ RSpec.describe "Result search" do
       description: Decidim::Faker::Localized.literal("There is a doggo in the office"),
       component:,
       parent: result1,
-      taxonomies: [taxonomy2]
+      category: create(:category, participatory_space:)
     )
   end
   let!(:result3) do
@@ -44,7 +33,7 @@ RSpec.describe "Result search" do
       :result,
       component:,
       parent: result2,
-      taxonomies: [child_taxonomy1]
+      category: create(:category, participatory_space:)
     )
   end
   let!(:result4) do
@@ -52,7 +41,7 @@ RSpec.describe "Result search" do
       :result,
       component:,
       parent: nil,
-      taxonomies: [child_taxonomy2]
+      category: create(:category, participatory_space:)
     )
   end
 
@@ -69,11 +58,11 @@ RSpec.describe "Result search" do
   describe "home" do
     subject { response.body }
 
-    it "displays all taxonomies that have top-level results" do
-      expect(subject).to include(decidim_escape_translated(taxonomy1.name))
-      expect(subject).to include(decidim_escape_translated(taxonomy2.name))
-      expect(subject).not_to include(decidim_escape_translated(child_taxonomy1.name))
-      expect(subject).to include(decidim_escape_translated(child_taxonomy2.name))
+    it "displays all categories that have top-level results" do
+      expect(subject).to include(decidim_escape_translated(result1.category.name))
+      expect(subject).to include(decidim_escape_translated(result2.category.name))
+      expect(subject).to include(decidim_escape_translated(result3.category.name))
+      expect(subject).to include(decidim_escape_translated(result4.category.name))
     end
   end
 

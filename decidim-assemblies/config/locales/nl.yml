@@ -1,6 +1,9 @@
+---
 nl:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Titel
       assembly:
         area_id: Onderwerp
         assembly_type: Groepstype
@@ -16,6 +19,7 @@ nl:
         created_by_other: Aangemaakt door iemand anders
         creation_date: Gemaakt op
         decidim_area_id: onderwerp
+        decidim_assemblies_type_id: Groepstype
         decidim_scope_id: Bereik
         description: Beschrijving
         developer_group: Organisator
@@ -27,6 +31,7 @@ nl:
         hero_image: Afbeelding van de startpagina
         included_at: Opgenomen op
         instagram: Instagram
+        internal_organisation: Interne organisatie
         is_transparent: Is transparant
         local_area: Organisatiegebied
         meta_scope: Scope metadata
@@ -38,6 +43,8 @@ nl:
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
         purpose_of_action: Doelstelling
+        scope_id: Scope
+        scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
         slug: URL pad
         special_features: Speciale functionaliteiten
@@ -76,9 +83,11 @@ nl:
       actions:
         import_assembly: Importeren
         new_assembly: Nieuwe groep
+        new_assembly_type: Nieuw groepstype
       assemblies:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe groep.
+          success: Bijeenkomst is succesvol gecreëerd.
         edit:
           update: Bijwerken
         index:
@@ -95,6 +104,18 @@ nl:
         create:
           error: Er was een fout bij het dupliceren van deze groep.
           success: Groep succesvol gedupliceerd.
+      assemblies_types:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuw groepstype.
+          success: Groepstype is succesvol gecreëerd.
+        destroy:
+          success: Groep succesvol verwijderd.
+        new:
+          create: creëren
+          title: Nieuw groepstype
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van dit groepstype.
+          success: Groepstype is succesvol bijgewerkt.
       assembly_copies:
         new:
           copy: Kopiëren
@@ -108,6 +129,21 @@ nl:
           import: Importeren
           select: Selecteer welke gegevens u wilt importeren
           title: Importeer assemblage
+      assembly_members:
+        create:
+          error: Er is een fout opgetreden bij het toevoegen van een lid voor deze groep.
+          success: Gebruiker is succesvol toegevoegd aan deze groep.
+        destroy:
+          success: Lid is met succes verwijderd uit deze groep.
+        edit:
+          update: Bijwerken
+        index:
+          assembly_members_title: Groepsleden
+        new:
+          create: creëren
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van het lid voor deze groep.
+          success: Lid is succesvol bijgewerkt voor deze groep.
       assembly_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze groep.
@@ -130,16 +166,26 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van een admin voor deze groep.
           success: Admin is succesvol bijgewerkt voor deze groep.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Groepstype
       menu:
         assemblies: Groepen
         assemblies_submenu:
           assembly_admins: Groep-admins
+          assembly_members: Leden
           attachment_collections: Mappen
           attachment_files: Bestanden
           attachments: Bijlagen
+          categories: Categorieën
           components: Onderdelen
           moderations: Moderaties
+        assemblies_types: Groepstype
       models:
+        assemblies_types:
+          fields:
+            created_at: Aangemaakt op
+            title: Titel
         assembly:
           fields:
             created_at: Aangemaakt op
@@ -149,6 +195,11 @@ nl:
             title: Titel
           name: Groep
         assembly_member:
+          fields:
+            ceased_date: Sluitingsdatum
+            designation_date: Ontwerpdatum
+            full_name: Naam
+            position: Positie
           name: Lid
           positions:
             other: Overige
@@ -165,6 +216,7 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
+            valuator: Beoordelaar
       titles:
         assemblies: Groepen
         assemblies_types: Groepstype
@@ -200,18 +252,29 @@ nl:
             announcement_help: De tekst die je hier invoert, wordt direct onder de groepsinformatie aan de gebruiker getoond.
             duration: Duur
             duration_help: Als de duur van deze groep beperkt is, selecteert u de einddatum. Anders zal dit verschijnen als onbepaald.
+            filters: Filters
             images: Afbeeldingen
             included_at_help: Selecteer de datum waarop deze groep aan Decidim is toegevoegd. Het hoeft niet noodzakelijk hetzelfde te zijn als de aanmaakdatum.
             metadata: Metadata
             other: Overige
             select_a_created_by: Selecteer op 'gemaakt door'
+            select_an_area: Selecteer een onderwerp
+            select_an_assembly_type: Selecteer een groepstype
             select_parent_assembly: Selecteer de hoofdgroep
             social_handlers: sociaal
             title: Algemene informatie
+        assemblies_types:
+          form:
+            title: Titel
         assembly_members:
           form:
+            existing_user: Bestaande deelnemer
             explanation: 'Eigenschappen afbeelding:'
+            non_user: Niet deelnemer
             non_user_avatar_help: Je hebt de toestemming nodig van de personen voordat je ze als lid publiceert.
+            select_a_position: Selecteer een positie
+            select_user: Selecteer een deelnemer
+            user_type: Type deelnemer
         content_blocks:
           highlighted_assemblies:
             max_results: Maximum aantal elementen dat kan worden weergegeven
@@ -227,6 +290,14 @@ nl:
       assembly_members:
         index:
           members: Leden
+      assembly_types:
+        commission: Comissie
+        consultative_advisory: Adviesgroep
+        executive: Uitvoerend
+        government: Regering
+        others: Overige
+        participatory: Participatief
+        working_group: Werkgroep
       content_blocks:
         highlighted_assemblies:
           name: Gemarkeerde groepen
@@ -251,10 +322,13 @@ nl:
           member_of:
             member_of: Lid van
       show:
+        assembly_type: Groepstype
         duration: Duur
         private_space: Dit is een privé event
         social_networks_title: Bezoek groep op
     assembly_members:
+      assembly_member:
+        designated_on: Aangewezen op
       index:
         title: Leden
     events:

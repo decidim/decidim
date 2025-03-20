@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -73,6 +74,17 @@ it:
           unconfirmed: Devi confermare la tua e-mail per autorizzarti.
         destroy:
           error: Si è verificato un errore durante l'eliminazione dell'autorizzazione.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Verificare contro un altro esempio di gestore di autorizzazioni
+            csv_census: Verifica contro il censimento dell'organizzazione
+            dummy_authorization_handler: Verificare contro il gestore di autorizzazione di esempio
+            dummy_authorization_workflow: Verificare il flusso di lavoro di autorizzazione di esempio
+            id_documents: Ottieni la verifica caricando il tuo documento di identità
+            postal_letter: Ottieni la verifica ricevendo un codice di verifica tramite posta ordinaria
+            sms: Ricevi la verifica ricevendo un codice di verifica via SMS
+          title: Verifica la tua identità
+          verify_with_these_options: 'Queste sono le opzioni disponibili per verificare la tua identità:'
         index:
           expired_verification: Verifica scaduta
           pending_verification: In attesa di conferma
@@ -88,6 +100,9 @@ it:
         start_exploring: comincia ad esplorare
       csv_census:
         admin:
+          census:
+            create:
+              error: Si è verificato un errore durante l'importazione del censimento.
           destroy:
             title: Elimina tutti i dati del censimento
           index:
@@ -110,9 +125,11 @@ it:
           postal_codes:
             one: La partecipazione è riservata agli utenti con il codice postale %{postal_codes}.
             other: 'La partecipazione è riservata agli utenti con uno dei seguenti codici postali: %{postal_codes}.'
+          scope: La partecipazione è limitata ai partecipanti con l'ambito %{scope_name}.
           user_postal_codes:
             one: La partecipazione è limitata alle partecipanti con il codice postale %{postal_codes}, e il tuo codice postale è %{user_postal_code}.
             other: 'La partecipazione è limitata alle partecipanti con il codice postale %{postal_codes}, e il tuo codice postale è %{user_postal_code}.'
+          user_scope: La partecipazione è limitata a partecipanti con ambito %{scope_name} e il tuo ambito è %{user_scope_name}.
       id_documents:
         admin:
           config:

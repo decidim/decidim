@@ -3,12 +3,12 @@
 module Decidim
   module Budgets
     class DownloadYourDataBudgetsOrderSerializer < Decidim::Exporters::Serializer
-      # Public: Initializes the serializer with a budgets' order.
+      # Public: Initializes the serializer with a conversation.
       def initialize(order)
         @order = order
       end
 
-      # Serializes a budgets' order for download your data
+      # Serializes a Debate for download your data
       def serialize
         {
           id: order.id,

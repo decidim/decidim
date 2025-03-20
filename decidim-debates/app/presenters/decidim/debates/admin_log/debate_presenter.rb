@@ -32,7 +32,7 @@ module Decidim
 
         def action_string
           case action
-          when "create", "update", "soft_delete", "restore"
+          when "create", "update"
             "decidim.debates.admin_log.debate.#{action}"
           else
             super

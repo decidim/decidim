@@ -37,8 +37,11 @@ module Decidim
       # including also a receipt for the remittant (sender) of the message.
       # Receipts are unread by default, except for the sender's receipt.
       #
-      # @param recipients [Array<Decidim::UserBaseEntity>] Users receiving the message
-      # @param from [Array<Decidim::User>] the user sending the message
+      # If the sender is a UserGroup then receipts will be created for its managers
+      # a "from" user can be specified to avoid create a receipt for the real user sending the message
+      #
+      # @param recipients [Array<Decidim::UserBaseEntity>] Users or groups receiving the message
+      # @param from [Array<Decidim::User>] the user sending the message in case sender is a group
       #
       def envelope_for(recipients:, from: nil)
         @from = sender.is_a?(User) ? sender : from
@@ -46,7 +49,7 @@ module Decidim
 
         receipts.build(recipient: @from, read_at: Time.current) if @from.is_a?(User)
 
-        recipients.each do |recipient|
+        all_recipients(recipients).each do |recipient|
           next if @already_notified.include?(recipient)
 
           receipts.build(recipient:)
@@ -60,6 +63,15 @@ module Decidim
       end
 
       private
+
+      # returns all possible recipients from a list of users or groups
+      def all_recipients(recipients)
+        users = recipients.flat_map do |recipient|
+          recipient.is_a?(UserGroup) ? recipient.managers : recipient
+        end
+        users += sender.managers if sender.is_a?(UserGroup)
+        users
+      end
 
       def sender_is_participant
         errors.add(:sender, :invalid) unless conversation.participants.include?(sender)

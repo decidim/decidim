@@ -27,8 +27,7 @@ describe "Edit proposals" do
       visit_component
 
       click_on proposal_title
-      find("#dropdown-trigger-resource-#{proposal.id}").click
-      click_on "Edit"
+      click_on "Edit proposal"
 
       expect(page).to have_content "Edit proposal"
       expect(page).to have_no_content("You can move the point on the map.")
@@ -52,8 +51,7 @@ describe "Edit proposals" do
       end
 
       it "shows validation error when format is not accepted" do
-        find("#dropdown-trigger-resource-#{proposal.id}").click
-        click_on "Edit"
+        click_on "Edit proposal"
         dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("dummy-dummies-example.xlsx"), keep_modal_open: true) do
           expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
         end
@@ -68,10 +66,9 @@ describe "Edit proposals" do
           visit current_path
 
           expect(page).to have_content("Documents")
-          find("#dropdown-trigger-resource-#{proposal.id}").click
-          click_on "Edit"
+          click_on "Edit proposal"
 
-          click_on("Edit attachments")
+          click_on "Edit documents"
           within ".upload-modal" do
             within "[data-filename='city.jpeg']" do
               click_on("Remove")
@@ -93,12 +90,11 @@ describe "Edit proposals" do
           let(:attachment_image_title) { Faker::Lorem.sentence }
 
           it "can change attachment titles" do
-            find("#dropdown-trigger-resource-#{proposal.id}").click
-            click_on "Edit"
-            click_on("Edit attachments")
+            click_on "Edit proposal"
+            click_on "Edit documents"
             within ".upload-modal" do
               expect(page).to have_content("Has to be an image or a document")
-              expect(page).to have_content("If it is an image, it preferably be a landscape image that does not have any text. The service crops the image.")
+              expect(page).to have_content("For images, use preferably landscape images, the service crops the image")
               within "[data-filename='city.jpeg']" do
                 find("input[type='text']").set(attachment_image_title)
               end
@@ -125,11 +121,10 @@ describe "Edit proposals" do
           end
 
           it "displays them correctly on the edit form" do
-            find("#dropdown-trigger-resource-#{proposal.id}").click
             # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
-            click_on "Edit"
+            click_on "Edit proposal"
             expect(page).to have_content("Required fields are marked with an asterisk")
-            click_on("Edit attachments")
+            click_on("Edit documents")
             within "[data-dialog]" do
               click_on("Save")
             end
@@ -148,11 +143,10 @@ describe "Edit proposals" do
           end
 
           it "displays them correctly on the edit form" do
-            find("#dropdown-trigger-resource-#{proposal.id}").click
             # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
-            click_on "Edit"
+            click_on "Edit proposal"
             expect(page).to have_content("Required fields are marked with an asterisk")
-            click_on("Edit attachments")
+            click_on("Edit documents")
             within "[data-dialog]" do
               click_on("Save")
             end
@@ -166,7 +160,6 @@ describe "Edit proposals" do
         it "can add many images many times" do
           skip "REDESIGN_PENDING - Flaky test: upload modal fails on GitHub with multiple files https://github.com/decidim/decidim/issues/10961"
 
-          find("#dropdown-trigger-resource-#{proposal.id}").click
           click_on "Edit proposal"
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"))
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"))
@@ -193,7 +186,7 @@ describe "Edit proposals" do
       end
     end
 
-    context "with maps enabled" do
+    context "with geocoding enabled" do
       let(:component) { create(:proposal_component, :with_geocoding_enabled, participatory_space: participatory_process) }
       let(:address) { "6 Villa des Nymphéas 75020 Paris" }
       let(:new_address) { "6 rue Sorbier 75020 Paris" }
@@ -209,8 +202,7 @@ describe "Edit proposals" do
         visit_component
 
         click_on translated(proposal.title)
-        find("#dropdown-trigger-resource-#{proposal.id}").click
-        click_on "Edit"
+        click_on "Edit proposal"
 
         expect(page).to have_field("Title", with: translated(proposal.title))
         expect(page).to have_field("Body", with: strip_tags(translated(proposal.body)))
@@ -243,8 +235,7 @@ describe "Edit proposals" do
           visit_component
 
           click_on translated(proposal.title)
-          find("#dropdown-trigger-resource-#{proposal.id}").click
-          click_on "Edit"
+          click_on "Edit proposal"
 
           expect(page).to have_field("Title", with: translated(proposal.title))
           expect(page).to have_field("Body", with: strip_tags(translated(proposal.body)))
@@ -272,8 +263,7 @@ describe "Edit proposals" do
         visit_component
 
         click_on proposal_title
-        find("#dropdown-trigger-resource-#{proposal.id}").click
-        click_on "Edit"
+        click_on "Edit proposal"
 
         expect(page).to have_content "Edit proposal"
 
@@ -297,14 +287,13 @@ describe "Edit proposals" do
         visit_component
 
         click_on proposal_title
-        find("#dropdown-trigger-resource-#{proposal.id}").click
-        click_on "Edit"
+        click_on "Edit proposal"
 
         expect(page).to have_content "Edit proposal"
 
         within "form.edit_proposal" do
           fill_in :proposal_title, with: "A title with a #hashtag"
-          fill_in :proposal_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL or a COLLABORATIVE DRAFT"
+          fill_in :proposal_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL"
         end
         click_on "Send"
 
@@ -330,8 +319,7 @@ describe "Edit proposals" do
           proposal.update!(body:)
           visit_component
           click_on proposal_title
-          find("#dropdown-trigger-resource-#{proposal.id}").click
-          click_on "Edit"
+          click_on "Edit proposal"
         end
 
         it_behaves_like "having a rich text editor", "edit_proposal", "basic"

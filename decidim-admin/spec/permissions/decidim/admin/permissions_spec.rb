@@ -9,7 +9,6 @@ describe Decidim::Admin::Permissions do
   let(:organization) { build(:organization) }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
-  let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
   let(:registrations_enabled) { true }
   let(:action) do
     { scope: :admin, action: action_name, subject: action_subject }
@@ -130,13 +129,6 @@ describe Decidim::Admin::Permissions do
     end
   end
 
-  describe "editor image upload" do
-    let(:action_subject) { :editor_image }
-    let(:action_name) { :create }
-
-    it { is_expected.to be true }
-  end
-
   describe "static pages" do
     let(:action_subject) { :static_page }
     let(:page) { build(:static_page, :default) }
@@ -211,33 +203,6 @@ describe Decidim::Admin::Permissions do
 
     context "when any other action" do
       it_behaves_like "permission is not set"
-    end
-  end
-
-  describe "taxonomies" do
-    let(:action_subject) { :taxonomy }
-
-    context "when any action" do
-      it { is_expected.to be true }
-    end
-
-    context "when destroying is not allowed" do
-      let(:context) { { taxonomy: } }
-      let(:action_name) { :destroy }
-
-      before do
-        allow(taxonomy).to receive(:removable?).and_return(false)
-      end
-
-      it { is_expected.to be false }
-    end
-  end
-
-  describe "taxonomy filters" do
-    let(:action_subject) { :taxonomy_filter }
-
-    context "when any action" do
-      it { is_expected.to be true }
     end
   end
 
@@ -389,60 +354,13 @@ describe Decidim::Admin::Permissions do
     end
   end
 
-  describe "soft delete" do
-    let(:action_subject) { :resource }
-    let(:action_name) { :soft_delete }
-    let(:context) { { trashable_deleted_resource: resource } }
-
-    context "when resource exists and is not trashed" do
-      let(:resource) { instance_double(Decidim::Dev::DummyResource, deleted?: false) }
-
-      it { is_expected.to be true }
-    end
-
-    context "when resource exists and is trashed" do
-      let(:resource) { instance_double(Decidim::Dev::DummyResource, deleted?: true) }
-
-      it { is_expected.to be false }
-    end
-  end
-
-  describe "restore" do
-    let(:action_subject) { :resource }
-    let(:action_name) { :restore }
-    let(:context) { { trashable_deleted_resource: resource } }
-
-    context "when resource exists and is trashed" do
-      let(:resource) { instance_double(Decidim::Dev::DummyResource, deleted?: true) }
-
-      it { is_expected.to be true }
-    end
-
-    context "when resource exists and is not trashed" do
-      let(:resource) { instance_double(Decidim::Dev::DummyResource, deleted?: false) }
-
-      it { is_expected.to be false }
-    end
-  end
-
-  describe "manage trash" do
-    let(:action_subject) { :resource }
-    let(:action_name) { :manage_trash }
-    let(:context) { { trashable_deleted_resource: resource } }
-
-    context "when any resource" do
-      let(:resource) { instance_double(Decidim::Dev::DummyResource) }
-
-      it { is_expected.to be true }
-    end
-  end
-
   shared_examples "can perform any action for" do |action_subject_name|
     let(:action_subject) { action_subject_name }
 
     it { is_expected.to be true }
   end
 
+  it_behaves_like "can perform any action for", :category
   it_behaves_like "can perform any action for", :component
   it_behaves_like "can perform any action for", :admin_user
   it_behaves_like "can perform any action for", :attachment
@@ -452,6 +370,7 @@ describe Decidim::Admin::Permissions do
   it_behaves_like "can perform any action for", :area
   it_behaves_like "can perform any action for", :area_type
   it_behaves_like "can perform any action for", :newsletter
+  it_behaves_like "can perform any action for", :user_group
   it_behaves_like "can perform any action for", :officialization
   it_behaves_like "can perform any action for", :moderate_users
   it_behaves_like "can perform any action for", :authorization

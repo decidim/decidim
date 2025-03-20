@@ -4,6 +4,10 @@ module Decidim
   class ShareButtonCell < ButtonCell
     private
 
+    def button_classes
+      "button button__sm button__text-secondary"
+    end
+
     def text
       t("decidim.shared.share_modal.share")
     end

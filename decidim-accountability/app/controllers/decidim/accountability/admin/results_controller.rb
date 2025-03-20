@@ -7,15 +7,13 @@ module Decidim
       class ResultsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
         include Decidim::SanitizeHelper
-        include Decidim::Admin::ComponentTaxonomiesHelper
         include Decidim::Accountability::Admin::Filterable
-        include Decidim::Admin::HasTrashableResources
 
-        helper_method :results, :parent_result, :parent_results, :statuses, :present, :bulk_actions_form
+        helper_method :results, :parent_result, :parent_results, :statuses, :present
 
         def collection
           parent_id = params[:parent_id].presence
-          @collection ||= Result.where(component: current_component, parent_id:).page(params[:page]).per(15).order(created_at: :asc)
+          @collection ||= Result.where(component: current_component, parent_id:).page(params[:page]).per(15)
         end
 
         def new
@@ -67,23 +65,19 @@ module Decidim
           end
         end
 
+        def destroy
+          enforce_permission_to(:destroy, :result, result:)
+
+          Decidim::Commands::DestroyResource.call(result, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("results.destroy.success", scope: "decidim.accountability.admin")
+
+              redirect_to results_path(parent_id: result.parent_id)
+            end
+          end
+        end
+
         private
-
-        def trashable_deleted_resource_type
-          :result
-        end
-
-        def trashable_deleted_resource
-          @trashable_deleted_resource ||= Result.with_deleted.where(component: current_component).find_by(id: params[:id])
-        end
-
-        def trashable_deleted_collection
-          @trashable_deleted_collection = filtered_collection.only_deleted.deleted_at_desc
-        end
-
-        def find_parent_resource
-          parent_result
-        end
 
         def results
           @results ||= filtered_collection
@@ -103,10 +97,6 @@ module Decidim
 
         def statuses
           @statuses ||= Status.where(component: current_component)
-        end
-
-        def bulk_actions_form
-          @bulk_actions_form ||= ResultBulkActionsForm.new(result_ids: [])
         end
       end
     end

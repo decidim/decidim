@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -17,6 +18,7 @@ pt-BR:
     blogs:
       actions:
         author_id: Criar publicação como
+        destroy: Excluir
         edit: Editar
         new: Nova postagem
         title: Ações
@@ -25,6 +27,8 @@ pt-BR:
           create:
             invalid: Houve um problema ao criar esta postagem.
             success: Post criado com sucesso.
+          destroy:
+            success: Postagem excluída com sucesso.
           edit:
             save: Atualizar
             title: Editar publicação

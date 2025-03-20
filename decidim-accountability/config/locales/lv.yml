@@ -1,3 +1,4 @@
+---
 lv:
   activemodel:
     attributes:
@@ -7,6 +8,8 @@ lv:
         decidim_scope_id: Darbības tvērums
         description: Apraksts
         end_date: Beigu datums
+        project_ids: Iekļautie projekti
+        proposals: Iekļautie priekšlikumi
         start_date: Sākuma datums
         title: Nosaukums
         updated_at: Atjaunināts plkst.
@@ -93,7 +96,9 @@ lv:
       models:
         result:
           fields:
+            category: Kategorija
             end_date: Beigu datums
+            scope: Darbības tvērums
             start_date: Sākuma datums
             status: Statuss
             title: Nosaukums
@@ -111,8 +116,12 @@ lv:
             zero: "%{count} rezultāti"
             one: 1 rezultāts
             other: "%{count} rezultāti"
+        filters:
+          all: Visi
         home_header:
           global_status: Globālais izpildes statuss
+        nav_breadcrumb:
+          global: Globālā izpilde
         search:
           search: Meklēt darbības
         show:
@@ -120,6 +129,13 @@ lv:
             back_to_resource: Atgriezties pie rezultātiem
         timeline:
           title: Projekta attīstība
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategorija
+          scope_id_eq:
+            label: Darbības tvērums
     components:
       accountability:
         name: Atbildība

@@ -38,12 +38,14 @@ module Decidim
       private
 
       def search_collection
-        ParticipatoryProcess.where(organization: current_organization).published.visible_for(current_user)
+        ParticipatoryProcess.where(organization: current_organization).published.visible_for(current_user).includes(:area)
       end
 
       def default_filter_params
         {
-          with_any_taxonomies: nil,
+          with_any_scope: nil,
+          with_any_area: nil,
+          with_any_type: nil,
           with_date: default_date_filter
         }
       end

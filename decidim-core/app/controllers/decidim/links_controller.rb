@@ -10,7 +10,6 @@ module Decidim
     helper_method :external_url
 
     before_action :parse_url
-
     rescue_from Decidim::InvalidUrlError, with: :modal
     rescue_from URI::InvalidURIError, with: :modal
 

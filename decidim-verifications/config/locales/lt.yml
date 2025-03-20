@@ -1,3 +1,4 @@
+---
 lt:
   activemodel:
     attributes:
@@ -43,6 +44,7 @@ lt:
           destroy:
             confirm: Atšaukus leidimus iki datos, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
             confirm_all: Atšaukus visus leidimus, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
+          destroy_nok: Atšaukiant leidimus, iškilo problema.
           destroy_ok: Visi sutampantys leidimai atšaukti.
           info: Bendras patvirtintų dalyvių skaičius – %{count}.
           no_data: Patvirtintų dalyvių nėra.
@@ -102,6 +104,17 @@ lt:
         destroy:
           error: Šalinant leidimą iškilo problema.
           success: Autorizaciją sėkmingai pašalinote.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Patikrinkti pagal kitą leidimų tvarkytojo pavyzdį
+            csv_census: Patikrinti pagal organizacijos surašymo duomenis
+            dummy_authorization_handler: Patikrinti pagal leidimų tvarkytojo pavyzdį
+            dummy_authorization_workflow: Patikrinti pagal leidimų suteikimo eigos pavyzdį
+            id_documents: Patikrinimas įkeliant savo tapatybės dokumentą
+            postal_letter: Patikrinimas pašto laišku gaunant tikrinimo kodą
+            sms: Patikrinimas gaunant tikrinimo kodą SMS
+          title: Patvirtinkite savo tapatybę
+          verify_with_these_options: 'Savo tapatybę galite patvirtinti šiomis priemonėmis:'
         index:
           expired_verification: Patvirtinimas baigė galioti
           granted_verification: Patvirtinta
@@ -124,6 +137,7 @@ lt:
         admin:
           census:
             create:
+              error: Importuojant surašymo duomenis įvyko klaida.
               success: Sėkmingai importuota %{count} elementų (%{errors} klaidų).
             destroy_all:
               success: Visi surašymo duomenys pašalinti.
@@ -156,11 +170,13 @@ lt:
             few: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}.'
             many: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}.'
             other: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}.'
+          scope: Dalyvauti gali tik tie dalyviai, kurių sritis %{scope_name}.
           user_postal_codes:
             one: Dalyvauti gali tik dalyviai, kurių pašto kodas yra %{postal_codes}, o jūsų pašto kodas yra %{user_postal_code}.
             few: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}. Jūsų pašto kodas %{user_postal_code}.'
             many: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}. Jūsų pašto kodas %{user_postal_code}.'
             other: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}. Jūsų pašto kodas %{user_postal_code}.'
+          user_scope: Dalyvauti gali tik dalyviai, kurių sritis yra %{scope_name}, o jūsų sritis yra %{user_scope_name}.
       id_documents:
         admin:
           config:

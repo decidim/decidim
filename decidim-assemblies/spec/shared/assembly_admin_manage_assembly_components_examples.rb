@@ -136,13 +136,38 @@ shared_examples "assembly admin manage assembly components" do
     end
   end
 
+  describe "remove a component" do
+    let(:component_name) do
+      {
+        en: "My component",
+        ca: "La meva funcionalitat",
+        es: "Mi funcionalitat"
+      }
+    end
+
+    let!(:component) do
+      create(:component, name: component_name, participatory_space: assembly)
+    end
+
+    before do
+      visit decidim_admin_assemblies.components_path(assembly)
+    end
+
+    it "removes the component" do
+      within ".component-#{component.id}" do
+        click_on "Delete"
+      end
+
+      expect(page).to have_no_content("My component")
+    end
+  end
+
   describe "publish and unpublish a component" do
     let!(:component) do
-      create(:component, participatory_space: assembly, published_at:, visible:)
+      create(:component, participatory_space: assembly, published_at:)
     end
 
     let(:published_at) { nil }
-    let(:visible) { true }
 
     before do
       visit decidim_admin_assemblies.components_path(assembly)
@@ -183,21 +208,6 @@ shared_examples "assembly admin manage assembly components" do
     context "when the component is published" do
       let(:published_at) { Time.current }
 
-      it "hides the component from the menu" do
-        within ".component-#{component.id}" do
-          click_on "Hide"
-        end
-
-        within ".component-#{component.id}" do
-          expect(page).to have_css(".action-icon--menu-hidden")
-        end
-      end
-    end
-
-    context "when the component is hidden from the menu" do
-      let(:published_at) { Time.current }
-      let(:visible) { false }
-
       it "unpublishes the component" do
         within ".component-#{component.id}" do
           click_on "Unpublish"
@@ -207,28 +217,6 @@ shared_examples "assembly admin manage assembly components" do
           expect(page).to have_css(".action-icon--publish")
         end
       end
-    end
-  end
-
-  describe "reorders a component" do
-    let!(:component1) { create(:component, name: { en: "Component 1" }, participatory_space:) }
-    let!(:component2) { create(:component, name: { en: "Component 2" }, participatory_space:) }
-    let!(:component3) { create(:component, name: { en: "Component 3" }, participatory_space:) }
-
-    before do
-      visit participatory_space_components_path(participatory_space)
-    end
-
-    it "changes the order of the components" do
-      expect(page.text.index("Component 1")).to be < page.text.index("Component 2")
-      expect(page.text.index("Component 2")).to be < page.text.index("Component 3")
-
-      first("td.dragging-handle").drag_to(find("tbody.draggable-table tr:last-child"))
-
-      visit current_path
-
-      expect(page.text.index("Component 2")).to be < page.text.index("Component 1")
-      expect(page.text.index("Component 1")).to be < page.text.index("Component 3")
     end
   end
 

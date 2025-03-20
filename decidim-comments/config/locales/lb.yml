@@ -1,9 +1,11 @@
+---
 lb:
   activemodel:
     models:
       decidim/comments/comment_by_followed_user_event: Kommentar
       decidim/comments/comment_created_event: Kommentar
       decidim/comments/reply_created_event: Kommentar Äntwert
+      decidim/comments/user_group_mentioned_event: Erwähnen
       decidim/comments/user_mentioned_event: Erwähnen
   activerecord:
     models:
@@ -29,6 +31,8 @@ lb:
           body:
             label: Kommentar
             placeholder: Was denken Sie darüber?
+          user_group_id:
+            label: Kommentieren als
         opinion:
           label: Ihre Meinung zu diesem Thema
           negative: Negativ
@@ -72,6 +76,7 @@ lb:
       comments:
         blocked_comments_for_unauthorized_user_warning: Sie müssen aktuell verifiziert sein um zu kommentieren, aber Sie können die bisherigen Kommentare lesen.
         blocked_comments_for_user_warning: Sie können momentan nichts kommentieren, aber Sie können die vorherigen lesen.
+        blocked_comments_warning: Kommentare sind zu diesem Zeitpunkt deaktiviert, aber Sie können die vorherigen lesen.
         comment_details_title: Kommentarinformationen
         loading: Kommentare werden geladen ...
         single_comment_warning_title: Ihnen wird ein einzelner Kommentar angezeigt
@@ -97,6 +102,11 @@ lb:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie die Profil-Seite dieses Benutzers.
           email_subject: Neuer Kommentar von %{author_name} zu %{resource_title}
           notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> zu <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_intro: 'Die Gruppe %{author_name} hat einen Kommentar in %{resource_title} hinterlassen. Sie können diesen auf dieser Seite lesen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie die Profil-Seite dieser Gruppe.
+          email_subject: Neuer Kommentar von %{author_name} zu %{resource_title}
+          notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> zu <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} wurde kommentiert. Sie können den Kommentar auf dieser Seite lesen:"
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" oder seinem Autor folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
@@ -117,6 +127,11 @@ lb:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihr Kommentar beantwortet wurde.
           email_subject: "%{author_name} hat auf Ihren Kommentar zu %{resource_title} geantwortet"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat auf Ihren Kommentar in <a href="%{resource_path}">%{resource_title}</a> geantwortet
+        user_group_mentioned:
+          email_intro: Eine Ihrer Gruppen wurde erwähnt
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Mitglied der Gruppe %{group_name} sind, die in %{resource_title} erwähnt wurde.
+          email_subject: Sie wurden in %{resource_title} als Mitglied von %{group_name} erwähnt
+          notification_title: Sie wurden in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a> als ein Mitglied von <a href="%{group_path}">%{group_name} %{group_nickname}</a> erwähnt
         user_mentioned:
           email_intro: Sie wurden erwähnt
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie in %{resource_title} erwähnt wurden.

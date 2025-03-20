@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/component_context"
 
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component" do
@@ -13,7 +13,7 @@ describe "Decidim::Api::QueryType" do
           author {
             id
           }
-          taxonomies {
+          category {
             id
           }
           comments {
@@ -52,18 +52,18 @@ describe "Decidim::Api::QueryType" do
   let(:component_type) { "Debates" }
 
   let!(:current_component) { create(:debates_component, participatory_space: participatory_process) }
+  let!(:debate) { create(:debate, :participant_author, author:, component: current_component, category:) }
   let(:author) { build(:user, :confirmed, organization: current_component.organization) }
-  let!(:debate) { create(:debate, :participant_author, author:, component: current_component, taxonomies:) }
 
   let(:debate_single_result) do
     {
       "acceptsNewComments" => debate.accepts_new_comments?,
       "author" => { "id" => debate.author.id.to_s },
-      "taxonomies" => [{ "id" => debate.taxonomies.first.id.to_s }],
+      "category" => { "id" => debate.category.id.to_s },
       "comments" => [],
       "commentsHaveAlignment" => debate.comments_have_alignment?,
       "commentsHaveVotes" => debate.comments_have_votes?,
-      "createdAt" => debate.created_at.to_time.iso8601,
+      "createdAt" => debate.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "description" => { "translation" => debate.description[locale] },
       "endTime" => debate.end_time,
       "hasComments" => debate.comment_threads.size.positive?,
@@ -76,7 +76,7 @@ describe "Decidim::Api::QueryType" do
       "title" => { "translation" => debate.title[locale] },
       "totalCommentsCount" => debate.comments_count,
       "type" => "Decidim::Debates::Debate",
-      "updatedAt" => debate.updated_at.to_time.iso8601,
+      "updatedAt" => debate.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
       "userAllowedToComment" => debate.user_allowed_to_comment?(current_user)
     }
   end
@@ -128,7 +128,7 @@ describe "Decidim::Api::QueryType" do
               author {
                 id
               }
-              taxonomies {
+              category {
                 id
               }
               comments {

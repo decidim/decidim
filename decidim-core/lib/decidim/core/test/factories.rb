@@ -44,14 +44,6 @@ def generate_localized_title(field = nil, skip_injection: false)
   end
 end
 
-def generate_title(field = nil, skip_injection:)
-  skip_injection = true if field.nil?
-
-  prepend = skip_injection ? "" : "<script>alert(\"#{field}\");</script>"
-
-  "#{prepend}#{generate(:title)}"
-end
-
 FactoryBot.define do
   sequence(:title) do |n|
     "#{Faker::Lorem.sentence(word_count: 3)} #{n}".delete("'")
@@ -71,6 +63,10 @@ FactoryBot.define do
 
   sequence(:email) do |n|
     "user#{n}@example.org"
+  end
+
+  sequence(:user_group_email) do |n|
+    "usergroup#{n}@example.org"
   end
 
   sequence(:slug) do |n|
@@ -139,6 +135,7 @@ FactoryBot.define do
     highlighted_content_banner_enabled { false }
     enable_omnipresent_banner { false }
     badges_enabled { true }
+    user_groups_enabled { true }
     send_welcome_notification { true }
     comments_max_length { 1000 }
     admin_terms_of_service_body { generate_localized_description(:admin_terms_of_service_body, skip_injection:) }
@@ -205,7 +202,6 @@ FactoryBot.define do
     accepted_tos_version { organization.tos_version }
     notifications_sending_frequency { "real_time" }
     email_on_moderations { true }
-    email_on_assigned_proposals { true }
     password_updated_at { Time.current }
     previous_passwords { [] }
     extended_data { {} }
@@ -254,15 +250,6 @@ FactoryBot.define do
       managed { true }
     end
 
-    trait :tos_not_accepted do
-      accepted_tos_version { nil }
-    end
-
-    trait :ephemeral do
-      managed
-      extended_data { { ephemeral: true } }
-    end
-
     trait :officialized do
       officialized_at { Time.current }
       officialized_as { generate_localized_title(:officialized_as, skip_injection:) }
@@ -282,16 +269,6 @@ FactoryBot.define do
     end
     user
     privatable_to { create(:participatory_process, organization: user.organization, skip_injection:) }
-
-    role { generate_localized_title(:role, skip_injection:) }
-
-    trait :unpublished do
-      published { false }
-    end
-
-    trait :published do
-      published { true }
-    end
   end
 
   factory :assembly_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
@@ -300,6 +277,76 @@ FactoryBot.define do
     end
     user
     privatable_to { create(:assembly, organization: user.organization, skip_injection:) }
+  end
+
+  factory :user_group, class: "Decidim::UserGroup" do
+    transient do
+      skip_injection { false }
+      document_number { "#{Faker::Number.number(digits: 8)}X" }
+      phone { Faker::PhoneNumber.phone_number }
+      rejected_at { nil }
+      verified_at { nil }
+    end
+
+    sequence(:name) { |n| "#{Faker::Company.name} #{n}" }
+    email { generate(:user_group_email) }
+    nickname { generate(:nickname) }
+    about { generate_localized_title(:user_group_about, skip_injection:) }
+    organization
+    avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") } # Keep after organization
+
+    transient do
+      users { [] }
+    end
+
+    trait :verified do
+      verified_at { Time.current }
+    end
+
+    trait :rejected do
+      rejected_at { Time.current }
+    end
+
+    trait :confirmed do
+      confirmed_at { Time.current }
+    end
+
+    trait :blocked do
+      blocked { true }
+      blocked_at { Time.current }
+      extended_data { { user_name: generate(:name) } }
+      name { "Blocked user group" }
+    end
+
+    after(:build) do |user_group, evaluator|
+      user_group.extended_data = user_group.extended_data.merge({
+                                                                  document_number: evaluator.document_number,
+                                                                  phone: evaluator.phone,
+                                                                  rejected_at: evaluator.rejected_at,
+                                                                  verified_at: evaluator.verified_at
+                                                                })
+    end
+
+    after(:create) do |user_group, evaluator|
+      users = evaluator.users.dup
+      next if users.empty?
+
+      creator = users.shift
+      create(:user_group_membership, user: creator, user_group:, role: :creator, skip_injection: evaluator.skip_injection)
+
+      users.each do |user|
+        create(:user_group_membership, user:, user_group:, role: :admin, skip_injection: evaluator.skip_injection)
+      end
+    end
+  end
+
+  factory :user_group_membership, class: "Decidim::UserGroupMembership" do
+    transient do
+      skip_injection { false }
+    end
+    user { create(:user, :confirmed, organization: user_group.organization, skip_injection:) }
+    role { :creator }
+    user_group
   end
 
   factory :identity, class: "Decidim::Identity" do
@@ -372,10 +419,6 @@ FactoryBot.define do
 
     trait :default do
       slug { Decidim::StaticPage::DEFAULT_PAGES.sample }
-    end
-
-    trait :public do
-      allow_public_access { true }
     end
 
     trait :tos do
@@ -454,7 +497,6 @@ FactoryBot.define do
     participatory_space { create(:participatory_process, organization:, skip_injection:) }
     manifest_name { "dummy" }
     published_at { Time.current }
-    deleted_at { nil }
     settings do
       {
         dummy_global_translatable_text: generate_localized_title(:dummy_global_translatable_text, skip_injection:),
@@ -483,10 +525,6 @@ FactoryBot.define do
 
     trait :published do
       published_at { Time.current }
-    end
-
-    trait :trashed do
-      deleted_at { Time.current }
     end
 
     trait :with_amendments_enabled do
@@ -594,56 +632,6 @@ FactoryBot.define do
     end
     name { Decidim::Faker::Localized.literal(generate(:area_name)) }
     organization
-  end
-
-  factory :taxonomy, class: "Decidim::Taxonomy" do
-    transient do
-      skip_injection { false }
-    end
-
-    name { generate_localized_title(:taxonomy_name, skip_injection:) }
-    organization
-    parent { nil }
-    weight { nil }
-
-    trait :with_parent do
-      parent { create(:taxonomy, organization:, skip_injection:) }
-    end
-
-    trait :with_children do
-      transient do
-        children_count { 3 }
-      end
-
-      after(:create) do |taxonomy, evaluator|
-        create_list(:taxonomy, evaluator.children_count, parent: taxonomy, organization: taxonomy.organization)
-      end
-    end
-  end
-
-  factory :taxonomization, class: "Decidim::Taxonomization" do
-    taxonomy { association(:taxonomy, :with_parent) }
-    taxonomizable { association(:dummy_resource) }
-  end
-
-  factory :taxonomy_filter, class: "Decidim::TaxonomyFilter" do
-    root_taxonomy { association(:taxonomy) }
-    participatory_space_manifests { ["participatory_processes"] }
-
-    trait :with_items do
-      transient do
-        items_count { 3 }
-      end
-
-      after(:create) do |taxonomy_filter, evaluator|
-        create_list(:taxonomy_filter_item, evaluator.items_count, taxonomy_filter:)
-      end
-    end
-  end
-
-  factory :taxonomy_filter_item, class: "Decidim::TaxonomyFilterItem" do
-    taxonomy_filter
-    taxonomy_item { association(:taxonomy, parent: taxonomy_filter.root_taxonomy) }
   end
 
   factory :coauthorship, class: "Decidim::Coauthorship" do
@@ -754,11 +742,6 @@ FactoryBot.define do
       {
         some_extra_data: "1"
       }
-    end
-
-    trait :proposal_coauthor_invite do
-      event_name { "decidim.events.proposals.coauthor_invited" }
-      event_class { "Decidim::Proposals::CoauthorInvitedEvent" }
     end
   end
 
@@ -875,6 +858,7 @@ FactoryBot.define do
     organization { resource.component.organization }
     decidim_participatory_space { resource.component.participatory_space }
     locale { I18n.locale }
+    scope { resource.scope }
     content_a { Faker::Lorem.sentence }
     datetime { Time.current }
   end
@@ -933,22 +917,6 @@ FactoryBot.define do
     end
   end
 
-  factory :user_block, class: "Decidim::UserBlock" do
-    transient do
-      organization { create(:organization) }
-      blocked_at { Time.current }
-    end
-    justification { generate(:title) }
-    blocking_user { create(:user, :admin, :confirmed, organization:) }
-    user { create(:user, :blocked, :confirmed, organization:) }
-
-    after(:create) do |object, evaluator|
-      object.user.block_id = object.id
-      object.user.blocked_at = evaluator.blocked_at
-      object.user.save!
-    end
-  end
-
   factory :user_report, class: "Decidim::UserReport" do
     transient do
       skip_injection { false }
@@ -962,7 +930,7 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    user { create(:user, :confirmed) }
+    user { build(:user) }
   end
 
   factory :endorsement, class: "Decidim::Endorsement" do
@@ -971,6 +939,15 @@ FactoryBot.define do
     end
     resource { build(:dummy_resource, skip_injection:) }
     author { resource.try(:creator_author) || resource.try(:author) || build(:user, organization: resource.organization, skip_injection:) }
+  end
+
+  factory :user_group_endorsement, class: "Decidim::Endorsement" do
+    transient do
+      skip_injection { false }
+    end
+    resource { build(:dummy_resource, skip_injection:) }
+    author { build(:user, organization: resource.organization, skip_injection:) }
+    user_group { create(:user_group, verified_at: Time.current, organization: resource.organization, users: [author], skip_injection:) }
   end
 
   factory :share_token, class: "Decidim::ShareToken" do
@@ -982,10 +959,6 @@ FactoryBot.define do
 
     before(:create) do |object|
       object.organization ||= object.token_for.organization
-    end
-
-    trait :with_token do
-      token { SecureRandom.hex(32) }
     end
 
     trait :expired do

@@ -1,3 +1,4 @@
+---
 el:
   activemodel:
     attributes:
@@ -21,6 +22,8 @@ el:
               too_long: είναι πολύ μεγάλο
             choices:
               missing: δεν έχουν ολοκληρωθεί
+        questionnaire:
+          request_invalid: Παρουσιάστηκε σφάλμα κατά τον χειρισμό του αιτήματος. Παρακαλώ δοκιμάστε ξανά.
   decidim:
     forms:
       admin:
@@ -31,6 +34,7 @@ el:
         questionnaires:
           actions:
             back: Επιστροφή στις ερωτήσεις
+            show: Εμφάνιση απαντήσεων
           answer_option:
             answer_option: Επιλογή απάντησης
             free_text: Ελεύθερο κείμενο
@@ -170,6 +174,7 @@ el:
           tos_agreement: Με τη συμμετοχή σας, αποδέχεστε τους Όρους παροχής υπηρεσίας
       step_navigation:
         show:
+          are_you_sure: Αυτή η ενέργεια δεν μπορεί να αναιρεθεί και δεν θα μπορείτε να επεξεργαστείτε τις απαντήσεις σας. Είστε βέβαιοι;
           back: Πίσω
           continue: Συνέχεια
           submit: Υποβολή

@@ -24,7 +24,6 @@ FactoryBot.define do
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
     published_at { Time.current }
-    deleted_at { nil }
     location { Faker::Lorem.sentence(word_count: 3) }
     show_statistics { true }
     start_date { 1.month.ago }
@@ -57,7 +56,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     user
-    conference { create(:conference, organization: user.organization, skip_injection:) }
+    conference { create :conference, organization: user.organization, skip_injection: }
     role { "admin" }
   end
 
@@ -71,11 +70,11 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create(:conference_user_role,
+      create :conference_user_role,
              user:,
              conference: evaluator.conference,
              role: :admin,
-             skip_injection: evaluator.skip_injection)
+             skip_injection: evaluator.skip_injection
     end
   end
 
@@ -89,11 +88,11 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create(:conference_user_role,
+      create :conference_user_role,
              user:,
              conference: evaluator.conference,
              role: :moderator,
-             skip_injection: evaluator.skip_injection)
+             skip_injection: evaluator.skip_injection
     end
   end
 
@@ -107,15 +106,15 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create(:conference_user_role,
+      create :conference_user_role,
              user:,
              conference: evaluator.conference,
              role: :collaborator,
-             skip_injection: evaluator.skip_injection)
+             skip_injection: evaluator.skip_injection
     end
   end
 
-  factory :conference_evaluator, parent: :user, class: "Decidim::User" do
+  factory :conference_valuator, parent: :user, class: "Decidim::User" do
     transient do
       skip_injection { false }
       conference { create(:conference, skip_injection:) }
@@ -125,11 +124,11 @@ FactoryBot.define do
     admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
-      create(:conference_user_role,
+      create :conference_user_role,
              user:,
              conference: evaluator.conference,
-             role: :evaluator,
-             skip_injection: evaluator.skip_injection)
+             role: :valuator,
+             skip_injection: evaluator.skip_injection
     end
   end
 

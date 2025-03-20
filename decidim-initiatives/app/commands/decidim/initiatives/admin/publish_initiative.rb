@@ -42,7 +42,11 @@ module Decidim
         attr_reader :initiative, :current_user
 
         def increment_score
-          Decidim::Gamification.increment_score(initiative.author, :initiatives)
+          if initiative.user_group
+            Decidim::Gamification.increment_score(initiative.user_group, :initiatives)
+          else
+            Decidim::Gamification.increment_score(initiative.author, :initiatives)
+          end
         end
       end
     end

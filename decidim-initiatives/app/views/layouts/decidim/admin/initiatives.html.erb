@@ -1,5 +1,13 @@
 <% content_for :breadcrumb_context_menu do %>
-  <%= render partial: "layouts/decidim/admin/manage_initiatives" %>
+  <div class="inline-block relative">
+    <%= button_tag data: { component: "dropdown", target: "initiatives-dropdown-menu-settings" }, class: "dropdown__trigger button button__transparent" do %>
+      <%= t("actions.manage", scope: "decidim.admin") %>
+      <%= icon "arrow-down-s-line" %>
+    <% end %>
+    <div id="initiatives-dropdown-menu-settings" class="process-title-content-dropdown" aria-hidden="true">
+      <%= dropdown_menu(:admin_initiatives_menu).render %>
+    </div>
+  </div>
 <% end %>
 
 <%= render "layouts/decidim/admin/application" do %>

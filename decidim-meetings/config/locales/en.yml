@@ -2,8 +2,6 @@
 en:
   activemodel:
     attributes:
-      answer:
-        add_documents: Add documents
       close_meeting:
         attendees_count: Number of attendees
         attending_organizations: List of organizations that attended
@@ -19,6 +17,7 @@ en:
         customize_registration_email: Customize registration email
         decidim_category_id: Category
         decidim_scope_id: Scope
+        decidim_user_group_id: User group
         description: Description
         end_time: End time
         id: ID
@@ -80,10 +79,6 @@ en:
       decidim/meetings/update_meeting_event: Meeting updated
   activerecord:
     models:
-      decidim:
-        meetings:
-          meeting:
-            text: 'It was discussed in this meeting: %{link}'
       decidim/meetings/meeting:
         one: Meeting
         other: Meetings
@@ -95,9 +90,6 @@ en:
         other: Registrations
   decidim:
     admin:
-      admin_log:
-        changeset:
-          meetings: Meetings
       filters:
         accepted_at_not_null:
           label: Accepted
@@ -105,6 +97,8 @@ en:
             'false': Not accepted
             'true': Accepted
         meetings:
+          category_id_eq:
+            label: Category
           closed_at_present:
             label: State
             values:
@@ -115,13 +109,14 @@ en:
             values:
               'false': Past
               'true': Upcoming
-          taxonomies_part_of_contains:
-            label: Taxonomy
+          scope_id_eq:
+            label: Scope
           with_any_origin:
             label: Origin
             values:
               official: Official
               participants: Participant
+              user_group: User Groups
           with_any_type:
             label: Type of meeting
             values:
@@ -157,46 +152,22 @@ en:
         settings:
           global:
             announcement: Announcement
-            clear_all: Clear all
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             creation_enabled_for_participants: Participants can create meetings
             default_registration_terms: Default registration terms
-            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             enable_pads_creation: Enable pads creation
             maps_enabled: Maps enabled
-            no_taxonomy_filters_found: No taxonomy filters found.
             registration_code_enabled: Registration code enabled
             resources_permissions_enabled: Actions permissions can be set for each meeting
-            taxonomy_filters: Select filters for the component
-            taxonomy_filters_add: Add filter
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
             terms_and_conditions_url_for_meeting_creators: Terms and conditions URL for meeting creators
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled_for_participants: Meeting creation by participants enabled
-    download_your_data:
-      help:
-        invites:
-          accepted_at: The date and time when this invitation was accepted
-          created_at: The date and time when this invitation was created
-          id: The unique identifier for this invitation
-          meeting: The meeting where this invitation has happened
-          rejected_at: The date and time when this invitation was rejected
-          sent_at: The date and time when this invitation was sent
-          updated_at: The date and time when this invitation was last updated
-        registrations:
-          code: The registration code
-          created_at: The date and time when this registration was created
-          id: The unique identifier of the registration
-          meeting: The meeting that the user registered to
-          public_participation: Wehter this participation was shown publicly
-          updated_at: The date and time when this registration was last updated
-          user: The user that made the registration
-          validated_at: The date and time when this registration was validated
-      show:
-        meeting_comments: Meeting comments export
-        meetings: Meetings export
+            creation_enabled_for_user_groups: Meeting creation by user groups enabled
     events:
       meetings:
         meeting_closed:
@@ -264,8 +235,8 @@ en:
         attachment_collections: Folders
         attachments: Attachments
         close: Close
-        confirm_delete_meeting: Are you sure you want to delete this meeting?
-        deleted_meetings_info: Deleted meetings can be restored from the trash.
+        confirm_destroy: Are you sure you want to delete this meeting?
+        destroy: Delete
         edit: Edit
         invalid_destroy:
           proposals_count:
@@ -276,7 +247,6 @@ en:
         preview: Preview
         registrations: Registrations
         title: Actions
-        view_deleted_meetings: View deleted meetings
       admin:
         agenda:
           agenda_item:
@@ -341,11 +311,15 @@ en:
           close:
             invalid: There was a problem closing this meeting.
             success: Meeting successfully closed.
-          component:
-            unlink: Unlink
           create:
             invalid: There was a problem creating this meeting.
             success: Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.
+          destroy:
+            invalid:
+              proposals_count:
+                one: The meeting cannot be destroyed because it has %{count} proposal associated to it.
+                other: The meeting cannot be destroyed because it has %{count} proposals associated to it.
+            success: Meeting successfully deleted
           edit:
             title: Edit meeting
             update: Update
@@ -361,20 +335,7 @@ en:
             select_a_registration_type: Please select a registration type
             select_an_iframe_access_level: Please select an iframe access level
           index:
-            linked_meeting_warning_html: This meeting must be edited from <br><a href="%{href}">%{name}</a>
             title: Meetings
-          linked_spaces:
-            assign: Assign
-            link_a_space: Link a space
-            private_meeting_warning: Linked spaces will not be applied if the meeting is private and non transparent.
-            private_space_warning: Linked spaces will not be applied when the meeting belongs to a private non transparent space.
-            select: Select a space
-            table:
-              actions: Actions
-              component: Linked spaces
-            title: Linked spaces
-          manage_trash:
-            title: Deleted meetings
           new:
             create: Create
             title: Create meeting
@@ -418,7 +379,6 @@ en:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
             invites: Invitations
-            manage_questions: Questions
             recommendation_message: For privacy reasons we recommend that you delete this inscription form when you no longer need it. By default this is 3 months after the meeting has ended.
             registration_email_help: This text will appear in the middle of the registration confirmation email. Just after the registration code.
             registration_form: Registration form
@@ -444,8 +404,6 @@ en:
           create: "%{user_name} created the %{resource_name} meeting on the %{space_name} space"
           delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name} space"
           export_registrations: "%{user_name} exported the registrations of the %{resource_name} meeting on the %{space_name} space"
-          restore: "%{user_name} restored the %{resource_name} meeting in %{space_name} space"
-          soft_delete: "%{user_name} moved the %{resource_name} meeting in %{space_name} space to the trash"
           update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
           value_types:
             organizer_presenter:
@@ -453,6 +411,8 @@ en:
         questionnaire:
           update: "%{user_name} updated the questionnaire for the %{meeting_name} meeting"
       application_helper:
+        filter_category_values:
+          all: All
         filter_meeting_space_values:
           all: All
       calendar:
@@ -544,6 +504,7 @@ en:
             all: All
             official: Official
             participants: Participants
+            user_group: Groups
           search: Search
           type: Type
           type_values:
@@ -554,12 +515,14 @@ en:
         form:
           address_help: 'Address: used by Geocoder to find the location'
           available_slots_help: Leave it to 0 if you have unlimited slots available
+          create_as: Create meeting as
           disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
           iframe_embed_type_html: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
           location_help: 'Location: message directed to the users implying the spot to meet at'
           location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
           online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
           registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
+          select_a_category: Please select a category
           select_a_meeting_type: Please select a meeting type
           select_a_registration_type: Please select a registration type
           select_an_iframe_access_level: Please select an iframe access level
@@ -570,9 +533,9 @@ en:
           see_all_withdrawn: See all withdrawn meetings
           text_banner: You are viewing the list of meetings withdrawn by their authors. %{go_back_link}.
         meeting:
-          close_meeting: Close
+          close_meeting: Close meeting
           edit_close_meeting: Edit meeting report
-          edit_meeting: Edit
+          edit_meeting: Edit meeting
           join_meeting: Join meeting
           reply_poll: Reply poll
           view_poll: View poll
@@ -582,7 +545,7 @@ en:
         new:
           back: Back
           create: Create
-          title: Create new meeting
+          title: Create Your Meeting
         registration_confirm:
           cancel: Cancel
           confirm: Confirm
@@ -599,7 +562,6 @@ en:
           micro_camera_permissions_warning: When you click on the button below, you will be asked for microphone and/or camera permissions, and you will join the videoconference
           no_slots_available: No slots available
           organizations: Attending organizations
-          redirect_notice: This meeting is part of another space, so you have been moved to %{current_space_name}. <br>If you prefer, you can go back to <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Your registration code
           registration_state:
             validated: VALIDATED
@@ -610,7 +572,7 @@ en:
           visit_finished: View past meeting
           withdraw_btn_hint: You can withdraw your meeting if you change your mind. The meeting is not deleted, it will appear in the list of withdrawn meetings.
           withdraw_confirmation_html: Are you sure you want to withdraw this meeting?<br><br><strong>This action cannot be cancelled!</strong>
-          withdraw_meeting: Withdraw
+          withdraw_meeting: Withdraw meeting
         update:
           invalid: There was a problem updating the meeting.
           success: You have updated the meeting successfully.
@@ -633,7 +595,6 @@ en:
             map: Map
             official_meeting: Official meeting
             start_time: Start date
-            taxonomies: Taxonomies
             title: Title
       polls:
         answers:
@@ -669,6 +630,7 @@ en:
             question_replied: Question replied
             reply_question: Reply question
       public_participants_list:
+        attending_organizations: Organizations
         attending_participants: Participants
         hidden_participants_count:
           one: and %{count} more person
@@ -702,78 +664,13 @@ en:
         transparent: Transparent
         withdraw: Withdrawn
       withdraw:
-        error: There was a problem withdrawing the meeting.
+        error: An error ocurred while withdrawing the meeting.
         success: The meeting has been withdrawn successfully.
     metrics:
       meetings:
         description: Number of meetings created
         object: meetings
         title: Meetings
-    open_data:
-      help:
-        meeting_comments:
-          alignment: If this comment was a favour, against or neutral
-          author: The name of the participant that made this comment
-          body: The comment itself
-          commentable_id: The unique id of the commentable
-          commentable_type: The type of the commentable (if it was a result, a proposal, etc.)
-          comments: The comments data of the meeting
-          created_at: The date when this comment was created
-          depth: The place where this comment is in the three of comments (if it is an answer or an answer of an answer)
-          id: The id for this comment
-          locale: The locale (language) that the participant had when leaving this comment
-          root_commentable_url: The URL of the resource that ties to this comment
-        meetings:
-          address: The address of the meeting in case it is in person and has a physical location
-          attachments: The number of attachments in this meeting
-          attendees: The number of people attending this meeting
-          attending_organizations: The organizations attending the meeting
-          audio_url: Audio recording of the meeting
-          author: The data for the author of this meeting
-          available_slots: The number of slots available in a meeting
-          closed_at: The date at which the meeting closed
-          closing_report: Report of the closed meeting
-          closing_visible: The visibilty of the meeting
-          comments: The comments data of the meeting
-          component: The component that the meeting belongs to
-          contributions: The number of contributions in this meeting made by the atteendes
-          created_at: The date at which the meeting was created
-          customize_registration_email: The ability to allow a custom email at registration
-          decidim_author_type: Author type of the meeting's author
-          description: The description of the meeting
-          end_time: The date and time that this meeting ends
-          follows_count: The number of follows the meeting has
-          id: The unique identifier of the meeting
-          iframe_access_level: The iframe access level of the meeting
-          iframe_embed_type: The type of iframe embeded in the meeting
-          latitude: The latitude of the meeting
-          location: The location of the meeting
-          location_hints: A hint of the location in which the meeting is taking place
-          longitude: The longitude of the meeting
-          online_meeting_url: The URL of the online meeting
-          organizations: The organizations attending this meeting
-          participatory_space: To which space (e.g. Participatory Process, or Assembly) this meeting belongs to
-          private_meeting: To indicate whether the meeting is private or not
-          published: When the meeting has been published
-          reference: The unique identifier of the resource in this platform
-          registration_form_enabled: Whether the registration form was enabled or not
-          registration_terms: The terms agreed prior to meeting participation
-          registration_type: The type of registration of the meeting
-          registration_url: URL of the meeting registration
-          registrations_enabled: Whether registrations were permitted
-          related_proposals: The proposals related to this meeting
-          related_results: The results related to this meeting
-          reserved_slots: The number of reserved slots the meeting has
-          start_time: The date and time that this meeting starts
-          taxonomies: The taxonomies that this meeting belongs to
-          title: The title of the meeting
-          transparent: The visabilty of the meetng for non-members
-          type_of_meeting: The meeting type
-          updated_at: The time at which the meeting was last updated
-          url: The URL of the meeting
-          video_url: Video recording of the meeting
-          withdrawn: Whether this meeting has been withdrawn
-          withdrawn_at: When this meeting was withdrawn
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Past meetings
@@ -787,7 +684,6 @@ en:
         meeting_proposal: 'Related proposals:'
         proposal_meeting: 'Related meetings:'
     statistics:
-      attendees_count: Meeting attendees
       meetings_count: Meetings
   devise:
     mailer:

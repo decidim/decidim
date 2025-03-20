@@ -5,8 +5,6 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 
 gem "decidim", path: "."
-gem "decidim-ai", path: "."
-gem "decidim-collaborative_texts", path: "."
 gem "decidim-conferences", path: "."
 gem "decidim-design", path: "."
 gem "decidim-initiatives", path: "."
@@ -21,7 +19,7 @@ group :development, :test do
 
   gem "decidim-dev", path: "."
 
-  gem "brakeman", "~> 7.0"
+  gem "brakeman", "~> 6.1"
   gem "parallel_tests", "~> 4.2"
 end
 

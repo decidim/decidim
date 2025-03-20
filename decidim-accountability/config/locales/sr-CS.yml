@@ -1,3 +1,4 @@
+---
 sr:
   activemodel:
     attributes:
@@ -8,6 +9,8 @@ sr:
         description: Opis
         end_date: Krajnji datum
         progress: Naprеdak
+        project_ids: Uključeni projekti
+        proposals: Uključeni predlozi
         start_date: Datum početka
         title: Naslov
         updated_at: Ažurirano u
@@ -86,8 +89,10 @@ sr:
       models:
         result:
           fields:
+            category: Kategorija
             end_date: Krajnji datum
             progress: Napredak
+            scope: Opseg
             start_date: Datum početka
             status: Stanje
             title: Naslov
@@ -106,8 +111,12 @@ sr:
             one: 1 rezultat
             few: "%{count} rezultata"
             other: "%{count} rezultata"
+        filters:
+          all: Sve
         home_header:
           global_status: Sveopšte stanje izvršenja
+        nav_breadcrumb:
+          global: Sveopšte izvršenje
         search:
           search: Potraga za akcijama
         show:
@@ -115,6 +124,13 @@ sr:
             back_to_resource: Vrati se na rezultat
         timeline:
           title: Evolucija projekta
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategorija
+          scope_id_eq:
+            label: Opseg
     components:
       accountability:
         name: Odgovornost

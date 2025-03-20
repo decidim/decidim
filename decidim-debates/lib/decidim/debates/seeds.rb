@@ -4,7 +4,7 @@ require "decidim/components/namer"
 
 module Decidim
   module Debates
-    class Seeds < Decidim::Seeds
+    class Seeds
       attr_reader :participatory_space
 
       def initialize(participatory_space:)
@@ -12,6 +12,11 @@ module Decidim
       end
 
       def call
+        admin_user = Decidim::User.find_by(
+          organization: participatory_space.organization,
+          email: "admin@example.org"
+        )
+
         user = Decidim::User.find_by(
           organization: participatory_space.organization,
           email: "user@example.org"
@@ -44,6 +49,7 @@ module Decidim
           end
           params = {
             component:,
+            category: participatory_space.categories.sample,
             title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
               Decidim::Faker::Localized.paragraph(sentence_count: 3)
@@ -75,6 +81,7 @@ module Decidim
 
         params = {
           component:,
+          category: participatory_space.categories.sample,
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)

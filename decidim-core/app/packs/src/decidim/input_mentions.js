@@ -33,7 +33,7 @@ const mentionsInitializer = () => {
 
   /* eslint no-use-before-define: ["error", { "variables": false }]*/
   let remoteSearch = function(text, cb) {
-    let query = `{users(filter:{wildcard:"${text}"}){nickname,name,avatarUrl,__typename}}`;
+    let query = `{users(filter:{wildcard:"${text}"}){nickname,name,avatarUrl,__typename,...on UserGroup{membersCount}}}`;
     $.post(window.Decidim.config.get("api_path"), {query: query}).
       then((response) => {
         let data = response.data.users || {};
@@ -76,10 +76,17 @@ const mentionsInitializer = () => {
       return item.original.nickname;
     },
     menuItemTemplate: function(item) {
+      let svg = "";
+      if (window.Decidim && item.original.__typename === "UserGroup") {
+        const iconsPath =  window.Decidim.config.get("icons_path");
+
+        svg = `<span class="is-group">${item.original.membersCount}x <svg class="icon--members icon"><use href="${iconsPath}#ri-team-line"/></svg></span>`;
+      }
       return `
         <img src="${item.original.avatarUrl}" alt="author-avatar">
         <strong>${item.original.nickname}</strong>
         <small>${item.original.name}</small>
+        ${svg}
       `;
     }
   });

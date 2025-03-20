@@ -1,3 +1,4 @@
+---
 "no":
   activemodel:
     attributes:
@@ -54,6 +55,8 @@
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: Kategori
           closed_at_present:
             label: Status
             values:
@@ -64,6 +67,8 @@
             values:
               'false': Tidligere
               'true': Kommende
+          scope_id_eq:
+            label: Tema
           with_any_origin:
             values:
               user_group: Brukergrupper
@@ -95,6 +100,8 @@
             maps_enabled: Kart aktivert
             registration_code_enabled: Registreringskode aktivert
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
+            scope_id: Tema
+            scopes_enabled: Temaer aktivert
             terms_and_conditions_url_for_meeting_creators: Link til vilkår og betingelser for arrangører
           step:
             announcement: Kunngjøring
@@ -163,6 +170,7 @@
         attachment_collections: Mapper
         attachments: Vedlegg
         close: Lukk
+        destroy: Slett
         edit: Rediger
         invalid_destroy:
           proposals_count:
@@ -228,6 +236,8 @@
         meetings:
           create:
             success: Møtet ble opprettet. Merk at dette ikke er publisert enda, du må publisere det manuelt.
+          destroy:
+            success: Møtet ble slettet
           edit:
             title: Rediger møte
             update: Oppdater
@@ -266,7 +276,6 @@
           form:
             available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig.
             invites: Invitasjoner
-            manage_questions: Spørsmål
             registration_email_help: Denne teksten vil dukke opp i midten av e-posten med registreringsbekreftelsen. Like etter registreringskoden.
             registration_form: Registreingsskjema
             registrations_count:
@@ -295,6 +304,8 @@
             organizer_presenter:
               not_found: 'Arrangøren ble ikke funnet i databasen (ID: %{id})'
       application_helper:
+        filter_category_values:
+          all: Alle
         filter_meeting_space_values:
           all: Alle
       calendar_modal:
@@ -374,12 +385,16 @@
           address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
           available_slots_help: Sett den til 0 hvis du har ubegrensede plasser tilgjengelig
           create_as: Opprett møte som
+          select_a_category: Velg en kategori
           select_a_meeting_type: Velg en møtetype
           select_a_registration_type: Velg en registreringstype
           select_an_iframe_access_level: Velg et tilgangsnivå for iframe
         index:
           click_here: Se alle møter
           new_meeting: Nytt møte
+        meeting:
+          close_meeting: Lukk møte
+          edit_meeting: Rediger møte
         meetings:
           upcoming_meetings_warning: For øyeblikket er det ingen planlagte møter, men her kan du finne alle de forrige møtene oppført.
         registration_confirm:

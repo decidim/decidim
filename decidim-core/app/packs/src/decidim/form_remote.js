@@ -1,4 +1,4 @@
-const { Rails } = window;
+import Rails from "@rails/ujs";
 
 // Make the remote form submit buttons disabled when the form is being
 // submitted to avoid multiple submits.

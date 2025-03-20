@@ -1,7 +1,10 @@
+---
 lv:
   activemodel:
     attributes:
       debate:
+        category_id: Kategorija
+        decidim_category_id: Kategorija
         description: Apraksts
         end_time: Beidzas plkst.
         information_updates: Informācijas atjauninājumi
@@ -15,6 +18,8 @@ lv:
   decidim:
     components:
       debates:
+        actions:
+          create: Izveidot
         settings:
           global:
             announcement: Paziņojums
@@ -24,6 +29,8 @@ lv:
             comments_blocked: Komentāri ir bloķēti
     debates:
       actions:
+        confirm_destroy: Vai esat pārliecināts?
+        destroy: Dzēst
         edit: Labot
         title: Darbības
       admin:
@@ -31,6 +38,8 @@ lv:
           create:
             invalid: Debašu izveides laikā radās problēma.
             success: Debates ir veiksmīgi izveidotas.
+          destroy:
+            success: Debates ir veiksmīgi dzēstas.
           edit:
             title: Rediģēt debates
             update: Atjaunināt debates
@@ -61,6 +70,8 @@ lv:
           back: Atpakaļ
           create: Izveidot
           title: Jaunas debates
+        show:
+          edit_debate: Rediģēt debates
       models:
         debate:
           fields:

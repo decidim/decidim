@@ -1,6 +1,9 @@
+---
 id:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Judul
       assembly:
         area_id: Daerah
         assembly_type: Tipe perakitan
@@ -16,6 +19,7 @@ id:
         created_by_other: Dibuat oleh lainnya
         creation_date: Tanggal Diciptakan
         decidim_area_id: Daerah
+        decidim_assemblies_type_id: Tipe perakitan
         decidim_scope_id: Cakupan
         description: Deskripsi
         developer_group: Grup promotor
@@ -27,6 +31,7 @@ id:
         hero_image: Gambar rumah
         included_at: Termasuk di
         instagram: Instagram
+        internal_organisation: Organisasi internal
         is_transparent: Transparan
         local_area: Area organisasi
         meta_scope: Ruang lingkup metadata
@@ -38,6 +43,8 @@ id:
         promoted: Dipromosikan
         published_at: Diterbitkan di
         purpose_of_action: Tujuan tindakan
+        scope_id: Cakupan
+        scopes_enabled: Lingkup diaktifkan
         short_description: Deskripsi Singkat
         slug: Siput URL
         special_features: Fitur spesial
@@ -72,6 +79,7 @@ id:
       assemblies:
         create:
           error: Ada kesalahan saat membuat perakitan baru.
+          success: Majelis berhasil dibuat.
         edit:
           update: Memperbarui
         index:
@@ -88,11 +96,29 @@ id:
         create:
           error: Ada kesalahan saat menduplikasi majelis ini.
           success: Majelis berhasil digandakan.
+      assemblies_types:
+        new:
+          create: Membuat
       assembly_copies:
         new:
           copy: Salinan
           select: Pilih data mana yang ingin Anda gandakan
           title: Rakitan duplikat
+      assembly_members:
+        create:
+          error: Terjadi kesalahan saat menambahkan anggota untuk majelis ini.
+          success: Anggota berhasil dibuat untuk perakitan ini.
+        destroy:
+          success: Anggota berhasil dihapus untuk perakitan ini.
+        edit:
+          update: Memperbarui
+        index:
+          assembly_members_title: Anggota dewan
+        new:
+          create: Membuat
+        update:
+          error: Terjadi kesalahan saat memperbarui anggota untuk perakitan ini.
+          success: Anggota berhasil diperbarui untuk perakitan ini.
       assembly_publications:
         create:
           error: Terjadi kesalahan saat mempublikasikan perakitan ini.
@@ -115,16 +141,25 @@ id:
         update:
           error: Terjadi kesalahan saat memperbarui pengguna untuk perakitan ini.
           success: Pengguna berhasil diperbarui untuk perakitan ini.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipe perakitan
       menu:
         assemblies: Assemblies
         assemblies_submenu:
           assembly_admins: Pengguna majelis
+          assembly_members: Anggota
           attachment_collections: Folder
           attachment_files: File
           attachments: Lampiran
+          categories: Kategori
           components: Komponen
           moderations: Moderasi
       models:
+        assemblies_types:
+          fields:
+            created_at: Dibuat di
+            title: Judul
         assembly:
           fields:
             created_at: Dibuat di
@@ -134,6 +169,11 @@ id:
             title: Judul
           name: Majelis
         assembly_member:
+          fields:
+            ceased_date: Tanggal berhenti
+            designation_date: Tanggal penunjukan
+            full_name: Nama
+            position: Posisi
           name: Anggota
           positions:
             other: Lain
@@ -172,13 +212,26 @@ id:
           form:
             duration: Lamanya
             duration_help: Jika durasi rakitan ini terbatas, pilih tanggal akhir. Jika tidak, itu akan muncul sebagai tidak terbatas.
+            filters: Filter
             images: Gambar
             metadata: Metadata
             other: Lain
             select_a_created_by: Pilih yang dibuat oleh
+            select_an_area: Pilih Area
+            select_an_assembly_type: Pilih jenis perakitan
             select_parent_assembly: Pilih perakitan induk
             social_handlers: Sosial
             title: Informasi Umum
+        assemblies_types:
+          form:
+            title: Judul
+        assembly_members:
+          form:
+            existing_user: Pengguna yang sudah ada
+            non_user: Non-pengguna
+            select_a_position: Pilih posisi
+            select_user: Pilih seorang pengguna
+            user_type: Tipe Pengguna
         content_blocks:
           highlighted_assemblies:
             max_results: Jumlah maksimum elemen untuk ditampilkan
@@ -189,6 +242,14 @@ id:
       assembly_members:
         index:
           members: Anggota
+      assembly_types:
+        commission: Komisi
+        consultative_advisory: Konsultatif / Penasihat
+        executive: Eksekutif
+        government: Pemerintah
+        others: Lainnya
+        participatory: Partisipatif
+        working_group: Kelompok kerja
       content_blocks:
         highlighted_assemblies:
           name: Majelis yang disorot
@@ -212,9 +273,12 @@ id:
           member_of:
             member_of: Anggota dari
       show:
+        assembly_type: Tipe perakitan
         duration: Lamanya
         private_space: Ini adalah pertemuan pribadi
     assembly_members:
+      assembly_member:
+        designated_on: Ditunjuk pada
       index:
         title: Anggota
     help:

@@ -5,6 +5,8 @@ module Decidim
     # This class contains helpers needed in order for component settings to
     # properly render.
     module SettingsHelper
+      include Decidim::ScopesHelper
+
       TYPES = {
         boolean: :check_box,
         integer: :number_field,
@@ -12,10 +14,9 @@ module Decidim
         float: :number_field,
         text: :text_area,
         select: :select_field,
+        scope: :scope_field,
         enum: :collection_radio_buttons,
-        time: :datetime_field,
-        integer_with_units: :integer_with_units,
-        taxonomy_filters: :taxonomy_filters
+        time: :datetime_field
       }.freeze
 
       # Renders a form field that matches a settings attribute's type.
@@ -51,38 +52,19 @@ module Decidim
           if attribute.translated?
             options[:tabs_id] = "#{options.delete(:tabs_prefix)}-#{name}-tabs"
             form.send(:translated, form_method, name, options)
+          elsif form_method == :collection_radio_buttons
+            render_enum_form_field(form, attribute, name, i18n_scope, options)
+          elsif form_method == :select_field
+            render_select_form_field(form, attribute, name, i18n_scope, options)
+          elsif form_method == :scope_field
+            scopes_select_field(form, name)
           else
-            render_field_form_method(form_method, form, attribute, name, i18n_scope, options)
+            form.send(form_method, name, options)
           end
         end.html_safe
       end
 
       private
-
-      # rubocop:disable Metrics/ParameterLists
-      def render_field_form_method(form_method, form, attribute, name, i18n_scope, options)
-        case form_method
-        when :collection_radio_buttons
-          render_enum_form_field(form, attribute, name, i18n_scope, options)
-        when :select_field
-          render_select_form_field(form, attribute, name, i18n_scope, options)
-        when :integer_with_units
-          integer_with_units(form, attribute, name, i18n_scope, options)
-        when :taxonomy_filters
-          if TaxonomyFilter.for(current_organization).blank?
-            label_tag(name, t(name, scope: i18n_scope)) +
-              content_tag(:p) do
-                content_tag(:span, t("no_taxonomy_filters_found", scope: i18n_scope), class: "text-gray mr-2") +
-                  link_to(t("define_taxonomy_filters", scope: i18n_scope), decidim_admin.taxonomies_path, class: "button button__text-secondary")
-              end.html_safe
-          else
-            taxonomy_filters(form, name, i18n_scope)
-          end
-        else
-          form.send(form_method, name, options)
-        end
-      end
-      # rubocop:enable Metrics/ParameterLists
 
       # Renders a select field collection input for the given attribute
       #
@@ -91,23 +73,15 @@ module Decidim
       # @param name (see #settings_attribute_input)
       # @param i18n_scope (see #settings_attribute_input)
       # @param options (see #settings_attribute_input)
-      # @option options [String] :tabs_prefix (see #settings_attribute_input)
-      # @option options [Boolean] :readonly (see #settings_attribute_input)
+      # @option :tabs_prefix (see #settings_attribute_input)
+      # @option :readonly (see #settings_attribute_input)
       # @option options [String] :label The label that this field has
       # @option options [String] :help_text The help text shown after the input field
       # @return (see #settings_attribute_input)
       def render_select_form_field(form, attribute, name, i18n_scope, options)
-        choices = attribute.build_choices(component: @component).map do |o|
-          if attribute.raw_choices
-            o
-          else
-            [t("#{name}_options.#{o}", scope: i18n_scope), o]
-          end
-        end
-
         html = form.select(
           name,
-          choices,
+          attribute.build_choices.map { |o| [t("#{name}_options.#{o}", scope: i18n_scope), o] },
           { include_blank: attribute.include_blank, label: options[:label] }
         )
         html << content_tag(:p, options[:help_text], class: "help-text") if options[:help_text]
@@ -190,63 +164,6 @@ module Decidim
         choices.map do |choice|
           [t("#{name}_choices.#{choice}", scope: i18n_scope), choice]
         end
-      end
-
-      # Renders a form field that includes an integer input and a select dropdown for units.
-      #
-      # @param form (see #settings_attribute_input)
-      # @param attribute [Decidim::SettingsManifest::Attribute] The attribute to be rendered
-      # @param name (see #settings_attribute_input)
-      # @param i18n_scope (see #settings_attribute_input)
-      # @param options (see #settings_attribute_input)
-      # @option options [String] :label The label text for the field
-      # @return [ActiveSupport::SafeBuffer] Rendered form field
-      def integer_with_units(form, attribute, name, i18n_scope, options)
-        value = form.object.send(name)
-
-        number_value = value[0].to_i
-        unit_value = value[1].to_s
-
-        number_field_html = form.number_field(name, options.merge(label: false,
-                                                                  value: number_value,
-                                                                  name: "#{form.field_name(name)}[0]",
-                                                                  style: "flex: 0 0 25%;"))
-        select_field_html = form.select(name,
-                                        attribute.build_units.map { |unit| [t("#{name}_units.#{unit}", scope: i18n_scope), unit] },
-                                        { label: false, value: unit_value },
-                                        { name: "#{form.field_name(name)}[1]", style: "flex: 1 1 75%;" })
-
-        content_tag(:label, options[:label]) + content_tag(:div, number_field_html + select_field_html, class: "flex space-x-2 items-center")
-      end
-
-      # Renders a form field that includes a taxonomy filters input hidden for each taxonomy filter
-      # and a button to open a drawer with all the available taxonomy filters with actions to manage them.
-      #
-      # @param name (see #settings_attribute_input)
-      # @param i18n_scope (see #settings_attribute_input)
-      def taxonomy_filters(form, name, i18n_scope)
-        current_filters = content_tag(:div, class: "js-current-filters") do
-          render partial: "decidim/admin/taxonomy_filters_selector/component_table",
-                 locals: { field_name: "#{form.object_name}[#{name}][]", component: @component }
-        end
-        add_button = content_tag(:div, class: "mt-2") do
-          content_tag(:button,
-                      t("#{name}_add", scope: i18n_scope),
-                      class: "button button__xs button__transparent-secondary js-add-taxonomy-filter",
-                      type: "button",
-                      data: {
-                        url: decidim_admin.taxonomy_filters_selector_index_path(component_id: @component.id)
-                      })
-        end
-        container = content_tag(:div, class: "js-taxonomy-filters-container", data: { drawer: "#{name}-dialog" }) do
-          current_filters + add_button
-        end
-
-        drawer = decidim_drawer id: "#{name}-dialog" do
-          render partial: "decidim/admin/components/taxonomy_filters_drawer"
-        end
-
-        label_tag(name, t(name, scope: i18n_scope)) + container + drawer
       end
     end
   end

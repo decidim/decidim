@@ -1,3 +1,4 @@
+---
 pt-BR:
   activemodel:
     attributes:
@@ -7,7 +8,10 @@ pt-BR:
         decidim_scope_id: Âmbito
         description: Descrição
         end_date: Data final
+        meetings_ids: Reuniões incluídas
         progress: Progresso
+        project_ids: Projetos incluídos
+        proposals: Propostas incluídas
         start_date: Data de início
         subresults: Subresultados
         title: Título
@@ -26,10 +30,6 @@ pt-BR:
       decidim/accountability/result_progress_updated_event: Progresso do resultado atualizado
   activerecord:
     models:
-      decidim:
-        accountability:
-          result:
-            text: 'Foi adicionado a este resultado: %{link}'
       decidim/accountability/result:
         one: Resultado
         other: Resultados
@@ -41,6 +41,7 @@ pt-BR:
         confirm_destroy: Deseja mesmo excluir %{name}?
         destroy: Excluir
         edit: Editar
+        import: Projetos importantes para outro componente
         import_csv: Importar resultados de arquivo CSV
         new_result: Novo resultado
         new_status: Novo status
@@ -56,6 +57,27 @@ pt-BR:
           new:
             download_export: Baixe a Exportação com formato CSV
             import: Importar
+            info: |
+              <p>Nós recomendamos que você siga esses passos:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Crie os Status para os Resultado</a>que você queira adicionar.</li>
+              <li><a href='%{link_new_result}' target='_blank'>Crie no mínimo um Resultado maualmente</a> através desse Painel de Administração antes de usar a função Importar, para um melhor entendimento a respeito do formato e o que você precisa preencher.</li>
+              <li>%{link_export_csv}</li>
+              <li>Faça as mudanças localmente. Você só pode alterar as seguintes colunas do CSV:
+                <ul>
+                <li><b>categoria/id:</b> Identificador para a Categoria</li>
+                <li><b>escopo/id:</b> Identificador  para o Escopo</li>
+                <li><b>pai/id:</b> Identificador do pai (para Resultados relacionados). Opcional</li>
+                <li><b>titulo/pt-br:</b> Título na língua Portuguesa. Isto dependerá das configurações de linguagem da sua plataforma.</li>
+                <li><b>descricao/pt-br:</b> Descrição na língua Portuguesa. Isto dependerá das configurações de linguagem da sua plataforma.</li>
+                <li><b>data_inicio:</b> data de início de execução dos resultados (formato DD-MM-YYYY)</li>
+                <li><b>data_fim:</b> data de fim da execução dos resultados (formato DD-MM-YYYY)</li>
+                <li><b>status/id:</b> Identificador do Status para este resultado</li>
+                <li><b>progresso:</b> Porcentagem (de 0 a 100) desta execução</li>
+                <li><b>ids_propostos:</b> Identificadores interno das propostas relacionadas (serparadas por vírgula). É automaticamente convertida para <span class='attribute-name'>url_proposta</span></li>
+                </ul>
+              </li>
+              </ol>
             title: Importar resultados de arquivo CSV
         imports:
           create:
@@ -66,10 +88,28 @@ pt-BR:
             name: Resultado
           status:
             name: Status
+        projects_import:
+          create:
+            invalid: Houve um problema ao importar os projetos para os resultados, por favor, siga as instruções cuidadosamente e verifique se você selecionou projetos para implementação.
+          new:
+            create: Importar
+            import_all_selected_projects: Importar todos os projetos selecionados para implementação
+            new_items:
+              one: 1 projeto selecionado será importado
+              other: "%{count} projetos selecionados serão importados"
+            no_components: Não há componentes de orçamento neste espaço participativo para importar os projetos em resultados.
+            origin_component_id: Componente de origem
+            select_component: Selecionar componente
+            success:
+              one: Projetos na fila para ser importado. Você será notificado no seu endereço eletrônico quando estiver completo.
+              other: "Projetos na fila para importar. Você sera notificado em seu endereço eletrônico quando estiver completo."
+            title: Projetos importantes para outro componente
         results:
           create:
             invalid: Houve um problema criando esse resultado.
             success: Resultado criado com sucesso.
+          destroy:
+            success: Resultado removido com sucesso.
           edit:
             title: Editar resultado
             update: Atualizar resultado
@@ -137,8 +177,6 @@ pt-BR:
       content_blocks:
         highlighted_results:
           results: Resultados
-      creation:
-        text: Este resultado foi criado
       import_mailer:
         import:
           errors: Erros
@@ -158,10 +196,12 @@ pt-BR:
       models:
         result:
           fields:
+            category: Categoria
             created_at: Criado
             end_date: Data final
             id: ID
             progress: Progresso
+            scope: Âmbito
             start_date: Data de início
             status: Status
             title: Título
@@ -180,8 +220,15 @@ pt-BR:
           results_count:
             one: 1 resultado
             other: "%{count} resultados"
+        filters:
+          all: Todos
+        home:
+          empty: Não existem resultados ainda.
+          empty_filters: Não há resultados com este critério.
         home_header:
           global_status: Status de execução global
+        nav_breadcrumb:
+          global: Execução global
         no_results: Não há projetos
         search:
           search: Procure ações
@@ -193,6 +240,10 @@ pt-BR:
     admin:
       filters:
         results:
+          category_id_eq:
+            label: Categoria
+          scope_id_eq:
+            label: Âmbito
           status_id_eq:
             label: Status
     components:
@@ -206,6 +257,8 @@ pt-BR:
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             display_progress_enabled: Mostrar progresso
             intro: Introdução
+            scope_id: Escopo
+            scopes_enabled: Escopos habilitados
           step:
             comments_blocked: Comentários bloqueados
     events:

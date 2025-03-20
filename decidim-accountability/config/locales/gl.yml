@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -8,6 +9,8 @@ gl:
         description: Descrición
         end_date: Data de finalización
         progress: Progreso
+        project_ids: Proxectos incluídos
+        proposals: Propostas incluídas
         start_date: Data de inicio
         title: Título
         updated_at: Actualizado en
@@ -100,10 +103,12 @@ gl:
       models:
         result:
           fields:
+            category: Categoría
             created_at: Creado
             end_date: Data de finalización
             id: ID
             progress: Progreso
+            scope: Alcance
             start_date: Data de inicio
             status: Estado
             title: Título
@@ -121,8 +126,12 @@ gl:
           results_count:
             one: 1 resultado
             other: "%{count} resultados"
+        filters:
+          all: Todo
         home_header:
           global_status: Estado de execución global
+        nav_breadcrumb:
+          global: Execución global
         search:
           search: Busca de accións
         show:
@@ -133,6 +142,10 @@ gl:
     admin:
       filters:
         results:
+          category_id_eq:
+            label: Categoría
+          scope_id_eq:
+            label: Alcance
           status_id_eq:
             label: Estado
     components:
@@ -146,6 +159,8 @@ gl:
             comments_max_length: Lonxitude máxima dos comentarios (0 para valor predefinido)
             display_progress_enabled: Mostrar o progreso
             intro: Intro
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
           step:
             comments_blocked: Comentarios bloqueados
     events:

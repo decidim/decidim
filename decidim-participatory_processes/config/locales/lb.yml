@@ -1,3 +1,4 @@
+---
 lb:
   activemodel:
     attributes:
@@ -22,6 +23,9 @@ lb:
         promoted: Hervorgehoben
         published_at: Veröffentlicht unter
         related_process_ids: Ähnliche Beteiligungsprozesse
+        scope_id: Themenbereich
+        scope_type_max_depth_id: Umfang-Filtertiefe
+        scopes_enabled: Themenbereiche aktiviert
         short_description: Kurzbeschreibung
         slug: URL-Slug
         start_date: Ufanksdatum
@@ -49,6 +53,8 @@ lb:
         end_date: Enddatum
         short_description: Kurzbeschreibung
         start_date: Ufanksdatum
+        title: Titel
+      participatory_process_type:
         title: Titel
       participatory_process_user_role:
         email: Email
@@ -96,8 +102,10 @@ lb:
           attachment_collections: Dossieren
           attachment_files: Dateien
           attachments: Unhäng
+          categories: Kategorien
           components: Komponenten
           moderations: Moderationen
+          private_users: Private Benutzer
           process_admins: Benutzer verarbeiten
           steps: Phasen
       models:
@@ -118,6 +126,10 @@ lb:
             start_date: Ufanksdatum
             title: Titel
           name: Beteiligungsprozess Phase
+        participatory_process_type:
+          fields:
+            created_at: Erstallt den
+            title: Titel
         participatory_process_user_role:
           fields:
             email: E-Mail
@@ -128,6 +140,7 @@ lb:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
+            valuator: Schätzer
         user:
           fields:
             invitation_accepted_at: Einladung akzeptiert am
@@ -139,6 +152,7 @@ lb:
           title: Beteiligungsprozess duplizieren
       participatory_process_groups:
         destroy:
+          error: Beim Löschen der Beteiligungsprozessgruppe ist ein Fehler aufgetreten.
           success: Beteiligungsprozess erfolgreich gelöscht.
         edit:
           title: Prozessgruppe bearbeiten
@@ -188,6 +202,11 @@ lb:
         update:
           error: Beim Aktualisieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
           success: Partizipativer Prozessschritt erfolgreich aktualisiert.
+      participatory_process_types:
+        edit:
+          update: Aktualisieren
+        new:
+          create: Erstellen
       participatory_process_user_roles:
         create:
           error: Beim Hinzufügen eines Benutzers für diesen partizipativen Prozess ist ein Fehler aufgetreten.
@@ -276,7 +295,10 @@ lb:
       admin:
         participatory_processes:
           form:
+            other: Andere
             related_processes: Ähnliche Beteiligungsprozesse
+            scope_type_max_depth_help: Beschränken Sie die Bereichs-Filtertiefe; der Filter zeigt nur Ergebnisse von Allgemein bis zum ausgewählten Bereichstyp an.
+            select_an_area: Wählen Sie einen Bereich aus
             select_process_group: Wählen Sie eine Prozessgruppe aus
             title: Allgemeine Information
       content_blocks:

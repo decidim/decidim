@@ -14,7 +14,6 @@ module Decidim
       helper Decidim::ResourceVersionsHelper
       helper Decidim::ShortLinkHelper
       include Decidim::AttachmentsHelper
-      include Decidim::SanitizeHelper
 
       helper_method :meetings, :meeting, :registration, :search, :tab_panel_items
 
@@ -59,8 +58,6 @@ module Decidim
 
       def show
         raise ActionController::RoutingError, "Not Found" unless meeting
-
-        maybe_show_redirect_notice!
 
         return if meeting.current_user_can_visit_meeting?(current_user)
 
@@ -123,19 +120,12 @@ module Decidim
       end
 
       def search_collection
-        Meeting
-          .where(component: current_component)
-          .published
-          .not_hidden
-          .or(MeetingLink.find_meetings(component: current_component))
-          .visible_for(current_user)
-          .with_availability(
-            filter_params[:with_availability]
-          )
-          .includes(
-            :component,
-            attachments: :file_attachment
-          )
+        Meeting.where(component: current_component).published.not_hidden.visible_for(current_user).with_availability(
+          filter_params[:with_availability]
+        ).includes(
+          :component,
+          attachments: :file_attachment
+        )
       end
 
       def meeting_form
@@ -151,6 +141,14 @@ module Decidim
             icon: "group-line",
             method: :cell,
             args: ["decidim/meetings/public_participants_list", meeting]
+          },
+          {
+            enabled: !meeting.closed? && meeting.user_group_registrations.any?,
+            id: "organizations",
+            text: t("attending_organizations", scope: "decidim.meetings.public_participants_list"),
+            icon: "community-line",
+            method: :cell,
+            args: ["decidim/meetings/attending_organizations_list", meeting]
           },
           {
             enabled: meeting.linked_resources(:proposals, "proposals_from_meeting").present?,
@@ -169,30 +167,6 @@ module Decidim
             args: ["decidim/linked_resources_for", meeting, { type: :results, link_name: "meetings_through_proposals" }]
           }
         ] + attachments_tab_panel_items(@meeting)
-      end
-
-      def maybe_show_redirect_notice!
-        return unless previous_space
-
-        flash.now[:notice] = I18n.t(
-          "meetings.show.redirect_notice",
-          scope: "decidim.meetings",
-          previous_space_url: request.referer,
-          previous_space_name: decidim_escape_translated(previous_space.title),
-          current_space_name: decidim_escape_translated(current_component.participatory_space.title)
-        )
-      end
-
-      def previous_space
-        return @previous_space if @previous_space
-        return unless params[:previous_space]
-
-        previous_space_class, previous_space_id = params[:previous_space].split("#")
-
-        @previous_space = previous_space_class.constantize.find_by(id: previous_space_id)
-        @previous_space
-      rescue NameError, LoadError
-        nil
       end
     end
   end

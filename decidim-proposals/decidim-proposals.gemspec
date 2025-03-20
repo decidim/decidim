@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.3.0"
+  s.required_ruby_version = "~> 3.2.0"
 
   s.name = "decidim-proposals"
   s.summary = "Decidim proposals module"
@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-comments", Decidim::Proposals.version
   s.add_dependency "decidim-core", Decidim::Proposals.version
-  s.add_dependency "doc2text", "~> 0.4.0", ">= 0.4.8"
+  s.add_dependency "doc2text", "~> 0.4.7"
   s.add_dependency "redcarpet", "~> 3.5", ">= 3.5.1"
 
   s.add_development_dependency "decidim-admin", Decidim::Proposals.version

@@ -13,6 +13,8 @@ module Decidim
     include Decidim::UserReportable
     include Decidim::Traceable
 
+    REGEXP_NICKNAME = /\A[\w-]+\z/
+
     class Roles
       def self.all
         Decidim.config.user_roles
@@ -28,10 +30,11 @@ module Decidim
     devise :rememberable if Decidim.enable_remember_me
 
     has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity", dependent: :destroy
+    has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_id, dependent: :destroy
+    has_many :user_groups, through: :memberships, class_name: "Decidim::UserGroup", foreign_key: :decidim_user_group_id
     has_many :access_grants, class_name: "Doorkeeper::AccessGrant", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :reminders, foreign_key: "decidim_user_id", class_name: "Decidim::Reminder", dependent: :destroy
-    has_many :private_exports, class_name: "Decidim::PrivateExport", dependent: :destroy, inverse_of: :attached_to, as: :attached_to
 
     validates :name, presence: true, unless: -> { deleted? }
     validates :nickname,
@@ -42,12 +45,13 @@ module Decidim
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :tos_agreement, acceptance: true, if: :user_invited?
-    validates :tos_agreement, acceptance: true, if: :ephemeral?
     validates :email, :nickname, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? || nickname.blank? }
 
     validate :all_roles_are_valid
 
     has_one_attached :download_your_data_file
+
+    scope :not_deleted, -> { where(deleted_at: nil) }
 
     scope :managed, -> { where(managed: true) }
     scope :not_managed, -> { where(managed: false) }
@@ -55,16 +59,25 @@ module Decidim
     scope :officialized, -> { where.not(officialized_at: nil) }
     scope :not_officialized, -> { where(officialized_at: nil) }
 
+    scope :interested_in_scopes, lambda { |scope_ids|
+      actual_ids = scope_ids.select(&:presence)
+      if actual_ids.count.positive?
+        ids = actual_ids.map(&:to_i).join(",")
+        where(Arel.sql("extended_data->'interested_scopes' @> ANY('{#{ids}}')").to_s)
+      else
+        # Do not apply the scope filter when there are scope ids available. Note
+        # that the active record scope must always return an active record
+        # collection.
+        self
+      end
+    }
+
     scope :org_admins_except_me, ->(user) { where(organization: user.organization, admin: true).where.not(id: user.id) }
-
-    scope :ephemeral, -> { where("extended_data @> ?", Arel.sql({ ephemeral: true }.to_json)) }
-
-    scope :user_group, -> { where("#{arel_table.name}.extended_data @> ?", Arel.sql({ group: true }.to_json)) }
-    scope :not_user_group, -> { where.not("#{arel_table.name}.extended_data @> ?", Arel.sql({ group: true }.to_json)) }
 
     attr_accessor :newsletter_notifications
 
     searchable_fields({
+                        # scope_id: :decidim_scope_id,
                         organization_id: :decidim_organization_id,
                         A: :name,
                         B: :nickname,
@@ -136,10 +149,6 @@ module Decidim
       !officialized_at.nil?
     end
 
-    def group?
-      extended_data["group"]
-    end
-
     def follows?(followable)
       Decidim::Follow.where(user: self, followable:).any?
     end
@@ -186,7 +195,7 @@ module Decidim
     end
 
     def tos_accepted?
-      return true if managed && !ephemeral?
+      return true if managed
       return false if accepted_tos_version.nil?
 
       # For some reason, if we do not use `#to_i` here we get some
@@ -208,8 +217,26 @@ module Decidim
       ImpersonationLog.active.exists?(user: self)
     end
 
+    def interested_scopes_ids
+      extended_data["interested_scopes"] || []
+    end
+
+    def interested_scopes
+      @interested_scopes ||= organization.scopes.where(id: interested_scopes_ids)
+    end
+
     def user_name
       extended_data["user_name"] || name
+    end
+
+    # return the groups where this user has been accepted
+    def accepted_user_groups
+      UserGroups::AcceptedUserGroups.for(self)
+    end
+
+    # return the groups where this user has admin permissions
+    def manageable_user_groups
+      UserGroups::ManageableUserGroups.for(self)
     end
 
     def authenticatable_salt
@@ -249,10 +276,6 @@ module Decidim
         return true if participatory_space_type.moderators(organization).exists?(id:)
       end
       false
-    end
-
-    def ephemeral?
-      extended_data["ephemeral"]
     end
 
     def after_confirmation

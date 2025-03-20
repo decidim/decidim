@@ -32,8 +32,6 @@ end
 
 1.step do
   port = rand(5000..6999)
-  next if port == 6379 # Reserved for Redis
-
   begin
     redis = Redis.new
     reserved_ports = (redis.get("decidim_test_capybara_reserved_ports") || "").split(",").map(&:to_i)
@@ -68,13 +66,6 @@ Capybara.register_driver :headless_chrome do |app|
                     "--window-size=1920,1080"
                   end
   options.args << "--ignore-certificate-errors" if ENV["TEST_SSL"]
-
-  options.add_preference(:download,
-                         directory_upgrade: true,
-                         prompt_for_download: false,
-                         default_directory: DownloadHelper::PATH.to_s)
-  options.add_preference(:browser, set_download_behavior: { behavior: "allow" })
-
   Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
@@ -120,7 +111,7 @@ Capybara.register_driver :iphone do |app|
   options.args << "--no-sandbox"
   # Do not limit browser resources
   options.args << "--disable-dev-shm-usage"
-  options.add_emulation(device_name: "iPhone XR")
+  options.add_emulation(device_name: "iPhone 6")
 
   Capybara::Selenium::Driver.new(
     app,
@@ -148,8 +139,32 @@ Capybara.save_path = Rails.root.join("tmp/screenshots")
 Capybara.default_max_wait_time = 10
 
 RSpec.configure do |config|
+  config.before :all, type: :system do
+    if ENV["BIG_SCREEN_SIZE"].present?
+      warn "[DECIDIM] ChromeDriver Workaround is being active: Setting window size to 1920x3000."
+    else
+      warn "[DECIDIM] ChromeDriver Workaround is being active: Setting window size to 1920x1080."
+    end
+  end
+
   config.before :each, type: :system do
     driven_by(:headless_chrome)
+
+    # Workaround for flaky spec related to resolution change
+    #
+    # For some unknown reason, depending on the order run for these specs, the resolution is changed to
+    # 800x600, which breaks the drag and drop. This forces the resolution to be 1920x1080.
+    # One possible culprit for the screen resolution change is the alert error intercepting which messes with the window focus.
+    # This has been reported to SeleniumHQ, https://github.com/SeleniumHQ/selenium/issues/13553
+    # and to the chromedriver project, https://bugs.chromium.org/p/chromedriver/issues/detail?id=4709
+    #
+    # Note to future maintainers: If you remove this workaround, please make sure to check if the issue has been fixed.
+    # If that is the case, please remove this comment, workaround, and the above warning that starts with "[DECIDIM] ChromeDriver Workaround".
+    if ENV["BIG_SCREEN_SIZE"].present?
+      current_window.resize_to(1920, 3000)
+    else
+      current_window.resize_to(1920, 1080)
+    end
 
     switch_to_default_host
     domain = (try(:organization) || try(:current_organization))&.host

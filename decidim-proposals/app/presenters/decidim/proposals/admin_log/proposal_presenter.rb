@@ -13,14 +13,7 @@ module Decidim
       #    view_helpers # => this comes from the views
       #    ProposalPresenter.new(action_log, view_helpers).present
       class ProposalPresenter < Decidim::Log::BasePresenter
-        def initialize(action_log, view_helpers)
-          super
-          @proposal = action_log.resource if action_log.resource
-        end
-
         private
-
-        attr_reader :proposal
 
         def diff_fields_mapping
           {
@@ -32,13 +25,9 @@ module Decidim
           }
         end
 
-        def i18n_params
-          super.merge(merged_count:)
-        end
-
         def action_string
           case action
-          when "answer", "create", "update", "publish_answer", "soft_delete", "restore"
+          when "answer", "create", "update", "publish_answer"
             "decidim.proposals.admin_log.proposal.#{action}"
           else
             super
@@ -51,10 +40,6 @@ module Decidim
 
         def diff_actions
           super + %w(answer)
-        end
-
-        def merged_count
-          proposal&.linked_resources(:proposals, "merged_from_component")&.count || 0
         end
       end
     end

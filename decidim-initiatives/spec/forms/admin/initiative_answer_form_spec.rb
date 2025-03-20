@@ -12,7 +12,7 @@ module Decidim
         let(:initiatives_type) { create(:initiatives_type, organization:) }
         let(:scope) { create(:initiatives_type_scope, type: initiatives_type) }
 
-        let(:state) { "open" }
+        let(:state) { "published" }
 
         let(:initiative) { create(:initiative, organization:, state:, scoped_type: scope) }
         let(:user) { create(:user, organization:) }
@@ -38,7 +38,7 @@ module Decidim
             it { is_expected.to be(false) }
           end
 
-          context "when open" do
+          context "when published" do
             it { is_expected.to be(true) }
           end
         end

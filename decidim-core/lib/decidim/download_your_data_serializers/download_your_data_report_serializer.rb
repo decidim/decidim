@@ -28,8 +28,7 @@ module Decidim
           reason: resource.reason,
           details: resource.details,
           created_at: resource.created_at,
-          updated_at: resource.updated_at,
-          locale: resource.locale
+          updated_at: resource.updated_at
         }
       end
     end

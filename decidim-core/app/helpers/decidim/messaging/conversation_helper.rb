@@ -29,9 +29,10 @@ module Decidim
       # Generates a visualization of users for listing conversations threads
       #
       def username_list(users, shorten: false)
+        content_tags = []
         first_users = shorten ? users.first(3) : users
-        content_tags = first_users.map do |u|
-          u.deleted? ? t("decidim.profile.deleted") : u.name
+        first_users.each do |u|
+          content_tags.push(u.deleted? ? t("decidim.profile.deleted") : u.name)
         end
 
         return content_tags.join(", ") unless shorten
@@ -116,7 +117,7 @@ module Decidim
       end
 
       #
-      # Links to the conversation between the current user and another users
+      # Links to the conversation between the current user and another users group
       #
       def current_or_new_conversation_path_with_multiple(users, opts = {})
         return decidim_routes.new_user_session_path unless user_signed_in?

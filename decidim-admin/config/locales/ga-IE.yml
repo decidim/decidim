@@ -1,3 +1,4 @@
+---
 ga:
   activemodel:
     attributes:
@@ -64,10 +65,14 @@ ga:
       actions:
         add: Cuir leis
         browse: Brabhsáil
+        category:
+          new: Catagóir nua
         import: Iompórtáil
         manage: Bainistigh
         per_page: In aghaidh an leathanach
+        reject: Diúltaigh
         share: Roinn
+        verify: Deimhnigh
       area_types:
         edit:
           update: Nuashonraigh
@@ -88,8 +93,16 @@ ga:
         index:
           attachments_title: Ceangaltáin
       categories:
+        edit:
+          title: Cuir catagóir
+          update: Nuashonraigh
         index:
           categories_title: Catagóirí
+        new:
+          create: Cruthaigh catagóir
+          title: Catagóir nua
+        update:
+          success: Catagóir nuashonraithe go rathúil.
       components:
         edit:
           update: Nuashonraigh
@@ -113,6 +126,8 @@ ga:
           FormPDF: PDF
           JSON: JSON
       filters:
+        category_id_eq:
+          label: Catagóir
         filter_label: Scagaire
         invitation_accepted_at_present:
           values:
@@ -139,6 +154,8 @@ ga:
           values:
             'false': Poblach
             'true': Príobháideach
+        scope_id_eq:
+          label: Scóip
         search_label: Cuardaigh
         state_eq:
           label: Staid
@@ -180,6 +197,7 @@ ga:
         scopes: Scóip
         settings: Socruithe
         static_pages: Leathanaigh
+        user_groups: Grúpaí
       models:
         area:
           fields:
@@ -217,6 +235,9 @@ ga:
           fields:
             name: Ainm
             plural: Iolra
+        share_token:
+          fields:
+            token: Licín
         static_page:
           fields:
             title: Teideal
@@ -227,6 +248,12 @@ ga:
             role: Ról
             roles:
               admin: Riarachán
+        user_group:
+          fields:
+            actions: Gníomhartha
+            name: Ainm
+            phone: Fón
+            state: Staid
       moderated_users:
         index:
           actions:
@@ -258,6 +285,7 @@ ga:
           save: Sábháil
         select_recipients_to_deliver:
           all_spaces: Uile
+          none: Ceann ar Bith
         show:
           preview: Réamhamharc
           subject: Ábhar
@@ -296,6 +324,10 @@ ga:
       resource_permissions:
         edit:
           submit: Deimhnigh
+      resources:
+        index:
+          headers:
+            scope: Scóip
       scope_types:
         edit:
           update: Nuashonraigh
@@ -305,6 +337,7 @@ ga:
       share_tokens:
         actions:
           destroy: Scrios
+          share: Roinn
       static_pages:
         edit:
           update: Nuashonraigh
@@ -318,6 +351,16 @@ ga:
         metrics: Méadrachtaí
         panel: Riarachán
         scopes: Scóip
+        user_groups: Grúpaí
+      user_groups:
+        index:
+          state:
+            pending: Ar feitheamh
+            rejected: Diúltaithe
+            verified: Fíoraithe
+      user_groups_csv_verifications:
+        new:
+          upload: Uaslódáil
       users:
         form:
           email: Seoladh ríomhphoist

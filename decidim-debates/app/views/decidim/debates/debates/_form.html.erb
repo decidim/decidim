@@ -2,24 +2,15 @@
   <%= form.text_field :title %>
   <%= text_editor_for_debate_description(form) %>
 
-  <% if @form.taxonomy_filters&.any? %>
-      <% @form.taxonomy_filters.each do |filter| %>
-        <div class="row column">
-          <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
-        </div>
-      <% end %>
+  <% if current_component.has_subscopes? %>
+    <%= scopes_select_field form, :scope_id, root: current_component.scope %>
   <% end %>
 
-  <% if component_settings.attachments_allowed? %>
-    <div class="row column">
-      <%= form.attachment :documents,
-                          multiple: true,
-                          label: t("decidim.debates.admin.debates.form.add_attachments"),
-                          button_label: t("decidim.debates.admin.debates.form.add_attachments"),
-                          button_edit_label: t("decidim.debates.admin.debates.form.edit_attachments"),
-                          button_class: "button button__lg button__transparent-secondary w-full",
-                          help_i18n_scope: "decidim.forms.file_help.file",
-                          help_text: t("decidim.debates.admin.debates.form.attachment_legend") %>
-    </div>
+  <% if current_participatory_space.categories&.any? %>
+    <%= form.categories_select :category_id, current_participatory_space.categories, include_blank: t(".select_a_category"), disable_parents: false %>
+  <% end %>
+
+  <% if @form.id.blank? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+    <%= form.select :user_group_id, Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map { |g| [g.name, g.id] }, prompt: current_user.name %>
   <% end %>
 </div>

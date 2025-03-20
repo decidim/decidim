@@ -1,26 +1,31 @@
+---
 pt:
   activemodel:
     attributes:
       collaborative_draft:
         address: Endereço
         body: Corpo
+        category_id: Categoria
         decidim_scope_id: Âmbito
         has_address: Tem endereço
         scope_id: Âmbito
         state: Estado
         title: Título
+        user_group_id: Criar rascunho colaborativo como
       proposal:
         address: Endereço
         answer: Responder
         answered_at: Respondido em
         automatic_hashtags: Hashtags adicionados automaticamente
         body: Corpo
+        category_id: Categoria
         decidim_scope_id: Âmbito
         has_address: Tem endereço
         scope_id: Âmbito
         state: Estado
         suggested_hashtags: Hashtags sugeridos
         title: Título
+        user_group_id: Criar proposta como
       proposal_answer:
         answer: Responder
         cost: Custo
@@ -32,6 +37,9 @@ pt:
         import_proposals: Importar propostas
         keep_answers: Guardar estado e respostas
         keep_authors: Manter os autores originais
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Nome do avaliador
     errors:
       models:
         proposal:
@@ -54,6 +62,8 @@ pt:
             base:
               not_official: Não são oficiais
     models:
+      decidim/proposals/admin/update_proposal_category_event: Categoria da proposta modificada
+      decidim/proposals/admin/update_proposal_scope_event: Âmbito da proposta modificado
       decidim/proposals/creation_enabled_event: Criação de proposta ativada
       decidim/proposals/endorsing_enabled_event: Endossamento de proposta ativado
       decidim/proposals/proposal_mentioned_event: Proposta mencionada
@@ -74,11 +84,15 @@ pt:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Categoria
           is_emendation_true:
             label: Tipo
             values:
               'false': Propostas
               'true': Revisões
+          scope_id_eq:
+            label: Âmbito
           state_eq:
             label: Estado
             values:
@@ -88,6 +102,8 @@ pt:
               rejected: Rejeitado
               validating: Validação técnica
               withdrawn: Retirado
+          valuator_role_ids_has:
+            label: Atribuído a avaliador
         search_placeholder:
           id_string_or_title_cont: Pesquisar %{collection} por ID ou título.
     components:
@@ -95,6 +111,7 @@ pt:
         actions:
           amend: Modificar
           comment: Comentar
+          create: Criar
           endorse: Endossar
           vote_comment: Cometário ao voto
           withdraw: Retirar
@@ -117,6 +134,7 @@ pt:
               random: Aleatório
               recent: Mais recentes
               with_more_authors: Com mais autores
+            geocoding_enabled: Geocoding ativado
             new_proposal_body_template: Novo modelo de corpo de proposta
             new_proposal_body_template_help: Pode definir o texto pré-preenchido que as novas Propostas terão
             new_proposal_help_text: Novo texto de ajuda da proposta
@@ -124,6 +142,7 @@ pt:
             participatory_texts_enabled: Textos participativos ativados
             participatory_texts_enabled_readonly: Não é possível interagir com esta configuração caso existam propostas. Crie um novo "Componente de propostas" caso pretenda ativar esta característica ou elimine todas as propostas importadas no menu "Textos Participativos" caso pretenda desativá-la.
             proposal_answering_enabled: Respostas à proposta ativadas
+            proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que estes minutos passem
             proposal_edit_time: Edição de proposta
             proposal_edit_time_choices:
               infinite: Permitir editar propostas por um limite de tempo indeterminado
@@ -132,6 +151,8 @@ pt:
             proposal_limit: Limite de propostas por utilizador
             proposal_wizard_step_1_help_text: Texto de ajuda do passo "Criar" do Assistente de Propostas
             resources_permissions_enabled: As permissões de ações podem ser definidas para cada proposta
+            scope_id: Âmbito
+            scopes_enabled: Âmbitos activados
             threshold_per_proposal: Limiar por proposta
           step:
             amendment_creation_enabled: Criação de modificação ativada
@@ -168,6 +189,7 @@ pt:
       proposals:
         admin:
           proposal_note_created:
+            email_outro: Recebeu esta notificação pois pode avaliar a proposta.
             email_subject: Alguém deixou uma nota na proposta %{resource_title}.
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} foi aceite para aceder como contribuidor de %{resource_title}."
@@ -209,6 +231,14 @@ pt:
           email_intro: A proposta "%{resource_title}" foi adicionada a "%{participatory_space_title}" que você segue.
           email_outro: Recebeu esta notificação porque segue "%{participatory_space_title}". Pode deixar de receber notificações seguindo a hiperligação anterior.
           email_subject: Nova proposta "%{resource_title}" adicionada a %{participatory_space_title}
+        proposal_update_category:
+          email_intro: 'Um administrador atualizou a categoria da sua proposta "%{resource_title}", verifique nesta página:'
+          email_subject: A categoria da proposta %{resource_title} foi atualizada
+          notification_title: A categoria da proposta <a href="%{resource_path}">%{resource_title}</a> foi atualizada por um administrador.
+        proposal_update_scope:
+          email_intro: 'Um administrador atualizou o âmbito da sua proposta "%{resource_title}". Consulte-o nesta página:'
+          email_subject: O âmbito da proposta %{resource_title} foi atualizado
+          notification_title: O âmbito da proposta <a href="%{resource_path}">%{resource_title}</a> foi atualizado por um administrador.
         voting_enabled:
           email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
     gamification:
@@ -309,18 +339,27 @@ pt:
           form:
             note: Nota
             submit: Submeter
+          leave_your_note: Deixe a sua nota
           title: Notas privadas
         proposals:
           edit:
             title: Atualizar proposta
             update: Atualizar
           form:
+            attachment_legend: "(Opcional) Adicione um anexo"
             created_in_meeting: Esta proposta vem de uma reunião
+            delete_attachment: Apagar anexo
+            select_a_category: Selecione uma categoria
             select_a_meeting: Selecione uma reunião
           index:
             actions: Ações
+            assign_to_valuator: Atribuir a avaliador
+            assign_to_valuator_button: Atribuir
             cancel: Cancelar
+            change_category: Modificar categoria
+            change_scope: Modificar âmbito
             merge: Junte-se a um novo
+            merge_button: Fundir
             publish: Publicar
             publish_answers: Publicar respostas
             select_component: Selecione um componente
@@ -328,12 +367,16 @@ pt:
             split: Dividir propostas
             split_button: Dividir
             title: Propostas
+            unassign_from_valuator: Remover atribuição ao avaliador
+            unassign_from_valuator_button: Remover atribuição
             update: Atualizar
+            update_scope_button: Atualizar Âmbito
           new:
             create: Criar
             title: Criar proposta
           show:
             amendments_count: Contagem de modificações
+            assigned_valuators: Avaliadores atribuídos
             body: Corpo
             comments_count: Contagem de comentários
             documents: Documentos
@@ -346,6 +389,14 @@ pt:
             ranking: "%{ranking} de %{total}"
             related_meetings: Reuniões relacionadas
             remove_assignment: Remover atribuição
+            remove_assignment_confirmation: Tem a certeza de que pretende remover o avaliador desta proposta?
+            valuators: Avaliadores
+          update_category:
+            invalid: 'Estas propostas já possuíam a categoria %{subject_name}: %{proposals}.'
+            success: 'Propostas atualizadas corretamente para a categoria %{subject_name}: %{proposals}.'
+          update_scope:
+            invalid: 'Estas propostas já possuíam o âmbito %{subject_name}: %{proposals}.'
+            success: 'Propostas atualizadas corretamente para o âmbito %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
             create: Importar propostas
@@ -354,17 +405,23 @@ pt:
             select_states: Verifique os estados das propostas a importar
         proposals_merges:
           create:
+            invalid: 'Houve um problema ao fundir as propostas seleccionadas porque algumas delas:'
             success: Fundiu corretamente as propostas em uma nova.
         proposals_splits:
           create:
+            invalid: 'Houve um problema ao dividir as propostas seleccionadas porque algumas delas:'
             success: Dividiu corretamente as propostas em novas.
       admin_log:
         proposal:
           answer: "%{user_name} respondeu à proposta %{resource_name} no espaço %{space_name}"
+          create: "%{user_name} criou a proposta %{resource_name} no espaço %{space_name} como uma proposta oficial"
           publish_answer: "%{user_name} publicou a resposta à proposta %{resource_name} no espaço %{space_name}"
           update: "%{user_name} atualizou a proposta oficial %{resource_name} no espaço %{space_name}"
         proposal_note:
           create: "%{user_name} deixou uma nota privada na proposta %{resource_name} no espaço %{space_name}"
+        valuation_assignment:
+          create: "%{user_name} atribuiu a proposta %{resource_name} a um avaliador"
+          delete: "%{user_name} removeu a atribuição de um avaliador à proposta %{proposal_title}"
       answers:
         accepted: Aceites
         evaluating: Avaliando
@@ -376,6 +433,7 @@ pt:
           all: Todos
           meetings: Reuniões
           official: Oficial
+          user_groups: Grupos
         filter_state_values:
           all: Todos
           not_answered: Não respondido
@@ -402,15 +460,19 @@ pt:
         create:
           success: Rascunho colaborativo criado corretamente.
         edit:
+          attachment_legend: "(Opcional) Adicione um anexo"
           back: Retroceder
+          select_a_category: Por favor, selecione uma categoria
           send: Enviar
           title: Editar rascunho colaborativo
         filters:
           all: Todos
           amendment: Modificações
+          category: Categoria
           open: Abrir
           published: Publicados
           related_to: Relacionado com
+          scope: Âmbito
           search: Pesquisar
           state: Estado
           withdrawn: Retirado
@@ -444,6 +506,7 @@ pt:
           rejected_request:
             error: Não foi possível rejeitá-lo como colaborador, por favor tente novamente mais tarde.
         show:
+          edit: Editar rascunho colaborativo
           final_proposal: proposta final
           final_proposal_help_text: Este rascunho está terminado. Verifique a proposta final
           hidden_authors_count:
@@ -475,14 +538,18 @@ pt:
       models:
         proposal:
           fields:
+            category: Categoria
             comments: Comentários
             id: ID
             notes: Notas
             official_proposal: Proposta oficial
             published_answer: Resposta publicada
             published_at: Publicado em
+            scope: Âmbito
             state: Estado
             title: Título
+            valuator: Avaliador
+            valuators: Avaliadores
             votes: Votos
       participatory_text_proposal:
         alternative_title: Não há textos participativos neste momento
@@ -494,7 +561,9 @@ pt:
           description: As coordenadas serão actualizadas quando clicar no botão ‘pré-visualização’. No entanto, o endereço não será alterado.
           instructions: Pode mover o ponto no mapa.
         edit:
+          attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
+          select_a_category: Por favor selecione uma categoria
           send: Enviar
           title: Editar proposta
         edit_draft:
@@ -505,6 +574,7 @@ pt:
           activity: A minha atividade
           all: Todos
           amendment_type: Tipo
+          category: Categoria
           my_proposals: As minhas propostas
           origin: Origem
           related_to: Relacionado com
@@ -546,6 +616,7 @@ pt:
         show:
           answer: Responder
           changes_at_title: Modificação a "%{title}"
+          edit_proposal: Editar proposta
           estimated_cost: Custo estimado
           hidden_endorsers_count:
             one: e mais %{count} pessoa
@@ -560,13 +631,12 @@ pt:
           proposal_in_evaluation_reason: Esta proposta está sob avaliação
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
           withdraw_confirmation_html: Tem a certeza de que deseja retirar esta proposta?<br><br><strong>Esta ação não pode ser cancelada!</strong>
+          withdraw_proposal: Retirar proposta
         update:
           title: Atualizar proposta
         voting_rules:
           proposal_limit:
             description: Pode criar até %{limit} propostas.
-          vote_limit:
-            description: Pode votar até %{limit} propostas.
         wizard_aside:
           back: Retroceder
           back_from_step_1: Retroceder para as propostas

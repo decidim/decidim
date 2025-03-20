@@ -10,7 +10,7 @@ module Decidim
 
         fetch_form_attributes :title, :slogan, :slug, :weight, :hashtag, :description, :short_description,
                               :objectives, :location, :start_date, :end_date, :promoted, :show_statistics,
-                              :taxonomizations, :registrations_enabled
+                              :scopes_enabled, :scope, :registrations_enabled
 
         private
 

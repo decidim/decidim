@@ -113,46 +113,193 @@ describe "Filter Participatory Processes" do
     end
   end
 
-  context "when filtering parent participatory processes by taxonomies" do
-    let!(:taxonomy) { create(:taxonomy, :with_parent, organization:, name: { en: "A great taxonomy" }) }
-    let!(:another_taxonomy) { create(:taxonomy, parent: taxonomy.parent, organization:, name: { en: "Another taxonomy" }) }
-    let!(:process_with_taxonomy) { create(:participatory_process, taxonomies: [taxonomy], organization:) }
-    let!(:process_without_taxonomy) { create(:participatory_process, organization:) }
-    let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: taxonomy.parent, participatory_space_manifests:) }
-    let(:external_taxonomy_filter) { create(:taxonomy_filter, :with_items, participatory_space_manifests:) }
-    let(:participatory_space_manifests) { ["participatory_processes"] }
-    let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
-    let!(:another_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: another_taxonomy) }
+  context "when filtering processes by scope" do
+    let!(:scope) { create(:scope, organization:) }
+    let!(:process_with_scope) { create(:participatory_process, scope:, organization:) }
+    let!(:process_without_scope) { create(:participatory_process, organization:) }
 
-    context "and choosing a taxonomy" do
+    context "and choosing a scope" do
       before do
-        visit decidim_participatory_processes.participatory_processes_path(filter: { with_any_taxonomies: { taxonomy.parent_id => [taxonomy.id] } })
+        visit decidim_participatory_processes.participatory_processes_path(filter: { with_any_scope: scope.id })
       end
 
-      it "lists all processes belonging to that taxonomy" do
-        within "#processes-grid" do
-          expect(page).to have_content(translated(process_with_taxonomy.title))
-          expect(page).to have_no_content(translated(process_without_taxonomy.title))
+      it "lists all processes belonging to that scope" do
+        expect(page).to have_content(translated(process_with_scope.title))
+        expect(page).to have_no_content(translated(process_without_scope.title))
+      end
+    end
+  end
+
+  context "when filtering processes by area" do
+    let!(:area) { create(:area, organization:) }
+    let!(:other_area) { create(:area, organization:) }
+    let!(:process_with_area) { create(:participatory_process, area:, organization:) }
+    let!(:process_without_area) { create(:participatory_process, organization:) }
+
+    before do
+      visit decidim_participatory_processes.participatory_processes_path
+    end
+
+    context "and choosing an area" do
+      before do
+        within "#panel-dropdown-menu-area" do
+          click_filter_item translated(area.name)
+        end
+      end
+
+      it "lists all processes belonging to that area" do
+        expect(page).to have_content(translated(process_with_area.title))
+        expect(page).to have_no_content(translated(process_without_area.title))
+      end
+    end
+
+    context "when filters are disabled" do
+      let!(:process_with_area) { create(:participatory_process, area: create(:area, organization:), organization:) }
+      let!(:process_with_scope) { create(:participatory_process, scope: create(:scope, organization:), organization:) }
+      let(:organization) { create(:organization, enable_participatory_space_filters: false) }
+
+      before do
+        visit decidim_participatory_processes.participatory_processes_path
+      end
+
+      it "does not show filters" do
+        expect(page).to have_no_css(".with_area_areas_select_filter")
+        expect(page).to have_no_css(".with_scope_scopes_picker_filter")
+      end
+    end
+  end
+
+  context "when filtering processes by type" do
+    context "when there are no participatory processes types" do
+      let!(:processes) { create_list(:participatory_process, 3, :active, organization:) }
+
+      context "when visiting processes index" do
+        before do
+          visit decidim_participatory_processes.participatory_processes_path
         end
 
-        within "#panel-dropdown-menu-taxonomy" do
-          click_filter_item "Another taxonomy"
-          sleep 2
+        it "does not show the participatory process types filter" do
+          expect(page).to have_no_css("#process-type-filter")
+        end
+      end
+    end
+
+    context "when there are participatory processes types" do
+      let!(:process_type) { create(:participatory_process_type, :with_active_participatory_processes, organization:, title: { en: "Awesome Type" }) }
+      let!(:past_process_type) { create(:participatory_process_type, :with_past_participatory_processes, organization:, title: { en: "Old Type" }) }
+      let!(:unpublished_process_type) { create(:participatory_process_type, organization:, title: { en: "Unpublished Type" }) }
+      let!(:empty_process_type) { create(:participatory_process_type, organization:, title: { en: "Empty Type" }) }
+      let!(:processes_group1) { create(:participatory_process_group, organization:, title: { en: "The South Group" }) }
+      let!(:processes_group2) { create(:participatory_process_group, organization:, title: { en: "The North Group" }) }
+      let!(:group_1_process_type) { create(:participatory_process_type, :with_active_participatory_processes, organization:, title: { en: "The East Type" }) }
+      let!(:group_2_process_type) { create(:participatory_process_type, :with_active_participatory_processes, organization:, title: { en: "The West Type" }) }
+      let!(:processes1) do
+        create_list(
+          :participatory_process,
+          3,
+          title: { en: "SE Rocks!" },
+          start_date: 2.days.ago,
+          organization:,
+          participatory_process_group: processes_group1,
+          participatory_process_type: group_1_process_type
+        )
+      end
+      let!(:processes2) do
+        create_list(
+          :participatory_process,
+          3,
+          title: { en: "NW Rocks!" },
+          start_date: 2.days.ago,
+          organization:,
+          participatory_process_group: processes_group2,
+          participatory_process_type: group_2_process_type
+        )
+      end
+      let(:unpublished_process) do
+        create(
+          :participatory_process,
+          :active,
+          :unpublished,
+          title: { en: "Unpublished process" },
+          participatory_process_type: unpublished_process_type
+        )
+      end
+
+      context "when visiting processes index" do
+        before do
+          visit decidim_participatory_processes.participatory_processes_path
         end
 
-        within "#processes-grid" do
-          expect(page).to have_no_content(translated(process_with_taxonomy.title))
-          expect(page).to have_no_content(translated(process_without_taxonomy.title))
+        context "and choosing 'active' processes" do
+          it "lists all active processes" do
+            within "#processes-grid h2" do
+              expect(page).to have_content("8 active processes")
+            end
+          end
         end
 
-        within "#panel-dropdown-menu-taxonomy" do
-          click_filter_item "Another taxonomy"
-          sleep 2
+        context "and choosing 'past' processes" do
+          before do
+            within "#panel-dropdown-menu-date" do
+              click_filter_item "Past"
+            end
+            sleep 2
+          end
+
+          it "lists past processes" do
+            within "#processes-grid h2" do
+              expect(page).to have_content("2 past processes")
+            end
+          end
         end
 
-        within "#processes-grid" do
-          expect(page).to have_content(translated(process_with_taxonomy.title))
-          expect(page).to have_content(translated(process_without_taxonomy.title))
+        context "and filtering by a process type" do
+          before do
+            within "#panel-dropdown-menu-type" do
+              click_filter_item "The West Type"
+            end
+            sleep 2
+          end
+
+          it "lists process type processes" do
+            within "#processes-grid h2" do
+              expect(page).to have_content("3 active processes")
+            end
+
+            expect(page).to have_no_content("NW Rocks!")
+            expect(page).to have_no_content("SE Rocks!")
+            group_1_process_type.processes.groupless.each do |group|
+              expect(page).to have_no_content(translated(group.title))
+            end
+            group_2_process_type.processes.groupless.each do |group|
+              expect(page).to have_content(translated(group.title))
+            end
+          end
+        end
+
+        context "and filtering by more than one process type" do
+          before do
+            within "#panel-dropdown-menu-type" do
+              click_filter_item "The West Type"
+              click_filter_item "The East Type"
+            end
+            sleep 2
+          end
+
+          it "lists process type processes" do
+            within "#processes-grid h2" do
+              expect(page).to have_content("6 active processes")
+            end
+
+            expect(page).to have_no_content("NW Rocks!")
+            expect(page).to have_no_content("SE Rocks!")
+            group_1_process_type.processes.groupless.each do |group|
+              expect(page).to have_content(translated(group.title))
+            end
+            group_2_process_type.processes.groupless.each do |group|
+              expect(page).to have_content(translated(group.title))
+            end
+          end
         end
       end
     end

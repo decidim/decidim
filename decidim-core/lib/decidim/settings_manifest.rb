@@ -70,27 +70,11 @@ module Decidim
             validates name, presence: true if attribute.required
             validates name, inclusion: { in: attribute.build_choices } if attribute.type == :enum
           end
-
-          SettingsManifest.add_integer_with_units_validation(self, name, attribute) if attribute.type == :integer_with_units
         end
       end
 
       @schema.manifest = self
       @schema
-    end
-
-    def self.add_integer_with_units_validation(schema, name, attribute)
-      schema.class_eval do
-        validate do
-          value = send(name)
-          value = [value["0"].to_i, value["1"].to_s] if value.is_a?(::Hash)
-
-          errors.add(name, :invalid) unless value.is_a?(::Array) &&
-                                            value.size == 2 &&
-                                            value[0].is_a?(Integer) &&
-                                            attribute.build_units.include?(value[1])
-        end
-      end
     end
 
     def required_attributes_for_authorization
@@ -107,7 +91,6 @@ module Decidim
       TYPES = {
         boolean: { klass: Boolean, default: false },
         integer: { klass: Integer, default: 0 },
-        integer_with_units: { klass: Decidim::Attributes::IntegerWithUnits, default: [5, "minutes"] },
         string: { klass: String, default: nil },
         float: { klass: Float, default: nil },
         text: { klass: String, default: nil },
@@ -115,8 +98,7 @@ module Decidim
         enum: { klass: String, default: nil },
         select: { klass: String, default: nil },
         scope: { klass: Integer, default: nil },
-        time: { klass: Decidim::Attributes::TimeWithZone, default: nil },
-        taxonomy_filters: { klass: Array, default: [] }
+        time: { klass: Decidim::Attributes::TimeWithZone, default: nil }
       }.freeze
 
       attribute :type, Symbol, default: :boolean
@@ -129,21 +111,9 @@ module Decidim
       attribute :required_for_authorization, Boolean, default: false
       attribute :readonly
       attribute :choices
-      attribute :raw_choices, Boolean, default: false
-      attribute :units
       attribute :include_blank, Boolean, default: false
 
       validates :type, inclusion: { in: TYPES.keys }
-      validate :validate_integer_with_units_structure
-
-      def validate_integer_with_units_structure
-        return unless type == :integer_with_units
-
-        errors.add(:default, :invalid) unless default_value.is_a?(::Array) &&
-                                              default_value.size == 2 &&
-                                              default_value[0].is_a?(Integer) &&
-                                              build_units.include?(default_value[1])
-      end
 
       def type_class
         return Decidim::Attributes::RichText if type == :text && editor == true
@@ -155,12 +125,8 @@ module Decidim
         default || TYPES[type][:default]
       end
 
-      def build_choices(context = nil)
-        choices.try(:call, context) || choices
-      end
-
-      def build_units
-        units.try(:call) || units
+      def build_choices
+        choices.try(:call) || choices
       end
 
       def readonly?(context)

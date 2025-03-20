@@ -1,6 +1,9 @@
+---
 bg:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Заглавие
       assembly:
         announcement: Обявление
         area_id: Район
@@ -17,6 +20,7 @@ bg:
         created_by_other: Създадено от друг
         creation_date: Дата на създаване
         decidim_area_id: Област
+        decidim_assemblies_type_id: Тип събрание
         decidim_scope_id: Обхват
         description: Описание
         developer_group: Група за популяризиране
@@ -32,6 +36,7 @@ bg:
         import_components: Импортиране на компоненти
         included_at: Включено в(ъв)
         instagram: Instagram
+        internal_organisation: Вътрешна организация
         is_transparent: Е прозрачно
         local_area: Област на организацията
         meta_scope: Метаданни за обхвата
@@ -43,6 +48,8 @@ bg:
         promoted: Акцентирано
         published_at: Публикувано на
         purpose_of_action: Цел на действието
+        scope_id: Обхват
+        scopes_enabled: Обхватите са активирани
         short_description: Кратко описание
         slug: Съкратен URL
         special_features: Специални функции
@@ -89,10 +96,13 @@ bg:
       actions:
         import_assembly: Импортиране
         new_assembly: Ново събрание
+        new_assembly_member: Нов член на събранието
+        new_assembly_type: Нов тип събрание
         new_assembly_user_role: Нов администратор на събранието
       assemblies:
         create:
           error: Възникна проблем при създаването на ново събрание.
+          success: Събранието беше създадено успешно.
         edit:
           update: Актуализация
         index:
@@ -110,6 +120,18 @@ bg:
         create:
           error: Възникна проблем при дублирането на това събрание.
           success: Събранието беше дублирано успешно.
+      assemblies_types:
+        create:
+          error: Възникна проблем при създаването на нов тип събрание.
+          success: Типът събрание беше създаден успешно.
+        destroy:
+          success: Типът събрание беше изтрит успешно.
+        new:
+          create: Създаване
+          title: Нов тип събрание
+        update:
+          error: Възникна проблем при актуализирането на този тип събрание.
+          success: Типът на събранието беше актуализиран успешно.
       assembly_copies:
         new:
           copy: Копиране
@@ -123,6 +145,23 @@ bg:
           import: Импортиране
           select: Изберете кои данни искате да импортирате
           title: Импортиране на събрание
+      assembly_members:
+        create:
+          error: Възникна проблем при добавянето на член за това събрание.
+          success: Членът беше добавен успешно за това събрание.
+        destroy:
+          success: Членът беше изтрит успешно за това събрание.
+        edit:
+          title: Актуализиране на член на събранието
+          update: Актуализация
+        index:
+          assembly_members_title: Членове на събранието
+        new:
+          create: Създаване
+          title: Нов член на събранието
+        update:
+          error: Възникна проблем при актуализирането на члена за това събрание.
+          success: Членът беше актуализиран успешно за това събрание.
       assembly_publications:
         create:
           error: Възникна проблем при публикуването на това събрание.
@@ -153,21 +192,30 @@ bg:
           values:
             'false': Не е прекратено
             'true': Прекратено
+        decidim_assemblies_type_id_eq:
+          label: Тип събрание
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Търсене по име или псевдоним
       menu:
         assemblies: Събрания
         assemblies_submenu:
           assembly_admins: Администратори на събранието
+          assembly_members: Членове
           attachment_collections: Папки
           attachment_files: Файлове
           attachments: Прикачени файлове
+          categories: Категории
           components: Компоненти
           info: Относно това събрание
           landing_page: Целева страница
           moderations: Модерации
           see_assembly: Вижте събранието
+        assemblies_types: Типове събрания
       models:
+        assemblies_types:
+          fields:
+            created_at: Създадено на
+            title: Заглавие
         assembly:
           fields:
             actions: Активности
@@ -178,6 +226,11 @@ bg:
             title: Заглавие
           name: Събрание
         assembly_member:
+          fields:
+            ceased_date: Дата на прекратяване
+            designation_date: Дата на обозначаване
+            full_name: Име
+            position: Длъжност
           name: Член
           positions:
             other: Друго
@@ -194,6 +247,7 @@ bg:
             admin: Администратор
             collaborator: Сътрудник
             moderator: Модератор
+            valuator: Оценител
       titles:
         assemblies: Събрания
         assemblies_types: Типове събрания
@@ -229,16 +283,22 @@ bg:
             announcement_help: Текстът, който въвеждате тук, ще бъде показан на потребителя точно под информацията за събранието.
             duration: Продължителност
             duration_help: Ако продължителността на това събрание е ограничена, изберете крайната дата. В противен случай ще се показва като неограничено във времето.
+            filters: Филтри
             images: Изображения
             included_at_help: Изберете датата, на която този модул е ​​добавен към платформата. Не е задължително да е същата като датата на създаване.
             metadata: Метаданни
             other: Друго
             select_a_created_by: Изберете „Създадено от“
+            select_an_area: Изберете област
+            select_an_assembly_type: Изберете тип събрание
             select_parent_assembly: Изберете родителско събрание
             slug_help_html: 'Използват се променливи полета в URL адреса, за да се генерират URL адреси, които водят към това събрание. Допуска се използването само на букви, цифри и тирета и адресът трябва да започва с буква. Пример: %{url}'
             social_handlers: Социални мрежи
             title: Основна информация
             visibility: Видимост
+        assemblies_types:
+          form:
+            title: Редактиране на типа събрание
         assembly_copies:
           form:
             slug_help_html: 'Използват се променливи полета в URL адреса, за да се генерират URL адреси, които водят към това събрание. Допуска се използването само на букви, цифри и тирета и адресът трябва да започва с буква. Пример: %{url}'
@@ -247,9 +307,14 @@ bg:
             slug_help_html: 'Използват се променливи полета в URL адреса, за да се генерират URL адреси, които водят към това събрание. Допуска се използването само на букви, цифри и тирета и адресът трябва да започва с буква. Пример: %{url}'
         assembly_members:
           form:
+            existing_user: Съществуващ участник
             explanation: 'Указания за изображението:'
             image_guide: За предпочитане е портретно (вертикално) изображение без текст.
+            non_user: Не е участник
             non_user_avatar_help: Трябва да получите съгласието на лицата, преди да ги публикувате като членове.
+            select_a_position: Изберете длъжност
+            select_user: Изберете участник
+            user_type: Тип участник
         content_blocks:
           highlighted_assemblies:
             max_results: Максимален брой елементи, които да се показват
@@ -282,6 +347,14 @@ bg:
       assembly_members:
         index:
           members: Членове
+      assembly_types:
+        commission: Комисия
+        consultative_advisory: Консултативно/Съветнически
+        executive: Изпълнителен директор
+        government: Правителство
+        others: Други
+        participatory: Съучастие
+        working_group: Работна група
       content_blocks:
         children_assemblies:
           name: Събрания
@@ -320,10 +393,13 @@ bg:
           member_of:
             member_of: Член на
       show:
+        assembly_type: Тип събрание
         duration: Продължителност
         private_space: Това е частно събрание
         social_networks_title: Посетете събранието на
     assembly_members:
+      assembly_member:
+        designated_on: Обозначено на
       index:
         title: Членове
     events:

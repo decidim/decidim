@@ -1,3 +1,4 @@
+---
 kaa:
   activemodel:
     attributes:
@@ -32,9 +33,14 @@ kaa:
             name: Nátiyje
           status:
             name: Jaǵday
+        projects_import:
+          new:
+            create: Importlaw
         results:
           create:
             success: Nátiyje tabıslı jaratıldı.
+          destroy:
+            success: Nátiyje tabıslı óshirildi.
           edit:
             title: Nátiyjeni ózgertiw
             update: Nátiyjeni jańalaw
@@ -74,6 +80,7 @@ kaa:
       models:
         result:
           fields:
+            category: Kategoriya
             created_at: Jaratıldı
             status: Jaǵday
         timeline_entry:
@@ -87,6 +94,8 @@ kaa:
     admin:
       filters:
         results:
+          category_id_eq:
+            label: Kategoriya
           status_id_eq:
             label: Jaǵday
     metrics:

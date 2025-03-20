@@ -1,7 +1,9 @@
+---
 uk:
   activemodel:
     attributes:
       project:
+        decidim_category_id: Категорія
         description: Опис
         proposal_ids: Супутні пропозиції
         title: Назва
@@ -17,6 +19,7 @@ uk:
       actions:
         attachment_collections: Теки
         attachments: Вкладені файли
+        destroy: Видалити
         edit: Редагувати
         import: Внести до проектів запозичені пропозиції
         preview: Попередній перегляд
@@ -50,9 +53,6 @@ uk:
         project:
           fields:
             title: Назва
-      order:
-        status:
-          title: Ваш голос успішно прийнято
       projects:
         budget_confirm:
           cancel: Скасувати
@@ -75,6 +75,7 @@ uk:
             many: "%{count} проектів"
             other: "%{count} проектів"
         filters:
+          category: Категорія
           search: Шукати
         project_budget_button:
           added: Додано

@@ -21,9 +21,7 @@ import select from "select";
  *
  * Options through data attributes:
  * - `data-clipboard-copy` = The jQuery selector for the target input element
- *   where text will be copied from. If this element does not contain any visible text (for instance is an image),
- *   the selector indicated in here will be used to place the confirmation message.
- * - `data-clipboard-content` = The text that will be copied. If empty or not present, the target input element will be used.
+ *   where text will be copied from.
  * - `data-clipboard-copy-label` = The label that will be shown in the button
  *   after a succesful copy.
  * - `data-clipboard-copy-message` = The text that will be announced to screen
@@ -42,17 +40,12 @@ $(() => {
     }
 
     const $input = $($el.data("clipboard-copy"));
-
-    let selectedText = $el.data("clipboard-content") || "";
-    if (selectedText === "" && $input.is("input, textarea, select")) {
-      selectedText = select($input[0]);
+    if ($input.length < 1 || !$input.is("input, textarea, select")) {
+      return;
     }
 
-    let $msgEl = $el;
-    if ($msgEl.text() === "") {
-      $msgEl = $input;
-    }
     // Get the available text to clipboard.
+    const selectedText = select($input[0]);
     if (!selectedText || selectedText.length < 1) {
       return;
     }
@@ -90,18 +83,16 @@ $(() => {
       }
 
       if (!$el.data("clipboard-copy-label-original")) {
-        $el.data("clipboard-copy-label-original", $msgEl.html());
+        $el.data("clipboard-copy-label-original", $el.html());
       }
 
-      $msgEl.html(label);
-
+      $el.html(label);
       to = setTimeout(() => {
-        $msgEl.html($el.data("clipboard-copy-label-original"));
+        $el.html($el.data("clipboard-copy-label-original"));
         $el.removeData("clipboard-copy-label-original");
         $el.removeData("clipboard-copy-label-timeout");
       }, CLIPBOARD_COPY_TIMEOUT);
-
-      $el.data("clipboard-copy-label-timeout", to);
+      $el.data("clipboard-copy-label-timeout", to)
     }
 
     // Alert the screen reader what just happened (the link was copied).
@@ -116,7 +107,7 @@ $(() => {
         }
       } else {
         $msg = $('<div aria-role="alert" aria-live="assertive" aria-atomic="true" class="sr-only"></div>');
-        $msgEl.append($msg);
+        $el.after($msg);
         $el.data("clipboard-message-element", $msg);
       }
 

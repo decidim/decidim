@@ -1,3 +1,4 @@
+---
 lv:
   activemodel:
     attributes:
@@ -98,6 +99,8 @@ lv:
             initiative_title: Iniciatīvas nosaukums
             name_and_surname: Vārds un uzvārds
             postal_code: Pasta indekss
+            scope: Darbības tvērums
+            time_and_date: Laiks un datums
             timestamp: Laikspiedols
       titles:
         initiatives: Iniciatīvas
@@ -214,7 +217,9 @@ lv:
           update: "%{user_name} atjaunināja %{resource_name} iniciatīvu"
       admin_states:
         accepted: Pietiekami daudz parakstu
+        created: Izveidots
         discarded: Atmests
+        published: Publicēts
         rejected: Nepietiek parakstu
         validating: Tehniskā validācija
       application_helper:
@@ -237,18 +242,28 @@ lv:
           name: Izceltās iniciatīvas
       create_initiative:
         fill_data:
+          back: Atpakaļ
           continue: Turpināt
+          more_information: "(Papildu informācija)"
           select_area: Izvēlieties jomu
           select_scope: Izvēlēties darbības tvērumu
         finish:
           back: Atpakaļ
+          back_to_initiatives: Atpakaļ pie iniciatīvām
+          go_to_my_initiatives: Doties pie manām iniciatīvām
+          more_information: "(Papildu informācija)"
         previous_form:
           back: Atpakaļ
+          continue: Turpināt
+        promotal_committee:
+          more_information: "(Papildu informācija)"
         select_initiative_type:
           back: Atpakaļ
           choose_html: Es vēlos izveidot <strong>%{title}</strong>
           more_information: (Papildu informācija)
           select: Es vēlos veicināt šo iniciatīvu
+        share_committee_link:
+          invite_to_committee_help: Saite, lai uzaicinātu cilvēkus, kas piedalīsies veicinātāju komitejā
       events:
         create_initiative_event:
           email_intro: "{author_name}%{author_nickname}, kam jūs sekojat, ir izveidojis jaunu iniciatīvu \"%{resource_title}\". Aplūkojiet to un piedalieties:"
@@ -313,6 +328,7 @@ lv:
           recently_published: Pēdējās publicētās
         print:
           city: Pilsēta
+          print: Drukāt
         result:
           initiative_rejected_reason: Šī iniciatīva ir noraidīta parakstu trūkuma dēļ.
         signatures_count:
@@ -321,6 +337,7 @@ lv:
           other: "paraksti"
         vote_cabin:
           already_voted: Jau parakstīta
+          verification_required: Lai parakstītu iniciatīvu, verificējiet savu kontu
           vote: Parakstīt
           votes_blocked: Parakstīšana ir atspējota
       initiatives_mailer:
@@ -337,7 +354,9 @@ lv:
       show:
         badge_name:
           accepted: Pietiekami daudz parakstu
+          created: Izveidots
           discarded: Atmests
+          published: Publicēts
           rejected: Nepietiek parakstu
           validating: Tehniskā validācija
       states:
@@ -349,12 +368,15 @@ lv:
     resources:
       initiatives_type:
         actions:
+          create: Izveidot
           title: Darbības
           vote: Parakstīt
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Izveidot
+        finish: Pabeigt
+        promotal_committee: Veicināšanas komiteja
         select_initiative_type: Izvēlēties
       initiative_signature_creation_header:
         fill_personal_data: Pabeidziet ierakstīt savus datus

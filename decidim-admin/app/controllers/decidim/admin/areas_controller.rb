@@ -6,7 +6,6 @@ module Decidim
     #
     class AreasController < Decidim::Admin::ApplicationController
       include Decidim::Admin::Concerns::HasTabbedMenu
-      helper Decidim::Admin::AreasHelper
 
       layout "decidim/admin/settings"
 

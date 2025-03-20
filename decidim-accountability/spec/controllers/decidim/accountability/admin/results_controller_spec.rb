@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/core/test/shared_examples/softdeleteable_components_examples"
 
 module Decidim
   module Accountability
     module Admin
       describe Admin::ResultsController do
         include Decidim::ApplicationHelper
+
+        routes { Decidim::Accountability::AdminEngine.routes }
 
         let(:organization) { create(:organization) }
         let(:current_user) { create(:user, :confirmed, :admin, organization:) }
@@ -38,11 +39,6 @@ module Decidim
             expect(subject).to render_template("decidim/accountability/admin/results/index")
           end
         end
-
-        it_behaves_like "a soft-deletable resource",
-                        resource_name: :result,
-                        resource_path: :results_path,
-                        trash_path: :manage_trash_results_path
       end
     end
   end

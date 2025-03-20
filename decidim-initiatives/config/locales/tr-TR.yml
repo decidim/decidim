@@ -1,3 +1,4 @@
+---
 tr:
   activemodel:
     attributes:
@@ -72,7 +73,9 @@ tr:
             label: Durum
             values:
               accepted: Yeterince imza
+              created: Oluşturuldu
               discarded: Yok sayıldı
+              published: Yayınlandı
               rejected: Yeterince imza yok
               validating: Teknik doğrulama
           type_id_eq:
@@ -114,6 +117,8 @@ tr:
             initiative_title: Girişim başlığı
             name_and_surname: Ad ve soyadı
             postal_code: Posta kodu
+            scope: Kapsam
+            time_and_date: Saat ve tarih
             timestamp: Zaman Damgası
       titles:
         initiatives: Girişimler
@@ -240,7 +245,9 @@ tr:
           update: "%{user_name}, %{resource_name} girişimini güncelledi"
       admin_states:
         accepted: Yeterince imza
+        created: Oluşturuldu
         discarded: Yok sayıldı
+        published: Yayınlandı
         rejected: Yeterince imza yok
         validating: Teknik doğrulama
       application_helper:
@@ -263,19 +270,37 @@ tr:
           name: Vurgulanan girişimler
       create_initiative:
         fill_data:
+          back: Geri
           continue: Devam et
           fill_data_help: "<ul> <li> Girişiminizin içeriğini inceleyin. Başlığınızı anlamak kolay mı? Girişiminizin amacı açık mı? </li> <li> İmza türünü seçmeniz gerekiyor. Yüz yüze, çevrimiçi veya her ikisinin kombinasyonu </li> <li> Girişimin coğrafi kapsamı nedir? </li> </ul>"
+          more_information: "(Daha fazla bilgi)"
           select_area: Bir alan seçin
           select_scope: Bir kapsam seçin
         finish:
           back: Geri
+          back_to_initiatives: Girişimlere geri dön
+          callout_text: Tebrikler! Girişiminiz başarıyla oluşturuldu.
+          confirm: Bir yöneticinin gözden geçirmesi ve yayınlaması için inisiyatif göndereceksiniz. Yayınlandıktan sonra onu düzenleyemezsiniz. Emin misiniz?
+          edit_my_initiative: Girişimimi düzenle
+          go_to_my_initiatives: Benim girişimlerime git
+          more_information: "(Daha fazla bilgi)"
+          send_my_initiative: Girişimimi teknik doğrulamaya gönder
+        finish_help:
+          publish_helper_text: Girişiminizin yayınlanması için gerekli bilgileri tamamlamanız ve bir yöneticinin incelemesi için <strong> teknik doğrulamaya göndermeniz </strong> gerektiğini unutmayın.
         previous_form:
           back: Geri
+          continue: Devam et
+        promotal_committee:
+          individual_help_text: Bu tür bir girişim, en az %{committee_size} kişiden (onaylayanlardan) oluşan bir Teşvik Komisyonu gerektirir. Aşağıdaki bağlantıyı bu girişimin parçası olan diğer kişilerle paylaşmalısınız. Kişileriniz bu bağlantıyı aldıklarında, belirtilen adımları izlemeleri gerekecektir.
+          more_information: "(Daha fazla bilgi)"
         select_initiative_type:
           back: Geri
           choose_html: <strong>%{title}</strong> oluşturmak istiyorum
           more_information: (Daha fazla bilgi)
           select: Bu girişimi tanıtmak istiyorum
+          select_initiative_type_help: Girişimler, kuruluşun genel menfaati savunmak için eylemlerde bulunabilmesi için katılımcıların müdahale edebilecekleri bir araçtır. Hangi girişimi başlatmak istiyorsunuz?
+        share_committee_link:
+          invite_to_committee_help: Tanıtım komitesinin bir parçası olacak kişileri davet etmek için bağlantı
       edit:
         accept: Girişimi kabul edin
         back: Geri
@@ -369,7 +394,9 @@ tr:
           phone_number: Telefon numarası
           place_date: Yer, Tarih
           postal_code: Posta Kodu
+          print: baskı
           province: İlçe / İl
+          section: 'Kuruluş tarafından istenirse, lütfen belirtilen yerlerde göndermek için bu formu yazdırın ve doldurun:'
           signature: İmza
         result:
           initiative_rejected_reason: Bu girişim, imza eksikliği nedeniyle reddedildi.
@@ -384,6 +411,7 @@ tr:
           other: " imzalar"
         vote_cabin:
           already_voted: Zaten imzalanmış
+          verification_required: Girişimi imzalamak için hesabınızı doğrulayın
           vote: İmza
           votes_blocked: İmzalama devre dışı
         votes_count:
@@ -409,7 +437,9 @@ tr:
       show:
         badge_name:
           accepted: Yeterince imza
+          created: Oluşturuldu
           discarded: Yok sayıldı
+          published: Yayınlandı
           rejected: Yeterince imza yok
           validating: Teknik doğrulama
       states:
@@ -421,12 +451,15 @@ tr:
     resources:
       initiatives_type:
         actions:
+          create: Oluştur
           title: Eylemler
           vote: İmza
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Oluştur
+        finish: Bitir
+        promotal_committee: Tanıtım komitesi
         select_initiative_type: Seç
       initiative_signature_creation_header:
         fill_personal_data: Verilerinizi tamamlayın

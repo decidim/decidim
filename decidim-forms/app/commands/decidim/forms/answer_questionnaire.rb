@@ -11,21 +11,18 @@ module Decidim
       #
       # form - The form from which to get the data.
       # questionnaire - The current instance of the questionnaire to be answered.
-      # allow_editing_answers - Flag that ensures a form can or cannot be editable after the questionnaire's answers have been provided.
-      def initialize(form, questionnaire, allow_editing_answers: false)
+      def initialize(form, questionnaire)
         @form = form
         @questionnaire = questionnaire
-        @allow_editing_answers = allow_editing_answers
       end
 
       # Answers a questionnaire if it is valid
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
-        return broadcast(:invalid) if @form.invalid? || (user_already_answered? && !allow_editing_answers)
+        return broadcast(:invalid) if @form.invalid? || user_already_answered?
 
         with_events do
-          clear_answers! if allow_editing_answers
           answer_questionnaire
         end
 
@@ -37,7 +34,7 @@ module Decidim
         end
       end
 
-      attr_reader :form, :questionnaire, :allow_editing_answers
+      attr_reader :form, :questionnaire
 
       private
 
@@ -76,10 +73,6 @@ module Decidim
             position: choice_position
           )
         end
-      end
-
-      def clear_answers!
-        Answer.where(questionnaire: questionnaire, user: current_user, session_token: form.context.session_token, ip_hash: form.context.ip_hash).destroy_all
       end
 
       def answer_questionnaire

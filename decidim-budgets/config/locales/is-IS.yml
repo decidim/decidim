@@ -1,7 +1,9 @@
-is-IS:
+---
+is:
   activemodel:
     attributes:
       project:
+        decidim_category_id: Flokkur
         description: Lýsing
         proposal_ids: Tengdar tillögur
         title: Titill
@@ -9,6 +11,7 @@ is-IS:
     budgets:
       actions:
         attachments: Viðhengi
+        destroy: Eyða
         edit: Breyta
         preview: Preview
         title: Aðgerðir
@@ -55,6 +58,7 @@ is-IS:
             one: 1 verkefni
             other: "%{count} verkefni"
         filters:
+          category: Flokkur
           search: Leita
         show:
           budget: Fjárhagsáætlun

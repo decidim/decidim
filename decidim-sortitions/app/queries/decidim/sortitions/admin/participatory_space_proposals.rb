@@ -14,7 +14,7 @@ module Decidim
         # sortition - a sortition to select proposals
         def initialize(sortition)
           @sortition = sortition
-          @taxonomies = sortition.taxonomies
+          @category = sortition.category
           @request_timestamp = sortition.request_timestamp
         end
 
@@ -26,19 +26,22 @@ module Decidim
                       .not_withdrawn
                       .published
                       .not_hidden
-                      .where(decidim_proposals_proposals: { created_at: ...request_timestamp })
+                      .where("decidim_proposals_proposals.created_at < ?", request_timestamp)
                       .where(component: sortition.decidim_proposals_component)
           proposals = proposals.where.not(id: proposals.only_status(:rejected))
 
-          return proposals.order(id: :asc) if taxonomies.blank?
+          return proposals.order(id: :asc) if category.nil?
 
-          # taxonomization -> taxonomy
-          proposals.with_taxonomies(*taxonomies.map(&:id)).order(id: :asc)
+          # categorization -> category
+          proposals
+            .joins(:categorization)
+            .where(decidim_categorizations: { decidim_category_id: category.id })
+            .order(id: :asc)
         end
 
         private
 
-        attr_reader :sortition, :taxonomies, :request_timestamp
+        attr_reader :sortition, :category, :request_timestamp
       end
     end
   end

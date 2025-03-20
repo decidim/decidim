@@ -1,3 +1,4 @@
+---
 ga:
   activemodel:
     attributes:
@@ -11,6 +12,7 @@ ga:
         participatory_process_group_id: Grúpa próisis
         promoted: Curtha chun cinn
         related_process_ids: Próisis Ceangailte
+        scope_id: Scóip
         slug: Píosa URL
         subtitle: Fotheideal
         title: Teideal
@@ -22,6 +24,8 @@ ga:
         title: Teideal
       participatory_process_step:
         end_date: Dáta deiridh
+        title: Teideal
+      participatory_process_type:
         title: Teideal
       participatory_process_user_role:
         email: Seoladh ríomhphoist
@@ -47,6 +51,7 @@ ga:
           attachment_collections: Fillteáin
           attachment_files: Comhaid
           attachments: Ceangaltáin
+          categories: Catagóirí
           process_admins: Riaracháin próiseas
           steps: Céimeanna
       models:
@@ -64,6 +69,9 @@ ga:
             end_date: Dáta deiridh
             title: Teideal
           name: Céim próisis rannpháirtíochta
+        participatory_process_type:
+          fields:
+            title: Teideal
         participatory_process_user_role:
           fields:
             email: Seoladh ríomhphoist
@@ -72,6 +80,7 @@ ga:
           name: Riarachán próisis rannpháirtíochta
           roles:
             admin: Riarthóir
+            valuator: Luachálaí
       participatory_process_copies:
         new:
           copy: Cóipeáil
@@ -89,6 +98,11 @@ ga:
           update: Nuashonraigh
         index:
           steps_title: Céimeanna
+        new:
+          create: Cruthaigh
+      participatory_process_types:
+        edit:
+          update: Nuashonraigh
         new:
           create: Cruthaigh
       participatory_process_user_roles:
@@ -116,8 +130,10 @@ ga:
         participatory_processes:
           form:
             duration: Fad
+            filters: Scagairí
             images: Íomhánna
             metadata: Meiteashonraí
+            other: Eile
       participatory_processes:
         filters:
           names:

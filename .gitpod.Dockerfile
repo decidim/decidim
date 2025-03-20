@@ -20,7 +20,7 @@ RUN pg_dropcluster $PGVERSION main \
 USER gitpod
 
 # Install nvm and Node
-ENV NODE_VERSION=22.14.0
+ENV NODE_VERSION=18.17.1
 RUN curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | PROFILE=/dev/null bash \
     && bash -c ". .nvm/nvm.sh \
         && nvm install v${NODE_VERSION} \
@@ -29,7 +29,7 @@ RUN curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh |
     && echo ". ~/.nvm/nvm.sh"  >> ~/.bashrc.d/50-node
 
 # Install rbenv and Ruby
-ENV RUBY_VERSION=3.3.4
+ENV RUBY_VERSION=3.2.2
 ENV WORKSPACE_GEM_HOME=/workspace/.gem
 RUN sudo apt-get install -y build-essential curl git zlib1g-dev libssl-dev \
   libreadline-dev libyaml-dev libxml2-dev libxslt-dev

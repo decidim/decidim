@@ -7,6 +7,7 @@ module Decidim
       # in order to use them in select forms for Proposals.
       #
       module ProposalsHelper
+        include Decidim::Admin::ResourceScopeHelper
         include Decidim::TranslatableAttributes
 
         def available_states
@@ -37,7 +38,7 @@ module Decidim
         end
 
         def endorsers_presenters_for(proposal)
-          proposal.endorsements.for_listing.map { |identity| present(identity.author) }
+          proposal.endorsements.for_listing.map { |identity| present(identity.normalized_author) }
         end
 
         def proposal_complete_state(proposal)

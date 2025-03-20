@@ -1,3 +1,4 @@
+---
 pl:
   activemodel:
     attributes:
@@ -43,6 +44,7 @@ pl:
           destroy:
             confirm: Unieważnienie przed autoryzacjami dat nie może zostać cofnięte. Czy na pewno chcesz kontynuować?
             confirm_all: Unieważnienie wszystkich autoryzacji nie może zostać cofnięte. Czy na pewno chcesz kontynuować?
+          destroy_nok: Wystąpił błąd podczas cofania uprawnień.
           destroy_ok: Pomyślnie wycofano wszystkie autoryzacje spełniające kryteria.
           info: 'Całkowita liczba zweryfikowanych użytkowników: %{count}.'
           no_data: Brak zweryfikowanych uczestników.
@@ -123,6 +125,17 @@ pl:
         destroy:
           error: Wystąpił błąd podczas usuwania uprawnień.
           success: Usunięcie autoryzacji się powiodło.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Sprawdź na przykładzie innego przykładu procedury obsługi autoryzacji
+            csv_census: Zweryfikuj w oparciu o spis organizacji
+            dummy_authorization_handler: Sprawdź na podstawie przykładowej procedury autoryzacji
+            dummy_authorization_workflow: Sprawdź w przykładowym przepływie pracy autoryzacji
+            id_documents: Uzyskaj weryfikację, przesyłając swój dokument tożsamości
+            postal_letter: Uzyskaj weryfikację, otrzymując kod weryfikacyjny za pośrednictwem poczty
+            sms: Uzyskaj weryfikację za pomocą SMS-a z kodem weryfikacyjnym
+          title: Zweryfikuj swoją tożsamość
+          verify_with_these_options: 'Oto dostępne opcje weryfikacji tożsamości:'
         index:
           expired_verification: Weryfikacja wygasła
           granted_verification: Przyznana weryfikacja
@@ -145,6 +158,7 @@ pl:
         admin:
           census:
             create:
+              error: Wystąpił błąd podczas importowania spisu.
               success: Pomyślnie zaimportowano %{count} elementów (%{errors} błędów).
             destroy_all:
               success: Wszystkie dane spisu zostały usunięte.
@@ -177,11 +191,13 @@ pl:
             few: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
             many: 'Udział jest ograniczony do użytkowników posiadających jeden z następujących kodów pocztowych: %{postal_codes}.'
             other: 'Udział jest ograniczony do użytkowników, którzy mają jeden z następujących kodów pocztowych: %{postal_codes}.'
+          scope: Uczestnictwo jest ograniczone do uczestników z zakresu %{scope_name}.
           user_postal_codes:
             one: Uczestnictwo jest ograniczone do użytkowników z kodem pocztowym %{postal_codes} a twój kod to %{user_postal_code}.
             few: 'Uczestnictwo jest ograniczone do użytkowników z kodami pocztowymi %{postal_codes} a twój kod to %{user_postal_code}.'
             many: 'Uczestnictwo jest ograniczone do użytkowników z kodami pocztowymi %{postal_codes} a twój kod to %{user_postal_code}.'
             other: 'Uczestnictwo jest ograniczone do użytkowników z kodami pocztowymi %{postal_codes} a twój kod to %{user_postal_code}.'
+          user_scope: Uczestnictwo jest ograniczone do użytkowników z zakresu %{scope_name} a twój zakres to %{user_scope_name}.
       id_documents:
         admin:
           config:

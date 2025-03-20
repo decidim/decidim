@@ -1,9 +1,4 @@
-<% add_decidim_meta_tags(
-  description: translated_attribute(current_component.participatory_space.try(:description)),
-  title: component_name,
-  url: budgets_url,
-  resource: current_component) %>
-
+<% add_decidim_page_title component_name %>
 <%= append_javascript_pack_tag "decidim_budgets" %>
 <%= append_stylesheet_pack_tag "decidim_budgets", media: "all" %>
 
@@ -22,7 +17,7 @@
     <%= cell("decidim/budgets/budgets_header", current_workflow) %>
   </section>
 
-  <section class="layout-main__section layout-main__heading flex flex-col items-start">
+  <section class="layout-main__section layout-main__heading">
     <%= cell("decidim/budgets/budgets_list", current_workflow) %>
   </section>
 <% end %>

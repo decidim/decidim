@@ -53,20 +53,20 @@
 
         <% presented_endorsers = endorsers_presenters_for(proposal) %>
         <% if presented_endorsers.any? %>
-          <%= render partial: "decidim/proposals/admin/proposals/endorsers", locals: { presented_endorsers:, proposal: } %>
+          <%= render partial: "endorsers", locals: { presented_endorsers:, proposal: } %>
         <% end %>
 
         <% if proposal.documents.any? %>
-          <%= render partial: "decidim/proposals/admin/proposals/documents", locals: { proposal: } %>
+          <%= render partial: "documents", locals: { proposal: } %>
         <% end %>
 
         <% if proposal.photos.any? %>
-          <%= render partial: "decidim/proposals/admin/proposals/photos", locals: { proposal: } %>
+          <%= render partial: "photos", locals: { proposal: } %>
         <% end %>
 
         <% proposal_meetings = proposal.linked_resources(:meetings, "proposals_from_meeting") %>
         <% if proposal_meetings.any? %>
-          <%= render partial: "decidim/proposals/admin/proposals/meetings", locals: { proposal_meetings: } %>
+          <%= render partial: "meetings", locals: { proposal_meetings: } %>
         <% end %>
 
         <% if allowed_to?(:create, :proposal_note, proposal: proposal) %>
@@ -83,18 +83,30 @@
 
       </div>
       <div class="component__show_grid-item">
-        <% if proposal.taxonomies.present? %>
+        <% if proposal.category.present? %>
           <div class="card-section">
             <div class="row column">
-              <span class="component__show-title"><%= t("models.proposal.fields.taxonomies", scope: "decidim.proposals") %></span>
-              <% proposal.taxonomies.each do |taxonomy| %>
-                <div class="flex items-center gap-x-2 mt-2">
-                  <%= icon "price-tag-3-line", class: "fill-gray" %>
-                  <p class="component__show-icon-text">
-                    <%= translated_attribute taxonomy.name %>
-                  </p>
-                </div>
-              <% end %>
+              <span class="component__show-title"><%= t("models.proposal.fields.category", scope: "decidim.proposals") %></span>
+              <div class="flex items-center gap-x-2 mt-2">
+                <%= icon "price-tag-3-line", class: "fill-gray" %>
+                <p class="component__show-icon-text">
+                  <%= translated_attribute proposal.category.name %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <% if proposal.scope.present? %>
+          <div class="card-section">
+            <div class="row column">
+              <span class="component__show-title"><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></span>
+              <div class="flex items-center gap-x-2 mt-2">
+                <%= icon "scan-line", class: "fill-gray" %>
+                <p class="component__show-icon-text">
+                  <%= translated_attribute proposal.scope.name %>
+                </p>
+              </div>
             </div>
           </div>
         <% end %>
@@ -182,31 +194,31 @@
     </div>
   </div>
 
-  <% if proposal.evaluators.any? %>
+  <% if proposal.valuators.any? %>
     <div class="card">
       <div class="card-divider">
         <h2 class="card-title">
-          <%= t ".evaluators" %>
+          <%= t ".valuators" %>
         </h2>
       </div>
 
       <div class="card-section">
         <div class="row column">
-          <strong><%= t ".assigned_evaluators" %>:</strong>
-          <ul id="evaluators">
-            <% proposal.evaluation_assignments.each do |assignment| %>
-              <% presented_evaluator = present(assignment.evaluator) %>
+          <strong><%= t ".assigned_valuators" %>:</strong>
+          <ul id="valuators">
+            <% proposal.valuation_assignments.each do |assignment| %>
+              <% presented_valuator = present(assignment.valuator) %>
               <li>
                 <%= link_to(
-                      presented_evaluator.name,
-                      presented_evaluator.profile_path,
+                      presented_valuator.name,
+                      presented_valuator.profile_path,
                       target: :blank
                     ) %>
 
-                <% if allowed_to? :unassign_from_evaluator, :proposals, evaluator: assignment.evaluator %>
+                <% if allowed_to? :unassign_from_valuator, :proposals, valuator: assignment.valuator %>
                   <%= icon_link_to(
                         "delete-bin-line",
-                        evaluation_assignment_path(proposal_ids: [proposal.id], evaluator_role_ids: [assignment.evaluator_role.id]),
+                        valuation_assignment_path(proposal_ids: [proposal.id], valuator_role_ids: [assignment.valuator_role.id]),
                         t(".remove_assignment"),
                         method: :delete,
                         data: { confirm: t(".remove_assignment_confirmation") },

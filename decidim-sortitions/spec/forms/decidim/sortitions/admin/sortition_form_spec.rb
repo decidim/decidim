@@ -6,23 +6,14 @@ module Decidim
   module Sortitions
     module Admin
       describe SortitionForm do
-        subject(:form) { described_class.from_params(params).with_context(context) }
+        subject { form }
 
-        let(:organization) { create(:organization) }
-        let(:context) do
-          {
-            current_organization: organization,
-            current_component:,
-            current_participatory_space: participatory_process
-          }
-        end
-        let(:participatory_process) { create(:participatory_process, organization:) }
-        let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "sortitions") }
+        let(:organization) { build(:organization) }
 
         let(:decidim_proposals_component_id) { ::Faker::Number.number(digits: 10) }
+        let(:decidim_category_id) { ::Faker::Number.number(digits: 10) }
         let(:dice) { ::Faker::Number.between(from: 1, to: 6) }
         let(:target_items) { ::Faker::Number.number(digits: 2) }
-        let(:taxonomies) { [] }
         let(:title) do
           {
             en: "Title",
@@ -48,7 +39,7 @@ module Decidim
           {
             sortition: {
               decidim_proposals_component_id:,
-              taxonomies:,
+              decidim_category_id:,
               dice:,
               target_items:,
               title_en: title[:en],
@@ -64,6 +55,8 @@ module Decidim
           }
         end
 
+        let(:form) { described_class.from_params(params).with_context(current_organization: organization) }
+
         context "when everything is OK" do
           it { is_expected.to be_valid }
         end
@@ -74,11 +67,10 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        describe "taxonomies" do
-          let(:component) { current_component }
-          let(:participatory_space) { participatory_process }
+        context "when there is no category selected" do
+          let(:decidim_category_id) { nil }
 
-          it_behaves_like "a taxonomizable resource"
+          it { is_expected.to be_valid }
         end
 
         context "when there is no dice value selected" do

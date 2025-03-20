@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -8,6 +9,8 @@ uk:
         description: Опис
         end_date: Дата закінчення
         progress: Перебіг
+        project_ids: Включені проекти
+        proposals: Включені пропозиції
         start_date: Дата початку
         title: Назва
         updated_at: 'Оновлено:'
@@ -86,8 +89,10 @@ uk:
       models:
         result:
           fields:
+            category: Категорія
             end_date: Дата закінчення
             progress: Перебіг
+            scope: Обсяг
             start_date: Дата початку
             status: Стан
             title: Назва
@@ -107,8 +112,12 @@ uk:
             few: "%{count} підсумків"
             many: "%{count} підсумків"
             other: "%{count} підсумків"
+        filters:
+          all: Усі
         home_header:
           global_status: Загальний стан виконання
+        nav_breadcrumb:
+          global: Загальне виконання
         search:
           search: Пошук дій
         show:
@@ -116,6 +125,13 @@ uk:
             back_to_resource: Повернутися до підсумків
         timeline:
           title: Розвиток проекту
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Категорія
+          scope_id_eq:
+            label: Обсяг
     components:
       accountability:
         name: Звітність

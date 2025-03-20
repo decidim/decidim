@@ -1,3 +1,4 @@
+---
 bg:
   activemodel:
     attributes:
@@ -96,6 +97,8 @@ bg:
             'false': Не се приема
             'true': Прието
         meetings:
+          category_id_eq:
+            label: Категория
           closed_at_present:
             label: Състояние
             values:
@@ -106,6 +109,8 @@ bg:
             values:
               'false': Минали
               'true': Предстоящо
+          scope_id_eq:
+            label: Обхват
           with_any_origin:
             label: Произход
             values:
@@ -155,6 +160,8 @@ bg:
             maps_enabled: Картите са активирани
             registration_code_enabled: Регистрационният код е активиран
             resources_permissions_enabled: Разрешенията за действия могат да се задават за всяка среща
+            scope_id: Обхват
+            scopes_enabled: Обхватите са активирани
             terms_and_conditions_url_for_meeting_creators: URL адрес за правила и условия за създатели на срещи
           step:
             announcement: Обявление
@@ -228,6 +235,7 @@ bg:
         attachment_collections: Папки
         attachments: Прикачени файлове
         close: Затвори
+        destroy: Изтрий
         edit: Редактирай
         invalid_destroy:
           proposals_count:
@@ -305,6 +313,12 @@ bg:
           create:
             invalid: Възникна проблем при създаването на тази среща.
             success: Срещата е създадена успешно. Забележете, че това все още не е публикувано, трябва да го публикувате ръчно.
+          destroy:
+            invalid:
+              proposals_count:
+                one: Срещата не може да бъде премахната, понеже има %{count} участник свързан с нея.
+                other: Срещата не може да бъде премахната, понеже има %{count} участника свързани с нея.
+            success: Срещата беше изтрита успешно
           edit:
             title: Редактиране на срещата
             update: Актуализация
@@ -364,7 +378,6 @@ bg:
           form:
             available_slots_help: Оставете 0, ако разполагате с неограничен брой места.
             invites: Покани
-            manage_questions: Въпроси
             recommendation_message: От съображения за поверителност Ви препоръчваме да изтриете този формуляр за участие, когато вече нямате нужда от него. По подразбиране срокът е 3 месеца след приключването на срещата.
             registration_email_help: Този текст ще се появи в средата на имейла за потвърждение на регистрацията. Точно след регистрационния код.
             registration_form: Формуляр за регистрация
@@ -397,6 +410,8 @@ bg:
         questionnaire:
           update: "%{user_name} актуализира въпросника за срещата %{meeting_name}"
       application_helper:
+        filter_category_values:
+          all: Всички
         filter_meeting_space_values:
           all: Всички
       calendar:
@@ -506,6 +521,7 @@ bg:
           location_hints_help: 'Съвети за местоположение: допълнителна информация. Пример: етажът на сградата, ако е лична среща, или паролата за среща, ако е онлайн среща с ограничен достъп.'
           online_meeting_url_help: 'Връзка: позволява на участниците да се свързват директно с вашата среща'
           registration_url_help: 'Линк: позволете на участниците да отидат на външната услуга, която използвате за регистрации'
+          select_a_category: Моля, изберете категория
           select_a_meeting_type: Моля, изберете тип среща
           select_a_registration_type: Моля, изберете тип регистрация
           select_an_iframe_access_level: Моля, изберете ниво на достъп до iframe
@@ -516,7 +532,9 @@ bg:
           see_all_withdrawn: Вижте всички оттеглени срещи
           text_banner: Разглеждате списъка с оттеглени от авторите срещи. %{go_back_link}.
         meeting:
+          close_meeting: Затваряне на срещата
           edit_close_meeting: Редактиране на отчета за срещата
+          edit_meeting: Редактиране на срещата
           join_meeting: Присъединяване към срещата
           reply_poll: Отговор на анкета
           view_poll: Вижте анкетата
@@ -553,6 +571,7 @@ bg:
           visit_finished: Вижте миналата среща
           withdraw_btn_hint: Можете да отмените срещата си, ако промените решението си. Срещата не се изтрива, тя ще се появи в списъка с оттеглени срещи.
           withdraw_confirmation_html: Сигурни ли сте, че искате да отмените тази среща?<br><br><strong>Това действие не може да бъде отменено!</strong>
+          withdraw_meeting: Оттегляне на срещата
         update:
           invalid: Възникна проблем при актуализирането на срещата.
           success: Актуализирахте успешно срещата.
@@ -644,6 +663,7 @@ bg:
         transparent: Прозрачно
         withdraw: Оттеглено
       withdraw:
+        error: Възникна грешка при оттеглянето на срещата.
         success: Срещата е оттеглена успешно.
     metrics:
       meetings:

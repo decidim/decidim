@@ -19,10 +19,6 @@ describe "Comments" do
 
   let(:resource_path) { resource_locator(commentable).path }
 
-  before do
-    stub_geocoding_coordinates([commentable.latitude, commentable.longitude])
-  end
-
   include_examples "comments"
 
   context "with comments blocked" do

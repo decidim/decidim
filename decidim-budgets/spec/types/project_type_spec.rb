@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/type_context"
+require "decidim/core/test/shared_examples/categorizable_interface_examples"
+require "decidim/core/test/shared_examples/scopable_interface_examples"
+require "decidim/core/test/shared_examples/attachable_interface_examples"
 
 module Decidim
   module Budgets
@@ -9,9 +12,9 @@ module Decidim
       include_context "with a graphql class type"
 
       let(:model) { create(:project) }
-      let(:organization) { model.organization }
 
-      include_examples "taxonomizable interface"
+      include_examples "categorizable interface"
+      include_examples "scopable interface"
       include_examples "attachable interface"
 
       describe "id" do

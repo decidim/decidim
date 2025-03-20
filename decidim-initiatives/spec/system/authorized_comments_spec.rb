@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Authorized comments" do
   let!(:initiative_type) { create(:initiatives_type, :online_signature_enabled, organization:) }
   let!(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
-  let(:commentable) { create(:initiative, author:, scoped_type:, organization:) }
+  let(:commentable) { create(:initiative, :published, author:, scoped_type:, organization:) }
   let!(:author) { create(:user, :confirmed, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
   let!(:comments) { create_list(:comment, 3, commentable:) }
@@ -35,7 +35,9 @@ describe "Authorized comments" do
     it do
       expect(page).to have_content("You need to be verified to comment at this moment")
       click_on("You need to be verified to comment at this moment")
-      expect(page).to have_content("We need to verify your identity")
+      expect(page).to have_content("Authorization required")
+      expect(page).to have_link("Authorize with \"Example authorization\"")
+      click_on("Authorize with \"Example authorization\"")
       expect(page).to have_content("Verify with Example authorization")
     end
   end

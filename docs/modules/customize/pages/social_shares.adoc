@@ -44,12 +44,15 @@ If you have the need, you can enable your own service. To do that, as an example
 
 . Alternatively, you can provide any https://remixicon.com/ logo also. Simply as adding the icon key for such social share, e.g. "reddit-line"
 
+. In addition to the remixicon, icon_color property can be added, using an Hex color, e.g. "#ff4500"
+
 . Add the social share service block configuration at the bottom of your Decidim initializer:
 
 [source,ruby]
 ----
 Decidim.register_social_share_service("Foo") do |service|
   service.icon = "foo.svg" # (or "reddit-line")
+  service.icon_color = "#ff4500"
   service.share_uri = "https://foo.example.com/share?url=%{url}"
 end
 ----

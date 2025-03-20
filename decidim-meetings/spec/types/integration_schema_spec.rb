@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/component_context"
 
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component" do
@@ -19,7 +19,7 @@ describe "Decidim::Api::QueryType" do
           }
           attendeeCount
           attendingOrganizations
-          taxonomies {
+          category {
             id
           }
           closed
@@ -66,6 +66,9 @@ describe "Decidim::Api::QueryType" do
           }
           registrationsEnabled
           remainingSlots
+          scope {
+            id
+          }
           services{
             description {
               translation(locale: "#{locale}")
@@ -91,7 +94,7 @@ describe "Decidim::Api::QueryType" do
   let(:component_type) { "Meetings" }
 
   let!(:current_component) { create(:meeting_component, participatory_space: participatory_process) }
-  let!(:meeting) { create(:meeting, :published, :withdrawn, :not_official, :with_services, :closed_with_minutes, closing_visible:, component: current_component, taxonomies:) }
+  let!(:meeting) { create(:meeting, :published, :withdrawn, :not_official, :with_services, :closed_with_minutes, closing_visible:, component: current_component, category:) }
   let!(:agenda) { create(:agenda, :with_agenda_items, meeting:) }
   let!(:invite) { create(:invite, :accepted, meeting:) }
   let(:closing_visible) { true }
@@ -105,7 +108,7 @@ describe "Decidim::Api::QueryType" do
       "attachments" => [],
       "attendeeCount" => meeting.attendees_count,
       "attendingOrganizations" => meeting.attending_organizations,
-      "taxonomies" => [{ "id" => meeting.taxonomies.first.id.to_s }],
+      "category" => { "id" => meeting.category.id.to_s },
       "closed" => true,
       "closingReport" => closing_visible ? { "translation" => meeting.closing_report[locale] } : nil,
       "isWithdrawn" => true,
@@ -119,9 +122,9 @@ describe "Decidim::Api::QueryType" do
         "latitude" => meeting.latitude.to_f,
         "longitude" => meeting.longitude.to_f
       },
-      "createdAt" => meeting.created_at.to_time.iso8601,
+      "createdAt" => meeting.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "description" => { "translation" => meeting.description[locale] },
-      "endTime" => meeting.end_time.to_time.iso8601,
+      "endTime" => meeting.end_time.iso8601.to_s.gsub("Z", "+00:00"),
       "hasComments" => meeting.comment_threads.size.positive?,
       "id" => meeting.id.to_s,
       "location" => { "translation" => meeting.location[locale] },
@@ -133,18 +136,19 @@ describe "Decidim::Api::QueryType" do
       "registrationTerms" => { "translation" => meeting.registration_terms[locale] },
       "registrationsEnabled" => false,
       "remainingSlots" => 0,
+      "scope" => nil,
       "services" => meeting.services.map do |s|
         {
           "description" => { "translation" => s.description[locale] },
           "title" => { "translation" => s.title[locale] }
         }
       end,
-      "startTime" => meeting.start_time.to_time.iso8601,
+      "startTime" => meeting.start_time.iso8601.to_s.gsub("Z", "+00:00"),
       "title" => { "translation" => meeting.title[locale] },
       "totalCommentsCount" => meeting.comments_count,
       "transparent" => meeting.transparent?,
       "type" => "Decidim::Meetings::Meeting",
-      "updatedAt" => meeting.updated_at.to_time.iso8601,
+      "updatedAt" => meeting.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
       "userAllowedToComment" => meeting.user_allowed_to_comment?(current_user)
     }
   end
@@ -202,7 +206,7 @@ describe "Decidim::Api::QueryType" do
               }
               attendeeCount
               attendingOrganizations
-              taxonomies {
+              category {
                 id
               }
               closed
@@ -249,6 +253,9 @@ describe "Decidim::Api::QueryType" do
               }
               registrationsEnabled
               remainingSlots
+              scope {
+                id
+              }
               services{
                 description {
                   translation(locale: "#{locale}")

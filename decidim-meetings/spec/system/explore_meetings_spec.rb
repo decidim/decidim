@@ -12,16 +12,13 @@ describe "Explore meetings", :slow do
   let!(:meetings) do
     create_list(:meeting, meetings_count, :not_official, :published, component:)
   end
-  let(:taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization:) }
-  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: taxonomy.parent) }
-  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
-  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
 
   before do
     # Required for the link to be pointing to the correct URL with the server
     # port since the server port is not defined for the test environment.
     allow(ActionMailer::Base).to receive(:default_url_options).and_return(port: Capybara.server_port)
-    component_settings = component["settings"]["global"].merge!(taxonomy_filters: taxonomy_filter_ids)
+    component_scope = create(:scope, parent: participatory_process.scope)
+    component_settings = component["settings"]["global"].merge!(scopes_enabled: true, scope_id: component_scope.id)
     component.update!(settings: component_settings)
   end
 
@@ -80,8 +77,8 @@ describe "Explore meetings", :slow do
       context "when maps are enabled" do
         let!(:meetings) { create_list(:meeting, 2, :not_official, :in_person, :published, component:) }
         let!(:hybrid_meetings) { create_list(:meeting, 2, :not_official, :hybrid, :published, component:) }
-        let!(:online_meetings) { create_list(:meeting, 2, :not_official, :online, :published, component:) }
-        let!(:upcoming_meeting) { create(:meeting, :not_official, :online, :published, component:) }
+        let!(:online_meetings) { create_list(:meeting, 2, :not_official, :online, :published, component:, latitude: nil, longitude: nil) }
+        let!(:upcoming_meeting) { create(:meeting, :not_official, :online, :published, component:, latitude: nil, longitude: nil) }
 
         # We are providing a list of coordinates to make sure the points are scattered all over the map
         # otherwise, there is a chance that markers can be clustered, which may result in a flaky spec.
@@ -237,6 +234,7 @@ describe "Explore meetings", :slow do
         end
 
         let!(:official_meeting) { create(:meeting, :published, :official, component:, author: organization) }
+        let!(:user_group_meeting) { create(:meeting, :published, :user_group_author, component:) }
 
         context "with 'official' origin" do
           it "lists the filtered meetings" do
@@ -250,6 +248,21 @@ describe "Explore meetings", :slow do
 
             within meetings_selector do
               expect(page).to have_content(translated(official_meeting.title))
+            end
+          end
+        end
+
+        context "with 'groups' origin" do
+          it "lists the filtered meetings" do
+            visit_component
+
+            within "#panel-dropdown-menu-origin" do
+              click_filter_item "Groups"
+            end
+
+            expect(page).to have_css(meetings_selector, count: 1)
+            within meetings_selector do
+              expect(page).to have_content(translated(user_group_meeting.title))
             end
           end
         end
@@ -401,15 +414,16 @@ describe "Explore meetings", :slow do
         expect(current_params).to eq(filter_params)
       end
 
-      it "allows filtering by taxonomies" do
+      it "allows filtering by scope" do
+        scope = create(:scope, organization:)
         meeting = meetings.first
-        meeting.taxonomies << taxonomy
+        meeting.scope = scope
         meeting.save
 
         visit_component
 
-        within "#panel-dropdown-menu-taxonomy-#{taxonomy.parent.id}" do
-          click_filter_item decidim_escape_translated(taxonomy.name)
+        within "#panel-dropdown-menu-scope" do
+          click_filter_item translated(scope.name)
         end
 
         expect(page).to have_css(meetings_selector, count: 1)
@@ -479,7 +493,7 @@ describe "Explore meetings", :slow do
         start_time: date.beginning_of_day,
         end_time: date.end_of_day
       )
-      stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
+
       visit resource_locator(meeting).path
     end
 
@@ -514,33 +528,49 @@ describe "Explore meetings", :slow do
       end
     end
 
-    context "without taxonomies" do
+    context "without category or scope" do
       it "does not show any tag" do
         expect(page).to have_no_selector("[data-tags]")
       end
     end
 
-    context "with a taxonomy" do
+    context "with a category" do
       let(:meeting) do
         meeting = meetings.first
-        meeting.taxonomies << taxonomy
+        meeting.category = create(:category, participatory_space: participatory_process)
         meeting.save
         meeting
       end
 
-      it "shows tags for taxonomy" do
+      it "shows tags for category" do
         expect(page).to have_css("[data-tags]")
         within "[data-tags]" do
-          expect(page).to have_content(decidim_escape_translated(taxonomy.name))
+          expect(page).to have_content(translated(meeting.category.name))
         end
       end
 
-      it "links to the filter for this taxonomy" do
+      it "links to the filter for this category" do
         within "[data-tags]" do
-          click_on decidim_escape_translated(taxonomy.name)
+          click_on translated(meeting.category.name)
         end
 
-        expect(page).to have_checked_field(decidim_escape_translated(taxonomy.name))
+        expect(page).to have_checked_field(decidim_escape_translated(meeting.category.name))
+      end
+    end
+
+    context "with a scope" do
+      let(:meeting) do
+        meeting = meetings.first
+        meeting.scope = create(:scope, organization:)
+        meeting.save
+        meeting
+      end
+
+      it "shows tags for scope" do
+        expect(page).to have_css("[data-tags]")
+        within "[data-tags]" do
+          expect(page).to have_content(translated(meeting.scope.name))
+        end
       end
     end
 

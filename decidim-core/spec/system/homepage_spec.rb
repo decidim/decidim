@@ -110,7 +110,7 @@ describe "Homepage" do
 
             expect(page).to have_current_path decidim.new_user_session_path
             expect(page).to have_content("Log in")
-            expect(page).to have_content("Not registered yet?")
+            expect(page).to have_content("New to the platform?")
           end
         end
 
@@ -512,6 +512,24 @@ describe "Homepage" do
 
         it "shows the banner's action subtitle" do
           expect(page).to have_i18n_content(organization.highlighted_content_banner_action_subtitle)
+        end
+      end
+
+      context "when downloading open data", download: true do
+        before do
+          Decidim::OpenDataJob.perform_now(organization)
+          switch_to_host(organization.host)
+          visit decidim.root_path
+        end
+
+        it "lets the users download open data files" do
+          click_on "Download Open Data files"
+          expect(File.basename(download_path)).to include("open-data.zip")
+          Zip::File.open(download_path) do |zipfile|
+            expect(zipfile.glob("*open-data-proposals.csv").length).to eq(1)
+            expect(zipfile.glob("*open-data-results.csv").length).to eq(1)
+            expect(zipfile.glob("*open-data-meetings.csv").length).to eq(1)
+          end
         end
       end
 

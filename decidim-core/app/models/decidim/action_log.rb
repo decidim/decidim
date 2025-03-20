@@ -5,7 +5,6 @@ module Decidim
   # for transparency reasons, to log all actions so all other users can
   # see the actions being performed.
   class ActionLog < ApplicationRecord
-    include Decidim::Taxonomizable
     include Decidim::ScopableParticipatorySpace
 
     belongs_to :organization,
@@ -176,16 +175,6 @@ module Decidim
       base + [:with_participatory_space]
     end
 
-    def self.ransackable_attributes(auth_object = nil)
-      return [] unless auth_object&.admin?
-
-      %w(created_at)
-    end
-
-    def self.ransackable_associations(_auth_object = nil)
-      %w(user)
-    end
-
     # Overwrites the method so that records cannot be modified.
     #
     # Returns a Boolean.
@@ -255,7 +244,7 @@ module Decidim
                 elsif klass.reflect_on_association(:organization)
                   scope.where(id: relation_ids).includes(:organization)
                 elsif klass_name == "Decidim::Comments::Comment"
-                  scope.where(id: relation_ids).includes([:moderation, :root_commentable])
+                  scope.where(id: relation_ids).includes([:moderation, :root_commentable, :user_group])
                 else
                   scope
                 end

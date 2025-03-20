@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/core/test/shared_examples/softdeleteable_components_examples"
 
 module Decidim
   module Assemblies
@@ -26,16 +25,11 @@ module Decidim
           )
         end
 
-        let(:space) { assembly }
-
         before do
           request.env["decidim.current_organization"] = organization
           request.env["decidim.current_assembly"] = assembly
           sign_in current_user
         end
-
-        it_behaves_like "a reorder components controller", slug_attribute: :assembly_slug
-        it_behaves_like "a components controller to hide", slug_attribute: :assembly_slug
 
         describe "PATCH update" do
           let(:component_params) do
@@ -64,12 +58,6 @@ module Decidim
             expect(response).to redirect_to components_path
           end
         end
-
-        it_behaves_like "a soft-deletable component",
-                        component_name: :component,
-                        space_name: :assembly,
-                        component_path: :components_path,
-                        trash_path: :manage_trash_components_path
       end
     end
   end

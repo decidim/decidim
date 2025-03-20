@@ -39,7 +39,7 @@ RSpec.describe "Debate search" do
   let!(:debate4) do
     create(
       :debate,
-      :participant_author,
+      :user_group_author,
       component:
     )
   end
@@ -55,7 +55,8 @@ RSpec.describe "Debate search" do
   end
 
   it_behaves_like "a resource search", :debate
-  it_behaves_like "a resource search with taxonomies", :debate
+  it_behaves_like "a resource search with scopes", :debate
+  it_behaves_like "a resource search with categories", :debate
   it_behaves_like "a resource search with origin", :debate
 
   it "displays all debates without any filters" do

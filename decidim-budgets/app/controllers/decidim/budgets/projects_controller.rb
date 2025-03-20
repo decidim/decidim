@@ -42,14 +42,15 @@ module Decidim
       end
 
       def search_collection
-        budget.projects.includes([:component, :attachments, :taxonomies]).with_order(filter_params[:addition_type] == "added" ? current_order : nil)
+        budget.projects.includes([:scope, :component, :attachments, :category]).with_order(filter_params[:addition_type] == "added" ? current_order : nil)
       end
 
       def default_filter_params
         {
           search_text_cont: "",
           with_any_status: default_filter_status_params,
-          with_any_taxonomies: nil,
+          with_any_scope: nil,
+          with_any_category: nil,
           addition_type: "all"
         }
       end
@@ -73,12 +74,20 @@ module Decidim
       def items
         @items ||= [
           {
-            enabled: ProjectHistoryCell.new(@project).render?,
-            id: "included_history",
-            text: t("decidim.history", scope: "activerecord.models", count: 2),
-            icon: resource_type_icon_key("history"),
+            enabled: @project.linked_resources(:proposals, "included_proposals").present?,
+            id: "included_proposals",
+            text: t("decidim/proposals/proposal", scope: "activerecord.models", count: 2),
+            icon: resource_type_icon_key("Decidim::Budgets::Project"),
             method: :cell,
-            args: ["decidim/budgets/project_history", @project]
+            args: ["decidim/linked_resources_for", @project, { type: :proposals, link_name: "included_proposals" }]
+          },
+          {
+            enabled: @project.linked_resources(:results, "included_projects").present?,
+            id: "included_results",
+            text: t("decidim/accountability/result", scope: "activerecord.models", count: 2),
+            icon: resource_type_icon_key("Decidim::Accountability::Result"),
+            method: :cell,
+            args: ["decidim/linked_resources_for", @project, { type: :results, link_name: "included_projects" }]
           },
           {
             enabled: @project.photos.present?,

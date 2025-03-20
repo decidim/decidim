@@ -1,6 +1,9 @@
+---
 sv:
   activemodel:
     attributes:
+      assemblies_type:
+        title: Titel
       assembly:
         announcement: Meddelande
         area_id: Område
@@ -17,6 +20,7 @@ sv:
         created_by_other: Skapad av andra
         creation_date: Skapad datum
         decidim_area_id: Område
+        decidim_assemblies_type_id: Typ av samråd
         decidim_scope_id: Indelning
         description: Beskrivning
         developer_group: Arrangör
@@ -32,7 +36,7 @@ sv:
         import_components: Importera komponenter
         included_at: Publicerad
         instagram: Instagram
-        internal_organisation: Intern organisation
+        internal_organisation: Organisation
         is_transparent: Är transparent
         local_area: Område
         meta_scope: Omfattning
@@ -44,6 +48,8 @@ sv:
         promoted: Utvald
         published_at: Publicerad
         purpose_of_action: Syfte
+        scope_id: Indelning
+        scopes_enabled: Aktivera indelningar
         short_description: Kort beskrivning
         slug: URL-slug
         special_features: Specialfunktioner
@@ -88,15 +94,15 @@ sv:
   decidim:
     admin:
       actions:
-        confirm_delete_assembly: Är du säker på att du vill ta bort samrådet? Om du ändrar dig kan du återställa det senare.
         import_assembly: Importera
         new_assembly: Nytt samråd
+        new_assembly_member: Ny medlem i samråd
+        new_assembly_type: Ny typ av samråd
         new_assembly_user_role: Ny administratör av samråd
-        view_deleted_assemblies: Visa borttagna samråd
       assemblies:
         create:
           error: Det gick inte att skapa ett nytt samråd.
-          success: Samrådet har skapats. Du kan nu lägga till komponenter och konfigurera den.
+          success: Samrådet har skapats.
         edit:
           update: Uppdatera
         index:
@@ -104,8 +110,6 @@ sv:
           public: Öppen
           published: Publicerad
           unpublished: Ej publicerade
-        manage_trash:
-          title: Borttagna samråd
         new:
           create: Skapa
           title: Nytt samråd
@@ -116,6 +120,18 @@ sv:
         create:
           error: Det gick inte att duplicera samrådet.
           success: Samrådet har duplicerats.
+      assemblies_types:
+        create:
+          error: Det gick inte att skapa en ny typ av samråd.
+          success: Typen av samråd har skapats.
+        destroy:
+          success: Typen av samråd har raderats.
+        new:
+          create: Skapa
+          title: Ny typ av samråd
+        update:
+          error: Det gick inte att uppdatera typen av samråd.
+          success: Typen av samråd har uppdaterats.
       assembly_copies:
         new:
           copy: Kopiera
@@ -129,6 +145,23 @@ sv:
           import: Importera
           select: Välj vilka uppgifter du vill importera
           title: Importera samråd
+      assembly_members:
+        create:
+          error: Det gick inte att lägga till en medlem i samrådet.
+          success: Skapade medlem i samrådet.
+        destroy:
+          success: Medlemmen har raderats från samrådet.
+        edit:
+          title: Uppdatera medlem i samråd
+          update: Uppdatera
+        index:
+          assembly_members_title: Medlemmar i samrådet
+        new:
+          create: Skapa
+          title: Ny medlem i samråd
+        update:
+          error: Det gick inte att uppdatera medlemmen i samrådet.
+          success: Medlemmen i gruppen har uppdaterats.
       assembly_publications:
         create:
           error: Det gick inte att publicera samrådet.
@@ -159,22 +192,31 @@ sv:
           values:
             'false': Ej avslutade
             'true': Avslutade
+        decidim_assemblies_type_id_eq:
+          label: Typ av samråd
         search_placeholder:
           full_name_or_user_name_or_user_nickname_cont: Sök på namn eller användarnamn
       menu:
         assemblies: Samråd
         assemblies_submenu:
           assembly_admins: Administratörer för samråd
+          assembly_members: Medlemmar
           attachment_collections: Mappar
           attachment_files: Filer
           attachments: Bilagor
+          categories: Kategorier
           components: Komponenter
           info: Om samrådet
           landing_page: Landningssida
           moderations: Moderering
-          private_users: Medlemmar
+          private_users: Privata deltagare
           see_assembly: Visa samråd
+        assemblies_types: Typer av samråd
       models:
+        assemblies_types:
+          fields:
+            created_at: Skapad
+            title: Titel
         assembly:
           fields:
             actions: Åtgärder
@@ -185,6 +227,11 @@ sv:
             title: Titel
           name: Samråd
         assembly_member:
+          fields:
+            ceased_date: Slutade datum
+            designation_date: Utnämningsdatum
+            full_name: Namn
+            position: Befattning
           name: Medlem
           positions:
             other: Andra
@@ -201,15 +248,10 @@ sv:
             admin: Administratör
             collaborator: Medverkande
             moderator: Moderator
-      taxonomy_filters:
-        space_filter_for:
-          assemblies: Alla samråd
+            valuator: Handläggare
       titles:
         assemblies: Samråd
-        assemblies_deleted: Borttagna samråd
         assemblies_types: Typer av samråd
-      tooltips:
-        deleted_assemblies_info: Ett samråd kan endast tas bort om status är "Avpublicerad".
     admin_log:
       assembly:
         create: "%{user_name} skapade samrådet %{resource_name}"
@@ -217,8 +259,6 @@ sv:
         export: "%{user_name} exporterade samrådet %{resource_name}"
         import: "%{user_name} importerade samrådet %{resource_name}"
         publish: "%{user_name} publicerade samrådet %{resource_name}"
-        restore: "%{user_name} återställde samrådet %{resource_name}"
-        soft_delete: "%{user_name} tog bort samrådet %{resource_name}"
         unpublish: "%{user_name} avpublicerade samrådet %{resource_name}"
         update: "%{user_name} uppdaterade samrådet %{resource_name}"
       assembly_member:
@@ -242,22 +282,24 @@ sv:
         assemblies:
           form:
             announcement_help: Den här texten visas direkt under informationen om samrådet.
-            define_taxonomy_filters: Vänligen definiera några filter för deltagarutrymmet innan du använder den här inställningen.
             duration: Varaktighet
             duration_help: Välj ett slutdatum om samrådet är tidsbegränsat.
+            filters: Filter
             images: Bilder
             included_at_help: Markera datumet när samrådet lades till på plattformen. Det behöver inte nödvändigtvis vara samma som datumet det skapades.
             metadata: Metadata
-            no_taxonomy_filters_found: Inga filter för kategorier hittades.
             other: Övrigt
-            private_notice: Du kommer att kunna hantera medlemmar om samrådet gjorts privat
             select_a_created_by: Välj en skapad av
+            select_an_area: Välj ett område
+            select_an_assembly_type: Välj typ av samråd
             select_parent_assembly: Välj överordnat samråd
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
             social_handlers: Sociala medier
-            taxonomies: Kategorier
             title: Allmän information
             visibility: Synlighet
+        assemblies_types:
+          form:
+            title: Redigera typ av samråd
         assembly_copies:
           form:
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
@@ -266,9 +308,14 @@ sv:
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         assembly_members:
           form:
+            existing_user: Befintlig deltagare
             explanation: 'Instruktioner för bild:'
             image_guide: Helst en porträttbild utan text.
+            non_user: Icke-deltagare
             non_user_avatar_help: Du bör få medgivande av personerna innan du lägger till dem som medlemmar.
+            select_a_position: Välj en position
+            select_user: Välj en deltagare
+            user_type: Typ av deltagare
         content_blocks:
           highlighted_assemblies:
             max_results: Maximalt antal element att visa
@@ -294,13 +341,21 @@ sv:
           title: Om samrådet
         filters:
           names:
-            all: Alla
+            all: Allt
           type: Typ
         show:
           title: Om det här samrådet
       assembly_members:
         index:
           members: Medlemmar
+      assembly_types:
+        commission: Kommission
+        consultative_advisory: Rådgivande
+        executive: Verkställande
+        government: Styrande
+        others: Övriga
+        participatory: Deltagande
+        working_group: Arbetsgrupp
       content_blocks:
         children_assemblies:
           name: Samråd
@@ -339,15 +394,15 @@ sv:
           member_of:
             member_of: Medlem av
       show:
+        assembly_type: Typ av samråd
         duration: Varaktighet
         private_space: Det här är ett privat samråd
         social_networks_title: Besök samrådet på
     assembly_members:
+      assembly_member:
+        designated_on: Utsedd den
       index:
         title: Medlemmar
-    download_your_data:
-      show:
-        assemblies: Exportera samråd
     events:
       assemblies:
         create_assembly_member:
@@ -380,55 +435,6 @@ sv:
         description: Antal skapade samråd
         object: samråd
         title: Samråd
-    open_data:
-      help:
-        assemblies:
-          announcement: Meddelande
-          area: Samrådets område
-          assembly_type: Typ av samråd
-          closing_date: Slutdatum för samrådet
-          closing_date_reason: Anledning till att samrådet avslutades
-          composition: Samrådets sammansättning
-          created_at: Datum när processen skapades
-          created_by: Initiativtagare till samrådet
-          created_by_other: Andra som står bakom samrådet
-          creation_date: Datum när samrådet skapades
-          decidim_scope_id: Samrådets område
-          description: Längre beskrivning av samrådet
-          developer_group: Ansvariga för samrådet
-          duration: Varaktighet för samrådet
-          facebook_handler: Facebook-namn
-          follows_count: Antal följare
-          github_handler: Github-namn
-          hashtag: Samrådets hashtag, används för Twitter/X
-          id: Unikt id för samrådet
-          included_at: Datum när samrådet skapades
-          instagram_handler: Instagram-namn
-          internal_organisation: Samrådets organisation
-          is_transparent: Om samrådet är transparent eller inte
-          local_area: Geografiskt område för samrådet
-          meta_scope: Samrådets omfattning
-          participatory_scope: Samrådets inflytande
-          participatory_structure: Samrådets sammansättning
-          promoted: Om samrådet är utvalt eller inte
-          published_at: Publiceringsdatum för samrådet
-          purpose_of_action: Samrådets syfte
-          reference: Unikt id för samrådet
-          remote_banner_image_url: URL till samrådets bannerbild
-          remote_hero_image_url: URL till samrådets huvudbild
-          scope: Samrådets område
-          scopes_enabled: Om indelningar är aktiverat eller inte
-          short_description: Kort beskrivning av samrådet
-          slug: Samrådets URL-slug (används för identifiering och för URL)
-          special_features: Specialfunktioner för samrådet
-          subtitle: Undertitel för samrådet
-          target: Samrådets mål
-          taxonomies: Kategorier för projektet
-          title: Samrådets titel
-          twitter_handler: Twitter-namn
-          updated_at: Senaste datum när utrymmet uppdaterades
-          url: Samrådets URL
-          youtube_handler: YouTube-namn
     participatory_processes:
       show:
         related_assemblies: Relaterade samråd

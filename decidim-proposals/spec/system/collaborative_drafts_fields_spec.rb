@@ -6,12 +6,10 @@ describe "Collaborative drafts" do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let(:root_taxonomy) { create(:taxonomy, organization:) }
-  let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
-  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [participatory_process.manifest.name]) }
-  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
+  let!(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:scope) { create(:scope, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
-  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
+  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
@@ -43,17 +41,42 @@ describe "Collaborative drafts" do
                  participatory_space: participatory_process,
                  settings: {
                    collaborative_drafts_enabled: true,
-                   taxonomy_filters: taxonomy_filter_ids
+                   scopes_enabled: true,
+                   scope_id: participatory_process.scope&.id
                  })
         end
 
+        context "when process is not related to any scope" do
+          it "can be related to a scope" do
+            visit new_collaborative_draft_path
+
+            within "form.new_collaborative_draft" do
+              expect(page).to have_content(/Scope/i)
+            end
+          end
+        end
+
+        context "when process is related to a leaf scope" do
+          let(:participatory_process) { scoped_participatory_process }
+
+          it "cannot be related to a scope" do
+            visit new_collaborative_draft_path
+
+            within "form.new_collaborative_draft" do
+              expect(page).to have_no_content("Scope")
+            end
+          end
+        end
+
         it "creates a new collaborative draft", :slow do
+          visit new_collaborative_draft_path
           visit new_collaborative_draft_path
 
           within ".new_collaborative_draft" do
             fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
             fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
-            select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
+            select translated(category.name), from: :collaborative_draft_category_id
+            select translated(scope.name), from: :collaborative_draft_scope_id
 
             find("*[type=submit]").click
           end
@@ -61,32 +84,9 @@ describe "Collaborative drafts" do
           expect(page).to have_content("successfully")
           expect(page).to have_content("More sidewalks and less roads")
           expect(page).to have_content("Cities need more people, not more cars")
-          expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+          expect(page).to have_content(translated(category.name))
+          expect(page).to have_content(translated(scope.name))
           expect(page).to have_author(user.name)
-        end
-
-        context "when no taxonomy filter is selected" do
-          let(:taxonomy_filter_ids) { [] }
-
-          it "creates a proposal without taxonomies" do
-            visit new_collaborative_draft_path
-
-            within ".new_collaborative_draft" do
-              fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
-              fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
-              expect(page).to have_no_content(decidim_sanitize_translated(root_taxonomy.name))
-
-              find("*[type=submit]").click
-            end
-
-            click_on "Publish"
-
-            expect(page).to have_content("successfully")
-            expect(page).to have_content("More sidewalks and less roads")
-            expect(page).to have_content("Cities need more people, not more cars")
-            expect(page).to have_no_content(decidim_sanitize_translated(taxonomy.name))
-            expect(page).to have_author(user.name)
-          end
         end
 
         context "when there are errors on the form", :slow do
@@ -125,7 +125,9 @@ describe "Collaborative drafts" do
           before do
             component.update!(settings: {
                                 geocoding_enabled: true,
-                                collaborative_drafts_enabled: true
+                                collaborative_drafts_enabled: true,
+                                scopes_enabled: true,
+                                scope_id: participatory_process.scope&.id
                               })
           end
 
@@ -136,6 +138,8 @@ describe "Collaborative drafts" do
               fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
               fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
               fill_in_geocoding :collaborative_draft_address, with: address
+              select translated(category.name), from: :collaborative_draft_category_id
+              select translated(scope.name), from: :collaborative_draft_scope_id
 
               find("*[type=submit]").click
             end
@@ -144,6 +148,8 @@ describe "Collaborative drafts" do
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(address)
+            expect(page).to have_content(translated(category.name))
+            expect(page).to have_content(translated(scope.name))
             expect(page).to have_author(user.name)
           end
 
@@ -184,7 +190,9 @@ describe "Collaborative drafts" do
 
           before do
             component.update!(settings: {
-                                collaborative_drafts_enabled: true
+                                collaborative_drafts_enabled: true,
+                                scopes_enabled: true,
+                                scope_id: participatory_process.scope&.id
                               })
           end
 
@@ -208,50 +216,91 @@ describe "Collaborative drafts" do
           end
         end
 
-        context "when the user is not authorized" do
-          context "and there is only an authorization required" do
-            before do
-              permissions = {
-                create: {
-                  authorization_handlers: {
-                    "dummy_authorization_handler" => { "options" => {} }
-                  }
-                }
-              }
+        context "when the user has verified organizations" do
+          let(:user_group) { create(:user_group, :verified, organization:) }
 
-              component.update!(permissions:)
-            end
-
-            it "redirects to the authorization form" do
-              visit_component
-              click_on "Access collaborative drafts"
-              click_on "New collaborative draft"
-              expect(page).to have_content("We need to verify your identity")
-              expect(page).to have_content("Verify with Example authorization")
-            end
+          before do
+            create(:user_group_membership, user:, user_group:)
           end
 
-          context "and there are more than one authorization required" do
-            before do
-              permissions = {
-                create: {
-                  authorization_handlers: {
-                    "dummy_authorization_handler" => { "options" => {} },
-                    "another_dummy_authorization_handler" => { "options" => {} }
-                  }
+          it "creates a new collaborative draft as a user group", :slow do
+            visit new_collaborative_draft_path
+
+            within ".new_collaborative_draft" do
+              fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
+              fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
+              select translated(category.name), from: :collaborative_draft_category_id
+              select translated(scope.name), from: :collaborative_draft_scope_id
+              select user_group.name, from: :collaborative_draft_user_group_id
+
+              find("*[type=submit]").click
+            end
+
+            expect(page).to have_content("successfully")
+            expect(page).to have_content("More sidewalks and less roads")
+            expect(page).to have_content("Cities need more people, not more cars")
+            expect(page).to have_content(translated(category.name))
+            expect(page).to have_content(translated(scope.name))
+            expect(page).to have_author(user_group.name)
+          end
+
+          context "when geocoding is enabled", :serves_geocoding_autocomplete do
+            let!(:component) do
+              create(:proposal_component,
+                     :with_creation_enabled,
+                     manifest:,
+                     participatory_space: participatory_process,
+                     settings: {
+                       geocoding_enabled: true,
+                       collaborative_drafts_enabled: true,
+                       scopes_enabled: true,
+                       scope_id: participatory_process.scope&.id
+                     })
+            end
+
+            it "creates a new collaborative draft as a user group", :slow do
+              visit new_collaborative_draft_path
+
+              within ".new_collaborative_draft" do
+                fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
+                fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
+                fill_in :collaborative_draft_address, with: address
+                select translated(category.name), from: :collaborative_draft_category_id
+                select translated(scope.name), from: :collaborative_draft_scope_id
+                select user_group.name, from: :collaborative_draft_user_group_id
+
+                find("*[type=submit]").click
+              end
+
+              expect(page).to have_content("successfully")
+              expect(page).to have_content("More sidewalks and less roads")
+              expect(page).to have_content("Cities need more people, not more cars")
+              expect(page).to have_content(address)
+              expect(page).to have_content(translated(category.name))
+              expect(page).to have_content(translated(scope.name))
+              expect(page).to have_author(user_group.name)
+            end
+          end
+        end
+
+        context "when the user is not authorized" do
+          before do
+            permissions = {
+              create: {
+                authorization_handlers: {
+                  "dummy_authorization_handler" => { "options" => {} }
                 }
               }
+            }
 
-              component.update!(permissions:)
-            end
+            component.update!(permissions:)
+          end
 
-            it "redirects to pending onboarding authorizations page" do
-              visit_component
-              click_on "Access collaborative drafts"
-              click_on "New collaborative draft"
-              expect(page).to have_content("You are almost ready to create a proposal")
-              expect(page).to have_css("a[data-verification]", count: 2)
-            end
+          it "shows a modal dialog" do
+            visit_component
+            click_on "Access collaborative drafts"
+            click_on "New collaborative draft"
+            expect(page).to have_content("Authorization required")
           end
         end
 

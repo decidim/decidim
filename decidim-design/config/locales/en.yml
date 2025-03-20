@@ -294,7 +294,6 @@ en:
         usage_typography_2: Inline text
         usage_typography_3: Text over dark background
         usage_typography_4: Links and buttons
-        usage_typography_5: Disabled tab
         value: Value
         variations: Variations
         variations_cards_description: Each card will look like different regarding the properties of the resource displayed. You can override such behaviour in the specific cell.

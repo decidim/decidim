@@ -1,3 +1,4 @@
+---
 ja:
   activemodel:
     attributes:
@@ -33,6 +34,8 @@ ja:
       help_section:
         content: 内容
       id: ID
+      import:
+        user_group_id: インポートを作成
       newsletter:
         body: 本文
         send_to_all_users: すべてのユーザーに送信
@@ -94,6 +97,7 @@ ja:
         time_zone: タイムゾーン
         tos_version: 利用規約のバージョン
         twitter_handler: X ハンドラー
+        user_groups_enabled: グループを有効にする
         users_registration_mode: ユーザー登録モード
         warning_color: 警告
         welcome_notification_body: ウェルカム通知本文
@@ -102,8 +106,6 @@ ja:
       participatory_space_private_user:
         email: Eメールアドレス
         name: 名前
-      participatory_space_private_user_csv_import:
-        file: ファイル
       scope:
         code: コード
         name: 名前
@@ -181,13 +183,8 @@ ja:
         attachment_collection:
           new: 新しい添付ファイルフォルダ
         browse: 検索
-        confirm_delete_component: |
-          このコンポーネントを削除しますか?<br>
-          このコンポーネントが含むもの:<br>
-          <ul class="list-disc ml-6 my-2">
-            <li class="font-bold">%{resources_count} リソース</li>
-          </ul>
-          気が変わった場合は、後で元に戻せます。
+        category:
+          new: 新しいカテゴリ
         export: 全てエクスポート
         export-selection: 選択したものをエクスポート
         import: インポート
@@ -198,17 +195,15 @@ ja:
           new: 新しい参加型スペースのプライベートユーザー
         per_page: ページごと
         permissions: アクセス許可
-        restore: 復元
+        reject: 拒否
         send_me_a_test_email: テストメールを自分宛てに送信
         share: 共有
-        share_tokens: アクセスリンク
-        soft_delete: 論理削除
         user:
           new: 新しい管理者
-        view_deleted_components: 削除されたコンポーネントを表示
+        verify: 確認する
       admin_terms_of_service:
         accept:
-          error: 管理者の利用規約に同意中に問題が発生しました。
+          error: 管理者向け利用規約に同意する際にエラーが発生しました。
           success: 素晴らしい！あなたは管理者向け利用規約に同意しました。
         actions:
           accept: 利用規約に同意する
@@ -239,7 +234,6 @@ ja:
         create:
           error: 新しいエリアの作成中に問題が発生しました。
           success: エリアの作成に成功しました。
-        deprecated: エリアは非推奨となっており、将来のバージョンで削除される予定です。代わりにタクソノミーを使用してください。現在、エリアを使用している唯一のモジュールはイニシアチブモジュールです。
         destroy:
           has_spaces: このエリアには依存スペースがあります。削除する前に参加型スペースがこのエリアを参照していないことを確認してください。
           success: エリアを削除しました。
@@ -293,12 +287,6 @@ ja:
         no_results: 結果が見つかりませんでした
         search_prompt: 検索には3文字以上入力してください。
       block_user:
-        bulk_new:
-          action: アカウントをブロックして理由を送信
-          already_reported_html: この操作を続けると、すべての参加者のコンテンツも非表示になります。
-          description: ユーザーをブロックすると、そのアカウントは利用できなくなります。ユーザーのブロックを解除することを検討する方法に関するガイドラインを判定通知に含めることができます。
-          justification: 判定理由
-          title: ユーザーをブロック
         new:
           action: アカウントをブロックして理由を送信
           already_reported_html: このアクションを続けると、参加者のすべてのコンテンツも非表示になります。
@@ -306,8 +294,23 @@ ja:
           justification: 判定理由
           title: ユーザー %{name} をブロックする
       categories:
+        create:
+          error: このカテゴリの作成中に問題が発生しました。
+          success: カテゴリの作成に成功しました。
+        destroy:
+          error: このカテゴリを削除する際に問題が発生しました。最初にサブカテゴリを削除してください。他のエンティティがこのカテゴリに属していないことを確認して、もう一度やり直してください。
+          success: カテゴリを削除しました。
+        edit:
+          title: カテゴリを編集
+          update: 更新
         index:
           categories_title: カテゴリ
+        new:
+          create: カテゴリを作成
+          title: 新しいカテゴリ
+        update:
+          error: このカテゴリの更新中に問題が発生しました。
+          success: カテゴリが更新されました。
       component_permissions:
         update:
           error: このコンポーネントの権限の更新に問題がありました。
@@ -317,6 +320,9 @@ ja:
           error: このコンポーネントの作成に問題がありました。
           success: コンポーネントが作成されました。
           success_landing_page: コンポーネントを作成しました。このコンポーネントのコンテンツブロックをスペースのホームに追加できます。 <a href="%{landing_page_path}">ランディングページ</a> に移動して設定してください。
+        destroy:
+          error: このコンポーネントの削除中に問題が発生しました。
+          success: コンポーネントは正常に削除されました。
         edit:
           title: コンポーネントを編集
           update: 更新
@@ -324,17 +330,13 @@ ja:
           default_step_settings: デフォルトのステップ設定
           global_settings: グローバル設定
           step_settings: ステップの設定
-        hide:
-          success: コンポーネントはメニューから非表示になりました。
         index:
           add: コンポーネントを追加
           headers:
             actions: アクション
             name: コンポーネント名
+            scope: コンポーネントのスコープ
             type: コンポーネントタイプ
-            visibility: 可視性
-        manage_trash:
-          title: 削除されたコンポーネント
         new:
           add: コンポーネントを追加
           title: 'コンポーネントを追加: %{name}'
@@ -346,10 +348,6 @@ ja:
         update:
           error: このコンポーネントの更新中に問題が発生しました。
           success: コンポーネントは正常に更新されました。
-        visibility_label:
-          menu_hidden: メニュー非表示
-          published: 公開済
-          unpublished: 未公開
       conflicts:
         attempts: 試行回数
         'false': 'いいえ'
@@ -369,7 +367,7 @@ ja:
         user_name: ユーザー
       content_blocks:
         create:
-          error: コンテンツブロックの作成中に問題が発生しました。
+          error: コンテンツブロックの作成中にエラーが発生しました。
           success: コンテンツブロックを作成しました。
         destroy:
           error: コンテンツブロックの削除中に問題が発生しました。
@@ -405,6 +403,8 @@ ja:
           JSON: JSON
         notice: 現在エクスポートが進行中です。完了した際にはメールでお知らせします。
       filters:
+        category_id_eq:
+          label: カテゴリ
         filter_label: フィルター
         invitation_accepted_at_present:
           label: 招待が承認されました
@@ -453,6 +453,8 @@ ja:
             'false': 公開済み
             'true': 未公開
         remove_all: すべて削除
+        scope_id_eq:
+          label: スコープ
         search_label: 検索
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection} をメール、表示名、アカウントIDで検索します。'
@@ -467,9 +469,6 @@ ja:
             pending: 保留中
             rejected: 拒否
             verified: 確認済み
-        taxonomies:
-          taxonomy_id_eq:
-            label: タクソノミー
       forms:
         file_help:
           import:
@@ -555,8 +554,6 @@ ja:
         logs_list:
           no_logs_yet: ログはまだありません。
           no_matching_logs: 指定された検索フィルターにはログがありません。変更して再試行してください。
-      manage_trash:
-        deleted_items_warning: 削除された項目を表示しています。編集や変更を行うには、最初にそれらを復元する必要があります。
       managed_users:
         promotion:
           error: 管理対象参加者の昇格に問題が発生しました。
@@ -588,11 +585,9 @@ ja:
         scopes: スコープ
         see_site: サイトを見る
         settings: 設定
-        share_tokens: アクセスリンク
         static_page_topics: トピック
         static_pages: ページ
-        taxonomies: タクソノミー
-        taxonomy_filters: タクソノミーフィルター
+        user_groups: グループ
         users: 参加者
       metrics:
         metrics:
@@ -645,11 +640,12 @@ ja:
             plural: 複数形
         share_token:
           fields:
-            actions: アクション
+            created_at: 作成日時
             expires_at: 有効期限
-            registered_only: 登録者のみ？
+            last_used_at: 前回の利用
             times_used: 利用回数
-            token: アクセス リンク
+            token: トークン
+            user: 作成者
         static_page:
           fields:
             created_at: 作成日時
@@ -665,31 +661,27 @@ ja:
               admin: 管理者
               user_manager: 参加者マネージャー
           name: 参加者
+        user_group:
+          fields:
+            actions: アクション
+            created_at: 作成日時
+            document_number: ドキュメント番号
+            name: 名前
+            nickname: ニックネーム
+            phone: 電話番号
+            state: 都道府県：
+            users_count: 参加者数
       moderated_users:
         index:
           actions:
             block: ユーザーをブロック
-            bulk_actions:
-              actions_dropdown: アクション
-              block:
-                title: ブロック
-                update_moderated_user_button: ユーザーをブロック
-              unblock:
-                title: ブロック解除
-                update_moderated_user_button: ユーザーのブロックを解除
-              unreport:
-                title: 通報を解除
-            ignore:
-              update_moderated_user_button: ユーザーの通報を解除
             title: アクション
             unblock: ユーザーのブロックを解除
             unreport: 報告解除
-          cancel: キャンセル
           name: 名前
           nickname: ニックネーム
           reason: 理由
           reports: レポート数
-          selected: 選択済み
           title: 報告された参加者
         report:
           reasons:
@@ -701,31 +693,17 @@ ja:
           unblocked: 未ブロック
       moderations:
         index:
-          actions:
-            actions_dropdown: アクション
-            hide:
-              title: 非表示
-              update_moderation_button: 選択したリソースを非表示
-            unhide:
-              title: 非表示解除
-              update_moderation_button: 選択したリソースの非表示を解除
-            unreport:
-              title: 通報を解除
-              update_moderation_button: 選択したリソースの通報を解除
-          cancel: キャンセル
-          selected: 選択済み
           title: 報告されたコンテンツ
         report:
           reasons:
             does_not_belong: 属していません
             hidden_during_block: ユーザーのブロック中は非表示
             offensive: 攻撃的
-            parent_hidden: 親コンテンツが非表示になりました
             spam: スパム
         reports:
           index:
             author: 投稿者
-            callout_html: コンテンツは、その項目の横にある %{icon} フラグをクリックすることによって、ユーザー（登録済みアカウントを持っている人であれば誰でも）によって通知されたときに、モデレーションパネルに表示されます。
+            callout_html: コンテンツは、そのアイテムの横にある %{icon} フラグをクリックすることによって、ユーザー（登録済みアカウントを持っている人であれば誰でも）によって通知されたときに、モデレーションパネルに表示されます。
             content_original_language: コンテンツのオリジナル言語
             participatory_space: 参加型スペース
             reported_content: 報告されたコンテンツ
@@ -737,11 +715,6 @@ ja:
             report_language: 報告の言語
             report_reason: '理由:'
             title: 報告の詳細
-      new_import:
-        accepted_mime_types:
-          csv: CSV
-          json: JSON
-          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: プレビュー
@@ -751,10 +724,6 @@ ja:
           preview: 'テンプレートをプレビュー: %{template_name}'
           use_template: このテンプレートを使用
       newsletters:
-        confirm_recipients:
-          email: Eメールアドレス
-          name: 名前
-          title: 受取人を確認
         create:
           error: このニュースレターの作成中に問題が発生しました。
           success: ニュースレターが正常に作成されました。送信する前に確認してください。
@@ -774,14 +743,12 @@ ja:
           confirm_delete: このニュースレターを削除してもよろしいですか？
           followers: 'フォロワー '
           has_been_sent_to: '送信先: '
+          no_scopes: スコープなし
           not_sent: 送信されていません
           participants: '参加者 '
-          private_members: 'プライベートメンバー '
           segmented_to: '%{subject}にセグメント : '
           subscribed_count: '購読済み:'
           title: ニュースレター
-          verification_types: '検証の種別: %{types}'
-          verified_users: 検証済みユーザー
         new:
           save: 保存
           title: 新しいニュースレター
@@ -789,24 +756,16 @@ ja:
           all_spaces: すべて
           all_users_help: 確認済みのすべてのユーザーにニュースレターを送信します。
           confirm_deliver: このニュースレターを配信してもよろしいですか？この操作は元に戻せません。
-          confirm_recipients: 受取人を確認
           deliver: ニュースレターを配信する
           followers_help: リスト内の選択した参加型スペースに従っているすべての確認済みユーザーにニュースレターを送信します。
+          none: なし
           participants_help: 選択した参加型スペースに参加しているすべての確認済みユーザーにニュースレターを送信します。
-          private_members_help: 選択した非公開の参加型スペースに追加された、確認済みのすべてのユーザーにニュースレターを送信します。
           recipients_count: このニュースレターは、 <strong id='recipients_count'>%{count}</strong> のユーザーに送信されます。
-          select_assemblies: 参加スペースを選択
-          select_conferences: カンファレンスを選択
-          select_initiatives: イニシアチブを選択
-          select_participatory_processes: 参加型プロセスを選択
+          scopes_help: アカウントの「私の興味」設定で選択したスコープのいずれかを有効にしているユーザーにニュースレターを送信します。
+          select_scopes: アカウントの「趣味」設定で選択したスコープを有効にしているユーザーをフィルタリングします。
           select_spaces: ニュースレターをセグメント化するスペースを選択
-          select_users_for_participatory_space: 1つまたは複数の参加スペースにニュースレターを送信する
-          select_users_general: 一般向けのニュースレターを送信
-          select_verification_types: 検証方法を選択
-          send_to_all_users: すべてのユーザーに送信
-          send_to_verified_users: 検証済みユーザーに送る
+          select_users: ニュースレターを送信したいユーザーを選択してください
           title: 配信する宛先を選択
-          verified_users_help: 選択した検証方法ですべての確認済みおよび検証済みユーザーにニュースレターを送信します。
           warning: "<strong>注意:</strong> このニュースレターは、通知設定で <em>ニュースレターを受信したい</em> ユーザーにのみ送信されます。"
         send:
           no_recipients: 受信者が選択されていません。
@@ -822,15 +781,8 @@ ja:
           success: ニュースレターは正常に更新されました。送信する前に確認してください。
       officializations:
         block:
-          error: 参加者のブロック中に問題が発生しました。
+          error: 参加者のブロック中にエラーが発生しました。
           success: 参加者をブロックしました。
-        bulk_action:
-          block:
-            invalid: 参加者のブロック中に問題が発生しました。
-            success: 参加者をブロックしました。
-          unblock:
-            invalid: 参加者のブロック解除中に問題が発生しました。
-            success: 参加者のブロックを解除しました。
         create:
           success: 参加者が公式化されました。
         destroy:
@@ -863,7 +815,7 @@ ja:
           show: 表示
           title: 参加者のメールアドレスを表示
         unblock:
-          error: 参加者のブロック解除中に問題が発生しました。
+          error: 参加者のブロック解除中にエラーが発生しました。
           success: 参加者のブロックを解除しました。
       organization:
         edit:
@@ -923,26 +875,12 @@ ja:
         destroy:
           error: この参加型スペースのプライベート参加者を削除する際に問題が発生しました。
           success: 参加型スペースのプライベート参加者アクセスが正常に破棄されました。
-        edit:
-          title: 参加スペースの非公開参加者を編集します。
-          update: 更新
         index:
           import_via_csv: CSV形式でインポート
-          publish_all: すべて公開
           title: 参加型スペースプライベート参加者
-          unpublish_all: すべて非公開
         new:
           create: 作成
           title: 新しい参加型スペースのプライベート参加者。
-        publish_all:
-          error: この参加型スペースのすべてのプライベート参加者を公開する際に問題が発生しました。
-          success: この参加型スペースのすべてのプライベート参加者を公開しました
-        unpublish_all:
-          error: この参加型スペースのすべてのプライベート参加者を非公開にする際に問題が発生しました。
-          success: この参加型スペースのすべてのプライベート参加者を非公開にしました
-        update:
-          error: この参加型スペースのプライベート参加者の更新中に問題が発生しました。
-          success: 参加型スペースのプライベート参加者を更新しました
       participatory_space_private_users_csv_imports:
         create:
           invalid: CSVファイルの読み込み中に問題が発生しました。手順を確認してください。
@@ -974,10 +912,12 @@ ja:
         edit:
           submit: 送信
           title: 権限の編集
-        options_form:
-          ephemeral_warning: この認証方法を有効にするには、既存のすべての認証を<a href="%{path}">取り消す</a>必要があります。これにより、検証の衝突リスクを最小限に抑えられます。この方法を追加したり、その設定を変更して送信した場合、組織内のこの種類のすべての認証が自動的に取り消されます。
         update:
           success: 権限は正常に更新されました。
+      resources:
+        index:
+          headers:
+            scope: スコープ
       scope_types:
         create:
           error: 新しいスコープ種別の作成中に問題が発生しました。
@@ -997,7 +937,6 @@ ja:
         create:
           error: 新しいスコープの作成中に問題が発生しました。
           success: スコープが正常に作成されました。
-        deprecated: スコープは非推奨となっており、将来のバージョンで削除される予定です。代わりにタクソノミーを使用してください。現在、スコープを使用している唯一のモジュールはイニシアチブモジュールです。
         destroy:
           success: スコープを削除しました。
         edit:
@@ -1012,55 +951,22 @@ ja:
           success: スコープが正常に更新されました
       share_tokens:
         actions:
-          confirm_destroy: このアクセスを削除してもよろしいですか？
-          copy_link: リンクをコピー
+          confirm_destroy: このトークンを削除してもよろしいですか？
           destroy: 削除
-          edit: 編集
-          preview: プレビュー
-        create:
-          invalid: アクセスリンクの生成中に問題が発生しました。
-          success: アクセスリンクを作成しました。
+          share: 共有
         destroy:
-          error: アクセスリンクの削除中に問題が発生しました。
-          success: アクセスリンクを削除しました。
-        edit:
-          title: '%{name} へのアクセスリンクを編集'
-          update: 更新
-        form:
-          automatic: 自動
-          custom: カスタム
-          custom_expiration: カスタム有効期限
-          custom_token: カスタムワード
-          expires_at: 有効期限
-          'false': 'いいえ'
-          never_expire: 無期限
-          registered_only: 登録者のみ？
-          token: アクセスキー
-          'true': 'はい'
-        index:
-          back_to_share_tokens: アクセスリンクへ戻る
-          copied: アクセスリンクをコピーしました！
-          copy_message: テキストをクリップボードにコピーしました。
-          create_new_token: 最初のアクセスリンクを作成します
-          empty_html: 有効なアクセスリンクはありません。 %{new_token_link}
-          never: 無期限
-          new_share_token_button: 新しいアクセスリンク
-          share_tokens_help_html: |
-            この未公開リソースを他の人が閲覧できるようにするために、アクセスリンクを作成して共有してください。
-            アクセスリンクは、登録済みの参加者のみが使えるようにするか、有効期限を設定するか、必要に応じて選択できます。 新しいアクセスリンクを誰かと共有するには、リンクを作成し、"%{clipboard} クリップボード" アクションアイコンを使用してリンクをコピーしてください。
-          title: '%{name} へのアクセスリンク'
-        new:
-          create: 作成
-          title: '%{name} への新しいアクセスリンク'
-        update:
-          error: このアクセスを更新中に問題が発生しました。
-          success: アクセスリンクが更新されました。
+          error: トークンを削除する際に問題が発生しました。
+          success: トークンが正常に破棄されました。
+        share_tokens:
+          empty: 有効なトークンはありません。
+          help: これらのトークンは、公開されていないリソースをすべてのユーザーに公開するために使用されます。 リソースが公開されると、それらは非表示になります。共有可能なURLにアクセスするにはトークンの共有アイコンをクリックしてください。
+          title: トークンを共有
       shared:
         adjacent_navigation:
           next: 次へ
-          next_title: 次の項目
+          next_title: 次のアイテム
           previous: 前へ
-          previous_title: 前の項目
+          previous_title: 前のアイテム
         gallery:
           add_images: 画像を追加
           edit_images: 画像を編集
@@ -1075,6 +981,7 @@ ja:
           title: トピックを編集
           update: トピックを更新
         new:
+          create: トピックを作成
           title: 新規トピック
         update:
           error: このトピックの更新中に問題が発生しました。
@@ -1098,6 +1005,7 @@ ja:
         index:
           last_notable_change: 前回の注目すべき変更
         new:
+          create: ページを作成
           title: 新しいページ
         topic:
           empty: このトピックのページはありません。
@@ -1105,115 +1013,6 @@ ja:
         update:
           error: このページの更新中に問題が発生しました。
           success: ページが更新されました。
-      taxonomies:
-        actions:
-          actions: アクション
-          destroy: タクソノミーと項目を削除
-          edit: タクソノミーと項目を編集
-          filters: フィルタの管理
-        breadcrumb:
-          edit: タクソノミーを編集
-          new: 新しいタクソノミー
-        count: 関連するリソース
-        create:
-          invalid: タクソノミーの作成中に問題が発生しました。
-          success: タクソノミーを作成しました。
-        destroy:
-          invalid: タクソノミーの削除中に問題が発生しました。
-          success: タクソノミーを削除しました。
-        edit:
-          back: 戻る
-          description: このタクソノミーの項目は、参加型スペースやコンポーネントなどのリソースを分類したりフィルターするために使用されます。 リストの順番を変更するにはドラッグアンドドロップを使用してください。
-          new_item: 新しい項目
-          no_items: このタクソノミーには現状項目がありません。項目のリストを作成して、参加型スペースやコンポーネントなどのリソースを分類またはフィルタリングできます。項目は最大3レベルまで入れ子にできます。
-          subtitle: '"%{taxonomy_name}" の項目'
-          title: タクソノミー「%{taxonomy_name} 」を編集
-          update: 更新
-        filters:
-          search_placeholder: 検索
-        index:
-          description: タクソノミーとフィルターを使用することで、管理者はコンテンツを整理して分類することができます。たとえば、都市の地区や近隣エリアをタクソノミーとして追加し、特定の地区や近隣エリアだけを対象としたフィルターを作成することが可能です。
-          new_taxonomy: 新しいタクソノミー
-          no_items_found: 検索条件に一致するタクソノミーが見つかりませんでした。
-        name: 名前
-        new:
-          create: タクソノミーを作成
-          title: 新しいタクソノミー
-        no_taxonomies: 現在、タクソノミーはありません。ここでタクソノミーのリストを作成し、それぞれに項目を定義してリソースを分類またはフィルタリングします。
-        table:
-          to_next_page: 次のページにドラッグ
-          to_prev_page: 前のページにドラッグ
-        taxonomy_actions:
-          confirm_destroy: '%{name} を削除してもよろしいですか？その場合全ての子の項目も削除されます。 注意: このタクソノミーを使用しているリソース自体は影響を受けませんが、このタクソノミーへの参照は失われます。'
-        total_filters: フィルター
-        total_items: タクソノミー内の項目
-        update:
-          invalid: タクソノミーの更新中に問題が発生しました。
-          success: タクソノミーを更新しました。
-      taxonomy_filters:
-        actions:
-          new_taxonomy_filter: 新規タクソノミフィルター
-        breadcrumb:
-          edit: フィルターの編集
-          filters: フィルター
-          new: 新しいフィルター
-        create:
-          error: タクソノミーフィルタの作成中に問題が発生しました。
-          success: タクソノミーフィルターを作成しました。
-        destroy:
-          error: タクソノミーフィルタの削除中に問題が発生しました。
-          success: タクソノミーフィルタを削除しました。
-        edit:
-          back: 戻る
-          title: タクソノミーフィルタを編集
-          update: タクソノミーフィルタを更新
-        form:
-          all: すべて
-          items:
-            other: "%{count} 個の項目を選択しました"
-          name_help: フロントエンドに表示するフィルタのタイトル。
-          no_items: このタクソノミーで使える項目はありません。タクソノミー設定で項目を作成できます。
-          space_filter: フィルターとして利用可能
-        index:
-          description: タクソノミーフィルターは、管理者がタクソノミーに基づいて参加型スペースを分類したりフィルタリングしたりできるようにするものです。例えば、地理的範囲でプロセスをソートするためにタクソノミーフィルターを追加することができます。
-          empty: 現在、タクソノミーフィルターはありません。タクソノミーフィルターのリストを作成し、タクソノミーに基づいて参加型スペースをソートおよびフィルタリングしてください。
-          new_filter: 新しいフィルター
-        new:
-          back: 戻る
-          create: タクソノミーフィルタを作成
-          title: 新規タクソノミーフィルター
-        table:
-          actions: アクション
-          components_count: これを使用するコンポーネント
-          confirm_destroy: 'フィルター %{name} を削除してもよろしいですか？ 注意: このフィルタを使用しているリソース自体は影響を受けませんが、このフィルタへの参照は失われます。'
-          destroy: 削除
-          edit: 編集
-          internal_name: 内部ラベル
-          name: ラベル
-        update:
-          error: タクソノミーフィルタの更新に問題がありました。
-          success: タクソノミーフィルターを更新しました。
-      taxonomy_filters_selector:
-        new:
-          add_new_items_html: 新しいフィルターや項目を設定する必要がある場合は、設定画面を通じて行うか、<a href="%{url}">こちら</a>をクリックしてください。
-          items_count: "{count}個の項目"
-          save: 保存
-        show:
-          items_count: "{count}個の項目"
-          remove: 削除
-        taxonomies_select:
-          filters: フィルター
-          select_filter: フィルターを選択
-          select_taxonomy: タクソノミーを選択
-          taxonomies: タクソノミー
-      taxonomy_items:
-        edit:
-          title: '%{taxonomy} の項目を編集'
-          update: 項目の更新
-        new:
-          create: 項目の作成
-          none: なし
-          title: '%{taxonomy} の新しい項目'
       titles:
         admin_log: 管理者ログ
         area_types: エリア種別
@@ -1234,18 +1033,34 @@ ja:
         scope_types: スコープ種別
         scopes: スコープ
         statistics: アクティビティ
-        taxonomies: タクソノミー
-        taxonomy_filters: '"%{taxonomy}" のタクソノミーフィルター'
+        user_groups: グループ
         users: 管理者
-      tooltips:
-        deleted_component_info: このコンポーネントは、ステータスが '未公開' の場合にのみ削除できます。
-      trash_management:
-        restore:
-          invalid: '%{resource_name} の復元に問題が発生しました。'
-          success: "%{resource_name} は正常に復元されました。"
-        soft_delete:
-          invalid: '%{resource_name} の削除中に問題が発生しました。'
-          success: "%{resource_name} を削除しました。"
+      user_group:
+        csv_verify:
+          invalid: CSVファイルの読み込みに問題が発生しました。
+          success: CSVファイルは正常にアップロードされました。条件に一致するグループを確認しています。しばらくお待ちください。
+        reject:
+          invalid: このグループを拒否する際に問題が発生しました。
+          success: グループを却下しました。
+        verify:
+          invalid: このグループを確認する際に問題が発生しました。
+          success: グループを確認しました。
+      user_groups:
+        index:
+          state:
+            pending: 保留中
+            rejected: 拒否
+            verified: 確認済み
+          verify_via_csv: CSVで確認する
+      user_groups_csv_verifications:
+        new:
+          example_file: 'サンプルファイル:'
+          explanation: CSVファイルをアップロードします。ファイルの最初のカラムにある組織内のグループの公式メールをヘッダーなしで送信する必要があります。 メールが確認され、CSVファイルにメールが表示されているグループのみが検証されます。
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
+          title: CSVファイルをアップロード
+          upload: アップロード
       users:
         create:
           error: 管理者の招待に問題が発生しました。
@@ -1293,22 +1108,6 @@ ja:
         unreport: 報告解除
       admin:
         reportable:
-          bulk_action:
-            hide:
-              failed: 'リソースを非表示にする際に問題が発生しました: %{errored}'
-              invalid: モデレーションが選択されていません。
-              success: リソースを非表示にしました。
-            ignore:
-              invalid: ユーザのモデレーションが選択されていません。
-              success: 参加者の報告を解除しました。
-            unhide:
-              failed: 'リソースの非表示を解除する際に問題が発生しました: %{errored}'
-              invalid:
-              success: リソースの非表示を解除しました。
-            unreport:
-              failed: 'リソースの報告を解除中に問題が発生しました: %{errored}'
-              invalid: モデレーションが選択されていません。
-              success: リソースの報告を解除しました。
           hide:
             invalid: リソースを隠す際に問題が発生しました。
             success: リソースを非表示にしました。
@@ -1344,5 +1143,3 @@ ja:
       admin:
         global_moderations:
           title: グローバルモデレーション
-        taxonomy_filters_selector:
-          title: フィルター

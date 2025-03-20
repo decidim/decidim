@@ -5,7 +5,6 @@ module Decidim
     module Admin
       # This controller allows an admin to manage debates from a Participatory Space
       class DebatesController < Decidim::Debates::Admin::ApplicationController
-        include Decidim::Admin::HasTrashableResources
         helper Decidim::ApplicationHelper
 
         helper_method :debates
@@ -16,9 +15,8 @@ module Decidim
 
         def new
           enforce_permission_to :create, :debate
-          @form = form(Decidim::Debates::Admin::DebateForm).from_params(
-            attachment: form(AttachmentForm).from_params({})
-          )
+
+          @form = form(Decidim::Debates::Admin::DebateForm).instance
         end
 
         def create
@@ -41,13 +39,14 @@ module Decidim
 
         def edit
           enforce_permission_to(:update, :debate, debate:)
+
           @form = form(Decidim::Debates::Admin::DebateForm).from_model(debate)
         end
 
         def update
           enforce_permission_to(:update, :debate, debate:)
 
-          @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_component:, debate:)
+          @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_component:)
 
           UpdateDebate.call(@form, debate) do
             on(:ok) do
@@ -62,26 +61,24 @@ module Decidim
           end
         end
 
-        private
+        def destroy
+          enforce_permission_to(:delete, :debate, debate:)
 
-        def trashable_deleted_resource_type
-          :debate
+          debate.destroy!
+
+          flash[:notice] = I18n.t("debates.destroy.success", scope: "decidim.debates.admin")
+
+          redirect_to debates_path
         end
+
+        private
 
         def debates
           @debates ||= Debate.where(component: current_component).not_hidden
         end
 
-        def trashable_deleted_collection
-          @trashable_deleted_collection ||= Debate.where(component: current_component).only_deleted.deleted_at_desc
-        end
-
-        def trashable_deleted_resource
-          @trashable_deleted_resource ||= Debate.with_deleted.find_by(component: current_component, id: params[:id])
-        end
-
         def debate
-          @debate ||= Debate.find_by(component: current_component, id: params[:id])
+          @debate ||= debates.find(params[:id])
         end
       end
     end

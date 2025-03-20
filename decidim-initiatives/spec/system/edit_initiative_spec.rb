@@ -79,33 +79,6 @@ describe "Edit initiative" do
       expect(initiative.attachments.count).to eq(2)
     end
 
-    context "when using the wizard steps" do
-      before do
-        visit decidim_initiatives.load_initiative_draft_create_initiative_index_path(initiative_id: initiative.id)
-      end
-
-      it "can be updated" do
-        click_on "Back"
-
-        fill_in :initiative_title, with: "New title"
-        click_on "Continue"
-
-        expect(page).to have_content("The initiative has been successfully updated.")
-        expect(translated(initiative.reload.title)).to eq("New title")
-      end
-
-      it "can be discarded" do
-        click_on "Back"
-        click_on "Discard"
-
-        expect(page).to have_content("Are you sure you want to discard this initiative?")
-        click_on "OK"
-
-        expect(page).to have_content("The initiative has been successfully discarded.")
-        expect(translated(initiative.reload.state)).to eq("discarded")
-      end
-    end
-
     context "when initiative is published" do
       let(:initiative) { create(:initiative, author: user, scoped_type:, organization:) }
 

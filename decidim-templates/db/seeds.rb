@@ -62,12 +62,11 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     )
   end
 
-  %w(matrix_single matrix_multiple).each_with_index do |matrix_question_type, index|
+  %w(matrix_single matrix_multiple).each do |matrix_question_type|
     question = Decidim::Forms::Question.create!(
       questionnaire:,
       body: Decidim::Faker::Localized.paragraph,
-      question_type: matrix_question_type,
-      position: index + 4
+      question_type: matrix_question_type
     )
 
     3.times do |idx|

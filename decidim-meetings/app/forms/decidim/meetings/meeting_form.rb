@@ -2,13 +2,16 @@
 
 module Decidim
   module Meetings
-    # This class holds a Form to create/update meetings for Participants
+    # This class holds a Form to create/update meetings for Participants and UserGroups.
     class MeetingForm < ::Decidim::Meetings::BaseMeetingForm
       attribute :title, String
       attribute :description, String
       attribute :location, String
       attribute :location_hints, String
 
+      attribute :decidim_scope_id, Integer
+      attribute :decidim_category_id, Integer
+      attribute :user_group_id, Integer
       attribute :registration_type, String
       attribute :registrations_enabled, Boolean, default: false
       attribute :registration_url, String
@@ -18,8 +21,8 @@ module Decidim
       attribute :iframe_access_level, String
 
       validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.participants_iframe_embed_types }
-      validates :title, presence: true, etiquette: true
-      validates :description, presence: true, etiquette: true
+      validates :title, presence: true
+      validates :description, presence: true
       validates :type_of_meeting, presence: true
       validates :location, presence: true, if: ->(form) { form.in_person_meeting? || form.hybrid_meeting? }
       validates :online_meeting_url, presence: true, url: true, if: ->(form) { form.online_meeting? || form.hybrid_meeting? }
@@ -27,6 +30,9 @@ module Decidim
       validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, presence: true, if: ->(form) { form.on_this_platform? }
       validates :registration_terms, presence: true, if: ->(form) { form.on_this_platform? }
       validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
+      validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
+      validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
+      validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
       validates :clean_type_of_meeting, presence: true
       validates(
         :iframe_access_level,
@@ -35,7 +41,10 @@ module Decidim
       )
       validate :embeddable_meeting_url
 
+      delegate :categories, to: :current_component
+
       def map_model(model)
+        self.decidim_category_id = model.categorization.decidim_category_id if model.categorization
         presenter = MeetingEditionPresenter.new(model)
         self.title = presenter.title(all_locales: false)
         self.description = presenter.editor_description(all_locales: false)
@@ -46,6 +55,26 @@ module Decidim
       end
 
       alias component current_component
+
+      # Finds the Scope from the given decidim_scope_id, uses the component scope if missing.
+      #
+      # Returns a Decidim::Scope
+      def scope
+        @scope ||= @attributes["decidim_scope_id"].value ? current_component.scopes.find_by(id: @attributes["decidim_scope_id"].value) : current_component.scope
+      end
+
+      # Scope identifier
+      #
+      # Returns the scope identifier related to the meeting
+      def decidim_scope_id
+        super || scope&.id
+      end
+
+      def category
+        return unless current_component
+
+        @category ||= categories.find_by(id: decidim_category_id)
+      end
 
       def clean_type_of_meeting
         type_of_meeting.presence

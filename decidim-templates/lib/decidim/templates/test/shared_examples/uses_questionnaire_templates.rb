@@ -15,7 +15,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
       end
 
       it "does not show the template selection screen" do
-        expect(page).to have_no_content("Select template")
+        expect(page).to have_no_content("Choose template")
       end
     end
 
@@ -33,7 +33,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
         end
 
         it "does not show the template selection screen" do
-          expect(page).to have_no_content("Select template")
+          expect(page).to have_no_content("Choose template")
         end
       end
 
@@ -46,15 +46,14 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
             description: {},
             tos: {}
           )
-          visit current_path
+          visit questionnaire_edit_path
         end
 
         it "shows the template choosing screen" do
-          expect(page).to have_content("Select template")
+          expect(page).to have_content("Choose template")
         end
 
         it "loads the templates in the select" do
-          choose("Select template")
           page.find("input[name='select-template']").click
 
           within "#template-list", visible: :hidden do
@@ -63,7 +62,6 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
         end
 
         it "displays the preview when a template is selected" do
-          choose("Select template")
           select(template.name["en"], from: "select-template")
 
           within ".questionnaire-template-preview" do
@@ -89,21 +87,23 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
         description: {},
         tos: {}
       )
-      visit current_path
+      visit questionnaire_edit_path
 
-      choose("Select template")
       select(template.name["en"], from: "select-template")
 
       within ".questionnaire-template-preview" do
         expect(page).to have_content(template.templatable.title["en"])
       end
 
-      click_on "Continue"
+      click_on "Create from template"
     end
 
     it "copies the template data to the questionnaire on submit" do
-      click_on "Expand all"
-      expect(page.find("#questions_questions_#{questionnaire_question.id}_body_en").value).to eq(question.body["en"])
+      within "form.edit_questionnaire" do
+        click_on "Expand all"
+        expect(page.find_by_id("questionnaire_title_en").value).to eq(template.templatable.title["en"])
+        expect(page.find("#questionnaire_questions_#{questionnaire_question.id}_body_en").value).to eq(question.body["en"])
+      end
     end
   end
 end

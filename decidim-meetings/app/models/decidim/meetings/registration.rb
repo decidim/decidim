@@ -8,6 +8,7 @@ module Decidim
 
       belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting"
       belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
+      belongs_to :user_group, foreign_key: "decidim_user_group_id", class_name: "Decidim::UserGroup", optional: true
 
       validates :user, uniqueness: { scope: :meeting }
       validates :code, uniqueness: { allow_blank: true, scope: :meeting }
@@ -15,7 +16,7 @@ module Decidim
 
       before_validation :generate_code, on: :create
 
-      scope :public_participant, -> { where(public_participation: true) }
+      scope :public_participant, -> { where(decidim_user_group_id: nil, public_participation: true) }
 
       def self.user_collection(user)
         where(decidim_user_id: user.id)
@@ -23,6 +24,11 @@ module Decidim
 
       def self.export_serializer
         Decidim::Meetings::DownloadYourDataRegistrationSerializer
+      end
+
+      # Pluck all Decidim::UserGroup ID's
+      def self.user_group_ids
+        pluck(:decidim_user_group_id)
       end
 
       # Public: Checks if the registration has been validated.

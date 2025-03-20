@@ -1,0 +1,19 @@
+<%- @scope_picker_prompt = capture do %>
+  <div class="picker-prompt"><a href="<%= prompt_params[:url] %>" role="button" aria-label="<%= t(".select_scope", current: prompt_params[:text]) %>"><%= prompt_params[:text] %></a></div>
+<% end %>
+
+<%- @scope_picker_values = capture do %>
+  <div class="picker-values"><%- scopes.each do |scope, params| %>
+    <div><a href="<%= params[:url] %>" data-picker-value="<%= scope.id %>"><%= params[:text] %></a></div>
+  <% end %></div>
+<% end %>
+
+<div id="<%= picker_options[:id] %>" class="data-picker <%= picker_options[:class] %>" data-picker-name="<%= picker_options[:name] %>">
+  <% if values_on_top %>
+    <%= @scope_picker_values %>
+    <%= @scope_picker_prompt %>
+  <% else %>
+    <%= @scope_picker_prompt %>
+    <%= @scope_picker_values %>
+  <% end %>
+</div>

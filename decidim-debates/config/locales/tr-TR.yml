@@ -1,13 +1,17 @@
+---
 tr:
   activemodel:
     attributes:
       debate:
+        category_id: Kategori
         closed_at: Kapandı
         conclusions: Sonuçlar
+        decidim_category_id: Kategori
         description: Açıklama
         end_time: Biter
         information_updates: Bilgi güncellemeleri
         instructions: Katılma talimatları
+        scope_id: Kapsam
         start_time: Den başlar
         title: Başlık
         user_group_id: Olarak tartışma oluştur
@@ -24,6 +28,7 @@ tr:
     components:
       debates:
         actions:
+          create: Oluştur
           endorse: Onayla
         name: Tartışmalar
         settings:
@@ -31,6 +36,8 @@ tr:
             announcement: duyuru
             comments_enabled: Yorumlar etkin
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
+            scope_id: Kapsam
+            scopes_enabled: Kapsamlar etkinleştirildi
           step:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi
@@ -39,6 +46,8 @@ tr:
     debates:
       actions:
         close: Kapat
+        confirm_destroy: Emin misiniz?
+        destroy: Sil
         edit: Düzenle
         new: Yeni Tartışma
         title: Eylemler
@@ -51,6 +60,8 @@ tr:
           create:
             invalid: Tartışmayı oluştururken bir sorun oluştu.
             success: Tartışma başarıyla oluşturuldu.
+          destroy:
+            success: Tartışma başarıyla silindi.
           edit:
             title: Tartışmayı düzenle
             update: Tartışmayı güncelle
@@ -108,6 +119,8 @@ tr:
           state_values:
             closed: Kapalı
             open: Açık
+        form:
+          select_a_category: Lütfen bir kategori seçin
         index:
           new_debate: Yeni tartışma
         new:
@@ -121,9 +134,11 @@ tr:
           recent: En yeni
           updated: Yeni güncellenmiş
         show:
+          close_debate: Tartışmayı kapat
           debate_closed: Kapalı
           debate_conclusions_are: 'Tartışma bu sonuçlarla %{date} tarihinde kapatıldı:'
           edit_conclusions: Sonuçları düzenleyin
+          edit_debate: Tartışmayı düzenle
           groups_count: Gruplar
           open: Açık tartışma
           participants_count: Katılımcılar

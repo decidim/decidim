@@ -6,7 +6,7 @@ module Decidim
     class MeetingCardMetadataCell < Decidim::CardMetadataCell
       alias meeting model
 
-      delegate :type_of_meeting, :start_time, :end_time, :withdrawn?, to: :meeting
+      delegate :type_of_meeting, :start_time, :end_time, :category, :withdrawn?, to: :meeting
 
       alias start_date start_time
       alias end_date end_time
@@ -20,10 +20,10 @@ module Decidim
       private
 
       def meeting_items
-        [start_date_item, type, comments_count_item] + taxonomy_items + [withdrawn_item]
+        [start_date_item, type, comments_count_item, category_item, withdrawn_item]
       end
 
-      def items_for_map
+      def meeting_items_for_map
         [dates_item, type].compact_blank.map do |item|
           {
             text: item[:text],

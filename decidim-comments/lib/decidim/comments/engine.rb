@@ -4,6 +4,7 @@ require "rails"
 require "active_support/all"
 
 require "decidim/core"
+require "foundation_rails_helper"
 
 require "decidim/comments/query_extensions"
 require "decidim/comments/mutation_extensions"
@@ -17,12 +18,6 @@ module Decidim
       routes do
         resources :comments, except: [:new, :edit] do
           resources :votes, only: [:create]
-        end
-      end
-
-      initializer "decidim_comments.mount_routes" do
-        Decidim::Core::Engine.routes do
-          mount Decidim::Comments::Engine, at: "/", as: "decidim_comments"
         end
       end
 
@@ -47,7 +42,6 @@ module Decidim
 
         Decidim.icons.register(name: "Decidim::Comments::Comment", icon: "chat-1-line", description: "Comment", category: "activity", engine: :comments)
         Decidim.icons.register(name: "comments_count", icon: "wechat-line", description: "Comments Count", category: "activity", engine: :comments)
-        Decidim.icons.register(name: "star-s-line", icon: "star-s-line", description: "Most upvoted comment", category: "activity", engine: :comments)
 
         Decidim.icons.register(name: "thumb-up-line", icon: "thumb-up-line", description: "Upvote comment button", **common_parameters)
         Decidim.icons.register(name: "thumb-up-fill", icon: "thumb-up-fill", description: "User upvoted comment", **common_parameters)

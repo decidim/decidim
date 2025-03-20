@@ -1,13 +1,17 @@
+---
 it:
   activemodel:
     attributes:
       debate:
+        category_id: Categoria
         closed_at: Chiuso il
         conclusions: Conclusioni
+        decidim_category_id: Categoria
         description: Descrizione
         end_time: Finisce a
         information_updates: Aggiornamenti delle informazioni
         instructions: Istruzioni per partecipare
+        scope_id: Obiettivo
         start_time: Inizia a
         title: Titolo
         user_group_id: Crea dibattito come
@@ -26,6 +30,7 @@ it:
       debates:
         actions:
           comment: Commenta
+          create: Crea
           endorse: Sottoscrivi
         name: Dibattiti
         settings:
@@ -33,6 +38,8 @@ it:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
             comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
+            scope_id: Obiettivo
+            scopes_enabled: Obiettivi abilitati
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
@@ -42,6 +49,8 @@ it:
     debates:
       actions:
         close: Chiudi
+        confirm_destroy: Sei sicuro?
+        destroy: Elimina
         edit: Modifica
         title: Azioni
       admin:
@@ -53,6 +62,8 @@ it:
           create:
             invalid: C'è stato un problema durante la creazione del dibattito.
             success: Dibattito creato con successo.
+          destroy:
+            success: Dibattito cancellato con successo.
           edit:
             title: Modifica dibattito
             update: Aggiornamento del dibattito
@@ -108,6 +119,8 @@ it:
           state_values:
             closed: Chiuso
             open: Apri
+        form:
+          select_a_category: Si prega di selezionare una categoria
         index:
           new_debate: Nuovo dibattito
         new:
@@ -121,9 +134,11 @@ it:
           recent: Più recenti
           updated: Aggiornato di recente
         show:
+          close_debate: Chiudi dibattito
           debate_closed: Chiuso
           debate_conclusions_are: 'Il dibattito si è concluso il %{date} con queste conclusioni:'
           edit_conclusions: Modifica conclusioni
+          edit_debate: Modifica dibattito
           groups_count: Gruppi
           open: Apri il dibattito
           participants_count: Partecipanti

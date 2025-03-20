@@ -4,27 +4,19 @@ module Decidim
   module Comments
     # A cell to display a comments section for a commentable object.
     class CommentsCell < Decidim::ViewModel
-      include UserRoleChecker
       delegate :user_signed_in?, to: :controller
-
-      def render_comments
-        return render_single_comment if single_comment?
-
-        two_columns_layout? ? render_comments_in_two_columns : render(:comments_in_single_column)
-      end
-
       def add_comment
-        render :add_comment if can_add_comments?
+        return if single_comment?
+        return if comments_blocked?
+        return if user_comments_blocked?
+
+        render :add_comment
       end
 
       def single_comment_warning
         return unless single_comment?
 
         render :single_comment_warning
-      end
-
-      def reply?
-        model.is_a?(Decidim::Comments::Comment)
       end
 
       def comments_loading
@@ -48,28 +40,6 @@ module Decidim
       end
 
       private
-
-      def two_columns_layout?
-        model.try(:two_columns_layout?)
-      end
-
-      def render_single_comment
-        @sorted_comments_in_favor = [single_comment]
-        render :comments_in_single_column
-      end
-
-      def render_comments_in_two_columns
-        cell(TwoColumnsCommentsCell, model).call
-      end
-
-      def can_add_comments?
-        return true if current_participatory_space && user_has_any_role?(current_user, current_participatory_space)
-        return if single_comment?
-        return if comments_blocked?
-        return if user_comments_blocked?
-
-        true
-      end
 
       def decidim_comments
         Decidim::Comments::Engine.routes.url_helpers
@@ -104,7 +74,7 @@ module Decidim
       end
 
       def order
-        options[:order]
+        options[:order] || "older"
       end
 
       def decidim
@@ -169,29 +139,15 @@ module Decidim
         model.try(:component)
       end
 
-      def current_participatory_space
-        model.try(:participatory_space)
-      end
-
-      def onboarding_action_params
-        params = if model.try(:component).present? || current_component.present?
-                   { resource: model }
-                 else
-                   { resource: model, permissions_holder: model }
-                 end
-        return params if ResourceLocatorPresenter.new(model).url
-      rescue NoMethodError
-        params.merge!(data: { onboarding_redirect_path: request.path })
-      end
-
       def blocked_comments_for_unauthorized_user_warning_link
-        action_authorized_link_to(:comment, commentable_path, onboarding_action_params) do
+        options = if current_component.present?
+                    { resource: model }
+                  else
+                    { resource: model, permissions_holder: model }
+                  end
+        action_authorized_link_to(:comment, commentable_path, options) do
           t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning")
         end
-      end
-
-      def decidim_verifications
-        Decidim::Verifications::Engine.routes.url_helpers
       end
     end
   end

@@ -5,7 +5,8 @@ module Decidim
     # Custom Devise ConfirmationsController to avoid namespace problems.
     class ConfirmationsController < ::Devise::ConfirmationsController
       include Decidim::DeviseControllers
-      include Decidim::OnboardingActionMethods
+
+      helper_method :new_user_group_session_path
 
       def create
         super do |resource|
@@ -26,11 +27,11 @@ module Decidim
         super.merge(decidim_organization_id: current_organization.id)
       end
 
+      # Overwrites the default method to handle user groups confirmations.
       def after_confirmation_path_for(resource_name, resource)
-        sign_in(resource)
+        return profile_path(resource.nickname) if resource_name == :user_group
 
-        store_onboarding_cookie_data!(resource)
-        return decidim_verifications.onboarding_pending_authorizations_path if pending_onboarding_action?(resource)
+        sign_in(resource)
 
         super
       end

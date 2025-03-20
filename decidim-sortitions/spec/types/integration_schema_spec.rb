@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/component_context"
 require "decidim/sortitions/test/factories"
 
 describe "Decidim::Api::QueryType" do
@@ -17,7 +17,7 @@ describe "Decidim::Api::QueryType" do
           cancelledByUser { id }
           cancelledOn
           candidateProposals
-          taxonomies { id }
+          category { id }
           comments { id }
           commentsHaveAlignment
           commentsHaveVotes
@@ -43,23 +43,23 @@ describe "Decidim::Api::QueryType" do
   let(:component_type) { "Sortitions" }
   let!(:current_component) { create(:sortition_component, participatory_space: participatory_process) }
   let(:author) { create(:user, :confirmed, :admin, organization: current_component.organization) }
-  let!(:sortition) { create(:sortition, component: current_component, taxonomies:, author:) }
+  let!(:sortition) { create(:sortition, component: current_component, category:, author:) }
 
   let(:sortition_single_result) do
     sortition.reload
     {
       "acceptsNewComments" => sortition.accepts_new_comments?,
       "additionalInfo" => { "translation" => sortition.additional_info[locale] },
-      "author" => { "id" => sortition.author.id.to_s },
+      "author" => { "id" => sortition.normalized_author.id.to_s },
       "cancelReason" => sortition.cancel_reason,
       "cancelledByUser" => sortition.cancelled_by_user,
       "cancelledOn" => sortition.cancelled_on,
       "candidateProposals" => sortition.candidate_proposals,
-      "taxonomies" => [{ "id" => sortition.taxonomies.first.id.to_s }],
+      "category" => { "id" => sortition.category.id.to_s },
       "comments" => [],
       "commentsHaveAlignment" => sortition.comments_have_alignment?,
       "commentsHaveVotes" => sortition.comments_have_votes?,
-      "createdAt" => sortition.created_at.to_time.iso8601,
+      "createdAt" => sortition.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "dice" => sortition.dice,
       "hasComments" => sortition.comment_threads.size.positive?,
       "id" => sortition.id.to_s,
@@ -70,7 +70,7 @@ describe "Decidim::Api::QueryType" do
       "title" => { "translation" => sortition.title[locale] },
       "totalCommentsCount" => sortition.comments_count,
       "type" => "Decidim::Sortitions::Sortition",
-      "updatedAt" => sortition.updated_at.to_time.iso8601,
+      "updatedAt" => sortition.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
       "userAllowedToComment" => sortition.user_allowed_to_comment?(current_user),
       "witnesses" => { "translation" => sortition.witnesses[locale] }
     }
@@ -125,7 +125,7 @@ describe "Decidim::Api::QueryType" do
                 cancelledByUser { id }
                 cancelledOn
                 candidateProposals
-                taxonomies { id }
+                category { id }
                 comments { id }
                 commentsHaveAlignment
                 commentsHaveVotes

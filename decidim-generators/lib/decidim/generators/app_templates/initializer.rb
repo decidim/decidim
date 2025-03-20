@@ -54,7 +54,7 @@ Decidim.configure do |config|
   # config.maps = {
   #   provider: :here,
   #   api_key: Rails.application.secrets.maps[:api_key],
-  #   static: { url: "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" }
+  #   static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
   # }
   #
   # == OpenStreetMap (OSM) services ==
@@ -119,7 +119,7 @@ Decidim.configure do |config|
     dynamic_provider = Rails.application.secrets.maps[:dynamic_provider]
     dynamic_url = Rails.application.secrets.maps[:dynamic_url]
     static_url = Rails.application.secrets.maps[:static_url]
-    static_url = "https://image.maps.hereapi.com/mia/v3/base/mc/overlay" if static_provider == "here"
+    static_url = "https://image.maps.ls.hereapi.com/mia/1.6/mapview" if static_provider == "here" && static_url.blank?
     config.maps = {
       provider: static_provider,
       api_key: Rails.application.secrets.maps[:static_api_key],
@@ -405,7 +405,6 @@ Decidim.configure do |config|
   config.password_similarity_length = Rails.application.secrets.decidim[:password_similarity_length] if Rails.application.secrets.decidim[:password_similarity_length].present?
   config.denied_passwords = Rails.application.secrets.decidim[:denied_passwords] if Rails.application.secrets.decidim[:denied_passwords].present?
   config.allow_open_redirects = Rails.application.secrets.decidim[:allow_open_redirects] if Rails.application.secrets.decidim[:allow_open_redirects].present?
-  config.enable_etiquette_validator = Rails.application.secrets.decidim[:enable_etiquette_validator] if Rails.application.secrets.decidim[:enable_etiquette_validator].present?
 end
 
 if Decidim.module_installed? :api
@@ -413,8 +412,6 @@ if Decidim.module_installed? :api
     config.schema_max_per_page = Rails.application.secrets.dig(:decidim, :api, :schema_max_per_page).presence || 50
     config.schema_max_complexity = Rails.application.secrets.dig(:decidim, :api, :schema_max_complexity).presence || 5000
     config.schema_max_depth = Rails.application.secrets.dig(:decidim, :api, :schema_max_depth).presence || 15
-    config.disclose_system_version = %w(1 true yes).include?(ENV.fetch("DECIDIM_API_DISCLOSE_SYSTEM_VERSION", nil))
-    config.force_api_authentication = %w(1 true yes).include?(ENV.fetch("DECIDIM_API_FORCE_API_AUTHENTICATION", nil))
   end
 end
 

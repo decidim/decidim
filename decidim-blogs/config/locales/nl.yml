@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     models:
@@ -11,6 +12,7 @@ nl:
     blogs:
       actions:
         author_id: Bericht aanmaken als
+        destroy: Verwijderen
         edit: Bewerk
         new: Nieuwe blogpost
         title: acties

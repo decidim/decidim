@@ -36,6 +36,10 @@ module Decidim
         search(current_organization.users.available)
       end
 
+      def user_entities
+        search(current_organization.user_entities.available)
+      end
+
       private
 
       def search(relation)
@@ -44,7 +48,7 @@ module Decidim
             if (term = params[:term].to_s).present?
               query = if term.start_with?("@")
                         nickname = term.delete("@")
-                        relation.where("nickname LIKE ?", "#{nickname}%")
+                        relation.where("nickname ILIKE ?", "#{nickname}%")
                                 .order(Arel.sql(ActiveRecord::Base.sanitize_sql_array("similarity(nickname, '#{nickname}') DESC")))
                       else
                         relation.where("name ILIKE ?", "%#{term}%").or(

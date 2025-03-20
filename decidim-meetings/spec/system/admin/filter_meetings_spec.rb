@@ -7,7 +7,7 @@ describe "Admin filters meetings" do
   let(:manifest_name) { "meetings" }
   let(:model_name) { Decidim::Meetings::Meeting.model_name }
   let(:resource_controller) { Decidim::Meetings::Admin::MeetingsController }
-  let!(:meeting) { create(:meeting, scope:, component:) }
+  let!(:meeting) { create(:meeting, scope:, component: current_component) }
 
   include_context "when managing a component as an admin"
 
@@ -44,20 +44,31 @@ describe "Admin filters meetings" do
     end
   end
 
-  it_behaves_like "a collection filtered by taxonomies" do
-    let!(:meeting_with_taxonomy11) { create(:meeting, component:, taxonomies: [taxonomy11]) }
-    let!(:meeting_with_taxonomy12) { create(:meeting, component:, taxonomies: [taxonomy12]) }
-    let!(:meeting_with_taxonomy21) { create(:meeting, component:, taxonomies: [taxonomy21]) }
-    let!(:meeting_with_taxonomy22) { create(:meeting, component:, taxonomies: [taxonomy22]) }
-    let(:resource_with_taxonomy11_title) { translated(meeting_with_taxonomy11.title) }
-    let(:resource_with_taxonomy12_title) { translated(meeting_with_taxonomy12.title) }
-    let(:resource_with_taxonomy21_title) { translated(meeting_with_taxonomy21.title) }
-    let(:resource_with_taxonomy22_title) { translated(meeting_with_taxonomy22.title) }
+  context "when filtering by scope" do
+    let!(:scope1) { create(:scope, organization:, name: { "en" => "Scope1" }) }
+    let!(:scope2) { create(:scope, organization:, name: { "en" => "Scope2" }) }
+    let!(:meeting_with_scope1) { create(:meeting, component:, scope: scope1) }
+    let(:meeting_with_scope1_title) { translated(meeting_with_scope1.title) }
+    let!(:meeting_with_scope2) { create(:meeting, component:, scope: scope2) }
+    let(:meeting_with_scope2_title) { translated(meeting_with_scope2.title) }
+
+    before { visit_component_admin }
+
+    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope1" do
+      let(:in_filter) { meeting_with_scope1_title }
+      let(:not_in_filter) { meeting_with_scope2_title }
+    end
+
+    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope2" do
+      let(:in_filter) { meeting_with_scope2_title }
+      let(:not_in_filter) { meeting_with_scope1_title }
+    end
   end
 
   context "when filtering by origin" do
     let!(:official_meeting) { create(:meeting, :official, component:) }
     let!(:participant_meeting) { create(:meeting, :not_official, component:) }
+    let!(:user_group_meeting) { create(:meeting, :user_group_author, component:) }
 
     before { visit_component_admin }
 
@@ -68,6 +79,13 @@ describe "Admin filters meetings" do
           let(:not_in_filter) { translated(official_meeting.title) }
         end
       end
+
+      context "when no user group is present" do
+        it_behaves_like "a filtered collection", options: "Origin", filter: "Participant" do
+          let(:in_filter) { translated(participant_meeting.title) }
+          let(:not_in_filter) { translated(user_group_meeting.title) }
+        end
+      end
     end
 
     context "when filtering official" do
@@ -75,6 +93,29 @@ describe "Admin filters meetings" do
         it_behaves_like "a filtered collection", options: "Origin", filter: "Official" do
           let(:in_filter) { translated(official_meeting.title) }
           let(:not_in_filter) { translated(participant_meeting.title) }
+        end
+      end
+
+      context "when no user group is present" do
+        it_behaves_like "a filtered collection", options: "Origin", filter: "Official" do
+          let(:in_filter) { translated(official_meeting.title) }
+          let(:not_in_filter) { translated(user_group_meeting.title) }
+        end
+      end
+    end
+
+    context "when filtering user groups" do
+      context "when no participant meeting is present" do
+        it_behaves_like "a filtered collection", options: "Origin", filter: "User Groups" do
+          let(:in_filter) { translated(user_group_meeting.title) }
+          let(:not_in_filter) { translated(participant_meeting.title) }
+        end
+      end
+
+      context "when no official meeting is present" do
+        it_behaves_like "a filtered collection", options: "Origin", filter: "User Groups" do
+          let(:in_filter) { translated(user_group_meeting.title) }
+          let(:not_in_filter) { translated(official_meeting.title) }
         end
       end
     end

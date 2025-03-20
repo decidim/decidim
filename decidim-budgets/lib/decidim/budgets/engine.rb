@@ -16,7 +16,6 @@ module Decidim
           resource :order, only: [:destroy] do
             member do
               post :checkout
-              get :status
             end
             resource :line_item, only: [:create, :destroy]
           end

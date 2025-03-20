@@ -1,3 +1,4 @@
+---
 fi:
   activemodel:
     attributes:
@@ -21,6 +22,8 @@ fi:
         published_at: Julkaisuaika
         registration_terms: Ilmoittautumisehdot
         registrations_enabled: Ilmoittautumiset ovat käytössä
+        scope_id: Teema
+        scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
         show_statistics: Näytä tilastot
         sign_date: Allekirjoituksen päivämäärä
@@ -66,8 +69,6 @@ fi:
         email: Sähköposti
         name: Nimi
         role: Rooli
-      partner:
-        logo: Logo
     errors:
       models:
         conference_registration_invite:
@@ -89,7 +90,6 @@ fi:
     admin:
       actions:
         confirm: Vahvista
-        confirm_delete_conference: Haluatko varmasti poistaa tämän konferenssin? Mikäli muutat mieltäsi, voit palauttaa konferenssin myöhemmin.
         new_conference: Uusi konferenssi
         new_conference_user_role: Uusi konferenssin hallintakäyttäjä
         new_media_link: Uusi medialinkki
@@ -97,7 +97,6 @@ fi:
         new_registration_type: Uusi ilmoittautumistyyppi
         new_speaker: Uusi puhuja
         send_diplomas: Lähetä läsnäolotodistukset
-        view_deleted_conferences: Näytä poistetut konferenssit
       conference_copies:
         new:
           copy: Kopioi
@@ -121,13 +120,13 @@ fi:
         destroy:
           success: Puhujan poisto konferenssista onnistui.
         edit:
-          title: Päivitä konferenssin puhujaa
+          title: Päivitä konferenssin puhuja.
           update: Päivitä
         index:
           conference_speakers_title: Konferenssin puhujat
         new:
           create: Luo
-          title: Uusi konferenssin puhuja
+          title: Uusi konferenssin puhuja.
         publish:
           invalid: Puhujan julkaiseminen epäonnistui.
           success: Konferenssin puhujan julkaiseminen onnistui.
@@ -144,13 +143,13 @@ fi:
         destroy:
           success: Hallintakäyttäjä poisto konferenssista onnistui.
         edit:
-          title: Päivitä konferenssin hallintakäyttäjää
+          title: Päivitä konferenssin hallintakäyttäjä.
           update: Päivitä
         index:
           conference_admins_title: Konferenssin ylläpitäjät
         new:
           create: Luo
-          title: Uusi konferenssin hallintakäyttäjä
+          title: Uusi konferenssin hallintakäyttäjä.
         update:
           error: Konferenssin hallintakäyttäjän päivittäminen epäonnistui.
           success: Konferenssin hallintakäyttäjän päivittäminen onnistui.
@@ -167,8 +166,6 @@ fi:
         index:
           published: Julkaistu
           unpublished: Julkaisematon
-        manage_trash:
-          title: Poistetut konferenssit
         new:
           create: Luo
           title: Konferenssi
@@ -186,13 +183,13 @@ fi:
         destroy:
           success: Medialinkin poisto onnistui.
         edit:
-          title: Päivitä medialinkkiä
+          title: Päivitä medialinkki.
           update: Päivitä
         index:
           media_links_title: Medialinkit
         new:
           create: Luo
-          title: Luo medialinkki
+          title: Medialinkki
         update:
           error: Medialinkin päivitys epäonnistui.
           success: Medialinkin päivitys onnistui.
@@ -202,6 +199,7 @@ fi:
           attachment_collections: Kansiot
           attachment_files: Tiedostot
           attachments: Liitteet
+          categories: Aihepiirit
           components: Komponentit
           conference_admins: Konferenssin ylläpitäjät
           conference_invites: Kutsut
@@ -237,6 +235,7 @@ fi:
             admin: Hallintakäyttäjä
             collaborator: Työryhmän jäsen
             moderator: Moderoija
+            valuator: Arvioija
         media_link:
           fields:
             date: Päivämäärä
@@ -268,7 +267,7 @@ fi:
         destroy:
           success: Yhteistyökumppanin poisto tästä konferenssista onnistui.
         edit:
-          title: Päivitä yhteistyökumppania
+          title: Päivitä yhteistyökumppani.
           update: Päivitä
         new:
           create: Luo
@@ -290,7 +289,7 @@ fi:
         destroy:
           success: Ilmoittautumistyypin poisto onnistui.
         edit:
-          title: Päivitä ilmoittautumistyyppiä
+          title: Päivitä ilmoittautumistyyppi.
           update: Päivitä
         new:
           create: Luo
@@ -298,21 +297,13 @@ fi:
         update:
           error: Tämän konferenssin ilmoittautumistyyppin päivitys epäonnistui.
           success: Konferenssin ilmoittautumistyypin päivitys onnistui.
-      taxonomy_filters:
-        space_filter_for:
-          conferences: Kaikki konferenssit
       titles:
         conferences: Konferenssit
-        conferences_deleted: Poistetut konferenssit
-      tooltips:
-        deleted_conferences_info: Konferenssi voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
     admin_log:
       conference:
         create: "%{user_name} loi konferenssin %{resource_name}"
         publish: "%{user_name} julkaisi konferenssin %{resource_name}"
-        restore: "%{user_name} palautti konferenssin %{resource_name}"
         send_conference_diplomas: "%{user_name} lähetti konferenssin %{resource_name} läsnäolotodistukset osallistujille"
-        soft_delete: "%{user_name} siirsi konferenssin %{resource_name} roskakoriin"
         unpublish: "%{user_name} perui konferenssin %{resource_name} julkaisun"
         update: "%{user_name} päivitti konferenssia %{resource_name}"
         update_diploma: "%{user_name} päivitti läsnäolotodistusten asetuksia konferenssille %{resource_name}"
@@ -383,13 +374,10 @@ fi:
         conferences:
           form:
             available_slots_help: Jätä arvoksi 0, mikäli paikkojen määrää ei ole rajoitettu.
-            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
-            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             registrations_count:
               one: Ilmoittautumisia on 1 kpl.
               other: Ilmoittautumisia on %{count} kpl.
             slug_help_html: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
-            taxonomies: Luokittelut
         content_blocks:
           highlighted_conferences:
             max_results: Näytettävien elementtien enimmäismäärä
@@ -538,25 +526,6 @@ fi:
         objectives: Tavoitteet
         related_assemblies: Liittyvät ryhmät
         related_participatory_processes: Liittyvät osallistumisprosessit
-    download_your_data:
-      help:
-        conference_invites:
-          accepted_at: Konferenssikutsun hyväksymisen ajankohta
-          conference: Konferenssi, jolle tämä kutsu oli osoitettu
-          confirmed_at: Kutsun hyväksymisaika
-          created_at: Kutsun laatimisaika
-          id: Konferenssikutsun yksilöivä tunniste
-          registration_type: Konferenssi-ilmoittautumisen tyyppi
-          rejected_at: Konferenssikutsun hylkäämisen ajankohta
-          sent_at: Konferenssikutsun lähetyksen ajankohta
-          updated_at: Kutsun viimeisimmän päivityksen ajankohta
-        conference_registrations:
-          conference: Konferenssi, johon tämä kuuluu
-          confirmed_at: Ilmoittautumisen vahvistusaika
-          created_at: Ilmoittautumisaika
-          id: Konferenssi-ilmoittautumisen yksilöivä tunniste
-          registration_type: Ilmoittautumisen tyyppi, johon tämä kuuluu
-          updated_at: Ilmoittautumisen viimeisimmän päivityksen ajankohta
     events:
       conferences:
         conference_registration_confirmed:
@@ -604,33 +573,6 @@ fi:
         title: Media ja linkit
     menu:
       conferences: Konferenssit
-    open_data:
-      help:
-        conferences:
-          created_at: Tilan luontiaika
-          decidim_scope_id: Konferenssin teema
-          description: Konferenssin pitkä kuvaus
-          end_date: Konferenssin päättymispäivä.
-          follows_count: Tilaa seuraavien käyttäjien määrä
-          hashtag: Konferenssia vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
-          id: Konferenssin yksilöivä tunniste
-          location: Konferenssin paikka, eli missä konferenssi järjestetään.
-          objectives: Konferenssin tavoitteet tai päämäärät.
-          promoted: Onko konferenssi korostettu vai ei
-          published_at: Tilan julkaisuaika
-          reference: Tilan yksilöivä viite
-          remote_banner_image_url: Konferenssin bannerikuvan URL-osoite
-          remote_hero_image_url: Konferenssin hero-kuvan URL-osoite
-          scope: Konferenssin teema
-          scopes_enabled: Ovatko teemat otettu käyttöön vai eivät
-          short_description: Konferenssin lyhyt kuvaus
-          slogan: Konferenssin tunnuslause
-          slug: Konferenssin URL-tunniste (URL-osoitteen osa, joka erottaa konferenssin muista konferensseista)
-          start_date: Konferenssin alkamispäivä.
-          taxonomies: Konferenssin luokittelut
-          title: Konferenssin otsikko
-          updated_at: Osallistumistilan viimeisimmän päivityksen ajankohta
-          url: Tilan URL-osoite
     statistics:
       conferences_count: Konferenssia
   devise:

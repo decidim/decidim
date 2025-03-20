@@ -22,42 +22,40 @@ module Decidim::Accountability
     let(:description) do
       Decidim::Faker::Localized.sentence(word_count: 3)
     end
-    let(:parent) { create(:result, component: current_component) }
+    let(:parent_scope) { create(:scope, organization:) }
+    let(:scope) { create(:subscope, parent: parent_scope) }
+    let(:scope_id) { scope.id }
+    let(:category) { create(:category, participatory_space: participatory_process) }
+    let(:category_id) { category.id }
+    let(:parent) { create(:result, scope:, component: current_component) }
     let(:parent_id) { parent.id }
     let(:start_date) { "12/3/2017" }
     let(:end_date) { "21/6/2017" }
     let(:status) { create(:status, component: current_component, key: "ongoing", name: { en: "Ongoing" }) }
     let(:status_id) { status.id }
     let(:progress) { 89 }
-    let(:address) { "Carrer de Sant Joan, 123, 08001 Barcelona" }
-    let(:latitude) { 41.38879 }
-    let(:longitude) { 2.15899 }
-    let(:taxonomies) { [] }
 
     let(:attributes) do
       {
-        taxonomies:,
+        decidim_scope_id: scope_id,
+        decidim_category_id: category_id,
         parent_id:,
         title_en: title[:en],
         description_en: description[:en],
         start_date:,
         end_date:,
         decidim_accountability_status_id: status_id,
-        progress:,
-        address:,
-        latitude:,
-        longitude:
+        progress:
       }
     end
 
-    it { is_expected.to be_valid }
+    describe "scope" do
+      let!(:parent_id) { nil }
 
-    describe "taxonomies" do
-      let(:component) { current_component }
-      let(:participatory_space) { participatory_process }
-
-      it_behaves_like "a taxonomizable resource"
+      it_behaves_like "a scopable resource"
     end
+
+    it { is_expected.to be_valid }
 
     describe "when progress is negative" do
       let(:progress) { -12 }
@@ -89,6 +87,12 @@ module Decidim::Accountability
       it { is_expected.not_to be_valid }
     end
 
+    describe "when the category does not exist" do
+      let(:category_id) { category.id + 10 }
+
+      it { is_expected.not_to be_valid }
+    end
+
     describe "when the parent does not exist" do
       let(:parent_id) { parent.id + 10 }
 
@@ -111,7 +115,8 @@ module Decidim::Accountability
         create(
           :result,
           component: current_component,
-          taxonomies:
+          scope:,
+          category:
         )
       end
 
@@ -130,7 +135,7 @@ module Decidim::Accountability
         it "sets the proposal_ids correctly" do
           result.link_resources([proposal], "included_proposals")
           expect(subject.proposal_ids).to eq [proposal.id]
-          expect(subject.taxonomies).to eq taxonomies
+          expect(subject.decidim_category_id).to eq category.id
         end
       end
     end
@@ -153,14 +158,15 @@ module Decidim::Accountability
           create(
             :result,
             component: current_component,
-            taxonomies:
+            scope:,
+            category:
           )
         end
 
         it "sets the project_ids correctly" do
           result.link_resources([project], "included_projects")
           expect(subject.project_ids).to eq [project.id]
-          expect(subject.taxonomies).to eq taxonomies
+          expect(subject.decidim_category_id).to eq category.id
         end
       end
     end

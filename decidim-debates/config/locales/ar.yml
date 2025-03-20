@@ -1,8 +1,11 @@
+---
 ar:
   activemodel:
     attributes:
       debate:
+        category_id: الفئة
         closed_at: تم إغلاقه في
+        decidim_category_id: الفئة
         description: وصف
         end_time: ينتهي عند
         information_updates: تحديثات المعلومات
@@ -25,6 +28,8 @@ ar:
   decidim:
     components:
       debates:
+        actions:
+          create: إنشاء
         name: المناقشات
         settings:
           global:
@@ -35,6 +40,8 @@ ar:
             comments_blocked: تم حظر التعليقات
     debates:
       actions:
+        confirm_destroy: هل أنت واثق؟
+        destroy: حذف
         edit: تعديل
         title: أفعال
       admin:
@@ -42,13 +49,11 @@ ar:
           create:
             invalid: كانت هناك مشكلة في خلق النقاش.
             success: تم إنشاء النقاش بنجاح.
+          destroy:
+            success: تم حذف المناقشة بنجاح.
           edit:
             title: تحرير النقاش
             update: تحديث النقاش
-          form:
-            add_attachments: إضافة مرفقات
-            attachment_legend: إضافة مستند أو صورة
-            edit_attachments: تعديل المرفقات
           index:
             title: المناقشات
           new:
@@ -61,10 +66,6 @@ ar:
         debate:
           create: "%{user_name} خلق النقاش %{resource_name} على الفضاء %{space_name}"
           update: "%{user_name} تحديث المناقشة %{resource_name} على %{space_name} الفضاء"
-      content_blocks:
-        highlighted_debates:
-          name: مناقشات
-          see_all: اعرض جميع المناقشات
       debates:
         count:
           debates_count:
@@ -87,6 +88,8 @@ ar:
           origin: الأصل
           participants: المشاركون
           search: بحث
+        form:
+          select_a_category: الرجاء تحديد الفئة
         index:
           new_debate: نقاش جديد
         new:
@@ -94,6 +97,7 @@ ar:
           create: إنشاء
           title: نقاش جديد
         show:
+          edit_debate: تحرير النقاش
           groups_count: الفِرَق
           participants_count: المشاركون
       models:

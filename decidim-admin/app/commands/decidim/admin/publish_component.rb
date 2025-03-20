@@ -35,9 +35,6 @@ module Decidim
           visibility: "all"
         ) do
           component.publish!
-          component.update!(
-            visible: true
-          )
           component
         end
       end

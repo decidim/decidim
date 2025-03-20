@@ -24,7 +24,6 @@ describe "User edit meeting" do
   end
 
   before do
-    stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
     switch_to_host user.organization.host
   end
 
@@ -40,8 +39,7 @@ describe "User edit meeting" do
       visit_component
 
       click_on translated(meeting.title)
-      find("#dropdown-trigger-resource-#{meeting.id}").click
-      click_on "Close"
+      click_on "Close meeting"
 
       expect(page).to have_content "Close meeting"
 
@@ -64,8 +62,7 @@ describe "User edit meeting" do
       visit_component
 
       click_on translated(meeting.title)
-      find("#dropdown-trigger-resource-#{meeting.id}").click
-      click_on "Close"
+      click_on "Close meeting"
 
       expect(page).to have_content "Close meeting"
 
@@ -114,7 +111,6 @@ describe "User edit meeting" do
         visit_component
 
         click_on translated(meeting.title)
-        find("#dropdown-trigger-resource-#{meeting.id}").click
         click_on "Edit meeting report"
 
         expect(page).to have_content "Close meeting"
@@ -144,8 +140,7 @@ describe "User edit meeting" do
         visit_component
 
         click_on translated(meeting.title)
-        find("#dropdown-trigger-resource-#{meeting.id}").click
-        click_on "Close"
+        click_on "Close meeting"
 
         expect(page).to have_content "Close meeting"
 

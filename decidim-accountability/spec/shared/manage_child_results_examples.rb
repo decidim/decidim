@@ -70,17 +70,17 @@ RSpec.shared_examples "manage child results" do
     end
   end
 
-  describe "soft delete a result" do
+  describe "deleting a result" do
     before do
       visit current_path
-      within "tr[data-id='#{result.id}'] .table-list__actions" do
+      within ".table-list__actions" do
         click_on "New result"
       end
     end
 
-    it "moves to the trash a result" do
+    it "deletes a result" do
       within "tr", text: translated(child_result.title) do
-        accept_confirm { click_on "Soft delete" }
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

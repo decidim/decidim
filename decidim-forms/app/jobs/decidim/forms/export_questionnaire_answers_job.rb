@@ -3,8 +3,6 @@
 module Decidim
   module Forms
     class ExportQuestionnaireAnswersJob < ApplicationJob
-      include Decidim::PrivateDownloadHelper
-
       queue_as :exports
 
       def perform(user, title, answers)
@@ -14,9 +12,7 @@ module Decidim
         serializer = Decidim::Forms::UserAnswersSerializer
         export_data = Decidim::Exporters::FormPDF.new(answers, serializer).export
 
-        private_export = attach_archive(export_data, title, user)
-
-        ExportMailer.export(user, private_export).deliver_later
+        ExportMailer.export(user, title, export_data).deliver_now
       end
     end
   end

@@ -4,7 +4,7 @@ require "cell/partial"
 
 module Decidim
   module Accountability
-    # This cell renders the status of a taxonomy or a result.
+    # This cell renders the status of a category
     class StatusCell < Decidim::ViewModel
       include Decidim::Accountability::ApplicationHelper
       include Decidim::Accountability::BreadcrumbHelper
@@ -26,12 +26,16 @@ module Decidim
 
       private
 
+      def scope
+        current_scope.presence
+      end
+
       def url
         options[:url]
       end
 
       def title
-        if model.is_a? Decidim::Taxonomy
+        if model.is_a? Decidim::Category
           decidim_escape_translated(model.name)
         else
           options[:title]
@@ -39,20 +43,20 @@ module Decidim
       end
 
       def results_count
-        @results_count ||= if model.is_a? Decidim::Taxonomy
-                             count_calculator(model.id)
+        @results_count ||= if model.is_a? Decidim::Category
+                             count_calculator(scope, model.id)
                            else
                              options[:count]
                            end
       end
 
       def progress
-        if model.is_a? Decidim::Taxonomy
-          progress_calculator(model.id).presence
+        if model.is_a? Decidim::Category
+          progress_calculator(scope, model.id).presence
         elsif model.respond_to?(:progress)
           model.progress
         else
-          options[:progress] || progress_calculator(nil).presence
+          options[:progress] || progress_calculator(scope, nil).presence
         end
       end
 
@@ -80,8 +84,8 @@ module Decidim
         options[:render_count]
       end
 
-      def count_calculator(taxonomy_id)
-        Decidim::Accountability::ResultsCalculator.new(current_component, taxonomy_id).count
+      def count_calculator(scope_id, category_id)
+        Decidim::Accountability::ResultsCalculator.new(current_component, scope_id, category_id).count
       end
 
       def decidim

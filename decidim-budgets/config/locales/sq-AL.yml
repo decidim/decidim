@@ -1,3 +1,4 @@
+---
 sq:
   activemodel:
     attributes:
@@ -8,6 +9,7 @@ sq:
         weight: Rendit pozicionet
       project:
         budget_amount: Shuma buxhetore
+        decidim_category_id: Kategori
         description: Përshkrimi
         proposal_ids: Propozime të ngjashme
         proposals: Propozimet
@@ -24,6 +26,8 @@ sq:
     admin:
       filters:
         projects:
+          category_id_eq:
+            label: Kategori
           selected_at_null:
             label: E përzgjedhur
             values:
@@ -33,6 +37,7 @@ sq:
       actions:
         attachment_collections: Dosjet
         attachments: Bashkëngjitjet
+        destroy: Fshi
         edit: Përpuno
         edit_projects: Menaxho projektet
         import: Importo propozimet ne projekte

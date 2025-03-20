@@ -1,26 +1,31 @@
+---
 pl:
   activemodel:
     attributes:
       collaborative_draft:
         address: Adres
         body: Treść
+        category_id: Kategoria
         decidim_scope_id: Zakres
         has_address: Ma adres
         scope_id: Zakres
         state: Stan
         title: Tytuł
+        user_group_id: Utwórz wspólny szkic jako
       proposal:
         address: Adres
         answer: Odpowiedź
         answered_at: Odpowiedziano
         automatic_hashtags: Hashtagi zostały dodane automatycznie
         body: Treść
+        category_id: Kategoria
         decidim_scope_id: Zakres
         has_address: Ma adres
         scope_id: Zakres
         state: Stan
         suggested_hashtags: Sugerowane hashtagi
         title: Tytuł
+        user_group_id: Utwórz propozycję jako
       proposal_answer:
         answer: Odpowiedź
         cost: Koszt
@@ -46,6 +51,9 @@ pl:
         import_proposals: Importuj propozycje
         keep_answers: Zachowaj stan i odpowiedzi
         keep_authors: Zachowaj oryginalnych autorów
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Imię weryfikatora
     errors:
       models:
         participatory_text:
@@ -74,6 +82,8 @@ pl:
               not_official: Nie są oficjalne
               voted: Otrzymano głosy lub potwierdzenia
     models:
+      decidim/proposals/admin/update_proposal_category_event: Zmieniono kategorię propozycji
+      decidim/proposals/admin/update_proposal_scope_event: Zmieniono zakres propozycji
       decidim/proposals/creation_enabled_event: Włączono tworzenie propozycji
       decidim/proposals/endorsing_enabled_event: Możliwe rekomendowanie propozycji
       decidim/proposals/proposal_mentioned_event: Wspomniana propozycja
@@ -100,6 +110,8 @@ pl:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Kategoria
           is_emendation_true:
             label: Typ
             values:
@@ -107,6 +119,8 @@ pl:
               'true': Poprawki
           proposal_state_id_eq:
             label: Stan
+          scope_id_eq:
+            label: Zakres
           state_eq:
             label: Stan
             values:
@@ -117,6 +131,8 @@ pl:
               rejected: Odrzucono
               validating: Walidacja techniczna
               withdrawn: Wycofaj
+          valuator_role_ids_has:
+            label: Przypisano do weryfikatora
           with_any_state:
             label: Z odpowiedziami
             values:
@@ -129,6 +145,7 @@ pl:
         actions:
           amend: Popraw
           comment: Skomentuj
+          create: Utwórz
           endorse: Rekomendacje
           vote: Głosuj
           vote_comment: Poprzyj komentarz
@@ -157,6 +174,7 @@ pl:
               random: Losowo
               recent: Ostatnie
               with_more_authors: Z większą liczbą autorów
+            geocoding_enabled: Włączono geokodowanie
             minimum_votes_per_user: Minimalna liczba głosów na użytkownika
             new_proposal_body_template: Szablon treści nowej propozycji
             new_proposal_body_template_help: Możesz zdefiniować częściowo wypełnioną treść nowej propozycji
@@ -165,6 +183,7 @@ pl:
             participatory_texts_enabled: Włącz kolektywną legislację
             participatory_texts_enabled_readonly: Nie można korzystać z tego ustawienia, jeśli są już propozycje. Utwórz nowy komponent propozycji, jeśli chcesz włączyć tę funkcję, lub odrzuć wszystkie zaimportowane propozycje w menu „Kolektywna Legislacja”, jeśli chcesz ją wyłączyć.
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
+            proposal_edit_before_minutes: Propozycje mogą być edytowane przez autorów przed upływem tylu minut
             proposal_edit_time: Edycja propozycji
             proposal_edit_time_choices:
               infinite: Zezwalaj na edycję propozycji przez nieograniczony czas
@@ -174,6 +193,8 @@ pl:
             proposal_wizard_step_1_help_text: 'Tekst pomocy Kreatora - krok: "Utwórz"'
             proposal_wizard_step_2_help_text: Tekst pomocy kroku „Opublikuj” kreatora propozycji
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdej propozycji
+            scope_id: Zakres
+            scopes_enabled: Zakresy włączone
             threshold_per_proposal: Próg poparcia dla propozycji
             vote_limit: Limit głosów na uczestnika
           step:
@@ -218,7 +239,10 @@ pl:
       proposals:
         admin:
           proposal_note_created:
+            email_intro: Ktoś zostawił notatkę do propozycji „%{resource_title}”. Sprawdź ją w <a href="%{admin_proposal_info_url}">panelu administratora</a>.
+            email_outro: Otrzymujesz to powiadomienie, ponieważ możesz weryfikować propozycję.
             email_subject: Ktoś zostawił notatkę do propozycji %{resource_title}.
+            notification_title: Ktoś zostawił notatkę do propozycji <a href="%{resource_path}">%{resource_title}</a>. Sprawdź ją w <a href="%{admin_proposal_info_path}">panelu administratora</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} otrzymał(a) dostęp jako współtwórca wspólnego szkicu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Otrzymujesz to powiadomienie, ponieważ współpracujesz przy dokumencie <a href="%{resource_path}">%{resource_title}</a>.
@@ -286,6 +310,14 @@ pl:
             email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz "%{resource_title}". Aby przestać otrzymywać powiadomienia, kliknij wcześniejszy link.
             email_subject: Wniosek, który obserwujesz, zmienił swój stan (%{state})
             notification_title: Wniosek <a href="%{resource_path}">%{resource_title}</a> zmienił stan na "%{state}".
+        proposal_update_category:
+          email_intro: 'Administrator zaktualizował kategorię Twojej propozycji "%{resource_title}", sprawdź to:'
+          email_subject: Kategoria %{resource_title} propozycji została zaktualizowana
+          notification_title: Kategoria propozycji <a href="%{resource_path}">%{resource_title}</a> została zaktualizowana przez administratora.
+        proposal_update_scope:
+          email_intro: 'Administrator zaktualizował zakres Twojej propozycji „%{resource_title}”, sprawdź to na tej stronie:'
+          email_subject: Zaktualizowano zakres propozycji %{resource_title}
+          notification_title: Administrator zaktualizował zakres propozycji <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
           email_intro: 'Możesz głosować na propozycje w %{participatory_space_title}! Zacznij uczestniczyć na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
@@ -367,6 +399,22 @@ pl:
           proposal_comments: Komentarze
           proposals: Propozycje
         imports:
+          help:
+            answers: |
+              Dokument importu powinien zawierać następujące nazwy kolumn w przypadku plików CSV lub Excel, lub nazwy kluczy w przypadku plików JSON:
+              <ul>
+              <li><b>id:</b> ID wniosku o odpowiedź</li>
+              <li><b>state:</b> Jeden z "accepted", "evaluating" lub "rejected"</li>
+              <li><b>answer/en:</b> Odpowiedź w języku angielskim. Będzie to zależało od konfiguracji języka Twojej platformy.</li>
+              </ul>
+            proposals: |
+              Plik musi mieć następujące nazwy kolumn w przypadku plików CSV lub Excel, lub nazwy kluczy w przypadku plików JSON:
+              <ul>
+              <li><b>title/en:</b> Tytuł w języku angielskim. Będzie to zależało od konfiguracji języka Twojej platformy.</li>
+              <li><li><b>body/en:</b> Treść w języku angielskim. Będzie to zależało od konfiguracji języka Twojej platformy.</li>
+              <li><b>scope/id:</b> ID dla zakresu</li>
+              <li><b>category/id:</b> ID dla kategorii</li>
+              </ul>
           label:
             answers: Importuj odpowiedzi z pliku
             proposals: Importuj propozycje z pliku
@@ -426,6 +474,7 @@ pl:
           form:
             note: Notatka
             submit: Zatwierdź
+          leave_your_note: Zostaw swoją notatkę
           title: Prywatne notatki
         proposal_states:
           create:
@@ -448,28 +497,42 @@ pl:
             success: Status zaktualizowany pomyślnie
         proposals:
           answer:
+            invalid: Wystąpił błąd podczas odpowiadania na tę propozycję.
             success: Odpowiedziano na propozycję.
           create:
+            invalid: Podczas tworzenia tej propozycji wystąpił błąd.
             success: Propozycja została utworzona.
           edit:
             title: Zaktualizuj propozycję
             update: Aktualizuj
           form:
+            attachment_legend: "(Opcjonalnie) Dodaj załącznik"
             created_in_meeting: Ta propozycja pochodzi ze spotkania
+            delete_attachment: Usuń załącznik
+            select_a_category: Wybierz kategorię
             select_a_meeting: Wybierz spotkanie
           index:
             actions: Działania
+            assign_to_valuator: Przypisz do weryfikatora
+            assign_to_valuator_button: Przypisz
             cancel: Anuluj
+            change_category: Zmień kategorię
+            change_scope: Zmień zakres
             merge: Przyłącz do nowego
+            merge_button: Przyłącz
             publish: Publikuj
             publish_answers: Publikuj odpowiedzi
             select_component: Wybierz komponent
+            select_valuators: Wybierz jedną lub więcej osób zajmujących się wyceną
             selected: wybrany
             split: Podziel propozycje
             split_button: Podziel
             statuses: Statusy
             title: Propozycje
+            unassign_from_valuator: Anuluj przypisanie do weryfikatora
+            unassign_from_valuator_button: Anuluj przypisanie
             update: Aktualizuj
+            update_scope_button: Aktualizuj zakres
           new:
             create: Utwórz
             title: Utwórz propozycję
@@ -478,6 +541,7 @@ pl:
             select_a_proposal: Wybierz propozycję.
           show:
             amendments_count: Liczba poprawek
+            assigned_valuators: Przypisani weryfikatorzy
             body: Treść
             comments_count: Liczba komentarzy
             documents: Dokumenty
@@ -493,10 +557,23 @@ pl:
             ranking: "%{ranking} z %{total}"
             related_meetings: Powiązane spotkania
             remove_assignment: Usuń zadanie
+            remove_assignment_confirmation: Czy na pewno chcesz usunąć przypisanie weryfikatora z tej propozycji?
+            valuators: Weryfikatorzy
             votes_count: Liczba głosów
+          update_category:
+            invalid: 'Następujące propozycje miały już kategorię %{subject_name}: %{proposals}.'
+            select_a_category: Proszę wybrać kategorię.
+            select_a_proposal: Wybierz propozycję.
+            success: 'Zaktualizowano kategorię nad %{subject_name} dla następujących propozycji: %{proposals}.'
+          update_scope:
+            invalid: 'Następujące propozycje miały już zakres %{subject_name}: %{proposals}.'
+            select_a_proposal: Wybierz propozycję.
+            select_a_scope: Proszę wybrać zakres.
+            success: 'Zaktualizowano zakres na %{subject_name} dla następujących propozycji: %{proposals}.'
         proposals_imports:
           create:
             invalid: Podczas importowania propozycji wystąpił błąd.
+            success: "Zaimportowano %{number} propozycji."
           new:
             create: Importuj propozycje
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów propozycji do zaimportowania propozycji.
@@ -505,17 +582,30 @@ pl:
             title: Importuj propozycje z innego komponentu
         proposals_merges:
           create:
+            invalid: 'Wystąpił błąd podczas łączenia wybranych propozycji, ponieważ niektóre z nich:'
             success: Pomyślnie połączono propozycje.
         proposals_splits:
           create:
+            invalid: 'Wystąpił błąd podczas dzielenia wybranych propozycji, ponieważ niektóre z nich:'
             success: Pomyślnie podzielono propozycje.
+        valuation_assignments:
+          create:
+            invalid: Wystąpił błąd podczas przypisywania propozycji do weryfikatora.
+            success: Przypisano propozycje do weryfikatora.
+          delete:
+            invalid: Wystąpił błąd podczas usuwania przypisania propozycji do weryfikatora.
+            success: Anulowano przypisanie weryfikatora do propozycji.
       admin_log:
         proposal:
           answer: "%{user_name} odpowiedział(a) na propozycję %{resource_name} w przestrzeni %{space_name}"
+          create: "%{user_name} stworzył(a) propozycję %{resource_name} w przestrzeni %{space_name} jako oficjalną propozycję"
           publish_answer: "%{user_name} opublikował(a) odpowiedź na propozycję %{resource_name} w przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował(a) oficjalną propozycję %{resource_name} w przestrzeni %{space_name}"
         proposal_note:
           create: "%{user_name} zostawił(a) prywatną notatkę do propozycji %{resource_name} w przestrzeni %{space_name}"
+        valuation_assignment:
+          create: "%{user_name} przypisał(a) propozycję %{resource_name} do weryfikatora"
+          delete: "%{user_name} anulował(a) przypisanie taksatora do propozycji %{proposal_title}"
       answers:
         accepted: Zaakceptowano
         evaluating: Ocena
@@ -528,6 +618,7 @@ pl:
           meetings: Spotkania
           official: Urzędnik
           participants: Użytkownicy
+          user_groups: Grupy użytkowników
         filter_state_values:
           all: Wszystko
           not_answered: Bez odpowiedzi
@@ -557,7 +648,9 @@ pl:
           error: Przy tworzeniu wspólnego szkicu pojawił się problem.
           success: Utworzono wspólny szkic.
         edit:
+          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
+          select_a_category: Wybierz kategorię
           send: Wyślij
           title: Edytuj wspólny szkic
         empty: Nie ma jeszcze żadnych wspólnych wersji roboczych
@@ -565,9 +658,11 @@ pl:
         filters:
           all: Wszystko
           amendment: Poprawki
+          category: Kategoria
           open: Otwarty
           published: Opublikowany
           related_to: Związany z
+          scope: Zakres
           search: Szukaj
           state: Status
           withdrawn: Wycofane
@@ -609,6 +704,7 @@ pl:
             error: Nie można odrzucić, spróbuj ponownie później.
             success: "Użytkownik @%{user} został odrzucony jako współtwórca."
         show:
+          edit: Edytuj wspólny szkic
           final_proposal: ostateczna propozycja
           final_proposal_help_text: Ten szkic jest zakończony. zobacz ostateczną propozycję
           hidden_authors_count:
@@ -649,14 +745,18 @@ pl:
       models:
         proposal:
           fields:
+            category: Kategoria
             comments: Komentarze
             id: ID
             notes: Notatki
             official_proposal: Oficjalna propozycja
             published_answer: Opublikowane odpowiedzi
             published_at: Opublikowano
+            scope: Zakres
             state: Status
             title: Tytuł
+            valuator: Weryfikator
+            valuators: Weryfikatorzy
             votes: Głosy
         proposal_state:
           css_class: klasa CSS
@@ -676,7 +776,11 @@ pl:
           description: Współrzędne zostaną zaktualizowane po kliknięciu przycisku 'podgląd'. Jednakże adres nie ulegnie zmianie.
           instructions: Możesz przenieść punkt na mapie.
         edit:
+          add_documents: Dodaj dokumenty
+          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
+          edit_documents: Edytuj dokumenty
+          select_a_category: Wybierz kategorię
           send: Wyślij
           title: Edytuj propozycję
         edit_draft:
@@ -689,6 +793,7 @@ pl:
           activity: Moja aktywność
           all: Wszystko
           amendment_type: Typ
+          category: Kategoria
           my_proposals: Moje propozycje
           origin: Źródło
           related_to: Związany z
@@ -745,6 +850,7 @@ pl:
         show:
           answer: Odpowiedź
           changes_at_title: Poprawka do „%{title}”
+          edit_proposal: Edytuj propozycję
           estimated_cost: Szacowany koszt
           hidden_endorsers_count:
             one: i %{count} osoba więcej
@@ -762,6 +868,7 @@ pl:
           proposal_rejected_reason: 'Ta propozycja została odrzucona, ponieważ:'
           withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, dopóki nie otrzymasz żadnego głosu. Propozycja nie zostanie usunięta, pojawi się ona na liście wycofanych propozycji.
           withdraw_confirmation_html: Czy na pewno chcesz wycofać tę propozycję?<br><br><strong>Tej akcji nie można anulować!</strong>
+          withdraw_proposal: Wycofaj propozycję
         update:
           title: Aktualizuj propozycję
         vote_button:
@@ -770,13 +877,19 @@ pl:
           maximum_votes_reached: Osiągnięto limit głosów
           no_votes_remaining: Brak głosów
           vote: Głosować
+          votes_blocked: Głosowanie zostało wyłączone
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Każda propozycja może zgromadzić głosy poparcia ponad limit %{limit} głosów
+          minimum_votes_per_user:
+            description: Musisz rozdzielić minimum %{votes} głosów pomiędzy różne propozycje.
+            given_enough_votes: Udzieliłeś(aś) wystarczającej liczby głosów.
+            votes_remaining: Musisz wesprzeć %{remaining_votes} dodatkowych propozycji, aby Twoje głosy zostały policzone.
           proposal_limit:
             description: Możesz utworzyć maksymalnie %{limit} propozycji.
           threshold_per_proposal:
             description: Aby propozycje zostały zatwierdzone, muszą osiągnąć limit %{limit} głosów.
+          title: 'Głosy podlegają następującym zasadom:'
           vote_limit:
             description: Możesz wesprzeć maksymalnie %{limit} propozycji.
             votes: Pozostało %{number} głosów

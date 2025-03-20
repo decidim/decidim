@@ -1,3 +1,4 @@
+---
 tr:
   activemodel:
     attributes:
@@ -7,7 +8,10 @@ tr:
         decidim_scope_id: kapsam
         description: Açıklama
         end_date: Bitiş tarihi
+        meetings_ids: Görüşmeler
         progress: İlerleme
+        project_ids: Dahil edilen projeler
+        proposals: Dahil edilen teklifler
         start_date: Başlangıç tarihi
         title: Başlık
         updated_at: Adresinde güncellendi
@@ -36,6 +40,7 @@ tr:
         confirm_destroy: Bu %{name}silmek istediğinize emin misiniz?
         destroy: silmek
         edit: Düzenle
+        import: Başka bir bileşenden proje aktar
         import_csv: Sonuçları CSV dosyasından içe aktarın
         new_result: Yeni sonuç
         new_status: Yeni Durum
@@ -51,6 +56,27 @@ tr:
           new:
             download_export: '  İhracat i CSV formatında indirin '
             import: İçe aktar
+            info: |
+              <p>Şu adımları uygulamanızı öneririz:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Eklemek istediğiniz Sonuçlar için kayıtları</a></li>
+              Biçimi ve neye ihtiyacınız olacağını daha iyi anlamak için, İçe Aktarmayı kullanmadan önce bu Yönetici paneli aracılığıyla <li><a href='%{link_new_result}' target='_blank'>manuel olarak en az bir Sonuç oluşturun</a> doldurmak için.</li>
+              <li>%{link_export_csv</li>
+              <li>Değişiklikleri yerel olarak yapın. CSV'nin yalnızca aşağıdaki sütunlarını değiştirebilirsiniz:
+                 <ul>
+                 <li><b>kategori/kimlik:</b> Kategorinin kimliği</li>
+                 <li><b>kapsam/kimlik:</b> Kapsamın kimliği</li>
+                 <li><b>ebeveyn/kimlik:</b> Ebeveynin kimliği (ilgili Sonuçlar için). İsteğe bağlı</li>
+                 <li><b>title/en:</b> İngilizce dilindeki başlık. Bu, platform dili yapılandırmanıza bağlı olacaktır.</li>
+                 <li><b>description/tr:</b> İngilizce diliyle ilgili açıklama. Bu, platform dili yapılandırmanıza bağlı olacaktır.</li>
+                 <li><b>başlangıç_tarihi:</b> sonucun yürütülmeye başlayacağı tarih (YYYY-AA-GG biçiminde)</li>
+                 <li><b>bitiş_tarihi:</b> sonucun yürütülmesinin sona erdiği tarih (YYYY-AA-GG biçiminde)</li>
+                 <li><b>durum/kimlik:</b> Bu sonuca ilişkin Durumun kimliği</li>
+                 <li><b>ilerleme:</b> Yürütme yüzdesi (0'dan 100'e kadar)</li>
+                 <li><b>teklifler_kimlikleri:</b> İlgili tekliflerin dahili kimliği (virgülle ayrılmış). Otomatik olarak <span class='attribute-name'>proposal_url</span></li> biçimine dönüştürülür
+                 </ul>
+              </li>
+              </ol>
             title: Sonuçları CSV dosyasından içe aktarın
         imports:
           create:
@@ -61,10 +87,22 @@ tr:
             name: Sonuç
           status:
             name: durum
+        projects_import:
+          create:
+            invalid: Projelerin sonuçlara aktarılmasında bir sorun oluştu. Lütfen talimatları dikkatlice takip edin ve projeleri seçtiğinizden emin olun.
+          new:
+            create: İçe aktar
+            import_all_selected_projects: Seçilen tüm projeleri içe aktarın
+            no_components: Bu katılımcı alanda projeleri sonuçlara dönüştürecek bütçe bileşenleri yoktur.
+            origin_component_id: Asıl bileşen
+            select_component: Bir bileşen seç
+            title: Projeleri başka bir bileşenden içe aktarın
         results:
           create:
             invalid: Sonuçlar sorgulanırken bir sorun oluştu.
             success: Sonuçlar Başarıyla oluşturuldu.
+          destroy:
+            success: Sonuçlar Başarıyla Silindi.
           edit:
             title: Sonucu düzenle
             update: Sonuç güncelle
@@ -148,10 +186,12 @@ tr:
       models:
         result:
           fields:
+            category: Kategori
             created_at: Oluşturuldu
             end_date: Bitiş tarihi
             id: ID
             progress: İlerleme
+            scope: kapsam
             start_date: Başlangıç tarihi
             status: durum
             title: Başlık
@@ -170,8 +210,15 @@ tr:
           results_count:
             one: 1 sonuç
             other: "%{count} sonuç"
+        filters:
+          all: Herşey
+        home:
+          empty: Henüz sonuç yok.
+          empty_filters: Bu kriterlere uyan sonuç bulunamamıştır.
         home_header:
           global_status: Genel yürütme durumu
+        nav_breadcrumb:
+          global: Global yürütme
         no_results: Proje Bulunamadı
         search:
           search: İşlemleri ara
@@ -183,6 +230,10 @@ tr:
     admin:
       filters:
         results:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: kapsam
           status_id_eq:
             label: Durum
     components:
@@ -196,6 +247,8 @@ tr:
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
             display_progress_enabled: İlerlemeyi göster
             intro: Tanıtım
+            scope_id: Kapsam
+            scopes_enabled: Kapsamlar etkinleştirildi
           step:
             comments_blocked: Yorumlar engellendi
     events:

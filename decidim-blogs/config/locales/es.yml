@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -14,34 +15,27 @@ es:
         one: Publicación
         other: Publicaciones
   decidim:
-    admin:
-      admin_log:
-        changeset:
-          posts: Entradas en el blog
     blogs:
       actions:
         author_id: Crear publicación como
-        confirm_delete_post: '¿Seguro que quieres eliminar esta publicación?'
-        deleted_posts_info: Los resultados eliminados se pueden restaurar desde papelera.
+        confirm_destroy: '¿Seguro que quieres eliminar esta publicación?'
+        destroy: Borrar
         edit: Editar
         new: Nueva publicación
         title: Acciones
-        view_deleted_posts: Ver las publicaciones eliminadas
       admin:
         posts:
           create:
             invalid: Se ha producido un error al crear esta publicación.
             success: Publicación creada correctamente.
           destroy:
-            success: La publicación se ha borrado correctamente.
+            success: La publicación se ha eliminado correctamente.
           edit:
             save: Actualizar
             title: Editar publicación
           index:
             not_published_yet: No publicada aún.
             title: Publicaciones
-          manage_trash:
-            title: Publicaciones eliminadas
           new:
             create: Crear
             title: Crear publicación
@@ -52,8 +46,6 @@ es:
         post:
           create: "%{user_name} creó el post %{resource_name} en el blog de %{space_name}"
           delete: "%{user_name} ha eliminado el post %{resource_name} en el blog de %{space_name}"
-          restore: "%{user_name} restauró la publicación %{resource_name} en el blog de %{space_name}"
-          soft_delete: "%{user_name} ha movido el resultado %{resource_name} desde el blog de %{space_name} a la papelera"
           update: "%{user_name} ha actualizado el post %{resource_name} en el blog de %{space_name}"
       content_blocks:
         highlighted_posts:
@@ -69,34 +61,13 @@ es:
             body: Cuerpo
             official_blog_post: Post oficial
             published_at: Hora de publicación
-            taxonomies: Taxonomías
             title: Título
       posts:
-        edit:
-          add_attachments: Agregar archivo(s) adjunto(s)
-          attachment_legend: Añadir un documento o una imagen
-          back: Volver a la publicación
-          button: Actualizar
-          edit_attachments: Editar los archivos adjuntos
-          title: Editar la publicación
-        form:
-          author_id: Autoría
-          body: Cuerpo del texto
-          title: Título
         index:
           count:
             one: "%{count} publicación"
             other: "%{count} publicaciones"
           empty: Aún no hay ninguna publicación.
-          new_post: Nueva publicación
-        menu_actions:
-          button_destroy: Eliminar la publicación
-          button_destroy_confirm: '¿Seguro que quieres eliminar esta publicación?'
-          button_edit: Editar la publicación
-        new:
-          back: Volver a la publicación
-          button: Nueva publicación
-          title: Crear una nueva publicación
     components:
       blogs:
         actions:
@@ -109,14 +80,8 @@ es:
         settings:
           global:
             announcement: Aviso
-            attachments_allowed: Permitir archivos adjuntos
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
-            creation_enabled_for_participants: Las participantes pueden crear nuevas entradas en el blog
-            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
-            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
-            taxonomy_filters: Seleccionar filtros para el componente
-            taxonomy_filters_add: Añadir un filtro
           step:
             announcement: Aviso
             comments_blocked: Comentarios bloqueados
@@ -129,32 +94,5 @@ es:
           email_outro: Recibió esta notificación porque está siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: Nueva publicación publicada en %{participatory_space_title}
           notification_title: La publicación <a href="%{resource_path}">%{resource_title}</a> se publicó en %{participatory_space_title}.
-    open_data:
-      help:
-        post_comments:
-          alignment: Si este comentario fue a favor, en contra o neutral
-          author: El nombre usuaria de la participante que hizo este comentario
-          body: El comentario en sí
-          commentable_id: El identificador único de aquello que se podía comentar
-          commentable_type: La tipología de aquello sobre lo que se realizó el comentario (si fue un resultado, una propuesta, etc.)
-          created_at: La fecha en la que se creó este comentario
-          depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es un comentario, una respuesta a un comentario, o la respuesta de una respuesta)
-          id: El identificador de este comentario
-          locale: La configuración regional (idioma) que la participante tenía al dejar este comentario
-          root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
-        posts:
-          author: La información de la autoría
-          body: El contenido de la publicación
-          comments_count: El número de comentarios que tiene esta publicación
-          component: El componente al que pertenece la publicación
-          created_at: La fecha en la que se creó esta publicación
-          endorsements_count: El número de adhesiones que tiene esta publicación
-          follows_count: El número de seguidoras que tiene esta publicación
-          id: El identificador único de la publicación
-          participatory_space: A qué espacio pertenece esta publicación (proceso participativo, asamblea, etc.)
-          published_at: La fecha en la que se publicó esta entrada en el blog
-          title: El título de la publicación
-          updated_at: La fecha de la última actualización de esta publicación
-          url: La URL para esta publicación
     statistics:
       posts_count: Publicaciones

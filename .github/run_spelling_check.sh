@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 if ! command -v yq &> /dev/null; then
   echo "The yq command is not available on this system."

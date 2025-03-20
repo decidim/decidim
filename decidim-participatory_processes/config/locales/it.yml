@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -22,6 +23,9 @@ it:
         promoted: Promossa
         published_at: Pubblicato a
         related_process_ids: Processi correlati
+        scope_id: Obiettivi
+        scope_type_max_depth_id: Profondità del filtro dell'ambito
+        scopes_enabled: Gli ambiti abilitati
         short_description: Descrizione breve
         slug: Stringa URL
         start_date: Data di inizio
@@ -49,6 +53,8 @@ it:
         end_date: Data di fine
         short_description: Descrizione breve
         start_date: Data di inizio
+        title: Titolo
+      participatory_process_type:
         title: Titolo
       participatory_process_user_role:
         email: Email
@@ -96,8 +102,10 @@ it:
           attachment_collections: Cartelle
           attachment_files: File
           attachments: Allegati
+          categories: Categorie
           components: Componenti
           moderations: Moderazione
+          private_users: Utenti privati
           process_admins: Amministratrici/tori di processo
           steps: Fasi (Steps)
       models:
@@ -118,6 +126,10 @@ it:
             start_date: Data di inizio
             title: Titolo
           name: Fase del processo partecipativo
+        participatory_process_type:
+          fields:
+            created_at: Data/ora di creazione
+            title: Titolo
         participatory_process_user_role:
           fields:
             email: Email
@@ -128,6 +140,7 @@ it:
             admin: Amministratore
             collaborator: Collaboratore
             moderator: Moderatore
+            valuator: Valutatore
         user:
           fields:
             invitation_accepted_at: Invito accettato su
@@ -139,6 +152,7 @@ it:
           title: Duplica il processo partecipativo
       participatory_process_groups:
         destroy:
+          error: Si è verificato un errore durante la cancellazione del gruppo di processi partecipativi.
           success: Gruppo di processi partecipativi cancellato con successo.
         edit:
           title: Aggiorna un gruppo di processi
@@ -188,6 +202,11 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa fase del processo partecipativo.
           success: Questa fase del processo partecipativo è stata aggiornata.
+      participatory_process_types:
+        edit:
+          update: Modifica
+        new:
+          create: Crea
       participatory_process_user_roles:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente per questo processo partecipativo.
@@ -328,9 +347,13 @@ it:
           form:
             announcement_help: Il testo che inserisci qui verrà mostrato all'utente sotto le informazioni di processo.
             duration: Durata
+            filters: filtri
             images: immagini
             metadata: Metadati
+            other: Altro
             related_processes: Processi correlati
+            scope_type_max_depth_help: Limita la profondità del filtro; il filtro verrà mostrato da generale al tipo di ambito selezionato.
+            select_an_area: Seleziona un'area
             select_process_group: Seleziona un gruppo di processi
             title: Informazioni generali
       content_blocks:

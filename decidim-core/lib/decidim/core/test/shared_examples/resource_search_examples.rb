@@ -29,9 +29,9 @@ shared_examples_for "a resource search with scopes" do |factory_name|
   describe "scope_id filter" do
     let(:filter_params) { { with_any_scope: scope_ids } }
 
-    let(:scope1) { create(:scope, organization: component.organization) }
-    let(:scope2) { create(:scope, organization: component.organization) }
-    let(:subscope1) { create(:scope, organization: component.organization, parent: scope1) }
+    let(:scope1) { create :scope, organization: component.organization }
+    let(:scope2) { create :scope, organization: component.organization }
+    let(:subscope1) { create :scope, organization: component.organization, parent: scope1 }
 
     let!(:resource) { create(factory_name, { component:, scope: scope1 }.merge(factory_params)) }
     let!(:resource2) { create(factory_name, { component:, scope: scope2 }.merge(factory_params)) }
@@ -117,100 +117,94 @@ shared_examples_for "a resource search with scopes" do |factory_name|
   end
 end
 
-shared_examples_for "a resource search with taxonomies" do |factory_name|
+shared_examples_for "a resource search with categories" do |factory_name, category_mode = :multi|
+  let(:participatory_space) { component.participatory_space }
+  let(:filter_params) do
+    case category_mode
+    when :single
+      { with_category: category_ids }
+    else
+      { with_any_category: category_ids }
+    end
+  end
   let(:factory_params) do
     resource_params
   rescue StandardError
     {}
   end
 
-  let(:participatory_space) { component.participatory_space }
-  let(:filter_params) do
-    { with_any_taxonomies: { "#{root_taxonomy.id}": taxonomy_ids } }
-  end
+  describe "results" do
+    let(:category1) { create :category, participatory_space: }
+    let(:category2) { create :category, participatory_space: }
+    let(:child_category) { create :category, participatory_space:, parent: category2 }
+    let!(:resource) { create(factory_name, { component: }.merge(factory_params)) }
+    let!(:resource2) { create(factory_name, { component:, category: category1 }.merge(factory_params)) }
+    let!(:resource3) { create(factory_name, { component:, category: category2 }.merge(factory_params)) }
+    let!(:resource4) { create(factory_name, { component:, category: child_category }.merge(factory_params)) }
 
-  let(:root_taxonomy) { create(:taxonomy, organization:) }
-  let(:taxonomy1) { create(:taxonomy, parent: root_taxonomy, organization:) }
-  let(:taxonomy2) { create(:taxonomy, parent: root_taxonomy, organization:) }
-  let(:child_taxonomy) { create(:taxonomy, organization:, parent: taxonomy2) }
-  let!(:resource) { create(factory_name, { component: }.merge(factory_params)) }
-  let!(:resource2) { create(factory_name, { component:, taxonomies: [taxonomy1] }.merge(factory_params)) }
-  let!(:resource3) { create(factory_name, { component:, taxonomies: [taxonomy2] }.merge(factory_params)) }
-  let!(:resource4) { create(factory_name, { component:, taxonomies: [child_taxonomy] }.merge(factory_params)) }
-
-  before do
-    get(
-      request_path,
-      params: { filter: filter_params },
-      headers: { "HOST" => component.organization.host }
-    )
-  end
-
-  context "when no taxonomy filter is present" do
-    let(:filter_params) do
-      { with_any_taxonomies: [] }
+    before do
+      get(
+        request_path,
+        params: { filter: filter_params },
+        headers: { "HOST" => component.organization.host }
+      )
     end
 
-    it "includes all resources" do
-      expect(subject).to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
-      expect(subject).to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
-      expect(subject).to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
-      expect(subject).to have_escaped_html(translated(resource4.try(:title) || resource4.try(:name)))
+    context "when no category filter is present" do
+      let(:category_ids) { nil }
+
+      it "includes all resources" do
+        expect(subject).to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource4.try(:title) || resource4.try(:name)))
+      end
     end
-  end
 
-  context "when no ids are specified" do
-    let(:taxonomy_ids) { [] }
+    context "when a category is selected" do
+      let(:category_ids) { [category2.id] }
 
-    it "includes all resources" do
-      expect(subject).to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
-      expect(subject).to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
-      expect(subject).to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
-      expect(subject).to have_escaped_html(translated(resource4.try(:title) || resource4.try(:name)))
+      it "includes only resources for that category and its children" do
+        expect(subject).not_to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource4.try(:title) || resource4.try(:name)))
+      end
     end
-  end
 
-  context "when `all` is being sent" do
-    let(:taxonomy_ids) { ["all"] }
+    context "when a subcategory is selected" do
+      let(:category_ids) { [child_category.id] }
 
-    it "includes all resources with the root taxonomy" do
-      expect(subject).not_to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
-      expect(subject).to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
-      expect(subject).to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
-      expect(subject).to have_escaped_html(translated(resource4.try(:title) || resource4.try(:name)))
+      it "includes only resources for that category" do
+        expect(subject).not_to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
+        expect(subject).to have_escaped_html(translated(resource4.try(:title) || resource4.try(:name)))
+      end
     end
-  end
 
-  context "when a taxonomy is selected" do
-    let(:taxonomy_ids) { [taxonomy2.id] }
+    context "when `without` is being sent" do
+      let(:category_ids) { ["without"] }
 
-    it "includes only resources for that taxonomy and its children" do
-      expect(subject).not_to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
-      expect(subject).not_to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
-      expect(subject).to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
-      expect(subject).to have_escaped_html(translated(resource4.try(:title) || resource4.try(:name)))
+      it "returns resources without a category" do
+        expect(subject).to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(resource4.try(:title) || resource4.try(:name)))
+      end
     end
-  end
 
-  context "when multiple taxonomies are selected" do
-    let(:taxonomy_ids) { [taxonomy1.id, taxonomy2.id] }
+    if category_mode == :multi
+      context "when `without` and some category id is being sent" do
+        let(:category_ids) { ["without", category1.id] }
 
-    it "includes only resources for those taxonomies" do
-      expect(subject).not_to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
-      expect(subject).to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
-      expect(subject).to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
-      expect(subject).to have_escaped_html(translated(resource4.try(:title) || resource4.try(:name)))
-    end
-  end
-
-  context "when a sub_taxonomy is selected" do
-    let(:taxonomy_ids) { [child_taxonomy.id] }
-
-    it "includes only resources for that taxonomy" do
-      expect(subject).not_to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
-      expect(subject).not_to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
-      expect(subject).not_to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
-      expect(subject).to have_escaped_html(translated(resource4.try(:title) || resource4.try(:name)))
+        it "returns resources without a category and with the selected category" do
+          expect(subject).to have_escaped_html(translated(resource.try(:title) || resource.try(:name)))
+          expect(subject).to have_escaped_html(translated(resource2.try(:title) || resource2.try(:name)))
+          expect(subject).not_to have_escaped_html(translated(resource3.try(:title) || resource3.try(:name)))
+          expect(subject).not_to have_escaped_html(translated(resource4.try(:title) || resource4.try(:name)))
+        end
+      end
     end
   end
 end
@@ -225,6 +219,7 @@ shared_examples_for "a resource search with origin" do |factory_name|
 
   describe "results" do
     let!(:official_resource) { create(factory_name, :official, { component: }.merge(factory_params)) }
+    let!(:user_group_resource) { create(factory_name, :user_group_author, { component: }.merge(factory_params)) }
     let!(:participant_resource) { create(factory_name, :participant_author, { component: }.merge(factory_params)) }
 
     if FactoryBot.factories[factory_name].defined_traits.map(&:name).include?(:meeting_resource)
@@ -245,6 +240,7 @@ shared_examples_for "a resource search with origin" do |factory_name|
       it "returns only official resources" do
         expect(subject).to have_escaped_html(translated(official_resource.try(:title) || official_resource.try(:name)))
         expect(subject).not_to have_escaped_html(translated(participant_resource.try(:title) || participant_resource.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(user_group_resource.try(:title) || user_group_resource.try(:name)))
       end
     end
 
@@ -254,6 +250,17 @@ shared_examples_for "a resource search with origin" do |factory_name|
       it "returns only citizen resources" do
         expect(subject).not_to have_escaped_html(translated(official_resource.try(:title) || official_resource.try(:name)))
         expect(subject).to have_escaped_html(translated(participant_resource.try(:title) || participant_resource.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(user_group_resource.try(:title) || user_group_resource.try(:name)))
+      end
+    end
+
+    context "when filtering user groups resources" do
+      let(:origins) { %w(user_group) }
+
+      it "returns only user groups resources" do
+        expect(subject).not_to have_escaped_html(translated(official_resource.try(:title) || official_resource.try(:name)))
+        expect(subject).not_to have_escaped_html(translated(participant_resource.try(:title) || participant_resource.try(:name)))
+        expect(subject).to have_escaped_html(translated(user_group_resource.try(:title) || user_group_resource.try(:name)))
       end
     end
 
@@ -264,6 +271,7 @@ shared_examples_for "a resource search with origin" do |factory_name|
         it "returns only meeting resources" do
           expect(subject).not_to have_escaped_html(translated(official_resource.try(:title) || official_resource.try(:name)))
           expect(subject).not_to have_escaped_html(translated(participant_resource.try(:title) || participant_resource.try(:name)))
+          expect(subject).not_to have_escaped_html(translated(user_group_resource.try(:title) || user_group_resource.try(:name)))
           expect(subject).to have_escaped_html(translated(meeting_resource.try(:title) || meeting_resource.try(:name)))
         end
       end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/api/test"
+require "decidim/api/test/component_context"
 require "decidim/surveys/test/factories"
 
 describe "Decidim::Api::QueryType" do
@@ -58,10 +58,10 @@ describe "Decidim::Api::QueryType" do
   let(:survey_single_result) do
     survey.reload
     {
-      "createdAt" => survey.created_at.to_time.iso8601,
+      "createdAt" => survey.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "id" => survey.id.to_s,
       "questionnaire" => {
-        "createdAt" => survey.questionnaire.created_at.to_time.iso8601,
+        "createdAt" => survey.questionnaire.created_at.iso8601.to_s.gsub("Z", "+00:00"),
         "description" => { "translation" => survey.questionnaire.description[locale] },
         "forType" => "Decidim::Surveys::Survey",
         "id" => survey.questionnaire.id.to_s,
@@ -75,21 +75,21 @@ describe "Decidim::Api::QueryType" do
               }
             end,
             "body" => { "translation" => q.body[locale] },
-            "createdAt" => q.created_at.to_time.iso8601,
+            "createdAt" => q.created_at.iso8601.to_s.gsub("Z", "+00:00"),
             "description" => { "translation" => q.description[locale] },
             "id" => q.id.to_s,
             "mandatory" => q.mandatory?,
             "maxChoices" => q.max_choices,
             "position" => q.position,
             "questionType" => q.question_type,
-            "updatedAt" => q.updated_at.to_time.iso8601
+            "updatedAt" => q.updated_at.iso8601.to_s.gsub("Z", "+00:00")
           }
         end,
         "title" => { "translation" => survey.questionnaire.title[locale] },
         "tos" => { "translation" => survey.questionnaire.tos[locale] },
-        "updatedAt" => survey.questionnaire.updated_at.to_time.iso8601
+        "updatedAt" => survey.questionnaire.updated_at.iso8601.to_s.gsub("Z", "+00:00")
       },
-      "updatedAt" => survey.updated_at.to_time.iso8601
+      "updatedAt" => survey.updated_at.iso8601.to_s.gsub("Z", "+00:00")
     }
   end
 

@@ -1,3 +1,4 @@
+---
 nl:
   activemodel:
     attributes:
@@ -22,6 +23,9 @@ nl:
         promoted: Gepromoveerd
         published_at: Gepubliceerd op
         related_process_ids: Verwante thema's
+        scope_id: Scope
+        scope_type_max_depth_id: Scope filterdiepte
+        scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
         slug: URL pad
         start_date: Startdatum
@@ -49,6 +53,8 @@ nl:
         end_date: Einddatum
         short_description: Korte beschrijving
         start_date: Startdatum
+        title: Titel
+      participatory_process_type:
         title: Titel
       participatory_process_user_role:
         email: E-mail
@@ -96,8 +102,10 @@ nl:
           attachment_collections: Mappen
           attachment_files: Bestanden
           attachments: Bijlagen
+          categories: Categorieën
           components: Onderdelen
           moderations: Moderaties
+          private_users: Privégebruikers
           process_admins: Admins van het proces
           steps: Stappen
       models:
@@ -118,6 +126,10 @@ nl:
             start_date: Startdatum
             title: Titel
           name: Stap van het inspraakproces
+        participatory_process_type:
+          fields:
+            created_at: Aangemaakt op
+            title: Titel
         participatory_process_user_role:
           fields:
             email: E-mail
@@ -128,6 +140,7 @@ nl:
             admin: Administrator
             collaborator: Medewerker
             moderator: Moderator
+            valuator: Beoordelaar
         user:
           fields:
             invitation_accepted_at: Uitnodiging geaccepteerd op
@@ -139,6 +152,7 @@ nl:
           title: Inspraakproces dupliceren
       participatory_process_groups:
         destroy:
+          error: Er is een fout opgetreden tijdens het vernietigen van de Participatory procesgroep.
           success: Participatieve procesgroep succesvol verwijderd.
         edit:
           title: Bewerk groep
@@ -188,6 +202,11 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze processtap.
           success: Fase van participatief proces succesvol bijgewerkt.
+      participatory_process_types:
+        edit:
+          update: Bijwerken
+        new:
+          create: Creëren
       participatory_process_user_roles:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een gebruiker aan dit inspraakproces.
@@ -326,9 +345,13 @@ nl:
           form:
             announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.
             duration: Duur
+            filters: Filters
             images: Afbeeldingen
             metadata: Metadata
+            other: Overige
             related_processes: Verwante thema's
+            scope_type_max_depth_help: Beperk de scope filter diepte; de filter zal uit het algemeen worden weergegeven tot het geselecteerde scope type.
+            select_an_area: Selecteer een onderwerp
             select_process_group: Selecteer een procesgroep
             title: Algemene informatie
       content_blocks:

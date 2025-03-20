@@ -22,15 +22,15 @@ module Decidim
       def query
         recipients = recipients_base_query
 
-        return recipients if @form.send_to_all_users
-        return verified_users if @form.send_to_verified_users
+        recipients = recipients.interested_in_scopes(@form.scope_ids) if @form.scope_ids.present?
 
-        if filters_present?
-          filtered_recipients = apply_filters(recipients)
-          return recipients.none if filtered_recipients.empty?
+        followers = recipients.where(id: user_id_of_followers) if @form.send_to_followers
 
-          return filtered_recipients
-        end
+        participants = recipients.where(id: participant_ids) if @form.send_to_participants
+
+        recipients = participants if @form.send_to_participants
+        recipients = followers if @form.send_to_followers
+        recipients = (followers + participants).uniq if @form.send_to_followers && @form.send_to_participants
 
         recipients
       end
@@ -45,47 +45,24 @@ module Decidim
                      .confirmed
       end
 
-      def filters_present?
-        @form.send_to_followers || @form.send_to_participants || @form.send_to_private_members
-      end
-
-      def apply_filters(recipients)
-        filters = [
-          user_id_of_followers,
-          participant_ids,
-          private_member_ids
-        ].compact.flatten.uniq
-
-        filters.empty? ? recipients.none : recipients.where(id: filters)
-      end
-
       # Return the ids of the ParticipatorySpace selected
       # in form, grouped by type
       # This will be used to take followers and
       # participants of each ParticipatorySpace
       def spaces
-        return [] if @form.participatory_space_types.blank?
+        return if @form.participatory_space_types.blank?
 
         @spaces ||= @form.participatory_space_types.map do |type|
           next if type.ids.blank?
 
-          ids = type.ids
-
           object_class = Decidim.participatory_space_registry.find(type.manifest_name).model_class_name.constantize
 
-          ids.include?("all") ? object_class.where(organization: @form.organization) : object_class.where(id: ids.compact_blank)
+          if type.ids.include?("all")
+            object_class.where(organization: @organization)
+          else
+            object_class.where(id: type.ids.compact_blank)
+          end
         end.flatten.compact
-      end
-
-      def verified_users
-        users = recipients_base_query
-
-        verified_users = Decidim::Authorization.select(:decidim_user_id)
-                                               .where(decidim_user_id: users.select(:id))
-                                               .where.not(granted_at: nil)
-                                               .where(name: @form.verification_types)
-                                               .distinct
-        users.where(id: verified_users)
       end
 
       # Return the ids of Users that are following
@@ -97,7 +74,7 @@ module Decidim
         Decidim::Follow.user_follower_ids_for_participatory_spaces(spaces)
       end
 
-      # Return the ids of Users that have participated in
+      # Return the ids of Users that have participate
       # the spaces selected in form
       def participant_ids
         return if spaces.blank?
@@ -117,19 +94,6 @@ module Decidim
         end
 
         participant_ids.flatten.compact.uniq
-      end
-
-      def private_spaces
-        return [] if spaces.blank?
-
-        spaces.select { |space| space.try(:private_space?) }
-      end
-
-      def private_member_ids
-        return unless @form.send_to_private_members
-        return [] if private_spaces.blank?
-
-        Decidim::ParticipatorySpacePrivateUser.private_user_ids_for_participatory_spaces(private_spaces)
       end
     end
   end

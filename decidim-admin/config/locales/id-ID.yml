@@ -1,3 +1,4 @@
+---
 id:
   activemodel:
     attributes:
@@ -59,6 +60,7 @@ id:
         secondary_color: Sekunder
         success_color: Keberhasilan
         tos_version: Versi persyaratan layanan
+        user_groups_enabled: Aktifkan grup pengguna
         warning_color: Peringatan
         youtube_handler: Penangan YouTube
       scope:
@@ -112,6 +114,8 @@ id:
         browse: Jelajahi
         manage: Mengelola
         permissions: Izin
+        reject: Menolak
+        verify: Memeriksa
       area_types:
         create:
           error: Terjadi kesalahan saat membuat jenis area baru.
@@ -174,8 +178,23 @@ id:
       autocomplete:
         no_results: Tidak ada hasil yang ditemukan
       categories:
+        create:
+          error: Terjadi kesalahan saat membuat kategori ini.
+          success: Kategori berhasil dibuat.
+        destroy:
+          error: Terjadi kesalahan saat menghapus kategori ini. Hapus subkategori terlebih dahulu, pastikan tidak ada entitas lain yang termasuk dalam kategori ini dan coba lagi.
+          success: Kategori berhasil dihapus.
+        edit:
+          title: Edit kategori
+          update: Memperbarui
         index:
           categories_title: Kategori
+        new:
+          create: Buat kategori
+          title: Kategori baru
+        update:
+          error: Terjadi kesalahan saat memperbarui kategori ini.
+          success: Kategori berhasil diperbarui.
       component_permissions:
         update:
           success: Izin berhasil diperbarui.
@@ -183,6 +202,9 @@ id:
         create:
           error: Terjadi kesalahan saat membuat komponen ini.
           success: Komponen berhasil dibuat.
+        destroy:
+          error: Terjadi kesalahan saat merusak komponen ini.
+          success: Komponen berhasil dihapus.
         edit:
           title: Edit komponen
           update: Memperbarui
@@ -213,6 +235,8 @@ id:
       exports:
         export_as: "%{name} sebagai %{export_format}"
       filters:
+        category_id_eq:
+          label: Kategori
         officialized_at_null:
           label: Negara
           values:
@@ -280,6 +304,7 @@ id:
         scopes: Scopes
         settings: Pengaturan
         static_pages: Halaman
+        user_groups: Grup Pengguna
         users: Pengguna
       models:
         area:
@@ -326,6 +351,9 @@ id:
           fields:
             name: Nama
             plural: Jamak
+        share_token:
+          fields:
+            created_at: Dibuat di
         static_page:
           fields:
             created_at: Dibuat di
@@ -340,6 +368,15 @@ id:
               admin: Admin
               user_manager: Pengelola pengguna
           name: Pengguna
+        user_group:
+          fields:
+            actions: Tindakan
+            created_at: Dibuat di
+            document_number: Nomor dokumen
+            name: Nama
+            phone: Telepon
+            state: Negara
+            users_count: Jumlah pengguna
       moderations:
         report:
           reasons:
@@ -370,6 +407,7 @@ id:
         select_recipients_to_deliver:
           confirm_deliver: Anda yakin ingin menyampaikan buletin ini? Tindakan ini tidak bisa dibatalkan.
           deliver: Kirimkan buletin
+          none: Tidak ada
         show:
           preview: Preview
           subject: Subyek
@@ -430,10 +468,6 @@ id:
         new:
           create: Membuat
           title: Pengguna Pribadi Ruang Partisipatif Baru.
-      participatory_space_private_users_csv_imports:
-        new:
-          csv_upload:
-            title: Unggah file CSV Anda
       resource_permissions:
         edit:
           submit: Menyerahkan
@@ -477,6 +511,7 @@ id:
           title: Edit topik
           update: Perbarui topik
         new:
+          create: Buat topik
           title: Topik baru
         update:
           error: Ada kesalahan saat memperbarui topik ini.
@@ -497,6 +532,7 @@ id:
         index:
           last_notable_change: Perubahan penting terakhir
         new:
+          create: Membuat halaman
           title: Halaman baru
         topic:
           without_topic: Halaman tanpa topik
@@ -513,6 +549,26 @@ id:
         participants: Pengguna
         scope_types: Tipe lingkup
         scopes: Scopes
+        user_groups: Grup Pengguna
+      user_group:
+        csv_verify:
+          invalid: Ada kesalahan saat membaca file CSV.
+        reject:
+          invalid: Ada kesalahan saat menolak grup pengguna ini.
+        verify:
+          invalid: Ada kesalahan saat memverifikasi grup pengguna ini.
+      user_groups:
+        index:
+          state:
+            pending: Menunggu keputusan
+            rejected: Ditolak
+            verified: Diverifikasi
+          verify_via_csv: Verifikasi melalui CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Unggah file CSV Anda. Itu harus memiliki email resmi dari kelompok pengguna di organisasi Anda di kolom pertama file, tanpa header. Hanya grup pengguna yang telah mengkonfirmasi email mereka dan yang memiliki email yang muncul dalam file CSV akan divalidasi.
+          title: Unggah file CSV Anda
+          upload: Unggah
       users:
         create:
           error: Terjadi kesalahan saat mengundang pengguna ini.

@@ -5,7 +5,8 @@ module Decidim
     module Admin
       # A command with all the business logic when a user creates a new proposal.
       class CreateProposal < Decidim::Command
-        include ::Decidim::MultipleAttachmentsMethods
+        include ::Decidim::AttachmentMethods
+        include GalleryMethods
         include HashtagsMethods
 
         # Public: Initializes the command.
@@ -25,13 +26,19 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           if process_attachments?
-            build_attachments
-            return broadcast(:invalid) if attachments_invalid?
+            build_attachment
+            return broadcast(:invalid) if attachment_invalid?
+          end
+
+          if process_gallery?
+            build_gallery
+            return broadcast(:invalid) if gallery_invalid?
           end
 
           transaction do
             create_proposal
-            create_attachments(first_weight: first_attachment_weight) if process_attachments?
+            create_gallery if process_gallery?
+            create_attachment(weight: first_attachment_weight) if process_attachments?
             link_author_meeting if form.created_in_meeting?
           end
 
@@ -42,7 +49,7 @@ module Decidim
 
         private
 
-        attr_reader :form, :proposal, :attachment
+        attr_reader :form, :proposal, :attachment, :gallery
 
         def create_proposal
           @proposal = Decidim::Proposals::ProposalBuilder.create(
@@ -62,7 +69,8 @@ module Decidim
           {
             title: parsed_title,
             body: parsed_body,
-            taxonomizations: form.taxonomizations,
+            category: form.category,
+            scope: form.scope,
             component: form.component,
             address: form.address,
             latitude: form.latitude,

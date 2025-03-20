@@ -1,4 +1,5 @@
-is-IS:
+---
+is:
   activemodel:
     attributes:
       initiative:
@@ -37,6 +38,9 @@ is-IS:
             created_at: Búið til á
             title: Frumgerð tegundir
           name: Frumgerðartegund
+        initiatives_votes:
+          fields:
+            scope: Umfang
       titles:
         initiatives: Frumkvæði
         initiatives_types: Frumgerð tegundir
@@ -87,7 +91,9 @@ is-IS:
           unpublish: "%{user_name} henti %{resource_name} frumkvæði"
           update: "%{user_name} uppfært %{resource_name} frumkvæði"
       admin_states:
+        created: Búið til
         discarded: Fargað
+        published: Published
         validating: Tæknilegar staðfestingar
       application_helper:
         filter_state_values:
@@ -100,12 +106,20 @@ is-IS:
           success: Beiðni þín hefur verið send til frumkvöðull höfundar.
       create_initiative:
         fill_data:
+          back: Til baka
           continue: Haltu áfram
+          more_information: "(Meiri upplýsingar)"
           select_scope: Veldu umfang
         finish:
           back: Til baka
+          back_to_initiatives: Aftur á frumkvæði
+          go_to_my_initiatives: Farið að verkefnum mínum
+          more_information: "(Meiri upplýsingar)"
         previous_form:
           back: Til baka
+          continue: Haltu áfram
+        promotal_committee:
+          more_information: "(Meiri upplýsingar)"
         select_initiative_type:
           back: Til baka
           more_information: (Meiri upplýsingar)
@@ -139,6 +153,7 @@ is-IS:
           recent: Síðast
         print:
           city: Borg
+          print: Prenta
         vote_cabin:
           vote: Skráðu þig
         votes_count:
@@ -155,10 +170,15 @@ is-IS:
         expired: Útrunnið
     menu:
       initiatives: Frumkvæði
+    resources:
+      initiatives_type:
+        actions:
+          create: Búa til
   layouts:
     decidim:
       initiative_creation_header:
         fill_data: Búa til
+        finish: Klára
         select_initiative_type: Veldu
       initiatives:
         no_initiatives_yet:

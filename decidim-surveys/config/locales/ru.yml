@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     models:
@@ -20,10 +21,12 @@ ru:
       surveys:
         actions:
           answer: Ответ
+        name: Опрос
         settings:
           global:
             announcement: Объявление
           step:
+            allow_answers: Разрешить ответы
             announcement: Объявление
     events:
       surveys:

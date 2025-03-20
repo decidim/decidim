@@ -1,4 +1,5 @@
-is-IS:
+---
+is:
   activemodel:
     attributes:
       participatory_process:
@@ -16,6 +17,8 @@ is-IS:
         promoted: Kynnt
         published_at: Birt á
         related_process_ids: Tengd ferli
+        scope_id: Umfang
+        scopes_enabled: Scopes virkt
         short_description: Stutt lýsing
         slug: URL slug
         start_date: Upphafsdagur
@@ -30,6 +33,8 @@ is-IS:
         end_date: Loka dagsetning
         short_description: Stutt lýsing
         start_date: Upphafsdagur
+        title: Titill
+      participatory_process_type:
         title: Titill
       participatory_process_user_role:
         email: Email
@@ -52,6 +57,7 @@ is-IS:
         participatory_processes_submenu:
           attachment_files: Skrár
           attachments: Viðhengi
+          categories: Flokkar
           components: Hluti
           moderations: Moderations
       models:
@@ -68,6 +74,10 @@ is-IS:
           fields:
             end_date: Loka dagsetning
             start_date: Upphafsdagur
+            title: Titill
+        participatory_process_type:
+          fields:
+            created_at: Búið til á
             title: Titill
         participatory_process_user_role:
           fields:
@@ -96,6 +106,11 @@ is-IS:
           title: Nýr ferli hópur
       participatory_process_steps:
         default_title: Kynning
+        edit:
+          update: Uppfæra
+        new:
+          create: Búa til
+      participatory_process_types:
         edit:
           update: Uppfæra
         new:

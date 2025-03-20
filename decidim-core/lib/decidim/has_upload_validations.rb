@@ -25,7 +25,7 @@ module Decidim
       def validates_avatar(attribute = :avatar, options = {})
         validates_upload(
           attribute,
-          **options, max_size: ->(record) { record.maximum_avatar_size }
+          **options.merge(max_size: ->(record) { record.maximum_avatar_size })
         )
       end
 

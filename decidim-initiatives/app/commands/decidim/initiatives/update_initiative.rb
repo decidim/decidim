@@ -39,34 +39,20 @@ module Decidim
           return broadcast(:invalid) if gallery_invalid?
         end
 
-        with_events(with_transaction: true) do
-          @initiative = Decidim.traceability.update!(
-            initiative,
-            current_user,
-            attributes
-          )
+        @initiative = Decidim.traceability.update!(
+          initiative,
+          current_user,
+          attributes
+        )
 
-          photo_cleanup!
-          document_cleanup!
-          create_attachments if process_attachments?
-          create_gallery if process_gallery?
-        end
+        photo_cleanup!
+        document_cleanup!
+        create_attachments if process_attachments?
+        create_gallery if process_gallery?
 
         broadcast(:ok, initiative)
       rescue ActiveRecord::RecordInvalid
         broadcast(:invalid, initiative)
-      end
-
-      protected
-
-      def event_arguments
-        {
-          resource: initiative,
-          extra: {
-            event_author: form.current_user,
-            locale:
-          }
-        }
       end
 
       private
@@ -77,7 +63,8 @@ module Decidim
         attrs = {
           title: { current_locale => form.title },
           description: { current_locale => form.description },
-          hashtag: form.hashtag
+          hashtag: form.hashtag,
+          decidim_user_group_id: form.decidim_user_group_id
         }
 
         if form.signature_type_updatable?

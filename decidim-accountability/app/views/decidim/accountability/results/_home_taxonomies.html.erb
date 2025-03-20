@@ -1,9 +1,0 @@
-<h3 class="mb-8 font-semibold text-xl">
-  <%= translated_attribute(selected_root_taxonomy.name) %>
-</h3>
-
-<% if selected_taxonomy_grandchildren? %>
-  <%= render "two_levels_taxonomies" %>
-<% else %>
-  <%= render "one_level_taxonomies" %>
-<% end %>

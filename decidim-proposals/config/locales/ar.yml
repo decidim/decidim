@@ -1,30 +1,31 @@
+---
 ar:
   activemodel:
     attributes:
       collaborative_draft:
         address: عنوان
         body: الجسم
+        category_id: الفئة
         decidim_scope_id: نطاق
         has_address: لديه عنوان
         scope_id: نطاق
         state: حالة
         title: عنوان
-      import_participatory_text:
-        document: مستند
+        user_group_id: إنشاء مسودة تعاونية كـ
       proposal:
         address: عنوان
         answer: إجابة
         answered_at: أجاب في
         automatic_hashtags: علامات التصنيف المضافة تلقائيًا
         body: الجسم
+        category_id: الفئة
         decidim_scope_id: النطاق
         has_address: لديه عنوان
-        latitude: خط العرض
-        longitude: خط الطول
         scope_id: نطاق
         state: حالة
         suggested_hashtags: الهاشتاج المقترحة
         title: عنوان
+        user_group_id: إنشاء اقتراح باسم
       proposal_answer:
         answer: إجابة
         cost: التكلفة
@@ -32,12 +33,13 @@ ar:
         execution_period: فترة التنفيذ
       proposals_copy:
         origin_component_id: مكون لنسخ المقترحات من
-      proposals_file_import:
-        file: ملف
       proposals_import:
         import_proposals: مقترحات الاستيراد
         keep_answers: الاحتفاظ بالحالة والإجابات
         keep_authors: الحفاظ على المؤلفين الأصلي
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: اسم المُقيِّم
     errors:
       models:
         participatory_text:
@@ -64,6 +66,8 @@ ar:
             base:
               not_official: غير رسمية
     models:
+      decidim/proposals/admin/update_proposal_category_event: تم تغيير فئة الاقتراح
+      decidim/proposals/admin/update_proposal_scope_event: تم تغيير نطاق الاقتراح
       decidim/proposals/creation_enabled_event: تمكين إنشاء الاقتراح
       decidim/proposals/endorsing_enabled_event: تمكين اقتراح الاقتراح
       decidim/proposals/proposal_mentioned_event: الاقتراح المذكور
@@ -96,11 +100,15 @@ ar:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: الفئة
           is_emendation_true:
             label: النوع
             values:
               'false': اقتراحات
               'true': تعديلات
+          scope_id_eq:
+            label: نطاق
           state_eq:
             label: الحالة
             values:
@@ -110,6 +118,8 @@ ar:
               rejected: تم رفضه
               validating: تحقق تقني
               withdrawn: تم السحب
+          valuator_role_ids_has:
+            label: تم إسناده إلى مُقيِّم
         search_placeholder:
           id_string_or_title_cont: البحث عن %{collection} بحسب المعرف ID أو العنوان.
     components:
@@ -117,6 +127,7 @@ ar:
         actions:
           amend: تعديل
           comment: تعليق
+          create: إنشاء
           endorse: تأييد
           vote: تصويت
           vote_comment: التصويت على التعليق
@@ -140,6 +151,7 @@ ar:
               random: عشوائي
               recent: الأخيرة
               with_more_authors: مع المزيد من المؤلفين
+            geocoding_enabled: تم تمكين الترميز الجغرافي
             new_proposal_body_template: نموذج جديد لمحتوى المُقتَرَح
             new_proposal_body_template_help: يمكنكم تعريف النص المعبأ مسبقاً الذي سيدرج في المقترحات الجديدة
             new_proposal_help_text: نص مساعدة اقتراح جديد
@@ -147,6 +159,7 @@ ar:
             participatory_texts_enabled: تم تمكين النصوص التشاركية
             participatory_texts_enabled_readonly: لا يمكن التفاعل مع هذا الإعداد إذا كانت هناك اقتراحات موجودة. الرجاء إنشاء "مكون مقترحات" جديد إذا كنت ترغب في تمكين هذه الميزة أو تجاهل كافة المقترحات المستوردة في قائمة "النصوص التشاركية" إذا كنت ترغب في تعطيلها.
             proposal_answering_enabled: تم تمكين الرد على الاقتراح
+            proposal_edit_before_minutes: يمكن تحرير المقترحات من قبل المؤلفين قبل مرور عدة دقائق
             proposal_edit_time: تحرير المقترح
             proposal_edit_time_choices:
               infinite: السماح بتعديل المقترحات لفترة زمنية غير محدودة
@@ -155,6 +168,8 @@ ar:
             proposal_limit: حد الاقتراح لكل مشارك
             proposal_wizard_step_1_help_text: اقتراح الاقتراح "إنشاء" نص مساعدة الخطوة
             resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اقتراح
+            scope_id: نطاق
+            scopes_enabled: النطاقات مفعلة
             threshold_per_proposal: عتبة لكل اقتراح
           step:
             amendment_creation_enabled: إنشاء التعديلات مُفعّلة
@@ -191,6 +206,7 @@ ar:
       proposals:
         admin:
           proposal_note_created:
+            email_outro: تلقيت هذا الإشعار لأنك تستطيع تقييم الاقتراح.
             email_subject: ترك شخص ملاحظة على الاقتراح %{resource_title}.
         collaborative_draft_access_accepted:
           email_intro: 'تم قبول %{requester_name} لأن يكون مسجلاً كمساهم في المسودة التعاونية <a href="%{resource_url}">%{resource_title}</a>.'
@@ -244,6 +260,14 @@ ar:
           email_intro: تمت إضافة الاقتراح "%{resource_title}" إلى "%{participatory_space_title}" الذي تتابعه.
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: تمت إضافة اقتراح جديد "%{resource_title}" إلى %{participatory_space_title}
+        proposal_update_category:
+          email_intro: 'قام المشرف بتحديث فئة اقتراحك "%{resource_title}" ، تحقق من ذلك في هذه الصفحة:'
+          email_subject: تم تحديث فئة %{resource_title} اقتراح
+          notification_title: تم تحديث فئة اقتراح <a href="%{resource_path}">%{resource_title}</a> بواسطة مسؤول.
+        proposal_update_scope:
+          email_intro: 'قام مدير بتحديث نطاق اقتراحك "%{resource_title}" ، يرجى التحقق منه على هذه الصفحة:'
+          email_subject: تم تحديث نطاق الاقتراح %{resource_title}
+          notification_title: نطاق الاقتراح <a href="%{resource_path}">%{resource_title}</a> تم تحديثه من قبل مدير.
         voting_enabled:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
     gamification:
@@ -307,6 +331,22 @@ ar:
           proposal_comments: التعليقات
           proposals: اقتراحات
         imports:
+          help:
+            answers: |
+              ينبغي أن تحتوي وثيقة الاستيراد على أسماء الأعمدة التالية لدى وجود ملفات CSV أو Excel، أو الأسماء الرئيسية في حالة ملفات JSON:
+              <ul>
+              <li><b>معرف:</b> معرف الاقتراح من أجل الإجابة</li>
+              <li><b>حالة:</b> اما "مقبول"، أو "قيد التقييم"، أو "مرفوض"</li>
+              <li><b>إجابة/en:</b> الإجابة على اللغة الإنجليزية. سيعتمد هذا على إعداد لغة المنصة الخاصة بك.</li>
+              </ul>
+            proposals: |
+              يجب أن يحتوي الملف على أسماء الأعمدة التالية في حالة ملفات CSV أو Excel، أو الأسماء الرئيسية في حالة ملفات JSON:
+              <ul>
+              <li><b>عنوان/en:</b> عنوان اللغة الإنجليزية. سيعتمد هذا على إعداد لغة المنصة الخاصة بك.</li>
+              <li><b>نص/en:</b> نص اللغة الإنجليزية. سيعتمد هذا على إعداد لغة المنصة الخاصة بك.</li>
+              <li><b>النطاق/المعرف:</b> معرف النطاق</li>
+              <li><b>الفئة/المعرفة:</b> معرف الفئة</li>
+              </ul>
           label:
             answers: استيراد إجابات من ملف
             proposals: استيراد اقتراحات من ملف
@@ -365,18 +405,27 @@ ar:
           form:
             note: ملحوظة
             submit: خضع
+          leave_your_note: اترك ملاحظتك
           title: ملاحظات خاصة
         proposals:
           edit:
             title: تحديث الاقتراح
             update: تحديث
           form:
+            attachment_legend: "(اختياري) إضافة مرفق"
             created_in_meeting: هذا الاقتراح يأتي من اجتماع
+            delete_attachment: حذف المرفق
+            select_a_category: اختر تصنيف
             select_a_meeting: اختيار اجتماع
           index:
             actions: أفعال
+            assign_to_valuator: أسنِده إلى مُقيِّم
+            assign_to_valuator_button: تعيين
             cancel: إلغاء
+            change_category: تغيير الفئة
+            change_scope: تغيير النطاق
             merge: دمج في واحدة جديدة
+            merge_button: دمج
             publish: نشر
             publish_answers: نشر الإجابات
             select_component: حدد المكون
@@ -384,12 +433,16 @@ ar:
             split: تقسيم المقترحات
             split_button: انشق، مزق
             title: اقتراحات
+            unassign_from_valuator: إلغاء الإسناد مِن المُقيِّم
+            unassign_from_valuator_button: إلغاء الإسناد
             update: تحديث
+            update_scope_button: تحديث النطاق
           new:
             create: إنشاء
             title: إنشاء اقتراح
           show:
             amendments_count: تعداد التعديلات
+            assigned_valuators: المقيِّمون الذين تم تعيينهم
             body: الجسم
             comments_count: تعداد التعليقات
             documents: المستندات
@@ -406,6 +459,14 @@ ar:
             ranking: "%{ranking} مِن %{total}"
             related_meetings: ملتقيات ذات صلة
             remove_assignment: إزالة التعيين
+            remove_assignment_confirmation: هل أنت متأكد من أنك تريد إزالة المُقيِّم من هذا الاقتراح؟
+            valuators: المُقيِّمون
+          update_category:
+            invalid: 'هذه الاقتراحات تحتوي بالفعل على فئة %{subject_name}: %{proposals}.'
+            success: 'تم تحديث الاقتراحات بنجاح إلى فئة %{subject_name}: %{proposals}.'
+          update_scope:
+            invalid: 'تحتوي الاقتراحات مسبقاً على نطاق %{subject_name}: %{proposals}.'
+            success: 'تم تحديث الاقتراحات بنجاح إلى نطاق %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
             create: مقترحات الاستيراد
@@ -414,17 +475,23 @@ ar:
             select_states: تحقق من حالة مقترحات الاستيراد
         proposals_merges:
           create:
+            invalid: 'طرأت مشكلة في دمج الاقتراحات المحددة لأن بعضها:'
             success: دمج المقترحات بنجاح في واحدة جديدة.
         proposals_splits:
           create:
+            invalid: 'طرأت مشكلة في فصل الاقتراحات المحددة لأن بعضها:'
             success: تم تقسيم المقترحات بنجاح إلى مقترحات جديدة.
       admin_log:
         proposal:
           answer: "%{user_name} أجاب على الاقتراح %{resource_name} على %{space_name} الفضاء"
+          create: "%{user_name} بإنشاء الاقتراح %{resource_name} على الحيز %{space_name} كمقترح رسمي"
           publish_answer: "نشر %{user_name} الإجابة على اقتراح %{resource_name} على مساحة %{space_name}"
           update: "%{user_name} تحديث الاقتراح الرسمي %{resource_name} على %{space_name} الفضاء"
         proposal_note:
           create: "غادر %{user_name} ملاحظة خاصة على الاقتراح %{resource_name} على %{space_name} الفضاء"
+        valuation_assignment:
+          create: "قام %{user_name} بتعيين اقتراح %{resource_name} إلى مُقيِّم"
+          delete: "قام %{user_name} بسحب تعيين اقتراح %{resource_name} من مُقيِّم"
       answers:
         accepted: وافقت
         evaluating: تقييم
@@ -437,6 +504,7 @@ ar:
           meetings: اجتماعات
           official: الرسمية
           participants: المشاركون
+          user_groups: المجموعات
         filter_state_values:
           all: الكل
           not_answered: بلا جواب
@@ -464,16 +532,19 @@ ar:
           error: طرأت مشكلة خلال إنشاء هذه المسودة التعاونية.
           success: تم إنشاء مشروع تعاوني بنجاح.
         edit:
-          attachment_legend: إضافة مستند أو صورة
+          attachment_legend: "(اختياري) إضافة مرفق"
           back: الى الخلف
+          select_a_category: الرجاء تحديد الفئة
           send: إرسال
           title: تحرير المسودة التعاونية
         filters:
           all: الكل
           amendment: تعديلات
+          category: الفئة
           open: افتح
           published: نشرت
           related_to: متعلق ب
+          scope: نطاق
           search: بحث
           state: الحالة
           withdrawn: سحب
@@ -513,6 +584,7 @@ ar:
           rejected_request:
             error: لا يمكن الرفض كمتعاون ، يرجى المحاولة مرة أخرى لاحقًا.
         show:
+          edit: تحرير المسودة التعاونية
           final_proposal: الاقتراح النهائي
           final_proposal_help_text: انتهى هذا المشروع. تحقق من الاقتراح النهائي
           hidden_authors_count:
@@ -551,14 +623,18 @@ ar:
       models:
         proposal:
           fields:
+            category: الفئة
             comments: تعليقات
             id: هوية شخصية
             notes: ملاحظات
             official_proposal: الاقتراح الرسمي
             published_answer: الإجابة المنشورة
             published_at: نشرت في
+            scope: نطاق
             state: الحالة
             title: عنوان
+            valuator: مُقيِّم
+            valuators: المُقيِّمون
             votes: الأصوات
       participatory_text_proposal:
         alternative_title: لا توجد نصوص تشاركية في الوقت الحالي
@@ -570,10 +646,11 @@ ar:
           description: سيتم تحديث الإحداثيات لدى النقر على زر "السابق". غير أن العنوان لن يتغير.
           instructions: يمكنك تحريك النقطة على الخريطة.
         edit:
-          add_attachments: إضافة مرفقات
-          attachment_legend: إضافة مستند أو صورة
+          add_documents: إضافة وثائق
+          attachment_legend: "(اختياري) إضافة مرفق"
           back: الى الخلف
-          edit_attachments: تعديل المرفقات
+          edit_documents: تحرير الوثائق
+          select_a_category: الرجاء تحديد الفئة
           send: إرسال
           title: تعديل الاقتراح
         edit_draft:
@@ -584,6 +661,7 @@ ar:
           activity: نشاطي
           all: الكل
           amendment_type: نوع
+          category: الفئة
           my_proposals: اقتراحاتي
           origin: الأصل
           related_to: متعلق ب
@@ -634,6 +712,7 @@ ar:
         show:
           answer: إجابة
           changes_at_title: تعديل على "%{title}"
+          edit_proposal: تعديل الاقتراح
           estimated_cost: التكلفة التقديرية
           hidden_endorsers_count:
             zero: و %{count} المزيد من الناس
@@ -652,6 +731,7 @@ ar:
           proposal_in_evaluation_reason: هذا الاقتراح قيد التقييم
           proposal_rejected_reason: 'تم رفض هذا الاقتراح بسبب:'
           withdraw_confirmation_html: هل أنت متأكد من أنك تريد سحب هذا الاقتراح؟<br><br><strong>لا يمكن إلغاء هذا الإجراء!</strong>
+          withdraw_proposal: سحب الاقتراح
         update:
           title: تحديث الإقتراح
         vote_button:
@@ -659,8 +739,6 @@ ar:
         voting_rules:
           proposal_limit:
             description: يمكنك إنشاء ما يصل إلى %{limit} مقترحات.
-          vote_limit:
-            description: يمكنك دعم ما يصل إلى %{limit} مقترحات.
         wizard_aside:
           back: الى الخلف
           back_from_step_1: العودة إلى الاقتراحات
