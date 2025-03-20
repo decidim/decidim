@@ -3,7 +3,7 @@
 module Decidim
   module Initiatives
     module InitiativesSignaturesTestHelpers
-      def fill_date(date)
+      def fill_signature_date(date)
         [date.year, date.month, date.day].each_with_index do |value, i|
           within "select[name='dummy_signature_handler[date_of_birth(#{i + 1}i)]']" do
             find("option[value='#{value}']").select_option

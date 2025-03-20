@@ -548,7 +548,7 @@ describe "Initiative signing with workflows" do
     fill_in :dummy_signature_handler_name_and_surname, with: personal_data[:name_and_surname]
     select I18n.t(personal_data[:document_type], scope: "decidim.verifications.id_documents"), from: :dummy_signature_handler_document_type
     fill_in :dummy_signature_handler_document_number, with: personal_data[:document_number]
-    fill_date personal_data[:date_of_birth]
+    fill_signature_date personal_data[:date_of_birth]
     select I18n.t(personal_data[:gender], scope: "decidim.initiatives.initiative_signatures.dummy_signature.form.fields.gender.options"), from: :dummy_signature_handler_gender
     fill_in :dummy_signature_handler_postal_code, with: personal_data[:postal_code]
     select translated_attribute(initiative.scope.name), from: :dummy_signature_handler_scope_id
