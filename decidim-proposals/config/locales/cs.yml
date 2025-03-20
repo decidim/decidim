@@ -972,7 +972,6 @@ cs:
           text_banner: Zobrazujete seznam návrhů stažených jejich autory. %{go_back_link}.
         new:
           send: Pokračovat
-          title: Vytvořte svůj návrh
         orders:
           label: 'Seřadit návrhy podle:'
           most_commented: Nejvíce komentované
