@@ -11,12 +11,15 @@ logo: "https://raw.githubusercontent.com/decidim/decidim/refs/heads/develop/logo
 softwareType: "library"
 
 categories:
+  - budgeting
   - collaboration
   - communications
   - contact-management
   - content-management
+  - digital-citizenship
   - event-management
   - online-community
+  - regulations-and-directives
   - survey
   - web-collaboration
 
