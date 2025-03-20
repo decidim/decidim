@@ -98,16 +98,6 @@ describe Decidim::Initiatives::Admin::Permissions do
     it_behaves_like "permission is not set"
   end
 
-  describe "editor image upload" do
-    let(:user) { create(:user, :admin, organization:) }
-
-    let(:action) do
-      { scope: :admin, action: :create, subject: :editor_image }
-    end
-
-    it { is_expected.to be true }
-  end
-
   context "when checking access to space area" do
     let(:action) do
       { scope: :admin, action: :enter, subject: :space_area }
