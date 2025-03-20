@@ -527,7 +527,6 @@
           text_banner: Du ser en liste med forslag tilbaketrukket av deres forfattere. %{go_back_link}.
         new:
           send: Fortsett
-          title: Opprett ditt forslag
         orders:
           label: 'Sorter forslag:'
           most_commented: Flest kommentarer
