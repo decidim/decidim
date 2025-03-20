@@ -196,6 +196,7 @@ describe "Decidim::Api::QueryType" do
           edges{
             node{
               acceptsNewComments
+              address
               children {
                 id
               }
@@ -205,6 +206,10 @@ describe "Decidim::Api::QueryType" do
               }
               commentsHaveAlignment
               commentsHaveVotes
+              coordinates{
+                latitude
+                longitude
+              }
               createdAt
               description {
                 translation(locale:"#{locale}")
@@ -217,14 +222,9 @@ describe "Decidim::Api::QueryType" do
                 id
               }
               progress
+              proposals { id }
               reference
               startDate
-              address
-              coordinates{
-                latitude
-                longitude
-              }
-              proposals { id }
               status {
                 id
                 createdAt
