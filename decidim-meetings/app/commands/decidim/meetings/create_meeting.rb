@@ -64,7 +64,7 @@ module Decidim
 
       def schedule_upcoming_meeting_notification
         return if resource.start_time < Time.zone.now
-        return unless meeting.reminder_enabled
+        return unless resource.reminder_enabled
 
         reminder_hours = (resource.send_reminders_before_hours.presence || Decidim::Meetings.upcoming_meeting_notification.in_hours).to_i
         checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(resource)
