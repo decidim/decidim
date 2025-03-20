@@ -115,7 +115,6 @@ hu:
         new:
           back: Vissza
           create: Létrehozás
-          title: Új vita
         orders:
           commented: Legtöbb hozzászólással
           label: Viták rendezése
