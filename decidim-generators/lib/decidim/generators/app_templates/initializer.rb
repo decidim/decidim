@@ -387,6 +387,13 @@ Decidim.configure do |config|
     # When the strong password is not configured, default to true
     config.admin_password_strong = strong_pw.nil? ? true : strong_pw.present?
   end
+
+  # Delete inactive users configuration
+  config.delete_inactive_users_after_days = Rails.application.secrets.dig(:decidim, :inactive_users, :after_days).presence || 365
+  config.minimum_inactivity_period = Rails.application.secrets.dig(:decidim, :inactive_users, :minimum_period).presence || 30
+  config.delete_inactive_users_first_warning_days_before = Rails.application.secrets.dig(:decidim, :inactive_users, :first_warning_days_before).presence || 30
+  config.delete_inactive_users_last_warning_days_before = Rails.application.secrets.dig(:decidim, :inactive_users, :last_warning_days_before).presence || 7
+
   config.admin_password_expiration_days = Rails.application.secrets.dig(:decidim, :admin_password, :expiration_days).presence || 90
   config.admin_password_min_length = Rails.application.secrets.dig(:decidim, :admin_password, :min_length).presence || 15
   config.admin_password_repetition_times = Rails.application.secrets.dig(:decidim, :admin_password, :repetition_times).presence || 5
