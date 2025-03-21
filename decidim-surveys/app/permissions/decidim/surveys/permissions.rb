@@ -9,7 +9,7 @@ module Decidim
 
         return permission_action if permission_action.subject != :questionnaire
 
-        permission_action.allow! if permission_action.action == :answer
+        permission_action.allow! if permission_action.action == :respond
 
         permission_action
       end

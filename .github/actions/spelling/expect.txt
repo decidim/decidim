@@ -825,7 +825,6 @@ sgid
 shakapacker
 sharedapp
 shellwords
-shortanswer
 shs
 sidekiq
 signedby

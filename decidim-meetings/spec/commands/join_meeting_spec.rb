@@ -269,19 +269,19 @@ module Decidim::Meetings
       context "and everything is ok" do
         before do
           form.tos_agreement = true
-          form.responses.first.body = "My answer response"
+          form.responses.first.body = "My response response"
         end
 
         it "broadcasts ok" do
           expect { subject.call }.to broadcast(:ok)
         end
 
-        it "saves the answers" do
-          expect { subject.call }.to change(Decidim::Forms::Answer, :count).by(1)
+        it "saves the responses" do
+          expect { subject.call }.to change(Decidim::Forms::Response, :count).by(1)
 
-          answer = Decidim::Forms::Answer.last
-          expect(answer.user).to eq(user)
-          expect(answer.body).to eq("My answer response")
+          response = Decidim::Forms::Response.last
+          expect(response.user).to eq(user)
+          expect(response.body).to eq("My response response")
         end
 
         it "creates a registration for the meeting and the user with no public participation" do
@@ -295,7 +295,7 @@ module Decidim::Meetings
         context "when the form has public_participation set to true" do
           before do
             form.tos_agreement = true
-            form.responses.first.body = "My answer response"
+            form.responses.first.body = "My response response"
             form.public_participation = true
           end
 
