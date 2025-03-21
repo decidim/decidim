@@ -27,6 +27,10 @@ module Decidim
         threshold_per_proposal.present?
       end
 
+      def minimum_votes_per_user_enabled?
+        component_settings.minimum_votes_per_user&.positive?
+      end
+
       # Public: Fetches the maximum amount of votes per proposal.
       #
       # Returns an Integer with the maximum amount of votes, nil otherwise.
@@ -83,7 +87,7 @@ module Decidim
       #
       # Returns a number with the remaining minimum votes for that user
       def remaining_minimum_votes_count_for(user)
-        return 0 unless vote_limit_enabled?
+        return 0 unless minimum_votes_per_user_enabled?
 
         votes_count = Decidim::Proposals::ProposalVote.joins(:proposal).where(decidim_proposals_proposals: { decidim_component_id: current_component.id }).where(author: user).count
 
