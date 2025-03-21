@@ -331,7 +331,7 @@ describe "Initiative signing with ephemeral workflows" do
     fill_in :dummy_signature_handler_name_and_surname, with: data[:name_and_surname]
     select I18n.t(data[:document_type], scope: "decidim.verifications.id_documents"), from: :dummy_signature_handler_document_type
     fill_in :dummy_signature_handler_document_number, with: data[:document_number]
-    fill_date data[:date_of_birth]
+    fill_signature_date data[:date_of_birth]
     select I18n.t(data[:gender], scope: "decidim.initiatives.initiative_signatures.dummy_signature.form.fields.gender.options"), from: :dummy_signature_handler_gender
     fill_in :dummy_signature_handler_postal_code, with: data[:postal_code]
     select translated_attribute(initiative.scope.name), from: :dummy_signature_handler_scope_id
