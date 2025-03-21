@@ -437,7 +437,6 @@ fi-pl:
         new_meeting: 'Uusi tapaaminen:'
       layouts:
         live_event:
-          administrate: Hallinnoi
           close: sulje
           questions: Kysymykset
       mailer:
