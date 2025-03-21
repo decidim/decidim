@@ -2,8 +2,6 @@
 en:
   activemodel:
     attributes:
-      answer:
-        add_documents: Add documents
       close_meeting:
         attendees_count: Number of attendees
         attending_organizations: List of organizations that attended
@@ -52,6 +50,8 @@ en:
       meeting_registration_invite:
         email: Email
         name: Name
+      response:
+        add_documents: Add documents
       validate_registration_code:
         code: Code
     errors:
@@ -309,10 +309,10 @@ en:
             invalid: There was a problem updating this agenda.
             success: Agenda successfully updated.
         exports:
-          answers: Answers
           meeting_comments: Comments
           meetings: Meetings
           registrations: Registrations
+          responses: Responses
         invite_join_meeting_mailer:
           invite:
             decline: Decline invitation
@@ -406,7 +406,7 @@ en:
         poll:
           form:
             announcement_html:
-            - When a question receives answers or is published/closed, it can no longer be edited.
+            - When a question receives responses or is published/closed, it can no longer be edited.
             - You can add a question at any time.
             - The poll will be closed when the results of all created questions have been published.
             - Visit the <a href='%{admin_link}'>poll administration page</a> to send questions and publish results.
@@ -582,7 +582,7 @@ en:
         new:
           back: Back
           create: Create
-          title: Create Your Meeting
+          title: Create new meeting
         registration_confirm:
           cancel: Cancel
           confirm: Confirm
@@ -636,26 +636,18 @@ en:
             taxonomies: Taxonomies
             title: Title
       polls:
-        answers:
-          index:
-            administrate: Administrate
-            title: Poll
-          index_admin:
-            back_to_meeting: Back to meeting
-            title: Administrate poll
-            view_poll: View poll
         questions:
           closed_question:
             announcement: The replies for this question have been closed.
             question: Question
             question_results: Results
           index:
-            empty_questions: Throughout this meeting, some questions will be sent and you will be able to answer them. They will be displayed here.
+            empty_questions: Throughout this meeting, some questions will be sent and you will be able to respond them. They will be displayed here.
           index_admin:
             edit: Edit in the admin panel
             question: Question
-            received_answer: received answer
-            received_answers: received answers
+            received_response: received response
+            received_responses: received responses
             results: Results
             send: Send
             sent: Sent
@@ -668,6 +660,14 @@ en:
             question: Question
             question_replied: Question replied
             reply_question: Reply question
+        responses:
+          index:
+            administrate: Administrate
+            title: Poll
+          index_admin:
+            back_to_meeting: Back to meeting
+            title: Administrate poll
+            view_poll: View poll
       public_participants_list:
         attending_participants: Participants
         hidden_participants_count:
@@ -719,7 +719,7 @@ en:
           commentable_type: The type of the commentable (if it was a result, a proposal, etc.)
           comments: The comments data of the meeting
           created_at: The date when this comment was created
-          depth: The place where this comment is in the three of comments (if it is an answer or an answer of an answer)
+          depth: The place where this comment is in the three of comments (if it is a response or a response of a response)
           id: The id for this comment
           locale: The locale (language) that the participant had when leaving this comment
           root_commentable_url: The URL of the resource that ties to this comment

@@ -16,8 +16,8 @@ describe "Admin manages surveys" do
   include_context "when managing a component as an admin"
 
   it_behaves_like "manage questionnaires"
-  it_behaves_like "manage questionnaire answers"
-  it_behaves_like "export survey user answers"
+  it_behaves_like "manage questionnaire responses"
+  it_behaves_like "export survey user responses"
   it_behaves_like "manage announcements"
 
   context "with a new survey" do
@@ -45,13 +45,13 @@ describe "Admin manages surveys" do
       expect(page).to have_content("No surveys match your search criteria or there is not any survey open.")
     end
 
-    it "allows to answer survey" do
+    it "allows to response survey" do
       visit questionnaire_public_path
       expect(page).to have_no_field(id: "questionnaire_responses_0")
     end
 
-    context "when the survey has answers" do
-      let!(:answer) { create(:answer, question:, questionnaire:) }
+    context "when the survey has responses" do
+      let!(:response) { create(:response, question:, questionnaire:) }
 
       it "shows warning message" do
         click_on "Questions"
@@ -65,7 +65,7 @@ describe "Admin manages surveys" do
         expect(page).to have_no_selector("#questions_questions_#{question.id}_body_en[disabled]")
       end
 
-      it "deletes answers after published" do
+      it "deletes responses after published" do
         click_on "Questions"
         click_on "Expand all"
 
@@ -81,7 +81,7 @@ describe "Admin manages surveys" do
 
         accept_confirm { click_on("Publish") }
         expect(page).to have_admin_callout "Survey successfully published"
-        expect(questionnaire.answers).to be_empty
+        expect(questionnaire.responses).to be_empty
       end
 
       context "when publishing the survey" do
@@ -98,7 +98,7 @@ describe "Admin manages surveys" do
         end
 
         context "when clean_after_publish is set to true" do
-          context "when deletes previous answers after publishing" do
+          context "when deletes previous responses after publishing" do
             it "show popup with an alert" do
               click_on translated_attribute(component.name)
               click_on "Unpublish"
@@ -106,7 +106,7 @@ describe "Admin manages surveys" do
               expect(page).to have_content("Confirm")
             end
 
-            it "deletes previous answers" do
+            it "deletes previous responses" do
               click_on translated_attribute(component.name)
               click_on "Edit"
               expect(survey.clean_after_publish).to be true
@@ -115,7 +115,7 @@ describe "Admin manages surveys" do
                 Decidim::Admin::PublishComponent.call(component, user)
               end
 
-              expect(questionnaire.answers).to be_empty
+              expect(questionnaire.responses).to be_empty
             end
           end
         end
@@ -123,57 +123,57 @@ describe "Admin manages surveys" do
         context "when clean_after_publish is set to false" do
           let!(:survey) { create(:survey, :published, clean_after_publish: false, component:, questionnaire:) }
 
-          it "does not delete previous answers after publishing" do
+          it "does not delete previous responses after publishing" do
             expect(survey.clean_after_publish?).to be false
 
             perform_enqueued_jobs do
               Decidim::Admin::PublishComponent.call(component, user)
             end
 
-            expect(questionnaire.answers).not_to be_empty
+            expect(questionnaire.responses).not_to be_empty
           end
         end
       end
 
-      context "when publishing the questions' answers" do
+      context "when publishing the questions' responses" do
         context "and the survey is open" do
-          let!(:survey) { create(:survey, :published, :allow_answers, component:, questionnaire:) }
+          let!(:survey) { create(:survey, :published, :allow_responses, component:, questionnaire:) }
 
-          it "does not show the 'Publish answers' button" do
+          it "does not show the 'Publish responses' button" do
             visit manage_questions_path
             click_on "Responses"
 
-            expect(page).to have_no_content "Publish answers"
+            expect(page).to have_no_content "Publish responses"
           end
         end
 
         context "and the survey is closed" do
           let!(:survey) { create(:survey, :published, component:, questionnaire:) }
 
-          it "shows the 'Publish answers' button" do
+          it "shows the 'Publish responses' button" do
             visit manage_questions_path
             click_on "Responses"
-            expect(page).to have_content "Publish answers"
+            expect(page).to have_content "Publish responses"
           end
         end
 
         context "and the questions are unsupported" do
           let!(:question) { create(:questionnaire_question, questionnaire:) }
-          let!(:question1) { create(:questionnaire_question, question_type: "short_answer", questionnaire:) }
-          let!(:question2) { create(:questionnaire_question, question_type: "long_answer", questionnaire:) }
+          let!(:question1) { create(:questionnaire_question, question_type: "short_response", questionnaire:) }
+          let!(:question2) { create(:questionnaire_question, question_type: "long_response", questionnaire:) }
           let!(:question3) { create(:questionnaire_question, question_type: "files", questionnaire:) }
           let!(:question4) { create(:questionnaire_question, question_type: "separator", questionnaire:) }
 
-          let!(:answer) { create(:answer, question:, questionnaire:) }
-          let!(:answer1) { create(:answer, question: question1, questionnaire:) }
-          let!(:answer2) { create(:answer, question: question2, questionnaire:) }
-          let!(:answer3) { create(:answer, question: question3, questionnaire:) }
-          let!(:answer4) { create(:answer, question: question4, questionnaire:) }
+          let!(:response) { create(:response, question:, questionnaire:) }
+          let!(:response1) { create(:response, question: question1, questionnaire:) }
+          let!(:response2) { create(:response, question: question2, questionnaire:) }
+          let!(:response3) { create(:response, question: question3, questionnaire:) }
+          let!(:response4) { create(:response, question: question4, questionnaire:) }
 
           before do
             visit manage_questions_path
             click_on "Responses"
-            click_on "Publish answers"
+            click_on "Publish responses"
           end
 
           it "has not the buttons for publishing them" do
@@ -190,55 +190,55 @@ describe "Admin manages surveys" do
         end
 
         context "and the questions are supported" do
-          let(:question_single_option) { create(:questionnaire_question, :with_answer_options, position: 0, question_type: "single_option", questionnaire:) }
+          let(:question_single_option) { create(:questionnaire_question, :with_response_options, position: 0, question_type: "single_option", questionnaire:) }
 
-          let(:question_multiple_option) { create(:questionnaire_question, :with_answer_options, position: 1, question_type: "multiple_option", questionnaire:) }
+          let(:question_multiple_option) { create(:questionnaire_question, :with_response_options, position: 1, question_type: "multiple_option", questionnaire:) }
 
-          let(:question_matrix_single) { create(:questionnaire_question, :with_answer_options, position: 2, question_type: "matrix_single", questionnaire:) }
+          let(:question_matrix_single) { create(:questionnaire_question, :with_response_options, position: 2, question_type: "matrix_single", questionnaire:) }
           let!(:question_matrix_row_single1) { create(:question_matrix_row, question: question_matrix_single) }
           let!(:question_matrix_row_single2) { create(:question_matrix_row, question: question_matrix_single) }
           let!(:question_matrix_row_single3) { create(:question_matrix_row, question: question_matrix_single) }
 
-          let(:question_matrix_multiple) { create(:questionnaire_question, :with_answer_options, position: 3, question_type: "matrix_multiple", questionnaire:) }
+          let(:question_matrix_multiple) { create(:questionnaire_question, :with_response_options, position: 3, question_type: "matrix_multiple", questionnaire:) }
           let!(:question_matrix_row_multiple1) { create(:question_matrix_row, question: question_matrix_multiple) }
           let!(:question_matrix_row_multiple2) { create(:question_matrix_row, question: question_matrix_multiple) }
           let!(:question_matrix_row_multiple3) { create(:question_matrix_row, question: question_matrix_multiple) }
 
-          let(:question_sorting) { create(:questionnaire_question, :with_answer_options, position: 4, question_type: "sorting", questionnaire:) }
+          let(:question_sorting) { create(:questionnaire_question, :with_response_options, position: 4, question_type: "sorting", questionnaire:) }
 
           before do
             10.times do
-              answer = create(:answer, question: question_single_option, questionnaire:)
-              answer_option = question_single_option.answer_options.sample
-              create(:answer_choice, answer_option:, answer:, matrix_row: nil)
+              response = create(:response, question: question_single_option, questionnaire:)
+              response_option = question_single_option.response_options.sample
+              create(:response_choice, response_option:, response:, matrix_row: nil)
 
-              answer = create(:answer, question: question_multiple_option, questionnaire:)
-              answer_option = question_multiple_option.answer_options.sample
-              create(:answer_choice, answer_option:, answer:, matrix_row: nil)
+              response = create(:response, question: question_multiple_option, questionnaire:)
+              response_option = question_multiple_option.response_options.sample
+              create(:response_choice, response_option:, response:, matrix_row: nil)
 
-              answer = create(:answer, question: question_matrix_single, questionnaire:)
-              answer_option = question_matrix_single.answer_options.sample
+              response = create(:response, question: question_matrix_single, questionnaire:)
+              response_option = question_matrix_single.response_options.sample
               matrix_row = question_matrix_single.matrix_rows.sample
-              create(:answer_choice, answer_option:, answer:, matrix_row:)
+              create(:response_choice, response_option:, response:, matrix_row:)
 
-              answer = create(:answer, question: question_matrix_multiple, questionnaire:)
-              answer_option = question_matrix_multiple.answer_options.sample
+              response = create(:response, question: question_matrix_multiple, questionnaire:)
+              response_option = question_matrix_multiple.response_options.sample
               matrix_row = question_matrix_multiple.matrix_rows.sample
-              create(:answer_choice, answer_option:, answer:, matrix_row:)
+              create(:response_choice, response_option:, response:, matrix_row:)
 
-              answer = create(:answer, question: question_sorting, questionnaire:)
-              answer_option = question_sorting.answer_options.sample
-              position = (0..(question_sorting.answer_options.count - 1)).to_a.sample
-              create(:answer_choice, answer_option:, answer:, position:, matrix_row: nil)
+              response = create(:response, question: question_sorting, questionnaire:)
+              response_option = question_sorting.response_options.sample
+              position = (0..(question_sorting.response_options.count - 1)).to_a.sample
+              create(:response_choice, response_option:, response:, position:, matrix_row: nil)
             end
 
             visit manage_questions_path
             click_on "Responses"
-            click_on "Publish answers"
+            click_on "Publish responses"
           end
 
           # We do not do this in separate examples as the performance would be bad
-          it "allows publishing and unpublishing the questions answers" do
+          it "allows publishing and unpublishing the questions responses" do
             # shows the charts for each of the questions
             expect(page.html).to include('new Chartkick["ColumnChart"]("chart-1"')
             expect(page.html).to include('new Chartkick["ColumnChart"]("chart-2"')
@@ -252,7 +252,7 @@ describe "Admin manages surveys" do
             end
 
             # publishes them
-            page.find("[for='publish_answer_#{question_single_option.id}']").click
+            page.find("[for='publish_response_#{question_single_option.id}']").click
 
             within ".item__edit-form" do
               expect(page).to have_content "Published"
@@ -266,7 +266,7 @@ describe "Admin manages surveys" do
             end
 
             # unpublishes them
-            page.find("[for='publish_answer_#{question_single_option.id}']").click
+            page.find("[for='publish_response_#{question_single_option.id}']").click
 
             within ".item__edit-form" do
               expect(page).to have_content "Not published"
@@ -308,7 +308,7 @@ describe "Admin manages surveys" do
   end
 
   def update_component_settings_or_attributes
-    survey.update!(allow_answers: true)
+    survey.update!(allow_responses: true)
   end
 
   def see_questionnaire_questions

@@ -1,11 +1,11 @@
-<% answer_options_with_percentages.each do |(answer_option_body, answer_percentage)| %>
-  <div class="meeting-polls__answer">
-    <div class="meeting-polls__answer--bar">
-      <div style="width: <%= answer_percentage %>"></div>
+<% response_options_with_percentages.each do |(response_option_body, response_percentage)| %>
+  <div class="meeting-polls__response">
+    <div class="meeting-polls__response--bar">
+      <div style="width: <%= response_percentage %>"></div>
     </div>
-    <div class="meeting-polls__answer--value">
-      <span><%= translated_attribute(answer_option_body) %></span>
-      <span><%= answer_percentage %></span>
+    <div class="meeting-polls__response--value">
+      <span><%= translated_attribute(response_option_body) %></span>
+      <span><%= response_percentage %></span>
     </div>
   </div>
 <% end %>

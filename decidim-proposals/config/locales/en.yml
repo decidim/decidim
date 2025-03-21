@@ -965,7 +965,7 @@ en:
           text_banner: You are viewing the list of proposals withdrawn by their authors. %{go_back_link}.
         new:
           send: Continue
-          title: Create your proposal
+          title: Create new proposal
         orders:
           label: 'Order proposals by:'
           most_commented: Most commented
