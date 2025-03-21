@@ -59,8 +59,6 @@ eu:
         title: Ekintzak
       admin:
         answers:
-          index:
-            title: "Guztira %{guztira} erantzun"
           show:
             title: '#%{number} erantzun'
         exports:
@@ -74,9 +72,6 @@ eu:
               Galderen erantzunak argitaratzean, jendaurrean ikusgai jarriko dituzu.
               Argitaratu nahi dituzun erantzunak hauta ditzakezu galdera bakoitzaren ondoan dagoen laukitxoan klik eginez.
               Galdera mota hauek baino ezin dira argitaratu: "Aukera bakarra", "Aukera anitza", "Matrizea (aukera bakarra)", "Matrizea (aukera anitza)" eta "Sailkapena".
-            status:
-              not_published: Argitaratu gabe
-              published: Argitaratua
             title: Argitaratu erantzunak
         surveys:
           create:
