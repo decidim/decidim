@@ -193,7 +193,6 @@
             create: Opprett
             title: Ny agenda
         exports:
-          answers: Svar
           meeting_comments: Kommentarer
           meetings: Møter
           registrations: Registreringer
@@ -416,12 +415,8 @@
             title: Tittel
       polls:
         questions:
-          index:
-            empty_questions: Gjennom dette møtet stilles noen spørsmål, og du vil kunne svare på dem. De vil bli vist her.
           index_admin:
             question: Spørsmål
-            received_answer: mottatt svar
-            received_answers: mottatt svar
             results: Resultater
             send: Send
             sent: Sendt
