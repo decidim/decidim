@@ -1747,6 +1747,7 @@ en:
         nickname_help: Your nickname in %{organization}. Can only contain letters, numbers, '-' and '_'.
         submit_button: Save
         subtitle: If you accept the invitation please set your nickname and password.
+        subtitle_no_password: If you accept the invitation please set your nickname.
       invitation_removed: Your invitation was removed.
       invitation_token_invalid: The invitation token provided is not valid!
       new:
@@ -1754,8 +1755,8 @@ en:
         submit_button: Send an invitation
       no_invitations_remaining: No invitations remaining
       send_instructions: An invitation email has been sent to %{email}.
-      updated: Your password was set successfully. You are now signed in.
-      updated_not_active: Your password was set successfully.
+      updated: Invitation accepted successfully. You are now signed in.
+      updated_not_active: Invitation accepted successfully.
     mailer:
       confirmation_instructions:
         action: Confirm my account

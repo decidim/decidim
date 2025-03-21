@@ -4,7 +4,7 @@
     <h1 class="title-decorator inline-block text-left mb-12"><%= t "devise.invitations.edit.header" %></h1>
 
     <p class="text-lg text-gray-2">
-      <%= t("devise.invitations.edit.subtitle").html_safe %>
+      <%= current_organization.users_registration_mode != "disabled" ? t("devise.invitations.edit.subtitle").html_safe : t("devise.invitations.edit.subtitle_no_password").html_safe  %>
     </p>
   </div>
 
