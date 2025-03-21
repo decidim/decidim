@@ -2,8 +2,6 @@
 es:
   activemodel:
     attributes:
-      answer:
-        add_documents: Añadir documentos
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Lista de organizaciones que han participado
@@ -642,12 +640,7 @@ es:
             title: Título
       polls:
         answers:
-          index:
-            administrate: Administrar
-            title: Consulta
           index_admin:
-            back_to_meeting: Volver al encuentro
-            title: Administrar consulta
             view_poll: Ver consulta
         questions:
           closed_question:
