@@ -437,6 +437,7 @@ fr:
         new_meeting: 'Nouvelle rencontre :'
       layouts:
         live_event:
+          administrate: Administrer
           close: fermer
           questions: Questions
       mailer:
