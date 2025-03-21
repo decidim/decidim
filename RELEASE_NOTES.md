@@ -105,13 +105,13 @@ Participants can prevent their account from being deleted by logging in before t
 To enable automatic deletion, add the following scheduled task to your cron jobs:
 
 ```bash
-0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_inactive_participants
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:participants:delete_inactive_participants
 ```
 
 By default, the inactivity period is set to 365 days, but it can be customized by passing a parameter to the task. For example:
 
 ```bash
-0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_inactive_participants[500]
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:participants:delete_inactive_participants[500]
 ```
 
 If you want to enable this, make sure your `sidekiq.yml` includes the `delete_inactive_participants` queue. If it is missing, patch your `config/sidekiq.yml`:
