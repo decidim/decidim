@@ -1,8 +1,6 @@
 eu:
   activemodel:
     attributes:
-      answer:
-        add_documents: Gehitu dokumentuak
       close_meeting:
         attendees_count: Bertaratuen kopurua
         attending_organizations: 'Parte hartu duten erakundeen zerrenda:'
@@ -308,7 +306,6 @@ eu:
             invalid: Arazo bat egon da agenda hau eguneratzean.
             success: Agenda ondo eguneratua.
         exports:
-          answers: Erantzunak
           meeting_comments: Iruzkinak
           meetings: Topaketak
           registrations: Izen-emateak
@@ -405,7 +402,7 @@ eu:
         poll:
           form:
             announcement_html:
-              - Galdera batek erantzunak jasotzen dituenean edo argitaratuta/itxita dagoenean, jada ezin da editatu.
+              - 
               - Edozein unetan gehitu ahal duzu galdera bat.
               - Inkesta itxi egingo da sortutako galdera guztien emaitzak argitaratzen direnean.
               - Bisitatu <a href='% {admin_link}'>inkestak administratzeko orria </a>, galderak bidali eta emaitzak argitaratzeko.
@@ -635,26 +632,14 @@ eu:
             taxonomies: Taxonomiak
             title: Titulua
       polls:
-        answers:
-          index:
-            administrate: Administratu
-            title: Inkesta
-          index_admin:
-            back_to_meeting: Itzuli topaketara
-            title: Administratu inkesta
-            view_poll: Ikusi inkesta
         questions:
           closed_question:
             announcement: Galdera honetarako erantzunak itxi egin dira.
             question: Galdera
             question_results: Emaitzak
-          index:
-            empty_questions: Topaketa honetan zehar, galdera batzuk bidaliko dira eta erantzun ahal izango dituzu. Hemen erakutsiko dira.
           index_admin:
             edit: Editatu administrazio-panelean
             question: Galdera
-            received_answer: jasotako erantzuna
-            received_answers: jasotako erantzunak
             results: Emaitzak
             send: Bidali
             sent: Bidalita
@@ -718,7 +703,6 @@ eu:
           commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
           comments: Topaketaren iruzkinen datua
           created_at: Zein datatan sortu zen iruzkin hau
-          depth: Iruzkin hau hiru iruzkinetan dago (erantzuna bada edo erantzun batren erantzuna)
           id: Identifikazioa iruzkin honetarako
           locale: Parte-hartzaileak iruzkin hau uztean du lokala (hizkuntza)
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
