@@ -4,8 +4,6 @@ fr-CA:
     attributes:
       answer:
         body: Répondre
-        choices: Choix
-        selected_choices: Choix sélectionnés
       question:
         max_choices: Nombre maximum de choix
         question_type: Type
@@ -16,12 +14,7 @@ fr-CA:
       models:
         answer:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Doit être téléchargé de nouveau
-            body:
-              too_long: est trop long
             choices:
-              missing: ne sont pas complets
               too_many: sont trop nombreux
         questionnaire:
           request_invalid: Une erreur s'est produite. Veuillez réessayer.
@@ -38,24 +31,14 @@ fr-CA:
             show: Afficher les réponses
           answer_option:
             answer_option: Option de réponse
-            free_text: Texte libre
             remove: Retirer
             statement: Déclaration
           answers:
             actions:
-              back: Retour aux réponses
-              export: Exporter
-              next: Suivant &rsaquo;
-              previous: "&lsaquo; Précédent"
               show: Afficher les réponses
             empty: Pas encore de réponses
-            export:
-              answer:
-                title: 'Réponse n°%{number}'
             export_response:
               title: réponses_utilisateur_sondage_%{token}
-            index:
-              title: "%{total} réponses totales"
             show:
               title: 'Réponse n°%{number}'
           display_condition:
@@ -127,9 +110,6 @@ fr-CA:
       admin_log:
         questionnaire:
           update: "%{user_name} a modifié le questionnaire %{resource_name}"
-      errors:
-        answer:
-          body: ne peut être vide
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -145,21 +125,15 @@ fr-CA:
         single_option: Option unique
         sorting: Tri
         title_and_description: Titre et description
-      questionnaire_answer_presenter:
-        download_attachment: Télécharger la pièce jointe
       questionnaires:
         answer:
           invalid: Il y a eu des erreurs en répondant au questionnaire.
-          max_choices_alert: Il y a trop de choix sélectionnés
           success: Questionnaire répondu avec succès.
         question:
           max_choices: 'Choix maximum: %{n}'
         show:
           answer_questionnaire:
-            already_have_an_account?: Vous avez déjà un compte ?
-            are_you_new?: Nouvel utilisateur ?
             sign_in_description: Connectez-vous pour répondre à l'enquête
-            sign_up_description: Créez votre compte utilisateur pour répondre à l'enquête
             title: Répondez au questionnaire
           current_step: Étape %{step}
           empty: Aucune question configurée pour ce formulaire pour le moment.
@@ -187,12 +161,6 @@ fr-CA:
           submit: Soumettre
       user_answers_serializer:
         body: Répondre
-        completion: Achèvement
         created_at: Répondu le
         id: ID de réponse
-        ip_hash: Hachage IP
         question: Question
-        registered: Enregistré
-        session_token: Identifiant de l'utilisateur
-        unregistered: Non enregistré
-        user_status: Statut de l'utilisateur
