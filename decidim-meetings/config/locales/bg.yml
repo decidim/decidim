@@ -436,7 +436,6 @@ bg:
         new_meeting: 'Нова среща:'
       layouts:
         live_event:
-          administrate: Администриране
           close: затваряне
           questions: Въпроси
       mailer:
