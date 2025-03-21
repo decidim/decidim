@@ -4,8 +4,6 @@ es-PY:
     attributes:
       answer:
         body: Responder
-        choices: Opciones
-        selected_choices: Opciones seleccionadas
       question:
         max_choices: Número máximo de opciones
         question_type: Tipo
@@ -14,15 +12,6 @@ es-PY:
         max_characters: Límite de caracteres (dejar a 0 si no hay límite)
     errors:
       models:
-        answer:
-          attributes:
-            add_documents:
-              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
-            body:
-              too_long: es demasiado largo
-            choices:
-              missing: no están completos
-              too_many: Puedes elegir un máximo de %{count} opciones.
         questionnaire:
           request_invalid: Se ha producido un problema al procesar la solicitud. Por favor, vuelve a intentarlo.
   decidim:
@@ -60,24 +49,14 @@ es-PY:
             show: Mostrar las respuestas
           answer_option:
             answer_option: Opción de respuesta
-            free_text: Texto libre
-            remove: Retirar
+            remove: Borrar
             statement: Declaración
           answers:
             actions:
-              back: Volver a las respuestas
-              export: Exportar
-              next: Siguiente &rsaquo;
-              previous: "&lsaquo; Anterior"
               show: Mostrar las respuestas
             empty: Aún no hay respuestas
-            export:
-              answer:
-                title: 'Respuesta #%{number}'
             export_response:
               title: survey_user_answers_%{token}
-            index:
-              title: "%{total} total de respuestas"
             show:
               title: 'Respuesta #%{number}'
           display_condition:
@@ -161,9 +140,6 @@ es-PY:
           unpublish_answers: "%{user_name} despublicó respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
         questionnaire:
           update: "%{user_name} actualizó el cuestionario %{resource_name}"
-      errors:
-        answer:
-          body: El campo no puede estar en blanco
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -179,21 +155,14 @@ es-PY:
         single_option: Opción única
         sorting: Ordenación
         title_and_description: Titulo y descripción
-      questionnaire_answer_presenter:
-        download_attachment: Descargar el archivo adjunto
       questionnaires:
         answer:
           invalid: Ha habido errores al responder al cuestionario.
-          max_choices_alert: Hay demasiadas opciones seleccionadas
           success: Has respondido al cuestionario con éxito.
         question:
           max_choices: 'Opciones máximas: %{n}'
         show:
           answer_questionnaire:
-            already_have_an_account?: '¿Ya tienes una cuenta?'
-            are_you_new?: '¿Eres una nueva usuaria?'
-            sign_in_description: Inicia sesión para realizar la encuesta
-            sign_up_description: Crea una cuenta de participante para realizar la encuesta
             title: Responde al cuestionario
           current_step: Paso %{step}
           empty: Aún no hay preguntas configuradas para este formulario.
@@ -226,12 +195,6 @@ es-PY:
           submit: Enviar
       user_answers_serializer:
         body: Respuesta
-        completion: Finalización
         created_at: Respondido en
         id: ID de respuesta
-        ip_hash: Hash de Dirección IP
         question: Pregunta
-        registered: Registrado
-        session_token: Identificador de usuaria
-        unregistered: No registrado
-        user_status: Estado del usuario
